@@ -53,7 +53,7 @@ Check the *Create Services linked to the Template too* box and click on the
 
 The following service will be created:
 
-  - Billing-Estimated-Charges
+- Billing-Estimated-Charges
 
 The following service macros should be set as shown:
 
@@ -63,6 +63,6 @@ The following service macros should be set as shown:
 
 Add as many services as needed or use the autodiscovery rule :
 
-  - Cloud-Aws-Billing-Api-Estimated-Charges
+- Cloud-Aws-Billing-Api-Estimated-Charges
 
 This rule will add a service named *Billing-$servicename$* per AWS service.

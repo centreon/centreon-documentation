@@ -2,14 +2,17 @@
 id: infrastructure-active-directory-nsclient-05-restapi
 title: Active Directory NSClient++ API
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-> Hello community! We're looking for a contributor to help us to translate the 
-content in french and provide a sample execution command. If it's you, let us 
+
+> Hello community! We're looking for a contributor to help us to translate the
+content in french and provide a sample execution command. If it's you, let us
 know and ping us on [slack](https://centreon.slack.com)
 
 ## Overview
 
-This Plugin Pack monitors AD Domain Controller using local commands and the 
+This Plugin Pack monitors AD Domain Controller using local commands and the
 Centreon NSClient++ API to trigger their executions remotely.
 
 ## Pack assets
@@ -17,9 +20,9 @@ Centreon NSClient++ API to trigger their executions remotely.
 ### Monitored objects
 
 * Active Directory domain controller, including:
-    * Netdom connectivity
-    * dfsr backlog
-    * dcdiag
+* Netdom connectivity
+* dfsr backlog
+* dcdiag
 
 ### Collected metrics
 
@@ -29,15 +32,14 @@ Centreon NSClient++ API to trigger their executions remotely.
 
 ### Centreon NSClient++
 
-To monitor an *Active Directory* domain controller through NSClient++ API, install the Centreon packaged version 
-of the NSClient++ agent. Please follow our [official documentation](../tutorials/centreon-nsclient-tutorial) 
+To monitor an *Active Directory* domain controller through NSClient++ API, install the Centreon packaged version
+of the NSClient++ agent. Please follow our [official documentation](../tutorials/centreon-nsclient-tutorial)
 and make sure that the **Webserver / RESTApi** configuration is correct.
 
-## Installation 
+## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="operating-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor *AD Domain controller* using REST API:
 
@@ -47,7 +49,8 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 
 2. On the Centreon Web interface, install the *Active Directory API* Centreon Pack on the **Configuration > Plugin Packs > Manager** page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor *AD Domain controller* using REST API:
 
@@ -63,7 +66,8 @@ yum install centreon-pack-infrastructure-active-directory-nsclient-05-restapi
 
 3. On the Centreon Web interface, install the *Active Directory API* Pack on the **Configuration > Plugin Packs > Manager** page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host configuration
 

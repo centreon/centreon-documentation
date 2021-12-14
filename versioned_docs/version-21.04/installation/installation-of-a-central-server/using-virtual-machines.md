@@ -2,6 +2,9 @@
 id: using-virtual-machines
 title: Using a virtual machine (VM)
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 On its [download page](https://download.centreon.com), Centreon provides a ready-to-use virtual machine. This virtual machine is available in OVA format for VMware environments and for Oracle VirtualBox. It is based on the **Linux CentOS 7** operating system and includes a Centreon installation that allows you to easily start your first monitoring.
 
@@ -25,31 +28,31 @@ The host machine must have the following characteristics:
 
 4. In section 3, **Download your image**, click the **Download** button next to **VMWare Virtual Machine (OVA)**. A new page opens.
 
-    - If you want Centreon to contact you, fill in your details, then click **Download**.
+- If you want Centreon to contact you, fill in your details, then click **Download**.
 
-    - Otherwise, click **Direct download**.
+- Otherwise, click **Direct download**.
 
 5. The file you have downloaded is an archive file: extract its contents to the folder you want.
 
 ## Step 2 : Installing the virtual machine
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--VMware environment-->
+<Tabs groupId="operating-systems">
+<TabItem value="VMware environment" label="VMware environment">
 
 1. Import the **centreon-central.ova** file into VMWare. A terminal window opens: wait for the server to start. When it is ready, the terminal shows the following message:
 
-    ![image](../../assets/installation/VMW1.png)
+![image](../../assets/installation/VMW1.png)
 
 2. According to how your network is set up, in the configuration of your virtual machine, add a network adapter and select the network through which the virtual machine can communicate with the resources it will supervise. Here is an example of configuration in VSphere 6:
 
-    ![image](../../assets/installation/VMW_network_adapter.png)
+![image](../../assets/installation/VMW_network_adapter.png)
 
-<!--Oracle VirtualBox-->
+</TabItem>
+<TabItem value="Oracle VirtualBox" label="Oracle VirtualBox">
 
 1. Import the **centreon-central.ova** file into VirtualBox. The VM is added to your list of VMs in VirtualBox.
 
-    ![image](../../assets/installation/VB2.png)
+![image](../../assets/installation/VB2.png)
 
 2. In the right-hand panel, click **Settings**. The **Settings** dialog box opens.
 
@@ -57,19 +60,20 @@ The host machine must have the following characteristics:
 
 4. According to how your network is set up, add a network adapter and select the network through which the virtual machine can communicate with the resources it will supervise. For instance:
 
-    1. On the **Network** tab, select **Enable Network Adapter**.
+1. On the **Network** tab, select **Enable Network Adapter**.
 
-    2. In the **Attached to** list, select **Bridged Adapter**.
+2. In the **Attached to** list, select **Bridged Adapter**.
 
-    3. In the **Name** list, select the network card you want.
+3. In the **Name** list, select the network card you want.
 
 5. Click **OK**.
 
 6. In the right-hand panel, click **Start** to start the VM. A terminal window opens: wait for the server to start. When it is ready, the terminal shows the following message:
 
-    ![image](../../assets/installation/terminal_ready.png)
+![image](../../assets/installation/terminal_ready.png)
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Step 3 : Completing the configuration
 
@@ -77,101 +81,101 @@ The host machine must have the following characteristics:
 
 2. To know your server's IP address, type `ip addr`. (By default, the VM has a qwerty keyboard: if you have an azerty keyboard, enter `ip qddr`.) The VM is configured to obtain an IP address from the DHCP server automatically.
 
-    ![image](../../assets/installation/ip_addr.png)
+![image](../../assets/installation/ip_addr.png)
 
 3. Log in to the server from another machine, as user `root`, using the terminal you want and the IP address you obtained at the previous step.
 
 4. The first time you connect to the server, instructions are displayed to help you complete the configuration:
 
-    ![image](../../assets/installation/terminal_centreon.png)
+![image](../../assets/installation/terminal_centreon.png)
 
-    Change the following settings:
+Change the following settings:
 
-    - The timezone for the Centreon server. By default, it is set to UTC. This will set the time for the various Centreon logs.
-        
-        Use the following command: 
-        
-        ```shell
-        timedatectl set-timezone your_timezone
-        ```
-        
-        For example, to set the timezone to Europe/London, type:
-        
-        ```shell
-        timedatectl set-timezone Europe/London
-        ```
+- The timezone for the Centreon server. By default, it is set to UTC. This will set the time for the various Centreon logs.
 
-        You can get a list of all available timezones using this command: 
-        
-        ```shell
-        timedatectl list-timezones
-        ```
+Use the following command:
 
-    - The timezone for the php server. To avoid errors, this should be the same as the timezone of the server. By default, it is set to Europe/London.
+```shell
+timedatectl set-timezone your_timezone
+```
 
-        1. Open the following file:
-        
-            ```shell
-            /etc/opt/rh/rh-php73/php.d/50-centreon.ini
-            ```
-        
-        2. In `date.timezone`, define the timezone you want.
-        
-        3. Restart the php server: 
-        
-            ```shell
-            systemctl restart rh-php73-php-fpm
-            ```
+For example, to set the timezone to Europe/London, type:
 
-    - The hostname of your server. The default name is `centreon-central`. To change it, use the following command: 
-    
-        ```shell
-        hostnamectl set-hostname your-hostname
-        ```
-    
-        For example, if you want your machine to be called `supervision`, type:
-        
-        ```shell
-        hostnamectl set-hostname supervision
-        ```
+```shell
+timedatectl set-timezone Europe/London
+```
+
+You can get a list of all available timezones using this command:
+
+```shell
+timedatectl list-timezones
+```
+
+- The timezone for the php server. To avoid errors, this should be the same as the timezone of the server. By default, it is set to Europe/London.
+
+1. Open the following file:
+
+```shell
+/etc/opt/rh/rh-php73/php.d/50-centreon.ini
+```
+
+2. In `date.timezone`, define the timezone you want.
+
+3. Restart the php server:
+
+```shell
+systemctl restart rh-php73-php-fpm
+```
+
+- The hostname of your server. The default name is `centreon-central`. To change it, use the following command:
+
+```shell
+hostnamectl set-hostname your-hostname
+```
+
+For example, if you want your machine to be called `supervision`, type:
+
+```shell
+hostnamectl set-hostname supervision
+```
 
 5. Add a MariaDB table partition: this step is mandatory. Your Centreon server will not work if this isn't done.
 
-    1. Connect as user `centreon`: 
-    
-        ```shell
-        su - centreon
-        ```
+1. Connect as user `centreon`:
 
-    2. Type the following command: 
+```shell
+su - centreon
+```
 
-        ```shell
-        /opt/rh/rh-php73/root/bin/php /usr/share/centreon/cron/centreon-partitioning.php
-        ```
+2. Type the following command:
 
-        The partition is created:
+```shell
+/opt/rh/rh-php73/root/bin/php /usr/share/centreon/cron/centreon-partitioning.php
+```
 
-        ![image](../../assets/installation/partition_created.png)
+The partition is created:
 
-    3. Connect back as user `root`:
-    
-        ```shell
-        exit
-        ```
-    
-    4. Restart the Centreon broker process so that changes are taken into account: 
-    
-        ```shell
-        systemctl restart cbd centengine gorgoned
-        ```
+![image](../../assets/installation/partition_created.png)
 
-        Your Centreon server is now ready to use. 
+3. Connect back as user `root`:
 
-        >Once those operations have been carried out, you can get rid of the message that describes them in the terminal. To do so, delete the following file:
-        >
-        >`/etc/profile.d/centreon.sh`
-    
-6. To log in to the web interface, go to `http://ip_address/centreon` or `http://FQDN/centreon`. (For example, a valid URL would be `http://192.168.1.44/centreon`.) 
+```shell
+exit
+```
+
+4. Restart the Centreon broker process so that changes are taken into account:
+
+```shell
+systemctl restart cbd centengine gorgoned
+```
+
+Your Centreon server is now ready to use.
+
+>Once those operations have been carried out, you can get rid of the message that describes them in the terminal. To do so, delete the following file:
+>
+>`/etc/profile.d/centreon.sh`
+
+6. To log in to the web interface, go to `http://ip_address/centreon` or `http://FQDN/centreon`. (For example, a valid URL would be `http://192.168.1.44/centreon`.)
 
 7. Log in using the following credentials: Login: `admin`, password: `centreon`. By default, your server has a predefined configuration to monitor the Centreon server itself.
 

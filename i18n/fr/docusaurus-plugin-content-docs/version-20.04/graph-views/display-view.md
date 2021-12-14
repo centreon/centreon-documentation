@@ -36,13 +36,13 @@ The following rules apply:
 
 - If a host is down, services attached are never displayed in a tooltip.
 - For a host: Services displayed correspond to the inherited status of the
-  host. For example, if a host is "red", then only Critical services will be
-  displayed.
+host. For example, if a host is "red", then only Critical services will be
+displayed.
 - For a service group: Services displayed correspond to the inherited status
-  of the service group.
+of the service group.
 - For a host group: Hosts with the same status as the host group are displayed
-  in a tooltip; and services (if their host is up) with the same inherited
-  status as their host groups are displayed.
+in a tooltip; and services (if their host is up) with the same inherited
+status as their host groups are displayed.
 
 > In the customs views widget, by default, tooltips are not displayed. It is
 > possible to activate them in the widget settings by a checkbox.
@@ -56,7 +56,7 @@ at once. To do so:
 
 1. Go to `Administration > Extension > Map | Options`
 2. In the "Link color definition" section, select the coloration method and
-   parameter you want to apply
+parameter you want to apply
 
 Example: linear coloration from gray to blue
 

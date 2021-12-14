@@ -2,6 +2,9 @@
 id: using-packages
 title: A partir des paquets
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 Centreon fournit des RPM pour ses produits au travers de la solution
 Centreon Open Sources disponible gratuitement sur notre dépôt.
@@ -62,8 +65,9 @@ hostnamectl set-hostname poller1
 
 ### Installer les dépôts
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL 8-->
+<Tabs groupId="operating-systems">
+<TabItem value="RHEL 8" label="RHEL 8">
+
 #### Redhat CodeReady Builder repository
 
 To install Centreon you will need to enable the official CodeReady Builder
@@ -75,7 +79,10 @@ Enable the CodeReady Builder repository using these commands:
 dnf -y install dnf-plugins-core https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 ```
-<!--CentOS 8-->
+
+</TabItem>
+<TabItem value="CentOS 8" label="CentOS 8">
+
 #### Dépôt PowerTools de Red Hat
 
 Afin d'installer les logiciels Centreon, le dépôt PowerTools de Red Hat doit être
@@ -84,18 +91,20 @@ activé.
 Exécutez les commandes suivantes :
 
 - Pour CentOS 8.2 :
-    ```shell
-    dnf -y install dnf-plugins-core epel-release
-    dnf config-manager --set-enabled PowerTools
-    ```
+```shell
+dnf -y install dnf-plugins-core epel-release
+dnf config-manager --set-enabled PowerTools
+```
 - Pour CentOS 8.3 et Centos Stream :
 
-    ```shell
-    dnf -y install dnf-plugins-core epel-release
-    dnf config-manager --set-enabled powertools
-    ```
+```shell
+dnf -y install dnf-plugins-core epel-release
+dnf config-manager --set-enabled powertools
+```
 
-<!--Oracle Linux 8-->
+</TabItem>
+<TabItem value="Oracle Linux 8" label="Oracle Linux 8">
+
 #### Dépôt CodeReady Builder de Oracle
 
 Afin d'installer les logiciels Centreon, le dépôt CodeReady Builder de Oracle
@@ -107,7 +116,10 @@ Exécutez les commandes suivantes :
 dnf -y install dnf-plugins-core oracle-epel-release-el8
 dnf config-manager --set-enabled ol8_codeready_builder
 ```
-<!--CentOS 7-->
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 #### Dépôt Redhat Software Collections
 
 Pour installer Centreon, vous devrez configurer le référentiel officiel des collections
@@ -118,7 +130,8 @@ Installez le référentiel de collections de logiciels à l'aide de cette comman
 ```shell
 yum install -y centos-release-scl
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 #### Dépôt Centreon
 
@@ -128,31 +141,41 @@ préalable installer le fichier lié au dépôt.
 Exécutez la commande suivante à partir d’un utilisateur possédant les droits
 suffisants :
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="operating-systems">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+
 ```shell
 dnf install -y https://yum.centreon.com/standard/21.04/el8/stable/noarch/RPMS/centreon-release-21.04-5.el8.noarch.rpm
 ```
-<!--CentOS 7-->
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 ```shell
 yum install -y https://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-5.el7.centos.noarch.rpm
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Installation
 
 Pour installer le moteur de supervision, exécutez la commande :
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="operating-systems">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+
 ```shell
 dnf install -y centreon-poller-centreon-engine
 ```
-<!--CentOS 7-->
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 ```shell
 yum install -y centreon-poller-centreon-engine
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 Pour activer le démarrage automatique des services de supervision au démarrage
 du serveur, exécuter la commande suivant :
@@ -174,8 +197,9 @@ systemctl restart centengine
 
 Pour l'enregistrer sur le serveur Centreon Central ou un serveur distant, exécutez la commande suivante :
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="operating-systems">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+
 ``` shell
 /usr/share/centreon/bin/registerServerTopology.sh -u <API_ACCOUNT> \
 -t poller -h <IP_TARGET_NODE> -n <POLLER_NAME>
@@ -186,7 +210,10 @@ Exemple:
 ``` shell
 /usr/share/centreon/bin/registerServerTopology.sh -u admin -t poller -h 192.168.0.1 -n poller-1
 ```
-<!--CentOS 7-->
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 ``` shell
 /usr/share/centreon/bin/registerServerTopology.sh -u <API_ACCOUNT> \
 -t poller -h <IP_TARGET_NODE> -n <POLLER_NAME>
@@ -197,7 +224,8 @@ Exemple:
 ``` shell
 /usr/share/centreon/bin/registerServerTopology.sh -u admin -t poller -h 192.168.0.1 -n poller-1
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 > Remplacer **<IP_TARGET_NODE>** par l'adresse IP du serveur Centreon Central ou du Remote Server vue par votre
 > collecteur.
@@ -211,36 +239,36 @@ Suivre ensuite les instructions
 
 1. Saisir le mot de passe :
 
-    ``` shell
-    192.168.0.1: please enter your password:
-    ```
+``` shell
+192.168.0.1: please enter your password:
+```
 
 2. Sélectionner l'adresse IP si plusieurs interfaces réseau existent:
 
-    ```shell
-    Which IP do you want to use as CURRENT NODE IP ?
-    1) 192.168.0.2
-    2) 192.168.0.3
-    1
-    ```
+```shell
+Which IP do you want to use as CURRENT NODE IP ?
+1) 192.168.0.2
+2) 192.168.0.3
+1
+```
 
 3. Valider les informations:
 
-    ``` shell
-    Summary of the informations that will be send:
-    
-    Api Connection:
-    username: admin
-    password: ******
-    target server: 192.168.0.1
-    
-    Pending Registration Server:
-    name: poller-1
-    type: poller
-    address: 192.168.0.2
-    
-    Do you want to register this server with those informations ? (y/n)y
-    ```
+``` shell
+Summary of the informations that will be send:
+
+Api Connection:
+username: admin
+password: ******
+target server: 192.168.0.1
+
+Pending Registration Server:
+name: poller-1
+type: poller
+address: 192.168.0.2
+
+Do you want to register this server with those informations ? (y/n)y
+```
 
 Vous recevrez la validation du serveur Centreon central ou du serveur Remote Server :
 

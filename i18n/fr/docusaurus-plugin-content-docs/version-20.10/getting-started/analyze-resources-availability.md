@@ -13,7 +13,7 @@ Le principe est simple :
 
 -   Vous déterminez votre besoin
 -   Vous sélectionnez parmi les modèles de rapports disponibles, celui
-    qui répond à votre besoin d'analyse
+qui répond à votre besoin d'analyse
 -   Vous configurez votre rapport via l'ajout d'une "tâche planifiée"
 -   Vous récupérer votre rapport via l'interface
 
@@ -65,7 +65,7 @@ de nommage.
 Choisissez ensuite :
 
 -   le modèle de rapport sur lequel vous vous basez, dans notre exemple
-    *Hostgroup-Host-Availability-List*
+*Hostgroup-Host-Availability-List*
 -   la langue : Français
 -   le format de sortie souhaité : PDF
 

@@ -27,12 +27,12 @@ commerciales, vous pouvez vous rendre sur notre
 #### Améliorations
 
 - [rpm] Tous les fichiers de configuration (sauf logrotate.d et sudoers.d)
-  sont préservés en cas de mise à jour
+sont préservés en cas de mise à jour
 
 #### Correctifs
 
 - [Sync] Une erreur dans le script empêchait de synchroniser les fichiers
-  correctement
+correctement
 
 ### 20.10.0
 

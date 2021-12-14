@@ -31,9 +31,9 @@ Lorsqu'une ou plusieurs alertes apparaissent, il est possible de les [acquitter]
 pris en compte, et ce de deux manières:
 
 -   En acquittant la ressource directement via le bouton qui s'affiche au survol de
-    la ligne
+la ligne
 -   En sélectionnant une ou plusieurs lignes et en cliquant sur le
-    bouton **Acquitter** au-dessus du tableau.
+bouton **Acquitter** au-dessus du tableau.
 
 Seules les ressources en statut "Non-OK" peuvent être acquittées.
 Seule une ressource non acquittée peut être acquittée.
@@ -54,9 +54,9 @@ sur **Désacquitter** dans le menu **Plus d'actions**.
 Il est possible de [planifier une plage de maintenance](manage-alerts#ajouter-un-temps-darrêt) :
 
 -   En définissant directement une plage de maintenance via le bouton
-    qui s'affiche au survol de la ligne
+qui s'affiche au survol de la ligne
 -   En sélectionnant une ou plusieurs lignes et en cliquant sur le bouton
-    **Planifier une maintenance** au-dessus du tableau.
+**Planifier une maintenance** au-dessus du tableau.
 
 La mise en maintenance d'une ressource a pour effet de masquer l'alerte
 de la vue **Problèmes non acquittés** et de stopper les notifications partant
@@ -71,9 +71,9 @@ le statut d'un service/hôte en lançant un contrôle manuellement via
 l'interface. Cela est possible de deux manières différentes :
 
 -   En lançant le contrôle directement via le bouton qui s'affiche au
-    survol de la ligne
+survol de la ligne
 -   En sélectionnant une ou plusieurs lignes et en cliquant sur le
-    bouton **Vérifier**.
+bouton **Vérifier**.
 
 ![image](../assets/alerts/resources-status/resources-status-check.gif)
 
@@ -100,10 +100,10 @@ autres filtres : **Problèmes de ressources** & **Tous**.
 Signification des filtres:
 
 -   **Problèmes non acquittés** : Le statut de la ressource est **Alerte** ou
-    **Critique** ou **Inconnu** ou **Indisponible** ET la ressource n'est ni acquittée ni en
-    plage de maintenance planifiée
+**Critique** ou **Inconnu** ou **Indisponible** ET la ressource n'est ni acquittée ni en
+plage de maintenance planifiée
 -   **Problèmes de ressources**: Le statut de la ressource est **Alerte** ou
-    **Critique** ou **Inconnu** ou **Indisponible** (que la ressource ait été acquittée/mise en maintenance ou non)
+**Critique** ou **Inconnu** ou **Indisponible** (que la ressource ait été acquittée/mise en maintenance ou non)
 -   **Tous** : toutes les ressources.
 
 ![image](../assets/alerts/resources-status/resources-status-filters-defaults.gif)
@@ -139,9 +139,9 @@ Si les filtres pré-définis et la barre de recherche ne suffisent pas, dépliez
 
 -   Type de ressource (hôte ou service)
 -   Statut (OK, **Alerte**, **Critique**, **Inconnu**, **En attente**, **Disponible**, **Indisponible**,
-    **Injoignable**)
+**Injoignable**)
 -   État : y a-t'il une action en cours sur le service ou l'équipement ?
-    (acquittement, plage de maintenance planifiée)
+(acquittement, plage de maintenance planifiée)
 -   Groupes d'hôtes
 -   Groupe de services
 
@@ -165,7 +165,7 @@ Utilisez l'icône "roue dentée" à côté de **Filtre** pour :
 -   Sauvegarder la recherche actuelle comme un nouveau filtre
 -   Mettre à jour le filtre actuel avec la recherche en cours
 -   Éditer la liste des filtres afin de les supprimer, les renommer ou
-    les ré-ordonner.
+les ré-ordonner.
 
 Une fois qu'un filtre est créé, il apparaîtra dans la liste des filtres
 sous la section **Mes filtres**.
@@ -191,7 +191,7 @@ Le panneau d'hôte contient les éléments suivants :
 - Onglet **Services** : La liste des services rattachés à cet hôte avec leur statut (et de leurs graphiques, quand le mode correspondant est sélectionné),
 - Onglet **Historique** : La chronologie des événements survenus pour cet hôte,
 - Des raccourcis vers la configuration, les journaux d'évènements et les
-    rapports de disponibilité.
+rapports de disponibilité.
 
 ![image](../assets/alerts/resources-status/resources-status-panel-host.gif)
 
@@ -206,7 +206,7 @@ Le panneau de service contient les éléments suivants :
 - Onglet **Historique** : La chronologie des événements survenus pour ce service,
 - Onglet **Graphique** : Un graphique avec une courbe par métrique collectée par ce service,
 - Des raccourcis vers les configurations, les journaux d'évènements et les
-    rapports de disponibilité pour ce service et son hôte.
+rapports de disponibilité pour ce service et son hôte.
 
 ![image](../assets/alerts/resources-status/resources-status-panel-service.gif)
 
@@ -217,13 +217,13 @@ seront visibles sur le panneau.
 
 L'onglet **Graphique** vous permet d’afficher de manière visuelle l'évolution des métriques dans le temps pour la ressource sélectionnée. Survolez les courbes avec la souris pour afficher l'heure exacte sous le titre du graphique, et dans la légende, les valeurs des différentes métriques correspondant à l'instant.
 
-Lorsque le curseur ne survole pas les courbes, la légende affiche les valeurs minimum, maximum et moyennes 
+Lorsque le curseur ne survole pas les courbes, la légende affiche les valeurs minimum, maximum et moyennes
 pour chaque métrique.
 
 ![image](../assets/alerts/resources-status/resources-status-values.png)
 
-Utilisez la légende pour afficher ou masquer des métriques. 
-- Cliquez sur un élément de la légende pour que seule la courbe correspondante s'affiche. 
+Utilisez la légende pour afficher ou masquer des métriques.
+- Cliquez sur un élément de la légende pour que seule la courbe correspondante s'affiche.
 - Pour réafficher l'ensemble des métriques, cliquez à nouveau sur la légende de la métrique affichée.
 
 ![image](../assets/alerts/resources-status/resources-status-graph-select-only-metric.gif)
@@ -242,7 +242,7 @@ Les graphiques affichent l'évolution des métriques sur une période donnée. L
 
 - Sélectionnez une période dans le graphique pour zoomer sur cette période.
 
-    ![image](../assets/alerts/resources-status/resources-status-graph-time-selection.gif)
+![image](../assets/alerts/resources-status/resources-status-graph-time-selection.gif)
 
 La bascule **Afficher les évènements** permet d'afficher certains évènements de la chronologie de la ressource (plages de maintenance, acquittements, commentaires) directement sur le graphique, aux travers d'annotations :
 

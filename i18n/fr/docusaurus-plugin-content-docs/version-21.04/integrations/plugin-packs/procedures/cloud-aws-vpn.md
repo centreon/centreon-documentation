@@ -2,6 +2,9 @@
 id: cloud-aws-vpn
 title: AWS VPN
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -19,24 +22,23 @@ Le Plugin-Pack Centreon *AWS VPN* s'appuie sur les APIs Amazon Cloudwatch pour l
 
 ### Règles de découvertes
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Services-->
+<Tabs groupId="operating-systems">
+<TabItem value="Services" label="Services">
 
 | Rule name                 | Description                                                   |
 |:--------------------------|:--------------------------------------------------------------|
 | Cloud-Aws-Vpn-Connections | Discover VPN connections and monitor their status and traffic |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Métriques collectées
 
 Vous pouvez vous renseigner en détails sur les métriques présentées ci-après sur la documentation officiel du service VPN:
 https://docs.aws.amazon.com/fr_fr/vpn/latest/s2svpn/monitoring-cloudwatch-vpn
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Vpn-Traffic-*-->
+<Tabs groupId="operating-systems">
+<TabItem value="VpnTraffic*" label="VpnTraffic*">
 
 | Metric name                         | Description                                                                                                                                             | Unit |
 |:------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------|:-----|
@@ -50,7 +52,8 @@ ajoutez simplement le paramètre ``` --per-sec``` à la commande.
 > Le Modèle de Service *Vpn-Traffic-Global* supervise par défaut l'ensemble des liens VPN de votre infrastructure AWS.
 > Utilisez le module de **découverte automatique des Services** afin d'obtenir un Service par *VPN ID*.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -70,27 +73,27 @@ Afin de récupérer les informations nécessaires via les APIs AWS, il est possi
 
 **Attention** il n'est pas possible d'utiliser perl-Paws si la connexion s'effectue au travers d'un proxy.
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--perl-Paws-installation-->
+<Tabs groupId="operating-systems">
+<TabItem value="perlPawsinstallation" label="perlPawsinstallation">
 
 ```bash
 yum install perl-Paws
 ```
 
-<!--aws-cli-installation-->
+</TabItem>
+<TabItem value="awscliinstallation" label="awscliinstallation">
 
 ```bash
 yum install awscli
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="operating-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources AWS/VPN:
 
@@ -100,7 +103,8 @@ yum install centreon-plugin-Cloud-Aws-Vpn-Api
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *AWS VPN* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources AWS/VPN:
 
@@ -116,7 +120,8 @@ yum install centreon-pack-cloud-aws-vpn.noarch
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *AWS VPN* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -145,24 +150,24 @@ connectant avec l'utilisateur *centreon-engine* (certaines options comme ```--pr
 
 ```bash
 /usr/lib/centreon/plugins//centreon_aws_vpn_api.pl \
-    --plugin=cloud::aws::vpn::plugin \
-    --mode=traffic \
-    --custommode='awscli' \
-    --aws-secret-key='*******************' \
-    --aws-access-key='**********' \
-    --region='eu-west-1' \
-    --proxyurl='http://myproxy.mycompany.org:8080' \
-    --filter-vpn='vpn-123abc456def789gh' \
-    --filter-metric='' \
-    --statistic='average' \
-    --timeframe='600' \
-    --period='60' \
-    --warning-tunnel-state='1:' \
-    --critical-tunnel-state='0.5:'
-    --verbose
+--plugin=cloud::aws::vpn::plugin \
+--mode=traffic \
+--custommode='awscli' \
+--aws-secret-key='*******************' \
+--aws-access-key='**********' \
+--region='eu-west-1' \
+--proxyurl='http://myproxy.mycompany.org:8080' \
+--filter-vpn='vpn-123abc456def789gh' \
+--filter-metric='' \
+--statistic='average' \
+--timeframe='600' \
+--period='60' \
+--warning-tunnel-state='1:' \
+--critical-tunnel-state='0.5:'
+--verbose
 ```
 
-La commande devrait retourner un message de sortie de la forme ci-dessous : 
+La commande devrait retourner un message de sortie de la forme ci-dessous :
 
 ```
 OK: 'vpn-123abc456def789gh' Statistic 'Average' Metrics Tunnel Data Out: 328.69 KB, Tunnel State: 1.00, Tunnel Data In: 715.10 KB | 'vpn-123abc456def789gh~average#vpn.tunnel.dataout.bytes'=336576.82B;;;;
@@ -184,9 +189,9 @@ La liste de toutes les métriques, seuils associés et options complémentairesp
 
 ```bash
 /usr/lib/centreon/plugins/centreon_aws_vpn_api.pl \
-    --plugin=cloud::aws::vpn::plugin \
-    --mode=traffic \
-    --help
+--plugin=cloud::aws::vpn::plugin \
+--mode=traffic \
+--help
 ```
 
 ### J'obtiens le message d'erreur suivant:

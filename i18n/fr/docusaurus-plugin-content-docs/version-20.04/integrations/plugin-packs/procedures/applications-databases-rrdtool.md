@@ -2,6 +2,9 @@
 id: applications-databases-rrdtool
 title: RRDtool
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Contenu du Plugin-Pack
 
@@ -11,17 +14,17 @@ Le plugin-pack inclue la supervision Query.
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
+<Tabs groupId="operating-systems">
+<TabItem value="Query" label="Query">
 
-<!--Query-->
+| Metric name                             | Description                | Unit |
+| :-------------------------------------- | :------------------------- | :--- |
+| *dsname*#datasource.value.minimum.count | Minimun value on timeframe |      |
+| *dsname*#datasource.value.average.count | Average value on timeframe |      |
+| *dsname*#datasource.value.maximum.count | Maximul value on timeframe |      |
 
-| Metric name                                  | Description                | Unit |
-| :------------------------------------------- | :------------------------- | :--- |
-| *dsname*#datasource.value.minimum.count      | Minimun value on timeframe |      |
-| *dsname*#datasource.value.average.count      | Average value on timeframe |      |
-| *dsname*#datasource.value.maximum.count      | Maximul value on timeframe |      |
-
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -34,9 +37,8 @@ La sonde permet de requêter RRDtool avec :
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="operating-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -46,7 +48,8 @@ yum install centreon-plugin-Applications-Databases-Rrdtool
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *RRDtool* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -62,11 +65,10 @@ yum install centreon-pack-applications-databases-rrdtool
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *RRDtool* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration d'un service
-
-<!--DOCUSAURUS_CODE_TABS-->
 
 <!--Local-->
 
@@ -94,43 +96,41 @@ yum install centreon-pack-applications-databases-rrdtool
 
 * Sur votre hôte, certaines Macros doivent être renseignées :
 
-<!--DOCUSAURUS_CODE_TABS-->
-
 <!--sshcli backend-->
 
-| Mandatory   | Name            | Description                                                                                     |
-| :---------- | :-------------- | :---------------------------------------------------------------------------------------------- |
-| X           | SSHBACKEND      | Nom du backend: ```sshcli```                                                                    |
-| X           | SSHUSERNAME     | Par default, il utilise l'utilisateur en cours d'exécution ```centengine``` de votre Collecteur |          
-|             | SSHPASSWORD     | Ne peut pas être utilisé avec le backend. Seulement avec la clé d'authentication                |
-|             | SSHPORT         | Par default: 22                                                                                 |
-|             | SSHEXTRAOPTIONS | Personnalisez-le avec le vôtre si nécessaire. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```      |
+| Mandatory | Name            | Description                                                                                     |
+| :-------- | :-------------- | :---------------------------------------------------------------------------------------------- |
+| X         | SSHBACKEND      | Nom du backend: ```sshcli```                                                                    |
+| X         | SSHUSERNAME     | Par default, il utilise l'utilisateur en cours d'exécution ```centengine``` de votre Collecteur |
+|           | SSHPASSWORD     | Ne peut pas être utilisé avec le backend. Seulement avec la clé d'authentication                |
+|           | SSHPORT         | Par default: 22                                                                                 |
+|           | SSHEXTRAOPTIONS | Personnalisez-le avec le vôtre si nécessaire. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```      |
 
 > Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur centreon-engine du Collecteur
 et l'utilisateur applicatif créé sur le serveur distant. (Macro SSHUSERNAME).
 
 <!--plink backend-->
 
-| Mandatory   | Name            | Description                                                                                     |
-| :---------- | :-------------- | :---------------------------------------------------------------------------------------------- | 
-| X           | SSHBACKEND      | Nom du backend: ```plink```                                                                     |
-| X           | SSHUSERNAME     | Par default, il utilise l'utilisateur en cours d'exécution ```centengine``` de votre Collecteur |
-|             | SSHPASSWORD     | Peut être utilisé. Si aucune valeur n'est définie, l'authentification par clé ssh est utilisée  |
-|             | SSHPORT         | Par default: 22                                                                                 |
-|             | SSHEXTRAOPTIONS | Personnalisez-le avec le vôtre si nécessaire. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```      |
+| Mandatory | Name            | Description                                                                                     |
+| :-------- | :-------------- | :---------------------------------------------------------------------------------------------- |
+| X         | SSHBACKEND      | Nom du backend: ```plink```                                                                     |
+| X         | SSHUSERNAME     | Par default, il utilise l'utilisateur en cours d'exécution ```centengine``` de votre Collecteur |
+|           | SSHPASSWORD     | Peut être utilisé. Si aucune valeur n'est définie, l'authentification par clé ssh est utilisée  |
+|           | SSHPORT         | Par default: 22                                                                                 |
+|           | SSHEXTRAOPTIONS | Personnalisez-le avec le vôtre si nécessaire. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```      |
 
 > Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur centreon-engine du Collecteur
 et l'utilisateur applicatif créé sur le serveur distant. (Macro SSHUSERNAME).
 
 <!--libssh backend (par défaut)-->
 
-| Mandatory   | Name            | Description                                                                                     |
-| :---------- | :-------------- | :---------------------------------------------------------------------------------------------- |
-| X           | SSHBACKEND      | Nom du backend: ```libssh```                                                                    |          
-|             | SSHUSERNAME     | Par default, il utilise l'utilisateur en cours d'exécution ```centengine``` de votre Collecteur |
-|             | SSHPASSWORD     | Peut être utilisé. Si aucune valeur n'est définie, l'authentification par clé ssh est utilisée  |
-|             | SSHPORT         | Par default: 22                                                                                 |
-|             | SSHEXTRAOPTIONS | Personnalisez-le avec le vôtre si nécessaire. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```      |
+| Mandatory | Name            | Description                                                                                     |
+| :-------- | :-------------- | :---------------------------------------------------------------------------------------------- |
+| X         | SSHBACKEND      | Nom du backend: ```libssh```                                                                    |
+|           | SSHUSERNAME     | Par default, il utilise l'utilisateur en cours d'exécution ```centengine``` de votre Collecteur |
+|           | SSHPASSWORD     | Peut être utilisé. Si aucune valeur n'est définie, l'authentification par clé ssh est utilisée  |
+|           | SSHPORT         | Par default: 22                                                                                 |
+|           | SSHEXTRAOPTIONS | Personnalisez-le avec le vôtre si nécessaire. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```      |
 
 Avec ce backend, vous n'avez pas à valider manuellement le fingerprint du serveur cible.
 
@@ -142,14 +142,14 @@ Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne d
 
 ```bash
 /usr/lib/centreon/plugins/centreon_rrdtool.pl \
-    --plugin=database::rrdtool::local::plugin \
-    --custommode=perlmod \
-    --mode=query \
-    --rrd-file='/var/lib/centreon/metrics/1490.rrd' \
-    --ds-name='value' \
-    --timeframe='3600' \
-    --warning-value-maximum=50 \
-    --critical-value-maximum=100
+--plugin=database::rrdtool::local::plugin \
+--custommode=perlmod \
+--mode=query \
+--rrd-file='/var/lib/centreon/metrics/1490.rrd' \
+--ds-name='value' \
+--timeframe='3600' \
+--warning-value-maximum=50 \
+--critical-value-maximum=100
 ```
 
 Exemple de sortie:
@@ -168,7 +168,7 @@ Toutes les options et leur utilisation peuvent être consultées avec le paramè
 
 ```bash
 /usr/lib/centreon/plugins/centreon_rrdtool.pl \
-    --plugin=database::rrdtool::local::plugin \
-    --custommode=perlmod \
-    --help
+--plugin=database::rrdtool::local::plugin \
+--custommode=perlmod \
+--help
 ```

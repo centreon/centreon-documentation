@@ -3,7 +3,7 @@ id: hardware-storage-netapp-restapi
 title: Netapp RestAPI (Deprecated)
 ---
 
-## **ATTENTION** Ce Pack est déprécié 
+## **ATTENTION** Ce Pack est déprécié
 
 Ce Plugin Pack n'est plus maintenu et ne doit pas être utilisé. Il a été remplacé par
 le Pack 'Netapp ONTAP RestAPI'.

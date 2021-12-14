@@ -6,15 +6,15 @@ title: Virtual metrics
 ## Definition
 
 The virtual metrics are the display of curves resulting from the processing / aggregation of data from a set of data.
-The set of data corresponds to various values of curves on the period covered by the graph. 
+The set of data corresponds to various values of curves on the period covered by the graph.
 The creation of virtual metrics is based on the RPN (Reverse Polish Notation) language.
 
 Two types of sets of data are available:
 
 * CDEF: this command creates a new set of points starting from one or more series of data. The aggregation is performed
-  on each point (data).
+on each point (data).
 * VDEF: the result of each aggregation is a value and a time component. This result can also be used in the miscellaneous
-  graph and printing elements.
+graph and printing elements.
 
 ### CDEF vs VDEF
 

@@ -29,17 +29,17 @@ La sauvegarde de la base de données peut être réalisée sur deux bases :
 
 Il y a deux types de sauvegarde :
 
-  - MySQLdump : la commande mysqldump est utilisée pour sauvegarder la base de
-    données. Attention, cette commande peut prendre un certain temps si la base
-    est volumineuse.
-  - LVM Snapshot : Copie binaire des fichiers MariaDB. Vous devez avoir un volume
-    logique dédié à MariaDB (ex: /var/lib/mysql) et 1Go d'espace disponible dans
-    son groupe de volumes.
+- MySQLdump : la commande mysqldump est utilisée pour sauvegarder la base de
+données. Attention, cette commande peut prendre un certain temps si la base
+est volumineuse.
+- LVM Snapshot : Copie binaire des fichiers MariaDB. Vous devez avoir un volume
+logique dédié à MariaDB (ex: /var/lib/mysql) et 1Go d'espace disponible dans
+son groupe de volumes.
 
 Format de la sauvegarde :
 
-  - YYYY-MM-DD-centreon.sql.gz
-  - YYYY-MM-DD-centreon\_storage.sql.gz
+- YYYY-MM-DD-centreon.sql.gz
+- YYYY-MM-DD-centreon\_storage.sql.gz
 
 #### Sauvegarde des fichiers de configuration
 
@@ -48,9 +48,9 @@ Apache, PHP, SNMP, centreon, centreon-broker
 
 Format de la sauvegarde :
 
-  - YYYY-MM-DD-centreon-engine.tar.gz (fichiers de configuration
-    centreon-engine)
-  - YYYY-MM-DD-central.tar.gz (autres fichiers de configuration)
+- YYYY-MM-DD-centreon-engine.tar.gz (fichiers de configuration
+centreon-engine)
+- YYYY-MM-DD-central.tar.gz (autres fichiers de configuration)
 
 ## Configuration
 
@@ -62,27 +62,27 @@ La fenêtre suivante est affichée :
 
 ![image](../assets/administration/parameters-backup.png)
 
-  - **Activer la sauvegarde** : Activer/Désactiver la sauvegarde
-  - **Répertoire des sauvegardes** : Répertoire de stockage des sauvegardes
-  - **Répertoire temporaire** : Répertoire utilisé durant le processus de
-    sauvegarde
-  - **Sauvegarder la base de données Centreon** : Activer la sauvegarde de la
-    base de données centreon
-  - **Sauvegarder la base de données 'centreon\_storage'** : Activer la
-    sauvegarde de la base de données centreon\_storage
-  - **Méthode de sauvegarde** : Type de sauvegarde (MySQL dump ou snapshot LVM)
-  - **Sauvegarde complète** : Période pour la sauvegarde complète
-  - **Sauvegarde de type partielle** : Période pour la sauvegarde partielle (seulement
-    disponible pour la sauvegarde par LVM snapshot)
-  - **Durée de rétention des sauvegardes** : Durée de rétention des sauvegardes (en jours)
-  - **Sauvegarder les fichiers de configuration** : Activer la sauvegarde des fichiers de
-    configuration
-  - **Chemin d'accès au fichier de configuration MySQL** : Chemin d'accès au fichier de configuration
-    MySQL
-  - **Activer l'export SCP** : Activer l'export des sauvegardes par SCP. 
-  - **Utilisateur**:  Utilisateur distant pour l'export SCP
-  - **Hôte distant** : Hôte distant pour l'export SCP
-  - **Répertoire distant** : Répertoire distant pour l'export SCP
+- **Activer la sauvegarde** : Activer/Désactiver la sauvegarde
+- **Répertoire des sauvegardes** : Répertoire de stockage des sauvegardes
+- **Répertoire temporaire** : Répertoire utilisé durant le processus de
+sauvegarde
+- **Sauvegarder la base de données Centreon** : Activer la sauvegarde de la
+base de données centreon
+- **Sauvegarder la base de données 'centreon\_storage'** : Activer la
+sauvegarde de la base de données centreon\_storage
+- **Méthode de sauvegarde** : Type de sauvegarde (MySQL dump ou snapshot LVM)
+- **Sauvegarde complète** : Période pour la sauvegarde complète
+- **Sauvegarde de type partielle** : Période pour la sauvegarde partielle (seulement
+disponible pour la sauvegarde par LVM snapshot)
+- **Durée de rétention des sauvegardes** : Durée de rétention des sauvegardes (en jours)
+- **Sauvegarder les fichiers de configuration** : Activer la sauvegarde des fichiers de
+configuration
+- **Chemin d'accès au fichier de configuration MySQL** : Chemin d'accès au fichier de configuration
+MySQL
+- **Activer l'export SCP** : Activer l'export des sauvegardes par SCP.
+- **Utilisateur**:  Utilisateur distant pour l'export SCP
+- **Hôte distant** : Hôte distant pour l'export SCP
+- **Répertoire distant** : Répertoire distant pour l'export SCP
 
 > **Répertoire temporaire** ne peut pas être un sous-répertoire de **Répertoire
 > des sauvegardes**.
@@ -91,10 +91,10 @@ La fenêtre suivante est affichée :
 
 Le processus de restauration consiste en deux étapes :
 
-  - Réinstaller la plate-forme suivant la documentation d'installation de
-    Centreon. Ne pas oublier de faire la mise à jour du système.
-  - Restaurer les différents fichiers de configuration, puis les bases de
-    données Centreon.
+- Réinstaller la plate-forme suivant la documentation d'installation de
+Centreon. Ne pas oublier de faire la mise à jour du système.
+- Restaurer les différents fichiers de configuration, puis les bases de
+données Centreon.
 
 ### Restauration des fichiers de configuration de Centreon
 

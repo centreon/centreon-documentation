@@ -2,11 +2,14 @@
 id: operatingsystems-windows-nsclient-05-restapi
 title: Windows NSClient API
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
 NSClient++ provides its own REST API using the webserver module.
-This REST API give the possibility to exploit monitoring data from Windows servers 
+This REST API give the possibility to exploit monitoring data from Windows servers
 through HTTPS connections.
 
 ## Plugin-Pack assets
@@ -18,20 +21,22 @@ through HTTPS connections.
 
 ### Monitored metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--query/Counter-Active-Sessions-->
+<Tabs groupId="operating-systems">
+<TabItem value="query/CounterActiveSessions" label="query/CounterActiveSessions">
 
 | Metric name     | Description                             |
 | :-------------- | :-------------------------------------- |
 | Sessions\_value | Number of actived sessions. Unit: Count |
 
-<!--query/Counter-Generic-->
+</TabItem>
+<TabItem value="query/CounterGeneric" label="query/CounterGeneric">
 
 | Metric name    | Description                          |
 | :------------- | :----------------------------------- |
 | Counter\_value | Number of counter found. Unit: Count |
 
-<!--query/Cpu-->
+</TabItem>
+<TabItem value="query/Cpu" label="query/Cpu">
 
 | Metric name | Description                                                      |
 | :---------- | :--------------------------------------------------------------- |
@@ -39,25 +44,29 @@ through HTTPS connections.
 | total 1m    | CPU Utilization of Windows serveur over 1 minutes. Unit: Percent |
 | total 5s    | CPU Utilization of Windows serveur over 5 seconds. Unit: Percent |
 
-<!--query/Disk-->
+</TabItem>
+<TabItem value="query/Disk" label="query/Disk">
 
 | Metric name | Description                                   |
 | :---------- | :-------------------------------------------- |
 | used        | Used and Total Storage allocated. Unit: Bytes |
 
-<!--query/Eventlog-Generic-->
+</TabItem>
+<TabItem value="query/EventlogGeneric" label="query/EventlogGeneric">
 
 | Metric name  | Description                            |
 | :----------- | :------------------------------------- |
 | problemCount | Number of event log found. Unit: Count |
 
-<!--query/Files-Generic-->
+</TabItem>
+<TabItem value="query/FilesGeneric" label="query/FilesGeneric">
 
 | Metric name | Description                        |
 | :---------- | :--------------------------------- |
 | count       | Number of files found. Unit: Count |
 
-<!--query/Logfiles-Generic-->
+</TabItem>
+<TabItem value="query/LogfilesGeneric" label="query/LogfilesGeneric">
 
 | Metric name        | Description                                                                   |
 | :----------------- | :---------------------------------------------------------------------------- |
@@ -66,19 +75,22 @@ through HTTPS connections.
 | default\_criticals | Number of line that match with critical pattern found in logfile. Unit: Count |
 | default\_unknowns  | Number of line that match with unknown pattern found in logfile. Unit: Count  |
 
-<!--query/Memory-->
+</TabItem>
+<TabItem value="query/Memory" label="query/Memory">
 
 | Metric name | Description                        |
 | :---------- | :--------------------------------- |
 | used        | Total usage of memory. Unit: Bytes |
 
-<!--query/Swap-->
+</TabItem>
+<TabItem value="query/Swap" label="query/Swap">
 
 | Metric name | Description                             |
 | :---------- | :-------------------------------------- |
 | swap        | Total usage of swap memory. Unit: Bytes |
 
-<!--query/Sessions-->
+</TabItem>
+<TabItem value="query/Sessions" label="query/Sessions">
 
 | Metric name                   | Description                                               |
 | :---------------------------- | :-------------------------------------------------------- |
@@ -88,21 +100,21 @@ through HTTPS connections.
 | sessions-active               | Number of active users session. Unit: Count               |
 | sessions-disconnected-current | Number of current disconnected users session. Unit: Count |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
 ### Centreon NSClient++
 
-To monitor an *Windows Servers* through NSClient++ API, install the Centreon packaged version 
-of the NSClient++ agent. Please follow our [official documentation](../tutorials/centreon-nsclient-tutorial) 
+To monitor an *Windows Servers* through NSClient++ API, install the Centreon packaged version
+of the NSClient++ agent. Please follow our [official documentation](../tutorials/centreon-nsclient-tutorial)
 and make sure that the **Webserver / RESTApi** configuration is correct.
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="licence-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor Windows ressources using REST API:
 
@@ -112,7 +124,8 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 
 2. On the Centreon Web interface, install the *Windows NSClient API* Centreon Pack on the **Configuration > Plugin Packs > Manager** page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor Windows ressources using REST API:
 
@@ -128,7 +141,8 @@ yum install centreon-pack-operatingsystems-windows-nsclient-05-restapi
 
 3. On the Centreon Web interface, install the *Windows NSClient API* Pack on the **Configuration > Plugin Packs > Manager** page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -142,25 +156,25 @@ yum install centreon-pack-operatingsystems-windows-nsclient-05-restapi
 | X         | NSCPRESTAPILEGACYPASSWORD | Password used (configured in the prerequisites section)                    |
 |           | NSCPRESTAPIEXTRAOPTIONS   | Any extra option you may want to add to the command (eg. a --verbose flag) |
 
-## How do I test my configuration through the CLI and what do the main parameters stand for ? 
+## How do I test my configuration through the CLI and what do the main parameters stand for ?
 
 Once the Centreon plugin installed, you can test it logging with the centreon-engine user:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_nsclient_restapi.pl \
-  --plugin=apps::nsclient::restapi::plugin \
-  --mode=query --hostname='192.168.1.24' \
-  --port='8443' \
-  --proto='https' \
-  --legacy-password='centreon' \
-  --command=check_cpu \
-  --arg="warning=time = '5m' and load > 80" \
-  --arg="critical=time = '5m' and load > 90" \
-  --arg=show-all
+--plugin=apps::nsclient::restapi::plugin \
+--mode=query --hostname='192.168.1.24' \
+--port='8443' \
+--proto='https' \
+--legacy-password='centreon' \
+--command=check_cpu \
+--arg="warning=time = '5m' and load > 80" \
+--arg="critical=time = '5m' and load > 90" \
+--arg=show-all
 
-OK: 5m: 40%, 1m: 42%, 5s: 39% | 
-'total 5m'=40%;80;90;; 
-'total 1m'=42%;80;90;; 
+OK: 5m: 40%, 1m: 42%, 5s: 39% |
+'total 5m'=40%;80;90;;
+'total 1m'=42%;80;90;;
 'total 5s'=39%;80;90;;
 ```
 
@@ -169,27 +183,27 @@ It uses HTTPS protocol (```--proto='https'```) and the password created in the *
 This command checks the cpu usage of the server (```--command=check_cpu```).
 
 This command will trigger alerts :
-  * a WARNING alert if the metric "total 5m" (```warning=time = 5m```) is superior to 80% (```load > 80%```)
-  * a CRITICAL alert if the metric "total 5m" (```warning=time = 5m```) is superior to 90% (```load > 90%```)
+* a WARNING alert if the metric "total 5m" (```warning=time = 5m```) is superior to 80% (```load > 80%```)
+* a CRITICAL alert if the metric "total 5m" (```warning=time = 5m```) is superior to 90% (```load > 90%```)
 
-You can display all of the modes that come with the Plugin with the command below: 
+You can display all of the modes that come with the Plugin with the command below:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_nsclient_restapi.pl \
-  --plugin=apps::nsclient::restapi::plugin \
-  --list-mode
+--plugin=apps::nsclient::restapi::plugin \
+--list-mode
 ```
 
 The available thresholds as well as all of the options that can be used with this Plugin can be displayed by adding the ```--help``` parameter to the command:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_nsclient_restapi.pl \
-  --plugin=apps::nsclient::restapi::plugin \
-  --mode=query \
-  --help
+--plugin=apps::nsclient::restapi::plugin \
+--mode=query \
+--help
 ```
 
-### Troubleshooting 
+### Troubleshooting
 
 #### UNKNOWN: Cannot decode json response: malformed UTF-8 character in JSON string
 
@@ -197,29 +211,29 @@ If you receive this message, enable debug messages by adding ```--debug```:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_nsclient_restapi.pl \
-  --plugin=apps::nsclient::restapi::plugin \
-  --mode=query \
-  --hostname='192.168.1.24' \
-  --port='8443' \
-  --proto='https' \
-  --legacy-password='centreon' \
-  --http-backend=curl  \
-  --curl-opt="CURLOPT_SSL_VERIFYPEER => 0" \
-  --timeout=30 \
-  --command=check_centreon_plugins \
-  --arg='os::windows::local::plugin' \
-  --arg='sessions' \
-  --arg='--filter-sessionname="" \
-  --config="scripts/centreon/conf/qwinsta.xml" \
-  --language="fr" \
-  --debug
+--plugin=apps::nsclient::restapi::plugin \
+--mode=query \
+--hostname='192.168.1.24' \
+--port='8443' \
+--proto='https' \
+--legacy-password='centreon' \
+--http-backend=curl  \
+--curl-opt="CURLOPT_SSL_VERIFYPEER => 0" \
+--timeout=30 \
+--command=check_centreon_plugins \
+--arg='os::windows::local::plugin' \
+--arg='sessions' \
+--arg='--filter-sessionname="" \
+--config="scripts/centreon/conf/qwinsta.xml" \
+--language="fr" \
+--debug
 
 UNKNOWN: Cannot decode json response: malformed UTF-8 character in JSON string, at character offset 724 (before "\x{fffd}u0090RIPH\x{fffd}...") at /usr/lib/centreon/plugins//centreon_nsclient_restapi.pl line 133.
 == Info: About to connect() to 192.168.1.24 port 8443 (#0)
 == Info:   Trying 192.168.1.24...
 == Info: Connected to 192.168.1.24 (192.168.1.24) port 8443 (#0)
 .......
-Cannot write statefile '/var/lib/centreon/centplugins/windows_sessions_a181a603769c1f98ad927e7367c7aa51_a181a603769c1f98ad927e7367c7aa51'. 
+Cannot write statefile '/var/lib/centreon/centplugins/windows_sessions_a181a603769c1f98ad927e7367c7aa51_a181a603769c1f98ad927e7367c7aa51'.
 Need write/exec permissions on directory.
 ```
 

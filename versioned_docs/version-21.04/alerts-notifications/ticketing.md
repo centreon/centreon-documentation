@@ -96,7 +96,7 @@ button:
 -   **Don’t check** the box **Opened Tickets**
 -   Select other filters
 -   **Don’t check** the boxes **Display Ticket ID** and **Display Ticket
-    Time**
+Time**
 
 On the second widget, to display opened tickets, click on the
 **configuration** button:
@@ -160,10 +160,10 @@ configure it in `Lists` and `Custom list definition`. For each entry in
 -   **Id** : alphanumeric value (must be unique)
 -   **Label** : displayed in the popup
 -   **Type** : which kind of list. There is 3 kinds of lists
-    -   Provider lists (data from the ticketing software directly)
-    -   Centreon lists (like `Host group`)
-    -   Custom lists (data from `Custom list definition` configuration.
-        **Id** fields must be identical)
+-   Provider lists (data from the ticketing software directly)
+-   Centreon lists (like `Host group`)
+-   Custom lists (data from `Custom list definition` configuration.
+**Id** fields must be identical)
 -   **Mandatory** : checked it if the user needs to set the option
 
 ![image](../assets/alerts/open_ticket_advanced_list_01.png)

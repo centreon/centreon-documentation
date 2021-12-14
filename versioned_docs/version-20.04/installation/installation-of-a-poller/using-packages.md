@@ -1,6 +1,6 @@
 ---
 id: using-packages
-title: Using packages 
+title: Using packages
 ---
 
 ## Pre-installation steps

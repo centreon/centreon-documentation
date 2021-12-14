@@ -3,7 +3,7 @@ id: sc-hp-bsm
 title: BSM
 ---
 
-## Ce qu'apporte l'intégration de BSM + Centreon 
+## Ce qu'apporte l'intégration de BSM + Centreon
 
 Le Stream Connector BSM envoie les données de **Centreon** vers le gestionnaire de service **Micro Focus BSM** (Business Service Management).
 
@@ -99,7 +99,7 @@ Votre serveur central a maintenant chargé le Stream Connector et commence à en
 **Remarques**
 
 * La valeur par défaut de 2 pour le paramètre `log_level` est adaptée à la mise en place et au *troubleshooting* initial éventuel, cela peut cependant générer un volume important de logs. Il est donc recommandé, une fois la mise en place validée, de l'abaisser à 1.
-* La valeur par défaut de 1 pour le paramètre `max_buffer_size` fonctionne bien et garantit une latence réduite au minimum entre l'apparition d'une alerte et sa transmission à BSM. Il pourrait s'avérer utile de l'augmenter dans le cas où le flux à transmettre comporterait en continu plusieurs événements par seconde et au-delà. 
+* La valeur par défaut de 1 pour le paramètre `max_buffer_size` fonctionne bien et garantit une latence réduite au minimum entre l'apparition d'une alerte et sa transmission à BSM. Il pourrait s'avérer utile de l'augmenter dans le cas où le flux à transmettre comporterait en continu plusieurs événements par seconde et au-delà.
 
 ---------------
 

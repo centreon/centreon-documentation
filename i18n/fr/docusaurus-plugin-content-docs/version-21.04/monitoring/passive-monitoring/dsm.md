@@ -9,7 +9,7 @@ détection d'un problème et attribuer des événements dynamiquement vers un em
 console d'événements.
 
 Une ressource a un nombre défini d'emplacement (slot) sur lesquels des alertes seront attribuées (stockées). Tant que
-cet événement ne sera pas pris en compte, par une action humaine, il restera visible dans l'interface Centreon. Quand 
+cet événement ne sera pas pris en compte, par une action humaine, il restera visible dans l'interface Centreon. Quand
 l'événement est acquitté, l'emplacement devient disponible pour de nouveaux événements.
 
 L'objectif de ce module est d'améliorer le système de base de gestion des trap SNMP de Centreon.  C'est un complément
@@ -90,13 +90,13 @@ Veuillez suivre le tableau ci-dessous afin de comprendre le rôle de tous les pa
 * **Description** : Description du groupe.
 * **Host Name** : Nom de l'hôte auquel seront ajouté les emplacements.
 * **Service template based**: Le modèle de service de base permet de créer des emplacements de service sur l'hôte. Ce
-  modèle doit être 100% passif et une macro personnalisée doit être créée dessus. La macro est nommée **ALARM_ID** et
-  la valeur par défaut doit être **empty**.
+modèle doit être 100% passif et une macro personnalisée doit être créée dessus. La macro est nommée **ALARM_ID** et
+la valeur par défaut doit être **empty**.
 * **Number of slots**: Nombre d'emplacements qui seront créés.
 * **Slot name prefix**: Le préfixe est utilisé pour donner le nom des emplacements. Le nom sera suivi d'un incrément
-  de 0 juqu'au nombre d'emplacements désirés.
+de 0 juqu'au nombre d'emplacements désirés.
 * **Check command**: Cette commande de vérification est utilisée lorsque le service doit être forcé pour libérer un
-  slot. La commande doit envoyer un code retour correct.
+slot. La commande doit envoyer un code retour correct.
 * **Status**: Le statut de la configuration.
 
 Un exemple de modèle de service passif est disponible ci-dessous:
@@ -129,19 +129,19 @@ Cette commande accepte certains paramètres. Vous trouverez dans le tableau suiv
 paramètre :
 
 * **-H** : Adresse ip ou nom d'hôte vers lequel vous souhaitez rediriger l'alarme. Vous pouvez passer la valeur
-  @HOSTADDRESS@ afin de garder le même hôte ou vous pouvez utiliser ce que vous voulez afin de centraliser toutes les
-  alarmes sur le même hôte virtuel par exemple qui héberge toutes les alarmes.
+@HOSTADDRESS@ afin de garder le même hôte ou vous pouvez utiliser ce que vous voulez afin de centraliser toutes les
+alarmes sur le même hôte virtuel par exemple qui héberge toutes les alarmes.
 * **-o** : Message d'information que dsm mettra lorsque la commande soumettra le résultat dans le bon emplacement. Ce
-  message peut être construit avec toutes les valeurs $* et avec une chaîne spécifique que vous passez en paramètre.
+message peut être construit avec toutes les valeurs $* et avec une chaîne spécifique que vous passez en paramètre.
 * **-i** : Identifiant de l'alarme. L'ID d'alarme peut être construit avec la concaténation de certaines variables
-  comme "$ 1- $ 4". L'identifiant permet d'utiliser l'option d'acquittement automatique de l'alarme lorsque vous avez la
-  possibilité de créer le même identifiant pendant le traitement d'ouverture et de fermeture de l'alarme.
+comme "$ 1- $ 4". L'identifiant permet d'utiliser l'option d'acquittement automatique de l'alarme lorsque vous avez la
+possibilité de créer le même identifiant pendant le traitement d'ouverture et de fermeture de l'alarme.
 * **-s** : Etat que vous souhaitez transmettre en paramètre à l'alarme. Vous pouvez utiliser @STATUS@ afin d'utiliser
-  la génération de statut héritée du système de règles correspondant.
+la génération de statut héritée du système de règles correspondant.
 * **-t** : Temps que vous souhaitez passer à dsm afin de conserver le temps réel de réception du trap.
 * **-m** : Liste des macros et de ses valeurs que vous souhaitez mettre à jour lors du traitement de l'alarme. Veuillez
-  suivre la syntaxe ci-dessous: macro1=valeur1|macro2=valeur2|macro3=valeur3 Cette fonction est utilisée pour mettre à
-  jour certains paramètres en direct sur la mémoire centrale Centreon-Engine sans redémarrage.
+suivre la syntaxe ci-dessous: macro1=valeur1|macro2=valeur2|macro3=valeur3 Cette fonction est utilisée pour mettre à
+jour certains paramètres en direct sur la mémoire centrale Centreon-Engine sans redémarrage.
 
 Votre formulaire devrait maintenant être comme ça :
 
@@ -166,18 +166,18 @@ Il est possible de modifier la configuration par défaut du module en créant / 
 
 ```shell
 %centreon_dsmd_config = (
-    # which user will send action
-    centreon_user => 'centreon',
-    # timeout to send command
-    submit_command_timeout => 5,
-    # custom macro used to keep alarm ID
-    macro_config => 'ALARM_ID',
-    # number of alarms retrieve from the cache for analysis
-    sql_fetch => 1000,
-    # interval in seconds to clean locks
-    clean_locks_time => 3600,
-    # duration in seconds to keep locks
-    clean_locks_keep_stored => 3600,
+# which user will send action
+centreon_user => 'centreon',
+# timeout to send command
+submit_command_timeout => 5,
+# custom macro used to keep alarm ID
+macro_config => 'ALARM_ID',
+# number of alarms retrieve from the cache for analysis
+sql_fetch => 1000,
+# interval in seconds to clean locks
+clean_locks_time => 3600,
+# duration in seconds to keep locks
+clean_locks_keep_stored => 3600,
 );
 
 1;
@@ -193,12 +193,12 @@ Pour modifier la période de rétention, par défaut **180 jours**, vous pouvez 
 
 ```shell
 %centreon_dsm_purge_config = (
-    # period in days
-    history_time => 180,
+# period in days
+history_time => 180,
 );
 
 1;
-``` 
+```
 
 Pour modifier l'heure de la tâche cron, vous pouvez modifier le fichier **/etc/cron.d/centreon-dsm** :
 

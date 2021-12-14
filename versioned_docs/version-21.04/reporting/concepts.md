@@ -26,9 +26,9 @@ To calculate the availability rate the formula is: "Up" duration /
 Additional rules:
 
 -   Time spent in the "Unreachable" state is not considered in the
-    calculation of availability.
+calculation of availability.
 -   Time spent in "Planned Downtime" is not considered in the
-    calculation of availability.
+calculation of availability.
 
 Example: For a report covering one day, if a host is available 23 hours
 and unavailable 1 hour out of a 24 hour-period, its availability will be
@@ -45,9 +45,9 @@ durations) / ("OK" + "Warning" + "Critical" durations)
 Additional rules :
 
 -   Time spent in the "Unknown" state is not considered in the
-    calculation of the availability.
+calculation of the availability.
 -   Time spent in "Planned Downtime" is not considered in the
-    calculation of availability.
+calculation of availability.
 
 ### Events
 
@@ -57,9 +57,9 @@ This corresponds to the "HARD" state in Centreon.
 In the reports, several message types correspond to different states:
 
 -   Exception: Denotes a "Down" state for a host and a "Critical"
-    state for a service.
+state for a service.
 -   Warning: Denotes a "Warning" state for the services, but there is
-    no equivalent for hosts.
+no equivalent for hosts.
 -   Information: Any other state.
 
 An event on a host or service is characterized by three values:
@@ -71,14 +71,14 @@ An event on a host or service is characterized by three values:
 ### Additional indicators
 
 -   MTRS (Mean Time To Restore Service) pertains to maintainability:
-    Average duration of the failure. This indicator should be as low as
-    possible.
+Average duration of the failure. This indicator should be as low as
+possible.
 -   MTBF (Mean Time Between Failure) pertains to reliability: Average
-    time between the end of an incident and the beginning of the next.
-    This indicator should be as high as possible.
+time between the end of an incident and the beginning of the next.
+This indicator should be as high as possible.
 -   MTBSI (Mean Time Between Service Incident): Average time between the
-    beginning of two incidents. This indicator should be as high as
-    possible.
+beginning of two incidents. This indicator should be as high as
+possible.
 
 The diagram below shows the scope of these indicators:
 
@@ -95,35 +95,35 @@ reports, you should monitor at least some basic performance indicators
 (metrics):
 
 -   CPU -- Should return a percentage value, using one or more metrics
-    (cpu_total, cpu_sys, cpu_1, etc.), with 100 as the maximum value.
+(cpu_total, cpu_sys, cpu_1, etc.), with 100 as the maximum value.
 -   Memory should return at least one metric with this information:
 
-  -   Memory usage: the value expressed in bytes only
-  -   Memory usage warning threshold
-  -   Memory usage critical threshold
-  -   Total allocated memory in Bytes.
+-   Memory usage: the value expressed in bytes only
+-   Memory usage warning threshold
+-   Memory usage critical threshold
+-   Total allocated memory in Bytes.
 
 The plugin for monitoring this indicator must return the following output:
 
-    status information | metric_name=valueunit;warning_threshold;critical_threshold;min_value;max_value
+status information | metric_name=valueunit;warning_threshold;critical_threshold;min_value;max_value
 
 -   Storage usage -- Two possible kinds of service:
 
-  -  Monitoring one partition by service (metrics are often designated  as "used" and "size")
-  -   Monitoring multiple partitions by service and each metric corresponds to a partition name.
+-  Monitoring one partition by service (metrics are often designated  as "used" and "size")
+-   Monitoring multiple partitions by service and each metric corresponds to a partition name.
 
- In this two cases, the performance data returned by storage plugins have to correspond to this format:
+In this two cases, the performance data returned by storage plugins have to correspond to this format:
 
-    status information | metric_name=valueunit;warning_threshold;critical_threshold;min_value;max_value metric_name_2=value...
+status information | metric_name=valueunit;warning_threshold;critical_threshold;min_value;max_value metric_name_2=value...
 
 -   Traffic -- Standard traffic reports use two metrics in parameters,
-    one for the inbound traffic and one for the outbound. For
-    compatibility, your plugins must return two metrics, although their
-    names do not matter. For each metric, the maximum possible value
-    must be specified. This is the recommended plugin format:
+one for the inbound traffic and one for the outbound. For
+compatibility, your plugins must return two metrics, although their
+names do not matter. For each metric, the maximum possible value
+must be specified. This is the recommended plugin format:
 
 
-    any status information | $inboundTrafic=$value$unit;$warning_threshold;$critical_threshold;$min_value;$max_value $outBoundTrafic=...
+any status information | $inboundTrafic=$value$unit;$warning_threshold;$critical_threshold;$min_value;$max_value $outBoundTrafic=...
 
 
 > Using the Centreon Plugin Packs guarantees the quality of your data.
@@ -151,27 +151,27 @@ requirements.
 Parameter types can be:
 
 -   A main object on which the report will be generated, such as:
-    -   A host
-    -   A host group: functional group defined in Centreon to classify
-  hosts by customer, application, business unit, country, etc.
-    -   Several host groups.
+-   A host
+-   A host group: functional group defined in Centreon to classify
+hosts by customer, application, business unit, country, etc.
+-   Several host groups.
 
 -   A time period (or "Business hours" also called "Live service")
-    for which statistics will be calculated.
+for which statistics will be calculated.
 -   Filters that take into account only specific types of hardware,
-    services and metrics from selected host groups:
+services and metrics from selected host groups:
 
- -   Host categories: Classifies hosts into technical groups for determining the type or technical function
- of a host (e.g., Linux servers, Windows servers, Cisco routers, printers).
- -   Service categories: Defines the type of service (e.g., CPU, physical memory, storage).
- -   Metrics: Indicates performance data collected by the services
- (monitoring indicators). One monitoring service can collect
- several metrics. However metric names and units are not
- standardized. For instance, one CPU-type service can collect only
- a metric called "cpu_average" defined in percentages, and
- another CPU-type service can collect a metric by CPU core
- configured in the hardware. Therefore, when generating a report,
- it is essential to select the metrics used in the statistic calculation.
+-   Host categories: Classifies hosts into technical groups for determining the type or technical function
+of a host (e.g., Linux servers, Windows servers, Cisco routers, printers).
+-   Service categories: Defines the type of service (e.g., CPU, physical memory, storage).
+-   Metrics: Indicates performance data collected by the services
+(monitoring indicators). One monitoring service can collect
+several metrics. However metric names and units are not
+standardized. For instance, one CPU-type service can collect only
+a metric called "cpu_average" defined in percentages, and
+another CPU-type service can collect a metric by CPU core
+configured in the hardware. Therefore, when generating a report,
+it is essential to select the metrics used in the statistic calculation.
 
 ### Host groups and categories
 
@@ -188,9 +188,9 @@ detailed distribution by type of hardware, you will have to define the
 host groups and categories using this method:
 
 -   Host groups: **Databases**, Applications, Security, Network, Mail,
-    etc.
+etc.
 -   Host categories: DB2-Servers, MySQL-Servers, Oracle-Servers,
-    SQL-Servers, etc.
+SQL-Servers, etc.
 
 Here is an exemple of statistics that you can obtain using those groups
 and categories:
@@ -204,13 +204,13 @@ In the same way, we can analyze the statistics using the following
 dimensions:
 
 -   By country (host group) with a data distribution by type of network
-    hardware (host category)
+hardware (host category)
 -   By country (host group) with a data distribution by customer (host
-    category)
+category)
 -   By customer (host group) with a data distribution by country (host
-    category)
+category)
 -   By customer (host group) with a data distribution by application
-    server (host category)
+server (host category)
 
 There is no standard set of rules for defining host groups and
 categories. They must correspond to your reporting needs.
@@ -218,11 +218,11 @@ categories. They must correspond to your reporting needs.
 **Creating categories and groups**
 
 -   You associate hosts to host groups in the *Configuration \> Hosts \>
-    Host groups* menu on the Centreon interface. You can also use the
-    Tab *Relations* in the host add/modification form.
+Host groups* menu on the Centreon interface. You can also use the
+Tab *Relations* in the host add/modification form.
 -   You associate hosts and host categories in the menu
-    *Configuration \> Hosts \> Categories*. You can also use the Tab
-    *Relations* in the host add/modification form.
+*Configuration \> Hosts \> Categories*. You can also use the Tab
+*Relations* in the host add/modification form.
 
 ### Service categories
 
@@ -235,7 +235,7 @@ This type of configuration lets you:
 
 -   Compare the number of alerts generated by each type of service.
 -   Select the service category that indicates storage usage information
-    when you need to generate a capacity report.
+when you need to generate a capacity report.
 
 **Like the host groups and categories, service categories must be
 defined according to your reporting needs.**
@@ -271,13 +271,13 @@ Example:
 -   Host "H1" is related to host group "G1" in January.
 -   Host "H1" no longer belongs to group "G1" as of February 1.
 -   After this change, if a report is generated for group "G1" over
-    the reporting period of January, the statistics of host "H1" will
-    be considered in the statistics of group "G1".
+the reporting period of January, the statistics of host "H1" will
+be considered in the statistics of group "G1".
 -   The statistics of host "H1" will not be considered for group
-    "G1" if the reporting period selected is February.
+"G1" if the reporting period selected is February.
 -   If the reporting periods starts on January 15 and end on February
-    15, the statistics of host "H1" will be considered for the
-    statistics of group "G1" only from January 15 to January 31.
+15, the statistics of host "H1" will be considered for the
+statistics of group "G1" only from January 15 to January 31.
 
 **The initial Centreon setup and the relationship between objects must
 be clearly defined before installing Centreon MBI on a production
@@ -294,20 +294,20 @@ data warehouse play a critical role that should be understood.
 The ETL operates in **two modes**:
 
 -   **Daily mode**: When up and running, Centreon MBI reporting platform
-    normally functions in this mode. Centreon data is imported daily
-    into the reporting database, but incrementally. More specifically:
+normally functions in this mode. Centreon data is imported daily
+into the reporting database, but incrementally. More specifically:
 
-    - data_bin is imported incrementally and aggregations are
-    calculated only for the previous day.
-    - the entire hoststatevents and servicestatevents tables are
-    imported but events are calculated incrementally.
+- data_bin is imported incrementally and aggregations are
+calculated only for the previous day.
+- the entire hoststatevents and servicestatevents tables are
+imported but events are calculated incrementally.
 
-    The update process can take a matter of seconds up to several minutes
-    depending on the size of your monitored environment.
-    The daily mode is configured in a crontab file located in
-    `/etc/cron.d/centreon-bi-engine`:
+The update process can take a matter of seconds up to several minutes
+depending on the size of your monitored environment.
+The daily mode is configured in a crontab file located in
+`/etc/cron.d/centreon-bi-engine`:
 
-        30 4 * * * root /usr/share/centreon-bi/bin/centreonBIETL --daily >> /var/log/centreon-bi/centreonBIETL.log 2>&1
+30 4 * * * root /usr/share/centreon-bi/bin/centreonBIETL --daily >> /var/log/centreon-bi/centreonBIETL.log 2>&1
 
 
 > **Warning**
@@ -316,20 +316,20 @@ The ETL operates in **two modes**:
 > duplication problems.
 
 -   **Rebuild mode**: After installation of the Centreon MBI platform,
-    this mode if often used in case of data corruption. You can import
-    and calculate statistics over a defined period, or by using the
-    **retention parameters**.
+this mode if often used in case of data corruption. You can import
+and calculate statistics over a defined period, or by using the
+**retention parameters**.
 
-    Example:
+Example:
 
-    /usr/share/centreon-bi/bin/centreonBIETL -r
+/usr/share/centreon-bi/bin/centreonBIETL -r
 
-    To obtain acceptable execution times and manage all the data generated
-    by your Centreon platform, the hardware configuration, storage
-    capacity and MariaDB optimizations are three important points to
-    consider when installing Centreon MBI. For recommendations, consult
-    the online documentation in the Architecture & Pre-requisites
-    chapters.
+To obtain acceptable execution times and manage all the data generated
+by your Centreon platform, the hardware configuration, storage
+capacity and MariaDB optimizations are three important points to
+consider when installing Centreon MBI. For recommendations, consult
+the online documentation in the Architecture & Pre-requisites
+chapters.
 
 
 > We advise you to monitor the reporting database using the dedicated plugin pack. If the ETL does
@@ -344,26 +344,26 @@ The ETL operates in **two modes**:
 Various parameter options can be passed to the script to execute
 specific actions:
 
-    -c  Create the reporting database model.
-    -d  Daily execution to calculate statistics on yesterday.
-    -r  Rebuild mode to calculate statitics on a historical period. Can be used with:
-        Extra arguments for options -d and -r (if none of the following is specified, these one are selected by default: -IDEP):
-    -I  Extract data from the monitoring server.
-        Extra arguments for option -I:
-        -C  Extract only Centreon configuration database only. Works with option -I.
-        -i  Ignore perfdata extraction from monitoring server.
-        -o  Extract only perfdata from monitoring server.
+-c  Create the reporting database model.
+-d  Daily execution to calculate statistics on yesterday.
+-r  Rebuild mode to calculate statitics on a historical period. Can be used with:
+Extra arguments for options -d and -r (if none of the following is specified, these one are selected by default: -IDEP):
+-I  Extract data from the monitoring server.
+Extra arguments for option -I:
+-C  Extract only Centreon configuration database only. Works with option -I.
+-i  Ignore perfdata extraction from monitoring server.
+-o  Extract only perfdata from monitoring server.
 
-    -D  Calculate dimensions.
-    -E  Calculate event and availability statistics.
-    -P  Calculate perfdata statistics.
-        Common options for -rIDEP:
-        -s  Start date in format YYYY-MM-DD.
-            By default, the program uses the data retention period from Centreon MBI configuration.
-        -e  End date in format YYYY-MM-DD.
-            By default, the program uses the data retention period from Centreon MBI configuration.
-        -p  Do not empty statistic tables, delete only entries for the processed period.
-            Does not work on raw data tables, only on Centreon MBI statistics tables.
+-D  Calculate dimensions.
+-E  Calculate event and availability statistics.
+-P  Calculate perfdata statistics.
+Common options for -rIDEP:
+-s  Start date in format YYYY-MM-DD.
+By default, the program uses the data retention period from Centreon MBI configuration.
+-e  End date in format YYYY-MM-DD.
+By default, the program uses the data retention period from Centreon MBI configuration.
+-p  Do not empty statistic tables, delete only entries for the processed period.
+Does not work on raw data tables, only on Centreon MBI statistics tables.
 
 If no "start" or "end" date is given to the ETL script, the start
 and end date are automatically calculated using the retention parameters
@@ -377,7 +377,7 @@ consider optimizing your reporting server by:
 
 -   Optimizing the MariaDB configuration.
 -   Storing the database on a high-performance disk (e.g., with no i/o
-    wait time).
+wait time).
 -   Adding more physical memory (+ optimize configuration).
 -   Not sharing storage or the database with other applications.
 
@@ -407,7 +407,7 @@ procedure does not include the importing of logs or raw data. Make sure
 all data imported from Centreon is up to date on your reporting server
 by running the following command:
 
-    #/usr/share/centreon-bi/etl/centreonbiMonitoring.pl --db-content
+#/usr/share/centreon-bi/etl/centreonbiMonitoring.pl --db-content
 
 And make sure "ETL OK - Database is up to date" appears OR that the
 following tables are not listed:
@@ -428,7 +428,7 @@ calculation time.
 
 #### Import the latest Centreon configuration
 
-    #/usr/share/centreon-bi/etl/importData.pl -r --centreon-only
+#/usr/share/centreon-bi/etl/importData.pl -r --centreon-only
 
 #### Calculate reporting dimensions
 
@@ -436,15 +436,15 @@ This command will erase all previous changes tracked by the reporting
 mecanism and include only the latest. If you want to include former
 changes, replace the **-r** by **-d**::
 
-    #/usr/share/centreon-bi/etl/dimensionsBuilder.pl -r
+#/usr/share/centreon-bi/etl/dimensionsBuilder.pl -r
 
 #### Aggregate events and availability
 
-    #nohup /usr/share/centreon-bi/etl/eventStatisticsBuilder.pl -r > /var/log/centreon-bi/rebuildAllEvents.log &
+#nohup /usr/share/centreon-bi/etl/eventStatisticsBuilder.pl -r > /var/log/centreon-bi/rebuildAllEvents.log &
 
 #### Aggreggate performance data (storage, traffic, etc.)
 
-    #nohup /usr/share/centreon-bi/etl/perfdataStatisticsBuilder.pl -r > /var/log/centreon-bi/rebuildAllPerf.log &
+#nohup /usr/share/centreon-bi/etl/perfdataStatisticsBuilder.pl -r > /var/log/centreon-bi/rebuildAllPerf.log &
 
 ### How to rebuild missing reporting data
 
@@ -457,20 +457,20 @@ interrupted).
 The plugin may return a message that your database is not up to date, as
 in the following example: :
 
-    # /usr/share/centreon-bi/etl/centreonbiMonitoring.pl --db-content
-    [Table mod_bam_reporting, last entry: 2020-07-01 00:00:00] [Table mod_bi_ba_incidents, last entry: 2020-07-01 00:00:00] [Table hoststateevents, last entry: 2020-07-01 00:00:00]
-    [Table servicestateevents, last entry: 2020-07-01 00:00:00] [Table mod_bi_hoststateevents, last entry: 2020-07-01 00:00:00]
-    [Table mod_bi_servicestateevents, last entry: 2020-07-01 00:00:00] [Table mod_bi_hostavailability, last entry: 2020-07-01 00:00:00]
-    [Table mod_bi_serviceavailability, last entry: 2020-07-01 00:00:00] [Table data_bin, last entry: 2020-08-01 00:00:00] [Table mod_bi_metricdailyvalue, last entry: 2020-08-01 00:00:00]
-    [Table mod_bi_metrichourlyvalue, last entry: 2020-08-01 23:00:00]
+# /usr/share/centreon-bi/etl/centreonbiMonitoring.pl --db-content
+[Table mod_bam_reporting, last entry: 2020-07-01 00:00:00] [Table mod_bi_ba_incidents, last entry: 2020-07-01 00:00:00] [Table hoststateevents, last entry: 2020-07-01 00:00:00]
+[Table servicestateevents, last entry: 2020-07-01 00:00:00] [Table mod_bi_hoststateevents, last entry: 2020-07-01 00:00:00]
+[Table mod_bi_servicestateevents, last entry: 2020-07-01 00:00:00] [Table mod_bi_hostavailability, last entry: 2020-07-01 00:00:00]
+[Table mod_bi_serviceavailability, last entry: 2020-07-01 00:00:00] [Table data_bin, last entry: 2020-08-01 00:00:00] [Table mod_bi_metricdailyvalue, last entry: 2020-08-01 00:00:00]
+[Table mod_bi_metrichourlyvalue, last entry: 2020-08-01 23:00:00]
 
 -   When only the **mod_bi_*** tables appear, there is an incident
-    with aggregated data and not the Centreon data.
+with aggregated data and not the Centreon data.
 
-    In this case, **skip the "Import Missing data" section** below.
+In this case, **skip the "Import Missing data" section** below.
 
 -   If the following tables appear, a problem has occurred with the raw
-    data imported from Centreon:
+data imported from Centreon:
 
 -   hoststatevents
 -   servicestateevents
@@ -486,17 +486,17 @@ Before running the commands in the procedure below, check that:
 
 -   The Centreon platform is up and running, and data is up to date.
 -   The daily cron centreonBIETL is not enabled (it should be commented
-    out) on the reporting server in the file
-    /etc/cron.d/centreon-bi-engine. It must be enabled at the end of the
-    procedure.
+out) on the reporting server in the file
+/etc/cron.d/centreon-bi-engine. It must be enabled at the end of the
+procedure.
 -   The script dataRetentionManager.pl is not enabled (also commented
-    out) on the reporting server in the file
-    /etc/cron.d/centreon-bi-purge. It must be enabled at the end of the
-    procedure.
+out) on the reporting server in the file
+/etc/cron.d/centreon-bi-purge. It must be enabled at the end of the
+procedure.
 -   Retention is enabled on the interface.
 -   Retention is configured for no more than 1024 days.
 -   The scripts in `/etc/cron.d/centreon-bi-backup-reporting-server` are not enabled
-    (commented out). They must be enabled at the end of the procedure.
+(commented out). They must be enabled at the end of the procedure.
 
 
 > For the following commands, we advise you to use "screen" or "nohup" to
@@ -508,93 +508,93 @@ Before running the commands in the procedure below, check that:
 #### Import the missing data
 
 -   Import the data, without the performance data (data_bin table),
-    from a specific date according to the Availability retention period
-    you defined in `Centreon MBI > Generation Option > Data Retention
-    Parameters` :
+from a specific date according to the Availability retention period
+you defined in `Centreon MBI > Generation Option > Data Retention
+Parameters` :
 
-        #nohup /usr/share/centreon-bi/etl/importData.pl -r -s $date_start$-e $date_end$ --ignore-databin > /var/log/centreon-bi/rebuild_importDataEvents.log &
+#nohup /usr/share/centreon-bi/etl/importData.pl -r -s $date_start$-e $date_end$ --ignore-databin > /var/log/centreon-bi/rebuild_importDataEvents.log &
 
-    *Execution time: fast (minutes)*
+*Execution time: fast (minutes)*
 
 -   Import the data from data_bin, starting from the date the last data
-    was present in the database. You will find that date next to the
-    data_bin table, returned by the plugin: :
+was present in the database. You will find that date next to the
+data_bin table, returned by the plugin: :
 
-        #nohup /usr/share/centreon-bi/etl/importData.pl -r --no-purge --databin-only -s $date_start$ -e $date_end$ > /var/log/centreon-bi/rebuild_importDataBin.log &
+#nohup /usr/share/centreon-bi/etl/importData.pl -r --no-purge --databin-only -s $date_start$ -e $date_end$ > /var/log/centreon-bi/rebuild_importDataBin.log &
 
-    *Execution time: fast (minutes), depending on the number of days imported.*
+*Execution time: fast (minutes), depending on the number of days imported.*
 
 #### Update reporting dimensions
 
 -   Update the dimensions. Using the **"-d"** option keeps the history
-    of changes made in the configuration. Avoid using the "-r" option
-    or you will have to rebuild all statistics: :
+of changes made in the configuration. Avoid using the "-r" option
+or you will have to rebuild all statistics: :
 
-        #nohup /usr/share/centreon-bi/etl/dimensionsBuilder.pl -d > /var/log/centreon-bi/rebuild_dimensions.log &
+#nohup /usr/share/centreon-bi/etl/dimensionsBuilder.pl -d > /var/log/centreon-bi/rebuild_dimensions.log &
 
-    *Execution time: fast (seconds or minutes)*
+*Execution time: fast (seconds or minutes)*
 
 #### Rebuild missing events and availability data
 
 -   Rebuild events from a specific date according to the retention
-    period defined in Centreon MBI > Generation Option > Data
-    Retention Parameters: :
+period defined in Centreon MBI > Generation Option > Data
+Retention Parameters: :
 
-        #nohup /usr/share/centreon-bi/etl/eventStatisticsBuilder.pl -r --events-only > /var/log/centreon-bi/rebuild_events.log &
+#nohup /usr/share/centreon-bi/etl/eventStatisticsBuilder.pl -r --events-only > /var/log/centreon-bi/rebuild_events.log &
 
-    *Execution time: Depending on the monitoring perimeter and the
-    number of events: several hours but normally not be longer than 24
-    hours. In excess of this limit, please contact the Centreon support
-    team.*
+*Execution time: Depending on the monitoring perimeter and the
+number of events: several hours but normally not be longer than 24
+hours. In excess of this limit, please contact the Centreon support
+team.*
 
 -   Rebuild the availability tables, starting from the day where the
-    last data was present. Check the mod_bi_hostavailability and
-    mod_bi_serviceavailability date returned by the plugin for the
-    lastest build data:
+last data was present. Check the mod_bi_hostavailability and
+mod_bi_serviceavailability date returned by the plugin for the
+lastest build data:
 
-        #nohup /usr/share/centreon-bi/etl/eventStatisticsBuilder.pl -r --no-purge --availability-only -s $date_start$ -e $date_end$ > /var/log/centreon-bi/rebuild_availability.log &
+#nohup /usr/share/centreon-bi/etl/eventStatisticsBuilder.pl -r --no-purge --availability-only -s $date_start$ -e $date_end$ > /var/log/centreon-bi/rebuild_availability.log &
 
-    *Execution time: From a few minutes to several hours, depending on
-    the number of days of rebuild*.
+*Execution time: From a few minutes to several hours, depending on
+the number of days of rebuild*.
 
 #### Rebuild the missing performance data
 
 -   Rebuild the missing performance statistics. Check the earliest date
-    next to the mod_bi_metrichourlyvalue and mod_bi_metricdailyvalue
-    tables returned by the plugin for the last data calculated: :
+next to the mod_bi_metrichourlyvalue and mod_bi_metricdailyvalue
+tables returned by the plugin for the last data calculated: :
 
-        #nohup /usr/share/centreon-bi/etl/perfdataStatisticsBuilder.pl -r --no-purge -s $date_start$ -e $date_end$ > /var/log/centreon-bi/rebuild_perfData.log &
+#nohup /usr/share/centreon-bi/etl/perfdataStatisticsBuilder.pl -r --no-purge -s $date_start$ -e $date_end$ > /var/log/centreon-bi/rebuild_perfData.log &
 
-    *Execution time: From a few minutes to several hours, depending on
-    the number of days to calculate. If the number of days of rebuild is
-    greater than the hourly retention setting, the amount of data
-    generated may be voluminous and the rebuild time long.*
+*Execution time: From a few minutes to several hours, depending on
+the number of days to calculate. If the number of days of rebuild is
+greater than the hourly retention setting, the amount of data
+generated may be voluminous and the rebuild time long.*
 
 #### What to do after executing the scripts
 
 -   Case 1 : **The rebuild is performed on the same day**
 
-    Uncomment the lines in `/etc/cron.d/centreon-bi-engine` and
-    `/etc/cron.d/centreon-bi-purge` and restart the cron service:
+Uncomment the lines in `/etc/cron.d/centreon-bi-engine` and
+`/etc/cron.d/centreon-bi-purge` and restart the cron service:
 
-        systemctl restart crond restart
+systemctl restart crond restart
 
 -   Case 2 : **The rebuild finishes the next day**
 
-    -   Uncomment the lines in `/etc/cron.d/centreon-bi-engine` and
-     `/etc/cron.d/centreon-bi-purge` and restart the cron service:
+-   Uncomment the lines in `/etc/cron.d/centreon-bi-engine` and
+`/etc/cron.d/centreon-bi-purge` and restart the cron service:
 
-            systemctl restart crond restart
+systemctl restart crond restart
 
-    -   Manually execute the daily script:
+-   Manually execute the daily script:
 
-            /usr/share/centreon-bi/bin/centreonBIETL -d
+/usr/share/centreon-bi/bin/centreonBIETL -d
 
 -   Case 3 : **In other cases**: Follow the procedure of partial rebuild for the missing days.
 
-    Example:
-    The rebuild took 4 days, from January 1 to January 4: You need to follow the procedure from the beginning and use date_start = 01-01 and date_end = 04/01
-    The procedure is over, the output of the BI monitoring plugin should be “ETL execution OK, database is up-to-date”.
+Example:
+The rebuild took 4 days, from January 1 to January 4: You need to follow the procedure from the beginning and use date_start = 01-01 and date_end = 04/01
+The procedure is over, the output of the BI monitoring plugin should be “ETL execution OK, database is up-to-date”.
 
 ### Centreon BAM statistics
 
@@ -602,14 +602,14 @@ If you recently updated your Centreon BAM module to 3.0 or rebuilt the
 Centreon BAM statistics, you must reimport the BAM data on the reporting
 server by running the following command:
 
-    /usr/share/centreon-bi/etl/importData.pl -r --bam-only
+/usr/share/centreon-bi/etl/importData.pl -r --bam-only
 
 This will import all Centreon BAM reporting tables.
 
 If statistics are not up to date, first execute the following command to rebuild statistics &
 then import them using the previous command
 
-    /usr/share/centreon/www/modules/centreon-bam-server/engine/centreon-bam-rebuild-events --all
+/usr/share/centreon/www/modules/centreon-bam-server/engine/centreon-bam-rebuild-events --all
 
 
 ### How to rebuild only Centile statistics
@@ -621,12 +621,12 @@ subsection "Centile parameters" as described below to create a
 relevant centile/timeperiod combination(s). If this report is not
 required, simple leave the default values.
 
-  Parameter                                                | Value
-  ---------------------------------------------------------|--------------------------
-  Calculate centile aggregation                            | Monthly (minimum)
-  Select service categories to aggregate centile on        | Select at least one traffic service category
-  Set first day of the week                                | Monday (default)
-  Create the required centile-time period combination(s)   | Create at least one combination, e.g. 99.0000 - 24x7
+Parameter                                                | Value
+---------------------------------------------------------|--------------------------
+Calculate centile aggregation                            | Monthly (minimum)
+Select service categories to aggregate centile on        | Select at least one traffic service category
+Set first day of the week                                | Monday (default)
+Create the required centile-time period combination(s)   | Create at least one combination, e.g. 99.0000 - 24x7
 
 See example in the screenshot below:
 
@@ -644,14 +644,14 @@ time.
 On the **reporting** server, run the following command to import the
 configuration data:
 
-    /usr/share/centreon-bi/bin/centreonBIETL -rIC
+/usr/share/centreon-bi/bin/centreonBIETL -rIC
 
 Then, run the following command to update the centile configuration in
 the datawarehouse:
 
-    /usr/share/centreon-bi/etl/dimensionsBuilder.pl -d
+/usr/share/centreon-bi/etl/dimensionsBuilder.pl -d
 
 Finally, run the following command to calculate only the centile
 statistics:
 
-    /usr/share/centreon-bi/etl/perfdataStatisticsBuilder.pl -r --centile-only
+/usr/share/centreon-bi/etl/perfdataStatisticsBuilder.pl -r --centile-only

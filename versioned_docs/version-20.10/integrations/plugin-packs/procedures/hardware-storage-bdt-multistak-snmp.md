@@ -2,6 +2,9 @@
 id: hardware-storage-bdt-multistak-snmp
 title: BDT MultiStak SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Plugin Pack Assets
 
@@ -12,18 +15,18 @@ The Plugin Pack BDT MutliStak SNMP collects metrics for:
 
 ### Collected Metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
+<Tabs groupId="operating-systems">
+<TabItem value="Hardware" label="Hardware">
 
-<!--Hardware-->
+| Metric name         | Description                       | Unit |
+| :------------------ | :-------------------------------- | :--- |
+| device status       | Status of the device              |      |
+| module status       | Status of the module              |      |
+| module board status | Status of the module board        |      |
+| module psu status   | Status of the module power supply |      |
 
-| Metric name                                        | Description                       | Unit |
-| :------------------------------------------------- | :-------------------------------- | :--- |
-| device status                                      | Status of the device              |      |
-| module status                                      | Status of the module              |      |
-| module board status                                | Status of the module board        |      |
-| module psu status                                  | Status of the module power supply |      |
-
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -31,9 +34,8 @@ To monitor your BDT MultiStak device, the SNMP must be configured.
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="licence-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -43,7 +45,8 @@ yum install centreon-plugin-Hardware-Storage-Bdt-Multistak-Snmp
 
 2. On the Centreon Web interface in "Configuration > Plugin ¨Packs > Manager", install the *BDT MultiStak SNMP* Plugin-Pack
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -59,7 +62,8 @@ yum install centreon-pack-hardware-storage-bdt-multistak-snmp
 
 3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *BDT MultiStak SNMP* Plugin-Pack
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host configuration
 
@@ -68,9 +72,9 @@ yum install centreon-pack-hardware-storage-bdt-multistak-snmp
 
 > When using SNMP v3, use the SNMPEXTRAOPTIONS Macro to add specific authentication parameters
 
-| Mandatory | Name             | Description                                    |
-| :-------- | :--------------- | :--------------------------------------------- |
-|           | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo    |
+| Mandatory | Name             | Description                                 |
+| :-------- | :--------------- | :------------------------------------------ |
+|           | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo |
 
 ## How to test the Plugin and what are the main options for?
 
@@ -79,12 +83,12 @@ and test the Plugin by running the following command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_bdt_multistak_snmp.pl  \
-    --plugin=storage::bdt::multistak::snmp::plugin \
-    --mode=hardware \
-    --hostname=10.30.2.114 \
-    --snmp-version='2c' \
-    --snmp-community='bdtms_ro' \
-    --verbose
+--plugin=storage::bdt::multistak::snmp::plugin \
+--mode=hardware \
+--hostname=10.30.2.114 \
+--snmp-version='2c' \
+--snmp-community='bdtms_ro' \
+--verbose
 ```
 
 Expected command output is shown below:
@@ -107,9 +111,9 @@ parameter to the command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_bdt_multistak_snmp.pl  \
-    --plugin=storage::bdt::multistak::snmp::plugin \
-    --mode=hardware \
-    --help
+--plugin=storage::bdt::multistak::snmp::plugin \
+--mode=hardware \
+--help
 ```
 
 ## Troubleshooting
@@ -122,7 +126,7 @@ If you get this message, you're probably facing one of theses issues:
 
 #### UNKNOWN: SNMP GET Request : Cant get a single value.
 
-This error message often refers to the following issues: 
-  - The agent doesn't support the MIB used by the plugin
-  - The targeted SNMP OID cannot be fetched because of insufficient privileges on the device. 
-    SNMP Agent must be capable of accessing to the enterprise branch: .1.3.6.1.4.1.20884
+This error message often refers to the following issues:
+- The agent doesn't support the MIB used by the plugin
+- The targeted SNMP OID cannot be fetched because of insufficient privileges on the device.
+SNMP Agent must be capable of accessing to the enterprise branch: .1.3.6.1.4.1.20884

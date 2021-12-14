@@ -30,13 +30,13 @@ To configure the access to your infrastructure, edit the
 
 ``` perl
 %centreon_vmware_config = (
-    vsphere_server => {
-        default => {
-            url => 'https://<ip_hostname>/sdk',
-            username => '<username>',
-            password => '<password>'
-        }
-    }
+vsphere_server => {
+default => {
+url => 'https://<ip_hostname>/sdk',
+username => '<username>',
+password => '<password>'
+}
+}
 );
 
 1;
@@ -53,19 +53,19 @@ structure:
 
 ``` perl
 %centreon_vmware_config = (
-    vsphere_server => {
-        default => {
-            url => 'https://<ip_hostname>/sdk',
-            username => '<username>',
-            password => '<password>'
-        },
-        'my_other_vcenter' => {
-            url => 'https://<ip_hostname>/sdk',
-            username => '<username>',
-            password => '<password>'
-        },
-    },
-    port => 5700
+vsphere_server => {
+default => {
+url => 'https://<ip_hostname>/sdk',
+username => '<username>',
+password => '<password>'
+},
+'my_other_vcenter' => {
+url => 'https://<ip_hostname>/sdk',
+username => '<username>',
+password => '<password>'
+},
+},
+port => 5700
 );
 
 1;

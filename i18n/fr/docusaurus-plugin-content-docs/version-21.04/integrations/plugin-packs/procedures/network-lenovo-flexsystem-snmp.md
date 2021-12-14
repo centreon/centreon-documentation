@@ -1,7 +1,10 @@
 ---
 id: network-lenovo-flexsystem-snmp
-title: Lenovo Flex System Switch 
+title: Lenovo Flex System Switch
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -10,7 +13,7 @@ Lenovo Flex System est l'architecture de serveurs lames de Lenovo.
 
 ## Contenu du Plugin-Pack
 
-### Objets supervisés 
+### Objets supervisés
 
 * Lenovo Flex System network switch
 
@@ -22,21 +25,24 @@ de superviser les éléments suivants :
 * Ntp : Vérifier le décalage de temps du serveur avec le serveur NTP
 * Uptime : Durée depuis le dernier redémarrage
 
-<!--Cpu-->
+<Tabs groupId="operating-systems">
+<TabItem value="Cpu" label="Cpu">
 
 | Metric name                    | Description                              | Unit   |
 | :----------------------------- | :--------------------------------------- | :------|
 | cpu.utilization.1m.percentage  | CPU utilization for the last minute      | %      |
 | cpu.utilization.5m.percentage  | CPU utilization for the last 5 minutes   | %      |
 
-<!--Storage-->
+</TabItem>
+<TabItem value="Storage" label="Storage">
 
 | Metric name                         | Description                    | Unit   |
 | :---------------------------------- | :----------------------------- |------- |
 | storage.partitions.count            | Total number of partition      |        |
 | partition#storage.space.usage.bytes | Used space on a disk partition | Bytes  |
 
-<!--Memory-Usage-->
+</TabItem>
+<TabItem value="MemoryUsage" label="MemoryUsage">
 
 | Metric name             | Description                 | Unit   |
 | :---------------------- | :---------------------------| :----- |
@@ -44,7 +50,8 @@ de superviser les éléments suivants :
 | memory.usage.percentage | Total current memory usage  |  %     |
 | memory.free.bytes       | Current free memory         | Bytes  |
 
-<!--Traffic-->
+</TabItem>
+<TabItem value="Traffic" label="Traffic">
 
 | Metric name                              | Description                                                               | Unit        |
 | :--------------------------------------- | :------------------------------------------------------------------------ | :---------- |
@@ -53,25 +60,27 @@ de superviser les éléments suivants :
 | interface.packets.\*.errors.percentage   | \*in/out. Incoming/outgoing errored packets going through an interface    | Count & %   |
 | interface.packets.\*.discards.percentage | \*in/out. Incoming/outgoing discarded packets going through an interface  | Count & %   |
 
-A regexp filter is available to target a specific interface identifier/ifName [```--interface='^my-interface-name$' --name```] 
+A regexp filter is available to target a specific interface identifier/ifName [```--interface='^my-interface-name$' --name```]
 
-<!--Environment-->
+</TabItem>
+<TabItem value="Environment" label="Environment">
 
-| Metric name                   | Description                      | Unit     |               
+| Metric name                   | Description                      | Unit     |
 | :---------------------------- | :------------------------------- | :--------|
 | hardware.temperature.celsius  | Temperature of the system        | Celsius  |
 | faultled                      | Status of the fault LED (On/Off) |          |
 
-You can use ```--no-component``` if you want to alert when a component is 
-absent/removed. You can also overload the default status using the 
-```--threshold-overload option```. 
+You can use ```--no-component``` if you want to alert when a component is
+absent/removed. You can also overload the default status using the
+```--threshold-overload option```.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
 Pour utiliser ce plugin-pack, vous devez configurer le service SNMP sur le
-serveur de lames Lenovo Flex System . Une description complète est disponible 
+serveur de lames Lenovo Flex System . Une description complète est disponible
 sur le site officiel de Lenovo :
 
 * Avec la console Web de CMM : https://sysmgt.lenovofiles.com/help/index.jsp?topic=%2Fcom.lenovo.lxci_hwmp_scom.doc%2Fhwmp_enable_snmp_agent
@@ -84,9 +93,8 @@ avec le serveur de lames Lenovo Flex System.
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="operating-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant un switch Lenovo Flex System :
 
@@ -96,7 +104,8 @@ yum install centreon-plugin-Network-Lenovo-Flexsystem-Snmp
 
 2. Installer le Plugin-Pack *Lenovo Flex System Switch* depuis la page "Configuration > Plugin packs > Manager" de l'interface Web Centreon
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant un switch Lenovo Flex System :
 
@@ -112,7 +121,8 @@ yum install centreon-pack-network-lenovo-flexsystem-snmp
 
 3. Installer le Plugin-Pack *Lenovo Flex System Switch* depuis la page "Configuration > Plugin packs > Manager" de l'interface Web Centreon
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -134,15 +144,15 @@ configurez les paramètres SNMP v3 via la macro SNMPEXTRAOPTIONS.
 Une fois le Plugin est installé, vous pouvez tester celui-ci directement en
 ligne de commande depuis votre collecteur Centreon avec l'utilisateur
 *centreon-engine* :
- 
+
 ```bash
 /usr/lib/centreon/plugins/centreon_net_lenovo_flexsystem_snmp.pl \
-  --plugin=network::lenovo::flexsystem::snmp::plugin \
-  --mode=interfaces --hostname=10.30.2.138 \
-  --snmp-community='public' \
-  --snmp-version='2c' \
-  --add-status \
-  --add-traffic
+--plugin=network::lenovo::flexsystem::snmp::plugin \
+--mode=interfaces --hostname=10.30.2.138 \
+--snmp-community='public' \
+--snmp-version='2c' \
+--add-status \
+--add-traffic
 ```
 
 Résultat attendu :
@@ -156,8 +166,8 @@ suivante :
 
 ```bash
 /usr/lib/centreon/plugins/centreon_net_lenovo_flexsystem_snmp.pl \
-  --plugin=network::lenovo::flexsystem::snmp::plugin \
-  --list-mode
+--plugin=network::lenovo::flexsystem::snmp::plugin \
+--list-mode
 ```
 
 Les options des différents modes sont consultables via le paramètre ```--help```
@@ -165,9 +175,9 @@ du mode :
 
 ```bash
 /usr/lib/centreon/plugins/centreon_net_lenovo_flexsystem_snmp.pl \
-  --plugin=network::lenovo::flexsystem::snmp::plugin \
-  --mode=interfaces \
-  --help
+--plugin=network::lenovo::flexsystem::snmp::plugin \
+--mode=interfaces \
+--help
 ```
 
 ### UNKNOWN: SNMP GET Request : Timeout

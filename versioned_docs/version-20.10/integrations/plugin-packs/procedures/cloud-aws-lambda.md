@@ -53,7 +53,7 @@ Check the *Create Services linked to the Template too* box and click on the
 
 The following service will be created:
 
-  - Lambda-Invocations
+- Lambda-Invocations
 
 The following service macros should be set as shown:
 

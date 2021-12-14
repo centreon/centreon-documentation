@@ -32,19 +32,19 @@ d'hôtes en les répartissant par catégorie, par mois.
 **Description**
 
 -   Select the group : Sélectionner le groupe d'hôtes pour lequel
-    afficher les statistiques
+afficher les statistiques
 -   Type the name of host categories to filter on : taper le nom d'une
-    ou plusieurs catégories d'hôtes. Séparer les catégories par des
-    virgules
+ou plusieurs catégories d'hôtes. Séparer les catégories par des
+virgules
 -   Type the name the reporting period you want to use (has to be
-    calculated by Centreon BI) : Taper le nom de la plage horaire de
-    reporting à utiliser. Cette plage horaire doit être présente dans la
-    configuration de Centreon MBI
+calculated by Centreon BI) : Taper le nom de la plage horaire de
+reporting à utiliser. Cette plage horaire doit être présente dans la
+configuration de Centreon MBI
 -   Chart type : Type de graphique à utiliser
 -   Min value for graph (let empty for self-adjustement) : Valeur
-    minimum de l'axe des ordonnées
+minimum de l'axe des ordonnées
 -   Max value for graph (let empty for self-adjustement) : Valeur
-    maximum de l'axe des ordonnées
+maximum de l'axe des ordonnées
 -   Refresh Interval (seconds) : rafraichissement automatique du widgets
 
 **Exemple**
@@ -65,21 +65,21 @@ d'hôtes , par jour.
 **Description**
 
 -   Select the group : Sélectionner le groupe d'hôtes pour lequel
-    afficher les statistiques
+afficher les statistiques
 -   Type the name of host categories to filter on : taper le nom d'une
-    ou plusieurs catégories d'hôtes. Séparer les catégories par des
-    virgules
+ou plusieurs catégories d'hôtes. Séparer les catégories par des
+virgules
 -   Type the name the reporting period you want to use (has to be
-    calculated by Centreon BI) : Taper le nom de la plage horaire de
-    reporting à utiliser. Cette plage horaire doit être présente dans la
-    configuration de Centreon MBI
+calculated by Centreon BI) : Taper le nom de la plage horaire de
+reporting à utiliser. Cette plage horaire doit être présente dans la
+configuration de Centreon MBI
 -   Select the reporting period : sélectionner la période de reporting
-    relative
+relative
 -   Chart type : Type de graphique à utiliser
 -   Min value for graph (let empty for self-adjustement) : Valeur
-    minimum de l'axe des ordonnées
+minimum de l'axe des ordonnées
 -   Max value for graph (let empty for self-adjustement) : Valeur
-    maximum de l'axe des ordonnées
+maximum de l'axe des ordonnées
 -   Refresh Interval (seconds) : rafraichissement automatique du widgets
 
 **Exemple**
@@ -100,19 +100,19 @@ d'hôtes , par mois.
 **Description**
 
 -   Select the group : Sélectionner le groupe d'hôtes pour lequel
-    afficher les statistiques
+afficher les statistiques
 -   Type the name of host categories to filter on : taper le nom d'une
-    ou plusieurs catégories d'hôtes. Séparer les catégories par des
-    virgules
+ou plusieurs catégories d'hôtes. Séparer les catégories par des
+virgules
 -   Type the name the reporting period you want to use (has to be
-    calculated by Centreon BI) : Taper le nom de la plage horaire de
-    reporting à utiliser. Cette plage horaire doit être présente dans la
-    configuration de Centreon MBI
+calculated by Centreon BI) : Taper le nom de la plage horaire de
+reporting à utiliser. Cette plage horaire doit être présente dans la
+configuration de Centreon MBI
 -   Chart type : Type de graphique à utiliser
 -   Min value for graph (let empty for self-adjustement) : Valeur
-    minimum de l'axe des ordonnées
+minimum de l'axe des ordonnées
 -   Max value for graph (let empty for self-adjustement) : Valeur
-    maximum de l'axe des ordonnées
+maximum de l'axe des ordonnées
 -   Refresh Interval (seconds) : rafraichissement automatique du widgets
 
 **Exemple**
@@ -132,12 +132,12 @@ temps réel, disponibilité sur la période, nombre d'évènements, dernier
 changement de statut.
 
 -   Le MTBF est le temps moyen entre deux états DOWN, plus ce temps est
-    grand, plus le hôte est fiable.
+grand, plus le hôte est fiable.
 -   Le MTRS est la durée moyenne des pannes; les hôtes avec une bonne
-    maintenabilité auront un petit MTRS.
+maintenabilité auront un petit MTRS.
 -   Le MTTA est la durée moyenne de prise en compte (acquittement).
-    Seuls les évènements acquittés sont pris en compte dans le calcul de
-    la moyenne.
+Seuls les évènements acquittés sont pris en compte dans le calcul de
+la moyenne.
 
 ![image](../assets/reporting/guide/mbi-hgs-hc-by-host-mtbf-mtrs.png)
 
@@ -146,18 +146,18 @@ changement de statut.
 **Description**
 
 -   Type name of groups : Taper le nom d'un ou plusieurs groupes
-    d'hôtes (à séparer par des virgules)
+d'hôtes (à séparer par des virgules)
 -   Type the name of a host categories to filter on : taper le nom
-    d'une ou plusieurs catégories d'hôtes. Séparer les catégories par
-    des virgules
+d'une ou plusieurs catégories d'hôtes. Séparer les catégories par
+des virgules
 -   Number of host to display: taper le nombre d'hôtes à afficher au
-    maximum
+maximum
 -   Select the reporting period : sélectionner la période de reporting
 -   Order By: Trier par MTBF, par MTRS ou par MTTA
 -   Type the name the reporting period you want to use (has to be
-    calculated by Centreon MBI) Taper le nom de la plage horaire de
-    reporting à utiliser. Cette plage horaire doit être présente dans la
-    configuration de Centreon MBI
+calculated by Centreon MBI) Taper le nom de la plage horaire de
+reporting à utiliser. Cette plage horaire doit être présente dans la
+configuration de Centreon MBI
 -   Display XXXXXX : affiche la colonne XXXXX
 -   Refresh Interval (seconds) : rafraichissement automatique du widgets
 
@@ -179,12 +179,12 @@ temps réel, disponibilité sur la période, nombre d'évènements, dernier
 changement de statut.
 
 -   Le MTBF est le temps moyen entre deux états DOWN, plus ce temps est
-    grand, plus le hôte est fiable.
+grand, plus le hôte est fiable.
 -   Le MTRS est la durée moyenne des pannes; les hôtes avec une bonne
-    maintenabilité auront un petit MTRS.
+maintenabilité auront un petit MTRS.
 -   Le MTTA est la durée moyenne de prise en compte (acquittement).
-    Seuls les évènements acquittés sont pris en compte dans le calcul de
-    la moyenne.
+Seuls les évènements acquittés sont pris en compte dans le calcul de
+la moyenne.
 
 ![image](../assets/reporting/guide/mbi-hgs-hc-by-service-mtbf-mtrs.png)
 
@@ -193,21 +193,21 @@ changement de statut.
 **Description**
 
 -   Type name of groups : Taper le nom d'un ou plusieurs groupes
-    d'hôtes (à séparer par des virgules)
+d'hôtes (à séparer par des virgules)
 -   Type the name of a host categories to filter on : taper le nom
-    d'une ou plusieurs catégories d'hôtes. Séparer les catégories par
-    des virgules
+d'une ou plusieurs catégories d'hôtes. Séparer les catégories par
+des virgules
 -   Type the name of a service categories to filter on : taper le nom
-    d'une ou plusieurs catégories de services. Séparer les catégories
-    par des virgules
+d'une ou plusieurs catégories de services. Séparer les catégories
+par des virgules
 -   Number of host to display: taper le nombre d'hôtes à afficher au
-    maximum
+maximum
 -   Select the reporting period : sélectionner la période de reporting
 -   Order By: Trier par MTBF, par MTRS ou par MTTA
 -   Type the name the reporting period you want to use (has to be
-    calculated by Centreon MBI) Taper le nom de la plage horaire de
-    reporting à utiliser. Cette plage horaire doit être présente dans la
-    configuration de Centreon MBI
+calculated by Centreon MBI) Taper le nom de la plage horaire de
+reporting à utiliser. Cette plage horaire doit être présente dans la
+configuration de Centreon MBI
 -   Display XXXXX : afficher ou masquer la colonne XXXXX
 -   Refresh Interval (seconds) : rafraichissement automatique du widgets
 
@@ -236,7 +236,7 @@ métrique pour un service donné.
 
 -   Select a service : sélectionner l'hôtes et le service
 -   Type the name of metric : donner le nom de la métrique (une métrique
-    seulement)
+seulement)
 -   Base : base 100 ou 1024
 -   Chart type : type de graphique
 -   Refresh Interval (seconds)
@@ -269,8 +269,8 @@ l'espace utilisé augmente sont visibles.
 -   Number of host to display : Number of lines to display in the table
 -   Display a warning when number of days remaining is less than
 -   Base the speed calculation on the (Days-x) with X = : What's the
-    day to compare to today value to calculate speed and saturation
-    (simple rule of 3)
+day to compare to today value to calculate speed and saturation
+(simple rule of 3)
 -   Type the name of the time period corresponding to 24x7
 -   Refresh Interval (seconds)
 
@@ -298,18 +298,18 @@ saturation. Si la courbe décroit, 0 est pris comme seuil de saturation.
 **Description**
 
 -   Select the service : Sélectionner l'hôtes puis le service à
-    utiliser
+utiliser
 -   Type the name of the metric (one metric only) : taper le nom de la
-    métrique appartenant au service à prendre en compte
+métrique appartenant au service à prendre en compte
 -   How many historical days shoud we use to calculate the projection :
-    Combien de jour passés faut il prendre en compte. Cette période doit
-    être représentative de l'évolution de la métrique
+Combien de jour passés faut il prendre en compte. Cette période doit
+être représentative de l'évolution de la métrique
 -   Type the name the reporting period you want to use (has to be
-    calculated by Centreon BI) : Nom de la plage horaire à utiliser
+calculated by Centreon BI) : Nom de la plage horaire à utiliser
 -   Base : Base de division pour la métriques (1000 ou 1024)
 -   Chart type : Type de graphique
 -   Refresh Interval (seconds) : Intervalle de rafraîchissement du
-    widget
+widget
 
 **Exemple**
 
@@ -331,29 +331,29 @@ groupes & catégories en entrée.
 **Description**
 
 -   Type name of groups : Taper le nom d'un ou plusieurs groupes
-    d'hôtes (à séparer par des virgules)
+d'hôtes (à séparer par des virgules)
 -   Type the name of a host categories to filter on : taper le nom
-    d'une ou plusieurs catégories d'hôtes. Séparer les catégories par
-    des virgules
+d'une ou plusieurs catégories d'hôtes. Séparer les catégories par
+des virgules
 -   Type the name of a service categories to filter on : taper le nom
-    d'une ou plusieurs catégories de services. Séparer les catégories
-    par des virgules
+d'une ou plusieurs catégories de services. Séparer les catégories
+par des virgules
 -   Metric name: taper de nom d'une ou plusieurs métriques. Séparer les
-    métriques par des virgules.
+métriques par des virgules.
 -   Type the name the reporting period you want to use (has to be
-    calculated by Centreon MBI) Taper le nom de la plage horaire de
-    reporting à utiliser. Cette plage horaire doit être présente dans la
-    configuration de Centreon MBI
+calculated by Centreon MBI) Taper le nom de la plage horaire de
+reporting à utiliser. Cette plage horaire doit être présente dans la
+configuration de Centreon MBI
 -   Select the reporting period : sélectionner la période de reporting
 -   Order values by : trier les valeur sur le minimum, moyenne ou
-    maximum, tri ascendant ou descendant.
+maximum, tri ascendant ou descendant.
 -   Number of metrics to display : Top X des métriques à afficher
 -   Display Current value: Afficher la valeur temps réel
 -   Display Average: Afficher la moyenne sur la période de reporting
 -   Display Minimum: Afficher le minimum atteint sur la période de
-    reporting
+reporting
 -   Display Maximum: Afficher le maximum atteint sur la période de
-    reporting
+reporting
 -   Display warning threshold: Afficher le seuil warning
 -   Display critical threshold: Afficher le seuil critique
 -   Display Hostgroups: Afficher la colonne Hostgroups
@@ -381,34 +381,34 @@ catégories.
 **Description**
 
 -   Type name of groups : Taper le nom d'un ou plusieurs groupes
-    d'hôtes (à séparer par des virgulevernes)
+d'hôtes (à séparer par des virgulevernes)
 -   Type the name of a host categories to filter on : taper le nom
-    d'une ou plusieurs catégories d'hôtes. Séparer les catégories par
-    des virgules
+d'une ou plusieurs catégories d'hôtes. Séparer les catégories par
+des virgules
 -   Type the name of a service categories to filter on : taper le nom
-    d'une ou plusieurs catégories de services. Séparer les catégories
-    par des virgules
+d'une ou plusieurs catégories de services. Séparer les catégories
+par des virgules
 -   Retrieve data with metric name LIKE or IN? : Les données seront
-    filtrées par métrique également, il s'agit ici de préciser si on
-    veut que les métriques soient filtrées en faisant like foo% ou alors
-    en IN (foo,bar,...)
+filtrées par métrique également, il s'agit ici de préciser si on
+veut que les métriques soient filtrées en faisant like foo% ou alors
+en IN (foo,bar,...)
 -   Metric name (for multiple metrics, separate them with ',') : nom
-    de la (si mode = like) ou des métriques (si mode = IN) à prendre en
-    compte
+de la (si mode = like) ou des métriques (si mode = IN) à prendre en
+compte
 -   Type the name the reporting period you want to use (has to be
-    calculated by Centreon MBI) Taper le nom de la plage horaire de
-    reporting à utiliser. Cette plage horaire doit être présente dans la
-    configuration de Centreon MBI
+calculated by Centreon MBI) Taper le nom de la plage horaire de
+reporting à utiliser. Cette plage horaire doit être présente dans la
+configuration de Centreon MBI
 -   Select the reporting period : sélectionner la période de reporting
 -   What value to display in the graph : quelle est la valeur à afficher
-    , minimum, moyenne ou maximum
+, minimum, moyenne ou maximum
 -   Graph height : en fonction du paramétrage, le graphique et la
-    légende peuvent être haut. Vous pouvez alors spécifier la hauteur du
-    graph pour optimiser le rendu
+légende peuvent être haut. Vous pouvez alors spécifier la hauteur du
+graph pour optimiser le rendu
 -   Base: ce paramètre contrôle la conversion à effectuer pour afficher
-    les G,M,K etc..
+les G,M,K etc..
 -   Show subchart ? : afficher ou masquer un graphique permettant de
-    zoomer
+zoomer
 -   Show legend ? : afficher ou masquer la légende
 -   Refresh Interval (seconds) : rafraichissement automatique du widgets
 
@@ -461,12 +461,12 @@ d'alertes d'une BA, par jour.
 **Description**
 
 -   Select an application from Centreon BAM ( Corresponds to a "BA") :
-    sélectionner l'application
+sélectionner l'application
 -   Select the reporting periods : sélectionner la période de reporting
 -   Min value for graph (let empty for self-adjustement) : Valeur
-    minimum de l'axe des ordonnées
+minimum de l'axe des ordonnées
 -   Max value for graph (let empty for self-adjustement) : Valeur
-    maximum de l'axe des ordonnées
+maximum de l'axe des ordonnées
 -   Refresh Interval (seconds) : intervalle de rafraîchissement
 
 **Exemple**
@@ -490,12 +490,12 @@ disponibles).
 **Description**
 
 -   Select an application from Centreon BAM ( Corresponds to a "BA") :
-    sélectionner l'application
+sélectionner l'application
 -   Select the reporting periods : sélectionner la période de reporting
 -   Min value for graph (let empty for self-adjustement) : Valeur
-    minimum de l'axe des ordonnées
+minimum de l'axe des ordonnées
 -   Max value for graph (let empty for self-adjustement) : Valeur
-    maximum de l'axe des ordonnées
+maximum de l'axe des ordonnées
 -   Refresh Interval (seconds) : intervalle de rafraîchissement
 
 **Exemple**
@@ -516,9 +516,9 @@ faciliter la prise de décision : statut en temps réel, disponibilité sur
 la période, nombre d'évènements, dernier changement de statut.
 
 -   Le MTBF est le temps moyen entre deux états DOWN, plus ce temps est
-    grand, plus le hôte est fiable.
+grand, plus le hôte est fiable.
 -   Le MTRS est la durée moyenne des pannes; les hôtes avec une bonne
-    maintenabilité auront un petit MTRS.
+maintenabilité auront un petit MTRS.
 
 ![image](../assets/reporting/guide/mbi-ba-mtbf-mtrs.png)
 
@@ -527,18 +527,18 @@ la période, nombre d'évènements, dernier changement de statut.
 **Description**
 
 -   Select the business view (empty to view all BA) : sélection de la
-    business view. En laissant vide ce champ, toutes les BAs sont
-    récupées (filtrés par les ACls)
+business view. En laissant vide ce champ, toutes les BAs sont
+récupées (filtrés par les ACls)
 -   Number of business activities to display : nombre d'activité métier
-    à afficher dans le tableau
+à afficher dans le tableau
 -   Select the reporting period : la période de reporting considérée
 -   Order By : trier le résultat par MTBF ou MTRS
 -   Type the name of the time period you want to use (has to be
-    calculated by Centreon MBI). Let this field empty to use the default
-    reporting time period for each BA : remplir ce champ si vous
-    souhaitez spécifier une plage horaire spécifique. En laissant ce
-    champ vide, c'est la plage horaire de reporting par défaut de
-    l'activité métier qui est appliquée.
+calculated by Centreon MBI). Let this field empty to use the default
+reporting time period for each BA : remplir ce champ si vous
+souhaitez spécifier une plage horaire spécifique. En laissant ce
+champ vide, c'est la plage horaire de reporting par défaut de
+l'activité métier qui est appliquée.
 -   Display XXXXX : afficher ou masquer la colonne XXXXX
 -   Refresh Interval (seconds) : Intervalle de rafraîchissement
 
@@ -564,12 +564,12 @@ sur les 12 derniers mois (si données disponibles).
 **Description**
 
 -   Select a Business View from Centreon BAM : sélectionner la vue
-    métier
+métier
 -   Select the reporting periods : sélectionner la période de reporting
 -   Min value for graph (let empty for self-adjustement) : Valeur
-    minimum de l'axe des ordonnées
+minimum de l'axe des ordonnées
 -   Max value for graph (let empty for self-adjustement) : Valeur
-    maximum de l'axe des ordonnées
+maximum de l'axe des ordonnées
 -   Refresh Interval (seconds) : intervalle de rafraîchissement
 
 **Exemple**

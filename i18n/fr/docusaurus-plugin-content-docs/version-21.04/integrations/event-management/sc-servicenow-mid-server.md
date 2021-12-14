@@ -14,7 +14,7 @@ Plusieurs filtres ont été installé au niveau du Stream Connector ServiceNow M
 * Seuls les changements de status des services et des hôtes sont traités
 * Seuls les états HARD sont traités
 * Si l'hôte ou le service est downtime, ou que les notifications sont désactivées, il n'est pas traité
-* Les hôtes et services *PENDING* (sans statut) sont également ignorés 
+* Les hôtes et services *PENDING* (sans statut) sont également ignorés
 
 ### Format des données
 
@@ -22,56 +22,56 @@ Voici un exemple des données transmises via requête HTTP POST au format JSON c
 
 ```json
 [
-  {
-    "message_key": "24/0/1596634138",
-    "type": "HOST",
-    "resource": "HOST",
-    "metric_name": "HOST",
-    "severity": 0,
-    "source_instance": "Centreon central server",
-    "description": "OK: dummy\n",
-    "time_of_event": "2020-08-05T13:30:55.000",
-    "source": "Centreon",
-    "node": "test-host_10",
-    "additional_info": {
-      "host_groups": [
-        "Test-Machines",
-        "Serveurs-Linux",
-        "gold"
-      ]
-    }
-  },
-  {
-    "message_key": "24/93/1595260330",
-    "type": "test-svc",
-    "resource": "test-svc",
-    "metric_name": "test-svc",
-    "severity": 2,
-    "source_instance": "Centreon central server",
-    "description": "CRITICAL: sample output\n",
-    "time_of_event": "2020-08-06T08:26:13.000",
-    "source": "Centreon",
-    "node": "test-host_10",
-    "additional_info": {
-      "host_groups": [
-        "Test-Machines",
-        "Serveurs-Linux",
-        "gold"
-      ],
-      "service_groups": [
-        "Groupe-de-Services",
-        "Autre-groupe-de-services"
-      ]
-    }
-  }
+{
+"message_key": "24/0/1596634138",
+"type": "HOST",
+"resource": "HOST",
+"metric_name": "HOST",
+"severity": 0,
+"source_instance": "Centreon central server",
+"description": "OK: dummy\n",
+"time_of_event": "2020-08-05T13:30:55.000",
+"source": "Centreon",
+"node": "test-host_10",
+"additional_info": {
+"host_groups": [
+"Test-Machines",
+"Serveurs-Linux",
+"gold"
+]
+}
+},
+{
+"message_key": "24/93/1595260330",
+"type": "test-svc",
+"resource": "test-svc",
+"metric_name": "test-svc",
+"severity": 2,
+"source_instance": "Centreon central server",
+"description": "CRITICAL: sample output\n",
+"time_of_event": "2020-08-06T08:26:13.000",
+"source": "Centreon",
+"node": "test-host_10",
+"additional_info": {
+"host_groups": [
+"Test-Machines",
+"Serveurs-Linux",
+"gold"
+],
+"service_groups": [
+"Groupe-de-Services",
+"Autre-groupe-de-services"
+]
+}
+}
 ]
 ```
 
 ## Prérequis
 
 * L'intégration dans ServiceNow MID Server nécessite que vous ayez un accès de l'un des deux types suivants :
-    * compte disposant du privilège `evt_mgmt_admin` pour être en mesure d'appliquer la procédure [Configurer la collecte d'événements MID WebService](https://docs.servicenow.com/bundle/newyork-it-operations-management/page/product/event-management/task/configure-em-context-extension#event-collection-extension). 
-    * compte autorisé à se connecter à l'API JSONv2, dont l'URL doit se terminer comme dans cet exemple : `http://{MID_Server_IP}:{MID_Web_Server_Port}/api/mid/em/jsonv2`.
+* compte disposant du privilège `evt_mgmt_admin` pour être en mesure d'appliquer la procédure [Configurer la collecte d'événements MID WebService](https://docs.servicenow.com/bundle/newyork-it-operations-management/page/product/event-management/task/configure-em-context-extension#event-collection-extension).
+* compte autorisé à se connecter à l'API JSONv2, dont l'URL doit se terminer comme dans cet exemple : `http://{MID_Server_IP}:{MID_Web_Server_Port}/api/mid/em/jsonv2`.
 * Il est également nécessaire d'avoir un **compte Centreon avec des privilèges d'administrateur** ou bien les accès aux menus **Exporter la configuration** et **Configuration de Centreon Broker**, de même qu'un **accès `root` en ligne de commande**.
 
 ## Support
@@ -89,7 +89,7 @@ Il sera nécessaire de [configurer un Webservice collecteur d'événements dans 
 
 ### Dans Centreon
 
-#### Installation 
+#### Installation
 
 Se connecter en tant que `root` au serveur central Centreon avec votre client SSH favori.
 
@@ -135,7 +135,7 @@ Le Stream Connector ServiceNow MID Server Events est maintenant installé sur vo
 7. Sauvegarder la configuration, puis naviguer vers le menu **Configuration** > **Collecteurs** et choisir **Collecteurs**.
 8. Sélectionner le collecteur **Central** et cliquer sur **Exporter la configuration**.
 9. Conserver les cases **Générer les fichiers de configuration** et **Lancer le débogage du moteur de supervision (-v)** et cocher également **Deplacer les fichiers générés** puis cliquer sur le bouton **Exporter**.
-10. Redémarrer le service `cbd` 
+10. Redémarrer le service `cbd`
 
 ```bash
 systemctl restart cbd

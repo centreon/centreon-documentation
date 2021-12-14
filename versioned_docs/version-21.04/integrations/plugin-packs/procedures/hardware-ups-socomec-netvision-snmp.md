@@ -2,6 +2,9 @@
 id: hardware-ups-socomec-netvision-snmp
 title: UPS Socomec Net Vision SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Plugin-Pack Assets
 
@@ -11,43 +14,46 @@ The Plugin-Pack Socomec Net Vision SNMP including Alarms, Battery, Input-lines, 
 
 ### Collected Metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
+<Tabs groupId="operating-systems">
+<TabItem value="Alarms" label="Alarms">
 
-<!--Alarms-->
+| Metric name          | Description      | Unit |
+| :------------------- | :--------------- | :--- |
+| alarms.current.count | Number of alarms |      |
 
-| Metric name                 | Description                  | Unit  |
-| :-------------------------- | :--------------------------- | :---- |
-| alarms.current.count        | Number of alarms             |       |
+</TabItem>
+<TabItem value="Battery" label="Battery">
 
-<!--Battery-->
+| Metric name                      | Description              | Unit |
+| :------------------------------- | :----------------------- | :--- |
+| status                           | Battery status           |      |
+| battery.charge.remaining.percent | Battery load             | %    |
+| battery.charge.remaining.minutes | Battery charge remaining |      |
+| battery.current.ampere           | Battery current          | A    |
+| battery.voltage.volt             | Battery voltage          | V    |
+| battery.temperature.celsius      | Battery temperature      | C    |
 
-| Metric name                                    | Description                     | Unit |
-| :--------------------------------------------- | :------------------------------ | :--- |
-| status                                         | Battery status                  |      |
-| battery.charge.remaining.percent               | Battery load                    | %    |
-| battery.charge.remaining.minutes               | Battery charge remaining        |      |
-| battery.current.ampere                         | Battery current                 | A    |
-| battery.voltage.volt                           | Battery voltage                 | V    |
-| battery.temperature.celsius                    | Battery temperature             | C    |
+</TabItem>
+<TabItem value="Inputlines" label="Inputlines">
 
-<!--Input-lines-->
+| Metric name                            | Description     | Unit |
+| :------------------------------------- | :-------------- | :--- |
+| lines.input.frequence.hertz            | Lines frequency | Hz   |
+| *linenumber*#line.input.current.ampere | Line current    | A    |
+| *linenumber*#line.input.voltage.volt   | Line voltage    | V    |
 
-| Metric name                            | Description                               | Unit  |
-| :------------------------------------- | :---------------------------------------- | :---- |
-| lines.input.frequence.hertz            | Lines frequency                           | Hz    |
-| *linenumber*#line.input.current.ampere | Line current                              | A     |
-| *linenumber*#line.input.voltage.volt   | Line voltage                              | V     |
+</TabItem>
+<TabItem value="Outputlines" label="Outputlines">
 
-<!--Output-lines-->
+| Metric name                              | Description         | Unit |
+| :--------------------------------------- | :------------------ | :--- |
+| source status                            | Input source status |      |
+| *linenumber*#line.output.load.percentage | Line load           | %    |
+| *linenumber*#line.output.current.ampere  | Line current        | A    |
+| *linenumber*#line.output.voltage.volt    | Line voltage        | V    |
 
-| Metric name                              | Description                               | Unit  |
-| :--------------------------------------- | :---------------------------------------- | :---- |
-| source status                            | Input source status                       |       |
-| *linenumber*#line.output.load.percentage | Line load                                 | %     |
-| *linenumber*#line.output.current.ampere  | Line current                              | A     |
-| *linenumber*#line.output.voltage.volt    | Line voltage                              | V     |
-
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -55,9 +61,8 @@ To control your Socomec, the SNMP must be configured.
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="licence-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -67,7 +72,8 @@ yum install centreon-plugin-Hardware-Ups-Socomec-Netvision-Snmp
 
 2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Socomec Net Vision UPS SNMP* Plugin-Pack
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -83,7 +89,8 @@ yum install centreon-pack-hardware-ups-socomec-netvision-snmp
 
 3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Socomec Net Vision UPS SNMP* Plugin-Pack
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host configuration
 
@@ -92,9 +99,9 @@ yum install centreon-pack-hardware-ups-socomec-netvision-snmp
 
 > When using SNMP v3, use the SNMPEXTRAOPTIONS Macro to add specific authentication parameters
 
-| Mandatory | Name             | Description                                    |
-| :-------- | :--------------- | :--------------------------------------------- |
-|           | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo    |
+| Mandatory | Name             | Description                                 |
+| :-------- | :--------------- | :------------------------------------------ |
+|           | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo |
 
 ## FAQ
 
@@ -105,14 +112,14 @@ and test the Plugin by running the following command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_ups_socomec_netvision_snmp.pl \
-    --plugin=hardware::ups::socomec::netvision::snmp::plugin \
-    --mode=output-lines \
-    --hostname=10.30.2.114 \
-    --snmp-version='2c' \
-    --snmp-community='socomec_ro' \
-    --warning-voltage='235' \
-    --critical-voltage='240' \
-    --verbose
+--plugin=hardware::ups::socomec::netvision::snmp::plugin \
+--mode=output-lines \
+--hostname=10.30.2.114 \
+--snmp-version='2c' \
+--snmp-community='socomec_ro' \
+--warning-voltage='235' \
+--critical-voltage='240' \
+--verbose
 ```
 
 Expected command output is shown below:
@@ -128,7 +135,7 @@ The command above monitors UPS Socomec (```--plugin=hardware::ups::socomec::netv
 by the IP address *10.30.2.114* (```--hostname=10.30.2.114```). As the Plugin is using the SNMP protocol to request the device, the related
 *community* and *version* are specified (```--snmp-version='2c' --snmp-community='socomec_ro'```).
 
-This command would trigger a WARNING alarm if input line voltage over 235V 
+This command would trigger a WARNING alarm if input line voltage over 235V
 (```--warning-voltage='235'```) and a CRITICAL alarm over 240V (```--critical-voltage='240'```).
 
 All the options as well as all the available thresholds can be displayed by adding the  ```--help```
@@ -136,9 +143,9 @@ parameter to the command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_ups_socomec_netvision_snmp.pl \
-    --plugin=hardware::ups::socomec::netvision::snmp::plugin \
-    --mode=output-lines \
-    --help
+--plugin=hardware::ups::socomec::netvision::snmp::plugin \
+--mode=output-lines \
+--help
 ```
 
 ### UNKNOWN: SNMP GET Request : Timeout
@@ -149,7 +156,7 @@ If you get this message, you're probably facing one of theses issues:
 
 #### UNKNOWN: SNMP GET Request : Cant get a single value.
 
-This error message often refers to the following issues: 
-  - The agent doesn't support the MIB used by the plugin
-  - The targeted SNMP OID cannot be fetched because of insufficient privileges on the device. 
-    SNMP Agent must be capable of accessing to the enterprise branch: .1.3.6.1.4.1.4555
+This error message often refers to the following issues:
+- The agent doesn't support the MIB used by the plugin
+- The targeted SNMP OID cannot be fetched because of insufficient privileges on the device.
+SNMP Agent must be capable of accessing to the enterprise branch: .1.3.6.1.4.1.4555

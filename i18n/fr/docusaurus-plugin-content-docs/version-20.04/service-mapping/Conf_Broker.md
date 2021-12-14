@@ -14,20 +14,20 @@ Note
 :::
 
 -   Ce chapitre n\'a pas pour but de décrire la configuration standard
-    du module **Centreon Broker**.
+du module **Centreon Broker**.
 -   Il se peut que le nom des configurations (\"ouput\") ne soit pas
-    strictement identique. Vérifier en plus du nom de configuration le
-    type associé.
+strictement identique. Vérifier en plus du nom de configuration le
+type associé.
 :::
 
 La configuration nécessaire pour faire fonctionner l\'extension
 **Centreon BAM** est composée de deux parties :
 
 -   **centreon-bam-monitoring** de type \"BAM - Monitoring engine
-    (BAM)\" : permet d\'insérer en base de données les changements de
-    statut des vues métiers
+(BAM)\" : permet d\'insérer en base de données les changements de
+statut des vues métiers
 -   **centreon-bam-reporting** de type \"BAM - BI engine (BAM)\" :
-    permet d\'insérer en base de données les données de disponibilités
+permet d\'insérer en base de données les données de disponibilités
 
 Configuration de l\'output temps réel
 -------------------------------------
@@ -50,45 +50,45 @@ Vérifier que la configuration suivante est bien présente.
 
 Détail des champs :
 
-  -------------------------------------------------------------------------------
-  **Champs**                         **Valeurs**
-  ---------------------------------- --------------------------------------------
-  **Nom**                            centreon-bam-monitoring
+-------------------------------------------------------------------------------
+**Champs**                         **Valeurs**
+---------------------------------- --------------------------------------------
+**Nom**                            centreon-bam-monitoring
 
-  **Filtres par catégories de flux** 
+**Filtres par catégories de flux**
 
-  **Nom de la base de données (1)**  centreon\_storage
+**Nom de la base de données (1)**  centreon\_storage
 
-  **Activer la réplication**         No
+**Activer la réplication**         No
 
-  **Command file path**              /var/lib/centreon-engine/rw/centengine.cmd
+**Command file path**              /var/lib/centreon-engine/rw/centengine.cmd
 
-  **Adresse de la base de données**  localhost (ou l\'adresse de votre base de
-                                     données de monitoring
+**Adresse de la base de données**  localhost (ou l\'adresse de votre base de
+données de monitoring
 
-  **Nom de la base de données (2)**  centreon
+**Nom de la base de données (2)**  centreon
 
-  **Mot de passe de l\'utilisateur** in file conf.pm
+**Mot de passe de l\'utilisateur** in file conf.pm
 
-  **Port de connexion à la base de   3306
-  données**                          
+**Port de connexion à la base de   3306
+données**
 
-  **Type de base de données**        MySQL
+**Type de base de données**        MySQL
 
-  **Utilisateur pour se connecter à  centreon
-  la base de données**               
+**Utilisateur pour se connecter à  centreon
+la base de données**
 
-  **Nom du processus de bascule      
-  (failover)**                       
+**Nom du processus de bascule
+(failover)**
 
-  **Nombre maximum de requêtes par   0
-  transaction**                      
+**Nombre maximum de requêtes par   0
+transaction**
 
-  **Temps d\'exécution maximum des   
-  \"commit\" de transaction**        
+**Temps d\'exécution maximum des
+\"commit\" de transaction**
 
-  **Intervalle entre 2 tentatives**  
-  -------------------------------------------------------------------------------
+**Intervalle entre 2 tentatives**
+-------------------------------------------------------------------------------
 
 Configuration de l\'output de reporting
 ---------------------------------------
@@ -111,34 +111,34 @@ Vérifier que la configuration suivante est bien présente
 
 Détail des champs :
 
-  ---------------------------------------------------------------------------
-  **Champs**                                         **Valeurs**
-  -------------------------------------------------- ------------------------
-  **Nom**                                            centreon-bam-reporting
+---------------------------------------------------------------------------
+**Champs**                                         **Valeurs**
+-------------------------------------------------- ------------------------
+**Nom**                                            centreon-bam-reporting
 
-  **Filtres par catégories de flux**                 BAM
+**Filtres par catégories de flux**                 BAM
 
-  **Activer la réplication**                         No
+**Activer la réplication**                         No
 
-  **Adresse de la base de données**                  localhost
+**Adresse de la base de données**                  localhost
 
-  **Nom de la base de données**                      centreon\_storage
+**Nom de la base de données**                      centreon\_storage
 
-  **Mot de passe de l\'utilisateur**                 in file conf.pm
+**Mot de passe de l\'utilisateur**                 in file conf.pm
 
-  **Port de connexion à la base de données**         3306
+**Port de connexion à la base de données**         3306
 
-  **Type de base de données**                        MySQL
+**Type de base de données**                        MySQL
 
-  **Utilisateur pour se connecter à la base de       centreon
-  données**                                          
+**Utilisateur pour se connecter à la base de       centreon
+données**
 
-  **Nom du processus de bascule (failover)**         
+**Nom du processus de bascule (failover)**
 
-  **Nombre maximum de requêtes par transaction**     0
+**Nombre maximum de requêtes par transaction**     0
 
-  **Temps d\'exécution maximum des \"commit\" de     
-  transaction**                                      
+**Temps d\'exécution maximum des \"commit\" de
+transaction**
 
-  **Intervalle entre 2 tentatives**                  
-  ---------------------------------------------------------------------------
+**Intervalle entre 2 tentatives**
+---------------------------------------------------------------------------

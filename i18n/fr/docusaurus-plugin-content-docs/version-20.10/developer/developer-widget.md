@@ -12,7 +12,7 @@ write your first widget for Centreon.
 ## Should I make a widget or a module?
 
 If you are wondering if you should be making a module or a widget, then ask yourself if your project is meant to contain
-many menus or is it rather a plain page which is going to display little information? 
+many menus or is it rather a plain page which is going to display little information?
 
 Of course, you could make a widget that would only work with a certain module.
 
@@ -31,29 +31,29 @@ This is the XML configuration file of our Dummy widget:
 
 ```XML
 <configs>
-    <title>Dummy</title>
-    <author>Centreon</author>
-    <email>contact@centreon.com</email>
-    <website>http://www.centreon.com</website>
-    <description>Dummy widget</description>
-    <version>1.0.3</version>
-    <keywords>dummy, widget, centreon</keywords>
-    <screenshot></screenshot>
-    <thumbnail>./widgets/dummy/resources/logoCentreon.png</thumbnail>
-    <url>./widgets/dummy/index.php</url>
-    <autoRefresh></autoRefresh>
-    <preferences>
-        <preference label="text preference" name="text preference" defaultValue="default value" type="text"/>
-        <preference label="boolean preference" name="boolean preference" defaultValue="1" type="boolean"/>
-        <preference label="date" name="date" defaultValue="" type="date"/>
-        <preference label="host preference" name="host preference" defaultValue="" type="host"/>
-        <preference label="list preference" name="list preference" defaultValue="none" type="list">
-            <option value="all" label="all"/>
-            <option value="none" label="none"/>
-        </preference>
-        <preference label="range preference" name="range preference" defaultValue="5" type="range" min="0" max="50" step="5"/>
-        <preference label="host search" name="host search" defaultValue="notlike _Module_%" type="compare"/>
-    </preferences>
+<title>Dummy</title>
+<author>Centreon</author>
+<email>contact@centreon.com</email>
+<website>http://www.centreon.com</website>
+<description>Dummy widget</description>
+<version>1.0.3</version>
+<keywords>dummy, widget, centreon</keywords>
+<screenshot></screenshot>
+<thumbnail>./widgets/dummy/resources/logoCentreon.png</thumbnail>
+<url>./widgets/dummy/index.php</url>
+<autoRefresh></autoRefresh>
+<preferences>
+<preference label="text preference" name="text preference" defaultValue="default value" type="text"/>
+<preference label="boolean preference" name="boolean preference" defaultValue="1" type="boolean"/>
+<preference label="date" name="date" defaultValue="" type="date"/>
+<preference label="host preference" name="host preference" defaultValue="" type="host"/>
+<preference label="list preference" name="list preference" defaultValue="none" type="list">
+<option value="all" label="all"/>
+<option value="none" label="none"/>
+</preference>
+<preference label="range preference" name="range preference" defaultValue="5" type="range" min="0" max="50" step="5"/>
+<preference label="host search" name="host search" defaultValue="notlike _Module_%" type="compare"/>
+</preferences>
 </configs>
 ```
 
@@ -120,7 +120,7 @@ serviceTemplate | Renders a selectbox populated with a list of service templates
 The preference window would look like this as a result:
 
 .. image:: /_static/images/extending/pref_dummy_widget.png
-   :align: center
+:align: center
 
 ### Code
 
@@ -165,21 +165,21 @@ To do request in database:
 
 ```PHP
 try {
-    global $pearDB;
+global $pearDB;
 
-    $db_centreon = new CentreonDB("centreon");
-    $db = new CentreonDB("centstorage");
-    $pearDB = $db_centreon;
+$db_centreon = new CentreonDB("centreon");
+$db = new CentreonDB("centstorage");
+$pearDB = $db_centreon;
 
-    $widgetObj = new CentreonWidget($centreon, $db_centreon);
-    $preferences = $widgetObj->getWidgetPreferences($widgetId);
-    $autoRefresh = 0;
-    if (isset($preferences['refresh_interval'])) {
-        $autoRefresh = $preferences['refresh_interval'];
-    }
+$widgetObj = new CentreonWidget($centreon, $db_centreon);
+$preferences = $widgetObj->getWidgetPreferences($widgetId);
+$autoRefresh = 0;
+if (isset($preferences['refresh_interval'])) {
+$autoRefresh = $preferences['refresh_interval'];
+}
 } catch (Exception $e) {
-    echo $e->getMessage() . "<br/>";
-    exit;
+echo $e->getMessage() . "<br/>";
+exit;
 }
 ```
 

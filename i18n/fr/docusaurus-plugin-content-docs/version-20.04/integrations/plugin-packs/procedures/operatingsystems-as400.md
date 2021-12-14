@@ -16,7 +16,7 @@ yum install centreon-plugin-Operatingsystems-As400
 You have to install java-jdk at least in version 1.7.0 on the poller the jmx
 connector will be install :
 
-    $ yum install java-1.7.0-openjdk
+$ yum install java-1.7.0-openjdk
 
 The connector can be install on your poller or on an other server
 

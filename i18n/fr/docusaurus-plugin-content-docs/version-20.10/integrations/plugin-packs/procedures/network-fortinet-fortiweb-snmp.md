@@ -2,6 +2,9 @@
 id: network-fortinet-fortiweb-snmp
 title: Fortinet FortiWeb SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Contenu du Plugin Pack
 
@@ -14,21 +17,20 @@ Le Plugin Pack Fortinet FortiWeb SNMP collecte les données pour:
 
 ### Règles de découvertes
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Services-->
+<Tabs groupId="operating-systems">
+<TabItem value="Services" label="Services">
 
 | Nom de la règle                             | Description                                                                                  |
 | :------------------------------------------ | :------------------------------------------------------------------------------------------- |
 | Net-Fortinet-Fortiweb-SNMP-Interface-Name   | Découvre les interfaces réseaux et supervise le statut et l'utilisation de la bande passante |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Interfaces-->
+<Tabs groupId="operating-systems">
+<TabItem value="Interfaces" label="Interfaces">
 
 | Metric name                                            | Description                                         | Unit |
 | :----------------------------------------------------- | :-------------------------------------------------- | :--- |
@@ -40,7 +42,8 @@ Le Plugin Pack Fortinet FortiWeb SNMP collecte les données pour:
 
 A regexp filter is available to target a specific interface identifier - ifName [```--interface='^eth0$' --name```]
 
-<!--Proxy-->
+</TabItem>
+<TabItem value="Proxy" label="Proxy">
 
 | Metric name                 | Description                   | Unit |
 | :-------------------------- | :---------------------------- | :--- |
@@ -48,7 +51,8 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | proxy.connections.persecond | Average number of connections |      |
 | proxy.services.count        | Number of services            |      |
 
-<!--System-->
+</TabItem>
+<TabItem value="System" label="System">
 
 | Metric name                     | Description              | Unit |
 | :------------------------------ | :----------------------- | :--- |
@@ -57,19 +61,19 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | memory.usage.percentage         | Memory usage             | %    |
 | disk.log.space.usage.percentage | Log disk usage           | %    |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
-Afin de contrôler votre équipement Fortinet FortiWeb, le SNMP doit être configuré. 
+Afin de contrôler votre équipement Fortinet FortiWeb, le SNMP doit être configuré.
 
 Le flux SNMP UDP/161 doit être ouvert entre le Collecteur et l'équipement.
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="operating-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -79,7 +83,8 @@ yum install centreon-plugin-Network-Fortinet-Fortiweb-Snmp
 
 2. Sur l'interface Web de Centreon, installer le Pack *Fortinet FortiWeb SNMP* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -95,7 +100,8 @@ yum install centreon-pack-network-fortinet-fortiweb-snmp
 
 3. Sur l'interface Web de Centreon, installer le Pack *Fortinet FortiWeb SNMP* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -117,14 +123,14 @@ depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-en
 
 ```bash
 /usr/lib/centreon/plugins/centreon_fortinet_fortiweb_snmp.pl \
-    --plugin=network::fortinet::fortiweb::snmp::plugin \
-    --mode=system \
-    --hostname=10.30.2.114 \
-    --snmp-version='2c' \
-    --snmp-community='fortinet_ro' \
-    --warning-cpu-load='90' \
-    --critical-cpu-load='95' \
-    --verbose
+--plugin=network::fortinet::fortiweb::snmp::plugin \
+--mode=system \
+--hostname=10.30.2.114 \
+--snmp-version='2c' \
+--snmp-community='fortinet_ro' \
+--warning-cpu-load='90' \
+--critical-cpu-load='95' \
+--verbose
 ```
 
 La commande devrait retourner un message de sortie de la forme ci-dessous:
@@ -132,13 +138,13 @@ La commande devrait retourner un message de sortie de la forme ci-dessous:
 ```bash
 OK: system usage is ok | 'cpu.utilization.percentage'=12.00%;0:90;0:95;0;100 'memory.usage.percentage'=79.00%;;;0;100 'disk.log.space.usage.percentage'=74.00%;;;0;100
 checking system
-    high-availability mode: standalone
-    cpu load: 12.00 %
-    memory used: 79.00 %
-    disk log space used: 74.00 %
+high-availability mode: standalone
+cpu load: 12.00 %
+memory used: 79.00 %
+disk log space used: 74.00 %
 ```
 
-Cette commande contrôle le système (```--mode=system```) d'un équipement Fortinet FortiWeb ayant pour adresse *10.30.2.114* (```--hostname=10.30.2.114```) 
+Cette commande contrôle le système (```--mode=system```) d'un équipement Fortinet FortiWeb ayant pour adresse *10.30.2.114* (```--hostname=10.30.2.114```)
 en version *2c* du protocol SNMP (```--snmp-version='2c'```) et avec la communauté *infoblox_ro* (```--snmp-community='fortinet_ro'```).
 
 Cette commande déclenchera une alarme WARNING si l'utilisation processeur est supérieur à 90% (```--warning-cpu-utilization='90'```)
@@ -149,9 +155,9 @@ en ajoutant le paramètre ```--help``` à la commande:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_fortinet_fortiweb_snmp.pl \
-    --plugin=network::fortinet::fortiweb::snmp::plugin \
-    --mode=system \
-    --help
+--plugin=network::fortinet::fortiweb::snmp::plugin \
+--mode=system \
+--help
 ```
 
 ## Diagnostique

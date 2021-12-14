@@ -2,15 +2,18 @@
 id: applications-varnish-nrpe
 title: Varnish NRPE
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-> Hello community! We're looking for a contributor to help us to translate the 
-content in french and provide a sample execution command. If it's you, let us 
+
+> Hello community! We're looking for a contributor to help us to translate the
+content in french and provide a sample execution command. If it's you, let us
 know by making a PR or pinging us on [slack](https://centreon.slack.com)
 
 ## Overview
 
 The Plugin Pack *Varnish* works with the Centreon NSClient++ monitoring agent on Windows
-and NRPE Server on Linux to check the performance and behavior of a Varnish HTTP Cache Server. 
+and NRPE Server on Linux to check the performance and behavior of a Varnish HTTP Cache Server.
 
 ## Pack assets
 
@@ -26,16 +29,16 @@ and NRPE Server on Linux to check the performance and behavior of a Varnish HTTP
 
 ### Command-line utility
 
-The Plugin uses the *varnishstat* binary. 
+The Plugin uses the *varnishstat* binary.
 
 ### NRPE Server
 
-On RPM-Based distribution, you can use the centreon-nrpe3-daemon package deploying 
-a preconfigured version of the NRPE Server. 
+On RPM-Based distribution, you can use the centreon-nrpe3-daemon package deploying
+a preconfigured version of the NRPE Server.
 
 Most of the Linux distributions provide a NRPE package you can deploy using the system
 package default manager. When using these, it's important to modify following directives
-in the config files: 
+in the config files:
 
 * `allowed_hosts`
 
@@ -64,11 +67,12 @@ dont_blame_nrpe=1
 ```
 
 **Important note: the `NASTY_METACHARS` parameter should be left as its default value.
-Modifying it might open serious security hole and RCE exploitation from an attacker.** 
+Modifying it might open serious security hole and RCE exploitation from an attacker.**
 
-## Installation 
+## Installation
 
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="operating-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon NRPE Client package on every Poller expected to monitor *Varnish*:
 
@@ -76,10 +80,11 @@ Modifying it might open serious security hole and RCE exploitation from an attac
 yum install centreon-nrpe3-plugin
 ```
 
-2. On the Centreon Web interface, install the Centreon Pack *Varnish* 
+2. On the Centreon Web interface, install the Centreon Pack *Varnish*
 from the **Configuration > Plugin Packs > Manager** page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Poller expected to monitor *Varnish*:
 
@@ -93,10 +98,11 @@ yum install centreon-nrpe-plugin
 yum install centreon-pack-applications-varnish-nrpe
 ```
 
-3. On the Centreon Web interface, install the Centreon Pack *Varnish* 
+3. On the Centreon Web interface, install the Centreon Pack *Varnish*
 from the **Configuration > Plugin Packs > Manager** page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host configuration
 

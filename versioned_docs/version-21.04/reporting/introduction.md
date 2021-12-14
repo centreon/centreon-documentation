@@ -41,11 +41,11 @@ or simply create your own reporting Dashboard using our widgets.
 Main features:
 
 -   Scheduling and generation of standalone reports in PDF, Excel, Word
-    and Powerpoint formats
+and Powerpoint formats
 -   Visualization of web & interactive statistics using reporting
-    widgets that are Centreon-compatible
+widgets that are Centreon-compatible
 -   Publication of reports by e-mail and other standard protocols (FTP,
-    CIFS, etc.)
+CIFS, etc.)
 -   Access control to reports
 -   Administration and user interface integrated into Centreon
 -   Report development libraries

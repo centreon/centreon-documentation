@@ -15,7 +15,7 @@ incidents about your monitoring alerts.
 This integration is (at least) compatible with the following BMC Footprints
 versions:
 
-  - 11.x
+- 11.x
 
 ## Requirements
 

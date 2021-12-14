@@ -20,7 +20,7 @@ Go to the **Monitoring \> Performances \> Templates** menu
 * The **Lower limit** field defines the minimum limit of the y-axis.
 * The **Upper limit** field defines the maximum limit of the y-axis.
 * The **Base** list defines the calculation base for the data during the scaling of the graph y-axis. Use 1024 for
-  measurements like the Bytes (1 KB = 1 024 Bytes) and 1 000 for measurements like the volt (1 kV = 1 000 Volts).
+measurements like the Bytes (1 KB = 1 024 Bytes) and 1 000 for measurements like the volt (1 kV = 1 000 Volts).
 * The **Scale Graph Values** checkbox enable auto scale of the graph and bypass previous options
 * The **Default Centreon Graph Template** allows to display all chart without predefined template using these values
 

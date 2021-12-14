@@ -69,7 +69,7 @@ protections appropriées.
 En fonction du score CVSS de la vulnérabilité, l'équipe de sécurité de Centreon détermine l'urgence
 de la remédiation :
 
- | Score CVSS          | Rémédiation                                                                                                                                                                                                                                       |
+| Score CVSS          | Rémédiation                                                                                                                                                                                                                                       |
 |---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 9.0 - 10 (Critique) | Centreon lance immédiatement une action corrective, développe un correctif ou une solution de contournement et la fournit aux clients dans les plus brefs délais commercialement acceptables sous la forme d'un correctif et/ou d'une mise à jour |
 | 7.0 - 8.9 (Haut)    | Centreon fournit un correctif ou une solution de contournement avec la prochaine maintenance planifiée sous forme de mise à jour (généralement dans les 30 jours)                                                                                 |
@@ -83,7 +83,7 @@ Si vous pensez avoir trouvé une faille de sécurité, veuillez nous la signaler
 
 Veuillez ne pas exposer les vulnérabilités de sécurité via le signalement GitHub de bogue dit « Issue ».
 
-Envoyez un email à [security@centreon.com](mailto:security@centreon.com). Si possible, chiffrez votre message avec 
+Envoyez un email à [security@centreon.com](mailto:security@centreon.com). Si possible, chiffrez votre message avec
 la [clé PGP](https://github.com/centreon/centreon/blob/master/SECURITY.md#pgp-information)
 fournie.
 

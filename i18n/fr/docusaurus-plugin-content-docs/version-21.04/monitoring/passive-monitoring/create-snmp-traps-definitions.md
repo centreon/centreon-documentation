@@ -51,9 +51,9 @@ Rendez-vous dans le menu **Configuration > SNMP traps > SNMP traps** et cliquez 
 * Le champ **Mode** éfinit comment le champ **OID** est interpreté lors de la réception de ce trap.
 * Le champ **OID** définit l’OID racine à recevoir pour que ce trap soit considéré comme reçu.
 * Le champ **Vendor name** définit le nom du constructeur auquel appartient le trap à sélectionner dans la liste
-  déroulante.
+déroulante.
 * Le champ **Output message** contient le message à afficher en cas de réception d’un trap contenant l’OID configuré
-  au-dessus.
+au-dessus.
 
 > Par défaut, la MIB contient la définition de cette variable (Exemple : “Link up on interface $2. State: $4.”, ici $2
 > sera remplacé par le 2ème argument reçu dans l’évènement.). Dans le cas contraire, la variable **$\*** permet
@@ -67,8 +67,8 @@ Rendez-vous dans le menu **Configuration > SNMP traps > SNMP traps** et cliquez 
 * Le champ **Default status** définit le statut "supervision" par défaut du service en cas de réception du trap.
 * Si la case **Submit result** est cochée alors le résultat est soumis au moteur de supervision.
 * Le champ **Comments** (dernier champ) contient par défaut le commentaire constructeur du trap SNMP. La plupart du
-  temps, ce commentaire indique la liste des variables contenues dans le trap SNMP (voir chapitre suivant sur la
-  configuration avancée).
+temps, ce commentaire indique la liste des variables contenues dans le trap SNMP (voir chapitre suivant sur la
+configuration avancée).
 
 ### Configuration avancée des traps
 
@@ -81,7 +81,7 @@ Pour cela, il est possible de définir des **Advanced Matching mode** en cliquan
 de créer autant de règles que nécessaire. Pour chaque règle, définir les paramètres :
 
 * **String** définit l’élément sur lequel sera appliqué la recherche (@OUTPUT@ défini l’ensemble du **Output messages**
-  traduit).
+traduit).
 * **Regexp** définit la recherche de type REGEXP à appliquer.
 * **Status** définit le statut du service en cas de concordance.
 
@@ -89,9 +89,9 @@ de créer autant de règles que nécessaire. Pour chaque règle, définir les pa
 > correspondance est assurée.
 
 * Le champ **Disable submit result if no matched rules** désactive l’envoi des informations au moteur d’ordonnancement
-  si aucune correspondance avec une règle n’est validée.
+si aucune correspondance avec une règle n’est validée.
 * Si la case **Reschedule associated services** est cochée alors le prochain contrôle du service, qui doit être ‘actif’,
-  sera reprogrammé au plus tôt après la réception du trap.
+sera reprogrammé au plus tôt après la réception du trap.
 * Si la case **Execute special command** est cochée alors la commande définie dans **Special command** est exécutée.
 
 ### Onglet Advanced
@@ -133,12 +133,12 @@ Le résultat sera de la forme : Interface GigabitEthernet0/1 ( SERVEUR NAS ) lin
 
 * Le champ **Insert trap's information into database** permet de journaliser ou non les traps en base de données.
 * Le champ **Timeout** exprimé en secondes, permet de définir le temps maximum de traitement de l’évènement y compris
-  les commandes de prétraitement (PREEXEC) ainsi que celles de post-traitement (special command).
+les commandes de prétraitement (PREEXEC) ainsi que celles de post-traitement (special command).
 * Le champ **Execution interval** exprimé en secondes, permet de définir le temps minimum d’attente entre deux
-  traitements d’un évènement.
+traitements d’un évènement.
 * Le champ **Execution Type** permet d’activer **Execution interval** en définissant les conditions
 * Le champ **Execution Method** permet de définir si lors de la réception de plusieurs mêmes évènements (OID racine).
-  L’exécution est soit **Sequential** ou **Parallel**.
+L’exécution est soit **Sequential** ou **Parallel**.
 
 ### Le code personnalisé
 
@@ -147,9 +147,9 @@ modifier la variable **secure_mode** à 0 dans le fichier **/etc/centreon/centre
 
 ```perl
 our %centreontrapd_config = (
-    ...
-    secure_mode => 0,
-    ....
+...
+secure_mode => 0,
+....
 );
 
 1;
@@ -159,9 +159,9 @@ Par exemple, pour décoder le 4ème argument dont la valeur est en hexadécimal,
 
 ```perl
 if ($self->{trap_data}->{entvar}->[3] =~ /[[:xdigit:]]+/) {
-    my $hexa_value = $self->{trap_data}->{entvar}->[3];
-    $hexa_value =~ s/ //g;
-    $self->{trap_data}->{entvar}->[3] = pack('H*', $hexa_value);
+my $hexa_value = $self->{trap_data}->{entvar}->[3];
+$hexa_value =~ s/ //g;
+$self->{trap_data}->{entvar}->[3] = pack('H*', $hexa_value);
 }
 ```
 

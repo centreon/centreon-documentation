@@ -93,9 +93,9 @@ If the Centreon BAM module is installed, refer to the
 From `Administration > Extensions > Manager`, upgrade all extensions, starting
 with the following:
 
-  - License Manager,
-  - Plugin Packs Manager,
-  - Auto Discovery.
+- License Manager,
+- Plugin Packs Manager,
+- Auto Discovery.
 
 Then you can upgrade all other commercial extensions.
 

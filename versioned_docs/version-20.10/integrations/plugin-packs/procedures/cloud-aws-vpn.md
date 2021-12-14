@@ -2,6 +2,9 @@
 id: cloud-aws-vpn
 title: AWS VPN
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -19,26 +22,25 @@ The *AWS VPN* Centreon Plugin-Pack uses the Amazon Cloudwatch APIs to collect th
 
 ### Discovery Rules
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Services-->
+<Tabs groupId="operating-systems">
+<TabItem value="Services" label="Services">
 
 | Rule name                 | Description                                                   |
-|:--------------------------|:--------------------------------------------------------------|
+| :------------------------ | :------------------------------------------------------------ |
 | Cloud-Aws-Vpn-Connections | Discover VPN connections and monitor their status and traffic |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Collected Metrics
 
 More information about collected metrics is available in the official Amazon documentation: https://docs.aws.amazon.com/vpn/latest/s2svpn/monitoring-cloudwatch-vpn
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Vpn-Traffic-*-->
+<Tabs groupId="operating-systems">
+<TabItem value="VpnTraffic*" label="VpnTraffic*">
 
 | Metric name                         | Description                                                                                                                                             | Unit |
-|:------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------|:-----|
+| :---------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------ | :--- |
 | *instance*\#vpn.tunnel.tunnelstate  | The state of the tunnel. For static VPNs, 0 indicates DOWN and 1 indicates UP. For BGP VPNs, 1 indicates ESTABLISHED and 0 is used for all other states |      |
 | *instance*\#vpn.tunnel.datain.bytes | The bytes received through the VPN tunnel                                                                                                               | B    |
 | *instance*\#vpn.tunnel.datain.bytes | The bytes sent through the VPN tunnel                                                                                                                   | B    |
@@ -49,7 +51,8 @@ simply add the setting ```--per-sec``` to the command and/or the Service Macros
 > By default, the *Vpn-Traffic-Global* Service will monitor all of the VPN connections of the AWS infrastructure.
 > To get one Service per connection, use the **Service Autodiscovery module** with the rule described above.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -58,7 +61,7 @@ simply add the setting ```--per-sec``` to the command and/or the Service Macros
 Whether using a service account or a dedicated monitoring account to monitor Cloudwatch metrics, the following rights have to be granted to the IAM role (accesskey/secretkey):
 
 | AWS Privilege                  | Description                                          |
-|:-------------------------------|:-----------------------------------------------------|
+| :----------------------------- | :--------------------------------------------------- |
 | ec2:DescribeVpnConnections     | Describes one or more of your VPN connections        |
 | cloudwatch:listMetrics         | List all metrics from Cloudwatch AWS/VPN namespace   |
 | cloudwatch:getMetricStatistics | Get metrics values from Cloudwatch AWS/VPN namespace |
@@ -69,27 +72,27 @@ To interact with Amazon APIs, you can use either use awscli binary or paws, a pe
 
 **Warning** At the moment it is not possible to use perl-Paws if you are using a proxy to connect to AWS Cloudwatch APIs.
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--perl-Paws-installation-->
+<Tabs groupId="operating-systems">
+<TabItem value="perlPawsinstallation" label="perlPawsinstallation">
 
 ```bash
 yum install perl-Paws
 ```
 
-<!--aws-cli-installation-->
+</TabItem>
+<TabItem value="awscliinstallation" label="awscliinstallation">
 
 ```bash
 yum install awscli
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="licence-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor AWS VPN ressources:
 
@@ -99,7 +102,8 @@ yum install centreon-plugin-Cloud-Aws-Vpn-Api
 
 2. On the Centreon Web interface, install the *AWS VPN* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor AWS VPN ressources:
 
@@ -115,7 +119,8 @@ yum install centreon-pack-cloud-aws-vpn.noarch
 
 3. On the Centreon Web interface, install the *AWS VPN* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -126,16 +131,16 @@ yum install centreon-pack-cloud-aws-vpn.noarch
 * Select the *Cloud-Aws-Vpn-custom* template to apply to the Host.
 * Once the template applied, some Macros marked as 'Mandatory' hereafter have to be configured:
 
-| Mandatory   | Nom             | Description                                                                                 |
-| :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
-| X           | AWSSECRETKEY    | AWS Secret key of your IAM role. Password checkbox must be checked                          |
-| X           | AWSACESSKEY     | AWS Access key of your IAM role. Password checkbox must be checked                          |
-| X           | AWSREGION       | Region where the instance is running                                                        |
-| X           | AWSCUSTOMMODE   | Custom mode to get metrics, 'awscli' is the default, you can also use 'paws' perl library   |
-|             | PROXYURL        | Configure proxy URL                                                                         |
-|             | EXTRAOPTIONS    | Any extra option you may want to add to every command\_line (eg. a --verbose flag)          |
-|             | DUMMYSTATUS     | Host state. Default is OK, do not modify it unless you know what you are doing              |
-|             | DUMMYOUTPUT     | Host check output. Default is 'This is a dummy check'. Customize it with your own if needed |
+| Mandatory | Nom           | Description                                                                                 |
+| :-------- | :------------ | :------------------------------------------------------------------------------------------ |
+| X         | AWSSECRETKEY  | AWS Secret key of your IAM role. Password checkbox must be checked                          |
+| X         | AWSACESSKEY   | AWS Access key of your IAM role. Password checkbox must be checked                          |
+| X         | AWSREGION     | Region where the instance is running                                                        |
+| X         | AWSCUSTOMMODE | Custom mode to get metrics, 'awscli' is the default, you can also use 'paws' perl library   |
+|           | PROXYURL      | Configure proxy URL                                                                         |
+|           | EXTRAOPTIONS  | Any extra option you may want to add to every command\_line (eg. a --verbose flag)          |
+|           | DUMMYSTATUS   | Host state. Default is OK, do not modify it unless you know what you are doing              |
+|           | DUMMYOUTPUT   | Host check output. Default is 'This is a dummy check'. Customize it with your own if needed |
 
 ## FAQ
 
@@ -146,21 +151,21 @@ running the following command (Some of the parameters such as ```--proxyurl``` h
 
 ```bash
 /usr/lib/centreon/plugins//centreon_aws_vpn_api.pl \
-    --plugin=cloud::aws::vpn::plugin \
-    --mode=traffic \
-    --custommode='awscli' \
-    --aws-secret-key='*******************' \
-    --aws-access-key='**********' \
-    --region='eu-west-1' \
-    --name='vpn-123abc456def789gh' \
-    --proxyurl='http://myproxy.mycompany.org:8080'
-    --filter-metric='' \
-    --statistic='average' \
-    --timeframe='600' \
-    --period='60' \
-    --warning-tunnel-state='1:' \
-    --critical-tunnel-state='0.5:'
-    --verbose
+--plugin=cloud::aws::vpn::plugin \
+--mode=traffic \
+--custommode='awscli' \
+--aws-secret-key='*******************' \
+--aws-access-key='**********' \
+--region='eu-west-1' \
+--name='vpn-123abc456def789gh' \
+--proxyurl='http://myproxy.mycompany.org:8080'
+--filter-metric='' \
+--statistic='average' \
+--timeframe='600' \
+--period='60' \
+--warning-tunnel-state='1:' \
+--critical-tunnel-state='0.5:'
+--verbose
 ```
 Expected command output is shown below:
 
@@ -184,9 +189,9 @@ All the available thresholds parameters can be displayed by adding the ```--help
 
 ```bash
 /usr/lib/centreon/plugins/centreon_aws_vpn_api.pl \
-    --plugin=cloud::aws::vpn::plugin \
-    --mode=traffic \
-    --help
+--plugin=cloud::aws::vpn::plugin \
+--mode=traffic \
+--help
 ```
 
 ### Why do I get the following result:

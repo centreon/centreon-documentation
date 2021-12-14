@@ -2,6 +2,9 @@
 id: applications-webservers-nginx-serverstatus
 title: Nginx Server
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -15,9 +18,8 @@ Nginx est un serveur web open-source aussi utilisé comme reverse proxy, cache H
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Requests-->
+<Tabs groupId="operating-systems">
+<TabItem value="Requests" label="Requests">
 
 | Metric name                               | Description                    | Unit               |
 | :---------------------------------------- | :----------------------------- | :----------------- |
@@ -27,7 +29,8 @@ Nginx est un serveur web open-source aussi utilisé comme reverse proxy, cache H
 | server.requests.persecond                 | Number of requests             | Requests/second    |
 
 
-<!--Connections-->
+</TabItem>
+<TabItem value="Connections" label="Connections">
 
 | Metric name                        | Description                       | Unit  |
 | :--------------------------------- | :-------------------------------- | :---- |
@@ -36,7 +39,8 @@ Nginx est un serveur web open-source aussi utilisé comme reverse proxy, cache H
 | server.connections.writing.count   | The number of writing connections | Count |
 | server.connections.reading.count   | The number of reading connections | Count |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -46,42 +50,41 @@ Le module permet de générer un rapport Nginx et de le rendre disponible sur un
 
 Pour activer ce module, vous devez ouvrir votre fichier de configuration nginx.
 
-    $ vi /etc/nginx/nginx.conf
+$ vi /etc/nginx/nginx.conf
 
 and ajouter les lignes suivantes dans la parenthèse 'server':
 
-    server { 
-        ... 
-        location /nginx_status { 
-            stub_status on; 
-            access_log off;
-            allow <centreon-poller_@IP>;
-            deny all; 
-        }
-        ...
-    }
+server {
+...
+location /nginx_status {
+stub_status on;
+access_log off;
+allow <centreon-poller_@IP>;
+deny all;
+}
+...
+}
 
 Assurez-vous que le collecteur est authorisé à accéder à cette URL.
 
 Contrôler la validité de votre configuration en utilisant la commande suivante:
 
-    $ nginx -t nginx: the configuration file
-    /etc/nginx/nginx.conf syntax is ok nginx: configuration file
-    /etc/nginx/nginx.conf test is successful
+$ nginx -t nginx: the configuration file
+/etc/nginx/nginx.conf syntax is ok nginx: configuration file
+/etc/nginx/nginx.conf test is successful
 
 Nginx doit être rechargé pour prendre en compte cette modification :
 
-    $ /etc/init.d/nginx reload
+$ /etc/init.d/nginx reload
 
 Accéder à l'url suivante pour contrôler le résultat :
 
-    http://<nginx_address>/nginx_status
+http://<nginx_address>/nginx_status
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="operating-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des serveurs Nginx:
 
@@ -91,7 +94,8 @@ yum install centreon-plugin-Applications-Webservers-Nginx-Serverstatus
 
 2. Sur l'interface Web de Centreon, installer le Plugin Pack *Nginx Server* depuis la page "Configuration > Plugin Packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des serveurs Nginx:
 
@@ -107,7 +111,8 @@ yum install centreon-pack-applications-webservers-nginx-serverstatus
 
 3. Sur l'interface Web de Centreon, installer le Plugin Pack *Nginx Server* depuis la page "Configuration > Plugin Packs > Manager"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 
 ## Configuration
@@ -131,16 +136,16 @@ de commande depuis un collecteur Centreon en vous connectant avec l'utilisateur
 
 ```bash
 /usr/lib/centreon/plugins//centreon_nginx_serverstatus.pl \
-	--plugin=apps::nginx::serverstatus::plugin \
-	--mode=requests \
-	--hostname=10.30.2.11 \
-	--proto=https \
-	--port=443 \
-	--warning-connections-dropped=10 \
-	--critical-connections-dropped=20 \
-	--http-backend=curl \
-	--curl-opt="CURLOPT_SSL_VERIFYPEER => 0" \
-	--verbose  
+--plugin=apps::nginx::serverstatus::plugin \
+--mode=requests \
+--hostname=10.30.2.11 \
+--proto=https \
+--port=443 \
+--warning-connections-dropped=10 \
+--critical-connections-dropped=20 \
+--http-backend=curl \
+--curl-opt="CURLOPT_SSL_VERIFYPEER => 0" \
+--verbose
 ```
 
 La commande ci-dessus contrôle les statistiques des requêtes sur le serveur Nginx (``` --mode=requests ```). Les informations importantes sont l'adresse IP/FQDN (``` --hostname=10.30.2.11 ```),
@@ -165,17 +170,17 @@ Pour chaque mode, les options disponibles peuvent être consultées en ajoutant 
 
 ```bash
 /usr/lib/centreon/plugins//centreon_nginx_serverstatus.pl \
-	--plugin=apps::nginx::serverstatus::plugin \
-	--mode=requests \
-	--help
+--plugin=apps::nginx::serverstatus::plugin \
+--mode=requests \
+--help
 ```
 
-Les modes disponibles peuvent être affichés à l'aide de la commande suivante : 
+Les modes disponibles peuvent être affichés à l'aide de la commande suivante :
 
 ```bash
 usr/lib/centreon/plugins//centreon_nginx_serverstatus.pl \
-	--plugin=apps::nginx::serverstatus::plugin \
-    --list-mode 
+--plugin=apps::nginx::serverstatus::plugin \
+--list-mode
 ```
 
 ## Diagnostic des erreurs communes

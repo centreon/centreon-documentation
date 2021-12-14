@@ -10,9 +10,9 @@ note.
 
 To access detailed release note by component, use the following sections:
 
-  - [Core](centreon-core)
-  - [Commercial extensions](centreon-commercial-extensions)
-  - [Open Source extensions](centreon-os-extensions)
+- [Core](centreon-core)
+- [Commercial extensions](centreon-commercial-extensions)
+- [Open Source extensions](centreon-os-extensions)
 
 ## New Events view (beta)
 
@@ -25,17 +25,17 @@ already know and your feedbacks.
 This new view is accessible directly from `Home > Events view (beta)"` and
 brings the following capabilities:
 
-  - A unified page that regroups host & service resources in one single place
-    for a unified events management
-  - Regexp search based on multi-criteria and the possibility to force the
-    search on a specific criteria (host name, host alias, host address, service
-    description)
-  - Multi-criteria search based on multi-selects
-  - Inline & massive quick actions: acknowledgement, set a planned downtime,
-    re-check a resource
-  - Detail information on the side of the listing, to quickly access information and
-    not losing what you were currently looking at
-  - ... *And more to come in the next weeks/months*
+- A unified page that regroups host & service resources in one single place
+for a unified events management
+- Regexp search based on multi-criteria and the possibility to force the
+search on a specific criteria (host name, host alias, host address, service
+description)
+- Multi-criteria search based on multi-selects
+- Inline & massive quick actions: acknowledgement, set a planned downtime,
+re-check a resource
+- Detail information on the side of the listing, to quickly access information and
+not losing what you were currently looking at
+- ... *And more to come in the next weeks/months*
 
 <iframe width="640" height="480" src="https://www.youtube.com/embed/FVjuIbBDuYU" frameborder="0" allowfullscreen></iframe>
 
@@ -47,13 +47,13 @@ documentation](../alerts-notifications/events-view)
 Centreon comes now with a Mobile App. that you can install on your phone to be
 able to perform the most common actions on resources:
 
-  - Display resources status
-  - Filter resource status
-  - Act on any resource: acknowledge or set a downtime
-  - Display detail status information and graph when appropriate
+- Display resources status
+- Filter resource status
+- Act on any resource: acknowledge or set a downtime
+- Display detail status information and graph when appropriate
 
 <video width="375" height="812" controls="true" allowfullscreen="true" poster="../assets/mobile/mobile-login.png">
-    <source src="../assets/mobile/mobile-demo.mp4" type="video/mp4"/>
+<source src="../assets/mobile/mobile-demo.mp4" type="video/mp4"/>
 </video>
 
 Find more about this mobile application in the [dedicated
@@ -69,9 +69,9 @@ your configuration.
 
 We've also added new functionalities:
 
-  - Easier and more secure management of credentials,
-  - Possibility to discover resources from any monitoring server,
-  - New mapping system to link results with Centreon configuration.
+- Easier and more secure management of credentials,
+- Possibility to discover resources from any monitoring server,
+- New mapping system to link results with Centreon configuration.
 
 Give a look at the [dedicated
 section](../monitoring/discovery/hosts-discovery) to know how to launch your
@@ -92,9 +92,9 @@ on an “Impact” mode.
 
 Now you're able to:
 
-  - Model simple use cases using **Best** or **Worst** status calculation
-    methods
-  - Model **cluster** concepts using a new **Ratio** calculation method
+- Model simple use cases using **Best** or **Worst** status calculation
+methods
+- Model **cluster** concepts using a new **Ratio** calculation method
 
 Ex: I want 50% of my indicators to be OK \> in that case you use the "Ratio"
 method and configure it like that

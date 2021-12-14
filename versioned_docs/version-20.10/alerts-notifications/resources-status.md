@@ -28,9 +28,9 @@ When one or more alerts are visible, you may need to acknowledge them to tell
 your team that the problem is handled, you can do that in two ways:
 
 -   By directly acknowledging on the line, a "Acknowledgement" button
-    apper on mouse over
+apper on mouse over
 -   By selecting multiple lines and clicking on the "Acknowledgement"
-    button, above the table
+button, above the table
 
 You can also disacknowledge previously acknowledged events by choosing the
 "Disacknowledge" action in the "More actions" menu.
@@ -51,9 +51,9 @@ When a maintenance is planned on one or multiple resources, you can set this
 planned downtime in Centreon in two ways:
 
 -   By directly setting a planned downtime on the line when the mouse is
-    over
+over
 -   By selecting multiple lines and clicking on the "Downtime" button,
-    above the table
+above the table
 
 ![image](../assets/alerts/resources-status/resources-status-downtime.gif)
 
@@ -67,9 +67,9 @@ to refresh their status. You can set this planned downtime in Centreon
 in two ways:
 
 -   By directly clicking on the "Check" button on the line when the
-    mouse is over
+mouse is over
 -   By selecting multiple lines and clicking on the "Check" button,
-    above the table
+above the table
 
 ![image](../assets/alerts/resources-status/resources-status-check.gif)
 
@@ -94,10 +94,10 @@ and "All".
 The following rules apply:
 
 -   Unhandled problems: resource status is Warning or Critical or
-    Unknown or Down AND the resource is not acknowledged nor in planned
-    downtime
+Unknown or Down AND the resource is not acknowledged nor in planned
+downtime
 -   Resource problems: resource status is Warning or Critical or Unknown
-    or Down
+or Down
 -   All: All resources
 
 ![image](../assets/alerts/resources-status/resources-status-filters-defaults.gif)
@@ -135,7 +135,7 @@ to expand the filter bar to access the following additionnal criteria:
 -   Resource types (host or service)
 -   Statuses (Ok,Warning, Critical, Unknown, Pending, Up, Down)
 -   States: Is the problem already acknowledged, in a planned downtime
-    or simply unhandled
+or simply unhandled
 -   Host groups
 -   Service groups
 
@@ -151,7 +151,7 @@ This is possible using the **icon** next to Filter. You'll be able to:
 
 -   Save your current search as a new filter
 -   Save the current filter so that it's updated using your current
-    applied criterias
+applied criterias
 -   Edit filters so that you can rename, re-order or delete them
 
 As soon as a filter is saved, it's re-usable in the Filter dropdown list,
@@ -188,7 +188,7 @@ The service panel contains several informative tabs:
 -   The timeline of events that occured for this service,
 -   A graph with one curve per metric collected by this service,
 -   Shortcuts to the configurations, logs and reports for this service and its
-    related host.
+related host.
 
 ![image](../assets/alerts/resources-status/resources-status-panel-service.gif)
 

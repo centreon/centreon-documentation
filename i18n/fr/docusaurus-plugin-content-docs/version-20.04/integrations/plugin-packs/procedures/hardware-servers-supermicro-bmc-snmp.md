@@ -2,6 +2,9 @@
 id: hardware-servers-supermicro-bmc-snmp
 title: Supermicro BMC SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Contenu du Pack de supervision
 
@@ -10,18 +13,18 @@ title: Supermicro BMC SNMP
 Le Pack Supermicro collecte les données pour:
 * Sensors
 
-### Métriques collectées 
+### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Sensors-->
+<Tabs groupId="operating-systems">
+<TabItem value="Sensors" label="Sensors">
 
 | Metric name                                   | Description          | Unit  |
 | :-------------------------------------------- | :------------------- | :---- |
 | sensor status                                 | Status of the sensor |       |
 | *sensor\_name*\#hardware.sensor.reading.count | Sensor reading value |       |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -31,9 +34,8 @@ https://www.supermicro.com/en/solutions/management-software/bmc-resources
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="operating-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -43,7 +45,8 @@ yum install centreon-plugin-Hardware-Servers-Supermicro-Bmc-Snmp
 
 2. Sur l'interface Web de Centreon, installer le Pack *Supermicro BMC SNMP* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -59,7 +62,8 @@ yum install centreon-pack-hardware-servers-supermicro-bmc-snmp
 
 3. Sur l'interface Web de Centreon, installer le Pack *Supermicro BMC SNMP* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -81,12 +85,12 @@ Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne d
 
 ```bash
 /usr/lib/centreon/plugins/centreon_supermicro_bmc_snmp.pl
-    --plugin=hardware::server::supermicro::bmc::snmp::plugin
-    --mode=sensors
-    --hostname=10.30.2.114
-    --snmp-version='2c'
-    --snmp-community='supermicro_ro'
-    --verbose
+--plugin=hardware::server::supermicro::bmc::snmp::plugin
+--mode=sensors
+--hostname=10.30.2.114
+--snmp-version='2c'
+--snmp-community='supermicro_ro'
+--verbose
 ```
 
 La commande devrait retourner un message de sortie de la forme ci-dessous:
@@ -156,17 +160,17 @@ sensor 'HDD Temp' reading is '31' [instance: 67#HDD Temp]
 sensor 'HDD Status' reading is '1' [instance: 68#HDD Status]
 ```
 
-Cette commande contrôle le matériel (```--mode=sensors```) d'un équipement Supermicro ayant pour adresse *10.30.2.114* (```--hostname=10.30.2.114```) 
+Cette commande contrôle le matériel (```--mode=sensors```) d'un équipement Supermicro ayant pour adresse *10.30.2.114* (```--hostname=10.30.2.114```)
 en version *2c* du protocol SNMP (```--snmp-version='2c'```) et avec la communauté *supermicro_ro* (```--snmp-community='supermicro_ro'```).
- 
+
 Pour chaque mode, la liste de toutes les métriques, seuils associés et options complémentaires peut être affichée
 en ajoutant le paramètre ```--help``` à la commande:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_supermicro_bmc_snmp.pl
-    --plugin=hardware::server::supermicro::bmc::snmp::plugin
-    --mode=sensors
-    --help
+--plugin=hardware::server::supermicro::bmc::snmp::plugin
+--mode=sensors
+--help
 ```
 
 ## Diagnostique

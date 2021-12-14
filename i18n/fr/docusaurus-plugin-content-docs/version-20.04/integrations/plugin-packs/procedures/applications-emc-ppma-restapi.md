@@ -2,6 +2,9 @@
 id: applications-emc-ppma-restapi
 title: EMC PPMA Rest API
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Contenu du Plugin-Pack
 
@@ -12,9 +15,8 @@ Le Plugin-Pack EMC PowerPath Management Appliance collecte les données pour:
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Hosts-->
+<Tabs groupId="operating-systems">
+<TabItem value="Hosts" label="Hosts">
 
 | Metric name                            | Description                                                  | Unit |
 | :------------------------------------- | :----------------------------------------------------------- | :--- |
@@ -25,7 +27,8 @@ Le Plugin-Pack EMC PowerPath Management Appliance collecte les données pour:
 | *hostname*#host.volumes.dead.count     | Number of dead volumes attached                              |      |
 | *hostname*#host.volumes.degraded.count | Number of degraded volumes attached                          |      |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -33,9 +36,8 @@ Afin de contrôler l'application EMC PPMA, l'API Rest doit être configuré (cf:
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="operating-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -45,7 +47,8 @@ yum install centreon-plugin-Applications-Emc-Ppma-Restapi
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Emc PPMA Rest API* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -61,12 +64,13 @@ yum install centreon-pack-applications-emc-ppma-restapi
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Emc PPMA Rest API* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
 Ce Plugin-Pack est conçu de manière à avoir dans Centreon un hôte par application EMC PPMA.
-Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *App-Emc-Ppma-Restapi-custom*. 
+Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *App-Emc-Ppma-Restapi-custom*.
 Une fois celui-ci configuré, certaines macros doivent être renseignées:
 
 | Mandatory | Name                | Description                                                                |
@@ -78,8 +82,8 @@ Une fois celui-ci configuré, certaines macros doivent être renseignées:
 |           | PPMAAPIEXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
 
 Par défaut, le modèle *App-Emc-Ppma-Restapi* n'a pas de modèles de services associés. Vous pouvez au choix:
- * associer des modèles de services au modèle d'hôte *App-Emc-Ppma-Restapi-custom*
- * utiliser la découverte des services
+* associer des modèles de services au modèle d'hôte *App-Emc-Ppma-Restapi-custom*
+* utiliser la découverte des services
 
 ## FAQ
 
@@ -90,28 +94,28 @@ Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne d
 
 ```bash
 /usr/lib/centreon/plugins/centreon_emc_ppma_restapi.pl \
-    --plugin=apps::emc::ppma::restapi::plugin \
-    --mode=hosts \
-    --hostname='10.30.2.79' \
-    --port='443' \
-    --proto='https' \
-    --api-username='myapiusername' \
-    --api-password='myapipassword' \
-    --filter-name='centreontest' \
-    --warning-paths-dead='0' \
-    --critical-paths-dead='1' \
-    --verbose
+--plugin=apps::emc::ppma::restapi::plugin \
+--mode=hosts \
+--hostname='10.30.2.79' \
+--port='443' \
+--proto='https' \
+--api-username='myapiusername' \
+--api-password='myapipassword' \
+--filter-name='centreontest' \
+--warning-paths-dead='0' \
+--critical-paths-dead='1' \
+--verbose
 ```
 
 Exemple de sortie:
 ```
 OK: All hosts are ok | 'centreontest1#host.paths.total.count'=976;;;0; 'centreontest1#host.paths.dead.count'=0;0;0:1;0;976 'centreontest1#host.volumes.total.count'=136;;;0; 'centreontest1#host.volumes.dead.count'=0;;;0;136 'centreontest1#host.volumes.degraded.count'=0;;;0;136 'centreontest2#host.paths.total.count'=976;;;0; 'centreontest2#host.paths.dead.count'=0;0;0:1;0;976 'centreontest2#host.volumes.total.count'=136;;;0; 'centreontest2#host.volumes.dead.count'=0;;;0;136 'centreontest2#host.volumes.degraded.count'=0;;;0;136
 checking host 'centreontest1'
-    status: powerPathManagedpath total: 976, dead: 0
-    volume total: 136, dead: 0, degraded: 0
+status: powerPathManagedpath total: 976, dead: 0
+volume total: 136, dead: 0, degraded: 0
 checking host 'centreontest2'
-    status: powerPathManagedpath total: 976, dead: 0
-    volume total: 136, dead: 0, degraded: 0
+status: powerPathManagedpath total: 976, dead: 0
+volume total: 136, dead: 0, degraded: 0
 ```
 
 La commande ci-dessus contrôle les hôtés nommés *centreontest* (```--filter-name='centreontest'```) et attachés à l'application EMC PPMA (```--mode=hosts```).
@@ -125,12 +129,12 @@ Toutes les options et leur utilisation peuvent être consultées avec le paramè
 
 ```bash
 /usr/lib/centreon/plugins/centreon_emc_ppma_restapi.pl \
-    --plugin=apps::emc::ppma::restapi::plugin \
-    --mode=hosts \
-    --help
+--plugin=apps::emc::ppma::restapi::plugin \
+--mode=hosts \
+--help
 ```
 
-### J'obtiens le message d'erreur suivant: 
+### J'obtiens le message d'erreur suivant:
 
 #### ```UNKNOWN: 500 Can't connect to 10.30.2.79:443 |```
 

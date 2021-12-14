@@ -2,11 +2,14 @@
 id: introduction
 title: Introduction
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 Une application mobile est disponible et vous permet de visualiser le statut des resources supervisées
 par Centreon, sur une tablette ou un téléphone.
 
-  ![image](../assets/mobile/mobile-app-screens.png)
+![image](../assets/mobile/mobile-app-screens.png)
 
 Les fonctionnalités principales de cette application sont:
 
@@ -16,9 +19,9 @@ Les fonctionnalités principales de cette application sont:
 - Accéder aux informations détaillées des ressources
 - Accéder à l'historique d'une métrique via un graphique
 
-  <video width="375" height="812" controls="true" allowfullscreen="true" poster="../assets/mobile/mobile-login.png">
-    <source src="../assets/mobile/mobile-demo.mp4" type="video/mp4"/>
-  </video>
+<video width="375" height="812" controls="true" allowfullscreen="true" poster="../assets/mobile/mobile-login.png">
+<source src="../assets/mobile/mobile-demo.mp4" type="video/mp4"/>
+</video>
 
 > L'application mobile est une application de type PWA
 > [(Progressive Web App)](https://en.wikipedia.org/wiki/Progressive_web_application). Elle est composée
@@ -41,26 +44,27 @@ connecter à votre plateforme Centreon
 
 La manière d'installer l'application dépend de votre appareil:
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!-- Android -->
+<Tabs groupId="operating-systems">
+<TabItem value="Android" label="Android">
 
 Pour **Android**, deux possibilités:
 
-  - Télécharger l'application à partir du [Google Play store](https://play.google.com/store/apps/details?id=com.centreon.mobileapp)
-  - Installer l'application via Google Chrome et en vous rendant sur
-  [mobile.centreon.com](https://mobile.centreon.com/)  utilsant la fonctionnalité "Ajouter à l'écran d'accueil"
+- Télécharger l'application à partir du [Google Play store](https://play.google.com/store/apps/details?id=com.centreon.mobileapp)
+- Installer l'application via Google Chrome et en vous rendant sur
+[mobile.centreon.com](https://mobile.centreon.com/)  utilsant la fonctionnalité "Ajouter à l'écran d'accueil"
 
-    ![image](../assets/mobile/andoid-add-to-home-screen.png)
+![image](../assets/mobile/andoid-add-to-home-screen.png)
 
-<!-- Apple/iOS -->
+</TabItem>
+<TabItem value="Apple/iOS" label="Apple/iOS">
 
 Pour **iOS**, rendez vous sur [mobile.centreon.com](https://mobile.centreon.com/)  avec le navigateur Safari
 puis installer l'application via la fonctionnalité "Sur l'écran d'accueil"
 
 ![image](../assets/mobile/ios-add-to-home-screen.png)
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Se connecter à l'application
 

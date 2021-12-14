@@ -49,12 +49,12 @@ La vue détaillée d'une BA est divisée en 7 parties.
 ![image](../assets/service-mapping/guide/mon_detailed.png)
 
 1.  Tableau listant les indicateurs de performance impactant
-    actuellement la BA.
+actuellement la BA.
 2.  Tableau d'information sur l'état de santé de la BA et les seuils
-    d'alertes.
+d'alertes.
 3.  Onglet présentant l'arbre d'impact de la BA. Il est possible de
-    déployer les niveaux inférieurs, zoomer et se déplacer dans le
-    graphique.
+déployer les niveaux inférieurs, zoomer et se déplacer dans le
+graphique.
 4.  Onglet contenant les graphiques de niveau de services de la BA
 5.  Onglet contenant un tableau listant tous les KPIs de la BA
 6.  Menu déroulant permettant de modifier la BA

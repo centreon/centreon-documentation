@@ -22,10 +22,10 @@ in the following form: \[Servername|Domainname\]\\Username
 
 In order to use this template, the following RPM are needed:
 
-  - freetds-0.82
-  - perl-DBD-Sybase-1.10-1
-  - unixODBC-2.2.11-10
-  - unixODBC-devel-2.2.11-10
+- freetds-0.82
+- perl-DBD-Sybase-1.10-1
+- unixODBC-2.2.11-10
+- unixODBC-devel-2.2.11-10
 
 ## Centreon Configuration
 

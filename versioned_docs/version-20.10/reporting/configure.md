@@ -87,24 +87,24 @@ The notification option parameters can be modified in the menu:
 
 Description:
 
-  Row                                           |  Description
-  ----------------------------------------------|-------------------------------------------------
-  Enable job notification for administrators    |  Enables the default notification system. This option can be disabled for scheduled jobs.
-  E-mail from                                   | E-mail sender
-  SMTP server                                   | SMTP server address (IP/DNS)
-  SMTP port                                     | SMTP port
-  Use credential                                | Uses an authentication (yes/no)
-  Use SSL                                       | Uses an SSL authentification (yes/no)
-  SMTP user                                     | SMTP user account
-  SMTP password                                 | Password for SMTP user (*Set this parameter only if you need to update the password*)
-  E-mail default title                          | Default subject line for notification e-mail, if no other is specified
-  Default E-mail body                           | Default body of notification e-mail, if no other is specified
-  Default E-mail footer                         | Default footer of notification e-mail, if no other is specified
-  Centreon main server web protocol             | The protocol used by Centreon web interface (http / https)
-  Centreon web URL extension                    |  The Centreon server URL extension (e.g.: /centreon)
-  Centreon main server                          | Centreon server address
-  Contact groups                                | Centreon MBI administrators contact groups. Leave empty if you do not want to receive a notification after each report is generated.
-  Testing notification                          | Enter an e-mail address into this field, then click on "test" to send an e-mail validating your configuration.
+Row                                           |  Description
+----------------------------------------------|-------------------------------------------------
+Enable job notification for administrators    |  Enables the default notification system. This option can be disabled for scheduled jobs.
+E-mail from                                   | E-mail sender
+SMTP server                                   | SMTP server address (IP/DNS)
+SMTP port                                     | SMTP port
+Use credential                                | Uses an authentication (yes/no)
+Use SSL                                       | Uses an SSL authentification (yes/no)
+SMTP user                                     | SMTP user account
+SMTP password                                 | Password for SMTP user (*Set this parameter only if you need to update the password*)
+E-mail default title                          | Default subject line for notification e-mail, if no other is specified
+Default E-mail body                           | Default body of notification e-mail, if no other is specified
+Default E-mail footer                         | Default footer of notification e-mail, if no other is specified
+Centreon main server web protocol             | The protocol used by Centreon web interface (http / https)
+Centreon web URL extension                    |  The Centreon server URL extension (e.g.: /centreon)
+Centreon main server                          | Centreon server address
+Contact groups                                | Centreon MBI administrators contact groups. Leave empty if you do not want to receive a notification after each report is generated.
+Testing notification                          | Enter an e-mail address into this field, then click on "test" to send an e-mail validating your configuration.
 
 ### Scheduler options
 
@@ -125,26 +125,26 @@ reporting engine. It opens a connection on the CBIS listening port to:
 
 Parameters description:
 
-  Option                    | Description
-  --------------------------|--------------------------------------------------------
-  CBIS host                 | IP address of server hosting the reporting engine
-  CBIS port                 | TCP listening port for CBIS engine
-  CBIS connection timeout   | Time limit (in seconds) for connection to the reporting engine
+Option                    | Description
+--------------------------|--------------------------------------------------------
+CBIS host                 | IP address of server hosting the reporting engine
+CBIS port                 | TCP listening port for CBIS engine
+CBIS connection timeout   | Time limit (in seconds) for connection to the reporting engine
 
 Any modification of these parameters requires restarting the CBIS daemon
 
-    systemctl restart cbis
+systemctl restart cbis
 
 #### Report generation scheduling properties
 
 > Description of parameters:
 
-  Option                                                        | Description
-  --------------------------------------------------------------|----------------------------------
-  All cyclic reports generation hour                            | Hour for generating daily/weekly/monthly reports
-  Day of month for the generation of monthly reports            | Day of month for generating monthly reports
-  Day of week for the generation of weekly reports              | Day of week for generating weekly reports
-  Maximum load allowed to the scheduler for the jobs execution  | Maximum load authorized for running simultaneous jobs
+Option                                                        | Description
+--------------------------------------------------------------|----------------------------------
+All cyclic reports generation hour                            | Hour for generating daily/weekly/monthly reports
+Day of month for the generation of monthly reports            | Day of month for generating monthly reports
+Day of week for the generation of weekly reports              | Day of week for generating weekly reports
+Maximum load allowed to the scheduler for the jobs execution  | Maximum load authorized for running simultaneous jobs
 
 #### Custom report properties
 
@@ -172,7 +172,7 @@ The ETL integrated in Centreon is used to
 
 -   Synchronize monitoring raw data with the reporting server
 -   Calculate availability and performance statistics on the reporting
-    server
+server
 -   Manage data retention on the reporting server.
 
 It configured at installation and will probably not need any modification later.
@@ -186,29 +186,29 @@ specify the following options:
 | **Options**                                                                               |   **Values**
 |-------------------------------------------------------------------------------------------|----------------------------------------
 | **General options**                                                                       |                                        |
-  Reporting engine uses a dedicated dedicated MariaDB server                                | Yes. You **must** use a reporting server
-  Compatibility mode to use report templates from version of Centreon MBI prior to 1.5.0    | No (deprecated)
-  Temporary file storage directory on reporting server                                      | 	Folder where dumps will be stored on the reporting server
-  Type of statistics to build	                                                            | <ul><li>Select “Availability only” if you only use availability reports.</li><li>Select “Performance and capacity only” if you only want to use capacity and performance reports.</li><li>Select “All” to calculate the statistics for both types of reports.</li></ul> |
-  Use large memory tweaks (store MariaDB temporary tables in memory)	                      | Activated only if your MariaDB configuration and allocated physical memory on the server permit.
+Reporting engine uses a dedicated dedicated MariaDB server                                | Yes. You **must** use a reporting server
+Compatibility mode to use report templates from version of Centreon MBI prior to 1.5.0    | No (deprecated)
+Temporary file storage directory on reporting server                                      | 	Folder where dumps will be stored on the reporting server
+Type of statistics to build	                                                            | <ul><li>Select “Availability only” if you only use availability reports.</li><li>Select “Performance and capacity only” if you only want to use capacity and performance reports.</li><li>Select “All” to calculate the statistics for both types of reports.</li></ul> |
+Use large memory tweaks (store MariaDB temporary tables in memory)	                      | Activated only if your MariaDB configuration and allocated physical memory on the server permit.
 | **Reporting perimeter selection**                                                         |                                         |
-  Hostgroups                                                                                | Select only host groups for which you want to aggregate data.
-  Hostcategories	                                                                        | Select only host categories for which you want to aggregate data.
-  Service categories	                                                                    | Select only service categories for which you want to aggregate data.
+Hostgroups                                                                                | Select only host groups for which you want to aggregate data.
+Hostcategories	                                                                        | Select only host categories for which you want to aggregate data.
+Service categories	                                                                    | Select only service categories for which you want to aggregate data.
 |**Availability statistic calculation**                                                     |                                         |
- Live services for availability statistics calculation                                      |   Select required time periods.
+Live services for availability statistics calculation                                      |   Select required time periods.
 | **Performance and capacity statistic calculation**	                                    |                                         |
- Granularity required for performance data statistics                                       | Select level of granularity required to run the desired performance reports (1).
- Live services for performance data statistics calculation		                            | Select required time periods.
+Granularity required for performance data statistics                                       | Select level of granularity required to run the desired performance reports (1).
+Live services for performance data statistics calculation		                            | Select required time periods.
 | **Capacity statistic aggregated by month**                                                |                                         |
-  Live services for capacity statistics calculation	                                        | Select the “24x7” time period.
-  Service categories related to capacity data monitoring	                                | Select the service categories that have been associated with capacity-type services.
-  Exclude metrics from service categories that do not return capacity USAGE information	    | Concerns the metrics linked to services which return capacity data. Select the metrics that do not return capacity usage information. but a maximum or total value. (e.g., the metric “size”).
+Live services for capacity statistics calculation	                                        | Select the “24x7” time period.
+Service categories related to capacity data monitoring	                                | Select the service categories that have been associated with capacity-type services.
+Exclude metrics from service categories that do not return capacity USAGE information	    | Concerns the metrics linked to services which return capacity data. Select the metrics that do not return capacity usage information. but a maximum or total value. (e.g., the metric “size”).
 | **Centile parameters (2)**                                                                    |                                         |
- Calculating centile aggregation by	                                                        | Select the desired aggregation level. The standard percentile report provided with BI 2.1 uses Month data.
- Select service categories to aggregate centile on	                                        | Filter on relevant service categories for centile statistics (e.g., Traffic).
- First day of the week	                                                                    | Select the first day of the week for Week aggregation.
- Centile / Timeperiod combination	                                                        | Create a new centile/timeperiod combination on which to perform the calculation.
+Calculating centile aggregation by	                                                        | Select the desired aggregation level. The standard percentile report provided with BI 2.1 uses Month data.
+Select service categories to aggregate centile on	                                        | Filter on relevant service categories for centile statistics (e.g., Traffic).
+First day of the week	                                                                    | Select the first day of the week for Week aggregation.
+Centile / Timeperiod combination	                                                        | Create a new centile/timeperiod combination on which to perform the calculation.
 
 **(1)** Reports requiring a precise value per hour of performance data
 are listed below. If you do not use the following reports, disable the
@@ -259,7 +259,7 @@ options in the configuration (example below).
 To activate automatic purge of old data, edit the cron file
 `/etc/cron.d/centreon-bi-purge` on the reporting server, then uncomment the following line:
 
-    #0 20 * * * root @CENTREON_BI_HOME@/*etl*/dataRetentionManager.pl >> @CENTREON_BI_LOG@/dataRetentionManager.log 2>&1
+#0 20 * * * root @CENTREON_BI_HOME@/*etl*/dataRetentionManager.pl >> @CENTREON_BI_LOG@/dataRetentionManager.log 2>&1
 
 Avoid periods scheduled for statistical calculations with Centreon MBI
 ETL and report generations.
@@ -268,18 +268,18 @@ You can run this cron daily or weekly, depending on the execution time of the ba
 
 Then restart the service cron:
 
-    systemctl restart crond
+systemctl restart crond
 
 **BEST PRACTICE**: Select different retention periods according to the
 granularity of the statistical data:
 
 -   Hourly aggregated values are used to analyze a metric over a short period, they take a
-    lot of space on the disk. You may not need to keep these statistics more that two or three months.
+lot of space on the disk. You may not need to keep these statistics more that two or three months.
 -   Beyond five or six months, you may only need to view the trend for
-    availability or performance statistics. You could then keep the
-    daily aggregated data for a maximum of six months, for example, and
-    configure the retention of monthly aggregated data for a period of
-    several dozen months.
+availability or performance statistics. You could then keep the
+daily aggregated data for a maximum of six months, for example, and
+configure the retention of monthly aggregated data for a period of
+several dozen months.
 
 Please go to the next chapter to continue the installation.
 

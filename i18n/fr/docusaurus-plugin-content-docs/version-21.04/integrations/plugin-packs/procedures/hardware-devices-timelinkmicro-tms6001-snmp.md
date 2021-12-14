@@ -2,60 +2,68 @@
 id: hardware-devices-timelinkmicro-tms6001-snmp
 title: Timelinkmicro Tms6001
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
-TimeLink microsystems fournit des solutions basées sur une gamme complète de produits COTS et conçoit des équipements ou 
-systèmes spécifiques selon les besoins des utilisateurs. Le modèle Tms6001 est unserveur Serveur NTP performant & sécurisé 
+TimeLink microsystems fournit des solutions basées sur une gamme complète de produits COTS et conçoit des équipements ou
+systèmes spécifiques selon les besoins des utilisateurs. Le modèle Tms6001 est unserveur Serveur NTP performant & sécurisé
 avec référence GNSS et IRIGB
 
 ## Contenu du Plugin-Pack
 
 ### Elements supervisés
 
-* Tms6001                  
+* Tms6001
 
 ## Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Alarms-->
+<Tabs groupId="operating-systems">
+<TabItem value="Alarms" label="Alarms">
 
 | Metric name             | Description        | Unit  |
 | :---------------------- | :----------------- | :---- |
 | alarms.total.count      | Number of alarms.  | Count |
 
-<!--Antenna-->
+</TabItem>
+<TabItem value="Antenna" label="Antenna">
 
 | Metric name | Description    | Unit   |
 |:------------|:---------------|:-------|
 | status      | Antenna status | String |
 
-<!--Frequency-->
+</TabItem>
+<TabItem value="Frequency" label="Frequency">
 
-| Metric name                              | Description                       | Unit   | 
+| Metric name                              | Description                       | Unit   |
 | :--------------------------------------- | :-------------------------------- |:------ |
 | generation.frequency.quality.count       | Quality of frequency generation:  | Count  |
 
-<!--Gnss-->
+</TabItem>
+<TabItem value="Gnss" label="Gnss">
 
 | Metric name | Description                               | Unit   |
 |:------------|:------------------------------------------|:-------|
 | status      | A textual description of physical entity. | String |
 
-<!--Satellites-->
+</TabItem>
+<TabItem value="Satellites" label="Satellites">
 
 | Metric name                   | Description                | Unit  |
 | :---------------------------- | :------------------------- | :---- |
 | satellites.seen.count         | Number of satellites seen. | Count |
 
-<!--Time-->
+</TabItem>
+<TabItem value="Time" label="Time">
 
 | Metric name                   | Description                 | Unit  |
 | :---------------------------- | :-------------------------- | :---- |
 | generation.time.quality.count | Quality of time generation. | Count |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -70,9 +78,8 @@ Les collecteurs Centreon doivent être en mesure de pouvoir joindre l'équipemen
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="operating-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des équipements Tms6001:
 
@@ -82,7 +89,8 @@ yum install centreon-plugin-Hardware-Devices-Timelinkmicro-Tms6001-Snmp
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Timelinkmicro-Tms6001-Snmp* sur la page "Configuration > Plugin packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisants des équipements Tms6001:
 
@@ -96,13 +104,14 @@ yum install centreon-plugin-Hardware-Devices-Timelinkmicro-Tms6001-Snmp
 yum install centreon-pack-hardware-devices-timelinkmicro-tms6001-snmp
 ```
 
-3. Installer le Plugin-Pack *Timelinkmicro-Tms6001-Snmp* depuis la page "Configuration > Plugin packs > Manager" de l'interface Web. 
+3. Installer le Plugin-Pack *Timelinkmicro-Tms6001-Snmp* depuis la page "Configuration > Plugin packs > Manager" de l'interface Web.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration d'un hôte
 
-Lorsque vous ajoutez un hôte, complétez les champs 'Communauté SNMP' et 'Version SNMP' selon la configuration de l'équipement cible. 
+Lorsque vous ajoutez un hôte, complétez les champs 'Communauté SNMP' et 'Version SNMP' selon la configuration de l'équipement cible.
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro SNMPEXTRAOPTIONS
 
@@ -112,37 +121,37 @@ Lorsque vous ajoutez un hôte, complétez les champs 'Communauté SNMP' et 'Vers
 
 ## FAQ
 
-### Comment tester mes configurations et le Plugin en ligne de commande ? 
+### Comment tester mes configurations et le Plugin en ligne de commande ?
 
 Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande depuis votre collecteur Centreon avec l'utilisateur *centreon-engine*:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_timelinkmicro_tms6001_snmp.pl \
-	--plugin=hardware::devices::timelinkmicro::tms6001::snmp \
-	--mode=alarms \
-	--hostname=10.30.2.114 \
-	--snmp-version='2c' \
-	--snmp-community='timelink_ro' \
-  	--verbose 
+--plugin=hardware::devices::timelinkmicro::tms6001::snmp \
+--mode=alarms \
+--hostname=10.30.2.114 \
+--snmp-version='2c' \
+--snmp-community='timelink_ro' \
+--verbose
 ```
 
-Cette commande contrôle le nombre d'alarmes (```--mode=alarms```) d'un équipement ayant pour adresse IP *10.30.2.114* (```--hostname=10.30.2.114```) en version 2 du protocole SNMP et avec la communauté *timelink_ro* (```--snmp-version='2c' --snmp-community='timelink_ro'```) 
+Cette commande contrôle le nombre d'alarmes (```--mode=alarms```) d'un équipement ayant pour adresse IP *10.30.2.114* (```--hostname=10.30.2.114```) en version 2 du protocole SNMP et avec la communauté *timelink_ro* (```--snmp-version='2c' --snmp-community='timelink_ro'```)
 
 Tous les modes disponibles peuvent être affichés via l'option ```--list-mode```:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_timelinkmicro_tms6001_snmp.pl \
-    --plugin=hardware::devices::timelinkmicro::tms6001::snmp \
-    --list-mode
+--plugin=hardware::devices::timelinkmicro::tms6001::snmp \
+--list-mode
 ```
 
 Pour un mode en particulier, il est possible d'utiliser le paramètre  ```--help``` pour lister toutes les options disponibles:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_timelinkmicro_tms6001_snmp.pl \
-    --plugin=hardware::devices::timelinkmicro::tms6001::snmp \
-    --mode=cpu \
-    --help
+--plugin=hardware::devices::timelinkmicro::tms6001::snmp \
+--mode=cpu \
+--help
 ```
 
 ### UNKNOWN: SNMP GET Request : Timeout
@@ -151,6 +160,6 @@ Si vous obtenez ce message, cela signifie le collecteur Centreon ne parvient pas
 
 ### UNKNOWN: SNMP GET Request : Cant get a single value.
 
-Les causes de cette erreur peuvent être les suivantes: 
-  * cet équipement ne supporte ou n'embarque pas la MIB utilisée par ce mode
-  * les autorisations données à l'utilisateur en SNMP sont trop restreintes.
+Les causes de cette erreur peuvent être les suivantes:
+* cet équipement ne supporte ou n'embarque pas la MIB utilisée par ce mode
+* les autorisations données à l'utilisateur en SNMP sont trop restreintes.

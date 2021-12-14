@@ -2,10 +2,13 @@
 id: network-cisco-meraki-restapi
 title: Cisco Meraki Rest API
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
-Cisco Meraki is a cloud-managed IT company headquartered in San Francisco, California. 
+Cisco Meraki is a cloud-managed IT company headquartered in San Francisco, California.
 Their products include wireless, switching, security, enterprise mobility management (EMM) and security cameras, all centrally managed from the web.
 
 ## Plugin-Pack assets
@@ -16,11 +19,10 @@ Their products include wireless, switching, security, enterprise mobility manage
 
 * Meraki Networks
 
-### Monitored metrics 
+### Monitored metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Api-Requests-->
+<Tabs groupId="operating-systems">
+<TabItem value="ApiRequests" label="ApiRequests">
 
 | Metric name                         | Description                                                                     |
 | :---------------------------------- | :------------------------------------------------------------------------------ |
@@ -28,7 +30,8 @@ Their products include wireless, switching, security, enterprise mobility manage
 | organization.api.requests.404.count | Number of requests returning a HTTP Status 404 (Not found). Unit: Count         |
 | organization.api.requests.429.count | Number of requests returning a HTTP Status 249 (TOO MANY REQUESTS). Unit: Count |
 
-<!--Device-->
+</TabItem>
+<TabItem value="Device" label="Device">
 
 | Metric name                      | Description                                                       |
 | :------------------------------- | :---------------------------------------------------------------- |
@@ -44,7 +47,8 @@ Their products include wireless, switching, security, enterprise mobility manage
 | device.traffic.in.bitspersecond  | Incoming traffic going through the device. Unit: bits/second      |
 | device.traffic.out.bitspersecond | Outcoming traffic going through the device. Unit: bits/second     |
 
-<!--Network-->
+</TabItem>
+<TabItem value="Network" label="Network">
 
 | Metric name                       | Description                                                    |
 | :-------------------------------- | :------------------------------------------------------------- |
@@ -56,27 +60,27 @@ Their products include wireless, switching, security, enterprise mobility manage
 | network.traffic.in.bitspersecond  | Incoming traffic going through the network. Unit: bits/second  |
 | network.traffic.out.bitspersecond | Outcoming traffic going through the network. Unit: bits/second |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
-More information about the Cisco Meraki API can be found in the official documentation: 
+More information about the Cisco Meraki API can be found in the official documentation:
 https://documentation.meraki.com/zGeneral_Administration/Other_Topics/The_Cisco_Meraki_Dashboard_API
 
-To get access to the API, first enable the API for your organization on the Cisco Meraki dashboard. 
+To get access to the API, first enable the API for your organization on the Cisco Meraki dashboard.
 This can be found under *Organization > Settings > Dashboard API access*.
 
-After enabling the API, go to the *my profile* page to generate an API key. The API key is associated with a Dashboard administrator account. 
+After enabling the API, go to the *my profile* page to generate an API key. The API key is associated with a Dashboard administrator account.
 You can generate, revoke, and regenerate your API key on your profile.
 
-> Keep your API key safe as it provides authentication to all of your organizations with the API enabled. 
+> Keep your API key safe as it provides authentication to all of your organizations with the API enabled.
 > If your API key is shared, you can regenerate your API key at any time. This will revoke the existing API key.
 
-## Setup 
+## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="licence-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor Cisco Meraki ressources:
 
@@ -86,7 +90,8 @@ yum install centreon-plugin-Network-Cisco-Meraki-Restapi
 
 2. On the Centreon Web interface, install the *Cisco Meraki Rest API* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor Cisco Meraki ressources:
 
@@ -102,45 +107,49 @@ yum install centreon-pack-network-cisco-meraki-restapi.noarch
 
 3. On the Centreon Web interface, install the *Cisco Meraki Rest API* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
 * Log into Centreon and add a new Host through "Configuration > Hosts".
-* Apply the relevant Host Template. They all look like "Net-Cisco-Meraki%Restapi". 
+* Apply the relevant Host Template. They all look like "Net-Cisco-Meraki%Restapi".
 
 All of the Host Templates share the following configuration Macros:
 
-| Mandatory   | Nom                | Description                                                                |
-| :---------- | :----------------- | :------------------------------------------------------------------------- |
-| X           | MERAKIAPIHOSTNAME  | FQDN of the Meraki API. usually api.meraki.com                             |
-| X           | MERAKIAPIPORT      | Port used. Must be 443.                                                    |
-| X           | MERAKIAPIPROTO     | Protocole used. Must be HTTPS.                                             |
-| X           | MERAKIAPITOKEN     | Meraki API key of your profile. Password checkbox must be checked          |
-|             | MERAKIEXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
+| Mandatory | Nom                | Description                                                                |
+| :-------- | :----------------- | :------------------------------------------------------------------------- |
+| X         | MERAKIAPIHOSTNAME  | FQDN of the Meraki API. usually api.meraki.com                             |
+| X         | MERAKIAPIPORT      | Port used. Must be 443.                                                    |
+| X         | MERAKIAPIPROTO     | Protocole used. Must be HTTPS.                                             |
+| X         | MERAKIAPITOKEN     | Meraki API key of your profile. Password checkbox must be checked          |
+|           | MERAKIEXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
 
-Set additionnal Macros that come with the Host Templates: 
+Set additionnal Macros that come with the Host Templates:
 
-<!--DOCUSAURUS_CODE_TABS-->
+<Tabs groupId="operating-systems">
+<TabItem value="NetCiscoMerakiDeviceRestapicustom" label="NetCiscoMerakiDeviceRestapicustom">
 
-<!--Net-Cisco-Meraki-Device-Restapi-custom-->
+| Mandatory | Nom              | Description                                              |
+| :-------- | :--------------- | :------------------------------------------------------- |
+| X         | MERAKIDEVICENAME | Name of the device you want to monitor (can be a regexp) |
 
-| Mandatory   | Nom              | Description                                                |
-| :---------- | :--------------- | :--------------------------------------------------------- |
-| X           | MERAKIDEVICENAME | Name of the device you want to monitor (can be a regexp)   |
+</TabItem>
+<TabItem value="NetCiscoMerakiNetworkRestapicustom" label="NetCiscoMerakiNetworkRestapicustom">
 
-<!--Net-Cisco-Meraki-Network-Restapi-custom-->
+| Mandatory | Nom               | Description                                               |
+| :-------- | :---------------- | :-------------------------------------------------------- |
+| X         | MERAKINETWORKNAME | Name of the network you want to monitor (can be a regexp) |
 
-| Mandatory   | Nom               | Description                                              |
-| :---------- | :---------------- | :------------------------------------------------------- |
-| X           | MERAKINETWORKNAME | Name of the network you want to monitor (can be a regexp)|
+</TabItem>
+</Tabs>
 
 ## FAQ
 
 ### How to test the Plugin and what are the main options for ?
 
-Once the plugin installed, log into your Centreon Poller CLI using the *centreon-engine* user account 
-and test the Plugin by running the following command 
+Once the plugin installed, log into your Centreon Poller CLI using the *centreon-engine* user account
+and test the Plugin by running the following command
 (Some of the parameters such as *api-token*, *filter-device-name* or *proxyurl* have to be adjusted):
 
 ```bash
@@ -159,21 +168,21 @@ and test the Plugin by running the following command
 Expected command output is shown below:
 
 ```
-OK: Device 'centreon-par-training-ap' status: online - connection success: 0 - traffic in: 51.66 b/s, out: 515.86 b/s - link 'WAN 1' status: active | 
-'devices.total.online.count'=0;;;0;1 'devices.total.offline.count'=0;;;0;1 'devices.total.alerting.count'=0;;;0;1 
-'centreon-par-training-ap#device.connections.success.count'=0;;;0; 'centreon-par-training-ap#device.connections.auth.count'=0;;;0; 
-'centreon-par-training-ap#device.connections.assoc.count'=0;;;0; 'centreon-par-training-ap#device.connections.dhcp.count'=0;;;0; 
-'centreon-par-training-ap#device.connections.dns.count'=0;;;0; 'centreon-par-training-ap#device.traffic.in.bitspersecond'=51.6626907073509b/s;;;0; 
+OK: Device 'centreon-par-training-ap' status: online - connection success: 0 - traffic in: 51.66 b/s, out: 515.86 b/s - link 'WAN 1' status: active |
+'devices.total.online.count'=0;;;0;1 'devices.total.offline.count'=0;;;0;1 'devices.total.alerting.count'=0;;;0;1
+'centreon-par-training-ap#device.connections.success.count'=0;;;0; 'centreon-par-training-ap#device.connections.auth.count'=0;;;0;
+'centreon-par-training-ap#device.connections.assoc.count'=0;;;0; 'centreon-par-training-ap#device.connections.dhcp.count'=0;;;0;
+'centreon-par-training-ap#device.connections.dns.count'=0;;;0; 'centreon-par-training-ap#device.traffic.in.bitspersecond'=51.6626907073509b/s;;;0;
 'centreon-par-training-ap#device.traffic.out.bitspersecond'=515.864632454924b/s;;;0;
 checking device 'centreon-par-training-ap'
-    status: online
-    connection success: 0
-    traffic in: 51.66 b/s, out: 515.86 b/s
-    link 'WAN 1' status: active
+status: online
+connection success: 0
+traffic in: 51.66 b/s, out: 515.86 b/s
+link 'WAN 1' status: active
 ```
 
-The above command checks a specific Cisco AP device named *centreon-par-training-ap* (```--mode=devices --filter-device-name='centreon-par-training-ap'```) managed by Meraki. 
-It uses an API token (```--api-token='12345abcd6789efgh0123abcd4567efgh8901abcd'```) generated from the Cisco Meraki management dashboard 
+The above command checks a specific Cisco AP device named *centreon-par-training-ap* (```--mode=devices --filter-device-name='centreon-par-training-ap'```) managed by Meraki.
+It uses an API token (```--api-token='12345abcd6789efgh0123abcd4567efgh8901abcd'```) generated from the Cisco Meraki management dashboard
 and uses the company proxy (```--proxyurl='proxy.mycompany:8080'```) to connect to the Meraki API.
 
 This command would trigger a CRITICAL alert if:
@@ -182,14 +191,14 @@ This command would trigger a CRITICAL alert if:
 
 Some thresholds can also be set on metrics, for instance ```--warning-traffic-in``` and ```--critical-traffic-in```.
 
-The available thresholds as well as all of the options that can be used with this Plugin 
+The available thresholds as well as all of the options that can be used with this Plugin
 can be displayed by adding the ```--help``` parameter to the command:
 
 ```
 /usr/lib/centreon/plugins/centreon_cisco_meraki_restapi.pl --plugin='network::cisco::meraki::cloudcontroller::restapi::plugin' --mode='devices' --help
 ```
 
-### Why do I get the following error: 
+### Why do I get the following error:
 
 #### ```UNKNOWN: 500 Can't connect to api.meraki.com:443```
 
@@ -197,7 +206,7 @@ This error message means that the Centreon Plugin couldn't successfully connect 
 Check that no third party device (such as a firewall) is blocking the request.
 A proxy connection may also be necessary to connect to the API. This can be done by using the ```--proxyurl``` option in the command.
 
-#### ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |``` 
+#### ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |```
 
 When using a proxy to connect to the Meraki API, this error message means that the Centreon Plugin library does not support
 the proxy connection protocol.

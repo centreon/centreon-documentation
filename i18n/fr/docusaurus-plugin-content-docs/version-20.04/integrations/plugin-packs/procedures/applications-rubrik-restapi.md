@@ -2,71 +2,78 @@
 id: applications-rubrik-restapi
 title: Rubrik Rest API
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 ## Contenu du Plugin-Pack
 
 ### Objets supervisés
 
-Le Plugin-Pack Centreon Rubrik permet (par l'interrogation de l'API Rest) de superviser 
-le statut et les performances Clusters et ses Noeuds. Cela inclut notamment les composants 
+Le Plugin-Pack Centreon Rubrik permet (par l'interrogation de l'API Rest) de superviser
+le statut et les performances Clusters et ses Noeuds. Cela inclut notamment les composants
 disques, les tâches, etc.
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
+<Tabs groupId="operating-systems">
+<TabItem value="Disk" label="Disk">
 
-<!--Disk-->
+| Metric name                | Description                | Unit |
+| :------------------------- | :------------------------- | :--- |
+| cluster.disks.total.count  | Total number cluster disks |      |
+| cluster.disks.active.count | Number of active disks     | ms   |
 
-| Metric name                                          | Description                                      | Unit |
-|:---------------------------------------------------- |:------------------------------------------------ |:---- |
-| cluster.disks.total.count                            | Total number cluster disks                       |      |
-| cluster.disks.active.count                           | Number of active disks                           | ms   |
+</TabItem>
+<TabItem value="Cluster" label="Cluster">
 
-<!--Cluster-->
+| Metric name                           | Description                      | Unit |
+| :------------------------------------ | :------------------------------- | :--- |
+| cluster.io.read.usage.bytespersecond  | Usage of cluster read I/Os       | B/s  |
+| cluster.io.write.usage.bytespersecond | Usage of cluster write I/Os      | B/s  |
+| cluster.io.read.usage.iops            | Usage of cluster read I/Os       | iops |
+| cluster.io.write.usage.iops           | Usage IOPS of cluster write I/Os | iops |
 
-| Metric name                                          | Description                                      | Unit |
-|:---------------------------------------------------- |:------------------------------------------------ |:---- |
-| cluster.io.read.usage.bytespersecond                 | Usage of cluster read I/Os                       | B/s  |
-| cluster.io.write.usage.bytespersecond                | Usage of cluster write I/Os                      | B/s  |
-| cluster.io.read.usage.iops                           | Usage of cluster read I/Os                       | iops |
-| cluster.io.write.usage.iops                          | Usage IOPS of cluster write I/Os                 | iops |
+</TabItem>
+<TabItem value="Compliance" label="Compliance">
 
-<!--Compliance-->
+| Metric name                            | Description                                   | Unit |
+| :------------------------------------- | :-------------------------------------------- | :--- |
+| backup.objects.incompliance.24h.count  | Number of backup objects compliance in 24h    |      |
+| backup.objects.noncompliance.24h.count | Number of backup objects no compliance in 24h |      |
 
-| Metric name                                          | Description                                      | Unit |
-|:---------------------------------------------------- |:------------------------------------------------ |:---- |
-| backup.objects.incompliance.24h.count                | Number of backup objects compliance in 24h       |      |
-| backup.objects.noncompliance.24h.count               | Number of backup objects no compliance in 24h    |      |
+</TabItem>
+<TabItem value="Node" label="Node">
 
-<!--Node-->
+| Metric name               | Description                         | Unit |
+| :------------------------ | :---------------------------------- | :--- |
+| cluster.nodes.total.count | Total number of node in the cluster |      |
+| cluster.nodes.ok.count    | Number of node "OK" in the cluster  |      |
 
-| Metric name                                          | Description                                      | Unit |
-|:---------------------------------------------------- |:------------------------------------------------ |:---- |
-| cluster.nodes.total.count                            | Total number of node in the cluster              |      |
-| cluster.nodes.ok.count                               | Number of node "OK" in the cluster               |      |
+</TabItem>
+<TabItem value="Storage" label="Storage">
 
-<!--Storage-->
+| Metric name                       | Description                          | Unit |
+| :-------------------------------- | :----------------------------------- | :--- |
+| storage.space.usage.bytes         | Usage space storage                  | B    |
+| storage.space.free.bytes          | Free space storage                   | B    |
+| storage.space.usage.percentage    | Percentage usage space storage       | %    |
+| storage.full.remaining.days.count | Number of remaining day storage full | d    |
 
-| Metric name                                          | Description                                      | Unit |
-|:---------------------------------------------------- |:------------------------------------------------ |:---- |
-| storage.space.usage.bytes                            | Usage space storage                              | B    |
-| storage.space.free.bytes                             | Free space storage                               | B    |
-| storage.space.usage.percentage                       | Percentage usage space storage                   | %    |
-| storage.full.remaining.days.count                    | Number of remaining day storage full             | d    |
+</TabItem>
+<TabItem value="Task" label="Task">
 
-<!--Task-->
+| Metric name               | Description                     | Unit |
+| :------------------------ | :------------------------------ | :--- |
+| tasks.succeeded.24h.count | Number of task succeeded in 24h |      |
+| tasks.failed.24h.count    | Number of task failed in 24h    |      |
+| tasks.canceled.24h.count  | Number of task canceled in 24h  |      |
 
-| Metric name                                          | Description                                      | Unit |
-|:---------------------------------------------------- |:------------------------------------------------ |:---- |
-| tasks.succeeded.24h.count                            | Number of task succeeded in 24h                  |      |
-| tasks.failed.24h.count                               | Number of task failed in 24h                     |      |
-| tasks.canceled.24h.count                             | Number of task canceled in 24h                   |      |
-
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
-L'API Rubrik REST fournit une interface RESTful pour travailler avec les clusters Rubrik et les *appliances* virtuelles Rubrik Edge. 
+L'API Rubrik REST fournit une interface RESTful pour travailler avec les clusters Rubrik et les *appliances* virtuelles Rubrik Edge.
 
 L'API peut être utilisée pour interroger, configurer et contrôler presque toutes les opérations du logiciel Rubrik.
 
@@ -80,9 +87,8 @@ Plus d'informations disponibles sur : https://github.com/rubrikinc/api-documenta
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="operating-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur chaque collecteur Centreon devant superviser les ressources *Rubrik Rest API*:
 
@@ -93,7 +99,8 @@ yum install centreon-plugin-Applications-Rubrik-Restapi
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Rubrik Rest API*
 depuis la page "Configuration > Plugin Packs > Gestionnaire"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur chaque collecteur Centreon devant superviser les ressources *Rubrik Rest API*:
 
@@ -110,6 +117,9 @@ yum install centreon-pack-applications-rubrik-restapi
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Rubrik RestAPI*
 depuis la page "Configuration > Plugin Packs > Gestionnaire"
 
+</TabItem>
+</Tabs>
+
 ## Configuration
 
 * Ajoutez un nouvel Hôte depuis la page "Configuration > Hôtes"
@@ -118,11 +128,11 @@ depuis la page "Configuration > Plugin Packs > Gestionnaire"
 
 Les Macros d'Hôte ci-après doivent être renseignées le cas échéant:
 
-| Mandatory | Name                       | Description                                                                        |
-|:----------|:-------------------------- |:-----------------------------------------------------------------------------------|
-| X         | RUBRIKAPIPORT              | RestAPI port of the Rubrik RestAPI (Default: '443')                                |
-| X         | RUBRIKAPIPROTO             | Protocol used to reach the Rubrik RestAPI (Default: 'https')                       |
-|           | RUBRIKAPIEXTRAOPTIONS      | Any extra option you may want to add to every command\_line (eg. a --verbose flag) |
+| Mandatory | Name                  | Description                                                                        |
+| :-------- | :-------------------- | :--------------------------------------------------------------------------------- |
+| X         | RUBRIKAPIPORT         | RestAPI port of the Rubrik RestAPI (Default: '443')                                |
+| X         | RUBRIKAPIPROTO        | Protocol used to reach the Rubrik RestAPI (Default: 'https')                       |
+|           | RUBRIKAPIEXTRAOPTIONS | Any extra option you may want to add to every command\_line (eg. a --verbose flag) |
 
 ## FAQ
 
@@ -133,15 +143,15 @@ depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-en
 
 ```bash
 /usr/lib/centreon/plugins/centreon_rubrik_restapi.pl \
-    --plugin=apps::backup::rubrik::restapi::plugin \
-    --mode=nodes \
-    --hostname='10.0.0.1' \
-    --proto='https' \
-    --port='443' \
-    --proxyurl='http://myproxy.mycompany.org:8080' \
-    --api-password='****' \
-    --api-username='centreon' \
-    --verbose
+--plugin=apps::backup::rubrik::restapi::plugin \
+--mode=nodes \
+--hostname='10.0.0.1' \
+--proto='https' \
+--port='443' \
+--proxyurl='http://myproxy.mycompany.org:8080' \
+--api-password='****' \
+--api-username='centreon' \
+--verbose
 ```
 
 La commande devrait retourner un message de sortie de la forme ci-dessous:
@@ -166,9 +176,9 @@ en ajoutant le paramètre ```--help``` à la commande:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_rubrik_restapi.pl \
-    --plugin=apps::backup::rubrik::restapi::plugin \
-    --mode=nodes \
-    --help
+--plugin=apps::backup::rubrik::restapi::plugin \
+--mode=nodes \
+--help
 ```
 
 ### J'obtiens le message d'erreur suivant: ```UNKNOWN: 500 Can't connect to 10.0.0.1:80 |```
@@ -181,7 +191,7 @@ Vérifiez que la requête n'est pas bloquée par un outil externe
 la Macro *EXTRAOPTIONS* de l'Hôte ou directement dans la
 commande avec l'option ```--proxyurl```.
 
-Si un certificat auto-signé est utilisé, il est nécessaire d'ajouter les options suivantes permettant d'ignorer 
+Si un certificat auto-signé est utilisé, il est nécessaire d'ajouter les options suivantes permettant d'ignorer
 sa validité:
 ```--http-backend='curl' --ssl-opt='SSL_verify_mode => SSL_VERIFY_NONE'```
 

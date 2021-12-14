@@ -12,7 +12,7 @@ personnalisée de vos graphiques.
 Les « Default settings » ont pour but de pré-remplir certains des champs
 de saisie lors de l'ajout de nouvelles BA et de nouveaux indicateurs.
 
-    Supervision > Activité Métier > Paramètres par défaut 
+Supervision > Activité Métier > Paramètres par défaut
 
 ### Paramètres d'impact par défaut
 
@@ -44,7 +44,7 @@ peut être surchargée au niveau des activités métier.
 
 ![image](../assets/service-mapping/guide/default_ba_parameters.png)
 
- Colonne | Description
+Colonne | Description
 --------------|-----------------------------------------------------
 Seuil dégradé | Seuil « Warning » : Correspond à un état dégradé de la BA. Une notification peut alors être envoyée.
 Seuil non fonctionnel | Seuil « Critical » : Correspond à un état critique de la BA. Une notification peut alors être envoyée.
@@ -68,7 +68,7 @@ Les « User Settings » sont des options personnalisées qui sont propres à
 chaque profil d'utilisateur. Ces paramètres concernent surtout les
 effets visuels du module, à savoir les graphiques.
 
-    Monitoring > Business Activity > User Settings
+Monitoring > Business Activity > User Settings
 
 Vue d'ensemble personnalisée
 -----------------------------

@@ -2,6 +2,9 @@
 id: cloud-azure-integration-servicebus
 title: Azure ServiceBus
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -20,10 +23,10 @@ ServiceBus service.
 ### Monitored Objects
 
 * Azure *ServiceBus* instances
-    * Connections
-    * Messages
-    * Requests
-    * Namespaces
+* Connections
+* Messages
+* Requests
+* Namespaces
 
 ### Discovery rules
 
@@ -40,9 +43,8 @@ More information about the Host Discovery module is available in the Centreon do
 
 ### Collected Metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Messages-->
+<Tabs groupId="operating-systems">
+<TabItem value="Messages" label="Messages">
 
 | Metric Name                                      | Description                                      | Unit  |
 | :----------------------------------------------- | :----------------------------------------------- | :---- |
@@ -53,7 +55,8 @@ More information about the Host Discovery module is available in the Centreon do
 | servicebus.namespace.messages.scheduled.count    | Count of scheduled messages in a Queue/Topic.    | Count |
 | servicebus.namespace.messages.total.count        | Total messages                                   | Count |
 
-<!--Requests-->
+</TabItem>
+<TabItem value="Requests" label="Requests">
 
 | Metric Name                                    | Description         | Unit  |
 | :--------------------------------------------- | :------------------ | :---- |
@@ -61,76 +64,78 @@ More information about the Host Discovery module is available in the Centreon do
 | servicebus.namespace.requests.successful.count | Successful Requests | Count |
 | servicebus.namespace.requests.throttled.count  | Throttled Requests  | Count |
 
-<!--Namespaces-->
+</TabItem>
+<TabItem value="Namespaces" label="Namespaces">
 
 | Metric Name                                  | Description  | Unit |
 | :------------------------------------------- | :----------- | :--- |
 | servicebus.namespace.cpu.usage.percentage    | CPU          | %    |
 | servicebus.namespace.memory.usage.percentage | Memory Usage | %    |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
 To get data from Azure Services, following methods are available:
-* Azure API ('api') 
+* Azure API ('api')
 * Azure CLI ('azcli')
 
 Centreon recommends to use the API instead of the CLI for the following reasons:
 * API is much more efficient by avoiding CLI binary execution
 * API supports application authentication while CLI does not (yet)
 
-<!--DOCUSAURUS_CODE_TABS-->
+<Tabs groupId="operating-systems">
+<TabItem value="Azure Monitor API" label="Azure Monitor API">
 
-<!--Azure Monitor API-->
-
-To use the 'api' custom mode, make sure to obtain the required information using the 
+To use the 'api' custom mode, make sure to obtain the required information using the
 how-to below. Keep it safe until including it in a Host or Host Template definition.
 
 * Create an *application* in Azure Active Directory:
-    - Log in to your Azure account.
-    - Select *Azure Active directory* in the left sidebar.
-    - Click on *App registrations*.
-    - Click on *+ Add*.
-    - Enter Centreon as the application name (or any name of your choice), select application type(api) and sign-on-url.
-    - Click on the *Create* button.
+- Log in to your Azure account.
+- Select *Azure Active directory* in the left sidebar.
+- Click on *App registrations*.
+- Click on *+ Add*.
+- Enter Centreon as the application name (or any name of your choice), select application type(api) and sign-on-url.
+- Click on the *Create* button.
 
 * Get *Subscription ID*
-    - Log in to your Azure account.
-    - Select *Subscriptions* in the left sidebar.
-    - Select whichever subscription is needed.
-    - Click on *Overview*.
-    - **Copy the Subscription ID.**
+- Log in to your Azure account.
+- Select *Subscriptions* in the left sidebar.
+- Select whichever subscription is needed.
+- Click on *Overview*.
+- **Copy the Subscription ID.**
 
 * Get *Tenant ID*
-    - Log in to your Azure account.
-    - Select *Azure Active directory* in the left sidebar.
-    - Click on *Properties*.
-    - **Copy the directory ID.**
+- Log in to your Azure account.
+- Select *Azure Active directory* in the left sidebar.
+- Click on *Properties*.
+- **Copy the directory ID.**
 
 * Get *Client ID*
-    - Log in to your Azure account.
-    - Select *Azure Active directory* in the left sidebar.
-    - Click on *Enterprise applications*.
-    - Click on *All applications*.
-    - Select the application previously created.
-    - Click on *Properties*.
-    - **Copy the Application ID.**
+- Log in to your Azure account.
+- Select *Azure Active directory* in the left sidebar.
+- Click on *Enterprise applications*.
+- Click on *All applications*.
+- Select the application previously created.
+- Click on *Properties*.
+- **Copy the Application ID.**
 
 * Get *Client secret*
-    - Log in to your Azure account.
-    - Select *Azure Active directory* in the left sidebar.
-    - Click on *App registrations*.
-    - Select the application previously created.
-    - Click on *All settings*.
-    - Click on *Keys*.
-    - Enter the key description and select the duration.
-    - Click on *Save*.
-    - **Copy and store the key value. You won't be able to retrieve it after you leave this page.**
+- Log in to your Azure account.
+- Select *Azure Active directory* in the left sidebar.
+- Click on *App registrations*.
+- Select the application previously created.
+- Click on *All settings*.
+- Click on *Keys*.
+- Enter the key description and select the duration.
+- Click on *Save*.
+- **Copy and store the key value. You won't be able to retrieve it after you leave this page.**
 
-<!--Azure AZ CLI-->
+</TabItem>
+<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
-To use the 'azcli' custom mode, install the required packages on every Centreon poller expected to 
+To use the 'azcli' custom mode, install the required packages on every Centreon poller expected to
 monitor Azure Resources using CLI:
 
 - The CLI needs at least Python version 2.7
@@ -144,7 +149,7 @@ sudo echo -e "[azure-cli]\nname=Azure CLI\nbaseurl=https://packages.microsoft.co
 sudo yum install azure-cli
 ```
 
-Then, use the *centreon-engine* account to obtain a token using command below: 
+Then, use the *centreon-engine* account to obtain a token using command below:
 
 ```shell
 su - centreon-engine
@@ -153,41 +158,41 @@ az login
 
 The shell will output this message including an authentication code:
 
-    *To sign in, use a web browser to open the page https://microsoft.com/devicelogin* 
-    *and enter the code CWT4WQZAD to authenticate.*
+*To sign in, use a web browser to open the page https://microsoft.com/devicelogin*
+*and enter the code CWT4WQZAD to authenticate.*
 
-Go to <https://microsoft.com/devicelogin> and enter the code. 
+Go to <https://microsoft.com/devicelogin> and enter the code.
 
 Connect using a monitoring service account, as a result, the shell should prompt
 information below:
 
 ```shell
-    [
-      {
-        "cloudName": "AzureCloud",
-        "id": "0ef83f3a-d83e-2039-d930-309df93acd93d",
-        "isDefault": true,
-        "name": "N/A(tenant level account)",
-        "state": "Enabled",
-        "tenantId": "0ef83f3a-03cd-2039-d930-90fd39ecd048",
-        "user": {
-          "name": "email@mycompany.onmicrosoft.com",
-          "type": "user"
-        }
-      }
-    ]
+[
+{
+"cloudName": "AzureCloud",
+"id": "0ef83f3a-d83e-2039-d930-309df93acd93d",
+"isDefault": true,
+"name": "N/A(tenant level account)",
+"state": "Enabled",
+"tenantId": "0ef83f3a-03cd-2039-d930-90fd39ecd048",
+"user": {
+"name": "email@mycompany.onmicrosoft.com",
+"type": "user"
+}
+}
+]
 ```
 
-Credentials are now stored locally in the .accessTokens.json file so the Plugin 
-can use it. 
+Credentials are now stored locally in the .accessTokens.json file so the Plugin
+can use it.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
-## Setup 
+## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="licence-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1.  Install the Centreon Plugin package on every Centreon poller expected to monitor Azure ServiceBus resources:
 
@@ -197,7 +202,8 @@ yum install centreon-plugin-Cloud-Azure-Integration-ServiceBus-Api
 
 2. On the Centreon Web interface, install the *Azure ServiceBus* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor Azure ServiceBus resources:
 
@@ -213,7 +219,8 @@ yum install centreon-pack-cloud-azure-integration-servicebus.noarch
 
 3. On the Centreon Web interface, install the *Azure ServiceBus* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -226,9 +233,8 @@ yum install centreon-pack-cloud-azure-integration-servicebus.noarch
 * Once the template applied, some Macros marked as 'Mandatory' hereafter have to be configured.
 These mandatory Macros differ regarding the custom mode used:
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Azure Monitor API-->
+<Tabs groupId="operating-systems">
+<TabItem value="Azure Monitor API" label="Azure Monitor API">
 
 | Mandatory | Nom               | Description                   |
 | :-------- | :---------------- | :---------------------------- |
@@ -239,7 +245,8 @@ These mandatory Macros differ regarding the custom mode used:
 | X         | AZURECLIENTSECRET | Client secret                 |
 | X         | AZURERESOURCE     | Id of the ServiceBus instance |
 
-<!--Azure AZ CLI-->
+</TabItem>
+<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 | Mandatory | Nom               | Description                   |
 | :-------- | :---------------- | :---------------------------- |
@@ -247,36 +254,37 @@ These mandatory Macros differ regarding the custom mode used:
 | X         | AZURESUBSCRIPTION | Subscription ID               |
 | X         | AZURERESOURCE     | Id of the ServiceBus instance |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## FAQ
 
 ### How to check in the CLI that the configuration is OK and what are the main options for ?
 
-Once the Plugin installed, log into your Centreon Poller CLI using the *centreon-engine* 
+Once the Plugin installed, log into your Centreon Poller CLI using the *centreon-engine*
 user account and test the Plugin by running the following command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_azure_integration_servicebus_api.pl \
-    --plugin=cloud::azure::integration::servicebus::plugin \
-    --mode=requests \
-    --custommode=api \
-    --subscription='xxxxxxxxx' \
-    --tenant='xxxxxxxxx' \
-    --client-id='xxxxxxxxx' \
-    --client-secret='xxxxxxxxx' \
-    --resource='SVC001ABCD' \
-    --timeframe='900' \
-    --interval='PT5M' \
-    --warning-throttled-requests='800' \
-    --critical-throttled-requests='900'
+--plugin=cloud::azure::integration::servicebus::plugin \
+--mode=requests \
+--custommode=api \
+--subscription='xxxxxxxxx' \
+--tenant='xxxxxxxxx' \
+--client-id='xxxxxxxxx' \
+--client-secret='xxxxxxxxx' \
+--resource='SVC001ABCD' \
+--timeframe='900' \
+--interval='PT5M' \
+--warning-throttled-requests='800' \
+--critical-throttled-requests='900'
 ```
 
 Expected command output is shown below:
 
 ```bash
 OK: Instance 'SVC001ABCD' Statistic 'total' Metrics Incoming Requests: 1227.00, Successful Requests: 1221.00 Throttled Requests: 6.00 |
-'SVC001ABCD~maximum#servicebus.namespace.requests.incoming.count'=1221;;;0; 'SVC001ABCD~maximum#servicebus.namespace.requests.successful.count'=1221;;;0; 
+'SVC001ABCD~maximum#servicebus.namespace.requests.incoming.count'=1221;;;0; 'SVC001ABCD~maximum#servicebus.namespace.requests.successful.count'=1221;;;0;
 'SVC001ABCD~maximum#servicebus.namespace.requests.throttled.count'=6;800;900;0;
 ```
 
@@ -296,17 +304,17 @@ All the available options for a given mode can be displayed by adding the ```--h
 
 ```bash
 /usr/lib/centreon/plugins/centreon_azure_integration_servicebus_api.pl \
-    --plugin=cloud::azure::integration::servicebus::plugin \
-    --mode=requests \
-    --help
+--plugin=cloud::azure::integration::servicebus::plugin \
+--mode=requests \
+--help
 ```
 
 ### Troubleshooting
 
 #### The Azure credentials have changed and the Plugin does not work anymore
 
-The Plugin is using a cache file to keep connection information and avoid an authentication at each call. 
-If some of the authentication parameters change, you must delete the cache file. 
+The Plugin is using a cache file to keep connection information and avoid an authentication at each call.
+If some of the authentication parameters change, you must delete the cache file.
 
 The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder with a name similar to `azure_api_<md5>_<md5>_<md5>_<md5>`.
 
@@ -315,10 +323,10 @@ The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder 
 When I run my command I obtain the following error message:
 ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```.
 
-It means that some parameters used to authenticate the API request are wrong. The 'ERROR_NAME' string gives 
-some hints about where the problem stands. 
+It means that some parameters used to authenticate the API request are wrong. The 'ERROR_NAME' string gives
+some hints about where the problem stands.
 
-As an example, if my Client ID or Client Secret are wrong, 'ERROR_DESC' value will be 'invalid_client'. 
+As an example, if my Client ID or Client Secret are wrong, 'ERROR_DESC' value will be 'invalid_client'.
 
 #### ```UNKNOWN: 500 Can't connect to login.microsoftonline.com:443```
 

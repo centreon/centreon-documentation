@@ -67,7 +67,7 @@ The following pages display additional statistics for each business activity in
 the business view:
 
 - Availability, unavailability, downtime, service performance index
-  and number of events that occurred.
+and number of events that occurred.
 
 ![image](../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page2-1.png)
 
@@ -80,14 +80,14 @@ activity, in terms of percentages and minutes.
 
 - An availability calendar displays only days when availability was below 100%.
 - For days with 100% availability, the cell background color appears in a light
-  grey with no values displayed.
+grey with no values displayed.
 - If data aren\'t present on a specific day, the cell background color appears
-  in white with no values displayed.
+in white with no values displayed.
 
 ![image](../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page2-3.png)
 
 - As an option, the list of events appears with their respective key performance
-  indicators (KPIs).
+indicators (KPIs).
 
 ![image](../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page2-4.png)
 
@@ -96,7 +96,7 @@ activity, in terms of percentages and minutes.
 Parameters required for the report:
 
 - Start date representing the month in which you want to generate the report
-  (matching the start date in the Centreon MBI interface)
+(matching the start date in the Centreon MBI interface)
 - The following Centreon objects:
 
 | Parameter      | Type          | Description                                          |
@@ -128,7 +128,7 @@ The following information is displayed on the report for the selected
 business activity:
 
 - Availability, unavailability, downtime, service performance index and number
-  of events.
+of events.
 
 ![image](../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page2-1.png)
 
@@ -140,12 +140,12 @@ activity, in terms of percentages and minutes.
 ![image](../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page2-2.png)
 
 - An availability calendar displays only the days when availability was below
-  SLA in terms of percentage defined in the business activity configuration.
+SLA in terms of percentage defined in the business activity configuration.
 
 ![image](../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page2-3.png)
 
 - As an option, the list of events appears with their respective key performance
-  indicators (KPIs).
+indicators (KPIs).
 
 ![image](../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page2-4.png)
 
@@ -154,7 +154,7 @@ activity, in terms of percentages and minutes.
 Parameters required for the report:
 
 - Start date representing the month in which you want to generate the report
-  (matching the start date in the Centreon MBI interface)
+(matching the start date in the Centreon MBI interface)
 - The following Centreon objects:
 
 | Parameter              | Type                             | Description                                           |
@@ -185,9 +185,9 @@ represented by a sun icon, and all values below 100% by a cloud.
 Changes are calcuted in relation to the previous period:
 
 - If the reporting period is a full month, the previous period is
-  the previous full month.
+the previous full month.
 - In all other cases, the change is calculated by the number of days
-  preceding the number of days of the reporting period.
+preceding the number of days of the reporting period.
 
 ![image](../assets/reporting/guide/available-reports/bv-ba-availabilities-list.png)
 
@@ -276,7 +276,7 @@ it will not appear in the report.*
 #### Prerequisites
 
 - Monitoring of at least one business activity to be linked to one
-  business view.
+business view.
 
 ### BV-BA-Availabilities-Calendars
 
@@ -345,7 +345,7 @@ it will not appear in the report.*
 #### Prerequisites
 
 - Monitoring of at least one business activity to be linked to one
-  business view
+business view
 - One month minimum of data from Centreon BAM extension.
 
 ## Availability & Events
@@ -729,7 +729,7 @@ addition:
 - You can display and/or filter acknowledged hosts or hosts in downtime.
 - Only confirmed events (hard state) are taken in account.
 - A report can have less than four parts by specifying the value -1 in its
-  title.
+title.
 
 ![image](../assets/reporting/guide/available-reports/Hostgroups-Host-Current-Events.png)
 
@@ -773,7 +773,7 @@ report is generated. In addition:
 - You can display and/or filter acknowledged hosts or hosts in downtime.
 - Only confirmed events (hard state) are taken in account.
 - A report can have less than four parts by specifying the value -1 in its
-  title.
+title.
 
 ![image](../assets/reporting/guide/available-reports/Hostgroups-Service-Current-Events.png)
 
@@ -908,7 +908,7 @@ Parameters required for the report:
 
 #### Prerequisites
 
-Go to `Reporting > Business Intelligence > General Options > Scheduler Options` 
+Go to `Reporting > Business Intelligence > General Options > Scheduler Options`
 and configure the following field:
 
 ![image](../assets/reporting/guide/available-reports/graph_url.png)
@@ -1029,7 +1029,7 @@ Parameters required for the report:
 
 - Reporting period
 - The following Centreon objects:
-  
+
 | Parameter          | Parameter type | Description                                                                                                |
 |--------------------|----------------|------------------------------------------------------------------------------------------------------------|
 | Host groups        | Multi select   | Select host group.                                                                                         |
@@ -1046,10 +1046,10 @@ Parameters required for the report:
 This report can be generated using indicators that return a maximum value or not.
 
 - If the metric has a maximum value, the threshold must be filled with a
-  **percent** value (between 0 et 100).
+**percent** value (between 0 et 100).
 - If the metric does not have a maximum value (e.g., counter for visitors on a
-  website), the thresholds must be expressed in the same unit as the indicator
-  (the counter for visitors).
+website), the thresholds must be expressed in the same unit as the indicator
+(the counter for visitors).
 
 ### Hostgroup-Service-Metric-Performance-List
 
@@ -1061,10 +1061,10 @@ the time period, the maximum potential value, and warning and critical
 thresholds for all service metrics selected.
 
 - If the maximum value is returned by the plugin, the Average, Max and Min
-  columns are displayed in percentage (%).
-  The calculation is: value / maximum value.
+columns are displayed in percentage (%).
+The calculation is: value / maximum value.
 - If the maximum value not returned by the plugin, the Average, Max and Min
-  columns are displayed in the metric\'s units.
+columns are displayed in the metric\'s units.
 
 ![image](../assets/reporting/guide/available-reports/Hostgroup-Service-Metric-Performance-List.png)
 
@@ -1092,10 +1092,10 @@ groups, host categories and service categories. It also shows the
 mininimum and maximum value reached over the time period.
 
 - If the maximum value is returned by the plugin, the Average, Max and
-  Min columns are displayed in percentage (%). The calculation is:
-  value / maximum value.
+Min columns are displayed in percentage (%). The calculation is:
+value / maximum value.
 - If the maximum value not returned by the plugin, the Average, Max
-  and Min columns are displayed in the metric\'s units.
+and Min columns are displayed in the metric\'s units.
 
 ![image](../assets/reporting/guide/available-reports/Hostgroups-Categories-Performance-List.png)
 
@@ -1439,23 +1439,23 @@ bandwidth distribution by:
 **Hour of the day** displaying:
 
 - The average usage by hour of the day of incoming and outgoing
-  traffic for the selected reporting period.
+traffic for the selected reporting period.
 - The maximum reached of incoming and outgoing traffic per hour of
-  the day for the reporting period.
+the day for the reporting period.
 
 **Day of the week** displaying
 
 - The average usage by day of the week of incoming and outgoing
-  traffic for the selected reporting period.
+traffic for the selected reporting period.
 - The maximum reached of incoming and outgoing traffic per day of
-  the week for the reporting period.
+the week for the reporting period.
 
 **Day of the month** displaying
 
 - The average usage by day of the month of incoming and outgoing
-  traffic for the selected reporting period.
+traffic for the selected reporting period.
 - The maximum reached of incoming and outgoing traffic per day of
-  the month for the reporting period.
+the month for the reporting period.
 
 ![image](../assets/reporting/guide/available-reports/Hostgroup-Traffic-average-By-Interface_2.png)
 
@@ -1511,7 +1511,7 @@ only to one month.
 The first page displays three types of information:
 
 - Two graphs representing the 10 interfaces having the maximum centile
-  for inbound and outbound traffic
+for inbound and outbound traffic
 - 10 interface having the maximum average inbound traffic in percentage
 - 10 interface having the maximum average outbound traffic in percentage.
 
@@ -1528,7 +1528,7 @@ statistics.
 Parameters required for the reports:
 
 - A start date corresponding to the month for generating the report
-  (corresponding to the start date on the Centreon MBI interface).
+(corresponding to the start date on the Centreon MBI interface).
 - The following Centreon objects:
 
 | Parameters                    | Parameter type | Description                                 |
@@ -1544,10 +1544,10 @@ Parameters required for the reports:
 #### Prerequisites
 
 - Percentile should be correctly configured in the General Options \> ETL tab
-  menu.
+menu.
 - For consistency in graphs and statistics, certain prerequisites apply to
-  performance data returned by the storage plugins. This data must be formatted
-  as follows, preceded by a pipe (\|):
+performance data returned by the storage plugins. This data must be formatted
+as follows, preceded by a pipe (\|):
 
 ``` text
 output-plugin | traffic_in=valueunit;warning_treshold;critical_treshold;minimum;maximum traffic_out=value
@@ -1652,20 +1652,20 @@ Implement monitoring of the following indicators:
 
 - CPU service, a memory service and a VM Count service for each ESX.
 - Datastore-usage service for each datastore, or for all datastores,
-  linked to the vCenter or to only one ESX of the cluster. By
-  default, the service will have the following nomenclature:
-  Datastore-Usage-xxxx (xxxx is the datastore name).
+linked to the vCenter or to only one ESX of the cluster. By
+default, the service will have the following nomenclature:
+Datastore-Usage-xxxx (xxxx is the datastore name).
 - Datastore-IOPS service for each datastore or for all datastores,
-  linked to the vCenter or to only on ESX of the cluster. By
-  default, the service will have the following nomenclature:
-  Datastore-Iops-xxxx (xxxx is the datastore name).
+linked to the vCenter or to only on ESX of the cluster. By
+default, the service will have the following nomenclature:
+Datastore-Iops-xxxx (xxxx is the datastore name).
 
 Create host groups that correspond to the clusters. A cluster (host
 group) contains:
 
 - Several ESXs (hosts).
 - The vCenter, only if Datastore-usage and Datastore-IOPS services are linked to
-  the vCenter and not to one cluster's ESX.
+the vCenter and not to one cluster's ESX.
 
 Create at least one host category containing the whole cluster (vCenter + ESXs).
 If there are multiple ESX clusters, you can split them into several host
@@ -1739,7 +1739,7 @@ Monitoring of the following indicators:
 Creation of the following service category:
 
 - VM-Statistics with these indicators: Vm-Cpu-Global, Vm-Memory-Global and
-  Vm-Datastore-Iops-Global.
+Vm-Datastore-Iops-Global.
 
 ## Electric consumption
 
@@ -1800,7 +1800,7 @@ The prerequisites for the report are:
 
 - Monitoring of the output power of the UPSs.
 - Creation of a service category containing all the power-output
-  indicators.
+indicators.
 - Sufficient historical data for the evolution graphs.
 
 > UPS consumption corresponds to the consumption by all hosts connected to the
@@ -2203,10 +2203,10 @@ Parameters required for the report:
 The prerequisites for this report are:
 
 - Monitoring of the load average on the pollers ( metric names should
-  be: load1, load5 and load15)
+be: load1, load5 and load15)
 - Monitoring of the CPU on the poller ( metric names should contain
-  *cpu* string with the core number. Example: for a 4 core CPU,
-  metrics can be cpu0,cpu1,\...or cpu\_0,cpu\_1,\...
+*cpu* string with the core number. Example: for a 4 core CPU,
+metrics can be cpu0,cpu1,\...or cpu\_0,cpu\_1,\...
 
 ### Hosts-not-classified
 

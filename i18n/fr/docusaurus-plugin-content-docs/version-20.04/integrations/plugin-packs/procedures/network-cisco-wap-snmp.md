@@ -2,6 +2,9 @@
 id: network-cisco-wap-snmp
 title: Cisco Wap SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -22,32 +25,34 @@ Le Plugin Pack *Cisco Wap SNMP* utilise le protocole SNMP pour se connecter, ré
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
+<Tabs groupId="operating-systems">
+<TabItem value="Clients-1" label="Clients">
 
-<!--Clients-->
+| Metric name                   | Description                                                   | Unit  |
+| :---------------------------- | :------------------------------------------------------------ | :---- |
+| clients.connected.count       | Total number of clients connected on the access point         | count |
+| radio.clients.connected.count | Number of clients connected radio channel of the access point | count |
 
-| Metric name                         | Description                                                    | Unit   |
-| :---------------------------------- | :------------------------------------------------------------- | :----- |
-| clients.connected.count             | Total number of clients connected on the access point          | count  |
-| radio.clients.connected.count       | Number of clients connected radio channel of the access point  | count  |
+</TabItem>
+<TabItem value="CPU" label="CPU">
 
-<!--CPU-->
+| Metric name                | Description                   | Unit |
+| :------------------------- | :---------------------------- | :--- |
+| cpu.utilization.percentage | Percentage of CPU utilization | %    |
 
-| Metric name                         | Description                    | Unit   |
-| :---------------------------------- | :----------------------------- | :----- |
-| cpu.utilization.percentage          | Percentage of CPU utilization  | %      |
+</TabItem>
+<TabItem value="Clients-2" label="Clients">
 
-<!--Clients-->
+| Metric name                   | Description                                                   | Unit  |
+| :---------------------------- | :------------------------------------------------------------ | :---- |
+| clients.connected.count       | Total number of clients connected on the access point         | count |
+| radio.clients.connected.count | Number of clients connected radio channel of the access point | count |
 
-| Metric name                         | Description                                                    | Unit   |
-| :---------------------------------- | :------------------------------------------------------------- | :----- |
-| clients.connected.count             | Total number of clients connected on the access point          | count  |
-| radio.clients.connected.count       | Number of clients connected radio channel of the access point  | count  |
-
-<!--Interfaces-->
+</TabItem>
+<TabItem value="Interfaces" label="Interfaces">
 
 | Metric name                              | Description                                             | Unit |
-|:---------------------------------------- |:------------------------------------------------------- | :--- |
+| :--------------------------------------- | :------------------------------------------------------ | :--- |
 | status                                   | Status of the interface                                 |      |
 | interface.traffic.in.bitspersecond       | Incoming traffic going through the interface.           | b/s  |
 | interface.traffic.out.bitspersecond      | Outgoing traffic going through the interface.           | b/s  |
@@ -56,25 +61,29 @@ Le Plugin Pack *Cisco Wap SNMP* utilise le protocole SNMP pour se connecter, ré
 | interface.packets.out.error.percentage   | Outgoing errored packets going through the interface.   | %    |
 | interface.packets.out.discard.percentage | Outgoing discarded packets going through the interface. | %    |
 
-<!--Memory-->
+</TabItem>
+<TabItem value="Memory" label="Memory">
 
-| Metric name                         | Description                 | Unit   |
-| :---------------------------------- | :-------------------------- | :----- |
-| memory.usage.percentage             | Percentage of memory usage  | %      |
+| Metric name             | Description                | Unit |
+| :---------------------- | :------------------------- | :--- |
+| memory.usage.percentage | Percentage of memory usage | %    |
 
-<!--Uptime-->
+</TabItem>
+<TabItem value="Uptime" label="Uptime">
 
-| Metric name                 | Description                                        | Unit   |
-| :-------------------------- | :------------------------------------------------- | :----- |
-| system.uptime               | Duration of system has been working and available. | s      |
+| Metric name   | Description                                        | Unit |
+| :------------ | :------------------------------------------------- | :--- |
+| system.uptime | Duration of system has been working and available. | s    |
 
-<!--Virual Access Point-->
+</TabItem>
+<TabItem value="Virtual Access Point" label="Virtual Access Point">
 
-| Metric name                         | Description                                | Unit   |
-| :---------------------------------- | :----------------------------------------- | :----- |
-| virtual_access_points.total.count   | Total number of virtual access point       | count  |
+| Metric name                       | Description                          | Unit  |
+| :-------------------------------- | :----------------------------------- | :---- |
+| virtual_access_points.total.count | Total number of virtual access point | count |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -84,9 +93,8 @@ La communication doit être possible sur le port UDP 161 depuis le collecteur Ce
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="operating-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des équipements Cisco:
 
@@ -96,7 +104,8 @@ yum install centreon-plugin-Network-Cisco-Wap-Snmp
 
 2. Sur l'interface Web de Centreon, installer le Plugin Pack *Cisco Wap SNMP* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des équipements Cisco :
 
@@ -112,7 +121,8 @@ yum install centreon-pack-network-cisco-wap-snmp
 
 3. Sur l'interface Web de Centreon, installer le Plugin Pack *Cisco Wap SNMP* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -128,20 +138,20 @@ de commande depuis un collecteur Centreon en vous connectant avec l'utilisateur
 
 ```bash
 /usr/lib/centreon/plugins//centreon_cisco_wap_snmp.pl --plugin=network::cisco::wap::snmp::plugin \
-	--mode=clients \	
-	--hostname=10.30.2.11 \
-	--snmp-community=centreon-cisco-wap \
-	--snmp-version=2c \
-	--warning-clients-connected=90 \
-	--critical-clients-connected=100 \
-	--verbose
-  
+--mode=clients \
+--hostname=10.30.2.11 \
+--snmp-community=centreon-cisco-wap \
+--snmp-version=2c \
+--warning-clients-connected=90 \
+--critical-clients-connected=100 \
+--verbose
+
 OK: clients connected: 1 | 'clients.connected.count'=1;0:90;0:100;0; 'wlan0#radio.clients.connected.count'=0;;;0; 'wlan1#radio.clients.connected.count'=1;;;0;
 Radio interface 'wlan0' clients connected: 0
 Radio interface 'wlan1' clients connected: 1
 ```
 
-La commande ci-dessus vérifie les clients connectés d'un point d'accès Cisco Wap (``` --mode=clients ```). Les informations importantes sont l'adresse IP/FQDN 
+La commande ci-dessus vérifie les clients connectés d'un point d'accès Cisco Wap (``` --mode=clients ```). Les informations importantes sont l'adresse IP/FQDN
 (``` --hostname=10.30.2.11 ```) et la communauté SNMP configurée sur l'équipement (``` --snmp-community='centreon-cisco-wap' ```).
 
 Une alarme de type WARNING est déclenchée si le nombre de clients connectés est supérieur à 90 (``` --warning-clients-connected='90' ```).
@@ -151,17 +161,17 @@ La liste de toutes les options complémentaires et leur signification peut être
 
 ```bash
 /usr/lib/centreon/plugins//centreon_cisco_wap_snmp.pl \
-	--plugin=network::cisco::wap::snmp::plugin \
-	--mode=clients \
-	--help
+--plugin=network::cisco::wap::snmp::plugin \
+--mode=clients \
+--help
 ```
 
 Tous les modes disponibles peuvent être affichés via l'option ``` --list-mode ``` :
 
 ```bash
 /usr/lib/centreon/plugins//centreon_cisco_wap_snmp.pl \
-	--plugin=network::cisco::wap::snmp::plugin \
-	--list-mode
+--plugin=network::cisco::wap::snmp::plugin \
+--list-mode
 ```
 
 ## Diagnostic des erreurs communes

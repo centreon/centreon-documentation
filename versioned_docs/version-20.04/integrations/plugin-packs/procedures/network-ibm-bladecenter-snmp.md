@@ -2,12 +2,15 @@
 id: network-ibm-bladecenter-snmp
 title: IBM Bladecenter Switch
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
 IBM develops, manufactures and sells hardware, middleware, software and other
 services and products. Created in 2002, IBM BladeCenter was IBM's blade server
-architecture. 
+architecture.
 
 ## Plugin-Pack assests
 
@@ -17,63 +20,69 @@ architecture.
 
 ### Collected Metrics
 
-In addition to modes and metrics described here, it is also possible to monitor 
+In addition to modes and metrics described here, it is also possible to monitor
 the following indicators:
 
 * Ntp: Check time offset of server with ntp server
 * Uptime: Elapsed time since the last reboot
 
-<!--Cpu-->
+<Tabs groupId="operating-systems">
+<TabItem value="Cpu" label="Cpu">
 
-| Metric name                    | Description                              | Unit   |
-| :----------------------------- | :--------------------------------------- | :------|
-| cpu.utilization.1m.percentage  | CPU utilization for the last minute      | %      |
-| cpu.utilization.5m.percentage  | CPU utilization for the last 5 minutes   | %      |
+| Metric name                   | Description                            | Unit |
+| :---------------------------- | :------------------------------------- | :--- |
+| cpu.utilization.1m.percentage | CPU utilization for the last minute    | %    |
+| cpu.utilization.5m.percentage | CPU utilization for the last 5 minutes | %    |
 
-<!--Storage-->
+</TabItem>
+<TabItem value="Storage" label="Storage">
 
-| Metric name                         | Description                    | Unit   |
-| :---------------------------------- | :----------------------------- |------- |
-| storage.partitions.count            | Total number of partition      |        |
-| partition#storage.space.usage.bytes | Used space on a disk partition | Bytes  |
+| Metric name                         | Description                    | Unit  |
+| :---------------------------------- | :----------------------------- | ----- |
+| storage.partitions.count            | Total number of partition      |       |
+| partition#storage.space.usage.bytes | Used space on a disk partition | Bytes |
 
-<!--Memory-Usage-->
+</TabItem>
+<TabItem value="MemoryUsage" label="MemoryUsage">
 
-| Metric name             | Description                 | Unit   |
-| :---------------------- | :---------------------------| :----- |
-| memory.usage.bytes      | Total current memory usage  | Bytes  |
-| memory.usage.percentage | Total current memory usage  |  %     |
-| memory.free.bytes       | Current free memory         | Bytes  |
+| Metric name             | Description                | Unit  |
+| :---------------------- | :------------------------- | :---- |
+| memory.usage.bytes      | Total current memory usage | Bytes |
+| memory.usage.percentage | Total current memory usage | %     |
+| memory.free.bytes       | Current free memory        | Bytes |
 
-<!--Traffic-->
+</TabItem>
+<TabItem value="Traffic" label="Traffic">
 
-| Metric name                              | Description                                                               | Unit        |
-| :--------------------------------------- | :------------------------------------------------------------------------ | :---------- |
-| status                                   | Interface status                                                          |             |
-| interface.traffic.\*.bitspersecond       | \*in/out. Incoming/outgoing traffic going through the interface           | Bytes/s & % |
-| interface.packets.\*.errors.percentage   | \*in/out. Incoming/outgoing errored packets going through an interface    | Count & %   |
-| interface.packets.\*.discards.percentage | \*in/out. Incoming/outgoing discarded packets going through an interface  | Count & %   |
+| Metric name                              | Description                                                              | Unit        |
+| :--------------------------------------- | :----------------------------------------------------------------------- | :---------- |
+| status                                   | Interface status                                                         |             |
+| interface.traffic.\*.bitspersecond       | \*in/out. Incoming/outgoing traffic going through the interface          | Bytes/s & % |
+| interface.packets.\*.errors.percentage   | \*in/out. Incoming/outgoing errored packets going through an interface   | Count & %   |
+| interface.packets.\*.discards.percentage | \*in/out. Incoming/outgoing discarded packets going through an interface | Count & %   |
 
-A regexp filter is available to target a specific interface identifier/ifName [```--interface='^my-interface-name$' --name```] 
+A regexp filter is available to target a specific interface identifier/ifName [```--interface='^my-interface-name$' --name```]
 
-<!--Environment-->
+</TabItem>
+<TabItem value="Environment" label="Environment">
 
-| Metric name                   | Description                      | Unit     |               
-| :---------------------------- | :------------------------------- | :--------|
-| hardware.temperature.celsius  | Temperature of the system        | Celsius  |
-| faultled                      | Status of the fault LED (On/Off) |          |
+| Metric name                  | Description                      | Unit    |
+| :--------------------------- | :------------------------------- | :------ |
+| hardware.temperature.celsius | Temperature of the system        | Celsius |
+| faultled                     | Status of the fault LED (On/Off) |         |
 
-You can use ```--no-component``` if you want to alert when a component is 
-absent/removed. You can also overload the default status using the 
-```--threshold-overload option```. 
+You can use ```--no-component``` if you want to alert when a component is
+absent/removed. You can also overload the default status using the
+```--threshold-overload option```.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
-To use this pack, the SNMP service must be properly configured on your 
+To use this pack, the SNMP service must be properly configured on your
 IBM BladeCenter server. Lenovo provides an official documentation
-to achieve this: 
+to achieve this:
 * Throught BladeCenter Web Interface: https://bladecenter.lenovofiles.com/help/index.jsp?topic=%2Fcom.lenovo.bladecenter.mgtmod.doc%2Fkp1ag_bc_mmug_configsnmp
 * Throught BladeCenter Command-Line Interface : https://bladecenter.lenovofiles.com/help/index.jsp?topic=%2Fcom.lenovo.bladecenter.advmgtmod.doc%2Fkp1bc_bc_cli_snmp
 
@@ -84,9 +93,8 @@ Poller on the UDP/161 SNMP port.
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="licence-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Plugin package on every Centreon poller expected to monitor an IBM BladeCenter switch module:
 
@@ -96,7 +104,8 @@ yum install centreon-plugin-Network-Ibm-Bladecenter-Snmp
 
 2. On the centreon Web interface, install the *IBM BladeCenter Switch* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Plugin on every Centreon poller expected to monitor an IBM BladeCenter switch module:
 
@@ -112,20 +121,21 @@ yum install centreon-pack-network-ibm-bladecenter-snmp
 
 3. On the centreon Web interface, install the *IBM BladeCenter Switch* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
 Go to *Configuration* > *Host* > and click *Add*. Then fill the *SNMP Community*
-and *SNMP Version* fields and apply the template 
+and *SNMP Version* fields and apply the template
 *Net-Ibm-Bladecenter-SNMP-custom*.
 
 If you are using SNMP Version 3, use the
 *SNMPEXTRAOPTIONS* macro to configure your own SNMPv3 credentials combo.
 
-| Mandatory   | Name             | Description                                    |
-| :---------- | :--------------- | :--------------------------------------------- |
-|             | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo    |
+| Mandatory | Name             | Description                                 |
+| :-------- | :--------------- | :------------------------------------------ |
+|           | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo |
 
 ## FAQ
 
@@ -133,15 +143,15 @@ If you are using SNMP Version 3, use the
 
 Once you've installed the plugin, you can test it logging with *centreon-engine*
 user:
- 
+
 ```bash
 /usr/lib/centreon/plugins/centreon_net_bladecenter_snmp.pl \
-  --plugin=network::ibm::bladecenter::snmp::plugin \
-  --mode=interfaces --hostname=10.30.2.138 \
-  --snmp-community='public' \
-  --snmp-version='2c' \
-  --add-status \
-  --add-traffic
+--plugin=network::ibm::bladecenter::snmp::plugin \
+--mode=interfaces --hostname=10.30.2.138 \
+--snmp-community='public' \
+--snmp-version='2c' \
+--add-status \
+--add-traffic
 ```
 
 Expected command output is shown below:
@@ -154,17 +164,17 @@ All available modes with the plugin can be displayed with:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_net_bladecenter_snmp.pl \
-  ---plugin=network::ibm::bladecenter::snmp::plugin \
-  --list-mode
+---plugin=network::ibm::bladecenter::snmp::plugin \
+--list-mode
 ```
 
 The available options for a mode can be displayed using the ```--help``` parameter:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_net_bladecenter_snmp.pl \
-  --plugin=network::ibm::bladecenter::snmp::plugin \
-  --mode=interfaces \
-  --help
+--plugin=network::ibm::bladecenter::snmp::plugin \
+--mode=interfaces \
+--help
 ```
 
 ### UNKNOWN: SNMP GET Request : Timeout

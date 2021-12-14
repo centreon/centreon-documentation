@@ -14,8 +14,8 @@ ticket.
 
 This connector is at least compatible with the following versions of OTRS:
 
-  - OTRS 5
-  - OTRS 4
+- OTRS 5
+- OTRS 4
 
 ## Requirements
 
@@ -39,11 +39,11 @@ Our provider requires the following parameters:
 
 As of now, the provider is able to retrieve the following objects from OTRS:
 
-  - Queues
-  - Priorities
-  - States
-  - Types
-  - Customer users
+- Queues
+- Priorities
+- States
+- Types
+- Customer users
 
 ## Configuration
 
@@ -67,29 +67,29 @@ Add the following lines in the `/opt/otrs/Kernel/Config.pm` file
 # $Self->{SessionUseCookie} = 0;
 # $Self->{CheckMXRecord} = 0;
 $Self->{'GenericInterface::Operation::Module'}->{'Priority::PriorityGet'} =  {
-    'ConfigDialog' => 'AdminGenericInterfaceOperationDefault',
-    'Controller' => 'Priority',
-    'Name' => 'PriorityGet'
+'ConfigDialog' => 'AdminGenericInterfaceOperationDefault',
+'Controller' => 'Priority',
+'Name' => 'PriorityGet'
 };
 $Self->{'GenericInterface::Operation::Module'}->{'Queue::QueueGet'} =  {
-    'ConfigDialog' => 'AdminGenericInterfaceOperationDefault',
-    'Controller' => 'Queue',
-    'Name' => 'QueueGet'
+'ConfigDialog' => 'AdminGenericInterfaceOperationDefault',
+'Controller' => 'Queue',
+'Name' => 'QueueGet'
 };
 $Self->{'GenericInterface::Operation::Module'}->{'State::StateGet'} =  {
-    'ConfigDialog' => 'AdminGenericInterfaceOperationDefault',
-    'Controller' => 'State',
-    'Name' => 'StateGet'
+'ConfigDialog' => 'AdminGenericInterfaceOperationDefault',
+'Controller' => 'State',
+'Name' => 'StateGet'
 };
 $Self->{'GenericInterface::Operation::Module'}->{'Type::TypeGet'} =  {
-    'ConfigDialog' => 'AdminGenericInterfaceOperationDefault',
-    'Controller' => 'Type',
-    'Name' => 'TypeGet'
+'ConfigDialog' => 'AdminGenericInterfaceOperationDefault',
+'Controller' => 'Type',
+'Name' => 'TypeGet'
 };
 $Self->{'GenericInterface::Operation::Module'}->{'CustomerUser::CustomerUserGet'} =  {
-    'ConfigDialog' => 'AdminGenericInterfaceOperationDefault',
-    'Controller' => 'CustomerUser',
-    'Name' => 'CustomerUserGet'
+'ConfigDialog' => 'AdminGenericInterfaceOperationDefault',
+'Controller' => 'CustomerUser',
+'Name' => 'CustomerUserGet'
 };
 ```
 

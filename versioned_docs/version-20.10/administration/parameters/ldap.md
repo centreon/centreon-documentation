@@ -2,6 +2,9 @@
 id: ldap
 title: LDAP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 > If you want to use SSO for authentication, please read
 > [this procedure](centreon-ui#sso).
@@ -109,13 +112,18 @@ TLS_REQCERT never
 
 Then restart Apache:
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="operating-systems">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+
 ```shell
 systemctl restart httpd
 ```
-<!--CentOS 7-->
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 ```shell
 systemctl restart httpd24-httpd
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>

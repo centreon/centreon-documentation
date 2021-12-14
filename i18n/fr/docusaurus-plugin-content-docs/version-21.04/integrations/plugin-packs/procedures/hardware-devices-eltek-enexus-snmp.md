@@ -2,12 +2,15 @@
 id: hardware-devices-eltek-enexus-snmp
 title: Eltek eNexus
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
 Eltek est un spécialiste mondial de la gestion et la transformation de l'énergie électrique. Ils développent et commercialisent des matériels utilisés dans les secteurs de l'industrie et des télécommunications.
 
-## Contenu du pack de supervision 
+## Contenu du pack de supervision
 
 ### Objets supervisés
 
@@ -17,15 +20,15 @@ Eltek est un spécialiste mondial de la gestion et la transformation de l'énerg
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Alarms-->
+<Tabs groupId="operating-systems">
+<TabItem value="Alarms" label="Alarms">
 
 | Metric name                        | Description                         |
 | :--------------------------------- | :---------------------------------- |
 | alarms.active.count                | Current total alarms. Unit: Count   |
 
-<!--Battery-->
+</TabItem>
+<TabItem value="Battery" label="Battery">
 
 | Metric name                             | Description                                                         |
 | :-------------------------------------- | :------------------------------------------------------------------ |
@@ -36,7 +39,8 @@ Eltek est un spécialiste mondial de la gestion et la transformation de l'énerg
 | battery.voltage.volt                    | Current battery voltage. Unit: volt                                 |
 | battery.current.ampere                  | Current battery load. Unit: ampere                                  |
 
-<!--Load-->
+</TabItem>
+<TabItem value="Load" label="Load">
 
 | Metric name                               | Description                                                             |
 | :---------------------------------------- | :---------------------------------------------------------------------- |
@@ -44,14 +48,16 @@ Eltek est un spécialiste mondial de la gestion et la transformation de l'énerg
 | load.energy.delivered.watt                | Accumulated energy delivered. Unit: watt                                |
 | phase.voltage.volt                        | By phase instance. Current voltage. Unit: volt                          |
 
-<!--Outputs-->
+</TabItem>
+<TabItem value="Outputs" label="Outputs">
 
 | Metric name                             | Description                                                         |
 | :-------------------------------------- | :------------------------------------------------------------------ |
 | outputs.disconnected.count              | Current disconnected outputs. Unit: Count                           |
 | outputs.notenergized.count              | Current not energized outputs. Unit: Count                          |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -72,13 +78,12 @@ Sur l'interface Web:
 
 ### Flux réseau
 
-La communication doit être possible sur le port UDP 161 depuis le Collecteur Centreon vers l'équipemnt Eltek eNexus supervisé. 
+La communication doit être possible sur le port UDP 161 depuis le Collecteur Centreon vers l'équipemnt Eltek eNexus supervisé.
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="operating-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur l'ensemble des Collecteurs Centreon supervisant des équipements Eltek eNexus:
 
@@ -89,7 +94,8 @@ Installer le Plugin-Pack 'Eltek eNexus' depuis la page "Configuration > Plugin p
 
 2. Installer le pack depuis la page "Configuration > Plugin packs > Manager":
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur l'ensemble des Collecteurs Centreon supervisant des équipemnts Eltek eNexus:
 
@@ -105,13 +111,14 @@ yum install hardware-devices-eltek-enexus-snmp
 
 3. Installer le pack depuis la page "Configuration > Plugin packs > Manager":
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
-Dans le formulaire de création de l'Hôte sur l'interface Web de Centreon, il est nécessaire de renseigner les champs "Snmp Community" et "Snmp Version". 
+Dans le formulaire de création de l'Hôte sur l'interface Web de Centreon, il est nécessaire de renseigner les champs "Snmp Community" et "Snmp Version".
 
-> :warning: Si vous utilisez SNMP en version 3, selectionnez la version SNMP idoine et configurez les paramètres SNMP v3 via la macro SNMPEXTRAOPTIONS 
+> :warning: Si vous utilisez SNMP en version 3, selectionnez la version SNMP idoine et configurez les paramètres SNMP v3 via la macro SNMPEXTRAOPTIONS
 
 | Obligatoire | Nom              | Description                                         |
 | :---------- | :--------------- | :-------------------------------------------------- |
@@ -125,12 +132,12 @@ A partir du moment ou la sonde est installée, connectez vous à votre C
 
 ```bash
 /usr/lib/centreon/plugins/centreon_eltek_enexus_snmp.pl \
-	--plugin=hardware::devices::eltek::enexus::snmp::plugin \
-	--mode=battery \
-	--hostname=10.30.2.114 \
-	--snmp-version='2c' \
-	--snmp-community='public' \
-  --verbose 
+--plugin=hardware::devices::eltek::enexus::snmp::plugin \
+--mode=battery \
+--hostname=10.30.2.114 \
+--snmp-version='2c' \
+--snmp-community='public' \
+--verbose
 ```
 
 La commande vérifie le status de la batterie (```--mode=battery```) d'un équipement Eltek ayant pour adresse 10.30.2.114 (```--hostname=10.30.2.114```) en version 2 du protocol SNMP et avec la communauté public  (```--snmp-community='public'```).
@@ -139,17 +146,17 @@ Tous les modes sont affichables via la commande suivante:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_eltek_enexus_snmp.pl \
-    --plugin=hardware::devices::eltek::enexus::snmp::plugin \
-    --list-mode
+--plugin=hardware::devices::eltek::enexus::snmp::plugin \
+--list-mode
 ```
 
 Les options des différents modes sont consultables via le help du mode: 
 
 ```bash
 /usr/lib/centreon/plugins/centreon_eltek_enexus_snmp.pl \
-    --plugin=hardware::devices::eltek::enexus::snmp::plugin \
-    --mode=battery \
-    --help
+--plugin=hardware::devices::eltek::enexus::snmp::plugin \
+--mode=battery \
+--help
 ```
 
 ### UNKNOWN: SNMP GET Request : Timeout
@@ -158,6 +165,6 @@ Si vous obtenez ce message, cela signifie que vous ne parvenez pas à contacter 
 
 ### UNKNOWN: SNMP GET Request : Cant get a single value.
 
-Ce message d'erreur fait souvent référence aux problèmes suivants : 
-  - L'équipement Eltek ne supporte pas la MIB exploitée par le plugin
-  - Un des OIDs utilisé par le plugin n'est pas récupérable du fait de privilèges insuffisants
+Ce message d'erreur fait souvent référence aux problèmes suivants :
+- L'équipement Eltek ne supporte pas la MIB exploitée par le plugin
+- Un des OIDs utilisé par le plugin n'est pas récupérable du fait de privilèges insuffisants

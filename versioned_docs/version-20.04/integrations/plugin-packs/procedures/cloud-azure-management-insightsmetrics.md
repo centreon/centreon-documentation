@@ -2,6 +2,9 @@
 id: cloud-azure-management-insightsmetrics
 title: Azure InsightsMetrics
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -19,25 +22,25 @@ For example, using this Pack will allow you to monitor system indicators of Azur
 
 Available indicators and metrics:
 * Azure Virtual Machines
-     * CPU
-     * Memory
-     * Logical-Disks
+* CPU
+* Memory
+* Logical-Disks
 
 ### Collected metrics & status
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Cpu-->
+<Tabs groupId="operating-systems">
+<TabItem value="Cpu" label="Cpu">
 
 | Metric Name                                                   | Description                    | Unit |
-|:--------------------------------------------------------------|:-------------------------------|:-----|
+| :------------------------------------------------------------ | :----------------------------- | :--- |
 | *instance*#azure.insights.cpu.average.utilization.percentage  | Average utilization percentage | %    |
 | *instance\~ID*#azure.insights.cpu.core.utilization.percentage | Current utilization per core   | %    |
 
-<!--Logical-Disks-->
+</TabItem>
+<TabItem value="LogicalDisks" label="LogicalDisks">
 
 | Metric Name                                                               | Description                            | Unit    |
-|:--------------------------------------------------------------------------|:---------------------------------------|:--------|
+| :------------------------------------------------------------------------ | :------------------------------------- | :------ |
 | *instance\~mount_point*#azure.insights.logicaldisk.used.bytes             | Logical Disk current usage             | B       |
 | *instance\~mount_point*#azure.insights.logicaldisk.used.percentage        | Logical Disk current usage percentage  | %       |
 | *instance\~mount_point*#azure.insights.logicaldisk.free.percentage        | Logical Disk current free percentage   | %       |
@@ -46,82 +49,83 @@ Available indicators and metrics:
 | *instance\~mount_point*#azure.insights.logicaldisks.io.writespersecond    | Logical Disk current IO writes rate    | count/s |
 | *instance\~mount_point*#azure.insights.logicaldisks.io.transferspersecond | Logical Disk current IO transfers rate | count/s |
 
-<!--Memory-->
+</TabItem>
+<TabItem value="Memory" label="Memory">
 
 | Metric Name                                           | Description                         | Unit |
-|:------------------------------------------------------|:------------------------------------|:-----|
+| :---------------------------------------------------- | :---------------------------------- | :--- |
 | *instance*#azure.insights.memory.usage.bytes          | Current memory usage                | B    |
 | *instance*#azure.insights.memory.usage.percentage     | Current memory usage percentage     | %    |
 | *instance*#azure.insights.memory.usage.percentage     | Current memory usage percentage     | %    |
 | *instance*#azure.insights.memory.available.percentage | Current memory available percentage | %    |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Discovery rules
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Services-->
+<Tabs groupId="operating-systems">
+<TabItem value="Services" label="Services">
 
 | Rule name                                                                    | Description                                                 |
-|:-----------------------------------------------------------------------------|:------------------------------------------------------------|
+| :--------------------------------------------------------------------------- | :---------------------------------------------------------- |
 | Cloud-Azure-Management-InsightsMetrics-Api-VirtualMachine-Logical-Disks-Name | Discover logical disks associated to Azure Virtual Machines |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
 ### Azure credentials
 
-To use the 'api' custom mode, make sure to obtain the required information using the 
+To use the 'api' custom mode, make sure to obtain the required information using the
 how-to below. Keep it safe until including it in the Autodiscovery job settings form.
 
 * Create an *application* in Azure Active Directory:
-    - Log in to your Azure account.
-    - Select *Azure Active directory* in the left sidebar.
-    - Click on *App registrations*.
-    - Click on *+ Add*.
-    - Enter Centreon as the application name (or any name of your choice), select application type(api) and sign-on-url.
-    - Click on the *Create* button.
+- Log in to your Azure account.
+- Select *Azure Active directory* in the left sidebar.
+- Click on *App registrations*.
+- Click on *+ Add*.
+- Enter Centreon as the application name (or any name of your choice), select application type(api) and sign-on-url.
+- Click on the *Create* button.
 
 * Get *Subscription ID*
-    - Log in to your Azure account.
-    - Select *Subscriptions* in the left sidebar.
-    - Select whichever subscription is needed.
-    - Click on *Overview*.
-    - **Copy the Subscription ID.**
+- Log in to your Azure account.
+- Select *Subscriptions* in the left sidebar.
+- Select whichever subscription is needed.
+- Click on *Overview*.
+- **Copy the Subscription ID.**
 
 * Get *Tenant ID*
-    - Log in to your Azure account.
-    - Select *Azure Active directory* in the left sidebar.
-    - Click on *Properties*.
-    - **Copy the directory ID.**
+- Log in to your Azure account.
+- Select *Azure Active directory* in the left sidebar.
+- Click on *Properties*.
+- **Copy the directory ID.**
 
 * Get *Client ID*
-    - Log in to your Azure account.
-    - Select *Azure Active directory* in the left sidebar.
-    - Click on *Enterprise applications*.
-    - Click on *All applications*.
-    - Select the application previously created.
-    - Click on *Properties*.
-    - **Copy the Application ID.**
+- Log in to your Azure account.
+- Select *Azure Active directory* in the left sidebar.
+- Click on *Enterprise applications*.
+- Click on *All applications*.
+- Select the application previously created.
+- Click on *Properties*.
+- **Copy the Application ID.**
 
 * Get *Client secret*
-    - Log in to your Azure account.
-    - Select *Azure Active directory* in the left sidebar.
-    - Click on *App registrations*.
-    - Select the application previously created.
-    - Click on *All settings*.
-    - Click on *Keys*.
-    - Enter the key description and select the duration.
-    - Click on *Save*.
-    - **Copy and store the key value. You won't be able to retrieve it after you leave this page.**
+- Log in to your Azure account.
+- Select *Azure Active directory* in the left sidebar.
+- Click on *App registrations*.
+- Select the application previously created.
+- Click on *All settings*.
+- Click on *Keys*.
+- Enter the key description and select the duration.
+- Click on *Save*.
+- **Copy and store the key value. You won't be able to retrieve it after you leave this page.**
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="licence-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin on every Centreon Poller expected to monitor Azure resources based on InsightsMetrics:
 
@@ -131,7 +135,8 @@ yum install centreon-plugin-Cloud-Azure-Management-InsightsMetrics-Api
 
 2. On the Centreon Web interface, install the *Azure InsightsMetrics* Centreon Pack on the **Configuration > Plugin Packs > Manager** page.
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin on every Centreon Poller expected to monitor Azure resources based on InsightsMetrics:
 
@@ -147,7 +152,8 @@ yum install centreon-pack-cloud-azure-management-insightsmetrics.noarch
 
 3. On the Centreon Web interface, install the *Azure InsightsMetrics* Centreon Pack on the **Configuration > Plugin Packs > Manager** page.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -161,7 +167,7 @@ yum install centreon-pack-cloud-azure-management-insightsmetrics.noarch
 * Once the template applied, some Macros marked as 'Mandatory' hereafter have to be configured.
 
 | Mandatory | Nom                       | Description                                                    |
-|:----------|:--------------------------|:---------------------------------------------------------------|
+| :-------- | :------------------------ | :------------------------------------------------------------- |
 | X         | AZURECUSTOMMODE           | Custom mode 'api'                                              |
 | X         | AZURELOGANALYTICSENDPOINT | LogAnalytics endpoint (default: `https://api.loganalytics.io`) |
 | X         | AZURESUBSCRIPTION         | Subscription ID                                                |
@@ -174,18 +180,18 @@ yum install centreon-pack-cloud-azure-management-insightsmetrics.noarch
 
 ## How to check in the CLI that the configuration is OK and what are the main options for ?
 
-Once the Plugin installed, log into your Centreon Poller CLI using the *centreon-engine* 
+Once the Plugin installed, log into your Centreon Poller CLI using the *centreon-engine*
 user account and test the Plugin by running the following command:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_azure_management_insightsmetrics_api.pl \
-    --plugin=cloud::azure::management::insightsmetrics::plugin \
-    --mode=cpu --custommode='api' --management-endpoint='https://api.loganalytics.io' \
-    --subscription='xxxxxxxxx' --tenant='xxxxxxx' --client-id='xxxxxxxx' --client-secret='xxxxxxxxxx' \
-    --workspace-id='xxxxxxxxxxxxxxx' \
-    --filter-resourceid='/subscriptions/XXXX/resourcegroups/my_resourcegroup1/providers/microsoft.compute/virtualmachines/my_vm1' \
-    --warning-average-utilization-percentage='90' \
-    --critical-average-utilization-percentage='95'
+--plugin=cloud::azure::management::insightsmetrics::plugin \
+--mode=cpu --custommode='api' --management-endpoint='https://api.loganalytics.io' \
+--subscription='xxxxxxxxx' --tenant='xxxxxxx' --client-id='xxxxxxxx' --client-secret='xxxxxxxxxx' \
+--workspace-id='xxxxxxxxxxxxxxx' \
+--filter-resourceid='/subscriptions/XXXX/resourcegroups/my_resourcegroup1/providers/microsoft.compute/virtualmachines/my_vm1' \
+--warning-average-utilization-percentage='90' \
+--critical-average-utilization-percentage='95'
 ```
 
 Expected command output is shown below:
@@ -200,10 +206,10 @@ CPU #2 usage : 2.25 %
 ```
 
 The command above checks the *CPU* of an Azure *Virtual Machine* account using the 'api' custom-mode
-targetting the *LogAnalytics* API (```--plugin=cloud::azure::management::insightsmetrics::plugin --mode=cpu --custommode=api 
+targetting the *LogAnalytics* API (```--plugin=cloud::azure::management::insightsmetrics::plugin --mode=cpu --custommode=api
 --management-endpoint='https://api.loganalytics.io'```).
 The authentication parameters to be used with the custom mode are specified in the options (```--subscription='xxxxxxxxx'
---tenant='xxxxxxx' --client-id='xxxxxxxx' --client-secret='xxxxxxxxxx'```). The Resource ID of the Azure VM *my_vm1* is specified in the filter 
+--tenant='xxxxxxx' --client-id='xxxxxxxx' --client-secret='xxxxxxxxxx'```). The Resource ID of the Azure VM *my_vm1* is specified in the filter
 (```--filter-resourceid='/subscriptions/XXXX/resourcegroups/my_resourcegroup1/providers/microsoft.compute/virtualmachines/my_vm1'```).
 
 This command would trigger a WARNING alarm if the *average utilization* is reported as over 90% (```--warning-average-utilization-percentage='90'```)
@@ -213,9 +219,9 @@ All the available options for a given mode can be displayed by adding the ```--h
 
 ```bash
 /usr/lib/centreon/plugins/centreon_azure_management_insightsmetrics_api.pl \
-    --plugin=cloud::azure::management::insightsmetrics::plugin \
-    --mode=cpu
-    --help
+--plugin=cloud::azure::management::insightsmetrics::plugin \
+--mode=cpu
+--help
 ```
 
 ### Troubleshooting

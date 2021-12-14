@@ -19,13 +19,13 @@ You must have:
 
 3. Make the Plugin Packs available:
 
-    - If you have an offline licence, in your central server's terminal, enter:
-     
-        ```shell
-        yum install centreon-pack-*
-        ```
+- If you have an offline licence, in your central server's terminal, enter:
 
-    - If you have an online license, the Plugin Packs are already available in the interface.
+```shell
+yum install centreon-pack-*
+```
+
+- If you have an online license, the Plugin Packs are already available in the interface.
 
 4. To install the Amazon EC2 Plugin Pack, go to **Configuration > Plugin Packs**.
 
@@ -35,7 +35,7 @@ You must have:
 
 7. Follow [this procedure](../integrations/plugin-packs/procedures/cloud-aws-ec2) (sections [Plugin dependencies](../integrations/plugin-packs/procedures/cloud-aws-ec2#plugin-dependencies) and [Setup](../integrations/plugin-packs/procedures/cloud-aws-ec2#setup)) to finish installing the Plugin Pack. (You can also access the documentation for a Plugin Pack by clicking on the `i`.)
 
-    ![image](../assets/getting-started/aws-doc.png)
+![image](../assets/getting-started/aws-doc.png)
 
 ## Step 2: Configure the discovery job
 
@@ -43,7 +43,7 @@ You must have:
 
 4. Enter a name for your discovery job, and then select the **Amazon AWS EC2** provider. Click **Next**.
 
-    ![image](../assets/getting-started/aws-provider.png)
+![image](../assets/getting-started/aws-provider.png)
 
 4. If your infrastructure requires it, fill in the details for the proxy you want to use.
 
@@ -52,28 +52,28 @@ You must have:
 6. Enter the region your EC2 instances are in (for example, **eu-north-1**). Click **Next**.
 
 7. Edit or add [mappers](../monitoring/discovery/hosts-discovery#how-to-use-mappers):
-    - Map `host.name` to the `discovery.results.name` attribute. The names of your hosts in Centreon will be the ones defined in this attribute (i.e. the hostname of the instance).
-    - In our example, we will exclude the instances whose hostname contains "test".
+- Map `host.name` to the `discovery.results.name` attribute. The names of your hosts in Centreon will be the ones defined in this attribute (i.e. the hostname of the instance).
+- In our example, we will exclude the instances whose hostname contains "test".
 
-    ![image](../assets/getting-started/aws-mapper.png)
+![image](../assets/getting-started/aws-mapper.png)
 
-    Click **Next**.
+Click **Next**.
 
 8. Select **Manual analysis**: we will have to add the hosts to the list of monitored hosts manually. Click **Next**.
 
 9. Select **Execute immediately** and then click **Finish**. The discovery job appears in the list of jobs.
-    
-    ![image](../assets/getting-started/aws-listofjobs.png)
+
+![image](../assets/getting-started/aws-listofjobs.png)
 
 ## Step 3: Saving the hosts and monitoring them
 
 10. After a few seconds, refresh the page. There should be a green tick mark in the **Status** column.
 
-    ![image](../assets/getting-started/aws-success.png)
+![image](../assets/getting-started/aws-success.png)
 
 11. Hover over the job that has just ended and then click **Display the job result** (the arrow icon). A list of hosts appears.
 
-    ![image](../assets/getting-started/aws-results.png)
+![image](../assets/getting-started/aws-results.png)
 
 12. Select the hosts you want to add to the list of monitored hosts, and then click **Save**. ![image](../assets/getting-started/aws-save.png)
 

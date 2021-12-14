@@ -2,6 +2,9 @@
 id: manage-alerts
 title: Manage alerts
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 This chapter presents the different methods to manage alerts.
 
@@ -38,54 +41,55 @@ of disk.
 
 To acknowledge an incident, there are two solutions:
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--From real time monitoring-->
+<Tabs groupId="operating-systems">
+<TabItem value="From real time monitoring" label="From real time monitoring">
 
 1.  Go into the `Monitoring > Status Details > Hosts` (or `Services`)
-    menu
+menu
 2.  Select the object(s) that you want acknowledge
 3.  In the menu: **More actions** click on **Hosts: Acknowledge** or on
-    **Services: Acknowledge**
+**Services: Acknowledge**
 
-<!--From the detailed sheet of an object-->
+</TabItem>
+<TabItem value="From the detailed sheet of an object" label="From the detailed sheet of an object">
 
 From of the detail page of an object, click on the icon |enabled| associated
 with the **Acknowledged** field in the **Options** frame
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 The following window appears:
 
 ![image](../assets/alerts/acknowledged.png)
 
 -   If the **Sticky** box is checked, the acknowledgment will be
-    maintained in case of a change of Not-OK status (E.g.: DOWN to
-    UNREACHABLE or WARNING to CRITICAL). Otherwise, the acknowledgment
-    disappears and the notification process is reactivated.
+maintained in case of a change of Not-OK status (E.g.: DOWN to
+UNREACHABLE or WARNING to CRITICAL). Otherwise, the acknowledgment
+disappears and the notification process is reactivated.
 -   If the **Notify** box is checked, a notification is sent to the
-    contacts linked to the object to warn that the incident on the
-    resource has been acknowledged (in the situation the contact
-    possesses the activity acknowledgment notification filter).
+contacts linked to the object to warn that the incident on the
+resource has been acknowledged (in the situation the contact
+possesses the activity acknowledgment notification filter).
 -   If the **Persistent** box is checked, the acknowledgment will be
-    maintained in the case of a restart of the scheduler. Otherwise, the
-    acknowledgment disappears and the notification process is
-    reactivated.
+maintained in the case of a restart of the scheduler. Otherwise, the
+acknowledgment disappears and the notification process is
+reactivated.
 -   The **Comment** field is generally used to provide the reason of the
-    acknowledgment, it is mandatory
+acknowledgment, it is mandatory
 -   If the **Acknowledge services attached to hosts** box is checked,
-    all the services linked to the host will be acknowledged (option
-    visible only if we acknowledge a host).
+all the services linked to the host will be acknowledged (option
+visible only if we acknowledge a host).
 -   If the **Force active checks** box is checked, a command will be
-    sent to the scheduler to recheck the resource as soon as possible.
+sent to the scheduler to recheck the resource as soon as possible.
 
 To delete the acknowledgment of an incident on an object:
 
 1.  Go into the `Monitoring > Status Details > Hosts` (or `Services`)
-    menu
+menu
 2.  Select the objects you want to delete the acknowledgment
 3.  In the **More actions** menu, click on **Hosts: Disacknowledge** or
-    on **Services: Disacknowledge**
+on **Services: Disacknowledge**
 
 ## Add a downtime
 
@@ -104,8 +108,8 @@ There are two types of downtime:
 
 -   The **fixed** downtime: it starts and stops at the preview time.
 -   The **flexible** downtime: it starts during the preview time window
-    as soon as an incident is detected and finishes when preview time in
-    seconds expires.
+as soon as an incident is detected and finishes when preview time in
+seconds expires.
 
 ### Practice
 
@@ -115,28 +119,31 @@ There are three different possibilities to define a downtime:
 -   From the real time monitoring interface
 -   From the **Downtime** menu
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--From the detailed sheet of an object-->
+<Tabs groupId="operating-systems">
+<TabItem value="From the detailed sheet of an object" label="From the detailed sheet of an object">
 
 1.  Access the detail page of an object
 2.  In the category: **Commands**, click on **Schedule downtime for this
-    host/service**
+host/service**
 
-<!--From real time monitoring-->
+</TabItem>
+<TabItem value="From real time monitoring" label="From real time monitoring">
 
 1.  Go into the `Monitoring > Status Details > Hosts` (or `Services`)
-    menu
+menu
 2.  Select the(s) object(s) on which you want to program a downtime
-    period
+period
 3.  In the **More actions…** menu, click on **Hosts : Set Downtime** or
-    **Services : Set Downtime**
+**Services : Set Downtime**
 
-<!--From the Downtime menu-->
+</TabItem>
+<TabItem value="From the Downtime menu" label="From the Downtime menu">
 
 1.  Go into the `Monitoring > Downtimes > Downtimes` menu
 2.  Click on **Add a service downtime** or **Add a host downtime**
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 The following window appears:
 
@@ -145,13 +152,13 @@ The following window appears:
 -   The **Host Name** field defines the host concerned by the downtime
 -   The **Service** field defines the service concerned by the downtime
 -   If the **Fixed** box is checked the downtime is fixed. Otherwise, it
-    is flexible
+is flexible
 -   If the downtime is flexible, the **Duration** field defines the
-    length of the downtime
+length of the downtime
 -   The **Start Time** and **End Time** fields define the beginning and
-    end date of the downtime. Downtimes cannot start or end after December 31, 2037, 11:59 pm.
+end date of the downtime. Downtimes cannot start or end after December 31, 2037, 11:59 pm.
 -   The **Comments** field can be used to indicate why the downtime is
-    defined
+defined
 
 ## Recurrent downtimes
 
@@ -180,12 +187,12 @@ notifications from 20h00 to midnight.
 There are two types of Downtime periods:
 
 -   The **fixed** downtime period: This means that the downtime period
-    takes place during exactly the time period defined.
+takes place during exactly the time period defined.
 -   The **flexible** downtime period: This means that if during the time
-    period defined the service or the host returns a Not-OK status the
-    downtime period lasts a certain number of seconds (to be defined in
-    the form) from the moment when the host or the status returns a
-    Not-OK status.
+period defined the service or the host returns a Not-OK status the
+downtime period lasts a certain number of seconds (to be defined in
+the form) from the moment when the host or the status returns a
+Not-OK status.
 
 To add a recurrent downtime period go into the
 `Monitoring > Downtimes > Recurrent Downtimes` menu and click on
@@ -196,12 +203,12 @@ To add a recurrent downtime period go into the
 #### Configuration of Downtime periods
 
 -   The **Name** and **Description** fields serve to give a name and
-    describe the recurrent downtime period.
+describe the recurrent downtime period.
 -   The **Enable** field serves to enable or disable the downtime
-    period.
+period.
 -   The **Periods** field serves to define one or more periods of
-    recurrent downtime periods. To add a period, click on the symbol
-    ![image](../assets/common/navigate_plus.png).
+recurrent downtime periods. To add a period, click on the symbol
+![image](../assets/common/navigate_plus.png).
 
 It is possible to choose three types of period:
 
@@ -211,9 +218,9 @@ It is possible to choose three types of period:
 
 -   The **Days** field defines the day(s) concerned.
 -   The **Time period** field contains the time period concerned
-    (expressed in HH:MM - HH:MM).
+(expressed in HH:MM - HH:MM).
 -   The **Downtime type** field defines the type of downtime period
-    desired.
+desired.
 
 > It is possible to combine several types of periods within the same
 > downtime period.
@@ -221,15 +228,15 @@ It is possible to choose three types of period:
 #### Relations
 
 -   The **Linked with Hosts** list can be used to choose the host(s)
-    concerned by the recurrent downtime period.
+concerned by the recurrent downtime period.
 -   If **Linked with Host Groups** is chosen with the list Linked with
-    the host group all the hosts belonging to this group are concerned
-    by the recurrent downtime period.
+the host group all the hosts belonging to this group are concerned
+by the recurrent downtime period.
 -   The **Linked with Services** list can be used to choose the
-    service(s) concerned by the recurrent downtime period.
+service(s) concerned by the recurrent downtime period.
 -   If a service group is chosen with the list **Linked with Service
-    Groups** all the services belonging to this group are concerned by
-    the recurrent downtime period.
+Groups** all the services belonging to this group are concerned by
+the recurrent downtime period.
 
 ## Add comment
 
@@ -250,19 +257,21 @@ following properties:
 
 There are two solutions to add a comment:
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--From the detailed sheet of an object-->
+<Tabs groupId="operating-systems">
+<TabItem value="From the detailed sheet of an object" label="From the detailed sheet of an object">
 
 1.  Access to the details page of the object
 2.  In the category **Host/Service Commands**, click on **Add a comment
-    for this host/this service**
+for this host/this service**
 
-<!--From the Comment menu-->
+</TabItem>
+<TabItem value="From the Comment menu" label="From the Comment menu">
 
 1.  Go into the `Monitoring > Downtimes > Comments` menu
 2.  Click on **Add a Service Comment** or **Add a Host Comment**
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 The following window appears:
 
@@ -270,9 +279,9 @@ The following window appears:
 
 -   The **Host Name** field defines the host concerned by the comment.
 -   If you have chosen to add a comment to a service, the **Service**
-    field can be used to select the service concerned by the comment.
+field can be used to select the service concerned by the comment.
 -   If the **Persistent** box is checked, the comment will be maintained
-    in the event of a restart of the scheduler.
+in the event of a restart of the scheduler.
 -   The **Comments** field contains the comment itself.
 
 ## Management of checks
@@ -287,32 +296,34 @@ It is possible to temporarily enable or disable check on a host or a service.
 
 ### Practice
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--From the detailed sheet of an object-->
+<Tabs groupId="operating-systems">
+<TabItem value="From the detailed sheet of an object" label="From the detailed sheet of an object">
 
 1.  Access the details page of the object
 2.  In the category: **Options** go to the line: **Active checks** to
-    check the state of the checks.
+check the state of the checks.
 
 To:
 
 -   Enable the check, click on ![image](../assets/configuration/common/enabled.png)
 -   Disable the check, click on ![image](../assets/configuration/common/disabled.png)
 
-<!--From real time monitoring-->
+</TabItem>
+<TabItem value="From real time monitoring" label="From real time monitoring">
 
 1.  Go into the `Monitoring > Status Details > Hosts` (or `Services`)
-    menu
+menu
 2.  Select the object(s) on which you want to enable or disable the
-    check
+check
 3.  In the menu: **More actions…** click on:
 
 -   **Hosts : Disable Check** or **Services: Disable Check** to stop the
-    check on a host or a service
+check on a host or a service
 -   **Hosts: Enable Check** or **Services: Enable Check** to enable the
-    check of a host or of a service
+check of a host or of a service
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Submitting a result
 
@@ -331,12 +342,12 @@ The following window appears:
 ![image](../assets/alerts/submitresult.png)
 
 -   The **Host Name** and **Service** fields define the host and the
-    service the result will be submitted
+service the result will be submitted
 -   The **Check result** field defines the status of the service
 -   The **Check output** field defines the message to be displayed for
-    the service
+the service
 -   The **Performance data** field can be used to define performance
-    data for the generation of graphs
+data for the generation of graphs
 
 ## Management of notifications
 
@@ -353,32 +364,34 @@ host or a service.
 
 There are two ways of managing the notifications:
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--From the detailed sheet of an object-->
+<Tabs groupId="operating-systems">
+<TabItem value="From the detailed sheet of an object" label="From the detailed sheet of an object">
 
 1.  Access the details page of the object
 2.  In the category: **Options** go to the line: **Service
-    Notifications**
+Notifications**
 
 To:
 
 -   Enable the notification, click on ![image](../assets/configuration/common/enabled.png)
 -   Disable the notification, click on ![image](../assets/configuration/common/disabled.png)
 
-<!--From real time monitoring-->
+</TabItem>
+<TabItem value="From real time monitoring" label="From real time monitoring">
 
 1.  Go into the `Monitoring > Status Details > Hosts` (or `Services`)
-    menu
+menu
 2.  Select the host(s) / service(s) you want enable or disable the
-    notification
+notification
 3.  In the menu: **More actions…** click on:
 
 -   **Hosts: Disable Notification** or **Services: Disable
-    Notification** to stop the notification of a host or of a service
+Notification** to stop the notification of a host or of a service
 -   **Hosts: Enable Notification** or **Services: Enable Notification**
-    to enable the notification of a host or a service
+to enable the notification of a host or a service
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Reprogramming checks
 
@@ -392,30 +405,32 @@ programming of the checks.
 There are two types of programming:
 
 -   Normal programming: the service check is given priority in the
-    scheduler queue (asap).
+scheduler queue (asap).
 -   Forced programming: the service check is given priority in the
-    scheduler queue (asap) even if the time of the execution request is
-    outside the check period or if the service is not of the active
-    type.
+scheduler queue (asap) even if the time of the execution request is
+outside the check period or if the service is not of the active
+type.
 
 ### Practice
 
 There are two ways of forcing the check of a service:
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--From the detailed sheet of an object-->
+<Tabs groupId="operating-systems">
+<TabItem value="From the detailed sheet of an object" label="From the detailed sheet of an object">
 
 1.  Access the detail page of the object
 2.  In the category **Host Commands** (or **Service Commands**), click
-    on **Re-schedule the next check for this host / service** or
-    **Re-schedule the next check for this host / service (forced)**
+on **Re-schedule the next check for this host / service** or
+**Re-schedule the next check for this host / service (forced)**
 
-<!--From real time monitoring-->
+</TabItem>
+<TabItem value="From real time monitoring" label="From real time monitoring">
 
 1.  Go into the menu: `Monitoring > Status Details > Hosts` (or
-    `Services`)
+`Services`)
 2.  Select the objects to for which you want to force the check
 3.  In the menu: **More actions…** click on **Schedule immediate check**
-    or **Schedule immediate check (Forced)**
+or **Schedule immediate check (Forced)**
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>

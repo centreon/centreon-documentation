@@ -2,6 +2,9 @@
 id: applications-commvault-commserve-restapi
 title: Commvault CommServe Rest API
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Plugin-Pack Assets
 
@@ -11,43 +14,46 @@ The Plugin-Pack includes monitoring of Alerts, Jobs, Media-agents and Storage-po
 
 ### Collected Metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
+<Tabs groupId="operating-systems">
+<TabItem value="Alerts" label="Alerts">
 
-<!--Alerts-->
+| Metric name           | Description                                       | Unit |
+| :-------------------- | :------------------------------------------------ | :--- |
+| alert status          | alert status, possible to set string-based alerts |      |
+| alerts.total.count    | Number of alerts                                  |      |
+| alerts.critical.count | Number of critical alerts                         |      |
+| alerts.warning.count  | Number of warning alerts                          |      |
+| alerts.info.count     | Number of informational alerts                    |      |
 
-| Metric name           | Description                                        | Unit |
-| :-------------------- | :------------------------------------------------- | :--- |
-| alert status          | alert status, possible to set string-based alerts  |      |
-| alerts.total.count    | Number of alerts                                   |      |
-| alerts.critical.count | Number of critical alerts                          |      |
-| alerts.warning.count  | Number of warning alerts                           |      |
-| alerts.info.count     | Number of informational alerts                     |      |
+</TabItem>
+<TabItem value="Jobs" label="Jobs">
 
-<!--Jobs-->
+| Metric name      | Description                 | Unit |
+| :--------------- | :-------------------------- | :--- |
+| job status       | Status of on job status     |      |
+| job long status  | Status on job time duration |      |
+| jobs.total.count | Number of jobs              |      |
 
-| Metric name           | Description                  | Unit |
-| :-------------------- | :--------------------------- | :--- |
-| job status            | Status of on job status      |      |
-| job long status       | Status on job time duration  |      |
-| jobs.total.count      | Number of jobs               |      |
+</TabItem>
+<TabItem value="Mediaagents" label="Mediaagents">
 
-<!--Media-agents-->
+| Metric name              | Description            | Unit |
+| :----------------------- | :--------------------- | :--- |
+| media agent status       | Media agent status     |      |
+| media.agents.total.count | Number of media agents |      |
 
-| Metric name              | Description             | Unit |
-| :----------------------- | :---------------------- | :--- |
-| media agent status       | Media agent status      |      |
-| media.agents.total.count | Number of media agents  |      |
+</TabItem>
+<TabItem value="Storagepools" label="Storagepools">
 
-<!--Storage-pools-->
+| Metric name                                          | Description                                         | Unit |
+| :--------------------------------------------------- | :-------------------------------------------------- | :--- |
+| storage status                                       | Storage status, possible to set string-based alerts |      |
+| *storagepoolname*#storagepool.space.usage.bytes      | Space usage                                         | B    |
+| *storagepoolname*#storagepool.space.free.bytes       | Free space                                          | B    |
+| *storagepoolname*#storagepool.space.usage.percentage | Space usage in percentage                           | %    |
 
-| Metric name                                          | Description                                          | Unit |
-| :--------------------------------------------------- | :--------------------------------------------------- | :--- |
-| storage status                                       | Storage status, possible to set string-based alerts  |      |
-| *storagepoolname*#storagepool.space.usage.bytes      | Space usage                                          | B    |
-| *storagepoolname*#storagepool.space.free.bytes       | Free space                                           | B    |
-| *storagepoolname*#storagepool.space.usage.percentage | Space usage in percentage                            | %    |
-
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -57,9 +63,8 @@ E.g: https://api.commvault.com/
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="licence-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -69,7 +74,8 @@ yum install centreon-plugin-Applications-Commvault-Commserve-Restapi
 
 2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Commvault Commserve Rest API* Plugin-Pack
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -85,9 +91,10 @@ yum install centreon-pack-applications-commvault-commserve-restapi
 
 3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Commvault Commserve Rest API* Plugin-Pack
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
-## Host configuration 
+## Host configuration
 
 * Add a new Host and apply the *App-Commvault-Commserve-Restapi-custom* Host Template
 
@@ -110,17 +117,17 @@ Once the Plugin installed, log into your poller using the *centreon-engine* user
 
 ```bash
 /usr/lib/centreon/plugins/centreon_commvault_commserve_restapi.pl \
-    --plugin=apps::backup::commvault::commserve::restapi::plugin \
-    --mode=storage-pools \
-    --hostname='10.30.2.79' \
-    --port='443' \
-    --proto='https' \
-    --api-username='myapiusername' \
-    --api-password='myapipassword' \
-    --filter-name='IPL' \
-    --warning-space-usage-prct='90' \
-    --critical-space-usage-prct='95' \
-    --verbose
+--plugin=apps::backup::commvault::commserve::restapi::plugin \
+--mode=storage-pools \
+--hostname='10.30.2.79' \
+--port='443' \
+--proto='https' \
+--api-username='myapiusername' \
+--api-password='myapipassword' \
+--filter-name='IPL' \
+--warning-space-usage-prct='90' \
+--critical-space-usage-prct='95' \
+--verbose
 ```
 
 Output example:
@@ -142,12 +149,12 @@ All the options that can be used with this plugin can be found over the ```--hel
 
 ```bash
 /usr/lib/centreon/plugins/centreon_commvault_commserve_restapi.pl \
-    --plugin=apps::backup::commvault::commserve::restapi::plugin \
-    --mode=storage-pools \
-    --help
+--plugin=apps::backup::commvault::commserve::restapi::plugin \
+--mode=storage-pools \
+--help
 ```
 
-### Why do I get the following error: 
+### Why do I get the following error:
 
 #### ```UNKNOWN: 500 Can't connect to 10.30.2.79:443```
 

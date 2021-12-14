@@ -2,6 +2,9 @@
 id: pluginpacks
 title: Plugin Packs
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 A Plugin Pack is a downloadable package containing a set of configuration
 templates that make it fast and easy to monitor your IT infrastructure.
@@ -20,8 +23,8 @@ fine-tuned later-on.
 Some Plugin Packs also contain discovery rules. Discovery rules instruct the
 Centreon discovery engine to fetch additional assets to be monitored. Host
 discovery rules will look for new hosts (e.g. EC2 assets on AWS, virtua
- machines on VMware) while Service discovery rules will look for new services
- (e.g. Disk Volumes or Ethernet Interfaces on a server).
+machines on VMware) while Service discovery rules will look for new services
+(e.g. Disk Volumes or Ethernet Interfaces on a server).
 
 Plugin Packs on your Centreon platform are managed by the Plugin Pack Manager
 user interface, described in this chapter.
@@ -55,7 +58,7 @@ subscription your license will be directly downloaded to your server. Otherwise,
 ### Access to Plugin Packs
 
 If your Centreon platform is linked to an online subscription you can download Plugin Packs from the Plugin Pack
-Manager user interface. Otherwise, you have to install a dedicated RPM repository, you can find it on the 
+Manager user interface. Otherwise, you have to install a dedicated RPM repository, you can find it on the
 [support portal](https://support.centreon.com/s/repositories).
 
 ## Overview
@@ -67,7 +70,7 @@ These templates (commands, hosts and services templates) are attached to the **m
 
 * existing community plugins selected and validated by Centreon as being fully functional and optimized, or
 * plugins written by Centreon that are distributed as free software under RPM or available on
-  [Centreon Plugins](https://github.com/centreon/centreon-plugins) project
+[Centreon Plugins](https://github.com/centreon/centreon-plugins) project
 
 The added value of **Plugin Packs** is the **pre-configuration** of monitoring in the Centreon software. During installation,
 **the Packs import** **pre-configured objects** into the Centreon software such as **commands**, **host templates**,
@@ -83,7 +86,7 @@ A Plugin Pack contains:
 
 * a description of the pack contents and the indicators that can be monitored.
 * Centreon preset objects (commands, host templates, service templates) packaged and validated.
-* documentation for a simple and quick deployment. It is available once the pack is installed. 
+* documentation for a simple and quick deployment. It is available once the pack is installed.
 
 ### Connectors
 
@@ -111,8 +114,8 @@ Installation is a 3-step process:
 * **online platform**: if your platform is linked to an online subscription
 * **offline** otherwise
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Online platform-->
+<Tabs groupId="operating-systems">
+<TabItem value="Online platform" label="Online platform">
 
 If you benefit from an online subscription, you must first authenticate your
 Centreon platform.
@@ -128,7 +131,8 @@ Click on **install** to access the catalog:
 
 You can now proceed to the pack installation.
 
-<!--Offline platform-->
+</TabItem>
+<TabItem value="Offline platform" label="Offline platform">
 
 From your Centreon Central server, install or update the Plugin Packs catalog:
 
@@ -142,7 +146,8 @@ or:
 yum update centreon-pack-*
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 #### Pack installation
 
@@ -204,7 +209,7 @@ Hover over the Plugin Pack and click on the arrow,
 
 ![image](../assets/configuration/pluginpacks/update2.png)
 
-or click on the Plugin Pack to display more details, then click on the arrow. 
+or click on the Plugin Pack to display more details, then click on the arrow.
 
 ![image](../assets/configuration/pluginpacks/update3.png)
 

@@ -17,7 +17,7 @@ yum install centreon-plugin-Applications-Backup-Emc-Recoverypoint-Ssh
 
 Be sure to have with you the following information:
 
-  - IP Address of the monitored server
+- IP Address of the monitored server
 
 SSH daemon must be enable on RecoveryPoint Appliance.
 

@@ -2,6 +2,9 @@
 id: network-ubiquiti-airfiber-snmp
 title: Ubiquiti AirFiber SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Contenu du Plugin-Pack
 
@@ -15,22 +18,21 @@ Le Plugin-Pack Ubiquiti AirFiber SNMP collecte les données pour:
 
 ### Règles de découvertes
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Services-->
+<Tabs groupId="operating-systems">
+<TabItem value="Services" label="Services">
 
 | Nom de la règle                            | Description                                                                                  |
 | :----------------------------------------- | :------------------------------------------------------------------------------------------- |
 | Net-Ubiquiti-Airfiber-SNMP-Interface-Name  | Découvre les interfaces réseaux et supervise le statut et l'utilisation de la bande passante |
 | Net-Ubiquiti-Airfiber-SNMP-Radio-Name      | Découvre les interfaces radios et supervise le statut et l'utilisation de la bande passante  |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Interfaces-->
+<Tabs groupId="operating-systems">
+<TabItem value="Interfaces" label="Interfaces">
 
 | Metric name                                            | Description                                         | Unit |
 | :----------------------------------------------------- | :-------------------------------------------------- | :--- |
@@ -42,7 +44,8 @@ Le Plugin-Pack Ubiquiti AirFiber SNMP collecte les données pour:
 
 A regexp filter is available to target a specific interface identifier - ifName [```--interface='^eth0$' --name```]
 
-<!--Load-->
+</TabItem>
+<TabItem value="Load" label="Load">
 
 | Metric name                  | Description                       | Unit |
 | :--------------------------- | :-------------------------------- | :--- |
@@ -50,7 +53,8 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | system.loadaverage.5m.count  | System load 5 minutes-sample      |      |
 | system.loadaverage.15m.count | System load 15 minutes-sample     |      |
 
-<!--Memory-->
+</TabItem>
+<TabItem value="Memory" label="Memory">
 
 | Metric name             | Description                               | Unit  |
 | :---------------------  | :---------------------------------------- | :---- |
@@ -58,7 +62,8 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | memory.free.bytes       | Free memory                               | B     |
 | memory.usage.percentage | Memory usage in percentage                | %     |
 
-<!--Radios-->
+</TabItem>
+<TabItem value="Radios" label="Radios">
 
 | Metric name                                                      | Description                                  | Unit   |
 | :--------------------------------------------------------------- | :------------------------------------------- | :----- |
@@ -68,17 +73,17 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | *interfacename*\#radio.interface.traffic.in.bitspersecond        | Incoming traffic going through the interface | b/s    |
 | *interfacename*\#radio.interface.traffic.out.bitspersecond       | utgoing traffic going through the interface  | b/s    |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
-Afin de contrôler votre équipement Ubiquiti AirFiber, le SNMP doit être configuré. 
+Afin de contrôler votre équipement Ubiquiti AirFiber, le SNMP doit être configuré.
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="operating-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -88,7 +93,8 @@ yum install centreon-plugin-Network-Ubiquiti-Airfiber-Snmp
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Ubiquiti AirFiber SNMP* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -104,7 +110,8 @@ yum install centreon-pack-network-ubiquiti-airfiber-snmp
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Ubiquiti AirFiber SNMP* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -128,14 +135,14 @@ depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-en
 
 ```bash
 /usr/lib/centreon/plugins/centreon_ubiquiti_airfiber_snmp.pl \
-    --plugin=network::ubiquiti::airfiber::snmp::plugin \
-    --mode=load \
-    --hostname=10.30.2.114 \
-    --snmp-version='2c' \
-    --snmp-community='ubiquiti_ro' \
-    --warning-load15='3' \
-    --critical-load15='7' \
-    --verbose
+--plugin=network::ubiquiti::airfiber::snmp::plugin \
+--mode=load \
+--hostname=10.30.2.114 \
+--snmp-version='2c' \
+--snmp-community='ubiquiti_ro' \
+--warning-load15='3' \
+--critical-load15='7' \
+--verbose
 ```
 
 La commande devrait retourner un message de sortie de la forme ci-dessous:
@@ -144,7 +151,7 @@ La commande devrait retourner un message de sortie de la forme ci-dessous:
 OK: Load average 0.00 (1m), 0.00 (5m), 0.00 (15m) | 'system.loadaverage.1m.count'=0.00;;;0; 'system.loadaverage.5m.count'=0.00;;;0; 'system.loadaverage.15m.count'=0.00;0:3;0:7;0;
 ```
 
-Cette commande contrôle le système load-average (```--mode=load```) d'un équipement Ubiquiti AirFiber ayant pour adresse *10.30.2.114* (```--hostname=10.30.2.114```) 
+Cette commande contrôle le système load-average (```--mode=load```) d'un équipement Ubiquiti AirFiber ayant pour adresse *10.30.2.114* (```--hostname=10.30.2.114```)
 en version *2c* du protocol SNMP (```--snmp-version='2c'```) et avec la communauté *ubiquiti_ro* (```--snmp-community='ubiquiti_ro'```).
 
 Cette commande déclenchera une alarme WARNING si le load-average est supérieur à 3 (```--warning-load15='3'```)
@@ -155,21 +162,21 @@ en ajoutant le paramètre ```--help``` à la commande:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_ubiquiti_airfiber_snmp.pl \
-    --plugin=network::ubiquiti::airfiber::snmp::plugin \
-    --mode=load \
-    --help
+--plugin=network::ubiquiti::airfiber::snmp::plugin \
+--mode=load \
+--help
 ```
 
 ## J'obtiens le message d'erreur suivant:
 
 ### UNKNOWN: SNMP GET Request : Timeout
 
-Si vous obtenez ce message, cela signifie que vous ne parvenez pas à contacter l'équipement sur le port 161, 
-ou alors que la communauté SNMP configurée n'est pas correcte. 
+Si vous obtenez ce message, cela signifie que vous ne parvenez pas à contacter l'équipement sur le port 161,
+ou alors que la communauté SNMP configurée n'est pas correcte.
 Il est également possible qu'un firewall bloque le flux.
 
 ### UNKNOWN: SNMP GET Request : Cant get a single value.
 
-Si vous rencontrez cette erreur, il est probable que les autorisations données à l'agent SNMP soient trop restreintes. 
- * L'équipement ne prend pas en charge la MIB utilisée par le Plugin (branche: .1.3.6.1.4.1.41112).
- * L'OID SNMP ciblé ne peut pas être récupéré en raison de privilèges d'équipement insuffisants.
+Si vous rencontrez cette erreur, il est probable que les autorisations données à l'agent SNMP soient trop restreintes.
+* L'équipement ne prend pas en charge la MIB utilisée par le Plugin (branche: .1.3.6.1.4.1.41112).
+* L'OID SNMP ciblé ne peut pas être récupéré en raison de privilèges d'équipement insuffisants.

@@ -8,7 +8,7 @@ Server* doit être réalisée de la même manière que celle du serveur
 Centreon central puis des actions supplémentaires sont à exécuter
 
 1.  Installez Centreon BAM sur votre Centreon Remote Server en utilisant
-    la documentation d'installation de l'extension
+la documentation d'installation de l'extension
 2.  Effectuez les dernières étapes décrites ci-dessous
 
 ## Configuration du composant Centreon Broker à partir du Central

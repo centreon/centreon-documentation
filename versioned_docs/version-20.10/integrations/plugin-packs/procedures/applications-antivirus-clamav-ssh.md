@@ -2,6 +2,9 @@
 id: applications-antivirus-clamav-ssh
 title: Antivirus ClamAV
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Pack assets
 
@@ -15,16 +18,15 @@ title: Antivirus ClamAV
 
 ### SSH configuration
 
-A user is required to query the ClamAV server by SSH. There is no need for root 
-or sudo privileges. There are two possible ways to perform SSH check, either by 
-exchanging the SSH key from `centreon-engine` user to the target server, 
+A user is required to query the ClamAV server by SSH. There is no need for root
+or sudo privileges. There are two possible ways to perform SSH check, either by
+exchanging the SSH key from `centreon-engine` user to the target server,
 or by setting your unique user and password directly in the Host Macros.
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="licence-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor *ClamAV* ressources:
 
@@ -34,7 +36,8 @@ yum install centreon-plugin-Applications-Clamav-Ssh
 
 2. On the Centreon Web interface, install the *Antivirus ClamAV* Centreon Plugin Pack on the **Configuration > Plugin Packs** page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor *ClamAV* ressources:
 
@@ -50,7 +53,8 @@ yum install centreon-pack-applications-antivirus-clamav-ssh
 
 3. On the Centreon Web interface, install the *Antivirus ClamAV* Centreon Plugin Pack on the **Configuration > Plugin Packs** page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -62,52 +66,52 @@ yum install centreon-pack-applications-antivirus-clamav-ssh
 * Once the template applied, some Macros marked as 'Mandatory' hereafter have to be configured.
 
 | Mandatory | Name         | Description                                                                        |
-|:----------|:-------------|:-----------------------------------------------------------------------------------|
+| :-------- | :----------- | :--------------------------------------------------------------------------------- |
 |           | EXTRAOPTIONS | Any extra option you may want to add to every command\_line (eg. a --verbose flag) |
 
-## How to check in the CLI that the configuration is OK and what are the main options for ? 
+## How to check in the CLI that the configuration is OK and what are the main options for ?
 
-Once the plugin installed, log into your Centreon Poller CLI using the 
-*centreon-engine* user account and test the Plugin by running the following 
+Once the plugin installed, log into your Centreon Poller CLI using the
+*centreon-engine* user account and test the Plugin by running the following
 command:
 
 ```bash
- /usr/lib/centreon/plugins//centreon_clamav_ssh.pl \
-    --plugin=apps::antivirus::clamav::local::plugin \
-    --mode=update-status \
-    --hostname=10.0.0.1 \
-    --remote \
-    --critical-maindb-status='%{last_maindb_version} ne %{current_maindb_version}' \
-    --use-new-perfdata
- ```
+/usr/lib/centreon/plugins//centreon_clamav_ssh.pl \
+--plugin=apps::antivirus::clamav::local::plugin \
+--mode=update-status \
+--hostname=10.0.0.1 \
+--remote \
+--critical-maindb-status='%{last_maindb_version} ne %{current_maindb_version}' \
+--use-new-perfdata
+```
 
- Expected command output is shown below:
+Expected command output is shown below:
 
 ```bash
-OK : clamav engine version '0.103.2/0.103.2' main.cvd version '60/60', last update 1d 3h 46m 40s daily.cvd version '25839/25839', last update 1d 3h 46m 40s | 
- ```
+OK : clamav engine version '0.103.2/0.103.2' main.cvd version '60/60', last update 1d 3h 46m 40s daily.cvd version '25839/25839', last update 1d 3h 46m 40s |
+```
 
 This command would trigger a CRITICAL alarm if the last *maindb version* is not
 equal to the current *maindb version*
 (`-critical-maindb-status='%{last_maindb_version} ne %{current_maindb_version}'`).
 
-All available options for a given mode can be displayed by adding the 
+All available options for a given mode can be displayed by adding the
 `--help` parameter to thecommand:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_clamav_ssh.pl  \
-    --plugin=apps::antivirus::clamav::local::plugin  \
-    --mode=update-status  \
-    --help
+--plugin=apps::antivirus::clamav::local::plugin  \
+--mode=update-status  \
+--help
 ```
 
-All available options for a given mode can be displayed by adding the 
+All available options for a given mode can be displayed by adding the
 `--list-mode` parameter to thecommand:
 
 ```bash
- /usr/lib/centreon/plugins//centreon_clamav_ssh.pl  \
-    --plugin=apps::antivirus::clamav::local::plugin  \
-    --list-mode
+/usr/lib/centreon/plugins//centreon_clamav_ssh.pl  \
+--plugin=apps::antivirus::clamav::local::plugin  \
+--list-mode
 ```
 
 ### Troubleshooting

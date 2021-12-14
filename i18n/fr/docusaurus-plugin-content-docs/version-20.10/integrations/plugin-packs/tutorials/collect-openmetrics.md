@@ -2,6 +2,9 @@
 id: collect-openmetrics
 title: Collecter des OpenMetrics
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 Le format d'exposition des métriques des exporteurs Prometheus a fait l'objet
 d'une standardisation sous le nom d'OpenMetrics afin de pouvoir être réutilisé
@@ -10,38 +13,39 @@ d'InfluxData, InfluxDB, et Google Cloud Platform.
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="operating-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1.  Installer le code du connecteur sur l'ensemble des collecteurs récupérant
-    des openmetrics :
+des openmetrics :
 
-    ``` bash
-    yum install centreon-plugin-Applications-Monitoring-Openmetrics
-    ```
+``` bash
+yum install centreon-plugin-Applications-Monitoring-Openmetrics
+```
 
 2.  Installer le pack depuis la page `Configuration > Plugin Packs`.
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1.  Installer le code du connecteur sur l'ensemble des collecteurs récupérant
-    des openmetrics :
+des openmetrics :
 
-    ``` bash
-    yum install centreon-plugin-Applications-Monitoring-Openmetrics
-    ```
+``` bash
+yum install centreon-plugin-Applications-Monitoring-Openmetrics
+```
 
 2.  Installer le RPM contenant les modèles de supervision sur le serveur Central
-    :
+:
 
-    ``` bash
-    yum install centreon-pack-applications-monitoring-openmetrics
-    ```
+``` bash
+yum install centreon-pack-applications-monitoring-openmetrics
+```
 
 3.  Installer le pack depuis la page `Configuration > Plugin Packs`.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -115,14 +119,14 @@ métriques "prometheus\_http\_requests\_total" :
 
 ``` bash
 /usr/lib/centreon/plugins/centreon_monitoring_openmetrics.pl \
- --plugin apps::monitoring::openmetrics::plugin \
- --custommode web \
- --mode scrape-metrics \
- --hostname='prometheus.int.centreon.com' \
- --port='9090' \
- --proto='http' \
- --urlpath='/metrics' \
- --filter-metrics='prometheus_http_requests_total'
+--plugin apps::monitoring::openmetrics::plugin \
+--custommode web \
+--mode scrape-metrics \
+--hostname='prometheus.int.centreon.com' \
+--port='9090' \
+--proto='http' \
+--urlpath='/metrics' \
+--filter-metrics='prometheus_http_requests_total'
 ```
 
 La commande renvoie alors :
@@ -147,16 +151,16 @@ avoir la possibilité de filtrer sur un champs, et ensuite utiliser
 
 ``` bash
 /usr/lib/centreon/plugins/centreon_monitoring_openmetrics.pl \
- --plugin apps::monitoring::openmetrics::plugin \
- --custommode web \
- --mode scrape-metrics \
- --hostname='prometheus.int.centreon.com' \
- --port='9090' \
- --proto='http' \
- --urlpath='/metrics' \
- --filter-metrics='prometheus_http_requests_total' \
- --instance='handler' \
- --filter-instance='/api/v1/query_range'
+--plugin apps::monitoring::openmetrics::plugin \
+--custommode web \
+--mode scrape-metrics \
+--hostname='prometheus.int.centreon.com' \
+--port='9090' \
+--proto='http' \
+--urlpath='/metrics' \
+--filter-metrics='prometheus_http_requests_total' \
+--instance='handler' \
+--filter-instance='/api/v1/query_range'
 ```
 
 La commande renvoie alors :
@@ -175,20 +179,20 @@ l'alerting dans Centreon :
 
 ``` bash
 /usr/lib/centreon/plugins/centreon_monitoring_openmetrics.pl \
- --plugin apps::monitoring::openmetrics::plugin \
- --custommode web \
- --mode scrape-metrics \
- --hostname='prometheus.int.centreon.com' \
- --port='9090' \
- --proto='http' \
- --urlpath='/metrics' \
- --filter-metrics='prometheus_http_requests_total' \
- --instance='handler' \
- --filter-instance='/api/v1/query_range' \
- --subinstance='code' \
- --filter-subinstance='200' \
- --warning='5000' \
- --critical='10000'
+--plugin apps::monitoring::openmetrics::plugin \
+--custommode web \
+--mode scrape-metrics \
+--hostname='prometheus.int.centreon.com' \
+--port='9090' \
+--proto='http' \
+--urlpath='/metrics' \
+--filter-metrics='prometheus_http_requests_total' \
+--instance='handler' \
+--filter-instance='/api/v1/query_range' \
+--subinstance='code' \
+--filter-subinstance='200' \
+--warning='5000' \
+--critical='10000'
 ```
 
 La commande renvoie alors :

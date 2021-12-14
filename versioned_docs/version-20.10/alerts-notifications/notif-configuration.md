@@ -28,12 +28,12 @@ Since Centreon version **19.10**, 3 methods for determining the contacts
 and groups of contacts that will be notified are available:
 
 -   **Vertical Inheritance Only**: get contacts and contactgroups of
-    resources and linked templates, using additive inheritance enabled
-    option (Legacy method, keep for upgrade)
+resources and linked templates, using additive inheritance enabled
+option (Legacy method, keep for upgrade)
 -   **Closest Value**: get most closed contacts and contactgroups of
-    resources including templates
+resources including templates
 -   **Cumulative inheritance**: Cumulate all contacts and contactgroups
-    of resources and linked templates (method used for new installation)
+of resources and linked templates (method used for new installation)
 
 Go to the `Administration > Parameters > Centreon UI` menu and select
 the desired option:
@@ -54,11 +54,11 @@ contact:
 ![image](../assets/alerts/notif_contact_config.png)
 
 1.  Select the statuses of which you wish to receive notifications using
-    **Notification Option** option.
+**Notification Option** option.
 2.  Select the **Notification Period** on which you want to receive
-    notification.
+notification.
 3.  Then select the method to receive notification using **Notification
-    Commands**
+Commands**
 
 Then click on the **Save** button.
 
@@ -77,27 +77,27 @@ the **Notification** tab and adjust the parameters:
 ![image](../assets/alerts/notif_host_config.png)
 
 -   **Notification Options**: Select the statuses of which you wish to
-    receive notifications
+receive notifications
 -   **Notification Interval**: Define the number of “time units” to wait
-    before re-notifying a contact that this host is still down or
-    unreachable. With the default time unit of 60s, this number will
-    mean multiples of 1 minute. A value of 0 disables re-notifications
-    of contacts about problems for this host - only one problem
-    notification will be sent out.
+before re-notifying a contact that this host is still down or
+unreachable. With the default time unit of 60s, this number will
+mean multiples of 1 minute. A value of 0 disables re-notifications
+of contacts about problems for this host - only one problem
+notification will be sent out.
 -   **Notification Period**: Specify the time period during which
-    notifications of events for this host can be sent out to contacts.
-    If a state change occurs during a time which is not covered by the
-    time period, no notifications will be sent out.
+notifications of events for this host can be sent out to contacts.
+If a state change occurs during a time which is not covered by the
+time period, no notifications will be sent out.
 -   **First notification delay**: Define the number of “time units” to
-    wait before sending out the first problem notification when this
-    host enters a non-UP state. With the default time unit of 60s, this
-    number will mean multiples of 1 minute. If you set this value to 0,
-    monitoring engine will start sending out notifications immediately.
+wait before sending out the first problem notification when this
+host enters a non-UP state. With the default time unit of 60s, this
+number will mean multiples of 1 minute. If you set this value to 0,
+monitoring engine will start sending out notifications immediately.
 -   **Recovery notification delay**: Define the number of “time units”
-    to wait before sending out the recovery notification when this host
-    enters an UP state. With the default time unit of 60s, this number
-    will mean multiples of 1 minute. If you set this value to 0,
-    monitoring engine will start sending out notifications immediately.
+to wait before sending out the recovery notification when this host
+enters an UP state. With the default time unit of 60s, this number
+will mean multiples of 1 minute. If you set this value to 0,
+monitoring engine will start sending out notifications immediately.
 
 > To facilitate the configuration of the notification, you can adjust
 > the parameters on a host template. All hosts that inherit this
@@ -111,27 +111,27 @@ a service. Go to the **Notification** tab and adjust the parameters:
 ![image](../assets/alerts/notif_service_config.png)
 
 -   **Notification Options**: Select the statuses of which you wish to
-    receive notifications
+receive notifications
 -   **Notification Interval**: Define the number of “time units” to wait
-    before re-notifying a contact that this host is still down or
-    unreachable. With the default time unit of 60s, this number will
-    mean multiples of 1 minute. A value of 0 disables re-notifications
-    of contacts about problems for this host - only one problem
-    notification will be sent out.
+before re-notifying a contact that this host is still down or
+unreachable. With the default time unit of 60s, this number will
+mean multiples of 1 minute. A value of 0 disables re-notifications
+of contacts about problems for this host - only one problem
+notification will be sent out.
 -   **Notification Period**: Specify the time period during which
-    notifications of events for this host can be sent out to contacts.
-    If a state change occurs during a time which is not covered by the
-    time period, no notifications will be sent out.
+notifications of events for this host can be sent out to contacts.
+If a state change occurs during a time which is not covered by the
+time period, no notifications will be sent out.
 -   **First notification delay**: Define the number of “time units” to
-    wait before sending out the first problem notification when this
-    host enters a non-UP state. With the default time unit of 60s, this
-    number will mean multiples of 1 minute. If you set this value to 0,
-    monitoring engine will start sending out notifications immediately.
+wait before sending out the first problem notification when this
+host enters a non-UP state. With the default time unit of 60s, this
+number will mean multiples of 1 minute. If you set this value to 0,
+monitoring engine will start sending out notifications immediately.
 -   **Recovery notification delay**: Define the number of “time units”
-    to wait before sending out the recovery notification when this host
-    enters an UP state. With the default time unit of 60s, this number
-    will mean multiples of 1 minute. If you set this value to 0,
-    monitoring engine will start sending out notifications immediately.
+to wait before sending out the recovery notification when this host
+enters an UP state. With the default time unit of 60s, this number
+will mean multiples of 1 minute. If you set this value to 0,
+monitoring engine will start sending out notifications immediately.
 
 > To facilitate the configuration of the notification, you can adjust
 > the parameters on a service template. All services that inherit this

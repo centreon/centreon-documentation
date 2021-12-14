@@ -2,19 +2,20 @@
 id: applications-oracle-goldengate-ssh
 title: Oracle GoldenGate SSH
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 ## Contenu du Plugin-Pack
 
 ### Objets supervisés
 
-Le Plugin-Pack inclue la supervision du statut et des lags des *Processes* Oracle GG en 
-utilisant la commande GGSCI. 
+Le Plugin-Pack inclue la supervision du statut et des lags des *Processes* Oracle GG en
+utilisant la commande GGSCI.
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Resources-->
+<Tabs groupId="operating-systems">
+<TabItem value="Resources" label="Resources">
 
 | Metric name                                   | Description                     | Unit |
 | :-------------------------------------------- | :------------------------------ | :--- |
@@ -22,18 +23,18 @@ utilisant la commande GGSCI.
 | *processname*#process.lag.seconds             | processus lag at checkpoint     |      |
 | *processname*#process.time.checkpoint.seconds | processus time since checkpoint |      |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
 Afin de fonctionner, le Plugin nécessite une connexion SSH entre le Poller et le serveur executant Oracle GoldenGate. L'utilisateur distant
-doit avoir assez de privilèges pour executer la commande ```ggsci```. 
+doit avoir assez de privilèges pour executer la commande ```ggsci```.
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="operating-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -43,7 +44,8 @@ yum install centreon-plugin-Applications-Oracle-Goldengate-Ssh
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Oracle GoldenGate SSH* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -59,58 +61,63 @@ yum install centreon-pack-applications-oracle-goldengate-ssh
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Oracle GoldenGate SSH* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
 Ce Plugin-Pack est conçu de manière à avoir dans Centreon un hôte par application Oracle GoldenGate.
-Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *App-Oracle-Goldengate-SSH-custom-custom*. 
+Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *App-Oracle-Goldengate-SSH-custom-custom*.
 Une fois celui-ci configuré, certaines macros doivent être renseignées:
 
-| Mandatory | Name               | Description                                                                |
-| :-------- | :----------------- | :------------------------------------------------------------------------- |
-|           | GGSHOME            | Directory of ```ggsci```                                                   |
-|           | ORACLEHOME         | Oracle home directory                                                      |
+| Mandatory | Name       | Description              |
+| :-------- | :--------- | :----------------------- |
+|           | GGSHOME    | Directory of ```ggsci``` |
+|           | ORACLEHOME | Oracle home directory    |
 
-<!--DOCUSAURUS_CODE_TABS-->
+<Tabs groupId="operating-systems">
+<TabItem value="sshcli backend" label="sshcli backend">
 
-<!--sshcli backend-->
-
-| Mandatory   | Name            | Description                                                                                     |
-| :---------- | :-------------- | :---------------------------------------------------------------------------------------------- |
-| X           | SSHBACKEND      | Nom du backend: ```sshcli```                                                                    |
-| X           | SSHUSERNAME     | Par default, il utilise l'utilisateur en cours d'exécution ```centengine``` de votre Collecteur |          
-|             | SSHPASSWORD     | Ne peut pas être utilisé avec le backend. Seulement avec la clé d'authentication                |
-|             | SSHPORT         | Par default: 22                                                                                 |
-|             | SSHEXTRAOPTIONS | Personnalisez-le avec le vôtre si nécessaire. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```      |
-
-> Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur centreon-engine du Collecteur
-et l'utilisateur applicatif créé sur le serveur distant. (Macro SSHUSERNAME).
-
-<!--plink backend-->
-
-| Mandatory   | Name            | Description                                                                                     |
-| :---------- | :-------------- | :---------------------------------------------------------------------------------------------- | 
-| X           | SSHBACKEND      | Nom du backend: ```plink```                                                                     |
-| X           | SSHUSERNAME     | Par default, il utilise l'utilisateur en cours d'exécution ```centengine``` de votre Collecteur |
-|             | SSHPASSWORD     | Peut être utilisé. Si aucune valeur n'est définie, l'authentification par clé ssh est utilisée  |
-|             | SSHPORT         | Par default: 22                                                                                 |
-|             | SSHEXTRAOPTIONS | Personnalisez-le avec le vôtre si nécessaire. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```      |
+| Mandatory | Name            | Description                                                                                     |
+| :-------- | :-------------- | :---------------------------------------------------------------------------------------------- |
+| X         | SSHBACKEND      | Nom du backend: ```sshcli```                                                                    |
+| X         | SSHUSERNAME     | Par default, il utilise l'utilisateur en cours d'exécution ```centengine``` de votre Collecteur |
+|           | SSHPASSWORD     | Ne peut pas être utilisé avec le backend. Seulement avec la clé d'authentication                |
+|           | SSHPORT         | Par default: 22                                                                                 |
+|           | SSHEXTRAOPTIONS | Personnalisez-le avec le vôtre si nécessaire. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```      |
 
 > Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur centreon-engine du Collecteur
 et l'utilisateur applicatif créé sur le serveur distant. (Macro SSHUSERNAME).
 
-<!--libssh backend (par défaut)-->
+</TabItem>
+<TabItem value="plink backend" label="plink backend">
 
-| Mandatory   | Name            | Description                                                                                     |
-| :---------- | :-------------- | :---------------------------------------------------------------------------------------------- |
-| X           | SSHBACKEND      | Nom du backend: ```libssh```                                                                    |          
-|             | SSHUSERNAME     | Par default, il utilise l'utilisateur en cours d'exécution ```centengine``` de votre Collecteur |
-|             | SSHPASSWORD     | Peut être utilisé. Si aucune valeur n'est définie, l'authentification par clé ssh est utilisée  |
-|             | SSHPORT         | Par default: 22                                                                                 |
-|             | SSHEXTRAOPTIONS | Personnalisez-le avec le vôtre si nécessaire. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```      |
+| Mandatory | Name            | Description                                                                                     |
+| :-------- | :-------------- | :---------------------------------------------------------------------------------------------- |
+| X         | SSHBACKEND      | Nom du backend: ```plink```                                                                     |
+| X         | SSHUSERNAME     | Par default, il utilise l'utilisateur en cours d'exécution ```centengine``` de votre Collecteur |
+|           | SSHPASSWORD     | Peut être utilisé. Si aucune valeur n'est définie, l'authentification par clé ssh est utilisée  |
+|           | SSHPORT         | Par default: 22                                                                                 |
+|           | SSHEXTRAOPTIONS | Personnalisez-le avec le vôtre si nécessaire. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```      |
 
-Avec ce backend, vous n'avez pas à valider manuellement le fingerprint du serveur cible. 
+> Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur centreon-engine du Collecteur
+et l'utilisateur applicatif créé sur le serveur distant. (Macro SSHUSERNAME).
+
+</TabItem>
+<TabItem value="libssh backend (par défaut)" label="libssh backend (par défaut)">
+
+| Mandatory | Name            | Description                                                                                     |
+| :-------- | :-------------- | :---------------------------------------------------------------------------------------------- |
+| X         | SSHBACKEND      | Nom du backend: ```libssh```                                                                    |
+|           | SSHUSERNAME     | Par default, il utilise l'utilisateur en cours d'exécution ```centengine``` de votre Collecteur |
+|           | SSHPASSWORD     | Peut être utilisé. Si aucune valeur n'est définie, l'authentification par clé ssh est utilisée  |
+|           | SSHPORT         | Par default: 22                                                                                 |
+|           | SSHEXTRAOPTIONS | Personnalisez-le avec le vôtre si nécessaire. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```      |
+
+Avec ce backend, vous n'avez pas à valider manuellement le fingerprint du serveur cible.
+
+</TabItem>
+</Tabs>
 
 ## FAQ
 
@@ -120,14 +127,14 @@ Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne d
 
 ```bash
 /usr/lib/centreon/plugins/centreon_oracle_gg_ssh.pl \
-    --plugin=apps::oracle::gg::local::plugin \
-    --mode=processes \
-    --hostname=10.30.2.81 \
-    --ssh-username=centreon \
-    --ssh-password='centreon-password' \
-    --ssh-backend=libssh \
-    --filter-type=REPLICAT \
-    --verbose
+--plugin=apps::oracle::gg::local::plugin \
+--mode=processes \
+--hostname=10.30.2.81 \
+--ssh-username=centreon \
+--ssh-password='centreon-password' \
+--ssh-backend=libssh \
+--filter-type=REPLICAT \
+--verbose
 ```
 
 Exemple de sortie:
@@ -146,9 +153,9 @@ Toutes les options et leur utilisation peuvent être consultées avec le paramè
 
 ```bash
 /usr/lib/centreon/plugins/centreon_oracle_gg_ssh.pl \
-    --plugin=apps::oracle::gg::local::plugin \
-    --mode=processes \
-    --help
+--plugin=apps::oracle::gg::local::plugin \
+--mode=processes \
+--help
 ```
 
 ### J'ai ce message d'erreur : ```UNKNOWN: Command error: Host key verification failed.```. Qu'est-ce que cela signifie ?

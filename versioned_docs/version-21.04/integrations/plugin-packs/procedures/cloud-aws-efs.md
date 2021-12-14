@@ -2,6 +2,9 @@
 id: cloud-aws-efs
 title: Amazon EFS
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -17,45 +20,49 @@ Amazon Elastic File System (Amazon EFS) provides a simple, scalable, fully manag
 
 This pack provides a host discovery rule:
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Hosts-->
+<Tabs groupId="operating-systems">
+<TabItem value="Hosts" label="Hosts">
 
-| Rule name                             | Description                                                   |
-| :------------------------------------ | :------------------------------------------------------------ |
-| Cloud-Aws-Efs-Api-HostDiscovery       | Discover File Systems from your Cloudwatch endpoint           |
+| Rule name                       | Description                                         |
+| :------------------------------ | :-------------------------------------------------- |
+| Cloud-Aws-Efs-Api-HostDiscovery | Discover File Systems from your Cloudwatch endpoint |
 
-<!--Services-->
+</TabItem>
+<TabItem value="Services" label="Services">
 
 No services discovery rule available on this pack
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Collected Metrics
 
 More information about collected metrics is available in the official Amazon documentation: https://docs.aws.amazon.com/efs/latest/ug/monitoring-cloudwatch
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Connections-->
+<Tabs groupId="operating-systems">
+<TabItem value="Connections" label="Connections">
 
-| Metric name         | Description                                                     |
-| :------------------ | :-------------------------------------------------------------- |
-| ClientConnections   | The number of client connections to a file system. Unit: Count  |
+| Metric name       | Description                                                    |
+| :---------------- | :------------------------------------------------------------- |
+| ClientConnections | The number of client connections to a file system. Unit: Count |
 
-<!--Data Usage-->
+</TabItem>
+<TabItem value="Data Usage" label="Data Usage">
 
-| Metric name        | Description                                                                                                                                                                                |
-| :----------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| DataReadIOBytes    | The number of bytes for each file system read operation. Unit: Bytes                                                                                                                       |
-| DataWriteIOBytes   | The number of bytes for each file write operation. Unit: Bytes                                                                                                                             |
-| MetadataIOBytes    | The number of bytes for each metadata operation. Unit: Bytes                                                                                                                               |
-| TotalIOBytes       | The number of bytes for each file system operation, including data read, data write, and metadata operations. Unit: Bytes                                                                  |
-| BurstCreditBalance | The number of burst credits that a file system has. Burst credits allow a file system to burst to throughput levels above a file system’s baseline level for periods of time. Unit: Bytes  |
+| Metric name        | Description                                                                                                                                                                               |
+| :----------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| DataReadIOBytes    | The number of bytes for each file system read operation. Unit: Bytes                                                                                                                      |
+| DataWriteIOBytes   | The number of bytes for each file write operation. Unit: Bytes                                                                                                                            |
+| MetadataIOBytes    | The number of bytes for each metadata operation. Unit: Bytes                                                                                                                              |
+| TotalIOBytes       | The number of bytes for each file system operation, including data read, data write, and metadata operations. Unit: Bytes                                                                 |
+| BurstCreditBalance | The number of burst credits that a file system has. Burst credits allow a file system to burst to throughput levels above a file system’s baseline level for periods of time. Unit: Bytes |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
-### AWS Privileges 
+### AWS Privileges
 
 Whether using a service account or a dedicated monitoring account to monitor Cloudwatch metrics, the following rights have to be granted to the IAM role (accesskey/secretkey):
 
@@ -67,31 +74,31 @@ Whether using a service account or a dedicated monitoring account to monitor Clo
 
 ### Plugin dependencies
 
-To interact with Amazon APIs, you can use either use awscli binary or paws, a perl AWS SDK (recommended). You must install it on every poller that will monitor AWS resources. 
+To interact with Amazon APIs, you can use either use awscli binary or paws, a perl AWS SDK (recommended). You must install it on every poller that will monitor AWS resources.
 
-**Warning** At the moment it is not possible to use perl-Paws if you are using a proxy to talk with AWS Cloudwatch APIs. 
+**Warning** At the moment it is not possible to use perl-Paws if you are using a proxy to talk with AWS Cloudwatch APIs.
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--perl-Paws-installation-->
+<Tabs groupId="operating-systems">
+<TabItem value="perlPawsinstallation" label="perlPawsinstallation">
 
 ```bash
 yum install perl-Paws
 ```
 
-<!--aws-cli-installation-->
+</TabItem>
+<TabItem value="awscliinstallation" label="awscliinstallation">
 
 ```bash
 yum install awscli
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="licence-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin on every poller monitoring EFS ressources:
 
@@ -101,7 +108,8 @@ yum install centreon-plugin-Cloud-Aws-Efs-Api
 
 2. On Centreon Web interface in "Configuration > Plugin packs > Manager", install the "Amazon EFS" Plugin-Pack
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin on every poller monitoring EFS ressources:
 
@@ -117,23 +125,24 @@ yum install centreon-pack-cloud-aws-efs.noarch
 
 3. On Centreon Web interface in "Configuration > Plugin packs > Manager", install the "Amazon EFS" Plugin-Pack:
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
 Adding a host into Centreon, link it to the template named "Cloud-Aws-EFS-custom". Once the template applied, some macros have to be configured:
 
-| Mandatory   | Name            | Description                                                                                 |
-| :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
-| X           | AWSSECRETKEY    | AWS Secret key of your IAM role. Password checkbox must be checked                          |
-| X           | AWSACESSKEY     | AWS Access key of your IAM role. Password checkbox must be checked                          |
-| X           | AWSREGION       | Region where the instance is running                                                        |
-| X           | AWSCUSTOMMODE   | Custom mode to get metrics, 'awscli' is the default, you can also use 'paws' perl library   |
-| X           | AWSFILESYSTEMID | Name of the FileSystem to be monitored                                                      |
-|             | PROXYURL        | Configure proxy URL information                                                             |
-|             | EXTRAOPTIONS    | Any extraoptions you may want to add to every command\_line (eg. a --verbose flag)          |
-|             | DUMMYSTATUS     | Host state. Default is OK, do not modify it until you know what you are doing               |
-|             | DUMMYOUTPUT     | Host check output. Default is 'This is a dummy check'. Customize it with your own if needed |
+| Mandatory | Name            | Description                                                                                 |
+| :-------- | :-------------- | :------------------------------------------------------------------------------------------ |
+| X         | AWSSECRETKEY    | AWS Secret key of your IAM role. Password checkbox must be checked                          |
+| X         | AWSACESSKEY     | AWS Access key of your IAM role. Password checkbox must be checked                          |
+| X         | AWSREGION       | Region where the instance is running                                                        |
+| X         | AWSCUSTOMMODE   | Custom mode to get metrics, 'awscli' is the default, you can also use 'paws' perl library   |
+| X         | AWSFILESYSTEMID | Name of the FileSystem to be monitored                                                      |
+|           | PROXYURL        | Configure proxy URL information                                                             |
+|           | EXTRAOPTIONS    | Any extraoptions you may want to add to every command\_line (eg. a --verbose flag)          |
+|           | DUMMYSTATUS     | Host state. Default is OK, do not modify it until you know what you are doing               |
+|           | DUMMYOUTPUT     | Host check output. Default is 'This is a dummy check'. Customize it with your own if needed |
 
 ## FAQ
 
@@ -143,21 +152,21 @@ Once the plugin installed, log into your poller using the centreon-engine user a
 
 ```bash
 /usr/lib/centreon/plugins//centreon_aws_efs_api.pl \
-    --plugin=cloud::aws::efs::plugin \
-    --mode=connections \
-    --custommode='awscli' \
-    --aws-secret-key='*******************' \
-    --aws-access-key='**********' \
-    --region='eu-west-1' \
-    --name='fs-1234abcd' \
-    --proxyurl='http://myproxy.mycompany.org:8080'
-    --filter-metric='' \
-    --statistic='average' \
-    --timeframe='600' \
-    --period='60' \
-    --warning-client-connections='25' \
-    --critical-client-connections='50' \
-    --verbose
+--plugin=cloud::aws::efs::plugin \
+--mode=connections \
+--custommode='awscli' \
+--aws-secret-key='*******************' \
+--aws-access-key='**********' \
+--region='eu-west-1' \
+--name='fs-1234abcd' \
+--proxyurl='http://myproxy.mycompany.org:8080'
+--filter-metric='' \
+--statistic='average' \
+--timeframe='600' \
+--period='60' \
+--warning-client-connections='25' \
+--critical-client-connections='50' \
+--verbose
 
 OK: 'fs-1234abcd' Statistic 'Sum' Metrics ClientConnections: 19.00 | 'client-connections_sum'=19;;;;
 EFS FileSystemId'fs-1234abcd'

@@ -2,6 +2,9 @@
 id: network-ruckus-zonedirector-snmp
 title: Ruckus Zonedirector
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -16,7 +19,8 @@ Le ZoneDirector de Ruckus Wireless est le système de réseau sans fil (WLAN) in
 
 ### Règles de découverte
 
-<!--Services-->
+<Tabs groupId="operating-systems">
+<TabItem value="Services" label="Services">
 
 | Rule name                            | Description                                           |
 | :----------------------------------- | :---------------------------------------------------- |
@@ -24,9 +28,8 @@ Le ZoneDirector de Ruckus Wireless est le système de réseau sans fil (WLAN) in
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Access-Point-->
+</TabItem>
+<TabItem value="AccessPoint" label="AccessPoint">
 
 | Metric name                                            | Description                                                                             |
 | :----------------------------------------------------- | :-------------------------------------------------------------------------------------- |
@@ -41,13 +44,14 @@ Le ZoneDirector de Ruckus Wireless est le système de réseau sans fil (WLAN) in
 | accesspoint.traffic.in.bitspersecon                    | Incoming traffic going through the access point. Unit: bits/second                      |
 | accesspoint.traffic.out.bitspersecond                  | Outgoing traffic going through the access point. Unit: bits/second                      |
 
-<!--System-->
+</TabItem>
+<TabItem value="System" label="System">
 
 | Metric name                                       | Description                                                  |
 | :------------------------------------------------ | :----------------------------------------------------------- |
 | system_status                                     | System status.                                               |
 | peer_connected_status                             | Peer connection status.                                      |
-| system.cpu.utilization.percentage                 | Cpu utilization of the controller. Unit: %                   | 
+| system.cpu.utilization.percentage                 | Cpu utilization of the controller. Unit: %                   |
 | system.memory.usage.bytes                         | Memory used by the controller. Unit: Bytes                   |
 | system.memory.free.bytes                          | Memory free of the controller. Unit: Bytes                   |
 | system.memory.usage.percentage                    | Memory used by the controller. Unit: %                       |
@@ -57,7 +61,8 @@ Le ZoneDirector de Ruckus Wireless est le système de réseau sans fil (WLAN) in
 | system.traffic.in.bitspersecond                   | Incoming traffic going through the system. Unit: bits/second |
 | system.traffic.out.bitspersecond                  | Outgoing traffic going through the system. Unit: bits/second |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -71,9 +76,8 @@ Les Collecteurs Centreon doivent pouvoir communiquer via le port UDP/161 SNMP av
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="operating-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des équipements Ruckus Zonedirector:
 
@@ -83,7 +87,8 @@ yum install centreon-plugin-Network-Ruckus-Zonedirector-Snmp
 
 2. Installer le Plugin-Pack 'Ruckus Zonedirector' depuis l'interface Web et la page "Configuration > Plugin packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisants des équipements Ruckus Zonedirector:
 
@@ -99,7 +104,8 @@ yum install centreon-pack-network-ruckus-zonedirector-snmp.noarch
 
 3. Installer le Plugin-Pack 'Ruckus ZoneDirector' depuis la page "Configuration > Plugin Packs > Manager" de l'interface Web.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -108,43 +114,43 @@ yum install centreon-pack-network-ruckus-zonedirector-snmp.noarch
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro SNMPEXTRAOPTIONS
 
-| Mandatory   | Nom              | Description                                                                |
-| :---------- | :--------------- | :------------------------------------------------------------------------- |
-|             | SNMPEXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
+| Mandatory | Nom              | Description                                                                |
+| :-------- | :--------------- | :------------------------------------------------------------------------- |
+|           | SNMPEXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
 
 ## FAQ
 
-### Comment tester mes configurations et le Plugin en ligne de commande ? 
+### Comment tester mes configurations et le Plugin en ligne de commande ?
 
-Une fois le Plugin installé, vous pouvez le tester en ligne de commande avec l'utilisateur centreon-engine: 
+Une fois le Plugin installé, vous pouvez le tester en ligne de commande avec l'utilisateur centreon-engine:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_ruckus_zonedirector_snmp.pl \
-	--plugin=network::ruckus::zonedirector::snmp::plugin \
-	--mode=system \
-	--hostname=ruckus.int.centreon.com \
-	--snmp-version='2c' \
-	--snmp-community='ruckus_zonedirector' \
-        --verbose 
+--plugin=network::ruckus::zonedirector::snmp::plugin \
+--mode=system \
+--hostname=ruckus.int.centreon.com \
+--snmp-version='2c' \
+--snmp-community='ruckus_zonedirector' \
+--verbose
 ```
 
-Cette commande contrôle l'utilisation système (```--mode=system```) d'un équipement ayant pour adresse/FQDN ruckus.int.centreon.com (```--hostname=ruckus.int.centreon.com```) en version 2 du protocole SNMP et avec la communauté ruckus_zonedirector (```--snmp-version='2c' --snmp-community='ruckus_zonedirector'```) 
+Cette commande contrôle l'utilisation système (```--mode=system```) d'un équipement ayant pour adresse/FQDN ruckus.int.centreon.com (```--hostname=ruckus.int.centreon.com```) en version 2 du protocole SNMP et avec la communauté ruckus_zonedirector (```--snmp-version='2c' --snmp-community='ruckus_zonedirector'```)
 
 Tous les modes disponibles peuvent être affichés via l'option --list-mode:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_ruckus_zonedirector_snmp.pl \
-    --plugin=network::ruckus::zonedirector::snmp::plugin \
-    --list-mode
+--plugin=network::ruckus::zonedirector::snmp::plugin \
+--list-mode
 ```
 
-Pour un mode en particulier, il est possible d'utiliser le paramètre  ```--help``` pour lister toutes les options disponibles. 
+Pour un mode en particulier, il est possible d'utiliser le paramètre  ```--help``` pour lister toutes les options disponibles.
 
 ```bash
 /usr/lib/centreon/plugins//centreon_ruckus_zonedirector_snmp.pl \
-    --plugin=network::ruckus::zonedirector::snmp::plugin \
-    --mode=system \
-    --help
+--plugin=network::ruckus::zonedirector::snmp::plugin \
+--mode=system \
+--help
 ```
 
 ### UNKNOWN: SNMP GET Request : Timeout
@@ -153,6 +159,6 @@ Si vous obtenez ce message, cela signifie le Collecteur Centreon ne parvient pas
 
 ### UNKNOWN: SNMP GET Request : Cant get a single value.
 
-Les causes de cette erreur peuvent être les suivantes: 
-  * cet équipement ne supporte ou n'embarque pas la MIB utilisée par ce mode
-  * les autorisations données à l'utilisateur en SNMP sont trop restreintes. L'agent SNMP doit être en mesure d'accéder à la branche entreprise Ruckus: .1.3.6.1.4.1.25053. 
+Les causes de cette erreur peuvent être les suivantes:
+* cet équipement ne supporte ou n'embarque pas la MIB utilisée par ce mode
+* les autorisations données à l'utilisateur en SNMP sont trop restreintes. L'agent SNMP doit être en mesure d'accéder à la branche entreprise Ruckus: .1.3.6.1.4.1.25053.

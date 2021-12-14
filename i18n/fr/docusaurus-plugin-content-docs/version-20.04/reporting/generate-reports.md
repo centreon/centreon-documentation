@@ -2,6 +2,9 @@
 id: manage-reports
 title: Générer des rapports
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 Ce chapitre décrit les fonctionnalités à utiliser afin de générer et gérer les rapports.
 
@@ -12,10 +15,10 @@ Ce chapitre décrit les fonctionnalités à utiliser afin de générer et gérer
 
 Une tâche planifiée est une entité qui permet de générer un rapport et sa configuration prend en compte :
 
- - Un modèle de rapport à utiliser ([voir les modèles disponibles par défaut](reports))
- - Un périmètre basé sur les objets Centreon (voir [les bonnes pratiques](installation#bonnes-pratiques-de-supervision))
+- Un modèle de rapport à utiliser ([voir les modèles disponibles par défaut](reports))
+- Un périmètre basé sur les objets Centreon (voir [les bonnes pratiques](installation#bonnes-pratiques-de-supervision))
 
- - Une période de reporting (mois en cours, mois dernier, veille etc..)
+- Une période de reporting (mois en cours, mois dernier, veille etc..)
 
 ### Liste des tâches planifiées
 
@@ -26,24 +29,24 @@ terminées ou échouées: `Reporting > Business Intelligence > Configuration > J
 
 Description des colonnes:
 
-  **Colonne**       | **Description**
-  ------------------|------------------------------------------------------------
-  Name              | Nom de la tâche planifiée
-  Report Model      | Modèle de rapport utilisé
-  Period            | La période sur laquelle le rapport est généré
-  Output Format     | Le format de sortie du rapport généré (PDF, Excel, Powerpoint, CSV, DOC)
-  Execution time    | Date et heure d'execution de la tâche planifiée
-  Options           | Nombre de tâches à dupliquer si l'option de duplication est choisie dans le menu "More Actions"
+**Colonne**       | **Description**
+------------------|------------------------------------------------------------
+Name              | Nom de la tâche planifiée
+Report Model      | Modèle de rapport utilisé
+Period            | La période sur laquelle le rapport est généré
+Output Format     | Le format de sortie du rapport généré (PDF, Excel, Powerpoint, CSV, DOC)
+Execution time    | Date et heure d'execution de la tâche planifiée
+Options           | Nombre de tâches à dupliquer si l'option de duplication est choisie dans le menu "More Actions"
 
 Dans la colonne "Name", une icône est associée au status de la tâche planifiée:
 
-  Icon                                                     |  Statut
-  ---------------------------------------------------------|----------------------------
-  ![image](../assets/reporting/guide/clock_stopped.png)    | tâche arrêtée
-  ![image](../assets/reporting/guide/clock.png)            | tâche planifiée
-  ![image](../assets/reporting/guide/clock_running.png)    | tâche en cours d'execution
-  ![image](../assets/reporting/guide/enabled.png)          | tâche terminée
-  ![image](../assets/reporting/guide/failed.png)           | tâche échouée ou annulée
+Icon                                                     |  Statut
+---------------------------------------------------------|----------------------------
+![image](../assets/reporting/guide/clock_stopped.png)    | tâche arrêtée
+![image](../assets/reporting/guide/clock.png)            | tâche planifiée
+![image](../assets/reporting/guide/clock_running.png)    | tâche en cours d'execution
+![image](../assets/reporting/guide/enabled.png)          | tâche terminée
+![image](../assets/reporting/guide/failed.png)           | tâche échouée ou annulée
 
 #### Filtre de recherche
 
@@ -59,14 +62,14 @@ Le champs "Search" permet de fitrer par nom de tâche. Les options du
 Description des différents états:
 
 
-  Etats         | Description
-  --------------|----------------------------------------------------------------
-  Scheduled     | tâche planifiée , sera exécutée
-  Running       | tâche en cours d'éxecution, le rapport est en cours de génération
-  Failed        | tâche échouée
-  Stopped       | tâche arrêtée, ne sera pas executée
-  Finished      | tâche terminée, le rapport a été généré. Cet état apparait seulement pour les tâches en execution unique. Les tâches cycliques repassent à l'état "Scheduled" une fois le rapport généré
-  All           | tous les états
+Etats         | Description
+--------------|----------------------------------------------------------------
+Scheduled     | tâche planifiée , sera exécutée
+Running       | tâche en cours d'éxecution, le rapport est en cours de génération
+Failed        | tâche échouée
+Stopped       | tâche arrêtée, ne sera pas executée
+Finished      | tâche terminée, le rapport a été généré. Cet état apparait seulement pour les tâches en execution unique. Les tâches cycliques repassent à l'état "Scheduled" une fois le rapport généré
+All           | tous les états
 
 
 #### Rafraîchir la liste des tâches planifiées
@@ -92,12 +95,12 @@ plusieurs éléments de la liste.
 Le tableau suivant décrit les différentes actions possibles:
 
 
-  Action      | Description
-  ------------|-------------------------------------------------------------
-  Trash       | Envoie les tâches selectionnées vers la corbeille.
-  Stop        | Arrête la tâche selectionnée.
-  Reschedule  | Planifie/lance la tâche selectionnée.
-  Duplicate   | Duplique la tâche selectionnée. Toutes les propriétés de la tâches seront également dupliquées
+Action      | Description
+------------|-------------------------------------------------------------
+Trash       | Envoie les tâches selectionnées vers la corbeille.
+Stop        | Arrête la tâche selectionnée.
+Reschedule  | Planifie/lance la tâche selectionnée.
+Duplicate   | Duplique la tâche selectionnée. Toutes les propriétés de la tâches seront également dupliquées
 
 ### Ajouter / modifier
 
@@ -117,9 +120,8 @@ planifiée:
 
 ![image](../assets/reporting/guide/addJob.png)
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--1. Configuration-->
+<Tabs groupId="operating-systems">
+<TabItem value="1. Configuration" label="1. Configuration">
 
 Une tâche de génération de rapport doit être liée à un modèle de
 rapport.
@@ -131,9 +133,9 @@ Plusieurs formats de sortie sont disponibles:
 -   Microsoft Word
 -   Microsoft Powerpoint
 -   CSV : ce format d'export est particulier, seul le premier jeux de
-    données du rapport BIRT est exporté au format CSV. Il est probable
-    que vous deviez créer un rapport spécifique permettant de tirer
-    parti de ce format d'export.
+données du rapport BIRT est exporté au format CSV. Il est probable
+que vous deviez créer un rapport spécifique permettant de tirer
+parti de ce format d'export.
 
 Les rapports peuvent être générés en plusieurs langues. Actuellement,
 les langues disponibles sont:
@@ -155,7 +157,7 @@ Une tâche peut être executée de deux manières différentes:
 ![image](../assets/reporting/guide/scheduleImmediate.png)
 
 -   Execution planifiée à une date ultérieure ("Scheduled execution >
-    One shot"):
+One shot"):
 
 ![image](../assets/reporting/guide/scheduleOS.png)
 
@@ -172,13 +174,14 @@ cette période est automatiquement calculée par rapport à la fréquence de
 lancement:
 
 -   Les rapports journaliers auront comme période de reporting le jour
-    précédent.
+précédent.
 -   Les rapports hebdomadaires auront comme période de reporting la
-    semaine précedente.
+semaine précedente.
 -   Les rapports mensuels auront comme période de reporting le mois
-    précédent.
+précédent.
 
-<!--2. Paramètres du rapport-->
+</TabItem>
+<TabItem value="2. Paramètres du rapport" label="2. Paramètres du rapport">
 
 L'onglet "Paramètres de rapport" est utilisé pour définir les paramètres
 spécifiques du modèle de rapport.
@@ -199,14 +202,14 @@ Il existe trois types de champs dans ce formulaire:
 -   Champs textes
 -   Radios boutons
 -   Sélections simples et Multi-sélections pour les ressources
-    suivantes:
-    -   Hôtes
-    -   Métriques
-    -   Groupes d'hôtes
-    -   Catégories d'hôtes
-    -   Catégories de services
-    -   Périodes temporelles
-    -   Images à insérer au rapport ( les logos par exemple)
+suivantes:
+-   Hôtes
+-   Métriques
+-   Groupes d'hôtes
+-   Catégories d'hôtes
+-   Catégories de services
+-   Périodes temporelles
+-   Images à insérer au rapport ( les logos par exemple)
 
 
 > Une valeur doit être renseignée pour chaque champs excepté le
@@ -215,7 +218,8 @@ Il existe trois types de champs dans ce formulaire:
 > seront utilisées.
 
 
-<!--3. Publication (optionel)-->
+</TabItem>
+<TabItem value="3. Publication (optionel)" label="3. Publication (optionel)">
 
 Une fois le rapport généré, il peut être automatiquement publié en
 utilisant des règles de publication pré-définies. Lors de la création
@@ -228,12 +232,13 @@ publication de rapports).
 ![image](../assets/reporting/guide/jobPublication.png)
 
 
-<!--4. Tuning (optionel)-->
+</TabItem>
+<TabItem value="4. Tuning (optionel)" label="4. Tuning (optionel)">
 
 -   **Le thème de couleurs des rapports**: La gestion des thèmes a été
-    implémentée. Elle permet de choisir entre des palettes de couleurs.
-    Sept thèmes sont proposés par défaut: Maroon, Orange, Blue, Green,
-    Ice, Multicolor-1 et Multicolor-2
+implémentée. Elle permet de choisir entre des palettes de couleurs.
+Sept thèmes sont proposés par défaut: Maroon, Orange, Blue, Green,
+Ice, Multicolor-1 et Multicolor-2
 
 Ci-dessous les palettes associées aux couleurs:
 
@@ -244,15 +249,16 @@ générales de Centreon MBI. Pour plus d'informations, visitez le
 chapitre [Options générales](configure#options-g%C3%A9n%C3%A9rales)
 
 -   Coefficient de la tâche planifiée: chaque modèle de rapport a un
-    poids. Une tâche planifiée multiplie ce poids par le coefficient
-    renseigné. La somme des poids des tâches en cours d'execution ne
-    doit pas dépasser le poids maximal autorisé par le moteur de
-    génération ( paramétrable dans les options générales onglet
-    "Scheduler options" ).
+poids. Une tâche planifiée multiplie ce poids par le coefficient
+renseigné. La somme des poids des tâches en cours d'execution ne
+doit pas dépasser le poids maximal autorisé par le moteur de
+génération ( paramétrable dans les options générales onglet
+"Scheduler options" ).
 -   Activé ou non l'envoi de notifications aux administrateurs
-    lorsqu'un rapport est généré.
+lorsqu'un rapport est généré.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Accéder aux rapports générés
 
@@ -266,12 +272,12 @@ Le tableau ci-dessous liste les rapports générés.
 
 Description du tableau:
 
-  Colonne             | Description
-  --------------------|----------------------------------------------------
-  Name                | Nom du rapport
-  Period              | La période sur laquelle le rapport a été généré
-  Date de génération  | date de génération du rapport |
-  Download            | lien pour le téléchargement du rapport
+Colonne             | Description
+--------------------|----------------------------------------------------
+Name                | Nom du rapport
+Period              | La période sur laquelle le rapport a été généré
+Date de génération  | date de génération du rapport |
+Download            | lien pour le téléchargement du rapport
 
 #### Filtre de recherche
 
@@ -279,7 +285,7 @@ Le filtre de recherche suivant permet de trouver facilement un rapport:
 
 -   "Period" : filtre appliqué sur la colonne "Period"
 -   "Date of generation" : filtre appliqué sur la colonne "Date of
-    Generation"
+Generation"
 -   "Frequency" : filtre appliqué sur la colonne "Frequency"
 -   "Search" : filtre appliqué sur la colonne "Name"
 
@@ -315,11 +321,11 @@ Un nouveau groupe peut être ajouté ou modifié.
 
 Description des champs du formulaire:
 
-  Colonne       | Description
-  --------------|------------------------------------------------------
-  Name          | Nom du groupe des modèles de rapports
-  Description   | Courte description du groupe des modèles de rapports
-  Linked job    | Les tâches planifiées rattachées au groupe
+Colonne       | Description
+--------------|------------------------------------------------------
+Name          | Nom du groupe des modèles de rapports
+Description   | Courte description du groupe des modèles de rapports
+Linked job    | Les tâches planifiées rattachées au groupe
 
 #### Menu d'actions
 
@@ -327,10 +333,10 @@ Description des champs du formulaire:
 
 **Légende:** Les actions possibles sur les groupes des tâches planifiées
 
-  Action    |   Description
-  ----------|---------------------
-  Delete    | Supprimer le groupe
-  Duplicate |  Dupliquer le groupe
+Action    |   Description
+----------|---------------------
+Delete    | Supprimer le groupe
+Duplicate |  Dupliquer le groupe
 
 ## Modèles de rapport
 
@@ -342,9 +348,9 @@ correspond un modèle de rapport. Afin de pouvoir générer des rapports,
 le modèle de rapport doit être configuré par rapport aux:
 
 -   Objets **Centreon** ( Hôtes, services, groupes d'hôtes, catégories
-    de services, activité métiers , ect.)
+de services, activité métiers , ect.)
 -   La période de reporting selectionnée ( rapports hebdomadaires,
-    mensuels , ect.)
+mensuels , ect.)
 -   ect
 
 Chaque modèle de rapport peut avoir plusieurs paramètres à définir dans
@@ -361,12 +367,12 @@ dans Centreon MBI: `Rapports > Business Intelligence > Configuration > modèles 
 
 Description du tableau ci-dessus:
 
-   Colonne     |   Description
-  -------------|----------------------------------------------
-  Name         | Nom du modèle de rapport
-  Description  | Courte description du modèle de rapport
-  State        | Etat du modèle de rapport (Activé/Désactivé)
-  Weight       | Poids du rapport lors de son execution.
+Colonne     |   Description
+-------------|----------------------------------------------
+Name         | Nom du modèle de rapport
+Description  | Courte description du modèle de rapport
+State        | Etat du modèle de rapport (Activé/Désactivé)
+Weight       | Poids du rapport lors de son execution.
 
 
 ### Ajouter / modifier
@@ -400,11 +406,11 @@ Report design groups  | Groupe de modèles de rapports lié au modèle de rappor
 **Légende**: les actions possibles sur les modèles de rapports.
 
 
-  **Nom de l'action**   |    **Description**
-  ----------------------|--------------------------------------------------------
-  Trash                 | Envoyer le fichier vers la corbeille
-  Activate              | Activer un modèle de rapport afin de pouvoir l'utiliser dans les tâches planifiées
-  Deactivate            | Désactiver un modèle de rapport. Son utilisation ne sera plus possible dans les tâches planifiées
+**Nom de l'action**   |    **Description**
+----------------------|--------------------------------------------------------
+Trash                 | Envoyer le fichier vers la corbeille
+Activate              | Activer un modèle de rapport afin de pouvoir l'utiliser dans les tâches planifiées
+Deactivate            | Désactiver un modèle de rapport. Son utilisation ne sera plus possible dans les tâches planifiées
 
 ## Groupe de modèle de rapport
 
@@ -425,11 +431,11 @@ Un nouveau groupe peut être ajouté ou modifié.
 
 Description des champs du formulaire:
 
-  Colonne               | Description
-  ----------------------|------------------------------------------------------
-  Name                  | Nom du groupe des modèles de rapports
-  Description           |  Courte description du groupe des modèles de rapports
-  Linked report designs | Les rapports rattachés au groupe
+Colonne               | Description
+----------------------|------------------------------------------------------
+Name                  | Nom du groupe des modèles de rapports
+Description           |  Courte description du groupe des modèles de rapports
+Linked report designs | Les rapports rattachés au groupe
 
 #### Menu d'actions
 
@@ -439,9 +445,9 @@ Description des champs du formulaire:
 rapports
 
 
-  Action        | Description
-  --------------|---------------------
-  Delete        | Supprimer le groupe
+Action        | Description
+--------------|---------------------
+Delete        | Supprimer le groupe
 
 
 ## Logo
@@ -464,12 +470,12 @@ Le menu suivant liste toutes les images disponibles: `Reporting > Business Intel
 
 Description des colonnes:
 
-  Colonne       |   Description
-  --------------|-----------------------------------------------
-  Name          | Nom de l'image
-  Preview       | Affiche l'image chargée
-  Type          | Le format de l'image. Les formats compatibles: PNG, JPEG, GIF
-  Size          | Taille de l'image (largeur x hauteur)
+Colonne       |   Description
+--------------|-----------------------------------------------
+Name          | Nom de l'image
+Preview       | Affiche l'image chargée
+Type          | Le format de l'image. Les formats compatibles: PNG, JPEG, GIF
+Size          | Taille de l'image (largeur x hauteur)
 
 
 ### Ajouter / modifier
@@ -481,10 +487,10 @@ formulaire suivant:
 
 Description des champs:
 
-  Colonne   | Description
-  ----------|---------------------------------------------------------
-  Name      | Nom de l'image. Les caractères spéciaux sont interdits.
-  Image     | Fichier source relatif à l'image
+Colonne   | Description
+----------|---------------------------------------------------------
+Name      | Nom de l'image. Les caractères spéciaux sont interdits.
+Image     | Fichier source relatif à l'image
 
 > Les images utilisées comme "front page logo" ne doivent pas dépasser
 > 160 pixels en largeur. Celles utilisées comme logo de la master page ne
@@ -512,12 +518,12 @@ L'accès à la corbeille se fait dans le menu suivant:
 Voici les propriétés de la corbeille:
 
 -   Tant que l'élément est placé dans la corbeille, il n'apparaitra
-    dans aucun autre menu.
+dans aucun autre menu.
 -   Si le rapport est présent dans la corbeille, l'ordonnoncement
-    relatif à cet objet s'arrête
+relatif à cet objet s'arrête
 -   La suppression d'un modèle de rapport ou d'une tâche planifiée
-    n'implique pas la suppression des rapports PDF liés à ces modèles
-    ou tâches.
+n'implique pas la suppression des rapports PDF liés à ces modèles
+ou tâches.
 
 Le menu d'action permet la restauration des éléments ainsi que leur
 suppression définitive du disque.

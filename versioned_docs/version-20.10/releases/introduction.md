@@ -23,17 +23,17 @@ This view is accessible directly from `Monitoring > Resources Status` and
 brings the following capabilities:
 
 - A unified page that regroups host & service resources in one single place for
-  a unified events management
+a unified events management
 - Regexp search based on multi-criteria and the possibility to force the search
-  on a specific criteria (host name, host alias, host address, service
-  description)
+on a specific criteria (host name, host alias, host address, service
+description)
 - Multi-criteria search based on multi-selects
 - Possibility to save and manage your filters
 - Inline & massive quick actions: acknowledgement, set a planned downtime,
-  re-check a resource, submit a result, etc.
+re-check a resource, submit a result, etc.
 - Detail information on the side of the listing, to quickly access information
-  and not losing what you were currently looking at such as: objects details
-  information, events timeline, associated performance graph and shortcuts.
+and not losing what you were currently looking at such as: objects details
+information, events timeline, associated performance graph and shortcuts.
 
 ![image](../assets/monitoring/resources_status_1.png)
 
@@ -46,16 +46,16 @@ The Hosts Discovery feature coming from the Auto Discovery extension has been
 improved to add new capacities:
 
 - Host Discovery wizard now allows to schedule your discoveries using several
-  fashion: yearly, monthly, daily, hourly and even every x minutes.
+fashion: yearly, monthly, daily, hourly and even every x minutes.
 - Scheduled discovery jobs can be paused and resumed at any time.
 - Discovery result can also be automatically processed to add, disable and when
-  necessary re-enable the hosts in the configuration.
+necessary re-enable the hosts in the configuration.
 - If you decide to manually add the hosts from the job's result page, the mapping
-  rules can now be edited and saved from this page to match your needs by
-  applying the rule directly on the result.
+rules can now be edited and saved from this page to match your needs by
+applying the rule directly on the result.
 - The new *exclusion* and *inclusion* mappers will help you decide which hosts
-  are meant to be added in the configuration, and the ones that should be
-  disabled or enabled.
+are meant to be added in the configuration, and the ones that should be
+disabled or enabled.
 
 ![image](../assets/monitoring/discovery/host_disco_intro.png)
 
@@ -72,7 +72,7 @@ To know everything about these changes, have a look at
 Centreon 20.10 now supports the OAuth 2.0 Authorization Code Grant type, an
 open standard for access delegation, along with the OpenID Connect (OIDC)
 authentication layer, promoted by the OpenID Foundation. All popular Identity
-Providers implementing Multi-Factor Authentication support this architecture. 
+Providers implementing Multi-Factor Authentication support this architecture.
 
 Take a look at the
 [dedicated section](../administration/parameters/centreon-ui#openid-connect).

@@ -2,6 +2,9 @@
 id: network-fortinet-fortiauthenticator-snmp
 title: Fortinet FortiAuthenticator SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -16,16 +19,15 @@ the FortiAuthenticator devices.
 
 ### Monitored objects
 
-* FortiAuthenticator appliances and virtual machines                
+* FortiAuthenticator appliances and virtual machines
 
 ### Collected metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Authenticator-->
+<Tabs groupId="operating-systems">
+<TabItem value="Authenticator" label="Authenticator">
 
 | Metric name                                     | Description                                  | Unit |
-|:------------------------------------------------|:---------------------------------------------|:-----|
+| :---------------------------------------------- | :------------------------------------------- | :--- |
 | authenticator.authentication.events.persecond   | Number of authentication events per second   |      |
 | authenticator.authentication.failures.persecond | Number of authentication failures per second |      |
 | authenticator.groups.count                      | Total number of user groups                  |      |
@@ -35,28 +37,32 @@ the FortiAuthenticator devices.
 | authenticator.users.count                       | Total number of local users                  |      |
 | authenticator.users.percentage                  | Percentage of users usage                    | %    |
 
-<!--Cpu-->
+</TabItem>
+<TabItem value="Cpu" label="Cpu">
 
-| Metric name                 | Description                  | Unit  |
-| :-------------------------- | :--------------------------- | :---- |
-| cpu.utilization.percentage  | Current CPU usage percentage |   %   |
+| Metric name                | Description                  | Unit |
+| :------------------------- | :--------------------------- | :--- |
+| cpu.utilization.percentage | Current CPU usage percentage | %    |
 
-<!--Disk-Log-->
+</TabItem>
+<TabItem value="DiskLog" label="DiskLog">
 
 | Metric name                     | Description                                       | Unit |
-|:--------------------------------|:--------------------------------------------------|:-----|
+| :------------------------------ | :------------------------------------------------ | :--- |
 | disk.log.space.usage.percentage | Percentage of used space on the device's log disk | %    |
 
-<!--Ha-->
+</TabItem>
+<TabItem value="Ha" label="Ha">
 
 | Metric name | Description                                     |
-|:------------|:------------------------------------------------|
+| :---------- | :---------------------------------------------- |
 | ha-status   | Current status of the high-availability feature |
 
-<!--Interfaces-->
+</TabItem>
+<TabItem value="Interfaces" label="Interfaces">
 
 | Metric name                                            | Description                                         | Unit |
-|:-------------------------------------------------------|:----------------------------------------------------|:-----|
+| :----------------------------------------------------- | :-------------------------------------------------- | :--- |
 | status                                                 | Status of the interface                             |      |
 | *interface\_name*\#interface.traffic.in.bitspersecond  | Incoming traffic going through the interface.       | b/s  |
 | *interface\_name*\#interface.traffic.in.percentage     | Percentage of the interface's *in* bandwidth usage  | %    |
@@ -67,11 +73,12 @@ A regexp filter is available to target a specific interface identifier - ifName 
 
 <<!--Memory-->
 
-| Metric name             | Description                               | Unit  |
-| :---------------------  | :---------------------------------------- | :---- |
-| memory.usage.percentage | Percentage of memory usage on the device. |   %   |
+| Metric name             | Description                               | Unit |
+| :---------------------- | :---------------------------------------- | :--- |
+| memory.usage.percentage | Percentage of memory usage on the device. | %    |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -89,9 +96,8 @@ The Centreon Poller must be able to reach the UDP/161 SNMP port of the FortiAuth
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="licence-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor FortiAuthenticator devices:
 
@@ -102,7 +108,8 @@ yum install centreon-plugin-Network-Fortinet-Fortiauthenticator-Snmp
 2. On the Centreon Web interface, install the *Fortinet Fortiauthenticator SNMP* Plugin-Pack
 through "Configuration > Plugin packs > Manager" page.
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor FortiAuthenticator devices:
 
@@ -119,7 +126,8 @@ yum install centreon-pack-network-fortinet-fortiauthenticator-snmp
 3. On the Centreon Web interface, install the *Fortinet Fortiauthenticator SNMP* Plugin-Pack
 through "Configuration > Plugin packs > Manager" page.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host configuration
 
@@ -128,9 +136,9 @@ through "Configuration > Plugin packs > Manager" page.
 
 > When using SNMP v3, use the SNMPEXTRAOPTIONS Macro to add specific authentication parameters
 
-| Mandatory | Name             | Description                                    |
-| :-------- | :--------------- | :--------------------------------------------- |
-|           | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo    |
+| Mandatory | Name             | Description                                 |
+| :-------- | :--------------- | :------------------------------------------ |
+|           | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo |
 
 ## FAQ
 
@@ -141,16 +149,16 @@ and test the Plugin by running the following command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_fortinet_fortiauthenticator_snmp.pl \
-    --plugin=network::fortinet::fortiauthenticator::snmp::plugin \
-    --mode=authenticator \
-    --hostname=10.0.0.1 \
-    --snmp-version='2c' \
-    --snmp-community='mysnmpcommunity' \
-    --warning-users-usage-prct='80' \
-    --critical-users-usage-prct='90' \
-    --warning-authentication-failures='50' \
-    --critical-authentication-failures='100' \
-    --verbose
+--plugin=network::fortinet::fortiauthenticator::snmp::plugin \
+--mode=authenticator \
+--hostname=10.0.0.1 \
+--snmp-version='2c' \
+--snmp-community='mysnmpcommunity' \
+--warning-users-usage-prct='80' \
+--critical-users-usage-prct='90' \
+--warning-authentication-failures='50' \
+--critical-authentication-failures='100' \
+--verbose
 ```
 
 Expected command output is shown below:
@@ -161,10 +169,10 @@ OK: Authenticator statistics are ok | 'authenticator.users.count'=9;;;0;10100 'a
 'authenticator.radius.nas.percentage'=0.03%;;;0;100 'authenticator.authentication.events.persecond'=0/s;;;0;
 'authenticator.authentication.failures.persecond'=0/s;;;0;
 checking authenticator
-    users total: 10100 used: 9 (0.09%) free: 10091 (99.91%)
-    groups total: 1010 used: 1 (0.10%) free: 1009 (99.90%)
-    radius nas total: 10100 used: 3 (0.03%) free: 10097 (99.97%)
-    authentication events: 0/s, failures: 0/s
+users total: 10100 used: 9 (0.09%) free: 10091 (99.91%)
+groups total: 1010 used: 1 (0.10%) free: 1009 (99.90%)
+radius nas total: 10100 used: 3 (0.03%) free: 10097 (99.97%)
+authentication events: 0/s, failures: 0/s
 ```
 
 The command above monitors the authentication statistics of a FortiAuthenticator device (```--plugin=network::fortinet::fortiauthenticator::snmp::plugin
@@ -192,5 +200,5 @@ If you get this message, you're probably facing one of theses issues:
 #### UNKNOWN: SNMP GET Request : Cant get a single value.
 
 This error message often refers to the following issues:
-  * the FortiAuthenticator device doesn't support the MIB used by the Plugin
-  * the targeted SNMP OID cannot be fetched because of insufficient privileges on the device
+* the FortiAuthenticator device doesn't support the MIB used by the Plugin
+* the targeted SNMP OID cannot be fetched because of insufficient privileges on the device

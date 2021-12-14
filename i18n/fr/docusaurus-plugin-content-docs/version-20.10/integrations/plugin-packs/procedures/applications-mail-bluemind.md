@@ -18,8 +18,8 @@ yum install centreon-plugin-Applications-Mail-Bluemind
 You must create the centreon user on your bluemind server and setup its password
 with these following commands:
 
-    $ useradd -m -s /bin/bash centreon
-    $ passwd centreon
+$ useradd -m -s /bin/bash centreon
+$ passwd centreon
 
 ### SSH key exchange
 
@@ -27,11 +27,11 @@ You must make a ssh key exchange between the user centreon-engine of your
 monitoring poller and centreon user of your Bluemind server with these following
 commands:
 
-    $ su - centreon-engine 
-    $ ssh-keygen
-    $ ssh-copy-id centreon@bluemind_server_@IP
-    $ ssh centreon@centreon@bluemind_server_@IP
-    $ exit
+$ su - centreon-engine
+$ ssh-keygen
+$ ssh-copy-id centreon@bluemind_server_@IP
+$ ssh centreon@centreon@bluemind_server_@IP
+$ exit
 
 ### Install InfluxDB
 

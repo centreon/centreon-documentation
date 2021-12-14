@@ -2,21 +2,24 @@
 id: applications-netbackup-nsclient-05-restapi
 title: Netbackup NSClient++ API
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-## Overview 
 
-The Plugin Pack Symantec Netbackup works with the Centreon NSClient++ monitoring agent 
-to check Netbackup backup solutions using the Windows agent's API. 
+## Overview
+
+The Plugin Pack Symantec Netbackup works with the Centreon NSClient++ monitoring agent
+to check Netbackup backup solutions using the Windows agent's API.
 
 ## Pack assets
 
 ### Monitored objects
 
 * Symantec Netbackup solutions including:
-    * Deduplication
-    * Drives
-    * Jobs
-    * Tapes
+* Deduplication
+* Drives
+* Jobs
+* Tapes
 
 ### Collected metrics
 
@@ -26,9 +29,9 @@ to check Netbackup backup solutions using the Windows agent's API.
 
 ### NSClient++
 
-To monitor Netbackup software with NRPE, install the Centreon packaged version 
-of the NSClient++ agent. Please follow our [official documentation](../tutorials/centreon-nsclient-tutorial) 
-and make sure that the **Webserver / RESTApi** configuration is correct. 
+To monitor Netbackup software with NRPE, install the Centreon packaged version
+of the NSClient++ agent. Please follow our [official documentation](../tutorials/centreon-nsclient-tutorial)
+and make sure that the **Webserver / RESTApi** configuration is correct.
 
 ### NetBackup cli
 
@@ -39,13 +42,12 @@ has to be installed.
 
 When using Netbackup on a Windows system, add these options `--statefile-concat-cwd
 --statefile-dir="scripts/centreon/tmp"` in the `EXTRAOPTIONS` Macro within
-`App-Netbackup-Job-Status-NRPE-Custom` Service Template. 
+`App-Netbackup-Job-Status-NRPE-Custom` Service Template.
 
-## Installation 
+## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="licence-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor *Symantec Netbackup* using REST API:
 
@@ -55,7 +57,8 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 
 2. On the Centreon Web interface, install the *Symantec Netbackup* Centreon Pack on the **Configuration > Plugin Packs > Manager** page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor *Symantec Netbackup* using REST API:
 
@@ -71,7 +74,8 @@ yum install centreon-pack-infrastructure-netbackup-nsclient-05-restapi
 
 3. On the Centreon Web interface, install the *Symantec Netbackup* Pack on the **Configuration > Plugin Packs > Manager** page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host configuration
 
@@ -79,7 +83,7 @@ yum install centreon-pack-infrastructure-netbackup-nsclient-05-restapi
 * Apply the *App-Netbackup-NSClient-05-custom* template and configure all the mandatory Macros:
 
 | Mandatory | Name                      | Description                                                                |
-|:----------|:--------------------------|:-------------------------------------------------------------------------- |
+| :-------- | :------------------------ | :------------------------------------------------------------------------- |
 | X         | NSCPRESTAPIPORT           | NSClient++ RestAPI port (Default: '8443')                                  |
 | X         | NSCPRESTAPIPROTO          | NSClient++ RestAPI protocol to use (Default: 'https')                      |
 |           | NSCPRESTAPILEGACYPASSWORD | Password to authenticate against the API if relevant                       |

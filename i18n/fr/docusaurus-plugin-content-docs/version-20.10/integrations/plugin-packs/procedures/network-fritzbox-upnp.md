@@ -2,6 +2,9 @@
 id: network-fritzbox-upnp
 title: Fritz!Box UPnP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Contenu du Pack
 
@@ -13,23 +16,24 @@ Le Pack Fritz!Box collecte les données pour:
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--System-->
+<Tabs groupId="operating-systems">
+<TabItem value="System" label="System">
 
 | Metric name           | Description                         | Unit  |
 | :-------------------- | :---------------------------------- | :---- |
 | connection status     | Connection and physical link status |       |
 | system.uptime.seconds | Elapsed time since the last reboot  | s     |
 
-<!--Traffic-->
+</TabItem>
+<TabItem value="Traffic" label="Traffic">
 
 | Metric name                                    | Description                                      | Unit  |
 | :--------------------------------------------- | :----------------------------------------------- | :---- |
 | system.interface.wan.traffic.in.bitspersecond  | Incoming traffic going through the WAN interface | b/s   |
 | system.interface.wan.traffic.out.bitspersecond | Outgoing traffic going through the WAN interface | b/s   |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -37,9 +41,8 @@ Afin de contrôler votre équipement Fritz!Box, l'UPnP doit être configuré.
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="operating-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -49,7 +52,8 @@ yum install centreon-plugin-Network-Fritzbox-Upnp
 
 2. Sur l'interface Web de Centreon, installer le Pack *Fritz!Box UPnP* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -65,7 +69,8 @@ yum install centreon-pack-network-fritzbox-upnp
 
 3. Sur l'interface Web de Centreon, installer le Pack *Fritz!Box UPnP* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -88,11 +93,11 @@ depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-en
 
 ```bash
 /usr/lib/centreon/plugins/centreon_fritzbox_upnp.pl \
-    --plugin=network::fritzbox::upnp::plugin \
-    --mode=traffic \
-    --hostname='10.30.2.79' \
-    --port='49000' \
-    --proto='http'
+--plugin=network::fritzbox::upnp::plugin \
+--mode=traffic \
+--hostname='10.30.2.79' \
+--port='49000' \
+--proto='http'
 ```
 
 La commande devrait retourner un message de sortie de la forme ci-dessous:
@@ -110,9 +115,9 @@ en ajoutant le paramètre ```--help``` à la commande:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_fritzbox_upnp.pl \
-    --plugin=network::fritzbox::upnp::plugin \
-    --mode=traffic \
-    --help
+--plugin=network::fritzbox::upnp::plugin \
+--mode=traffic \
+--help
 ```
 
 ## Diagnostique

@@ -2,6 +2,9 @@
 id: architectures
 title: Architectures possibles
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 Centreon permet plusieurs choix dans la composition de l'architecture de votre outil de supervision. D'une architecture
 relativement simple avec un serveur hébergeant tous les services, l'architecture peut aussi être organisée autour d'un
@@ -12,8 +15,9 @@ de collecte sur plusieurs continents.
 
 Vous trouverez ici toutes les architectures supportées :
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Architecture simple-->
+<Tabs groupId="operating-systems">
+<TabItem value="Architecture simple" label="Architecture simple">
+
 #### Description
 
 L'architecture simple consiste à avoir toutes les entités de supervision au sein du même serveur, à savoir :
@@ -31,11 +35,11 @@ Plusieurs entités servent à mettre en place cette architecture :
 
 * Le serveur Apache est chargé d'héberger l'interface web de Centreon
 * Plusieurs bases de données MariaDB sont chargées de stocker la configuration de Centreon, les informations de
-  supervision ainsi que les données de performances
+supervision ainsi que les données de performances
 * Le moteur de supervision supervise le système d'informations
 * Les informations de supervision sont envoyées via cbmod à Centreon Broker SQL
 * Centreon Broker SQL est chargé d'insérer les données de supervision en base de données et de transmettre les données
-  de performances à Centreon Broker RRD
+de performances à Centreon Broker RRD
 * Centreon Broker RRD est chargé de générer les fichiers RRD (qui servent à générer les graphiques de performances)
 
 #### Architecture
@@ -44,7 +48,9 @@ Le schéma ci-dessous résume le fonctionnement de l'architecture :
 
 ![image](../assets/architectures/Architecture_standalone.png)
 
-<!-- Architecture distribuée-->
+</TabItem>
+<TabItem value="Architecture distribuée" label="Architecture distribuée">
+
 #### Description
 
 L'architecture distribuée consiste à avoir deux types d'entités :
@@ -97,7 +103,9 @@ Le schéma ci-dessous résume le fonctionnement de l'architecture :
 
 ![image](../assets/architectures/Architecture_distributed.png)
 
-<!--SGBD déporté-->
+</TabItem>
+<TabItem value="SGBD déporté" label="SGBD déporté">
+
 #### Description
 
 L'architecture distribuée avec base de données déportée consiste à avoir trois types d'entités :
@@ -124,7 +132,7 @@ Cette architecture a plusieurs intérêts :
 
 * Elle permet la répartition de la charge de supervision entre plusieurs serveurs de supervision
 * Isolation des flux réseaux : si votre infrastructure de supervision est chargée de superviser une DMZ, il est plus
-  simple (et sécurisant) de placer un collecteur sur le réseau DMZ
+simple (et sécurisant) de placer un collecteur sur le réseau DMZ
 * Avoir une base de données MariaDB externalisée
 
 #### Entités
@@ -140,13 +148,13 @@ Le serveur central fonctionne de la manière suivante :
 
 * Le serveur Apache est chargé d'héberger l'interface web de Centreon
 * Le serveur central récupère la configuration ainsi que les informations de supervision en se connectant au serveur de
-  base de données
+base de données
 * Le service Centreon Gorgone est chargé d'exporter la configuration des moteurs de supervision vers le serveur central et
-  collecteurs ainsi que du redémarrage des moteurs de supervision
+collecteurs ainsi que du redémarrage des moteurs de supervision
 * Le moteur de supervision supervise le système d'informations
 * Les informations de supervision sont envoyées via cbmod à Centreon Broker SQL
 * Centreon Broker SQL est chargé d'insérer les données de supervision en base de données et de transmettre les données de
-  performances à Centreon Broker RRD
+performances à Centreon Broker RRD
 * Centreon Broker RRD est chargé de générer les fichiers RRD (qui servent à générer les graphiques de performances)
 
 ##### Collecteur
@@ -162,7 +170,9 @@ Le schéma ci-dessous résume le fonctionnement de l'architecture :
 
 ![image](../assets/architectures/Architecture_distributed_dbms.png)
 
-<!--Remote Server-->
+</TabItem>
+<TabItem value="Remote Server" label="Remote Server">
+
 #### Description
 
 L'architecture distribuée avec Remote Server consiste à avoir trois types d'entités :
@@ -194,7 +204,7 @@ Cette architecture a plusieurs intérêts :
 
 * Elle permet la répartition de la charge de supervision entre plusieurs serveurs de supervision
 * Isolation des flux réseaux : si votre infrastructure de supervision est chargée de superviser une DMZ, il est plus
-  simple (et sécurisant) de placer un collecteur sur le réseau DMZ
+simple (et sécurisant) de placer un collecteur sur le réseau DMZ
 * Disposer d'une interface web déportée afin de pouvoir consulter les éléments supervisés d'un sous ensemble
 
 ### Entités
@@ -205,13 +215,13 @@ Le serveur central fonctionne normalement :
 
 * Le serveur Apache est chargé d'héberger l'interface web de Centreon
 * Plusieurs bases de données MariaDB sont chargées de stocker la configuration de Centreon, les informations de supervision
-  ainsi que les données de performances
+ainsi que les données de performances
 * Le service Centreon Gorgone est chargé d'exporter la configuration des moteurs de supervision vers le serveur central et
-  collecteurs ainsi que du redémarrage des moteurs de supervision
+collecteurs ainsi que du redémarrage des moteurs de supervision
 * Le moteur de supervision supervise le système d'informations
 * Les informations de supervision sont envoyées via cbmod à Centreon Broker SQL
 * Centreon Broker SQL est chargé d'insérer les données de supervision en base de données et de transmettre les données de
-  performances à Centreon Broker RRD
+performances à Centreon Broker RRD
 * Centreon Broker RRD est chargé de générer les fichiers RRD (qui servent à générer les graphiques de performances)
 
 #### Remote Server
@@ -220,13 +230,13 @@ Le Remote Server fonctionne normalement :
 
 * Le serveur Apache est chargé d'héberger l'interface web de Centreon
 * Plusieurs bases de données MariaDB sont chargées de stocker les informations de supervision ainsi que les données de
-  performances
+performances
 * Le service Centreon Gorgone est chargé d'opérer sur les données collectées
 * Le moteur de supervision supervise le système d'informations
 * Les informations de supervision sont envoyées via cbmod à Centreon Broker SQL
 * Centreon Broker SQL est chargé d'insérer les données de supervision en base de données et de transmettre les données
-  de performances à Centreon Broker RRD localement. Il est également chargé de transmettre l'ensemble des informations
-  au serveur Centreon Central.
+de performances à Centreon Broker RRD localement. Il est également chargé de transmettre l'ensemble des informations
+au serveur Centreon Central.
 * Centreon Broker RRD est chargé de générer les fichiers RRD (qui servent à générer les graphiques de performances)
 
 #### Collecteur
@@ -242,7 +252,8 @@ Le schéma ci-dessous résume le fonctionnement de l'architecture :
 
 ![image](../assets/architectures/Architecture_distributed_remote.png)
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Tableau des flux réseau
 

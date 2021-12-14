@@ -2,6 +2,9 @@
 id: hardware-storage-oracle-zs-restapi
 title: Oracle ZS Rest API
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Pack Assets
 
@@ -13,30 +16,31 @@ The Pack Oracle ZS collects metrics for:
 
 ### Collected Metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
+<Tabs groupId="operating-systems">
+<TabItem value="Hardware" label="Hardware">
 
-<!--Hardware-->
+| Metric name         | Description        | Unit |
+| :------------------ | :----------------- | :--- |
+| chassis status      | Chassis state      |      |
+| cpu status          | CPU state          |      |
+| disk status         | Disk state         |      |
+| fan status          | Fan state          |      |
+| memory status       | Memory state       |      |
+| power supply status | Power supply state |      |
+| slot status         | Slot state         |      |
 
-| Metric name         | Description        | Unit  |
-| :------------------ | :----------------- | :---- |
-| chassis status      | Chassis state      |       |
-| cpu status          | CPU state          |       |
-| disk status         | Disk state         |       |
-| fan status          | Fan state          |       |
-| memory status       | Memory state       |       |
-| power supply status | Power supply state |       |
-| slot status         | Slot state         |       |
+</TabItem>
+<TabItem value="Pools" label="Pools">
 
-<!--Pools-->
+| Metric name                              | Description               | Unit |
+| :--------------------------------------- | :------------------------ | :--- |
+| pool status                              | Pool status               |      |
+| *pool\_name*#pool.space.usage.bytes      | Space usage               | B    |
+| *pool\_name*#pool.space.free.bytes       | Free space                | B    |
+| *pool\_name*#pool.space.usage.percentage | Space usage in percentage | %    |
 
-| Metric name                              | Description               | Unit  |
-| :--------------------------------------- | :------------------------ | :---- |
-| pool status                              | Pool status               |       |
-| *pool\_name*#pool.space.usage.bytes      | Space usage               | B     |
-| *pool\_name*#pool.space.free.bytes       | Free space                | B     |
-| *pool\_name*#pool.space.usage.percentage | Space usage in percentage | %     |
-
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -45,9 +49,8 @@ E.g: https://docs.oracle.com/cd/E79446_01/html/E79460/index
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="licence-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -57,7 +60,8 @@ yum install centreon-plugin-Hardware-Storage-Oracle-Zs-Restapi
 
 2. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *Oracle ZS Rest API* Pack
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -73,7 +77,8 @@ yum install centreon-pack-hardware-storage-oracle-zs-restapi
 
 3. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *Oracle ZS Rest API* Pack
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host configuration
 
@@ -96,14 +101,14 @@ and test the Plugin by running the following command (Parameters such as ```api-
 
 ```bash
 /usr/lib/centreon/plugins/centreon_oracle_zs_restapi.pl \
-    --plugin=storage::oracle::zs::restapi::plugin \
-    --mode=pools \
-    --hostname='10.30.2.79' \
-    --port='215' \
-    --proto='https' \
-    --api-username='myapiusername' \
-    --api-password='myapipassword' \
-    --verbose
+--plugin=storage::oracle::zs::restapi::plugin \
+--mode=pools \
+--hostname='10.30.2.79' \
+--port='215' \
+--proto='https' \
+--api-username='myapiusername' \
+--api-password='myapipassword' \
+--verbose
 ```
 
 Expected command output is shown below:
@@ -125,9 +130,9 @@ parameter to the command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_oracle_zs_restapi.pl \
-    --plugin=storage::oracle::zs::restapi::plugin \
-    --mode=pools \
-    --help
+--plugin=storage::oracle::zs::restapi::plugin \
+--mode=pools \
+--help
 ```
 
 ## Troubleshooting

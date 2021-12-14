@@ -2,6 +2,9 @@
 id: network-cisco-firepower-fmc-restapi
 title: Cisco Firepower Management Console Rest API
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Plugin-Pack Assets
 
@@ -11,21 +14,21 @@ The Plugin-Pack includes health monitoring of devices managed by Firepower Manag
 
 ### Collected Metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
+<Tabs groupId="operating-systems">
+<TabItem value="Devices" label="Devices">
 
-<!--Devices-->
+| Metric name                 | Description                     | Unit |
+| :-------------------------- | :------------------------------ | :--- |
+| devices.total.count         | Number of devices               |      |
+| devices.status.green.count  | Number of green status devices  |      |
+| devices.status.black.count  | Number of black status devices  |      |
+| devices.status.blue.count   | Number of blue status devices   |      |
+| devices.status.red.count    | Number of red status devices    |      |
+| devices.status.yellow.count | Number of yellow status devices |      |
+| device status               | Device status                   |      |
 
-| Metric name                  | Description                     | Unit |
-| :----------------------------| :------------------------------ | :--- |
-| devices.total.count          | Number of devices               |      |
-| devices.status.green.count   | Number of green status devices  |      |
-| devices.status.black.count   | Number of black status devices  |      |
-| devices.status.blue.count    | Number of blue status devices   |      |
-| devices.status.red.count     | Number of red status devices    |      |
-| devices.status.yellow.count  | Number of yellow status devices |      |
-| device status                | Device status                   |      |
-
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -35,9 +38,8 @@ E.g: https://www.cisco.com/c/en/us/td/docs/security/firepower/620/api/REST/Firep
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="licence-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -47,7 +49,8 @@ yum install centreon-plugin-Network-Cisco-Firepower-Fmc-Restapi
 
 2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Cisco Firepower FMC Rest API* Plugin-Pack
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -63,9 +66,10 @@ yum install centreon-pack-network-cisco-firepower-fmc-restapi
 
 3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Cisco Firepower FMC Rest API* Plugin-Pack
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
-## Host configuration 
+## Host configuration
 
 * Add a new Host and apply the *Net-Cisco-Firepower-Fmc-Restapi-custom* Host Template
 
@@ -88,16 +92,16 @@ Once the Plugin installed, log into your poller using the *centreon-engine* user
 
 ```bash
 /usr/lib/centreon/plugins/centreon_cisco_firepower_fmc_restapi.pl \
-    --plugin=network::cisco::firepower::fmc::restapi::plugin \
-    --mode=devices \
-    --hostname='10.30.2.79' \
-    --port='443' \
-    --proto='https' \
-    --api-username='myapiusername' \
-    --api-password='myapipassword' \
-    --filter-domain-name='Global' \
-    --critical-devices-status-red='0' \
-    --verbose
+--plugin=network::cisco::firepower::fmc::restapi::plugin \
+--mode=devices \
+--hostname='10.30.2.79' \
+--port='443' \
+--proto='https' \
+--api-username='myapiusername' \
+--api-password='myapipassword' \
+--filter-domain-name='Global' \
+--critical-devices-status-red='0' \
+--verbose
 ```
 
 Output example:
@@ -121,11 +125,11 @@ All the options that can be used with this plugin can be found over the ```--hel
 
 ```bash
 /usr/lib/centreon/plugins/centreon_cisco_firepower_fmc_restapi.pl --plugin=network::cisco::firepower::fmc::restapi::plugin \
-     --mode=devices \
-     --help
+--mode=devices \
+--help
 ```
 
-### Why do I get the following error: 
+### Why do I get the following error:
 
 #### ```UNKNOWN: 500 Can't connect to 10.30.2.79:443```
 

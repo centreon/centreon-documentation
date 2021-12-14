@@ -18,7 +18,7 @@ It is also possible to create categories of *[hosts](#hosts-category)* or *[serv
 Generally speaking, the groups are containers in which sets of objects having a common property can be grouped together:
 
 * Same material identity (Dell, HP, IBM, etc., servers), logical identity (network equipment) or geographical identity
-  (Europe, Asia, Africa, North America, etc.)
+(Europe, Asia, Africa, North America, etc.)
 * Belonging to the same application (CMS application, etc.) or to a same sector of activity (Salary management, etc.)
 * Etc.
 
@@ -32,7 +32,7 @@ Host groups and service groups are used to group together objects by logical ent
 * Search several performance graphs quickly by browsing the object tree structure by group and then by resource
 
 Generally speaking, we try to group together hosts by functional level. E.g.: DELL and HP hosts or Linux, Windows,
-etc., hosts. 
+etc., hosts.
 We also try to group services by application jobs. E.g.: Salary management application, ERP Application, etc.
 
 > For the hosts belonging to a host group, the retention of RRD files can be defined in the host group. This definition
@@ -77,8 +77,8 @@ Go to the **Configuration > Hosts > Host Groups** menu and click on **Add**
 * The **Icon** field indicates the icon to be use for the host group.
 * The **Map Icon** is the icon use for mapping.
 * The **RRD retention** field is expressed in days, it serves to define the duration of retention of the services
-  belonging to this hostgroup in the RRD database. It will be the default duration defined in the
-  **Administration > Options > CentStorage** menu if this value is not defined.
+belonging to this hostgroup in the RRD database. It will be the default duration defined in the
+**Administration > Options > CentStorage** menu if this value is not defined.
 * The **Status** and **Comments** fields allow to enable or disable the host group and to make comments on it.
 
 ### Services Group
@@ -90,7 +90,7 @@ Go to the **Configuration > Services > Service Groups** menu and click on **Add*
 * The **Service Group Name** and **Description** fields describes the name and the description of the service group.
 * The **Linked Host Services** list allows us to choose the various services that will be included in this group.
 * The **Linked Host Group Services** list allows us to choose the services linked to a host group that will be part
-  of this group.
+of this group.
 * The **Linked Service Templates** list allows to deploy a service based on this template on all hosts linked to this group.
 * The **Status** and **Comments** fields allow to enable or disable the service group and to make comment on it.
 
@@ -113,7 +113,7 @@ Go to the **Configuration > Hosts > Categories** menu and click on **Add**
 * The **Host Category Name** and **Alias** fields contain respectively the name and the alias of the category of host.
 * The **Linked hosts** list allows us to add hosts to the category.
 * If a host template is added to **Linked host template** list all the hosts which inherit from this Model belong to
-  this category.
+this category.
 * The **Severity type** box signifies that the category of hosts has a criticality level.
 * The **Level** and **Icon** fields define a criticality level and an associated icon respectively.
 * The **Status** and **Comment** fields allow us to enable or disable the category of host and to comment on it.
@@ -126,7 +126,7 @@ Go to the **Configuration > Services > Categories** menu and click on **Add**
 
 * The **Name** and **Description** fields define the name and the description of the category of service.
 * If a service template is added to **Service Template Descriptions** list all the services which inherit from this
-  template belong to this category. 
+template belong to this category.
 * The **Severity type** box signifies that the category of service has a criticality level.
 * The **Level** and **Icon** fields define a criticality level and an associated icon respectively.
 * The **Status** field allows us to enable or disable the category of services.

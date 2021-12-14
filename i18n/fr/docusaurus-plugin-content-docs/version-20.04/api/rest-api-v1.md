@@ -34,7 +34,7 @@ If you want both then check **both** checkboxes
 
 Using POST method and the URL below:
 
-    api.domain.tld/centreon/api/index.php?action=authenticate
+api.domain.tld/centreon/api/index.php?action=authenticate
 
 Body form-data:
 
@@ -47,7 +47,7 @@ The response is a json flow getting back the authentication token :
 
 ``` json
 {
-    "authToken": "NTc1MDU3MGE3M2JiODIuMjA4OTA2OTc="
+"authToken": "NTc1MDU3MGE3M2JiODIuMjA4OTA2OTc="
 }
 ```
 
@@ -75,7 +75,7 @@ Here is an example for listing hosts using rest API.
 
 Using POST method and the URL below:
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
 
 **Header:**
 
@@ -88,15 +88,15 @@ Using POST method and the URL below:
 
 ``` json
 {
-    "action": "show",
-    "object": "HOST"
+"action": "show",
+"object": "HOST"
 }
 ```
 
-  - The key **action** corresponds to the option **-a** in Centreon CLAPI, the
-    value **show** corresponds to the **-a** option value.
-  - The key **object** corresponds to the option **-o** in Centreon CLAPI, the
-    value **HOST** corresponds to the **-o** option value.
+- The key **action** corresponds to the option **-a** in Centreon CLAPI, the
+value **show** corresponds to the **-a** option value.
+- The key **object** corresponds to the option **-o** in Centreon CLAPI, the
+value **HOST** corresponds to the **-o** option value.
 
 The equivalent action using Centreon CLAPI is:
 
@@ -109,29 +109,29 @@ below:
 
 ``` json
 {
-    "result": [
-        {
-            "id": "12",
-            "name": "mail-uranus-frontend",
-            "alias": "mail-uranus-frontend",
-            "address": "mail-uranus-frontend",
-            "activate": "1"
-        },
-        {
-            "id": "13",
-            "name": "mail-neptune-frontend",
-            "alias": "mail-neptune-frontend",
-            "address": "mail-neptune-frontend",
-            "activate": "1"
-        },
-        {
-            "id": "14",
-            "name": "srvi-mysql01",
-            "alias": "srvi-mysql01",
-            "address": "srvi-mysql01",
-            "activate": "1"
-        }
-    ]
+"result": [
+{
+"id": "12",
+"name": "mail-uranus-frontend",
+"alias": "mail-uranus-frontend",
+"address": "mail-uranus-frontend",
+"activate": "1"
+},
+{
+"id": "13",
+"name": "mail-neptune-frontend",
+"alias": "mail-neptune-frontend",
+"address": "mail-neptune-frontend",
+"activate": "1"
+},
+{
+"id": "14",
+"name": "srvi-mysql01",
+"alias": "srvi-mysql01",
+"address": "srvi-mysql01",
+"activate": "1"
+}
+]
 }
 ```
 
@@ -154,7 +154,7 @@ the host object for an API call.
 
 **POST**
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
 
 **Header**
 
@@ -167,8 +167,8 @@ the host object for an API call.
 
 ``` json
 {
-    "action": "show",
-    "object": "host"
+"action": "show",
+"object": "host"
 }
 ```
 
@@ -176,29 +176,29 @@ the host object for an API call.
 
 ``` json
 {
-    "result": [
-        {
-        "id": "79",
-        "name": "mail-uranus-frontend",
-        "alias": "mail-uranus-frontend",
-        "address": "mail-uranus-frontend",
-        "activate": "1"
-        },
-        {
-        "id": "80",
-        "name": "mail-neptune-frontend",
-        "alias": "mail-neptune-frontend",
-        "address": "mail-neptune-frontend",
-        "activate": "1"
-        },
-        {
-        "id": "81",
-        "name": "mail-earth-frontend",
-        "alias": "mail-earth-frontend",
-        "address": "mail-earth-frontend",
-        "activate": "1"
-        }
-    ]
+"result": [
+{
+"id": "79",
+"name": "mail-uranus-frontend",
+"alias": "mail-uranus-frontend",
+"address": "mail-uranus-frontend",
+"activate": "1"
+},
+{
+"id": "80",
+"name": "mail-neptune-frontend",
+"alias": "mail-neptune-frontend",
+"address": "mail-neptune-frontend",
+"activate": "1"
+},
+{
+"id": "81",
+"name": "mail-earth-frontend",
+"alias": "mail-earth-frontend",
+"address": "mail-earth-frontend",
+"activate": "1"
+}
+]
 }
 ```
 
@@ -206,7 +206,7 @@ the host object for an API call.
 
 **POST**
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
 
 **Header**
 
@@ -219,9 +219,9 @@ the host object for an API call.
 
 ``` json
 {
-    "action": "add",
-    "object": "host",
-    "values": "test;Test host;127.0.0.1;generic-host;central;Linux-SerVers"
+"action": "add",
+"object": "host",
+"values": "test;Test host;127.0.0.1;generic-host;central;Linux-SerVers"
 }
 ```
 
@@ -229,7 +229,7 @@ the host object for an API call.
 
 ``` json
 {
-    "result": []
+"result": []
 }
 ```
 
@@ -237,7 +237,7 @@ the host object for an API call.
 
 **POST**
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
 
 **Header**
 
@@ -250,9 +250,9 @@ the host object for an API call.
 
 ``` json
 {
-    "action": "del",
-    "object": "host",
-    "values": "test"
+"action": "del",
+"object": "host",
+"values": "test"
 }
 ```
 
@@ -260,7 +260,7 @@ the host object for an API call.
 
 ``` json
 {
-    "result": []
+"result": []
 }
 ```
 
@@ -268,7 +268,7 @@ the host object for an API call.
 
 **POST**
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
 
 **Header**
 
@@ -281,9 +281,9 @@ the host object for an API call.
 
 ``` json
 {
-    "action": "setparam",
-    "object": "host",
-    "values": "test;ParameterToSet;NewParameter"
+"action": "setparam",
+"object": "host",
+"values": "test;ParameterToSet;NewParameter"
 }
 ```
 
@@ -341,7 +341,7 @@ Available parameters
 
 ``` json
 {
-    "result": []
+"result": []
 }
 ```
 
@@ -349,7 +349,7 @@ Available parameters
 
 **POST**
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
 
 **Header**
 
@@ -362,9 +362,9 @@ Available parameters
 
 ``` json
 {
-    "action": "getparam",
-    "object": "host",
-    "values": "test;ParameterToGet|ParameterToGet"
+"action": "getparam",
+"object": "host",
+"values": "test;ParameterToGet|ParameterToGet"
 }
 ```
 
@@ -421,13 +421,13 @@ Available parameters
 
 ``` json
 {
-    "result": [
-        {
-            "alias": "test",
-            "address": "192.168.56.101",
-            "timezone": "Europe/Berlin"
-        }
-    ]
+"result": [
+{
+"alias": "test",
+"address": "192.168.56.101",
+"timezone": "Europe/Berlin"
+}
+]
 }
 ```
 
@@ -435,7 +435,7 @@ Available parameters
 
 **POST**
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
 
 **Header**
 
@@ -448,9 +448,9 @@ Available parameters
 
 ``` json
 {
-    "action": "setinstance",
-    "object": "host",
-    "values": "test;Poller-2"
+"action": "setinstance",
+"object": "host",
+"values": "test;Poller-2"
 }
 ```
 
@@ -458,7 +458,7 @@ Available parameters
 
 ``` json
 {
-    "result": []
+"result": []
 }
 ```
 
@@ -466,7 +466,7 @@ Available parameters
 
 **POST**
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
 
 **Header**
 
@@ -479,9 +479,9 @@ Available parameters
 
 ``` json
 {
-    "action": "getmacro",
-    "object": "host",
-    "values": "mail-uranus-frontend"
+"action": "getmacro",
+"object": "host",
+"values": "mail-uranus-frontend"
 }
 ```
 
@@ -489,29 +489,29 @@ Available parameters
 
 ``` json
 {
-    "result": [
-        {
-            "macro name": "ALIVENUM",
-            "macro value": "1",
-            "is_password": "",
-            "description": "",
-            "source": "generic-host-bench"
-        },
-        {
-            "macro name": "ALIVEWARNING",
-            "macro value": "3000,80",
-            "is_password": "",
-            "description": "",
-            "source": "generic-host-bench"
-        },
-        {
-            "macro name": "ALIVECRITICAL",
-            "macro value": "5000,100",
-            "is_password": "",
-            "description": "",
-            "source": "generic-host-bench"
-        }
-    ]
+"result": [
+{
+"macro name": "ALIVENUM",
+"macro value": "1",
+"is_password": "",
+"description": "",
+"source": "generic-host-bench"
+},
+{
+"macro name": "ALIVEWARNING",
+"macro value": "3000,80",
+"is_password": "",
+"description": "",
+"source": "generic-host-bench"
+},
+{
+"macro name": "ALIVECRITICAL",
+"macro value": "5000,100",
+"is_password": "",
+"description": "",
+"source": "generic-host-bench"
+}
+]
 }
 ```
 
@@ -519,7 +519,7 @@ Available parameters
 
 **POST**
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
 
 **Header**
 
@@ -532,9 +532,9 @@ Available parameters
 
 ``` json
 {
-    "action": "setmacro",
-    "object": "host",
-    "values": "mail-uranus-frontend;MacroName;NewValue"
+"action": "setmacro",
+"object": "host",
+"values": "mail-uranus-frontend;MacroName;NewValue"
 }
 ```
 
@@ -546,7 +546,7 @@ will be created.
 
 ``` json
 {
-    "result": []
+"result": []
 }
 ```
 
@@ -554,7 +554,7 @@ will be created.
 
 **POST**
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
 
 **Header**
 
@@ -567,9 +567,9 @@ will be created.
 
 ``` json
 {
-    "action": "delmacro",
-    "object": "host",
-    "values": "mail-uranus-frontend;MacroName"
+"action": "delmacro",
+"object": "host",
+"values": "mail-uranus-frontend;MacroName"
 }
 ```
 
@@ -580,7 +580,7 @@ the Custom Marco of the chosen host.
 
 ``` json
 {
-    "result": []
+"result": []
 }
 ```
 
@@ -588,7 +588,7 @@ the Custom Marco of the chosen host.
 
 **POST**
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
 
 **Header**
 
@@ -601,9 +601,9 @@ the Custom Marco of the chosen host.
 
 ``` json
 {
-    "action": "gettemplate",
-    "object": "host",
-    "values": "mail-uranus-frontend"
+"action": "gettemplate",
+"object": "host",
+"values": "mail-uranus-frontend"
 }
 ```
 
@@ -611,20 +611,20 @@ the Custom Marco of the chosen host.
 
 ``` json
 {
-    "result": [
-        {
-            "id": "3",
-            "name": "Servers-Linux"
-        },
-        {
-            "id": "62",
-            "name": "Postfix-frontend"
-        },
-        {
-            "id": "59",
-            "name": "Cyrus-murder-frontend"
-        }
-    ]
+"result": [
+{
+"id": "3",
+"name": "Servers-Linux"
+},
+{
+"id": "62",
+"name": "Postfix-frontend"
+},
+{
+"id": "59",
+"name": "Cyrus-murder-frontend"
+}
+]
 }
 ```
 
@@ -632,7 +632,7 @@ the Custom Marco of the chosen host.
 
 **POST**
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
 
 **Header**
 
@@ -645,9 +645,9 @@ the Custom Marco of the chosen host.
 
 ``` json
 {
-    "action": "settemplate",
-    "object": "host",
-    "values": "mail-uranus-frontend;MyHostTemplate"
+"action": "settemplate",
+"object": "host",
+"values": "mail-uranus-frontend;MyHostTemplate"
 }
 ```
 
@@ -658,7 +658,7 @@ template erase templates already exist.
 
 ``` json
 {
-    "result": []
+"result": []
 }
 ```
 
@@ -666,7 +666,7 @@ template erase templates already exist.
 
 **POST**
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
 
 **Header**
 
@@ -679,9 +679,9 @@ template erase templates already exist.
 
 ``` json
 {
-    "action": "addtemplate",
-    "object": "host",
-    "values": "mail-uranus-frontend;MyHostTemplate"
+"action": "addtemplate",
+"object": "host",
+"values": "mail-uranus-frontend;MyHostTemplate"
 }
 ```
 
@@ -692,7 +692,7 @@ template is added without erasing template already linked
 
 ``` json
 {
-    "result": []
+"result": []
 }
 ```
 
@@ -700,7 +700,7 @@ template is added without erasing template already linked
 
 **POST**
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
 
 **Header**
 
@@ -713,9 +713,9 @@ template is added without erasing template already linked
 
 ``` json
 {
-    "action": "deltemplate",
-    "object": "host",
-    "values": "mail-uranus-frontend;MyHostTemplate"
+"action": "deltemplate",
+"object": "host",
+"values": "mail-uranus-frontend;MyHostTemplate"
 }
 ```
 
@@ -726,7 +726,7 @@ The MyHostTemplate used on the body should exist as a host template.
 
 ``` json
 {
-    "result": []
+"result": []
 }
 ```
 
@@ -734,7 +734,7 @@ The MyHostTemplate used on the body should exist as a host template.
 
 **POST**
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
 
 **Header**
 
@@ -747,9 +747,9 @@ The MyHostTemplate used on the body should exist as a host template.
 
 ``` json
 {
-    "action": "applytpl",
-    "object": "host",
-    "values": "mail-uranus-frontend"
+"action": "applytpl",
+"object": "host",
+"values": "mail-uranus-frontend"
 }
 ```
 
@@ -757,7 +757,7 @@ The MyHostTemplate used on the body should exist as a host template.
 
 ``` json
 {
-    "result": []
+"result": []
 }
 ```
 
@@ -765,7 +765,7 @@ The MyHostTemplate used on the body should exist as a host template.
 
 **POST**
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
 
 **Header**
 
@@ -778,9 +778,9 @@ The MyHostTemplate used on the body should exist as a host template.
 
 ``` json
 {
-    "action": "getparent",
-    "object": "host",
-    "values": "mail-uranus-frontend"
+"action": "getparent",
+"object": "host",
+"values": "mail-uranus-frontend"
 }
 ```
 
@@ -788,12 +788,12 @@ The MyHostTemplate used on the body should exist as a host template.
 
 ``` json
 {
-    "result": [
-        {
-            "id": "219",
-            "name": "mail-uranus-frontdad"
-        }
-    ]
+"result": [
+{
+"id": "219",
+"name": "mail-uranus-frontdad"
+}
+]
 }
 ```
 
@@ -801,7 +801,7 @@ The MyHostTemplate used on the body should exist as a host template.
 
 **POST**
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
 
 **Header**
 
@@ -814,9 +814,9 @@ The MyHostTemplate used on the body should exist as a host template.
 
 ``` json
 {
-    "action": "addparent",
-    "object": "host",
-    "values": "mail-uranus-frontend;fw-berlin"
+"action": "addparent",
+"object": "host",
+"values": "mail-uranus-frontend;fw-berlin"
 }
 ```
 
@@ -824,13 +824,13 @@ The MyHostTemplate used on the body should exist as a host template.
 
 ``` json
 {
-    "result": []
+"result": []
 }
 ```
 
 To add more than one parent to a host, use the character '|'. Ex:
 
-    "values": "mail-uranus-frontend;fw-berlin|fw-dublin"
+"values": "mail-uranus-frontend;fw-berlin|fw-dublin"
 
 The add action add the parent without overwriting he previous configuration.
 
@@ -838,7 +838,7 @@ The add action add the parent without overwriting he previous configuration.
 
 **POST**
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
 
 **Header**
 
@@ -851,9 +851,9 @@ The add action add the parent without overwriting he previous configuration.
 
 ``` json
 {
-    "action": "setparent",
-    "object": "host",
-    "values": "mail-uranus-frontend;fw-berlin"
+"action": "setparent",
+"object": "host",
+"values": "mail-uranus-frontend;fw-berlin"
 }
 ```
 
@@ -861,13 +861,13 @@ The add action add the parent without overwriting he previous configuration.
 
 ``` json
 {
-    "result": []
+"result": []
 }
 ```
 
 To set more than one parent to a host, use the character '|'. Ex:
 
-    "values": "mail-uranus-frontend;fw-berlin|fw-dublin"
+"values": "mail-uranus-frontend;fw-berlin|fw-dublin"
 
 The set action overwrite the previous configuration before setting the new
 parent.
@@ -876,7 +876,7 @@ parent.
 
 **POST**
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
 
 **Header**
 
@@ -889,9 +889,9 @@ parent.
 
 ``` json
 {
-    "action": "delparent",
-    "object": "host",
-    "values": "mail-uranus-frontend;fw-berlin"
+"action": "delparent",
+"object": "host",
+"values": "mail-uranus-frontend;fw-berlin"
 }
 ```
 
@@ -899,20 +899,20 @@ parent.
 
 ``` json
 {
-    "result": []
+"result": []
 }
 ```
 
 To delete more than one parent, use the character '|'. Ex:
 
-    "values": "mail-uranus-frontend;fw-berlin|fw-dublin"
+"values": "mail-uranus-frontend;fw-berlin|fw-dublin"
 
 
 #### Get child
 
-**POST** 
+**POST**
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
 
 **Header**
 
@@ -924,31 +924,31 @@ To delete more than one parent, use the character '|'. Ex:
 **Body**
 
 ``` json
-  {
-    "action": "getchild",
-    "object": "host",
-    "values": "mail-uranus-frontdad"
-  }
+{
+"action": "getchild",
+"object": "host",
+"values": "mail-uranus-frontdad"
+}
 ```
 
 **Response**
 
 ``` json
- {
-  "result": [
-    {
-      "id": "219",
-      "name": "mail-uranus-frontchild"
-    }
-  ]
- }
+{
+"result": [
+{
+"id": "219",
+"name": "mail-uranus-frontchild"
+}
+]
+}
 ```
 
 #### Add child
 
 **POST**
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
 
 **Header**
 
@@ -960,24 +960,24 @@ To delete more than one parent, use the character '|'. Ex:
 **Body**
 
 ``` json
-  {
-    "action": "addchild",
-    "object": "host",
-    "values": "fw-berlin;mail-uranus-frontend"
-  }
+{
+"action": "addchild",
+"object": "host",
+"values": "fw-berlin;mail-uranus-frontend"
+}
 ```
 
 **Response**
 
 ``` json
- {
-  "result": []
- }
+{
+"result": []
+}
 ```
 
 To add more than one child to a host, use the character '|'. Ex:
 
-    "values": "fw-berlin;mail-uranus-frontend|mail-neptune-frontend"
+"values": "fw-berlin;mail-uranus-frontend|mail-neptune-frontend"
 
 The add action add the child without overwriting the previous configuration.
 
@@ -985,7 +985,7 @@ The add action add the child without overwriting the previous configuration.
 
 **POST**
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
 
 **Header**
 
@@ -998,24 +998,24 @@ The add action add the child without overwriting the previous configuration.
 **Body**
 
 ``` json
-  {
-    "action": "setchild",
-    "object": "host",
-    "values": "fw-berlin;mail-uranus-frontend"
-  }
+{
+"action": "setchild",
+"object": "host",
+"values": "fw-berlin;mail-uranus-frontend"
+}
 ```
 
 **Response**
 
 ``` json
- {
-  "result": []
- }
+{
+"result": []
+}
 ```
 
 To set more than one child to a host, use the character '|'. Ex:
 
-    "values": "fw-berlin;mail-uranus-frontend|mail-neptune-frontend"
+"values": "fw-berlin;mail-uranus-frontend|mail-neptune-frontend"
 
 The set action overwrite the previous configuration before setting the new child.
 
@@ -1023,42 +1023,7 @@ The set action overwrite the previous configuration before setting the new child
 
 **POST**
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
-
-**Header**
-
-| Key                 | Value                                                         |
-| ------------------- | ------------------------------------------------------------- |
-| Content-Type        | application/json                                              |
-| centreon-auth-token | The value of authToken you got on the authentication response |
-
-**Body**
-
-``` json
-  {
-    "action": "delchild",
-    "object": "host",
-    "values": "fw-berlin;mail-uranus-frontend"
-  }
-```
-
-**Response**
-
-``` json
- {
-  "result": []
- }
-```
-
-To delete more than one child, use the character '|'. Ex:
-
-    "values": "fw-berlin;mail-uranus-frontend|mail-neptune-frontend"
-
-#### Get contact group
-
-**POST**
-
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
 
 **Header**
 
@@ -1071,9 +1036,9 @@ To delete more than one child, use the character '|'. Ex:
 
 ``` json
 {
-    "action": "getcontactgroup",
-    "object": "host",
-    "values": "mail-uranus-frontend"
+"action": "delchild",
+"object": "host",
+"values": "fw-berlin;mail-uranus-frontend"
 }
 ```
 
@@ -1081,12 +1046,47 @@ To delete more than one child, use the character '|'. Ex:
 
 ``` json
 {
-    "result": [
-        {
-            "id": "6",
-            "name": "Mail-Operators"
-        }
-    ]
+"result": []
+}
+```
+
+To delete more than one child, use the character '|'. Ex:
+
+"values": "fw-berlin;mail-uranus-frontend|mail-neptune-frontend"
+
+#### Get contact group
+
+**POST**
+
+api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+
+**Header**
+
+| Key                 | Value                                                         |
+| ------------------- | ------------------------------------------------------------- |
+| Content-Type        | application/json                                              |
+| centreon-auth-token | The value of authToken you got on the authentication response |
+
+**Body**
+
+``` json
+{
+"action": "getcontactgroup",
+"object": "host",
+"values": "mail-uranus-frontend"
+}
+```
+
+**Response**
+
+``` json
+{
+"result": [
+{
+"id": "6",
+"name": "Mail-Operators"
+}
+]
 }
 ```
 
@@ -1094,7 +1094,7 @@ To delete more than one child, use the character '|'. Ex:
 
 **POST**
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
 
 **Header**
 
@@ -1107,9 +1107,9 @@ To delete more than one child, use the character '|'. Ex:
 
 ``` json
 {
-    "action": "addcontactgroup",
-    "object": "host",
-    "values": "mail-uranus-frontend;Supervisors"
+"action": "addcontactgroup",
+"object": "host",
+"values": "mail-uranus-frontend;Supervisors"
 }
 ```
 
@@ -1117,13 +1117,13 @@ To delete more than one child, use the character '|'. Ex:
 
 ``` json
 {
-    "result": []
+"result": []
 }
 ```
 
 To add more than one contactgroup to a host, use the character '|'. Ex:
 
-    "values": "mail-uranus-frontend;Supervisors|Guest"
+"values": "mail-uranus-frontend;Supervisors|Guest"
 
 The add action add the contact without overwriting he previous configuration.
 
@@ -1131,7 +1131,7 @@ The add action add the contact without overwriting he previous configuration.
 
 **POST**
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
 
 **Header**
 
@@ -1144,9 +1144,9 @@ The add action add the contact without overwriting he previous configuration.
 
 ``` json
 {
-    "action": "setcontactgroup",
-    "object": "host",
-    "values": "mail-uranus-frontend;Supervisors"
+"action": "setcontactgroup",
+"object": "host",
+"values": "mail-uranus-frontend;Supervisors"
 }
 ```
 
@@ -1154,13 +1154,13 @@ The add action add the contact without overwriting he previous configuration.
 
 ``` json
 {
-    "result": []
+"result": []
 }
 ```
 
 To set more than one contactgroup to a host, use the character '|'. Ex:
 
-    "values": "mail-uranus-frontend;Supervisors|Guest"
+"values": "mail-uranus-frontend;Supervisors|Guest"
 
 The set action overwrite the previous configuration before setting the new
 contactgroup.
@@ -1169,7 +1169,7 @@ contactgroup.
 
 **POST**
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
 
 **Header**
 
@@ -1182,9 +1182,9 @@ contactgroup.
 
 ``` json
 {
-    "action": "delcontactgroup",
-    "object": "host",
-    "values": "mail-uranus-frontend;Guest"
+"action": "delcontactgroup",
+"object": "host",
+"values": "mail-uranus-frontend;Guest"
 }
 ```
 
@@ -1192,19 +1192,19 @@ contactgroup.
 
 ``` json
 {
-    "result": []
+"result": []
 }
 ```
 
 To delete more than one contactgroup, use the character '|'. Ex:
 
-    "values": "mail-uranus-frontend;Guest|Supervisors"
+"values": "mail-uranus-frontend;Guest|Supervisors"
 
 #### Get contact
 
 **POST**
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
 
 **Header**
 
@@ -1217,9 +1217,9 @@ To delete more than one contactgroup, use the character '|'. Ex:
 
 ``` json
 {
-    "action": "getcontact",
-    "object": "host",
-    "values": "mail-uranus-frontend"
+"action": "getcontact",
+"object": "host",
+"values": "mail-uranus-frontend"
 }
 ```
 
@@ -1227,12 +1227,12 @@ To delete more than one contactgroup, use the character '|'. Ex:
 
 ``` json
 {
-    "result": [
-        {
-            "id": "20",
-            "name": "user-mail"
-        }
-    ]
+"result": [
+{
+"id": "20",
+"name": "user-mail"
+}
+]
 }
 ```
 
@@ -1240,7 +1240,7 @@ To delete more than one contactgroup, use the character '|'. Ex:
 
 **POST**
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
 
 **Header**
 
@@ -1253,9 +1253,9 @@ To delete more than one contactgroup, use the character '|'. Ex:
 
 ``` json
 {
-    "action": "addcontact",
-    "object": "host",
-    "values": "mail-uranus-frontend;admin"
+"action": "addcontact",
+"object": "host",
+"values": "mail-uranus-frontend;admin"
 }
 ```
 
@@ -1263,13 +1263,13 @@ To delete more than one contactgroup, use the character '|'. Ex:
 
 ``` json
 {
-    "result": []
+"result": []
 }
 ```
 
 To add more than one contact to a host, use the character '|'. Ex:
 
-    "values": "mail-uranus-frontend;admin|SuperAdmin"
+"values": "mail-uranus-frontend;admin|SuperAdmin"
 
 The add action add the contact without overwriting he previous configuration.
 
@@ -1277,7 +1277,7 @@ The add action add the contact without overwriting he previous configuration.
 
 **POST**
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
 
 **Header**
 
@@ -1290,9 +1290,9 @@ The add action add the contact without overwriting he previous configuration.
 
 ``` json
 {
-    "action": "setcontact",
-    "object": "host",
-    "values": "mail-uranus-frontend;admin"
+"action": "setcontact",
+"object": "host",
+"values": "mail-uranus-frontend;admin"
 }
 ```
 
@@ -1300,13 +1300,13 @@ The add action add the contact without overwriting he previous configuration.
 
 ``` json
 {
-    "result": []
+"result": []
 }
 ```
 
 To set more than one contact to a host, use the character '|'. Ex:
 
-    "values": "mail-uranus-frontend;admin|SuperAdmin"
+"values": "mail-uranus-frontend;admin|SuperAdmin"
 
 The set action overwrite the previous configuration before setting the new
 contact.
@@ -1315,7 +1315,7 @@ contact.
 
 **POST**
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
 
 **Header**
 
@@ -1328,9 +1328,9 @@ contact.
 
 ``` json
 {
-    "action": "delcontact",
-    "object": "host",
-    "values": "mail-uranus-frontend;Guest"
+"action": "delcontact",
+"object": "host",
+"values": "mail-uranus-frontend;Guest"
 }
 ```
 
@@ -1338,19 +1338,19 @@ contact.
 
 ``` json
 {
-    "result": []
+"result": []
 }
 ```
 
 To delete more than one contact, use the character '|'. Ex:
 
-    "values": "mail-uranus-frontend;admin|SuperAdmin"
+"values": "mail-uranus-frontend;admin|SuperAdmin"
 
 #### Get hostgroup
 
 **POST**
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
 
 **Header**
 
@@ -1363,9 +1363,9 @@ To delete more than one contact, use the character '|'. Ex:
 
 ``` json
 {
-    "action": "gethostgroup",
-    "object": "host",
-    "values": "mail-uranus-frontend"
+"action": "gethostgroup",
+"object": "host",
+"values": "mail-uranus-frontend"
 }
 ```
 
@@ -1373,16 +1373,16 @@ To delete more than one contact, use the character '|'. Ex:
 
 ``` json
 {
-    "result": [
-        {
-            "id": "53",
-            "name": "Linux-Servers"
-        },
-        {
-            "id": "63",
-            "name": "Mail-Cyrus-Frontend"
-        }
-    ]
+"result": [
+{
+"id": "53",
+"name": "Linux-Servers"
+},
+{
+"id": "63",
+"name": "Mail-Cyrus-Frontend"
+}
+]
 }
 ```
 
@@ -1390,7 +1390,7 @@ To delete more than one contact, use the character '|'. Ex:
 
 **POST**
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
 
 **Header**
 
@@ -1403,9 +1403,9 @@ To delete more than one contact, use the character '|'. Ex:
 
 ``` json
 {
-    "action": "addhostgroup",
-    "object": "host",
-    "values": "mail-uranus-frontend;Mail-Postfix-Frontend"
+"action": "addhostgroup",
+"object": "host",
+"values": "mail-uranus-frontend;Mail-Postfix-Frontend"
 }
 ```
 
@@ -1413,13 +1413,13 @@ To delete more than one contact, use the character '|'. Ex:
 
 ``` json
 {
-    "result": []
+"result": []
 }
 ```
 
 To add more than one hostgroup to a host, use the character '|'. Ex:
 
-    "values": "mail-uranus-frontend;Mail-Postfix-Frontend|Linux-Servers"
+"values": "mail-uranus-frontend;Mail-Postfix-Frontend|Linux-Servers"
 
 The add action add the hostgroup without overwriting he previous configuration.
 
@@ -1427,7 +1427,7 @@ The add action add the hostgroup without overwriting he previous configuration.
 
 **POST**
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
 
 **Header**
 
@@ -1440,9 +1440,9 @@ The add action add the hostgroup without overwriting he previous configuration.
 
 ``` json
 {
-    "action": "sethostgroup",
-    "object": "host",
-    "values": "mail-uranus-frontend;Linux-Servers"
+"action": "sethostgroup",
+"object": "host",
+"values": "mail-uranus-frontend;Linux-Servers"
 }
 ```
 
@@ -1450,13 +1450,13 @@ The add action add the hostgroup without overwriting he previous configuration.
 
 ``` json
 {
-    "result": []
+"result": []
 }
 ```
 
 To set more than one hostgroup to a host, use the character '|'. Ex:
 
-    "values": "mail-uranus-frontend;Linux-Servers|Mail-Postfix-Frontend"
+"values": "mail-uranus-frontend;Linux-Servers|Mail-Postfix-Frontend"
 
 The set action overwrite the previous configuration before setting the new
 hostgroup.
@@ -1465,7 +1465,7 @@ hostgroup.
 
 **POST**
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
 
 **Header**
 
@@ -1478,9 +1478,9 @@ hostgroup.
 
 ``` json
 {
-    "action": "delhostgroup",
-    "object": "host",
-    "values": "mail-uranus-frontend;Linux-Servers"
+"action": "delhostgroup",
+"object": "host",
+"values": "mail-uranus-frontend;Linux-Servers"
 }
 ```
 
@@ -1488,19 +1488,19 @@ hostgroup.
 
 ``` json
 {
-    "result": []
+"result": []
 }
 ```
 
 To delete more than one hostgroup, use the character '|'. Ex:
 
-    "values": "mail-uranus-frontend;Linux-Servers|Mail-Postfix-Frontend"
+"values": "mail-uranus-frontend;Linux-Servers|Mail-Postfix-Frontend"
 
 #### Enable
 
 **POST**
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
 
 **Header**
 
@@ -1513,9 +1513,9 @@ To delete more than one hostgroup, use the character '|'. Ex:
 
 ``` json
 {
-    "action": "enable",
-    "object": "host",
-    "values": "mail-uranus-frontend"
+"action": "enable",
+"object": "host",
+"values": "mail-uranus-frontend"
 }
 ```
 
@@ -1523,7 +1523,7 @@ To delete more than one hostgroup, use the character '|'. Ex:
 
 ``` json
 {
-    "result": []
+"result": []
 }
 ```
 
@@ -1531,7 +1531,7 @@ To delete more than one hostgroup, use the character '|'. Ex:
 
 **POST**
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
 
 **Header**
 
@@ -1544,9 +1544,9 @@ To delete more than one hostgroup, use the character '|'. Ex:
 
 ``` json
 {
-    "action": "disable",
-    "object": "host",
-    "values": "mail-uranus-frontend"
+"action": "disable",
+"object": "host",
+"values": "mail-uranus-frontend"
 }
 ```
 
@@ -1554,474 +1554,474 @@ To delete more than one hostgroup, use the character '|'. Ex:
 
 ``` json
 {
-    "result": []
+"result": []
 }
 ```
 
 ### ACL
 
-  - **Object**
-    
-      - ACL
+- **Object**
+
+- ACL
 
 **Actions**
 
-    - reload
-    - lastreload
+- reload
+- lastreload
 
 #### Action ACL
 
-  - **Object**
-    
-      - ACLACTION
+- **Object**
+
+- ACLACTION
 
 **Actions**
 
-    - show
-    - add
-    - del
-    - setparam
-    - getaclgroup
-    - grant
-    - revoke
+- show
+- add
+- del
+- setparam
+- getaclgroup
+- grant
+- revoke
 
 #### ACL groups
 
-  - **Object**
-    
-      - ACLGROUP
+- **Object**
+
+- ACLGROUP
 
 **Actions**
 
-    - show
-    - add
-    - del
-    - setparam
-    - getmenu
-    - getaction
-    - getresource
-    - getcontact
-    - getcontactgroup
-    - setmenu
-    - setaction
-    - setresource
-    - addmenu
-    - addaction
-    - addresource
-    - delmenu
-    - delaction
-    - delresource
-    - setcontact
-    - setcontactgroup
-    - addcontact
-    - addcontactgroup
-    - delcontact
-    - delcontactgroup
+- show
+- add
+- del
+- setparam
+- getmenu
+- getaction
+- getresource
+- getcontact
+- getcontactgroup
+- setmenu
+- setaction
+- setresource
+- addmenu
+- addaction
+- addresource
+- delmenu
+- delaction
+- delresource
+- setcontact
+- setcontactgroup
+- addcontact
+- addcontactgroup
+- delcontact
+- delcontactgroup
 
 #### Menu ACL
 
-  - **Object**
-    
-      - ACLMENU
+- **Object**
+
+- ACLMENU
 
 **Actions**
 
-    - show
-    - add
-    - del
-    - setparam
-    - getaclgroup
-    - grant
-    - revoke
+- show
+- add
+- del
+- setparam
+- getaclgroup
+- grant
+- revoke
 
 #### Resource ACL
 
-  - **Object**
-    
-      - ACLRESOURCE
+- **Object**
+
+- ACLRESOURCE
 
 **Actions**
 
-    - show
-    - add
-    - del
-    - setparam
-    - getaclgroup
-    - grant
-    - revoke
+- show
+- add
+- del
+- setparam
+- getaclgroup
+- grant
+- revoke
 
 ### Centreon Broker
 
-  - **Object**
-    
-      - CENTBROKERCFG
+- **Object**
+
+- CENTBROKERCFG
 
 **Actions**
 
-    - show
-    - add
-    - del
-    - setparam
-    - listinput, listoutput, listlogger, listcorrelation, listtemporary,
+- show
+- add
+- del
+- setparam
+- listinput, listoutput, listlogger, listcorrelation, listtemporary,
 >     liststats
-    - getinput , getoutput, getlogger, getcorrelation, gettemporary, getstats
-    - addinput, addoutput, addlogger, addcorrelation, addtemporary, addstats
-    - delinput, deloutput, dellogger, delcorrelation, deltemporary, delstats
-    - setinput, setoutput, setlogger, setcorrelation, settemporary, setstats
+- getinput , getoutput, getlogger, getcorrelation, gettemporary, getstats
+- addinput, addoutput, addlogger, addcorrelation, addtemporary, addstats
+- delinput, deloutput, dellogger, delcorrelation, deltemporary, delstats
+- setinput, setoutput, setlogger, setcorrelation, settemporary, setstats
 
 ### CGI CFG
 
-  - **Object**
-    
-      - CGICFG
+- **Object**
+
+- CGICFG
 
 **Actions**
 
-    - show
-    - add
-    - del
-    - setparam
+- show
+- add
+- del
+- setparam
 
 ### Commands
 
-  - **Object**
-    
-      - CMD
+- **Object**
+
+- CMD
 
 **Actions**
 
-    - show
-    - add
-    - del
-    - setparam
+- show
+- add
+- del
+- setparam
 
 ### Contacts
 
-  - **Object**
-    
-      - CONTACT
+- **Object**
+
+- CONTACT
 
 **Actions**
 
-    - show
-    - add
-    - del
-    - setparam
-    - enable
-    - disable
+- show
+- add
+- del
+- setparam
+- enable
+- disable
 
 #### Contact templates
 
-  - **Object**
-    
-      - CONTACTTPL
+- **Object**
+
+- CONTACTTPL
 
 **Actions**
 
-    - show
-    - add
-    - del
-    - setparam
-    - enable
-    - disable
+- show
+- add
+- del
+- setparam
+- enable
+- disable
 
 #### Contact groups
 
-  - **Object**
-    
-      - CG
+- **Object**
+
+- CG
 
 **Actions**
 
-    - show
-    - add
-    - del
-    - setparam
-    - enable
-    - disable
-    - getcontact
-    - addcontact
-    - setcontact
-    - delcontact
+- show
+- add
+- del
+- setparam
+- enable
+- disable
+- getcontact
+- addcontact
+- setcontact
+- delcontact
 
 ### Dependencies
 
-  - **Object**
-    
-      - DEP
+- **Object**
+
+- DEP
 
 **Actions**
 
-    - show
-    - add
-    - del
-    - setparam
-    - listdep
-    - addparent
-    - addchild
-    - delparent
-    - delchild
+- show
+- add
+- del
+- setparam
+- listdep
+- addparent
+- addchild
+- delparent
+- delchild
 
 ### Downtimes
 
-  - **Object**
-    
-      - DOWNTIME
+- **Object**
+
+- DOWNTIME
 
 **Actions**
 
-    - show
-    - add
-    - del
-    - listperiods
-    - addweeklyperiod
-    - addmonthlyperiod
-    - addspecificperiod
-    - addhost, addhostgroup, addservice, addservicegroup
-    - delhost, delhostgroup, delservice, delservicegroup
-    - sethost, sethostgroup, setservice, setservicegroup
+- show
+- add
+- del
+- listperiods
+- addweeklyperiod
+- addmonthlyperiod
+- addspecificperiod
+- addhost, addhostgroup, addservice, addservicegroup
+- delhost, delhostgroup, delservice, delservicegroup
+- sethost, sethostgroup, setservice, setservicegroup
 
 ### Host template
 
-  - **Object**
-    
-      - HTPL
+- **Object**
+
+- HTPL
 
 **Actions** APPLYTPL and SETINSTANCE actions on HTPL
 
-    - show
-    - add
-    - del
-    - setparam
-    - getmacro
-    - setmacro
-    - delmacro
-    - getparent
-    - addparent
-    - setparent
-    - delparent
-    - getcontactgroup
-    - addcontactgroup
-    - setcontactgroup
-    - delcontactgroup
-    - getcontact
-    - addcontact
-    - setcontact
-    - delcontact
-    - gethostgroup
-    - addhostgroup
-    - sethostgroup
-    - delhostgroup
-    - setseverity
-    - unsetseverity
-    - enable
-    - disable
+- show
+- add
+- del
+- setparam
+- getmacro
+- setmacro
+- delmacro
+- getparent
+- addparent
+- setparent
+- delparent
+- getcontactgroup
+- addcontactgroup
+- setcontactgroup
+- delcontactgroup
+- getcontact
+- addcontact
+- setcontact
+- delcontact
+- gethostgroup
+- addhostgroup
+- sethostgroup
+- delhostgroup
+- setseverity
+- unsetseverity
+- enable
+- disable
 
 ### Host categories
 
-  - **Object**
-    
-      - HC
+- **Object**
+
+- HC
 
 **Actions**
 
-    - show
-    - add
-    - del
-    - getmember
-    - addmember
-    - setmember
-    - setseverity
-    - unsetseverity
-    - delmember
+- show
+- add
+- del
+- getmember
+- addmember
+- setmember
+- setseverity
+- unsetseverity
+- delmember
 
 ### Hostgroups
 
-  - **Object**
-    
-      - HG
+- **Object**
+
+- HG
 
 **Actions**
 
-    - show
-    - add
-    - del
-    - setparam
-    - getmember
-    - addmember
-    - setmember
-    - delmember
+- show
+- add
+- del
+- setparam
+- getmember
+- addmember
+- setmember
+- delmember
 
 ### Instances ( Pollers)
 
-  - **Object**
-    
-      - INSTANCE
+- **Object**
+
+- INSTANCE
 
 **Actions**
 
-    - show
-    - add
-    - del
-    - setparam
-    - gethosts
+- show
+- add
+- del
+- setparam
+- gethosts
 
 ### Service templates
 
-  - **Object**
-    
-      - STPL
+- **Object**
+
+- STPL
 
 **Actions**
 
-    - show
-    - add
-    - del
-    - setparam
-    - addhosttemplate
-    - sethosttemplate
-    - delhosttemplate
-    - getmacro
-    - setmacro
-    - delmacro
-    - getcontact
-    - addcontact
-    - setcontact
-    - delcontact
-    - getcontactgroup
-    - setcontactgroup
-    - delcontactgroup
-    - gettrap
-    - settrap
-    - deltrap
+- show
+- add
+- del
+- setparam
+- addhosttemplate
+- sethosttemplate
+- delhosttemplate
+- getmacro
+- setmacro
+- delmacro
+- getcontact
+- addcontact
+- setcontact
+- delcontact
+- getcontactgroup
+- setcontactgroup
+- delcontactgroup
+- gettrap
+- settrap
+- deltrap
 
 ### Services
 
-  - **Object**
-    
-      - SERVICE
+- **Object**
+
+- SERVICE
 
 **Actions**
 
-    - show
-    - add
-    - del
-    - setparam
-    - addhost
-    - sethost
-    - delhost
-    - getmacro
-    - setmacro
-    - delmacro
-    - setseverity
-    - unsetseverity
-    - getcontact
-    - addcontact
-    - setcontact
-    - delcontact
-    - getcontactgroup
-    - setcontactgroup
-    - delcontactgroup
-    - gettrap
-    - settrap
-    - deltrap
+- show
+- add
+- del
+- setparam
+- addhost
+- sethost
+- delhost
+- getmacro
+- setmacro
+- delmacro
+- setseverity
+- unsetseverity
+- getcontact
+- addcontact
+- setcontact
+- delcontact
+- getcontactgroup
+- setcontactgroup
+- delcontactgroup
+- gettrap
+- settrap
+- deltrap
 
 ### Service groups
 
-  - **Object**
-    
-      - SG
+- **Object**
+
+- SG
 
 **Actions**
 
-    - show
-    - add
-    - del
-    - setparam
-    - getservice
-    - gethostgroupservice
-    - addservice
-    - setservice
-    - addhostgroupservice
-    - sethostgroupservice
-    - delservice
-    - delhostgroupservice
+- show
+- add
+- del
+- setparam
+- getservice
+- gethostgroupservice
+- addservice
+- setservice
+- addhostgroupservice
+- sethostgroupservice
+- delservice
+- delhostgroupservice
 
 ### Service categories
 
-  - **Object**
-    
-      - SC
+- **Object**
+
+- SC
 
 **Actions**
 
-    - show
-    - add
-    - del
-    - setparam
-    - getservice
-    - getservicetemplate
-    - addservice
-    - setservice
-    - addservicetemplate
-    - setservicetemplate
-    - delservice
-    - delservicetemplate
-    - setseverity
-    - unsetseverity
+- show
+- add
+- del
+- setparam
+- getservice
+- getservicetemplate
+- addservice
+- setservice
+- addservicetemplate
+- setservicetemplate
+- delservice
+- delservicetemplate
+- setseverity
+- unsetseverity
 
 ### Time periods
 
-  - **Object**
-    
-      - TIMEPERIOD
+- **Object**
+
+- TIMEPERIOD
 
 **Actions**
 
-    - show
-    - add
-    - del
-    - setparam
-    - getexception
-    - setexception
-    - delexception
+- show
+- add
+- del
+- setparam
+- getexception
+- setexception
+- delexception
 
 ### Traps
 
-  - **Object**
-    
-      - TRAP
+- **Object**
+
+- TRAP
 
 **Actions**
 
-    - show
-    - add
-    - del
-    - setparam
-    - getmatching
-    - addmatching
-    - delmatching
-    - updatematching
+- show
+- add
+- del
+- setparam
+- getmatching
+- addmatching
+- delmatching
+- updatematching
 
 #### Vendors
 
-  - **Object**
-    
-      - VENDOR
+- **Object**
+
+- VENDOR
 
 **Actions**
 
-    - show
-    - add
-    - del
-    - setparam
-    - generatetraps
+- show
+- add
+- del
+- setparam
+- generatetraps
 
 #### Get business views
 
 **POST**
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
 
 **Header**
 
@@ -2034,8 +2034,8 @@ To delete more than one hostgroup, use the character '|'. Ex:
 
 ``` json
 {
-    "action":"show",
-    "object":"bv"
+"action":"show",
+"object":"bv"
 }
 ```
 
@@ -2045,18 +2045,18 @@ The response is a JSON flow listing all hosts, formated as follows: :
 
 ``` json
 {
-    "result": [
-        {
-            "id_ba_group": "1",
-            "name": "BA-Mail-View",
-            "description": "BA Mail View"
-        },
-        {
-            "id_ba_group": "2",
-            "name": "BA-CIO-View",
-            "description": "BA CIO View"
-        }
-    ]
+"result": [
+{
+"id_ba_group": "1",
+"name": "BA-Mail-View",
+"description": "BA Mail View"
+},
+{
+"id_ba_group": "2",
+"name": "BA-CIO-View",
+"description": "BA CIO View"
+}
+]
 }
 ```
 
@@ -2069,7 +2069,7 @@ API.
 
 Using GET method and the URL below:
 
-    api.domain.tld/centreon/api/index.php?object=centreon_realtime_hosts&action=list
+api.domain.tld/centreon/api/index.php?object=centreon_realtime_hosts&action=list
 
 **Header**
 
@@ -2129,7 +2129,7 @@ Field list :
 
 Using GET method and the URL below:
 
-    api.domain.tld/centreon/api/index.php?object=centreon_realtime_hosts&action=list&limit=60&viewType=all&sortType=name&order=desc&fields=id,name,alias,address,state,output,next_check
+api.domain.tld/centreon/api/index.php?object=centreon_realtime_hosts&action=list&limit=60&viewType=all&sortType=name&order=desc&fields=id,name,alias,address,state,output,next_check
 
 ### Service Status
 
@@ -2140,7 +2140,7 @@ that the service monitoring view.
 
 Using GET method and the URL below:
 
-    api.domain.tld/centreon/api/index.php?object=centreon_realtime_services&action=list
+api.domain.tld/centreon/api/index.php?object=centreon_realtime_services&action=list
 
 **Header**
 
@@ -2220,7 +2220,7 @@ Example:
 
 Using GET method and the URL below:
 
-    api.domain.tld/centreon/api/index.php?action=list&object=centreon_realtime_services&limit=60&viewType=all&sortType=name&order=desc&fields=id,description,host_id,host_name,state,output
+api.domain.tld/centreon/api/index.php?action=list&object=centreon_realtime_services&limit=60&viewType=all&sortType=name&order=desc&fields=id,description,host_id,host_name,state,output
 
 ### Submit results
 
@@ -2255,7 +2255,7 @@ For the host submission please provide the following information :
 
 To send status, please use the following URL using POST method:
 
-    api.domain.tld/centreon/api/index.php?action=submit&object=centreon_submit_results
+api.domain.tld/centreon/api/index.php?action=submit&object=centreon_submit_results
 
 **Header**
 
@@ -2269,24 +2269,24 @@ provided above formated as below:
 
 ``` json
 {
-    "results": [
-        {
-            "updatetime": "1528884076",
-            "host": "Centreon-Central",
-            "service": "Memory",
-            "status": "2",
-            "output": "The service is in CRITICAL state",
-            "perfdata": "perf=20"
-        },
-        {
-            "updatetime": "1528884076",
-            "host": "Centreon-Central",
-            "service": "fake-service",
-            "status": "1",
-            "output": "The service is in WARNING state",
-            "perfdata": "perf=10"
-        }
-    ]
+"results": [
+{
+"updatetime": "1528884076",
+"host": "Centreon-Central",
+"service": "Memory",
+"status": "2",
+"output": "The service is in CRITICAL state",
+"perfdata": "perf=20"
+},
+{
+"updatetime": "1528884076",
+"host": "Centreon-Central",
+"service": "fake-service",
+"status": "1",
+"output": "The service is in WARNING state",
+"perfdata": "perf=10"
+}
+]
 }
 ```
 
@@ -2295,16 +2295,16 @@ return code and a message for each submit
 
 ``` json
 {
-    "results": [
-        {
-            "code": 202,
-            "message": "The status send to the engine"
-        },
-        {
-            "code": 404,
-            "message": "The service is not present."
-        }
-    ]
+"results": [
+{
+"code": 202,
+"message": "The status send to the engine"
+},
+{
+"code": 404,
+"message": "The service is not present."
+}
+]
 }
 ```
 
@@ -2315,7 +2315,7 @@ the Centreon API. The BA list is sorted by *impact*.
 
 Use the GET method and URL below: :
 
-    api.domain.tld/centreon/api/index.php?object=centreon_bam_realtime_ba&action=list
+api.domain.tld/centreon/api/index.php?object=centreon_bam_realtime_ba&action=list
 
 **Header**
 
@@ -2339,56 +2339,56 @@ You can pass a number of parameters to select the data you want.
 
 Use the GET method and URL below: :
 
-    api.domain.tld/centreon/api/index.php?object=centreon_bam_ba_realtime&action=list&status=ok&number=0&limit=2
+api.domain.tld/centreon/api/index.php?object=centreon_bam_ba_realtime&action=list&status=ok&number=0&limit=2
 
 **Response**
 
 ``` json
 [
-    {
-        "id": "49",
-        "name": "Africa Office Availability",
-        "description": "Africa Office Availability",
-        "level_w": "12",
-        "level_c": "12",
-        "current_level": "100",
-        "acknowledged": "0",
-        "last_state_change": "1518663959",
-        "current_status": "0",
-        "in_downtime": "0",
-        "kpis": [
-            "372",
-            "373",
-            "401",
-            "402"
-        ]
-    },
-    {
-        "id": "50",
-        "name": "Asia Office Availability",
-        "description": "Asia Office Availability",
-        "level_w": "12",
-        "level_c": "12",
-        "current_level": "100",
-        "acknowledged": "0",
-        "last_state_change": "1519029327",
-        "current_status": "0",
-        "in_downtime": "0",
-        "kpis": [
-            "374",
-            "375",
-            "376"
-        ]
-    }
+{
+"id": "49",
+"name": "Africa Office Availability",
+"description": "Africa Office Availability",
+"level_w": "12",
+"level_c": "12",
+"current_level": "100",
+"acknowledged": "0",
+"last_state_change": "1518663959",
+"current_status": "0",
+"in_downtime": "0",
+"kpis": [
+"372",
+"373",
+"401",
+"402"
+]
+},
+{
+"id": "50",
+"name": "Asia Office Availability",
+"description": "Asia Office Availability",
+"level_w": "12",
+"level_c": "12",
+"current_level": "100",
+"acknowledged": "0",
+"last_state_change": "1519029327",
+"current_status": "0",
+"in_downtime": "0",
+"kpis": [
+"374",
+"375",
+"376"
+]
+}
 ]
 ```
 
 Additionnal information:
 
-  - current_status: 0 = OK, 1 = warning, 2 = Critical, 3 = Unknown
-  - current_impact: impact on linked BA in \%
-  - number: page number (first page is 0)
-  - limit: page limit (default= 30)
+- current_status: 0 = OK, 1 = warning, 2 = Critical, 3 = Unknown
+- current_impact: impact on linked BA in \%
+- number: page number (first page is 0)
+- limit: page limit (default= 30)
 
 ### KPI
 
@@ -2397,7 +2397,7 @@ available through the Centreon API. The kpi list is sorted by *impact*.
 
 Use the GET method and URL below: :
 
-    api.domain.tld/centreon/api/index.php?object=centreon_bam_realtime_kpi&action=list
+api.domain.tld/centreon/api/index.php?object=centreon_bam_realtime_kpi&action=list
 
 **Header**
 
@@ -2423,76 +2423,76 @@ You can pass a number of parameters to select the data you want:
 
 Use the GET method and URL below: :
 
-    api.domain.tld/centreon/api/index.php?object=centreon_bam_realtime_kpi&action=list&kpi_status=ok,warning&number=0&limit=2
+api.domain.tld/centreon/api/index.php?object=centreon_bam_realtime_kpi&action=list&kpi_status=ok,warning&number=0&limit=2
 
 **Response**
 
 ``` json
 [
-    {
-        "id": "366",
-        "activate": "1",
-        "ba_id": "47",
-        "ba_name": "DB-Oracle-Accounting",
-        "ba_activate": "1",
-        "type": "0",
-        "kpi_host": "srv-oracle-accounting",
-        "kpi_host_id": "149",
-        "kpi_service": "Query -Stores-",
-        "kpi_service_id": "1172",
-        "kpi_ba": "",
-        "kpi_ba_id": "",
-        "kpi_meta": "",
-        "kpi_meta_id": "",
-        "kpi_boolean": "",
-        "kpi_boolean_id": "",
-        "last_state_change": "1517297343",
-        "current_impact": "0",
-        "in_downtime": "0",
-        "acknowledged": "0",
-        "warning_impact": "0",
-        "critical_impact": "30",
-        "unknown_impact": "10",
-        "name": "srv-oracle-accounting / Query -Stores-",
-        "type_label": "Service",
-        "output": "Query <Stores> executed on 0.021 second",
-        "current_status": "0",
-        "current_status_label": "OK",
-        "ba_current_status": "0",
-        "ba_current_status_label": "OK"
-    },
-    {
-        "id": "365",
-        "activate": "1",
-        "ba_id": "47",
-        "ba_name": "DB-Oracle-Accounting",
-        "ba_activate": "1",
-        "type": "0",
-        "kpi_host": "srv-oracle-accounting",
-        "kpi_host_id": "149",
-        "kpi_service": "Query -Stock-",
-        "kpi_service_id": "1171",
-        "kpi_ba": "",
-        "kpi_ba_id": "",
-        "kpi_meta": "",
-        "kpi_meta_id": "",
-        "kpi_boolean": "",
-        "kpi_boolean_id": "",
-        "last_state_change": "1511356592",
-        "current_impact": "0",
-        "in_downtime": "0",
-        "acknowledged": "0",
-        "warning_impact": "0",
-        "critical_impact": "30",
-        "unknown_impact": "10",
-        "name": "srv-oracle-accounting / Query -Stock-",
-        "type_label": "Service",
-        "output": "Query <Stock> executed on 0.786 second",
-        "current_status": "0",
-        "current_status_label": "OK",
-        "ba_current_status": "0",
-        "ba_current_status_label": "OK"
-    }
+{
+"id": "366",
+"activate": "1",
+"ba_id": "47",
+"ba_name": "DB-Oracle-Accounting",
+"ba_activate": "1",
+"type": "0",
+"kpi_host": "srv-oracle-accounting",
+"kpi_host_id": "149",
+"kpi_service": "Query -Stores-",
+"kpi_service_id": "1172",
+"kpi_ba": "",
+"kpi_ba_id": "",
+"kpi_meta": "",
+"kpi_meta_id": "",
+"kpi_boolean": "",
+"kpi_boolean_id": "",
+"last_state_change": "1517297343",
+"current_impact": "0",
+"in_downtime": "0",
+"acknowledged": "0",
+"warning_impact": "0",
+"critical_impact": "30",
+"unknown_impact": "10",
+"name": "srv-oracle-accounting / Query -Stores-",
+"type_label": "Service",
+"output": "Query <Stores> executed on 0.021 second",
+"current_status": "0",
+"current_status_label": "OK",
+"ba_current_status": "0",
+"ba_current_status_label": "OK"
+},
+{
+"id": "365",
+"activate": "1",
+"ba_id": "47",
+"ba_name": "DB-Oracle-Accounting",
+"ba_activate": "1",
+"type": "0",
+"kpi_host": "srv-oracle-accounting",
+"kpi_host_id": "149",
+"kpi_service": "Query -Stock-",
+"kpi_service_id": "1171",
+"kpi_ba": "",
+"kpi_ba_id": "",
+"kpi_meta": "",
+"kpi_meta_id": "",
+"kpi_boolean": "",
+"kpi_boolean_id": "",
+"last_state_change": "1511356592",
+"current_impact": "0",
+"in_downtime": "0",
+"acknowledged": "0",
+"warning_impact": "0",
+"critical_impact": "30",
+"unknown_impact": "10",
+"name": "srv-oracle-accounting / Query -Stock-",
+"type_label": "Service",
+"output": "Query <Stock> executed on 0.786 second",
+"current_status": "0",
+"current_status_label": "OK",
+"ba_current_status": "0",
+"ba_current_status_label": "OK"
+}
 ]
 ```
 
@@ -2500,7 +2500,7 @@ Additionnal information:
 
 -   kpi\_type: 0 = service, 1 = metaservice, 2 = BA, 3 = boolean rule
 -   kpi\_name: name of the kpi (\<host\> / \<service\> or
-    \<metaservice\> or \<ba\_name\> or \<boolean\_rule\>)
+\<metaservice\> or \<ba\_name\> or \<boolean\_rule\>)
 -   kpi\_current\_status: 0 = OK, 1 = Warning, 2 = Critical, 3 = Unknown
 -   ba\_current\_status: 0 = OK, 1 = Warning, 2 = Critical, 3 = Unknown
 -   current\_impact: impact on linked BA in %

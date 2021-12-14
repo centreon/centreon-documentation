@@ -11,11 +11,11 @@ certain objects to speed up the creation of similar objects.
 
 The advantages are:
 
-  - Simplified element definition
-  - No duplication of data
-  - Facility of addition of new resources
-  - Predefined configurations assimilated to a “catalog of indicators”
-  - Templates can inherit from other templates.
+- Simplified element definition
+- No duplication of data
+- Facility of addition of new resources
+- Predefined configurations assimilated to a “catalog of indicators”
+- Templates can inherit from other templates.
 
 ## Services Templates
 
@@ -48,11 +48,11 @@ templates: on creation of a host, the services are generated automatically from
 host's templates. There are two advantages in linking services templates to
 hosts templates:
 
-  - The services generated automatically retain their granularity: it is
-    possible to change the Attributes of a service without affecting the other
-    services obtained from this template
-  - The creation of new hosts is speeded up greatly: you simply have to define
-    the host and the host's templates associated with it
+- The services generated automatically retain their granularity: it is
+possible to change the Attributes of a service without affecting the other
+services obtained from this template
+- The creation of new hosts is speeded up greatly: you simply have to define
+the host and the host's templates associated with it
 
 E.g.: We create the srvi-web-01 host according to the template below:
 
@@ -60,12 +60,12 @@ E.g.: We create the srvi-web-01 host according to the template below:
 
 The host srvi-web-01 will automatically possess the following services:
 
-  - Load, CPU, Memory, disk-/ from services templates linked to the host
-    template “Linux-Server-RedHat-5”
-  - Broken-jobs, hit-ratio, tablespaces, listener from services templates linked
-    to the host template “DB-MySQL”
-  - Process and connection from services templates linked to the host template
-    “Web-Server-Apache”
+- Load, CPU, Memory, disk-/ from services templates linked to the host
+template “Linux-Server-RedHat-5”
+- Broken-jobs, hit-ratio, tablespaces, listener from services templates linked
+to the host template “DB-MySQL”
+- Process and connection from services templates linked to the host template
+“Web-Server-Apache”
 
 When the services of a host are generated from host's templates, it is possible
 that certain services generated are not checked by the supervision tool. In this

@@ -15,8 +15,8 @@ yum install centreon-plugin-Network-Cisco-Apic-Restapi
 
 Be sure to have with you the following information:
 
-  - Read-Only Rest API credentials
-  - IP Address of the equipment
+- Read-Only Rest API credentials
+- IP Address of the equipment
 
 ## Centreon Configuration
 

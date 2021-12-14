@@ -17,13 +17,13 @@ yum install centreon-plugin-Virtualization-Proxmox-Ve-Restapi
 
 API user need to have this privileges:
 
-    # VM.Monitor, VM.Audit, Datastore.Audit, Sys.Audit, Sys.Syslog'
+# VM.Monitor, VM.Audit, Datastore.Audit, Sys.Audit, Sys.Syslog'
 
 ## Troubleshooting
 
 To check if you access to the api, you can run the following command :
 
-    #  curl -k -d "username=root@pam&password=yourpassword"  https://10.0.0.1:8006/api2/json/access/ticket
+#  curl -k -d "username=root@pam&password=yourpassword"  https://10.0.0.1:8006/api2/json/access/ticket
 
 ## Centreon Configuration
 

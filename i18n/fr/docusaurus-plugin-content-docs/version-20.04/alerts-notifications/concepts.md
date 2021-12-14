@@ -35,20 +35,20 @@ En plus des statuts standards, de nouveaux statuts permettent d'ajouter
 des informations complémentaires :
 
 - Le statut <span style={{color:'#2ad1d4'}}>PENDING</span> est un statut
-  affiché pour un service ou un hôte fraîchement configuré mais qui
-  n'a pas encore été contrôlé par l'ordonnanceur.
+affiché pour un service ou un hôte fraîchement configuré mais qui
+n'a pas encore été contrôlé par l'ordonnanceur.
 - Le statut <span style={{color:'#818185'}}>UNREACHABLE</span> est un
-  statut indiquant que l'hôte est situé (relation de parenté) en aval
-  d'un hôte dans un statut DOWN.
+statut indiquant que l'hôte est situé (relation de parenté) en aval
+d'un hôte dans un statut DOWN.
 - Le statut FLAPPING est un statut indiquant que le pourcentage de
-  changement de statut de l'objet est très élevé. Ce pourcentage est
-  obtenu à partir de calculs effectués par le moteur de supervision.
+changement de statut de l'objet est très élevé. Ce pourcentage est
+obtenu à partir de calculs effectués par le moteur de supervision.
 - Le statut <span style={{color:'#ae9500'}}>ACKNOWLEDGED</span> est un
-  statut indiquant que l'incident du service ou de l'hôte est pris en
-  compte par un utilisateur.
+statut indiquant que l'incident du service ou de l'hôte est pris en
+compte par un utilisateur.
 - Le statut <span style={{color:'#cc99ff'}}>DOWNTIME</span> est un statut
-  indiquant que l'incident du service ou de l'hôte est survenu durant
-  une période de temps d'arrêt programmé.
+indiquant que l'incident du service ou de l'hôte est survenu durant
+une période de temps d'arrêt programmé.
 
 ## Confirmation du statut
 
@@ -56,7 +56,7 @@ Une ressource peut avoir deux états :
 
 - SOFT : Signifie qu'un incident vient d'être détecté et que ce dernier doit être confirmé.
 - HARD : Signifie que le statut de l'incident est confirmé. Lorsque le statut est confirmé, le processus de notification
-  est enclenché (envoi d'un mail, SMS, ...).
+est enclenché (envoi d'un mail, SMS, ...).
 
 ### Explication
 

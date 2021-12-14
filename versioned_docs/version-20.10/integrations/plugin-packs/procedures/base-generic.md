@@ -12,13 +12,13 @@ This Plugin Pack gives you all basic templates.
 You can use it to create your own service templates, active as well as passive,
 with the following templates:
 
-  - generic-active-service
-  - generic-passive-service
+- generic-active-service
+- generic-passive-service
 
 Same for hosts:
 
-  - generic-active-host
-  - generic-passive-host
+- generic-active-host
+- generic-passive-host
 
 ## Centreon Configuration
 

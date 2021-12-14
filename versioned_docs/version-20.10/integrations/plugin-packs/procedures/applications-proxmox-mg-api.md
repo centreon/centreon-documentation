@@ -2,6 +2,9 @@
 id: applications-proxmox-mg-api
 title: Proxmox Mail Gateway
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Plugin Pack Assets
 
@@ -13,9 +16,8 @@ The Plugin Pack Proxmox Mail Gateway collects metrics for:
 
 ### Collected Metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Mail-->
+<Tabs groupId="operating-systems">
+<TabItem value="Mail" label="Mail">
 
 | Metric name                      | Description                    | Unit |
 | :------------------------------- | :----------------------------- | :--- |
@@ -28,13 +30,15 @@ The Plugin Pack Proxmox Mail Gateway collects metrics for:
 | mails.virus.incoming.count       | Number of incoming virus mails |      |
 | mails.virus.outgoing.count       | Number of outgoing virus mails |      |
 
-<!--Version-->
+</TabItem>
+<TabItem value="Version" label="Version">
 
-| Metric name     | Description                  | Unit |
-| :-------------- | :--------------------------- | :--- |
-| version status  | Proxmox Mail Gateway version |      |
+| Metric name    | Description                  | Unit |
+| :------------- | :--------------------------- | :--- |
+| version status | Proxmox Mail Gateway version |      |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -44,9 +48,8 @@ E.g: https://pmg.proxmox.com/pmg-docs/api-viewer/index
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="licence-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -56,7 +59,8 @@ yum install centreon-plugin-Applications-Proxmox-Mg-Api
 
 2. On the Centreon Web interface in "Configuration > Plugin Packs > Manager", install the *Proxmox Mail Gateway* Plugin Pack
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -72,9 +76,10 @@ yum install centreon-pack-applications-proxmox-mg-api
 
 3. On the Centreon Web interface in "Configuration > Plugin Packs > Manager", install the *Proxmox Mail Gateway* Plugin Pack
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
-## Host configuration 
+## Host configuration
 
 * Add a new Host and apply the *App-Proxmox-Mg-Api-custom* Host Template
 
@@ -97,26 +102,26 @@ Once the Plugin installed, log into your Poller using the *centreon-engine* user
 
 ```bash
 /usr/lib/centreon/plugins/centreon_proxmox_mg_api.pl \
-    --plugin=apps::proxmox::mg::restapi::plugin \
-    --mode=mail \
-    --hostname='10.30.2.79' \
-    --port='8006' \
-    --proto='https' \
-    --api-username='myapiusername' \
-    --api-password='myapipassword' \
-    --hours=1 \
-    --timespan=1800 \
-    --verbose
+--plugin=apps::proxmox::mg::restapi::plugin \
+--mode=mail \
+--hostname='10.30.2.79' \
+--port='8006' \
+--proto='https' \
+--api-username='myapiusername' \
+--api-password='myapipassword' \
+--hours=1 \
+--timespan=1800 \
+--verbose
 ```
 
 Output example:
 ```
 OK: Mail statistics are ok | 'mails.incoming.count'=71;;;0; 'mails.outgoing.count'=31;;;0; 'mails.traffic.in.bytespersecond'=4255.35B/s;;;0; 'mails.traffic.out.bytespersecond'=2780.03B/s;;;0; 'mails.spam.incoming.count'=5;;;0; 'mails.spam.outgoing.count'=0;;;0; 'mails.virus.incoming.count'=0;;;0; 'mails.virus.outgoing.count'=0;;;0;
 checking mail statistics
-    number of mails incoming: 71, outgoing: 31
-    traffic in: 4.16 KB/s, out: 2.71 KB/s
-    number of spam mails incoming: 5, outgoing: 0
-    number of virus mails incoming: 0, outgoing: 0
+number of mails incoming: 71, outgoing: 31
+traffic in: 4.16 KB/s, out: 2.71 KB/s
+number of spam mails incoming: 5, outgoing: 0
+number of virus mails incoming: 0, outgoing: 0
 ```
 
 The command above monitors mails statistics  (```--mode=mail```).
@@ -129,9 +134,9 @@ All the options that can be used with this plugin can be found over the ```--hel
 
 ```bash
 /usr/lib/centreon/plugins/centreon_proxmox_mg_api.pl \
-    --plugin=apps::proxmox::mg::restapi::plugin \
-    --mode=mail \
-    --help
+--plugin=apps::proxmox::mg::restapi::plugin \
+--mode=mail \
+--help
 ```
 
 ## Troubleshooting

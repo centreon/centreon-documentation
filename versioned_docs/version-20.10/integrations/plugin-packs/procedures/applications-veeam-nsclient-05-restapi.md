@@ -2,20 +2,23 @@
 id: applications-veeam-nsclient-05-restapi
 title: Veeam NSClient++ API
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
-The Plugin Pack *Veeam* works with the Centreon NSClient++ monitoring agent and 
+The Plugin Pack *Veeam* works with the Centreon NSClient++ monitoring agent and
 Powershell to check operating status of a Veeam Server. It uses the built-in NSClient++
-API. 
+API.
 
 ## Pack assets
 
 ### Monitored objects
 
-* Veeam Servers: 
-    * Jobs 
-    * Tapes
+* Veeam Servers:
+* Jobs
+* Tapes
 
 ### Collected metrics
 
@@ -25,23 +28,22 @@ API.
 
 ### NSClient++
 
-To monitor *Veeam* solutions through NSClient++ API, install the Centreon packaged version 
-of the NSClient++ agent. Please follow our [official documentation](../tutorials/centreon-nsclient-tutorial) 
-and make sure that the **Webserver / RESTApi** configuration is correct. 
+To monitor *Veeam* solutions through NSClient++ API, install the Centreon packaged version
+of the NSClient++ agent. Please follow our [official documentation](../tutorials/centreon-nsclient-tutorial)
+and make sure that the **Webserver / RESTApi** configuration is correct.
 
-### Powershell 
+### Powershell
 
 Powershell and the `Veeam.Backup.PowerShell` snap-in must be installed
-on the target Server. 
+on the target Server.
 
-Starting with Veeam 11, the Plugin will try to find the most recent version of 
-the `VeeamPSSnapin`. 
+Starting with Veeam 11, the Plugin will try to find the most recent version of
+the `VeeamPSSnapin`.
 
-## Installation 
+## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="licence-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor *Veeam* using REST API:
 
@@ -51,7 +53,8 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 
 2. On the Centreon Web interface, install the *Veeam* Centreon Pack on the **Configuration > Plugin Packs > Manager** page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor *Veeam* using REST API:
 
@@ -67,7 +70,8 @@ yum install centreon-pack-applications-veeam-nsclient-05-restapi
 
 3. On the Centreon Web interface, install the *Veeam* Pack on the **Configuration > Plugin Packs > Manager** page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host configuration
 
@@ -75,7 +79,7 @@ yum install centreon-pack-applications-veeam-nsclient-05-restapi
 * Apply the *App-Veeam-NSClient-05-Restapi-custom* template and configure all the mandatory Macros:
 
 | Mandatory | Name                      | Description                                                                |
-|:----------|:--------------------------|:-------------------------------------------------------------------------- |
+| :-------- | :------------------------ | :------------------------------------------------------------------------- |
 | X         | NSCPRESTAPIPORT           | NSClient++ RestAPI port (Default: '8443')                                  |
 | X         | NSCPRESTAPIPROTO          | NSClient++ RestAPI protocol to use (Default: 'https')                      |
 |           | NSCPRESTAPILEGACYPASSWORD | Password to authenticate against the API if relevant                       |

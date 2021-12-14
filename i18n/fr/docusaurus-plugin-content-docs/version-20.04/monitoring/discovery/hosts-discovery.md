@@ -69,11 +69,11 @@ tâches de découverte.
 
 Les états d'une tâche peuvent être :
 
-  - Programmé <img src={require('../../assets/monitoring/discovery/host-discovery-scheduled.png').default} style={{width:'24px', marginBottom:'-6px'}} />
-  - En cours <img src={require('../../assets/monitoring/discovery/host-discovery-running.png').default} style={{width:'24px', marginBottom:'-6px'}} />
-  - En cours d'enregistrement <img src={require('../../assets/monitoring/discovery/host-discovery-saving.png').default} style={{width:'24px', marginBottom:'-6px'}} />
-  - Terminé <img src={require('../../assets/monitoring/discovery/host-discovery-finished.png').default} style={{width:'24px', marginBottom:'-6px'}} />
-  - Echoué <img src={require('../../assets/monitoring/discovery/host-discovery-failed.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+- Programmé <img src={require('../../assets/monitoring/discovery/host-discovery-scheduled.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+- En cours <img src={require('../../assets/monitoring/discovery/host-discovery-running.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+- En cours d'enregistrement <img src={require('../../assets/monitoring/discovery/host-discovery-saving.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+- Terminé <img src={require('../../assets/monitoring/discovery/host-discovery-finished.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+- Echoué <img src={require('../../assets/monitoring/discovery/host-discovery-failed.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 
 Si une tâche est dans un état *Echoué*, survolez l'icone pour en connaitre la
 raison.
@@ -131,12 +131,12 @@ attribut d'un item découvert à la propriété d'un futur hôte.
 
 Il y a quatre types de *modificateur* :
 
-  - Association: associe la valeur d'un attribut aux propriétés communes
-    d'un hôte comme son nom, son alias ou son adresse IP,
-  - Macro: associe la valeur d'un attribut à une macro *custom* d'un hôte,
-  - Template: ajoute un modèle d'hôte,
-  - Monitoring: choisit depuis quel serveur de supervision l'hôte sera
-    supervisé.
+- Association: associe la valeur d'un attribut aux propriétés communes
+d'un hôte comme son nom, son alias ou son adresse IP,
+- Macro: associe la valeur d'un attribut à une macro *custom* d'un hôte,
+- Template: ajoute un modèle d'hôte,
+- Monitoring: choisit depuis quel serveur de supervision l'hôte sera
+supervisé.
 
 Pour tous ces *modificateur*, des conditions peuvent être définies pour savoir
 si la modification sera effective ou non.

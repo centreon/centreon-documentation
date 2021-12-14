@@ -8,15 +8,15 @@ title: Superviser votre premier hôte
 Avant de commencer à superviser, voyons ensemble quelques notions principales :
 
 * Un **hôte** (ou **host** en anglais) est tout équipement qui possède une adresse IP et que l'on souhaite superviser :
-  un serveur physique, une machine virtuelle, une sonde de température, une caméra IP, une imprimante ou un espace de
-  stockage, par exemple.
+un serveur physique, une machine virtuelle, une sonde de température, une caméra IP, une imprimante ou un espace de
+stockage, par exemple.
 * Un **service** est un point de contrôle, ou indicateur, à superviser sur un hôte. Cela peut être le taux d'utilisation
-  du CPU, la température, la détection de mouvement, le taux d'utilisation de la bande passante, les E/S disque, etc.
+du CPU, la température, la détection de mouvement, le taux d'utilisation de la bande passante, les E/S disque, etc.
 * Afin de mesurer chaque indicateur, on utilise des **sondes** de supervision (**plugin** en anglais) qui sont exécutées
-  périodiquement par un moteur de collecte appelé **Centreon Engine**.
+périodiquement par un moteur de collecte appelé **Centreon Engine**.
 * Pour être exécutée, une sonde a besoin d'un ensemble d'arguments qui définissent par exemple à quel hôte se connecter
-  ou via quel protocole. La sonde et ses arguments associés forment une **commande** (**command** en anglais).
-  
+ou via quel protocole. La sonde et ses arguments associés forment une **commande** (**command** en anglais).
+
 Ainsi, superviser un hôte avec Centreon consiste à configurer l'ensemble des commandes nécessaires à la mesure des
 indicateurs désirés, puis à déployer cette configuration sur le moteur de collecte afin que ces commandes soient
 exécutées périodiquement.
@@ -25,13 +25,13 @@ Pour simplifier la configuration, on utilise des modèles de supervision :
 
 * Un **modèle d'hôte** (**host template** en anglais) définit la configuration des indicateurs pour un type d'équipement donné.
 * Il s'appuie sur des **modèles de service** (**service templates**) qui définissent la configuration des commandes
-  nécessaires à la mesure de ces indicateurs.
+nécessaires à la mesure de ces indicateurs.
 * Centreon fournit des **Plugins Packs** téléchargeables à installer sur sa plateforme de supervision: chaque Plugin
-  Pack regroupe des modèles d'hôtes et de services pour configurer en quelques clics la supervision d'un équipement
-  particulier.
+Pack regroupe des modèles d'hôtes et de services pour configurer en quelques clics la supervision d'un équipement
+particulier.
 
 Ce guide de démarrage rapide propose d'installer les modèles de supervision fournis gratuitement avec la solution
-Centreon puis de les mettre en oeuvre pour superviser vos premiers équipements. 
+Centreon puis de les mettre en oeuvre pour superviser vos premiers équipements.
 
 ![image](../assets/getting-started/host_service_command.png)
 
@@ -141,7 +141,7 @@ Pour connaître manuellement le nom des partitions disponibles, vous pouvez exé
 
 ```Shell
 /usr/lib/centreon/plugins/centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin \
-    --hostname=10.40.1.169 --snmp-community=public --snmp-version=2c --mode=list-storages
+--hostname=10.40.1.169 --snmp-community=public --snmp-version=2c --mode=list-storages
 ```
 Voici le résultat :
 ```Shel
@@ -169,9 +169,9 @@ Faites de même pour connaître la liste des interfaces réseau :
 
 ```Shell
 /usr/lib/centreon/plugins/centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin \
-    --hostname=10.40.1.169 --snmp-community=public --snmp-version=2c --mode=list-interfaces
+--hostname=10.40.1.169 --snmp-community=public --snmp-version=2c --mode=list-interfaces
 ```
-Voici le résultat : 
+Voici le résultat :
 ```Shell
 List interfaces:
 'lo' [speed = 10, status = up, id = 1]
@@ -254,9 +254,9 @@ Pour connaître manuellement le nom des partitions disponibles, vous pouvez exé
 
 ```Shell
 /usr/lib/centreon/plugins/centreon_windows_snmp.pl --plugin=os::windows::snmp::plugin \
-    --hostname=10.40.1.169 --snmp-version='2c' --snmp-community='public' --mode=list-storages
+--hostname=10.40.1.169 --snmp-version='2c' --snmp-community='public' --mode=list-storages
 ```
-Voici le résultat : 
+Voici le résultat :
 ```Shell
 List storage:
 'C:\ Label:  Serial Number 2cb607df' [size = 53317988352B] [id = 1]
@@ -268,7 +268,7 @@ Faites de même pour connaître la liste des interfaces réseau :
 
 ```Shell
 /usr/lib/centreon/plugins/centreon_windows_snmp.pl --plugin=os::windows::snmp::plugin \
-    --hostname=10.40.1.169 --snmp-version='2c' --snmp-community='public' --mode=list-interfaces
+--hostname=10.40.1.169 --snmp-version='2c' --snmp-community='public' --mode=list-interfaces
 ```
 Voici le résultat :
 ```Shell
@@ -372,10 +372,10 @@ Pour connaître manuellement le nom des interfaces réseau disponibles, vous pou
 
 ```Shell
 /usr/lib/centreon/plugins/centreon_cisco_standard_snmp.pl \
-    --plugin=network::cisco::standard::snmp::plugin --hostname=10.40.1.254 \
-    --snmp-community=public --snmp-version=2c --mode=list-interfaces
+--plugin=network::cisco::standard::snmp::plugin --hostname=10.40.1.254 \
+--snmp-community=public --snmp-version=2c --mode=list-interfaces
 ```
-Voici le résultat : 
+Voici le résultat :
 ```Shell
 List interfaces:
 'Gi1/0/1' [speed = 1000, status = up, id = 10101]
@@ -412,10 +412,10 @@ Ou pour récupérer la liste des spanning-tree :
 
 ```Shell
 /usr/lib/centreon/plugins/centreon_cisco_standard_snmp.pl \
-    --plugin=network::cisco::standard::snmp::plugin --hostname=10.40.1.254 \
-    --snmp-community=public --snmp-version=2c --mode=list-spanning-trees
+--plugin=network::cisco::standard::snmp::plugin --hostname=10.40.1.254 \
+--snmp-community=public --snmp-version=2c --mode=list-spanning-trees
 ```
-Voici le résultat : 
+Voici le résultat :
 ```Shell
 List ports with Spanning Tree Protocol:
 [port = GigabitEthernet1/0/20] [state = forwarding] [op_status = up] [admin_status = up] [index = 10120]
@@ -566,16 +566,16 @@ effectuées, il est nécessaire de suivre la procédure ci-dessous.
 2. Choisissez les collecteurs sur lesquels exporter la configuration.
 3. Cliquez sur **Exporter la configuration**
 
-    ![image](../assets/monitoring/monitoring-servers/export_conf.png)
+![image](../assets/monitoring/monitoring-servers/export_conf.png)
 
 4. Cochez les cases suivantes :
-  - **Générer les fichiers de configuration**
-  - **Lancer le débogage du moteur de supervision (-v)**
-  - **Déplacer les fichiers générés**
-  - **Redémarrer l'ordonnanceur**.
+- **Générer les fichiers de configuration**
+- **Lancer le débogage du moteur de supervision (-v)**
+- **Déplacer les fichiers générés**
+- **Redémarrer l'ordonnanceur**.
 
 5. Cliquez sur **Exporter**.
 
-    ![image](../assets/monitoring/monitoring-servers/export_conf_done.png)
+![image](../assets/monitoring/monitoring-servers/export_conf_done.png)
 
 6. Vérifiez qu'aucune erreur n'apparaît lors de la génération.

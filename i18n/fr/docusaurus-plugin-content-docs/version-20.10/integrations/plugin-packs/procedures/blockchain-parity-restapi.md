@@ -2,29 +2,31 @@
 id: blockchain-parity-restapi
 title: Parity API
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
-Parity est un fork de la Blockchain Ethereum. 
+Parity est un fork de la Blockchain Ethereum.
 
-Le Plugin Pack *Parity API* collecte des informations et métriques sur l'activité 
-des noeuds d'un réseau Blockchain au travers d'une API. 
+Le Plugin Pack *Parity API* collecte des informations et métriques sur l'activité
+des noeuds d'un réseau Blockchain au travers d'une API.
 
 ## Contenu du Pack
 
 ### Objets supervisés
 
 * Noeud(s) d'une Blockchain Parity
-     * Parity
-     * Info
-     * Eth
-     * Net
+* Parity
+* Info
+* Eth
+* Net
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Parity-->
+<Tabs groupId="operating-systems">
+<TabItem value="Parity" label="Parity">
 
 | Metric name                 | Description                      | Unit |
 |:----------------------------|:---------------------------------|------|
@@ -35,7 +37,8 @@ des noeuds d'un réseau Blockchain au travers d'une API.
 | parity.peers.max            | Maximum number of peers          |      |
 | parity.peers.usage          | Peers usage expressed in percent |   %  |
 
-<!--Eth-->
+</TabItem>
+<TabItem value="Eth" label="Eth">
 
 | Metric name                          | Description                   |
 |:-------------------------------------|:------------------------------|
@@ -49,24 +52,25 @@ des noeuds d'un réseau Blockchain au travers d'une API.
 | parity.eth.gas.price                 | Gas price                     |
 | parity.eth.gas.used                  | Gas consumption               |
 
-<!--Net-->
+</TabItem>
+<TabItem value="Net" label="Net">
 
 | Metric name                   | Description              |
 |:------------------------------|:-------------------------|
 | parity.network.peers.count    | Number of known peers    |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
-Le Poller doit pouvoir communiquer avec le noeud Parity via le protocole HTTP et 
+Le Poller doit pouvoir communiquer avec le noeud Parity via le protocole HTTP et
 via le port configuré (par défaut: 8545).
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="operating-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon supervisant des noeuds Parity:
 
@@ -74,10 +78,11 @@ via le port configuré (par défaut: 8545).
 yum install centreon-plugin-Blockchain-Parity-Restapi
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin Pack *Parity API* depuis 
+2. Sur l'interface Web de Centreon, installer le Plugin Pack *Parity API* depuis
 la page  `Configuration > Plugin Packs`.
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon supervisant des noeuds Parity:
 
@@ -85,16 +90,17 @@ la page  `Configuration > Plugin Packs`.
 yum install centreon-plugin-Blockchain-Parity-Restapi
 ```
 
-2. Installer le RPM du Plugin Pack *Parity API* sur le serveur Central: 
+2. Installer le RPM du Plugin Pack *Parity API* sur le serveur Central:
 
- ```bash
+```bash
 yum install centreon-pack-blockchain-parity-restapi
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin Pack *Parity API* depuis 
+3. Sur l'interface Web de Centreon, installer le Plugin Pack *Parity API* depuis
 la page  `Configuration > Plugin Packs`.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration d'un Hôte
 
@@ -112,54 +118,54 @@ la page  `Configuration > Plugin Packs`.
 
 ## Comment tester mes configurations et le Plugin en ligne de commande ?
 
-Une fois le Plugin déployé, connectez vous à votre Collecteur en SSH et executez 
+Une fois le Plugin déployé, connectez vous à votre Collecteur en SSH et executez
 la commande suivante au travers de l'utilisateur *centreon-engine*:
 
 ```bash
-/usr/lib/centreon/plugins//centreon_blockchain_parity_api.pl  \ 
-   --plugin=blockchain::parity::restapi::plugin  \ 
-   --mode=net  \ 
-   --hostname=10.0.0.1  \ 
-   --port=8545  \ 
-   --proto=http \
-   --timeout=10  \ 
-   --proto=http  \ 
-   --api-path=/  \ 
-   --warning-peers=''  \ 
-   --critical-peers='1:'   
+/usr/lib/centreon/plugins//centreon_blockchain_parity_api.pl  \
+--plugin=blockchain::parity::restapi::plugin  \
+--mode=net  \
+--hostname=10.0.0.1  \
+--port=8545  \
+--proto=http \
+--timeout=10  \
+--proto=http  \
+--api-path=/  \
+--warning-peers=''  \
+--critical-peers='1:'
 ```
 
 Le retour de la commande doit être similaire à:
 
 `OK: Parity network module: connected peers: 2`
 
-Cette commande déclenchera une alerte WARNING si le nombre de peers connecté est 
+Cette commande déclenchera une alerte WARNING si le nombre de peers connecté est
 inférieur à 1 (`--critical-peers=1:`).
 
 Tous les modes d'un Plugin donné peuvent être listés au moyen de la commande suivante:
 
 ```bash
-/usr/lib/centreon/plugins//centreon_blockchain_parity_api.pl  \ 
-    --plugin=blockchain::parity::restapi::plugin  \ 
-    --list-mode
+/usr/lib/centreon/plugins//centreon_blockchain_parity_api.pl  \
+--plugin=blockchain::parity::restapi::plugin  \
+--list-mode
 ```
 
 ## Diagnostic des erreurs communes
 
-### UNKNOWN: Can't connect to ... 
+### UNKNOWN: Can't connect to ...
 
-Cette erreur signifie que Centreon n'a pas réussi à se connecter à l'API du 
+Cette erreur signifie que Centreon n'a pas réussi à se connecter à l'API du
 BCM Poller. Vérifiez que la requête n'est pas bloquée par un outil externe
 (un pare-feu par exemple). Si vous utilisez un proxy, renseignez son URL dans la
-Macro EXTRAOPTIONS de l'Hôte ou directement dans la commande avec l'option 
+Macro EXTRAOPTIONS de l'Hôte ou directement dans la commande avec l'option
 ```--proxyurl='http://proxy.mycompany:8080'```.
 
 Vérifiez également que le port configuré est correct.
 
 ### J'obtiens le message d'erreur suivant:  ``UNKNOWN: 501 Protocol scheme 'connect' is not supported |```
-Dans certains cas, et plus spécifiquement lors de l'usage d'un proxy 
-d'entreprise, le protocole de connexion n'est pas supporté par la libraire lwp 
+Dans certains cas, et plus spécifiquement lors de l'usage d'un proxy
+d'entreprise, le protocole de connexion n'est pas supporté par la libraire lwp
 utlisée par défaut par le Plugin Centreon.
-Cette erreur peut être résolue en utilisant le backend HTTP curl. Pour ce faire, 
-ajoutez l'option ```--http-backend='curl'``` dans la Macro EXTRAOPTIONS de 
+Cette erreur peut être résolue en utilisant le backend HTTP curl. Pour ce faire,
+ajoutez l'option ```--http-backend='curl'``` dans la Macro EXTRAOPTIONS de
 l'Hôte ou directement à la commande.

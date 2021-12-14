@@ -17,9 +17,9 @@ out or waiting 10 hours will flush the cache.
 This integration is (at least) compatible with the following Service Now
 versions:
 
-  - Madrid
-  - London
-  - New York
+- Madrid
+- London
+- New York
 
 ## Requirements
 
@@ -43,10 +43,10 @@ Our provider requires the following parameters:
 
 As of now, the provider is able to retrieve the following objects from ServiceNow:
 
-  - Categories
-  - Subcategories
-  - Impact
-  - Urgency
-  - Severity
-  - Assignment Group
-  - Assignment
+- Categories
+- Subcategories
+- Impact
+- Urgency
+- Severity
+- Assignment Group
+- Assignment

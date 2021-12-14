@@ -15,17 +15,17 @@ autres attributs sont optionnels.
 
 Il existe trois types de modèles :
 
-  - Les modèles d’hôtes
-  - Les modèles de services
-  - Les modèles de contacts
+- Les modèles d’hôtes
+- Les modèles de services
+- Les modèles de contacts
 
 Les avantages sont :
 
-  - Définition simplifiée des éléments
-  - Pas de redondance d’information
-  - Facilité d’ajout de nouvelles ressources
-  - Configurations prédéfinies assimilées à un « catalogue d’indicateurs»
-  - Les modèles peuvent hériter d’autres modèles
+- Définition simplifiée des éléments
+- Pas de redondance d’information
+- Facilité d’ajout de nouvelles ressources
+- Configurations prédéfinies assimilées à un « catalogue d’indicateurs»
+- Les modèles peuvent hériter d’autres modèles
 
 ## Les modèles d’hôtes
 
@@ -34,8 +34,8 @@ Les avantages sont :
 Un hôte ou un modèle d’hôte peut hériter d’un ou plusieurs modèles d’hôtes. Cet
 héritage peut être :
 
-  - de type associatif (addition de plusieurs modèles d’hôte)
-  - de type père-fils
+- de type associatif (addition de plusieurs modèles d’hôte)
+- de type père-fils
 
 #### Héritage de type Père-Fils
 
@@ -104,11 +104,11 @@ d’hôtes : lors de la création d’un hôte, les services sont générés
 automatiquement à partir des modèles d’hôtes. Il y a deux intérêts à lier les
 modèles de services aux modèles d’hôtes :
 
-  - Les services générés automatiquement conservent leur granularité : il est
-    donc possible de modifier les attributs d’un service sans impacter les
-    autres services issus de ce modèle
-  - La création de nouveaux hôtes est grandement accélérée : vous n’avez qu’à
-    définir l’hôte et les modèles d’hôtes associés à celui-ci
+- Les services générés automatiquement conservent leur granularité : il est
+donc possible de modifier les attributs d’un service sans impacter les
+autres services issus de ce modèle
+- La création de nouveaux hôtes est grandement accélérée : vous n’avez qu’à
+définir l’hôte et les modèles d’hôtes associés à celui-ci
 
 Exemple : Je créé l’hôte srvi-web-01 selon le modèle ci-dessous :
 
@@ -116,12 +116,12 @@ Exemple : Je créé l’hôte srvi-web-01 selon le modèle ci-dessous :
 
 L’hôte srvi-web-01 possèdera automatiquement les services suivants :
 
-  - Load, CPU, Memory, disk-/ à partir des modèles de services issus du modèle
-    d’hôte “Linux-Server-RedHat-5”
-  - broken-jobs, hit-ratio, tablespaces, listener à partir des modèles de
-    services issus du modèle d’hôte “DB-MySQL”
-  - processus et connection à partir des modèles de services issus du modèle
-    d’hôte “Web-Server-Apache”
+- Load, CPU, Memory, disk-/ à partir des modèles de services issus du modèle
+d’hôte “Linux-Server-RedHat-5”
+- broken-jobs, hit-ratio, tablespaces, listener à partir des modèles de
+services issus du modèle d’hôte “DB-MySQL”
+- processus et connection à partir des modèles de services issus du modèle
+d’hôte “Web-Server-Apache”
 
 Lorsque les services d’un hôte sont générés à partir des modèles d’hôtes, il est
 possible que certains services générés ne soient plus ou pas vérifiés par

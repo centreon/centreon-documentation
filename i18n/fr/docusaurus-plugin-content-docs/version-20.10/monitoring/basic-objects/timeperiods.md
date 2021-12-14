@@ -20,9 +20,9 @@ La configuration des périodes temporelles se déroule dans le menu : **Configur
 ### Options basiques
 
 * Les champs **Time period name** et **Alias** définissent respectivement le nom et la description de la période
-  temporelle.
+temporelle.
 * Tes champs appartenant à la sous-catégorie **Time range** définissent les jours de la semaine pour lesquels il est
-  nécessaire de définir des plages horaires.
+nécessaire de définir des plages horaires.
 * Le tableau **Exceptions** permet d’inclure des jours exclus de la période de temps.
 
 ### Syntaxe d’une période de temps
@@ -37,7 +37,7 @@ Quelques exemples :
 
 * 24 heures sur 24 et 7 jours sur 7 jours : 00:00-24:00 (à appliquer à tous les jours de la semaine).
 * De 08h00 à 12h00 et de 14h00 à 18h45 les jours de la semaine : 08:00-12:00,14:00-18:45 (à entrer au niveau des jours
-  de la semaine uniquement).
+de la semaine uniquement).
 
 ![image](../../assets/configuration/05timeperiod.png)
 

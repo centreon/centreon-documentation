@@ -2,6 +2,9 @@
 id: install
 title: Install Centreon MAP extension
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 > Centreon MAP demande une licence valide. Pour en acheter une et récupérer les
 > référentiels nécessaires, contactez [Centreon](mailto:sales@centreon.com).
@@ -10,8 +13,8 @@ Ce chapitre décrit comment installer Centreon MAP. Le serveur doit être
 installé sur une machine dédiée pour permettre à Centreon MAP de fonctionner avec
 sa propre base de données et d'éviter tout conflit potentiel avec le serveur central.
 
-Avant l'installation, assurez-vous de consulter le chapitre sur les prérequis pour 
-connaître la configuration requise (CPU et mémoire). Choisissez le 
+Avant l'installation, assurez-vous de consulter le chapitre sur les prérequis pour
+connaître la configuration requise (CPU et mémoire). Choisissez le
 type d'architecture qui répond le mieux à vos besoins.
 
 ## Architecture
@@ -20,9 +23,9 @@ Centreon MAP se compose de trois éléments :
 
 - Centreon MAP Server, développé en Java, utilise SpringBoot, Hibernate et CXF
 - l'interface web Centreon MAP, developpée en Javascript, et basée sur
-  [Backbone.js](http://backbonejs.org/)
+[Backbone.js](http://backbonejs.org/)
 - le client Centreon MAP Desktop, developpé en Java, et basé sur [Eclipse RCP
-  4](https://wiki.eclipse.org/Eclipse4/RCP).
+4](https://wiki.eclipse.org/Eclipse4/RCP).
 
 Le schéma ci-dessous résume l'architecture :
 
@@ -104,15 +107,15 @@ qui doivent être inclus dans le décompte.
 
 - Compte administrateur Centreon Web.
 
-> Même avec un serveur correctement dimensionné, vous devez garder à l'esprit 
-> les meilleures pratiques et recommandations lors de la création de vues 
+> Même avec un serveur correctement dimensionné, vous devez garder à l'esprit
+> les meilleures pratiques et recommandations lors de la création de vues
 > afin de ne pas rencontrer de problèmes de performance.
 
 ### Interface web Centreon MAP Web
 
 #### Licence
 
-L'interface web nécessite que la licence soit disponible et valide sur le serveur 
+L'interface web nécessite que la licence soit disponible et valide sur le serveur
 central de Centreon. Contactez l'[équipe support Centreon](https://centreon.force.com/) pour obtenir
 et installer votre clé de licence.
 
@@ -120,7 +123,7 @@ et installer votre clé de licence.
 
 L'interface Web Centreon MAP est compatible avec les navigateurs web suivants :
 
-* Google Chrome (dernière version au moment de la sortie du logiciel Centreon et suivantes).  Veuillez consulter la [FAQ Google Chrome](https://support.google.com/chrome/a/answer/188447?hl=en) pour une description de la politique de support de Chrome. 
+* Google Chrome (dernière version au moment de la sortie du logiciel Centreon et suivantes).  Veuillez consulter la [FAQ Google Chrome](https://support.google.com/chrome/a/answer/188447?hl=en) pour une description de la politique de support de Chrome.
 * Mozilla Firefox (dernière version au moment de la sortie du logiciel Centreon et suivantes).  Veuillez consulter la [FAQ Mozilla](https://www.mozilla.org/en-US/firefox/organizations/faq/) pour obtenir une description de la politique de support de Firefox.
 * Apple Safari (dernière version au moment de la sortie du logiciel Centreon et suivantes)
 * Microsoft Edge Chromium (dernière version au moment de la sortie du logiciel Centreon et suivantes).
@@ -139,27 +142,28 @@ La résolution de votre écran doit être d'au moins 1280 x 768.
 - Debian 7,8 ou 9
 
 > Le client Desktop n'est pas compatible avec Microsoft Windows Server. * Si une version de Java
-> autre que 8 est installée, envisagez d'installer Java 8 et de modifier le fichier 
+> autre que 8 est installée, envisagez d'installer Java 8 et de modifier le fichier
 > Centreon-Map4.ini pour ajouter la ligne suivante `-vm $path_to_java8$` AVANT `-vmwargs`.
 
 Pour optimiser le client Desktop, vous devez lui allouer plus de mémoire que la
 valeur par défaut. Modifiez le fichier suivant:
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Windows-->
+<Tabs groupId="operating-systems">
+<TabItem value="Windows" label="Windows">
 
 ```shell
 C:\Users\<YOUR_USERNAME>\AppData\Local\Centreon-Map4\Centreon-Map4.ini
 ```
 
-<!--Linux-->
+</TabItem>
+<TabItem value="Linux" label="Linux">
 
 ```shell
 /opt/centreon-map4-desktop-client/Centreon-Map4.ini
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 Et ajoutez les lignes suivantes à la fin du fichier, sur une nouvelle ligne :
 
@@ -173,7 +177,7 @@ Et ajoutez les lignes suivantes à la fin du fichier, sur une nouvelle ligne :
 La machine Centreon MAP Server doit accéder à :
 
 - Centreon Central broker, généralement sur la machine Centreon Central, en utilisant le port TCP
-  5758
+5758
 - Centreon Database, généralement sur la machine Centreon Central, en utilisant le port TCP 3306
 - Centreon MAP database, généralement sur localhost, en utilisant le port TCP 3306.
 
@@ -194,8 +198,8 @@ configurations sont possibles.
 ### Interface Centreon Web
 
 Vous devez fournir au serveur Centreon MAP un utilisateur dédié
-**qui a accès à toutes les ressources** par le biais des [groupes de listes d'accès](../administration/access-control-lists) appropriés. 
-Étant donné que le mot de passe sera stocké en clair dans un fichier 
+**qui a accès à toutes les ressources** par le biais des [groupes de listes d'accès](../administration/access-control-lists) appropriés.
+Étant donné que le mot de passe sera stocké en clair dans un fichier
 de configuration, vous ne devez pas utiliser un compte utilisateur administrateur Centreon.
 
 Donnez à cet utilisateur l'accès à l'API Centreon Web en temps réel :
@@ -219,21 +223,22 @@ une nouvelle sortie Centreon Broker. Il sera révoqué ultérieurement.
 
 Si vous avez installé votre serveur Centreon MAP à partir d'une nouvelle installation CentOS, vous devez installer le paquet `centreon-release`.
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="operating-systems">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
 
 ```shell
 dnf install https://yum.centreon.com/standard/21.04/el8/stable/noarch/RPMS/centreon-release-21.04-5.el8.noarch.rpm
 ```
 
-<!--CentOS 7-->
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
 yum install https://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-5.el7.centos.noarch.rpm
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 > Si l'URL ne fonctionne pas, vous pouvez trouver manuellement ce paquet dans le dossier.
 
@@ -242,21 +247,22 @@ le [portail du support](https://support.centreon.com/s/repositories).
 
 Ensuite, installez le serveur Centreon MAP à l'aide de la commande suivante :
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="operating-systems">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
 
 ```shell
 dnf install centreon-map-server
 ```
 
-<!--CentOS 7-->
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
 yum install centreon-map-server
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 Lors de l'installation du serveur Centreon MAP, java (OpenJDK 11) sera automatiquement installé si nécessaire.
 
@@ -283,11 +289,11 @@ Exécutez le script de configuration du serveur MAP de Centreon. Deux modes sont
 interactive ou automatic.
 
 - interactive *(aucune option/mode par défaut)* : Plusieurs questions seront posées pour
-  remplir de manière interactive les variables de l'installation.
+remplir de manière interactive les variables de l'installation.
 - automatic *(--automatic or -a)*: L'installation se fera automatiquement
-  à partir des valeurs définies dans le fichier `/etc/centreon-studio/vars.sh`.
+à partir des valeurs définies dans le fichier `/etc/centreon-studio/vars.sh`.
 
-Si c'est votre première installation, nous vous conseillons d'utiliser le mode standard 
+Si c'est votre première installation, nous vous conseillons d'utiliser le mode standard
 (interactive) et de choisir **Non** lorsqu'on vous propose le mode d'installation avancé :
 
 ```shell
@@ -341,21 +347,22 @@ Installez le dépôt MAP de Centreon. Vous pouvez le trouver sur le [portail du 
 
 Ensuite, exécutez la commande suivante :
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="operating-systems">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
 
 ```shell
 dnf install centreon-map-web-client
 ```
 
-<!--CentOS 7-->
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
 yum install centreon-map-web-client
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Web
 
@@ -398,7 +405,7 @@ Vous pouvez voir à quelle IP le client est connecté.
 ### Widget Centreon MAP
 
 En installant l'interface Web, vous ajoutez automatiquement le widget Centreon MAP,
-mais vous devez effectuer une dernière tâche. Allez à la page **Administration > Extensions** 
+mais vous devez effectuer une dernière tâche. Allez à la page **Administration > Extensions**
 et cliquez sur le bouton **Installer** du widget. Voici le résultat après l'installation :
 
 ![image](../assets/graph-views/install-web-step-widget.png)
@@ -419,12 +426,12 @@ Vous pouvez trouver les installateurs dans **Monitoring > Map > Desktop Client**
 
 #### Sur l'ordinateur de l'utilisateur
 
-Le client Desktop nécessite **Java 8**. Vous pouvez télécharger et installer 
+Le client Desktop nécessite **Java 8**. Vous pouvez télécharger et installer
 la dernière version de Java depuis [ici](https://java.com/fr/download/manual.jsp).
 
 > Veillez à télécharger la version 64 bits. Les navigateurs sont généralement 32 bits
-> et le site Web d'Oracle propose généralement Java 32 bits au lieu de la version 64 bits. 
-> Si vous avez déjà installé Java, utilisez la commande "java -version" pour vérifier l'architecture. 
+> et le site Web d'Oracle propose généralement Java 32 bits au lieu de la version 64 bits.
+> Si vous avez déjà installé Java, utilisez la commande "java -version" pour vérifier l'architecture.
 > Si l'option 64 bits n'apparaît pas, la version est 32 bits.
 
 > Sur une plateforme Mac, notez que vous devez installer Oracle JDK au lieu du JRE habituellement requis.
@@ -435,9 +442,8 @@ Pour vérifier la version de Java, exécutez la commande :
 java -version
 ```
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Windows-->
+<Tabs groupId="operating-systems">
+<TabItem value="Windows" label="Windows">
 
 Exécutez **centreon-map4-desktop-client-xxxx.exe** :
 
@@ -454,7 +460,8 @@ l'intégrer dans l'environnement Windows. Le programme d'installation peut égal
 être utilisé pour le désinstaller à partir de la page de configuration dédiée de Windows.
 ![image](../assets/graph-views/windows_start_menu.png)
 
-<!--Debian-->
+</TabItem>
+<TabItem value="Debian" label="Debian">
 
 Téléchargez le fichier DEB fourni et exécutez la commande suivante depuis le répertoire racine :
 
@@ -474,7 +481,8 @@ Vous le trouverez également dans la liste des applications installées.
 
 ![image](../assets/graph-views/ubuntu_launch_menu.png)
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Mises à jour
 
@@ -496,19 +504,20 @@ Le serveur Centreon MAP NG est disponible sur le même dépôt que le serveur ha
 
 Pour commencer, installez le serveur en utilisant la commande suivante :
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="operating-systems">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
 
 ```shell
 dnf install centreon-map-server-ng
 ```
-<!--CentOS 7-->
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
 yum install centreon-map-server-ng
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 Et procédez à la configuration avec la commande suivante :
 

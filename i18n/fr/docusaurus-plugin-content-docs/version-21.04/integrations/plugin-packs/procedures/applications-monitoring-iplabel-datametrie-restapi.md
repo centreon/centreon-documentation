@@ -2,6 +2,9 @@
 id: applications-monitoring-iplabel-datametrie-restapi
 title: IP-Label datametrie API
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -14,10 +17,10 @@ IP-Label est un spécialiste de la mesure de la qualité de l'expérience de l'u
 * Alarmes : alarmes courantes
 * Kpi : performance des contrôles
 
-## Monitored Metrics 
+## Monitored Metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Alarms-->
+<Tabs groupId="operating-systems">
+<TabItem value="Alarms" label="Alarms">
 
 | Metric name                              | Description                                          |
 | :--------------------------------------- | :--------------------------------------------------- |
@@ -25,7 +28,8 @@ IP-Label est un spécialiste de la mesure de la qualité de l'expérience de l'u
 | alarms.orange.count                      | Current orange alarms. Unit: Count                   |
 | alarms.red.count                         | Current red alarms. Unit: Count                      |
 
-<!--Kpi-->
+</TabItem>
+<TabItem value="Kpi" label="Kpi">
 
 | Metric name                     | Description                                          |
 | :------------------------------ | :--------------------------------------------------- |
@@ -33,19 +37,19 @@ IP-Label est un spécialiste de la mesure de la qualité de l'expérience de l'u
 | kpi.sla.availability.percentage | Monitor SLA availability. Unit: %                    |
 | kpi.performance.count           | Monitor performance. Unit: Count                     |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
 ### Configuration IP-Label Datametrie
 
-Un compte en lecture seule (login/mot de passe) sur ```https://api.ip-label.net``` est nécessaire. 
+Un compte en lecture seule (login/mot de passe) sur ```https://api.ip-label.net``` est nécessaire.
 
-## Installation 
+## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="operating-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur l'ensemble des collecteurs supervisant des ressources IP-Label datametrie:
 
@@ -55,7 +59,8 @@ yum install centreon-plugin-Applications-Monitoring-Iplabel-Datametrie-Restapi
 
 2. Installer le Plugin-Pack depuis la page "Configuration > Plugin packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le code du connecteur sur l'ensemble des collecteurs supervisant des ressources de IP-Label datametrie:
 
@@ -71,11 +76,12 @@ yum install centreon-pack-applications-monitoring-iplabel-datametrie-restapi
 
 3. Installer le Plugin-Pack depuis la page Centreon Plugin-Pack "Configuration > Plugin packs > Manager"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
-Ajouter un nouvel Hôte virtuel (ping n'est pas autorisé sur l'hôte: ```api.ip-label.net```) dans Centreon, appliquer le modèle de l'Hôte *App-Monitoring-Iplabel-Datametrie-Restapi-custom*. Une fois le Modèle mis en place, vous devez définir des macros d'Hôte. 
+Ajouter un nouvel Hôte virtuel (ping n'est pas autorisé sur l'hôte: ```api.ip-label.net```) dans Centreon, appliquer le modèle de l'Hôte *App-Monitoring-Iplabel-Datametrie-Restapi-custom*. Une fois le Modèle mis en place, vous devez définir des macros d'Hôte.
 
 | Mandatory   | Name                             | Description                                                                                                              |
 | :---------- | :------------------------------- | :----------------------------------------------------------------------------------------------------------------------- |
@@ -90,7 +96,7 @@ Ajouter un nouvel Hôte virtuel (ping n'est pas autorisé sur l'hôte: ```api.ip
 
 ### Comment tester le Plugin et quelles sont les principales options pour ce faire ?
 
-Une fois le Plugin installé, connectez-vous à votre CLI Centreon Poller en utilisant le compte utilisateur *centreon-engine* 
+Une fois le Plugin installé, connectez-vous à votre CLI Centreon Poller en utilisant le compte utilisateur *centreon-engine*
 et testez en exécutant la commande suivante (Certains des paramètres tels que *api-token*, *filter-device-name* ou *proxyurl* doivent être ajustés):
 
 ```bash
@@ -113,14 +119,14 @@ OK: KPI 'SLA - Network check' status: PROCESSING, success rate: 100.00 %, sla av
 La commande ci-dessus vérifie un KPI spécifique nommé *SLA - Network check* (```--mode=kpi --filter-name='SLA - Network check'```) géré par IP-Label datametrie.
 Il utilise un compte API (```--api-username='test' --api-password='password'```) et utilise le proxy de la compagnie (```--proxyurl='proxy.mycompany:8080'```) pour se connecter à IP-Label datamétrie.
 
-Les seuils disponibles ainsi que toutes les options qui peuvent être utilisées avec ce Plugin 
+Les seuils disponibles ainsi que toutes les options qui peuvent être utilisées avec ce Plugin
 peuvent être affichés en ajoutant le paramètre ```--help``` à la commande :
 
 ```
 /usr/lib/centreon/plugins/centreon_monitoring_iplabel_datametrie_restapi.pl --plugin=apps::monitoring::iplabel::datametrie::restapi::plugin --mode=kpi --help
 ```
 
-### Pourquoi est-ce que j'obtiens l'erreur suivante : 
+### Pourquoi est-ce que j'obtiens l'erreur suivante :
 
 #### ```UNKNOWN: 500 Can't connect to api.ip-label.net:443```
 
@@ -128,9 +134,9 @@ Ce message d'erreur signifie que le Plugin Centreon n'a pas pu se connecter avec
 Vérifiez qu'aucun dispositif tiers (tel qu'un pare-feu) ne bloque la demande.
 Une connexion proxy peut également être nécessaire pour se connecter à l'API. Cela peut être fait en utilisant l'option ```-proxyurl``` dans la commande.
 
-#### ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |``` 
+#### ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |```
 
-Lorsque vous utilisez un proxy pour vous connecter à la datamétrie IP-Label, ce message d'erreur signifie que la bibliothèque de Plugins Centreon ne prend pas en charge 
+Lorsque vous utilisez un proxy pour vous connecter à la datamétrie IP-Label, ce message d'erreur signifie que la bibliothèque de Plugins Centreon ne prend pas en charge
 le protocole de connexion proxy.
 
 Afin d'éviter ce problème, utilisez le backend HTTP *curl* en ajoutant l'option suivante à la commande : ```--http-backend='curl'``.

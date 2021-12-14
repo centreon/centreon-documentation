@@ -2,6 +2,9 @@
 id: applications-databases-oracle
 title: Oracle Database
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 ##  Vue d'ensemble
 
 Oracle est un système de gestion de base de données fourni par Oracle Corporation.
@@ -16,65 +19,73 @@ Le Plugin Centreon associé *Oracle Database* permet d'interroger l'API Rest afi
 
 ### Métriques Collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Connection-Time-->
+<Tabs groupId="operating-systems">
+<TabItem value="ConnectionTime" label="ConnectionTime">
 
 | Metric name         | Description                            | Unit   |
 | :------------------ | :------------------------------------- | :----- |
 | connection_time     | Connection time to the database        | ms     |
 
-<!--Tnsping-->
+</TabItem>
+<TabItem value="Tnsping" label="Tnsping">
 
 | Metric name | Description                                | Unit |
 | :---------- | :----------------------------------------- | :--- |
 | status      | Check Oracle listener status               |      |
 
-<!--Tablespace-Usage-->
+</TabItem>
+<TabItem value="TablespaceUsage" label="TablespaceUsage">
 
 | Metric name           | Description                                     | Unit |
 | :-------------------- | :-----------------------------------------------| :--- |
 |  tbs_#instance_usage  | Tablespace usage per Instance                   |   B  |
 |  tbs_#instance_free   | Tablespace free space left per instance         |   B  |
 
-<!--Session-Usage-->
+</TabItem>
+<TabItem value="SessionUsage" label="SessionUsage">
 
 | Metric name      | Description                                                       | Unit |
 | :--------------- | :---------------------------------------------------------------- | :--- |
 | session_used     | The percentage of Oracle session used                             |   %  |
 
-<!--Rman-Backup-Problems-->
+</TabItem>
+<TabItem value="RmanBackupProblems" label="RmanBackupProblems">
 
 | Metric name		   | Description                                                         | Unit   |
 | :----------------------- | :------------------------------------------------------------------ | :----  |
 |  #backup_backup_problems | Number of problems per backup (last 3 days by default)              | Count  |
 
-<!--Process-Usage-->
+</TabItem>
+<TabItem value="ProcessUsage" label="ProcessUsage">
 
 | Metric name      | Description                                                       | Unit |
 | :--------------- | :---------------------------------------------------------------- | :--- |
 | process_used     | The percentage of Oracle process used                             |   %  |
 
-<!--Datacache-Hitratio-->
+</TabItem>
+<TabItem value="DatacacheHitratio" label="DatacacheHitratio">
 
 | Metric name               | Description                                          | Unit |
 | :------------------------ | :--------------------------------------------------- | :--- |
 | sga_data_buffer_hit_ratio | Check the 'Data Buffer Cache Hit Ratio' of the server|  %   |
 
-<!--Corrupted-Blocks-->
+</TabItem>
+<TabItem value="CorruptedBlocks" label="CorruptedBlocks">
 
 | Metric name         | Description                                          | Unit   |
 | :------------------ | :----------------------------------------------------| :----- |
 | corrupted_blocks    | The number of corrupted blocks in the database       | Count  |
 
-<!--Connection-Number-->
+</TabItem>
+<TabItem value="ConnectionNumber" label="ConnectionNumber">
 
 | Metric name       | Description                                     | Unit   |
 | :---------------- | :-----------------------------------------------| :----- |
 | connected_users   | The number of connection to the Oracle server   | Count  |
 
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -92,9 +103,9 @@ Se connecter sur [Instant Client
 Downloads](http://www.oracle.com/technetwork/database/features/instant-client/index-097480),
 Choisir le groupe de paquets correspondant au système d'exploitation du Collecteur, et télécharger les paquets suivants :
 
-  - oracle-instantclient-basic
-  - oracle-instantclient-sqlplus
-  - oracle-instantclientdevel
+- oracle-instantclient-basic
+- oracle-instantclient-sqlplus
+- oracle-instantclientdevel
 
 Installer les paquets avec la commande suivante :
 
@@ -109,12 +120,12 @@ rpm -ivh oracle-*.rpm
 En tant que root, exécuter:
 
 ```bash
-cd /usr/local/src 
-wget http://www.cpan.org/modules/by-module/DBD/DBD-Oracle-1.80.tar.gz 
-tar xzf DBD-Oracle-1.80.tar.gz 
-cd DBD-Oracle-1.80 
+cd /usr/local/src
+wget http://www.cpan.org/modules/by-module/DBD/DBD-Oracle-1.80.tar.gz
+tar xzf DBD-Oracle-1.80.tar.gz
+cd DBD-Oracle-1.80
 export ORACLE_HOME=/usr/lib/oracle/21.1/client64
-export LD_LIBRARY_PATH=/usr/lib/oracle/21.1/client64/lib 
+export LD_LIBRARY_PATH=/usr/lib/oracle/21.1/client64/lib
 export PATH=$ORACLE_HOME:$PATH
 perl Makefile.PL -m /usr/share/oracle/21.1/client64/demo/demo.mk
 ```
@@ -161,25 +172,24 @@ La façon la plus sûre de récupérer des informations du serveur Oracle est de
 
 Ce compte utilisateur doit avoir la permission de lecture sur les tables suivants :
 
-  - dba\_free\_space
-  - dba\_data\_files
-  - dba\_temp\_files
-  - dba\_segments
-  - dba\_jobs
-  - v$sysstat
-  - v$sgastat
-  - v$parameter
-  - v$process
-  - v$session
-  - v$filestat
-  - v$log
-  - v$instance
-  
+- dba\_free\_space
+- dba\_data\_files
+- dba\_temp\_files
+- dba\_segments
+- dba\_jobs
+- v$sysstat
+- v$sgastat
+- v$parameter
+- v$process
+- v$session
+- v$filestat
+- v$log
+- v$instance
+
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="operating-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant une base de données Oracle :
 
@@ -189,7 +199,8 @@ yum install centreon-plugin-Applications-Databases-Oracle
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Oracle Database* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant une base de données Oracle :
 
@@ -205,11 +216,12 @@ yum install centreon-pack-applications-databases-oracle
 
 3.  Sur l'interface Web de Centreon, installer le Plugin-Pack *Oracle Database* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
-Toujours dans l'interface Web Centreon, aller à la page  *Configuration \> Hôstes* et cliquer sur *Ajouter*. Remplir alors les champs du formulaires. 
+Toujours dans l'interface Web Centreon, aller à la page  *Configuration \> Hôstes* et cliquer sur *Ajouter*. Remplir alors les champs du formulaires.
 Dans le champs *Modèles* cliquer sur *+ Ajouter une nouvelle entrée* puis sélectionner *App-DB-Oracle-custom*.
 
 Une fois celui-ci configuré, certaines macros doivent être renseignées:
@@ -229,16 +241,16 @@ Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne d
 
 ```bash
 /usr/lib/centreon/plugins//centreon_oracle.pl \
-	--plugin=database::oracle::plugin \
-	--hostname='10.30.2.38' \
-	--port='1521' \
-	--sid='XE' \
-	--username='SYSTEM' \
-	--password='Centreon75' \
-	--mode='tablespace-usage' \
-	--warning-tablespace='90' \
-	--critical-tablespace='98' \
-	--verbose 
+--plugin=database::oracle::plugin \
+--hostname='10.30.2.38' \
+--port='1521' \
+--sid='XE' \
+--username='SYSTEM' \
+--password='Centreon75' \
+--mode='tablespace-usage' \
+--warning-tablespace='90' \
+--critical-tablespace='98' \
+--verbose
 ```
 
 Exemple de sortie:
@@ -261,20 +273,20 @@ Toutes les options et leur utilisation peuvent être consultées avec le paramè
 
 ```bash
 /usr/lib/centreon/plugins//centreon_oracle.pl \
-	--plugin=database::oracle::plugin \
-	--mode='tablespace-usage' \
-	--help
+--plugin=database::oracle::plugin \
+--mode='tablespace-usage' \
+--help
 ```
 
 Tous les modes fournis avec le plugin peuvent être consultées avec le paramètre ```--list-mode```:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_oracle.pl \
-	--plugin=database::oracle::plugin \
-	--list-mode
+--plugin=database::oracle::plugin \
+--list-mode
 ```
 
-### J'obtiens le message d'erreur suivant:   
+### J'obtiens le message d'erreur suivant:
 
 #### ```UNKNOWN: Cannot connect: (no error string) |```
 

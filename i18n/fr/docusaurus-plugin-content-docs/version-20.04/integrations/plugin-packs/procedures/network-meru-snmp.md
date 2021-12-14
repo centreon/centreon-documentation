@@ -2,6 +2,9 @@
 id: network-meru-snmp
 title: Meru SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Contenu du Plugin-Pack
 
@@ -18,9 +21,8 @@ Le Plugin-Pack Meru SNMP collecte les données pour:
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Alarms-->
+<Tabs groupId="operating-systems">
+<TabItem value="Alarms" label="Alarms">
 
 | Metric name           | Description               | Unit |
 | :-------------------- | :------------------------ | :--- |
@@ -28,13 +30,15 @@ Le Plugin-Pack Meru SNMP collecte les données pour:
 | alarms.major.count    | Number of major alarms    |      |
 | alarms.minor.count    | Number of minor alarms    |      |
 
-<!--Cpu-->
+</TabItem>
+<TabItem value="Cpu" label="Cpu">
 
 | Metric name                              | Description              | Unit |
 | :--------------------------------------- | :----------------------- | :--- |
 | cpu.utilization.percentage               | CPU utilization          | %    |
 
-<!--Interfaces-->
+</TabItem>
+<TabItem value="Interfaces" label="Interfaces">
 
 | Metric name                                            | Description                                         | Unit |
 | :----------------------------------------------------- | :-------------------------------------------------- | :--- |
@@ -46,7 +50,8 @@ Le Plugin-Pack Meru SNMP collecte les données pour:
 
 A regexp filter is available to target a specific interface identifier - ifName [```--interface='^eth0$' --name```]
 
-<!--Memory-->
+</TabItem>
+<TabItem value="Memory" label="Memory">
 
 | Metric name             | Description                               | Unit  |
 | :---------------------  | :---------------------------------------- | :---- |
@@ -54,24 +59,25 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | memory.free.bytes       | Free memory                               | B     |
 | memory.usage.percentage | Memory usage in percentage                | %     |
 
-<!--Wireless-->
+</TabItem>
+<TabItem value="Wireless" label="Wireless">
 
 | Metric name                 | Description                          | Unit  |
 | :-------------------------- | :----------------------------------- | :---- |
 | accesspoints.online.count   | Number of online access points       |       |
 | stations.wireless.count     | Number of wireless stations          |       |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
-Afin de contrôler votre équipement Meru, le SNMP doit être configuré. 
+Afin de contrôler votre équipement Meru, le SNMP doit être configuré.
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="operating-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -81,7 +87,8 @@ yum install centreon-plugin-Network-Meru-Snmp
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Meru Networks SNMP* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -97,7 +104,8 @@ yum install centreon-pack-network-meru-snmp
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Meru Networks SNMP* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -121,13 +129,13 @@ depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-en
 
 ```bash
 /usr/lib/centreon/plugins/centreon_meru_snmp.pl \
-    --plugin=network::meru::snmp::plugin \
-    --mode=wireless \
-    --hostname=10.30.2.114 \
-    --snmp-version='2c' \
-    --snmp-community='meru_ro' \
-    --critical-accesspoints-online='@19:19' \
-    --verbose
+--plugin=network::meru::snmp::plugin \
+--mode=wireless \
+--hostname=10.30.2.114 \
+--snmp-version='2c' \
+--snmp-community='meru_ro' \
+--critical-accesspoints-online='@19:19' \
+--verbose
 ```
 
 La commande devrait retourner un message de sortie de la forme ci-dessous:
@@ -136,7 +144,7 @@ La commande devrait retourner un message de sortie de la forme ci-dessous:
 OK: number of online access points: 19 - number of wireless stations: 3 | 'accesspoints.online.count'=19;;@19:19;0; 'stations.wireless.count'=3;;;0;
 ```
 
-Cette commande contrôle les équipements sans fil (```--mode=wireless```) d'un équipement Meru ayant pour adresse *10.30.2.114* (```--hostname=10.30.2.114```) 
+Cette commande contrôle les équipements sans fil (```--mode=wireless```) d'un équipement Meru ayant pour adresse *10.30.2.114* (```--hostname=10.30.2.114```)
 en version *2c* du protocol SNMP (```--snmp-version='2c'```) et avec la communauté *meru_ro* (```--snmp-community='meru_ro'```).
 
 Cette commande déclenchera une alarme CRITICAL si le nombre de point d'accès sans fil est différent de 19 (```--critical-accesspoints-online='@19:19'```).
@@ -146,21 +154,21 @@ en ajoutant le paramètre ```--help``` à la commande:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_meru_snmp.pl \
-    --plugin=network::meru::snmp::plugin \
-    --mode=wireless \
-    --help
+--plugin=network::meru::snmp::plugin \
+--mode=wireless \
+--help
 ```
 
 ## J'obtiens le message d'erreur suivant:
 
 ### UNKNOWN: SNMP GET Request : Timeout
 
-Si vous obtenez ce message, cela signifie que vous ne parvenez pas à contacter l'équipement sur le port 161, 
-ou alors que la communauté SNMP configurée n'est pas correcte. 
+Si vous obtenez ce message, cela signifie que vous ne parvenez pas à contacter l'équipement sur le port 161,
+ou alors que la communauté SNMP configurée n'est pas correcte.
 Il est également possible qu'un firewall bloque le flux.
 
 ### UNKNOWN: SNMP GET Request : Cant get a single value.
 
-Si vous rencontrez cette erreur, il est probable que les autorisations données à l'agent SNMP soient trop restreintes. 
- * L'équipement ne prend pas en charge la MIB utilisée par le Plugin (branche: .1.3.6.1.4.1.15983).
- * L'OID SNMP ciblé ne peut pas être récupéré en raison de privilèges d'équipement insuffisants.
+Si vous rencontrez cette erreur, il est probable que les autorisations données à l'agent SNMP soient trop restreintes.
+* L'équipement ne prend pas en charge la MIB utilisée par le Plugin (branche: .1.3.6.1.4.1.15983).
+* L'OID SNMP ciblé ne peut pas être récupéré en raison de privilèges d'équipement insuffisants.

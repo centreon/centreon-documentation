@@ -18,7 +18,7 @@ yum install centreon-plugin-Applications-Monitoring-Centreon-Database centreon-p
 In order to be able to collect the needed information from the database a
 database user with specific privileges is required:
 
-    # grant select on *.* to 'monitor'@'%' identified by 'HuGr6834';
+# grant select on *.* to 'monitor'@'%' identified by 'HuGr6834';
 
 ### SNMP
 

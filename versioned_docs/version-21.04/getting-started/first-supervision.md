@@ -8,13 +8,13 @@ title: Monitor your first host
 Before starting to monitor, let's take a look at some basic concepts:
 
 * A **host** is any device that has an IP address and that one wishes to monitor. For example, a physical server, a
-  virtual machine, a temperature probe, an IP camera, a printer or a storage space.
+virtual machine, a temperature probe, an IP camera, a printer or a storage space.
 * A **service** is a check point, or indicator, to be monitored on a host. This can be the CPU usage rate, temperature,
-  motion detection, bandwidth usage rate, disk I/O, and so on.
+motion detection, bandwidth usage rate, disk I/O, and so on.
 * In order to collect each indicator value, monitoring **plugins** are used which are periodically executed by a
-  collection engine called Centreon Engine.
+collection engine called Centreon Engine.
 * To be executed, a plugin needs a set of arguments that define, for example, which host to connect to or through which protocol.
-  The plugin and its associated arguments form a **command**.
+The plugin and its associated arguments form a **command**.
 
 For example, to monitor a host with Centreon is to configure all the commands needed to measure the desired indicators,
 and then deploy that configuration to the collection engine so that these commands are run periodically.
@@ -24,7 +24,7 @@ Nevertheless, to drastically simplify the configuration, we will rely on monitor
 * A **host template** defines the configuration of the indicators for a given type of equipment.
 * It relies on **service templates** that define the configuration of the commands needed to collect these indicators.
 * Centreon provides downloadable **Plugins Packs** to install on its monitoring platform: each Plugin Pack includes host
-  and services templates to configure the monitoring of a particular device in a few clicks.
+and services templates to configure the monitoring of a particular device in a few clicks.
 
 This quick start guide proposes to install the monitoring templates supplied free of charge with the Centreon solution
 and then to implement them to monitor your first equipment.
@@ -120,7 +120,7 @@ filter. After a few minutes, the first results of the monitoring appear:
 #### To go further
 
 The **Linux SNMP** Plugin Pack provides several monitoring templates. When creating a service, it is possible to search
-the available models in the selection list: 
+the available models in the selection list:
 
 ![image](../assets/getting-started/quick_start_linux_8.png)
 
@@ -135,7 +135,7 @@ To know manually the name of the available files system you can execute the plug
 
 ```Shell
 /usr/lib/centreon/plugins/centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin \
-    --hostname=10.40.1.169 --snmp-community=public --snmp-version=2c --mode=list-storages
+--hostname=10.40.1.169 --snmp-community=public --snmp-version=2c --mode=list-storages
 ```
 
 You will see the result:
@@ -164,7 +164,7 @@ It is the same to know the name of the available network interfaces:
 
 ```Bash
 /usr/lib/centreon/plugins/centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin \
-    --hostname=10.40.1.169 --snmp-community=public --snmp-version=2c --mode=list-interfaces
+--hostname=10.40.1.169 --snmp-community=public --snmp-version=2c --mode=list-interfaces
 ```
 You will see the result:
 ```Shell
@@ -231,7 +231,7 @@ filter. After a few minutes, the first results of the monitoring appear:
 #### To go further
 
 The **Windows SNMP** Plugin Pack provides several monitoring templates. When creating a service, it is possible to
-search the available models in the selection list: 
+search the available models in the selection list:
 
 ![image](../assets/getting-started/quick_start_windows_7.png)
 
@@ -246,7 +246,7 @@ To know manually the name of the available files system you can execute the plug
 
 ```Shell
 /usr/lib/centreon/plugins/centreon_windows_snmp.pl --plugin=os::windows::snmp::plugin \
-    --hostname=10.40.1.254 --snmp-version='2c' --snmp-community='public' --mode=list-storages
+--hostname=10.40.1.254 --snmp-version='2c' --snmp-community='public' --mode=list-storages
 ```
 You will see the result:
 ```Shell
@@ -347,7 +347,7 @@ filter. After a few minutes, the first results of the monitoring appear:
 #### To go further
 
 The **Cisco Standard** Plugin Pack provides several monitoring templates. When creating a service, it is possible to
-search the available models in the selection list: 
+search the available models in the selection list:
 
 ![image](../assets/getting-started/quick_start_cisco_7.png)
 
@@ -362,8 +362,8 @@ To know manually the name of the available network interfaces you can execute th
 
 ```Shell
 /usr/lib/centreon/plugins/centreon_cisco_standard_snmp.pl \
-    --plugin=network::cisco::standard::snmp::plugin \
-    --hostname=10.40.1.254 --snmp-community=public --snmp-version=2c --mode=list-interfaces
+--plugin=network::cisco::standard::snmp::plugin \
+--hostname=10.40.1.254 --snmp-community=public --snmp-version=2c --mode=list-interfaces
 ```
 You will see the result:
 ```Shell
@@ -402,8 +402,8 @@ It is the same to know the name of the spanning-tree:
 
 ```Shell
 /usr/lib/centreon/plugins/centreon_cisco_standard_snmp.pl \
-    --plugin=network::cisco::standard::snmp::plugin \
-    --hostname=10.40.1.254 --snmp-community=public --snmp-version=2c --mode=list-spanning-trees
+--plugin=network::cisco::standard::snmp::plugin \
+--hostname=10.40.1.254 --snmp-community=public --snmp-version=2c --mode=list-spanning-trees
 ```
 You will see the result:
 ```Shell
@@ -460,7 +460,7 @@ filter. After a few minutes, the first results of the monitoring appear:
 #### To go further
 
 The **MySQL/MariaDB** Plugin Pack provides several monitoring templates. When creating a service, it is possible to
-search the available models in the selection list: 
+search the available models in the selection list:
 
 ![image](../assets/getting-started/quick_start_mysql_5.png)
 
@@ -552,16 +552,16 @@ automatically to the monitoring engine. To apply the changes performed, it is ne
 2. Select the pollers whose configuration you want to export.
 3. Click on **Export configuration**.
 
-    ![image](../assets/monitoring/monitoring-servers/export_conf.png)
+![image](../assets/monitoring/monitoring-servers/export_conf.png)
 
 4. Check the following boxes:
-    - **Generate Configuration Files**
-    - **Run monitoring engine debug (-v)**
-    - **Move Export Files**
-    - **Restart Monitoring Engine**.
+- **Generate Configuration Files**
+- **Run monitoring engine debug (-v)**
+- **Move Export Files**
+- **Restart Monitoring Engine**.
 
 5. Click **Export**.
 
-    ![image](../assets/monitoring/monitoring-servers/export_conf_done.png)
+![image](../assets/monitoring/monitoring-servers/export_conf_done.png)
 
 6. Check that no errors appear during generation.

@@ -100,7 +100,7 @@ Sur le premier widget, pour ouvrir le ticket, cliquez sur le bouton de
 -   Ne cochez pas la case **Opened Tickets**
 -   Sélectionnez d'autres filtres
 -   Ne cochez pas les cases **Display Ticket ID** et **Display Ticket
-    Time**
+Time**
 
 Sur le deuxième widget, pour afficher les tickets ouverts, cliquez sur
 le bouton de **configuration** :
@@ -169,11 +169,11 @@ définir :
 -   **Id** : valeur alphanumeric value (doit être unique)
 -   **Label** : affiché dans la fenêtre
 -   **Type** : type de liste. Il existe 3 types de listes
-    -   Liste du fournisseur (données du logiciel de gestion de tickets)
-    -   Liste Centreon (comme `Host group`)
-    -   Liste personnalisées (provenant de la configuration
-        `Custom list definition`. Les champs **Id** doivent être
-        identiques)
+-   Liste du fournisseur (données du logiciel de gestion de tickets)
+-   Liste Centreon (comme `Host group`)
+-   Liste personnalisées (provenant de la configuration
+`Custom list definition`. Les champs **Id** doivent être
+identiques)
 -   **Mandatory** : l'utilisateur doit définir l'option obligatoirement
 
 ![image](../assets/alerts/open_ticket_advanced_list_01.png)

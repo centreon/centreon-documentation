@@ -236,7 +236,7 @@ Release date: `November 15, 2021`
 - [Resources Status / Service Details] Passwords are displayed in command line
 - [Resources Status / Service Details] Passwords field for EXTRAOPTIONS is not hidden in command line
 
-#### Performance 
+#### Performance
 
 - [Core] Replace "WITH RECURSIVE" MySQL calls with PHP-based recursion loops
 
@@ -414,7 +414,7 @@ Release date: `November 15, 2021`
 - [Administration] "show deprecated pages" option does not work anymore
 - [Administration] 'options' table for centreon database is sometimes empty
 - [Configuration] Radio buttons for "InfluxDB - Storage - InfluxDB" output
-  not working properly for Centreon Broker form
+not working properly for Centreon Broker form
 - [Core] Perl lib db query bad looping parameters
 - [Core] Too much rows in extended_service_informations tables
 - [Event View] Cannot search with regex using "+" character
@@ -423,7 +423,7 @@ Release date: `November 15, 2021`
 - [Reporting] Dashboard won't build when having service by hostgroup
 - [Resources Status] Cannot search multiple times in hostgroup filter
 - [Resources Status] Infinite scroll + refresh button duplicates events in
-  timeline
+timeline
 - [Resources Status] Services listing blinking in details panel
 - [Resources Status] Timeline tab content blinks while browsing resources
 
@@ -465,9 +465,9 @@ Release date: `November 15, 2021`
 - [Monitoring/Resources Status] Add possibility to save/manage filters
 - [Monitoring/Resources Status] Add possibility to submit result for resources
 - [Monitoring/Resources Status] Redirect all realtime links to Resources
-  Status page
+Status page
 - [Remote Server] Replace HTTP flow by gorgone between Central and Remote
-  Servers
+Servers
 
 ## Centreon Engine
 
@@ -828,11 +828,11 @@ files and there are a lot of traffic.
 Those streams have several improvements:
 
 -   Events exchanges are much faster, especially when Broker has
-    retention files.
+retention files.
 -   Several queries have been changed to insert data in bulk, it is
-    the case for custom variables and metrics.
+the case for custom variables and metrics.
 -   There are cases where those streams could crash that have been
-    also fixed.
+also fixed.
 
 *Statistics*
 
@@ -1034,11 +1034,11 @@ with the –pool\_size X argument or -s X.
 - [zmqclient] Harden communication to avoid "Protocol not good" errors
 - [zmqclient] Increment ZMQ_LINGER period for some modules
 - [zmqclient] Lot of ESTABLISHED connections on server side when network
-  is flapping
+is flapping
 - [sshclient] Command actions badly encoded lead to badly encoded messages
-  in web UI (downtimes, acknowledgements)
+in web UI (downtimes, acknowledgements)
 - [sshclient] Uncaught messages lead to problems with statistics collection
-  and Autodiscovery module.
+and Autodiscovery module.
 
 #### Améliorations
 
@@ -1052,23 +1052,23 @@ with the –pool\_size X argument or -s X.
 
 - [proxy] gorgone-proxy processes stucked when stopping gorgoned
 - [core] Rare case of database handler wrongly instantiated due to race
-  condition issue
+condition issue
 - [core] Hardened management of message encoding/decoding
 - [autodiscovery] Handle Centreon API modules version endpoint empty
-  response
+response
 - [autodiscovery] Uncatched error when reaching Host Discovery global timeout
 - [autodiscovery] Discovered services state flapped between enabled and
-  disabled
+disabled
 - [autodiscovery] Service discovery email sending not working properly
-  when having services with space in their name
+when having services with space in their name
 - [autodiscovery] Service discovery email sending not working with groups
-  of contacts
+of contacts
 
 #### Améliorations
 
 - [proxy] Force TCP reconnection after 3 ping timeout
 - [zmqclient] ID is not necessary anymore in end targets configuration
-  (ie Pollers)
+(ie Pollers)
 
 ### 20.10.0
 

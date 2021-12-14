@@ -2,6 +2,9 @@
 id: anomaly-detection
 title: Détection d'anomalies
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 > Centreon Anomaly Detection est actuellement en **phase de bêta fermée** et
 > nécessite un jeton valide fourni par Centreon. Nous ouvrirons bientôt la
@@ -29,17 +32,17 @@ pour mettre en évidence les écarts et générer des alertes.
 
 Le module **Centreon Anomaly Detection** requiert les prérequis suivants :
 
-  - Centreon en version minimale 20.04
-  - Un jeton fourni par Centreon pour accéder à la plateforme Centreon Cloud
-  - Une connexion Internet depuis le serveur Centreon Central
-  - La variable d'environnement SHELL [LC_ALL](https://www.gnu.org/software/gettext/manual/html_node/Locale-Environment-Variables) ne doit pas être définie ou bien avoir la valeur `C`. Pour vérifier la valeur de cette variable, entrez :
+- Centreon en version minimale 20.04
+- Un jeton fourni par Centreon pour accéder à la plateforme Centreon Cloud
+- Une connexion Internet depuis le serveur Centreon Central
+- La variable d'environnement SHELL [LC_ALL](https://www.gnu.org/software/gettext/manual/html_node/Locale-Environment-Variables) ne doit pas être définie ou bien avoir la valeur `C`. Pour vérifier la valeur de cette variable, entrez :
 
-      ```
-      echo $LC_ALL
-      ```
-      
-  - La prédiction fonctionne mieux avec des services surveillés qui présentent
-    un comportement saisonnier comme indiqué ci-dessous :
+```
+echo $LC_ALL
+```
+
+- La prédiction fonctionne mieux avec des services surveillés qui présentent
+un comportement saisonnier comme indiqué ci-dessous :
 
 ![image](../assets/monitoring/anomaly/simple_scheme.png)
 
@@ -48,14 +51,17 @@ Le module **Centreon Anomaly Detection** requiert les prérequis suivants :
 ### Installation des paquets
 
 Ajouter un référentiel supplémentaire:
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="operating-systems">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
 Rien à faire
-<!--CentOS 7-->
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 ```shell
 yum install -y epel-release
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 Puis, exécutez la commande suivante :
 ```shell
@@ -107,14 +113,14 @@ d'anomalies Centreon.
 La configuration doit se faire en 3 étapes :
 
 1.  [Activer l'envoi des données collectées vers Centreon
-    Cloud](#activer-lenvoi-des-données-collectées-vers-centreon-cloud) afin de
-    démarrer la modélisation du comportement régulier puis de contrôler via le
-    menu `Supervision > Informations de performance > Graphiques` les premiers
-    calculs de modélisation effectués.
+Cloud](#activer-lenvoi-des-données-collectées-vers-centreon-cloud) afin de
+démarrer la modélisation du comportement régulier puis de contrôler via le
+menu `Supervision > Informations de performance > Graphiques` les premiers
+calculs de modélisation effectués.
 2.  Une fois que les modèles semblent corrects, [activer la génération
-    d'alertes](#activer-la-génération-dalertes)
+d'alertes](#activer-la-génération-dalertes)
 3.  Dès que les alertes générées semblent correctes, [activer le processus de
-    notification](#activer-le-processus-de-notification)
+notification](#activer-le-processus-de-notification)
 
 ### Activer l'envoi des données collectées vers Centreon Cloud
 
@@ -125,17 +131,17 @@ cliquez sur le bouton **Create manually** :
 
 #### Champs de configuration
 
-  - Le champ **Description** permet de définir le nom du service.
-  - Le champ **Status** permet d'activer ou désactiver le service.
-  - Le champ **Select host - service** permet de sélectionner le couple hôte /
-    service à partir duquel les données seront utilisées.
-  - Le champ **Select metric** permet de sélectionner la métrique sur laquelle
-    appliquer la détection d'anomalie.
-  - Sélectionnez un contact par défaut pour le champ **Implied Contacts**.
-  - Sélectionnez **0** pour le champ **Notification Interval**.
-  - Sélectionnez une période par défaut pour le champ **Notification Period**.
-  - Sélectionnez **None** pour le champ **Notification Type**.
-  - Vous pouvez sélectionner une criticité via le champ **Severity level**.
+- Le champ **Description** permet de définir le nom du service.
+- Le champ **Status** permet d'activer ou désactiver le service.
+- Le champ **Select host - service** permet de sélectionner le couple hôte /
+service à partir duquel les données seront utilisées.
+- Le champ **Select metric** permet de sélectionner la métrique sur laquelle
+appliquer la détection d'anomalie.
+- Sélectionnez un contact par défaut pour le champ **Implied Contacts**.
+- Sélectionnez **0** pour le champ **Notification Interval**.
+- Sélectionnez une période par défaut pour le champ **Notification Period**.
+- Sélectionnez **None** pour le champ **Notification Type**.
+- Vous pouvez sélectionner une criticité via le champ **Severity level**.
 
 Cliquez sur **Save**.
 
@@ -180,17 +186,17 @@ Rendez-vous dans le menu `Configuration > Services > Anomaly Detection` et
 
 ![imaage](../assets/monitoring/anomaly/configure_03.png)
 
-  - Sélectionnez **Enabled** pour le champ **Enable notification**.
-  - Sélectionnez les contacts qui seront notifiés via le champ **Implied
-    Contacts**.
-  - Sélectionnez les groupes contacts qui seront notifiés via le champ **Implied
-    Contact Groups**.
-  - Sélectionnez l'intervalle de notification, par défaut **0** via le champ
-    **Notification Interval**.
-  - Sélectionnez la période de notification via le champ **Notification
-    Period**.
-  - Sélectionnez les type de notification que vous souhaitez recevoir via le
-    champ **Notification Type**.
+- Sélectionnez **Enabled** pour le champ **Enable notification**.
+- Sélectionnez les contacts qui seront notifiés via le champ **Implied
+Contacts**.
+- Sélectionnez les groupes contacts qui seront notifiés via le champ **Implied
+Contact Groups**.
+- Sélectionnez l'intervalle de notification, par défaut **0** via le champ
+**Notification Interval**.
+- Sélectionnez la période de notification via le champ **Notification
+Period**.
+- Sélectionnez les type de notification que vous souhaitez recevoir via le
+champ **Notification Type**.
 
 Cliquez sur **Save** et [déployer la
 supervision](./monitoring-servers/deploying-a-configuration).
@@ -219,10 +225,10 @@ Modifez le nom du service puis cliquez sur le bouton **Save**.
 
 > Si la liste est vide, c'est que le calcul afin de déterminer les services
 > intéressant n'a pas encore démarré.
-> 
+>
 > Celui-ci est réalisé toutes les 6 heures via un cron lancé par le processus
 > `gorgoned` (définit dans le fichier **/etc/centreon-gorgone/config.d/cron.d/42-anomalydetection.yaml**).
-> 
+>
 > Il est possible de lancer le premier calcul manuellement via la commande
 > suivante depuis le serveur Centreon central :
 > ```shell
@@ -236,12 +242,12 @@ Les services d'anomalies sont des services réguliers mais disposant de seuils
 flottants qui s'adaptent selon le modèle calculé. Il est donc possible de
 visualiser ses services et les alertes détectées :
 
-  - Dans le menu `Supervision > Détails des statuts > Services`.
-  - Dans le menu `Supervision > Informations de performance > Graphiques`.
-  - Dans le menu `Supervision > Journaux d'évènements`.
-  - Dans la widget **service-monitoring** via le menu `Accueil >
-    Vues personnalisées`.
-  - Et tous les menus où vous pouvez opérer sur les services.
+- Dans le menu `Supervision > Détails des statuts > Services`.
+- Dans le menu `Supervision > Informations de performance > Graphiques`.
+- Dans le menu `Supervision > Journaux d'évènements`.
+- Dans la widget **service-monitoring** via le menu `Accueil >
+Vues personnalisées`.
+- Et tous les menus où vous pouvez opérer sur les services.
 
 ## Transférer l'historique des données
 
@@ -322,7 +328,7 @@ Sending data from 2020-04-05T00:00:00 to 2020-04-06T00:00:00
 
 Le service de détection d'anomalies est actuellement en phase de beta test fermée. Le but de cette phase de test bêta
 fermée est de tester nos algorithmes de calcul des prédictions (seuils flottants). Au cours de cette phase, Centreon
-améliorera la fonctionnalité de détection d'anomalies en fonction du retour d'expérience des utilisateurs. Aucun SLA ne sera disponible 
+améliorera la fonctionnalité de détection d'anomalies en fonction du retour d'expérience des utilisateurs. Aucun SLA ne sera disponible
 pendant cette phase.
 
 ### Quels sont les critères de sélection pour le programme de bêta ? Pour quelle durée et pour quel volume ?

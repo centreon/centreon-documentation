@@ -2,6 +2,9 @@
 id: applications-protocol-dns
 title: DNS Service
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 ## Overview
 
 The Domain Name System (DNS) is a naming system for resources connected to the Internet or a private network. A DNS Service provides a way to match domain names to IP addresses.
@@ -16,33 +19,33 @@ The Centreon Plugin-Pack * DNS Service * checks if a resolution for a domain nam
 
 ### Monitored metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
+<Tabs groupId="operating-systems">
+<TabItem value="DNSRequest-1" label="DNSRequest">
 
-<!--DNS-Request-->
-
-| Metric name                 | Description                                | Unit |
-| :-------------------------- | :----------------------------------------- | :--- |
-| time                        | Elapsed time to complete DNS request       |  s   |
+| Metric name | Description                          | Unit |
+| :---------- | :----------------------------------- | :--- |
+| time        | Elapsed time to complete DNS request | s    |
 
 This mode allow to check that the server executing the probe correctly resolve its own address.
 
-<!--DNS-Request-->
+</TabItem>
+<TabItem value="DNSRequest-2" label="DNSRequest">
 
-| Metric name                 | Description                                | Unit |
-| :-------------------------- | :----------------------------------------- | :--- |
-| time                        | Elapsed time to complete DNS request       |  s   |
+| Metric name | Description                          | Unit |
+| :---------- | :----------------------------------- | :--- |
+| time        | Elapsed time to complete DNS request | s    |
 
-This mode is meant to be used on a server with the DNS role. 
+This mode is meant to be used on a server with the DNS role.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="licence-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin package on every poller expected to monitor a DNS server:
 
@@ -52,7 +55,8 @@ yum install centreon-plugin-Applications-Protocol-Dns
 
 2. On the Centreon Web interface, install the Centreon Plugin-Pack *DNS Service* from the "Configuration > Plugin Packs > Manager" page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every poller expected to monitor a DNS server:
 
@@ -68,18 +72,19 @@ yum install centreon-pack-applications-protocol-dns
 
 3. On the Centreon Web interface, install the Centreon Plugin-Pack *DNS Service* from the "Configuration > Plugin Packs > Manager" page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
 * Log into Centreon and add a new Host through "Configuration > Hosts".
-* Apply the *App-Protocol-DNS-custom* template and fill the form.  
+* Apply the *App-Protocol-DNS-custom* template and fill the form.
 
 Once the Host created, you can configure the Services following macro on the Services:
 
-| Mandatory | Name           | Description                                      |
-| :-------- | :------------- | :----------------------------------------------- |
-|           | SEARCH         | The domain name for which you want a resolution  |
+| Mandatory | Name   | Description                                     |
+| :-------- | :----- | :---------------------------------------------- |
+|           | SEARCH | The domain name for which you want a resolution |
 
 ## FAQ
 ### How can I test the Plugin in the CLI and what do the main parameters stand for ?
@@ -92,7 +97,7 @@ Centreon poller by logging with the *centreon-engine* user:
 --plugin=apps::protocols::dns::plugin \
 --mode=request \
 --nameservers 10.0.0.1 \
---search='google.com' 
+--search='google.com'
 ```
 
 Expected output:
@@ -102,7 +107,7 @@ OK: Response time 0.011 second(s) (answer: 142.250.74.238) | 'time'=0.011s;;;;
 ```
 
 The available thresholds as well as all of the options that can be used with
-this Plugin can be displayed by adding the ```--help``` parameter to the 
+this Plugin can be displayed by adding the ```--help``` parameter to the
 command:
 
 ```bash
@@ -115,7 +120,7 @@ command:
 
 You can display all of the modes that come with the Plugin with the command
 below:
- ```bash
+```bash
 /usr/lib/centreon/plugins//centreon_protocol_dns.pl \
 --plugin=apps::protocols::dns::plugin \
 --list-mode

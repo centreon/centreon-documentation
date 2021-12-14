@@ -2,6 +2,9 @@
 id: using-packages
 title: A partir des paquets
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 Centreon fournit des RPM pour ses produits au travers de la solution
 Centreon Open Sources disponible gratuitement sur notre dépôt.
@@ -16,16 +19,21 @@ en version 7 et 8.
 Après avoir installé votre serveur, réalisez la mise à jour de votre système
 d'exploitation via la commande :
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="operating-systems">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+
 ```shell
 dnf update
 ```
-<!--CentOS 7-->
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 ```shell
 yum update
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 > Acceptez toutes les clés GPG proposées et pensez a redémarrer votre serveur
 > si une mise à jour du noyau est proposée.
@@ -67,8 +75,9 @@ systemctl disable firewalld
 
 ### Installer le dépôts
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL 8-->
+<Tabs groupId="operating-systems">
+<TabItem value="RHEL 8" label="RHEL 8">
+
 #### Redhat CodeReady Builder repository
 
 To install Centreon you will need to enable the official CodeReady Builder
@@ -80,7 +89,10 @@ Enable the CodeReady Builder repository using these commands:
 dnf -y install dnf-plugins-core https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 ```
-<!--CentOS 8-->
+
+</TabItem>
+<TabItem value="CentOS 8" label="CentOS 8">
+
 #### Dépôt PowerTools de Red Hat
 
 Afin d'installer les logiciels Centreon, le dépôt PowerTools de Red Hat doit être
@@ -89,18 +101,20 @@ activé.
 Exécutez les commandes suivantes :
 
 - Pour CentOS 8.2 :
-    ```shell
-    dnf -y install dnf-plugins-core epel-release
-    dnf config-manager --set-enabled PowerTools
-    ```
+```shell
+dnf -y install dnf-plugins-core epel-release
+dnf config-manager --set-enabled PowerTools
+```
 - Pour CentOS 8.3 et Centos Stream :
 
-    ```shell
-    dnf -y install dnf-plugins-core epel-release
-    dnf config-manager --set-enabled powertools
-    ```
+```shell
+dnf -y install dnf-plugins-core epel-release
+dnf config-manager --set-enabled powertools
+```
 
-<!--Oracle Linux 8-->
+</TabItem>
+<TabItem value="Oracle Linux 8" label="Oracle Linux 8">
+
 #### Dépôt CodeReady Builder de Oracle
 
 Afin d'installer les logiciels Centreon, le dépôt CodeReady Builder de Oracle
@@ -112,7 +126,10 @@ Exécutez les commandes suivantes :
 dnf -y install dnf-plugins-core oracle-epel-release-el8
 dnf config-manager --set-enabled ol8_codeready_builder
 ```
-<!--CentOS 7-->
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 #### Dépôt *Software collections* de Red Hat
 
 Afin d'installer les logiciels Centreon, le dépôt *Software Collections* de Red
@@ -126,7 +143,8 @@ Exécutez la commande suivante :
 ```shell
 yum install -y centos-release-scl
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 #### Dépôt Centreon
 
@@ -135,16 +153,21 @@ préalable installer le fichier lié au dépôt.
 
 Exécutez la commande suivante :
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="operating-systems">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+
 ```shell
 dnf install -y https://yum.centreon.com/standard/21.04/el8/stable/noarch/RPMS/centreon-release-21.04-5.el8.noarch.rpm
 ```
-<!--CentOS 7-->
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 ```shell
 yum install -y https://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-5.el7.centos.noarch.rpm
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Installation
 
@@ -155,20 +178,25 @@ serveur, ou déportée sur un serveur dédié.
 
 ### Avec base de données locale
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="operating-systems">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+
 ```shell
 dnf install -y centreon centreon-database
 systemctl daemon-reload
 systemctl restart mariadb
 ```
-<!--CentOS 7-->
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 ```shell
 yum install -y centreon centreon-database
 systemctl daemon-reload
 systemctl restart mariadb
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 Vous pouvez maintenant passer à [l'étape suivante](#configuration).
 
@@ -178,32 +206,42 @@ Vous pouvez maintenant passer à [l'étape suivante](#configuration).
 > dernier doit aussi avoir les dépôts prérequis.
 
 Exécutez la commande suivante sur le serveur Centreon Central :
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="operating-systems">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+
 ```shell
 dnf install -y centreon-base-config-centreon-engine centreon-widget\*
 ```
-<!--CentOS 7-->
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 ```shell
 yum install -y centreon-base-config-centreon-engine centreon-widget\*
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 Puis exécutez les commandes suivantes sur le serveur dédié à la base de données :
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="operating-systems">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+
 ```shell
 dnf install -y centreon-database
 systemctl daemon-reload
 systemctl restart mariadb
 ```
-<!--CentOS 7-->
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 ```shell
 yum install -y centreon-database
 systemctl daemon-reload
 systemctl restart mariadb
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 Sécurisez votre installation MariaDB en exécutant la commande suivante :
 ```shell
@@ -232,7 +270,6 @@ commande :
 DROP USER '<USER>'@'<IP>';
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 > Le paquet **centreon-database** installe une configuration MariaDB optimisée
 > pour l'utilisation avec Centreon.
@@ -276,48 +313,63 @@ hostnamectl set-hostname remote1
 
 La timezone par défaut de PHP doit être configurée. Exécuter la commande suivante :
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="operating-systems">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+
 ```shell
 echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
 ```
-<!--CentOS 7-->
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 ```shell
 echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php73/php.d/50-centreon.ini
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 > Remplacez **Europe/Paris** par votre fuseau horaire. La liste des fuseaux
 > horaires est disponible [ici](http://php.net/manual/en/timezones.php).
 
 Après avoir réalisé la modification, redémarrez le service PHP-FPM :
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="operating-systems">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+
 ```shell
 systemctl restart php-fpm
 ```
-<!--CentOS 7-->
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 ```shell
 systemctl restart rh-php73-php-fpm
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Lancement des services au démarrage
 
 Pour activer le lancement automatique des services au démarrage, exécutez la
 commande suivante sur le serveur Central :
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="operating-systems">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+
 ```shell
 systemctl enable php-fpm httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
 ```
-<!--CentOS 7-->
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 ```shell
 systemctl enable rh-php73-php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 > Si la base de données est sur un serveur dédié, pensez à activer le
 > lancement du service **mariadb** sur ce dernier.
@@ -327,7 +379,7 @@ systemctl enable rh-php73-php-fpm httpd24-httpd mariadb centreon cbd centengine 
 Depuis MariaDB 10.5, il est nécessaire de
 sécuriser son installation avant d'installer Centreon.
 
-Répondez oui à toute question sauf "Disallow root login remotely?". 
+Répondez oui à toute question sauf "Disallow root login remotely?".
 Vous devez obligatoirement définir un mot de passe pour l'utilisateur **root** de la base de données.
 Ce mot de passe vous sera demandé lors de l'[installation web](../web-and-post-installation).
 
@@ -342,16 +394,21 @@ mysql_secure_installation
 Avant de démarrer l'installation web, démarrez le serveur Apache avec la
 commande suivante :
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="operating-systems">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+
 ```shell
 systemctl start httpd
 ```
-<!--CentOS 7-->
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 ```shell
 systemctl start httpd24-httpd
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 
 Terminez l'installation en réalisant les
@@ -367,8 +424,9 @@ Terminez l'installation en réalisant les
 
 Pour l'enregistrer sur le serveur Centreon Central, exécutez la commande suivante :
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="operating-systems">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+
 ``` shell
 /usr/share/centreon/bin/registerServerTopology.sh -u <API_ACCOUNT> \
 -t remote -h <IP_TARGET_NODE> -n <POLLER_NAME>
@@ -379,7 +437,10 @@ Example:
 ``` shell
 /usr/share/centreon/bin/registerServerTopology.sh -u admin -t remote -h 192.168.0.1 -n remote-1
 ```
-<!--CentOS 7-->
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 ``` shell
 /usr/share/centreon/bin/registerServerTopology.sh -u <API_ACCOUNT> \
 -t remote -h <IP_TARGET_NODE> -n <POLLER_NAME>
@@ -390,7 +451,8 @@ Exemple:
 ``` shell
 /usr/share/centreon/bin/registerServerTopology.sh -u admin -t remote -h 192.168.0.1 -n remote-1
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 > Remplacer **<IP_TARGET_NODE>** par l'adresse IP du serveur Centreon Central vue par votre collecteur.
 
@@ -403,64 +465,64 @@ Suivre ensuite les instructions
 
 1. Saisir le mot de passe :
 
-    ``` shell
-    192.168.0.1: please enter your password
-    ```
+``` shell
+192.168.0.1: please enter your password
+```
 
 2. Sélectionner l'adresse IP si plusieurs interfaces réseau existent:
 
-    ```shell
-    Which IP do you want to use as CURRENT NODE IP ?
-    1) 192.168.0.2
-    2) 192.168.0.3
-    1
-    ```
+```shell
+Which IP do you want to use as CURRENT NODE IP ?
+1) 192.168.0.2
+2) 192.168.0.3
+1
+```
 
 3. Valider les informations:
 
-    ``` shell
-    Summary of the informations that will be send:
-    
-    Api Connection:
-    username: admin
-    password: ******
-    target server: 192.168.0.1
-    
-    Pending Registration Server:
-    name: remote-1
-    type: remote
-    address: 192.168.0.2
-    
-    Do you want to register this server with those informations ? (y/n)y
-    ```
+``` shell
+Summary of the informations that will be send:
+
+Api Connection:
+username: admin
+password: ******
+target server: 192.168.0.1
+
+Pending Registration Server:
+name: remote-1
+type: remote
+address: 192.168.0.2
+
+Do you want to register this server with those informations ? (y/n)y
+```
 
 4. Ajouter les informations nécessaires pour permettre de futures communications entre votre Remote Server et son Central
 
-    ```shell
-    <CURRENT_NODE_ADDRESS> : Please enter your username:
-    admin
-    <CURRENT_NODE_ADDRESS> : Please enter your password:
-    
-    <CURRENT_NODE_ADDRESS> : Protocol [http]:
-    <CURRENT_NODE_ADDRESS> : Port [80]:
-    <CURRENT_NODE_ADDRESS> : centreon root folder [centreon]:
-    ```
+```shell
+<CURRENT_NODE_ADDRESS> : Please enter your username:
+admin
+<CURRENT_NODE_ADDRESS> : Please enter your password:
+
+<CURRENT_NODE_ADDRESS> : Protocol [http]:
+<CURRENT_NODE_ADDRESS> : Port [80]:
+<CURRENT_NODE_ADDRESS> : centreon root folder [centreon]:
+```
 
 5. Définir les accès au proxy du serveur Centreon du Central :
 
-    ```shell
-    Are you using a proxy ? (y/n)
-    y
-    enter your proxy Host:
-    myproxy.example.com
-    enter your proxy Port [3128]:
-    Are you using a username/password ? (y/n)
-    y
-    enter your username:
-    my_proxy_username
-    enter your password:
-    
-    ```
+```shell
+Are you using a proxy ? (y/n)
+y
+enter your proxy Host:
+myproxy.example.com
+enter your proxy Port [3128]:
+Are you using a username/password ? (y/n)
+y
+enter your username:
+my_proxy_username
+enter your password:
+
+```
 
 Vous recevrez la validation du serveur Centreon Central :
 

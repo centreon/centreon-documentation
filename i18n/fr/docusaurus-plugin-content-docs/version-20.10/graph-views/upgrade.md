@@ -2,6 +2,9 @@
 id: upgrade
 title: Upgrade the extension
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 This chapter describes how to upgrade your Centreon MAP extension. This
 is done by upgrading the three main components:
@@ -31,44 +34,45 @@ Run the following commands to upgrade your Centreon MAP server:
 
 1. Stop and disable legacy tomcat service coming from precedent version:
 
-    ```shell
-    systemctl stop tomcat
-    systemctl disable tomcat
-    ```
+```shell
+systemctl stop tomcat
+systemctl disable tomcat
+```
 
 2. Update Centreon & Centreon MAP repositories:
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="operating-systems">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
 
 ```shell
 dnf install https://yum.centreon.com/standard/20.10/el8/stable/noarch/RPMS/centreon-release-20.10-3.el8.noarch.rpm
 ```
 
-<!--CentOS 7-->
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
 yum install https://yum.centreon.com/standard/20.10/el7/stable/noarch/RPMS/centreon-release-20.10-3.el7.centos.noarch.rpm
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 > Install Centreon MAP repository, you can find it on the
 > [support portal](https://support.centreon.com/s/repositories).
 
 3. Update Centreon MAP server:
 
-    ```shell
-    yum update centreon-map-server
-    ```
+```shell
+yum update centreon-map-server
+```
 
 4. Enable and start `centreon-map` service:
 
-    ```shell
-    systemctl enable centreon-map
-    systemctl start centreon-map
-    ```
+```shell
+systemctl enable centreon-map
+systemctl start centreon-map
+```
 
 > If you want totally clean up legacy Tomcat service, you can just remove
 > Tomcat and move old log file to new log folder:

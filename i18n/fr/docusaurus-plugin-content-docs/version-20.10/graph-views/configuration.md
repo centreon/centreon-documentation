@@ -45,9 +45,9 @@ each view, define the specific rights to attribute.
 Two simple rules apply on this kind of view:
 
 - Any user accessing the `Monitoring > Map` page will be able to see all the
-  created geographic views
+created geographic views
 - Users that have "Creation" privilege (through ACL group on Centreon Map
-  desktop client) have all privileges on geographic views
+desktop client) have all privileges on geographic views
 
 ## Load disabled resources (or not)
 
@@ -101,13 +101,13 @@ objects that is based on the worst status of its children, here are the
 rules:
 
 - A host has two statuses: its own status (up/down/pending) and an inherited
-  status that is based on the worst state of its services.
+status that is based on the worst state of its services.
 - A hostgroup only has an inherited status corresponding to the worst status
-  of its children (hosts, services)
+of its children (hosts, services)
 - A servicegroup has only an inherited status: the worst status of its
- children (services)
+children (services)
 - A container has only an inherited status: the worst status of its children
-  (hosts, services, meta-services, hotsgroups, servicegroups, BA, widgets)
+(hosts, services, meta-services, hotsgroups, servicegroups, BA, widgets)
 
 **Inherited status customization**
 
@@ -120,11 +120,11 @@ Specificity of **gate.useResourcesAccess**: Settings this parameter to
 "false" may highly improve Centreon Map performances, here is why:
 
 - gate.useResourcesAccess = false: all users see the same status & same
-  resources in views, no matter the ACL ressources they have, they're ignored.
-  In that case, be careful who you're giving access to views
+resources in views, no matter the ACL ressources they have, they're ignored.
+In that case, be careful who you're giving access to views
 - gate.useResourcesAccess = true: users see different status & views regarding
-  resources ACLs (decrease performance because you need to have one instance
-  of each view for each users)
+resources ACLs (decrease performance because you need to have one instance
+of each view for each users)
 
 To configure these parameters you need to edit the following Centreon
 MAP server configuration file (modify or add missing parameters), then
@@ -231,9 +231,9 @@ can use Mapbox with Centreon MAP for free by:
 
 1. Creating an account [on Mapbox](https://www.mapbox.com/).
 2. [Retrieving a private
-   token](https://docs.mapbox.com/help/how-mapbox-works/access-tokens/#creating-and-managing-access-tokens)
-   from your Mapbox account and add it to the configuration of the Centreon MAP
-   Server (or during the installation).
+token](https://docs.mapbox.com/help/how-mapbox-works/access-tokens/#creating-and-managing-access-tokens)
+from your Mapbox account and add it to the configuration of the Centreon MAP
+Server (or during the installation).
 
 During the token creation, you're asked to select properties, select:
 

@@ -2,6 +2,9 @@
 id: add-a-remote-server-to-configuration
 title: Add a Remote Server to configuration
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Configure a new Remote Server
 
@@ -61,9 +64,8 @@ The communication between a Central and a Remote Server  is ensured by Gorgone
 and can be done using ZMQ (with a Gorgone running on the Remote Server,
 recommended) or using SSH protocol.
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Using ZMQ (Recommended)-->
+<Tabs groupId="operating-systems">
+<TabItem value="Using ZMQ (Recommended)" label="Using ZMQ (Recommended)">
 
 #### Select communication type
 
@@ -99,60 +101,60 @@ cat <<EOF > /etc/centreon-gorgone/config.d/40-gorgoned.yaml
 name: gorgoned-My Remote Server
 description: Configuration for remote server My Remote Server
 gorgone:
-  gorgonecore:
-    id: 3
-    external_com_type: tcp
-    external_com_path: "*:5556"
-    authorized_clients:
-      - key: Np1wWwpbFD2I0MdeHWRlFx51FmlYkDRZy9JTFxkrDPI
-    privkey: "/var/lib/centreon-gorgone/.keys/rsakey.priv.pem"
-    pubkey: "/var/lib/centreon-gorgone/.keys/rsakey.pub.pem"
-  modules:
-    - name: action
-      package: gorgone::modules::core::action::hooks
-      enable: true
+gorgonecore:
+id: 3
+external_com_type: tcp
+external_com_path: "*:5556"
+authorized_clients:
+- key: Np1wWwpbFD2I0MdeHWRlFx51FmlYkDRZy9JTFxkrDPI
+privkey: "/var/lib/centreon-gorgone/.keys/rsakey.priv.pem"
+pubkey: "/var/lib/centreon-gorgone/.keys/rsakey.pub.pem"
+modules:
+- name: action
+package: gorgone::modules::core::action::hooks
+enable: true
 
-    - name: cron
-      package: "gorgone::modules::core::cron::hooks"
-      enable: true
-      cron: !include cron.d/*.yaml
+- name: cron
+package: "gorgone::modules::core::cron::hooks"
+enable: true
+cron: !include cron.d/*.yaml
 
-    - name: nodes
-      package: gorgone::modules::centreon::nodes::hooks
-      enable: true
+- name: nodes
+package: gorgone::modules::centreon::nodes::hooks
+enable: true
 
-    - name: proxy
-      package: gorgone::modules::core::proxy::hooks
-      enable: true
+- name: proxy
+package: gorgone::modules::core::proxy::hooks
+enable: true
 
-    - name: legacycmd
-      package: gorgone::modules::centreon::legacycmd::hooks
-      enable: true
-      cmd_file: "/var/lib/centreon/centcore.cmd"
-      cache_dir: "/var/cache/centreon/"
-      cache_dir_trap: "/etc/snmp/centreon_traps/"
-      remote_dir: "/var/cache/centreon/config/remote-data/"
+- name: legacycmd
+package: gorgone::modules::centreon::legacycmd::hooks
+enable: true
+cmd_file: "/var/lib/centreon/centcore.cmd"
+cache_dir: "/var/cache/centreon/"
+cache_dir_trap: "/etc/snmp/centreon_traps/"
+remote_dir: "/var/cache/centreon/config/remote-data/"
 
-    - name: engine
-      package: gorgone::modules::centreon::engine::hooks
-      enable: true
-      command_file: "/var/lib/centreon-engine/rw/centengine.cmd"
+- name: engine
+package: gorgone::modules::centreon::engine::hooks
+enable: true
+command_file: "/var/lib/centreon-engine/rw/centengine.cmd"
 
-    - name: statistics
-      package: "gorgone::modules::centreon::statistics::hooks"
-      enable: true
-      broker_cache_dir: "/var/cache/centreon/broker-stats/"
-      cron:
-        - id: broker_stats
-          timespec: "*/5 * * * *"
-          action: BROKERSTATS
-          parameters:
-            timeout: 10
-        - id: engine_stats
-          timespec: "*/5 * * * *"
-          action: ENGINESTATS
-          parameters:
-            timeout: 10
+- name: statistics
+package: "gorgone::modules::centreon::statistics::hooks"
+enable: true
+broker_cache_dir: "/var/cache/centreon/broker-stats/"
+cron:
+- id: broker_stats
+timespec: "*/5 * * * *"
+action: BROKERSTATS
+parameters:
+timeout: 10
+- id: engine_stats
+timespec: "*/5 * * * *"
+action: ENGINESTATS
+parameters:
+timeout: 10
 
 EOF
 ```
@@ -180,25 +182,27 @@ It should result as follow:
 
 ```shell
 ● gorgoned.service - Centreon Gorgone
-   Loaded: loaded (/etc/systemd/system/gorgoned.service; enabled; vendor preset: disabled)
-   Active: active (running) since Wed 2020-03-24 19:45:00 CET; 6s ago
- Main PID: 30902 (perl)
-   CGroup: /system.slice/gorgoned.service
-           ├─30902 /usr/bin/perl /usr/bin/gorgoned --config=/etc/centreon-gorgone/config.yaml --logfile=/var/log/centreon-gorgone/gorgoned.log --severity=info
-           ├─30916 gorgone-nodes
-           ├─30917 gorgone-dbcleaner
-           ├─30924 gorgone-proxy
-           ├─30925 gorgone-proxy
-           ├─30938 gorgone-proxy
-           ├─30944 gorgone-proxy
-           ├─30946 gorgone-proxy
-           ├─30959 gorgone-engine
-           ├─30966 gorgone-action
-           └─30967 gorgone-legacycmd
+Loaded: loaded (/etc/systemd/system/gorgoned.service; enabled; vendor preset: disabled)
+Active: active (running) since Wed 2020-03-24 19:45:00 CET; 6s ago
+Main PID: 30902 (perl)
+CGroup: /system.slice/gorgoned.service
+├─30902 /usr/bin/perl /usr/bin/gorgoned --config=/etc/centreon-gorgone/config.yaml --logfile=/var/log/centreon-gorgone/gorgoned.log --severity=info
+├─30916 gorgone-nodes
+├─30917 gorgone-dbcleaner
+├─30924 gorgone-proxy
+├─30925 gorgone-proxy
+├─30938 gorgone-proxy
+├─30944 gorgone-proxy
+├─30946 gorgone-proxy
+├─30959 gorgone-engine
+├─30966 gorgone-action
+└─30967 gorgone-legacycmd
 
 Mar 24 19:45:00 localhost.localdomain systemd[1]: Started Centreon Gorgone.
 ```
-<!--Using SSH-->
+
+</TabItem>
+<TabItem value="Using SSH" label="Using SSH">
 
 #### Select communication type
 
@@ -235,7 +239,8 @@ Then, copy this key on to the **new Remote Server** with the following commands:
 su - centreon-gorgone
 ssh-copy-id -i .ssh/id_rsa.pub centreon@<IP_POLLER>
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 **To force the Central's Gorgone daemon to connect to the Remote Server**, restart
 it with the following command from the **Central server**:

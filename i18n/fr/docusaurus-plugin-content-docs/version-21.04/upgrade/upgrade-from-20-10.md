@@ -2,6 +2,9 @@
 id: upgrade-from-20-10
 title: Montée de version depuis Centreon 20.10
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 Ce chapitre décrit la procédure de montée de version de votre plate-forme
 Centreon depuis la version 20.10 vers la version 21.04.
@@ -52,17 +55,20 @@ yum install -y https://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/ce
 
 Centreon 21.04 utilise PHP en version 7.3.
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="operating-systems">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
 Vous devez changer le flux PHP de la version 7.2 à 7.3 en exécutant les commandes suivantes et en répondant **y**
 pour confirmer :
 ```shell
 dnf module reset php
 dnf module install php:7.3
 ```
-<!--CentOS 7-->
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 PHP sera mis à jour automatiquement avec Centreon.
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Montée de version de la solution Centreon
 
@@ -90,14 +96,16 @@ yum update centreon\*
 
 > Acceptez les nouvelles clés GPG des dépôts si nécessaire.
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="operating-systems">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
 Exécutez les commandes suivantes :
 ```shell
 systemctl enable php-fpm
 systemctl restart php-fpm
 ```
-<!--CentOS 7-->
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 Le fuseau horaire par défaut de PHP 7 doit être configuré. Executez la commande suivante :
 ```shell
 echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php73/php.d/50-centreon.ini
@@ -113,22 +121,26 @@ systemctl disable rh-php72-php-fpm
 systemctl enable rh-php73-php-fpm
 systemctl start rh-php73-php-fpm
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Finalisation de la mise à jour
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="operating-systems">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
 Avant de démarrer la montée de version via l'interface web, rechargez le serveur Apache avec la commande suivante :
 ```shell
 systemctl reload httpd
 ```
-<!--CentOS 7-->
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 Avant de démarrer la montée de version via l'interface web, rechargez le serveur Apache avec la commande suivante :
 ```shell
 systemctl reload httpd24-httpd
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 Connectez-vous ensuite à l'interface web Centreon pour démarrer le processus de
 mise à jour :
@@ -163,18 +175,18 @@ associée](../service-mapping/upgrade) pour le mettre à jour.
 
 2. Redémarrez les processus Centreon :
 
-    ```
-    systemctl restart cbd centengine centreontrapd gorgoned
-    ```
+```
+systemctl restart cbd centengine centreontrapd gorgoned
+```
 
 3. Montée de version des extensions :
 
 Depuis le menu `Administration > Extensions > Gestionnaire`, mettez à jour
 toutes les extensions, en commençant par les suivantes :
 
-  - License Manager,
-  - Plugin Packs Manager,
-  - Auto Discovery.
+- License Manager,
+- Plugin Packs Manager,
+- Auto Discovery.
 
 Vous pouvez alors mettre à jour toutes les autres extensions commerciales.
 
@@ -205,48 +217,48 @@ Il est nécessaire de désinstaller puis réinstaller MariaDB pour changer de ve
 
 1. Arrêtez le service mariadb :
 
-    ```shell
-    systemctl stop mariadb
-    ```
+```shell
+systemctl stop mariadb
+```
 
 2. Désinstallez la version actuelle :
 
-    ```shell
-    rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
-    ```
+```shell
+rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
+```
 
 3. Installez la version 10.5 :
 
-    ```shell
-    yum install MariaDB-server-10.5\* MariaDB-client-10.5\* MariaDB-shared-10.5\* MariaDB-compat-10.5\* MariaDB-common-10.5\*
-    ```
+```shell
+yum install MariaDB-server-10.5\* MariaDB-client-10.5\* MariaDB-shared-10.5\* MariaDB-compat-10.5\* MariaDB-common-10.5\*
+```
 
 4. Démarrer le service mariadb :
 
-    ```shell
-    systemctl start mariadb
-    ```
+```shell
+systemctl start mariadb
+```
 
 5. Lancez le processus de mise à jour MariaDB :
 
-    ```shell
-    mysql_upgrade
-    ```
+```shell
+mysql_upgrade
+```
 
-    Si votre base de données est protégée par mot de passe, entrez :
+Si votre base de données est protégée par mot de passe, entrez :
 
-   ```shell
-    mysql_upgrade -u <utilisateur_admin_bdd> -p
-    ```
+```shell
+mysql_upgrade -u <utilisateur_admin_bdd> -p
+```
 
-    Exemple : si votre utilisateur_admin_bdd est `root`, entrez:
+Exemple : si votre utilisateur_admin_bdd est `root`, entrez:
 
-    ```
-    mysql_upgrade -u root -p
-    ```
+```
+mysql_upgrade -u root -p
+```
 
-    > Référez vous à la [documentation officielle](https://mariadb.com/kb/en/mysql_upgrade/)
-    > pour plus d'informations ou si des erreurs apparaissent pendant cette dernière étape.
+> Référez vous à la [documentation officielle](https://mariadb.com/kb/en/mysql_upgrade/)
+> pour plus d'informations ou si des erreurs apparaissent pendant cette dernière étape.
 
 #### Activer MariaDB au démarrage automatique
 

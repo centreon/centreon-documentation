@@ -28,11 +28,11 @@ When one or more alerts are visible, you may need to [acknowledge](manage-alerts
 your team that the problem is handled. You can do that in two ways:
 
 -   By directly acknowledging the line: an **Acknowledge** button
-    appears on mouseover
+appears on mouseover
 -   By selecting multiple lines and clicking on the **Acknowledge**
-    button above the table.
+button above the table.
 
- Only "non-ok" resources can be acknowledged and you cannot acknowledge a resource that has already been acknowledged.
+Only "non-ok" resources can be acknowledged and you cannot acknowledge a resource that has already been acknowledged.
 
 When a resource is acknowledged:
 - The alert is not visible anymore in the
@@ -41,7 +41,7 @@ When a resource is acknowledged:
 - The color of the line for acknowledged resources is changed
 to yellow.
 
-The acknowledgement can also be cancelled, in which case the event will be included again in the list 
+The acknowledgement can also be cancelled, in which case the event will be included again in the list
 of **Unhandled Problems** and its notifications will resume: in the **More actions** menu, select **Disacknowledge**.
 
 ![image](../assets/alerts/resources-status/resources-status-acknowledgement.gif)
@@ -52,9 +52,9 @@ When a maintenance is planned on one or multiple resources, you can set a
 [planned downtime](manage-alerts#add-a-downtime) for them in Centreon in two ways:
 
 -   By directly setting a planned downtime on the line:
-    a **Set Downtime** button appears on mouseover
+a **Set Downtime** button appears on mouseover
 -   By selecting multiple lines and clicking on the **Set Downtime** button
-    above the table.
+above the table.
 
 When a resource is in planned downtime, the alert is not visible anymore in the
 **Unhandled problems** filter and notifications for this resource are stopped. The
@@ -69,9 +69,9 @@ In many situations, you need to quickly re-check one or multiple services
 to refresh their status. This can be achieved in two ways:
 
 -   By directly clicking on the **Check** button on the line when the
-    mouse is over
+mouse is over
 -   By selecting multiple lines and clicking on the **Check** button,
-    above the table.
+above the table.
 
 ![image](../assets/alerts/resources-status/resources-status-check.gif)
 
@@ -97,10 +97,10 @@ and **All**.
 The following rules apply:
 
 -   **Unhandled problems**: resource status is **Warning** or **Critical** or
-    **Unknown** or **Down** AND the resource is not acknowledged nor in planned
-    downtime
+**Unknown** or **Down** AND the resource is not acknowledged nor in planned
+downtime
 -   **Resource problems**: resource status is **Warning** or **Critical** or **Unknown**
-    or **Down** (whether or not the resource has been acknowleged/a downtime has been set)
+or **Down** (whether or not the resource has been acknowleged/a downtime has been set)
 -   **All**: All resources.
 
 ![image](../assets/alerts/resources-status/resources-status-filters-defaults.gif)
@@ -159,7 +159,7 @@ Use the **gear icon** next to **Filter** to:
 
 -   Save your current search as a new filter
 -   Save the current filter so that it is updated using the criteria currently
-    applied
+applied
 -   Edit filters so that you can rename, re-order or delete them
 
 As soon as a filter is saved, it can be reused in the Filter dropdown list,
@@ -200,7 +200,7 @@ The service panel contains the following elements:
 - **Timeline** tab: The timeline of events that occured for this service,
 - **Graph** tab: A graph with one curve per metric collected by this service,
 - Shortcuts to the configurations, logs and reports for this service and its
-    related host.
+related host.
 
 ![image](../assets/alerts/resources-status/resources-status-panel-service.gif)
 
@@ -209,7 +209,7 @@ the panel and the header will be colored accordingly.
 
 #### Graph
 
-The graph tab enables you to visually display how the metrics evolve for the selected resource. 
+The graph tab enables you to visually display how the metrics evolve for the selected resource.
 
 Hovering over the metric curves will display under the graph's title the precise time and also display within the legend the different values for that same point in time.
 

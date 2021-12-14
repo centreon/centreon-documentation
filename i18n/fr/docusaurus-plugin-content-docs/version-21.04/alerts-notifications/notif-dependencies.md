@@ -13,9 +13,9 @@ Les dépendances sont utilisées afin de répondre à deux principaux besoins :
 Les dépendances d'objets sont de deux types :
 
 -   Dépendance **physique** entre objet : un switch de répartition est
-    situé en amont d'un ensemble de serveurs et en aval d'un routeur
+situé en amont d'un ensemble de serveurs et en aval d'un routeur
 -   Dépendance **logique** entre objet : l'accès à un site web avec
-    authentification LDAP dépend de l'état de l'annuaire LDAP lui-même
+authentification LDAP dépend de l'état de l'annuaire LDAP lui-même
 
 ## Les dépendances physiques
 
@@ -32,11 +32,11 @@ menu `Configuration > Hosts > Hosts`.
 Il est possible de définir deux paramètres :
 
 -   **Parent Hosts**: signifie que les hôtes sélectionnés sont parents
-    de cet hôte (situé en amont). Si tous les hôtes parents sélectionnés
-    deviennent indisponibles ou injoignables alors l'hôte sera considéré
-    par l'ordonnanceur comme injoignable lui-même.
+de cet hôte (situé en amont). Si tous les hôtes parents sélectionnés
+deviennent indisponibles ou injoignables alors l'hôte sera considéré
+par l'ordonnanceur comme injoignable lui-même.
 -   **Child Hosts**: signifie que l'hôte devient parent de tous les
-    hôtes enfants sélectionnés.
+hôtes enfants sélectionnés.
 
 > Il n'est pas possible d'établir des liens de parentés entre hôtes
 > supervisés par des collecteurs différents.
@@ -74,17 +74,17 @@ maîtres de contrôler l'exécution et les notifications de services
 (appelés services dépendants).
 
 -   Les champs **Name** et **Description** indiquent le nom et la
-    description de la dépendance
+description de la dépendance
 -   Le champ **Parent relationship** est à ignorer si vous utilisez
-    Centreon Engine. S'il est activé, alors si les liens de dépendances
-    de l'hôte maître deviennent indisponibles, la dépendance en cours de
-    création n'est plus prise en compte.
+Centreon Engine. S'il est activé, alors si les liens de dépendances
+de l'hôte maître deviennent indisponibles, la dépendance en cours de
+création n'est plus prise en compte.
 -   Le champ **Execution Failure Criteria** indique quels sont les
-    statuts du ou des hôtes maîtres qui empêcheront la vérification des
-    hôtes ou des services dépendants
+statuts du ou des hôtes maîtres qui empêcheront la vérification des
+hôtes ou des services dépendants
 -   Le champ **Notification Failure Criteria** indique quels sont les
-    statuts du ou des hôtes maîtres qui empêcheront l'envoi de
-    notifications pour les hôtes ou les services dépendants
+statuts du ou des hôtes maîtres qui empêcheront l'envoi de
+notifications pour les hôtes ou les services dépendants
 -   La liste **Hostnames** défini le ou les hôtes maîtres
 -   LLa liste **Dependent Host Names** défini les hôtes dépendants
 -   La liste **Dependent Services** défini les services dépendants
@@ -105,17 +105,17 @@ services (dits dépendants). Si vous utilisez Centreon Broker, il est
 d'autres hôtes.
 
 -   Les champs **Name** et **Description** indiquent le nom et la
-    description de la dépendance
+description de la dépendance
 -   Le champ **Parent relationship** est à ignorer si vous utilisez
-    Centreon Engine. S'il est activé, alors si les liens de dépendances
-    du service maître deviennent indisponibles la dépendance en cours de
-    création n'est plus prise en compte.
+Centreon Engine. S'il est activé, alors si les liens de dépendances
+du service maître deviennent indisponibles la dépendance en cours de
+création n'est plus prise en compte.
 -   Le champ **Execution Failure Criteria** indique quels sont les
-    statuts du (ou des) service(s) maître(s) qui empêchera(ront) la
-    vérification des hôtes ou des services dépendants
+statuts du (ou des) service(s) maître(s) qui empêchera(ront) la
+vérification des hôtes ou des services dépendants
 -   Le champ **Notification Failure Criteria** indique quels sont les
-    statuts du (ou des) service(s) maître(s) qui empêchera(ront) l'envoi
-    de notifications pour les hôtes ou les services dépendants
+statuts du (ou des) service(s) maître(s) qui empêchera(ront) l'envoi
+de notifications pour les hôtes ou les services dépendants
 -   La liste **Services** définie le ou les services maîtres
 -   La liste **Dependent services** définie les services dépendants
 -   La liste **Dependent hosts** définie les hôtes dépendants
@@ -134,21 +134,21 @@ contrôle l'exécution et la notification d'autres groupes d'hôtes (dit
 dépendants).
 
 -   Les champs **Name** et **Description** indiquent le nom et la
-    description de la dépendance
+description de la dépendance
 -   Le champ **Parent relationship** est à ignorer si vous utilisez
-    Centreon Engine. S'il est activé, alors si les liens de dépendances
-    du groupe d'hôte maître deviennent indisponibles la dépendance en
-    cours de création n'est plus prise en compte.
+Centreon Engine. S'il est activé, alors si les liens de dépendances
+du groupe d'hôte maître deviennent indisponibles la dépendance en
+cours de création n'est plus prise en compte.
 -   Le champ **Execution Failure Criteria** indique quels sont les
-    statuts du ou des groupes d'hôtes maîtres qui empêcheront la
-    vérification des groupes d'hôtes dépendants
+statuts du ou des groupes d'hôtes maîtres qui empêcheront la
+vérification des groupes d'hôtes dépendants
 -   Le champ **Notification Failure Criteria** indique quels sont les
-    statuts du ou des hôtes maîtres qui empêcheront l'envoi de
-    notifications pour des groupes d'hôtes dépendants
+statuts du ou des hôtes maîtres qui empêcheront l'envoi de
+notifications pour des groupes d'hôtes dépendants
 -   La liste **Host groups name** définie le ou les groupes d'hôtes
-    maîtres
+maîtres
 -   La liste **Dependent host group name** définie le ou les groupes
-    d'hôtes dépendants
+d'hôtes dépendants
 -   Le champ **Comments** permet de commenter la dépendance
 
 ### Les groupes de services
@@ -164,21 +164,21 @@ s'il contrôle l'exécution et la notification d'autres groupes de
 services (dit dépendants).
 
 -   Les champs **Name** et **Description** indiquent le nom et la
-    description de la dépendance
+description de la dépendance
 -   Le champ **Parent relationship** est à ignorer si vous utilisez
-    Centreon Engine. S'il est activé, alors si les liens de dépendances
-    du groupe de service maître deviennent indisponibles la dépendance
-    en cours de création n'est plus prise en compte.
+Centreon Engine. S'il est activé, alors si les liens de dépendances
+du groupe de service maître deviennent indisponibles la dépendance
+en cours de création n'est plus prise en compte.
 -   Le champ **Execution Failure Criteria** indique quels sont les
-    statuts du ou des groupes de services maîtres qui empêcheront la
-    vérification des groupes de services dépendants
+statuts du ou des groupes de services maîtres qui empêcheront la
+vérification des groupes de services dépendants
 -   Le champ **Notification Failure Criteria** indique quels sont les
-    statuts du ou des hôtes maîtres qui empêcheront l'envoi de
-    notifications pour des groupes de services dépendants
+statuts du ou des hôtes maîtres qui empêcheront l'envoi de
+notifications pour des groupes de services dépendants
 -   La liste **Service group names** définie le ou les groupes de
-    services maîtres
+services maîtres
 -   La liste **Dependent service group names** définie le ou les groupes
-    de services dépendants
+de services dépendants
 -   Le champ **Comments** permet de commenter la dépendance
 
 ### Meta-services
@@ -194,21 +194,21 @@ contrôle l'exécution et la notification d'autres méta-services (dit
 dépendants).
 
 -   Les champs **Name** et **Description** indiquent le nom et la
-    description de la dépendance
+description de la dépendance
 -   Le champ **Parent relationship** est à ignorer si vous utilisez
-    Centreon Engine. S'il est activé, alors si les liens de dépendances
-    du méta-service maître deviennent indisponibles la dépendance en
-    cours de création n'est plus prise en compte.
+Centreon Engine. S'il est activé, alors si les liens de dépendances
+du méta-service maître deviennent indisponibles la dépendance en
+cours de création n'est plus prise en compte.
 -   Le champ **Execution Failure Criteria** indique quels sont les
-    statuts du ou des méta-services maîtres qui empêcheront la
-    vérification des méta-services dépendants
+statuts du ou des méta-services maîtres qui empêcheront la
+vérification des méta-services dépendants
 -   Le champ **Notification Failure Criteria** indique quels sont les
-    statuts du ou des méta-services qui empêcheront l'envoi de
-    notifications pour des méta-services dépendants
+statuts du ou des méta-services qui empêcheront l'envoi de
+notifications pour des méta-services dépendants
 -   La liste **Meta-service name** définie le (ou les) méta-service(s)
-    maître(s)
+maître(s)
 -   La liste **Dependent meta-service** définie le (ou les)
-    méta-service(s) dépendant(s)
+méta-service(s) dépendant(s)
 -   Le champ **Comments** permet de commenter la dépendance
 
 ## Exemples
@@ -245,11 +245,11 @@ Afin de créer cette dépendance, rendez-vous dans le menu
 
 1.  Entrez le nom et la description de la dépendance
 2.  Pour les champs **Execution Failure Criteria** et **Notification
-    Failure Criteria**, cochez Alerte, Critique, Inconnu et En attente
+Failure Criteria**, cochez Alerte, Critique, Inconnu et En attente
 3.  Dans la liste **Services**, sélectionnez le service qui est chargé
-    de vérifier le statut du serveur MariaDB
+de vérifier le statut du serveur MariaDB
 4.  Dans la liste **Dependent Services**, sélectionnez le service qui
-    utilise le scénario Sélénium
+utilise le scénario Sélénium
 5.  Sauvegardez
 
 A partir de ce moment, si le service chargé de vérifier le statut du
@@ -278,7 +278,7 @@ Afin de créer cette dépendance, rendez-vous dans le menu
 
 1.  Entrez le nom et la description de la dépendance
 2.  Pour le champ **Notification Failure Criteria**, cochez Alerte,
-    Critique, Inconnu et En attente
+Critique, Inconnu et En attente
 3.  Dans la liste **Host Names**, sélectionnez l'hôte A
 4.  Dans la liste **Dependent Host Names**, sélectionnez l'hôte C
 5.  Sauvegardez
@@ -305,9 +305,9 @@ cliquez sur **Add**.
 
 1.  Entrez le nom et la description de la dépendance
 2.  Pour le champ **Execution Failure Criteria** et **Notification
-    Failure Criteria**, cochez Critique et En attente
+Failure Criteria**, cochez Critique et En attente
 3.  Dans la liste **Service Group Names**, sélectionnez le groupe de
-    services **Application Oracle**
+services **Application Oracle**
 4.  Dans la liste **Dependent Service Group Names**, sélectionnez le
-    groupe de services **Application ERP**
+groupe de services **Application ERP**
 5.  Sauvegardez

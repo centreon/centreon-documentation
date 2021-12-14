@@ -74,7 +74,7 @@ Release date: `November 15, 2021`
 - CSRF - delete any SNMP trap
 - CSRF - delete any service
 - CSRF - delete any contactGroup
-- CSRF vulnerability allowing to delete any user	
+- CSRF vulnerability allowing to delete any user
 - CSRF vulnerability allowing to delete many kinds of objects
 
 #### Performance
@@ -268,13 +268,13 @@ Release date: `November 15, 2021`
 - [Resources Status] All page parameters are now saved within local storage and URL
 - [Resources Status] The detail panel is now resizable
 - [Resources Status] Revamped the Graph panel overall, mainly:
-    - Added Datetime pickers for start and end of period
-    - Added zoom feature via in-graph selection
-    - Added time translation to move forward and backward (by half the displayed period)
-    - Added option to display events (downtimes, acknowledgements, etc.) within graph
-    - Removed metrics values within tootips
-    - Added metrics values display in legend on graph hover
-    - Added metrics mean, max and average display in legend otherwise
+- Added Datetime pickers for start and end of period
+- Added zoom feature via in-graph selection
+- Added time translation to move forward and backward (by half the displayed period)
+- Added option to display events (downtimes, acknowledgements, etc.) within graph
+- Removed metrics values within tootips
+- Added metrics values display in legend on graph hover
+- Added metrics mean, max and average display in legend otherwise
 
 #### Documentation
 

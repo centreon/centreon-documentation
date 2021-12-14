@@ -18,26 +18,26 @@ Online: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
 
 Active resources:
 
- Master/Slave Set: ms_mysql-master [ms_mysql]
-     Masters: [ @CENTRAL_MASTER_NAME@ ]
-     Slaves: [ @CENTRAL_SLAVE_NAME@ ]
- Clone Set: php7-clone [php7]
-     Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
- Clone Set: cbd_rrd-clone [cbd_rrd]
-     Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
- Resource Group: centreon
-     vip        (ocf::heartbeat:IPaddr2):	Started @CENTRAL_MASTER_NAME@
-     http	(systemd:httpd24-httpd):        Started @CENTRAL_MASTER_NAME@
-     gorgone    (systemd:gorgoned):     Started @CENTRAL_MASTER_NAME@
-     centreon_central_sync	(systemd:centreon-central-sync):        Started @CENTRAL_MASTER_NAME@
-     centreontrapd	(systemd:centreontrapd):        Started @CENTRAL_MASTER_NAME@
-     snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_MASTER_NAME@
-     cbd_central_broker (systemd:cbd-sql):	Started @CENTRAL_MASTER_NAME@
-     centengine (systemd:centengine):   Started @CENTRAL_MASTER_NAME@
+Master/Slave Set: ms_mysql-master [ms_mysql]
+Masters: [ @CENTRAL_MASTER_NAME@ ]
+Slaves: [ @CENTRAL_SLAVE_NAME@ ]
+Clone Set: php7-clone [php7]
+Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+Clone Set: cbd_rrd-clone [cbd_rrd]
+Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+Resource Group: centreon
+vip        (ocf::heartbeat:IPaddr2):	Started @CENTRAL_MASTER_NAME@
+http	(systemd:httpd24-httpd):        Started @CENTRAL_MASTER_NAME@
+gorgone    (systemd:gorgoned):     Started @CENTRAL_MASTER_NAME@
+centreon_central_sync	(systemd:centreon-central-sync):        Started @CENTRAL_MASTER_NAME@
+centreontrapd	(systemd:centreontrapd):        Started @CENTRAL_MASTER_NAME@
+snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_MASTER_NAME@
+cbd_central_broker (systemd:cbd-sql):	Started @CENTRAL_MASTER_NAME@
+centengine (systemd:centengine):   Started @CENTRAL_MASTER_NAME@
 
 Failed Resource Actions:
 * centreontrapd_start_0 on @CENTRAL_MASTER_NAME@ 'not running' (7): call=82, status=complete, exitreason='',
-    last-rc-change='Thu Feb 20 13:42:19 2020', queued=1ms, exec=2122ms
+last-rc-change='Thu Feb 20 13:42:19 2020', queued=1ms, exec=2122ms
 ```
 
 ## Resource not starting
@@ -57,26 +57,26 @@ Online: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
 
 Active resources:
 
- Master/Slave Set: ms_mysql-master [ms_mysql]
-     Masters: [ @CENTRAL_MASTER_NAME@ ]
-     Slaves: [ @CENTRAL_SLAVE_NAME@ ]
- Clone Set: php7-clone [php7]
-     Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
- Clone Set: cbd_rrd-clone [cbd_rrd]
-     Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
- Resource Group: centreon
-     vip        (ocf::heartbeat:IPaddr2):	Started @CENTRAL_MASTER_NAME@
-     http	(systemd:httpd24-httpd):        Started @CENTRAL_MASTER_NAME@
-     gorgone    (systemd:gorgoned):     Started @CENTRAL_MASTER_NAME@
-     centreon_central_sync	(systemd:centreon-central-sync):        Started @CENTRAL_MASTER_NAME@
-     centreontrapd	(systemd:centreontrapd):        Stopped
-     snmptrapd  (systemd:snmptrapd):    Stopped
-     cbd_central_broker (systemd:cbd-sql):	Stopped
-     centengine (systemd:centengine):   Stopped
+Master/Slave Set: ms_mysql-master [ms_mysql]
+Masters: [ @CENTRAL_MASTER_NAME@ ]
+Slaves: [ @CENTRAL_SLAVE_NAME@ ]
+Clone Set: php7-clone [php7]
+Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+Clone Set: cbd_rrd-clone [cbd_rrd]
+Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+Resource Group: centreon
+vip        (ocf::heartbeat:IPaddr2):	Started @CENTRAL_MASTER_NAME@
+http	(systemd:httpd24-httpd):        Started @CENTRAL_MASTER_NAME@
+gorgone    (systemd:gorgoned):     Started @CENTRAL_MASTER_NAME@
+centreon_central_sync	(systemd:centreon-central-sync):        Started @CENTRAL_MASTER_NAME@
+centreontrapd	(systemd:centreontrapd):        Stopped
+snmptrapd  (systemd:snmptrapd):    Stopped
+cbd_central_broker (systemd:cbd-sql):	Stopped
+centengine (systemd:centengine):   Stopped
 
 Failed Resource Actions:
 * centreontrapd_start_0 on @CENTRAL_MASTER_NAME@ 'not running' (7): call=82, status=complete, exitreason='',
-    last-rc-change='Thu Feb 20 13:42:19 2020', queued=1ms, exec=2122ms
+last-rc-change='Thu Feb 20 13:42:19 2020', queued=1ms, exec=2122ms
 ```
 
 In order to get more information regarding this failure, you should first check the service's status by running this command on the node **where the service should be currently running**:
@@ -114,12 +114,12 @@ Online: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
 
 Active resources:
 
- Master/Slave Set: ms_mysql-master [ms_mysql]
-     Slaves: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
- Clone Set: php7-clone [php7]
-     Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
- Clone Set: cbd_rrd-clone [cbd_rrd]
-     Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+Master/Slave Set: ms_mysql-master [ms_mysql]
+Slaves: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+Clone Set: php7-clone [php7]
+Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+Clone Set: cbd_rrd-clone [cbd_rrd]
+Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
 ```
 
 No error is displayed but the centreon group doesn't show up anymore and none of its resources is started. This mostly happens when there were multiples failover (`pcs resource move ....`) without deleting the constraint. To check that:
@@ -130,13 +130,13 @@ pcs constraint show
 
 ```text
 Location Constraints:
-  Resource: centreon
-    Disabled on: @CENTRAL_SLAVE_NAME@ (score:-INFINITY) (role: Started)
-    Disabled on: @CENTRAL_MASTER_NAME@ (score:-INFINITY) (role: Started)
+Resource: centreon
+Disabled on: @CENTRAL_SLAVE_NAME@ (score:-INFINITY) (role: Started)
+Disabled on: @CENTRAL_MASTER_NAME@ (score:-INFINITY) (role: Started)
 Ordering Constraints:
 Colocation Constraints:
-  centreon with ms_mysql-master (score:INFINITY) (rsc-role:Started) (with-rsc-role:Master)
-  ms_mysql-master with centreon (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
+centreon with ms_mysql-master (score:INFINITY) (rsc-role:Started) (with-rsc-role:Master)
+ms_mysql-master with centreon (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
 Ticket Constraints:
 ```
 

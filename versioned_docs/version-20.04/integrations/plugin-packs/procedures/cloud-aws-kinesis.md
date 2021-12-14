@@ -53,8 +53,8 @@ Check the *Create Services linked to the Template too* box and click on the
 
 The following service will be created:
 
-  - Streams
-  - Records-Statistics
+- Streams
+- Records-Statistics
 
 The following service macros should be set as shown:
 

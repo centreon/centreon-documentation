@@ -2,33 +2,40 @@
 id: network-adva-fsp150-snmp
 title: Adva FSP 150 SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
-Adva Optical Networking développe et des équipements réseaux avec des connectiques fibres utilisé pour le stockage, la voix sur IP ou encore la vidéo. 
+Adva Optical Networking développe et des équipements réseaux avec des connectiques fibres utilisé pour le stockage, la voix sur IP ou encore la vidéo.
 
 ## Contenu du pack de supervision
 
 ### Objets supervisés
 
-* Fiber Service Platform 150 
+* Fiber Service Platform 150
 
 ## Métriques Collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
+<Tabs groupId="operating-systems">
+<TabItem value="Alarms" label="Alarms">
 
-<!--Alarms-->
 | Nom de métrique                           | Description                                                                |
 | :---------------------------------------- | :------------------------------------------------------------------------- |
 | alerts.problems.current.count             | Total des alarmes courantes ou nouvelles alarmes. Unité: Count             |
 
-<!--Hardware-->
+</TabItem>
+<TabItem value="Hardware" label="Hardware">
+
 | Nom de métrique                           | Description                                                               |
 | :---------------------------------------- | :------------------------------------------------------------------------ |
 | hardware.card.count                       | Nombre de cartes. Unité: Count                                            |
 | hardware.shelf.count                      | Nombre d'étagères. Unité: Count                                           |
 
-<!--Interfaces-->
+</TabItem>
+<TabItem value="Interfaces" label="Interfaces">
+
 | Nom de métrique                           | Description                                                               |
 | :---------------------------------------- | :------------------------------------------------------------------------ |
 | interface.traffic.in.bitspersecond        | Trafic entrant passant par l'interface. Unité: b/s & %                    |
@@ -40,14 +47,16 @@ Adva Optical Networking développe et des équipements réseaux avec des connect
 
 Il est possible de filtrer sur le nom d'une interface en utilisant une REGEXP de la forme (```--interface='^my-interface-name$' --name```)
 
-<!--Systems-->
+</TabItem>
+<TabItem value="Systems" label="Systems">
 
 | Nom de métrique                           | Description                                                               |
 | :---------------------------------------- | :------------------------------------------------------------------------ |
 | system.cpu.utilization.15min.percentage   | Utilisation du CPU pendant les 15 dernières minutes. Unité: %             |
 | system.memory.usage.bytes                 | Utilisation de la mémoire sur l'appareil. Unité: Bytes                    |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -61,9 +70,8 @@ La communication doit être possible sur le port UDP 161 depuis le Collecteur Ce
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="operating-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur l'ensemble des Collecteurs Centreon supervisant des équipements Adva FSP 150:
 
@@ -75,7 +83,8 @@ Installer le Plugin-Pack 'Adva Fsp 150 SNMP' depuis la page "Configuration > Plu
 
 2. Installer le pack depuis la page "Configuration > Plugin packs > Manager":
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur l'ensemble des Collecteurs Centreon supervisant des équipemnts Adva FSP 150:
 
@@ -91,13 +100,14 @@ yum install centreon-pack-network-adva-fsp150-snmp
 
 3. Installer le pack depuis la page "Configuration > Plugin packs > Manager":
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
-Dans le formulaire de création de l'Hôte sur l'interface Web de Centreon, il est nécessaire de renseigner les champs "Snmp Community" et "Snmp Version". 
+Dans le formulaire de création de l'Hôte sur l'interface Web de Centreon, il est nécessaire de renseigner les champs "Snmp Community" et "Snmp Version".
 
-> Si vous utilisez SNMP en version 3, selectionnez la version SNMP idoine et configurez les paramètres SNMP v3 via la macro SNMPEXTRAOPTIONS 
+> Si vous utilisez SNMP en version 3, selectionnez la version SNMP idoine et configurez les paramètres SNMP v3 via la macro SNMPEXTRAOPTIONS
 
 | Obligatoire | Nom              | Description                                         |
 | :---------- | :--------------- | :-------------------------------------------------- |
@@ -111,12 +121,12 @@ A partir du moment où la sonde est installée, connectez vous à votre Collecte
 
 ```bash
 /usr/lib/centreon/plugins/centreon_adva_fsp150_snmp.pl \
-    --plugin=network::adva::fsp150::snmp::plugin \
-    --mode=systems \
-    --hostname=10.30.2.114 \
-    --snmp-version='2c' \
-    --snmp-community='public' \
-    --verbose 
+--plugin=network::adva::fsp150::snmp::plugin \
+--mode=systems \
+--hostname=10.30.2.114 \
+--snmp-version='2c' \
+--snmp-community='public' \
+--verbose
 ```
 
 La commande vérifie l'utilisation CPU et mémoire (```--mode=systems```) de l'équipement ayant pour adresse 10.30.2.114 (```--hostname=10.30.2.114```) en version 2 du protocol SNMP et avec la communauté public  (```--snmp-community='public'```).
@@ -125,17 +135,17 @@ Tous les modes sont affichables via la commande suivante:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_adva_fsp150_snmp.pl \
-    --plugin=network::adva::fsp150::snmp::plugin \
-    --list-mode
+--plugin=network::adva::fsp150::snmp::plugin \
+--list-mode
 ```
 
 Les options des différents modes sont consultables en ajoutant le paramètre ```--help``` à la commande:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_adva_fsp150_snmp.pl \
-    --plugin=network::adva::fsp150::snmp::plugin \
-    --mode=systems \
-    --help
+--plugin=network::adva::fsp150::snmp::plugin \
+--mode=systems \
+--help
 ```
 
 ### UNKNOWN: SNMP GET Request : Timeout
@@ -144,6 +154,6 @@ Si vous obtenez ce message, cela signifie que vous ne parvenez pas à contacter 
 
 ### UNKNOWN: SNMP GET Request : Cant get a single value.
 
-Ce message d'erreur fait souvent référence aux problèmes suivants : 
+Ce message d'erreur fait souvent référence aux problèmes suivants :
 * L'équipement Adva Optical cible ne contient pas la MIB utilisée par le plugin.
 * L'OID ciblé n'est pas accessible du fait de privilèges insuffisants.

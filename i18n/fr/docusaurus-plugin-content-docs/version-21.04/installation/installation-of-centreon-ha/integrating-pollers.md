@@ -29,8 +29,8 @@ La commande doit afficher un retour semblable à celui-ci :
 * Le fichier `/etc/centreon-gorgone/config.d/40-gorgoned.yaml` doit avoir été réécrit et doit contenir des lignes de la forme suivante :
 
 ```yml
-    authorized_clients:
-    - key: tRsFMBv9X3ScNFMwvG8D652nXMsgEYMb1qsJek-Mns8
+authorized_clients:
+- key: tRsFMBv9X3ScNFMwvG8D652nXMsgEYMb1qsJek-Mns8
 ```
 
 ## Configuration de Gorgone sur le poller
@@ -38,9 +38,9 @@ La commande doit afficher un retour semblable à celui-ci :
 * Modifier ce fichier pour que cette section ressemble à :
 
 ```yml
-    authorized_clients:
-    - key: cle_1_precedemment_generee
-    - key: cle_2_precedemment_generee
+authorized_clients:
+- key: cle_1_precedemment_generee
+- key: cle_2_precedemment_generee
 ```
 
 * Il ne reste plus qu'à redémarrer Gorgone :

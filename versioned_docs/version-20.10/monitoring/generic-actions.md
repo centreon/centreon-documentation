@@ -2,6 +2,9 @@
 id: generic-actions
 title: Generic actions
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 In the Configuration menu it is possible to perform certain “generic” actions on the various objects.
 
@@ -33,8 +36,8 @@ Thanks to this method, it is no longer necessary to create each host individuall
 
 ### Practice
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--New pages-->
+<Tabs groupId="operating-systems">
+<TabItem value="New pages" label="New pages">
 
 To duplicate a Business Activity:
 
@@ -46,7 +49,8 @@ To duplicate a Business Activity:
 
 4. Click on **OK**
 
-<!--Legacy pages-->
+</TabItem>
+<TabItem value="Legacy pages" label="Legacy pages">
 
 To duplicate a host:
 
@@ -59,7 +63,8 @@ To duplicate a host:
 
 ![image](../assets/configuration/common/01duplicateobjects.png)
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Massive Change
 
@@ -91,8 +96,8 @@ The main advantage is to be able to keep the configuration of an object without 
 
 ### Practice
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--New pages-->
+<Tabs groupId="operating-systems">
+<TabItem value="New pages" label="New pages">
 
 To enable / disable an object:
 
@@ -104,7 +109,8 @@ It is also possible to enable or disable an object via the **State** field of th
 * <img src={require('../assets/configuration/common/enabled_new.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 * <img src={require('../assets/configuration/common/disabled_new.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 
-<!--Legacy pages-->
+</TabItem>
+<TabItem value="Legacy pages" label="Legacy pages">
 
 To enable / disable an object:
 
@@ -116,12 +122,13 @@ It is also possible to enable or disable an object via the **Status** field of t
 * <img src={require('../assets/configuration/common/enabled.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 * <img src={require('../assets/configuration/common/disabled.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Delete
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--New pages-->
+<Tabs groupId="operating-systems">
+<TabItem value="New pages" label="New pages">
 
 To delete an object:
 
@@ -129,7 +136,8 @@ To delete an object:
 2. Click on icon to delete <img src={require('../assets/configuration/common/delete_new.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 3. Confirm the action
 
-<!--Legacy pages-->
+</TabItem>
+<TabItem value="Legacy pages" label="Legacy pages">
 
 To delete an object:
 
@@ -137,4 +145,5 @@ To delete an object:
 2. In the **More actions...**  menu click on **Delete**
 3. Confirm the action
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>

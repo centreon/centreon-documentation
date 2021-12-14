@@ -38,7 +38,7 @@ Click on the *Save* button.
 
 If your netapp storage is in 'c-mode', following services won't work:
 
-  - Global-Status
-  - Share-Calls
-  - Cache-Age
-  - Ndmpsessions
+- Global-Status
+- Share-Calls
+- Cache-Age
+- Ndmpsessions

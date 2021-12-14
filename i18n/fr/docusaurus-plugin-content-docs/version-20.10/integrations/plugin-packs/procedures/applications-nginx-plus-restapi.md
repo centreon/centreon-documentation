@@ -2,6 +2,9 @@
 id: applications-nginx-plus-restapi
 title: Nginx Plus Restapi
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -20,12 +23,11 @@ Le Plugin Centreon associé permet d'interroger l'API Rest de Nginx Plus afin de
 
 ### Métriques collectées
 
-Vous pouvez vous renseigner en détails sur les métriques présentées ci-après sur la documentation officielle de 
+Vous pouvez vous renseigner en détails sur les métriques présentées ci-après sur la documentation officielle de
 l'API Rest Nginx Plus: https://docs.nginx.com/nginx/admin-guide/load-balancer/dynamic-configuration-api/
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Connections-->
+<Tabs groupId="operating-systems">
+<TabItem value="Connections" label="Connections">
 
 | Metric name                 | Description                    |
 | :-------------------------- | :----------------------------- |
@@ -34,7 +36,8 @@ l'API Rest Nginx Plus: https://docs.nginx.com/nginx/admin-guide/load-balancer/dy
 | connections.accepted.count  | Number of accepted connections |
 | connections.dropped.count   | Number of dropped connections  |
 
-<!--Http-Zone-->
+</TabItem>
+<TabItem value="HttpZone" label="HttpZone">
 
 | Metric name                                             | Description                                              |
 | :------------------------------------------------------ | :------------------------------------------------------- |
@@ -45,7 +48,8 @@ l'API Rest Nginx Plus: https://docs.nginx.com/nginx/admin-guide/load-balancer/dy
 | http.$name.zone.responses.total.count                   | Number total of http-zone responses                      |
 | http.$name.zone.responses.[1xx,2xx,3xx,4xx,5xx].count   | Number 1xx,2xx,3xx,4xx,5xx of http-zone responses        |
 
-<!--Ssl-->
+</TabItem>
+<TabItem value="Ssl" label="Ssl">
 
 | Metric name                      | Description                         |
 | :------------------------------- | :---------------------------------- |
@@ -53,7 +57,8 @@ l'API Rest Nginx Plus: https://docs.nginx.com/nginx/admin-guide/load-balancer/dy
 | ssl.handshakes.failed.count      | Number of SSL Handshakes failed     |
 | ssl.sessions.reuses.count        | Number of SSL Sessions reuses       |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -62,9 +67,8 @@ Plus d'informations sont disponible sur la documentation officielle de Nginx : h
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="operating-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources Nginx Plus :
 
@@ -74,7 +78,8 @@ yum install centreon-plugin-Applications-Nginx-Plus-Restapi.noarch
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Nginx Plus* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources Nginx Plus :
 
@@ -90,7 +95,8 @@ yum install centreon-pack-applications-nginx-plus-restapi.noarch
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Nginx Plus* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -114,45 +120,45 @@ Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne d
 
 ```bash
 /usr/lib/centreon/plugins/centreon_nginx_plus_restapi.pl \
-    --plugin=apps::nginx::nginxplus::restapi::plugin \
-    --hostname=mynginxplus.com \ 
-    --mode=connections \
-    --port='443' \
-    --proto='https' \
-    --api-username='myapiuser' \
-    --api-password='myapipassword' \
-    --api-path='/api/6' \
-    --filter-counters='mycountersfilter' \
-    --warning-active='60' \
-    --critical-active='80' \
-    --warning-idle='8' \
-    --critical-idle='10' \
-    --warning-accepted='50' \
-    --critical-accepted='65' \
-    --warning-dropped='3' \
-    --critical-dropped='5' \
-    --verbose	
+--plugin=apps::nginx::nginxplus::restapi::plugin \
+--hostname=mynginxplus.com \
+--mode=connections \
+--port='443' \
+--proto='https' \
+--api-username='myapiuser' \
+--api-password='myapipassword' \
+--api-path='/api/6' \
+--filter-counters='mycountersfilter' \
+--warning-active='60' \
+--critical-active='80' \
+--warning-idle='8' \
+--critical-idle='10' \
+--warning-accepted='50' \
+--critical-accepted='65' \
+--warning-dropped='3' \
+--critical-dropped='5' \
+--verbose
 
 OK: Active : 5, Idle : 0, Accepted : 5, Dropped : 0|
 'connections.active.count'=5;;60;80; 'connections.idle.count'=1;;8;10; 'connections.accepted.count'=5;;50;65; 'connections.dropped.count'=0;;3;5;
 ```
 
 La commande ci-dessus contrôle les connexions de Nginx Plus (```--mode=connections```)
-Il utilisde base le nom d'utilisateur Nginx  _myapiuser_ (```--api-username='myapiuser'```), comme mot de passe _myapipassword_ (```--api-password='myapipassword'```) 
+Il utilisde base le nom d'utilisateur Nginx  _myapiuser_ (```--api-username='myapiuser'```), comme mot de passe _myapipassword_ (```--api-password='myapipassword'```)
 et le chemin d'accès à l'URL de l'API par défaut _/api/6_ (```--api-path='/api/6'```).
 
-Cette commande déclenchera une alarme WARNING si les connexions activent dépasse 60 (```--warning-active='60'```) 
+Cette commande déclenchera une alarme WARNING si les connexions activent dépasse 60 (```--warning-active='60'```)
 et une alarme CRITICAL s'il dépasse 80 (```--critical-active='80'```).
 Des seuils peuvent être positionnés à l'aide des options ```--warning-*``` et ```--critical-*``` sur les métriques.
 
 Toutes les options et leur utilisation peuvent être consultées avec le paramètre ```--help``` ajouté à la commande:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_nginx_plus_restapi.pl --plugin=apps::nginx::nginxplus::restapi::plugin 
+/usr/lib/centreon/plugins/centreon_nginx_plus_restapi.pl --plugin=apps::nginx::nginxplus::restapi::plugin
 --mode=connections --help
 ```
 
-### J'obtiens le message d'erreur suivant: 
+### J'obtiens le message d'erreur suivant:
 
 #### ```UNKNOWN: 500 Can't connect to mynginxplus.com:443 |```
 
@@ -162,7 +168,7 @@ Cela signifie que Centreon n'a pas réussi à se connecter à l'API Nginx Plus (
 
 La plupart du temps, il faut préciser le proxy à utiliser pour requêter l'URL *mynginxplus.com* en utilisant l'option ```--proxyurl='http://proxy.mycompany:8080'```.
 
-#### ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |``` 
+#### ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |```
 
 Suite à la mise en place du proxy, j'obtiens le message suivant ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |```
 

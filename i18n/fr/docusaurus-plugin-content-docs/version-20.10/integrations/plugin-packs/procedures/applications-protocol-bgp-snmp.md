@@ -23,7 +23,7 @@ Note: If you use several logical system/network to segment your network (e.g
 with Juniper equipments), you need to specify community in the following format
 :
 
-    LOGICALSYSTEM/routingInstance@Community
+LOGICALSYSTEM/routingInstance@Community
 
 ## Centreon Configuration
 

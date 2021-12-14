@@ -69,7 +69,7 @@ Les pages suivantes affichent pour chaque activité métier présente dans
 la vue métier les statistiques sur:
 
 - La disponibilité, le temps d'indisponibilité, le temps passé en downtime,
-  l'indice de performance du service ainsi que le nombre d'evenement déclenchés.
+l'indice de performance du service ainsi que le nombre d'evenement déclenchés.
 
 ![image](../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page2-1.png)
 
@@ -77,21 +77,21 @@ Les icônes météo changent en fonction des SLA en pourcentage et en
 minutes définis dans la configuration pour l'activité métier.
 
 - L'évolution de la disponibilité, de la performance et du nombre
-  d'évenements déclenchés
+d'évenements déclenchés
 
 ![image](../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page2-2.png)
 
 - Un calendrier de disponibilité par jour où seuls les jours où la
-  disponibilité est inférieure à 100% sont affichés.
+disponibilité est inférieure à 100% sont affichés.
 - Une journée avec 100% de disponibilité est représentée par une case
-  gris clair sans aucune valeur.
+gris clair sans aucune valeur.
 - En cas de non présence de données sur une journée, la case sera blanche et
-  sans valeur.
+sans valeur.
 
 ![image](../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page2-3.png)
 
 - En option, la liste d'évenements déclenchés, avec pour chaque évenement les
-  KPIs mises en cause.
+KPIs mises en cause.
 
 ![image](../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page2-4.png)
 
@@ -100,7 +100,7 @@ minutes définis dans la configuration pour l'activité métier.
 Les paramètres attendus dans ce rapport :
 
 - Une date correspondant au mois sur lequel générer le rapport (date
-  de début sur l'interface de Centreon MBI)
+de début sur l'interface de Centreon MBI)
 - Les objets Centreon suivant :
 
 | Paramètres     | Type             | Description                                                                            |
@@ -134,7 +134,7 @@ d'une application métier.
 Pour une activité métier, le rapport affiche les statistiques sur:
 
 - La disponibilité, le temps d'indisponibilité, le temps passé en downtime,
-  l'indice de performance du service ainsi que le nombre d'evenement déclenchés.
+l'indice de performance du service ainsi que le nombre d'evenement déclenchés.
 
 ![image](../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page2-1.png)
 
@@ -146,13 +146,13 @@ minutes définis dans la configuration pour l'activité métier.
 ![image](../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page2-2.png)
 
 - Un calendrier de disponibilité par jour où seuls les jours où la disponibilité
-  est inférieure aux SLA en pourcentage définis dans la configuration de la BA
-  sont affichés.
+est inférieure aux SLA en pourcentage définis dans la configuration de la BA
+sont affichés.
 
 ![image](../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page2-3.png)
 
 - En option, la liste d'évenements déclenchés, avec pour chaque évenement les
-  KPIs mises en cause.
+KPIs mises en cause.
 
 ![image](../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page2-4.png)
 
@@ -161,7 +161,7 @@ minutes définis dans la configuration pour l'activité métier.
 Les paramètres attendus dans ce rapport :
 
 - Une date correspondant au mois sur lequel générer le rapport (date de début
-  sur l'interface de Centreon MBI)
+sur l'interface de Centreon MBI)
 - Les objets Centreon suivant :
 
 | Paramètres        | Type             | Description                                                                            |
@@ -213,7 +213,7 @@ L'évolution est calculée par rapport à la période précedente:
 Les paramètres attendus dans ce rapport :
 
 - Une date correspondant au mois sur lequel générer le rapport (date
-  de début sur l'interface de Centreon MBI)
+de début sur l'interface de Centreon MBI)
 - Les paramètres suivants :
 
 | Paramètres                      | Type             | Description                                                                     |
@@ -244,8 +244,8 @@ déclenchés.
 #### Comment interpréter ce rapport
 
 - La liste d'évenements déclenchés, avec pour chaque évenement les KPIs mises en
-  cause. La période temporelle prise en compte est celle définie par défaut dans
-  la configuration de la BA.
+cause. La période temporelle prise en compte est celle définie par défaut dans
+la configuration de la BA.
 
 ![image](../assets/reporting/guide/available-reports/ba-event-list.png)
 
@@ -273,7 +273,7 @@ Configuration > Business Activiy > XXXXX | onglet "Information
 - Disposer de Centreon BAM >= 3.0
 - Disposer de Centreon Broker >= 2.8.0
 - Superviser au moins une activité métier et la lier à une vue
-  business.
+business.
 - Avoir au moins un mois de données provenant du module BAM
 
 ### BV-BA-Current-Health-VS-Past
@@ -364,7 +364,7 @@ affichées.
 Les paramètres attendus dans ce rapport :
 
 - Une date correspondant au mois sur lequel générer le rapport (date
-  de début sur l'interface de Centreon MBI)
+de début sur l'interface de Centreon MBI)
 - Les objets Centreon suivant :
 
 | Paramètres    | Type             | Description                                                             |
@@ -463,9 +463,9 @@ services de tous les groupes d'hôtes, par catégories d'hôtes.
 Deux pages sont ensuite générées pour chaque groupe d'hôtes :
 
 - La première contient des graphiques d'évolution sur les indispobilités et les
-  évènements de type exception des services et des hôtes du groupe
+évènements de type exception des services et des hôtes du groupe
 - La deuxième contient des TOP sur les hôtes les plus critiques en terme
-  d'indisponibilité et d'évènements.
+d'indisponibilité et d'évènements.
 
 #### Première page
 
@@ -587,10 +587,10 @@ de début, date de fin, temps avant acquittement, "real MTRS",
 "effective MTRS".
 
 - *real MTRS* : temps total de résolution de l'évènement à partir de
-  sa détection dans la plage horaire considérée
+sa détection dans la plage horaire considérée
 - *effective MTRS* : temps total de résolution de l'évènement à partir
-  de sa détection et uniquement calculé dans la plage horaire
-  considérée
+de sa détection et uniquement calculé dans la plage horaire
+considérée
 
 ![image](../assets/reporting/guide/available-reports/Hostgroup-Host-Event-List.png)
 
@@ -646,10 +646,10 @@ de début, date de fin, temps avant acquittement, "real MTRS",
 "effective MTRS".
 
 - *real MTRS* : temps total de résolution de l'évènement à partir de
-  sa détection dans la plage horaire considérée
+sa détection dans la plage horaire considérée
 - *effective MTRS* : temps total de résolution de l'évènement à partir
-  de sa détection et uniquement calculé dans la plage horaire
-  considérée
+de sa détection et uniquement calculé dans la plage horaire
+considérée
 
 ![image](../assets/reporting/guide/available-reports/Hostgroup-Service-Event-List.png)
 
@@ -764,9 +764,9 @@ des données temps réel du moment de la génération.
 - Les évènements en cours peuvent être triés par: état, durée et hôtes.
 - Il est possible d'afficher / filtrer les hôtes acquittés ou en downtime.
 - Seuls les évènements dans un état confirmé (hard) sont pris en compte dans le
-  rapport.
+rapport.
 - Il est possible générer le rapport sur moins de 4 parties, pour cela il suffit
-  de renseigner la valeur -1 dans le titre dans la partie non utilisée
+de renseigner la valeur -1 dans le titre dans la partie non utilisée
 
 ![image](../assets/reporting/guide/available-reports/Hostgroups-Host-Current-Events.png)
 
@@ -808,9 +808,9 @@ affichées sont des données temps réel du moment de la génération.
 - Il est possible d'afficher / filtrer les services acquittés ou en downtime.
 - Il est possible de prendre en compte uniquement les services critiques.
 - Seuls les évènements dans un état confirmé (hard) sont pris en compte dans le
-  rapport.
+rapport.
 - Il est possible générer le rapport sur moins de 4 parties, pour cela il suffit
-  de renseigner la valeur -1 dans le titre dans la partie non utilisée
+de renseigner la valeur -1 dans le titre dans la partie non utilisée
 
 ![image](../assets/reporting/guide/available-reports/Hostgroups-Service-Current-Events.png)
 
@@ -1085,10 +1085,10 @@ Ce rapport peut être généré sur un indicateur retournant une valeur maximum 
 non.
 
 - Dans le cas d'un indicateur sans valeur maximum (ex: nombre de visiteurs), les
-  seuils doivent être dans la **même unité** que l'indicateur (ex: nombre de
-  visiteurs).
+seuils doivent être dans la **même unité** que l'indicateur (ex: nombre de
+visiteurs).
 - Dans le cas d'un indicateurs possédant une valeur maximum est présente, les
-  seuils doivent être en **pourcentage** (entre 0 et 100).
+seuils doivent être en **pourcentage** (entre 0 et 100).
 
 ### Hostgroup-Service-Metric-Performance-List
 
@@ -1098,10 +1098,10 @@ les seuils warning et critique pour toutes les métriques des services
 correspondant au paramétrage.
 
 - Si la valeur maximum est retournée par le plugin, les colonnes moyenne,
-  minimum et maximum sont affichées en pourcentage (%). Le calcul est le suivant
-  : valeur / valeur maximum.
+minimum et maximum sont affichées en pourcentage (%). Le calcul est le suivant
+: valeur / valeur maximum.
 - Si la valeur maximum n'est pas retournée par le plugin, les colonnes moyenne,
-  minimum et maximum sont affichées dans l'unité de la métrique.
+minimum et maximum sont affichées dans l'unité de la métrique.
 
 ![image](../assets/reporting/guide/available-reports/Hostgroup-Service-Metric-Performance-List.png)
 
@@ -1127,11 +1127,11 @@ atteintes par toutes les catégories de services et d'hôtes, par groupe
 d'hôtes.
 
 - Si la valeur maximum est retournée par le plugin, les colonnes
-  moyenne, minimum et maximum sont affichées en pourcentage (%). Le
-  calcul est le suivant : valeur / valeur maximum.
+moyenne, minimum et maximum sont affichées en pourcentage (%). Le
+calcul est le suivant : valeur / valeur maximum.
 - Si la valeur maximum n'est pas retournée par le plugin, les
-  colonnes moyenne, minimum et maximum sont affichées dans l'unité de
-  la métrique.
+colonnes moyenne, minimum et maximum sont affichées dans l'unité de
+la métrique.
 
 ![image](../assets/reporting/guide/available-reports/Hostgroups-Categories-Performance-List.png)
 
@@ -1462,20 +1462,20 @@ interfaces du groupe d'hôtes (une page par interface) et affichent la
 répartition de la bande passante par :
 
 - **Heures de la journée** en affichant:
-  - La moyenne d'utilisation par heure de la journée du trafic
-    entrant et sortant sur la période de reporting sélectionnée
-  - Le maximum atteint du trafic entrant et sortant par heure de la
-    journée sur la période de reporting sélectionnée
+- La moyenne d'utilisation par heure de la journée du trafic
+entrant et sortant sur la période de reporting sélectionnée
+- Le maximum atteint du trafic entrant et sortant par heure de la
+journée sur la période de reporting sélectionnée
 - **Jours de semaine** en affichant:
-  - La moyenne d'utilisation par jour de la semaine du trafic
-    entrant et sortant sur la période de reporting sélectionnée
-  - Le maximum atteint du trafic entrant et sortant par jour de
-    semaine sur la période de reporting sélectionnée
+- La moyenne d'utilisation par jour de la semaine du trafic
+entrant et sortant sur la période de reporting sélectionnée
+- Le maximum atteint du trafic entrant et sortant par jour de
+semaine sur la période de reporting sélectionnée
 - **Jours de mois** en affichant:
-  - La moyenne d'utilisation par jour de mois du trafic entrant et
-    sortant sur la période de reporting sélectionnée
-  - Le maximum atteint du trafic entrant et sortant par jour de mois
-    sur la période de reporting sélectionnée
+- La moyenne d'utilisation par jour de mois du trafic entrant et
+sortant sur la période de reporting sélectionnée
+- Le maximum atteint du trafic entrant et sortant par jour de mois
+sur la période de reporting sélectionnée
 
 ![image](../assets/reporting/guide/available-reports/Hostgroup-Traffic-average-By-Interface_2.png)
 
@@ -1527,11 +1527,11 @@ complet, terminé.
 Sur la première page, il y a 3 informations :
 
 - Deux graphiques présentant les 10 interfaces ayant des valeurs de
-  centile les plus élevées, pour le trafic entrant et sortant
+centile les plus élevées, pour le trafic entrant et sortant
 - Les 10 interfaces ayant leur moyenne d'utilisation de la bande
-  passante entrante la plus élevée
+passante entrante la plus élevée
 - Les 10 interfaces ayant leur moyenne d'utilisation de la bande
-  passante sortante la plus élevée
+passante sortante la plus élevée
 
 ![image](../assets/reporting/guide/available-reports/Hostgroup_Monthly_Network_Centile_1.png)
 
@@ -1546,7 +1546,7 @@ retrouve toutes les statistiques d'utilisation de la bande passante.
 Les paramètres attendus dans ce rapport :
 
 - Une date correspondant au mois sur lequel générer le rapport (date de début
-  sur l'interface de Centreon MBI)
+sur l'interface de Centreon MBI)
 - Les objets Centreon suivants :
 
 | Paramètres              | Type             | Description                                                                 |
@@ -1562,14 +1562,14 @@ Les paramètres attendus dans ce rapport :
 #### Pre-requis
 
 - La configuration concernant les calculs de centile doit avoir été
-  faite dans la partie General Option > Onglet "ETL"
+faite dans la partie General Option > Onglet "ETL"
 
 - Pour assurer la cohérence des données dans les graphiques et
-  tableaux de performance, certains pré-requis sont à respecter
-  concernant le retour des plugins. Les données de performance
-  retournées par les plugins de trafic doivent être formatées de cette
-  manière et comporter une métrique de **trafic entrant** et une
-  métrique de **trafic sortant** :
+tableaux de performance, certains pré-requis sont à respecter
+concernant le retour des plugins. Les données de performance
+retournées par les plugins de trafic doivent être formatées de cette
+manière et comporter une métrique de **trafic entrant** et une
+métrique de **trafic sortant** :
 
 ``` text
 output-plugin | traffic_in=valueunit;warning_treshold;critical_treshold;minimum;maximum traffic_out=value
@@ -1680,20 +1680,20 @@ Mise en place de la Supervision des indicateurs suivants:
 
 - Un service CPU, Memory et VMcount pour chaque ESX.
 - Un service Datastore-usage par datastore, qui sera rattaché ou à
-  un seul ESX du cluster, ou alors au vCenter. Par défaut, le
-  service aura la nomenclature suivante: Datastore-Usage-xxxx où
-  xxxx sera le nom du datastore.
+un seul ESX du cluster, ou alors au vCenter. Par défaut, le
+service aura la nomenclature suivante: Datastore-Usage-xxxx où
+xxxx sera le nom du datastore.
 - Un service Datastore-IOPS par datastore, qui sera rattaché ou à un
-  seul ESX du cluster, ou alors au vCenter. Par défaut, Le service
-  aura la nomenclature suivante: Datastore-Iops-xxxx où xxxx sera le
-  nom du datastore.
+seul ESX du cluster, ou alors au vCenter. Par défaut, Le service
+aura la nomenclature suivante: Datastore-Iops-xxxx où xxxx sera le
+nom du datastore.
 
 Création de groupes d'hôtes correspondants aux cluster. Un cluster (
 groupe d'hôte) contiendra :
 
 - Un ensemble d'ESXs (hôte)
 - Le vCenter uniquement si les services Datastore-usage et
-  Datastore-IOPS sont rattaché au vCenter et non à un ESX du cluster.
+Datastore-IOPS sont rattaché au vCenter et non à un ESX du cluster.
 
 Création d'au moins une catégorie d'hôtes contenant le cluster entier
 (ESXs + vCenter). Si vous avez plusieurs cluster, vous pouvez les
@@ -1706,9 +1706,9 @@ Création des services catégories suivantes:
 - Memory-ESX : qui regroupe l'ensemble des indicateurs MEmory sur les ESXs.
 - VMcount-ESX: qui regroupe l'ensemble des indicateurs VMcount sur les ESXs.
 - Datastore-usage: qui regroupe l'ensemble des indicateurs de l'utilisation des
-  datastores.
+datastores.
 - Datastore-IOPS : qui regroupe l'ensemble des indicateurs des IOPS sur les
-  datastores.
+datastores.
 
 > Si le nom d'un datastore ou d'un serveur ESX contient plus de 16 caractères,
 > les 16 premiers seront affichés, et complétés par 3 points de suspension
@@ -1772,7 +1772,7 @@ Mise en place de la Supervision des indicateurs suivants sur le vCenter:
 Création de la catégorie de services suivante:
 
 - VM-Statistics: qui regroupe l'ensemble des indicateurs Vm-Cpu-Global,
-  Vm-Memory-Global et Vm-Datastore-Iops-Global.
+Vm-Memory-Global et Vm-Datastore-Iops-Global.
 
 ## Consommation électrique
 
@@ -1837,7 +1837,7 @@ Les prérequis pour faire fonctionner le rapport sont:
 
 - Supervision de la puissance en sortie des onduleurs.
 - Création d'une catégorie de services contenant l'ensemble des indicateurs
-  retournant une puissance en sortie.
+retournant une puissance en sortie.
 - Suffisament d'historique pour afficher les graphiques d'évolution.
 
 La consommation d'un onduleur conrrespondera à la consommation de
@@ -2054,10 +2054,10 @@ Pour chaque équipement, le rapport est divisé en quatre parties:
 
 - La premiège partie affiche les statistiques de disponibilité de l'équipement.
 - La deuxième partie affiche les statistiques de performance de l'équipement
-  (CPU et mémoire).
+(CPU et mémoire).
 - La troisième partie affiche les statistiques de stockage par partition.
 - La quatrième partie affiche les statistiques et distribution du traffic
-  entrant et sortant des interfaces de l'équipement.
+entrant et sortant des interfaces de l'équipement.
 
 #### Première partie
 
@@ -2251,10 +2251,10 @@ Les paramètres attendus dans ce rapport :
 Les prérequis pour le bon fonctionnement de ce rapport sont:
 
 - Supervision du load average des pollers (les métriques doivent
-  être: load1, load5 et load15)
+être: load1, load5 et load15)
 - Supervision de la CPU des pollers (les métriques doivent contenir
-  la chaine *cpu* ainsi que le numéro du coeur. Ex: CPU à 4 coeurs ,
-  les métriques doivent ressembler à cpu0,cpu1... ou cpu_0,cpu_1... )
+la chaine *cpu* ainsi que le numéro du coeur. Ex: CPU à 4 coeurs ,
+les métriques doivent ressembler à cpu0,cpu1... ou cpu_0,cpu_1... )
 
 ### Hosts-not-classified
 

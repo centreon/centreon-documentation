@@ -2,6 +2,9 @@
 id: network-fiberstore-snmp
 title: Fiberstore SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Plugin-Pack Assets
 
@@ -11,27 +14,28 @@ The Plugin-Pack Fiberstore SNMP including CPU, Hardware, Interfaces, Memory.
 
 ### Collected Metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
+<Tabs groupId="operating-systems">
+<TabItem value="Cpu" label="Cpu">
 
-<!--Cpu-->
+| Metric name                | Description                  | Unit |
+| :------------------------- | :--------------------------- | :--- |
+| cpu.utilization.percentage | Current CPU usage percentage | %    |
 
-| Metric name                 | Description                  | Unit  |
-| :-------------------------- | :--------------------------- | :---- |
-| cpu.utilization.percentage  | Current CPU usage percentage | %     |
+</TabItem>
+<TabItem value="Hardware" label="Hardware">
 
-<!--Hardware-->
+| Metric name                                    | Description                | Unit |
+| :--------------------------------------------- | :------------------------- | :--- |
+| slot status                                    | Status of the slot         |      |
+| fan status                                     | Status of the fan          |      |
+| *fandescription*#hardware.fan.speed.percentage | Speed of the fan           | %    |
+| power status                                   | Status of the power module |      |
 
-| Metric name                                    | Description                     | Unit |
-| :--------------------------------------------- | :------------------------------ | :--- |
-| slot status                                    | Status of the slot              |      |
-| fan status                                     | Status of the fan               |      |
-| *fandescription*#hardware.fan.speed.percentage | Speed of the fan                | %    |
-| power status                                   | Status of the power module      |      |
-
-<!--Interfaces-->
+</TabItem>
+<TabItem value="Interfaces" label="Interfaces">
 
 | Metric name                                            | Description                                         | Unit |
-|:-------------------------------------------------------|:----------------------------------------------------|:-----|
+| :----------------------------------------------------- | :-------------------------------------------------- | :--- |
 | status                                                 | Status of the interface                             |      |
 | *interface\_name*\#interface.traffic.in.bitspersecond  | Incoming traffic going through the interface.       | b/s  |
 | *interface\_name*\#interface.traffic.in.percentage     | Percentage of the interface's *in* bandwidth usage  | %    |
@@ -40,15 +44,17 @@ The Plugin-Pack Fiberstore SNMP including CPU, Hardware, Interfaces, Memory.
 
 A regexp filter is available to target a specific interface identifier - ifName [```--interface='^eth0$' --name```]
 
-<!--Memory-->
+</TabItem>
+<TabItem value="Memory" label="Memory">
 
-| Metric name             | Description                               | Unit  |
-| :---------------------  | :---------------------------------------- | :---- |
-| memory.usage.bytes      | Memory usage                              | B     |
-| memory.free.bytes       | Free memory                               | B     |
-| memory.usage.percentage | Memory usage in percentage                | %     |
+| Metric name             | Description                | Unit |
+| :---------------------- | :------------------------- | :--- |
+| memory.usage.bytes      | Memory usage               | B    |
+| memory.free.bytes       | Free memory                | B    |
+| memory.usage.percentage | Memory usage in percentage | %    |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -56,9 +62,8 @@ To control your Fiberstore, the SNMP must be configured.
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="licence-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -68,7 +73,8 @@ yum install centreon-plugin-Network-Fiberstore-Snmp
 
 2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Fiberstore SNMP* Plugin-Pack
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -84,7 +90,8 @@ yum install centreon-pack-network-fiberstore-snmp
 
 3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Fiberstore SNMP* Plugin-Pack
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host configuration
 
@@ -93,9 +100,9 @@ yum install centreon-pack-network-fiberstore-snmp
 
 > When using SNMP v3, use the SNMPEXTRAOPTIONS Macro to add specific authentication parameters
 
-| Mandatory | Name             | Description                                    |
-| :-------- | :--------------- | :--------------------------------------------- |
-|           | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo    |
+| Mandatory | Name             | Description                                 |
+| :-------- | :--------------- | :------------------------------------------ |
+|           | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo |
 
 ## FAQ
 
@@ -106,14 +113,14 @@ and test the Plugin by running the following command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_fiberstore_snmp.pl \
-    --plugin=network::fiberstore::snmp::plugin \
-    --mode=memory \
-    --hostname=10.30.2.114 \
-    --snmp-version='2c' \
-    --snmp-community='fiberstore_ro' \
-    --warning-usage-prct='90' \
-    --critical-usage-prct='95' \
-    --verbose
+--plugin=network::fiberstore::snmp::plugin \
+--mode=memory \
+--hostname=10.30.2.114 \
+--snmp-version='2c' \
+--snmp-community='fiberstore_ro' \
+--warning-usage-prct='90' \
+--critical-usage-prct='95' \
+--verbose
 ```
 
 Expected command output is shown below:
@@ -126,7 +133,7 @@ The command above monitors Fiberstore (```--plugin=network::fiberstore::snmp::pl
 by the IP address *10.30.2.114* (```--hostname=10.30.2.114```). As the Plugin is using the SNMP protocol to request the device, the related
 *community* and *version* are specified (```--snmp-version='2c' --snmp-community='fiberstore_ro'```).
 
-This command would trigger a WARNING alarm if memory usage over 90% 
+This command would trigger a WARNING alarm if memory usage over 90%
 (```--warning-usage-prct='80'```) and a CRITICAL alarm over 95% (```--critical-usage-prct='90'```).
 
 All the options as well as all the available thresholds can be displayed by adding the  ```--help```
@@ -134,9 +141,9 @@ parameter to the command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_fiberstore_snmp.pl \
-    --plugin=network::fiberstore::snmp::plugin \
-    --mode=memory \
-    --help
+--plugin=network::fiberstore::snmp::plugin \
+--mode=memory \
+--help
 ```
 
 ### UNKNOWN: SNMP GET Request : Timeout
@@ -147,7 +154,7 @@ If you get this message, you're probably facing one of theses issues:
 
 #### UNKNOWN: SNMP GET Request : Cant get a single value.
 
-This error message often refers to the following issues: 
-  - The agent doesn't support the MIB used by the plugin
-  - The targeted SNMP OID cannot be fetched because of insufficient privileges on the device. 
-    SNMP Agent must be capable of accessing to the enterprise branch: .1.3.6.1.4.1.52642
+This error message often refers to the following issues:
+- The agent doesn't support the MIB used by the plugin
+- The targeted SNMP OID cannot be fetched because of insufficient privileges on the device.
+SNMP Agent must be capable of accessing to the enterprise branch: .1.3.6.1.4.1.52642

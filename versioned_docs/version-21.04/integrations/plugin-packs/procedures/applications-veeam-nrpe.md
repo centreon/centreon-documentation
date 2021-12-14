@@ -2,23 +2,25 @@
 id: applications-veeam-nrpe
 title: Veeam NSClient++ NRPE
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-> Hello community! We're looking for a contributor to help us to translate the 
-content in french and provide a sample execution command. If it's you, let us 
+> Hello community! We're looking for a contributor to help us to translate the
+content in french and provide a sample execution command. If it's you, let us
 know by making a PR or pinging us on [slack](https://centreon.slack.com)
 
 ## Overview
 
-The Plugin Pack *Veeam* works with the Centreon NSClient++ monitoring agent and 
+The Plugin Pack *Veeam* works with the Centreon NSClient++ monitoring agent and
 Powershell to check operating status of a Veeam Server.
 
 ## Pack assets
 
 ### Monitored objects
 
-* Veeam Servers: 
-    * Jobs 
-    * Tapes
+* Veeam Servers:
+* Jobs
+* Tapes
 
 ### Collected metrics
 
@@ -28,21 +30,22 @@ Powershell to check operating status of a Veeam Server.
 
 ### Centreon NSClient++
 
-To monitor *Veeam* backup solution through NRPE, install the Centreon packaged version 
-of the NSClient++ agent. Please follow our [official documentation](../tutorials/centreon-nsclient-tutorial) 
+To monitor *Veeam* backup solution through NRPE, install the Centreon packaged version
+of the NSClient++ agent. Please follow our [official documentation](../tutorials/centreon-nsclient-tutorial)
 and make sure that the **NRPE Server** configuration is correct.
 
-### Powershell 
+### Powershell
 
 Powershell and the `Veeam.Backup.PowerShell` snap-in must be installed
-on the target Server. 
+on the target Server.
 
-Starting with Veeam 11, the Plugin will try to find the most recent version of 
-the `VeeamPSSnapin`. 
+Starting with Veeam 11, the Plugin will try to find the most recent version of
+the `VeeamPSSnapin`.
 
-## Installation 
+## Installation
 
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="operating-systems">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Install the Centreon NRPE Client package on every Poller expected to monitor *Veeam*:
 
@@ -50,10 +53,11 @@ the `VeeamPSSnapin`.
 yum install centreon-nrpe-plugin
 ```
 
-2. On the Centreon Web interface, install the Centreon Pack *Veeam* 
+2. On the Centreon Web interface, install the Centreon Pack *Veeam*
 from the **Configuration > Plugin Packs > Manager** page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Poller expected to monitor *Veeam*:
 
@@ -67,10 +71,11 @@ yum install centreon-nrpe-plugin
 yum install centreon-pack-applications-veeam-nrpe
 ```
 
-3. On the Centreon Web interface, install the Centreon Pack *Veeam* 
+3. On the Centreon Web interface, install the Centreon Pack *Veeam*
 from the **Configuration > Plugin Packs > Manager** page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host configuration
 
@@ -78,7 +83,7 @@ from the **Configuration > Plugin Packs > Manager** page
 * Apply the *App-Veeam-NRPE-custom* template and configure all the mandatory Macros:
 
 | Mandatory | Name             | Description                                                      |
-|:----------|:-----------------|:---------------------------------------------------------------- |
+| :-------- | :--------------- | :--------------------------------------------------------------- |
 | X         | NRPECLIENT       | NRPE Plugin binary to use (Default: 'check_centreon_nrpe')       |
 | X         | NRPEPORT         | NRPE Port of the target server (Default: '5666')                 |
 | X         | NRPETIMEOUT      | Timeout value (Default: '30')                                    |

@@ -2,6 +2,9 @@
 id: network-ubiquiti-unifi-snmp
 title: Ubiquiti UniFi SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Contenu du Pack
 
@@ -19,21 +22,20 @@ Le Pack Ubiquiti UniFi collecte les données pour:
 
 ### Règles de découvertes
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Services-->
+<Tabs groupId="operating-systems">
+<TabItem value="Services" label="Services">
 
 | Nom de la règle                        | Description                                                                                  |
 | :------------------------------------- | :------------------------------------------------------------------------------------------- |
 | Net-Ubiquiti-Unifi-SNMP-Interface-Name | Découvre les interfaces réseaux et supervise le statut et l'utilisation de la bande passante |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Cpu-->
+<Tabs groupId="operating-systems">
+<TabItem value="Cpu" label="Cpu">
 
 | Metric name                           | Description                 | Unit  |
 | :------------------------------------ | :-------------------------- | :---- |
@@ -49,7 +51,8 @@ Le Pack Ubiquiti UniFi collecte les données pour:
 | cpu.guest.utilization.percentage      | CPU Guest utilization       | %     |
 | cpu.guestnice.utilization.percentage  | CPU Guest Nice utilization  | %     |
 
-<!--Disks-->
+</TabItem>
+<TabItem value="Disks" label="Disks">
 
 | Metric name                     | Description                      | Unit  |
 | :------------------------------ | :------------------------------- | :---- |
@@ -59,7 +62,8 @@ Le Pack Ubiquiti UniFi collecte les données pour:
 | storage.space.usage.percentage  | Usage Space in percentage        | %     |
 | storage.inodes.usage.percentage | Inode usage in percentage        | %     |
 
-<!--Interfaces-->
+</TabItem>
+<TabItem value="Interfaces" label="Interfaces">
 
 | Metric name                                            | Description                                         | Unit |
 | :----------------------------------------------------- | :-------------------------------------------------- | :--- |
@@ -71,7 +75,8 @@ Le Pack Ubiquiti UniFi collecte les données pour:
 
 A regexp filter is available to target a specific interface identifier - ifName [```--interface='^eth0$' --name```]
 
-<!--Load-->
+</TabItem>
+<TabItem value="Load" label="Load">
 
 | Metric name            | Description                                                       | Unit |
 | :--------------------- | :---------------------------------------------------------------- | :--- |
@@ -82,7 +87,8 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | load.5m.average.count  | System load 5 minutes-sample divided by the number of processors  |      |
 | load.15m.average.count | System load 15 minutes-sample divided by the number of processors |      |
 
-<!--Memory-->
+</TabItem>
+<TabItem value="Memory" label="Memory">
 
 | Metric name             | Description                              | Unit  |
 | :---------------------  | :--------------------------------------- | :---- |
@@ -93,7 +99,8 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | memory.cached.bytes     | Cached memory allocation                 | B     |
 | memory.shared.bytes     | Shared memory allocation                 | B     |
 
-<!--Swap-->
+</TabItem>
+<TabItem value="Swap" label="Swap">
 
 | Metric name                 | Description             | Unit   |
 | :-------------------------- | :---------------------- | :----- |
@@ -101,13 +108,15 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | swap.free.bytes             | Free swap               | B      |
 | swap.usage.percentage       | Percentage of used swap | %      |
 
-<!--Uptime-->
+</TabItem>
+<TabItem value="Uptime" label="Uptime">
 
 | Metric name           | Description        | Unit  |
 | :-------------------- | :----------------- | :---- |
 | system.uptime.seconds | System uptime      | s     |
 
-<!--Virtual-access-points-->
+</TabItem>
+<TabItem value="Virtualaccesspoints" label="Virtualaccesspoints">
 
 | Metric name                                                | Description                               | Unit   |
 | :--------------------------------------------------------- | :---------------------------------------- | :----- |
@@ -118,19 +127,19 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | *vap_name*\#virtual_access_point.traffic.in.bitspersecond  | Incoming traffic                          | b/s    |
 | *vap_name*\#virtual_access_point.traffic.out.bitspersecond | Outgoing traffic                          | b/s    |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
-Afin de contrôler votre équipement Ubiquiti UniFi, le SNMP doit être configuré. 
+Afin de contrôler votre équipement Ubiquiti UniFi, le SNMP doit être configuré.
 
 Le flux SNMP UDP/161 doit être ouvert entre le Collecteur et l'équipement.
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="operating-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -140,7 +149,8 @@ yum install centreon-plugin-Network-Ubiquiti-Unifi-Snmp
 
 2. Sur l'interface Web de Centreon, installer le Pack *Ubiquiti UniFi SNMP* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -156,7 +166,8 @@ yum install centreon-pack-network-ubiquiti-unifi-snmp
 
 3. Sur l'interface Web de Centreon, installer le Pack *Ubiquiti UniFi SNMP* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -178,15 +189,15 @@ depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-en
 
 ```bash
 /usr/lib/centreon/plugins/centreon_ubiquiti_unifi_snmp.pl \
-    --plugin=network::ubiquiti::unifi::snmp::plugin \
-    --mode=disks \
-    --hostname=10.30.2.114 \
-    --snmp-version='2c' \
-    --snmp-community='ubiquiti_ro' \
-    --filter-disk-path='^/$' \
-    --warning-usage-prct='90' \
-    --critical-usage-prct='95' \
-    --verbose
+--plugin=network::ubiquiti::unifi::snmp::plugin \
+--mode=disks \
+--hostname=10.30.2.114 \
+--snmp-version='2c' \
+--snmp-community='ubiquiti_ro' \
+--filter-disk-path='^/$' \
+--warning-usage-prct='90' \
+--critical-usage-prct='95' \
+--verbose
 ```
 
 La commande devrait retourner un message de sortie de la forme ci-dessous:
@@ -196,7 +207,7 @@ OK: Partition '/' usage total: 46.82 GB used: 26.41 GB (56.40%) free: 20.41 GB (
 Partition '/' usage total: 46.82 GB used: 26.41 GB (56.40%) free: 20.41 GB (43.60%), Inodes used: 2 %
 ```
 
-Cette commande contrôle les disques (```--mode=disks```) d'un équipement Ubiquiti UniFi ayant pour adresse *10.30.2.114* (```--hostname=10.30.2.114```) 
+Cette commande contrôle les disques (```--mode=disks```) d'un équipement Ubiquiti UniFi ayant pour adresse *10.30.2.114* (```--hostname=10.30.2.114```)
 en version *2c* du protocol SNMP (```--snmp-version='2c'```) et avec la communauté *ubiquiti_ro* (```--snmp-community='ubiquiti_ro'```).
 
 Cette commande déclenchera une alarme WARNING si l'utilisation disque est supérieur à 90% (```--warning-usage-prct='90'```)
@@ -207,9 +218,9 @@ en ajoutant le paramètre ```--help``` à la commande:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_ubiquiti_unifi_snmp.pl \
-    --plugin=network::ubiquiti::unifi::snmp::plugin \
-    --mode=disks \
-    --help
+--plugin=network::ubiquiti::unifi::snmp::plugin \
+--mode=disks \
+--help
 ```
 
 ## Diagnostique

@@ -23,7 +23,7 @@ listing widget that you can add to your home page.
 -   Display description.
 -   Display status duration.
 -   Display only top level BA: Only display BA without a parent. For a
-    non-admin users this is calculated based on the ACL.
+non-admin users this is calculated based on the ACL.
 -   Refresh Interval (in seconds).
 
 **Example**

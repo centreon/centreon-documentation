@@ -30,7 +30,7 @@ There are several advantages to using customized macros instead of arguments:
 
 * The function of the macro is defined in its name. The macro $_HOSTMOTDEPASSEINTRANET$ is easier to read than $ARG1$
 * The macros inherit models of hosts and of services, the hence it is possible to modify a single macro for a host or a
-  service. On the other hand, the arguments all need to be redefined if a single argument is changed
+service. On the other hand, the arguments all need to be redefined if a single argument is changed
 * The number of arguments is limited to 32, unlike customized macros which are unlimited
 
 A macro of a host is used to define a variable that is specific to the host and which will not change regardless of the
@@ -87,7 +87,7 @@ the objects obtained from the supervision. They are used to retrieve, at given m
 They are complementary to standard macros. E.g.:
 
 * The standard macro $CONTACTEMAIL$ makes reference to the e-mail address of the contact who uses the command of
-  notification
+notification
 * The environment macro $CONTACTEMAIL:centreon$ returns the e-mail address of the user: “centreon”
 
 The complete documentation on macros “on demand” is available at this *[address](http://nagios.sourceforge.net/docs/3_0/macrolist)*.

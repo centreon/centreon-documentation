@@ -18,13 +18,13 @@ yum install centreon-plugin-Applications-Protocol-Telnet
 The remote server must have a Telnet service running and available. You need to
 create a JSON scenario file. An example:
 
-    [
-        {"cmd": "open", "options": { "Host": "10.0.0.1", "Port": "23", "Timeout": "30" } },
-        {"cmd": "login", "options": { "Name": "admin", "Password": "pass", "Timeout": "5" } },
-        {"cmd": "waitfor", "options": { "Match": "/string/", "Timeout": "5" } },
-        {"cmd": "put", "options": { "String": "/mystring/", "Timeout": "5" } },
-        {"cmd": "close" }
-    ]
+[
+{"cmd": "open", "options": { "Host": "10.0.0.1", "Port": "23", "Timeout": "30" } },
+{"cmd": "login", "options": { "Name": "admin", "Password": "pass", "Timeout": "5" } },
+{"cmd": "waitfor", "options": { "Match": "/string/", "Timeout": "5" } },
+{"cmd": "put", "options": { "String": "/mystring/", "Timeout": "5" } },
+{"cmd": "close" }
+]
 
 ## Centreon Configuration
 

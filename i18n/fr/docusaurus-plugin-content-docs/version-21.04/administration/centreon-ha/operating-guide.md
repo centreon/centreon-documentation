@@ -247,13 +247,13 @@ Dans le cas où il y aurait besoin de supprimer le groupe et les éléments ratt
 
 ```bash
 pcs resource delete centreon             \
-                cbd_central_broker       \
-                gorgone                  \
-                snmptrapd                \
-                centreontrapd            \
-                http                     \
-                centreon_central_sync    \
-                vip
+cbd_central_broker       \
+gorgone                  \
+snmptrapd                \
+centreontrapd            \
+http                     \
+centreon_central_sync    \
+vip
 ```
 
 Si cela ne fonctionne pas, cela est sûrement dû à une ressource en erreur. Lancer les commandes suivantes afin de supprimer la ressource :
@@ -274,25 +274,25 @@ Une plate-forme de haute disponibilité est avant tout une plate-forme LAMP (Lin
 La partie la plus simple consiste à surveiller les indicateurs systèmes de base, principalement *via* le protocole SNMP, ce qui est facilité par le [plugin pack Linux](../../integrations/plugin-packs/procedures/operatingsystems-linux-snmp)
 
 * Métriques systèmes
-    * LOAD Average
-    * Consommation CPU
-    * Consommation Mémoire
-    * Consommation SWAP
-    * Utilisation des systèmes de fichiers
-    * Trafic réseau
-    * Synchronisation NTP
+* LOAD Average
+* Consommation CPU
+* Consommation Mémoire
+* Consommation SWAP
+* Utilisation des systèmes de fichiers
+* Trafic réseau
+* Synchronisation NTP
 * Processus
-    * Contrôle de l'état des processus `crond`, `chronyd`, `rsyslogd`
-    * Contrôles de l'état des processus `gorgoned`, `centengine`, `centreontrapd`, `httpd24-httpd`, `snmptrapd`, `mysqld`, `rh-php73-php-fpm`
+* Contrôle de l'état des processus `crond`, `chronyd`, `rsyslogd`
+* Contrôles de l'état des processus `gorgoned`, `centengine`, `centreontrapd`, `httpd24-httpd`, `snmptrapd`, `mysqld`, `rh-php73-php-fpm`
 
 ### Supervision applicative
 
 * Contrôle de l'accès à l'url `http://@VIP_IPADDR@/centreon` à l'aide du [plugin pack HTTP Protocol](../../integrations/plugin-packs/procedures/applications-protocol-http)
 * Contrôle de la base de données MariaDB en utilisant le [plugin pack MySQL/MariaDB](../../integrations/plugin-packs/procedures/applications-databases-mysql) :
-    * Contrôle de connexion au serveur MariaDB
-    * Les buffers et caches MariaDB/InnoDB
-    * L’usage des index
-    * Réplication MariaDB
+* Contrôle de connexion au serveur MariaDB
+* Les buffers et caches MariaDB/InnoDB
+* L’usage des index
+* Réplication MariaDB
 
 ### Supervision du cluster
 

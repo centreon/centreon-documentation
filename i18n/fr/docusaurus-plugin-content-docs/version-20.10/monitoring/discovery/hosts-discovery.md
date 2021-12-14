@@ -77,12 +77,12 @@ découverte réussie.
 L'analyse automatique traitera le résultat automatiquement et utilisera les
 politiques choisies parmis les suivantes :
 
-  - Ajouter les hôtes à la configuration quand ils sont découverts pour la
-    première fois
-  - Désactiver les hôtes déjà ajoutés à la configuration si la règle de
-    modification les exclus
-  - Activer les hôtes déjà ajoutés à la configuration si ils sont découverts
-    mais désactivés
+- Ajouter les hôtes à la configuration quand ils sont découverts pour la
+première fois
+- Désactiver les hôtes déjà ajoutés à la configuration si la règle de
+modification les exclus
+- Activer les hôtes déjà ajoutés à la configuration si ils sont découverts
+mais désactivés
 
 ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-5-2.png)
 
@@ -106,27 +106,27 @@ L'exécution immédiate lancera la découverte juste après la création de la t
 L'exécution planifiée permet de choisir parmi plusieurs types de planification
 :
 
-  - Chaque année à des jours définis de mois définis et à une heure définie
+- Chaque année à des jours définis de mois définis et à une heure définie
 
 ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-year.png)
 
-  - Chaque mois à des jours définis du mois et à une heure définie
+- Chaque mois à des jours définis du mois et à une heure définie
 
 ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-month.png)
 
-  - Chaque semaine à des jours définis de la semaine et à une heure définie
+- Chaque semaine à des jours définis de la semaine et à une heure définie
 
 ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-week.png)
 
-  - Chaque jour à une heure définie
+- Chaque jour à une heure définie
 
 ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-day.png)
 
-  - Toutes les x heures (à des minutes définies)
+- Toutes les x heures (à des minutes définies)
 
 ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-hour.png)
 
-  - Toutes les x minutes
+- Toutes les x minutes
 
 ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-minute.png)
 
@@ -142,11 +142,11 @@ tâches de découverte.
 
 Les états d'une tâche peuvent être :
 
-  - Programmé <img src={require('../../assets/monitoring/discovery/host-discovery-scheduled.png').default} style={{width:'24px', marginBottom:'-6px'}} />
-  - En cours <img src={require('../../assets/monitoring/discovery/host-discovery-running.png').default} style={{width:'24px', marginBottom:'-6px'}} />
-  - En cours d'enregistrement <img src={require('../../assets/monitoring/discovery/host-discovery-saving.png').default} style={{width:'24px', marginBottom:'-6px'}} />
-  - Terminé <img src={require('../../assets/monitoring/discovery/host-discovery-finished.png').default} style={{width:'24px', marginBottom:'-6px'}} />
-  - Echoué <img src={require('../../assets/monitoring/discovery/host-discovery-failed.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+- Programmé <img src={require('../../assets/monitoring/discovery/host-discovery-scheduled.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+- En cours <img src={require('../../assets/monitoring/discovery/host-discovery-running.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+- En cours d'enregistrement <img src={require('../../assets/monitoring/discovery/host-discovery-saving.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+- Terminé <img src={require('../../assets/monitoring/discovery/host-discovery-finished.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+- Echoué <img src={require('../../assets/monitoring/discovery/host-discovery-failed.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 
 Si une tâche est dans un état *Echoué*, survolez l'icone pour en connaitre la
 raison.
@@ -157,11 +157,11 @@ tâche](#analyser-le-résultat-dune-tâche) pour en savoir plus.
 
 Plusieurs actions peuvent être réalisées sur les tâches :
 
-  - Les tâches peuvent être re-exécutées en utilisant l'action *Forcer l'exécution* <img src={require('../../assets/monitoring/discovery/host-discovery-force-execution.png').default} style={{width:'24px', marginBottom:'-6px'}} />
-  - Elles peuvent aussi être éditées <img src={require('../../assets/monitoring/discovery/host-discovery-edit.png').default} style={{width:'24px', marginBottom:'-6px'}} />
-  - Ou même supprimées <img src={require('../../assets/monitoring/discovery/host-discovery-delete.png').default} style={{width:'24px', marginBottom:'-6px'}} />
-  - Si la tâches est planifiée, elle peut être mise en pause <img src={require('../../assets/monitoring/discovery/host-discovery-pause.png').default} style={{width:'24px', marginBottom:'-6px'}} />
-  - Et reprise <img src={require('../../assets/monitoring/discovery/host-discovery-resume.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+- Les tâches peuvent être re-exécutées en utilisant l'action *Forcer l'exécution* <img src={require('../../assets/monitoring/discovery/host-discovery-force-execution.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+- Elles peuvent aussi être éditées <img src={require('../../assets/monitoring/discovery/host-discovery-edit.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+- Ou même supprimées <img src={require('../../assets/monitoring/discovery/host-discovery-delete.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+- Si la tâches est planifiée, elle peut être mise en pause <img src={require('../../assets/monitoring/discovery/host-discovery-pause.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+- Et reprise <img src={require('../../assets/monitoring/discovery/host-discovery-resume.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 
 ## Analyser le résultat d'une tâche
 
@@ -209,14 +209,14 @@ attribut d'un item découvert à la propriété d'un futur hôte.
 
 Il y a six types de *modificateur* :
 
-  - Association: associe la valeur d'un attribut aux propriétés communes
-    d'un hôte comme son nom, son alias ou son adresse IP,
-  - Macro: associe la valeur d'un attribut à une macro *custom* d'un hôte,
-  - Template: ajoute un modèle d'hôte,
-  - Monitoring: choisit depuis quel serveur de supervision l'hôte sera
-    supervisé,
-  - Exclusion: exclure un sous-ensemble des hôtes sur la base de leurs attributs,
-  - Inclusion: inclut un sous-ensemble des hôtes qui aurait été exclus.
+- Association: associe la valeur d'un attribut aux propriétés communes
+d'un hôte comme son nom, son alias ou son adresse IP,
+- Macro: associe la valeur d'un attribut à une macro *custom* d'un hôte,
+- Template: ajoute un modèle d'hôte,
+- Monitoring: choisit depuis quel serveur de supervision l'hôte sera
+supervisé,
+- Exclusion: exclure un sous-ensemble des hôtes sur la base de leurs attributs,
+- Inclusion: inclut un sous-ensemble des hôtes qui aurait été exclus.
 
 Pour tous ces *modificateur*, des conditions peuvent être définies pour savoir
 si la modification sera effective ou non.
@@ -367,14 +367,14 @@ défaut *5700*.
 Définissons maintenant les modificateurs et les politiques de mise à jour pour
 répondre à nos besoins :
 
-  - Premiers besoins :
-    - Ajouter les nouvelles machines virtuelles (ou non encore ajoutées), (1)
-    - Exclure les machines virtuelles non démarrées. (2)
+- Premiers besoins :
+- Ajouter les nouvelles machines virtuelles (ou non encore ajoutées), (1)
+- Exclure les machines virtuelles non démarrées. (2)
 
-  - Deuxièmes besoins :
-    - Désactiver les machines virtuelles qui sont arrêtées, (3)
-    - Ré-activer les machines virtuelles qui sont démarrées (après avoir été
-      arrêtées). (4)
+- Deuxièmes besoins :
+- Désactiver les machines virtuelles qui sont arrêtées, (3)
+- Ré-activer les machines virtuelles qui sont démarrées (après avoir été
+arrêtées). (4)
 
 Cela va se traduire par un modificateur *Exclusion* avec la configuration
 suivante :

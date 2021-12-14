@@ -2,6 +2,9 @@
 id: applications-activemq-jmx
 title: ActiveMQ JMX
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -15,21 +18,17 @@ Apache ActiveMQ est un serveur de messagerie multi protocole Open Source dévelo
 
 ### Règles de découverte
 
-<!--DOCUSAURUS_CODE_TABS-->
+<Tabs groupId="operating-systems">
+<TabItem value="Services" label="Services">
 
-<!--Services-->
-
-| Rule name                     | Description                |
-| :---------------------------- | :------------------------- |
-| App-Activemq-Jmx-Brokers-Name |  Discover ActiveMQ Broker  |
-
-<!--DOCUSAURUS_CODE_TABS-->
+| Rule name                     | Description              |
+| :---------------------------- | :----------------------- |
+| App-Activemq-Jmx-Brokers-Name | Discover ActiveMQ Broker |
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Brokers-->
+</TabItem>
+<TabItem value="Brokers" label="Brokers">
 
 | Metric name                                    | Description                                         |
 | :--------------------------------------------- | :-------------------------------------------------- |
@@ -57,7 +56,8 @@ Apache ActiveMQ est un serveur de messagerie multi protocole Open Source dévelo
 | Broker.topic.messages.inflighted.count         | Broker inflighted messages per topic. Unit: count   |
 | Broker.topic.messages.size.average.bytes       | Broker average messages size per topic. Unit: bytes |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -68,9 +68,8 @@ Vous trouverez plus d'informations sur la documentation officielle d'ActiveMQ : 
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="operating-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources ActiveMQ via JMX:
 
@@ -80,7 +79,8 @@ yum install centreon-plugin-Applications-ActiveMQ-Jmx
 
 2. Dans l'interface Web de Centreon, installer le Plugin-Pack *ActiveMQ JMX* depuis la page "Configuration > Plugin Packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources ActiveMQ via JMX:
 
@@ -94,7 +94,8 @@ yum install centreon-plugin-Applications-ActiveMQ-Jmx
 centreon-pack-applications-activemq-jmx.noarch
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 3. Dans l'interface Web de Centreon, installer le Plugin-Pack *ActiveMQ JMX* depuis la page "Configuration > Plugin Packs > Manager"
 
@@ -103,12 +104,12 @@ centreon-pack-applications-activemq-jmx.noarch
 * Depuis l'interface Web de Centreon, ajoutez un nouvel Hôte depuis la page "Configuration > Hôtes".
 * Appliquez le modèle "App-Activemq-JMX-custom" et configurez toutes les macros nécessaires:
 
-| Mandatory   | Name                | Description                                                                |
-| :---------- | :------------------ | :------------------------------------------------------------------------- |
-| X           | JOLOKIAURL          | Jolokia URL (ex: http://myactivemq.int.centreon.com:8161/api/jolokia)      |
-| X           | JOLOKIAUSERNAME     | Jolokia user name                                                          |
-| X           | JOLOKIAPASSWORD     | Jolokia password                                                           |
-|             | JOLOKIAEXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
+| Mandatory | Name                | Description                                                                |
+| :-------- | :------------------ | :------------------------------------------------------------------------- |
+| X         | JOLOKIAURL          | Jolokia URL (ex: http://myactivemq.int.centreon.com:8161/api/jolokia)      |
+| X         | JOLOKIAUSERNAME     | Jolokia user name                                                          |
+| X         | JOLOKIAPASSWORD     | Jolokia password                                                           |
+|           | JOLOKIAEXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
 
 **Utilisez le module discovery pour ajouter vos *Brokers* à votre supervision**
 **Allez dans le menu *Configuration > Services > Scan* pour exécuter une découverte**
@@ -121,11 +122,11 @@ Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne d
 
 ```bash
 /usr/lib/centreon/plugins/centreon_activemq_jmx.pl \
-  --plugin apps::mq::activemq::jmx::plugin \
-  --mode Brokers \
-  --url='http://myactivemq.int.centreon.com:8161/api/jolokia' \
-  --username='admin' \
-  --password='admin' \
+--plugin apps::mq::activemq::jmx::plugin \
+--mode Brokers \
+--url='http://myactivemq.int.centreon.com:8161/api/jolokia' \
+--username='admin' \
+--password='admin' \
 ```
 
 Cette commande supervise les Brokers d'un serveur ActiveMQ via l'url *http://myactivemq.int.centreon.com:8161/api/jolokia* (```--url='http://myactivemq.int.centreon.com:8161/api/jolokia'```) à l'aide de l'utilisateur admin et de son password (```--username='admin' --password='admin'```).
@@ -142,17 +143,17 @@ Pour chaque mode, les options disponibles peuvent être consultées en ajoutant 
 
 ```bash
 /usr/lib/centreon/plugins/centreon_activemq_jmx.pl \
-  --plugin apps::mq::activemq::jmx::plugin \
-  --mode Brokers \
-  --help
+--plugin apps::mq::activemq::jmx::plugin \
+--mode Brokers \
+--help
 ```
 
 Vous pouvez afficher tous les modes disponibles à l'aide de la commande suivante :
 
 ```bash
 /usr/lib/centreon/plugins/centreon_activemq_jmx.pl \
-  --plugin apps::mq::activemq::jmx::plugin \
-  --list-mode
+--plugin apps::mq::activemq::jmx::plugin \
+--list-mode
 ```
 
 ### J'obtiens le message d'erreur suivant:
@@ -172,7 +173,7 @@ Il faudra désactiver cette vérification en éditant le fichier jolokia-access.
 
 ```xml
 <cors>
- <strict-checking/>
+<strict-checking/>
 </cors>
 ```
 

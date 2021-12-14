@@ -2,6 +2,9 @@
 id: upgrade-centreon-ha-from-20-10
 title: Upgrade Centreon HA from Centreon 20.10
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 This chapter describes how to upgrade your Centreon HA platform from version 20.10
 to version 21.04.
@@ -51,8 +54,8 @@ yum clean all --enablerepo=*
 
 Then upgrade all the components with the following command:
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--HA 2 Nodes-->
+<Tabs groupId="operating-systems">
+<TabItem value="HA 2 Nodes" label="HA 2 Nodes">
 
 ```shell
 yum update centreon\*
@@ -60,7 +63,8 @@ yum install centreon-ha-web centreon-ha-common
 yum autoremove centreon-ha
 ```
 
-<!--HA 4 Nodes-->
+</TabItem>
+<TabItem value="HA 4 Nodes" label="HA 4 Nodes">
 
 On the Central Servers:
 
@@ -78,7 +82,8 @@ yum install centreon-ha-common
 yum autoremove centreon-ha
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 The PHP timezone should be set. Run the command on both Central Server nodes:
 
@@ -91,31 +96,33 @@ echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php73/php.d/50-centreon.in
 
 > **WARNING** the following commands must be executed on only one node of the cluster.
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--HA 2 Nodes-->
+<Tabs groupId="operating-systems">
+<TabItem value="HA 2 Nodes" label="HA 2 Nodes">
 ```bash
 pcs resource delete php7
 pcs resource create "php7" \
-    systemd:rh-php73-php-fpm \
-    meta target-role="started" \
-    op start interval="0s" timeout="30s" \
-    stop interval="0s" timeout="30s" \
-    monitor interval="5s" timeout="30s" \
-    clone
+systemd:rh-php73-php-fpm \
+meta target-role="started" \
+op start interval="0s" timeout="30s" \
+stop interval="0s" timeout="30s" \
+monitor interval="5s" timeout="30s" \
+clone
 ```
-<!--HA 4 Nodes-->
+</TabItem>
+<TabItem value="HA 4 Nodes" label="HA 4 Nodes">
 ```bash
 pcs resource delete php7
 pcs resource create "php7" \
-    systemd:rh-php73-php-fpm \
-    meta target-role="started" \
-    op start interval="0s" timeout="30s" \
-    stop interval="0s" timeout="30s" \
-    monitor interval="5s" timeout="30s" \
-    clone
+systemd:rh-php73-php-fpm \
+meta target-role="started" \
+op start interval="0s" timeout="30s" \
+stop interval="0s" timeout="30s" \
+monitor interval="5s" timeout="30s" \
+clone
 pcs constraint location php7-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 Then to perform the WEB UI upgrade, please [follow the official documentation](../../upgrade/upgrade-from-20-10.md#finalizing-the-upgrade) Only on the **active central node**.
 
@@ -128,7 +135,7 @@ sudo -u apache /usr/share/centreon/bin/console cache:clear
 
 ### Removing cron jobs
 
-The RPM upgrade puts cron job back in place. Remove them to avoid concurrent executions: 
+The RPM upgrade puts cron job back in place. Remove them to avoid concurrent executions:
 
 ```bash
 rm /etc/cron.d/centreon
@@ -166,52 +173,52 @@ You have to uninstall then reinstall MariaDB to upgrade between major versions (
 
 1. Stop the mariadb service:
 
-    ```shell
-    systemctl stop mariadb
-    ```
+```shell
+systemctl stop mariadb
+```
 
 2. Uninstall the current version (MariaDB-shared is possibly not installed, remove it from this command if it's the case):
 
-    ```shell
-    rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
-    ```
-    or if MariaDB-shared not installed:
-    ```shell
-    rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-compat MariaDB-common
-    ```
+```shell
+rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
+```
+or if MariaDB-shared not installed:
+```shell
+rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-compat MariaDB-common
+```
 
 3. Install version 10.5:
 
-    ```shell
-    yum install MariaDB-server-10.5\* MariaDB-client-10.5\* MariaDB-shared-10.5\* MariaDB-compat-10.5\* MariaDB-common-10.5\*
-    ```
+```shell
+yum install MariaDB-server-10.5\* MariaDB-client-10.5\* MariaDB-shared-10.5\* MariaDB-compat-10.5\* MariaDB-common-10.5\*
+```
 
 4. Start the mariadb service:
 
-    ```shell
-    systemctl start mariadb
-    ```
+```shell
+systemctl start mariadb
+```
 
 5. Launch the MariaDB upgrade process:
 
-    ```shell
-    mysql_upgrade
-    ```
-    
-    If your database is password-protected, enter:
+```shell
+mysql_upgrade
+```
 
-    ```shell
-    mysql_upgrade -u <database_admin_user> -p
-    ```
+If your database is password-protected, enter:
 
-    Example: if your database_admin_user is `root`, enter:
+```shell
+mysql_upgrade -u <database_admin_user> -p
+```
 
-    ```
-    mysql_upgrade -u root -p
-    ```
+Example: if your database_admin_user is `root`, enter:
 
-    > Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
-    > for more information or if errors occur during this last step.
+```
+mysql_upgrade -u root -p
+```
+
+> Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
+> for more information or if errors occur during this last step.
 
 #### Restart MariaDB Replication
 
@@ -278,7 +285,7 @@ pcs resource manage ms_mysql
 
 It can happen that the replication thread is not running right after installation.  Restarting the `ms_mysql` resource may fix it.
 
-```bash 
+```bash
 pcs resource restart ms_mysql
 ```
 
@@ -286,8 +293,8 @@ pcs resource restart ms_mysql
 
 You can monitor the cluster's resources in real time using the `crm_mon` command:
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--HA 2 Nodes-->
+<Tabs groupId="operating-systems">
+<TabItem value="HA 2 Nodes" label="HA 2 Nodes">
 ```bash
 Stack: corosync
 Current DC: @CENTRAL_SLAVE_NAME@ (version 1.1.20-5.el7_7.2-3c4c782f70) - partition with quorum
@@ -301,24 +308,25 @@ Online: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
 
 Active resources:
 
- Master/Slave Set: ms_mysql-master [ms_mysql]
-     Masters: [ @CENTRAL_MASTER_NAME@ ]
-     Slaves: [ @CENTRAL_SLAVE_NAME@ ]
- Clone Set: cbd_rrd-clone [cbd_rrd]
-     Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
- Resource Group: centreon
-     vip        (ocf::heartbeat:IPaddr2):	Started @CENTRAL_MASTER_NAME@
-     http	(systemd:httpd24-httpd):        Started @CENTRAL_MASTER_NAME@
-     gorgone    (systemd:gorgoned):     Started @CENTRAL_MASTER_NAME@
-     centreon_central_sync	(systemd:centreon-central-sync):        Started @CENTRAL_MASTER_NAME@
-     centreontrapd	(systemd:centreontrapd):        Started @CENTRAL_MASTER_NAME@
-     snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_MASTER_NAME@
-     cbd_central_broker (systemd:cbd-sql):	Started @CENTRAL_MASTER_NAME@
-     centengine (systemd:centengine):   Started @CENTRAL_MASTER_NAME@
- Clone Set: php7-clone [php7]
-     Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+Master/Slave Set: ms_mysql-master [ms_mysql]
+Masters: [ @CENTRAL_MASTER_NAME@ ]
+Slaves: [ @CENTRAL_SLAVE_NAME@ ]
+Clone Set: cbd_rrd-clone [cbd_rrd]
+Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+Resource Group: centreon
+vip        (ocf::heartbeat:IPaddr2):	Started @CENTRAL_MASTER_NAME@
+http	(systemd:httpd24-httpd):        Started @CENTRAL_MASTER_NAME@
+gorgone    (systemd:gorgoned):     Started @CENTRAL_MASTER_NAME@
+centreon_central_sync	(systemd:centreon-central-sync):        Started @CENTRAL_MASTER_NAME@
+centreontrapd	(systemd:centreontrapd):        Started @CENTRAL_MASTER_NAME@
+snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_MASTER_NAME@
+cbd_central_broker (systemd:cbd-sql):	Started @CENTRAL_MASTER_NAME@
+centengine (systemd:centengine):   Started @CENTRAL_MASTER_NAME@
+Clone Set: php7-clone [php7]
+Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
 ```
-<!--HA 4 Nodes-->
+</TabItem>
+<TabItem value="HA 4 Nodes" label="HA 4 Nodes">
 ```bash
 [...]
 4 nodes configured
@@ -328,25 +336,26 @@ Online: [@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ @DATABASE_MASTER_NAME@ @DATA
 
 Active resources:
 
- Master/Slave Set: ms_mysql-master [ms_mysql]
-     Masters: [@DATABASE_MASTER_NAME@]
-     Slaves: [@DATABASE_SLAVE_NAME@]
- Clone Set: cbd_rrd-clone [cbd_rrd]
-     Started: [@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@]
- Resource Group: centreon
-     vip        (ocf::heartbeat:IPaddr2):       Started @CENTRAL_MASTER_NAME@
-     http       (systemd:httpd24-httpd):        Started @CENTRAL_MASTER_NAME@
-     gorgone    (systemd:gorgoned):     Started @CENTRAL_MASTER_NAME@
-     centreon_central_sync      (systemd:centreon-central-sync):        Started @CENTRAL_MASTER_NAME@
-     cbd_central_broker (systemd:cbd-sql):      Started @CENTRAL_MASTER_NAME@
-     centengine (systemd:centengine):   Started @CENTRAL_MASTER_NAME@
-     centreontrapd      (systemd:centreontrapd):        Started @CENTRAL_MASTER_NAME@
-     snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_MASTER_NAME@
-     vip_mysql       (ocf::heartbeat:IPaddr2):       Started @CENTRAL_MASTER_NAME@
- Clone Set: php7-clone [php7]
-     Started: [@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@]
+Master/Slave Set: ms_mysql-master [ms_mysql]
+Masters: [@DATABASE_MASTER_NAME@]
+Slaves: [@DATABASE_SLAVE_NAME@]
+Clone Set: cbd_rrd-clone [cbd_rrd]
+Started: [@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@]
+Resource Group: centreon
+vip        (ocf::heartbeat:IPaddr2):       Started @CENTRAL_MASTER_NAME@
+http       (systemd:httpd24-httpd):        Started @CENTRAL_MASTER_NAME@
+gorgone    (systemd:gorgoned):     Started @CENTRAL_MASTER_NAME@
+centreon_central_sync      (systemd:centreon-central-sync):        Started @CENTRAL_MASTER_NAME@
+cbd_central_broker (systemd:cbd-sql):      Started @CENTRAL_MASTER_NAME@
+centengine (systemd:centengine):   Started @CENTRAL_MASTER_NAME@
+centreontrapd      (systemd:centreontrapd):        Started @CENTRAL_MASTER_NAME@
+snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_MASTER_NAME@
+vip_mysql       (ocf::heartbeat:IPaddr2):       Started @CENTRAL_MASTER_NAME@
+Clone Set: php7-clone [php7]
+Started: [@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@]
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Verifying the platform stability
 

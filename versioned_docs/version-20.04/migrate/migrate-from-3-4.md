@@ -40,9 +40,9 @@ interface.
 
 2. Perform software and system updates:
 
-    ```shell
-    yum update
-    ```
+```shell
+yum update
+```
 
 > It is advisable to set the same password for the *centreon* user during the web
 > installation process.
@@ -65,57 +65,57 @@ rsync -avz /var/spool/centreon/.ssh root@<IP_NEW_CENTREON>:/var/spool/centreon
 
 1. Dump source databases:
 
-    ```shell
-    mysqldump -u root -p centreon > /tmp/centreon.sql
-    mysqldump -u root -p centreon_storage > /tmp/centreon_storage.sql
-    ```
+```shell
+mysqldump -u root -p centreon > /tmp/centreon.sql
+mysqldump -u root -p centreon_storage > /tmp/centreon_storage.sql
+```
 
 2. Stop source MariaDB servers:
 
-    ```shell
-     service mysqld stop
-    ```
+```shell
+service mysqld stop
+```
 
 3. Export the dumps to the new Centreon 20.04 database server (make sure you
 have enough space for large databases dumps):
 
-  ```shell
-  rsync -avz /tmp/centreon.sql root@<IP_NEW_CENTREON>:/tmp/
-  rsync -avz /tmp/centreon_storage.sql root@<IP_NEW_CENTREON>:/tmp/
-  ```
+```shell
+rsync -avz /tmp/centreon.sql root@<IP_NEW_CENTREON>:/tmp/
+rsync -avz /tmp/centreon_storage.sql root@<IP_NEW_CENTREON>:/tmp/
+```
 
 4. On the Centreon 20.04 database server, drop the original databases and
 create them again:
 
-  ```shell
-  mysql -u root -p
-  ```
+```shell
+mysql -u root -p
+```
 
-  ```SQL
-  DROP DATABASE centreon;
-  DROP DATABASE centreon_storage;
-  CREATE DATABASE centreon;
-  CREATE DATABASE centreon_storage;
-  ```
+```SQL
+DROP DATABASE centreon;
+DROP DATABASE centreon_storage;
+CREATE DATABASE centreon;
+CREATE DATABASE centreon_storage;
+```
 
 5. Import the previously transfered dumps:
 
-    ```shell
-    mysql -u root centreon -p </tmp/centreon.sql
-    mysql -u root centreon_storage -p </tmp/centreon_storage.sql
-    ```
+```shell
+mysql -u root centreon -p </tmp/centreon.sql
+mysql -u root centreon_storage -p </tmp/centreon_storage.sql
+```
 
 6. Upgrade the tables:
 
-    ```shell
-    mysql_upgrade
-    ```
+```shell
+mysql_upgrade
+```
 
 7. Start the mariadb process on the new server:
 
-    ```shell
-    systemctl start mariadb
-    ```
+```shell
+systemctl start mariadb
+```
 
 > Replace **<IP_NEW_CENTREON>** by the IP or the new Centreon server.
 

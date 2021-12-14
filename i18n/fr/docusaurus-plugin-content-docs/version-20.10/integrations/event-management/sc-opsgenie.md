@@ -49,7 +49,7 @@ Si vous avez besoin d'aide avec cette intégration, selon votre utilisation de C
 
 ### Dans Centreon
 
-#### Installation 
+#### Installation
 
 Connectez vous en tant que `root` sur le serveur Centreon central en utilisant votre client SSH préféré.
 
@@ -109,27 +109,27 @@ Pour être sûr que tout va bien, vous pouvez jeter un oeil aux fichiers de log 
 
 | Name                        | Type   | Default value                                                           | Description                                    |
 | --------------------------- | ------ | ----------------------------------------------------------------------- | ---------------------------------------------- |
-| `api_url`                   | String | `https://api.opsgenie.com`                                              | Adresse API d'Opsgenie. Utilisez https://api.eu.opsgenie.com si votre instance est en Europe |               
+| `api_url`                   | String | `https://api.opsgenie.com`                                              | Adresse API d'Opsgenie. Utilisez https://api.eu.opsgenie.com si votre instance est en Europe |
 | `proxy_address`             | String |                                                                         | Si besoint, l'adresse du serveur proxy (nécessite le paramètre proxy_port) |
-| `proxy_port`                | String |                                                                         | Le port du serveur proxy |                 
-| `proxy_username`            | String |                                                                         | Si besoin, l'utilisateur pour le proxy (nécessite le paramètre proxy_password) |                 
-| `proxy_password`            | String |                                                                         | Le mot de passe de l'utilisateur du serveur proxy |                  
+| `proxy_port`                | String |                                                                         | Le port du serveur proxy |
+| `proxy_username`            | String |                                                                         | Si besoin, l'utilisateur pour le proxy (nécessite le paramètre proxy_password) |
+| `proxy_password`            | String |                                                                         | Le mot de passe de l'utilisateur du serveur proxy |
 | `logfile`                   | String | `/var/log/centreon-broker/connector-opsgenie.log`                       | Le fichier de log du stream connector |
-| `host_status`               | String | `0,1,2`                                                                 | Envoie les évènements d'hôte up, down and unreachable|               
-| `service_status`            | String | `0,1,2,3`                                                               | Envoie les évènements de service ok, warning, critical, unknown services |               
+| `host_status`               | String | `0,1,2`                                                                 | Envoie les évènements d'hôte up, down and unreachable|
+| `service_status`            | String | `0,1,2,3`                                                               | Envoie les évènements de service ok, warning, critical, unknown services |
 | `ba_status`                 | String | `0,1,2`                                                                 | Envoie les évènements de BA ok, warning, critical business activities |
-| `hard_only`                 | Number | `1`                                                                     | Envoie uniquement les évènements en état HARD |               
-| `acknowledged`              | Number | `0`                                                                     | Envoie uniquement les évènements qui ne sont pas acquittés |               
-| `element_type`              | String | `host_status,service_status,ba_status`                                  | Envoie les évènements de statut des hôtes, services et BA |               
-| `category_type`             | String | `neb,bam`                                                               | Filtre les évènements qui ne sont pas du neb ou du bam |               
-| `in_downtime`               | Number | `0`                                                                     | Envoie uniquement les évènements qui ne sont pas en downtime |               
-| `max_buffer_size`           | Number | `1`                                                                     | Envoie les évènements un par un |               
-| `max_buffer_age`            | Number | `5`                                                                     | Stocke les évènements pendant 5 secondes à moins que le max_buffer_size soit atteint avant |               
-| `max_stored_events`         | Number | `10`                                                                    | Garde les évènements en mémoire pour éviter d'envoyer des duplicatas. Ne pas modifier sans maîtriser les Stream Connectors |               
-| `skip_anon_events`          | Number | `1`                                                                     | N'envoie pas les évènements dont l'hôte ou le service ne sont pas trouvés dans le cache du broker |               
-| `skip_nil_id`               | Number | `1`                                                                     | N'envoie pes les évènements qui n'ont pas d'ID. (meta-service la plupart du temps) |               
-| `accepted_hostgroups`       | String |                                                                         | Liste des groupes d'hôtes dans lequel un hôte doit être (séparateur `,` ex : grp1,grp2,grp3) |               
-| `date_format`               | String | `%Y-%m-%d %H:%M:%S`                                                     | Format de conversion par défaut des timestamps (https://www.lua.org/pil/22.1) |               
+| `hard_only`                 | Number | `1`                                                                     | Envoie uniquement les évènements en état HARD |
+| `acknowledged`              | Number | `0`                                                                     | Envoie uniquement les évènements qui ne sont pas acquittés |
+| `element_type`              | String | `host_status,service_status,ba_status`                                  | Envoie les évènements de statut des hôtes, services et BA |
+| `category_type`             | String | `neb,bam`                                                               | Filtre les évènements qui ne sont pas du neb ou du bam |
+| `in_downtime`               | Number | `0`                                                                     | Envoie uniquement les évènements qui ne sont pas en downtime |
+| `max_buffer_size`           | Number | `1`                                                                     | Envoie les évènements un par un |
+| `max_buffer_age`            | Number | `5`                                                                     | Stocke les évènements pendant 5 secondes à moins que le max_buffer_size soit atteint avant |
+| `max_stored_events`         | Number | `10`                                                                    | Garde les évènements en mémoire pour éviter d'envoyer des duplicatas. Ne pas modifier sans maîtriser les Stream Connectors |
+| `skip_anon_events`          | Number | `1`                                                                     | N'envoie pas les évènements dont l'hôte ou le service ne sont pas trouvés dans le cache du broker |
+| `skip_nil_id`               | Number | `1`                                                                     | N'envoie pes les évènements qui n'ont pas d'ID. (meta-service la plupart du temps) |
+| `accepted_hostgroups`       | String |                                                                         | Liste des groupes d'hôtes dans lequel un hôte doit être (séparateur `,` ex : grp1,grp2,grp3) |
+| `date_format`               | String | `%Y-%m-%d %H:%M:%S`                                                     | Format de conversion par défaut des timestamps (https://www.lua.org/pil/22.1) |
 | `host_alert_message`        | String | `{last_update_date} {hostname} is {state}`                              | Le message par défaut des alertes d'hôte. Voir [host event macros](sc-opsgenie#host-event-macros) pour plus de détails sur les macros |
 | `host_alert_description`    | String |                                                                         | La description par défaut des alertes d'hôte. See [host event macros](sc-opsgenie#host-event-macros) for more details about macros |
 | `host_alert_alias`          | String | `{hostname}_{state}`                                                    | L'alias par défaut des alertes d'hôte. Utile pour la déduplication d'alertes See [host event macros](sc-opsgenie#host-event-macros) for more details about macros  |

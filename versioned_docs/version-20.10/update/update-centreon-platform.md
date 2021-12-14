@@ -72,9 +72,9 @@ systemctl restart cbd centengine gorgoned
 From `Administration > Extensions > Manager`, update all extensions, starting
 with the following:
 
-  - License Manager,
-  - Plugin Packs Manager,
-  - Auto Discovery.
+- License Manager,
+- Plugin Packs Manager,
+- Auto Discovery.
 
 Then you can update all other commercial extensions.
 

@@ -12,9 +12,9 @@ If the module **centreon-poller-display-central-1.6.x** is installed:
 
 2. Remove the associated package:
 
-    ```shell
-    yum remove centreon-poller-display-central
-    ```
+```shell
+yum remove centreon-poller-display-central
+```
 
 If your server uses the CentOS or Red Hat v7 operating system, refer to the
 [upgrade procedure](../upgrade/upgrade-from-3-4) to upgrade your Central server.
@@ -31,16 +31,16 @@ Otherwise, refer to the [migration procedure](../migrate/migrate-from-3-4).
 2. If you installed the module using an RPM package, remove it with the
 following command:
 
-  ```shell
-  yum remove centreon-poller-display
-  ```
+```shell
+yum remove centreon-poller-display
+```
 
 3. If your server uses the CentOS or Red Hat v7 operating system, refer to the
 [upgrade procedure](../upgrade/upgrade-from-3-4) to upgrade your Remote Server.
 Otherwise, refer to the [migration procedure](../migrate/migrate-from-3-4).
 
-    > If you use Centreon EMS modules, you must update the repositories. Be sure to
-    > contact your Centreon support and request new licenses.
+> If you use Centreon EMS modules, you must update the repositories. Be sure to
+> contact your Centreon support and request new licenses.
 
 4. Go to **Administration > Extensions > Modules** menu and install the
 **centreon-license-manager** module.
@@ -70,65 +70,65 @@ Example:
 Then follow instructions by
 1. Entering your password:
 
-    ``` shell
-    192.168.0.1: please enter your password:
-    ```
+``` shell
+192.168.0.1: please enter your password:
+```
 
 2. Select the IP address if multiple network interfaces exist:
 
-    ```shell
-    Which IP do you want to use as CURRENT NODE IP ?
-    1) 192.168.0.2
-    2) 192.168.0.3
-    1
-    ```
+```shell
+Which IP do you want to use as CURRENT NODE IP ?
+1) 192.168.0.2
+2) 192.168.0.3
+1
+```
 
 3. Then validate the information:
 
-    ``` shell
-    Summary of the informations that will be send:
-    
-    Api Connection:
-    username: admin
-    password: ******
-    target server: 192.168.0.1
-    
-    Pending Registration Server:
-    name: remote-1
-    type: remote
-    address: 192.168.0.2
-    
-    Do you want to register this server with those informations ? (y/n)y
-    ```
+``` shell
+Summary of the informations that will be send:
+
+Api Connection:
+username: admin
+password: ******
+target server: 192.168.0.1
+
+Pending Registration Server:
+name: remote-1
+type: remote
+address: 192.168.0.2
+
+Do you want to register this server with those informations ? (y/n)y
+```
 
 4. Add additional information to enable future communication between your Remote Server and its Central,
 Kindly fill in the required information to convert your platform into Remote :
 
-  ```shell
-  <CURRENT_NODE_ADDRESS> : Please enter your username:
-  admin
-  <CURRENT_NODE_ADDRESS> : Please enter your password:
+```shell
+<CURRENT_NODE_ADDRESS> : Please enter your username:
+admin
+<CURRENT_NODE_ADDRESS> : Please enter your password:
 
-  <CURRENT_NODE_ADDRESS> : Protocol [http]:
-  <CURRENT_NODE_ADDRESS> : Port [80]:
-  <CURRENT_NODE_ADDRESS> : centreon root folder [centreon]:
-  ```
+<CURRENT_NODE_ADDRESS> : Protocol [http]:
+<CURRENT_NODE_ADDRESS> : Port [80]:
+<CURRENT_NODE_ADDRESS> : centreon root folder [centreon]:
+```
 
 5. If you use a proxy, please define credentials:
 
-    ```shell
-    Are you using a proxy ? (y/n)
-    y
-    enter your proxy Host:
-    myproxy.example.com
-    enter your proxy Port [3128]:
-    Are you using a username/password ? (y/n)
-    y
-    enter your username:
-    my_proxy_username
-    enter your password:
-    
-    ```
+```shell
+Are you using a proxy ? (y/n)
+y
+enter your proxy Host:
+myproxy.example.com
+enter your proxy Port [3128]:
+Are you using a username/password ? (y/n)
+y
+enter your username:
+my_proxy_username
+enter your password:
+
+```
 
 You will receive the validation of the Centreon central server:
 
@@ -170,9 +170,9 @@ Failed connect to 192.168.0.1:444; Connection refused
 
 6. Add rights to centreon database user to use **LOAD DATA INFILE** command:
 
-    ``` SQL
-    GRANT FILE on *.* to 'centreon'@'localhost';
-    ```
+``` SQL
+GRANT FILE on *.* to 'centreon'@'localhost';
+```
 
 7. **On the Centreon Central server**, edit all pollers and attach them to the
 **Remote Server** using the selection list.

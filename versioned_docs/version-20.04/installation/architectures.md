@@ -2,6 +2,9 @@
 id: architectures
 title: Architectures
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 Centreon allows several choices in the composition of the architecture of your monitoring tool. In a relatively simple
 architecture with a server hosting all services, the architecture can also be organized around a strategic division
@@ -12,8 +15,9 @@ continents.
 
 You will find here all architectures supported:
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Simple architecture-->
+<Tabs groupId="operating-systems">
+<TabItem value="Simple architecture" label="Simple architecture">
+
 #### Description
 
 The simple architecture is to have all oversight entities within the same server, ie:
@@ -42,7 +46,9 @@ The diagram below summarizes the architecture:
 
 ![image](../assets/architectures/Architecture_standalone.png)
 
-<!-- Distributed-->
+</TabItem>
+<TabItem value="Distributed" label="Distributed">
+
 #### Description
 
 The distributed architecture is to have two types of entities:
@@ -94,7 +100,8 @@ The diagram below summarizes the architecture:
 
 ![image](../assets/architectures/Architecture_distributed.png)
 
-<!--Remote DBMS-->
+</TabItem>
+<TabItem value="Remote DBMS" label="Remote DBMS">
 
 #### Description
 
@@ -155,7 +162,9 @@ The diagram below summarizes the architecture:
 
 ![image](../assets/architectures/Architecture_distributed_dbms.png)
 
-<!--Remote Server-->
+</TabItem>
+<TabItem value="Remote Server" label="Remote Server">
+
 #### Description
 
 The distributed architecture with Remote sever is to have three types of entities:
@@ -223,7 +232,8 @@ The diagram below summarizes the architecture:
 
 ![image](../assets/architectures/Architecture_distributed_remote.png)
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Table of network flows
 

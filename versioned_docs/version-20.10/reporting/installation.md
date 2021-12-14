@@ -2,6 +2,9 @@
 id: installation
 title: Install Centreon MBI extension
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 > Centreon MBI is a Centreon **extension** that requires a valid license key. To
 > purchase one and retrieve the necessary repositories, contact
@@ -39,10 +42,10 @@ The diagram below shows the main components of Centreon MBI:
 *The monitoring database can be installed on a server other than the Centreon server.*
 
 - **ETL**: Process that extracts, transforms and loads data into the
-  reporting database.
+reporting database.
 - **CBIS**: Scheduler that manages job execution and publication.
 - **Reporting database**: MariaDB database that contains reporting data
-  and some raw data extracted from the monitoring database.
+and some raw data extracted from the monitoring database.
 
 ### Network flow table
 
@@ -65,10 +68,10 @@ between the dedicated BI server, Centreon server and databases:
 Centreon MBI installation requires two RPM packages:
 
 - Centreon-bi-server: Installs the Centreon MBI interface integrated into the
-  Centreon front end and must reside on the Centreon Web Server.
+Centreon front end and must reside on the Centreon Web Server.
 - Centreon-bi-reporting-server: Contains all the components needed to run the
-  reporting server -- report scheduler, ETL, standards reports -- and must
-  reside on a dedicated server for reporting processes.
+reporting server -- report scheduler, ETL, standards reports -- and must
+reside on a dedicated server for reporting processes.
 
 You should install the MariaDB database at the same time. We highly recommand
 installing the database on the same server for performance & isolation
@@ -80,25 +83,27 @@ considerations.
 
 **Software**
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="operating-systems">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
 - Centreon 20.10
 - Check that the parameter `date.timezone` is correctly configured in `/etc/php.d/php.ini`
-  (same timezone displayed with the command `timedatectl status`)
+(same timezone displayed with the command `timedatectl status`)
 - Avoid the usage of the following variables in your monitoring MariaDB configuration.
-  They halt long queries execution and can stop the ETL or the report generation jobs:
-  - wait_timeout
-  - interactive_timeout
-<!--CentOS 7-->
+They halt long queries execution and can stop the ETL or the report generation jobs:
+- wait_timeout
+- interactive_timeout
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 - Centreon 20.10
 - Check that the parameter `date.timezone` is correctly configured in
-  `/etc/opt/rh/rh-php72/php.ini` (same timezone displayed with the
-  command `timedatectl status`)
+`/etc/opt/rh/rh-php72/php.ini` (same timezone displayed with the
+command `timedatectl status`)
 - Avoid the usage of the following variables in your monitoring MariaDB configuration.
-  They halt long queries execution and can stop the ETL or the report generation jobs:
-  - wait_timeout
-  - interactive_timeout
-<!--END_DOCUSAURUS_CODE_TABS-->
+They halt long queries execution and can stop the ETL or the report generation jobs:
+- wait_timeout
+- interactive_timeout
+</TabItem>
+</Tabs>
 
 **Users and groups**
 
@@ -178,21 +183,23 @@ Description of users, umask and home directory:
 The tasks explained in this chapter must be performed on the Centreon
 central server.
 
-Install the Centreon MBI repository, you can find it on the 
+Install the Centreon MBI repository, you can find it on the
 [support portal](https://support.centreon.com/s/repositories).
 
 Then run the following command:
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="operating-systems">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
 ```shell
 dnf install centreon-bi-server
 ```
-<!--CentOS 7-->
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 ```shell
 yum install centreon-bi-server
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Activate the extension
 
@@ -262,7 +269,7 @@ Please go to the next chapter to continue the installation.
 
 When you install Centreon MBI, a [user](../monitoring/basic-objects/contacts) called **cbis** is automatically created. It allows the report generation engine to extract data from Centreon (using the APIs) in order to put them into the report. This user must [have access to all resources monitored by Centreon](../administration/access-control-lists) to be able to extract performance graphs for the following reports:
 
-- Host-Graph-v2 
+- Host-Graph-v2
 
 - Hostgroup-Graph-v2.
 
@@ -281,8 +288,8 @@ curl -XGET 'https://10.1.1.1/centreon/include/views/graphs/generateGraphs/genera
 The output should look like this, and `/tmp/image.png` should be an image of the graph you wanted:
 
 ```
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
+% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+Dload  Upload   Total   Spent    Left  Speed
 100 18311  100 18311    0     0  30569      0 --:--:-- --:--:-- --:--:-- 30569
 ```
 
@@ -298,24 +305,26 @@ installation process:
 - IP/DNS of the reporting database (localhost highly recommanded)
 - Access (user/password) to the reporting database
 - Knowledge of the SSH password (after defining it) for the Centreon
-  BI user on the central monitoring server (to publish reports on the
-  interface).
+BI user on the central monitoring server (to publish reports on the
+interface).
 
-To start installing the reporting server, install the MBI repository, you can find it on the 
+To start installing the reporting server, install the MBI repository, you can find it on the
 [support portal](https://support.centreon.com/s/repositories).
 
 Then execute the following command:
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="operating-systems">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
 ```shell
 dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
 ```
-<!--CentOS 7-->
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 ```shell
 yum install centreon-bi-reporting-server MariaDB-server MariaDB-client
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 If you installed your reporting server using a fresh CentOS image you
 need to add the following GPG key:
@@ -390,7 +399,7 @@ capabilities to:
 
 - Synchronize raw monitoring data with the reporting server.
 - Calculate availability and performance statistics on the reporting
-  server.
+server.
 - Manage data retention on the reporting server.
 
 Before following the next steps, you should have read
@@ -482,12 +491,12 @@ systemctl restart crond
 granularity of the statistical data:
 
 - Hourly aggregated values are used to analyze a metric over a short period, they take a
-  lot of space on the disk. You may not need to keep these statistics more that two or three months.
+lot of space on the disk. You may not need to keep these statistics more that two or three months.
 - Beyond five or six months, you may only need to view the trend for
-  availability or performance statistics. You could then keep the
-  daily aggregated data for a maximum of six months, for example, and
-  configure the retention of monthly aggregated data for a period of
-  several dozen months.
+availability or performance statistics. You could then keep the
+daily aggregated data for a maximum of six months, for example, and
+configure the retention of monthly aggregated data for a period of
+several dozen months.
 
 Please go to the next chapter to continue the installation.
 
@@ -504,11 +513,11 @@ Run the following command on the *REPORTING* server, it will:
 
 - Delete all existing data from the reporting server.
 - Import raw monitoring data from the monitoring server to the
-  reporting server (based on retention parameters).
+reporting server (based on retention parameters).
 - Populate the tables containing the availability statistics for hosts
-  and services.
+and services.
 - Populate the tables containing the performance and capacity
-  statistics.
+statistics.
 
 ```shell
 /usr/share/centreon-bi/bin/centreonBIETL -r

@@ -2,6 +2,9 @@
 id: hardware-devices-camera-hikvision-snmp
 title: Hikvision camera SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Contenu du Plugin Pack
 
@@ -15,15 +18,15 @@ Le Plugin Pack Hikvision SNMP collecte les données pour:
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Cpu-->
+<Tabs groupId="operating-systems">
+<TabItem value="Cpu" label="Cpu">
 
 | Metric name                              | Description              | Unit |
 | :--------------------------------------- | :----------------------- | :--- |
 | cpu.utilization.percentage               | CPU utilization          | %    |
 
-<!--Disk-->
+</TabItem>
+<TabItem value="Disk" label="Disk">
 
 | Metric name           | Description                             | Unit  |
 | :-------------------- | :-------------------------------------- | :---- |
@@ -31,7 +34,8 @@ Le Plugin Pack Hikvision SNMP collecte les données pour:
 | disk.free.bytes       | Free disk                               | B     |
 | disk.usage.percentage | Disk usage in percentage                | %     |
 
-<!--Memory-->
+</TabItem>
+<TabItem value="Memory" label="Memory">
 
 | Metric name             | Description                               | Unit  |
 | :---------------------- | :---------------------------------------- | :---- |
@@ -39,23 +43,24 @@ Le Plugin Pack Hikvision SNMP collecte les données pour:
 | memory.free.bytes       | Free memory                               | B     |
 | memory.usage.percentage | Memory usage in percentage                | %     |
 
-<!--Time-->
+</TabItem>
+<TabItem value="Time" label="Time">
 
 | Metric name            | Description                               | Unit  |
 | :--------------------- | :---------------------------------------- | :---- |
 | time.offset.seconds    | Time offset                               | s     |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
-Afin de contrôler votre équipement Hikvision, le SNMP doit être configuré. 
+Afin de contrôler votre équipement Hikvision, le SNMP doit être configuré.
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="operating-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -65,7 +70,8 @@ yum install centreon-plugin-Hardware-Devices-Camera-Hikvision-Snmp
 
 2. Sur l'interface Web de Centreon, installer le Plugin Pack *Hikvision camera SNMP* depuis la page "Configuration > Plugin Packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -81,7 +87,8 @@ yum install centreon-pack-hardware-devices-camera-hikvision-snmp
 
 3. Sur l'interface Web de Centreon, installer le Plugin Pack *Hikvision camera SNMP* depuis la page "Configuration > Plugin Packs > Manager"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -103,14 +110,14 @@ depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-en
 
 ```bash
 /usr/lib/centreon/plugins/centreon_camera_hikvision_snmp.pl \
-    --plugin=hardware::devices::camera::hikvision::snmp::plugin \
-    --mode=cpu \
-    --hostname=10.30.2.114 \
-    --snmp-version='2c' \
-    --snmp-community='hikvision_ro' \
-    --warning-usage=90 \
-    --critical-usage=95 \
-    --verbose
+--plugin=hardware::devices::camera::hikvision::snmp::plugin \
+--mode=cpu \
+--hostname=10.30.2.114 \
+--snmp-version='2c' \
+--snmp-community='hikvision_ro' \
+--warning-usage=90 \
+--critical-usage=95 \
+--verbose
 ```
 
 La commande devrait retourner un message de sortie de la forme ci-dessous:
@@ -119,7 +126,7 @@ La commande devrait retourner un message de sortie de la forme ci-dessous:
 OK: CPU Usage: 62.00 % | 'cpu.utilization.percentage'=62.00%;0:90;0:95;0;100
 ```
 
-Cette commande contrôle le processeur (```--mode=cpu```) d'un équipement Hikvision ayant pour adresse *10.30.2.114* (```--hostname=10.30.2.114```) 
+Cette commande contrôle le processeur (```--mode=cpu```) d'un équipement Hikvision ayant pour adresse *10.30.2.114* (```--hostname=10.30.2.114```)
 en version *2c* du protocol SNMP (```--snmp-version='2c'```) et avec la communauté *hikvision_ro* (```--snmp-community='hikvision_ro'```).
 
 Cette commande déclenchera une alarme WARNING si l'utilisation processeur est supérieur à 90% (```--warning-usage='90'```)
@@ -130,21 +137,21 @@ en ajoutant le paramètre ```--help``` à la commande:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_camera_hikvision_snmp.pl \
-    --plugin=hardware::devices::camera::hikvision::snmp::plugin \
-    --mode=cpu \
-    --help
+--plugin=hardware::devices::camera::hikvision::snmp::plugin \
+--mode=cpu \
+--help
 ```
 
 ## J'obtiens le message d'erreur suivant:
 
 ### UNKNOWN: SNMP GET Request : Timeout
 
-Si vous obtenez ce message, cela signifie que vous ne parvenez pas à contacter l'équipement sur le port 161, 
-ou alors que la communauté SNMP configurée n'est pas correcte. 
+Si vous obtenez ce message, cela signifie que vous ne parvenez pas à contacter l'équipement sur le port 161,
+ou alors que la communauté SNMP configurée n'est pas correcte.
 Il est également possible qu'un firewall bloque le flux.
 
 ### UNKNOWN: SNMP GET Request : Cant get a single value.
 
-Si vous rencontrez cette erreur, il est probable que les autorisations données à l'agent SNMP soient trop restreintes. 
- * L'équipement ne prend pas en charge la MIB utilisée par le Plugin (branche: .1.3.6.1.4.1.39165).
- * L'OID SNMP ciblé ne peut pas être récupéré en raison de privilèges d'équipement insuffisants.
+Si vous rencontrez cette erreur, il est probable que les autorisations données à l'agent SNMP soient trop restreintes.
+* L'équipement ne prend pas en charge la MIB utilisée par le Plugin (branche: .1.3.6.1.4.1.39165).
+* L'OID SNMP ciblé ne peut pas être récupéré en raison de privilèges d'équipement insuffisants.

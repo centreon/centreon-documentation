@@ -2,6 +2,9 @@
 id: network-ruckus-zonedirector-snmp
 title: Ruckus Zonedirector
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -16,17 +19,20 @@ Ruckus Wireless ZoneDirector is RUCKUS’ centrally managed Smart Wireless LAN (
 
 ### Discovery rules
 
-<!--Services-->
+<Tabs groupId="operating-systems">
+<TabItem value="Services" label="Services">
 
-| Rule name                            | Description                                         |
-| :----------------------------------- | :-------------------------------------------------- |
-| Net-Ruckus-Zonedirector-SNMP-Ap-Name | Discover access point attached to your controller   |
+| Rule name                            | Description                                       |
+| :----------------------------------- | :------------------------------------------------ |
+| Net-Ruckus-Zonedirector-SNMP-Ap-Name | Discover access point attached to your controller |
 
-### Monitored metrics 
+</TabItem>
+</Tabs>
 
-<!--DOCUSAURUS_CODE_TABS-->
+### Monitored metrics
 
-<!--Access-Point-->
+<Tabs groupId="operating-systems">
+<TabItem value="AccessPoint" label="AccessPoint">
 
 | Metric name                                            | Description                                                                             |
 | :----------------------------------------------------- | :-------------------------------------------------------------------------------------- |
@@ -41,13 +47,14 @@ Ruckus Wireless ZoneDirector is RUCKUS’ centrally managed Smart Wireless LAN (
 | accesspoint.traffic.in.bitspersecon                    | Incoming traffic going through the access point. Unit: bits/second                      |
 | accesspoint.traffic.out.bitspersecond                  | Outgoing traffic going through the access point. Unit: bits/second                      |
 
-<!--System-->
+</TabItem>
+<TabItem value="System" label="System">
 
 | Metric name                                       | Description                                                  |
 | :------------------------------------------------ | :----------------------------------------------------------- |
 | system_status                                     | System status.                                               |
 | peer_connected_status                             | Peer connection status.                                      |
-| system.cpu.utilization.percentage                 | Cpu utilization of the controller. Unit: %                   | 
+| system.cpu.utilization.percentage                 | Cpu utilization of the controller. Unit: %                   |
 | system.memory.usage.bytes                         | Memory used by the controller. Unit: Bytes                   |
 | system.memory.free.bytes                          | Memory free of the controller. Unit: Bytes                   |
 | system.memory.usage.percentage                    | Memory used by the controller. Unit: %                       |
@@ -57,7 +64,8 @@ Ruckus Wireless ZoneDirector is RUCKUS’ centrally managed Smart Wireless LAN (
 | system.traffic.in.bitspersecond                   | Incoming traffic going through the system. Unit: bits/second |
 | system.traffic.out.bitspersecond                  | Outgoing traffic going through the system. Unit: bits/second |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -69,11 +77,10 @@ To use this Plugin, the SNMP service must be properly configured on your Ruckus 
 
 Your Centreon Poller must be able to reach the Ruckus device over UDP/161 SNMP port.
 
-## Setup 
+## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="licence-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin package on every Poller expected to monitor Ruckus Zonedirector ressources:
 
@@ -83,7 +90,8 @@ yum install centreon-plugin-Network-Ruckus-Zonedirector-Snmp
 
 2. On the Centreon Web interface, install the 'Ruckus Zonedirector' Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor Ruckus Zonedirector ressources:
 
@@ -99,7 +107,8 @@ yum install centreon-pack-network-ruckus-zonedirector-snmp.noarch
 
 3. On the Centreon Web interface, install the 'Ruckus Zonedirector' Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -108,43 +117,43 @@ yum install centreon-pack-network-ruckus-zonedirector-snmp.noarch
 
 > When using SNMP v3, set extra parameters with SNMPEXTRAOPTIONS macro :
 
-| Mandatory   | Nom              | Description                                                                |
-| :---------- | :--------------- | :------------------------------------------------------------------------- |
-|             | SNMPEXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
+| Mandatory | Nom              | Description                                                                |
+| :-------- | :--------------- | :------------------------------------------------------------------------- |
+|           | SNMPEXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
 
 ## FAQ
 
-### How do I test my configuration through the CLI and what do the main parameters stand for ? 
+### How do I test my configuration through the CLI and what do the main parameters stand for ?
 
 Once the Centreon Plugin installed, you can test it logging with the centreon-engine user:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_ruckus_zonedirector_snmp.pl \
-	--plugin=network::ruckus::zonedirector::snmp::plugin \
-	--mode=system \
-	--hostname=ruckus.int.centreon.com \
-	--snmp-version='2c' \
-	--snmp-community='ruckus_zonedirector' \
-        --verbose 
+--plugin=network::ruckus::zonedirector::snmp::plugin \
+--mode=system \
+--hostname=ruckus.int.centreon.com \
+--snmp-version='2c' \
+--snmp-community='ruckus_zonedirector' \
+--verbose
 ```
 
-The command above checks the system utilization on your Ruckus box (```--mode=system```). You must always define the IP address/FQDN of the device (```--hostname=ruckus.int.centreon.com```) as well as the SNMP versions and community (```--snmp-version='2c' --snmp-community='ruckus_zonedirector'```) 
+The command above checks the system utilization on your Ruckus box (```--mode=system```). You must always define the IP address/FQDN of the device (```--hostname=ruckus.int.centreon.com```) as well as the SNMP versions and community (```--snmp-version='2c' --snmp-community='ruckus_zonedirector'```)
 
-You can display all modes that come with the Plugin with the command below: 
+You can display all modes that come with the Plugin with the command below:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_ruckus_zonedirector_snmp.pl \
-    --plugin=network::ruckus::zonedirector::snmp::plugin \
-    --list-mode
+--plugin=network::ruckus::zonedirector::snmp::plugin \
+--list-mode
 ```
 
 You can display options of a specific mode by using the ```--help``` flag. Here is an example to display system mode parameters:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_ruckus_zonedirector_snmp.pl \
-    --plugin=network::ruckus::zonedirector::snmp::plugin \
-    --mode=system \
-    --help
+--plugin=network::ruckus::zonedirector::snmp::plugin \
+--mode=system \
+--help
 ```
 
 ### UNKNOWN: SNMP GET Request : Timeout
@@ -153,6 +162,6 @@ This message generally means that you are not using the right SNMP version or co
 
 ### UNKNOWN: SNMP GET Request : Cant get a single value.
 
-This error message often refers to the following issues: 
-  - the Ruckus device doesn't support the MIB used by the plugin
-  - the targeted SNMP OID cannot be fetched because of insufficient privileges on the device. SNMP Agent must be capable of accessing to the enterprise branch Ruckus : .1.3.6.1.4.1.25053.
+This error message often refers to the following issues:
+- the Ruckus device doesn't support the MIB used by the plugin
+- the targeted SNMP OID cannot be fetched because of insufficient privileges on the device. SNMP Agent must be capable of accessing to the enterprise branch Ruckus : .1.3.6.1.4.1.25053.

@@ -2,6 +2,9 @@
 id: anomaly-detection
 title: Anomaly detection
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 > Centreon Anomaly Detection is currently in **closed-beta phase** and require a
 > valid token provided by Centreon. We will soon open the beta phase to the
@@ -28,11 +31,11 @@ thresholds to highlight deviations and generate alerts.
 
 The Centreon Anomaly Detection module requires the following prerequisites:
 
-  - Centreon in minimum version 20.04
-  - A token provided by Centreon to access the Centreon Cloud platform
-  - An Internet connection from the Centreon Central server
-  - Prediction best works with monitored services that present a seasonal
-    behaviour as shown below:
+- Centreon in minimum version 20.04
+- A token provided by Centreon to access the Centreon Cloud platform
+- An Internet connection from the Centreon Central server
+- Prediction best works with monitored services that present a seasonal
+behaviour as shown below:
 
 ![image](../assets/monitoring/anomaly/simple_scheme.png)
 
@@ -41,14 +44,17 @@ The Centreon Anomaly Detection module requires the following prerequisites:
 ### Installing packages
 
 Add additional repository:
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="operating-systems">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
 Nothing to do
-<!--CentOS 7-->
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 ```shell
 yum install -y epel-release
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 Then run the following command:
 ```shell
@@ -99,14 +105,14 @@ Your Centreon platform is now ready to use Centreon Anomaly Detection.
 Configuration must be done in 3 steps:
 
 1.  [Activate the sending of the collected data to Centreon
-    Cloud](#activate-the-sending-of-the-collected-data-to-centreon-cloud) in
-    order to start modeling regular behavior then control via the menu
-    `Monitoring > Performances > Graphs` the first modeling calculations
-    carried out.
+Cloud](#activate-the-sending-of-the-collected-data-to-centreon-cloud) in
+order to start modeling regular behavior then control via the menu
+`Monitoring > Performances > Graphs` the first modeling calculations
+carried out.
 2.  Once the model seems right, [activate the generation of
-    alerts](#activate-the-generation-of-alerts)
+alerts](#activate-the-generation-of-alerts)
 3.  As soon as the alerts generated seem correct to you, [activate the
-    notification process](#activate-the-notification-process)
+notification process](#activate-the-notification-process)
 
 ### Activate the sending of the collected data to Centreon Cloud
 
@@ -117,17 +123,17 @@ Go to the `Configuration > Services > Anomaly Detection` menu and click on
 
 #### Configuration fields
 
-  - The **Description** field defined the name of the service.
-  - The **Status** field allows us to enable or disable the service.
-  - The **Select host - service** field allows to choose the host / service
-    couple from which the data will be selected.
-  - The **Select metric** field allows to select the metric on which will we
-    apply anomaly detection.
-  - Select a default contact for the **Implied Contacts** field.
-  - Set **0** for the **Notification Interval** field.
-  - Select a default period for the **Notification Period** field.
-  - Select **None** for the **Notification Type** field.
-  - You can select a **Severity level**.
+- The **Description** field defined the name of the service.
+- The **Status** field allows us to enable or disable the service.
+- The **Select host - service** field allows to choose the host / service
+couple from which the data will be selected.
+- The **Select metric** field allows to select the metric on which will we
+apply anomaly detection.
+- Select a default contact for the **Implied Contacts** field.
+- Set **0** for the **Notification Interval** field.
+- Select a default period for the **Notification Period** field.
+- Select **None** for the **Notification Type** field.
+- You can select a **Severity level**.
 
 Click on **Save**.
 
@@ -174,13 +180,13 @@ anomaly detection service:
 
 ![imaage](../assets/monitoring/anomaly/configure_03.png)
 
-  - Select **Enabled** for the **Enable notification** option.
-  - Select the **Implied Contacts** will receive notification.
-  - Select the **Implied Contact Groups** will receive notification.
-  - Select the **Notification Interval**, by default **0** to receive only one
-    notification by status.
-  - Select the **Notification Period** on which you will receive notification.
-  - Select the **Notification Type** that you want to receive.
+- Select **Enabled** for the **Enable notification** option.
+- Select the **Implied Contacts** will receive notification.
+- Select the **Implied Contact Groups** will receive notification.
+- Select the **Notification Interval**, by default **0** to receive only one
+notification by status.
+- Select the **Notification Period** on which you will receive notification.
+- Select the **Notification Type** that you want to receive.
 
 Click on **Save** and [deploy the monitoring
 configuration](./monitoring-servers/deploying-a-configuration).
@@ -209,11 +215,11 @@ Modify the name of the service then click on the **Save** button.
 
 > If the list is empty, it means that the calculation to determine the services
 > of interest has not yet started.
-> 
+>
 > This is done every 6 hours via a cron launched by the `gorgoned` process
 > (defined in the **/etc/centreon-gorgone/config.d/cron.d/42-anomalydetection.yaml** file).
-> 
-> It is possible to launch the first calculation manually via the following 
+>
+> It is possible to launch the first calculation manually via the following
 > command from the central Centreon server:
 > ```shell
 > su - centreon
@@ -226,11 +232,11 @@ Anomaly services are regular services but have floating thresholds that adapt
 according to the calculated model. It is therefore possible to view its services
 and the alerts detected though:
 
-  - The `Monitoring > Status Details > Services` menu.
-  - The `Monitoring > Performances > Graphs` menu.
-  - The `Monitoring > Event Logs > vent Logs` menu.
-  - The **service-monitoring** widget in the `Home > Custom Views` menu.
-  - And all menus where you can operate on services.
+- The `Monitoring > Status Details > Services` menu.
+- The `Monitoring > Performances > Graphs` menu.
+- The `Monitoring > Event Logs > vent Logs` menu.
+- The **service-monitoring** widget in the `Home > Custom Views` menu.
+- And all menus where you can operate on services.
 
 ## Forward history of data
 

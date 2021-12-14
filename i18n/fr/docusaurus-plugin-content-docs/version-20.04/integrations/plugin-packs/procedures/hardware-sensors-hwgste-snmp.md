@@ -19,8 +19,8 @@ Configure SNMP on HWg-STE Hardware
 
 Be sure to have with you the following information:
 
-  - Read-Only SNMP community
-  - IP Address of the monitoring server
+- Read-Only SNMP community
+- IP Address of the monitoring server
 
 ## Centreon Configuration
 

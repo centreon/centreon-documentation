@@ -33,6 +33,17 @@ html[data-theme="dark"] .docusaurus-highlight-code-line {
 
 .dropdown__menu {
   min-width: fit-content !important;
+  text-align: center;
+}
+
+.navbar__item {
+  pointer-events: visible !important;
+  cursor: pointer !important;
+}
+
+.navbar__link {
+  pointer-events: none;
+  cursor: none;
 }
 
 .navbar__link > span > svg {
@@ -120,4 +131,16 @@ ul ul ol {
 
 html[data-theme="dark"] .tabs__item--active {
   background-color: #ffffff38;
+}
+
+.dropdown > .navbar__link:after {
+  content: none;
+}
+
+.iconLanguage_EbrZ {
+  display: none;
+}
+
+.iconLanguage_node_modules-\@docusaurus-theme-classic-lib-next-theme-NavbarItem-LocaleDropdownNavbarItem-styles-module {
+  display: none;
 }

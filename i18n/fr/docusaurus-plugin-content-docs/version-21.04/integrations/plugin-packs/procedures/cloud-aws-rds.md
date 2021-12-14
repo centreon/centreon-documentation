@@ -2,6 +2,9 @@
 id: cloud-aws-rds
 title: Amazon RDS
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -16,39 +19,43 @@ Amazon Relational Database Service (Amazon RDS) est un service web qui facilite 
 
 ### Règles de découvertes
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Hosts-->
+<Tabs groupId="operating-systems">
+<TabItem value="Hosts" label="Hosts">
 
 | Rule name                       | Description                                                   |
 | :------------------------------ | :------------------------------------------------------------ |
 | Cloud-Aws-Rds-Api-HostDiscovery | Discover Instances and Clusters from your Cloudwatch endpoint |
 
-<!--Services-->
+</TabItem>
+<TabItem value="Services" label="Services">
 
 No services discovery rule available on this pack
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Métriques collectées
 
 Vous pouvez vous renseigner en détails sur les métriques présentées ci après sur la documentation officiel du service RDS: https://docs.aws.amazon.com/rds/index
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Connections-->
+<Tabs groupId="operating-systems">
+<TabItem value="Connections" label="Connections">
 
 | Metric name         | Description                             | Unit:  |
 | :------------------ | :-------------------------------------- |:------ |
 | DatabaseConnections | Number of connections to the database.  | Count  |
 
-<!--Cpu-->
+</TabItem>
+<TabItem value="Cpu" label="Cpu">
 
-| Metric name      | Description                                                | Unit                    |                   
+| Metric name      | Description                                                | Unit                    |
 | :--------------- | :--------------------------------------------------------- |:----------------------- |
 | CPUCreditBalance | Balance of allocated CPU credit to this type of instance.  | Credits (vCPU-minutes)  |
 | CPUCreditUsage   | Number of CPU credit consumed.                             | Credits (vCPU-minutes)  |
 | CPUUtilization   | The percentage of CPU utilization.                         | Percentage              |
 
-<!--Disk-IO-->
+</TabItem>
+<TabItem value="DiskIO" label="DiskIO">
 
 | Metric name     | Description                                                                     | Unit         |
 | :-------------- | :------------------------------------------------------------------------------ |:------------ |
@@ -60,21 +67,24 @@ Vous pouvez vous renseigner en détails sur les métriques présentées ci aprè
 | WriteLatency    | The average amount of time taken per disk I/O write operation.                  | Seconds      |
 | DiskQueueDepth  | The number of outstanding IOs (read/write requests) waiting to access the disk. | Count        |
 
-<!--Network-->
+</TabItem>
+<TabItem value="Network" label="Network">
 
 | Metric name               | Description                                                                                                                          | Unit          |
 | :------------------------ | :----------------------------------------------------------------------------------------------------------------------------------- |:------------- |
 | NetworkReceiveThroughput  | The incoming traffic on the DB instance, including both customer db traffic and AWS/RDS traffic used for monitoring and replication. | Bytes/Second  |
 | NetworkTransmitThroughput | The outgoing traffic on the DB instance, including both customer db traffic and AWS/RDS traffic used for monitoring and replication. | Bytes/Second  |
 
-<!--Storage-->
+</TabItem>
+<TabItem value="Storage" label="Storage">
 
 | Metric name      | Description                                   | Unit          |
 | :--------------- | :---------------------------------------------|:------------- |
 | FreeStorageSpace | The amount of available storage space.        | Bytes/Second  |
 | FreeableMemory   | The amount of available random access memory. | Bytes/Second  |
 
-<!--Queries-->
+</TabItem>
+<TabItem value="Queries" label="Queries">
 
 | Metric name      | Description                                                                                             |
 | :--------------- | :------------------------------------------------------------------------------------------------------ |
@@ -86,7 +96,8 @@ Vous pouvez vous renseigner en détails sur les métriques présentées ci aprè
 | DDLThroughput    | The average number of DataDefinitionLanguage requests per second **(Only available on Aurora MySQL)**   |
 | DMLThroughput    | The average number of DataModificationLanguage requests per second **(Only available on Aurora MySQL)** |
 
-<!--Transactions-->
+</TabItem>
+<TabItem value="Transactions" label="Transactions">
 
 | Metric name         | Description                                                                                                                                                                                                                  |
 | :------------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -95,7 +106,8 @@ Vous pouvez vous renseigner en détails sur les métriques présentées ci aprè
 | CommitLatency       | The amount of latency for commit operations, in milliseconds **(Only available on Aurora MySQL and Postgres)**                                                                                                               |
 | CommitThroughput    | The average number of commit operations per second **(Only available on Aurora MySQL and Postgres)**                                                                                                                         |
 
-<!--Volume-->
+</TabItem>
+<TabItem value="Volume" label="Volume">
 
 | Metric name     | Description                                                                                                                                                    |
 | :-------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -103,13 +115,14 @@ Vous pouvez vous renseigner en détails sur les métriques présentées ci aprè
 | VolumeReadIOPs  | The number of billed read I/O operations from a cluster volume, reported at 5-minute intervals. **(Only available on Aurora MySQL and Postgres)**              |
 | VolumeWriteIOPs | The number of write disk I/O operations to the cluster volume, reported at 5-minute intervals. **(Only available on Aurora MySQL and Postgres)**               |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisistes
 
 ### AWS Configuration
 
-Voici la liste des droits nécessaires au travers des access/secret key utilisées pour pouvoir utiliser le monitoring AWS/RDS: 
+Voici la liste des droits nécessaires au travers des access/secret key utilisées pour pouvoir utiliser le monitoring AWS/RDS:
 
 | AWS Privilege                  | Description                                                        |
 | :----------------------------- | :----------------------------------------------------------------- |
@@ -120,27 +133,27 @@ Voici la liste des droits nécessaires au travers des access/secret key utilisé
 
 Afin de récupérer les informations nécessaires via les APIs AWS, il est possible d'utiliser soit le binaire awscli, soit le SDK perl Paws. Le SDK est recommandé car plus performant. **Attention** il n'est pas possible d'utiliser perl-Paws si vous passez pas un proxy !
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--perl-Paws-installation-->
+<Tabs groupId="operating-systems">
+<TabItem value="perlPawsinstallation" label="perlPawsinstallation">
 
 ```bash
 yum install perl-Paws
 ```
 
-<!--aws-cli-installation-->
+</TabItem>
+<TabItem value="awscliinstallation" label="awscliinstallation">
 
 ```bash
 yum install awscli
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="operating-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le code du connecteur sur l'ensemble des collecteurs supervisant des ressources RDS:
 
@@ -150,7 +163,8 @@ yum install centreon-plugin-Cloud-Aws-Rds-Api
 
 2. Installer le pack depuis la page "Configuration > Plugin packs > Manager":
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le code du connecteur sur l'ensemble des collecteurs supervisant des ressources RDS:
 
@@ -166,7 +180,8 @@ yum install centreon-pack-cloud-aws-rds.noarch
 
 3. Installer le pack depuis la page "Configuration > Plugin packs > Manager":
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -193,22 +208,22 @@ A partir du moment ou la sonde est installée, vous pouvez tester directement de
 
 ```bash
 /usr/lib/centreon/plugins//centreon_aws_rds_api.pl \
-    --plugin=cloud::aws::rds::plugin \
-    --mode=connections \
-    --custommode='awscli' \
-    --aws-secret-key='*******************' \
-    --aws-access-key='**********' \
-    --region='eu-west-1' \
-    --type='cluster' \
-    --name='dev-cluster' \
-    --environment='HTTPS_PROXY=http://proxy.int.company.com:3128/' \
-    --filter-metric='' \
-    --statistic='average' \
-    --timeframe='600' \
-    --period='60' \
-    --warning-databaseconnections-average='25' \
-    --critical-databaseconnections-average='50' \
-    --verbose
+--plugin=cloud::aws::rds::plugin \
+--mode=connections \
+--custommode='awscli' \
+--aws-secret-key='*******************' \
+--aws-access-key='**********' \
+--region='eu-west-1' \
+--type='cluster' \
+--name='dev-cluster' \
+--environment='HTTPS_PROXY=http://proxy.int.company.com:3128/' \
+--filter-metric='' \
+--statistic='average' \
+--timeframe='600' \
+--period='60' \
+--warning-databaseconnections-average='25' \
+--critical-databaseconnections-average='50' \
+--verbose
 
 OK: Cluster 'dev-cluster' average DatabaseConnections: 3 | 'dev-cluster#databaseconnections_average'=3;25;50;0;
 Cluster 'dev-cluster' average DatabaseConnections: 3

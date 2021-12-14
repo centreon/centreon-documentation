@@ -2,6 +2,9 @@
 id: virtualization-vmware2-vm
 title: VMware VM
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 ## Overview
 
 VMware is an software compagny based in USA. VMware provides cloud computing and virtualization software and services.
@@ -16,15 +19,15 @@ The Centreon Plugin and Plugin-Packs rely on the Centreon VMWare Connector to re
 
 ### Discovery Rules
 
-<!--DOCUSAURUS_CODE_TABS-->
+<Tabs groupId="operating-systems">
+<TabItem value="Hosts" label="Hosts">
 
-<!--Hosts-->
+| Rule name                     | Description                                 |
+| :---------------------------- | :------------------------------------------ |
+| Virt-VMWare2-VM-HostDiscovery | Discover the VMs bound to a vCenter or ESXi |
 
-| Rule name                      | Description                                 |
-| :----------------------------- | :------------------------------------------ |
-|  Virt-VMWare2-VM-HostDiscovery | Discover the VMs bound to a vCenter or ESXi |
-
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Collected Metrics
 
@@ -35,34 +38,37 @@ In addition to modes and metrics described here, it is also possible to monitor 
 * VM-Swap: VM swap usage
 * VM-Device: Check VM's devices status (e.g. VirtualCdrom)
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Vm-Tools-->
+<Tabs groupId="operating-systems">
+<TabItem value="VmTools" label="VmTools">
 
 | Metric name | Description                                                    | Unit |
 | :---------- | :------------------------------------------------------------- | :--- |
 | status      | Status of the VMware Tools (installed, running and up-to-date) |      |
 
-<!--Vm-Thinprovisioning-->
+</TabItem>
+<TabItem value="VmThinprovisioning" label="VmThinprovisioning">
 
 | Metric name | Description                                | Unit |
 | :---------- | :----------------------------------------- | :--- |
 | status      | Status of the Thinprovisoning virtualdisks |      |
 
-<!--Vm-Status-->
+</TabItem>
+<TabItem value="VmStatus" label="VmStatus">
 
-| Metric name   | Description              | Unit |
-| :------------ | :----------------------- | :--- |
-| status        | Overall status of the VM |      |
+| Metric name | Description              | Unit |
+| :---------- | :----------------------- | :--- |
+| status      | Overall status of the VM |      |
 
-<!--Vm-Snapshot-->
+</TabItem>
+<TabItem value="VmSnapshot" label="VmSnapshot">
 
 | Metric name                         | Description                                                   | Unit  |
 | :---------------------------------- | :------------------------------------------------------------ | :---- |
 | vm.snapshots.warning.current.count  | Number of VM's snapshot older than 3 days (default threshold) | Count |
 | vm.snapshots.critical.current.count | Number of VM's snapshot older than 5 days (default threshold) | Count |
 
-<!--Vm-Limit-->
+</TabItem>
+<TabItem value="VmLimit" label="VmLimit">
 
 | Metric name                  | Description            | Unit  |
 | :--------------------------- | :--------------------- | :---- |
@@ -70,7 +76,8 @@ In addition to modes and metrics described here, it is also possible to monitor 
 | vm.limit.memory.alerts.count | Alerts on Memory limit | Count |
 | vm.limit.disk.alerts.count   | Alerts on Disk limit   | Count |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -89,13 +96,13 @@ To configure the access to your infrastructure, edit the
 
 ``` perl
 %centreon_vmware_config = (
-    vsphere_server => {
-        default => {
-            url => 'https://<ip_hostname>/sdk',
-            username => '<username>',
-            password => '<password>'
-        }
-    }
+vsphere_server => {
+default => {
+url => 'https://<ip_hostname>/sdk',
+username => '<username>',
+password => '<password>'
+}
+}
 );
 
 1;
@@ -112,19 +119,19 @@ structure:
 
 ``` perl
 %centreon_vmware_config = (
-    vsphere_server => {
-        'my_first_vcenter' => {
-            url => 'https://<ip_hostname>/sdk',
-            username => '<username>',
-            password => '<password>'
-        },
-        'my_other_vcenter' => {
-            url => 'https://<ip_hostname>/sdk',
-            username => '<DOMAIN>\<username>',
-            password => '<password>'
-        },
-    },
-    port => 5700
+vsphere_server => {
+'my_first_vcenter' => {
+url => 'https://<ip_hostname>/sdk',
+username => '<username>',
+password => '<password>'
+},
+'my_other_vcenter' => {
+url => 'https://<ip_hostname>/sdk',
+username => '<DOMAIN>\<username>',
+password => '<password>'
+},
+},
+port => 5700
 );
 
 1;
@@ -152,9 +159,8 @@ The Pollers that request the Centreon VMWare Connector host need to access in TC
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="licence-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Vmware2 Connector Centreon Plugin on every poller expected to monitor the devices:
 
@@ -164,7 +170,8 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 
 2. Install the 'Vmware VM' Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Vmware VM Centreon Plugin on every poller expected to monitor the devices:
 
@@ -180,21 +187,22 @@ yum install centreon-pack-virtualization-vmware2-vm
 
 3. Install the 'Vmware VM' Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
 * Log into Centreon and add a new Host through "Configuration > Hosts".
 * Apply the relevant Host Template "VVirt-VMWare2-Vm-custom", and configure the mandatory Macros:
 
-| Mandatory   | Name                       | Description                                            |
-| :---------- | :------------------------- | :----------------------------------------------------- |
-| X           | CENTREONVMWARECONTAINER    | Name of your container in the file centreon_vmware.pm  |
-| X           | CENTREONVMWAREHOST         | The Centreon server that launches the connection       |
-| X           | CENTREONVMWAREPORT         | By default: 5700                                       |
-| X           | VMNAME                     | Name of the VM (defined in your VMWare infrastructure) |
-|             | VMUUID                     | Specify The VM UUID                                    |
-|             | VMWAREEXTRAOPTIONS         | Customize it with your own if needed                   |
+| Mandatory | Name                    | Description                                            |
+| :-------- | :---------------------- | :----------------------------------------------------- |
+| X         | CENTREONVMWARECONTAINER | Name of your container in the file centreon_vmware.pm  |
+| X         | CENTREONVMWAREHOST      | The Centreon server that launches the connection       |
+| X         | CENTREONVMWAREPORT      | By default: 5700                                       |
+| X         | VMNAME                  | Name of the VM (defined in your VMWare infrastructure) |
+|           | VMUUID                  | Specify The VM UUID                                    |
+|           | VMWAREEXTRAOPTIONS      | Customize it with your own if needed                   |
 
 ## FAQ
 
@@ -204,17 +212,17 @@ Once you've installed the plugin, you can test it logging with centreon-engine u
 
 ```bash
 /usr/lib/centreon/plugins//centreon_vmware_connector_client.pl
-	--plugin=apps::vmware::connector::plugin
-	--mode=tools-vm
-	--custommode=connector
-	--connector-hostname='localhost'
-	--connector-port='5700'
-	--container='vcenter01'
-	--vm-hostname='SRV-LIN-TLS'
-	--filter-uuid=''
-	--tools-notinstalled-status='critical'
-	--tools-notrunning-status='critical'
-	--tools-notup2date-status='warning'
+--plugin=apps::vmware::connector::plugin
+--mode=tools-vm
+--custommode=connector
+--connector-hostname='localhost'
+--connector-port='5700'
+--container='vcenter01'
+--vm-hostname='SRV-LIN-TLS'
+--filter-uuid=''
+--tools-notinstalled-status='critical'
+--tools-notrunning-status='critical'
+--tools-notup2date-status='warning'
 ```
 
 Expected command output is shown below:
@@ -235,17 +243,17 @@ All available modes with the plugin can be displayed with:
 
 ```bash
 /usr/lib/centreon/plugins/./centreon_vmware_connector_client.pl \
-    --plugin=apps::vmware::connector::plugin \
-    --list-mode
+--plugin=apps::vmware::connector::plugin \
+--list-mode
 ```
 
 The available options for a mode can be displayed using the ```--help``` parameter:
 
 ```bash
 /usr/lib/centreon/plugins/./centreon_vmware_connector_client.pl \
-    --plugin=apps::vmware::connector::plugin \
-    --mode=tools-vm  \
-    --help
+--plugin=apps::vmware::connector::plugin \
+--mode=tools-vm  \
+--help
 ```
 
 ### Why do I get the following error:

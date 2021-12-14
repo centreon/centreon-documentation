@@ -2,6 +2,9 @@
 id: network-cisco-firepower-snmp
 title: Cisco Firepower SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Contenu du Plugin-Pack
 
@@ -11,9 +14,8 @@ Le plugin-pack Cisco Firepower inclue la supervision CPU, Faults, Hardware, Inte
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Cpu-->
+<Tabs groupId="operating-systems">
+<TabItem value="Cpu" label="Cpu">
 
 | Metric name                                     | Description           | Unit |
 | :---------------------------------------------- | :-------------------- | :--- |
@@ -21,7 +23,8 @@ Le plugin-pack Cisco Firepower inclue la supervision CPU, Faults, Hardware, Inte
 | *securitymodule*#cpu.utilization.5m.percentage  | CPU utilization       | %    |
 | *securitymodule*#cpu.utilization.15m.percentage | CPU utilization       | %    |
 
-<!--Faults-->
+</TabItem>
+<TabItem value="Faults" label="Faults">
 
 | Metric name            | Description                                       | Unit |
 | :--------------------- | :------------------------------------------------ | :--- |
@@ -33,7 +36,8 @@ Le plugin-pack Cisco Firepower inclue la supervision CPU, Faults, Hardware, Inte
 | faults.major.count     | Number of major faults                            |      |
 | faults.critical.count  | Number of critical faults                         |      |
 
-<!--Interfaces-->
+</TabItem>
+<TabItem value="Interfaces" label="Interfaces">
 
 | Metric name                                              | Description                                             | Unit |
 |:-------------------------------------------------------- |:------------------------------------------------------- | :--- |
@@ -47,7 +51,8 @@ Le plugin-pack Cisco Firepower inclue la supervision CPU, Faults, Hardware, Inte
 
 It is possible to filter on the name of an interface using a REGEXP of the form [```--interface='^eth1/0/1$' --name```].
 
-<!--Hardware-->
+</TabItem>
+<TabItem value="Hardware" label="Hardware">
 
 | Metric name                                    | Description                     | Unit |
 | :--------------------------------------------- | :------------------------------ | :--- |
@@ -65,7 +70,8 @@ It is possible to filter on the name of an interface using a REGEXP of the form 
 | psu status                                     | Status of the power supply      |      |
 | *dn*#hardware.powersupply.temperature.celsius  | Temperature of the power supply | C    |
 
-<!--Memory-->
+</TabItem>
+<TabItem value="Memory" label="Memory">
 
 | Metric name                              | Description                | Unit |
 | :--------------------------------------- | :------------------------- | :--- |
@@ -73,7 +79,8 @@ It is possible to filter on the name of an interface using a REGEXP of the form 
 | *securitymodule*#memory.free.bytes       | Free memory                | B    |
 | *securitymodule*#memory.usage.percentage | Memory usage in percentage | %    |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -81,9 +88,8 @@ Afin de contrôler vos équipements Cisco Firepower, le SNMP doit être configur
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="operating-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -93,7 +99,8 @@ yum install centreon-plugin-Network-Cisco-Firepower-Snmp.noarch
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Cisco Firepower SNMP* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -109,15 +116,16 @@ yum install centreon-pack-network-cisco-firepower-snmp
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Cisco Firepower SNMP* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
 Ce Plugin-Pack est conçu de manière à avoir dans Centreon un hôte par équipement Cisco Firepower.
-Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *Net-Cisco-Firepower-SNMP-custom*. 
+Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *Net-Cisco-Firepower-SNMP-custom*.
 Il est nécessaire de remplir les valeurs des champs "SNMP Community" et "SNMP Version".
 
-> Si vous utilisez SNMP version 3, sélectionnez la version SNMP appropriée 
+> Si vous utilisez SNMP version 3, sélectionnez la version SNMP appropriée
 et configurez les paramètres SNMP v3 via la macro SNMPEXTRAOPTIONS.
 
 | Mandatory   | Name                    | Description                                                                 |
@@ -132,44 +140,44 @@ Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne d
 
 ```bash
 /usr/lib/centreon/plugins/centreon_cisco_firepower_fxos_snmp.pl \
-    --plugin=network::cisco::firepower::fxos::snmp::plugin \
-    --mode=cpu \
-    --hostname=10.30.2.114 \
-    --snmp-version='2c' \
-    --snmp-community='cisco_ro' \
-    --warning-average-5m='60' \
-    --critical-average-5m='75' \
-    --verbose
+--plugin=network::cisco::firepower::fxos::snmp::plugin \
+--mode=cpu \
+--hostname=10.30.2.114 \
+--snmp-version='2c' \
+--snmp-community='cisco_ro' \
+--warning-average-5m='60' \
+--critical-average-5m='75' \
+--verbose
 
 OK: Security module 'sec-svc/slot-1' CPU average usage: 42.00 % (1m), 42.00 % (5m), 42.00 % (15m) | 'sec-svc/slot-1#cpu.utilization.1m.percentage'=42.00%;;;0;100 'sec-svc/slot-1#cpu.utilization.5m.percentage'=42.00%;;;0;100 'sec-svc/slot-1#cpu.utilization.15m.percentage'=42.00%;;;0;100
 Security module 'sec-svc/slot-1' CPU average usage: 42.00 % (1m), 42.00 % (5m), 42.00 % (15m)
 ```
 
-Cette commande contrôle l'utilisation CPU (```--mode=cpu```) d'un équipement ayant pour adresse *10.30.2.114* (```--hostname=10.30.2.114```) 
+Cette commande contrôle l'utilisation CPU (```--mode=cpu```) d'un équipement ayant pour adresse *10.30.2.114* (```--hostname=10.30.2.114```)
 en version *2c* du protocol SNMP (```--snmp-version='2c'```) et avec la communauté *cisco_ro* (```--snmp-community='cisco_ro'```).
 
 Cette commande déclenchera une alarme WARNING si l'utilisation moyenne CPU sur 5 minutes est à plus de 60% (```--warning-average-5m='60'```)
 et une alarme CRITICAL si plus de 75% (```--critical-average-5m='75'```).
 
 Des seuils peuvent être fixés sur toutes les métriques de l'appareil en utilisant la syntaxe "```--warning-*metric* --critical-*metric*```".
- 
+
 Toutes les options qui peuvent être utilisées avec ce plugin se trouvent sur la commande ```--help``` :
 
 ```bash
 /usr/lib/centreon/plugins/centreon_cisco_firepower_fxos_snmp.pl \
-    --plugin=network::cisco::firepower::fxos::snmp::plugin \
-	--mode=cpu \
-	--help
+--plugin=network::cisco::firepower::fxos::snmp::plugin \
+--mode=cpu \
+--help
 ```
 
 ### UNKNOWN: SNMP GET Request : Timeout
 
-Si vous obtenez ce message, cela signifie que vous ne parvenez pas à contacter l'équipement Cisco Firepower sur le port 161, 
-ou alors que la communauté SNMP configurée n'est pas correcte. 
+Si vous obtenez ce message, cela signifie que vous ne parvenez pas à contacter l'équipement Cisco Firepower sur le port 161,
+ou alors que la communauté SNMP configurée n'est pas correcte.
 Il est également possible qu'un firewall bloque le flux.
 
 ### UNKNOWN: SNMP GET Request : Cant get a single value.
 
-Si vous rencontrez cette erreur, il est probable que les autorisations données à l'agent SNMP soient trop restreintes. 
- * L'équipement Cisco Firepower ne prend pas en charge la MIB utilisée par le Plugin.
- * L'OID SNMP ciblé ne peut pas être récupéré en raison de privilèges d'équipement insuffisants.
+Si vous rencontrez cette erreur, il est probable que les autorisations données à l'agent SNMP soient trop restreintes.
+* L'équipement Cisco Firepower ne prend pas en charge la MIB utilisée par le Plugin.
+* L'OID SNMP ciblé ne peut pas être récupéré en raison de privilèges d'équipement insuffisants.

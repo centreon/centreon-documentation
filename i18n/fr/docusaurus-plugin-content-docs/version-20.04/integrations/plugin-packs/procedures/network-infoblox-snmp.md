@@ -2,6 +2,9 @@
 id: network-infoblox-snmp
 title: Infoblox SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Contenu du Plugin Pack
 
@@ -16,21 +19,20 @@ Le Plugin Pack Infoblox SNMP collecte les données pour:
 
 ### Règles de découvertes
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Services-->
+<Tabs groupId="operating-systems">
+<TabItem value="Services" label="Services">
 
 | Nom de la règle                  | Description                                                                                  |
 | :------------------------------- | :------------------------------------------------------------------------------------------- |
 | Net-Infoblox-SNMP-Interface-Name | Découvre les interfaces réseaux et supervise le statut et l'utilisation de la bande passante |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Dhcp-->
+<Tabs groupId="operating-systems">
+<TabItem value="Dhcp" label="Dhcp">
 
 | Metric name                                         | Description                                              | Unit |
 | :-------------------------------------------------- | :------------------------------------------------------- | :--- |
@@ -45,7 +47,8 @@ Le Plugin Pack Infoblox SNMP collecte les données pour:
 | dhcp.others.count                                   | Number of other messages received                        |      |
 | *subnet\_ipaddr*\#subnet.addresses.usage.percentage | Percentage of dynamic DHCP address for subnet leased out | %    |
 
-<!--Dns-->
+</TabItem>
+<TabItem value="Dns" label="Dns">
 
 | Metric name                                            | Description                                                                                                | Unit |
 | :----------------------------------------------------- | :--------------------------------------------------------------------------------------------------------- | :--- |
@@ -62,7 +65,8 @@ Le Plugin Pack Infoblox SNMP collecte les données pour:
 | *zone\_name*\#zone.queries.nxrrset.count               | Number of DNS query received for non-existent record                                                       |      |
 | *zone\_name*\#zone.queries.failed.count                | Number of Failed queries                                                                                   |      |
 
-<!--Interfaces-->
+</TabItem>
+<TabItem value="Interfaces" label="Interfaces">
 
 | Metric name                                            | Description                                         | Unit |
 | :----------------------------------------------------- | :-------------------------------------------------- | :--- |
@@ -74,13 +78,15 @@ Le Plugin Pack Infoblox SNMP collecte les données pour:
 
 A regexp filter is available to target a specific interface identifier - ifName [```--interface='^eth0$' --name```]
 
-<!--Services-->
+</TabItem>
+<TabItem value="Services" label="Services">
 
 | Metric name                                        | Description                      | Unit |
 | :------------------------------------------------- | :------------------------------- | :--- |
 | service status                                     | Status of the service            |      |
 
-<!--System-->
+</TabItem>
+<TabItem value="System" label="System">
 
 | Metric name                     | Description                 | Unit |
 | :------------------------------ | :-------------------------- | :--- |
@@ -91,19 +97,19 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | system.cpu2.temperature.celsius | CPU2 temperature            | C    |
 | ha status                       | Status of high-availability |      |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
-Afin de contrôler votre équipement Infoblox, le SNMP doit être configuré. 
+Afin de contrôler votre équipement Infoblox, le SNMP doit être configuré.
 
 Le flux SNMP UDP/161 doit être ouvert entre le Collecteur et l'équipement.
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="operating-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -113,7 +119,8 @@ yum install centreon-plugin-Network-Infoblox-Snmp
 
 2. Sur l'interface Web de Centreon, installer le Plugin Pack *Infoblox SNMP* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -129,7 +136,8 @@ yum install centreon-pack-network-infoblox-snmp
 
 3. Sur l'interface Web de Centreon, installer le Plugin Pack *Infoblox SNMP* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -151,14 +159,14 @@ depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-en
 
 ```bash
 /usr/lib/centreon/plugins/centreon_infoblox_snmp.pl \
-    --plugin=network::infoblox::snmp::plugin \
-    --mode=system \
-    --hostname=10.30.2.114 \
-    --snmp-version='2c' \
-    --snmp-community='infoblox_ro' \
-    --warning-cpu-load='90' \
-    --critical-cpu-load='95' \
-    --verbose
+--plugin=network::infoblox::snmp::plugin \
+--mode=system \
+--hostname=10.30.2.114 \
+--snmp-version='2c' \
+--snmp-community='infoblox_ro' \
+--warning-cpu-load='90' \
+--critical-cpu-load='95' \
+--verbose
 ```
 
 La commande devrait retourner un message de sortie de la forme ci-dessous:
@@ -166,14 +174,14 @@ La commande devrait retourner un message de sortie de la forme ci-dessous:
 ```bash
 OK: System 'IB-825' is ok | 'cpu.utilization.percentage'=3.00%;0:90;0:95;0;100 'memory.usage.percentage'=2.00%;;;0;100 'swap.usage.percentage'=0.00%;;;0;100 'system.cpu1.temperature.celsius'=20.00C;;;;
 checking system 'IB-825'
-    cpu load: 3.00 %
-    memory used: 2.00 %
-    swap used: 0.00 %
-    cpu1 temperature: 20.00 C
-    high-availablity status is 'Not Configured'
+cpu load: 3.00 %
+memory used: 2.00 %
+swap used: 0.00 %
+cpu1 temperature: 20.00 C
+high-availablity status is 'Not Configured'
 ```
 
-Cette commande contrôle le système (```--mode=system```) d'un équipement Infoblox ayant pour adresse *10.30.2.114* (```--hostname=10.30.2.114```) 
+Cette commande contrôle le système (```--mode=system```) d'un équipement Infoblox ayant pour adresse *10.30.2.114* (```--hostname=10.30.2.114```)
 en version *2c* du protocol SNMP (```--snmp-version='2c'```) et avec la communauté *infoblox_ro* (```--snmp-community='infoblox_ro'```).
 
 Cette commande déclenchera une alarme WARNING si l'utilisation processeur est supérieur à 90% (```--warning-cpu-load='90'```)
@@ -184,21 +192,21 @@ en ajoutant le paramètre ```--help``` à la commande:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_infoblox_snmp.pl \
-    --plugin=network::infoblox::snmp::plugin \
-    --mode=system \
-    --help
+--plugin=network::infoblox::snmp::plugin \
+--mode=system \
+--help
 ```
 
 ## J'obtiens le message d'erreur suivant:
 
 ### UNKNOWN: SNMP GET Request : Timeout
 
-Si vous obtenez ce message, cela signifie que vous ne parvenez pas à contacter l'équipement sur le port 161, 
-ou alors que la communauté SNMP configurée n'est pas correcte. 
+Si vous obtenez ce message, cela signifie que vous ne parvenez pas à contacter l'équipement sur le port 161,
+ou alors que la communauté SNMP configurée n'est pas correcte.
 Il est également possible qu'un firewall bloque le flux.
 
 ### UNKNOWN: SNMP GET Request : Cant get a single value.
 
-Si vous rencontrez cette erreur, il est probable que les autorisations données à l'agent SNMP soient trop restreintes. 
- * L'équipement ne prend pas en charge la MIB utilisée par le Plugin (branche: .1.3.6.1.4.1.7779).
- * L'OID SNMP ciblé ne peut pas être récupéré en raison de privilèges d'équipement insuffisants.
+Si vous rencontrez cette erreur, il est probable que les autorisations données à l'agent SNMP soient trop restreintes.
+* L'équipement ne prend pas en charge la MIB utilisée par le Plugin (branche: .1.3.6.1.4.1.7779).
+* L'OID SNMP ciblé ne peut pas être récupéré en raison de privilèges d'équipement insuffisants.

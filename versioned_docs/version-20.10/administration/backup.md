@@ -29,15 +29,15 @@ Database backup will be processed on two databases: **centreon** and
 
 There are two kinds of database backup:
 
-  - MySQLdump: mysqldump command is used to backup databases. Be careful,
-    mysqldump can take long time on large databases.
-  - LVM Snapshot  Binary copy of MariaDB files is done. You need to have a
-    specific LV for MariaDB (i.e. /var/lib/mysql) and 1GB of space in its VG.
+- MySQLdump: mysqldump command is used to backup databases. Be careful,
+mysqldump can take long time on large databases.
+- LVM Snapshot  Binary copy of MariaDB files is done. You need to have a
+specific LV for MariaDB (i.e. /var/lib/mysql) and 1GB of space in its VG.
 
 Backup filename format:
 
-  - YYYY-MM-DD-centreon.sql.gz
-  - YYYY-MM-DD-centreon\_storage.sql.gz
+- YYYY-MM-DD-centreon.sql.gz
+- YYYY-MM-DD-centreon\_storage.sql.gz
 
 #### Configuration files backup
 
@@ -46,8 +46,8 @@ SNMP, centreon, centreon-broker)
 
 Backup filename format:
 
- - YYYY-MM-DD-centreon-engine.tar.gz (centreon-engine configuration files)
- - YYYY-MM-DD-central.tar.gz (other configuration files)
+- YYYY-MM-DD-centreon-engine.tar.gz (centreon-engine configuration files)
+- YYYY-MM-DD-central.tar.gz (other configuration files)
 
 ## Configuration
 
@@ -59,23 +59,23 @@ The following window is displayed:
 
 ![image](../assets/administration/parameters-backup.png)
 
-  - **Backup enabled** Enable/Disable backup
-  - **Backup directory** Directory where backup will be stored
-  - **Temporary directory** Directory used during backup process
-  - **Backup database centreon** Enable backup on centreon database
-  - **Backup database centreon\_storage** Enable backup on centreon\_storage
-    database
-  - **Backup type** Type of backup (MySQLdump or LVM snapshot)
-  - **Full backup** Period for full backup
-  - **Partial backup** Period for partial backup (only available with LVM
-    snapshot backup)
-  - **Backup retention** Retention for backups (in days)
-  - **Backup configuration files** Enable backup of configuration files
-  - **MySQL configuration file path** Path for MariaDB configuration file
-  - **SCP export enabled** Enable SCP export of backups
-  - **Remote user** Remote user for SCP export
-  - **Remote host** Remote host for SCP export
-  - **Remote directory** Remote directory for SCP export
+- **Backup enabled** Enable/Disable backup
+- **Backup directory** Directory where backup will be stored
+- **Temporary directory** Directory used during backup process
+- **Backup database centreon** Enable backup on centreon database
+- **Backup database centreon\_storage** Enable backup on centreon\_storage
+database
+- **Backup type** Type of backup (MySQLdump or LVM snapshot)
+- **Full backup** Period for full backup
+- **Partial backup** Period for partial backup (only available with LVM
+snapshot backup)
+- **Backup retention** Retention for backups (in days)
+- **Backup configuration files** Enable backup of configuration files
+- **MySQL configuration file path** Path for MariaDB configuration file
+- **SCP export enabled** Enable SCP export of backups
+- **Remote user** Remote user for SCP export
+- **Remote host** Remote host for SCP export
+- **Remote directory** Remote directory for SCP export
 
 > **Temporary directory** can not be a folder of **Backup directory**.
 
@@ -83,9 +83,9 @@ The following window is displayed:
 
 Restore process is divided in two main steps:
 
-  - Re-install the Centreon platform following the installation documentation.
-    Do not forget to upgrade system.
-  - Restore Centreon-Engines configuration files and Centreon databases
+- Re-install the Centreon platform following the installation documentation.
+Do not forget to upgrade system.
+- Restore Centreon-Engines configuration files and Centreon databases
 
 ### Configurations file restore
 

@@ -16,7 +16,7 @@ est la version **Centreon 21.04**
 
 ### Installation du paquet
 
-Ajouter le dépôt Centreon BAM, vous pouvez le trouver sur le 
+Ajouter le dépôt Centreon BAM, vous pouvez le trouver sur le
 [portail support](https://support.centreon.com/s/repositories).
 
 Et installer le paquet en exécutant la commande ci-dessous :

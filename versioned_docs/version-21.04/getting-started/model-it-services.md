@@ -2,6 +2,9 @@
 id: model-it-services
 title: Model your IT services
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 Centreon Business Activity Monitoring (Centreon-BAM) is an extension for modeling
 IT services and applications, ideally, from end users point of view. It reports on the
@@ -44,23 +47,23 @@ the service/applications and then gradually add other indicators that would have
 a potential impact on BA status.
 
 All indicators added to a BA must initially be monitored one at a time by the
-system to determine the operational status of the BA. 
+system to determine the operational status of the BA.
 
 The important thing to understand here is the way the business activity status will be computed. There are
 four calculation method that can be used:
 
-- **Best status**: When you only need to be warned that ALL indicators are critical at the same times 
+- **Best status**: When you only need to be warned that ALL indicators are critical at the same times
 - **Wors status**: When you immediately want to know that at least 1 indicator is not-ok
 - **Ratio**: When you want to model **Cluster** concepts by specifying a number of percentage of critical resources that you don't want to exceed
-- **Impact**: When you want to precisely define the weight of each indicators and reflect that on your BA status 
+- **Impact**: When you want to precisely define the weight of each indicators and reflect that on your BA status
 
 For mor information, have a look to the [calculation method explanations](../service-mapping/ba-management#calculation-methods)
 
-## Implementation method 
+## Implementation method
 
 The first step when you want to create a business activity is to have a clear view of the IT service, application, component
-you want to model. Don't hesitate to first model the Tree on a paper so that you'll just have to replicate the configuration 
-in Centreon. 
+you want to model. Don't hesitate to first model the Tree on a paper so that you'll just have to replicate the configuration
+in Centreon.
 
 **The way you think** about an application or service IT may be **Top-Down**: you want to visualize the state of the Application > "A"
 that relies on Network, Backends, Frontends clusters, they themselves rely on servers & network equipment which status rely
@@ -69,13 +72,13 @@ on service monitored by Centreon
 **The way you create** an business activity in Centreon is **Bottom-up**: you start by creating the down-level indicators that > represent server or network equipment status, then you agregated them into Network, Frontend, Backend component and you
 finish by creating a Top level component to show the global Application "A" status.
 
-Now that you know what application you want to model and what indicators this application relies on, 
+Now that you know what application you want to model and what indicators this application relies on,
 you can sort them into two categories:
 
-  - Indicators known to have a blocking impact
-  - Indicators whose impact cannot be measured.
+- Indicators known to have a blocking impact
+- Indicators whose impact cannot be measured.
 
-> It's simpler to start by using only the blocking indicators. You'll be able to add more indicators later if you 
+> It's simpler to start by using only the blocking indicators. You'll be able to add more indicators later if you
 > need to have BA status impacted more precisely.
 
 ## Example
@@ -85,56 +88,58 @@ If we take a simple example: You have multiple frontend servers (10) and you wan
 This will be done into two steps (bottom-up):
 
 - First, define what's a frontend server that is OK: create business activities that correspond to frontend servers
-- Then, define our cluster: create the business activity that will agreggate my frontend-x servers 
+- Then, define our cluster: create the business activity that will agreggate my frontend-x servers
 
 First, we're going to create "Frontend-X" (business activity) that correspond to the frontend servers.
 Let's say that a frontend server that correctly perform may be defined by:
 
- - a Load below a critical state
- - and a Disk usage below a critical state
- - and a Swap usage below a critical state
+- a Load below a critical state
+- and a Disk usage below a critical state
+- and a Swap usage below a critical state
 
-So the state of a frontend-X is the Worst status between these 3 indicators: the first step is over, let's create a 
+So the state of a frontend-X is the Worst status between these 3 indicators: the first step is over, let's create a
 Frontend-1 business activity:
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!-- Concept   -->
+<Tabs groupId="operating-systems">
+<TabItem value="Concept" label="Concept">
 
 ![image](../assets/service-mapping/frontend-1-concept.png)
 
-<!-- Configuration -->
+</TabItem>
+<TabItem value="Configuration" label="Configuration">
 
 ![image](../assets/service-mapping/frontend-1-conf.png)
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 
 Now that we've define our 10 frontend servers, we'll attach them to a parent business activity called "Frontends Cluster"
 so that it tell us wether we've 20% of Frontend servers available or not
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!-- Concept   -->
+<Tabs groupId="operating-systems">
+<TabItem value="Concept" label="Concept">
 
 ![image](../assets/service-mapping/ratio.png)
 
-<!-- Configuration -->
+</TabItem>
+<TabItem value="Configuration" label="Configuration">
 
 ![image](../assets/service-mapping/conf-ratio.png)
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 
-If we want to be proactive and NEVER go to 20%, we may add a Warning threshold to our Cluster business activity 
+If we want to be proactive and NEVER go to 20%, we may add a Warning threshold to our Cluster business activity
 to be warn when 50% of the frontend servers are not available: just add "50%" to the Warning threshold:
 
 ![image](../assets/service-mapping/conf-ratio-with-warn.png)
 
 So at the end, we combined multiple calculation methods, multiple type of resources and our business activity
- will look like that:
+will look like that:
 
- ![image](../assets/service-mapping/final-frontend.png)
+![image](../assets/service-mapping/final-frontend.png)
 
 Using the product on a daily basis helps to follow the daily evolution of the BA to adjust indicators or rules that
 apply.
@@ -142,7 +147,7 @@ apply.
 ## Reporting consideration
 
 Now that you can proactively manage your IT services & application, thanks to the real time BA tracking.
-It's time to have a look to availability & SLA.This is possible with the reporting capabilities 
+It's time to have a look to availability & SLA.This is possible with the reporting capabilities
 and the **Centreon MBI extension** and the settings done in the "Reporting" section of the BA.
 
 **How to we compare availability & SLA?**
@@ -153,16 +158,16 @@ screens.
 
 Examples:
 
-  - 24/7 monitoring
-  - Over a 1-day period, the time spent in the status is as follow:
-      - BA in a OK status = 23hours & 30min
-      - BA in a WARNING status = 10 minutes
-      - BA in a CRITICAL status = 20 minutes
+- 24/7 monitoring
+- Over a 1-day period, the time spent in the status is as follow:
+- BA in a OK status = 23hours & 30min
+- BA in a WARNING status = 10 minutes
+- BA in a CRITICAL status = 20 minutes
 
 In this example, the following availability will be calculated:
 
-  - % Up and optimum performance \~ 98.61% (OK+Warning)
-  - % Up but degraded \~ 97.91% (OK)
-  - % Not available \~ 1.38% (Critical).
+- % Up and optimum performance \~ 98.61% (OK+Warning)
+- % Up but degraded \~ 97.91% (OK)
+- % Not available \~ 1.38% (Critical).
 
 You may use **Centreon MBI extension** to access advanced reporting capabilities on business activities data.

@@ -20,17 +20,17 @@ vous pouvez organiser la supervision du cluster.
 Il existe principalement trois façons :
 
 - Rassemblez toutes les métriques sur un seul hôte Centreon avec un service
-  par unité Kubernetes (i.e. deployments, daemonsets, etc) - appliquer
-  la procédure [création manuelle](#creation-manuelle),
+par unité Kubernetes (i.e. deployments, daemonsets, etc) - appliquer
+la procédure [création manuelle](#creation-manuelle),
 - Rassemblez toutes les métriques sur un seul hôte Centreon avec un service
-  pour chaque instances de chaque unité Kubernetes - appliquer les procédures
-  [création manuelle](#creation-manuelle) et
-  [découverte de service](#decouverte-de-service),
+pour chaque instances de chaque unité Kubernetes - appliquer les procédures
+[création manuelle](#creation-manuelle) et
+[découverte de service](#decouverte-de-service),
 - Collectez les métriques d'infrastructure (noeuds maître et noeuds de travail)
-  avec un hôte Centreon par noeud Kubernetes et conserver les métriques
-  d'orchestration / d'application sur un hôte unique (en utilisant l'un des 2
-  scénarii précédents) - appliquer la procédure
-  [découverte d'hôte](#decouverte-dhote).
+avec un hôte Centreon par noeud Kubernetes et conserver les métriques
+d'orchestration / d'application sur un hôte unique (en utilisant l'un des 2
+scénarii précédents) - appliquer la procédure
+[découverte d'hôte](#decouverte-dhote).
 
 Pour tous ces scénarii, la découverte et les modèles classiques seront
 utilisées.
@@ -52,7 +52,7 @@ Voici la liste des *providers* Host Discovery :
 
 Les deux *providers* rechercheront les noeuds Kubernetes et les lieront à un
 modèle d'hôte minimaliste pour superviser l'utilisation des noeuds en termes
-d'allocation de pods, de processeur et de demandes / limites de mémoire. 
+d'allocation de pods, de processeur et de demandes / limites de mémoire.
 
 Parallèlement à cette découverte, des services unitaires peuvent être créés
 grâce aux règles de Service Discovery :
@@ -76,29 +76,29 @@ Le Pack Kubernetes API apporte 2 modèles d'hôte différents à utiliser en
 fonction des scénarios mentionnés précédemment :
 
 - Modèle d'hôte tout en un qui rassemblera les contrôles et les métriques
-  avec un service par unité Kubernetes :
+avec un service par unité Kubernetes :
 
-    | Cloud-Kubernetes-Api         |
-    |------------------------------|
-    | Cluster Events               |
-    | CronJob Status               |
-    | DaemonSet Status             |
-    | Deployment Status            |
-    | Node Status                  |
-    | Node Usage                   |
-    | PersistentVolume Status      |
-    | Pod Status                   |
-    | ReplicatSet Status           |
-    | ReplicationController Status |
-    | StatefulSet Status           |
+| Cloud-Kubernetes-Api         |
+|------------------------------|
+| Cluster Events               |
+| CronJob Status               |
+| DaemonSet Status             |
+| Deployment Status            |
+| Node Status                  |
+| Node Usage                   |
+| PersistentVolume Status      |
+| Pod Status                   |
+| ReplicatSet Status           |
+| ReplicationController Status |
+| StatefulSet Status           |
 
 - Un modèle d'hôte minimal qui ne collectera que des métriques pour les
-  noeuds Kubernetes :
+noeuds Kubernetes :
 
-    | Cloud-Kubernetes-Node-Api |
-    |---------------------------|
-    | Node Usage                |
-    | Node Status               |
+| Cloud-Kubernetes-Node-Api |
+|---------------------------|
+| Node Usage                |
+| Node Status               |
 
 ## Métriques et indicateurs supervisés
 
@@ -326,12 +326,12 @@ les statuts des conditions, comme le `kubectl describe nodes` peut lister :
 
 ```text
 Conditions:
-  Type             Status  LastHeartbeatTime                 LastTransitionTime                Reason                       Message
-  ----             ------  -----------------                 ------------------                ------                       -------
-  MemoryPressure   False   Thu, 11 Mar 2021 14:20:25 +0100   Tue, 26 Jan 2021 09:38:11 +0100   KubeletHasSufficientMemory   kubelet has sufficient memory available
-  DiskPressure     False   Thu, 11 Mar 2021 14:20:25 +0100   Wed, 17 Feb 2021 09:37:40 +0100   KubeletHasNoDiskPressure     kubelet has no disk pressure
-  PIDPressure      False   Thu, 11 Mar 2021 14:20:25 +0100   Tue, 26 Jan 2021 09:38:11 +0100   KubeletHasSufficientPID      kubelet has sufficient PID available
-  Ready            True    Thu, 11 Mar 2021 14:20:25 +0100   Tue, 26 Jan 2021 17:26:36 +0100   KubeletReady                 kubelet is posting ready status
+Type             Status  LastHeartbeatTime                 LastTransitionTime                Reason                       Message
+----             ------  -----------------                 ------------------                ------                       -------
+MemoryPressure   False   Thu, 11 Mar 2021 14:20:25 +0100   Tue, 26 Jan 2021 09:38:11 +0100   KubeletHasSufficientMemory   kubelet has sufficient memory available
+DiskPressure     False   Thu, 11 Mar 2021 14:20:25 +0100   Wed, 17 Feb 2021 09:37:40 +0100   KubeletHasNoDiskPressure     kubelet has no disk pressure
+PIDPressure      False   Thu, 11 Mar 2021 14:20:25 +0100   Tue, 26 Jan 2021 09:38:11 +0100   KubeletHasSufficientPID      kubelet has sufficient PID available
+Ready            True    Thu, 11 Mar 2021 14:20:25 +0100   Tue, 26 Jan 2021 17:26:36 +0100   KubeletReady                 kubelet is posting ready status
 ```
 
 La sortie résultante dans Centreon pourrait ressembler à :
@@ -374,40 +374,40 @@ En utilisant l'outil de ligne de commande Kubernetes, cela pourrait ressembler
 
 - Capacité des noeuds :
 
-    ```shell
-    kubectl get nodes -o=custom-columns="NODE:.metadata.name,PODS ALLOCATABLE:.status.allocatable.pods,CPU ALLOCATABLE:.status.allocatable.cpu,MEMORY ALLOCATABLE:.status.allocatable.memory"
-    NODE          PODS ALLOCATABLE   CPU ALLOCATABLE   MEMORY ALLOCATABLE
-    master-node   110                2                 3778172Ki
-    worker-node   110                2                 3778184Ki
-    ```
+```shell
+kubectl get nodes -o=custom-columns="NODE:.metadata.name,PODS ALLOCATABLE:.status.allocatable.pods,CPU ALLOCATABLE:.status.allocatable.cpu,MEMORY ALLOCATABLE:.status.allocatable.memory"
+NODE          PODS ALLOCATABLE   CPU ALLOCATABLE   MEMORY ALLOCATABLE
+master-node   110                2                 3778172Ki
+worker-node   110                2                 3778184Ki
+```
 
 - Pods en cours d'exécution :
 
-    ```shell
-    kubectl get pods -o=custom-columns="NODE:.spec.nodeName,POD:.metadata.name,CPU REQUESTS:.spec.containers[*].resources.requests.cpu,CPU LIMITS:.spec.containers[*].resources.limits.cpu,MEMORY REQUESTS:.spec.containers[*].resources.requests.memory,MEMORY LIMITS:.spec.containers[*].resources.limits.memory"
-    NODE          POD                                     CPU REQUESTS   CPU LIMITS   MEMORY REQUESTS   MEMORY LIMITS
-    worker-node   coredns-74ff55c5b-g4hmt                 100m           <none>       70Mi              170Mi
-    master-node   etcd-master-node                        100m           <none>       100Mi             <none>
-    master-node   kube-apiserver-master-node              250m           <none>       <none>            <none>
-    master-node   kube-controller-manager-master-node     200m           <none>       <none>            <none>
-    master-node   kube-flannel-ds-amd64-fk59g             100m           100m         50Mi              50Mi
-    worker-node   kube-flannel-ds-amd64-jwzms             100m           100m         50Mi              50Mi
-    master-node   kube-proxy-kkwmb                        <none>         <none>       <none>            <none>
-    worker-node   kube-proxy-vprs8                        <none>         <none>       <none>            <none>
-    master-node   kube-scheduler-master-node              100m           <none>       <none>            <none>
-    master-node   kubernetes-dashboard-7d75c474bb-7zc5j   <none>         <none>       <none>            <none>
-    ```
+```shell
+kubectl get pods -o=custom-columns="NODE:.spec.nodeName,POD:.metadata.name,CPU REQUESTS:.spec.containers[*].resources.requests.cpu,CPU LIMITS:.spec.containers[*].resources.limits.cpu,MEMORY REQUESTS:.spec.containers[*].resources.requests.memory,MEMORY LIMITS:.spec.containers[*].resources.limits.memory"
+NODE          POD                                     CPU REQUESTS   CPU LIMITS   MEMORY REQUESTS   MEMORY LIMITS
+worker-node   coredns-74ff55c5b-g4hmt                 100m           <none>       70Mi              170Mi
+master-node   etcd-master-node                        100m           <none>       100Mi             <none>
+master-node   kube-apiserver-master-node              250m           <none>       <none>            <none>
+master-node   kube-controller-manager-master-node     200m           <none>       <none>            <none>
+master-node   kube-flannel-ds-amd64-fk59g             100m           100m         50Mi              50Mi
+worker-node   kube-flannel-ds-amd64-jwzms             100m           100m         50Mi              50Mi
+master-node   kube-proxy-kkwmb                        <none>         <none>       <none>            <none>
+worker-node   kube-proxy-vprs8                        <none>         <none>       <none>            <none>
+master-node   kube-scheduler-master-node              100m           <none>       <none>            <none>
+master-node   kubernetes-dashboard-7d75c474bb-7zc5j   <none>         <none>       <none>            <none>
+```
 
 Depuis le tableau de bord Kubernetes, les métriques se trouvent dans le
 menu `Cluster > Nodes`:
 
 - Liste depuis `Cluser > Nodes`:
 
-    ![Cluster nodes listing](../../../assets/integrations/plugin-packs/procedures/cloud-kubernetes-api-cluster-nodes-listing.png)
+![Cluster nodes listing](../../../assets/integrations/plugin-packs/procedures/cloud-kubernetes-api-cluster-nodes-listing.png)
 
 - Détail de l'allocation pour un noeud :
 
-    ![Node allocation detail](../../../assets/integrations/plugin-packs/procedures/cloud-kubernetes-api-cluster-nodes-detail.png)
+![Node allocation detail](../../../assets/integrations/plugin-packs/procedures/cloud-kubernetes-api-cluster-nodes-detail.png)
 
 La sortie résultante dans Centreon pourrait ressembler à :
 
@@ -495,23 +495,23 @@ La sortie résultante dans Centreon pourrait ressembler à :
 
 ```text
 Checking pod 'kube-proxy-65zhn'
-    Containers Ready: 1/1 (100.00%), Status is 'Running', Restarts: 0
-    Container 'kube-proxy' Status is 'running', State is 'ready', Restarts: 0
+Containers Ready: 1/1 (100.00%), Status is 'Running', Restarts: 0
+Container 'kube-proxy' Status is 'running', State is 'ready', Restarts: 0
 Checking pod 'kube-proxy-kkwmb'
-    Containers Ready: 1/1 (100.00%), Status is 'Running', Restarts: 0
-    Container 'kube-proxy' Status is 'running', State is 'ready', Restarts: 0
+Containers Ready: 1/1 (100.00%), Status is 'Running', Restarts: 0
+Container 'kube-proxy' Status is 'running', State is 'ready', Restarts: 0
 Checking pod 'kube-proxy-vprs8'
-    Containers Ready: 1/1 (100.00%), Status is 'Running', Restarts: 0
-    Container 'kube-proxy' Status is 'running', State is 'ready', Restarts: 0
+Containers Ready: 1/1 (100.00%), Status is 'Running', Restarts: 0
+Container 'kube-proxy' Status is 'running', State is 'ready', Restarts: 0
 Checking pod 'tiller-deploy-7bf78cdbf7-z5n24'
-    Containers Ready: 1/1 (100.00%), Status is 'Running', Restarts: 5
-    Container 'tiller' Status is 'running', State is 'ready', Restarts: 5
+Containers Ready: 1/1 (100.00%), Status is 'Running', Restarts: 5
+Container 'tiller' Status is 'running', State is 'ready', Restarts: 5
 Checking pod 'dashboard-metrics-scraper-79c5968bdc-vncxc'
-    Containers Ready: 1/1 (100.00%), Status is 'Running', Restarts: 0
-    Container 'dashboard-metrics-scraper' Status is 'running', State is 'ready', Restarts: 0
+Containers Ready: 1/1 (100.00%), Status is 'Running', Restarts: 0
+Container 'dashboard-metrics-scraper' Status is 'running', State is 'ready', Restarts: 0
 Checking pod 'kubernetes-dashboard-7448ffc97b-42rps'
-    Containers Ready: 1/1 (100.00%), Status is 'Running', Restarts: 0
-    Container 'kubernetes-dashboard' Status is 'running', State is 'ready', Restarts: 0
+Containers Ready: 1/1 (100.00%), Status is 'Running', Restarts: 0
+Container 'kubernetes-dashboard' Status is 'running', State is 'ready', Restarts: 0
 ```
 
 Les métriques collectées pour chaque Pods seront :
@@ -763,40 +763,40 @@ cat <<EOF | kubectl create -f -
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: api-access
+name: api-access
 rules:
-  - apiGroups:
-      - ""
-      - apps
-      - batch
-    resources:
-      - cronjobs
-      - daemonsets
-      - deployments
-      - events
-      - namespaces
-      - nodes
-      - persistentvolumes
-      - pods
-      - replicasets
-      - replicationcontrollers
-      - statefulsets
-    verbs:
-      - get
-      - list
+- apiGroups:
+- ""
+- apps
+- batch
+resources:
+- cronjobs
+- daemonsets
+- deployments
+- events
+- namespaces
+- nodes
+- persistentvolumes
+- pods
+- replicasets
+- replicationcontrollers
+- statefulsets
+verbs:
+- get
+- list
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: api-access
+name: api-access
 roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: api-access
+apiGroup: rbac.authorization.k8s.io
+kind: ClusterRole
+name: api-access
 subjects:
 - kind: ServiceAccount
-  name: centreon-service-account
-  namespace: kube-system
+name: centreon-service-account
+namespace: kube-system
 EOF
 ```
 
@@ -838,24 +838,24 @@ cat <<EOF | kubectl create -f -
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: kubernetesapi-ingress
-  namespace: default
-  annotations:
-    kubernetes.io/ingress.class: "nginx"
-    nginx.ingress.kubernetes.io/backend-protocol: HTTPS
+name: kubernetesapi-ingress
+namespace: default
+annotations:
+kubernetes.io/ingress.class: "nginx"
+nginx.ingress.kubernetes.io/backend-protocol: HTTPS
 spec:
-  tls:
-    - hosts:
-      - kubernetesapi.local.domain
-      secretName: api-certificate
-  rules:
-  - host: kubernetesapi.local.domain
-    http:
-      paths:
-      - backend:
-          serviceName: kubernetes
-          servicePort: 443
-        path: /
+tls:
+- hosts:
+- kubernetesapi.local.domain
+secretName: api-certificate
+rules:
+- host: kubernetesapi.local.domain
+http:
+paths:
+- backend:
+serviceName: kubernetes
+servicePort: 443
+path: /
 EOF
 ```
 
@@ -947,19 +947,19 @@ apiVersion: v1
 kind: Config
 clusters:
 - name: ${clustername}
-  cluster:
-    certificate-authority-data: ${ca}
-    server: https://${ip}:${port}
+cluster:
+certificate-authority-data: ${ca}
+server: https://${ip}:${port}
 contexts:
 - name: ${context}
-  context:
-    cluster: ${clustername}
-    namespace: ${namespace}
-    user: ${account}
+context:
+cluster: ${clustername}
+namespace: ${namespace}
+user: ${account}
 current-context: ${context}
 users:
 - name: ${account}
-  user: ${token}
+user: ${token}
 EOF
 ```
 
@@ -1002,20 +1002,20 @@ Ensuite, définissez les valeurs pour chaque macros nécessaire :
 
 - Si vous utiliser l'API Rest :
 
-    | Macro                     | Description                                          | Exemple                     |
-    |---------------------------|------------------------------------------------------|-----------------------------|
-    | `KUBERNETESAPICUSTOMMODE` | Mode custom du plugin                                | `api`                       |
-    | `KUBERNETESAPIHOSTNAME`   | Nom d'hôte ou adresse IP du service d'API du clister | `kubenetesapi.local.domain` |
-    | `KUBERNETESAPIPORT`       | Port de l'API                                        | `443`                       |
-    | `KUBERNETESAPIPROTO`      | Protocole utilisé par l'API                          | `https`                     |
-    | `KUBERNETESAPITOKEN`      | Jeton récupéré lié au compte de service              | `eyJhbG...KEw`              |
+| Macro                     | Description                                          | Exemple                     |
+|---------------------------|------------------------------------------------------|-----------------------------|
+| `KUBERNETESAPICUSTOMMODE` | Mode custom du plugin                                | `api`                       |
+| `KUBERNETESAPIHOSTNAME`   | Nom d'hôte ou adresse IP du service d'API du clister | `kubenetesapi.local.domain` |
+| `KUBERNETESAPIPORT`       | Port de l'API                                        | `443`                       |
+| `KUBERNETESAPIPROTO`      | Protocole utilisé par l'API                          | `https`                     |
+| `KUBERNETESAPITOKEN`      | Jeton récupéré lié au compte de service              | `eyJhbG...KEw`              |
 
 - Si vous utiliser kubectl :
 
-    | Macro                     | Description                             | Exemple          |
-    |---------------------------|-----------------------------------------|------------------|
-    | `KUBERNETESAPICUSTOMMODE` | Mode custom du plugin                   | `kubectl`        |
-    | `KUBECTLCONFIGFILE`       | Chemin vers le fichier de configuration | `~/.kube/config` |
+| Macro                     | Description                             | Exemple          |
+|---------------------------|-----------------------------------------|------------------|
+| `KUBERNETESAPICUSTOMMODE` | Mode custom du plugin                   | `kubectl`        |
+| `KUBECTLCONFIGFILE`       | Chemin vers le fichier de configuration | `~/.kube/config` |
 
 Ensuite, définissez les valeurs pour chaque macros nécessaire :
 
@@ -1043,12 +1043,12 @@ Définissez les informations d'identification pour accéder à l'API Kubernetes
 en fonction de la méthode choisie:
 
 - Si vous utilisez l'API Rest: définissez le jeton
-  [récupérer plus tôt](#recuperer-le-jeton-du-compte-de-service) à partir du
-  compte de service,
+[récupérer plus tôt](#recuperer-le-jeton-du-compte-de-service) à partir du
+compte de service,
 - Si vous utilisez kubectl: définissez le chemin vers le
-  [fichier de configuration créé](#creer-une-configuration-kubectl)
-  (préférez utiliser le chemin relatif pour le faire fonctionner à la fois
-  pour la découverte et la supervision, c'est-à-dire `~/.kube/config`).
+[fichier de configuration créé](#creer-une-configuration-kubectl)
+(préférez utiliser le chemin relatif pour le faire fonctionner à la fois
+pour la découverte et la supervision, c'est-à-dire `~/.kube/config`).
 
 Pour l'API Rest: le nom d'hôte / l'adresse, le port et le protocole sont
 nécessaires pour accéder à l'API Kubernetes.

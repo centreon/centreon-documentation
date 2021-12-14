@@ -19,11 +19,11 @@ The following plugin-pack monitors Sensormetrix Em01 Series. By default, the
 host template checks: humidity, temperature and Illumination. You can also check
 (it depends your Em01 model) :
 
-  - flood: the host macro 'SENSORMETRIXURLPATHFLOOD' must be set. Read the
-    constructor documentation to know the good URL ;
-  - contact ;
-  - voltage ;
-  - thermistor temperature.
+- flood: the host macro 'SENSORMETRIXURLPATHFLOOD' must be set. Read the
+constructor documentation to know the good URL ;
+- contact ;
+- voltage ;
+- thermistor temperature.
 
 ## Centreon Configuration
 

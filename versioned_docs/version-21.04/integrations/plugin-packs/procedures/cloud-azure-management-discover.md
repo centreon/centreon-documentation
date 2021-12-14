@@ -2,6 +2,9 @@
 id: cloud-azure-management-discover
 title: Azure Discover
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -34,55 +37,54 @@ More information about the Host Discovery module is available in the Centreon do
 
 ### Azure credentials
 
-To use the 'api' custom mode, make sure to obtain the required information using the 
+To use the 'api' custom mode, make sure to obtain the required information using the
 how-to below. Keep it safe until including it in the Autodiscovery job settings form.
 
 * Create an *application* in Azure Active Directory:
-    - Log in to your Azure account.
-    - Select *Azure Active directory* in the left sidebar.
-    - Click on *App registrations*.
-    - Click on *+ Add*.
-    - Enter Centreon as the application name (or any name of your choice), select application type(api) and sign-on-url.
-    - Click on the *Create* button.
+- Log in to your Azure account.
+- Select *Azure Active directory* in the left sidebar.
+- Click on *App registrations*.
+- Click on *+ Add*.
+- Enter Centreon as the application name (or any name of your choice), select application type(api) and sign-on-url.
+- Click on the *Create* button.
 
 * Get *Subscription ID*
-    - Log in to your Azure account.
-    - Select *Subscriptions* in the left sidebar.
-    - Select whichever subscription is needed.
-    - Click on *Overview*.
-    - **Copy the Subscription ID.**
+- Log in to your Azure account.
+- Select *Subscriptions* in the left sidebar.
+- Select whichever subscription is needed.
+- Click on *Overview*.
+- **Copy the Subscription ID.**
 
 * Get *Tenant ID*
-    - Log in to your Azure account.
-    - Select *Azure Active directory* in the left sidebar.
-    - Click on *Properties*.
-    - **Copy the directory ID.**
+- Log in to your Azure account.
+- Select *Azure Active directory* in the left sidebar.
+- Click on *Properties*.
+- **Copy the directory ID.**
 
 * Get *Client ID*
-    - Log in to your Azure account.
-    - Select *Azure Active directory* in the left sidebar.
-    - Click on *Enterprise applications*.
-    - Click on *All applications*.
-    - Select the application previously created.
-    - Click on *Properties*.
-    - **Copy the Application ID.**
+- Log in to your Azure account.
+- Select *Azure Active directory* in the left sidebar.
+- Click on *Enterprise applications*.
+- Click on *All applications*.
+- Select the application previously created.
+- Click on *Properties*.
+- **Copy the Application ID.**
 
 * Get *Client secret*
-    - Log in to your Azure account.
-    - Select *Azure Active directory* in the left sidebar.
-    - Click on *App registrations*.
-    - Select the application previously created.
-    - Click on *All settings*.
-    - Click on *Keys*.
-    - Enter the key description and select the duration.
-    - Click on *Save*.
-    - **Copy and store the key value. You won't be able to retrieve it after you leave this page.**
+- Log in to your Azure account.
+- Select *Azure Active directory* in the left sidebar.
+- Click on *App registrations*.
+- Select the application previously created.
+- Click on *All settings*.
+- Click on *Keys*.
+- Enter the key description and select the duration.
+- Click on *Save*.
+- **Copy and store the key value. You won't be able to retrieve it after you leave this page.**
 
-## Setup 
+## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="licence-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Plugin on every Centreon Poller expected to discover Azure resources:
 
@@ -94,7 +96,8 @@ yum install centreon-plugin-Cloud-Azure-Management-Discover-Api
 You'll be prompted to install several other Azure Plugin Packs as dependencies (they will be used to set the proper templates/indicators
 on the discovered elements).
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Plugin on every Centreon Poller expected to discover Azure resources:
 
@@ -113,7 +116,8 @@ yum install centreon-pack-cloud-azure\*
 You'll be prompted to install several other Azure Plugin Packs as dependencies (they will be used to set the proper templates/indicators
 on the discovered elements).
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Set up a discovery job
 
@@ -149,18 +153,18 @@ If necessary, adjust the following settings:
 
 - Azure Location/Resource Group: allows to filter the discovery on a specific *Location* or *Resource Group*
 - Filter on namespace/type: only discovers elements of a given namespace/type relative to Azure resources, for example:
-    - *Resource namepsace*: 'Microsoft.Compute'
-    - *Resource type*: 'virtualMachines'
-    > ** Warning ** To use this filter, it's mandatory to fill **both** *Resource namespace* and *Resource type* fields
+- *Resource namepsace*: 'Microsoft.Compute'
+- *Resource type*: 'virtualMachines'
+> ** Warning ** To use this filter, it's mandatory to fill **both** *Resource namespace* and *Resource type* fields
 
 ### Run the discovery job and display results
 
 The step 4 of the wizard allows to adjust and set **mappers** if necessary; the Plugin Pack comes along with predefined **mappers** that
-don't typically need to be changed. If you have a specific need and want to edit the **mappers** section, refer to 
+don't typically need to be changed. If you have a specific need and want to edit the **mappers** section, refer to
 [this documentation](../../../monitoring/discovery/hosts-discovery#how-to-use-the-mappers) to do so.
 
 Final steps 5 & 6 will allow you to define a specific policy about the data modeling of the discovered results. Although the default configuration
-is usually enough to proceed, [this documentation](../../../monitoring/discovery/hosts-discovery#define-analysis-and-update-policies) 
+is usually enough to proceed, [this documentation](../../../monitoring/discovery/hosts-discovery#define-analysis-and-update-policies)
 will help you to customize it if needed. Coming to step 6, just click on *finish* to launch the discovery job.
 
 Once the discovery job complete, you can display the results by clicking on *job results*. All the available Host Templates
@@ -178,8 +182,8 @@ Just select the elements you want to add to the Centreon configuration and click
 
 ### The Azure credentials have changed and the Plugin does not work anymore
 
-The Plugin is using a cache file to keep connection information and avoid an authentication at each call. 
-If some of the authentication parameters change, you must delete the cache file. 
+The Plugin is using a cache file to keep connection information and avoid an authentication at each call.
+If some of the authentication parameters change, you must delete the cache file.
 
 The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder with a name similar to `azure_api_<md5>_<md5>_<md5>_<md5>`.
 
@@ -188,8 +192,8 @@ The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder 
 When I run my command I obtain the following error message:
 ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```.
 
-It means that some parameters used to authenticate the API request are wrong. The 'ERROR_NAME' string gives 
-some hints about where the problem stands. 
+It means that some parameters used to authenticate the API request are wrong. The 'ERROR_NAME' string gives
+some hints about where the problem stands.
 
 ### ```UNKNOWN: 500 Can't connect to login.microsoftonline.com:443```
 

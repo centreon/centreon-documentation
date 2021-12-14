@@ -21,21 +21,21 @@ the functions of these icons:
 
 To view the status of hosts, go into the **Monitoring > Status Details > Hosts** menu
 
-![image](../assets/alerts/04unhandledproblems.png) 
+![image](../assets/alerts/04unhandledproblems.png)
 
 ### Columns description
 
 * **S**: Displays the severity level of the host
 * **Hosts**: Displays the name of the host
-  * The following icon indicates that the notifications for this host are disabled: ![image](../assets/alerts/nonotifications.png)
-  * The following icon can be used to view all the performance graphs for this host: ![image](../assets/alerts/graphperformances.png)
-  * The following icon allows to access to a predefined url configured: ![image](../assets/alerts/url_link.png)
+* The following icon indicates that the notifications for this host are disabled: ![image](../assets/alerts/nonotifications.png)
+* The following icon can be used to view all the performance graphs for this host: ![image](../assets/alerts/graphperformances.png)
+* The following icon allows to access to a predefined url configured: ![image](../assets/alerts/url_link.png)
 * **Status**: Serves to view the status of the host
 * **IP Address**: Indicates the IP address of the host
 * **Last Check**: Displays the date and the time of the last check
 * **Duration**: Displays the time that the host a has kept its current status
 * **Hard State Duration**: Displays the time that the host a has kept its current hard state (does not appear when
-  viewing of all the hosts)
+viewing of all the hosts)
 * **Tries**: Displays the number of tries before confirming the state
 * **Status information**: Displays the message explaining the status of the host
 
@@ -46,9 +46,9 @@ To view the status of hosts, go into the **Monitoring > Status Details > Hosts**
 You can filter the result presented via the following filters:
 
 * **Host Status**:
-  * To view the hosts with a problem but not acknowledged or not in downtime, choose **Unhandled Problems**.
-  * To view all the hosts with a problem, choose **Host Problems**.
-  * To view all the hosts, choose **All**.
+* To view the hosts with a problem but not acknowledged or not in downtime, choose **Unhandled Problems**.
+* To view all the hosts with a problem, choose **Host Problems**.
+* To view all the hosts, choose **All**.
 * **Host**: Can be used to filter by name of host via an SQL LIKE type search.
 * **Status**: Can be used to filter by the status of hosts.
 * **Severity**: Can be used to filter by severity.
@@ -57,7 +57,7 @@ You can filter the result presented via the following filters:
 
 > The search on text fields only starts after entry of at least 3 characters.
 
-## Host groups 
+## Host groups
 
 To view the status of host groups, go into the **Monitoring > Status Details > Hostgroups Summary** menu
 
@@ -92,7 +92,7 @@ When you click on the name of a host, you access to the details page of the reso
 Description of attributes available for host details:
 
 * **Host Status**: Displays the status of the host.
-* **Status information**: Displays the information of the status of the host. 
+* **Status information**: Displays the information of the status of the host.
 * **Performance Data**: Displays performance data associated to the check.
 * **Poller Name**: Name of the server polling the host.
 * **Current Attempt**: Displays the number of attempts before status validation.
@@ -139,9 +139,9 @@ To view the status of service, go into the **Monitoring > Status Details > Servi
 * **S**: Displays the severity level of the service.
 * **Host**: Displays the name of host.
 * **Services**: Displays the name of service.
-  * The following icon indicates that the notifications for this service are disabled: ![image](../assets/alerts/nonotifications.png)
-  * The following icon can be used to view the performance graph for this service: ![image](../assets/alerts/graphperformances.png)
-  * The following icon allows to access to a predefined url configured: ![image](../assets/alerts/url_link.png)
+* The following icon indicates that the notifications for this service are disabled: ![image](../assets/alerts/nonotifications.png)
+* The following icon can be used to view the performance graph for this service: ![image](../assets/alerts/graphperformances.png)
+* The following icon allows to access to a predefined url configured: ![image](../assets/alerts/url_link.png)
 * **Duration**: Displays the duration of the actual status.
 * **Hard State Duration**: Displays the duration of the validated non-ok status.
 * **Last Check**: Displays the date and time of the last check.
@@ -155,9 +155,9 @@ To view the status of service, go into the **Monitoring > Status Details > Servi
 ### Available filters
 
 * **Service Status**:
-  * To view the services with a problem but not acknowledged or not in downtime, choose **Unhandled Problems**.
-  * To view all the services with a problem, choose **Host Problems**.
-  * To view all the services, choose **All**.
+* To view the services with a problem but not acknowledged or not in downtime, choose **Unhandled Problems**.
+* To view all the services with a problem, choose **Host Problems**.
+* To view all the services, choose **All**.
 * **Status**: Can be used to filter by the status of services.
 * **Severity**: Can be used to filter by severity.
 * **Poller**: Can be used to filter the services by poller. Only the services of the poller selected will be displayed.
@@ -174,7 +174,7 @@ and choose **Details** for **Display** filter:
 
 ![image](../assets/alerts/04servicelistbyhostdetail.png)
 
-To view the number of services (short by host and by status), choose **Summary** for **Display** filter: 
+To view the number of services (short by host and by status), choose **Summary** for **Display** filter:
 
 ![image](../assets/alerts/04servicelistbyhost.png)
 
@@ -185,7 +185,7 @@ by Hostgroup** menu and choose **Details** for **Display** filter:
 
 ![image](../assets/alerts/04servicelistbyhostgroupdetail.png)
 
-To view the number of services (short by host's groups), choose **Summary** for **Display** filter: 
+To view the number of services (short by host's groups), choose **Summary** for **Display** filter:
 
 ![image](../assets/alerts/04servicelistbyhostgroup.png)
 
@@ -197,7 +197,7 @@ menu and choose **Details** for **Display** filter:
 
 ![image](../assets/alerts/04servicelistbyservicegroupdetail.png)
 
-To view the number of services (short by services groups), choose **Summary** for **Display** filter: 
+To view the number of services (short by services groups), choose **Summary** for **Display** filter:
 
 ![image](../assets/alerts/04servicelistbyservicegroup.png)
 
@@ -211,27 +211,27 @@ When you click on a service, the following screen appears:
 
 Description of attributes available for service details:
 
-* **Service Status**: Displays the status of the service.                                                               
-* **Status information**: Displays the information of the status of the service.                                            
-* **Extended status information**: Displays long output of the service.                                                              
-* **Performance Data**: Displays performance data associated to the check.                                                
-* **Current Attempt**: Displays the number of attempts before status validation.                                         
-* **State Type**: Displays the type of state ('SOFT' or 'HARD').                                                    
-* **Last Check Type**: Indicates if the last type of check is 'active' or 'passive'.                                     
-* **Last Check**: Displays the last check of the service.                                                           
-* **Next Scheduled Active Check**: Displays the next scheduled check of the service.                                                 
-* **Latency**: Displays the latency in seconds between the scheduled check and the real check execution.         
-* **Check Duration**: Displays the execution time of the check.                                                         
-* **Last State Change**: Displays when the status of the service changed.                                                  
-* **Current State Duration**: Displays the date and time from which the host is in the present state.                           
-* **Last Service Notification**: Displays the sent date and time of the last notification.                                         
-* **Current Notification Number**: Displays the number of sent notifications.                                                        
-* **Is This Service Flapping?**: Indicates if the service is in flapping state.                                                    
-* **Percent State Change**: Displays the percentage change of state.                                                          
-* **In Scheduled Downtime?**: Indicates if the host is in scheduled downtime.                                                   
-* **Last Update**: Displays the date and time of the last information update.    
+* **Service Status**: Displays the status of the service.
+* **Status information**: Displays the information of the status of the service.
+* **Extended status information**: Displays long output of the service.
+* **Performance Data**: Displays performance data associated to the check.
+* **Current Attempt**: Displays the number of attempts before status validation.
+* **State Type**: Displays the type of state ('SOFT' or 'HARD').
+* **Last Check Type**: Indicates if the last type of check is 'active' or 'passive'.
+* **Last Check**: Displays the last check of the service.
+* **Next Scheduled Active Check**: Displays the next scheduled check of the service.
+* **Latency**: Displays the latency in seconds between the scheduled check and the real check execution.
+* **Check Duration**: Displays the execution time of the check.
+* **Last State Change**: Displays when the status of the service changed.
+* **Current State Duration**: Displays the date and time from which the host is in the present state.
+* **Last Service Notification**: Displays the sent date and time of the last notification.
+* **Current Notification Number**: Displays the number of sent notifications.
+* **Is This Service Flapping?**: Indicates if the service is in flapping state.
+* **Percent State Change**: Displays the percentage change of state.
+* **In Scheduled Downtime?**: Indicates if the host is in scheduled downtime.
+* **Last Update**: Displays the date and time of the last information update.
 * **Executed Check Command Line**: Regarding your ACL rights, you may have access to the executed command line. Password
-  will be replaced by **\***                      
+will be replaced by **\***
 
 ### Detailed graph and status graph
 
@@ -252,7 +252,7 @@ The **Detailed Graph** and **Status Graph** allow to display performance graphs 
 
 * **Re-schedule the next check for this service**: Allows to Re-schedule the next check for the service.
 * **Re-schedule the next check for this service (forced)**: Allows to Re-schedule the next check for the service, event
-  if the check period is invalid.
+if the check period is invalid.
 * **Schedule downtime for this service**: Allows to schedule downtime for the service.
 **Add a comment for this service**: Allows to add a comment for the service.
 

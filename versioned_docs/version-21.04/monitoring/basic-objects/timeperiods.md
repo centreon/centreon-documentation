@@ -16,16 +16,16 @@ To configure a time period, go to **Configuration \> Users \> Time periods**.
 
 1. In the **Time Period Name** and **Alias** fields, enter a name and a description.
 
-2. In the **Basic settings** section, for each day of the week, define the time periods during which the checks and notifications will be enabled. (Use the [syntax described below](#syntax-of-a-time-period).) 
+2. In the **Basic settings** section, for each day of the week, define the time periods during which the checks and notifications will be enabled. (Use the [syntax described below](#syntax-of-a-time-period).)
 
-    - These definitions are applied every week, indefinitely.
-    - If you leave the field blank for a specific day, there will be no supervision on that day for actions to which this time period is applied.
+- These definitions are applied every week, indefinitely.
+- If you leave the field blank for a specific day, there will be no supervision on that day for actions to which this time period is applied.
 
 3. Use the [**Time Range Exceptions** tab](#time-range-exceptions-tab) to include days that would not normally belong to the time period.
 
 4. Once you have created your time period, you can use it:
-    - In the **Check Period** field for hosts, host templates, services and service templates.
-    - In the **Notification Period** field for notifications defined for hosts, host templates, services, service templates, contacts, or in the **Escalation Period** field for an escalation of notifications. 
+- In the **Check Period** field for hosts, host templates, services and service templates.
+- In the **Notification Period** field for notifications defined for hosts, host templates, services, service templates, contacts, or in the **Escalation Period** field for an escalation of notifications.
 
 ### Syntax of a time period
 
@@ -54,7 +54,7 @@ Example: An administrator wants to define a time period which covers the times w
 
 To be able to define the national holiday days and the exceptional closure days, it is necessary to use the exceptions.
 
-To add an exception, in the **Exceptions** field, click on **Add new entry**. For each exceptional day, you will need to define a time period. 
+To add an exception, in the **Exceptions** field, click on **Add new entry**. For each exceptional day, you will need to define a time period.
 
 >Use the following syntax to exclude whole days from the supervision: 00:00-00:00.
 

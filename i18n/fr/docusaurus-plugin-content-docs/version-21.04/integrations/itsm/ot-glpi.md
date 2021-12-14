@@ -14,7 +14,7 @@ to open a ticket.
 
 This connector is (at least) compatible with the following Glpi versions:
 
-  - between 8.5 and 9.0
+- between 8.5 and 9.0
 
 ## Requirements
 
@@ -36,14 +36,14 @@ Our provider requires the following parameters:
 
 As of now, the provider is able to retrieve the following objects from Glpi:
 
-  - Entities
-  - Itil categories
-  - Groups
+- Entities
+- Itil categories
+- Groups
 
 It will also fill the following parameters from a predefined list in Centreon.
 You can extend those lists inside the provider configuration since they are
 custom lists
 <https://documentation.centreon.com/docs/centreon-open-tickets/en/latest/configuration_guide/index#advanced-configuration>
 
-  - Urgency
-  - Impact
+- Urgency
+- Impact

@@ -2,11 +2,14 @@
 id: applications-mulesoft-restapi
 title: Mulesoft Anypoint
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
-Anypoint Platform helps you build a structured application network that connects applications, data, and devices with reusable APIs. 
-The unified Anypoint Platform makes it easy to discover, create, and manage APIs in a modular, organized layer. 
+Anypoint Platform helps you build a structured application network that connects applications, data, and devices with reusable APIs.
+The unified Anypoint Platform makes it easy to discover, create, and manage APIs in a modular, organized layer.
 Instead of retrieving random and possibly unstable code snippets, you can “shop” for APIs created using the industry’s best practices.
 The Centreon Plugin and Plugin-Packs rely on the Mulesoft Anypoint Rest API to collect the status of the Mulesoft resources.
 
@@ -21,9 +24,8 @@ The Centreon Plugin and Plugin-Packs rely on the Mulesoft Anypoint Rest API to c
 
 ### Discovery Rules
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Services-->
+<Tabs groupId="operating-systems">
+<TabItem value="Services" label="Services">
 
 | Rule name                                | Description                                                        |
 | :--------------------------------------- | :----------------------------------------------------------------- |
@@ -31,15 +33,15 @@ The Centreon Plugin and Plugin-Packs rely on the Mulesoft Anypoint Rest API to c
 | App-Mulesoft-Restapi-Server-Name         | Discover Anypoint servers and monitor their status                 |
 | App-Mulesoft-Restapi-Queue-Messages-Name | Discover Anypoint MQ queues and monitor the related messages count |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Collected Metrics
 
 More information about collected metrics is available in the official Mulesoft Rest API documentation: https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/arm-rest-services/
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Applications-->
+<Tabs groupId="operating-systems">
+<TabItem value="Applications" label="Applications">
 
 | Metric name                                | Description                        |
 | :----------------------------------------- | :--------------------------------- |
@@ -49,7 +51,8 @@ More information about collected metrics is available in the official Mulesoft R
 | mulesoft.applications.status.stopped.count | Number of stopped applications     |
 | mulesoft.applications.status.failed.count  | Number of failed applications      |
 
-<!--Clusters-->
+</TabItem>
+<TabItem value="Clusters" label="Clusters">
 
 | Metric name                                 | Description                     |
 | :------------------------------------------ | :------------------------------ |
@@ -58,7 +61,8 @@ More information about collected metrics is available in the official Mulesoft R
 | mulesoft.clusters.status.running.count      | Number of running clusters      |
 | mulesoft.clusters.status.disconnected.count | Number of disconnected clusters |
 
-<!--Messages-->
+</TabItem>
+<TabItem value="Messages" label="Messages">
 
 | Metric name                      | Description                                  |
 | :------------------------------- | :------------------------------------------- |
@@ -69,7 +73,8 @@ More information about collected metrics is available in the official Mulesoft R
 | mulesoft.mq.visible.count        | Number of visible messages in the queue      |
 | mulesoft.mq.acked.count          | Number of acknowledged messages in the queue |
 
-<!--Servers-->
+</TabItem>
+<TabItem value="Servers" label="Servers">
 
 | Metric name                                | Description                    |
 | :----------------------------------------- | :----------------------------- |
@@ -78,7 +83,8 @@ More information about collected metrics is available in the official Mulesoft R
 | mulesoft.servers.status.running.count      | Number of running servers      |
 | mulesoft.servers.status.disconnected.count | Number of disconnected servers |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -89,9 +95,8 @@ This account has to own the privileges to manage Applications, Servers, Clusters
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="licence-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin on every poller monitoring Mulesoft Anypoint resources:
 
@@ -101,7 +106,8 @@ yum install centreon-plugin-Applications-Mulesoft-Restapi.noarch
 
 2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Mulesoft Anypoint* Plugin-Pack
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin on every poller monitoring Mulesoft Anypoint resources:
 
@@ -117,12 +123,13 @@ yum install centreon-pack-applications-mulesoft-restapi.noarch
 
 3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Mulesoft Anypoint* Plugin-Pack
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
 The Plugin-Pack is designed to monitor resources based on one host per Mulesoft environment/organization.
-Adding a host into Centreon, link it to the template named *App-Mulesoft-Restapi-custom*. 
+Adding a host into Centreon, link it to the template named *App-Mulesoft-Restapi-custom*.
 Once the template applied, some Macros have to be configured:
 
 | Mandatory | Name        | Description                                                       |
@@ -141,17 +148,17 @@ Once the Plugin installed, log into your poller using the *centreon-engine* user
 
 ```bash
 /usr/lib/centreon/plugins/centreon_mulesoft_restapi.pl \
-    --plugin=apps::mulesoft::restapi::plugin \
-	--mode=applications \
-	--environment-id='1234abc-56de-78fg-90hi-1234abcdefg' \
-	--organization-id='1234abcd-56ef-78fg-90hi-1234abcdefg' \
-	--api-username='myapiuser' \
-	--api-password='myapipassword' \
-	--filter-name='myapplication1' \
-	--warning-status='%{status} =~ /STOPPED/' \
-	--critical-status='%{status} =~ /FAILED/' \
-	--verbose
-	
+--plugin=apps::mulesoft::restapi::plugin \
+--mode=applications \
+--environment-id='1234abc-56de-78fg-90hi-1234abcdefg' \
+--organization-id='1234abcd-56ef-78fg-90hi-1234abcdefg' \
+--api-username='myapiuser' \
+--api-password='myapipassword' \
+--filter-name='myapplication1' \
+--warning-status='%{status} =~ /STOPPED/' \
+--critical-status='%{status} =~ /FAILED/' \
+--verbose
+
 
 OK: Total applications Total : 1, Started : 1, Stopped : 0, Failed : 0 - Application 'myapplication1' Id: 123456, Status: STARTED |
 'mulesoft.applications.total.count'=1;;;0; 'mulesoft.applications.status.started.count'=1;;;0; 'mulesoft.applications.status.stopped.count'=0;;;0; 'mulesoft.applications.status.failed.count'=0;;;0;
@@ -159,8 +166,8 @@ Application 'myapplication1' Id: 123456, Status: STARTED
 
 ```
 
-The command above gets the status of a Mulesoft application (```--mode=applications```) named *myapplication1* (```--filter-name='myapplication1'```). 
-This application stands within the *1234abc-56de-78fg-90hi-1234abcdefg* environment and the *234abcd-56ef-78fg-90hi-1234abcdefg* organization (```---environment-id='1234abc-56de-78fg-90hi-1234abcdefg' --organization-id='1234abcd-56ef-78fg-90hi-1234abcdefg'```). 
+The command above gets the status of a Mulesoft application (```--mode=applications```) named *myapplication1* (```--filter-name='myapplication1'```).
+This application stands within the *1234abc-56de-78fg-90hi-1234abcdefg* environment and the *234abcd-56ef-78fg-90hi-1234abcdefg* organization (```---environment-id='1234abc-56de-78fg-90hi-1234abcdefg' --organization-id='1234abcd-56ef-78fg-90hi-1234abcdefg'```).
 
 This command would trigger a WARNING alert if the returned status of the application contains the word *STOPPED* (```--warning-status='%{status} =~ /STOPPED/'```) and a CRITICAL alert if it contains the word *FAILED* (```--critical-status='%{status} =~ /FAILED/'```).
 

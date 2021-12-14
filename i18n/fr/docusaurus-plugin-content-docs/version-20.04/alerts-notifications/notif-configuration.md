@@ -24,10 +24,10 @@ Depuis la version Centreon **19.10**, 3 méthodes de détermination des contacts
 notifiés sont disponibles :
 
 * **Vertical Inheritance Only** : récupère les contacts et les groupes de contacts des ressources et de modèles liés,
-  en utilisant l'option d'héritage additif activée (méthode héritée, conserver pour la mise à niveau)
+en utilisant l'option d'héritage additif activée (méthode héritée, conserver pour la mise à niveau)
 * **Closest Value** : récupère les contacts et groupes de contacts les plus proche des ressources, y compris des modèles
 * **Cumulative inheritance** : Cumulez tous les contacts et groupes de contacts des ressources et des modèles liés
-  (méthode utilisée pour la nouvelle installation)
+(méthode utilisée pour la nouvelle installation)
 
 Rendez-vous dans le menu **Administration > Parameters > Centreon UI** et sélectionnez l'option désirée.
 
@@ -66,19 +66,19 @@ définissez les paramètres :
 
 * **Notification Options**: Sélectionnez les statuts dont vous souhaitez recevoir des notifications
 * **Notification Interval**: Définit l'intervalle en minutes avant de notifier à nouveau un contact dans le cas où le
-  service est toujours dans un état non-OK. La valeur 0 désactive l'envoi de plusieurs notifications - une unique
-  notification sera envoyée concernant le problème.
+service est toujours dans un état non-OK. La valeur 0 désactive l'envoi de plusieurs notifications - une unique
+notification sera envoyée concernant le problème.
 * **Notification Period**: Spécifie les périodes de temps durant lesquelles les notifications d'événements doivent
-  être envoyées aux contacts. Si un changement d'état intervient à un moment exclut de cette période temporelle,
-  aucune notification ne sera envoyée.
+être envoyées aux contacts. Si un changement d'état intervient à un moment exclut de cette période temporelle,
+aucune notification ne sera envoyée.
 * **First notification delay**: Définit le nombre "d'unités de temps" à attendre avant l'envoi de la notification du
-  premier problème lorsque ce service entre dans un état non-OK. Avec l'unité de temps par défaut de 60s, ce nombre
-  représente un multiple de 1 minute. Si la valeur spécifiée est 0, le moteur de supervision commencera à envoyer des
-  notifications immédiatement.
+premier problème lorsque ce service entre dans un état non-OK. Avec l'unité de temps par défaut de 60s, ce nombre
+représente un multiple de 1 minute. Si la valeur spécifiée est 0, le moteur de supervision commencera à envoyer des
+notifications immédiatement.
 * **Recovery notification delay**: Définit le nombre "d'unités de temps" à attendre avant l'envoi de la notification du
-  rétablissement lorsque ce service entre dans un état OK. Avec l'unité de temps par défaut de 60s, ce nombre représente
-  un multiple de 1 minute. Si la valeur spécifiée est 0, le moteur de supervision commencera à envoyer des notifications
-  immédiatement.
+rétablissement lorsque ce service entre dans un état OK. Avec l'unité de temps par défaut de 60s, ce nombre représente
+un multiple de 1 minute. Si la valeur spécifiée est 0, le moteur de supervision commencera à envoyer des notifications
+immédiatement.
 
 > Pour faciliter la configuration de la notification, vous pouvez ajuster les paramètres sur un modèle d'hôte. Tous les
 > hôtes qui héritent de ce modèle hériteront également de ces paramètres.
@@ -92,19 +92,19 @@ Rendez-vous dans le menu **Configuration > Services > Services by host** et sél
 
 * **Notification Options**: Sélectionnez les statuts dont vous souhaitez recevoir des notifications
 * **Notification Interval**: Définit l'intervalle en minutes avant de notifier à nouveau un contact dans le cas où le
-  service est toujours dans un état non-OK. La valeur 0 désactive l'envoi de plusieurs notifications - une unique
-  notification sera envoyée concernant le problème.
+service est toujours dans un état non-OK. La valeur 0 désactive l'envoi de plusieurs notifications - une unique
+notification sera envoyée concernant le problème.
 * **Notification Period**: Spécifie les périodes de temps durant lesquelles les notifications d'événements doivent
-  être envoyées aux contacts. Si un changement d'état intervient à un moment exclut de cette période temporelle,
-  aucune notification ne sera envoyée.
+être envoyées aux contacts. Si un changement d'état intervient à un moment exclut de cette période temporelle,
+aucune notification ne sera envoyée.
 * **First notification delay**: Définit le nombre "d'unités de temps" à attendre avant l'envoi de la notification du
-  premier problème lorsque ce service entre dans un état non-OK. Avec l'unité de temps par défaut de 60s, ce nombre
-  représente un multiple de 1 minute. Si la valeur spécifiée est 0, le moteur de supervision commencera à envoyer des
-  notifications immédiatement.
+premier problème lorsque ce service entre dans un état non-OK. Avec l'unité de temps par défaut de 60s, ce nombre
+représente un multiple de 1 minute. Si la valeur spécifiée est 0, le moteur de supervision commencera à envoyer des
+notifications immédiatement.
 * **Recovery notification delay**: Définit le nombre "d'unités de temps" à attendre avant l'envoi de la notification du
-  rétablissement lorsque ce service entre dans un état OK. Avec l'unité de temps par défaut de 60s, ce nombre représente
-  un multiple de 1 minute. Si la valeur spécifiée est 0, le moteur de supervision commencera à envoyer des notifications
-  immédiatement.
+rétablissement lorsque ce service entre dans un état OK. Avec l'unité de temps par défaut de 60s, ce nombre représente
+un multiple de 1 minute. Si la valeur spécifiée est 0, le moteur de supervision commencera à envoyer des notifications
+immédiatement.
 
 > Pour faciliter la configuration de la notification, vous pouvez ajuster les paramètres sur un modèle de service. Tous
 > les hôtes qui héritent de ce modèle hériteront également de ces paramètres.

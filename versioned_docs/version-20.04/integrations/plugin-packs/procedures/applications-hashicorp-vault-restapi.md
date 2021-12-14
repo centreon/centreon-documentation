@@ -2,6 +2,9 @@
 id: applications-hashicorp-vault-restapi
 title: HashiCorp Vault Rest API
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -15,30 +18,31 @@ The Plugin Pack Centreon HashiCorp Vault relies on the Vault Rest API to collect
 ### Monitored Objects
 
 * HashiCorp Vault instances
-    * Health
-    * Raft-Storage
+* Health
+* Raft-Storage
 
 ### Collected metrics & status
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Health-->
+<Tabs groupId="operating-systems">
+<TabItem value="Health" label="Health">
 
 | Status Name | Description                       |
-|:------------|:----------------------------------|
+| :---------- | :-------------------------------- |
 | seal-status | Seal status of the node           |
 | init-status | Initialization status of the node |
 
-<!--Raft-Storage-->
+</TabItem>
+<TabItem value="RaftStorage" label="RaftStorage">
 
 | Metric Name                                        | Description                                | Unit |
-|:---------------------------------------------------|:-------------------------------------------|:-----|
+| :------------------------------------------------- | :----------------------------------------- | :--- |
 | vault.raftstorage.committime.seconds               | Average time to commit data to the Storage | s    |
 | *db_name*#vault.raftstorage.spilltime.seconds      | Average spill time                         | s    |
 | *db_name*#vault.raftstorage.rebalance_time.seconds | Average rebalance_time                     | s    |
 | *db_name*#vault.raftstorage.write_time.seconds     | Average write time                         | s    |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -60,11 +64,10 @@ help for more details (by adding the ```--help``` parameter when executing the c
 All the options needed for each authentication method can be found on the official Vault documentation
 https://www.vaultproject.io/api-docs/auth .
 
-## Setup 
+## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="licence-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor HashiCorp Vault Rest API resources:
 
@@ -74,7 +77,8 @@ yum install centreon-plugin-Applications-HashiCorp-Vault-Restapi
 
 2. On the Centreon Web interface, install the *HashiCorp Vault Rest API* Centreon Pack on the "Configuration > Plugin Packs > Manager" page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor HashiCorp Vault Rest API resources:
 
@@ -90,7 +94,8 @@ yum install centreon-pack-applications-hashicorp-vault-restapi.noarch
 
 3. On the Centreon Web interface, install the *HashiCorp Vault Rest API* Centreon Pack on the "Configuration > Plugin Packs > Manager" page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -103,7 +108,7 @@ yum install centreon-pack-applications-hashicorp-vault-restapi.noarch
 * Once the template applied, some Macros marked as 'Mandatory' hereafter have to be configured.
 
 | Mandatory | Nom                | Description                                                        |
-|:----------|:-------------------|:-------------------------------------------------------------------|
+| :-------- | :----------------- | :----------------------------------------------------------------- |
 | X         | VAULTAPIPORT       | Vault API port (default: '8200')                                   |
 | X         | VAULTAPIPROTOCOL   | Vault API protocol (default: 'http')                               |
 | X         | VAULTAPIVERSION    | Vault API version (default: 'v1')                                  |
@@ -113,20 +118,20 @@ yum install centreon-pack-applications-hashicorp-vault-restapi.noarch
 
 ## How to check in the CLI that the configuration is OK and what are the main options for ?
 
-Once the Plugin installed, log into your Centreon Poller CLI using the *centreon-engine* 
+Once the Plugin installed, log into your Centreon Poller CLI using the *centreon-engine*
 user account and test the Plugin by running the following command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_hashicorp_vault_restapi.pl \
-    --plugin=apps::hashicorp::vault::restapi::plugin \
-    --mode=health \
-    --hostname=10.0.0.1 \
-    --api-port='8200' \
-    --api-proto='http' \
-    --auth-method='token' \
-    --vault-token='s.1234567890abcd' \
-    --critical-seal-status='%{sealed} ne "unsealed"' \ 
-    --critical-init-status='%{init} ne "initialized"'
+--plugin=apps::hashicorp::vault::restapi::plugin \
+--mode=health \
+--hostname=10.0.0.1 \
+--api-port='8200' \
+--api-proto='http' \
+--auth-method='token' \
+--vault-token='s.1234567890abcd' \
+--critical-seal-status='%{sealed} ne "unsealed"' \
+--critical-init-status='%{init} ne "initialized"'
 ```
 
 Expected command output is shown below:
@@ -148,9 +153,9 @@ All the available options for a given mode can be displayed by adding the ```--h
 
 ```bash
 /usr/lib/centreon/plugins/centreon_hashicorp_vault_restapi.pl \
-    --plugin=apps::hashicorp::vault::restapi::plugin \
-    --mode=health \
-    --help
+--plugin=apps::hashicorp::vault::restapi::plugin \
+--mode=health \
+--help
 ```
 
 ### Troubleshooting

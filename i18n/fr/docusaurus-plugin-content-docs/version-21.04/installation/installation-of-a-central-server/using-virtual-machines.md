@@ -2,6 +2,9 @@
 id: using-virtual-machines
 title: À partir d'une VM
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 Sur sa [page de téléchargement](https://download.centreon.com), Centreon fournit une machine virtuelle prête à l’emploi. Cette machine virtuelle est disponible au format OVA pour les environnements
 VMware et pour l'outil Oracle VirtualBox.
@@ -16,11 +19,11 @@ La machine hôte doit avoir les caractéristiques suivantes :
 
 - Processeur : Tout processeur Intel ou AMD récent avec au moins 2vCPU.
 - Mémoire : Selon vos systèmes d'exploitation, vous aurez besoin d'au moins 1 Go
-  de RAM. Pour profiter pleinement de l'expérience, vous avez besoin d'au moins
-  2 Go de mémoire libre.
+de RAM. Pour profiter pleinement de l'expérience, vous avez besoin d'au moins
+2 Go de mémoire libre.
 - Espace disque : La machine virtuelle nécessite au moins 6,5 Go d'espace libre
-  sur votre disque dur. Cependant, si vous souhaitez continuer à utiliser Centreon,
-  il est recommandé d'avoir au moins 10 Go car sa taille augmentera avec le temps.
+sur votre disque dur. Cependant, si vous souhaitez continuer à utiliser Centreon,
+il est recommandé d'avoir au moins 10 Go car sa taille augmentera avec le temps.
 
 ## Étape 1 : Télécharger la machine virtuelle
 
@@ -32,34 +35,34 @@ La machine hôte doit avoir les caractéristiques suivantes :
 
 4. Dans la section 3, **Download your image**, cliquez sur le bouton **Download** à côté de **VMWare Virtual Machine (OVA)**. Une nouvelle page apparaît.
 
-   * Si vous souhaitez être contacté par Centreon, entrez vos informations de contact, puis
+* Si vous souhaitez être contacté par Centreon, entrez vos informations de contact, puis
 cliquez sur **Download**.
 
-   * Dans le cas contraire, cliquez sur **Direct download**.
+* Dans le cas contraire, cliquez sur **Direct download**.
 
 5. Le fichier téléchargé est une archive compressée : extrayez son contenu dans le répertoire désiré.
 
 ## Étape 2 : Installer la machine virtuelle
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Environnement VMware-->
+<Tabs groupId="operating-systems">
+<TabItem value="Environnement VMware" label="Environnement VMware">
 
 1. Importez le fichier `centreon-central.ova` dans VMWare. Un terminal s’ouvre : attendez que le serveur démarre. Lorsque celui-ci est prêt, le terminal affiche le message suivant :
-    
-    ![image](../../assets/installation/VMW1.png)
+
+![image](../../assets/installation/VMW1.png)
 
 2. Selon la structure de votre réseau, dans la configuration de votre machine virtuelle, ajoutez un adaptateur réseau et sélectionnez le réseau via lequel la machine pourra communiquer avec les ressources qu'elle devra superviser.
 
-    Voici un exemple de configuration dans VSphere 6 :
+Voici un exemple de configuration dans VSphere 6 :
 
-    ![image](../../assets/installation/VMW_network_adapter.png)
+![image](../../assets/installation/VMW_network_adapter.png)
 
-<!--Oracle VirtualBox-->
+</TabItem>
+<TabItem value="Oracle VirtualBox" label="Oracle VirtualBox">
 
 1. Importez le fichier `centreon-central.ova` dans VirtualBox. La VM apparaît dans votre liste de VMs dans VirtualBox.
 
-    ![image](../../assets/installation/VB2.png)
+![image](../../assets/installation/VB2.png)
 
 2. Dans le panneau de droite, cliquez sur **Configuration**. La boîte **Paramètres** s’ouvre.
 
@@ -67,20 +70,21 @@ cliquez sur **Download**.
 **Horloge interne en UTC**.
 
 4. Selon la configuration de votre réseau, ajoutez un adaptateur réseau et sélectionnez le réseau via lequel la machine pourra communiquer avec les ressources qu'elle devra superviser. Par exemple :
-  
-    1. Dans l’onglet **Réseau**, cochez **Activer l’interface réseau**.
 
-    2. Dans la liste **Mode d’accès réseau**, sélectionnez **Accès par pont**.
+1. Dans l’onglet **Réseau**, cochez **Activer l’interface réseau**.
 
-    3. Dans la liste **Nom**, sélectionnez la carte réseau désirée.
+2. Dans la liste **Mode d’accès réseau**, sélectionnez **Accès par pont**.
+
+3. Dans la liste **Nom**, sélectionnez la carte réseau désirée.
 
 5. Cliquez sur **OK**.
 
 6. Dans le panneau de droite, cliquez sur **Démarrer** pour démarrer la VM. Un terminal s’ouvre : attendez que le serveur démarre. Lorsque celui-ci est prêt, le terminal affiche le message suivant :
 
-    ![image](../../assets/installation/terminal_ready.png)
+![image](../../assets/installation/terminal_ready.png)
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Étape 3 : Terminer la configuration
 
@@ -88,103 +92,103 @@ cliquez sur **Download**.
 
 2. Pour connaître l’adresse IP de votre serveur, tapez `ip addr`. (Par défaut, le clavier est en qwerty : si vous avez un clavier azerty, tapez `ip qddr`.) La VM est configurée pour obtenir une adresse IP automatiquement du serveur DHCP.
 
-    ![image](../../assets/installation/ip_addr.png)
+![image](../../assets/installation/ip_addr.png)
 
 3. Connectez-vous en `root` au serveur depuis une autre machine avec le terminal de votre choix, à l'aide de l'adresse IP obtenue précédemment.
 
 4. À votre première connexion au serveur, des instructions s’affichent pour vous aider à terminer la
 configuration :
 
-   ![image](../../assets/installation/terminal_centreon.png)
+![image](../../assets/installation/terminal_centreon.png)
 
-   Définissez les paramètres suivants :
+Définissez les paramètres suivants :
 
 - Le fuseau horaire (timezone) du serveur Centreon. Par défaut, celui-ci est UTC. Cela définira l'heure des différents logs de Centreon.
 
-    Utilisez la commande suivante :
-    
-    ```shell
-    timedatectl set-timezone votre_timezone
-    ```
+Utilisez la commande suivante :
 
-    Par exemple, pour définir le fuseau horaire Europe/London, tapez :
+```shell
+timedatectl set-timezone votre_timezone
+```
 
-    ```shell
-    timedatectl set-timezone Europe/London
-    ```
+Par exemple, pour définir le fuseau horaire Europe/London, tapez :
 
-    Vous pouvez obtenir une liste de tous les fuseaux horaires possibles en utilisant la commande suivante :
+```shell
+timedatectl set-timezone Europe/London
+```
 
-    ```shell
-    timedatectl list-timezones
-    ```    
+Vous pouvez obtenir une liste de tous les fuseaux horaires possibles en utilisant la commande suivante :
+
+```shell
+timedatectl list-timezones
+```
 
 - Le fuseau horaire du serveur php. Pour éviter les erreurs, celui-ci doit être identique au fuseau horaire du serveur. Par défaut, le fuseau horaire php est Europe/London.
-    1. Ouvrez le fichier suivant :
+1. Ouvrez le fichier suivant :
 
-        ```shell
-        /etc/opt/rh/rh-php73/php.d/50-centreon.ini
-        ```
+```shell
+/etc/opt/rh/rh-php73/php.d/50-centreon.ini
+```
 
-    2. Après date.timezone, entrez le fuseau horaire désiré.
+2. Après date.timezone, entrez le fuseau horaire désiré.
 
-    3. Redémarrez le serveur php :
+3. Redémarrez le serveur php :
 
-        ```shell
-        systemctl restart rh-php73-php-fpm
-        ``` 
+```shell
+systemctl restart rh-php73-php-fpm
+```
 
 - Le hostname de votre serveur (facultatif). Le nom par défaut du serveur est centreon-central. Pour le
 changer, utilisez la commande suivante :
 
-  ```shell
-  hostnamectl set-hostname votre-hostname
-  ```
+```shell
+hostnamectl set-hostname votre-hostname
+```
 
-  Par exemple, si vous voulez renommer la machine `supervision`,
+Par exemple, si vous voulez renommer la machine `supervision`,
 entrez:
 
 
-  ```shell
-  hostnamectl set-hostname supervision
-  ```
+```shell
+hostnamectl set-hostname supervision
+```
 
 5. Ajoutez une partition pour la table MariaDB : cette étape est obligatoire. Votre serveur ne
 fonctionnera pas si vous ne l’exécutez pas.
 
-   1. Connectez-vous en tant que l’utilisateur `centreon` :
+1. Connectez-vous en tant que l’utilisateur `centreon` :
 
-     ```shell
-     su - centreon
-     ```
+```shell
+su - centreon
+```
 
-   2. Entrez la commande suivante :
+2. Entrez la commande suivante :
 
-        ```shell
-        /opt/rh/rh-php73/root/bin/php /usr/share/centreon/cron/centreon-partitioning.php
-        ```
-  
-        La partition est créée :
+```shell
+/opt/rh/rh-php73/root/bin/php /usr/share/centreon/cron/centreon-partitioning.php
+```
 
-        ![image](../../assets/installation/partition_created.png)
+La partition est créée :
 
-   3. Connectez-vous à nouveau en tant que l'utilisateur `root` :
+![image](../../assets/installation/partition_created.png)
 
-        ```shell
-        exit
-        ``` 
-    
-   4. Redémarrez le processus Centreon broker pour que les changements soient appliqués :
-    
-        ```shell
-        systemctl restart cbd centengine gorgoned
-        ```
+3. Connectez-vous à nouveau en tant que l'utilisateur `root` :
 
-        Votre serveur Centreon est maintenant prêt à l’emploi.
- 
-        >Une fois les opérations de configuration effectuées, vous pouvez faire en sorte que le message qui les décrit dans le terminal n'apparaisse plus. Supprimez le fichier suivant :
-        >
-        >`/etc/profile.d/centreon.sh`
+```shell
+exit
+```
+
+4. Redémarrez le processus Centreon broker pour que les changements soient appliqués :
+
+```shell
+systemctl restart cbd centengine gorgoned
+```
+
+Votre serveur Centreon est maintenant prêt à l’emploi.
+
+>Une fois les opérations de configuration effectuées, vous pouvez faire en sorte que le message qui les décrit dans le terminal n'apparaisse plus. Supprimez le fichier suivant :
+>
+>`/etc/profile.d/centreon.sh`
 
 6. Connectez-vous à l’interface web : dans votre navigateur, entrez l’adresse du serveur au format
 `http://addresse_ip/centreon` ou `http://FQDN/centreon`. (Par exemple, une URL valide serait

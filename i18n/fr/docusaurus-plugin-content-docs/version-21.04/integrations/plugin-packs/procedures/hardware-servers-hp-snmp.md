@@ -22,21 +22,21 @@ The agent allows to get hardware information in SNMP. First, you need to
 download ['hp-health'](https://support.hpe.com/hpsc/swd/public/detail?swItemId=MTX_c34b79933bcf4a6e89dc89df27) and ['hp-snmp-agents'](https://support.hpe.com/hpsc/swd/public/detail?swItemId=MTX_fe93eb05acc0417e95e177c0e7) packages (can be found in [HP Support
 Website](https://support.hpe.com/hpsc/swd/public/))
 
-    # rpm -i hp-health-9.50-1628.32.rhel6.x86_64.rpm hp-snmp-agents-9.50-2564.40.rhel6.x86_64.rpm
+# rpm -i hp-health-9.50-1628.32.rhel6.x86_64.rpm hp-snmp-agents-9.50-2564.40.rhel6.x86_64.rpm
 
 Add in */etc/snmp/snmpd.conf*:
 
-    # Following entries were added by HP Insight Management Agents
-    #      Mon May 26 12:42:41 CEST 2014
-    dlmod cmaX /usr/lib64/libcmaX64.so
+# Following entries were added by HP Insight Management Agents
+#      Mon May 26 12:42:41 CEST 2014
+dlmod cmaX /usr/lib64/libcmaX64.so
 
 Note: If you're using 32bits hardware so you have to add dlmod cmaX
 /usr/lib/libcmaX.so instead of dlmod cmaX /usr/lib64/libcmaX64.so
 
 Following daemons must be reloaded:
 
-    # /etc/init.d/hp-snmp-agents restart
-    # /etc/init.d/snmpd restart
+# /etc/init.d/hp-snmp-agents restart
+# /etc/init.d/snmpd restart
 
 ## Centreon configuration
 

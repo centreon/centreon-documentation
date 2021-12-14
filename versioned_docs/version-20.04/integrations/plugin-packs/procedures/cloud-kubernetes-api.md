@@ -19,15 +19,15 @@ arrange a cluster monitoring.
 There is mainly three ways:
 
 - Gather all metrics on only one Centreon host with a service per Kubernetes
-  unit (i.e. deployments, daemonsets, etc) - apply
-  [manual creation](#manual-creation) procedure,
+unit (i.e. deployments, daemonsets, etc) - apply
+[manual creation](#manual-creation) procedure,
 - Gather all metrics on only one Centreon host with a service for each
-  instances of each Kubernetes units - apply [manual creation](#manual-creation)
-  and [service discovery](#service-discovery) procedures,
+instances of each Kubernetes units - apply [manual creation](#manual-creation)
+and [service discovery](#service-discovery) procedures,
 - Collect infrastructural metrics (master and worker nodes) with a Centreon
-  host per Kubernetes node, and keep orchestration/application metrics
-  on a unique host (using one of the 2 previous scenarii) - apply
-  [host discovery](#host-discovery) procedure.
+host per Kubernetes node, and keep orchestration/application metrics
+on a unique host (using one of the 2 previous scenarii) - apply
+[host discovery](#host-discovery) procedure.
 
 For all those scenarii, discovery and classic templating will be used.
 
@@ -72,29 +72,29 @@ The Kubernetes API Pack brings 2 different host templates to be used depending
 on the scenarii mentioned earlier:
 
 - All in one host template that will gather checks and metrics with a
-  service per Kubernetes unit:
+service per Kubernetes unit:
 
-    | Cloud-Kubernetes-Api         |
-    |------------------------------|
-    | Cluster Events               |
-    | CronJob Status               |
-    | DaemonSet Status             |
-    | Deployment Status            |
-    | Node Status                  |
-    | Node Usage                   |
-    | PersistentVolume Status      |
-    | Pod Status                   |
-    | ReplicatSet Status           |
-    | ReplicationController Status |
-    | StatefulSet Status           |
+| Cloud-Kubernetes-Api         |
+|------------------------------|
+| Cluster Events               |
+| CronJob Status               |
+| DaemonSet Status             |
+| Deployment Status            |
+| Node Status                  |
+| Node Usage                   |
+| PersistentVolume Status      |
+| Pod Status                   |
+| ReplicatSet Status           |
+| ReplicationController Status |
+| StatefulSet Status           |
 
 - A minimal host template that will only collect metrics for the Kubernetes
-  nodes:
+nodes:
 
-    | Cloud-Kubernetes-Node-Api |
-    |---------------------------|
-    | Node Usage                |
-    | Node Status               |
+| Cloud-Kubernetes-Node-Api |
+|---------------------------|
+| Node Usage                |
+| Node Status               |
 
 ## Monitored metrics and indicators
 
@@ -318,12 +318,12 @@ conditions statuses, like the `kubectl describe nodes` can list:
 
 ```text
 Conditions:
-  Type             Status  LastHeartbeatTime                 LastTransitionTime                Reason                       Message
-  ----             ------  -----------------                 ------------------                ------                       -------
-  MemoryPressure   False   Thu, 11 Mar 2021 14:20:25 +0100   Tue, 26 Jan 2021 09:38:11 +0100   KubeletHasSufficientMemory   kubelet has sufficient memory available
-  DiskPressure     False   Thu, 11 Mar 2021 14:20:25 +0100   Wed, 17 Feb 2021 09:37:40 +0100   KubeletHasNoDiskPressure     kubelet has no disk pressure
-  PIDPressure      False   Thu, 11 Mar 2021 14:20:25 +0100   Tue, 26 Jan 2021 09:38:11 +0100   KubeletHasSufficientPID      kubelet has sufficient PID available
-  Ready            True    Thu, 11 Mar 2021 14:20:25 +0100   Tue, 26 Jan 2021 17:26:36 +0100   KubeletReady                 kubelet is posting ready status
+Type             Status  LastHeartbeatTime                 LastTransitionTime                Reason                       Message
+----             ------  -----------------                 ------------------                ------                       -------
+MemoryPressure   False   Thu, 11 Mar 2021 14:20:25 +0100   Tue, 26 Jan 2021 09:38:11 +0100   KubeletHasSufficientMemory   kubelet has sufficient memory available
+DiskPressure     False   Thu, 11 Mar 2021 14:20:25 +0100   Wed, 17 Feb 2021 09:37:40 +0100   KubeletHasNoDiskPressure     kubelet has no disk pressure
+PIDPressure      False   Thu, 11 Mar 2021 14:20:25 +0100   Tue, 26 Jan 2021 09:38:11 +0100   KubeletHasSufficientPID      kubelet has sufficient PID available
+Ready            True    Thu, 11 Mar 2021 14:20:25 +0100   Tue, 26 Jan 2021 17:26:36 +0100   KubeletReady                 kubelet is posting ready status
 ```
 
 The resulting output in Centreon could look like:
@@ -364,40 +364,40 @@ Using Kubernetes command line tool, it could look like the following:
 
 - Nodes capacity:
 
-    ```shell
-    kubectl get nodes -o=custom-columns="NODE:.metadata.name,PODS ALLOCATABLE:.status.allocatable.pods,CPU ALLOCATABLE:.status.allocatable.cpu,MEMORY ALLOCATABLE:.status.allocatable.memory"
-    NODE          PODS ALLOCATABLE   CPU ALLOCATABLE   MEMORY ALLOCATABLE
-    master-node   110                2                 3778172Ki
-    worker-node   110                2                 3778184Ki
-    ```
+```shell
+kubectl get nodes -o=custom-columns="NODE:.metadata.name,PODS ALLOCATABLE:.status.allocatable.pods,CPU ALLOCATABLE:.status.allocatable.cpu,MEMORY ALLOCATABLE:.status.allocatable.memory"
+NODE          PODS ALLOCATABLE   CPU ALLOCATABLE   MEMORY ALLOCATABLE
+master-node   110                2                 3778172Ki
+worker-node   110                2                 3778184Ki
+```
 
 - Running pods:
 
-    ```shell
-    kubectl get pods -o=custom-columns="NODE:.spec.nodeName,POD:.metadata.name,CPU REQUESTS:.spec.containers[*].resources.requests.cpu,CPU LIMITS:.spec.containers[*].resources.limits.cpu,MEMORY REQUESTS:.spec.containers[*].resources.requests.memory,MEMORY LIMITS:.spec.containers[*].resources.limits.memory"
-    NODE          POD                                     CPU REQUESTS   CPU LIMITS   MEMORY REQUESTS   MEMORY LIMITS
-    worker-node   coredns-74ff55c5b-g4hmt                 100m           <none>       70Mi              170Mi
-    master-node   etcd-master-node                        100m           <none>       100Mi             <none>
-    master-node   kube-apiserver-master-node              250m           <none>       <none>            <none>
-    master-node   kube-controller-manager-master-node     200m           <none>       <none>            <none>
-    master-node   kube-flannel-ds-amd64-fk59g             100m           100m         50Mi              50Mi
-    worker-node   kube-flannel-ds-amd64-jwzms             100m           100m         50Mi              50Mi
-    master-node   kube-proxy-kkwmb                        <none>         <none>       <none>            <none>
-    worker-node   kube-proxy-vprs8                        <none>         <none>       <none>            <none>
-    master-node   kube-scheduler-master-node              100m           <none>       <none>            <none>
-    master-node   kubernetes-dashboard-7d75c474bb-7zc5j   <none>         <none>       <none>            <none>
-    ```
+```shell
+kubectl get pods -o=custom-columns="NODE:.spec.nodeName,POD:.metadata.name,CPU REQUESTS:.spec.containers[*].resources.requests.cpu,CPU LIMITS:.spec.containers[*].resources.limits.cpu,MEMORY REQUESTS:.spec.containers[*].resources.requests.memory,MEMORY LIMITS:.spec.containers[*].resources.limits.memory"
+NODE          POD                                     CPU REQUESTS   CPU LIMITS   MEMORY REQUESTS   MEMORY LIMITS
+worker-node   coredns-74ff55c5b-g4hmt                 100m           <none>       70Mi              170Mi
+master-node   etcd-master-node                        100m           <none>       100Mi             <none>
+master-node   kube-apiserver-master-node              250m           <none>       <none>            <none>
+master-node   kube-controller-manager-master-node     200m           <none>       <none>            <none>
+master-node   kube-flannel-ds-amd64-fk59g             100m           100m         50Mi              50Mi
+worker-node   kube-flannel-ds-amd64-jwzms             100m           100m         50Mi              50Mi
+master-node   kube-proxy-kkwmb                        <none>         <none>       <none>            <none>
+worker-node   kube-proxy-vprs8                        <none>         <none>       <none>            <none>
+master-node   kube-scheduler-master-node              100m           <none>       <none>            <none>
+master-node   kubernetes-dashboard-7d75c474bb-7zc5j   <none>         <none>       <none>            <none>
+```
 
 From the Kubernetes dashboard, the metrics can be found in the
 `Cluser > Nodes` menu:
 
 - Listing from `Cluser > Nodes`:
 
-    ![Cluster nodes listing](../../../assets/integrations/plugin-packs/procedures/cloud-kubernetes-api-cluster-nodes-listing.png)
+![Cluster nodes listing](../../../assets/integrations/plugin-packs/procedures/cloud-kubernetes-api-cluster-nodes-listing.png)
 
 - Allocation detail for a node:
 
-    ![Node allocation detail](../../../assets/integrations/plugin-packs/procedures/cloud-kubernetes-api-cluster-nodes-detail.png)
+![Node allocation detail](../../../assets/integrations/plugin-packs/procedures/cloud-kubernetes-api-cluster-nodes-detail.png)
 
 The resulting output in Centreon could look like:
 
@@ -483,23 +483,23 @@ The resulting output in Centreon could look like:
 
 ```text
 Checking pod 'kube-proxy-65zhn'
-    Containers Ready: 1/1 (100.00%), Status is 'Running', Restarts: 0
-    Container 'kube-proxy' Status is 'running', State is 'ready', Restarts: 0
+Containers Ready: 1/1 (100.00%), Status is 'Running', Restarts: 0
+Container 'kube-proxy' Status is 'running', State is 'ready', Restarts: 0
 Checking pod 'kube-proxy-kkwmb'
-    Containers Ready: 1/1 (100.00%), Status is 'Running', Restarts: 0
-    Container 'kube-proxy' Status is 'running', State is 'ready', Restarts: 0
+Containers Ready: 1/1 (100.00%), Status is 'Running', Restarts: 0
+Container 'kube-proxy' Status is 'running', State is 'ready', Restarts: 0
 Checking pod 'kube-proxy-vprs8'
-    Containers Ready: 1/1 (100.00%), Status is 'Running', Restarts: 0
-    Container 'kube-proxy' Status is 'running', State is 'ready', Restarts: 0
+Containers Ready: 1/1 (100.00%), Status is 'Running', Restarts: 0
+Container 'kube-proxy' Status is 'running', State is 'ready', Restarts: 0
 Checking pod 'tiller-deploy-7bf78cdbf7-z5n24'
-    Containers Ready: 1/1 (100.00%), Status is 'Running', Restarts: 5
-    Container 'tiller' Status is 'running', State is 'ready', Restarts: 5
+Containers Ready: 1/1 (100.00%), Status is 'Running', Restarts: 5
+Container 'tiller' Status is 'running', State is 'ready', Restarts: 5
 Checking pod 'dashboard-metrics-scraper-79c5968bdc-vncxc'
-    Containers Ready: 1/1 (100.00%), Status is 'Running', Restarts: 0
-    Container 'dashboard-metrics-scraper' Status is 'running', State is 'ready', Restarts: 0
+Containers Ready: 1/1 (100.00%), Status is 'Running', Restarts: 0
+Container 'dashboard-metrics-scraper' Status is 'running', State is 'ready', Restarts: 0
 Checking pod 'kubernetes-dashboard-7448ffc97b-42rps'
-    Containers Ready: 1/1 (100.00%), Status is 'Running', Restarts: 0
-    Container 'kubernetes-dashboard' Status is 'running', State is 'ready', Restarts: 0
+Containers Ready: 1/1 (100.00%), Status is 'Running', Restarts: 0
+Container 'kubernetes-dashboard' Status is 'running', State is 'ready', Restarts: 0
 ```
 
 The collected metrics for each Pods will be:
@@ -746,40 +746,40 @@ cat <<EOF | kubectl create -f -
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: api-access
+name: api-access
 rules:
-  - apiGroups:
-      - ""
-      - apps
-      - batch
-    resources:
-      - cronjobs
-      - daemonsets
-      - deployments
-      - events
-      - namespaces
-      - nodes
-      - persistentvolumes
-      - pods
-      - replicasets
-      - replicationcontrollers
-      - statefulsets
-    verbs:
-      - get
-      - list
+- apiGroups:
+- ""
+- apps
+- batch
+resources:
+- cronjobs
+- daemonsets
+- deployments
+- events
+- namespaces
+- nodes
+- persistentvolumes
+- pods
+- replicasets
+- replicationcontrollers
+- statefulsets
+verbs:
+- get
+- list
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: api-access
+name: api-access
 roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: api-access
+apiGroup: rbac.authorization.k8s.io
+kind: ClusterRole
+name: api-access
 subjects:
 - kind: ServiceAccount
-  name: centreon-service-account
-  namespace: kube-system
+name: centreon-service-account
+namespace: kube-system
 EOF
 ```
 
@@ -820,24 +820,24 @@ cat <<EOF | kubectl create -f -
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: kubernetesapi-ingress
-  namespace: default
-  annotations:
-    kubernetes.io/ingress.class: "nginx"
-    nginx.ingress.kubernetes.io/backend-protocol: HTTPS
+name: kubernetesapi-ingress
+namespace: default
+annotations:
+kubernetes.io/ingress.class: "nginx"
+nginx.ingress.kubernetes.io/backend-protocol: HTTPS
 spec:
-  tls:
-    - hosts:
-      - kubernetesapi.local.domain
-      secretName: api-certificate
-  rules:
-  - host: kubernetesapi.local.domain
-    http:
-      paths:
-      - backend:
-          serviceName: kubernetes
-          servicePort: 443
-        path: /
+tls:
+- hosts:
+- kubernetesapi.local.domain
+secretName: api-certificate
+rules:
+- host: kubernetesapi.local.domain
+http:
+paths:
+- backend:
+serviceName: kubernetes
+servicePort: 443
+path: /
 EOF
 ```
 
@@ -928,19 +928,19 @@ apiVersion: v1
 kind: Config
 clusters:
 - name: ${clustername}
-  cluster:
-    certificate-authority-data: ${ca}
-    server: https://${ip}:${port}
+cluster:
+certificate-authority-data: ${ca}
+server: https://${ip}:${port}
 contexts:
 - name: ${context}
-  context:
-    cluster: ${clustername}
-    namespace: ${namespace}
-    user: ${account}
+context:
+cluster: ${clustername}
+namespace: ${namespace}
+user: ${account}
 current-context: ${context}
 users:
 - name: ${account}
-  user: ${token}
+user: ${token}
 EOF
 ```
 
@@ -981,20 +981,20 @@ Then set the values for each needed macros:
 
 - If using RestAPI:
 
-    | Macro                     | Description                                       | Example value               |
-    |---------------------------|---------------------------------------------------|-----------------------------|
-    | `KUBERNETESAPICUSTOMMODE` | Plugin custom mode                                | `api`                       |
-    | `KUBERNETESAPIHOSTNAME`   | Hostname or address of the Kubernetes API service | `kubenetesapi.local.domain` |
-    | `KUBERNETESAPIPORT`       | Port of the API                                   | `443`                       |
-    | `KUBERNETESAPIPROTO`      | Protocol used by API                              | `https`                     |
-    | `KUBERNETESAPITOKEN`      | Token retrieved from service account              | `eyJhbG...KEw`              |
+| Macro                     | Description                                       | Example value               |
+|---------------------------|---------------------------------------------------|-----------------------------|
+| `KUBERNETESAPICUSTOMMODE` | Plugin custom mode                                | `api`                       |
+| `KUBERNETESAPIHOSTNAME`   | Hostname or address of the Kubernetes API service | `kubenetesapi.local.domain` |
+| `KUBERNETESAPIPORT`       | Port of the API                                   | `443`                       |
+| `KUBERNETESAPIPROTO`      | Protocol used by API                              | `https`                     |
+| `KUBERNETESAPITOKEN`      | Token retrieved from service account              | `eyJhbG...KEw`              |
 
 - If using kubectl:
 
-    | Macro                     | Description                    | Example value    |
-    |---------------------------|--------------------------------|------------------|
-    | `KUBERNETESAPICUSTOMMODE` | Plugin custom mode             | `kubectl`        |
-    | `KUBECTLCONFIGFILE`       | Path to the configuration file | `~/.kube/config` |
+| Macro                     | Description                    | Example value    |
+|---------------------------|--------------------------------|------------------|
+| `KUBERNETESAPICUSTOMMODE` | Plugin custom mode             | `kubectl`        |
+| `KUBECTLCONFIGFILE`       | Path to the configuration file | `~/.kube/config` |
 
 Optional macros values can be set:
 
@@ -1024,12 +1024,12 @@ from the list.
 Set credentials to access the Kubernetes API depending on the chosen flavor:
 
 - If using RestAPI: set the token
-  [retrieved ealier](#retrieve-token-from-service-account) from the service
-  account,
+[retrieved ealier](#retrieve-token-from-service-account) from the service
+account,
 - If using kubectl: set the path to the
-  [created configuration file](#create-a-kubectl-configuration) (prefer using
-  relative path to make it work for both discovery and monitoring,
-  i.e. `~/.kube/config`).
+[created configuration file](#create-a-kubectl-configuration) (prefer using
+relative path to make it work for both discovery and monitoring,
+i.e. `~/.kube/config`).
 
 For RestAPI: hostname/address, port and protocol are needed to access
 the Kubernetes API.

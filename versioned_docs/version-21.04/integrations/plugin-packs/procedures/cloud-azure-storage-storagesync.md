@@ -2,6 +2,9 @@
 id: cloud-azure-storage-storagesync
 title: Azure Storage Sync
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -15,7 +18,7 @@ to collect the metrics related to the Storage Sync service.
 
 ### Monitored objects
 
-* Files synchronised 
+* Files synchronised
 * Recalls statistics
 * Server Status
 
@@ -33,9 +36,8 @@ documentation:
 
 ### Collected metrics & status
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Files-Synced-->
+<Tabs groupId="operating-systems">
+<TabItem value="FilesSynced" label="FilesSynced">
 
 | Metric name                    | Description  | Unit  |
 | :----------------------------- | :----------- | :---- |
@@ -43,7 +45,8 @@ documentation:
 | storagesync.item.errors.count  | Item errors  | Count |
 | storagesync.bytes.synced.bytes | Bytes synced | B     |
 
-<!--Recalls-->
+</TabItem>
+<TabItem value="Recalls" label="Recalls">
 
 | Metric name                                        | Description                              | Unit |
 | :------------------------------------------------- | :--------------------------------------- | :--- |
@@ -53,13 +56,15 @@ documentation:
 | storagesync.recalls.total.size.bytes               | Cloud tiering recall                     | B    |
 | storagesync.recalls.throughput.size.bytespersecond | Cloud tiering recall throughput          | B/s  |
 
-<!--Server-Status-->
+</TabItem>
+<TabItem value="ServerStatus" label="ServerStatus">
 
 | Metric name                 | Description | Unit  |
 | :-------------------------- | :---------- | :---- |
 | storagesync.heartbeat.count | Heartbeat   | Count |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -71,57 +76,57 @@ Centreon recommends to use the API instead of the CLI for the following reasons:
 * API is much more efficient by avoiding CLI binary execution
 * API supports application authentication while CLI does not (yet)
 
-<!--DOCUSAURUS_CODE_TABS-->
+<Tabs groupId="operating-systems">
+<TabItem value="Azure Monitor API" label="Azure Monitor API">
 
-<!--Azure Monitor API-->
-
-To use the 'api' custom mode, make sure to obtain the required information using the 
+To use the 'api' custom mode, make sure to obtain the required information using the
 how-to below. Keep it safe until including it in a Host or Host Template definition.
 
 * Create an *application* in Azure Active Directory:
-	- Log in to your Azure account.
-	- Select *Azure Active directory* in the left sidebar.
-	- Click on *App registrations*.
-	- Click on *+ Add*.
-	- Enter Centreon as the application name (or any name of your choice), select application type(api) and sign-on-url.
-	- Click on the *Create* button.
+- Log in to your Azure account.
+- Select *Azure Active directory* in the left sidebar.
+- Click on *App registrations*.
+- Click on *+ Add*.
+- Enter Centreon as the application name (or any name of your choice), select application type(api) and sign-on-url.
+- Click on the *Create* button.
 
 * Get *Subscription ID*
-	- Log in to your Azure account.
-	- Select *Subscriptions* in the left sidebar.
-	- Select whichever subscription is needed.
-	- Click on *Overview*.
-	- **Copy the Subscription ID.**
+- Log in to your Azure account.
+- Select *Subscriptions* in the left sidebar.
+- Select whichever subscription is needed.
+- Click on *Overview*.
+- **Copy the Subscription ID.**
 
 * Get *Tenant ID*
-	- Log in to your Azure account.
-	- Select *Azure Active directory* in the left sidebar.
-	- Click on *Properties*.
-	- **Copy the directory ID.**
+- Log in to your Azure account.
+- Select *Azure Active directory* in the left sidebar.
+- Click on *Properties*.
+- **Copy the directory ID.**
 
 * Get *Client ID*
-	- Log in to your Azure account.
-	- Select *Azure Active directory* in the left sidebar.
-	- Click on *Enterprise applications*.
-	- Click on *All applications*.
-	- Select the application previously created.
-	- Click on *Properties*.
-	- **Copy the Application ID.**
+- Log in to your Azure account.
+- Select *Azure Active directory* in the left sidebar.
+- Click on *Enterprise applications*.
+- Click on *All applications*.
+- Select the application previously created.
+- Click on *Properties*.
+- **Copy the Application ID.**
 
 * Get *Client secret*
-	- Log in to your Azure account.
-	- Select *Azure Active directory* in the left sidebar.
-	- Click on *App registrations*.
-	- Select the application previously created.
-	- Click on *All settings*.
-	- Click on *Keys*.
-	- Enter the key description and select the duration.
-	- Click on *Save*.
-	- **Copy and store the key value. You won't be able to retrieve it after you leave this page.**
+- Log in to your Azure account.
+- Select *Azure Active directory* in the left sidebar.
+- Click on *App registrations*.
+- Select the application previously created.
+- Click on *All settings*.
+- Click on *Keys*.
+- Enter the key description and select the duration.
+- Click on *Save*.
+- **Copy and store the key value. You won't be able to retrieve it after you leave this page.**
 
-<!--Azure AZ CLI-->
+</TabItem>
+<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
-To use the 'azcli' custom mode, install the required packages on every Centreon Poller expected to 
+To use the 'azcli' custom mode, install the required packages on every Centreon Poller expected to
 monitor Azure Resources using CLI:
 
 - The CLI needs at least Python version 2.7
@@ -144,8 +149,8 @@ az login
 
 The shell will output this message including an authentication code:
 
-	*To sign in, use a web browser to open the page https://microsoft.com/devicelogin*
-	*and enter the code CWT4WQZAD to authenticate.*
+*To sign in, use a web browser to open the page https://microsoft.com/devicelogin*
+*and enter the code CWT4WQZAD to authenticate.*
 
 Go to <https://microsoft.com/devicelogin> and enter the code.
 
@@ -153,32 +158,32 @@ Connect using a monitoring service account, as a result, the shell should prompt
 information below:
 
 ```shell
-	[
-	  {
-		"cloudName": "AzureCloud",
-		"id": "0ef83f3a-d83e-2039-d930-309df93acd93d",
-		"isDefault": true,
-		"name": "N/A(tenant level account)",
-		"state": "Enabled",
-		"tenantId": "0ef83f3a-03cd-2039-d930-90fd39ecd048",
-		"user": {
-		  "name": "email@mycompany.onmicrosoft.com",
-		  "type": "user"
-		}
-	  }
-	]
+[
+{
+"cloudName": "AzureCloud",
+"id": "0ef83f3a-d83e-2039-d930-309df93acd93d",
+"isDefault": true,
+"name": "N/A(tenant level account)",
+"state": "Enabled",
+"tenantId": "0ef83f3a-03cd-2039-d930-90fd39ecd048",
+"user": {
+"name": "email@mycompany.onmicrosoft.com",
+"type": "user"
+}
+}
+]
 ```
 
 Credentials are now stored locally in the .accessTokens.json file so the Plugin
 can use it.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="licence-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor *Azure Storage Sync* ressources:
 
@@ -188,7 +193,8 @@ yum install centreon-plugin-Cloud-Azure-Storage-StorageSync-Api
 
 2. On the Centreon Web interface, install the *Azure Storage Sync* Centreon Plugin Pack on the "Configuration > Plugin Packs" page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor *Azure Storage Sync* ressources:
 
@@ -204,7 +210,8 @@ yum install centreon-pack-cloud-azure-storage-storagesync
 
 3. On the Centreon Web interface, install the *Azure Storage Sync* Centreon Plugin Pack on the "Configuration > Plugin Packs" page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -222,7 +229,8 @@ These mandatory Macros differ regarding the custom mode used.
 in *AZURERESOURCE*
 > * Resource Name in *AZURERESOURCE* associated with Resource Group (in *AZURERESOURCEGROUP*)
 
-<!--Azure Monitor API-->
+<Tabs groupId="operating-systems">
+<TabItem value="Azure Monitor API" label="Azure Monitor API">
 
 | Mandatory | Nom                | Description                                        |
 | :-------- | :----------------- | :------------------------------------------------- |
@@ -234,7 +242,8 @@ in *AZURERESOURCE*
 | X         | AZURERESOURCE      | ID or name of the Storage Sync resource            |
 |           | AZURERESOURCEGROUP | Associated Resource Group if resource name is used |
 
-<!--Azure AZ CLI-->
+</TabItem>
+<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 | Mandatory | Nom                | Description                                        |
 | :-------- | :----------------- | :------------------------------------------------- |
@@ -243,38 +252,39 @@ in *AZURERESOURCE*
 | X         | AZURERESOURCE      | ID or name of the Storage Sync resource            |
 |           | AZURERESOURCEGROUP | Associated Resource Group if resource name is used |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
-## How to check in the CLI that the configuration is OK and what are the main options for ? 
+## How to check in the CLI that the configuration is OK and what are the main options for ?
 
-Once the plugin installed, log into your Centreon Poller CLI using the 
-*centreon-engine* user account and test the Plugin by running the following 
+Once the plugin installed, log into your Centreon Poller CLI using the
+*centreon-engine* user account and test the Plugin by running the following
 command:
 
 ```bash
- /usr/lib/centreon/plugins//centreon_azure_storage_storagesync_api.pl   \
-    --plugin=cloud::azure::storage::storagesync::plugin  \
-    --mode=files-synced  \
-    --custommode='api'  \
-    --subscription='xxxxxxxxx' \
-    --tenant='xxxxxxxxx' \
-    --client-id='xxxxxxxxx' \
-    --client-secret='xxxxxxxxx' \
-    --resource='STO001ABCD' \
-    --resource-group='RSG1234'
-    --aggregation='Total' \
-    --timeframe='900' \
-    --interval='PT5M' \
-    --warning-item-errors='800'  \
-    --critical-item-errors='900'
- ```
+/usr/lib/centreon/plugins//centreon_azure_storage_storagesync_api.pl   \
+--plugin=cloud::azure::storage::storagesync::plugin  \
+--mode=files-synced  \
+--custommode='api'  \
+--subscription='xxxxxxxxx' \
+--tenant='xxxxxxxxx' \
+--client-id='xxxxxxxxx' \
+--client-secret='xxxxxxxxx' \
+--resource='STO001ABCD' \
+--resource-group='RSG1234'
+--aggregation='Total' \
+--timeframe='900' \
+--interval='PT5M' \
+--warning-item-errors='800'  \
+--critical-item-errors='900'
+```
 
- Expected command output is shown below:
+Expected command output is shown below:
 
 ```bash
 OK : Instance 'STO001ABCD' Statistic 'total'Files Synced: 546.00, Item errors: 3.00, Bytes synced: 246.00 |
 'STO001ABCD~storagesync.files.synced.count'=546;;;; 'STO001ABCD~storagesync.item.errors.count'=3;800;900;0; 'STO001ABCD~storagesync.bytes.synced.bytes'=246;;;0;
- ```
+```
 
 The command above checks the number of failed files synchronization of an Azure *Storage Sync* instance using the 'api' custom-mode
 (`--plugin=cloud::azure::network::cdn::plugin --mode=requests --custommode=api`).
@@ -292,26 +302,26 @@ All the available options for a given mode can be displayed by adding the `--hel
 
 ```bash
 /usr/lib/centreon/plugins//centreon_azure_storage_storagesync_api.pl   \
-    --plugin=cloud::azure::storage::storagesync::plugin  \
-    --mode=files-synced  \
-    --help
+--plugin=cloud::azure::storage::storagesync::plugin  \
+--mode=files-synced  \
+--help
 ```
 
-All Plugin modes can be displayed by adding the `--list-mode` parameter to 
+All Plugin modes can be displayed by adding the `--list-mode` parameter to
 the command:
 
 ```bash
- /usr/lib/centreon/plugins//centreon_azure_storage_storagesync_api.pl   \
-    --plugin=cloud::azure::storage::storagesync::plugin  \
-    --list-mode
+/usr/lib/centreon/plugins//centreon_azure_storage_storagesync_api.pl   \
+--plugin=cloud::azure::storage::storagesync::plugin  \
+--list-mode
 ```
 
 ### Troubleshooting
 
 #### The Azure credentials have changed and the Plugin does not work anymore
 
-The Plugin is using a cache file to keep connection information and avoid an authentication at each call. 
-If some of the authentication parameters change, you must delete the cache file. 
+The Plugin is using a cache file to keep connection information and avoid an authentication at each call.
+If some of the authentication parameters change, you must delete the cache file.
 
 The cache file can be found within  `/var/lib/centreon/centplugins/` folder with a name similar to `azure_api_<md5>_<md5>_<md5>_<md5>`.
 
@@ -320,10 +330,10 @@ The cache file can be found within  `/var/lib/centreon/centplugins/` folder with
 When I run my command I obtain the following error message:
 ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```.
 
-It means that some parameters used to authenticate the API request are wrong. The 'ERROR_NAME' string gives 
-some hints about where the problem stands. 
+It means that some parameters used to authenticate the API request are wrong. The 'ERROR_NAME' string gives
+some hints about where the problem stands.
 
-As an example, if my Client ID or Client Secret are wrong, 'ERROR_DESC' value will be 'invalid_client'. 
+As an example, if my Client ID or Client Secret are wrong, 'ERROR_DESC' value will be 'invalid_client'.
 
 #### `UNKNOWN: 500 Can't connect to login.microsoftonline.com:443`
 

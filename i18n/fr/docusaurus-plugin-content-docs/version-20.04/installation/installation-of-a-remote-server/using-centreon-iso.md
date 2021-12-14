@@ -150,30 +150,30 @@ exécutez la commande suivante :
 -v '<IP_CENTREON_CENTRAL>;<not check SSL CA on Central>;<HTTP method>;<TCP port>;<not check SSL CA on Remote>;<no proxy to call Central>'
 ```
 
-  - Remplacez **\<IP_CENTREON_CENTRAL\>** par l'IP du serveur Centreon vu par le
-    collecteur. Vous pouvez définir plusieurs adresses IP en utilisant la virgule
-    comme séparateur.
+- Remplacez **\<IP_CENTREON_CENTRAL\>** par l'IP du serveur Centreon vu par le
+collecteur. Vous pouvez définir plusieurs adresses IP en utilisant la virgule
+comme séparateur.
 
-    > Pour utiliser HTTPS, remplacez **\<IP_CENTREON_CENTRAL\>** par
-    > **https://\<IP_CENTREON_CENTRAL\>**.
-    >
-    > Pour utiliser un autre port TCP, remplacez **@IP_CENTREON_CENTRAL** par
-    > **\<IP_CENTREON_CENTRAL\>:\<PORT\>**.
+> Pour utiliser HTTPS, remplacez **\<IP_CENTREON_CENTRAL\>** par
+> **https://\<IP_CENTREON_CENTRAL\>**.
+>
+> Pour utiliser un autre port TCP, remplacez **@IP_CENTREON_CENTRAL** par
+> **\<IP_CENTREON_CENTRAL\>:\<PORT\>**.
 
-  - Pour ne pas contrôler le certificat SSL sur le serveur Centreon Central, mettre
-    à **1** l'option **\<not check SSL CA on Central\>**, sinon **0**.
+- Pour ne pas contrôler le certificat SSL sur le serveur Centreon Central, mettre
+à **1** l'option **\<not check SSL CA on Central\>**, sinon **0**.
 
-  - L'option **\<HTTP method\>** permet de définir la méthode de connexion pour
-    contacter le Remote Server : HTTP ou HTTPS.
+- L'option **\<HTTP method\>** permet de définir la méthode de connexion pour
+contacter le Remote Server : HTTP ou HTTPS.
 
-  - L'option **\<TCP port\>** permet de définir sur quel port TCP communiquer avec
-    le Remote Server.
+- L'option **\<TCP port\>** permet de définir sur quel port TCP communiquer avec
+le Remote Server.
 
-  - Pour ne pas contrôler le certificat SSL sur le Remote server, mettre à **1**
-    l'option **\<not check SSL CA on Central\>**, sinon **0**.
+- Pour ne pas contrôler le certificat SSL sur le Remote server, mettre à **1**
+l'option **\<not check SSL CA on Central\>**, sinon **0**.
 
-  - Pour ne pas utiliser le proxy pour contacter le serveur Centreon Central,
-    mettre à **1** l'option **\<no proxy to call Central\>**, sinon **0**.
+- Pour ne pas utiliser le proxy pour contacter le serveur Centreon Central,
+mettre à **1** l'option **\<no proxy to call Central\>**, sinon **0**.
 
 Par exemple :
 
@@ -182,11 +182,11 @@ Par exemple :
 ```
 
 Cette commande va activer le mode **Remote Server** :
-  
-  - en limitant l'accès au menu,
-  - en limitant les actions possibles,
-  - en authorisant le Central à s'y connecter,
-  - en pré-enregistrant le serveur auprès du Central.
+
+- en limitant l'accès au menu,
+- en limitant les actions possibles,
+- en authorisant le Central à s'y connecter,
+- en pré-enregistrant le serveur auprès du Central.
 
 ```text
 Starting Centreon Remote enable process:

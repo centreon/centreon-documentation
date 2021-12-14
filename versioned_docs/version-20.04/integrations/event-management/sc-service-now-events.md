@@ -1,7 +1,10 @@
 ---
 id: sc-service-now-events
-title: ServiceNow Event Manager 
+title: ServiceNow Event Manager
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Before starting
 
@@ -13,8 +16,8 @@ title: ServiceNow Event Manager
 
 ### Dependencies
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS 7/Redhat 7-->
+<Tabs groupId="operating-systems">
+<TabItem value="CentOS 7/Redhat 7" label="CentOS 7/Redhat 7">
 
 Install **Epel** repository.
 
@@ -28,7 +31,8 @@ Install dependencies.
 yum install luarocks make gcc lua-curl lua-devel
 ```
 
-<!-- CentOS 8 -->
+</TabItem>
+<TabItem value="CentOS 8" label="CentOS 8">
 
 Install dnf plugins package.
 
@@ -54,7 +58,8 @@ Install dependencies.
 dnf install make gcc libcurl-devel lua-devel luarocks
 ```
 
-<!-- RedHat 8 -->
+</TabItem>
+<TabItem value="RedHat 8" label="RedHat 8">
 
 Install dnf plugins package.
 
@@ -80,12 +85,13 @@ Install dependencies.
 dnf install make gcc libcurl-devel lua-devel luarocks
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Lua modules
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS/Redhat 7-->
+<Tabs groupId="operating-systems">
+<TabItem value="CentOS/Redhat 7" label="CentOS/Redhat 7">
 
 Install Centreon lua modules.
 
@@ -93,7 +99,8 @@ Install Centreon lua modules.
 luarocks install centreon-stream-connectors-lib
 ```
 
-<!-- CentOS/Redhat 8-->
+</TabItem>
+<TabItem value="CentOS/Redhat 8" label="CentOS/Redhat 8">
 
 Install **lua-curl**.
 
@@ -107,7 +114,8 @@ Install Centreon lua modules.
 luarocks install centreon-stream-connectors-lib
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Download Service Now events stream connector
 
@@ -180,15 +188,15 @@ This stream connector will send event with the following format.
 
 ```json
 {
-  'records': ['{
-    'source': 'centreon',
-    'event_class': 'centreon',
-    'severity': 5,
-    'node': 'my_host',
-    'resource': 'my_service',
-    'time_of_event': '2022-09-06 11:52:12',
-    'description': 'CRITICAL: USB cable behaving like a water hose'
-  }']
+'records': ['{
+'source': 'centreon',
+'event_class': 'centreon',
+'severity': 5,
+'node': 'my_host',
+'resource': 'my_service',
+'time_of_event': '2022-09-06 11:52:12',
+'description': 'CRITICAL: USB cable behaving like a water hose'
+}']
 }
 ```
 
@@ -196,15 +204,15 @@ This stream connector will send event with the following format.
 
 ```json
 {
-  'records': ['{
-    'source': 'centreon',
-    'event_class': 'centreon',
-    'severity': 5,
-    'node': 'my_host',
-    'resource': 'my_host',
-    'time_of_event': '2022-09-06 11:52:12',
-    'description': 'DOWN: someone plugged an UPS on another UPS to create infinite energy'
-  }']
+'records': ['{
+'source': 'centreon',
+'event_class': 'centreon',
+'severity': 5,
+'node': 'my_host',
+'resource': 'my_host',
+'time_of_event': '2022-09-06 11:52:12',
+'description': 'DOWN: someone plugged an UPS on another UPS to create infinite energy'
+}']
 }
 ```
 

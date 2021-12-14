@@ -17,7 +17,7 @@ Tous les ajouts d’hôtes se font dans le menu : **Configuration > Hosts > Add*
 * Le champ **Host Name**  définit le nom d’hôte qui sera utilisé par le moteur de supervision.
 * Le champ **Alias** indique l’alias de l’hôte.
 * Le champ **IP address / DNS** Adresse IP ou nom DNS de l’hôte. Le bouton **Resolve** permet de résoudre le nom de
-  domaine en interrogeant le serveur DNS configuré sur le serveur central.
+domaine en interrogeant le serveur DNS configuré sur le serveur central.
 * Les champs **SNMP Community & Version** contiennent respectivement le nom de la communauté ainsi que la version SNMP.
 * Le champ **Monitored from** indique quel est le serveur de supervision chargé de superviser cet hôte.
 * Le champ **Timezone / Location** indique l'emplacement du fuseau horaire des hôtes surveillés.
@@ -31,8 +31,8 @@ Ce bouton nous permet de changer l'ordre des modèles hôtes <img src={require('
 Ce bouton sert à supprimer le modèle hôte <img src={require('../../assets/configuration/common/delete.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 
 * Si la case **Create Services linked to the Template too** est définit à **Yes**, Centreon génère automatiquement les
-  services en se basant sur les modèles de services liés aux modèles d’hôtes définis au-dessus
-  (voir chapitre Les *[modèles](../templates)*).
+services en se basant sur les modèles de services liés aux modèles d’hôtes définis au-dessus
+(voir chapitre Les *[modèles](../templates)*).
 
 ### Macros
 
@@ -56,9 +56,9 @@ Pour déplacer l’ordre des macros, cliquez sur <img src={require('../../assets
 
 * Le champ **Check Period** définit la période temporelle durant laquelle l’ordonnanceur vérifie le statut de l’objet.
 * Le champ **Max Check Attempts** définit le nombre de contrôle à effectuer avant de valider le statut de l’hôte :
-  lorsque le statut est validé, le processus de notification est enclenché.
+lorsque le statut est validé, le processus de notification est enclenché.
 * Le champ **Normal Check Interval** est exprimé en minutes. Il définit l’intervalle entre chaque vérification lorsque
-  le statut de l’hôte est OK.
+le statut de l’hôte est OK.
 * Le champ **Retry Check Interval** est exprimé en minutes. Il définit l’intervalle de validation du statut non-OK de l’hôte.
 * Les champs **Active Checks Enabled** et **Passive Checks Enabled** activent / désactivent les contrôles actifs et passifs.
 
@@ -67,18 +67,18 @@ Pour déplacer l’ordre des macros, cliquez sur <img src={require('../../assets
 * Le champ **Notification Enabled** permet d’activer ou de désactiver les notifications concernant l’objet.
 * Le champ **Notification Options** définissent les statuts pour lesquels une notification sera envoyée.
 * Le champ **Notification Interval**  est exprimé en minutes. Il indique la durée entre chaque envoi de notification
-  lorsque le statut est non-OK. Si la valeur est définie à 0 alors l’ordonnanceur envoie une seule notification par
-  changement de statut.
+lorsque le statut est non-OK. Si la valeur est définie à 0 alors l’ordonnanceur envoie une seule notification par
+changement de statut.
 * Le champ **Notification Period**  indique la période temporelle durant laquelle les notifications seront activées.
 * Le champ **First notification delay** est exprimé en minutes. Il fait référence au délai à respecter avant l’envoi
-  d’une première notification lorsqu’un statut non-OK est validé.
+d’une première notification lorsqu’un statut non-OK est validé.
 * Si la case **Contact additive inheritance** est cochée, Centreon n'écrase pas la configuration du parent modèle d'hôte
-  mais ajoute les contacts en plus des contacts définis dans le modèle parent.
+mais ajoute les contacts en plus des contacts définis dans le modèle parent.
 * La liste **Linked contacts** indique les contacts qui recevront les notifications.
 * Si la case **Contact group additive inheritance** est cochée, Centreon n'écrase pas la configuration du parent modèle d'hôte
-  mais ajoute les contacts en plus des groupes de contacts définis dans le modèle parent.
+mais ajoute les contacts en plus des groupes de contacts définis dans le modèle parent.
 * La liste **Linked contacts Groups** tous les contacts appartenant aux groupes de contacts définis recevront les
-  notifications.
+notifications.
 
 ## Onglet Relations
 
@@ -92,13 +92,13 @@ Pour déplacer l’ordre des macros, cliquez sur <img src={require('../../assets
 * Si le **Obsess Over Host** est activé, alors la commande de remontée des contrôles de l’hôte sera activée.
 * Le champ **Check Freshness** permet d’activer ou de désactiver le contrôle de fraîcheur du résultat.
 * Le champ **Freshness Threshold**  est exprimé en secondes. Si durant cette période aucune demande de changement de
-  statut de l’hôte (commande passive) n’a été reçue alors la commande de vérification active est exécutée.
+statut de l’hôte (commande passive) n’a été reçue alors la commande de vérification active est exécutée.
 * Le champ **Flap Detection Enabled** permet d’activer ou de désactiver la détection du bagotage des statuts (statut
-  changeant trop fréquemment de valeur sur une période donnée).
+changeant trop fréquemment de valeur sur une période donnée).
 * Les champs **Low Flap Threshold** et **High Flap Threshold** définissent les seuils hauts et bas pour la détection du
-  bagotage en pourcentage de changement de statuts.
+bagotage en pourcentage de changement de statuts.
 * Les champs **Retain Status Information** et **Retain Non Status Information** indiquent si les informations concernant
-  ou non le statut sont sauvegardées après chaque relance de la commande de vérification.
+ou non le statut sont sauvegardées après chaque relance de la commande de vérification.
 * Le champ **Stalking Options** définit les options à enregistrer si la rétention est activée.
 * Le champ **Event Handler Enabled** permet d’activer ou de désactiver le gestionnaire d’évènements.
 * Le champ **Event Handler** définit la commande à exécuter si le gestionnaire d’évènements est activé.
@@ -111,13 +111,13 @@ Pour déplacer l’ordre des macros, cliquez sur <img src={require('../../assets
 * Le champ **URL** définit une URL qui peut être utilisée pour donner davantage d’informations sur l’hôte.
 * Le champ **Notes** permet d’ajouter des notes optionnelles concernant l’hôte.
 * Le champ **Action URL** définit une URL habituellement utilisée pour donner des informations d’actions sur l’hôte
-  (maintenance...).
+(maintenance...).
 * Le champ **Icon** indique l’icône à utiliser pour l’hôte.
 * Le champ **Alt Icon** est le texte utilisé si l’icône ne peut être affichée.
 * Le champ **Severity level** indique le niveau de criticité de l’hôte.
 * Le champ **Status Map Image** défini le logo du module Centreon Map.
 * The **Geo coordinates** défini les coordonnées géographiques utilisées par le module Centreon Map pour positionner
-  l'élément sur la carte. Définissez "Latitude, Longitude", par exemple pour le jeu de coordonnées de Paris "48.51,2.20"
+l'élément sur la carte. Définissez "Latitude, Longitude", par exemple pour le jeu de coordonnées de Paris "48.51,2.20"
 
 Les champs présentés ci-dessous sont obsolètes :
 
@@ -127,8 +127,8 @@ Les champs présentés ci-dessous sont obsolètes :
 ### Groupes d'accès
 
 * Le champ **ACL Resource Groups** (seulement visible pour les utilisateurs non administrateur), permet de lier l’hôte
-  à un groupe d’hôtes afin de pouvoir visualiser ce dernier (voir le chapitre sur
-  *[les listes de contrôles d'accès](../../administration/access-control-lists)*).
+à un groupe d’hôtes afin de pouvoir visualiser ce dernier (voir le chapitre sur
+*[les listes de contrôles d'accès](../../administration/access-control-lists)*).
 
 ### Informations supplémentaires
 

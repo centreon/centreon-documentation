@@ -17,7 +17,7 @@ Apache ActiveMQ is an open source message broker written in Java together with a
 
 ### Discovery rules
 
-<Tabs>
+<Tabs groupId="operating-systems">
 <TabItem value="Services" label="Services">
 
 ## Monitored metrics
@@ -69,9 +69,8 @@ More information on how to set up and configure the ActiveMQ RestAPI can be foun
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="operating-systems">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Install the Plugin on every poller expected to monitor ActiveMQ resources:
 
@@ -81,7 +80,8 @@ yum install centreon-plugin-Applications-ActiveMQ-Jmx
 
 2. On the Centreon Web interface, install the *ActiveMQ JMX* Centreon Plugin-Pack from the "Configuration > Plugin packs > Manager" page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Plugin on every poller expected to monitor ActiveMQ resources:
 
@@ -97,7 +97,8 @@ centreon-pack-applications-activemq-jmx.noarch
 
 3. On the Centreon Web interface, install the *ActiveMQ JMX* Centreon Plugin-Pack from the "Configuration > Plugin packs > Manager" page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -122,23 +123,23 @@ Once the Plugin installed, you can test it directly from the command line of the
 
 ```bash
 /usr/lib/centreon/plugins/centreon_activemq_jmx.pl \
-  --plugin apps::mq::activemq::jmx::plugin \
-  --mode='brokers' \
-  --url='http://myactivemq.int.centreon.com:8161/api/jolokia' \
-  --username='admin' \
-  --password='admin' \
+--plugin apps::mq::activemq::jmx::plugin \
+--mode='brokers' \
+--url='http://myactivemq.int.centreon.com:8161/api/jolokia' \
+--username='admin' \
+--password='admin' \
 ```
 
-This command will check all the Brokers (```--mode='brokers'```) of the ActiveMQ server of the *myactivemq.int.centreon.com* server. The RestAPI endpoint is set on the *http\://myactivemq.int.centreon.com\:8161/api/jolokia* URL 
+This command will check all the Brokers (```--mode='brokers'```) of the ActiveMQ server of the *myactivemq.int.centreon.com* server. The RestAPI endpoint is set on the *http\://myactivemq.int.centreon.com\:8161/api/jolokia* URL
 (```--url='http://myactivemq.int.centreon.com:8161/api/jolokia'```).
 To authenticate against the Jolokia agent, the API username *admin* is used with the relevant password (```--username='admin' --password='admin'```).
 
 If everything's fine, it should output something similar to:
 
 ```bash
-OK: Broker 'localhost' store usage: 0.00 %, temporary usage: 0.00 %, memory usage: 0.00 % - 
-queue 'foo.bar' average time messages remained enqueued: 0.000 ms, consumers connected: 0, producers connected: 0, memory usage: 0.00 %, 
-queue size: 1, messages enqueued: 0, messages dequeued: 0, messages expired: 0, messages in-flighted: 0, average messages size: 1.09 KB - All topics are ok | 
+OK: Broker 'localhost' store usage: 0.00 %, temporary usage: 0.00 %, memory usage: 0.00 % -
+queue 'foo.bar' average time messages remained enqueued: 0.000 ms, consumers connected: 0, producers connected: 0, memory usage: 0.00 %,
+queue size: 1, messages enqueued: 0, messages dequeued: 0, messages expired: 0, messages in-flighted: 0, average messages size: 1.09 KB - All topics are ok |
 'localhost#Broker.store.usage.percentage'=0.00%;;;0;100 'localhost#Broker.temporary.usage.percentage'=0.00%;;;0;100 'localhost#Broker.memory.usage.percentage'=0.00%;;;0;100
 ```
 
@@ -146,17 +147,17 @@ The available thresholds as well as all of the options that can be used with thi
 
 ```bash
 /usr/lib/centreon/plugins/centreon_activemq_jmx.pl \
-  --plugin apps::mq::activemq::jmx::plugin \
-  --mode Brokers \
-  --help
+--plugin apps::mq::activemq::jmx::plugin \
+--mode Brokers \
+--help
 ```
 
 You can display all of the modes that come with the Plugin with the command below:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_activemq_jmx.pl \
-  --plugin apps::mq::activemq::jmx::plugin \
-  --list-mode
+--plugin apps::mq::activemq::jmx::plugin \
+--list-mode
 ```
 
 ### Why do I get the following error:
@@ -176,7 +177,7 @@ You can disable this method by editing the jolokia-access.xml file and remove th
 
 ```xml
 <cors>
- <strict-checking/>
+<strict-checking/>
 </cors>
 ```
 

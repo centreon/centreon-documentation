@@ -7,11 +7,11 @@ title: PostgreSQL DB
 
 #### Create a user dedicated on the server.
 
-    CREATE USER monitoring WITH PASSWORD 'centreon';
+CREATE USER monitoring WITH PASSWORD 'centreon';
 
 #### Grant SELECT Privileges on in order to use the SQL mode
 
-    GRANT SELECT ON mytable TO monitoring;
+GRANT SELECT ON mytable TO monitoring;
 
 ### Centreon Plugin
 
@@ -23,9 +23,9 @@ yum install centreon-plugin-Applications-Databases-Postgresql
 
 In order to use this template, the following RPM are needed on your poller:
 
-  - postgresql
-  - postgresql-libs
-  - perl-DBD-Pg
+- postgresql
+- postgresql-libs
+- perl-DBD-Pg
 
 ## Centreon Configuration
 

@@ -2,6 +2,9 @@
 id: network-acmepacket-snmp
 title: Acme Packet SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Contenu du Plugin Pack
 
@@ -19,9 +22,8 @@ Le Plugin Pack Acme Packet SNMP collecte les données pour:
 
 ### Règles de découverte
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Services-->
+<Tabs groupId="operating-systems">
+<TabItem value="Services" label="Services">
 
 | Nom de la règle                        | Description                                                                                  |
 | :------------------------------------- | :------------------------------------------------------------------------------------------- |
@@ -30,13 +32,13 @@ Le Plugin Pack Acme Packet SNMP collecte les données pour:
 | Net-Acmepacket-SNMP-Realm-Name         | Découvre les Realms et supervise l'utilisation                                               |
 | Net-Acmepacket-SNMP-Sip-Name           | Découvre les interfaces Sip et supervise le statut et l'utilisation                          |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Métriques et statuts collectés
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Codec-->
+<Tabs groupId="operating-systems">
+<TabItem value="Codec" label="Codec">
 
 | Metric name                            | Description                                              | Unit |
 | :------------------------------------- | :------------------------------------------------------- | :--- |
@@ -45,7 +47,8 @@ Le Plugin Pack Acme Packet SNMP collecte les données pour:
 | transcoding.resources.free.count       | Number of transcoding resources currently free           |      |
 | transcoding.resources.usage.percentage | The percentage of transcoding resources currently in-use | %    |
 
-<!--Hardware-->
+</TabItem>
+<TabItem value="Hardware" label="Hardware">
 
 | Metric name                                        | Description                      | Unit |
 | :------------------------------------------------- | :------------------------------- | :--- |
@@ -57,7 +60,8 @@ Le Plugin Pack Acme Packet SNMP collecte les données pour:
 | voltage status                                     | Status of the voltage sensor     |      |
 | *sensor\_description*#hardware.voltage.volt        | Voltage of the sensor            | V    |
 
-<!--Interfaces-->
+</TabItem>
+<TabItem value="Interfaces" label="Interfaces">
 
 | Metric name                                            | Description                                         | Unit |
 | :----------------------------------------------------- | :-------------------------------------------------- | :--- |
@@ -69,7 +73,8 @@ Le Plugin Pack Acme Packet SNMP collecte les données pour:
 
 A regexp filter is available to target a specific interface identifier - ifName [```--interface='^eth0$' --name```]
 
-<!--Policy-servers-->
+</TabItem>
+<TabItem value="Policyservers" label="Policyservers">
 
 | Metric name                                                                                | Description                                                                        | Unit |
 | :----------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------- | :--- |
@@ -94,7 +99,8 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | *policy\_name*\#policy_server.messages.re_auth_answer.succeeded.count                      | Total number of RAA success messages for Rx policy server                          |      |
 | *policy\_name*\#policy_server.messages.re_auth_answer.errors.count                         | Total number of RAA error messages for Rx policy server                            |      |
 
-<!--Realm-usage-->
+</TabItem>
+<TabItem value="Realmusage" label="Realmusage">
 
 | Metric name                                       | Description                              | Unit |
 | :------------------------------------------------ | :--------------------------------------- | :--- |
@@ -107,7 +113,8 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | *realm\_name*\#realm.rfactor.qos.average.count    | Average number of QoS RFactor            |      |
 | *realm\_name*\#realm.rfactor.execeded.total.count | Total number of RFactor exceeded         |      |
 
-<!--Security-->
+</TabItem>
+<TabItem value="Security" label="Security">
 
 | Metric name                                                            | Description                                                    | Unit |
 | :--------------------------------------------------------------------- | :------------------------------------------------------------- | :--- |
@@ -124,7 +131,8 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | security.ims_aka.security_association_del.responses.out.failed.count   | Total number of IMS-AKA DEL-SA fail responses sent             |      |
 | security.ims_aka.security_association_del.deleted.count                | Total number of IMS-AKA DEL-SA fail responses sent             |      |
 
-<!--Sip-usage-->
+</TabItem>
+<TabItem value="Sipusage" label="Sipusage">
 
 | Metric name                                 | Description                         | Unit |
 | :------------------------------------------ | :---------------------------------- | :--- |
@@ -134,7 +142,8 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | *sip\_name*\#sip.stats.latency.milliseconds | Average Latency                     |      |
 | *sip\_name*\#sip.stats.asr.percentage       | Answer-to-seizure ratio             |      |
 
-<!--System-usage-->
+</TabItem>
+<TabItem value="Systemusage" label="Systemusage">
 
 | Metric name                | Description                 | Unit |
 | :------------------------- | :-------------------------- | :--- |
@@ -146,17 +155,17 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | calls.current.count        | Current number of calls     |      |
 | replication status         | Status of the replication   |      |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
-Afin de contrôler votre équipement Acme Packet, le SNMP doit être configuré. 
+Afin de contrôler votre équipement Acme Packet, le SNMP doit être configuré.
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="operating-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -166,7 +175,8 @@ yum install centreon-plugin-Network-Acmepacket-Snmp
 
 2. Sur l'interface Web de Centreon, installer le Plugin Pack *Acme Packet* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -182,7 +192,8 @@ yum install centreon-pack-network-acmepacket-snmp
 
 3. Sur l'interface Web de Centreon, installer le Plugin Pack *Acme Packet* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -204,14 +215,14 @@ depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-en
 
 ```bash
 /usr/lib/centreon/plugins/centreon_acmepacket_snmp.pl \
-    --plugin=network::acmepacket::snmp::plugin \
-    --mode=system-usage \
-    --hostname=10.30.2.114 \
-    --snmp-version='2c' \
-    --snmp-community='acme_ro' \
-    --warning-cpu-load='90' \
-    --critical-cpu-load='95' \
-    --verbose
+--plugin=network::acmepacket::snmp::plugin \
+--mode=system-usage \
+--hostname=10.30.2.114 \
+--snmp-version='2c' \
+--snmp-community='acme_ro' \
+--warning-cpu-load='90' \
+--critical-cpu-load='95' \
+--verbose
 ```
 
 La commande devrait retourner un message de sortie de la forme ci-dessous:
@@ -219,16 +230,16 @@ La commande devrait retourner un message de sortie de la forme ci-dessous:
 ```bash
 OK: System usage is ok | 'health.score.percentage'=100.00%;;;0;100 'cpu.utilization.percentage'=2.00%;0:90;0:95;0;100 'memory.usage.percentage'=9.00%;;;0;100 'licence.usage.percentage'=0.00%;;;0;100 'sessions.current.count'=0;;;0; 'calls.current.count'=0/s;;;0;
 checking system
-    health score: 100.00 %
-    cpu load: 2.00 %
-    memory used: 9.00 %
-    license used: 0.00 %
-    current sessions: 0
-    current calls: 0/s
-    replication state: active
+health score: 100.00 %
+cpu load: 2.00 %
+memory used: 9.00 %
+license used: 0.00 %
+current sessions: 0
+current calls: 0/s
+replication state: active
 ```
 
-Cette commande contrôle le système (```--mode=system-usage```) d'un équipement Acme Packet ayant pour adresse *10.30.2.114* (```--hostname=10.30.2.114```) 
+Cette commande contrôle le système (```--mode=system-usage```) d'un équipement Acme Packet ayant pour adresse *10.30.2.114* (```--hostname=10.30.2.114```)
 en version *2c* du protocol SNMP (```--snmp-version='2c'```) et avec la communauté *acme_ro* (```--snmp-community='acme_ro'```).
 
 Cette commande déclenchera une alarme WARNING si l'utilisation processeur est supérieur à 90% (```--warning-cpu-load='90'```)
@@ -239,21 +250,21 @@ en ajoutant le paramètre ```--help``` à la commande:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_acmepacket_snmp.pl \
-    --plugin=network::acmepacket::snmp::plugin \
-    --mode=system-usage \
-    --help
+--plugin=network::acmepacket::snmp::plugin \
+--mode=system-usage \
+--help
 ```
 
-### Diagnostic des erreurs communes  
+### Diagnostic des erreurs communes
 
 #### UNKNOWN: SNMP GET Request : Timeout
 
-Si vous obtenez ce message, cela signifie que vous ne parvenez pas à contacter l'équipement sur le port 161, 
-ou alors que la communauté SNMP configurée n'est pas correcte. 
+Si vous obtenez ce message, cela signifie que vous ne parvenez pas à contacter l'équipement sur le port 161,
+ou alors que la communauté SNMP configurée n'est pas correcte.
 Il est également possible qu'un firewall bloque le flux.
 
 #### UNKNOWN: SNMP GET Request : Cant get a single value.
 
-Si vous rencontrez cette erreur, il est probable que les autorisations données à l'agent SNMP soient trop restreintes. 
- * L'équipement ne prend pas en charge la MIB utilisée par le Plugin (branche: .1.3.6.1.4.1.9148).
- * L'OID SNMP ciblé ne peut pas être récupéré en raison de privilèges d'équipement insuffisants.
+Si vous rencontrez cette erreur, il est probable que les autorisations données à l'agent SNMP soient trop restreintes.
+* L'équipement ne prend pas en charge la MIB utilisée par le Plugin (branche: .1.3.6.1.4.1.9148).
+* L'OID SNMP ciblé ne peut pas être récupéré en raison de privilèges d'équipement insuffisants.

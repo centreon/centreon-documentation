@@ -15,10 +15,10 @@ puts them in cache. Loging out or waiting 10 hours will flush the cache.
 
 This connector is (at least) compatible with the following Glpi versions:
 
-  - 9.4
-  - 9.3
-  - 9.2
-  - 9.1 (Glpi REST API birth)
+- 9.4
+- 9.3
+- 9.2
+- 9.1 (Glpi REST API birth)
 
 You can’t use this provider with Glpi < 9.1. From the 8.5 to 9.0 version, you
 should use the old Glpi provider that uses the Glpi plugin called “webservice”
@@ -44,23 +44,23 @@ Our provider requires the following parameters:
 
 As of now, the provider is able to retrieve the following objects from Glpi:
 
-  - Entities
-  - Itil categories
-  - Requesters
-  - Users
-  - Groups
-  - Suppliers
+- Entities
+- Itil categories
+- Requesters
+- Users
+- Groups
+- Suppliers
 
 It will also fill the following parameters from a predefined list in Centreon.
 You can extend those lists inside the provider configuration since they are
 custom lists
 <https://documentation.centreon.com/docs/centreon-open-tickets/en/latest/configuration_guide/index#advanced-configuration>
 
-  - User role
-  - Group role
-  - Urgency
-  - Impact
-  - Priority
+- User role
+- Group role
+- Urgency
+- Impact
+- Priority
 
 ## Configuration
 

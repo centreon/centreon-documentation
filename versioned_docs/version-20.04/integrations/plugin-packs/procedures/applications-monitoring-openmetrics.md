@@ -45,7 +45,7 @@ Check the *Create Services linked to the Template too* box and click on the
 
 The following service will be created:
 
-  - Scrape-Metrics
+- Scrape-Metrics
 
 #### Checking using a remote file
 
@@ -71,7 +71,7 @@ Check the *Create Services linked to the Template too* box and click on the
 
 The following service will be created:
 
-  - Scrape-Metrics
+- Scrape-Metrics
 
 ### Set the service macros
 

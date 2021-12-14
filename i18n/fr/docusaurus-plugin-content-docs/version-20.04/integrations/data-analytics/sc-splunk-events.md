@@ -28,23 +28,23 @@ Here an example of the format POST by the Stream Connector for a service event:
 
 ```json
 {
-    "event": {
-        "event_type": "service",
-        "hostname": "HQ-FW-Inet",
-        "output": "CRITICAL: Domain 'headquarter_inet' Intrusions detected : 120Domain 'headquarter_inet' Intrusions detected : 120, Intrusions blocked : 0, Critical severity intrusions detected : 519, High severity intrusions detected : 456, Medium severity intrusions detected : 394, Low severity intrusions detected : 254, Informational severity intrusions detected : 0, Signature intrusions detected : 8282, Anomaly intrusions detected : 1\\n",
-        "service_description": "Ips-Stats-Global",
-        "state": 2
-    },
-    "host": "Centreon",
-    "index": "archimede-events",
-    "source": "http:archimede-events",
-    "sourcetype": "_json"
+"event": {
+"event_type": "service",
+"hostname": "HQ-FW-Inet",
+"output": "CRITICAL: Domain 'headquarter_inet' Intrusions detected : 120Domain 'headquarter_inet' Intrusions detected : 120, Intrusions blocked : 0, Critical severity intrusions detected : 519, High severity intrusions detected : 456, Medium severity intrusions detected : 394, Low severity intrusions detected : 254, Informational severity intrusions detected : 0, Signature intrusions detected : 8282, Anomaly intrusions detected : 1\\n",
+"service_description": "Ips-Stats-Global",
+"state": 2
+},
+"host": "Centreon",
+"index": "archimede-events",
+"source": "http:archimede-events",
+"sourcetype": "_json"
 }
 ```
 
 ## Requirements
 
-* Splunk integrations requires an Splunk Entreprise Edition and a HTTP Event Collector to send the Centreon Data. 
+* Splunk integrations requires an Splunk Entreprise Edition and a HTTP Event Collector to send the Centreon Data.
 * It is also necessary to use a Centreon account with either **admin privileges** or **Export configuration** and **Broker configuration** menu access in the WUI, as well as a **`root` access in command-line interface**.
 
 ## Support
@@ -63,7 +63,7 @@ You can also use a existing HTTP Event Collector and create a specific **Events 
 
 ### In Centreon
 
-#### Installation 
+#### Installation
 
 Login as `root` on the Centreon central server using your favorite SSH client.
 

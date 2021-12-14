@@ -81,7 +81,7 @@ for example, if the url is as follow: **https://web.telegram.org/#/im?p=g123456*
 --http-peer-addr='api.telegram.org' --bot-token='xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' \
 --chat-id='-xxxxxxxxxx' --host-name='$HOSTNAME$'  --service-description='$SERVICEDESC$' --service-state=$SERVICESTATE$ \
 --service-output='$SERVICEOUTPUT$'
-``` 
+```
 
 #### Host notification command
 
@@ -93,7 +93,7 @@ for example, if the url is as follow: **https://web.telegram.org/#/im?p=g123456*
 --mode=alert \
 --http-peer-addr='api.telegram.org' \
 --bot-token='xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' \
---chat-id='-xxxxxxx' \ 
+--chat-id='-xxxxxxx' \
 --host-name='$HOSTNAME$' \
 --host-state=$HOSTSTATE$  \
 --host-output='$HOSTOUTPUT$'
@@ -102,7 +102,7 @@ for example, if the url is as follow: **https://web.telegram.org/#/im?p=g123456*
 ## Example
 
 ```bash
-/usr/lib/centreon/git-plugins/centreon-plugins/centreon_plugins.pl \ 
+/usr/lib/centreon/git-plugins/centreon-plugins/centreon_plugins.pl \
 --plugin=notification::telegram::plugin \
 --mode=alert \
 --http-peer-addr='api.telegram.org' \
@@ -110,7 +110,7 @@ for example, if the url is as follow: **https://web.telegram.org/#/im?p=g123456*
 --chat-id='-xxxxxxxx' \
 --host-name='nirvana' \
 --service-description='yellow-submarine' \
---service-state=CRITICAL 
+--service-state=CRITICAL
 --service-output='highway to hell'
 ```
 
@@ -132,7 +132,7 @@ for example, if the url is as follow: **https://web.telegram.org/#/im?p=g123456*
 
 ## Message options
 
-When sending your notification you can add various options that you can list using the `--help` option of the Centreon plugin. 
+When sending your notification you can add various options that you can list using the `--help` option of the Centreon plugin.
 
 Below are some of the available options:
 

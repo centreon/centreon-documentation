@@ -2,6 +2,9 @@
 id: network-ubiquiti-unifi-snmp
 title: Ubiquiti UniFi SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Pack Assets
 
@@ -19,47 +22,48 @@ The Pack Ubiquiti UniFi collects metrics for:
 
 ### Discovery rules
 
-<!--DOCUSAURUS_CODE_TABS-->
+<Tabs groupId="operating-systems">
+<TabItem value="Services" label="Services">
 
-<!--Services-->
+| Rule name                              | Description                                                   |
+| :------------------------------------- | :------------------------------------------------------------ |
+| Net-Ubiquiti-Unifi-SNMP-Interface-Name | Discover network interfaces and monitor bandwidth utilization |
 
-| Rule name                              | Description                                                           |
-| :------------------------------------- | :-------------------------------------------------------------------- |
-| Net-Ubiquiti-Unifi-SNMP-Interface-Name | Discover network interfaces and monitor bandwidth utilization         |
-
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Collected Metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
+<Tabs groupId="operating-systems">
+<TabItem value="Cpu" label="Cpu">
 
-<!--Cpu-->
+| Metric name                          | Description                | Unit |
+| :----------------------------------- | :------------------------- | :--- |
+| cpu.user.utilization.percentage      | CPU User utilization       | %    |
+| cpu.nice.utilization.percentage      | CPU Nice utilization       | %    |
+| cpu.system.utilization.percentage    | CPU System utilization     | %    |
+| cpu.idle.utilization.percentage      | CPU Idle utilization       | %    |
+| cpu.wait.utilization.percentage      | CPU Wait utilization       | %    |
+| cpu.kernel.utilization.percentage    | CPU Kernel utilization     | %    |
+| cpu.interrupt.utilization.percentage | CPU Interrupt utilization  | %    |
+| cpu.softirq.utilization.percentage   | CPU SoftIrq utilization    | %    |
+| cpu.steal.utilization.percentage     | CPU Steal utilization      | %    |
+| cpu.guest.utilization.percentage     | CPU Guest utilization      | %    |
+| cpu.guestnice.utilization.percentage | CPU Guest Nice utilization | %    |
 
-| Metric name                           | Description                 | Unit  |
-| :------------------------------------ | :-------------------------- | :---- |
-| cpu.user.utilization.percentage       | CPU User utilization        | %     |
-| cpu.nice.utilization.percentage       | CPU Nice utilization        | %     |
-| cpu.system.utilization.percentage     | CPU System utilization      | %     |
-| cpu.idle.utilization.percentage       | CPU Idle utilization        | %     |
-| cpu.wait.utilization.percentage       | CPU Wait utilization        | %     |
-| cpu.kernel.utilization.percentage     | CPU Kernel utilization      | %     |
-| cpu.interrupt.utilization.percentage  | CPU Interrupt utilization   | %     |
-| cpu.softirq.utilization.percentage    | CPU SoftIrq utilization     | %     |
-| cpu.steal.utilization.percentage      | CPU Steal utilization       | %     |
-| cpu.guest.utilization.percentage      | CPU Guest utilization       | %     |
-| cpu.guestnice.utilization.percentage  | CPU Guest Nice utilization  | %     |
+</TabItem>
+<TabItem value="Disks" label="Disks">
 
-<!--Disks-->
+| Metric name                     | Description                  | Unit |
+| :------------------------------ | :--------------------------- | :--- |
+| storage.partitions.count        | Number of partitions storage |      |
+| storage.space.usage.bytes       | Usage Space Storage          | B    |
+| storage.space.free.bytes        | Free Space storage           | B    |
+| storage.space.usage.percentage  | Usage Space in percentage    | %    |
+| storage.inodes.usage.percentage | Inode usage in percentage    | %    |
 
-| Metric name                     | Description                      | Unit  |
-| :------------------------------ | :------------------------------- | :---- |
-| storage.partitions.count        | Number of partitions storage     |       |
-| storage.space.usage.bytes       | Usage Space Storage              | B     |
-| storage.space.free.bytes        | Free Space storage               | B     |
-| storage.space.usage.percentage  | Usage Space in percentage        | %     |
-| storage.inodes.usage.percentage | Inode usage in percentage        | %     |
-
-<!--Interfaces-->
+</TabItem>
+<TabItem value="Interfaces" label="Interfaces">
 
 | Metric name                                            | Description                                         | Unit |
 | :----------------------------------------------------- | :-------------------------------------------------- | :--- |
@@ -71,7 +75,8 @@ The Pack Ubiquiti UniFi collects metrics for:
 
 A regexp filter is available to target a specific interface identifier - ifName [```--interface='^eth0$' --name```]
 
-<!--Load-->
+</TabItem>
+<TabItem value="Load" label="Load">
 
 | Metric name            | Description                                                       | Unit |
 | :--------------------- | :---------------------------------------------------------------- | :--- |
@@ -82,43 +87,48 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | load.5m.average.count  | System load 5 minutes-sample divided by the number of processors  |      |
 | load.15m.average.count | System load 15 minutes-sample divided by the number of processors |      |
 
-<!--Memory-->
+</TabItem>
+<TabItem value="Memory" label="Memory">
 
-| Metric name             | Description                              | Unit  |
-| :---------------------  | :--------------------------------------- | :---- |
-| memory.usage.bytes      | Memory usage on the device               | B     |
-| memory.free.bytes       | Free memory on the device                | B     |
-| memory.usage.percentage | Percentage of memory usage on the device | %     |
-| memory.buffer.bytes     | Buffered memory allocation               | B     |
-| memory.cached.bytes     | Cached memory allocation                 | B     |
-| memory.shared.bytes     | Shared memory allocation                 | B     |
+| Metric name             | Description                              | Unit |
+| :---------------------- | :--------------------------------------- | :--- |
+| memory.usage.bytes      | Memory usage on the device               | B    |
+| memory.free.bytes       | Free memory on the device                | B    |
+| memory.usage.percentage | Percentage of memory usage on the device | %    |
+| memory.buffer.bytes     | Buffered memory allocation               | B    |
+| memory.cached.bytes     | Cached memory allocation                 | B    |
+| memory.shared.bytes     | Shared memory allocation                 | B    |
 
-<!--Swap-->
+</TabItem>
+<TabItem value="Swap" label="Swap">
 
-| Metric name                 | Description             | Unit   |
-| :-------------------------- | :---------------------- | :----- |
-| swap.usage.bytes            | Used swap               | B      |
-| swap.free.bytes             | Free swap               | B      |
-| swap.usage.percentage       | Percentage of used swap | %      |
+| Metric name           | Description             | Unit |
+| :-------------------- | :---------------------- | :--- |
+| swap.usage.bytes      | Used swap               | B    |
+| swap.free.bytes       | Free swap               | B    |
+| swap.usage.percentage | Percentage of used swap | %    |
 
-<!--Uptime-->
+</TabItem>
+<TabItem value="Uptime" label="Uptime">
 
-| Metric name           | Description        | Unit  |
-| :-------------------- | :----------------- | :---- |
-| system.uptime.seconds | System uptime      | s     |
+| Metric name           | Description   | Unit |
+| :-------------------- | :------------ | :--- |
+| system.uptime.seconds | System uptime | s    |
 
-<!--Virtual-access-points-->
+</TabItem>
+<TabItem value="Virtualaccesspoints" label="Virtualaccesspoints">
 
-| Metric name                                                | Description                               | Unit   |
-| :--------------------------------------------------------- | :---------------------------------------- | :----- |
-| virtual_access_points.total.count                          | Number of virtual access points           |        |
-| virtual_access_points.clients.connected.count              | Number of virtual access points connected |        |
-| status                                                     | Status of the virtual access point        |        |
-| *vap_name*\#virtual_access_point.clients.connected.count   | Number of clients connected               | dBm    |
-| *vap_name*\#virtual_access_point.traffic.in.bitspersecond  | Incoming traffic                          | b/s    |
-| *vap_name*\#virtual_access_point.traffic.out.bitspersecond | Outgoing traffic                          | b/s    |
+| Metric name                                                | Description                               | Unit |
+| :--------------------------------------------------------- | :---------------------------------------- | :--- |
+| virtual_access_points.total.count                          | Number of virtual access points           |      |
+| virtual_access_points.clients.connected.count              | Number of virtual access points connected |      |
+| status                                                     | Status of the virtual access point        |      |
+| *vap_name*\#virtual_access_point.clients.connected.count   | Number of clients connected               | dBm  |
+| *vap_name*\#virtual_access_point.traffic.in.bitspersecond  | Incoming traffic                          | b/s  |
+| *vap_name*\#virtual_access_point.traffic.out.bitspersecond | Outgoing traffic                          | b/s  |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -127,9 +137,8 @@ The Poller should be able to perform SNMP requests toward the Ubiquiti device ov
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="licence-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -139,7 +148,8 @@ yum install centreon-plugin-Network-Ubiquiti-Unifi-Snmp
 
 2. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *Ubiquiti UniFi SNMP* Pack
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -155,7 +165,8 @@ yum install centreon-pack-network-ubiquiti-unifi-snmp
 
 3. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *Ubiquiti UniFi SNMP* Pack
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host configuration
 
@@ -164,9 +175,9 @@ yum install centreon-pack-network-ubiquiti-unifi-snmp
 
 > When using SNMP v3, use the SNMPEXTRAOPTIONS Macro to add specific authentication parameters
 
-| Mandatory | Name             | Description                                    |
-| :-------- | :--------------- | :--------------------------------------------- |
-|           | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo    |
+| Mandatory | Name             | Description                                 |
+| :-------- | :--------------- | :------------------------------------------ |
+|           | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo |
 
 ## How to test the Plugin and what are the main options for?
 
@@ -175,15 +186,15 @@ and test the Plugin by running the following command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_ubiquiti_unifi_snmp.pl \
-    --plugin=network::ubiquiti::unifi::snmp::plugin \
-    --mode=disks \
-    --hostname=10.30.2.114 \
-    --snmp-version='2c' \
-    --snmp-community='ubiquiti_ro' \
-    --filter-disk-path='^/$' \
-    --warning-usage-prct='90' \
-    --critical-usage-prct='95' \
-    --verbose
+--plugin=network::ubiquiti::unifi::snmp::plugin \
+--mode=disks \
+--hostname=10.30.2.114 \
+--snmp-version='2c' \
+--snmp-community='ubiquiti_ro' \
+--filter-disk-path='^/$' \
+--warning-usage-prct='90' \
+--critical-usage-prct='95' \
+--verbose
 ```
 
 Expected command output is shown below:
@@ -197,7 +208,7 @@ The command above monitors Ubiquiti UniFi (```--plugin=network::ubiquiti::unifi:
 by the IP address *10.30.2.114* (```--hostname=10.30.2.114```). As the Plugin is using the SNMP protocol to request the device, the related
 *community* and *version* are specified (```--snmp-version='2c' --snmp-community='ubiquiti_ro'```).
 
-This command would trigger a WARNING alarm if disk utilization over 90% 
+This command would trigger a WARNING alarm if disk utilization over 90%
 (```--warning-usage-prct='90'```) and a CRITICAL alarm over 95% (```--critical-usage-prct='95'```).
 
 All the options as well as all the available thresholds can be displayed by adding the  ```--help```
@@ -205,9 +216,9 @@ parameter to the command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_ubiquiti_unifi_snmp.pl \
-    --plugin=network::ubiquiti::unifi::snmp::plugin \
-    --mode=disks \
-    --help
+--plugin=network::ubiquiti::unifi::snmp::plugin \
+--mode=disks \
+--help
 ```
 
 ## Troubleshooting

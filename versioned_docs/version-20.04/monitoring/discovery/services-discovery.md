@@ -63,13 +63,13 @@ Fill the first fields:
 
 Here is the description of the firsts fields located inside the *General* tab:
 
-  - **Rule name**: the rule's name
-  - **Command Macro**: discovery command which allow to list available XML
-    attributes
-  - **Command Discover**: discovery command which will be executed to enumerate
-    the elements
-  - **Service template**: the service template used to dynamically create new
-    services based on the discovery
+- **Rule name**: the rule's name
+- **Command Macro**: discovery command which allow to list available XML
+attributes
+- **Command Discover**: discovery command which will be executed to enumerate
+the elements
+- **Service template**: the service template used to dynamically create new
+services based on the discovery
 
 Go to the second **Inclusions / Exclusions & Macros** tab. You should see
 available XML attributes:
@@ -92,23 +92,23 @@ Define the name of the service that will be created.
 
 Here is the description of the other fields located inside the *General* tab:
 
-  - **Hosts templates**: the templates used to retrieve the list of hosts for
-    which a discovery rule should be run
-  - **Linked Instances**: execute only the rule for host attached to selected
-    instances.
+- **Hosts templates**: the templates used to retrieve the list of hosts for
+which a discovery rule should be run
+- **Linked Instances**: execute only the rule for host attached to selected
+instances.
 
 > Keep empty to execute rule for any instance.
 
-  - **Contacts**: contacts that will be notified about creation or deactivation
-    during a discovery
-  - **Contact groups**: contact groups that will be notified about creation or
-    deactivation during a discovery
-  - **Disable elements not found**: let the module deactivate services
-    associated to elements that cannot be found anymore
-  - **Update existing services**: update created service property if enable
-    (custom macro, etc.).
-  - **Activate**: activate or deactivate the rule (will be ignored by the
-    discovery process if deactivated)
+- **Contacts**: contacts that will be notified about creation or deactivation
+during a discovery
+- **Contact groups**: contact groups that will be notified about creation or
+deactivation during a discovery
+- **Disable elements not found**: let the module deactivate services
+associated to elements that cannot be found anymore
+- **Update existing services**: update created service property if enable
+(custom macro, etc.).
+- **Activate**: activate or deactivate the rule (will be ignored by the
+discovery process if deactivated)
 
 Click on the **Save** button to save the discovery rule.
 
@@ -123,12 +123,12 @@ during the discovery. This inclusion/exclusion is relative to an XML attribute.
 
 The inclusion/exclusion rules, are defined using the following algorithm:
 
-  - If only inclusion rules are present, the attribute's value corresponding to
-    at least one inclusion will be considered
-  - If only exclusion rules are present, every element will be considered,
-    except the ones corresponding to an exclusion
-  - If both types are present, the process checks if the element corresponds to
-    an inclusion and then checks if it is not listed into the exclusion list
+- If only inclusion rules are present, the attribute's value corresponding to
+at least one inclusion will be considered
+- If only exclusion rules are present, every element will be considered,
+except the ones corresponding to an exclusion
+- If both types are present, the process checks if the element corresponds to
+an inclusion and then checks if it is not listed into the exclusion list
 
 The second part **Macros** allows to define matches between an XML attribute and
 a service's template macro. For all created services the macros' values will be
@@ -151,8 +151,8 @@ result:
 
 The regexp can be apply on **String** field for:
 
-  - **@SERVICENAME@**: The name of service will be created
-  - All XML attributes defined by **$attribute\_name$**
+- **@SERVICENAME@**: The name of service will be created
+- All XML attributes defined by **$attribute\_name$**
 
 The second part **Customize code** allows to use Perl code.
 
@@ -171,14 +171,14 @@ an example to have dynamic threshold according the disk size:
 ``` perl
 my $total_gb = $total$ / 1000 / 1000 / 1000;
 if ($total_gb < 100) {
-    $warning$ = 80;
-    $critical$ = 90;
+$warning$ = 80;
+$critical$ = 90;
 } elsif ($total_gb < 500) {
-    $warning$ = 90;
-    $critical$ = 95;
+$warning$ = 90;
+$critical$ = 95;
 } else {
-    $warning$ = 95;
-    $critical$ = 98;
+$warning$ = 95;
+$critical$ = 98;
 }
 ```
 
@@ -191,8 +191,8 @@ plugin](#discovery-plugins)*.
 
 For each discovery plugins you need to define two commands:
 
-  - The first one to get the list of available XML attributes
-  - The second one to discover items on a host
+- The first one to get the list of available XML attributes
+- The second one to discover items on a host
 
 ![image](../../assets/configuration/autodisco/commands_list.png)
 
@@ -203,9 +203,9 @@ create the first command.
 
 Fill the fileds:
 
-  - **Command Name**: Name of your command
-  - **Command type**: check **Discovery** option
-  - **Command Line**: Define the command to get the list of XML attributes
+- **Command Name**: Name of your command
+- **Command type**: check **Discovery** option
+- **Command Line**: Define the command to get the list of XML attributes
 
 > All commands using Centreon Plugin project need to set the **hostname** option
 > so add **--hostname=127.0.0.1** in your command line
@@ -223,10 +223,10 @@ And the result:
 ``` xml
 <?xml version="1.0" encoding="utf-8"?>
 <data>
-    <element>name</element>
-    <element>total</element>
-    <element>status</element>
-    <element>interfaceid</element>
+<element>name</element>
+<element>total</element>
+<element>status</element>
+<element>interfaceid</element>
 </data>
 ```
 
@@ -239,9 +239,9 @@ create the first command.
 
 Fill the fileds:
 
-  - **Command Name**: Name of your command
-  - **Command type**: check **Discovery** option
-  - **Command Line**: Define the command to get the list of items.
+- **Command Name**: Name of your command
+- **Command type**: check **Discovery** option
+- **Command Line**: Define the command to get the list of items.
 
 ![image](../../assets/configuration/autodisco/command_disco.png)
 
@@ -256,8 +256,8 @@ And the result:
 ``` xml
 <?xml version="1.0" encoding="utf-8"?>
 <data>
-    <label status="1" name="lo" total="10" interfaceid="1"/>
-    <label status="1" name="eth0" total="1000" interfaceid="2"/>
+<label status="1" name="lo" total="10" interfaceid="1"/>
+<label status="1" name="eth0" total="1000" interfaceid="2"/>
 </data>
 ```
 
@@ -286,8 +286,8 @@ For example:
 ``` xml
 <?xml version="1.0" encoding="utf-8"?>
 <data>
-    <label status="1" name="lo" total="10" interfaceid="1"/>
-    <label status="1" name="eth0" total="1000" interfaceid="2"/>
+<label status="1" name="lo" total="10" interfaceid="1"/>
+<label status="1" name="eth0" total="1000" interfaceid="2"/>
 </data>
 ```
 
@@ -307,10 +307,10 @@ For example:
 ``` xml
 <?xml version="1.0" encoding="utf-8"?>
 <data>
-    <element>name</element>
-    <element>total</element>
-    <element>status</element>
-    <element>interfaceid</element>
+<element>name</element>
+<element>total</element>
+<element>status</element>
+<element>interfaceid</element>
 </data>
 ```
 
@@ -321,12 +321,12 @@ Here, four attributes are available: `name`, `total`, `status` and
 
 You can run manually discovery using following options:
 
-  - `--filter-rule=<rule_name>`: Run selected rule
-  - `--filter-host=<host_name>`: Run all rules linked to hosttemplates used by
-    host
-  - `--filter-poller=<poller_name>`: Run rules for ressources linked to the
-    poller
-  - `--dry-run`: Run tests without configuration change
+- `--filter-rule=<rule_name>`: Run selected rule
+- `--filter-host=<host_name>`: Run all rules linked to hosttemplates used by
+host
+- `--filter-poller=<poller_name>`: Run rules for ressources linked to the
+poller
+- `--dry-run`: Run tests without configuration change
 
 > You can combine `--filter-*=<value>` options. `--dry-run` option is an
 > independant option.
@@ -343,30 +343,30 @@ Test all rules:
 
 ``` shell
 /usr/share/centreon/www//modules/centreon-autodiscovery-server/cron/centreon_autodisco.pl \
-  --dry-run
+--dry-run
 ```
 
 Test specific rule:
 
 ``` shell
 /usr/share/centreon/www//modules/centreon-autodiscovery-server/cron/centreon_autodisco.pl \
-  --filter-rule="OS-Linux-SNMP-Network-Interfaces-Discovery" \
-  --dry-run
+--filter-rule="OS-Linux-SNMP-Network-Interfaces-Discovery" \
+--dry-run
 ```
 
 Test all rules linked to hosttemplates used by specific host:
 
 ``` shell
 /usr/share/centreon/www//modules/centreon-autodiscovery-server/cron/centreon_autodisco.pl \
-  --filter-host="centreon-server" \
-  --dry-run
+--filter-host="centreon-server" \
+--dry-run
 ```
 
 Test specific rule on predifined host:
 
 ``` shell
 /usr/share/centreon/www//modules/centreon-autodiscovery-server/cron/centreon_autodisco.pl \
-  --filter-rule="OS-Linux-SNMP-Network-Interfaces-Discovery" \
-  --filter-host="centreon-server" \
-  --dry-run
+--filter-rule="OS-Linux-SNMP-Network-Interfaces-Discovery" \
+--filter-host="centreon-server" \
+--dry-run
 ```

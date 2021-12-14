@@ -66,11 +66,11 @@ discovery jobs.
 
 The status of a job can be:
 
-  - Scheduled <img src={require('../../assets/monitoring/discovery/host-discovery-scheduled.png').default} style={{width:'24px', marginBottom:'-6px'}} />
-  - Running <img src={require('../../assets/monitoring/discovery/host-discovery-running.png').default} style={{width:'24px', marginBottom:'-6px'}} />
-  - Saving <img src={require('../../assets/monitoring/discovery/host-discovery-saving.png').default} style={{width:'24px', marginBottom:'-6px'}} />
-  - Finished <img src={require('../../assets/monitoring/discovery/host-discovery-finished.png').default} style={{width:'24px', marginBottom:'-6px'}} />
-  - Failed <img src={require('../../assets/monitoring/discovery/host-discovery-failed.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+- Scheduled <img src={require('../../assets/monitoring/discovery/host-discovery-scheduled.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+- Running <img src={require('../../assets/monitoring/discovery/host-discovery-running.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+- Saving <img src={require('../../assets/monitoring/discovery/host-discovery-saving.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+- Finished <img src={require('../../assets/monitoring/discovery/host-discovery-finished.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+- Failed <img src={require('../../assets/monitoring/discovery/host-discovery-failed.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 
 If a job is on a *Failed* status, hover on to the icon to know the reason.
 
@@ -121,11 +121,11 @@ item to a property of a future host.
 
 There is four types of *mappers*:
 
-  - Association: map an attribute's value to a common host property like name,
-    alias or IP,
-  - Macro: map an attribute's value to a host custom macro,
-  - Template: add a host template,
-  - Monitoring: choose from which monitoring server will be monitored the host.
+- Association: map an attribute's value to a common host property like name,
+alias or IP,
+- Macro: map an attribute's value to a host custom macro,
+- Template: add a host template,
+- Monitoring: choose from which monitoring server will be monitored the host.
 
 For all those *mappers*, conditions can be applied to choose whether or not the
 mapping will actually occur.

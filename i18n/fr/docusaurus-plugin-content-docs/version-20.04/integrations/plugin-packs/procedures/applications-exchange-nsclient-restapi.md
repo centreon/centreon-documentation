@@ -2,15 +2,18 @@
 id: applications-exchange-nsclient-restapi
 title: Exchange NSClient++ API
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-> Hello community! We're looking for a contributor to help us to translate the 
-content in french and provide a sample execution command. If it's you, let us 
+
+> Hello community! We're looking for a contributor to help us to translate the
+content in french and provide a sample execution command. If it's you, let us
 know and ping us on [slack](https://centreon.slack.com)
 
 ## Overview
 
 The Plugin Pack *Exchange NSClient API* works with the Centreon NSClient++ monitoring
-agent and its built-in web server to run Powershell code to check the health and 
+agent and its built-in web server to run Powershell code to check the health and
 performance of Microsoft Exchange Servers.
 
 ## Pack assets
@@ -27,20 +30,19 @@ performance of Microsoft Exchange Servers.
 
 ### NSClient++
 
-To monitor an *Exchange Server* through NSClient++ API, install the Centreon packaged version 
-of the NSClient++ agent. Please follow our [official documentation](../tutorials/centreon-nsclient-tutorial) 
-and make sure that the **Webserver / RESTApi** configuration is correct. 
+To monitor an *Exchange Server* through NSClient++ API, install the Centreon packaged version
+of the NSClient++ agent. Please follow our [official documentation](../tutorials/centreon-nsclient-tutorial)
+and make sure that the **Webserver / RESTApi** configuration is correct.
 
-### Powershell 
+### Powershell
 
 Powershell and the `Microsoft.Exchange.Management.PowerShell` snap-in must be installed
 on the target Server.
 
-## Installation 
+## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="operating-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon NRPE Client package on every Poller expected to monitor *Microsoft Exchange servers*:
 
@@ -48,10 +50,11 @@ on the target Server.
 yum install centreon-plugin-Operatingsystems-Windows-Restapi
 ```
 
-2. On the Centreon Web interface, install the Centreon Plugin-Pack *Exchange NSClient API* 
+2. On the Centreon Web interface, install the Centreon Plugin-Pack *Exchange NSClient API*
 from the **Configuration > Plugin Packs > Manager** page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Poller expected to monitor *Microsoft Exchange*:
 
@@ -65,10 +68,11 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 yum install centreon-pack-applications-exchange-nsclient-restapi
 ```
 
-3. On the Centreon Web interface, install the Centreon Plugin-Pack *Exchange NSClient API* 
+3. On the Centreon Web interface, install the Centreon Plugin-Pack *Exchange NSClient API*
 from the **Configuration > Plugin Packs > Manager** page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host configuration
 
@@ -84,6 +88,6 @@ from the **Configuration > Plugin Packs > Manager** page
 
 ## Important information
 
-* The *Queue* monitoring Service only works on Exchange Server running with the 
+* The *Queue* monitoring Service only works on Exchange Server running with the
 hub/transport role
 * Use this format to define MAILBOX macro at the service level: DOMAIN\\USER

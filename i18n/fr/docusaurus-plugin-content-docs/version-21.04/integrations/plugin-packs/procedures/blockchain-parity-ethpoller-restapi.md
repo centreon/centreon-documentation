@@ -2,30 +2,32 @@
 id: blockchain-parity-ethpoller-restapi
 title: Ethpoller API
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
-Le BCM Poller expose collecte des données sur le comportement d'un réseau Blockchain 
-basé sur les technologies Ethereum ou Hyperledger Fabric. 
+Le BCM Poller expose collecte des données sur le comportement d'un réseau Blockchain
+basé sur les technologies Ethereum ou Hyperledger Fabric.
 
-Le Plugin Pack *Ethpoller API* récupère les informations collectées au travers de 
-l'API exposée par cet outil afin d'offrir une analyse de l'utilisation et de l'adoption 
+Le Plugin Pack *Ethpoller API* récupère les informations collectées au travers de
+l'API exposée par cet outil afin d'offrir une analyse de l'utilisation et de l'adoption
 du réseaux au travers du comportement des noeuds observés.
 
 ## Contenu du Pack
 
 ### Objets supervisés
 
-* EventPoller node 
-    * Tracking
-    * Stats
-    * Disk  
+* EventPoller node
+* Tracking
+* Stats
+* Disk
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Tracking-->
+<Tabs groupId="operating-systems">
+<TabItem value="Tracking" label="Tracking">
 
 | Metric name                               | Description                          | Unit |
 |:----------------------------------------- |:------------------------------------ | ---- |
@@ -33,7 +35,8 @@ du réseaux au travers du comportement des noeuds observés.
 | parity.tracking.mined.block.prct          | Percentage of block mined            |  %   |
 | parity.tracking.balance.changes.perminute | Number of balance changes per minute | wei  |
 
-<!--Stats-->
+</TabItem>
+<TabItem value="Stats" label="Stats">
 
 * Per *block*
 
@@ -43,7 +46,8 @@ du réseaux au travers du comportement des noeuds observés.
 | parity.stats.transaction.perminute | Number of transaction per minute |      |
 | parity.stats.fork.perminute        | Number of fork per minute        |      |
 
-<!--Disk-->
+</TabItem>
+<TabItem value="Disk" label="Disk">
 
 | Metric name                     | Description                   | Unit |
 |:--------------------------------|:------------------------------|:-----|
@@ -54,11 +58,12 @@ du réseaux au travers du comportement des noeuds observés.
 | eth.poller.disk.usage           |  Disk usage                   |  %   |
 | eth.poller.blockchain.directory |  Size of blockchain directory |  B   |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
-Afin de récupérer des données, déployer le BCM Poller en suivant la documentation 
+Afin de récupérer des données, déployer le BCM Poller en suivant la documentation
 fournie par l'IRT-Systemx [ici](https://github.com/IRT-SystemX/bcm-poller#getting-started).
 
 Le Collecteur Centreon doit pouvoir communiquer avec le BCM Poller au travers du port
@@ -66,9 +71,8 @@ configuré (par défaut: 8000).
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="operating-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon interrogeant des ressources *Ethpoller API*:
 
@@ -78,7 +82,8 @@ yum install centreon-plugin-Blockchain-Parity-Ethpoller-Restapi
 
 2. Dans l'interface Web de Centreon, installer le Plugin Pack *Ethpoller API* depuis la page  `Configuration > Plugin Packs`.
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon interrogeant des ressources *Ethpoller API*:
 
@@ -88,13 +93,14 @@ yum install centreon-plugin-Blockchain-Parity-Ethpoller-Restapi
 
 2. Sur le serveur Central Centreon, installer le paquet RPM *Ethpoller API*:
 
- ```bash
+```bash
 yum install centreon-pack-blockchain-parity-ethpoller-restapi
 ```
 
 3. Dans l'interface Web de Centreon, installer le Plugin Pack *Ethpoller API* depuis la page  `Configuration > Plugin Packs`.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration d'un Hôte
 
@@ -112,65 +118,65 @@ yum install centreon-pack-blockchain-parity-ethpoller-restapi
 
 ## Comment tester mes configurations et le Plugin en ligne de commande ?
 
-Une fois le Plugin déployé, connectez vous à votre Collecteur en SSH et executez 
+Une fois le Plugin déployé, connectez vous à votre Collecteur en SSH et executez
 la commande suivante au travers de l'utilisateur *centreon-engine*:
 
 ```bash
-/usr/lib/centreon/plugins//centreon_blockchain_parity_ethpoller_api.pl  \ 
-   --plugin=blockchain::parity::ethpoller::plugin  \ 
-   --mode=tracking  \ 
-   --hostname=10.0.0.1  \ 
-   --port='8000'  \ 
-   --proto='http'  \ 
-   --url-path='/'  \ 
-   --timeout='10' \ 
-   --warning-balance-changes=''  \ 
-   --critical-balance-changes=''  \ 
-   --warning-events-frequency=''  \ 
-   --critical-events-frequency=''  \ 
-   --warning-mining-frequency=''  \ 
-   --critical-mining-frequency=''  \ 
-   --warning-mining-prct=''  \ 
-   --critical-mining-prct='50:'   
+/usr/lib/centreon/plugins//centreon_blockchain_parity_ethpoller_api.pl  \
+--plugin=blockchain::parity::ethpoller::plugin  \
+--mode=tracking  \
+--hostname=10.0.0.1  \
+--port='8000'  \
+--proto='http'  \
+--url-path='/'  \
+--timeout='10' \
+--warning-balance-changes=''  \
+--critical-balance-changes=''  \
+--warning-events-frequency=''  \
+--critical-events-frequency=''  \
+--warning-mining-frequency=''  \
+--critical-mining-frequency=''  \
+--warning-mining-prct=''  \
+--critical-mining-prct='50:'
 ```
 
 Le retour de la commande doit être similaire à:
 
- ```bash
+```bash
 OK: Events metrics are ok - Mining metrics are ok - Balances metrics are ok |
-'agent1#parity.tracking.events.perminute'=5.00;;;; 'agent2#parity.tracking.events.perminute'=15.00;;;; 'agent3#parity.tracking.events.perminute'=15.00;;;; 'agent4#parity.tracking.events.perminute'=10.00;;;; 'agent5#parity.tracking.events.perminute'=0.00;;;; 'credit#parity.tracking.events.perminute'=10.00;;;; 'deploy#parity.tracking.events.perminute'=20.00;;;; 'registry#parity.tracking.events.perminute'=5.00;;;; 'black#parity.tracking.mined.block.perminute'=5.00;;;; 'black#parity.tracking.mined.block.prct'=33.41%;;;0; 'gray#parity.tracking.mined.block.perminute'=10.00;;;; 'gray#parity.tracking.mined.block.prct'=33.14%;;;0; 'white#parity.tracking.mined.block.perminute'=10.00;;;; 'white#parity.tracking.mined.block.prct'=33.46%;;;0; 'master#parity.tracking.balance.changes.perminute'=0.00wei;;;; 'random#parity.tracking.balance.changes.perminute'=729999999999997378560.00wei;;;; 
+'agent1#parity.tracking.events.perminute'=5.00;;;; 'agent2#parity.tracking.events.perminute'=15.00;;;; 'agent3#parity.tracking.events.perminute'=15.00;;;; 'agent4#parity.tracking.events.perminute'=10.00;;;; 'agent5#parity.tracking.events.perminute'=0.00;;;; 'credit#parity.tracking.events.perminute'=10.00;;;; 'deploy#parity.tracking.events.perminute'=20.00;;;; 'registry#parity.tracking.events.perminute'=5.00;;;; 'black#parity.tracking.mined.block.perminute'=5.00;;;; 'black#parity.tracking.mined.block.prct'=33.41%;;;0; 'gray#parity.tracking.mined.block.perminute'=10.00;;;; 'gray#parity.tracking.mined.block.prct'=33.14%;;;0; 'white#parity.tracking.mined.block.perminute'=10.00;;;; 'white#parity.tracking.mined.block.prct'=33.46%;;;0; 'master#parity.tracking.balance.changes.perminute'=0.00wei;;;; 'random#parity.tracking.balance.changes.perminute'=729999999999997378560.00wei;;;;
 ```
 
-Cette commande déclenchera une alerte CRITICAL si l'un des noeuds a miné moins de 
-50% des blocks (`--critical-mining-prct=50:`). 
+Cette commande déclenchera une alerte CRITICAL si l'un des noeuds a miné moins de
+50% des blocks (`--critical-mining-prct=50:`).
 
-Les options disponibles pour un mode donnée peuvent être affiché en ajoutant 
+Les options disponibles pour un mode donnée peuvent être affiché en ajoutant
 l'option `--help` à la commande.
 
 Tous les modes d'un Plugin donné peuvent être listés au moyen de la commande suivante:
 
 ```bash
-/usr/lib/centreon/plugins//centreon_blockchain_parity_ethpoller_api.pl  \ 
-   --plugin=blockchain::parity::ethpoller::plugin  \ 
-   --list-mode
+/usr/lib/centreon/plugins//centreon_blockchain_parity_ethpoller_api.pl  \
+--plugin=blockchain::parity::ethpoller::plugin  \
+--list-mode
 ```
 
 ## Diagnostic des erreurs communes
 
-### UNKNOWN: Can't connect to ... 
+### UNKNOWN: Can't connect to ...
 
-Cette erreur signifie que Centreon n'a pas réussi à se connecter à l'API du 
+Cette erreur signifie que Centreon n'a pas réussi à se connecter à l'API du
 BCM Poller. Vérifiez que la requête n'est pas bloquée par un outil externe
 (un pare-feu par exemple). Si vous utilisez un proxy, renseignez son URL dans la
-Macro EXTRAOPTIONS de l'Hôte ou directement dans la commande avec l'option 
+Macro EXTRAOPTIONS de l'Hôte ou directement dans la commande avec l'option
 ```--proxyurl='http://proxy.mycompany:8080'```.
 
 Vérifiez également que le port configuré est correct.
 
 ### J'obtiens le message d'erreur suivant:  ``UNKNOWN: 501 Protocol scheme 'connect' is not supported |```
-Dans certains cas, et plus spécifiquement lors de l'usage d'un proxy 
-d'entreprise, le protocole de connexion n'est pas supporté par la libraire lwp 
+Dans certains cas, et plus spécifiquement lors de l'usage d'un proxy
+d'entreprise, le protocole de connexion n'est pas supporté par la libraire lwp
 utlisée par défaut par le Plugin Centreon.
-Cette erreur peut être résolue en utilisant le backend HTTP curl. Pour ce faire, 
-ajoutez l'option ```--http-backend='curl'``` dans la Macro EXTRAOPTIONS de 
+Cette erreur peut être résolue en utilisant le backend HTTP curl. Pour ce faire,
+ajoutez l'option ```--http-backend='curl'``` dans la Macro EXTRAOPTIONS de
 l'Hôte ou directement à la commande.

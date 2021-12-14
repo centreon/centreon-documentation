@@ -2,6 +2,9 @@
 id: network-ubiquiti-airfiber-snmp
 title: Ubiquiti AirFiber SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Plugin-Pack Assets
 
@@ -15,22 +18,21 @@ The Plugin-Pack Ubiquiti AirFiber SNMP collects metrics for:
 
 ### Discovery rules
 
-<!--DOCUSAURUS_CODE_TABS-->
+<Tabs groupId="operating-systems">
+<TabItem value="Services" label="Services">
 
-<!--Services-->
+| Rule name                                 | Description                                                   |
+| :---------------------------------------- | :------------------------------------------------------------ |
+| Net-Ubiquiti-Airfiber-SNMP-Interface-Name | Discover network interfaces and monitor bandwidth utilization |
+| Net-Ubiquiti-Airfiber-SNMP-Radio-Name     | Discover radio interfaces and monitor bandwidth utilization   |
 
-| Rule name                                  | Description                                                           |
-| :----------------------------------------- | :-------------------------------------------------------------------- |
-| Net-Ubiquiti-Airfiber-SNMP-Interface-Name  | Discover network interfaces and monitor bandwidth utilization         |
-| Net-Ubiquiti-Airfiber-SNMP-Radio-Name      | Discover radio interfaces and monitor bandwidth utilization           |
-
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Collected Metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Interfaces-->
+<Tabs groupId="operating-systems">
+<TabItem value="Interfaces" label="Interfaces">
 
 | Metric name                                            | Description                                         | Unit |
 | :----------------------------------------------------- | :-------------------------------------------------- | :--- |
@@ -42,33 +44,37 @@ The Plugin-Pack Ubiquiti AirFiber SNMP collects metrics for:
 
 A regexp filter is available to target a specific interface identifier - ifName [```--interface='^eth0$' --name```]
 
-<!--Load-->
+</TabItem>
+<TabItem value="Load" label="Load">
 
-| Metric name                  | Description                       | Unit |
-| :--------------------------- | :-------------------------------- | :--- |
-| system.loadaverage.1m.count  | System load 1 minute-sample       |      |
-| system.loadaverage.5m.count  | System load 5 minutes-sample      |      |
-| system.loadaverage.15m.count | System load 15 minutes-sample     |      |
+| Metric name                  | Description                   | Unit |
+| :--------------------------- | :---------------------------- | :--- |
+| system.loadaverage.1m.count  | System load 1 minute-sample   |      |
+| system.loadaverage.5m.count  | System load 5 minutes-sample  |      |
+| system.loadaverage.15m.count | System load 15 minutes-sample |      |
 
-<!--Memory-->
+</TabItem>
+<TabItem value="Memory" label="Memory">
 
-| Metric name             | Description                               | Unit  |
-| :---------------------  | :---------------------------------------- | :---- |
-| memory.usage.bytes      | Memory usage                              | B     |
-| memory.free.bytes       | Free memory                               | B     |
-| memory.usage.percentage | Memory usage in percentage                | %     |
+| Metric name             | Description                | Unit |
+| :---------------------- | :------------------------- | :--- |
+| memory.usage.bytes      | Memory usage               | B    |
+| memory.free.bytes       | Free memory                | B    |
+| memory.usage.percentage | Memory usage in percentage | %    |
 
-<!--Radios-->
+</TabItem>
+<TabItem value="Radios" label="Radios">
 
-| Metric name                                                      | Description                                  | Unit   |
-| :--------------------------------------------------------------- | :------------------------------------------- | :----- |
-| status                                                           | Status of the radio interface                |        |
-| *interfacename*\#radio.interface.chain0.signal.receive.power.dbm | Radio chain 0 RX power level                 | dBm    |
-| *interfacename*\#radio.interface.chain1.signal.receive.power.dbm | Radio chain 1 RX power level                 | dBm    |
-| *interfacename*\#radio.interface.traffic.in.bitspersecond        | Incoming traffic going through the interface | b/s    |
-| *interfacename*\#radio.interface.traffic.out.bitspersecond       | utgoing traffic going through the interface  | b/s    |
+| Metric name                                                      | Description                                  | Unit |
+| :--------------------------------------------------------------- | :------------------------------------------- | :--- |
+| status                                                           | Status of the radio interface                |      |
+| *interfacename*\#radio.interface.chain0.signal.receive.power.dbm | Radio chain 0 RX power level                 | dBm  |
+| *interfacename*\#radio.interface.chain1.signal.receive.power.dbm | Radio chain 1 RX power level                 | dBm  |
+| *interfacename*\#radio.interface.traffic.in.bitspersecond        | Incoming traffic going through the interface | b/s  |
+| *interfacename*\#radio.interface.traffic.out.bitspersecond       | utgoing traffic going through the interface  | b/s  |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -76,9 +82,8 @@ To control your Ubiquiti AirFiber, the SNMP must be configured.
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="licence-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -88,7 +93,8 @@ yum install centreon-plugin-Network-Ubiquiti-Airfiber-Snmp
 
 2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Ubiquiti AirFiber SNMP* Plugin-Pack
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -104,7 +110,8 @@ yum install centreon-pack-network-ubiquiti-airfiber-snmp
 
 3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Ubiquiti AirFiber SNMP* Plugin-Pack
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host configuration
 
@@ -113,9 +120,9 @@ yum install centreon-pack-network-ubiquiti-airfiber-snmp
 
 > When using SNMP v3, use the SNMPEXTRAOPTIONS Macro to add specific authentication parameters
 
-| Mandatory | Name             | Description                                    |
-| :-------- | :--------------- | :--------------------------------------------- |
-|           | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo    |
+| Mandatory | Name             | Description                                 |
+| :-------- | :--------------- | :------------------------------------------ |
+|           | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo |
 
 ## FAQ
 
@@ -126,14 +133,14 @@ and test the Plugin by running the following command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_ubiquiti_airfiber_snmp.pl \
-    --plugin=network::ubiquiti::airfiber::snmp::plugin \
-    --mode=load \
-    --hostname=10.30.2.114 \
-    --snmp-version='2c' \
-    --snmp-community='ubiquiti_ro' \
-    --warning-load15='3' \
-    --critical-load15='7' \
-    --verbose
+--plugin=network::ubiquiti::airfiber::snmp::plugin \
+--mode=load \
+--hostname=10.30.2.114 \
+--snmp-version='2c' \
+--snmp-community='ubiquiti_ro' \
+--warning-load15='3' \
+--critical-load15='7' \
+--verbose
 ```
 
 Expected command output is shown below:
@@ -154,9 +161,9 @@ parameter to the command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_ubiquiti_airfiber_snmp.pl \
-    --plugin=network::ubiquiti::airfiber::snmp::plugin \
-    --mode=load \
-    --help
+--plugin=network::ubiquiti::airfiber::snmp::plugin \
+--mode=load \
+--help
 ```
 
 ## Troubleshooting
@@ -169,7 +176,7 @@ If you get this message, you're probably facing one of theses issues:
 
 #### UNKNOWN: SNMP GET Request : Cant get a single value.
 
-This error message often refers to the following issues: 
-  - The agent doesn't support the MIB used by the plugin
-  - The targeted SNMP OID cannot be fetched because of insufficient privileges on the device. 
-    SNMP Agent must be capable of accessing to the enterprise branch: .1.3.6.1.4.1.41112
+This error message often refers to the following issues:
+- The agent doesn't support the MIB used by the plugin
+- The targeted SNMP OID cannot be fetched because of insufficient privileges on the device.
+SNMP Agent must be capable of accessing to the enterprise branch: .1.3.6.1.4.1.41112

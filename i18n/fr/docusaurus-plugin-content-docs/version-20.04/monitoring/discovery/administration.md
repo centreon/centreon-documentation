@@ -76,12 +76,12 @@ Exemple de configuration :
 
 ```yaml
 gorgone:
-  modules:
-    - name: autodiscovery
-      package: "gorgone::modules::centreon::autodiscovery::hooks"
-      enable: true
-      check_interval: 15
-      global_timeout: 300
+modules:
+- name: autodiscovery
+package: "gorgone::modules::centreon::autodiscovery::hooks"
+enable: true
+check_interval: 15
+global_timeout: 300
 ```
 
 > Assurez vous de redémarrer le service Gorgone après chaque modification :
@@ -108,10 +108,10 @@ fois sur le serveur Central et sur les Remote Servers ou Pollers.
 Le module **Auto Discovery** pour la découverte de service est composé
 de 3 parties :
 
-  - Une interface Web : création des règles, administration et exploitation du
-    module,
-  - Les sondes de découvertes,
-  - Une tâche planifiée qui exécute les règles de découverte.
+- Une interface Web : création des règles, administration et exploitation du
+module,
+- Les sondes de découvertes,
+- Une tâche planifiée qui exécute les règles de découverte.
 
 Les sondes de découverte vérifient la présence de nouveaux éléments à
 superviser. Voir [sondes de
@@ -154,34 +154,34 @@ Voici un exemple complet de la configuration possible du fichier
 
 ``` perl
 %centreon_autodisco_config = (
-    internal_com_type => 'ipc',
-    internal_com_path => '/tmp/centreonautodisco/routing.ipc',
-    # Execute rules in parallel (0) or sequential (1)
-    sequential => 1,
-    timeout_wait => 60,
-    # Use to connect to a Centreon poller
-    ssh_password => '',
-    ssh_extra_options => {
-        user => 'centreon',
-        stricthostkeycheck => 0,
-        sshdir => '/var/www/.ssh/',
-        knownhosts => '/dev/null',
-        timeout => 60,
-    },
-    ssh_exec_options => {
-        timeout => 60,
-        timeout_no_data => 120,
-        parallel => 8, #Max.: 8
-    },
-    # Centreon CLAPI parameters
-    clapi_cmd => '/usr/bin/centreon',
-    clapi_user => 'admin',
-    clapi_password => 'centreon',
-    clapi_reload => 'POLLERRELOAD',
-    # Parameters to send email report if enable in rule
-    mail_subject => 'Centreon Auto Discovery',
-    mail_from => 'centreon-autodisco',
-    mail_command => '/bin/mail',
+internal_com_type => 'ipc',
+internal_com_path => '/tmp/centreonautodisco/routing.ipc',
+# Execute rules in parallel (0) or sequential (1)
+sequential => 1,
+timeout_wait => 60,
+# Use to connect to a Centreon poller
+ssh_password => '',
+ssh_extra_options => {
+user => 'centreon',
+stricthostkeycheck => 0,
+sshdir => '/var/www/.ssh/',
+knownhosts => '/dev/null',
+timeout => 60,
+},
+ssh_exec_options => {
+timeout => 60,
+timeout_no_data => 120,
+parallel => 8, #Max.: 8
+},
+# Centreon CLAPI parameters
+clapi_cmd => '/usr/bin/centreon',
+clapi_user => 'admin',
+clapi_password => 'centreon',
+clapi_reload => 'POLLERRELOAD',
+# Parameters to send email report if enable in rule
+mail_subject => 'Centreon Auto Discovery',
+mail_from => 'centreon-autodisco',
+mail_command => '/bin/mail',
 );
 
 1;

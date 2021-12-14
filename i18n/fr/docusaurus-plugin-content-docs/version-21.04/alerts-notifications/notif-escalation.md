@@ -34,37 +34,37 @@ le problème, l'équipe niveau 2 est avertie etc…
 Les escalades de notifications permettent deux choses :
 
 -   Notifier des contacts différents en fonction du nombre de
-    notifications envoyées
+notifications envoyées
 -   Changer de moyens de notifications au cours du temps
 
 En cas d'utilisation des escalades de notifications, la récupération de
 la liste de contact est quelque peu différente :
 
 1.  Un service (ou un hôte) est vérifié à intervalle régulier en
-    fonction de la période temporelle de vérification définie pour lui
+fonction de la période temporelle de vérification définie pour lui
 2.  Lorsqu'une anomalie survient (statut non-OK), le service (ou l'hôte)
-    passe en état SOFT
+passe en état SOFT
 3.  Après que le nombre maximum de vérifications avant validation de
-    l'état ait eu lieu, si le service (ou l'hôte) persiste en conservant
-    son statut non-OK son état passe de SOFT à HARD. Le moteur de
-    supervision met en cache le numéro de la notification pour le
-    service (ou l'hôte) : c'est à dire 0.
+l'état ait eu lieu, si le service (ou l'hôte) persiste en conservant
+son statut non-OK son état passe de SOFT à HARD. Le moteur de
+supervision met en cache le numéro de la notification pour le
+service (ou l'hôte) : c'est à dire 0.
 
 A chaque intervalle d'envoi de notification pour le service (ou l'hôte)
 et jusqu'à la fin du statut non-OK le moteur de supervision réalise les
 opérations suivantes :
 
 1.  Si aucune escalade de notification n'est définie pour le service (ou
-    l'hôte) et le numéro actuel de notification, alors le traitement de
-    la notification est fait de la même manière que pour une
-    notification classique : le moteur de supervision utilise la
-    configuration de notifications définie pour le service (ou l'hôte).
+l'hôte) et le numéro actuel de notification, alors le traitement de
+la notification est fait de la même manière que pour une
+notification classique : le moteur de supervision utilise la
+configuration de notifications définie pour le service (ou l'hôte).
 2.  Si une escalade de notification est définie pour le service (ou
-    l'hôte) et le numéro actuel de notification, alors le moteur de
-    supervision se base sur la configuration de l'escalade afin de
-    sélectionner les contacts à notifier et les moyens à utiliser.
+l'hôte) et le numéro actuel de notification, alors le moteur de
+supervision se base sur la configuration de l'escalade afin de
+sélectionner les contacts à notifier et les moyens à utiliser.
 3.  Le mécanisme de traitement d'une notification est le même que pour
-    l'envoi d'une notification normale
+l'envoi d'une notification normale
 
 ## Configuration
 
@@ -74,22 +74,22 @@ Pour ajouter une escalade de notification, rendez-vous dans le menu
 ![image](../assets/alerts/04notificationsescalation.png)
 
 -   Les champs **Escalation Name** et **Alias** permettent de définir un
-    nom et un alias à l'escalade de notifications.
+nom et un alias à l'escalade de notifications.
 -   Le champ **First Notification** permet de choisir le numéro de la
-    notification à partir de laquelle le groupe de contacts sera averti.
+notification à partir de laquelle le groupe de contacts sera averti.
 -   Le champ **Last Notification** permet de choisir le dernier numéro
-    de la notification pour lequel ce groupe de contacts sera averti. Si
-    le groupe de contacts est le dernier niveau de l'escalade. La valeur
-    de ce champ est **0**.
+de la notification pour lequel ce groupe de contacts sera averti. Si
+le groupe de contacts est le dernier niveau de l'escalade. La valeur
+de ce champ est **0**.
 -   Le champ **Notification Interval** définit l'intervalle de
-    notifications entre chaque alerte.
+notifications entre chaque alerte.
 -   Le champ **Escalation Period** définit la période temporelle de
-    notifications.
+notifications.
 -   Les champs **Hosts Escalation Options** et **Services Escalation
-    Options** définissent les statuts d'hôtes et de services pour
-    lesquels l'escalade est utilisée.
+Options** définissent les statuts d'hôtes et de services pour
+lesquels l'escalade est utilisée.
 -   La liste **Linked Contact Groups** définit le groupe de contacts à
-    contacter lors du déclenchement de l'escalade.
+contacter lors du déclenchement de l'escalade.
 -   Le champ **Comments** permet de commenter l'escalade.
 
 ### Application de l'escalade

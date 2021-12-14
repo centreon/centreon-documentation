@@ -17,8 +17,8 @@ yum install centreon-plugin-Network-Loadbalancers-A10-AX-Snmp
 
 Be sure to have with you the following information:
 
-  - Read-Only SNMP community
-  - IP Address of the equipment
+- Read-Only SNMP community
+- IP Address of the equipment
 
 ### Configure SNMP on your server
 

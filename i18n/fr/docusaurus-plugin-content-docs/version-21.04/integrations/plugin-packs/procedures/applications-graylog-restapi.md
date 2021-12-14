@@ -2,11 +2,14 @@
 id: applications-graylog-restapi
 title: Graylog
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
 Graylog est une solution de gestion de log permettant stocker ces derniers et de
-les analyser en temps réél. 
+les analyser en temps réél.
 
 Le Plugin-Pack Centreon *Graylog* permet (par l'interrogation de l'API Rest)
 de récupérer le nombre de notifications système par sévérité ainsi que le nombre
@@ -21,23 +24,24 @@ de résultats obtenu suite à une requête Lucène.
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Query-->
+<Tabs groupId="operating-systems">
+<TabItem value="Query" label="Query">
 
 | Metric name                | Description               | Unit   |
 | :------------------------- | :------------------------ | :----- |
 | graylog.query.match.count  | Number of query matches   | Count  |
 
-<!--System-Notifications-->
+</TabItem>
+<TabItem value="SystemNotifications" label="SystemNotifications">
 
 | Metric name                                 | Description                                       | Unit   |
 | :------------------------------------------ | :------------------------------------------------ | :----- |
 | graylog.system.notifications.total.count    | Total number of system notifications              | Count  |
-| graylog.system.notifications.normal.count   | Number of system notifications (normal severity)  | Count  | 
+| graylog.system.notifications.normal.count   | Number of system notifications (normal severity)  | Count  |
 | graylog.system.notifications.urgent.count   | Number of system notifications (urgent severity)  | Count  |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequis
 
@@ -46,14 +50,13 @@ le rôle "Reader" est suffisant pour obtenir les métriques sur les
 notifications systèmes. Cependant, un compte avec le rôle "admin" est nécessaire
 pour effectuer les requêtes Lucène sur le serveur Graylog.
 
-Plus d'informations sur le site officiel de Graylog : 
+Plus d'informations sur le site officiel de Graylog :
 https://docs.graylog.org/en/latest/pages/configuration/rest_api.
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="operating-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant un serveur Graylog :
 
@@ -61,9 +64,10 @@ https://docs.graylog.org/en/latest/pages/configuration/rest_api.
 yum install centreon-plugin-Applications-Graylog-Restapi
 ```
 
-2. Depuis l'interface Web de Centreon, installer le Plugin-Pack *Graylog* depuis la page "Configuration > Packs de plugins > Manager" 
+2. Depuis l'interface Web de Centreon, installer le Plugin-Pack *Graylog* depuis la page "Configuration > Packs de plugins > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant un serveur Graylog :
 
@@ -77,20 +81,21 @@ yum install centreon-plugin-Applications-Graylog-Restapi
 yum install centreon-pack-graylog-restapi
 ```
 
-3. Depuis l'interface Web de Centreon, installer le Plugin-Pack *Graylog* depuis la page "Configuration > Packs de plugins > Manager" 
+3. Depuis l'interface Web de Centreon, installer le Plugin-Pack *Graylog* depuis la page "Configuration > Packs de plugins > Manager"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
 Lors de la création de votre Hôte dans Centreon, choisissez le modèle
-*App-Graylog-Restapi-custom*. Une fois celui-ci appliqué, 
+*App-Graylog-Restapi-custom*. Une fois celui-ci appliqué,
 certaines Macros liées à l'Hôte doivent être renseignées :
 
 | Mandatory | Name         | Description                                                                              |
 | :-------- | :----------- | :--------------------------------------------------------------------------------------- |
 | X         | USERNAME     | Username for authentication                                                              |
-| X         | PASSWORD     | Password for authentication                                                              | 
+| X         | PASSWORD     | Password for authentication                                                              |
 |           | PROTOCOL     | Protocol (default: 'http')                                                               |
 |           | PORT         | API port (default: '9000)                                                                |
 |           | EXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag or any header) |
@@ -112,12 +117,12 @@ commande depuis votre collecteur Centreon avec l'utilisateur *centreon-engine* :
 
 ```bash
 /usr/lib/centreon/plugins//centreon_graylog_restapi.pl \
-  --plugin=apps::graylog::restapi::plugin \
-  --mode=query \
-  --hostname=10.0.0.1 \
-  --username='username' \
-  --password='password' \
-  --query='centreon'
+--plugin=apps::graylog::restapi::plugin \
+--mode=query \
+--hostname=10.0.0.1 \
+--username='username' \
+--password='password' \
+--query='centreon'
 ```
 
 Résultat attendu :
@@ -131,10 +136,10 @@ du mode :
 
 ```bash
 /usr/lib/centreon/plugins//centreon_graylog_restapi.pl \
-  --plugin=apps::graylog::restapi::plugin \
-  --mode=query \
-  --query='centreon'
-  --help
+--plugin=apps::graylog::restapi::plugin \
+--mode=query \
+--query='centreon'
+--help
 ```
 
 Tous les modes disponibles dans le Plugin peuvent être listés via la commande
@@ -142,8 +147,8 @@ suivante :
 
 ```bash
 /usr/lib/centreon/plugins//centreon_graylog_restapi.pl \
-  --plugin=apps::graylog::restapi::plugin \
-  --list-mode
+--plugin=apps::graylog::restapi::plugin \
+--list-mode
 ```
 ### J'obtiens le message d'erreur suivant:
 
@@ -156,8 +161,8 @@ pour effectuer la requête via l'API.
 
 Cette erreur signifie que le Plugin Centreon n'a pas pu se connecter à l'API Rest
 Graylog. Vérifiez que la requête n'a pas bloquée par un outil externe
-(un pare-feu par exemple). Si vous utilisez un proxy, renseignez son URL dans 
-les macros *EXTRAOPTIONS* des services correspondants ou directement dans la 
+(un pare-feu par exemple). Si vous utilisez un proxy, renseignez son URL dans
+les macros *EXTRAOPTIONS* des services correspondants ou directement dans la
 commande avec l'option ```--proxyurl```.
 
 #### ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |```

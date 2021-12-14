@@ -17,24 +17,24 @@ Here an example of the format POST by the Stream Connector for a metric event:
 
 ```json
 {
-    "fields": {
-        "ctime": 1595496809,
-        "hostname": "HQ-Switch-Lan-Build_B",
-        "metric_name:traffic_out": 68058785.44,
-        "service_description": "Traffic-interco_sw_buildB_1stfloor_1"
-    },
-    "host": "Centreon",
-    "index": "archimede-metrics",
-    "source": "http:archimede-metrics",
-    "sourcetype": "_json",
-    "time": 1595496809
+"fields": {
+"ctime": 1595496809,
+"hostname": "HQ-Switch-Lan-Build_B",
+"metric_name:traffic_out": 68058785.44,
+"service_description": "Traffic-interco_sw_buildB_1stfloor_1"
+},
+"host": "Centreon",
+"index": "archimede-metrics",
+"source": "http:archimede-metrics",
+"sourcetype": "_json",
+"time": 1595496809
 }
 
 ```
 
 ## Requirements
 
-* Splunk integrations requires an Splunk Entreprise Edition and a HTTP Event Collector to send the Centreon Data. 
+* Splunk integrations requires an Splunk Entreprise Edition and a HTTP Event Collector to send the Centreon Data.
 * It is also necessary to use a Centreon account with either **admin privileges** or **Export configuration** and **Broker configuration** menu access in the WUI, as well as a **`root` access in command-line interface**.
 
 ## Support
@@ -53,7 +53,7 @@ You can also use a existing HTTP Event Collector and create a specific **Metrics
 
 ### In Centreon
 
-#### Installation 
+#### Installation
 
 Login as `root` on the Centreon central server using your favorite SSH client.
 

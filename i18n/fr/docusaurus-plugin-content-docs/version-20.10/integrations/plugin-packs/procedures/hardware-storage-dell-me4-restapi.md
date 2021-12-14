@@ -2,6 +2,9 @@
 id: hardware-storage-dell-me4-restapi
 title: Dell ME4 Rest API
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Contenu du Pack
 
@@ -15,22 +18,21 @@ Le Pack Dell ME4 collecte les données pour:
 
 ### Règles de découvertes
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Services-->
+<Tabs groupId="operating-systems">
+<TabItem value="Services" label="Services">
 
 | Nom de la règle                                        | Description                                            |
 | :----------------------------------------------------- | :----------------------------------------------------- |
 | HW-Storage-Dell-Me4-Restapi-Controller-Statistics-Name | Découvre les contrôleurs et supervise les statistiques |
 | HW-Storage-Dell-Me4-Restapi-Volume-Statistics-Name     | Découvre les volumes et supervise les statistiques     |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Controller-statistics-->
+<Tabs groupId="operating-systems">
+<TabItem value="Controllerstatistics" label="Controllerstatistics">
 
 | Metric name                                               | Description                                                                                                                   | Unit  |
 | :-------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------- | :---- |
@@ -48,7 +50,8 @@ Le Pack Dell ME4 collecte les données pour:
 | *controller\_id*\#controller.cache.read.misses.persecond  | For the controller that owns the volume, the number of times the block to be read is not found in cache                       |       |
 | *controller\_id*\#controller.cpu.utilization.percentage   | Percentage of time the CPU is busy                                                                                            | %     |
 
-<!--Hardware-->
+</TabItem>
+<TabItem value="Hardware" label="Hardware">
 
 | Metric name                                             | Description                                | Unit  |
 | :------------------------------------------------------ | :----------------------------------------- | :---- |
@@ -66,7 +69,8 @@ Le Pack Dell ME4 collecte les données pour:
 | *sensor\_instance*\#hardware.sensor.capacity.percentage | Charge capacity of the sensor              | %     |
 | volume status                                           | Status of the volume                       |       |
 
-<!--Interfaces-->
+</TabItem>
+<TabItem value="Interfaces" label="Interfaces">
 
 | Metric name                                                           | Description                                                                                                                                                | Unit  |
 | :-------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------- | :---- |
@@ -79,7 +83,8 @@ Le Pack Dell ME4 collecte les données pour:
 | *port\_name*~*interface\_name*\#port.interface.lost.dwords.count      | The number of times the PHY has lost doubleword synchronization and restarted the Link Reset sequence                                                      |       |
 | *port\_name*~*interface\_name*\#port.interface.invalid.dwords.count   | The number of invalid doublewords that have been received by the PHY, not including those received during Link Reset sequences                             |       |
 
-<!--Volume-statistics-->
+</TabItem>
+<TabItem value="Volumestatistics" label="Volumestatistics">
 
 | Metric name                                         | Description                                                                                             | Unit  |
 | :-------------------------------------------------- | :------------------------------------------------------------------------------------------------------ | :---- |
@@ -95,7 +100,8 @@ Le Pack Dell ME4 collecte les données pour:
 | *volume\_name*\#volume.cache.read.hits.persecond    | For the controller that owns the volume, the number of times the block to be read is found in cache     |       |
 | *volume\_name*\#volume.cache.read.misses.persecond  | For the controller that owns the volume, the number of times the block to be read is not found in cache |       |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -103,9 +109,8 @@ Afin de contrôler votre équipement Dell ME4, l'API Rest doit être configuré 
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="operating-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -115,7 +120,8 @@ yum install centreon-plugin-Hardware-Storage-Dell-Me4-Restapi
 
 2. Sur l'interface Web de Centreon, installer le Pack *Dell Me4 Rest API* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -131,7 +137,8 @@ yum install centreon-pack-hardware-storage-dell-me4-restapi
 
 3. Sur l'interface Web de Centreon, installer le Pack *Dell Me4 Rest API* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -156,15 +163,15 @@ depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-en
 
 ```bash
 /usr/lib/centreon/plugins/centreon_dell_me4_restapi.pl \
-    --plugin=storage::dell::me4::restapi::plugin \
-    --mode=interfaces \
-    --hostname='10.30.2.79' \
-    --port='443' \
-    --proto='https' \
-    --api-username='myapiusername' \
-    --api-password='myapipassword' \
-    --filter-port-name='A0' \
-    --verbose
+--plugin=storage::dell::me4::restapi::plugin \
+--mode=interfaces \
+--hostname='10.30.2.79' \
+--port='443' \
+--proto='https' \
+--api-username='myapiusername' \
+--api-password='myapipassword' \
+--filter-port-name='A0' \
+--verbose
 ```
 
 La commande devrait retourner un message de sortie de la forme ci-dessous:
@@ -172,11 +179,11 @@ La commande devrait retourner un message de sortie de la forme ci-dessous:
 ```bash
 OK: port 'A0' status: up [health: ok], read iops: 94.52, write iops: 161.11, read traffic: 1.29 Mb/s - All interfaces are ok | 'A0#port.io.read.usage.iops'=94.52iops;;;0; 'A0#port.io.write.usage.iops'=161.11iops;;;0; 'A0#port.traffic.read.usage.bitspersecond'=1287234b/s;;;0; 'A0~0#port.interface.disparity.errors.count'=0;;;0; 'A0~0#port.interface.lost.dwords.count'=0;;;0; 'A0~0#port.interface.invalid.dwords.count'=0;;;0; 'A0~1#port.interface.disparity.errors.count'=0;;;0; 'A0~1#port.interface.lost.dwords.count'=0;;;0; 'A0~1#port.interface.invalid.dwords.count'=0;;;0; 'A0~2#port.interface.disparity.errors.count'=0;;;0; 'A0~2#port.interface.lost.dwords.count'=0;;;0; 'A0~2#port.interface.invalid.dwords.count'=0;;;0; 'A0~3#port.interface.disparity.errors.count'=0;;;0; 'A0~3#port.interface.lost.dwords.count'=0;;;0; 'A0~3#port.interface.invalid.dwords.count'=0;;;0;
 checking port 'A0'
-    status: up [health: ok], read iops: 94.52, write iops: 161.11, read traffic: 1.29 Mb/s
-    interface '0' disparity errors: 0, lost dwords: 0, invalid dwords: 0
-    interface '1' disparity errors: 0, lost dwords: 0, invalid dwords: 0
-    interface '2' disparity errors: 0, lost dwords: 0, invalid dwords: 0
-    interface '3' disparity errors: 0, lost dwords: 0, invalid dwords: 0
+status: up [health: ok], read iops: 94.52, write iops: 161.11, read traffic: 1.29 Mb/s
+interface '0' disparity errors: 0, lost dwords: 0, invalid dwords: 0
+interface '1' disparity errors: 0, lost dwords: 0, invalid dwords: 0
+interface '2' disparity errors: 0, lost dwords: 0, invalid dwords: 0
+interface '3' disparity errors: 0, lost dwords: 0, invalid dwords: 0
 ```
 
 Cette commande contrôle les statistiques des interfaces (```--mode=interfaces```).
@@ -189,9 +196,9 @@ en ajoutant le paramètre ```--help``` à la commande:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_dell_me4_restapi.pl \
-    --plugin=storage::dell::me4::restapi::plugin \
-    --mode=interfaces \
-    --help
+--plugin=storage::dell::me4::restapi::plugin \
+--mode=interfaces \
+--help
 ```
 
 ## Diagnostique

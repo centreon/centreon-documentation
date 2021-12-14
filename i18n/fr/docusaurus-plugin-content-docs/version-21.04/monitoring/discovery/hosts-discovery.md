@@ -10,12 +10,12 @@ Voir aussi [notre tutoriel sur la détection d'instances AWS EC2](../../getting-
 1. [Installez](installation) le module Auto Discovery.
 
 2. Installez le [Plugin Pack](../pluginpacks) correspondant aux ressources que vous voulez découvrir.
-    > Les fournisseurs de découverte sont amenés par l'installation de Plugin Packs
-    > (Azure, Amazon AWS, VMware, etc). Pour connaître la liste complète, consultez
-    > le [catalogue des Plugin
-    > Packs](../../integrations/plugin-packs/introduction).
+> Les fournisseurs de découverte sont amenés par l'installation de Plugin Packs
+> (Azure, Amazon AWS, VMware, etc). Pour connaître la liste complète, consultez
+> le [catalogue des Plugin
+> Packs](../../integrations/plugin-packs/introduction).
 
-3. Créez une tâche de découverte pour chaque type de ressources que vous souhaitez découvrir : à la page **Configuration > Hôtes > Découverte**, cliquez sur **+AJOUTER**. 
+3. Créez une tâche de découverte pour chaque type de ressources que vous souhaitez découvrir : à la page **Configuration > Hôtes > Découverte**, cliquez sur **+AJOUTER**.
 Un assistant s'ouvre.
 
 ## Assistant de création de tâche de découverte
@@ -26,13 +26,13 @@ Un assistant s'ouvre.
 
 2. Cliquez sur le fournisseur correspondant aux ressources que vous voulez découvrir.
 
-    ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-1-1.png)
+![image](../../assets/monitoring/discovery/host-discovery-wizard-step-1-1.png)
 
-    La barre de recherche permet de chercher un fournisseur spécifique :
+La barre de recherche permet de chercher un fournisseur spécifique :
 
-    ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-1-2.png)
+![image](../../assets/monitoring/discovery/host-discovery-wizard-step-1-2.png)
 
-3. Cliquez sur **Suivant**. 
+3. Cliquez sur **Suivant**.
 
 ### Étape 2 : Définir des paramètres d'accès
 
@@ -62,30 +62,30 @@ ressemblerait le résultat de la découverte :
 
 ### Étape 5 : Définir les politiques d'analyse et de mise à jour
 
-- **Analyse manuelle** : Une fois la tâche de découverte exécutée, dans la liste des hôtes découverts, l'utilisateur choisira manuellement quels 
-    hôtes ajouter à la page **Configuration > Hôtes > Hôtes** (voir [Analyser le résultat d'une tâche de découverte](#analyser-le-résultat-dune-tâche-de-découverte)).
+- **Analyse manuelle** : Une fois la tâche de découverte exécutée, dans la liste des hôtes découverts, l'utilisateur choisira manuellement quels
+hôtes ajouter à la page **Configuration > Hôtes > Hôtes** (voir [Analyser le résultat d'une tâche de découverte](#analyser-le-résultat-dune-tâche-de-découverte)).
 
 - **Analyse automatique** : L'analyse traitera le résultat automatiquement selon l'option sélectionnée (au moins une option doit être cochée) :
 
-    - **Ajouter les hôtes à la configuration quand ils sont découverts pour la
-          première fois** : tous les hôtes détectés pour la première fois seront créés automatiquement dans 
-          la page **Configuration > Hôtes > Hôtes**.
+- **Ajouter les hôtes à la configuration quand ils sont découverts pour la
+première fois** : tous les hôtes détectés pour la première fois seront créés automatiquement dans
+la page **Configuration > Hôtes > Hôtes**.
 
-    - **Désactiver les hôtes déjà ajoutés à la configuration si la règle de
-          modification les exclut** : les ressources qui ont été ajoutées à un moment seront désactivées 
-          dans la configuration Centreon s'ils correspondent à une nouvelle règle d'exclusion.
+- **Désactiver les hôtes déjà ajoutés à la configuration si la règle de
+modification les exclut** : les ressources qui ont été ajoutées à un moment seront désactivées
+dans la configuration Centreon s'ils correspondent à une nouvelle règle d'exclusion.
 
-        >Le fait que des hôtes soient non découverts (ou plus découverts) ne
-        > désactivera pas les hôtes dans la configuration Centreon. Seuls les hôtes
-        > découverts et dans le même temps exclus seront désactivés (voir
-        > modificateur [exclusion](#exclusion)).
+>Le fait que des hôtes soient non découverts (ou plus découverts) ne
+> désactivera pas les hôtes dans la configuration Centreon. Seuls les hôtes
+> découverts et dans le même temps exclus seront désactivés (voir
+> modificateur [exclusion](#exclusion)).
 
-    - **Activer les hôtes déjà ajoutés à la configuration si ils sont découverts
-          mais désactivés** :  les hôtes déjà ajoutés à la configuration mais désactivés seront réactivés
+- **Activer les hôtes déjà ajoutés à la configuration si ils sont découverts
+mais désactivés** :  les hôtes déjà ajoutés à la configuration mais désactivés seront réactivés
 
-        ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-5-2.png)
+![image](../../assets/monitoring/discovery/host-discovery-wizard-step-5-2.png)
 
-        Voir l'[exemple ci-dessous](#exemples) pour mieux comprendre le fonctionnement de ces options.
+Voir l'[exemple ci-dessous](#exemples) pour mieux comprendre le fonctionnement de ces options.
 
 ### Étape 6 : Définir l'exécution
 
@@ -93,29 +93,29 @@ ressemblerait le résultat de la découverte :
 
 - **Planifier l'exécution** : vous pouvez planifier l'exécution de la tâche de différentes manières :
 
-    - Chaque année à des jours définis de mois définis et à une heure définie :
+- Chaque année à des jours définis de mois définis et à une heure définie :
 
-        ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-year.png)
+![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-year.png)
 
-    - Chaque mois à des jours définis du mois et à une heure définie :
+- Chaque mois à des jours définis du mois et à une heure définie :
 
-        ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-month.png)
+![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-month.png)
 
-    - Chaque semaine à des jours définis de la semaine et à une heure définie :
+- Chaque semaine à des jours définis de la semaine et à une heure définie :
 
-        ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-week.png)
+![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-week.png)
 
-    - Chaque jour à une heure définie :
+- Chaque jour à une heure définie :
 
-        ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-day.png)
+![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-day.png)
 
-    - Toutes les x heures (à des minutes définies) :
+- Toutes les x heures (à des minutes définies) :
 
-        ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-hour.png)
+![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-hour.png)
 
-    - Toutes les x minutes :
+- Toutes les x minutes :
 
-        ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-minute.png)
+![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-minute.png)
 
 Cliquez sur **TERMINER** à la dernière étape de l'assistant pour ajouter et planifier la tâche. La tâche apparaît dans la liste des tâches de découverte. Voir [Analyser le résultat d'une tâche de découverte](#analyser-le-résultat-dune-tâche-de-découverte).
 
@@ -158,14 +158,14 @@ Plusieurs actions peuvent être réalisées sur les tâches :
 
 1. À la page **Configuration > Hôtes > Découverte**, cliquez sur la flèche ![image](../../assets/monitoring/discovery/host-discovery-goto-results.png) à côté du statut d'une tâche terminée pour en visualiser le résultat.
 
-    ![image](../../assets/monitoring/discovery/host-discovery-hosts-listing.png)
+![image](../../assets/monitoring/discovery/host-discovery-hosts-listing.png)
 
 2. Si vous le souhaitez, vous pouvez éditer les [modificateurs](#comment-utiliser-les-modificateurs) liés à la tâche en cliquant sur le bouton d'édition : <img src={require('../../assets/monitoring/discovery/host-discovery-edit.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 
-    Les changements seront appliqués directement à la liste des résultats. 
+Les changements seront appliqués directement à la liste des résultats.
 
-    Attention, éditer les modificateurs après l'exécution de la tâche de découverte n'a de sens que si les hôtes n'ont pas encore été ajoutés à la configuration. Les changements de modificateurs au niveau de la tâche de découverte ne sont pas pris en compte pour les hôtes déjà créés.
-    
+Attention, éditer les modificateurs après l'exécution de la tâche de découverte n'a de sens que si les hôtes n'ont pas encore été ajoutés à la configuration. Les changements de modificateurs au niveau de la tâche de découverte ne sont pas pris en compte pour les hôtes déjà créés.
+
 3. Si vous avez configuré une découverte manuelle à l'étape 5 de l'assistant, sélectionnez les hôtes que vous voulez ajouter à la configuration, puis cliquez
 sur le bouton d'enregistrement : <img src={require('../../assets/monitoring/discovery/host-discovery-hosts-save.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 Les hôtes sont alors créés ainsi que les services liés à leurs modèles d'hôte.
@@ -179,12 +179,12 @@ Si les hôtes que vous aviez sélectionnés ne sont pas visibles dans la liste, 
 
 ## Éditer une tâche de découverte
 
-1. À la page **Configuration > Hôtes > Découverte**, cliquez dans la ligne 
+1. À la page **Configuration > Hôtes > Découverte**, cliquez dans la ligne
 de la tâche désirée. Un panneau apparaît à droite.
 
 2. Depuis ce panneau, modifiez les paramètres de la tâche. Si vous éditez des modificateurs, les résultats de la tâche seront mis à jour immédiatement.
 
-    Attention, éditer les modificateurs après l'exécution de la tâche de découverte n'a de sens que si les hôtes n'ont pas encore été ajoutés à la configuration. Les changements de modificateurs au niveau de la tâche de découverte ne sont pas pris en compte pour les hôtes déjà créés.
+Attention, éditer les modificateurs après l'exécution de la tâche de découverte n'a de sens que si les hôtes n'ont pas encore été ajoutés à la configuration. Les changements de modificateurs au niveau de la tâche de découverte ne sont pas pris en compte pour les hôtes déjà créés.
 
 2. Cliquez sur l'icône de sauvegarde en haut à droite du panneau : <img src={require('../../assets/monitoring/discovery/host-discovery-save.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 
@@ -192,7 +192,7 @@ de la tâche désirée. Un panneau apparaît à droite.
 
 Les modificateurs permettent de :
 
-- définir la configuration des hôtes qui seront créés, en faisant correspondre une valeur découverte sur l'hôte (un attribut) à un champ dans Centreon. La liste des attributs dépend du fournisseur. 
+- définir la configuration des hôtes qui seront créés, en faisant correspondre une valeur découverte sur l'hôte (un attribut) à un champ dans Centreon. La liste des attributs dépend du fournisseur.
 
 - inclure/exclure des hôtes de la liste des résultats.
 
@@ -221,9 +221,9 @@ de ces attributs avec une ou plusieurs chaînes de caractères personnalisées.
 ![image](../../assets/monitoring/discovery/host-discovery-mappers-concatenation.gif)
 
 >Attention, ajouter, éditer ou supprimer des modificateurs après l'exécution de la
- tâche de découverte n'a de sens que si les hôtes n'ont pas encore été ajoutés à la
- configuration. Les changements de modificateurs au niveau de la tâche de découverte 
- ne sont pas pris en compte pour les hôtes déjà créés.
+tâche de découverte n'a de sens que si les hôtes n'ont pas encore été ajoutés à la
+configuration. Les changements de modificateurs au niveau de la tâche de découverte
+ne sont pas pris en compte pour les hôtes déjà créés.
 
 ### Ajouter un modificateur
 
@@ -239,7 +239,7 @@ tous les champs requis.
 ### Éditer un modificateur
 
 1. Depuis l'étape quatre de l'assistant de création d'une tâche, ou depuis
-le panneau d'édition dans la section **Modificateurs**, cliquez sur l'icône 
+le panneau d'édition dans la section **Modificateurs**, cliquez sur l'icône
 d'édition : <img src={require('../../assets/monitoring/discovery/host-discovery-edit.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 
 1. Modifiez n'importe quel champ ou le type de modificateur lui-même.
@@ -252,7 +252,7 @@ d'édition : <img src={require('../../assets/monitoring/discovery/host-discovery
 panneau d'édition dans la section **Modificateurs**, cliquez sur l'icône de
 suppression :  <img src={require('../../assets/monitoring/discovery/host-discovery-delete.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 
-  Une fenêtre demandera de confirmer l'action.
+Une fenêtre demandera de confirmer l'action.
 
 1. Cliquez sur **SUPPRIMER** pour supprimer le modificateur.
 
@@ -312,18 +312,18 @@ automatiquement à des groupes d'hôtes. Cela peut se faire de deux manières.
 - Création de groupe d'hôtes à la volée : composez un nom de groupe à partir de chaînes de caractères et/ou d'informations issues de la découverte (une aide à la saisie propose les informations disponibles).
 
 <<<<<<< HEAD
-    ![image](../../assets/monitoring/discovery/host-discovery-mappers-hostgroup-select.png)
+![image](../../assets/monitoring/discovery/host-discovery-mappers-hostgroup-select.png)
 
-- Création de groupe d'hôtes à la volée : composez un nom de groupe à partir de chaînes de 
-caractères et/ou d'informations issues de la découverte (une aide à la 
+- Création de groupe d'hôtes à la volée : composez un nom de groupe à partir de chaînes de
+caractères et/ou d'informations issues de la découverte (une aide à la
 saisie propose les informations disponibles).
 
-  ![image](../../assets/monitoring/discovery/host-discovery-mappers-hostgroup-create.png)
+![image](../../assets/monitoring/discovery/host-discovery-mappers-hostgroup-create.png)
 
-  Dans cet exemple, si l'on découvre des serveurs Linux, alors un groupe d'hôtes
+Dans cet exemple, si l'on découvre des serveurs Linux, alors un groupe d'hôtes
 `os-linux` sera créé.
 
-  Si un groupe d'hôtes existe déjà avec ce nom, il ne sera pas recréé,
+Si un groupe d'hôtes existe déjà avec ce nom, il ne sera pas recréé,
 l'hôte sera simplement rattaché à ce groupe.
 =======
 ![image](../../assets/monitoring/discovery/host-discovery-mappers-hostgroup-create.png)
@@ -343,18 +343,18 @@ découverts automatiquement. Cela peut se faire de deux manières.
 Dans l'exemple ci-dessus, les hôtes dont le nom contient "sql" seront rattachés à la catégorie "DB_Server".
 
 - Création de catégories d'hôtes à la volée : composez un nom de catégorie à partir de chaînes de
-caractères et/ou d'informations issues de la découverte (une aide à la 
+caractères et/ou d'informations issues de la découverte (une aide à la
 saisie propose les informations disponibles).
 
 ![image](../../assets/monitoring/discovery/host-discovery-mappers-hostcategory-create.png)
 
-Si une catégorie d'hôtes existe déjà avec ce nom, elle ne sera pas 
+Si une catégorie d'hôtes existe déjà avec ce nom, elle ne sera pas
 recréée, l'hôte sera simplement rattaché à cette catégorie.
 
 ### Host severity
 
 Toujours depuis la version 21.04, il est également possible de hiérarchiser
-les hôtes découverts automatiquement à l'aide de sévérités d'hôtes. Les 
+les hôtes découverts automatiquement à l'aide de sévérités d'hôtes. Les
 sévérités étant constituées d'un nom et d'un niveau (numérique), celles-ci
 ne peuvent pas être créées à la volée. On ne proposera que la sélection
 d'une sévérité existante dans le menu déroulant.
@@ -386,9 +386,9 @@ exclure. Dans l'exemple ci-dessus, les hôtes de type Windows seront exclus de l
 
 Le modificateur **Inclusion** permet d'inclure des hôtes qui auraient été préalablement exclus par un modificateur d'exclusion. Les modificateurs **Exclusion** et **Inclusion** doivent donc être ajoutés dans le bon ordre.
 
- Dans l'exemple ci-dessous, imaginons que tous les hôtes aient été exclus de la liste des résultats (avec un modificateur 
- **Exclusion** *est différent de 1* par exemple). Notre modificateur **Inclusion** permettra d'inclure dans la liste des résultats tous les
- hôtes de type Linux.
+Dans l'exemple ci-dessous, imaginons que tous les hôtes aient été exclus de la liste des résultats (avec un modificateur
+**Exclusion** *est différent de 1* par exemple). Notre modificateur **Inclusion** permettra d'inclure dans la liste des résultats tous les
+hôtes de type Linux.
 
 ![image](../../assets/monitoring/discovery/host-discovery-mappers-inclusion.png)
 
@@ -423,14 +423,14 @@ défaut *5700*.
 Définissons maintenant les modificateurs et les politiques de mise à jour pour
 répondre à nos besoins :
 
-  - Premiers besoins :
-    - Ajouter les nouvelles machines virtuelles (ou non encore ajoutées), (1)
-    - Exclure les machines virtuelles non démarrées. (2)
+- Premiers besoins :
+- Ajouter les nouvelles machines virtuelles (ou non encore ajoutées), (1)
+- Exclure les machines virtuelles non démarrées. (2)
 
-  - Deuxièmes besoins :
-    - Désactiver les machines virtuelles qui sont arrêtées, (3)
-    - Ré-activer les machines virtuelles qui sont démarrées (après avoir été
-      arrêtées). (4)
+- Deuxièmes besoins :
+- Désactiver les machines virtuelles qui sont arrêtées, (3)
+- Ré-activer les machines virtuelles qui sont démarrées (après avoir été
+arrêtées). (4)
 
 Cela va se traduire par un modificateur *Exclusion* avec la configuration
 suivante :

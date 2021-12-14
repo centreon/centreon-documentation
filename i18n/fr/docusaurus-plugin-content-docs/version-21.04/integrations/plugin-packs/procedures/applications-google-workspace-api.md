@@ -2,10 +2,13 @@
 id: applications-google-workspace-api
 title: Google Workspace
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
-Google Workspace est une suite d'outils et de logiciels de productivité de type Cloud computing et de groupware destinée aux professionnels, 
+Google Workspace est une suite d'outils et de logiciels de productivité de type Cloud computing et de groupware destinée aux professionnels,
 proposée par Google sous la forme d'un abonnement.
 
 Le Plugin Pack Centreon permet de récupérer le statut en temps réel de la disponibilité des services composant cette suite,
@@ -22,28 +25,28 @@ https://workspace.google.fr/intl/en/features/
 
 ### Règles de découvertes
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Services-->
+<Tabs groupId="operating-systems">
+<TabItem value="Services" label="Services">
 
 | Rule name                          | Description                                |
 | :--------------------------------- | :----------------------------------------- |
 | App-Google-Workspace-Services-Name | Discover services and monitor their status |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Services-->
+<Tabs groupId="operating-systems">
+<TabItem value="Services" label="Services">
 
 | Metric name                     | Description                            |
 | :------------------------------ | :------------------------------------- |
 | google.workspace.services.count | Number of services currently monitored |
 | status                          | Status of the service                  |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -52,9 +55,8 @@ Il est possible de spécifier un proxy à utiliser le cas échéant.
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="operating-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur chaque collecteur Centreon devant superviser les services *Google Workspace*:
 
@@ -64,7 +66,8 @@ yum install centreon-plugin-Applications-Google-Workspace-Api
 
 2. Sur l'interface Web de Centreon, installer le Pack *Google Workspace* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur chaque collecteur Centreon devant superviser les services *Google Workspace*:
 
@@ -79,6 +82,9 @@ yum install centreon-pack-applications-google-workspace-api
 ```
 
 3. Sur l'interface Web de Centreon, installer le Pack *Google Workspace* depuis la page **Configuration > Plugin Packs > Gestionnaire**
+
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -109,16 +115,16 @@ depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-en
 
 ```bash
 /usr/lib/centreon/plugins/centreon_google_workspace_api.pl \
-    --plugin='apps::google::workspace::plugin' \
-    --mode=services \
-    --hostname='www.google.com' \
-    --proto='https' \
-    --port='443' \
-    --proxyurl='http://myproxy.mycompany.org:8080' \
-    --filter-name='mail|drive|meet' \
-    --warning-status='%{status} eq "disruption"' \
-    --critical-status='%{status} eq "outage"' \
-    --verbose
+--plugin='apps::google::workspace::plugin' \
+--mode=services \
+--hostname='www.google.com' \
+--proto='https' \
+--port='443' \
+--proxyurl='http://myproxy.mycompany.org:8080' \
+--filter-name='mail|drive|meet' \
+--warning-status='%{status} eq "disruption"' \
+--critical-status='%{status} eq "outage"' \
+--verbose
 ```
 
 La commande devrait retourner un message de sortie de la forme ci-dessous:
@@ -137,14 +143,14 @@ depuis le site dédié (--hostname='www.google.com'). On choisit ci-desus de n'a
 Une alarme WARNING sera ainsi déclenchée si le statut d'un de ces services est signalée comme dégradée (```--warning-status='%{status} eq "disruption"'```);
 l'alarme sera de type CRITICAL pour un service inaccessible (```--critical-status='%{status} eq "outage"'```).
 
-Pour chaque mode, la liste de toutes les métriques, seuils associés et options complémentaires peut être affichée 
+Pour chaque mode, la liste de toutes les métriques, seuils associés et options complémentaires peut être affichée
 en ajoutant le paramètre ```--help``` à la commande:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_google_workspace_api.pl \
-    --plugin='apps::google::workspace::plugin' \
-    --mode=services \
-    --help
+--plugin='apps::google::workspace::plugin' \
+--mode=services \
+--help
 ```
 
 ## Diagnostique

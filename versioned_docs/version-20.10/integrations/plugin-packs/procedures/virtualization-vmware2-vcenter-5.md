@@ -2,6 +2,9 @@
 id: virtualization-vmware2-vcenter-5
 title: VMware vCenter v5
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -20,16 +23,16 @@ The Centreon Plugin and Plugin-Packs rely on the Centreon VMWare Connector to re
 
 This pack uses "VMware vCenter" pack to extend monitored indicators (virtualization-vmware2-vcenter-generic).
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Vm-Snapshot-Global-->
+<Tabs groupId="operating-systems">
+<TabItem value="VmSnapshotGlobal" label="VmSnapshotGlobal">
 
 | Metric name  | Description                                               | Unit  |
 | :----------- | :-------------------------------------------------------- | :---- |
 | num_warning  | Number of snapshots older than 3 days (default treshold)  | Count |
 | num_critical | Number of snapshots older than 5 days (default threshold) | Count |
 
-<!--Vm-Tools-Global-->
+</TabItem>
+<TabItem value="VmToolsGlobal" label="VmToolsGlobal">
 
 | Metric name   | Description                                                   | Unit  |
 | :------------ | :------------------------------------------------------------ | :---- |
@@ -37,7 +40,8 @@ This pack uses "VMware vCenter" pack to extend monitored indicators (virtualizat
 | not_running   | Number of VMs with VM-Tools not running (default threshold)   | Count |
 | not_installed | Number of VMs with VM-Tools not installed (default threshold) | Count |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -56,13 +60,13 @@ To configure the access to your infrastructure, edit the
 
 ``` perl
 %centreon_vmware_config = (
-    vsphere_server => {
-        default => {
-            url => 'https://<ip_hostname>/sdk',
-            username => '<username>',
-            password => '<password>'
-        }
-    }
+vsphere_server => {
+default => {
+url => 'https://<ip_hostname>/sdk',
+username => '<username>',
+password => '<password>'
+}
+}
 );
 
 1;
@@ -79,19 +83,19 @@ structure:
 
 ``` perl
 %centreon_vmware_config = (
-    vsphere_server => {
-        'my_first_vcenter' => {
-            url => 'https://<ip_hostname>/sdk',
-            username => '<username>',
-            password => '<password>'
-        },
-        'my_other_vcenter' => {
-            url => 'https://<ip_hostname>/sdk',
-            username => '<DOMAIN>\<username>',
-            password => '<password>'
-        },
-    },
-    port => 5700
+vsphere_server => {
+'my_first_vcenter' => {
+url => 'https://<ip_hostname>/sdk',
+username => '<username>',
+password => '<password>'
+},
+'my_other_vcenter' => {
+url => 'https://<ip_hostname>/sdk',
+username => '<DOMAIN>\<username>',
+password => '<password>'
+},
+},
+port => 5700
 );
 
 1;
@@ -119,9 +123,8 @@ The Pollers that request the Centreon VMWare Connector host need to access in TC
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="licence-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the VMWare Connector Centreon Plugin on every poller expected to monitor VMWare infrastructures:
 
@@ -129,9 +132,10 @@ The Pollers that request the Centreon VMWare Connector host need to access in TC
 yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 ```
 
-2. Install the 'Vmware vCenter v5' Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page 
+2. Install the 'Vmware vCenter v5' Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the VMWare Connector Centreon Plugin on every poller expected to monitor the VMWare Infrastructures:
 
@@ -139,27 +143,28 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 ```
 
-2. Install the Centreon Plugin-Pack RPM: 
+2. Install the Centreon Plugin-Pack RPM:
 
 ```bash
 yum install centreon-pack-virtualization-vmware2-vcenter-5.noarch
 ```
 
-3. Install the 'Vmware  vCenter v5' Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page 
+3. Install the 'Vmware  vCenter v5' Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
 * Log into Centreon and add a new Host through "Configuration > Hosts".
 * Apply the relevant Host Template "Virt-VMWare2-VCenter-5-custom", and configure the mandatory Macros:
 
-| Mandatory   | Name                       | Description                                            |
-| :---------- | :------------------------- | :----------------------------------------------------- |
-| X           | CENTREONVMWARECONTAINER    | Name of your container in the file centreon_vmware.pm  |
-| X           | CENTREONVMWAREHOST         | The Centreon server that launches the connection       |
-| X           | CENTREONVMWAREPORT         | By default: 5700                                       |
-|             | CENTREONVMWAREEXTRAOPTIONS | Customize it with your own if needed                   |
+| Mandatory | Name                       | Description                                           |
+| :-------- | :------------------------- | :---------------------------------------------------- |
+| X         | CENTREONVMWARECONTAINER    | Name of your container in the file centreon_vmware.pm |
+| X         | CENTREONVMWAREHOST         | The Centreon server that launches the connection      |
+| X         | CENTREONVMWAREPORT         | By default: 5700                                      |
+|           | CENTREONVMWAREEXTRAOPTIONS | Customize it with your own if needed                  |
 
 ## FAQ
 
@@ -169,21 +174,21 @@ Once you've installed the plugin, you can test it logging with centreon-engine u
 
 ```bash
 /usr/lib/centreon/plugins//centreon_vmware_connector_client.pl \
-    --plugin=apps::vmware::connector::plugin \
-    --mode=snapshot-vm \
-    --custommode=connector \
-    --connector-hostname='localhost' \
-    --connector-port='5700' \
-    --container='vcenter01' \
-    --vm-hostname='.*' \
-    --filter \
-    --filter-uuid='' \
-    --warning='259200' \
-    --critical='432000' \
-    --disconnect-status='ok' \
-    --nopoweredon-skip \
-    --check-consolidation \
-    --verbose
+--plugin=apps::vmware::connector::plugin \
+--mode=snapshot-vm \
+--custommode=connector \
+--connector-hostname='localhost' \
+--connector-port='5700' \
+--container='vcenter01' \
+--vm-hostname='.*' \
+--filter \
+--filter-uuid='' \
+--warning='259200' \
+--critical='432000' \
+--disconnect-status='ok' \
+--nopoweredon-skip \
+--check-consolidation \
+--verbose
 ```
 
 Expected command output is shown below:
@@ -200,21 +205,21 @@ Then the command requests the container **vcenter01** (```--container='vcenter01
 It will trigger a WARNING alarm if the age of the snapshot is older than 3 days / 259200s (```--warning='259200'```)
 and a CRITICAL alarm if the snapshot is older than 5 days / 432000s (```--critical='432000'```).
 
-All available modes with the plugin can be displayed with: 
+All available modes with the plugin can be displayed with:
 
 ```bash
 /usr/lib/centreon/plugins/./centreon_vmware_connector_client.pl \
-    --plugin=apps::vmware::connector::plugin \
-    --list-mode
+--plugin=apps::vmware::connector::plugin \
+--list-mode
 ```
 
-The available options for a mode can be displayed using the ```--help``` parameter: 
+The available options for a mode can be displayed using the ```--help``` parameter:
 
 ```bash
 /usr/lib/centreon/plugins/./centreon_vmware_connector_client.pl \
-    --plugin=apps::vmware::connector::plugin \
-    --mode=snapshot-vm  \
-    --help
+--plugin=apps::vmware::connector::plugin \
+--mode=snapshot-vm  \
+--help
 ```
 
 ### Why do I get the following error:
@@ -224,7 +229,7 @@ The available options for a mode can be displayed using the ```--help``` paramet
 This error message means that the container invoked in the command doesn't exist in your VMWare connector configuration.
 Check your macro **CENTREONVMWARECONTAINER** on your host or check the file */etc/centreon/centreon_vmware.pm*
 
-#### UNKNOWN: Cannot get response (timeout received) 
+#### UNKNOWN: Cannot get response (timeout received)
 
 This error message means that the Plugin didn't get a response off the VMWare Daemon.
 Check your connection parameters and the macros **CENTREONVMWAREHOST** and **CENTREONVMWAREPORT**.

@@ -11,9 +11,9 @@ Centreon 20.04**.
 Pour accéder aux notes de version détaillées par composants, rendez vous dans
 les sections suivantes:
 
-  - [Core](centreon-core)
-  - [Extensions commerciales](centreon-commercial-extensions)
-  - [Extensions Open Source](centreon-os-extensions)
+- [Core](centreon-core)
+- [Extensions commerciales](centreon-commercial-extensions)
+- [Extensions Open Source](centreon-os-extensions)
 
 #### Nouvelle vue d'évènements (beta)
 
@@ -31,17 +31,17 @@ administrateurs système.
 Cette nouvelle vue est accessible via le menu `Home > Events view (beta)` et
 apporte les fonctionnalités suivantes:
 
-  - Une page unifiée regroupant les hôtes et les services
-  - Une recherche par nom basé sur les mécaniques d'expressions régulières
-  - La possibilité de forcer le critère de recherche via des labels prédéfinis
-  - Des critères de filtres additionnels multi-valeurs
-  - Des actions rapide sur les lignes et efficace via des boutons accessibles en
-    haut de page (acquittement, mise en place de plage de maintenance,
-    rafraîchissement du statut)
-  - Des informations détaillées affichées sous forme de panneau au dessus de la
-    liste afin de toujours garder un oeil et d'accéder facilement à d'autres
-    ressources
-  - *... et bien plus à venir dans les semaines & mois qui viennent*
+- Une page unifiée regroupant les hôtes et les services
+- Une recherche par nom basé sur les mécaniques d'expressions régulières
+- La possibilité de forcer le critère de recherche via des labels prédéfinis
+- Des critères de filtres additionnels multi-valeurs
+- Des actions rapide sur les lignes et efficace via des boutons accessibles en
+haut de page (acquittement, mise en place de plage de maintenance,
+rafraîchissement du statut)
+- Des informations détaillées affichées sous forme de panneau au dessus de la
+liste afin de toujours garder un oeil et d'accéder facilement à d'autres
+ressources
+- *... et bien plus à venir dans les semaines & mois qui viennent*
 
 <iframe width="640" height="480" src="https://www.youtube.com/embed/FVjuIbBDuYU" frameborder="0" allowfullscreen></iframe>
 
@@ -53,15 +53,15 @@ Une version mobile de Centreon est disponible \! Il est possible de l'installer
 sur votre téléphone afin d'être en mesure d'effectuer les actions suivantes, sur
 votre mobile:
 
-  - Afficher la liste des resources (hôtes et services) et leur statut
-  - Filtre ces listes
-  - Agir sur les ressources: mise en place d'acquittement ou de plage de
-    maintenance
-  - Afficher le détail du statut des ressources et un graphiques lorsque
-    disponible
+- Afficher la liste des resources (hôtes et services) et leur statut
+- Filtre ces listes
+- Agir sur les ressources: mise en place d'acquittement ou de plage de
+maintenance
+- Afficher le détail du statut des ressources et un graphiques lorsque
+disponible
 
 <video width="375" height="812" controls="true" allowfullscreen="true" poster="../assets/mobile/mobile-login.png">
-    <source src="../assets/mobile/mobile-demo.mp4" type="video/mp4"/>
+<source src="../assets/mobile/mobile-demo.mp4" type="video/mp4"/>
 </video>
 
 Plus d'information sur l'installation et l'utilisation de l'application mobile
@@ -77,11 +77,11 @@ moment d'ajouter des ressources à la configuration.
 
 Nous avons aussi ajouté de nouvelles fonctionnalités :
 
-  - Gestion des données d'identification plus simple et plus sécurisée,
-  - Possibilité de découvrir des ressources depuis n'importe quel serveur de
-    supervision,
-  - Nouveau système pour faire le lien entre résultat de découverte et
-    configuration Centreon.
+- Gestion des données d'identification plus simple et plus sécurisée,
+- Possibilité de découvrir des ressources depuis n'importe quel serveur de
+supervision,
+- Nouveau système pour faire le lien entre résultat de découverte et
+configuration Centreon.
 
 Jetez un oeil à la [section dédiée](../monitoring/discovery/hosts-discovery)
 pour savoir comment lancer votre première découverte!
@@ -98,10 +98,10 @@ complexe car uniquement basée sur une mécanique d'"Impact".
 
 Vous êtes maintenant en mesure de:
 
-  - Modéliser les cas simple simplement grâce à une méthode de calcul **Worst**
-    et **Pire** statuts
-  - Modéliser des concepts de cluster simplement avec la méthode de calcul
-    **Ratio**
+- Modéliser les cas simple simplement grâce à une méthode de calcul **Worst**
+et **Pire** statuts
+- Modéliser des concepts de cluster simplement avec la méthode de calcul
+**Ratio**
 
 Exemple: Je souhaite modéliser qu'au moins 50% de mes indicateurs contenus dans
 mon activité métier soit OK, je peux désormais le faire comme ci-dessous:

@@ -2,10 +2,13 @@
 id: introduction
 title: Introduction
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 Centreon comes with its application to let you access resources status, whether you're on phone or tablet.
 
-  ![image](../assets/mobile/mobile-app-screens.png)
+![image](../assets/mobile/mobile-app-screens.png)
 
 The main capabilities of Centreon Mobile application are :
 
@@ -15,9 +18,9 @@ The main capabilities of Centreon Mobile application are :
 - See detail information of host or service
 - Access metrics history via charts
 
-  `<video width="375" height="812" controls="true" allowfullscreen="true" poster="../assets/mobile/mobile-login.png">`
-    `<source src="../assets/mobile/mobile-demo.mp4" type="video/mp4">`
-  `</video>`
+`<video width="375" height="812" controls="true" allowfullscreen="true" poster="../assets/mobile/mobile-login.png">`
+`<source src="../assets/mobile/mobile-demo.mp4" type="video/mp4">`
+`</video>`
 
 > The mobile application has been developed using the
 > PWA - [Progressive Web App mechanism](https://en.wikipedia.org/wiki/Progressive_web_application).
@@ -38,24 +41,26 @@ To be able to connect your mobile application to your Centreon platform:
 
 The application installation mechanism depends on your device:
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!-- Android -->
+<Tabs groupId="operating-systems">
+<TabItem value="Android" label="Android">
 
 For **Android**, you can:
 
- - Download the application from the [Google Play store](https://play.google.com/store/apps/details?id=com.centreon.mobileapp)
- - Install it from [mobile.centreon.com](https://mobile.centreon.com/) using the "Add to home screen" feature
+- Download the application from the [Google Play store](https://play.google.com/store/apps/details?id=com.centreon.mobileapp)
+- Install it from [mobile.centreon.com](https://mobile.centreon.com/) using the "Add to home screen" feature
 
-    ![image](../assets/mobile/andoid-add-to-home-screen.png)
+![image](../assets/mobile/andoid-add-to-home-screen.png)
 
-<!-- Apple/iOS -->
+</TabItem>
+<TabItem value="Apple/iOS" label="Apple/iOS">
 
 For **Apple iOS**, go to [mobile.centreon.com](https://mobile.centreon.com/) using Safari and use the
 "Add to home screen" feature
 
 ![image](../assets/mobile/ios-add-to-home-screen.png)
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## How to connect
 

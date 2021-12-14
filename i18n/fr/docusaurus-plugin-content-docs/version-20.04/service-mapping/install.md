@@ -14,7 +14,7 @@ La version de Centreon nécessaire au fonctionnement de Centreon BAM est la vers
 
 ### Installation du paquet
 
-Ajouter le dépôt Centreon BAM, vous pouvez le trouver sur le 
+Ajouter le dépôt Centreon BAM, vous pouvez le trouver sur le
 [portail support](https://support.centreon.com/s/repositories).
 
 Et installer le paquet en exécutant la commande ci-dessous :

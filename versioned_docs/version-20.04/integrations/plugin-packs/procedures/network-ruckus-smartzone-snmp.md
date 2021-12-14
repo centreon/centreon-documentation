@@ -2,6 +2,9 @@
 id: network-ruckus-smartzone-snmp
 title: Ruckus Smartzone
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -16,19 +19,22 @@ Ruckus SmartZone network controllers simplify the complexity of scaling and mana
 
 ### Discovery rules
 
-<!--Services-->
+<Tabs groupId="operating-systems">
+<TabItem value="Services" label="Services">
 
-| Rule name                              | Description                                         |
-| :------------------------------------- | :-------------------------------------------------- |
-| Net-Ruckus-Smartzone-SNMP-Ap-Name      |  Discover access point attached to your controller  |
-| Net-Ruckus-Smartzone-SNMP-Disk-Name    |  Discover storage point attached to your controller |
-| Net-Ruckus-Smartzone-SNMP-Traffic-Name |  Discover interfaces attached to your controller    |
+| Rule name                              | Description                                        |
+| :------------------------------------- | :------------------------------------------------- |
+| Net-Ruckus-Smartzone-SNMP-Ap-Name      | Discover access point attached to your controller  |
+| Net-Ruckus-Smartzone-SNMP-Disk-Name    | Discover storage point attached to your controller |
+| Net-Ruckus-Smartzone-SNMP-Traffic-Name | Discover interfaces attached to your controller    |
 
-### Monitored metrics 
+</TabItem>
+</Tabs>
 
-<!--DOCUSAURUS_CODE_TABS-->
+### Monitored metrics
 
-<!--Access-Point-->
+<Tabs groupId="operating-systems">
+<TabItem value="AccessPoint" label="AccessPoint">
 
 | Metric name                                            | Description                                                                            |
 | :----------------------------------------------------- | :------------------------------------------------------------------------------------- |
@@ -39,14 +45,16 @@ Ruckus SmartZone network controllers simplify the complexity of scaling and mana
 | accesspoint.traffic.in.bitspersecond                   | Incoming traffic going through the access point. Unit: bits/second                     |
 | accesspoint.traffic.out.bitspersecond                  | Outgoing traffic going through the access point. Unit: bits/second                     |
 
-<!--Cpu-->
+</TabItem>
+<TabItem value="Cpu" label="Cpu">
 
 | Metric name                     | Description                        |
 | :------------------------------ | :--------------------------------- |
 | cpu.utilization.percentage      | CPU utilization. Unit : %          |
 | core.cpu.utilization.percentage | Per Core CPU utilization. Unit : % |
 
-<!--Interfaces-->
+</TabItem>
+<TabItem value="Interfaces" label="Interfaces">
 
 | Metric name                              | Description                                                      |
 | :--------------------------------------- | :--------------------------------------------------------------- |
@@ -58,7 +66,8 @@ Ruckus SmartZone network controllers simplify the complexity of scaling and mana
 | interface.packets.out.error.percentage   | Outgoing errored packets going through the interface. Units: %   |
 | interface.packets.out.discard.percentage | Outgoing discarded packets going through the interface. Units: % |
 
-<!--Load-->
+</TabItem>
+<TabItem value="Load" label="Load">
 
 | Metric name | Description                   |
 | :---------- | :---------------------------- |
@@ -66,10 +75,11 @@ Ruckus SmartZone network controllers simplify the complexity of scaling and mana
 | load5       | System load 5 minutes-sample  |
 | load15      | System load 15 minutes-sample |
 
-<!--Memory-->
+</TabItem>
+<TabItem value="Memory" label="Memory">
 
 | Metric name             | Description                                        |
-| :---------------------  | :------------------------------------------------- |
+| :---------------------- | :------------------------------------------------- |
 | memory.usage.bytes      | Memory usage on the device. Unit : Bytes           |
 | memory.free.bytes       | Free memory on the device. Unit : Bytes            |
 | memory.usage.percentage | Percentage of Memory usage on the device. Unit : % |
@@ -77,13 +87,15 @@ Ruckus SmartZone network controllers simplify the complexity of scaling and mana
 | memory.cached.bytes     | Cached Memory allocation. Unit : Bytes             |
 | memory.shared.bytes     | Shared Memory allocation. Unit : Bytes             |
 
-<!--Storage-->
+</TabItem>
+<TabItem value="Storage" label="Storage">
 
 | Metric name               | Description                                 |
 | :------------------------ | :------------------------------------------ |
 | storage.space.usage.bytes | Used space on a disk partition. Unit: Bytes |
 
-<!--System-->
+</TabItem>
+<TabItem value="System" label="System">
 
 | Metric name                                       | Description                                                  |
 | :------------------------------------------------ | :----------------------------------------------------------- |
@@ -92,7 +104,8 @@ Ruckus SmartZone network controllers simplify the complexity of scaling and mana
 | system.traffic.in.bitspersecond                   | Incoming traffic going through the system. Unit: bits/second |
 | system.traffic.out.bitspersecond                  | Outgoing traffic going through the system. Unit: bits/second |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -104,11 +117,10 @@ To use this pack, the SNMP service must be properly configured on your Ruckus de
 
 Your centreon server must be able to reach the Ruckus device over UDP/161 SNMP port.
 
-## Setup 
+## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="licence-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor Ruckus Smartzone ressources:
 
@@ -118,7 +130,8 @@ yum install centreon-plugin-Network-Ruckus-Smartzone-Snmp
 
 2. On the Centreon Web interface, install the 'Ruckus Smartzone' Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor Ruckus Smartzone ressources:
 
@@ -134,7 +147,8 @@ yum install centreon-pack-network-ruckus-smartzone-snmp.noarch
 
 3. On the Centreon Web interface, install the 'Ruckus Smartzone' Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -143,43 +157,43 @@ yum install centreon-pack-network-ruckus-smartzone-snmp.noarch
 
 > When using SNMP v3, set extra parameters with SNMPEXTRAOPTIONS macro :
 
-| Mandatory   | Nom              | Description                                                                |
-| :---------- | :--------------- | :------------------------------------------------------------------------- |
-|             | SNMPEXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
+| Mandatory | Nom              | Description                                                                |
+| :-------- | :--------------- | :------------------------------------------------------------------------- |
+|           | SNMPEXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
 
 ## FAQ
 
-### How do I test my configuration through the CLI and what do the main parameters stand for ? 
+### How do I test my configuration through the CLI and what do the main parameters stand for ?
 
 Once the Centreon plugin installed, you can test it logging with the centreon-engine user:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_ruckus_smartzone_snmp.pl \
-	--plugin=network::ruckus::smartzone::snmp::plugin \
-	--mode=cpu \
-	--hostname=ruckus.int.centreon.com \
-	--snmp-version='2c' \
-	--snmp-community='ruckus_smartzone' \
-  --verbose 
+--plugin=network::ruckus::smartzone::snmp::plugin \
+--mode=cpu \
+--hostname=ruckus.int.centreon.com \
+--snmp-version='2c' \
+--snmp-community='ruckus_smartzone' \
+--verbose
 ```
 
-The command above checks the CPU utilization of your Ruckus box (```--mode=cpu```). You must always define the IP address/FQDN of the device (```--hostname=ruckus.int.centreon.com```) as well as the SNMP versions and community (```--snmp-version='2c' --snmp-community='ruckus_smartzone'```) 
+The command above checks the CPU utilization of your Ruckus box (```--mode=cpu```). You must always define the IP address/FQDN of the device (```--hostname=ruckus.int.centreon.com```) as well as the SNMP versions and community (```--snmp-version='2c' --snmp-community='ruckus_smartzone'```)
 
-You can display all modes that come with the plugin with the command below: 
+You can display all modes that come with the plugin with the command below:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_ruckus_smartzone_snmp.pl \
-    --plugin=network::ruckus::smartzone::snmp::plugin \
-    --list-mode
+--plugin=network::ruckus::smartzone::snmp::plugin \
+--list-mode
 ```
 
 You can display options of a specific mode by using the ```--help``` flag. Here is an example to display cpu mode parameters:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_ruckus_smartzone_snmp.pl \
-    --plugin=network::ruckus::smartzone::snmp::plugin \
-    --mode=cpu \
-    --help
+--plugin=network::ruckus::smartzone::snmp::plugin \
+--mode=cpu \
+--help
 ```
 
 ### UNKNOWN: SNMP GET Request : Timeout
@@ -188,6 +202,6 @@ This message generally means that you are not using the right SNMP version or co
 
 ### UNKNOWN: SNMP GET Request : Cant get a single value.
 
-This error message often refers to the following issues: 
-  - the Ruckus device doesn't support the MIB used by the plugin
-  - the targeted SNMP OID cannot be fetched because of insufficient privileges on the device. SNMP Agent must be capable of accessing to the enterprise branch Ruckus : .1.3.6.1.4.1.25053.
+This error message often refers to the following issues:
+- the Ruckus device doesn't support the MIB used by the plugin
+- the targeted SNMP OID cannot be fetched because of insufficient privileges on the device. SNMP Agent must be capable of accessing to the enterprise branch Ruckus : .1.3.6.1.4.1.25053.

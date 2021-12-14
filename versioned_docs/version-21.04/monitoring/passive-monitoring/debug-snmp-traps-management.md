@@ -59,7 +59,7 @@ Once the snmptrapd process is validated, check the centreontrapdforward process.
 parameters of this process snmptrapd in the file **/etc/snmp/snmptrapd.conf**
 
 * Check that snmptrapd service executes centreontrapdforward. To do this, edit the file **/etc/snmp/snmptrapd.conf**
-   and verify that its contains:
+and verify that its contains:
 
 ``` shell
 traphandle default su -l centreon -c "/usr/share/centreon/bin/centreontrapdforward"

@@ -121,19 +121,19 @@ ProxyTimeout 300
 </IfModule>
 
 <Directory "/usr/share/centreon/www">
-    DirectoryIndex index.php
-    Options Indexes
-    AllowOverride all
-    Order allow,deny
-    Allow from all
-    Require all granted
-    <IfModule mod_php5.c>
-        php_admin_value engine Off
-    </IfModule>
+DirectoryIndex index.php
+Options Indexes
+AllowOverride all
+Order allow,deny
+Allow from all
+Require all granted
+<IfModule mod_php5.c>
+php_admin_value engine Off
+</IfModule>
 
 +    FallbackResource /centreon/index
 
-    AddType text/plain hbs
+AddType text/plain hbs
 </Directory>
 
 +<Directory "/usr/share/centreon/api">
@@ -203,7 +203,7 @@ See [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-conf
 
 Restart the cbd process:
 ```
-systemctl start cbd 
+systemctl start cbd
 ```
 
 #### Upgrade extensions
@@ -211,9 +211,9 @@ systemctl start cbd
 From `Administration > Extensions > Manager`, upgrade all extensions, starting
 with the following:
 
-  - License Manager,
-  - Plugin Packs Manager,
-  - Auto Discovery.
+- License Manager,
+- Plugin Packs Manager,
+- Auto Discovery.
 
 Then you can upgrade all other commercial extensions.
 #### Start the tasks manager
@@ -253,9 +253,9 @@ procedure](../monitoring/monitoring-servers/deploying-a-configuration),
 2. Restart both Broker and Engine on the Central server by running this
 command:
 
-    ```shell
-    systemctl restart cbd centengine
-    ```
+```shell
+systemctl restart cbd centengine
+```
 
 ### Upgrade the MariaDB server
 
@@ -314,48 +314,48 @@ You have to uninstall then reinstall MariaDB to upgrade between major versions (
 
 1. Stop the mariadb service:
 
-    ```shell
-    systemctl stop mariadb
-    ```
+```shell
+systemctl stop mariadb
+```
 
 2. Uninstall the current version:
 
-    ```shell
-    rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
-    ```
+```shell
+rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
+```
 
 3. Install version 10.5:
 
-    ```shell
-    yum install MariaDB-server-10.5\* MariaDB-client-10.5\* MariaDB-shared-10.5\* MariaDB-compat-10.5\* MariaDB-common-10.5\*
-    ```
+```shell
+yum install MariaDB-server-10.5\* MariaDB-client-10.5\* MariaDB-shared-10.5\* MariaDB-compat-10.5\* MariaDB-common-10.5\*
+```
 
 4. Start the mariadb service:
 
-    ```shell
-    systemctl start mariadb
-    ```
+```shell
+systemctl start mariadb
+```
 
 5. Launch the MariaDB upgrade process:
 
-    ```shell
-    mysql_upgrade
-    ```
-    
-    If your database is password-protected, enter:
+```shell
+mysql_upgrade
+```
 
-    ```shell
-    mysql_upgrade -u <database_admin_user> -p
-    ```
+If your database is password-protected, enter:
 
-    Example: if your database_admin_user is `root`, enter:
+```shell
+mysql_upgrade -u <database_admin_user> -p
+```
 
-    ```
-    mysql_upgrade -u root -p
-    ```
+Example: if your database_admin_user is `root`, enter:
 
-    > Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
-    > for more information or if errors occur during this last step.
+```
+mysql_upgrade -u root -p
+```
+
+> Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
+> for more information or if errors occur during this last step.
 
 #### Enable MariaDB on startup
 

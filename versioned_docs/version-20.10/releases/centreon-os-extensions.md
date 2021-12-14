@@ -27,12 +27,12 @@ If you have feature requests or want to report a bug, please go to our
 #### Enhancements
 
 - [rpm] All the configuration files (except for logrotate.d and sudoers.d)
-  are now preserved by the update process
+are now preserved by the update process
 
 #### Bugfixes
 
 - [Sync] An error in the script prevented the files to be synchronized
-  correctly
+correctly
 
 ### 20.10.0
 

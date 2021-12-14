@@ -91,7 +91,7 @@ menu **Administration > Options > Debug** et redémarrez le processus.
 > Vous pouvez modifier le niveau de journalisation des logs  via le menu `Administation > Paramètres > Débogage`
 
 En cas de non réception de la commande externe, vérifiez le chemin d’accès au fichier de commande du processus défini
-dans la variable "$cmdFile" du fichier de configuration **/etc/centreon/conf.pm**. Le chemin doit être 
+dans la variable "$cmdFile" du fichier de configuration **/etc/centreon/conf.pm**. Le chemin doit être
 **/var/lib/centreon/centcore.cmd** dans le cas d’un serveur central ou le chemin vers le fichier de commande de
 l’ordonnanceur.
 
@@ -122,10 +122,10 @@ modifiés. Si tel n’est pas le cas, alors votre ordonnanceur n’est pas conne
 problèmes peuvent être les suivants :
 
 * L’ordonnanceur n’a pas chargé le module NEB à son démarrage car celui-ci est introuvable ou non défini dans les
-  options de l’ordonnanceur
+options de l’ordonnanceur
 * Le module NEB n’a pu se connecter à la partie serveur à cause d’un problème de paramétrage.
 * Un pare-feu bloque la connexion entre le collecteur et le serveur Centreon qui héberge la base de données. La partie
-  serveur du broker n’est pas fonctionnelle ou n’est pas en cours d’exécution
+serveur du broker n’est pas fonctionnelle ou n’est pas en cours d’exécution
 
 ### Schéma détaillé
 

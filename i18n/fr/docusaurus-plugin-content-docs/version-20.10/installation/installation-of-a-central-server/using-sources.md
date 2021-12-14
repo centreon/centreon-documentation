@@ -2,14 +2,17 @@
 id: using-sources
 title: A partir des sources
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Prérequis
 
 > La plupart des utilisateurs de CentOS préfèreront installer Centreon Web en utilisant
 [les paquets fournis par Centreon](using-packages).
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Redhat/CentOS-->
+<Tabs groupId="operating-systems">
+<TabItem value="Redhat/CentOS" label="Redhat/CentOS">
 Afin d’installer les logiciels Centreon, le dépôt Software collections de Red Hat doit être activé.
 
 > Le dépôt Software collections est nécessaire pour l’installation de PHP 7 et les librairies associées.
@@ -27,47 +30,47 @@ Vous pouvez maintenant installer les prérequis :
 ``` shell
 yum update
 yum install -y \
-    rh-php72
-    rh-php72-php-zip \
-    rh-php72-php-xml \
-    rh-php72-php-fpm \
-    rh-php72-php-process \
-    rh-php72-php-common \
-    rh-php72-php-pdo \
-    rh-php72-php-intl \
-    rh-php72-php-pear \
-    rh-php72-php-json \
-    rh-php72-php-mysqlnd \
-    rh-php72-php-ldap \
-    rh-php72-php-gd \
-    rh-php72-php-cli \
-    rh-php72-php-mbstring \
-    rh-php72-php-snmp \
-    openssl \
-    perl-DBD-MySQL \
-    perl-Sys-Syslog \
-    httpd24-httpd \
-    perl-DBI \
-    perl-DBD-MySQL \
-    rrdtool \
-    perl-rrdtool \
-    perl-Crypt-DES \
-    perl-Digest-SHA1 \
-    perl-Digest-HMAC \
-    net-snmp-utils \
-    perl-Socket6 \
-    perl-IO-Socket-INET6 \
-    net-snmp \
-    net-snmp-libs \
-    dmidecode \
-    lm_sensors \
-    net-snmp-perl \
-    fping \
-    cpp \
-    gcc \
-    gcc-c++ \
-    libstdc++ \
-    glib2-devel
+rh-php72
+rh-php72-php-zip \
+rh-php72-php-xml \
+rh-php72-php-fpm \
+rh-php72-php-process \
+rh-php72-php-common \
+rh-php72-php-pdo \
+rh-php72-php-intl \
+rh-php72-php-pear \
+rh-php72-php-json \
+rh-php72-php-mysqlnd \
+rh-php72-php-ldap \
+rh-php72-php-gd \
+rh-php72-php-cli \
+rh-php72-php-mbstring \
+rh-php72-php-snmp \
+openssl \
+perl-DBD-MySQL \
+perl-Sys-Syslog \
+httpd24-httpd \
+perl-DBI \
+perl-DBD-MySQL \
+rrdtool \
+perl-rrdtool \
+perl-Crypt-DES \
+perl-Digest-SHA1 \
+perl-Digest-HMAC \
+net-snmp-utils \
+perl-Socket6 \
+perl-IO-Socket-INET6 \
+net-snmp \
+net-snmp-libs \
+dmidecode \
+lm_sensors \
+net-snmp-perl \
+fping \
+cpp \
+gcc \
+gcc-c++ \
+libstdc++ \
+glib2-devel
 ```
 
 Des commandes additionnelles sont nécessaires pour configurer correctement l'environnement :
@@ -89,7 +92,9 @@ Puis exécutez :
 ``` shell
 /opt/rh/rh-php72/root/bin/pear upgrade-all
 ```
-<!--Debian Stretch / Ubuntu 18.04-->
+
+</TabItem>
+<TabItem value="Debian Stretch / Ubuntu 18.04" label="Debian Stretch / Ubuntu 18.04">
 Ajoutez le dépot suivant, nécéssaire pour installer php 7.2 :
 
 ### For Debian Stretch
@@ -105,7 +110,7 @@ apt-get update
 
 > Il est nécessaire d'ajouter sudo devant les commandes ci-dessous :
 >
-> ``` shell  
+> ``` shell
 > apt-get install software-properties-common
 > add-apt-repository ppa:ondrej/php
 > apt update
@@ -115,36 +120,36 @@ Installez les dépendances nécessaires :
 
 ``` shell
 apt-get install \
-    php7.2 \
-    php7.2-opcache \
-    libapache2-mod-php7.2 \
-    php7.2-mysql \
-    php7.2-curl \
-    php7.2-json \
-    php7.2-gd \
-    php7.2-mcrypt \
-    php7.2-intl \
-    php7.2-mbstring \
-    php7.2-xml \
-    php7.2-zip \
-    php7.2-fpm \
-    php7.2-readline \
-    php7.2-sqlite3 \
-    php7.2-ldap \
-    php7.2-snmp \
-    php-db \
-    php-date
-    php-pear \
-    sudo \
-    tofrodos \
-    bsd-mailx \
-    lsb-release \
-    mariadb-server \
-    libconfig-inifiles-perl \
-    libcrypt-des-perl \
-    libdigest-hmac-perl \
-    libdigest-sha-perl \
-    libgd-perl
+php7.2 \
+php7.2-opcache \
+libapache2-mod-php7.2 \
+php7.2-mysql \
+php7.2-curl \
+php7.2-json \
+php7.2-gd \
+php7.2-mcrypt \
+php7.2-intl \
+php7.2-mbstring \
+php7.2-xml \
+php7.2-zip \
+php7.2-fpm \
+php7.2-readline \
+php7.2-sqlite3 \
+php7.2-ldap \
+php7.2-snmp \
+php-db \
+php-date
+php-pear \
+sudo \
+tofrodos \
+bsd-mailx \
+lsb-release \
+mariadb-server \
+libconfig-inifiles-perl \
+libcrypt-des-perl \
+libdigest-hmac-perl \
+libdigest-sha-perl \
+libgd-perl
 ```
 
 Activez les modules :
@@ -193,49 +198,51 @@ Redémarrez le service SNMP :
 service snmpd restart
 service snmptrapd restart
 ```
-<!--Suse-->
+
+</TabItem>
+<TabItem value="Suse" label="Suse">
 Installez les dépendances nécessaires :
 
 ``` shell
 yast -i gcc \
-    gcc-c++ \
-    make \
-    automake \
-    apache2 \
-    php5 \
-    php5-mysql \
-    apache2-mod_php5 \
-    php5-pear \
-    php5-ldap \
-    php5-snmp \
-    php5-gd \
-    php5-soap \
-    php5-intl \
-    php5-posix \
-    php5-gettext \
-    php5-mbstring \
-    mysql \
-    libmysqlclient-devel \
-    perl-DBD-mysql \
-    mysql-community-server \
-    rrdtool \
-    perl-Config-IniFiles \
-    net-snmp \
-    perl-Net-SNMP \
-    perl-SNMP \
-    gd \
-    libjpeg-devel \
-    libpng-devel \
-    fontconfig-devel \
-    freetype2-devel \
-    sudo \
-    mailx \
-    fping \
-    iputils \
-    dos2unix \
-    cron \
-    dejavu \
-    nagios-plugins
+gcc-c++ \
+make \
+automake \
+apache2 \
+php5 \
+php5-mysql \
+apache2-mod_php5 \
+php5-pear \
+php5-ldap \
+php5-snmp \
+php5-gd \
+php5-soap \
+php5-intl \
+php5-posix \
+php5-gettext \
+php5-mbstring \
+mysql \
+libmysqlclient-devel \
+perl-DBD-mysql \
+mysql-community-server \
+rrdtool \
+perl-Config-IniFiles \
+net-snmp \
+perl-Net-SNMP \
+perl-SNMP \
+gd \
+libjpeg-devel \
+libpng-devel \
+fontconfig-devel \
+freetype2-devel \
+sudo \
+mailx \
+fping \
+iputils \
+dos2unix \
+cron \
+dejavu \
+nagios-plugins
 ```
 
 Sur certaines distributions OpenSuse, le paramétrage par défaut des type **mine** n'est pas valide pour fonctionner
@@ -258,7 +265,8 @@ Sauvegardez le fichier et redémarrez apache :
 ``` shell
 /etc/init.d/apache2 restart
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Moteur de supervision (Centreon Engine)
 
@@ -319,7 +327,7 @@ Exécutez le script d'installation :
 #                                                                             #
 ###############################################################################
 ------------------------------------------------------------------------
-        Checking all needed binaries
+Checking all needed binaries
 ------------------------------------------------------------------------
 rm                                                         OK
 cp                                                         OK
@@ -335,7 +343,7 @@ find                                                       OK
 /bin/sed                                                   OK
 
 ------------------------------------------------------------------------
-        Check mandatory gorgone service status
+Check mandatory gorgone service status
 ------------------------------------------------------------------------
 
 Is the Gorgone module already installed?
@@ -363,7 +371,7 @@ Répondez **[y]** à toutes les questions :
 
 ``` shell
 ------------------------------------------------------------------------
-        Please choose what you want to install
+Please choose what you want to install
 ------------------------------------------------------------------------
 
 Do you want to install : Centreon Web Front
@@ -383,7 +391,7 @@ Do you want to install : CentreonTrapd process
 
 ``` shell
 ------------------------------------------------------------------------
-        Start CentWeb Installation
+Start CentWeb Installation
 ------------------------------------------------------------------------
 
 Where is your Centreon directory ?
@@ -495,7 +503,7 @@ Add group www-data to user centreon                        OK
 
 ``` shell
 ------------------------------------------------------------------------
-        Configure Sudo
+Configure Sudo
 ------------------------------------------------------------------------
 
 Where is sudo configuration file ?
@@ -534,7 +542,7 @@ Configuring Sudo                                           OK
 
 ``` shell
 ------------------------------------------------------------------------
-        Configure Apache server
+Configure Apache server
 ------------------------------------------------------------------------
 
 Do you want to add Centreon Apache sub configuration file ?
@@ -553,7 +561,7 @@ Reloading Apache service                                   OK
 
 ``` shell
 ------------------------------------------------------------------------
-        Configure PHP FPM service
+Configure PHP FPM service
 ------------------------------------------------------------------------
 
 Do you want to add Centreon PHP FPM sub configuration file ?
@@ -636,7 +644,7 @@ All PEAR modules                                           OK
 
 ``` shell
 ------------------------------------------------------------------------
-            Centreon Post Install
+Centreon Post Install
 ------------------------------------------------------------------------
 Create /usr/share/centreon/www/install/install.conf.php    OK
 Create /etc/centreon/instCentWeb.conf                      OK
@@ -646,7 +654,7 @@ Create /etc/centreon/instCentWeb.conf                      OK
 
 ``` shell
 ------------------------------------------------------------------------
-        Starting CentStorage Installation
+Starting CentStorage Installation
 ------------------------------------------------------------------------
 
 Where is your Centreon Run Dir directory?
@@ -684,7 +692,7 @@ Create /etc/centreon/instCentStorage.conf                  OK
 
 ``` shell
 ------------------------------------------------------------------------
-        Starting Centreon Plugins Installation
+Starting Centreon Plugins Installation
 ------------------------------------------------------------------------
 Path                                                       OK
 Path                                                       OK
@@ -704,7 +712,7 @@ Create /etc/centreon/instCentPlugins.conf                  OK
 
 ``` shell
 ------------------------------------------------------------------------
-        Starting CentreonTrapD Installation
+Starting CentreonTrapD Installation
 ------------------------------------------------------------------------
 
 Path                                                       OK

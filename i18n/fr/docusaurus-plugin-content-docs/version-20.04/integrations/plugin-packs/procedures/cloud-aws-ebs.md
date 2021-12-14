@@ -2,12 +2,15 @@
 id: cloud-aws-ebs
 title: Amazon EBS
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
-Amazon Elastic Block Store (EBS) est un service de stockage par bloc hautes performances et simple d'utilisation conçu en vue d'une utilisation avec Amazon Elastic Compute Cloud (EC2) 
+Amazon Elastic Block Store (EBS) est un service de stockage par bloc hautes performances et simple d'utilisation conçu en vue d'une utilisation avec Amazon Elastic Compute Cloud (EC2)
 pour les charges de travail exigeantes en débit et en transactions à n'importe quelle échelle.
-Des charges de travail variées, telles que des bases de données relationnelles et non relationnelles, des applications d'entreprise, des applications conteneurisées, des moteurs d'analyse Big Data, 
+Des charges de travail variées, telles que des bases de données relationnelles et non relationnelles, des applications d'entreprise, des applications conteneurisées, des moteurs d'analyse Big Data,
 des systèmes de fichiers et des workflows multimédias, sont largement déployées sur Amazon EBS.
 
 Le Plugin Centreon Amazon EBS utilise l'API Amazon Cloudwatch pour collecter les métriques associées.
@@ -20,34 +23,36 @@ Le Plugin Centreon Amazon EBS utilise l'API Amazon Cloudwatch pour collecter les
 
 ### Règles de découvertes
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Hosts-->
+<Tabs groupId="operating-systems">
+<TabItem value="Hosts" label="Hosts">
 
 | Rule name                       | Description                   |
 | :------------------------------ | :---------------------------- |
 | Cloud-Aws-Ebs-Api-HostDiscovery | Découverte de vos volumes EBS |
 
-<!--Services-->
+</TabItem>
+<TabItem value="Services" label="Services">
 
-Aucune règle de découverte de service n'est associée à ce Plugin-Pack. 
+Aucune règle de découverte de service n'est associée à ce Plugin-Pack.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Métriques supervisées
 
 Les métriques présentées ci-après sont également détaillées dans la documentation officielle du service EBS:
 https://docs.aws.amazon.com/fr_fr/AWSEC2/latest/UserGuide/using_cloudwatch_ebs
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Ebs-Volume-Io-->
+<Tabs groupId="operating-systems">
+<TabItem value="EbsVolumeIo" label="EbsVolumeIo">
 
 | Metric name      | Description                                                                             |
 | :--------------- | :-------------------------------------------------------------------------------------- |
 | VolumeReadBytes  | Provides information on the read operations in a specified period of time. Unit: Bytes  |
 | VolumeWriteBytes | Provides information on the write operations in a specified period of time. Unit: Bytes |
 
-<!--Ebs-Iops-->
+</TabItem>
+<TabItem value="EbsIops" label="EbsIops">
 
 | Metric name                | Description                                                                                                                           |
 | :------------------------- | :------------------------------------------------------------------------------------------------------------------------------------ |
@@ -57,7 +62,8 @@ https://docs.aws.amazon.com/fr_fr/AWSEC2/latest/UserGuide/using_cloudwatch_ebs
 | VolumeConsumedReadWriteOps | The total amount of read and write operations (normalized to 256K capacity units) consumed in a specified period of time. Unit: Count |
 | VolumeQueueLength          | The number of read and write operation requests waiting to be completed in a specified period of time. Unit: Count                    |
 
-<!--Ebs-Time-->
+</TabItem>
+<TabItem value="EbsTime" label="EbsTime">
 
 | Metric name          | Description                                                                                                              |
 | :------------------- | :----------------------------------------------------------------------------------------------------------------------- |
@@ -65,13 +71,14 @@ https://docs.aws.amazon.com/fr_fr/AWSEC2/latest/UserGuide/using_cloudwatch_ebs
 | VolumeTotalWriteTime | The total number of seconds spent by all write operations that completed in a specified period of time. Unit: Seconds    |
 | VolumeIdleTime       | The total number of seconds in a specified period of time when no read or write operations were submitted. Unit: Seconds |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
 ### Privilèges AWS
 
-Voici la liste des droits nécessaires au travers des *access/secret keys* utilisées pour pouvoir implémenter la supervision des ressources Amazon EBS: 
+Voici la liste des droits nécessaires au travers des *access/secret keys* utilisées pour pouvoir implémenter la supervision des ressources Amazon EBS:
 
 | AWS Privilege                  | Description                                                     |
 | :----------------------------- | :-------------------------------------------------------------- |
@@ -80,36 +87,36 @@ Voici la liste des droits nécessaires au travers des *access/secret keys* utili
 
 ### Dépendances du Plugin
 
-Afin de récupérer les informations nécessaires via les APIs AWS, il est possible d'utiliser soit le binaire *awscli* fourni par Amazon, soit le SDK Perl *paws*. 
-Le SDK est recommandé car plus performant. 
+Afin de récupérer les informations nécessaires via les APIs AWS, il est possible d'utiliser soit le binaire *awscli* fourni par Amazon, soit le SDK Perl *paws*.
+Le SDK est recommandé car plus performant.
 
 Installez le binaire choisi en lançant l'une des commandes suivantes:
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--perl-Paws-installation-->
+<Tabs groupId="operating-systems">
+<TabItem value="perlPawsinstallation" label="perlPawsinstallation">
 
 ```bash
 yum install perl-Paws
 ```
 
-<!--aws-cli-installation-->
+</TabItem>
+<TabItem value="awscliinstallation" label="awscliinstallation">
 
 ```bash
 yum install awscli
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 > **Attention** il n'est actuellement **pas** possible d'utiliser *paws* dans les cas suivants:
 > * si la connexion s'effectue au travers d'un proxy.
 > * utilisation de la fonctionnalité de *Découverte d'Hôte* dans Centreon.
 
-## Installation 
+## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="operating-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources Amazon EBS:
 
@@ -119,7 +126,8 @@ yum install centreon-plugin-Cloud-Aws-Ebs-Api
 
 2. Dans l'interface Centreon, installer le Plugin-Pack 'Amazon EBS' depuis la page "Configuration > Plugin Packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources Amazon EBS:
 
@@ -135,7 +143,8 @@ yum install centreon-pack-cloud-aws-ebs.noarch
 
 3. Dans l'interface Web de Centreon, installer le Plugin-Pack 'Amazon EBS' depuis la page "Configuration > Plugin Packs > Manager"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -154,40 +163,39 @@ Lorsque vous ajoutez un Hôte à Centreon, choisissez le modèle *Cloud-Aws-Ebs-
 |             | DUMMYSTATUS     | Host state. Default is OK, do not modify it unless you know what you are doing              |
 |             | DUMMYOUTPUT     | Host check output. Default is 'This is a dummy check'. Customize it with your own if needed |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## FAQ
 
 ### Comment puis-je tester le Plugin et que signifient les options des commandes ?
 
-Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande depuis votre collecteur Centreon avec l'utilisateur *centreon-engine* 
+Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande depuis votre collecteur Centreon avec l'utilisateur *centreon-engine*
 (certaines options comme ```volume-id``` ou ```proxyurl``` doivent être ajustées en fonction du contexte):
 
 ```bash
 /usr/lib/centreon/plugins//centreon_aws_ebs_api.pl \
-	--plugin=cloud::aws::ebs::plugin \
-	--mode=volumeio \
-	--custommode='awscli' \
-	--aws-secret-key='***' \
-	--aws-access-key='***' \
-	--region='eu-west-1' \
-	--proxyurl='http://myproxy.mycompany.org:8080' \
-	--volume-id='vol-1234abcd' \
-	--statistic='average' \
-	--timeframe='600' \
-	--period='60' \
-	--warning-volume-write-bytes='60000000' \
-	--critical-volume-write-bytes='90000000' \
-	-- verbose
+--plugin=cloud::aws::ebs::plugin \
+--mode=volumeio \
+--custommode='awscli' \
+--aws-secret-key='***' \
+--aws-access-key='***' \
+--region='eu-west-1' \
+--proxyurl='http://myproxy.mycompany.org:8080' \
+--volume-id='vol-1234abcd' \
+--statistic='average' \
+--timeframe='600' \
+--period='60' \
+--warning-volume-write-bytes='60000000' \
+--critical-volume-write-bytes='90000000' \
+-- verbose
 ```
 
 La commande retourne le message de sortie ci-dessous:
 
-```bash 	
-OK: 'vol-1234abcd' Statistic 'Average' Metrics Volume Read Bytes: 28.40 KB, Volume Write Bytes: 54.61 MB | 
+```bash
+OK: 'vol-1234abcd' Statistic 'Average' Metrics Volume Read Bytes: 28.40 KB, Volume Write Bytes: 54.61 MB |
 'vol-1234abcd~average#ebs.volume.bytes.read.bytes'=29081.60B;;;; 'vol-1234abcd~average#ebs.volume.bytes.write.bytes'=57261465.60B;0:60000000;0:90000000;;
 AWS EBS Volume'vol-1234abcd'
-    Statistic 'Average' Metrics Volume Read Bytes: 28.40 KB, Volume Write Bytes: 54.61 MB
+Statistic 'Average' Metrics Volume Read Bytes: 28.40 KB, Volume Write Bytes: 54.61 MB
 ```
 
 Cette commande supervise les IOs d'un volume EBS (```--mode=volumeio```) rattaché à la région *eu-west-1* d'AWS (```--region='eu-west-1'```)
@@ -195,7 +203,7 @@ et ayant pour ID *vol-1234abcd* (```--volume-id='vol-1234abcd'```).
 
 La métrique obtenue est une moyenne de valeurs (```--statistic='average'```) sur un intervalle de 10 minutes / 600 secondes  (```--timeframe='600'```) avec un point par minute / 60 secondes (```--period='60'```).
 
-Une alerte WARNING sera déclenchée si la moyenne des écriture sur le volume pour la période donnée est supérieure à 60MB, et CRITICAL si elle est supérieure à 90MB. 
+Une alerte WARNING sera déclenchée si la moyenne des écriture sur le volume pour la période donnée est supérieure à 60MB, et CRITICAL si elle est supérieure à 90MB.
 (```--warning-volume-write-bytes='60000000' --critical-volume-write-bytes='90000000'```).
 
 Pour chaque mode, les options disponibles peuvent être consultées en ajoutant l'option ```--help``` à la commande:
@@ -204,11 +212,11 @@ Pour chaque mode, les options disponibles peuvent être consultées en ajoutant 
 /usr/lib/centreon/plugins/centreon_aws_ebs_api.pl --plugin=cloud::aws::ebs::plugin --mode=volumeio --help
 ```
 
-### J'obtiens le message d'erreur suivant:  
+### J'obtiens le message d'erreur suivant:
 
 #### ```UNKNOWN: No metrics. Check your options or use --zeroed option to set 0 on undefined values```
 
-Lors du déploiement de mes contrôles, j'obtiens le message suivant 'UNKNOWN: No metrics. Check your options or use --zeroed option to set 0 on undefined values'. 
+Lors du déploiement de mes contrôles, j'obtiens le message suivant 'UNKNOWN: No metrics. Check your options or use --zeroed option to set 0 on undefined values'.
 
 Cela signifie qu'Amazon Cloudwatch n'a pas consolidé de données sur la période.
 

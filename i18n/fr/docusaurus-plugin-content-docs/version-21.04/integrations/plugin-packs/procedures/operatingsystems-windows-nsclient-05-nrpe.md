@@ -2,15 +2,18 @@
 id: operatingsystems-windows-nsclient-05-nrpe
 title: Windows NRPE 0.5
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-> Hello community! We're looking for a contributor to help us to translate the 
-content in french and provide a sample execution command. If it's you, let us 
+
+> Hello community! We're looking for a contributor to help us to translate the
+content in french and provide a sample execution command. If it's you, let us
 know and ping us on [slack](https://centreon.slack.com)
 
 ## Overview
 
-This Plugin Pack allow to get metrics and statuses collected thanks to the NSClient++ 
-monitoring agent and its embedded NRPE Server. 
+This Plugin Pack allow to get metrics and statuses collected thanks to the NSClient++
+monitoring agent and its embedded NRPE Server.
 
 ## Pack assets
 
@@ -21,21 +24,22 @@ monitoring agent and its embedded NRPE Server.
 
 ### Collected metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Counter-Active-Sessions-->
+<Tabs groupId="operating-systems">
+<TabItem value="CounterActiveSessions" label="CounterActiveSessions">
 
 | Metric name     | Description                             |
 | :-------------- | :-------------------------------------- |
 | Sessions\_value | Number of actived sessions. Unit: Count |
 
-<!--Counter-Generic-->
+</TabItem>
+<TabItem value="CounterGeneric" label="CounterGeneric">
 
 | Metric name    | Description                          |
 | :------------- | :----------------------------------- |
 | Counter\_value | Number of counter found. Unit: Count |
 
-<!--Cpu-->
+</TabItem>
+<TabItem value="Cpu" label="Cpu">
 
 | Metric name | Description                                                      |
 | :---------- | :--------------------------------------------------------------- |
@@ -43,25 +47,29 @@ monitoring agent and its embedded NRPE Server.
 | total 1m    | CPU Utilization of Windows serveur over 1 minutes. Unit: Percent |
 | total 5s    | CPU Utilization of Windows serveur over 5 seconds. Unit: Percent |
 
-<!--Disk-->
+</TabItem>
+<TabItem value="Disk" label="Disk">
 
 | Metric name | Description                                   |
 | :---------- | :-------------------------------------------- |
 | used        | Used and Total Storage allocated. Unit: Bytes |
 
-<!--Eventlog-Generic-->
+</TabItem>
+<TabItem value="EventlogGeneric" label="EventlogGeneric">
 
 | Metric name  | Description                            |
 | :----------- | :------------------------------------- |
 | problemCount | Number of event log found. Unit: Count |
 
-<!--Files-Generic-->
+</TabItem>
+<TabItem value="FilesGeneric" label="FilesGeneric">
 
 | Metric name | Description                        |
 | :---------- | :--------------------------------- |
 | count       | Number of files found. Unit: Count |
 
-<!--Logfiles-Generic-->
+</TabItem>
+<TabItem value="LogfilesGeneric" label="LogfilesGeneric">
 
 | Metric name        | Description                                                                   |
 | :----------------- | :---------------------------------------------------------------------------- |
@@ -70,19 +78,22 @@ monitoring agent and its embedded NRPE Server.
 | default\_criticals | Number of line that match with critical pattern found in logfile. Unit: Count |
 | default\_unknowns  | Number of line that match with unknown pattern found in logfile. Unit: Count  |
 
-<!--Memory-->
+</TabItem>
+<TabItem value="Memory" label="Memory">
 
 | Metric name | Description                        |
 | :---------- | :--------------------------------- |
 | used        | Total usage of memory. Unit: Bytes |
 
-<!--Swap-->
+</TabItem>
+<TabItem value="Swap" label="Swap">
 
 | Metric name | Description                             |
 | :---------- | :-------------------------------------- |
 | swap        | Total usage of swap memory. Unit: Bytes |
 
-<!--Sessions-->
+</TabItem>
+<TabItem value="Sessions" label="Sessions">
 
 | Metric name                   | Description                                               |
 | :---------------------------- | :-------------------------------------------------------- |
@@ -92,19 +103,21 @@ monitoring agent and its embedded NRPE Server.
 | sessions-active               | Number of active users session. Unit: Count               |
 | sessions-disconnected-current | Number of current disconnected users session. Unit: Count |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
 ### Centreon NSClient++
 
-To monitor an *Active Directory* domain controller through NRPE, install the Centreon packaged version 
-of the NSClient++ agent. Please follow our [official documentation](../tutorials/centreon-nsclient-tutorial) 
+To monitor an *Active Directory* domain controller through NRPE, install the Centreon packaged version
+of the NSClient++ agent. Please follow our [official documentation](../tutorials/centreon-nsclient-tutorial)
 and make sure that the **NRPE Server** configuration is correct.
 
-## Installation 
+## Installation
 
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="operating-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon NRPE Client package on every Poller expected to monitor *Varnish*:
 
@@ -112,10 +125,11 @@ and make sure that the **NRPE Server** configuration is correct.
 yum install centreon-nrpe-plugin
 ```
 
-2. On the Centreon Web interface, install the Centreon Pack *Varnish* 
+2. On the Centreon Web interface, install the Centreon Pack *Varnish*
 from the **Configuration > Plugin Packs > Manager** page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Poller expected to monitor *Varnish*:
 
@@ -129,10 +143,11 @@ yum install centreon-nrpe-plugin
 yum install centreon-pack-operatingsystems-windows-nsclient-05-nrpe
 ```
 
-3. On the Centreon Web interface, install the Centreon Pack *Varnish* 
+3. On the Centreon Web interface, install the Centreon Pack *Varnish*
 from the **Configuration > Plugin Packs > Manager** page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host configuration
 
@@ -140,7 +155,7 @@ from the **Configuration > Plugin Packs > Manager** page
 * Apply the *OS-Windows-NSClient-05-NRPE-custom* template and configure all the mandatory Macros:
 
 | Mandatory | Name             | Description                                                      |
-|:----------|:-----------------|:---------------------------------------------------------------- |
+| :-------- | :--------------- | :--------------------------------------------------------------- |
 | X         | NRPECLIENT       | NRPE Plugin binary to use (Default: 'check_centreon_nrpe')       |
 | X         | NRPEPORT         | NRPE Port of the target server (Default: '5666')                 |
 | X         | NRPETIMEOUT      | Timeout value (Default: '30')                                    |

@@ -2,10 +2,13 @@
 id: applications-databases-elasticsearch
 title: Elasticsearch
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
-Elasticsearch est un moteur de recherche et d'analyse distribué et en open source pour tout type de données, y compris les données textuelles, numériques, géospatiales, structurées et non structurées. Elasticsearch a été conçu à partir d'Apache Lucene et a été lancé en 2010 par Elasticsearch N. V. (maintenant appelé Elastic). 
+Elasticsearch est un moteur de recherche et d'analyse distribué et en open source pour tout type de données, y compris les données textuelles, numériques, géospatiales, structurées et non structurées. Elasticsearch a été conçu à partir d'Apache Lucene et a été lancé en 2010 par Elasticsearch N. V. (maintenant appelé Elastic).
 
 ## Contenu du Plugin-Pack
 
@@ -13,7 +16,7 @@ Elasticsearch est un moteur de recherche et d'analyse distribué et en open sour
 
 * Bases de donnéess
 * Noeuds
-* Partitions 
+* Partitions
 * Clusters
 * Indices
 * Documents
@@ -21,9 +24,8 @@ Elasticsearch est un moteur de recherche et d'analyse distribué et en open sour
 
 ### Métriques Collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--cluster-statistics-->
+<Tabs groupId="operating-systems">
+<TabItem value="clusterstatistics" label="clusterstatistics">
 
 | Métrique                 | Description                                | Unité   |
 | :----------------------- | :----------------------------------------- | :------ |
@@ -44,7 +46,8 @@ Elasticsearch est un moteur de recherche et d'analyse distribué et en open sour
 | docs_count               | Nombre de documents                        |         |
 | size_in_bytes            | Tailles de toutes les partitions assignées |    B    |
 
-<!--indice-statistics-->
+</TabItem>
+<TabItem value="indicestatistics" label="indicestatistics">
 
 | Métrique           | Description                                            |  Unité   |
 | :----------------------- | :----------------------------------------------- | :------ |
@@ -56,7 +59,8 @@ Elasticsearch est un moteur de recherche et d'analyse distribué et en open sour
 | size_in_bytes_primaries  | Taille de toute les partitions primaires         |    B    |
 | size_in_bytes_total      | Taille totale de toutes les partitions assignées |    B    |
 
-<!--license-->
+</TabItem>
+<TabItem value="license" label="license">
 
 | Métrique           | Description                              | Unité   |
 | :----------------- | :--------------------------------------- | :------ |
@@ -65,7 +69,8 @@ Elasticsearch est un moteur de recherche et d'analyse distribué et en open sour
 | issued_to          | Propriétaire de la licence               |         |
 | issue_date         | Date de concession de la licence         |         |
 
-<!--node-statistics-->
+</TabItem>
+<TabItem value="nodestatistics" label="nodestatistics">
 
 | Métrique          | Description                                               | Unité   |
 | :---------------- | :-------------------------------------------------------- | :-----  |
@@ -79,27 +84,28 @@ Elasticsearch est un moteur de recherche et d'analyse distribué et en open sour
 | docs_count        | Nombre de documents dans l'indice                         |         |
 | size_in_bytes     | Taille totale de toutes les partitions assignées au noeud |    B    |
 
-<!--Rules-->
+</TabItem>
+<TabItem value="Rules" label="Rules">
 
 | Non de la rêgle                        | Description                                       |
 | :------------------------------------- | :------------------------------------------------ |
 | App-DB-Elasticsearch-Indice-Statistics | Découverte des indices sur votre BD Elasticsearch |
-| App-DB-Elasticsearch-Node-Statistics   | Découverte des noeuds sur votre BD Elasticsearch  |  
+| App-DB-Elasticsearch-Node-Statistics   | Découverte des noeuds sur votre BD Elasticsearch  |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 Utilisez le module de découverte pour pouvoir superviser vos bases de donnée Elasticsearch, Allez dans  Configuration > Services > Découverte pour lancer l'analyse.
 
-## Prerequis 
+## Prerequis
 
 Afin de superviser un cluster Elasticsearch, celui-ci doit être configuré comme indiqué dans la documentation officielle d'Elasticsearch: https://www.elastic.co/guide/en/elasticsearch/reference/7.8/monitor-elasticsearch-cluster
 Pour pouvoir communiquer avec le collecteurs Centreon poller, l'API du noeud Elasticsearch doit utiliser le protocole http et le port 9200.
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!-- Licence Business & IT Editions en ligne-->
+<Tabs groupId="operating-systems">
+<TabItem value="Licence Business & IT Editions en ligne" label="Licence Business & IT Editions en ligne">
 
 1. Installer le Plugin sur tous les collecteurs Centreon contrôlants les ressources Elasticsearch:
 
@@ -109,7 +115,8 @@ yum install centreon-plugin-Applications-donnéebases-Elasticsearch
 
 2. Installer le Plugin-Pack *Elasticsearch* dans la page *Configuration  \>  Packs de plugins*  de l'interface Web Centreon
 
-<!--Licenses hors lignes-->
+</TabItem>
+<TabItem value="Licenses hors lignes" label="Licenses hors lignes">
 
 1. Installer le Plugin sur tous les collecteurs Centreon contrôlants les ressources Elasticsearch:
 
@@ -125,11 +132,12 @@ yum install centreon-pack-applications-donnéebases-elasticsearch
 
 3. Dans la page *Configuration  \> Packs de plugins* de l'interface Web Centreon, installer le Plugin-Pack *Elasticsearch*
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
-Toujours dans l'interface Web Centreon, aller à la page  *Configuration \> Hôstes* et cliquer sur *Ajouter*. Remplir alors les champs du formulaires. 
+Toujours dans l'interface Web Centreon, aller à la page  *Configuration \> Hôstes* et cliquer sur *Ajouter*. Remplir alors les champs du formulaires.
 Dans le champs *Modèles* cliquer sur *+ Ajouter une nouvelle entrée* puis sélectionner *App-DB-Elascticsearch-custom*
 
 Cliquer sur le bouton *Sauvegarder*.
@@ -151,7 +159,7 @@ Une fois que le Plugin est installé, vous pouvez le tester directement en ligne
 
 ```bash
 su - centreon-engine \
-/usr/lib/centreon/plugins/centreon_elasticsearch.pl \ 
+/usr/lib/centreon/plugins/centreon_elasticsearch.pl \
 --hostname=168.253.16.125 \
 --port=9200 \
 --proto=http \
@@ -165,7 +173,7 @@ su - centreon-engine \
 
 ```
 
-Sortie: 
+Sortie:
 
 ```bash
 OK: Node 'i-Vertix Node 1' JVM Heap: 26%, Free Disk Space: 1.56TB, Documents: 4362761044, donnée: 1.26TB | 'i-Vertix Node 1#node.jvm.heap.usage.percentage'=26%;;;0;100 'i-Vertix Node 1#node.jvm.heap.usage.bytes'=36380302240B;;;0;137151119360 'i-Vertix Node 1#node.disk.free.bytes'=1710072680448B;;;0;3113589145600 'i-Vertix Node 1#node.documents.total.count'=4362761044;;;0; 'i-Vertix Node 1#node.donnée.size.bytes'=1386278479651B;;;0;
@@ -179,15 +187,15 @@ Tous les modes disponibles peuvent être listés par la ligne de commande suivan
 
 ```bash
 /usr/lib/centreon/plugins/centreon_elasticsearch.pl \
-    --list-mode
+--list-mode
 ```
 
-Et les options des différents modes peuvent être affichées grâce au paramètre ```--help```:  
+Et les options des différents modes peuvent être affichées grâce au paramètre ```--help```:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_elasticsearch.pl \
-    --mode=node-statistics \
-    --help
+--mode=node-statistics \
+--help
 ```
 
 ### Comment interpréter les erreurs suivantes ?

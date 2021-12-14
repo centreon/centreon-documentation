@@ -2,6 +2,9 @@
 id: secure-platform
 title: Secure your platform
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 This chapter suggests how to best secure your Centreon platform.
 
@@ -98,33 +101,44 @@ shutdown -r now
 
 Depending on the type of server, install the packages with the following command:
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Central / Remote Server-->
-   ```shell
-   yum install centreon-common-selinux \
-   centreon-web-selinux \
-   centreon-broker-selinux \
-   centreon-engine-selinux \
-   centreon-gorgoned-selinux \
-   centreon-plugins-selinux
-   ```
-<!--Poller-->
-   ```shell
-   yum install centreon-common-selinux \
-   centreon-broker-selinux \
-   centreon-engine-selinux \
-   centreon-gorgoned-selinux \
-   centreon-plugins-selinux
-   ```
-<!--Map server-->
-   ```shell
-   yum install centreon-map-selinux
-   ```
-<!--MBI server-->
-   ```shell
-   yum install centreon-mbi-selinux
-   ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+<Tabs groupId="operating-systems">
+<TabItem value="Central / Remote Server" label="Central / Remote Server">
+
+```shell
+yum install centreon-common-selinux \
+centreon-web-selinux \
+centreon-broker-selinux \
+centreon-engine-selinux \
+centreon-gorgoned-selinux \
+centreon-plugins-selinux
+```
+
+</TabItem>
+<TabItem value="Poller" label="Poller">
+
+```shell
+yum install centreon-common-selinux \
+centreon-broker-selinux \
+centreon-engine-selinux \
+centreon-gorgoned-selinux \
+centreon-plugins-selinux
+```
+
+</TabItem>
+<TabItem value="Map server" label="Map server">
+
+```shell
+yum install centreon-map-selinux
+```
+
+</TabItem>
+<TabItem value="MBI server" label="MBI server">
+
+```shell
+yum install centreon-mbi-selinux
+```
+</TabItem>
+</Tabs>
 
 To check the installation, execute the following command:
 
@@ -205,8 +219,9 @@ systemctl start firewalld
 > The list of network flows required for each type of server is defined
 > [here](../installation/architectures#tables-of-platform-flows).
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Central / Remote Server-->
+<Tabs groupId="operating-systems">
+<TabItem value="Central / Remote Server" label="Central / Remote Server">
+
 Example of rules for a Centreon Central or Remote Server:
 ```shell
 # For default protocols
@@ -219,7 +234,10 @@ firewall-cmd --zone=public --add-port=5556/tcp --permanent
 # Centreon Broker
 firewall-cmd --zone=public --add-port=5669/tcp --permanent
 ```
-<!--Poller-->
+
+</TabItem>
+<TabItem value="Poller" label="Poller">
+
 Example of rules for Centreon poller:
 ```shell
 # For default protocols
@@ -227,7 +245,8 @@ firewall-cmd --zone=public --add-service=ssh --permanent
 firewall-cmd --zone=public --add-service=snmp --permanent
 firewall-cmd --zone=public --add-service=snmptrap --permanent
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 Once the rules have been added, it is necessary to reload firewalld:
 ```shell
@@ -252,7 +271,7 @@ yum update -y selinux-policy*
 Enable firewalld:
 ```shell
 systemctl enable fail2ban
-systemctl start fail2ban 
+systemctl start fail2ban
 ```
 
 Copy the default rules file:
@@ -297,9 +316,9 @@ Status for the jail: centreon
 |  |- Total failed:	17
 |  `- File list:	/var/log/centreon/login.log
 `- Actions
-   |- Currently banned:	0
-   |- Total banned:	2
-   `- Banned IP list:
+|- Currently banned:	0
+|- Total banned:	2
+`- Banned IP list:
 ```
 
 > For more information go to the [official website](http://www.fail2ban.org).
@@ -314,23 +333,28 @@ It is better to use a certificate validated by an authority rather than a self-s
 
 If you do not have a certificate validated by an authority, you can generate one on platforms such as [Let's Encrypt](https://letsencrypt.org/).
 
-> Once your web server is set to HTTPS mode, if you have a MAP server on your platform, you have to set it to HTTPS mode too, otherwise 
+> Once your web server is set to HTTPS mode, if you have a MAP server on your platform, you have to set it to HTTPS mode too, otherwise
 > recent web browsers may block communication between the two servers. The procedure is detailed [here](../graph-views/secure-your-map-platform.md#Configure-HTTPS/TLS-on-the-MAP-server).
 
 Once you have your certificate, perform the following procedure to activate HTTPS mode on your Apache server:
 
 1. Install SSL module for Apache:
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="operating-systems">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+
 ```shell
 dnf install mod_ssl mod_security openssl
 ```
-<!--CentOS 7-->
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 ```shell
 yum install httpd24-mod_ssl httpd24-mod_security openssl
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 2. Install your certificates:
 
@@ -341,47 +365,57 @@ Copy your certificate and key on the server according your configuration; by def
 
 3. Backup previous Apache configuration for Centreon:
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="operating-systems">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+
 ```shell
 cp /etc/httpd/conf.d/10-centreon.conf{,.origin}
 ```
-<!--CentOS 7-->
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 ```shell
 cp /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf{,.origin}
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 4. Edit Centreon Apache configuration
 
 > Centreon offers an example configuration file to enable HTTPS available in the following directory:
 > **/usr/share/centreon/examples/centreon.apache.https.conf**
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="operating-systems">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+
 Edit the **/etc/httpd/conf.d/10-centreon.conf** as following:
-<!--CentOS 7-->
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 Edit the **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf** as following:
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ```apacheconf
 Alias /centreon/api /usr/share/centreon
 Alias /centreon /usr/share/centreon/www/
 
 <LocationMatch ^/centreon/(?!api/latest/|api/beta/|api/v[0-9]+/|api/v[0-9]+\.[0-9]+/)(.*\.php(/.*)?)$>
-    ProxyPassMatch fcgi://127.0.0.1:9042/usr/share/centreon/www/$1
+ProxyPassMatch fcgi://127.0.0.1:9042/usr/share/centreon/www/$1
 </LocationMatch>
 
 <LocationMatch ^/centreon/api/(latest/|beta/|v[0-9]+/|v[0-9]+\.[0-9]+/)(.*)$>
-    ProxyPassMatch fcgi://127.0.0.1:9042/usr/share/centreon/api/index.php/$1
+ProxyPassMatch fcgi://127.0.0.1:9042/usr/share/centreon/api/index.php/$1
 </LocationMatch>
 
 ProxyTimeout 300
 
 <VirtualHost *:80>
-    RewriteEngine On
-    RewriteCond %{HTTPS} off
-    RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
 </VirtualHost>
 
 <VirtualHost *:443>
@@ -439,8 +473,9 @@ RedirectMatch ^/$ /centreon
 
 5. Enable HttpOnly / Secure flags and hide Apache server signature
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="operating-systems">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+
 Edit the **/etc/httpd/conf.d/10-centreon.conf** file and add the following line:
 
 ```apacheconf
@@ -454,7 +489,10 @@ Edit the **/etc/php.d/50-centreon.ini** file and turn off the `expose_php` param
 ```phpconf
 expose_php = Off
 ```
-<!--CentOS 7-->
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 Edit the **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf** file and add the following line:
 
 ```apacheconf
@@ -470,29 +508,36 @@ Edit the **/etc/php.d/50-centreon.ini** file and turn off the `expose_php` param
 ```phpconf
 expose_php = Off
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 6. Hide the default /icons directory
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="operating-systems">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+
 Edit the **/etc/httpd/conf.d/autoindex.conf** file and comment the following line:
 
 ```apacheconf
 #Alias /icons/ "/usr/share/httpd/icons/"
 ```
-<!--CentOS 7-->
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 Edit the **/opt/rh/httpd24/root/etc/httpd/conf.d/autoindex.conf** file and comment the following line:
 
 ```apacheconf
 #Alias /icons/ "/opt/rh/httpd24/root/usr/share/httpd/icons/"
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 7. Restart the Apache and PHP process to take in account the new configuration:
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="operating-systems">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+
 ```shell
 systemctl restart php-fpm httpd
 ```
@@ -507,25 +552,28 @@ If everything is ok, you must have:
 
 ```shell
 ● httpd.service - The Apache HTTP Server
-   Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled; vendor preset: disabled)
-  Drop-In: /usr/lib/systemd/system/httpd.service.d
-           └─php-fpm.conf
-   Active: active (running) since Tue 2020-10-27 12:49:42 GMT; 2h 35min ago
-     Docs: man:httpd.service(8)
- Main PID: 1483 (httpd)
-   Status: "Total requests: 446; Idle/Busy workers 100/0;Requests/sec: 0.0479; Bytes served/sec: 443 B/sec"
-    Tasks: 278 (limit: 5032)
-   Memory: 39.6M
-   CGroup: /system.slice/httpd.service
-           ├─1483 /usr/sbin/httpd -DFOREGROUND
-           ├─1484 /usr/sbin/httpd -DFOREGROUND
-           ├─1485 /usr/sbin/httpd -DFOREGROUND
-           ├─1486 /usr/sbin/httpd -DFOREGROUND
-           ├─1487 /usr/sbin/httpd -DFOREGROUND
-           └─1887 /usr/sbin/httpd -DFOREGROUND
+Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled; vendor preset: disabled)
+Drop-In: /usr/lib/systemd/system/httpd.service.d
+└─php-fpm.conf
+Active: active (running) since Tue 2020-10-27 12:49:42 GMT; 2h 35min ago
+Docs: man:httpd.service(8)
+Main PID: 1483 (httpd)
+Status: "Total requests: 446; Idle/Busy workers 100/0;Requests/sec: 0.0479; Bytes served/sec: 443 B/sec"
+Tasks: 278 (limit: 5032)
+Memory: 39.6M
+CGroup: /system.slice/httpd.service
+├─1483 /usr/sbin/httpd -DFOREGROUND
+├─1484 /usr/sbin/httpd -DFOREGROUND
+├─1485 /usr/sbin/httpd -DFOREGROUND
+├─1486 /usr/sbin/httpd -DFOREGROUND
+├─1487 /usr/sbin/httpd -DFOREGROUND
+└─1887 /usr/sbin/httpd -DFOREGROUND
 
 ```
-<!--CentOS 7-->
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 ```shell
 systemctl restart php-fpm httpd24-httpd
 ```
@@ -540,25 +588,26 @@ If everything is ok, you must have:
 
 ```shell
 ● httpd24-httpd.service - The Apache HTTP Server
-   Loaded: loaded (/usr/lib/systemd/system/httpd24-httpd.service; enabled; vendor preset: disabled)
-   Active: active (running) since mar. 2020-05-12 15:39:58 CEST; 25min ago
-  Process: 31762 ExecStop=/opt/rh/httpd24/root/usr/sbin/httpd-scl-wrapper $OPTIONS -k graceful-stop (code=exited, status=0/SUCCESS)
- Main PID: 31786 (httpd)
-   Status: "Total requests: 850; Idle/Busy workers 50/50;Requests/sec: 0.547; Bytes served/sec: 5.1KB/sec"
-   CGroup: /system.slice/httpd24-httpd.service
-           ├─ 1219 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-           ├─31786 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-           ├─31788 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-           ├─31789 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-           ├─31790 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-           ├─31802 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-           ├─31865 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-           ├─31866 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-           ├─31882 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-           ├─31903 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-           └─32050 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+Loaded: loaded (/usr/lib/systemd/system/httpd24-httpd.service; enabled; vendor preset: disabled)
+Active: active (running) since mar. 2020-05-12 15:39:58 CEST; 25min ago
+Process: 31762 ExecStop=/opt/rh/httpd24/root/usr/sbin/httpd-scl-wrapper $OPTIONS -k graceful-stop (code=exited, status=0/SUCCESS)
+Main PID: 31786 (httpd)
+Status: "Total requests: 850; Idle/Busy workers 50/50;Requests/sec: 0.547; Bytes served/sec: 5.1KB/sec"
+CGroup: /system.slice/httpd24-httpd.service
+├─ 1219 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+├─31786 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+├─31788 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+├─31789 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+├─31790 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+├─31802 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+├─31865 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+├─31866 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+├─31882 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+├─31903 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+└─32050 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Securing the Apache web server with a self-signed certificate
 
@@ -592,7 +641,7 @@ Protect your file by limiting rights:
 chmod 400 centreon7.key
 ```
 
-3. Creation of a certificate signing request file 
+3. Creation of a certificate signing request file
 
 From the key you created, create a CSR (Certificate Signing Request) file. Fill in the fields according to your company. The "Common Name" field must be identical to the hostname of your apache server (in our case it is centreon7.localdomain).
 ```text
@@ -626,7 +675,7 @@ openssl x509 -req -in centreon7.csr -out centreon7.crt -CA ca_demo.crt -CAkey ca
 
 The CAcreateserial option is only needed the first time. The previously created password must be entered. You get your server certificate named centreon7.crt.
 
-You can view the contents of the : 
+You can view the contents of the :
 ```text
 less centreon7.crt
 ```
@@ -648,19 +697,19 @@ Alias /centreon/api /usr/share/centreon
 Alias /centreon /usr/share/centreon/www/
 
 <LocationMatch ^/centreon/(?!api/latest/|api/beta/|api/v[0-9]+/|api/v[0-9]+\.[0-9]+/)(.*\.php(/.*)?)$>
-    ProxyPassMatch fcgi://127.0.0.1:9042/usr/share/centreon/www/$1
+ProxyPassMatch fcgi://127.0.0.1:9042/usr/share/centreon/www/$1
 </LocationMatch>
 
 <LocationMatch ^/centreon/api/(latest/|beta/|v[0-9]+/|v[0-9]+\.[0-9]+/)(.*)$>
-    ProxyPassMatch fcgi://127.0.0.1:9042/usr/share/centreon/api/index.php/$1
+ProxyPassMatch fcgi://127.0.0.1:9042/usr/share/centreon/api/index.php/$1
 </LocationMatch>
 
 ProxyTimeout 300
 
 <VirtualHost *:80>
-    RewriteEngine On
-    RewriteCond %{HTTPS} off
-    RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
 </VirtualHost>
 
 <VirtualHost *:443>
@@ -724,20 +773,25 @@ To update the Centreon URI, you need to follow those steps:
 
 ![image](../assets/administration/custom-uri.png)
 
-2. Edit Apache configuration file for Centreon Web 
+2. Edit Apache configuration file for Centreon Web
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="operating-systems">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+
 ```shell
 vim /etc/httpd/conf.d/10-centreon.conf
 ```
-<!--CentOS 7-->
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 ```shell
 vim /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf
 ```
 
 and change **/centreon** path with your new path
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Enabling http2
 
@@ -745,8 +799,9 @@ It is possible to enable http2 protocol to improve Centreon network performance.
 
 To use http2, you need to follow those steps:
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="operating-systems">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+
 1. [Configure https on Centreon](./secure-platform#enable-https-on-the-web-server)
 
 2. Install nghttp2 module:
@@ -760,8 +815,8 @@ dnf install nghttp2
 ```apacheconf
 ...
 <VirtualHost *:443>
-    Protocols h2 h2c http/1.1
-    ...
+Protocols h2 h2c http/1.1
+...
 </VirtualHost>
 ...
 ```
@@ -781,7 +836,10 @@ dnf install nghttp2
 ```shell
 systemctl restart httpd
 ```
-<!--CentOS 7-->
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 1. [Configure https on Centreon](./secure-platform#enable-https-on-the-web-server)
 
 2. Install nghttp2 module:
@@ -795,8 +853,8 @@ yum install httpd24-nghttp2
 ```apacheconf
 ...
 <VirtualHost *:443>
-    Protocols h2 h2c http/1.1
-    ...
+Protocols h2 h2c http/1.1
+...
 </VirtualHost>
 ...
 ```
@@ -816,7 +874,8 @@ yum install httpd24-nghttp2
 ```shell
 systemctl restart httpd24-httpd
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## User authentication
 
@@ -872,7 +931,7 @@ to secure the communication.
 Centreon event logs are available in the following directories:
 
 | Logs directory            | Central server | Remote Server | Poller | Centreon Map server | Centreon MBI Server |
-|---------------------------|----------------|---------------|--------|---------------------|---------------------|
+| ------------------------- | -------------- | ------------- | ------ | ------------------- | ------------------- |
 | /var/log/centreon         | X              | X             |        |                     |                     |
 | /var/log/centreon-broker  | X              | X             | X      |                     |                     |
 | /var/log/centreon-engine  | X              | X             | X      |                     |                     |

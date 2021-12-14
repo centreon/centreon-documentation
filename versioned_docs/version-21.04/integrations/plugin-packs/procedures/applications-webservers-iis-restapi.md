@@ -2,6 +2,9 @@
 id: applications-webservers-iis-restapi
 title: Microsoft IIS Server Restapi
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -16,35 +19,40 @@ Internet Information Services (IIS, formerly Internet Information Server) is an 
 
 ### Discovery rules
 
-<!--Services-->
+<Tabs groupId="operating-systems">
+<TabItem value="Services" label="Services">
 
 | Rule name                             | Description                                          |
 | :------------------------------------ | :--------------------------------------------------- |
 | App-IIS-Restapi-ApplicationPools-Name | Discover application pools hosted by your IIS server |
 | App-IIS-Restapi-Websites-Name         | Discover websites hosted by your IIS server          |
 
-### Monitored metrics 
+</TabItem>
+</Tabs>
 
-<!--DOCUSAURUS_CODE_TABS-->
+### Monitored metrics
 
-<!--ApplicationPools-->
+<Tabs groupId="operating-systems">
+<TabItem value="ApplicationPools" label="ApplicationPools">
 
 | Metric name                        | Description                                                               |
 | :--------------------------------- | :------------------------------------------------------------------------ |
 | status                             | Status of the application pool.                                           |
 | applicationpool.requests.persecond | Number of requests per second by application pools. Unit: requests/second |
 
-<!--Websites-->
+</TabItem>
+<TabItem value="Websites" label="Websites">
 
-| Metric name                         | Description                                                             |
-| :---------------------------------- | :---------------------------------------------------------------------- |
-| status                              | Status of the website.                                                  |
-| website.traffic.in.bitspersecond    | Incoming traffic going through the website. Unit: bits/second           |
-| website.traffic.out.bitspersecond   | Outgoing traffic going through the website. Unit: bits/second           |
-| website.connections.current.count   | Number of current connections by website. Unit: count                   |
+| Metric name                         | Description                                                              |
+| :---------------------------------- | :----------------------------------------------------------------------- |
+| status                              | Status of the website.                                                   |
+| website.traffic.in.bitspersecond    | Incoming traffic going through the website. Unit: bits/second            |
+| website.traffic.out.bitspersecond   | Outgoing traffic going through the website. Unit: bits/second            |
+| website.connections.current.count   | Number of current connections by website. Unit: count                    |
 | website.connections.total.persecond | Number of total connections per second by website. Unit: requests/second |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -52,11 +60,10 @@ Internet Information Services (IIS, formerly Internet Information Server) is an 
 
 To use this Plugin-Pack, you must enable the Microsoft IIS Administration API. Microsoft provides an official documentation to achieve this: https://docs.microsoft.com/en-us/iis-administration/
 
-## Setup 
+## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="licence-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor IIS resources:
 
@@ -66,7 +73,8 @@ yum install centreon-plugin-Applications-Webservers-Iis-Restapi
 
 2. On the Centreon Web interface, install the 'Microsoft IIS Server Restapi' Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor IIS resources:
 
@@ -82,21 +90,22 @@ yum install centreon-pack-applications-webservers-iis-restapi.noarch
 
 3. On the Centreon Web interface, install the 'Microsoft IIS Server Restapi' Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
 * Log into Centreon and add a new Host through "Configuration > Hosts".
 * Apply the template *App-Webserver-IIS-Restapi-custom* and configure all the Macros :
 
-| Mandatory   | Nom                | Description                                                                |
-| :---------- | :----------------- | :------------------------------------------------------------------------- |
-| X           | IISAPIPORT         | Port used. Default is 55539                                                |
-| X           | IISAPIPROTO        | Protocol used. Default is https                                            |
-| X           | IISAPIUSERNAME     | Username to access to the API.                                             |
-| X           | IISAPIPASSWORD     | Password to access to the API.                                             |
-| X           | IISTOKENAPI        | Token to access to the API.                                                |
-|             | IISAPIEXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
+| Mandatory | Nom                | Description                                                                |
+| :-------- | :----------------- | :------------------------------------------------------------------------- |
+| X         | IISAPIPORT         | Port used. Default is 55539                                                |
+| X         | IISAPIPROTO        | Protocol used. Default is https                                            |
+| X         | IISAPIUSERNAME     | Username to access to the API.                                             |
+| X         | IISAPIPASSWORD     | Password to access to the API.                                             |
+| X         | IISTOKENAPI        | Token to access to the API.                                                |
+|           | IISAPIEXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
 
 By default ```IISAPIEXTRAOPTIONS``` contains : ```--http-backend=curl --curl-opt="CURLOPT_SSL_VERIFYPEER => 0"``` options to use the *curl* backend and to ignore the validity's check of the SSL certificate.
 
@@ -104,25 +113,25 @@ By default ```IISAPIEXTRAOPTIONS``` contains : ```--http-backend=curl --curl-opt
 
 ## FAQ
 
-### How do I test my configuration through the CLI and what do the main parameters stand for ? 
+### How do I test my configuration through the CLI and what do the main parameters stand for ?
 
 Once the Centreon plugin installed, you can test it logging with the centreon-engine user:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_iis_restapi.pl \	
-    --plugin=apps::iis::restapi::plugin \
-    --mode=websites \
-    --hostname='www.int.centreon.com' \
-    --port='55539' \
-    --proto='https' \
-    --api-username='John.Doe' \
-    --api-password='6fbadZEJbsLG' \
-    --api-token='ZHppZCWPzREgSb9SDYOegsY0_D4KJKgZ5q8QavEWBPmmi8fgt2-8Cw' \
-    --http-backend='curl' \
-    --curl-opt="CURLOPT_SSL_VERIFYPEER => 0" \
-    --filter-name='^www$' \
-    --critical-status='%{status} !~ /starting|started/' \
-    --verbose
+/usr/lib/centreon/plugins/centreon_iis_restapi.pl \
+--plugin=apps::iis::restapi::plugin \
+--mode=websites \
+--hostname='www.int.centreon.com' \
+--port='55539' \
+--proto='https' \
+--api-username='John.Doe' \
+--api-password='6fbadZEJbsLG' \
+--api-token='ZHppZCWPzREgSb9SDYOegsY0_D4KJKgZ5q8QavEWBPmmi8fgt2-8Cw' \
+--http-backend='curl' \
+--curl-opt="CURLOPT_SSL_VERIFYPEER => 0" \
+--filter-name='^www$' \
+--critical-status='%{status} !~ /starting|started/' \
+--verbose
 ```
 
 The command above checks the status and the usage of the Website *www* (```--filter-name=^www$```) hosted by the IIS server *www.int.centreon.com* (```--hostname='www.int.centreon.com'```).
@@ -130,7 +139,7 @@ It uses an API username (```--api-username='John.doe'```), API password (```--ap
 The *curl* backend is used (```--http-backend='curl'```) and the SSL certificate validity is not checked (```--curl-opt="CURLOPT_SSL_VERIFYPEER => 0"```).
 
 This command would trigger a CRITICAL alert if:
-  * the status of the website is different of *starting* or *started*.
+* the status of the website is different of *starting* or *started*.
 
 Expected command output is shown below:
 
@@ -144,20 +153,20 @@ Some thresholds can also be set on metrics with options ```--warning-*``` and ``
 The available thresholds as well as all the options that can be used with this Plugin can be displayed by adding the ```--help``` parameter to the command:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_iis_restapi.pl \	
-    --plugin apps::iis::restapi::plugin \
-    --mode websites \
-        --help
+/usr/lib/centreon/plugins/centreon_iis_restapi.pl \
+--plugin apps::iis::restapi::plugin \
+--mode websites \
+--help
 ```
-You can display all the modes that come with the Plugin with the command below: 
+You can display all the modes that come with the Plugin with the command below:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_iis_restapi.pl \
-    --plugin=apps::iis::restapi::plugin \
-    --list-mode
+--plugin=apps::iis::restapi::plugin \
+--list-mode
 ```
 
-### Why do I get the following error: 
+### Why do I get the following error:
 
 #### ```UNKNOWN: Cannot load module 'Net::Curl::Easy'```
 

@@ -13,10 +13,10 @@ Dependencies are used to satisfy two main requirements:
 The dependencies of objects are of two types:
 
 -   **Physical** dependencies between objects: a load balancing switch
-    is situated upstream of a set of servers and downstream of a router
+is situated upstream of a set of servers and downstream of a router
 -   **Logical** dependencies between objects: the access to a website
-    with authentication LDAP depends on the status of the LDAP directory
-    itself
+with authentication LDAP depends on the status of the LDAP directory
+itself
 
 ## Physical dependencies
 
@@ -32,11 +32,11 @@ The configuration of a physical dependencies takes place in the
 It is possible of define two settings:
 
 -   **Parent Hosts**: signifies that the hosts selected are parents of
-    this host (situated upstream). If all the parent hosts selected
-    become unavailable or impossible to reach the host itself will be
-    considered by the scheduler as impossible to reach.
+this host (situated upstream). If all the parent hosts selected
+become unavailable or impossible to reach the host itself will be
+considered by the scheduler as impossible to reach.
 -   **Child Hosts**: signifies that the host becomes the parent of all
-    the child hosts selected.
+the child hosts selected.
 
 > It is not possible to have dependencies between hosts from different
 > pollers.
@@ -71,17 +71,17 @@ Centreon Broker, it is also possible to control the execution and
 notification of services (called dependent services) from master hosts.
 
 -   The **Name** and **Description** fields indicate the name and the
-    description of the dependencies
+description of the dependencies
 -   The **Parent relationship** field should be ignored if you use the
-    Centreon Engine. If it is enabled, and if the dependencies links of
-    the master host become unavailable, the dependencies in the process
-    of creation is not taken into account.
+Centreon Engine. If it is enabled, and if the dependencies links of
+the master host become unavailable, the dependencies in the process
+of creation is not taken into account.
 -   The **Execution Failure Criteria** field indicates the statuses of
-    the master host(s) preventing the check of the hosts or the
-    dependent services
+the master host(s) preventing the check of the hosts or the
+dependent services
 -   The **Notification Failure Criteria** field indicates the statuses
-    of the master host(s) preventing the sending of notifications to the
-    hosts or the dependent services
+of the master host(s) preventing the sending of notifications to the
+hosts or the dependent services
 -   The **Hostnames** list defines the master host(s)
 -   The **Dependent Host Names** list defines the dependent hosts
 -   The **Dependent Services** list defines the dependent services
@@ -101,17 +101,17 @@ services which control the execution and the notification of other
 of control the execution and the notification of other hosts.
 
 -   The **Name** and **Description** fields indicate the name and
-    description of the dependencies
+description of the dependencies
 -   The **Parent relationship** field should be ignored if you use the
-    Centreon Engine. If it is enabled, and if the links of dependencies
-    of the master service become unavailable the dependencies in the
-    process of creation is no longer taken into account.
+Centreon Engine. If it is enabled, and if the links of dependencies
+of the master service become unavailable the dependencies in the
+process of creation is no longer taken into account.
 -   The **Execution Failure Criteria** field indicates the statuses of
-    the master service(s) preventing the check of the hosts or the
-    dependent services
+the master service(s) preventing the check of the hosts or the
+dependent services
 -   The **Notification Failure Criteria** field indicates the statuses
-    of the master service(s) preventing the sending of notifications to
-    the hosts or the dependent services
+of the master service(s) preventing the sending of notifications to
+the hosts or the dependent services
 -   The **Services** list defines the master service(s)
 -   The **Dependent services** list defines the dependent services
 -   The **Dependent hosts** list defines the dependent hosts
@@ -129,20 +129,20 @@ Two types of host groups: a host group is called a master if it controls
 the execution and the notification of other (“dependent”) host groups.
 
 -   The **Name** and **Description** fields indicate the name and the
-    description of the dependencies
+description of the dependencies
 -   The **Parent relationship** field should be ignored if you use the
-    Centreon Engine. If it is enabled, and if the links of dependencies
-    of the master host group become unavailable the dependencies in the
-    process of creation is no longer taken into account.
+Centreon Engine. If it is enabled, and if the links of dependencies
+of the master host group become unavailable the dependencies in the
+process of creation is no longer taken into account.
 -   The **Execution Failure Criteria** field indicates the statuses of
-    the master host group(s) preventing the check of the dependent host
-    groups
+the master host group(s) preventing the check of the dependent host
+groups
 -   The **Notification Failure Criteria** field indicates the statuses
-    of the master host(s) preventing the sending of notifications to the
-    dependent host groups
+of the master host(s) preventing the sending of notifications to the
+dependent host groups
 -   The **Host groups name** list defines the master host group(s)
 -   The **Dependent host group name** list defines the dependent host
-    group(s)
+group(s)
 -   The **Comments** field can be used to comment on the dependencies
 
 ### Service groups
@@ -158,21 +158,21 @@ controls the execution and the notification of other (“dependent”)
 service groups.
 
 -   The **Name** and **Description** fields indicate the name and the
-    description of the dependencies
+description of the dependencies
 -   The **Parent relationship** field should be ignored if you use the
-    Centreon Engine. If it is enabled, and if the links of dependencies
-    of the master service group become unavailable the dependencies in
-    the process of creation is no longer taken into account.
+Centreon Engine. If it is enabled, and if the links of dependencies
+of the master service group become unavailable the dependencies in
+the process of creation is no longer taken into account.
 -   The **Execution Failure Criteria** field indicates the statuses of
-    the master service group(s) preventing the check of the dependent
-    service groups
+the master service group(s) preventing the check of the dependent
+service groups
 -   The **Notification Failure Criteria** field indicates the statuses
-    of the master host(s) preventing the sending of notifications to the
-    dependent service groups
+of the master host(s) preventing the sending of notifications to the
+dependent service groups
 -   The **Service group names** list defines the group(s) of master
-    services
+services
 -   The **Dependent service group names** list defines the group(s) of
-    dependent services
+dependent services
 -   The **Comments** field can be used to comment on the dependencies
 
 ### Meta-services
@@ -188,20 +188,20 @@ controls the execution and the notification of other (“dependent”)
 meta-services.
 
 -   The **Name** and **Description** fields indicate the name and
-    description of the dependencies
+description of the dependencies
 -   The **Parent relationship** field should be ignored if you use the
-    Centreon Engine. If it is enabled, and if the links of dependencies
-    of the master meta-service become unavailable the dependencies in
-    the process of creation is no longer taken into account.
+Centreon Engine. If it is enabled, and if the links of dependencies
+of the master meta-service become unavailable the dependencies in
+the process of creation is no longer taken into account.
 -   The **Execution Failure Criteria** field Indicates which are the
-    statuses of the meta-master service(s) that will prevent the check
-    of the meta-dependent services
+statuses of the meta-master service(s) that will prevent the check
+of the meta-dependent services
 -   The **Notification Failure Criteria** field indicates the statuses
-    of the meta-service(s) preventing the sending of notifications to
-    meta-dependent services
+of the meta-service(s) preventing the sending of notifications to
+meta-dependent services
 -   The **Meta-service name** list defines the master meta-service(s)
 -   The **Dependent meta-service** names list defines the dependent
-    meta-service(s)
+meta-service(s)
 -   The **Comments** field can be used to comment on the dependencies
 
 ## Examples
@@ -236,11 +236,11 @@ To create this dependency, go into the
 
 1.  Enter the name and the description of the dependency
 2.  For the **Execution Failure Criteria** and **Notification Failure
-    Criteria** fields, check Warning, Critical, Unknown and Pending
+Criteria** fields, check Warning, Critical, Unknown and Pending
 3.  In the **Services** list select the service that is responsible for
-    checking the status of the MariaDB server
+checking the status of the MariaDB server
 4.  In the **Dependent Services** list, select the service that uses the
-    Selenium scenario
+Selenium scenario
 5.  Save
 
 From now on, if the service responsible for checking the status of the
@@ -268,7 +268,7 @@ To create this dependency, go into the
 
 1.  Enter the name and the description of the dependency
 2.  For the **Notification Failure Criteria** field, check Warning,
-    Critical, Unknown and Pending
+Critical, Unknown and Pending
 3.  In the **Host Names** list, select host A
 4.  In the **Dependent Host Names** list select host C
 5.  Save
@@ -294,9 +294,9 @@ click **Add**.
 
 1.  Enter the name and the description of the dependency
 2.  For the **Execution Failure Criteria** and **Notification Failure
-    Criteria** fields, check Critical and Pending
+Criteria** fields, check Critical and Pending
 3.  In the **Service Group Names** list select the service group Oracle
-    Application
+Application
 4.  In the **Dependent Service Group Names** list, select the service
-    group ERP Application
+group ERP Application
 5.  Save

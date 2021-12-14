@@ -3,7 +3,7 @@
  * and scoped locally.
  */
 
- .heroBanner {
+.heroBanner {
   padding: 4rem 0;
   text-align: center;
   position: relative;
@@ -47,7 +47,7 @@
 }
 
 .bgLightBlue {
-  background: rgba(0,159,223,.1);
+  background: rgba(0, 159, 223, 0.1);
 }
 
 .bgLightPurple {
@@ -67,7 +67,7 @@
 .subTitle {
   margin: auto;
   padding-left: 30%;
-  padding-right: 30% ;
+  padding-right: 30%;
   font-size: 18px;
 }
 
@@ -111,7 +111,7 @@
 .button {
   border: 1px solid #23303a;
   padding: 10px;
-  text-decoration: none!important;
+  text-decoration: none !important;
   text-transform: uppercase;
 }
 
@@ -163,7 +163,6 @@
   padding-top: 4%;
 }
 
-
 .containerContentInstallation {
   width: 550px;
   display: flex;
@@ -194,7 +193,6 @@
   padding-left: 6%;
 }
 
-
 .containerBlock ul.socialSet {
   display: flex;
   justify-content: center;
@@ -219,14 +217,14 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  flex-wrap: wrap;  
+  flex-wrap: wrap;
 }
 
 .titleSectionOpenSource {
-  color : #5E53C7;
+  color: #5e53c7;
   font-size: 35px;
   font-weight: normal;
-  margin: 24px
+  margin: 24px;
 }
 
 .cardBarOpenSource {
@@ -246,15 +244,15 @@
   font-weight: 400;
   line-height: 1.2em;
   padding: 10px;
-  text-decoration: none!important;
+  text-decoration: none !important;
   text-transform: uppercase;
 }
 
 .textOpenSource {
-  color: #222E3B;
+  color: #222e3b;
   font-size: 18px;
   width: 50%;
-  margin-left:25%;
+  margin-left: 25%;
   text-align: center;
   margin-bottom: 0;
 }
@@ -275,16 +273,16 @@
   justify-content: space-around;
 }
 
-html[data-theme='dark'] .textOpenSource {
+html[data-theme="dark"] .textOpenSource {
   color: #f5f6f7;
 }
-html[data-theme='dark'] .titleSectionCommunity {
+html[data-theme="dark"] .titleSectionCommunity {
   color: #0072ce;
 }
-html[data-theme='dark'] .containerBlockh1 {
+html[data-theme="dark"] .containerBlockh1 {
   color: #f5f6f7;
 }
-html[data-theme='dark'] .subTitle {
+html[data-theme="dark"] .subTitle {
   color: #f5f6f7;
 }
 
@@ -296,14 +294,13 @@ html[data-theme='dark'] .subTitle {
 
   .containerContentInstallation {
     text-align: center;
-    padding: 0px ;
-  }
-
-   .containerContentMonitoring {
-    text-align: center;
     padding: 0px;
   }
 
+  .containerContentMonitoring {
+    text-align: center;
+    padding: 0px;
+  }
 
   .containerBlock {
     display: flex;
@@ -316,8 +313,12 @@ html[data-theme='dark'] .subTitle {
     font-size: 30px;
     display: flex;
     justify-content: center;
-    margin: 0;
+    margin-left: 26px;
     width: 80%;
+  }
+
+  .mainContainer {
+    padding: 40px 20px;
   }
 
   .subTitle {
@@ -327,9 +328,8 @@ html[data-theme='dark'] .subTitle {
 
   .textOpenSource {
     width: 100%;
-    padding-bottom: 10px ;
+    padding-bottom: 10px;
     margin: 0;
     text-align: center;
   }
-
 }

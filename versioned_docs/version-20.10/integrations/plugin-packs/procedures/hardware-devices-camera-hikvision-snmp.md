@@ -2,6 +2,9 @@
 id: hardware-devices-camera-hikvision-snmp
 title: Hikvision camera SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Plugin Pack Assets
 
@@ -15,49 +18,51 @@ The Plugin Pack Hikvision SNMP collects metrics for:
 
 ### Collected Metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
+<Tabs groupId="operating-systems">
+<TabItem value="Cpu" label="Cpu">
 
-<!--Cpu-->
+| Metric name                | Description     | Unit |
+| :------------------------- | :-------------- | :--- |
+| cpu.utilization.percentage | CPU utilization | %    |
 
-| Metric name                              | Description              | Unit |
-| :--------------------------------------- | :----------------------- | :--- |
-| cpu.utilization.percentage               | CPU utilization          | %    |
+</TabItem>
+<TabItem value="Disk" label="Disk">
 
-<!--Disk-->
+| Metric name           | Description              | Unit |
+| :-------------------- | :----------------------- | :--- |
+| disk.usage.bytes      | Disk usage               | B    |
+| disk.free.bytes       | Free disk                | B    |
+| disk.usage.percentage | Disk usage in percentage | %    |
 
-| Metric name           | Description                             | Unit  |
-| :-------------------- | :-------------------------------------- | :---- |
-| disk.usage.bytes      | Disk usage                              | B     |
-| disk.free.bytes       | Free disk                               | B     |
-| disk.usage.percentage | Disk usage in percentage                | %     |
+</TabItem>
+<TabItem value="Memory" label="Memory">
 
-<!--Memory-->
+| Metric name             | Description                | Unit |
+| :---------------------- | :------------------------- | :--- |
+| memory.usage.bytes      | Memory usage               | B    |
+| memory.free.bytes       | Free memory                | B    |
+| memory.usage.percentage | Memory usage in percentage | %    |
 
-| Metric name             | Description                               | Unit  |
-| :---------------------- | :---------------------------------------- | :---- |
-| memory.usage.bytes      | Memory usage                              | B     |
-| memory.free.bytes       | Free memory                               | B     |
-| memory.usage.percentage | Memory usage in percentage                | %     |
+</TabItem>
+<TabItem value="Time" label="Time">
 
-<!--Time-->
+| Metric name         | Description | Unit |
+| :------------------ | :---------- | :--- |
+| time.offset.seconds | Time offset | s    |
 
-| Metric name            | Description                               | Unit  |
-| :--------------------- | :---------------------------------------- | :---- |
-| time.offset.seconds    | Time offset                               | s     |
-
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
 To monitor your Hikvision, the SNMP must be configured.
 
-The Poller should be able to perform requests against the Hikvision device over SNMP UDP/161 port. 
+The Poller should be able to perform requests against the Hikvision device over SNMP UDP/161 port.
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="licence-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -67,7 +72,8 @@ yum install centreon-plugin-Hardware-Devices-Camera-Hikvision-Snmp
 
 2. On the Centreon Web interface in "Configuration > Plugin Packs > Manager", install the *Hikvision camera SNMP* Plugin Pack
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -83,7 +89,8 @@ yum install centreon-pack-hardware-devices-camera-hikvision-snmp
 
 3. On the Centreon Web interface in "Configuration > Plugin Packs > Manager", install the *Hikvision camera SNMP* Plugin Pack
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host configuration
 
@@ -92,9 +99,9 @@ yum install centreon-pack-hardware-devices-camera-hikvision-snmp
 
 > When using SNMP v3, use the SNMPEXTRAOPTIONS Macro to add specific authentication parameters
 
-| Mandatory | Name             | Description                                    |
-| :-------- | :--------------- | :--------------------------------------------- |
-|           | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo    |
+| Mandatory | Name             | Description                                 |
+| :-------- | :--------------- | :------------------------------------------ |
+|           | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo |
 
 ## How to test the Plugin and what are the main options for?
 
@@ -103,14 +110,14 @@ and test the Plugin by running the following command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_camera_hikvision_snmp.pl \
-    --plugin=hardware::devices::camera::hikvision::snmp::plugin \
-    --mode=cpu \
-    --hostname=10.30.2.114 \
-    --snmp-version='2c' \
-    --snmp-community='hikvision_ro' \
-    --warning-usage=90 \
-    --critical-usage=95 \
-    --verbose
+--plugin=hardware::devices::camera::hikvision::snmp::plugin \
+--mode=cpu \
+--hostname=10.30.2.114 \
+--snmp-version='2c' \
+--snmp-community='hikvision_ro' \
+--warning-usage=90 \
+--critical-usage=95 \
+--verbose
 ```
 
 Expected command output is shown below:
@@ -123,7 +130,7 @@ The command above monitors Hikvision (```--plugin=hardware::devices::camera::hik
 by the IP address *10.30.2.114* (```--hostname=10.30.2.114```). As the Plugin is using the SNMP protocol to request the device, the related
 *community* and *version* are specified (```--snmp-version='2c' --snmp-community='hikvision_ro'```).
 
-This command would trigger a WARNING alarm if cpu utilization over 90% 
+This command would trigger a WARNING alarm if cpu utilization over 90%
 (```--warning-usage='90'```) and a CRITICAL alarm over 95% (```--critical-usage='95'```).
 
 All the options as well as all the available thresholds can be displayed by adding the  ```--help```
@@ -131,9 +138,9 @@ parameter to the command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_camera_hikvision_snmp.pl \
-    --plugin=hardware::devices::camera::hikvision::snmp::plugin \
-    --mode=cpu \
-    --help
+--plugin=hardware::devices::camera::hikvision::snmp::plugin \
+--mode=cpu \
+--help
 ```
 
 ## Troubleshooting
@@ -146,7 +153,7 @@ If you get this message, you're probably facing one of theses issues:
 
 #### UNKNOWN: SNMP GET Request : Cant get a single value.
 
-This error message often refers to the following issues: 
-  - The agent doesn't support the MIB used by the plugin
-  - The targeted SNMP OID cannot be fetched because of insufficient privileges on the device. 
-    SNMP Agent must be capable of accessing to the enterprise branch: .1.3.6.1.4.1.39165
+This error message often refers to the following issues:
+- The agent doesn't support the MIB used by the plugin
+- The targeted SNMP OID cannot be fetched because of insufficient privileges on the device.
+SNMP Agent must be capable of accessing to the enterprise branch: .1.3.6.1.4.1.39165

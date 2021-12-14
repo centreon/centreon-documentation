@@ -2,6 +2,9 @@
 id: applications-jvm-actuator
 title: JVM Actuator
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Contenu du Plugin Pack
 
@@ -15,23 +18,24 @@ Le Pack collecte les données pour:
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Class-count-->
+<Tabs groupId="operating-systems">
+<TabItem value="Classcount" label="Classcount">
 
 | Metric name                | Description                      | Unit |
 | :------------------------- | :------------------------------- | :--- |
 | class.loaded.current.count | Current number of classes loaded |      |
 | class.unloaded.count       | Number of classes unloaded       |      |
 
-<!--Cpu-load-->
+</TabItem>
+<TabItem value="Cpuload" label="Cpuload">
 
 | Metric name                 | Description                  | Unit |
 | :-------------------------- | :--------------------------  | :--- |
 | system.cpu.load.percentage  | Cpu load of the machine      | %    |
 | process.cpu.load.percentage | Cpu load of the jvm instance | %    |
 
-<!--Fd-usage-->
+</TabItem>
+<TabItem value="Fdusage" label="Fdusage">
 
 | Metric name                | Description                                   | Unit |
 | :------------------------- | :-------------------------------------------- | :--- |
@@ -39,20 +43,23 @@ Le Pack collecte les données pour:
 | fd.opened.free.count       | Number of free file descriptors               |      |
 | fd.opened.usage.percentage | Number of used file descriptors in percentage | %    |
 
-<!--Load-average-->
+</TabItem>
+<TabItem value="Loadaverage" label="Loadaverage">
 
 | Metric name          | Description                             | Unit |
 | :------------------- | :-------------------------------------- | :--- |
 | system.load.1m.count | System load average for the last minute |      |
 
-<!--Memory-->
+</TabItem>
+<TabItem value="Memory" label="Memory">
 
 | Metric name                | Description                           | Unit |
 | :------------------------- | :------------------------------------ | :--- |
 | memory.heap.usage.bytes    | Current heap memory usage             | B    |
 | memory.nonheap.usage.bytes | Current memory usage outside the heap | B    |
 
-<!--Memory-detailed-->
+</TabItem>
+<TabItem value="Memorydetailed" label="Memorydetailed">
 
 | Metric name                  | Description                    | Unit |
 | :--------------------------- | :----------------------------- | :--- |
@@ -62,14 +69,16 @@ Le Pack collecte les données pour:
 | memory.permanent.usage.bytes | Current permanent memory usage | B    |
 | memory.code.usage.bytes      | Current code memory usage      | B    |
 
-<!--Threads-->
+</TabItem>
+<TabItem value="Threads" label="Threads">
 
 | Metric name           | Description                        | Unit |
 | :-------------------- | :--------------------------------- | :--- |
 | threads.active.count  | Number of active threads           |      |
 | threads.daemon.count  | Count of threads marked as daemons |      |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -78,9 +87,8 @@ Demander à votre administrateur de le déployer et de vous fournir l'adresse.
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="operating-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -90,7 +98,8 @@ yum install centreon-plugin-Applications-Jvm-Actuator
 
 2. Sur l'interface Web de Centreon, installer le Pack *JVM Actuator* depuis la page **Configuration > Plugin Packs > Manager**
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -106,7 +115,8 @@ yum install centreon-pack-applications-jvm-actuator
 
 3. Sur l'interface Web de Centreon, installer le Pack *JVM Actuator* depuis la page **Configuration > Plugin Packs > Manager**
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -139,14 +149,14 @@ Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne d
 
 ```bash
 /usr/lib/centreon/plugins/centreon_jvm_actuator.pl \
-    --plugin=apps::java::jvm::actuator::plugin \
-    --custommode=standard \
-    --mode=class-count \
-    --hostname='10.30.2.79' \
-    --port='8080' \
-    --proto='http' \
-    --url-path='/actuator'
-    --verbose
+--plugin=apps::java::jvm::actuator::plugin \
+--custommode=standard \
+--mode=class-count \
+--hostname='10.30.2.79' \
+--port='8080' \
+--proto='http' \
+--url-path='/actuator'
+--verbose
 ```
 
 Exemple de sortie:
@@ -161,10 +171,10 @@ Toutes les options et leur utilisation peuvent être consultées avec le paramè
 
 ```bash
 /usr/lib/centreon/plugins/centreon_jvm_actuator.pl \
-    --plugin=apps::java::jvm::actuator::plugin \
-    --custommode=standard \
-    --mode=class-count \
-    --help
+--plugin=apps::java::jvm::actuator::plugin \
+--custommode=standard \
+--mode=class-count \
+--help
 ```
 
 ## Diagnostique

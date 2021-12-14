@@ -2,6 +2,9 @@
 id: cloud-aws-ses
 title: Amazon SES
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -19,24 +22,24 @@ Le Plugin-Pack Centreon *Amazon SES* s'appuie sur les APIs Amazon Cloudwatch pou
 
 * Activité d'envoi SES
 
-### Métriques collectées 
+### Métriques collectées
 
 Plus de détails sur les métriques présentées ci-après sont disponibles sur la
 documentation officielle du service Amazon SES :
 https://docs.aws.amazon.com/fr_fr/ses/latest/DeveloperGuide/monitor-sending-activity
 
-<!--DOCUSAURUS_CODE_TABS-->
+<Tabs groupId="operating-systems">
+<TabItem value="SesEmails" label="SesEmails">
 
-<!--Ses-Emails-->
-
-| Metric name                 | Description                                                                                  
+| Metric name                 | Description
 |:--------------------------- | :----------------------------------------|
 | ses.emails.sent.count       | Number of sent emails                    |
 | ses.emails.delivered.count  | Number of successfully delivered emails  |
 | ses.emails.rejected.rate    | Rate of rejected emails                  |
 | ses.emails.spam.rate        | Rate of emails marked as spam            |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -54,32 +57,32 @@ des privilèges suivants :
 
 Afin de récupérer les informations nécessaires via les APIs AWS, il est possible
 d'utiliser soit le binaire *awscli*, soit le SDK perl *Paws*. Le SDK est
-recommandé car plus performant. 
+recommandé car plus performant.
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--perl-Paws-installation-->
+<Tabs groupId="operating-systems">
+<TabItem value="perlPawsinstallation" label="perlPawsinstallation">
 
 ```bash
 yum install perl-Paws
 ```
 
-<!--aws-cli-installation-->
+</TabItem>
+<TabItem value="awscliinstallation" label="awscliinstallation">
 
 ```bash
 yum install awscli
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 > **Attention** il n'est pas possible pour le moment d'utiliser perl Paws si la
 > connexion s'effectue au travers d'un proxy.
 
-## Setup 
+## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="operating-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des ressources Amazon SES:
 
@@ -89,7 +92,8 @@ yum install centreon-plugin-Cloud-Aws-Ses-Api
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Amazon SES* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des ressources Amazon SES:
 
@@ -105,7 +109,8 @@ yum install centreon-pack-cloud-aws-ses.noarch
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Amazon SES* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -136,35 +141,35 @@ ajustées en fonction du contexte):
 
 ```bash
 /usr/lib/centreon/plugins/centreon_aws_ses_api.pl \
-    --plugin=cloud::aws::ses::plugin \
-    --mode=email \
-    --custommode=awscli \
-    --aws-secret-key='*******************' \
-    --aws-access-key='**********' \
-    --region='eu-west-1' \
-    --proxyurl='http://myproxy.mycompany.org:8080' \
-    --timeframe='600' \
-    --period='60' \
-    --critical-emails-spam=1: \
-    --verbose
+--plugin=cloud::aws::ses::plugin \
+--mode=email \
+--custommode=awscli \
+--aws-secret-key='*******************' \
+--aws-access-key='**********' \
+--region='eu-west-1' \
+--proxyurl='http://myproxy.mycompany.org:8080' \
+--timeframe='600' \
+--period='60' \
+--critical-emails-spam=1: \
+--verbose
 ```
 
-La commande devrait retourner un message de sortie de la forme ci-dessous : 
+La commande devrait retourner un message de sortie de la forme ci-dessous :
 
 ```bash
- OK: 'SES' Statistic 'Average' Metrics rate of rejected sent emails: 0.00, number of emails successfully delivered: 30.00, rate of sent emails marked as spam: 0.00, number of sent emails: 30.00 | 'SES~average#ses.emails.rejected.rate'=0;;;; 'SES~average#ses.emails.delivered.count'=30;;;; 'SES~average#ses.emails.spam.rate'=0;;;; 'SES~average#ses.emails.sent.count'=30;;;;
+OK: 'SES' Statistic 'Average' Metrics rate of rejected sent emails: 0.00, number of emails successfully delivered: 30.00, rate of sent emails marked as spam: 0.00, number of sent emails: 30.00 | 'SES~average#ses.emails.rejected.rate'=0;;;; 'SES~average#ses.emails.delivered.count'=30;;;; 'SES~average#ses.emails.spam.rate'=0;;;; 'SES~average#ses.emails.sent.count'=30;;;;
 ```
 
 La commande ci-dessus collecte les métriques d'envoi d'Amazon SES
 (```--mode=emails```). Cette ressource SES est hébergée dans la région AWS
-*eu-west-1* (```--region='eu-west-1'```). La connexion à l'API Cloudwatch 
+*eu-west-1* (```--region='eu-west-1'```). La connexion à l'API Cloudwatch
 s'effectue à l'aide des identifiants *aws-secret-key* et *aws-access-key*
-préalablement configurés sur la console AWS 
-(```--aws-secret-key='****' --aws-access-key='****'```). 
+préalablement configurés sur la console AWS
+(```--aws-secret-key='****' --aws-access-key='****'```).
 
-Les métriques retournées seront une moyenne sur un intervalle de 
-10 minutes / 600 secondes  (```--timeframe='600'```) avec un point par 
-minute / 60 secondes (```--period='60'```). Dans l'exemple ci-dessus, 
+Les métriques retournées seront une moyenne sur un intervalle de
+10 minutes / 600 secondes  (```--timeframe='600'```) avec un point par
+minute / 60 secondes (```--period='60'```). Dans l'exemple ci-dessus,
 on choisit de ne récupérer que les statistiques sur le nombre de messages *sent* et *received* (```--filter-metric='NumberOfMessagesSent|NumberOfMessagesReceived'```).
 
 Une alarme CRITICAL sera déclenchée si au moins un message envoyé est marqué
@@ -176,17 +181,17 @@ peut être affichée en ajoutant le paramètre ```--help``` à la commande:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_aws_ses_api.pl \
-    --plugin=cloud::aws::ses::plugin \
-    --mode=emails \
-    --help
+--plugin=cloud::aws::ses::plugin \
+--mode=emails \
+--help
 ```
 
-#### J'obtiens le message d'erreur suivant:  
+#### J'obtiens le message d'erreur suivant:
 
 #### ```UNKNOWN: No metrics. Check your options or use --zeroed option to set 0 on undefined values```
 
 Lors du déploiement de mes contrôles, j'obtiens le message suivant 'UNKNOWN: No
-metrics. Check your options or use --zeroed option to set 0 on undefined values'. 
+metrics. Check your options or use --zeroed option to set 0 on undefined values'.
 
 Cela signifie qu'Amazon Cloudwatch n'a pas consolidé de données sur la période.
 
@@ -200,11 +205,11 @@ pas les droits suffisants pour réaliser une opération donnée.
 
 #### ```UNKNOWN: 500 Can't connect to monitoring.eu-west-1.amazonaws.com:443 |```
 
-Lors du déploiement de mes contrôles, j'obtiens le message suivant : 
+Lors du déploiement de mes contrôles, j'obtiens le message suivant :
 ```UNKNOWN: 500 Can't connect to monitoring.eu-west-1.amazonaws.com:443 |```.
 
 Cela signifie que Centreon n'a pas réussi à se connecter à l'API AWS Cloudwatch.
 
-Si l'utilisation d'un proxy est requise pour les connexions HTTP depuis le 
+Si l'utilisation d'un proxy est requise pour les connexions HTTP depuis le
 collecteur Centreon, il est nécessaire de le préciser dans la commande en
 utilisant l'option ```--proxyurl='http://proxy.mycompany.com:8080'```.

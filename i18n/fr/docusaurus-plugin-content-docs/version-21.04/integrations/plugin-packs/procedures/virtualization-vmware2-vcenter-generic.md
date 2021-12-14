@@ -2,6 +2,9 @@
 id: virtualization-vmware2-vcenter-generic
 title: VMware vCenter
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -21,13 +24,12 @@ Avec le connecteur, Centreon peut superviser les VMs, Datastores, ESXs, Clusters
 
 ### Règles de découvertes
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Services-->
+<Tabs groupId="operating-systems">
+<TabItem value="Services" label="Services">
 
 | Nom de la règle                               | Description                                                       |
 | :-------------------------------------------- | :---------------------------------------------------------------- |
-| Virt-VMWare2-Datacenters-Alarm-Name           | Découvrez les Datacenters et supervisez leurs alarmes             | 
+| Virt-VMWare2-Datacenters-Alarm-Name           | Découvrez les Datacenters et supervisez leurs alarmes             |
 | Virt-VMWare2-vCenter-Clusters-Status-Name     | Découvrez les Clusters et supervisez leur statut                  |
 | Virt-VMWare2-vCenter-Datastores-Io-Name       | Découvrez les Datastores et supervisez les I/O                    |
 | Virt-VMWare2-vCenter-Datastores-Iops-Name     | Découvrez les Datastores et supervisez les Iops                   |
@@ -36,25 +38,26 @@ Avec le connecteur, Centreon peut superviser les VMs, Datastores, ESXs, Clusters
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
+</TabItem>
+<TabItem value="DatacenterAlarmsGlobal" label="DatacenterAlarmsGlobal">
 
-<!--Datacenter-Alarms-Global-->
+| Metric name                                     | Description                              | Unit  |
+| :---------------------------------------------- | :--------------------------------------- | :---- |
+| Status                                          | Status of the Datacenter                 |       |
+| datacenter.alarms.warning.current.count         | Number of Total warning alarms           | Count |
+| datacenter.alarms.critical.current.count        | Number of Total critical alarms          | Count |
+| dcname#datacenter.alarms.warning.current.count  | Number of warning alarms per Datacenter  | Count |
+| dcname#datacenter.alarms.critical.current.count | Number of critical alarms per Datacenter | Count |
 
-| Metric name                                        | Description                              | Unit  |
-| :------------------------------------------------- | :--------------------------------------- | :---- |
-| Status                                             | Status of the Datacenter                 |       |
-| datacenter.alarms.warning.current.count            | Number of Total warning alarms           | Count |
-| datacenter.alarms.critical.current.count           | Number of Total critical alarms          | Count |
-| dcname#datacenter.alarms.warning.current.count     | Number of warning alarms per Datacenter  | Count |
-| dcname#datacenter.alarms.critical.current.count    | Number of critical alarms per Datacenter | Count |
-
-<!--Cluster-Status-Global-->
+</TabItem>
+<TabItem value="ClusterStatusGlobal" label="ClusterStatusGlobal">
 
 | Metric name | Description           | Unit |
 | :---------- | :-------------------- | :--- |
 | Status      | Status of the Cluster |      |
 
-<!--Datastore-Io-Global-->
+</TabItem>
+<TabItem value="DatastoreIoGlobal" label="DatastoreIoGlobal">
 
 | Metric name                                        | Description              | Unit |
 | :------------------------------------------------- | :----------------------- | :--- |
@@ -63,7 +66,8 @@ Avec le connecteur, Centreon peut superviser les VMs, Datastores, ESXs, Clusters
 | datastorename#datastore.read.usage.bytespersecond  | Read rate per Datastore  | B/s  |
 | datastorename#datastore.write.usage.bytespersecond | Write rate per Datastore | B/s  |
 
-<!--Datastore-Iops-Global-->
+</TabItem>
+<TabItem value="DatastoreIopsGlobal" label="DatastoreIopsGlobal">
 
 | Metric name                   | Description                        | Unit |
 | :---------------------------- | :--------------------------------- | :--- |
@@ -72,7 +76,8 @@ Avec le connecteur, Centreon peut superviser les VMs, Datastores, ESXs, Clusters
 | datastore.vm.read.usage.iops  | Read IOPS per VM on the Datastore  | iops |
 | datastore.vm.write.usage.iops | Write IOPS per VM on the Datastore | iops |
 
-<!--Datastore-Usage-Global-->
+</TabItem>
+<TabItem value="DatastoreUsageGlobal" label="DatastoreUsageGlobal">
 
 | Metric name                       | Description                            | Unit |
 | :-------------------------------- | :------------------------------------- | :--- |
@@ -81,15 +86,17 @@ Avec le connecteur, Centreon peut superviser les VMs, Datastores, ESXs, Clusters
 | datastore.space.usage.percentage  | Usage of the Datastore in percentage   | %    |
 | datastore.space.provisioned.bytes | Provisioned Space allocated to the VMs | B    |
 
-<!--Datastore-Vm-Count-Global-->
+</TabItem>
+<TabItem value="DatastoreVmCountGlobal" label="DatastoreVmCountGlobal">
 
-| Metric name                            | Description                          | Unit  |
-| :------------------------------------- | :----------------------------------- | :---- |
-| datastore.vm.poweredon.current.count   | Number of powered on VMs on the ESX  | Count |
-| datastore.vm.poweredoff.current.count  | Number of powered off VMs on the ESX | Count |
-| datastore.vm.suspended.current.count   | Number of suspended VMs on the ESX   | Count |
+| Metric name                           | Description                          | Unit  |
+| :------------------------------------ | :----------------------------------- | :---- |
+| datastore.vm.poweredon.current.count  | Number of powered on VMs on the ESX  | Count |
+| datastore.vm.poweredoff.current.count | Number of powered off VMs on the ESX | Count |
+| datastore.vm.suspended.current.count  | Number of suspended VMs on the ESX   | Count |
 
-<!--Vm-Tools-Global-->
+</TabItem>
+<TabItem value="VmToolsGlobal" label="VmToolsGlobal">
 
 | Metric name                         | Description                                                   | Unit  |
 | :---------------------------------- | :------------------------------------------------------------ | :---- |
@@ -97,7 +104,8 @@ Avec le connecteur, Centreon peut superviser les VMs, Datastores, ESXs, Clusters
 | vm.tools.notrunning.current.count   | Number of VMs with VM-Tools not running (default threshold)   | Count |
 | vm.tools.notinstalled.current.count | Number of VMs with VM-Tools not installed (default threshold) | Count |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -116,13 +124,13 @@ Pour configurer les accès à votre infrastructure, éditer le fichier
 
 ``` perl
 %centreon_vmware_config = (
-    vsphere_server => {
-        default => {
-            url => 'https://<ip_hostname>/sdk',
-            username => '<username>',
-            password => '<password>'
-        }
-    }
+vsphere_server => {
+default => {
+url => 'https://<ip_hostname>/sdk',
+username => '<username>',
+password => '<password>'
+}
+}
 );
 
 1;
@@ -139,19 +147,19 @@ en utilisant cette structure:
 
 ``` perl
 %centreon_vmware_config = (
-    vsphere_server => {
-        'my_first_vcenter' => {
-            url => 'https://<ip_hostname>/sdk',
-            username => '<username>',
-            password => '<password>'
-        },
-        'my_other_vcenter' => {
-            url => 'https://<ip_hostname>/sdk',
-            username => '<DOMAIN>\<username>',
-            password => '<password>'
-        },
-    },
-    port => 5700
+vsphere_server => {
+'my_first_vcenter' => {
+url => 'https://<ip_hostname>/sdk',
+username => '<username>',
+password => '<password>'
+},
+'my_other_vcenter' => {
+url => 'https://<ip_hostname>/sdk',
+username => '<DOMAIN>\<username>',
+password => '<password>'
+},
+},
+port => 5700
 );
 
 1;
@@ -177,9 +185,8 @@ Les Collecteurs requêtant le Collecteur avec le connecteur VMWare doit accéder
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="operating-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur l'ensemble des Collecteurs Centreon supervisant l'infrastructure VMWare :
 
@@ -189,7 +196,8 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 
 2. Installer le Plugin-Pack 'Vmware vCenter' depuis la page "Configuration > Plugin packs > Manager" sur l'interface Web de Centreon.
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant l'infrastructure VMWare:
 
@@ -205,19 +213,20 @@ yum install centreon-pack-virtualization-vmware2-vcenter-generic.noarch
 
 3. Installer le Plugin-Pack 'Vmware vCenter' depuis la page "Configuration > Plugin packs > Manager" sur l'interface Web de Centreon.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
 * Depuis l'interface Web de Centreon, ajoutez un nouvel Hôte depuis la page "Configuration > Hôtes".
 * Appliquez le modèle "Virt-VMWare2-VCenter-custom", et configurez toutes les macros :
 
-| Mandatory   | Name                       | Description                                            |
-| :---------- | :------------------------- | :----------------------------------------------------- |
-| X           | CENTREONVMWARECONTAINER    | Name of your container in the file centreon_vmware.pm  |
-| X           | CENTREONVMWAREHOST         | The Centreon server that launches the connection       |
-| X           | CENTREONVMWAREPORT         | By default: 5700                                       |
-|             | CENTREONVMWAREEXTRAOPTIONS | Customize it with your own if needed                   |
+| Mandatory | Name                       | Description                                           |
+| :-------- | :------------------------- | :---------------------------------------------------- |
+| X         | CENTREONVMWARECONTAINER    | Name of your container in the file centreon_vmware.pm |
+| X         | CENTREONVMWAREHOST         | The Centreon server that launches the connection      |
+| X         | CENTREONVMWAREPORT         | By default: 5700                                      |
+|           | CENTREONVMWAREEXTRAOPTIONS | Customize it with your own if needed                  |
 
 ## FAQ
 
@@ -227,21 +236,21 @@ Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne d
 
 ```bash
 /usr/lib/centreon/plugins//centreon_vmware_connector_client.pl \
-    --plugin=apps::vmware::connector::plugin \
-    --mode=snapshot-vm \
-    --custommode=connector \
-    --connector-hostname='localhost' \
-    --connector-port='5700' \
-    --container='vcenter01' \
-    --vm-hostname='.*' \
-    --filter \
-    --filter-uuid='' \
-    --warning='259200' \
-    --critical='432000' \
-    --disconnect-status='ok' \
-    --nopoweredon-skip \
-    --check-consolidation \
-    --verbose
+--plugin=apps::vmware::connector::plugin \
+--mode=snapshot-vm \
+--custommode=connector \
+--connector-hostname='localhost' \
+--connector-port='5700' \
+--container='vcenter01' \
+--vm-hostname='.*' \
+--filter \
+--filter-uuid='' \
+--warning='259200' \
+--critical='432000' \
+--disconnect-status='ok' \
+--nopoweredon-skip \
+--check-consolidation \
+--verbose
 ```
 
 La commande retourne le message de sortie ci-dessous:
@@ -262,17 +271,17 @@ Vous pouvez afficher tous les modes disponibles à l'aide de la commande suivant
 
 ```bash
 /usr/lib/centreon/plugins/./centreon_vmware_connector_client.pl \
-    --plugin=apps::vmware::connector::plugin \
-    --list-mode
+--plugin=apps::vmware::connector::plugin \
+--list-mode
 ```
 
 Pour chaque mode, les options disponibles peuvent être consultées en ajoutant l'option --help à la commande :
 
 ```bash
 /usr/lib/centreon/plugins/./centreon_vmware_connector_client.pl \
-    --plugin=apps::vmware::connector::plugin \
-    --mode=snapshot-vm  \
-    --help
+--plugin=apps::vmware::connector::plugin \
+--mode=snapshot-vm  \
+--help
 ```
 
 ### J'obtiens les erreurs suivantes :

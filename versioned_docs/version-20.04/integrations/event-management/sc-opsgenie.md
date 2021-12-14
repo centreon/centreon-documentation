@@ -20,7 +20,7 @@ title: Opsgenie integration
 
 ## Requirements
 
-* Opsgenie integration requires two different API key. The first one is an integration API key coming from the **Rest API HTTPS over JSON** integration. This integration must have the **Create and Update Access**. The second access is an API key coming from the **APP Settings**. This key must have the **Create and Update** access right. 
+* Opsgenie integration requires two different API key. The first one is an integration API key coming from the **Rest API HTTPS over JSON** integration. This integration must have the **Create and Update Access**. The second access is an API key coming from the **APP Settings**. This key must have the **Create and Update** access right.
 * It is also necessary to use a Centreon account with either **admin privileges** or **Export configuration** and **Broker configuration** menu access in the WUI, as well as a **`root` access in command-line interface**.
 
 ## Support
@@ -49,7 +49,7 @@ If you need help with this integration, depending on how you are using Centreon,
 
 ### In Centreon
 
-#### Installation 
+#### Installation
 
 Login as `root` on the Centreon central server using your favorite SSH client.
 
@@ -108,27 +108,27 @@ To make sure that everything goes fine, you should have a look at `central-broke
 
 | Name                        | Type   | Default value                                                           | Description                                    |
 | --------------------------- | ------ | ----------------------------------------------------------------------- | ---------------------------------------------- |
-| `api_url`                   | String | `https://api.opsgenie.com`                                              | Opsgenie api address. Use https://api.eu.opsgenie.com if your instance is in Europe |               
+| `api_url`                   | String | `https://api.opsgenie.com`                                              | Opsgenie api address. Use https://api.eu.opsgenie.com if your instance is in Europe |
 | `proxy_address`             | String |                                                                         | If needed, the address of the proxy server (requires proxy_port option) |
-| `proxy_port`                | String |                                                                         | The port of the proxy server |                 
-| `proxy_username`            | String |                                                                         | If needed, the proxy user (requires proxy_password option) |                 
-| `proxy_password`            | String |                                                                         | the proxy user password |                  
-| `logfile`                   | String | `/var/log/centreon-broker/connector-opsgenie.log`                       | logfile for the stream connector |     
-| `host_status`               | String | `0,1,2`                                                                 | send event for up, down and unreachable hosts |               
-| `service_status`            | String | `0,1,2,3`                                                               | send event for ok, warning, critical, unknown services |               
+| `proxy_port`                | String |                                                                         | The port of the proxy server |
+| `proxy_username`            | String |                                                                         | If needed, the proxy user (requires proxy_password option) |
+| `proxy_password`            | String |                                                                         | the proxy user password |
+| `logfile`                   | String | `/var/log/centreon-broker/connector-opsgenie.log`                       | logfile for the stream connector |
+| `host_status`               | String | `0,1,2`                                                                 | send event for up, down and unreachable hosts |
+| `service_status`            | String | `0,1,2,3`                                                               | send event for ok, warning, critical, unknown services |
 | `ba_status`                 | String | `0,1,2`                                                                 | send event for ok, warning, critical business activities |
-| `hard_only`                 | Number | `1`                                                                     | Only send events in hard state |               
-| `acknowledged`              | Number | `0`                                                                     | Only send events that are not acknowledged |               
-| `element_type`              | String | `host_status,service_status,ba_status`                                  | Send host, service, BA centreon status event |               
-| `category_type`             | String | `neb,bam`                                                               | Filter out non neb or bam events |               
-| `in_downtime`               | Number | `0`                                                                     | Only send events that are not in downtime |               
-| `max_buffer_size`           | Number | `1`                                                                     | Send events one at a time |               
-| `max_buffer_age`            | Number | `5`                                                                     | Store events for 5 second before sending them unless max_buffer_size is reached before  |               
-| `max_stored_events`         | Number | `10`                                                                    | Keep event in cache to avoid sending duplicated events, change with caution |               
-| `skip_anon_events`          | Number | `1`                                                                     | Do not send events from hosts or services that are not found in the broker cache |               
-| `skip_nil_id`               | Number | `1`                                                                     | Do not send events from objects that do not have an ID (meta services most of the time) |               
-| `accepted_hostgroups`       | String |                                                                         | List of hostgroups in which the host must be (coma separeted eg: grp1,grp2,grp3) |               
-| `date_format`               | String | `%Y-%m-%d %H:%M:%S`                                                     | The default date format for converted timestamps (https://www.lua.org/pil/22.1) |               
+| `hard_only`                 | Number | `1`                                                                     | Only send events in hard state |
+| `acknowledged`              | Number | `0`                                                                     | Only send events that are not acknowledged |
+| `element_type`              | String | `host_status,service_status,ba_status`                                  | Send host, service, BA centreon status event |
+| `category_type`             | String | `neb,bam`                                                               | Filter out non neb or bam events |
+| `in_downtime`               | Number | `0`                                                                     | Only send events that are not in downtime |
+| `max_buffer_size`           | Number | `1`                                                                     | Send events one at a time |
+| `max_buffer_age`            | Number | `5`                                                                     | Store events for 5 second before sending them unless max_buffer_size is reached before  |
+| `max_stored_events`         | Number | `10`                                                                    | Keep event in cache to avoid sending duplicated events, change with caution |
+| `skip_anon_events`          | Number | `1`                                                                     | Do not send events from hosts or services that are not found in the broker cache |
+| `skip_nil_id`               | Number | `1`                                                                     | Do not send events from objects that do not have an ID (meta services most of the time) |
+| `accepted_hostgroups`       | String |                                                                         | List of hostgroups in which the host must be (coma separeted eg: grp1,grp2,grp3) |
+| `date_format`               | String | `%Y-%m-%d %H:%M:%S`                                                     | The default date format for converted timestamps (https://www.lua.org/pil/22.1) |
 | `host_alert_message`        | String | `{last_update_date} {hostname} is {state}`                              | The default message for host alerts. See [host event macros](sc-opsgenie#host-event-macros) for more details about macros |
 | `host_alert_description`    | String |                                                                         | The default description of a host alert. See [host event macros](sc-opsgenie#host-event-macros) for more details about macros |
 | `host_alert_alias`          | String | `{hostname}_{state}`                                                    | The default alias for a host alert, useful for alert deduplication. See [host event macros](sc-opsgenie#host-event-macros) for more details about macros  |

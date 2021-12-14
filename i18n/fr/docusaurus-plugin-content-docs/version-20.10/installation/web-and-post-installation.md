@@ -104,27 +104,27 @@ et cliquez sur **Exporter**,
 4. Connectez-vous au serveur Central,
 5. Démarrez/redémarrez les processus de collecte :
 
-    ```shell
-    systemctl restart cbd centengine
-    ```
+```shell
+systemctl restart cbd centengine
+```
 
 6. Redémarrez le gestionnaire de tâches :
 
-    ```shell
-    systemctl restart gorgoned
-    ```
+```shell
+systemctl restart gorgoned
+```
 
 7. Démarrez les services de supervision passive :
 
-    ```shell
-    systemctl start snmptrapd centreontrapd
-    ```
+```shell
+systemctl start snmptrapd centreontrapd
+```
 
 8. Si vous voulez superviser ce serveur, démarrer le démon SNMP :
 
-    ```shell
-    systemctl start snmpd
-    ```
+```shell
+systemctl start snmpd
+```
 
 La supervision est maintenant opérationnelle.
 

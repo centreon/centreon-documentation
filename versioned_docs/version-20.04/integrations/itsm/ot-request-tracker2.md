@@ -35,4 +35,4 @@ Our provider requires the following parameters:
 As of now, the provider is able to retrieve the following objects from Request
 Tracker:
 
-  - Queues
+- Queues

@@ -3,7 +3,7 @@ id: architecture
 title: Architectures
 ---
 
-> **Warning:** For Commercial Edition customers, please get in touch with your Centreon Sales representative or Technical Account Manager before implementing this. Extensions needs a specific license files to smoothly work on both nodes.  
+> **Warning:** For Commercial Edition customers, please get in touch with your Centreon Sales representative or Technical Account Manager before implementing this. Extensions needs a specific license files to smoothly work on both nodes.
 
 ## 2-nodes cluster
 
@@ -51,12 +51,12 @@ A monitoring poller provides:
 
 A Centreon central server provides:
 
-* a monitoring scheduler Centreon Engine (`centengine`) 
+* a monitoring scheduler Centreon Engine (`centengine`)
 * an event handler (`cbmod`) that connects locally to transfer the collected data
 * a centralized events management process (`cbd_central-broker`) that:
 
-    * inserts into the database the information collected
-    * transfers in local performance data in order to generate graphs
+* inserts into the database the information collected
+* transfers in local performance data in order to generate graphs
 
 * a performance data management process (`cbd-central-rrd`) to create/update the performance graphs (RRD files)
 * a web Centreon interface (Apache/PHP7)
@@ -86,7 +86,7 @@ The `ms_mysql` functional group is a "multi-state" resource. This resource can b
 
 #### Centreon functional group
 
-The `centreon` functional group gathers all Centreon resources to manage them. 
+The `centreon` functional group gathers all Centreon resources to manage them.
 
 #### Resources type description
 
@@ -130,9 +130,9 @@ The failover architecture implies various constraints:
 
 * Synchronization (via `rsync`) of:
 
-  * Media files
-  * Configuration files for: `centengine`, `cbd_central_broker`, `cbd_rrd`
-  * Centreon-MBI reports hosted on the Web server
+* Media files
+* Configuration files for: `centengine`, `cbd_central_broker`, `cbd_rrd`
+* Centreon-MBI reports hosted on the Web server
 
 * MariaDB files `ibdata*` and `ib_logfile*` must be in the "datadir" directory or in a subdirectory (scripts `centreondb-smooth-backup.sh` and `mysql-sync-bigdb.sh` aren't compatible with this operation);
 * MariaDB files `log-bin*` and `relay-log*` can be located in a directory (or a subdirectory) different from "datadir". They can also be on a different logical volume (`lvm`) than "datadir". However, the logical volume must be located in the volume group where "datadir" is stored.

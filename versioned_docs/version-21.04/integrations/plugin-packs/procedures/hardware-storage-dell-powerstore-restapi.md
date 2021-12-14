@@ -2,6 +2,9 @@
 id: hardware-storage-dell-powerstore-restapi
 title: Dell PowerStore Rest API
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Pack Assets
 
@@ -13,34 +16,35 @@ The Pack Dell PowerStore collects metrics for:
 
 ### Collected Metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
+<Tabs groupId="operating-systems">
+<TabItem value="Alerts" label="Alerts">
 
-<!--Alerts-->
+| Metric name                    | Description                                | Unit |
+| :----------------------------- | :----------------------------------------- | :--- |
+| alerts.severity.none.count     | Number of alerts with none severity        |      |
+| alerts.severity.info.count     | Number of alerts with information severity |      |
+| alerts.severity.minor.count    | Number of alerts with minor severity       |      |
+| alerts.severity.major.count    | Number of alerts with major severity       |      |
+| alerts.severity.critical.count | Number of alerts with critical severity    |      |
 
-| Metric name                    | Description                                | Unit  |
-| :----------------------------- | :----------------------------------------- | :---- |
-| alerts.severity.none.count     | Number of alerts with none severity        |       |
-| alerts.severity.info.count     | Number of alerts with information severity |       |
-| alerts.severity.minor.count    | Number of alerts with minor severity       |       |
-| alerts.severity.major.count    | Number of alerts with major severity       |       |
-| alerts.severity.critical.count | Number of alerts with critical severity    |       |
+</TabItem>
+<TabItem value="Hardware" label="Hardware">
 
-<!--Hardware-->
+| Metric name         | Description                  | Unit |
+| :------------------ | :--------------------------- | :--- |
+| appliance status    | Appliance lifecycle state    |      |
+| battery status      | Battery lifecycle state      |      |
+| dimm status         | DIMM lifecycle state         |      |
+| disk status         | Disk lifecycle state         |      |
+| enclosure status    | Enclosure lifecycle state    |      |
+| fan status          | Fan lifecycle state          |      |
+| node status         | Node lifecycle state         |      |
+| io module status    | IO module lifecycle state    |      |
+| power supply status | Power supply lifecycle state |      |
+| sfp status          | SFP lifecycle state          |      |
 
-| Metric name         | Description                  | Unit  |
-| :------------------ | :--------------------------- | :---- |
-| appliance status    | Appliance lifecycle state    |       |
-| battery status      | Battery lifecycle state      |       |
-| dimm status         | DIMM lifecycle state         |       |
-| disk status         | Disk lifecycle state         |       |
-| enclosure status    | Enclosure lifecycle state    |       |
-| fan status          | Fan lifecycle state          |       |
-| node status         | Node lifecycle state         |       |
-| io module status    | IO module lifecycle state    |       |
-| power supply status | Power supply lifecycle state |       |
-| sfp status          | SFP lifecycle state          |       |
-
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -49,9 +53,8 @@ E.g: https://downloads.dell.com/manuals/common/pwrstr-apig_en-us.pdf
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="licence-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -61,7 +64,8 @@ yum install centreon-plugin-Hardware-Storage-Dell-Powerstore-Restapi
 
 2. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *Dell PowerStore Rest API* Pack
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -77,7 +81,8 @@ yum install centreon-pack-hardware-storage-dell-powerstore-restapi
 
 3. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *Dell PowerStore Rest API* Pack
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host configuration
 
@@ -100,14 +105,14 @@ and test the Plugin by running the following command (Parameters such as ```api-
 
 ```bash
 /usr/lib/centreon/plugins/centreon_dell_powerstore_restapi.pl \
-    --plugin=storage::dell::powerstore::restapi::plugin \
-    --mode=alerts \
-    --hostname='10.30.2.79' \
-    --port='443' \
-    --proto='https' \
-    --api-username='myapiusername' \
-    --api-password='myapipassword' \
-    --verbose
+--plugin=storage::dell::powerstore::restapi::plugin \
+--mode=alerts \
+--hostname='10.30.2.79' \
+--port='443' \
+--proto='https' \
+--api-username='myapiusername' \
+--api-password='myapipassword' \
+--verbose
 ```
 
 Expected command output is shown below:
@@ -128,9 +133,9 @@ parameter to the command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_dell_powerstore_restapi.pl \
-    --plugin=storage::dell::powerstore::restapi::plugin \
-    --mode=alerts \
-    --help
+--plugin=storage::dell::powerstore::restapi::plugin \
+--mode=alerts \
+--help
 ```
 
 ## Troubleshooting

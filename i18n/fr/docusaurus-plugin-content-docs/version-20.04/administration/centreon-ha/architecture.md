@@ -3,7 +3,7 @@ id: architecture
 title: Architectures
 ---
 
-> **Attention:** Pour les utilisateurs ayant un contrat de support Centreon, il est nécessaire de contacter un interlocuteur Commercial et/ou Technique Centreon avant d'entreprendre une migration de votre installation vers la haute-disponibilité. Les Modules additionnels nécessitent une licence particulière pour fonctionner sur chacun des noeuds. 
+> **Attention:** Pour les utilisateurs ayant un contrat de support Centreon, il est nécessaire de contacter un interlocuteur Commercial et/ou Technique Centreon avant d'entreprendre une migration de votre installation vers la haute-disponibilité. Les Modules additionnels nécessitent une licence particulière pour fonctionner sur chacun des noeuds.
 
 ## Cluster à 2 nœuds
 
@@ -51,9 +51,9 @@ Un serveur Centreon central dispose :
 
 * d'un ordonnanceur de supervision Centreon Engine (`centengine`) ;
 * d'un gestionnaire d'évènements Centreon Broker (`cbmod`) qui se connecte en local pour transférer les données collectées ;
-* d'un processus de gestion centralisé des évènements (`cbd_central_broker`) qui : 
-    * insère en base de données les informations collectées;
-    * transfère en local les données de performance pour générer des graphiques.
+* d'un processus de gestion centralisé des évènements (`cbd_central_broker`) qui :
+* insère en base de données les informations collectées;
+* transfère en local les données de performance pour générer des graphiques.
 
 * d'un processus de gestion des données de performance (`cbd-central-rrd`) pour créer/mettre à jour les graphiques de performance (`RRD files`);
 * d'une interface web Centreon (`centreon`).
@@ -134,9 +134,9 @@ L'architecture de failover entraîne différentes contraintes :
 
 * Synchronisation via rsync :
 
-  * des "media" (images et sons) du serveur Web ;
-  * des fichiers de configuration des serveurs centraux : "centreon-engine", "cbd-central-broker", "cbd-central-rrd".
-  * des rapports "centreon-bi" hébergés sur le serveur Web ;
+* des "media" (images et sons) du serveur Web ;
+* des fichiers de configuration des serveurs centraux : "centreon-engine", "cbd-central-broker", "cbd-central-rrd".
+* des rapports "centreon-bi" hébergés sur le serveur Web ;
 
 * Les fichiers MariaDB `ibdata*` et `ib_logfile*` doivent se situer dans le répertoire (ou un sous-répertoire) "datadir" (les scripts `centreondb-smooth-backup.sh` et `mysql-sync-bigdb.sh` ne sont pas compatibles avec ce fonctionnement) ;
 * Les fichiers MariaDB `log-bin*` et `relay-log*` peuvent se situer dans un répertoire (ou sous-répertoire) différent de "datadir". Ils peuvent aussi se situer sur volume logique ("lvm") différent du "datadir" (Néanmoins, le volume logique doit se situer dans le volume groupe où se situe "datadir").

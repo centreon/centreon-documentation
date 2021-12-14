@@ -2,13 +2,16 @@
 id: cloud-aws-cloudwatchlogs
 title: Amazon CloudWatch Logs
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
-CloudWatch Logs vous permet de centraliser les journaux de tous vos systèmes ainsi que les 
-applications et les services AWSque vous utilisez au sein d’un seul service hautement évolutif. 
-Vous pouvez ensuite facilement les consulter, y effectuer des recherches pour identifier des 
-codes d’erreur spécifiques ou des modèles, les filtrer en fonction de champs spécifiques ou 
+CloudWatch Logs vous permet de centraliser les journaux de tous vos systèmes ainsi que les
+applications et les services AWSque vous utilisez au sein d’un seul service hautement évolutif.
+Vous pouvez ensuite facilement les consulter, y effectuer des recherches pour identifier des
+codes d’erreur spécifiques ou des modèles, les filtrer en fonction de champs spécifiques ou
 les archiver en toute sécurité à des fins d’analyse ultérieure.
 
 > **Attention** Ce Plugin est susceptible de générer un volume importants de données lors des requêtes API.
@@ -19,25 +22,26 @@ les archiver en toute sécurité à des fins d’analyse ultérieure.
 
 ### Objets supervisés
 
-* Groupes de Logs et Stream associés 
+* Groupes de Logs et Stream associés
 
 ### Données collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Get-Logs-->
+<Tabs groupId="operating-systems">
+<TabItem value="GetLogs" label="GetLogs">
 
 | Metric name | Description                                                                                                               |
 |:------------|:--------------------------------------------------------------------------------------------------------------------------|
 | Logs        | Refer to any log entry that match filters. Threshold are String on top of %{message}, %{stream\_name}, %{since} variables |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
 ### Privilèges AWS
 
-Voici la liste des droits nécessaires au travers des *access/secret keys* utilisées pour pouvoir implémenter 
-la supervision Amazon CloudWatch Logs: 
+Voici la liste des droits nécessaires au travers des *access/secret keys* utilisées pour pouvoir implémenter
+la supervision Amazon CloudWatch Logs:
 
 | AWS Privilege                    | Description                                                                     |
 | :------------------------------- | :------------------------------------------------------------------------------ |
@@ -45,36 +49,36 @@ la supervision Amazon CloudWatch Logs:
 
 ### Dépendances du Plugin
 
-Afin de récupérer les informations nécessaires via les APIs AWS, il est possible d'utiliser soit le binaire *awscli* fourni par Amazon, soit le SDK Perl *paws*. 
-Le SDK est recommandé car plus performant. 
+Afin de récupérer les informations nécessaires via les APIs AWS, il est possible d'utiliser soit le binaire *awscli* fourni par Amazon, soit le SDK Perl *paws*.
+Le SDK est recommandé car plus performant.
 
 Installez le binaire choisi en lançant l'une des commandes suivantes:
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--perl-Paws-installation-->
+<Tabs groupId="operating-systems">
+<TabItem value="perlPawsinstallation" label="perlPawsinstallation">
 
 ```bash
 yum install perl-Paws
 ```
 
-<!--aws-cli-installation-->
+</TabItem>
+<TabItem value="awscliinstallation" label="awscliinstallation">
 
 ```bash
 yum install awscli
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 > **Attention** il n'est actuellement **pas** possible d'utiliser *paws* dans les cas suivants:
 > * si la connexion s'effectue au travers d'un proxy.
 > * utilisation de la fonctionnalité de *Découverte d'Hôte* dans Centreon.
 
-## Installation 
+## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="operating-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser la ressource Amazon CloudWatch Logs:
 
@@ -84,7 +88,8 @@ yum install centreon-plugin-Cloud-Aws-CloudWatchLogs-Api
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Amazon CloudWatch Logs* depuis la page "Configuration > Plugin Packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser la ressource Amazon CloudWatch Logs:
 
@@ -100,7 +105,8 @@ yum install centreon-pack-cloud-aws-cloudwatchlogs
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Amazon CloudWatch Logs* depuis la page "Configuration > Plugin Packs > Manager"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -118,43 +124,42 @@ yum install centreon-pack-cloud-aws-cloudwatchlogs
 |             | DUMMYSTATUS     | Host state. Default is OK, do not modify it unless you know what you are doing              |
 |             | DUMMYOUTPUT     | Host check output. Default is 'This is a dummy check'. Customize it with your own if needed |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## FAQ
 
 ### Comment puis-je tester le Plugin et que signifient les options des commandes ?
 
-Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande depuis votre collecteur Centreon avec l'utilisateur *centreon-engine* 
+Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande depuis votre collecteur Centreon avec l'utilisateur *centreon-engine*
 (certaines options comme ```--proxyurl``` doivent être ajustées en fonction du contexte):
 
 ```bash
 /usr/lib/centreon/plugins/centreon_aws_cloudwatchlogs_api.pl \
- --plugin=cloud::aws::cloudwatchlogs::plugin \
- --mode=get-logs \
- --custommode='awscli' \
- --aws-secret-key='****' \
- --aws-access-key='****' \
- --proxyurl='' \
- --region='eu-west-1' \
- --group-name='/aws/lambda/MyLambda_LogGroup' \
- --stream-name='' \
- --start-time-since='3000' \
- --unknown-status='' \
- --warning-status='' \
- --critical-status='%{message} =~ /region/i' \
- --verbose
+--plugin=cloud::aws::cloudwatchlogs::plugin \
+--mode=get-logs \
+--custommode='awscli' \
+--aws-secret-key='****' \
+--aws-access-key='****' \
+--proxyurl='' \
+--region='eu-west-1' \
+--group-name='/aws/lambda/MyLambda_LogGroup' \
+--stream-name='' \
+--start-time-since='3000' \
+--unknown-status='' \
+--warning-status='' \
+--critical-status='%{message} =~ /region/i' \
+--verbose
 ```
 
 La commande retourne le message de sortie ci-dessous:
 
-```bash 	
+```bash
 CRITICAL: 10 problem(s) detected | 'logs'=10;;;0;
 critical: log [created: 5m 11s] [stream: 2020/07/21/[$LATEST]57eb66feaf4aa7bc46gr0e91aeac2b99] [message: [INFO] 2020-07-21T14:35:31.591Z    edcea75a-41ceaa-43ae0-8fa6-1cfea0d0dc  Set REGION: eu-west-1 -- ]
 [...]
 critical: log [created: 10m 11s] [stream: 2020/07/21/[$LATEST]57eb66eac4cea0e91ce2b99] [message: [INFO]    2020-07-21T14:30:31.767Z    8a62ac5e-d6dd-44Da-b23e-bce42fef3  Set REGION: eu-west-1 -- ]
 ```
 
-Cette commande supervise les *logs* (```--mode=get-logs```) Amazon CloudWatch grâce à une paire d'identifiants *aws-secret-key* et *aws-access-key* (```--aws-secret-key='****' --aws-access-key='****'```). 
+Cette commande supervise les *logs* (```--mode=get-logs```) Amazon CloudWatch grâce à une paire d'identifiants *aws-secret-key* et *aws-access-key* (```--aws-secret-key='****' --aws-access-key='****'```).
 Les logs retournés ici sont uniquement ceux inclus dans le groupe *MyLambda_LogGroup* (```--group-name='/aws/lambda/MyLambda_LogGroup'```) tel que défini dans la console AWS.
 
 Une alerte CRITICAL sera déclenchée si des *logs* contenant la chaîne 'region' sont présents dans le contenu de la ligne de log (```'%{message} =~ /region/i'```).
@@ -165,7 +170,7 @@ La liste de tous les filtres et seuils disponibles peut être affichée en ajout
 /usr/lib/centreon/plugins/centreon_aws_cloudwatchlogs_api.pl --plugin=cloud::aws::cloudwatchlogs::plugin --mode=get-logs --help
 ```
 
-### J'obtiens le message d'erreur suivant:  
+### J'obtiens le message d'erreur suivant:
 
 #### ```UNKNOWN: Command error:  - An error occurred (AuthFailure) [...]```
 

@@ -2,10 +2,13 @@
 id: cloud-azure-database-mysql
 title: Azure Database for MySQL
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
-Azure Database for MySQL allows you to easily set up scalable and secure high 
+Azure Database for MySQL allows you to easily set up scalable and secure high
 availability MySQL instances.
 
 The Centreon Plugin Pack *Azure Database for MySQL* can rely on Azure API or Azure CLI to collect the metrics related to the
@@ -16,14 +19,14 @@ API Management service.
 ### Monitored Objects
 
 * Azure *Azure Database for MySQL* instances
-    * Connections
-    * CPU
-    * IO consumption
-    * Memory
-    * Queries
-    * Replication
-    * Storage
-    * Traffic
+* Connections
+* CPU
+* IO consumption
+* Memory
+* Queries
+* Replication
+* Storage
+* Traffic
 
 
 ### Discovery rules
@@ -41,9 +44,8 @@ More information about the Host Discovery module is available in the Centreon do
 
 ### Collected metrics & status
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Connections-->
+<Tabs groupId="operating-systems">
+<TabItem value="Connections" label="Connections">
 
 | Metric Name                       | Description                   | Unit  |
 | :-------------------------------- | :---------------------------- | :---- |
@@ -52,38 +54,44 @@ More information about the Host Discovery module is available in the Centreon do
 | azmysql.connections.aborted.count | Number of aborted Connections | Count |
 | azmysql.connections.total.count   | Number of total Connections   | Count |
 
-<!--Cpu-->
+</TabItem>
+<TabItem value="Cpu" label="Cpu">
 
 | Metric Name                        | Description     | Unit       |
 | :--------------------------------- | :-------------- | :--------- |
 | azmysql.cpu.utilization.percentage | CPU utilization | Percentage |
 
-<!--IO-Consumption-->
+</TabItem>
+<TabItem value="IOConsumption" label="IOConsumption">
 
 | Metric Name                            | Description    | Unit       |
 | :------------------------------------- | :------------- | :--------- |
 | azmysql.ioconsumption.usage.percentage | IO consumption | Percentage |
 
-<!--Memory-->
+</TabItem>
+<TabItem value="Memory" label="Memory">
 
 | Metric Name                     | Description  | Unit       |
 | :------------------------------ | :----------- | :--------- |
 | azmysql.memory.usage.percentage | Memory usage | Percentage |
 
-<!--Queries-->
+</TabItem>
+<TabItem value="Queries" label="Queries">
 
 | Metric Name           | Description       | Unit  |
 | :-------------------- | :---------------- | :---- |
 | azmysql.queries.count | Number of queries | Count |
 
-<!--Replication-->
+</TabItem>
+<TabItem value="Replication" label="Replication">
 
 | Metric Name                     | Description     | Unit    |
 | :------------------------------ | :-------------- | :------ |
 | azmysql.replication.lag.seconds | Replication Lag | Seconds |
 | azmysql.replication.lag.count   | Replication Lag | Count   |
 
-<!--Storage-->
+</TabItem>
+<TabItem value="Storage" label="Storage">
 
 | Metric Name                                | Description              | Unit       |
 | :----------------------------------------- | :----------------------- | :--------- |
@@ -95,76 +103,78 @@ More information about the Host Discovery module is available in the Centreon do
 | azmysql.storage.serverlog.usage.bytes      | Server Log storage used  | Bytes      |
 | azmysql.storage.serverlog.usage.percentage | Server Log storage used  | Percentage |
 
-<!--Traffic-->
+</TabItem>
+<TabItem value="Traffic" label="Traffic">
 
 | Metric Name               | Description | Unit  |
 | :------------------------ | :---------- | :---- |
 | azmysql.traffic.out.bytes | Network Out | Bytes |
 | azmysql.traffic.in.bytes  | Network In  | Bytes |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
 To get data from Azure Services, following methods are available:
-* Azure API ('api') 
+* Azure API ('api')
 * Azure CLI ('azcli')
 
 Centreon recommends to use the API instead of the CLI for the following reasons:
 * API is much more efficient by avoiding CLI binary execution
 * API supports application authentication while CLI does not (yet)
 
-<!--DOCUSAURUS_CODE_TABS-->
+<Tabs groupId="operating-systems">
+<TabItem value="Azure Monitor API" label="Azure Monitor API">
 
-<!--Azure Monitor API-->
-
-To use the 'api' custom mode, make sure to obtain the required information using the 
+To use the 'api' custom mode, make sure to obtain the required information using the
 how-to below. Keep it safe until including it in a Host or Host Template definition.
 
 * Create an *application* in Azure Active Directory:
-    - Log in to your Azure account.
-    - Select *Azure Active directory* in the left sidebar.
-    - Click on *App registrations*.
-    - Click on *+ Add*.
-    - Enter Centreon as the application name (or any name of your choice), select application type(api) and sign-on-url.
-    - Click on the *Create* button.
+- Log in to your Azure account.
+- Select *Azure Active directory* in the left sidebar.
+- Click on *App registrations*.
+- Click on *+ Add*.
+- Enter Centreon as the application name (or any name of your choice), select application type(api) and sign-on-url.
+- Click on the *Create* button.
 
 * Get *Subscription ID*
-    - Log in to your Azure account.
-    - Select *Subscriptions* in the left sidebar.
-    - Select whichever subscription is needed.
-    - Click on *Overview*.
-    - **Copy the Subscription ID.**
+- Log in to your Azure account.
+- Select *Subscriptions* in the left sidebar.
+- Select whichever subscription is needed.
+- Click on *Overview*.
+- **Copy the Subscription ID.**
 
 * Get *Tenant ID*
-    - Log in to your Azure account.
-    - Select *Azure Active directory* in the left sidebar.
-    - Click on *Properties*.
-    - **Copy the directory ID.**
+- Log in to your Azure account.
+- Select *Azure Active directory* in the left sidebar.
+- Click on *Properties*.
+- **Copy the directory ID.**
 
 * Get *Client ID*
-    - Log in to your Azure account.
-    - Select *Azure Active directory* in the left sidebar.
-    - Click on *Enterprise applications*.
-    - Click on *All applications*.
-    - Select the application previously created.
-    - Click on *Properties*.
-    - **Copy the Application ID.**
+- Log in to your Azure account.
+- Select *Azure Active directory* in the left sidebar.
+- Click on *Enterprise applications*.
+- Click on *All applications*.
+- Select the application previously created.
+- Click on *Properties*.
+- **Copy the Application ID.**
 
 * Get *Client secret*
-    - Log in to your Azure account.
-    - Select *Azure Active directory* in the left sidebar.
-    - Click on *App registrations*.
-    - Select the application previously created.
-    - Click on *All settings*.
-    - Click on *Keys*.
-    - Enter the key description and select the duration.
-    - Click on *Save*.
-    - **Copy and store the key value. You won't be able to retrieve it after you leave this page.**
+- Log in to your Azure account.
+- Select *Azure Active directory* in the left sidebar.
+- Click on *App registrations*.
+- Select the application previously created.
+- Click on *All settings*.
+- Click on *Keys*.
+- Enter the key description and select the duration.
+- Click on *Save*.
+- **Copy and store the key value. You won't be able to retrieve it after you leave this page.**
 
-<!--Azure AZ CLI-->
+</TabItem>
+<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
-To use the 'azcli' custom mode, install the required packages on every Centreon poller expected to 
+To use the 'azcli' custom mode, install the required packages on every Centreon poller expected to
 monitor Azure Resources using CLI:
 
 - The CLI needs at least Python version 2.7
@@ -178,7 +188,7 @@ sudo echo -e "[azure-cli]\nname=Azure CLI\nbaseurl=https://packages.microsoft.co
 sudo yum install azure-cli
 ```
 
-Then, use the *centreon-engine* account to obtain a token using command below: 
+Then, use the *centreon-engine* account to obtain a token using command below:
 
 ```shell
 su - centreon-engine
@@ -187,41 +197,41 @@ az login
 
 The shell will output this message including an authentication code:
 
-    *To sign in, use a web browser to open the page https://microsoft.com/devicelogin* 
-    *and enter the code CWT4WQZAD to authenticate.*
+*To sign in, use a web browser to open the page https://microsoft.com/devicelogin*
+*and enter the code CWT4WQZAD to authenticate.*
 
-Go to <https://microsoft.com/devicelogin> and enter the code. 
+Go to <https://microsoft.com/devicelogin> and enter the code.
 
 Connect using a monitoring service account, as a result, the shell should prompt
 information below:
 
 ```shell
-    [
-      {
-        "cloudName": "AzureCloud",
-        "id": "0ef83f3a-d83e-2039-d930-309df93acd93d",
-        "isDefault": true,
-        "name": "N/A(tenant level account)",
-        "state": "Enabled",
-        "tenantId": "0ef83f3a-03cd-2039-d930-90fd39ecd048",
-        "user": {
-          "name": "email@mycompany.onmicrosoft.com",
-          "type": "user"
-        }
-      }
-    ]
+[
+{
+"cloudName": "AzureCloud",
+"id": "0ef83f3a-d83e-2039-d930-309df93acd93d",
+"isDefault": true,
+"name": "N/A(tenant level account)",
+"state": "Enabled",
+"tenantId": "0ef83f3a-03cd-2039-d930-90fd39ecd048",
+"user": {
+"name": "email@mycompany.onmicrosoft.com",
+"type": "user"
+}
+}
+]
 ```
 
-Credentials are now stored locally in the .accessTokens.json file so the Plugin 
-can use it. 
+Credentials are now stored locally in the .accessTokens.json file so the Plugin
+can use it.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
-## Setup 
+## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="licence-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor Azure Database for MySQL resources:
 
@@ -231,7 +241,8 @@ yum install centreon-plugin-Cloud-Azure-Database-MySQL-Api
 
 2. On the Centreon Web interface, install the *Azure Database for MySQL* Centreon Plugin Pack on the "Configuration > Plugin Packs > Manager" page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor Azure Database for MySQL resources:
 
@@ -247,7 +258,8 @@ yum install centreon-pack-cloud-azure-database-mysql.noarch
 
 3. On the Centreon Web interface, install the *Azure Database for MySQL* Centreon Plugin Pack on the "Configuration > Plugin Packs > Manager" page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -265,9 +277,8 @@ These mandatory Macros differ regarding the custom mode used.
 in *AZURERESOURCE*
 > * Resource Name in *AZURERESOURCE* associated with Resource Group (in *AZURERESOURCEGROUP*) and Resource Type (in *AZURERESOURCETYPE*)
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Azure Monitor API-->
+<Tabs groupId="operating-systems">
+<TabItem value="Azure Monitor API" label="Azure Monitor API">
 
 | Mandatory | Nom                | Description                                        |
 | :-------- | :----------------- | :------------------------------------------------- |
@@ -280,7 +291,8 @@ in *AZURERESOURCE*
 |           | AZURERESOURCEGROUP | Associated Resource Group if resource name is used |
 | X         | AZURERESOURCETYPE  | Associated Resource Type if resource name is used  |
 
-<!--Azure AZ CLI-->
+</TabItem>
+<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 | Mandatory | Nom                | Description                                        |
 | :-------- | :----------------- | :------------------------------------------------- |
@@ -290,29 +302,30 @@ in *AZURERESOURCE*
 |           | AZURERESOURCEGROUP | Associated Resource Group if resource name is used |
 | X         | AZURERESOURCETYPE  | Associated Resource Type if resource name is used  |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## How to check in the CLI that the configuration is OK and what are the main options for ?
 
-Once the Plugin installed, log into your Centreon Poller CLI using the *centreon-engine* 
+Once the Plugin installed, log into your Centreon Poller CLI using the *centreon-engine*
 user account and test the Plugin by running the following command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_azure_database_mysql_api.pl \
-    --plugin=cloud::azure::database::mysql::plugin \
-    --mode=cpu \
-    --custommode=api \
-    --subscription='xxxxxxxxx' \
-    --tenant='xxxxxxxxx' \
-    --client-id='xxxxxxxxx' \
-    --client-secret='xxxxxxxxx' \
-    --resource='SQL001ABCD' \
-    --resource-group='RSG1234' \
-    --timeframe='900' \
-    --interval='PT5M' \
-    --aggregation='Average' \
-    --warning-cpu-usage='80' \
-    --critical-cpu-usage='90' \
+--plugin=cloud::azure::database::mysql::plugin \
+--mode=cpu \
+--custommode=api \
+--subscription='xxxxxxxxx' \
+--tenant='xxxxxxxxx' \
+--client-id='xxxxxxxxx' \
+--client-secret='xxxxxxxxx' \
+--resource='SQL001ABCD' \
+--resource-group='RSG1234' \
+--timeframe='900' \
+--interval='PT5M' \
+--aggregation='Average' \
+--warning-cpu-usage='80' \
+--critical-cpu-usage='90' \
 ```
 
 Expected command output is shown below:
@@ -338,26 +351,26 @@ All the available options for a given mode can be displayed by adding the ```--h
 
 ```bash
 /usr/lib/centreon/plugins/centreon_azure_database_mysql_api.pl \
-    --plugin=cloud::azure::database::mysql::plugin \
-    --mode=cpu \
-    --help
+--plugin=cloud::azure::database::mysql::plugin \
+--mode=cpu \
+--help
 ```
 
 ### Troubleshooting
 
 #### The Azure credentials have changed and the Plugin does not work anymore
 
-The Plugin is using a cache file to keep connection information and avoid an authentication at each call. 
-If some of the authentication parameters change, you must delete the cache file. 
+The Plugin is using a cache file to keep connection information and avoid an authentication at each call.
+If some of the authentication parameters change, you must delete the cache file.
 
 The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder with a name similar to `azure_api_<md5>_<md5>_<md5>_<md5>`.
 
 #### ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```
 
-It means that some parameters used to authenticate the API request are wrong. The 'ERROR_NAME' string gives 
-some hints about where the problem stands. 
+It means that some parameters used to authenticate the API request are wrong. The 'ERROR_NAME' string gives
+some hints about where the problem stands.
 
-As an example, if my Client ID or Client Secret are wrong, 'ERROR_DESC' value will be 'invalid_client'. 
+As an example, if my Client ID or Client Secret are wrong, 'ERROR_DESC' value will be 'invalid_client'.
 
 #### ```UNKNOWN: 500 Can't connect to login.microsoftonline.com:443```
 

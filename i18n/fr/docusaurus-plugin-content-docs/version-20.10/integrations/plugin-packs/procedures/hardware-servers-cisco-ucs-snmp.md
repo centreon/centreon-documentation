@@ -2,6 +2,9 @@
 id: hardware-servers-cisco-ucs-snmp
 title: Cisco UCS
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -17,27 +20,28 @@ Le Plugin Pack *Cisco UCS* utilise le protocole SNMP pour se connecter, récupé
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Audit-Logs-->
+<Tabs groupId="operating-systems">
+<TabItem value="AuditLogs" label="AuditLogs">
 
 | Metric name                  | Description                                | Unit  |
 | :--------------------------- | :----------------------------------------- | :---- |
 | audit.total.count            | Number of audit logs                       | count |
-| audit.cleared.count          | Number of cleared audit logs               | count |                          
-| audit.info.count             | Number of info audit logs                  | count |                      
-| audit.condition.count        | Number of condition audit logs             | count |                             
-| audit.warning.count          | Number of warning audit logs               | count |                            
-| audit.minor.count            | Number of minor audit logs                 | count |                          
-| audit.critical.count         | Number of critical audit logs              | count |                             
+| audit.cleared.count          | Number of cleared audit logs               | count |
+| audit.info.count             | Number of info audit logs                  | count |
+| audit.condition.count        | Number of condition audit logs             | count |
+| audit.warning.count          | Number of warning audit logs               | count |
+| audit.minor.count            | Number of minor audit logs                 | count |
+| audit.critical.count         | Number of critical audit logs              | count |
 
-<!--Equipment-->
+</TabItem>
+<TabItem value="Equipment" label="Equipment">
 
 | Metric name | Description                                | Unit |
 | :---------- | :----------------------------------------- | :--- |
 | status      | Check Hardware status                      |      |
 
-<!--Faults-->
+</TabItem>
+<TabItem value="Faults" label="Faults">
 
 | Metric name                   | Description                                | Unit  |
 | :---------------------------- | :----------------------------------------- | :---- |
@@ -51,13 +55,15 @@ Le Plugin Pack *Cisco UCS* utilise le protocole SNMP pour se connecter, récupé
 | faults.major.count            | Number of major faults                     | count |
 | faults.critical.count         | Number of critical faults                  | count |
 
-<!--Mgmt-Entities-->
+</TabItem>
+<TabItem value="MgmtEntities" label="MgmtEntities">
 
 | Metric name                     | Description                                | Unit  |
 | :------------------------------ | :----------------------------------------- | :---- |
 | management_entities.total.count | Number of management entities              | count |
 
-<!--Service-Profile-->
+</TabItem>
+<TabItem value="ServiceProfile" label="ServiceProfile">
 
 | Metric name                   | Description                                | Unit  |
 | :---------------------------- | :----------------------------------------- | :---- |
@@ -66,7 +72,8 @@ Le Plugin Pack *Cisco UCS* utilise le protocole SNMP pour se connecter, récupé
 | serviceprofiles.offline.count | Number of offline service profiles         | count |
 
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 
 ## Prérequis
@@ -83,9 +90,8 @@ La communication doit être possible sur le port UDP 161 depuis le collecteur Ce
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="operating-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des serveurs UCS:
 
@@ -95,7 +101,8 @@ yum install centreon-plugin-Hardware-Servers-Cisco-Ucs-Snmp
 
 2. Sur l'interface Web de Centreon, installer le Plugin Pack *Cisco UCS* depuis la page "Configuration > Plugin Packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des serveurs UCS:
 
@@ -111,7 +118,8 @@ yum install centreon-pack-hardware-servers-cisco-ucs-snmp
 
 3. Sur l'interface Web de Centreon, installer le Plugin Pack *Cisco UCS* depuis la page "Configuration > Plugin Packs > Manager"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -127,18 +135,18 @@ de commande depuis un collecteur Centreon en vous connectant avec l'utilisateur
 
 ```bash
 /usr/lib/centreon/plugins//centreon_cisco_ucs.pl \
-    --plugin=hardware::server::cisco::ucs::plugin \
-    --mode=faults \ 
-    --hostname=10.30.2.11 \
-    --snmp-version='2c' \
-    --snmp-community='cisco_ucs' \ 
-    --filter-severity='critical|major=critical' \
-    --filter-severity='warning|minor=warning' \
-    --verbose
-               
+--plugin=hardware::server::cisco::ucs::plugin \
+--mode=faults \
+--hostname=10.30.2.11 \
+--snmp-version='2c' \
+--snmp-community='cisco_ucs' \
+--filter-severity='critical|major=critical' \
+--filter-severity='warning|minor=warning' \
+--verbose
+
 ```
 
-La commande ci-dessus contrôle les défauts sur un serveur UCS (``` --mode=faults ```). Les informations importantes sont l'adresse IP/FQDN 
+La commande ci-dessus contrôle les défauts sur un serveur UCS (``` --mode=faults ```). Les informations importantes sont l'adresse IP/FQDN
 
 (``` --hostname=10.30.2.11 ```) et la communauté SNMP configurée sur l'équipement (``` --snmp-community='cisco_ucs' ```).
 
@@ -150,17 +158,17 @@ La liste de toutes les options complémentaires et leur signification peut être
 
 ```bash
 /usr/lib/centreon/plugins//centreon_cisco_ucs.pl \
-    --plugin=hardware::server::cisco::ucs::plugin \
-    --mode=faults \
-    --help
+--plugin=hardware::server::cisco::ucs::plugin \
+--mode=faults \
+--help
 ```
 
 Tous les modes disponibles peuvent être affichés via l'option ``` --list-mode ``` :
 
 ```bash
 /usr/lib/centreon/plugins//centreon_cisco_ucs.pl \
-    --plugin=hardware::server::cisco::ucs::plugin \
-    --list-mode
+--plugin=hardware::server::cisco::ucs::plugin \
+--list-mode
 ```
 
 ## Diagnostic des erreurs communes

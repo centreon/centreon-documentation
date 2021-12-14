@@ -2,6 +2,9 @@
 id: hardware-ups-cyberpower-snmp
 title: CyberPower Systems UPS SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Contenu du Pack
 
@@ -14,9 +17,8 @@ Le Pack CyberPower UPS collecte les données pour:
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Battery-status-->
+<Tabs groupId="operating-systems">
+<TabItem value="Batterystatus" label="Batterystatus">
 
 | Metric name                      | Description         | Unit |
 | :------------------------------- | :------------------ | :--- |
@@ -25,7 +27,8 @@ Le Pack CyberPower UPS collecte les données pour:
 | battery.voltage.volt             | Battery voltage     | V    |
 | battery.temperature.celsius      | Battery temperature | C    |
 
-<!--Input-lines-->
+</TabItem>
+<TabItem value="Inputlines" label="Inputlines">
 
 | Metric name                 | Description                                             | Unit  |
 | :-------------------------- | :------------------------------------------------------ | :---- |
@@ -33,7 +36,8 @@ Le Pack CyberPower UPS collecte les données pour:
 | lines.input.frequence.hertz | Current input line frequency                            | Hz    |
 | lines.input.voltage.volt    | Current input line voltage                              | V     |
 
-<!--Output-lines-->
+</TabItem>
+<TabItem value="Outputlines" label="Outputlines">
 
 | Metric name                  | Description               | Unit  |
 | :--------------------------- | :------------------------ | :---- |
@@ -44,19 +48,19 @@ Le Pack CyberPower UPS collecte les données pour:
 | lines.output.power.watt      | Total output active power | W     |
 | lines.output.frequence.hertz | Current output frequency  | Hz     |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
-Afin de contrôler votre équipement CyberPower UPS, le SNMP doit être configuré. 
+Afin de contrôler votre équipement CyberPower UPS, le SNMP doit être configuré.
 
 Le flux SNMP UDP/161 doit être ouvert entre le Collecteur et l'équipement.
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="operating-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -66,7 +70,8 @@ yum install centreon-plugin-Hardware-Ups-Cyberpower-Snmp
 
 2. Sur l'interface Web de Centreon, installer le Pack *CyberPower Systems UPS SNMP* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -82,7 +87,8 @@ yum install centreon-pack-hardware-ups-cyberpower-snmp
 
 3. Sur l'interface Web de Centreon, installer le Pack *CyberPower Systems UPS SNMP* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -104,14 +110,14 @@ depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-en
 
 ```bash
 /usr/lib/centreon/plugins/centreon_ups_cyberpower_snmp.pl \
-    --plugin=hardware::ups::cyberpower::snmp::plugin \
-    --mode=battery-status \
-    --hostname=10.30.2.114 \
-    --snmp-version='2c' \
-    --snmp-community='cps_ro' \
-    --warning-charge-remaining='50:' \
-    --critical-charge-remaining='20:' \
-    --verbose
+--plugin=hardware::ups::cyberpower::snmp::plugin \
+--mode=battery-status \
+--hostname=10.30.2.114 \
+--snmp-version='2c' \
+--snmp-community='cps_ro' \
+--warning-charge-remaining='50:' \
+--critical-charge-remaining='20:' \
+--verbose
 ```
 
 La commande devrait retourner un message de sortie de la forme ci-dessous:
@@ -120,7 +126,7 @@ La commande devrait retourner un message de sortie de la forme ci-dessous:
 OK: battery status is normal - charge remaining: 100% (10 minutes remaining) | 'battery.charge.remaining.percent'=100%;50:;20:;0;100
 ```
 
-Cette commande contrôle la batterie (```--mode=battery-status```) d'un équipement UPS CyberPower ayant pour adresse *10.30.2.114* (```--hostname=10.30.2.114```) 
+Cette commande contrôle la batterie (```--mode=battery-status```) d'un équipement UPS CyberPower ayant pour adresse *10.30.2.114* (```--hostname=10.30.2.114```)
 en version *2c* du protocol SNMP (```--snmp-version='2c'```) et avec la communauté *cps_ro* (```--snmp-community='cps_ro'```).
 
 Cette commande déclenchera une alarme WARNING si la charge restante de la batterie est inférieur à 50% (```--warning-charge-remaining='50:'```)
@@ -131,9 +137,9 @@ en ajoutant le paramètre ```--help``` à la commande:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_ups_cyberpower_snmp.pl \
-    --plugin=hardware::ups::cyberpower::snmp::plugin \
-    --mode=battery-status \
-    --help
+--plugin=hardware::ups::cyberpower::snmp::plugin \
+--mode=battery-status \
+--help
 ```
 
 ## Diagnostique

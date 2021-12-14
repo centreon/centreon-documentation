@@ -2,6 +2,9 @@
 id: operatingsystems-linux-nrpe3
 title: Linux NRPE3
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -51,47 +54,53 @@ interfaces or filtered with regexp)
 
 Here are the metrics that are collected by default:
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Cpu-->
+<Tabs groupId="operating-systems">
+<TabItem value="Cpu" label="Cpu">
 
-| Metric                              | Description               | UOM |
-| :---------------------------------- | :------------------------ | :-: |
-| `0#core.cpu.utilization.percentage` | Average core 0 CPU usage  |  %  |
-| `1#core.cpu.utilization.percentage` | Average core 1 CPU usage  |  %  |
-| ...                                 | ...                       |  %  |
-| `cpu.utilization.percentage`        | Average overall CPU usage |  %  |
+| Metric                              | Description               |  UOM  |
+| :---------------------------------- | :------------------------ | :---: |
+| `0#core.cpu.utilization.percentage` | Average core 0 CPU usage  |   %   |
+| `1#core.cpu.utilization.percentage` | Average core 1 CPU usage  |   %   |
+| ...                                 | ...                       |   %   |
+| `cpu.utilization.percentage`        | Average overall CPU usage |   %   |
 
-<!--Load-->
+</TabItem>
+<TabItem value="Load" label="Load">
 
-| Metric   | Description                            | UOM |
-| :------- | :------------------------------------- | :-: |
-| `load1`  | System load average on last 1 minute   |     |
-| `load5`  | System load average on last 5 minutes  |     |
-| `load15` | System load average on last 15 minutes |     |
+| Metric   | Description                            |  UOM  |
+| :------- | :------------------------------------- | :---: |
+| `load1`  | System load average on last 1 minute   |       |
+| `load5`  | System load average on last 5 minutes  |       |
+| `load15` | System load average on last 15 minutes |       |
 
-<!--Memory-->
+</TabItem>
+<TabItem value="Memory" label="Memory">
 
-| Metric   | Description                           | UOM |
-| :------- | :------------------------------------ | :-: |
-| `buffer` | Amount of memory allocated to buffers |  B  |
-| `cached` | Amount of memory allocated to cache   |  B  |
-| `slab`   | Amount of memory allocated to Slab    |  B  |
-| `used`   | Total amount of used memory           |  B  |
+| Metric   | Description                           |  UOM  |
+| :------- | :------------------------------------ | :---: |
+| `buffer` | Amount of memory allocated to buffers |   B   |
+| `cached` | Amount of memory allocated to cache   |   B   |
+| `slab`   | Amount of memory allocated to Slab    |   B   |
+| `used`   | Total amount of used memory           |   B   |
 
-<!--Swap-->
+</TabItem>
+<TabItem value="Swap" label="Swap">
 
-| Metric                  | Description      | UOM |
-| :---------------------- | :--------------- | :-: |
-| `swap.free.bytes`       | Free Swap space  |  B  |
-| `swap.usage.bytes`      | Used Swap space  |  B  |
-| `swap.usage.percentage` | Swap space usage |  %  |
+| Metric                  | Description      |  UOM  |
+| :---------------------- | :--------------- | :---: |
+| `swap.free.bytes`       | Free Swap space  |   B   |
+| `swap.usage.bytes`      | Used Swap space  |   B   |
+| `swap.usage.percentage` | Swap space usage |   %   |
 
-<!--Uptime-->
-| Metric   | Description                    | UOM |
-| :------- | :----------------------------- | :-: |
-| `uptime` | Elapsed time since last reboot |  s  |
+</TabItem>
+<TabItem value="Uptime" label="Uptime">
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+| Metric   | Description                    |  UOM  |
+| :------- | :----------------------------- | :---: |
+| `uptime` | Elapsed time since last reboot |   s   |
+
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -148,13 +157,13 @@ systemctl restart centreon-nrpe3.service
 
 The Plugin-Pack installation concerns only the central server and the procedure depends on the type of license.
 
-<!--DOCUSAURUS_CODE_TABS-->
+<Tabs groupId="operating-systems">
+<TabItem value="IMP/EPP Online License & IT100 Editions" label="IMP/EPP Online License & IT100 Editions">
 
-<!--IMP/EPP "Online" License & IT-100 Editions-->
+Install the "Linux NRPE3" Plugin Pack from "Configuration > Plugin Packs > Manager" in the WUI.
 
- Install the "Linux NRPE3" Plugin Pack from "Configuration > Plugin Packs > Manager" in the WUI.
-
-<!--IMP/EPP "Offline" License-->
+</TabItem>
+<TabItem value="IMP/EPP Offline License" label="IMP/EPP Offline License">
 
 1. Install the Plugin Pack's RPM on the central server.
 
@@ -164,7 +173,8 @@ yum install centreon-pack-operatingsystems-linux-nrpe3
 
 2. Install the "Linux NRPE3" Plugin Pack from "Configuration > Plugin Packs > Manager" in the WUI.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Centreon NRPE3 Plugin
 
@@ -212,10 +222,10 @@ Here is a command monitors the Cpu usage of the Linux Server having the IP addre
 
 ```bash
 /usr/lib64/nagios/plugins/check_centreon_nrpe3 \
-    -H x.x.x.x \
-    -p 5666 -t 5 -u \
-    -c check_centreon_plugins \
-    -a 'os::linux::local::plugin' 'cpu'  '  --statefile-dir=/var/log/nrpe/centplugins'
+-H x.x.x.x \
+-p 5666 -t 5 -u \
+-c check_centreon_plugins \
+-a 'os::linux::local::plugin' 'cpu'  '  --statefile-dir=/var/log/nrpe/centplugins'
 ```
 
 It should return this:
@@ -247,7 +257,7 @@ If the output of the command is:
 connect to address x.x.x.x port 5666: Connection refused
 ```
 
-It probably means that the IP address from which the request was sent is not allowed to dialog with the NRPE daemon. 
+It probably means that the IP address from which the request was sent is not allowed to dialog with the NRPE daemon.
 
 The `allowed_hosts` parameter, in the `/etc/nrpe/centreon-nrpe3.cfg` configuration file ([see above](#nrpe-configuration)).
 

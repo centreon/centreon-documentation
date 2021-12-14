@@ -26,7 +26,7 @@ commerciales, veuillez contacter le support.
 #### Améliorations
 
 - Ajout de paramètres de personnalisation de la rotation des logs
-  sur centreon-map-server.
+sur centreon-map-server.
 
 #### Correctifs
 
@@ -41,10 +41,10 @@ commerciales, veuillez contacter le support.
 
 - Nom d'hôte manquant dans le titre d'un service graph
 - Un graph créé depuis un service dans un élément host n'était pas correctement
-  rafraichi
+rafraichi
 - Ouvrir une map depuis le listing ou le widget pouvait être trop long
 - L'info-bulle sur les éléments hostgroup n'affichait pas les ressources en
-  état critique
+état critique
 
 ### 20.04.5
 
@@ -57,15 +57,15 @@ commerciales, veuillez contacter le support.
 #### Correctifs
 
 - Mettre à jour depuis des versions précédentes causait parfois un
-  échec lors du redémarrage du service centreon-map
+échec lors du redémarrage du service centreon-map
 - Une mise à jour ou une nouvelle installation causait parfois une
-  mauvaise attribution des droits sur le dossier media
+mauvaise attribution des droits sur le dossier media
 - Ajouter ou supprimer un Downtime depuis l'interface web causait
-  parfois une rupture de connexion avec Broker
+parfois une rupture de connexion avec Broker
 - Créer une carte avec un nom vide rendait parfois le menu 'Monitoring >
-  Map' inaccessible
+Map' inaccessible
 - Ajouter un Output dans Studio avait parfois pour résultat une
-  métrique mal formattée
+métrique mal formattée
 - [API] Une requête de token sur Swagger-iu retournait parfois une erreur
 
 ### 20.04.4
@@ -75,15 +75,15 @@ commerciales, veuillez contacter le support.
 #### Correctifs
 
 - Sauvegarder une Geo View sur un Widget Custom View MAP était impossible
-  dû à l'absence du bouton "Sauvegarder"
+dû à l'absence du bouton "Sauvegarder"
 - Partager les métriques de statistiques d'usage entre le serveur MAP et
-  le Central en HTTPS échouait
+le Central en HTTPS échouait
 - Créer des liens en utilisant l'API REST peut maintenant recourir aux
-  propriétés 'bendpoints', 'displayValue' et 'displayPercent'
+propriétés 'bendpoints', 'displayValue' et 'displayPercent'
 - Ajouter des ressources Centreon lors de la création d'un Widget Output
-  par l'API REST est maintenant possible
+par l'API REST est maintenant possible
 - Installer MAP Studio lors d'une nouvelle installation échouait à cause
-  de la configuration du back-up automatique
+de la configuration du back-up automatique
 
 ### 20.04.3
 
@@ -101,24 +101,24 @@ commerciales, veuillez contacter le support.
 #### Correctifs
 
 - Il est désormais possible de configurer le nombre de chiffres à afficher
-  après la virgule sur les liens de métriques dans les vues standards
+après la virgule sur les liens de métriques dans les vues standards
 - Mise à jour de Leaflet en version
-  [1.6.0](https://leafletjs.com/2019/11/17/leaflet-1.6.0)
+[1.6.0](https://leafletjs.com/2019/11/17/leaflet-1.6.0)
 - Mise à jour des intéractions avec Mapbox suite à la mise à jour de leurs
-  API et leurs styles [voir la
-  documentation](https://docs.mapbox.com/help/troubleshooting/migrate-legacy-static-tiles-api/)
+API et leurs styles [voir la
+documentation](https://docs.mapbox.com/help/troubleshooting/migrate-legacy-static-tiles-api/)
 - Correction d'un problème affectant la première arrivée sur les widgets
-  Centreon Map ou la page `Supervision > Map` après la mise à jour en 20.04.0
-  (ou >=). Il fallait rafraîchir plusieurs fois la page pour que cela
-  fonctionne, ce n'est plus le cas.
+Centreon Map ou la page `Supervision > Map` après la mise à jour en 20.04.0
+(ou >=). Il fallait rafraîchir plusieurs fois la page pour que cela
+fonctionne, ce n'est plus le cas.
 - Correction d'un problème affectant les tooltips des activités métier qui
-  utilisent les nouvelles méthodes de calcul
+utilisent les nouvelles méthodes de calcul
 - (widget) Correction d'un bug affectant la sauvegarde
 - La surcharge de couleur de métrique d'un graphe  dans le client lourd est
-  maintenant pris en charge dans le web.
+maintenant pris en charge dans le web.
 - Lors de métriques de status de services dont l'hôte est dans un statut
-  différent de OK, les liens sont maintenant de la même couleur que le
-  client lourd
+différent de OK, les liens sont maintenant de la même couleur que le
+client lourd
 
 ### 20.04.1
 
@@ -127,7 +127,7 @@ commerciales, veuillez contacter le support.
 #### Correctifs
 
 - Mise à jour de SpringBoot en version 2.3.0 (Tomcat 9.0.35)
-  ([CVE](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-9484))
+([CVE](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-9484))
 
 ### 20.04.0
 
@@ -136,17 +136,17 @@ commerciales, veuillez contacter le support.
 #### Améliorations
 
 - Simplification du packaging: la dépendance à Tomcat a été retirée, les logs
-  sont désormais dans `/var/log/centreon-map/` et le service  s'appelle
-  `centreon-map` (*systemctl restart centreon-map*). Suivez la [procédure de
-  mise à niveau](../graph-views/upgrade).
+sont désormais dans `/var/log/centreon-map/` et le service  s'appelle
+`centreon-map` (*systemctl restart centreon-map*). Suivez la [procédure de
+mise à niveau](../graph-views/upgrade).
 - Mode d'installation silencieux: il est possible de fournir des variables
-  au script d'installation plutôt que de passer par le mode interactif
+au script d'installation plutôt que de passer par le mode interactif
 - La licence est désormais gérée sur le serveur Central, comme pour les
-  autres extensions
+autres extensions
 - [API] Gestion des metaservice
 - [API] Simplification de l'authentification
 - [API] Les ressources sont désormais manipulées vis l'ID réel de la ressource
-  et non l'ID interne
+et non l'ID interne
 - Il est possible de choisir l'arrondi à prendre en compte pour le label des
 liens
 
@@ -180,7 +180,7 @@ liens
 #### Correctifs
 
 - Dans le listing de supervision des BA, les infobulles de graphique des BA sont
-  désormais correctement affichées.
+désormais correctement affichées.
 
 ### 20.04.5
 
@@ -189,15 +189,15 @@ liens
 #### Correctifs
 
 - Sélectionner les filtres "Indisponible" ou "Indisponible et dégradé"
-  dans les préférences d'un widget BAM ne renvoyait aucun résultat
+dans les préférences d'un widget BAM ne renvoyait aucun résultat
 - Lier une Business Activity à un Remote Server échouait avec un code
-  erreur 500
+erreur 500
 - Lier une Business Activity à un Remote Server causait l'affichage
-  d'un doublon sur le Central
+d'un doublon sur le Central
 - Installer BAM forçait la traduction anglaise des labels
-  "Unreachable" and "Unknown" dans la page "Resources Status"
+"Unreachable" and "Unknown" dans la page "Resources Status"
 - Ajouter des Indicateurs à des Business Activities en utilisant
-  l'import SSV échouait
+l'import SSV échouait
 
 ### 20.04.4
 
@@ -206,17 +206,17 @@ liens
 #### Correctifs
 
 - Les filtres n'étaient pas conservés lorsque la page de supervision était
-  rafraîchie
+rafraîchie
 - Les activités métiers ne pouvaient pas être liées à un Remote Server
 - Correction de la pagination quand le nombre de ligne par page était
-  modifié ou lors de l'utilisation de la recherche
+modifié ou lors de l'utilisation de la recherche
 - Certains paramètres n'étaient pas sauvegardés dans le formulaire des
-  activités métiers
+activités métiers
 
 #### Correctifs de sécurité
 
 - Mise à jour de la librairie Moment.js pour corriger une vulnérabilité
-  aux attaques ReDOS
+aux attaques ReDOS
 
 ### 20.04.3
 
@@ -225,13 +225,13 @@ liens
 #### Correctifs
 
 - Correction d'un bug affectant le paramètre "Display only Top level BA"
-  du widget de listing des activités métier
+du widget de listing des activités métier
 
 #### Améliorations
 
 - Gestion de la compatibilité avec HTTP2
 - Ajout d'une bulle d'aide lors du choix de la gestion des plages de
-  maintenance planifiées au niveau des activités métier
+maintenance planifiées au niveau des activités métier
 
 ### 20.04.2
 
@@ -240,21 +240,21 @@ liens
 #### Correctifs
 
 - Les seuils ayant pour valeur "0" sont désormais correctement affichés
-  dans les différentes pages de configuration et de supervision
+dans les différentes pages de configuration et de supervision
 - Le fil d'ariane de la configuration amène désormais à la bonne page
 - Des erreurs SQL n'apparaîssent plus lorsqu'un utilisateur sauvegarde les
-  préférences générales de Centreon BAM
+préférences générales de Centreon BAM
 - Correction de la pagination de la page des indicateurs
 - Correction du tooltip affichant la règle booléenne et son statut dans
-  l'arbre d'impact
+l'arbre d'impact
 - Correction diverses sur le français
 - Correction du bouton d'aide sur le seuil critique lors de la configuration
-  d'une activité métier
+d'une activité métier
 
 #### Améliorations
 
 - Amélioration des noms de paramètre d'héritage de plage de maintenance
-  planifiée
+planifiée
 - Amélioration de la gestion de la license
 
 ### 20.04.1
@@ -264,11 +264,11 @@ liens
 #### Correctifs
 
 - La méthode de calcul par défaut est maintenant "Worst" lorsque vous
-  créez une activité métier
+créez une activité métier
 - Configuration d'une activité métier: il est désormais possible de ne
-  configurer qu'un seuil Warning
+configurer qu'un seuil Warning
 - Reporting: les plages horaires autres que 24x7 sont désormais correctement
-  gérées dans les graphiques et tableaux
+gérées dans les graphiques et tableaux
 - Amélioration de l'affichage des seuils "null" dans les différentes pages
 - Widget: gestion des méthodes de calcul worst/best/ratio
 
@@ -280,11 +280,11 @@ liens
 
 - Ajout de nouvelles méthodes de calcul: Worst, Best et Ratio
 - Il est désormais possible d'ignorer l'indicateur dans le calcul lorsque
-  l'indicateur est en plage de maintenance planifiée
+l'indicateur est en plage de maintenance planifiée
 - Toutes les pages de configuration & temps réelle ont été mise à jour pour
-  gérer ces nouvelles méthodes de calcul
+gérer ces nouvelles méthodes de calcul
 
-## Centreon MBI 
+## Centreon MBI
 
 ### 20.04.7
 
@@ -313,7 +313,7 @@ liens
 
 #### Correctifs
 
-- Depuis la version 20.04, les rapports ne ont plus téléchargeables	
+- Depuis la version 20.04, les rapports ne ont plus téléchargeables
 - Correction des rapports de sauvegarde de script
 
 #### Correctifs de sécurité
@@ -347,10 +347,10 @@ liens
 
 - Correction des problèmes liés aux caractères accentués
 - Correction de l'erreur au lancement du script de diagnostic dûe au mode
-  strict MYSQL
+strict MYSQL
 - Gestion des caractères accentués lors de l'importation des données
 - [rapport] Amélioration de la lisibilité des noms des activités métiers
-  sur bv-ba-availabilities-1
+sur bv-ba-availabilities-1
 
 ### 20.04.2
 
@@ -360,7 +360,7 @@ liens
 
 - Gestion de la compatibilité avec le mode HTTP2
 - [rapport] Amélioration du rapport "Poller-Performance" en supprimant la
-  section "Current load average" car inutile et non performante
+section "Current load average" car inutile et non performante
 
 ### 20.04.1
 
@@ -369,7 +369,7 @@ liens
 #### Correctifs
 
 - La replanification immédiate d'un job avançait la date d'exécution de
-  plusieurs jours
+plusieurs jours
 - La prévisualisation des logos est à nouveau fonctionnelle
 - Corrections de traduction dans certains rapports
 
@@ -418,9 +418,9 @@ importé à la version 2.0
 #### Correctifs
 
 - [Host Discovery] Long values in *host.ip* field cause "Error when sorting
-  and filtering host modification results" issue
+and filtering host modification results" issue
 - [Service Discovery] Service discovery email sending not working properly
-  when having services with space in their name
+when having services with space in their name
 
 #### Améliorations
 
@@ -450,13 +450,13 @@ importé à la version 2.0
 
 - [Host Discovery] Fields are not mandatory when editing credentials
 - [Host Discovery] Monitoring mapper does not use infinity scroll to list all
-  monitoring servers
+monitoring servers
 - [Host Discovery] Job edition retrieves default proxy when none was set
 - [Host Discovery] Error when editing a job and monitoring server doens't exist
-  anymore
+anymore
 - [Host Discovery] Incoherent paging information in listings
 - [Host Discovery] Next button not available at wizard's step 2 when changing
-  provider
+provider
 - [Host Discovery] Disable next button when mappers are not yet loaded in wizard
 
 #### Améliorations
@@ -470,12 +470,12 @@ importé à la version 2.0
 #### Correctifs
 
 - [Host Discovery] Impossible to list all monitoring servers in job
-  creation/edition
+creation/edition
 - [Host Discovery] Cannot find local monitoring server when having 10+ Pollers
 - [Host Discovery] Broken display when reaching job result page
 - [Host Discovery] Wizard "Next" actions broken when using "Enter" key
 - [Host Discovery] Failed to insert data in temporary table due to null/undef
-  values
+values
 - [Host Discovery] Impossible to save job when provider doesn't need credentials
 - [Host Discovery] Fix some wordings and cases
 - [Service Discovery] Error when duplicating a rule
@@ -522,7 +522,7 @@ importé à la version 2.0
 - [Host Discovery] Use $rg API directive to search in providers listing
 - [Host Discovery] Remove bad characters in the JSON result in Host Discovery
 - [Host Discovery] Mapper Monitoring - "From job" setting does not take job
-  monitoring server
+monitoring server
 
 ### 20.04.1
 
@@ -536,7 +536,7 @@ importé à la version 2.0
 
 - [Host Discovery] Overlapping text when configuring job with default proxy
 - [Service Discovery] Use direct connection to Poller when having Remote Server
-  is ignored
+is ignored
 
 ### 20.04.0
 
@@ -552,14 +552,14 @@ The *mappers* system is a feature to map discovered items value with a
 configuration value:
 
 - **association**: allows you to map the value of an attribute of a discovered
-  resource with a property in the Centreon configuration (on a condition or
-  not)
+resource with a property in the Centreon configuration (on a condition or
+not)
 - **macro**: allows you to map the value of an attribute of a discovered
-  resource with a custom macro (on a condition or not)
+resource with a custom macro (on a condition or not)
 - **template**: allows to selected the template to apply (on a condition or
-  not)
+not)
 - **monitoring**: allows to select the monitoring server which will monitor
-  the discovered resource (on a condition or not)
+the discovered resource (on a condition or not)
 
 ## Centreon Plugin Packs Manager
 
@@ -590,7 +590,7 @@ configuration value:
 #### Nouvelles fonctionnalités
 
 - The procedures for installing Plugin Packs are now hosted on the official
-  Centreon documentation
+Centreon documentation
 
 ## Centreon License Manager
 
@@ -611,7 +611,7 @@ configuration value:
 `2 décembre 2020`
 
 - After adding a license or a token the user must access to associated
-  functionalities
+functionalities
 - Disable 'Add' button when input is empty
 
 ### 20.04.2
@@ -619,14 +619,14 @@ configuration value:
 `25 mai 2020`
 
 - The centreon_map user needs to be admin to have the license working on
-  Central server
+Central server
 
 ### 20.04.1
 
 `24 avril 2020`
 
 - Manage unlink platform from previous IMP trial to access to IT-100
-  free etition.
+free etition.
 
 ### 20.04.0
 

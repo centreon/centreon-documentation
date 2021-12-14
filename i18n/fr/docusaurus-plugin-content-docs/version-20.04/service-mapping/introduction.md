@@ -36,6 +36,6 @@ Définitions :
 -   **BA** (\"Business Activity\") : Activité métier
 -   **BV** (\"Business View\") : Regroupement d\'activité métier
 -   **KPI** (\"Key Performance Indicator\") : Indicateur pondéré
-    rentrant en considération dans le calcul de la BA.
+rentrant en considération dans le calcul de la BA.
 
 ![image](../assets/service-mapping/about/ba_detailed.png)

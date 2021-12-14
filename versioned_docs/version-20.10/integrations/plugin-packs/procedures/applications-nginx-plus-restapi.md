@@ -2,6 +2,9 @@
 id: applications-nginx-plus-restapi
 title: Nginx Plus Restapi
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -22,37 +25,39 @@ The Centreon Plugin and Plugin-Packs rely on the Nginx Plus Rest API to collect 
 
 More information about collected metrics is available in the official Nginx Plus API documentation: https://docs.nginx.com/nginx/admin-guide/load-balancer/dynamic-configuration-api/
 
-<!--DOCUSAURUS_CODE_TABS-->
+<Tabs groupId="operating-systems">
+<TabItem value="Connections" label="Connections">
 
-<!--Connections-->
+| Metric name                | Description                    |
+| :------------------------- | :----------------------------- |
+| connections.active.count   | Number of active connections   |
+| connections.idle.count     | Number of idle connections     |
+| connections.accepted.count | Number of accepted connections |
+| connections.dropped.count  | Number of dropped connections  |
 
-| Metric name                 | Description                    |
-| :-------------------------- | :----------------------------- |
-| connections.active.count    | Number of active connections   |
-| connections.idle.count      | Number of idle connections     |
-| connections.accepted.count  | Number of accepted connections |
-| connections.dropped.count   | Number of dropped connections  |
+</TabItem>
+<TabItem value="HttpZone" label="HttpZone">
 
-<!--Http-Zone-->
+| Metric name                                           | Description                                              |
+| :---------------------------------------------------- | :------------------------------------------------------- |
+| http.$name.zone.requests.persecond                    | Requests http-zone per second. Unit : /s                 |
+| http.$name.zone.requests.discarded.count              | Number of requests http-zone discarded.                  |
+| http.$name.zone.traffic.in.bitspersecond              | Traffic in of http-zone in Bytes per second. Unit : b/s  |
+| http.$name.zone.traffic.out.bitspersecond             | Traffic out of http-zone in Bytes per second. Unit : b/s |
+| http.$name.zone.responses.total.count                 | Number total of http-zone responses                      |
+| http.$name.zone.responses.[1xx,2xx,3xx,4xx,5xx].count | Number 1xx,2xx,3xx,4xx,5xx of http-zone responses        |
 
-| Metric name                                             | Description                                              |
-| :------------------------------------------------------ | :------------------------------------------------------- |
-| http.$name.zone.requests.persecond                      | Requests http-zone per second. Unit : /s                 |
-| http.$name.zone.requests.discarded.count                | Number of requests http-zone discarded.                  |
-| http.$name.zone.traffic.in.bitspersecond                | Traffic in of http-zone in Bytes per second. Unit : b/s  |
-| http.$name.zone.traffic.out.bitspersecond               | Traffic out of http-zone in Bytes per second. Unit : b/s |
-| http.$name.zone.responses.total.count                   | Number total of http-zone responses                      |
-| http.$name.zone.responses.[1xx,2xx,3xx,4xx,5xx].count   | Number 1xx,2xx,3xx,4xx,5xx of http-zone responses        |
+</TabItem>
+<TabItem value="Ssl" label="Ssl">
 
-<!--Ssl-->
+| Metric name                    | Description                        |
+| :----------------------------- | :--------------------------------- |
+| ssl.handshakes.succeeded.count | Number of SSL Handshakes succeeded |
+| ssl.handshakes.failed.count    | Number of SSL Handshakes failed    |
+| ssl.sessions.reuses.count      | Number of SSL sessions reuses      |
 
-| Metric name                      | Description                         |
-| :------------------------------- | :---------------------------------- |
-| ssl.handshakes.succeeded.count   | Number of SSL Handshakes succeeded  |
-| ssl.handshakes.failed.count      | Number of SSL Handshakes failed     |
-| ssl.sessions.reuses.count        | Number of SSL sessions reuses       |
-
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -61,9 +66,8 @@ More infomation is avaible in official Nginx documentation : https://docs.nginx.
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="licence-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin on every poller monitoring Nginx Plus resources: :
 
@@ -73,7 +77,8 @@ yum install centreon-plugin-Applications-Nginx-Plus-Restapi.noarch
 
 2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Nginx Plus* Plugin-Pack
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin on every poller monitoring Nginx Plus resources :
 
@@ -89,7 +94,8 @@ yum install centreon-pack-applications-nginx-plus-restapi.noarch
 
 3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Nginx Plus* Plugin-Pack
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -110,28 +116,28 @@ Once the template applied, some Macros have to be configured:
 
 ### How to test the Plugin and what are the main options for ?
 
-Once the Plugin installed, log into your poller using the *centreon-engine* user account and test 
+Once the Plugin installed, log into your poller using the *centreon-engine* user account and test
 by running the following command (Parameters such as ```api-username``` or ```api-path``` have to be adjusted):
 
 ```bash
 /usr/lib/centreon/plugins/centreon_nginx_plus_restapi.pl \
-	--plugin=apps::nginx::nginxplus::restapi::plugin \
-	--mode=connections \
-	--hostname='mynginxplus.com' \
-	--port='443' \
-	--proto='https' \
-	--api-username='myapiuser' \
-	--api-password='myapipassword' \
-	--api-path='/api/6' \
-	--warning-active='60' \
-	--critical-active='80'
-	--warning-idle='8' \
-	--critical-idle='10' \
-	--warning-accepted='50' 
-	--critical-accepted='65' \
-	--warning-dropped='3' \
-	--critical-dropped='5' \
-	--verbose
+--plugin=apps::nginx::nginxplus::restapi::plugin \
+--mode=connections \
+--hostname='mynginxplus.com' \
+--port='443' \
+--proto='https' \
+--api-username='myapiuser' \
+--api-password='myapipassword' \
+--api-path='/api/6' \
+--warning-active='60' \
+--critical-active='80'
+--warning-idle='8' \
+--critical-idle='10' \
+--warning-accepted='50'
+--critical-accepted='65' \
+--warning-dropped='3' \
+--critical-dropped='5' \
+--verbose
 
 OK: Active : 5, Idle : 0, Accepted : 5, Dropped : 0|
 'connections.active.count'=5;;60;80; 'connections.idle.count'=1;;8;10; 'connections.accepted.count'=5;;50;65; 'connections.dropped.count'=0;;3;5;
@@ -147,10 +153,10 @@ and a CRITICAL alarm if it increases to 80 (```--critical-active='80'```).
 All the options that can be used with this plugin can be found over the ```--help``` command:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_nginx_plus_restapi.pl --plugin=apps::nginx::nginxplus::restapi::plugin 
+/usr/lib/centreon/plugins/centreon_nginx_plus_restapi.pl --plugin=apps::nginx::nginxplus::restapi::plugin
 --mode=connections --help
 ```
-### Why do I get the following error: 
+### Why do I get the following error:
 
 #### ```UNKNOWN: 500 Can't connect to mynginxplus.com:443```
 
@@ -158,7 +164,7 @@ This error message means that the Centreon Plugin couldn't successfully connect 
 Check that no third party device (such as a firewall) is blocking the request.
 A proxy connection may also be necessary to connect to the API. This can be done by using the ```--proxyurl``` option in the command.
 
-#### ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |``` 
+#### ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |```
 
 When using a proxy to connect to the Nginx Plus API, this error message means that the Centreon Plugin library does not support
 the proxy connection protocol.

@@ -2,6 +2,9 @@
 id: install
 title: Install Centreon MAP extension
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 > Centreon MAP requires a valid license key. To purchase one and retrieve the
 > necessary repositories, contact [Centreon](mailto:sales@centreon.com).
@@ -21,9 +24,9 @@ Centreon MAP consists of three components:
 
 - Centreon MAP Server, developed in Java, using SpringBoot, Hibernate and CXF
 - Centreon MAP Web interface, developed in Javascript, based on
-  [Backbone.js](http://backbonejs.org/)
+[Backbone.js](http://backbonejs.org/)
 - Centreon MAP Desktop Client, developed in Java, based on [Eclipse RCP
-  4](https://wiki.eclipse.org/Eclipse4/RCP).
+4](https://wiki.eclipse.org/Eclipse4/RCP).
 
 The diagram below summarizes the architecture:
 
@@ -122,7 +125,7 @@ team](https://centreon.force.com/) to get & install your license key.
 
 The Centreon MAP Web interface is compatible with the following web browsers:
 
-* Google Chrome (latest version at the time of Centreon software release and above).  Please visit the [Google Chrome FAQ](https://support.google.com/chrome/a/answer/188447?hl=en) for a description of the Chrome support policy. 
+* Google Chrome (latest version at the time of Centreon software release and above).  Please visit the [Google Chrome FAQ](https://support.google.com/chrome/a/answer/188447?hl=en) for a description of the Chrome support policy.
 * Mozilla Firefox (latest version at the time of Centreon software release and above).  Please visit the [Mozilla FAQ](https://www.mozilla.org/en-US/firefox/organizations/faq/) for a description of the Firefox support policy.
 * Apple Safari (latest version at the time of Centreon software release and above)
 * Microsoft Edge Chromium (latest version at the time of Centreon software release and above)
@@ -146,21 +149,22 @@ Your screen resolution must be at least 1280 x 768.
 To optimize the desktop client, you have to "give" it more memory than the
 default value. Modify the following file:
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Windows-->
+<Tabs groupId="operating-systems">
+<TabItem value="Windows" label="Windows">
 
 ```shell
 C:\Users\<YOUR_USERNAME>\AppData\Local\Centreon-Map4\Centreon-Map4.ini
 ```
 
-<!--Linux-->
+</TabItem>
+<TabItem value="Linux" label="Linux">
 
 ```shell
 /opt/centreon-map4-desktop-client/Centreon-Map4.ini
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 And add the following lines at the end of the file, on a new line:
 
@@ -174,7 +178,7 @@ And add the following lines at the end of the file, on a new line:
 Centreon MAP Server machine must access:
 
 - Centreon Central broker, usually on Centreon Central machine, using TCP
-  port 5758
+port 5758
 - Centreon Database, usually on Centreon Central machine, using TCP port 3306
 - Centreon MAP database, usually on localhost, using TCP port 3306.
 
@@ -195,8 +199,8 @@ configurations are possible.
 ### Centreon Web interface
 
 You must provide to Centreon MAP server a dedicated user
-**who has access to all resources** through the appropriate [access list groups](../administration/access-control-lists). 
-Since the password will be stored in human-readable form in a 
+**who has access to all resources** through the appropriate [access list groups](../administration/access-control-lists).
+Since the password will be stored in human-readable form in a
 configuration file, you should not use a Centreon admin user account.
 
 Provide this user with access to the Centreon Web real-time API:
@@ -263,9 +267,9 @@ Execute the Centreon MAP server configuration script. Two modes are available:
 interactive or automatic.
 
 - interactive *(no option/default mode)*: Several questions will be asked to
-  interactively fill in the installation variables.
+interactively fill in the installation variables.
 - automatic *(--automatic or -a)*: The installation will be done automatically
-  from the values set in `/etc/centreon-studio/vars.sh` file
+from the values set in `/etc/centreon-studio/vars.sh` file
 
 If it's your first installation, we advice you to use the standard mode
 (interactive) and choose **No** when asked for advanced installation mode:
@@ -409,9 +413,8 @@ To check the Java version run the command:
 java -version
 ```
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Windows-->
+<Tabs groupId="operating-systems">
+<TabItem value="Windows" label="Windows">
 
 Execute centreon-map4-desktop-client-xxxx.exe:
 
@@ -429,7 +432,8 @@ Windows dedicated configuration page.
 
 ![image](../assets/graph-views/windows_start_menu.png)
 
-<!--Debian-->
+</TabItem>
+<TabItem value="Debian" label="Debian">
 
 Download the provided DEB file and run the command from the root directory:
 
@@ -449,7 +453,8 @@ You will also find it in the list of installed applications.
 
 ![image](../assets/graph-views/ubuntu_launch_menu.png)
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Updates
 

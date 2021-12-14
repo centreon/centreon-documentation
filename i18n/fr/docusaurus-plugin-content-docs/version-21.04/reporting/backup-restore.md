@@ -12,7 +12,7 @@ title: Sauvegarde et restauration
 Les éléments sauvegardés sont les suivants :
 
 -   Sauvegarde des modèles de rapports personnalisés et de leur
-    paramètrage
+paramètrage
 -   Sauvegarde des rapports générés
 
 #### Fonctionnement du script de sauvegarde
@@ -20,15 +20,15 @@ Les éléments sauvegardés sont les suivants :
 Le script de sauvegarde est exécuté de manière journalière via un cron
 défini dans le fichier **/etc/cron.d/centreon-bi-backup-web** :
 
-    #
-    # Cron to backup Centreon MBI Engine frontend module
-    #
-    PATH=/sbin:/bin:/usr/sbin:/usr/bin
+#
+# Cron to backup Centreon MBI Engine frontend module
+#
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
 
-    # rewrite file with new cron line
-    CRONTAB_EXEC_USER=""
+# rewrite file with new cron line
+CRONTAB_EXEC_USER=""
 
-    0 12 * * * root bash /usr/share/centreon-bi-backup/centreon-bi-backup-web.sh >> /var/log/centreon-bi/centreon-bi-backup-web.log 2>&1
+0 12 * * * root bash /usr/share/centreon-bi-backup/centreon-bi-backup-web.sh >> /var/log/centreon-bi/centreon-bi-backup-web.log 2>&1
 
 Les données sauvegardées se trouvent par défaut dans le répertoire :
 **/var/backup**.
@@ -62,7 +62,7 @@ Pour modifier la valeur de rotation des sauvegardes, éditer la valeur
 > MariaDB. Pour cela, exécuter la commande suivante en renseignant
 > le nom du **Volume Group** :
 
-    vgdisplay vg_data | grep -i free 
+vgdisplay vg_data | grep -i free
 
 
 #### Elements sauvegardés
@@ -101,16 +101,16 @@ Pour modifier ce répertoire, mettre à jour la valeur **BACKUP\_DIR**
 Trois types de sauvegarde sont exécutés dans la semaine :
 
 -   tous les jours une sauvegarde des fichiers de configuration du
-    moteur de génération des rapports, format :
-    centreon-bin-reports-and-conf-aaaa-mm-jj.tar.gz
+moteur de génération des rapports, format :
+centreon-bin-reports-and-conf-aaaa-mm-jj.tar.gz
 -   tous les dimanches une sauvegarde complète de l\'ETL, format :
-    mysql-centreon\_storage-bi-aaaa-mm-jj.tar.gz
+mysql-centreon\_storage-bi-aaaa-mm-jj.tar.gz
 -   du lundi au samedi une sauvegarde incrémentale de l\'ETL (toutes les
-    tables et seulement la dernière partition des tables partitionnées),
-    format : mysql-centreon\_storage-bi-aaaa-mm-jj.tar.gz
+tables et seulement la dernière partition des tables partitionnées),
+format : mysql-centreon\_storage-bi-aaaa-mm-jj.tar.gz
 
 > **Important**
-> 
+>
 > Bien s'assurer que pendant la sauvegarde du serveur de repoting, les
 > scipts ETL ne doivent pas être en cours d'execution. De plus, aucun
 > rapport ne doit être en cours de génération.
@@ -131,12 +131,12 @@ Pour modifier la valeur de rotation des sauvegardes, éditer la valeur
 
 ## Restauration de Centreon MBI
 
-### Restauration des données de configuration 
+### Restauration des données de configuration
 
 Le processus de restauration comprend plusieurs étapes :
 
 -   Réinstallation du module **centreon-bi-server** dans une version
-    identique à celle sauvegardée.
+identique à celle sauvegardée.
 -   Intégration des anciens rapports générés.
 -   Intégration des paramètres de rapports personnalisés.
 -   Intégration des données de configuration Centreon MBI.
@@ -148,7 +148,7 @@ Le processus de restauration comprend plusieurs étapes :
 
 Sur le serveur central Centreon, lancer la commande ::
 
-    yum install centreon-bi-server-x.y.z
+yum install centreon-bi-server-x.y.z
 
 #### Intégration des anciens rapports générés
 
@@ -156,12 +156,12 @@ Récupérer la dernière sauvegarde à jour, format
 **centreon-bi-front-reports-and-custom-conf-aaaa-mm-jj.tar.gz** et
 extraire celle-ci dans le répertoire **/tmp** ::
 
-    cd /tmp
-    tar xzf centreon-bi-front-reports-and-custom-conf-YYYY-MM-DD.tar.gz
+cd /tmp
+tar xzf centreon-bi-front-reports-and-custom-conf-YYYY-MM-DD.tar.gz
 
 Intégrer les rapports générés via la commande ::
 
-    /bin/cp -rf /tmp/var/lib/centreon/centreon-bi-server/archives/* /var/lib/centreon/centreon-bi-server/archives
+/bin/cp -rf /tmp/var/lib/centreon/centreon-bi-server/archives/* /var/lib/centreon/centreon-bi-server/archives
 
 > Si le répertoire est différent, c\'est que les paramètres par défaut ont
 > été modifiés par l\'utilisateur. Il suffit simplement de reprendre la
@@ -169,7 +169,7 @@ Intégrer les rapports générés via la commande ::
 
 Modifier les droits sur les fichiers ::
 
-    chown -R centreonBI:centreonBI /var/lib/centreon/centreon-bi-server/archives 
+chown -R centreonBI:centreonBI /var/lib/centreon/centreon-bi-server/archives
 
 #### Intégration des paramètres de rapports personnalisés
 
@@ -177,38 +177,38 @@ Récupérer la dernière sauvegarde à jour, format
 **centreon-bi-front-reports-and-custom-conf-aaaa-mm-jj.tar.gz** et
 extraire celle-ci dans le répertoire **/tmp** ::
 
-    # cd /tmp
-    tar xzf centreon-bi-front-reports-and-custom-conf-YYYY-MM-DD.tar.gz
+# cd /tmp
+tar xzf centreon-bi-front-reports-and-custom-conf-YYYY-MM-DD.tar.gz
 
 Intégration des anciens paramètres ::
 
-    /bin/cp -rf /tmp/usr/share/centreon/www/modules/centreon-bi-server/configuration/generation/xsl/* /usr/share/centreon/www/modules/centreon-bi-server/configuration/generation/xsl
-    /bin/cp -rf /tmp/var/lib/centreon/centreon-bi-server/reports/infos/* /var/lib/centreon/centreon-bi-server/reports/infos
+/bin/cp -rf /tmp/usr/share/centreon/www/modules/centreon-bi-server/configuration/generation/xsl/* /usr/share/centreon/www/modules/centreon-bi-server/configuration/generation/xsl
+/bin/cp -rf /tmp/var/lib/centreon/centreon-bi-server/reports/infos/* /var/lib/centreon/centreon-bi-server/reports/infos
 
 Modifier les droits sur les fichiers ::
 
-    chown -R apache:apache /usr/share/centreon/www/modules/centreon-bi-server/configuration/generation/xsl
+chown -R apache:apache /usr/share/centreon/www/modules/centreon-bi-server/configuration/generation/xsl
 
 #### Intégration des données de configuration Centreon MBI
 
 Intégrer la sauvegarde SQL via la commande suivante ::
 
-    mysql -u root -p centreon_storage < /tmp/var/backup/dump_centreon_storage.sql
+mysql -u root -p centreon_storage < /tmp/var/backup/dump_centreon_storage.sql
 
 #### Supprimer les données extraites de la sauvegarde
 
 Supprimer les données extraites via les commandes suivantes ::
 
-    cd /tmp
-    rm -Rf /tmp/usr
-    rm -Rf /tmp/var
+cd /tmp
+rm -Rf /tmp/usr
+rm -Rf /tmp/var
 
 ### Restauration des paramètres du serveur de reporting Centreon MBI
 
 Le processus de restauration comprend plusieurs étapes :
 
 -   Réinstallation du module **centreon-bi-reporting-server** dans une
-    version identique à celle sauvegardée.
+version identique à celle sauvegardée.
 -   Intégration de la configuration du moteur CBIS.
 -   Intégration des modèles de rapports personnalisés.
 -   Intégration des données.
@@ -220,7 +220,7 @@ Le processus de restauration comprend plusieurs étapes :
 
 Sur le serveur central Centreon, lancer la commande ::
 
-    yum install centreon-bi-reporting-server-x.y.z
+yum install centreon-bi-reporting-server-x.y.z
 
 
 ***x.y.z** correspond à la version exacte du module sauvegardé.*
@@ -231,12 +231,12 @@ Récupérer la dernière sauvegarde à jour, format
 **centreon-bin-reports-and-conf-aaaa-mm-jj.tar.gz** et extraire celle-ci
 dans le répertoire **/tmp** ::
 
-    cd /tmp
-    tar xzf centreon-bin-reports-and-conf-YYYY-MM-DD.tar.gz
+cd /tmp
+tar xzf centreon-bin-reports-and-conf-YYYY-MM-DD.tar.gz
 
 Intégrer la configuration via la commande ::
 
-    # /bin/cp -rf /tmp/etc/centreon-bi/* /etc/centreon-bi
+# /bin/cp -rf /tmp/etc/centreon-bi/* /etc/centreon-bi
 
 #### Intégration des modèles de rapports personnalisés
 
@@ -244,59 +244,59 @@ Récupérer la dernière sauvegarde à jour, format
 **centreon-bin-reports-and-conf-aaaa-mm-jj.tar.gz** et extraire celle-ci
 dans le répertoire **/tmp** ::
 
-    cd /tmp
-    tar xzf /var/backup/centreon-bin-reports-and-conf-YYYY-MM-DD.tar.gz
+cd /tmp
+tar xzf /var/backup/centreon-bin-reports-and-conf-YYYY-MM-DD.tar.gz
 
 Intégrer les modèles de rapports via les commandes ::
 
-    /bin/cp -rf /tmp/usr/share/centreon-bi/reports/* /usr/share/centreon-bi/reports
-    chown -R centreonBI:centreonBI /usr/share/centreon-bi/reports
-    /bin/cp -rf /tmp/usr/share/centreon-bi/Resources/* /usr/share/centreon-bi/Resources
-    chown -R centreonBI:centreonBI /usr/share/centreon-bi/Resources
+/bin/cp -rf /tmp/usr/share/centreon-bi/reports/* /usr/share/centreon-bi/reports
+chown -R centreonBI:centreonBI /usr/share/centreon-bi/reports
+/bin/cp -rf /tmp/usr/share/centreon-bi/Resources/* /usr/share/centreon-bi/Resources
+chown -R centreonBI:centreonBI /usr/share/centreon-bi/Resources
 
 ### Intégration des données MariaDB
 
 Arrêter le service MariaDB ::
 
-    systemctl stop mysql
+systemctl stop mysql
 
 Supprimer le répértoire */var/lib/mysql* du serveur de reporting::
 
-    rm -rf /var/lib/mysql
+rm -rf /var/lib/mysql
 
 Décompresser la dernière sauvegarde totale ( par défaut la sauvegarde
 totale est faite le dimanche)::
 
-    tar -xzf /var/backup/mysql-centreon_storage-bi-xxxx-xx-xx.tar.gz -C /
+tar -xzf /var/backup/mysql-centreon_storage-bi-xxxx-xx-xx.tar.gz -C /
 
 Décompresser l\'ensemble des sauvegardes partielles faites entre la
 sauvegarde totale et la date du jour, **de la plus ancienne à la plus
 récente** en lançant la commande ::
 
-    tar -xzf /var/backup/mysql-centreon_storage-bi-xxxx-xx-xx.tar.gz -C /
+tar -xzf /var/backup/mysql-centreon_storage-bi-xxxx-xx-xx.tar.gz -C /
 
 Modifier les droits sur le répértoire */var/lib/mysql* ::
 
-    chown -R mysql:root /var/lib/mysql
+chown -R mysql:root /var/lib/mysql
 
 Démarrer le service MariaDB::
 
-    systemctl start mariadb
+systemctl start mariadb
 
 #### Redémarrer le moteur CBIS
 
 Redémarrer le processus via la commande ::
 
-    systemctl restart cbis
-    Stopping Centreon MBI scheduler : cbis
-    Waiting for cbis to exit .. done.
-    Starting Centreon MBI scheduler : cbis
-    Service started...
+systemctl restart cbis
+Stopping Centreon MBI scheduler : cbis
+Waiting for cbis to exit .. done.
+Starting Centreon MBI scheduler : cbis
+Service started...
 
 #### Supprimer les données extraites de la sauvegarde
 
 Supprimer les données extraites via les commandes suivantes ::
 
-    cd /tmp
-    rm -Rf /tmp/etc
-    rm -Rf /tmp/usr
+cd /tmp
+rm -Rf /tmp/etc
+rm -Rf /tmp/usr

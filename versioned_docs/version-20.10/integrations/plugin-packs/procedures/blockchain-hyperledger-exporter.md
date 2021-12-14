@@ -2,6 +2,9 @@
 id: blockchain-hyperledger-exporter
 title: Hyperledger API
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -14,28 +17,27 @@ channels and processing.
 
 ### Monitored objects
 
-* Hyperledger private subnets / Channels 
+* Hyperledger private subnets / Channels
 
 ### Monitored metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Channels-->
+<Tabs groupId="operating-systems">
+<TabItem value="Channels" label="Channels">
 
 | Metric name                                       | Description                     |
-|-------------------------------------------------- |---------------------------------|
+| ------------------------------------------------- | ------------------------------- |
 | channel.ledger.transaction.count                  | Number of processed transaction |
-| channel.gossip.membership.total.peers.known.count | Total known peers               | 
+| channel.gossip.membership.total.peers.known.count | Total known peers               |
 | channel.gossip.state.height.count                 | Current ledger height           |
 | channel.ledger.blockchain.height.count            | Height of the chain in blocks   |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="licence-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor *Hyperledger API* ressources:
 
@@ -45,7 +47,8 @@ yum install centreon-plugin-Blockchain-Hyperledger-Exporter
 
 2. On the Centreon Web interface, install the *Hyperledger API* Centreon Plugin-Pack on the `Configuration > Plugin Packs` page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor *Hyperledger API* ressources:
 
@@ -55,13 +58,14 @@ yum install centreon-plugin-Blockchain-Hyperledger-Exporter
 
 2. Install the *Hyperledger API* Centreon Plugin-Pack RPM on the Centreon Central server:
 
- ```bash
+```bash
 yum install centreon-pack-blockchain-hyperledger-exporter
 ```
 
 3. On the Centreon Web interface, install the *Hyperledger API* Centreon Plugin-Pack on the `Configuration > Plugin Packs` page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -72,19 +76,19 @@ yum install centreon-pack-blockchain-hyperledger-exporter
 * Apply the *Blockchain-Hyperledger-Exporter-custom* template and configure all the mandatory Macros:
 
 | Mandatory | Name               | Description                                                                        |
-|:----------|:-------------------|:-----------------------------------------------------------------------------------|
-|    x      | EXPORTERAPIPORT    | Port used by the Hyperledger Exporter (Default: '80')                              |
-|    x      | EXPORTERPROTO      | Protocol used by the Hyperledger Exporter (Default: 'http')                        |
-|    X      | EXPORTERAPIURLPATH | URL to access the Hyperledger Exporter (Default: '/')                              |
+| :-------- | :----------------- | :--------------------------------------------------------------------------------- |
+| x         | EXPORTERAPIPORT    | Port used by the Hyperledger Exporter (Default: '80')                              |
+| x         | EXPORTERPROTO      | Protocol used by the Hyperledger Exporter (Default: 'http')                        |
+| X         | EXPORTERAPIURLPATH | URL to access the Hyperledger Exporter (Default: '/')                              |
 |           | TIMEOUT            | Timeout (Default: '10')                                                            |
 |           | EXTRAOPTIONS       | Any extra option you may want to add to every command\_line (eg. a --verbose flag) |
 
-## Troubleshooting 
+## Troubleshooting
 
-### UNKNOWN: Can't connect to ... 
+### UNKNOWN: Can't connect to ...
 
 This error message means that the Centreon Plugin couldn't successfully connect to the Hyperledger API. Check that no third party
-device (such as a firewall) is blocking the request. 
+device (such as a firewall) is blocking the request.
 
 ### UNKNOWN: Cannot decode json response
 

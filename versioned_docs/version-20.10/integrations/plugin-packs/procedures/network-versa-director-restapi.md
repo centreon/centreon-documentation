@@ -2,6 +2,9 @@
 id: network-versa-director-restapi
 title: Versa Director Restapi
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -22,26 +25,25 @@ https://apidocs.versa-networks.com/
 
 ### Discovery Rules
 
-<!--DOCUSAURUS_CODE_TABS-->
+<Tabs groupId="operating-systems">
+<TabItem value="Hosts" label="Hosts">
 
-<!--Hosts-->
+| Rule Name                                        | Description                                                  |
+| :----------------------------------------------- | :----------------------------------------------------------- |
+| Net-Versa-Director-Restapi-HostDiscovery-devices | Discover and monitor Versa Devices managed by Versa Director |
 
-| Rule Name                                        | Description                                                   |
-|:------------------------------------------------ |:------------------------------------------------------------- |
-| Net-Versa-Director-Restapi-HostDiscovery-devices | Discover and monitor Versa Devices managed by Versa Director  |
-
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Collected metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Devices-->
+<Tabs groupId="operating-systems">
+<TabItem value="Devices" label="Devices">
 
 * Global
 
 | Metric name                                        | Description                                  | Unit  |
-|:-------------------------------------------------- |:-------------------------------------------- |:----- |
+| :------------------------------------------------- | :------------------------------------------- | :---- |
 | status                                             | Status of the device                         |       |
 | memory.usage.bytes                                 | Memory usage on the device                   | B     |
 | memory.free.bytes                                  | Free memory on the device                    | B     |
@@ -59,13 +61,14 @@ https://apidocs.versa-networks.com/
 
 * Per health monitor. monitor-name are 'bgp', 'config', 'ike', 'interface', 'port', 'path', 'reachability', 'service'.
 
-| Metric name                          | Description                        | Unit  |
-|:------------------------------------ |:---------------------------------- |:----- |
+| Metric name                            | Description                        | Unit  |
+| :------------------------------------- | :--------------------------------- | :---- |
 | `<monitor-name>`.health.up.count       | Number of health monitors up       | Count |
 | `<monitor-name>`.health.disabled.count | Number of health monitors disabled | Count |
 | `<monitor-name>`.health.down.count     | Number of health monitors down     | Count |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -80,24 +83,24 @@ The Centreon Poller must be able to reach the TCP/9182 HTTPS port of the Versa D
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
+<Tabs groupId="licence-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
-<!--Online IMP Licence & IT-100 Editions-->
-
-1. Install the Centreon Plugin package on every Centreon Poller expected to monitor 
+1. Install the Centreon Plugin package on every Centreon Poller expected to monitor
 Versa devices trough Versa Director API:
 
 ```bash
 yum install centreon-plugin-Network-Versa-Director-Restapi
 ```
 
-2. On the Centreon Web interface, install the *Versa Director Restapi* Plugin-Pack 
+2. On the Centreon Web interface, install the *Versa Director Restapi* Plugin-Pack
 through "Configuration > Plugin packs > Manager" page.
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor
-Versa devices trough Versa Director API 
+Versa devices trough Versa Director API
 
 ```bash
 yum install centreon-plugin-Network-Versa-Director-Restapi
@@ -109,12 +112,13 @@ yum install centreon-plugin-Network-Versa-Director-Restapi
 yum install centreon-pack-network-versa-director-restapi
 ```
 
-3. On the Centreon Web interface, install the *Versa Director Restapi* Plugin-Pack 
+3. On the Centreon Web interface, install the *Versa Director Restapi* Plugin-Pack
 through "Configuration > Plugin packs > Manager" page.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
-## Host configuration 
+## Host configuration
 
 * Log into Centreon and add a new Host through "Configuration > Hosts".
 * Apply the template *Net-Versa-Director-Device-Restapi-custom* and configure all the mandatory Macros:
@@ -138,26 +142,26 @@ through "Configuration > Plugin packs > Manager" page.
 
 ### How to test the Plugin and what are the main options for ?
 
-Once the Plugin installed, log into your Centreon Poller CLI using the *centreon-engine* user account 
+Once the Plugin installed, log into your Centreon Poller CLI using the *centreon-engine* user account
 and test the Plugin by running the following command:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_versa_director_restapi.pl \
-  --plugin=network::versa::director::restapi::plugin \
-  --mode=devices \
-  --hostname=10.0.0.1 \
-  --port='9182' \
-  --proto='https' \
-  --api-username='jdoe' \
-  --api-password='6fbadZEJbsLG' \
-  --organization='.*' \
-  --filter-device-name='^CENFRGW101$' \
-  --warning-status='' \
-  --critical-status='%{ping_status} ne "reachable" or %{services_status} ne "good"' \
-  --verbose
+--plugin=network::versa::director::restapi::plugin \
+--mode=devices \
+--hostname=10.0.0.1 \
+--port='9182' \
+--proto='https' \
+--api-username='jdoe' \
+--api-password='6fbadZEJbsLG' \
+--organization='.*' \
+--filter-device-name='^CENFRGW101$' \
+--warning-status='' \
+--critical-status='%{ping_status} ne "reachable" or %{services_status} ne "good"' \
+--verbose
 ```
 
-Expected command output is shown below: 
+Expected command output is shown below:
 
 ```bash
 OK: Device 'CENFRGW101' status services: good [ping: reachable] [sync: in_sync] [path: unavailable] [controller: unavailable] -
@@ -183,19 +187,19 @@ all health monitors are ok | 'devices.total.count'=1;;;0; 'CENFRGW101#memory.usa
 'CENFRGW101~service status#health.up.count'=1;;;0;1 'CENFRGW101~service status#health.down.count'=0;;;0;1
 'CENFRGW101~service status#health.disabled.count'=0;;;0;1
 checking device 'CENFRGW101' [type: hub]
-    status services: good [ping: reachable] [sync: in_sync] [path: unavailable] [controller: unavailable]
-    memory total: 31.42 GB used: 11.49 GB (36.57%) free: 19.93 GB (63.43%)
-    disk total: 250.00 B used: 18.00 B (7.20%) free: 232.00 B (92.80%)
-    alarms critical: 0, major: 0, minor: 0, warning: 0, indeterminate: 0
-    policy violation packets-dropped-novalidlink : 0, packets-dropped-slaaction : 0
-    health monitor 'bgp adjacencies' up: 3, down: 0, disabled: 0
-    health monitor 'config sync status' up: 1, down: 0, disabled: 0
-    health monitor 'ike status' up: 2, down: 0, disabled: 0
-    health monitor 'interfaces' up: 3, down: 0, disabled: 0
-    health monitor 'paths' up: 24, down: 0, disabled: 0
-    health monitor 'physical ports' up: 0, down: 0, disabled: 0
-    health monitor 'reachability status' up: 1, down: 0, disabled: 0
-    health monitor 'service status' up: 1, down: 0, disabled: 0
+status services: good [ping: reachable] [sync: in_sync] [path: unavailable] [controller: unavailable]
+memory total: 31.42 GB used: 11.49 GB (36.57%) free: 19.93 GB (63.43%)
+disk total: 250.00 B used: 18.00 B (7.20%) free: 232.00 B (92.80%)
+alarms critical: 0, major: 0, minor: 0, warning: 0, indeterminate: 0
+policy violation packets-dropped-novalidlink : 0, packets-dropped-slaaction : 0
+health monitor 'bgp adjacencies' up: 3, down: 0, disabled: 0
+health monitor 'config sync status' up: 1, down: 0, disabled: 0
+health monitor 'ike status' up: 2, down: 0, disabled: 0
+health monitor 'interfaces' up: 3, down: 0, disabled: 0
+health monitor 'paths' up: 24, down: 0, disabled: 0
+health monitor 'physical ports' up: 0, down: 0, disabled: 0
+health monitor 'reachability status' up: 1, down: 0, disabled: 0
+health monitor 'service status' up: 1, down: 0, disabled: 0
 ```
 
 The command above monitors a Versa Networks device **CENFRGW101** (```--filter-device-name='^CENFRGW101$'```)
@@ -216,12 +220,12 @@ parameter to the command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_versa_snmp.pl \
-  --plugin=network::versa::director::restapi::plugin \
-  --mode=devices \
-  --help
+--plugin=network::versa::director::restapi::plugin \
+--mode=devices \
+--help
 ```
 
-### Why do I get the following error: 
+### Why do I get the following error:
 
 #### ```UNKNOWN: 500 Can't connect to myversadirector:9182```
 
@@ -229,7 +233,7 @@ This error message means that the Centreon Plugin couldn't successfully connect 
 Check that no third party device (such as a firewall) is blocking the request.
 A proxy connection may also be necessary to connect to the API. This can be done by using the ```--proxyurl``` option in the command.
 
-#### ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |``` 
+#### ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |```
 
 When using a proxy to connect to the Versa Director API, this error message means that the Centreon Plugin library does not support
 the proxy connection protocol.

@@ -2,21 +2,24 @@
 id: cloud-azure-storage-storagesync
 title: Azure Storage Sync
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
-En transformant un serveur Windows en cache rapide, le service Azure Storage 
+En transformant un serveur Windows en cache rapide, le service Azure Storage
 Sync vous permet de centraliser votre partage de fichiers dans Azure Files.
 
 Le Plugin-Pack Centreon *Azure Storage Sync* s'appuie sur les API Azure Monitor afin de récuperer les métriques relatives au service
-Storage Sync. Il est possible d'utiliser les 2 modes proposés par Microsoft: 
+Storage Sync. Il est possible d'utiliser les 2 modes proposés par Microsoft:
 RestAPI ou Azure CLI.
 
 ## Contenu du Pack
 
 ### Objets supervisés
 
-* Files synchronised 
+* Files synchronised
 * Recalls statistics
 * Server Status
 
@@ -36,9 +39,8 @@ fonctionnement sur la documentation du module:
 
 ### Métriques & statuts collectés
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Files-Synced-->
+<Tabs groupId="operating-systems">
+<TabItem value="FilesSynced" label="FilesSynced">
 
 | Metric name                    | Description  | Unit  |
 | :----------------------------- | :----------- | :---- |
@@ -46,7 +48,8 @@ fonctionnement sur la documentation du module:
 | storagesync.item.errors.count  | Item errors  | Count |
 | storagesync.bytes.synced.bytes | Bytes synced | B     |
 
-<!--Recalls-->
+</TabItem>
+<TabItem value="Recalls" label="Recalls">
 
 | Metric name                                        | Description                              | Unit |
 | :------------------------------------------------- | :--------------------------------------- | :--- |
@@ -56,13 +59,15 @@ fonctionnement sur la documentation du module:
 | storagesync.recalls.total.size.bytes               | Cloud tiering recall                     | B    |
 | storagesync.recalls.throughput.size.bytespersecond | Cloud tiering recall throughput          | B/s  |
 
-<!--Server-Status-->
+</TabItem>
+<TabItem value="ServerStatus" label="ServerStatus">
 
 | Metric name                 | Description | Unit  |
 | :-------------------------- | :---------- | :---- |
 | storagesync.heartbeat.count | Heartbeat   | Count |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -71,56 +76,56 @@ Deux moyens sont disponibles pour interroger les API Microsoft Azure.
 Centreon préconise l'utilisation de la méthode *API* plutôt que la *CLI*, cette dernière étant significativement
 moins performante. L'API permet également une authentification *Application* et ne nécessite pas de compte de service dédié.
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Azure Monitor API-->
+<Tabs groupId="operating-systems">
+<TabItem value="Azure Monitor API" label="Azure Monitor API">
 
 Pour le custom-mode 'api', récupérez les informations en suivant la procédure ci-dessous (en anglais)
 et notez celles-ci en lieu sûr. Elles seront en effet indispensables lors de la configuration des ressources
 dans Centreon.
 
 * Create an *application* in Azure Active Directory:
-	- Log in to your Azure account.
-	- Select *Azure Active directory* in the left sidebar.
-	- Click on *App registrations*.
-	- Click on *+ Add*.
-	- Enter Centreon as the application name (or any name of your choice), select application type(api) and sign-on-url.
-	- Click on the *Create* button.
+- Log in to your Azure account.
+- Select *Azure Active directory* in the left sidebar.
+- Click on *App registrations*.
+- Click on *+ Add*.
+- Enter Centreon as the application name (or any name of your choice), select application type(api) and sign-on-url.
+- Click on the *Create* button.
 
 * Get *Subscription ID*
-	- Log in to your Azure account.
-	- Select *Subscriptions* in the left sidebar.
-	- Select whichever subscription is needed.
-	- Click on *Overview*.
-	- **Copy the Subscription ID.**
+- Log in to your Azure account.
+- Select *Subscriptions* in the left sidebar.
+- Select whichever subscription is needed.
+- Click on *Overview*.
+- **Copy the Subscription ID.**
 
 * Get *Tenant ID*
-	- Log in to your Azure account.
-	- Select *Azure Active directory* in the left sidebar.
-	- Click on *Properties*.
-	- **Copy the directory ID.**
+- Log in to your Azure account.
+- Select *Azure Active directory* in the left sidebar.
+- Click on *Properties*.
+- **Copy the directory ID.**
 
 * Get *Client ID*
-	- Log in to your Azure account.
-	- Select *Azure Active directory* in the left sidebar.
-	- Click on *Enterprise applications*.
-	- Click on *All applications*.
-	- Select the application previously created.
-	- Click on *Properties*.
-	- **Copy the Application ID.**
+- Log in to your Azure account.
+- Select *Azure Active directory* in the left sidebar.
+- Click on *Enterprise applications*.
+- Click on *All applications*.
+- Select the application previously created.
+- Click on *Properties*.
+- **Copy the Application ID.**
 
 * Get *Client secret*
-	- Log in to your Azure account.
-	- Select *Azure Active directory* in the left sidebar.
-	- Click on *App registrations*.
-	- Select the application previously created.
-	- Click on *All settings*.
-	- Click on *Keys*.
-	- Enter the key description and select the duration.
-	- Click on *Save*.
-	- **Copy and store the key value. You won't be able to retrieve it after you leave this page.**
+- Log in to your Azure account.
+- Select *Azure Active directory* in the left sidebar.
+- Click on *App registrations*.
+- Select the application previously created.
+- Click on *All settings*.
+- Click on *Keys*.
+- Enter the key description and select the duration.
+- Click on *Save*.
+- **Copy and store the key value. You won't be able to retrieve it after you leave this page.**
 
-<!--Azure AZ CLI-->
+</TabItem>
+<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 Afin d'utiliser le custom-mode 'azcli', installez le binaire associé sur tous les Collecteurs Centreon
 devant superviser des resources Azure:
@@ -146,41 +151,41 @@ az login
 
 La commande retourne le message ci-dessous contenant un code:
 
-	*To sign in, use a web browser to open the page https://microsoft.com/devicelogin*
-	*and enter the code CWT4WQZAD to authenticate.*
+*To sign in, use a web browser to open the page https://microsoft.com/devicelogin*
+*and enter the code CWT4WQZAD to authenticate.*
 
 Rendez-vous sur <https://microsoft.com/devicelogin> afin de saisir le code obtenu, puis connectez vous avec le compte de service dédié à la supervision.
 
 Une fois ces actions effectuées, des informations d'auhtentification de la forme suivante devraient s'afficher dans le terminal
-du collecteur Centreon: 
+du collecteur Centreon:
 
 ```shell
-	[
-	  {
-		"cloudName": "AzureCloud",
-		"id": "0ef83f3a-d83e-2039-d930-309df93acd93d",
-		"isDefault": true,
-		"name": "N/A(tenant level account)",
-		"state": "Enabled",
-		"tenantId": "0ef83f3a-03cd-2039-d930-90fd39ecd048",
-		"user": {
-		  "name": "email@mycompany.onmicrosoft.com",
-		  "type": "user"
-		}
-	  }
-	]
+[
+{
+"cloudName": "AzureCloud",
+"id": "0ef83f3a-d83e-2039-d930-309df93acd93d",
+"isDefault": true,
+"name": "N/A(tenant level account)",
+"state": "Enabled",
+"tenantId": "0ef83f3a-03cd-2039-d930-90fd39ecd048",
+"user": {
+"name": "email@mycompany.onmicrosoft.com",
+"type": "user"
+}
+}
+]
 ```
 
 Vous avez désormais les informations stockées localement dans un fichier
 accessTokens.json qui sera utilisé automatiquement par le Plugin.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="operating-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources *Azure Storage Sync*:
 
@@ -190,7 +195,8 @@ yum install centreon-plugin-Cloud-Azure-Storage-StorageSync-Api
 
 2. Sur l'interface Integration de Centreon, installer le Plugin Pack *Azure Storage Sync* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources *Azure Storage Sync*:
 
@@ -206,23 +212,25 @@ yum install centreon-pack-cloud-azure-storage-storagesync
 
 3. Sur l'interface Integration de Centreon, installer le Plugin Pack *Azure Storage Sync* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
 ### Hôte
 
-* Ajoutez un Hôte à Centreon, remplissez le champ *Adresse IP/DNS* avec l'adresse 127.0.0.1 
+* Ajoutez un Hôte à Centreon, remplissez le champ *Adresse IP/DNS* avec l'adresse 127.0.0.1
 et appliquez-lui le Modèle d'Hôte *Cloud-Azure-Storage-StorageSync-custom*.
-* Une fois le modèle appliqué, les Macros ci-dessous indiquées comme requises (*Mandatory*) 
+* Une fois le modèle appliqué, les Macros ci-dessous indiquées comme requises (*Mandatory*)
 doivent être renseignées selon le *custom mode* utilisé.
 
 > Deux méthodes peuvent être utilisées lors de l'assignation des Macros:
 > * Utilisation de l'ID complet de la ressource (de type `/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_id>/providers/Microsoft.EventHub/<resource_type>/<resource_name>`)
 dans la Macro *AZURERESOURCE*
-> * Utilisation du nom de la ressource dans la Macro *AZURERESOURCE* associée à la Macro *AZURERESOURCEGROUP* 
+> * Utilisation du nom de la ressource dans la Macro *AZURERESOURCE* associée à la Macro *AZURERESOURCEGROUP*
 
-<!--Azure Monitor API-->
+<Tabs groupId="operating-systems">
+<TabItem value="Azure Monitor API" label="Azure Monitor API">
 
 | Mandatory | Nom                | Description                                        |
 | :-------- | :----------------- | :------------------------------------------------- |
@@ -234,7 +242,8 @@ dans la Macro *AZURERESOURCE*
 | X         | AZURERESOURCE      | ID or name of the Storage Sync resource            |
 |           | AZURERESOURCEGROUP | Associated Resource Group if resource name is used |
 
-<!--Azure AZ CLI-->
+</TabItem>
+<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 | Mandatory | Nom                | Description                                        |
 | :-------- | :----------------- | :------------------------------------------------- |
@@ -243,38 +252,39 @@ dans la Macro *AZURERESOURCE*
 | X         | AZURERESOURCE      | ID or name of the Storage Sync resource            |
 |           | AZURERESOURCEGROUP | Associated Resource Group if resource name is used |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
-## Comment puis-je tester le Plugin et que signifient les options des commandes ? 
+## Comment puis-je tester le Plugin et que signifient les options des commandes ?
 
-Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne 
-de commande depuis votre collecteur Centreon en vous connectant avec 
+Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne
+de commande depuis votre collecteur Centreon en vous connectant avec
 l'utilisateur *centreon-engine*:
 
 ```bash
- /usr/lib/centreon/plugins//centreon_azure_storage_storagesync_api.pl   \
-    --plugin=cloud::azure::storage::storagesync::plugin  \
-    --mode=files-synced  \
-    --custommode='api'  \
-    --subscription='xxxxxxxxx' \
-    --tenant='xxxxxxxxx' \
-    --client-id='xxxxxxxxx' \
-    --client-secret='xxxxxxxxx' \
-    --resource='STO001ABCD' \
-    --resource-group='RSG1234'
-    --aggregation='Total' \
-    --timeframe='900' \
-    --interval='PT5M' \
-    --warning-item-errors='800'  \
-    --critical-item-errors='900'
- ```
+/usr/lib/centreon/plugins//centreon_azure_storage_storagesync_api.pl   \
+--plugin=cloud::azure::storage::storagesync::plugin  \
+--mode=files-synced  \
+--custommode='api'  \
+--subscription='xxxxxxxxx' \
+--tenant='xxxxxxxxx' \
+--client-id='xxxxxxxxx' \
+--client-secret='xxxxxxxxx' \
+--resource='STO001ABCD' \
+--resource-group='RSG1234'
+--aggregation='Total' \
+--timeframe='900' \
+--interval='PT5M' \
+--warning-item-errors='800'  \
+--critical-item-errors='900'
+```
 
- La commande devrait retourner un message de sortie similaire à :
+La commande devrait retourner un message de sortie similaire à :
 
 ```bash
 OK : Instance 'STO001ABCD' Statistic 'total'Files Synced: 546.00, Item errors: 3.00, Bytes synced: 246.00 |
 'STO001ABCD~storagesync.files.synced.count'=546;;;; 'STO001ABCD~storagesync.item.errors.count'=3;800;900;0; 'STO001ABCD~storagesync.bytes.synced.bytes'=246;;;0;
- ```
+```
 
 La commande ci-dessus vérifie le nombre d'erreurs de synchronisation sur l'instance *Storage Sync* nommée *STO001ABCD*
 (`--plugin=cloud::azure::network::cdn::plugin --mode=requests --resource='STO001ABCD'`) et liée au *Resource Group* *RSG1234*
@@ -283,7 +293,7 @@ La commande ci-dessus vérifie le nombre d'erreurs de synchronisation sur l'inst
 Le mode de connexion utilisé est 'api' (`--custommode=api`), les paramètres d'authentification nécessaires à l'utilisation de ce mode
 sont donc renseignés en fonction (`--subscription='xxxxxxxxx' --tenant='xxxxxxx' --client-id='xxxxxxxx' --client-secret='xxxxxxxxxx'`).
 
-Les statuts caculés se baseront sur les valeurs totales d'un échantillon dans un intervalle de 15 minutes / 900 secondes  (`--timeframe='900'`) 
+Les statuts caculés se baseront sur les valeurs totales d'un échantillon dans un intervalle de 15 minutes / 900 secondes  (`--timeframe='900'`)
 avec un état retourné par tranche de 5 minutes (`--interval='PT5M'`).
 
 Dans cet exemple, une alarme de type WARNING sera déclenchée si le nombre d'erreurs de synchronisation pendant l'intervalle donné
@@ -292,44 +302,44 @@ est supérieur à 800 (`--warning-item-errors='800'`); l'alarme sera de type CRI
 
 ```bash
 /usr/lib/centreon/plugins//centreon_azure_storage_storagesync_api.pl   \
-    --plugin=cloud::azure::storage::storagesync::plugin  \
-    --mode=files-synced  \
-    --help
- ```
+--plugin=cloud::azure::storage::storagesync::plugin  \
+--mode=files-synced  \
+--help
+```
 
-Tous les modes disponibles peuvent être affichés en ajoute le paramètre 
+Tous les modes disponibles peuvent être affichés en ajoute le paramètre
 `--list-mode` à la commande:
 
 ```bash
- /usr/lib/centreon/plugins//centreon_azure_storage_storagesync_api.pl   \
-    --plugin=cloud::azure::storage::storagesync::plugin  \
-    --list-mode
- ```
+/usr/lib/centreon/plugins//centreon_azure_storage_storagesync_api.pl   \
+--plugin=cloud::azure::storage::storagesync::plugin  \
+--list-mode
+```
 
-### Diagnostic des erreurs communes  
+### Diagnostic des erreurs communes
 
 #### Les identifiants ont changé et mon Plugin ne fonctionne plus
 
-Le Plugin utilise un fichier de cache pour conserver les informations de connexion afin de ne pas 
-se ré-authentifier à chaque appel. Si des informations sur le Tenant, la Souscription ou les 
-Client ID / Secret changent, il est nécessaire de supprimer le fichier de cache du Plugin. 
+Le Plugin utilise un fichier de cache pour conserver les informations de connexion afin de ne pas
+se ré-authentifier à chaque appel. Si des informations sur le Tenant, la Souscription ou les
+Client ID / Secret changent, il est nécessaire de supprimer le fichier de cache du Plugin.
 
 Celui ci se trouve dans le répertoire `/var/lib/centreon/centplugins/` avec le nom `azure_api_<md5>_<md5>_<md5>_<md5>`.
 
 #### `UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)`
 
-Lors du déploiement de mes contrôles, j'obtiens le message suivant : 
+Lors du déploiement de mes contrôles, j'obtiens le message suivant :
 `UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)`.
 
-Cela signifie que l'un des paramètres utilisés pour authentifier la requête est incorrect. Le paramètre 
-en question est spécifié dans le message d'erreur en lieu et place de 'ERROR_DESC'. 
+Cela signifie que l'un des paramètres utilisés pour authentifier la requête est incorrect. Le paramètre
+en question est spécifié dans le message d'erreur en lieu et place de 'ERROR_DESC'.
 
 Par exemple, 'invalid_client' signifie que le client-id et/ou le client-secret
 n'est (ne sont) pas valide(s).
 
 #### `UNKNOWN: 500 Can't connect to login.microsoftonline.com:443`
 
-Si l'utilisation d'un proxy est requise pour les connexions HTTP depuis le 
+Si l'utilisation d'un proxy est requise pour les connexions HTTP depuis le
 collecteur Centreon, il est nécessaire de le préciser dans la commande en
 utilisant l'option `--proxyurl='http://proxy.mycompany.com:8080'`.
 
@@ -338,7 +348,7 @@ effectuée par le Plugin.
 
 #### `UNKNOWN: No metrics. Check your options or use --zeroed option to set 0 on undefined values`
 
-Lors du déploiement de mes contrôles, j'obtiens le message suivant 'UNKNOWN: No metrics. Check your options or use --zeroed option to set 0 on undefined values'. 
+Lors du déploiement de mes contrôles, j'obtiens le message suivant 'UNKNOWN: No metrics. Check your options or use --zeroed option to set 0 on undefined values'.
 
 Cela signifie qu'Azure n'a pas consolidé de données sur la période.
 

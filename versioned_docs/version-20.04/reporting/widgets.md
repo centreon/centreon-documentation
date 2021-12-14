@@ -31,15 +31,15 @@ group, by month.
 
 -   Select the group: Specify host group for displaying statistics.
 -   Type the name of host categories to filter on: Indicate one or more
-    host categories. Separate multiple entries by a comma \",\".
+host categories. Separate multiple entries by a comma \",\".
 -   Type the name of the reporting period you want to use (has to be
-    calculated by Centreon BI): Make sure the reporting period is
-    preconfigured in MBI.
+calculated by Centreon BI): Make sure the reporting period is
+preconfigured in MBI.
 -   Chart type: Indicate type of graph.
 -   Min value for graph (leave empty for self-adjustement): Minimum
-    value for Y-axis height.
+value for Y-axis height.
 -   Max value for graph (leave empty for self-adjustement): Maximum
-    value for Y-axis height.
+value for Y-axis height.
 -   Refresh Interval (seconds): Sets automatic refresh time for widgets.
 
 **Example**
@@ -63,16 +63,16 @@ group, by day.
 
 -   Select the group: Specify host group for displaying statistics.
 -   Type the name of host categories to filter on: Indicate one or more
-    host categories. Separate multiple entries by a comma \",\".
+host categories. Separate multiple entries by a comma \",\".
 -   Type the name of the reporting period you want to use (has to be
-    calculated by Centreon MBI): Make sure the reporting period must be
-    preconfigured in MBI.
+calculated by Centreon MBI): Make sure the reporting period must be
+preconfigured in MBI.
 -   Select the reporting period.
 -   Chart type: Indicate type of graph.
 -   Min value for graph (leave empty for self-adjustement): Minimum
-    value for Y-axis height.
+value for Y-axis height.
 -   Max value for graph (leave empty for self-adjustement): Maximum
-    value for Y-axis height.
+value for Y-axis height.
 -   Refresh Interval (seconds): Sets automatic refresh time for widgets.
 
 **Example**
@@ -94,15 +94,15 @@ group, segmenting the hosts by category and by month.
 
 -   Select the group: Specify host group for displaying statistics.
 -   Type the name of host categories to filter on: Indicate one or more
-    host categories. Separate multiple entries by a comma \",\".
+host categories. Separate multiple entries by a comma \",\".
 -   Type the name of the reporting period you want to use (has to be
-    calculated by Centreon BI): Make sure the reporting period is
-    preconfigured in MBI.
+calculated by Centreon BI): Make sure the reporting period is
+preconfigured in MBI.
 -   Chart type: Indicate type of graph.
 -   Min value for graph (leave empty for self-adjustement): Minimum
-    value for Y-axis height.
+value for Y-axis height.
 -   Max value for graph (leave empty for self-adjustement): Maximum
-    value for Y-axis height.
+value for Y-axis height.
 -   Refresh Interval (seconds): Sets automatic refresh time for widgets.
 
 **Example**
@@ -121,13 +121,13 @@ availability, number of events or last state change are also provided to
 help in decision-making.
 
 -   MTBF (mean time between failures) represents the average duration
-    between two DOWN states. The longer the duration, the more reliable
-    the service.
+between two DOWN states. The longer the duration, the more reliable
+the service.
 -   MTRS (mean time to restore service) is the average duration between
-    two failures. Services with good maintainability have a short MTRS.
+two failures. Services with good maintainability have a short MTRS.
 -   MTTA (mean time to acknowledge) is the average duration for
-    acknowledging DOWN states. The average is calculated only on
-    acknowledged events.
+acknowledging DOWN states. The average is calculated only on
+acknowledged events.
 
 ![image](../assets/reporting/guide/mbi-hgs-hc-by-service-mtbf-mtrs.png)
 
@@ -136,19 +136,19 @@ help in decision-making.
 **Menu description**
 
 -   Type name of group(s) (separate with ,): Indicate host group for
-    displaying statistics.
+displaying statistics.
 -   Type the name of host categories to filter on (separate with ,):
-    Indicate one or more host categories.
+Indicate one or more host categories.
 -   Type the name of service categories to filter on (separate with ,):
-    Specify one or more service categories.
+Specify one or more service categories.
 -   Number of host-services to display.
 -   Select the reporting period.
 -   Order By MTBF, MTRS or MTTA.
 -   Type the name of the reporting period you want to use (has to be
-    calculated by Centreon MBI): Make sure the reporting period must be
-    preconfigured in MBI.
+calculated by Centreon MBI): Make sure the reporting period must be
+preconfigured in MBI.
 -   Display severities/availability/MTBF/MTRS/MTTA/critical
-    events/warning events/last change: Shows or hides these columns.
+events/warning events/last change: Shows or hides these columns.
 -   Refresh Interval (seconds): Sets automatic refresh time for widgets.
 
 **Example**
@@ -168,13 +168,13 @@ availability, number of events or last state change are also provided to
 help in decision-making.
 
 -   MTBF (mean time between failures) represents the average duration
-    between two DOWN states. The longer the duration, the more reliable
-    the host.
+between two DOWN states. The longer the duration, the more reliable
+the host.
 -   MTRS (mean time to restore service) is the average duration between
-    two failures. Hosts with good maintainability have a short MTRS.
+two failures. Hosts with good maintainability have a short MTRS.
 -   MTTA (mean time to acknowledge) is the average duration for
-    acknowledging DOWN states. The average is calculated only on
-    acknowledged events.
+acknowledging DOWN states. The average is calculated only on
+acknowledged events.
 
 ![image](../assets/reporting/guide/mbi-hgs-hc-by-host-mtbf-mtrs.png)
 
@@ -183,17 +183,17 @@ help in decision-making.
 **Menu description**
 
 -   Select the group: Specify host group for displaying statistics:
-    Separate multiple entries by a comma \",\".
+Separate multiple entries by a comma \",\".
 -   Type the name of host categories to filter on: Indicate one or more
-    host categories. Separate multiple entries by a comma \",\".
+host categories. Separate multiple entries by a comma \",\".
 -   Number of hosts to display: Maximum number of hosts displayed.
 -   Select the reporting period.
 -   Order By MTBF, MTRS or MTTA.
 -   Type the name of the reporting period you want to use (has to be
-    calculated by Centreon MBI): Make sure the reporting period must be
-    preconfigured in MBI.
+calculated by Centreon MBI): Make sure the reporting period must be
+preconfigured in MBI.
 -   Display severities/availability/MTBF/MTRS/MTTA/down events/last
-    change: Shows or hides these columns.
+change: Shows or hides these columns.
 -   Refresh Interval (seconds): Sets automatic refresh time for widgets.
 
 **Example**
@@ -220,7 +220,7 @@ metric.
 
 -   Select the service: Select the host followed by the service.
 -   Type the name of the metric (one metric only): Enter metric
-    pertaining to a service.
+pertaining to a service.
 -   Base: Base for division (1000 or 1024).
 -   Chart type: Indicate type of graph.
 -   Refresh Interval (seconds): Sets automatic refresh time for widgets.
@@ -251,13 +251,13 @@ storage space that increases is shown in this widget.
 -   What metric should be used (you can use %): Example: `[used]`()%
 -   Number of hosts to display: Specify for number of lines in table.
 -   Display a warning when number of days remaining is less than N:
-    Estimate the number of days before saturation. A warning icon
-    appears before reaching this \"security\" threshold.
+Estimate the number of days before saturation. A warning icon
+appears before reaching this \"security\" threshold.
 -   Base the speed calculation on the (Days -x) with X =: Specify day to
-    compare to current day for calculating the evolution of speed and
-    saturation.
+compare to current day for calculating the evolution of speed and
+saturation.
 -   Type the name of the time period corresponding to 24x7: Indicate
-    time period in hours/days.
+time period in hours/days.
 -   Refresh Interval (seconds): Sets automatic refresh time for widgets.
 
 **Example**
@@ -280,11 +280,11 @@ history using linear regression.
 
 -   Select the service: Select the host followed by the service.
 -   Type the name of the metric (one metric only): Enter metric
-    pertaining to a service.
+pertaining to a service.
 -   How many historical days should we use to calculate the projection:
-    This period should show the evolution of the metric.
+This period should show the evolution of the metric.
 -   Type the name the reporting period you want to use (has to be
-    calculated by Centreon BI).
+calculated by Centreon BI).
 -   Base: Base for division (1000 or 1024).
 -   Chart type: Indicate type of graph for availability and performance.
 -   Refresh Interval (seconds): Sets automatic refresh time for widgets.
@@ -312,14 +312,14 @@ categories.
 -   Type name of groups (separate with ,).
 -   Type the name of a host categories to filter on (separate with ,).
 -   Type the name of a service categories to filter on (separate with
-    ,).
+,).
 -   Metric name (for multiple metrics, separate them with \',\').
 -   Type the name the reporting period you want to use (has to be
-    calculated by Centreon MBI): Make sure the reporting period is
-    preconfigured in MBI.
+calculated by Centreon MBI): Make sure the reporting period is
+preconfigured in MBI.
 -   Select the reporting period.
 -   Order values by : average, minimum or maximum, ascending or
-    descending.
+descending.
 -   Number of metrics to display: Top N to display in terms of metrics.
 -   Display Current value: Display / hide the column.
 -   Display Average: Display / hide the column.
@@ -331,7 +331,7 @@ categories.
 -   Display Hostcategories: Display / hide the column.
 -   Display ServiceCategories: Display / hide the column.
 -   Refresh Interval in seconds: Sets automatic refresh time for
-    widgets.
+widgets.
 
 **Example**
 
@@ -354,20 +354,20 @@ day over a defined period for groups and categories.
 
 -   Type name of groups: Separate multiple entries by a comma \",\".
 -   Type the name of a host category to filter on: Separate multiple
-    entries by a comma \",\".
+entries by a comma \",\".
 -   Type the name of a service category to filter on: Separate multiple
-    entries by a comma \",\".
+entries by a comma \",\".
 -   Retrieve data with metric name LIKE or IN?: Use this method to
-    filter on metric name.
+filter on metric name.
 -   Metric name (for multiple metrics, separate them with \',\'): Type
-    the name of the metric (if filter mode = like) or multiple metrics
-    (if mode = IN).
+the name of the metric (if filter mode = like) or multiple metrics
+(if mode = IN).
 -   Type the name of the reporting period you want to use (has to be
-    calculated by Centreon MBI): Make sure the reporting period is
-    preconfigured in MBI.
+calculated by Centreon MBI): Make sure the reporting period is
+preconfigured in MBI.
 -   Select the reporting period.
 -   What value to display in the graph: Use minimum, average or maximum
-    value.
+value.
 -   Graph height: Graph might need to be resized to include caption.
 -   Base: Controls conversion to display G, M, K, etc.
 -   Show subchart?: Display or hide the subchart for zooming in.
@@ -401,9 +401,9 @@ last 12 months.
 -   Select the reporting period.
 -   Chart type: Indicate type of graph.
 -   Min value for graph (leave empty for self-adjustement): Minimum
-    value for Y-axis height.
+value for Y-axis height.
 -   Max value for graph (leave empty for self-adjustement): Maximum
-    value for Y-axis height.
+value for Y-axis height.
 -   Refresh Interval (seconds): Sets automatic refresh time for widgets.
 
 **Example**
@@ -426,10 +426,10 @@ provided to help in decision-making. Data is shown as a top N aggregate
 statistic.
 
 -   MTBF (mean time between failures) represents the average duration
-    between two DOWN states. The longer the duration, the more reliable
-    the host.
+between two DOWN states. The longer the duration, the more reliable
+the host.
 -   MTRS (mean time to restore service) is the average duration between
-    two failures. Hosts with good maintainability have a short MTRS.
+two failures. Hosts with good maintainability have a short MTRS.
 
 ![image](../assets/reporting/guide/mbi-ba-mtbf-mtrs.png)
 
@@ -438,14 +438,14 @@ statistic.
 **Menu description**
 
 -   Select an application: Select a business view. If left empty, this
-    field retrieves all BAs (filtered by the ACLs).
+field retrieves all BAs (filtered by the ACLs).
 -   Number of business activities to display.
 -   Select the reporting period.
 -   Order By: Sort the result by MTBF or MTRS.
 -   Type the name of the reporting period you want to use (has to be
-    calculated by Centreon MBI): Make sure the reporting period must be
-    preconfigured in MBI: If this field is left empty the default
-    reporting time period for each BA applies.
+calculated by Centreon MBI): Make sure the reporting period must be
+preconfigured in MBI: If this field is left empty the default
+reporting time period for each BA applies.
 -   Display XXXXX: Shows or hides the specified columns.
 -   Refresh Interval (seconds): Sets automatic refresh time for widgets.
 
@@ -497,9 +497,9 @@ alerts of one BA by day.
 -   Select an application: Select a BA from Centreon BAM.
 -   Select the reporting period.
 -   Min value for graph (leave empty for self-adjustement): Minimum
-    value for Y-axis height.
+value for Y-axis height.
 -   Max value for graph (leave empty for self-adjustement): Maximum
-    value for Y-axis height.
+value for Y-axis height.
 -   Refresh Interval (seconds): Sets automatic refresh time for widgets.
 
 **Example**
@@ -525,9 +525,9 @@ alerts of one BA by month over the last 12 months.
 -   Select an application: Select a BA from Centreon BAM.
 -   Select the reporting period.
 -   Min value for graph (leave empty for self-adjustement): Minimum
-    value for Y-axis height.
+value for Y-axis height.
 -   Max value for graph (leave empty for self-adjustement): Maximum
-    value for Y-axis height.
+value for Y-axis height.
 -   Refresh Interval (seconds): Sets automatic refresh time for widgets.
 
 **Example**

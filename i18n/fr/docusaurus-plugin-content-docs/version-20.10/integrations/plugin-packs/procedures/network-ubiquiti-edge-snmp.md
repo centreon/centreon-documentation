@@ -2,6 +2,9 @@
 id: network-ubiquiti-edge-snmp
 title: Ubiquiti Edge SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Contenu du Pack de supervision
 
@@ -15,21 +18,20 @@ Le Pack Ubiquiti Edge collecte les données pour:
 
 ### Règles de découvertes
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Services-->
+<Tabs groupId="operating-systems">
+<TabItem value="Services" label="Services">
 
 | Rule name                             | Description                                                                                  |
 | :------------------------------------ | :------------------------------------------------------------------------------------------- |
 | Net-Ubiquiti-Edge-SNMP-Interface-Name | Découvre les interfaces réseaux et supervise le statut et l'utilisation de la bande passante |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
-### Métriques collectées 
+### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Cpu-->
+<Tabs groupId="operating-systems">
+<TabItem value="Cpu" label="Cpu">
 
 | Metric name                   | Description                            | Unit |
 | :---------------------------- | :------------------------------------- |:---- |
@@ -37,7 +39,8 @@ Le Pack Ubiquiti Edge collecte les données pour:
 | cpu.utilization.1m.percentage | CPU utilization during last minute.    | %    |
 | cpu.utilization.5m.percentage | CPU utilization during last 5 minutes. | %    |
 
-<!--Hardware-->
+</TabItem>
+<TabItem value="Hardware" label="Hardware">
 
 | Metric name                   | Description                               | Unit |
 |:----------------------------- |:----------------------------------------- |:---- |
@@ -50,7 +53,8 @@ Le Pack Ubiquiti Edge collecte les données pour:
 | hardware.temperature.celsius  | temperature of the different sensors      | C    |
 | hardware.voltage.millivolt    | Voltage of the different sensors          | mV   |
 
-<!--Interfaces-->
+</TabItem>
+<TabItem value="Interfaces" label="Interfaces">
 
 | Metric name                                                 | Description                                             | Unit |
 |:----------------------------------------------------------- |:------------------------------------------------------- |:---- |
@@ -62,13 +66,15 @@ Le Pack Ubiquiti Edge collecte les données pour:
 | *interface\_name*\#interface.packets.out.error.percentage   | Outgoing errored packets going through the interface.   | %    |
 | *interface\_name*\#interface.packets.out.discard.percentage | Outgoing discarded packets going through the interface. | %    |
 
-<!--Memory-->
+</TabItem>
+<TabItem value="Memory" label="Memory">
 
 | Metric name              | Description                | Unit |
 | :----------------------- | :------------------------- |:---- |
-| memory.usage.bytes       | Memory usage               | B    | 
+| memory.usage.bytes       | Memory usage               | B    |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -78,9 +84,8 @@ Les collecteurs Centreon doivent pouvoir communiquer via le port UDP/161 SNMP av
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="operating-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -90,7 +95,8 @@ yum install centreon-plugin-Network-Ubiquiti-Edge-Snmp
 
 2. Sur l'interface Web de Centreon, installer le Pack *Ubiquiti Edge SNMP* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -106,7 +112,8 @@ yum install centreon-pack-network-ubiquiti-edge-snmp
 
 3. Sur l'interface Web de Centreon, installer le Pack *Ubiquiti Edge SNMP* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -127,14 +134,14 @@ Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne d
 
 ```bash
 /usr/lib/centreon/plugins/centreon_ubiquiti_edge__snmp.pl \
-    --plugin=network::ubiquiti::edge::snmp::plugin \
-    --mode=cpu \
-    --hostname=10.30.2.114 \
-    --snmp-version='2c' \
-    --snmp-community='ubiquiti_ro' \
-    --warning-1m='90' \
-    --critical-1m='95' \
-    --verbose
+--plugin=network::ubiquiti::edge::snmp::plugin \
+--mode=cpu \
+--hostname=10.30.2.114 \
+--snmp-version='2c' \
+--snmp-community='ubiquiti_ro' \
+--warning-1m='90' \
+--critical-1m='95' \
+--verbose
 ```
 
 La commande devrait retourner un message de sortie de la forme ci-dessous:
@@ -143,20 +150,20 @@ La commande devrait retourner un message de sortie de la forme ci-dessous:
 OK: CPU 53.59 % (5sec), 38.13 % (1m), 21.37 % (5min) | 'cpu.utilization.5s.percentage'=53.59%;;;0;100 'cpu.utilization.1m.percentage'=38.13%;0:90;0:95;0;100 'cpu.utilization.5m.percentage'=21.37%;;;0;100
 ```
 
-Cette commande contrôle l'utilisation CPU (```--mode=cpu```) d'un équipement ayant pour adresse *10.30.2.114* (```--hostname=10.30.2.114```) 
+Cette commande contrôle l'utilisation CPU (```--mode=cpu```) d'un équipement ayant pour adresse *10.30.2.114* (```--hostname=10.30.2.114```)
 en version *2c* du protocol SNMP (```--snmp-version='2c'```) et avec la communauté *ubiquiti_ro* (```--snmp-community='ubiquiti_ro'```).
 
 Cette commande déclenchera une alarme WARNING si l'utilisation CPU sur la dernière minute est à plus de 90% (```--warning-1m='90'```)
 et une alarme CRITICAL si plus de 95% sur la dernière minute  (```--critical-1m='95'```).
- 
+
 Pour chaque mode, la liste de toutes les métriques, seuils associés et options complémentaires peut être affichée
 en ajoutant le paramètre ```--help``` à la commande:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_ubiquiti_edge_snmp.pl \
-    --plugin=network::ubiquiti::edge::snmp::plugin \
-    --mode=cpu \
-    --help
+--plugin=network::ubiquiti::edge::snmp::plugin \
+--mode=cpu \
+--help
 ```
 
 ## Diagnostique

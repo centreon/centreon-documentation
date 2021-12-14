@@ -2,6 +2,9 @@
 id: network-cisco-esa-restapi
 title: Cisco ESA Rest API
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Pack Assets
 
@@ -12,21 +15,21 @@ The Pack Cisco ESA collects metrics for:
 
 ### Collected Metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
+<Tabs groupId="operating-systems">
+<TabItem value="System" label="System">
 
-<!--System-->
+| Metric name                                    | Description                      | Unit |
+| :--------------------------------------------- | :------------------------------- | :--- |
+| system.cpu.utilization.percentage              | Cpu utilization                  | %    |
+| system.memory.usage.percentage                 | Memory usage                     | %    |
+| system.swap.usage.percentage                   | Swap usage                       | %    |
+| system.resource.conservation.current.count     | Current resource conservation    |      |
+| system.queue.messages.quarantine.current.count | Number of messages in quarantine |      |
+| system.queue.messages.workqueue.current.count  | Number of messages in workqueue  |      |
+| system.queue.utilization.percentage            | Queue utilization                |      |
 
-| Metric name                                    | Description                      | Unit  |
-| :--------------------------------------------- | :------------------------------- | :---- |
-| system.cpu.utilization.percentage              | Cpu utilization                  | %     |
-| system.memory.usage.percentage                 | Memory usage                     | %     |
-| system.swap.usage.percentage                   | Swap usage                       | %     |
-| system.resource.conservation.current.count     | Current resource conservation    |       |
-| system.queue.messages.quarantine.current.count | Number of messages in quarantine |       |
-| system.queue.messages.workqueue.current.count  | Number of messages in workqueue  |       |
-| system.queue.utilization.percentage            | Queue utilization                |       |
-
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -35,9 +38,8 @@ E.g: https://www.cisco.com/c/en/us/support/security/email-security-appliance/pro
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="licence-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -47,7 +49,8 @@ yum install centreon-plugin-Network-Cisco-Esa-Restapi
 
 2. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *Cisco ESA Rest API* Pack
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -63,7 +66,8 @@ yum install centreon-pack-network-cisco-esa-restapi
 
 3. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *Cisco ESA Rest API* Pack
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host configuration
 
@@ -86,16 +90,16 @@ and test the Plugin by running the following command (Parameters such as ```api-
 
 ```bash
 /usr/lib/centreon/plugins/centreon_cisco_esa_restapi.pl \
-    --plugin=network::cisco::esa::restapi::plugin \
-    --mode=system \
-    --hostname='10.30.2.79' \
-    --port='443' \
-    --proto='https' \
-    --api-username='myapiusername' \
-    --api-password='myapipassword' \
-    --warning-cpu-utilization='90' \
-    --critical-cpu-utilization='95' \
-    --verbose
+--plugin=network::cisco::esa::restapi::plugin \
+--mode=system \
+--hostname='10.30.2.79' \
+--port='443' \
+--proto='https' \
+--api-username='myapiusername' \
+--api-password='myapipassword' \
+--warning-cpu-utilization='90' \
+--critical-cpu-utilization='95' \
+--verbose
 ```
 
 Expected command output is shown below:
@@ -103,11 +107,11 @@ Expected command output is shown below:
 ```bash
 OK: System is ok | 'system.cpu.utilization.percentage'=78%;0:90;0:95;0;100 'system.memory.usage.percentage'=5.00%;;;0;100 'system.swap.usage.percentage'=0.00%;;;0;100 'system.resource.conservation.current.count'=0;;;0; 'system.queue.messages.quarantine.current.count'=1;;;0; 'system.queue.messages.workqueue.current.count'=0;;;0; 'system.queue.utilization.percentage'=0.092%;;;0;100
 checking system
-    cpu utilization: 78.00%
-    memory usage: 5.00 %, swap usage: 0.00 %
-    current resource conservation: 0
-    messages in quarantine: 1, workqueue: 0
-    queue utilization: 0.09%
+cpu utilization: 78.00%
+memory usage: 5.00 %, swap usage: 0.00 %
+current resource conservation: 0
+messages in quarantine: 1, workqueue: 0
+queue utilization: 0.09%
 ```
 
 The command above monitors system (```--mode=system```).
@@ -121,9 +125,9 @@ parameter to the command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_cisco_esa_restapi.pl \
-    --plugin=network::cisco::esa::restapi::plugin \
-    --mode=system \
-    --help
+--plugin=network::cisco::esa::restapi::plugin \
+--mode=system \
+--help
 ```
 
 ## Troubleshooting

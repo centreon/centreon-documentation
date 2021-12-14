@@ -74,11 +74,11 @@ through the result page after the job successfully finish.
 Automatic analysis will process the result automatically and will use the
 choosen policies between the following:
 
-  - Add hosts to configuration when they are discovered for the first time
-  - Disable hosts already added to configuration if the mapping rule excludes
-    them
-  - Enable hosts already added to configuration if they are discovered but
-    disabled
+- Add hosts to configuration when they are discovered for the first time
+- Disable hosts already added to configuration if the mapping rule excludes
+them
+- Enable hosts already added to configuration if they are discovered but
+disabled
 
 ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-5-2.png)
 
@@ -104,27 +104,27 @@ The immediate execution will launch the discovery right after the job creation.
 
 The scheduled execution allows to choose between several types of scheduling:
 
-  - Every year at defined days of defined months and defined time
+- Every year at defined days of defined months and defined time
 
 ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-year.png)
 
-  - Every month at defined days of the month and defined time
+- Every month at defined days of the month and defined time
 
 ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-month.png)
 
-  - Every week at defined days of the week and defined time
+- Every week at defined days of the week and defined time
 
 ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-week.png)
 
-  - Every day at defined time
+- Every day at defined time
 
 ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-day.png)
 
-  - Every x hours (at defined minutes)
+- Every x hours (at defined minutes)
 
 ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-hour.png)
 
-  - Every x minutes
+- Every x minutes
 
 ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-minute.png)
 
@@ -139,11 +139,11 @@ discovery jobs.
 
 The status of a job can be:
 
-  - Scheduled <img src={require('../../assets/monitoring/discovery/host-discovery-scheduled.png').default} style={{width:'25px', marginBottom:'-6px'}} />
-  - Running <img src={require('../../assets/monitoring/discovery/host-discovery-running.png').default} style={{width:'25px', marginBottom:'-6px'}} />
-  - Saving <img src={require('../../assets/monitoring/discovery/host-discovery-saving.png').default} style={{width:'25px', marginBottom:'-6px'}} />
-  - Finished <img src={require('../../assets/monitoring/discovery/host-discovery-finished.png').default} style={{width:'25px', marginBottom:'-6px'}} />
-  - Failed <img src={require('../../assets/monitoring/discovery/host-discovery-failed.png').default} style={{width:'25px', marginBottom:'-6px'}} />
+- Scheduled <img src={require('../../assets/monitoring/discovery/host-discovery-scheduled.png').default} style={{width:'25px', marginBottom:'-6px'}} />
+- Running <img src={require('../../assets/monitoring/discovery/host-discovery-running.png').default} style={{width:'25px', marginBottom:'-6px'}} />
+- Saving <img src={require('../../assets/monitoring/discovery/host-discovery-saving.png').default} style={{width:'25px', marginBottom:'-6px'}} />
+- Finished <img src={require('../../assets/monitoring/discovery/host-discovery-finished.png').default} style={{width:'25px', marginBottom:'-6px'}} />
+- Failed <img src={require('../../assets/monitoring/discovery/host-discovery-failed.png').default} style={{width:'25px', marginBottom:'-6px'}} />
 
 If a job is on a *Failed* status, hover on to the icon to know the reason.
 
@@ -152,11 +152,11 @@ If a job is on a *Finished* status, click on it to analyse the result. See
 
 Several actions can be done on jobs:
 
-  - Jobs can be re-executed using the *Force execution* action <img src={require('../../assets/monitoring/discovery/host-discovery-force-execution.png').default} style={{width:'25px', marginBottom:'-6px'}} />
-  - They can also be edited <img src={require('../../assets/monitoring/discovery/host-discovery-edit.png').default} style={{width:'25px', marginBottom:'-6px'}} />
-  - Or even deleted <img src={require('../../assets/monitoring/discovery/host-discovery-delete.png').default} style={{width:'25px', marginBottom:'-6px'}} />
-  - If the job is scheduled, it can be paused <img src={require('../../assets/monitoring/discovery/host-discovery-pause.png').default} style={{width:'25px', marginBottom:'-6px'}} />
-  - And resumed <img src={require('../../assets/monitoring/discovery/host-discovery-resume.png').default} style={{width:'25px', marginBottom:'-6px'}} />
+- Jobs can be re-executed using the *Force execution* action <img src={require('../../assets/monitoring/discovery/host-discovery-force-execution.png').default} style={{width:'25px', marginBottom:'-6px'}} />
+- They can also be edited <img src={require('../../assets/monitoring/discovery/host-discovery-edit.png').default} style={{width:'25px', marginBottom:'-6px'}} />
+- Or even deleted <img src={require('../../assets/monitoring/discovery/host-discovery-delete.png').default} style={{width:'25px', marginBottom:'-6px'}} />
+- If the job is scheduled, it can be paused <img src={require('../../assets/monitoring/discovery/host-discovery-pause.png').default} style={{width:'25px', marginBottom:'-6px'}} />
+- And resumed <img src={require('../../assets/monitoring/discovery/host-discovery-resume.png').default} style={{width:'25px', marginBottom:'-6px'}} />
 
 ## Analyse a discovery job result
 
@@ -200,14 +200,14 @@ item to a property of a future host.
 
 There is six types of *mappers*:
 
-  - Association: map an attribute's value to a common host property like name,
-    alias or IP,
-  - Macro: map an attribute's value to a host custom macro,
-  - Template: add a host template,
-  - Monitoring: choose from which monitoring server will be monitored the host,
-  - Exclusion: exclude a subset of hosts based on their attributes (see the
-    [example](#dynamically-update-your-configuration) below),
-  - Inclusion: include a subset of hosts that may be excluded.
+- Association: map an attribute's value to a common host property like name,
+alias or IP,
+- Macro: map an attribute's value to a host custom macro,
+- Template: add a host template,
+- Monitoring: choose from which monitoring server will be monitored the host,
+- Exclusion: exclude a subset of hosts based on their attributes (see the
+[example](#dynamically-update-your-configuration) below),
+- Inclusion: include a subset of hosts that may be excluded.
 
 For all those *mappers*, conditions can be applied to choose whether or not the
 mapping will actually occur.
@@ -349,13 +349,13 @@ access will be *localhost* and default port *5700*.
 
 Let's now define the mappers and the update policies to match our needs:
 
-  - First needs:
-    - Add new (or not yet added) virtual machines, (1)
-    - Exclude virtual machines that are not started. (2)
+- First needs:
+- Add new (or not yet added) virtual machines, (1)
+- Exclude virtual machines that are not started. (2)
 
-  - Second needs:
-    - Disable the virtual machines that are stopped, (3)
-    - Re-enable the virtual machines that are started (after being stopped). (4)
+- Second needs:
+- Disable the virtual machines that are stopped, (3)
+- Re-enable the virtual machines that are started (after being stopped). (4)
 
 This will first result as an *Exclusion* mapper with the following
 configuration:

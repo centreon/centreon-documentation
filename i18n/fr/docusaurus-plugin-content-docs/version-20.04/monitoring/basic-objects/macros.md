@@ -29,9 +29,9 @@ macros personnalisées d’hôtes et par $_SERVICE pour les macros personnalisé
 Il y a plusieurs avantages à utiliser les macros personnalisées à la place des arguments :
 
 * La fonction de la macro est définie dans le nom de celle-ci. La macro $_HOSTMOTDEPASSEINTRANET$ est plus facilement
-  lisible que $ARG1$
+lisible que $ARG1$
 * Les macros héritent des modèles d’hôtes et de services, la modification d’une seule macro est donc possible pour un
-  hôte ou un service. En revanche, les arguments doivent être tous redéfinis en cas de modification d’un seul argument
+hôte ou un service. En revanche, les arguments doivent être tous redéfinis en cas de modification d’un seul argument
 * Le nombre d’arguments est limité à 32 contrairement aux macros personnalisées qui sont infinies
 
 Une macro d’hôte est utilisée pour définir une variable qui est propre à l’hôte et qui ne changera pas qu’importe le
@@ -81,7 +81,7 @@ Pour ajouter une macro de ressources :
 * Le champ **Resource Name** définit le nom de la macro de ressources. Exemple : $USER3$
 * Le champ **MACRO Expression** définit la valeur de la macro.
 * La liste **Linked Instances** permet de définir quels seront les moteurs de supervision qui pourront accéder à cette
-  macro.
+macro.
 * Les champs **Status** et **Comment** permettent d’activer/désactiver la macro ou de la commenter.
 
 ## Les macros d’environnements

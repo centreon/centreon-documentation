@@ -2,11 +2,14 @@
 id: cloud-microsoft-office365-teams
 title: Office365 Teams
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
 Microsoft’s Office365 suite includes Teams, which is a business application that
-provides workspaces, video and text chat, file storage and application 
+provides workspaces, video and text chat, file storage and application
 integration.
 
 The monitoring information of Microsoft's Office365 is available
@@ -24,40 +27,41 @@ through the Office365 API Management.
 
 ### Monitored metrics
 
-See link for details about metrics : 
+See link for details about metrics :
 
 * https://docs.microsoft.com/en-us/office365/admin/activity-reports/microsoft-teams-device-usage?view=o365-worldwide
 * https://docs.microsoft.com/en-us/office365/admin/activity-reports/microsoft-teams-user-activity?view=o365-worldwide
 
-<!--DOCUSAURUS_CODE_TABS-->
+<Tabs groupId="operating-systems">
+<TabItem value="DevicesUsage" label="DevicesUsage">
 
-<!--Devices-Usage-->
+| Metric name                | Description                                   | Unit  |
+| :------------------------- | :-------------------------------------------- | :---- |
+| teams.devices.active.count | Number of active devices                      | Count |
+| teams.devices.\*.count     | Number of windows/mac/web/iOS/android devices | Count |
 
-| Metric name                  | Description                                    | Unit   |
-| :--------------------------- | :--------------------------------------------- | :----- |
-| teams.devices.active.count   | Number of active devices                       | Count  |
-| teams.devices.\*.count       | Number of windows/mac/web/iOS/android devices  | Count  |
+</TabItem>
+<TabItem value="UserActivity" label="UserActivity">
 
-<!--User-Activity-->
+| Metric name                              | Description                           | Unit  |
+| :--------------------------------------- | :------------------------------------ | :---- |
+| teams.users.active.count                 | Total number of active users          | Count |
+| teams.users.messages.team.total.count    | Total number of Team chat messages    | Count |
+| teams.users.messages.private.total.count | Total number of Private chat messages | Count |
+| teams.users.call.total.count             | Total number of calls                 | Count |
+| teams.users.meeting.total.count          | Total number of meetings              | Count |
 
-| Metric name                               | Description                            | Unit   |
-| :---------------------------------------- | :------------------------------------- | :----- |
-| teams.users.active.count                  | Total number of active users           | Count  |
-| teams.users.messages.team.total.count     | Total number of Team chat messages     | Count  | 
-| teams.users.messages.private.total.count  | Total number of Private chat messages  | Count  |
-| teams.users.call.total.count              | Total number of calls                  | Count  |
-| teams.users.meeting.total.count           | Total number of meetings               | Count  |
+</TabItem>
+</Tabs>
 
-<!--END_DOCUSAURUS_CODE_TABS-->
-
-Once the host created, you can configure some macros on the service to filter 
+Once the host created, you can configure some macros on the service to filter
 information by user. More info in the [Configuration](#Configuration)
 section.
 
 ## Prerequisites
 
-Refer to the official documentation of Office365 Management or follow the link 
-in the 'More information' section to create an Office365 account and get help 
+Refer to the official documentation of Office365 Management or follow the link
+in the 'More information' section to create an Office365 account and get help
 about the management features.
 
 ### Register an application
@@ -75,11 +79,11 @@ To collect data from Teams Online, you need to specify the following
 authorization:
 
 * Microsoft Graph :
-    * Reports.Read.All (Type : Application)
-    * User.Read (Type : Delegated)
+* Reports.Read.All (Type : Application)
+* User.Read (Type : Delegated)
 * Office365 Management APIs :
-    * ServiceHealth.Read (Type : Application)
-    * ActivityFeed.Read (Type : Application)
+* ServiceHealth.Read (Type : Application)
+* ActivityFeed.Read (Type : Application)
 
 ### More information
 
@@ -89,9 +93,8 @@ https://docs.microsoft.com/en-us/office/office-365-management-api/get-started-wi
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="licence-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin package on every poller expected to monitor Office365 Teams:
 
@@ -101,7 +104,8 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Teams-Api
 
 2. On the Centreon Web interface, install the Centreon Plugin-Pack *Office365 Teams* from the "Configuration > Plugin Packs > Manager" page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every poller expected to monitor Office365 Teams:
 
@@ -117,7 +121,8 @@ yum install centreon-pack-cloud-microsoft-office365-teams
 
 3. On the Centreon Web interface, install the Centreon Plugin-Pack *Office365 Teams* from the "Configuration > Plugin Packs > Manager" page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -139,10 +144,10 @@ filter it by entering ```--filter-perfdata='^(?!.*perfdate).*$'``` into the
 Once the host created, you can configure some Macros on the services to filter
 information:
 
-| Mandatory | Name          | Description                |
-| :-------- | :------------ | :------------------------- |
-|           | FILTERUSERS   | Filter by specific users   |
-|           | FILTERCOUNTER | Filter specific counters   |
+| Mandatory | Name          | Description              |
+| :-------- | :------------ | :----------------------- |
+|           | FILTERUSERS   | Filter by specific users |
+|           | FILTERCOUNTER | Filter specific counters |
 
 ## FAQ
 
@@ -153,16 +158,16 @@ Centreon poller by logging with the *centreon-engine* user:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_office365_teams_api.pl \
-  --plugin=cloud::microsoft::office365::teams::plugin \
-  --mode=devices-usage \
-  --tenant='abcd1234-5678-90ab-cd12-34567890abcd' \
-  --client-id='9876dcba-5432-10dc-ba98-76543210dcba' \
-  --client-secret='8/RON4vUGhAcg6DRmSxc4AwgxSRoNfKg4d8xNizIMnwg='
+--plugin=cloud::microsoft::office365::teams::plugin \
+--mode=devices-usage \
+--tenant='abcd1234-5678-90ab-cd12-34567890abcd' \
+--client-id='9876dcba-5432-10dc-ba98-76543210dcba' \
+--client-secret='8/RON4vUGhAcg6DRmSxc4AwgxSRoNfKg4d8xNizIMnwg='
 ```
 Expected output:
 
 ```bash
-OK: Active devices on 2020-09-26 : 45/598 (7.53%) - Users count by device type 
+OK: Active devices on 2020-09-26 : 45/598 (7.53%) - Users count by device type
 : Windows: 35, Mac: 2, Web: 0, iOS: 4, Android Phone: 4, Windows Phone: 0
 'active_devices'=45devices;;;0;598
 'windows'=35;;;0;
@@ -178,18 +183,18 @@ this Plugin can be displayed by adding the ```--help``` parameter to the command
 
 ```bash
 /usr/lib/centreon/plugins//centreon_office365_teams_api.pl \
-  --plugin=cloud::microsoft::office365::teams::plugin \
-  --mode=devices-usage \
-  --custommode='graphapi'\
-  --help
+--plugin=cloud::microsoft::office365::teams::plugin \
+--mode=devices-usage \
+--custommode='graphapi'\
+--help
 ```
 
 You can display all of the modes that come with the Plugin with the command below:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_office365_teams_api.pl \
-  --plugin=cloud::microsoft::office365::teams::plugin \
-  --list-mode
+--plugin=cloud::microsoft::office365::teams::plugin \
+--list-mode
 ```
 
 ### Why do I get the following error:

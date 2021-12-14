@@ -2,6 +2,9 @@
 id: sc-pagerduty-events
 title: Pagerduty Events
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 > Hello community! We're looking for a contributor to help us to translate the content in french. If it's you, let us know and ping us on [slack](https://centreon.slack.com).
 
@@ -15,8 +18,8 @@ title: Pagerduty Events
 
 ### Dependencies
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS 7/Redhat 7-->
+<Tabs groupId="operating-systems">
+<TabItem value="CentOS 7/Redhat 7" label="CentOS 7/Redhat 7">
 
 Install **Epel** repository.
 
@@ -30,7 +33,8 @@ Install dependencies.
 yum install luarocks make gcc lua-curl lua-devel
 ```
 
-<!-- CentOS 8 -->
+</TabItem>
+<TabItem value="CentOS 8" label="CentOS 8">
 
 Install dnf plugins package.
 
@@ -56,7 +60,8 @@ Install dependencies.
 dnf install make gcc libcurl-devel lua-devel luarocks
 ```
 
-<!-- RedHat 8 -->
+</TabItem>
+<TabItem value="RedHat 8" label="RedHat 8">
 
 Install dnf plugins package.
 
@@ -82,12 +87,13 @@ Install dependencies.
 dnf install make gcc libcurl-devel lua-devel luarocks
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Lua modules
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS/Redhat 7-->
+<Tabs groupId="operating-systems">
+<TabItem value="CentOS/Redhat 7" label="CentOS/Redhat 7">
 
 Install **luatz**.
 
@@ -101,7 +107,8 @@ Install Centreon lua modules.
 luarocks install centreon-stream-connectors-lib
 ```
 
-<!-- CentOS/Redhat 8-->
+</TabItem>
+<TabItem value="CentOS/Redhat 8" label="CentOS/Redhat 8">
 
 Install **lua-curl**.
 
@@ -121,7 +128,8 @@ Install Centreon lua modules.
 luarocks install centreon-stream-connectors-lib
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Download Splunk events stream connector
 
@@ -188,32 +196,32 @@ This stream connector will send event with the following format.
 
 ```json
 {
-   "payload": {
-      "summary": "my_host/my_service: it is on fire",
-      "timestamp": "2021-09-24T14:37:22.000",
-      "severity": "critical",
-      "source": "my_host",
-      "component": "my_service",
-      "group": "hg_1, hg_2",
-      "class": "service",
-      "custom_details": {
-         "Hostseverity": 5,
-         "Serviceseverity": 3,
-         "Hosgroups": "hg_1, hg_2",
-         "Servicegroups": "sg_1, sg_2"
-      },
-      "routing_key": "dzajzd321dzad412",
-      "event_action": "trigger",
-      "dedup_key": "my_host_my_service",
-      "client": "Centreon Stream Connector",
-      "client_url": "https://my_super_centreon.bzh",
-      "links": [
-         {
-            "href": "https://my_super_centreon.bzh/centreon/main.php?p=20202&o=h&host_name=my_host",
-            "text": "Link to Centreon host summary"
-         }
-      ]
-   }
+"payload": {
+"summary": "my_host/my_service: it is on fire",
+"timestamp": "2021-09-24T14:37:22.000",
+"severity": "critical",
+"source": "my_host",
+"component": "my_service",
+"group": "hg_1, hg_2",
+"class": "service",
+"custom_details": {
+"Hostseverity": 5,
+"Serviceseverity": 3,
+"Hosgroups": "hg_1, hg_2",
+"Servicegroups": "sg_1, sg_2"
+},
+"routing_key": "dzajzd321dzad412",
+"event_action": "trigger",
+"dedup_key": "my_host_my_service",
+"client": "Centreon Stream Connector",
+"client_url": "https://my_super_centreon.bzh",
+"links": [
+{
+"href": "https://my_super_centreon.bzh/centreon/main.php?p=20202&o=h&host_name=my_host",
+"text": "Link to Centreon host summary"
+}
+]
+}
 }
 ```
 
@@ -221,30 +229,30 @@ This stream connector will send event with the following format.
 
 ```json
 {
-   "payload": {
-      "summary": "my_host: it is on fire",
-      "timestamp": "2021-09-24T14:37:22.000",
-      "severity": "critical",
-      "source": "my_host",
-      "component": "my_host",
-      "group": "hg_1, hg_2",
-      "class": "host",
-      "custom_details": {
-         "Hostseverity": 5,
-         "Hosgroups": "hg_1, hg_2",
-      },
-      "routing_key": "dzajzd321dzad412",
-      "event_action": "trigger",
-      "dedup_key": "my_host_H",
-      "client": "Centreon Stream Connector",
-      "client_url": "https://my_super_centreon.bzh",
-      "links": [
-         {
-            "href": "https://my_super_centreon.bzh/centreon/main.php?p=20202&o=h&host_name=my_host",
-            "text": "Link to Centreon host summary"
-         }
-      ]
-   }
+"payload": {
+"summary": "my_host: it is on fire",
+"timestamp": "2021-09-24T14:37:22.000",
+"severity": "critical",
+"source": "my_host",
+"component": "my_host",
+"group": "hg_1, hg_2",
+"class": "host",
+"custom_details": {
+"Hostseverity": 5,
+"Hosgroups": "hg_1, hg_2",
+},
+"routing_key": "dzajzd321dzad412",
+"event_action": "trigger",
+"dedup_key": "my_host_H",
+"client": "Centreon Stream Connector",
+"client_url": "https://my_super_centreon.bzh",
+"links": [
+{
+"href": "https://my_super_centreon.bzh/centreon/main.php?p=20202&o=h&host_name=my_host",
+"text": "Link to Centreon host summary"
+}
+]
+}
 }
 ```
 

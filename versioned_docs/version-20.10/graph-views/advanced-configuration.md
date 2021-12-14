@@ -2,6 +2,9 @@
 id: advanced-configuration
 title: Advanced configuration
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 This chapter describes advanced procedures for configuring your Centreon MAP
 system.
@@ -63,21 +66,22 @@ monitored.
 You may also just check the access to the following URL that tells that
 the server is up or not:
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--HTTP-->
+<Tabs groupId="operating-systems">
+<TabItem value="HTTP" label="HTTP">
 
 ```shell
 http://<MAP_IP>:8080/centreon-studio/api/beta/actuator/health.
 ```
 
-<!--HTTPS-->
+</TabItem>
+<TabItem value="HTTPS" label="HTTPS">
 
 ```shell
 https://<MAP_IP>:8443/centreon-studio/api/beta/actuator/health.
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Centreon MAP configuration files
 
@@ -242,73 +246,73 @@ forwarding" through the firewall.
 
 1.  Check your firewall.
 
-    On your MAP server, run the following command to check that the firewall is
-    running:
+On your MAP server, run the following command to check that the firewall is
+running:
 
-    ```shell
-    systemctl status iptables
-    ```
+```shell
+systemctl status iptables
+```
 
-    If your firewall is running, you will see the following output:
+If your firewall is running, you will see the following output:
 
-    ```shell
-    Table: raw
-    Chain PREROUTING (policy ACCEPT)
-    num  target     prot opt source               destination
+```shell
+Table: raw
+Chain PREROUTING (policy ACCEPT)
+num  target     prot opt source               destination
 
-    Chain OUTPUT (policy ACCEPT)
-    num  target     prot opt source               destination
+Chain OUTPUT (policy ACCEPT)
+num  target     prot opt source               destination
 
-    Table: mangle
-    Chain PREROUTING (policy ACCEPT)
-    num  target     prot opt source               destination
-    ...
-    ...
-    ...
-    ```
+Table: mangle
+Chain PREROUTING (policy ACCEPT)
+num  target     prot opt source               destination
+...
+...
+...
+```
 
-    If your firewall is stopped, you will see the following output:
+If your firewall is stopped, you will see the following output:
 
-    ```shell
-    iptables: Firewall is not running.
-    ```
+```shell
+iptables: Firewall is not running.
+```
 
-    Start the firewall:
+Start the firewall:
 
-    ```shell
-    systemctl start iptables
-    ```
+```shell
+systemctl start iptables
+```
 
 2.  Enable a connection on the port for MAP for listening and sending.
 
-    Execute the following lines on your console:
+Execute the following lines on your console:
 
-    ```shell
-    /sbin/iptables -A OUTPUT -p tcp --dport 80 -j ACCEPT
-    /sbin/iptables -A INPUT -p tcp --dport 80 -j ACCEPT
-    ```
+```shell
+/sbin/iptables -A OUTPUT -p tcp --dport 80 -j ACCEPT
+/sbin/iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+```
 
 3.  Add port forwarding.
 
-    Execute the following line on your console:
+Execute the following line on your console:
 
-    ```shell
-    iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080
-    ```
+```shell
+iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080
+```
 
 4.  Restart and save.
 
-    Restart your firewall:
+Restart your firewall:
 
-    ```shell
-    systemctl restart iptables
-    ```
+```shell
+systemctl restart iptables
+```
 
-    Save this configuration so it will be applied each time you reboot your server:
+Save this configuration so it will be applied each time you reboot your server:
 
-    ```shell
-    /sbin/iptables save
-    ```
+```shell
+/sbin/iptables save
+```
 
 Your Centreon MAP server is now accessible on port 80. Check this by entering
 the following URL in your browser:

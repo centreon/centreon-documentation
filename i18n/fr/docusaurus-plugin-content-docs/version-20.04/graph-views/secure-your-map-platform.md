@@ -105,22 +105,22 @@ centreon-map.keystore-pass=xxx
 
 1. Stop Centreon MAP service:
 
-    ```shell
-    systemctl stop centreon-map
-    ```
+```shell
+systemctl stop centreon-map
+```
 
 2. Edit the file `/etc/centreon-studio/centreon-map.conf`, adding ",tls"
-   after "prod" profile:
+after "prod" profile:
 
-    ```text
-    RUN_ARGS="--spring.profiles.active=prod,tls"
-    ```
+```text
+RUN_ARGS="--spring.profiles.active=prod,tls"
+```
 
 3. Restart Centreon MAP service:
 
-    ```shell
-    systemctl start centreon-map
-    ```
+```shell
+systemctl start centreon-map
+```
 
 Centreon MAP server is now configured to respond to requests from HTTPS at
 port 8443.
@@ -181,7 +181,7 @@ keytool -import -alias centreon-broker -file broker_public.crt -keystore trustst
 ```
 
 - "broker\_public.crt" is Broker public certificate or its CA certificate
-  in PEM format,
+in PEM format,
 - "truststore.jks" is the generated trust store in JKS format,
 - a store password is required during generation.
 

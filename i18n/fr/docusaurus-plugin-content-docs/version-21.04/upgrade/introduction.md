@@ -10,7 +10,7 @@ Sélectionner **Mise à jour RPM** si vous avez installé Centreon à partir de
 l'ISO ou des RPMS, sinon sélectionner **A partir des sources**. Avant de mettre
 à jour réaliser une sauvegarde.
 
-> Si vous utilisez au moins un des modules BAM, MAP ou MBI, vous devez mettre 
+> Si vous utilisez au moins un des modules BAM, MAP ou MBI, vous devez mettre
 > en place leur nouveau dépôt afin d'éviter les problèmes de dépendances.
 > Voir [cette page](../reporting/upgrade#monter-de-version-du-paquet)
 > qui vous indique comment le récupérer.

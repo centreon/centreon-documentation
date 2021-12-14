@@ -2,6 +2,9 @@
 id: cloud-gcp-cloudsql-mysql
 title: Google CloudSQL MySQL
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Contenu du Plugin-Pack
 
@@ -21,7 +24,7 @@ Celui-ci permet de découvrir l'ensemble des bases de données MySQL rattachées
 
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-gcp-cloudsql-mysql-provider.png)
 
-> Le fichier *key* doit être déployé sur les Collecteurs utilisés pour la découverte en amont de son execution (voir chapitre Prérequis) 
+> Le fichier *key* doit être déployé sur les Collecteurs utilisés pour la découverte en amont de son execution (voir chapitre Prérequis)
 
 Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionnement sur la documentation du module:
 [Découverte des hôtes](../../../monitoring/discovery/hosts-discovery)
@@ -30,16 +33,16 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 
 Pour l'ensemble des métriques collectées, il est possible de choisir *aggregation*: _average_, _minimum_, _maximum_ et _total_.
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Cpu-->
+<Tabs groupId="operating-systems">
+<TabItem value="Cpu" label="Cpu">
 
 | Metric name                                                     | Description                                          | Unit  |
 | :-------------------------------------------------------------- | :--------------------------------------------------- | :---- |
 | *database_id*~*aggregation*#database.cpu.utilization.percentage | Utilization of the reserved CPU                      | %     |
 | *database_id*~*aggregation*#database.cpu.reserved_cores.count   | Number of cores reserved for the database instance   |       |
 
-<!--Innodb-->
+</TabItem>
+<TabItem value="Innodb" label="Innodb">
 
 | Metric name                                                               | Description                                              | Unit  |
 | :------------------------------------------------------------------------ | :------------------------------------------------------- | :---- |
@@ -52,7 +55,8 @@ Pour l'ensemble des métriques collectées, il est possible de choisir *aggregat
 | *database_id*~*aggregation*#database.mysql.innodb.pages_written.count     | Count of InnoDB pages written                            |       |
 | *database_id*~*aggregation*#database.mysql.innodb.pages_written.persecond | Count of InnoDB pages written per second                 |       |
 
-<!--Network-->
+</TabItem>
+<TabItem value="Network" label="Network">
 
 | Metric name                                                                 | Description                                            | Unit  |
 | :-------------------------------------------------------------------------- | :----------------------------------------------------- | :---- |
@@ -62,7 +66,8 @@ Pour l'ensemble des métriques collectées, il est possible de choisir *aggregat
 | *database_id*~*aggregation*#database.network.sent.volume.bytes              | Count of bytes sent through the network                | B     |
 | *database_id*~*aggregation*#database.network.sent.volume.bytespersecond     | Count of bytes sent per second through the network     | B/s   |
 
-<!--Queries-->
+</TabItem>
+<TabItem value="Queries" label="Queries">
 
 | Metric name                                                    | Description                                                              | Unit  |
 | :------------------------------------------------------------- | :----------------------------------------------------------------------- | :---- |
@@ -71,7 +76,8 @@ Pour l'ensemble des métriques collectées, il est possible de choisir *aggregat
 | *database_id*~*aggregation*#database.mysql.queries.count       | Count of statements executed by the server                               |       |
 | *database_id*~*aggregation*#database.mysql.queries.persecond   | Count of statements per second executed by the server                    |       |
 
-<!--Storage-->
+</TabItem>
+<TabItem value="Storage" label="Storage">
 
 | Metric name                                                             | Description                                       | Unit  |
 | :---------------------------------------------------------------------- | :------------------------------------------------ | :---- |
@@ -81,7 +87,8 @@ Pour l'ensemble des métriques collectées, il est possible de choisir *aggregat
 | *database_id*~*aggregation*#database.disk.write.io.operations.count     | Count of data disk write IO operations            |       |
 | *database_id*~*aggregation*#database.disk.write.io.operations.persecond | Count of data disk write IO operations per second |       |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -97,9 +104,8 @@ Comment créer une clé de compte de service: https://developers.google.com/iden
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="operating-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -109,7 +115,8 @@ yum install centreon-plugin-Cloud-Gcp-CloudSQL-MySQL-Api
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Google CloudSQL MySQL* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -125,12 +132,13 @@ yum install centreon-pack-cloud-gcp-cloudsql-mysql
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Google CloudSQL MySQL* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
 Ce Plugin-Pack est conçu de manière à avoir dans Centreon un hôte par instance Google CloudSQL MySQL.
-Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *Cloud-Gcp-CloudSQL-MySQL-custom*. 
+Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *Cloud-Gcp-CloudSQL-MySQL-custom*.
 Une fois celui-ci configuré, certaines macros doivent être renseignées:
 
 | Mandatory   | Name                 | Description                                                                                 |
@@ -156,27 +164,27 @@ depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-en
 
 ```bash
 /usr/lib/centreon/plugins/centreon_gcp_cloudsql_mysql_api.pl \
-    --plugin=cloud::google::gcp::cloudsql::mysql::plugin \
-    --mode=cpu \
-    --key-file=/var/lib/centreon-engine/centreon-dev-6e5531fc9e82.json \
-    --dimension-name='resource.labels.database_id' \
-    --dimension-operator='equals' \
-    --dimension-value='centreon-dev:centreon-mysql' \
-    --aggregation='average' \
-    --warning-utilization='90' \
-    --critical-utilization='95' \
-    --verbose
+--plugin=cloud::google::gcp::cloudsql::mysql::plugin \
+--mode=cpu \
+--key-file=/var/lib/centreon-engine/centreon-dev-6e5531fc9e82.json \
+--dimension-name='resource.labels.database_id' \
+--dimension-operator='equals' \
+--dimension-value='centreon-dev:centreon-mysql' \
+--aggregation='average' \
+--warning-utilization='90' \
+--critical-utilization='95' \
+--verbose
 ```
 
 La commande devrait retourner un message de sortie de la forme ci-dessous:
 
 ```bash
 OK: Instance 'centreon-dev:centreon-mysql' aggregation 'average' metrics cpu utilization: 2.40 %, cpu reserved cores: 1.00 | 'centreon-dev:centreon-mysql~average#database.cpu.utilization.percentage'=2.40%;0:95;;0;100 'centreon-dev:centreon-mysql~average#database.cpu.reserved_cores.count'=1.00;;;;
-Checking 'centreon-dev:centreon-mysql' 
-    aggregation 'average' metrics cpu utilization: 2.40 %, cpu reserved cores: 1.00
+Checking 'centreon-dev:centreon-mysql'
+aggregation 'average' metrics cpu utilization: 2.40 %, cpu reserved cores: 1.00
 ```
 
-Cette commande contrôle l'utilisation processeur (```--mode=cpu```) d'une instance Google MySQL 
+Cette commande contrôle l'utilisation processeur (```--mode=cpu```) d'une instance Google MySQL
 ayant pour nom *centreon-dev:centreon-mysql* (```--dimension-name='resource.labels.database_id' --dimension-operator='equals' --dimension-value='centreon-dev:centreon-mysql'```).
 
 Cette commande déclenchera une alarme WARNING si l'utilisation processeur est supérieur à 90% (```--warning-utilization='90'```)
@@ -187,14 +195,14 @@ en ajoutant le paramètre ```--help``` à la commande:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_gcp_cloudsql_mysql_api.pl \
-    --plugin=cloud::google::gcp::cloudsql::mysql::plugin \
-    --mode=cpu \
-    --help
+--plugin=cloud::google::gcp::cloudsql::mysql::plugin \
+--mode=cpu \
+--help
 ```
 
 ### J'obtiens le message d'erreur suivant: ```UNKNOWN: No metrics. Check your options or use --zeroed option to set 0 on undefined values```
 
-Lors du déploiement de mes contrôles, j'obtiens le message suivant 'UNKNOWN: No metrics. Check your options or use --zeroed option to set 0 on undefined values'. 
+Lors du déploiement de mes contrôles, j'obtiens le message suivant 'UNKNOWN: No metrics. Check your options or use --zeroed option to set 0 on undefined values'.
 
 Cela signifie qu'il n'y a pas de données sur la période.
 

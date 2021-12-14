@@ -42,11 +42,11 @@ commerciales, veuillez contacter le support.
 
 #### Correctifs
 
- - [Web-Client] Fixed Graph scale in web interface
- - [Web-Client] Fixed "Home" icon in geoviews
- - [Web-Client] Fixed Infrastructure View link (BA)
- - [Web-Client] Fixed Sorting of maps by alphabetic order
- - [Web-Client] Fixed Links to hosts/services
+- [Web-Client] Fixed Graph scale in web interface
+- [Web-Client] Fixed "Home" icon in geoviews
+- [Web-Client] Fixed Infrastructure View link (BA)
+- [Web-Client] Fixed Sorting of maps by alphabetic order
+- [Web-Client] Fixed Links to hosts/services
 
 ### 20.10.4
 
@@ -70,7 +70,7 @@ commerciales, veuillez contacter le support.
 
 - Nom d'hôte manquant dans le titre d'un service graph
 - Un graph créé depuis un service dans un élément host n'était pas correctement
-  rafraichi
+rafraichi
 - Ouvrir une map depuis le listing ou le widget pouvait être trop long
 
 ### 20.10.2
@@ -84,17 +84,17 @@ commerciales, veuillez contacter le support.
 #### Correctifs
 
 - Mettre à jour depuis des versions précédentes causait parfois un
-  échec lors du redémarrage du service centreon-map
+échec lors du redémarrage du service centreon-map
 - Une mise à jour ou une nouvelle installation causait parfois une
-  mauvaise attribution des droits sur le dossier media
+mauvaise attribution des droits sur le dossier media
 - Ajouter ou supprimer un Downtime depuis l'interface web causait
-  parfois une rupture de connexion avec Broker
+parfois une rupture de connexion avec Broker
 - Créer une carte avec un nom vide rendait parfois le menu 'Monitoring >
-  Map' inaccessible
+Map' inaccessible
 - Ajouter un Output dans Studio avait parfois pour résultat une
-  métrique mal formattée
+métrique mal formattée
 - Des événements WhatsUp étaient levés inutilement lors de sessions
-  web causant parfois des baisses de performances
+web causant parfois des baisses de performances
 - [API] Une requête de token sur Swagger-iu retournait parfois une erreur
 
 ### 20.10.1
@@ -104,15 +104,15 @@ commerciales, veuillez contacter le support.
 #### Correctifs
 
 - Sauvegarder une Geo View sur un Widget Custom View MAP était impossible
-  dû à l'absence du bouton "Sauvegarder"
+dû à l'absence du bouton "Sauvegarder"
 - Partager les métriques de statistiques d'usage entre le serveur MAP et
-  le Central en HTTPS échouait
+le Central en HTTPS échouait
 - Créer des liens en utilisant l'API REST peut maintenant recourir aux
-  propriétés 'bendpoints', 'displayValue' et 'displayPercent'
+propriétés 'bendpoints', 'displayValue' et 'displayPercent'
 - Ajouter des ressources Centreon lors de la création d'un Widget Output
-  par l'API REST est maintenant possible
+par l'API REST est maintenant possible
 - Installer MAP Studio lors d'une nouvelle installation échouait à cause
-  de la configuration du back-up automatique
+de la configuration du back-up automatique
 
 ### 20.10.0
 
@@ -121,7 +121,7 @@ commerciales, veuillez contacter le support.
 #### Améliorations
 
 - La licence est maintenant entièrement géré sur le serveur Centreon
-  Central.
+Central.
 
 #### Serveur plus rapide pour les cartes complexes
 
@@ -152,7 +152,7 @@ Référez-vous à la [documentation dédiée](../graph-views/install#centreon-ma
 `04 Mai 2021`
 
 #### Correctifs
-- [Monitoring] Ajout des traductions manquantes en Français pour les status "warning" et "critical" 
+- [Monitoring] Ajout des traductions manquantes en Français pour les status "warning" et "critical"
 
 #### Correctifs de sécurité
 
@@ -180,7 +180,7 @@ Référez-vous à la [documentation dédiée](../graph-views/install#centreon-ma
 #### Correctifs
 
 - Ajout d'un fichier manquant lors du processus de mise à jour, qui rendait
-  les pages de configuration de BAM non utilisables.
+les pages de configuration de BAM non utilisables.
 
 ### 20.10.1
 
@@ -189,7 +189,7 @@ Référez-vous à la [documentation dédiée](../graph-views/install#centreon-ma
 #### Correctifs
 
 - Dans le listing de supervision des BA, les infobulles de graphique des BA sont
-  désormais correctement affichées.
+désormais correctement affichées.
 
 ### 20.10.0
 
@@ -198,7 +198,7 @@ Référez-vous à la [documentation dédiée](../graph-views/install#centreon-ma
 #### Améliorations
 
 - [Configuration] Mise à jour du style des pages *Activités métiers*
-  et *Vues métiers*
+et *Vues métiers*
 
 ## Centreon MBI
 
@@ -305,16 +305,16 @@ version (apportant des corrections de failles de sécurité)
 #### Correctifs
 
 - [Host Discovery] Des valeurs longues dans le champs *host.ip* provoquent
-  l'erreur "Error when sorting and filtering host modification results"
+l'erreur "Error when sorting and filtering host modification results"
 - [Host Discovery] Le script de sauvegarde fonctionne maintenant sous
-  CentOS 8
+CentOS 8
 
 #### Améliorations
 
 - [Host Discovery] Ajout d'une boite de dialogue de confirmation lors de
-  la suppression d'une tâche
+la suppression d'une tâche
 - [Host Discovery] Changement de la formulation "Paramètres additionnels"
-  en "Paramètres de découverte" dans les écrans
+en "Paramètres de découverte" dans les écrans
 
 ### 20.10.1
 
@@ -323,7 +323,7 @@ version (apportant des corrections de failles de sécurité)
 #### Correctifs
 
 - Les scripts de mise à jour en doubles dans la version précédente
-  entraînent une erreur SQL dans le log
+entraînent une erreur SQL dans le log
 
 ### 20.10.0
 

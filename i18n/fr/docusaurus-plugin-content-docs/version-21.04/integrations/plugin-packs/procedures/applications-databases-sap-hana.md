@@ -26,9 +26,9 @@ yum install unixODBC perl-DBD-ODBC
 
 The /etc/odbcinst.ini file have to be modified. Add following lines:
 
-    [HDBODBC]
-    Description = "SmartCloudPT HANA"
-    Driver=/usr/sap/hdbclient/libodbcHDB.so
+[HDBODBC]
+Description = "SmartCloudPT HANA"
+Driver=/usr/sap/hdbclient/libodbcHDB.so
 
 ### User account
 

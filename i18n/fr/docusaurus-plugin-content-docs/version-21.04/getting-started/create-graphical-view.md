@@ -41,14 +41,14 @@ Define what is the main objective of the view: what need does it meet and who
 are the recipients, are the main topics to consider before creating a view. Here
 are some questions you might consider:
 
-  - Who is/are this view recipient(s)? (users' profiles)
-  - What level of information do users need?
-  - Do I monitor all the resources and indicators I need to create that view?
-  - What kind of information should the view contains? (resources, indicators,
-    graphs, network links etc). It can be interesting to start drawing that view
-    on a paper note
-  - Now that you have defined the objectives, let's start showing you how to
-    make it.
+- Who is/are this view recipient(s)? (users' profiles)
+- What level of information do users need?
+- Do I monitor all the resources and indicators I need to create that view?
+- What kind of information should the view contains? (resources, indicators,
+graphs, network links etc). It can be interesting to start drawing that view
+on a paper note
+- Now that you have defined the objectives, let's start showing you how to
+make it.
 
 ### The view designer's workspace
 
@@ -84,7 +84,7 @@ less \~4 minutes:
 ![image](../assets/graph-views/ex_view.jpg)
 
 <div align="center">
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/tsgYRpYqaAU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/tsgYRpYqaAU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 ## Create a geographical view

@@ -66,9 +66,9 @@ The calculated percent state change for the service (31%) will then be compared 
 should happen:
 
 * If the service was not previously flapping and 31% is equal to or greater than the high flap threshold, Centreon
-  Engine considers the service to have just started flapping.
+Engine considers the service to have just started flapping.
 * If the service was previously flapping and 31% is less than the low flap threshold, Centreon Engine considers the
-  service to have just stopped flapping.
+service to have just stopped flapping.
 
 If neither of those two conditions are met, the flap detection logic won't do anything else with the service, since it
 is either not currently flapping or it is still flapping.

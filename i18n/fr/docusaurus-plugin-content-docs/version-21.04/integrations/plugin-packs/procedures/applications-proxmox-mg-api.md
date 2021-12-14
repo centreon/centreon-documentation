@@ -2,6 +2,9 @@
 id: applications-proxmox-mg-api
 title: Proxmox Mail Gateway
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Contenu du Plugin Pack
 
@@ -13,9 +16,8 @@ Le Plugin Pack Proxmox Mail Gateway collecte les données pour:
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Mail-->
+<Tabs groupId="operating-systems">
+<TabItem value="Mail" label="Mail">
 
 | Metric name                      | Description                    | Unit |
 | :------------------------------- | :----------------------------- | :--- |
@@ -28,13 +30,15 @@ Le Plugin Pack Proxmox Mail Gateway collecte les données pour:
 | mails.virus.incoming.count       | Number of incoming virus mails |      |
 | mails.virus.outgoing.count       | Number of outgoing virus mails |      |
 
-<!--Version-->
+</TabItem>
+<TabItem value="Version" label="Version">
 
 | Metric name     | Description                  | Unit |
 | :-------------- | :--------------------------- | :--- |
 | version status  | Proxmox Mail Gateway version |      |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -42,9 +46,8 @@ Afin de contrôler l'application Proxmox Mail Gateway, l'API Rest doit être con
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="operating-systems">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -54,7 +57,8 @@ yum install centreon-plugin-Applications-Proxmox-Mg-Api
 
 2. Sur l'interface Web de Centreon, installer le Plugin Pack *Proxmox Mail Gateway* depuis la page "Configuration > Plugin Packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -70,12 +74,13 @@ yum install centreon-pack-applications-proxmox-mg-api
 
 3. Sur l'interface Web de Centreon, installer le Plugin Pack *Proxmox Mail Gateway* depuis la page "Configuration > Plugin Packs > Manager"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
 Ce Plugin Pack est conçu de manière à avoir dans Centreon un hôte par application Proxmox Mail Gateway.
-Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *App-Proxmox-Mg-Api-custom*. 
+Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *App-Proxmox-Mg-Api-custom*.
 Une fois celui-ci configuré, certaines macros doivent être renseignées:
 
 | Mandatory | Name                     | Description                                                                |
@@ -95,26 +100,26 @@ Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne d
 
 ```bash
 /usr/lib/centreon/plugins/centreon_proxmox_mg_api.pl \
-    --plugin=apps::proxmox::mg::restapi::plugin \
-    --mode=mail \
-    --hostname='10.30.2.79' \
-    --port='8006' \
-    --proto='https' \
-    --api-username='myapiusername' \
-    --api-password='myapipassword' \
-    --hours=1 \
-    --timespan=1800 \
-    --verbose
+--plugin=apps::proxmox::mg::restapi::plugin \
+--mode=mail \
+--hostname='10.30.2.79' \
+--port='8006' \
+--proto='https' \
+--api-username='myapiusername' \
+--api-password='myapipassword' \
+--hours=1 \
+--timespan=1800 \
+--verbose
 ```
 
 Exemple de sortie:
 ```
 OK: Mail statistics are ok | 'mails.incoming.count'=71;;;0; 'mails.outgoing.count'=31;;;0; 'mails.traffic.in.bytespersecond'=4255.35B/s;;;0; 'mails.traffic.out.bytespersecond'=2780.03B/s;;;0; 'mails.spam.incoming.count'=5;;;0; 'mails.spam.outgoing.count'=0;;;0; 'mails.virus.incoming.count'=0;;;0; 'mails.virus.outgoing.count'=0;;;0;
 checking mail statistics
-    number of mails incoming: 71, outgoing: 31
-    traffic in: 4.16 KB/s, out: 2.71 KB/s
-    number of spam mails incoming: 5, outgoing: 0
-    number of virus mails incoming: 0, outgoing: 0
+number of mails incoming: 71, outgoing: 31
+traffic in: 4.16 KB/s, out: 2.71 KB/s
+number of spam mails incoming: 5, outgoing: 0
+number of virus mails incoming: 0, outgoing: 0
 ```
 
 La commande ci-dessus contrôle statistiques mails (```--mode=mail```).
@@ -125,9 +130,9 @@ Toutes les options et leur utilisation peuvent être consultées avec le paramè
 
 ```bash
 /usr/lib/centreon/plugins/centreon_proxmox_mg_api.pl \
-    --plugin=apps::proxmox::mg::restapi::plugin \
-    --mode=mail \
-    --help
+--plugin=apps::proxmox::mg::restapi::plugin \
+--mode=mail \
+--help
 ```
 
 ## J'obtiens le message d'erreur suivant:
