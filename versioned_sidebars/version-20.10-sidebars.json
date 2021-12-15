@@ -1201,15 +1201,15 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-20.10/integrations/plugin-packs/procedures/blockchain-parity-ethpoller-restapi"
-            },
-            {
-              "type": "doc",
               "id": "version-20.10/integrations/plugin-packs/procedures/blockchain-hyperledger-exporter"
             },
             {
               "type": "doc",
               "id": "version-20.10/integrations/plugin-packs/procedures/blockchain-parity-restapi"
+            },
+            {
+              "type": "doc",
+              "id": "version-20.10/integrations/plugin-packs/procedures/blockchain-parity-ethpoller-restapi"
             }
           ]
           },
