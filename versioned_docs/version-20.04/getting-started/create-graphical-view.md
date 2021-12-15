@@ -16,7 +16,7 @@ applications and services.
 ![image](../assets/graph-views/tuto_ex_2.png)
 
 *Example: thanks to this real time views ITOM teams and managers can
-instantaneously visualise the avalilability of critical business applications
+instantaneously visualise the availability of critical business applications
 and services. This guarantees better reaction time in case of outage and
 optimises MTRS (Mean Time to Restore Service).*
 
