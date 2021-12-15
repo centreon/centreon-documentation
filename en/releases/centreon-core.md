@@ -989,6 +989,8 @@ with the –pool\_size X argument or -s X.
 
 ### 20.10.6
 
+Release date: `December 15, 2021`
+
 #### Bugfixes
 
 - Make Gorgone’s private key readable by centreon-gorgone only
