@@ -31,7 +31,6 @@ It brings the following Service Templates:
 | OS-AS400-Connector-SubSystem-Name |             |
 | OS-AS400-Connector-Disk-Name      |             |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Collected metrics & status
 
