@@ -502,8 +502,9 @@
             {
                 "ids": [
                     "integrations/plugin-packs/procedures/blockchain-hyperledger-exporter",
-                    "integrations/plugin-packs/procedures/blockchain-parity-restapi",
-                    "integrations/plugin-packs/procedures/blockchain-parity-ethpoller-restapi"
+                    "integrations/plugin-packs/procedures/blockchain-parity-ethpoller-restapi",
+                    "integrations/plugin-packs/procedures/blockchain-parity-restapi"
+                    
                 ],
                 "label": "Blockchain",
                 "type": "subcategory"
