@@ -82,7 +82,7 @@ dans Centreon.
 ## Installation
 
 <Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<TabItem value="online" label="Online License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant découvrir des resources Azure:
 
@@ -94,7 +94,7 @@ yum install centreon-plugin-Cloud-Azure-Management-Discover-Api
 Des Plugin Packs supplémentaires seront installés en dépendance afin de permettre la supervision de l'ensemble des ressources découvertes.
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="offline" label="Offline License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant découvrir des resources Azure:
 

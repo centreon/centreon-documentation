@@ -90,7 +90,7 @@ Les ressources ci-après décrivent les méthodes d'installation ainsi que le fo
 ## Installation
 
 <Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<TabItem value="online" label="Online License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources Netapp SANtricity:
 
@@ -101,7 +101,7 @@ yum install centreon-plugin-Hardware-Storage-Netapp-Santricity-Restapi
 2. Depuis l'interface Web de Centreon, installer le Plugin-Pack *Netapp Santricity Restapi* depuis la page "Configuration > Plugin Packs > Manager"
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="offline" label="Offline License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources Netapp SANtricity:
 

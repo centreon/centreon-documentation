@@ -82,7 +82,7 @@ https://infosight.hpe.com/InfoSight/media/cms/active/public/pubs_REST_API_Refere
 ## Installation
 
 <Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<TabItem value="online" label="Online License">
 
 1. Installer le Plugin sur chaque Collecteur Centreon devant superviser des équipements Nimble:
 
@@ -93,7 +93,7 @@ yum install centreon-pack-hardware-storage-nimble-restapi.noarch
 2. Sur l'interface Web de Centreon, rendez-vous sur la page "Configuration > Plugin Packs > Gestionnaire" et installer le Plugin-Pack *Nimble Rest API*
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="offline" label="Offline License">
 
 1. Installer le Plugin sur chaque Collecteur Centreon devant superviser des équipements Nimble:
 

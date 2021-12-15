@@ -73,7 +73,7 @@ Le flux SNMP UDP/161 doit être ouvert entre le Collecteur et l'équipement.
 ## Installation
 
 <Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<TabItem value="online" label="Online License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -84,7 +84,7 @@ yum install centreon-plugin-Hardware-Ups-Hp-Snmp
 2. Sur l'interface Web de Centreon, installer le Pack *HP UPS SNMP* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="offline" label="Offline License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 

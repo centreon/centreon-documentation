@@ -94,7 +94,7 @@ Poller on the UDP/161 SNMP port.
 ## Installation
 
 <Tabs groupId="licence-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<TabItem value="online" label="Online License">
 
 1. Install the Plugin package on every Centreon poller expected to monitor an IBM BladeCenter switch module:
 
@@ -105,7 +105,7 @@ yum install centreon-plugin-Network-Ibm-Bladecenter-Snmp
 2. On the centreon Web interface, install the *IBM BladeCenter Switch* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="offline" label="Offline License">
 
 1. Install the Plugin on every Centreon poller expected to monitor an IBM BladeCenter switch module:
 

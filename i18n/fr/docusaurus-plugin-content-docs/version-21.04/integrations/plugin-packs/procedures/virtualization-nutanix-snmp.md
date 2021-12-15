@@ -132,7 +132,7 @@ La communication doit être possible sur le port UDP 161 depuis le collecteur Ce
 ## Installation
 
 <Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<TabItem value="online" label="Online License">
 
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des ressources Nutanix:
 
@@ -143,7 +143,7 @@ yum install centreon-plugin-Virtualization-Nutanix-Snmp
 2. Installer le Plugin-Pack 'Nutanix' depuis la page "Configuration > Plugin packs > Manager" de l'interface Web Centreon
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="offline" label="Offline License">
 
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des ressources Nutanix:
 

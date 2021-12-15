@@ -94,7 +94,7 @@ avec l'IBM BladeCenter.
 ## Installation
 
 <Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<TabItem value="online" label="Online License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant le module switch IBM BladeCenter :
 
@@ -105,7 +105,7 @@ yum install centreon-plugin-Network-Ibm-Bladecenter-Snmp
 2. Installer le Plugin-Pack *IBM BladeCenter Switch* depuis la page "Configuration > Plugin packs > Manager" de l'interface Web Centreon
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="offline" label="Offline License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant le module switch IBM BladeCenter :
 

@@ -189,7 +189,7 @@ Ce compte utilisateur doit avoir la permission de lecture sur les tables suivant
 ## Installation
 
 <Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<TabItem value="online" label="Online License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant une base de données Oracle :
 
@@ -200,7 +200,7 @@ yum install centreon-plugin-Applications-Databases-Oracle
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Oracle Database* depuis la page "Configuration > Plugin packs > Manager"
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="offline" label="Offline License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant une base de données Oracle :
 

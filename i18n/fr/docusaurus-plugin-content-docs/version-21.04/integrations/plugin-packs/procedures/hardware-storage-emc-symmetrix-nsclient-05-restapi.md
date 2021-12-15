@@ -38,7 +38,7 @@ and make sure that the **NRPE Server** configuration is correct.
 ## Installation
 
 <Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<TabItem value="online" label="Online License">
 
 1. Install the Centreon NRPE Client package on every Poller expected to monitor *EMC Symmetrix*:
 
@@ -50,7 +50,7 @@ yum install centreon-nrpe-plugin
 from the **Configuration > Plugin Packs > Manager** page
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="offline" label="Offline License">
 
 1. Install the Centreon Plugin package on every Poller expected to monitor *EMC Symmetrix*:
 

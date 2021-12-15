@@ -89,7 +89,7 @@ Comment créer une clé de compte de service: https://developers.google.com/iden
 ## Installation
 
 <Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<TabItem value="online" label="Online License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -100,7 +100,7 @@ yum install centreon-plugin-Cloud-Gcp-Compute-ComputeEngine-Api
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Google Compute Engine* depuis la page "Configuration > Plugin packs > Manager"
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="offline" label="Offline License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 

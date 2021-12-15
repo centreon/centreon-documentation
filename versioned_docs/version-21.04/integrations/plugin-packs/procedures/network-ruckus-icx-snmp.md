@@ -76,7 +76,7 @@ The Centreon poller should be able to reach the UDP SNMP port 161 of the Ruckus 
 ## Installation
 
 <Tabs groupId="licence-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<TabItem value="online" label="Online License">
 
 1. Install the Plugin on every poller expected to monitor Ruckus ICX SNMP resources:
 
@@ -87,7 +87,7 @@ yum install centreon-plugin-Network-Switch-Ruckus-Icx-Snmp
 2. Install the *Ruckus ICX* Centreon Plugin-Pack from the "Configuration > Plugin packs > Manager" page
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="offline" label="Offline License">
 
 1. Install the Plugin on every poller expected to monitor Ruckus ICX resources:
 

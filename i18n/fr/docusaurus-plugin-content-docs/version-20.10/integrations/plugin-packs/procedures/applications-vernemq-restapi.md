@@ -79,7 +79,7 @@ Plus d'informations sur l'API HTTP de VerneMQ sur : https://docs.vernemq.com/adm
 ## Installation
 
 <Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<TabItem value="online" label="Online License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon supervisant des ressources VerneMQ :
 
@@ -90,7 +90,7 @@ yum install centreon-plugin-Applications-Vernemq-Restapi.noarch
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *VerneMQ Restapi* depuis la page "Configuration > Plugin packs > Manager"
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="offline" label="Offline License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon supervisant des ressources VerneMQ :
 

@@ -49,7 +49,7 @@ Use `|` character in your Centreon Macro definitions is not possible.
 ## Installation
 
 <Tabs groupId="licence-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<TabItem value="online" label="Online License">
 
 1. Install the Centreon NRPE Client package on every Poller expected to monitor *Symantec NetBackup*:
 
@@ -61,7 +61,7 @@ yum install centreon-nrpe-plugin
 from the **Configuration > Plugin Packs > Manager** page
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="offline" label="Offline License">
 
 1. Install the Centreon Plugin package on every Poller expected to monitor *Symantec NetBackup*:
 

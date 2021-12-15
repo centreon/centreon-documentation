@@ -121,7 +121,7 @@ La communication doit être possible depuis le Collecteur Centreon vers le port 
 ## Installation
 
 <Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<TabItem value="online" label="Online License">
 
 1. Installer le Plugin Centreon McAfee Web Gatewaysur l'ensemble des Collecteurs Centreon supervisant un proxy McAfee Web Gateway :
 
@@ -132,7 +132,7 @@ yum install centreon-plugin-Applications-Antivirus-Mcafee-Webgateway-Snmp
 2. Installer le Plugin-Pack 'McAfee Web Gateway' depuis la page "Configuration > Plugin packs > Manager" de l'interface Web Centreon
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="offline" label="Offline License">
 
 1. Installer le Plugin Centreon McAfee Web Gateway sur l'ensemble des Collecteurs Centreon supervisant un proxy McAfee Web Gateway :
 

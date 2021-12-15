@@ -26,7 +26,7 @@ or by setting your unique user and password directly in the Host Macros.
 ## Setup
 
 <Tabs groupId="licence-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<TabItem value="online" label="Online License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor *ClamAV* ressources:
 
@@ -37,7 +37,7 @@ yum install centreon-plugin-Applications-Clamav-Ssh
 2. On the Centreon Web interface, install the *Antivirus ClamAV* Centreon Plugin Pack on the **Configuration > Plugin Packs** page
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="offline" label="Offline License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor *ClamAV* ressources:
 

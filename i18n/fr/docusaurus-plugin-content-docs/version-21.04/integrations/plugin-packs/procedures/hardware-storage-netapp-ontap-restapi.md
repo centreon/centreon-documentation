@@ -89,7 +89,7 @@ Un compte en lecture est requis (user/password).
 ## Installation
 
 <Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<TabItem value="online" label="Online License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources NetApp Ontap:
 
@@ -100,7 +100,7 @@ yum install centreon-plugin-Hardware-Storage-Netapp-Ontap-Restapi
 2. Depuis l'interface Web de Centreon, installer le Plugin-Pack *NetApp Ontap Rest API* depuis la page "Configuration > Plugin Packs > Manager"
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="offline" label="Offline License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources NetApp Ontap:
 

@@ -156,7 +156,7 @@ La communication doit être possible sur le port UDP 161 depuis le collecteur Ce
 ## Installation
 
 <Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<TabItem value="online" label="Online License">
 
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des serveurs Linux:
 
@@ -167,7 +167,7 @@ yum install centreon-plugin-Operatingsystems-Linux-Snmp
 2. Installer le Plugin-Pack 'Linux SNMP' depuis la page "Configuration > Plugin packs > Manager" sur l'interface Web de Centreon.
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="offline" label="Offline License">
 
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des serveurs Linux:
 

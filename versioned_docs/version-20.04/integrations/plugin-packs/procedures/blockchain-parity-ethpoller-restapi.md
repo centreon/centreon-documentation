@@ -69,7 +69,7 @@ To get data from the API, the Poller must be able to communicate with it over th
 ## Setup
 
 <Tabs groupId="licence-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<TabItem value="online" label="Online License">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor *Parity or Hyperledger* blockchains:
 
@@ -80,7 +80,7 @@ yum install centreon-plugin-Blockchain-Parity-Ethpoller-Restapi
 2. On the Centreon Web interface, install the *Ethpoller API* Centreon Plugin Pack on the "Configuration > Plugin Packs" page
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="offline" label="Offline License">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor *Parity or Hyperledger* blockchains:
 

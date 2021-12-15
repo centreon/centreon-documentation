@@ -84,7 +84,7 @@ how-to below. Keep it safe until including it in the Autodiscovery job settings 
 ## Setup
 
 <Tabs groupId="licence-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<TabItem value="online" label="Online License">
 
 1. Install the Plugin on every Centreon Poller expected to discover Azure resources:
 
@@ -97,7 +97,7 @@ You'll be prompted to install several other Azure Plugin Packs as dependencies (
 on the discovered elements).
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="offline" label="Offline License">
 
 1. Install the Plugin on every Centreon Poller expected to discover Azure resources:
 

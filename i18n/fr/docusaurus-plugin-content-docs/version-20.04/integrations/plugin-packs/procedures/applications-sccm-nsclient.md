@@ -56,7 +56,7 @@ Rendez-vous sur la documentation associée pour plus d'informations sur l'agent 
 ## Installation
 
 <Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<TabItem value="online" label="Online License">
 
 1. Selon la méthode de supervision choisie (NRPE ou RestAPI), installer le Plugin dédié sur chaque collecteur Centreon devant
 superviser les ressources *Microsoft SCCM* via l'agent *centreon-nsclient*:
@@ -77,7 +77,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 depuis la page "Configuration > Plugin Packs > Gestionnaire"
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="offline" label="Offline License">
 
 1. Selon la méthode de supervision choisie (NRPE ou RestAPI), installer le Plugin dédié sur chaque collecteur Centreon devant
 superviser les ressources *Microsoft SCCM* via l'agent *centreon-nsclient*:

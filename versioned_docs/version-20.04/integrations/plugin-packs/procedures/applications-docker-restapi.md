@@ -72,7 +72,7 @@ ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
 ## Installation
 
 <Tabs groupId="licence-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<TabItem value="online" label="Online License">
 
 1. Install the plugin on every poller expected to monitor Docker resources:
 
@@ -83,7 +83,7 @@ yum install centreon-plugin-Applications-Docker-Restapi
 2. Install the "Docker-Restapi" Centreon Plugin-Pack from the "Configuration > Plugin packs > Manager" page
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="offline" label="Offline License">
 
 1. Install the plugin on every poller expected to monitor Docker resources:
 

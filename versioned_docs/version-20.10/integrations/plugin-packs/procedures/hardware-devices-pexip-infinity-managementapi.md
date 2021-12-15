@@ -56,7 +56,7 @@ More information is available on the official documentation of Pexip Infinity Ma
 ## Setup
 
 <Tabs groupId="licence-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<TabItem value="online" label="Online License">
 
 1. Install the Centreon Plugin on every poller monitoring Pexip Infinity ManagementAPI resources:
 
@@ -67,7 +67,7 @@ yum install centreon-plugin-Hardware-Devices-Pexip-Infinity-Managementapi.noarch
 2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Pexip Infinity ManagementAPI* Plugin-Pack
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="offline" label="Offline License">
 
 1. Install the Centreon Plugin on every poller monitoring Pexip Infinity ManagementAPI resources:
 

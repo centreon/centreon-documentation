@@ -148,7 +148,7 @@ yum install awscli
 ## Installation
 
 <Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<TabItem value="online" label="Online License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources AWS/EC2:
 
@@ -159,7 +159,7 @@ yum install centreon-plugin-Cloud-Aws-Ec2-Api
 2. Dans l'interface Centreon, installer le Plugin-Pack 'Amazon EC2' depuis la page "Configuration > Plugin Packs > Manager"
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="offline" label="Offline License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources AWS/EC2:
 

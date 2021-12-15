@@ -14,7 +14,7 @@ d'InfluxData, InfluxDB, et Google Cloud Platform.
 ## Installation
 
 <Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<TabItem value="online" label="Online License">
 
 1.  Installer le code du connecteur sur l'ensemble des collecteurs récupérant
 des openmetrics :
@@ -26,7 +26,7 @@ yum install centreon-plugin-Applications-Monitoring-Openmetrics
 2.  Installer le pack depuis la page `Configuration > Plugin Packs`.
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="offline" label="Offline License">
 
 1.  Installer le code du connecteur sur l'ensemble des collecteurs récupérant
 des openmetrics :

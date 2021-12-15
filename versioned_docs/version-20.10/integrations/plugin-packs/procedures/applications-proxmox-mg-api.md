@@ -49,7 +49,7 @@ E.g: https://pmg.proxmox.com/pmg-docs/api-viewer/index
 ## Setup
 
 <Tabs groupId="licence-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<TabItem value="online" label="Online License">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -60,7 +60,7 @@ yum install centreon-plugin-Applications-Proxmox-Mg-Api
 2. On the Centreon Web interface in "Configuration > Plugin Packs > Manager", install the *Proxmox Mail Gateway* Plugin Pack
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="offline" label="Offline License">
 
 1. Install the Centreon Plugin on every Poller:
 

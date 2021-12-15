@@ -84,7 +84,7 @@ http://<nginx_address>/nginx_status
 ## Installation
 
 <Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<TabItem value="online" label="Online License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des serveurs Nginx:
 
@@ -95,7 +95,7 @@ yum install centreon-plugin-Applications-Webservers-Nginx-Serverstatus
 2. Sur l'interface Web de Centreon, installer le Plugin Pack *Nginx Server* depuis la page "Configuration > Plugin Packs > Manager"
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="offline" label="Offline License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des serveurs Nginx:
 

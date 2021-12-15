@@ -63,7 +63,7 @@ Cet utilisateur doit avoir au moins un accès "en lecture seule" à la baie de s
 ## Installation
 
 <Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<TabItem value="online" label="Online License">
 
 1. Installer le code du connecteur sur l'ensemble des collecteurs supervisant des ressources de Pure Storage:
 
@@ -74,7 +74,7 @@ yum install centreon-plugin-Hardware-Storage-Purestorage-Restapi
 2. Installer le pack depuis la page "Configuration > Plugin packs > Manager":
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="offline" label="Offline License">
 
 1. Installer le code du connecteur sur l'ensemble des collecteurs supervisant des ressources de Pure Storage:
 

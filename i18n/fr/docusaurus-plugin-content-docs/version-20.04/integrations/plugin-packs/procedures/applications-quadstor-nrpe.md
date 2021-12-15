@@ -71,7 +71,7 @@ Modifying it might open serious security hole and RCE exploitation from an attac
 ## Installation
 
 <Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<TabItem value="online" label="Online License">
 
 1. Install the Centreon NRPE Client package on every poller expected to monitor *Quadstor*:
 
@@ -83,7 +83,7 @@ yum install centreon-nrpe3-plugin
 from the **Configuration > Plugin Packs > Manager** page
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="offline" label="Offline License">
 
 1. Install the Centreon Plugin package on every Poller expected to monitor *Quadstor*:
 

@@ -155,7 +155,7 @@ yum install awscli
 ## Setup
 
 <Tabs groupId="licence-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<TabItem value="online" label="Online License">
 
 1. Install the Centreon Plugin package on every poller expected to monitor Amazon RDS ressources:
 
@@ -166,7 +166,7 @@ yum install centreon-plugin-Cloud-Aws-Rds-Api
 2. Install the monitoring templates from the Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="offline" label="Offline License">
 
 1. Install the Centreon Plugin package on every poller expected to monitor Amazon RDS ressources:
 

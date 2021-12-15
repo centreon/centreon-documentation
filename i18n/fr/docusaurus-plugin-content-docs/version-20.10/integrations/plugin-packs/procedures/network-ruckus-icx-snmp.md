@@ -77,7 +77,7 @@ Les collecteurs Centreon doivent pouvoir joindre le port UDP/161 SNMP de l'équi
 ## Installation
 
 <Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<TabItem value="online" label="Online License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des équipements Ruckus ICX:
 
@@ -88,7 +88,7 @@ yum install centreon-plugin-Network-Switch-Ruckus-Icx-Snmp
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Ruckus ICX* depuis la page "Configuration > Plugin packs > Manager"
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="offline" label="Offline License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des équipements Ruckus ICX:
 

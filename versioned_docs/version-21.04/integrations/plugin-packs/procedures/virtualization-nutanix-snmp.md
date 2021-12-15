@@ -134,7 +134,7 @@ The network flows should be allowed from the Centreon poller to the Nutanix appl
 ## Installation
 
 <Tabs groupId="licence-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<TabItem value="online" label="Online License">
 
 1. Install the Centreon Plugin on every poller expected to monitor Nutanix resources:
 
@@ -145,7 +145,7 @@ yum install centreon-plugin-Virtualization-Nutanix-Snmp
 2. Install the Nutanix plugin-pack on "Configuration > Plugin packs > Manager" Centreon Web UI page
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="offline" label="Offline License">
 
 1. Install the Centreon Plugin on every poller expected to monitor Nutanix resources:
 

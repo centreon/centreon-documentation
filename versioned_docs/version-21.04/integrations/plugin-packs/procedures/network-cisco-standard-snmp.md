@@ -140,7 +140,7 @@ Your centreon server must be able to reach the Cisco device over UDP/161 SNMP po
 ## Installation
 
 <Tabs groupId="licence-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<TabItem value="online" label="Online License">
 
 1. Install the Cisco SNMP Centreon Plugin on every poller expected to monitor Cisco devices:
 
@@ -151,7 +151,7 @@ yum install centreon-plugin-Network-Cisco-Standard-Snmp
 2. Install The 'Cisco-Standard-Snmp' Centreon Plugin-Pack from the "Configuration > Plugin packs > Manager" page
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="offline" label="Offline License">
 
 1. Install the Cisco SNMP Centreon Plugin on every poller expected to monitor Cisco devices:
 

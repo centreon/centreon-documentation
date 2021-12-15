@@ -138,7 +138,7 @@ yum install centreon-plugin-Operatingsystems-Linux-Snmp centreon-plugin-Applicat
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Centreon-HA* depuis la page "Configuration > Plugin Packs > Gestionnaire"
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="offline" label="Offline License">
 
 1. Installer le Plugin sur chaque collecteur Centreon devant superviser un cluster Centreon-HA :
 

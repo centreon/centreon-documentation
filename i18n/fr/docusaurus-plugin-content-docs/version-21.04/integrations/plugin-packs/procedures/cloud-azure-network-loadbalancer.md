@@ -188,7 +188,7 @@ accessTokens.json qui sera utilisé automatiquement par le Plugin.
 ## Installation
 
 <Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<TabItem value="online" label="Online License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des resources Azure Load Balancer:
 
@@ -199,7 +199,7 @@ yum install centreon-plugin-Cloud-Azure-Network-LoadBalancer-Api
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Azure Load Balancer* depuis la page "Configuration > Plugin packs > Manager"
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="offline" label="Offline License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des resources Azure Load Balancer:
 

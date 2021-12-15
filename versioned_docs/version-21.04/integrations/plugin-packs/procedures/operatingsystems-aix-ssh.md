@@ -96,7 +96,7 @@ After setting the Name, Alias, IP, and Host Template parameters, you need to set
 ## Setup
 
 <Tabs groupId="licence-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<TabItem value="online" label="Online License">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -107,7 +107,7 @@ yum install centreon-plugin-Operatingsystems-Aix-Local
 2. On the Centreon Web interface in "Configuration > Plugin Packs > Manager", install the *AIX SSH* Plugin-Pack
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="offline" label="Offline License">
 
 1. Install the Centreon Plugin on every Poller:
 

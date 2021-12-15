@@ -87,7 +87,7 @@ The remote user must have enough privileges to execute system commands.
 ## Setup
 
 <Tabs groupId="licence-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<TabItem value="online" label="Online License">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -98,7 +98,7 @@ yum install centreon-plugin-Network-Firewalls-Paloalto-Standard-Ssh
 2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Palo Alto firewall SSH* Plugin-Pack
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="offline" label="Offline License">
 
 1. Install the Centreon Plugin on every Poller:
 

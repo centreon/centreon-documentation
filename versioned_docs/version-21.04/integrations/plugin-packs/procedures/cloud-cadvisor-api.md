@@ -95,7 +95,7 @@ may be different on your setup.
 ## Installation
 
 <Tabs groupId="licence-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<TabItem value="online" label="Online License">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor containers with cAdvisor:
 
@@ -106,7 +106,7 @@ yum install centreon-plugin-Cloud-cAdvisor-Api
 2. On the Centreon Web interface, install the *cAdvisor API* Plugin Pack through the `Configuration > Plugin Packs > Manager` page.
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="offline" label="Offline License">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor containers with cAdvisor:
 

@@ -112,7 +112,7 @@ E.g: https://www.dell.com/support/manuals/fr-fr/powervault-me4024/me4_series_cli
 ## Setup
 
 <Tabs groupId="licence-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<TabItem value="online" label="Online License">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -123,7 +123,7 @@ yum install centreon-plugin-Hardware-Storage-Dell-Me4-Restapi
 2. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *Dell Me4 Rest API* Pack
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="offline" label="Offline License">
 
 1. Install the Centreon Plugin on every Poller:
 

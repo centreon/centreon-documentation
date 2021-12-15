@@ -94,7 +94,7 @@ https://docs.microsoft.com/en-us/office/office-365-management-api/get-started-wi
 ## Installation
 
 <Tabs groupId="licence-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<TabItem value="online" label="Online License">
 
 1. Install the Centreon Plugin package on every poller expected to monitor Office365 Teams:
 
@@ -105,7 +105,7 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Teams-Api
 2. On the Centreon Web interface, install the Centreon Plugin-Pack *Office365 Teams* from the "Configuration > Plugin Packs > Manager" page
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="offline" label="Offline License">
 
 1. Install the Centreon Plugin package on every poller expected to monitor Office365 Teams:
 

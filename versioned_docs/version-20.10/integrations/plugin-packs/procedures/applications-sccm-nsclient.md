@@ -60,7 +60,7 @@ of the agent can be found [here](../tutorials/centreon-nsclient-tutorial)
 ## Installation
 
 <Tabs groupId="licence-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<TabItem value="online" label="Online License">
 
 1. Depending on the monitoring method chosen (NRPE or RestAPI), install the relevant Centreon Plugin package on every Centreon
 Poller expected to monitor SCCM through *centreon-nsclient*:
@@ -80,7 +80,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 2. On the Centreon Web interface, install the *Microsoft SCCM* Centreon Pack from the **Configuration > Plugin Packs > Manager** page
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="offline" label="Offline License">
 
 1. Depending on the monitoring method chosen (NRPE or RestAPI), install the relevant Centreon Plugin package on every Centreon
 Poller expected to monitor SCCM through *centreon-nsclient*:

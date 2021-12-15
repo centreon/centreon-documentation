@@ -202,7 +202,7 @@ can use it.
 ## Setup
 
 <Tabs groupId="licence-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<TabItem value="online" label="Online License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor Azure Front Door resources:
 
@@ -213,7 +213,7 @@ yum install centreon-plugin-Cloud-Azure-Network-FrontDoor-Api
 2. On the Centreon Web interface, install the *Azure Front Door* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="offline" label="Offline License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor Azure Front Door resources:
 
