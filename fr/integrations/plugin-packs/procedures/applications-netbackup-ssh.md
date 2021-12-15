@@ -1,13 +1,7 @@
 ---
 id: applications-netbackup-ssh
-title: Netbackup SSH
+title: Symantec Netbackup SSH
 ---
-
-## Vue d'ensemble
-
-*Describe quickly what the brand the associated devices are*
-
-The Centreon Plugin Pack *Netbackup SSH* aims to collect...
 
 ## Contenu du Pack
 
