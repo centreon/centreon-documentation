@@ -28,7 +28,6 @@ It brings the following Service Templates:
 |:-----------------------------|:-------------------------|
 | App-Netbackup-Job-Per-Policy | Discovery Netbackup Jobs |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Collected metrics & status
 
