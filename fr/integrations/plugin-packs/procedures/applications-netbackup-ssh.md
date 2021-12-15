@@ -22,7 +22,6 @@ Il apporte les Modèles de Services suivants :
 
 ### Règles de découverte
 
-<!--DOCUSAURUS_CODE_TABS-->
 
 | Rule name                    | Description                    |
 |:-----------------------------|:-------------------------------|
