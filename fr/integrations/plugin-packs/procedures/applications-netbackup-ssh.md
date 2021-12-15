@@ -27,7 +27,6 @@ Il apporte les Modèles de Services suivants :
 |:-----------------------------|:-------------------------------|
 | App-Netbackup-Job-Per-Policy | Découverte des Jobs            |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Collected metrics & status
 
