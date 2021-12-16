@@ -26,7 +26,7 @@ Release date: `December 16, 2021`
 - Simple link can now be created between a container and a view
 - Map server now supports metrics label with '=' and white spaces
 - Non-conventional metric labels do not cause map server to crash anymore
-- Configuration file for centreon map server is not replaced during upgrade anymore
+- Configuration file for Centreon map server is not replaced during upgrade anymore
 
 #### Enhancements
 
