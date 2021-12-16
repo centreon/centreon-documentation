@@ -6,7 +6,7 @@ pipeline {
         steps {
           echo 'Using Yarn to install dependencies'
           sh 'cd .. && sudo npm cache clean -f && sudo npm install -g n && sudo n latest'
-          sh 'yarn --verbose'
+          sh 'yarn install --verbose'
         }
       }
       stage('Build documentation') {
