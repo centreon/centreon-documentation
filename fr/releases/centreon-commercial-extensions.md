@@ -26,7 +26,7 @@ Release date: `December 16, 2021`
 #### Bug fixes
 
 - Path to map server backup log file in cron is now correct
-- Simple link can now be created between a container and a view
+- A simple link can now be created between a container and a view
 
 #### Security fixes
 
