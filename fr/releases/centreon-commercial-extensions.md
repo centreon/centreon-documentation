@@ -25,7 +25,7 @@ Release date: `December 16, 2021`
 
 #### Bugfixes 
 
-- A simple link can now be created between a container and a view
+- A simple link can now be created between a container and a view through API
 
 #### Enhancements
 
