@@ -3,8 +3,6 @@ id: sc-hp-bsm
 title: BSM
 ---
 
-> Hello community! We're looking for a contributor to help us to translate the content in french. If it's you, let us know and ping us on [slack](https://centreon.slack.com).
-
 ## Before starting
 
 - You can send events from a central server, a remote server or a poller.
