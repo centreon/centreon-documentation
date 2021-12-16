@@ -7,7 +7,7 @@ title: Nmap CLI Discovery
 
 Ce Pack fournit exclusivement une règle de découverte d'Hôte. 
 
-A l'aide du provider *Nmap Discovery* vous pouvez facilement découvrir les Hôtes au 
+À l'aide du fournisseur **Nmap Discovery** vous pouvez facilement découvrir les Hôtes au 
 sein de sous-réseaux donnés. 
 
 Plusieurs articles existent pour vous aider dans cette démarche: 

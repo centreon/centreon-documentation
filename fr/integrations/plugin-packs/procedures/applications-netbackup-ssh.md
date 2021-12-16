@@ -88,9 +88,11 @@ s'authentifier et exécuter les requêtes SSH.
 
 Deux méthodes de connexion SSH sont possibles:
 * soit en échangeant la clé SSH publique de l'utilisateur `centreon-engine` du collecteur Centreon
-* soit en définissant votre utilisateur et votre mot de passe directement dans les Macros d'Hôtes.## Installation
+* soit en définissant votre utilisateur et votre mot de passe directement dans les Macros d'Hôtes.
 
-L'utilisateur distant doit pouvoir executer des commandes sytèmes. 
+## Installation
+
+L'utilisateur distant doit pouvoir exécuter des commandes système. 
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -128,9 +130,9 @@ yum install centreon-pack-applications-netbackup-ssh
 ### Hôte
 
 * Ajoutez un Hôte à Centreon depuis la page **Configuration > Hôtes**.
-* Complétez les champs "Nom","Alias" & "IP Address / DNS" correspondant à votre serveur *Netbackup*
-* Appliquez le Modèle d'Hôte *applications-netbackup-ssh-custom* 
-* Une fois le modèle appliqué, les Macros ci-dessous indiquées comme requises(*Mandatory*) doivent être renseignées 
+* Complétez les champs "Nom","Alias" & "IP Address/DNS" correspondant à votre serveur *Netbackup*.
+* Appliquez le Modèle d'Hôte *applications-netbackup-ssh-custom*.
+* Une fois le modèle appliqué, les Macros ci-dessous indiquées comme requises(*Mandatory*) doivent être renseignées.
 
 > Il y a trois backends SSH disponibles pour établir la connexion au serveur distant, *sshcli*, *plink*, *libssh* (le plus performant).
 
@@ -141,12 +143,12 @@ yum install centreon-pack-applications-netbackup-ssh
 | Mandatory   | Name            | Description                                                                                     |
 | :---------- | :-------------- | :---------------------------------------------------------------------------------------------- |
 | X           | SSHBACKEND      | Nom du backend: ```sshcli```                                                                    |
-| X           | SSHUSERNAME     | Par default, il utilise l'utilisateur en cours d'exécution ```centengine``` de votre Collecteur |
-|             | SSHPASSWORD     | Ne peut pas être utilisé avec le backend. Seulement avec la clé d'authentication                |
+| X           | SSHUSERNAME     | Par défaut, il utilise l'utilisateur en cours d'exécution **centengine** de votre Collecteur |
+|             | SSHPASSWORD     | Ne peut pas être utilisé avec le backend. Seulement avec la clé d'authentification                |
 |             | SSHPORT         | Par default: 22                                                                                 |
 |             | SSHEXTRAOPTIONS | Personnalisez-le avec le vôtre si nécessaire. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```      |
 
-:warning: Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur _centreon-engine_ du Collecteur
+> Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur **centreon-engine** du Collecteur
 et l'utilisateur applicatif créé sur le serveur distant. (Macro SSHUSERNAME).
 
 <!--plink backend-->
@@ -154,12 +156,12 @@ et l'utilisateur applicatif créé sur le serveur distant. (Macro SSHUSERNAME).
 | Mandatory   | Name            | Description                                                                                     |
 | :---------- | :-------------- | :---------------------------------------------------------------------------------------------- |
 | X           | SSHBACKEND      | Nom du backend: ```plink```                                                                     |
-| X           | SSHUSERNAME     | Par default, il utilise l'utilisateur en cours d'exécution ```centengine``` de votre Collecteur |
+| X           | SSHUSERNAME     | Par défaut, il utilise l'utilisateur en cours d'exécution **centengine** de votre Collecteur |
 |             | SSHPASSWORD     | Peut être utilisé. Si aucune valeur n'est définie, l'authentification par clé ssh est utilisée  |
 |             | SSHPORT         | Par default: 22                                                                                 |
 |             | SSHEXTRAOPTIONS | Personnalisez-le avec le vôtre si nécessaire. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```      |
 
-:warning: Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur _centreon-engine_ du Collecteur
+> Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur **centreon-engine** du Collecteur
 et l'utilisateur applicatif créé sur le serveur distant. (Macro SSHUSERNAME).
 
 <!--libssh backend (par défaut)-->
@@ -167,16 +169,16 @@ et l'utilisateur applicatif créé sur le serveur distant. (Macro SSHUSERNAME).
 | Mandatory   | Name            | Description                                                                                     |
 | :---------- | :-------------- | :---------------------------------------------------------------------------------------------- |
 | X           | SSHBACKEND      | Nom du backend: ```libssh```                                                                    |
-|             | SSHUSERNAME     | Par default, il utilise l'utilisateur en cours d'exécution ```centengine``` de votre Collecteur |
+|             | SSHUSERNAME     | Par défaut, il utilise l'utilisateur en cours d'exécution **centengine** de votre Collecteur |
 |             | SSHPASSWORD     | Peut être utilisé. Si aucune valeur n'est définie, l'authentification par clé ssh est utilisée  |
-|             | SSHPORT         | Par default: 22                                                                                 |
+|             | SSHPORT         | Par défaut: 22                                                                                 |
 |             | SSHEXTRAOPTIONS | Personnalisez-le avec le vôtre si nécessaire. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```      |
 
-Avec ce backend, vous n'avez pas à valider manuellement le fingerprint du serveur cible. 
+Avec ce backend, vous n'avez pas à valider manuellement l'empreinte du serveur cible. 
 
 ## Comment puis-je tester le Plugin et que signifient les options des commandes ?
 
-Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande depuis votre Collecteur Centreon avec l'utilisateur *centreon-engine*
+Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande depuis votre Collecteur Centreon avec l'utilisateur **centreon-engine**
 
 ```bash
 /usr/lib/centreon/plugins/centreon_netbackup_ssh.pl \
@@ -190,13 +192,13 @@ Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne d
     --verbose
 ```
 
-La commande ci-dessus contrôle le status des tâches Symantec Netbackup (```--mode=job-status```).
-Le Plugin utilise le Backend _sshcli_ (```--ssh-backend='sshcli'```) avec l'utisateur _centreon_ (```--ssh-username=centreon```), 
-son mot de passe (```--ssh-password='centreon-password'```) et il se connecte à l'hôte _10.30.2.81_ (```--hostname='10.30.2.81'```).
+La commande ci-dessus contrôle le statut des tâches Symantec Netbackup (`--mode=job-status`).
+Le Plugin utilise le Backend **sshcli** (`--ssh-backend='sshcli'`) avec l'utilisateur **centreon** (`--ssh-username=centreon`), 
+son mot de passe (`--ssh-password='centreon-password'`) et il se connecte à l'hôte **10.30.2.81** (`--hostname='10.30.2.81'`).
 
 Une alerte sera remontée si un job donné n'est pas dans un statut 'up'. 
 
-Toutes les options et leur utilisation peuvent être consultées avec le paramètre ```--help``` ajouté à la commande :
+Toutes les options et leur utilisation peuvent être consultées avec le paramètre **--help** ajouté à la commande :
 
 ```bash
 /usr/lib/centreon/plugins/centreon_netbackup_ssh.pl \
@@ -207,5 +209,5 @@ Toutes les options et leur utilisation peuvent être consultées avec le paramè
 
 ### Diagnostic des erreurs communes
 
-Rendez-vous sur la [documentation dédiée](../tutorials/troubleshooting-plugins.md#ssh-and-cli-checks)
-pour le diagnostique des erreurs commununes des Plugins Centreon.
+Rendez-vous sur la [documentation dédiée](../tutorials/troubleshooting-plugins.html#ssh-and-cli-checks)
+pour le diagnostic des erreurs communes des Plugins Centreon.

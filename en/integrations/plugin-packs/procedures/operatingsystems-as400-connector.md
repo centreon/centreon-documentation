@@ -7,7 +7,7 @@ title: IBM AS400 Connector
 
 ### Templates
 
-The Centreon Plugin Pack IBM AS400 Connector brings 1 host template :
+The Centreon Plugin Pack IBM AS400 Connector brings 1 host template:
 * OS-AS400-Connector-custom
 
 It brings the following Service Templates:
@@ -164,7 +164,7 @@ A connector can act as a boilerplate between several Hosts and several AS400 sys
 yum install centreon-plugin-Operatingsystems-AS400-Connector
 ```
 
-2. On the Centreon Web interface, install the *IBM AS400 Connector* Centreon Plugin Pack on the **Configuration > Plugin Packs** page
+2. On the Centreon Web interface, install the *IBM AS400 Connector* Centreon Plugin Pack on the **Configuration > Plugin Packs** page:
 
 <!--Offline IMP License-->
 
@@ -180,7 +180,7 @@ yum install centreon-plugin-Operatingsystems-AS400-Connector
 yum install centreon-pack-operatingsystems-as400-connector
 ```
 
-3. On the Centreon Web interface, install the *IBM AS400 Connector* Centreon Plugin Pack on the **Configuration > Plugin Packs** page
+3. On the Centreon Web interface, install the *IBM AS400 Connector* Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -204,8 +204,8 @@ yum install centreon-pack-operatingsystems-as400-connector
 
 ## How to check in the CLI that the configuration is OK and what are the main options for ? 
 
-Once the plugin installed, log into your Centreon Poller CLI using the 
-*centreon-engine* user account and test the Plugin by running the following 
+Once the plugin is installed, log into your Centreon Poller CLI using the 
+**centreon-engine** user account and test the Plugin by running the following 
 command:
 
 ```bash
@@ -220,7 +220,7 @@ command:
     --verbose
 ```
 
-Expected command output is shown below:
+The expected command output is shown below:
 
 ```bash
 OK: Job queues total: 2 - All job queues are ok | 'jobqueues.total.count'=2;;;0; 'QGPL~QBASE#jobqueue.jobs.active.count'=0;;;0; 'QGPL~QBASE#jobqueue.jobs.scheduled.count'=0;;;0; 'QGPL~QBASE#jobqueue.jobs.held.count'=0;;;0; 'QGPL~QPGMR#jobqueue.jobs.active.count'=0;;;0; 'QGPL~QPGMR#jobqueue.jobs.scheduled.count'=0;;;0; 'QGPL~QPGMR#jobqueue.jobs.held.count'=0;;;0;

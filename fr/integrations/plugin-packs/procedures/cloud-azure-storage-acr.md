@@ -22,7 +22,7 @@ Il est possible d'utiliser les 2 modes de connexion aux API Azure proposés par 
 
 ### Règles de découverte
 
-Le Plugin-Pack Centreon *Azure Container Registry* inclut un *provider* de découverte
+Le Plugin-Pack Centreon *Azure Container Registry* inclut un fournisseur de découverte
 d'Hôtes nommé **Microsoft Azure Container Registry**. Celui-ci permet de découvrir l'ensemble des instances
 rattachées à une *souscription* Microsoft Azure donnée:
 
@@ -101,7 +101,7 @@ dans Centreon.
 	- Click on *Save*.
 	- **Copy and store the key value. You won't be able to retrieve it after you leave this page.**
 
-Please make sure to **assign the Monitoring Reader** role to the application.
+Please make sure to assign the **Monitoring Reader** role to the application.
 
 <!--Azure AZ CLI-->
 
@@ -111,7 +111,7 @@ devant superviser des resources Azure:
 - La CLI requiert une version de Python >= 2.7 (<https://github.com/Azure/azure-cli/blob/dev/doc/install_linux_prerequisites.md>)
 
 Sur un système utilisant le packaging RPM, utilisez les commandes ci-dessous avec
-l'utilisateur *root* ou un utilisateur avec les droits 'sudo' adéquats:
+l'utilisateur **root** ou un utilisateur avec les droits **sudo** adéquats:
 
 ```shell
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
@@ -132,7 +132,7 @@ La commande retourne le message ci-dessous contenant un code:
 	*To sign in, use a web browser to open the page https://microsoft.com/devicelogin*
 	*and enter the code CWT4WQZAD to authenticate.*
 
-Rendez-vous sur <https://microsoft.com/devicelogin> afin de saisir le code obtenu, puis connectez vous avec le compte de service dédié à la supervision.
+Rendez-vous sur <https://microsoft.com/devicelogin> afin de saisir le code obtenu, puis connectez-vous avec le compte de service dédié à la supervision.
 
 Une fois ces actions effectuées, des informations d'auhtentification de la forme suivante devraient s'afficher dans le terminal
 du collecteur Centreon: 
@@ -155,7 +155,7 @@ du collecteur Centreon:
 ```
 
 Vous avez désormais les informations stockées localement dans un fichier
-accessTokens.json qui sera utilisé automatiquement par le Plugin.
+**accessTokens.json** qui sera utilisé automatiquement par le Plugin.
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -194,8 +194,8 @@ yum install centreon-pack-cloud-azure-storage-acr.noarch
 
 ### Hôte
 
-* Ajoutez un Hôte à Centreon, remplissez le champ *Adresse IP/DNS* avec l'adresse 127.0.0.1 
-et appliquez-lui le Modèle d'Hôte *Cloud-Azure-Storage-ContainerRegistry-custom*.
+* Ajoutez un Hôte à Centreon, remplissez le champ **Adresse IP/DNS** avec l'adresse 127.0.0.1 
+et appliquez-lui le Modèle d'Hôte **Cloud-Azure-Storage-ContainerRegistry-custom**.
 * Une fois le modèle appliqué, les Macros ci-dessous indiquées comme requises (*Mandatory*) 
 doivent être renseignées selon le *custom mode* utilisé.
 

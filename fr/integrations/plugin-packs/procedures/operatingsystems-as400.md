@@ -7,4 +7,4 @@ title: IBM AS400
 
 This Pack has been deprecated and replaced by "IBM AS400 Connector". 
 
-Refer to [this procedure](operatingsystems-as400-connector.html)
+Refer to [this procedure](operatingsystems-as400-connector.html).

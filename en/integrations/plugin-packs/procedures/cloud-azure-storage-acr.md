@@ -20,7 +20,7 @@ Available indicators and metrics:
 
 ### Discovery rules
 
-The Centreon Pack *Azure Container Registry* includes a Host Discovery *provider* to automatically discover the Azure instances of a given
+The Centreon Pack *Azure Container Registry* includes a Host Discovery provider to automatically discover the Azure instances of a given
 subscription and add them to the Centreon configuration.
 This provider is named **Microsoft Azure Container Registry**:
 
@@ -44,13 +44,13 @@ More information about the Host Discovery module is available in the Centreon do
 
 ## Prerequisites
 
-To get data from Azure Services, following methods are available:
+To get data from Azure Services, the following methods are available:
     * Azure API ('api') 
     * Azure CLI ('azcli')
 
 Centreon recommends to use the API instead of the CLI for the following reasons:
-    * API is much more efficient by avoiding CLI binary execution
-    * API supports application authentication while CLI does not (yet)
+    * the API is much more efficient because it avoids CLI binary execution
+    * the API supports application authentication while CLI does not (yet)
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -64,7 +64,7 @@ how-to below. Keep it safe until including it in a Host or Host Template definit
     - Select *Azure Active directory* in the left sidebar.
     - Click on *App registrations*.
     - Click on *+ Add*.
-    - Enter Centreon as the application name (or any name of your choice), select application type(api) and sign-on-url.
+    - Enter Centreon as the application name (or any name of your choice), select application type (api) and sign-on-url.
     - Click on the *Create* button.
 
 * Get *Subscription ID*
@@ -72,13 +72,13 @@ how-to below. Keep it safe until including it in a Host or Host Template definit
     - Select *Subscriptions* in the left sidebar.
     - Select whichever subscription is needed.
     - Click on *Overview*.
-    - **Copy the Subscription ID.**
+    - Copy the Subscription ID.
 
 * Get *Tenant ID*
     - Log in to your Azure account.
     - Select *Azure Active directory* in the left sidebar.
     - Click on *Properties*.
-    - **Copy the directory ID.**
+    - Copy the directory ID.
 
 * Get *Client ID*
     - Log in to your Azure account.
@@ -87,7 +87,7 @@ how-to below. Keep it safe until including it in a Host or Host Template definit
     - Click on *All applications*.
     - Select the application previously created.
     - Click on *Properties*.
-    - **Copy the Application ID.**
+    - Copy the Application ID.
 
 * Get *Client secret*
     - Log in to your Azure account.
@@ -98,9 +98,9 @@ how-to below. Keep it safe until including it in a Host or Host Template definit
     - Click on *Keys*.
     - Enter the key description and select the duration.
     - Click on *Save*.
-    - **Copy and store the key value. You won't be able to retrieve it after you leave this page.**
+    - Copy and store the key value. **You won't be able to retrieve it after you leave this page.**
 
-Please make sure to **assign the Monitoring Reader** role to the application.
+Please make sure to assign the **Monitoring Reader** role to the application.
 
 <!--Azure AZ CLI-->
 
@@ -118,7 +118,7 @@ sudo echo -e "[azure-cli]\nname=Azure CLI\nbaseurl=https://packages.microsoft.co
 sudo yum install azure-cli
 ```
 
-Then, use the *centreon-engine* account to obtain a token using command below: 
+Then, use the **centreon-engine** account to obtain a token using the command below: 
 
 ```shell
 su - centreon-engine
@@ -132,8 +132,8 @@ The shell will output this message including an authentication code:
 
 Go to <https://microsoft.com/devicelogin> and enter the code. 
 
-Connect using a monitoring service account, as a result, the shell should prompt
-information below:
+Connect using a monitoring service account. As a result, the shell should give you
+the following information:
 
 ```shell
     [
@@ -152,7 +152,7 @@ information below:
     ]
 ```
 
-Credentials are now stored locally in the .accessTokens.json file so the Plugin 
+Credentials are now stored locally in the **.accessTokens.json** file so the Plugin 
 can use it. 
 
 <!--END_DOCUSAURUS_CODE_TABS-->
@@ -169,7 +169,7 @@ can use it.
 yum install centreon-plugin-Cloud-Azure-Storage-ContainerRegistry-Api
 ```
 
-2. On the Centreon Web interface, install the *Azure Container Registry* Pack on the **Configuration > Plugin Packs > Manager** page
+2. On the Centreon Web interface, install the *Azure Container Registry* Pack on the **Configuration > Plugin Packs > Manager** page.
 
 <!--Offline IMP License-->
 
@@ -232,7 +232,7 @@ in *AZURERESOURCE*
 
 ## How to check in the CLI that the configuration is OK and what are the main options for ?
 
-Once the Plugin installed, log into your Centreon Poller CLI using the *centreon-engine* 
+Once the Plugin is installed, log into your Centreon Poller CLI using the **centreon-engine** 
 user account (`su - centreon-engine`) and test the Plugin by running the following command:
 
 ```bash
