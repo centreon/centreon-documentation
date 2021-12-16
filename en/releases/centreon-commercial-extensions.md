@@ -19,6 +19,19 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon MAP
 
+### 21.04.3
+
+Release date: `December 16, 2021`
+
+#### Bug fixes
+
+- Path to map server backup log file in cron is now correct
+- Simple link can now be created between a container and a view
+
+#### Security fixes
+
+- Log4J version updated to 2.16.0
+
 ### 21.04.2
 
 `November 25, 2021`
