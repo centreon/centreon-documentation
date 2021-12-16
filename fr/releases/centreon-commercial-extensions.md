@@ -15,6 +15,27 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 ## Centreon MAP
 
+### 21.10.1
+
+Release date: `December 16, 2021`
+
+#### Bug fixes
+
+- Path to map server backup log file in cron is now correct
+- A simple link can now be created between a container and a view through API
+- Map server now supports metrics label with '=' and white spaces
+- Non-conventional metric labels do not cause map server to crash anymore
+- Configuration file for Centreon map server is not replaced during upgrade anymore
+
+#### Enhancements
+
+- Logs are now using a new format to make them easier to read
+- Map server now handles perfdata with multiple white spaces
+
+#### Security fixes
+
+- Log4J version updated to 2.16.0
+
 ### 21.10.0
 
 - Compatibility with other 21.10 components.
