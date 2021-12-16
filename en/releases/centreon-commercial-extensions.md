@@ -29,7 +29,7 @@ Release date: `December 16, 2021`
 
 #### Enhancements
 
-- All images are now stored on Centreon Central server
+- All images are now stored on the Centreon Central server
 - All images uploaded to Centreon Map Desktop are not stored on Centreon Central server
 
 #### Security fixes
