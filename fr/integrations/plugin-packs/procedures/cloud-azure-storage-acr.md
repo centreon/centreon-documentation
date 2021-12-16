@@ -267,7 +267,7 @@ La commande ci-dessus vérifie l'état du stockage dédié à l'instance *Contai
 Le mode de connexion utilisé est 'api' (`--custommode=api`), les paramètres d'authentification nécessaires à l'utilisation de ce mode
 sont donc renseignés en fonction (`--subscription='xxxxxxxxx' --tenant='xxxxxxx' --client-id='xxxxxxxx' --client-secret='xxxxxxxxxx'`).
 
-Les statuts caculés se baseront sur les valeurs totales d'un unique échantillon dans un intervalle d'une heure / 3600 secondes
+Les valeurs obtenus sont le résultat de la récupération d'un point unique sur une période d'une heure / 3600 secondes.
 (`--timeframe='3600' --interval='PT1H'`).
 
 Dans cet exemple, une alarme de type WARNING sera le stockage utilisé est supérieur à 80GB (`--warning-storage-used='80000000000'`);

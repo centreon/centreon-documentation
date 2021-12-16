@@ -3,8 +3,8 @@ id: operatingsystems-as400
 title: IBM AS400
 ---
 
-## **WARNING** This Pack is deprecated
+## **ATTENTION** Ce Pack est déprécié
 
-This Pack has been deprecated and replaced by "IBM AS400 Connector". 
+Ce Pack a été déprécié au profit du Pack "IBM AS400 Connector".
 
-Refer to [this procedure](operatingsystems-as400-connector.html).
+Référez vous à [cette procedure](operatingsystems-as400-connector.html).

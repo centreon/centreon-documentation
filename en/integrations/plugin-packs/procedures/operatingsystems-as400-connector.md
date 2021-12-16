@@ -25,12 +25,10 @@ It brings the following Service Templates:
 
 ### Discovery rules
 
-
-| Rule name                         | Description |
-|:----------------------------------|:------------|
-| OS-AS400-Connector-SubSystem-Name |             |
-| OS-AS400-Connector-Disk-Name      |             |
-
+| Rule name                         | Description                        |
+|:----------------------------------|:-----------------------------------|
+| OS-AS400-Connector-SubSystem-Name | Discover Subsystems and libraries  |
+| OS-AS400-Connector-Disk-Name      | Discover disks                     |
 
 ### Collected metrics & status
 

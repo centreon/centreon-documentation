@@ -76,10 +76,6 @@ Il apporte les Modèles de Services suivants :
 
 ## Prérequis
 
-*Specify prerequisites that are relevant. You may want to just provide a link to
-the manufacturer official documentation BUT you should try to be as complete as
-possible here as it will save time to everybody*
-
 ### Configuration SSH
 
 L'utilisation de ce Plugin Pack requiert la création d'un utilisateur sur le

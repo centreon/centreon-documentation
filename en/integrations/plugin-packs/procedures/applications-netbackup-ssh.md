@@ -22,11 +22,9 @@ It brings the following Service Templates:
 
 ### Discovery rules
 
-
 | Rule name                    | Description              |
 |:-----------------------------|:-------------------------|
 | App-Netbackup-Job-Per-Policy | Discovery Netbackup Jobs |
-
 
 ### Collected metrics & status
 
