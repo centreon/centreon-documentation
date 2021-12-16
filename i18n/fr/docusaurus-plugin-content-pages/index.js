@@ -1,26 +1,28 @@
-import React from 'react';
-import clsx from 'clsx';
-import Layout from '@theme/Layout';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import styles from '/src/pages/index.module.css';
+import React from "react";
+import clsx from "clsx";
+import Layout from "@theme/Layout";
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
+import styles from "/src/pages/index.module.css";
 
-const basePathImg = '/img/homepage/';
+const basePathImg = "/img/homepage/";
 
 const links = {
   doc: {
-    api: 'docs/api/introduction',
-    gettingstarted: 'docs/getting-started/installation-first-steps',
-    pluginpacks: 'docs/integrations/plugin-packs/introduction',
-    prerequisite: 'docs/installation/prerequisites',
-    installation: 'docs/installation/introduction',
-    monitoring: 'docs/integrations/plugin-packs/introduction',
+    api: "docs/api/introduction",
+    gettingstarted: "docs/getting-started/installation-first-steps",
+    pluginpacks: "docs/integrations/plugin-packs/introduction",
+    prerequisite: "docs/installation/prerequisites",
+    installation: "docs/installation/introduction",
+    monitoring: "docs/integrations/plugin-packs/introduction",
   },
-  github: 'https://github.com/centreon/centreon/',
-  slack: 'https://centreon.github.io/register-slack/',
-  twitter: 'https://twitter.com/CentreonFR/',
-  linkedin: 'https://www.linkedin.com/company/merethis/',
-  contribute:'https://github.com/centreon/centreon/blob/master/CONTRIBUTING.md',
-  banner: 'https://events.centreon.com/centreon-summit-2021?utm_source=CentreonSummit_Website&utm_campaign=CentreonSummit2021',
+  github: "https://github.com/centreon/centreon/",
+  slack: "https://centreon.github.io/register-slack/",
+  twitter: "https://twitter.com/CentreonFR/",
+  linkedin: "https://www.linkedin.com/company/merethis/",
+  contribute:
+    "https://github.com/centreon/centreon/blob/master/CONTRIBUTING.md",
+  banner:
+    "https://events.centreon.com/centreon-summit-2021?utm_source=CentreonSummit_Website&utm_campaign=CentreonSummit2021",
 };
 
 const stringsAndParagraphs = {
@@ -56,13 +58,17 @@ const stringsAndParagraphs = {
     title: `Un coeur Open Source`,
     content: `Plébiscité par des centaines de milliers de professionnels de l’IT à travers le monde avec 6 000 téléchargements mensuels, Centreon est devenu le numéro 1 de la supervision open source en Europe.`,
     btnOpen: `Contribuez au projet Open Source`,
-  }
+  },
 };
 
 const Button = (props) => {
   return (
     <div>
-      <a className={clsx(styles.button, styles.buttonLink)} href={props.href} target={props.target}>
+      <a
+        className={clsx(styles.button, styles.buttonLink)}
+        href={props.href}
+        target={props.target}
+      >
         {props.label}
       </a>
     </div>
@@ -77,7 +83,7 @@ const Image = (props) => (
 
 const Card = (props) => {
   return (
-    <div className={clsx('cardContent', styles.cardContent)}>
+    <div className={clsx("cardContent", styles.cardContent)}>
       <Image imageSrc={props.imageSrc} />
       <Button href={props.btnLink} label={props.btnLabel} />
     </div>
@@ -87,23 +93,25 @@ const Card = (props) => {
 function ExcellenceBlock() {
   return (
     <header className={clsx(styles.heroBanner, styles.bgLightBlue)}>
-      <h1 className={clsx(styles.containerBlockh1)}>{stringsAndParagraphs.excellenceBlock.title}</h1>
+      <h1 className={clsx(styles.containerBlockh1)}>
+        {stringsAndParagraphs.excellenceBlock.title}
+      </h1>
       <p className={clsx(styles.subTitle)}>
         {stringsAndParagraphs.excellenceBlock.subTitle}
       </p>
       <div className={clsx(styles.cardBar)}>
         <Card
-          imageSrc={'icon-tutorial.svg'}
+          imageSrc={"icon-tutorial.svg"}
           btnLabel={stringsAndParagraphs.excellenceBlock.btnStart}
           btnLink={links.doc.gettingstarted}
         />
         <Card
-          imageSrc={'icon-install.svg'}
+          imageSrc={"icon-install.svg"}
           btnLabel={stringsAndParagraphs.excellenceBlock.btnPp}
           btnLink={links.doc.pluginpacks}
         />
         <Card
-          imageSrc={'icon-api.svg'}
+          imageSrc={"icon-api.svg"}
           btnLabel={stringsAndParagraphs.excellenceBlock.btnApi}
           btnLink={links.doc.api}
         />
@@ -116,8 +124,8 @@ function SummitBlock() {
   return (
     <div className={clsx(styles.bannerCustom)}>
       <div className={clsx(styles.bannerImage)}>
-        <a href={links.banner} target={'_blank'}>
-          <img src={basePathImg + 'summit-banner-fr.png'}/>
+        <a href={links.banner} target={"_blank"}>
+          <img src={basePathImg + "summit-banner-fr.png"} />
         </a>
       </div>
     </div>
@@ -126,9 +134,14 @@ function SummitBlock() {
 
 function PrerequisiteBlock() {
   return (
-    <div className={clsx(styles.mainContainer, styles.containerBlockPrerequisite)}>
+    <div
+      className={clsx(styles.mainContainer, styles.containerBlockPrerequisite)}
+    >
       <div>
-        <img className={clsx(styles.imageSectionPrerequisite)} src={basePathImg + 'image-prerequisite-block.svg'} />
+        <img
+          className={clsx(styles.imageSectionPrerequisite)}
+          src={basePathImg + "image-prerequisite-block.svg"}
+        />
       </div>
       <div className={clsx(styles.containerContentPrerequisite)}>
         <h2 className={clsx(styles.titleSection)}>
@@ -148,9 +161,18 @@ function PrerequisiteBlock() {
 
 function InstallationBlock() {
   return (
-    <div className={clsx(styles.mainContainer, styles.bgLightBlue, styles.containerBlockInstallation)}>
+    <div
+      className={clsx(
+        styles.mainContainer,
+        styles.bgLightBlue,
+        styles.containerBlockInstallation
+      )}
+    >
       <div>
-        <img className={clsx(styles.imageSectionInstallation)} src={basePathImg + 'image-installation-block.svg'} />
+        <img
+          className={clsx(styles.imageSectionInstallation)}
+          src={basePathImg + "image-installation-block.svg"}
+        />
       </div>
       <div className={clsx(styles.containerContentInstallation)}>
         <h2 className={clsx(styles.titleSection)}>
@@ -170,9 +192,14 @@ function InstallationBlock() {
 
 function MonitoringBlock() {
   return (
-    <div className={clsx(styles.mainContainer, styles.containerBlockMonitoring)}>
+    <div
+      className={clsx(styles.mainContainer, styles.containerBlockMonitoring)}
+    >
       <div>
-        <img className={clsx(styles.imageSectionMonitoring)} src={basePathImg + 'image-monitoring-block.svg'} />
+        <img
+          className={clsx(styles.imageSectionMonitoring)}
+          src={basePathImg + "image-monitoring-block.svg"}
+        />
       </div>
       <div className={clsx(styles.containerContentMonitoring)}>
         <h2 className={clsx(styles.titleSection)}>
@@ -192,30 +219,36 @@ function MonitoringBlock() {
 
 function CommunityBlock() {
   return (
-    <div className={clsx(styles.mainContainer, styles.borderTop, styles.containerBlock)}>
+    <div
+      className={clsx(
+        styles.mainContainer,
+        styles.borderTop,
+        styles.containerBlock
+      )}
+    >
       <h2 className={clsx(styles.titleSectionCommunity)}>
         {stringsAndParagraphs.communityBlock.title}
       </h2>
       <div className={clsx(styles.cardBar)}>
         <ul className={clsx(styles.socialSet)}>
-          <a href={links.slack} target={'_blank'}>
+          <a href={links.slack} target={"_blank"}>
             <li>
-            <img src={basePathImg + 'social-network/slack.svg'} />
+              <img src={basePathImg + "social-network/slack.svg"} />
             </li>
           </a>
-          <a href={links.github} target={'_blank'}>
+          <a href={links.github} target={"_blank"}>
             <li>
-            <img src={basePathImg + 'social-network/github.svg'} />
+              <img src={basePathImg + "social-network/github.svg"} />
             </li>
           </a>
-          <a href={links.twitter} target={'_blank'}>
+          <a href={links.twitter} target={"_blank"}>
             <li>
-            <img src={basePathImg + 'social-network/twitter.svg'} />
+              <img src={basePathImg + "social-network/twitter.svg"} />
             </li>
           </a>
-          <a href={links.linkedin} target={'_blank'}>
+          <a href={links.linkedin} target={"_blank"}>
             <li>
-            <img src={basePathImg + 'social-network/linkedin.svg'} />
+              <img src={basePathImg + "social-network/linkedin.svg"} />
             </li>
           </a>
         </ul>
@@ -226,7 +259,13 @@ function CommunityBlock() {
 
 function HeartOpenSourceBlock() {
   return (
-    <div className={clsx(styles.mainContainer, styles.containerBlock, styles.bgLightPurple)}>
+    <div
+      className={clsx(
+        styles.mainContainer,
+        styles.containerBlock,
+        styles.bgLightPurple
+      )}
+    >
       <div className={clsx(styles.containerContentOpenSource)}>
         <h2 className={clsx(styles.titleSectionOpenSource)}>
           {stringsAndParagraphs.heartOpenSourceBlock.title}
@@ -237,7 +276,7 @@ function HeartOpenSourceBlock() {
       </div>
       <div className={clsx(styles.cardBarOpenSource)}>
         <Card
-          imageSrc={'icon-openSource.svg'}
+          imageSrc={"icon-openSource.svg"}
           btnLabel={stringsAndParagraphs.heartOpenSourceBlock.btnOpen}
           btnLink={links.contribute}
         />
@@ -247,19 +286,20 @@ function HeartOpenSourceBlock() {
 }
 
 export default function Home() {
-  const {siteConfig} = useDocusaurusContext();
+  const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
       title={`Bienvenue dans la Documentation Centreon`}
-      description='La plateforme de supervision informatique orientée AIOps de Centreon offre une visibilité globale des workflows les plus complexes, du cloud jusqu’au Edge.'>
+      description="La plateforme de supervision informatique orientée AIOps de Centreon offre une visibilité globale des workflows les plus complexes, du cloud jusqu’au Edge."
+    >
       <main>
-      <ExcellenceBlock />
-      <SummitBlock />
-      <PrerequisiteBlock />
-      <InstallationBlock />
-      <MonitoringBlock />
-      <CommunityBlock />
-      <HeartOpenSourceBlock />
+        <ExcellenceBlock />
+        <SummitBlock />
+        <PrerequisiteBlock />
+        <InstallationBlock />
+        <MonitoringBlock />
+        <CommunityBlock />
+        <HeartOpenSourceBlock />
       </main>
     </Layout>
   );
