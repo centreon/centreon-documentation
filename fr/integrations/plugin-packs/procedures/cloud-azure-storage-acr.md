@@ -270,7 +270,7 @@ sont donc renseignés en fonction (`--subscription='xxxxxxxxx' --tenant='xxxxxxx
 Les valeurs obtenus sont le résultat de la récupération d'un point unique sur une période d'une heure / 3600 secondes.
 (`--timeframe='3600' --interval='PT1H'`).
 
-Dans cet exemple, une alarme de type WARNING sera le stockage utilisé est supérieur à 80GB (`--warning-storage-used='80000000000'`);
+Dans cet exemple, une alarme de type WARNING sera déclenchée lorsque le stockage utilisé est supérieur à 80GB (`--warning-storage-used='80000000000'`);
 l'alarme sera de type CRITICAL au-delà de 90GB d'utilisation (`--critical-storage-used='90000000000'`).
 
 La liste de toutes les options complémentaires et leur signification peut être affichée en ajoutant le paramètre `--help` à la commande:
