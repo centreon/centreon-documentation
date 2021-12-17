@@ -19,6 +19,23 @@ commerciales, veuillez contacter le support.
 
 ## Centreon MAP
 
+### 20.10.7
+
+Release date: `December 16, 2021`
+
+#### Bugfixes 
+
+- A simple link can now be created between a container and a view through API
+
+#### Enhancements
+
+- All images are now stored on the Centreon Central server
+- All images uploaded to Centreon Map Desktop are now stored on the Centreon Central server
+
+#### Security fixes
+
+- Log4J version updated to 2.16.0
+
 ### 20.10.6
 
 `November 25, 2021`
