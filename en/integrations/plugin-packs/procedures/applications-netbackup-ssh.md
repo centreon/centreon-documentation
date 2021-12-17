@@ -131,11 +131,11 @@ yum install centreon-pack-applications-netbackup-ssh
 
 | Mandatory   | Name            | Description                                                                                 |
 | :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
-| X           | SSHBACKEND      | Name of the backend: ```sshcli```                                                           |
-| X           | SSHUSERNAME     | By default, it uses the user running process ```centengine``` on your Poller                |
+| X           | SSHBACKEND      | Name of the backend: `sshcli`                                                               |
+| X           | SSHUSERNAME     | By default, it uses the user running process **centengine** on your Poller                  |
 |             | SSHPASSWORD     | Cannot be used with backend. Only ssh key authentication                                    |
 |             | SSHPORT         | By default: 22                                                                              |
-|             | SSHEXTRAOPTIONS | Customize it with your own if needed. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```          |
+|             | SSHEXTRAOPTIONS | Customize it with your own if needed. E.g.: `--ssh-priv-key=/user/.ssh/id_rsa`              |
 
 > With that backend, you have to validate the target server fingerprint manually (with the SSHUSERNAME used).
 
@@ -143,11 +143,11 @@ yum install centreon-pack-applications-netbackup-ssh
 
 | Mandatory   | Name            | Description                                                                                 |
 | :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
-| X           | SSHBACKEND      | Name of the backend: ```plink```                                                            |
-| X           | SSHUSERNAME     | By default, it uses the user running process ```centengine``` on your Poller                |
+| X           | SSHBACKEND      | Name of the backend: `plink`                                                                |
+| X           | SSHUSERNAME     | By default, it uses the user running process **centengine** on your Poller                  |
 |             | SSHPASSWORD     | Can be used. If not set, SSH key authentication is used                                     |
 |             | SSHPORT         | By default: 22                                                                              |
-|             | SSHEXTRAOPTIONS | Customize it with your own if needed. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```          |
+|             | SSHEXTRAOPTIONS | Customize it with your own if needed. E.g.: `--ssh-priv-key=/user/.ssh/id_rsa`              |
 
 > With that backend, you have to validate the target server fingerprint manually (with the SSHUSERNAME used).
 
@@ -155,11 +155,11 @@ yum install centreon-pack-applications-netbackup-ssh
 
 | Mandatory   | Name            | Description                                                                                 |
 | :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
-| X           | SSHBACKEND      | Name of the backend: ```libssh```                                                           |
-| X           | SSHUSERNAME     | By default, it uses the user running process ```centengine``` on your Poller                |
+| X           | SSHBACKEND      | Name of the backend: `libssh`                                                               |
+| X           | SSHUSERNAME     | By default, it uses the user running process **centengine** on your Poller                  |
 |             | SSHPASSWORD     | Can be used. If not set, SSH key authentication is used                                     |
 |             | SSHPORT         | By default: 22                                                                              |
-|             | SSHEXTRAOPTIONS | Customize it with your own if needed. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```          |
+|             | SSHEXTRAOPTIONS | Customize it with your own if needed. E.g.: `--ssh-priv-key=/user/.ssh/id_rsa`              |
 
 With that backend, you do not have to validate the target server fingerprint manually.
 
@@ -181,13 +181,13 @@ Once the Plugin is installed, log into your Poller using the **centreon-engine**
     --verbose
 ```
 
-The above command gets the state of the Symantec Netbackup jobs (```--mode=job-status```).
-It uses a SSH username _centreon_ (```--ssh-username=centreon```), a SSH password _centreon-password_ (```--ssh-password='centreon-password'```),
-uses a SSH backend _sshcli_ (```--ssh-backend='sshcli'```) and it connects to the host _10.30.2.81_ (```--hostname=10.30.2.81```).
+The above command gets the state of the Symantec Netbackup jobs (`--mode=job-status`).
+It uses a SSH username _centreon_ (`--ssh-username=centreon`), a SSH password _centreon-password_ (`--ssh-password='centreon-password'`),
+uses a SSH backend _sshcli_ (`--ssh-backend='sshcli'`) and it connects to the host _10.30.2.81_ (`--hostname=10.30.2.81`).
 
 This command will return a CRITICAL state if one of the jobs isn't in the 'up' status.
 
-All the options that can be used with this plugin can be found using the ```--help``` option:
+All the options that can be used with this plugin can be found using the `--help` option:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_netbackup_ssh.pl \

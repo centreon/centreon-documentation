@@ -138,11 +138,11 @@ yum install centreon-pack-applications-netbackup-ssh
 
 | Mandatory   | Name            | Description                                                                                     |
 | :---------- | :-------------- | :---------------------------------------------------------------------------------------------- |
-| X           | SSHBACKEND      | Nom du backend: ```sshcli```                                                                    |
-| X           | SSHUSERNAME     | Par défaut, il utilise l'utilisateur en cours d'exécution **centengine** de votre Collecteur |
-|             | SSHPASSWORD     | Ne peut pas être utilisé avec le backend. Seulement avec la clé d'authentification                |
-|             | SSHPORT         | Par default: 22                                                                                 |
-|             | SSHEXTRAOPTIONS | Personnalisez-le avec le vôtre si nécessaire. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```      |
+| X           | SSHBACKEND      | Nom du backend: `sshcli`                                                                        |
+| X           | SSHUSERNAME     | Par défaut, il utilise l'utilisateur en cours d'exécution **centengine** de votre Collecteur    |
+|             | SSHPASSWORD     | Ne peut pas être utilisé avec le backend. Seulement avec la clé d'authentification              |
+|             | SSHPORT         | Par défaut: 22                                                                                  |
+|             | SSHEXTRAOPTIONS | Personnalisez-le avec le vôtre si nécessaire. E.g.: `--ssh-priv-key=/user/.ssh/id_rsa`          |
 
 > Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur **centreon-engine** du Collecteur
 et l'utilisateur applicatif créé sur le serveur distant. (Macro SSHUSERNAME).
@@ -151,11 +151,11 @@ et l'utilisateur applicatif créé sur le serveur distant. (Macro SSHUSERNAME).
 
 | Mandatory   | Name            | Description                                                                                     |
 | :---------- | :-------------- | :---------------------------------------------------------------------------------------------- |
-| X           | SSHBACKEND      | Nom du backend: ```plink```                                                                     |
-| X           | SSHUSERNAME     | Par défaut, il utilise l'utilisateur en cours d'exécution **centengine** de votre Collecteur |
+| X           | SSHBACKEND      | Nom du backend: `plink`                                                                         |
+| X           | SSHUSERNAME     | Par défaut, il utilise l'utilisateur en cours d'exécution **centengine** de votre Collecteur    |
 |             | SSHPASSWORD     | Peut être utilisé. Si aucune valeur n'est définie, l'authentification par clé ssh est utilisée  |
-|             | SSHPORT         | Par default: 22                                                                                 |
-|             | SSHEXTRAOPTIONS | Personnalisez-le avec le vôtre si nécessaire. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```      |
+|             | SSHPORT         | Par défaut: 22                                                                                  |
+|             | SSHEXTRAOPTIONS | Personnalisez-le avec le vôtre si nécessaire. E.g.: `--ssh-priv-key=/user/.ssh/id_rsa`          |
 
 > Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur **centreon-engine** du Collecteur
 et l'utilisateur applicatif créé sur le serveur distant. (Macro SSHUSERNAME).
@@ -164,13 +164,15 @@ et l'utilisateur applicatif créé sur le serveur distant. (Macro SSHUSERNAME).
 
 | Mandatory   | Name            | Description                                                                                     |
 | :---------- | :-------------- | :---------------------------------------------------------------------------------------------- |
-| X           | SSHBACKEND      | Nom du backend: ```libssh```                                                                    |
-|             | SSHUSERNAME     | Par défaut, il utilise l'utilisateur en cours d'exécution **centengine** de votre Collecteur |
+| X           | SSHBACKEND      | Nom du backend: `plink`                                                                         |
+|             | SSHUSERNAME     | Par défaut, il utilise l'utilisateur en cours d'exécution **centengine** de votre Collecteur    |
 |             | SSHPASSWORD     | Peut être utilisé. Si aucune valeur n'est définie, l'authentification par clé ssh est utilisée  |
-|             | SSHPORT         | Par défaut: 22                                                                                 |
-|             | SSHEXTRAOPTIONS | Personnalisez-le avec le vôtre si nécessaire. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```      |
+|             | SSHPORT         | Par défaut: 22                                                                                  |
+|             | SSHEXTRAOPTIONS | Personnalisez-le avec le vôtre si nécessaire. E.g.: `--ssh-priv-key=/user/.ssh/id_rsa`          |
 
 Avec ce backend, vous n'avez pas à valider manuellement l'empreinte du serveur cible. 
+
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Comment puis-je tester le Plugin et que signifient les options des commandes ?
 
