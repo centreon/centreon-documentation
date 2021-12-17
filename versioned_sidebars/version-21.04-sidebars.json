@@ -1013,6 +1013,10 @@
             },
             {
               "type": "doc",
+              "id": "version-21.04/integrations/plugin-packs/procedures/applications-nmap-cli"
+            },
+            {
+              "type": "doc",
               "id": "version-21.04/integrations/plugin-packs/procedures/applications-webservers-iis-restapi"
             },
             {
@@ -1262,6 +1266,10 @@
             {
               "type": "doc",
               "id": "version-21.04/integrations/plugin-packs/procedures/applications-trendmicro-iwsva-snmp"
+            },
+            {
+              "type": "doc",
+              "id": "version-21.04/integrations/plugin-packs/procedures/applications-netbackup-ssh"
             },
             {
               "type": "doc",
@@ -1580,6 +1588,10 @@
             {
               "type": "doc",
               "id": "version-21.04/integrations/plugin-packs/procedures/cloud-azure-database-sqlserver"
+            },
+            {
+              "type": "doc",
+              "id": "version-21.04/integrations/plugin-packs/procedures/cloud-azure-storage-acr"
             },
             {
               "type": "doc",
@@ -2504,6 +2516,10 @@
             {
               "type": "doc",
               "id": "version-21.04/integrations/plugin-packs/procedures/operatingsystems-aix-ssh"
+            },
+            {
+              "type": "doc",
+              "id": "version-21.04/integrations/plugin-packs/procedures/operatingsystems-as400-connector"
             },
             {
               "type": "doc",
