@@ -89,3 +89,15 @@ Release date: `November 19, 2021`
 ### 21.10.0
 
 - Compatibility with other 21.10 components.
+
+## Centreon Anomaly Detection
+
+### 21.10.1
+
+#### Bugfixes
+
+- Fixed an issue that caused the Anomaly Detection services to lose their graphs when they were renamed
+
+### 21.10.0
+
+- Compatibility with other 21.10 components.
