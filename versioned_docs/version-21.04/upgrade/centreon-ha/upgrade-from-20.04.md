@@ -39,7 +39,7 @@ For security reasons, the keys used to sign Centreon RPMs are rotated regularly.
 Run the following commands:
 
 ```shell
-yum install -y https://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-5.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-6.el7.centos.noarch.rpm
 ```
 
 > **WARNING:** to avoid broken dependencies, please refer to the documentation of the additional modules to update the Centreon Business Repositories.
@@ -54,7 +54,7 @@ yum clean all --enablerepo=*
 
 Then upgrade all the components with the following command:
 
-<Tabs groupId="operating-systems">
+<Tabs groupId="ha-nodes">
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
 
 ```shell
@@ -96,7 +96,7 @@ echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php73/php.d/50-centreon.in
 
 > **WARNING** the following commands must be executed on only one node of the cluster.
 
-<Tabs groupId="operating-systems">
+<Tabs groupId="ha-nodes">
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
 ```bash
 pcs resource delete php7
@@ -341,7 +341,7 @@ pcs resource restart ms_mysql
 
 You can monitor the cluster's resources in real time using the `crm_mon` command:
 
-<Tabs groupId="operating-systems">
+<Tabs groupId="ha-nodes">
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
 ```bash
 Stack: corosync
