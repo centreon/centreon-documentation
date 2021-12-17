@@ -50,6 +50,12 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Open Ticket
 
+### 20.10.3
+
+#### Enhancements
+
+- Add filter "enable/disable notifications" in widget
+
 ### 20.10.2
 
 `May 28, 2021`
