@@ -1,6 +1,6 @@
 ---
 id: blockchain-parity-ethpoller-restapi
-title: Ethpoller API
+title: Parity Ethpoller API
 ---
 
 ## Vue d'ensemble
