@@ -643,6 +643,13 @@ subscriptions are now automatically downloaded.
 
 ## Centreon Anomaly Detection
 
+### 20.04.5
+
+#### Bugfixes
+
+- Fixed generation of contacts/groups for notification
+
+
 ### 20.04.4
 
 `26 novembre 2020`
