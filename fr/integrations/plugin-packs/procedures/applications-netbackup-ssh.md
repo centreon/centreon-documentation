@@ -100,7 +100,7 @@ L'utilisateur distant doit pouvoir exécuter des commandes système.
 yum install centreon-plugin-Applications-Netbackup-Ssh
 ```
 
-2. Sur l'interface Integration de Centreon, installer le Plugin Pack *Netbackup SSH* depuis la page **Configuration > Packs de plugins**
+2. Sur l'interface web de Centreon, installer le Plugin Pack *Netbackup SSH* depuis la page **Configuration > Packs de plugins**
 
 <!--Offline IMP License-->
 
