@@ -282,14 +282,23 @@ non plus des connexions SSH autonomes.
 
 ### 20.10.1
 
-#### Améliorations
+#### Enhancements
 
-- Détecter les métriques avec saisonnalité ou stabilité
+- Detect metrics with seasonality or stability
 
-#### Correctifs
+#### Bugfixes
 
-- Échec de l'exportation de la configuration
-- Aucun contacts/groupes de notification ne sont générés dans la configuration
+- Fixed access to suggestion page with non admin account
+- Fixed an issue that caused the Anomaly Detection services to lose their graphs when they were renamed
+- Fixed anomaly detection's stream connector crashes with no apparent error in broker logs
+- Fixed configuration export failure
+- Fixed errors in cron Perl script
+- Fixed generation of configuration for services based on meta-services
+- Fixed generation of contacts/groups for notification
+- Fixed sending of data to SAAS if the service does not exist
+- Fixed the use of the fixed metric anomaly thresholds themselves used to suggest it
+- Fixed wrong gorgone cron.d definition
+
 
 ### 20.10.0
 
