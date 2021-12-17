@@ -1,6 +1,6 @@
 ---
 id: operatingsystems-as400
-title: IBM AS400
+title: IBM AS400 (Déprécié)
 ---
 
 ## **ATTENTION** Ce Pack est déprécié
