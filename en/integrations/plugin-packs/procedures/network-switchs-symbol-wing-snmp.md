@@ -28,7 +28,6 @@ It brings the following Service Templates:
 | Net-Symbol-Wing-SNMP-Traffic-Name       |             |
 | Net-Symbol-Wing-SNMP-Packet-Errors-Name |             |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Collected metrics & status
 
