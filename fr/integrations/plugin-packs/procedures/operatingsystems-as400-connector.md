@@ -153,7 +153,7 @@ You can install the connector using this command:
 yum install centreon-plugin-Operatingsystems-AS400-daemon
 ```
 
-A connector can act as a boilerplate between several Hosts and several AS400 systems. 
+A connector can act as a relay between several Hosts and several AS400 systems. 
 
 ## Setup
 
