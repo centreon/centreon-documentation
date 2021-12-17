@@ -174,6 +174,16 @@ Release date: `November 9, 2021`
 
 ## Centreon License Manager
 
+### 21.04.1
+
+#### Bug fixes
+
+- Fixed getting fingerprint on Safari
+
+#### Security fixes
+
+- Packaging, remove .gitignore files
+
 ### 21.04.0
 
 - Compatibility with Centreon 21.04
