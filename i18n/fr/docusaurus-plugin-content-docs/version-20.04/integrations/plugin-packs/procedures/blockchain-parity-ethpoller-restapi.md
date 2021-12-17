@@ -1,6 +1,6 @@
 ---
 id: blockchain-parity-ethpoller-restapi
-title: Ethpoller API
+title: Parity Ethpoller API
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
