@@ -28,7 +28,6 @@ Il apporte les Modèles de Services suivants :
 | Net-Symbol-Wing-SNMP-Traffic-Name       |             |
 | Net-Symbol-Wing-SNMP-Packet-Errors-Name |             |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Métriques & statuts collectés
 
