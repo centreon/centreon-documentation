@@ -792,6 +792,7 @@
                     "integrations/plugin-packs/procedures/network-firewalls-stonesoft",
                     "integrations/plugin-packs/procedures/network-stormshield-snmp",
                     "integrations/plugin-packs/procedures/network-stormshield-ssh",
+                    "integrations/plugin-packs/procedures/network-switchs-symbol-wing-snmp",
                     "integrations/plugin-packs/procedures/network-teltonika-snmp",
                     "integrations/plugin-packs/procedures/network-tplink-snmp",
                     "integrations/plugin-packs/procedures/network-ubiquiti-airfiber-snmp",
