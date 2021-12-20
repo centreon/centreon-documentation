@@ -64,7 +64,9 @@ Pas de pré-requis particuliers
 ### Flux réseau
 
 La communication doit être possible sur le port UDP 161 depuis le collecteur
-Centreon vers le serveur Linux supervisé.## Installation
+Centreon vers le serveur Linux supervisé.
+
+## Installation
 
 <!--DOCUSAURUS_CODE_TABS-->
 
