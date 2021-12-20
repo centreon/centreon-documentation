@@ -33,8 +33,6 @@ Il apporte les Modèles de Services suivants :
 
 <!--DOCUSAURUS_CODE_TABS-->
 
-<!--Packet-Errors-->
-
 <!--Systems-->
 
 * Global
@@ -58,12 +56,6 @@ Il apporte les Modèles de Services suivants :
 | device.memory.usage.bytes      |             | B    |
 | device.memory.free.bytes       |             | B    |
 | device.memory.usage.percentage |             | %    |
-
-<!--Traffic-Generic-Id-->
-
-<!--Traffic-Generic-Name-->
-
-<!--Traffic-Global-->
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
