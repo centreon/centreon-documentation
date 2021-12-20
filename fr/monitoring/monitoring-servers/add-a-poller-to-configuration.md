@@ -15,7 +15,7 @@ toutes les configurations nécessaires pour ajouter un collecteur.
 > Vous pouvez toujours ajouter un nouveau collecteur manuellement mais la procédure
 > suivante est recommandée.
 
-1. Rendez-vous dans le menu **Configuration > Collecteurs** et cliquez sur
+1. Rendez-vous dans le menu **Configuration > Collecteurs > Collecteurs** et cliquez sur
 **Ajouter** pour accéder à l'assistant de
 configuration.
 
@@ -118,9 +118,9 @@ recommandé) ou en utilisant le protocole SSH.
     Appuyez sur la touche *Entrée* pour que la commande soit appliquée.
 
     > Vous pouvez copier la configuration en sélectionnant le contenu de la pop-in
-    > pour la copier dans un fichier de configuration personnalisé.
+    > pour la coller dans un fichier de configuration personnalisé.
 
-3. Démarrer le daemon Gorgone :
+3. Démarrer le démon Gorgone :
 
     Depuis le Poller, exécutez la commande suivante pour démarrer le service
     Gorgone :
