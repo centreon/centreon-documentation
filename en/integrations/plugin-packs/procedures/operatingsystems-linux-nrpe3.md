@@ -32,7 +32,6 @@ This Plugin-Pack relies on 3 components that are listed below:
 | OS-Linux-NRPE-Disk-Name    |             |
 | OS-Linux-NRPE-Traffic-Name |             |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Collected metrics
 
