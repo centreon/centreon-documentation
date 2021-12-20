@@ -25,7 +25,7 @@ This Plugin-Pack relies on 3 components that are listed below:
 ### Discovery rules
 
 
-<!--Services-->
+**Services**
 
 | Rule name                  | Description |
 | -------------------------- | ----------- |
