@@ -23,7 +23,7 @@ commerciales, veuillez contacter le support.
 
 Release date: `December 20, 2021`
 
-#### Bugfixes 
+#### Security fixes 
 
 - Log4J version updated to 2.17.0
 
