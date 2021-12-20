@@ -22,7 +22,7 @@ monitoring agent and its embedded NRPE Server.
 ### Discovery rules
 
 
-<!--Services-->
+**Services**
 
 | Rule name                 | Description |
 | :------------------------ | :---------- |
