@@ -7,7 +7,7 @@ title: Symbol WiNG switch SNMP
 
 ### Modèles
 
-Le Plugin Pack Centreon Symbol WiNG switch SNMP apporte 1 modèle d'hôte :
+Le Plugin Pack Centreon Symbol WiNG switch SNMP apporte 1 modèle d'hôte:
 * Net-Symbol-Wing-SNMP
 
 Il apporte les Modèles de Services suivants :
@@ -104,7 +104,7 @@ yum install centreon-pack-network-switchs-symbol-wing-snmp
 
 * Ajoutez un Hôte à Centreon depuis la page **Configuration > Hôtes**.
 * Complétez les champs "Nom","Alias" & "IP Address / DNS" correspondant à votre serveur *Symbol WiNG*
-* Appliquez le Modèle d'Hôte *network-switchs-symbol-wing-snmp-custom* 
+* Appliquez le Modèle d'Hôte **network-switchs-symbol-wing-snmp-custom** 
 
 Si vous utilisez SNMP en version 3, vous devez configurer les paramètres
 spécifiques associés via la macro SNMPEXTRAOPTIONS.
