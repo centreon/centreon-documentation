@@ -22,7 +22,6 @@ Il apporte les Modèles de Services suivants :
 
 ### Règles de découverte
 
-
 | Rule name                               | Description |
 |:----------------------------------------|:------------|
 | Net-Symbol-Wing-SNMP-Traffic-Name       |             |
