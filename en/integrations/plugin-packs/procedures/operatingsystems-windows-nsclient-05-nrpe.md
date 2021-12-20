@@ -24,7 +24,6 @@ monitoring agent and its embedded NRPE Server.
 | :------------------------ | :---------- |
 | OS-Winfows-NRPE-Disk-Name |             |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Collected metrics
 
