@@ -24,7 +24,6 @@ This Plugin-Pack relies on 3 components that are listed below:
 
 ### Discovery rules
 
-<!--DOCUSAURUS_CODE_TABS-->
 
 <!--Services-->
 
