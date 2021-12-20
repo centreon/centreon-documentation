@@ -22,7 +22,6 @@ It brings the following Service Templates:
 
 ### Discovery rules
 
-
 | Rule name                               | Description |
 |:----------------------------------------|:------------|
 | Net-Symbol-Wing-SNMP-Traffic-Name       |             |
