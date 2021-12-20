@@ -70,7 +70,7 @@ port.
 
 <!--DOCUSAURUS_CODE_TABS-->
 
-<!--Online IMP Licence & IT-100 Editions-->
+<!--Online License-->
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor *Symbol WiNG* ressources:
 
