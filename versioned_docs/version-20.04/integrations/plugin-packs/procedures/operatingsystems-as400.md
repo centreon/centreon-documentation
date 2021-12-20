@@ -8,4 +8,4 @@ title: IBM AS400 (Deprecated)
 There's no more maintenance on this Pack. Therefore, you should not use it anymore.
 It has been replaced by 'IBM AS400 Connector' Pack.
 
-Please refer to this [guide](operatingsystems-as400-connector.html). 
+Please refer to this [guide](operatingsystems-as400-connector). 
