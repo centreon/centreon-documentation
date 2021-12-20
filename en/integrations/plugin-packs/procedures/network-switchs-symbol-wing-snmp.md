@@ -7,7 +7,7 @@ title: Symbol WiNG switch SNMP
 
 ### Templates
 
-The Centreon Plugin Pack Symbol WiNG switch SNMP brings 1 host template :
+The Centreon Plugin Pack Symbol WiNG switch SNMP brings 1 host template:
 * Net-Symbol-Wing-SNMP-custom
 
 It brings the following Service Templates:
