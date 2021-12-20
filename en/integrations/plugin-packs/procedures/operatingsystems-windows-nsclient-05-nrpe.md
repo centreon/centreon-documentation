@@ -15,6 +15,18 @@ monitoring agent and its embedded NRPE Server.
 * Windows Server OS from 2003 SP2 version
 * Windows Workstation from XP version
 
+### Discover rules
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Services-->
+
+| Rule name                 | Description |
+| ------------------------- | ----------- |
+| OS-Windows-NRPE-Disk-Name |             |
+
+<!--END_DOCUSAURUS_CODE_TABS-->
+
 ### Collected metrics
 
 <!--DOCUSAURUS_CODE_TABS-->
