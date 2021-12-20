@@ -59,7 +59,7 @@ It brings the following Service Templates:
 
 ## Prerequisites
 
-No specifics prerequisites
+No specific prerequisites
 
 ### Network flow
 
