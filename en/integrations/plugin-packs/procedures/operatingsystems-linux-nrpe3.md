@@ -22,6 +22,19 @@ This Plugin-Pack relies on 3 components that are listed below:
 * CentOS 7 / RHEL7 Linux servers (to which this procedure applies)
 * Other GNU/Linux distributions, provided that the plugin and the daemon are installed and configured manually)
 
+### Discovery rules
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Services-->
+
+| Rule name                  | Description |
+| -------------------------- | ----------- |
+| OS-Linux-NRPE-Disk-Name    |             |
+| OS-Linux-NRPE-Traffic-Name |             |
+
+<!--END_DOCUSAURUS_CODE_TABS-->
+
 ### Collected metrics
 
 Only standard metrics are described in this section. Be aware that a lot of other checks and metrics are available from the `centreon_linux_local.pl` Plugin. Here is a non-exhaustive list:

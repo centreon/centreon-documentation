@@ -24,6 +24,19 @@ Ce pack de plugin repose sur 3 composants, qui sont détaillés dans le tableau 
 * Serveur Linux CentOS 7 / RHEL7 (documenté dans la présente procédure)
 * Serveur Linux d'autres distributions, à condition d'y installer manuellement le plugin et le *daemon* NRPE3 (2e et 3e lignes du tableau ci-dessus).
 
+### Règle de découverte
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Services-->
+
+| Nom de la règle            | Description |
+| -------------------------- | ----------- |
+| OS-Linux-NRPE-Disk-Name    |             |
+| OS-Linux-NRPE-Traffic-Name |             |
+
+<!--END_DOCUSAURUS_CODE_TABS-->
+
 ### Métriques collectées
 
 Seules les métriques sont détaillées dans cette section, mais sachez qu'un grand nombre de tests et de métriques peuvent être fournies par le Plugin `centreon_linux_local.pl`. En voici une liste non exhaustive :
