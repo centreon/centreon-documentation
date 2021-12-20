@@ -26,7 +26,6 @@ Ce pack de plugin repose sur 3 composants, qui sont détaillés dans le tableau 
 
 ### Règle de découverte
 
-<!--DOCUSAURUS_CODE_TABS-->
 
 <!--Services-->
 
