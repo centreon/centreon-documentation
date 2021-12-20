@@ -19,7 +19,7 @@ monitoring agent and its embedded NRPE Server.
 
 <!--DOCUSAURUS_CODE_TABS-->
 
-<!--Services-->
+**Services**
 
 | Rule name                 | Description |
 | :------------------------ | :---------- |
