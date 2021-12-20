@@ -70,7 +70,7 @@ Centreon vers le serveur Linux supervisé.
 
 <!--DOCUSAURUS_CODE_TABS-->
 
-<!--Online IMP Licence & IT-100 Editions-->
+<!--Online License-->
 
 1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources *Symbol WiNG*:
 
