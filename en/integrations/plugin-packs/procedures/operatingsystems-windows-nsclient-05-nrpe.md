@@ -17,7 +17,6 @@ monitoring agent and its embedded NRPE Server.
 
 ### Discovery rules
 
-<!--DOCUSAURUS_CODE_TABS-->
 
 **Services**
 
