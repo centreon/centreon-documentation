@@ -162,7 +162,9 @@ Release date: `November 9, 2021`
 #### Bug fixes
 
 - Fixed a bug that prevented the description of the Plugin Packs from being displayed when the user's UI language was set to something other than EN or FR
+- Fixed an issue causing Host Discovery providers installed by Plugin Packs dependencies to be displayed with the same icon
 - Fixed installation of Plugin Packs with similar names
+- Fixed installation of a Plugin Packs behind the legend
 
 #### Security fixes
 
