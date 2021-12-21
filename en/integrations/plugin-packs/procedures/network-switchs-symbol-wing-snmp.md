@@ -94,7 +94,7 @@ yum install centreon-plugin-Network-Symbol-Wing-Snmp
 yum install centreon-pack-network-switchs-symbol-wing-snmp
 ```
 
-3. On the Centreon Web interface, install the *Symbol WiNG switch SNMP* Centreon Plugin Pack on the **Configuration > Plugin Packs** page
+3. On the Centreon Web interface, install the **Symbol WiNG switch SNMP** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
