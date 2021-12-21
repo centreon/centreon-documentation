@@ -141,7 +141,6 @@ l'utilisateur *centreon-engine*:
     --critical-memory-usage-prct='' \
     --warning-devices-total='' \
     --critical-devices-total='' \
-    --use-new-perfdata 
 ```
 
 La commande devrait retourner un message de sortie similaire à :
