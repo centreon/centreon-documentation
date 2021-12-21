@@ -22,50 +22,38 @@ Il apporte les Modèles de Services suivants :
 
 ### Règles de découverte
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-| Rule name                               | Description |
-|:----------------------------------------|:------------|
-| Net-Symbol-Wing-SNMP-Traffic-Name       |             |
-| Net-Symbol-Wing-SNMP-Packet-Errors-Name |             |
-
-<!--END_DOCUSAURUS_CODE_TABS-->
+| Nom de la règle                         | Description                                                               |
+|:----------------------------------------|:--------------------------------------------------------------------------|
+| Net-Symbol-Wing-SNMP-Traffic-Name       | Découverte des interfaces et supervision de la bande passante             |
+| Net-Symbol-Wing-SNMP-Packet-Errors-Name | Découverte des interfaces et supervision des erreurs et rejets de paquets |
 
 ### Métriques & statuts collectés
 
 <!--DOCUSAURUS_CODE_TABS-->
 
-<!--Packet-Errors-->
-
 <!--Systems-->
 
 * Global
 
-| Metric name         | Description       | Unit  |
-|:--------------------|:------------------|:------|
-| devices.total.count | total devices: %s | count |
+| Metric name         | Description                | Unit   |
+|:--------------------|:---------------------------|:-------|
+| devices.total.count | Nombre total d'équipements | nombre |
 
 * Par *cpu*
 
-| Metric name                    | Description   | Unit |
-|:-------------------------------|:--------------|:-----|
-| cpu.utilization.1m.percentage  | %.2f %% (1m)  | %    |
-| cpu.utilization.5m.percentage  | %.2f %% (5m)  | %    |
-| cpu.utilization.15m.percentage | %.2f %% (15m) | %    |
+| Metric name                    | Description             | Unit |
+|:-------------------------------|:------------------------|:-----|
+| cpu.utilization.1m.percentage  | Utilisation CPU sur 1m  | %    |
+| cpu.utilization.5m.percentage  | Utilisation CPU sur 5m  | %    |
+| cpu.utilization.15m.percentage | Utilisation CPU sur 15m | %    |
 
 * Par *memory*
 
-| Metric name                    | Description | Unit |
-|:-------------------------------|:------------|:-----|
-| device.memory.usage.bytes      |             | B    |
-| device.memory.free.bytes       |             | B    |
-| device.memory.usage.percentage |             | %    |
-
-<!--Traffic-Generic-Id-->
-
-<!--Traffic-Generic-Name-->
-
-<!--Traffic-Global-->
+| Metric name                    | Description      | Unit |
+|:-------------------------------|:-----------------|:-----|
+| device.memory.usage.bytes      | Mémoire utilisée | B    |
+| device.memory.free.bytes       | Mémoire libre    | B    |
+| device.memory.usage.percentage | Mémoire utilisée | %    |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -76,35 +64,37 @@ Pas de pré-requis particuliers
 ### Flux réseau
 
 La communication doit être possible sur le port UDP 161 depuis le collecteur
-Centreon vers le serveur Linux supervisé.## Installation
+Centreon vers le serveur Linux supervisé.
+
+## Installation
 
 <!--DOCUSAURUS_CODE_TABS-->
 
-<!--Online IMP Licence & IT-100 Editions-->
+<!--Online License-->
 
-1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources *Symbol WiNG*:
-
-```bash
-yum install centreon-plugin-Network-Symbol-Wing-Snmp
-```
-
-2. Sur l'interface Web de Centreon, installer le Plugin Pack *Symbol WiNG switch SNMP* depuis la page **Configuration > Packs de plugins**
-
-<!--Offline IMP License-->
-
-1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources *Symbol WiNG*:
+1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources **Symbol WiNG**:
 
 ```bash
 yum install centreon-plugin-Network-Symbol-Wing-Snmp
 ```
 
-2. Sur le serveur Central Centreon, installer le RPM du Pack *Symbol WiNG switch SNMP*:
+2. Sur l'interface Web de Centreon, installer le Plugin Pack **Symbol WiNG switch SNMP** depuis la page **Configuration > Packs de plugins**
+
+<!--Offline License-->
+
+1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources **Symbol WiNG**:
+
+```bash
+yum install centreon-plugin-Network-Symbol-Wing-Snmp
+```
+
+2. Sur le serveur Central Centreon, installer le RPM du Pack **Symbol WiNG switch SNMP**:
 
  ```bash
 yum install centreon-pack-network-switchs-symbol-wing-snmp
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin Pack *Symbol WiNG switch SNMP* depuis la page **Configuration > Packs de plugins**
+3. Sur l'interface Web de Centreon, installer le Plugin Pack **Symbol WiNG switch SNMP** depuis la page **Configuration > Packs de plugins**
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -113,15 +103,15 @@ yum install centreon-pack-network-switchs-symbol-wing-snmp
 ### Hôte
 
 * Ajoutez un Hôte à Centreon depuis la page **Configuration > Hôtes**.
-* Complétez les champs "Nom","Alias" & "IP Address / DNS" correspondant à votre serveur *Symbol WiNG*
-* Appliquez le Modèle d'Hôte *network-switchs-symbol-wing-snmp-custom* 
+* Complétez les champs **Nom**,**Alias** & **IP Address / DNS** correspondant à votre serveur **Symbol WiNG**
+* Appliquez le Modèle d'Hôte **network-switchs-symbol-wing-snmp-custom** 
 
 Si vous utilisez SNMP en version 3, vous devez configurer les paramètres
 spécifiques associés via la macro SNMPEXTRAOPTIONS.
 
 | Mandatory | Name             | Description                                              |
 |:----------|:-----------------|:---------------------------------------------------------|
-|           | SNMPEXTRAOPTIONS | (Default: 'Configure your own SNMPv3 credentials combo') |
+|           | SNMPEXTRAOPTIONS | (Default: 'Configurez vos propres identifiants SNMPv3')  |
 
 ## Comment puis-je tester le Plugin et que signifient les options des commandes ? 
 
@@ -150,8 +140,7 @@ l'utilisateur *centreon-engine*:
     --warning-memory-usage-prct='' \
     --critical-memory-usage-prct='' \
     --warning-devices-total='' \
-    --critical-devices-total='' \
-    --use-new-perfdata 
+    --critical-devices-total='' 
 ```
 
 La commande devrait retourner un message de sortie similaire à :

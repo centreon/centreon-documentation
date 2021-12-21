@@ -7,7 +7,7 @@ title: Symbol WiNG switch SNMP
 
 ### Templates
 
-The Centreon Plugin Pack Symbol WiNG switch SNMP brings 1 host template :
+The Centreon Plugin Pack Symbol WiNG switch SNMP brings 1 host template:
 * Net-Symbol-Wing-SNMP-custom
 
 It brings the following Service Templates:
@@ -22,56 +22,44 @@ It brings the following Service Templates:
 
 ### Discovery rules
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-| Rule name                               | Description |
-|:----------------------------------------|:------------|
-| Net-Symbol-Wing-SNMP-Traffic-Name       |             |
-| Net-Symbol-Wing-SNMP-Packet-Errors-Name |             |
-
-<!--END_DOCUSAURUS_CODE_TABS-->
+| Rule name                               | Description                                                           |
+|:----------------------------------------|:----------------------------------------------------------------------|
+| Net-Symbol-Wing-SNMP-Traffic-Name       | Discover network interfaces and monitor bandwidth utilization         |
+| Net-Symbol-Wing-SNMP-Packet-Errors-Name | Discover network interfaces and monitor errored and discarded packets |
 
 ### Collected metrics & status
 
 <!--DOCUSAURUS_CODE_TABS-->
 
-<!--Packet-Errors-->
-
 <!--Systems-->
 
 * Global
 
-| Metric name         | Description       | Unit  |
-|:--------------------|:------------------|:------|
-| devices.total.count | total devices: %s | count |
+| Metric name         | Description             | Unit  |
+|:--------------------|:------------------------|:------|
+| devices.total.count | Number of total devices | count |
 
 * Per *cpu*
 
-| Metric name                    | Description   | Unit |
-|:-------------------------------|:--------------|:-----|
-| cpu.utilization.1m.percentage  | %.2f %% (1m)  | %    |
-| cpu.utilization.5m.percentage  | %.2f %% (5m)  | %    |
-| cpu.utilization.15m.percentage | %.2f %% (15m) | %    |
+| Metric name                    | Description       | Unit |
+|:-------------------------------|:------------------|:-----|
+| cpu.utilization.1m.percentage  | Cpu usage for 1m  | %    |
+| cpu.utilization.5m.percentage  | Cpu usage for 5m  | %    |
+| cpu.utilization.15m.percentage | Cpu usage for 15m | %    |
 
 * Per *memory*
 
-| Metric name                    | Description | Unit |
-|:-------------------------------|:------------|:-----|
-| device.memory.usage.bytes      |             | B    |
-| device.memory.free.bytes       |             | B    |
-| device.memory.usage.percentage |             | %    |
-
-<!--Traffic-Generic-Id-->
-
-<!--Traffic-Generic-Name-->
-
-<!--Traffic-Global-->
+| Metric name                    | Description  | Unit |
+|:-------------------------------|:-------------|:-----|
+| device.memory.usage.bytes      | Memory usage | B    |
+| device.memory.free.bytes       | Memory free  | B    |
+| device.memory.usage.percentage | Memory usage | %    |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
-No specifics prerequisites
+No specific prerequisites
 
 ### Network flow
 
@@ -82,31 +70,31 @@ port.
 
 <!--DOCUSAURUS_CODE_TABS-->
 
-<!--Online IMP Licence & IT-100 Editions-->
+<!--Online License-->
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor *Symbol WiNG* ressources:
-
-```bash
-yum install centreon-plugin-Network-Symbol-Wing-Snmp
-```
-
-2. On the Centreon Web interface, install the *Symbol WiNG switch SNMP* Centreon Plugin Pack on the **Configuration > Plugin Packs** page
-
-<!--Offline IMP License-->
-
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor *Symbol WiNG* ressources:
+1. Install the Centreon Plugin package on every Centreon poller expected to monitor **Symbol WiNG** ressources:
 
 ```bash
 yum install centreon-plugin-Network-Symbol-Wing-Snmp
 ```
 
-2. Install the *Symbol WiNG switch SNMP* Centreon Plugin Pack RPM on the Centreon Central server:
+2. On the Centreon Web interface, install the *Symbol WiNG switch SNMP* Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
+
+<!--Offline License-->
+
+1. Install the Centreon Plugin package on every Centreon poller expected to monitor **Symbol WiNG** ressources:
+
+```bash
+yum install centreon-plugin-Network-Symbol-Wing-Snmp
+```
+
+2. Install the **Symbol WiNG switch SNMP** Centreon Plugin Pack RPM on the Centreon Central server:
 
  ```bash
 yum install centreon-pack-network-switchs-symbol-wing-snmp
 ```
 
-3. On the Centreon Web interface, install the *Symbol WiNG switch SNMP* Centreon Plugin Pack on the **Configuration > Plugin Packs** page
+3. On the Centreon Web interface, install the **Symbol WiNG switch SNMP** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -115,11 +103,11 @@ yum install centreon-pack-network-switchs-symbol-wing-snmp
 ### Host
 
 * Log into Centreon and add a new Host through **Configuration > Hosts**.
-* Fill the "Name", "Alias" & "IP Address / DNS" fields according to your *Symbol WiNG* server settings
-* Select the *network-switchs-symbol-wing-snmp-custom* template to apply to the Host
+* Fill the **Name**, **Alias** & **IP Address / DNS** fields according to your **Symbol WiNG** server settings.
+* Select the **network-switchs-symbol-wing-snmp-custom** template to apply to the Host
 
 If you are using SNMP Version 3, use the SNMPEXTRAOPTIONS Macro to configure
-    your own SNMPv3 credentials combo.
+your own SNMPv3 credentials combo.
 
 | Mandatory | Name             | Description                                              |
 |:----------|:-----------------|:---------------------------------------------------------|
@@ -127,8 +115,8 @@ If you are using SNMP Version 3, use the SNMPEXTRAOPTIONS Macro to configure
 
 ## How to check in the CLI that the configuration is OK and what are the main options for ? 
 
-Once the plugin installed, log into your Centreon Poller CLI using the 
-*centreon-engine* user account and test the Plugin by running the following 
+Once the plugin is installed, log into your Centreon Poller CLI using the 
+**centreon-engine** user account and test the Plugin by running the following 
 command:
 
 ```bash
@@ -152,19 +140,18 @@ command:
     --warning-memory-usage-prct='' \
     --critical-memory-usage-prct='' \
     --warning-devices-total='' \
-    --critical-devices-total='' \
-    --use-new-perfdata 
+    --critical-devices-total='' 
 ```
 
-Expected command output is shown below:
+The expected command output is shown below:
 
 ```bash
 OK: total devices: %s %.2f %% (1m) %.2f %% (5m) %.2f %% (15m)    | 'devices.total.count'=9000;;;0; 'cpu.utilization.1m.percentage'=9000%;;;0;100 'cpu.utilization.5m.percentage'=9000%;80;90;0;100 'cpu.utilization.15m.percentage'=9000%;;;0;100 'device.memory.usage.bytes'=9000B;;;0; 'device.memory.free.bytes'=9000B;;;0; 'device.memory.usage.percentage'=9000%;;;0;100 
 ```
 
-This command would trigger a WARNING alarm if cpu is reported as over 80% during last 5 minutes
+This command would trigger a WARNING alarm if the CPU is reported as over 80% during the last 5 minutes
 (`--warning-cpu-utilization-5m='80'`) and a CRITICAL alarm if over
-than 90% during last 5 minutes (`--critical-cpu-utilization-5m='90'`).
+90% during the last 5 minutes (`--critical-cpu-utilization-5m='90'`).
 
 All available options for a given mode can be displayed by adding the 
 `--help` parameter to the command:
@@ -188,4 +175,4 @@ All available options for a given mode can be displayed by adding the
 ### Troubleshooting
 
 Please find all the troubleshooting documentation for the Centreon Plugins
-in the [dedicated page](../tutorials/troubleshooting-plugins.html)
+in the [dedicated page](../tutorials/troubleshooting-plugins.html).
