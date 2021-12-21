@@ -143,7 +143,7 @@ command:
     --critical-devices-total='' \
 ```
 
-Expected command output is shown below:
+The expected command output is shown below:
 
 ```bash
 OK: total devices: %s %.2f %% (1m) %.2f %% (5m) %.2f %% (15m)    | 'devices.total.count'=9000;;;0; 'cpu.utilization.1m.percentage'=9000%;;;0;100 'cpu.utilization.5m.percentage'=9000%;80;90;0;100 'cpu.utilization.15m.percentage'=9000%;;;0;100 'device.memory.usage.bytes'=9000B;;;0; 'device.memory.free.bytes'=9000B;;;0; 'device.memory.usage.percentage'=9000%;;;0;100 
