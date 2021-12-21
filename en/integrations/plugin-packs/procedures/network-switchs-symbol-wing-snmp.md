@@ -37,7 +37,7 @@ It brings the following Service Templates:
 
 | Metric name         | Description       | Unit  |
 |:--------------------|:------------------|:------|
-| devices.total.count | total devices: %s | count |
+| devices.total.count | Number of total devices | count |
 
 * Per *cpu*
 
