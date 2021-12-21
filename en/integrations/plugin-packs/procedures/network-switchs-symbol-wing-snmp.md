@@ -141,7 +141,6 @@ command:
     --critical-memory-usage-prct='' \
     --warning-devices-total='' \
     --critical-devices-total='' \
-    --use-new-perfdata 
 ```
 
 Expected command output is shown below:
