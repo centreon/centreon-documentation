@@ -168,7 +168,7 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 ```bash
 /usr/lib/centreon/plugins//centreon_symbol_wing.pl \
     --plugin=network::symbol::wing::snmp::plugin \
-    --list-mode
+    --list-mode 
  ```
 
 ### Diagnostic des erreurs communes

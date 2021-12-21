@@ -169,7 +169,7 @@ All available options for a given mode can be displayed by adding the
 ```bash
 /usr/lib/centreon/plugins//centreon_symbol_wing.pl \
     --plugin=network::symbol::wing::snmp::plugin \
-    --list-mode
+    --list-mode 
 ```
 
 ### Troubleshooting
