@@ -7,7 +7,7 @@ title: Symbol WiNG switch SNMP
 
 ### Modèles
 
-Le Plugin Pack Centreon Symbol WiNG switch SNMP apporte 1 modèle d'hôte :
+Le Plugin Pack Centreon Symbol WiNG switch SNMP apporte 1 modèle d'hôte:
 * Net-Symbol-Wing-SNMP
 
 Il apporte les Modèles de Services suivants :
