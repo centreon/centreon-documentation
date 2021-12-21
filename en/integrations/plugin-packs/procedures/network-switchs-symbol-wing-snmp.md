@@ -24,8 +24,8 @@ It brings the following Service Templates:
 
 | Rule name                               | Description |
 |:----------------------------------------|:------------|
-| Net-Symbol-Wing-SNMP-Traffic-Name       |             |
-| Net-Symbol-Wing-SNMP-Packet-Errors-Name |             |
+| Net-Symbol-Wing-SNMP-Traffic-Name       | Discover network interfaces and monitor bandwidth utilization |
+| Net-Symbol-Wing-SNMP-Packet-Errors-Name | Discover network interfaces and monitor errored and discarded packets |
 
 ### Collected metrics & status
 
