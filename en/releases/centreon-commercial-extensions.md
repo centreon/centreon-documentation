@@ -182,6 +182,8 @@ Release date: `November 9, 2021`
 
 ### 21.04.2
 
+Release date: `December 21, 2021`
+
 #### Bugfixes
 
 - Fixed an issue that caused the Anomaly Detection services to lose their graphs when they were renamed
