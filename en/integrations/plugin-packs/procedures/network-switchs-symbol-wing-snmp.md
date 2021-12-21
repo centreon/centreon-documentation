@@ -80,7 +80,7 @@ yum install centreon-plugin-Network-Symbol-Wing-Snmp
 
 2. On the Centreon Web interface, install the *Symbol WiNG switch SNMP* Centreon Plugin Pack on the **Configuration > Plugin Packs** page
 
-<!--Offline IMP License-->
+<!--Offline License-->
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor *Symbol WiNG* ressources:
 
