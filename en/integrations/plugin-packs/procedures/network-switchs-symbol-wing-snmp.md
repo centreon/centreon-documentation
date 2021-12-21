@@ -82,7 +82,7 @@ yum install centreon-plugin-Network-Symbol-Wing-Snmp
 
 <!--Offline License-->
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor *Symbol WiNG* ressources:
+1. Install the Centreon Plugin package on every Centreon poller expected to monitor **Symbol WiNG** ressources:
 
 ```bash
 yum install centreon-plugin-Network-Symbol-Wing-Snmp
