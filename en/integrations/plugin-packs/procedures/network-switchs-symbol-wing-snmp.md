@@ -107,7 +107,7 @@ yum install centreon-pack-network-switchs-symbol-wing-snmp
 * Select the **network-switchs-symbol-wing-snmp-custom** template to apply to the Host.
 
 If you are using SNMP Version 3, use the SNMPEXTRAOPTIONS Macro to configure
-    your own SNMPv3 credentials combo.
+your own SNMPv3 credentials combo.
 
 | Mandatory | Name             | Description                                              |
 |:----------|:-----------------|:---------------------------------------------------------|
