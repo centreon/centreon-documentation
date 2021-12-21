@@ -115,7 +115,7 @@ your own SNMPv3 credentials combo.
 
 ## How to check in the CLI that the configuration is OK and what are the main options for ? 
 
-Once the plugin installed, log into your Centreon Poller CLI using the 
+Once the plugin is installed, log into your Centreon Poller CLI using the 
 *centreon-engine* user account and test the Plugin by running the following 
 command:
 
