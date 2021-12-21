@@ -151,7 +151,7 @@ OK: total devices: %s %.2f %% (1m) %.2f %% (5m) %.2f %% (15m)    | 'devices.tota
 
 This command would trigger a WARNING alarm if the CPU is reported as over 80% during the last 5 minutes
 (`--warning-cpu-utilization-5m='80'`) and a CRITICAL alarm if over
-than 90% during last 5 minutes (`--critical-cpu-utilization-5m='90'`).
+90% during the last 5 minutes (`--critical-cpu-utilization-5m='90'`).
 
 All available options for a given mode can be displayed by adding the 
 `--help` parameter to the command:
