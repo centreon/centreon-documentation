@@ -149,7 +149,7 @@ The expected command output is shown below:
 OK: total devices: %s %.2f %% (1m) %.2f %% (5m) %.2f %% (15m)    | 'devices.total.count'=9000;;;0; 'cpu.utilization.1m.percentage'=9000%;;;0;100 'cpu.utilization.5m.percentage'=9000%;80;90;0;100 'cpu.utilization.15m.percentage'=9000%;;;0;100 'device.memory.usage.bytes'=9000B;;;0; 'device.memory.free.bytes'=9000B;;;0; 'device.memory.usage.percentage'=9000%;;;0;100 
 ```
 
-This command would trigger a WARNING alarm if cpu is reported as over 80% during last 5 minutes
+This command would trigger a WARNING alarm if the CPU is reported as over 80% during the last 5 minutes
 (`--warning-cpu-utilization-5m='80'`) and a CRITICAL alarm if over
 than 90% during last 5 minutes (`--critical-cpu-utilization-5m='90'`).
 
