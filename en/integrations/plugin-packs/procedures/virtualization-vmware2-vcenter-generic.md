@@ -47,6 +47,13 @@ The Centreon Plugin and Plugin-Packs rely on the Centreon VMWare Connector to re
 | dcname#datacenter.alarms.warning.current.count     | Number of warning alarms per Datacenter  | Count |
 | dcname#datacenter.alarms.critical.current.count    | Number of critical alarms per Datacenter | Count |
 
+<!--Cluster-Cpu-Global-->
+
+| Metric name                                       | Description                   | Unit |
+| :------------------------------------------------ | :---------------------------- | :--- |
+| *cluster_name*#cluster.cpu.utilization.percentage | Total CPU usage in percentage | %    |
+| *cluster_name*#cluster.cpu.utilization.mhz        | Total CPU usage in MHz        | MHz  |
+
 <!--Cluster-Status-Global-->
 
 | Metric name | Description           | Unit |
