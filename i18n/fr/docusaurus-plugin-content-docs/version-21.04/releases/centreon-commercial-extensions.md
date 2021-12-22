@@ -19,6 +19,14 @@ commerciales, veuillez contacter le support.
 
 ## Centreon MAP
 
+### 21.04.4
+
+Release date: `December 20, 2021`
+
+#### Security fixes 
+
+- Log4J version updated to 2.17.0
+
 ### 21.04.3
 
 Release date: `December 16, 2021`
