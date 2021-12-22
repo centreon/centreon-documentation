@@ -49,11 +49,11 @@ It brings the following Service Templates:
 
 * Per *memory*
 
-| Metric name                    | Description  | Unit |
-|:-------------------------------|:-------------|:-----|
-| device.memory.usage.bytes      | Memory usage | B    |
-| device.memory.free.bytes       | Memory free  | B    |
-| device.memory.usage.percentage | Memory usage | %    |
+| Metric name                    | Description               | Unit |
+|:-------------------------------|:--------------------------|:-----|
+| device.memory.usage.bytes      | Used memory               | B    |
+| device.memory.free.bytes       | Free memory               | B    |
+| device.memory.usage.percentage | Percentage of used memory | %    |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -78,7 +78,7 @@ port.
 yum install centreon-plugin-Network-Symbol-Wing-Snmp
 ```
 
-2. On the Centreon Web interface, install the *Symbol WiNG switch SNMP* Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
+2. On the Centreon Web interface, install the **Symbol WiNG switch SNMP** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
 
 <!--Offline License-->
 
@@ -104,7 +104,7 @@ yum install centreon-pack-network-switchs-symbol-wing-snmp
 
 * Log into Centreon and add a new Host through **Configuration > Hosts**.
 * Fill the **Name**, **Alias** & **IP Address / DNS** fields according to your **Symbol WiNG** server settings.
-* Select the **network-switchs-symbol-wing-snmp-custom** template to apply to the Host
+* Select the **Net-Symbol-Wing-SNMP-custom** template to apply to the Host
 
 If you are using SNMP Version 3, use the SNMPEXTRAOPTIONS Macro to configure
 your own SNMPv3 credentials combo.
