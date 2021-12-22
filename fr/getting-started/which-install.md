@@ -5,11 +5,11 @@ title: Quelle installation choisir?
 
 Centreon propose plusieurs modes d'installation. Lequel choisir?
 
-Pour utiliser Centreon IT-100 ou pour tester la solution :
+## Pour utiliser Centreon [IT-100](IT100.html) ou pour tester la solution
 
 - À partir d'une [machine virtuelle prête à l'emploi](../installation/installation-of-a-central-server/using-virtual-machines.html).
 
-Pour installer Centreon en production :
+## Pour installer Centreon en production
 
 - À partir de [l'ISO Centreon](../installation/installation-of-a-central-server/using-centreon-iso.html) : si vous
   voulez installer à la fois l'OS (CentOS 7) et Centreon.
@@ -18,10 +18,13 @@ Pour installer Centreon en production :
   > Suite au changement de stratégie effectué par Red Hat, nous pensons qu'il est préférable de ne pas utiliser CentOS
   > 8 en production. Les paquets pour CentOS 8 sont compatibles avec RHEL et Oracle Linux en version 8.
 
-Pour installer Centreon de manière personnalisée mais supporté uniquement par la communauté :
+## Pour installer Centreon sur une distribution Linux non supportée par Centreon
 
-- À partir des [sources](../installation/installation-of-a-central-server/using-sources.html)
+Cette installation sera supportée uniquement par la communauté.
+
+- À partir des [sources](../installation/installation-of-a-central-server/using-sources.html).
   > Attention, les modules de [l'IT Edition et de la Business Edition](https://www.centreon.com/editions/) ne
   > fonctionnent pas encore sur une distribution non supportée.
 
+## Voir aussi 
 Voir aussi les [prérequis d'installation](../installation/prerequisites.html).
