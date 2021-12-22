@@ -182,7 +182,7 @@ Release date: `November 9, 2021`
 
 ### 21.04.2
 
-Release date: `December 21, 2021`
+Release date: `December 22, 2021`
 
 #### Bugfixes
 
