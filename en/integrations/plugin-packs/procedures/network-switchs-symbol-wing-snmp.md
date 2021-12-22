@@ -52,7 +52,7 @@ It brings the following Service Templates:
 | Metric name                    | Description  | Unit |
 |:-------------------------------|:-------------|:-----|
 | device.memory.usage.bytes      | Memory usage | B    |
-| device.memory.free.bytes       | Memory free  | B    |
+| device.memory.free.bytes       | Free memory | B    |
 | device.memory.usage.percentage | Memory usage | %    |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
