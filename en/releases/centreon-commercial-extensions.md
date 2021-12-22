@@ -188,6 +188,14 @@ Release date: `November 9, 2021`
 
 ## Centreon Anomaly Detection
 
+### 21.04.2
+
+Release date: `December 22, 2021`
+
+#### Bugfixes
+
+- Fixed an issue that caused the Anomaly Detection services to lose their graphs when they were renamed
+
 ### 21.04.1
 
 `September 30, 2021`
