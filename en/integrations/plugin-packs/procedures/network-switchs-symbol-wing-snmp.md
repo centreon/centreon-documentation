@@ -53,7 +53,7 @@ It brings the following Service Templates:
 |:-------------------------------|:-------------|:-----|
 | device.memory.usage.bytes      | Memory usage | B    |
 | device.memory.free.bytes       | Free memory | B    |
-| device.memory.usage.percentage | Memory usage | %    |
+| device.memory.usage.percentage | Percentage of memory usage | %    |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
