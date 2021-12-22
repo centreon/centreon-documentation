@@ -649,7 +649,6 @@ subscriptions are now automatically downloaded.
 
 - Fixed generation of contacts/groups for notification
 
-
 ### 20.04.4
 
 `26 novembre 2020`
