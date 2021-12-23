@@ -13,12 +13,12 @@ Les dépendances sont utilisées afin de répondre à deux principaux besoins :
 Les dépendances d’objets sont de deux types :
 
 * Dépendance **physique** entre objet : un switch de répartition est situé en amont d’un ensemble de serveurs et en
-aval d’un routeur
+  aval d’un routeur
 * Dépendance **logique** entre objet : l’accès à un site web avec authentification LDAP dépend de l’état de
-l’annuaire LDAP lui-même
+  l’annuaire LDAP lui-même
 
 ## Les dépendances physiques
-
+ 
 Les dépendances physiques consistent à prendre en compte les liens physiques entre les équipements. Ce lien ne peut
 être défini que pour les objets de type **Host**.
 
@@ -30,15 +30,15 @@ d'un hôte via le menu **Configuration > Hosts > Hosts**.
 Il est possible de définir deux paramètres :
 
 * **Parent Hosts**: signifie que les hôtes sélectionnés sont parents de cet hôte (situé en amont). Si tous les hôtes
-parents sélectionnés deviennent indisponibles ou injoignables alors l'hôte sera considéré par l’ordonnanceur comme
-injoignable lui-même.
+  parents sélectionnés deviennent indisponibles ou injoignables alors l'hôte sera considéré par l’ordonnanceur comme
+  injoignable lui-même.
 * **Child Hosts**: signifie que l'hôte devient parent de tous les hôtes enfants sélectionnés.
 
 > Il n'est pas possible d'établir des liens de parentés entre hôtes supervisés par des collecteurs différents.
 
 > Tous les parents d’un hôte doivent être dans un état non-OK pour que l’hôte lui-même soit considéré comme injoignable.
-A partir du moment où au moins un chemin d’accès (liaison de dépendance physique) est toujours joignable alors
-l’ordonnanceur continuera de surveiller cet hôte.
+  A partir du moment où au moins un chemin d’accès (liaison de dépendance physique) est toujours joignable alors
+  l’ordonnanceur continuera de surveiller cet hôte.
 
 ## Les dépendances logiques
 
@@ -62,11 +62,11 @@ notifications de services (appelés services dépendants).
 
 * Les champs **Name** et **Description** indiquent le nom et la description de la dépendance
 * Le champ **Parent relationship**  est à ignorer si vous utilisez Centreon Engine. S'il est activé, alors si les liens
-de dépendances de l'hôte maître deviennent indisponibles, la dépendance en cours de création n'est plus prise en compte.
+  de dépendances de l'hôte maître deviennent indisponibles, la dépendance en cours de création n'est plus prise en compte.
 * Le champ **Execution Failure Criteria** indique quels sont les statuts du ou des hôtes maîtres qui empêcheront la
-vérification des hôtes ou des services dépendants
+  vérification des hôtes ou des services dépendants
 * Le champ **Notification Failure Criteria** indique quels sont les statuts du ou des hôtes maîtres qui empêcheront
-l'envoi de notifications pour les hôtes ou les services dépendants
+  l'envoi de notifications pour les hôtes ou les services dépendants
 * La liste **Hostnames** défini le ou les hôtes maîtres
 * LLa liste **Dependent Host Names** défini les hôtes dépendants
 * La liste **Dependent Services** défini les services dépendants
@@ -85,11 +85,11 @@ Si vous utilisez Centreon Broker, il est également possible de contrôler l'ex�
 
 * Les champs **Name** et **Description** indiquent le nom et la description de la dépendance
 * Le champ **Parent relationship** est à ignorer si vous utilisez Centreon Engine. S'il est activé, alors si les liens
-de dépendances du service maître deviennent indisponibles la dépendance en cours de création n'est plus prise en compte.
+  de dépendances du service maître deviennent indisponibles la dépendance en cours de création n'est plus prise en compte.
 * Le champ **Execution Failure Criteria** indique quels sont les statuts du (ou des) service(s) maître(s) qui empêchera(ront)
-la vérification des hôtes ou des services dépendants
+  la vérification des hôtes ou des services dépendants
 * Le champ **Notification Failure Criteria** indique quels sont les statuts du (ou des) service(s) maître(s) qui empêchera(ront)
-l'envoi de notifications pour les hôtes ou les services dépendants
+  l'envoi de notifications pour les hôtes ou les services dépendants
 * La liste **Services** définie le ou les services maîtres
 * La liste **Dependent services** définie les services dépendants
 * La liste **Dependent hosts** définie les hôtes dépendants
@@ -101,18 +101,18 @@ Pour configurer une dépendance logique, rendez-vous dans le menu **Configuratio
 Host Groups** et cliquez sur **Add**.
 
 ![image](../assets/alerts/03hostgroupdependance.png)
-
+ 
 Deux types de groupes d'hôtes : Un groupe d'hôtes est dit maître s'il contrôle l'exécution et la notification d'autres
 groupes d'hôtes (dit dépendants).
 
 * Les champs **Name** et **Description** indiquent le nom et la description de la dépendance
 * Le champ **Parent relationship** est à ignorer si vous utilisez Centreon Engine. S'il est activé, alors si les liens
-de dépendances du groupe d'hôte maître deviennent indisponibles la dépendance en cours de création n'est plus prise en
-compte.
+  de dépendances du groupe d'hôte maître deviennent indisponibles la dépendance en cours de création n'est plus prise en
+  compte.
 * Le champ **Execution Failure Criteria** indique quels sont les statuts du ou des groupes d'hôtes maîtres qui empêcheront
-la vérification des groupes d'hôtes dépendants
+  la vérification des groupes d'hôtes dépendants
 * Le champ **Notification Failure Criteria** indique quels sont les statuts du ou des hôtes maîtres qui empêcheront l'envoi
-de notifications pour des groupes d'hôtes dépendants
+  de notifications pour des groupes d'hôtes dépendants
 * La liste **Host groups name** définie le ou les groupes d'hôtes maîtres
 * La liste **Dependent host group name** définie le ou les groupes d'hôtes dépendants
 * Le champ **Comments** permet de commenter la dépendance
@@ -123,18 +123,18 @@ Pour configurer une dépendance logique, rendez-vous dans le menu **Configuratio
 Service Groups** et cliquez sur **Add**.
 
 ![image](../assets/alerts/03servicegroupdependance.png)
-
+ 
 Deux types de groupes de services : Un groupe de services est dit maître s'il contrôle l'exécution et la notification
 d'autres groupes de services (dit dépendants).
 
 * Les champs **Name** et **Description** indiquent le nom et la description de la dépendance
 * Le champ **Parent relationship** est à ignorer si vous utilisez Centreon Engine. S'il est activé, alors si les liens
-de dépendances du groupe de service maître deviennent indisponibles la dépendance en cours de création n'est plus
-prise en compte.
+  de dépendances du groupe de service maître deviennent indisponibles la dépendance en cours de création n'est plus
+  prise en compte.
 * Le champ **Execution Failure Criteria** indique quels sont les statuts du ou des groupes de services maîtres qui
-empêcheront la vérification des groupes de services dépendants
+  empêcheront la vérification des groupes de services dépendants
 * Le champ **Notification Failure Criteria** indique quels sont les statuts du ou des hôtes maîtres qui empêcheront
-l'envoi de notifications pour des groupes de services dépendants
+  l'envoi de notifications pour des groupes de services dépendants
 * La liste **Service group names** définie le ou les groupes de services maîtres
 * La liste **Dependent service group names** définie le ou les groupes de services dépendants
 * Le champ **Comments** permet de commenter la dépendance
@@ -151,12 +151,12 @@ méta-services (dit dépendants).
 
 * Les champs **Name** et **Description** indiquent le nom et la description de la dépendance
 * Le champ **arent relationship** est à ignorer si vous utilisez Centreon Engine. S'il est activé, alors si les liens
-de dépendances du méta-service maître deviennent indisponibles la dépendance en cours de création n'est plus prise
-en compte.
+  de dépendances du méta-service maître deviennent indisponibles la dépendance en cours de création n'est plus prise
+  en compte.
 * Le champ **Execution Failure Criteria** indique quels sont les statuts du ou des méta-services maîtres qui
-empêcheront la vérification des méta-services dépendants
+  empêcheront la vérification des méta-services dépendants
 * Le champ **Notification Failure Criteria** indique quels sont les statuts du ou des méta-services qui empêcheront
-l'envoi de notifications pour des méta-services dépendants
+  l'envoi de notifications pour des méta-services dépendants
 * La liste **Meta-service name** définie le (ou les) méta-service(s) maître(s)
 * La liste **Dependent meta-service** définie le (ou les) méta-service(s) dépendant(s)
 * Le champ **Comments** permet de commenter la dépendance
@@ -187,7 +187,7 @@ cliquez sur **Add**.
 
 1. Entrez le nom et la description de la dépendance
 2. Pour les champs **Execution Failure Criteria** et **Notification Failure Criteria**, cochez Alerte, Critique, Inconnu
-et En attente
+  et En attente
 3. Dans la liste **Services**, sélectionnez le service qui est chargé de vérifier le statut du serveur MariaDB
 4. Dans la liste **Dependent Services**, sélectionnez le service qui utilise le scénario Sélénium
 5. Sauvegardez

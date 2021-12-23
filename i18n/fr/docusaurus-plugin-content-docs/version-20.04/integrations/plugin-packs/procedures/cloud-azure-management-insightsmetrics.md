@@ -2,9 +2,6 @@
 id: cloud-azure-management-insightsmetrics
 title: Azure InsightsMetrics
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Vue d'ensemble
 
@@ -21,22 +18,22 @@ Ce Pack permet par exemple de récupérer et de superviser les indicateurs syst�
 ### Objets supervisés
 
 * Azure Virtual Machines
-* CPU
-* Memory
-* Logical-Disks
+     * CPU
+     * Memory
+     * Logical-Disks
 
-### Métriques & statuts collectés
+### Métriques & statuts collectés 
 
-<Tabs groupId="operating-systems">
-<TabItem value="Cpu" label="Cpu">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Cpu-->
 
 | Metric Name                                                   | Description                    | Unit |
 |:--------------------------------------------------------------|:-------------------------------|:-----|
 | *instance*#azure.insights.cpu.average.utilization.percentage  | Average utilization percentage | %    |
 | *instance\~ID*#azure.insights.cpu.core.utilization.percentage | Current utilization per core   | %    |
 
-</TabItem>
-<TabItem value="LogicalDisks" label="LogicalDisks">
+<!--Logical-Disks-->
 
 | Metric Name                                                               | Description                            | Unit    |
 |:--------------------------------------------------------------------------|:---------------------------------------|:--------|
@@ -48,8 +45,7 @@ Ce Pack permet par exemple de récupérer et de superviser les indicateurs syst�
 | *instance\~mount_point*#azure.insights.logicaldisks.io.writespersecond    | Logical Disk current IO writes rate    | count/s |
 | *instance\~mount_point*#azure.insights.logicaldisks.io.transferspersecond | Logical Disk current IO transfers rate | count/s |
 
-</TabItem>
-<TabItem value="Memory" label="Memory">
+<!--Memory-->
 
 | Metric Name                                           | Description                         | Unit |
 |:------------------------------------------------------|:------------------------------------|:-----|
@@ -58,20 +54,19 @@ Ce Pack permet par exemple de récupérer et de superviser les indicateurs syst�
 | *instance*#azure.insights.memory.usage.percentage     | Current memory usage percentage     | %    |
 | *instance*#azure.insights.memory.available.percentage | Current memory available percentage | %    |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Règles de découverte
 
-<Tabs groupId="operating-systems">
-<TabItem value="Services" label="Services">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Services-->
 
 | Rule name                                                                    | Description                                                 |
 |:-----------------------------------------------------------------------------|:------------------------------------------------------------|
 | Cloud-Azure-Management-InsightsMetrics-Api-VirtualMachine-Logical-Disks-Name | Discover logical disks associated to Azure Virtual Machines |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -84,50 +79,51 @@ et notez celles-ci en lieu sûr. Elles seront en effet indispensables lors de la
 dans Centreon.
 
 * Create an *application* in Azure Active Directory:
-- Log in to your Azure account.
-- Select *Azure Active directory* in the left sidebar.
-- Click on *App registrations*.
-- Click on *+ Add*.
-- Enter Centreon as the application name (or any name of your choice), select application type(api) and sign-on-url.
-- Click on the *Create* button.
+    - Log in to your Azure account.
+    - Select *Azure Active directory* in the left sidebar.
+    - Click on *App registrations*.
+    - Click on *+ Add*.
+    - Enter Centreon as the application name (or any name of your choice), select application type(api) and sign-on-url.
+    - Click on the *Create* button.
 
 * Get *Subscription ID*
-- Log in to your Azure account.
-- Select *Subscriptions* in the left sidebar.
-- Select whichever subscription is needed.
-- Click on *Overview*.
-- **Copy the Subscription ID.**
+    - Log in to your Azure account.
+    - Select *Subscriptions* in the left sidebar.
+    - Select whichever subscription is needed.
+    - Click on *Overview*.
+    - **Copy the Subscription ID.**
 
 * Get *Tenant ID*
-- Log in to your Azure account.
-- Select *Azure Active directory* in the left sidebar.
-- Click on *Properties*.
-- **Copy the directory ID.**
+    - Log in to your Azure account.
+    - Select *Azure Active directory* in the left sidebar.
+    - Click on *Properties*.
+    - **Copy the directory ID.**
 
 * Get *Client ID*
-- Log in to your Azure account.
-- Select *Azure Active directory* in the left sidebar.
-- Click on *Enterprise applications*.
-- Click on *All applications*.
-- Select the application previously created.
-- Click on *Properties*.
-- **Copy the Application ID.**
+    - Log in to your Azure account.
+    - Select *Azure Active directory* in the left sidebar.
+    - Click on *Enterprise applications*.
+    - Click on *All applications*.
+    - Select the application previously created.
+    - Click on *Properties*.
+    - **Copy the Application ID.**
 
 * Get *Client secret*
-- Log in to your Azure account.
-- Select *Azure Active directory* in the left sidebar.
-- Click on *App registrations*.
-- Select the application previously created.
-- Click on *All settings*.
-- Click on *Keys*.
-- Enter the key description and select the duration.
-- Click on *Save*.
-- **Copy and store the key value. You won't be able to retrieve it after you leave this page.**
+    - Log in to your Azure account.
+    - Select *Azure Active directory* in the left sidebar.
+    - Click on *App registrations*.
+    - Select the application previously created.
+    - Click on *All settings*.
+    - Click on *Keys*.
+    - Enter the key description and select the duration.
+    - Click on *Save*.
+    - **Copy and store the key value. You won't be able to retrieve it after you leave this page.**
 
-## Installation
+## Installation 
 
-<Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des resources *via* InsightsMetrics:
 
@@ -137,8 +133,7 @@ yum install centreon-plugin-Cloud-Azure-Management-InsightsMetrics-Api
 
 2. Sur l'interface Web Centreon, installer le Pack *Azure InsightsMetrics* depuis la page **Configuration > Plugin packs > Manager**.
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des resources *via* InsightsMetrics:
 
@@ -153,17 +148,16 @@ yum install centreon-pack-cloud-azure-management-insightsmetrics.noarch
 
 3. Sur l'interface Web Centreon, installer le Pack *Azure InsightsMetrics* depuis la page **Configuration > Plugin packs > Gestionnaire**.
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
 ### Hôte
 
-* Ajoutez un Hôte à Centreon, remplissez le champ *Adresse IP/DNS* avec l'adresse 127.0.0.1
+* Ajoutez un Hôte à Centreon, remplissez le champ *Adresse IP/DNS* avec l'adresse 127.0.0.1 
 et appliquez-lui le Modèle d'Hôte *Cloud-Azure-Management-InsightsMetrics-XXX-custom* approprié au type de ressource à superviser
 (par exemple *Cloud-Azure-Management-InsightsMetrics-VirtualMachine-custom* pour une resource Azure VM).
-* Une fois le modèle appliqué, les Macros ci-dessous indiquées comme requises (*Mandatory*)
+* Une fois le modèle appliqué, les Macros ci-dessous indiquées comme requises (*Mandatory*) 
 doivent être renseignées:
 
 | Mandatory | Nom                       | Description                                                    |
@@ -187,16 +181,16 @@ commande depuis votre collecteur Centreon en vous connectant avec l'utilisateur
 
 ```bash
 /usr/lib/centreon/plugins//centreon_azure_management_insightsmetrics_api.pl \
---plugin=cloud::azure::management::insightsmetrics::plugin \
---mode=cpu --custommode='api' --management-endpoint='https://api.loganalytics.io' \
---subscription='xxxxxxxxx' --tenant='xxxxxxx' --client-id='xxxxxxxx' --client-secret='xxxxxxxxxx' \
---workspace-id='xxxxxxxxxxxxxxx' \
---filter-resourceid='/subscriptions/XXXX/resourcegroups/my_resourcegroup1/providers/microsoft.compute/virtualmachines/my_vm1' \
---warning-average-utilization-percentage='90' \
---critical-average-utilization-percentage='95'
+    --plugin=cloud::azure::management::insightsmetrics::plugin \
+    --mode=cpu --custommode='api' --management-endpoint='https://api.loganalytics.io' \
+    --subscription='xxxxxxxxx' --tenant='xxxxxxx' --client-id='xxxxxxxx' --client-secret='xxxxxxxxxx' \
+    --workspace-id='xxxxxxxxxxxxxxx' \
+    --filter-resourceid='/subscriptions/XXXX/resourcegroups/my_resourcegroup1/providers/microsoft.compute/virtualmachines/my_vm1' \
+    --warning-average-utilization-percentage='90' \
+    --critical-average-utilization-percentage='95'
 ```
 
-La commande devrait retourner un message de sortie similaire à:
+La commande devrait retourner un message de sortie similaire à: 
 
 ```bash
 OK: 2 CPU(s) average utilization: 2.18 % - All CPUs are ok | 'azure.insights.cpu.average.utilization.percentage'=2.18%;0:90;0:95;0;100
@@ -211,11 +205,11 @@ La commande ci-dessus contrôle le CPU d'une ressource Azure VM via les indicate
 (```--plugin=cloud::azure::management::insightsmetrics::plugin --mode=cpu --custommode='api'```).
 
 Les éléments récupérés dans la partie prérequis pour l'authentification sont
-ajoutés pour l'obtention d'un token (```--subscription='xxxxxxxxx' --tenant='xxxxxxx' --client-id='xxxxxxxx' --client-secret='xxxxxxxxxx'```).
+ajoutés pour l'obtention d'un token (```--subscription='xxxxxxxxx' --tenant='xxxxxxx' --client-id='xxxxxxxx' --client-secret='xxxxxxxxxx'```). 
 
-Les options utilisées pour ce mode permettent de spécifier le *workspace* dans lequel
+Les options utilisées pour ce mode permettent de spécifier le *workspace* dans lequel 
 sera lancée la requête (```--workspace-id='xxxxxxxxxxxxxxx'```) ainsi que l'URL de l'API *LogAnalytics* à utiliser (
-```--management-endpoint='https://api.loganalytics.io'```).
+```--management-endpoint='https://api.loganalytics.io'```). 
 
 Dans cet exemple, une alarme de type WARNING sera déclenchée si l'utilisation CPU moyenne est supérieure à 90% (```--warning-average-utilization-percentage='90'```);
 l'alarme sera de type CRITICAL au-delà de 95% d'utilisation (```--critical-average-utilization-percentage='95'```).
@@ -226,11 +220,11 @@ La liste de toutes les options complémentaires et leur signification peut être
 
 ```bash
 /usr/lib/centreon/plugins/centreon_azure_management_insightsmetrics_api.pl \
---plugin=cloud::azure::management::insightsmetrics::plugin \
---mode=cpu \
---help
+    --plugin=cloud::azure::management::insightsmetrics::plugin \
+    --mode=cpu \
+    --help
 ```
 
-### Diagnostic des erreurs communes
+### Diagnostic des erreurs communes  
 
 Rendez-vous sur la [documentation dédiée](../tutorials/troubleshooting-plugins#http-and-api-checks) des Plugins basés sur HTTP/API.

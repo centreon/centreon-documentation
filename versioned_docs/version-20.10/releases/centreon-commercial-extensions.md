@@ -67,11 +67,11 @@ Release date: `December 16, 2021`
 
 #### Bugfixes
 
-- [Web-Client] Fixed Graph scale in web interface
-- [Web-Client] Fixed "Home" icon in geoviews
-- [Web-Client] Fixed Infrastructure View link (BA)
-- [Web-Client] Fixed Sorting of maps by alphabetic order
-- [Web-Client] Fixed Links to hosts/services
+ - [Web-Client] Fixed Graph scale in web interface
+ - [Web-Client] Fixed "Home" icon in geoviews
+ - [Web-Client] Fixed Infrastructure View link (BA)
+ - [Web-Client] Fixed Sorting of maps by alphabetic order
+ - [Web-Client] Fixed Links to hosts/services
 
 ### 20.10.4
 
@@ -108,16 +108,16 @@ Release date: `December 16, 2021`
 #### Bugfixes
 
 - Upgrading from previous versions could cause a failed restart of
-centreon-map service
+  centreon-map service
 - Fresh install or upgrade could result in wrong permissions for
-centreon-map media folder
+  centreon-map media folder
 - Adding or deleting a Downtime from the Web-UI could result in loss of
-connection with Broker
+  connection with Broker
 - Creating a map with empty name could cause a failure to load the
-'Monitoring > Map' menu
+  'Monitoring > Map' menu
 - Adding an Output in Studio could sometimes result in mis formatted metric
 - WhatsUp events were unnecessarily raised in web sessions potentially
-causing performance issues
+  causing performance issues
 - [API] Requesting token from Swagger-ui could result in an error
 
 ### 20.10.1
@@ -127,13 +127,13 @@ causing performance issues
 #### Bugfixes
 
 - Saving Geo Views on a Custom View Map widget was impossible due to
-missing "Save" button
+  missing "Save" button
 - Sharing usage statistics metrics between MAP server and Central through
-HTTPS failed
+  HTTPS failed
 - Creating Links through REST API can now make use of 'bendpoints',
-'displayValue' and 'displayPercent' properties
+  'displayValue' and 'displayPercent' properties
 - Adding Centreon resources when creating an Output widget through REST
-API is now possible
+  API is now possible
 - Installing a fresh MAP Studio resulted in automated back-up failure
 
 ### 20.10.0
@@ -172,7 +172,7 @@ To use it, it is necessary to install and activate it. Refer to the
 `May 04, 2021`
 
 #### Bugfixes
-- [Monitoring] Fixed missing French translation for "warning" and "critical" status
+- [Monitoring] Fixed missing French translation for "warning" and "critical" status 
 
 #### Security fixes
 
@@ -200,7 +200,7 @@ To use it, it is necessary to install and activate it. Refer to the
 #### Bugfixes
 
 - Added missing required file for update that made BAM configuration
-pages unusable
+  pages unusable
 
 ### 20.10.1
 
@@ -215,7 +215,7 @@ pages unusable
 `October 21, 2020`
 
 - [Configuration] Update style of pages *Business Activities* and
-*Business Views*
+  *Business Views*
 
 ## Centreon MBI
 
@@ -321,14 +321,14 @@ vulnerabilities)
 #### Bugfixes
 
 - [Host Discovery] Long values in *host.ip* field cause "Error when sorting
-and filtering host modification results" issue
+  and filtering host modification results" issue
 - [Host Discovery] Save script now runs on CentOS 8
 
 #### Enhancements
 
 - [Host Discovery] Add a confirmation dialog when deleting a job
 - [Host Discovery] Change wording "Additional parameters" to "Discovery
-parameters"
+  parameters"
 
 ### 20.10.1
 

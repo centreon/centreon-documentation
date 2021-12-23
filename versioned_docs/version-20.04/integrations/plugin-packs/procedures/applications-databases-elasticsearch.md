@@ -2,9 +2,6 @@
 id: applications-databases-elasticsearch
 title: Elasticsearch
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Overview
 
@@ -24,23 +21,24 @@ Elasticsearch is a distributed, open source search and analytics engine for all 
 
 ### Discovery rules
 
-<Tabs groupId="operating-systems">
-<TabItem value="Services" label="Services">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Services-->
 
 | Rule name                              | Description                                   |
 | :------------------------------------- | :-------------------------------------------- |
 | App-DB-Elasticsearch-Indice-Statistics | Discover the indices on your Elasticsearch DB |
 | App-DB-Elasticsearch-Node-Statistics   | Discover the nodes on your Elasticsearch DB   |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 Use the discovery module to add the monitoring of your Elasticsearch databases, Go to *Configuration > Services > Scan* to perform a scan.
 
 ### Collected metrics
 
-<Tabs groupId="operating-systems">
-<TabItem value="Clusterstatistics" label="Clusterstatistics">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Cluster-statistics-->
 
 | Metric name              | Description                              | Unit    |
 | :----------------------- | :--------------------------------------- | :---    |
@@ -61,8 +59,7 @@ Use the discovery module to add the monitoring of your Elasticsearch databases, 
 | docs_count               | Number of documents                      |         |
 | size_in_bytes            | Size of all shards assigned              |    B    |
 
-</TabItem>
-<TabItem value="Indicestatistics" label="Indicestatistics">
+<!--Indice-statistics-->
 
 | Metric name              | Description                              | Unit    |
 | :----------------------- | :--------------------------------------- | :------ |
@@ -74,8 +71,7 @@ Use the discovery module to add the monitoring of your Elasticsearch databases, 
 | size_in_bytes_primaries  | Size of all primary shards               |    B    |
 | size_in_bytes_total      | Total size of all shards assigned        |    B    |
 
-</TabItem>
-<TabItem value="License" label="License">
+<!--License-->
 
 | Metric name        | Description                              | Unit    |
 | :----------------- | :--------------------------------------- | :------ |
@@ -84,8 +80,7 @@ Use the discovery module to add the monitoring of your Elasticsearch databases, 
 | issued_to          | Licence owner                            |         |
 | issue_date         | Licence issue date                       |         |
 
-</TabItem>
-<TabItem value="Nodestatistics" label="Nodestatistics">
+<!--Node-statistics-->
 
 | Metric name        | Description                                           | Unit    |
 | :----------------- | :---------------------------------------------------- | :-----  |
@@ -99,10 +94,9 @@ Use the discovery module to add the monitoring of your Elasticsearch databases, 
 | docs_count         | Number of documents inside the indice                 |         |
 | size_in_bytes      | Total size of all shards assigned to the node         |    B    |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
-## Prerequisites
+## Prerequisites 
 
 In order to monitor an Elasticsearch cluster, it must be prepared acccording to Elasticsearch's official documentation: https://www.elastic.co/guide/en/elasticsearch/reference/7.8/monitor-elasticsearch-cluster
 
@@ -110,8 +104,9 @@ In order to be able to communicate with the Elasticsearch node's API, the Centre
 
 ## Installation
 
-<Tabs groupId="operating-systems">
-<TabItem value="Online Licence Business & IT Editions" label="Online Licence Business & IT Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online Licence Business & IT Editions-->
 
 1. Install the Plugin on all Centreon pollers monitoring Elasticsearch ressources:
 
@@ -121,8 +116,7 @@ yum install centreon-plugin-Applications-Databases-Elasticsearch
 
 2. Install the Plugin-Pack 'Elasticsearch' in the " Configuration  >  Plugin Packs"  page of the Web Centreon interface
 
-</TabItem>
-<TabItem value="Offline Licenses" label="Offline Licenses">
+<!--Offline Licenses-->
 
 1. Install the Plugin on all Centreon pollers monitoring Elasticsearch ressources:
 
@@ -138,8 +132,7 @@ yum install centreon-pack-applications-databases-elasticsearch
 
 3. In the *Configuration  \>  Plugin Packs*  page of the Web Centreon interface, install the Plugin-Pack 'Elasticsearch'
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Host Configuration
 
@@ -160,19 +153,19 @@ One the Plugin is installed, you can test it directly in the command line from y
 with the user *centreon-engine*:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_elasticsearch.pl \
---hostname=168.253.16.125 \
---port=9200 \
---proto=http \
---plugin=database::elasticsearch::restapi::plugin \
---mode=node-statistics \
---filter-name='Node 1'  \
---username='Elasticsearch_username' \
---warning-disk-free='20%' \
---critical-disk-free='5%'
+/usr/lib/centreon/plugins/centreon_elasticsearch.pl \ 
+    --hostname=168.253.16.125 \
+    --port=9200 \
+    --proto=http \
+    --plugin=database::elasticsearch::restapi::plugin \
+    --mode=node-statistics \
+    --filter-name='Node 1'  \
+    --username='Elasticsearch_username' \
+    --warning-disk-free='20%' \
+    --critical-disk-free='5%'
 ```
 
-Output:
+Output: 
 
 ```bash
 OK: Node 'i-Vertix Node 1' JVM Heap: 26%, Free Disk Space: 1.56TB, Documents: 4362761044, Data: 1.26TB | 'i-Vertix Node 1#node.jvm.heap.usage.percentage'=26%;;;0;100 'i-Vertix Node 1#node.jvm.heap.usage.bytes'=36380302240B;;;0;137151119360 'i-Vertix Node 1#node.disk.free.bytes'=1710072680448B;;;0;3113589145600 'i-Vertix Node 1#node.documents.total.count'=4362761044;;;0; 'i-Vertix Node 1#node.data.size.bytes'=1386278479651B;;;0;
@@ -180,7 +173,7 @@ OK: Node 'i-Vertix Node 1' JVM Heap: 26%, Free Disk Space: 1.56TB, Documents: 43
 
 The command request statistic to the Elasticsearch node named 'Node 1' (```--mode=node-statistics --filter-name='Node 1```) with the IP/FQDN address *168.253.16.125* (```--hostname=168.253.16.125```).
 We will use the port 9200 (```--port=9200```) and the http protocol (```proto=http''```).
-The username of the datebase is *Elasticsearch_username* (```--username='Elasticsearch_username'```) and its pasword is *Elasticsearch_password*(```--password='Elasticsearch_password'```).
+The username of the datebase is *Elasticsearch_username* (```--username='Elasticsearch_username'```) and its pasword is *Elasticsearch_password*(```--password='Elasticsearch_password'```). 
 This command will trigger a WARNING alert if there is less than 20% of free space on the disk (```--warning-disk-free='20%''```) and a CRITICAL alert if less than 5% (```--critical-disk-free='5%'```).
 Some thresholds can also be set on metrics with options "--warning-*" and "--critical-*".
 
@@ -188,15 +181,15 @@ All the available modes can be listed with the command line:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_elasticsearch.pl \
---list-mode
+    --list-mode
 ```
 
-And the different mode's options can be displayed with the ```--help``` parameter:
+And the different mode's options can be displayed with the ```--help``` parameter:  
 
 ```bash
 /usr/lib/centreon/plugins/centreon_elasticsearch.pl \
---mode=node-statistics \
---help
+    --mode=node-statistics \
+    --help
 ```
 
 ### Why do I get the following error:

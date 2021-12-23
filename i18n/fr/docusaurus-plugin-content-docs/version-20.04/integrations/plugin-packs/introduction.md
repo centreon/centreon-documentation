@@ -3,7 +3,7 @@ id: introduction
 title: Introduction to Plugin Packs
 ---
 
-> Pour savoir comment installer un Plugin Pack, vous pouvez vous rendre sur la documentation dédiée:
+> Pour savoir comment installer un Plugin Pack, vous pouvez vous rendre sur la documentation dédiée: 
 > [installation des Plugin Packs](../../monitoring/pluginpacks).
 
 Un Plugin Pack (ou pack de supervision en français) est un jeu téléchargeable
@@ -47,29 +47,29 @@ recherche de votre navigateur est là pour vous aider !
 
 Vous trouverez ici une liste des Plugin Packs fréquemment utilisés :
 
-- [Linux SNMP](procedures/operatingsystems-linux-snmp)
-- [Windows SNMP](procedures/operatingsystems-windows-snmp)
-- [Windows NRPE/NSClient 0.5](procedures/operatingsystems-windows-nsclient-05-nrpe)
-- [VMware virtual machines](procedures/virtualization-vmware2-vm)
-- [VMware ESX](procedures/virtualization-vmware2-esx)
-- [Cisco standard switches](procedures/network-cisco-standard-snmp)
-- [HP Procurve](procedures/network-switchs-hp-procurve-snmp)
-- [MySQL/MariaDB](procedures/applications-databases-mysql)
-- [Oracle database](procedures/applications-databases-oracle)
-- [Fortinet Fortigate](procedures/network-firewalls-fortinet-fortigate-snmp)
-- [Dell iDRAC](procedures/hardware-servers-dell-idrac-snmp)
+  - [Linux SNMP](procedures/operatingsystems-linux-snmp)
+  - [Windows SNMP](procedures/operatingsystems-windows-snmp)
+  - [Windows NRPE/NSClient 0.5](procedures/operatingsystems-windows-nsclient-05-nrpe)
+  - [VMware virtual machines](procedures/virtualization-vmware2-vm)
+  - [VMware ESX](procedures/virtualization-vmware2-esx)
+  - [Cisco standard switches](procedures/network-cisco-standard-snmp)
+  - [HP Procurve](procedures/network-switchs-hp-procurve-snmp)
+  - [MySQL/MariaDB](procedures/applications-databases-mysql)
+  - [Oracle database](procedures/applications-databases-oracle)
+  - [Fortinet Fortigate](procedures/network-firewalls-fortinet-fortigate-snmp)
+  - [Dell iDRAC](procedures/hardware-servers-dell-idrac-snmp)
 
 Et une liste de Plugin Packs avec des fournisseurs de découverte d'hôte
 intégrés :
 
-- [Generic SNMP](procedures/applications-protocol-snmp)
-- [VMware virtual machines](procedures/virtualization-vmware2-vm)
-- [VMware ESX](procedures/virtualization-vmware2-esx)
-- [Amazon EC2](procedures/cloud-aws-ec2)
-- [Amazon S3](procedures/cloud-aws-s3)
-- [Amazon RDS](procedures/cloud-aws-rds)
-- [Azure Virtual Machine](procedures/cloud-azure-compute-virtualmachine)
-- [Azure Storage Account](procedures/cloud-azure-storage-storageaccount)
-- [Azure SQL Server](procedures/cloud-azure-database-sqlserver)
-- [Ansible Tower](procedures/applications-ansible-tower)
-- [Aruba standard switches](procedures/network-switchs-aruba-standard-snmp)
+  - [Generic SNMP](procedures/applications-protocol-snmp)
+  - [VMware virtual machines](procedures/virtualization-vmware2-vm)
+  - [VMware ESX](procedures/virtualization-vmware2-esx)
+  - [Amazon EC2](procedures/cloud-aws-ec2)
+  - [Amazon S3](procedures/cloud-aws-s3)
+  - [Amazon RDS](procedures/cloud-aws-rds)
+  - [Azure Virtual Machine](procedures/cloud-azure-compute-virtualmachine)
+  - [Azure Storage Account](procedures/cloud-azure-storage-storageaccount)
+  - [Azure SQL Server](procedures/cloud-azure-database-sqlserver)
+  - [Ansible Tower](procedures/applications-ansible-tower)
+  - [Aruba standard switches](procedures/network-switchs-aruba-standard-snmp)

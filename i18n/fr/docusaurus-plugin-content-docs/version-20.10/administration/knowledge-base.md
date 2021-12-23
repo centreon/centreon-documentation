@@ -47,10 +47,10 @@ alerte.
 
 Le contenu d'une procédure peut être d'ordre général ou spécifique:
 
-- Décrire les actions nécessaires à la résolution d'un problème.
-- Informer de l'existence d'une consigne particulière (temporaire ou
-permanente).
-- ...
+  - Décrire les actions nécessaires à la résolution d'un problème.
+  - Informer de l'existence d'une consigne particulière (temporaire ou
+    permanente).
+  - ...
 
 Une procédure peut être associée à un hôte ou un service.
 
@@ -75,14 +75,14 @@ connaissances.
 
 Quand un utilisateur clique sur la procédure d'un hôte :
 
-- si une procédure spécifique est définie pour cet hôte, la page wiki de
-l'hôte s'affichera
-- si aucune procédure spécifique n'est définie mais que le modèle d'hôte a une
-procédure alors c'est la page wiki de cette dernière qui s'affichera
-- si le modèle d'hôte n'a pas de procédure de définie, alors les modèles
-d'hôte parents seront parcourus pour vérifier la présence d'une procédure
-- finalement si aucune procédure n'est définie dans l'arbre des modèles,
-aucune procédure ne sera accessible.
+  - si une procédure spécifique est définie pour cet hôte, la page wiki de
+    l'hôte s'affichera
+  - si aucune procédure spécifique n'est définie mais que le modèle d'hôte a une
+    procédure alors c'est la page wiki de cette dernière qui s'affichera
+  - si le modèle d'hôte n'a pas de procédure de définie, alors les modèles
+    d'hôte parents seront parcourus pour vérifier la présence d'une procédure
+  - finalement si aucune procédure n'est définie dans l'arbre des modèles,
+    aucune procédure ne sera accessible.
 
 Il en est de même pour les services.
 
@@ -91,12 +91,12 @@ Il en est de même pour les services.
 Naviguer dans l'interface Web de Centreon vers les sous menus de
 `Configuration > Base de connaissance` pour :
 
-- Lister les hôtes / services / modèles d'hôtes / modèles de services avec
-leurs bases de connaissances liées
-- Créer / Visualiser / Editer / Visualiser l'historique pour un hôte / service
-/ modèle d'hôte / modèle de service
-- Lister les hôtes / services / modèles d'hôtes / modèles de services sans
-base de connaissances définie.
+  - Lister les hôtes / services / modèles d'hôtes / modèles de services avec
+    leurs bases de connaissances liées
+  - Créer / Visualiser / Editer / Visualiser l'historique pour un hôte / service
+    / modèle d'hôte / modèle de service
+  - Lister les hôtes / services / modèles d'hôtes / modèles de services sans
+    base de connaissances définie.
 
 *Centreon Knowledge Base* utilise un wiki pour stocker sa base de connaissance.
 Toutes les créations / modifications sont donc réalisées à travers celui-ci.
@@ -137,12 +137,12 @@ modèles.
 
 Voici un exemple d'une configuration pour un modèle d'hôte :
 
-- Linux \> Generic-hosts
-- Windows \> Generic-hosts
-- RedHat \> Linux
-- Debian \> Linux
-- Active-Directory \> Windows
-- LDAP \> Linux
+  - Linux \> Generic-hosts
+  - Windows \> Generic-hosts
+  - RedHat \> Linux
+  - Debian \> Linux
+  - Active-Directory \> Windows
+  - LDAP \> Linux
 
 Pour configurer Centreon KnowledgeBase pour le modèle d'hôte **RedHat**, vous
 pouvez suivre la démarche décrite dans la section suivante: [Lien avec l'interface web de

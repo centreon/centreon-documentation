@@ -2,9 +2,6 @@
 id: install-ha
 title: Install Centreon-Map in High Availability
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 > Centreon-Map nécessite une licence valide. Pour en acquérir une et récupérer les référentiels
 > nécessaires, contactez [Centreon] mailto:sales@centreon.com).
@@ -20,19 +17,20 @@ Vous trouverez toutes les informations sur l'[aperçu](../installation/installat
 
 ### Compréhension
 
-Avant d'appliquer cette procédure, vous devez avoir une bonne connaissance de l'OS Linux, de Centreon, et des outils de clusters Pacemaker afin d'avoir une compréhension
+Avant d'appliquer cette procédure, vous devez avoir une bonne connaissance de l'OS Linux, de Centreon, et des outils de clusters Pacemaker afin d'avoir une compréhension 
 correcte de ce qui est fait.
 
-> **AVERTISSEMENT:** Toute personne qui suit cette procédure le fait à sa propre responsabilité. En aucun cas, la société Centreon ne peut être tenue responsable d'une
+> **AVERTISSEMENT:** Toute personne qui suit cette procédure le fait à sa propre responsabilité. En aucun cas, la société Centreon ne peut être tenue responsable d'une 
 quelconque panne ou perte de données.
 
 ### Flux réseau
 
-En plus des flux nécessaires décrits dans la [documentation officielle](install#architecture),
+En plus des flux nécessaires décrits dans la [documentation officielle](install#architecture), 
 vous devrez ouvrir les flux suivants :
 
-<Tabs groupId="operating-systems">
-<TabItem value="2 Nœuds" label="2 Nœuds">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--2 Nœuds-->
 
 | De                    | Destination           | Protocol | Port     | Application                                                                       |
 | :-------------------- | :-------------------- | :------- | :------- | :-------------------------------------------------------------------------------- |
@@ -42,8 +40,7 @@ vous devrez ouvrir les flux suivants :
 | Map Servers + QDevice | Map Servers + QDevice | PCS      | TCP 2224 | Communication à l'intérieur le cluster                                            |
 | Map Servers + QDevice | Map Servers + QDevice | Corosync | TCP 5403 | Communication avec le QDevice                                                     |
 
-</TabItem>
-<TabItem value="4 Nœuds" label="4 Nœuds">
+<!--4 Nœuds-->
 
 | De                         | Destination                 | Protocol | Port     | Application                                                                       |
 | :------------------------- | :-------------------------- | :------- | :------- | :-------------------------------------------------------------------------------- |
@@ -53,8 +50,7 @@ vous devrez ouvrir les flux suivants :
 | Map Servers + DB + QDevice | Map Servers + DB + QDevice  | PCS      | TCP 2224 | Communication à l'intérieur du cluster                                            |
 | Map Servers + DB + QDevice | Map Servers + DB + QDevice  | Corosync | TCP 5403 | Communication avec le QDevice                                                     |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Installation de la plateforme Map de Centreon
 
@@ -66,9 +62,9 @@ le répertoire de données MariaDB (point de montage `/var/lib/mysql` par défau
 La réponse de la commande `vgs` doit ressembler à ceci (ce à quoi il faut faire attention est la valeur sous la mention `VFree`) :
 
 ```bash
-VG      #PV #LV #SN Attr   VSize  VFree
-vg_data   1   1   0 wz--n- 10,99g 5,99g
-vg_root   1   2   0 wz--n-  9,00g    0
+  VG      #PV #LV #SN Attr   VSize  VFree
+  vg_data   1   1   0 wz--n- 10,99g 5,99g
+  vg_root   1   2   0 wz--n-  9,00g    0 
 ```
 
 Les 2 serveurs Centreon-Map doivent être liés au même serveur central.
@@ -77,39 +73,39 @@ Le script `/etc/centreon-studio/diagnostic.sh` doit retourner `[OK]` sur **les d
 ```bash
 ########## Centreon-Map server version ##########
 
-[INFO] centreon-map-server-xx.xx.x-x.el7.noarch
+  [INFO] centreon-map-server-xx.xx.x-x.el7.noarch
 
 ########## System ##########
 
-[OK]   SELinux disabled
-[OK]   Firewall is disabled
-[INFO] Physical memory available on the server: 1884128 kb.
-[INFO] Number of CPU available on the server: 1 core(s)
+  [OK]   SELinux disabled
+  [OK]   Firewall is disabled
+  [INFO] Physical memory available on the server: 1884128 kb.
+  [INFO] Number of CPU available on the server: 1 core(s)
 
 ########## Java ##########
 
-[OK]   Java 11 installed
-[INFO] No optimization found for the JVM (Xms and Xmx options).
+  [OK]   Java 11 installed
+  [INFO] No optimization found for the JVM (Xms and Xmx options).
 
 ########## Database connection ##########
 
-[OK]   Connection to centreon
-[OK]   Connection to centreon_storage
-[OK]   Connection to centreon_studio
+  [OK]   Connection to centreon
+  [OK]   Connection to centreon_storage
+  [OK]   Connection to centreon_studio
 
 ########## Broker connection ##########
 
-[OK]   Connection to @CENTRAL_IPADDR@ 5758 port
+  [OK]   Connection to @CENTRAL_IPADDR@ 5758 port
 
 ########## Authentication ##########
 
-[OK]   Centreon Central authentication using user centreon_map
+  [OK]   Centreon Central authentication using user centreon_map
 
 ########## Protocol verification ##########
 
-[OK] Centreon Map server configured to use HTTPS protocol
-[INFO] Centreon Central configured in Map to use https protocol.
-[OK]   Centreon Central successfully answered to HTTPS request
+  [OK] Centreon Map server configured to use HTTPS protocol
+  [INFO] Centreon Central configured in Map to use https protocol.
+  [OK]   Centreon Central successfully answered to HTTPS request
 
 ```
 
@@ -117,13 +113,13 @@ Le script `/etc/centreon-studio/diagnostic.sh` doit retourner `[OK]` sur **les d
 
 ### Configuration de Studio
 
-Toutes les options spécifiques configurées dans `/etc/centreon-studio/studio-config.properties` doivent
-être les mêmes sur les 2 nœuds. Les options qui peuvent être activées ou désactivées
+Toutes les options spécifiques configurées dans `/etc/centreon-studio/studio-config.properties` doivent 
+être les mêmes sur les 2 nœuds. Les options qui peuvent être activées ou désactivées 
 sont décrites [ici](configuration).
 
 ### Quorum Device
 
-Afin de préserver le cluster des problèmes de "split brain", un troisième serveur est obligatoire pour résoudre l'élection du maître en cas de perte de connexion.
+Afin de préserver le cluster des problèmes de "split brain", un troisième serveur est obligatoire pour résoudre l'élection du maître en cas de perte de connexion. 
 Le rôle de Quorum Device, peut être tenu par un Poller de la plateforme de supervision.
 
 ### Définir les noms et adresses des hôtes
@@ -152,7 +148,7 @@ Avant de mettre en place le cluster, certaines conditions préalables doivent ê
 
 ### Optimisation de la configuration de réseau
 
-Afin d'améliorer la fiabilité du cluster, et puisque *Centreon-Map HA* ne prend en charge que l'IPv4, nous vous recommandons d'appliquer les paramètres de configuration
+Afin d'améliorer la fiabilité du cluster, et puisque *Centreon-Map HA* ne prend en charge que l'IPv4, nous vous recommandons d'appliquer les paramètres de configuration 
 suivants à tous vos serveurs Centreon-Map (y compris le quorum device) :
 
 ```bash
@@ -239,7 +235,7 @@ Ensuite, quittez la session `mysql` en tapant `exit` ou `Ctrl-D`.
 
 ## Configuration de la réplication des bases de données MariaDB
 
-Un cluster MariaDB primaire-secondaire sera mis en place afin que tout soit synchronisé en temps réel.
+Un cluster MariaDB primaire-secondaire sera mis en place afin que tout soit synchronisé en temps réel. 
 
 **Info**: sauf indication contraire, chacune des étapes suivantes doit être exécutée **sur les deux nœuds Map**.
 
@@ -316,13 +312,13 @@ GRANT ALL PRIVILEGES ON centreon_studio.* TO '@MARIADB_CENTREON_USER@'@'@MAP_PRI
 Toujours dans le même prompt, créez l'utilisateur de réplication (par défaut : `centreon-repl`) :
 
 ```sql
-GRANT SHUTDOWN, PROCESS, RELOAD, SUPER, SELECT, REPLICATION CLIENT, REPLICATION SLAVE ON *.*
+GRANT SHUTDOWN, PROCESS, RELOAD, SUPER, SELECT, REPLICATION CLIENT, REPLICATION SLAVE ON *.* 
 TO '@MARIADB_REPL_USER@'@'localhost' IDENTIFIED BY '@MARIADB_REPL_PASSWD@';
 
-GRANT SHUTDOWN, PROCESS, RELOAD, SUPER, SELECT, REPLICATION CLIENT, REPLICATION SLAVE ON *.*
+GRANT SHUTDOWN, PROCESS, RELOAD, SUPER, SELECT, REPLICATION CLIENT, REPLICATION SLAVE ON *.* 
 TO '@MARIADB_REPL_USER@'@'@MAP_SECONDARY_IPADDR@' IDENTIFIED BY '@MARIADB_REPL_PASSWD@';
 
-GRANT SHUTDOWN, PROCESS, RELOAD, SUPER, SELECT, REPLICATION CLIENT, REPLICATION SLAVE ON *.*
+GRANT SHUTDOWN, PROCESS, RELOAD, SUPER, SELECT, REPLICATION CLIENT, REPLICATION SLAVE ON *.* 
 TO '@MARIADB_REPL_USER@'@'@MAP_PRIMARY_IPADDR@' IDENTIFIED BY '@MARIADB_REPL_PASSWD@';
 ```
 
@@ -385,10 +381,10 @@ Connection Status '@MAP_PRIMARY_NAME@' [OK]
 Connection Status '@MAP_SECONDARY_NAME@' [OK]
 Slave Thread Status [KO]
 Error reports:
-No slave (maybe because we cannot check a server).
+	No slave (maybe because we cannot check a server).
 Position Status [SKIP]
 !Error reports:
-Skip because we can't identify a unique slave.
+	Skip because we can't identify a unique slave.
 ```
 
 Ce qui importe ici, c'est que les deux premiers tests de connexion soient `OK`.
@@ -423,7 +419,7 @@ systemctl restart mariadb
 
 ### Synchronisation des bases de données et activation de la réplication MariaDB
 
-Lors du processus de synchronisation des bases de données, vous arrêterez d'abord le processus de la base de données secondaire afin que ses données puissent être écrasées par celles du nœud primaire.
+Lors du processus de synchronisation des bases de données, vous arrêterez d'abord le processus de la base de données secondaire afin que ses données puissent être écrasées par celles du nœud primaire. 
 
 Exécutez cette commande **sur le nœud secondaire :**
 
@@ -457,7 +453,7 @@ Ce script va effectuer les actions suivantes :
 * redémarrer MariaDB sur le nœud primaire.
 * enregistrer la position actuelle dans le log binaire
 * désactiver le mode `read_only` sur le nœud primaire (ce nœud sera maintenant capable d'écrire dans sa base de données).
-* synchronisation et réécriture de tous les fichiers de données (sauf la base de données système `mysql`).
+* synchronisation et réécriture de tous les fichiers de données (sauf la base de données système `mysql`). 
 * démontage du snapshot LVM
 * création du thread de réplication qui maintiendra les deux bases de données synchronisées.
 
@@ -465,7 +461,7 @@ Le résultat de ce script est très verbeux et vous ne pouvez pas vous attendre 
 
 ```text
 Umount and Delete LVM snapshot
-Logical volume "dbbackupdatadir" successfully removed
+  Logical volume "dbbackupdatadir" successfully removed
 Start MySQL Slave
 Start Replication
 Id	User	Host	db	Command	Time	State	Info	Progress
@@ -515,9 +511,9 @@ systemctl start pcsd
 ```
 
 
-#### Préparation du serveur qui assurera la fonction de *quorum device*.
+#### Préparation du serveur qui assurera la fonction de *quorum device*. 
 
-Vous pouvez utiliser un de vos Pollers pour jouer ce rôle. Il doit être préparé avec les commandes suivantes :
+Vous pouvez utiliser un de vos Pollers pour jouer ce rôle. Il doit être préparé avec les commandes suivantes : 
 
 ```bash
 yum install pcs corosync-qnetd
@@ -545,24 +541,24 @@ Maintenant que les deux nœuds de Centreon-Map **et** le serveur *quorum device*
 
 ```bash
 pcs cluster auth \
-"@MAP_PRIMARY_NAME@" \
-"@MAP_SECONDARY_NAME@" \
-"@QDEVICE_NAME@" \
--u "hacluster" \
--p '@CENTREON_CLUSTER_PASSWD@' \
---force
+	"@MAP_PRIMARY_NAME@" \
+	"@MAP_SECONDARY_NAME@" \
+	"@QDEVICE_NAME@" \
+	-u "hacluster" \
+	-p '@CENTREON_CLUSTER_PASSWD@' \
+	--force
 ```
 
 #### Création du cluster
 
-La commande suivante crée le cluster. Elle doit être exécutée **seulement sur l'un des nœuds de Centreon-Map**.
+La commande suivante crée le cluster. Elle doit être exécutée **seulement sur l'un des nœuds de Centreon-Map**. 
 
 ```bash
 pcs cluster setup \
---force \
---name centreon_cluster \
-"@MAP_PRIMARY_NAME@" \
-"@MAP_SECONDARY_NAME@"
+	--force \
+	--name centreon_cluster \
+	"@MAP_PRIMARY_NAME@" \
+	"@MAP_SECONDARY_NAME@"
 ```
 
 Ensuite, démarrez le service `pacemaker` **sur les deux nœuds de Centreon-Map** :
@@ -588,86 +584,82 @@ Exécutez cette commande sur l'un des nœuds de Centreon-Map :
 
 ```bash
 pcs quorum device add model net \
-host="@QDEVICE_NAME@" \
-algorithm="ffsplit"
+	host="@QDEVICE_NAME@" \
+	algorithm="ffsplit"
 ```
 
 ### Créer les ressources du cluster MariaDB
 
 À exécuter **seulement sur un nœud de Centreon-Map** :
 
-<Tabs groupId="operating-systems">
-<TabItem value="CentOS7" label="CentOS7">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--CentOS7-->
 
 ```bash
 pcs resource create "ms_mysql" \
-ocf:heartbeat:mysql-centreon \
-config="/etc/my.cnf.d/server.cnf" \
-pid="/var/lib/mysql/mysql.pid" \
-datadir="/var/lib/mysql" \
-socket="/var/lib/mysql/mysql.sock" \
-replication_user="@MARIADB_REPL_USER@" \
-replication_passwd='@MARIADB_REPL_PASSWD@' \
-max_slave_lag="15" \
-evict_outdated_slaves="false" \
-binary="/usr/bin/mysqld_safe" \
-test_user="@MARIADB_REPL_USER@" \
-test_passwd="@MARIADB_REPL_PASSWD@" \
-test_table='centreon_studio.data' \
-master
+	ocf:heartbeat:mysql-centreon \
+	config="/etc/my.cnf.d/server.cnf" \
+	pid="/var/lib/mysql/mysql.pid" \
+	datadir="/var/lib/mysql" \
+	socket="/var/lib/mysql/mysql.sock" \
+	replication_user="@MARIADB_REPL_USER@" \
+	replication_passwd='@MARIADB_REPL_PASSWD@' \
+	max_slave_lag="15" \
+	evict_outdated_slaves="false" \
+	binary="/usr/bin/mysqld_safe" \
+	test_user="@MARIADB_REPL_USER@" \
+	test_passwd="@MARIADB_REPL_PASSWD@" \
+	test_table='centreon_studio.data' \
+	master
 ```
-
-</TabItem>
-<TabItem value="RHEL" label="RHEL">
+<!--RHEL-->
 
 ```bash
 pcs resource create "ms_mysql" \
-ocf:heartbeat:mysql-centreon \
-config="/etc/my.cnf.d/server.cnf" \
-pid="/var/lib/mysql/mysql.pid" \
-datadir="/var/lib/mysql" \
-socket="/var/lib/mysql/mysql.sock" \
-replication_user="@MARIADB_REPL_USER@" \
-replication_passwd='@MARIADB_REPL_PASSWD@' \
-max_slave_lag="15" \
-evict_outdated_slaves="false" \
-binary="/usr/bin/mysqld_safe" \
-test_user="@MARIADB_REPL_USER@" \
-test_passwd="@MARIADB_REPL_PASSWD@" \
-test_table='centreon_studio.data'
+	ocf:heartbeat:mysql-centreon \
+	config="/etc/my.cnf.d/server.cnf" \
+	pid="/var/lib/mysql/mysql.pid" \
+	datadir="/var/lib/mysql" \
+	socket="/var/lib/mysql/mysql.sock" \
+	replication_user="@MARIADB_REPL_USER@" \
+	replication_passwd='@MARIADB_REPL_PASSWD@' \
+	max_slave_lag="15" \
+	evict_outdated_slaves="false" \
+	binary="/usr/bin/mysqld_safe" \
+	test_user="@MARIADB_REPL_USER@" \
+	test_passwd="@MARIADB_REPL_PASSWD@" \
+	test_table='centreon_studio.data'
 ```
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 > **AVERTISSEMENT:** la syntaxe de la commande suivante dépend de la distribution Linux que vous utilisez.
 
-<Tabs groupId="operating-systems">
-<TabItem value="CentOS7" label="CentOS7">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--CentOS7-->
 
 ```bash
 pcs resource meta ms_mysql-master \
-master-node-max="1" \
-clone_max="2" \
-globally-unique="false" \
-clone-node-max="1" \
-notify="true"
+	master-node-max="1" \
+	clone_max="2" \
+	globally-unique="false" \
+	clone-node-max="1" \
+	notify="true"
 ```
 
-
-</TabItem>
-<TabItem value="RHEL" label="RHEL">
+<!--RHEL-->
 
 ```bash
 pcs resource master ms_mysql \
-master-node-max="1" \
-clone_max="2" \
-globally-unique="false" \
-clone-node-max="1" \
-notify="true"
+	master-node-max="1" \
+	clone_max="2" \
+	globally-unique="false" \
+	clone-node-max="1" \
+	notify="true"
 ```
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Création du groupe de ressources *centreon_map*.
 
@@ -675,29 +667,29 @@ notify="true"
 
 ```bash
 pcs resource create vip \
-ocf:heartbeat:IPaddr2 \
-ip="@VIP_IPADDR@" \
-nic="@VIP_IFNAME@" \
-cidr_netmask="@VIP_CIDR_NETMASK@" \
-broadcast="@VIP_BROADCAST_IPADDR@" \
-flush_routes="true" \
-meta target-role="started" \
-op start interval="0s" timeout="20s" \
-stop interval="0s" timeout="20s" \
-monitor interval="10s" timeout="20s" \
---group centreon_map
+	ocf:heartbeat:IPaddr2 \
+	ip="@VIP_IPADDR@" \
+	nic="@VIP_IFNAME@" \
+	cidr_netmask="@VIP_CIDR_NETMASK@" \
+	broadcast="@VIP_BROADCAST_IPADDR@" \
+	flush_routes="true" \
+	meta target-role="started" \
+	op start interval="0s" timeout="20s" \
+	stop interval="0s" timeout="20s" \
+	monitor interval="10s" timeout="20s" \
+	--group centreon_map
 ```
 
 #### Service Centreon-Map
 
 ```bash
 pcs resource create centreon-map \
-systemd:centreon-map \
-meta target-role="started" \
-op start interval="0s" timeout="90s" \
-stop interval="0s" timeout="90s" \
-monitor interval="5s" timeout="30s" \
---group centreon_map
+	systemd:centreon-map \
+	meta target-role="started" \
+	op start interval="0s" timeout="90s" \
+	stop interval="0s" timeout="90s" \
+	monitor interval="5s" timeout="30s" \
+	--group centreon_map
 ```
 
 #### Contraintes de Colocation
@@ -730,12 +722,12 @@ Online: [ @MAP_PRIMARY_NAME@ @MAP_SECONDARY_NAME@ ]
 
 Active resources:
 
-Master/Slave Set: ms_mysql-master [ms_mysql]
-Masters: [ @MAP_PRIMARY_NAME@ ]
-Slaves: [ @MAP_SECONDARY_NAME@ ]
-Resource Group: centreon
-vip        (ocf::heartbeat:IPaddr2):	Started @MAP_PRIMARY_NAME@
-centreon-map	(systemd:centreon-map):   Started @MAP_PRIMARY_NAME@
+ Master/Slave Set: ms_mysql-master [ms_mysql]
+	 Masters: [ @MAP_PRIMARY_NAME@ ]
+	 Slaves: [ @MAP_SECONDARY_NAME@ ]
+ Resource Group: centreon
+	 vip        (ocf::heartbeat:IPaddr2):	Started @MAP_PRIMARY_NAME@
+	 centreon-map	(systemd:centreon-map):   Started @MAP_PRIMARY_NAME@
 ```
 
 #### Vérification du thread de réplication de la base de données
@@ -757,7 +749,7 @@ Position Status [OK]
 
 Il peut arriver que le thread de réplication ne fonctionne pas juste après l'installation.  Le redémarrage de la ressource `ms_mysql` peut résoudre ce problème.
 
-```bash
+```bash 
 pcs resource restart ms_mysql
 ```
 
@@ -769,15 +761,15 @@ Normalement, les deux contraintes de colocation qui ont été créées pendant l
 Location Constraints:
 Ordering Constraints:
 Colocation Constraints:
-centreon_map with ms_mysql-master (score:INFINITY) (rsc-role:Started) (with-rsc-role:Master)
-ms_mysql-master with centreon_map (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
+  centreon_map with ms_mysql-master (score:INFINITY) (rsc-role:Started) (with-rsc-role:Master)
+  ms_mysql-master with centreon_map (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
 Ticket Constraints:
 ```
 
 ### Mise à jour de l'extension Centreon-Web UI
 
-Maintenant que vous utilisez l'adresse VIP, vous devez mettre à jour le paramètre `Centreon-Map server address`
-dans le menu **Administration > Extensions > Options**
+Maintenant que vous utilisez l'adresse VIP, vous devez mettre à jour le paramètre `Centreon-Map server address` 
+dans le menu **Administration > Extensions > Options** 
 avec l'adresse VIP ou le FQDN qui résout le VIP.
 
 En cas de HTTPS, il est possible que vous deviez accepter à nouveau le certificat (en cas de certificat auto-signé).

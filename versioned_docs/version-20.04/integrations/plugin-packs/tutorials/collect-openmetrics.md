@@ -2,9 +2,6 @@
 id: collect-openmetrics
 title: Collect OpenMetrics
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 There is an effort to promote Prometheus exposition format into a standard known
 as OpenMetrics. Some products adopted the format: InfluxData's suite, InfluxDB
@@ -12,38 +9,37 @@ and Google Cloud Platform.
 
 ## Installation
 
-<Tabs groupId="licence-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1.  Install the plugin on every poller expected to monitor openmetrics:
 
-``` bash
-yum install centreon-plugin-Applications-Monitoring-Openmetrics
-```
+    ``` bash
+    yum install centreon-plugin-Applications-Monitoring-Openmetrics
+    ```
 
 2.  Install the "OpenMetrics" Centreon Plugin Pack from the `Configuration >
-Plugin Packs` page.
+    Plugin Packs` page.
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1.  Install the plugin on every poller expected to monitor openmetrics:
 
-``` bash
-yum install centreon-plugin-Applications-Monitoring-Openmetrics
-```
+    ``` bash
+    yum install centreon-plugin-Applications-Monitoring-Openmetrics
+    ```
 
 2.  Install the Centreon Plugin Pack RPM on your Central server:
 
-``` bash
-yum install centreon-pack-applications-monitoring-openmetrics
-```
+    ``` bash
+    yum install centreon-pack-applications-monitoring-openmetrics
+    ```
 
 3.  Install the "OpenMetrics" Centreon Plugin Pack from the `Configuration >
-Plugin Packs` page.
+    Plugin Packs` page.
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
@@ -117,14 +113,14 @@ We would like here get the number of total requests on handler
 
 ``` bash
 /usr/lib/centreon/plugins/centreon_monitoring_openmetrics.pl \
---plugin apps::monitoring::openmetrics::plugin \
---custommode web \
---mode scrape-metrics \
---hostname='prometheus.int.centreon.com' \
---port='9090' \
---proto='http' \
---urlpath='/metrics' \
---filter-metrics='prometheus_http_requests_total'
+ --plugin apps::monitoring::openmetrics::plugin \
+ --custommode web \
+ --mode scrape-metrics \
+ --hostname='prometheus.int.centreon.com' \
+ --port='9090' \
+ --proto='http' \
+ --urlpath='/metrics' \
+ --filter-metrics='prometheus_http_requests_total'
 ```
 
 Command then returns:
@@ -148,16 +144,16 @@ fields:
 
 ``` bash
 /usr/lib/centreon/plugins/centreon_monitoring_openmetrics.pl \
---plugin apps::monitoring::openmetrics::plugin \
---custommode web \
---mode scrape-metrics \
---hostname='prometheus.int.centreon.com' \
---port='9090' \
---proto='http' \
---urlpath='/metrics' \
---filter-metrics='prometheus_http_requests_total' \
---instance='handler' \
---filter-instance='/api/v1/query_range'
+ --plugin apps::monitoring::openmetrics::plugin \
+ --custommode web \
+ --mode scrape-metrics \
+ --hostname='prometheus.int.centreon.com' \
+ --port='9090' \
+ --proto='http' \
+ --urlpath='/metrics' \
+ --filter-metrics='prometheus_http_requests_total' \
+ --instance='handler' \
+ --filter-instance='/api/v1/query_range'
 ```
 
 Command then returns:
@@ -176,20 +172,20 @@ alerting.
 
 ``` bash
 /usr/lib/centreon/plugins/centreon_monitoring_openmetrics.pl \
---plugin apps::monitoring::openmetrics::plugin \
---custommode web \
---mode scrape-metrics \
---hostname='prometheus.int.centreon.com' \
---port='9090' \
---proto='http' \
---urlpath='/metrics' \
---filter-metrics='prometheus_http_requests_total' \
---instance='handler' \
---filter-instance='/api/v1/query_range' \
---subinstance='code' \
---filter-subinstance='200' \
---warning='5000' \
---critical='10000'
+ --plugin apps::monitoring::openmetrics::plugin \
+ --custommode web \
+ --mode scrape-metrics \
+ --hostname='prometheus.int.centreon.com' \
+ --port='9090' \
+ --proto='http' \
+ --urlpath='/metrics' \
+ --filter-metrics='prometheus_http_requests_total' \
+ --instance='handler' \
+ --filter-instance='/api/v1/query_range' \
+ --subinstance='code' \
+ --filter-subinstance='200' \
+ --warning='5000' \
+ --critical='10000'
 ```
 
 Command then returns:

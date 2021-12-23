@@ -2,9 +2,6 @@
 id: network-athonet-epc-snmp
 title: Athonet ePC SNMP
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Contenu du Plugin-Pack
 
@@ -32,8 +29,9 @@ Ce tableau décrit quelles données peuvent être collectés sur les différents
 
 ### Métriques collectées
 
-<Tabs groupId="operating-systems">
-<TabItem value="Aggregate" label="Aggregate">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Aggregate-->
 
 | Metric name                          | Description                       | Unit  |
 | :----------------------------------- | :-------------------------------- | :---- |
@@ -43,8 +41,7 @@ Ce tableau décrit quelles données peuvent être collectés sur les différents
 | hss.requests.authentication.count    | Number of authentication requests |       |
 | hss.location.updates.count           | Number of location updates        |       |
 
-</TabItem>
-<TabItem value="Apns" label="Apns">
+<!--Apns-->
 
 | Metric name                                | Descritption                           | Unit  |
 | :----------------------------------------- | :------------------------------------- | :---- |
@@ -52,8 +49,7 @@ Ce tableau décrit quelles données peuvent être collectés sur les différents
 | *apn_name*\#apn.traffic.out.bytespersecond | Outgoing traffic going through the apn | B/s   |
 | *apn_name*\#apn.pdp_contexts.count         | Number of pdp contexts                 |       |
 
-</TabItem>
-<TabItem value="Interfacesdiameter" label="Interfacesdiameter">
+<!--Interfaces-diameter-->
 
 | Metric name                     | Description                  | Unit  |
 | :------------------------------ | :--------------------------- | :---- |
@@ -61,24 +57,21 @@ Ce tableau décrit quelles données peuvent être collectés sur les différents
 | status                          | Status of the interface      |       |
 | transport status                | Status of the transport      |       |
 
-</TabItem>
-<TabItem value="Interfacesgtpc" label="Interfacesgtpc">
+<!--Interfaces-gtpc-->
 
 | Metric name                     | Description                  | Unit  |
 | :------------------------------ | :--------------------------- | :---- |
 | gtpc.interfaces.total.count     | Number of interfaces         |       |
 | status                          | Status of the interface      |       |
 
-</TabItem>
-<TabItem value="Interfacesga" label="Interfacesga">
+<!--Interfaces-ga-->
 
 | Metric name                     | Description                  | Unit  |
 | :------------------------------ | :--------------------------- | :---- |
 | ga.interfaces.total.count       | Number of interfaces         |       |
 | status                          | Status of the interface      |       |
 
-</TabItem>
-<TabItem value="Interfaceslte" label="Interfaceslte">
+<!--Interfaces-lte-->
 
 | Metric name                                                                             | Description                                                                     | Unit  |
 | :-------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------ | :---- |
@@ -99,8 +92,7 @@ Ce tableau décrit quelles données peuvent être collectés sur les différents
 | *interface_name*\#lte.interface.requests.pdn_context.reject.no_apn.count                | Number of PDN Context reject with cause 'Missing or unknown APN'                |       |
 | *interface_name*\#lte.interface.requests.pdn_context.reject.not_subscribed.count        | Number of PDN Context reject with cause 'Request service option not subscribed' |       |
 
-</TabItem>
-<TabItem value="License" label="License">
+<!--License-->
 
 | Metric name                              | Description                                   | Unit  |
 | :--------------------------------------- | :-------------------------------------------- | :---- |
@@ -116,8 +108,7 @@ Ce tableau décrit quelles données peuvent être collectés sur les différents
 | license.usim.free.count                  | Number of provisioned usim on the license     |       |
 | license.usim.usage.percentage            | Percentage of provisioned usim on the license | %     |
 
-</TabItem>
-<TabItem value="Lte" label="Lte">
+<!--Lte-->
 
 | Metric name                                                           | Description                                                                     | Unit  |
 | :-------------------------------------------------------------------- | :------------------------------------------------------------------------------ | :---- |
@@ -136,18 +127,18 @@ Ce tableau décrit quelles données peuvent être collectés sur les différents
 | lte.interface.requests.pdn_context.reject.no_apn.count                | Number of PDN Context reject with cause 'Missing or unknown APN'                |       |
 | lte.interface.requests.pdn_context.reject.not_subscribed.count        | Number of PDN Context reject with cause 'Request service option not subscribed' |       |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 
 ## Prérequis
 
-Afin de contrôler vos équipement Athonet ePC, le SNMP doit être configuré.
+Afin de contrôler vos équipement Athonet ePC, le SNMP doit être configuré. 
 
 ## Installation
 
-<Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -157,8 +148,7 @@ yum install centreon-plugin-Network-Athonet-Epc-Snmp
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Athonet ePC SNMP* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -174,8 +164,7 @@ yum install centreon-pack-network-athonet-epc-snmp
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Athonet ePC SNMP* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
@@ -199,14 +188,14 @@ depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-en
 
 ```bash
 /usr/lib/centreon/plugins/centreon_athonet_epc_snmp.pl \
---plugin=network::athonet::epc::snmp::plugin \
---mode=lte \
---hostname=10.30.2.114 \
---snmp-version='2c' \
---snmp-community='athonet_ro' \
---warning-users-connected='100' \
---critical-users-connected='200' \
---verbose
+    --plugin=network::athonet::epc::snmp::plugin \
+    --mode=lte \
+    --hostname=10.30.2.114 \
+    --snmp-version='2c' \
+    --snmp-community='athonet_ro' \
+    --warning-users-connected='100' \
+    --critical-users-connected='200' \
+    --verbose
 ```
 
 La commande devrait retourner un message de sortie de la forme ci-dessous:
@@ -214,15 +203,15 @@ La commande devrait retourner un message de sortie de la forme ci-dessous:
 ```bash
 OK: Lte traffic in: 0 B/s, traffic out: 0 B/s - connected users: 0, idle users: 0, active sessions: 0 - attach requests total: 0 success: 0 (100.00%) - pdn context activation requests total: 0 success: 0 (100.00%) - ue context release requests: 0, ue context release with radio lost requests: 0 - pdn context requests reject insufficent resources: 0, missing or unknown apn: 0, not subscribed: 0 | 'lte.traffic.in.bytespersecond'=0B/s;;;0; 'lte.traffic.out.bytespersecond'=0B/s;;;0; 'lte.users.connected.count'=0;0:100;0:200;0; 'lte.users.idle.count'=0;;;0; 'lte.sessions.active.count'=0;;;0; 'lte.requests.attach.success.count'=0;;;0;0 'lte.requests.attach.success.percentage'=100%;;;0;100 'lte.requests.pdn_context.activations.success.count'=0;;;0;0 'lte.requests.pdn_context.activations.success.percentage'=100%;;;0;100 'lte.requests.ue_context_release.total.count'=0;;;0; 'lte.requests.ue_context_release.radio_lost.count'=0;;;0; 'lte.requests.pdn_context.reject.insufficent_resources.count'=0;;;0; 'lte.requests.pdn_context.reject.no_apn.count'=0;;;0; 'lte.requests.pdn_context.reject.not_subscribed.count'=0;;;0;
 checking lte
-traffic in: 0 B/s, traffic out: 0 B/s
-connected users: 0, idle users: 0, active sessions: 0
-attach requests total: 0 success: 0 (100.00%)
-pdn context activation requests total: 0 success: 0 (100.00%)
-ue context release requests: 0, ue context release with radio lost requests: 0
-pdn context requests reject insufficent resources: 0, missing or unknown apn: 0, not subscribed: 0
+    traffic in: 0 B/s, traffic out: 0 B/s
+    connected users: 0, idle users: 0, active sessions: 0
+    attach requests total: 0 success: 0 (100.00%)
+    pdn context activation requests total: 0 success: 0 (100.00%)
+    ue context release requests: 0, ue context release with radio lost requests: 0
+    pdn context requests reject insufficent resources: 0, missing or unknown apn: 0, not subscribed: 0
 ```
 
-Cette commande contrôle les statistiques LTE (```--mode=lte```) d'un équipement Athonet ePC ayant pour adresse *10.30.2.114* (```--hostname=10.30.2.114```)
+Cette commande contrôle les statistiques LTE (```--mode=lte```) d'un équipement Athonet ePC ayant pour adresse *10.30.2.114* (```--hostname=10.30.2.114```) 
 en version *2c* du protocol SNMP (```--snmp-version='2c'```) et avec la communauté *athonet_ro* (```--snmp-community='athonet_ro'```).
 
 Cette commande déclenchera une alarme WARNING si le nombre d'utilisateurs connectés est supérieur à 100 (```--warning-users-connected='100'```)
@@ -233,19 +222,19 @@ en ajoutant le paramètre ```--help``` à la commande:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_athonet_epc_snmp.pl \
---plugin=network::athonet::epc::snmp::plugin \
---mode=lte \
---help
+    --plugin=network::athonet::epc::snmp::plugin \
+    --mode=lte \
+    --help
 ```
 
 ### UNKNOWN: SNMP GET Request : Timeout
 
-Si vous obtenez ce message, cela signifie que vous ne parvenez pas à contacter l'équipement sur le port 161,
-ou alors que la communauté SNMP configurée n'est pas correcte.
+Si vous obtenez ce message, cela signifie que vous ne parvenez pas à contacter l'équipement sur le port 161, 
+ou alors que la communauté SNMP configurée n'est pas correcte. 
 Il est également possible qu'un firewall bloque le flux.
 
 ### UNKNOWN: SNMP GET Request : Cant get a single value.
 
-Si vous rencontrez cette erreur, il est probable que les autorisations données à l'agent SNMP soient trop restreintes.
-* L'équipement ne prend pas en charge la MIB utilisée par le Plugin (branche: .1.3.6.1.4.1.35805.10).
-* L'OID SNMP ciblé ne peut pas être récupéré en raison de privilèges d'équipement insuffisants.
+Si vous rencontrez cette erreur, il est probable que les autorisations données à l'agent SNMP soient trop restreintes. 
+ * L'équipement ne prend pas en charge la MIB utilisée par le Plugin (branche: .1.3.6.1.4.1.35805.10).
+ * L'OID SNMP ciblé ne peut pas être récupéré en raison de privilèges d'équipement insuffisants.

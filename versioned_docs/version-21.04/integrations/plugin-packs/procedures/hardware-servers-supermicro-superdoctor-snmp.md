@@ -2,9 +2,6 @@
 id: hardware-servers-supermicro-superdoctor-snmp
 title: Supermicro SuperDoctor SNMP
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Pack Assets
 
@@ -15,22 +12,22 @@ The Pack Supermicro SuperDoctor collects metrics for:
 
 ### Collected Metrics
 
-<Tabs groupId="operating-systems">
-<TabItem value="Hardware" label="Hardware">
+<!--DOCUSAURUS_CODE_TABS-->
 
-| Metric name                                         | Description               | Unit |
-| :-------------------------------------------------- | :------------------------ | :--- |
-| cpu status                                          | Status of the cpu         |      |
-| disk status                                         | Status of the disk        |      |
-| memory status                                       | Status of the memory      |      |
-| sensor status                                       | Status of the sensor      |      |
-| *sensor\_name*\#hardware.sensor.fan.rpm             | Speed of the fan          | rpm  |
-| *sensor\_name*\#hardware.sensor.temperature.celsius | temperature of the sensor | C    |
-| *sensor\_name*\#hardware.sensor.voltage.volt        | Voltage of the sensor     | V    |
-| *sensor\_name*\#hardware.sensor.discrete.xxx        | Discrete sensor           |      |
+<!--Hardware-->
 
-</TabItem>
-</Tabs>
+| Metric name                                         | Description               | Unit  |
+| :-------------------------------------------------- | :------------------------ | :---- |
+| cpu status                                          | Status of the cpu         |       |
+| disk status                                         | Status of the disk        |       |
+| memory status                                       | Status of the memory      |       |
+| sensor status                                       | Status of the sensor      |       |
+| *sensor\_name*\#hardware.sensor.fan.rpm             | Speed of the fan          | rpm   |
+| *sensor\_name*\#hardware.sensor.temperature.celsius | temperature of the sensor | C     |
+| *sensor\_name*\#hardware.sensor.voltage.volt        | Voltage of the sensor     | V     |
+| *sensor\_name*\#hardware.sensor.discrete.xxx        | Discrete sensor           |       |
+
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -39,8 +36,9 @@ The Poller should be able to perform SNMP requests toward the Supermicro device 
 
 ## Setup
 
-<Tabs groupId="licence-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -50,8 +48,7 @@ yum install centreon-plugin-Hardware-Servers-Supermicro-Superdoctor-Snmp
 
 2. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *Supermicro SuperDoctor SNMP* Pack
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -67,8 +64,7 @@ yum install centreon-pack-hardware-servers-supermicro-superdoctor-snmp
 
 3. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *Supermicro SuperDoctor SNMP* Pack
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Host configuration
 
@@ -77,9 +73,9 @@ yum install centreon-pack-hardware-servers-supermicro-superdoctor-snmp
 
 > When using SNMP v3, use the SNMPEXTRAOPTIONS Macro to add specific authentication parameters
 
-| Mandatory | Name             | Description                                 |
-| :-------- | :--------------- | :------------------------------------------ |
-|           | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo |
+| Mandatory | Name             | Description                                    |
+| :-------- | :--------------- | :--------------------------------------------- |
+|           | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo    |
 
 ## How to test the Plugin and what are the main options for?
 
@@ -88,12 +84,12 @@ and test the Plugin by running the following command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_supermicro_superdoctor_snmp.pl
---plugin=hardware::server::supermicro::superdoctor::snmp::plugin
---mode=hardware
---hostname=10.30.2.114
---snmp-version='2c'
---snmp-community='supermicro_ro'
---verbose
+    --plugin=hardware::server::supermicro::superdoctor::snmp::plugin
+    --mode=hardware
+    --hostname=10.30.2.114
+    --snmp-version='2c'
+    --snmp-community='supermicro_ro'
+    --verbose
 ```
 
 The command above monitors Supermicro hardware (```--plugin=hardware::server::supermicro::superdoctor::snmp::plugin --mode=hardware```) identified
@@ -105,9 +101,9 @@ parameter to the command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_supermicro_superdoctor_snmp.pl
---plugin=hardware::server::supermicro::superdoctor::snmp::plugin
---mode=hardware
---help
+    --plugin=hardware::server::supermicro::superdoctor::snmp::plugin
+    --mode=hardware
+    --help
 ```
 
 ## Troubleshooting

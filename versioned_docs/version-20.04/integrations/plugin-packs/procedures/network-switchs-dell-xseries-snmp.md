@@ -2,37 +2,33 @@
 id: network-switchs-dell-xseries-snmp
 title: Dell Xseries
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Overview
 
-The Dell EMC Networking X-Series is a family of smart managed 1GbE and 10GbE Ethernet switches designed
+The Dell EMC Networking X-Series is a family of smart managed 1GbE and 10GbE Ethernet switches designed 
 for small and medium businesses.
-
+	
 ## Plugin-Pack assets
 
 ### Monitored objects
 
 * Dell Xseries Switches
 
-## Monitored metrics
+## Monitored metrics 
 
-<Tabs groupId="operating-systems">
-<TabItem value="Cpu" label="Cpu">
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Cpu-->
 
-| Metric Name                   | Description      | Unit |
-| :---------------------------- | :--------------- | :--- |
-| cpu.utilization.1s.percentage | CPU usage on 1s. | %    |
-| cpu.utilization.1m.percentage | CPU usage on 1m. | %    |
-| cpu.utilization.5m.percentage | CPU usage on 5m. | %    |
+| Metric Name                              | Description            | Unit  |
+| :--------------------------------------- | :--------------------- | :---- |
+| cpu.utilization.1s.percentage            | CPU usage on 1s.       |   %   |
+| cpu.utilization.1m.percentage            | CPU usage on 1m.       |   %   |
+| cpu.utilization.5m.percentage            | CPU usage on 5m.       |   %   |
 
-</TabItem>
-<TabItem value="Interfaces" label="Interfaces">
+<!--Interfaces-->
 
 | Metric name                              | Description                                             | Unit   |
-| :--------------------------------------- | :------------------------------------------------------ | :----- |
+|:-----------------------------------------|:--------------------------------------------------------|:-------|
 | status                                   | Status of the interface                                 | String |
 | interface.traffic.in.bitspersecond       | Incoming traffic going through the interface.           | Bits/s |
 | interface.traffic.out.bitspersecond      | Outgoing traffic going through the interface.           | Bits/s |
@@ -41,15 +37,13 @@ for small and medium businesses.
 | interface.packets.out.error.percentage   | Outgoing errored packets going through the interface.   | %      |
 | interface.packets.out.discard.percentage | Outgoing discarded packets going through the interface. | %      |
 
-</TabItem>
-<TabItem value="Uptime" label="Uptime">
+<!--Uptime-->
 
-| Metric name | Description                    | Unit  |
-| :---------- | :----------------------------- | :---: |
-| uptime      | Elapsed time since last reboot |   s   |
+| Metric name | Description                                | Unit |
+| :---------- | :----------------------------------------- | :--: |
+| uptime      | Elapsed time since last reboot             |   s  |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Prerequisites
 
@@ -63,8 +57,9 @@ The Centreon Poller should be able to reach the UDP/161 SNMP port of the Dell Xs
 
 ## Installation
 
-<Tabs groupId="licence-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Plugin on every Poller expected to monitor *Dell Xseries* resources:
 
@@ -74,8 +69,7 @@ yum install centreon-plugin-Network-Dell-Xseries-Snmp
 
 2. Install the *Dell Xseries* Centreon Plugin-Pack from the "Configuration > Plugin packs > Manager" page
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Plugin on every Poller expected to monitor *Dell Xseries* resources:
 
@@ -91,8 +85,7 @@ yum install centreon-pack-network-switch-dell-xseries-snmp
 
 3. Install the *Dell Xseries* Centreon Pack from the "Configuration > Plugin packs > Manager" page
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
@@ -102,9 +95,9 @@ yum install centreon-pack-network-switch-dell-xseries-snmp
 > If you're using the version 3 of the SNMP protocol, select the related SNMP version in the Host configuration form and
 > set the SNMP v3 specific settings in the *SNMPEXTRAOPTIONS* Macro:
 
-| Mandatory | Name             | Description                        |
-| :-------- | :--------------- | :--------------------------------- |
-|           | SNMPEXTRAOPTIONS | Extra options SNMP of Dell Xseries |
+| Mandatory   | Name                    | Description                       |
+| :---------- | :---------------------- | :---------------------------------|
+|             | SNMPEXTRAOPTIONS        | Extra options SNMP of Dell Xseries|
 
 ## FAQ
 
@@ -114,16 +107,16 @@ Once the Plugin is installed, you can test it directly from the command line int
 
 ```bash
 /usr/lib/centreon/plugins/centreon_dell_xseries_snmp.pl \
---plugin=network::dell::xseries::snmp::plugin \
---hostname=10.0.0.1 \
---snmp-version='2c' \
---snmp-community='public' \
---mode=cpu \
---warning-average-1s='80' \
---critical-average-1s='90' \
---warning-average-1m='80' \
---critical-average-1m='90' \
---verbose
+	--plugin=network::dell::xseries::snmp::plugin \
+	--hostname=10.0.0.1 \
+	--snmp-version='2c' \
+	--snmp-community='public' \
+	--mode=cpu \
+	--warning-average-1s='80' \
+	--critical-average-1s='90' \
+	--warning-average-1m='80' \ 
+	--critical-average-1m='90' \
+	--verbose
 
 ```
 
@@ -134,7 +127,7 @@ OK: cpu total: 15 % average-1s: 18.00% average-1m: 25.00% average-5m: 15.00%|
 'cpu.utilization.1s.percentage'=18%;80;90;0;100; 'cpu.utilization.1m.percentage'=25%;80;90;0;100; 'cpu.utilization.1s.percentage'=15%;;;0;100
 ```
 
-The above command checks a Dell Xseries switch using the SNMP protocol (```--plugin=network::dell::xseries::snmp::plugin```)
+The above command checks a Dell Xseries switch using the SNMP protocol (```--plugin=network::dell::xseries::snmp::plugin```) 
 with the *public* community (```--snmp-community='public'```) and the *2c* SNMP version (```--snmp-version='2c'```).
 This command checks the current CPU average of the switch (```--mode='cpu'```).
 
@@ -142,7 +135,7 @@ This command will trigger a WARNING alarm if the average usage on a 1s period in
 
 and a CRITICAL alarm over 90% (```--critical-average-1s=90```).
 
-Alert thresholds can be defined for all metrics collected using the
+Alert thresholds can be defined for all metrics collected using the 
 options ```--warning-*``` and ```--critical-*```, for example:
 ```--warning-average-1m='80'' --critical-average-1m='90''.```
 
@@ -151,17 +144,17 @@ are detailed in the help of the mode by adding the parameter ```--help``` to the
 
 ```bash
 /usr/lib/centreon/plugins/centreon_dell_xseries_snmp.pl \
---plugin=network::dell::xseries::snmp::plugin \
---mode=cpu \
---help
+	--plugin=network::dell::xseries::snmp::plugin \
+	--mode=cpu \
+	--help
 ```
 
 You can display all of the modes that come with the Plugin with the command below:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_dell_xseries_snmp.pl \
---plugin=network::dell::xseries::snmp::plugin \
---list-mode
+	--plugin=network::dell::xseries::snmp::plugin \
+	--list-mode
 ```
 
 ### UNKNOWN: SNMP GET Request : Timeout

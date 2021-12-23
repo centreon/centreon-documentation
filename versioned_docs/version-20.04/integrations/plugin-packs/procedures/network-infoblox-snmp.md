@@ -2,9 +2,6 @@
 id: network-infoblox-snmp
 title: Infoblox SNMP
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Plugin Pack Assets
 
@@ -19,20 +16,21 @@ The Plugin Pack Infoblox SNMP collects metrics for:
 
 ### Discovery rules
 
-<Tabs groupId="operating-systems">
-<TabItem value="Services" label="Services">
+<!--DOCUSAURUS_CODE_TABS-->
 
-| Rule name                        | Description                                                   |
-| :------------------------------- | :------------------------------------------------------------ |
-| Net-Infoblox-SNMP-Interface-Name | Discover network interfaces and monitor bandwidth utilization |
+<!--Services-->
 
-</TabItem>
-</Tabs>
+| Rule name                        | Description                                                           |
+| :------------------------------- | :-------------------------------------------------------------------- |
+| Net-Infoblox-SNMP-Interface-Name | Discover network interfaces and monitor bandwidth utilization         |
+
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Collected Metrics
 
-<Tabs groupId="operating-systems">
-<TabItem value="Dhcp" label="Dhcp">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Dhcp-->
 
 | Metric name                                         | Description                                              | Unit |
 | :-------------------------------------------------- | :------------------------------------------------------- | :--- |
@@ -47,8 +45,7 @@ The Plugin Pack Infoblox SNMP collects metrics for:
 | dhcp.others.count                                   | Number of other messages received                        |      |
 | *subnet\_ipaddr*\#subnet.addresses.usage.percentage | Percentage of dynamic DHCP address for subnet leased out | %    |
 
-</TabItem>
-<TabItem value="Dns" label="Dns">
+<!--Dns-->
 
 | Metric name                                            | Description                                                                                                | Unit |
 | :----------------------------------------------------- | :--------------------------------------------------------------------------------------------------------- | :--- |
@@ -65,8 +62,7 @@ The Plugin Pack Infoblox SNMP collects metrics for:
 | *zone\_name*\#zone.queries.nxrrset.count               | Number of DNS query received for non-existent record                                                       |      |
 | *zone\_name*\#zone.queries.failed.count                | Number of Failed queries                                                                                   |      |
 
-</TabItem>
-<TabItem value="Interfaces" label="Interfaces">
+<!--Interfaces-->
 
 | Metric name                                            | Description                                         | Unit |
 | :----------------------------------------------------- | :-------------------------------------------------- | :--- |
@@ -78,15 +74,13 @@ The Plugin Pack Infoblox SNMP collects metrics for:
 
 A regexp filter is available to target a specific interface identifier - ifName [```--interface='^eth0$' --name```]
 
-</TabItem>
-<TabItem value="Services" label="Services">
+<!--Services-->
 
-| Metric name    | Description           | Unit |
-| :------------- | :-------------------- | :--- |
-| service status | Status of the service |      |
+| Metric name                                        | Description                      | Unit |
+| :------------------------------------------------- | :------------------------------- | :--- |
+| service status                                     | Status of the service            |      |
 
-</TabItem>
-<TabItem value="System" label="System">
+<!--System-->
 
 | Metric name                     | Description                 | Unit |
 | :------------------------------ | :-------------------------- | :--- |
@@ -97,8 +91,7 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | system.cpu2.temperature.celsius | CPU2 temperature            | C    |
 | ha status                       | Status of high-availability |      |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -106,8 +99,9 @@ To monitor your Infoblox, the SNMP must be configured.
 The Poller should be able to perform SNMP requests toward the Infoblox device over SNMP UDP/161 port.
 ## Setup
 
-<Tabs groupId="licence-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -117,8 +111,7 @@ yum install centreon-plugin-Network-Infoblox-Snmp
 
 2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Infoblox SNMP* Plugin Pack
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -134,8 +127,7 @@ yum install centreon-pack-network-infoblox-snmp
 
 3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Infoblox SNMP* Plugin Pack
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Host configuration
 
@@ -144,9 +136,9 @@ yum install centreon-pack-network-infoblox-snmp
 
 > When using SNMP v3, use the SNMPEXTRAOPTIONS Macro to add specific authentication parameters
 
-| Mandatory | Name             | Description                                 |
-| :-------- | :--------------- | :------------------------------------------ |
-|           | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo |
+| Mandatory | Name             | Description                                    |
+| :-------- | :--------------- | :--------------------------------------------- |
+|           | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo    |
 
 ## How to test the Plugin and what are the main options for?
 
@@ -155,14 +147,14 @@ and test the Plugin by running the following command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_infoblox_snmp.pl \
---plugin=network::infoblox::snmp::plugin \
---mode=system \
---hostname=10.30.2.114 \
---snmp-version='2c' \
---snmp-community='infoblox_ro' \
---warning-cpu-load='90' \
---critical-cpu-load='95' \
---verbose
+    --plugin=network::infoblox::snmp::plugin \
+    --mode=system \
+    --hostname=10.30.2.114 \
+    --snmp-version='2c' \
+    --snmp-community='infoblox_ro' \
+    --warning-cpu-load='90' \
+    --critical-cpu-load='95' \
+    --verbose
 ```
 
 Expected command output is shown below:
@@ -170,18 +162,18 @@ Expected command output is shown below:
 ```bash
 OK: System 'IB-825' is ok | 'cpu.utilization.percentage'=3.00%;0:90;0:95;0;100 'memory.usage.percentage'=2.00%;;;0;100 'swap.usage.percentage'=0.00%;;;0;100 'system.cpu1.temperature.celsius'=20.00C;;;;
 checking system 'IB-825'
-cpu load: 3.00 %
-memory used: 2.00 %
-swap used: 0.00 %
-cpu1 temperature: 20.00 C
-high-availablity status is 'Not Configured'
+    cpu load: 3.00 %
+    memory used: 2.00 %
+    swap used: 0.00 %
+    cpu1 temperature: 20.00 C
+    high-availablity status is 'Not Configured'
 ```
 
 The command above monitors Infoblox (```--plugin=network::infoblox::snmp::plugin --mode=system```) identified
 by the IP address *10.30.2.114* (```--hostname=10.30.2.114```). As the Plugin is using the SNMP protocol to request the device, the related
 *community* and *version* are specified (```--snmp-version='2c' --snmp-community='infoblox_ro'```).
 
-This command would trigger a WARNING alarm if cpu utilization over 90%
+This command would trigger a WARNING alarm if cpu utilization over 90% 
 (```--warning-cpu-load='90'```) and a CRITICAL alarm over 95% (```--critical-cpu-load='95'```).
 
 All the options as well as all the available thresholds can be displayed by adding the  ```--help```
@@ -189,9 +181,9 @@ parameter to the command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_infoblox_snmp.pl \
---plugin=network::infoblox::snmp::plugin \
---mode=system \
---help
+    --plugin=network::infoblox::snmp::plugin \
+    --mode=system \
+    --help
 ```
 
 ## Troubleshooting
@@ -204,7 +196,7 @@ If you get this message, you're probably facing one of theses issues:
 
 #### UNKNOWN: SNMP GET Request : Cant get a single value.
 
-This error message often refers to the following issues:
-- The agent doesn't support the MIB used by the plugin
-- The targeted SNMP OID cannot be fetched because of insufficient privileges on the device.
-SNMP Agent must be capable of accessing to the enterprise branch: .1.3.6.1.4.1.7779
+This error message often refers to the following issues: 
+  - The agent doesn't support the MIB used by the plugin
+  - The targeted SNMP OID cannot be fetched because of insufficient privileges on the device. 
+    SNMP Agent must be capable of accessing to the enterprise branch: .1.3.6.1.4.1.7779

@@ -1,10 +1,7 @@
 ---
 id: sc-kafka-events
-title: Kafka Event Manager
+title: Kafka Event Manager 
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Before starting
 
@@ -16,8 +13,8 @@ import TabItem from '@theme/TabItem';
 
 ### Dependencies
 
-<Tabs groupId="operating-systems">
-<TabItem value="CentOS 7/Redhat 7" label="CentOS 7/Redhat 7">
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS 7/Redhat 7-->
 
 Install **Epel** repository.
 
@@ -37,8 +34,7 @@ Install **luaffi**.
 luarocks install --server=https://luarocks.org/dev luaffi
 ```
 
-</TabItem>
-<TabItem value="CentOS 8" label="CentOS 8">
+<!-- CentOS 8 -->
 
 Install dnf plugins package.
 
@@ -70,8 +66,7 @@ Install **c-ffi**.
 luarocks install cffi-lua
 ```
 
-</TabItem>
-<TabItem value="RedHat 8" label="RedHat 8">
+<!-- RedHat 8 -->
 
 Install dnf plugins package.
 
@@ -103,8 +98,7 @@ Install **c-ffi**.
 luarocks install cffi-lua
 ```
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Lua modules
 
@@ -190,10 +184,10 @@ This stream connector will send event with the following format.
 
 ```json
 {
-"host": "my_host",
-"service": "my_service",
-"output": "CRITICAL: the wind broke my umbrella",
-"state": "CRITICAL"
+  "host": "my_host",
+  "service": "my_service",
+  "output": "CRITICAL: the wind broke my umbrella",
+  "state": "CRITICAL"
 }
 ```
 
@@ -201,9 +195,9 @@ This stream connector will send event with the following format.
 
 ```json
 {
-"host": "my_host",
-"output": "DOWN: putting gas in my eletric car was not a good idea",
-"state": "DOWN"
+  "host": "my_host",
+  "output": "DOWN: putting gas in my eletric car was not a good idea",
+  "state": "DOWN"
 }
 ```
 
@@ -211,8 +205,8 @@ This stream connector will send event with the following format.
 
 ```json
 {
-"ba": "my_ba",
-"state": "CRITICAL"
+  "ba": "my_ba",
+  "state": "CRITICAL"
 }
 ```
 
@@ -239,7 +233,7 @@ To make things easier, a lua connection test script is available.
 To install it you must follow the **[installation procdure](#installation)** and then:
 
 ```shell
-wget -O /tmp/kafka_test_connection.lua https://raw.githubusercontent.com/centreon/centreon-stream-connector-scripts/master/modules/tests/kafka_test_connexion.lua
+wget -O /tmp/kafka_test_connection.lua https://raw.githubusercontent.com/centreon/centreon-stream-connector-scripts/master/modules/tests/kafka_test_connexion.lua 
 ```
 
 **Open** the script and **configure** the kafka options that you want to use from the librdkafka **[official documentation](https://github.com/edenhill/librdkafka/blob/v0.11.4/CONFIGURATION.md)**  (you do not need to add the *_sc_kafka_* prefix this time, just put the parameter inside the **config[]** brackets).

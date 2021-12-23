@@ -10,10 +10,10 @@ See also our tutorial on [how to detect AWS EC2 instances](../../getting-started
 1. [Install](installation) the Auto Discovery module.
 
 2. Install the Plugin Pack for the resources you want to discover.
-> The discovery providers are included in Plugin Packs (Azure,
-> Amazon AWS, VMware, etc.). To know the complete list, please go to
-> the [Plugin Packs](../../integrations/plugin-packs/introduction)
-> catalog.
+    > The discovery providers are included in Plugin Packs (Azure,
+    > Amazon AWS, VMware, etc.). To know the complete list, please go to
+    > the [Plugin Packs](../../integrations/plugin-packs/introduction)
+    > catalog.
 
 3. Create a discovery job for each type of resource you want to discover: go to **Configuration > Hosts > Discovery** and click on **+ADD**. A wizard opens.
 
@@ -25,11 +25,11 @@ See also our tutorial on [how to detect AWS EC2 instances](../../getting-started
 
 2. Click on the correct provider for the resources you want to discover.
 
-![image](../../assets/monitoring/discovery/host-discovery-wizard-step-1-1.png)
+    ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-1-1.png)
 
-The search bar allows you to search for a specific provider:
+    The search bar allows you to search for a specific provider:
 
-![image](../../assets/monitoring/discovery/host-discovery-wizard-step-1-2.png)
+    ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-1-2.png)
 
 3. Click on **Next**.
 
@@ -62,22 +62,22 @@ discovery results could look like:
 
 ### Step 5: Define analysis and update policies
 
-- **Manual analysis**: Once the discovery job is executed, in the list of discovered hosts, you will choose manually which
-hosts should be added to the page **Configuration > Hosts > Hosts** (see [Analyze the results of a discovery job](#analyze-the-results-of-a-discovery-job)).
+- **Manual analysis**: Once the discovery job is executed, in the list of discovered hosts, you will choose manually which 
+    hosts should be added to the page **Configuration > Hosts > Hosts** (see [Analyze the results of a discovery job](#analyze-the-results-of-a-discovery-job)).
 
 - **Automatic analysis**: The results will be processed automatically according to the selected policy (you must choose at least one):
 
-- **Add hosts to configuration when they are discovered for the first time**: all hosts that are detected for the first time are automatically created in the **Configuration > Hosts > Hosts** page.
-- **Disable hosts already added to configuration if the mapping rule excludes them**: ressources that have been added to the configuration will be disabled if they match a new **Exclude** mapper.
-> Note: not discovered hosts (or no longer discovered hosts) will not be
-> disabled in the Centreon configuration. Only hosts that are discovered and at the same
-> time excluded can be disabled in the configuration (see
-> [exclusion](#exclusion) mapper).
-- **Enable hosts already added to configuration if they are discovered but disabled**: hosts that have already been added to the configuration but are in a disabled state will be enabled again.
+  - **Add hosts to configuration when they are discovered for the first time**: all hosts that are detected for the first time are automatically created in the **Configuration > Hosts > Hosts** page.
+  - **Disable hosts already added to configuration if the mapping rule excludes them**: ressources that have been added to the configuration will be disabled if they match a new **Exclude** mapper.
+      > Note: not discovered hosts (or no longer discovered hosts) will not be
+      > disabled in the Centreon configuration. Only hosts that are discovered and at the same
+      > time excluded can be disabled in the configuration (see
+      > [exclusion](#exclusion) mapper).
+  - **Enable hosts already added to configuration if they are discovered but disabled**: hosts that have already been added to the configuration but are in a disabled state will be enabled again.
 
-![image](../../assets/monitoring/discovery/host-discovery-wizard-step-5-2.png)
+  ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-5-2.png)
 
-Read the [example](#dynamically-update-your-configuration) below to better
+  Read the [example](#dynamically-update-your-configuration) below to better
 understand the scope of these policies.
 
 ### Step 6: Plan execution
@@ -86,29 +86,29 @@ understand the scope of these policies.
 
 - **Schedule execution**: you can schedule the execution of the job in different ways:
 
-- Every year at defined days of defined months at a defined time
+  - Every year at defined days of defined months at a defined time
 
-![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-year.png)
+    ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-year.png)
 
-- Every month at defined days of the month at a defined time
+  - Every month at defined days of the month at a defined time
 
-![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-month.png)
+    ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-month.png)
 
-- Every week at defined days of the week at a defined time
+  - Every week at defined days of the week at a defined time
 
-![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-week.png)
+    ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-week.png)
 
-- Every day at a defined time
+  - Every day at a defined time
 
-![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-day.png)
+    ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-day.png)
 
-- Every x hours (at defined minutes)
+  - Every x hours (at defined minutes)
 
-![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-hour.png)
+    ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-hour.png)
 
-- Every x minutes
+  - Every x minutes
 
-![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-minute.png)
+    ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-minute.png)
 
 Click on **FINISH** to add and execute or schedule the discovery job. The job appears in the list of discovery jobs.
 See section [Analyze the results of a discovery job](#analyze-the-results-of-a-discovery-job).
@@ -151,27 +151,27 @@ Several actions can be done on jobs:
 1. On the **Configuration > Hosts > Discovery** page, click on the arrow <img src={require('../../assets/monitoring/discovery/host-discovery-goto-results.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 next to the status of a **Finished** job to visualize the results.
 
-![image](../../assets/monitoring/discovery/host-discovery-hosts-listing.png)
+  ![image](../../assets/monitoring/discovery/host-discovery-hosts-listing.png)
 
 2. If you want, you can edit the mappers linked to this job by clicking the **Edit** icon: <img src={require('../../assets/monitoring/discovery/host-discovery-edit.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 
-The results will be updated automatically.
-
-Warning: editing mappers after a discovery job has been executed only makes sense if
-the hosts have not yet been added to your monitoring configuration (either manually
-or automatically). Changes made to mappers in the discovery task are not taken into
-account for hosts that have already been created.
+    The results will be updated automatically.
+    
+    Warning: editing mappers after a discovery job has been executed only makes sense if
+    the hosts have not yet been added to your monitoring configuration (either manually 
+    or automatically). Changes made to mappers in the discovery task are not taken into
+    account for hosts that have already been created.
 
 1. If your job was set to **Manual analysis** at step 5 of the wizard, select the hosts you want to add to the configuration and click on the **Save**
 button: <img src={require('../../assets/monitoring/discovery/host-discovery-hosts-save.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 
-The hosts are created as well as the services linked to their host templates.
+  The hosts are created as well as the services linked to their host templates.
 
 1. Go to the **Configuration > Hosts** page: the newly created hosts appear in the list.
 
-![image](../../assets/monitoring/discovery/host-discovery-configuration-hosts.png)
+  ![image](../../assets/monitoring/discovery/host-discovery-configuration-hosts.png)
 
-If the hosts you selected are not visible in the configuration, go back to the
+  If the hosts you selected are not visible in the configuration, go back to the
 list of jobs and see if an error occured during the saving task.
 
 5. [Deploy](../monitoring-servers/deploying-a-configuration) the configuration. The new hosts are now monitored.
@@ -180,12 +180,12 @@ list of jobs and see if an error occured during the saving task.
 
 1. On the **Configuration > Hosts > Discovery** page, click on the discovery job you want. A panel appears on the right.
 
-![image](../../assets/monitoring/discovery/host-discovery-edit-job.png)
+    ![image](../../assets/monitoring/discovery/host-discovery-edit-job.png)
 
 2.  In this panel, edit the settings of the job. If you edit mappers, the results of the job will be updated immediately.
 
-Warning: editing mappers after a discovery job has been executed only makes sense if
-the hosts have not yet been added to your monitoring configuration (either manually or automatically). Changes made to mappers in the discovery task are not taken into account for hosts that have already been created.
+    Warning: editing mappers after a discovery job has been executed only makes sense if
+    the hosts have not yet been added to your monitoring configuration (either manually or automatically). Changes made to mappers in the discovery task are not taken into account for hosts that have already been created.
 
 3. Click on the **Save** icon at the top right of the panel: <img src={require('../../assets/monitoring/discovery/host-discovery-save.png').default} style={{width:'28px', marginBottom:'-6px'}} />
 
@@ -193,7 +193,7 @@ the hosts have not yet been added to your monitoring configuration (either manua
 
 Mappers allow you to  :
 
-- Define how the future hosts will be configured, by mapping a value discovered on the host (an attribute) to a field in Centreon. The list of attributes depends on the discovery provider.
+- Define how the future hosts will be configured, by mapping a value discovered on the host (an attribute) to a field in Centreon. The list of attributes depends on the discovery provider. 
 
 - Include/exclude hosts from the list of results.
 
@@ -218,7 +218,7 @@ contain*.
 ![image](../../assets/monitoring/discovery/host-discovery-mappers-condition.png)
 
 From version 21.04, mappers **Property**, **Macro**, **Host group** and **Host category**
-support concatenating either discovery attributes or custom strings.
+ support concatenating either discovery attributes or custom strings.
 
 ![image](../../assets/monitoring/discovery/host-discovery-mappers-concatenation.gif)
 
@@ -251,7 +251,7 @@ section, click on the **Edit** icon: <img src={require('../../assets/monitoring/
 1. In the job wizard at step four, or on the edition panel in the **Mappers**
 section, click on the **Delete** icon: <img src={require('../../assets/monitoring/discovery/host-discovery-delete.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 
-A popin window will ask you to confirm the action.
+  A popin window will ask you to confirm the action.
 
 1. Click on **DELETE** to delete the mapper.
 
@@ -305,42 +305,42 @@ are two ways of doing it.
 
 - Select an existing host group from the dropdown list.
 
-![image](../../assets/monitoring/discovery/host-discovery-mappers-hostgroup-select.png)
+    ![image](../../assets/monitoring/discovery/host-discovery-mappers-hostgroup-select.png)
 
 - Create host groups on the fly: both custom strings and
 discovery attributes can be used and concatenated to compose the host group's
 name.
+ 
+  ![image](../../assets/monitoring/discovery/host-discovery-mappers-hostgroup-create.png)
 
-![image](../../assets/monitoring/discovery/host-discovery-mappers-hostgroup-create.png)
-
-In this example, when discovering Linux servers, the `os-linux` host group will
+  In this example, when discovering Linux servers, the `os-linux` host group will
 be created.
 
-If a host group already exists with the same name, it won't be
+  If a host group already exists with the same name, it won't be 
 created again, the host will simply be linked to it.
 
 ### Host category
 
-From version 21.04, the discovered hosts can also be categorized using host
+From version 21.04, the discovered hosts can also be categorized using host 
 categories. Again, there are two ways of doing it.
 
 - Select an existing host category from the dropdown list.
 
-![image](../../assets/monitoring/discovery/host-discovery-mappers-hostcategory-select.png)
+  ![image](../../assets/monitoring/discovery/host-discovery-mappers-hostcategory-select.png)
 
 - Create host categories on the fly: both custom strings
-and discovery attributes can be used and concatenated to compose the
-name of the category.
+and discovery attributes can be used and concatenated to compose the 
+ name of the category.
 
-![image](../../assets/monitoring/discovery/host-discovery-mappers-hostcategory-create.png)
+  ![image](../../assets/monitoring/discovery/host-discovery-mappers-hostcategory-create.png)
 
-If a host category already exists with the same name, it won't be
+  If a host category already exists with the same name, it won't be 
 created again, the host will simply be linked to it.
 
 ### Host severity
 
 From version 21.04, discovered hosts can also be prioritized using host
-severities. Since severities are not just a simple label but also have a
+severities. Since severities are not just a simple label but also have a 
 numeric level, they can't be created on the fly, and can only be selected from the
 dropdown list.
 
@@ -362,11 +362,11 @@ This mapper is mandatory.
 ### Exclusion
 
 The **Exclusion** mapper is used to exclude a subset of hosts from the results
-list.
+list. 
 
 ![image](../../assets/monitoring/discovery/host-discovery-mappers-exclusion.png)
 
-The mapper uses hosts attributes as conditions to exclude them. In the example above, Windows hosts
+The mapper uses hosts attributes as conditions to exclude them. In the example above, Windows hosts 
 will be excluded from the results list.
 
 ### Inclusion
@@ -374,8 +374,8 @@ will be excluded from the results list.
 The **Inclusion** mapper is used to include hosts that would have been excluded by an **Exclusion** mapper.
 This means that **Inclusion** and **Exclusion** mappers must be defined in the right order.
 
-In the example below, let's say that all hosts have been excluded from the results list (with an
-**Exclusion** *is different from 1* mapper, for example). This **Inclusion** mapper will include all Linux hosts in the results list.
+In the example below, let's say that all hosts have been excluded from the results list (with an 
+ **Exclusion** *is different from 1* mapper, for example). This **Inclusion** mapper will include all Linux hosts in the results list.
 
 ![image](../../assets/monitoring/discovery/host-discovery-mappers-inclusion.png)
 
@@ -410,13 +410,13 @@ access will be *localhost* and default port *5700*.
 
 Let's now define the mappers and the update policies to match our needs:
 
-- First needs:
-- Add new (or not yet added) virtual machines, (1)
-- Exclude virtual machines that are not started. (2)
+  - First needs:
+    - Add new (or not yet added) virtual machines, (1)
+    - Exclude virtual machines that are not started. (2)
 
-- Second needs:
-- Disable the virtual machines that are stopped, (3)
-- Re-enable the virtual machines that are started (after being stopped). (4)
+  - Second needs:
+    - Disable the virtual machines that are stopped, (3)
+    - Re-enable the virtual machines that are started (after being stopped). (4)
 
 This will first result in an **Exclusion** mapper with the following
 configuration:
@@ -445,6 +445,6 @@ Of course, the last two policies work better if the job is scheduled to run more
 than one time.
 
 > Note: if a virtual machine happens to be deleted, it will not be deleted (or
-> even disabled) from the Centreon configuration. Only hosts that are discovered and
+> even disabled) from the Centreon configuration. Only hosts that are discovered and 
 > excluded at the same time can be disabled in the configuration (if the policy
 > is chosen).

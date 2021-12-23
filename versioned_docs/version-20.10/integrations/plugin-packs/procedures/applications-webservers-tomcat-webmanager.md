@@ -23,11 +23,11 @@ Prerequistes concerns a RHEL6 like distribution.
 
 Install tomcat:
 
-yum install tomcat6 tomcat6-webapps tomcat6-admin-webapps
+    yum install tomcat6 tomcat6-webapps tomcat6-admin-webapps
 
 Tomcat must be restarted:
 
-# service tomcat6 restart
+    # service tomcat6 restart
 
 ### Permissions
 
@@ -35,12 +35,12 @@ You need to configure an account with the manage role.
 
 Add in */usr/share/tomcat6/conf/tomcat-users.xml* file:
 
-`<user name="tomcat" password="tomcatpass" roles="manager" />`
-`</tomcat-users>`
+    <user name="tomcat" password="tomcatpass" roles="manager" />
+    </tomcat-users>
 
 Tomcat must be restarted:
 
-# service tomcat6 restart
+    # service tomcat6 restart
 
 ## Centreon configuration
 
@@ -49,12 +49,12 @@ Tomcat must be restarted:
 Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
 the following table:
 
-| Field                   | Value                      |
-| :---------------------- | :------------------------- |
-| Host name               | *Name of the host*         |
-| Alias                   | *Host description*         |
-| IP                      | *Host IP Address*          |
-| Monitored from          | *Monitoring Poller to use* |
-| Host Multiple Templates | *App-Webserver-Tomcat6     | 7-Webmanager* |
+| Field                   | Value                                |
+| :---------------------- | :----------------------------------- |
+| Host name               | *Name of the host*                   |
+| Alias                   | *Host description*                   |
+| IP                      | *Host IP Address*                    |
+| Monitored from          | *Monitoring Poller to use*           |
+| Host Multiple Templates | *App-Webserver-Tomcat6|7-Webmanager* |
 
 Click the *Save* button.

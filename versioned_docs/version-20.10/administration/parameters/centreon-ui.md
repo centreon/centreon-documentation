@@ -100,9 +100,9 @@ are compatible with the Authorization Code Flow.
 
 - **Enable OpenId Connect authentication** allows to enable or disable OpenId Connect authentication.
 - **Authentication mode** field indicates if the authentication should take place only by OpenId Connect or using local
-authentication as well (Mixed).
+  authentication as well (Mixed).
 - **Trusted client addresses** field indicates which are the IP/DNS of the trusted clients (corresponding to the
-reverse proxy). The trusted clients are separated by comas.
+  reverse proxy). The trusted clients are separated by comas.
 - **Blacklist client addresses** field indicates which are the IP/DNS rejected.
 - **Base Url** field defines the IdP base URL for OpenId Connect endpoints (mandatory).
 - **Authorization Endpoint** field defines the authorization endpoint, for example `/authorize` (mandatory).
@@ -112,7 +112,7 @@ reverse proxy). The trusted clients are separated by comas.
 - **End Session Endpoint** field defines the logout endpoint, for example `/logout`.
 - **Scope** field defines the scope of the IdP, for example `openid`. Separate scope by space.
 - **Redirect Url** field defines the redirect URL after login to access to your Centreon server, for example
-`http://192.168.0.1/centreon/index.php`.
+  `http://192.168.0.1/centreon/index.php`.
 - **Client ID** field defines the Client ID.
 - **Client Secret** field defines the Client secret.
 - **Disable SSL verify peer** field allows to disable SSL peer validation, should only used for test.

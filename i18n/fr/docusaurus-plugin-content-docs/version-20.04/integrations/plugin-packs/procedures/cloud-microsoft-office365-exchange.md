@@ -2,14 +2,11 @@
 id: cloud-microsoft-office365-exchange
 title: Office365 Exchange
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Vue d'ensemble
 
 La suite Microsoft Office 365 comprend Exchange Online, la version hébergée de
-la plateforme de messagerie Exchange Server de Microsoft.
+la plateforme de messagerie Exchange Server de Microsoft. 
 
 Les informations de supervision de la suite Office sont mises à disposition par
 Microsoft au travers d'une API de gestion Office 365.
@@ -26,12 +23,13 @@ Microsoft au travers d'une API de gestion Office 365.
 ### Métriques collectées
 
 Plus d'informations sur les métriques collectées sur la documentation officielle
-de Microsoft :
+de Microsoft :  
 * https://docs.microsoft.com/fr-fr/office365/admin/activity-reports/email-activity?view=o365-worldwide
 * https://docs.microsoft.com/fr-fr/microsoft-365/admin/activity-reports/mailbox-usage?view=o365-worldwide
 
-<Tabs groupId="operating-systems">
-<TabItem value="Emailactivity" label="Emailactivity">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Email-activity-->
 
 | Metric name                                  | Description                            |
 | :------------------------------------------- | :------------------------------------- |
@@ -40,8 +38,7 @@ de Microsoft :
 | exchange.users.emails.received.total.count   | Number of total received mails         |
 | exchange.users.emails.read.total.count       | Number of total read mails             |
 
-</TabItem>
-<TabItem value="Mailboxusage" label="Mailboxusage">
+<!--Mailbox-usage-->
 
 | Metric name                                   | Description                             | Unit    |
 | :-------------------------------------------- | :-------------------------------------- |-------- |
@@ -49,8 +46,7 @@ de Microsoft :
 | exchange.mailboxes.active.usage.total.bytes   | Total usage space (active mailboxes)    | Bytes   |
 | exchange.mailboxes.inactive.usage.total.bytes | Total usage space (inactive mailboxes)  | Bytes   |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 Une fois l'hôte crée, les macros de services peuvent être configurées pour
 filtrer les métriques par utilisateurs ou par boites mail. Plus d'informations
@@ -58,8 +54,8 @@ dans la section [Configuration](#Configuration).
 
 ## Prérequis
 
-Si vous n'avez pas encore créé votre compte sous Office 365, reportez-vous à la
-documentation d'Office 365 Management ou suivez le lien dans la partie
+Si vous n'avez pas encore créé votre compte sous Office 365, reportez-vous à la 
+documentation d'Office 365 Management ou suivez le lien dans la partie 
 'Aide supplémentaire'.
 
 ### Enregistrez une application
@@ -75,15 +71,15 @@ lors des « dialogues » d’authentification/autorisation au moment de l’exé
 ### Spécifiez les autorisations dont votre application a besoin pour accéder aux API de gestion Office 365
 
 Afin de récupérer les données d'Exchange Online, vous devez spécifier les
-autorisations que votre application requiert:
+autorisations que votre application requiert: 
 dans le Portail de gestion Azure :
 
 * Microsoft Graph :
-* Reports.Read.All (Type : Application)
-* User.Read (Type : Delegated)
+    * Reports.Read.All (Type : Application)
+    * User.Read (Type : Delegated)
 * Office365 Management APIs :
-* ServiceHealth.Read (Type : Application)
-* ActivityFeed.Read (Type : Application)
+    * ServiceHealth.Read (Type : Application)
+    * ActivityFeed.Read (Type : Application)
 
 ### Aide supplémentaire
 
@@ -92,8 +88,9 @@ https://docs.microsoft.com/fr-fr/office/office-365-management-api/get-started-wi
 
 ## Installation
 
-<Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des ressources Office 365 Exchange :
 
@@ -101,10 +98,9 @@ https://docs.microsoft.com/fr-fr/office/office-365-management-api/get-started-wi
 yum install centreon-plugin-Cloud-Microsoft-Office365-Exchange-Api
 ```
 
-2. Depuis l'interface Web de Centreon, installer le Plugin-Pack *Office365 Exchange* depuis la page "Configuration > Plugin packs > Manager"
+2. Depuis l'interface Web de Centreon, installer le Plugin-Pack *Office365 Exchange* depuis la page "Configuration > Plugin packs > Manager" 
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des ressources Office 365 Exchange :
 
@@ -120,13 +116,12 @@ yum install centreon-pack-cloud-microsoft-office365-exchange
 
 3. Depuis l'interface Web de Centreon, installer le Plugin-Pack *Office365 Exchange* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
 Lors de la création de votre Hôte dans Centreon, choisissez le modèle
-*Cloud-Microsoft-Office365-Exchange-Api-custom*. Une fois celui-ci appliqué,
+*Cloud-Microsoft-Office365-Exchange-Api-custom*. Une fois celui-ci appliqué, 
 certaines Macros liées à l'Hôte doivent être renseignées :
 
 | Mandatory | Name                  | Description                                                                |
@@ -137,8 +132,8 @@ certaines Macros liées à l'Hôte doivent être renseignées :
 | X         | OFFICE365CLIENTSECRET | Secret-if of your registered application                                   |
 |           | OFFICE365EXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
 
-La métrique *perfdate* enrengistre la date à laquelle celle-ci a été collectée.
-Vous pouvez la filter en paramétrant la macro *OFFICE365EXTRAOPTIONS* avec
+La métrique *perfdate* enrengistre la date à laquelle celle-ci a été collectée. 
+Vous pouvez la filter en paramétrant la macro *OFFICE365EXTRAOPTIONS* avec 
 l'option ```--filter-perfdata='^(?!.*perfdate).*$'```
 
 Une fois l'hôte créé, il est également possible de paramétrer un ensemble de Macros de Service selon la configuration souhaitée:
@@ -168,11 +163,11 @@ commande depuis votre collecteur Centreon avec l'utilisateur *centreon-engine* :
 Résultat attentdu :
 
 ```bash
-OK: Active mailboxes on 2019-03-10 : 141/1532 (9.20%) - Total (active mailboxes)
-Send Count: 9478, Receive Count: 62197, Read Count: 24401 |
-'active_mailboxes'=141mailboxes;;;0;1532
-'total_send_count'=9478;;;0;
-'total_receive_count'=62197;;;0;
+OK: Active mailboxes on 2019-03-10 : 141/1532 (9.20%) - Total (active mailboxes) 
+Send Count: 9478, Receive Count: 62197, Read Count: 24401 | 
+'active_mailboxes'=141mailboxes;;;0;1532 
+'total_send_count'=9478;;;0; 
+'total_receive_count'=62197;;;0; 
 'total_read_count'=24401;;;0;
 ```
 
@@ -192,16 +187,16 @@ suivante :
 
 ```bash
 /usr/lib/centreon/plugins//centreon_office365_exchange_api.pl \
---plugin=cloud::microsoft::office365::exchange::plugin \
---list-mode
+  --plugin=cloud::microsoft::office365::exchange::plugin \
+  --list-mode
 ```
 
 #### ```UNKNOWN: 500 Can't connect to ...:443```
 
-Cette erreur signifie que le Plugin Centreon n'a pas pu se connecter à l'API de
+Cette erreur signifie que le Plugin Centreon n'a pas pu se connecter à l'API de 
 gestion Office 365. Vérifiez que la requête n'a pas bloquée par un outil externe
-(un pare-feu par exemple). Si vous utilisez un proxy, renseignez son URL dans
-les macros *EXTRAOPTIONS* des services correspondants ou directement dans la
+(un pare-feu par exemple). Si vous utilisez un proxy, renseignez son URL dans 
+les macros *EXTRAOPTIONS* des services correspondants ou directement dans la 
 commande avec l'option ```--proxyurl```.
 
 #### ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |```

@@ -2,14 +2,11 @@
 id: applications-cisco-ssms-restapi
 title: Cisco SSMS
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Vue d'ensemble
 
 Cisco Smart Software Manager On-Prem (anciennement connu sous le nom de Cisco Smart Software Manager satellite) est un composant de Cisco Smart Licensing
-qui fonctionne en conjonction avec Cisco Smart Software Manager (SSM).
+qui fonctionne en conjonction avec Cisco Smart Software Manager (SSM). 
 Il offre une visibilité et des rapports sur les licences Cisco que vous achetez et consommez,
 tout en donnant aux organisations sensibles à la sécurité un moyen d'accéder à un sous-ensemble de fonctionnalités de Cisco SSM
 sans utiliser de connexion Internet directe pour gérer leur base d'installation.
@@ -25,16 +22,16 @@ sans utiliser de connexion Internet directe pour gérer leur base d'installation
 
 ### Métriques collectées
 
-<Tabs groupId="operating-systems">
-<TabItem value="Alerts" label="Alerts">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Alerts-->
 
 | Metric Name                | Description              |
 | :------------------------- | :------------------------|
 | account.alerts.minor.count | Number of alerts minor.  |
 | account.alerts.major.count | Number of alerts major.  |
 
-</TabItem>
-<TabItem value="Licenses" label="Licenses">
+<!--Licenses-->
 
 | Metric Name                | Description                            |
 | :------------------------- | :------------------------------------- |
@@ -42,8 +39,7 @@ sans utiliser de connexion Internet directe pour gérer leur base d'installation
 | licenses.free.count        | Number of licenses free.               |
 | licenses.usage.percentage  | Percentage of licenses usage. Unit : % |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -52,8 +48,9 @@ Plus d'information sont disponible dans la documentation officielle de Cisco SSM
 
 ## Installation
 
-<Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources Cisco SSMS :
 
@@ -63,8 +60,7 @@ yum install centreon-plugin-Applications-Cisco-Ssms-Restapi.noarch
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Cisco SSSM* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources Cisco SSMS :
 
@@ -79,8 +75,7 @@ yum install centreon-pack-applications-cisco-ssms-restapi.noarch
 ```
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Cisco SSMS* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
@@ -103,31 +98,31 @@ Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne d
 
 ```bash
 /usr/lib/centreon/plugins/centreon_cisco_ssms_restapi.pl \
---plugin=apps::cisco::ssms::restapi::plugin \
---mode=licenses \
---hostname='myipaddress' \
---client-id='myapiclientid' \
---client-secret='myapiclientsecret' \
---account='1234abc-56de-78fg-90hi-1234abcdefg' \
---filter-counters='status' \
---filter-license-name='mylicence'
---critical-license-status='%{status} !~ /in compliance/i' \
---verbose
+      --plugin=apps::cisco::ssms::restapi::plugin \
+      --mode=licenses \
+      --hostname='myipaddress' \
+      --client-id='myapiclientid' \
+      --client-secret='myapiclientsecret' \
+      --account='1234abc-56de-78fg-90hi-1234abcdefg' \
+      --filter-counters='status' \
+      --filter-license-name='mylicence'
+      --critical-license-status='%{status} !~ /in compliance/i' \
+      --verbose
 ```
 
 La commande ci-dessus contrôle le statut des licences Cisco SSMS (```--mode=licences```) nommées *mylicence* (```--filter-licences-name='mylicence'```).
-Cette licence appartient au compte *1234abc-56de-78fg-90hi-1234abcdefg* (```--account='1234abc-56de-78fg-90hi-1234abcdefg'```).
+Cette licence appartient au compte *1234abc-56de-78fg-90hi-1234abcdefg* (```--account='1234abc-56de-78fg-90hi-1234abcdefg'```). 
 
 Cette commande déclenchera une alarme CRITICAL si le statut de la licence est différent de *in compliance* (```--critical-license-status='%{status} !~ /in compliance/i'```).
 
 Toutes les options et leur utilisation peuvent être consultées avec le paramètre ```--help``` ajouté à la commande:
 
 ```bash
-/usr/lib/centreon/plugins//centreon_cisco_ssms_restapi.pl --plugin=apps::cisco::ssms::restapi::plugin
+/usr/lib/centreon/plugins//centreon_cisco_ssms_restapi.pl --plugin=apps::cisco::ssms::restapi::plugin 
 --mode=licences --help
 ```
 
-### J'obtiens le message d'erreur suivant:
+### J'obtiens le message d'erreur suivant: 
 
 #### ```UNKNOWN: 500 Can't connect to api.ssms.com:443 |```
 
@@ -137,7 +132,7 @@ Cela signifie que Centreon n'a pas réussi à se connecter à l'API Cisco SSMS (
 
 La plupart du temps, il faut préciser le proxy à utiliser pour requêter l'URL *api.ssms.com* en utilisant l'option ```--proxyurl='http://proxy.mycompany:8080'```.
 
-#### ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |```
+#### ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |``` 
 
 Suite à la mise en place du proxy, j'obtiens le message suivant ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |```
 

@@ -2,9 +2,6 @@
 id: centreon-ui
 title: Centreon UI
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 This part covers the configuration of the general options of the Centreon web
 interface.
@@ -106,9 +103,9 @@ in the **Authentication by OpenId Connect** section.
 
 - **Enable OpenId Connect authentication** allows to enable or disable OpenId Connect authentication.
 - **Authentication mode** field indicates if the authentication should take place only by OpenId Connect or using local
-authentication as well (Mixed).
+  authentication as well (Mixed).
 - **Trusted client addresses** field indicates which are the IP/DNS of the trusted clients (corresponding to the
-reverse proxy). The trusted clients are separated by comas.
+  reverse proxy). The trusted clients are separated by comas.
 - **Blacklist client addresses** field indicates which are the IP/DNS rejected.
 - **Base Url** field defines the IdP base URL for OpenId Connect endpoints (mandatory).
 - **Authorization Endpoint** field defines the authorization endpoint, for example `/authorize` (mandatory).
@@ -117,10 +114,10 @@ reverse proxy). The trusted clients are separated by comas.
 - **User Information Endpoint** field defines the user information endpoint, for example `/userinfo`.
 - **End Session Endpoint** field defines the logout endpoint, for example `/logout`.
 - **Login claim value** field defines the value returned from **Introspection Token Endpoint** or **User Information Endpoint**
-to authenticate the user. For example `sub` or `email`.
+  to authenticate the user. For example `sub` or `email`.
 - **Scope** field defines the scope of the IdP, for example `openid`. Separate scope by space.
 - **Redirect Url** field defines the redirect URL after login to access your Centreon server, for example
-`https://192.168.0.1/centreon/index.php`.
+  `https://192.168.0.1/centreon/index.php`.
 - **Client ID** field defines the Client ID.
 - **Client Secret** field defines the Client secret.
 - **Use Basic Auth for Token Endpoint Authentication** field forces to use the `Authorization: Basic` method.
@@ -144,8 +141,8 @@ to authenticate the user. For example `sub` or `email`.
 
 ### Examples of configuration
 
-<Tabs groupId="operating-systems">
-<TabItem value="Microsoft Azure AD" label="Microsoft Azure AD">
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Microsoft Azure AD-->
 Here is an example configuration for Microsoft Azure Active Directory:
 
 | Fields                       | Values                                                    |
@@ -164,8 +161,7 @@ Here is an example configuration for Microsoft Azure Active Directory:
 
 > Please replace `${tenantId}`, `${ipCentreon}`, `${clientId}` and `${clientSecret}` with your own values.
 
-</TabItem>
-<TabItem value="Okta" label="Okta">
+<!--Okta-->
 Here is an example configuration for Okta:
 
 | Fields                       | Values                                   |
@@ -184,8 +180,7 @@ Here is an example configuration for Okta:
 
 > Please replace `${theIdPdomain}`, `${ipCentreon}`, `${clientId}` and `${clientSecret}` with your own values.
 
-</TabItem>
-<TabItem value="Keycloak" label="Keycloak">
+<!--Keycloak-->
 Here is an example configuration for Keycloak:
 
 | Fields                       | Values                                                                  |
@@ -204,8 +199,7 @@ Here is an example configuration for Keycloak:
 
 > Please replace `${theIdPdomain}`, `${ipCentreon}`, `${resource}` and `${secret}` with your own values.
 
-</TabItem>
-<TabItem value="LemonLDAP::NG" label="LemonLDAP::NG">
+<!--LemonLDAP::NG-->
 Here is an example configuration for LemonLDAP::NG:
 
 | Fields                       | Values                                   |
@@ -224,45 +218,44 @@ Here is an example configuration for LemonLDAP::NG:
 
 > Please replace `auth.example.com`, `${ipCentreon}`, `${clientId}` and `${clientSecret}` with your own values.
 
-</TabItem>
-<TabItem value="Others" label="Others">
+<!--Others-->
 Most of the service providers have one URL presenting the configuration parameters configuration as defined by
 [the protocol](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfig).
 
 ```json
 {
-"issuer": "https://server.example.com",
-"authorization_endpoint": "https://server.example.com/connect/authorize",
-"token_endpoint": "https://server.example.com/connect/token",
-"token_endpoint_auth_methods_supported": ["client_secret_basic", "private_key_jwt"],
-"token_endpoint_auth_signing_alg_values_supported": ["RS256", "ES256"],
-"userinfo_endpoint": "https://server.example.com/connect/userinfo",
-"check_session_iframe": "https://server.example.com/connect/check_session",
-"end_session_endpoint": "https://server.example.com/connect/end_session",
-"jwks_uri": "https://server.example.com/jwks.json",
-"registration_endpoint": "https://server.example.com/connect/register",
-"scopes_supported": ["openid", "profile", "email", "address", "phone", "offline_access"],
-"response_types_supported": ["code", "code id_token", "id_token", "token id_token"],
-"acr_values_supported": ["urn:mace:incommon:iap:silver", "urn:mace:incommon:iap:bronze"],
-"subject_types_supported": ["public", "pairwise"],
-"userinfo_signing_alg_values_supported": ["RS256", "ES256", "HS256"],
-"userinfo_encryption_alg_values_supported": ["RSA1_5", "A128KW"],
-"userinfo_encryption_enc_values_supported": ["A128CBC-HS256", "A128GCM"],
-"id_token_signing_alg_values_supported": ["RS256", "ES256", "HS256"],
-"id_token_encryption_alg_values_supported": ["RSA1_5", "A128KW"],
-"id_token_encryption_enc_values_supported": ["A128CBC-HS256", "A128GCM"],
-"request_object_signing_alg_values_supported": ["none", "RS256", "ES256"],
-"display_values_supported": ["page", "popup"],
-"claim_types_supported": ["normal", "distributed"],
-"claims_supported": ["sub", "iss", "auth_time", "acr",
-"name", "given_name", "family_name", "nickname",
-"profile", "picture", "website",
-"email", "email_verified", "locale", "zoneinfo",
-"http://example.info/claims/groups"
-],
-"claims_parameter_supported": true,
-"service_documentation": "http://server.example.com/connect/service_documentation.html",
-"ui_locales_supported": ["en-US", "en-GB", "en-CA", "fr-FR", "fr-CA"]
+	"issuer": "https://server.example.com",
+	"authorization_endpoint": "https://server.example.com/connect/authorize",
+	"token_endpoint": "https://server.example.com/connect/token",
+	"token_endpoint_auth_methods_supported": ["client_secret_basic", "private_key_jwt"],
+	"token_endpoint_auth_signing_alg_values_supported": ["RS256", "ES256"],
+	"userinfo_endpoint": "https://server.example.com/connect/userinfo",
+	"check_session_iframe": "https://server.example.com/connect/check_session",
+	"end_session_endpoint": "https://server.example.com/connect/end_session",
+	"jwks_uri": "https://server.example.com/jwks.json",
+	"registration_endpoint": "https://server.example.com/connect/register",
+	"scopes_supported": ["openid", "profile", "email", "address", "phone", "offline_access"],
+	"response_types_supported": ["code", "code id_token", "id_token", "token id_token"],
+	"acr_values_supported": ["urn:mace:incommon:iap:silver", "urn:mace:incommon:iap:bronze"],
+	"subject_types_supported": ["public", "pairwise"],
+	"userinfo_signing_alg_values_supported": ["RS256", "ES256", "HS256"],
+	"userinfo_encryption_alg_values_supported": ["RSA1_5", "A128KW"],
+	"userinfo_encryption_enc_values_supported": ["A128CBC-HS256", "A128GCM"],
+	"id_token_signing_alg_values_supported": ["RS256", "ES256", "HS256"],
+	"id_token_encryption_alg_values_supported": ["RSA1_5", "A128KW"],
+	"id_token_encryption_enc_values_supported": ["A128CBC-HS256", "A128GCM"],
+	"request_object_signing_alg_values_supported": ["none", "RS256", "ES256"],
+	"display_values_supported": ["page", "popup"],
+	"claim_types_supported": ["normal", "distributed"],
+	"claims_supported": ["sub", "iss", "auth_time", "acr",
+		"name", "given_name", "family_name", "nickname",
+		"profile", "picture", "website",
+		"email", "email_verified", "locale", "zoneinfo",
+		"http://example.info/claims/groups"
+	],
+	"claims_parameter_supported": true,
+	"service_documentation": "http://server.example.com/connect/service_documentation.html",
+	"ui_locales_supported": ["en-US", "en-GB", "en-CA", "fr-FR", "fr-CA"]
 }
 ```
 
@@ -275,5 +268,4 @@ Retrieve the following parameters to configure your Centreon:
 - scopes_supported
 - claims_supported (Login claim value)
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->

@@ -2,33 +2,30 @@
 id: using-sources
 title: A partir des sources
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Prérequis
 
 > La plupart des utilisateurs de CentOS préfèreront installer Centreon Web en utilisant
 [les paquets fournis par Centreon](using-packages).
 
-<Tabs groupId="operating-systems">
-<TabItem value="CentOS 8" label="CentOS 8">
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS 8-->
 Afin d'installer les logiciels Centreon, le dépôt PowerTools de Red Hat doit être
 activé.
 
 Exécutez les commandes suivantes :
 
 - Pour CentOS 8.2 :
-```shell
-dnf -y install dnf-plugins-core epel-release
-dnf config-manager --set-enabled PowerTools
-```
+    ```shell
+    dnf -y install dnf-plugins-core epel-release
+    dnf config-manager --set-enabled PowerTools
+    ```
 - Pour CentOS 8.3 et Centos Stream :
 
-```shell
-dnf -y install dnf-plugins-core epel-release
-dnf config-manager --set-enabled powertools
-```
+    ```shell
+    dnf -y install dnf-plugins-core epel-release
+    dnf config-manager --set-enabled powertools
+    ```
 
 Installez le dépôt Centreon pour les dépendances perl additionnelles :
 ```shell
@@ -62,74 +59,74 @@ Vous pouvez maintenant installer les prérequis :
 ```shell
 dnf update
 dnf install -y \
-cpp \
-dmidecode \
-fping \
-freetds \
-gcc \
-gcc-c++ \
-glib2-devel \
-gnutls \
-gnutls-devel \
-httpd \
-libstdc++ \
-lm_sensors \
-lua \
-lua-devel \
-mailx \
-make \
-net-snmp \
-net-snmp-libs \
-net-snmp-perl \
-net-snmp-utils \
-net-tools \
-npm \
-openssl \
-openwsman-perl \
-perl \
-perl-Crypt-DES \
-perl-DBD-MySQL \
-perl-DBI \
-perl-DateTime \
-perl-DateTime-Format-Duration-ISO8601 \
-perl-Digest-HMAC \
-perl-Digest-SHA1 \
-perl-Encode \
-perl-interpreter \
-perl-IO-Socket-INET6 \
-perl-JSON \
-perl-MQSeries \
-perl-MongoDB \
-perl-Net-Curl \
-perl-Redis \
-perl-Socket \
-perl-Socket6 \
-perl-Sys-Syslog \
-perl-URI \
-perl-UUID \
-perl-rrdtool \
-php \
-php-cli \
-php-common \
-php-devel \
-php-fpm \
-php-gd \
-php-intl \
-php-json \
-php-ldap \
-php-mbstring \
-php-mysqlnd \
-php-pdo \
-php-pear \
-php-process \
-php-snmp \
-php-xml \
-php-zip \
-plink \
-quota \
-rrdtool \
-rrdtool-devel \
-unixODBC
+    cpp \
+    dmidecode \
+    fping \
+    freetds \
+    gcc \
+    gcc-c++ \
+    glib2-devel \
+    gnutls \
+    gnutls-devel \
+    httpd \
+    libstdc++ \
+    lm_sensors \
+    lua \
+    lua-devel \
+    mailx \
+    make \
+    net-snmp \
+    net-snmp-libs \
+    net-snmp-perl \
+    net-snmp-utils \
+    net-tools \
+    npm \
+    openssl \
+    openwsman-perl \
+    perl \
+    perl-Crypt-DES \
+    perl-DBD-MySQL \
+    perl-DBI \
+    perl-DateTime \
+    perl-DateTime-Format-Duration-ISO8601 \
+    perl-Digest-HMAC \
+    perl-Digest-SHA1 \
+    perl-Encode \
+    perl-interpreter \
+    perl-IO-Socket-INET6 \
+    perl-JSON \
+    perl-MQSeries \
+    perl-MongoDB \
+    perl-Net-Curl \
+    perl-Redis \
+    perl-Socket \
+    perl-Socket6 \
+    perl-Sys-Syslog \
+    perl-URI \
+    perl-UUID \
+    perl-rrdtool \
+    php \
+    php-cli \
+    php-common \
+    php-devel \
+    php-fpm \
+    php-gd \
+    php-intl \
+    php-json \
+    php-ldap \
+    php-mbstring \
+    php-mysqlnd \
+    php-pdo \
+    php-pear \
+    php-process \
+    php-snmp \
+    php-xml \
+    php-zip \
+    plink \
+    quota \
+    rrdtool \
+    rrdtool-devel \
+    unixODBC
 ```
 
 Des commandes supplémentaires sont nécessaires pour configurer correctement l'environnement :
@@ -147,9 +144,7 @@ Puis exécutez :
 ```shell
 /bin/pear upgrade-all
 ```
-
-</TabItem>
-<TabItem value="Oracle Linux 8" label="Oracle Linux 8">
+<!--Oracle Linux 8-->
 Afin d'installer les logiciels Centreon, le dépôt Oracle CodeReady Builder de Oracle doit être activé.
 
 Exécutez les commandes suivantes :
@@ -190,74 +185,74 @@ Vous pouvez maintenant installer les prérequis :
 ```shell
 dnf update
 dnf install -y \
-cpp \
-dmidecode \
-fping \
-freetds \
-gcc \
-gcc-c++ \
-glib2-devel \
-gnutls \
-gnutls-devel \
-httpd \
-libstdc++ \
-lm_sensors \
-lua \
-lua-devel \
-mailx \
-make \
-net-snmp \
-net-snmp-libs \
-net-snmp-perl \
-net-snmp-utils \
-net-tools \
-npm \
-openssl \
-openwsman-perl \
-perl \
-perl-Crypt-DES \
-perl-DBD-MySQL \
-perl-DBI \
-perl-DateTime \
-perl-DateTime-Format-Duration-ISO8601 \
-perl-Digest-HMAC \
-perl-Digest-SHA1 \
-perl-Encode \
-perl-interpreter \
-perl-IO-Socket-INET6 \
-perl-JSON \
-perl-MQSeries \
-perl-MongoDB \
-perl-Net-Curl \
-perl-Redis \
-perl-Socket \
-perl-Socket6 \
-perl-Sys-Syslog \
-perl-URI \
-perl-UUID \
-perl-rrdtool \
-php \
-php-cli \
-php-common \
-php-devel \
-php-fpm \
-php-gd \
-php-intl \
-php-json \
-php-ldap \
-php-mbstring \
-php-mysqlnd \
-php-pdo \
-php-pear \
-php-process \
-php-snmp \
-php-xml \
-php-zip \
-plink \
-quota \
-rrdtool \
-rrdtool-devel \
-unixODBC
+    cpp \
+    dmidecode \
+    fping \
+    freetds \
+    gcc \
+    gcc-c++ \
+    glib2-devel \
+    gnutls \
+    gnutls-devel \
+    httpd \
+    libstdc++ \
+    lm_sensors \
+    lua \
+    lua-devel \
+    mailx \
+    make \
+    net-snmp \
+    net-snmp-libs \
+    net-snmp-perl \
+    net-snmp-utils \
+    net-tools \
+    npm \
+    openssl \
+    openwsman-perl \
+    perl \
+    perl-Crypt-DES \
+    perl-DBD-MySQL \
+    perl-DBI \
+    perl-DateTime \
+    perl-DateTime-Format-Duration-ISO8601 \
+    perl-Digest-HMAC \
+    perl-Digest-SHA1 \
+    perl-Encode \
+    perl-interpreter \
+    perl-IO-Socket-INET6 \
+    perl-JSON \
+    perl-MQSeries \
+    perl-MongoDB \
+    perl-Net-Curl \
+    perl-Redis \
+    perl-Socket \
+    perl-Socket6 \
+    perl-Sys-Syslog \
+    perl-URI \
+    perl-UUID \
+    perl-rrdtool \
+    php \
+    php-cli \
+    php-common \
+    php-devel \
+    php-fpm \
+    php-gd \
+    php-intl \
+    php-json \
+    php-ldap \
+    php-mbstring \
+    php-mysqlnd \
+    php-pdo \
+    php-pear \
+    php-process \
+    php-snmp \
+    php-xml \
+    php-zip \
+    plink \
+    quota \
+    rrdtool \
+    rrdtool-devel \
+    unixODBC
 ```
 
 Des commandes supplémentaires sont nécessaires pour configurer correctement l'environnement :
@@ -275,9 +270,7 @@ Puis exécutez :
 ```shell
 /bin/pear upgrade-all
 ```
-
-</TabItem>
-<TabItem value="RHEL 8" label="RHEL 8">
+<!--RHEL 8-->
 Afin d'installer les logiciels Centreon, le dépôt CodeReady Builder de Redhat doit être activé.
 
 Exécutez les commandes suivantes :
@@ -318,74 +311,74 @@ Vous pouvez maintenant installer les prérequis :
 ```shell
 dnf update
 dnf install -y \
-cpp \
-dmidecode \
-fping \
-freetds \
-gcc \
-gcc-c++ \
-glib2-devel \
-gnutls \
-gnutls-devel \
-httpd \
-libstdc++ \
-lm_sensors \
-lua \
-lua-devel \
-mailx \
-make \
-net-snmp \
-net-snmp-libs \
-net-snmp-perl \
-net-snmp-utils \
-net-tools \
-npm \
-openssl \
-openwsman-perl \
-perl \
-perl-Crypt-DES \
-perl-DBD-MySQL \
-perl-DBI \
-perl-DateTime \
-perl-DateTime-Format-Duration-ISO8601 \
-perl-Digest-HMAC \
-perl-Digest-SHA1 \
-perl-Encode \
-perl-interpreter \
-perl-IO-Socket-INET6 \
-perl-JSON \
-perl-MQSeries \
-perl-MongoDB \
-perl-Net-Curl \
-perl-Redis \
-perl-Socket \
-perl-Socket6 \
-perl-Sys-Syslog \
-perl-URI \
-perl-UUID \
-perl-rrdtool \
-php \
-php-cli \
-php-common \
-php-devel \
-php-fpm \
-php-gd \
-php-intl \
-php-json \
-php-ldap \
-php-mbstring \
-php-mysqlnd \
-php-pdo \
-php-pear \
-php-process \
-php-snmp \
-php-xml \
-php-zip \
-plink \
-quota \
-rrdtool \
-rrdtool-devel \
-unixODBC
+    cpp \
+    dmidecode \
+    fping \
+    freetds \
+    gcc \
+    gcc-c++ \
+    glib2-devel \
+    gnutls \
+    gnutls-devel \
+    httpd \
+    libstdc++ \
+    lm_sensors \
+    lua \
+    lua-devel \
+    mailx \
+    make \
+    net-snmp \
+    net-snmp-libs \
+    net-snmp-perl \
+    net-snmp-utils \
+    net-tools \
+    npm \
+    openssl \
+    openwsman-perl \
+    perl \
+    perl-Crypt-DES \
+    perl-DBD-MySQL \
+    perl-DBI \
+    perl-DateTime \
+    perl-DateTime-Format-Duration-ISO8601 \
+    perl-Digest-HMAC \
+    perl-Digest-SHA1 \
+    perl-Encode \
+    perl-interpreter \
+    perl-IO-Socket-INET6 \
+    perl-JSON \
+    perl-MQSeries \
+    perl-MongoDB \
+    perl-Net-Curl \
+    perl-Redis \
+    perl-Socket \
+    perl-Socket6 \
+    perl-Sys-Syslog \
+    perl-URI \
+    perl-UUID \
+    perl-rrdtool \
+    php \
+    php-cli \
+    php-common \
+    php-devel \
+    php-fpm \
+    php-gd \
+    php-intl \
+    php-json \
+    php-ldap \
+    php-mbstring \
+    php-mysqlnd \
+    php-pdo \
+    php-pear \
+    php-process \
+    php-snmp \
+    php-xml \
+    php-zip \
+    plink \
+    quota \
+    rrdtool \
+    rrdtool-devel \
+    unixODBC
 ```
 
 Des commandes supplémentaires sont nécessaires pour configurer correctement l'environnement :
@@ -403,9 +396,7 @@ Puis exécutez :
 ```shell
 /bin/pear upgrade-all
 ```
-
-</TabItem>
-<TabItem value="Redhat/CentOS 7" label="Redhat/CentOS 7">
+<!--Redhat/CentOS 7-->
 Pour installer Centreon, vous devrez configurer le dépôt officiel des collections de logiciels pris en charge par
 Redhat.
 
@@ -428,73 +419,73 @@ Vous pouvez maintenant installer les prérequis :
 ```shell
 yum update
 yum install -y \
-cpp \
-dmidecode \
-fping \
-freetds \
-gcc \
-gcc-c++ \
-glib2-devel \
-gnutls \
-gnutls-devel \
-httpd \
-libstdc++ \
-lm_sensors \
-lua \
-lua-devel \
-mailx \
-make \
-net-snmp \
-net-snmp-libs \
-net-snmp-perl \
-net-snmp-utils \
-net-tools \
-npm \
-openssl \
-openwsman-perl \
-perl \
-perl-Crypt-DES \
-perl-DBD-MySQL \
-perl-DBI \
-perl-DateTime \
-perl-DateTime-Format-Duration-ISO8601 \
-perl-Digest-HMAC \
-perl-Digest-SHA1 \
-perl-Encode \
-perl-interpreter \
-perl-IO-Socket-INET6 \
-perl-JSON \
-perl-MQSeries \
-perl-MongoDB \
-perl-Net-Curl \
-perl-Redis \
-perl-Socket \
-perl-Socket6 \
-perl-Sys-Syslog \
-perl-URI \
-perl-UUID \
-perl-rrdtool \
-rh-php73 \
-rh-php73-php-cli \
-rh-php73-php-common \
-rh-php73-php-fpm \
-rh-php73-php-gd \
-rh-php73-php-intl \
-rh-php73-php-json \
-rh-php73-php-ldap \
-rh-php73-php-mbstring \
-rh-php73-php-mysqlnd \
-rh-php73-php-pdo \
-rh-php73-php-pear \
-rh-php73-php-process \
-rh-php73-php-snmp \
-rh-php73-php-xml \
-rh-php73-php-zip \
-plink \
-quota \
-rrdtool \
-rrdtool-devel \
-unixODBC
+    cpp \
+    dmidecode \
+    fping \
+    freetds \
+    gcc \
+    gcc-c++ \
+    glib2-devel \
+    gnutls \
+    gnutls-devel \
+    httpd \
+    libstdc++ \
+    lm_sensors \
+    lua \
+    lua-devel \
+    mailx \
+    make \
+    net-snmp \
+    net-snmp-libs \
+    net-snmp-perl \
+    net-snmp-utils \
+    net-tools \
+    npm \
+    openssl \
+    openwsman-perl \
+    perl \
+    perl-Crypt-DES \
+    perl-DBD-MySQL \
+    perl-DBI \
+    perl-DateTime \
+    perl-DateTime-Format-Duration-ISO8601 \
+    perl-Digest-HMAC \
+    perl-Digest-SHA1 \
+    perl-Encode \
+    perl-interpreter \
+    perl-IO-Socket-INET6 \
+    perl-JSON \
+    perl-MQSeries \
+    perl-MongoDB \
+    perl-Net-Curl \
+    perl-Redis \
+    perl-Socket \
+    perl-Socket6 \
+    perl-Sys-Syslog \
+    perl-URI \
+    perl-UUID \
+    perl-rrdtool \
+    rh-php73 \
+    rh-php73-php-cli \
+    rh-php73-php-common \
+    rh-php73-php-fpm \
+    rh-php73-php-gd \
+    rh-php73-php-intl \
+    rh-php73-php-json \
+    rh-php73-php-ldap \
+    rh-php73-php-mbstring \
+    rh-php73-php-mysqlnd \
+    rh-php73-php-pdo \
+    rh-php73-php-pear \
+    rh-php73-php-process \
+    rh-php73-php-snmp \
+    rh-php73-php-xml \
+    rh-php73-php-zip \
+    plink \
+    quota \
+    rrdtool \
+    rrdtool-devel \
+    unixODBC
 ```
 
 Des commandes supplémentaires sont nécessaires pour configurer correctement l'environnement :
@@ -516,85 +507,83 @@ Puis exécutez :
 ``` shell
 /opt/rh/rh-php73/root/bin/pear upgrade-all
 ```
-
-</TabItem>
-<TabItem value="Debian Buster" label="Debian Buster">
+<!--Debian Buster-->
 Installez les prérequis suivants :
 ```shell
 apt-get install \
-bsd-mailx \
-cmake \
-dnsutils \
-fping \
-gawk \
-gettext \
-libapache2-mod-php7.3 \
-libcgsi-gsoap-dev \
-libconfig-inifiles-perl \
-libcrypt-des-perl \
-libdate-manip-perl \
-libdatetime-perl \
-libdbd-mysql-perl \
-libdbd-pg-perl \
-libdbi-perl \
-libdigest-hmac-perl \
-libdigest-sha-perl \
-libgcrypt-dev \
-libgd-perl \
-libgnutls28-dev \
-libjson-perl \
-libkrb5-dev \
-libldap2-dev \
-liblua5.2-dev \
-libmariadb-dev \
-libmcrypt-dev \
-libmodule-build-perl \
-libmodule-install-perl \
-libnet-dns-perl \
-libnet-ldap-perl \
-libnet-ntp-perl \
-libnet-snmp-perl \
-libnet-telnet-perl \
-libperl-dev \
-librrd-dev \
-librrds-perl \
-libsnmp-dev \
-libsnmp-perl \
-libssh2-1-dev \
-libssl-dev \
-liburi-encode-perl \
-libwrap0-dev \
-libwww-perl \
-libxerces-c-dev \
-libxml-libxml-perl \
-libxml-xpath-perl \
-lsb-release \
-mariadb-server \
-ntp \
-php-curl \
-php-date \
-php-fpm \
-php-gd \
-php-intl \
-php-json \
-php-ldap \
-php-mbstring \
-php-mysql \
-php-pear \
-php-readline \
-php-snmp \
-php-sqlite3 \
-php-xml \
-php-zip \
-python3-pip \
-rrdtool \
-smbclient \
-snmp \
-snmpd \
-snmptrapd \
-sudo \
-tofrodos \
-zlib1g-dev
+    bsd-mailx \
+    cmake \
+    dnsutils \
+    fping \
+    gawk \
+    gettext \
+    libapache2-mod-php7.3 \
+    libcgsi-gsoap-dev \
+    libconfig-inifiles-perl \
+    libcrypt-des-perl \
+    libdate-manip-perl \
+    libdatetime-perl \
+    libdbd-mysql-perl \
+    libdbd-pg-perl \
+    libdbi-perl \
+    libdigest-hmac-perl \
+    libdigest-sha-perl \
+    libgcrypt-dev \
+    libgd-perl \
+    libgnutls28-dev \
+    libjson-perl \
+    libkrb5-dev \
+    libldap2-dev \
+    liblua5.2-dev \
+    libmariadb-dev \
+    libmcrypt-dev \
+    libmodule-build-perl \
+    libmodule-install-perl \
+    libnet-dns-perl \
+    libnet-ldap-perl \
+    libnet-ntp-perl \
+    libnet-snmp-perl \
+    libnet-telnet-perl \
+    libperl-dev \
+    librrd-dev \
+    librrds-perl \
+    libsnmp-dev \
+    libsnmp-perl \
+    libssh2-1-dev \
+    libssl-dev \
+    liburi-encode-perl \
+    libwrap0-dev \
+    libwww-perl \
+    libxerces-c-dev \
+    libxml-libxml-perl \
+    libxml-xpath-perl \
+    lsb-release \
+    mariadb-server \
+    ntp \
+    php-curl \
+    php-date \
+    php-fpm \
+    php-gd \
+    php-intl \
+    php-json \
+    php-ldap \
+    php-mbstring \
+    php-mysql \
+    php-pear \
+    php-readline \
+    php-snmp \
+    php-sqlite3 \
+    php-xml \
+    php-zip \
+    python3-pip \
+    rrdtool \
+    smbclient \
+    snmp \
+    snmpd \
+    snmptrapd \
+    sudo \
+    tofrodos \
+    zlib1g-dev
 ```
 
 Activate the modules :
@@ -637,8 +626,7 @@ Redémarrez le service SNMP :
 service snmpd restart
 service snmptrapd restart
 ```
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Centreon library (Centreon CLIB)
 
@@ -736,9 +724,9 @@ cd centreon-web-YY.MM.x
 ```
 
 > Le script d'installation permet une configuration personnalisée, cette procédure vous montrera les meilleurs chemins à utiliser.
->
+> 
 > En outre, les questions rapides Yes/No peuvent être répondues par [y] la plupart du temps.
->
+> 
 > Si les sources de centreon ont été téléchargées depuis github, exécutez ces commandes :
 > ```shell
 > composer install --no-dev --optimize-autoloader
@@ -773,7 +761,7 @@ Exécutez le script d'installation :
 #                                                                             #
 ###############################################################################
 ------------------------------------------------------------------------
-Checking all needed binaries
+        Checking all needed binaries
 ------------------------------------------------------------------------
 rm                                                         OK
 cp                                                         OK
@@ -789,7 +777,7 @@ find                                                       OK
 /bin/sed                                                   OK
 
 ------------------------------------------------------------------------
-Check mandatory gorgone service status
+        Check mandatory gorgone service status
 ------------------------------------------------------------------------
 
 Is the Gorgone module already installed?
@@ -817,7 +805,7 @@ Répondez **[y]** à toutes les questions :
 
 ``` shell
 ------------------------------------------------------------------------
-Please choose what you want to install
+        Please choose what you want to install
 ------------------------------------------------------------------------
 
 Do you want to install : Centreon Web Front
@@ -837,7 +825,7 @@ Do you want to install : CentreonTrapd process
 
 ``` shell
 ------------------------------------------------------------------------
-Start CentWeb Installation
+        Start CentWeb Installation
 ------------------------------------------------------------------------
 
 Where is your Centreon directory ?
@@ -949,7 +937,7 @@ Add group www-data to user centreon                        OK
 
 ``` shell
 ------------------------------------------------------------------------
-Configure Sudo
+        Configure Sudo
 ------------------------------------------------------------------------
 
 Where is sudo configuration file ?
@@ -988,7 +976,7 @@ Configuring Sudo                                           OK
 
 ``` shell
 ------------------------------------------------------------------------
-Configure Apache server
+        Configure Apache server
 ------------------------------------------------------------------------
 
 Do you want to add Centreon Apache sub configuration file ?
@@ -1007,7 +995,7 @@ Reloading Apache service                                   OK
 
 ``` shell
 ------------------------------------------------------------------------
-Configure PHP FPM service
+        Configure PHP FPM service
 ------------------------------------------------------------------------
 
 Do you want to add Centreon PHP FPM sub configuration file ?
@@ -1090,7 +1078,7 @@ All PEAR modules                                           OK
 
 ``` shell
 ------------------------------------------------------------------------
-Centreon Post Install
+            Centreon Post Install
 ------------------------------------------------------------------------
 Create /usr/share/centreon/www/install/install.conf.php    OK
 Create /etc/centreon/instCentWeb.conf                      OK
@@ -1100,7 +1088,7 @@ Create /etc/centreon/instCentWeb.conf                      OK
 
 ``` shell
 ------------------------------------------------------------------------
-Starting CentStorage Installation
+        Starting CentStorage Installation
 ------------------------------------------------------------------------
 
 Where is your Centreon Run Dir directory?
@@ -1138,7 +1126,7 @@ Create /etc/centreon/instCentStorage.conf                  OK
 
 ``` shell
 ------------------------------------------------------------------------
-Starting Centreon Plugins Installation
+        Starting Centreon Plugins Installation
 ------------------------------------------------------------------------
 Path                                                       OK
 Path                                                       OK
@@ -1158,7 +1146,7 @@ Create /etc/centreon/instCentPlugins.conf                  OK
 
 ``` shell
 ------------------------------------------------------------------------
-Starting CentreonTrapD Installation
+        Starting CentreonTrapD Installation
 ------------------------------------------------------------------------
 
 Path                                                       OK

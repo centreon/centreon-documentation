@@ -2,23 +2,20 @@
 id: infrastructure-active-directory-nrpe
 title: MS Active Directory
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Overview
 
-This Plugin Pack monitors AD Domain Controller using local commands and the
+This Plugin Pack monitors AD Domain Controller using local commands and the 
 Centreon NSClient++ agent to trigger their executions remotely.
 
 ## Pack assets
 
 ### Monitored objects
 
-* Active Directory domain controller, including:
-* Netdom connectivity
-* dfsr backlog
-* dcdiag
+* Active Directory domain controller, including: 
+    * Netdom connectivity
+    * dfsr backlog
+    * dcdiag 
 
 ### Collected metrics
 
@@ -28,14 +25,15 @@ Centreon NSClient++ agent to trigger their executions remotely.
 
 ### Centreon NSClient++
 
-To monitor an *Active Directory* domain controller through NRPE, install the Centreon packaged version
-of the NSClient++ agent. Please follow our [official documentation](../tutorials/centreon-nsclient-tutorial)
+To monitor an *Active Directory* domain controller through NRPE, install the Centreon packaged version 
+of the NSClient++ agent. Please follow our [official documentation](../tutorials/centreon-nsclient-tutorial) 
 and make sure that the **NRPE Server** configuration is correct.
 
-## Installation
+## Installation 
 
-<Tabs groupId="licence-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon NRPE Client package on every Poller expected to monitor *Active Directory*:
 
@@ -43,11 +41,10 @@ and make sure that the **NRPE Server** configuration is correct.
 yum install centreon-nrpe-plugin
 ```
 
-2. On the Centreon Web interface, install the Centreon Pack *Active Directory*
+2. On the Centreon Web interface, install the Centreon Pack *Active Directory* 
 from the **Configuration > Plugin Packs > Manager** page
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin package on every Poller expected to monitor *Active Directory*:
 
@@ -61,11 +58,10 @@ yum install centreon-nrpe-plugin
 yum install centreon-pack-infrastructure-active-directory-nrpe
 ```
 
-3. On the Centreon Web interface, install the Centreon Pack *Active Directory*
+3. On the Centreon Web interface, install the Centreon Pack *Active Directory* 
 from the **Configuration > Plugin Packs > Manager** page
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Host configuration
 
@@ -73,7 +69,7 @@ from the **Configuration > Plugin Packs > Manager** page
 * Apply the *Infra-ActiveDirectory-NRPE-custom* template and configure all the mandatory Macros:
 
 | Mandatory | Name             | Description                                                      |
-| :-------- | :--------------- | :--------------------------------------------------------------- |
+|:----------|:-----------------|:---------------------------------------------------------------- |
 | X         | NRPECLIENT       | NRPE Plugin binary to use (Default: 'check_centreon_nrpe')       |
 | X         | NRPEPORT         | NRPE Port of the target server (Default: '5666')                 |
 | X         | NRPETIMEOUT      | Timeout value (Default: '30')                                    |

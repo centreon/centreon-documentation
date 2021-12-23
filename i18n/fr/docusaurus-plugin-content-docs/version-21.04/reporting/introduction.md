@@ -29,7 +29,7 @@ Centreon MBI fournit un ensemble complet de rapports standards sur:
 -   La gestion de capacité
 -   La gestion de disponibilité
 -   La gestion des niveaux de services (SLA : Service Level Agreement)
-management
+    management
 -   La gestion des performances
 
 **Voici quelques exemples de rapports disponibles dans Centreon MBI** : [Exemple de rapports](../assets/reporting/Centreon-MBI-Samples-of-Reports.pdf)
@@ -42,14 +42,14 @@ directement sur Centreon
 Principales fonctionnalités:
 
 -   Planification et génération des rapports aux formats PDF, Excel,
-Word et PPT
+    Word et PPT
 -   Visualisation web & interactive des statistiques grâce aux widgets
-fournis exploitables directement sur Centreon
+    fournis exploitables directement sur Centreon
 -   Publication des rapports par email et par d'autres protocoles
-standards (FTP, CIFS, ...)
+    standards (FTP, CIFS, ...)
 -   Gestion des listes de contrôle d'accès
 -   Interface d'administration et d'exploitation intégrée dans
-Centreon
+    Centreon
 -   Bibliothèques de développement de rapports
 
 ## Reporting simple

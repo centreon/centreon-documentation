@@ -22,7 +22,7 @@ Veeam and many others, thanks to the usage of a specific release of the Centreon
 These Plugins, parts of the [centreon-plugins project](https://github.com/centreon/centreon-plugins) are provided as a standalone and Windows compatible
 package named *centreon_plugins.exe*. This executable file is automatically deployed during the agent installation and ready to use afterwards.
 
-> The list of the Plugin Packs that can be used with the *centreon-nsclient* agent is avaiblable on the
+> The list of the Plugin Packs that can be used with the *centreon-nsclient* agent is avaiblable on the 
 > official [Centreon Plugin Packs catalog](https://www.centreon.com/catalogue-plugins-packs/)
 
 The following tutorial will help you to understand how to use the **centreon-nsclient** agent on your Windows servers.
@@ -33,7 +33,7 @@ Centreon only supports the custom Centreon Plugins package provided through the 
 please refer to the [official documentation](https://docs.nsclient.org/).
 
 Centreon will publish a new release of the custom Plugins (*centreon_plugins.exe* and *check_logfiles.exe*) including new monitoring capabilities as
-well as bugfixes every month.
+well as bugfixes every month. 
 An updated version of the **centreon-nsclient** installer (for new installations) including the last versions of the Plugins will also be available on
 a montlhy basis.
 
@@ -76,7 +76,7 @@ On the Windows server, launch the installation and follow the wizard:
 
 ## Update
 
-> This chapter is related to the update of the custom packaged Plugins *centreon_plugins.exe* and *check_logfiles* on a server where
+> This chapter is related to the update of the custom packaged Plugins *centreon_plugins.exe* and *check_logfiles* on a server where 
 > **centreon-nsclient** is already installed.
 
 When the new monthly version of **centreon-nsclient** is released, you don't have to fully reinstall the agent on your Windows server, only the
@@ -158,7 +158,7 @@ method rather than the 'old' NRPE & NSCLIENT protocols, including the following 
 * The HTTPS port used by the Webserver (by default TCP/8443) must be open and reachable from the Centreon Poller.
 * As for the NRPE protocol, the *port* and *allowed hosts* setting of the `nsclient.ini` file (section `/settings/WEB/server`) must be set (the
 recommended port to be used is 8443 but you can use any custom ports >1024).
-
+ 
 #### Enabling RestAPI and configuring credentials
 
 To use the RestAPI feature of NSCLient++, you first have to enable the Webserver service:

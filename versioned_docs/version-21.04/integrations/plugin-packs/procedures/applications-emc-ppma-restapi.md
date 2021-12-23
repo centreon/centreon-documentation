@@ -2,9 +2,6 @@
 id: applications-emc-ppma-restapi
 title: EMC PPMA Rest API
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Plugin-Pack Assets
 
@@ -15,20 +12,20 @@ The Plugin-Pack EMC PowerPath Management Appliance collects metrics for:
 
 ### Collected Metrics
 
-<Tabs groupId="operating-systems">
-<TabItem value="Hosts" label="Hosts">
+<!--DOCUSAURUS_CODE_TABS-->
 
-| Metric name                            | Description                                                | Unit |
-| :------------------------------------- | :--------------------------------------------------------- | :--- |
-| host status                            | Host powerpath status, possible to set string-based alerts |      |
-| *hostname*#host.paths.total.count      | Number of total paths for the host                         |      |
-| *hostname*#host.paths.dead.count       | Number of dead paths for the host                          |      |
-| *hostname*#host.volumes.total.count    | Number of volumes attached                                 |      |
-| *hostname*#host.volumes.dead.count     | Number of dead volumes attached                            |      |
-| *hostname*#host.volumes.degraded.count | Number of degraded volumes attached                        |      |
+<!--Hosts-->
 
-</TabItem>
-</Tabs>
+| Metric name                            | Description                                                  | Unit |
+| :------------------------------------- | :----------------------------------------------------------- | :--- |
+| host status                            | Host powerpath status, possible to set string-based alerts   |      |
+| *hostname*#host.paths.total.count      | Number of total paths for the host                           |      |
+| *hostname*#host.paths.dead.count       | Number of dead paths for the host                            |      |
+| *hostname*#host.volumes.total.count    | Number of volumes attached                                   |      |
+| *hostname*#host.volumes.dead.count     | Number of dead volumes attached                              |      |
+| *hostname*#host.volumes.degraded.count | Number of degraded volumes attached                          |      |
+
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -38,8 +35,9 @@ E.g: https://dl.dell.com/content/docu98223_PowerPath-Management-Appliance-3.x-Re
 
 ## Setup
 
-<Tabs groupId="licence-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -49,8 +47,7 @@ yum install centreon-plugin-Applications-Emc-Ppma-Restapi
 
 2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Emc PPMA Rest API* Plugin-Pack
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -66,10 +63,9 @@ yum install centreon-pack-applications-emc-ppma-restapi
 
 3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Emc PPMA Rest API* Plugin-Pack
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
-## Host configuration
+## Host configuration 
 
 * Add a new Host and apply the *App-Emc-Ppma-Restapi-custom* Host Template
 
@@ -84,8 +80,8 @@ yum install centreon-pack-applications-emc-ppma-restapi
 |           | PPMAAPIEXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
 
 By default, Host Template *App-Emc-Ppma-Restapi* doesn't have Service Template attached. You may want to:
-* attach Service Template to Host Template *App-Emc-Ppma-Restapi-custom*
-* use service discovery
+ * attach Service Template to Host Template *App-Emc-Ppma-Restapi-custom*
+ * use service discovery
 
 ## FAQ
 
@@ -96,28 +92,28 @@ Once the Plugin installed, log into your Poller using the *centreon-engine* user
 
 ```bash
 /usr/lib/centreon/plugins/centreon_emc_ppma_restapi.pl \
---plugin=apps::emc::ppma::restapi::plugin \
---mode=hosts \
---hostname='10.30.2.79' \
---port='443' \
---proto='https' \
---api-username='myapiusername' \
---api-password='myapipassword' \
---filter-name='centreontest' \
---warning-paths-dead='0' \
---critical-paths-dead='1' \
---verbose
+    --plugin=apps::emc::ppma::restapi::plugin \
+    --mode=hosts \
+    --hostname='10.30.2.79' \
+    --port='443' \
+    --proto='https' \
+    --api-username='myapiusername' \
+    --api-password='myapipassword' \
+    --filter-name='centreontest' \
+    --warning-paths-dead='0' \
+    --critical-paths-dead='1' \
+    --verbose
 ```
 
 Output example:
 ```
 OK: All hosts are ok | 'centreontest1#host.paths.total.count'=976;;;0; 'centreontest1#host.paths.dead.count'=0;0;0:1;0;976 'centreontest1#host.volumes.total.count'=136;;;0; 'centreontest1#host.volumes.dead.count'=0;;;0;136 'centreontest1#host.volumes.degraded.count'=0;;;0;136 'centreontest2#host.paths.total.count'=976;;;0; 'centreontest2#host.paths.dead.count'=0;0;0:1;0;976 'centreontest2#host.volumes.total.count'=136;;;0; 'centreontest2#host.volumes.dead.count'=0;;;0;136 'centreontest2#host.volumes.degraded.count'=0;;;0;136
 checking host 'centreontest1'
-status: powerPathManagedpath total: 976, dead: 0
-volume total: 136, dead: 0, degraded: 0
+    status: powerPathManagedpath total: 976, dead: 0
+    volume total: 136, dead: 0, degraded: 0
 checking host 'centreontest2'
-status: powerPathManagedpath total: 976, dead: 0
-volume total: 136, dead: 0, degraded: 0
+    status: powerPathManagedpath total: 976, dead: 0
+    volume total: 136, dead: 0, degraded: 0
 ```
 
 The command above monitors hosts named *centreontest* (```--filter-name='centreontest'```) and managed by EMC PPMA  (```--mode=hosts```).
@@ -132,12 +128,12 @@ All the options that can be used with this plugin can be found over the ```--hel
 
 ```bash
 /usr/lib/centreon/plugins/centreon_emc_ppma_restapi.pl \
---plugin=apps::emc::ppma::restapi::plugin \
---mode=hosts \
---help
+    --plugin=apps::emc::ppma::restapi::plugin \
+    --mode=hosts \
+    --help
 ```
 
-### Why do I get the following error:
+### Why do I get the following error: 
 
 #### ```UNKNOWN: 500 Can't connect to 10.30.2.79:443```
 

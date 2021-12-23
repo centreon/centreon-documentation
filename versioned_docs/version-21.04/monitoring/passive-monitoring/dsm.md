@@ -91,13 +91,13 @@ Please follow the table below in order to understand the role of all parameters:
 * **Description**: This is the description of the group.
 * **Host Name**: The name which host the slots.
 * **Service template based**: The base service template use to create service slots on the host. This template must
-have been a passive template. This template must be 100 % passive and a custom macro have to be created on it. The
-macro is named **ALARM_ID** and the default value must be **empty**.
+  have been a passive template. This template must be 100 % passive and a custom macro have to be created on it. The
+  macro is named **ALARM_ID** and the default value must be **empty**.
 * **Number of slots**: The number of slot that Centreon will create on the selected host when the form will be validated.
 * **Slot name prefix**: The prefix is used to give the name of slots. The name will be followed by a number increment
-from 0 to the number of slots.
+  from 0 to the number of slots.
 * **Check command**: This check command is used when the service has to be forced in order to free a slot. The check
-command must have to send a ok return code.
+  command must have to send a ok return code.
 * **Status**: The status of the slot.
 
 An example of passive service template is available below:
@@ -128,19 +128,19 @@ This command launch for each trap received this command in order to redirect ala
 This command take some parameters. You can find in the following table the list and the description of each parameter:
 
 * **-H**: Host address (ip or name) in which you want to redirect the alarm. You can pass the value @HOSTADDRESS@ in
-order to keep the same host or you can use whatever you want in order to centralized all alarms on the same virtual
-host for example who host all alarms.
+  order to keep the same host or you can use whatever you want in order to centralized all alarms on the same virtual
+  host for example who host all alarms.
 * **-o**: This is the output that dsm will put when the command will submit the result in the good slot. This output
-can be built will all $* value and with a specific string that you pass in parameter.
+  can be built will all $* value and with a specific string that you pass in parameter.
 * **-i**: This is the id of the alarm. The alarm id can be built with the concatenation of some variables like “$1-$4”.
-The id enable the possibility to use the option of auto-acknowledgement of alarm when you have the possibility to
-create the same id during the opening and the closing treatment of the alarm.
+  The id enable the possibility to use the option of auto-acknowledgement of alarm when you have the possibility to
+  create the same id during the opening and the closing treatment of the alarm.
 * **-s**: This is the status that you want to pass in parameter to the alarm. You can use @STATUS@ in order to use the
-inherited status build from matching rule system.
+  inherited status build from matching rule system.
 * **-t**: This is the time that you want to pass to dsm in order to keep the real trap reception time.
 * **-m**: This is the list of macros and its values that you want to update during the treatment of the alarm. Please
-follow the syntax below: macro1=value1|macro2=value2|macro3=value3 This function is used to update some parameters in
-live on Centreon-Engine core memory without a restart.
+  follow the syntax below: macro1=value1|macro2=value2|macro3=value3 This function is used to update some parameters in
+  live on Centreon-Engine core memory without a restart.
 
 Your form should now be like that:
 
@@ -165,18 +165,18 @@ It is possible to overwrite default configuration of the module by creating/edit
 
 ```shell
 %centreon_dsmd_config = (
-# which user will send action
-centreon_user => 'centreon',
-# timeout to send command
-submit_command_timeout => 5,
-# custom macro used to keep alarm ID
-macro_config => 'ALARM_ID',
-# number of alarms retrieve from the cache for analysis
-sql_fetch => 1000,
-# interval in seconds to clean locks
-clean_locks_time => 3600,
-# duration in seconds to keep locks
-clean_locks_keep_stored => 3600,
+    # which user will send action
+    centreon_user => 'centreon',
+    # timeout to send command
+    submit_command_timeout => 5,
+    # custom macro used to keep alarm ID
+    macro_config => 'ALARM_ID',
+    # number of alarms retrieve from the cache for analysis
+    sql_fetch => 1000,
+    # interval in seconds to clean locks
+    clean_locks_time => 3600,
+    # duration in seconds to keep locks
+    clean_locks_keep_stored => 3600,
 );
 
 1;
@@ -192,8 +192,8 @@ To modify the retention period, by default **180 days**, you can create/edit the
 
 ```shell
 %centreon_dsm_purge_config = (
-# period in days
-history_time => 180,
+    # period in days
+    history_time => 180,
 );
 
 1;

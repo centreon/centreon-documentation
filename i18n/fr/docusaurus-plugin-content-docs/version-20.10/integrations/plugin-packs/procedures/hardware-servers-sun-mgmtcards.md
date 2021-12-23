@@ -18,15 +18,15 @@ yum install centreon-plugin-Hardware-Servers-Sun-Mgmtcards
 The plugin has 3 kind of modes, it depends of the sun management card to monitor
 :
 
-- Telnet:
-- Dependency: Perl Module Net::Telnet (yum install perl-Net-Telnet.noarch)
-- Host macros: 'TELNETUSERNAME', 'TELNETPASSWORD'
-- SSH:
-- Dependency: 'plink' command (no ssh key exchange needed)
-- Host macros: 'SSHUSERNAME', 'SSHPASSWORD'
-- IPMI:
-- Dependency: 'ipmitool' command (yum install ipmitool)
-- Host macros: 'IPMIUSERNAME', 'IPMIPASSWORD'
+  - Telnet:
+      - Dependency: Perl Module Net::Telnet (yum install perl-Net-Telnet.noarch)
+      - Host macros: 'TELNETUSERNAME', 'TELNETPASSWORD'
+  - SSH:
+      - Dependency: 'plink' command (no ssh key exchange needed)
+      - Host macros: 'SSHUSERNAME', 'SSHPASSWORD'
+  - IPMI:
+      - Dependency: 'ipmitool' command (yum install ipmitool)
+      - Host macros: 'IPMIUSERNAME', 'IPMIPASSWORD'
 
 ### Sun Server Hardware List
 

@@ -2,9 +2,6 @@
 id: operatingsystems-linux-snmp
 title: Linux SNMP
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Vue d'ensemble
 
@@ -14,25 +11,25 @@ Linux est, au sens restreint, le noyau de système d'exploitation du même nom. 
 
 ### Objets supervisés
 
-Tous les systèmes d'exploitation s'appuyant sur le noyau Linux sont supportés:
+Tous les systèmes d'exploitation s'appuyant sur le noyau Linux sont supportés: 
 
-* Centos
-* Redhat
-* Debian
-* Ubuntu
-* ...
+  * Centos 
+  * Redhat
+  * Debian
+  * Ubuntu
+  * ...
 
 ### Règles de découvertes
 
-<Tabs groupId="operating-systems">
-<TabItem value="Host" label="Host">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Host-->
 
 | Nom de la règle                            | Description                                                                 |
 | :----------------------------------------- | :-------------------------------------------------------------------------- |
 | App-Protocol-SNMP-HostDiscovery            |  Découvrez vos serveurs Linux en scannant les agents SNMP sur un sous-réseau donné            |
 
-</TabItem>
-<TabItem value="Services" label="Services">
+<!--Services-->
 
 | Nom de la règle                            | Description                                                                                  |
 | :----------------------------------------- | :------------------------------------------------------------------------------------------- |
@@ -41,27 +38,26 @@ Tous les systèmes d'exploitation s'appuyant sur le noyau Linux sont supportés:
 | OS-Linux-SNMP-Packet-Errors-Name           | Découvre les interfaces réseaux et supervise les paquets en erreurs                          |
 | OS-Linux-SNMP-Traffic-Name                 | Découvre les interfaces réseaux et supervise le statut et l'utilisation de la bande passante |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Métriques collectées
 
-En plus des modes et des métriques détaillés ci-après, il est également possible de superviser les éléments suivants:
-*  CPU detailed: Répartition détaillée de l'utilisation de la puissance de calcul (User, Nice, Idle etc...)
-*  Process state: Etat d'un ou plusieurs processus. Il est également possible de superviser la consommation de CPU et de mémoire RAM par processus
-*  TCP connection: Contrôle des connexions TCP en cours ainsi que leur statut (ESTABLISHED, ...)
-*  Uptime: Temps écoulé depuis le dernier redémarrage de l'équipement
+En plus des modes et des métriques détaillés ci-après, il est également possible de superviser les éléments suivants: 
+  *  CPU detailed: Répartition détaillée de l'utilisation de la puissance de calcul (User, Nice, Idle etc...)
+  *  Process state: Etat d'un ou plusieurs processus. Il est également possible de superviser la consommation de CPU et de mémoire RAM par processus
+  *  TCP connection: Contrôle des connexions TCP en cours ainsi que leur statut (ESTABLISHED, ...)
+  *  Uptime: Temps écoulé depuis le dernier redémarrage de l'équipement
 
-<Tabs groupId="operating-systems">
-<TabItem value="Cpu" label="Cpu">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Cpu-->
 
 | Metric name                        | Description                                   |
 | :--------------------------------- | :-------------------------------------------- |
 | cpu.utilization.percentage         | CPU utilization. Unit: %                      |
 | core.cpu.utilization.percentage    | CPU Core utilization. Units: %                |
 
-</TabItem>
-<TabItem value="Memory" label="Memory">
+<!--Memory-->
 
 | Metric name             | Description                                             |
 | :---------------------  | :------------------------------------------------------ |
@@ -72,8 +68,7 @@ En plus des modes et des métriques détaillés ci-après, il est également pos
 | memory.cached.bytes     | Cached Memory allocation. Unit : Bytes                  |
 | memory.shared.bytes     | Shared Memory allocation. Unit : Bytes                  |
 
-</TabItem>
-<TabItem value="Traffic" label="Traffic">
+<!--Traffic-->
 
 | Metric name                         | Description                                                      |
 | :---------------------------------- | :--------------------------------------------------------------- |
@@ -83,8 +78,7 @@ En plus des modes et des métriques détaillés ci-après, il est également pos
 
 Il est possible de filtrer sur le nom d'une interface en utilisant une REGEXP de la forme [```--interface='^ens160$' --name```]
 
-</TabItem>
-<TabItem value="Swap" label="Swap">
+<!--Swap-->
 
 | Metric name                 | Description                                      |
 | :-------------------------- | :----------------------------------------------- |
@@ -92,8 +86,7 @@ Il est possible de filtrer sur le nom d'une interface en utilisant une REGEXP de
 | swap.free.bytes             | Swap free Unit: Bytes                            |
 | swap.usage.percentage       | Swap usage Unit: %                               |
 
-</TabItem>
-<TabItem value="Load" label="Load">
+<!--Load-->
 
 | Metric name                 | Description                                        |
 | :-------------------------- | :------------------------------------------------- |
@@ -101,8 +94,7 @@ Il est possible de filtrer sur le nom d'une interface en utilisant une REGEXP de
 | load5                       | System load 5 minutes sample                       |
 | load15                      | System load 15 minutes sample                      |
 
-</TabItem>
-<TabItem value="DiskIO" label="DiskIO">
+<!--Disk-IO-->
 
 | Metric name                 | Description                                          |
 | :-------------------------- | :--------------------------------------------------- |
@@ -110,26 +102,24 @@ Il est possible de filtrer sur le nom d'une interface en utilisant une REGEXP de
 | disk\#sum_read_write_iops    | I/O WRITE volume on all devices. Unit: B/s          |
 | disk\#read                   | I/O READ volume on a specific device. Unit: B/s     |
 | disk\#write                  | I/O WRITE volume on a specific device. Unit: B/s    |
-| disk\#read_iops              | Number or read operation on a device. Unit: iops    |
-| disk\#write_iops             | Number or read operation on a device. Unit: iops    |
+| disk\#read_iops              | Number or read operation on a device. Unit: iops    | 
+| disk\#write_iops             | Number or read operation on a device. Unit: iops    | 
 
-</TabItem>
-<TabItem value="Storage" label="Storage">
+<!--Storage-->
 
 | Metric name                            | Description                                   |
 | :------------------------------------- | :-------------------------------------------- |
 | partition\#storage.space.usage.bytes    | Used space on a disk partition. Unit: Bytes  |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
-Afin de superviser vos équipements Linux, le serveur SNMP doit être configuré sur ceux-ci. Les versions 2 et 3 sont recommandées.
+Afin de superviser vos équipements Linux, le serveur SNMP doit être configuré sur ceux-ci. Les versions 2 et 3 sont recommandées. 
 
-## Configuration du serveur SNMP
+## Configuration du serveur SNMP 
 
-:note: Les commandes ci-après peuvent changer en fonction de la distribution. Des documentations sont le cas échéant disponibles sur les sites officiels des éditeurs.
+:note: Les commandes ci-après peuvent changer en fonction de la distribution. Des documentations sont le cas échéant disponibles sur les sites officiels des éditeurs. 
 
 Ci-dessous, un exemple de fichier snmpd.conf (remplacer **my-snmp-community** par la communauté que vous souhaitez utiliser).
 
@@ -145,18 +135,19 @@ access  notConfigGroup ""      any       noauth    exact  systemview none none
 includeAllDisks 10%
 ```
 
-Il est nécessaire de redémarrer le processus SNMP après avoir modifié le fichier de configuration.
+Il est nécessaire de redémarrer le processus SNMP après avoir modifié le fichier de configuration. 
 
 Assurez vous que le processus SNMP est configuré pour démarrer automatiquement lors du redémarrage du serveur.
 
 ### Flux réseau
 
-La communication doit être possible sur le port UDP 161 depuis le collecteur Centreon vers le serveur Linux supervisé.
+La communication doit être possible sur le port UDP 161 depuis le collecteur Centreon vers le serveur Linux supervisé. 
 
 ## Installation
 
-<Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des serveurs Linux:
 
@@ -166,8 +157,7 @@ yum install centreon-plugin-Operatingsystems-Linux-Snmp
 
 2. Installer le Plugin-Pack 'Linux SNMP' depuis la page "Configuration > Plugin packs > Manager" sur l'interface Web de Centreon.
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des serveurs Linux:
 
@@ -183,14 +173,13 @@ yum install centreon-pack-operatingsystems-linux-snmp
 
 3. Installer le Plugin-Pack 'Linux SNMP' depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
-Dans le formulaire de création de l'hôte sur l'interface Web de Centreon, il est nécessaire de renseigner les valeurs pour les champs "Snmp Community" et "Snmp Version".
+Dans le formulaire de création de l'hôte sur l'interface Web de Centreon, il est nécessaire de renseigner les valeurs pour les champs "Snmp Community" et "Snmp Version". 
 
-> Si vous utilisez SNMP en version 3, selectionnez la version SNMP idoine et configurez les paramètres SNMP v3 via la macro SNMPEXTRAOPTIONS
+> Si vous utilisez SNMP en version 3, selectionnez la version SNMP idoine et configurez les paramètres SNMP v3 via la macro SNMPEXTRAOPTIONS 
 
 | Obligatoire | Nom              | Description                                    |
 | :---------- | :--------------- | :--------------------------------------------- |
@@ -204,31 +193,31 @@ A partir du moment ou le Plugin est installé, vous pouvez tester directement ce
 
 ```bash
 /usr/lib/centreon/plugins//centreon_linux_snmp.pl \
---plugin=os::linux::snmp::plugin \
---mode=cpu \
---hostname=10.30.2.114 \
---snmp-version='2c' \
---snmp-community='linux_ro' \
---verbose
+    --plugin=os::linux::snmp::plugin \
+    --mode=cpu \
+    --hostname=10.30.2.114 \
+    --snmp-version='2c' \
+    --snmp-community='linux_ro' \
+    --verbose
 ```
 
-Cette commande contrôle l'utilisation CPU (```--mode=cpu```). d'un équipement ayant pour adresse 10.30.2.114 (```--hostname=10.30.2.114```) en version 2 du protocol SNMP et avec la communauté *linux_ro* (```--snmp-community='linux_ro'```)
+Cette commande contrôle l'utilisation CPU (```--mode=cpu```). d'un équipement ayant pour adresse 10.30.2.114 (```--hostname=10.30.2.114```) en version 2 du protocol SNMP et avec la communauté *linux_ro* (```--snmp-community='linux_ro'```) 
 
 Tous les modes disponibles pour le Plugin peuvent être listés via la commande suivante:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_linux_snmp.pl \
---plugin=os::linux::snmp::plugin \
---list-mode
+    --plugin=os::linux::snmp::plugin \
+    --list-mode
 ```
 
-Les options des différents modes sont consultables via le paramètre ```--help``` du mode:
+Les options des différents modes sont consultables via le paramètre ```--help``` du mode: 
 
 ```bash
 /usr/lib/centreon/plugins//centreon_linux_snmp.pl \
---plugin=os::linux::snmp::plugin \
---mode=cpu \
---help
+    --plugin=os::linux::snmp::plugin \
+    --mode=cpu \
+    --help
 ```
 
 ### UNKNOWN: SNMP GET Request : Timeout
@@ -237,8 +226,8 @@ Si vous obtenez ce message, cela signifie que vous ne parvenez pas à contacter 
 
 ### UNKNOWN: SNMP GET Request : Cant get a single value.
 
-Si vous rencontrez cette erreur, il est probable que les autorisations données à l'agent SNMP soient trop restreintes.
+Si vous rencontrez cette erreur, il est probable que les autorisations données à l'agent SNMP soient trop restreintes. 
 
-Si cela se produit sur le mode Inodes, il est probable que le service SNMP du serveur Linux ne soit pas correctement configuré, il vous faut ajouter la directive ci-dessous dans le fichier de configuration SNMP puis redémarrer le service:
+Si cela se produit sur le mode Inodes, il est probable que le service SNMP du serveur Linux ne soit pas correctement configuré, il vous faut ajouter la directive ci-dessous dans le fichier de configuration SNMP puis redémarrer le service: 
 
 ```includeAllDisks 10%```

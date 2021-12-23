@@ -43,5 +43,5 @@ Check the *Create Services linked to the Template too* box and click on the
 
 The following services will be created:
 
-- Fetch-Statistics
-- Script-Statistics
+  - Fetch-Statistics
+  - Script-Statistics

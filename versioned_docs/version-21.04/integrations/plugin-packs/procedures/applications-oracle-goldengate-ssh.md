@@ -2,20 +2,18 @@
 id: applications-oracle-goldengate-ssh
 title: Oracle GoldenGate SSH
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Plugin-Pack Assets
 
 ### Monitored Objects
 
-The Plugin-Pack includes monitoring of status and lags of Oracle GG Processes thanks to GGSCI command-line utility.
+The Plugin-Pack includes monitoring of status and lags of Oracle GG Processes thanks to GGSCI command-line utility. 
 
 ### Collected Metrics
 
-<Tabs groupId="operating-systems">
-<TabItem value="Processes" label="Processes">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Processes-->
 
 | Metric name                                   | Description                     | Unit |
 | :-------------------------------------------- | :------------------------------ | :--- |
@@ -23,8 +21,7 @@ The Plugin-Pack includes monitoring of status and lags of Oracle GG Processes th
 | *processname*#process.lag.seconds             | processus lag at checkpoint     |      |
 | *processname*#process.time.checkpoint.seconds | processus time since checkpoint |      |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -32,8 +29,9 @@ The centreon-engine user performs a SSH connection to a remote system user. This
 
 ## Setup
 
-<Tabs groupId="licence-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -43,8 +41,7 @@ yum install centreon-plugin-Applications-Oracle-Goldengate-Ssh
 
 2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Oracle GoldenGate SSH* Plugin-Pack
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -60,8 +57,7 @@ yum install centreon-pack-applications-oracle-goldengate-ssh
 
 3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Oracle GoldenGate SSH* Plugin-Pack
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
@@ -69,54 +65,52 @@ yum install centreon-pack-applications-oracle-goldengate-ssh
 
 > Once the template applied, some Macros have to be configured:
 
-| Mandatory | Name       | Description              |
-| :-------- | :--------- | :----------------------- |
-|           | GGSHOME    | Directory of ```ggsci``` |
-|           | ORACLEHOME | Oracle home directory    |
+| Mandatory | Name               | Description                                                                |
+| :-------- | :----------------- | :------------------------------------------------------------------------- |
+|           | GGSHOME            | Directory of ```ggsci```                                                   |
+|           | ORACLEHOME         | Oracle home directory                                                      |
 
 > 3 SSH backends are available to connect to the remote server: *sshcli*, *plink* and *libssh* which are detailed below.
 
-<Tabs groupId="operating-systems">
-<TabItem value="sshcli backend" label="sshcli backend">
+<!--DOCUSAURUS_CODE_TABS-->
 
-| Mandatory | Name            | Description                                                                        |
-| :-------- | :-------------- | :--------------------------------------------------------------------------------- |
-| X         | SSHBACKEND      | Name of the backend: ```sshcli```                                                  |
-| X         | SSHUSERNAME     | By default, it uses the user running process ```centengine``` on your Poller       |
-|           | SSHPASSWORD     | Cannot be used with backend. Only ssh key authentication                           |
-|           | SSHPORT         | By default: 22                                                                     |
-|           | SSHEXTRAOPTIONS | Customize it with your own if needed. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa``` |
+<!--sshcli backend-->
 
-> With that backend, you have to validate the target server fingerprint manually (with the SSHUSERNAME used).
-
-</TabItem>
-<TabItem value="plink backend" label="plink backend">
-
-| Mandatory | Name            | Description                                                                        |
-| :-------- | :-------------- | :--------------------------------------------------------------------------------- |
-| X         | SSHBACKEND      | Name of the backend: ```plink```                                                   |
-| X         | SSHUSERNAME     | By default, it uses the user running process ```centengine``` on your Poller       |
-|           | SSHPASSWORD     | Can be used. If not set, SSH key authentication is used                            |
-|           | SSHPORT         | By default: 22                                                                     |
-|           | SSHEXTRAOPTIONS | Customize it with your own if needed. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa``` |
+| Mandatory   | Name            | Description                                                                                 |
+| :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
+| X           | SSHBACKEND      | Name of the backend: ```sshcli```                                                           |
+| X           | SSHUSERNAME     | By default, it uses the user running process ```centengine``` on your Poller                |
+|             | SSHPASSWORD     | Cannot be used with backend. Only ssh key authentication                                    |
+|             | SSHPORT         | By default: 22                                                                              |
+|             | SSHEXTRAOPTIONS | Customize it with your own if needed. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```          |
 
 > With that backend, you have to validate the target server fingerprint manually (with the SSHUSERNAME used).
 
-</TabItem>
-<TabItem value="libssh backend (default)" label="libssh backend (default)">
+<!--plink backend-->
 
-| Mandatory | Name            | Description                                                                        |
-| :-------- | :-------------- | :--------------------------------------------------------------------------------- |
-| X         | SSHBACKEND      | Name of the backend: ```libssh```                                                  |
-| X         | SSHUSERNAME     | By default, it uses the user running process ```centengine``` on your Poller       |
-|           | SSHPASSWORD     | Can be used. If not set, SSH key authentication is used                            |
-|           | SSHPORT         | By default: 22                                                                     |
-|           | SSHEXTRAOPTIONS | Customize it with your own if needed. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa``` |
+| Mandatory   | Name            | Description                                                                                 |
+| :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
+| X           | SSHBACKEND      | Name of the backend: ```plink```                                                            |
+| X           | SSHUSERNAME     | By default, it uses the user running process ```centengine``` on your Poller                |
+|             | SSHPASSWORD     | Can be used. If not set, SSH key authentication is used                                     |
+|             | SSHPORT         | By default: 22                                                                              |
+|             | SSHEXTRAOPTIONS | Customize it with your own if needed. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```          |
+
+> With that backend, you have to validate the target server fingerprint manually (with the SSHUSERNAME used).
+
+<!--libssh backend (default)-->
+
+| Mandatory   | Name            | Description                                                                                 |
+| :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
+| X           | SSHBACKEND      | Name of the backend: ```libssh```                                                           |
+| X           | SSHUSERNAME     | By default, it uses the user running process ```centengine``` on your Poller                |
+|             | SSHPASSWORD     | Can be used. If not set, SSH key authentication is used                                     |
+|             | SSHPORT         | By default: 22                                                                              |
+|             | SSHEXTRAOPTIONS | Customize it with your own if needed. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```          |
 
 With that backend, you do not have to validate the target server fingerprint manually.
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## FAQ
 
@@ -126,14 +120,14 @@ Once the Plugin installed, log into your Poller using the *centreon-engine* user
 
 ```bash
 /usr/lib/centreon/plugins/centreon_oracle_gg_ssh.pl \
---plugin=apps::oracle::gg::local::plugin \
---mode=processes \
---hostname=10.30.2.81 \
---ssh-username=centreon \
---ssh-password='centreon-password' \
---ssh-backend=libssh \
---filter-type=REPLICAT \
---verbose
+    --plugin=apps::oracle::gg::local::plugin \
+    --mode=processes \
+    --hostname=10.30.2.81 \
+    --ssh-username=centreon \
+    --ssh-password='centreon-password' \
+    --ssh-backend=libssh \
+    --filter-type=REPLICAT \
+    --verbose
 ```
 
 Which output something similar to:
@@ -154,9 +148,9 @@ All the options that can be used with this plugin can be found over the ```--hel
 
 ```bash
 /usr/lib/centreon/plugins/centreon_oracle_gg_ssh.pl \
---plugin=apps::oracle::gg::local::plugin \
---mode=processes \
---help
+    --plugin=apps::oracle::gg::local::plugin \
+    --mode=processes \
+    --help
 ```
 
 ### I have that error message: ```UNKNOWN: Command error: Host key verification failed.```. What does it mean ?

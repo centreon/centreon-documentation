@@ -2,9 +2,6 @@
 id: hardware-ups-cyberpower-snmp
 title: CyberPower Systems UPS SNMP
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Pack Assets
 
@@ -17,8 +14,9 @@ The Pack CyberPower UPS collects metrics for:
 
 ### Collected Metrics
 
-<Tabs groupId="operating-systems">
-<TabItem value="Batterystatus" label="Batterystatus">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Battery-status-->
 
 | Metric name                      | Description         | Unit |
 | :------------------------------- | :------------------ | :--- |
@@ -27,29 +25,26 @@ The Pack CyberPower UPS collects metrics for:
 | battery.voltage.volt             | Battery voltage     | V    |
 | battery.temperature.celsius      | Battery temperature | C    |
 
-</TabItem>
-<TabItem value="Inputlines" label="Inputlines">
+<!--Input-lines-->
 
-| Metric name                 | Description                                             | Unit |
-| :-------------------------- | :------------------------------------------------------ | :--- |
-| status                      | Present status of the utility power supplied to the UPS |      |
-| lines.input.frequence.hertz | Current input line frequency                            | Hz   |
-| lines.input.voltage.volt    | Current input line voltage                              | V    |
+| Metric name                 | Description                                             | Unit  |
+| :-------------------------- | :------------------------------------------------------ | :---- |
+| status                      | Present status of the utility power supplied to the UPS |       |
+| lines.input.frequence.hertz | Current input line frequency                            | Hz    |
+| lines.input.voltage.volt    | Current input line voltage                              | V     |
 
-</TabItem>
-<TabItem value="Outputlines" label="Outputlines">
+<!--Output-lines-->
 
-| Metric name                  | Description               | Unit |
-| :--------------------------- | :------------------------ | :--- |
-| status                       | Output status             |      |
-| lines.output.load.percentage | Current output load       | %    |
-| lines.output.current.ampere  | Current ampere level      | A    |
-| lines.output.voltage.volt    | Current output voltage    | V    |
-| lines.output.power.watt      | Total output active power | W    |
-| lines.output.frequence.hertz | Current output frequency  | Hz   |
+| Metric name                  | Description               | Unit  |
+| :--------------------------- | :------------------------ | :---- |
+| status                       | Output status             |       |
+| lines.output.load.percentage | Current output load       | %     |
+| lines.output.current.ampere  | Current ampere level      | A     |
+| lines.output.voltage.volt    | Current output voltage    | V     |
+| lines.output.power.watt      | Total output active power | W     |
+| lines.output.frequence.hertz | Current output frequency  | Hz     |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -58,8 +53,9 @@ The Poller should be able to perform SNMP requests toward the CyberPower device 
 
 ## Setup
 
-<Tabs groupId="licence-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -69,8 +65,7 @@ yum install centreon-plugin-Hardware-Ups-Cyberpower-Snmp
 
 2. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *CyberPower Systems UPS SNMP* Pack
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -86,8 +81,7 @@ yum install centreon-pack-hardware-ups-cyberpower-snmp
 
 3. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *CyberPower Systems UPS SNMP* Pack
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Host configuration
 
@@ -96,9 +90,9 @@ yum install centreon-pack-hardware-ups-cyberpower-snmp
 
 > When using SNMP v3, use the SNMPEXTRAOPTIONS Macro to add specific authentication parameters
 
-| Mandatory | Name             | Description                                 |
-| :-------- | :--------------- | :------------------------------------------ |
-|           | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo |
+| Mandatory | Name             | Description                                    |
+| :-------- | :--------------- | :--------------------------------------------- |
+|           | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo    |
 
 ## How to test the Plugin and what are the main options for?
 
@@ -107,14 +101,14 @@ and test the Plugin by running the following command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_ups_cyberpower_snmp.pl \
---plugin=hardware::ups::cyberpower::snmp::plugin \
---mode=battery-status \
---hostname=10.30.2.114 \
---snmp-version='2c' \
---snmp-community='cps_ro' \
---warning-charge-remaining='50:' \
---critical-charge-remaining='20:' \
---verbose
+    --plugin=hardware::ups::cyberpower::snmp::plugin \
+    --mode=battery-status \
+    --hostname=10.30.2.114 \
+    --snmp-version='2c' \
+    --snmp-community='cps_ro' \
+    --warning-charge-remaining='50:' \
+    --critical-charge-remaining='20:' \
+    --verbose
 ```
 
 Expected command output is shown below:
@@ -127,7 +121,7 @@ The command above monitors the battery of a CyberPower UPS (```--plugin=hardware
 by the IP address *10.30.2.114* (```--hostname=10.30.2.114```). As the Plugin is using the SNMP protocol to request the device, the related
 *community* and *version* are specified (```--snmp-version='2c' --snmp-community='cps_ro'```).
 
-This command would trigger a WARNING alarm if battery charge remaining above 50%
+This command would trigger a WARNING alarm if battery charge remaining above 50% 
 (```--warning-charge-remaining='50:'```) and a CRITICAL alarm above 20% (```--critical-charge-remaining='20:'```).
 
 All the options as well as all the available thresholds can be displayed by adding the  ```--help```
@@ -135,9 +129,9 @@ parameter to the command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_ups_cyberpower_snmp.pl \
---plugin=hardware::ups::cyberpower::snmp::plugin \
---mode=battery-status \
---help
+    --plugin=hardware::ups::cyberpower::snmp::plugin \
+    --mode=battery-status \
+    --help
 ```
 
 ## Troubleshooting

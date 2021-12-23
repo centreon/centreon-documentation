@@ -2,9 +2,6 @@
 id: cloud-azure-network-appgateway
 title: Azure Application Gateway
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Overview
 
@@ -21,22 +18,22 @@ Both v1 & v2 versions are supported.
 ### Monitored Objects
 
 * Azure *Application Gateway* v1 instances:
-* Backend-Health
-* Connections
-* Health
-* Requests
-* Throughput
+    * Backend-Health
+    * Connections
+    * Health
+    * Requests
+    * Throughput
 
 * Azure *Application Gateway* v2 instances:
-* Backend-Status
-* Backend-Time
-* Clients-Traffic
-* Connections
-* Gateway-Time
-* Health
-* Requests
-* Throughput
-* Units
+    * Backend-Status
+    * Backend-Time
+    * Clients-Traffic
+    * Connections
+    * Gateway-Time
+    * Health
+    * Requests
+    * Throughput
+    * Units
 
 ### Discovery rules
 
@@ -57,28 +54,28 @@ Regarding the version of the Application Gateway, metrics can differ.
 
 #### Specific to v1
 
-<Tabs groupId="operating-systems">
-<TabItem value="BackendHealth" label="BackendHealth">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Backend-Health-->
 
 | Metric Name                             | Description          | Unit  |
 | :-------------------------------------- | :------------------- | :---- |
 | appgateway.backend.healthy.host.count   | Healthy Host Count   | Count |
 | appgateway.backend.unhealthy.host.count | Unhealthy Host Count | Count |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 #### Specific to v2
 
-<Tabs groupId="operating-systems">
-<TabItem value="BackendStatus" label="BackendStatus">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Backend-Status-->
 
 | Metric Name                              | Description             | Unit  |
 | :--------------------------------------- | :---------------------- | :---- |
 | appgateway.backend.response.status.count | Backend Response Status | Count |
 
-</TabItem>
-<TabItem value="BackendTime" label="BackendTime">
+<!--Backend-Time-->
 
 | Metric Name                                            | Description                      | Unit |
 | :----------------------------------------------------- | :------------------------------- | :--- |
@@ -86,23 +83,20 @@ Regarding the version of the Application Gateway, metrics can differ.
 | appgateway.backend.firstbyte.responsetime.milliseconds | Backend First Byte Response Time | ms   |
 | appgateway.backend.lastbyte.responsetime.milliseconds  | Backend Last Byte Response Time  | ms   |
 
-</TabItem>
-<TabItem value="ClientsTraffic" label="ClientsTraffic">
+<!--Clients-Traffic-->
 
 | Metric Name                               | Description            | Unit |
 | :---------------------------------------- | :--------------------- | :--- |
 | appgateway.traffic.clients.received.bytes | Clients Bytes Received | B    |
 | appgateway.traffic.clients.sent.bytes     | Clients Bytes Sent     | B    |
 
-</TabItem>
-<TabItem value="GatewayTime" label="GatewayTime">
+<!--Gateway-Time-->
 
 | Metric Name                        | Description                    | Unit |
 | :--------------------------------- | :----------------------------- | :--- |
 | appgateway.time.total.milliseconds | Application Gateway Total Time | ms   |
 
-</TabItem>
-<TabItem value="Units" label="Units">
+<!--Units-->
 
 | Metric Name                             | Description                     | Unit  |
 | :-------------------------------------- | :------------------------------ | :---- |
@@ -113,100 +107,95 @@ Regarding the version of the Application Gateway, metrics can differ.
 
 #### Common
 
-</TabItem>
-<TabItem value="Connections" label="Connections">
+<!--Connections-->
 
 | Metric Name                                  | Description         | Unit  |
 | :------------------------------------------- | :------------------ | :---- |
 | appgateway.backend.connections.current.count | Current Connections | Count |
 
-</TabItem>
-<TabItem value="Health" label="Health">
+<!--Health-->
 
 | Status Name | Description                 |
 | :---------- | :-------------------------- |
 | status      | Current operational status  |
 | summary     | Last related status message |
 
-</TabItem>
-<TabItem value="Requests" label="Requests">
+<!--Requests-->
 
 | Metric Name                      | Description     | Unit  |
 | :------------------------------- | :-------------- | :---- |
 | appgateway.requests.failed.count | Failed Requests | Count |
 | appgateway.requests.total.count  | Total Requests  | Count |
 
-</TabItem>
-<TabItem value="Throughput" label="Throughput">
+<!--Throughput-->
 
 | Metric Name                          | Description | Unit |
 | :----------------------------------- | :---------- | :--- |
 | appgateway.throughput.bytespersecond | Throughput  | B/s  |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
 To get data from Azure Services, following methods are available:
-* Azure API ('api')
+* Azure API ('api') 
 * Azure CLI ('azcli')
 
 Centreon recommends to use the API instead of the CLI for the following reasons:
 * API is much more efficient by avoiding CLI binary execution
 * API supports application authentication while CLI does not (yet)
 
-<Tabs groupId="operating-systems">
-<TabItem value="Azure Monitor API" label="Azure Monitor API">
+<!--DOCUSAURUS_CODE_TABS-->
 
-To use the 'api' custom mode, make sure to obtain the required information using the
+<!--Azure Monitor API-->
+
+To use the 'api' custom mode, make sure to obtain the required information using the 
 how-to below. Keep it safe until including it in a Host or Host Template definition.
 
 * Create an *application* in Azure Active Directory:
-- Log in to your Azure account.
-- Select *Azure Active directory* in the left sidebar.
-- Click on *App registrations*.
-- Click on *+ Add*.
-- Enter Centreon as the application name (or any name of your choice), select application type(api) and sign-on-url.
-- Click on the *Create* button.
+    - Log in to your Azure account.
+    - Select *Azure Active directory* in the left sidebar.
+    - Click on *App registrations*.
+    - Click on *+ Add*.
+    - Enter Centreon as the application name (or any name of your choice), select application type(api) and sign-on-url.
+    - Click on the *Create* button.
 
 * Get *Subscription ID*
-- Log in to your Azure account.
-- Select *Subscriptions* in the left sidebar.
-- Select whichever subscription is needed.
-- Click on *Overview*.
-- **Copy the Subscription ID.**
+    - Log in to your Azure account.
+    - Select *Subscriptions* in the left sidebar.
+    - Select whichever subscription is needed.
+    - Click on *Overview*.
+    - **Copy the Subscription ID.**
 
 * Get *Tenant ID*
-- Log in to your Azure account.
-- Select *Azure Active directory* in the left sidebar.
-- Click on *Properties*.
-- **Copy the directory ID.**
+    - Log in to your Azure account.
+    - Select *Azure Active directory* in the left sidebar.
+    - Click on *Properties*.
+    - **Copy the directory ID.**
 
 * Get *Client ID*
-- Log in to your Azure account.
-- Select *Azure Active directory* in the left sidebar.
-- Click on *Enterprise applications*.
-- Click on *All applications*.
-- Select the application previously created.
-- Click on *Properties*.
-- **Copy the Application ID.**
+    - Log in to your Azure account.
+    - Select *Azure Active directory* in the left sidebar.
+    - Click on *Enterprise applications*.
+    - Click on *All applications*.
+    - Select the application previously created.
+    - Click on *Properties*.
+    - **Copy the Application ID.**
 
 * Get *Client secret*
-- Log in to your Azure account.
-- Select *Azure Active directory* in the left sidebar.
-- Click on *App registrations*.
-- Select the application previously created.
-- Click on *All settings*.
-- Click on *Keys*.
-- Enter the key description and select the duration.
-- Click on *Save*.
-- **Copy and store the key value. You won't be able to retrieve it after you leave this page.**
+    - Log in to your Azure account.
+    - Select *Azure Active directory* in the left sidebar.
+    - Click on *App registrations*.
+    - Select the application previously created.
+    - Click on *All settings*.
+    - Click on *Keys*.
+    - Enter the key description and select the duration.
+    - Click on *Save*.
+    - **Copy and store the key value. You won't be able to retrieve it after you leave this page.**
 
-</TabItem>
-<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
+<!--Azure AZ CLI-->
 
-To use the 'azcli' custom mode, install the required packages on every Centreon poller expected to
+To use the 'azcli' custom mode, install the required packages on every Centreon poller expected to 
 monitor Azure Resources using CLI:
 
 - The CLI needs at least Python version 2.7
@@ -220,7 +209,7 @@ sudo echo -e "[azure-cli]\nname=Azure CLI\nbaseurl=https://packages.microsoft.co
 sudo yum install azure-cli
 ```
 
-Then, use the *centreon-engine* account to obtain a token using command below:
+Then, use the *centreon-engine* account to obtain a token using command below: 
 
 ```shell
 su - centreon-engine
@@ -229,41 +218,41 @@ az login
 
 The shell will output this message including an authentication code:
 
-*To sign in, use a web browser to open the page https://microsoft.com/devicelogin*
-*and enter the code CWT4WQZAD to authenticate.*
+    *To sign in, use a web browser to open the page https://microsoft.com/devicelogin* 
+    *and enter the code CWT4WQZAD to authenticate.*
 
-Go to <https://microsoft.com/devicelogin> and enter the code.
+Go to <https://microsoft.com/devicelogin> and enter the code. 
 
 Connect using a monitoring service account, as a result, the shell should prompt
 information below:
 
 ```shell
-[
-{
-"cloudName": "AzureCloud",
-"id": "0ef83f3a-d83e-2039-d930-309df93acd93d",
-"isDefault": true,
-"name": "N/A(tenant level account)",
-"state": "Enabled",
-"tenantId": "0ef83f3a-03cd-2039-d930-90fd39ecd048",
-"user": {
-"name": "email@mycompany.onmicrosoft.com",
-"type": "user"
-}
-}
-]
+    [
+      {
+        "cloudName": "AzureCloud",
+        "id": "0ef83f3a-d83e-2039-d930-309df93acd93d",
+        "isDefault": true,
+        "name": "N/A(tenant level account)",
+        "state": "Enabled",
+        "tenantId": "0ef83f3a-03cd-2039-d930-90fd39ecd048",
+        "user": {
+          "name": "email@mycompany.onmicrosoft.com",
+          "type": "user"
+        }
+      }
+    ]
 ```
 
-Credentials are now stored locally in the .accessTokens.json file so the Plugin
-can use it.
+Credentials are now stored locally in the .accessTokens.json file so the Plugin 
+can use it. 
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
-## Setup
+## Setup 
 
-<Tabs groupId="licence-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor Azure Application Gateway resources:
 
@@ -273,8 +262,7 @@ yum install centreon-plugin-Cloud-Azure-Network-AppGateway-Api
 
 2. On the Centreon Web interface, install the *Azure Application Gateway* Centreon Plugin Pack on the "Configuration > Plugin Packs > Manager" page
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor Azure Application Gateway resources:
 
@@ -290,8 +278,7 @@ yum install centreon-pack-cloud-azure-network-appgateway.noarch
 
 3. On the Centreon Web interface, install the *Azure Application Gateway* Centreon Plugin Pack on the "Configuration > Plugin Packs > Manager" page
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
@@ -309,8 +296,9 @@ These mandatory Macros differ regarding the custom mode used.
 in *AZURERESOURCE*
 > * Resource Name in *AZURERESOURCE* associated with Resource Group (in *AZURERESOURCEGROUP*) and Resource Type (in *AZURERESOURCETYPE*)
 
-<Tabs groupId="operating-systems">
-<TabItem value="Azure Monitor API" label="Azure Monitor API">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Azure Monitor API-->
 
 | Mandatory | Nom                | Description                                        |
 | :-------- | :----------------- | :------------------------------------------------- |
@@ -323,8 +311,7 @@ in *AZURERESOURCE*
 |           | AZURERESOURCEGROUP | Associated Resource Group if resource name is used |
 |           | AZURERESOURCETYPE  | Associated Resource Type if resource name is used  |
 
-</TabItem>
-<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
+<!--Azure AZ CLI-->
 
 | Mandatory | Nom                | Description                                        |
 | :-------- | :----------------- | :------------------------------------------------- |
@@ -334,30 +321,29 @@ in *AZURERESOURCE*
 |           | AZURERESOURCEGROUP | Associated Resource Group if resource name is used |
 |           | AZURERESOURCETYPE  | Associated Resource Type if resource name is used  |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## How to check in the CLI that the configuration is OK and what are the main options for ?
 
-Once the Plugin installed, log into your Centreon Poller CLI using the *centreon-engine*
+Once the Plugin installed, log into your Centreon Poller CLI using the *centreon-engine* 
 user account and test the Plugin by running the following command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_azure_network_appgateway_api.pl \
---plugin=cloud::azure::network::appgateway::plugin \
---mode=requests \
---custommode=api \
---subscription='xxxxxxxxx' \
---tenant='xxxxxxxxx' \
---client-id='xxxxxxxxx' \
---client-secret='xxxxxxxxx' \
---resource='APP001ABCD' \
---resource-group='RSG1234' \
---timeframe='900' \
---interval='PT5M' \
---aggregation='Total' \
---warning-failed-requests='80' \
---critical-failed-requests='90'
+    --plugin=cloud::azure::network::appgateway::plugin \
+    --mode=requests \
+    --custommode=api \
+    --subscription='xxxxxxxxx' \
+    --tenant='xxxxxxxxx' \
+    --client-id='xxxxxxxxx' \
+    --client-secret='xxxxxxxxx' \
+    --resource='APP001ABCD' \
+    --resource-group='RSG1234' \
+    --timeframe='900' \
+    --interval='PT5M' \
+    --aggregation='Total' \
+    --warning-failed-requests='80' \
+    --critical-failed-requests='90'
 ```
 
 Expected command output is shown below:
@@ -383,17 +369,17 @@ All the available options for a given mode can be displayed by adding the ```--h
 
 ```bash
 /usr/lib/centreon/plugins/centreon_azure_network_appgateway_api.pl \
---plugin=cloud::azure::network::appgateway::plugin \
---mode=requests \
---help
+    --plugin=cloud::azure::network::appgateway::plugin \
+    --mode=requests \
+    --help
 ```
 
 ### Troubleshooting
 
 #### The Azure credentials have changed and the Plugin does not work anymore
 
-The Plugin is using a cache file to keep connection information and avoid an authentication at each call.
-If some of the authentication parameters change, you must delete the cache file.
+The Plugin is using a cache file to keep connection information and avoid an authentication at each call. 
+If some of the authentication parameters change, you must delete the cache file. 
 
 The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder with a name similar to `azure_api_<md5>_<md5>_<md5>_<md5>`.
 
@@ -402,10 +388,10 @@ The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder 
 When I run my command I obtain the following error message:
 ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```.
 
-It means that some parameters used to authenticate the API request are wrong. The 'ERROR_NAME' string gives
-some hints about where the problem stands.
+It means that some parameters used to authenticate the API request are wrong. The 'ERROR_NAME' string gives 
+some hints about where the problem stands. 
 
-As an example, if my Client ID or Client Secret are wrong, 'ERROR_DESC' value will be 'invalid_client'.
+As an example, if my Client ID or Client Secret are wrong, 'ERROR_DESC' value will be 'invalid_client'. 
 
 #### ```UNKNOWN: 500 Can't connect to login.microsoftonline.com:443```
 

@@ -2,9 +2,6 @@
 id: hardware-servers-supermicro-superdoctor-snmp
 title: Supermicro SuperDoctor SNMP
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Contenu du Pack de supervision
 
@@ -13,10 +10,11 @@ import TabItem from '@theme/TabItem';
 Le Pack Supermicro SuperDoctor collecte les données pour:
 * Hardware
 
-### Métriques collectées
+### Métriques collectées 
 
-<Tabs groupId="operating-systems">
-<TabItem value="Hardware" label="Hardware">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Hardware-->
 
 | Metric name                                         | Description               | Unit  |
 | :-------------------------------------------------- | :------------------------ | :---- |
@@ -29,8 +27,7 @@ Le Pack Supermicro SuperDoctor collecte les données pour:
 | *sensor\_name*\#hardware.sensor.voltage.volt        | Voltage of the sensor     | V     |
 | *sensor\_name*\#hardware.sensor.discrete.xxx        | Discrete sensor           |       |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -40,8 +37,9 @@ https://www.supermicro.com/en/solutions/management-software/superdoctor
 
 ## Installation
 
-<Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -51,8 +49,7 @@ yum install centreon-plugin-Hardware-Servers-Supermicro-Superdoctor-Snmp
 
 2. Sur l'interface Web de Centreon, installer le Pack *Supermicro SuperDoctor SNMP* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -68,8 +65,7 @@ yum install centreon-pack-hardware-servers-supermicro-superdoctor-snmp
 
 3. Sur l'interface Web de Centreon, installer le Pack *Supermicro SuperDoctor SNMP* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
@@ -91,25 +87,25 @@ Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne d
 
 ```bash
 /usr/lib/centreon/plugins/centreon_supermicro_superdoctor_snmp.pl
---plugin=hardware::server::supermicro::superdoctor::snmp::plugin
---mode=hardware
---hostname=10.30.2.114
---snmp-version='2c'
---snmp-community='supermicro_ro'
---verbose
+    --plugin=hardware::server::supermicro::superdoctor::snmp::plugin
+    --mode=hardware
+    --hostname=10.30.2.114
+    --snmp-version='2c'
+    --snmp-community='supermicro_ro'
+    --verbose
 ```
 
-Cette commande contrôle le matériel (```--mode=hardware```) d'un équipement Supermicro ayant pour adresse *10.30.2.114* (```--hostname=10.30.2.114```)
+Cette commande contrôle le matériel (```--mode=hardware```) d'un équipement Supermicro ayant pour adresse *10.30.2.114* (```--hostname=10.30.2.114```) 
 en version *2c* du protocol SNMP (```--snmp-version='2c'```) et avec la communauté *supermicro_ro* (```--snmp-community='supermicro_ro'```).
-
+ 
 Pour chaque mode, la liste de toutes les métriques, seuils associés et options complémentaires peut être affichée
 en ajoutant le paramètre ```--help``` à la commande:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_supermicro_superdoctor_snmp.pl
---plugin=hardware::server::supermicro::superdoctor::snmp::plugin
---mode=hardware
---help
+    --plugin=hardware::server::supermicro::superdoctor::snmp::plugin
+    --mode=hardware
+    --help
 ```
 
 ## Diagnostique

@@ -41,9 +41,9 @@ web.
 
 2. Réalisez les mises à jour logicielle et système :
 
-```shell
-yum update
-```
+    ```shell
+    yum update
+    ```
 
 > Il est préférable de saisir le même mot de passe pour l'utilisateur 'centreon'
 > lors du processus d'installation web.
@@ -68,69 +68,69 @@ Centreon.
 
 1. Faire un dump des bases de données sources :
 
-```shell
-mysqldump -u root -p centreon > /tmp/centreon.sql
-mysqldump -u root -p centreon_storage > /tmp/centreon_storage.sql
-```
+    ```shell
+    mysqldump -u root -p centreon > /tmp/centreon.sql
+    mysqldump -u root -p centreon_storage > /tmp/centreon_storage.sql
+    ```
 
 2. Arreter le serveur MariaDB source :
 
-```shell
-service mysqld stop
-```
+    ```shell
+     service mysqld stop
+    ```
 
 3. Transférer les exports vers le nouveau serveur de base de données Centreon
 21.04 :
 
-```shell
-rsync -avz /tmp/centreon.sql root@<IP_NOUVEAU_CENTREON>:/tmp/
-rsync -avz /tmp/centreon_storage.sql root@<IP_NOUVEAU_CENTREON>:/tmp/
-```
+    ```shell
+    rsync -avz /tmp/centreon.sql root@<IP_NOUVEAU_CENTREON>:/tmp/
+    rsync -avz /tmp/centreon_storage.sql root@<IP_NOUVEAU_CENTREON>:/tmp/
+    ```
 
 4. Sur le serveur de base de données Centreon 21.04, supprimer les bases de
 données vierges et les recréer :
 
-```shell
-mysql -u root -p
-```
+    ```shell
+    mysql -u root -p
+    ```
 
-```SQL
-DROP DATABASE centreon;
-DROP DATABASE centreon_storage;
-CREATE DATABASE centreon;
-CREATE DATABASE centreon_storage;
-```
+    ```SQL
+    DROP DATABASE centreon;
+    DROP DATABASE centreon_storage;
+    CREATE DATABASE centreon;
+    CREATE DATABASE centreon_storage;
+    ```
 
 5. Importer les dumps :
 
-```shell
-mysql -u root centreon -p </tmp/centreon.sql
-mysql -u root centreon_storage -p </tmp/centreon_storage.sql
-```
+    ```shell
+    mysql -u root centreon -p </tmp/centreon.sql
+    mysql -u root centreon_storage -p </tmp/centreon_storage.sql
+    ```
 
 6. Executer l'upgrade des tables :
 
-```shell
-mysql_upgrade
-```
+    ```shell
+    mysql_upgrade
+    ```
+    
+    Si votre base de données est protégée par mot de passe, entrez :
 
-Si votre base de données est protégée par mot de passe, entrez :
+   ```shell
+    mysql_upgrade -u <utilisateur_admin_bdd> -p
+    ```
 
-```shell
-mysql_upgrade -u <utilisateur_admin_bdd> -p
-```
+    Exemple : si votre utilisateur_admin_bdd est `root`, entrez:
 
-Exemple : si votre utilisateur_admin_bdd est `root`, entrez:
-
-```
-mysql_upgrade -u root -p
-```
+    ```
+    mysql_upgrade -u root -p
+    ```
 
 7. Démarrer le processus mariadb sur le nouveau serveur :
 
-```shell
-systemctl start mariadb
-```
+    ```shell
+    systemctl start mariadb
+    ```
 
 > Remplacez **<IP_NOUVEAU_CENTREON>** par l'adresse IP de votre nouveau serveur
 Centreon.

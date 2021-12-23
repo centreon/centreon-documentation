@@ -27,11 +27,11 @@ des correctifs et améliorations.
 Le cycle de vie d'une version est divisé en 3 phases :
 
 1.  Première phase : bogues de toute criticité (minor, major, critical,
-blocking) et correction de sécurité seront traités par priorité
+    blocking) et correction de sécurité seront traités par priorité
 2.  Seconde phase : bogues et correction de sécurité de criticité major,
-critical et blocking seront traités par priorité
+    critical et blocking seront traités par priorité
 3.  Troisième phase : bogues et correction de sécurité de criticité blocking
-seront traités par priorité
+    seront traités par priorité
 
 > La gravité et la hiérarchisation des bogues sont la responsabilité de l'équipe
 > Centreon

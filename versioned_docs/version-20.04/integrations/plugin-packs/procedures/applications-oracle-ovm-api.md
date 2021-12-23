@@ -2,9 +2,6 @@
 id: applications-oracle-ovm-api
 title: Oracle VM Manager API
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Plugin-Pack Assets
 
@@ -14,8 +11,9 @@ The plugin-pack includes monitoring of File-servers, Manager, Server-pools, Serv
 
 ### Collected Metrics
 
-<Tabs groupId="operating-systems">
-<TabItem value="Fileservers" label="Fileservers">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--File-servers-->
 
 | Metric name                                                         | Description               | Unit |
 | :------------------------------------------------------------------ | :------------------------ | :--- |
@@ -23,20 +21,18 @@ The plugin-pack includes monitoring of File-servers, Manager, Server-pools, Serv
 | *serverpoolname*~*filesystemname*#serverpool.space.free.bytes       | Free space                | B    |
 | *serverpoolname*~*filesystemname*#serverpool.space.usage.percentage | Space usage in percentage | %    |
 
-</TabItem>
-<TabItem value="Manager" label="Manager">
+<!--Manager-->
 
-| Metric name                                | Description                                         | Unit |
-| :----------------------------------------- | :-------------------------------------------------- | :--- |
-| manager status                             | Manager status, possible to set string-based alerts |      |
-| *managername*#manager.jobs.succeeded.count | Number of jobs succeeded                            |      |
-| *managername*#manager.jobs.failed.count    | Number of jobs failed                               |      |
+| Metric name                                | Description                                          | Unit |
+| :----------------------------------------- | :--------------------------------------------------- | :--- |
+| manager status                             | Manager status, possible to set string-based alerts  |      |
+| *managername*#manager.jobs.succeeded.count | Number of jobs succeeded                             |      |
+| *managername*#manager.jobs.failed.count    | Number of jobs failed                                |      |
 
-</TabItem>
-<TabItem value="Serverpools" label="Serverpools">
+<!--Server-pools-->
 
 | Metric name                                         | Description                | Unit |
-| :-------------------------------------------------- | :------------------------- | :--- |
+|:--------------------------------------------------- |:-------------------------- | :--- |
 | *serverpoolname*#serverpool.servers.running.count   | Number of servers running  |      |
 | *serverpoolname*#serverpool.servers.stopped.count   | Number of servers stopped  |      |
 | *serverpoolname*#serverpool.vm.running.count        | Number of vm running       |      |
@@ -45,8 +41,7 @@ The plugin-pack includes monitoring of File-servers, Manager, Server-pools, Serv
 | *serverpoolname*#serverpool.memory.free.bytes       | Free memory                | B    |
 | *serverpoolname*#serverpool.memory.usage.percentage | Memory usage in percentage | %    |
 
-</TabItem>
-<TabItem value="Servers" label="Servers">
+<!--Servers-->
 
 | Metric name                                 | Description                | Unit |
 | :------------------------------------------ | :------------------------- | :--- |
@@ -57,8 +52,7 @@ The plugin-pack includes monitoring of File-servers, Manager, Server-pools, Serv
 | *servername*#server.memory.free.bytes       | Free memory                | B    |
 | *servername*#server.memory.usage.percentage | Memory usage in percentage | %    |
 
-</TabItem>
-<TabItem value="Vm" label="Vm">
+<!--Vm-->
 
 | Metric name                             | Description          | Unit |
 | :---------------------------- --------- | :--------------------| :--- |
@@ -66,8 +60,7 @@ The plugin-pack includes monitoring of File-servers, Manager, Server-pools, Serv
 | virtualmachines.stopped.count           | Number of vm stopped |      |
 | vm status                               | vm status            |      |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -77,8 +70,9 @@ E.g: https://docs.oracle.com/en/virtualization/oracle-vm/3.4/developer/vmapi-pre
 
 ## Setup
 
-<Tabs groupId="licence-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -88,8 +82,7 @@ yum install centreon-plugin-Applications-Oracle-Ovm-Api
 
 2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Oracle VM Manager API* Plugin-Pack
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -105,10 +98,9 @@ yum install centreon-pack-applications-oracle-ovm-api
 
 3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Oracle VM Manager API* Plugin-Pack
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
-## Host configuration
+## Host configuration 
 
 * Add a new Host and apply the *App-Oracle-Ovm-Api-custom* Host Template
 
@@ -132,17 +124,17 @@ Once the Plugin installed, log into your poller using the *centreon-engine* user
 
 ```bash
 /usr/lib/centreon/plugins/centreon_oracle_ovm_api.pl \
---plugin=apps::oracle::ovm::api::plugin \
---mode=server-pools \
---hostname='10.30.2.79' \
---port='7002' \
---proto='https' \
---api-username='myapiusername' \
---api-password='myapipassword' \
---filter-server-pool-name='TESTPOOL01' \
---warning-memory-usage-prct='90' \
---critical-memory-usage-prct='95' \
---verbose
+    --plugin=apps::oracle::ovm::api::plugin \
+    --mode=server-pools \
+    --hostname='10.30.2.79' \
+    --port='7002' \
+    --proto='https' \
+    --api-username='myapiusername' \
+    --api-password='myapipassword' \
+    --filter-server-pool-name='TESTPOOL01' \
+    --warning-memory-usage-prct='90' \
+    --critical-memory-usage-prct='95' \
+    --verbose
 ```
 
 Output example:
@@ -166,11 +158,11 @@ All the options that can be used with this plugin can be found over the ```--hel
 
 ```bash
 /usr/lib/centreon/plugins/centreon_oracle_ovm_api.pl --plugin=apps::oracle::ovm::api::plugin \
---mode=server-pools \
---help
+     --mode=server-pools \
+     --help
 ```
 
-### Why do I get the following error:
+### Why do I get the following error: 
 
 #### ```UNKNOWN: 500 Can't connect to 10.30.2.79:443```
 

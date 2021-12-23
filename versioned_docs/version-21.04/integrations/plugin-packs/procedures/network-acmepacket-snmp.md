@@ -2,9 +2,6 @@
 id: network-acmepacket-snmp
 title: Acme Packet SNMP
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Plugin Pack Assets
 
@@ -22,8 +19,9 @@ The Plugin Pack Acme Packet SNMP collects metrics for:
 
 ### Discovery rules
 
-<Tabs groupId="operating-systems">
-<TabItem value="Services" label="Services">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Services-->
 
 | Rule name                              | Description                                                   |
 | :------------------------------------- | :------------------------------------------------------------ |
@@ -32,13 +30,13 @@ The Plugin Pack Acme Packet SNMP collects metrics for:
 | Net-Acmepacket-SNMP-Realm-Name         | Discover realms and monitor utilization                       |
 | Net-Acmepacket-SNMP-Sip-Name           | Discover Sip interfaces and monitor utilization               |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Collected metrics & status
 
-<Tabs groupId="operating-systems">
-<TabItem value="Codec" label="Codec">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Codec-->
 
 | Metric name                            | Description                                              | Unit |
 | :------------------------------------- | :------------------------------------------------------- | :--- |
@@ -47,8 +45,7 @@ The Plugin Pack Acme Packet SNMP collects metrics for:
 | transcoding.resources.free.count       | Number of transcoding resources currently free           |      |
 | transcoding.resources.usage.percentage | The percentage of transcoding resources currently in-use | %    |
 
-</TabItem>
-<TabItem value="Hardware" label="Hardware">
+<!--Hardware-->
 
 | Metric name                                        | Description                      | Unit |
 | :------------------------------------------------- | :------------------------------- | :--- |
@@ -60,8 +57,7 @@ The Plugin Pack Acme Packet SNMP collects metrics for:
 | voltage status                                     | Status of the voltage sensor     |      |
 | *sensor\_description*#hardware.voltage.volt        | Voltage of the sensor            | V    |
 
-</TabItem>
-<TabItem value="Interfaces" label="Interfaces">
+<!--Interfaces-->
 
 | Metric name                                            | Description                                         | Unit |
 | :----------------------------------------------------- | :-------------------------------------------------- | :--- |
@@ -73,8 +69,7 @@ The Plugin Pack Acme Packet SNMP collects metrics for:
 
 A regexp filter is available to target a specific interface identifier - ifName [```--interface='^eth0$' --name```]
 
-</TabItem>
-<TabItem value="Policyservers" label="Policyservers">
+<!--Policy-servers-->
 
 | Metric name                                                                                | Description                                                                        | Unit |
 | :----------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------- | :--- |
@@ -99,8 +94,7 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | *policy\_name*\#policy_server.messages.re_auth_answer.succeeded.count                      | Total number of RAA success messages for Rx policy server                          |      |
 | *policy\_name*\#policy_server.messages.re_auth_answer.errors.count                         | Total number of RAA error messages for Rx policy server                            |      |
 
-</TabItem>
-<TabItem value="Realmusage" label="Realmusage">
+<!--Realm-usage-->
 
 | Metric name                                       | Description                              | Unit |
 | :------------------------------------------------ | :--------------------------------------- | :--- |
@@ -113,8 +107,7 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | *realm\_name*\#realm.rfactor.qos.average.count    | Average number of QoS RFactor            |      |
 | *realm\_name*\#realm.rfactor.execeded.total.count | Total number of RFactor exceeded         |      |
 
-</TabItem>
-<TabItem value="Security" label="Security">
+<!--Security-->
 
 | Metric name                                                            | Description                                                    | Unit |
 | :--------------------------------------------------------------------- | :------------------------------------------------------------- | :--- |
@@ -131,8 +124,7 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | security.ims_aka.security_association_del.responses.out.failed.count   | Total number of IMS-AKA DEL-SA fail responses sent             |      |
 | security.ims_aka.security_association_del.deleted.count                | Total number of IMS-AKA DEL-SA fail responses sent             |      |
 
-</TabItem>
-<TabItem value="Sipusage" label="Sipusage">
+<!--Sip-usage-->
 
 | Metric name                                 | Description                         | Unit |
 | :------------------------------------------ | :---------------------------------- | :--- |
@@ -142,21 +134,19 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | *sip\_name*\#sip.stats.latency.milliseconds | Average Latency                     |      |
 | *sip\_name*\#sip.stats.asr.percentage       | Answer-to-seizure ratio             |      |
 
-</TabItem>
-<TabItem value="Systemusage" label="Systemusage">
+<!--System-usage-->
 
-| Metric name                | Description                | Unit |
-| :------------------------- | :------------------------- | :--- |
-| health.score.percentage    | Current health score       | %    |
-| cpu.utilization.percentage | CPU utilization            | %    |
-| memory.usage.percentage    | Memory usage               | %    |
-| licence.usage.percentage   | Number of license used     | %    |
-| sessions.current.count     | Current number of sessions |      |
-| calls.current.count        | Current number of calls    |      |
-| replication status         | Status of the replication  |      |
+| Metric name                | Description                 | Unit |
+| :------------------------- | :-------------------------- | :--- |
+| health.score.percentage    | Current health score        | %    |
+| cpu.utilization.percentage | CPU utilization             | %    |
+| memory.usage.percentage    | Memory usage                | %    |
+| licence.usage.percentage   | Number of license used      | %    |
+| sessions.current.count     | Current number of sessions  |      |
+| calls.current.count        | Current number of calls     |      |
+| replication status         | Status of the replication   |      |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -164,8 +154,9 @@ To control your Acme Packet, the SNMP must be configured.
 
 ## Setup
 
-<Tabs groupId="licence-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -175,8 +166,7 @@ yum install centreon-plugin-Network-Acmepacket-Snmp
 
 2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Acme Packet* Plugin Pack
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -192,8 +182,7 @@ yum install centreon-pack-network-acmepacket-snmp
 
 3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Acme Packet* Plugin Pack
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Host configuration
 
@@ -202,9 +191,9 @@ yum install centreon-pack-network-acmepacket-snmp
 
 > When using SNMP v3, use the SNMPEXTRAOPTIONS Macro to add specific authentication parameters
 
-| Mandatory | Name             | Description                                 |
-| :-------- | :--------------- | :------------------------------------------ |
-|           | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo |
+| Mandatory | Name             | Description                                    |
+| :-------- | :--------------- | :--------------------------------------------- |
+|           | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo    |
 
 ## How to test the Plugin and what are the main options for?
 
@@ -213,14 +202,14 @@ and test the Plugin by running the following command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_acmepacket_snmp.pl \
---plugin=network::acmepacket::snmp::plugin \
---mode=system-usage \
---hostname=10.30.2.114 \
---snmp-version='2c' \
---snmp-community='acme_ro' \
---warning-cpu-load='90' \
---critical-cpu-load='95' \
---verbose
+    --plugin=network::acmepacket::snmp::plugin \
+    --mode=system-usage \
+    --hostname=10.30.2.114 \
+    --snmp-version='2c' \
+    --snmp-community='acme_ro' \
+    --warning-cpu-load='90' \
+    --critical-cpu-load='95' \
+    --verbose
 ```
 
 Expected command output is shown below:
@@ -228,20 +217,20 @@ Expected command output is shown below:
 ```bash
 OK: System usage is ok | 'health.score.percentage'=100.00%;;;0;100 'cpu.utilization.percentage'=2.00%;0:90;0:95;0;100 'memory.usage.percentage'=9.00%;;;0;100 'licence.usage.percentage'=0.00%;;;0;100 'sessions.current.count'=0;;;0; 'calls.current.count'=0/s;;;0;
 checking system
-health score: 100.00 %
-cpu load: 2.00 %
-memory used: 9.00 %
-license used: 0.00 %
-current sessions: 0
-current calls: 0/s
-replication state: active
+    health score: 100.00 %
+    cpu load: 2.00 %
+    memory used: 9.00 %
+    license used: 0.00 %
+    current sessions: 0
+    current calls: 0/s
+    replication state: active
 ```
 
 The command above monitors Acme Packet (```--plugin=network::acmepacket::snmp::plugin --mode=system-usage```) identified
 by the IP address *10.30.2.114* (```--hostname=10.30.2.114```). As the Plugin is using the SNMP protocol to request the device, the related
 *community* and *version* are specified (```--snmp-version='2c' --snmp-community='acme_ro'```).
 
-This command would trigger a WARNING alarm if cpu utilization over 90%
+This command would trigger a WARNING alarm if cpu utilization over 90% 
 (```--warning-cpu-load='90'```) and a CRITICAL alarm over 95% (```--critical-cpu-load='95'```).
 
 All the options as well as all the available thresholds can be displayed by adding the  ```--help```
@@ -249,9 +238,9 @@ parameter to the command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_acmepacket_snmp.pl \
---plugin=network::acmepacket::snmp::plugin \
---mode=system-usage \
---help
+    --plugin=network::acmepacket::snmp::plugin \
+    --mode=system-usage \
+    --help
 ```
 
 ### Troubleshooting
@@ -264,7 +253,7 @@ If you get this message, you're probably facing one of theses issues:
 
 #### UNKNOWN: SNMP GET Request : Cant get a single value.
 
-This error message often refers to the following issues:
-- The agent doesn't support the MIB used by the plugin
-- The targeted SNMP OID cannot be fetched because of insufficient privileges on the device.
-SNMP Agent must be capable of accessing to the enterprise branch: .1.3.6.1.4.1.9148
+This error message often refers to the following issues: 
+  - The agent doesn't support the MIB used by the plugin
+  - The targeted SNMP OID cannot be fetched because of insufficient privileges on the device. 
+    SNMP Agent must be capable of accessing to the enterprise branch: .1.3.6.1.4.1.9148

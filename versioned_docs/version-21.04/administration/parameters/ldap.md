@@ -2,9 +2,6 @@
 id: ldap
 title: Connecting Centreon to an LDAP directory
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 When you connect Centreon to an LDAP directory, users in this directory can log in to Centreon using their LDAP credentials.
 
@@ -29,9 +26,9 @@ LDAP server
 database, useful to authenticate users in the event of loss of connection
 with the LDAP
 - **Auto import users**:
-- **Yes** : All users in the directory will be able to log in to Centreon. The first time they log in, they will be created in Centreon, on page **Configuration > Contacts > Contacts/Users**, with their LDAP parameters (name, first name, email address...).
-- **No** : Users will only be able to log in to Centreon if their account has been imported manually into Centreon.
-- **Import users manually** : Whether auto import is enabled or not, you can use this button to import some users to the list of contacts.
+    - **Yes** : All users in the directory will be able to log in to Centreon. The first time they log in, they will be created in Centreon, on page **Configuration > Contacts > Contacts/Users**, with their LDAP parameters (name, first name, email address...).
+    - **No** : Users will only be able to log in to Centreon if their account has been imported manually into Centreon.
+    - **Import users manually** : Whether auto import is enabled or not, you can use this button to import some users to the list of contacts.
 
 - **LDAP search size limit**: can be used to limit the number of users to search for (1000 users maximum).
 - **LDAP search timeout**: can be used define the maximum time for the
@@ -112,18 +109,13 @@ TLS_REQCERT never
 
 Then restart Apache:
 
-<Tabs groupId="operating-systems">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
-
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
 systemctl restart httpd
 ```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
+<!--CentOS 7-->
 ```shell
 systemctl restart httpd24-httpd
 ```
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->

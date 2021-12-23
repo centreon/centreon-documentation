@@ -8,16 +8,16 @@ title: Partitionnement des bases de données
 Certaines tables de la base de données 'centreon\_storage' sont partitionnées
 afin :
 
-- D'optimiser le temps d'exécution de nombreuses requêtes.
-- D'optimiser la purge des données.
-- De minimiser la reconstruction des tables en erreur lors d'un crash du SGBD.
+  - D'optimiser le temps d'exécution de nombreuses requêtes.
+  - D'optimiser la purge des données.
+  - De minimiser la reconstruction des tables en erreur lors d'un crash du SGBD.
 
 Une partition par jour est créée pour les tables suivantes :
 
-- **data\_bin** : données de performance.
-- **logs** : journaux d'évènements de la collecte des moteurs de supervision.
-- **log\_archive\_host** : données de disponibilité des hôtes.
-- **log\_archive\_service** : données de disponibilité des services.
+  - **data\_bin** : données de performance.
+  - **logs** : journaux d'évènements de la collecte des moteurs de supervision.
+  - **log\_archive\_host** : données de disponibilité des hôtes.
+  - **log\_archive\_service** : données de disponibilité des services.
 
 > Ce partitionnement comporte des limitations :
 >
@@ -31,9 +31,9 @@ adresse](https://mariadb.com/kb/en/library/partitioning-overview/).
 
 Les prérequis nécessaires pour l'utilisation de ce module sont les suivants :
 
-- php-mysql
-- Pear-DB
-- MariaDB (\>= 10.1)
+  - php-mysql
+  - Pear-DB
+  - MariaDB (\>= 10.1)
 
 Le paramètre MariaDB **open\_files\_limit** doit être fixé à 32000 dans la section
 \[server\] :
@@ -73,12 +73,12 @@ La durée de rétention des données est programmée dans le menu `Administratio
 
 Le paramétrage est le suivant :
 
-- **Retention duration for partitioning** : durée de rétention pour les tables
-partitionnées, par défaut **365 jours**.
-- **Forward provisioning** : nombre de partitions créées en avance, par défaut
-**10 jours**.
-- **Backup directory for partitioning** : répertoire de sauvegarde des
-partitions, par défaut **/var/cache/centreon/backup**.
+  - **Retention duration for partitioning** : durée de rétention pour les tables
+    partitionnées, par défaut **365 jours**.
+  - **Forward provisioning** : nombre de partitions créées en avance, par défaut
+    **10 jours**.
+  - **Backup directory for partitioning** : répertoire de sauvegarde des
+    partitions, par défaut **/var/cache/centreon/backup**.
 
 ## Fonctionnement
 
@@ -98,20 +98,20 @@ Exemple de fichier de partitionnement **partitioning-data\_bin.xml** :
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <centreon-partitioning>
-<table name="data_bin" schema="centreon_storage">
-<activate>1</activate>
-<column>ctime</column>
-<type>date</type>
-<createstmt>
+    <table name="data_bin" schema="centreon_storage">
+        <activate>1</activate>
+        <column>ctime</column>
+        <type>date</type>
+        <createstmt>
 CREATE TABLE IF NOT EXISTS `data_bin` (
-`id_metric` int(11) DEFAULT NULL,
-`ctime` int(11) DEFAULT NULL,
-`value` float DEFAULT NULL,
-`status` enum('0','1','2','3','4') DEFAULT NULL,
-KEY `index_metric` (`id_metric`)
+    `id_metric` int(11) DEFAULT NULL,
+    `ctime` int(11) DEFAULT NULL,
+    `value` float DEFAULT NULL,
+    `status` enum('0','1','2','3','4') DEFAULT NULL,
+    KEY `index_metric` (`id_metric`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-</createstmt>
-</table>
+        </createstmt>
+    </table>
 </centreon-partitioning>
 ```
 
@@ -119,18 +119,18 @@ KEY `index_metric` (`id_metric`)
 
 La ligne de commande exécute la procédure suivante :
 
-- Renomme la table existante (‘xxx’ devient ‘xxx\_old’)
-- Crée une table partitionnée vide
-- Migre les données dans la table partitionnée (instructions ‘SELECT INSERT’)
+  - Renomme la table existante (‘xxx’ devient ‘xxx\_old’)
+  - Crée une table partitionnée vide
+  - Migre les données dans la table partitionnée (instructions ‘SELECT INSERT’)
 
 Des vérifications doivent être faites avant :
 
-- L’espace disponible sur le volume sur lequel se trouvent les bases MySQL
-doit être suffisant pour contenir deux fois la taille des tables traitées
-(Index + données).
-- Les tables ne doivent pas contenir de données dans le futur (le temps est un
-facteur clé pour la mise en place du partitionnement).
-- La mémoire sur le serveur MySQL doit être suffisante.
+  - L’espace disponible sur le volume sur lequel se trouvent les bases MySQL
+    doit être suffisant pour contenir deux fois la taille des tables traitées
+    (Index + données).
+  - Les tables ne doivent pas contenir de données dans le futur (le temps est un
+    facteur clé pour la mise en place du partitionnement).
+  - La mémoire sur le serveur MySQL doit être suffisante.
 
 > Les requêtes/instructions ‘SELECT INSERT’ vont verrouiller la table et
 > probablement certains traitements.

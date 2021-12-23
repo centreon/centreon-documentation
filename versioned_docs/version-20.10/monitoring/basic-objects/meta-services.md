@@ -31,7 +31,7 @@ The types of data sources available are:
 * The **GAUGE** type records an instantaneous value (temperature, humidity, processor, etc.)
 * The **COUNTER** type records an incremental value in relation to the previous result
 * The **DRIFT** type stores the derivative of the line from the last to the current value of the data. This can be useful
-for capacities, for example for measuring the rate of people entering or leaving a room.
+  for capacities, for example for measuring the rate of people entering or leaving a room.
 * The **ABSOLUTE** type is for counters which reset on reading. It is used for fast counters that have a tendency to over-run.
 
 > More information on the *[RRDTools website](http://oss.oetiker.ch/rrdtool/doc/rrdcreate.en)*.
@@ -48,11 +48,11 @@ Go into the menu: **Configuration \> Services \> Meta Services** and click on **
 
 * The **Meta Service Name** field corresponds to the name of the meta-service Displayed in the interface.
 * The **Output format string (printf-style)** field corresponds to the output message (‘output’) visible in Centreon.
-The “%d” value corresponds to the value calculated by the meta-service
+  The “%d” value corresponds to the value calculated by the meta-service
 * The **Warning level** and **Critical level** correspond to the “WARNING” and “CRITICAL” thresholds of the meta-service
-respectively.
+  respectively.
 * The **Calculation Type** and **Data source Type** fields correspond to the calculations and to the description of the
-data source respectively
+  data source respectively
 * The **Selection Mode** field serves to select the services containing the metrics that will be used in the meta-service calculation.
 
 If the **Service list** selection mode is selected the metrics chosen will be obtained from services selected manually.
@@ -67,18 +67,18 @@ Metric drop down list.
 
 * The **Check Period** field defines the time period during which the scheduler checks the status of the meta-service.
 * The **Max Check Attempts** field defines the number of checks to be made before confirming the status of the meta-service:
-when the status is valid a notification is sent.
+  when the status is valid a notification is sent.
 * The **Normal Check Interval** field is expressed in minutes. It defines the interval between checks when the status of
-the meta-service is OK.
+  the meta-service is OK.
 * The **Retry Check Interval** field is expressed in minutes. It defines the checking interval of the Not-OK status of
-the meta-service.
+  the meta-service.
 
-### Notification
+### Notification 
 
 * The **Notification Enabled** field serves to enable the notifications.
 * The **Linked Contacts Groups** list serves to define the groups of contacts that will be alerted.
 * The **Notification Interval** field is expressed in minutes and can be used to define the time interval between the
-sending of two notifications.
+  sending of two notifications.
 * The **Notification Period** field can be used define the period of notification.
 * The **Notification Type** field defines the types of notification sent.
 
@@ -92,7 +92,7 @@ sending of two notifications.
 If you have chosen the option **Service list**, in the screen containing all the meta-services:
 
 1. Click on the following icon to select the metrics entering into the calculation of the meta-service. These
-metrics are called indicators. <img src={require('../../assets/configuration/common/flechedirection.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+  metrics are called indicators. <img src={require('../../assets/configuration/common/flechedirection.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 2. Click on **Add**
 
 ![image](../../assets/configuration/02metaservicesindicators.png)

@@ -2,9 +2,6 @@
 id: installation
 title: Installation de Centreon MBI
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Architecture
 
@@ -34,11 +31,11 @@ Le schéma ci-dessous met en avant les principaux composants de Centreon MBI :
 *La base de monitoring n'est pas nécessairement sur le même serveur que le serveur Centreon*
 
 - **ETL** : Mécanisme d'extraction, calcul et chargement des données
-dans la base de données dediée reporting.
+  dans la base de données dediée reporting.
 - **CBIS** : Ordonnanceur gérant la génération et la publication
-automatique des rapports.
+  automatique des rapports.
 - **Reporting database** : Base de données MariaDB contenant les données
-de reporting et certaines données extraites de la base de monitoring.
+  de reporting et certaines données extraites de la base de monitoring.
 
 ### Tableaux des flux réseau
 
@@ -61,12 +58,12 @@ bases de données, par défaut.
 L'installation de Centreon MBI est basée sur deux paquets RPM :
 
 - **Centreon-bi-server :** Ce paquet installe l'interface de Centreon MBI sur
-le frontend de Centreon. Ce paquet doit être installé sur le serveur web de
-Centreon.
+  le frontend de Centreon. Ce paquet doit être installé sur le serveur web de
+  Centreon.
 - **Centreon-bi-reporting-server** : Ce paquet contient tous les éléments
-composants le serveur reporting : moteur de génération de rapports, les
-rapports standards et l'ETL. Il doit être installé sur un serveur dédié
-aux processus de reporting.
+  composants le serveur reporting : moteur de génération de rapports, les
+  rapports standards et l'ETL. Il doit être installé sur un serveur dédié
+  aux processus de reporting.
 
 L'installation du moteur de base de données doit être faite en même
 temps. Nous conseillons fortement d'installer la base MariaDB sur le
@@ -78,32 +75,30 @@ serveur de reporting pour des questions de performances & d'isolation.
 
 **Logiciels**
 
-<Tabs groupId="operating-systems">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 - Centreon Web 20.10
 - Vérifiez que `date.timezone` est correctement configurée dans le fichier
-`/etc/php.d/php.ini` (même que celui retourné par la commande
-`timedatectl status`)
+  `/etc/php.d/php.ini` (même que celui retourné par la commande
+  `timedatectl status`)
 - Evitez l'utilisation des variables ci dessous dans le fichier de
-configuration MariaDB `/etc/my.cnf`: Elles arrêtent l'exécution des requêtes
-longues et ceci pourrait arrêter l'exécution des ETL ainsi que la génération
-des rapports.
-- wait_timeout
-- interactive_timeout
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+  configuration MariaDB `/etc/my.cnf`: Elles arrêtent l'exécution des requêtes
+  longues et ceci pourrait arrêter l'exécution des ETL ainsi que la génération
+  des rapports.
+  - wait_timeout
+  - interactive_timeout
+<!--CentOS 7-->
 - Centreon Web 20.10
 - Vérifiez que `date.timezone` est correctement configurée dans le fichier
-`/etc/opt/rh/rh-php72/php.ini` (même que celui retourné par la commande
-`timedatectl status`)
+  `/etc/opt/rh/rh-php72/php.ini` (même que celui retourné par la commande
+  `timedatectl status`)
 - Evitez l'utilisation des variables ci dessous dans le fichier de
-configuration MariaDB `/etc/my.cnf`: Elles arrêtent l'exécution des requêtes
-longues et ceci pourrait arrêter l'exécution des ETL ainsi que la génération
-des rapports.
-- wait_timeout
-- interactive_timeout
-</TabItem>
-</Tabs>
+  configuration MariaDB `/etc/my.cnf`: Elles arrêtent l'exécution des requêtes
+  longues et ceci pourrait arrêter l'exécution des ETL ainsi que la génération
+  des rapports.
+  - wait_timeout
+  - interactive_timeout
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 **Ajout d'utilisateurs ou de groupes**
 
@@ -178,23 +173,21 @@ Description des utilisateurs, umask et répertoire utilisateur :
 
 Les actions listées dans ce chapitre doivent être lancées sur le serveur de supervision Centreon.
 
-Installer le dépôt MBI, vous pouvez le trouver sur le
+Installer le dépôt MBI, vous pouvez le trouver sur le 
 [portail support](https://support.centreon.com/s/repositories).
 
 Puis lancez la commande suivante :
 
-<Tabs groupId="operating-systems">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
 dnf install centreon-bi-server
 ```
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<!--CentOS 7-->
 ```shell
 yum install centreon-bi-server
 ```
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Activer l'extension
 
@@ -261,7 +254,7 @@ Allez au chapitre suivant pour continuer l'installation.
 
 Lorsque vous installez Centreon MBI, un [utilisateur](../monitoring/basic-objects/contacts) nommé **cbis** est créé automatiquement. Il permet au moteur de génération de rapports d'extraire les données de Centreon (en utilisant les APIs) afin de les insérer dans le rapport. Cet utilisateur doit [avoir accès à toutes les ressources supervisées par Centreon](../administration/access-control-lists) afin de pouvoir extraire les graphes de performance pour les rapports suivants :
 
-- Host-Graph-v2
+- Host-Graph-v2 
 
 - Hostgroup-Graph-v2.
 
@@ -280,8 +273,8 @@ curl -XGET 'https://10.1.1.1/centreon/include/views/graphs/generateGraphs/genera
 Le résultat devrait ressembler au code ci-dessous, et l'image du graphe désiré doit avoir été téléchargée dans le répertoire `/tmp` :
 
 ```
-% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-Dload  Upload   Total   Spent    Left  Speed
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
 100 18311  100 18311    0     0  30569      0 --:--:-- --:--:-- --:--:-- 30569
 ```
 
@@ -299,26 +292,24 @@ veillez à les connaître avant de commencer :
 - IP/DNS de la base de reporting (localhost fortement recommandé)
 - accès (user/password) aux bases de données de monitoring & reporting
 - définir puis récupérer le mot de passe ssh de l'utilisateur
-centreonBI, sur le serveur Central (pour la mise à disposition des
-rapports générés sur l'interface)
+  centreonBI, sur le serveur Central (pour la mise à disposition des
+  rapports générés sur l'interface)
 
-Installer le dépôt MBI, vous pouvez le trouver sur le
+Installer le dépôt MBI, vous pouvez le trouver sur le 
 [portail support](https://support.centreon.com/s/repositories).
 
 Puis lancer la commande suivante:
 
-<Tabs groupId="operating-systems">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
 dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
 ```
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<!--CentOS 7-->
 ```shell
 yum install centreon-bi-reporting-server MariaDB-server MariaDB-client
 ```
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 Dans le cas d'une installation basée sur une image CentOS vierge, installez la clé GPG :
 ```shell
@@ -392,9 +383,9 @@ configurer l'ETL.
 Centreon MBI intègre un ETL qui permet de :
 
 - Synchroniser les données brutes de la supervision vers le serveur de
-reporting
+  reporting
 - Alimenter les bases de données du serveur de reporting avec les
-données statistiques
+  données statistiques
 - Contrôler la rétention des données sur le serveur de reporting
 
 Avant de passer aux étapes suivantes, il est nécessaire de lire le
@@ -457,7 +448,7 @@ gérée par:
 
 - type de données (disponibilité ou performance)
 - granularité des données (données brutes de la supervision, données
-agrégées par heure, jour ou mois)
+  agrégées par heure, jour ou mois)
 
 Activez la rétention de données en cochant "Yes" puis paramétrez les
 différents options de configuration.
@@ -488,13 +479,13 @@ systemctl restart crond
 fonction de la granularité des données statistiques:
 
 - Les données agrégées par heure sont souvent exploitées afin
-d'analyser des métriques sur une période proche. Il n'est pas
-nécessaire de conserver ces données sur plusieurs mois;
+  d'analyser des métriques sur une période proche. Il n'est pas
+  nécessaire de conserver ces données sur plusieurs mois;
 - Au delà de 5 ou 6 mois, vous auriez probablement besoin de voir la
-tendance de la disponibilité et des statistiques de performances. Il
-serait donc envisageable de conserver au plus 6 mois les données
-agrégées par jour et configurer une rétention des données agrégées
-au mois sur plusieurs dizaines de mois.
+  tendance de la disponibilité et des statistiques de performances. Il
+  serait donc envisageable de conserver au plus 6 mois les données
+  agrégées par jour et configurer une rétention des données agrégées
+  au mois sur plusieurs dizaines de mois.
 
 Passez à la section suivante pour continuer l'installation.
 
@@ -512,11 +503,11 @@ pour effet de :
 
 - Supprimer les données existantes sur la base de reporting
 - Importer les données brutes à partir de la base de données de
-supervision, en utilisant les paramètres de retention
+  supervision, en utilisant les paramètres de retention
 - Alimenter les tables qui contiennent les informations de
-disponibilité des équipements et des services
+  disponibilité des équipements et des services
 - Alimenter les tables qui contiennent les informations de performance
-et de capacité des équipements et des services
+  et de capacité des équipements et des services
 
 ```shell
 /usr/share/centreon-bi/bin/centreonBIETL -r

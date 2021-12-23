@@ -2,9 +2,6 @@
 id: applications-haproxy-snmp
 title: Haproxy SNMP
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Vue d'ensemble
 
@@ -25,8 +22,9 @@ l'intermédiaire du protocole SNMP.
 
 ### Métriques & statuts collectés
 
-<Tabs groupId="operating-systems">
-<TabItem value="FrontendUsage" label="FrontendUsage">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Frontend-Usage-->
 
 | Metric name                       | Description                | Unit  |
 |:----------------------------------|:---------------------------|:------|
@@ -36,8 +34,7 @@ l'intermédiaire du protocole SNMP.
 | frontend.traffic.in.bitpersecond  | Incomming frontend traffic | b/s   |
 | frontend.traffic.out.bitpersecond | Outgoing frontend traffic  | b/s   |
 
-</TabItem>
-<TabItem value="BackendUsage" label="BackendUsage">
+<!--Backend-Usage-->
 
 | Metric name                      | Description                        | Unit  |
 |:---------------------------------|:-----------------------------------|:------|
@@ -48,19 +45,19 @@ l'intermédiaire du protocole SNMP.
 | backend.traffic.in.bitpersecond  | Incomming backend traffic          | b/s   |
 | backend.traffic.out.bitpersecond | Outgoing backend traffic           | b/s   |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
-Afin de superviser le serveur HAProxy, le SNMP v2 ou v3 doit être
+Afin de superviser le serveur HAProxy, le SNMP v2 ou v3 doit être 
 configuré comme indiqué sur la documentation officielle :
 https://www.haproxy.com/documentation/hapee/latest/observability/metrics/snmp/
 
 ## Installation
 
-<Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources HAProxy:
 
@@ -70,8 +67,7 @@ yum install centreon-plugin-Applications-Haproxy-Snmp
 
 2. Sur l'interface Integration de Centreon, installer le Plugin Pack *Haproxy SNMP* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources HAProxy:
 
@@ -87,8 +83,7 @@ yum install centreon-pack-applications-haproxy-snmp
 
 3. Sur l'interface Integration de Centreon, installer le Plugin Pack *Haproxy SNMP* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
@@ -96,7 +91,7 @@ yum install centreon-pack-applications-haproxy-snmp
 
 * Ajoutez un Hôte à Centreon depuis la page "Configuration > Hôtes".
 * Complétez les champs "Nom","Alias" & "IP Address / DNS" correspondant à votre serveur HAProxy
-* Appliquez le Modèle d'Hôte *Applications-Haproxy-Snmp-custom*
+* Appliquez le Modèle d'Hôte *Applications-Haproxy-Snmp-custom* 
 
 Si vous utilisez SNMP en version 3, vous devez configurer les paramètres
 spécifiques associés via la macro SNMPEXTRAOPTIONS.
@@ -105,64 +100,64 @@ spécifiques associés via la macro SNMPEXTRAOPTIONS.
 |:----------|:-----------------|:--------------------------------------------|
 |           | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo |
 
-## Comment puis-je tester le Plugin et que signifient les options des commandes ?
+## Comment puis-je tester le Plugin et que signifient les options des commandes ? 
 
-Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne
-de commande depuis votre collecteur Centreon en vous connectant avec
-l'utilisateur *centreon-engine*:
+ Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne 
+ de commande depuis votre collecteur Centreon en vous connectant avec 
+ l'utilisateur *centreon-engine*:
 
-```bash
-/usr/lib/centreon/plugins//centreon_haproxy_snmp.pl  \
---plugin=apps::haproxy::snmp::plugin   \
---mode=frontend-usage  \
---hostname='10.0.0.1'  \
---snmp-version='2c'  \
---snmp-community='my-snmp-community'   \
---filter-name=''  \
---warning-status=''  \
---critical-status='%{status} !~ /OPEN/i'  \
---warning-total-sessions=''  \
---critical-total-sessions=''  \
---warning-current-sessions=''  \
---critical-current-sessions=''  \
---warning-traffic-in=''  \
---critical-traffic-in=''  \
---warning-traffic-out=''  \
---critical-traffic-out=''  \
---verbose \
---use-new-perfdata
-```
+ ```bash
+ /usr/lib/centreon/plugins//centreon_haproxy_snmp.pl  \
+    --plugin=apps::haproxy::snmp::plugin   \
+    --mode=frontend-usage  \
+    --hostname='10.0.0.1'  \
+    --snmp-version='2c'  \
+    --snmp-community='my-snmp-community'   \
+    --filter-name=''  \
+    --warning-status=''  \
+    --critical-status='%{status} !~ /OPEN/i'  \
+    --warning-total-sessions=''  \
+    --critical-total-sessions=''  \
+    --warning-current-sessions=''  \
+    --critical-current-sessions=''  \
+    --warning-traffic-in=''  \
+    --critical-traffic-in=''  \
+    --warning-traffic-out=''  \
+    --critical-traffic-out=''  \
+    --verbose \
+    --use-new-perfdata
+ ```
 
-La commande devrait retourner un message de sortie similaire à :
+ La commande devrait retourner un message de sortie similaire à :
 
-```bash
+ ```bash
 OK : All frontends are ok | 'frontend.sessions.current.count'=9000;;;; 'frontend.sessions.total.count'=9000;;;; 'frontend.traffic.in.bitpersecond'=9000b/s;;;; 'frontend.traffic.out.bitpersecond'=9000b/s;;;;
-```
+ ```
 
 Dans cet exemple, une alarme est déclenchée si le status du *frontend* est
 différent de 'OPEN' (```--critical-status='%{status} !~ /OPEN/i'```).
 
-La liste de toutes les options complémentaires et leur signification peut être
-affichée en ajoutant le paramètre ```--help``` à la commande:
+ La liste de toutes les options complémentaires et leur signification peut être 
+ affichée en ajoutant le paramètre ```--help``` à la commande:
 
-```bash
-/usr/lib/centreon/plugins//centreon_haproxy_snmp.pl  \
---plugin=apps::haproxy::snmp::plugin   \
---mode=frontend-usage  \
---help
-```
+ ```bash
+ /usr/lib/centreon/plugins//centreon_haproxy_snmp.pl  \
+    --plugin=apps::haproxy::snmp::plugin   \
+    --mode=frontend-usage  \
+    --help
+ ```
 
-Tous les modes disponibles peuvent être affichés en ajoute le paramètre
-```--list-mode``` à la commande:
+ Tous les modes disponibles peuvent être affichés en ajoute le paramètre 
+ ```--list-mode``` à la commande:
 
-```bash
-/usr/lib/centreon/plugins//centreon_haproxy_snmp.pl  \
---plugin=apps::haproxy::snmp::plugin   \
---list-mode
-```
+ ```bash
+ /usr/lib/centreon/plugins//centreon_haproxy_snmp.pl  \
+    --plugin=apps::haproxy::snmp::plugin   \
+    --list-mode
+ ```
 
 ### Diagnostic des erreurs communes
-
+ 
 #### UNKNOWN: SNMP GET Request : Timeout
 
 Si vous obtenez ce message, cela signifie le collecteur Centreon ne parvient

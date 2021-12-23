@@ -1,10 +1,7 @@
 ---
 id: using-packages
-title: Using packages
+title: Using packages 
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 Centreon provides RPM packages for its products through the Centreon Open
 Sources version available free of charge in our repository.
@@ -49,9 +46,8 @@ systemctl disable firewalld
 
 ### Install the repositories
 
-<Tabs groupId="operating-systems">
-<TabItem value="RHEL 8" label="RHEL 8">
-
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL 8-->
 #### Redhat CodeReady Builder repository
 
 To install Centreon you will need to enable the official CodeReady Builder
@@ -63,10 +59,7 @@ Enable the CodeReady Builder repository using these commands:
 dnf -y install dnf-plugins-core https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 ```
-
-</TabItem>
-<TabItem value="CentOS 8" label="CentOS 8">
-
+<!--CentOS 8-->
 #### Redhat PowerTools repository
 
 To install Centreon you will need to enable the official PowerTools repository
@@ -84,10 +77,7 @@ dnf config-manager --set-enabled powertools
 > dnf -y install dnf-plugins-core epel-release
 > dnf config-manager --set-enabled PowerTools
 > ```
-
-</TabItem>
-<TabItem value="Oracle Linux 8" label="Oracle Linux 8">
-
+<!--Oracle Linux 8-->
 #### Oracle CodeReady Builder repository
 
 To install Centreon you will need to enable the official Oracle CodeReady
@@ -99,10 +89,7 @@ Enable the repository using these commands:
 dnf -y install dnf-plugins-core oracle-epel-release-el8
 dnf config-manager --set-enabled ol8_codeready_builder
 ```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
+<!--CentOS 7-->
 #### Redhat Software Collections repository
 
 To install Centreon you will need to set up the official Software Collections
@@ -115,8 +102,7 @@ Install the Software Collections repository using this command:
 ```shell
 yum install -y centos-release-scl
 ```
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 #### Centreon repository
 
@@ -125,41 +111,31 @@ centreon-release package, which will provide the repository file.
 
 Install the Centreon repository using this command:
 
-<Tabs groupId="operating-systems">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
-
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
 dnf install -y https://yum.centreon.com/standard/20.10/el8/stable/noarch/RPMS/centreon-release-20.10-4.el8.noarch.rpm
 ```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
+<!--CentOS 7-->
 ```shell
 yum install -y https://yum.centreon.com/standard/20.10/el7/stable/noarch/RPMS/centreon-release-20.10-4.el7.centos.noarch.rpm
 ```
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Installation
 
 To install the monitoring engine, run the command:
 
-<Tabs groupId="operating-systems">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
-
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
 dnf install -y centreon-poller-centreon-engine
 ```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
+<!--CentOS 7-->
 ```shell
 yum install -y centreon-poller-centreon-engine
 ```
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 To make services start automatically during system bootup, run the following
 command:
@@ -181,9 +157,8 @@ systemctl start centreontrapd snmptrapd
 
 To register it to the Centreon Central server or a Remote server, execute the following command:
 
-<Tabs groupId="operating-systems">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
-
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 ``` shell
 /usr/share/centreon/bin/registerServerTopology.sh -u <API_ACCOUNT> \
 -t poller -h <IP_TARGET_NODE> -n <POLLER_NAME>
@@ -194,10 +169,7 @@ Example:
 ``` shell
 /usr/share/centreon/bin/registerServerTopology.sh -u admin -t poller -h 192.168.0.1 -n poller-1
 ```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
+<!--CentOS 7-->
 ``` shell
 /usr/share/centreon/bin/registerServerTopology.sh -u <API_ACCOUNT> \
 -t poller -h <IP_TARGET_NODE> -n <POLLER_NAME>
@@ -208,8 +180,7 @@ Example:
 ``` shell
 /usr/share/centreon/bin/registerServerTopology.sh -u admin -t poller -h 192.168.0.1 -n poller-1
 ```
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 > Replace **<IP_TARGET_NODE>** by the IP of the Centreon server seen by the poller or by the Remote Server if you
 > want to link your server to it.
@@ -222,36 +193,36 @@ Example:
 Then follow instructions by
 1. Entering your password:
 
-``` shell
-192.168.0.1: please enter your password:
-```
+    ``` shell
+    192.168.0.1: please enter your password:
+    ```
 
 2. Select the IP adress if multiple network interfaces exist:
 
-```shell
-Which IP do you want to use as CURRENT NODE IP ?
-1) 192.168.0.2
-2) 192.168.0.3
-1
-```
+    ```shell
+    Which IP do you want to use as CURRENT NODE IP ?
+    1) 192.168.0.2
+    2) 192.168.0.3
+    1
+    ```
 
 3. Then validate the information:
 
-``` shell
-Summary of the informations that will be send:
-
-Api Connection:
-username: admin
-password: ******
-target server: 192.168.0.1
-
-Pending Registration Server:
-name: poller-1
-type: poller
-address: 192.168.0.2
-
-Do you want to register this server with those informations ? (y/n)y
-```
+    ``` shell
+    Summary of the informations that will be send:
+    
+    Api Connection:
+    username: admin
+    password: ******
+    target server: 192.168.0.1
+    
+    Pending Registration Server:
+    name: poller-1
+    type: poller
+    address: 192.168.0.2
+    
+    Do you want to register this server with those informations ? (y/n)y
+    ```
 
 You will receive the validation of the Centreon central or the Remote Server server:
 

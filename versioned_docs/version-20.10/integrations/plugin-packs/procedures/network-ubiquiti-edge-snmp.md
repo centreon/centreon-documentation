@@ -2,9 +2,6 @@
 id: network-ubiquiti-edge-snmp
 title: Ubiquiti Edge SNMP
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Pack Assets
 
@@ -18,46 +15,45 @@ The Plugin-Pack Ubiquiti Edge SNMP collects metrics for:
 
 ### Discovery rules
 
-<Tabs groupId="operating-systems">
-<TabItem value="Services" label="Services">
+<!--DOCUSAURUS_CODE_TABS-->
 
-| Rule name                             | Description                                                   |
-| :------------------------------------ | :------------------------------------------------------------ |
-| Net-Ubiquiti-Edge-SNMP-Interface-Name | Discover network interfaces and monitor bandwidth utilization |
+<!--Services-->
 
-</TabItem>
-</Tabs>
+| Rule name                              | Description                                                           |
+| :------------------------------------- | :-------------------------------------------------------------------- |
+| Net-Ubiquiti-Edge-SNMP-Interface-Name  | Discover network interfaces and monitor bandwidth utilization         |
+
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Collected Metrics
 
-<Tabs groupId="operating-systems">
-<TabItem value="Cpu" label="Cpu">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Cpu-->
 
 | Metric name                   | Description                            | Unit |
-| :---------------------------- | :------------------------------------- | :--- |
+| :---------------------------- | :------------------------------------- |:---- |
 | cpu.utilization.5s.percentage | CPU utilization during last 5 seconds. | %    |
 | cpu.utilization.1m.percentage | CPU utilization during last minute.    | %    |
 | cpu.utilization.5m.percentage | CPU utilization during last 5 minutes. | %    |
 
-</TabItem>
-<TabItem value="Hardware" label="Hardware">
+<!--Hardware-->
 
-| Metric name                  | Description                          | Unit |
-| :--------------------------- | :----------------------------------- | :--- |
-| disk.status                  | Status of the disk                   |      |
-| raid.status                  | Status of the raid                   |      |
-| fan.status                   | Status of the fan                    |      |
-| temperature.status           | Status of the temperature            |      |
-| voltage.status               | Status of the voltage                |      |
-| hardware.fan.speed.rpm       | Speed of fan                         | rpm  |
-| hardware.temperature.celsius | temperature of the different sensors | C    |
-| hardware.voltage.millivolt   | Voltage of the different sensors     | mV   |
+| Metric name                   | Description                               | Unit |
+|:----------------------------- |:----------------------------------------- |:---- |
+| disk.status                   | Status of the disk                        |      |
+| raid.status                   | Status of the raid                        |      |
+| fan.status                    | Status of the fan                         |      |
+| temperature.status            | Status of the temperature                 |      |
+| voltage.status                | Status of the voltage                     |      |
+| hardware.fan.speed.rpm        | Speed of fan                              | rpm  |
+| hardware.temperature.celsius  | temperature of the different sensors      | C    |
+| hardware.voltage.millivolt    | Voltage of the different sensors          | mV   |
 
-</TabItem>
-<TabItem value="Interfaces" label="Interfaces">
+<!--Interfaces-->
 
 | Metric name                                                 | Description                                             | Unit |
-| :---------------------------------------------------------- | :------------------------------------------------------ | :--- |
+|:----------------------------------------------------------- |:------------------------------------------------------- |:---- |
 | status                                                      | Status of the interface                                 |      |
 | *interface\_name*\#interface.traffic.in.bitspersecond       | Incoming traffic going through the interface.           | b/s  |
 | *interface\_name*\#interface.traffic.out.bitspersecond      | Outgoing traffic going through the interface.           | b/s  |
@@ -66,15 +62,13 @@ The Plugin-Pack Ubiquiti Edge SNMP collects metrics for:
 | *interface\_name*\#interface.packets.out.error.percentage   | Outgoing errored packets going through the interface.   | %    |
 | *interface\_name*\#interface.packets.out.discard.percentage | Outgoing discarded packets going through the interface. | %    |
 
-</TabItem>
-<TabItem value="Memory" label="Memory">
+<!--Memory-->
 
-| Metric name        | Description  | Unit |
-| :----------------- | :----------- | :--- |
-| memory.usage.bytes | Memory usage | B    |
+| Metric name              | Description                | Unit |
+| :----------------------- | :------------------------- |:---- |
+| memory.usage.bytes       | Memory usage               | B    | 
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -83,8 +77,9 @@ The Poller should be able to perform SNMP requests toward the Lenovo device over
 
 ## Setup
 
-<Tabs groupId="licence-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -94,8 +89,7 @@ yum install centreon-plugin-Network-Ubiquiti-Edge-Snmp
 
 2. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *Ubiquiti Edge SNMP* Pack
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -111,8 +105,7 @@ yum install centreon-pack-network-ubiquiti-edge-snmp
 
 3. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *Ubiquiti Edge SNMP* Pack
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Host configuration
 
@@ -121,9 +114,9 @@ yum install centreon-pack-network-ubiquiti-edge-snmp
 
 > When using SNMP v3, use the SNMPEXTRAOPTIONS Macro to add specific authentication parameters
 
-| Mandatory | Name             | Description                                 |
-| :-------- | :--------------- | :------------------------------------------ |
-|           | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo |
+| Mandatory | Name             | Description                                    |
+| :-------- | :--------------- | :--------------------------------------------- |
+|           | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo    |
 
 ## FAQ
 
@@ -134,14 +127,14 @@ and test the Plugin by running the following command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_ubiquiti_edge__snmp.pl \
---plugin=network::ubiquiti::edge::snmp::plugin \
---mode=cpu \
---hostname=10.30.2.114 \
---snmp-version='2c' \
---snmp-community='ubiquiti_ro' \
---warning-1m='80' \
---critical-1m='90' \
---verbose
+    --plugin=network::ubiquiti::edge::snmp::plugin \
+    --mode=cpu \
+    --hostname=10.30.2.114 \
+    --snmp-version='2c' \
+    --snmp-community='ubiquiti_ro' \
+    --warning-1m='80' \
+    --critical-1m='90' \
+    --verbose
 ```
 
 Expected command output is shown below:
@@ -154,7 +147,7 @@ The command above monitors Ubiquiti Edge (```--plugin=network::ubiquiti::edge::s
 by the IP address *10.30.2.114* (```--hostname=10.30.2.114```). As the Plugin is using the SNMP protocol to request the device, the related
 *community* and *version* are specified (```--snmp-version='2c' --snmp-community='ubiquiti_ro'```).
 
-This command would trigger a WARNING alarm if cpu utilization over 90% on the last minute
+This command would trigger a WARNING alarm if cpu utilization over 90% on the last minute 
 (```--warning-1m='90'```) and a CRITICAL alarm over 95% on the last minute (```--critical-1m='95'```).
 
 All the options as well as all the available thresholds can be displayed by adding the  ```--help```
@@ -162,9 +155,9 @@ parameter to the command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_ubiquiti_edge_snmp.pl \
---plugin=network::ubiquiti::edge::snmp::plugin \
---mode=cpu \
---help
+    --plugin=network::ubiquiti::edge::snmp::plugin \
+    --mode=cpu \
+    --help
 ```
 
 ## Troubleshooting

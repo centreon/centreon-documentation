@@ -15,8 +15,8 @@ yum install centreon-plugin-Network-Cisco-Esa-XmlApi
 
 Be sure to have with you the following information:
 
-- Read-Only XML API credentials
-- IP Address of the equipment
+  - Read-Only XML API credentials
+  - IP Address of the equipment
 
 ### Configure SNMP on your server
 

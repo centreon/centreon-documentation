@@ -9,16 +9,16 @@ Applying a Plugin Pack is the easiest way to monitor a host.
 
 Plugin Packs consist of 2 elements, which are installed separately:
 
-- A plugin that executes the monitoring commands from a poller. Plugins are
+- A plugin that executes the monitoring commands from a poller. Plugins are 
 installed using the command line interface.
 
-- A pack that contains commands, host templates and service templates.
+- A pack that contains commands, host templates and service templates. 
 Packs are installed via the Centreon interface. For each type of equipment,
-the templates determine which indicators will be
+ the templates determine which indicators will be
 monitored and set default warning and critical thresholds (these may be
 fine-tuned later on).
 
-Some packs also contain [discovery rules](discovery/introduction).
+  Some packs also contain [discovery rules](discovery/introduction).
 
 To get an up-to-date list of all Plugin Packs with their respective monitoring
 procedure, please refer to the section on [Plugin Packs](../integrations/plugin-packs/introduction).
@@ -68,18 +68,18 @@ Installing a plugin pack is a 4-step process:
 * If you have an online [license](../administration/licenses), the Plugin Packs catalog is already available on your platform, on page **Configuration > Plugin Packs**.
 
 * If you have an offline license:
-- install the Plugin Packs repository (contact the [Centreon support team](https://centreon.force.com/) for its address)
-- install or update the Plugin Packs catalog from your Centreon Central server:
+    - install the Plugin Packs repository (contact the [Centreon support team](https://centreon.force.com/) for its address)
+    - install or update the Plugin Packs catalog from your Centreon Central server:
 
-```shell
-yum install centreon-pack-*
-```
+      ```shell
+      yum install centreon-pack-*
+      ```
 
-or:
+      or:
 
-```shell
-yum update centreon-pack-*
-```
+      ```shell
+      yum update centreon-pack-*
+      ```
 
 > Please note that although this command is called `install`, it only makes Plugin Packs available in the Centreon interface. It will not install the Plugin Packs themselves. Please follow the rest of the procedure.
 
@@ -164,7 +164,7 @@ Hover over the Plugin Pack and click on the arrow,
 
 ![image](../assets/configuration/pluginpacks/update2.png)
 
-or click on the Plugin Pack to display more details, then click on the arrow.
+or click on the Plugin Pack to display more details, then click on the arrow. 
 
 ![image](../assets/configuration/pluginpacks/update3.png)
 
@@ -182,9 +182,9 @@ To update the plugins:
 
 1. Execute the following command on all pollers:
 
-```shell
-yum update centreon-plugins\*
-```
+  ```shell
+  yum update centreon-plugins\*
+  ```
 
 2. Restart the Centreon Engine on **all pollers**.
 

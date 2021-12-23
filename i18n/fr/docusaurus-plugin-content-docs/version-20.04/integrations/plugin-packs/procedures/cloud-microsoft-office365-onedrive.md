@@ -2,9 +2,6 @@
 id: cloud-microsoft-office365-onedrive
 title: Office365 OneDrive
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Vue d'ensemble
 
@@ -25,11 +22,12 @@ Microsoft au travers d'une API de gestion Office 365.
 ### Métriques collectées
 
 Plus d'informations sur les métriques collectées sur la documentation officielle
-de Microsoft :
+de Microsoft : 
 https://docs.microsoft.com/fr-fr/microsoft-365/admin/activity-reports/onedrive-for-business-usage?view=o365-worldwide
 
-<Tabs groupId="operating-systems">
-<TabItem value="SiteUsage" label="SiteUsage">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Site-Usage-->
 
 | Metric name                                  | Description                              | Unit  |
 | :------------------------------------------- | :--------------------------------------- | :-----|
@@ -40,8 +38,7 @@ https://docs.microsoft.com/fr-fr/microsoft-365/admin/activity-reports/onedrive-f
 | onedrive.sites.inactive.files.total.count    | Total number of files (inactive sites )  | Count |
 | onedrive.sites.files.active.total.count      | Total number of active files             | Count |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 Une fois l'hôte crée, les macros de services peuvent être configurées pour
 filtrer les métriques par utilisateurs ou par boites mail. Plus d'informations
@@ -66,15 +63,15 @@ lors des « dialogues » d’authentification/autorisation au moment de l’exé
 ### Spécifiez les autorisations dont votre application a besoin pour accéder aux API de gestion Office 365
 
 Afin de récupérer les données d'Onedrive Online, vous devez spécifier les
-autorisations que votre application requiert:
+autorisations que votre application requiert: 
 dans le Portail de gestion Azure :
 
 * Microsoft Graph :
-* Reports.Read.All (Type : Application)
-* User.Read (Type : Delegated)
+    * Reports.Read.All (Type : Application)
+    * User.Read (Type : Delegated)
 * Office365 Management APIs :
-* ServiceHealth.Read (Type : Application)
-* ActivityFeed.Read (Type : Application)
+    * ServiceHealth.Read (Type : Application)
+    * ActivityFeed.Read (Type : Application)
 
 ### Aide supplémentaire
 
@@ -83,8 +80,9 @@ https://docs.microsoft.com/fr-fr/office/office-365-management-api/get-started-wi
 
 ## Installation
 
-<Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des ressources Office 365 Onedrive :
 
@@ -92,10 +90,9 @@ https://docs.microsoft.com/fr-fr/office/office-365-management-api/get-started-wi
 yum install centreon-plugin-Cloud-Microsoft-Office365-Onedrive-Api
 ```
 
-2. Depuis l'interface Web de Centreon, installer le Plugin-Pack *Office365 Onedrive* depuis la page "Configuration > Plugin packs > Manager"
+2. Depuis l'interface Web de Centreon, installer le Plugin-Pack *Office365 Onedrive* depuis la page "Configuration > Plugin packs > Manager" 
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des ressources Office 365 Onedrive :
 
@@ -111,13 +108,12 @@ yum install centreon-pack-cloud-microsoft-office365-onedrive
 
 3. Depuis l'interface Web de Centreon, installer le Plugin-Pack *Office365 Onedrive* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
 Lors de la création de votre Hôte dans Centreon, choisissez le modèle
-*Cloud-Microsoft-Office365-Onedrive-Api-custom*. Une fois celui-ci appliqué,
+*Cloud-Microsoft-Office365-Onedrive-Api-custom*. Une fois celui-ci appliqué, 
 certaines Macros liées à l'Hôte doivent être renseignées :
 
 | Mandatory | Name                  | Description                                                                |
@@ -128,8 +124,8 @@ certaines Macros liées à l'Hôte doivent être renseignées :
 | X         | OFFICE365CLIENTSECRET | Secret-if of your registered application                                   |
 |           | OFFICE365EXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
 
-La métrique *perfdate* enrengistre la date à laquelle celle-ci a été collectée.
-Vous pouvez la filter en paramétrant la macro *OFFICE365EXTRAOPTIONS* avec
+La métrique *perfdate* enrengistre la date à laquelle celle-ci a été collectée. 
+Vous pouvez la filter en paramétrant la macro *OFFICE365EXTRAOPTIONS* avec 
 l'option ```--filter-perfdata='^(?!.*perfdate).*$'```
 
 Une fois l'hôte créé, il est également possible de paramétrer un ensemble de
@@ -150,11 +146,11 @@ commande depuis votre collecteur Centreon avec l'utilisateur *centreon-engine* :
 
 ```bash
 /usr/lib/centreon/plugins//centreon_office365_onedrive_api.pl \
---plugin=cloud::microsoft::office365::onedrive::plugin \
---mode=site-usage \
---tenant='abcd1234-5678-90ab-cd12-34567890abcd' \
---client-id='9876dcba-5432-10dc-ba98-76543210dcba' \
---client-secret='8/RON4vUGhAcg6DRmSxc4AwgxSRoNfKg4d8xNizIMnwg='
+  --plugin=cloud::microsoft::office365::onedrive::plugin \
+  --mode=site-usage \
+  --tenant='abcd1234-5678-90ab-cd12-34567890abcd' \
+  --client-id='9876dcba-5432-10dc-ba98-76543210dcba' \
+  --client-secret='8/RON4vUGhAcg6DRmSxc4AwgxSRoNfKg4d8xNizIMnwg='
 ```
 
 Résultat attendu :
@@ -176,10 +172,10 @@ du mode :
 
 ```bash
 /usr/lib/centreon/plugins//centreon_office365_onedrive_api.pl \
---plugin=cloud::microsoft::office365::onedrive::plugin \
---mode=site-usage \
---custommode='graphapi'\
---help
+  --plugin=cloud::microsoft::office365::onedrive::plugin \
+  --mode=site-usage \
+  --custommode='graphapi'\
+  --help
 ```
 
 Tous les modes disponibles dans le Plugin peuvent être listés via la commande
@@ -187,18 +183,18 @@ suivante :
 
 ```bash
 /usr/lib/centreon/plugins//centreon_office365_onedrive_api.pl \
---plugin=cloud::microsoft::office365::onedrive::plugin \
---list-mode
+  --plugin=cloud::microsoft::office365::onedrive::plugin \
+  --list-mode
 ```
 
 ### Le Plugin renvoie les erreurs suivantes :
 
 #### ```UNKNOWN: 500 Can't connect to ...:443```
 
-Cette erreur signifie que le Plugin Centreon n'a pas pu se connecter à l'API de
+Cette erreur signifie que le Plugin Centreon n'a pas pu se connecter à l'API de 
 gestion Office 365. Vérifiez que la requête n'a pas bloquée par un outil externe
-(un pare-feu par exemple). Si vous utilisez un proxy, renseignez son URL dans
-les macros *EXTRAOPTIONS* des services correspondants ou directement dans la
+(un pare-feu par exemple). Si vous utilisez un proxy, renseignez son URL dans 
+les macros *EXTRAOPTIONS* des services correspondants ou directement dans la 
 commande avec l'option ```--proxyurl```.
 
 #### ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |```

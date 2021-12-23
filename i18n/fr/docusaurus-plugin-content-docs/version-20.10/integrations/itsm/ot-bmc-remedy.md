@@ -37,9 +37,9 @@ Our provider requires the following parameters:
 
 As of now, the provider is able to open a ticket with the following parameters
 
-- Urgency
-- Impact
-- Last Name
-- First Name
-- Dataset ID
-- Assigned Group
+  - Urgency
+  - Impact
+  - Last Name
+  - First Name
+  - Dataset ID
+  - Assigned Group

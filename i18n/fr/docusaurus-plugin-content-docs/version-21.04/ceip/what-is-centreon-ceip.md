@@ -15,21 +15,21 @@ permettant de comprendre comment vous utilisez notre logiciel; ceci afin que
 nous puissions vous fournir une amélioration continue de votre expérience
 logicielle Centreon. Le programme CEIP comprend deux composantes :
 
-- Une télémétrie simple,
-- Des statistiques avancées sur l'usage de la suite logicielle Centreon,
-- L'usage des fonctionnalités au sein de l'interface utilisateur.
+  - Une télémétrie simple,
+  - Des statistiques avancées sur l'usage de la suite logicielle Centreon,
+  - L'usage des fonctionnalités au sein de l'interface utilisateur.
 
 La télémétrie collecte anonymement et automatiquement les données suivantes :
 
-- Informations telles que la version du système d'exploitation du serveur
-principal Centreon de la plate-forme, ainsi que le nom et la version du SGBD
-- Informations sur les produits Centreon, telles que le nombre de serveurs et
-le numéro de version des composants installés sur le serveur principal de
-Centreon (modules et widgets)
-- Informations sur la configuration Centreon tels que le nombre d'hôtes, de
-services, de groupes d'hôtes et les services, ainsi que l'usage des modules
-et widgets
-- Le fuseau horaire du serveur Centreon
+  - Informations telles que la version du système d'exploitation du serveur
+    principal Centreon de la plate-forme, ainsi que le nom et la version du SGBD
+  - Informations sur les produits Centreon, telles que le nombre de serveurs et
+    le numéro de version des composants installés sur le serveur principal de
+    Centreon (modules et widgets)
+  - Informations sur la configuration Centreon tels que le nombre d'hôtes, de
+    services, de groupes d'hôtes et les services, ainsi que l'usage des modules
+    et widgets
+  - Le fuseau horaire du serveur Centreon
 
 Les statistiques avancées portent sur l'usage des composants additionnels tels que l'usage des widgets dans les vues
 personnalisées, la gestion des slots pour Centreon DSM, l'usage des Plugin Packs déployés, etc.
@@ -45,8 +45,8 @@ formulaire, etc.)
 La participation au programme est activée par défaut. Cependant l'envoi des statistiques avancées et de l'usage des
 fonctionnalités peut être configuré dans l'interface Web. Les options sont :
 
-- Activé
-- Désactivé
+  - Activé
+  - Désactivé
 
 Les utilisateurs peuvent modifier l’option du menu **Administration \>
 Paramètres \> Centreon UI \> Envoyer des statistiques anonymes** à tout moment.

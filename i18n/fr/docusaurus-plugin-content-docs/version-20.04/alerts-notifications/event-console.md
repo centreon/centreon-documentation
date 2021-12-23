@@ -21,21 +21,21 @@ données. Le tableau ci-dessous résume les différentes fonctions de ces icône
 
 Pour visualiser le statut des hôtes, rendez-vous dans le menu **Monitoring > Status Details > Hosts**
 
-![image](../assets/alerts/04unhandledproblems.png)
+![image](../assets/alerts/04unhandledproblems.png) 
 
 ### Description des colonnes
 
 * **S** : Affiche le niveau de criticité de l'hôte
 * **Hosts** : Affiche le nom de l'hôte
-* L'icône suivante indique que les notifications pour cet hôte sont désactivées : ![image](../assets/alerts/nonotifications.png)
-* L'icône suivante peut être utilisée pour afficher tous les graphiques de performances pour cet hôte : ![image](../assets/alerts/graphperformances.png)
-* L'icône suivante permet d'accéder à une URL prédéfinie configurée : ![image](../assets/alerts/url_link.png)
+  * L'icône suivante indique que les notifications pour cet hôte sont désactivées : ![image](../assets/alerts/nonotifications.png)
+  * L'icône suivante peut être utilisée pour afficher tous les graphiques de performances pour cet hôte : ![image](../assets/alerts/graphperformances.png)
+  * L'icône suivante permet d'accéder à une URL prédéfinie configurée : ![image](../assets/alerts/url_link.png)
 * **Status** : Sert à visualiser le statut de l'hôte
 * **IP Address** : Indique l'adresse IP de l'hôte
 * **Last Check** : Affiche la date et l'heure de la dernière vérification
 * **Duration** : Affiche la durée pendant laquelle l'hôte a conservé son état actuel
 * **Hard State Duration** : Affiche la durée pendant laquelle l'hôte a conservé son état dur actuel (n'apparaît pas
-lorsque visualisation de tous les hôtes)
+  lorsque visualisation de tous les hôtes)
 * **Tries** : Affiche le nombre d'essais avant de confirmer l'état
 * **Status information** : Affiche le message expliquant l'état de l'hôte
 
@@ -46,9 +46,9 @@ lorsque visualisation de tous les hôtes)
 Vous pouvez filtrer le résultat présenté via les filtres suivants :
 
 * **Host Status** :
-* Pour afficher les hôtes avec un problème mais non reconnu ou non en temps d'arrêt, choisissez **Unhandled Problems**.
-* Pour afficher tous les hôtes avec un problème, choisissez **Host Problems**.
-* Pour voir tous les hôtes, choisissez **All**.
+  * Pour afficher les hôtes avec un problème mais non reconnu ou non en temps d'arrêt, choisissez **Unhandled Problems**.
+  * Pour afficher tous les hôtes avec un problème, choisissez **Host Problems**.
+  * Pour voir tous les hôtes, choisissez **All**.
 * **Host** : Peut être utilisé pour filtrer par nom d'hôte via une recherche de type SQL LIKE.
 * **Status** : Peut être utilisé pour filtrer par le statut des hôtes.
 * **Severity** : Peut être utilisé pour filtrer par criticité.
@@ -139,9 +139,9 @@ Pour visualiser le statut des services, rendez-vous dans le menu **Monitoring > 
 * **S** : Affiche le niveau de criticité du service.
 * **Host** : Affiche le nom de l'hôtet.
 * **Services** : Affiche le nom du service
-* L'icône suivante indique que les notifications pour ce service sont désactivées : ![image](../assets/alerts/nonotifications.png)
-* L'icône suivante peut être utilisée pour afficher le graphique de performances de ce service : ![image](../assets/alerts/graphperformances.png)
-* L'icône suivante permet d'accéder à une URL prédéfinie configurée : ![image](../assets/alerts/url_link.png)
+  * L'icône suivante indique que les notifications pour ce service sont désactivées : ![image](../assets/alerts/nonotifications.png)
+  * L'icône suivante peut être utilisée pour afficher le graphique de performances de ce service : ![image](../assets/alerts/graphperformances.png)
+  * L'icône suivante permet d'accéder à une URL prédéfinie configurée : ![image](../assets/alerts/url_link.png)
 * **Duration** : Affiche la durée du statut réel.
 * **Hard State Duration** : Affiche la durée du statut non-ok validé.
 * **Last Check** : Affiche la date et l'heure de la dernière vérification.
@@ -155,19 +155,19 @@ Pour visualiser le statut des services, rendez-vous dans le menu **Monitoring > 
 ### Filtres disponibles
 
 * **Service Status**:
-* Pour afficher les services avec un problème mais non reconnu ou non en temps d'arrêt, choisissez **Unhandled Problems**.
-* Pour afficher tous les services présentant un problème, choisissez **Host Problems**.
-* Pour voir tous les services, choisissez **All**.
+  * Pour afficher les services avec un problème mais non reconnu ou non en temps d'arrêt, choisissez **Unhandled Problems**.
+  * Pour afficher tous les services présentant un problème, choisissez **Host Problems**.
+  * Pour voir tous les services, choisissez **All**.
 * **Status** : Peut être utilisé pour filtrer par le statut des services.
 * **Severity** : Ppeut être utilisé pour filtrer par criticité.
 * **Poller** : Peut être utilisé pour filtrer les services par collecteur. Seuls les services du collecteur sélectionné
-seront affichés.
+  seront affichés.
 * **Host** : Peut être utilisé pour filtrer par nom d'hôte via une recherche de type SQL LIKE.
 * **Service** : Peut être utilisé pour filtrer par nom de service via une recherche de type SQL LIKE.
 * **Hostgroup** : Peut être utilisé pour filtrer par groupe d'hôtes. Seuls les hôtes du groupe d'hôtes sélectionné seront
-affichés.
+  affichés.
 * **Servicegroup** : Peut être utilisé pour filtrer par groupe de services. Seuls les services du groupe de services
-sélectionné seront affichés.
+  sélectionné seront affichés.
 * **Output** : Peut être utilisé pour filtrer par le résultat de la vérification.
 
 ## Services Grid
@@ -216,27 +216,27 @@ Lorsque vous cliquez sur un service, l'écran suivant apparaît:
 
 Description des attributs disponibles pour les détails du service :
 
-* **Service Status** : Affiche l'état du service.
-* **Status information** : Affiche les informations sur l'état du service.
-* **Extended status information** : Affiche la sortie longue du service.
-* **Performance Data** : Affiche les données de performances associées à la vérification.
-* **Current Attempt** : Affiche le nombre de tentatives avant la validation de l'état.
-* **State Type** : Affiche le type d'état ('SOFT' ou 'HARD').
-* **Last Check Type** : Indique si le dernier type de contrôle est "actif" ou "passif".
-* **Last Check** : Affiche la dernière vérification du service.
-* **Next Scheduled Active Check** : Affiche la prochaine vérification planifiée du service.
-* **Latency** : Affiche la latence en secondes entre la vérification planifiée et l'exécution réelle de la vérification.
-* **Check Duration** : Affiche la durée d'exécution de la vérification.
-* **Last State Change** : Affiche la date et l'heure à partir desquelles l'hôte se trouve dans l'état actuel.
-* **Current State Duration** : Affiche la date et l'heure à partir desquelles l'hôte se trouve dans l'état actuel.
-* **Last Service Notification** : Affiche la date et l'heure d'envoi de la dernière notification.
-* **Current Notification Number** : Affiche le nombre de notifications envoyées.
-* **Is This Service Flapping?** : Indique si l'hôte est en FLAPPING
-* **Percent State Change** : Affiche le pourcentage de changement d'état.
-* **In Scheduled Downtime?** : Indique si l'hôte est en temps d'arrêt planifié.
+* **Service Status** : Affiche l'état du service.                                                            
+* **Status information** : Affiche les informations sur l'état du service.                                
+* **Extended status information** : Affiche la sortie longue du service.                                                        
+* **Performance Data** : Affiche les données de performances associées à la vérification.                                               
+* **Current Attempt** : Affiche le nombre de tentatives avant la validation de l'état.                                       
+* **State Type** : Affiche le type d'état ('SOFT' ou 'HARD').                                                 
+* **Last Check Type** : Indique si le dernier type de contrôle est "actif" ou "passif".                                    
+* **Last Check** : Affiche la dernière vérification du service.                                                     
+* **Next Scheduled Active Check** : Affiche la prochaine vérification planifiée du service.                                             
+* **Latency** : Affiche la latence en secondes entre la vérification planifiée et l'exécution réelle de la vérification.       
+* **Check Duration** : Affiche la durée d'exécution de la vérification.                                                       
+* **Last State Change** : Affiche la date et l'heure à partir desquelles l'hôte se trouve dans l'état actuel.                                                   
+* **Current State Duration** : Affiche la date et l'heure à partir desquelles l'hôte se trouve dans l'état actuel.                      
+* **Last Service Notification** : Affiche la date et l'heure d'envoi de la dernière notification.                                         
+* **Current Notification Number** : Affiche le nombre de notifications envoyées.                                             
+* **Is This Service Flapping?** : Indique si l'hôte est en FLAPPING                                                    
+* **Percent State Change** : Affiche le pourcentage de changement d'état.                                                      
+* **In Scheduled Downtime?** : Indique si l'hôte est en temps d'arrêt planifié.                                           
 * **Last Update** : Affiche la date et l'heure de la dernière mise à jour des informations.
 * **Executed Check Command Line** : En ce qui concerne vos droits ACL, vous pouvez avoir accès à la ligne de commande
-exécutée. Les mots de passe sera remplacé par **\***
+  exécutée. Les mots de passe sera remplacé par **\*** 
 
 ### Graphique détaillé et graphique d'état
 
@@ -258,7 +258,7 @@ graphiques historiques pour ce service.
 
 * **Re-schedule the next check for this service** : Permet de reprogrammer la prochaine vérification du service.
 * **Re-schedule the next check for this service (forced)** : Permet de reprogrammer la prochaine vérification du service,
-même si la période de vérification n'est pas valide.
+  même si la période de vérification n'est pas valide.
 * **Schedule downtime for this service** : Permet de planifier des temps d'arrêt pour le service.
 **Add a comment for this service** : Permet d'ajouter un commentaire pour le service.
 

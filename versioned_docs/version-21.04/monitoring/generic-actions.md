@@ -2,9 +2,6 @@
 id: generic-actions
 title: Generic actions
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 In the **Configuration** menu it is possible to perform certain “generic” actions on the various objects.
 
@@ -27,8 +24,8 @@ Thanks to this method, it is no longer necessary to create each host individuall
 
 To duplicate an object:
 
-<Tabs groupId="operating-systems">
-<TabItem value="Method 1" label="Method 1">
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Method 1-->
 
 For exemple, to duplicate a Business Activity:
 
@@ -36,26 +33,24 @@ For exemple, to duplicate a Business Activity:
 2. Click on the duplicate icon: <img src={require('../assets/configuration/common/duplicate_new.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 3. Enter the number of extra copies that you want to obtain:
 
-![image](../assets/configuration/common/duplicate_objects_new.png)
+    ![image](../assets/configuration/common/duplicate_objects_new.png)
 
 4. Click on **OK**.
 
-</TabItem>
-<TabItem value="Method 2" label="Method 2">
+<!--Method 2-->
 
 For example, to duplicate a host:
 
 1. Select the host that you want to duplicate.
 2. In the **Options** column, enter the number of extra copies that you want to obtain:
 
-![image](../assets/configuration/common/01duplicate.png)
+    ![image](../assets/configuration/common/01duplicate.png)
 
 3. In the **More actions** menu click on **Duplicate**:
 
-![image](../assets/configuration/common/01duplicateobjects.png)
+    ![image](../assets/configuration/common/01duplicateobjects.png)
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Massive Change
 
@@ -66,15 +61,14 @@ community without it being necessary to change each sheet of each host individua
 
 To perform a massive change:
 
-<Tabs groupId="operating-systems">
-<TabItem value="Method 1" label="Method 1">
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Method 1-->
 
 1. Select the objects that you want to change.
 2. Click the **Massive change** icon above the list of objects: ![image](../assets/configuration/common/mass_change.png)
 3. Confirm the changes.
 
-</TabItem>
-<TabItem value="Method 2" label="Method 2">
+<!--Method 2-->
 
 1. Select the objects you want to change.
 2. In the **More actions** menu, click on **Massive Change**.
@@ -82,9 +76,7 @@ To perform a massive change:
 
 * **Incremental**: signifies that the change will be added to the existing options
 * **Replacement**: signifies that the change will overwrite the existing options.
-
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Enabling/disabling objects
 
@@ -93,17 +85,16 @@ The main advantage is to be able to keep the configuration of an object without 
 
 To enable/disable an object:
 
-<Tabs groupId="operating-systems">
-<TabItem value="Method 1" label="Method 1">
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Method 1-->
 
 1. Select the objects you want to enable/disable.
 2. Click on the icon you want in the line of the object, or above the list:
 
-* **Enable**: <img src={require('../assets/configuration/common/enabled_new.png').default} style={{width:'24px', marginBottom:'-6px'}} />
-* **Disable**: <img src={require('../assets/configuration/common/disabled_new.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+    * **Enable**: <img src={require('../assets/configuration/common/enabled_new.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+    * **Disable**: <img src={require('../assets/configuration/common/disabled_new.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 
-</TabItem>
-<TabItem value="Method 2" label="Method 2">
+<!--Method 2-->
 
 1. Select the objects you want to change.
 2. In the **More actions**  menu, click on **Enable/Disable**.
@@ -115,8 +106,7 @@ You can also use the following buttons at the end of the line:
 
 ![image](../assets/configuration/common/enable_disable.png)
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Deleting objects
 
@@ -126,19 +116,17 @@ You can also use the following buttons at the end of the line:
 
 To delete an object:
 
-<Tabs groupId="operating-systems">
-<TabItem value="Method 1" label="Method 1">
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Method 1-->
 
 1. Select the objects you want to delete.
 2. Click on the **Delete** icon: <img src={require('../assets/configuration/common/delete_new.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 3. Confirm the action.
 
-</TabItem>
-<TabItem value="Method 2" label="Method 2">
+<!--Method 2-->
 
 1. Select the objects you want to delete.
 2. In the **More actions** menu, click on **Delete**.
 3. Confirm the action.
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->

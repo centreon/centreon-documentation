@@ -2,9 +2,6 @@
 id: cloud-azure-network-frontdoor
 title: Azure Front Door
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Vue d'ensemble
 
@@ -21,11 +18,11 @@ Front Door. Il est possible d'utiliser les 2 modes proposés par Microsoft: Rest
 ### Objets supervisés
 
 * Instances Azure *FrontDoor*
-* Backend-Health
-* Health
-* Latency
-* Requests
-* Size
+    * Backend-Health
+    * Health
+    * Latency
+    * Requests
+    * Size
 
 ### Règles de découverte
 
@@ -35,38 +32,36 @@ Celui-ci permet de découvrir l'ensemble des instances *Front Door* rattachés �
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-network-frontdoor-provider.png)
 
 > La découverte *Azure Front Door* n'est compatible qu'avec le mode 'api'. Le mode 'azcli' n'est pas supporté dans le cadre
-> de cette utilisation.
+> de cette utilisation. 
 
 Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionnement sur la documentation du module:
 [Découverte des hôtes](../../../monitoring/discovery/hosts-discovery)
 
-### Métriques & statuts collectés
+### Métriques & statuts collectés 
 
-<Tabs groupId="operating-systems">
-<TabItem value="BackendHealth" label="BackendHealth">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Backend-Health-->
 
 | Metric Name                         | Description               | Unit |
 | :---------------------------------- | :------------------------ | :--- |
 | frontdoor.backend.health.percentage | Backend Health Percentage | %    |
 
-</TabItem>
-<TabItem value="Health" label="Health">
+<!--Health-->
 
 | Status Name | Description                 |
 | :---------- | :-------------------------- |
 | status      | Current operational status  |
 | summary     | Last related status message |
 
-</TabItem>
-<TabItem value="Latency" label="Latency">
+<!--Latency-->
 
 | Metric Name                            | Description             | Unit |
 | :------------------------------------- | :---------------------- | :--- |
 | frontdoor.latency.backend.milliseconds | Backend Request Latency | ms   |
 | frontdoor.latency.total.milliseconds   | Total Latency           | ms   |
 
-</TabItem>
-<TabItem value="Requests" label="Requests">
+<!--Requests-->
 
 | Metric Name                      | Description            | Unit  |
 | :------------------------------- | :--------------------- | :---- |
@@ -74,8 +69,7 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 | frontdoor.requests.total.count   | Total Requests Count   | Count |
 | frontdoor.requests.waf.count     | WAF Requests Count     | Count |
 
-</TabItem>
-<TabItem value="Size" label="Size">
+<!--Size-->
 
 | Metric Name                   | Description            | Unit |
 | :---------------------------- | :--------------------- | :--- |
@@ -83,73 +77,72 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 | frontdoor.size.requests.bytes | Requests Size          | B    |
 | frontdoor.size.response.bytes | Response Size          | B    |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
-Deux moyens sont disponibles pour interroger les API Microsoft Azure.
+Deux moyens sont disponibles pour interroger les API Microsoft Azure. 
 
 Centreon préconise l'utilisation de la méthode *API* plutôt que la *CLI*, cette dernière étant significativement
 moins performante. L'API permet également une authentification *Application* et ne nécessite pas de compte de service dédié.
 
-<Tabs groupId="operating-systems">
-<TabItem value="Azure Monitor API" label="Azure Monitor API">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Azure Monitor API-->
 
 Pour le custom-mode 'api', récupérez les informations en suivant la procédure ci-dessous (en anglais)
 et notez celles-ci en lieu sûr. Elles seront en effet indispensables lors de la configuration des ressources
 dans Centreon.
 
 * Create an *application* in Azure Active Directory:
-- Log in to your Azure account.
-- Select *Azure Active directory* in the left sidebar.
-- Click on *App registrations*.
-- Click on *+ Add*.
-- Enter Centreon as the application name (or any name of your choice), select application type(api) and sign-on-url.
-- Click on the *Create* button.
+    - Log in to your Azure account.
+    - Select *Azure Active directory* in the left sidebar.
+    - Click on *App registrations*.
+    - Click on *+ Add*.
+    - Enter Centreon as the application name (or any name of your choice), select application type(api) and sign-on-url.
+    - Click on the *Create* button.
 
 * Get *Subscription ID*
-- Log in to your Azure account.
-- Select *Subscriptions* in the left sidebar.
-- Select whichever subscription is needed.
-- Click on *Overview*.
-- **Copy the Subscription ID.**
+    - Log in to your Azure account.
+    - Select *Subscriptions* in the left sidebar.
+    - Select whichever subscription is needed.
+    - Click on *Overview*.
+    - **Copy the Subscription ID.**
 
 * Get *Tenant ID*
-- Log in to your Azure account.
-- Select *Azure Active directory* in the left sidebar.
-- Click on *Properties*.
-- **Copy the directory ID.**
+    - Log in to your Azure account.
+    - Select *Azure Active directory* in the left sidebar.
+    - Click on *Properties*.
+    - **Copy the directory ID.**
 
 * Get *Client ID*
-- Log in to your Azure account.
-- Select *Azure Active directory* in the left sidebar.
-- Click on *Enterprise applications*.
-- Click on *All applications*.
-- Select the application previously created.
-- Click on *Properties*.
-- **Copy the Application ID.**
+    - Log in to your Azure account.
+    - Select *Azure Active directory* in the left sidebar.
+    - Click on *Enterprise applications*.
+    - Click on *All applications*.
+    - Select the application previously created.
+    - Click on *Properties*.
+    - **Copy the Application ID.**
 
 * Get *Client secret*
-- Log in to your Azure account.
-- Select *Azure Active directory* in the left sidebar.
-- Click on *App registrations*.
-- Select the application previously created.
-- Click on *All settings*.
-- Click on *Keys*.
-- Enter the key description and select the duration.
-- Click on *Save*.
-- **Copy and store the key value. You won't be able to retrieve it after you leave this page.**
+    - Log in to your Azure account.
+    - Select *Azure Active directory* in the left sidebar.
+    - Click on *App registrations*.
+    - Select the application previously created.
+    - Click on *All settings*.
+    - Click on *Keys*.
+    - Enter the key description and select the duration.
+    - Click on *Save*.
+    - **Copy and store the key value. You won't be able to retrieve it after you leave this page.**
 
-</TabItem>
-<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
+<!--Azure AZ CLI-->
 
 Afin d'utiliser le custom-mode 'azcli', installez le binaire associé sur tous les Collecteurs Centreon
 devant superviser des resources Azure:
 
 - La CLI requiert une version de Python >= 2.7 (<https://github.com/Azure/azure-cli/blob/dev/doc/install_linux_prerequisites.md>)
 
-Sur un système utilisant le packaging RPM, utilisez les commandes ci-dessous avec
+Sur un système utilisant le packaging RPM, utilisez les commandes ci-dessous avec 
 l'utilisateur *root* ou un utilisateur avec les droits 'sudo' adéquats:
 
 ```shell
@@ -168,41 +161,41 @@ az login
 
 La commande retourne le message ci-dessous contenant un code:
 
-*To sign in, use a web browser to open the page https://microsoft.com/devicelogin*
-*and enter the code CWT4WQZAD to authenticate.*
+    *To sign in, use a web browser to open the page https://microsoft.com/devicelogin*
+    *and enter the code CWT4WQZAD to authenticate.*
 
 Rendez-vous sur <https://microsoft.com/devicelogin> afin de saisir le code obtenu, puis connectez vous avec le compte de service dédié à la supervision.
 
 Une fois ces actions effectuées, des informations d'auhtentification de la forme suivante devraient s'afficher dans le terminal
-du collecteur Centreon:
+du collecteur Centreon: 
 
 ```shell
-[
-{
-"cloudName": "AzureCloud",
-"id": "0ef83f3a-d83e-2039-d930-309df93acd93d",
-"isDefault": true,
-"name": "N/A(tenant level account)",
-"state": "Enabled",
-"tenantId": "0ef83f3a-03cd-2039-d930-90fd39ecd048",
-"user": {
-"name": "email@mycompany.onmicrosoft.com",
-"type": "user"
-}
-}
-]
+    [
+      {
+        "cloudName": "AzureCloud",
+        "id": "0ef83f3a-d83e-2039-d930-309df93acd93d",
+        "isDefault": true,
+        "name": "N/A(tenant level account)",
+        "state": "Enabled",
+        "tenantId": "0ef83f3a-03cd-2039-d930-90fd39ecd048",
+        "user": {
+          "name": "email@mycompany.onmicrosoft.com",
+          "type": "user"
+        }
+      }
+    ]
 ```
 
-Vous avez désormais les informations stockées localement dans un fichier
-accessTokens.json qui sera utilisé automatiquement par le Plugin.
+Vous avez désormais les informations stockées localement dans un fichier 
+accessTokens.json qui sera utilisé automatiquement par le Plugin. 
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
-## Installation
+## Installation 
 
-<Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des resources Azure Front Door:
 
@@ -212,8 +205,7 @@ yum install centreon-plugin-Cloud-Azure-Network-FrontDoor-Api
 
 2. Sur l'interface Integration de Centreon, installer le Plugin-Pack *Azure Front Door* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des resources Azure Front Door:
 
@@ -229,20 +221,20 @@ yum install centreon-pack-cloud-azure-network-frontdoor.noarch
 
 3. Sur l'interface Integration de Centreon, installer le Plugin-Pack *Azure Front Door* depuis la page "Configuration > Plugin packs > Gestionnaire"
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
 ### Hôte
 
-* Ajoutez un Hôte à Centreon, remplissez le champ *Adresse IP/DNS* avec l'adresse 127.0.0.1
+* Ajoutez un Hôte à Centreon, remplissez le champ *Adresse IP/DNS* avec l'adresse 127.0.0.1 
 et appliquez-lui le Modèle d'Hôte *Cloud-Azure-Network-FrontDoor-custom*.
-* Une fois le modèle appliqué, les Macros ci-dessous indiquées comme requises (*Mandatory*)
+* Une fois le modèle appliqué, les Macros ci-dessous indiquées comme requises (*Mandatory*) 
 doivent être renseignées selon le custom-mode utilisé:
 
-<Tabs groupId="operating-systems">
-<TabItem value="Azure Monitor API" label="Azure Monitor API">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Azure Monitor API-->
 
 | Mandatory | Nom               | Description                   |
 | :-------- | :---------------- | :---------------------------- |
@@ -253,8 +245,7 @@ doivent être renseignées selon le custom-mode utilisé:
 | X         | AZURECLIENTSECRET | Client secret                 |
 | X         | AZURERESOURCE     | Id of the Front Door resource |
 
-</TabItem>
-<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
+<!--Azure AZ CLI-->
 
 | Mandatory | Nom               | Description                   |
 | :-------- | :---------------- | :---------------------------- |
@@ -262,8 +253,7 @@ doivent être renseignées selon le custom-mode utilisé:
 | X         | AZURESUBSCRIPTION | Subscription ID               |
 | X         | AZURERESOURCE     | Id of the Front Door resource |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## FAQ
 
@@ -275,20 +265,20 @@ commande depuis votre collecteur Centreon en vous connectant avec l'utilisateur
 
 ```bash
 /usr/lib/centreon/plugins/centreon_azure_network_frontdoor_api.pl \
---plugin=cloud::azure::network::frontdoor::plugin \
---mode=latency \
---custommode=api \
---subscription='xxxxxxxxx' \
---tenant='xxxxxxxxx' \
---client-id='xxxxxxxxx' \
---client-secret='xxxxxxxxx' \
---resource='FRT001ABCD' \
---resource-group='RSG1234' \
---timeframe='900' \
---interval='PT5M' \
---aggregation='Average' \
---warning-total-latency='800' \
---critical-total-latency='900'
+    --plugin=cloud::azure::network::frontdoor::plugin \
+    --mode=latency \
+    --custommode=api \
+    --subscription='xxxxxxxxx' \
+    --tenant='xxxxxxxxx' \
+    --client-id='xxxxxxxxx' \
+    --client-secret='xxxxxxxxx' \
+    --resource='FRT001ABCD' \
+    --resource-group='RSG1234' \
+    --timeframe='900' \
+    --interval='PT5M' \
+    --aggregation='Average' \
+    --warning-total-latency='800' \
+    --critical-total-latency='900'
 ```
 
 La commande devrait retourner un message de sortie similaire à:
@@ -305,7 +295,7 @@ La commande ci-dessus vérifie la latence des connexions à l'instance *Front Do
 Le mode de connexion utilisé est 'api' (```--custommode=api```), les paramètres d'authentification nécessaires à l'utilisation de ce mode
 sont donc renseignés en fonction (```--subscription='xxxxxxxxx' --tenant='xxxxxxx' --client-id='xxxxxxxx' --client-secret='xxxxxxxxxx'```).
 
-Les statuts caculés se baseront sur les valeurs moyennes d'un échantillon dans un intervalle de 15 minutes / 900 secondes  (```--timeframe='900'```)
+Les statuts caculés se baseront sur les valeurs moyennes d'un échantillon dans un intervalle de 15 minutes / 900 secondes  (```--timeframe='900'```) 
 avec un état retourné par tranche de 5 minutes (```--interval='PT5M'```).
 
 Dans cet exemple, une alarme de type WARNING sera déclenchée si la latence totale pendant l'intervalle donné
@@ -317,35 +307,35 @@ peut être affichée en ajoutant le paramètre ```--help``` à la commande:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_azure_network_frontdoor_api.pl \
---plugin=cloud::azure::network::frontdoor::plugin \
---mode=latency \
---help
+    --plugin=cloud::azure::network::frontdoor::plugin \
+    --mode=latency \
+    --help
 ```
 
-### Diagnostic des erreurs communes
+### Diagnostic des erreurs communes  
 
 #### Les identifiants ont changé et mon Plugin ne fonctionne plus
 
-Le Plugin utilise un fichier de cache pour conserver les informations de connexion afin de ne pas
-se ré-authentifier à chaque appel. Si des informations sur le Tenant, la Souscription ou les
-Client ID / Secret changent, il est nécessaire de supprimer le fichier de cache du Plugin.
+Le Plugin utilise un fichier de cache pour conserver les informations de connexion afin de ne pas 
+se ré-authentifier à chaque appel. Si des informations sur le Tenant, la Souscription ou les 
+Client ID / Secret changent, il est nécessaire de supprimer le fichier de cache du Plugin. 
 
 Celui ci se trouve dans le répertoire ```/var/lib/centreon/centplugins/``` avec le nom `azure_api_<md5>_<md5>_<md5>_<md5>`.
 
 #### ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```
 
-Lors du déploiement de mes contrôles, j'obtiens le message suivant :
+Lors du déploiement de mes contrôles, j'obtiens le message suivant : 
 ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```.
 
-Cela signifie que l'un des paramètres utilisés pour authentifier la requête est incorrect. Le paramètre
-en question est spécifié dans le message d'erreur en lieu et place de 'ERROR_DESC'.
+Cela signifie que l'un des paramètres utilisés pour authentifier la requête est incorrect. Le paramètre 
+en question est spécifié dans le message d'erreur en lieu et place de 'ERROR_DESC'. 
 
 Par exemple, 'invalid_client' signifie que le client-id et/ou le client-secret
 n'est (ne sont) pas valide(s).
 
 #### ```UNKNOWN: 500 Can't connect to login.microsoftonline.com:443```
 
-Si l'utilisation d'un proxy est requise pour les connexions HTTP depuis le
+Si l'utilisation d'un proxy est requise pour les connexions HTTP depuis le 
 collecteur Centreon, il est nécessaire de le préciser dans la commande en
 utilisant l'option ```--proxyurl='http://proxy.mycompany.com:8080'```.
 
@@ -354,7 +344,7 @@ effectuée par le Plugin.
 
 #### ```UNKNOWN: No metrics. Check your options or use --zeroed option to set 0 on undefined values```
 
-Lors du déploiement de mes contrôles, j'obtiens le message suivant 'UNKNOWN: No metrics. Check your options or use --zeroed option to set 0 on undefined values'.
+Lors du déploiement de mes contrôles, j'obtiens le message suivant 'UNKNOWN: No metrics. Check your options or use --zeroed option to set 0 on undefined values'. 
 
 Cela signifie qu'Azure n'a pas consolidé de données sur la période.
 

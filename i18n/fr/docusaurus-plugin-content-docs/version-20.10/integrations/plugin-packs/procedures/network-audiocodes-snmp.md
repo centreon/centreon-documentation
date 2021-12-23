@@ -17,8 +17,8 @@ yum install centreon-plugin-Network-Audiocodes-Snmp
 
 Be sure to have with you the following information:
 
-- Read-Only SNMP community
-- IP Address of the monitoring server
+  - Read-Only SNMP community
+  - IP Address of the monitoring server
 
 ### Troubleshooting
 

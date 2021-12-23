@@ -9,11 +9,11 @@ de modèles de configuration qui permet un déploiement rapide de la supervision
 Un Plugin Pack est constitué de deux éléments, installés séparément :
 - Un plugin, qui exécute les commandes de supervision depuis un collecteur. Il est installé en ligne de commande.
 - Un pack, qui contient des commandes, des modèles de services et des modèles d’hôtes. Il est installé via l'interface de Centreon.
-Pour chaque type d’équipement, les modèles déterminent quels indicateurs seront
+  Pour chaque type d’équipement, les modèles déterminent quels indicateurs seront
 supervisés et définissent les valeurs par défaut des seuils Warning et
 Critical (celles-ci sont modifiables par la suite).
 
-Certains packs contiennent aussi des [règles de découverte d'hôtes et de services](discovery/introduction).
+  Certains packs contiennent aussi des [règles de découverte d'hôtes et de services](discovery/introduction).
 
 La liste de tous les Plugin Packs disponibles dans la
 bibliothèque en ligne Centreon et les procédures de mise en supervision
@@ -64,20 +64,20 @@ Un plugin pack s'installe en 4 étapes :
 
 * Si vous avez une [licence](../administration/licenses) **en ligne**, le catalogue des Plugin Packs est déjà disponible sur votre plateforme à la page **Configuration > Packs de plugins**.
 * Si vous avez une licence **hors ligne** :
-- installez le dépôt des Plugin Packs (contactez l'[équipe support Centreon](https://centreon.force.com/) pour en obtenir l'adresse)
-- installez ou mettez à jour le catalogue des Plugin Packs
+  - installez le dépôt des Plugin Packs (contactez l'[équipe support Centreon](https://centreon.force.com/) pour en obtenir l'adresse)
+  - installez ou mettez à jour le catalogue des Plugin Packs
 depuis votre serveur central :
 
-```shell
-yum install centreon-pack-*
-```
+  ```shell
+  yum install centreon-pack-*
+  ```
 
-Ou:
+  Ou:
 
-```shell
-yum update centreon-pack-*
-```
-> Attention, même si la commande s'appelle `install`, elle ne fait que rendre le catalogue des Plugin Packs disponible. Elle n'installe pas ceux-ci. Suivez le reste de la procédure.
+  ```shell
+  yum update centreon-pack-*
+  ```
+  > Attention, même si la commande s'appelle `install`, elle ne fait que rendre le catalogue des Plugin Packs disponible. Elle n'installe pas ceux-ci. Suivez le reste de la procédure.
 
 ### Installer le pack
 

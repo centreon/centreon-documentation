@@ -29,12 +29,12 @@ apporte les fonctionnalités suivantes:
 - Des critères de filtres additionnels multi-valeurs
 - Possibilité de sauvegarder et gérer vos filtres
 - Des actions rapide sur les lignes et efficace via des boutons accessibles en
-haut de page (acquittement, mise en place de plage de maintenance,
-rafraîchissement du statut), soumettre un résultat, etc.
+  haut de page (acquittement, mise en place de plage de maintenance,
+  rafraîchissement du statut), soumettre un résultat, etc.
 - Des informations détaillées affichées sous forme de panneau au dessus de la
-liste afin de toujours garder un oeil et d'accéder facilement à d'autres
-ressources, comme : les détails des objets, les informations, la chronologie
-des événements, le graphique de performance associé et les raccourcis.
+  liste afin de toujours garder un oeil et d'accéder facilement à d'autres
+  ressources, comme : les détails des objets, les informations, la chronologie
+  des événements, le graphique de performance associé et les raccourcis.
 
 ![image](../assets/monitoring/resources_status_1.png)
 
@@ -47,20 +47,20 @@ La fonctionnalité Host Discovery venant de l'extension Auto Discovery a été
 améliorée pour ajouter de nouvelles possibilités :
 
 - L'assistant Host Discovery permet désormais de planifier vos découvertes de
-plusieurs manières: annuelle, mensuelle, quotidienne, horaire et même toutes
-les x minutes.
+  plusieurs manières: annuelle, mensuelle, quotidienne, horaire et même toutes
+  les x minutes.
 - Les travaux de découverte planifiés peuvent être suspendus et repris à tout
-moment.
+  moment.
 - Le résultat de la découverte peut également être traité automatiquement pour
-ajouter, désactiver et, si nécessaire, réactiver les hôtes dans la
-configuration.
+  ajouter, désactiver et, si nécessaire, réactiver les hôtes dans la
+  configuration.
 - Si vous décidez d'ajouter manuellement les hôtes à partir de la page de
-résultats du travail, les règles de mappage peuvent maintenant être modifiées
-et enregistrées à partir de cette page pour répondre à vos besoins en appliquant
-la règle directement sur le résultat.
+  résultats du travail, les règles de mappage peuvent maintenant être modifiées
+  et enregistrées à partir de cette page pour répondre à vos besoins en appliquant
+  la règle directement sur le résultat.
 - Les nouveaux mappeurs *exclusion* et *inclusion* vous aideront à décider quels
-hôtes doivent être ajoutés dans la configuration, et ceux qui doivent être
-désactivés ou activés.
+  hôtes doivent être ajoutés dans la configuration, et ceux qui doivent être
+  désactivés ou activés.
 
 ![image](../assets/monitoring/discovery/host_disco_intro.png)
 

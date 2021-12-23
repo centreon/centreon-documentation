@@ -2,9 +2,6 @@
 id: manage-alerts
 title: Gestion des alertes
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 Ce chapitre présente les différentes méthodes de gestion des alertes.
 
@@ -34,39 +31,36 @@ nominal après changement du disque.
 
 Pour acquitter un incident, deux solutions sont possibles :
 
-<Tabs groupId="operating-systems">
-<TabItem value="From real time monitoring" label="From real time monitoring">
-
+<!--DOCUSAURUS_CODE_TABS-->
+<!--From real time monitoring-->
 1. Rendez-vous dans le menu **Monitoring > Status Details > Hosts** (or **services**) menu
 2. Select the object(s) that you want acknowledge
 3. In the menu: **More actions** click on **Hosts: Acknowledge** or on **Services: Acknowledge**
 
-</TabItem>
-<TabItem value="From the detailed sheet of an object" label="From the detailed sheet of an object">
-
+<!--From the detailed sheet of an object-->
+\
 A partir de la page de détail d’un objet, cliquez sur l’icône activé associé au champ **Acknowledged** dans le cadre
-**Options**
+**Options** 
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 La fenêtre suivante s’affiche :
 
-![image](../assets/alerts/acknowledged.png)
+![image](assets/alerts/acknowledged.png)
 
 * Si la case **Sticky** est cochée, alors l’acquittement sera conservé en cas de changement de statut non-OK (Exemple
-DOWN à UNREACHABLE ou bien WARNING à CRITICAL). Sinon, l’acquittement disparait et le processus de notification est
-réactivé.
+  DOWN à UNREACHABLE ou bien WARNING à CRITICAL). Sinon, l’acquittement disparait et le processus de notification est
+  réactivé.
 * Si la case **Notify** est cochée, alors une notification est envoyée aux contacts liés à l’objet pour les avertir
-que l’incident sur la ressource a été acquitté (dans le cas où le contact possède le filtre de notification
-d’acquittement d’activé).
+  que l’incident sur la ressource a été acquitté (dans le cas où le contact possède le filtre de notification
+  d’acquittement d’activé).
 * Si la case **Persistent** est cochée, alors l’acquittement sera conservé en cas de redémarrage de l’ordonnanceur.
-Sinon, l’acquittement disparait et le processus de notification est réactivé.
+  Sinon, l’acquittement disparait et le processus de notification est réactivé.
 * Le champ **Comment**  est généralement utilisé pour fournir la raison de l’acquittement et est obligatoire.
 * Si la casee **Acknowledge services attached to hosts** est cochée, alors tous les services liés à l’hôte seront
-acquittés (option visible uniquement si vous acquittez un hôte).
+  acquittés (option visible uniquement si vous acquittez un hôte).
 * Si la case **Force active checks** est cochée, alors une commande sera envoyée à l’ordonnanceur pour recontrôler dans
-les plus brefs délais la ressource.
+  les plus brefs délais la ressource.
 
 
 Pour supprimer l’acquittement d’un incident sur un objet :
@@ -101,43 +95,40 @@ Il y a trois possibilités différentes de définir un temps d’arrêt :
 * Depuis l’interface de supervision temps réelle
 * Depuis le menu **Downtime**
 
-<Tabs groupId="operating-systems">
-<TabItem value="Page de détails d'un objet" label="Page de détails d'un objet">
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Page de détails d'un objet-->
 
 1. Accédez à la page de détails d’un objet
 2. Dans la catégorie **Commands**, cliquez sur **Schedule downtime for this host/service**
 
-</TabItem>
-<TabItem value="Interface temps réelle" label="Interface temps réelle">
+<!--Interface temps réelle-->
 
 1. Rendez-vous dans le menu **Monitoring > Status Details > Hosts** (ou **services**)
 2. Sélectionnez le(s) objet(s) sur lesquels vous souhaitez planifier un temps d’arrêt
 3. Dans le menu **More actions...**, cliquez sur **Hosts : Set Downtime** ou **Services : Set Downtime**
 
-</TabItem>
-<TabItem value="Depuis le menu Downtime" label="Depuis le menu Downtime">
+<!--Depuis le menu Downtime-->
 
 1. Rendez-vous dans le menu **Monitoring > Downtimes > Downtimes**
 2. Cliquez sur **Add a service downtime** ou **Add a host downtime**
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 La fenêtre suivante s’affiche :
 
-![image](../assets/alerts/downtime.png)
+![image](assets/alerts/downtime.png)
 
 -   Le champ **Host Name** définit l'hôte concerné par le temps d'arrêt
 -   Le champ **Service** définit le service concerné par le temps
-d'arrêt
+    d'arrêt
 -   Si la case **Fixed** est cochée alors le temps d'arrêt est fixe.
-Sinon, il est flexible
+    Sinon, il est flexible
 -   Si le temps d'arrêt est flexible, le champ **Duration** définit la
-durée du temps d'arrêt
+    durée du temps d'arrêt
 -   Les champs **Start Time** et **End Time** définissent les dates de
-début et de fin du temps d'arrêt. Un temps d'arrêt ne peut pas débuter ou s'arrêter après le 31 décembre 2037 à 23:59.
+    début et de fin du temps d'arrêt. Un temps d'arrêt ne peut pas débuter ou s'arrêter après le 31 décembre 2037 à 23:59.
 -   Le champ **Comments** sert à indiquer pourquoi le temps d'arrêt est
-programmé
+    programmé
 
 ## Les temps d’arrêts récurrents
 
@@ -156,23 +147,23 @@ d’arrêts récurrents sur les services concernés afin d’éviter de recevoir
 > Les temps d’arrêts sont pris en comptes dans le calcul du taux de disponibilité de la ressource dans le menu @TODO#"Dashboard".
 
 #### En pratique
-
+ 
 Il existe deux types de temps d’arrêts :
 
 * Les temps d’arrêts **fixe** : C’est à dire que le temps d’arrêt a lieu exactement pendant la période de temps définie.
 * Les temps d’arrêts **flexible** : C’est à dire que si pendant la période de temps définie, le service ou l’hôte retourne
-un statut non-OK alors le temps d’arrêt démare et dure le nombre de secondes défini dans le formulaire.
+  un statut non-OK alors le temps d’arrêt démare et dure le nombre de secondes défini dans le formulaire.
 
 Pour ajouter un temps d’arrêt récurrent, rendez-vous dans le menu **Monitoring > Downtimes > Recurrent Downtimes** et
 cliquez sur **Add**.
+ 
+ ![image](assets/alerts/05recurrentdowntimes.png)
 
-![image](../assets/alerts/05recurrentdowntimes.png)
-
-##### Configuration des temps d’arrêts
+##### Configuration des temps d’arrêts 
 
 * Les champs **Name** et **Description** permettent de donner un nom et de décrire le temps d’arrêt récurrent.
 * Le champ **Enable** permet d’activer ou de désactiver le temps d’arrêt.
-* Le champ **Periods**  permet de définir une ou plusieurs périodes de temps d’arrêt récurrent. Pour ajouter une période, cliquez sur le symbole ![image](../assets/common/navigate_plus.png)
+* Le champ **Periods**  permet de définir une ou plusieurs périodes de temps d’arrêt récurrent. Pour ajouter une période, cliquez sur le symbole ![image](assets/common/navigate_plus.png)
 
 Il est possible de choisir trois types de périodes :
 
@@ -190,10 +181,10 @@ Il est possible de choisir trois types de périodes :
 
 * La liste **Linked with Hosts** permet de choisir le ou les hôtes concernés par le temps d’arrêt récurrent.
 * Si un groupe d’hôte est choisi avec la liste **Linked with Host Groups** tous les hôtes appartenant à ce groupe sont
-concernés par le temps d’arrêt récurrent.
+  concernés par le temps d’arrêt récurrent.
 * La liste **Linked with Services** permet de choisir le ou les services concernés par le temps d’arrêt récurrent.
 * Si un groupe de services est choisi avec la liste **Linked with Service Groups** tous les services appartenant à ce
-groupe sont concernés par le temps d’arrêt récurrent.
+  groupe sont concernés par le temps d’arrêt récurrent.
 
 ## Ajouter un commentaire
 
@@ -213,30 +204,28 @@ ressource (hôte ou service). Un commentaire possède les propriétés suivantes
 
 Pour ajouter un commentaire, deux solutions sont possibles :
 
-<Tabs groupId="operating-systems">
-<TabItem value="Page de détails d'un objet" label="Page de détails d'un objet">
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Page de détails d'un objet-->
 
 1. Accédez à la page de détails de l’objet
 2. Dans la catégorie **Host/Service Commands**, cliquez sur **Add a comment for this host/this service**
 
-</TabItem>
-<TabItem value="Depuis le menu commentaires" label="Depuis le menu commentaires">
+<!--Depuis le menu commentaires-->
 
 1. Rendez-vous dans le menu **Monitoring > Downtimes > Comments**
 2. Cliquez sur **Add a Service Comment** ou **Add a Host Comment**
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 La fenêtre suivante s’affiche :
 
-![image](../assets/alerts/comment.png)
+![image](assets/alerts/comment.png)
 
 * Le champ **Host Name** définit l’hôte concerné par le commentaire
 * Si vous avez choisi d’ajouter un commentaire pour un service, le champ **Service** vous permet de sélectionner le
-service concerné par le commentaire.
+  service concerné par le commentaire.
 * Si la case **Persistent** en cas de redémarrage de l’ordonnanceur est cochée, alors le commentaire sera conservé en
-cas de redémarrage de l’ordonnanceur.
+  cas de redémarrage de l’ordonnanceur.
 * Le champ **Comments**  contient le commentaire lui-même.
 
 ## Gestion des vérifications
@@ -251,19 +240,18 @@ Il est possible d’activer ou de désactiver momentanément la vérification d�
 
 #### En pratique
 
-<Tabs groupId="operating-systems">
-<TabItem value="Page de détails d'un objet" label="Page de détails d'un objet">
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Page de détails d'un objet-->
 
 1. Accédez à la page de détails de l’objet
 2. Dans la catégorie **Options** rendez-vous à la ligne **Active checks** pour vérifier l’état des contrôles.
 
 Pour :
 
-* Activer la vérification, cliquez sur ![image](../assets/configuration/common/enabled.png)
-* Désactiver la vérification, cliquez sur ![image](../assets/configuration/common/disabled.png)
+* Activer la vérification, cliquez sur ![image](assets/configuration/common/enabled.png)
+* Désactiver la vérification, cliquez sur ![image](assets/configuration/common/disabled.png)
 
-</TabItem>
-<TabItem value="Interface temps réelle" label="Interface temps réelle">
+<!--Interface temps réelle-->
 
 1. Rendez-vous dans le menu **Monitoring > Status Details > Hosts** (ou **services**)
 2. Sélectionnez le(s) objet(s) sur lesquels vous souhaitez activer ou de désactiver la vérification
@@ -272,8 +260,7 @@ Pour :
 * **Hosts : Disable Check** ou **Services: Disable Check** pour arrêter la vérification d’un hôte ou d’un service
 * **Hosts: Enable Check** ou **Services: Enable Check** pour activer la vérification d’un hôte ou d’un service
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Soumettre un résultat
 
@@ -289,7 +276,7 @@ Pour soumettre un résultat, accédez à la page de détails de l’objet. Dans 
 
 La fenêtre suivante s’affiche :
 
-![image](../assets/alerts/submitresult.png)
+![image](assets/alerts/submitresult.png)
 
 * Les champs **Host Name** et **Service** définissent l’hôte et le service pour lequel le résultat sera soumis
 * Le champ **Check result**définit le statut du service
@@ -310,19 +297,18 @@ Il est possible d’activer ou de désactiver momentanément la notification d�
 
 Il y a deux moyens de gérer les notifications :
 
-<Tabs groupId="operating-systems">
-<TabItem value="Page de détails d'un objet" label="Page de détails d'un objet">
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Page de détails d'un objet-->
 
 1. Accédez à la page de détails de l’objet
 2. Dans la catégorie **Options** rendez-vous à la ligne : **Service Notifications**
 
 To:
 
-* Activer la notification, cliquez sur ![image](../assets/configuration/common/enabled.png)
-* Désactiver la notification, cliquez sur ![image](../assets/configuration/common/disabled.png)
+* Activer la notification, cliquez sur ![image](assets/configuration/common/enabled.png)
+* Désactiver la notification, cliquez sur ![image](assets/configuration/common/disabled.png)
 
-</TabItem>
-<TabItem value="Interface temps réelle" label="Interface temps réelle">
+<!--Interface temps réelle-->
 
 1. Rendez-vous dans le menu **Monitoring > Status Details > Hosts** (ou **services**)
 2. Sélectionnez le ou les hôtes/services pour lesquels vous souhaitez activer ou de désactiver la notification
@@ -331,8 +317,7 @@ To:
 * **Hosts: Disable Notification** ou **Services: Disable Notification** pour arrêter la notification d’un hôte ou d’un service
 * **Hosts: Enable Notification** ou **Services: Enable Notification** pour activer la notification d’un hôte ou d’un service
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Reprogrammation des contrôles
 
@@ -345,28 +330,26 @@ programmation de ces derniers.
 Il existe deux types de programmation :
 
 * La programmation classique : la vérification du service est mise en priorité dans la file d’attente de l’ordonnanceur
-(dès que possible).
+  (dès que possible).
 * La programmation forcée : la vérification du service est mise en priorité dans la file d’attente de l’ordonnacneur
-(dès que possible) et cela même si l’heure de la demande d’exécution est en dehors de la période contrôle ou si le
-service n’est pas de type actif.
+  (dès que possible) et cela même si l’heure de la demande d’exécution est en dehors de la période contrôle ou si le
+  service n’est pas de type actif.
 
 #### En pratique
 
 Il y a deux moyens de forcer la vérification d’un service :
 
-<Tabs groupId="operating-systems">
-<TabItem value="Page de détails d'un objet" label="Page de détails d'un objet">
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Page de détails d'un objet-->
 
 1. Accédez à la page de détail de l’objet
 2. Dans la catégorie **Host Commands** (ou **Service Commands**), cliquez sur **Re-schedule the next check for this host /
-service** ou **Re-schedule the next check for this host / service (forced)**
+  service** ou **Re-schedule the next check for this host / service (forced)**
 
-</TabItem>
-<TabItem value="Interface temps réelle" label="Interface temps réelle">
+<!--Interface temps réelle-->
 
 1. Rendez-vous dans le menu **Monitoring > Status Details > Hosts** (ou **services**)
 2. Sélectionnez le ou les objets pour lesquels vous souhaitez forcer la vérification
 3. Dans le menu **More actions...** cliquez sur **Schedule immediate check** ou **Schedule immediate check (Forced)**
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->

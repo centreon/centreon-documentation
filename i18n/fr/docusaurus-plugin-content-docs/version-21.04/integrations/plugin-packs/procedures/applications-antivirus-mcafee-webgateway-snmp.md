@@ -2,18 +2,15 @@
 id: applications-antivirus-mcafee-webgateway-snmp
 title: McAfee Web Gateway
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Vue d'ensemble
 
 McAfee Web Gateway est un proxy d'entreprise qui fournit une analyse proactive
-du trafic Web et une protection contre les logiciels malveillants grâce à des
+du trafic Web et une protection contre les logiciels malveillants grâce à des 
 techniques avancées d'inspection en temps réel.
 
-Le Centreon Plugin-Pack Centreon *McAfee Web Gateway* permet de récupérer les
-versions de signature des bases de données et les statistiques Web et de
+Le Centreon Plugin-Pack Centreon *McAfee Web Gateway* permet de récupérer les 
+versions de signature des bases de données et les statistiques Web et de 
 détections des logiciels malveillants par l'intermédiaire du protocole SNMP.
 
 ## Contenu du Plugin-Pack
@@ -24,16 +21,16 @@ détections des logiciels malveillants par l'intermédiaire du protocole SNMP.
 
 ### Métriques collectées
 
-<Tabs groupId="operating-systems">
-<TabItem value="Clients" label="Clients">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Clients-->
 
 | Metric name             | Description                         |
 |:------------------------|:------------------------------------|
 | clients.connected.count | The number of connected client      |
 | sockets.connected.count | The number of open network sockets  |
 
-</TabItem>
-<TabItem value="Connections" label="Connections">
+<!--Connections-->
 
 | Metric name                               | Description                                                      | Unit          |
 |:------------------------------------------|:-----------------------------------------------------------------|:--------------|
@@ -43,8 +40,7 @@ détections des logiciels malveillants par l'intermédiaire du protocole SNMP.
 | connections.mediafilter.blocked.persecond | The number of connections blocked by the Media Filter per second | connections/s |
 | connections.urlfilter.blocked.persecond   | The number of connections blocked by the URL Filter per second   | connections/s |
 
-</TabItem>
-<TabItem value="Detections" label="Detections">
+<!--Detections-->
 
 * Global
 
@@ -58,8 +54,7 @@ détections des logiciels malveillants par l'intermédiaire du protocole SNMP.
 |:----------------------------------------------------|:------------------------------------------|:-------------|
 | *categoryname*#category.malwares.detected.persecond | The number of malware detected per second | detections/s |
 
-</TabItem>
-<TabItem value="Ftpstatistics" label="Ftpstatistics">
+<!--Ftpstatistics-->
 
 | Metric name                            | Description                      | Unit    |
 |:---------------------------------------|:---------------------------------|:------- |
@@ -68,8 +63,7 @@ détections des logiciels malveillants par l'intermédiaire du protocole SNMP.
 | ftp.traffic.proxytoclient.bitspersecond | FTP traffic from proxy to client | b/s     |
 | ftp.traffic.proxytoserver.bitspersecond | FTP traffic from proxy to server | b/s     |
 
-</TabItem>
-<TabItem value="Httpstatistics" label="Httpstatistics">
+<!--Httpstatistics-->
 
 | Metric name                             | Description                           | Unit    |
 |:----------------------------------------|:--------------------------------------|:------- |
@@ -79,8 +73,7 @@ détections des logiciels malveillants par l'intermédiaire du protocole SNMP.
 | http.traffic.proxytoclient.bitspersecond | HTTP traffic from proxy to client     | b/s     |
 | http.traffic.proxytoserver.bitspersecond | HTTP traffic from proxy to server     | b/s     |
 
-</TabItem>
-<TabItem value="Httpsstatistics" label="Httpsstatistics">
+<!--Httpsstatistics-->
 
 
 | Metric name                              | Description                            | Unit    |
@@ -91,8 +84,7 @@ détections des logiciels malveillants par l'intermédiaire du protocole SNMP.
 | https.traffic.proxytoclient.bitspersecond | HTTPS traffic from proxy to client     | b/s     |
 | https.traffic.proxytoserver.bitspersecond | HTTPS traffic from proxy to server     | b/s     |
 
-</TabItem>
-<TabItem value="Versions" label="Versions">
+<!--Versions-->
 
 | Metric name       | Description                    |
 |:------------------|:-------------------------------|
@@ -100,14 +92,13 @@ détections des logiciels malveillants par l'intermédiaire du protocole SNMP.
 | tsdb-version      | TrustedSource Database Version |
 | proactive-version | ProActive Database Version     |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
 ### Configuration du proxy McAfee Web Gateway
 
-Afin de superviser le proxy McAfee Web Gateway, le SNMP v2 ou v3 doit être
+Afin de superviser le proxy McAfee Web Gateway, le SNMP v2 ou v3 doit être 
 configuré comme indiqué sur la documentation officielle :
 
 * https://docs.mcafee.com/bundle/web-gateway-8.2.x-product-guide/page/GUID-7F25543B-2BE5-47A5-BC40-AEEF65F5D156
@@ -120,8 +111,9 @@ La communication doit être possible depuis le Collecteur Centreon vers le port 
 
 ## Installation
 
-<Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin Centreon McAfee Web Gatewaysur l'ensemble des Collecteurs Centreon supervisant un proxy McAfee Web Gateway :
 
@@ -131,8 +123,7 @@ yum install centreon-plugin-Applications-Antivirus-Mcafee-Webgateway-Snmp
 
 2. Installer le Plugin-Pack 'McAfee Web Gateway' depuis la page "Configuration > Plugin packs > Manager" de l'interface Web Centreon
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin Centreon McAfee Web Gateway sur l'ensemble des Collecteurs Centreon supervisant un proxy McAfee Web Gateway :
 
@@ -148,8 +139,7 @@ yum install centreon-pack-applications-antivirus-mcafee-webgateway-snmp
 
 3. Installer le Plugin-Pack 'McAfee Web Gateway' depuis la page "Configuration > Plugin packs > Manager" de l'interface Web Centreon
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration de l'Hôte
 
@@ -157,7 +147,7 @@ yum install centreon-pack-applications-antivirus-mcafee-webgateway-snmp
 * Complétez les champs "Nom", "Alias" & "IP Address / DNS" correspondant à votre proxy McAfee Web Gateway
 * Appliquez le Modèle d'Hôte *App-Antivirus-Mcafee-Webgateway-SNMP-custom*
 
-Si vous utilisez SNMP en version 3, vous devez configurer les paramètres
+Si vous utilisez SNMP en version 3, vous devez configurer les paramètres 
 spécifiques associés via la macro SNMPEXTRAOPTIONS
 
 | Mandatory | Name             | Description                                 |
@@ -169,22 +159,22 @@ spécifiques associés via la macro SNMPEXTRAOPTIONS
 ### Comment tester mes configurations et le Plugin en ligne de commande ?
 
 Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de
-commande depuis un collecteur Centreon en vous connectant avec l'utilisateur
+commande depuis un collecteur Centreon en vous connectant avec l'utilisateur 
 *centreon-engine* :
 
 ```bash
 /usr/lib/centreon/plugins/centreon_mcafee_webgateway_snmp.pl \
---plugin=apps::antivirus::mcafee::webgateway::snmp::plugin \
---mode=clients \
---hostname=10.0.0.1 \
---snmp-version='2c' \
---snmp-community='my-snmp-community' \
---filter-counters='' \
---warning-clients='20' \
---critical-clients='30' \
---warning-sockets='60' \
---critical-sockets='70' \
---use-new-perfdata
+    --plugin=apps::antivirus::mcafee::webgateway::snmp::plugin \
+    --mode=clients \
+    --hostname=10.0.0.1 \
+    --snmp-version='2c' \
+    --snmp-community='my-snmp-community' \
+    --filter-counters='' \
+    --warning-clients='20' \
+    --critical-clients='30' \
+    --warning-sockets='60' \
+    --critical-sockets='70' \
+    --use-new-perfdata
 ```
 
 La commande devrait retourner un message de sortie de la forme ci-dessous :
@@ -195,31 +185,31 @@ OK: Connected clients: 10, Open network sockets: 50 | 'clients.connected.count'=
 
 Dans cet exemple, le Plugin récupère le nombre de clients connectés
 (```--plugin=apps::antivirus::mcafee::webgateway::snmp::plugin--mode=client```)
-renvoyé par McAfee Web Gateway à l'adresse 10.0.0.1 par l'intermédiaire du
+renvoyé par McAfee Web Gateway à l'adresse 10.0.0.1 par l'intermédiaire du 
 protocole SNMP
 (```--hostname='10.0.0.1'  --snmp-version='2c' --snmp-community='mysnmpcommunity'```).
 
 Dans cet exemple, une alarme est déclenchée si le nombre de client connectés est
-plus grand que 30 (```--critical-clients='30'```) ou si le nombre de prise
+plus grand que 30 (```--critical-clients='30'```) ou si le nombre de prise 
 réseaux ouvertes est plus grand que 70 (```--critical-sockets='70'```)
 
-La liste de toutes les options complémentaires et leur signification peut être
+La liste de toutes les options complémentaires et leur signification peut être 
 affichée en ajoutant le paramètre ```--help``` à la commande :
 
 ```bash
 /usr/lib/centreon/plugins/centreon_mcafee_webgateway_snmp.pl \
---plugin=apps::antivirus::mcafee::webgateway::snmp::plugin \
---mode=clients \
---help
+    --plugin=apps::antivirus::mcafee::webgateway::snmp::plugin \
+    --mode=clients \
+    --help
 ```
 
-Tous les modes disponibles peuvent être affichés via l'option
+Tous les modes disponibles peuvent être affichés via l'option 
 ```--list-mode``` :
 
 ```bash
 /usr/lib/centreon/plugins/centreon_mcafee_webgateway_snmp.pl \
---plugin=apps::antivirus::mcafee::webgateway::snmp::plugin \
---list-mode
+    --plugin=apps::antivirus::mcafee::webgateway::snmp::plugin \
+    --list-mode
 ```
 
 ## Troubleshooting
@@ -228,11 +218,11 @@ Tous les modes disponibles peuvent être affichés via l'option
 
 Si vous obtenez ce message, cela signifie le collecteur Centreon ne parvient
 pas à contacter le proxy McAfee Web Gateway sur le port 161 (firewall
-ou autre équipement en coupure) ou que la communauté SNMP configurée n'est pas
+ou autre équipement en coupure) ou que la communauté SNMP configurée n'est pas 
 correcte.
 
 ### UNKNOWN: SNMP GET Request : Cant get a single value.
 
 Les autorisations données à l'utilisateur en SNMP sont trop restreintes pour
-faire fonctionner le mode/plugin. L'agent SNMP doit pouvoir accéder à la branche
+faire fonctionner le mode/plugin. L'agent SNMP doit pouvoir accéder à la branche 
 .1.3.6.1.4.1.1230.

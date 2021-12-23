@@ -2,9 +2,6 @@
 id: network-meru-snmp
 title: Meru SNMP
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Plugin-Pack Assets
 
@@ -19,8 +16,9 @@ The Plugin-Pack Meru SNMP collects metrics for:
 
 ### Collected Metrics
 
-<Tabs groupId="operating-systems">
-<TabItem value="Alarms" label="Alarms">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Alarms-->
 
 | Metric name           | Description               | Unit |
 | :-------------------- | :------------------------ | :--- |
@@ -28,15 +26,13 @@ The Plugin-Pack Meru SNMP collects metrics for:
 | alarms.major.count    | Number of major alarms    |      |
 | alarms.minor.count    | Number of minor alarms    |      |
 
-</TabItem>
-<TabItem value="Cpu" label="Cpu">
+<!--Cpu-->
 
-| Metric name                | Description     | Unit |
-| :------------------------- | :-------------- | :--- |
-| cpu.utilization.percentage | CPU utilization | %    |
+| Metric name                              | Description              | Unit |
+| :--------------------------------------- | :----------------------- | :--- |
+| cpu.utilization.percentage               | CPU utilization          | %    |
 
-</TabItem>
-<TabItem value="Interfaces" label="Interfaces">
+<!--Interfaces-->
 
 | Metric name                                            | Description                                         | Unit |
 | :----------------------------------------------------- | :-------------------------------------------------- | :--- |
@@ -48,25 +44,22 @@ The Plugin-Pack Meru SNMP collects metrics for:
 
 A regexp filter is available to target a specific interface identifier - ifName [```--interface='^eth0$' --name```]
 
-</TabItem>
-<TabItem value="Memory" label="Memory">
+<!--Memory-->
 
-| Metric name             | Description                | Unit |
-| :---------------------- | :------------------------- | :--- |
-| memory.usage.bytes      | Memory usage               | B    |
-| memory.free.bytes       | Free memory                | B    |
-| memory.usage.percentage | Memory usage in percentage | %    |
+| Metric name             | Description                               | Unit  |
+| :---------------------  | :---------------------------------------- | :---- |
+| memory.usage.bytes      | Memory usage                              | B     |
+| memory.free.bytes       | Free memory                               | B     |
+| memory.usage.percentage | Memory usage in percentage                | %     |
 
-</TabItem>
-<TabItem value="Wireless" label="Wireless">
+<!--Wireless-->
 
-| Metric name               | Description                    | Unit |
-| :------------------------ | :----------------------------- | :--- |
-| accesspoints.online.count | Number of online access points |      |
-| stations.wireless.count   | Number of wireless stations    |      |
+| Metric name                 | Description                          | Unit  |
+| :-------------------------- | :----------------------------------- | :---- |
+| accesspoints.online.count   | Number of online access points       |       |
+| stations.wireless.count     | Number of wireless stations          |       |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -74,8 +67,9 @@ To control your Meru, the SNMP must be configured.
 
 ## Setup
 
-<Tabs groupId="licence-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -85,8 +79,7 @@ yum install centreon-plugin-Network-Meru-Snmp
 
 2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Meru Networks SNMP* Plugin-Pack
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -102,8 +95,7 @@ yum install centreon-pack-network-meru-snmp
 
 3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Meru Networks SNMP* Plugin-Pack
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Host configuration
 
@@ -112,9 +104,9 @@ yum install centreon-pack-network-meru-snmp
 
 > When using SNMP v3, use the SNMPEXTRAOPTIONS Macro to add specific authentication parameters
 
-| Mandatory | Name             | Description                                 |
-| :-------- | :--------------- | :------------------------------------------ |
-|           | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo |
+| Mandatory | Name             | Description                                    |
+| :-------- | :--------------- | :--------------------------------------------- |
+|           | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo    |
 
 ## FAQ
 
@@ -125,13 +117,13 @@ and test the Plugin by running the following command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_meru_snmp.pl \
---plugin=network::meru::snmp::plugin \
---mode=wireless \
---hostname=10.30.2.114 \
---snmp-version='2c' \
---snmp-community='meru_ro' \
---critical-accesspoints-online='@19:19' \
---verbose
+    --plugin=network::meru::snmp::plugin \
+    --mode=wireless \
+    --hostname=10.30.2.114 \
+    --snmp-version='2c' \
+    --snmp-community='meru_ro' \
+    --critical-accesspoints-online='@19:19' \
+    --verbose
 ```
 
 Expected command output is shown below:
@@ -144,7 +136,7 @@ The command above monitors Meru device (```--plugin=network::meru::snmp::plugin 
 by the IP address *10.30.2.114* (```--hostname=10.30.2.114```). As the Plugin is using the SNMP protocol to request the device, the related
 *community* and *version* are specified (```--snmp-version='2c' --snmp-community='meru_ro'```).
 
-This command would trigger a CRITICAL alarm if the number of online access points is above or below 19
+This command would trigger a CRITICAL alarm if the number of online access points is above or below 19 
 (```--critical-accesspoints-online='@19:19'```).
 
 All the options as well as all the available thresholds can be displayed by adding the  ```--help```
@@ -152,9 +144,9 @@ parameter to the command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_meru_snmp.pl \
---plugin=network::meru::snmp::plugin \
---mode=wireless \
---help
+    --plugin=network::meru::snmp::plugin \
+    --mode=wireless \
+    --help
 ```
 
 ## Troubleshooting
@@ -167,7 +159,7 @@ If you get this message, you're probably facing one of theses issues:
 
 ### UNKNOWN: SNMP GET Request : Cant get a single value.
 
-This error message often refers to the following issues:
-- The agent doesn't support the MIB used by the plugin
-- The targeted SNMP OID cannot be fetched because of insufficient privileges on the device.
-SNMP Agent must be capable of accessing to the enterprise branch: .1.3.6.1.4.1.15983
+This error message often refers to the following issues: 
+  - The agent doesn't support the MIB used by the plugin
+  - The targeted SNMP OID cannot be fetched because of insufficient privileges on the device. 
+    SNMP Agent must be capable of accessing to the enterprise branch: .1.3.6.1.4.1.15983

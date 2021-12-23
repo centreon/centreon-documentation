@@ -2,9 +2,6 @@
 id: network-tplink-snmp
 title: TP-Link SNMP
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Overview
 
@@ -23,19 +20,19 @@ The Centreon Plugin Pack *TP-Link SNMP* relies on the SNMP protocol to query and
 
 ### Collected metrics
 
-<Tabs groupId="operating-systems">
-<TabItem value="CPU" label="CPU">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--CPU-->
 * These 3 metrics for CPU core and average utilization
 
-| Metric name                | Description                   | Unit |
-| :------------------------- | :---------------------------- | :--- |
-| cpu.utilization.percentage | Percentage of CPU utilization | %    |
+| Metric name                         | Description                    | Unit   |
+| :---------------------------------- | :----------------------------- | :----- |
+| cpu.utilization.percentage          | Percentage of CPU utilization  | %      |
 
-</TabItem>
-<TabItem value="Interfaces" label="Interfaces">
+<!--Interfaces-->
 
 | Metric name                              | Description                                             | Unit |
-| :--------------------------------------- | :------------------------------------------------------ | :--- |
+|:---------------------------------------- |:------------------------------------------------------- | :--- |
 | status                                   | Status of the interface                                 |      |
 | interface.traffic.in.bitspersecond       | Incoming traffic going through the interface.           | b/s  |
 | interface.traffic.out.bitspersecond      | Outgoing traffic going through the interface.           | b/s  |
@@ -44,22 +41,19 @@ The Centreon Plugin Pack *TP-Link SNMP* relies on the SNMP protocol to query and
 | interface.packets.out.error.percentage   | Outgoing errored packets going through the interface.   | %    |
 | interface.packets.out.discard.percentage | Outgoing discarded packets going through the interface. | %    |
 
-</TabItem>
-<TabItem value="Memory" label="Memory">
+<!--Memory-->
 
-| Metric name             | Description                | Unit |
-| :---------------------- | :------------------------- | :--- |
-| memory.usage.percentage | Percentage of memory usage | %    |
+| Metric name                         | Description                 | Unit   |
+| :---------------------------------- | :-------------------------- | :----- |
+| memory.usage.percentage             | Percentage of memory usage  | %      |
 
-</TabItem>
-<TabItem value="Uptime" label="Uptime">
+<!--Uptime-->
 
-| Metric name   | Description                                        | Unit |
-| :------------ | :------------------------------------------------- | :--- |
-| system.uptime | Duration of system has been working and available. | s    |
+| Metric name                 | Description                                        | Unit   |
+| :-------------------------- | :------------------------------------------------- | :----- |
+| system.uptime               | Duration of system has been working and available. | s      |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -68,8 +62,9 @@ The Centreon Poller must be able to reach the UDP/161 SNMP port of the TP-Link e
 
 ## Installation
 
-<Tabs groupId="licence-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor TP-Link equipments:
 
@@ -79,8 +74,7 @@ yum install centreon-plugin-Network-Tplink-Snmp
 
 2. On the Centreon Web interface, install the *TP-Link SNMP* Plugin Pack through "Configuration > Plugin Packs > Manager" page.
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor TP-Link equipments:
 
@@ -96,18 +90,17 @@ yum install centreon-pack-network-tplink-snmp
 
 3. On the Centreon Web interface, install the *TP-Link SNMP* Plugin Pack through "Configuration > Plugin Packs > Manager" page.
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Host configuration
 
-Create your Host and apply the *Net-Tplink-SNMP-custom* Host Template. You must set SNMP Community and Version in the dedicated fields of the Host Form.
+Create your Host and apply the *Net-Tplink-SNMP-custom* Host Template. You must set SNMP Community and Version in the dedicated fields of the Host Form. 
 
 > If you are using SNMP v3, set all specific parameters within SNMPEXTRAOPTIONS Host Macro
 
-| Obligatoire | Nom              | Description                                 |
-| :---------- | :--------------- | :------------------------------------------ |
-|             | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo |
+| Obligatoire | Nom              | Description                                    |
+| :---------- | :--------------- | :--------------------------------------------- |
+|             | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo    | 
 
 ## How to test my plugin and what do the main parameters stand for?
 
@@ -115,17 +108,17 @@ Once the plugin is installed, you can test it by logging into the CLI with the c
 
 ```bash
 /usr/lib/centreon/plugins//centreon_tplink_snmp.pl \
---plugin=network::tplink::snmp::plugin \
---mode=cpu \
---hostname=10.30.2.11 \
---snmp-community=centreon-tplink \
---snmp-version=2c \
---warning-average-5m=90 \
---critical-average-5m=95 \
---verbose
-
-OK: 1 CPU(s) average usage is 7.00 % (5s) 20.00 % (1m) 10.00 % (5m) - CPU '1' usage 7.00 % (5s) 20.00 % (1m) 10.00 % (5m) |
-'cpu.utilization.5s.percentage'=7.00%;;;0;100 'cpu.utilization.1m.percentage'=20.00%;;;0;100 'cpu.utilization.5m.percentage'=10.00%;0:90;0:95;0;100
+	--plugin=network::tplink::snmp::plugin \
+	--mode=cpu \	
+	--hostname=10.30.2.11 \
+	--snmp-community=centreon-tplink \
+	--snmp-version=2c \
+	--warning-average-5m=90 \
+	--critical-average-5m=95 \
+	--verbose
+  
+OK: 1 CPU(s) average usage is 7.00 % (5s) 20.00 % (1m) 10.00 % (5m) - CPU '1' usage 7.00 % (5s) 20.00 % (1m) 10.00 % (5m) | 
+'cpu.utilization.5s.percentage'=7.00%;;;0;100 'cpu.utilization.1m.percentage'=20.00%;;;0;100 'cpu.utilization.5m.percentage'=10.00%;0:90;0:95;0;100 
 '1#core.cpu.utilization.5s.percentage'=7.00%;;;0;100 '1#core.cpu.utilization.1m.percentage'=20.00%;;;0;100 '1#core.cpu.utilization.5m.percentage'=10.00%;;;0;100
 CPU '1' usage 7.00 % (5s) 20.00 % (1m) 10.00 % (5m)
 ```
@@ -140,17 +133,17 @@ All available options for a given mode can be displayed by adding the ```--help`
 
 ```bash
 /usr/lib/centreon/plugins//centreon_tplink_snmp.pl \
---plugin=network::tplink::snmp::plugin \
---mode=cpu \
---help
+	--plugin=network::tplink::snmp::plugin \
+	--mode=cpu \
+	--help
 ```
 
 All plugin modes can be listed with the following command:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_tplink_snmp.pl \
---plugin=network::tplink::snmp::plugin \
---list-mode
+	--plugin=network::tplink::snmp::plugin \
+	--list-mode
 ```
 
 ## Troubleshooting

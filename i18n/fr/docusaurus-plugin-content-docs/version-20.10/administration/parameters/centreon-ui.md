@@ -108,9 +108,9 @@ avec le flux d'autorisation via un code (Authorization Code Grant).
 
 - La case **Enable OpenId Connect authentication** permet d'activer ou de désactiver l'authentification OpenId Connect.
 - Le champ **Authentication mode** indique si l'authentification doit avoir lieu uniquement par OpenId Connect ou en
-utilisant également l'authentification locale (mixte).
+  utilisant également l'authentification locale (mixte).
 - Le champ **Trusted client addresses** indique quelles sont les adresses IP/DNS des clients de confiance (correspond à
-l'adresse du reverse proxy). Chaque client de confiance est séparé par une virgule.
+  l'adresse du reverse proxy). Chaque client de confiance est séparé par une virgule.
 - Le champ **Blacklist client addresses** indique quelles sont les adresses IP/DNS des clients qui seront refusés.
 - Le champ **Base Url** définit l'URL de base de l'IdP pour les points de terminaison OpenId Connect (obligatoire).
 - Le champ **Authorization Endpoint** définit le point de terminaison d'autorisation, par exemple `/authorize` (obligatoire).
@@ -120,7 +120,7 @@ l'adresse du reverse proxy). Chaque client de confiance est séparé par une vir
 - Le champ **End Session Endpoint** définit le point de terminaison de déconnexion, par exemple `/logout`.
 - Le champ **Scope** définit la portée de l'IdP, par exemple «openid». Portée séparée par espace.
 - La case **Redirect Url** définit l'URL de redirection après connexion pour accéder à votre serveur Centreon, par exemple
-`http://192.168.0.1/centreon/index.php`.
+  `http://192.168.0.1/centreon/index.php`.
 - **Client ID** défini l'ID client.
 - **Client Secret** défini le secret client.
 - **Disable SSL verify peer** permet de désactiver la validation des pairs SSL, ne doit être utilisé que pour le test

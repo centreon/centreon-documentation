@@ -147,10 +147,10 @@ liste de sélection. Dans la configuration fournisseur, vous pouvez les configur
 * **Id** : valeur alphanumeric value (doit être unique)
 * **Label** : affiché dans la fenêtre
 * **Type** : type de liste. Il existe 3 types de listes
-* Liste du fournisseur (données du logiciel de gestion de tickets)
-* Liste Centreon (comme ``Host group``)
-* Liste personnalisées (provenant de la configuration ``Custom list definition``. Les champs **Id** doivent être
-identiques)
+  * Liste du fournisseur (données du logiciel de gestion de tickets)
+  * Liste Centreon (comme ``Host group``)
+  * Liste personnalisées (provenant de la configuration ``Custom list definition``. Les champs **Id** doivent être
+    identiques)
 * **Mandatory** : l'utilisateur doit définir l'option obligatoirement
 
 ![image](../assets/alerts/open_ticket_advanced_list_01.png)

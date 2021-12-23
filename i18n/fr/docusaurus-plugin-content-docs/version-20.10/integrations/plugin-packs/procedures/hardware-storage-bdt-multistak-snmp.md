@@ -2,9 +2,6 @@
 id: hardware-storage-bdt-multistak-snmp
 title: BDT MultiStak SNMP
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Contenu du Plugin Pack
 
@@ -15,8 +12,9 @@ Le Plugin Pack BDT MultiStak SNMP collecte les données pour:
 
 ### Métriques collectées
 
-<Tabs groupId="operating-systems">
-<TabItem value="Hardware" label="Hardware">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Hardware-->
 
 | Metric name                                        | Description                       | Unit |
 | :------------------------------------------------- | :-------------------------------- | :--- |
@@ -25,17 +23,17 @@ Le Plugin Pack BDT MultiStak SNMP collecte les données pour:
 | module board status                                | Status of the module board        |      |
 | module psu status                                  | Status of the module power supply |      |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
-Afin de contrôler votre équipement BDT MultiStak, le SNMP doit être configuré.
+Afin de contrôler votre équipement BDT MultiStak, le SNMP doit être configuré. 
 
 ## Installation
 
-<Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -45,8 +43,7 @@ yum install centreon-plugin-Hardware-Storage-Bdt-Multistak-Snmp
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *BDT MultiStak SNMP* depuis la page "Configuration > Plugin Packs > Manager"
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -62,8 +59,7 @@ yum install centreon-pack-hardware-storage-bdt-multistak-snmp
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *BDT MultiStak SNMP* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
@@ -85,12 +81,12 @@ depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-en
 
 ```bash
 /usr/lib/centreon/plugins/centreon_bdt_multistak_snmp.pl  \
---plugin=storage::bdt::multistak::snmp::plugin \
---mode=hardware \
---hostname=10.30.2.114 \
---snmp-version='2c' \
---snmp-community='bdtms_ro' \
---verbose
+    --plugin=storage::bdt::multistak::snmp::plugin \
+    --mode=hardware \
+    --hostname=10.30.2.114 \
+    --snmp-version='2c' \
+    --snmp-community='bdtms_ro' \
+    --verbose
 ```
 
 La commande devrait retourner un message de sortie de la forme ci-dessous:
@@ -104,7 +100,7 @@ checking modules
 module '4' status is 'OK' [board status: N/A] [power supply: OK][instance: 4].
 ```
 
-Cette commande contrôle le matériel (```--mode=hardware```) d'un équipement BDT MultiStak ayant pour adresse *10.30.2.114* (```--hostname=10.30.2.114```)
+Cette commande contrôle le matériel (```--mode=hardware```) d'un équipement BDT MultiStak ayant pour adresse *10.30.2.114* (```--hostname=10.30.2.114```) 
 en version *2c* du protocol SNMP (```--snmp-version='2c'```) et avec la communauté *bdtms_ro* (```--snmp-community='bdtms_ro'```).
 
 Pour chaque mode, la liste de toutes les métriques, seuils associés et options complémentaires peut être affichée
@@ -112,21 +108,21 @@ en ajoutant le paramètre ```--help``` à la commande:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_bdt_multistak_snmp.pl  \
---plugin=storage::bdt::multistak::snmp::plugin \
---mode=hardware \
---help
+    --plugin=storage::bdt::multistak::snmp::plugin \
+    --mode=hardware \
+    --help
 ```
 
 ## Troubleshooting
 
 ### UNKNOWN: SNMP GET Request : Timeout
 
-Si vous obtenez ce message, cela signifie que vous ne parvenez pas à contacter l'équipement sur le port 161,
-ou alors que la communauté SNMP configurée n'est pas correcte.
+Si vous obtenez ce message, cela signifie que vous ne parvenez pas à contacter l'équipement sur le port 161, 
+ou alors que la communauté SNMP configurée n'est pas correcte. 
 Il est également possible qu'un firewall bloque le flux.
 
 ### UNKNOWN: SNMP GET Request : Cant get a single value.
 
-Si vous rencontrez cette erreur, il est probable que les autorisations données à l'agent SNMP soient trop restreintes.
-* L'équipement ne prend pas en charge la MIB utilisée par le Plugin (branche: .1.3.6.1.4.1.20884).
-* L'OID SNMP ciblé ne peut pas être récupéré en raison de privilèges d'équipement insuffisants.
+Si vous rencontrez cette erreur, il est probable que les autorisations données à l'agent SNMP soient trop restreintes. 
+ * L'équipement ne prend pas en charge la MIB utilisée par le Plugin (branche: .1.3.6.1.4.1.20884).
+ * L'OID SNMP ciblé ne peut pas être récupéré en raison de privilèges d'équipement insuffisants.

@@ -2,9 +2,6 @@
 id: cloud-microsoft-office365-skype
 title: Office365 Skype
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Overview
 Microsoft’s Office365 suite includes Skype, which is an application that
@@ -26,40 +23,39 @@ through the Office365 API Management.
 
 ### Monitored metrics
 
-See link for details about metrics :
+See link for details about metrics : 
 
 * https://docs.microsoft.com/en-us/SkypeForBusiness/skype-for-business-online-reporting/device-usage-report
 * https://docs.microsoft.com/en-us/SkypeForBusiness/skype-for-business-online-reporting/activity-report
 
-<Tabs groupId="operating-systems">
-<TabItem value="DevicesUsage" label="DevicesUsage">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Devices-Usage-->
 
 | Metric name                 | Description                                                  | Unit   |
 | :-------------------------- | :----------------------------------------------------------- | :----- |
 | skype.active.devices.count  | Number of active devices                                     | Count  |
 | skype.devices.\*.count      | Number of windows/ipad/iphone/android/windows phone devices  | Count  |
 
-</TabItem>
-<TabItem value="UserActivity" label="UserActivity">
+<!--User-Activity-->
 
 | Metric name                                       | Description                           | Unit   |
 | :------------------------------------------------ | :------------------------------------ | :----- |
 | skype.users.active.count                          | Total number of active users          | Count  |
-| skype.users.sessions.p2p.total.count              | Number of Peer-to-Peer sessions       | Count  |
+| skype.users.sessions.p2p.total.count              | Number of Peer-to-Peer sessions       | Count  | 
 | skype.users.conferences.organized.total.count     | Number of organized conferences       | Count  |
 | skype.users.conferences.participated.total.count  | Number of participed conferences      | Count  |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
-Once the host created, you can configure some macros on the service to filter
+Once the host created, you can configure some macros on the service to filter 
 information by user. More info in the [Configuration](#Configuration)
 section.
 
 ## Prerequisites
 
-Refer to the official documentation of Office365 Management or follow the link
-in the 'More information' section to create an Office365 account and get help
+Refer to the official documentation of Office365 Management or follow the link 
+in the 'More information' section to create an Office365 account and get help 
 about the management features.
 
 ### Register an application
@@ -77,11 +73,11 @@ To collect data from Skype Online, you need to specify the following
 authorization:
 
 * Microsoft Graph :
-* Reports.Read.All (Type : Application)
-* User.Read (Type : Delegated)
+    * Reports.Read.All (Type : Application)
+    * User.Read (Type : Delegated)
 * Office365 Management APIs :
-* ServiceHealth.Read (Type : Application)
-* ActivityFeed.Read (Type : Application)
+    * ServiceHealth.Read (Type : Application)
+    * ActivityFeed.Read (Type : Application)
 
 ### More information
 
@@ -91,8 +87,9 @@ https://docs.microsoft.com/en-us/office/office-365-management-api/get-started-wi
 
 ## Installation
 
-<Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin package on every poller expected to monitor Office365 Skype:
 
@@ -102,8 +99,7 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Skype-Api
 
 2. On the Centreon Web interface, install the Centreon Plugin-Pack *Office365 Skype* from the "Configuration > Plugin Packs > Manager" page
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin package on every poller expected to monitor Office365 Skype:
 
@@ -119,8 +115,7 @@ yum install centreon-pack-cloud-microsoft-office365-skype
 
 3. On the Centreon Web interface, install the Centreon Plugin-Pack *Office365 Skype* from the "Configuration > Plugin Packs > Manager" page
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
@@ -156,17 +151,17 @@ Centreon poller by logging with the *centreon-engine* user:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_office365_skype_api.pl \
---plugin=cloud::microsoft::office365::skype::plugin \
---mode=devices-usage \
---tenant='abcd1234-5678-90ab-cd12-34567890abcd' \
---client-id='9876dcba-5432-10dc-ba98-76543210dcba' \
---client-secret='8/RON4vUGhAcg6DRmSxc4AwgxSRoNfKg4d8xNizIMnwg='
+  --plugin=cloud::microsoft::office365::skype::plugin \
+  --mode=devices-usage \
+  --tenant='abcd1234-5678-90ab-cd12-34567890abcd' \
+  --client-id='9876dcba-5432-10dc-ba98-76543210dcba' \
+  --client-secret='8/RON4vUGhAcg6DRmSxc4AwgxSRoNfKg4d8xNizIMnwg='
 ```
 
 Expected output:
 
 ```bash
-OK: Active devices on 2020-09-27 : 0/1 (0.00%) - Users count by device type :
+OK: Active devices on 2020-09-27 : 0/1 (0.00%) - Users count by device type : 
 Windows: 0, iPad: 0, iPhone: 0, Android Phone: 0, Windows Phone: 0 |
 active_devices'=0devices;;;0;1
 'windows'=0;;;0;
@@ -181,18 +176,18 @@ this Plugin can be displayed by adding the ```--help``` parameter to the command
 
 ```bash
 /usr/lib/centreon/plugins//centreon_office365_skype_api.pl \
---plugin=cloud::microsoft::office365::skype::plugin \
---mode=devices-usage \
---custommode='graphapi'\
---help
+  --plugin=cloud::microsoft::office365::skype::plugin \
+  --mode=devices-usage \
+  --custommode='graphapi'\
+  --help
 ```
 
 You can display all of the modes that come with the Plugin with the command below:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_office365_skype_api.pl \
---plugin=cloud::microsoft::office365::skype::plugin \
---list-mode
+  --plugin=cloud::microsoft::office365::skype::plugin \
+  --list-mode
 ```
 
 ### Why do I get the following error:

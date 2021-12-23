@@ -73,7 +73,7 @@ Lancez l'installation de l'agent **centreon-nsclient** et suivez l'assistant :
 
 Lors des nouvelles *releases* mensuelles, il n'est pas nécessaire de réinstaller complètement l'agent, seul les Plugins packagés peuvent être mis à jour.
 
-Pour cela, rendez-vous dans le dossier contenant les scripts *centreon_plugins.exe* et *check_logfiles.exe* (généralement
+Pour cela, rendez-vous dans le dossier contenant les scripts *centreon_plugins.exe* et *check_logfiles.exe* (généralement 
 `C:\Program Files\Centreon NSClient++\scripts\centreon` et remplacez les exécutables par les dernières versions téléchargées sur Github
 (voir le chapitre [Installation](#installation)).
 
@@ -151,7 +151,7 @@ NSCLIENT, et ce pour les raisons suivantes :
 l'API NSClient++
 * Comme pour le protocole NRPE, les paramètres *port* et *allowed hosts* de la section `/settings/WEB/server` doivent être renseignés dans le fichier
 `nsclient.ini` (le numéro de port à utiliser est ici le 8443 ou tout autre port personnalisé >1024).
-
+ 
 #### Configurer l'accès Rest HTTPS
 
 Pour utiliser l’API Rest de NSClient++, vous devez tout d'abord activer le service web :

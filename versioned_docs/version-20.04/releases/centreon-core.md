@@ -105,7 +105,7 @@ If you have feature requests or want to report a bug, please go to our
 
 #### Bugfixes
 
-- [Core] Fixed broken configuration export
+- [Core] Fixed broken configuration export 
 
 ### 20.04.14
 
@@ -412,7 +412,7 @@ If you have feature requests or want to report a bug, please go to our
 - [Events view] Inconsistent french display
 - [CLAPI] APPLYCFG rises errors for hosts with disabled host templates
 - [Configuration] Notifications are sent to wrong contacts when using services
-by host groups
+  by host groups
 - [LDAP] Legacy errors in logs
 - [CEIP] centreon-send-stats.php script failed when one script fails
 - [Host Discovery] Better handle not submitted values for proxy
@@ -427,7 +427,7 @@ by host groups
 - [Custom views] Missing access control mechanism in widget preferences
 - [Monitoring] XSS in setHistory.php and commonJS.php
 - [Monitoring] Missing access control mechanism in hostSendCommand/
-serviceSendCommand
+  serviceSendCommand
 - [Configuration] Post Restart Command must be runned by Gorgone
 - [Configuration] SQL injection in Knowledge Base pages
 - [Configuration] SQL injection in centreonTraps.class.php
@@ -482,8 +482,8 @@ serviceSendCommand
 - [Front] Centreon is now correctly rendered in Apple Safari
 - [CLAPI] Import CLAPI doesn't fail anymore when your import file contains thousands of lines
 - [API] Fix RTDOWNTIME issues [#8254](https://github.com/centreon/centreon/pull/8275):
-- it returns all RTDOWNTIMEs satisfying the given filters, instead of only the first one (a host or service can have several downtimes in place)
-- it allows to set a RTDOWNTIME on host only (without associated services) (currently the 8th parameter of the RTDOWNTIME -a add command is not correctly proceeded).
+     - it returns all RTDOWNTIMEs satisfying the given filters, instead of only the first one (a host or service can have several downtimes in place)
+     - it allows to set a RTDOWNTIME on host only (without associated services) (currently the 8th parameter of the RTDOWNTIME -a add command is not correctly proceeded).
 - [Authentication] Authentication now correctly switches from LDAP to local when appropriated
 - [PluginPacks] No more error when installing a plugin pack due to media
 - [Events view] You're not automatically redirected to the events view when it's not your default page
@@ -779,7 +779,7 @@ Release date: `December 1, 2021`
 - $TIMET$ macro displayed time instead of epoch
 - Flapping was not detected
 - SERVICENOTESURL macro value was encoded in notifications
-- Engine did not respect user's defined notification periods
+- Engine did not respect user's defined notification periods 
 - Engine stopped working without logging an error
 
 
@@ -1129,11 +1129,11 @@ files and there are a lot of traffic.
 Those streams have several improvements:
 
 -   Events exchanges are much faster, especially when Broker has
-retention files.
+    retention files.
 -   Several queries have been changed to insert data in bulk, it is
-the case for custom variables and metrics.
+    the case for custom variables and metrics.
 -   There are cases where those streams could crash that have been
-also fixed.
+    also fixed.
 
 *Statistics*
 
@@ -1517,9 +1517,9 @@ Release date: `December 1, 2021`
 - [zmqclient] Harden communication to avoid "Protocol not good" errors
 - [zmqclient] Increment ZMQ_LINGER period for some modules
 - [zmqclient] Lot of ESTABLISHED connections on server side when network
-is flapping
+  is flapping
 - [sshclient] Command actions badly encoded lead to badly encoded messages
-in web UI (downtimes, acknowledgements)
+  in web UI (downtimes, acknowledgements)
 
 #### Enhancements
 
@@ -1533,7 +1533,7 @@ in web UI (downtimes, acknowledgements)
 
 - [proxy] gorgone-proxy processes stucked when stopping gorgoned
 - [core] Rare case of database handler wrongly instantiated due to race
-condition issue
+  condition issue
 
 #### Enhancements
 
@@ -1547,7 +1547,7 @@ condition issue
 
 - The configurations in config.d directory are not erased anymore at update
 - [zmqclient] ID is not necessary anymore in end targets configuration
-(ie Pollers)
+  (ie Pollers)
 
 ### 20.04.6
 
@@ -1563,7 +1563,7 @@ condition issue
 #### Enhancements
 
 - [sshclient] Allow to use 'SshDir', 'Identity' and 'KnownHosts' libssh options
-for SSH session
+  for SSH session
 - Update dependencies to perl-Libssh-Session >= 0.8 and libssh => 0.9.4
 
 ### 20.04.5

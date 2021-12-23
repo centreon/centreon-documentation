@@ -2,13 +2,10 @@
 id: operatingsystems-linux-nrpe3
 title: Linux NRPE3
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Vue d'ensemble
 
-NRPE (Nagios Remote Plugin Executor) est un protocole qui a été conçu pour lancer à distance des commandes de supervision locales sur les serveurs supervisés.
+NRPE (Nagios Remote Plugin Executor) est un protocole qui a été conçu pour lancer à distance des commandes de supervision locales sur les serveurs supervisés. 
 
 Ce pack de plugin repose sur 3 composants, qui sont détaillés dans le tableau ci-dessous.
 
@@ -45,7 +42,7 @@ par expression régulière)
 d'un répertoire
 * File-Size-Generic : Vérifier la taille d'un fichier ou d'un répertoire
 * Inodes-Generic-Name : Vérifier l'utilisation des inodes (une seule partition)
-* Inodes-Global : Vérifier l'utilisation des inodes (toutes les partitions ou
+* Inodes-Global : Vérifier l'utilisation des inodes (toutes les partitions ou 
 filtrage par expression régulière)
 * Is-File-Generic : Vérifier la présence d'un fichier
 * Is-Not-File-Generic : Vérifier l'absence d'un fichier
@@ -55,13 +52,13 @@ filtrage par expression régulière)
 les partitions ou filtrage par expression régulière)
 * Process-Generic : Vérifier qu'un processus est en cours d'exécution
 * Traffic-Generic-Name : Vérifier la consommation de bande passante sur une interface
-* Traffic-Global : Vérifier la consommation de bande passante (toutes les
+* Traffic-Global : Vérifier la consommation de bande passante (toutes les 
 partitions ou filtrage par expression régulière)
 
 Voici les métriques collectées pour les services liés au modèle dhôte par défaut :
 
-<Tabs groupId="operating-systems">
-<TabItem value="Cpu" label="Cpu">
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Cpu-->
 
 | Métrique                            | Description                   | Unité |
 | :---------------------------------- | :---------------------------- | :---: |
@@ -70,8 +67,7 @@ Voici les métriques collectées pour les services liés au modèle dhôte par d
 | ...                                 | ...                           |   %   |
 | `cpu.utilization.percentage`        | Utilisation moyenne globale   |   %   |
 
-</TabItem>
-<TabItem value="Load" label="Load">
+<!--Load-->
 
 | Métrique | Description                           | Unité |
 | :------- | :------------------------------------ | :---: |
@@ -79,8 +75,7 @@ Voici les métriques collectées pour les services liés au modèle dhôte par d
 | `load5`  | Charge système moyenne sur 5 minutes  |       |
 | `load15` | Charge système moyenne sur 15 minutes |       |
 
-</TabItem>
-<TabItem value="Memory" label="Memory">
+<!--Memory-->
 
 | Métrique | Description                 | Unité |
 | :------- | :-------------------------- | :---: |
@@ -89,8 +84,7 @@ Voici les métriques collectées pour les services liés au modèle dhôte par d
 | `slab`   | Allocation Slab             |   B   |
 | `used`   | Mémoire consommée totale    |   B   |
 
-</TabItem>
-<TabItem value="Swap" label="Swap">
+<!--Swap-->
 
 | Métrique                | Description                       | Unité |
 | :---------------------- | :-------------------------------- | :---: |
@@ -98,15 +92,13 @@ Voici les métriques collectées pour les services liés au modèle dhôte par d
 | `swap.usage.bytes`      | Espace d'échange utilisé          |   B   |
 | `swap.usage.percentage` | Utilisation de l'espace d'échange |   %   |
 
-</TabItem>
-<TabItem value="Uptime" label="Uptime">
+<!--Uptime-->
 
 | Métrique | Description                                | Unité |
 | :------- | :----------------------------------------- | :---: |
 | `uptime` | Temps écoulé depuis le dernier redémarrage |   s   |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -129,30 +121,24 @@ Les hôtes supervisés ont besoin de deux composants pour que cela fonctionne :
 
 Installer les paquets suivants :
 
-<Tabs groupId="operating-systems">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
-
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
 dnf install -y https://yum.centreon.com/standard/21.04/el8/stable/noarch/RPMS/centreon-release-21.04-6.el8.noarch.rpm
 dnf install centreon-nrpe3-daemon.x86_64 centreon-plugin-Operatingsystems-Linux-Local.noarch
 ```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
+<!--CentOS 7-->
 ```shell
 yum install -y https://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-6.el7.centos.noarch.rpm
 yum install centreon-nrpe3-daemon.x86_64 centreon-plugin-Operatingsystems-Linux-Local.noarch
 ```
-
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 > **NB :** Pour éviter l'ajout du dépôt Centreon sur tous vos serveurs, il est possible d'installer directement les paquets `https://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-plugin-Operatingsystems-Linux-Local-20201006-142255.el7.centos.noarch.rpm` et `https://yum.centreon.com/standard/21.04/el7/stable/x86_64/RPMS/centreon-nrpe3-daemon-3.2.1-8.el7.centos.x86_64.rpm` (versions courantes au moment de la rédaction de cette documentation) **mais dans ce cas il ne sera pas possible de les mettre à jour par un `yum update`**.
 
 ### Configuration de NRPE
 
-Pour que le(s) poller(s) puisse(nt) superviser les hôtes, il est nécessaire d'adapter le paramètre `allowed_hosts` dans le fichier `/etc/nrpe/centreon-nrpe3.cfg`
+Pour que le(s) poller(s) puisse(nt) superviser les hôtes, il est nécessaire d'adapter le paramètre `allowed_hosts` dans le fichier `/etc/nrpe/centreon-nrpe3.cfg` 
 
 ```ini
 [...]
@@ -177,13 +163,13 @@ systemctl restart centreon-nrpe3.service
 
 L'installation du Plugin-Pack en lui-même ne concerne que le serveur central et la procédure dépend du type de licence.
 
-<Tabs groupId="operating-systems">
-<TabItem value="Licence IMP/EPP Online & IT100 Editions" label="Licence IMP/EPP Online & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Licence IMP/EPP "Online" & IT-100 Editions-->
 
 Installer le Plugin-Pack "Linux NRPE3" depuis la page "Configuration > Plugin Packs > Manager".
 
-</TabItem>
-<TabItem value="Licence IMP/EPP Offline" label="Licence IMP/EPP Offline">
+<!--Licence IMP/EPP "Offline"-->
 
 1. Installer le RPM du Plugin-Pack contenant les modèles de supervision sur le serveur Centreon Central:
 
@@ -193,8 +179,7 @@ yum install centreon-pack-operatingsystems-linux-nrpe3
 
 2. Installer le Plugin-Pack "Linux NRPE3" depuis la page "Configuration > Plugin Packs > Manager".
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Centreon NRPE3 Plugin
 
@@ -222,7 +207,7 @@ Dans le cas contraire, se référer à la section [troubleshooting](#troubleshoo
 
 ## Configuration de l'hôte dans Centreon
 
-Créer un nouvel hôte dans Centreon et lui appliquer le modèle d'hôte "OS-Linux-NRPE3-custom".
+Créer un nouvel hôte dans Centreon et lui appliquer le modèle d'hôte "OS-Linux-NRPE3-custom". 
 
 Une fois le modèle appliqué, il est possible de modifier les macros suivantes :
 
@@ -241,10 +226,10 @@ Voici une commande qui permet de surveiller la consommation CPU d'un serveur Lin
 
 ```bash
 /usr/lib64/nagios/plugins/check_centreon_nrpe3 \
--H x.x.x.x \
--p 5666 -t 5 -u \
--c check_centreon_plugins \
--a 'os::linux::local::plugin' 'cpu'  '  --statefile-dir=/var/log/nrpe/centplugins'
+    -H x.x.x.x \
+    -p 5666 -t 5 -u \
+    -c check_centreon_plugins \
+    -a 'os::linux::local::plugin' 'cpu'  '  --statefile-dir=/var/log/nrpe/centplugins'
 ```
 
 Cette commande devrait afficher un retour de la forme :
@@ -276,7 +261,7 @@ Si le message retourné est le suivant :
 connect to address x.x.x.x port 5666: Connection refused
 ```
 
-C'est probablement que l'adresse IP x.x.x.x d'où est venue la requête (*ie.* le poller) n'est pas autorisée à interroger l'agent NRPE.
+C'est probablement que l'adresse IP x.x.x.x d'où est venue la requête (*ie.* le poller) n'est pas autorisée à interroger l'agent NRPE. 
 
 Il faut alors vérifier le paramètre `allowed_hosts` dans le fichier `/etc/nrpe/centreon-nrpe3.cfg` ([*cf* plus haut](#configuration-de-nrpe).
 

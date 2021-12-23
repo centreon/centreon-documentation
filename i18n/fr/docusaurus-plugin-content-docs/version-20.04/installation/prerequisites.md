@@ -5,7 +5,7 @@ title: Prérequis
 
 L'interface Centreon web est compatible avec les navigateurs web suivants :
 
-* Google Chrome (version la plus récente lors de la sortie du logiciel Centreon, et suivantes).  Rendez-vous sur la [FAQ de Google Chrome](https://support.google.com/chrome/a/answer/188447?hl=fr) pour consuler la politique de support Chrome.
+* Google Chrome (version la plus récente lors de la sortie du logiciel Centreon, et suivantes).  Rendez-vous sur la [FAQ de Google Chrome](https://support.google.com/chrome/a/answer/188447?hl=fr) pour consuler la politique de support Chrome. 
 * Mozilla Firefox (version la plus récente lors de la sortie du logiciel Centreon, et suivantes).  Rendez-vous sur la [FAQ Mozilla](https://www.mozilla.org/en-US/firefox/organizations/faq/) pour consuler la politique de support Firefox.
 * Apple Safari (version la plus récente lors de la sortie du logiciel Centreon, et suivantes)
 * Microsoft Edge Chromium (version la plus récente lors de la sortie du logiciel Centreon, et suivantes)

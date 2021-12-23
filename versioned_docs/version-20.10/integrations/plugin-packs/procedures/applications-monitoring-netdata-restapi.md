@@ -2,16 +2,13 @@
 id: applications-monitoring-netdata-restapi
 title: Netdata RestAPI
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Overview
 
 Netdata is an open source tool to visualize and monitor real-time metrics, optimized to accumulate all types of data, such as CPU usage, disk activity,
 SQL queries, visits to a website, etc.
 
-The tool is designed to visualize activity in the greatest possible detail, allowing the user to obtain an overview of what is happening and
+The tool is designed to visualize activity in the greatest possible detail, allowing the user to obtain an overview of what is happening and 
 what has just happened in their system or application.
 
 ## Plugin-Pack assets
@@ -45,8 +42,9 @@ The current version of the Netdata RestAPI Plugin-Pack can monitor the following
 
 The following metrics are collected by the Centreon Netdata RestAPI Plugin:
 
-<Tabs groupId="operating-systems">
-<TabItem value="Alarms" label="Alarms">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Alarms-->
 
 | Metric name                           | Description                                                | Unit |
 | :------------------------------------ | :--------------------------------------------------------- | :--- |
@@ -54,16 +52,14 @@ The following metrics are collected by the Centreon Netdata RestAPI Plugin:
 | netdata.alarms.current.warning.count  | Current warning alarms triggered by the Netdata agent      |      |
 | netdata.alarms.current.critical.count | Current critical alarms triggered by the Netdata agent     |      |
 
-</TabItem>
-<TabItem value="CPU" label="CPU">
+<!--CPU-->
 
 | Metric name                     | Description             | Unit |
 | :------------------------------ | :---------------------- | :--- |
 | cpu.utilization.percentage      | Average total CPU usage | %    |
 | core.cpu.utilization.percentage | Per core CPU usage      | %    |
 
-</TabItem>
-<TabItem value="Disks" label="Disks">
+<!--Disks-->
 
 | Metric name                    | Description                          | Unit |
 | :----------------------------- | :----------------------------------- | :--- |
@@ -72,53 +68,47 @@ The following metrics are collected by the Centreon Netdata RestAPI Plugin:
 | storage.space.usage.percentage | Per partition space usage (in %)     | %    |
 | storage.space.free.bytes       | Per partition free space (in Bytes)  | B    |
 
-</TabItem>
-<TabItem value="Inodes" label="Inodes">
+<!--Inodes-->
 
 | Metric name                     | Description                | Unit |
 | :------------------------------ | :------------------------- | :--- |
 | storage.inodes.usage.percentage | Per partition Inodes usage | %    |
 
-</TabItem>
-<TabItem value="Load" label="Load">
+<!--Load-->
 
-| Metric name | Description                                | Unit  |
-| :---------- | :----------------------------------------- | :---: |
-| load1       | System load average on a 1 minute period   |       |
-| load5       | System load average on a 5 minutes period  |       |
-| load15      | System load average on a 15 minutes period |       |
+| Metric name | Description                                | Unit |
+| :---------- | :----------------------------------------- | :--: |
+| load1       | System load average on a 1 minute period   |      |
+| load5       | System load average on a 5 minutes period  |      |
+| load15      | System load average on a 15 minutes period |      |
 
-</TabItem>
-<TabItem value="Memory" label="Memory">
+<!--Memory-->
 
-| Metric name             | Description                                    | Unit  |
-| :---------------------- | :--------------------------------------------- | :---: |
-| memory.usage.bytes      | Total current memory usage (in Bytes)          |   B   |
-| memory.usage.percentage | Total current memory usage (in %)              |   %   |
-| memory.free.bytes       | Current free memory                            |   B   |
-| memory.buffer.bytes     | Current amount of memory allocated to 'buffer' |   B   |
-| memory.cached.bytes     | Current amount of memory allocated to 'cached' |   B   |
-| memory.shared.bytes     | Current amount of memory allocated to 'shared' |   B   |
+| Metric name             | Description                                    | Unit |
+| :---------------------- | :--------------------------------------------- | :--: |
+| memory.usage.bytes      | Total current memory usage (in Bytes)          |  B   |
+| memory.usage.percentage | Total current memory usage (in %)              |  %   |
+| memory.free.bytes       | Current free memory                            |  B   |
+| memory.buffer.bytes     | Current amount of memory allocated to 'buffer' |  B   |
+| memory.cached.bytes     | Current amount of memory allocated to 'cached' |  B   |
+| memory.shared.bytes     | Current amount of memory allocated to 'shared' |  B   |
 
-</TabItem>
-<TabItem value="Swap" label="Swap">
+<!--Swap-->
 
-| Metric name           | Description                 | Unit  |
-| :-------------------- | :-------------------------- | :---: |
-| swap.usage.bytes      | Swap space usage (in Bytes) |   B   |
-| swap.usage.percentage | Swap space usage (in %)     |   %   |
-| swap.free.bytes       | Free Swap space             |   B   |
+| Metric name           | Description                 | Unit |
+| :-------------------- | :-------------------------- | :--: |
+| swap.usage.bytes      | Swap space usage (in Bytes) |  B   |
+| swap.usage.percentage | Swap space usage (in %)     |  %   |
+| swap.free.bytes       | Free Swap space             |  B   |
 
-</TabItem>
-<TabItem value="Traffic" label="Traffic">
+<!--Traffic-->
 
-| Metric name                       | Description                    | Unit  |
-| :-------------------------------- | :----------------------------- | :---: |
-| network.traffic.in.bitspersecond  | Per interface incoming traffic |  b/s  |
-| network.traffic.out.bitspersecond | Per interface outgoing traffic |  b/s  |
+| Metric name                       | Description                    | Unit |
+| :-------------------------------- | :----------------------------- | :--: |
+| network.traffic.in.bitspersecond  | Per interface incoming traffic | b/s  |
+| network.traffic.out.bitspersecond | Per interface outgoing traffic | b/s  |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -131,8 +121,9 @@ https://learn.netdata.cloud/docs/agent/packaging/installer
 
 ## Installation
 
-<Tabs groupId="licence-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor Netdata agents:
 
@@ -142,8 +133,7 @@ yum install centreon-plugin-Applications-Monitoring-Netdata-Restapi
 
 2. On the centreon Web interface, install the *Netdata RestAPI* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor Netdata agents:
 
@@ -159,20 +149,19 @@ yum install centreon-pack-applications-monitoring-netdata-restapi.noarch
 
 3. On the centreon Web interface, install the *Netdata RestAPI* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
 * Log into Centreon and add new host through "Configuration > Hosts".
 * Apply the template *App-Monitoring-Netdata-Restapi* to the Host and configure all the mandatories Macros:
 
-| Mandatory | Name               | Description                                                                  |
-| :-------- | :----------------- | :--------------------------------------------------------------------------- |
-| X         | NETDATAAPIPORT     | Port used (Default: 19999)                                                   |
-| X         | NETDATAAPIPROTOCOL | Specify https if needed (Default: 'http')                                    |
-| X         | NETDATAAPIENDPOINT | Specify the API URL path (Default: '/api/v1')                                |
-|           | EXTRAOPTIONS       | Any extra option you may want to add to the command (eg. a `--verbose` flag) |
+| Mandatory | Name                | Description                                                                  |
+| :-------- | :------------------ | :--------------------------------------------------------------------------- |
+| X         | NETDATAAPIPORT      | Port used (Default: 19999)                                                   |
+| X         | NETDATAAPIPROTOCOL  | Specify https if needed (Default: 'http')                                    |
+| X         | NETDATAAPIENDPOINT  | Specify the API URL path (Default: '/api/v1')                                |
+|           | EXTRAOPTIONS        | Any extra option you may want to add to the command (eg. a `--verbose` flag) |
 
 ## FAQ
 
@@ -182,18 +171,18 @@ Once the Centreon plugin installed, you can test it directly from the Centreon P
 
 ```bash
 /usr/lib/centreon/plugins/centreon_monitoring_netdata_restapi.pl \
---plugin=apps::monitoring::netdata::restapi::plugin \
---hostname=10.0.0.1 \
---mode=cpu \
---warning-average=70 \
---critical-average=80 \
---verbose
+	--plugin=apps::monitoring::netdata::restapi::plugin \
+	--hostname=10.0.0.1 \
+	--mode=cpu \
+	--warning-average=70 \
+	--critical-average=80 \
+	--verbose
 ```
 
 Expected command output is shown below:
 
-```bash
-OK: 2 CPU(s) average usage is 17.23 % |
+```bash 	
+OK: 2 CPU(s) average usage is 17.23 % | 
 'cpu.utilization.percentage'=17.23%;0:40;0:50;0;100 '0#core.cpu.utilization.percentage'=16.71%;;;0;100 '1#core.cpu.utilization.percentage'=17.75%;;;0;100
 CPU '0' usage: 16.71 %
 CPU '1' usage: 17.75 %
@@ -205,27 +194,27 @@ requesting the agent API (```--plugin=apps::monitoring::netdata::restapi::plugin
 This command would trigger a WARNING alarm if the average CPU usage raises beyond 70% (```--warning-average=70```)
 and a CRITICAL beyond 80% (```--critical-average=80```).
 
-The available thresholds as well as all of the options that can be used with this Plugin
+The available thresholds as well as all of the options that can be used with this Plugin 
 can be displayed by adding the ```--help``` parameter to the command:
 
 ```
 /usr/lib/centreon/plugins/centreon_monitoring_netdata_restapi.pl \
---plugin=apps::monitoring::netdata::restapi::plugin \
---hostname=10.0.0.1 \
---mode=cpu \
---help
+	--plugin=apps::monitoring::netdata::restapi::plugin \
+	--hostname=10.0.0.1 \
+	--mode=cpu \
+	--help
 ```
 
-### Why do I get the following error message:
+### Why do I get the following error message: 
 
 #### ```UNKNOWN: 500 Can't connect to myserver.mycompany.com:19999```
 
 This error message means that the Centreon Plugin couldn't successfully connect to the Netdata agent API.
 Check that no third party device (such as a firewall) is blocking the request.
-A proxy connection may also be necessary to connect to the API.
+A proxy connection may also be necessary to connect to the API. 
 This can be done by using this option in the command: ```--proxyurl='http://proxy.mycompany:8080'```.
 
-#### ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |```
+#### ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |``` 
 
 When using a proxy to connect to the Netdata agent API, this error message means that the Centreon Plugin library does not support
 the proxy connection protocol.

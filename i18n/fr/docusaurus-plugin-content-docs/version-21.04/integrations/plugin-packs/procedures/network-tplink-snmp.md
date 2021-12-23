@@ -2,9 +2,6 @@
 id: network-tplink-snmp
 title: TP-Link SNMP
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Vue d'ensemble
 
@@ -23,8 +20,9 @@ Le Plugin Pack *TP-Link* utilise le protocole SNMP pour se connecter, récupére
 
 ### Métriques collectées
 
-<Tabs groupId="operating-systems">
-<TabItem value="CPU" label="CPU">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--CPU-->
 
 * These 3 metrics for CPU core and average utilization
 
@@ -34,8 +32,7 @@ Le Plugin Pack *TP-Link* utilise le protocole SNMP pour se connecter, récupére
 | cpu.utilization.1m.percentage       | Percentage of CPU utilization  | %      |
 | cpu.utilization.5m.percentage       | Percentage of CPU utilization  | %      |
 
-</TabItem>
-<TabItem value="Interfaces" label="Interfaces">
+<!--Interfaces-->
 
 | Metric name                              | Description                                             | Unit |
 |:---------------------------------------- |:------------------------------------------------------- | :--- |
@@ -47,22 +44,19 @@ Le Plugin Pack *TP-Link* utilise le protocole SNMP pour se connecter, récupére
 | interface.packets.out.error.percentage   | Outgoing errored packets going through the interface.   | %    |
 | interface.packets.out.discard.percentage | Outgoing discarded packets going through the interface. | %    |
 
-</TabItem>
-<TabItem value="Memory" label="Memory">
+<!--Memory-->
 
 | Metric name                         | Description                 | Unit   |
 | :---------------------------------- | :-------------------------- | :----- |
 | memory.usage.percentage             | Percentage of memory usage  | %      |
 
-</TabItem>
-<TabItem value="Uptime" label="Uptime">
+<!--Uptime-->
 
 | Metric name                 | Description                                        | Unit   |
 | :-------------------------- | :------------------------------------------------- | :----- |
 | system.uptime               | Duration of system has been working and available. | s      |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -72,8 +66,9 @@ La communication doit être possible sur le port UDP 161 depuis le collecteur Ce
 
 ## Installation
 
-<Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des équipements TP-Link:
 
@@ -83,8 +78,7 @@ yum install centreon-plugin-Network-Tplink-Snmp
 
 2. Sur l'interface Web de Centreon, installer le Plugin Pack *TP-Link SNMP* depuis la page "Configuration > Plugin Packs > Manager"
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des équipements TP-Link :
 
@@ -100,8 +94,7 @@ yum install centreon-pack-network-tplink-snmp
 
 3. Sur l'interface Web de Centreon, installer le Plugin Pack *TP-Link SNMP* depuis la page "Configuration > Plugin Packs > Manager"
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
@@ -117,22 +110,22 @@ de commande depuis un collecteur Centreon en vous connectant avec l'utilisateur
 
 ```bash
 /usr/lib/centreon/plugins//centreon_tplink_snmp.pl \
---plugin=network::tplink::snmp::plugin \
---mode=cpu \
---hostname=10.30.2.11 \
---snmp-community=centreon-tplink \
---snmp-version=2c \
---warning-average-5m=90 \
---critical-average-5m=95 \
---verbose
-
-OK: 1 CPU(s) average usage is 7.00 % (5s) 20.00 % (1m) 10.00 % (5m) - CPU '1' usage 7.00 % (5s) 20.00 % (1m) 10.00 % (5m) |
-'cpu.utilization.5s.percentage'=7.00%;;;0;100 'cpu.utilization.1m.percentage'=20.00%;;;0;100 'cpu.utilization.5m.percentage'=10.00%;0:90;0:95;0;100
+	--plugin=network::tplink::snmp::plugin \
+	--mode=cpu \	
+	--hostname=10.30.2.11 \
+	--snmp-community=centreon-tplink \
+	--snmp-version=2c \
+	--warning-average-5m=90 \
+	--critical-average-5m=95 \
+	--verbose
+  
+OK: 1 CPU(s) average usage is 7.00 % (5s) 20.00 % (1m) 10.00 % (5m) - CPU '1' usage 7.00 % (5s) 20.00 % (1m) 10.00 % (5m) | 
+'cpu.utilization.5s.percentage'=7.00%;;;0;100 'cpu.utilization.1m.percentage'=20.00%;;;0;100 'cpu.utilization.5m.percentage'=10.00%;0:90;0:95;0;100 
 '1#core.cpu.utilization.5s.percentage'=7.00%;;;0;100 '1#core.cpu.utilization.1m.percentage'=20.00%;;;0;100 '1#core.cpu.utilization.5m.percentage'=10.00%;;;0;100
 CPU '1' usage 7.00 % (5s) 20.00 % (1m) 10.00 % (5m)
 ```
 
-La commande ci-dessus vérifie l'utilisation CPU d'un équipement TP-Link (```--mode=cpu```). Les informations importantes sont l'adresse IP/FQDN
+La commande ci-dessus vérifie l'utilisation CPU d'un équipement TP-Link (```--mode=cpu```). Les informations importantes sont l'adresse IP/FQDN 
 (```--hostname=10.30.2.11```) et la communauté SNMP configurée sur l'équipement (```--snmp-community='centreon-tplink'```).
 
 Une alarme de type WARNING est déclenchée si l'utilisation moyenne du CPU est supérieure à 90 sur le 5 dernières minutes (```--warning-average-5m='90'```).
@@ -142,17 +135,17 @@ La liste de toutes les options complémentaires et leur signification peut être
 
 ```bash
 /usr/lib/centreon/plugins//centreon_tplink_snmp.pl \
---plugin=network::tplink::snmp::plugin \
---mode=cpu \
---help
+	--plugin=network::tplink::snmp::plugin \
+	--mode=cpu \
+	--help
 ```
 
 Tous les modes disponibles peuvent être affichés via l'option ``` --list-mode ``` :
 
 ```bash
 /usr/lib/centreon/plugins//centreon_tplink_snmp.pl \
---plugin=network::tplink::snmp::plugin \
---list-mode
+	--plugin=network::tplink::snmp::plugin \
+	--list-mode
 ```
 
 ## Diagnostic des erreurs communes

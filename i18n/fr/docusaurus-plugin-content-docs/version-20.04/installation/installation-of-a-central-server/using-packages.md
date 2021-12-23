@@ -2,9 +2,6 @@
 id: using-packages
 title: A partir des paquets
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 Centreon fournit des RPM pour ses produits au travers de la solution
 Centreon Open Sources disponible gratuitement sur notre dépôt.
@@ -88,8 +85,9 @@ Ce chapitre décrit l'installation d'un serveur Centreon Central.
 Il est possible d'installer ce serveur avec une base de données locale au
 serveur, ou déportée sur un serveur dédié.
 
-<Tabs groupId="operating-systems">
-<TabItem value="Avec base de données locale" label="Avec base de données locale">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Avec base de données locale-->
 
 Exécutez les commandes suivante :
 
@@ -99,8 +97,7 @@ systemctl daemon-reload
 systemctl restart mariadb
 ```
 
-</TabItem>
-<TabItem value="Avec base de données déportée" label="Avec base de données déportée">
+<!--Avec base de données déportée-->
 
 > Dans le cas d'une installation avec un serveur dédié à la base de données, ce
 > dernier doit aussi avoir les dépôts prérequis.
@@ -141,8 +138,7 @@ commande :
 DROP USER '<USER>'@'<IP>';
 ```
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 > Le paquet **centreon-database** installe une configuration MariaDB optimisée
 > pour l'utilisation avec Centreon.
@@ -165,7 +161,7 @@ DROP USER '<USER>'@'<IP>';
 > open_files_limit=32000
 > ```
 
-> En sus des directives précédentes, il est fortement recommandé d'appliquer la
+> En sus des directives précédentes, il est fortement recommandé d'appliquer la 
 > configuration des bases de données avec les paramètres suivants:
 >
 > ```shell
@@ -178,11 +174,11 @@ DROP USER '<USER>'@'<IP>';
 > read_rnd_buffer_size = 256K
 > max_allowed_packet = 128M
 > ```
->
-> Il est également possible d'améliorer les performances des tables utilisant
-> le moteur de stockage InnoDB avec les directives ci-dessous. Les valeurs
+> 
+> Il est également possible d'améliorer les performances des tables utilisant 
+> le moteur de stockage InnoDB avec les directives ci-dessous. Les valeurs 
 > ci-dessous sont applicables à une VM ayant au moins 8Go de RAM.
->
+>  
 > ```shell
 > innodb_buffer_pool_size=1G
 > ```

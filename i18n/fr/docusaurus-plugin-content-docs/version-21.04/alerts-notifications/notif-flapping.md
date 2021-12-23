@@ -18,14 +18,14 @@ Chaque fois que Centreon Engine vérifie l'état d'un hôte ou d'un
 service, il vérifie s'il l'état de bagotement en :
 
 -   Enregistrant les résultats des 21 dernières vérifications de l'hôte
-ou du service
+    ou du service
 -   Analysant les résultats de l'historique de la vérification et
-déterminant où se produisent les changements / transitions de
-statuts
+    déterminant où se produisent les changements / transitions de
+    statuts
 -   Utilisant les transitions de statuts pour déterminer un pourcentage
-de changement pour l'hôte ou le service
+    de changement pour l'hôte ou le service
 -   Comparant la valeur de changement de statuts en pourcentage aux
-seuils déterminés
+    seuils déterminés
 
 Un hôte ou un service est déterminé en état bagotant (flapping) lorsque
 son pourcentage de changement de statuts dépasse pour la première fois
@@ -95,11 +95,11 @@ sera ensuite comparé aux seuils de bagotements pour voir ce qui devrait
 se produire:
 
 -   Si le service était en état régulier auparavant, et que 31% est égal
-ou supérieur au seuil de bagotement haut, le moteur Centeron
-considère que le service vient de commencer à bagoter.
+    ou supérieur au seuil de bagotement haut, le moteur Centeron
+    considère que le service vient de commencer à bagoter.
 -   Si le service était en état de bagotement précédemment et que 31%
-est inférieur au seuil de bagotement bas, le moteur Centreon
-considère que le service redevient dans un état régulier.
+    est inférieur au seuil de bagotement bas, le moteur Centreon
+    considère que le service redevient dans un état régulier.
 
 Si aucune de ces deux conditions n'est remplie, la logique de détection
 des bagotement ne fera rien d'autre avec le service, car soit le service

@@ -48,7 +48,7 @@ The detailed view is divided into seven parts:
 1.  List of KPIs that impact the BA level
 2.  Table containing the BA health level and alert thresholds
 3.  Tab containing the BA impact tree. You can open a sublevel, zoom in and out
-and move the tree.
+    and move the tree.
 4.  Tab containing the health level graph of the BA
 5.  Tab containing a list of all KPIs.
 6.  Dropdown list to change the BA

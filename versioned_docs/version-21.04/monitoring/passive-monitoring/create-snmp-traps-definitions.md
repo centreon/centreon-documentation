@@ -51,9 +51,9 @@ Go into the **Configuration > SNMP traps > SNMP traps** menu and click on **Add*
 * The field **Mode** defines how to check the trap **OID** received.
 * The field **OID** defines the Root OID to be received for this trap to be considered as received.
 * The field **Vendor name** defines the name of the manufacturer to which the trap to be selected in the drop-down
-list belongs.
+  list belongs.
 * The field **Output message** of contains the message to be displayed in the event of reception of a trap containing
-the OID configured above.
+  the OID configured above.
 
 > By default, the MIB contains the definition of this variable (E.g.: “Link up on interface $2. State: $4.”, here $2
 > will be replaced by the 2nd argument received in the event.). In the opposite situation, the variable **$*** can be
@@ -67,7 +67,7 @@ the OID configured above.
 * The **Default status** field defines the “monitoring” status of the service in case of reception of the trap.
 * If the **Submit result** box is checked the result is submitted to the Network supervisor engine.
 * The **Comments** field (last field) contains by default the comment by the manufacturer of the SNMP trap. Most of the
-time, this comment indicates the list of variables contained in the SNMP trap (see the next chapter on advanced configuration).
+  time, this comment indicates the list of variables contained in the SNMP trap (see the next chapter on advanced configuration).
 
 ### Advanced configuration of the traps
 
@@ -80,7 +80,7 @@ many rules as necessary.
 For each rule, define the settings:
 
 * **String** defines the element on which the search will be applied (@OUTPUT@ defined all the **Output messages**
-translated).
+  translated).
 * **Regexp** defined the REGEXP type search to be applied.
 * **Status** defines the status of the service in the event of concordance.
 
@@ -88,9 +88,9 @@ translated).
 correspondence is assured.
 
 * The **Disable submit result if no matched rules** field disables the sending of information to the scheduling engine
-if no correspondence with a rule is confirmed.
+  if no correspondence with a rule is confirmed.
 * If the **Reschedule associated services** box is checked, the next check on the service, which should be ‘active’,
-should be reprogrammed as soon as possible after reception of the trap.
+  should be reprogrammed as soon as possible after reception of the trap.
 * If the **Execute special command** box is checked, the command defined in **Special command** is executed.
 
 ### Advanced tab
@@ -131,15 +131,15 @@ Example:
 The result will have the form:  Interface GigabitEthernet0/1 ( NAS Server ) linkUP. State: up
 
 * The **Insert trap's information into database** box, if checked, record the SNMP trap information in the database
-field can be used define whether or not to classify the traps by day in the database.
+  field can be used define whether or not to classify the traps by day in the database.
 * The **Timeout** field expressed in seconds is used to define the maximum processing time of the event including the
-pre-processing commands (PREEXEC) and post-processing commands (special command).
+  pre-processing commands (PREEXEC) and post-processing commands (special command).
 * The **Execution interval** field expressed in seconds is used to define the maximum waiting time between two
-processing operations of an event.
+  processing operations of an event.
 * The **Execution Type** field is used to enable the Execution interval by defining the conditions by Root OID, by the
-Root OID and host combination or, to disable this restriction, None.
+  Root OID and host combination or, to disable this restriction, None.
 * The **Execution Method** field is used to define if on reception of multiple same events (Root OID). The execution is
-either **Sequential** or **Parallel**.
+  either **Sequential** or **Parallel**.
 
 ### Custom code
 
@@ -148,9 +148,9 @@ The field **custom code** allows custom Perl processing. To enable this feature,
 
 ```perl
 our %centreontrapd_config = (
-...
-secure_mode => 0,
-....
+    ...
+    secure_mode => 0,
+    ....
 );
 
 1;
@@ -160,9 +160,9 @@ For example, to decode the 4 arguments from hexadecimal, the custom code will be
 
 ```perl
 if ($self->{trap_data}->{entvar}->[3] =~ /[[:xdigit:]]+/) {
-my $hexa_value = $self->{trap_data}->{entvar}->[3];
-$hexa_value =~ s/ //g;
-$self->{trap_data}->{entvar}->[3] = pack('H*', $hexa_value);
+    my $hexa_value = $self->{trap_data}->{entvar}->[3];
+    $hexa_value =~ s/ //g;
+    $self->{trap_data}->{entvar}->[3] = pack('H*', $hexa_value);
 }
 ```
 

@@ -18,8 +18,8 @@ car ils fournissent les [commandes](commands) de vérification appropriées.
 Un hôte ou un modèle d’hôte peut hériter d’un ou plusieurs modèles d’hôtes. Cet
 héritage peut être :
 
-- de type associatif (addition de plusieurs modèles d’hôte)
-- de type père-fils
+  - de type associatif (addition de plusieurs modèles d’hôte)
+  - de type père-fils
 
 ### Héritage de type Père-Fils
 

@@ -2,9 +2,6 @@
 id: network-fritzbox-upnp
 title: Fritz!Box UPnP
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Pack Assets
 
@@ -16,24 +13,23 @@ The Pack Fritz!Box collects metrics for:
 
 ### Collected Metrics
 
-<Tabs groupId="operating-systems">
-<TabItem value="System" label="System">
+<!--DOCUSAURUS_CODE_TABS-->
 
-| Metric name           | Description                         | Unit |
-| :-------------------- | :---------------------------------- | :--- |
-| connection status     | Connection and physical link status |      |
-| system.uptime.seconds | Elapsed time since the last reboot  | s    |
+<!--System-->
 
-</TabItem>
-<TabItem value="Traffic" label="Traffic">
+| Metric name           | Description                         | Unit  |
+| :-------------------- | :---------------------------------- | :---- |
+| connection status     | Connection and physical link status |       |
+| system.uptime.seconds | Elapsed time since the last reboot  | s     |
 
-| Metric name                                    | Description                                      | Unit |
-| :--------------------------------------------- | :----------------------------------------------- | :--- |
-| system.interface.wan.traffic.in.bitspersecond  | Incoming traffic going through the WAN interface | b/s  |
-| system.interface.wan.traffic.out.bitspersecond | Outgoing traffic going through the WAN interface | b/s  |
+<!--Traffic-->
 
-</TabItem>
-</Tabs>
+| Metric name                                    | Description                                      | Unit  |
+| :--------------------------------------------- | :----------------------------------------------- | :---- |
+| system.interface.wan.traffic.in.bitspersecond  | Incoming traffic going through the WAN interface | b/s   |
+| system.interface.wan.traffic.out.bitspersecond | Outgoing traffic going through the WAN interface | b/s   |
+
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -41,8 +37,9 @@ To control your Fritz!Box, the UPnP must be configured.
 
 ## Setup
 
-<Tabs groupId="licence-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -52,8 +49,7 @@ yum install centreon-plugin-Network-Fritzbox-Upnp
 
 2. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *Fritz!Box UPnP* Pack
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -69,8 +65,7 @@ yum install centreon-pack-network-fritzbox-upnp
 
 3. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *Fritz!Box UPnP* Pack
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Host configuration
 
@@ -92,11 +87,11 @@ and test the Plugin by running the following command (Parameters such as ```api-
 
 ```bash
 /usr/lib/centreon/plugins/centreon_fritzbox_upnp.pl \
---plugin=network::fritzbox::upnp::plugin \
---mode=traffic \
---hostname='10.30.2.79' \
---port='49000' \
---proto='http'
+    --plugin=network::fritzbox::upnp::plugin \
+    --mode=traffic \
+    --hostname='10.30.2.79' \
+    --port='49000' \
+    --proto='http'
 ```
 
 Expected command output is shown below:
@@ -114,9 +109,9 @@ parameter to the command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_fritzbox_upnp.pl \
---plugin=network::fritzbox::upnp::plugin \
---mode=traffic \
---help
+    --plugin=network::fritzbox::upnp::plugin \
+    --mode=traffic \
+    --help
 ```
 
 ## Troubleshooting

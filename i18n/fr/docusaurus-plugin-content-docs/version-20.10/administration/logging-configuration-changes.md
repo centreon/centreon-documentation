@@ -14,10 +14,10 @@ ces informations, rendez-vous dans le menu `Administration > Logs`.
 La barre de recherche grise vous permet de filtrer les informations présentées
 via les filtres :
 
-- **Objet** permettant de filtrer sur le nom de l'objet (hôte, service,
-contact, définition de trap SNMP, groupe, ...)
-- **Utilisateur** permettant de filtrer par auteur de modification
-- **Type d'objet** permettant de filtrer par type d'objet modifié.
+  - **Objet** permettant de filtrer sur le nom de l'objet (hôte, service,
+    contact, définition de trap SNMP, groupe, ...)
+  - **Utilisateur** permettant de filtrer par auteur de modification
+  - **Type d'objet** permettant de filtrer par type d'objet modifié.
 
 ## Pratique
 

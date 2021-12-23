@@ -2,8 +2,6 @@
 id: applications-slack-restapi
 title: Slack
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 ## Contenu du Plugin-Pack
 
@@ -16,59 +14,58 @@ Le Pack Slack collecte les données pour:
 
 ### Règles de découvertes
 
-<Tabs groupId="operating-systems">
-<TabItem value="Services" label="Services">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Services-->
 
 | Rule name                       | Description                                |
 | :------------------------------ | :----------------------------------------- |
 | App-Slack-Restapi-Services-Name | Discover services and monitor their status |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Métriques collectées
 
-<Tabs groupId="operating-systems">
-<TabItem value="Countchannels" label="Countchannels">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Count-channels-->
 
 | Metric name                            | Description                      | Unit |
 | :------------------------------------- | :------------------------------- | :--- |
 | channels.total.count                   | Number of channels               |      |
 | *channel\_name*\#channel.members.count | Number of members in the channel |      |
 
-</TabItem>
-<TabItem value="Countmembers" label="Countmembers">
+<!--Count-members-->
 
 | Metric name         | Description     | Unit |
-| :------------------ | :-------------- | :--- |
+| :-------------------| :-------------- | :--- |
 | members.total.count | Number of users |      |
 
-</TabItem>
-<TabItem value="Services" label="Services">
+<!--Services-->
 
 | Metric name          | Description                            | Unit |
 | :------------------- | :------------------------------------- | :--- |
 | slack.services.count | Number of services currently monitored |      |
 | status               | Status of the service                  |      |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
 Le collecteur Centreon doit pouvoir joindre les serveurs Slack (slack.com) sur Internet sur le port TCP/443 (HTTPS).
 Il est possible de spécifier un proxy à utiliser le cas échéant.
 
-| Service        | API Token ? | Scope         |
-| :------------- | :---------- | :------------ |
-| count-channels | Yes         | channels.read |
-| count-members  | Yes         | users.read    |
-| services       | No          |               |
+| Service        | API Token ?    | Scope         |
+| :------------- | :------------- | :------------ |
+| count-channels | Yes            | channels.read |
+| count-members  | Yes            | users.read    |
+| services       | No             |               |
 
 ## Installation
 
-<Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -78,8 +75,7 @@ yum install centreon-plugin-Applications-Slack-Restapi
 
 2. Sur l'interface Web de Centreon, installer le Pack *Slack* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1.Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -94,9 +90,6 @@ yum install centreon-pack-applications-slack-restapi
 ```
 
 3. Sur l'interface Web de Centreon, installer le Pack *Slack* depuis la page **Configuration > Plugin Packs > Gestionnaire**
-
-</TabItem>
-</Tabs>
 
 ## Configuration
 
@@ -119,13 +112,13 @@ depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-en
 
 ```bash
 /usr/lib/centreon/plugins/centreon_slack_restapi.pl \
---plugin='apps::slack::restapi::plugin' \
---mode=services \
---proxyurl='http://myproxy.mycompany.org:8080' \
---filter-name='Connections|Messaging' \
---warning-status='%{status} eq "active" and %{type} eq "incident"' \
---critical-status='%{status} eq "active" and %{type} eq "outage"' \
---verbose
+    --plugin='apps::slack::restapi::plugin' \
+    --mode=services \
+    --proxyurl='http://myproxy.mycompany.org:8080' \
+    --filter-name='Connections|Messaging' \
+    --warning-status='%{status} eq "active" and %{type} eq "incident"' \
+    --critical-status='%{status} eq "active" and %{type} eq "outage"' \
+    --verbose
 ```
 
 La commande devrait retourner un message de sortie de la forme ci-dessous:
@@ -143,14 +136,14 @@ On choisit ci-desus de n'afficher que le statut des services *Connections* et *M
 Une alarme WARNING sera ainsi déclenchée si le statut d'un de ces services est signalée comme dégradée (```--warning-status='%{status} eq "active" and %{type} eq "incident"'```);
 l'alarme sera de type CRITICAL pour un service inaccessible (```--critical-status='%{status} eq "active" and %{type} eq "outage"'```).
 
-Pour chaque mode, la liste de toutes les métriques, seuils associés et options complémentaires peut être affichée
+Pour chaque mode, la liste de toutes les métriques, seuils associés et options complémentaires peut être affichée 
 en ajoutant le paramètre ```--help``` à la commande:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_slack_restapi.pl \
---plugin='apps::slack::restapi::plugin' \
---mode=services \
---help
+    --plugin='apps::slack::restapi::plugin' \
+    --mode=services \
+    --help
 ```
 
 ## Diagnostique

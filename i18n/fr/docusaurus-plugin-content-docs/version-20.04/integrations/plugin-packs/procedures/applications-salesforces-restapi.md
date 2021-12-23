@@ -2,13 +2,10 @@
 id: applications-salesforce-restapi
 title: Salesforce
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Vue d'ensemble
 
-Salesforce est un éditeur de logiciels, basé à San Francisco aux États-Unis. Il distribue des logiciels de gestion basés sur Internet et héberge des applications d'entreprises. L'entreprise est surtout connue au niveau international pour ses solutions en gestion de la relation client.
+Salesforce est un éditeur de logiciels, basé à San Francisco aux États-Unis. Il distribue des logiciels de gestion basés sur Internet et héberge des applications d'entreprises. L'entreprise est surtout connue au niveau international pour ses solutions en gestion de la relation client. 
 
 ## Contenu du plugin-pack
 
@@ -18,24 +15,24 @@ Salesforce est un éditeur de logiciels, basé à San Francisco aux États-Unis.
 
 ## Métriques collectées
 
-<Tabs groupId="operating-systems">
-<TabItem value="InstanceStatus" label="InstanceStatus">
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Instance-Status-->
 
 | Metric name               | Description                                              |
 | :------------------------ | :------------------------------------------------------- |
 | instanceStatus            | Status of a Salesforce instance                          |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
-Afin de superviser le statut d'une instance Salesforce, l'adresse api.status.salesforce.com doit pouvoir être accessible depuis le collecteur.
+Afin de superviser le statut d'une instance Salesforce, l'adresse api.status.salesforce.com doit pouvoir être accessible depuis le collecteur. 
 
 ## Installation
 
-<Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin Salesforce sur le collecteur supervisant Salesforce
 
@@ -43,10 +40,9 @@ Afin de superviser le statut d'une instance Salesforce, l'adresse api.status.sal
 yum install centreon-plugin-Applications-Salesforce-Restapi
 ```
 
-2. Installer le plugin-pack Salesforce via le menu "Configuration > Plugin packs > Manager"
+2. Installer le plugin-pack Salesforce via le menu "Configuration > Plugin packs > Manager" 
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin Salesforce sur le collecteur supervisant Salesforce
 
@@ -54,16 +50,15 @@ yum install centreon-plugin-Applications-Salesforce-Restapi
 yum install centreon-plugin-Applications-Salesforce-Restapi
 ```
 
-2. Installer le rpm du Plugin-Pack pour l'avoir à disposition dans l'interface Web:
+2. Installer le rpm du Plugin-Pack pour l'avoir à disposition dans l'interface Web: 
 
 ```bash
 yum install centreon-pack-applications-salesforce-restapi
 ```
 
-3. Installer le plugin-pack Salesforce via le menu "Configuration > Plugin packs > Manager"
+3. Installer le plugin-pack Salesforce via le menu "Configuration > Plugin packs > Manager" 
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
@@ -85,35 +80,35 @@ Une fois le Plugin installé, vous pouvez le tester en ligne de commande avec l'
 
 ```bash
 /usr/lib/centreon/plugins//centreon_salesforce_restapi.pl \
---plugin=apps::salesforce::restapi::plugin \
---mode=sfdc-instance \
---hostname='api.status.salesforce.com' \
---http-backend=curl \
---instance='sfdcinstance' \
---alias
+	--plugin=apps::salesforce::restapi::plugin \
+	--mode=sfdc-instance \
+	--hostname='api.status.salesforce.com' \
+	--http-backend=curl \
+	--instance='sfdcinstance' \
+	--alias
 ```
 
-Ce mode permet la supervision du statut d'une instance Salesforce (```--mode=sfdc-instance```) dont le nom est 'sfdcinstance' (```--instance='sfdcinstance'```). L'option alias est ajoutée (```--alias```) afin d'utiliser le nom 'URL' plutôt que le code régionnal où réside l'instance.
+Ce mode permet la supervision du statut d'une instance Salesforce (```--mode=sfdc-instance```) dont le nom est 'sfdcinstance' (```--instance='sfdcinstance'```). L'option alias est ajoutée (```--alias```) afin d'utiliser le nom 'URL' plutôt que le code régionnal où réside l'instance. 
 
-Toutes les options et leurs significations peuvent être affichées via la commande ci-dessous:
+Toutes les options et leurs significations peuvent être affichées via la commande ci-dessous: 
 
 ```bash
 /usr/lib/centreon/plugins//centreon_salesforce_restapi.pl \
---plugin=apps::salesforce::restapi::plugin \
---mode=sfdc-instance \
---help
+	--plugin=apps::salesforce::restapi::plugin \
+	--mode=sfdc-instance \
+    --help
 ```
 
 ### UNKNOWN: Cannot decode JSON response
 
-Si vous obtenez ce message, il est probable qu'un proxy bloque la requête et que la réponse reçue ne soit pas au format attendu. Il est possible de vérifier la connexion au moyen de la commande suivante:
+Si vous obtenez ce message, il est probable qu'un proxy bloque la requête et que la réponse reçue ne soit pas au format attendu. Il est possible de vérifier la connexion au moyen de la commande suivante: 
 
 ```bash
 curl https://api.status.salesforce.com/v1/instances
 ```
 
-Vous pouvez également ajouter l'option ```--debug``` pour avoir d'avantage d'informations.
+Vous pouvez également ajouter l'option ```--debug``` pour avoir d'avantage d'informations. 
 
-### Comment determiner le nom de l'instance Salesforce ?
+### Comment determiner le nom de l'instance Salesforce ? 
 
-Le nom de votre instance est la première partie de l'URL utilisée pour se connecter à l'instance en tant qu'utilisateur. Par exemple, si l'URL est archimede.my.salesforce.com, alors 'archimede' est le nom de votre instance.
+Le nom de votre instance est la première partie de l'URL utilisée pour se connecter à l'instance en tant qu'utilisateur. Par exemple, si l'URL est archimede.my.salesforce.com, alors 'archimede' est le nom de votre instance. 

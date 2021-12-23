@@ -5,7 +5,7 @@ title: Configuring a local connection
 
 To allow a [contact](../monitoring/basic-objects/contacts) to log in to Centreon:
 
-1. Go to page **Configuration > Users > Contacts/Users** and click on the contact you want.
+1. Go to page **Configuration > Users > Contacts/Users** and click on the contact you want. 
 
 2. On the **Centreon Authentication** tab, set **Reach Centreon Front-end** to **Yes**.
 

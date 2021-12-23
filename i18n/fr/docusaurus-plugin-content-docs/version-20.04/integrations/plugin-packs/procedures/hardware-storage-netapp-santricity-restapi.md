@@ -2,8 +2,6 @@
 id: hardware-storage-netapp-santricity-restapi
 title: Netapp Santricity Restapi
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 ## Vue d'ensemble
 
@@ -23,23 +21,22 @@ Le Plugin-Pack SANtricity permet de superviser les ressources NetApp accessibles
 
 Les métriques collectées sont les suivantes:
 
-<Tabs groupId="operating-systems">
-<TabItem value="Hardware" label="Hardware">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Hardware-->
 
 | Metric name                        | Description                                                                                              |
 | :--------------------------------- | :------------------------------------------------------------------------------------------------------- |
 | status                             | Check components operational status: battery, cbd, ctrl, drive, fan, psu, storage, thsensor. Unit: count |
 | hardware.drive.temperature.celsius | Check drives temperature. Unit: °C                                                                       |
 
-</TabItem>
-<TabItem value="Storage Pools" label="Storage Pools">
+<!--Storage Pools-->
 
-| Metric name  | Description             |
-| :----------- | :---------------------- |
-| raid\_status | Raid status information |
+| Metric name            | Description              |
+| :--------------------  | :----------------------- |
+| raid\_status           | Raid status information  |
 
-</TabItem>
-<TabItem value="Storage Controllers" label="Storage Controllers">
+<!--Storage Controllers-->
 
 | Metric name                          | Description                          |
 | :----------------------------------- | :----------------------------------- |
@@ -50,8 +47,7 @@ Les métriques collectées sont les suivantes:
 | system.io.read.usage.iops            | System read IOPS usage. Unit: count  |
 | system.io.write.usage.iops           | System write IOPS usage. Unit: count |
 
-</TabItem>
-<TabItem value="Storage Systems" label="Storage Systems">
+<!--Storage Systems-->
 
 | Metric name                 | Description                          |
 | :-------------------------- | :----------------------------------- |
@@ -60,8 +56,7 @@ Les métriques collectées sont les suivantes:
 | pool.space.usage.percentage | Pool space percentage usage. Unit: % |
 | pool.space.free.bytes       | Pool free space. Unit: B             |
 
-</TabItem>
-<TabItem value="Storage Volumes" label="Storage Volumes">
+<!--Storage Volumes-->
 
 | Metric name                          | Description                          |
 | :----------------------------------- | :----------------------------------- |
@@ -71,8 +66,7 @@ Les métriques collectées sont les suivantes:
 | system.io.read.usage.iops            | Volume read IOPS usage. Unit: count  |
 | system.io.write.usage.iops           | Volume write IOPS usage. Unit: count |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -89,8 +83,9 @@ Les ressources ci-après décrivent les méthodes d'installation ainsi que le fo
 
 ## Installation
 
-<Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources Netapp SANtricity:
 
@@ -100,8 +95,7 @@ yum install centreon-plugin-Hardware-Storage-Netapp-Santricity-Restapi
 
 2. Depuis l'interface Web de Centreon, installer le Plugin-Pack *Netapp Santricity Restapi* depuis la page "Configuration > Plugin Packs > Manager"
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources Netapp SANtricity:
 
@@ -117,22 +111,19 @@ centreon-pack-hardware-storage-netapp-santricity-restapi.noarch
 
 3. Depuis l'interface Web de Centreon, installer le Plugin-Pack *Netapp Santricity Restapi* depuis la page "Configuration > Plugin Packs > Manager"
 
-</TabItem>
-</Tabs>
-
 ## Configuration
 
 * Depuis l'interface Web de Centreon, ajoutez un nouvel Hôte depuis la page "Configuration > Hôtes".
 * Appliquez le modèle d'Hôte "HW-Storage-Netapp-Santricity-Restapi-custom" et configurer les macros nécessaires :
 
-| Mandatory | Name            | Description                                                                |
-| :-------- | :-------------- | :------------------------------------------------------------------------- |
-| X         | APIPORT         | Port used (Default: 8080)                                                  |
-| X         | APIUSERNAME     | Santricity API username.                                                   |
-| X         | APIPASSWORD     | Santricity API password. Password checkbox must be checked                 |
-| X         | APIPATH         | Specify api path (Default: '/devmgr/v2')                                   |
-| X         | APIPROTO        | Specify https if needed (Default: 'http')                                  |
-|           | APIEXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
+| Mandatory   | Name               | Description                                                                |
+| :---------- | :----------------- | :------------------------------------------------------------------------- |
+| X           | APIPORT            | Port used (Default: 8080)                                                  |
+| X           | APIUSERNAME        | Santricity API username.                                                   |
+| X           | APIPASSWORD        | Santricity API password. Password checkbox must be checked                 |
+| X           | APIPATH            | Specify api path (Default: '/devmgr/v2')                                   |
+| X           | APIPROTO           | Specify https if needed (Default: 'http')                                  |
+|             | APIEXTRAOPTIONS    | Any extra option you may want to add to the command (eg. a --verbose flag) |
 
 ## FAQ
 
@@ -143,26 +134,26 @@ Centreon avec l'utilisateur *centreon-engine*:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_netapp_santricity_restapi.pl \
---plugin=storage::netapp::santricity::restapi::plugin \
---hostname=sancitricy.int.centreon.com \
---port=8080 \
---proto=http \
---api-path='/devmgr/v2' \
---api-username='admin' \
---api-password='xxxx' \
---mode=storage-volumes \
---verbose \
---warning-volume-status='%{status} =~ /degraded/i' \
---critical-volume-status='%{status} =~ /failed/i'
+    --plugin=storage::netapp::santricity::restapi::plugin \
+    --hostname=sancitricy.int.centreon.com \
+    --port=8080 \
+    --proto=http \
+    --api-path='/devmgr/v2' \
+    --api-username='admin' \
+    --api-password='xxxx' \
+    --mode=storage-volumes \
+    --verbose \
+    --warning-volume-status='%{status} =~ /degraded/i' \
+    --critical-volume-status='%{status} =~ /failed/i'
 ```
 
 La commande doit retourner un résultat de la forme:
 
-```bash
+```bash 	
 OK: storage system 'SAN-XXX' volumes are ok |
 checking storage system 'SAN-XXXX'
-volume 'Datastore_X' status: optimal
-volume 'Datastore_Y' status: optimal
+    volume 'Datastore_X' status: optimal
+    volume 'Datastore_Y' status: optimal
 ```
 
 Cette commande vérifie le statut des volumes NetApp (```--mode=storage-volumes```) en requêtant l'API SANtricity du serveur *santricity.int.centreon.com* (```--hostname=sancitricy.int.centreon.com```).
@@ -175,9 +166,9 @@ Pour chaque mode, les options disponibles peuvent être consultées en ajoutant 
 
 ```
 /usr/lib/centreon/plugins/centreon_netapp_santricity_restapi.pl \
---plugin=storage::netapp::santricity::restapi::plugin \
---mode=storage-volumes \
---help
+    --plugin=storage::netapp::santricity::restapi::plugin \
+    --mode=storage-volumes \
+	  --help
 ```
 
 ### J'obtiens le message d'erreur suivant:

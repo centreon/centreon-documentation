@@ -2,9 +2,6 @@
 id: generic-actions
 title: Actions génériques
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 Au sein du menu **Configuration** il est possible d’effectuer certaines actions "génériques" sur les différents objets.
 
@@ -22,13 +19,13 @@ d’un nouvel objet. Exemple : J’ai 10 serveurs web identiques à superviser :
 1. J’ajoute le premier serveur web avec tous les attributs nécessaires.
 2. Je duplique cet hôte 9 fois.
 3. Je n’ai plus qu’à changer les noms d’hôtes et les adresses IP de chaque duplication pour les adapter aux 9 autres
-serveurs web à superviser.
+  serveurs web à superviser.
 
 Grâce à cette méthode, il n’est plus nécessaire de créer unitairement chaque hôte.
 
 
-<Tabs groupId="operating-systems">
-<TabItem value="Méthode 1" label="Méthode 1">
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Méthode 1-->
 
 Par exemple, pour dupliquer une Business Activity:
 
@@ -36,27 +33,25 @@ Par exemple, pour dupliquer une Business Activity:
 2. Cliquez sur l'icône **Dupliquer** qui apparaît au survol de l'objet :<img src={require('../assets/configuration/common/duplicate_new.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 3. Entrez le nombre d'exemplaires supplémentaires de l'objet que vous souhaitez obtenir.
 
-![image](../assets/configuration/common/duplicate_objects_new.png)
+  ![image](../assets/configuration/common/duplicate_objects_new.png)
 
 4. Cliquez sur **OK**.
 
-</TabItem>
-<TabItem value="Méthode 2" label="Méthode 2">
+<!--Méthode 2-->
 
 Par exemple, pour dupliquer un hôte :
 
 1. Sélectionnez l’hôte que vous souhaitez dupliquer.
 2. Dans la colonne **Options**, entrez le nombre d'exemplaires supplémentaires que vous souhaitez obtenir:
 
-![image](../assets/configuration/common/01duplicate.png)
+    ![image](../assets/configuration/common/01duplicate.png)
 
 3. Dans le menu **Plus d'actions** cliquez sur **Dupliquer**, puis confirmez la duplication.
 
-![image](../assets/configuration/common/01duplicateobjects.png)
+    ![image](../assets/configuration/common/01duplicateobjects.png)
 
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Changement massif
 
@@ -67,25 +62,23 @@ modifier cette communauté sans devoir modifier chaque fiche de chaque hôte uni
 
 Pour effectuer un changement massif :
 
-<Tabs groupId="operating-systems">
-<TabItem value="Méthode 1" label="Méthode 1">
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Méthode 1-->
 
 1. Sélectionnez les objets que vous souhaitez modifier.
 2. Cliquez sur l'icône **Changement multiple** au-dessus de la liste des objets : ![image](../assets/configuration/common/mass_change.png)
 3. Confirmez les changements.
 
-</TabItem>
-<TabItem value="Méthode 2" label="Méthode 2">
+<!--Méthode 2-->
 
 1. Sélectionnez les objets que vous souhaitez modifier.
 2. Dans le menu **Plus d'actions**, cliquez sur **Changement massif**.
 3. Le formulaire correspondant au type d'objet s'ouvre, avec deux options à côté de chaque champ:
 
-* **Incrémentale** : la modification va s’ajouter aux options déjà existantes
-* **Remplacement** : la modification va écraser les options déjà existantes.
+    * **Incrémentale** : la modification va s’ajouter aux options déjà existantes
+    * **Remplacement** : la modification va écraser les options déjà existantes.
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Activer/Désactiver un objet
 
@@ -94,30 +87,28 @@ configuration. Le principal intérêt est de pouvoir garder la configuration d�
 
 Pour activer/désactiver un objet :
 
-<Tabs groupId="operating-systems">
-<TabItem value="Méthode 1" label="Méthode 1">
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Méthode 1-->
 
 1. Sélectionnez les objets que vous souhaitez modifier.
 2. Cliquez sur l'icône désirée dans la ligne de l'objet ou au-dessus de la liste :
 
-* **Activer** <img src={require('../assets/configuration/common/enabled_new.png').default} style={{width:'24px', marginBottom:'-6px'}} />
-* **Désactiver** <img src={require('../assets/configuration/common/disabled_new.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+    * **Activer** <img src={require('../assets/configuration/common/enabled_new.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+    * **Désactiver** <img src={require('../assets/configuration/common/disabled_new.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 
-</TabItem>
-<TabItem value="Méthode 2" label="Méthode 2">
+<!--Méthode 2-->
 
 1. Sélectionnez les objets que vous souhaitez modifier.
 2. Dans le menu **Plus d'actions**, cliquez sur **Activer/désactiver**.
+  
+Vous pouvez également utiliser les boutons suivants en fin de ligne : 
 
-Vous pouvez également utiliser les boutons suivants en fin de ligne :
+  * **Activer** <img src={require('../assets/configuration/common/enabled.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+  * **Désactiver** <img src={require('../assets/configuration/common/disabled.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 
-* **Activer** <img src={require('../assets/configuration/common/enabled.png').default} style={{width:'24px', marginBottom:'-6px'}} />
-* **Désactiver** <img src={require('../assets/configuration/common/disabled.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+   ![image](../assets/configuration/common/enable_disable.png)
 
-![image](../assets/configuration/common/enable_disable.png)
-
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Supprimer un objet
 
@@ -127,19 +118,17 @@ Vous pouvez également utiliser les boutons suivants en fin de ligne :
 
 Pour supprimer un objet :
 
-<Tabs groupId="operating-systems">
-<TabItem value="Méthode 1" label="Méthode 1">
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Méthode 1-->
 
 1. Sélectionnez les objets que vous souhaitez supprimer.
 2. Cliquez sur l'icône **Supprimer** : <img src={require('../assets/configuration/common/delete_new.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 3. Confirmer l'action.
 
-</TabItem>
-<TabItem value="Méthode 2" label="Méthode 2">
+<!--Méthode 2-->
 
 1. Sélectionnez les objets que vous souhaitez supprimer.
 2. Dans le menu **Plus d'actions**, cliquez sur **Supprimer**.
 3. Confirmer l'action.
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->

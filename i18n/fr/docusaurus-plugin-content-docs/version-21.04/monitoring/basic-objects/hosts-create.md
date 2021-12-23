@@ -14,17 +14,17 @@ Vous pouvez :
 
 ## Mettre un hôte en supervision
 
-Pour mettre un hôte en supervision, le plus simple est de lui attribuer un [modèle](hosts-templates) issu d'un [Plugin Pack](../pluginpacks) :
+Pour mettre un hôte en supervision, le plus simple est de lui attribuer un [modèle](hosts-templates) issu d'un [Plugin Pack](../pluginpacks) : 
 
-1. Pour connaître le nom du modèle correspondant à un Plugin Pack, allez à la page **Configuration > Packs de plugins**. Recherchez le Plugin Pack désiré, puis cliquez sur l'icône "i" en bas à gauche de celui-ci.
+1. Pour connaître le nom du modèle correspondant à un Plugin Pack, allez à la page **Configuration > Packs de plugins**. Recherchez le Plugin Pack désiré, puis cliquez sur l'icône "i" en bas à gauche de celui-ci. 
 
-![image](../../assets/configuration/pluginpacks/doc.png)
+    ![image](../../assets/configuration/pluginpacks/doc.png)
 
-La documentation correspondant au Plugin Pack s'ouvre : elle vous indiquera le nom exact du modèle associé au Plugin Pack.
+    La documentation correspondant au Plugin Pack s'ouvre : elle vous indiquera le nom exact du modèle associé au Plugin Pack.
 
 2. Créez l'hôte :
 
-- [manuellement](hosts) : dans le champ **Modèles**, choisissez le modèle correspondant au plugin pack désiré.
-- par [autodécouverte](../discovery/hosts-discovery) : le Plugin Pack sera automatiquement renseigné.
+    - [manuellement](hosts) : dans le champ **Modèles**, choisissez le modèle correspondant au plugin pack désiré.
+    - par [autodécouverte](../discovery/hosts-discovery) : le Plugin Pack sera automatiquement renseigné.
 
 3. [Déployez](../monitoring-servers/deploying-a-configuration) la configuration. L'hôte et ses services sont maintenant supervisés : ils apparaissent à la page [Statut des ressources](../../alerts-notifications/resources-status).

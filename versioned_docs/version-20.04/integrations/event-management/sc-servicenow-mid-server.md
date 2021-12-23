@@ -23,56 +23,56 @@ Here is an example of how the POST data are formatted by the Stream Connector fo
 
 ```json
 [
-{
-"message_key": "24/0/1596634138",
-"type": "HOST",
-"resource": "HOST",
-"metric_name": "HOST",
-"severity": 0,
-"source_instance": "Centreon central server",
-"description": "OK: dummy\n",
-"time_of_event": "2020-08-05T13:30:55.000",
-"source": "Centreon",
-"node": "test-host_10",
-"additional_info": {
-"host_groups": [
-"Test-Machines",
-"Serveurs-Linux",
-"gold"
-]
-}
-},
-{
-"message_key": "24/93/1595260330",
-"type": "test-svc",
-"resource": "test-svc",
-"metric_name": "test-svc",
-"severity": 2,
-"source_instance": "Centreon central server",
-"description": "CRITICAL: sample output\n",
-"time_of_event": "2020-08-06T08:26:13.000",
-"source": "Centreon",
-"node": "test-host_10",
-"additional_info": {
-"host_groups": [
-"Test-Machines",
-"Serveurs-Linux",
-"gold"
-],
-"service_groups": [
-"Groupe-de-Services",
-"Autre-groupe-de-services"
-]
-}
-}
+  {
+    "message_key": "24/0/1596634138",
+    "type": "HOST",
+    "resource": "HOST",
+    "metric_name": "HOST",
+    "severity": 0,
+    "source_instance": "Centreon central server",
+    "description": "OK: dummy\n",
+    "time_of_event": "2020-08-05T13:30:55.000",
+    "source": "Centreon",
+    "node": "test-host_10",
+    "additional_info": {
+      "host_groups": [
+        "Test-Machines",
+        "Serveurs-Linux",
+        "gold"
+      ]
+    }
+  },
+  {
+    "message_key": "24/93/1595260330",
+    "type": "test-svc",
+    "resource": "test-svc",
+    "metric_name": "test-svc",
+    "severity": 2,
+    "source_instance": "Centreon central server",
+    "description": "CRITICAL: sample output\n",
+    "time_of_event": "2020-08-06T08:26:13.000",
+    "source": "Centreon",
+    "node": "test-host_10",
+    "additional_info": {
+      "host_groups": [
+        "Test-Machines",
+        "Serveurs-Linux",
+        "gold"
+      ],
+      "service_groups": [
+        "Groupe-de-Services",
+        "Autre-groupe-de-services"
+      ]
+    }
+  }
 ]
 ```
 
 ## Requirements
 
 * This integration requires at least one ServiceNow MID Server, and you must have been provided with one of the following types of account:
-* an account with `evt_mgmt_admin` privilege to be able to configure the event collector (according to [Configure the MID WebService Event Collector Context](https://docs.servicenow.com/bundle/newyork-it-operations-management/page/product/event-management/task/configure-em-context-extension#event-collection-extension)).
-* an account entitled to log in to the JSONv2 API, whose URL looks like `http://{MID_Server_IP}:{MID_Web_Server_Port}/api/mid/em/jsonv2`.
+    * an account with `evt_mgmt_admin` privilege to be able to configure the event collector (according to [Configure the MID WebService Event Collector Context](https://docs.servicenow.com/bundle/newyork-it-operations-management/page/product/event-management/task/configure-em-context-extension#event-collection-extension)). 
+    * an account entitled to log in to the JSONv2 API, whose URL looks like `http://{MID_Server_IP}:{MID_Web_Server_Port}/api/mid/em/jsonv2`.
 * It is also necessary to use a Centreon account with either **admin privileges** or **Export configuration** and **Broker configuration** menu access in the WUI, as well as a **`root` access in command-line interface**.
 
 ## Support
@@ -90,7 +90,7 @@ You can follow this link to find out how to [configure the MID WebService Event 
 
 ### In Centreon
 
-#### Installation
+#### Installation 
 
 Login as `root` on the Centreon central server using your favorite SSH client.
 

@@ -2,9 +2,6 @@
 id: applications-monitoring-alyvix-restapi
 title: Alyvix Server
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Vue d'ensemble
 
@@ -18,7 +15,7 @@ le temps d’exécution d'un ou de multiples scénarios (*testcases*) lancés pa
 
 > Le Plugin-Pack *Alyvix Server* n'est **pas** compatible avec la version Open-Source d'Alyvix, la fonctionnalité API Rest
 > étant exclusive à la version commerciale de la solution. N'hésitez pas à contacter votre représentant Commercial afin de
-> pouvoir discuter des conditions d'accès.
+> pouvoir discuter des conditions d'accès. 
 
 ## Contenu du Plugin-Pack
 
@@ -28,38 +25,38 @@ le temps d’exécution d'un ou de multiples scénarios (*testcases*) lancés pa
 
 ### Règles de découvertes
 
-<Tabs groupId="operating-systems">
-<TabItem value="Testcases" label="Testcases">
+<!--DOCUSAURUS_CODE_TABS-->
 
-| Rule name                                   | Description                                         |
-| :------------------------------------------ | :-------------------------------------------------- |
-| App-Monitoring-Alyvix-Restapi-Testcase-Name | Discover all the testcases handled by Alyvix Server |
+<!--Testcases-->
 
-</TabItem>
-</Tabs>
+| Rule name                                    | Description                                                        |
+| :------------------------------------------- | :----------------------------------------------------------------- |
+| App-Monitoring-Alyvix-Restapi-Testcase-Name  | Discover all the testcases handled by Alyvix Server                |
+
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Métriques collectées
 
-<Tabs groupId="operating-systems">
-<TabItem value="TestcasesGlobal" label="TestcasesGlobal">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Testcases-Global-->
 
 * Global (pour chaque *testcase*)
 
-| Metric name                         | Description                          | Unit |
-| :---------------------------------- | :----------------------------------- | :--- |
-| *testcase_alias*#testcase-state     | Status of the case job execution     |      |
-| *testcase_alias*#testcase-duration  | Total time of the case job execution | ms   |
-| *testcase_alias*#testcase-freshness | Last execution time of the case job  | s    |
+| Metric name                         | Description                                    | Unit |
+|:------------------------------------|:-----------------------------------------------|:-----|
+| *testcase_alias*#testcase-state     | Status of the case job execution               |      |
+| *testcase_alias*#testcase-duration  | Total time of the case job execution           | ms   |
+| *testcase_alias*#testcase-freshness | Last execution time of the case job            | s    |
 
 * Par *testcase* (pour chaque *transaction*)
 
-| Metric name                                               | Description                                 | Unit |
-| :-------------------------------------------------------- | :------------------------------------------ | :--- |
-| *testcase_alias*~*transaction_alias*#transaction-state    | Status of the the transaction job execution |      |
-| *testcase_alias*~*transaction_alias*#transaction-duration | Total time of the transaction job execution | ms   |
+| Metric name                                               | Description                                           | Unit |
+|:----------------------------------------------------------|:------------------------------------------------------|:-----|
+| *testcase_alias*~*transaction_alias*#transaction-state    | Status of the the transaction job execution           |      |
+| *testcase_alias*~*transaction_alias*#transaction-duration | Total time of the transaction job execution           | ms   |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -72,8 +69,9 @@ officielle: https://www.alyvix.com/learn/.
 
 ## Installation
 
-<Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur chaque collecteur Centreon devant superviser les ressources *Alyvix Server*:
 
@@ -84,8 +82,7 @@ yum install centreon-plugin-Applications-Monitoring-Alyvix-Restapi
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Alyvix Server*
 depuis la page "Configuration > Plugin Packs > Gestionnaire"
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur chaque collecteur Centreon devant superviser les ressources *Alyvix Server*:
 
@@ -102,9 +99,6 @@ yum install centreon-pack-applications-monitoring-alyvix-restapi
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Alyvix Server*
 depuis la page "Configuration > Plugin Packs > Gestionnaire"
 
-</TabItem>
-</Tabs>
-
 ## Configuration
 
 * Ajoutez un nouvel Hôte depuis la page "Configuration > Hôtes"
@@ -114,7 +108,7 @@ depuis la page "Configuration > Plugin Packs > Gestionnaire"
 Les Macros d'Hôte ci-après doivent être renseignées le cas échéant:
 
 | Mandatory | Name              | Description                                                                        |
-| :-------- | :---------------- | :--------------------------------------------------------------------------------- |
+|:----------|:------------------|:-----------------------------------------------------------------------------------|
 | X         | ALYVIXAPIPORT     | RestAPI port of the Alyvix Server (Default: '80')                                  |
 | X         | ALYVIXAPIPROTOCOL | Protocol used to reach the Alyvix Server (Default: 'http')                         |
 | X         | ALYVIXAPIURLPATH  | URL path of the API (Default: '/v0/')                                              |
@@ -134,19 +128,19 @@ depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-en
 
 ```bash
 /usr/lib/centreon/plugins/centreon_monitoring_alyvix_restapi.pl \
---plugin=apps::monitoring::alyvix::restapi::plugin \
---mode=testcases \
---hostname='10.0.0.1' \
---proto='http' \
---port='80' \
---proxyurl='http://myproxy.mycompany.org:8080' \
---filter-testcase='case_app1|case_app2' \
---critical-testcase-state='%{state} eq "FAILED"' \
---critical-transaction-state='%{state} eq "FAILED"' \
---warning-testcase-duration='40000' \
---critical-testcase-duration='60000' \
---critical-testcase-freshness='600' \
---verbose
+    --plugin=apps::monitoring::alyvix::restapi::plugin \
+    --mode=testcases \
+    --hostname='10.0.0.1' \
+    --proto='http' \
+    --port='80' \
+    --proxyurl='http://myproxy.mycompany.org:8080' \
+    --filter-testcase='case_app1|case_app2' \
+    --critical-testcase-state='%{state} eq "FAILED"' \
+    --critical-transaction-state='%{state} eq "FAILED"' \
+    --warning-testcase-duration='40000' \
+    --critical-testcase-duration='60000' \
+    --critical-testcase-freshness='600' \
+    --verbose
 ```
 
 La commande devrait retourner un message de sortie de la forme ci-dessous:
@@ -159,18 +153,18 @@ OK: All test cases are ok | 'case_app1#testcase.duration.milliseconds'=3883ms;;;
 'case_app2~6_close_app1#transaction.duration.milliseconds'=104ms;;;0; 'case_app2~7_close_app2#transaction.duration.milliseconds'=0ms;;;0;
 'case_app2~8_check_picture#transaction.duration.milliseconds'=0ms;;;0;
 checking test case 'case_app1'
-duration: 3883 ms, state: OK, last execution: 2020-12-11T15:22:40 (1m 16s ago)
-transaction '1_openapp1' state: OK, duration: 77 ms
+    duration: 3883 ms, state: OK, last execution: 2020-12-11T15:22:40 (1m 16s ago)
+    transaction '1_openapp1' state: OK, duration: 77 ms
 checking test case 'case_app2'
-duration: 30658 ms, state: OK, last execution: 2020-12-11T15:20:39 (3m 18s ago)
-transaction '1_open_app1' state: OK, duration: 3 ms
-transaction '2_open_app2' state: OK, duration: 4 ms
-transaction '3_delay' state: OK, duration: 76 ms
-transaction '4_open_app1_explorer' state: OK, duration: 0 ms
-transaction '5_open_file' state: OK, duration: 10000 ms
-transaction '6_close_app1' state: OK, duration: 104 ms
-transaction '7_close_app2' state: OK, duration: 0 ms
-transaction '8_check_picture' state: OK, duration: 0ms
+    duration: 30658 ms, state: OK, last execution: 2020-12-11T15:20:39 (3m 18s ago)
+    transaction '1_open_app1' state: OK, duration: 3 ms
+    transaction '2_open_app2' state: OK, duration: 4 ms
+    transaction '3_delay' state: OK, duration: 76 ms
+    transaction '4_open_app1_explorer' state: OK, duration: 0 ms
+    transaction '5_open_file' state: OK, duration: 10000 ms
+    transaction '6_close_app1' state: OK, duration: 104 ms
+    transaction '7_close_app2' state: OK, duration: 0 ms
+    transaction '8_check_picture' state: OK, duration: 0ms
 ```
 
 Dans cet exemple, le Plugin récupère les statuts et temps d'éxecution des *testcases* (```--plugin=apps::monitoring::alyvix::restapi::plugin --mode=testcases```)
@@ -189,9 +183,9 @@ en ajoutant le paramètre ```--help``` à la commande:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_monitoring_alyvix_restapi.pl \
---plugin=apps::monitoring::alyvix::restapi::plugin \
---mode=testcases \
---help
+    --plugin=apps::monitoring::alyvix::restapi::plugin \
+    --mode=testcases \
+    --help
 ```
 
 ### J'obtiens le message d'erreur suivant: ```UNKNOWN: 500 Can't connect to 10.0.0.1:80 |```

@@ -11,7 +11,7 @@ Fill in your user name and associated password and click on the **Connect** butt
 
 ![image](../assets/getting-started/aconnection.png)
 
->The default credentials are: `admin`/`centreon`.
+>The default credentials are: `admin`/`centreon`. 
 
 You are now connected to the Centreon web interface.
 
@@ -22,10 +22,10 @@ The Centreon web interface contains several menus, each with a specific function
 ![image](../assets/getting-started/amenu.png)
 
 * **Home** shows [custom views](create-custom-view).
-Your workspace may be blank for now. Once you configure customizable widgets, you will see data and charts according
-to your customization.
+  Your workspace may be blank for now. Once you configure customizable widgets, you will see data and charts according
+  to your customization.
 * **Monitoring** provides a combined view of the statuses of all monitored items in real and delayed time using logs and
-performance graphics.
+  performance graphics.
 * **Reporting** provides an intuitive view (using diagrams) of the evolution of monitoring over a given time period.
 * **Configuration** allows you to configure all monitored items and the monitoring infrastructure.
 * **Administration** allows you to configure the Centreon platform (with settings such as authentication, proxy, extensions...) and view the overall status of the monitoring servers.

@@ -2,9 +2,6 @@
 id: applications-ibmmq-restapi
 title: IBM MQ Rest API
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Contenu du Pack
 
@@ -16,29 +13,29 @@ Le Pack IBM MQ collecte les données pour:
 
 ### Règles de découvertes
 
-<Tabs groupId="operating-systems">
-<TabItem value="Services" label="Services">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Services-->
 
 | Nom de la règle                      | Description                                              |
 | :----------------------------------- | :------------------------------------------------------- |
 | App-Ibmmq-Restapi-Queue-Manager-Name | Découvre les queue manager et supervise les statistiques |
 | App-Ibmmq-Restapi-Queue-Name         | Découvre les queues et supervise les statistiques        |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Métriques collectées
 
-<Tabs groupId="operating-systems">
-<TabItem value="Queuemanagers" label="Queuemanagers">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Queue-managers-->
 
 | Metric name                                           | Description                   | Unit  |
 | :---------------------------------------------------- | :---------------------------- | :---- |
 | queue manager status                                  | Queue manager status          |       |
 | *queue\_manager_name*\#queuemanager.connections.count | Current number of connections |       |
 
-</TabItem>
-<TabItem value="Queues" label="Queues">
+<!--Queues-->
 
 | Metric name                                                        | Description               | Unit  |
 | :----------------------------------------------------------------- | :------------------------ | :---- |
@@ -46,8 +43,7 @@ Le Pack IBM MQ collecte les données pour:
 | *queue\_manager_name*~*queue\_name*\#queue.messages.depth.count    | Current messages depth    |       |
 | *queue\_manager_name*~*queue\_name*\#queue.message.oldest.seconds  | Oldest message            | s     |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -57,8 +53,9 @@ Le Pack supporte uniquement une authentification basique.
 
 ## Installation
 
-<Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -68,8 +65,7 @@ yum install centreon-plugin-Applications-Ibmmq-Restapi
 
 2. Sur l'interface Web de Centreon, installer le Pack *IBM MQ Rest API* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -85,13 +81,12 @@ yum install centreon-pack-applications-ibmmq-restapi
 
 3. Sur l'interface Web de Centreon, installer le Pack *IBM MQ Rest API* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
 Ce Pack est conçu de manière à avoir dans Centreon un hôte par IBM MQ Administrative serveur.
-Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *App-Ibmmq-Restapi-custom*.
+Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *App-Ibmmq-Restapi-custom*. 
 Une fois celui-ci configuré, certaines macros doivent être renseignées:
 
 | Mandatory | Name                 | Description                                                                |
@@ -110,15 +105,15 @@ depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-en
 
 ```bash
 /usr/lib/centreon/plugins/centreon_ibmmq_restapi.pl \
---plugin=apps::mq::ibmmq::restapi::plugin \
---mode=queue-managers \
---hostname='10.30.2.79' \
---port='9443' \
---proto='https' \
---url-path='/ibmmq/rest/v1/admin' \
---api-username='myapiusername' \
---api-password='myapipassword' \
---verbose
+    --plugin=apps::mq::ibmmq::restapi::plugin \
+    --mode=queue-managers \
+    --hostname='10.30.2.79' \
+    --port='9443' \
+    --proto='https' \
+    --url-path='/ibmmq/rest/v1/admin' \
+    --api-username='myapiusername' \
+    --api-password='myapipassword' \
+    --verbose
 ```
 
 La commande devrait retourner un message de sortie de la forme ci-dessous:
@@ -137,9 +132,9 @@ en ajoutant le paramètre ```--help``` à la commande:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_ibmmq_restapi.pl \
---plugin=apps::mq::ibmmq::restapi::plugin \
---mode=queue-managers \
---help
+    --plugin=apps::mq::ibmmq::restapi::plugin \
+    --mode=queue-managers \
+    --help
 ```
 
 ## Diagnostique

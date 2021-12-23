@@ -53,6 +53,6 @@ Check the *Create Services linked to the Template too* box and click on the
 
 The following services will be created:
 
-- Cloudfront-Errors
-- Cloudfront-Requests
-- Cloudfront-Throughput
+  - Cloudfront-Errors
+  - Cloudfront-Requests
+  - Cloudfront-Throughput

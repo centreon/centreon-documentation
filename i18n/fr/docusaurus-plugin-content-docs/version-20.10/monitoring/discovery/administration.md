@@ -81,17 +81,17 @@ Exemple de configuration :
 
 ```yaml
 gorgone:
-modules:
-- name: autodiscovery
-package: "gorgone::modules::centreon::autodiscovery::hooks"
-enable: true
-# Host Discovery
-check_interval: 15
-global_timeout: 300
-# Service Discovery
-mail_subject: Centreon Auto Discovery
-mail_from: centreon-autodisco
-mail_command: /bin/mail
+  modules:
+    - name: autodiscovery
+      package: "gorgone::modules::centreon::autodiscovery::hooks"
+      enable: true
+      # Host Discovery
+      check_interval: 15
+      global_timeout: 300
+      # Service Discovery
+      mail_subject: Centreon Auto Discovery
+      mail_from: centreon-autodisco
+      mail_command: /bin/mail
 ```
 
 > Assurez vous de redémarrer le service Gorgone après chaque modification :
@@ -123,8 +123,8 @@ Discovery** amène une définition pour cette tâche dans le fichier suivant :
 
 ```yaml
 - id: service_discovery
-timespec: "30 22 * * *"
-action: LAUNCHSERVICEDISCOVERY
+  timespec: "30 22 * * *"
+  action: LAUNCHSERVICEDISCOVERY
 ```
 
 La configuration par défaut exécute les règles de découvertes tous les jours à
@@ -138,29 +138,29 @@ avec différents paramètres:
 
 ```yaml
 - id: service_discovery_poller_1
-timespec: "15 9 * * *"
-action: LAUNCHSERVICEDISCOVERY
-parameters:
-filter_pollers:
-- Poller-1
+  timespec: "15 9 * * *"
+  action: LAUNCHSERVICEDISCOVERY
+  parameters:
+    filter_pollers:
+      - Poller-1
 - id: service_discovery_poller_2_linux
-timespec: "30 9 * * *"
-action: LAUNCHSERVICEDISCOVERY
-parameters:
-filter_pollers:
-- Poller-2
-filter_rules:
-- OS-Linux-SNMP-Disk-Name
-- OS-Linux-SNMP-Traffic-Name
+  timespec: "30 9 * * *"
+  action: LAUNCHSERVICEDISCOVERY
+  parameters:
+    filter_pollers:
+      - Poller-2
+    filter_rules:
+      - OS-Linux-SNMP-Disk-Name
+      - OS-Linux-SNMP-Traffic-Name
 - id: service_discovery_poller_2_windows
-timespec: "45 9 * * *"
-action: LAUNCHSERVICEDISCOVERY
-parameters:
-filter_pollers:
-- Poller-2
-filter_rules:
-- OS-Windows-SNMP-Disk-Name
-- OS-Windows-SNMP-Traffic-Name
+  timespec: "45 9 * * *"
+  action: LAUNCHSERVICEDISCOVERY
+  parameters:
+    filter_pollers:
+      - Poller-2
+    filter_rules:
+      - OS-Windows-SNMP-Disk-Name
+      - OS-Windows-SNMP-Traffic-Name
 ```
 
 Ci-dessous la liste des paramètres disponibles:
@@ -186,14 +186,14 @@ Exemple de configuration :
 
 ```yaml
 gorgone:
-tpapi:
-- name: centreonv2
-base_url: "http://127.0.0.1/centreon/api/beta/"
-username: api
-password: bpltc4aY
-- name: clapi
-username: cli
-password: PYNM5kcc
+  tpapi:
+    - name: centreonv2
+      base_url: "http://127.0.0.1/centreon/api/beta/"
+      username: api
+      password: bpltc4aY
+    - name: clapi
+      username: cli
+      password: PYNM5kcc
 ```
 
 L'accès à l'API Rest, représenté par *centreonv2*, nécessite les identifiants

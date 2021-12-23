@@ -2,9 +2,6 @@
 id: troubleshooter
 title: Troubleshooter
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 This chapter describes common errors you might encounter while using
 Centreon MAP. Please read the questions and answers below before
@@ -53,41 +50,39 @@ Once you are sure your server is running, try to access its API through
 your web browser. Check the REST API used by the web interface as
 follows:
 
-<Tabs groupId="operating-systems">
-<TabItem value="HTTP" label="HTTP">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--HTTP-->
 
 ```shell
 http://<MAP_IP>:8080/centreon-studio/api/beta/actuator/health
 ```
 
-</TabItem>
-<TabItem value="HTTPS" label="HTTPS">
+<!--HTTPS-->
 
 ```shell
 https://<MAP_IP>:8443/centreon-studio/api/beta/actuator/health
 ```
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 You can also check the SOAP API used by the desktop client:
 
-<Tabs groupId="operating-systems">
-<TabItem value="HTTP" label="HTTP">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--HTTP-->
 
 ```shell
 http://<MAP_IP>:8080/centreon-studio/services
 ```
 
-</TabItem>
-<TabItem value="HTTPS" label="HTTPS">
+<!--HTTPS-->
 
 ```shell
 https://<MAP_IP>:8443/centreon-studio/services
 ```
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ![image](../assets/graph-views/server-api-soap.png)
 
@@ -226,10 +221,10 @@ When you right click on the Media panel, the Import button is disabled.
 There are two facts you should know about media:
 
 - The Centreon folder, which is created automatically, contains all the
-images from Centreon Web:
+  images from Centreon Web:
 
-- You cannot add or remove any image from this folder,
-- All images are at the same level (no subfolders).
+  - You cannot add or remove any image from this folder,
+  - All images are at the same level (no subfolders).
 
 - You cannot import images at the root of the media panel.
 
@@ -246,37 +241,36 @@ Please check the following prerequisites:
 
 - Your MAP 3 license is still valid.
 - Your Centreon Desktop Client version is at least v4.0.8 (you can check it
-directly from your desktop client interface, in the Help \> About menu).
+  directly from your desktop client interface, in the Help \> About menu).
 - If there is a proxy between your computer and your Centreon Web interface,
-you must define it in the Configure menu.
+  you must define it in the Configure menu.
 
 > The proxy must be configured with the checkbox *use for internet*.
 
 - On the Centreon MAP server configuration file
-(/etc/centreon-studio/studio-config.properties) you entered the IP of your
-Central server.
+  (/etc/centreon-studio/studio-config.properties) you entered the IP of your
+  Central server.
 
 This IP is also used by your desktop client to the access MAP 3 API. If
 this IP is not reachable by your desktop client (because both your
 Centreon MAP server and Centreon Central server are on a DMZ) you must
 specify a new one to your desktop client. To do so, edit the file:
 
-<Tabs groupId="operating-systems">
-<TabItem value="Windows" label="Windows">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Windows-->
 
 ```shell
 C:\Users\<YOUR_USERNAME>\AppData\Local\Centreon-Map4\Centreon-Map4.ini
 ```
 
-</TabItem>
-<TabItem value="Linux" label="Linux">
+<!--Linux-->
 
 ```shell
 /opt/centreon-map4-desktop-client/Centreon-Map4.ini
 ```
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 Add the following line at the end of the file on a new line, where
 `<CENTREON_URL>` is the URL with which you access the web interface of
@@ -298,11 +292,11 @@ gray with Xs and the following pop-up message...
 then you should check the following:
 
 - Ensure that your Mapbox credentials are valid. To configure your
-Mapbox credentials. Your Mapbox secret key may have changed. Since
-you cannot see the previously created keys, you might want to create
-a new one and add it in your Centreon MAP server configuration file.
+  Mapbox credentials. Your Mapbox secret key may have changed. Since
+  you cannot see the previously created keys, you might want to create
+  a new one and add it in your Centreon MAP server configuration file.
 - If your computer is behind a proxy to gain internet access, please
-configure this proxy in the Centreon MAP Desktop Client.
+  configure this proxy in the Centreon MAP Desktop Client.
 - The Mapbox style you used on your view might have been deleted.
 
 Try to edit your view / container and change the Mapbox style:
@@ -345,22 +339,21 @@ is working hard, your desktop client requires more memory.
 
 To increase memory, edit the .ini file:
 
-<Tabs groupId="operating-systems">
-<TabItem value="Windows" label="Windows">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Windows-->
 
 ```shell
 C:\Users\<YOUR_USERNAME>\AppData\Local\Centreon-Map4\Centreon-Map4.ini
 ```
 
-</TabItem>
-<TabItem value="Linux" label="Linux">
+<!--Linux-->
 
 ```shell
 /opt/centreon-map4-desktop-client/Centreon-Map4.ini
 ```
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 And add the following line at the end of the file, on a new line:
 
@@ -426,15 +419,15 @@ To execute it:
 - Go to /etc/centreon-studio/utils/
 - Run the script:
 
-```shell
-mysql centreon_studio < update-position-graph.sql
-```
+  ```shell
+  mysql centreon_studio < update-position-graph.sql
+  ```
 
 - Restart Centreon Map service:
 
-```shell
-systemctl restart centreon-map
-```
+  ```shell
+  systemctl restart centreon-map
+  ```
 
 ### My web interface is displaying "Authentication error."
 

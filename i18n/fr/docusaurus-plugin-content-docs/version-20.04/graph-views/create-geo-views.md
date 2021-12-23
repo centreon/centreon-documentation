@@ -11,9 +11,9 @@ so:
 
 1. Go to `Monitoring > Map` and click on the "+" on the Geographic section.
 2. You're asked to give a name to the view and then to define resources to
-display on the view.
+   display on the view.
 3. After configuring these parameters, resources will appear on this
-geographic view
+   geographic view
 
 ![image](../assets/graph-views/geo_view_creation.gif)
 
@@ -57,7 +57,7 @@ When multiple resources are geographically close and you are at
 displaying two things:
 
 - Status of the worst object (displayed as a color between green, orange, red
-and gray)
+  and gray)
 - Number of resources in this state
 
 ![image](../assets/graph-views/geo_marker_clustering_infos.png)

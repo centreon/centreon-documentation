@@ -8,11 +8,11 @@ Vous pouvez donner des droits aux [utilisateurs](../monitoring/basic-objects/con
 - sur les menus de l'interface Centreon (à quelles pages il pourra accéder)
 - sur les actions que l'utilisateur pourra réaliser sur les ressources ou sur un moteur de supervision (mettre une ressource en maintenance, exporter la configuration...).
 
-Ces droits ne sont pas définis par utilisateur mais par [groupes d'accès](#créer-un-groupe-daccès).
+Ces droits ne sont pas définis par utilisateur mais par [groupes d'accès](#créer-un-groupe-daccès). 
 
-- Un même utilisateur peut appartenir à plusieurs groupes d'accès : il cumulera les droits de ces différents groupes.
+- Un même utilisateur peut appartenir à plusieurs groupes d'accès : il cumulera les droits de ces différents groupes. 
 - Un utilisateur non administrateur n'appartenant à aucun groupe d'accès n'a aucun droit sur la plateforme de supervision (écran vide après connexion).
-- Les utilisateurs définis comme [Administrateurs](../monitoring/basic-objects/contacts-create#onglet-authentification-centreon) ont tous les droits (même si vous ajoutez un utilisateur administrateur à un groupe d'accès aux droits limités).
+- Les utilisateurs définis comme [Administrateurs](../monitoring/basic-objects/contacts-create#onglet-authentification-centreon) ont tous les droits (même si vous ajoutez un utilisateur administrateur à un groupe d'accès aux droits limités). 
 
 Les ACLs sont recalculées toutes les minutes, c'est pourquoi il est parfois
 nécessaire de patienter quelques instants avant de voir appliquer la
@@ -24,13 +24,13 @@ modification sur le profil. Vous pouvez également [forcer le recalcul des ACL](
 ## Donner des droits à un utilisateur
 
 Pour donner des droits à un utilisateur :
-1. [Créez l'utilisateur](../monitoring/basic-objects/contacts).
+1. [Créez l'utilisateur](../monitoring/basic-objects/contacts). 
 2. [Créez un groupe d'accès](#créer-un-groupe-daccès).
 3. Ajoutez l'utilisateur au groupe d'accès.
 4. Créez des filtres d'accès aux [menus](#filtres-daccès-aux-menus), aux [ressources](#filtres-daccès-aux-ressources) et aux [actions](#filtres-daccès-sur-les-actions).
 5. Définissez les droits désirés :
-- soit sur le groupe d'accès
-- soit au niveau des filtres d'accès aux menus, ressources et actions.
+    - soit sur le groupe d'accès
+    - soit au niveau des filtres d'accès aux menus, ressources et actions.
 
 ## Créer un groupe d'accès
 
@@ -38,17 +38,17 @@ Pour créer un groupe d'accès :
 
 1. À la page **Administration > ACL > Gestion des groupes d'accès**, cliquez sur **Ajouter**.
 
-3. Dans l'onglet **Informations générales**, renseignez le
-**Nom du groupe** et son **Alias** (sa description).
+3. Dans l'onglet **Informations générales**, renseignez le 
+    **Nom du groupe** et son **Alias** (sa description).
 
-4. Pour ajouter des utilisateurs (contacts) ou des groupes de contacts au groupe d'accès, utilisez le tableau **Contacts liés**/**Groupes de contacts liés**. (Sélectionnez le ou les utilisateurs désirés dans la colonne **Disponible** puis cliquez sur **Ajouter**.
+4. Pour ajouter des utilisateurs (contacts) ou des groupes de contacts au groupe d'accès, utilisez le tableau **Contacts liés**/**Groupes de contacts liés**. (Sélectionnez le ou les utilisateurs désirés dans la colonne **Disponible** puis cliquez sur **Ajouter**. 
 L'utilisateur ou le groupe d'utilisateurs passe dans la colonne **Sélectionné**.)
 
-> Les groupes de contacts peuvent être des groupes provenant de l'annuaire LDAP
-> connecté à l'interface Centreon.
->
-> Les groupes créés dans Centreon ne doivent pas avoir le même nom que les groupes
-> LDAP. Si c'est le cas, les groupes dans Centreon devront être renommés.
+  > Les groupes de contacts peuvent être des groupes provenant de l'annuaire LDAP
+  > connecté à l'interface Centreon.
+  >
+  > Les groupes créés dans Centreon ne doivent pas avoir le même nom que les groupes
+  > LDAP. Si c'est le cas, les groupes dans Centreon devront être renommés.
 
 5. Dans l'onglet **Autorisations**, définissez les droits désirés sur le groupe d'accès en choisissant les filtres d'accès aux [menus](#filtres-daccès-aux-menus), [ressources](#filtres-daccès-aux-ressources) et [actions](#filtres-daccès-sur-les-actions) (si vous les avez déjà créés).
 
@@ -89,7 +89,7 @@ Pour créer un filtre d'accès aux ressources :
 ### Filtres d'accès aux menus
 
 Les filtres d'accès aux menus permettent de définir à quels menus de l'interface Centreon
-l'utilisateur pourra accéder.
+l'utilisateur pourra accéder. 
 
 > L’accès au menu d’édition des commandes, ainsi que l’accès au menu d’édition des
 > traps SNMP peut être très dangereux. En effet, un utilisateur privilégié peut
@@ -101,27 +101,27 @@ Pour créer un filtre d'accès aux menus :
 1. Rendez-vous dans le menu **Administration > ACL > Gestion des accès aux menus**.
 2. Cliquez sur **Ajouter**.
 3. Remplissez les champs :
-- **Nom de l'ACL** et **Alias**.
-- **Statut** : activer ou désactiver le filtre
-- **Commentaires** : donne des indications sur le filtre.
+    - **Nom de l'ACL** et **Alias**.
+    - **Statut** : activer ou désactiver le filtre
+    - **Commentaires** : donne des indications sur le filtre.
 
 4. Pour appliquer les droits définis dans ce filtre à des [groupes d'accès](#créer-un-groupe-daccès), utilisez le tableau **Groupes liés**.
 
-5. Dans la section **Pages disponibles**, définissez les menus auxquels le groupe d'accès aura accès.
+5. Dans la section **Pages disponibles**, définissez les menus auxquels le groupe d'accès aura accès.   
 
-- Le menu parent doit être coché pour pouvoir accéder au menu enfant.
+    - Le menu parent doit être coché pour pouvoir accéder au menu enfant.
 
-- Par défaut, l’accès est donné en lecture seule. Si vous
-souhaitez autoriser vos utilisateurs à modifier la configuration,
-sélectionnez l’option **Lecture/Écriture** pour chaque sous-menu.
+    - Par défaut, l’accès est donné en lecture seule. Si vous
+ souhaitez autoriser vos utilisateurs à modifier la configuration,
+ sélectionnez l’option **Lecture/Écriture** pour chaque sous-menu.
 
-- Pour pouvoir accéder à un niveau de menu 'n-1', l'utilisateur doit avoir accès au menu
-de niveau 'n' sinon ce dernier ne pourra pas naviguer jusqu'au menu via
-l'interface. L'utilisateur devra accéder à la
-page concernée via un lien direct (autologin...).
+    - Pour pouvoir accéder à un niveau de menu 'n-1', l'utilisateur doit avoir accès au menu
+ de niveau 'n' sinon ce dernier ne pourra pas naviguer jusqu'au menu via
+ l'interface. L'utilisateur devra accéder à la
+ page concernée via un lien direct (autologin...).
 
-- À chaque ajout de nouveau module Centreon possédant une interface web accessible
-au travers d'un nouveau menu, ce dernier devra être ajouté au filtre afin que les utilisateurs puissent y accéder le cas échéant.
+    - À chaque ajout de nouveau module Centreon possédant une interface web accessible
+ au travers d'un nouveau menu, ce dernier devra être ajouté au filtre afin que les utilisateurs puissent y accéder le cas échéant.
 
 6. Cliquez sur **Sauvegarder**.
 
@@ -135,9 +135,9 @@ Pour créer un filtre d'accès aux actions :
 1. Rendez-vous dans le menu **Administration > ACL > Gestion des accès sur les actions**.
 2. Cliquez sur **Ajouter**.
 
-- Les champs **Nom de l'action** et **Description** contiennent le nom du
-filtre ainsi que sa description
-- Dans la section **Relations**, utilisez le tableau **Groupes liés** pour attribuer aux utilisateurs des [groupes d'accès](#créer-un-groupe-daccès) les droits définis dans le filtre.
+    - Les champs **Nom de l'action** et **Description** contiennent le nom du
+    filtre ainsi que sa description
+    - Dans la section **Relations**, utilisez le tableau **Groupes liés** pour attribuer aux utilisateurs des [groupes d'accès](#créer-un-groupe-daccès) les droits définis dans le filtre.
 
 3. Cochez les cases correspondant aux options désirées (voir tableaux ci-dessous).
 

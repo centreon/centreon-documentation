@@ -2,9 +2,6 @@
 id: applications-sccm-nsclient
 title: Microsoft SCCM
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Vue d'ensemble
 
@@ -21,29 +18,28 @@ pour Windows. Les deux méthodes de connexion à l'agent, NRPE & RestAPI, sont s
 ### Objets supervisés
 
 * Databases
-* Sites
+* Sites 
 
 ### Métriques collectées
 
-<Tabs groupId="operating-systems">
-<TabItem value="databasereplicationstatus" label="databasereplicationstatus">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--database-replication-status-->
 
 | Metric name              | Description                    |
 | :----------------------- | :----------------------------- |
 | link-status              | Status of the replication link |
 | site-status              | Status of the site replication |
 
-</TabItem>
-<TabItem value="sitestatus" label="sitestatus">
+<!--site-status-->
 
 | Metric name                 | Description                    |
 | :-------------------------- | :----------------------------- |
 | status                      | Operational status of the site |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
-## Prérequis
+## Prérequis 
 
 Le Plugin Centreon pour Microsoft SCCM est inclus dans l'agent *centreon-nsclient* et est exécuté localement par ce dernier.
 Pour ce faire, l'agent *centreon-nsclient* doit être installé et configuré sur les serveurs cible de l'infrastructure SCCM (ceux où la console SCCM Admin est installée).
@@ -55,8 +51,9 @@ Rendez-vous sur la documentation associée pour plus d'informations sur l'agent 
 
 ## Installation
 
-<Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Selon la méthode de supervision choisie (NRPE ou RestAPI), installer le Plugin dédié sur chaque collecteur Centreon devant
 superviser les ressources *Microsoft SCCM* via l'agent *centreon-nsclient*:
@@ -73,11 +70,10 @@ yum install centreon-nrpe-plugin
 yum install centreon-plugin-Operatingsystems-Windows-Restapi
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Microsoft SCCM*
+2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Microsoft SCCM* 
 depuis la page "Configuration > Plugin Packs > Gestionnaire"
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Selon la méthode de supervision choisie (NRPE ou RestAPI), installer le Plugin dédié sur chaque collecteur Centreon devant
 superviser les ressources *Microsoft SCCM* via l'agent *centreon-nsclient*:
@@ -100,22 +96,22 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 yum install centreon-pack-applications-sccm-nsclient
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Microsoft SCCM*
+3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Microsoft SCCM* 
 depuis la page "Configuration > Plugin Packs > Gestionnaire"
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
 * Sur l'interface Web de Centreon, ajoutez un nouvel Hôte depuis la page "Configuration > Hôtes"
 * Renseignez l'adresse IP du serveur SCCM cible et appliquez le Modèle d'Hôte adapté à votre configuration:
-* *App-Sccm-NRPE-custom* pour NRPE
-* *App-Sccm-NSClient-05-Restapi-custom* pour RestAPI
+    * *App-Sccm-NRPE-custom* pour NRPE
+    * *App-Sccm-NSClient-05-Restapi-custom* pour RestAPI
 * Selon le Modèle sélectionné, remplissez les Macros d'Hôte associées:
 
-<Tabs groupId="operating-systems">
-<TabItem value="AppSccmNRPEcustom" label="AppSccmNRPEcustom">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--App-Sccm-NRPE-custom-->
 
 | Mandatory | Name             | Description                                                                         |
 |:----------|:-----------------|:------------------------------------------------------------------------------------|
@@ -124,8 +120,7 @@ depuis la page "Configuration > Plugin Packs > Gestionnaire"
 | X         | NRPETIMEOUT      | Timeout value (Default: '30')                                                       |
 |           | NRPEEXTRAOPTIONS | Any extra option you may want to add to every command\_line (Default: '-u -m 8192') |
 
-</TabItem>
-<TabItem value="AppSccmNSClient05Restapicustom" label="AppSccmNSClient05Restapicustom">
+<!--App-Sccm-NSClient-05-Restapi-custom-->
 
 | Mandatory | Name                      | Description                                           |
 |:----------|:--------------------------|:------------------------------------------------------|
@@ -133,8 +128,7 @@ depuis la page "Configuration > Plugin Packs > Gestionnaire"
 | X         | NSCPRESTAPIPROTO          | NSClient++ RestAPI protocol to use (Default: 'https') |
 |           | NSCPRESTAPILEGACYPASSWORD | Password to authenticate against the API if relevant  |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 * Sauvegarder puis exporter la nouvelle configuration
 
@@ -145,16 +139,17 @@ depuis la page "Configuration > Plugin Packs > Gestionnaire"
 Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande
 depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-engine*:
 
-<Tabs groupId="operating-systems">
-<TabItem value="NRPE" label="NRPE">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--NRPE-->
 
 ```bash
 /usr/lib64/nagios/plugins/check_centreon_nrpe \
--H 10.0.0.1 \
--p 5666 \
--t 30 \
--u -m 8192 \
--c check_centreon_plugins -a 'apps::sccm::local::plugin' 'site-status' '--critical-status="%{status} eq FAILED"'
+    -H 10.0.0.1 \
+    -p 5666 \
+    -t 30 \
+    -u -m 8192 \
+    -c check_centreon_plugins -a 'apps::sccm::local::plugin' 'site-status' '--critical-status="%{status} eq FAILED"'
 ```
 
 La commande devrait retourner un message de sortie de la forme ci-dessous:
@@ -170,28 +165,27 @@ L'agent va alors exécuter localement le mode *site-status* du Plugin *SCCM* int
 
 Une alarme de type CRITICAL sera déclenchée si le status *site SCCM* est reporté en état *FAILED* (```--critical-status="%{status} eq FAILED"```).
 
-Pour chaque mode, la liste de toutes les métriques, seuils associés et options complémentaires peut être affichée
+Pour chaque mode, la liste de toutes les métriques, seuils associés et options complémentaires peut être affichée 
 en ajoutant le paramètre ```--help``` à la commande:
 
 ```bash
 /usr/lib64/nagios/plugins/check_centreon_nrpe -c check_centreon_plugins -a 'apps::sccm::local::plugin' 'site-status' '--help'
 ```
 
-</TabItem>
-<TabItem value="RestAPI" label="RestAPI">
+<!--RestAPI-->
 
 ```bash
 /usr/lib/centreon/plugins/centreon_nsclient_restapi.pl \
---plugin=apps::nsclient::restapi::plugin  \
---mode=query  \
---hostname=10.0.0.1  \
---port='8443'  \
---proto='https'  \
---legacy-password='centreon' \
---command=check_centreon_plugins  \
---arg='apps::sccm::local::plugin'  \
---arg='site-status' \
---arg='--critical-status="%{status} eq FAILED"'
+    --plugin=apps::nsclient::restapi::plugin  \
+    --mode=query  \
+    --hostname=10.0.0.1  \
+    --port='8443'  \
+    --proto='https'  \
+    --legacy-password='centreon' \
+    --command=check_centreon_plugins  \
+    --arg='apps::sccm::local::plugin'  \
+    --arg='site-status' \
+    --arg='--critical-status="%{status} eq FAILED"'
 
 ```
 La commande devrait retourner un message de sortie de la forme ci-dessous:
@@ -207,12 +201,11 @@ du Plugin *SCCM* integré dans *centreon-nsclient* (```--command=check_centreon_
 
 Une alarme de type CRITICAL sera déclenchée si le status *site SCCM* est reporté en état *FAILED* (```--arg='--critical-status="%{status} eq FAILED"'```).
 
-Pour chaque mode, la liste de toutes les métriques, seuils associés et options complémentaires peut être affichée
+Pour chaque mode, la liste de toutes les métriques, seuils associés et options complémentaires peut être affichée 
 en ajoutant le paramètre ```--help``` à la commande:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_nsclient_restapi.pl --plugin=apps::nsclient::restapi::plugin --mode=query --command=check_centreon_plugins --arg='apps::sccm::local::plugin' --arg='site-status' --arg='--help'
 ```
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->

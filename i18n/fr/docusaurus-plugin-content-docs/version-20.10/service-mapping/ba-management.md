@@ -2,9 +2,6 @@
 id: ba-management
 title: Gestion
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Les activités métier
 
@@ -30,19 +27,20 @@ la méthode de calcul appliquée. Il y a quatre méthodes de calcul
 disponibles afin de rendre compte de l'état d'une BA:
 
 -   **Best Status**: Lorsque vous souhaitez suivre le dysfonctionnement
-de TOUS les indicateurs au même moment
+    de TOUS les indicateurs au même moment
 -   **Worst Status**: Lorsque vous souhaitez savoir dès qu'un indicateur
-ne fonctionne plus
+    ne fonctionne plus
 -   **Ratio**: Lorsque vous souhaitez modéliser des concepts de
-**Cluster** en spécifiant un pourcentage ou un nombre de resources
-maximum en statut Critique que vous ne voulez pas dépassez
+    **Cluster** en spécifiant un pourcentage ou un nombre de resources
+    maximum en statut Critique que vous ne voulez pas dépassez
 -   **Impact**: Lorsque vous souhaitez définir finement l'impact de
-chaque indicateur en fonction de leurs poids (<=> sévérité)
+    chaque indicateur en fonction de leurs poids (<=> sévérité)
 
 Ci-dessous des explications et exemples pour chacune des méthodes
 
-<Tabs groupId="operating-systems">
-<TabItem value="Best Status" label="Best Status">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!-- Best Status -->
 
 L'ordre appliqué pour "Best" status est le suivant :
 `OK > Unknown > Warning > Critical > Pending`
@@ -53,8 +51,7 @@ Et la configuration correspondante:
 
 ![image](../assets/service-mapping/guide/business-activity-best-status.png)
 
-</TabItem>
-<TabItem value="Worst Status" label="Worst Status">
+<!-- Worst Status -->
 
 L'ordre appliqué pour "Worst" status est le suivant :
 `CRITICAL > Warning > Unknown > OK > Pending`
@@ -65,8 +62,7 @@ Et la configuration correspondante:
 
 ![image](../assets/service-mapping/guide/business-activity-worst-status.png)
 
-</TabItem>
-<TabItem value="Ratio" label="Ratio">
+<!-- Ratio -->
 
 La méthode ratio permet de modéliser des concepts de "Cluster" et
 s'appuie sur le **nombre ou pourcentage d'indicateurs en statut
@@ -86,12 +82,11 @@ Et la configuration correspondante:
 Configuration des seuils de la BA:
 
 -   Seuil **Critique**: si le nombre/pourcentage d'indicateur en statut
-**Critique** dépasse ce nombre/pourcentage, la BA sera **Critique**
+    **Critique** dépasse ce nombre/pourcentage, la BA sera **Critique**
 -   Seuil **Warning**: si le nombre/pourcentage d'indicateur en statut
-**Critique** dépasse ce nombre/pourcentage, la BA sera **Warning**
+    **Critique** dépasse ce nombre/pourcentage, la BA sera **Warning**
 
-</TabItem>
-<TabItem value="Impact" label="Impact">
+<!-- Impact -->
 
 > Ce mode est le plus compliqué à utiliser mais vous permet de modéliser
 > finement des concepts de degré d'impact en fonction des statuts et de
@@ -103,19 +98,18 @@ leur statut et de l'impact configuré. Le statut de l'activité métier
 dépendra alors des paramètres présents dans la section Indicateur.
 
 -   **Seuil dégradé (warning)** : entre 100 et 0. Seuil à partir duquel
-l'activité métier sera en état dégradé. Ce seuil permet à l'activité
-métier de passer en "orange" (dégradé) et de déclencher l'envoi de
-notification si configuré.
+    l'activité métier sera en état dégradé. Ce seuil permet à l'activité
+    métier de passer en "orange" (dégradé) et de déclencher l'envoi de
+    notification si configuré.
 -   **Seuil non fonctionnel (critical)** : entre 100 et 0 (doit être
-inférieur au seuil dégradé). Seuil à partir duquel l'activité métier
-sera en état non fonctionnel.Ce seuil permet à l'activité métier de
-passer en "rouge" (non fonctionnel) et de déclencher l'envoi de
-notification si configuré.
+    inférieur au seuil dégradé). Seuil à partir duquel l'activité métier
+    sera en état non fonctionnel.Ce seuil permet à l'activité métier de
+    passer en "rouge" (non fonctionnel) et de déclencher l'envoi de
+    notification si configuré.
 
 ![image](../assets/service-mapping/guide/business-activity-impact.png)
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Création d'une activité métier
 
@@ -157,24 +151,24 @@ planifiées** des indicateurs vont se repercuter sur l'activité
 métier:
 
 -   **Ignore the downtime**: Dans ce cas, les plages de maintenance
-positionnées sur les indicateurs seront ignorées, la BA sera
-impactée
+    positionnées sur les indicateurs seront ignorées, la BA sera
+    impactée
 -   **Inherit the downtime**: Dans ce cas, la BA hérite automatiquement
-de la plage de maintenance dès lorsqu'un indicateurs l'impactant est
-en plage de maintenance. L'héritage suit ces règles:
--   Une activité métier hérite des plages de maintenance planifiées
-de ses KPIs lorsque son statut est Non-OK
--   Lorsqu'une activité métier est en plage de maintenance planifiée
-grâce au mécanisme d'héritage, dès que le statut de l'activité
-métier remonte à OK, alors la plage de maintenance planifiée est
-arrêtée
--   Lorsqu'une activité métier est en plage de maintenance planifiée
-grâce au mécanisme d'héritage, si un des impacts provient d'un
-de ses indicateurs n'étant pas sous plage de maintenance
-planifiée, alors la plage de maintenance de la BA est arrêtée
+    de la plage de maintenance dès lorsqu'un indicateurs l'impactant est
+    en plage de maintenance. L'héritage suit ces règles:
+    -   Une activité métier hérite des plages de maintenance planifiées
+        de ses KPIs lorsque son statut est Non-OK
+    -   Lorsqu'une activité métier est en plage de maintenance planifiée
+        grâce au mécanisme d'héritage, dès que le statut de l'activité
+        métier remonte à OK, alors la plage de maintenance planifiée est
+        arrêtée
+    -   Lorsqu'une activité métier est en plage de maintenance planifiée
+        grâce au mécanisme d'héritage, si un des impacts provient d'un
+        de ses indicateurs n'étant pas sous plage de maintenance
+        planifiée, alors la plage de maintenance de la BA est arrêtée
 -   **Ignore the indicator in the calculation**: lorsqu'un indicateur
-est en plage de maintenance planifiée, son statut/impact est ignoré
-du calcul
+    est en plage de maintenance planifiée, son statut/impact est ignoré
+    du calcul
 
 Une fois la configuration du calcul de la BA effectuée, il vous est
 possible de configurer les éléments suivant dans les différentes
@@ -183,12 +177,12 @@ sections:
 -   Vue métier: Pour lier l'activité métier à une vue métier
 -   Affichage: Paramètrer les options d'affichage de l'activité métier
 -   Notification: à quels moment et qui sera notifié en cas de
-dégradation de service sur cette activité métier
+    dégradation de service sur cette activité métier
 -   Rapport: paramètres gérant les SLA cibles et période de reporting à
-utiliser dans les widgets et rapports (lié à l'extension Centreon
-MBI)
+    utiliser dans les widgets et rapports (lié à l'extension Centreon
+    MBI)
 -   Gestionnaire d'évènements: paramètres permettant l'exécution de
-script d'auto-correction
+    script d'auto-correction
 
 #### Vue métier
 
@@ -199,14 +193,14 @@ configurer les widgets & rapports.
 #### Affichage
 
 -   Afficher sur un collecteur distant: Permet de rendre accessible
-l'activité métier sur un collecteur distant à condition que TOUS
-les indicateurs liés (y compris aux niveaux inférieurs) soit visible
-du collecteur distant
+    l'activité métier sur un collecteur distant à condition que TOUS
+    les indicateurs liés (y compris aux niveaux inférieurs) soit visible
+    du collecteur distant
 -   Geo-coordinate: définir la position géographique de l'activité
-métier pour l'afficher sur une GeoView (Centreon Map)
+    métier pour l'afficher sur une GeoView (Centreon Map)
 -   Nom de la vue d'infrastructure associée: rendre accessible en un
-clic l'accès à la vue d'infrastructure supportant l'activité
-métier.
+    clic l'accès à la vue d'infrastructure supportant l'activité
+    métier.
 
 #### Notification
 
@@ -219,19 +213,19 @@ l'escalade qui sont utilisés
 #### Rapport
 
 -   Période de rapport par défaut: la disponibilité calculées et
-affichées dans les widgets & rapports sera calculée sur cette
-période
+    affichées dans les widgets & rapports sera calculée sur cette
+    période
 -   Service Level Agreement en %(SLA): seuil en pourcentage visible dans
-les widgets & rapports auquel la disponibilité et l'activité est
-comparée
+    les widgets & rapports auquel la disponibilité et l'activité est
+    comparée
 -   Service Level Agreement en min(SLA): seuil en minute visible auquel
-le temps indisponible est comparée
+    le temps indisponible est comparée
 -   Service Level Objective en %(SLO): seuil additionnel en pourcentage
-qui peut être utilisé comme un seuil de SLA "warning".
+    qui peut être utilisé comme un seuil de SLA "warning".
 -   Service Level Objective en min(SLO): seuil additionnel en minute qui
-peut être utilisé comme un seuil de SLA "warning".
+    peut être utilisé comme un seuil de SLA "warning".
 -   Plages de reporting additionnelles: permet de calculer les
-statistiques de l'activité métier sur d'autres plages horaire
+    statistiques de l'activité métier sur d'autres plages horaire
 
 #### Gestionnaire d'évènements
 
@@ -264,7 +258,7 @@ supervision qui est associé à une BA. Un BA peut avoir 1 à n indicateurs
 et ces indicateurs peuvent être de quatre types :
 
 -   Indicateur "Service" (les services déployés par groupes **ne sont
-pas** disponibles)
+    pas** disponibles)
 -   Indicateur "Meta Service"
 -   Indicateur "Booléen"
 -   Indicateur "Activité métier"
@@ -290,7 +284,7 @@ La gestion des indicateurs peut être réalisée de deux manières:
 
 -   Dans l'activité métier comme vu précédemment
 -   Au travers du menu `Configuration > Activités métiers > Indicateurs (KPI)`
-uniquement pour les BA utilisant le mode de calcul "Impact"
+    uniquement pour les BA utilisant le mode de calcul "Impact"
 
 ![image](../assets/service-mapping/guide/conf_kpi.png)
 
@@ -422,11 +416,11 @@ Expression booléenne :
 2.  Boutons d'édition
 3.  Les services qui alimentent l'expression
 4.  Bouton permettant d'évaluer l'expression avec les statuts réels de
-monitoring
+    monitoring
 5.  Etat suite à l'évaluation (statuts réels ou simulés)
 6.  Permet d'entrer dans le mode simulation. Ce dernier permet de
-soumettre des états aux différents services permettant de simuler
-une situation et voir le retour de l'expression
+    soumettre des états aux différents services permettant de simuler
+    une situation et voir le retour de l'expression
 
 ## Les vues métier
 
@@ -469,7 +463,7 @@ La configuration des vues métier est réalisée via le menu
 Supprimer une vue métier:
 
 -   La suppression d'une vue métier ne supprime pas les activités
-métier qui lui sont rattachées.
+    métier qui lui sont rattachées.
 -   La suppression d'une BV la supprime définitivement.
 
 ### Création d'une vue métier

@@ -31,5 +31,5 @@ over a city, country or world.
 Both types of views may be displayed in the same Centreon web user interface:
 
 - Either from the Centreon MAP dedicated user interface, which also includes a
-search facility
+  search facility
 - Or within a Custom View, using the dedicated Centreon MAP widget

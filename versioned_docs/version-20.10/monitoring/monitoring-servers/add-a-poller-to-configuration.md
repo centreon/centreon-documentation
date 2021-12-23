@@ -2,9 +2,6 @@
 id: add-a-poller-to-configuration
 title: Add a Poller to configuration
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Configure a new Poller
 
@@ -52,8 +49,9 @@ The communication between a Central and a Poller is ensured by Gorgone and can
 be done using ZMQ (with a Gorgone running on the Poller, recommended) or using
 SSH protocol.
 
-<Tabs groupId="operating-systems">
-<TabItem value="Using ZMQ (Recommended)" label="Using ZMQ (Recommended)">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Using ZMQ (Recommended)-->
 
 #### Select communication type
 
@@ -88,23 +86,23 @@ cat <<EOF > /etc/centreon-gorgone/config.d/40-gorgoned.yaml
 name:  gorgoned-My Poller
 description: Configuration for poller My Poller
 gorgone:
-gorgonecore:
-id: 2
-external_com_type: tcp
-external_com_path: "*:5556"
-authorized_clients:
-- key: Np1wWwpbFD2I0MdeHWRlFx51FmlYkDRZy9JTFxkrDPI
-privkey: "/var/lib/centreon-gorgone/.keys/rsakey.priv.pem"
-pubkey: "/var/lib/centreon-gorgone/.keys/rsakey.pub.pem"
-modules:
-- name: action
-package: gorgone::modules::core::action::hooks
-enable: true
+  gorgonecore:
+    id: 2
+    external_com_type: tcp
+    external_com_path: "*:5556"
+    authorized_clients:
+      - key: Np1wWwpbFD2I0MdeHWRlFx51FmlYkDRZy9JTFxkrDPI
+    privkey: "/var/lib/centreon-gorgone/.keys/rsakey.priv.pem"
+    pubkey: "/var/lib/centreon-gorgone/.keys/rsakey.pub.pem"
+  modules:
+    - name: action
+      package: gorgone::modules::core::action::hooks
+      enable: true
 
-- name: engine
-package: gorgone::modules::centreon::engine::hooks
-enable: true
-command_file: "/var/lib/centreon-engine/rw/centengine.cmd"
+    - name: engine
+      package: gorgone::modules::centreon::engine::hooks
+      enable: true
+      command_file: "/var/lib/centreon-engine/rw/centengine.cmd"
 
 EOF
 ```
@@ -132,14 +130,14 @@ It should result as follow:
 
 ``` shell
 ● gorgoned.service - Centreon Gorgone
-Loaded: loaded (/etc/systemd/system/gorgoned.service; disabled; vendor preset: disabled)
-Active: active (running) since Mon 2020-03-24 19:45:00 CET; 20h ago
-Main PID: 28583 (perl)
-CGroup: /system.slice/gorgoned.service
-├─28583 /usr/bin/perl /usr/bin/gorgoned --config=/etc/centreon-gorgone/config.yaml --logfile=/var/log/centreon-gorgone/gorgoned.log --severity=info
-├─28596 gorgone-dbcleaner
-├─28597 gorgone-engine
-└─28598 gorgone-action
+   Loaded: loaded (/etc/systemd/system/gorgoned.service; disabled; vendor preset: disabled)
+   Active: active (running) since Mon 2020-03-24 19:45:00 CET; 20h ago
+ Main PID: 28583 (perl)
+   CGroup: /system.slice/gorgoned.service
+           ├─28583 /usr/bin/perl /usr/bin/gorgoned --config=/etc/centreon-gorgone/config.yaml --logfile=/var/log/centreon-gorgone/gorgoned.log --severity=info
+           ├─28596 gorgone-dbcleaner
+           ├─28597 gorgone-engine
+           └─28598 gorgone-action
 
 Mar 24 19:45:00 localhost.localdomain systemd[1]: Started Centreon Gorgone.
 ```
@@ -149,9 +147,7 @@ Finally, enable the automatic startup of the service with the command:
 ```shell
 systemctl enable gorgoned
 ```
-
-</TabItem>
-<TabItem value="Using SSH" label="Using SSH">
+<!--Using SSH-->
 
 #### Select communication type
 
@@ -193,8 +189,7 @@ Then, copy this key on to the **new Poller** with the following commands:
 su - centreon-gorgone
 ssh-copy-id -i .ssh/id_rsa.pub centreon@<IP_POLLER>
 ```
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 **To force the Central's Gorgone daemon to connect to the Poller**, restart it with
 the following command from the **Central server**:

@@ -2,9 +2,6 @@
 id: hardware-ups-hp-snmp
 title: HP UPS SNMP
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Contenu du Pack
 
@@ -18,8 +15,9 @@ Le Pack HP UPS collecte les données pour:
 
 ### Métriques collectées
 
-<Tabs groupId="operating-systems">
-<TabItem value="Batterystatus" label="Batterystatus">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Battery-status-->
 
 | Metric name                      | Description                    | Unit |
 | :------------------------------- | :----------------------------- | :--- |
@@ -29,8 +27,7 @@ Le Pack HP UPS collecte les données pour:
 | battery.current.ampere           | Battery ampere level           | A    |
 | battery.voltage.volt             | Battery voltage                | V    |
 
-</TabItem>
-<TabItem value="Environment" label="Environment">
+<!--Environment-->
 
 | Metric name                              | Description               | Unit  |
 | :--------------------------------------- | :------------------------ | :---- |
@@ -39,8 +36,7 @@ Le Pack HP UPS collecte les données pour:
 | environment.remote.temperature.celsius   | Remote temperature sensor | C     |
 | environment.remote.humidity.percentage   | Remote humidity sensor    | %     |
 
-</TabItem>
-<TabItem value="Inputlines" label="Inputlines">
+<!--Input-lines-->
 
 | Metric name                              | Description           | Unit  |
 | :--------------------------------------- | :-------------------- | :---- |
@@ -49,8 +45,7 @@ Le Pack HP UPS collecte les données pour:
 | *line\_phase*\#line.input.voltage.volt   | Input line voltage    | V     |
 | *line\_phase*\#line.input.power.watt     | Input line real power | W     |
 
-</TabItem>
-<TabItem value="Outputlines" label="Outputlines">
+<!--Output-lines-->
 
 | Metric name                               | Description           | Unit  |
 | :---------------------------------------- | :-------------------- | :---- |
@@ -61,19 +56,19 @@ Le Pack HP UPS collecte les données pour:
 | *line\_phase*\#line.output.voltage.volt   | Output line voltage   | V     |
 | *line\_phase*\#line.output.power.watt     | Ouput line real power | W     |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
-Afin de contrôler votre équipement HP UPS, le SNMP doit être configuré.
+Afin de contrôler votre équipement HP UPS, le SNMP doit être configuré. 
 
 Le flux SNMP UDP/161 doit être ouvert entre le Collecteur et l'équipement.
 
 ## Installation
 
-<Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -83,8 +78,7 @@ yum install centreon-plugin-Hardware-Ups-Hp-Snmp
 
 2. Sur l'interface Web de Centreon, installer le Pack *HP UPS SNMP* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -100,8 +94,7 @@ yum install centreon-pack-hardware-ups-hp-snmp
 
 3. Sur l'interface Web de Centreon, installer le Pack *HP UPS SNMP* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
@@ -123,14 +116,14 @@ depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-en
 
 ```bash
 /usr/lib/centreon/plugins/centreon_ups_hp_snmp.pl \
---plugin=hardware::ups::hp::snmp::plugin \
---mode=battery-status \
---hostname=10.30.2.114 \
---snmp-version='2c' \
---snmp-community='hp_ro' \
---warning-charge-remaining='50:' \
---critical-charge-remaining='20:' \
---verbose
+    --plugin=hardware::ups::hp::snmp::plugin \
+    --mode=battery-status \
+    --hostname=10.30.2.114 \
+    --snmp-version='2c' \
+    --snmp-community='hp_ro' \
+    --warning-charge-remaining='50:' \
+    --critical-charge-remaining='20:' \
+    --verbose
 ```
 
 La commande devrait retourner un message de sortie de la forme ci-dessous:
@@ -139,7 +132,7 @@ La commande devrait retourner un message de sortie de la forme ci-dessous:
 OK: battery status is 'normal', remaining capacity: 100 % | 'battery.charge.remaining.percent'=100%;50:;20:;0;100 'battery.voltage.volt'=2.2V;;;;
 ```
 
-Cette commande contrôle la batterie (```--mode=battery-status```) d'un équipement UPS HP ayant pour adresse *10.30.2.114* (```--hostname=10.30.2.114```)
+Cette commande contrôle la batterie (```--mode=battery-status```) d'un équipement UPS HP ayant pour adresse *10.30.2.114* (```--hostname=10.30.2.114```) 
 en version *2c* du protocol SNMP (```--snmp-version='2c'```) et avec la communauté *hp_ro* (```--snmp-community='hp_ro'```).
 
 Cette commande déclenchera une alarme WARNING si la charge restante de la batterie est inférieur à 50% (```--warning-charge-remaining='50:'```)
@@ -150,9 +143,9 @@ en ajoutant le paramètre ```--help``` à la commande:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_ups_hp_snmp.pl \
---plugin=hardware::ups::hp::snmp::plugin \
---mode=battery-status \
---help
+    --plugin=hardware::ups::hp::snmp::plugin \
+    --mode=battery-status \
+    --help
 ```
 
 ## Diagnostique

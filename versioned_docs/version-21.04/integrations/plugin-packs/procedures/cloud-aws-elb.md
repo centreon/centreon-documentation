@@ -12,8 +12,8 @@ Install this plugins on each needed poller:
 ``` shell
 yum install centreon-plugin-Cloud-Aws-Elb-Api
 ```
-# yum install centreon-plugin-Cloud-Aws-Elb-Application-Api
-# yum install centreon-plugin-Cloud-Aws-Elb-Network-Api
+    # yum install centreon-plugin-Cloud-Aws-Elb-Application-Api
+    # yum install centreon-plugin-Cloud-Aws-Elb-Network-Api
 
 To use it, you can either install 'awscli' (AWS Command Line Interface) or
 'paws' (Perl AWS SDK).
@@ -59,10 +59,10 @@ Check the *Create Services linked to the Template too* box and click on the
 
 The following services will be created:
 
-- Elb-Http-Codes
-- Elb-Performances
-- Elb-Queues
-- Elb-Targets-Health
+  - Elb-Http-Codes
+  - Elb-Performances
+  - Elb-Queues
+  - Elb-Targets-Health
 
 #### For a load balancer (Classic ELB)
 
@@ -93,7 +93,7 @@ Check the *Create Services linked to the Template too* box and click on the
 
 The following services will be created:
 
-- Elb-Http-Codes
-- Elb-Performances
-- Elb-Queues
-- Elb-Targets-Health
+  - Elb-Http-Codes
+  - Elb-Performances
+  - Elb-Queues
+  - Elb-Targets-Health

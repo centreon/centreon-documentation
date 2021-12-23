@@ -23,39 +23,39 @@ available on a dedicated web page. This report is used to generate statistics in
 Centreon. To activate this module, you have to open your httpd configuration
 file:
 
-$ vi /etc/httpd/conf/httpd.conf
+    $ vi /etc/httpd/conf/httpd.conf
 
 and check that:
 
-- The module is loaded by Apache:
+  - The module is loaded by Apache:
+    
+    ``` 
+      LoadModule status_module modules/mod_status.so
+    ```
 
-```
-LoadModule status_module modules/mod_status.so
-```
-
-- If not already configured, add the followings lines:
+  - If not already configured, add the followings lines:
 
 <!-- end list -->
 
-```
-<Location /server-status>
-SetHandler server-status
-Order Deny,Allow
-Allow from <centreon-poller_@IP>
-Deny from All
-</Location>
+``` 
+        <Location /server-status>
+            SetHandler server-status 
+            Order Deny,Allow
+            Allow from <centreon-poller_@IP>
+            Deny from All
+        </Location>
 ```
 
-- And finally, check that `ExtendedStatus` is activated (Mandatory if you
-wants precise statistics on query processed by the WebServer):
-
-```
-ExtendedStatus On
-```
+  - And finally, check that `ExtendedStatus` is activated (Mandatory if you
+    wants precise statistics on query processed by the WebServer):
+    
+    ``` 
+      ExtendedStatus On
+    ```
 
 Apache must be reloaded to take this modification into account:
 
-$ /etc/init.d/httpd reload
+    $ /etc/init.d/httpd reload
 
 ## Centreon configuration
 

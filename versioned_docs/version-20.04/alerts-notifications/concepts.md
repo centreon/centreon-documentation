@@ -37,20 +37,20 @@ In addition to the standard statuses, new statuses can be used to add
 additional information:
 
 -   The <span style={{color:'#2ad1d4'}}>PENDING</span> status is a status
-displayed for a service or a host freshly configured but which has
-not yet been checked by the scheduler.
+    displayed for a service or a host freshly configured but which has
+    not yet been checked by the scheduler.
 -   The <span style={{color:'#818185'}}>UNREACHABLE</span> status is a
-status indicating that the host (parental relationship) is situated
-downstream of a host with a DOWN status.
+    status indicating that the host (parental relationship) is situated
+    downstream of a host with a DOWN status.
 -   The FLAPPING status is a status indicating that the status change
-percentage of the resource is very high. This percentage is obtained
-from calculations performed by the network monitoring engine.
+    percentage of the resource is very high. This percentage is obtained
+    from calculations performed by the network monitoring engine.
 -   The <span style={{color:'#ae9500'}}>ACKNOWLEDGED</span> status is a
-status indicating that the incident of the service or of the host
-has been taken into account by a user.
+    status indicating that the incident of the service or of the host
+    has been taken into account by a user.
 -   The <span style={{color:'#cc99ff'}}>DOWNTIME</span> status is a status
-indicating that the incident of the service or of the host occurred
-during a downtime period.
+    indicating that the incident of the service or of the host occurred
+    during a downtime period.
 
 ## Status confirmation
 
@@ -58,7 +58,7 @@ A resource can have two states:
 
 * SOFT: Signifies that an incident has just been detected and that it has to be confirmed.
 * HARD: Signifies that the status of the incident is confirmed. Once the status is confirmed, the notification process
-is engaged (sending of a mail, SMS, etc.).
+  is engaged (sending of a mail, SMS, etc.).
 
 ### Explanation
 

@@ -2,9 +2,6 @@
 id: network-denyall-snmp
 title: DenyAll SNMP
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Contenu du Plugin-Pack
 
@@ -21,16 +18,16 @@ Le Plugin-Pack DenyAll SNMP collecte les données pour:
 
 ### Métriques collectées
 
-<Tabs groupId="operating-systems">
-<TabItem value="Cpu" label="Cpu">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Cpu-->
 
 | Metric name                              | Description              | Unit |
 | :--------------------------------------- | :----------------------- | :--- |
 | cpu.utilization.percentage               | CPU utilization          | %    |
 | *cpuid*\#core.cpu.utilization.percentage | Per Core CPU utilization | %    |
 
-</TabItem>
-<TabItem value="Interfaces" label="Interfaces">
+<!--Interfaces-->
 
 | Metric name                                            | Description                                         | Unit |
 | :----------------------------------------------------- | :-------------------------------------------------- | :--- |
@@ -42,8 +39,7 @@ Le Plugin-Pack DenyAll SNMP collecte les données pour:
 
 A regexp filter is available to target a specific interface identifier - ifName [```--interface='^eth0$' --name```]
 
-</TabItem>
-<TabItem value="Load" label="Load">
+<!--Load-->
 
 | Metric name                 | Description                       | Unit |
 | :-------------------------- | :-------------------------------- | :--- |
@@ -51,8 +47,7 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | load5                       | System load 5 minutes-sample      |      |
 | load15                      | System load 15 minutes-sample     |      |
 
-</TabItem>
-<TabItem value="Memory" label="Memory">
+<!--Memory-->
 
 | Metric name             | Description                               | Unit  |
 | :---------------------  | :---------------------------------------- | :---- |
@@ -63,8 +58,7 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | memory.cached.bytes     | Cached Memory allocation                  | B     |
 | memory.shared.bytes     | Shared Memory allocation                  | B     |
 
-</TabItem>
-<TabItem value="ReverseProxy" label="ReverseProxy">
+<!--Reverse-Proxy-->
 
 | Metric name                                                   | Description                    | Unit |
 | :------------------------------------------------------------ | :----------------------------- |:-----|
@@ -73,16 +67,14 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | *reverseproxy\_uid*\#reverse_proxy.memory.usage.bytes         | Memory usage                   | B    |
 | *reverseproxy\_uid*\#reverse_proxy.requests.persecond         | Number of requests per second  |      |
 
-</TabItem>
-<TabItem value="Storage" label="Storage">
+<!--Storage-->
 
 | Metric name                                 | Description                     | Unit  |
 | :------------------------------------------ | :------------------------------ | :---- |
 | storage.partitions.count                    | Number of disk partition        |       |
 | *partition_path*\#storage.space.usage.bytes | Used space on a disk partition  | B     |
 
-</TabItem>
-<TabItem value="Swap" label="Swap">
+<!--Swap-->
 
 | Metric name                 | Description                          | Unit  |
 | :-------------------------- | :----------------------------------- | :---- |
@@ -90,17 +82,17 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | swap.free.bytes             | Free swap                            | B     |
 | swap.usage.percentage       | Percentage of used swap              | %     |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
-Afin de contrôler votre équipement DenyAll, le SNMP doit être configuré.
+Afin de contrôler votre équipement DenyAll, le SNMP doit être configuré. 
 
 ## Installation
 
-<Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -110,8 +102,7 @@ yum install centreon-plugin-Network-Denyall-Snmp
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *DenyAll SNMP* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -127,8 +118,7 @@ yum install centreon-pack-network-denyall-snmp
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *DenyAll SNMP* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
@@ -152,14 +142,14 @@ depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-en
 
 ```bash
 /usr/lib/centreon/plugins/centreon_denyall_snmp.pl \
---plugin=network::denyall::snmp::plugin \
---mode=reverse-proxy \
---hostname=10.30.2.114 \
---snmp-version='2c' \
---snmp-community='denyall_ro' \
---warning-cpu-utilization='90' \
---critical-cpu-utilization='95' \
---verbose
+    --plugin=network::denyall::snmp::plugin \
+    --mode=reverse-proxy \
+    --hostname=10.30.2.114 \
+    --snmp-version='2c' \
+    --snmp-community='denyall_ro' \
+    --warning-cpu-utilization='90' \
+    --critical-cpu-utilization='95' \
+    --verbose
 ```
 
 La commande devrait retourner un message de sortie de la forme ci-dessous:
@@ -167,18 +157,18 @@ La commande devrait retourner un message de sortie de la forme ci-dessous:
 ```bash
 OK: All reverse proxies are ok | 'c0e7cb1b2b6f7f20a19fdbaf3296c552#reverse_proxy.cpu.utilization.percentage'=0.00%;0:90;0:95;0;100 'c0e7cb1b2b6f7f20a19fdbaf3296c552#reverse_proxy.memory.usage.bytes'=11534336B;;;0; 'c0e7cb1b2b6f7f20a19fdbaf3296c552#reverse_proxy.requests.persecond'=0.00;;;0; 'c4b59d91060c39140fcafc114e7d96e4#reverse_proxy.cpu.utilization.percentage'=0.00%;0:90;0:95;0;100 'c4b59d91060c39140fcafc114e7d96e4#reverse_proxy.memory.usage.bytes'=25165824B;;;0; 'c4b59d91060c39140fcafc114e7d96e4#reverse_proxy.requests.persecond'=0.00;;;0;
 checking reverse proxy 'c0e7cb1b2b6f7f20a19fdbaf3296c552'
-status: ok
-cpu usage: 0.00 %
-memory used: 11.00 MB
-requests: 0.00/s
+    status: ok
+    cpu usage: 0.00 %
+    memory used: 11.00 MB
+    requests: 0.00/s
 checking reverse proxy 'c4b59d91060c39140fcafc114e7d96e4'
-status: ok
-cpu usage: 0.00 %
-memory used: 24.00 MB
-requests: 0.00/s
+    status: ok
+    cpu usage: 0.00 %
+    memory used: 24.00 MB
+    requests: 0.00/s
 ```
 
-Cette commande contrôle les reverse proxy (```--mode=reverse-proxy```) d'un équipement DenyAll ayant pour adresse *10.30.2.114* (```--hostname=10.30.2.114```)
+Cette commande contrôle les reverse proxy (```--mode=reverse-proxy```) d'un équipement DenyAll ayant pour adresse *10.30.2.114* (```--hostname=10.30.2.114```) 
 en version *2c* du protocol SNMP (```--snmp-version='2c'```) et avec la communauté *denyall_ro* (```--snmp-community='denyall_ro'```).
 
 Cette commande déclenchera une alarme WARNING si l'utilisation processeur est supérieur à 90% (```--warning-cpu-utilization='90'```)
@@ -189,21 +179,21 @@ en ajoutant le paramètre ```--help``` à la commande:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_denyall_snmp.pl \
---plugin=network::denyall::snmp::plugin \
---mode=reverse-proxy \
---help
+    --plugin=network::denyall::snmp::plugin \
+    --mode=reverse-proxy \
+    --help
 ```
 
 ## J'obtiens le message d'erreur suivant:
 
 ### UNKNOWN: SNMP GET Request : Timeout
 
-Si vous obtenez ce message, cela signifie que vous ne parvenez pas à contacter l'équipement sur le port 161,
-ou alors que la communauté SNMP configurée n'est pas correcte.
+Si vous obtenez ce message, cela signifie que vous ne parvenez pas à contacter l'équipement sur le port 161, 
+ou alors que la communauté SNMP configurée n'est pas correcte. 
 Il est également possible qu'un firewall bloque le flux.
 
 ### UNKNOWN: SNMP GET Request : Cant get a single value.
 
-Si vous rencontrez cette erreur, il est probable que les autorisations données à l'agent SNMP soient trop restreintes.
-* L'équipement ne prend pas en charge la MIB utilisée par le Plugin (branche: .1.3.6.1.4.1.18433.10).
-* L'OID SNMP ciblé ne peut pas être récupéré en raison de privilèges d'équipement insuffisants.
+Si vous rencontrez cette erreur, il est probable que les autorisations données à l'agent SNMP soient trop restreintes. 
+ * L'équipement ne prend pas en charge la MIB utilisée par le Plugin (branche: .1.3.6.1.4.1.18433.10).
+ * L'OID SNMP ciblé ne peut pas être récupéré en raison de privilèges d'équipement insuffisants.

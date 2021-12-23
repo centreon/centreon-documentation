@@ -15,17 +15,17 @@ Une période temporelle définit un intervalle de temps pour chacun des jours de
 Pour configurer des périodes temporelles, allez à la page : **Configuration > Utilisateurs > Périodes temporelles**.
 
 1. Dans les champs **Nom de la période temporelle** et **Alias**, entrez un nom et une description.
-2. Dans la section **Options basiques**, pour chaque jour de la semaine, définissez les plages horaires pendant lesquelles les vérifications et les notifications seront activées, en utilisant la [syntaxe décrite ci-dessous](#syntaxe-dune-période-de-temps).
+2. Dans la section **Options basiques**, pour chaque jour de la semaine, définissez les plages horaires pendant lesquelles les vérifications et les notifications seront activées, en utilisant la [syntaxe décrite ci-dessous](#syntaxe-dune-période-de-temps). 
 
-- Ces définitions seront appliquées chaque semaine, indéfiniment.
-- Si vous laissez un jour vide, il n'y aura pas de supervision ce jour-là pour les actions rattachées à cette période de temps.
+    - Ces définitions seront appliquées chaque semaine, indéfiniment.
+    - Si vous laissez un jour vide, il n'y aura pas de supervision ce jour-là pour les actions rattachées à cette période de temps.
 
 3. Utilisez [l'onglet **Période d'exception**](#onglet-période-dexception) pour inclure dans une période de temps des jours qui n'en feraient normalement pas partie.
 
 4. Une fois la période de temps définie, vous pouvez l'utiliser :
 
-- Dans le champ **Période de contrôle** d'un hôte, d'un modèle d'hôtes, d'un service ou d'un groupe de services.
-- Dans le champ **Période de notification** d'un hôte, d'un modèle d'hôte, d'un service, d'un groupe de services ou d'un contact, ou bien dans le champ **Période d'escalade** d'une escalade de notifications.
+    - Dans le champ **Période de contrôle** d'un hôte, d'un modèle d'hôtes, d'un service ou d'un groupe de services.
+    - Dans le champ **Période de notification** d'un hôte, d'un modèle d'hôte, d'un service, d'un groupe de services ou d'un contact, ou bien dans le champ **Période d'escalade** d'une escalade de notifications.
 
 ### Syntaxe d’une période de temps
 
@@ -55,7 +55,7 @@ Exemple : Un administrateur souhaite définir une période temporelle qui regrou
 Afin de pouvoir définir les jours fériés ainsi que les jours de fermeture exceptionnelle, il est nécessaire d’utiliser les exceptions.
 
 Pour ajouter une exception, dans le champ **Exceptions**, cliquez sur **Ajouter une nouvelle entrée**. Définissez une plage horaire pour chaque
-journée exceptionnelle.
+journée exceptionnelle. 
 
 >Utilisez la syntaxe suivante pour exclure des jours entiers de la supervision : 00:00-00:00.
 

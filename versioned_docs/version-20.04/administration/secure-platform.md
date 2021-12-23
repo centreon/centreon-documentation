@@ -103,61 +103,61 @@ Alias /centreon/api /usr/share/centreon
 Alias /centreon /usr/share/centreon/www/
 
 <LocationMatch ^/centreon/(?!api/latest/|api/beta/|api/v[0-9]+/|api/v[0-9]+\.[0-9]+/)(.*\.php(/.*)?)$>
-ProxyPassMatch fcgi://127.0.0.1:9042/usr/share/centreon/www/$1
+    ProxyPassMatch fcgi://127.0.0.1:9042/usr/share/centreon/www/$1
 </LocationMatch>
 
 <LocationMatch ^/centreon/api/(latest/|beta/|v[0-9]+/|v[0-9]+\.[0-9]+/)(.*)$>
-ProxyPassMatch fcgi://127.0.0.1:9042/usr/share/centreon/api/index.php/$1
+    ProxyPassMatch fcgi://127.0.0.1:9042/usr/share/centreon/api/index.php/$1
 </LocationMatch>
 
 ProxyTimeout 300
 
 <VirtualHost *:80>
-RewriteEngine On
-RewriteCond %{HTTPS} off
-RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+    RewriteEngine On
+    RewriteCond %{HTTPS} off
+    RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
 </VirtualHost>
 
 <VirtualHost *:443>
 #####################
 # SSL configuration #
 #####################
-SSLEngine On
-SSLProtocol All -SSLv3 -SSLv2 -TLSv1 -TLSv1.1
-SSLCipherSuite ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-DSS-AES256-GCM-SHA384:DHE-DSS-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-GCM-SHA256:!aNULL:!eNULL:!LOW:!3DES:!MD5:!EXP:!PSK:!DSS:!RC4:!SEED:!ADH:!IDEA
-SSLHonorCipherOrder On
-SSLCompression Off
-SSLCertificateFile /etc/pki/tls/certs/ca.crt
-SSLCertificateKeyFile /etc/pki/tls/private/ca.key
+    SSLEngine On
+    SSLProtocol All -SSLv3 -SSLv2 -TLSv1 -TLSv1.1
+    SSLCipherSuite ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-DSS-AES256-GCM-SHA384:DHE-DSS-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-GCM-SHA256:!aNULL:!eNULL:!LOW:!3DES:!MD5:!EXP:!PSK:!DSS:!RC4:!SEED:!ADH:!IDEA
+    SSLHonorCipherOrder On
+    SSLCompression Off
+    SSLCertificateFile /etc/pki/tls/certs/ca.crt
+    SSLCertificateKeyFile /etc/pki/tls/private/ca.key
 
-<Directory "/usr/share/centreon/www">
-DirectoryIndex index.php
-Options Indexes
-AllowOverride all
-Order allow,deny
-Allow from all
-Require all granted
-<IfModule mod_php5.c>
-php_admin_value engine Off
-</IfModule>
+    <Directory "/usr/share/centreon/www">
+        DirectoryIndex index.php
+        Options Indexes
+        AllowOverride all
+        Order allow,deny
+        Allow from all
+        Require all granted
+        <IfModule mod_php5.c>
+            php_admin_value engine Off
+        </IfModule>
 
-FallbackResource /centreon/index
+        FallbackResource /centreon/index
 
-AddType text/plain hbs
-</Directory>
+        AddType text/plain hbs
+    </Directory>
 
-<Directory "/usr/share/centreon/api">
-Options Indexes
-AllowOverride all
-Order allow,deny
-Allow from all
-Require all granted
-<IfModule mod_php5.c>
-php_admin_value engine Off
-</IfModule>
+    <Directory "/usr/share/centreon/api">
+        Options Indexes
+        AllowOverride all
+        Order allow,deny
+        Allow from all
+        Require all granted
+        <IfModule mod_php5.c>
+            php_admin_value engine Off
+        </IfModule>
 
-AddType text/plain hbs
-</Directory>
+        AddType text/plain hbs
+    </Directory>
 </VirtualHost>
 
 RedirectMatch ^/$ /centreon
@@ -217,23 +217,23 @@ If everything is ok, you must have:
 
 ```shell
 ● httpd24-httpd.service - The Apache HTTP Server
-Loaded: loaded (/usr/lib/systemd/system/httpd24-httpd.service; enabled; vendor preset: disabled)
-Active: active (running) since mar. 2020-05-12 15:39:58 CEST; 25min ago
-Process: 31762 ExecStop=/opt/rh/httpd24/root/usr/sbin/httpd-scl-wrapper $OPTIONS -k graceful-stop (code=exited, status=0/SUCCESS)
-Main PID: 31786 (httpd)
-Status: "Total requests: 850; Idle/Busy workers 50/50;Requests/sec: 0.547; Bytes served/sec: 5.1KB/sec"
-CGroup: /system.slice/httpd24-httpd.service
-├─ 1219 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-├─31786 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-├─31788 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-├─31789 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-├─31790 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-├─31802 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-├─31865 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-├─31866 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-├─31882 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-├─31903 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-└─32050 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+   Loaded: loaded (/usr/lib/systemd/system/httpd24-httpd.service; enabled; vendor preset: disabled)
+   Active: active (running) since mar. 2020-05-12 15:39:58 CEST; 25min ago
+  Process: 31762 ExecStop=/opt/rh/httpd24/root/usr/sbin/httpd-scl-wrapper $OPTIONS -k graceful-stop (code=exited, status=0/SUCCESS)
+ Main PID: 31786 (httpd)
+   Status: "Total requests: 850; Idle/Busy workers 50/50;Requests/sec: 0.547; Bytes served/sec: 5.1KB/sec"
+   CGroup: /system.slice/httpd24-httpd.service
+           ├─ 1219 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+           ├─31786 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+           ├─31788 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+           ├─31789 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+           ├─31790 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+           ├─31802 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+           ├─31865 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+           ├─31866 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+           ├─31882 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+           ├─31903 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+           └─32050 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
 ```
 
 ### Securing the Apache web server with self-signed certificat
@@ -269,7 +269,7 @@ Protect your file by limiting rights:
 chmod 400 centreon7.key
 ```
 
-3. Creation of a certificate signing request file
+3. Creation of a certificate signing request file 
 
 From the key you created, create a CSR (Certificate Signing Request) file. Fill in the fields according to your company. The "Common Name" field must be identical to the hostname of your apache server (in our case it is centreon7.localdomain).
 ```text
@@ -304,7 +304,7 @@ openssl x509 -req -in centreon7.csr -out centreon7.crt -CA ca_demo.crt -CAkey ca
 
 The CAcreateserial option is only needed the first time. The previously created password must be entered. You get your server certificate named centreon7.crt.
 
-You can view the contents of the :
+You can view the contents of the : 
 ```text
 less centreon7.crt
 ```
@@ -318,57 +318,57 @@ cp centreon7.crt /etc/pki/tls/certs/
 ```
 8. Update Apache configuration file
 
-Finally, update `SSLCertificateFile` and `SSLCertificateKeyFile` parameters appropriately in your apache configuration file located in `/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf`.
-Here is an example of how the file should look like:
+Finally, update `SSLCertificateFile` and `SSLCertificateKeyFile` parameters appropriately in your apache configuration file located in `/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf`. 
+Here is an example of how the file should look like: 
 
 ```apacheconf
 Alias /centreon/api /usr/share/centreon
 Alias /centreon /usr/share/centreon/www/
 <LocationMatch ^/centreon/(?!api/latest/|api/beta/|api/v[0-9]+/|api/v[0-9]+\.[0-9]+/)(.*\.php(/.*)?)$>
-ProxyPassMatch fcgi://127.0.0.1:9042/usr/share/centreon/www/$1
+    ProxyPassMatch fcgi://127.0.0.1:9042/usr/share/centreon/www/$1
 </LocationMatch>
 <LocationMatch ^/centreon/api/(latest/|beta/|v[0-9]+/|v[0-9]+\.[0-9]+/)(.*)$>
-ProxyPassMatch fcgi://127.0.0.1:9042/usr/share/centreon/api/index.php/$1
+    ProxyPassMatch fcgi://127.0.0.1:9042/usr/share/centreon/api/index.php/$1
 </LocationMatch>
 ProxyTimeout 300
 <VirtualHost *:80>
-RewriteEngine On
-RewriteCond %{HTTPS} off
-RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+    RewriteEngine On
+    RewriteCond %{HTTPS} off
+    RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
 </VirtualHost>
 <VirtualHost *:443>
 #####################
 # SSL configuration #
 #####################
-SSLEngine on
-SSLProtocol all -SSLv3 -TLSv1 -TLSv1.1
-SSLCipherSuite ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256
-SSLCertificateFile /etc/pki/tls/certs/centreon7.crt
-SSLCertificateKeyFile /etc/pki/tls/private/centreon7.key
-<Directory "/usr/share/centreon/www">
-DirectoryIndex index.php
-Options Indexes
-AllowOverride all
-Order allow,deny
-Allow from all
-Require all granted
-<IfModule mod_php5.c>
-php_admin_value engine Off
-</IfModule>
-FallbackResource /centreon/index
-AddType text/plain hbs
-</Directory>
-<Directory "/usr/share/centreon/api">
-Options Indexes
-AllowOverride all
-Order allow,deny
-Allow from all
-Require all granted
-<IfModule mod_php5.c>
-php_admin_value engine Off
-</IfModule>
-AddType text/plain hbs
-</Directory>
+    SSLEngine on
+    SSLProtocol all -SSLv3 -TLSv1 -TLSv1.1
+    SSLCipherSuite ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256
+    SSLCertificateFile /etc/pki/tls/certs/centreon7.crt
+    SSLCertificateKeyFile /etc/pki/tls/private/centreon7.key
+    <Directory "/usr/share/centreon/www">
+        DirectoryIndex index.php
+        Options Indexes
+        AllowOverride all
+        Order allow,deny
+        Allow from all
+        Require all granted
+        <IfModule mod_php5.c>
+            php_admin_value engine Off
+        </IfModule>
+        FallbackResource /centreon/index
+        AddType text/plain hbs
+    </Directory>
+    <Directory "/usr/share/centreon/api">
+        Options Indexes
+        AllowOverride all
+        Order allow,deny
+        Allow from all
+        Require all granted
+        <IfModule mod_php5.c>
+            php_admin_value engine Off
+        </IfModule>
+        AddType text/plain hbs
+    </Directory>
 </VirtualHost>
 ```
 9. Copy the x509 certificate to the client's browser
@@ -409,8 +409,8 @@ yum install httpd24-nghttp2
 ```apacheconf
 ...
 <VirtualHost *:443>
-Protocols h2 h2c http/1.1
-...
+    Protocols h2 h2c http/1.1
+    ...
 </VirtualHost>
 ...
 ```

@@ -6,13 +6,13 @@ title: Basic principles of monitoring
 Here are a few basic Centreon concepts:
 
 * A [**host**](basic-objects/hosts-create) is any device that has an IP address and that one wishes to monitor. For example, a physical server, a
-virtual machine, a temperature probe, an IP camera, a printer or a storage space.
+  virtual machine, a temperature probe, an IP camera, a printer or a storage space.
 * A [**service**](basic-objects/services-create) is a check point, or indicator, to be monitored on a host. This can be the CPU usage rate, temperature,
-motion detection, bandwidth usage rate, disk I/O, and so on.
+  motion detection, bandwidth usage rate, disk I/O, and so on.
 * In order to collect each indicator value, monitoring **plugins** are used which are periodically executed by a
-collection engine called **Centreon Engine**.
+  collection engine called **Centreon Engine**.
 * To be executed, a plugin needs a set of arguments that define, for example, which host to connect to or through which protocol.
-The plugin and its associated arguments form a [**command**](basic-objects/commands).
+  The plugin and its associated arguments form a [**command**](basic-objects/commands).
 
 For example, to monitor a host with Centreon is to configure all the commands needed to measure the desired indicators,
 and then [deploy that configuration](monitoring-servers/deploying-a-configuration) to the collection engine so that these commands are run periodically.

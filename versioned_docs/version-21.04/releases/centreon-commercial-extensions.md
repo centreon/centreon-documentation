@@ -140,7 +140,7 @@ Release date: `November 9, 2021`
 #### Host discovery
 
 - Disable the refresh button when listings are loading
-- Autosave custom string when clicking away from input in mapper fields supporting text entry
+- Autosave custom string when clicking away from input in mapper fields supporting text entry 
 - Suggest reinstalling the PP if in 21.04 or higher when the installed provider is not compatible
 - Warn the user that unsaved changes will be lost by leaving job edition
 - Prevent usage of discovery.credentials attributes in host discovery mappers (except Macro)
@@ -156,8 +156,8 @@ Release date: `November 9, 2021`
 - Ability to link the discovered hosts to host existing host severities.
 - Property, macro, hostgroup and hostcategory mappers now support concatenation of either custom strings or discovered information.
 - UX alignment with Resource Status
-- Clicking anywhere on a job's row now opens the side panel, not the job's result.
-- Clicking on the contextual arrow leads to the job's result (*ie.* the discovered hosts).
+    - Clicking anywhere on a job's row now opens the side panel, not the job's result.
+    - Clicking on the contextual arrow leads to the job's result (*ie.* the discovered hosts).
 
 ## Centreon Plugin Packs Manager
 

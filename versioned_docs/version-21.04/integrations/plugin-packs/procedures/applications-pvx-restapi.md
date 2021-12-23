@@ -79,18 +79,18 @@ An API key has to be created to access the API. The key will never expire.
 
 First, a session ID needs to be requested.
 
-(From the central or poller)
-
-# curl -k "https://`<pvxapihost>`/api/login?user=`<user>`&password=`<password>`"
+    (From the central or poller)
+    
+    # curl -k "https://<pvxapihost>/api/login?user=<user>&password=<password>"
 
 Replace pvxapihost, user and password by your values.
 
 The command line should return:
 
-{
-"type": "result",
-"result": "session:91554086-842b-4b73-9028-c51d20d91b94"
-}
+    {
+        "type": "result",
+        "result": "session:91554086-842b-4b73-9028-c51d20d91b94"
+    }
 
 The session ID is "session:91554086-842b-4b73-9028-c51d20d91b94".
 
@@ -98,18 +98,18 @@ The session ID is "session:91554086-842b-4b73-9028-c51d20d91b94".
 
 With the session ID, request an API key.
 
-(From the central or poller)
-
-# curl -k "https://`<pvxapihost>`/api/create-api-key?name=`<keyname>`&_session=session:91554086-842b-4b73-9028-c51d20d91b94"
+    (From the central or poller)
+    
+    # curl -k "https://<pvxapihost>/api/create-api-key?name=<keyname>&_session=session:91554086-842b-4b73-9028-c51d20d91b94"
 
 Replace pvxapihost by your value, and use the session ID for the "\_session"
 argument.
 
 The command line should return:
 
-{
-"type": "result",
-"result": "secret:e40b1cc6-f629-43a4-8be6-14a9c9f036e0"
-}
+    {
+        "type": "result",
+        "result": "secret:e40b1cc6-f629-43a4-8be6-14a9c9f036e0"
+    }
 
 The API key is "secret:e40b1cc6-f629-43a4-8be6-14a9c9f036e0".

@@ -143,15 +143,15 @@ provider, you can configure it in ``Lists`` and ``Custom list definition``. For 
 * **Label** : displayed in the popup
 * **Type** : which kind of list. There is 3 kinds of lists
 
-* Provider lists (data from the ticketing software directly)
-* Centreon lists (like ``Host group``)
-* Custom lists (data from ``Custom list definition`` configuration. **Id** fields must be identical)
+  * Provider lists (data from the ticketing software directly)
+  * Centreon lists (like ``Host group``)
+  * Custom lists (data from ``Custom list definition`` configuration. **Id** fields must be identical)
 
 * **Mandatory** : checked it if the user needs to set the option
 
 ![image](../assets/alerts/open_ticket_advanced_list_01.png)
 
-The module stores the user list selection in an array (can be used in smarty section like ``body``
+The module stores the user list selection in an array (can be used in smarty section like ``body`` 
 or ``mapping ticket arguments``). There are 3 fields (**LIST_ID** must be replaced):
 
 * {$select.LIST_ID.id}

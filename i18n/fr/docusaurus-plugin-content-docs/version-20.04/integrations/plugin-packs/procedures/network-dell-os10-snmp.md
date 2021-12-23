@@ -2,9 +2,6 @@
 id: network-dell-os10-snmp
 title: Dell OS10 SNMP
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Contenu du Plugin-Pack
 
@@ -13,16 +10,16 @@ import TabItem from '@theme/TabItem';
 * Dell OS 10 incluant le CPU, Usage du Disque, Hardware, Inodes, Interfaces, Load, Memoire, Swap et l'Uptime.
 
 ### Métriques collectées
-<Tabs groupId="operating-systems">
-<TabItem value="Cpu" label="Cpu">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Cpu-->
 
 | Metric name                      | Description           | Unit |
 | :------------------------------- | :-------------------- | :--- |
 | cpu.utilization.percentage       | CPU utilization.      | %    |
 | core.cpu.utilization.percentage  | CPU Core utilization. | %    |
 
-</TabItem>
-<TabItem value="Diskusage" label="Diskusage">
+<!--Disk-usage-->
 
 | Metric name                     | Description                      | Unit  |
 | :------------------------------ | :------------------------------- | :---- |
@@ -34,15 +31,13 @@ import TabItem from '@theme/TabItem';
 
 Il est possible de filtrer les résultats sur le chemin de disque donné en utilisant une REGEXP sur le paramètre ```--disk-path```: [```--disk-patch='^my-disk-path$'```]
 
-</TabItem>
-<TabItem value="Inodes" label="Inodes">
+<!--Inodes-->
 
 | Metric name                 | Description                       | Unit |
 | :-------------------------- | :---------------------------------| :--- |
 | used                        | Inodes space usage on partitions. | %    |
 
-</TabItem>
-<TabItem value="Interfaces" label="Interfaces">
+<!--Interfaces-->
 
 | Metric name                              | Description                                             | Unit |
 |:---------------------------------------- |:------------------------------------------------------- | :--- |
@@ -56,8 +51,7 @@ Il est possible de filtrer les résultats sur le chemin de disque donné en util
 
 Il est possible de filtrer sur le nom d'une interface en utilisant une REGEXP de la forme [```--interface='^ens160$' --name```]
 
-</TabItem>
-<TabItem value="Hardware" label="Hardware">
+<!--Hardware-->
 
 * Par intances :
 
@@ -70,8 +64,7 @@ Il est possible de filtrer sur le nom d'une interface en utilisant une REGEXP de
 | resource.oper_status          | Status of the resources                   |      |
 | hardware.temperature.celsius  | Temperature of the different sensors      | C    |
 
-</TabItem>
-<TabItem value="Load" label="Load">
+<!--Load-->
 
 | Metric name                 | Description                      | Unit |
 | :-------------------------- | :--------------------------------| :--- |
@@ -79,20 +72,18 @@ Il est possible de filtrer sur le nom d'une interface en utilisant une REGEXP de
 | load5                       | System load 5 minutes sample     |      |
 | load15                      | System load 15 minutes sample    |      |
 
-</TabItem>
-<TabItem value="Memory" label="Memory">
+<!--Memory-->
 
 | Metric name             | Description                | Unit |
 | :---------------------- | :------------------------- | :--- |
 | memory.usage.bytes      | Memory usage               | B    |
 | memory.free.bytes       | Free memory                | B    |
 | memory.usage.percentage | Memory usage in percentage | %    |
-| memory.buffer.bytes     | Buffer memory              | B    |
+| memory.buffer.bytes     | Buffer memory              | B    |  
 | memory.cached.bytes     | Memory cached              | B    |
 | memory.shared.bytes     | Shared Memory allocation   | B    |
 
-</TabItem>
-<TabItem value="Swap" label="Swap">
+<!--Swap-->
 
 | Metric name                 | Description   | Unit |
 | :-------------------------- | :------------ | :--- |
@@ -100,15 +91,13 @@ Il est possible de filtrer sur le nom d'une interface en utilisant une REGEXP de
 | swap.free.bytes             | Swap free     | B    |
 | swap.usage.percentage       | Swap usage    | %    |
 
-</TabItem>
-<TabItem value="Uptime" label="Uptime">
+<!--Uptime-->
 
 | Metric name                 | Description                                        | Unit |
 | :-------------------------- | :------------------------------------------------- | :--- |
 | system.uptime               | Duration of system has been working and available. | s    |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -118,8 +107,9 @@ https://www.dell.com/support/manuals/fr/fr/frbsdt1/networking-z9100/os10-enterpr
 
 ## Installation
 
-<Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon supervisant des ressources Dell OS10 :
 
@@ -129,8 +119,7 @@ yum install centreon-plugin-Network-Dell-Os10-Snmp.noarch
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Dell OS10 SNMP* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon supervisant des ressources Dell OS10 :
 
@@ -146,16 +135,15 @@ yum install centreon-pack-network-dell-os10-snmp.noarch
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Dell OS10 SNMP* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
 Ce Plugin-Pack est conçu de manière à avoir dans Centreon un hôte par équipement Dell OS10.
-Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle Net-Dell-Os10-SNMP-custom.
+Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle Net-Dell-Os10-SNMP-custom. 
 Il est nécessaire de remplir les valeurs des champs "SNMP Community" et "SNMP Version".
 
-> Si vous utilisez SNMP version 3, sélectionnez la version SNMP appropriée
+> Si vous utilisez SNMP version 3, sélectionnez la version SNMP appropriée 
 et configurez les paramètres SNMP v3 via la macro SNMPEXTRAOPTIONS.
 
 | Mandatory   | Name                    | Description                                                                                 |
@@ -170,44 +158,44 @@ Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne d
 
 ```bash
 /usr/lib/centreon/plugins/centreon_dell_os10_snmp.pl \
---plugin=network::dell::os10::snmp::plugin \
---mode=cpu \
---hostname=10.30.2.114 \
---snmp-version='2c' \
---snmp-community='dell_os10_ro' \
---warning-average='60' \
---critical-average='75' \
---verbose
-
-OK: CPU(s) average usage is 15.29 % - CPU '0' usage : 15.29 %
+    --plugin=network::dell::os10::snmp::plugin \
+    --mode=cpu \
+    --hostname=10.30.2.114 \
+    --snmp-version='2c' \
+    --snmp-community='dell_os10_ro' \
+    --warning-average='60' \
+    --critical-average='75' \
+    --verbose
+	
+OK: CPU(s) average usage is 15.29 % - CPU '0' usage : 15.29 % 
 | 'total_cpu_avg'=15.29%;0:60;0:75;0;100 'cpu'=15.29%;;;0;100
 ```
 
-Cette commande contrôle l'utilisation CPU (```--mode=cpu```) d'un équipement ayant pour adresse *10.30.2.114* (```--hostname=10.30.2.114```)
+Cette commande contrôle l'utilisation CPU (```--mode=cpu```) d'un équipement ayant pour adresse *10.30.2.114* (```--hostname=10.30.2.114```) 
 en version *2c* du protocol SNMP (```--snmp-version='2c'```) et avec la communauté *dell_os10_ro* (```--snmp-community='dell_os10_ro'```).
 
 Cette commande déclenchera une alarme WARNING si l'utilisation moyenne CPU est à plus de 60% (```--warning-average='60'```)
 et une alarme CRITICAL si plus de 75% (```--critical-average='75'```).
 
 Des seuils peuvent être fixés sur toutes les métriques de l'appareil en utilisant la syntaxe "```--warning-*metric* --critical-*metric*```".
-
+ 
 Toutes les options qui peuvent être utilisées avec ce plugin se trouvent sur la commande ```--help``` :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_dell_os10_snmp.pl
---plugin=network::dell::os10::snmp::plugin \
---mode=cpu \
---help
+/usr/lib/centreon/plugins/centreon_dell_os10_snmp.pl 
+	--plugin=network::dell::os10::snmp::plugin \
+	--mode=cpu \
+	--help
 ```
 
 ### UNKNOWN: SNMP GET Request : Timeout
 
-Si vous obtenez ce message, cela signifie que vous ne parvenez pas à contacter l'équipement Dell OS10 sur le port 161,
-ou alors que la communauté SNMP configurée n'est pas correcte.
+Si vous obtenez ce message, cela signifie que vous ne parvenez pas à contacter l'équipement Dell OS10 sur le port 161, 
+ou alors que la communauté SNMP configurée n'est pas correcte. 
 Il est également possible qu'un firewall bloque le flux.
 
 ### UNKNOWN: SNMP GET Request : Cant get a single value.
 
-Si vous rencontrez cette erreur, il est probable que les autorisations données à l'agent SNMP soient trop restreintes.
-* L'équipement Dell OS10 ne prend pas en charge la MIB utilisée par le Plugin.
-* L'OID SNMP ciblé ne peut pas être récupéré en raison de privilèges d'équipement insuffisants.
+Si vous rencontrez cette erreur, il est probable que les autorisations données à l'agent SNMP soient trop restreintes. 
+ * L'équipement Dell OS10 ne prend pas en charge la MIB utilisée par le Plugin.
+ * L'OID SNMP ciblé ne peut pas être récupéré en raison de privilèges d'équipement insuffisants.

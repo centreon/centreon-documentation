@@ -2,9 +2,6 @@
 id: generic-actions
 title: Actions génériques
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 Au sein du menu Configuration il est possible d’effectuer certaines actions "génériques" sur les différents objets.
 
@@ -31,14 +28,14 @@ d’un nouvel objet. Exemple : J’ai 10 serveurs web identiques à superviser :
 1. J’ajoute le premier serveur web avec tous les attributs nécessaires
 2. Je duplique cet hôte 9 fois
 3. Je n’ai plus qu’à changer les noms d’hôtes et les adresses IP de chaque duplication pour les adapter aux 9 autres
-serveurs web à superviser
+  serveurs web à superviser
 
 Grâce à cette méthode, il n’est plus nécessaire de créer unitairement chaque hôte.
 
 ### Pratique
 
-<Tabs groupId="operating-systems">
-<TabItem value="New pages" label="New pages">
+<!--DOCUSAURUS_CODE_TABS-->
+<!--New pages-->
 
 Pour dupliquer une Business Activity:
 
@@ -50,8 +47,7 @@ Pour dupliquer une Business Activity:
 
 4. Cliquez sur le bouton **OK**
 
-</TabItem>
-<TabItem value="Legacy pages" label="Legacy pages">
+<!--Legacy pages-->
 
 Pour dupliquer un hôte :
 
@@ -64,8 +60,7 @@ Pour dupliquer un hôte :
 
 ![image](../assets/configuration/common/01duplicateobjects.png)
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Changement massif
 
@@ -97,8 +92,8 @@ configuration. Le principal intérêt est de pouvoir garder la configuration d�
 
 ### Practice
 
-<Tabs groupId="operating-systems">
-<TabItem value="New pages" label="New pages">
+<!--DOCUSAURUS_CODE_TABS-->
+<!--New pages-->
 
 Pour activer / désactiver un objet :
 
@@ -111,8 +106,7 @@ ou en utilisant les icônes suivantes :
 * <img src={require('../assets/configuration/common/enabled_new.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 * <img src={require('../assets/configuration/common/disabled_new.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 
-</TabItem>
-<TabItem value="Legacy pages" label="Legacy pages">
+<!--Legacy pages-->
 
 Pour activer / désactiver un objet :
 
@@ -125,13 +119,12 @@ ou en utilisant les icônes suivantes :
 * <img src={require('../assets/configuration/common/enabled.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 * <img src={require('../assets/configuration/common/disabled.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Supprimer
 
-<Tabs groupId="operating-systems">
-<TabItem value="New pages" label="New pages">
+<!--DOCUSAURUS_CODE_TABS-->
+<!--New pages-->
 
 Pour supprimer un objet :
 
@@ -139,8 +132,7 @@ Pour supprimer un objet :
 2. Cliquez sur l'icône pour supprimer <img src={require('../assets/configuration/common/delete_new.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 3. Confirmer l'action
 
-</TabItem>
-<TabItem value="Legacy pages" label="Legacy pages">
+<!--Legacy pages-->
 
 Pour supprimer un objet :
 
@@ -148,5 +140,4 @@ Pour supprimer un objet :
 2. Dans le menu **More actions...** cliquez sur le bouton **Delete**
 3. Confirmer l'action
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->

@@ -44,10 +44,10 @@ As of now you'll only be able to open a ticket and close it from Centreon. In
 the near future you'll be able to fill the following parameters when opening a
 ticket
 
-- Origin
-- Impact
-- Urgency
-- Service
-- Category
-- Team
-- Element
+  - Origin
+  - Impact
+  - Urgency
+  - Service
+  - Category
+  - Team
+  - Element

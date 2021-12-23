@@ -2,9 +2,6 @@
 id: using-packages
 title: A partir des paquets
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 Centreon fournit des RPM pour ses produits au travers de la solution
 Centreon Open Sources disponible gratuitement sur notre dépôt.
@@ -19,21 +16,16 @@ en version 7 et 8.
 Après avoir installé votre serveur, réalisez la mise à jour de votre système
 d'exploitation via la commande :
 
-<Tabs groupId="operating-systems">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
-
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
 dnf update
 ```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
+<!--CentOS 7-->
 ```shell
 yum update
 ```
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 > Acceptez toutes les clés GPG proposées et pensez a redémarrer votre serveur
 > si une mise à jour du noyau est proposée.
@@ -75,9 +67,8 @@ systemctl disable firewalld
 
 ### Installer le dépôts
 
-<Tabs groupId="operating-systems">
-<TabItem value="RHEL 8" label="RHEL 8">
-
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL 8-->
 #### Redhat CodeReady Builder repository
 
 To install Centreon you will need to enable the official CodeReady Builder
@@ -89,10 +80,7 @@ Enable the CodeReady Builder repository using these commands:
 dnf -y install dnf-plugins-core https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 ```
-
-</TabItem>
-<TabItem value="CentOS 8" label="CentOS 8">
-
+<!--CentOS 8-->
 #### Dépôt PowerTools de Red Hat
 
 Afin d'installer les logiciels Centreon, le dépôt PowerTools de Red Hat doit être
@@ -110,10 +98,7 @@ dnf config-manager --set-enabled powertools
 > dnf -y install dnf-plugins-core epel-release
 > dnf config-manager --set-enabled PowerTools
 > ```
-
-</TabItem>
-<TabItem value="Oracle Linux 8" label="Oracle Linux 8">
-
+<!--Oracle Linux 8-->
 #### Dépôt CodeReady Builder de Oracle
 
 Afin d'installer les logiciels Centreon, le dépôt CodeReady Builder de Oracle
@@ -125,10 +110,7 @@ Exécutez les commandes suivantes :
 dnf -y install dnf-plugins-core oracle-epel-release-el8
 dnf config-manager --set-enabled ol8_codeready_builder
 ```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
+<!--CentOS 7-->
 #### Dépôt *Software collections* de Red Hat
 
 Afin d'installer les logiciels Centreon, le dépôt *Software Collections* de Red
@@ -142,8 +124,7 @@ Exécutez la commande suivante :
 ```shell
 yum install -y centos-release-scl
 ```
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 #### Dépôt Centreon
 
@@ -152,22 +133,16 @@ préalable installer le fichier lié au dépôt.
 
 Exécutez la commande suivante :
 
-<Tabs groupId="operating-systems">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
-
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
 dnf install -y https://yum.centreon.com/standard/20.10/el8/stable/noarch/RPMS/centreon-release-20.10-4.el8.noarch.rpm
 ```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
+<!--CentOS 7-->
 ```shell
 yum install -y https://yum.centreon.com/standard/20.10/el7/stable/noarch/RPMS/centreon-release-20.10-4.el7.centos.noarch.rpm
 ```
-
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Installation
 
@@ -178,26 +153,20 @@ serveur, ou déportée sur un serveur dédié.
 
 ### Avec base de données locale
 
-<Tabs groupId="operating-systems">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
-
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
 dnf install -y centreon centreon-database
 systemctl daemon-reload
 systemctl restart mariadb
 ```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
+<!--CentOS 7-->
 ```shell
 yum install -y centreon centreon-database
 systemctl daemon-reload
 systemctl restart mariadb
 ```
-
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Avec base de données déportée
 
@@ -205,44 +174,32 @@ systemctl restart mariadb
 > dernier doit aussi avoir les dépôts prérequis.
 
 Exécutez la commande suivante sur le serveur Centreon Central :
-<Tabs groupId="operating-systems">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
-
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
 dnf install -y centreon-base-config-centreon-engine centreon-widget\*
 ```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
+<!--CentOS 7-->
 ```shell
 yum install -y centreon-base-config-centreon-engine centreon-widget\*
 ```
-
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 Puis exécutez les commandes suivantes sur le serveur dédié à la base de données :
-<Tabs groupId="operating-systems">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
-
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
 dnf install -y centreon-database
 systemctl daemon-reload
 systemctl restart mariadb
 ```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
+<!--CentOS 7-->
 ```shell
 yum install -y centreon-database
 systemctl daemon-reload
 systemctl restart mariadb
 ```
-
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 Créez enfin un utilisateur avec privilèges **root** nécessaire à l'installation de
 Centreon :
@@ -266,6 +223,7 @@ commande :
 DROP USER '<USER>'@'<IP>';
 ```
 
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 > Le paquet **centreon-database** installe une configuration MariaDB optimisée
 > pour l'utilisation avec Centreon.
@@ -288,7 +246,7 @@ DROP USER '<USER>'@'<IP>';
 > open_files_limit=32000
 > ```
 
-> En sus des directives précédentes, il est fortement recommandé d'appliquer la
+> En sus des directives précédentes, il est fortement recommandé d'appliquer la 
 > configuration des bases de données avec les paramètres suivants:
 >
 > ```shell
@@ -301,11 +259,11 @@ DROP USER '<USER>'@'<IP>';
 > read_rnd_buffer_size = 256K
 > max_allowed_packet = 128M
 > ```
->
-> Il est également possible d'améliorer les performances des tables utilisant
-> le moteur de stockage InnoDB avec les directives ci-dessous. Les valeurs
+> 
+> Il est également possible d'améliorer les performances des tables utilisant 
+> le moteur de stockage InnoDB avec les directives ci-dessous. Les valeurs 
 > ci-dessous sont applicables à une VM ayant au moins 8Go de RAM.
->
+>  
 > ```shell
 > innodb_buffer_pool_size=1G
 > ```
@@ -319,66 +277,48 @@ DROP USER '<USER>'@'<IP>';
 
 La timezone par défaut de PHP doit être configurée. Exécuter la commande suivante :
 
-<Tabs groupId="operating-systems">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
-
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
 echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
 ```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
+<!--CentOS 7-->
 ```shell
 echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php72/php.d/50-centreon.ini
 ```
-
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 > Changez **Europe/Paris** par votre fuseau horaire. La liste des fuseaux
 > horaires est disponible [ici](http://php.net/manual/en/timezones.php).
 
 Après avoir réalisé la modification, redémarrez le service PHP-FPM :
 
-<Tabs groupId="operating-systems">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
-
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
 systemctl restart php-fpm
 ```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
+<!--CentOS 7-->
 ```shell
 systemctl restart rh-php72-php-fpm
 ```
-
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Lancement des services au démarrage
 
 Pour activer le lancement automatique des services au démarrage, exécutez la
 commande suivante sur le serveur Central :
 
-<Tabs groupId="operating-systems">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
-
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
 systemctl enable php-fpm httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
 ```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
+<!--CentOS 7-->
 ```shell
 systemctl enable rh-php72-php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
 ```
-
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 > Si la base de données est sur un serveur dédié, pensez à activer le
 > lancement du service **mariadb** sur ce dernier.
@@ -388,22 +328,16 @@ systemctl enable rh-php72-php-fpm httpd24-httpd mariadb centreon cbd centengine 
 Avant de démarrer l'installation web, démarrez le serveur Apache avec la
 commande suivante :
 
-<Tabs groupId="operating-systems">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
-
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
 systemctl start httpd
 ```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
+<!--CentOS 7-->
 ```shell
 systemctl start httpd24-httpd
 ```
-
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 Terminez l'installation en réalisant les
 [étapes de l'installation web](../web-and-post-installation#installation-web).

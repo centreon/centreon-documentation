@@ -39,8 +39,8 @@ If you need help with this integration, depending on how you are using Centreon,
 
 1. From the **Configuration** menu, select **Services**.
 2. There are two ways to add an integration to a service:
-* **If you are adding your integration to an existing service**: Click the **name** of the service you want to add the integration to. Then, select the **Integrations** tab and click the **New Integration** button.
-* **If you are creating a new service for your integration**: Please read this documentation in section [Configuring Services and Integrations](https://support.pagerduty.com/docs/services-and-integrations#section-configuring-services-and-integrations) and follow the steps outlined in the [Create a New Service](https://support.pagerduty.com/docs/services-and-integrations#section-create-a-new-service) section, selecting **Centreon** as the **Integration Type** in step 4. Continue with the "[In Centreon](#in-centreon)" section once you have finished these steps.
+   * **If you are adding your integration to an existing service**: Click the **name** of the service you want to add the integration to. Then, select the **Integrations** tab and click the **New Integration** button.
+   * **If you are creating a new service for your integration**: Please read this documentation in section [Configuring Services and Integrations](https://support.pagerduty.com/docs/services-and-integrations#section-configuring-services-and-integrations) and follow the steps outlined in the [Create a New Service](https://support.pagerduty.com/docs/services-and-integrations#section-create-a-new-service) section, selecting **Centreon** as the **Integration Type** in step 4. Continue with the "[In Centreon](#in-centreon)" section once you have finished these steps.
 3. Enter an **Integration Name** in the format `monitoring-tool-service-name` (e.g. `Centreon`) and select **Centreon** from the Integration Type menu.
 4. Click the **Add Integration** button to save your new integration. You will be redirected to the Integrations tab for your service.
 5. An **Integration Key** will be generated on this screen. Keep this key saved in a safe place, as it will be used when you configure the integration with Centreon in the next section.
@@ -49,7 +49,7 @@ If you need help with this integration, depending on how you are using Centreon,
 
 ### In Centreon
 
-#### Installation
+#### Installation 
 
 Login as `root` on the Centreon central server using your favorite SSH client.
 

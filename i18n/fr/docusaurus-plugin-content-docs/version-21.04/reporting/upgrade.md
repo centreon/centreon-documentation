@@ -20,7 +20,7 @@ La montée de version de Centreon MBI se fait en 4 étapes :
 ## Étape 1 : Montée de version du paquet
 
 Lors d'une montée de version majeure (ex: 20.10.x à 21.04.x) il faut en premier lieu mettre à jour
-le dépôt contenant les paquets.
+ le dépôt contenant les paquets. 
 
 Vous trouverez ce dépôt depuis votre compte sur notre platefome de support https://support.centreon.com à l'onglet "Depots" :
 
@@ -30,32 +30,32 @@ Vous trouverez ce dépôt depuis votre compte sur notre platefome de support htt
 
 1. Mettre à jour le paquet: se connecter sur le serveur Centreon et exécuter la commande suivante :
 
-```shell
-yum update centreon-bi-server
-```
+    ```shell
+    yum update centreon-bi-server
+    ```
 
 2. Mettre à jour l'interface: Se connecter à l'interface web de Centreon et se rendre dans le menu
-`Administration > Extension > Manager` puis cliquer sur le bouton de mise à jour de l'extension et des widgets.
+ `Administration > Extension > Manager` puis cliquer sur le bouton de mise à jour de l'extension et des widgets.
 
 ## Étape 3 : Mettre  à jour le serveur de reporting
 
 1. Premièrement, arrêtez le service d'ordonnancement (CBIS):
 
-```shell
-systemctl stop cbis
-```
+    ```shell
+    systemctl stop cbis
+    ```
 
 2. Puis mettre à jour les paquets, en exécutant la commande suivante:
 
-```shell
-yum update centreon-bi\*
-```
+    ```shell
+    yum update centreon-bi\*
+    ```
 
 3. Enfin, redémarrer le service d'ordonnancement:
 
-```shell
-systemctl start cbis
-```
+    ```shell
+    systemctl start cbis
+    ```
 
 ## Étape 4 : mise à jour de MariaDB
 

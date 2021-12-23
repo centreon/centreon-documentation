@@ -58,14 +58,14 @@ Check the *Create Services linked to the Template too* box and click on the
 
 The following services will be created:
 
-- Global-Compliance
-- Nodes-Overall-Compliance
-- Statistics
+  - Global-Compliance
+  - Nodes-Overall-Compliance
+  - Statistics
 
 The following rules are linked to this host template:
 
-- App-Rudder-Restapi-Nodes
-- App-Rudder-Restapi-Rules
+  - App-Rudder-Restapi-Nodes
+  - App-Rudder-Restapi-Rules
 
 #### Host
 
@@ -96,4 +96,4 @@ Check the *Create Services linked to the Template too* box and click on the
 
 The following service will be created:
 
-- Node-Compliance
+  - Node-Compliance

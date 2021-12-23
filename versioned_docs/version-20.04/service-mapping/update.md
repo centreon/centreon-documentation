@@ -15,7 +15,7 @@ title: Update the extension
 In order to update the Centreon BAM module using an RPM package, execute the
 following command:
 
-yum update centreon-bam-server
+    yum update centreon-bam-server
 
 ## Update through the interface
 

@@ -2,9 +2,6 @@
 id: cloud-azure-network-loadbalancer
 title: Azure Load Balancer
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Overview
 
@@ -37,22 +34,21 @@ More information about the Host Discovery module is available in the Centreon do
 
 ### Collected Metrics
 
-<Tabs groupId="operating-systems">
-<TabItem value="Datapath" label="Datapath">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Datapath-->
 
 | Metric name                                   | Description           | Unit |
 | :-------------------------------------------- | :-------------------- | :--- |
 | loadbalancer.datapath.availability.percentage | Datapath availability | %    |
 
-</TabItem>
-<TabItem value="Healthprobe" label="Healthprobe">
+<!--Healthprobe-->
 
 | Metric name                                      | Description              | Unit |
 | :----------------------------------------------- | :----------------------- | :--- |
 | loadbalancer.healthprobe.availability.percentage | Healthprobe availability | %    |
 
-</TabItem>
-<TabItem value="Snat" label="Snat">
+<!--Snat-->
 
 | Metric name                             | Description                        | Unit  |
 | :-------------------------------------- | :--------------------------------- | :---- |
@@ -60,78 +56,76 @@ More information about the Host Discovery module is available in the Centreon do
 | loadbalancer.snat.ports.used.count      | Number of used SNAT ports          | Count |
 | loadbalancer.snat.connection.count      | Number of current SNAT connections | Count |
 
-</TabItem>
-<TabItem value="Throughput" label="Throughput">
+<!--Throughput-->
 
 | Metric name                   | Description                  | Unit |
 | :---------------------------- | :--------------------------- | :--- |
 | loadbalancer.throughput.bytes | Processed data throughput    | B    |
 | loadbalancer.packets.count    | Processed packets throughput | %    |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
 To get data from Azure Services, following methods are available:
-* Azure API ('api')
+* Azure API ('api') 
 * Azure CLI ('azcli')
 
 Centreon recommends to use the API instead of the CLI for the following reasons:
 * API is much more efficient by avoiding CLI binary execution
 * API supports application authentication while CLI does not (yet)
 
-<Tabs groupId="operating-systems">
-<TabItem value="Azure Monitor API" label="Azure Monitor API">
+<!--DOCUSAURUS_CODE_TABS-->
 
-To use the 'api' custom mode, make sure to obtain the required information using the
+<!--Azure Monitor API-->
+
+To use the 'api' custom mode, make sure to obtain the required information using the 
 how-to below. Keep it safe until including it in a Host or Host Template definition.
 
 * Create an *application* in Azure Active Directory:
-- Log in to your Azure account.
-- Select *Azure Active directory* in the left sidebar.
-- Click on *App registrations*.
-- Click on *+ Add*.
-- Enter Centreon as the application name (or any name of your choice), select application type(api) and sign-on-url.
-- Click on the *Create* button.
+    - Log in to your Azure account.
+    - Select *Azure Active directory* in the left sidebar.
+    - Click on *App registrations*.
+    - Click on *+ Add*.
+    - Enter Centreon as the application name (or any name of your choice), select application type(api) and sign-on-url.
+    - Click on the *Create* button.
 
 * Get *Subscription ID*
-- Log in to your Azure account.
-- Select *Subscriptions* in the left sidebar.
-- Select whichever subscription is needed.
-- Click on *Overview*.
-- **Copy the Subscription ID.**
+    - Log in to your Azure account.
+    - Select *Subscriptions* in the left sidebar.
+    - Select whichever subscription is needed.
+    - Click on *Overview*.
+    - **Copy the Subscription ID.**
 
 * Get *Tenant ID*
-- Log in to your Azure account.
-- Select *Azure Active directory* in the left sidebar.
-- Click on *Properties*.
-- **Copy the directory ID.**
+    - Log in to your Azure account.
+    - Select *Azure Active directory* in the left sidebar.
+    - Click on *Properties*.
+    - **Copy the directory ID.**
 
 * Get *Client ID*
-- Log in to your Azure account.
-- Select *Azure Active directory* in the left sidebar.
-- Click on *Enterprise applications*.
-- Click on *All applications*.
-- Select the application previously created.
-- Click on *Properties*.
-- **Copy the Application ID.**
+    - Log in to your Azure account.
+    - Select *Azure Active directory* in the left sidebar.
+    - Click on *Enterprise applications*.
+    - Click on *All applications*.
+    - Select the application previously created.
+    - Click on *Properties*.
+    - **Copy the Application ID.**
 
 * Get *Client secret*
-- Log in to your Azure account.
-- Select *Azure Active directory* in the left sidebar.
-- Click on *App registrations*.
-- Select the application previously created.
-- Click on *All settings*.
-- Click on *Keys*.
-- Enter the key description and select the duration.
-- Click on *Save*.
-- **Copy and store the key value. You won't be able to retrieve it after you leave this page.**
+    - Log in to your Azure account.
+    - Select *Azure Active directory* in the left sidebar.
+    - Click on *App registrations*.
+    - Select the application previously created.
+    - Click on *All settings*.
+    - Click on *Keys*.
+    - Enter the key description and select the duration.
+    - Click on *Save*.
+    - **Copy and store the key value. You won't be able to retrieve it after you leave this page.**
 
-</TabItem>
-<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
+<!--Azure AZ CLI-->
 
-To use the 'azcli' custom mode, install the required packages on every Centreon poller expected to
+To use the 'azcli' custom mode, install the required packages on every Centreon poller expected to 
 monitor Azure Resources using CLI:
 
 - The CLI needs at least Python version 2.7
@@ -145,7 +139,7 @@ sudo echo -e "[azure-cli]\nname=Azure CLI\nbaseurl=https://packages.microsoft.co
 sudo yum install azure-cli
 ```
 
-Then, use the *centreon-engine* account to obtain a token using command below:
+Then, use the *centreon-engine* account to obtain a token using command below: 
 
 ```shell
 su - centreon-engine
@@ -154,41 +148,41 @@ az login
 
 The shell will output this message including an authentication code:
 
-*To sign in, use a web browser to open the page https://microsoft.com/devicelogin*
-*and enter the code CWT4WQZAD to authenticate.*
+    *To sign in, use a web browser to open the page https://microsoft.com/devicelogin* 
+    *and enter the code CWT4WQZAD to authenticate.*
 
-Go to <https://microsoft.com/devicelogin> and enter the code.
+Go to <https://microsoft.com/devicelogin> and enter the code. 
 
 Connect using a monitoring service account, as a result, the shell should prompt
 information below:
 
 ```shell
-[
-{
-"cloudName": "AzureCloud",
-"id": "0ef83f3a-d83e-2039-d930-309df93acd93d",
-"isDefault": true,
-"name": "N/A(tenant level account)",
-"state": "Enabled",
-"tenantId": "0ef83f3a-03cd-2039-d930-90fd39ecd048",
-"user": {
-"name": "email@mycompany.onmicrosoft.com",
-"type": "user"
-}
-}
-]
+    [
+      {
+        "cloudName": "AzureCloud",
+        "id": "0ef83f3a-d83e-2039-d930-309df93acd93d",
+        "isDefault": true,
+        "name": "N/A(tenant level account)",
+        "state": "Enabled",
+        "tenantId": "0ef83f3a-03cd-2039-d930-90fd39ecd048",
+        "user": {
+          "name": "email@mycompany.onmicrosoft.com",
+          "type": "user"
+        }
+      }
+    ]
 ```
 
-Credentials are now stored locally in the .accessTokens.json file so the Plugin
-can use it.
+Credentials are now stored locally in the .accessTokens.json file so the Plugin 
+can use it. 
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
-## Setup
+## Setup 
 
-<Tabs groupId="licence-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1.  Install the Centreon Plugin package on every Centreon poller expected to monitor Azure Load Balancer resources:
 
@@ -198,8 +192,7 @@ yum install centreon-plugin-Cloud-Azure-Network-LoadBalancer-Api
 
 2. On the Centreon Web interface, install the *Azure Load Balancer* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor Azure Load Balancer resources:
 
@@ -215,8 +208,7 @@ yum install centreon-pack-cloud-azure-network-loadbalancer.noarch
 
 3. On the Centreon Web interface, install the *Azure Load Balancer* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
@@ -229,8 +221,9 @@ yum install centreon-pack-cloud-azure-network-loadbalancer.noarch
 * Once the template applied, some Macros marked as 'Mandatory' hereafter have to be configured.
 These mandatory Macros differ regarding the custom mode used:
 
-<Tabs groupId="operating-systems">
-<TabItem value="Azure Monitor API" label="Azure Monitor API">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Azure Monitor API-->
 
 | Mandatory | Nom               | Description                      |
 | :-------- | :---------------- | :------------------------------- |
@@ -241,8 +234,7 @@ These mandatory Macros differ regarding the custom mode used:
 | X         | AZURECLIENTSECRET | Client secret                    |
 | X         | AZURERESOURCE     | Id of the Load Balancer instance |
 
-</TabItem>
-<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
+<!--Azure AZ CLI-->
 
 | Mandatory | Nom               | Description                      |
 | :-------- | :---------------- | :------------------------------- |
@@ -250,32 +242,31 @@ These mandatory Macros differ regarding the custom mode used:
 | X         | AZURESUBSCRIPTION | Subscription ID                  |
 | X         | AZURERESOURCE     | Id of the Load Balancer instance |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## FAQ
 
 ### How to check in the CLI that the configuration is OK and what are the main options for ?
 
-Once the Plugin installed, log into your Centreon Poller CLI using the *centreon-engine*
+Once the Plugin installed, log into your Centreon Poller CLI using the *centreon-engine* 
 user account and test the Plugin by running the following command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_azure_network_loadbalancer_api.pl \
---plugin=cloud::azure::network::loadbalancer::plugin \
---mode=datapath \
---custommode=api \
---subscription='xxxxxxxxx' \
---tenant='xxxxxxxxx' \
---client-id='xxxxxxxxx' \
---client-secret='xxxxxxxxx' \
---resource='LBA001ABCD' \
---timeframe='900' \
---interval='PT5M' \
---aggregation='average' \
---warning-datapath-availability-percentage='95:' \
---critical-datapath-availability-percentage='50:' \
---verbose
+    --plugin=cloud::azure::network::loadbalancer::plugin \
+    --mode=datapath \
+    --custommode=api \
+    --subscription='xxxxxxxxx' \
+    --tenant='xxxxxxxxx' \
+    --client-id='xxxxxxxxx' \
+    --client-secret='xxxxxxxxx' \
+    --resource='LBA001ABCD' \
+    --timeframe='900' \
+    --interval='PT5M' \
+    --aggregation='average' \
+    --warning-datapath-availability-percentage='95:' \
+    --critical-datapath-availability-percentage='50:' \
+    --verbose
 ```
 
 Expected command output is shown below:
@@ -301,9 +292,9 @@ All the available options for a given mode can be displayed by adding the ```--h
 
 ```bash
 /usr/lib/centreon/plugins/centreon_azure_network_loadbalancer_api.pl \
---plugin=cloud::azure::network::loadbalancer::plugin \
---mode=datapath \
---help
+    --plugin=cloud::azure::network::loadbalancer::plugin \
+    --mode=datapath \
+    --help
 ```
 
 ### Troubleshooting
@@ -313,19 +304,19 @@ All the available options for a given mode can be displayed by adding the ```--h
 When I run my command I obtain the following error message:
 ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```.
 
-It means that some parameters used to authenticate the API request are wrong. The 'ERROR_NAME' string gives
-some hints about where the problem stands.
+It means that some parameters used to authenticate the API request are wrong. The 'ERROR_NAME' string gives 
+some hints about where the problem stands. 
 
-As an example, if my Client ID or Client Secret are wrong, 'ERROR_DESC' value will be 'invalid_client'.
+As an example, if my Client ID or Client Secret are wrong, 'ERROR_DESC' value will be 'invalid_client'. 
 
 #### The Azure credentials have changed and the Plugin does not work anymore
 
-The Plugin is using a cache file to keep connection information and avoid an authentication at each call.
-If some of the authentication parameters change, you must delete the cache file.
+The Plugin is using a cache file to keep connection information and avoid an authentication at each call. 
+If some of the authentication parameters change, you must delete the cache file. 
 
 The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder with a name similar to `azure_api_<md5>_<md5>_<md5>_<md5>`.
 
-#### UNKNOWN: 500 Can't connect to login.microsoftonline.com:443
+#### UNKNOWN: 500 Can't connect to login.microsoftonline.com:443 
 
 This error message means that the Centreon Plugin couldn't successfully connect to the Azure Login API. Check that no third party
 device (such as a firewall) is blocking the request. A proxy connection may also be necessary to connect to the API.

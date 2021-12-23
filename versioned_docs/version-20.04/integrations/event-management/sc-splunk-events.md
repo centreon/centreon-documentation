@@ -2,9 +2,6 @@
 id: sc-splunk-events
 title: Splunk Events
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Before starting
 
@@ -16,8 +13,8 @@ import TabItem from '@theme/TabItem';
 
 ### Dependencies
 
-<Tabs groupId="operating-systems">
-<TabItem value="CentOS 7/Redhat 7" label="CentOS 7/Redhat 7">
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS 7/Redhat 7-->
 
 Install **Epel** repository.
 
@@ -31,8 +28,7 @@ Install dependencies.
 yum install luarocks make gcc lua-curl lua-devel
 ```
 
-</TabItem>
-<TabItem value="CentOS 8" label="CentOS 8">
+<!-- CentOS 8 -->
 
 Install dnf plugins package.
 
@@ -58,8 +54,7 @@ Install dependencies.
 dnf install make gcc libcurl-devel lua-devel luarocks
 ```
 
-</TabItem>
-<TabItem value="RedHat 8" label="RedHat 8">
+<!-- RedHat 8 -->
 
 Install dnf plugins package.
 
@@ -85,13 +80,12 @@ Install dependencies.
 dnf install make gcc libcurl-devel lua-devel luarocks
 ```
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Lua modules
 
-<Tabs groupId="operating-systems">
-<TabItem value="CentOS/Redhat 7" label="CentOS/Redhat 7">
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS/Redhat 7-->
 
 Install Centreon lua modules.
 
@@ -99,8 +93,7 @@ Install Centreon lua modules.
 luarocks install centreon-stream-connectors-lib
 ```
 
-</TabItem>
-<TabItem value="CentOS/Redhat 8" label="CentOS/Redhat 8">
+<!-- CentOS/Redhat 8-->
 
 Install **lua-curl**.
 
@@ -114,8 +107,7 @@ Install Centreon lua modules.
 luarocks install centreon-stream-connectors-lib
 ```
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Download Splunk events stream connector
 
@@ -189,19 +181,19 @@ This stream connector will send event with the following format.
 
 ```json
 {
-'sourcetype': '_json',
-'source': 'http:my_index',
-'index': 'my_index',
-'host': 'Central',
-'time': 1630590530,
-'event': {
-'event_type': 'service',
-'state': 2,
-'state_type': 1,
-'hostname': 'my_host',
-'service_description': 'my_service',
-'output': 'Critical: it is on fire'
-}
+  'sourcetype': '_json',
+  'source': 'http:my_index',
+  'index': 'my_index',
+  'host': 'Central',
+  'time': 1630590530,
+  'event': {
+    'event_type': 'service',
+    'state': 2,
+    'state_type': 1,
+    'hostname': 'my_host',
+    'service_description': 'my_service',
+    'output': 'Critical: it is on fire'
+  }
 }
 ```
 
@@ -209,18 +201,18 @@ This stream connector will send event with the following format.
 
 ```json
 {
-'sourcetype': '_json',
-'source': 'http:my_index',
-'index': 'my_index',
-'host': 'Central',
-'time': 1630590530,
-'event': {
-'event_type': 'host',
-'state': 1,
-'state_type': 1,
-'hostname': 'my_host',
-'output': 'Critical: it is on fire'
-}
+  'sourcetype': '_json',
+  'source': 'http:my_index',
+  'index': 'my_index',
+  'host': 'Central',
+  'time': 1630590530,
+  'event': {
+    'event_type': 'host',
+    'state': 1,
+    'state_type': 1,
+    'hostname': 'my_host',
+    'output': 'Critical: it is on fire'
+  }
 }
 ```
 
@@ -248,4 +240,4 @@ Here is the list of all the curl commands that are used by the stream connector.
 curl -X POST -H 'content-type: application/json' -H 'authorization: Splunk <splunk_token>' '<http_server_url>' -d "{'sourcetype': '<splunk_sourcetype>','source': '<splunk_source>','index': '<splunk_index>','host': '<splunk_host>','time': <epoch_timestamp>,'event': {'event_type': 'host','state': 1,'state_type': 1,'hostname':'my_host','output': 'Critical: it is on fire'}}"
 ```
 
-You must replace all the *`<xxxx>`* inside the above command with their appropriate value. *<splunk_sourcetype>* may become *_json*.
+ You must replace all the *`<xxxx>`* inside the above command with their appropriate value. *<splunk_sourcetype>* may become *_json*.

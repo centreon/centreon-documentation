@@ -2,9 +2,6 @@
 id: network-cisco-wap-snmp
 title: Cisco Wap SNMP
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Overview
 
@@ -25,34 +22,32 @@ The Centreon Plugin Pack *Cisco Wap SNMP* relies on the SNMP protocol to query a
 
 ### Collected metrics
 
-<Tabs groupId="operating-systems">
-<TabItem value="Clients-1" label="Clients">
+<!--DOCUSAURUS_CODE_TABS-->
 
-| Metric name                   | Description                                                   | Unit  |
-| :---------------------------- | :------------------------------------------------------------ | :---- |
-| clients.connected.count       | Total number of clients connected on the access point         | count |
-| radio.clients.connected.count | Number of clients connected radio channel of the access point | count |
+<!--Clients-->
 
-</TabItem>
-<TabItem value="CPU" label="CPU">
+| Metric name                         | Description                                                    | Unit   |
+| :---------------------------------- | :------------------------------------------------------------- | :----- |
+| clients.connected.count             | Total number of clients connected on the access point          | count  |
+| radio.clients.connected.count       | Number of clients connected radio channel of the access point  | count  |
 
-| Metric name                | Description                   | Unit |
-| :------------------------- | :---------------------------- | :--- |
-| cpu.utilization.percentage | Percentage of CPU utilization | %    |
+<!--CPU-->
 
-</TabItem>
-<TabItem value="Clients-2" label="Clients">
+| Metric name                         | Description                    | Unit   |
+| :---------------------------------- | :----------------------------- | :----- |
+| cpu.utilization.percentage          | Percentage of CPU utilization  | %      |
 
-| Metric name                   | Description                                                   | Unit  |
-| :---------------------------- | :------------------------------------------------------------ | :---- |
-| clients.connected.count       | Total number of clients connected on the access point         | count |
-| radio.clients.connected.count | Number of clients connected radio channel of the access point | count |
+<!--Clients-->
 
-</TabItem>
-<TabItem value="Interfaces" label="Interfaces">
+| Metric name                         | Description                                                    | Unit   |
+| :---------------------------------- | :------------------------------------------------------------- | :----- |
+| clients.connected.count             | Total number of clients connected on the access point          | count  |
+| radio.clients.connected.count       | Number of clients connected radio channel of the access point  | count  |
+
+<!--Interfaces-->
 
 | Metric name                              | Description                                             | Unit |
-| :--------------------------------------- | :------------------------------------------------------ | :--- |
+|:---------------------------------------- |:------------------------------------------------------- | :--- |
 | status                                   | Status of the interface                                 |      |
 | interface.traffic.in.bitspersecond       | Incoming traffic going through the interface.           | b/s  |
 | interface.traffic.out.bitspersecond      | Outgoing traffic going through the interface.           | b/s  |
@@ -61,29 +56,25 @@ The Centreon Plugin Pack *Cisco Wap SNMP* relies on the SNMP protocol to query a
 | interface.packets.out.error.percentage   | Outgoing errored packets going through the interface.   | %    |
 | interface.packets.out.discard.percentage | Outgoing discarded packets going through the interface. | %    |
 
-</TabItem>
-<TabItem value="Memory" label="Memory">
+<!--Memory-->
 
-| Metric name             | Description                | Unit |
-| :---------------------- | :------------------------- | :--- |
-| memory.usage.percentage | Percentage of memory usage | %    |
+| Metric name                         | Description                 | Unit   |
+| :---------------------------------- | :-------------------------- | :----- |
+| memory.usage.percentage             | Percentage of memory usage  | %      |
 
-</TabItem>
-<TabItem value="Uptime" label="Uptime">
+<!--Uptime-->
 
-| Metric name   | Description                                        | Unit |
-| :------------ | :------------------------------------------------- | :--- |
-| system.uptime | Duration of system has been working and available. | s    |
+| Metric name                 | Description                                        | Unit   |
+| :-------------------------- | :------------------------------------------------- | :----- |
+| system.uptime               | Duration of system has been working and available. | s      |
 
-</TabItem>
-<TabItem value="Virtual Access Point" label="Virtual Access Point">
+<!--Virual Access Point-->
 
-| Metric name                       | Description                          | Unit  |
-| :-------------------------------- | :----------------------------------- | :---- |
-| virtual_access_points.total.count | Total number of virtual access point | count |
+| Metric name                         | Description                                | Unit   |
+| :---------------------------------- | :----------------------------------------- | :----- |
+| virtual_access_points.total.count   | Total number of virtual access point       | count  |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -92,8 +83,9 @@ The Centreon Poller must be able to reach the UDP/161 SNMP port of the Cisco Wap
 
 ## Installation
 
-<Tabs groupId="licence-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor Cisco Wireless Access Point equipments:
 
@@ -103,8 +95,7 @@ yum install centreon-plugin-Network-Cisco-Wap-Snmp
 
 2. On the Centreon Web interface, install the *Cisco Wap SNMP* Plugin Pack through "Configuration > Plugin packs > Manager" page.
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor Cisco Wireless Access Point equipments :
 
@@ -120,18 +111,17 @@ yum install centreon-pack-network-cisco-wap-snmp
 
 3. On the Centreon Web interface, install the *Cisco Wap SNMP* Plugin Pack through "Configuration > Plugin packs > Manager" page.
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Host configuration
 
-Create your Host and apply the *Net-Cisco-Wap-SNMP-custom* Host Template. You must set SNMP Community and Version in the dedicated fields of the Host Form.
+Create your Host and apply the *Net-Cisco-Wap-SNMP-custom* Host Template. You must set SNMP Community and Version in the dedicated fields of the Host Form. 
 
 > If you are using SNMP v3, set all specific parameters within SNMPEXTRAOPTIONS Host Macro
 
-| Mandatory | Name             | Description                                 |
-| :-------- | :--------------- | :------------------------------------------ |
-|           | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo |
+| Mandatory   | Name             | Description                                    |
+| :---------- | :--------------- | :--------------------------------------------- |
+|             | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo    | 
 
 ## How to test my plugin and what do the main parameters stand for ?
 
@@ -139,48 +129,48 @@ Once the plugin is installed, you can test it logging into the CLI with the cent
 
 ```bash
 /usr/lib/centreon/plugins//centreon_cisco_wap_snmp.pl --plugin=network::cisco::wap::snmp::plugin \
---mode=clients \
---hostname=10.30.2.11 \
---snmp-community=centreon-cisco-wap \
---snmp-version=2c \
---warning-clients-connected=90 \
---critical-clients-connected=100 \
---verbose
-
+	--mode=clients \	
+	--hostname=10.30.2.11 \
+	--snmp-community=centreon-cisco-wap \
+	--snmp-version=2c \
+	--warning-clients-connected=90 \
+	--critical-clients-connected=100 \
+	--verbose
+  
 OK: clients connected: 1 | 'clients.connected.count'=1;0:90;0:100;0; 'wlan0#radio.clients.connected.count'=0;;;0; 'wlan1#radio.clients.connected.count'=1;;;0;
 Radio interface 'wlan0' clients connected: 0
 Radio interface 'wlan1' clients connected: 1
 ```
 
-The command above collects the number of clients connected to the Cisco Access Point (```--mode=clients```). Mandatory options are the IP/FQDN of the device
+The command above collects the number of clients connected to the Cisco Access Point (```--mode=clients```). Mandatory options are the IP/FQDN of the device 
 (```--hostname=10.30.2.11```) and the SNMP version you have set on your appliance (```--snmp-community='centreon-cisco-wap'```).
 
-This command would trigger a WARNING alarm if the number of clients connected to the device is greater than 90 (``` --warning-clients-connected='90' ```) and
+This command would trigger a WARNING alarm if the number of clients connected to the device is greater than 90 (``` --warning-clients-connected='90' ```) and 
 a CRITICAL alarm if the number of clients connected to the device is greater than 100 (``` --critical-clients-connected='100' ```).
 
 All available options for a given mode can be displayed by adding the ```--help``` parameter to the command:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_cisco_wap_snmp.pl \
---plugin=network::cisco::wap::snmp::plugin \
---mode=clients \
---help
+	--plugin=network::cisco::wap::snmp::plugin \
+	--mode=clients \
+	--help
 ```
 
 All plugin modes can be listed with the following command:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_cisco_wap_snmp.pl \
---plugin=network::cisco::wap::snmp::plugin \
---list-mode
+	--plugin=network::cisco::wap::snmp::plugin \
+	--list-mode
 ```
 
 ## Troubleshooting
 
 ### UNKNOWN: SNMP GET Request : Timeout
 
-If you get this error, it may indicate that some flows are blocked between the Centreon Poller and the Cisco devices.
-It can also mean that the Centreon Host Configuration doesn't reflect the SNMP configuration on Cisco side (version, community).
+If you get this error, it may indicate that some flows are blocked between the Centreon Poller and the Cisco devices. 
+It can also mean that the Centreon Host Configuration doesn't reflect the SNMP configuration on Cisco side (version, community). 
 
 ### UNKNOWN: SNMP GET Request : Cant get a single value.
 

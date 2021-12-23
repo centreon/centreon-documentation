@@ -2,9 +2,6 @@
 id: install-ha
 title: Install Centreon-Map in High Availability
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 > Centreon-Map requires a valid license key. To purchase one and retrieve the
 > necessary repositories, contact [Centreon](mailto:sales@centreon.com).
@@ -29,8 +26,9 @@ Before applying this procedure, you should have a good knowledge of Linux OS, of
 In addition of necessary flows describe on the [official documentation](install#architecture),
 you will need to open the following flows:
 
-<Tabs groupId="operating-systems">
-<TabItem value="2 Nodes" label="2 Nodes">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--2 Nodes-->
 
 | From                  | Destination           | Protocol | Port     | Application                                                               |
 | :-------------------- | :-------------------- | :------- | :------- | :------------------------------------------------------------------------ |
@@ -40,8 +38,7 @@ you will need to open the following flows:
 | Map Servers + QDevice | Map Servers + QDevice | PCS      | TCP 2224 | Communication inside the cluster                                          |
 | Map Servers + QDevice | Map Servers + QDevice | Corosync | TCP 5403 | Communication with the QDevice                                            |
 
-</TabItem>
-<TabItem value="4 Nodes" label="4 Nodes">
+<!--4 Nodes-->
 
 | From                       | Destination                | Protocol | Port     | Application                                                               |
 | :------------------------- | :------------------------- | :------- | :------- | :------------------------------------------------------------------------ |
@@ -51,8 +48,7 @@ you will need to open the following flows:
 | Map Servers + DB + QDevice | Map Servers + DB + QDevice | PCS      | TCP 2224 | Communication inside the cluster                                          |
 | Map Servers + DB + QDevice | Map Servers + DB + QDevice | Corosync | TCP 5403 | Communication with the QDevice                                            |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Installed Centreon-Map platform
 
@@ -64,9 +60,9 @@ carries the MariaDB data directory (`/var/lib/mysql` mount point by default).
 The output of the `vgs` command must look like (what must be payed attention on is the value under `VFree`):
 
 ```bash
-VG      #PV #LV #SN Attr   VSize  VFree
-vg_data   1   1   0 wz--n- 10,99g 5,99g
-vg_root   1   2   0 wz--n-  9,00g    0
+  VG      #PV #LV #SN Attr   VSize  VFree
+  vg_data   1   1   0 wz--n- 10,99g 5,99g
+  vg_root   1   2   0 wz--n-  9,00g    0 
 
 ```
 
@@ -76,39 +72,39 @@ The script `/etc/centreon-studio/diagnostic.sh` must return `[OK]` on **both** C
 ```bash
 ########## Centreon-Map server version ##########
 
-[INFO] centreon-map-server-xx.xx.x-x.el7.noarch
+  [INFO] centreon-map-server-xx.xx.x-x.el7.noarch
 
 ########## System ##########
 
-[OK]   SELinux disabled
-[OK]   Firewall is disabled
-[INFO] Physical memory available on the server: 1884128 kb.
-[INFO] Number of CPU available on the server: 1 core(s)
+  [OK]   SELinux disabled
+  [OK]   Firewall is disabled
+  [INFO] Physical memory available on the server: 1884128 kb.
+  [INFO] Number of CPU available on the server: 1 core(s)
 
 ########## Java ##########
 
-[OK]   Java 11 installed
-[INFO] No optimization found for the JVM (Xms and Xmx options).
+  [OK]   Java 11 installed
+  [INFO] No optimization found for the JVM (Xms and Xmx options).
 
 ########## Database connection ##########
 
-[OK]   Connection to centreon
-[OK]   Connection to centreon_storage
-[OK]   Connection to centreon_studio
+  [OK]   Connection to centreon
+  [OK]   Connection to centreon_storage
+  [OK]   Connection to centreon_studio
 
 ########## Broker connection ##########
 
-[OK]   Connection to @CENTRAL_IPADDR@ 5758 port
+  [OK]   Connection to @CENTRAL_IPADDR@ 5758 port
 
 ########## Authentication ##########
 
-[OK]   Centreon Central authentication using user centreon_map
+  [OK]   Centreon Central authentication using user centreon_map
 
 ########## Protocol verification ##########
 
-[OK] Centreon Map server configured to use HTTPS protocol
-[INFO] Centreon Central configured in Map to use https protocol.
-[OK]   Centreon Central successfully answered to HTTPS request
+  [OK] Centreon Map server configured to use HTTPS protocol
+  [INFO] Centreon Central configured in Map to use https protocol.
+  [OK]   Centreon Central successfully answered to HTTPS request
 
 ```
 
@@ -236,7 +232,7 @@ Then exit the `mysql` session typing `exit` or `Ctrl-D`.
 
 ## Configuring the MariaDB databases replication
 
-A Primary-Secondary MariaDB cluster will be setup so that everything is synchronized in real-time.
+A Primary-Secondary MariaDB cluster will be setup so that everything is synchronized in real-time. 
 
 **Note**: unless otherwise stated, each of the following steps have to be run **on both Centreon-Map nodes**.
 
@@ -313,13 +309,13 @@ GRANT ALL PRIVILEGES ON centreon_studio.* TO '@MARIADB_CENTREON_USER@'@'@MAP_PRI
 Still in the same prompt, create the replication user (default: `centreon-repl`):
 
 ```sql
-GRANT SHUTDOWN, PROCESS, RELOAD, SUPER, SELECT, REPLICATION CLIENT, REPLICATION SLAVE ON *.*
+GRANT SHUTDOWN, PROCESS, RELOAD, SUPER, SELECT, REPLICATION CLIENT, REPLICATION SLAVE ON *.* 
 TO '@MARIADB_REPL_USER@'@'localhost' IDENTIFIED BY '@MARIADB_REPL_PASSWD@';
 
-GRANT SHUTDOWN, PROCESS, RELOAD, SUPER, SELECT, REPLICATION CLIENT, REPLICATION SLAVE ON *.*
+GRANT SHUTDOWN, PROCESS, RELOAD, SUPER, SELECT, REPLICATION CLIENT, REPLICATION SLAVE ON *.* 
 TO '@MARIADB_REPL_USER@'@'@MAP_SECONDARY_IPADDR@' IDENTIFIED BY '@MARIADB_REPL_PASSWD@';
 
-GRANT SHUTDOWN, PROCESS, RELOAD, SUPER, SELECT, REPLICATION CLIENT, REPLICATION SLAVE ON *.*
+GRANT SHUTDOWN, PROCESS, RELOAD, SUPER, SELECT, REPLICATION CLIENT, REPLICATION SLAVE ON *.* 
 TO '@MARIADB_REPL_USER@'@'@MAP_PRIMARY_IPADDR@' IDENTIFIED BY '@MARIADB_REPL_PASSWD@';
 ```
 
@@ -382,10 +378,10 @@ Connection Status '@MAP_PRIMARY_NAME@' [OK]
 Connection Status '@MAP_SECONDARY_NAME@' [OK]
 Slave Thread Status [KO]
 Error reports:
-No slave (maybe because we cannot check a server).
+    No slave (maybe because we cannot check a server).
 Position Status [SKIP]
 !Error reports:
-Skip because we can't identify a unique slave.
+    Skip because we can't identify a unique slave.
 ```
 
 What matters here is that the first two connection tests are `OK`.
@@ -420,7 +416,7 @@ systemctl restart mariadb
 
 ### Synchronizing the databases and enabling MariaDB replication
 
-In the process of synchronizing the databases, you will first stop the secondary database process so that its data can be overwritten by the primary node's data.
+In the process of synchronizing the databases, you will first stop the secondary database process so that its data can be overwritten by the primary node's data. 
 
 Run this command **on the secondary node:**
 
@@ -454,7 +450,7 @@ This script will perform the following actions:
 * starting MariaDB again on the primary node
 * recording the current position in the binary log
 * disabling the `read_only` mode on the primary node (this node will now be able to write into its database)
-* synchronizing/overwriting all the data files (except for the `mysql` system database)
+* synchronizing/overwriting all the data files (except for the `mysql` system database) 
 * unmounting the LVM snapshot
 * creating the replication thread that will keep both databases synchronized
 
@@ -462,7 +458,7 @@ This script's output is very verbose and you can't expect to understand everythi
 
 ```text
 Umount and Delete LVM snapshot
-Logical volume "dbbackupdatadir" successfully removed
+  Logical volume "dbbackupdatadir" successfully removed
 Start MySQL Slave
 Start Replication
 Id	User	Host	db	Command	Time	State	Info	Progress
@@ -512,9 +508,9 @@ systemctl start pcsd
 ```
 
 
-#### Preparing the server that will hold the function of *quorum device*
+#### Preparing the server that will hold the function of *quorum device* 
 
-You can use one of your Pollers to play this role. It must be prepared with the commands below:
+You can use one of your Pollers to play this role. It must be prepared with the commands below: 
 
 ```bash
 yum install pcs corosync-qnetd
@@ -542,24 +538,24 @@ Now that both of the Centreon-Map nodes **and** the *quorum device* server are s
 
 ```bash
 pcs cluster auth \
-"@MAP_PRIMARY_NAME@" \
-"@MAP_SECONDARY_NAME@" \
-"@QDEVICE_NAME@" \
--u "hacluster" \
--p '@CENTREON_CLUSTER_PASSWD@' \
---force
+    "@MAP_PRIMARY_NAME@" \
+    "@MAP_SECONDARY_NAME@" \
+    "@QDEVICE_NAME@" \
+    -u "hacluster" \
+    -p '@CENTREON_CLUSTER_PASSWD@' \
+    --force
 ```
 
 #### Creating the cluster
 
-The following command creates the cluster. It must be run **only on one of the Centreon-Map nodes**.
+The following command creates the cluster. It must be run **only on one of the Centreon-Map nodes**. 
 
 ```bash
 pcs cluster setup \
---force \
---name centreon_cluster \
-"@MAP_PRIMARY_NAME@" \
-"@MAP_SECONDARY_NAME@"
+    --force \
+    --name centreon_cluster \
+    "@MAP_PRIMARY_NAME@" \
+    "@MAP_SECONDARY_NAME@"
 ```
 
 Then start the `pacemaker` service **on both Centreon-Map nodes**:
@@ -585,86 +581,82 @@ Run this command on one of the Centreon-Map nodes:
 
 ```bash
 pcs quorum device add model net \
-host="@QDEVICE_NAME@" \
-algorithm="ffsplit"
+    host="@QDEVICE_NAME@" \
+    algorithm="ffsplit"
 ```
 
 ### Creating the MariaDB cluster resources
 
 To be run **only on one Centreon-Map node**:
 
-<Tabs groupId="operating-systems">
-<TabItem value="CentOS7" label="CentOS7">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--CentOS7-->
 
 ```bash
 pcs resource create "ms_mysql" \
-ocf:heartbeat:mysql-centreon \
-config="/etc/my.cnf.d/server.cnf" \
-pid="/var/lib/mysql/mysql.pid" \
-datadir="/var/lib/mysql" \
-socket="/var/lib/mysql/mysql.sock" \
-replication_user="@MARIADB_REPL_USER@" \
-replication_passwd='@MARIADB_REPL_PASSWD@' \
-max_slave_lag="15" \
-evict_outdated_slaves="false" \
-binary="/usr/bin/mysqld_safe" \
-test_user="@MARIADB_REPL_USER@" \
-test_passwd="@MARIADB_REPL_PASSWD@" \
-test_table='centreon_studio.data' \
-master
+    ocf:heartbeat:mysql-centreon \
+    config="/etc/my.cnf.d/server.cnf" \
+    pid="/var/lib/mysql/mysql.pid" \
+    datadir="/var/lib/mysql" \
+    socket="/var/lib/mysql/mysql.sock" \
+    replication_user="@MARIADB_REPL_USER@" \
+    replication_passwd='@MARIADB_REPL_PASSWD@' \
+    max_slave_lag="15" \
+    evict_outdated_slaves="false" \
+    binary="/usr/bin/mysqld_safe" \
+    test_user="@MARIADB_REPL_USER@" \
+    test_passwd="@MARIADB_REPL_PASSWD@" \
+    test_table='centreon_studio.data' \
+    master
 ```
-
-</TabItem>
-<TabItem value="RHEL" label="RHEL">
+<!--RHEL-->
 
 ```bash
 pcs resource create "ms_mysql" \
-ocf:heartbeat:mysql-centreon \
-config="/etc/my.cnf.d/server.cnf" \
-pid="/var/lib/mysql/mysql.pid" \
-datadir="/var/lib/mysql" \
-socket="/var/lib/mysql/mysql.sock" \
-replication_user="@MARIADB_REPL_USER@" \
-replication_passwd='@MARIADB_REPL_PASSWD@' \
-max_slave_lag="15" \
-evict_outdated_slaves="false" \
-binary="/usr/bin/mysqld_safe" \
-test_user="@MARIADB_REPL_USER@" \
-test_passwd="@MARIADB_REPL_PASSWD@" \
-test_table='centreon_studio.data'
+    ocf:heartbeat:mysql-centreon \
+    config="/etc/my.cnf.d/server.cnf" \
+    pid="/var/lib/mysql/mysql.pid" \
+    datadir="/var/lib/mysql" \
+    socket="/var/lib/mysql/mysql.sock" \
+    replication_user="@MARIADB_REPL_USER@" \
+    replication_passwd='@MARIADB_REPL_PASSWD@' \
+    max_slave_lag="15" \
+    evict_outdated_slaves="false" \
+    binary="/usr/bin/mysqld_safe" \
+    test_user="@MARIADB_REPL_USER@" \
+    test_passwd="@MARIADB_REPL_PASSWD@" \
+    test_table='centreon_studio.data'
 ```
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 > **WARNING:** the syntax of the following command depends on the Linux Distribution you are using.
 
-<Tabs groupId="operating-systems">
-<TabItem value="CentOS7" label="CentOS7">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--CentOS7-->
 
 ```bash
 pcs resource meta ms_mysql-master \
-master-node-max="1" \
-clone_max="2" \
-globally-unique="false" \
-clone-node-max="1" \
-notify="true"
+    master-node-max="1" \
+    clone_max="2" \
+    globally-unique="false" \
+    clone-node-max="1" \
+    notify="true"
 ```
 
-
-</TabItem>
-<TabItem value="RHEL" label="RHEL">
+<!--RHEL-->
 
 ```bash
 pcs resource master ms_mysql \
-master-node-max="1" \
-clone_max="2" \
-globally-unique="false" \
-clone-node-max="1" \
-notify="true"
+    master-node-max="1" \
+    clone_max="2" \
+    globally-unique="false" \
+    clone-node-max="1" \
+    notify="true"
 ```
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Creating the *centreon_map* resource group
 
@@ -672,29 +664,29 @@ notify="true"
 
 ```bash
 pcs resource create vip \
-ocf:heartbeat:IPaddr2 \
-ip="@VIP_IPADDR@" \
-nic="@VIP_IFNAME@" \
-cidr_netmask="@VIP_CIDR_NETMASK@" \
-broadcast="@VIP_BROADCAST_IPADDR@" \
-flush_routes="true" \
-meta target-role="started" \
-op start interval="0s" timeout="20s" \
-stop interval="0s" timeout="20s" \
-monitor interval="10s" timeout="20s" \
---group centreon_map
+    ocf:heartbeat:IPaddr2 \
+    ip="@VIP_IPADDR@" \
+    nic="@VIP_IFNAME@" \
+    cidr_netmask="@VIP_CIDR_NETMASK@" \
+    broadcast="@VIP_BROADCAST_IPADDR@" \
+    flush_routes="true" \
+    meta target-role="started" \
+    op start interval="0s" timeout="20s" \
+    stop interval="0s" timeout="20s" \
+    monitor interval="10s" timeout="20s" \
+    --group centreon_map
 ```
 
 #### Centreon-Map service
 
 ```bash
 pcs resource create centreon-map \
-systemd:centreon-map \
-meta target-role="started" \
-op start interval="0s" timeout="90s" \
-stop interval="0s" timeout="90s" \
-monitor interval="5s" timeout="30s" \
---group centreon_map
+    systemd:centreon-map \
+    meta target-role="started" \
+    op start interval="0s" timeout="90s" \
+    stop interval="0s" timeout="90s" \
+    monitor interval="5s" timeout="30s" \
+    --group centreon_map
 ```
 
 #### Colocation constraints
@@ -727,12 +719,12 @@ Online: [ @MAP_PRIMARY_NAME@ @MAP_SECONDARY_NAME@ ]
 
 Active resources:
 
-Master/Slave Set: ms_mysql-master [ms_mysql]
-Masters: [ @MAP_PRIMARY_NAME@ ]
-Slaves: [ @MAP_SECONDARY_NAME@ ]
-Resource Group: centreon
-vip        (ocf::heartbeat:IPaddr2):	Started @MAP_PRIMARY_NAME@
-centreon-map	(systemd:centreon-map):   Started @MAP_PRIMARY_NAME@
+ Master/Slave Set: ms_mysql-master [ms_mysql]
+     Masters: [ @MAP_PRIMARY_NAME@ ]
+     Slaves: [ @MAP_SECONDARY_NAME@ ]
+ Resource Group: centreon
+     vip        (ocf::heartbeat:IPaddr2):	Started @MAP_PRIMARY_NAME@
+     centreon-map	(systemd:centreon-map):   Started @MAP_PRIMARY_NAME@
 ```
 
 #### Checking the database replication thread
@@ -754,7 +746,7 @@ Position Status [OK]
 
 It can happen that the replication thread is not running right after installation.  Restarting the `ms_mysql` resource may fix it.
 
-```bash
+```bash 
 pcs resource restart ms_mysql
 ```
 
@@ -766,8 +758,8 @@ Normally the two colocation constraints that have been created during the setup 
 Location Constraints:
 Ordering Constraints:
 Colocation Constraints:
-centreon_map with ms_mysql-master (score:INFINITY) (rsc-role:Started) (with-rsc-role:Master)
-ms_mysql-master with centreon_map (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
+  centreon_map with ms_mysql-master (score:INFINITY) (rsc-role:Started) (with-rsc-role:Master)
+  ms_mysql-master with centreon_map (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
 Ticket Constraints:
 ```
 

@@ -19,24 +19,24 @@ title: Administration
 
 1. To update the module, run the following command:
 
-``` shell
-yum update -y centreon-auto-discovery-server
-```
+    ``` shell
+    yum update -y centreon-auto-discovery-server
+    ```
 
 2. Connect to the Centreon web interface using an account allowed to install
 products and go to the `Administration > Extensions > Manager` page.
 
 3. Make sure that **License Manager** and **Plugin Packs Manager** modules are
-up-to-date before updating the **Auto Discovery** module.
+ up-to-date before updating the **Auto Discovery** module.
 
 4. Click on the update icon corresponding to the **Auto Discovery**
 module:
 
-![image](../../assets/monitoring/discovery/update.png)
+  ![image](../../assets/monitoring/discovery/update.png)
 
-The module is now updated:
+  The module is now updated:
 
-![image](../../assets/monitoring/discovery/install-after.png)
+  ![image](../../assets/monitoring/discovery/install-after.png)
 
 ## Uninstallation
 
@@ -49,15 +49,15 @@ products and go to the `Administration > Extensions > Manager` page.
 2. Click on the delete icon corresponding to the **Auto Discovery**
 module:
 
-![image](../../assets/monitoring/discovery/install-after.png)
+  ![image](../../assets/monitoring/discovery/install-after.png)
 
 3. A confirmation popup will appear. Confirm the action:
 
-![image](../../assets/monitoring/discovery/uninstall-popin.png)
+    ![image](../../assets/monitoring/discovery/uninstall-popin.png)
 
-The module is now uninstalled:
+    The module is now uninstalled:
 
-![image](../../assets/monitoring/discovery/install-before.png)
+    ![image](../../assets/monitoring/discovery/install-before.png)
 
 ## Gorgone module configuration
 
@@ -76,17 +76,17 @@ Example of configuration:
 
 ```yaml
 gorgone:
-modules:
-- name: autodiscovery
-package: "gorgone::modules::centreon::autodiscovery::hooks"
-enable: true
-# Host Discovery
-check_interval: 15
-global_timeout: 300
-# Service Discovery
-mail_subject: Centreon Auto Discovery
-mail_from: centreon-autodisco
-mail_command: /bin/mail
+  modules:
+    - name: autodiscovery
+      package: "gorgone::modules::centreon::autodiscovery::hooks"
+      enable: true
+      # Host Discovery
+      check_interval: 15
+      global_timeout: 300
+      # Service Discovery
+      mail_subject: Centreon Auto Discovery
+      mail_from: centreon-autodisco
+      mail_command: /bin/mail
 ```
 
 > Be sure to restart the Gorgone service after any configuration modification:
@@ -116,8 +116,8 @@ definition in the following file:
 
 ```yaml
 - id: service_discovery
-timespec: "30 22 * * *"
-action: LAUNCHSERVICEDISCOVERY
+  timespec: "30 22 * * *"
+  action: LAUNCHSERVICEDISCOVERY
 ```
 
 The default configuration runs the discovery every day at 10:30 PM.
@@ -130,29 +130,29 @@ parameters:
 
 ```yaml
 - id: service_discovery_poller_1
-timespec: "15 9 * * *"
-action: LAUNCHSERVICEDISCOVERY
-parameters:
-filter_pollers:
-- Poller-1
+  timespec: "15 9 * * *"
+  action: LAUNCHSERVICEDISCOVERY
+  parameters:
+    filter_pollers:
+      - Poller-1
 - id: service_discovery_poller_2_linux
-timespec: "30 9 * * *"
-action: LAUNCHSERVICEDISCOVERY
-parameters:
-filter_pollers:
-- Poller-2
-filter_rules:
-- OS-Linux-SNMP-Disk-Name
-- OS-Linux-SNMP-Traffic-Name
+  timespec: "30 9 * * *"
+  action: LAUNCHSERVICEDISCOVERY
+  parameters:
+    filter_pollers:
+      - Poller-2
+    filter_rules:
+      - OS-Linux-SNMP-Disk-Name
+      - OS-Linux-SNMP-Traffic-Name
 - id: service_discovery_poller_2_windows
-timespec: "45 9 * * *"
-action: LAUNCHSERVICEDISCOVERY
-parameters:
-filter_pollers:
-- Poller-2
-filter_rules:
-- OS-Windows-SNMP-Disk-Name
-- OS-Windows-SNMP-Traffic-Name
+  timespec: "45 9 * * *"
+  action: LAUNCHSERVICEDISCOVERY
+  parameters:
+    filter_pollers:
+      - Poller-2
+    filter_rules:
+      - OS-Windows-SNMP-Disk-Name
+      - OS-Windows-SNMP-Traffic-Name
 ```
 
 Here is the list of all available parameters:
@@ -178,14 +178,14 @@ Example of configuration:
 
 ```yaml
 gorgone:
-tpapi:
-- name: centreonv2
-base_url: "http://127.0.0.1/centreon/api/beta/"
-username: api
-password: bpltc4aY
-- name: clapi
-username: cli
-password: PYNM5kcc
+  tpapi:
+    - name: centreonv2
+      base_url: "http://127.0.0.1/centreon/api/beta/"
+      username: api
+      password: bpltc4aY
+    - name: clapi
+      username: cli
+      password: PYNM5kcc
 ```
 
 Access to RestAPI, represented by *centreonv2*, requires credentials of a

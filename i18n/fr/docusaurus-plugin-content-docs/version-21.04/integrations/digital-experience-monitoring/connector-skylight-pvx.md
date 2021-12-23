@@ -32,8 +32,8 @@ Result:
 
 ``` json
 {
-"type": "result",
-"result": "**session:91554086-842b-4b73-9028-c51d20d91b94**"
+    "type": "result",
+    "result": "**session:91554086-842b-4b73-9028-c51d20d91b94**"
 }
 ```
 
@@ -46,8 +46,8 @@ Result:
 
 ``` json
 {
-"type": "result",
-"result": "**secret:e40b1cc6-f629-43a4-8be6-14a9c9f036e0**"
+    "type": "result",
+    "result": "**secret:e40b1cc6-f629-43a4-8be6-14a9c9f036e0**"
 }
 ```
 

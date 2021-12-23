@@ -102,27 +102,27 @@ To start the monitoring processes:
 4. Log on to the Central server,
 5. Start/restart collect processes:
 
-```shell
-systemctl restart cbd centengine
-```
+    ```shell
+    systemctl restart cbd centengine
+    ```
 
 6. Restart the tasks manager:
 
-```shell
-systemctl restart gorgoned
-```
+    ```shell
+    systemctl restart gorgoned
+    ```
 
 7. Start the passive monitoring services:
 
-```shell
-systemctl start snmptrapd centreontrapd
-```
+    ```shell
+    systemctl start snmptrapd centreontrapd
+    ```
 
 8. If you want to monitor this server, start the SNMP daemon:
 
-```shell
-systemctl start snmpd
-```
+    ```shell
+    systemctl start snmpd
+    ```
 
 Monitoring is now working. You can start monitoring your IT system.
 

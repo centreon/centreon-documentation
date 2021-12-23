@@ -2,9 +2,6 @@
 id: network-ruckus-smartzone-snmp
 title: Ruckus Smartzone
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Vue d'ensemble
 
@@ -19,16 +16,19 @@ Les contrôleurs réseau Ruckus SmartZone sont les premières appliances du sect
 
 ### Règles de découverte
 
-| Rule name                              | Description                                           |
-| :------------------------------------- | :---------------------------------------------------- |
-| Net-Ruckus-Smartzone-SNMP-Ap-Name      | Découverte des points d'accès gérés par un contrôleur |
-| Net-Ruckus-Smartzone-SNMP-Disk-Name    | Découverte des points de montage d'un contrôleur      |
-| Net-Ruckus-Smartzone-SNMP-Traffic-Name | Découverte des interfaces d'un contrôleur             |
+<!--Services-->
 
-### Métriques collectées
+| Rule name                              | Description                                            |
+| :------------------------------------- | :----------------------------------------------------- |
+| Net-Ruckus-Smartzone-SNMP-Ap-Name      |  Découverte des points d'accès gérés par un contrôleur |
+| Net-Ruckus-Smartzone-SNMP-Disk-Name    |  Découverte des points de montage d'un contrôleur      |
+| Net-Ruckus-Smartzone-SNMP-Traffic-Name |  Découverte des interfaces d'un contrôleur             |
 
-<Tabs groupId="operating-systems">
-<TabItem value="AccessPoint" label="AccessPoint">
+### Métriques collectées 
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Access-Point-->
 
 | Metric name                                            | Description                                                                            |
 | :----------------------------------------------------- | :------------------------------------------------------------------------------------- |
@@ -39,16 +39,14 @@ Les contrôleurs réseau Ruckus SmartZone sont les premières appliances du sect
 | accesspoint.traffic.in.bitspersecond                   | Incoming traffic going through the access point. Unit: bits/second                     |
 | accesspoint.traffic.out.bitspersecond                  | Outgoing traffic going through the access point. Unit: bits/second                     |
 
-</TabItem>
-<TabItem value="Cpu" label="Cpu">
+<!--Cpu-->
 
 | Metric name                     | Description                        |
 | :------------------------------ | :--------------------------------- |
 | cpu.utilization.percentage      | CPU utilization. Unit : %          |
 | core.cpu.utilization.percentage | Per Core CPU utilization. Unit : % |
 
-</TabItem>
-<TabItem value="Interfaces" label="Interfaces">
+<!--Interfaces-->
 
 | Metric name                              | Description                                                      |
 | :--------------------------------------- | :--------------------------------------------------------------- |
@@ -60,8 +58,7 @@ Les contrôleurs réseau Ruckus SmartZone sont les premières appliances du sect
 | interface.packets.out.error.percentage   | Outgoing errored packets going through the interface. Units: %   |
 | interface.packets.out.discard.percentage | Outgoing discarded packets going through the interface. Units: % |
 
-</TabItem>
-<TabItem value="Load" label="Load">
+<!--Load-->
 
 | Metric name | Description                   |
 | :---------- | :---------------------------- |
@@ -69,11 +66,10 @@ Les contrôleurs réseau Ruckus SmartZone sont les premières appliances du sect
 | load5       | System load 5 minutes-sample  |
 | load15      | System load 15 minutes-sample |
 
-</TabItem>
-<TabItem value="Memory" label="Memory">
+<!--Memory-->
 
 | Metric name             | Description                                        |
-| :---------------------- | :------------------------------------------------- |
+| :---------------------  | :------------------------------------------------- |
 | memory.usage.bytes      | Memory usage on the device. Unit : Bytes           |
 | memory.free.bytes       | Free memory on the device. Unit : Bytes            |
 | memory.usage.percentage | Percentage of Memory usage on the device. Unit : % |
@@ -81,15 +77,13 @@ Les contrôleurs réseau Ruckus SmartZone sont les premières appliances du sect
 | memory.cached.bytes     | Cached Memory allocation. Unit : Bytes             |
 | memory.shared.bytes     | Shared Memory allocation. Unit : Bytes             |
 
-</TabItem>
-<TabItem value="Storage" label="Storage">
+<!--Storage-->
 
 | Metric name               | Description                                 |
 | :------------------------ | :------------------------------------------ |
 | storage.space.usage.bytes | Used space on a disk partition. Unit: Bytes |
 
-</TabItem>
-<TabItem value="System" label="System">
+<!--System-->
 
 | Metric name                                       | Description                                                  |
 | :------------------------------------------------ | :----------------------------------------------------------- |
@@ -98,8 +92,7 @@ Les contrôleurs réseau Ruckus SmartZone sont les premières appliances du sect
 | system.traffic.in.bitspersecond                   | Incoming traffic going through the system. Unit: bits/second |
 | system.traffic.out.bitspersecond                  | Outgoing traffic going through the system. Unit: bits/second |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -113,8 +106,9 @@ Les Collecteurs Centreon doivent pouvoir communiquer via le port UDP/161 SNMP av
 
 ## Installation
 
-<Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des équipements Ruckus:
 
@@ -124,8 +118,7 @@ yum install centreon-plugin-Network-Ruckus-Smartzone-Snmp
 
 2. Installer le Plugin-Pack 'Ruckus Smartzone' depuis l'interface Web et la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisants des équipements Ruckus:
 
@@ -139,10 +132,9 @@ yum install centreon-plugin-Network-Ruckus-Smartzone-Snmp
 yum install centreon-pack-network-ruckus-smartzone-snmp.noarch
 ```
 
-3. Installer le Plugin-Pack 'Ruckus Smartzone' depuis la page "Configuration > Plugin Packs > Manager" de l'interface Web.
+3. Installer le Plugin-Pack 'Ruckus Smartzone' depuis la page "Configuration > Plugin Packs > Manager" de l'interface Web. 
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
@@ -151,43 +143,43 @@ yum install centreon-pack-network-ruckus-smartzone-snmp.noarch
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro SNMPEXTRAOPTIONS
 
-| Mandatory | Nom              | Description                                                                |
-| :-------- | :--------------- | :------------------------------------------------------------------------- |
-|           | SNMPEXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
+| Mandatory   | Nom              | Description                                                                |
+| :---------- | :--------------- | :------------------------------------------------------------------------- |
+|             | SNMPEXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
 
 ## FAQ
 
-### Comment tester mes configurations et le Plugin en ligne de commande ?
+### Comment tester mes configurations et le Plugin en ligne de commande ? 
 
-Une fois le Plugin installé, vous pouvez le tester en ligne de commande avec l'utilisateur centreon-engine:
+Une fois le Plugin installé, vous pouvez le tester en ligne de commande avec l'utilisateur centreon-engine: 
 
 ```bash
 /usr/lib/centreon/plugins//centreon_ruckus_smartzone_snmp.pl \
---plugin=network::ruckus::smartzone::snmp::plugin \
---mode=cpu \
---hostname=ruckus.int.centreon.com \
---snmp-version='2c' \
---snmp-community='ruckus_smartzone' \
---verbose
+	--plugin=network::ruckus::smartzone::snmp::plugin \
+	--mode=cpu \
+	--hostname=ruckus.int.centreon.com \
+	--snmp-version='2c' \
+	--snmp-community='ruckus_smartzone' \
+        --verbose 
 ```
 
-Cette commande contrôle l'utilisation CPU (```--mode=cpu```) d'un équipement ayant pour adresse/FQDN ruckus.int.centreon.com (```--hostname=ruckus.int.centreon.com```) en version 2 du protocole SNMP et avec la communauté ruckus_smartzone (```--snmp-version='2c' --snmp-community='ruckus-smartzone'```)
+Cette commande contrôle l'utilisation CPU (```--mode=cpu```) d'un équipement ayant pour adresse/FQDN ruckus.int.centreon.com (```--hostname=ruckus.int.centreon.com```) en version 2 du protocole SNMP et avec la communauté ruckus_smartzone (```--snmp-version='2c' --snmp-community='ruckus-smartzone'```) 
 
 Tous les modes disponibles peuvent être affichés via l'option --list-mode:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_ruckus_smartzone_snmp.pl \
---plugin=network::ruckus::smartzone::snmp::plugin \
---list-mode
+    --plugin=network::ruckus::smartzone::snmp::plugin \
+    --list-mode
 ```
 
-Pour un mode en particulier, il est possible d'utiliser le paramètre  ```--help``` pour lister toutes les options disponibles.
+Pour un mode en particulier, il est possible d'utiliser le paramètre  ```--help``` pour lister toutes les options disponibles. 
 
 ```bash
 /usr/lib/centreon/plugins//centreon_ruckus_smartzone_snmp.pl \
---plugin=network::ruckus::smartzone::snmp::plugin \
---mode=cpu \
---help
+    --plugin=network::ruckus::smartzone::snmp::plugin \
+    --mode=cpu \
+    --help
 ```
 
 ### UNKNOWN: SNMP GET Request : Timeout
@@ -196,6 +188,6 @@ Si vous obtenez ce message, cela signifie le Collecteur Centreon ne parvient pas
 
 ### UNKNOWN: SNMP GET Request : Cant get a single value.
 
-Les causes de cette erreur peuvent être les suivantes:
-* cet équipement ne supporte ou n'embarque pas la MIB utilisée par ce mode
-* les autorisations données à l'utilisateur en SNMP sont trop restreintes. L'agent SNMP doit être en mesure d'accéder à la branche entreprise Ruckus: .1.3.6.1.4.1.25053.
+Les causes de cette erreur peuvent être les suivantes: 
+  * cet équipement ne supporte ou n'embarque pas la MIB utilisée par ce mode
+  * les autorisations données à l'utilisateur en SNMP sont trop restreintes. L'agent SNMP doit être en mesure d'accéder à la branche entreprise Ruckus: .1.3.6.1.4.1.25053. 

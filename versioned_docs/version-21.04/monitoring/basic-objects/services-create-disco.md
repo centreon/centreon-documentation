@@ -9,6 +9,6 @@ Services can be created automatically in several ways:
 
 - Using the [services discovery feature](../discovery/services-discovery) to detect services and create them automatically in Centreon.
 
-- Autodiscovery is done using [Plugin Packs](../pluginpacks).
+    - Autodiscovery is done using [Plugin Packs](../pluginpacks).
 
-- The autodiscovery feature requires a valid [license](../../administration/licenses).
+    - The autodiscovery feature requires a valid [license](../../administration/licenses).

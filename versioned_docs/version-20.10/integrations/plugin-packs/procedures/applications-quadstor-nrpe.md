@@ -2,38 +2,35 @@
 id: applications-quadstor-nrpe
 title: Quadstor NSClient++ NRPE
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Overview
 
-The Plugin Pack *Quadstor* works with a NRPE agent to monitor Quadstor virtual
-tape library (VTL).
+The Plugin Pack *Quadstor* works with a NRPE agent to monitor Quadstor virtual 
+tape library (VTL). 
 
 ## Pack assets
 
 ### Monitored objects
 
 * Quadstor VTL:
-* Disks
-* Jobs
-* Tapes
+    * Disks
+    * Jobs 
+    * Tapes
 
 ### Collected metrics
 
-*Coming soon*
+*Coming soon* 
 
 ## Prerequisites
 
 ### NRPE Server
 
-On RPM-Based distribution, you can use the centreon-nrpe3-daemon package deploying
-a preconfigured version of the NRPE Server.
+On RPM-Based distribution, you can use the centreon-nrpe3-daemon package deploying 
+a preconfigured version of the NRPE Server. 
 
 Most of the Linux distributions provide a NRPE package you can deploy using the system
 package default manager. When using these, it's important to modify following directives
-in the config files:
+in the config files: 
 
 * `allowed_hosts`
 
@@ -62,12 +59,13 @@ dont_blame_nrpe=1
 ```
 
 **Important note: the `NASTY_METACHARS` parameter should be left as its default value.
-Modifying it might open serious security hole and RCE exploitation from an attacker.**
+Modifying it might open serious security hole and RCE exploitation from an attacker.** 
 
-## Installation
+## Installation 
 
-<Tabs groupId="licence-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon NRPE Client package on every poller expected to monitor *Quadstor*:
 
@@ -75,11 +73,10 @@ Modifying it might open serious security hole and RCE exploitation from an attac
 yum install centreon-nrpe3-plugin
 ```
 
-2. On the Centreon Web interface, install the Centreon Pack *Quadstor*
+2. On the Centreon Web interface, install the Centreon Pack *Quadstor* 
 from the **Configuration > Plugin Packs > Manager** page
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin package on every Poller expected to monitor *Quadstor*:
 
@@ -93,11 +90,10 @@ yum install centreon-nrpe-plugin
 yum install centreon-pack-applications-quadstor-nrpe
 ```
 
-3. On the Centreon Web interface, install the Centreon Pack *Quadstor*
+3. On the Centreon Web interface, install the Centreon Pack *Quadstor* 
 from the **Configuration > Plugin Packs > Manager** page
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Host configuration
 
@@ -105,7 +101,7 @@ from the **Configuration > Plugin Packs > Manager** page
 * Apply the *App-Quadstor-NRPE-custom* template and configure all the mandatory Macros:
 
 | Mandatory | Name             | Description                                                      |
-| :-------- | :--------------- | :--------------------------------------------------------------- |
+|:----------|:-----------------|:---------------------------------------------------------------- |
 | X         | NRPECLIENT       | NRPE Plugin binary to use (Default: 'check_centreon_nrpe')       |
 | X         | NRPEPORT         | NRPE Port of the target server (Default: '5666')                 |
 | X         | NRPETIMEOUT      | Timeout value (Default: '30')                                    |

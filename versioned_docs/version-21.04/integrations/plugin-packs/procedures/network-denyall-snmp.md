@@ -2,9 +2,6 @@
 id: network-denyall-snmp
 title: DenyAll SNMP
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Plugin-Pack Assets
 
@@ -21,16 +18,16 @@ The Plugin-Pack DenyAll SNMP collects metrics for:
 
 ### Collected Metrics
 
-<Tabs groupId="operating-systems">
-<TabItem value="Cpu" label="Cpu">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Cpu-->
 
 | Metric name                              | Description              | Unit |
 | :--------------------------------------- | :----------------------- | :--- |
 | cpu.utilization.percentage               | CPU utilization          | %    |
 | *cpuid*\#core.cpu.utilization.percentage | Per Core CPU utilization | %    |
 
-</TabItem>
-<TabItem value="Interfaces" label="Interfaces">
+<!--Interfaces-->
 
 | Metric name                                            | Description                                         | Unit |
 | :----------------------------------------------------- | :-------------------------------------------------- | :--- |
@@ -42,56 +39,50 @@ The Plugin-Pack DenyAll SNMP collects metrics for:
 
 A regexp filter is available to target a specific interface identifier - ifName [```--interface='^eth0$' --name```]
 
-</TabItem>
-<TabItem value="Load" label="Load">
+<!--Load-->
 
-| Metric name | Description                   | Unit |
-| :---------- | :---------------------------- | :--- |
-| load1       | System load 1 minute-sample   |      |
-| load5       | System load 5 minutes-sample  |      |
-| load15      | System load 15 minutes-sample |      |
+| Metric name                 | Description                       | Unit |
+| :-------------------------- | :-------------------------------- | :--- |
+| load1                       | System load 1 minute-sample       |      |
+| load5                       | System load 5 minutes-sample      |      |
+| load15                      | System load 15 minutes-sample     |      |
 
-</TabItem>
-<TabItem value="Memory" label="Memory">
+<!--Memory-->
 
-| Metric name             | Description                | Unit |
-| :---------------------- | :------------------------- | :--- |
-| memory.usage.bytes      | Memory usage               | B    |
-| memory.free.bytes       | Free memory                | B    |
-| memory.usage.percentage | Memory usage in percentage | %    |
-| memory.buffer.bytes     | Buffered Memory allocation | B    |
-| memory.cached.bytes     | Cached Memory allocation   | B    |
-| memory.shared.bytes     | Shared Memory allocation   | B    |
+| Metric name             | Description                               | Unit  |
+| :---------------------  | :---------------------------------------- | :---- |
+| memory.usage.bytes      | Memory usage                              | B     |
+| memory.free.bytes       | Free memory                               | B     |
+| memory.usage.percentage | Memory usage in percentage                | %     |
+| memory.buffer.bytes     | Buffered Memory allocation                | B     |
+| memory.cached.bytes     | Cached Memory allocation                  | B     |
+| memory.shared.bytes     | Shared Memory allocation                  | B     |
 
-</TabItem>
-<TabItem value="ReverseProxy" label="ReverseProxy">
+<!--Reverse-Proxy-->
 
-| Metric name                                                   | Description                   | Unit |
-| :------------------------------------------------------------ | :---------------------------- | :--- |
-| status                                                        | Status of the reverse proxy   |      |
-| *reverseproxy\_uid*\#reverse_proxy.cpu.utilization.percentage | CPU utilization               | %    |
-| *reverseproxy\_uid*\#reverse_proxy.memory.usage.bytes         | Memory usage                  | B    |
-| *reverseproxy\_uid*\#reverse_proxy.requests.persecond         | Number of requests per second |      |
+| Metric name                                                   | Description                    | Unit |
+| :------------------------------------------------------------ | :----------------------------- |:-----|
+| status                                                        | Status of the reverse proxy    |      |
+| *reverseproxy\_uid*\#reverse_proxy.cpu.utilization.percentage | CPU utilization                | %    |
+| *reverseproxy\_uid*\#reverse_proxy.memory.usage.bytes         | Memory usage                   | B    |
+| *reverseproxy\_uid*\#reverse_proxy.requests.persecond         | Number of requests per second  |      |
 
-</TabItem>
-<TabItem value="Storage" label="Storage">
+<!--Storage-->
 
-| Metric name                                 | Description                    | Unit |
-| :------------------------------------------ | :----------------------------- | :--- |
-| storage.partitions.count                    | Number of disk partition       |      |
-| *partition_path*\#storage.space.usage.bytes | Used space on a disk partition | B    |
+| Metric name                                 | Description                     | Unit  |
+| :------------------------------------------ | :------------------------------ | :---- |
+| storage.partitions.count                    | Number of disk partition        |       |
+| *partition_path*\#storage.space.usage.bytes | Used space on a disk partition  | B     |
 
-</TabItem>
-<TabItem value="Swap" label="Swap">
+<!--Swap-->
 
-| Metric name           | Description             | Unit |
-| :-------------------- | :---------------------- | :--- |
-| swap.usage.bytes      | Used swap               | B    |
-| swap.free.bytes       | Free swap               | B    |
-| swap.usage.percentage | Percentage of used swap | %    |
+| Metric name                 | Description                          | Unit  |
+| :-------------------------- | :----------------------------------- | :---- |
+| swap.usage.bytes            | Used swap                            | B     |
+| swap.free.bytes             | Free swap                            | B     |
+| swap.usage.percentage       | Percentage of used swap              | %     |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -99,8 +90,9 @@ To control your DenyAll, the SNMP must be configured.
 
 ## Setup
 
-<Tabs groupId="licence-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -110,8 +102,7 @@ yum install centreon-plugin-Network-Denyall-Snmp
 
 2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *DenyAll SNMP* Plugin-Pack
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -127,8 +118,7 @@ yum install centreon-pack-network-denyall-snmp
 
 3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *DenyAll SNMP* Plugin-Pack
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Host configuration
 
@@ -137,9 +127,9 @@ yum install centreon-pack-network-denyall-snmp
 
 > When using SNMP v3, use the SNMPEXTRAOPTIONS Macro to add specific authentication parameters
 
-| Mandatory | Name             | Description                                 |
-| :-------- | :--------------- | :------------------------------------------ |
-|           | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo |
+| Mandatory | Name             | Description                                    |
+| :-------- | :--------------- | :--------------------------------------------- |
+|           | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo    |
 
 ## FAQ
 
@@ -150,14 +140,14 @@ and test the Plugin by running the following command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_denyall_snmp.pl \
---plugin=network::denyall::snmp::plugin \
---mode=reverse-proxy \
---hostname=10.30.2.114 \
---snmp-version='2c' \
---snmp-community='denyall_ro' \
---warning-cpu-utilization='90' \
---critical-cpu-utilization='95' \
---verbose
+    --plugin=network::denyall::snmp::plugin \
+    --mode=reverse-proxy \
+    --hostname=10.30.2.114 \
+    --snmp-version='2c' \
+    --snmp-community='denyall_ro' \
+    --warning-cpu-utilization='90' \
+    --critical-cpu-utilization='95' \
+    --verbose
 ```
 
 Expected command output is shown below:
@@ -165,22 +155,22 @@ Expected command output is shown below:
 ```bash
 OK: All reverse proxies are ok | 'c0e7cb1b2b6f7f20a19fdbaf3296c552#reverse_proxy.cpu.utilization.percentage'=0.00%;0:90;0:95;0;100 'c0e7cb1b2b6f7f20a19fdbaf3296c552#reverse_proxy.memory.usage.bytes'=11534336B;;;0; 'c0e7cb1b2b6f7f20a19fdbaf3296c552#reverse_proxy.requests.persecond'=0.00;;;0; 'c4b59d91060c39140fcafc114e7d96e4#reverse_proxy.cpu.utilization.percentage'=0.00%;0:90;0:95;0;100 'c4b59d91060c39140fcafc114e7d96e4#reverse_proxy.memory.usage.bytes'=25165824B;;;0; 'c4b59d91060c39140fcafc114e7d96e4#reverse_proxy.requests.persecond'=0.00;;;0;
 checking reverse proxy 'c0e7cb1b2b6f7f20a19fdbaf3296c552'
-status: ok
-cpu usage: 0.00 %
-memory used: 11.00 MB
-requests: 0.00/s
+    status: ok
+    cpu usage: 0.00 %
+    memory used: 11.00 MB
+    requests: 0.00/s
 checking reverse proxy 'c4b59d91060c39140fcafc114e7d96e4'
-status: ok
-cpu usage: 0.00 %
-memory used: 24.00 MB
-requests: 0.00/s
+    status: ok
+    cpu usage: 0.00 %
+    memory used: 24.00 MB
+    requests: 0.00/s
 ```
 
 The command above monitors DenyAll (```--plugin=network::denyall::snmp::plugin --mode=memory```) identified
 by the IP address *10.30.2.114* (```--hostname=10.30.2.114```). As the Plugin is using the SNMP protocol to request the device, the related
 *community* and *version* are specified (```--snmp-version='2c' --snmp-community='denyall_ro'```).
 
-This command would trigger a WARNING alarm if cpu utilization over 90%
+This command would trigger a WARNING alarm if cpu utilization over 90% 
 (```--warning-cpu-utilization='90'```) and a CRITICAL alarm over 95% (```--critical-cpu-utilization='95'```).
 
 All the options as well as all the available thresholds can be displayed by adding the  ```--help```
@@ -188,9 +178,9 @@ parameter to the command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_denyall_snmp.pl \
---plugin=network::denyall::snmp::plugin \
---mode=reverse-proxy \
---help
+    --plugin=network::denyall::snmp::plugin \
+    --mode=reverse-proxy \
+    --help
 ```
 
 ## Troubleshooting
@@ -203,7 +193,7 @@ If you get this message, you're probably facing one of theses issues:
 
 #### UNKNOWN: SNMP GET Request : Cant get a single value.
 
-This error message often refers to the following issues:
-- The agent doesn't support the MIB used by the plugin
-- The targeted SNMP OID cannot be fetched because of insufficient privileges on the device.
-SNMP Agent must be capable of accessing to the enterprise branch: .1.3.6.1.4.1.18433.10
+This error message often refers to the following issues: 
+  - The agent doesn't support the MIB used by the plugin
+  - The targeted SNMP OID cannot be fetched because of insufficient privileges on the device. 
+    SNMP Agent must be capable of accessing to the enterprise branch: .1.3.6.1.4.1.18433.10

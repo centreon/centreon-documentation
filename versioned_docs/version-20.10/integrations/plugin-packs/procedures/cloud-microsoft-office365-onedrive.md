@@ -2,9 +2,6 @@
 id: cloud-microsoft-office365-onedrive
 title: Office365 OneDrive
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Overview
 
@@ -27,20 +24,20 @@ through the Office365 API Management.
 
 See link for details about metrics : https://docs.microsoft.com/en-us/microsoft-365/admin/activity-reports/onedrive-for-business-usage?view=o365-worldwide
 
-<Tabs groupId="operating-systems">
-<TabItem value="SiteUsage" label="SiteUsage">
+<!--DOCUSAURUS_CODE_TABS-->
 
-| Metric name                               | Description                             | Unit  |
-| :---------------------------------------- | :-------------------------------------- | :---- |
-| active\_sites                             | Number of active sites                  | Count |
-| onedrive.sites.active.usage.total.bytes   | Total usage space (active sites)        | Bytes |
-| onedrive.sites.inactive.usage.total.bytes | Total usage space (inactive sites)      | Bytes |
-| onedrive.sites.active.files.total.count   | Total number of files (active sites)    | Count |
-| onedrive.sites.inactive.files.total.count | Total number of files (inactive sites ) | Count |
-| onedrive.sites.files.active.total.count   | Total number of active files            | Count |
+<!--Site-Usage-->
 
-</TabItem>
-</Tabs>
+| Metric name                                  | Description                              | Unit  |
+| :------------------------------------------- | :--------------------------------------- | :-----|
+| active\_sites                                | Number of active sites                   | Count |
+| onedrive.sites.active.usage.total.bytes      | Total usage space (active sites)         | Bytes |
+| onedrive.sites.inactive.usage.total.bytes    | Total usage space (inactive sites)       | Bytes |
+| onedrive.sites.active.files.total.count      | Total number of files (active sites)     | Count |
+| onedrive.sites.inactive.files.total.count    | Total number of files (inactive sites )  | Count |
+| onedrive.sites.files.active.total.count      | Total number of active files             | Count |
+
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 Once the host created, you can configure some macros on the services to filter
 information by site or by user. More information in the [Configuration](#Configuration)
@@ -67,11 +64,11 @@ To collect data from Onedrive Online, you need to specify the following
 authorization:
 
 * Microsoft Graph :
-* Reports.Read.All (Type : Application)
-* User.Read (Type : Delegated)
+    * Reports.Read.All (Type : Application)
+    * User.Read (Type : Delegated)
 * Office365 Management APIs :
-* ServiceHealth.Read (Type : Application)
-* ActivityFeed.Read (Type : Application)
+    * ServiceHealth.Read (Type : Application)
+    * ActivityFeed.Read (Type : Application)
 
 ### More information
 
@@ -81,8 +78,9 @@ https://docs.microsoft.com/en-us/office/office-365-management-api/get-started-wi
 
 ## Installation
 
-<Tabs groupId="licence-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin package on every poller expected to monitor Office365 Onedrive:
 
@@ -92,8 +90,7 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Onedrive-Api
 
 2. On the Centreon Web interface, install the Centreon Plugin-Pack *Office365 Onedrive* from the "Configuration > Plugin Packs > Manager" page
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin package on every poller expected to monitor Office365 Onedrive:
 
@@ -109,8 +106,7 @@ yum install centreon-pack-cloud-microsoft-office365-onedrive
 
 3. On the Centreon Web interface, install the Centreon Plugin-Pack *Office365 Onedrive* from the "Configuration > Plugin Packs > Manager" page
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
@@ -125,7 +121,7 @@ yum install centreon-pack-cloud-microsoft-office365-onedrive
 | X         | OFFICE365CLIENTSECRET | Secret-if of your registered application                                   |
 |           | OFFICE365EXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
 
-The metric *perfdate* will record the date the metric was collected. You can
+The metric *perfdate* will record the date the metric was collected. You can 
 filter it by entering ```--filter-perfdata='^(?!.*perfdate).*$'``` into the
 *OFFICE365EXTRAOPTIONS* macro.
 
@@ -147,11 +143,11 @@ Centreon poller by logging with the *centreon-engine* user:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_office365_onedrive_api.pl \
---plugin=cloud::microsoft::office365::onedrive::plugin \
---mode=site-usage \
---tenant='abcd1234-5678-90ab-cd12-34567890abcd' \
---client-id='9876dcba-5432-10dc-ba98-76543210dcba' \
---client-secret='8/RON4vUGhAcg6DRmSxc4AwgxSRoNfKg4d8xNizIMnwg='
+  --plugin=cloud::microsoft::office365::onedrive::plugin \
+  --mode=site-usage \
+  --tenant='abcd1234-5678-90ab-cd12-34567890abcd' \
+  --client-id='9876dcba-5432-10dc-ba98-76543210dcba' \
+  --client-secret='8/RON4vUGhAcg6DRmSxc4AwgxSRoNfKg4d8xNizIMnwg='
 ```
 
 ```bash
@@ -171,18 +167,18 @@ this Plugin can be displayed by adding the ```--help``` parameter to the command
 
 ```bash
 /usr/lib/centreon/plugins//centreon_office365_onedrive_api.pl \
---plugin=cloud::microsoft::office365::onedrive::plugin \
---mode=site-usage \
---custommode='graphapi'\
---help
+  --plugin=cloud::microsoft::office365::onedrive::plugin \
+  --mode=site-usage \
+  --custommode='graphapi'\
+  --help
 ```
 
 You can display all of the modes that come with the Plugin with the command below:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_office365_onedrive_api.pl \
---plugin=cloud::microsoft::office365::onedrive::plugin \
---list-mode
+  --plugin=cloud::microsoft::office365::onedrive::plugin \
+  --list-mode
 ```
 
 ### Why do I get the following error:

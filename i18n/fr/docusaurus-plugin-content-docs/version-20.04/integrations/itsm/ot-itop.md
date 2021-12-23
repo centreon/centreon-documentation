@@ -16,8 +16,8 @@ cache. Loging out or waiting 10 hours will flush the cache.
 
 This integration is (at least) compatible with the following Itop versions:
 
-- 1.4
-- 1.3
+  - 1.4
+  - 1.3
 
 ## Requirements
 
@@ -40,16 +40,16 @@ Our provider requires the following parameters:
 
 As of now, the provider is able to retrieve the following objects from Itop:
 
-- Organizations
-- Callers
-- Services
-- Service subcategories
-- Origin
+  - Organizations
+  - Callers
+  - Services
+  - Service subcategories
+  - Origin
 
 It will also fill the following parameters from a predefined list in Centreon.
 You can extend those lists inside the provider configuration since they are
 custom lists
 <https://documentation.centreon.com/docs/centreon-open-tickets/en/latest/configuration_guide/index#advanced-configuration>
 
-- Impact
-- Urgency
+  - Impact
+  - Urgency

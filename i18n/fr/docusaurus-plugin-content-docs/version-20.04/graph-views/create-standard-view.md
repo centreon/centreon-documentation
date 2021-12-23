@@ -21,22 +21,22 @@ Find below some usefull best practices to help you designing optimized
 views:
 
 - We more than **highly** recommend activating the ACL optimization
-(*gate.useResourcesAccess=false*).
+  (*gate.useResourcesAccess=false*).
 - When you want to visualize application statuses, we highly recommend
-modelling them using [Business
-Activities](https://documentation.centreon.com/docs/centreon-bam/en/latest/).
-This will help you to limit the number of elements you need to add to a
-view. Adding one Business Activity to a view means only 1 element is added
-instead of all the hosts & services you would have added in the view to
-model the application otherwise.
+  modelling them using [Business
+  Activities](https://documentation.centreon.com/docs/centreon-bam/en/latest/).
+  This will help you to limit the number of elements you need to add to a
+  view. Adding one Business Activity to a view means only 1 element is added
+  instead of all the hosts & services you would have added in the view to
+  model the application otherwise.
 - Avoid duplicating the same resources (hostgroups, servicegroups, hosts,
-services) in the same view or in multiple views.
+  services) in the same view or in multiple views.
 - If a view seems to contain "too many elements" (see *Content limitation*
-above), try to conceptually group several elements in order to split into
-multiple views.
+  above), try to conceptually group several elements in order to split into
+  multiple views.
 - Create views having less than 5 levels (drill down)
 - Do not display more than 100 elements in a single view level. (element:
-container, host, hostgroup, service, business activity)
+  container, host, hostgroup, service, business activity)
 - Do not display more than 10 widgets in a single view level.
 
 **How to calculate the number of element?**
@@ -74,7 +74,7 @@ Add a profile by clicking on the "+" to the right of the Profile window:
 - **Password**: Password for your Centreon Web username
 - **Use TLS**: Check here if the Map Server is configured for HTTPS
 - **Port**: Listening port for the Map Server -- it uses *8080* by default and
-*8443* if you have configured for HTTPS
+  *8443* if you have configured for HTTPS
 - **URL**: The URL for reaching Map Server. The default value is "/".
 
 If there is a proxy between your computer and the Map Server or internet,
@@ -85,10 +85,10 @@ configure it here:
 - **Proxy Login** (not mandatory): Proxy server login
 - **Proxy Password** (not mandatory): Login password for proxy server
 - **Use proxy for internet**: Check here if a proxy is required to connect to
-the internet. It will be useful for automatically downloading updates to the
-desktop client.
+  the internet. It will be useful for automatically downloading updates to the
+  desktop client.
 - **Use proxy for server**: Check here if a proxy is required to reach your
-Map Server.
+  Map Server.
 
 ## Add a view
 
@@ -315,7 +315,7 @@ When creating the process widget, you must choose a service.
 To create a service dedicated to an "action":
 
 1. Create a command (`Configuration > Command > Add`) that contains "service
-httpd restart" (remember to enable shell).
+   httpd restart" (remember to enable shell).
 2. Link the command to a passive service.
 3. Link the passive service to a host (e.g., the host that hosts the website).
 
@@ -329,7 +329,7 @@ three kinds of link:
 - Simple link: Connects two elements in color.
 - Status link: Uses a color based on the status of a service.
 - Metric link: Displays the % of a metric, appearing in a color according to
-this value.
+  this value.
 
 You may use the concept of "link template" in Centreon Map to accelerate the
 creation of lot of links with the same properties.
@@ -419,9 +419,9 @@ System commands menu. Then enter the following:
 - Path: terminator
 - Parameters:
 
-```text
--e ssh [root@%host.address](mailto:root@%host.address%)
-```
+  ```text
+  -e ssh [root@%host.address](mailto:root@%host.address%)
+  ```
 
 Here, the `%host.address%` will be automatically replaced by the host address of
 the element you right click on.

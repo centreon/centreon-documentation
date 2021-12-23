@@ -2,9 +2,6 @@
 id: network-versa-snmp
 title: Versa SNMP
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Vue d'ensemble
 
@@ -24,8 +21,9 @@ et des métriques relatives aux équipements Versa Networks
 
 ### Règles de découverte
 
-<Tabs groupId="operating-systems">
-<TabItem value="Services" label="Services">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Services-->
 
 | Nom de la règle                   | Description                                                                                  |
 |:--------------------------------- |:-------------------------------------------------------------------------------------------- |
@@ -34,21 +32,20 @@ et des métriques relatives aux équipements Versa Networks
 | Net-Versa-SNMP-Traffic-Name       | Découvre les interfaces réseaux et supervise le statut et l'utilisation de la bande passante |
 | Net-Versa-SNMP-Packet-Errors-Name | Découvre les interfaces réseaux et supervise les paquets en erreurs                          |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Métriques collectées
 
-<Tabs groupId="operating-systems">
-<TabItem value="BgpPeers" label="BgpPeers">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Bgp-Peers-->
 
 | Metric name              | Description         | Unit |
 |:------------------------ |:------------------- |:---- |
 | status                   | Status of the peers |      |
 | peer.update.last.seconds | Last update by peer | s    |
 
-</TabItem>
-<TabItem value="Devices" label="Devices">
+<!--Devices-->
 
 | Metric name                       | Description                                 | Unit  |
 |:--------------------------------- | :------------------------------------------ |:----- |
@@ -59,8 +56,7 @@ et des métriques relatives aux équipements Versa Networks
 | device.sessions.failed.count      | Number of failed sessions on the device     | Count |
 | device.sessions.failed.percentage | Percentage of failed sessions on the device | %     |
 
-</TabItem>
-<TabItem value="Interfaces" label="Interfaces">
+<!--Interfaces-->
 
 | Metric name                               | Description                                            | Unit |
 |:----------------------------------------- |:------------------------------------------------------ |:---- |
@@ -72,8 +68,7 @@ et des métriques relatives aux équipements Versa Networks
 | interface.packets.in.discards.percentage  | Incoming discarded packets going through the interface | %    |
 | interface.packets.out.discards.percentage | Outgoing discarded packets going through the interface | %    |
 
-</TabItem>
-<TabItem value="Ipsec" label="Ipsec">
+<!--Ipsec-->
 
 | Metric name                      | Description                                        | Unit  |
 |:-------------------------------- |:-------------------------------------------------- |:----- |
@@ -84,8 +79,7 @@ et des métriques relatives aux équipements Versa Networks
 | ipsec.packets.invalid.count      | Number of invalid packets through the IPsec tunnel | Count |
 | ipsec.ike.disconnected.count     | number of IKE disconnect by IPsec tunnel           | Count |
 
-</TabItem>
-<TabItem value="QosPolicy" label="QosPolicy">
+<!--Qos-Policy-->
 
 * Par QoS policy
 
@@ -108,8 +102,7 @@ et des métriques relatives aux équipements Versa Networks
 | appqos.policy.packets.forwarded.count          | Number of packets forwarded by Application Qos Policy | Count |
 | appqos.policy.traffic.forwarded.bytespersecond | Traffic forwarded by QoS Policy                       | B/s   |
 
-</TabItem>
-<TabItem value="Sdwan" label="Sdwan">
+<!--Sdwan-->
 
 | Metric name                             | Description                                     | Unit  |
 |:--------------------------------------- |:----------------------------------------------- |:----- |
@@ -119,8 +112,7 @@ et des métriques relatives aux équipements Versa Networks
 | sdwan.policy.packets.out.count          | Number of outgoing packets by SDWAN policy      | Count |
 | sdwan.policy.traffic.out.bytespersecond | Outcoming traffic going through by SDWAN Policy | B/s   |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -134,8 +126,9 @@ La communication doit être possible sur le port UDP 161 depuis le collecteur Ce
 
 ## Installation
 
-<Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur chaque collecteur Centreon devant superviser des équipements
 Versa Networks :
@@ -144,11 +137,10 @@ Versa Networks :
 yum install centreon-plugin-Network-Versa-Snmp
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Versa SNMP*
-depuis la page "Configuration > Plugin Packs > Gestionnaire"
+2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Versa SNMP* 
+depuis la page "Configuration > Plugin Packs > Gestionnaire" 
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur chaque collecteur Centreon devant superviser des équipements
 Versa Networks :
@@ -164,10 +156,9 @@ yum install centreon-pack-network-versa-snmp
 ```
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Versa SNMP*
-depuis la page "Configuration > Plugin Packs > Gestionnaire"
+depuis la page "Configuration > Plugin Packs > Gestionnaire" 
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
@@ -191,21 +182,21 @@ depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-en
 
 ```bash
 /usr/lib/centreon/plugins/centreon_versa_snmp.pl \
---plugin=network::versa::snmp::plugin \
---mode=devices \
---hostname=10.0.0.1 \
---snmp-version='2c' \
---snmp-community='mysnmpcommunity' \
---warning-sessions-active-prct='80' \
---critical-sessions-active-prct='90' \
---verbose
+  --plugin=network::versa::snmp::plugin \
+  --mode=devices \
+  --hostname=10.0.0.1 \
+  --snmp-version='2c' \
+  --snmp-community='mysnmpcommunity' \
+  --warning-sessions-active-prct='80' \
+  --critical-sessions-active-prct='90' \
+  --verbose
 ```
 
 La commande devrait retourner un message de sortie de la forme ci-dessous:
 
 ```bash
 OK: Device '0' cpu load: 8.00 %, memory used: 10.00%, sessions active: 0 (1000000), sessions failed: 0 (1000000) |
-'0#device.cpu.utilization.percentage'=8.00%;;;0;100 '0#device.memory.usage.percentage'=10.00%;;;0;100
+'0#device.cpu.utilization.percentage'=8.00%;;;0;100 '0#device.memory.usage.percentage'=10.00%;;;0;100 
 '0#device.sessions.active.count'=0;;;0;1000000 '0#device.sessions.active.percentage'=0.00%;0:80;0:90;0;100
 '0#device.sessions.failed.count'=0;;;0;1000000 '0#device.sessions.active.percentage'=0.00%;;;0;100
 Device '0' cpu load: 8.00 %, memory used: 10.00%, sessions active: 0 (1000000), sessions failed: 0 (1000000)
@@ -213,13 +204,13 @@ Device '0' cpu load: 8.00 %, memory used: 10.00%, sessions active: 0 (1000000), 
 
 Dans cet exemple, le Plugin récupère l'utilisation d'un équipement Versa Networks (```--plugin=network::versa::snmp::plugin --mode=devices```)
 
-identifié par l'adresse IP *10.0.0.1* (```--hostname=10.0.0.1```). Les paramètres de communauté et de version SNMP (```--snmp-version='2c' --snmp-community='mysnmpcommunity'```)
+identifié par l'adresse IP *10.0.0.1* (```--hostname=10.0.0.1```). Les paramètres de communauté et de version SNMP (```--snmp-version='2c' --snmp-community='mysnmpcommunity'```) 
 correspondants sont renseignés afin de pouvoir joindre l'équipement.
 
 Une alarme WARNING sera ainsi déclenchée si le pourcentage d'utilisation des sessions actives est supérieur à 80% (```--warning-sessions-active-prct='80'```);
 l'alarme sera de type CRITICAL au delà de 90% de cette même utilisation (```--critical-sessions-active-prct='90'```).
 
-Pour chaque mode, la liste de toutes les métriques, seuils associés et options complémentaires peut être affichée
+Pour chaque mode, la liste de toutes les métriques, seuils associés et options complémentaires peut être affichée 
 en ajoutant le paramètre ```--help``` à la commande :
 
 ```bash
@@ -230,11 +221,11 @@ en ajoutant le paramètre ```--help``` à la commande :
 
 #### UNKNOWN: SNMP GET Request : Timeout
 
-Si vous obtenez ce message, cela signifie que vous ne parvenez pas à contacter l'équipement Versa Networks sur le port UDP/161,
+Si vous obtenez ce message, cela signifie que vous ne parvenez pas à contacter l'équipement Versa Networks sur le port UDP/161, 
 ou que la communauté SNMP configurée n'est pas correcte. Il est également possible qu'un pare-feu bloque le flux.
 
 #### UNKNOWN: SNMP GET Request : Cant get a single value.
 
-Les causes de cette erreur peuvent être les suivantes:
-* cet équipement ne supporte ou n'embarque pas la MIB utilisée par ce mode
-* les autorisations données à l'utilisateur en SNMP sont trop restreintes.
+Les causes de cette erreur peuvent être les suivantes: 
+  * cet équipement ne supporte ou n'embarque pas la MIB utilisée par ce mode
+  * les autorisations données à l'utilisateur en SNMP sont trop restreintes.

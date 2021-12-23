@@ -13,7 +13,7 @@ Follow this simple procedure:
 
 -   Define your requirement.
 -   Use the documentation to help you select the report design
-(template) that best suits your analysis.
+    (template) that best suits your analysis.
 -   Configure your report by adding a job.
 -   Retrieve the report by using the interface.
 

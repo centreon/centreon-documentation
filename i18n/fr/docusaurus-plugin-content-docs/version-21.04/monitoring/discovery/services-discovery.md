@@ -68,13 +68,13 @@ Saisissez les premiers champs :
 
 Voici une description des premiers champs à saisir :
 
-- **Rule name** : nom de la règle
-- **Command Macro** : la commande exécutée pour lister les attributs du flux
-XML
-- **Command Discover** : la commande de découverte exécutée pour lister les
-éléments
-- **Service template**: le modèle de service utilisé pour créer les nouveaux
-services
+  - **Rule name** : nom de la règle
+  - **Command Macro** : la commande exécutée pour lister les attributs du flux
+    XML
+  - **Command Discover** : la commande de découverte exécutée pour lister les
+    éléments
+  - **Service template**: le modèle de service utilisé pour créer les nouveaux
+    services
 
 Rendez-vous dans le second onglet **Inclusions/Exclusions & Macros** tab. Vous
 devriez voir les attributs XML disponibles :
@@ -96,24 +96,24 @@ Saisissez le nom du service qui sera créé via le champ **Service display name*
 
 Puis compléter la règle :
 
-- **Hosts templates** : Les modèles qui seront utilisés pour définir la liste
-des hôtes pour lesquels les règles de découverte seront exécutées
-- **Linked Instances** : permet d’exécuter la règle que pour les hôtes liés
-aux collecteurs sélectionnées.
+  - **Hosts templates** : Les modèles qui seront utilisés pour définir la liste
+    des hôtes pour lesquels les règles de découverte seront exécutées
+  - **Linked Instances** : permet d’exécuter la règle que pour les hôtes liés
+    aux collecteurs sélectionnées.
 
 > Laisser vide pour exécuter la règle depuis n’importe quel collecteur.
 
-- **Contacts** : Les contacts qui seront notifiés sur la création ou la
-désactivation de services à la suite de la découverte
-- **Contact groups** : Les groupes de contacts qui seront notifiés sur la
-création ou la désactivation de services à la suite de la découverte
-- **Disable elements not found** : Permettre au module de désactiver les
-services associés aux éléments qui ne sont plus trouvés
-- **Update existing services** : Si actif, les services déjà découverts
-seront mis à jour si une propriété change (valeur de macros
-personnalisées, etc.).
-- **Activate** : Activer ou désactiver la règle (la règle sera ignorée par le
-processus de découverte si elle est désactivée).
+  - **Contacts** : Les contacts qui seront notifiés sur la création ou la
+    désactivation de services à la suite de la découverte
+  - **Contact groups** : Les groupes de contacts qui seront notifiés sur la
+    création ou la désactivation de services à la suite de la découverte
+  - **Disable elements not found** : Permettre au module de désactiver les
+    services associés aux éléments qui ne sont plus trouvés
+  - **Update existing services** : Si actif, les services déjà découverts
+    seront mis à jour si une propriété change (valeur de macros
+    personnalisées, etc.).
+  - **Activate** : Activer ou désactiver la règle (la règle sera ignorée par le
+    processus de découverte si elle est désactivée).
 
 Cliquer sur **Save** pour sauvegarder la règle de découverte.
 
@@ -128,16 +128,16 @@ durant la découverte. Cette inclusion/exclusion concerne les attributs XML.
 
 Les règles d’inclusion/exclusion sont définies à partir de l’algorithme suivant :
 
-- Si seules des règles d’inclusion sont présentes, la valeur de l’attribut
-correspondant à au moins une inclusion est prise en compte
-- Si seulement des règles d’exclusion sont présentes, chaque élément sera pris
-en compte, sauf ceux correspondant à une exclusion
-- Si les deux types sont présents, le processus vérifiera l’élément
-correspondant à une inclusion puis s’assurera qu’il n’est pas listé dans une
-exclusion
-- Le seconde partie Macros permet de définir la relation entre l’attribut XML
-et la macro du modèle de service. Pour tous les services créés, les valeurs
-des macros seront remplacées par les valeurs des attributs.
+  - Si seules des règles d’inclusion sont présentes, la valeur de l’attribut
+    correspondant à au moins une inclusion est prise en compte
+  - Si seulement des règles d’exclusion sont présentes, chaque élément sera pris
+    en compte, sauf ceux correspondant à une exclusion
+  - Si les deux types sont présents, le processus vérifiera l’élément
+    correspondant à une inclusion puis s’assurera qu’il n’est pas listé dans une
+    exclusion
+  - Le seconde partie Macros permet de définir la relation entre l’attribut XML
+    et la macro du modèle de service. Pour tous les services créés, les valeurs
+    des macros seront remplacées par les valeurs des attributs.
 
 ![image](../../assets/configuration/autodisco/create_rule_6.png)
 
@@ -158,8 +158,8 @@ résultat attendu :
 
 L’expression peut être appliquée sur :
 
-- **@SERVICENAME@** : le nom du service qui sera créé
-- tous les attributs du flux XML via **$attribute\_name$**
+  - **@SERVICENAME@** : le nom du service qui sera créé
+  - tous les attributs du flux XML via **$attribute\_name$**
 
 La seconde partie **Customize** code permet d’utiliser du code Perl.
 
@@ -178,14 +178,14 @@ exemple pour définir des seuils dynamiques selon la taille des disques :
 ``` perl
 my $total_gb = $total$ / 1000 / 1000 / 1000;
 if ($total_gb < 100) {
-$warning$ = 80;
-$critical$ = 90;
+    $warning$ = 80;
+    $critical$ = 90;
 } elsif ($total_gb < 500) {
-$warning$ = 90;
-$critical$ = 95;
+    $warning$ = 90;
+    $critical$ = 95;
 } else {
-$warning$ = 95;
-$critical$ = 98;
+    $warning$ = 95;
+    $critical$ = 98;
 }
 ```
 
@@ -199,8 +199,8 @@ la [sonde de découverte](#discovery-plugins).
 
 Chaque sonde de découverte doit disposer de deux commandes :
 
-- La première pour récupérer la liste des attributs du flux XML
-- La seconde pour récupérer la liste des éléments découverts sur l’équipement
+  - La première pour récupérer la liste des attributs du flux XML
+  - La seconde pour récupérer la liste des éléments découverts sur l’équipement
 
 ![image](../../assets/configuration/autodisco/commands_list.png)
 
@@ -211,10 +211,10 @@ Rendez-vous dans le menu `Configuration > Commandes > Découverte` et cliquez su
 
 Saisissez les champs suivants :
 
-- **Command Name** : nom de la commande
-- **Command type** : sélectionnez l’option **Discovery**
-- **Command Line** : saisissez la ligne de commande pour exécuter la sonde et
-récupérer la liste des attributs XML
+  - **Command Name** : nom de la commande
+  - **Command type** : sélectionnez l’option **Discovery**
+  - **Command Line** : saisissez la ligne de commande pour exécuter la sonde et
+    récupérer la liste des attributs XML
 
 > Toute commande utilisant les sondes du projet Centreon Plugin doit définir
 > l’option **hostname**. Donc ajoutez l’option **--hostname=127.0.0.1** dans
@@ -233,10 +233,10 @@ Et le résultat :
 ``` xml
 <?xml version="1.0" encoding="utf-8"?>
 <data>
-<element>name</element>
-<element>total</element>
-<element>status</element>
-<element>interfaceid</element>
+    <element>name</element>
+    <element>total</element>
+    <element>status</element>
+    <element>interfaceid</element>
 </data>
 ```
 
@@ -249,10 +249,10 @@ Rendez-vous dans le menu `Configuration > Commandes > Découverte` et cliquez su
 
 Saisissez les champs suivants :
 
-- **Command Name** : nom de la commande
-- **Command type** : sélectionnez l’option **Discovery**
-- **Command Line**: saisir la ligne de commande pour exécuter la sonde et
-récupérer la liste des éléments disponibles
+  - **Command Name** : nom de la commande
+  - **Command type** : sélectionnez l’option **Discovery**
+  - **Command Line**: saisir la ligne de commande pour exécuter la sonde et
+    récupérer la liste des éléments disponibles
 
 ![image](../../assets/configuration/autodisco/command_disco.png)
 
@@ -267,8 +267,8 @@ Et le résultat :
 ``` xml
 <?xml version="1.0" encoding="utf-8"?>
 <data>
-<label status="1" name="lo" total="10" interfaceid="1"/>
-<label status="1" name="eth0" total="1000" interfaceid="2"/>
+    <label status="1" name="lo" total="10" interfaceid="1"/>
+    <label status="1" name="eth0" total="1000" interfaceid="2"/>
 </data>
 ```
 
@@ -298,8 +298,8 @@ Par exemple :
 ``` xml
 <?xml version="1.0" encoding="utf-8"?>
 <data>
-<label status="1" name="lo" total="10" interfaceid="1"/>
-<label status="1" name="eth0" total="1000" interfaceid="2"/>
+    <label status="1" name="lo" total="10" interfaceid="1"/>
+    <label status="1" name="eth0" total="1000" interfaceid="2"/>
 </data>
 ```
 
@@ -320,10 +320,10 @@ Par exemple :
 ``` xml
 <?xml version="1.0" encoding="utf-8"?>
 <data>
-<element>name</element>
-<element>total</element>
-<element>status</element>
-<element>interfaceid</element>
+    <element>name</element>
+    <element>total</element>
+    <element>status</element>
+    <element>interfaceid</element>
 </data>
 ```
 
@@ -335,10 +335,10 @@ Il est possible de tester le fonctionnement du module manuellement grâce aux
 options :
 
 | Directive       | Type    | Description                                                                                             |
-| --------------- | ------- | ------------------------------------------------------------------------------------------------------- |
+|-----------------|---------|---------------------------------------------------------------------------------------------------------|
 | filter\_rules   | tableau | Permet d’exécuter la ou les règles                                                                      |
 | filter\_hosts   | tableau | Permet d’exécuter toutes les règles de découverte liées aux modèles d’hôte du ou des hôtes sélectionnés |
-| filter\_pollers | tableau | Permet d’exécuter les règles de découverte pour les ressources appartenant au ou aux collecteurs        |
+| filter\_pollers | tableau | Permet d’exécuter les règles de découverte pour les ressources appartenant au ou aux collecteurs         |
 | dry\_run        | booléen | Exécute la découverte sans changement dans la confugration (utiliser à des fin de test)                 |
 
 ### Exemples
@@ -347,19 +347,19 @@ Exécution de toutes les règles :
 
 ``` shell
 curl --request POST "http://localhost:8085/api/centreon/autodiscovery/services" \
---header "Accept: application/json" \
---header "Content-Type: application/json" \
---data '{}'
+  --header "Accept: application/json" \
+  --header "Content-Type: application/json" \
+  --data '{}'
 ```
 
 Test de toutes les règles :
 
 ``` shell
 curl --request POST "http://localhost:8085/api/centreon/autodiscovery/services" \
---header "Accept: application/json" \
---header "Content-Type: application/json" \
---data '{
-"dry_run": 1
+  --header "Accept: application/json" \
+  --header "Content-Type: application/json" \
+  --data '{
+    "dry_run": 1
 }'
 ```
 

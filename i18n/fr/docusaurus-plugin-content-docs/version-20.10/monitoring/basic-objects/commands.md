@@ -2,9 +2,6 @@
 id: commands
 title: Les commandes
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Définition
 
@@ -17,7 +14,7 @@ Il existe quatre types de commandes :
 * **Notification** sont utilisées par les ordonnanceurs pour alerter les contacts (via mail, SMS...).
 * **Discovery** sont utilisées par les règles de découverte.
 * **Miscellaneous** sont utilisées par les modules complémentaires (pour effectuer certaines actions), par
-l’ordonnanceur pour le traitement des données...
+  l’ordonnanceur pour le traitement des données...
 
 Toutes les commandes peuvent être configurées au sein du menu : **Configuration > Commands**.
 
@@ -42,13 +39,13 @@ Toutes les commandes peuvent être configurées au sein du menu : **Configuratio
 * La case **Enable shell**  permet d’activer des fonctions propres à un shell tel que le pipe...
 * Le champ **Argument Example** définir des exemples d'arguments (chaque argument commence par un "!")
 * Le bouton **Describe arguments** permet d’ajouter une description aux arguments de type “$ARGn$”. Cette description
-sera visible lors de l’utilisation de la commande dans un formulaire d’hôte ou de service.
+  sera visible lors de l’utilisation de la commande dans un formulaire d’hôte ou de service.
 * Le bouton **Clear arguments** efface la description des arguments définie
 * Le bouton **Describe macros** permet d’ajouter une description aux macros personalisées. Ces descriptions seront
-visibles lors de l’ajout de la commande sur un host ou un service.
+  visibles lors de l’ajout de la commande sur un host ou un service.
 
 * La liste de sélection **Connectors** permet de lier un connecteur à la commande. Pour davantage d’informations sur
-les connecteurs reportez-vous au chapitre [les connecteurs](#les-connecteurs).
+  les connecteurs reportez-vous au chapitre [les connecteurs](#les-connecteurs).
 * Le champ **Graph template** permet de lier la commande à un modèle de graphique.
 * Le champ **Comment** permet de commenter la commande.
 
@@ -103,8 +100,8 @@ This program is compatible only with Unix-like platforms (Linux, FreeBSD, Solari
 
 ##### Prerequisites
 
-<Tabs groupId="operating-systems">
-<TabItem value="CentOS" label="CentOS">
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS-->
 In CentOS you need to add manually cmake. After that you can install binary packages. Either use the Package Manager or
 the yum tool to install them. You should check packages version when necessary.
 
@@ -134,8 +131,7 @@ yum install cmake
 
 See the Centreon Clib @TODO@:ref:`documentation <centreon-clib:centreon_clib_install>`.
 
-</TabItem>
-<TabItem value="Debian/Ubuntu" label="Debian/Ubuntu">
+<!--Debian/Ubuntu-->
 In recent Debian/Ubuntu versions, necessary software is available as binary packages from distribution repositories.
 Either use the Package Manager or the apt-get tool to install them. You should check packages version when necessary.
 
@@ -159,8 +155,7 @@ apt-get install build-essential cmake libssh2-1-dev libgcrypt11-dev
 
 See the Centreon Clib @TODO@:ref:`documentation <centreon-clib:centreon_clib_install>`.
 
-</TabItem>
-<TabItem value="OpenSUSE" label="OpenSUSE">
+<!--OpenSUSE-->
 In recent OpenSUSE versions, necessary software is available as binary packages from OpenSUSE repositories. Either use
 the Package Manager or the zypper tool to install them. You should check packages version when necessary.
 
@@ -184,8 +179,7 @@ zypper install gcc gcc-c++ make cmake libssh2-devel libgcrypt-devel
 
 See the Centreon Clib @TODO@:ref:`documentation <centreon-clib:centreon_clib_install>`.
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ##### Build
 
@@ -236,9 +230,9 @@ Example:
 
 ```shell
 cmake \
--DWITH_PREFIX=/usr \
--DWITH_PREFIX_BINARY=/usr/lib/centreon-connector \
--DWITH_TESTING=0 .
+    -DWITH_PREFIX=/usr \
+    -DWITH_PREFIX_BINARY=/usr/lib/centreon-connector \
+    -DWITH_TESTING=0 .
 ```
 
 At this step, the software will check for existence and usability of the rerequisites. If one cannot be found, an
@@ -320,20 +314,20 @@ Example:
 
 ```shell
 define connector{
-connector_name centreon_connector_ssh
-connector_line /usr/bin/centreon-connector/centreon_connector_ssh
+    connector_name centreon_connector_ssh
+    connector_line /usr/bin/centreon-connector/centreon_connector_ssh
 }
 
 define command{
-command_name ssh_check_cpu
-command_line $USER1$/check_by_ssh -H $HOSTADDRESS$ -l $_HOSTUSER$ -a $_HOSTPASSWORD$ -C "$USER1$/check_cpu -w $ARG1$ -c $ARG2$"
-connector centreon_connector_ssh
+    command_name ssh_check_cpu
+    command_line $USER1$/check_by_ssh -H $HOSTADDRESS$ -l $_HOSTUSER$ -a $_HOSTPASSWORD$ -C "$USER1$/check_cpu -w $ARG1$ -c $ARG2$"
+    connector centreon_connector_ssh
 }
 
 define command{
-command_name ssh_check_disk
-command_line $USER1$/check_by_ssh -H $HOSTADDRESS$ -l $_HOSTUSER$ -a $_HOSTPASSWORD$ -C "$USER1$/check_disk -D $ARG1$ -w $ARG2$ -c $ARG3$"
-connector centreon_connector_ssh
+    command_name ssh_check_disk
+    command_line $USER1$/check_by_ssh -H $HOSTADDRESS$ -l $_HOSTUSER$ -a $_HOSTPASSWORD$ -C "$USER1$/check_disk -D $ARG1$ -w $ARG2$ -c $ARG3$"
+    connector centreon_connector_ssh
 }
 ```
 
@@ -378,8 +372,8 @@ This program is compatible only with Unix-like platforms (Linux, FreeBSD, Solari
 
 ##### Prerequisites
 
-<Tabs groupId="operating-systems">
-<TabItem value="CentOS" label="CentOS">
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS-->
 In CentOS you need to add manually cmake. After that you can install binary packages. Either use the Package Manager or
 the yum tool to install them. You should check packages version when necessary.
 
@@ -408,8 +402,7 @@ yum install cmake
 
 See the Centreon Clib @TODO@:ref:`documentation <centreon-clib:centreon_clib_install>`.
 
-</TabItem>
-<TabItem value="Debian/Ubuntu" label="Debian/Ubuntu">
+<!--Debian/Ubuntu-->
 In recent Debian/Ubuntu versions, necessary software is available as binary packages from distribution repositories.
 Either use the Package Manager or the apt-get tool to install them. You should check packages version when necessary.
 
@@ -432,8 +425,7 @@ apt-get install build-essential cmake libperl-dev
 
 See the Centreon Clib @TODO@:ref:`documentation <centreon-clib:centreon_clib_install>`.
 
-</TabItem>
-<TabItem value="OpenSUSE" label="OpenSUSE">
+<!--OpenSUSE-->
 In recent OpenSUSE versions, necessary software is available as binary packages from OpenSUSE repositories. Either use
 the Package Manager or the zypper tool to install them. You should check packages version when necessary.
 
@@ -456,8 +448,7 @@ zypper install gcc gcc-c++ make cmake perl
 
 See the Centreon Clib @TODO@:ref:`documentation <centreon-clib:centreon_clib_install>`.
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ##### Build
 
@@ -501,9 +492,9 @@ Example:
 
 ```shell
 cmake \
--DWITH_PREFIX=/usr \
--DWITH_PREFIX_BINARY=/usr/lib/centreon-connector \
--DWITH_TESTING=0 .
+    -DWITH_PREFIX=/usr \
+    -DWITH_PREFIX_BINARY=/usr/lib/centreon-connector \
+    -DWITH_TESTING=0 .
 ```
 
 At this step, the software will check for existence and usability of the rerequisites. If one cannot be found, an
@@ -557,20 +548,20 @@ Example:
 
 ```shell
 define connector{
-connector_name centreon_connector_perl
-connector_line /usr/bin/centreon-connector/centreon_connector_perl
+    connector_name centreon_connector_perl
+    connector_line /usr/bin/centreon-connector/centreon_connector_perl
 }
 
 define command{
-command_name check_ping
-command_line $USER1$/check_ping.pl -H $HOSTADDRESS$
-connector centreon_connector_perl
+    command_name check_ping
+    command_line $USER1$/check_ping.pl -H $HOSTADDRESS$
+    connector centreon_connector_perl
 }
 
 define command{
-command_name check_disk
-command_line $USER1$/check_disk.pl -H $HOSTADDRESS$ -D $ARG1$
-connector centreon_connector_perl
+    command_name check_disk
+    command_line $USER1$/check_disk.pl -H $HOSTADDRESS$ -D $ARG1$
+    connector centreon_connector_perl
 }
 ```
 
@@ -593,7 +584,7 @@ follow.
 
 * Centreon Engine creates a resident process of Centreon Connector Perl once
 * For all Perl scripts execution requests are forwarded to this process when requested to execute a script, Centreon
-Perl Connector checks if this script has already been parsed if not it parses it using the Embedded Perl interpreter.
+  Perl Connector checks if this script has already been parsed if not it parses it using the Embedded Perl interpreter.
 * Centreon Perl Connector forks itself.
 * The precompiled script gets executed
 

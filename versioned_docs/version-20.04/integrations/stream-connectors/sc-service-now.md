@@ -1,6 +1,6 @@
 ---
 id: servicenow
-title: ServiceNow Event Manager
+title: ServiceNow Event Manager 
 ---
 
 ## How it works
@@ -10,7 +10,7 @@ title: ServiceNow Event Manager
 Servicenow Stream-connector send business activities, hosts and services check results from
 centreon-engine to ServiceNow using its REST API and ServiceNow Event Manager
 
-You can send the data you want to your ServiceNow instance, simply pick the implementation which best match your needs:
+You can send the data you want to your ServiceNow instance, simply pick the implementation which best match your needs: 
 
 ![architecture](../../assets/integrations/external/sc-servicenow-centreon.png)
 
@@ -41,16 +41,16 @@ to be processed in Service Now.
 
 ## Compatibility
 
-- Madrid
-- New York
-- Orlando
-- Quebec
+ - Madrid
+ - New York
+ - Orlando
+ - Quebec
 
 ## Requirements
 
 * ServiceNow Event Manager integration requires an **Event Manager License**
 * A ServiceNow OAuth account is needed for the stream connector to POST events over the Snow API. Refer to their [official documentation](https://docs.servicenow.com/bundle/orlando-platform-administration/page/administer/security/task/t_CreateEndpointforExternalClients).
-* The ServiceNow account must have the following privileges: evt_mgmt_integration
+* The ServiceNow account must have the following privileges: evt_mgmt_integration 
 * It is also necessary to use a Centreon account with either **admin privileges** or **Export configuration** and **Broker configuration** menu access in the WUI, as well as a **`root` access in command-line interface**.
 
 ## Integration Walkthrough
@@ -59,13 +59,13 @@ to be processed in Service Now.
 
 Login as `root` on the Centreon central server using your favorite SSH client.
 
-Install the required lua dependencies distributed through Centreon official repositories:
+Install the required lua dependencies distributed through Centreon official repositories: 
 
 ```bash
 yum install -y lua-curl
 ```
 
-Download the connector source code:
+Download the connector source code: 
 
 ```bash
 wget -O /usr/share/centreon-broker/lua/servicenow.lua https://raw.githubusercontent.com/centreon/centreon-stream-connector-scripts/master/centreon-certified/servicenow/servicenow-apiv1.lua
@@ -105,7 +105,7 @@ To make sure that everything goes fine, you should have a look at `central-broke
 
 #### Advanced configuration
 
-**Event filtering**
+**Event filtering** 
 
 To optimize datas passing through the Stream-connector, you can optionnaly select *Neb* in Filter Category.
 

@@ -22,25 +22,25 @@ following configurations.
 
 For any remote acces, you must create an Asterisk user:
 
-vi /etc/aserisk/manager.conf
+    vi /etc/aserisk/manager.conf
 
 example of user:
 
-[xivo_centreon_user]
-secret = centreon
-deny=0.0.0.0/0.0.0.0
-permit=127.0.0.1/255.255.255.0
-read = system,call,log,verbose,command,agent,user,dtmf
-write = system,call,log,verbose,command,agent,user,dtmf
+    [xivo_centreon_user]
+    secret = centreon
+    deny=0.0.0.0/0.0.0.0
+    permit=127.0.0.1/255.255.255.0
+    read = system,call,log,verbose,command,agent,user,dtmf
+    write = system,call,log,verbose,command,agent,user,dtmf
 
 In te newly created user, add a *permit* line to allow the centreon server to
 conect to the AMI:
 
-vi /etc/aserisk/manager.conf
+    vi /etc/aserisk/manager.conf
 
 example:
 
-permit=10.30.2.32/255.255.255.0
+    permit=10.30.2.32/255.255.255.0
 
 ## Centreon Configuration
 

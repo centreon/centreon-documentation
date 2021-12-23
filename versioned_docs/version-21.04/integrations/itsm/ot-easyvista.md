@@ -37,12 +37,12 @@ Our provider requires the following parameters:
 
 As of now, the provider is able to open a ticket with the following parameters
 
-- Requestor
-- Urgency
-- Severity
-- Asset
-- External reference
-- Phone
-- Recipient
-- Origin
-- CI
+  - Requestor
+  - Urgency
+  - Severity
+  - Asset
+  - External reference
+  - Phone
+  - Recipient
+  - Origin
+  - CI

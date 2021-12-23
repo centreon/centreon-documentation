@@ -2,9 +2,6 @@
 id: cloud-azure-management-discover
 title: Azure Discover
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Vue d'ensemble
 
@@ -39,50 +36,51 @@ et notez celles-ci en lieu sûr. Elles seront en effet indispensables lors de la
 dans Centreon.
 
 * Create an *application* in Azure Active Directory:
-- Log in to your Azure account.
-- Select *Azure Active directory* in the left sidebar.
-- Click on *App registrations*.
-- Click on *+ Add*.
-- Enter Centreon as the application name (or any name of your choice), select application type(api) and sign-on-url.
-- Click on the *Create* button.
+    - Log in to your Azure account.
+    - Select *Azure Active directory* in the left sidebar.
+    - Click on *App registrations*.
+    - Click on *+ Add*.
+    - Enter Centreon as the application name (or any name of your choice), select application type(api) and sign-on-url.
+    - Click on the *Create* button.
 
 * Get *Subscription ID*
-- Log in to your Azure account.
-- Select *Subscriptions* in the left sidebar.
-- Select whichever subscription is needed.
-- Click on *Overview*.
-- **Copy the Subscription ID.**
+    - Log in to your Azure account.
+    - Select *Subscriptions* in the left sidebar.
+    - Select whichever subscription is needed.
+    - Click on *Overview*.
+    - **Copy the Subscription ID.**
 
 * Get *Tenant ID*
-- Log in to your Azure account.
-- Select *Azure Active directory* in the left sidebar.
-- Click on *Properties*.
-- **Copy the directory ID.**
+    - Log in to your Azure account.
+    - Select *Azure Active directory* in the left sidebar.
+    - Click on *Properties*.
+    - **Copy the directory ID.**
 
 * Get *Client ID*
-- Log in to your Azure account.
-- Select *Azure Active directory* in the left sidebar.
-- Click on *Enterprise applications*.
-- Click on *All applications*.
-- Select the application previously created.
-- Click on *Properties*.
-- **Copy the Application ID.**
+    - Log in to your Azure account.
+    - Select *Azure Active directory* in the left sidebar.
+    - Click on *Enterprise applications*.
+    - Click on *All applications*.
+    - Select the application previously created.
+    - Click on *Properties*.
+    - **Copy the Application ID.**
 
 * Get *Client secret*
-- Log in to your Azure account.
-- Select *Azure Active directory* in the left sidebar.
-- Click on *App registrations*.
-- Select the application previously created.
-- Click on *All settings*.
-- Click on *Keys*.
-- Enter the key description and select the duration.
-- Click on *Save*.
-- **Copy and store the key value. You won't be able to retrieve it after you leave this page.**
+    - Log in to your Azure account.
+    - Select *Azure Active directory* in the left sidebar.
+    - Click on *App registrations*.
+    - Select the application previously created.
+    - Click on *All settings*.
+    - Click on *Keys*.
+    - Enter the key description and select the duration.
+    - Click on *Save*.
+    - **Copy and store the key value. You won't be able to retrieve it after you leave this page.**
 
-## Installation
+## Installation 
 
-<Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant découvrir des resources Azure:
 
@@ -93,8 +91,7 @@ yum install centreon-plugin-Cloud-Azure-Management-Discover-Api
 2. Sur l'interface Web Centreon, installer le Plugin Pack *Azure Discover* depuis la page "Configuration > Plugin packs > Manager".
 Des Plugin Packs supplémentaires seront installés en dépendance afin de permettre la supervision de l'ensemble des ressources découvertes.
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant découvrir des resources Azure:
 
@@ -111,8 +108,7 @@ yum install centreon-pack-cloud-azure\*
 3. Sur l'interface Web Centreon, installer le Plugin Pack *Azure Discover* depuis la page "Configuration > Plugin packs > Gestionnaire".
 Les Plugin Packs supplémentaires seront installés en dépendance afin de permettre la supervision de l'ensemble des ressources découvertes.
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Paramétrer une découverte
 
@@ -120,7 +116,7 @@ Les Plugin Packs supplémentaires seront installés en dépendance afin de perme
 
 ### Paramètres d'accès
 
-Après avoir sélectionné le provider **Azure Management Discover**, renseignez les paramètres d'authentification ainsi que les options
+Après avoir sélectionné le provider **Azure Management Discover**, renseignez les paramètres d'authentification ainsi que les options 
 d'accès à l'API comme ci-après:
 
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-management-discover-accessparameters.png)
@@ -148,18 +144,18 @@ Renseignez si besoin les information ci-après:
 
 - Azure Location/Resource Group: permet de restreindre la découverte à une *location* ou un *resource group* donné
 - Filter on namespace/type: permet de restreindre la découverte à un Service Azure spécifique, par exemple:
-- *Resource namepsace*: 'Microsoft.Compute'
-- *Resource type*: 'virtualMachines'
+    - *Resource namepsace*: 'Microsoft.Compute'
+    - *Resource type*: 'virtualMachines'
 > ** Attention** : pour l'utilisation de ce filtre,
 > les champs *Resource namepsace* et *Resource type* doivent dans ce cas être **tous les deux** renseignés
 
 ### Lancement de la découverte et affichage des résultats
 
 L'étape 4 permet d'ajuster les *mappers*; ceux-ci sont déjà prédéfinis par le Plugin Pack, il n'est normalement pas
-nécessaire de les modifier dans le cadre d'un *job* de découverte *standard*. Si besoin, référez-vous à la
+nécessaire de les modifier dans le cadre d'un *job* de découverte *standard*. Si besoin, référez-vous à la 
 [documentation des mappers](../../../monitoring/discovery/hosts-discovery#comment-utiliser-les-modificateurs).
 
-Les étapes 5 & 6 permettent d'ajuster la politique de modélisation des résultats si besoin. Rendez-vous
+Les étapes 5 & 6 permettent d'ajuster la politique de modélisation des résultats si besoin. Rendez-vous 
 [ici](../../../monitoring/discovery/hosts-discovery#définir-les-politiques-danalyse-et-de-mise-à-jour) pour plus d'informations.
 
 Une fois la découverte terminé, vous pouvez afficher les résultats en cliquant sur *job results*. Les modèles relatifs aux types de resources
@@ -173,23 +169,23 @@ Azure sont automatiquement appliqués:
 
 Sélectionnez les éléments à modéliser dans Centreon et *Sauvegardez*.
 
-## Diagnostic des erreurs communes
+## Diagnostic des erreurs communes  
 
 ### Les identifiants ont changé et la découverte ne fonctionne plus
 
-Le Plugin de découverte utilise un fichier de cache pour conserver les informations de connexion afin de ne pas
-se ré-authentifier à chaque appel. Si des informations sur le Tenant, la Souscription ou les
-Client ID / Secret changent, il est nécessaire de supprimer le fichier de cache du Plugin.
+Le Plugin de découverte utilise un fichier de cache pour conserver les informations de connexion afin de ne pas 
+se ré-authentifier à chaque appel. Si des informations sur le Tenant, la Souscription ou les 
+Client ID / Secret changent, il est nécessaire de supprimer le fichier de cache du Plugin. 
 
 Celui ci se trouve dans le répertoire ```/var/lib/centreon/centplugins/``` avec le nom `azure_api_<md5>_<md5>_<md5>_<md5>`.
 
 ### ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```
 
-le *job* de découverte renvoie le message suivant :
+le *job* de découverte renvoie le message suivant : 
 ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```.
 
-Cela signifie que l'un des paramètres utilisés pour authentifier la requête est incorrect. Le paramètre
-en question est spécifié dans le message d'erreur en lieu et place de 'ERROR_NAME'.
+Cela signifie que l'un des paramètres utilisés pour authentifier la requête est incorrect. Le paramètre 
+en question est spécifié dans le message d'erreur en lieu et place de 'ERROR_NAME'. 
 
 Par exemple, 'invalid_client' signifie que le client-id et/ou le client-secret
 n'est (ne sont) pas valide(s).

@@ -7,23 +7,23 @@ title: Dell Compellent API
 
 This plugin pack requires the use of:
 
-- the Dell Storage Enterprise Manager provided
-[here](http://www.dell.com/support/home/us/en/19/Drivers/DriversDetails?driverId=7KXTW)
-- NSClient++ package provided by Centreon, installed and configured on your
-target server as described on
-[documentation](http://documentation.centreon.com)
+  - the Dell Storage Enterprise Manager provided
+    [here](http://www.dell.com/support/home/us/en/19/Drivers/DriversDetails?driverId=7KXTW)
+  - NSClient++ package provided by Centreon, installed and configured on your
+    target server as described on
+    [documentation](http://documentation.centreon.com)
 
 Powershell and `DellStorage.ApiCommandSet.dll` have to be installed on
 Windows Server. You'll need to add the file `powershell.exe.config` in directory
 `C:WindowsSystem32WindowsPowerShellv1.0`:
 
-`<?xml version="1.0"?>`
-<configuration>
-<startup useLegacyV2RuntimeActivationPolicy="true">
-<supportedRuntime version="v4.0.30319"/>
-<supportedRuntime version="v2.0.50727"/>
-</startup>
-</configuration>
+    <?xml version="1.0"?>
+    <configuration>
+        <startup useLegacyV2RuntimeActivationPolicy="true">
+            <supportedRuntime version="v4.0.30319"/>
+            <supportedRuntime version="v2.0.50727"/>
+        </startup> 
+    </configuration>
 
 If you use the NSClient++ installer provided by Centreon, the plugin is
 already included in centreon\_plugins.exe configured in NSClient++

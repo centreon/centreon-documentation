@@ -2,9 +2,6 @@
 id: applications-monitoring-centreon-ha
 title: Centreon-HA
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Overview
 
@@ -27,47 +24,44 @@ It consequently uses both **SNMP** and **SSH** protocols to access a Centreon-HA
 
 ### Collected metrics
 
-<Tabs groupId="operating-systems">
-<TabItem value="PCSStatus" label="PCSStatus">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--PCS-Status-->
 
 This template does not collect metrics, but provides the general state of the cluster:
 
 * presence of "failed actions"
 * resources state:
-* `php7`
-* `cbd_rrd`
-* `vip`
-* `http`
-* `gorgone`
-* `centreon_central_sync`
-* `cbd_central_broker`
-* `centengine`
-* `centreontrapd`
-* `snmptrapd`
+  * `php7`
+  * `cbd_rrd`
+  * `vip`
+  * `http`
+  * `gorgone`
+  * `centreon_central_sync`
+  * `cbd_central_broker`
+  * `centengine`
+  * `centreontrapd`
+  * `snmptrapd`
 
-</TabItem>
-<TabItem value="proccorosync" label="proccorosync">
+<!--proc-corosync-->
 
 | Metric name | Description                                         | Unit  |
-| :---------- | :-------------------------------------------------- | :---- |
+|:------------|:----------------------------------------------------|:------|
 | nbproc      | Number of processes matching the filter: `corosync` | Count |
 
-</TabItem>
-<TabItem value="procpacemakerd" label="procpacemakerd">
+<!--proc-pacemakerd-->
 
 | Metric name | Description                                           | Unit  |
-| :---------- | :---------------------------------------------------- | :---- |
+|:------------|:------------------------------------------------------|:------|
 | nbproc      | Number of processes matching the filter: `pacemakerd` | Count |
 
-</TabItem>
-<TabItem value="procpcsd" label="procpcsd">
+<!--proc-pcsd-->
 
 | Metric name | Description                                     | Unit  |
-| :---------- | :---------------------------------------------- | :---- |
+|:------------|:------------------------------------------------|:------|
 | nbproc      | Number of processes matching the filter: `pcsd` | Count |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -100,7 +94,7 @@ Then run these commands on both nodes:
 ssh-keygen -t ed25519 -a 100
 ```
 
-We have generated a pair of keys on each server, and the `~/.ssh` directory.
+We have generated a pair of keys on each server, and the `~/.ssh` directory. 
 
 Run this command on the poller to display the user's public key:
 
@@ -132,8 +126,9 @@ usermod -a -G haclient centreon-engine
 
 ## Installation
 
-<Tabs groupId="licence-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor the Centreon-HA cluster:
 
@@ -143,8 +138,7 @@ yum install centreon-plugin-Operatingsystems-Linux-Snmp centreon-plugin-Applicat
 
 2. On the Centreon Web interface, install the *Centreon-HA* Plugin-Pack through "Configuration > Plugin packs > Manager" page.
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor the Centreon-HA cluster:
 
@@ -160,8 +154,7 @@ yum install centreon-pack-applications-monitoring-centreon-ha
 
 3. On the Centreon Web interface, install the *Centreon-HA* Plugin-Pack through "Configuration > Plugin packs > Manager" page.
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Host configuration
 
@@ -170,9 +163,9 @@ yum install centreon-pack-applications-monitoring-centreon-ha
 
 > When using SNMP v3, use the SNMPEXTRAOPTIONS Host Macro to add specific authentication parameters
 
-| Mandatory | Name             | Description                                 |
-| :-------- | :--------------- | :------------------------------------------ |
-|           | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo |
+| Mandatory | Name             | Description                                    |
+| :-------- | :--------------- | :--------------------------------------------- |
+|           | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo    |
 
 ## FAQ
 
@@ -182,12 +175,12 @@ Once the prerequisites have been met and the Plugin has been installed, the moni
 
 ```bash
 /usr/lib/centreon/plugins/centreon_pacemaker_ssh.pl \
---plugin=apps::pacemaker::local::plugin \
---mode=crm \
---hostname=10.0.0.1 \
---command='pcs' \
---command-options='status --full' \
---verbose
+    --plugin=apps::pacemaker::local::plugin \
+	--mode=crm \
+	--hostname=10.0.0.1 \
+	--command='pcs' \
+	--command-options='status --full' \
+	--verbose
 ```
 
 The output of this command should look like this:

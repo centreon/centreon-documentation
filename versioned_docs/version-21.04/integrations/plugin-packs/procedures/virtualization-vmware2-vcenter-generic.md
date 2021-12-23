@@ -2,9 +2,6 @@
 id: virtualization-vmware2-vcenter-generic
 title: VMware vCenter
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Overview
 
@@ -22,12 +19,13 @@ The Centreon Plugin and Plugin-Packs rely on the Centreon VMWare Connector to re
 
 ### Discovery Rules
 
-<Tabs groupId="operating-systems">
-<TabItem value="Services" label="Services">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Services-->
 
 | Rule name                                     | Description                                               |
 | :-------------------------------------------- | :-------------------------------------------------------- |
-| Virt-VMWare2-Datacenters-Alarm-Name           | Discover the Datacenters and monitor the alarms           |
+| Virt-VMWare2-Datacenters-Alarm-Name           | Discover the Datacenters and monitor the alarms           | 
 | Virt-VMWare2-vCenter-Clusters-Status-Name     | Discover the Clusters and monitor the status              |
 | Virt-VMWare2-vCenter-Datastores-Io-Name       | Discover Datastores and monitor the I/O                   |
 | Virt-VMWare2-vCenter-Datastores-Iops-Name     | Discover Datastores and monitor the IOPs                  |
@@ -36,26 +34,25 @@ The Centreon Plugin and Plugin-Packs rely on the Centreon VMWare Connector to re
 
 ### Collected Metrics
 
-</TabItem>
-<TabItem value="DatacenterAlarmsGlobal" label="DatacenterAlarmsGlobal">
+<!--DOCUSAURUS_CODE_TABS-->
 
-| Metric name                                     | Description                              | Unit  |
-| :---------------------------------------------- | :--------------------------------------- | :---- |
-| Status                                          | Status of the Datacenter                 |       |
-| datacenter.alarms.warning.current.count         | Number of Total warning alarms           | Count |
-| datacenter.alarms.critical.current.count        | Number of Total critical alarms          | Count |
-| dcname#datacenter.alarms.warning.current.count  | Number of warning alarms per Datacenter  | Count |
-| dcname#datacenter.alarms.critical.current.count | Number of critical alarms per Datacenter | Count |
+<!--Datacenter-Alarms-Global-->
 
-</TabItem>
-<TabItem value="ClusterStatusGlobal" label="ClusterStatusGlobal">
+| Metric name                                        | Description                              | Unit  |
+| :------------------------------------------------- | :--------------------------------------- | :---- |
+| Status                                             | Status of the Datacenter                 |       |
+| datacenter.alarms.warning.current.count            | Number of Total warning alarms           | Count |
+| datacenter.alarms.critical.current.count           | Number of Total critical alarms          | Count |
+| dcname#datacenter.alarms.warning.current.count     | Number of warning alarms per Datacenter  | Count |
+| dcname#datacenter.alarms.critical.current.count    | Number of critical alarms per Datacenter | Count |
+
+<!--Cluster-Status-Global-->
 
 | Metric name | Description           | Unit |
 | :---------- | :-------------------- | :--- |
 | Status      | Status of the Cluster |      |
 
-</TabItem>
-<TabItem value="DatastoreIoGlobal" label="DatastoreIoGlobal">
+<!--Datastore-Io-Global-->
 
 | Metric name                                        | Description              | Unit |
 | :------------------------------------------------- | :----------------------- | :--- |
@@ -64,8 +61,7 @@ The Centreon Plugin and Plugin-Packs rely on the Centreon VMWare Connector to re
 | datastorename#datastore.read.usage.bytespersecond  | Read rate per Datastore  | B/s  |
 | datastorename#datastore.write.usage.bytespersecond | Write rate per Datastore | B/s  |
 
-</TabItem>
-<TabItem value="DatastoreIopsGlobal" label="DatastoreIopsGlobal">
+<!--Datastore-Iops-Global-->
 
 | Metric name                   | Description                        | Unit |
 | :---------------------------- | :--------------------------------- | :--- |
@@ -74,8 +70,7 @@ The Centreon Plugin and Plugin-Packs rely on the Centreon VMWare Connector to re
 | datastore.vm.read.usage.iops  | Read IOPS per VM on the Datastore  | iops |
 | datastore.vm.write.usage.iops | Write IOPS per VM on the Datastore | iops |
 
-</TabItem>
-<TabItem value="DatastoreUsageGlobal" label="DatastoreUsageGlobal">
+<!--Datastore-Usage-Global-->
 
 | Metric name                       | Description                            | Unit |
 | :-------------------------------- | :------------------------------------- | :--- |
@@ -84,17 +79,15 @@ The Centreon Plugin and Plugin-Packs rely on the Centreon VMWare Connector to re
 | datastore.space.usage.percentage  | Usage of the Datastore in percentage   | %    |
 | datastore.space.provisioned.bytes | Provisioned Space allocated to the VMs | B    |
 
-</TabItem>
-<TabItem value="DatastoreVmCountGlobal" label="DatastoreVmCountGlobal">
+<!--Datastore-Vm-Count-Global-->
 
-| Metric name                           | Description                          | Unit  |
-| :------------------------------------ | :----------------------------------- | :---- |
-| datastore.vm.poweredon.current.count  | Number of powered on VMs on the ESX  | Count |
-| datastore.vm.poweredoff.current.count | Number of powered off VMs on the ESX | Count |
-| datastore.vm.suspended.current.count  | Number of suspended VMs on the ESX   | Count |
+| Metric name                            | Description                          | Unit  |
+| :------------------------------------- | :----------------------------------- | :---- |
+| datastore.vm.poweredon.current.count   | Number of powered on VMs on the ESX  | Count |
+| datastore.vm.poweredoff.current.count  | Number of powered off VMs on the ESX | Count |
+| datastore.vm.suspended.current.count   | Number of suspended VMs on the ESX   | Count |
 
-</TabItem>
-<TabItem value="VmToolsGlobal" label="VmToolsGlobal">
+<!--Vm-Tools-Global-->
 
 | Metric name                         | Description                                                   | Unit  |
 | :---------------------------------- | :------------------------------------------------------------ | :---- |
@@ -102,8 +95,7 @@ The Centreon Plugin and Plugin-Packs rely on the Centreon VMWare Connector to re
 | vm.tools.notrunning.current.count   | Number of VMs with VM-Tools not running (default threshold)   | Count |
 | vm.tools.notinstalled.current.count | Number of VMs with VM-Tools not installed (default threshold) | Count |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -122,13 +114,13 @@ To configure the access to your infrastructure, edit the
 
 ``` perl
 %centreon_vmware_config = (
-vsphere_server => {
-default => {
-url => 'https://<ip_hostname>/sdk',
-username => '<username>',
-password => '<password>'
-}
-}
+    vsphere_server => {
+        default => {
+            url => 'https://<ip_hostname>/sdk',
+            username => '<username>',
+            password => '<password>'
+        }
+    }
 );
 
 1;
@@ -145,19 +137,19 @@ structure:
 
 ``` perl
 %centreon_vmware_config = (
-vsphere_server => {
-'my_first_vcenter' => {
-url => 'https://<ip_hostname>/sdk',
-username => '<username>',
-password => '<password>'
-},
-'my_other_vcenter' => {
-url => 'https://<ip_hostname>/sdk',
-username => '<DOMAIN>\<username>',
-password => '<password>'
-},
-},
-port => 5700
+    vsphere_server => {
+        'my_first_vcenter' => {
+            url => 'https://<ip_hostname>/sdk',
+            username => '<username>',
+            password => '<password>'
+        },
+        'my_other_vcenter' => {
+            url => 'https://<ip_hostname>/sdk',
+            username => '<DOMAIN>\<username>',
+            password => '<password>'
+        },
+    },
+    port => 5700
 );
 
 1;
@@ -185,8 +177,9 @@ The Pollers that request the Centreon VMWare Connector host need to access in TC
 
 ## Installation
 
-<Tabs groupId="licence-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the VMWare Connector Centreon Plugin on every poller expected to monitor VMWare infrastructures:
 
@@ -194,10 +187,9 @@ The Pollers that request the Centreon VMWare Connector host need to access in TC
 yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 ```
 
-2. Install the 'Vmware vCenter' Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page
+2. Install the 'Vmware vCenter' Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page 
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the VMWare Connector Centreon Plugin on every poller expected to monitor the VMWare Infrastructures:
 
@@ -205,28 +197,27 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 ```
 
-2. Install the Centreon Plugin-Pack RPM:
+2. Install the Centreon Plugin-Pack RPM: 
 
 ```bash
 yum install centreon-pack-virtualization-vmware2-vcenter-generic.noarch
 ```
 
-3. Install the 'Vmware vCenter' Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page
+3. Install the 'Vmware vCenter' Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page 
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
 * Log into Centreon and add a new Host through "Configuration > Hosts".
 * Apply the relevant Host Template "Virt-VMWare2-VCenter-custom", and configure the mandatory Macros:
 
-| Mandatory | Name                       | Description                                           |
-| :-------- | :------------------------- | :---------------------------------------------------- |
-| X         | CENTREONVMWARECONTAINER    | Name of your container in the file centreon_vmware.pm |
-| X         | CENTREONVMWAREHOST         | The Centreon server that launches the connection      |
-| X         | CENTREONVMWAREPORT         | By default: 5700                                      |
-|           | CENTREONVMWAREEXTRAOPTIONS | Customize it with your own if needed                  |
+| Mandatory   | Name                       | Description                                            |
+| :---------- | :------------------------- | :----------------------------------------------------- |
+| X           | CENTREONVMWARECONTAINER    | Name of your container in the file centreon_vmware.pm  |
+| X           | CENTREONVMWAREHOST         | The Centreon server that launches the connection       |
+| X           | CENTREONVMWAREPORT         | By default: 5700                                       |
+|             | CENTREONVMWAREEXTRAOPTIONS | Customize it with your own if needed                   |
 
 ## FAQ
 
@@ -236,21 +227,21 @@ Once you've installed the plugin, you can test it logging with centreon-engine u
 
 ```bash
 /usr/lib/centreon/plugins//centreon_vmware_connector_client.pl \
---plugin=apps::vmware::connector::plugin \
---mode=snapshot-vm \
---custommode=connector \
---connector-hostname='localhost' \
---connector-port='5700' \
---container='vcenter01' \
---vm-hostname='.*' \
---filter \
---filter-uuid='' \
---warning='259200' \
---critical='432000' \
---disconnect-status='ok' \
---nopoweredon-skip \
---check-consolidation \
---verbose
+    --plugin=apps::vmware::connector::plugin \
+    --mode=snapshot-vm \
+    --custommode=connector \
+    --connector-hostname='localhost' \
+    --connector-port='5700' \
+    --container='vcenter01' \
+    --vm-hostname='.*' \
+    --filter \
+    --filter-uuid='' \
+    --warning='259200' \
+    --critical='432000' \
+    --disconnect-status='ok' \
+    --nopoweredon-skip \
+    --check-consolidation \
+    --verbose
 ```
 
 Expected command output is shown below:
@@ -267,21 +258,21 @@ Then the command requests the container **vcenter01** (```--container='vcenter01
 It will trigger a WARNING alarm if the age of the snapshot is older than 3 days / 259200s (```--warning='259200'```)
 and a CRITICAL alarm if the snapshot is older than 5 days / 432000s (```--critical='432000'```).
 
-All available modes with the plugin can be displayed with:
+All available modes with the plugin can be displayed with: 
 
 ```bash
 /usr/lib/centreon/plugins/./centreon_vmware_connector_client.pl \
---plugin=apps::vmware::connector::plugin \
---list-mode
+    --plugin=apps::vmware::connector::plugin \
+    --list-mode
 ```
 
-The available options for a mode can be displayed using the ```--help``` parameter:
+The available options for a mode can be displayed using the ```--help``` parameter: 
 
 ```bash
 /usr/lib/centreon/plugins/./centreon_vmware_connector_client.pl \
---plugin=apps::vmware::connector::plugin \
---mode=snapshot-vm  \
---help
+    --plugin=apps::vmware::connector::plugin \
+    --mode=snapshot-vm  \
+    --help
 ```
 
 ### Why do I get the following error:
@@ -291,7 +282,7 @@ The available options for a mode can be displayed using the ```--help``` paramet
 This error message means that the container invoked in the command doesn't exist in your VMWare connector configuration.
 Check your macro **CENTREONVMWARECONTAINER** on your host or check the file */etc/centreon/centreon_vmware.pm*
 
-#### UNKNOWN: Cannot get response (timeout received)
+#### UNKNOWN: Cannot get response (timeout received) 
 
 This error message means that the Plugin didn't get a response off the VMWare Daemon.
 Check your connection parameters and the macros **CENTREONVMWAREHOST** and **CENTREONVMWAREPORT**.

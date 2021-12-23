@@ -2,9 +2,6 @@
 id: applications-vernemq-restapi
 title: VerneMQ Restapi
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Overview
 
@@ -21,41 +18,38 @@ The VerneMQ Plugin-Pack monitors Clusters, Listeners, Plugins, and sessions usin
 
 More information about collected metrics is available in the official VerneMQ documentation : https://docs.vernemq.com/monitoring/introduction
 
-<Tabs groupId="operating-systems">
-<TabItem value="Clusters" label="Clusters">
+<!--DOCUSAURUS_CODE_TABS-->
 
-| Metric name               | Description                   | Unit  |
-| :------------------------ | :---------------------------- | :---- |
-| status                    | Status of clusters            |       |
-| clusters.running.count    | Number of clusters running    | count |
-| clusters.notrunning.count | Number of cluster not running | count |
+<!--Clusters-->
 
-</TabItem>
-<TabItem value="Listeners" label="Listeners">
+| Metric name                      | Description                         | Unit  |
+| :------------------------------- | :---------------------------------- | :---- |
+| status                           | Status of clusters                  |       |
+| clusters.running.count           | Number of clusters running          | count |
+| clusters.notrunning.count        | Number of cluster not running       | count |
 
-| Metric name                | Description                     | Unit  |
-| :------------------------- | :------------------------------ | :---- |
-| status                     | Status of listeners             |       |
-| listeners.running.count    | Number of listeners running     | count |
-| listeners.notrunning.count | Number of listeners not running | count |
+<!--Listeners-->
 
-</TabItem>
-<TabItem value="Plugins" label="Plugins">
+| Metric name                      | Description                         | Unit  |
+| :------------------------------- | :---------------------------------- | :---- |
+| status                           | Status of listeners                 |       |
+| listeners.running.count          | Number of listeners running         | count |
+| listeners.notrunning.count       | Number of listeners not running     | count |
 
-| Metric name         | Description             | Unit  |
-| :------------------ | :---------------------- | :---- |
-| plugins.total.count | Total number of plugins | count |
+<!--Plugins-->
 
-</TabItem>
-<TabItem value="Sessions" label="Sessions">
+| Metric name                      | Description                         | Unit  |
+| :------------------------------- | :---------------------------------- | :---- |
+| plugins.total.count              | Total number of plugins             | count |
 
-| Metric name           | Description               | Unit  |
-| :-------------------- | :------------------------ | :---- |
-| sessions.online.count | Number of sessions online | count |
-| sessions.total.count  | Total number of sessions  | count |
+<!--Sessions-->
 
-</TabItem>
-</Tabs>
+| Metric name                      | Description                         | Unit  |
+| :------------------------------- | :---------------------------------- | :---- |
+| sessions.online.count            | Number of sessions online           | count |
+| sessions.total.count             | Total number of sessions            | count |
+
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -66,7 +60,7 @@ Their release cycle may lag behind VerneMQ source releases.
 More information is available on the official documentation of VerneMQ : https://docs.vernemq.com/getting-started
 
 The VerneMQ HTTP API is enabled by default and installs an HTTP handler on `http://myvernemq.com:8888/api/v1`.
-The centreon-engine user performs a RestAPI request to this system.
+The centreon-engine user performs a RestAPI request to this system. 
 You must have generated one Token on VerneMQ server with the following command :
 
 ```bash
@@ -77,8 +71,9 @@ More information on VerneMQ HTTP API on : https://docs.vernemq.com/administratio
 
 ## Setup
 
-<Tabs groupId="licence-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin on every Poller monitoring VerneMQ resources:
 
@@ -88,8 +83,7 @@ yum install centreon-plugin-Applications-Vernemq-Restapi.noarch
 
 2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *VerneMQ RestAPI* Plugin-Pack
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin on every Poller monitoring VerneMQ resources:
 
@@ -105,21 +99,21 @@ yum install centreon-pack-applications-vernemq-restapi.noarch
 
 3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *VerneMQ RestAPI* Plugin-Pack
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
 Adding a Host into Centreon, link it to the Template named *App-Vernemq-Restapi-custom*.
 Once the template applied, some Macros have to be configured:
 
-| Mandatory | Name            | Description                                         |
-| :-------- | :-------------- | :-------------------------------------------------- |
-| X         | APIPORT         | Port used. Default is 8888                          |
-| X         | APIPROTO        | Protocol used. Default is http                      |
-| X         | APIKEY          | VerneMQ API Token                                   |
-|           | APIEXTRAOPTIONS | Any extra option you may want to add to the command |
+| Mandatory   | Name             | Description                                         |
+| :---------- | :--------------- | :-------------------------------------------------- |
+| X           | APIPORT          | Port used. Default is 8888                          |
+| X           | APIPROTO         | Protocol used. Default is http                      |
+| X           | APIKEY           | VerneMQ API Token                                   |
+|             | APIEXTRAOPTIONS  | Any extra option you may want to add to the command |
 
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## FAQ
 
@@ -129,33 +123,33 @@ Once the Plugin installed, log into your poller using the *centreon-engine* user
 
 ```bash
 /usr/lib/centreon/plugins/centreon_vernemq_restapi.pl \
---plugin=apps::mq::vernemq::restapi::plugin \
---mode='sessions' \
---hostname='myvernemq.com' \
---port='8888' \
---proto='http' \
---api-key='12342939495003' \
---warning-total='15' \
---critical-total='20' \
---verbose
-
-OK: Sessions current online: 14, current total: 14
+	--plugin=apps::mq::vernemq::restapi::plugin \
+	--mode='sessions' \
+	--hostname='myvernemq.com' \
+	--port='8888' \
+	--proto='http' \
+	--api-key='12342939495003' \
+	--warning-total='15' \
+	--critical-total='20' \
+	--verbose
+	
+OK: Sessions current online: 14, current total: 14 
 | 'sessions.online.count'=14;;;0; 'sessions.total.count'=14;;;15;20
 ```
 
 The command above gets the sessions of a VerneMQ RestAPI (```--mode=sessions```).
 It uses _api-key_, VerneMQ Token, (```--api-key='12342939495003'```)
-and it connects to the Host _myvernemq.com_ (```--Hostname='myvernemq.com'```)
+and it connects to the Host _myvernemq.com_ (```--Hostname='myvernemq.com'```) 
 on the port 8888 (```--port='8888'```) using http (```--proto='http'```).
 
 ```bash
 /usr/lib/centreon/plugins/centreon_vernemq_restapi.pl \
---plugin=apps::mq::vernemq::restapi::plugin \
---mode='sessions' \
---help
+	--plugin=apps::mq::vernemq::restapi::plugin \
+	--mode='sessions' \
+	--help
 ```
 
-### Why do I get the following error:
+### Why do I get the following error: 
 
 #### ```UNKNOWN: 500 Can't connect to myvernemq.com:8888```
 
@@ -163,7 +157,7 @@ This error message means that the Centreon Plugin couldn't successfully connect 
 Check that no third party device (such as a firewall) is blocking the request.
 A proxy connection may also be necessary to connect to the API. This can be done by using the ```--proxyurl='http://proxy.mycompany:8080'``` option in the command.
 
-#### ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |```
+#### ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |``` 
 
 When using a proxy to connect to the VerneMQ RestAPI, this error message means that the Centreon Plugin library does not support
 the proxy connection protocol.

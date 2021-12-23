@@ -2,13 +2,10 @@
 id: prerequisites
 title: Prérequis
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 L'interface Centreon web est compatible avec les navigateurs web suivants :
 
-* Google Chrome (version la plus récente lors de la sortie du logiciel Centreon, et suivantes).  Rendez-vous sur la [FAQ de Google Chrome](https://support.google.com/chrome/a/answer/188447?hl=fr) pour consuler la politique de support Chrome.
+* Google Chrome (version la plus récente lors de la sortie du logiciel Centreon, et suivantes).  Rendez-vous sur la [FAQ de Google Chrome](https://support.google.com/chrome/a/answer/188447?hl=fr) pour consuler la politique de support Chrome. 
 * Mozilla Firefox (version la plus récente lors de la sortie du logiciel Centreon, et suivantes).  Rendez-vous sur la [FAQ Mozilla](https://www.mozilla.org/en-US/firefox/organizations/faq/) pour consuler la politique de support Firefox.
 * Apple Safari (version la plus récente lors de la sortie du logiciel Centreon, et suivantes)
 * Microsoft Edge Chromium (version la plus récente lors de la sortie du logiciel Centreon, et suivantes)
@@ -159,9 +156,8 @@ Description des partitions :
 
 Description des logiciels et utilisateurs liés :
 
-<Tabs groupId="operating-systems">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
-
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 | Logiciel          | Service          | Utilisateur      | Commentaire     |
 | ----------------- | ---------------- | ---------------- | --------------- |
 | Apache            | httpd            | apache           | automatic start |
@@ -172,10 +168,7 @@ Description des logiciels et utilisateurs liés :
 | Centreon Broker   | cbd              | centreon-broker  | automatic start |
 | Centreon Engine   | centengine       | centreon-engine  | automatic start |
 | Centreon Gorgone  | gorgoned         | centreon-gorgone | automatic start |
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
+<!--CentOS 7-->
 | Logiciel          | Service          | Utilisateur      | Commentaire     |
 |-------------------|------------------|------------------|-----------------|
 | Apache            | httpd24-httpd    | apache           | automatic start |
@@ -186,8 +179,7 @@ Description des logiciels et utilisateurs liés :
 | Centreon Broker   | cbd              | centreon-broker  | automatic start |
 | Centreon Engine   | centengine       | centreon-engine  | automatic start |
 | Centreon Gorgone  | gorgoned         | centreon-gorgone | automatic start |
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 Description des logiciels optionnels et utilisateurs liés :
 

@@ -2,9 +2,6 @@
 id: network-aruba-aoscx-snmp
 title: ArubaOS-CX SNMP
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Contenu du Plugin Pack
 
@@ -18,20 +15,21 @@ Le Plugin Pack ArubaOS-CX SNMP collecte les données pour:
 
 ### Règles de découvertes
 
-<Tabs groupId="operating-systems">
-<TabItem value="Services" label="Services">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Services-->
 
 | Nom de la règle                      | Description                                                                                  |
 | :----------------------------------- | :------------------------------------------------------------------------------------------- |
 | Net-Aruba-Aoscx-SNMP-Interface-Name  | Découvre les interfaces réseaux et supervise le statut et l'utilisation de la bande passante |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Métriques collectées
 
-<Tabs groupId="operating-systems">
-<TabItem value="Hardware" label="Hardware">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Hardware-->
 
 | Metric name                                 | Description                           | Unit |
 | :------------------------------------------ | :------------------------------------ | :--- |
@@ -42,8 +40,7 @@ Le Plugin Pack ArubaOS-CX SNMP collecte les données pour:
 | temperature status                          | Status of the sensor                  |      |
 | *sensor\_name*#hardware.temperature.celsius | Temperature of the sensor             | C    |
 
-</TabItem>
-<TabItem value="Interfaces" label="Interfaces">
+<!--Interfaces-->
 
 | Metric name                                            | Description                                         | Unit |
 | :----------------------------------------------------- | :-------------------------------------------------- | :--- |
@@ -55,8 +52,7 @@ Le Plugin Pack ArubaOS-CX SNMP collecte les données pour:
 
 A regexp filter is available to target a specific interface identifier - ifName [```--interface='^eth0$' --name```]
 
-</TabItem>
-<TabItem value="Vsf" label="Vsf">
+<!--Vsf-->
 
 | Metric name                                     | Description              | Unit |
 | :---------------------------------------------- | :----------------------- | :--- |
@@ -67,8 +63,7 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | *member\_id*\#member.cpu.utilization.percentage | CPU utilization          | %    |
 | *member\_id*\#member.memory.usage.percentage    | Memory usage             | %    |
 
-</TabItem>
-<TabItem value="Vsx" label="Vsx">
+<!--Vsx-->
 
 | Metric name                     | Description                                       | Unit |
 | :------------------------------ | :------------------------------------------------ | :--- |
@@ -80,19 +75,19 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | vsx.keepalive.packets.in.count  | Incoming keepalive packets going through the link |      |
 | vsx.keepalive.packets.out.count | Outgoing keepalive packets going through the link |      |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
-Afin de contrôler votre équipement Aruba, le SNMP doit être configuré.
+Afin de contrôler votre équipement Aruba, le SNMP doit être configuré. 
 
 Le flux SNMP UDP/161 doit être ouvert entre le Collecteur et l'équipement.
 
 ## Installation
 
-<Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -102,8 +97,7 @@ yum install centreon-plugin-Network-Aruba-Aoscx-Snmp
 
 2. Sur l'interface Web de Centreon, installer le Plugin Pack *ArubaOS-CX SNMP* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -119,8 +113,7 @@ yum install centreon-pack-network-aruba-aoscx-snmp
 
 3. Sur l'interface Web de Centreon, installer le Plugin Pack *ArubaOS-CX SNMP* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
@@ -142,14 +135,14 @@ depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-en
 
 ```bash
 /usr/lib/centreon/plugins/centreon_aruba_aoscx_snmp.pl \
---plugin=network::aruba::aoscx::snmp::plugin \
---mode=vsf \
---hostname=10.30.2.114 \
---snmp-version='2c' \
---snmp-community='aruba_ro' \
---warning-cpu-utilization='90' \
---critical-cpu-utilization='95' \
---verbose
+    --plugin=network::aruba::aoscx::snmp::plugin \
+    --mode=vsf \
+    --hostname=10.30.2.114 \
+    --snmp-version='2c' \
+    --snmp-community='aruba_ro' \
+    --warning-cpu-utilization='90' \
+    --critical-cpu-utilization='95' \
+    --verbose
 ```
 
 La commande devrait retourner un message de sortie de la forme ci-dessous:
@@ -157,24 +150,24 @@ La commande devrait retourner un message de sortie de la forme ci-dessous:
 ```bash
 OK: vsf operational status: no_split - All stack members are ok | '1#member.cpu.utilization.percentage'=16.00%;0:90;0:95;0;100 '1#member.memory.usage.percentage'=24.00%;;;0;100 '2#member.cpu.utilization.percentage'=4.00%;0:90;0:95;0;100 '2#member.memory.usage.percentage'=14.00%;;;0;100 '3#member.cpu.utilization.percentage'=4.00%;0:90;0:95;0;100 '3#member.memory.usage.percentage'=8.00%;;;0;100 '4#member.cpu.utilization.percentage'=4.00%;0:90;0:95;0;100 '4#member.memory.usage.percentage'=8.00%;;;0;100
 checking stack member '1'
-role: master [status: ready]
-cpu usage: 16.00%
-memory used: 24.00 %
+    role: master [status: ready]
+    cpu usage: 16.00%
+    memory used: 24.00 %
 checking stack member '2'
-role: standby [status: ready]
-cpu usage: 4.00%
-memory used: 14.00 %
+    role: standby [status: ready]
+    cpu usage: 4.00%
+    memory used: 14.00 %
 checking stack member '3'
-role: member [status: ready]
-cpu usage: 4.00%
-memory used: 8.00 %
+    role: member [status: ready]
+    cpu usage: 4.00%
+    memory used: 8.00 %
 checking stack member '4'
-role: member [status: ready]
-cpu usage: 4.00%
-memory used: 8.00 %
+    role: member [status: ready]
+    cpu usage: 4.00%
+    memory used: 8.00 %
 ```
 
-Cette commande contrôle les vsf (```--mode=vsf```) d'un équipement Aruba ayant pour adresse *10.30.2.114* (```--hostname=10.30.2.114```)
+Cette commande contrôle les vsf (```--mode=vsf```) d'un équipement Aruba ayant pour adresse *10.30.2.114* (```--hostname=10.30.2.114```) 
 en version *2c* du protocol SNMP (```--snmp-version='2c'```) et avec la communauté *infoblox_ro* (```--snmp-community='aruba_ro'```).
 
 Cette commande déclenchera une alarme WARNING si l'utilisation processeur est supérieur à 90% (```--warning-cpu-utilization='90'```)
@@ -185,21 +178,21 @@ en ajoutant le paramètre ```--help``` à la commande:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_aruba_aoscx_snmp.pl \
---plugin=network::aruba::aoscx::snmp::plugin \
---mode=vsf \
---help
+    --plugin=network::aruba::aoscx::snmp::plugin \
+    --mode=vsf \
+    --help
 ```
 
 ## J'obtiens le message d'erreur suivant:
 
 ### UNKNOWN: SNMP GET Request : Timeout
 
-Si vous obtenez ce message, cela signifie que vous ne parvenez pas à contacter l'équipement sur le port 161,
-ou alors que la communauté SNMP configurée n'est pas correcte.
+Si vous obtenez ce message, cela signifie que vous ne parvenez pas à contacter l'équipement sur le port 161, 
+ou alors que la communauté SNMP configurée n'est pas correcte. 
 Il est également possible qu'un firewall bloque le flux.
 
 ### UNKNOWN: SNMP GET Request : Cant get a single value.
 
-Si vous rencontrez cette erreur, il est probable que les autorisations données à l'agent SNMP soient trop restreintes.
-* L'équipement ne prend pas en charge la MIB utilisée par le Plugin (branche: .1.3.6.1.4.1.47196.4).
-* L'OID SNMP ciblé ne peut pas être récupéré en raison de privilèges d'équipement insuffisants.
+Si vous rencontrez cette erreur, il est probable que les autorisations données à l'agent SNMP soient trop restreintes. 
+ * L'équipement ne prend pas en charge la MIB utilisée par le Plugin (branche: .1.3.6.1.4.1.47196.4).
+ * L'OID SNMP ciblé ne peut pas être récupéré en raison de privilèges d'équipement insuffisants.

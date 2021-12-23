@@ -17,19 +17,19 @@ Go to the **Monitoring \> Performances \> Curves** menu
 
 * The **Template Name** field defines the name of the model.
 * The **Hosts/Service Data Source** lists defines the host/service for which this curve will be used. If this information
-is not filled in, this curve definition will be applied to all services in which this metric appears.
+  is not filled in, this curve definition will be applied to all services in which this metric appears.
 * The **Data Source Name** field can be used to select the metric which will use this definition. The **List of known metrics**
-list can be used to choose the already existing metrics used by the services.
+  list can be used to choose the already existing metrics used by the services.
 * If the **Stack** box is checked, this curve will be stacked on the others (useful to see the proportion of one metric in
-relation to another).
+  relation to another).
 * If the **Stack** box is checked, the **Order** list can be used to define the order display / stacking of the curve (the
-smaller the number, the closer it will be to the x-axis).
+  smaller the number, the closer it will be to the x-axis).
 * If the **Invert** box is checked, the curve is reversed (opposite to the absolute value) in relation to the y-axis (useful
-for seeing the proportion of the incoming traffic compared to the outgoing traffic).
+  for seeing the proportion of the incoming traffic compared to the outgoing traffic).
 * The **Thickness** list expresses the thickness of the line of the curve (expressed in pixels).
 * The **Line color** field defines the color of the curve.
 * The **Area color** field concerns the filling color of the curve if the Filling option is checked, (see below). It contains
-3 fields that correspond with the colors of the OK, WARNING and CRITICAL statuses respectively.
+  3 fields that correspond with the colors of the OK, WARNING and CRITICAL statuses respectively.
 * The **Transparency** field defines the level of transparency of the contour color.
 * If the **Filling** box is checked, all the curve is filled with the color of the area defined according to the status.
 
@@ -55,7 +55,7 @@ Stacked curves:
 Reversed curves:
 
 ![image](../assets/metrology/02graphinverse.png)
-
+ 
 Curves with filling:
 
 ![image](../assets/metrology/02graphremplissage.png)

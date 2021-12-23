@@ -2,9 +2,6 @@
 id: using-packages
 title: Using packages
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 Centreon provides RPM packages for its products through the Centreon Open
 Source version available free of charge in our repository.
@@ -22,21 +19,16 @@ You must run the installation procedure as a privileged user.
 After installing your server, update your operating system using the following
 command:
 
-<Tabs groupId="operating-systems">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
-
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
 dnf update
 ```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
+<!--CentOS 7-->
 ```shell
 yum update
 ```
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 > Accept all GPG keys and reboot your server if a kernel update is
 > proposed.
@@ -80,9 +72,8 @@ systemctl disable firewalld
 
 ### Install the repositories
 
-<Tabs groupId="operating-systems">
-<TabItem value="RHEL 8" label="RHEL 8">
-
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL 8-->
 #### Redhat CodeReady Builder repository
 
 To install Centreon you will need to enable the official CodeReady Builder
@@ -115,10 +106,7 @@ php                                      7.4                                    
 
 Hint: [d]efault, [e]nabled, [x]disabled, [i]nstalled
 ```
-
-</TabItem>
-<TabItem value="CentOS 8" label="CentOS 8">
-
+<!--CentOS 8-->
 #### Redhat PowerTools repository
 
 To install Centreon you will need to enable the official PowerTools repository
@@ -128,16 +116,16 @@ Enable the PowerTools repository using these commands:
 
 - For Centos 8.2:
 
-```shell
-dnf -y install dnf-plugins-core epel-release
-dnf config-manager --set-enabled PowerTools
-```
+    ```shell
+    dnf -y install dnf-plugins-core epel-release
+    dnf config-manager --set-enabled PowerTools
+    ```
 
 - For CentOS 8.3 and CentOS Stream:
-```shell
-dnf -y install dnf-plugins-core epel-release
-dnf config-manager --set-enabled powertools
-```
+    ```shell
+    dnf -y install dnf-plugins-core epel-release
+    dnf config-manager --set-enabled powertools
+    ```
 
 Enable PHP 7.3 using the following command:
 ```shell
@@ -159,10 +147,7 @@ php                                      7.4                                    
 
 Hint: [d]efault, [e]nabled, [x]disabled, [i]nstalled
 ```
-
-</TabItem>
-<TabItem value="Oracle Linux 8" label="Oracle Linux 8">
-
+<!--Oracle Linux 8-->
 #### Oracle CodeReady Builder repository
 
 To install Centreon you will need to enable the official Oracle CodeReady
@@ -195,10 +180,7 @@ php                                 7.4                                    commo
 
 Hint: [d]efault, [e]nabled, [x]disabled, [i]nstalled
 ```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
+<!--CentOS 7-->
 #### Redhat Software Collections repository
 
 To install Centreon you will need to set up the official Software Collections
@@ -209,8 +191,7 @@ Install the Software Collections repository using this command:
 ```shell
 yum install -y centos-release-scl
 ```
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 #### Centreon repository
 
@@ -219,21 +200,16 @@ centreon-release package, which will provide the repository file.
 
 Install the Centreon repository using this command:
 
-<Tabs groupId="operating-systems">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
-
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
 dnf install -y https://yum.centreon.com/standard/21.04/el8/stable/noarch/RPMS/centreon-release-21.04-6.el8.noarch.rpm
 ```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
+<!--CentOS 7-->
 ```shell
 yum install -y https://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-6.el7.centos.noarch.rpm
 ```
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Step 2: Installation
 
@@ -244,25 +220,20 @@ a remote database on a dedicated server.
 
 ### With a local database
 
-<Tabs groupId="operating-systems">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
-
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
 dnf install -y centreon centreon-database
 systemctl daemon-reload
 systemctl restart mariadb
 ```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
+<!--CentOS 7-->
 ```shell
 yum install -y centreon centreon-database
 systemctl daemon-reload
 systemctl restart mariadb
 ```
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 You can now move to [Step 3](#step-3-configuration).
 
@@ -272,42 +243,32 @@ You can now move to [Step 3](#step-3-configuration).
 > the prerequired repositories.
 
 Run the following command on the Central server:
-<Tabs groupId="operating-systems">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
-
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
 dnf install -y centreon-base-config-centreon-engine centreon-widget\*
 ```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
+<!--CentOS 7-->
 ```shell
 yum install -y centreon-base-config-centreon-engine centreon-widget\*
 ```
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 Then run the following commands on the dedicated server:
-<Tabs groupId="operating-systems">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
-
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
 dnf install -y centreon-database
 systemctl daemon-reload
 systemctl restart mariadb
 ```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
+<!--CentOS 7-->
 ```shell
 yum install -y centreon-database
 systemctl daemon-reload
 systemctl restart mariadb
 ```
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 Secure your MariaDB installation by executing the following command:
 ```shell
@@ -357,8 +318,8 @@ DROP USER '<USER>'@'<IP>';
 > open_files_limit=32000
 > ```
 
-> In addition to the directives above, it's strongly recommended to tune the
-> database configuration with the following parameters:
+> In addition to the directives above, it's strongly recommended to tune the 
+> database configuration with the following parameters: 
 >
 > ```shell
 > [server]
@@ -370,10 +331,10 @@ DROP USER '<USER>'@'<IP>';
 > read_rnd_buffer_size = 256K
 > max_allowed_packet = 128M
 > ```
->
-> Optionally, tune the memory and buffer utilization of the InnoDB engine powered
+> 
+> Optionally, tune the memory and buffer utilization of the InnoDB engine powered 
 > tables. The example below applies to a database server with 8Gb RAM
->
+>  
 > ```shell
 > innodb_buffer_pool_size=1G
 > ```
@@ -399,63 +360,48 @@ hostnamectl set-hostname central
 
 You are required to set the PHP time zone. Run the following command as `root`:
 
-<Tabs groupId="operating-systems">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
-
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
 echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
 ```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
+<!--CentOS 7-->
 ```shell
 echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php73/php.d/50-centreon.ini
 ```
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 > Replace **Europe/Paris** by your time zone. You can find the list of
 > supported time zones [here](http://php.net/manual/en/timezones.php).
 
 After saving the file, restart the PHP-FPM service:
 
-<Tabs groupId="operating-systems">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
-
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
 systemctl restart php-fpm
 ```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
+<!--CentOS 7-->
 ```shell
 systemctl restart rh-php73-php-fpm
 ```
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Services startup during system bootup
 
 To make services start automatically during system bootup, run these commands
 on the central server:
 
-<Tabs groupId="operating-systems">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
-
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
 systemctl enable php-fpm httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
 ```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
+<!--CentOS 7-->
 ```shell
 systemctl enable rh-php73-php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
 ```
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 > If the database is on a dedicated server, remember to enable **mariadb**
 > service on it.
@@ -479,21 +425,16 @@ mysql_secure_installation
 1. Start the Apache server with the
 following command:
 
-<Tabs groupId="operating-systems">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
-
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
 systemctl start httpd
 ```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
+<!--CentOS 7-->
 ```shell
 systemctl start httpd24-httpd
 ```
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 2. To complete the installation, follow the
 [web installation steps](../web-and-post-installation#web-installation) procedure.

@@ -22,13 +22,13 @@ Un utilisateur non administrateur verra uniquement les BA appartenant aux BV li�
 
 ![image](../assets/service-mapping/guide/mon_ba_list.png)
 
-Colonne      |   Description
-----|----
-Niveau actuel  |     Niveau actuel de la BA exprimé en %, entre 0 et 100
-Activité métier   |  Le nom de la BA
-Description    |     Description de la BA
-Durée         |      Durée depuis laquelle la BA est dans son statut actuel
-Période de rapport  | Période de reporting par défaut utilisée par la BA
+  Colonne      |   Description
+  ----|----
+  Niveau actuel  |     Niveau actuel de la BA exprimé en %, entre 0 et 100
+  Activité métier   |  Le nom de la BA
+  Description    |     Description de la BA
+  Durée         |      Durée depuis laquelle la BA est dans son statut actuel
+  Période de rapport  | Période de reporting par défaut utilisée par la BA
 
 Il est possible de visualiser l'évolution du niveau de la BA en plaçant
 le curseur de la souris sur l'icône du graphique. En plaçant le curseur

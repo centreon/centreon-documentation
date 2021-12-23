@@ -96,9 +96,9 @@ associée](../service-mapping/upgrade) pour le mettre à jour.
 Depuis le menu `Administration > Extensions > Gestionnaire`, mettez à jour
 toutes les extensions, en commençant par les suivantes :
 
-- License Manager,
-- Plugin Packs Manager,
-- Auto Discovery.
+  - License Manager,
+  - Plugin Packs Manager,
+  - Auto Discovery.
 
 Vous pouvez alors mettre à jour toutes les autres extensions commerciales.
 

@@ -15,8 +15,8 @@ yum install centreon-plugin-Hardware-Servers-Ibm-Bladecenter-Snmp
 
 Be sure to have with you the following information:
 
-- Read-Only SNMP v3 access (ca have some timeout issue with SNMP v1)
-- IP Address of the equipment
+  - Read-Only SNMP v3 access (ca have some timeout issue with SNMP v1)
+  - IP Address of the equipment
 
 ## Configure SNMP on your server
 

@@ -18,8 +18,8 @@ Templates from Plugin Packs make monitoring hosts easy, because they provide rea
 A host or a host template can inherit from one or more host templates. This
 heritage may be:
 
-- associative (addition of multiple host templates)
-- parent-child type
+  - associative (addition of multiple host templates)
+  - parent-child type
 
 ### Parent-child type inheritance
 

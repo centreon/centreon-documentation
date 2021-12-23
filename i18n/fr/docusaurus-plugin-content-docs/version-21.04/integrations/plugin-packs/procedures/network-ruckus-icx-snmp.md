@@ -2,16 +2,13 @@
 id: network-ruckus-icx-snmp
 title: Ruckus ICX
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Vue d'ensemble
 
-Les switchs Ruckus ICX simplifient la configuration et la maintenance des réseaux, améliorent la sécurité,
+Les switchs Ruckus ICX simplifient la configuration et la maintenance des réseaux, améliorent la sécurité, 
 facilitent l'exploitation et rendent les montées de version plus simples.
-Ils peuvent s'intégrer en toute transparence avec les points d'accès Wi-Fi Ruckus, les contrôleurs Ruckus SmartZone
-et Ruckus Cloud pour délivrer les meilleurs performances et unifier les coûts.
+Ils peuvent s'intégrer en toute transparence avec les points d'accès Wi-Fi Ruckus, les contrôleurs Ruckus SmartZone 
+et Ruckus Cloud pour délivrer les meilleurs performances et unifier les coûts.  
 
 ## Contenu du Plugin-Pack
 
@@ -21,17 +18,21 @@ et Ruckus Cloud pour délivrer les meilleurs performances et unifier les coûts.
 
 ### Règles de découverte
 
-<Tabs groupId="operating-systems">
-<TabItem value="Services" label="Services">
+<!--DOCUSAURUS_CODE_TABS-->
 
-| Rule name                        | Description                                                              |
-| :------------------------------- | :----------------------------------------------------------------------- |
-| Net-Ruckus-Icx-SNMP-Traffic-Name | Discover network interfaces and monitor status and bandwidth utilization |
+<!--Services-->
+
+| Rule name                        | Description                                                                |
+| :------------------------------- | :------------------------------------------------------------------------- |
+| Net-Ruckus-Icx-SNMP-Traffic-Name |  Discover network interfaces and monitor status and bandwidth utilization  |
+
+<!--DOCUSAURUS_CODE_TABS-->
 
 ## Métriques collectées
 
-</TabItem>
-<TabItem value="Cpu" label="Cpu">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Cpu-->
 
 | Metric Name                   | Description                                            |
 | :---------------------------- | :----------------------------------------------------- |
@@ -39,8 +40,7 @@ et Ruckus Cloud pour délivrer les meilleurs performances et unifier les coûts.
 | cpu.utilization.1m.percentage | CPU usage for the last 1m period. Unit: percentage (%) |
 | cpu.utilization.5m.percentage | CPU usage for the last 5m period. Unit: percentage (%) |
 
-</TabItem>
-<TabItem value="Memory" label="Memory">
+<!--Memory-->
 
 | Metric Name             | Description                                      |
 | :---------------------- | :----------------------------------------------- |
@@ -48,8 +48,7 @@ et Ruckus Cloud pour délivrer les meilleurs performances et unifier les coûts.
 | memory.usage.percentage | Memory usage in percentage. Unit: percentage (%) |
 | memory.free.bytes       | Free memory. Unit: Bytes (B)                     |
 
-</TabItem>
-<TabItem value="Interfaces" label="Interfaces">
+<!--Interfaces-->
 
 | Metric Name                              | Description                                                                  |
 | :--------------------------------------- | :--------------------------------------------------------------------------- |
@@ -61,12 +60,11 @@ et Ruckus Cloud pour délivrer les meilleurs performances et unifier les coûts.
 | interface.packets.out.error.percentage   | Outgoing errored packets going through the interface. Unit: percentage (%)   |
 | interface.packets.out.discard.percentage | Outgoing discarded packets going through the interface. Unit: percentage (%) |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
-### Configuration SNMP de l'équipement Ruckus ICX
+### Configuration SNMP de l'équipement Ruckus ICX  
 
 Pour superviser votre équipement Ruckus ICX, le SNMP v2 doit être configuré et l'adresse IP du collecteur Centreon autorisée à interroger l'équipement.
 
@@ -76,8 +74,9 @@ Les collecteurs Centreon doivent pouvoir joindre le port UDP/161 SNMP de l'équi
 
 ## Installation
 
-<Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des équipements Ruckus ICX:
 
@@ -87,8 +86,7 @@ yum install centreon-plugin-Network-Switch-Ruckus-Icx-Snmp
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Ruckus ICX* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des équipements Ruckus ICX:
 
@@ -104,38 +102,37 @@ yum install centreon-pack-network-switch-ruckus-icx-snmp
 
 3. Sur l'interface Web de Centreon, installer le Centreon Plugin Pack *Ruckus ICX* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration d'un hôte
 
 * Depuis l'interface Web de Centreon, ajoutez un nouvel Hôte depuis la page "Configuration > Hôtes".
 * Appliquez le modèle d'Hôte *Net-Switch-Ruckus-Icx-SNMP-custom* et renseignez les champs *SNMP community* et *SNMP version*.
 
-> Si vous utilisez la version 3 de SNMP, sélectionnez la bonne version de SNMP et configurez tous les paramètres SNMP v3
+> Si vous utilisez la version 3 de SNMP, sélectionnez la bonne version de SNMP et configurez tous les paramètres SNMP v3 
 > à l'aide la macro SNMPEXTRAOPTIONS:
 
-| Mandatory | Name             | Description                      |
-| :-------- | :--------------- | :------------------------------- |
-|           | SNMPEXTRAOPTIONS | SNMP Extra options of Ruckus ICX |
+| Mandatory   | Name                    | Description                      |
+| :---------- | :---------------------- | :------------------------------- |
+|             | SNMPEXTRAOPTIONS        | SNMP Extra options of Ruckus ICX |
 
 ## FAQ
 
 ### Comment puis-je tester le Plugin et que signifient les options des commandes ?
 
-Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande depuis votre collecteur Centreon
+Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande depuis votre collecteur Centreon 
 avec l'utilisateur *centreon-engine* :
 
 ```bash
 /usr/lib/centreon/plugins/centreon_ruckus_icx_snmp.pl \
---plugin=network::ruckus::icx::snmp::plugin \
---hostname=ruckus.int.centreon.com \
---snmp-version='2c' \
---snmp-community='public' \
---mode=memory \
---warning-usage-prct='80' \
---critical-usage-prct='90' \
---verbose
+	--plugin=network::ruckus::icx::snmp::plugin \
+	--hostname=ruckus.int.centreon.com \
+	--snmp-version='2c' \
+	--snmp-community='public' \
+	--mode=memory \
+	--warning-usage-prct='80' \
+	--critical-usage-prct='90' \
+	--verbose
 ```
 
 La commande devrait retourner le message de sortie ci-dessous:
@@ -145,14 +142,14 @@ OK: memory total: 7.78 GB used: 5.83 GB (75.00%) free: 1.94 GB (25.00%)|
 'memory.usage.bytes'=6261946368B;;;0;8349261824; 'memory.free.bytes'=2087315456B;;;0;8349261824; 'memory.usage.percentage'=75.00%;;;0;100
 ```
 
-La commande ci-dessus interroge le switch Ruckus en SNMP (```--plugin=network::ruckus::icx::snmp::plugin```); en utilisant la communauté *public* (```--snmp-community='public'```)
+La commande ci-dessus interroge le switch Ruckus en SNMP (```--plugin=network::ruckus::icx::snmp::plugin```); en utilisant la communauté *public* (```--snmp-community='public'```) 
 et la version *2c* (```--snmp-version='2c'```) du protocole.
 Cette commande supervise la mémoire du switch (```--mode=memory```).
 
-La commande retournera une alerte WARNING si l'utilisation de la mémoire dépasse 80% (```--warning-usage-prct='80'```)
+La commande retournera une alerte WARNING si l'utilisation de la mémoire dépasse 80% (```--warning-usage-prct='80'```) 
 et une alerte CRITIQUE au delà de 90%  (```--critical-usage-prct='90'```).
 
-Les seuils d'alertes peuvent être définis pour l'ensemble des métriques collectées à l'aide des
+Les seuils d'alertes peuvent être définis pour l'ensemble des métriques collectées à l'aide des 
 options ```--warning-*``` et ```--critical-*```, par exemple:
 
 ```--warning-usage-free=500000000 --critical-usage-free=250000000```
@@ -160,18 +157,18 @@ options ```--warning-*``` et ```--critical-*```, par exemple:
 Pour chaque mode, les options disponibles peuvent être consultées en ajoutant l'option ```--help``` à la commande:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_ruckus_icx_snmp.pl \
---plugin=network::ruckus::icx::snmp::plugin \
---mode=memory \
---help
+/usr/lib/centreon/plugins/centreon_ruckus_icx_snmp.pl \	
+	--plugin=network::ruckus::icx::snmp::plugin \
+	--mode=memory \
+    --help
 ```
 
 Vous pouvez afficher tous les modes disponibles à l'aide de la commande suivante :`
 
 ```bash
 /usr/lib/centreon/plugins//centreon_ruckus_icx_snmp.pl \
---plugin=network::ruckus::icx::snmp::plugin \
---list-mode
+    --plugin=network::ruckus::icx::snmp::plugin \
+    --list-mode
 ```
 
 ### UNKNOWN: SNMP GET Request : Timeout

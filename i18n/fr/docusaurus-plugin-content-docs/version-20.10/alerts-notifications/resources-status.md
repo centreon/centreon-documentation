@@ -31,9 +31,9 @@ Lorsqu'une ou plusieurs alertes apparaîssent, il est possible de les
 prendre en compte immédiatement et ce, de deux manières:
 
 -   En acquittant directement via le bouton qui s'affiche au survol de
-la ligne
+    la ligne
 -   En sélectionnant une ou plusieurs lignes et en cliquant sur le
-bouton "Acknowledge"
+    bouton "Acknowledge"
 
 ![image](../assets/alerts/resources-status/resources-status-acknowledgement.gif)
 
@@ -50,9 +50,9 @@ des évènements non pris en compte ainsi que pour relancer les notifications.
 Il est possible de planifier une plage de maintenance :
 
 -   En définissant directement une plage de maintenance via le bouton
-qui s'affiche au survol de la ligne
+    qui s'affiche au survol de la ligne
 -   En sélectionne une ou plusieurs lignes et en cliquant sur le bouton
-"Downtime"
+    "Downtime"
 
 ![image](../assets/alerts/resources-status/resources-status-downtime.gif)
 
@@ -67,9 +67,9 @@ le statut d'un service / hôte en lançant un controle manuellement via
 l'interface. Cela est possible de deux manières différentes
 
 -   En lançant le contrôle directement via le bouton qui s'affiche au
-survol de la ligne
+    survol de la ligne
 -   En sélectionnant une ou plusieurs lignes et en cliquant sur le
-bouton "Check"
+    bouton "Check"
 
 ![image](../assets/alerts/resources-status/resources-status-check.gif)
 
@@ -94,10 +94,10 @@ autres filtre: "Resource Problems" & "All".
 Signification des filtres:
 
 -   Unhandled problems: Le statut de la ressources est Warning ou
-Critical ou Unknown ou Down ET la resource n'est ni acquittée ni en
-plage de maintenance planifiée
+    Critical ou Unknown ou Down ET la resource n'est ni acquittée ni en
+    plage de maintenance planifiée
 -   Resource problems: Le statut de la ressources est Warning ou
-Critical ou Unknown ou Down
+    Critical ou Unknown ou Down
 -   All: toutes les ressources
 
 ![image](../assets/alerts/resources-status/resources-status-filters-defaults.gif)
@@ -134,9 +134,9 @@ est possible de déplier les filtres afin d'accéder à plus de critères:
 
 -   Ttypes de ressource (hôte ou service)
 -   Statut (Ok, Warning, Critical, Unknown, Pending, Up, Down,
-Unreachable)
+    Unreachable)
 -   Etat : y'a t'il une action en cours sur le service ou l'équipement ?
-(acquittement, plage de maintenance planifiée)
+    (acquittement, plage de maintenance planifiée)
 -   Groupes d'hôtes
 -   Groupe de services
 
@@ -155,7 +155,7 @@ Grâce à ce menu, vous serez en mesure de:
 -   Sauvegarder la recherche actuelle comme un nouveau filtre
 -   Mettre à jour le filtre actuel avec la recherche en cours
 -   Editer la liste des filtres afin de les supprimer, les renommer ou
-les ré-ordonner.
+    les ré-ordonner.
 
 Une fois qu'un filtre est créé, il apparaitra dans la liste des filtres
 sous la section "Mes filtres".
@@ -177,7 +177,7 @@ Le panneau d'hôte contient plusieurs onglets informatifs :
 -   La liste des services rattachés à cet hôte avec leur statut,
 -   La chronologie des événements survenus pour cet hôte,
 -   Les raccourcis vers la configuration, les journaux d'évènement et les
-rapports de disponibilité.
+    rapports de disponibilité.
 
 ![image](../assets/alerts/resources-status/resources-status-panel-host.gif)
 
@@ -192,7 +192,7 @@ Le panneau de service contient plusieurs onglets informatifs :
 -   La chronologie des événements survenus pour ce service,
 -   Un graphique avec une courbe par métrique collectée par ce service,
 -   Les raccourcis vers les configurations, les journaux d'évènement et les
-rapports de disponibilité pour ce service et son hôte.
+    rapports de disponibilité pour ce service et son hôte.
 
 ![image](../assets/alerts/resources-status/resources-status-panel-service.gif)
 

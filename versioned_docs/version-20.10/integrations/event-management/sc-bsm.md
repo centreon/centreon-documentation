@@ -26,7 +26,7 @@ If you need help with this integration, depending on how you are using Centreon,
 
 ## Integration Walkthrough
 
-### Installation
+### Installation 
 
 Login as `root` on the Centreon central server using your favorite SSH client.
 

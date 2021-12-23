@@ -2,13 +2,10 @@
 id: applications-monitoring-netdata-restapi
 title: Netdata RestAPI
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Vue d'ensemble
 
-Netdata est un outil open source pour visualiser et surveiller les mesures en temps réel, optimisé pour accumuler tous les types de données,
+Netdata est un outil open source pour visualiser et surveiller les mesures en temps réel, optimisé pour accumuler tous les types de données, 
 tels que l'utilisation du processeur, l'activité du disque, les requêtes SQL, les visites sur un site Web, etc.
 
 ## Contenu du Plugin-Pack
@@ -42,8 +39,9 @@ Le Plugin-Pack dans sa version actuelle permet la supervision des points de cont
 
 Les métriques collectées par le Plugin sont les suivantes:
 
-<Tabs groupId="operating-systems">
-<TabItem value="Alarms" label="Alarms">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Alarms-->
 
 | Metric name                           | Description                                                | Unit |
 | :------------------------------------ | :--------------------------------------------------------- | :--- |
@@ -51,16 +49,14 @@ Les métriques collectées par le Plugin sont les suivantes:
 | netdata.alarms.current.warning.count  | Current warning alarms triggered by the Netdata agent      |      |
 | netdata.alarms.current.critical.count | Current critical alarms triggered by the Netdata agent     |      |
 
-</TabItem>
-<TabItem value="CPU" label="CPU">
+<!--CPU-->
 
 | Metric name                     | Description             | Unit |
 | :------------------------------ | :---------------------- | :--- |
 | cpu.utilization.percentage      | Average total CPU usage | %    |
 | core.cpu.utilization.percentage | Per core CPU usage      | %    |
 
-</TabItem>
-<TabItem value="Disks" label="Disks">
+<!--Disks-->
 
 | Metric name                    | Description                          | Unit |
 | :----------------------------- | :----------------------------------- | :--- |
@@ -69,15 +65,13 @@ Les métriques collectées par le Plugin sont les suivantes:
 | storage.space.usage.percentage | Per partition space usage (in %)     | %    |
 | storage.space.free.bytes       | Per partition free space (in Bytes)  | B    |
 
-</TabItem>
-<TabItem value="Inodes" label="Inodes">
+<!--Inodes-->
 
 | Metric name                     | Description                | Unit |
 | :------------------------------ | :------------------------- | :--- |
 | storage.inodes.usage.percentage | Per partition Inodes usage | %    |
 
-</TabItem>
-<TabItem value="Load" label="Load">
+<!--Load-->
 
 | Metric name | Description                                | Unit |
 | :---------- | :----------------------------------------- | :--: |
@@ -85,8 +79,7 @@ Les métriques collectées par le Plugin sont les suivantes:
 | load5       | System load average on a 5 minutes period  |      |
 | load15      | System load average on a 15 minutes period |      |
 
-</TabItem>
-<TabItem value="Memory" label="Memory">
+<!--Memory-->
 
 | Metric name             | Description                                    | Unit |
 | :---------------------- | :--------------------------------------------- | :--: |
@@ -97,8 +90,7 @@ Les métriques collectées par le Plugin sont les suivantes:
 | memory.cached.bytes     | Current amount of memory allocated to 'cached' |  B   |
 | memory.shared.bytes     | Current amount of memory allocated to 'shared' |  B   |
 
-</TabItem>
-<TabItem value="Swap" label="Swap">
+<!--Swap-->
 
 | Metric name           | Description                 | Unit |
 | :-------------------- | :-------------------------- | :--: |
@@ -106,16 +98,14 @@ Les métriques collectées par le Plugin sont les suivantes:
 | swap.usage.percentage | Swap space usage (in %)     |  %   |
 | swap.free.bytes       | Free Swap space             |  B   |
 
-</TabItem>
-<TabItem value="Traffic" label="Traffic">
+<!--Traffic-->
 
 | Metric name                       | Description                    | Unit |
 | :-------------------------------- | :----------------------------- | :--: |
 | network.traffic.in.bitspersecond  | Per interface incoming traffic | b/s  |
 | network.traffic.out.bitspersecond | Per interface outgoing traffic | b/s  |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -128,8 +118,9 @@ https://learn.netdata.cloud/docs/agent/packaging/installer
 
 ## Installation
 
-<Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des agents Netdata :
 
@@ -139,8 +130,7 @@ yum install centreon-plugin-Applications-Monitoring-Netdata-Restapi
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Netdata RestAPI* depuis la page "Configuration > Plugin Packs > Manager"
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des agents Netdata :
 
@@ -156,8 +146,7 @@ yum install centreon-pack-applications-monitoring-netdata-restapi.noarch
 
 3. Depuis l'interface Web de Centreon, installer le Plugin-Pack *Netdata RestAPI* depuis la page "Configuration > Plugin Packs > Manager"
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
@@ -180,18 +169,18 @@ Centreon avec l'utilisateur *centreon-engine*:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_monitoring_netdata_restapi.pl \
---plugin=apps::monitoring::netdata::restapi::plugin \
---hostname=10.0.0.1 \
---mode=cpu \
---warning-average=70 \
---critical-average=80 \
---verbose
+	--plugin=apps::monitoring::netdata::restapi::plugin \
+	--hostname=10.0.0.1 \
+	--mode=cpu \
+	--warning-average=70 \
+	--critical-average=80 \
+	--verbose
 ```
 
 La commande doit retourner un résultat de la forme suivante:
 
-```bash
-OK: 2 CPU(s) average usage is 17.23 % |
+```bash 	
+OK: 2 CPU(s) average usage is 17.23 % | 
 'cpu.utilization.percentage'=17.23%;0:40;0:50;0;100 '0#core.cpu.utilization.percentage'=16.71%;;;0;100 '1#core.cpu.utilization.percentage'=17.75%;;;0;100
 CPU '0' usage: 16.71 %
 CPU '1' usage: 17.75 %
@@ -207,10 +196,10 @@ Pour chaque mode, les options disponibles peuvent être consultées en ajoutant 
 
 ```
 /usr/lib/centreon/plugins/centreon_monitoring_netdata_restapi.pl \
---plugin=apps::monitoring::netdata::restapi::plugin \
---hostname=10.0.0.1 \
---mode=cpu \
---help
+	--plugin=apps::monitoring::netdata::restapi::plugin \
+	--hostname=10.0.0.1 \
+	--mode=cpu \
+	--help
 ```
 
 ### J'obtiens le message d'erreur suivant:

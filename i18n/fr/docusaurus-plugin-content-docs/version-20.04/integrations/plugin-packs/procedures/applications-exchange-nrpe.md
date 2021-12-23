@@ -2,14 +2,11 @@
 id: applications-exchange-nrpe
 title: Microsoft Exchange NSClient++ NRPE
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Overview
 
 The Plugin Pack *Microsoft Exchange NRPE* works with the Centreon NSClient++ monitoring
-agent to run Powershell code to check the health and performance of Microsoft Exchange
+agent to run Powershell code to check the health and performance of Microsoft Exchange 
 Servers
 
 ## Pack assets
@@ -26,19 +23,20 @@ Servers
 
 ### NSClient++
 
-To monitor an *Exchange Server* through NRPE, install the Centreon packaged version
-of the NSClient++ agent. Please follow our [official documentation](../tutorials/centreon-nsclient-tutorial)
+To monitor an *Exchange Server* through NRPE, install the Centreon packaged version 
+of the NSClient++ agent. Please follow our [official documentation](../tutorials/centreon-nsclient-tutorial) 
 and make sure that the **NRPE Server** configuration is correct.
 
-### Powershell
+### Powershell 
 
 Powershell and the `Microsoft.Exchange.Management.PowerShell` snap-in must be installed
 on the target Server.
 
-## Installation
+## Installation 
 
-<Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon NRPE Client package on every poller expected to monitor *Microsoft Exchange servers*:
 
@@ -48,8 +46,7 @@ yum install centreon-nrpe-plugin
 
 2. On the Centreon Web interface, install the Centreon Plugin-Pack *Exchange NRPE* from the **Configuration > Plugin Packs > Manager** page
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin package on every poller expected to monitor *Microsoft Exchange*:
 
@@ -65,8 +62,7 @@ yum install centreon-pack-applications-exchange-nrpe
 
 3. On the Centreon Web interface, install the Centreon Plugin-Pack *Exchange NRPE* from the **Configuration > Plugin Packs > Manager** page
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Host configuration
 
@@ -75,14 +71,14 @@ yum install centreon-pack-applications-exchange-nrpe
 
 | Mandatory | Name             | Description                                                            |
 | :-------- | :--------------- | :--------------------------------------------------------------------- |
-| X         | NRPECLIENT       | NRPE Binary used to perform the check (default: 'check_centreon_nrpe)  |
+| X         | NRPECLIENT       | NRPE Binary used to perform the check (default: 'check_centreon_nrpe)  | 
 | X         | NRPEPORT         | Port used to reach the NRPE server (default: '5666')                   |
 | X         | NRPETIMEOUT      | Timeout to connect to the NRPE Server (default: '10')                  |
 | X         | NRPEEXTRAOPTIONS | Extraoptions to use with the NRPE binary (default: '-u -m 8192')       |
 
 ## Important information
 
-* The *Queue* monitoring Service only works on Exchange Server running with the
-hub/transport role.
+* The *Queue* monitoring Service only works on Exchange Server running with the 
+hub/transport role. 
 * Use this format to define MAILBOX macro at the service level: `DOMAIN\\USER`
-* You cannot use the `|` nor `!` character in your Centreon Macro definitions. Prefer using NSClient++ API if you need this.
+* You cannot use the `|` nor `!` character in your Centreon Macro definitions. Prefer using NSClient++ API if you need this. 

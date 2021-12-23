@@ -2,9 +2,6 @@
 id: developer-translate-centreon
 title : How to translate Centreon
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 If you want to contribute to translate Centreon, this new tutorial is for you! Discover how to translate Centreon web
 interface and how to help us to add new language in Centreon.
@@ -82,21 +79,18 @@ Change rights on directory:
 sudo chown -R apache.apache /usr/share/centreon/www/locale/`locale | grep LC_MESSAGES | cut -d \" -f 2`
 ```
 
-<Tabs groupId="operating-systems">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 Restart Apache:
 ```shell
 systemctl restart httpd
 ```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<!--CentOS 7-->
 Restart Apache:
 ```shell
 systemctl restart httpd24-httpd
 ```
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 Connect to your Centreon web interface, edit your profile and select new language:
 

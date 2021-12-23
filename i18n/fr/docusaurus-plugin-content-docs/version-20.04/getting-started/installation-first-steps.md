@@ -2,14 +2,11 @@
 id: installation-first-steps
 title: Installation & premier pas
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 Bonjour et bienvenue ! Nous sommes heureux que vous ayez décidé de mettre en place la
 supervision de votre IT via Centreon.
 
-Vous trouverez dans ce chapitre les informations nécessaires à un démarrage rapide sur Centreon. Il est composé de
+Vous trouverez dans ce chapitre les informations nécessaires à un démarrage rapide sur Centreon. Il est composé de 
 plusieurs sections afin d'installer & utiliser rapidement Centreon suivis de quelques tutoriels.
 
 * [Installation rapide](#installation-rapide)
@@ -35,10 +32,10 @@ La machine virtuelle a besoin de :
 
 - Processeur. Tout processeur Intel ou AMD récent avec au moins 2vCPU devrait faire l'affaire.
 - Mémoire. Selon vos systèmes d'exploitation, vous aurez besoin d'au moins 1 Go de RAM. Pour profiter pleinement de
-l'expérience, vous avez besoin d'au moins 2 Go de mémoire libre.
+  l'expérience, vous avez besoin d'au moins 2 Go de mémoire libre.
 - Espace disque. La machine virtuelle nécessite au moins 6,5 Go d'espace libre sur votre disque dur. Cependant, si
-vous souhaitez continuer à utiliser Centreon, il est recommandé d'avoir au moins 10 Go car sa taille augmentera avec
-le temps.
+  vous souhaitez continuer à utiliser Centreon, il est recommandé d'avoir au moins 10 Go car sa taille augmentera avec
+  le temps.
 - Un accès Internet pour bénéficier de l'offre gratuite IT-100.
 
 > Pour une installation plus personnalisée, les prérequis complets sont disponibles [ici](../installation/prerequisites).
@@ -52,21 +49,20 @@ Vous pouvez installer Centreon :
 
 Les machines virtuelles sont disponibles sur notre site de [téléchargement Centreon](https://download.centreon.com).
 
-<Tabs groupId="operating-systems">
-<TabItem value="VMware environment" label="VMware environment">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--VMware environment-->
 \
 Accédez à **Fichier > Déployer le modèle OVF** et sélectionnez le **fichier OVA**. Parce que les sélections de menu sont
 liées à votre configuration VMWare, nous ne pouvons pas fournir plus d'informations. Sachez que la meilleure pratique
 consiste à utiliser l'option **Thin Provision** pour économiser autant d'espace libre que possible sur le disque.
 
-</TabItem>
-<TabItem value="Oracle Virtualbox" label="Oracle Virtualbox">
+<!--Oracle Virtualbox-->
 \
 Extraire le contenu de l'archive et double-cliquez sur le **fichier OVF**. Suivez les instructions pour importer la
 machine virtuelle.
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 Une fois votre machine virtuelle importée, vous devez **ajouter une carte réseau**. Modifiez les paramètres de la
 machine virtuelle et d'une carte réseau. Sélectionnez le bon réseau associé pour accéder à Internet.
@@ -123,14 +119,14 @@ L'interface web de Centreon est composée de plusieurs menus, chaque menu a une 
 ![image](../assets/getting-started/amenu.png)
 
 * Le menu **Accueil** permet d'accéder au premier écran d'accueil après s'être connecté. Il résume l'état général de
-la supervision. Votre espace de travail peut être vide pour l'instant. Une fois que vous avez configuré les widgets
-personnalisables, vous verrez les données et les graphiques en fonction de votre personnalisation.
+  la supervision. Votre espace de travail peut être vide pour l'instant. Une fois que vous avez configuré les widgets
+  personnalisables, vous verrez les données et les graphiques en fonction de votre personnalisation.
 * Le menu **Supervision** regroupe l'état de tous les éléments supervisés en temps réel et en différé au travers de la
-visualisation des logs.
+  visualisation des logs.
 * Le menu **Vues** permet de visualiser et de configurer les graphiques de performances pour chaque élément du système
-d'informations.
+  d'informations.
 * Le menu **Rapports** permet de visualiser de manière intuitive (via des diagrammes) l'évolution de la supervision sur
-une période donnée.
+  une période donnée.
 * Le menu **Configuration** permet de configurer l'ensemble des éléments supervisés ainsi que l'infrastructure de supervision.
 * Le menu **Administration** permet de configurer l'interface web Centreon ainsi que de visualiser l'état général des serveurs.
 
@@ -152,7 +148,7 @@ langue.
 
 ## Ajouter son jeton Centreon IT Edition
 
-> Votre jeton d'essai **Centreon IT Edition** vous est parvenu par mail. Avant toute chose, appliquez la procédure de
+> Votre jeton d'essai **Centreon IT Edition** vous est parvenu par mail. Avant toute chose, appliquez la procédure de 
 > [configuration du proxy](../administration/parameters/centreon-ui#configuration-du-proxy)
 > pour configurer et vérifier la connexion de votre serveur Centreon à Internet.
 
@@ -173,15 +169,15 @@ Continuez avec les chapitres suivants pour commencer à superviser votre systèm
 Avant de commencer à superviser, voyons ensemble quelques notions principales :
 
 * Un **hôte** (ou **host** en anglais) est tout équipement qui possède une adresse IP et que l'on souhaite superviser :
-un serveur physique, une machine virtuelle, une sonde de température, une caméra IP, une imprimante ou un espace de
-stockage, par exemple.
+  un serveur physique, une machine virtuelle, une sonde de température, une caméra IP, une imprimante ou un espace de
+  stockage, par exemple.
 * Un **service** est un point de contrôle, ou indicateur, à superviser sur un hôte. Cela peut être le taux d'utilisation
-du CPU, la température, la détection de mouvement, le taux d'utilisation de la bande passante, les E/S disque, etc.
+  du CPU, la température, la détection de mouvement, le taux d'utilisation de la bande passante, les E/S disque, etc.
 * Afin de mesurer chaque indicateur, on utilise des **sondes** de supervision (**plugin** en anglais) qui sont exécutées
-périodiquement par un moteur de collecte appelé **Centreon Engine**.
+  périodiquement par un moteur de collecte appelé **Centreon Engine**.
 * Pour être exécutée, une sonde a besoin d'un ensemble d'arguments qui définissent par exemple à quel hôte se connecter
-ou via quel protocole. La sonde et ses arguments associés forment une **commande** (**command** en anglais).
-
+  ou via quel protocole. La sonde et ses arguments associés forment une **commande** (**command** en anglais).
+  
 Ainsi, superviser un hôte avec Centreon consiste à configurer l'ensemble des commandes nécessaires à la mesure des
 indicateurs désirés, puis à déployer cette configuration sur le moteur de collecte afin que ces commandes soient
 exécutées périodiquement.
@@ -190,13 +186,13 @@ Néanmoins, pour simplifier drastiquement la configuration on s'appuyera avantag
 
 * Un **modèle d'hôte** (**host template** en anglais) définit la configuration des indicateurs pour un type d'équipement donné.
 * Il s'appuie sur des **modèles de service** (**service templates**) qui définissent la configuration des commandes
-nécessaires à la mesure de ces indicateurs.
+  nécessaires à la mesure de ces indicateurs.
 * Centreon fournit des **Plugins Packs** téléchargeables à installer sur sa plateforme de supervision: chaque Plugin
-Pack regroupe modèles d'hôtes et de services pour configurer en quelques clics la supervision d'un équipement
-particulier.
+  Pack regroupe modèles d'hôtes et de services pour configurer en quelques clics la supervision d'un équipement
+  particulier.
 
 Ce guide de démarrage rapide propose d'installer les modèles de supervision fournis gratuitement avec la solution
-Centreon puis de les mettre en oeuvre pour superviser vos premiers équipements.
+Centreon puis de les mettre en oeuvre pour superviser vos premiers équipements. 
 
 ![image](../assets/getting-started/host_service_command.png)
 
@@ -304,7 +300,7 @@ Pour connaître manuellement le nom des partitions disponibles, vous pouvez exé
 
 ```Shell
 /usr/lib/centreon/plugins/centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin \
---hostname=10.40.1.169 --snmp-community=public --snmp-version=2c --mode=list-storages
+    --hostname=10.40.1.169 --snmp-community=public --snmp-version=2c --mode=list-storages
 ```
 Voici le résultat :
 ```Shel
@@ -332,9 +328,9 @@ Faites de même pour connaître la liste des interfaces réseau :
 
 ```Shell
 /usr/lib/centreon/plugins/centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin \
---hostname=10.40.1.169 --snmp-community=public --snmp-version=2c --mode=list-interfaces
+    --hostname=10.40.1.169 --snmp-community=public --snmp-version=2c --mode=list-interfaces
 ```
-Voici le résultat :
+Voici le résultat : 
 ```Shell
 List interfaces:
 'lo' [speed = 10, status = up, id = 1]
@@ -417,9 +413,9 @@ Pour connaître manuellement le nom des partitions disponibles, vous pouvez exé
 
 ```Shell
 /usr/lib/centreon/plugins/centreon_windows_snmp.pl --plugin=os::windows::snmp::plugin \
---hostname=10.40.1.169 --snmp-version='2c' --snmp-community='public' --mode=list-storages
+    --hostname=10.40.1.169 --snmp-version='2c' --snmp-community='public' --mode=list-storages
 ```
-Voici le résultat :
+Voici le résultat : 
 ```Shell
 List storage:
 'C:\ Label:  Serial Number 2cb607df' [size = 53317988352B] [id = 1]
@@ -431,7 +427,7 @@ Faites de même pour connaître la liste des interfaces réseau :
 
 ```Shell
 /usr/lib/centreon/plugins/centreon_windows_snmp.pl --plugin=os::windows::snmp::plugin \
---hostname=10.40.1.169 --snmp-version='2c' --snmp-community='public' --mode=list-interfaces
+    --hostname=10.40.1.169 --snmp-version='2c' --snmp-community='public' --mode=list-interfaces
 ```
 Voici le résultat :
 ```Shell
@@ -535,10 +531,10 @@ Pour connaître manuellement le nom des interfaces réseau disponibles, vous pou
 
 ```Shell
 /usr/lib/centreon/plugins/centreon_cisco_standard_snmp.pl \
---plugin=network::cisco::standard::snmp::plugin --hostname=10.40.1.254 \
---snmp-community=public --snmp-version=2c --mode=list-interfaces
+    --plugin=network::cisco::standard::snmp::plugin --hostname=10.40.1.254 \
+    --snmp-community=public --snmp-version=2c --mode=list-interfaces
 ```
-Voici le résultat :
+Voici le résultat : 
 ```Shell
 List interfaces:
 'Gi1/0/1' [speed = 1000, status = up, id = 10101]
@@ -575,10 +571,10 @@ Ou pour récupérer la liste des spanning-tree :
 
 ```Shell
 /usr/lib/centreon/plugins/centreon_cisco_standard_snmp.pl \
---plugin=network::cisco::standard::snmp::plugin --hostname=10.40.1.254 \
---snmp-community=public --snmp-version=2c --mode=list-spanning-trees
+    --plugin=network::cisco::standard::snmp::plugin --hostname=10.40.1.254 \
+    --snmp-community=public --snmp-version=2c --mode=list-spanning-trees
 ```
-Voici le résultat :
+Voici le résultat : 
 ```Shell
 List ports with Spanning Tree Protocol:
 [port = GigabitEthernet1/0/20] [state = forwarding] [op_status = up] [admin_status = up] [index = 10120]
@@ -738,7 +734,7 @@ effectuées, il est nécessaire de suivre la procédure suivante ci-dessous.
 
 ![image](../assets/configuration/poller_generate_1.png)
 
-Vérifier qu'aucune erreur n'apparait lors de la génération.
+Vérifier qu'aucune erreur n'apparait lors de la génération. 
 
 > Si cela est le cas, corriger les erreurs et refaire la première étape.
 

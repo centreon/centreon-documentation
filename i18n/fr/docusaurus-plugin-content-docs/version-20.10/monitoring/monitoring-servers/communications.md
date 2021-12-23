@@ -2,9 +2,6 @@
 id: communications
 title: Communications
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Modes de communication
 
@@ -24,22 +21,21 @@ Les modes de communication sont listés ci-après :
 
 ### Sans Remote Server
 
-<Tabs groupId="operating-systems">
-<TabItem value="Moderne (recommandé)" label="Moderne (recommandé)">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Moderne (recommandé)-->
 
 | Communications                         | Actions autorisées                                                                |
 | -------------------------------------- | --------------------------------------------------------------------------------- |
 | **Central** \<-- *ZMQ* --\> **Poller** | Actions de supervision\*, collecte des statistiques Engine/Broker, Host Discovery |
 
-</TabItem>
-<TabItem value="Legacy (exCentcore)" label="Legacy (exCentcore)">
+<!--Legacy (ex-Centcore)-->
 
 | Communications                         | Actions autorisées                                                                |
 | -------------------------------------- | --------------------------------------------------------------------------------- |
 | **Central** \<-- *SSH* --\> **Poller** | Actions de supervision\*, collecte des statistiques Engine/Broker, Host Discovery |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 \* Les actions de supervision sont toutes les actions disponibles dans
 l'interface web comme ajouter des temps d'arrêt, des acquittements, etc et
@@ -47,29 +43,27 @@ exporter la configuration.
 
 ### Avec Remote Server
 
-<Tabs groupId="operating-systems">
-<TabItem value="Moderne (recommandé)" label="Moderne (recommandé)">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Moderne (recommandé)-->
 
 | Communications                                                    | Actions autorisées                                                                |
 | ----------------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | **Central** \<-- *ZMQ* --\> **Remote** \<-- *ZMQ* --\> **Poller** | Actions de supervision\*, collecte des statistiques Engine/Broker, Host Discovery |
 
-</TabItem>
-<TabItem value="Mixed" label="Mixed">
+<!--Mixed-->
 
 | Communications                                                    | Actions autorisées                                                                |
 | ----------------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | **Central** \<-- *ZMQ* --\> **Remote** \<-- *SSH* --\> **Poller** | Actions de supervision\*, collecte des statistiques Engine/Broker, Host Discovery |
 
-</TabItem>
-<TabItem value="Legacy (exCentcore)" label="Legacy (exCentcore)">
+<!--Legacy (ex-Centcore)-->
 
 | Communications                                                    | Actions autorisées                                                                                                      |
 | ----------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
 | **Central** \<-- *SSH* --\> **Remote** \<-- *SSH* --\> **Poller** | Actions de supervision\*, collecte des statistiques Engine/Broker (seulement Remote), Host Discovery (seulement Remote) |
 
-</TabItem>
-<TabItem value="Autre (non recommandé)" label="Autre (non recommandé)">
+<!--Autre (non recommandé)-->
 
 | Communications                                                    | Actions autorisées       |
 | ----------------------------------------------------------------- | ------------------------ |
@@ -79,8 +73,7 @@ exporter la configuration.
 > impossible l'affichage de la configuration du Gorgone du Poller depuis
 > l'interface web.
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 \* Les actions de supervision sont toutes les actions disponibles dans
 l'interface web comme ajouter des temps d'arrêt, des acquittements, etc et
@@ -88,8 +81,9 @@ exporter la configuration.
 
 ## Changer la communication de SSH à ZMQ
 
-<Tabs groupId="operating-systems">
-<TabItem value="Pour un Poller" label="Pour un Poller">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Pour un Poller-->
 
 #### Sélectionner le type de communication
 
@@ -120,23 +114,23 @@ cat <<EOF > /etc/centreon-gorgone/config.d/40-gorgoned.yaml
 name:  gorgoned-My Poller
 description: Configuration for poller My Poller
 gorgone:
-gorgonecore:
-id: 2
-external_com_type: tcp
-external_com_path: "*:5556"
-authorized_clients:
-- key: Np1wWwpbFD2I0MdeHWRlFx51FmlYkDRZy9JTFxkrDPI
-privkey: "/var/lib/centreon-gorgone/.keys/rsakey.priv.pem"
-pubkey: "/var/lib/centreon-gorgone/.keys/rsakey.pub.pem"
-modules:
-- name: action
-package: gorgone::modules::core::action::hooks
-enable: true
+  gorgonecore:
+    id: 2
+    external_com_type: tcp
+    external_com_path: "*:5556"
+    authorized_clients:
+      - key: Np1wWwpbFD2I0MdeHWRlFx51FmlYkDRZy9JTFxkrDPI
+    privkey: "/var/lib/centreon-gorgone/.keys/rsakey.priv.pem"
+    pubkey: "/var/lib/centreon-gorgone/.keys/rsakey.pub.pem"
+  modules:
+    - name: action
+      package: gorgone::modules::core::action::hooks
+      enable: true
 
-- name: engine
-package: gorgone::modules::centreon::engine::hooks
-enable: true
-command_file: "/var/lib/centreon-engine/rw/centengine.cmd"
+    - name: engine
+      package: gorgone::modules::centreon::engine::hooks
+      enable: true
+      command_file: "/var/lib/centreon-engine/rw/centengine.cmd"
 
 EOF
 ```
@@ -165,14 +159,14 @@ Le résultat devrait être similaire :
 
 ```shell
 ● gorgoned.service - Centreon Gorgone
-Loaded: loaded (/etc/systemd/system/gorgoned.service; disabled; vendor preset: disabled)
-Active: active (running) since Mon 2020-03-24 19:45:00 CET; 20h ago
-Main PID: 28583 (perl)
-CGroup: /system.slice/gorgoned.service
-├─28583 /usr/bin/perl /usr/bin/gorgoned --config=/etc/centreon-gorgone/config.yaml --logfile=/var/log/centreon-gorgone/gorgoned.log --severity=info
-├─28596 gorgone-dbcleaner
-├─28597 gorgone-engine
-└─28598 gorgone-action
+   Loaded: loaded (/etc/systemd/system/gorgoned.service; disabled; vendor preset: disabled)
+   Active: active (running) since Mon 2020-03-24 19:45:00 CET; 20h ago
+ Main PID: 28583 (perl)
+   CGroup: /system.slice/gorgoned.service
+           ├─28583 /usr/bin/perl /usr/bin/gorgoned --config=/etc/centreon-gorgone/config.yaml --logfile=/var/log/centreon-gorgone/gorgoned.log --severity=info
+           ├─28596 gorgone-dbcleaner
+           ├─28597 gorgone-engine
+           └─28598 gorgone-action
 
 Mar 24 19:45:00 localhost.localdomain systemd[1]: Started Centreon Gorgone.
 ```
@@ -198,8 +192,7 @@ systemctl enable gorgoned
 > systemctl restart gorgoned
 > ```
 
-</TabItem>
-<TabItem value="Pour un Remote Server" label="Pour un Remote Server">
+<!--Pour un Remote Server-->
 
 #### Sélectionner le type de communication
 
@@ -231,60 +224,60 @@ cat <<EOF > /etc/centreon-gorgone/config.d/40-gorgoned.yaml
 name: gorgoned-My Remote Server
 description: Configuration for remote server My Remote Server
 gorgone:
-gorgonecore:
-id: 3
-external_com_type: tcp
-external_com_path: "*:5556"
-authorized_clients:
-- key: Np1wWwpbFD2I0MdeHWRlFx51FmlYkDRZy9JTFxkrDPI
-privkey: "/var/lib/centreon-gorgone/.keys/rsakey.priv.pem"
-pubkey: "/var/lib/centreon-gorgone/.keys/rsakey.pub.pem"
-modules:
-- name: action
-package: gorgone::modules::core::action::hooks
-enable: true
+  gorgonecore:
+    id: 3
+    external_com_type: tcp
+    external_com_path: "*:5556"
+    authorized_clients:
+      - key: Np1wWwpbFD2I0MdeHWRlFx51FmlYkDRZy9JTFxkrDPI
+    privkey: "/var/lib/centreon-gorgone/.keys/rsakey.priv.pem"
+    pubkey: "/var/lib/centreon-gorgone/.keys/rsakey.pub.pem"
+  modules:
+    - name: action
+      package: gorgone::modules::core::action::hooks
+      enable: true
 
-- name: cron
-package: "gorgone::modules::core::cron::hooks"
-enable: true
-cron: !include cron.d/*.yaml
+    - name: cron
+      package: "gorgone::modules::core::cron::hooks"
+      enable: true
+      cron: !include cron.d/*.yaml
 
-- name: nodes
-package: gorgone::modules::centreon::nodes::hooks
-enable: true
+    - name: nodes
+      package: gorgone::modules::centreon::nodes::hooks
+      enable: true
 
-- name: proxy
-package: gorgone::modules::core::proxy::hooks
-enable: true
+    - name: proxy
+      package: gorgone::modules::core::proxy::hooks
+      enable: true
 
-- name: legacycmd
-package: gorgone::modules::centreon::legacycmd::hooks
-enable: true
-cmd_file: "/var/lib/centreon/centcore.cmd"
-cache_dir: "/var/cache/centreon/"
-cache_dir_trap: "/etc/snmp/centreon_traps/"
-remote_dir: "/var/cache/centreon/config/remote-data/"
+    - name: legacycmd
+      package: gorgone::modules::centreon::legacycmd::hooks
+      enable: true
+      cmd_file: "/var/lib/centreon/centcore.cmd"
+      cache_dir: "/var/cache/centreon/"
+      cache_dir_trap: "/etc/snmp/centreon_traps/"
+      remote_dir: "/var/cache/centreon/config/remote-data/"
 
-- name: engine
-package: gorgone::modules::centreon::engine::hooks
-enable: true
-command_file: "/var/lib/centreon-engine/rw/centengine.cmd"
+    - name: engine
+      package: gorgone::modules::centreon::engine::hooks
+      enable: true
+      command_file: "/var/lib/centreon-engine/rw/centengine.cmd"
 
-- name: statistics
-package: "gorgone::modules::centreon::statistics::hooks"
-enable: true
-broker_cache_dir: "/var/cache/centreon/broker-stats/"
-cron:
-- id: broker_stats
-timespec: "*/5 * * * *"
-action: BROKERSTATS
-parameters:
-timeout: 10
-- id: engine_stats
-timespec: "*/5 * * * *"
-action: ENGINESTATS
-parameters:
-timeout: 10
+    - name: statistics
+      package: "gorgone::modules::centreon::statistics::hooks"
+      enable: true
+      broker_cache_dir: "/var/cache/centreon/broker-stats/"
+      cron:
+        - id: broker_stats
+          timespec: "*/5 * * * *"
+          action: BROKERSTATS
+          parameters:
+            timeout: 10
+        - id: engine_stats
+          timespec: "*/5 * * * *"
+          action: ENGINESTATS
+          parameters:
+            timeout: 10
 
 EOF
 ```
@@ -313,27 +306,26 @@ Le résultat devrait être similaire :
 
 ```shell
 ● gorgoned.service - Centreon Gorgone
-Loaded: loaded (/etc/systemd/system/gorgoned.service; enabled; vendor preset: disabled)
-Active: active (running) since Wed 2020-03-24 19:45:00 CET; 6s ago
-Main PID: 30902 (perl)
-CGroup: /system.slice/gorgoned.service
-├─30902 /usr/bin/perl /usr/bin/gorgoned --config=/etc/centreon-gorgone/config.yaml --logfile=/var/log/centreon-gorgone/gorgoned.log --severity=info
-├─30916 gorgone-nodes
-├─30917 gorgone-dbcleaner
-├─30924 gorgone-proxy
-├─30925 gorgone-proxy
-├─30938 gorgone-proxy
-├─30944 gorgone-proxy
-├─30946 gorgone-proxy
-├─30959 gorgone-engine
-├─30966 gorgone-action
-└─30967 gorgone-legacycmd
+   Loaded: loaded (/etc/systemd/system/gorgoned.service; enabled; vendor preset: disabled)
+   Active: active (running) since Wed 2020-03-24 19:45:00 CET; 6s ago
+ Main PID: 30902 (perl)
+   CGroup: /system.slice/gorgoned.service
+           ├─30902 /usr/bin/perl /usr/bin/gorgoned --config=/etc/centreon-gorgone/config.yaml --logfile=/var/log/centreon-gorgone/gorgoned.log --severity=info
+           ├─30916 gorgone-nodes
+           ├─30917 gorgone-dbcleaner
+           ├─30924 gorgone-proxy
+           ├─30925 gorgone-proxy
+           ├─30938 gorgone-proxy
+           ├─30944 gorgone-proxy
+           ├─30946 gorgone-proxy
+           ├─30959 gorgone-engine
+           ├─30966 gorgone-action
+           └─30967 gorgone-legacycmd
 
 Mar 24 19:45:00 localhost.localdomain systemd[1]: Started Centreon Gorgone.
 ```
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 **Pour forcer le Gorgone du Central à changer le mode de communication**,
 redémarrez le avec la commande suivante depuis le **serveur Central** :

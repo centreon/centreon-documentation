@@ -14,7 +14,7 @@ On the monitoring server
 A system user \"centreonBI\" user has been created. Set a password for
 this user for future SSH communications between the two servers:
 
-passwd centreonBI
+    passwd centreonBI
 
 On the reporting server
 -----------------------
@@ -23,13 +23,13 @@ Generate SSH keys for the system user \"centreonBI\" in order to avoid
 using password when CBIS will copy the generated reports onto the
 monitoring server.:
 
-su - centreonBI
-ssh-keygen
-Enter file in which to save the key (/home/centreonBI/.ssh/id_rsa):
-> Created directory '/usr/local/centreon-bi/.ssh'.
-> Enter passphrase (empty for no passphrase):
-> Enter same passphrase again:
-> Your identification has been saved in /home/centreonBI/.ssh/id_rsa.
+    su - centreonBI
+    ssh-keygen
+      Enter file in which to save the key (/home/centreonBI/.ssh/id_rsa):
+      > Created directory '/usr/local/centreon-bi/.ssh'.
+      > Enter passphrase (empty for no passphrase):
+      > Enter same passphrase again:
+      > Your identification has been saved in /home/centreonBI/.ssh/id_rsa.
 
 ::: {.note}
 ::: {.title}
@@ -43,11 +43,11 @@ passphrase.
 Transfer the key to the **Centreon** server. The **centreonBI** user
 must be configured with a password on the monitoring server):
 
-ssh-copy-id -i ~/.ssh/id_rsa.pub centreonBI@{MONITORING_IP_ADDRESS}
+    ssh-copy-id -i ~/.ssh/id_rsa.pub centreonBI@{MONITORING_IP_ADDRESS}
 
 Test the SSH connection from the reporting server:
 
-ssh centreonBI@{MONITORING_IP_ADDRESS}
+    ssh centreonBI@{MONITORING_IP_ADDRESS}
 
 You should be able to connect without entering any password.
 
@@ -58,35 +58,35 @@ In the \"Reporting \> Business Intelligence \> Publication rules\" of
 Centreon, edit the \"default\" publication rule and specify the
 following configuration:
 
---------------------------------------------------------------------------------
-**Field**                        **Value**
--------------------------------- -----------------------------------------------
-Name                             Default
+  --------------------------------------------------------------------------------
+  **Field**                        **Value**
+  -------------------------------- -----------------------------------------------
+  Name                             Default
 
-Publication protocol             SFTP
+  Publication protocol             SFTP
 
-Global                           \(x\) Yes
+  Global                           \(x\) Yes
 
-Description                      Default publication rule
+  Description                      Default publication rule
 
-Host                             **\<Centreon server IP address\>**
+  Host                             **\<Centreon server IP address\>**
 
-Port                             22
+  Port                             22
 
-Authentication type              User/Key
+  Authentication type              User/Key
 
-User                             centreonBI
+  User                             centreonBI
 
-Path to the SSH key              /home/centreonBI/.ssh/id\_rsa
+  Path to the SSH key              /home/centreonBI/.ssh/id\_rsa
 
-Passphrase for SSH key
+  Passphrase for SSH key           
 
-Confirm passphrase for SSH key
+  Confirm passphrase for SSH key   
 
-Root directory                   /var/lib/centreon/centreon-bi-server/archives
+  Root directory                   /var/lib/centreon/centreon-bi-server/archives
 
-Subdirectory                     \@JOBNAME@
---------------------------------------------------------------------------------
+  Subdirectory                     \@JOBNAME@
+  --------------------------------------------------------------------------------
 
 Click on the button \"Test\" to validate the configuration and save the
 form.

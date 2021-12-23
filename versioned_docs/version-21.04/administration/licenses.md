@@ -2,9 +2,6 @@
 id: licenses
 title: Licenses
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## How can I obtain a license?
 
@@ -36,27 +33,26 @@ Go to **Administration > Extensions > Manager**. All modules currently installed
 
 ## Adding a license to your Centreon platform
 
-<Tabs groupId="operating-systems">
-<TabItem value="Offline licenses" label="Offline licenses">
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Offline licenses-->
 
 1. To request your license:
 
-1. Go to **Administration > Extensions > Manager**.
+    1. Go to **Administration > Extensions > Manager**.
 
-2. Click on **Get fingerprint**.
+    2. Click on **Get fingerprint**.
 
-3. Paste the fingerprint in an email to our [support](mailto:support@centreon.com) team requesting the license.
+    3. Paste the fingerprint in an email to our [support](mailto:support@centreon.com) team requesting the license.
 
 2. Once you have received your license, in the **Administration > Extensions > Manager** page, click on **Upload license**.
 
 5. Browse to the file and then click **OK**. The license is applied and the corresponding modules display their validity date:
-
-![image](../assets/administration/license_valid.png)
+    
+    ![image](../assets/administration/license_valid.png)
 
 6. If you have several licenses (e.g. for BAM, MBI...), repeat the steps above until you have uploaded all license files.
 
-</TabItem>
-<TabItem value="Online licenses" label="Online licenses">
+<!--Online licenses-->
 
 To use an online license, your Centreon platform must be connected to the internet.
 
@@ -68,18 +64,17 @@ To use an online license, your Centreon platform must be connected to the intern
 
 4. Paste your token in the popup window, then click on **Add**.
 
-- If your token contains one license, a confirmation message appears.
+    - If your token contains one license, a confirmation message appears.
 
-- If your token contains several licenses, choose the license you want and then click on **Choose**.
+    - If your token contains several licenses, choose the license you want and then click on **Choose**. 
 
-Press **Esc** to close the popup window. The license is applied and the corresponding modules display their validity date:
+    Press **Esc** to close the popup window. The license is applied and the corresponding modules display their validity date:
+    
+    ![image](../assets/administration/license_valid.png)
 
-![image](../assets/administration/license_valid.png)
+    The **Add token** button changes to become a **View license** button.
 
-The **Add token** button changes to become a **View license** button.
-
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Free IT-100 license
 
@@ -108,16 +103,16 @@ chmod 640 /etc/centreon/license.d/*
 
 * Check that the fingerprint of the central server (on page **Administration > Extensions > Gestionnaire**) matches the fingerprint in the license.
 
-```shell
-less /etc/centreon/license.d/epp.license
-```
+    ```shell
+    less /etc/centreon/license.d/epp.license
+    ```
 
 * Check that you do not have more hosts than your license allows. To know the total number of hosts you are supervising, go to **Configuration > Hosts > Hosts**, and then use the dropdown list to the right above the list of hosts:
 
-![image](../assets/administration/number-of-hosts.png)
+    ![image](../assets/administration/number-of-hosts.png)
 
-You can also use the following command:
+    You can also use the following command:
 
-```sql
-SELECT COUNT(*) FROM centreon.host WHERE host_register='1';
-```
+    ```sql
+    SELECT COUNT(*) FROM centreon.host WHERE host_register='1';
+    ```

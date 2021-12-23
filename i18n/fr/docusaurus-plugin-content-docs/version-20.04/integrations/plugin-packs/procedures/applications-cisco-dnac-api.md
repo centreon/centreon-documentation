@@ -2,9 +2,6 @@
 id: applications-cisco-dnac-api
 title: Cisco DNA Center Rest API
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Contenu du Plugin-Pack
 
@@ -14,8 +11,9 @@ Le Plugin-Pack inclut la supervision de l'état de santé des équipements Rése
 
 ### Métriques collectées
 
-<Tabs groupId="operating-systems">
-<TabItem value="Networkdevices" label="Networkdevices">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Network-devices-->
 
 | Metric name                                                           | Description                                          | Unit |
 | :-------------------------------------------------------------------- | :--------------------------------------------------- | :--- |
@@ -29,8 +27,7 @@ Le Plugin-Pack inclut la supervision de l'état de santé des équipements Rése
 | *categoryname*#category.network.devices.health.unmonitored.count      | Number of unmonitored health devices by category     |      |
 | *categoryname*#category.network.devices.health.unmonitored.percentage | Number of unmonitored health devices by category     | %    |
 
-</TabItem>
-<TabItem value="Sites" label="Sites">
+<!--Sites-->
 
 | Metric name                                        | Description                | Unit |
 |:-------------------------------------------------- |:-------------------------- | :--- |
@@ -39,8 +36,7 @@ Le Plugin-Pack inclut la supervision de l'état de santé des équipements Rése
 | *sitename*#site.clients.healthy.count              | Number of healthy clients  |      |
 | *sitename*#site.clients.healthy.percentage         | Number of healthy clients  | %    |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -49,8 +45,9 @@ Afin de contrôler l'application Cisco DNA Center, l'API Rest doit être configu
 
 ## Installation
 
-<Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -60,8 +57,7 @@ yum install centreon-plugin-Applications-Cisco-Dnac-Restapi
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Cisco DNA Center Rest API* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -77,13 +73,12 @@ yum install centreon-pack-applications-cisco-dnac-restapi
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Cisco DNA Center Rest API* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
 Ce Plugin-Pack est conçu de manière à avoir dans Centreon un hôte par application Cisco DNA Center.
-Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *App-Cisco-Dnac-Restapi-custom*.
+Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *App-Cisco-Dnac-Restapi-custom*. 
 Une fois celui-ci configuré, certaines macros doivent être renseignées:
 
 | Mandatory | Name                | Description                                                                 |
@@ -103,31 +98,31 @@ Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne d
 
 ```bash
 /usr/lib/centreon/plugins/centreon_cisco_dnac_restapi.pl \
---plugin=apps::cisco::dnac::restapi::plugin \
---mode=network-devices \
---hostname='10.30.2.79' \
---port='443' \
---proto='https' \
---api-username='myapiusername' \
---api-password='myapipassword' \
---filter-category-name='Access|Core' \
---critical-category-devices-health-bad-usage-prct='0' \
---verbose
+    --plugin=apps::cisco::dnac::restapi::plugin \
+    --mode=network-devices \
+    --hostname='10.30.2.79' \
+    --port='443' \
+    --proto='https' \
+    --api-username='myapiusername' \
+    --api-password='myapipassword' \
+    --filter-category-name='Access|Core' \
+    --critical-category-devices-health-bad-usage-prct='0' \
+    --verbose
 ```
 
 Exemple de sortie:
 ```
 OK: All network categories are ok | 'network.devices.total.count'=14;;;0; 'Access#category.network.devices.health.good.count'=13;;;0;13 'Access#category.network.devices.health.good.percentage'=13.00;;;0;100 'Access#category.network.devices.health.fair.count'=0;;;0;13 'Access#category.network.devices.health.fair.percentage'=0.00;;;0;100 'Access#category.network.devices.health.bad.count'=0;;;0;13 'Access#category.network.devices.health.bad.percentage'=0.00;;;0;100 'Access#category.network.devices.health.unmonitored.count'=0;;;0;13 'Access#category.network.devices.health.unmonitored.percentage'=0.00;;;0;100 'Core#category.network.devices.health.good.count'=1;;;0;1 'Core#category.network.devices.health.good.percentage'=1.00;;;0;100 'Core#category.network.devices.health.fair.count'=0;;;0;1 'Core#category.network.devices.health.fair.percentage'=0.00;;;0;100 'Core#category.network.devices.health.bad.count'=0;;;0;1 'Core#category.network.devices.health.bad.percentage'=0.00;;;0;100 'Core#category.network.devices.health.unmonitored.count'=0;;;0;1 'Core#category.network.devices.health.unmonitored.percentage'=0.00;;;0;100
 checking network category 'Access'
-good devices: 100.00% (13 on 13)
-fair devices: 0.00% (0 on 13)
-bad devices: 0.00% (0 on 13)
-unmonitored devices: 0.00% (0 on 13)
+    good devices: 100.00% (13 on 13)
+    fair devices: 0.00% (0 on 13)
+    bad devices: 0.00% (0 on 13)
+    unmonitored devices: 0.00% (0 on 13)
 checking network category 'Core'
-good devices: 100.00% (1 on 1)
-fair devices: 0.00% (0 on 1)
-bad devices: 0.00% (0 on 1)
-unmonitored devices: 0.00% (0 on 1)
+    good devices: 100.00% (1 on 1)
+    fair devices: 0.00% (0 on 1)
+    bad devices: 0.00% (0 on 1)
+    unmonitored devices: 0.00% (0 on 1)
 ```
 
 La commande ci-dessus contrôle les équipements réseaux de l'application Cisco DNA Center via l'API (```--mode=network-devices```) de la catégorie *Access* et *Core* (```--filter-category-name='Access|Core'```).
@@ -140,11 +135,11 @@ Toutes les options et leur utilisation peuvent être consultées avec le paramè
 
 ```bash
 /usr/lib/centreon/plugins/centreon_cisco_dnac_restapi.pl --plugin=apps::cisco::dnac::restapi::plugin \
---mode=network-devices \
---help
+    --mode=network-devices \
+    --help
 ```
 
-### J'obtiens le message d'erreur suivant:
+### J'obtiens le message d'erreur suivant: 
 
 #### ```UNKNOWN: 500 Can't connect to 10.30.2.79:443 |```
 

@@ -16,7 +16,7 @@ Pour ajouter un modèle de contacts :
 Rendez-vous dans le menu **Configuration > Utilisateurs > Modèles de contact** et
 cliquez sur le bouton **Ajouter**.
 
-Se rapporter au chapitre de configuration des [contacts](contacts-create).
+Se rapporter au chapitre de configuration des [contacts](contacts-create). 
 
 > Les modèles de contacts
 > sont utilisés pour l’import automatique de profils via un annuaire

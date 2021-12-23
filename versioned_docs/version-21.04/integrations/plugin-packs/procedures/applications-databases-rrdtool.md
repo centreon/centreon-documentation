@@ -2,9 +2,6 @@
 id: applications-databases-rrdtool
 title: RRDtool
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Plugin-Pack Assets
 
@@ -14,17 +11,17 @@ The plugin-pack includes monitoring of Query.
 
 ### Collected Metrics
 
-<Tabs groupId="operating-systems">
-<TabItem value="Query" label="Query">
+<!--DOCUSAURUS_CODE_TABS-->
 
-| Metric name                             | Description                | Unit |
-| :-------------------------------------- | :------------------------- | :--- |
-| *dsname*#datasource.value.minimum.count | Minimun value on timeframe |      |
-| *dsname*#datasource.value.average.count | Average value on timeframe |      |
-| *dsname*#datasource.value.maximum.count | Maximul value on timeframe |      |
+<!--Query-->
 
-</TabItem>
-</Tabs>
+| Metric name                                  | Description                | Unit |
+| :------------------------------------------- | :------------------------- | :--- |
+| *dsname*#datasource.value.minimum.count      | Minimun value on timeframe |      |
+| *dsname*#datasource.value.average.count      | Average value on timeframe |      |
+| *dsname*#datasource.value.maximum.count      | Maximul value on timeframe |      |
+
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -33,12 +30,13 @@ The plugin support query with:
 * ```rrdtool``` cli (executed locally or through ssh)
 * perl binding (executed locally only)
 
-```rrdcached``` is not supported (yet).
+```rrdcached``` is not supported (yet). 
 
 ## Setup
 
-<Tabs groupId="licence-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -48,8 +46,7 @@ yum install centreon-plugin-Applications-Databases-Rrdtool
 
 2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *RRDtool* Plugin-Pack
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -65,13 +62,13 @@ yum install centreon-pack-applications-databases-rrdtool
 
 3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *RRDtool* Plugin-Pack
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
-## Service configuration
+## Service configuration 
 
-<Tabs groupId="operating-systems">
-<TabItem value="Local" label="Local">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Local-->
 
 * Create a service and apply the *App-DB-Rrdtool-Local-Query* service template.
 
@@ -83,8 +80,7 @@ yum install centreon-pack-applications-databases-rrdtool
 | X         | DSNAME    | Datasource to query (Default: 'value')                                        |
 | X         | TIMEFRAME | Set timeframe in seconds (E.g '3600' to check last 60 minutes) (Default: 600) |
 
-</TabItem>
-<TabItem value="SSH" label="SSH">
+<!--SSH-->
 
 * Create a service and apply the *App-DB-Rrdtool-SSH-Query* service template.
 
@@ -98,48 +94,47 @@ yum install centreon-pack-applications-databases-rrdtool
 
 * On your host, 3 SSH backends are available to connect to the remote server: *sshcli*, *plink* and *libssh* which are detailed below.
 
-</TabItem>
-<TabItem value="sshcli backend" label="sshcli backend">
+<!--DOCUSAURUS_CODE_TABS-->
 
-| Mandatory | Name            | Description                                                                        |
-| :-------- | :-------------- | :--------------------------------------------------------------------------------- |
-| X         | SSHBACKEND      | Name of the backend: ```sshcli```                                                  |
-| X         | SSHUSERNAME     | By default, it uses the user running process ```centengine``` on your Poller       |
-|           | SSHPASSWORD     | Cannot be used with backend. Only ssh key authentication                           |
-|           | SSHPORT         | By default: 22                                                                     |
-|           | SSHEXTRAOPTIONS | Customize it with your own if needed. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa``` |
+<!--sshcli backend-->
 
-> With that backend, you have to validate the target server fingerprint manually (with the SSHUSERNAME used).
-
-</TabItem>
-<TabItem value="plink backend" label="plink backend">
-
-| Mandatory | Name            | Description                                                                        |
-| :-------- | :-------------- | :--------------------------------------------------------------------------------- |
-| X         | SSHBACKEND      | Name of the backend: ```plink```                                                   |
-| X         | SSHUSERNAME     | By default, it uses the user running process ```centengine``` on your Poller       |
-|           | SSHPASSWORD     | Can be used. If not set, SSH key authentication is used                            |
-|           | SSHPORT         | By default: 22                                                                     |
-|           | SSHEXTRAOPTIONS | Customize it with your own if needed. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa``` |
+| Mandatory   | Name            | Description                                                                                 |
+| :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
+| X           | SSHBACKEND      | Name of the backend: ```sshcli```                                                           |
+| X           | SSHUSERNAME     | By default, it uses the user running process ```centengine``` on your Poller                |
+|             | SSHPASSWORD     | Cannot be used with backend. Only ssh key authentication                                    |
+|             | SSHPORT         | By default: 22                                                                              |
+|             | SSHEXTRAOPTIONS | Customize it with your own if needed. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```          |
 
 > With that backend, you have to validate the target server fingerprint manually (with the SSHUSERNAME used).
 
-</TabItem>
-<TabItem value="libssh backend (default)" label="libssh backend (default)">
+<!--plink backend-->
 
-| Mandatory | Name            | Description                                                                        |
-| :-------- | :-------------- | :--------------------------------------------------------------------------------- |
-| X         | SSHBACKEND      | Name of the backend: ```libssh```                                                  |
-| X         | SSHUSERNAME     | By default, it uses the user running process ```centengine``` on your Poller       |
-|           | SSHPASSWORD     | Can be used. If not set, SSH key authentication is used                            |
-|           | SSHPORT         | By default: 22                                                                     |
-|           | SSHEXTRAOPTIONS | Customize it with your own if needed. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa``` |
+| Mandatory   | Name            | Description                                                                                 |
+| :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
+| X           | SSHBACKEND      | Name of the backend: ```plink```                                                            |
+| X           | SSHUSERNAME     | By default, it uses the user running process ```centengine``` on your Poller                |
+|             | SSHPASSWORD     | Can be used. If not set, SSH key authentication is used                                     |
+|             | SSHPORT         | By default: 22                                                                              |
+|             | SSHEXTRAOPTIONS | Customize it with your own if needed. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```          |
+
+> With that backend, you have to validate the target server fingerprint manually (with the SSHUSERNAME used).
+
+<!--libssh backend (default)-->
+
+| Mandatory   | Name            | Description                                                                                 |
+| :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
+| X           | SSHBACKEND      | Name of the backend: ```libssh```                                                           |
+| X           | SSHUSERNAME     | By default, it uses the user running process ```centengine``` on your Poller                |
+|             | SSHPASSWORD     | Can be used. If not set, SSH key authentication is used                                     |
+|             | SSHPORT         | By default: 22                                                                              |
+|             | SSHEXTRAOPTIONS | Customize it with your own if needed. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```          |
 
 With that backend, you do not have to validate the target server fingerprint manually.
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## FAQ
 
@@ -149,14 +144,14 @@ Once the Plugin installed, log into your poller using the *centreon-engine* user
 
 ```bash
 /usr/lib/centreon/plugins/centreon_rrdtool.pl \
---plugin=database::rrdtool::local::plugin \
---custommode=perlmod \
---mode=query \
---rrd-file='/var/lib/centreon/metrics/1490.rrd' \
---ds-name='value' \
---timeframe='3600' \
---warning-value-maximum=50 \
---critical-value-maximum=100
+    --plugin=database::rrdtool::local::plugin \
+    --custommode=perlmod \
+    --mode=query \
+    --rrd-file='/var/lib/centreon/metrics/1490.rrd' \
+    --ds-name='value' \
+    --timeframe='3600' \
+    --warning-value-maximum=50 \
+    --critical-value-maximum=100
 ```
 
 Output example:
@@ -174,7 +169,7 @@ All the options that can be used with this plugin can be found over the ```--hel
 
 ```bash
 /usr/lib/centreon/plugins/centreon_rrdtool.pl \
---plugin=database::rrdtool::local::plugin \
---custommode=perlmod \
---help
+    --plugin=database::rrdtool::local::plugin \
+    --custommode=perlmod \
+    --help
 ```

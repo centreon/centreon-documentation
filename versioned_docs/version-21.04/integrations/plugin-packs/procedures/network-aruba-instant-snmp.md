@@ -27,8 +27,8 @@ to troubleshoot SNMP problems.
 
 Be sure to have with you the following information:
 
-- Read-only SNMP community
-- IP Address of the equipment
+  - Read-only SNMP community
+  - IP Address of the equipment
 
 Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
 the following table:
@@ -47,5 +47,5 @@ Check the *Create Services linked to the Template too* box and click on the
 
 The following services will be created:
 
-- Ap-Usage
-- Ssid-Status
+  - Ap-Usage
+  - Ssid-Status

@@ -2,9 +2,6 @@
 id: applications-hashicorp-vault-restapi
 title: HashiCorp Vault Rest API
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Vue d'ensemble
 
@@ -18,21 +15,21 @@ relatifs au fonctionnement de Vault.
 ### Objets supervisés
 
 * Instances HashiCorp Vault
-* Health
-* Raft-Storage
+    * Health
+    * Raft-Storage
 
-### Métriques & statuts collectés
+### Métriques & statuts collectés 
 
-<Tabs groupId="operating-systems">
-<TabItem value="Health" label="Health">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Health-->
 
 | Status Name | Description                       |
 |:------------|:----------------------------------|
 | seal-status | Seal status of the node           |
 | init-status | Initialization status of the node |
 
-</TabItem>
-<TabItem value="RaftStorage" label="RaftStorage">
+<!--Raft-Storage-->
 
 | Metric Name                                        | Description                                | Unit |
 |:---------------------------------------------------|:-------------------------------------------|:-----|
@@ -41,8 +38,7 @@ relatifs au fonctionnement de Vault.
 | *db_name*#vault.raftstorage.rebalance_time.seconds | Average rebalance_time                     | s    |
 | *db_name*#vault.raftstorage.write_time.seconds     | Average write time                         | s    |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -64,10 +60,11 @@ disponible en ligne de commandes (paramètre ```--help```) pour plus d'informati
 Les options nécessaires à chaque méthode d'authentification sont détaillées dans la documentation officielle de l'éditeur:
 https://www.vaultproject.io/api-docs/auth .
 
-## Installation
+## Installation 
 
-<Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des resources HashiCorp Vault:
 
@@ -77,8 +74,7 @@ yum install centreon-plugin-Applications-HashiCorp-Vault-Restapi
 
 2. Sur l'interface Integration de Centreon, installer le Pack *HashiCorp Vault Rest API* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des resources Azure Cosmos DB:
 
@@ -94,8 +90,7 @@ yum install centreon-pack-applications-hashicorp-vault-restapi.noarch
 
 3. Sur l'interface Integration de Centreon, installer le Pack *HashiCorp Vault Rest API* depuis la page "Configuration > Plugin Packs > Gestionnaire"
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
@@ -121,15 +116,15 @@ vous connectant avec l'utilisateur *centreon-engine*:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_hashicorp_vault_restapi.pl \
---plugin=apps::hashicorp::vault::restapi::plugin \
---mode=health \
---hostname=10.0.0.1 \
---api-port='8200' \
---api-proto='http' \
---auth-method='token' \
---vault-token='s.1234567890abcd' \
---critical-seal-status='%{sealed} ne "unsealed"' \
---critical-init-status='%{init} ne "initialized"'
+    --plugin=apps::hashicorp::vault::restapi::plugin \
+    --mode=health \
+    --hostname=10.0.0.1 \
+    --api-port='8200' \
+    --api-proto='http' \
+    --auth-method='token' \
+    --vault-token='s.1234567890abcd' \
+    --critical-seal-status='%{sealed} ne "unsealed"' \ 
+    --critical-init-status='%{init} ne "initialized"'
 ```
 
 La commande devrait retourner un message de sortie similaire à:
@@ -154,11 +149,11 @@ La liste de toutes les options complémentaires et leur signification peut être
 
 ```bash
 /usr/lib/centreon/plugins/centreon_hashicorp_vault_restapi.pl \
---plugin=apps::hashicorp::vault::restapi::plugin \
---mode=health \
---help
+    --plugin=apps::hashicorp::vault::restapi::plugin \
+    --mode=health \
+    --help
 ```
 
-### Diagnostic des erreurs communes
+### Diagnostic des erreurs communes  
 
 Rendez-vous sur la [documentation dédiée](../tutorials/troubleshooting-plugins#http-and-api-checks) des Plugins basés sur HTTP/API.

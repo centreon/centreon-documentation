@@ -2,9 +2,6 @@
 id: hardware-devices-camera-mobotix-snmp
 title: Mobotix camera SNMP
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Contenu du Plugin Pack
 
@@ -16,20 +13,21 @@ Le Plugin Pack Mobotix SNMP collecte les données pour:
 
 ### Règles de découvertes
 
-<Tabs groupId="operating-systems">
-<TabItem value="Services" label="Services">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Services-->
 
 | Nom de la règle                              | Description                                                                                  |
 | :------------------------------------------- | :------------------------------------------------------------------------------------------- |
 | HW-Device-Camera-Mobotix-SNMP-Interface-Name | Découvre les interfaces réseaux et supervise le statut et l'utilisation de la bande passante |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Métriques collectées
 
-<Tabs groupId="operating-systems">
-<TabItem value="Interfaces" label="Interfaces">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Interfaces-->
 
 | Metric name                                            | Description                                         | Unit |
 | :----------------------------------------------------- | :-------------------------------------------------- | :--- |
@@ -41,8 +39,7 @@ Le Plugin Pack Mobotix SNMP collecte les données pour:
 
 A regexp filter is available to target a specific interface identifier - ifName [```--interface='^eth0$' --name```]
 
-</TabItem>
-<TabItem value="System" label="System">
+<!--System-->
 
 | Metric name                         | Description                      | Unit |
 | :---------------------------------- | :------------------------------- | :--- |
@@ -54,17 +51,17 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | system.illumination.left.lux        | Illumination of the left sensor  | lx   |
 | system.video.framerate.persecond    | Current video framerate          |      |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
-Afin de contrôler votre équipement Mobotix, le SNMP doit être configuré.
+Afin de contrôler votre équipement Mobotix, le SNMP doit être configuré. 
 
 ## Installation
 
-<Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -74,8 +71,7 @@ yum install centreon-plugin-Hardware-Devices-Camera-Mobotix-Snmp
 
 2. Sur l'interface Web de Centreon, installer le Plugin Pack *Mobotix Camera* depuis la page "Configuration > Plugin Packs > Manager"
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -91,8 +87,7 @@ yum install centreon-pack-hardware-devices-camera-mobotix-snmp
 
 3. Sur l'interface Web de Centreon, installer le Plugin Pack *Mobotix Camera* depuis la page "Configuration > Plugin Packs > Manager"
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
@@ -114,14 +109,14 @@ depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-en
 
 ```bash
 /usr/lib/centreon/plugins/centreon_camera_mobotix_snmp.pl \
---plugin=hardware::devices::camera::mobotix::snmp::plugin \
---mode=system \
---hostname=10.30.2.114 \
---snmp-version='2c' \
---snmp-community='mobotix_ro' \
---warning-temperature-internal=45 \
---critical-temperature-internal=50 \
---verbose
+    --plugin=hardware::devices::camera::mobotix::snmp::plugin \
+    --mode=system \
+    --hostname=10.30.2.114 \
+    --snmp-version='2c' \
+    --snmp-community='mobotix_ro' \
+    --warning-temperature-internal=45 \
+    --critical-temperature-internal=50 \
+    --verbose
 ```
 
 La commande devrait retourner un message de sortie de la forme ci-dessous:
@@ -130,7 +125,7 @@ La commande devrait retourner un message de sortie de la forme ci-dessous:
 OK: internal temperature: 23 C - illumination right: 17 lx - video framerate: 2 fps | 'system.temperature.internal.celsius'=23C;0:45;0:50;; 'system.illumination.right.lux'=17lx;;;; 'system.video.framerate.persecond'=2fps;;;;
 ```
 
-Cette commande contrôle le système (```--mode=system```) d'un équipement Mobotix ayant pour adresse *10.30.2.114* (```--hostname=10.30.2.114```)
+Cette commande contrôle le système (```--mode=system```) d'un équipement Mobotix ayant pour adresse *10.30.2.114* (```--hostname=10.30.2.114```) 
 en version *2c* du protocol SNMP (```--snmp-version='2c'```) et avec la communauté *mobotix_ro* (```--snmp-community='mobotix_ro'```).
 
 Cette commande déclenchera une alarme WARNING si la température interne est supérieur à 45 degré Celsius (```--warning-temperature-internal=45```)
@@ -141,21 +136,21 @@ en ajoutant le paramètre ```--help``` à la commande:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_camera_mobotix_snmp.pl \
---plugin=hardware::devices::camera::mobotix::snmp::plugin \
---mode=system \
---help
+    --plugin=hardware::devices::camera::mobotix::snmp::plugin \
+    --mode=system \
+    --help
 ```
 
 ## J'obtiens le message d'erreur suivant:
 
 ### UNKNOWN: SNMP GET Request : Timeout
 
-Si vous obtenez ce message, cela signifie que vous ne parvenez pas à contacter l'équipement sur le port 161,
-ou alors que la communauté SNMP configurée n'est pas correcte.
+Si vous obtenez ce message, cela signifie que vous ne parvenez pas à contacter l'équipement sur le port 161, 
+ou alors que la communauté SNMP configurée n'est pas correcte. 
 Il est également possible qu'un firewall bloque le flux.
 
 ### UNKNOWN: SNMP GET Request : Cant get a single value.
 
-Si vous rencontrez cette erreur, il est probable que les autorisations données à l'agent SNMP soient trop restreintes.
-* L'équipement ne prend pas en charge la MIB utilisée par le Plugin (branche: .1.3.6.1.4.1.21701).
-* L'OID SNMP ciblé ne peut pas être récupéré en raison de privilèges d'équipement insuffisants.
+Si vous rencontrez cette erreur, il est probable que les autorisations données à l'agent SNMP soient trop restreintes. 
+ * L'équipement ne prend pas en charge la MIB utilisée par le Plugin (branche: .1.3.6.1.4.1.21701).
+ * L'OID SNMP ciblé ne peut pas être récupéré en raison de privilèges d'équipement insuffisants.

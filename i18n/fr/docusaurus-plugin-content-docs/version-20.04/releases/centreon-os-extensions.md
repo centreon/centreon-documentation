@@ -27,12 +27,12 @@ commerciales, vous pouvez vous rendre sur notre
 #### Correctifs
 
 - [Sync] An error in the script prevented the files to be synchronized
-correctly
+  correctly
 
 #### Améliorations
 
 - [RPM] All the configuration files (except for logrotate.d and sudoers.d)
-are now preserved by the update process
+  are now preserved by the update process
 
 ### 20.04.2
 
@@ -56,9 +56,9 @@ are now preserved by the update process
 - [Sync] centreon_central_sync bugfixes (realtime sync)
 - [Sync] fix(centreon_central_sync)fix-HUP-signal-and-bugs
 - [Documentation] Revoke SUPER right from Centreon user. Add SELECT right
-to Replication user
+  to Replication user
 - [Documentation] Add specific chmod associated to /var/log/centreon-engine/
-and /tmp/centreon-autodisco/ shared directories
+  and /tmp/centreon-autodisco/ shared directories
 - [Documentation] Missing cache regeneration in update procedure
 
 ### 20.04.0
@@ -78,7 +78,7 @@ and /tmp/centreon-autodisco/ shared directories
 #### Correctifs
 
 - Manage hosts disabled: host change instance or instance is not
-running (commit a99b068)
+  running (commit a99b068)
 - Applied patch for MariaDB 10.2.x (commit a567991)
 
 ## Centreon Open Ticket

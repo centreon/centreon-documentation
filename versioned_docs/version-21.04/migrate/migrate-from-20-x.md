@@ -11,7 +11,7 @@ Oracle Linux / RHEL 8.
 
 ## Migrate
 
-> If your Centreon platform includes a Centreon redundancy system, please
+> If your Centreon platform includes a Centreon redundancy system, please 
 > contact [Centreon support](https://centreon.force.com).
 
 ### Install the new server

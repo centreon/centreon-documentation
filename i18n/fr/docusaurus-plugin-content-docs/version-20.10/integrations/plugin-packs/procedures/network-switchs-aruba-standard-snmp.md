@@ -30,8 +30,8 @@ templates.
 
 Be sure to have with you the following information:
 
-- Read-only SNMP community
-- IP Address of the equipment
+  - Read-only SNMP community
+  - IP Address of the equipment
 
 #### Controller
 
@@ -52,17 +52,17 @@ Check the *Create Services linked to the Template too* box and click on the
 
 The following services will be created:
 
-- Cpu
-- Memory
-- Storage
-- Hardware
-- License
-- Controller-Status
+  - Cpu
+  - Memory
+  - Storage
+  - Hardware
+  - License
+  - Controller-Status
 
 The following rules are linked to this host template:
 
-- Net-Aruba-Standard-SNMP-Packet-Errors-Name
-- Net-Aruba-Standard-SNMP-Traffic-Name
+  - Net-Aruba-Standard-SNMP-Packet-Errors-Name
+  - Net-Aruba-Standard-SNMP-Traffic-Name
 
 #### Access Point
 
@@ -89,5 +89,5 @@ Check the *Create Services linked to the Template too* box and click on the
 
 The following services will be created:
 
-- Ap-Ssid-Statistics
-- Ap-Status
+  - Ap-Ssid-Statistics
+  - Ap-Status

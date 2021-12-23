@@ -13,7 +13,7 @@ title: Events consoles
 > in the preferences specific to each user from the menu
 > **Administration > Parameters > My Account**.
 >
-> All links in Centreon will point to these pages: deprecated pages will become your main tool to visualize
+> All links in Centreon will point to these pages: deprecated pages will become your main tool to visualize 
 > the state of hosts and services. However, if you enable this option, you will not benefit from
 > the new features offered by the **Resources Status** page, such as for instance a more powerful search feature,
 > the ability to customize and share views or to save filters, and any other future enhancements.
@@ -48,23 +48,23 @@ menu
 
 -   **S**: Displays the severity level of the host
 -   **Hosts**: Displays the name of the host
--   The following icon indicates that the notifications for this
-host are disabled: ![image](../assets/alerts/nonotifications.png)
--   The following icon can be used to view all the performance
-graphs for this host: ![image](../assets/alerts/graphperformances.png)
--   The following icon allows to access to a predefined url
-configured: ![image](../assets/alerts/url_link.png)
+    -   The following icon indicates that the notifications for this
+        host are disabled: ![image](../assets/alerts/nonotifications.png)
+    -   The following icon can be used to view all the performance
+        graphs for this host: ![image](../assets/alerts/graphperformances.png)
+    -   The following icon allows to access to a predefined url
+        configured: ![image](../assets/alerts/url_link.png)
 -   **Status**: Serves to view the status of the host
 -   **IP Address**: Indicates the IP address of the host
 -   **Last Check**: Displays the date and the time of the last check
 -   **Duration**: Displays the time that the host a has kept its current
-status
+    status
 -   **Hard State Duration**: Displays the time that the host a has kept
-its current hard state (does not appear when viewing of all the
-hosts)
+    its current hard state (does not appear when viewing of all the
+    hosts)
 -   **Tries**: Displays the number of tries before confirming the state
 -   **Status information**: Displays the message explaining the status
-of the host
+    of the host
 
 > The severity column and the associated filter appear if at least one object
 > displayed has a severity level.
@@ -74,18 +74,18 @@ of the host
 You can filter the result presented via the following filters:
 
 -   **Host Status**:
--   To view the hosts with a problem but not acknowledged or not in
-downtime, choose **Unhandled Problems**.
--   To view all the hosts with a problem, choose **Host Problems**.
--   To view all the hosts, choose **All**.
+    -   To view the hosts with a problem but not acknowledged or not in
+        downtime, choose **Unhandled Problems**.
+    -   To view all the hosts with a problem, choose **Host Problems**.
+    -   To view all the hosts, choose **All**.
 -   **Host**: Can be used to filter by name of host via an SQL LIKE type
-search.
+    search.
 -   **Status**: Can be used to filter by the status of hosts.
 -   **Severity**: Can be used to filter by severity.
 -   **Poller**: Can be used to filter the hosts by poller. Only the
-hosts of the poller selected will be displayed.
+    hosts of the poller selected will be displayed.
 -   **Hostgroup**: Can be used to filter by host group. Only the hosts
-of the host group selected will be displayed.
+    of the host group selected will be displayed.
 
 > The search on text fields only starts after entry of at least 3 characters.
 
@@ -100,16 +100,16 @@ Hostgroups Summary` menu
 
 -   **Host Group**: List of available groups of hosts
 -   **Hosts Status**: Allows to display the number of hosts in UP, DOWN,
-UNREACHABLE or in PENDING status
+    UNREACHABLE or in PENDING status
 -   **Services Status**: Allows to display the number of services in OK,
-WARNING, CRITICAL or in PENDING status
+    WARNING, CRITICAL or in PENDING status
 
 ### Available filters
 
 -   **Hostgroup**: Can be used to filter by name of group of hosts via
-an SQL LIKE type search.
+    an SQL LIKE type search.
 -   **Poller**: Can be used to filter the hosts by poller. Only the
-hosts of the poller selected will be displayed.
+    hosts of the poller selected will be displayed.
 
 ## Host details (deprecated)
 
@@ -122,7 +122,7 @@ the resource.
 4 tabs are available:
 
 -   **Service Status**: List of host services and their associated
-status
+    status
 -   **Performances**: List of performance graphs for each service
 -   **Host Informations**: Host details
 -   **Comments**: Host comments available
@@ -135,28 +135,28 @@ Description of attributes available for host details:
 
 -   **Host Status**: Displays the status of the host.
 -   **Status information**: Displays the information of the status of
-the host.
+    the host.
 -   **Performance Data**: Displays performance data associated to the
-check.
+    check.
 -   **Poller Name**: Name of the server polling the host.
 -   **Current Attempt**: Displays the number of attempts before status
-validation.
+    validation.
 -   **State Type**: Displays the type of state (‘SOFT' or ‘HARD').
 -   **Last Check**: Displays the last check of the host.
 -   **Next Check**: Displays the next scheduled check of the host.
 -   **Last State Change**: Displays when the status of the host changed.
 -   **Current State Duration**: Displays the date and time from which
-the host is in the present state.
+    the host is in the present state.
 -   **Last Notification**: Displays the sent date and time of the last
-notification.
+    notification.
 -   **Next Notification**: Displays the sent date and time of the next
-notification.
+    notification.
 -   **Current Notification Number**: Displays the number of sent
-notifications.
+    notifications.
 -   **Is This Host Flapping?**: Indicates if the host is in flapping
-state.
+    state.
 -   **In Scheduled Downtime?**: Indicates if the host is in scheduled
-downtime.
+    downtime.
 -   **Timezone**: The timezone of the host.
 
 ### Options
@@ -167,7 +167,7 @@ Option allow to enable / disable properties of the host:
 -   **Passive Checks**: The passive check method of the host.
 -   **Notifications**: The notification process of the host.
 -   **Obsess Over Host**: The obsess over host command execution of the
-host.
+    host.
 -   **Event Handler**: The automated reactions process of the host.
 -   **Flap Detection**: The flapping detection process of the host.
 
@@ -196,19 +196,19 @@ Services` menu.
 -   **S**: Displays the severity level of the service.
 -   **Host**: Displays the name of host.
 -   **Services**: Displays the name of service.
--   The following icon indicates that the notifications for this
-service are disabled: ![image](../assets/alerts/nonotifications.png)
--   The following icon can be used to view the performance graph for
-this service: ![image](../assets/alerts/graphperformances.png)
--   The following icon allows to access to a predefined url
-configured: ![image](../assets/alerts/url_link.png)
+    -   The following icon indicates that the notifications for this
+        service are disabled: ![image](../assets/alerts/nonotifications.png)
+    -   The following icon can be used to view the performance graph for
+        this service: ![image](../assets/alerts/graphperformances.png)
+    -   The following icon allows to access to a predefined url
+        configured: ![image](../assets/alerts/url_link.png)
 -   **Duration**: Displays the duration of the actual status.
 -   **Hard State Duration**: Displays the duration of the validated
-non-ok status.
+    non-ok status.
 -   **Last Check**: Displays the date and time of the last check.
 -   **Tries**: Displays the number of attempts before status validation.
 -   **Status information**: Displays the message explaining the status
-of the service.
+    of the service.
 
 > The severity column and the associated filter appear if at least one object
 > displayed has a severity level.
@@ -219,23 +219,23 @@ of the service.
 ### Available filters
 
 -   **Service Status**:
--   To view the services with a problem but not acknowledged or not
-in downtime, choose **Unhandled Problems**.
--   To view all the services with a problem, choose **Host
-Problems**.
--   To view all the services, choose **All**.
+    -   To view the services with a problem but not acknowledged or not
+        in downtime, choose **Unhandled Problems**.
+    -   To view all the services with a problem, choose **Host
+        Problems**.
+    -   To view all the services, choose **All**.
 -   **Status**: Can be used to filter by the status of services.
 -   **Severity**: Can be used to filter by severity.
 -   **Poller**: Can be used to filter the services by poller. Only the
-services of the poller selected will be displayed.
+    services of the poller selected will be displayed.
 -   **Host**: Can be used to filter by name of host via an SQL LIKE type
-search.
+    search.
 -   **Service**: Can be used to filter by name of service via an SQL
-LIKE type search.
+    LIKE type search.
 -   **Hostgroup**: Can be used to filter by host group. Only the hosts
-of the host group selected will be displayed.
+    of the host group selected will be displayed.
 -   **Servicegroup**: Can be used to filter by service group. Only the
-services of the service group selected will be displayed.
+    services of the service group selected will be displayed.
 -   **Output**: Can be used to filter by the result of the check.
 
 ## Services Grid
@@ -247,7 +247,7 @@ filter:
 ![image](../assets/alerts/04servicelistbyhostdetail.png)
 
 To view the number of services (short by host and by status), choose **Summary**
-**Display** filter:
+ **Display** filter:
 
 ![image](../assets/alerts/04servicelistbyhost.png)
 
@@ -290,42 +290,42 @@ When you click on a service, the following screen appears:
 
 Description of attributes available for service details:
 
--   **Service Status**: Displays the status of the service.
+-   **Service Status**: Displays the status of the service.  
 -   **Status information**: Displays the information of the status of
-the service.
+    the service.  
 -   **Extended status information**: Displays long output of the
-service.
+    service.  
 -   **Performance Data**: Displays performance data associated to the
-check.
+    check.  
 -   **Current Attempt**: Displays the number of attempts before status
-validation.
--   **State Type**: Displays the type of state (‘SOFT' or ‘HARD').
+    validation.  
+-   **State Type**: Displays the type of state (‘SOFT' or ‘HARD').  
 -   **Last Check Type**: Indicates if the last type of check is ‘active'
-or ‘passive'.
--   **Last Check**: Displays the last check of the service.
+    or ‘passive'.  
+-   **Last Check**: Displays the last check of the service.  
 -   **Next Scheduled Active Check**: Displays the next scheduled check
-of the service.
+    of the service.  
 -   **Latency**: Displays the latency in seconds between the scheduled
-check and the real check execution.
--   **Check Duration**: Displays the execution time of the check.
+    check and the real check execution.  
+-   **Check Duration**: Displays the execution time of the check.  
 -   **Last State Change**: Displays when the status of the service
-changed.
+    changed.  
 -   **Current State Duration**: Displays the date and time from which
-the host is in the present state.
+    the host is in the present state.  
 -   **Last Service Notification**: Displays the sent date and time of
-the last notification.
+    the last notification.  
 -   **Current Notification Number**: Displays the number of sent
-notifications.
+    notifications.  
 -   **Is This Service Flapping?**: Indicates if the service is in
-flapping state.
--   **Percent State Change**: Displays the percentage change of state.
+    flapping state.  
+-   **Percent State Change**: Displays the percentage change of state.  
 -   **In Scheduled Downtime?**: Indicates if the host is in scheduled
-downtime.
+    downtime.  
 -   **Last Update**: Displays the date and time of the last information
-update.
+    update.  
 -   **Executed Check Command Line**: Regarding your ACL rights, you may
-have access to the executed command line. Password will be replaced
-by **\***
+    have access to the executed command line. Password will be replaced
+    by **\***
 
 ### Detailed graph and status graph
 
@@ -335,33 +335,33 @@ and the history chart statutes for this service.
 ### Host and Service Shortcuts
 
 -   **View host status page**: Allows to access to the host details
-page.
+    page.
 -   **Configure host**: Allows to access to the configuration
-page of the host.
+    page of the host.
 -   **View logs for host**: Allows to access to the event logs
-of the host.
+    of the host.
 -   **View report for host**: Allows to acces to the
-availability rate report of the host.
+    availability rate report of the host.
 -   **View graphs for host**: Allows to access to all
-performance graphs of services of the host.
+    performance graphs of services of the host.
 -   **Configure service**: Allows to access to the configuration page of
-the service.
+    the service.
 -   **View logs for service**: Allows to access to the event
-logs of the service.
+    logs of the service.
 -   **View report for service**: Allows to acces to the
-availability rate report of the service.
+    availability rate report of the service.
 
 ### Service commands
 
 -   **Re-schedule the next check for this service**: Allows to
-Re-schedule the next check for the service.
+    Re-schedule the next check for the service.
 -   **Re-schedule the next check for this service (forced)**: Allows to
-Re-schedule the next check for the service, event if the check
-period is invalid.
+    Re-schedule the next check for the service, event if the check
+    period is invalid.
 -   **Schedule downtime for this service**: Allows to schedule downtime
-for the service.
+    for the service.
 -   **Add a comment for this service**: Allows to add a comment for the
-service.
+    service.
 
 ### Options
 
@@ -373,7 +373,7 @@ Option allow to enable / disable properties of the service:
 -   **Event Handler**: The automated reactions process of the service.
 -   **Flap Detection**: The flapping detection process of the service.
 -   **Obsess Over Service**: The obsess over service command execution
-of the service.
+    of the service.
 
 ### Links
 

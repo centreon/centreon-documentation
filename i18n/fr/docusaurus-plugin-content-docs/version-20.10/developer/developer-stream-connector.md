@@ -43,7 +43,7 @@ In this how-to, we will write two scripts:
 
 * The first one, easy, that explains the basics of Stream Connectors. Its goal is to export data to a log file.
 * The second one is more exigent for the reader, it exports performance data to the TSDB InfluxDB but is easily
-adaptable to export to another TSDB.
+  adaptable to export to another TSDB.
 
 ### Programming language
 
@@ -101,14 +101,14 @@ Here is the **bbdo2file.lua** first version:
 
 ```LUA
 function init(conf)
-broker_log:set_parameters(3, "/var/log/centreon-broker/bbdo2file.log")
+  broker_log:set_parameters(3, "/var/log/centreon-broker/bbdo2file.log")
 end
 
 function write(d)
-for k,v in pairs(d) do
-broker_log:info(3, k .. " => " .. tostring(v))
-end
-return true
+  for k,v in pairs(d) do
+    broker_log:info(3, k .. " => " .. tostring(v))
+  end
+  return true
 end
 ```
 
@@ -130,25 +130,25 @@ is a collection of keys/values. For example:
 
 ```JSON
 {
-"check_hosts_freshness": false,
-"active_host_checks": true,
-"category": 1,
-"event_handlers": true,
-"instance_id": 1,
-"last_command_check": 1522836592,
-"type": 65552,
-"global_service_event_handler": "",
-"obsess_over_services": false,
-"passive_service_checks": true,
-"last_alive": 1522836593,
-"active_service_checks": true,
-"check_services_freshness": true,
-"flap_detection": false,
-"global_host_event_handler": "",
-"notifications": true,
-"obsess_over_hosts": false,
-"passive_host_checks": true,
-"element": 16
+    "check_hosts_freshness": false,
+    "active_host_checks": true,
+    "category": 1,
+    "event_handlers": true,
+    "instance_id": 1,
+    "last_command_check": 1522836592,
+    "type": 65552,
+    "global_service_event_handler": "",
+    "obsess_over_services": false,
+    "passive_service_checks": true,
+    "last_alive": 1522836593,
+    "active_service_checks": true,
+    "check_services_freshness": true,
+    "flap_detection": false,
+    "global_host_event_handler": "",
+    "notifications": true,
+    "obsess_over_hosts": false,
+    "passive_host_checks": true,
+    "element": 16
 }
 ```
 
@@ -170,8 +170,8 @@ string representation of it. So, we could write the function like this:
 
 ```LUA
 function write(d)
-broker_log:info(3, broker.json_encode(d))
-return true
+  broker_log:info(3, broker.json_encode(d))
+  return true
 end
 ```
 
@@ -239,25 +239,25 @@ So it is time to improve our Stream Connector:
 
 ```LUA
 function init(conf)
-logFile = conf['logFile']
-broker_log:set_parameters(3, "/var/log/centreon-broker/debug.log")
+  logFile = conf['logFile']
+  broker_log:set_parameters(3, "/var/log/centreon-broker/debug.log")
 end
 
 function writeIntoFile(output)
-local file,err = io.open(logFile, 'a')
-if file == nil then
-broker_log:info(3, "Couldn't open file: " .. err)
-else
-file:write(output)
-file:close()
-end
+  local file,err = io.open(logFile, 'a')
+  if file == nil then
+    broker_log:info(3, "Couldn't open file: " .. err)
+  else
+    file:write(output)
+    file:close()
+  end
 end
 
 function write(d)
-for k,v in pairs(d) do
-writeIntoFile(k .. " => " .. tostring(v) .. "\n")
-end
-return true
+  for k,v in pairs(d) do
+    writeIntoFile(k .. " => " .. tostring(v) .. "\n")
+  end
+  return true
 end
 ```
 
@@ -275,7 +275,7 @@ Another example that illustrates several values returned:
 
 ```LUA
 function fib(a, b)
-return b, a + b
+  return b, a + b
 end
 ```
 
@@ -365,52 +365,52 @@ Let's complete our Lua script:
 
 ```LUA
 function init(conf)
-logFile = conf['logFile']
-broker_log:set_parameters(3, "/var/log/centreon-broker/debug.log")
+  logFile = conf['logFile']
+  broker_log:set_parameters(3, "/var/log/centreon-broker/debug.log")
 end
 
 local function writeIntoFile(output)
-local file,err = io.open(logFile, 'a')
-if file == nil then
-broker_log:info(3, "Couldn't open file: " .. err)
-else
-file:write(output)
-file:close()
-end
+  local file,err = io.open(logFile, 'a')
+  if file == nil then
+    broker_log:info(3, "Couldn't open file: " .. err)
+  else
+    file:write(output)
+    file:close()
+  end
 end
 
 function write(d)
-local output = ""
+  local output = ""
 
-local host_name = broker_cache:get_hostname(d.host_id)
-if not host_name then
-broker_log:info(3, "Unable to get name of host, please restart centengine")
-host_name = d.host_id
-end
+  local host_name = broker_cache:get_hostname(d.host_id)
+  if not host_name then
+    broker_log:info(3, "Unable to get name of host, please restart centengine")
+    host_name = d.host_id
+  end
 
-if d.element == 14 then
-output = "HOST:" .. host_name .. ";" .. d.host_id .. ";" .. d.state .. ";" .. d.output
-writeIntoFile(output)
-broker_log:info(output)
-elseif d.element == 24 then
-local service_description = broker_cache:get_service_description(d.host_id, d.service_id)
-if not service_description then
-broker_log:info(3, "Unable to get description of service, please restart centengine")
-service_description = d.service_id
-end
-output = "SERVICE:" .. host_name .. ";" .. d.host_id .. ";" .. service_description .. ";" .. d.service_id .. ";" .. d.state .. ";" .. d.output
-writeIntoFile(output)
-broker_log:info(output)
-end
-return true
+  if d.element == 14 then
+    output = "HOST:" .. host_name .. ";" .. d.host_id .. ";" .. d.state .. ";" .. d.output
+    writeIntoFile(output)
+    broker_log:info(output)
+  elseif d.element == 24 then
+    local service_description = broker_cache:get_service_description(d.host_id, d.service_id)
+    if not service_description then
+      broker_log:info(3, "Unable to get description of service, please restart centengine")
+      service_description = d.service_id
+    end
+    output = "SERVICE:" .. host_name .. ";" .. d.host_id .. ";" .. service_description .. ";" .. d.service_id .. ";" .. d.state .. ";" .. d.output
+    writeIntoFile(output)
+    broker_log:info(output)
+  end
+  return true
 end
 
 function filter(category, element)
--- Get only host status and services status from NEB category
-if category == 1 and (element == 14 or element == 24) then
-return true
-end
-return false
+  -- Get only host status and services status from NEB category
+  if category == 1 and (element == 14 or element == 24) then
+    return true
+  end
+    return false
 end
 ```
 
@@ -439,9 +439,9 @@ so, the following code
 
 ```LUA
 if foo then
-print("Good")
+  print("Good")
 else
-print("Bad")
+  print("Bad")
 end
 ```
 
@@ -551,16 +551,16 @@ local ltn12 = require("ltn12")
 
 -- Here are predefined queue parameters
 local event_queue = {
-__internal_ts_last_flush    = nil,
-http_server_address         = "",
-http_server_port            = 8086,
-http_server_protocol        = "http",
-events                      = {},
-influx_database             = "mydb",
-influx_user                 = "",
-influx_password             = "",
-max_buffer_size             = 5000,
-max_buffer_age              = 5
+  __internal_ts_last_flush    = nil,
+  http_server_address         = "",
+  http_server_port            = 8086,
+  http_server_protocol        = "http",
+  events                      = {},
+  influx_database             = "mydb",
+  influx_user                 = "",
+  influx_password             = "",
+  max_buffer_size             = 5000,
+  max_buffer_age              = 5
 }
 ```
 
@@ -574,28 +574,28 @@ To declare this table as a Lua object, we need a constructor. So, here it is:
 ```LUA
 -- Constructor of the event_queue
 function event_queue:new(o, conf)
-o = o or {}
-setmetatable(o, self)
-self.__index = self
-for i,v in pairs(conf) do
-if self[i] and i ~= "events" and string.sub(i, 1, 11) ~= "__internal_" then
-broker_log:info(1, "event_queue:new: getting parameter " .. i .. " => " .. v)
-self[i] = v
-else
-broker_log:warning(1, "event_queue:new: ignoring parameter " .. i .. " => " .. v)
-end
-end
-self.__internal_ts_last_flush = os.time()
-broker_log:info(2, "event_queue:new: setting the internal timestamp to " .. self.__internal_ts_last_flush)
-return o
+  o = o or {}
+  setmetatable(o, self)
+  self.__index = self
+  for i,v in pairs(conf) do
+    if self[i] and i ~= "events" and string.sub(i, 1, 11) ~= "__internal_" then
+    broker_log:info(1, "event_queue:new: getting parameter " .. i .. " => " .. v)
+    self[i] = v
+    else
+    broker_log:warning(1, "event_queue:new: ignoring parameter " .. i .. " => " .. v)
+    end
+  end
+  self.__internal_ts_last_flush = os.time()
+  broker_log:info(2, "event_queue:new: setting the internal timestamp to " .. self.__internal_ts_last_flush)
+  return o
 end
 ```
 
 > In this function, we use a Lua sugar "o = o or {}" that means *o* stays the same if it is **true**, otherwise it is
 affected with an empty table `{}`.
->
+> 
 > Another point to notice is the **~=** operator that means **different from**.
->
+> 
 > And to finish on this function, the variable **self** is implicitly defined when we declare an object's method. Its
 > meaning is the same as **this** in Java or in C++. It represents the object we are working on.
 
@@ -619,45 +619,45 @@ builds a string from the event and pushes it on its stack.
 
 ```LUA
 function event_queue:add(e)
-local metric = e.name
--- time is a reserved word in influxDB so I rename it
-if metric == "time" then
-metric = "_" .. metric
-end
+  local metric = e.name
+  -- time is a reserved word in influxDB so I rename it
+  if metric == "time" then
+    metric = "_" .. metric
+  end
 
--- retrieve objects names instead of IDs
-local host_name = broker_cache:get_hostname(e.host_id)
-local service_description = broker_cache:get_service_description(e.host_id, e.service_id)
+  -- retrieve objects names instead of IDs
+  local host_name = broker_cache:get_hostname(e.host_id)
+  local service_description = broker_cache:get_service_description(e.host_id, e.service_id)
 
--- what if we could not get them from cache
-if not host_name then
-broker_log:warning(1, "event_queue:add: host_name for id " .. e.host_id .. " not found. Restarting centengine should fix this.")
-host_name = e.host_id
-end
-if not service_description then
-broker_log:warning(1, "event_queue:add: service_description for id " .. e.host_id .. "." .. e.service_id .. " not found. Restarting centengine should fix this.")
-service_description = e.service_id
-else
-service_description = service_description:gsub(" ", "_")
-end
+  -- what if we could not get them from cache
+  if not host_name then
+    broker_log:warning(1, "event_queue:add: host_name for id " .. e.host_id .. " not found. Restarting centengine should fix this.")
+    host_name = e.host_id
+  end
+  if not service_description then
+    broker_log:warning(1, "event_queue:add: service_description for id " .. e.host_id .. "." .. e.service_id .. " not found. Restarting centengine should fix this.")
+    service_description = e.service_id
+  else
+    service_description = service_description:gsub(" ", "_")
+  end
 
--- we finally append the event to the events table
-metric = metric:gsub(" ", "_")
-broker_log:info(3, 'event_queue:add: adding  ' .. service_description .. ",host=" .. host_name .. " " .. metric .. "=" .. e.value .. " " .. e.ctime .. '000000000" to event list.')
-self.events[#self.events + 1] = service_description .. ",host=" .. host_name .. " " .. metric .. "=" .. e.value .. " " .. e.ctime .. "000000000\n"
+  -- we finally append the event to the events table
+  metric = metric:gsub(" ", "_")
+  broker_log:info(3, 'event_queue:add: adding  ' .. service_description .. ",host=" .. host_name .. " " .. metric .. "=" .. e.value .. " " .. e.ctime .. '000000000" to event list.')
+  self.events[#self.events + 1] = service_description .. ",host=" .. host_name .. " " .. metric .. "=" .. e.value .. " " .. e.ctime .. "000000000\n"
 
--- then we check whether it is time to send the events to the receiver and flush
-if #self.events >= self.max_buffer_size then
-broker_log:info(2, "event_queue:add: flushing because buffer size reached " .. self.max_buffer_size .. " elements.")
-self:flush()
-return true
-elseif os.time() - self.__internal_ts_last_flush >= self.max_buffer_age then
-broker_log:info(2, "event_queue:add: flushing " .. #self.events .. " elements because buffer age reached " .. (os.time() - self.__internal_ts_last_flush) .. "s and max age is " .. self.max_buffer_age .. "s.")
-self:flush()
-return true
-else
-return false
-end
+  -- then we check whether it is time to send the events to the receiver and flush
+  if #self.events >= self.max_buffer_size then
+    broker_log:info(2, "event_queue:add: flushing because buffer size reached " .. self.max_buffer_size .. " elements.")
+    self:flush()
+    return true
+  elseif os.time() - self.__internal_ts_last_flush >= self.max_buffer_age then
+    broker_log:info(2, "event_queue:add: flushing " .. #self.events .. " elements because buffer age reached " .. (os.time() - self.__internal_ts_last_flush) .. "s and max age is " .. self.max_buffer_age .. "s.")
+    self:flush()
+    return true
+  else
+    return false
+  end
 end
 ```
 
@@ -671,51 +671,51 @@ This function builds data from the queue and sends them to the storage. If an er
 It is here that we use the **http** and **ltn12** objects loaded at the beginning of the script.
 
 ```LUA
-function event_queue:flush()
-broker_log:info(2, "event_queue:flush: Concatenating all the events as one string")
---  we concatenate all the events
-local http_post_data = ""
-local http_result_body = {}
-for i, raw_event in ipairs(self.events) do
-http_post_data = http_post_data .. raw_event
-end
-broker_log:info(2, 'event_queue:flush: HTTP POST request "' .. self.http_server_protocol .. "://" .. self.http_server_address .. ":" .. self.http_server_port .. "/write?db=" .. self.influx_database .. '"')
-broker_log:info(3, "event_queue:flush: HTTP POST data are: '" .. http_post_data .. "'")
+  function event_queue:flush()
+    broker_log:info(2, "event_queue:flush: Concatenating all the events as one string")
+    --  we concatenate all the events
+    local http_post_data = ""
+    local http_result_body = {}
+    for i, raw_event in ipairs(self.events) do
+      http_post_data = http_post_data .. raw_event
+    end
+    broker_log:info(2, 'event_queue:flush: HTTP POST request "' .. self.http_server_protocol .. "://" .. self.http_server_address .. ":" .. self.http_server_port .. "/write?db=" .. self.influx_database .. '"')
+    broker_log:info(3, "event_queue:flush: HTTP POST data are: '" .. http_post_data .. "'")
 
--- build url
-local influxdb_url = self.http_server_protocol .. "://" .. self.http_server_address .. ":" .. self.http_server_port .. "/write?db=" .. self.influx_database
--- add authentication if needed
-if string.len(self.influx_user) >= 1 and string.len(self.influx_password) >= 1 then
-influxdb_url = influxdb_url .. "&u=" .. self.influx_user .. "&p="..self.influx_password
-end
+    -- build url
+    local influxdb_url = self.http_server_protocol .. "://" .. self.http_server_address .. ":" .. self.http_server_port .. "/write?db=" .. self.influx_database
+    -- add authentication if needed
+    if string.len(self.influx_user) >= 1 and string.len(self.influx_password) >= 1 then
+      influxdb_url = influxdb_url .. "&u=" .. self.influx_user .. "&p="..self.influx_password
+    end
 
-local hr_result, hr_code, hr_header, hr_s = http.request{
-url = influxdb_url,
-method = "POST",
--- sink is where the request result's body will go
-sink = ltn12.sink.table(http_result_body),
--- request body needs to be formatted as a LTN12 source
-source = ltn12.source.string(http_post_data),
-headers = {
--- mandatory for POST request with body
-["content-length"] = string.len(http_post_data)
-}
-}
--- Handling the return code
-if hr_code == 204 then
-broker_log:info(2, "event_queue:flush: HTTP POST request successful: return code is " .. hr_code)
-else
-broker_log:error(1, "event_queue:flush: HTTP POST request FAILED: return code is " .. hr_code)
-for i, v in ipairs(http_result_body) do
-broker_log:error(1, "event_queue:flush: HTTP POST request FAILED: message line " .. i .. ' is "' .. v .. '"')
-end
-end
+    local hr_result, hr_code, hr_header, hr_s = http.request{
+      url = influxdb_url,
+      method = "POST",
+      -- sink is where the request result's body will go
+      sink = ltn12.sink.table(http_result_body),
+      -- request body needs to be formatted as a LTN12 source
+      source = ltn12.source.string(http_post_data),
+      headers = {
+        -- mandatory for POST request with body
+        ["content-length"] = string.len(http_post_data)
+      }
+    }
+    -- Handling the return code
+    if hr_code == 204 then
+      broker_log:info(2, "event_queue:flush: HTTP POST request successful: return code is " .. hr_code)
+    else
+      broker_log:error(1, "event_queue:flush: HTTP POST request FAILED: return code is " .. hr_code)
+      for i, v in ipairs(http_result_body) do
+        broker_log:error(1, "event_queue:flush: HTTP POST request FAILED: message line " .. i .. ' is "' .. v .. '"')
+      end
+    end
 
--- now that the data has been sent, we empty the events array
-self.events = {}
--- and update the timestamp
-self.__internal_ts_last_flush = os.time()
-end
+    -- now that the data has been sent, we empty the events array
+    self.events = {}
+    -- and update the timestamp
+    self.__internal_ts_last_flush = os.time()
+  end
 ```
 
 ### The init() function to get parameters and create the queue
@@ -724,12 +724,12 @@ In this case, the **init()** function creates the queue with parameters defined 
 default parameters already defined in the queue. This alternative is managed by the queue constructor.
 
 ```LUA
-function init(conf)
-broker_log:set_parameters(1, "/var/log/centreon-broker/stream-connector-influxdb.log")
-broker_log:info(2, "init: Beginning init() function")
-queue = event_queue:new(nil, conf)
-broker_log:info(2, "init: Ending init() function, Event queue created")
-end
+  function init(conf)
+    broker_log:set_parameters(1, "/var/log/centreon-broker/stream-connector-influxdb.log")
+    broker_log:info(2, "init: Beginning init() function")
+    queue = event_queue:new(nil, conf)
+    broker_log:info(2, "init: Ending init() function, Event queue created")
+  end
 ```
 > **queue** is not defined as local, this is important so that it is accessible from all the functions.
 
@@ -738,12 +738,12 @@ end
 The **write()** function is only used to insert filtered events into the queue:
 
 ```LUA
-function write(e)
-broker_log:info(3, "write: Beginning write() function")
-queue:add(e)
-broker_log:info(3, "write: Ending write() function\n")
-return true
-end
+  function write(e)
+    broker_log:info(3, "write: Beginning write() function")
+    queue:add(e)
+    broker_log:info(3, "write: Ending write() function\n")
+    return true
+  end
 ```
 
 ### The filter() function to select only performance data events
@@ -751,12 +751,12 @@ end
 To select only performance data, we need to select *category* 3 (“Storage”) and *element* 1 for *metric*:
 
 ```LUA
-function filter(category, element)
-if category == 3 and element == 1 then
-return true
-end
-return false
-end
+  function filter(category, element)
+    if category == 3 and element == 1 then
+      return true
+    end
+    return false
+  end
 ```
 
 ### Complete script

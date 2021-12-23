@@ -20,7 +20,7 @@ Rendez-vous dans le menu **Configuration > Hosts > Categories** et cliquez sur *
 * Les champs **Host Category Name** et **Alias** contiennent respectivement le nom et l’alias de la catégorie d’hôte.
 * La liste **Linked hosts** permet d’ajouter des hôtes à la catégorie.
 * Si un modèle d’hôte est ajouté à **Linked host template** alors tous les hôtes qui héritent de ce modèle appartiennent
-à cette catégorie.
+  à cette catégorie.
 * La case  **Severity type** signifie que la catégorie d’hôtes à un niveau de criticité.
 * Les champs **Level** et **Icon** définissent respectivement un niveau de criticité et une icône associée.
 * Les champs **Status** et **Comment** permettent d’activer ou de désactiver la catégorie d’hôte et de commenter celle-ci.
@@ -33,7 +33,7 @@ Rendez-vous dans le menu **Configuration > Services > Categories** et cliquez su
 
 * Les champs **Name** et **Description** définissent le nom et la description de la catégorie de service.
 * Si un modèle de service appartient à **Service Template Descriptions** alors tous les services appartenant à ce modèle
-de services font partie de cette catégorie.
+  de services font partie de cette catégorie.
 * La case **Severity type** ignifie que la catégorie de service à un niveau de criticité.
 * Les champs **Level** et **Icon** définissent respectivement un niveau de criticité et une icône associée.
 * Le champ **Status** permet d’activer ou de désactiver la catégorie de services.

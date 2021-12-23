@@ -42,10 +42,10 @@ what to do when an alert is raised in Centreon.
 
 Procedures can be of different natures:
 
-- Describe actions to solve a problem,
-- Escalate the issue to another team,
-- Open a support ticket,
-- Warn users that a specific service is down.
+  - Describe actions to solve a problem,
+  - Escalate the issue to another team,
+  - Open a support ticket,
+  - Warn users that a specific service is down.
 
 A procedure can be defined for an host or a service.
 
@@ -68,13 +68,13 @@ manually several times the same procedure in knowledge base.
 
 When a user clicks on a host procedure:
 
-- if a specific procedure is defined for this host, its wiki page is displayed
-- if no specific procedure is defined bu the host template has a procedure,
-the host template wiki page is displayed
-- if host template has no procedure defined, parents template will be checked
-for a defined procedure
-- finally if no procedure is defined in the template tree, a message will warn
-that there is no procedure defined for this host
+  - if a specific procedure is defined for this host, its wiki page is displayed
+  - if no specific procedure is defined bu the host template has a procedure,
+    the host template wiki page is displayed
+  - if host template has no procedure defined, parents template will be checked
+    for a defined procedure
+  - finally if no procedure is defined in the template tree, a message will warn
+    that there is no procedure defined for this host
 
 It's the same for services.
 
@@ -83,12 +83,12 @@ It's the same for services.
 Navigate in Centreon front-end to `Configuration > Knowledge Base` sub-menus
 to:
 
-- List Hosts / Services / Host Templates / Service Templates and attached
-procedures
-- Create / View / Edit / View history for a Host / Services / Host Templates /
-Service Templates
-- List Hosts / Services / Host Templates / Service Templates without procedure
-defined
+  - List Hosts / Services / Host Templates / Service Templates and attached
+    procedures
+  - Create / View / Edit / View history for a Host / Services / Host Templates /
+    Service Templates
+  - List Hosts / Services / Host Templates / Service Templates without procedure
+    defined
 
 ### Link from monitoring front end
 
@@ -122,12 +122,12 @@ The best practice is to define procedures at template level as much as you can.
 
 Here is an example of an host template configuration tree:
 
-- Linux \> Generic-hosts
-- Windows \> Generic-hosts
-- RedHat \> Linux
-- Debian \> Linux
-- Active-Directory \> Windows
-- LDAP \> Linux
+  - Linux \> Generic-hosts
+  - Windows \> Generic-hosts
+  - RedHat \> Linux
+  - Debian \> Linux
+  - Active-Directory \> Windows
+  - LDAP \> Linux
 
 To setup procedures for the *RedHat* host template, just proceed as indicated in
 [Link from monitoring front end](#link-from-monitoring-front-end).

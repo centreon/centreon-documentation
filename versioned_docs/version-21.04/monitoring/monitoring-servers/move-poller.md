@@ -34,23 +34,23 @@ cat <<EOF > /etc/centreon-gorgone/config.d/40-gorgoned.yaml
 name:  gorgoned-My Poller
 description: Configuration for poller My Poller
 gorgone:
-gorgonecore:
-id: 2
-external_com_type: tcp
-external_com_path: "*:5556"
-authorized_clients:
-- key: Np1wWwpbFD2I0MdeHWRlFx51FmlYkDRZy9JTFxkrDPI
-privkey: "/var/lib/centreon-gorgone/.keys/rsakey.priv.pem"
-pubkey: "/var/lib/centreon-gorgone/.keys/rsakey.pub.pem"
-modules:
-- name: action
-package: gorgone::modules::core::action::hooks
-enable: true
+  gorgonecore:
+    id: 2
+    external_com_type: tcp
+    external_com_path: "*:5556"
+    authorized_clients:
+      - key: Np1wWwpbFD2I0MdeHWRlFx51FmlYkDRZy9JTFxkrDPI
+    privkey: "/var/lib/centreon-gorgone/.keys/rsakey.priv.pem"
+    pubkey: "/var/lib/centreon-gorgone/.keys/rsakey.pub.pem"
+  modules:
+    - name: action
+      package: gorgone::modules::core::action::hooks
+      enable: true
 
-- name: engine
-package: gorgone::modules::centreon::engine::hooks
-enable: true
-command_file: "/var/lib/centreon-engine/rw/centengine.cmd"
+    - name: engine
+      package: gorgone::modules::centreon::engine::hooks
+      enable: true
+      command_file: "/var/lib/centreon-engine/rw/centengine.cmd"
 
 EOF
 ```

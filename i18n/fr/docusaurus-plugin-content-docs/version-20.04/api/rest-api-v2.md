@@ -35,9 +35,9 @@ Cliquer sur **Continue** et modifier quelques paramètres par défaut :
 
 - Sélectionner seulement *Collection* comme méthode d'import,
 - Sélectionner *Example* pour le champ *Request parameter generation* car cela
-amène plus de contexte aux variables d'URL ou aux paramètres de requête,
+  amène plus de contexte aux variables d'URL ou aux paramètres de requête,
 - Sélectionner *Tags* pour le champ *Folder organization* car cela permet
-d'arranger la collection comme dans la documentation.
+  d'arranger la collection comme dans la documentation.
 
 Cliquer ensuite sur **Import** et attendre quelques secondes que le processus
 aboutisse.
@@ -97,9 +97,9 @@ pm.test("Status code is 200", function () { pm.response.to.have.status(200); });
 const responseJson = pm.response.json();
 
 pm.test("The response has all properties", () => {
-pm.expect(responseJson).to.be.an("object");
-pm.expect(responseJson.contact.alias).to.eql(pm.environment.get("username"));
-pm.expect(responseJson.security.token).to.be.a('string');
+  pm.expect(responseJson).to.be.an("object");
+  pm.expect(responseJson.contact.alias).to.eql(pm.environment.get("username"));
+  pm.expect(responseJson.security.token).to.be.a('string');
 });
 
 pm.environment.set("token", responseJson.security.token);

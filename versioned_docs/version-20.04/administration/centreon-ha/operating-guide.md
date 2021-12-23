@@ -222,7 +222,7 @@ To make the resource move from one node to the other, run this command:
 pcs resource move ms_mysql-master
 ```
 
-This command sets a "-Inf" constraint on the node hosting the resource. As a result, the resource switches to another node.
+This command sets a "-Inf" constraint on the node hosting the resource. As a result, the resource switches to another node. 
 
 Wait until all the resources have switched to the other node and then clear the constraint:
 
@@ -256,13 +256,13 @@ Connect to a cluster node and run the following commands:
 
 ```bash
 pcs resource delete centreon             \
-cbd_central_broker       \
-gorgone                  \
-snmptrapd                \
-centreontrapd            \
-http                     \
-centreon_central_sync    \
-vip
+                cbd_central_broker       \
+                gorgone                  \
+                snmptrapd                \
+                centreontrapd            \
+                http                     \
+                centreon_central_sync    \
+                vip
 ```
 
 If that does not work, it is probably due to a resource in a failed state. Run the following commands to delete the resource:
@@ -283,25 +283,25 @@ A high-availability platform is basically a LAMP platform (Linux Apache MariaDB 
 The easiest part consists in monitoring the basic system indicators, mostly using SNMP Protocol, which is made quite simple thanks to the [Linux plugin pack](../../integrations/plugin-packs/procedures/operatingsystems-linux-snmp).
 
 * System metrics
-* LOAD Average
-* CPU usage
-* Memory usage
-* SWAP usage
-* File systems usage
-* Networking traffic
-* NTP synchronization with the reference time server
+    * LOAD Average
+    * CPU usage
+    * Memory usage
+    * SWAP usage
+    * File systems usage
+    * Networking traffic
+    * NTP synchronization with the reference time server
 * Processes
-* System processes `crond`, `ntpd`, `rsyslogd`
-* Centreon processes `gorgoned`, `centengine`, `centerontrapd`, `httpd24-httpd`, `snmptrapd`, `mysqld`, `rh-php72-php-fpm`
+    * System processes `crond`, `ntpd`, `rsyslogd`
+    * Centreon processes `gorgoned`, `centengine`, `centerontrapd`, `httpd24-httpd`, `snmptrapd`, `mysqld`, `rh-php72-php-fpm`
 
 ### Application monitoring
 
 * Control access to the URL `http://@VIP_IPADDR@/centreon` using the [HTTP Protocol plugin pack](../../integrations/plugin-packs/procedures/applications-protocol-http)
 * MariaDB, using the [MySQL/MariaDB Database plugin pack](../../integrations/plugin-packs/procedures/applications-databases-mysql)
-* MariaDB Server Connection Control
-* MariaDB / InnoDB buffers and caches
-* Indexes usage
-* MariaDB replication
+    * MariaDB Server Connection Control
+    * MariaDB / InnoDB buffers and caches
+    * Indexes usage
+    * MariaDB replication
 
 ### Cluster monitoring
 

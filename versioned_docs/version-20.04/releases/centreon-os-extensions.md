@@ -27,12 +27,12 @@ If you have feature requests or want to report a bug, please go to our
 #### Bugfixes
 
 - [Sync] An error in the script prevented the files to be synchronized
-correctly
+  correctly
 
 #### Enhancements
 
 - [RPM] All the configuration files (except for logrotate.d and sudoers.d)
-are now preserved by the update process
+  are now preserved by the update process
 
 ### 20.04.2
 
@@ -76,7 +76,7 @@ are now preserved by the update process
 #### Bugfixes
 
 - Manage hosts disabled: host change instance or instance is not
-running (commit a99b068)
+  running (commit a99b068)
 - Applied patch for MariaDB 10.2.x (commit a567991)
 
 ## Centreon Open Ticket

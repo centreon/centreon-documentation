@@ -27,9 +27,9 @@ evaluation that fits into the lifecycle phases.
 The lifecycle of a version is divided into three phases:
 
 1.  First phase: Bugs of all severity levels (minor, major, critical, blocker)
-and security issues are fixed by priority.
+    and security issues are fixed by priority.
 2.  Second phase: Major, critical bugs and blockers, or security issues are
-fixed by priority.
+    fixed by priority.
 3.  Third phase: Blockers or security issues are fixed by priority.
 
 > The severity and prioritization of bugs are the Centreon team's responsibility.

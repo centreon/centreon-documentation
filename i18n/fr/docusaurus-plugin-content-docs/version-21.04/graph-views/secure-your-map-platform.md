@@ -105,22 +105,22 @@ centreon-map.keystore-pass=xxx
 
 1. Stop Centreon MAP service:
 
-```shell
-systemctl stop centreon-map
-```
+    ```shell
+    systemctl stop centreon-map
+    ```
 
 2. Edit the file `/etc/centreon-studio/centreon-map.conf`, adding ",tls"
-after "prod" profile:
+   after "prod" profile:
 
-```text
-RUN_ARGS="--spring.profiles.active=prod,tls"
-```
+    ```text
+    RUN_ARGS="--spring.profiles.active=prod,tls"
+    ```
 
 3. Restart Centreon MAP service:
 
-```shell
-systemctl start centreon-map
-```
+    ```shell
+    systemctl start centreon-map
+    ```
 
 Centreon MAP server is now configured to respond to requests from HTTPS at
 port 8443.
@@ -132,7 +132,7 @@ procedure](advanced-configuration#change-centreon-map-server-port).
 > field in the `Administration > Extensions > Map > Options` menu.
 ![image](../assets/graph-views/map-address-https.png)
 
-> Don't forget to update your connection profile in the desktop client
+> Don't forget to update your connection profile in the desktop client 
 > by checking the ssl checkbox.
 ![image](../assets/graph-views/desktop-ssl-option.png)
 
@@ -209,7 +209,7 @@ keytool -import -alias centreon-broker -file broker_public.crt -keystore trustst
 ```
 
 - "broker\_public.crt" is Broker public certificate or its CA certificate
-in PEM format,
+  in PEM format,
 - "truststore.jks" is the generated trust store in JKS format,
 - a store password is required during generation.
 
@@ -240,18 +240,18 @@ RUN_ARGS="--spring.profiles.active=prod,tls_broker"
 > "tls_broker" profile implies "tls" profile. So Centreon MAP service
 > serves necessarily HTTPS.
 
-Once you add a truststore, Centreon MAP will use it to validate self-signed certificates.
+Once you add a truststore, Centreon MAP will use it to validate self-signed certificates. 
 This means that if you use a self-signed certificate for the central server, you must add it to the truststore. If you don't, the
-**Monitoring > Map** page will be blank, and the logs (**/var/log/centreon-map/centreon-map.log**)
-will show the following error :
-`unable to find valid certification path to requested target`.
+ **Monitoring > Map** page will be blank, and the logs (**/var/log/centreon-map/centreon-map.log**)
+ will show the following error :
+ `unable to find valid certification path to requested target`.
 
 1. Copy the central server's **.crt** certificate to the MAP server.
 
 2. Add the certificate to the truststore:
-```shell
-keytool -import -alias centreon-broker -file central_public.crt -keystore truststore.jks
-```
+    ```shell
+    keytool -import -alias centreon-broker -file central_public.crt -keystore truststore.jks
+    ```
 
 #### Configuration with a recognized CA certificate
 

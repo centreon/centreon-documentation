@@ -2,9 +2,6 @@
 id: cloud-gcp-storage
 title: Google Storage
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Contenu du Plugin-Pack
 
@@ -29,8 +26,9 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 
 Pour l'ensemble des métriques collectées, il est possible de choisir *aggregation*: _average_, _minimum_, _maximum_ et _total_.
 
-<Tabs groupId="operating-systems">
-<TabItem value="Bucket" label="Bucket">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Bucket-->
 
 | Metric name                                                                | Description                                         | Unit  |
 | :------------------------------------------------------------------------- | :-------------------------------------------------- | :---- |
@@ -40,8 +38,7 @@ Pour l'ensemble des métriques collectées, il est possible de choisir *aggregat
 | *bucket_name*~*aggregation*#storage.network.sent.volume.bytes              | Count of bytes sent over the network                | B     |
 | *bucket_name*~*aggregation*#storage.network.sent.volume.bytespersecond     | Count of bytes sent per second over the network     | B/s   |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -57,8 +54,9 @@ Comment créer une clé de compte de service: https://developers.google.com/iden
 
 ## Installation
 
-<Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -68,8 +66,7 @@ yum install centreon-plugin-Cloud-Gcp-Storage-Api
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Google Storage* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -85,13 +82,12 @@ yum install centreon-pack-cloud-gcp-storage
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Google Storage* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
 Ce Plugin-Pack est conçu de manière à avoir dans Centreon un hôte par bucket Google Storage.
-Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *Cloud-Gcp-Storage-custom*.
+Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *Cloud-Gcp-Storage-custom*. 
 Une fois celui-ci configuré, certaines macros doivent être renseignées:
 
 | Mandatory   | Name                 | Description                                                                                 |
@@ -117,16 +113,16 @@ depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-en
 
 ```bash
 /usr/lib/centreon/plugins/centreon_gcp_storage_api.pl \
---plugin=cloud::google::gcp::storage::plugin \
---mode=bucket \
---key-file=/var/lib/centreon-engine/centreon-dev-6e5531fc9e82.json \
---dimension-name='resource.labels.bucket_name' \
---dimension-operator='equals' \
---dimension-value='centreon-dev.appspot.com' \
---aggregation='average' \
---warning-bucket-objects='1000' \
---critical-bucket-objects='2000' \
---verbose
+    --plugin=cloud::google::gcp::storage::plugin \
+    --mode=bucket \
+    --key-file=/var/lib/centreon-engine/centreon-dev-6e5531fc9e82.json \
+    --dimension-name='resource.labels.bucket_name' \
+    --dimension-operator='equals' \
+    --dimension-value='centreon-dev.appspot.com' \
+    --aggregation='average' \
+    --warning-bucket-objects='1000' \
+    --critical-bucket-objects='2000' \
+    --verbose
 ```
 
 La commande devrait retourner un message de sortie de la forme ci-dessous:
@@ -134,10 +130,10 @@ La commande devrait retourner un message de sortie de la forme ci-dessous:
 ```bash
 OK: Instance 'centreon-dev.appspot.com' aggregation 'average' metrics objects: 0.00, received: 0.00 B, sent: 382.00 B | 'centreon-dev.appspot.com~average#storage.bucket.objects.count'=0.00;0:1000;0:2000;0; 'centreon-dev.appspot.com~average#storage.network.received.volume.bytes'=0.00B;;;0; 'centreon-dev.appspot.com~average#storage.network.sent.volume.bytes'=382.00B;;;0;
 Checking 'centreon-dev.appspot.com'
-aggregation 'average' metrics objects: 0.00, received: 0.00 B, sent: 382.00 B
+    aggregation 'average' metrics objects: 0.00, received: 0.00 B, sent: 382.00 B
 ```
 
-Cette commande contrôle l'utilisation (```--mode=bucket```) d'une bucket Google Storage
+Cette commande contrôle l'utilisation (```--mode=bucket```) d'une bucket Google Storage 
 ayant pour nom *centreon-dev.appspot.com* (```--dimension-name='resource.labels.bucket_name' --dimension-operator='equals' --dimension-value='centreon-dev.appspot.com'```).
 
 Cette commande déclenchera une alarme WARNING si le nombre d'objets est supérieur à 1000 (```--warning-bucket-objects='1000'```)
@@ -148,14 +144,14 @@ en ajoutant le paramètre ```--help``` à la commande:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_gcp_storage_api.pl \
---plugin=cloud::google::gcp::storage::plugin \
---mode=bucket \
---help
+    --plugin=cloud::google::gcp::storage::plugin \
+    --mode=bucket \
+    --help
 ```
 
 ### J'obtiens le message d'erreur suivant: ```UNKNOWN: No metrics. Check your options or use --zeroed option to set 0 on undefined values```
 
-Lors du déploiement de mes contrôles, j'obtiens le message suivant 'UNKNOWN: No metrics. Check your options or use --zeroed option to set 0 on undefined values'.
+Lors du déploiement de mes contrôles, j'obtiens le message suivant 'UNKNOWN: No metrics. Check your options or use --zeroed option to set 0 on undefined values'. 
 
 Cela signifie qu'il n'y a pas de données sur la période.
 

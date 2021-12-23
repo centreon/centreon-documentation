@@ -33,8 +33,8 @@ To grant rights to a user:
 4. Create access filters on [resources](#access-filters-on-resources), [menus](#access-filters-on-menus) and [actions](#access-filters-on-actions).
 
 5. Set the rights you want:
-- either on the access group
-- or on the access filters on resources, menus and actions.
+    - either on the access group
+    - or on the access filters on resources, menus and actions.
 
 ## Creating an access group
 
@@ -46,11 +46,11 @@ To create an access group:
 
 3. To add users (contacts) or contact groups to the access group, use the **Linked Contacts/Linked Contact Groups** table. (Select the user(s) you want in the **Available** column, and then click **Add**. The user(s) is moved to the **Selected** column.)
 
-> The contact group can be groups coming from the LDAP directory connected to the
-> Centreon interface.
->
-> Groups created in the Centreon interface should not have the same name as LDAP
-> groups to avoid problems.
+    > The contact group can be groups coming from the LDAP directory connected to the
+    > Centreon interface.
+    >
+    > Groups created in the Centreon interface should not have the same name as LDAP
+    > groups to avoid problems.
 
 4. On the **Authorizations information** tab, set the rights you want on the access group
 by choosing access filters on [resources](#access-filters-on-resources), [menus](#access-filters-on-menus) and [actions](#access-filters-on-actions) (if you have already created them).
@@ -103,24 +103,24 @@ To create an access filter on menus:
 2. Click **Add**.
 
 3. Fill in the following fields:
-- **ACL Definition** (its name) and **Alias**
-- **Status**: enable or disable the filter
-- **Comments**: add info about the filter.
+    - **ACL Definition** (its name) and **Alias**
+    - **Status**: enable or disable the filter
+    - **Comments**: add info about the filter.
 
 4. To grant access groups the rights defined in this filter, use the **Linked groups** table.
 
 5. In the **Accessible pages** section, define which menus the access group will be able to access.
 
-- A parent menu must be selected to access the child menu.
-- By default, access is **Read Only**. If you want to allow your users to modify
+   - A parent menu must be selected to access the child menu.
+   - By default, access is **Read Only**. If you want to allow your users to modify
 the configuration, select the **Read / Write** option for each
 submenu.
-- To access an ‘n-1’ menu level, users must have access to the ‘n’ menu level,
-otherwise they will not be able to view the menu via the interface. If this is not
+   - To access an ‘n-1’ menu level, users must have access to the ‘n’ menu level,
+ otherwise they will not be able to view the menu via the interface. If this is not
 the case, users will have to access the page via a direct link
-(autologin, etc.).
-- Whenever a new Centreon module is created with a web interface accessible
-via a new menu, it should be added to the filter so that users can
+ (autologin, etc.).
+   - Whenever a new Centreon module is created with a web interface accessible
+ via a new menu, it should be added to the filter so that users can
 access it (if applicable).
 
 6. Click **Save**.
@@ -135,9 +135,9 @@ To create an access filter on actions:
 1. Go to **Administration > ACL > Actions Access**.
 3. Click **Add**.
 
-- The **Action Name** and **Description** fields contain the name of the
-filter and its description
-- In the **Relations** section, use the **Linked Groups** table to grant access groups the rights defined in the filter.
+    - The **Action Name** and **Description** fields contain the name of the
+    filter and its description
+    - In the **Relations** section, use the **Linked Groups** table to grant access groups the rights defined in the filter.
 
 4. Select the options you want (see tables below).
 

@@ -79,19 +79,19 @@ Alias /centreon /usr/share/centreon/www/
 ProxyTimeout 300
 
 <Directory "/usr/share/centreon/www">
-DirectoryIndex index.php
-Options Indexes
-AllowOverride all
-Order allow,deny
-Allow from all
-Require all granted
-<IfModule mod_php5.c>
-php_admin_value engine Off
-</IfModule>
+    DirectoryIndex index.php
+    Options Indexes
+    AllowOverride all
+    Order allow,deny
+    Allow from all
+    Require all granted
+    <IfModule mod_php5.c>
+        php_admin_value engine Off
+    </IfModule>
 
 +    FallbackResource /centreon/index
 
-AddType text/plain hbs
+    AddType text/plain hbs
 </Directory>
 
 +<Directory "/usr/share/centreon/api">
@@ -158,9 +158,9 @@ If the Centreon BAM module is installed, refer to the
 From `Administration > Extensions > Manager`, upgrade all extensions, starting
 with the following:
 
-- License Manager,
-- Plugin Packs Manager,
-- Auto Discovery.
+  - License Manager,
+  - Plugin Packs Manager,
+  - Auto Discovery.
 
 Then you can upgrade all other commercial extensions.
 
@@ -199,9 +199,9 @@ follow this steps:
 2. Restart both Broker and Engine on the Central server by running this
 command:
 
-```shell
-systemctl restart cbd centengine
-```
+    ```shell
+    systemctl restart cbd centengine
+    ```
 
 ### Upgrade MariaDB server
 
@@ -258,33 +258,33 @@ MariaDB:
 
 1. Stop the mariadb service:
 
-```shell
-systemctl stop mariadb
-```
+    ```shell
+    systemctl stop mariadb
+    ```
 
 2. Uninstall current 10.1 version:
 
-```shell
-rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
-```
+    ```shell
+    rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
+    ```
 
 3. Install 10.2 version:
 
-```shell
-yum install MariaDB-server-10.2\* MariaDB-client-10.2\* MariaDB-shared-10.2\* MariaDB-compat-10.2\* MariaDB-common-10.2\*
-```
+    ```shell
+    yum install MariaDB-server-10.2\* MariaDB-client-10.2\* MariaDB-shared-10.2\* MariaDB-compat-10.2\* MariaDB-common-10.2\*
+    ```
 
 4. Start the mariadb service:
 
-```shell
-systemctl start mariadb
-```
+    ```shell
+    systemctl start mariadb
+    ```
 
 5. Launch the MariaDB upgrade process:
 
-```shell
-mysql_upgrade
-```
+    ```shell
+    mysql_upgrade
+    ```
 
 > Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
 > if errors occur during this last step.
@@ -296,33 +296,33 @@ MariaDB:
 
 1. Stop the mariadb service:
 
-```shell
-systemctl stop mariadb
-```
+    ```shell
+    systemctl stop mariadb
+    ```
 
 2. Uninstall current 10.2 version:
 
-```shell
-rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
-```
+    ```shell
+    rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
+    ```
 
 3. Install 10.3 version:
 
-```shell
-yum install MariaDB-server-10.3\* MariaDB-client-10.3\* MariaDB-shared-10.3\* MariaDB-compat-10.3\* MariaDB-common-10.3\*
-```
+    ```shell
+    yum install MariaDB-server-10.3\* MariaDB-client-10.3\* MariaDB-shared-10.3\* MariaDB-compat-10.3\* MariaDB-common-10.3\*
+    ```
 
 4. Start the mariadb service:
 
-```shell
-systemctl start mariadb
-```
+    ```shell
+    systemctl start mariadb
+    ```
 
 5. Launch the MariaDB upgrade process:
 
-```shell
-mysql_upgrade
-```
+    ```shell
+    mysql_upgrade
+    ```
 
 > Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
 > if errors occur during this last step.

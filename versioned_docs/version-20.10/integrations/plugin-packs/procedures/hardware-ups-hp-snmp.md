@@ -2,9 +2,6 @@
 id: hardware-ups-hp-snmp
 title: HP UPS SNMP
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Pack Assets
 
@@ -18,8 +15,9 @@ The Pack HP UPS collects metrics for:
 
 ### Collected Metrics
 
-<Tabs groupId="operating-systems">
-<TabItem value="Batterystatus" label="Batterystatus">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Battery-status-->
 
 | Metric name                      | Description                    | Unit |
 | :------------------------------- | :----------------------------- | :--- |
@@ -29,40 +27,36 @@ The Pack HP UPS collects metrics for:
 | battery.current.ampere           | Battery ampere level           | A    |
 | battery.voltage.volt             | Battery voltage                | V    |
 
-</TabItem>
-<TabItem value="Environment" label="Environment">
+<!--Environment-->
 
-| Metric name                              | Description               | Unit |
-| :--------------------------------------- | :------------------------ | :--- |
-| environment.internal.temperature.celsius | Ambient temperature       | C    |
-| environment.internal.humidity.percentage | Ambient humidity          | %    |
-| environment.remote.temperature.celsius   | Remote temperature sensor | C    |
-| environment.remote.humidity.percentage   | Remote humidity sensor    | %    |
+| Metric name                              | Description               | Unit  |
+| :--------------------------------------- | :------------------------ | :---- |
+| environment.internal.temperature.celsius | Ambient temperature       | C     |
+| environment.internal.humidity.percentage | Ambient humidity          | %     |
+| environment.remote.temperature.celsius   | Remote temperature sensor | C     |
+| environment.remote.humidity.percentage   | Remote humidity sensor    | %     |
 
-</TabItem>
-<TabItem value="Inputlines" label="Inputlines">
+<!--Input-lines-->
 
-| Metric name                              | Description           | Unit |
-| :--------------------------------------- | :-------------------- | :--- |
-| lines.input.frequence.hertz              | Input line frequency  | Hz   |
-| *line\_phase*\#line.input.current.ampere | Input line current    | A    |
-| *line\_phase*\#line.input.voltage.volt   | Input line voltage    | V    |
-| *line\_phase*\#line.input.power.watt     | Input line real power | W    |
+| Metric name                              | Description           | Unit  |
+| :--------------------------------------- | :-------------------- | :---- |
+| lines.input.frequence.hertz              | Input line frequency  | Hz    |
+| *line\_phase*\#line.input.current.ampere | Input line current    | A     |
+| *line\_phase*\#line.input.voltage.volt   | Input line voltage    | V     |
+| *line\_phase*\#line.input.power.watt     | Input line real power | W     |
 
-</TabItem>
-<TabItem value="Outputlines" label="Outputlines">
+<!--Output-lines-->
 
-| Metric name                               | Description           | Unit |
-| :---------------------------------------- | :-------------------- | :--- |
-| source status                             | Output source status  |      |
-| lines.output.load.percentage              | Output load           | %    |
-| lines.output.frequence.hertz              | Output line frequency | Hz   |
-| *line\_phase*\#line.output.current.ampere | Output line current   | A    |
-| *line\_phase*\#line.output.voltage.volt   | Output line voltage   | V    |
-| *line\_phase*\#line.output.power.watt     | Ouput line real power | W    |
+| Metric name                               | Description           | Unit  |
+| :---------------------------------------- | :-------------------- | :---- |
+| source status                             | Output source status  |       |
+| lines.output.load.percentage              | Output load           | %     |
+| lines.output.frequence.hertz              | Output line frequency | Hz    |
+| *line\_phase*\#line.output.current.ampere | Output line current   | A     |
+| *line\_phase*\#line.output.voltage.volt   | Output line voltage   | V     |
+| *line\_phase*\#line.output.power.watt     | Ouput line real power | W     |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -71,8 +65,9 @@ The Poller should be able to perform SNMP requests toward the HP device over SNM
 
 ## Setup
 
-<Tabs groupId="licence-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -82,8 +77,7 @@ yum install centreon-plugin-Hardware-Ups-Hp-Snmp
 
 2. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *HP UPS SNMP* Pack
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -99,8 +93,7 @@ yum install centreon-pack-hardware-ups-hp-snmp
 
 3. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *HP UPS SNMP* Pack
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Host configuration
 
@@ -109,9 +102,9 @@ yum install centreon-pack-hardware-ups-hp-snmp
 
 > When using SNMP v3, use the SNMPEXTRAOPTIONS Macro to add specific authentication parameters
 
-| Mandatory | Name             | Description                                 |
-| :-------- | :--------------- | :------------------------------------------ |
-|           | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo |
+| Mandatory | Name             | Description                                    |
+| :-------- | :--------------- | :--------------------------------------------- |
+|           | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo    |
 
 ## How to test the Plugin and what are the main options for?
 
@@ -120,14 +113,14 @@ and test the Plugin by running the following command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_ups_hp_snmp.pl \
---plugin=hardware::ups::hp::snmp::plugin \
---mode=battery-status \
---hostname=10.30.2.114 \
---snmp-version='2c' \
---snmp-community='hp_ro' \
---warning-charge-remaining='50:' \
---critical-charge-remaining='20:' \
---verbose
+    --plugin=hardware::ups::hp::snmp::plugin \
+    --mode=battery-status \
+    --hostname=10.30.2.114 \
+    --snmp-version='2c' \
+    --snmp-community='hp_ro' \
+    --warning-charge-remaining='50:' \
+    --critical-charge-remaining='20:' \
+    --verbose
 ```
 
 Expected command output is shown below:
@@ -140,7 +133,7 @@ The command above monitors the battery of a HP UPS (```--plugin=hardware::ups::h
 by the IP address *10.30.2.114* (```--hostname=10.30.2.114```). As the Plugin is using the SNMP protocol to request the device, the related
 *community* and *version* are specified (```--snmp-version='2c' --snmp-community='hp_ro'```).
 
-This command would trigger a WARNING alarm if battery charge remaining above 50%
+This command would trigger a WARNING alarm if battery charge remaining above 50% 
 (```--warning-charge-remaining='50:'```) and a CRITICAL alarm above 20% (```--critical-charge-remaining='20:'```).
 
 All the options as well as all the available thresholds can be displayed by adding the  ```--help```
@@ -148,9 +141,9 @@ parameter to the command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_ups_hp_snmp.pl \
---plugin=hardware::ups::hp::snmp::plugin \
---mode=battery-status \
---help
+    --plugin=hardware::ups::hp::snmp::plugin \
+    --mode=battery-status \
+    --help
 ```
 
 ## Troubleshooting

@@ -2,9 +2,6 @@
 id: licenses
 title: Licences
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Comment obtenir une licence?
 
@@ -36,27 +33,26 @@ Allez à la page **Administration > Extensions > Gestionnaire**. Tous les module
 
 ## Ajouter une licence
 
-<Tabs groupId="operating-systems">
-<TabItem value="Licences hors ligne" label="Licences hors ligne">
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Licences hors ligne-->
 
 1. Pour demander votre licence:
 
-1. Allez à la page **Administration > Extensions > Gestionnaire**.
+    1. Allez à la page **Administration > Extensions > Gestionnaire**.
 
-2. Cliquez sur **Récupérer l'empreinte**.
+    2. Cliquez sur **Récupérer l'empreinte**.
 
-3. Collez l'empreinte dans un email à notre équipe [support](mailto:support@centreon.com) pour demander votre licence.
+    3. Collez l'empreinte dans un email à notre équipe [support](mailto:support@centreon.com) pour demander votre licence.
 
 2. Une fois votre licence reçue, à la page **Administration > Extensions > Gestionnaire**, cliquez sur **Télécharger une licence**.
 
 5. Naviguez jusqu'au fichier de licence, puis cliquez sur **OK**. La licence est appliquée et la date de validité de la licence est indiquée dans l'encadré de chaque module.
 
-![image](../assets/administration/license_valid.png)
+    ![image](../assets/administration/license_valid.png)
 
 6. Si vous avez plusieurs licences à ajouter (par exemple pour BAM, MBI...), répétez les étapes précédentes jusqu'à ce que vous ayez téléchargé tous les fichiers de licence.
 
-</TabItem>
-<TabItem value="Licences en ligne" label="Licences en ligne">
+<!--Licences en ligne-->
 
 Pour utiliser une licence en ligne, votre plateforme Centreon doit être connectée à internet.
 
@@ -66,20 +62,19 @@ Pour utiliser une licence en ligne, votre plateforme Centreon doit être connect
 
 3. Cliquez sur **Ajouter Token**. Une fenêtre popup s'ouvre.
 
-4. Collez votre jeton dans la fenêtre popup, puis cliquez sur **Ajouter**.
+4. Collez votre jeton dans la fenêtre popup, puis cliquez sur **Ajouter**. 
 
-- Si votre jeton contient une seule licence, un message de confirmation apparaît.
+    - Si votre jeton contient une seule licence, un message de confirmation apparaît.
 
-- Si votre jeton contient plusieurs licences, choisissez la licence désirée puis cliquez sur **Choisir**.
+    - Si votre jeton contient plusieurs licences, choisissez la licence désirée puis cliquez sur **Choisir**.
 
-Appuyez sur **Esc** pour fermer la popup. La licence est appliquée et la date de validité de la licence est indiquée dans l'encadré de chaque module.
+    Appuyez sur **Esc** pour fermer la popup. La licence est appliquée et la date de validité de la licence est indiquée dans l'encadré de chaque module.
 
-![image](../assets/administration/license_valid.png)
+    ![image](../assets/administration/license_valid.png)
 
-Le bouton **Ajouter Token** devient un bouton **Voir la licence**.
+    Le bouton **Ajouter Token** devient un bouton **Voir la licence**.
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Licence gratuite IT-100
 
@@ -107,17 +102,17 @@ chmod 640 /etc/centreon/license.d/*
 
 * Vérifiez que l'empreinte du serveur central (récupérable à la page **Administration > Extensions > Gestionnaire**) correspond à celui renseigné dans la licence.
 
-```shell
-less /etc/centreon/license.d/epp.license
-```
+    ```shell
+    less /etc/centreon/license.d/epp.license
+    ```
 
-* Vérifiez que le nombre d'hôtes enregistrés est inférieur à celui prévu par votre licence.
+* Vérifiez que le nombre d'hôtes enregistrés est inférieur à celui prévu par votre licence. 
 Pour connaître le nombre d'hôtes supervisés, à la page **Configuration > Hôtes > Hôtes**, utilisez la liste déroulante en haut à droite de la liste :
 
-![image](../assets/administration/number-of-hosts.png)
+  ![image](../assets/administration/number-of-hosts.png)
 
-Vous pouvez également utiliser la commande suivante :
+  Vous pouvez également utiliser la commande suivante :
 
-```sql
-SELECT COUNT(*) FROM centreon.host WHERE host_register='1';
-```
+  ```sql
+  SELECT COUNT(*) FROM centreon.host WHERE host_register='1';
+  ```

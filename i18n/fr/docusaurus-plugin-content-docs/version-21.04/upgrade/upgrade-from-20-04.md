@@ -128,18 +128,18 @@ associée](../service-mapping/upgrade) pour le mettre à jour.
 
 2. Redémarrez les processus Centreon :
 
-```
-systemctl restart cbd centengine centreontrapd gorgoned
-```
+    ```
+    systemctl restart cbd centengine centreontrapd gorgoned
+    ```
 
 3. Montée de version des extensions :
 
 Depuis le menu `Administration > Extensions > Gestionnaire`, mettez à jour
 toutes les extensions, en commençant par les suivantes :
 
-- License Manager,
-- Plugin Packs Manager,
-- Auto Discovery.
+  - License Manager,
+  - Plugin Packs Manager,
+  - Auto Discovery.
 
 Vous pouvez alors mettre à jour toutes les autres extensions commerciales.
 
@@ -170,42 +170,42 @@ Il est nécessaire de désinstaller puis réinstaller MariaDB pour changer de ve
 
 1. Arrêtez le service mariadb :
 
-```shell
-systemctl stop mariadb
-```
+    ```shell
+    systemctl stop mariadb
+    ```
 
 2. Désinstallez la version actuelle :
 
-```shell
-rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
-```
+    ```shell
+    rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
+    ```
 
 3. Installez la version 10.5 :
 
-```shell
-yum install MariaDB-server-10.5\* MariaDB-client-10.5\* MariaDB-shared-10.5\* MariaDB-compat-10.5\* MariaDB-common-10.5\*
-```
+    ```shell
+    yum install MariaDB-server-10.5\* MariaDB-client-10.5\* MariaDB-shared-10.5\* MariaDB-compat-10.5\* MariaDB-common-10.5\*
+    ```
 
 4. Démarrer le service mariadb :
 
-```shell
-systemctl start mariadb
-```
+    ```shell
+    systemctl start mariadb
+    ```
 
 5. Lancez le processus de mise à jour MariaDB :
 
-```shell
-mysql_upgrade -u <utilisateur_admin_bdd> -p
-```
+   ```shell
+    mysql_upgrade -u <utilisateur_admin_bdd> -p
+    ```
 
-Exemple : si votre utilisateur_admin_bdd est `root`, entrez:
+    Exemple : si votre utilisateur_admin_bdd est `root`, entrez:
 
-```
-mysql_upgrade -u root -p
-```
+    ```
+    mysql_upgrade -u root -p
+    ```
 
-> Référez vous à la [documentation officielle](https://mariadb.com/kb/en/mysql_upgrade/)
-> pour plus d'informations ou si des erreurs apparaissent pendant cette dernière étape.
+    > Référez vous à la [documentation officielle](https://mariadb.com/kb/en/mysql_upgrade/)
+    > pour plus d'informations ou si des erreurs apparaissent pendant cette dernière étape.
 
 #### Activer MariaDB au démarrage automatique
 

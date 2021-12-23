@@ -12,25 +12,25 @@ The update of Centreon MBI is made of 2 steps :
 
 1. Update the package, run the following commands:
 
-yum update centreon-bi-server
+        yum update centreon-bi-server
 
-2. Update through the interface:  Log on to the Centreon web interface and go to
-the *Administration > Extension > Manager* page and click on the
+2. Update through the interface:  Log on to the Centreon web interface and go to 
+the *Administration > Extension > Manager* page and click on the 
 AirUpdate button to update the extension and the widgets
 
-## Upgrade the reporting server
+## Upgrade the reporting server 
 
 Connect to your reporting server and stop the scheduler service (CBIS):
 
-systemctl stop cbis
+    systemctl stop cbis
 
 Then run the following commands: :
 
-yum clean all
-yum update centreon-bi\*
+    yum clean all
+    yum update centreon-bi\*
 
-Start the scheduler service:
+Start the scheduler service: 
 
-systemctl start cbis
+    systemctl start cbis
 
 You're done :)

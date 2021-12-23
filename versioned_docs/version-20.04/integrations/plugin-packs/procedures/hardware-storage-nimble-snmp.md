@@ -2,9 +2,6 @@
 id: hardware-storage-nimble-snmp
 title: Nimble Storage
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Overview
 
@@ -30,27 +27,26 @@ The current version of the Nimble SNMP Plugin-Pack can monitor the following ser
 
 The following metrics are collected by the Centreon Nimble SNMP Plugin:
 
-<Tabs groupId="operating-systems">
-<TabItem value="VolumeUsage" label="VolumeUsage">
+<!--DOCUSAURUS_CODE_TABS-->
 
-| Metric name              | Description                       | Unit  |
-| :----------------------- | :-------------------------------- | :---- |
-| volume.space.usage.bytes | Per volume space usage (in Bytes) | Bytes |
+<!--Volume-Usage-->
 
-</TabItem>
-<TabItem value="GlobalStats" label="GlobalStats">
+| Metric name                    | Description                          | Unit  |
+| :----------------------------- | :----------------------------------- | :---- |
+| volume.space.usage.bytes       | Per volume space usage (in Bytes)    | Bytes |
 
-| Metric name                          | Description            | Unit    |
-| :----------------------------------- | :--------------------- | :------ |
-| system.io.read.usage.bytespersecond  | Sytem read I/O         | Bytes/s |
-| system.io.write.usage.bytespersecond | Sytem write I/O        | Bytes/s |
-| system.io.read.usage.iops            | Sytem read IOPS count  | Iops    |
-| system.io.write.usage.iops           | Sytem write IOPS count | Iops    |
-| system.io.read.time.seconds          | Sytem read time        | Seconds |
-| system.io.write.time.seconds         | Sytem write time       | Seconds |
+<!--Global-Stats-->
 
-</TabItem>
-</Tabs>
+| Metric name                           | Description                          | Unit    |
+| :------------------------------------ | :----------------------------------- | :------ |
+| system.io.read.usage.bytespersecond   | Sytem read I/O                       | Bytes/s |
+| system.io.write.usage.bytespersecond  | Sytem write I/O                      | Bytes/s |
+| system.io.read.usage.iops             | Sytem read IOPS count                | Iops    |
+| system.io.write.usage.iops            | Sytem write IOPS count               | Iops    |
+| system.io.read.time.seconds           | Sytem read time                      | Seconds |
+| system.io.write.time.seconds          | Sytem write time                     | Seconds |
+
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -61,8 +57,9 @@ https://infosight.hpe.com/InfoSight/media/cms/active/public/pubs_GUI_Administrat
 
 ## Installation
 
-<Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor Nimble Flash Arrays:
 
@@ -72,8 +69,7 @@ yum install centreon-plugin-Hardware-Storage-Nimble-Snmp
 
 2. On the centreon Web interface, install the *Netdata RestAPI* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor Nimble Flash Arrays:
 
@@ -89,25 +85,22 @@ yum install centreon-pack-hardware-storage-nimble-snmp
 
 3. On the centreon Web interface, install the *Nimble SNMP* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-</TabItem>
-</Tabs>
-
 ## Configuration
 
 * Log into Centreon and add new host through "Configuration > Hosts".
-* Fill *SNMP community* and *SNMP version* fields
+* Fill *SNMP community* and *SNMP version* fields 
 * Apply the template *HW-Storage-Nimble-SNMP* to the Host
 
 > If you're using the version 3 of the SNMP protocol, select the related SNMP version in the Host configuration form and
 > set the SNMP v3 specific settings in the *SNMPEXTRAOPTIONS* Macro:
 
-| Mandatory | Name             | Description        |
-| :-------- | :--------------- | :----------------- |
-|           | SNMPEXTRAOPTIONS | Extra options SNMP |
+| Mandatory   | Name                    | Description                       |
+| :---------- | :---------------------- | :---------------------------------|
+|             | SNMPEXTRAOPTIONS        | Extra options SNMP                |
 
 ## FAQ
 
-### Why do I get the following error message:
+### Why do I get the following error message: 
 
 #### UNKNOWN: SNMP GET Request : Timeout
 
@@ -115,6 +108,6 @@ This message generally means that you are not using the right SNMP version or co
 
 #### UNKNOWN: SNMP GET Request : Cant get a single value.
 
-This error message often refers to the following issues:
-- the Nimble device doesn't support the MIB used by the plugin
-- the targeted SNMP OID cannot be fetched because of insufficient privileges on the device
+This error message often refers to the following issues: 
+  - the Nimble device doesn't support the MIB used by the plugin
+  - the targeted SNMP OID cannot be fetched because of insufficient privileges on the device

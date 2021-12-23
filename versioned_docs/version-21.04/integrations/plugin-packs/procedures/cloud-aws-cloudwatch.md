@@ -23,9 +23,9 @@ On CentOS, install with following commands:
 ``` shell
 yum install -y epel-release
 ```
-# yum install -y python-pip
-# pip install awscli
-# yum remove -y epel-release
+    # yum install -y python-pip
+    # pip install awscli
+    # yum remove -y epel-release
 
 ## Centreon Configuration
 

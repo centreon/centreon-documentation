@@ -26,28 +26,28 @@ Centreon's ``modules/`` directory. Example:
 The essential elements your module's directory must contain are presented below:
 ```PHP
 $module_conf['dummy'] = [
-// Short module's name. Must be equal to your module's directory name
-'name' => 'dummy',
-// Full module's name
-'rname' => 'Dummy Example Module',
-// Module's version
-'mod_release' => '21.04',
-// Additional information
-'infos' => 'This module is a skeleton',
-// Allow your module to be uninstalled
-'is_removeable' => '1',
-// Module author's name
-'author' => 'Centreon',
-// Stability of module.
-'stability' => 'stable',
-// Last time module was updated.
-'last_update' => '2020-12-01',
-// Release notes link, if any.
-'release_note' => 'https://docs.centreon.com/current/en/releases/centreon-os-extensions',
-// Images associated with this module.
-'images' => [
-'images/centreon.png',
-],
+    // Short module's name. Must be equal to your module's directory name
+    'name' => 'dummy',
+    // Full module's name
+    'rname' => 'Dummy Example Module',
+    // Module's version
+    'mod_release' => '21.04',
+    // Additional information
+    'infos' => 'This module is a skeleton',
+    // Allow your module to be uninstalled
+    'is_removeable' => '1',
+    // Module author's name
+    'author' => 'Centreon',
+    // Stability of module.
+    'stability' => 'stable',
+    // Last time module was updated.
+    'last_update' => '2020-12-01',
+    // Release notes link, if any.
+    'release_note' => 'https://docs.centreon.com/current/en/releases/centreon-os-extensions',
+    // Images associated with this module.
+    'images' => [
+        'images/centreon.png',
+    ],
 ];
 ```
 
@@ -97,8 +97,8 @@ You're free to organize the remaining files (your module's content) as you like.
 
 ## Advanced
 
-> :warning: **This section is deprecated, please refer to
-> the [dummy repository documentation](https://github.com/centreon/centreon-dummy/blob/master/README.md)**
+  > :warning: **This section is deprecated, please refer to
+  > the [dummy repository documentation](https://github.com/centreon/centreon-dummy/blob/master/README.md)**
 
 That's great, you know how to install a module! As an empty module is not really useful, put your imagination at work.
 Knowing that you can do almost everything, it should not be too complicated :-).

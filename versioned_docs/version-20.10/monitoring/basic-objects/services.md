@@ -23,16 +23,16 @@ All additions of services are done in the menu: **Configuration \> Services \> A
 * The **Check Period** field defined the time period during which the scheduler checks the status of the service.
 * The **Check Command** field indicates the command use to check the availability of the service.
 * The **Args** table defined the arguments given for the check command (the number of arguments varies according to the
-check command chosen).
+  check command chosen).
 * The **Max Check Attempts** of the status field defined the number of checks to be carried out to confirm the status of
-the service. When the status is validated, the notification process is engaged
+  the service. When the status is validated, the notification process is engaged
 * The **Normal Check Interval** field is expressed in minutes. It defined the interval between checks when the service status is OK.
 * The **Retry Check Interval** field is expressed in minutes. It defined the confirmation interval for the Not-OK service status
 * The **Active Checks Enabled** and **Passive Checks Enabled** fields enable / disable the type of check on the service.
 
 ### Macros
 
-The **Macros** part serves to add customized macros.
+The **Macros** part serves to add customized macros. 
 The **macro name** and **macro value** fields allow us to define the name and value of the macro. The **Password** box
 can be used to hide the value of the macro.
 
@@ -48,21 +48,21 @@ To change the order of the macros, click on <img src={require('../../assets/conf
 
 * The **Notification Enabled** field allows us to enable or disable the notifications for the object.
 * The **Inherit contacts from host** field allows us to cause the contacts to be inherited from the configuration of
-the host.
+  the host.
 * If the **Contact additive inheritance** box is checked, Centreon does not overwrite the configuration of the parent
-service model but adds the contacts in addition to the contacts defined at the parent model level.
+  service model but adds the contacts in addition to the contacts defined at the parent model level.
 * The **Implied Contacts** indicates the contacts that will receive the notifications.
 * If **Contact group additive inheritance** box is checked, Centreon does not overwrite the configuration of the parent
-service model but adds the contact groups in addition to the contact groups defined at the parent model level.
+  service model but adds the contact groups in addition to the contact groups defined at the parent model level.
 * If **Inherit only contacts/contact group from host** box is checked, then when generating the configuration, contact
-and/or host groups of contacts (or the following templates inheritance) will overwrite of the service or its service
-models. This function disables entering contacts and contact groups for this service.
+  and/or host groups of contacts (or the following templates inheritance) will overwrite of the service or its service
+  models. This function disables entering contacts and contact groups for this service.
 * In the **Implied Contact Groups** list all the contacts belonging to the contact groups defined will receive the notifications.
 * The **Notification Interval** field is expressed in minutes. It indicates the time between sending of notifications
-when the status is Not-OK. If the value is defined as 0 the scheduler sends a single notification per status change.
+  when the status is Not-OK. If the value is defined as 0 the scheduler sends a single notification per status change.
 * The **Notification Type** define the statuses for which a notification will be sent.
 * The **First notification delay** time is expressed in minutes. It refers to the time delay to be respected before
-sending the first notification when a Not-OK status is validated.
+  sending the first notification when a Not-OK status is validated.
 
 ## Relations tab
 
@@ -80,15 +80,15 @@ The **Service Trap Relation** field allows us to define the SNMP traps that will
 * If the **Obsess over service** field is enabled, the monitoring feedback command of the host will be enabled.
 * The **Check freshness** field allows us to enable or disable the check on the freshness of the result.
 * The **Freshness threshold** field is expressed in seconds. If during this period no request for a change in the status
-of the service (passive command) is received the check command is executed.
+  of the service (passive command) is received the check command is executed.
 * The **Flap Detection Enabled** field allows us to enable or disable the detection of disruption in the statuses (status
-value changing too often on a given period).
+  value changing too often on a given period).
 * The **Low flap threshold** and **High flap threshold** fields define the high and low thresholds for the detection of
-disruption in percentage of status change.
+  disruption in percentage of status change.
 * The **Performance data processing** field allows us to enable or disable performance data processing (and hence the
-generation of performance graphics). This option is not necessary when Centreon Broker is use.
+  generation of performance graphics). This option is not necessary when Centreon Broker is use.
 * The **Retain status information** and **Retention non status information** fields indicate if the information concerning
-or not concerning the status is saved after every time the check command is repeated.
+  or not concerning the status is saved after every time the check command is repeated.
 * The **Stalking Options** field defined the options to be recorded if retention is enabled.
 * The **Event handler enabled** field allows us to enable or disable the events manager.
 * The **Event handler** field defined the command to be executed if the event manager is enabled.

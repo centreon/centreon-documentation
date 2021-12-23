@@ -2,13 +2,10 @@
 id: installation-first-steps
 title: Installation & first steps
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 Hello & Welcome! We are excited to help you begin your Centreon journey.
 
-You will find in this chapter how to quickly start on Centreon. It is composed of a quick start to install
+You will find in this chapter how to quickly start on Centreon. It is composed of a quick start to install 
 and use Centreon followed by tutorials to help you use the main capabilities of Centreon.
 
 * [Setup your first platform](#setup-your-first-platform)
@@ -46,21 +43,20 @@ You can install Centreon:
 
 The virtual machines are available on the [Centreon download web site](https://download.centreon.com).
 
-<Tabs groupId="operating-systems">
-<TabItem value="VMware environment" label="VMware environment">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--VMware environment-->
 \
 Go to to **File > Deploy OVF Template** and select the **OVA file**. Since the menu selections are actually linked to
 your specific VMWare configuration, we are unable to provide more information. Be advised that best practice is to use
 the **Thin Provision** option to save as much free space as possible on the disk.
 
-</TabItem>
-<TabItem value="Oracle Virtualbox" label="Oracle Virtualbox">
+<!--Oracle Virtualbox-->
 \
 Extract the contents of the archive and double-click on the **OVF file**. Follow the instructions to import the virtual
 machine.
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 Once your virtual machine is imported, you will need to **add a network card**. Edit the settings of the virtual machine and
 a network card. Select the correct associated network to access to Internet.
@@ -116,10 +112,10 @@ The Centreon web interface contains several menus, each with a specific function
 ![image](../assets/getting-started/amenu.png)
 
 * **Home** lets you access the first home screen after logging in. It provides a summary of overall monitoring status.
-Your workspace may be blank for now. Once you configure customizable widgets, you will see data and charts according
-to your customization.
+  Your workspace may be blank for now. Once you configure customizable widgets, you will see data and charts according
+  to your customization.
 * **Monitoring** provides a combined view of the statuses of all monitored items in real and delayed time using logs and
-performance graphics.
+  performance graphics.
 * **Reporting** provides an intuitive view (using diagrams) of the evolution of monitoring over a given time period.
 * **Configuration** allows you to configure all monitored items and the monitoring infrastructure.
 * **Administration** allows you to configure the Centreon web interface and view the overall status of the servers.
@@ -162,13 +158,13 @@ Move on next chapters to start monitoring your IT.
 Before starting to monitor, let's take a look at some basic concepts:
 
 * A **host** is any device that has an IP address and that one wishes to monitor. For example, a physical server, a
-virtual machine, a temperature probe, an IP camera, a printer or a storage space.
+  virtual machine, a temperature probe, an IP camera, a printer or a storage space.
 * A **service** is a check point, or indicator, to be monitored on a host. This can be the CPU usage rate, temperature,
-motion detection, bandwidth usage rate, disk I/O, and so on.
+  motion detection, bandwidth usage rate, disk I/O, and so on.
 * In order to collect each indicator value, monitoring **plugins** are used which are periodically executed by a
-collection engine called Centreon Engine.
+  collection engine called Centreon Engine.
 * To be executed, a plugin needs a set of arguments that define, for example, which host to connect to or through which protocol.
-The plugin and its associated arguments form a **command**.
+  The plugin and its associated arguments form a **command**.
 
 For example, to monitor a host with Centreon is to configure all the commands needed to measure the desired indicators,
 and then deploy that configuration to the collection engine so that these commands are run periodically.
@@ -178,7 +174,7 @@ Nevertheless, to drastically simplify the configuration, we will rely on monitor
 * A **host template** defines the configuration of the indicators for a given type of equipment.
 * It relies on **service templates** that define the configuration of the commands needed to collect these indicators.
 * Centreon provides downloadable **Plugins Packs** to install on its monitoring platform: each Plugin Pack includes host
-and services templates to configure the monitoring of a particular device in a few clicks.
+  and services templates to configure the monitoring of a particular device in a few clicks.
 
 This quick start guide proposes to install the monitoring templates supplied free of charge with the Centreon solution
 and then to implement them to monitor your first equipment.
@@ -272,7 +268,7 @@ filter. After a few minutes, the first results of the monitoring appear:
 #### To go further
 
 The **Linux SNMP** Plugin Pack provides several monitoring templates. When creating a service, it is possible to search
-the available models in the selection list:
+the available models in the selection list: 
 
 ![image](../assets/getting-started/quick_start_linux_8.png)
 
@@ -287,7 +283,7 @@ To know manually the name of the available files system you can execute the plug
 
 ```Shell
 /usr/lib/centreon/plugins/centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin \
---hostname=10.40.1.169 --snmp-community=public --snmp-version=2c --mode=list-storages
+    --hostname=10.40.1.169 --snmp-community=public --snmp-version=2c --mode=list-storages
 ```
 
 You will see the result:
@@ -316,7 +312,7 @@ It is the same to know the name of the available network interfaces:
 
 ```Bash
 /usr/lib/centreon/plugins/centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin \
---hostname=10.40.1.169 --snmp-community=public --snmp-version=2c --mode=list-interfaces
+    --hostname=10.40.1.169 --snmp-community=public --snmp-version=2c --mode=list-interfaces
 ```
 You will see the result:
 ```Shell
@@ -383,7 +379,7 @@ filter. After a few minutes, the first results of the monitoring appear:
 #### To go further
 
 The **Windows SNMP** Plugin Pack provides several monitoring templates. When creating a service, it is possible to
-search the available models in the selection list:
+search the available models in the selection list: 
 
 ![image](../assets/getting-started/quick_start_windows_7.png)
 
@@ -398,7 +394,7 @@ To know manually the name of the available files system you can execute the plug
 
 ```Shell
 /usr/lib/centreon/plugins/centreon_windows_snmp.pl --plugin=os::windows::snmp::plugin \
---hostname=10.40.1.254 --snmp-version='2c' --snmp-community='public' --mode=list-storages
+    --hostname=10.40.1.254 --snmp-version='2c' --snmp-community='public' --mode=list-storages
 ```
 You will see the result:
 ```Shell
@@ -499,7 +495,7 @@ filter. After a few minutes, the first results of the monitoring appear:
 #### To go further
 
 The **Cisco Standard** Plugin Pack provides several monitoring templates. When creating a service, it is possible to
-search the available models in the selection list:
+search the available models in the selection list: 
 
 ![image](../assets/getting-started/quick_start_cisco_7.png)
 
@@ -514,8 +510,8 @@ To know manually the name of the available network interfaces you can execute th
 
 ```Shell
 /usr/lib/centreon/plugins/centreon_cisco_standard_snmp.pl \
---plugin=network::cisco::standard::snmp::plugin \
---hostname=10.40.1.254 --snmp-community=public --snmp-version=2c --mode=list-interfaces
+    --plugin=network::cisco::standard::snmp::plugin \
+    --hostname=10.40.1.254 --snmp-community=public --snmp-version=2c --mode=list-interfaces
 ```
 You will see the result:
 ```Shell
@@ -554,8 +550,8 @@ It is the same to know the name of the spanning-tree:
 
 ```Shell
 /usr/lib/centreon/plugins/centreon_cisco_standard_snmp.pl \
---plugin=network::cisco::standard::snmp::plugin \
---hostname=10.40.1.254 --snmp-community=public --snmp-version=2c --mode=list-spanning-trees
+    --plugin=network::cisco::standard::snmp::plugin \
+    --hostname=10.40.1.254 --snmp-community=public --snmp-version=2c --mode=list-spanning-trees
 ```
 You will see the result:
 ```Shell
@@ -612,7 +608,7 @@ filter. After a few minutes, the first results of the monitoring appear:
 #### To go further
 
 The **MySQL/MariaDB** Plugin Pack provides several monitoring templates. When creating a service, it is possible to
-search the available models in the selection list:
+search the available models in the selection list: 
 
 ![image](../assets/getting-started/quick_start_mysql_5.png)
 

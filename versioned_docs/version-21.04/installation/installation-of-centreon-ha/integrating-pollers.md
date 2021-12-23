@@ -5,7 +5,7 @@ title: Integrating new pollers in a Centreon-HA cluster
 
 ## Obtaining central nodes' thumbprints
 
-Both central nodes' Gorgone services will need to be authorized by the pollers' Gorgone services.
+Both central nodes' Gorgone services will need to be authorized by the pollers' Gorgone services. 
 
 * First, let's get each central node's key:
 
@@ -24,13 +24,13 @@ The command output should look like:
 
 ## Adding the Poller to configuration
 
-* Add your poller to the configuration "the standard way" [following these steps with ZeroMQ protocol](../../monitoring/monitoring-servers/add-a-poller-to-configuration)
+* Add your poller to the configuration "the standard way" [following these steps with ZeroMQ protocol](../../monitoring/monitoring-servers/add-a-poller-to-configuration) 
 
 * You should now have overwritten the `/etc/centreon-gorgone/config.d/40-gorgoned.yaml` file, and it should contain such lines:
 
 ```yml
-authorized_clients:
-- key: tRsFMBv9X3ScNFMwvG8D652nXMsgEYMb1qsJek-Mns8
+    authorized_clients:
+    - key: tRsFMBv9X3ScNFMwvG8D652nXMsgEYMb1qsJek-Mns8
 ```
 
 ## Configuring Gorgone on the poller
@@ -38,9 +38,9 @@ authorized_clients:
 * You now have to modify `/etc/centreon-gorgone/config.d/40-gorgoned.yaml` on the poller in order to have both central keys in this section:
 
 ```yml
-authorized_clients:
-- key: key_1_from_earlier
-- key: key_2_from_earlier
+    authorized_clients:
+    - key: key_1_from_earlier
+    - key: key_2_from_earlier
 ```
 
 * Now restart Gorgone on the poller:

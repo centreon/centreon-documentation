@@ -15,7 +15,7 @@ yum install centreon-plugin-Applications-Biztalk
 
 You need a read access to the MSSQL database :
 
-- BizTalkMgmtDb.
+  - BizTalkMgmtDb.
 
 Please read the monitoring procedure of plugin-pack MSSQL.
 

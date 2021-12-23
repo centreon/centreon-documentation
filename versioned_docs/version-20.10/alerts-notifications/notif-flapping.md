@@ -18,11 +18,11 @@ check to see if it has started or stopped flapping. It does this by:
 
 -   Storing the results of the last 21 checks of the host or service
 -   Analyzing the historical check results and determine where state
-changes/transitions occur
+    changes/transitions occur
 -   Using the state transitions to determine a percent state change
-value (a measure of change) for the host or service
+    value (a measure of change) for the host or service
 -   Comparing the percent state change value against low and high
-flapping thresholds
+    flapping thresholds
 
 A host or service is determined to have started flapping when its
 percent state change first exceeds a high flapping threshold.
@@ -84,11 +84,11 @@ The calculated percent state change for the service (31%) will then be
 compared against flapping thresholds to see what should happen:
 
 -   If the service was not previously flapping and 31% is equal to or
-greater than the high flap threshold, Centreon Engine considers the
-service to have just started flapping.
+    greater than the high flap threshold, Centreon Engine considers the
+    service to have just started flapping.
 -   If the service was previously flapping and 31% is less than the low
-flap threshold, Centreon Engine considers the service to have just
-stopped flapping.
+    flap threshold, Centreon Engine considers the service to have just
+    stopped flapping.
 
 If neither of those two conditions are met, the flap detection logic
 won’t do anything else with the service, since it is either not

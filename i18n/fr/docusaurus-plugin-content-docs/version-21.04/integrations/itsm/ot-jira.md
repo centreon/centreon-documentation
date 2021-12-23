@@ -34,7 +34,7 @@ Our provider requires the following parameters:
 
 As of now, the provider is able to retrieve the following objects from Jira:
 
-- Project
-- Priority
-- Assignee
-- Issue type
+  - Project
+  - Priority
+  - Assignee
+  - Issue type

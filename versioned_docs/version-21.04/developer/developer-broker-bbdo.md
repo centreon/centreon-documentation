@@ -36,7 +36,7 @@ The packets format of Centreon Broker introduce only 16 bytes of header
 to transmit each monitoring event (usually about 100-200 bytes each).
 Fields are provided in the big endian format.
 
-| Field          | Type                   | Description
+| Field          | Type                   | Description                                             
 |----------------|------------------------|-------------------------------------------------------
 | checksum       | unsigned short integer | CRC-16-CCITT X.25 of size, id, source and destination. The checksum can be used to recover from an incomplete data packet sent in the stream by dropping bytes one by one.
 | size           | unsigned short integer | Size of the packet, excluding header.
@@ -230,25 +230,25 @@ And gives the following packet with values in hexadecimal.
 +--------+--------+--------+--------+--------+--------+--------+--------+
 
 --------------------------+--------------------------------------------
-=>  next_check                      |    =>
+                            =>  next_check                      |    =>
 +========+========+========+========+========+========+========+========+
 |   00   |   00   |   00   |   51   |   5D   |   78   |   A1   |   2E   |
 +--------+--------+--------+--------+--------+--------+--------+--------+
 
 -----------------------------------------------------------------------
-=> command_line =>
+                            => command_line =>
 +========+========+========+========+========+========+========+========+
 |   2F   |   6D   |   79   |   5F   |   70   |   6C   |   75   |   67   |
 +--------+--------+--------+--------+--------+--------+--------+--------+
 
 -----------------------------------------------------------------------
-=> command_line =>
+                            => command_line =>
 +========+========+========+========+========+========+========+========+
 |   69   |   6E   |   20   |   2D   |   48   |   20   |   31   |   32   |
 +--------+--------+--------+--------+--------+--------+--------+--------+
 
 -----------------------------------------------------------------------+
-=> command_line                              |
+                            => command_line                              |
 +========+========+========+========+========+========+========+========+
 |   37   |   2E   |   30   |   2E   |   30   |   2E   |   31   |   00   |
 +--------+--------+--------+--------+--------+--------+--------+--------+
@@ -273,25 +273,25 @@ is enabled (ie. it immediately starts).
 Let's have C the client and S the server. The following steps are
 performed sequentially.
 
-- C initiates a TCP connection with S and connection gets established
-- C sends a *version_response* packet with the following attributes
-- protocol major : 1
-- protocol minor : 0
-- protocol patch : 0
-- extensions : "TLS compression"
-- S sends its own *version_response* packet in reply to C's
-- protocol major : 1
-- protocol minor : 0
-- protocol patch : 0
-- extensions : "TLS compression"
-- C and S determines which extensions they have in common (here TLS
-and compression)
-- if order is important, extensions are applied in the order provided
-by the server
-- TLS connection is initiated, handshake performed, ...
-- compression connection is opened
-- now data transmitted between C and S is both encrypted and
-compressed !
+  - C initiates a TCP connection with S and connection gets established
+  - C sends a *version_response* packet with the following attributes
+    - protocol major : 1
+    - protocol minor : 0
+    - protocol patch : 0
+    - extensions : "TLS compression"
+  - S sends its own *version_response* packet in reply to C's
+    - protocol major : 1
+    - protocol minor : 0
+    - protocol patch : 0
+    - extensions : "TLS compression"
+  - C and S determines which extensions they have in common (here TLS
+    and compression)
+  - if order is important, extensions are applied in the order provided
+    by the server
+  - TLS connection is initiated, handshake performed, ...
+  - compression connection is opened
+  - now data transmitted between C and S is both encrypted and
+    compressed !
 
 ## Acknowledgement
 

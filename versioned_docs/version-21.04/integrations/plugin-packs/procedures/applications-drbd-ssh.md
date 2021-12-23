@@ -2,9 +2,6 @@
 id: applications-drbd-ssh
 title: DRBD SSH
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Overview
 
@@ -23,23 +20,23 @@ user space as well as shell scripts.
 
 More information about collected metrics is available in the official DRBD documentation : https://www.linbit.com/drbd-user-guide/drbd-guide-9_0-en/
 
-<Tabs groupId="operating-systems">
-<TabItem value="Resources" label="Resources">
+<!--DOCUSAURUS_CODE_TABS-->
 
-| Metric name                      | Description                    | Unit  |
-| :------------------------------- | :----------------------------- | :---- |
-| disk-status                      | Disk status                    |       |
-| peer-connection-status           | Peer connection status         |       |
-| peer-device-replication-status   | Peer device replication status |       |
-| peer-device-disk-status          | Peer device disk status        |       |
-| resources.total.count            | Total number of resources      | count |
-| disk.data.read.bytespersecond    | Disk data read                 | B/s   |
-| disk.data.written.bytespersecond | Disk data written              | B/s   |
-| peer.traffic.in.bitspersecond    | Peer traffic in                | b/s   |
-| peer.traffic.out.bitspersecond   | Peer traffic out               | b/s   |
+<!--Resources-->
 
-</TabItem>
-</Tabs>
+| Metric name                         | Description                         | Unit  |
+| :-----------------------------------| :-----------------------------------| :---- |
+| disk-status                         | Disk status                         |       |
+| peer-connection-status              | Peer connection status              |       |
+| peer-device-replication-status      | Peer device replication status      |       |
+| peer-device-disk-status             | Peer device disk status             |       |
+| resources.total.count               | Total number of resources           | count |
+| disk.data.read.bytespersecond       | Disk data read                      |  B/s  |
+| disk.data.written.bytespersecond    | Disk data written                   |  B/s  |
+| peer.traffic.in.bitspersecond       | Peer traffic in                     |  b/s  |
+| peer.traffic.out.bitspersecond      | Peer traffic out                    |  b/s  |
+
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -53,8 +50,9 @@ The centreon-engine user performs a SSH connection to a remote system user. This
 
 ## Setup
 
-<Tabs groupId="licence-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin on every Poller monitoring DRBD resources:
 
@@ -64,8 +62,7 @@ yum install centreon-plugin-Applications-Drbd-Ssh.noarch
 
 2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *DRBD SSH* Plugin-Pack
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin on every Poller monitoring DRBD resources:
 
@@ -81,8 +78,7 @@ yum install ccentreon-pack-applications-drbd-ssh.noarch
 
 3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *DRBD SSH* Plugin-Pack
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
@@ -90,47 +86,45 @@ Adding a Host into Centreon, link it to the Template named *App-Drbd-SSH-custom*
 Once the Template set, you have to set values according to the chosen SSH backend.
 3 SSH backends are available to connect to the remote server: *sshcli*, *plink* and *libssh* which are detailed below.
 
-<Tabs groupId="operating-systems">
-<TabItem value="sshcli backend" label="sshcli backend">
+<!--DOCUSAURUS_CODE_TABS-->
 
-| Mandatory | Name            | Description                                                                        |
-| :-------- | :-------------- | :--------------------------------------------------------------------------------- |
-| X         | SSHBACKEND      | Name of the backend: ```sshcli```                                                  |
-| X         | SSHUSERNAME     | By default, it uses the user running process ```centengine``` on your Poller       |
-|           | SSHPASSWORD     | Cannot be used with backend. Only ssh key authentication                           |
-|           | SSHPORT         | By default: 22                                                                     |
-|           | SSHEXTRAOPTIONS | Customize it with your own if needed. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa``` |
+<!--sshcli backend-->
 
-> With that backend, you have to validate the target server fingerprint manually (with the SSHUSERNAME used).
-
-</TabItem>
-<TabItem value="plink backend" label="plink backend">
-
-| Mandatory | Name            | Description                                                                        |
-| :-------- | :-------------- | :--------------------------------------------------------------------------------- |
-| X         | SSHBACKEND      | Name of the backend: ```plink```                                                   |
-| X         | SSHUSERNAME     | By default, it uses the user running process ```centengine``` on your Poller       |
-|           | SSHPASSWORD     | Can be used. If not set, SSH key authentication is used                            |
-|           | SSHPORT         | By default: 22                                                                     |
-|           | SSHEXTRAOPTIONS | Customize it with your own if needed. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa``` |
+| Mandatory   | Name            | Description                                                                                 |
+| :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
+| X           | SSHBACKEND      | Name of the backend: ```sshcli```                                                           |
+| X           | SSHUSERNAME     | By default, it uses the user running process ```centengine``` on your Poller                |
+|             | SSHPASSWORD     | Cannot be used with backend. Only ssh key authentication                                    |
+|             | SSHPORT         | By default: 22                                                                              |
+|             | SSHEXTRAOPTIONS | Customize it with your own if needed. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```          |
 
 > With that backend, you have to validate the target server fingerprint manually (with the SSHUSERNAME used).
 
-</TabItem>
-<TabItem value="libssh backend (default)" label="libssh backend (default)">
+<!--plink backend-->
 
-| Mandatory | Name            | Description                                                                        |
-| :-------- | :-------------- | :--------------------------------------------------------------------------------- |
-| X         | SSHBACKEND      | Name of the backend: ```libssh```                                                  |
-| X         | SSHUSERNAME     | By default, it uses the user running process ```centengine``` on your Poller       |
-|           | SSHPASSWORD     | Can be used. If not set, SSH key authentication is used                            |
-|           | SSHPORT         | By default: 22                                                                     |
-|           | SSHEXTRAOPTIONS | Customize it with your own if needed. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa``` |
+| Mandatory   | Name            | Description                                                                                 |
+| :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
+| X           | SSHBACKEND      | Name of the backend: ```plink```                                                            |
+| X           | SSHUSERNAME     | By default, it uses the user running process ```centengine``` on your Poller                |
+|             | SSHPASSWORD     | Can be used. If not set, SSH key authentication is used                                     |
+|             | SSHPORT         | By default: 22                                                                              |
+|             | SSHEXTRAOPTIONS | Customize it with your own if needed. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```          |
+
+> With that backend, you have to validate the target server fingerprint manually (with the SSHUSERNAME used).
+
+<!--libssh backend (default)-->
+
+| Mandatory   | Name            | Description                                                                                 |
+| :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
+| X           | SSHBACKEND      | Name of the backend: ```libssh```                                                           |
+| X           | SSHUSERNAME     | By default, it uses the user running process ```centengine``` on your Poller                |
+|             | SSHPASSWORD     | Can be used. If not set, SSH key authentication is used                                     |
+|             | SSHPORT         | By default: 22                                                                              |
+|             | SSHEXTRAOPTIONS | Customize it with your own if needed. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```          |
 
 With that backend, you do not have to validate the target server fingerprint manually.
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## FAQ
 
@@ -140,14 +134,14 @@ Once the Plugin installed, log into your Poller using the *centreon-engine* user
 
 ```bash
 /usr/lib/centreon/plugins/centreon_drbd_ssh.pl \
---plugin=apps::drbd::local::plugin.pm \
---mode=resources \
---hostname=10.30.2.81 \
---ssh-username=centreon \
---ssh-password=centreon-password \
---ssh-backend=libssh \
---legacy-proc \
---verbose
+    --plugin=apps::drbd::local::plugin.pm \
+    --mode=resources \
+    --hostname=10.30.2.81 \
+    --ssh-username=centreon \
+    --ssh-password=centreon-password \
+    --ssh-backend=libssh \
+    --legacy-proc \
+    --verbose
 ```
 
 Which output something similar to:

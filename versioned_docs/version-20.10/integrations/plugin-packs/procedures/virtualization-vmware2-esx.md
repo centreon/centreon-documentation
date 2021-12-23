@@ -2,9 +2,6 @@
 id: virtualization-vmware2-esx
 title: VMware ESX
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Overview
 
@@ -13,87 +10,77 @@ VMWare is an software compagny based in USA. VMWare provides cloud computing and
 The Centreon Plugin and Plugin-Packs rely on the Centreon VMWare Connector to request the vCenter API.
 
 ## Plugin-Pack Assets
-
+	
 ### Monitored Objects
 
 * ESX or ESXi
-
+	
 ### Discovery rules
 
-<Tabs groupId="operating-systems">
-<TabItem value="Host" label="Host">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Host-->
 
 | Rule name                      | Description                                     |
 | :----------------------------- | :---------------------------------------------- |
 | Virt-VMWare2-Esx-HostDiscovery | Discover VMWare ESX linked to a vcenter or ESXi |
-
-</TabItem>
-<TabItem value="Services" label="Services">
+	
+<!--Services-->
 
 | Rule name                                | Description                                 |
 | :--------------------------------------- | :------------------------------------------ |
 | Virt-VMWare2-Esx-Datastores-Latency-Name | Discover the Datastores and monitor latency |
 | Virt-VMWare2-Esx-Nics-Traffic-Name       | Discover the traffic NIC and monitor        |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
+	
+## Monitored Metrics 
 
-## Monitored Metrics
+<!--Esx-Cpu-->
 
-<Tabs groupId="operating-systems">
-<TabItem value="EsxCpu" label="EsxCpu">
+| Metric name                                   | Description                      | Unit |
+| :-------------------------------------------- | :------------------------------- | :--- |
+| host.cpu.utilization.percentage               | Total CPU usage in percentage    | %    |
+| host.cpu.utilization.mhz                      | Total CPU usage in MHz           | MHz  |
+| core#host.core.cpu.utilization.percentage     | CPU usage per core in percentage | %    |
 
-| Metric name                               | Description                      | Unit |
-| :---------------------------------------- | :------------------------------- | :--- |
-| host.cpu.utilization.percentage           | Total CPU usage in percentage    | %    |
-| host.cpu.utilization.mhz                  | Total CPU usage in MHz           | MHz  |
-| core#host.core.cpu.utilization.percentage | CPU usage per core in percentage | %    |
+<!--Esx-Health-->
 
-</TabItem>
-<TabItem value="EsxHealth" label="EsxHealth">
+| Metric name                         | Description                         | Unit  |
+| :---------------------------------- | :---------------------------------- | :---- |
+| host.health.problems.current.count  | Total number of problem on the ESXs | Count |
+| host.health.problems.current.count  | Number of health checks in green    | Count |
+| host.health.yellow.current.count    | Number of health checks in yellow   | Count |
+| host.health.red.current.count       | Number of health checks in red      | Count |
 
-| Metric name                        | Description                         | Unit  |
-| :--------------------------------- | :---------------------------------- | :---- |
-| host.health.problems.current.count | Total number of problem on the ESXs | Count |
-| host.health.problems.current.count | Number of health checks in green    | Count |
-| host.health.yellow.current.count   | Number of health checks in yellow   | Count |
-| host.health.red.current.count      | Number of health checks in red      | Count |
+<!--Esx-Memory-->
 
-</TabItem>
-<TabItem value="EsxMemory" label="EsxMemory">
+| Metric name                   | Description                                  | Unit  |
+| :---------------------------- | :------------------------------------------- | :---- |
+| host.memory.usage.bytes       | Memory used                                  | Bytes |
+| host.memory.overhead.bytes    | Memory overhead needed by the VMs on the ESX | Bytes |
+| host.memory.state.count       | Memory state                                 |       |
 
-| Metric name                | Description                                  | Unit  |
-| :------------------------- | :------------------------------------------- | :---- |
-| host.memory.usage.bytes    | Memory used                                  | Bytes |
-| host.memory.overhead.bytes | Memory overhead needed by the VMs on the ESX | Bytes |
-| host.memory.state.count    | Memory state                                 |       |
-
-</TabItem>
-<TabItem value="EsxStatus" label="EsxStatus">
+<!--Esx-Status-->
 
 | Metric name | Description               | Unit |
 | :---------- | :------------------------ | :--- |
 | Status      | Overall status on the ESX |      |
 
-</TabItem>
-<TabItem value="EsxSwap" label="EsxSwap">
+<!--Esx-Swap-->
 
-| Metric name                        | Description         | Unit |
-| :--------------------------------- | :------------------ | :--- |
-| host.swap.in.usage.bytespersecond  | Swap in rate Usage  | B/s  |
-| host.swap.out.usage.bytespersecond | Swap out rate Usage | B/s  |
+| Metric name                           | Description         | Unit |
+| :------------------------------------ | :------------------ | :--- |
+| host.swap.in.usage.bytespersecond     | Swap in rate Usage  | B/s  |
+| host.swap.out.usage.bytespersecond    | Swap out rate Usage | B/s  |
 
-</TabItem>
-<TabItem value="EsxVmCount" label="EsxVmCount">
+<!--Esx-Vm-Count-->
 
-| Metric name                      | Description                          | Unit  |
-| :------------------------------- | :----------------------------------- | :---- |
-| host.vm.poweredon.current.count  | Number of powered on VMs on the ESX  | Count |
-| host.vm.poweredoff.current.count | Number of powered off VMs on the ESX | Count |
-| host.vm.suspended.current.count  | Number of suspended VMs on the ESX   | Count |
-
-</TabItem>
-</Tabs>
+| Metric name                       | Description                          | Unit  |
+| :-------------------------------- | :----------------------------------- | :---- |
+| host.vm.poweredon.current.count   | Number of powered on VMs on the ESX  | Count |
+| host.vm.poweredoff.current.count  | Number of powered off VMs on the ESX | Count |
+| host.vm.suspended.current.count   | Number of suspended VMs on the ESX   | Count |
 
 ## Prerequisites
 
@@ -112,13 +99,13 @@ To configure the access to your infrastructure, edit the
 
 ``` perl
 %centreon_vmware_config = (
-vsphere_server => {
-default => {
-url => 'https://<ip_hostname>/sdk',
-username => '<username>',
-password => '<password>'
-}
-}
+    vsphere_server => {
+        default => {
+            url => 'https://<ip_hostname>/sdk',
+            username => '<username>',
+            password => '<password>'
+        }
+    }
 );
 
 1;
@@ -135,19 +122,19 @@ structure:
 
 ``` perl
 %centreon_vmware_config = (
-vsphere_server => {
-'my_first_vcenter' => {
-url => 'https://<ip_hostname>/sdk',
-username => '<username>',
-password => '<password>'
-},
-'my_other_vcenter' => {
-url => 'https://<ip_hostname>/sdk',
-username => '<DOMAIN>\<username>',
-password => '<password>'
-},
-},
-port => 5700
+    vsphere_server => {
+        'my_first_vcenter' => {
+            url => 'https://<ip_hostname>/sdk',
+            username => '<username>',
+            password => '<password>'
+        },
+        'my_other_vcenter' => {
+            url => 'https://<ip_hostname>/sdk',
+            username => '<DOMAIN>\<username>',
+            password => '<password>'
+        },
+    },
+    port => 5700
 );
 
 1;
@@ -175,74 +162,73 @@ The Pollers that request the Centreon VMWare Connector host need to access in TC
 
 ## Installation
 
-<Tabs groupId="licence-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+	
+<!--Online IMP Licence & IT-100 Editions-->
 
-1. Install the Vmware2 Connector Centreon Plugin on every Poller expected to monitor the devices:
-
+1. Install the Vmware2 Connector Centreon Plugin on every Poller expected to monitor the devices: 
+	
 ```bash
 yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 ```
 
-2. Install the 'Vmware ESX' Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page
-
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+2. Install the 'Vmware ESX' Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page 
+	
+<!--Offline IMP License-->
 
 1. Install the Vmware ESX Centreon Plugin on every poller expected to monitor the devices:
 
 ```bash
 yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 ```
-
-2. Install the Centreon Plugin-Pack RPM:
+	
+2. Install the Centreon Plugin-Pack RPM: 
 
 ```bash
 yum install centreon-pack-virtualization-vmware2-esx
 ```
+	
+3. Install the 'Vmware ESX' Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page 
 
-3. Install the 'Vmware ESX' Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page
-
-</TabItem>
-</Tabs>
-
+<!--END_DOCUSAURUS_CODE_TABS-->
+	
 ## Configuration
 
 * Log into Centreon and add a new Host through "Configuration > Hosts".
 * Apply the relevant Host Template "Virt-VMWare2-ESX-custom", and configure the mandatory Macros:
 
-| Mandatory | Name                       | Description                                             |
-| :-------- | :------------------------- | :------------------------------------------------------ |
-| X         | CENTREONVMWARECONTAINER    | Name of your container in the file centreon_vmware.pm   |
-| X         | CENTREONVMWAREHOST         | The Centreon server that launches the connection        |
-| X         | CENTREONVMWAREPORT         | By default: 5700                                        |
-| X         | ESXNAME                    | Name of the ESX (defined in your VMWare infrastructure) |
-|           | CENTREONVMWAREEXTRAOPTIONS | Customize it with your own if needed                    |
+| Mandatory   | Name                       | Description                                             |
+| :---------- | :------------------------- | :------------------------------------------------------ |
+| X           | CENTREONVMWARECONTAINER    | Name of your container in the file centreon_vmware.pm   | 
+| X           | CENTREONVMWAREHOST         | The Centreon server that launches the connection        |
+| X           | CENTREONVMWAREPORT         | By default: 5700                                        |
+| X           | ESXNAME                    | Name of the ESX (defined in your VMWare infrastructure) |
+|             | CENTREONVMWAREEXTRAOPTIONS | Customize it with your own if needed                    |
 
 ## FAQ
 
 ### How do I run my plugin through the CLI and what do the main parameters stand for ?
-
+	
 Once you've installed the plugin, you can test it logging with centreon-engine user:
-
+	
 ```bash
 /usr/lib/centreon/plugins//centreon_vmware_connector_client.pl
---plugin=apps::vmware::connector::plugin
---mode=cpu-host
---custommode=connector
---connector-hostname='localhost'
---connector-port='5700'
---container='vcenter01'
---esx-hostname='SRV-ESX-TLS'
---unknown-status='%{status} !~ /^connected$/i'
---warning-status=''
---critical-status=''
---warning-total-cpu='80'
---critical-total-cpu='90'
---warning-total-cpu-mhz=''
---critical-total-cpu-mhz=''
---warning-cpu=''
---critical-cpu=''
+	--plugin=apps::vmware::connector::plugin
+	--mode=cpu-host
+	--custommode=connector
+	--connector-hostname='localhost'
+	--connector-port='5700'
+	--container='vcenter01' 
+	--esx-hostname='SRV-ESX-TLS'
+	--unknown-status='%{status} !~ /^connected$/i'
+	--warning-status=''
+	--critical-status=''
+	--warning-total-cpu='80'
+	--critical-total-cpu='90'
+	--warning-total-cpu-mhz=''
+	--critical-total-cpu-mhz=''
+	--warning-cpu=''
+	--critical-cpu='' 
 ```
 
 Expected command output is shown below:
@@ -261,21 +247,21 @@ Then the command requests the container **vcenter01** (```--container='vcenter01
 It will trigger a WARNING alarm if the CPU Usage is above 80% (```--warning-total-cpu='80'```)
 and a CRITICAL alarm if the CPU Usage is above 90% (```--critical-total-cpu='90'```).
 
-All available modes with the plugin can be displayed with:
+All available modes with the plugin can be displayed with: 
 
 ```bash
 /usr/lib/centreon/plugins/./centreon_vmware_connector_client.pl \
---plugin=apps::vmware::connector::plugin \
---list-mode
+    --plugin=apps::vmware::connector::plugin \
+    --list-mode
 ```
 
-The available options for a mode can be displayed using the ```--help``` parameter:
+The available options for a mode can be displayed using the ```--help``` parameter: 
 
 ```bash
 /usr/lib/centreon/plugins/./centreon_vmware_connector_client.pl \
---plugin=apps::vmware::connector::plugin \
---mode=cpu-host \
---help
+    --plugin=apps::vmware::connector::plugin \
+    --mode=cpu-host \
+    --help
 ```
 
 ### Why do I get the following error:
@@ -296,8 +282,8 @@ You can also take a look into the log for more information: */var/log/centreon/c
 This error message means that you the plugin cannot get value for some counters.
 Most of the time it caused by a time shift between the Centreon Servers and the VMWare Infrastructure.
 Check the synchronization with the mode ```time-host```.
-
-#### UNKNOWN: Cannot get counter 'net.received.average' for the sampling period '300' (counter level: 2, sampling level: 1)
+                                                                                                   
+#### UNKNOWN: Cannot get counter 'net.received.average' for the sampling period '300' (counter level: 2, sampling level: 1) 
 
 Some counters like 'mem.state.latest' and 'net.received.average' are only available with a sampling level at 2.
 You can configure the level sampling in the vCenter console for these counters.

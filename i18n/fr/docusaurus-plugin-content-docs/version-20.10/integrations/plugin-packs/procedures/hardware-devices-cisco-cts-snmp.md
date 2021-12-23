@@ -2,13 +2,10 @@
 id: hardware-devices-cisco-cts-snmp
 title: Cisco Telepresence System SNMP
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Vue d'ensemble
 
-Les équipements Cisco Teléprésence font partie de la suite de solutions et matériels
+Les équipements Cisco Teléprésence font partie de la suite de solutions et matériels 
 Communications unifiées proposées par Cisco.
 
 ## Contenu du Plugin-Pack
@@ -20,8 +17,9 @@ Communications unifiées proposées par Cisco.
 
 ## Métriques collectées
 
-<Tabs groupId="operating-systems">
-<TabItem value="Calls" label="Calls">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Calls-->
 
 | Metric name                                    | Description                                     | Unit |
 |:---------------------------------------------- |:----------------------------------------------- |:---- |
@@ -49,32 +47,31 @@ En plus des métriques globales ci-dessus, des métriques propres à chaque *med
 | *mediatype*#calls.streams.active.packetloss.in.percentage  | Packet Loss In rate on ongoing call             |  %   |
 | *mediatype*#calls.streams.active.packetloss.out.percentage | Packet Loss Out rate on ongoing call            |  %   |
 
-</TabItem>
-<TabItem value="Peripherals" label="Peripherals">
+<!--Peripherals-->
 
 | Metric name                | Description                                             | Unit |
 |:---------------------------|:--------------------------------------------------------|:-----|
 | peripherals.total.count    | Number of pysical entity on the CTS                     |      |
 | Peripheral Status          | Operating status of each peripheral (MIC, CAM, DISPLAY) |      |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
-## Prérequis
+## Prérequis 
 
-Le Service SNMP doit être activé et configuré sur l'équipement Cisco CTS cible.
+Le Service SNMP doit être activé et configuré sur l'équipement Cisco CTS cible. 
 
 Le Collecteur Centreon doit être en mesure d'atteindre le Cisco CTS Device via le port
-UDP/161.
+UDP/161. 
 
 Afin d'obtenir plus d'information sur la configuration SNMP, il est recommandé de se référer à la
-documentation officielle de Cisco pour ces équipements:
+documentation officielle de Cisco pour ces équipements: 
 https://www.cisco.com/c/en/us/td/docs/video/cuct/1_1/english/configuration/guide/maint\.
 
 ## Installation
 
-<Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des ressources *Cisco CTS*:
 
@@ -84,8 +81,7 @@ yum install centreon-plugin-Hardware-Devices-Cisco-Cts-Snmp
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Cisco CTS* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor *Cisco CTS* applications:
 
@@ -101,16 +97,15 @@ yum install centreon-pack-hardware-devices-cisco-cts-snmp
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Cisco CTS* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
-* Connecter vous à Centreon et ajouter un nouvel Hôte via la page "Configuration > Hôtes".
+* Connecter vous à Centreon et ajouter un nouvel Hôte via la page "Configuration > Hôtes". 
 * Remplir les champs "Nom", "Alias", "Adresse IP / DNS", "Communauté Snmp" et "Version Snmp" selon la configuration de l'équipement
 * Ajouter le modèle *HW-Device-Cisco-Cts-SNMP*.
 
-:warning: Si vous utilisez SNMP v3, configurer la macro SNMPEXTRAOPTIONS avec les paramètres adéquats
+  :warning: Si vous utilisez SNMP v3, configurer la macro SNMPEXTRAOPTIONS avec les paramètres adéquats
 
 | Mandatory   | Name             | Description                                    |
 | :---------- | :--------------- | :--------------------------------------------- |
@@ -136,7 +131,7 @@ ajustées en fonction du contexte):
 --verbose
 ```
 
-La commande doit retourner un message de sortie similaire à celui ci-dessous :
+La commande doit retourner un message de sortie similaire à celui ci-dessous : 
 
 ```bash
 OK: Total peripherals: 13 - All peripherals are ok | 'peripherals.total.count'=13;;;0;
@@ -154,12 +149,12 @@ Peripheral 'UI_DEVICE --  MAC address : 00:11:EE:9Y:48:15 Version : 11-0-1KKPL-4
 Peripheral 'MAIN_DISPLAY -- Serial=XXXXX39,Hardware_ver=,Model=CTS-5K-70-G1 ,Manufacturer=CIS(0x0d33),AppCode_Ver=(unsupported)' status: noError
 ```
 
-Dans cet exemple, le Plugin récupère le nombre de périphérique detecté ainsi que leur statut
+Dans cet exemple, le Plugin récupère le nombre de périphérique detecté ainsi que leur statut 
 (```--plugin=hardware/devices/cisco/cts/snmp/plugin.pm --mode=peripherals```)
 
 Cette commande déclenchera une alerte CRITICAL si le nombre de périphériques détéctés est inférieur à 13 (```--warning-total='13:'```).
 
-L'ensemble des seuils disponibles peut être affiché en utilisant l'option ```--help``` à la fin de la commande:
+L'ensemble des seuils disponibles peut être affiché en utilisant l'option ```--help``` à la fin de la commande: 
 
 ```bash
 /usr/lib/centreon/plugins/centreon_cisco_cts_snmp.pl \
@@ -170,14 +165,14 @@ L'ensemble des seuils disponibles peut être affiché en utilisant l'option ```-
 
 ### UNKNOWN: SNMP GET Request : Timeout
 
-Si vous obtenez ce message, cela signifie que vous ne parvenez pas à contacter l'équipement
-Cisco sur le port UDP/161, ou alors que la communauté SNMP configurée n'est pas correcte.
+Si vous obtenez ce message, cela signifie que vous ne parvenez pas à contacter l'équipement 
+Cisco sur le port UDP/161, ou alors que la communauté SNMP configurée n'est pas correcte. 
 
 Il est également possible qu'un équipement tiers (Pare-feu, ...) bloque la requête effectuée par le Plugin.
 
 ### UNKNOWN: SNMP GET Request : Cant get a single value.
 
-Les causes de cette erreur peuvent être les suivantes:
-* cet équipement ne supporte pas la MIB CISCO-TELEPRESENCE-MIB utilisée par ce mode
-* les autorisations données à l'utilisateur en SNMP sont trop restreintes.
-* L'agent SNMP doit être en mesure d'accéder à la branche entreprise Cisco: .1.3.6.1.4.1.9
+Les causes de cette erreur peuvent être les suivantes: 
+  * cet équipement ne supporte pas la MIB CISCO-TELEPRESENCE-MIB utilisée par ce mode
+  * les autorisations données à l'utilisateur en SNMP sont trop restreintes. 
+  * L'agent SNMP doit être en mesure d'accéder à la branche entreprise Cisco: .1.3.6.1.4.1.9

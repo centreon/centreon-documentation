@@ -2,15 +2,12 @@
 id: applications-monitoring-alyvix-restapi
 title: Alyvix Server
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Overview
 
 Alyvix is an open source APM software tool for visual monitoring.
 
-Build end-user bots visually interacting with any Windows application like ERPs or your favourite browser.
+Build end-user bots visually interacting with any Windows application like ERPs or your favourite browser. 
 Measure end-user experiences: Alyvix records the click-to-appearance responsiveness of each transaction.
 Report IT service quality to support technical and business actions.
 
@@ -28,38 +25,38 @@ by requesting the dedicated built-in RestAPI.
 
 ### Discovery rules
 
-<Tabs groupId="operating-systems">
-<TabItem value="Testcases" label="Testcases">
+<!--DOCUSAURUS_CODE_TABS-->
 
-| Rule name                                   | Description                                         |
-| :------------------------------------------ | :-------------------------------------------------- |
-| App-Monitoring-Alyvix-Restapi-Testcase-Name | Discover all the testcases handled by Alyvix Server |
+<!--Testcases-->
 
-</TabItem>
-</Tabs>
+| Rule name                                    | Description                                                        |
+| :------------------------------------------- | :----------------------------------------------------------------- |
+| App-Monitoring-Alyvix-Restapi-Testcase-Name  | Discover all the testcases handled by Alyvix Server                |
 
-## Monitored metrics
+<!--END_DOCUSAURUS_CODE_TABS-->
 
-<Tabs groupId="operating-systems">
-<TabItem value="TestcasesGlobal" label="TestcasesGlobal">
+## Monitored metrics 
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Testcases-Global-->
 
 * Global (for each *testcase*)
 
-| Metric name                         | Description                          | Unit |
-| :---------------------------------- | :----------------------------------- | :--- |
-| *testcase_alias*#testcase-state     | Status of the case job execution     |      |
-| *testcase_alias*#testcase-duration  | Total time of the case job execution | ms   |
-| *testcase_alias*#testcase-freshness | Last execution time of the case job  | s    |
+| Metric name                         | Description                                    | Unit |
+|:------------------------------------|:-----------------------------------------------|:-----|
+| *testcase_alias*#testcase-state     | Status of the case job execution               |      |
+| *testcase_alias*#testcase-duration  | Total time of the case job execution           | ms   |
+| *testcase_alias*#testcase-freshness | Last execution time of the case job            | s    |
 
 * Per *testcase* (for each *transaction*)
 
-| Metric name                                               | Description                                 | Unit |
-| :-------------------------------------------------------- | :------------------------------------------ | :--- |
-| *testcase_alias*~*transaction_alias*#transaction-state    | Status of the the transaction job execution |      |
-| *testcase_alias*~*transaction_alias*#transaction-duration | Total time of the transaction job execution | ms   |
+| Metric name                                               | Description                                           | Unit |
+|:----------------------------------------------------------|:------------------------------------------------------|:-----|
+| *testcase_alias*~*transaction_alias*#transaction-state    | Status of the the transaction job execution           |      |
+| *testcase_alias*~*transaction_alias*#transaction-duration | Total time of the transaction job execution           | ms   |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -69,10 +66,11 @@ The Centreon Pollers must as well be able to reach the Alyvix Rest API on the TC
 More information about how to configure Alyvix and set up *testcases* can be found in the official documentation:
 https://www.alyvix.com/learn/.
 
-## Setup
+## Setup 
 
-<Tabs groupId="licence-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor *Alyvix Server* ressources:
 
@@ -82,8 +80,7 @@ yum install centreon-plugin-Applications-Monitoring-Alyvix-Restapi
 
 2. On the Centreon Web interface, install the *Alyvix Server* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor *Alyvix Server* ressources:
 
@@ -99,19 +96,18 @@ yum install centreon-pack-applications-monitoring-alyvix-restapi
 
 3. On the Centreon Web interface, install the *Alyvix Server* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
-* Log into Centreon and add a new Host through "Configuration > Hosts".
+* Log into Centreon and add a new Host through "Configuration > Hosts". 
 * Fill the "Name", "Alias" & "IP Address / DNS" fields according to your Alyvix Server settings
 * Select the *App-Monitoring-Alyvix-Restapi-custom*.
 
 If needed, configure the following Host Macros:
 
 | Mandatory | Name              | Description                                                                        |
-| :-------- | :---------------- | :--------------------------------------------------------------------------------- |
+|:----------|:------------------|:-----------------------------------------------------------------------------------|
 | X         | ALYVIXAPIPORT     | RestAPI port of the Alyvix Server (Default: '80')                                  |
 | X         | ALYVIXAPIPROTOCOL | Protocol used to reach the Alyvix Server (Default: 'http')                         |
 | X         | ALYVIXAPIURLPATH  | URL path of the API (Default: '/v0/')                                              |
@@ -126,27 +122,27 @@ If needed, configure the following Host Macros:
 
 ### How to check in the CLI that the configuration is OK and what are the main options for ?
 
-Once the plugin installed, log into your Centreon Poller CLI using the *centreon-engine* user account and test the Plugin
+Once the plugin installed, log into your Centreon Poller CLI using the *centreon-engine* user account and test the Plugin 
 by running the following command (some of the parameters such as ```--proxyurl``` have to be adjusted):
 
 ```bash
 /usr/lib/centreon/plugins/centreon_monitoring_alyvix_restapi.pl \
---plugin=apps::monitoring::alyvix::restapi::plugin \
---mode=testcases \
---hostname='10.0.0.1' \
---proto='http' \
---port='80' \
---proxyurl='http://myproxy.mycompany.org:8080' \
---filter-testcase='case_app1|case_app2' \
---critical-testcase-state='%{state} eq "FAILED"' \
---critical-transaction-state='%{state} eq "FAILED"' \
---warning-testcase-duration='40000' \
---critical-testcase-duration='60000' \
---critical-testcase-freshness='600' \
---verbose
+    --plugin=apps::monitoring::alyvix::restapi::plugin \
+    --mode=testcases \
+    --hostname='10.0.0.1' \
+    --proto='http' \
+    --port='80' \
+    --proxyurl='http://myproxy.mycompany.org:8080' \
+    --filter-testcase='case_app1|case_app2' \
+    --critical-testcase-state='%{state} eq "FAILED"' \
+    --critical-transaction-state='%{state} eq "FAILED"' \
+    --warning-testcase-duration='40000' \
+    --critical-testcase-duration='60000' \
+    --critical-testcase-freshness='600' \
+    --verbose
 ```
 
-Expected command output is shown below:
+Expected command output is shown below: 
 
 ```bash
 OK: All test cases are ok | 'case_app1#testcase.duration.milliseconds'=3883ms;;;0; 'case_app1~1_openapp1#transaction.duration.milliseconds'=77ms;;;0;
@@ -156,18 +152,18 @@ OK: All test cases are ok | 'case_app1#testcase.duration.milliseconds'=3883ms;;;
 'case_app2~6_close_app1#transaction.duration.milliseconds'=104ms;;;0; 'case_app2~7_close_app2#transaction.duration.milliseconds'=0ms;;;0;
 'case_app2~8_check_picture#transaction.duration.milliseconds'=0ms;;;0;
 checking test case 'case_app1'
-duration: 3883 ms, state: OK, last execution: 2020-12-11T15:22:40 (1m 16s ago)
-transaction '1_openapp1' state: OK, duration: 77 ms
+    duration: 3883 ms, state: OK, last execution: 2020-12-11T15:22:40 (1m 16s ago)
+    transaction '1_openapp1' state: OK, duration: 77 ms
 checking test case 'case_app2'
-duration: 30658 ms, state: OK, last execution: 2020-12-11T15:20:39 (3m 18s ago)
-transaction '1_open_app1' state: OK, duration: 3 ms
-transaction '2_open_app2' state: OK, duration: 4 ms
-transaction '3_delay' state: OK, duration: 76 ms
-transaction '4_open_app1_explorer' state: OK, duration: 0 ms
-transaction '5_open_file' state: OK, duration: 10000 ms
-transaction '6_close_app1' state: OK, duration: 104 ms
-transaction '7_close_app2' state: OK, duration: 0 ms
-transaction '8_check_picture' state: OK, duration: 0ms
+    duration: 30658 ms, state: OK, last execution: 2020-12-11T15:20:39 (3m 18s ago)
+    transaction '1_open_app1' state: OK, duration: 3 ms
+    transaction '2_open_app2' state: OK, duration: 4 ms
+    transaction '3_delay' state: OK, duration: 76 ms
+    transaction '4_open_app1_explorer' state: OK, duration: 0 ms
+    transaction '5_open_file' state: OK, duration: 10000 ms
+    transaction '6_close_app1' state: OK, duration: 104 ms
+    transaction '7_close_app2' state: OK, duration: 0 ms
+    transaction '8_check_picture' state: OK, duration: 0ms
 ```
 
 In this example, the Plugin gets the execution status and duration of Alyvix Server *testcases* (```--plugin=apps::monitoring::alyvix::restapi::plugin --mode=testcases```)
@@ -182,21 +178,21 @@ A CRITICAL alarm would however be triggered in the following cases:
 * the reported status of a *testcase* is "FAILED" (```--critical-testcase-state='%{state} eq "FAILED"'```)
 * the reported status of at least one of a *testcase*'s *transaction* is "FAILED" (```--critical-transaction-state='%{state} eq "FAILED"'```)
 
-All the filters that can be used as well as all the available thresholds parameters can be displayed by adding the  ```--help```
+All the filters that can be used as well as all the available thresholds parameters can be displayed by adding the  ```--help``` 
 parameter to the command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_monitoring_alyvix_restapi.pl \
---plugin=apps::monitoring::alyvix::restapi::plugin \
---mode=testcases \
---help
+    --plugin=apps::monitoring::alyvix::restapi::plugin \
+    --mode=testcases \
+    --help
 ```
 
 ### Why do I get the following message: ```UNKNOWN: 500 Can't connect to 10.0.0.1:80 |```
 
 This error message means that the Centreon Plugin couldn't successfully connect to the Alyvix Server RestAPI.
 Check that no third party device (such as a firewall) is blocking the request.
-A proxy connection may also be necessary to connect to the API.
+A proxy connection may also be necessary to connect to the API. 
 This can be done by using this option in the command: ```--proxyurl='http://proxy.mycompany:8080'```.
 
 #### ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |```

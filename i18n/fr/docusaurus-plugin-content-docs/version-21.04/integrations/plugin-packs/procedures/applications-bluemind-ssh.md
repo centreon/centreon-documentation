@@ -2,32 +2,29 @@
 id: applications-bluemind-ssh
 title: BlueMind SSH
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Vue d'ensemble
 
 BlueMind est une suite logicielle libre de messagerie d’entreprise, d’agendas et de travail collaboratif
-utilisant JavaScript et HTML5.
+utilisant JavaScript et HTML5. 
 
 ## Contenu du pack de supervision
 
 ### Objets supervisés
 
-* Suite BlueMind dont:
-* Lmtpd: Envoie/Récéption courriels
-* Milter: Analyse et modification des courriels au niveau SMTP
-* Webserver: Serveur d'application web / méssagerie
-* Chat/Xmpp: Communications unifiées
+* Suite BlueMind dont: 
+    * Lmtpd: Envoie/Récéption courriels
+    * Milter: Analyse et modification des courriels au niveau SMTP
+    * Webserver: Serveur d'application web / méssagerie
+    * Chat/Xmpp: Communications unifiées
 
 ### Métriques collectées
 
 Au delà des métriques présentés ci-après, un référentiel est disponible dans la documentation
 officielle : https://forge.bluemind.net/confluence/display/BM35/Reference+des+metriques
 
-<Tabs groupId="operating-systems">
-<TabItem value="Core" label="Core">
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Core-->
 
 | Metric name                              | Description                                                     |
 | :--------------------------------------- | :-------------------------------------------------------------- |
@@ -35,11 +32,10 @@ officielle : https://forge.bluemind.net/confluence/display/BM35/Reference+des+me
 | core.calls.received.failure.count        | Number of calls received by the core with an error. Unit: Count |
 | core.heartbeat.broadcast.running.count   | Number of heartbeat broadcast in running. Unit: Count           |
 | core.directory.cluster.events.count      | Number of direcotry cluster events. Unit: Count                 |
-| core.request.handling.total.milliseconds | Total of core request handling. Unit: ms                        |
-| core.request.handling.mean.milliseconds  | Mean of core request handling. Unit: ms                         |
+| core.request.handling.total.milliseconds | Total of core request handling. Unit: ms                        |                                            
+| core.request.handling.mean.milliseconds  | Mean of core request handling. Unit: ms                         |                                          
 
-</TabItem>
-<TabItem value="Eas" label="Eas">
+<!--Eas-->
 
 | Metric name                              | Description                                          |
 | :--------------------------------------- | :--------------------------------------------------- |
@@ -47,8 +43,7 @@ officielle : https://forge.bluemind.net/confluence/display/BM35/Reference+des+me
 | eas.execution.total.milliseconds         | Total eas execution. Unit: ms                        |
 | eas.execution.mean.milliseconds          | Mean eas execution. Unit: ms                         |
 
-</TabItem>
-<TabItem value="Hps" label="Hps">
+<!--Hps-->
 
 | Metric name                                  | Description                                          |
 | :------------------------------------------- | :--------------------------------------------------- |
@@ -61,15 +56,13 @@ officielle : https://forge.bluemind.net/confluence/display/BM35/Reference+des+me
 | hps.upstream.requests.size.total.bytes       | By instances. e.g. /login /webmail ... Unit: ms      |
 | hps.upstream.requests.total.count            | By instances. e.g. /login /webmail ... Unit: ms      |
 
-</TabItem>
-<TabItem value="Ips" label="Ips">
+<!--Ips-->
 
 | Metric name                              | Description                                          |
 | :--------------------------------------- | :--------------------------------------------------- |
 | ips.connections.active.count             | Number of ips connections active. Unit: Count        |
 
-</TabItem>
-<TabItem value="Webserver" label="Webserver">
+<!--Webserver-->
 
 | Metric name                                | Description                                                       |
 | :----------------------------------------- | :---------------------------------------------------------------- |
@@ -79,22 +72,20 @@ officielle : https://forge.bluemind.net/confluence/display/BM35/Reference+des+me
 | webserver.requests.status.200.count        | Number of requests status webserver whith code 200. Unit: Count   |
 | webserver.requests.status.304.count        | Number of requests status webserver whith code 304. Unit: Count   |
 
-</TabItem>
-<TabItem value="Xmpp" label="Xmpp">
+<!--Xmpp-->
 
 | Metric name                              | Description                                          |
 | :--------------------------------------- | :--------------------------------------------------- |
 | xmpp.packets.all.count                   | Number of all xmpp packets. Unit: Count              |
 | xmpp.packets.chat.count                  | Number of chat xmpp packets. Unit: Count             |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
 ### Configuration BlueMind
 
-Sur le serveur BlueMind, créer un utilisateur ayant accès à la socket Unix dans le repértoire ```/var/run/bm-metrics/```
+Sur le serveur BlueMind, créer un utilisateur ayant accès à la socket Unix dans le repértoire ```/var/run/bm-metrics/``` 
 (group telegraph).
 
 Afin de valider la création de l'utilisateur, exécutez cette commande cet utilisateur:
@@ -107,10 +98,11 @@ bm-core.heartbeat.broadcast,state=core.state.stopping,meterType=Counter count=2
 ...
 ```
 
-## Installation
+## Installation 
 
-<Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur l'ensemble des Collecteurs Centreon supervisant des serveurs BlueMind :
 
@@ -120,8 +112,7 @@ yum install centreon-plugin-Applications-Bluemind-Ssh
 
 Installer le Plugin-Pack 'BlueMind SSH' depuis la page "Configuration > Plugin packs > Manager" sur l'interface Web de Centreon.
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur l'ensemble des Collecteurs Centreon supervisant des serveurs BlueMind :
 
@@ -137,23 +128,23 @@ yum install centreon-pack-applications-bluemind-ssh
 
 3. Installer le Plugin-Pack 'BlueMind' depuis la page "Configuration > Plugin packs > Manager" sur l'interface Web de Centreon.
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
 Vous pouvez choisir entre 3 backends SSH pour vous connecter sur votre serveur BlueMind.
 
-Ajoutez un nouvel Hôte dans Centreon, appliquez le Modèle d'Hôte ```App-Bluemind-SSH```.
-Une fois le modèle choisi, vous devez définir des valeurs en fonction du backend ssh.
+Ajoutez un nouvel Hôte dans Centreon, appliquez le Modèle d'Hôte ```App-Bluemind-SSH```. 
+Une fois le modèle choisi, vous devez définir des valeurs en fonction du backend ssh. 
 
-<Tabs groupId="operating-systems">
-<TabItem value="sshcli backend" label="sshcli backend">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--sshcli backend-->
 
 | Mandatory   | Name            | Description                                                                                     |
 | :---------- | :-------------- | :---------------------------------------------------------------------------------------------- |
 | X           | SSHBACKEND      | Nom du backend: ```sshcli```                                                                    |
-|             | SSHUSERNAME     | Par default, il utilise l'utilisateur en cours d'exécution ```centengine``` de votre collecteur |
+|             | SSHUSERNAME     | Par default, il utilise l'utilisateur en cours d'exécution ```centengine``` de votre collecteur |          
 |             | SSHPASSWORD     | Ne peut pas être utilisé avec le backend. Seulement avec la clé d'authentication                |
 |             | SSHPORT         | Par default: 22                                                                                 |
 |             | SSHEXTRAOPTIONS | Personnalisez-le avec le vôtre si nécessaire. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```      |
@@ -161,11 +152,10 @@ Une fois le modèle choisi, vous devez définir des valeurs en fonction du backe
 > :warning: Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur centreon-engine du Collecteur
 et l'utilisateur applicatif créé sur le serveur BlueMind. (Macro SSHUSERNAME).
 
-</TabItem>
-<TabItem value="plink backend" label="plink backend">
+<!--plink backend-->
 
 | Mandatory   | Name            | Description                                                                                        |
-| :---------- | :-------------- | :------------------------------------------------------------------------------------------------- |
+| :---------- | :-------------- | :------------------------------------------------------------------------------------------------- | 
 | X           | SSHBACKEND      | Nom du backend: ```plink```                                                                       |
 |             | SSHUSERNAME     | Par default, il utilise l'utilisateur en cours d'exécution ```centengine``` de votre collecteur    |
 |             | SSHPASSWORD     | Peut être utilisé. Si aucune valeur n'est définie, l'authentification par clé ssh est utilisée     |
@@ -175,12 +165,11 @@ et l'utilisateur applicatif créé sur le serveur BlueMind. (Macro SSHUSERNAME).
 > :warning: Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur centreon-engine du Collecteur
 et l'utilisateur applicatif créé sur le serveur BlueMind. (Macro SSHUSERNAME).
 
-</TabItem>
-<TabItem value="libssh backend" label="libssh backend">
+<!--libssh backend-->
 
 | Mandatory   | Name            | Description                                                                                        |
 | :---------- | :-------------- | :------------------------------------------------------------------------------------------------- |
-| X           | SSHBACKEND      | Nom du backend: ```libssh```                                                                       |
+| X           | SSHBACKEND      | Nom du backend: ```libssh```                                                                       |            
 |             | SSHUSERNAME     | Par default, il utilise l'utilisateur en cours d'exécution ```centengine``` de votre collecteur    |                                                         |
 |             | SSHPASSWORD     | Peut être utilisé. Si aucune valeur n'est pas définie, l'authentification par clé ssh est utilisée |
 |             | SSHPORT         | Par default: 22                                                                                    |
@@ -188,8 +177,7 @@ et l'utilisateur applicatif créé sur le serveur BlueMind. (Macro SSHUSERNAME).
 
 Avec ce backend, vous n'avez pas à valider manuellement le fingerprint du serveur cible. Sympa :)
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## FAQ
 
@@ -199,17 +187,17 @@ Tous les modes sont affichables via la commande suivante:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_bluemind.pl  \
---plugin='apps::bluemind::local::plugin' \
---list-mode
+    --plugin='apps::bluemind::local::plugin' \
+    --list-mode
 ```
 
 Les options des différents modes sont consultables en ajoutant le paramètre ```--help``` à la commande:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_bluemind.pl \
---plugin='apps::bluemind::local::plugin' \
---mode=incoming \
---help
+    --plugin='apps::bluemind::local::plugin' \
+    --mode=incoming \
+    --help
 ```
 
 ### J'ai ce message d'erreur : ```UNKNOWN: Command error: Host key verification failed.```. Qu'est-ce que cela signifie ?

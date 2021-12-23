@@ -2,10 +2,6 @@
 id: hardware-servers-ibm-hmc-ssh
 title: IBM HMC SSH
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
-
 
 ## Contenu du Plugin-Pack
 
@@ -17,21 +13,20 @@ Le Plugin-Pack IBM HMC SSH collecte les données pour:
 
 ### Métriques collectées
 
-<Tabs groupId="operating-systems">
-<TabItem value="Hardwareerrors" label="Hardwareerrors">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Hardware-errors-->
 
 No metrics.
 
-</TabItem>
-<TabItem value="Ledstatus" label="Ledstatus">
+<!--Led-status-->
 
-| Metric name        | Description                                   | Unit |
-| :----------------- | :-------------------------------------------- | :--- |
-| physical status    | Physical system attention led status          |      |
-| virtuallpar status | Logical partition system attention led status |      |
+| Metric name                     | Description                                         | Unit |
+| :------------------------------ | :-------------------------------------------------- | :--- |
+| physical status                 | Physical system attention led status                |      |
+| virtuallpar status              | Logical partition system attention led status       |      |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -40,8 +35,9 @@ doit avoir assez de privilèges pour executer les commandes ``lssvcevents``` et 
 
 ## Installation
 
-<Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -51,8 +47,7 @@ yum install centreon-plugin-Hardware-Servers-Ibm-Hmc-Ssh
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *IBM HMC SSH* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -68,57 +63,53 @@ yum install centreon-pack-hardware-servers-ibm-hmc-ssh
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *IBM HMC SSH* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
 Ce Plugin-Pack est conçu de manière à avoir dans Centreon un hôte par IBM HMC.
-Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *HW-Server-IBM-Hmc-SSH-custom*.
+Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *HW-Server-IBM-Hmc-SSH-custom*. 
 
-<Tabs groupId="operating-systems">
-<TabItem value="sshcli backend" label="sshcli backend">
+<!--DOCUSAURUS_CODE_TABS-->
 
-| Mandatory | Name            | Description                                                                                     |
-| :-------- | :-------------- | :---------------------------------------------------------------------------------------------- |
-| X         | SSHBACKEND      | Nom du backend: ```sshcli```                                                                    |
-| X         | SSHUSERNAME     | Par default, il utilise l'utilisateur en cours d'exécution ```centengine``` de votre Collecteur |
-|           | SSHPASSWORD     | Ne peut pas être utilisé avec le backend. Seulement avec la clé d'authentication                |
-|           | SSHPORT         | Par default: 22                                                                                 |
-|           | SSHEXTRAOPTIONS | Personnalisez-le avec le vôtre si nécessaire. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```      |
+<!--sshcli backend-->
 
-> Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur centreon-engine du Collecteur
-et l'utilisateur applicatif créé sur le serveur distant. (Macro SSHUSERNAME).
-
-</TabItem>
-<TabItem value="plink backend" label="plink backend">
-
-| Mandatory | Name            | Description                                                                                     |
-| :-------- | :-------------- | :---------------------------------------------------------------------------------------------- |
-| X         | SSHBACKEND      | Nom du backend: ```plink```                                                                     |
-| X         | SSHUSERNAME     | Par default, il utilise l'utilisateur en cours d'exécution ```centengine``` de votre Collecteur |
-|           | SSHPASSWORD     | Peut être utilisé. Si aucune valeur n'est définie, l'authentification par clé ssh est utilisée  |
-|           | SSHPORT         | Par default: 22                                                                                 |
-|           | SSHEXTRAOPTIONS | Personnalisez-le avec le vôtre si nécessaire. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```      |
+| Mandatory   | Name            | Description                                                                                     |
+| :---------- | :-------------- | :---------------------------------------------------------------------------------------------- |
+| X           | SSHBACKEND      | Nom du backend: ```sshcli```                                                                    |
+| X           | SSHUSERNAME     | Par default, il utilise l'utilisateur en cours d'exécution ```centengine``` de votre Collecteur |          
+|             | SSHPASSWORD     | Ne peut pas être utilisé avec le backend. Seulement avec la clé d'authentication                |
+|             | SSHPORT         | Par default: 22                                                                                 |
+|             | SSHEXTRAOPTIONS | Personnalisez-le avec le vôtre si nécessaire. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```      |
 
 > Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur centreon-engine du Collecteur
 et l'utilisateur applicatif créé sur le serveur distant. (Macro SSHUSERNAME).
 
-</TabItem>
-<TabItem value="libssh backend (par défaut)" label="libssh backend (par défaut)">
+<!--plink backend-->
 
-| Mandatory | Name            | Description                                                                                     |
-| :-------- | :-------------- | :---------------------------------------------------------------------------------------------- |
-| X         | SSHBACKEND      | Nom du backend: ```libssh```                                                                    |
-|           | SSHUSERNAME     | Par default, il utilise l'utilisateur en cours d'exécution ```centengine``` de votre Collecteur |
-|           | SSHPASSWORD     | Peut être utilisé. Si aucune valeur n'est définie, l'authentification par clé ssh est utilisée  |
-|           | SSHPORT         | Par default: 22                                                                                 |
-|           | SSHEXTRAOPTIONS | Personnalisez-le avec le vôtre si nécessaire. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```      |
+| Mandatory   | Name            | Description                                                                                     |
+| :---------- | :-------------- | :---------------------------------------------------------------------------------------------- | 
+| X           | SSHBACKEND      | Nom du backend: ```plink```                                                                     |
+| X           | SSHUSERNAME     | Par default, il utilise l'utilisateur en cours d'exécution ```centengine``` de votre Collecteur |
+|             | SSHPASSWORD     | Peut être utilisé. Si aucune valeur n'est définie, l'authentification par clé ssh est utilisée  |
+|             | SSHPORT         | Par default: 22                                                                                 |
+|             | SSHEXTRAOPTIONS | Personnalisez-le avec le vôtre si nécessaire. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```      |
 
-Avec ce backend, vous n'avez pas à valider manuellement le fingerprint du serveur cible.
+> Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur centreon-engine du Collecteur
+et l'utilisateur applicatif créé sur le serveur distant. (Macro SSHUSERNAME).
 
-</TabItem>
-</Tabs>
+<!--libssh backend (par défaut)-->
+
+| Mandatory   | Name            | Description                                                                                     |
+| :---------- | :-------------- | :---------------------------------------------------------------------------------------------- |
+| X           | SSHBACKEND      | Nom du backend: ```libssh```                                                                    |          
+|             | SSHUSERNAME     | Par default, il utilise l'utilisateur en cours d'exécution ```centengine``` de votre Collecteur |
+|             | SSHPASSWORD     | Peut être utilisé. Si aucune valeur n'est définie, l'authentification par clé ssh est utilisée  |
+|             | SSHPORT         | Par default: 22                                                                                 |
+|             | SSHEXTRAOPTIONS | Personnalisez-le avec le vôtre si nécessaire. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```      |
+
+Avec ce backend, vous n'avez pas à valider manuellement le fingerprint du serveur cible. 
+
 
 ## FAQ
 
@@ -129,13 +120,13 @@ depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-en
 
 ```bash
 /usr/lib/centreon/plugins/centreon_ibm_hmc_ssh.pl \
---plugin=hardware::server::ibm::hmc::ssh::plugin \
---mode=led-status \
---hostname=10.30.2.114 \
---ssh-username=centreon \
---ssh-password='centreon-password' \
---ssh-backend=libssh \
---verbose
+    --plugin=hardware::server::ibm::hmc::ssh::plugin \
+    --mode=led-status \
+    --hostname=10.30.2.114 \
+    --ssh-username=centreon \
+    --ssh-password='centreon-password' \
+    --ssh-backend=libssh \
+    --verbose
 ```
 
 La commande devrait retourner un message de sortie de la forme ci-dessous:
@@ -156,9 +147,9 @@ en ajoutant le paramètre ```--help``` à la commande:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_ibm_hmc_ssh.pl \
---plugin=hardware::server::ibm::hmc::ssh::plugin \
---mode=led-status \
---help
+    --plugin=hardware::server::ibm::hmc::ssh::plugin \
+    --mode=led-status \
+    --help
 ```
 
 ## J'obtiens le message d'erreur suivant:

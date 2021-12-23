@@ -16,7 +16,7 @@ is **Centreon 21.04**.
 
 ### Install the package
 
-Add the Centreon BAM repository, you can find it on the
+Add the Centreon BAM repository, you can find it on the 
 [support portal](https://support.centreon.com/s/repositories).
 
 And install the package using the following command:

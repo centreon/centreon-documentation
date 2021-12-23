@@ -20,13 +20,13 @@ components:
 
 Telemetry anonymously and automatically collects the following data:
 
-- Information such as the operating system version of the Centreon main server
-of the platform as well as the name and version of the DBMS.
-- Centreon product information such as number of servers and version numbers
-of components installed on the Centreon main server (modules & widgets).
-- Centreon information such as number of hosts, services, groups of hosts &
-services, and usage of modules and widgets.
-- The timezone of the Centreon server.
+  - Information such as the operating system version of the Centreon main server
+    of the platform as well as the name and version of the DBMS.
+  - Centreon product information such as number of servers and version numbers
+    of components installed on the Centreon main server (modules & widgets).
+  - Centreon information such as number of hosts, services, groups of hosts &
+    services, and usage of modules and widgets.
+  - The timezone of the Centreon server.
 
 Advanced statistics include the use of additional components such as the use of
 widgets in custom views, slot management for Centreon DSM, use of deployed
@@ -41,8 +41,8 @@ The use of the functionalities within the user interface includes access to the 
 Participation in the program is enabled by default. However, sending advanced statistics and functionality usage can be configured in the web interface. The options are:
 
 
-- Enabled
-- Disabled
+  - Enabled
+  - Disabled
 
 Users can change the option from **Administration \> Parameters \> Centreon UI
 \> Send anonymous statistics** menu at any time.

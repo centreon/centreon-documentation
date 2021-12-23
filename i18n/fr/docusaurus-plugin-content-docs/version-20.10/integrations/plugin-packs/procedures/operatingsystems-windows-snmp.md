@@ -2,9 +2,6 @@
 id: operatingsystems-windows-snmp
 title: Windows SNMP
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Vue d'ensemble
 
@@ -17,57 +14,55 @@ et logiciels permettant de gérer les ressources d’un ordinateur.
 
 Tous les systèmes d'exploitation Microsoft Windows sont supportés:
 
-- Windows serveur (2003, 2012, 2016)
-- Windows client (7, 8, 10)
-- ...
+  - Windows serveur (2003, 2012, 2016)
+  - Windows client (7, 8, 10)
+  - ...
 
 ### Règles de découvertes
 
-<Tabs groupId="operating-systems">
-<TabItem value="Host" label="Host">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Host-->
 
 | Nom de la règle                 | Description                                                                         |
 | ------------------------------- | ----------------------------------------------------------------------------------- |
 | App-Protocol-SNMP-HostDiscovery | Découvrez vos serveurs Windows en scannant les agents SNMP sur un sous-réseau donné |
 
-</TabItem>
-<TabItem value="Services" label="Services">
+<!--Services-->
 
 | Nom de la règle              | Description                                                                                  |
 | ---------------------------- | -------------------------------------------------------------------------------------------- |
 | OS-Windows-SNMP-Disk-Name    | Découvre les disques/partitions et leur taux d'occupation                                    |
 | OS-Windows-SNMP-Traffic-Name | Découvre les interfaces réseaux et supervise le statut et l'utilisation de la bande passante |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Métriques collectées
 
 Au delà des métriques présentées en détails ici, les contrôles suivants sont
 disponibles:
 
-- System clock synchronisation : Vérifications de la synchronisation de la
-date et de l'heure.
-- Process state : Etat d'un ou plusieurs processus
-- Service state : Etat d'un ou plusieurs services
+  - System clock synchronisation : Vérifications de la synchronisation de la
+    date et de l'heure.
+  - Process state : Etat d'un ou plusieurs processus
+  - Service state : Etat d'un ou plusieurs services
 
-<Tabs groupId="operating-systems">
-<TabItem value="Cpu" label="Cpu">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Cpu-->
 
 | Nom de la métrique              | Description                    |
 | ------------------------------- | ------------------------------ |
 | cpu.utilization.percentage      | CPU utilization. Unit: %       |
 | core.cpu.utilization.percentage | CPU Core utilization. Units: % |
 
-</TabItem>
-<TabItem value="Memory" label="Memory">
+<!--Memory-->
 
 | Nom de la métrique | Description                         |
 | ------------------ | ----------------------------------- |
 | memory.usage.bytes | Memory usage on the device. Unit: % |
 
-</TabItem>
-<TabItem value="Traffic" label="Traffic">
+<!--Traffic-->
 
 | Nom de la métrique                  | Description                                                               |
 | ----------------------------------- | ------------------------------------------------------------------------- |
@@ -78,30 +73,26 @@ date et de l'heure.
 Il est possible de filtrer sur le nom d'une interface en utilisant une REGEXP de
 la forme : `--interface='^card0$' --name`
 
-</TabItem>
-<TabItem value="Swap" label="Swap">
+<!--Swap-->
 
 | Nom de la métrique | Description            |
 | ------------------ | ---------------------- |
 | swap.usage.bytes   | Swap usage Unit: Bytes |
 
-</TabItem>
-<TabItem value="Storage" label="Storage">
+<!--Storage-->
 
 | Nom de la métrique        | Description                       |
 | ------------------------- | --------------------------------- |
 | storage.partitions.count  | Number of partition               |
 | storage.space.usage.bytes | Space usage of disk. Units: Bytes |
 
-</TabItem>
-<TabItem value="Uptime" label="Uptime">
+<!--Uptime-->
 
 | Nom de la métrique | Description                    |
 | ------------------ | ------------------------------ |
 | uptime             | Status of last boot of serveur |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -113,15 +104,15 @@ Configurer le service SNMP en v2 pour superviser le système Windows.
 > votre Windows. Référez vous à la documentation officielle de Microsoft le cas
 > échéant.
 
-- Installer la fonctionnalité SNMP dans le gestionnaire de serveur de Windows :
+  - Installer la fonctionnalité SNMP dans le gestionnaire de serveur de Windows :
 
-Gestionnaire de serveur =\> Ajouter des rôles et des fonctionnailtées =\>
-Installation basée sur un rôle ou une fonctionnalité =\> Service SNMP
+    Gestionnaire de serveur =\> Ajouter des rôles et des fonctionnailtées =\>
+    Installation basée sur un rôle ou une fonctionnalité =\> Service SNMP
 
-- Paramétrer le service "SNMP agent" avec votre communauté et les IP des
-Collecteurs qui feront les requêtes.
+  - Paramétrer le service "SNMP agent" avec votre communauté et les IP des
+    Collecteurs qui feront les requêtes.
 
-- Redémarrer le service SNMP après avoir configuré celui-ci.
+  - Redémarrer le service SNMP après avoir configuré celui-ci.
 
 ## Flux réseaux
 
@@ -130,38 +121,37 @@ Centreon vers le serveur Windows supervisé.
 
 ## Installation
 
-<Tabs groupId="operating-systems">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des
 serveurs Windows:
 
-``` shell
-yum install centreon-plugin-Operatingsystems-Windows-Snmp
-```
+  ``` shell
+  yum install centreon-plugin-Operatingsystems-Windows-Snmp
+  ```
 
 2. Installer le pack depuis la page `Configuration > Plugin Packs`
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des
 serveurs Windows:
 
-``` shell
-yum install centreon-plugin-Operatingsystems-Windows-Snmp
-```
+  ``` shell
+  yum install centreon-plugin-Operatingsystems-Windows-Snmp
+  ```
 
 2. Installer le RPM contenant les modèles de supervision
 
-``` shell
-yum install centreon-pack-operatingsystems-windows-snmp
-```
+    ``` shell
+    yum install centreon-pack-operatingsystems-windows-snmp
+    ```
 
 3. Installer le pack depuis la page `Configuration > Plugin Packs`
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
@@ -179,17 +169,17 @@ depuis votre poller de supervision avec l'utilisateur centreon-engine :
 ``` shell
 su - centreon-engine
 /usr/lib/centreon/plugins/centreon_windows_snmp.pl \
---plugin=os::windows::snmp::plugin \
---mode=service \
---hostname=10.30.2.114 \
---snmp-version='2c' \
---snmp-community='windows_ro' \
---snmp-port=1616 \
---service='firefox' \
---warning= \
---critical=1: \
---state='' \
---regexp
+    --plugin=os::windows::snmp::plugin \
+    --mode=service \
+    --hostname=10.30.2.114 \
+    --snmp-version='2c' \
+    --snmp-community='windows_ro' \
+    --snmp-port=1616 \
+    --service='firefox' \
+    --warning= \
+    --critical=1: \
+    --state='' \
+    --regexp
 ```
 
 La commande renvoie alors :
@@ -207,17 +197,17 @@ Tous les modes sont affichables via la commande suivante:
 
 ``` shell
 /usr/lib/centreon/plugins/centreon_windows_snmp.pl \
---plugin=os::windows::snmp::plugin \
---list-mode
+    --plugin=os::windows::snmp::plugin \
+    --list-mode
 ```
 
 Les options des différents modes sont consultables via le help du mode:
 
 ``` shell
 /usr/lib/centreon/plugins/centreon_windows_snmp.pl \
---plugin=os::windows::snmp::plugin \
---mode=service \
---help
+    --plugin=os::windows::snmp::plugin \
+    --mode=service \
+    --help
 ```
 
 ### UNKNOWN: SNMP GET Request : Timeout

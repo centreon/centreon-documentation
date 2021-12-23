@@ -13,7 +13,7 @@ utilisés dans **Centreon**.
 La page de reporting correspond à celle de **Centreon**, il suffit de sélectionner une BA pour consulter ses statistiques
 
 :   de disponibilité opérationnelle, dégradée et non fonctionnelle sur
-une période donnée.
+    une période donnée.
 
 ![image](../assets/service-mapping/guide/reporting.png)
 
@@ -36,15 +36,15 @@ statuts est arrivé.
 
 ![image](../assets/service-mapping/logs.png)
 
-Colonne      |    Description
+  Colonne      |    Description
 --------------------|--------------------------------------------------
-Key Performance Indicators   |  Liste des KPI
-KPI Type         |    Type de KPI (Service, Meta Service ou BA)
-Status         |      Statut du KPI (Opérationnel, dégradé, critique,inconnu)
-Impact         |      Poids d'impact du KPI sur la BA
-In Downtime      |    Programmation ou non d'un temps d'arrêt sur le KPI au moment du calcul
-Check Time      |     Temps lors duquel le KPI a été vérifié
-Output       |        Message de sortie du KPI lors de la vérification du KPI
+  Key Performance Indicators   |  Liste des KPI
+  KPI Type         |    Type de KPI (Service, Meta Service ou BA)
+  Status         |      Statut du KPI (Opérationnel, dégradé, critique,inconnu)
+  Impact         |      Poids d'impact du KPI sur la BA
+  In Downtime      |    Programmation ou non d'un temps d'arrêt sur le KPI au moment du calcul
+  Check Time      |     Temps lors duquel le KPI a été vérifié
+  Output       |        Message de sortie du KPI lors de la vérification du KPI
 
 ### Forcer le calcul des statistiques de disponibilité et évènements
 
