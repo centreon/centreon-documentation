@@ -27,7 +27,7 @@ commerciales, vous pouvez vous rendre sur notre
 - [Authentication] Fixed LDAP OU quote connection breaking
 - [CLAPI] Fixed an issue preventing ACLs from applying on services created with CLAPI
 - [Configuration] Fixed an issue that caused the Anomaly Detection services to lose their graphs when they were renamed
-- [Configuration] Fixed an issue that prevented from removing the SNMP community (and other fields) from the host form
+- [Configuration] Fixed an issue that prevented users from removing the SNMP community (and other fields) from the host form
 - [Configuration] Fixed unwanted writes into unexisting file when exporting Traps config at the same time as a trap arrives. Based on PR [#9973](https://github.com/centreon/centreon/pull/9973). Fixes issue [#4236](https://github.com/centreon/centreon/issues/4236)
 - [Install] Fixed installation with MySQL 5.7 on step 7 of installation wizard
 
