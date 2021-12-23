@@ -46,7 +46,7 @@ A partir de la page de détail d’un objet, cliquez sur l’icône activé asso
 
 La fenêtre suivante s’affiche :
 
-![image](assets/alerts/acknowledged.png)
+![image](../assets/alerts/acknowledged.png)
 
 * Si la case **Sticky** est cochée, alors l’acquittement sera conservé en cas de changement de statut non-OK (Exemple
   DOWN à UNREACHABLE ou bien WARNING à CRITICAL). Sinon, l’acquittement disparait et le processus de notification est
@@ -116,7 +116,7 @@ Il y a trois possibilités différentes de définir un temps d’arrêt :
 
 La fenêtre suivante s’affiche :
 
-![image](assets/alerts/downtime.png)
+![image](../assets/alerts/downtime.png)
 
 -   Le champ **Host Name** définit l'hôte concerné par le temps d'arrêt
 -   Le champ **Service** définit le service concerné par le temps
@@ -157,13 +157,13 @@ Il existe deux types de temps d’arrêts :
 Pour ajouter un temps d’arrêt récurrent, rendez-vous dans le menu **Monitoring > Downtimes > Recurrent Downtimes** et
 cliquez sur **Add**.
  
- ![image](assets/alerts/05recurrentdowntimes.png)
+ ![image](../assets/alerts/05recurrentdowntimes.png)
 
 ##### Configuration des temps d’arrêts 
 
 * Les champs **Name** et **Description** permettent de donner un nom et de décrire le temps d’arrêt récurrent.
 * Le champ **Enable** permet d’activer ou de désactiver le temps d’arrêt.
-* Le champ **Periods**  permet de définir une ou plusieurs périodes de temps d’arrêt récurrent. Pour ajouter une période, cliquez sur le symbole ![image](assets/common/navigate_plus.png)
+* Le champ **Periods**  permet de définir une ou plusieurs périodes de temps d’arrêt récurrent. Pour ajouter une période, cliquez sur le symbole ![image](../assets/common/navigate_plus.png)
 
 Il est possible de choisir trois types de périodes :
 
@@ -219,7 +219,7 @@ Pour ajouter un commentaire, deux solutions sont possibles :
 
 La fenêtre suivante s’affiche :
 
-![image](assets/alerts/comment.png)
+![image](../assets/alerts/comment.png)
 
 * Le champ **Host Name** définit l’hôte concerné par le commentaire
 * Si vous avez choisi d’ajouter un commentaire pour un service, le champ **Service** vous permet de sélectionner le
@@ -248,8 +248,8 @@ Il est possible d’activer ou de désactiver momentanément la vérification d�
 
 Pour :
 
-* Activer la vérification, cliquez sur ![image](assets/configuration/common/enabled.png)
-* Désactiver la vérification, cliquez sur ![image](assets/configuration/common/disabled.png)
+* Activer la vérification, cliquez sur ![image](../assets/configuration/common/enabled.png)
+* Désactiver la vérification, cliquez sur ![image](../assets/configuration/common/disabled.png)
 
 <!--Interface temps réelle-->
 
@@ -276,7 +276,7 @@ Pour soumettre un résultat, accédez à la page de détails de l’objet. Dans 
 
 La fenêtre suivante s’affiche :
 
-![image](assets/alerts/submitresult.png)
+![image](../assets/alerts/submitresult.png)
 
 * Les champs **Host Name** et **Service** définissent l’hôte et le service pour lequel le résultat sera soumis
 * Le champ **Check result**définit le statut du service
@@ -305,8 +305,8 @@ Il y a deux moyens de gérer les notifications :
 
 To:
 
-* Activer la notification, cliquez sur ![image](assets/configuration/common/enabled.png)
-* Désactiver la notification, cliquez sur ![image](assets/configuration/common/disabled.png)
+* Activer la notification, cliquez sur ![image](../assets/configuration/common/enabled.png)
+* Désactiver la notification, cliquez sur ![image](../assets/configuration/common/disabled.png)
 
 <!--Interface temps réelle-->
 
