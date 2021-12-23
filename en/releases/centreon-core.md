@@ -19,6 +19,28 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 21.04.10
+
+Release date: `December 23, 2021`
+
+#### Enhancements
+
+- [Authentication] Removed token display in login debug file
+
+#### Bug Fixes
+
+- [API] Fixed the value of acknowledgement's stickiness set by the API. A value of 1 was set instead of 2. Based on PR [#10028](https://github.com/centreon/centreon/pull/10028).
+- [Authentication] Fixed LDAP OU quote connection breaking
+– [CLAPI] Fixed an issue preventing ACLs from applying on services created with CLAPI
+- [Configuration] Fixed SNMP Trap matching with service linked to multiple hosts
+- [Configuration] Fixed an issue that caused the Anomaly Detection services to lose their graphs when they were renamed
+- [Configuration] Fixed an issue that prevented from removing the SNMP community (and other fields) from the host form
+- [Configuration] Fixed the wizard for adding a new server that did not add it
+- [Configuration] Fixed unwanted writes into unexisting file when exporting Traps config at the same time as a trap arrives. Based on PR [#9973](https://github.com/centreon/centreon/pull/9973). Fixes issue [#4236](https://github.com/centreon/centreon/issues/4236).
+- [Resources Status] Fixed filter by hostgroup
+- [Resources Status] Fixed filtering on monitoring server name for users with ACL
+- [Resources Status] Fixed performance chart not displayed reliably on firefox
+
 ### 21.04.9
 
 Release date: `November 29, 2021`
