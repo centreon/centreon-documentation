@@ -282,6 +282,8 @@ non plus des connexions SSH autonomes.
 
 ### 20.10.1
 
+Release date: `December 23, 2021`
+
 #### Enhancements
 
 - Detect metrics with seasonality or stability
