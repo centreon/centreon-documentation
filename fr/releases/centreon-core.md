@@ -21,7 +21,7 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 21.04.10
 
-Release date: `December 21, 2021`
+Release date: `December 23, 2021`
 
 #### Enhancements
 
