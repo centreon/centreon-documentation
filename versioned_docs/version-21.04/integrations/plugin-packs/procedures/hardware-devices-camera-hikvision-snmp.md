@@ -62,7 +62,7 @@ The Poller should be able to perform requests against the Hikvision device over 
 ## Setup
 
 <Tabs groupId="licence-systems">
-<TabItem value="online" label="Online License">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -73,7 +73,7 @@ yum install centreon-plugin-Hardware-Devices-Camera-Hikvision-Snmp
 2. On the Centreon Web interface in "Configuration > Plugin Packs > Manager", install the *Hikvision camera SNMP* Plugin Pack
 
 </TabItem>
-<TabItem value="offline" label="Offline License">
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin on every Poller:
 

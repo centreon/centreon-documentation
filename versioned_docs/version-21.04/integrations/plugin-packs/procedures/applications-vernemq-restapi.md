@@ -78,7 +78,7 @@ More information on VerneMQ HTTP API on : https://docs.vernemq.com/administratio
 ## Setup
 
 <Tabs groupId="licence-systems">
-<TabItem value="online" label="Online License">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin on every Poller monitoring VerneMQ resources:
 
@@ -89,7 +89,7 @@ yum install centreon-plugin-Applications-Vernemq-Restapi.noarch
 2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *VerneMQ RestAPI* Plugin-Pack
 
 </TabItem>
-<TabItem value="offline" label="Offline License">
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin on every Poller monitoring VerneMQ resources:
 

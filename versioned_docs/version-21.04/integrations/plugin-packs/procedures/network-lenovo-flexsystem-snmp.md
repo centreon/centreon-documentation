@@ -93,7 +93,7 @@ on the UDP/161 SNMP port.
 ## Installation
 
 <Tabs groupId="licence-systems">
-<TabItem value="online" label="Online License">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Plugin package on every Centreon poller expected to monitor a Lenovo Flex System network switch:
 
@@ -104,7 +104,7 @@ yum install centreon-plugin-Network-Lenovo-Flexsystem-Snmp
 2. On the centreon Web interface, install the *Lenovo Flex System Switch* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
 </TabItem>
-<TabItem value="offline" label="Offline License">
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Plugin package on every Centreon poller expected to monitor a Lenovo Flex System network switch:
 

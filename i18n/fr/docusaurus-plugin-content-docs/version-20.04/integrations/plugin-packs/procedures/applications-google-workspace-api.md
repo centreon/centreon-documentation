@@ -55,7 +55,7 @@ yum install centreon-plugin-Applications-Google-Workspace-Api
 2. Sur l'interface Web de Centreon, installer le Pack *Google Workspace* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
 </TabItem>
-<TabItem value="offline" label="Offline License">
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur chaque collecteur Centreon devant superviser les services *Google Workspace*:
 

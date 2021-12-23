@@ -222,7 +222,7 @@ accessTokens.json qui sera utilisé automatiquement par le Plugin.
 ## Installation
 
 <Tabs groupId="operating-systems">
-<TabItem value="online" label="Online License">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des resources Azure Event Hubs:
 
@@ -233,7 +233,7 @@ yum install centreon-plugin-Cloud-Azure-Analytics-EventHubs-Api
 2. Sur l'interface Integration de Centreon, installer le Plugin-Pack *Azure Event Hubs* depuis la page "Configuration > Plugin packs > Manager"
 
 </TabItem>
-<TabItem value="offline" label="Offline License">
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des resources Azure Event Hubs:
 

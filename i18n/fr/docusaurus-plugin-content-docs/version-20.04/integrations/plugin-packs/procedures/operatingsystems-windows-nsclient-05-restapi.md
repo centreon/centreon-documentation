@@ -136,7 +136,7 @@ net start nscp
 ## Installation
 
 <Tabs groupId="operating-systems">
-<TabItem value="online" label="Online License">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des ressources Windows NSCP Rest:
 
@@ -147,7 +147,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 2. Installer le Plugin-Pack depuis la page "Configuration > Plugin Packs > Manager"
 
 </TabItem>
-<TabItem value="offline" label="Offline License">
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des ressources Windows NSCP Rest:
 

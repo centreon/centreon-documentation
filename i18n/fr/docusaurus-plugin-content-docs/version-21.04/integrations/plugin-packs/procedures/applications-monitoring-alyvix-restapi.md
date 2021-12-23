@@ -74,7 +74,7 @@ officielle: https://www.alyvix.com/learn/.
 ## Installation
 
 <Tabs groupId="operating-systems">
-<TabItem value="online" label="Online License">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur chaque collecteur Centreon devant superviser les ressources *Alyvix Server*:
 
@@ -86,7 +86,7 @@ yum install centreon-plugin-Applications-Monitoring-Alyvix-Restapi
 depuis la page "Configuration > Plugin Packs > Gestionnaire"
 
 </TabItem>
-<TabItem value="offline" label="Offline License">
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur chaque collecteur Centreon devant superviser les ressources *Alyvix Server*:
 

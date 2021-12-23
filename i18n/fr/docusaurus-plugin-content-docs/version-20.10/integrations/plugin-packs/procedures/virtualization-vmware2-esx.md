@@ -185,7 +185,7 @@ Les Collecteurs requêtant le Collecteur avec le connecteur VMWare doit accéder
 ## Installation
 
 <Tabs groupId="operating-systems">
-<TabItem value="online" label="Online License">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur l'ensemble des Collecteurs Centreon supervisant l'infrastructure VMWare:
 
@@ -196,7 +196,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 2. Installer le Plugin-Pack 'Vmware ESX' depuis la page "Configuration > Plugin packs > Manager" sur l'interface Web de Centreon.
 
 </TabItem>
-<TabItem value="offline" label="Offline License">
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant l'infrastructure VMWare:
 

@@ -140,7 +140,7 @@ Les collecteurs Centreon doivent pouvoir communiquer via le port UDP/161 SNMP av
 ## Installation
 
 <Tabs groupId="operating-systems">
-<TabItem value="online" label="Online License">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des équipements Cisco:
 
@@ -151,7 +151,7 @@ yum install centreon-plugin-Network-Cisco-Standard-Snmp
 2. Installer le Plugin-Pack 'Cisco-Standard-Snmp' depuis l'interface Web et la page "Configuration > Plugin packs > Manager"
 
 </TabItem>
-<TabItem value="offline" label="Offline License">
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisants des équipements Cisco:
 

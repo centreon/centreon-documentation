@@ -151,7 +151,7 @@ can use it.
 ## Setup
 
 <Tabs groupId="licence-systems">
-<TabItem value="online" label="Online License">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1.  Install the Centreon Plugin package on every Centreon poller expected to run query against Azure Log Analytics:
 
@@ -162,7 +162,7 @@ yum install centreon-plugin-Cloud-Azure-Management-Log-Analytics-Api
 2. On the Centreon Web interface, install the *Azure Log Analytics* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
 </TabItem>
-<TabItem value="offline" label="Offline License">
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to run query against Azure Log Analytics:
 

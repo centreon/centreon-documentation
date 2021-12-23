@@ -84,7 +84,7 @@ Vous pouvez générer, révoquer et regénérer une API Key pour votre profil.
 ## Installation
 
 <Tabs groupId="operating-systems">
-<TabItem value="online" label="Online License">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources Cisco Meraki:
 
@@ -95,7 +95,7 @@ yum install centreon-plugin-Network-Cisco-Meraki-Restapi
 2. Dans l'interface Centreon, installer le Plugin-Pack *Cisco Meraki Rest API* depuis la page "Configuration > Plugin Packs > Manager"
 
 </TabItem>
-<TabItem value="offline" label="Offline License">
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources Cisco Meraki:
 

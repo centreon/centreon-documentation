@@ -94,7 +94,7 @@ yum install awscli
 ## Installation
 
 <Tabs groupId="operating-systems">
-<TabItem value="online" label="Online License">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources AWS/EFS:
 
@@ -105,7 +105,7 @@ yum install centreon-plugin-Cloud-Aws-Efs-Api
 2. Dans l'interface Centreon, installer le Plugin-Pack 'Amazon EFS' depuis la page "Configuration > Plugin packs > Manager"
 
 </TabItem>
-<TabItem value="offline" label="Offline License">
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources AWS/EFS:
 

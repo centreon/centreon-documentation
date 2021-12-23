@@ -69,7 +69,7 @@ using the TCP/443 HTTPS port. The plugin allows you to use a proxy if needed.
 ## Setup
 
 <Tabs groupId="licence-systems">
-<TabItem value="online" label="Online License">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -80,7 +80,7 @@ yum install centreon-plugin-Applications-Slack-Restapi
 2. On the Centreon Web interface, install the *Slack* Centreon Pack on the **Configuration > Plugin Packs > Manager** page
 
 </TabItem>
-<TabItem value="offline" label="Offline License">
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin on every Poller:
 

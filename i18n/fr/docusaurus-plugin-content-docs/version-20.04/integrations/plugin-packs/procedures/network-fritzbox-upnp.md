@@ -42,7 +42,7 @@ Afin de contrôler votre équipement Fritz!Box, l'UPnP doit être configuré.
 ## Installation
 
 <Tabs groupId="operating-systems">
-<TabItem value="online" label="Online License">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -53,7 +53,7 @@ yum install centreon-plugin-Network-Fritzbox-Upnp
 2. Sur l'interface Web de Centreon, installer le Pack *Fritz!Box UPnP* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
 </TabItem>
-<TabItem value="offline" label="Offline License">
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 

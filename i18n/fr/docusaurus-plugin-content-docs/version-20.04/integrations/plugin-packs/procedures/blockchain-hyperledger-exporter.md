@@ -38,7 +38,7 @@ récupérer des métriques au sujet des *channels*.
 ## Installation
 
 <Tabs groupId="operating-systems">
-<TabItem value="online" label="Online License">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon supervisant des noeuds *Hyperledger API*:
 
@@ -49,7 +49,7 @@ yum install centreon-plugin-Blockchain-Hyperledger-Exporter
 2. Sur l'interface Web de Centreon, installer le Plugin Pack *Hyperledger API* depuis la page  `Configuration > Plugin Packs`.
 
 </TabItem>
-<TabItem value="offline" label="Offline License">
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon supervisant des noeuds *Hyperledger API*:
 

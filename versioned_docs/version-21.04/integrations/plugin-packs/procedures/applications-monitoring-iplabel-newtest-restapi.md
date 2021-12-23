@@ -50,7 +50,7 @@ if necessary.
 ## Setup
 
 <Tabs groupId="licence-systems">
-<TabItem value="online" label="Online License">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin package on every poller expected to monitor IP-Label Newtest instances:
 
@@ -62,7 +62,7 @@ yum install centreon-plugin-Applications-Monitoring-Iplabel-Newtest-Restapi
 Configuration > Plugin packs > Manager" page
 
 </TabItem>
-<TabItem value="offline" label="Offline License">
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every poller expected to monitor IP-Label Newtest instances:
 

@@ -92,7 +92,7 @@ https://docs.microsoft.com/en-us/office/office-365-management-api/get-started-wi
 ## Installation
 
 <Tabs groupId="licence-systems">
-<TabItem value="online" label="Online License">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin package on every poller expected to monitor Office365 Exchange:
 
@@ -103,7 +103,7 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Exchange-Api
 2. On the Centreon Web interface, install the Centreon Plugin-Pack *Office365 Exchange* from the "Configuration > Plugin Packs > Manager" page
 
 </TabItem>
-<TabItem value="offline" label="Offline License">
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every poller expected to monitor Office365 Exchange:
 

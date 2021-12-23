@@ -186,7 +186,7 @@ The Pollers that request the Centreon VMWare Connector host need to access in TC
 ## Installation
 
 <Tabs groupId="licence-systems">
-<TabItem value="online" label="Online License">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the VMWare Connector Centreon Plugin on every poller expected to monitor VMWare infrastructures:
 
@@ -197,7 +197,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 2. Install the 'Vmware vCenter' Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page
 
 </TabItem>
-<TabItem value="offline" label="Offline License">
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the VMWare Connector Centreon Plugin on every poller expected to monitor the VMWare Infrastructures:
 

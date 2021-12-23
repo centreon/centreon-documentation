@@ -56,7 +56,7 @@ More information is available in the Pure Storage official API documentation : h
 ## Installation
 
 <Tabs groupId="licence-systems">
-<TabItem value="online" label="Online License">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Plugin on every poller expected to monitor Pure Storage arrays:
 
@@ -67,7 +67,7 @@ yum install centreon-plugin-Hardware-Storage-Purestorage-Restapi
 2. Install the "Pure-Storage-Restapi" Centreon Plugin-Pack from the "Configuration > Plugin Packs > Manager" page
 
 </TabItem>
-<TabItem value="offline" label="Offline License">
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Plugin on every poller expected to monitor Pure Storage resources:
 

@@ -60,7 +60,7 @@ protocole HTTPS.
 ## Installation
 
 <Tabs groupId="operating-systems">
-<TabItem value="online" label="Online License">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur les Collecteurs utilisés pour superviser le serveur SmarterMail:
 
@@ -72,7 +72,7 @@ yum install centreon-plugin-Applications-Smartermail-Api
 pour installer le Plugin Pack *Smartermail Server*
 
 </TabItem>
-<TabItem value="offline" label="Offline License">
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur les Collecteurs utilisés pour superviser le serveur SmarterMail:
 

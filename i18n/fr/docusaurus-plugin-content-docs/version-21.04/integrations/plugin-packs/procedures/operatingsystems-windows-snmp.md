@@ -131,7 +131,7 @@ Centreon vers le serveur Windows supervisé.
 ## Installation
 
 <Tabs groupId="operating-systems">
-<TabItem value="online" label="Online License">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des
 serveurs Windows:
@@ -143,7 +143,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Snmp
 2. Installer le pack depuis la page `Configuration > Plugin Packs`
 
 </TabItem>
-<TabItem value="offline" label="Offline License">
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des
 serveurs Windows:

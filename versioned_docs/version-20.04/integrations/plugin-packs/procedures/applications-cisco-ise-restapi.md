@@ -55,7 +55,7 @@ https://developer.cisco.com/docs/identity-services-engine/3.0/#!introduction-to-
 ## Setup
 
 <Tabs groupId="licence-systems">
-<TabItem value="online" label="Online License">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor a Cisco Identity Service Engine:
 
@@ -66,7 +66,7 @@ yum install centreon-plugin-Applications-Cisco-Ise-Restapi
 2. On the Centreon Web interface, install the *Cisco ISE* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
 </TabItem>
-<TabItem value="offline" label="Offline License">
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor a Cisco Identity Service Engine:
 

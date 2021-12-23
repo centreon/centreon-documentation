@@ -78,7 +78,7 @@ E.g: https://docs.oracle.com/en/virtualization/oracle-vm/3.4/developer/vmapi-pre
 ## Setup
 
 <Tabs groupId="licence-systems">
-<TabItem value="online" label="Online License">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -89,7 +89,7 @@ yum install centreon-plugin-Applications-Oracle-Ovm-Api
 2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Oracle VM Manager API* Plugin-Pack
 
 </TabItem>
-<TabItem value="offline" label="Offline License">
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin on every Poller:
 

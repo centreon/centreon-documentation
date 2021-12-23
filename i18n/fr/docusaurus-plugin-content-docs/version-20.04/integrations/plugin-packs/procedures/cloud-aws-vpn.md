@@ -93,7 +93,7 @@ yum install awscli
 ## Installation
 
 <Tabs groupId="operating-systems">
-<TabItem value="online" label="Online License">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources AWS/VPN:
 
@@ -104,7 +104,7 @@ yum install centreon-plugin-Cloud-Aws-Vpn-Api
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *AWS VPN* depuis la page "Configuration > Plugin packs > Manager"
 
 </TabItem>
-<TabItem value="offline" label="Offline License">
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources AWS/VPN:
 

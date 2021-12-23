@@ -35,7 +35,7 @@ Afin de superviser le statut d'une instance Salesforce, l'adresse api.status.sal
 ## Installation
 
 <Tabs groupId="operating-systems">
-<TabItem value="online" label="Online License">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin Salesforce sur le collecteur supervisant Salesforce
 
@@ -46,7 +46,7 @@ yum install centreon-plugin-Applications-Salesforce-Restapi
 2. Installer le plugin-pack Salesforce via le menu "Configuration > Plugin packs > Manager"
 
 </TabItem>
-<TabItem value="offline" label="Offline License">
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin Salesforce sur le collecteur supervisant Salesforce
 

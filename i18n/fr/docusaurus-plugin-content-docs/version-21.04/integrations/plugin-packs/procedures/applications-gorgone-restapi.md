@@ -61,7 +61,7 @@ subnets:
 ## Setup
 
 <Tabs groupId="operating-systems">
-<TabItem value="online" label="Online License">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur les Poller supervisant des instances de Gorgone:
 
@@ -72,7 +72,7 @@ yum install centreon-plugin-Applications-Gorgone-Restapi
 2. Dans l'interface Centreon, rendez-vous dans le menu "Configuration > Plugin Packs > Gestionnaire" et installer le Plugin-Pack 'Gorgone Rest API'
 
 </TabItem>
-<TabItem value="offline" label="Offline License">
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur les Poller supervisant des instances de Gorgone:
 

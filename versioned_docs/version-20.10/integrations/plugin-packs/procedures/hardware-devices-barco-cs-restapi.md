@@ -38,7 +38,7 @@ E.g: https://www.barco.com/en/support/knowledge-base/kb11350
 ## Setup
 
 <Tabs groupId="licence-systems">
-<TabItem value="online" label="Online License">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -49,7 +49,7 @@ yum install centreon-plugin-Hardware-Devices-Barco-Cs-Restapi
 2. On the Centreon Web interface in **Configuration > Plugin Packs > Manager**, install the *Barco ClickShare Rest API* Pack
 
 </TabItem>
-<TabItem value="offline" label="Offline License">
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin on every Poller:
 

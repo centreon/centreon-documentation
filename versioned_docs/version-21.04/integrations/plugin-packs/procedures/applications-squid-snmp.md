@@ -69,7 +69,7 @@ UDP/161 SNMP port.
 ## Setup
 
 <Tabs groupId="licence-systems">
-<TabItem value="online" label="Online License">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor your *Squid proxy* ressources:
 
@@ -80,7 +80,7 @@ yum install centreon-plugin-Applications-Squid-Snmp
 2. On the Centreon Web interface, install the *Squid SNMP* Centreon Plugin Pack on the **Configuration > Plugin Packs** page
 
 </TabItem>
-<TabItem value="offline" label="Offline License">
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor your *Squid proxy* ressources:
 

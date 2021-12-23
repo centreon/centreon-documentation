@@ -76,7 +76,7 @@ Your Centreon poller must be able to reach the SNMP port (UDP/161) of the Adva d
 ## Installation
 
 <Tabs groupId="licence-systems">
-<TabItem value="online" label="Online License">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Adva FSP 150 SNMP Centreon Plugin on every poller expected to monitor Adva resources:
 
@@ -87,7 +87,7 @@ yum install centreon-plugin-Network-Adva-Fsp150-Snmp
 2. Install the monitoring templates from the Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page
 
 </TabItem>
-<TabItem value="offline" label="Offline License">
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Adva FSP 150 SNMP Centreon Plugin on every poller expected to monitor Adva resources:
 

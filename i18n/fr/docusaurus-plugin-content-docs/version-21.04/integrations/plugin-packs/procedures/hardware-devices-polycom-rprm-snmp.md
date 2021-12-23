@@ -116,7 +116,7 @@ https://documents.polycom.com/bundle/rprm-ops-10-5/page/rprm_ops/SNMP_Operations
 ## Installation
 
 <Tabs groupId="operating-systems">
-<TabItem value="online" label="Online License">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur chaque collecteur Centreon devant superviser des équipements Polycom RPRM:
 
@@ -128,7 +128,7 @@ yum install centreon-plugin-Hardware-Devices-Polycom-Rprm-Snmp
 depuis la page "Configuration > Plugin Packs > Gestionnaire"
 
 </TabItem>
-<TabItem value="offline" label="Offline License">
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur chaque collecteur Centreon devant superviser des équipements Polycom RPRM:
 

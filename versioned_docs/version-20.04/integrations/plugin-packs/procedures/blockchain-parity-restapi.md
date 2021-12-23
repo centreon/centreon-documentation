@@ -70,7 +70,7 @@ configured port (default: 8545).
 ## Setup
 
 <Tabs groupId="licence-systems">
-<TabItem value="online" label="Online License">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor
 Parity network nodes:
@@ -83,7 +83,7 @@ yum install centreon-plugin-Blockchain-Parity-Restapi
 the "Configuration > Plugin Packs" page
 
 </TabItem>
-<TabItem value="offline" label="Offline License">
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor
 Blockchain Parity nodes:

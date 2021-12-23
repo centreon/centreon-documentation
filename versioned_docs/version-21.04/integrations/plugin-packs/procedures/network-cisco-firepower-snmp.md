@@ -91,7 +91,7 @@ E.g: https://www.cisco.com/c/en/us/support/docs/ip/simple-network-management-pro
 ## Setup
 
 <Tabs groupId="licence-systems">
-<TabItem value="online" label="Online License">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -102,7 +102,7 @@ yum install centreon-plugin-Network-Cisco-Firepower-Snmp.noarch
 2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Cisco Firepower SNMP* Plugin-Pack
 
 </TabItem>
-<TabItem value="offline" label="Offline License">
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin on every Poller:
 

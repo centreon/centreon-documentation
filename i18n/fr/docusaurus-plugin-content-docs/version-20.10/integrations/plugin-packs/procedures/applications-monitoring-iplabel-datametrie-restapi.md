@@ -48,7 +48,7 @@ Un compte en lecture seule (login/mot de passe) sur ```https://api.ip-label.net`
 ## Installation
 
 <Tabs groupId="operating-systems">
-<TabItem value="online" label="Online License">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur l'ensemble des collecteurs supervisant des ressources IP-Label datametrie:
 
@@ -59,7 +59,7 @@ yum install centreon-plugin-Applications-Monitoring-Iplabel-Datametrie-Restapi
 2. Installer le Plugin-Pack depuis la page "Configuration > Plugin packs > Manager"
 
 </TabItem>
-<TabItem value="offline" label="Offline License">
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le code du connecteur sur l'ensemble des collecteurs supervisant des ressources de IP-Label datametrie:
 

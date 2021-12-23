@@ -47,7 +47,7 @@ When using Netbackup on a Windows system, add these options `--statefile-concat-
 ## Installation
 
 <Tabs groupId="licence-systems">
-<TabItem value="online" label="Online License">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor *Symantec Netbackup* using REST API:
 
@@ -58,7 +58,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 2. On the Centreon Web interface, install the *Symantec Netbackup* Centreon Pack on the **Configuration > Plugin Packs > Manager** page
 
 </TabItem>
-<TabItem value="offline" label="Offline License">
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor *Symantec Netbackup* using REST API:
 

@@ -47,7 +47,7 @@ module can be loaded: `Microsoft.UpdateServices.Administration`.
 ## Installation
 
 <Tabs groupId="operating-systems">
-<TabItem value="online" label="Online License">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Depending on the monitoring method chosen (NRPE or RestAPI), install the relevant Centreon Plugin package on every Centreon
 Poller expected to monitor WSUS through *centreon-nsclient*:
@@ -67,7 +67,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 2. On the Centreon Web interface, install the *Microsoft WSUS* Centreon Pack from the **Configuration > Plugin Packs > Manager** page
 
 </TabItem>
-<TabItem value="offline" label="Offline License">
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Depending on the monitoring method chosen (NRPE or RestAPI), install the relevant Centreon Plugin package on every Centreon
 Poller expected to monitor WSUS through *centreon-nsclient*:

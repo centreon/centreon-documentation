@@ -84,7 +84,7 @@ https://docs.microsoft.com/fr-fr/office/office-365-management-api/get-started-wi
 ## Installation
 
 <Tabs groupId="operating-systems">
-<TabItem value="online" label="Online License">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des ressources Office 365 Onedrive :
 
@@ -95,7 +95,7 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Onedrive-Api
 2. Depuis l'interface Web de Centreon, installer le Plugin-Pack *Office365 Onedrive* depuis la page "Configuration > Plugin packs > Manager"
 
 </TabItem>
-<TabItem value="offline" label="Offline License">
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des ressources Office 365 Onedrive :
 

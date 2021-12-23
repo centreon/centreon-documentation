@@ -37,7 +37,7 @@ La sonde permet de requêter RRDtool avec :
 ## Installation
 
 <Tabs groupId="operating-systems">
-<TabItem value="online" label="Online License">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -48,7 +48,7 @@ yum install centreon-plugin-Applications-Databases-Rrdtool
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *RRDtool* depuis la page "Configuration > Plugin packs > Manager"
 
 </TabItem>
-<TabItem value="offline" label="Offline License">
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 

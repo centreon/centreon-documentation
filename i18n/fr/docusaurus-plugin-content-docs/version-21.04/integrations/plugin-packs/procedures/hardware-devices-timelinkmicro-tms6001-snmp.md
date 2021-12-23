@@ -79,7 +79,7 @@ Les collecteurs Centreon doivent être en mesure de pouvoir joindre l'équipemen
 ## Installation
 
 <Tabs groupId="operating-systems">
-<TabItem value="online" label="Online License">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des équipements Tms6001:
 
@@ -90,7 +90,7 @@ yum install centreon-plugin-Hardware-Devices-Timelinkmicro-Tms6001-Snmp
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Timelinkmicro-Tms6001-Snmp* sur la page "Configuration > Plugin packs > Manager"
 
 </TabItem>
-<TabItem value="offline" label="Offline License">
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisants des équipements Tms6001:
 

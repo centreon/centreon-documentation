@@ -45,7 +45,7 @@ yum install centreon-nrpe-plugin
 from the **Configuration > Plugin Packs > Manager** page
 
 </TabItem>
-<TabItem value="offline" label="Offline License">
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Poller expected to monitor *Varnish*:
 

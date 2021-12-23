@@ -72,7 +72,7 @@ More information on how to set up and configure the ActiveMQ RestAPI can be foun
 ## Installation
 
 <Tabs groupId="licence-systems">
-<TabItem value="online" label="Online License">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Plugin on every poller expected to monitor ActiveMQ resources:
 
@@ -83,7 +83,7 @@ yum install centreon-plugin-Applications-ActiveMQ-Jmx
 2. On the Centreon Web interface, install the *ActiveMQ JMX* Centreon Plugin-Pack from the "Configuration > Plugin packs > Manager" page
 
 </TabItem>
-<TabItem value="offline" label="Offline License">
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Plugin on every poller expected to monitor ActiveMQ resources:
 

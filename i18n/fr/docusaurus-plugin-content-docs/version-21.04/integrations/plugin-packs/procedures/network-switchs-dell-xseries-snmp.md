@@ -64,7 +64,7 @@ La communication doit être possible sur le port UDP 161 de l'équipement Dell X
 ## Installation
 
 <Tabs groupId="operating-systems">
-<TabItem value="online" label="Online License">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur l'ensemble des Collecteurs Centreon supervisant des ressources *Dell Xseries* :
 
@@ -75,7 +75,7 @@ yum install centreon-plugin-Network-Dell-Xseries-Snmp
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Dell Xseries* depuis la page "Configuration > Plugin-Packs > Manager"
 
 </TabItem>
-<TabItem value="offline" label="Offline License">
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur l'ensemble des Collecteurs Centreon supervisant des ressources *Dell Xseries* :
 

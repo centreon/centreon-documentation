@@ -84,7 +84,7 @@ The Centreon Poller must be able to reach the TCP/9182 HTTPS port of the Versa D
 ## Installation
 
 <Tabs groupId="licence-systems">
-<TabItem value="online" label="Online License">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor
 Versa devices trough Versa Director API:
@@ -97,7 +97,7 @@ yum install centreon-plugin-Network-Versa-Director-Restapi
 through "Configuration > Plugin packs > Manager" page.
 
 </TabItem>
-<TabItem value="offline" label="Offline License">
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor
 Versa devices trough Versa Director API

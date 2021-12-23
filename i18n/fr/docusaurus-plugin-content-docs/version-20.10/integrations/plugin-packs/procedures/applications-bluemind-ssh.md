@@ -110,7 +110,7 @@ bm-core.heartbeat.broadcast,state=core.state.stopping,meterType=Counter count=2
 ## Installation
 
 <Tabs groupId="operating-systems">
-<TabItem value="online" label="Online License">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur l'ensemble des Collecteurs Centreon supervisant des serveurs BlueMind :
 
@@ -121,7 +121,7 @@ yum install centreon-plugin-Applications-Bluemind-Ssh
 Installer le Plugin-Pack 'BlueMind SSH' depuis la page "Configuration > Plugin packs > Manager" sur l'interface Web de Centreon.
 
 </TabItem>
-<TabItem value="offline" label="Offline License">
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur l'ensemble des Collecteurs Centreon supervisant des serveurs BlueMind :
 
