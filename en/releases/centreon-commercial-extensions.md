@@ -449,6 +449,27 @@ standalone SSH connections.
 
 ## Centreon Anomaly Detection
 
+### 20.10.1
+
+Release date: `December 23, 2021`
+
+#### Enhancements
+
+- Detect metrics with seasonality or stability
+
+#### Bugfixes
+
+- Fixed access to suggestion page with non admin account
+- Fixed an issue that caused the Anomaly Detection services to lose their graphs when they were renamed
+- Fixed anomaly detection's stream connector crashes with no apparent error in broker logs
+- Fixed configuration export failure
+- Fixed errors in cron Perl script
+- Fixed generation of configuration for services based on meta-services
+- Fixed generation of contacts/groups for notification
+- Fixed sending of data to SAAS if the service does not exist
+- Fixed the use of the fixed metric anomaly thresholds themselves used to suggest it
+- Fixed wrong gorgone cron.d definition
+
 ### 20.10.0
 
 `October 21, 2020`
