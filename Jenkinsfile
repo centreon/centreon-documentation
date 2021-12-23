@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'aws' } 
+    agent { label 'ec2-fleet' } 
     stages {
 
       stage('Install documentation dependencies') {
