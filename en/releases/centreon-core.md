@@ -17,6 +17,31 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 21.10.2
+
+Release note: `December 24, 2021`
+
+#### Enhancements
+
+- [Administration] Display the name of the object that has been modified in the detail form of logs
+- [Authentication] Removed token display in login debug file
+- [UI] The top-counter menu for pollers is now refreshed immediately after enabling the "Export button" in the user's profile
+
+#### Bug Fixes
+
+- [API] Fixed the access to API is account doesn't have access to GUI
+- [Authentication] Fixed LDAP OU quote connection breaking
+- [CLAPI] Fixed an issue preventing ACLs from applying on services created with CLAPI
+- [CLAPI] Fixed error with LDAP configuration ID
+- [Configuration] Fixed SNMP Trap matching with service linked to multiple hosts
+- [Configuration] Fixed an issue that caused the Anomaly Detection services to lose their graphs when they were renamed
+- [Configuration] Fixed an issue that caused the loss of broker output configuration
+- [Configuration] Fixed an issue that prevented from removing the SNMP community (and other fields) from the host form
+- [Configuration] Fixed the wizard for adding a new server that did not add it
+- [Configuration] Fixed unwanted writes into unexisting file when exporting Traps config at the same time as a trap arrives. Based on PR [#9973](https://github.com/centreon/centreon/pull/9973). Fixes issue [#4236](https://github.com/centreon/centreon/issues/4236).
+- [MBI] Fixed CBIS process trying to get contact_js_effects column that no longer exists
+- [Resource Status] Fixed graph tooltip
+
 ### 21.10.1
 
 Release date: `November 29, 2021`
