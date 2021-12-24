@@ -190,9 +190,15 @@ find /usr/share/centreon/www/img/media -type d -exec chmod 775 {} \;
 find /usr/share/centreon/www/img/media -type f \( ! -iname ".keep" ! -iname ".htaccess" \) -exec chmod 664 {} \;
 ```
 
-### Configure MariaDB slave_parallel_mode
+### Change MariaDB replication
 
 Since MariaDB 10.5, the slave_parallel_mode is no longer set up as *conservative*.
+And now *centreon-ha* use GTID as the replication solution: http://mariadb.com/kb/en/gtid/
+It's now necessary to recreate the resource mysql to used it.
+
+> **WARNING** Please note which server was the primary, and which one was the replica.
+
+#### Change MariaDB configuration file
 It's necessary to modify the mysql configuration by editing `/etc/my.cnf.d/server.cnf`:
 
 > On the 2 Central servers in HA 2 nodes
@@ -202,8 +208,191 @@ It's necessary to modify the mysql configuration by editing `/etc/my.cnf.d/serve
 [server]
 ...
 slave_parallel_mode=conservative
+skip-slave-start
+log-slave-updates
+gtid_strict_mode=ON
+expire_logs_days=7
+ignore-db-dir=lost+found
 ...
 ```
+
+#### Delete the old resource
+
+To recreate the resource ms_mysql, we need to delete first the resource using the following command:
+
+```shell
+pcs resource delete ms_mysql
+```
+
+#### Restart MariaDB and setup the replication
+
+On the both server, restart MariaDB using the following command:
+
+```shell
+systemctl restart mariadb
+```
+
+If the mariadb didn't restart using this command, you can use the following command to stop it:
+
+```shell
+mysqladmin -p shutdown
+```
+
+and then to start it:
+
+```shell
+systemctl start mariadb
+```
+
+Then on the **primary** database server (or central), execute the following command:
+
+```shell
+mysql -p
+mysql> SET GLOBAL read_only=OFF;
+```
+
+And on the **replica** database server (or central), execute the following command to restart the replication:
+
+```shell
+mysql-p
+mysql> CHANGE MASTER TO MASTER_HOST='@CENTRAL_MASTER_NAME@', MASTER_USER='@MARIADB_REPL_USER@', MASTER_PASSWORD='@MARIADB_REPL_PASSWD@', master_use_gtid=slave_pos;
+```
+
+#### Creating the MariaDB cluster resource
+
+To be run **only on one central node**:
+
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL 8 / Oracle Linux 8-->
+```bash
+pcs resource create "ms_mysql" \
+    ocf:heartbeat:mariadb-centreon \
+    config="/etc/my.cnf.d/server.cnf" \
+    pid="/var/lib/mysql/mysql.pid" \
+    datadir="/var/lib/mysql" \
+    socket="/var/lib/mysql/mysql.sock" \
+    binary="/usr/bin/mysqld_safe" \
+    node_list="@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@" \
+    replication_user="@MARIADB_REPL_USER@" \
+    replication_passwd='@MARIADB_REPL_PASSWD@' \
+    test_user="@MARIADB_REPL_USER@" \
+    test_passwd="@MARIADB_REPL_PASSWD@" \
+    test_table='centreon.host'
+```
+
+<!--RHEL 7-->
+```bash
+pcs resource create "ms_mysql" \
+    ocf:heartbeat:mariadb-centreon \
+    config="/etc/my.cnf.d/server.cnf" \
+    pid="/var/lib/mysql/mysql.pid" \
+    datadir="/var/lib/mysql" \
+    socket="/var/lib/mysql/mysql.sock" \
+    binary="/usr/bin/mysqld_safe" \
+    node_list="@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@" \
+    replication_user="@MARIADB_REPL_USER@" \
+    replication_passwd='@MARIADB_REPL_PASSWD@' \
+    test_user="@MARIADB_REPL_USER@" \
+    test_passwd="@MARIADB_REPL_PASSWD@" \
+    test_table='centreon.host'
+```
+
+<!--CentOS 7-->
+```bash
+pcs resource create "ms_mysql" \
+    ocf:heartbeat:mariadb-centreon \
+    config="/etc/my.cnf.d/server.cnf" \
+    pid="/var/lib/mysql/mysql.pid" \
+    datadir="/var/lib/mysql" \
+    socket="/var/lib/mysql/mysql.sock" \
+    binary="/usr/bin/mysqld_safe" \
+    node_list="@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@" \
+    replication_user="@MARIADB_REPL_USER@" \
+    replication_passwd='@MARIADB_REPL_PASSWD@' \
+    test_user="@MARIADB_REPL_USER@" \
+    test_passwd="@MARIADB_REPL_PASSWD@" \
+    test_table='centreon.host' \
+    master
+```
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+> **WARNING:** the syntax of the following command depends on the Linux Distribution you are using.
+
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL 8 / Oracle Linux 8-->
+
+```bash
+pcs resource promotable ms_mysql \
+    master-node-max="1" \
+    clone_max="2" \
+    globally-unique="false" \
+    clone-node-max="1" \
+    notify="true"
+```
+
+<!--RHEL 7-->
+```bash
+pcs resource master ms_mysql \
+    master-node-max="1" \
+    clone_max="2" \
+    globally-unique="false" \
+    clone-node-max="1" \
+    notify="true"
+```
+
+<!--CentOS7-->
+```bash
+pcs resource meta ms_mysql-master \
+    master-node-max="1" \
+    clone_max="2" \
+    globally-unique="false" \
+    clone-node-max="1" \
+    notify="true"
+```
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+> **WARNING** if you're using an 4 nodes HA, change node_list attribute by using the @DATABASE_MASTER_NAME@ and @DATABASE_SLAVE_NAME@
+
+#### Creating the constraint
+
+Perform these commands only on **one node**:
+
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL 8 / Oracle Linux 8-->
+```bash
+pcs constraint colocation add master "ms_mysql-clone" with "centreon"
+pcs constraint order stop centreon then demote ms_mysql-clone
+```
+
+<!--RHEL 7 / CentOS 7-->
+```bash
+pcs constraint colocation add master "ms_mysql-master" with "centreon"
+pcs constraint order stop centreon then demote ms_mysql-master
+```
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+> **WARNING** if you're using an 4 nodes HA, perform these commands:
+
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL 8 / Oracle Linux 8-->
+
+```bash
+pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
+pcs constraint order stop centreon then demote ms_mysql-clone
+pcs constraint location ms_mysql-clone avoids @CENTRAL_MASTER_NAME@=INFINITY @CENTRAL_SLAVE_NAME@=INFINITY
+pcs constraint location php-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
+```
+<!--RHEL 7 / CentOS 7-->
+
+```bash
+pcs constraint colocation add master "ms_mysql-master" with "vip_mysql"
+pcs constraint 
+ stop centreon then demote ms_mysql-master
+pcs constraint location ms_mysql-master avoids @CENTRAL_MASTER_NAME@=INFINITY @CENTRAL_SLAVE_NAME@=INFINITY
+pcs constraint location php-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
+```
+
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Restart Centreon process
 
@@ -264,10 +453,6 @@ Last change: Thu Feb 20 09:25:54 2020 by root via crm_attribute	on @CENTRAL_MAST
 Online: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
 
 Active resources:
-
- Master/Slave Set: ms_mysql-master [ms_mysql]
-     Masters: [ @CENTRAL_MASTER_NAME@ ]
-     Slaves: [ @CENTRAL_SLAVE_NAME@ ]
  Clone Set: cbd_rrd-clone [cbd_rrd]
      Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
  Resource Group: centreon
@@ -281,6 +466,9 @@ Active resources:
      centengine (systemd:centengine):   Started @CENTRAL_MASTER_NAME@
  Clone Set: php-clone [php]
      Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+ Master/Slave Set: ms_mysql-master [ms_mysql]
+     Masters: [ @CENTRAL_MASTER_NAME@ ]
+     Slaves: [ @CENTRAL_SLAVE_NAME@ ]
 ```
 <!--HA 4 Nodes-->
 ```bash
@@ -291,10 +479,6 @@ Active resources:
 Online: [@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ @DATABASE_MASTER_NAME@ @DATABASE_SLAVE_NAME@]
 
 Active resources:
-
- Master/Slave Set: ms_mysql-master [ms_mysql]
-     Masters: [@DATABASE_MASTER_NAME@]
-     Slaves: [@DATABASE_SLAVE_NAME@]
  Clone Set: cbd_rrd-clone [cbd_rrd]
      Started: [@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@]
  Resource Group: centreon
@@ -309,6 +493,9 @@ Active resources:
      vip_mysql       (ocf::heartbeat:IPaddr2):       Started @CENTRAL_MASTER_NAME@
  Clone Set: php-clone [php]
      Started: [@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@]
+ Master/Slave Set: ms_mysql-master [ms_mysql]
+     Masters: [@DATABASE_MASTER_NAME@]
+     Slaves: [@DATABASE_SLAVE_NAME@]
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 

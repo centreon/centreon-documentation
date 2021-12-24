@@ -359,6 +359,11 @@ slave_compressed_protocol=1
 slave_parallel_mode=conservative
 datadir=/var/lib/mysql
 pid-file=/var/lib/mysql/mysql.pid
+skip-slave-start
+log-slave-updates
+gtid_strict_mode=ON
+expire_logs_days=7
+ignore-db-dir=lost+found
 
 # Tuning standard Centreon
 innodb_file_per_table=1
@@ -468,26 +473,6 @@ TO '@MARIADB_REPL_USER@'@'@CENTRAL_SLAVE_IPADDR@' IDENTIFIED BY '@MARIADB_REPL_P
 
 GRANT SHUTDOWN, PROCESS, RELOAD, SUPER, SELECT, REPLICATION CLIENT, REPLICATION SLAVE ON *.* 
 TO '@MARIADB_REPL_USER@'@'@CENTRAL_MASTER_IPADDR@' IDENTIFIED BY '@MARIADB_REPL_PASSWD@';
-```
-
-### Setting up the binary logs purge jobs
-
-MariaDB binary logs must be purged on both nodes, but not at the same time, therefore the cron jobs definitions must be set on different times:
-
-* On the primary database node:
-
-```bash
-cat >/etc/cron.d/centreon-ha-mysql <<EOF
-0 4 * * * root bash /usr/share/centreon-ha/bin/mysql-purge-logs.sh >> /var/log/centreon-ha/mysql-purge.log 2>&1
-EOF
-```
-
-* On the secondary database node:
-
-```bash
-cat >/etc/cron.d/centreon-ha-mysql <<EOF
-30 4 * * * root bash /usr/share/centreon-ha/bin/mysql-purge-logs.sh >> /var/log/centreon-ha/mysql-purge.log 2>&1
-EOF
 ```
 
 ### Configuring the MariaDB scripts environment variables
@@ -891,16 +876,15 @@ All commands within this section should be exectued on **only on one Cluster nod
 
 ```bash
 pcs resource create "ms_mysql" \
-    ocf:heartbeat:mysql-centreon \
+    ocf:heartbeat:mariadb-centreon \
     config="/etc/my.cnf.d/server.cnf" \
     pid="/var/lib/mysql/mysql.pid" \
     datadir="/var/lib/mysql" \
     socket="/var/lib/mysql/mysql.sock" \
+    binary="/usr/bin/mysqld_safe" \
+    node_list="@DATABASE_MASTER_NAME@ @DATABASE_SLAVE_NAME@" \
     replication_user="@MARIADB_REPL_USER@" \
     replication_passwd='@MARIADB_REPL_PASSWD@' \
-    max_slave_lag="15" \
-    evict_outdated_slaves="false" \
-    binary="/usr/bin/mysqld_safe" \
     test_user="@MARIADB_REPL_USER@" \
     test_passwd="@MARIADB_REPL_PASSWD@" \
     test_table='centreon.host'
@@ -909,16 +893,15 @@ pcs resource create "ms_mysql" \
 
 ```bash
 pcs resource create "ms_mysql" \
-    ocf:heartbeat:mysql-centreon \
+    ocf:heartbeat:mariadb-centreon \
     config="/etc/my.cnf.d/server.cnf" \
     pid="/var/lib/mysql/mysql.pid" \
     datadir="/var/lib/mysql" \
     socket="/var/lib/mysql/mysql.sock" \
+    binary="/usr/bin/mysqld_safe" \
+    node_list="@DATABASE_MASTER_NAME@ @DATABASE_SLAVE_NAME@" \
     replication_user="@MARIADB_REPL_USER@" \
     replication_passwd='@MARIADB_REPL_PASSWD@' \
-    max_slave_lag="15" \
-    evict_outdated_slaves="false" \
-    binary="/usr/bin/mysqld_safe" \
     test_user="@MARIADB_REPL_USER@" \
     test_passwd="@MARIADB_REPL_PASSWD@" \
     test_table='centreon.host'
@@ -927,16 +910,15 @@ pcs resource create "ms_mysql" \
 
 ```bash
 pcs resource create "ms_mysql" \
-    ocf:heartbeat:mysql-centreon \
+    ocf:heartbeat:mariadb-centreon \
     config="/etc/my.cnf.d/server.cnf" \
     pid="/var/lib/mysql/mysql.pid" \
     datadir="/var/lib/mysql" \
     socket="/var/lib/mysql/mysql.sock" \
+    binary="/usr/bin/mysqld_safe" \
+    node_list="@DATABASE_MASTER_NAME@ @DATABASE_SLAVE_NAME@" \
     replication_user="@MARIADB_REPL_USER@" \
     replication_passwd='@MARIADB_REPL_PASSWD@' \
-    max_slave_lag="15" \
-    evict_outdated_slaves="false" \
-    binary="/usr/bin/mysqld_safe" \
     test_user="@MARIADB_REPL_USER@" \
     test_passwd="@MARIADB_REPL_PASSWD@" \
     test_table='centreon.host' \
@@ -1156,14 +1138,14 @@ In order to glue the Primary Database role with the Virtual IP, define a mutual 
 <!--RHEL 8 / Oracle Linux 8-->
 
 ```bash
-pcs constraint colocation add "vip_mysql" with master "ms_mysql-clone"
 pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
+pcs constraint order stop centreon then demote ms_mysql-clone
 ```
 <!--RHEL 7 / CentOS 7-->
 
 ```bash
-pcs constraint colocation add "vip_mysql" with master "ms_mysql-master"
 pcs constraint colocation add master "ms_mysql-master" with "vip_mysql"
+pcs constraint order stop centreon then demote ms_mysql-master
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -1326,8 +1308,8 @@ Location Constraints:
     Disabled on: @DATABASE_MASTER_NAME@ (score:-INFINITY)
     Disabled on: @DATABASE_SLAVE_NAME@ (score:-INFINITY)
 Ordering Constraints:
+  stop centreon then demote ms_mysql-clone (kind:Mandatory)
 Colocation Constraints:
-  vip_mysql with ms_mysql-clone (score:INFINITY) (rsc-role:Started) (with-rsc-role:Master)
   ms_mysql-master with vip_mysql (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
 Ticket Constraints:
 ```
@@ -1347,8 +1329,8 @@ Location Constraints:
     Disabled on: @DATABASE_MASTER_NAME@ (score:-INFINITY)
     Disabled on: @DATABASE_SLAVE_NAME@ (score:-INFINITY)
 Ordering Constraints:
+  stop centreon then demote ms_mysql-master (kind:Mandatory)
 Colocation Constraints:
-  vip_mysql with ms_mysql-master (score:INFINITY) (rsc-role:Started) (with-rsc-role:Master)
   ms_mysql-master with vip_mysql (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
 Ticket Constraints:
 ```
