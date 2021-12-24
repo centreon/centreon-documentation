@@ -19,6 +19,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 21.10.2
 
+Release note: `December 24, 2021`
+
 #### Enhancements
 
 - [Administration] Display the name of the object that has been modified in the detail form of logs
