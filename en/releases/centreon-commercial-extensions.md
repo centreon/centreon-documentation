@@ -167,6 +167,24 @@ To use it, it is necessary to install and activate it. Refer to the
 
 ## Centreon BAM
 
+### 20.10.5
+
+Release date: `December 24, 2021`
+
+#### Bugfixes
+
+- Escalation rules for Business Activities are now only exported to Remote server 
+if the Business Activities tied to these rules are set to be displayed on the Remote server
+- Escalation rules for a Business Activity now does not prevent poller configuration to be exported
+if the Business Activity is disabled.
+- Fixed a case where BA would be successfully created but not listed afterwards
+- Fixed Business Activities tree view display when a user restricted by ACLs would see Invalid Busines Activitiy nodes
+
+#### Enhancements
+
+- BAM links to Monitoring pages now redirect to either Resources status or Legacy pages based on the user profile configuration
+- User is now warned about incomplete Business Activities notification configuration before saving the configuration
+
 ### 20.10.4
 
 `May 04, 2021`
