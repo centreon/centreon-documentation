@@ -182,8 +182,8 @@ Release date: `December 24, 2021`
 if the Business Activities tied to these rules are set to be displayed on the Remote server
 - Escalation rules for a Business Activity now does not prevent poller configuration to be exported
 if the Business Activity is disabled.
-- Fixed a case where BA would be successfully created but not listed afterwards
-- Fixed Business Activities tree view display when a user restricted by ACLs would see Invalid Busines Activitiy nodes
+- Fixed a case where Business Activities would be successfully created but not listed afterwards
+- Fixed Business Activities tree view display case where a user restricted by ACLs would see Invalid Business Activitiy nodes
 
 #### Enhancements
 
