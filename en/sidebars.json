@@ -527,6 +527,7 @@
                     "integrations/plugin-packs/procedures/cloud-aws-ec2",
                     "integrations/plugin-packs/procedures/cloud-aws-elasticache",
                     "integrations/plugin-packs/procedures/cloud-aws-efs",
+                    "integrations/plugin-packs/procedures/cloud-aws-fsx",
                     "integrations/plugin-packs/procedures/cloud-aws-kinesis",
                     "integrations/plugin-packs/procedures/cloud-aws-rds",
                     "integrations/plugin-packs/procedures/cloud-aws-s3",

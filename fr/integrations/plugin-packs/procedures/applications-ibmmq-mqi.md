@@ -49,9 +49,8 @@ Il apporte les Modèles de Service suivants :
 
 ## Prerequisites
 
-*Specify prerequisites that are relevant. You may want to just provide a link
-to the manufacturer official documentation BUT you should try to be as complete
-as possible here as it will save time to everybody.*
+Afin de pouvoir exploiter ce Pack, vous devez installer le client IBM MQ pour 
+Linux. Une procédure est disponible ici: https://www.ibm.com/docs/en/ibm-mq/8.0?topic=server-installing-mq-linux. 
 
 ## Installation
 

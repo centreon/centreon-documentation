@@ -17,21 +17,56 @@ It brings the following Service Templates:
 | Fsx-DataUsage | Cloud-Aws-Fsx-Datausage-Api | X       |
 | Fsx-Freespace | Cloud-Aws-Fsx-Freespace-Api | X       |
 
+### Discovery rules
+
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Hosts-->
+
+| Rule name                           | Description                                                   |
+| :---------------------------------- | :------------------------------------------------------------ |
+| Cloud-Aws-Fsx-Api-HostDiscovery     | Discover FSx Filesystems from your Cloudwatch endpoint        |
+
+<!--Services-->
+
+No services discovery rule available on this pack
+
+<!--END_DOCUSAURUS_CODE_TABS-->
+
 ### Collected metrics & status
 
 <!--DOCUSAURUS_CODE_TABS-->
 
 <!--Fsx-DataUsage-->
 
+| Metric Name                     | Unit  |
+|:--------------------------------|:------|
+| fsx.data.read.bytes             | B     |
+| fsx.data.read.bytespersecond    | B/s   |
+| fsx.data.write.bytes            | B     |
+| fsx.data.write.bytespersecond   | B/s   |
+| fsx.data.io.read.count          |       |
+| fsx.data.io.read.persecond      |       |
+| fsx.data.io.write.count         |       |
+| fsx.data.io.write.persecond     |       |
+| fsx.metadata.ops.bytes          | B     |
+| fsx.metadata.ops.bytespersecond | B/s   |
+
 <!--Fsx-Freespace-->
+
+| Metric Name                     | Unit  |
+|:--------------------------------|:------|
+| fsx.storage.free.byt            | B     |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
-*Specify prerequisites that are relevant. You may want to just provide a link
-to the manufacturer official documentation BUT you should try to be as complete
-as possible here as it will save time to everybody.*
+Configure a service account (access/secret key combo) for which the following privileges have to be granted:
+
+| AWS Privilege                  | Description                                          |
+| :----------------------------- | :--------------------------------------------------- |
+| fsx:DescribeFileSystems        | Display FSx instances & details                      |
+| cloudwatch:getMetricStatistics | Get metrics from the AWS/FSx namespace on Cloudwatch |
 
 ## Setup
 
@@ -109,25 +144,23 @@ command:
     --critical-data-write-ops='' \
     --warning-data-read-ops='' \
     --critical-data-read-ops='' \
-    --warning-data-write-ops='' \
-    --critical-data-write-ops='' \
+    --warning-data-write-bytes='' \
+    --critical-data-write-bytes='1000000000' \
     --warning-data-read-bytes='' \
     --critical-data-read-bytes='' \
     --warning-metadata-ops-bytes='' \
     --critical-metadata-ops-bytes='' \
-    --verbose \
-    --use-new-perfdata 
+    --verbose
 ```
 
 The expected command output is shown below:
 
 ```bash
-OK: | 
+OK: All FSx metrics are ok | 
 ```
 
-This command would trigger a WARNING alarm if *WHAT* is reported as over 
-(`--warning-vault-availability-percentage`) and a CRITICAL alarm if less
-than 50% (`--critical-vault-availability-percentage='50:'`).
+This command would trigger a CRITICAL alarm if the number of read operations is reported as over
+1000 (`--critical-data-read-ops='1000'`).
 
 All available options for a given mode can be displayed by adding the 
 `--help` parameter to the command:
