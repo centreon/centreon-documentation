@@ -52,6 +52,8 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.10.3
 
+Release date: `December 29, 2021`
+
 #### Enhancements
 
 - Add filter "enable/disable notifications" in widget
