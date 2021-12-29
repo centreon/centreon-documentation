@@ -124,8 +124,8 @@ luarocks install centreon-stream-connectors-lib
 ### Download BSM stream connector
 
 ```shell
-wget -O /usr/share/centreon-broker/lua/bsm_connector-apiv2.lua  https://raw.githubusercontent.com/centreon/centreon-stream-connector-scripts/master/centreon-certified/bsm/bsm_connector-apiv2.lua
-chmod 644 /usr/share/centreon-broker/lua/bsm_connector-apiv2.lua
+wget -O /usr/share/centreon-broker/lua/bsm-events-apiv2.lua  https://raw.githubusercontent.com/centreon/centreon-stream-connector-scripts/master/centreon-certified/bsm/bsm-events-apiv2.lua
+chmod 644 /usr/share/centreon-broker/lua/bsm-events-apiv2.lua
 ```
 
 ## Configuration
@@ -137,21 +137,28 @@ To configure your stream connector, you must **head over** the **Configuration -
 | Field           | Value                                                  |
 | --------------- | ------------------------------------------------------ |
 | Name            | BSM                                                    |
-| Path            | /usr/share/centreon-broker/lua/bsm_connector-apiv2.lua |
+| Path            | /usr/share/centreon-broker/lua/bsm-events-apiv2.lua    |
 
-### Add BSM optional parameters
+### Add BSM mandatory parameters
 
-Some stream connectors have a set of optional parameters dedicated to the Software that they are associated with. To add them you must **click** on the **+Add a new entry** button located **below** the **filter category** input.
+Stream connectors have a set of mandotory parameters dedicated to the Software that they are associated with. To add them you must **click** on the **+Add a new entry** button located **below** the **filter category** input.
 
 | Type   | Name                | Value (explanation)                                                                                                    | defaultvalue                                                      |
 |--------|---------------------|------------------------------------------------------------------------------------------------------------------------| ----------------------------------------------------------------- |
-| String | `http_server_url`   | URL de votre plateforme BSM                                                                                            | `https://<my.bsm.server>:30005/bsmc/rest/events/<my-webservice>/` |
-| String | `http_proxy_string` | Paramétrage du proxy permettant de sortir vers Internet en HTTP/HTTPS                                                  | `http://your.proxy.server:3128`                                   |
-| String | `source_ci`         | Nom permettant d'identifier l'émetteur                                                                                 | `Centreon`                                                        |
-| Number | `log_level`         | Niveau de verbosité des logs 0: errors seulement, 1: +warnings, 2: +verbose, 3: +debug                                 | 2                                                                 |
-| String | `log_path`          | Chemin complet du fichier de log                                                                                       | `/var/log/centreon-broker/my-custom-logfile.log`                  |
-| Number | `max_buffer_size`   | Nombre maximum d'événements à stocker en mémoire tampon en attendant de les transmettre en un seul envoi               | 1                                                                 |
-| Number | `max_buffer_age`    | Temps d'attente maximum avant d'envoyer les événements en mémoire tampon si `max_buffer_size` n'est pas encore atteint | 5                                                                 |
+| String | `http_server_url`   | URL of your BSM platform                                                                                             | `https://<my.bsm.server>:30005/bsmc/rest/events/<my-webservice>/` |
+
+### Add BSM optional parameters
+
+Some stream connectors have a set of optional parameters dedicated to the Software that they are associated with. To add them you follow the same process as for the mandatory parameters.
+
+| Type   | Name                | Value (explanation)                                                                                                    | defaultvalue                                                      |
+|--------|---------------------|------------------------------------------------------------------------------------------------------------------------| ----------------------------------------------------------------- |
+| String | `http_proxy_string` | Setting the proxy to output to the Internet in HTTP/HTTPS                                                               | `http://your.proxy.server:3128`                                   |
+| String | `source_ci`         | Name to identify the sender                                                                                             | `Centreon`                                                        |
+| Number | `log_level`         | Log verbosity level 0: errors only, 1: +warnings, 2: +verbose, 3: +debug                                               | 2                                                                 |
+| String | `log_path`          | Full path of the log file                                                                                               | `/var/log/centreon-broker/my-custom-logfile.log`                  |
+| Number | `max_buffer_size`   | Maximum number of events to be buffered while waiting to be transmitted in one transmission                             | 1                                                                 |
+| Number | `max_buffer_age`    | Maximum time to wait before sending events to the buffer if `max_buffer_size` is not yet reached                       | 5                                                                 |
 
 ### Proxy configuration
 
