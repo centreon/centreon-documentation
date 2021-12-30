@@ -184,10 +184,6 @@ Some of them are overridden by this stream connector.
 | string | accepted_categories | neb                                    |
 | string | accepted_elements   | host_status,service_status             |
 
-## Event bulking
-
-This stream connector is not compatible with event bulking. Meaning that the option `max_buffer_size` can't be higher than 1
-
 ## Event format
 
 This stream connector will send event with the following format.
