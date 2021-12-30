@@ -184,6 +184,16 @@ Some of them are overridden by this stream connector.
 | string | accepted_categories | neb                                    |
 | string | accepted_elements   | host_status,service_status             |
 
+## Event bulking
+
+This stream connector is compatible with event bulking. Meaning that it is able to send more that one event in each call to the Splunk REST API.
+
+To use this feature you must add the following parameter in your stream connector configuration.
+
+| Type   | Name            | Value           |
+| ------ | --------------- | --------------- |
+| number | max_buffer_size | `more than one` |
+
 ## Event format
 
 This stream connector will send event with the following format.
