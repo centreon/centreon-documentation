@@ -174,7 +174,7 @@ Référez-vous à la [documentation dédiée](../graph-views/install.html#centre
 
 ### 20.10.5
 
-Release date: `December 24, 2021`
+Release date: `December 29, 2021`
 
 #### Bugfixes
 
