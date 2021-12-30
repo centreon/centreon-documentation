@@ -176,6 +176,8 @@ Release date: `November 9, 2021`
 
 ### 21.04.1
 
+Release date: `December 30, 2021`
+
 #### Bug fixes
 
 - Fixed getting fingerprint on Safari
