@@ -192,22 +192,38 @@ This stream connector is not compatible with event bulking. Meaning that the opt
 
 This stream connector will send event with the following format.
 
-### status event
+### Service status event
 
 ```xml
 {
  "<event_data>"
-        "<hostname>"  hostname  "</hostname>"
-        "<svc_desc>"  service_description  "</svc_desc>"
-        "<state>" self.sc_event.event.state  "</state>"
-        "<last_update>" self.sc_event.event.last_update  "</last_update>"
-        "<output>"  string.match(e.output, "^(.*)\n")  "</output>"
-        xml_service_severity
-        "<url>"  xml_url  "</url>"
-        "<source_host_id>"  ifnil_or_empty(self.sc_event.event.host_id, '0')  "</source_host_id>"
-        "<source_svc_id>"  ifnil_or_empty(self.sc_event.event.service_id, '0')  "</source_svc_id>"
-        "<scheduled_downtime_depth>"  ifnil_or_empty(self.sc_event.event.scheduled_downtime_depth, '0')  "</scheduled_downtime_depth>"
+        "<hostname>"  Central  "</hostname>"
+        "<svc_desc>"  Ping  "</svc_desc>"
+        "<state>" 0 "</state>"
+        "<last_update>" 1640862289  "</last_update>"
+        "<output>"  OK - 10.30.2.31 rta 0.285ms lost 0%  "</output>"
+        "<service_severity>" 0 "</service_severity"
+        "<url>"  no url for this service  "</url>"
+        "<source_host_id>"  19  "</source_host_id>"
+        "<source_svc_id>"  546  "</source_svc_id>"
+        "<scheduled_downtime_depth>"  0  "</scheduled_downtime_depth>"
  "</event_data>"
+}
+```
+
+### Host status event
+
+```xml
+{
+ "<event_data>"
+      "<hostname>" Central "</hostname>"
+      "<host_severity>" 0 "</host_severity>"
+      "<xml_notes>" no notes found on host "</xml_notes>"
+      "<url>" no action url for this host "</url>"
+      "<source_ci>" Centreon "</source_ci>"
+      "<source_host_id>" 0 "</source_host_id>"
+      "<scheduled_downtime_depth>" 0 "</scheduled_downtime_depth>"
+  "</event_data>"
 }
 ```
 
@@ -231,34 +247,9 @@ Here is the list of all the curl commands that are used by the stream connector.
 
 ### Send events
 
-You can trigger a signal with the following command:
-
 ```shell
-curl -X POST -H 'content-type: application/xml' 'https://centreon.bsm.server:30005/bsmc/rest/events/myCentreon/' -d '{"<event_data>" "<hostname>"  'srv-vp-central01'  "</hostname>" \
-        "<svc_desc>"  'Swap'  "</svc_desc>" \ 
-        "<state>" 'Critical'  "</state>" \
-        "<last_update>" '12/16/2021 1:14 PM'  "</last_update>" \ 
-        "<output>"  'Critical: Swap Total: 1.60 GB Used: 1.51 GB (94.44%) Free: 1.25 MB (5.56%)\n'  "</output>" \
-        '0' \
-        "<url>"  'no action url for this host'  "</url>" \
-        "<source_host_id>" '3450'  "</source_host_id>" \
-        "<source_svc_id>"  '1245'  "</source_svc_id>" \
-        "<scheduled_downtime_depth>"  '0'  "</scheduled_downtime_depth>" \
- "</event_data>"}'
-```
-
-You can then close this signal with the following command:
-
-```shell
-curl -X POST -H 'content-type: application/xml' 'https://centreon.bsm.server:30005/bsmc/rest/events/myCentreon/' -d '{"<event_data>" "<hostname>"  'srv-vp-central01'  "</hostname>" \
-        "<svc_desc>"  'Swap'  "</svc_desc>" \
-        "<state>" 'OK'  "</state>" \ 
-        "<last_update>" '12/16/2021 1:45 PM'  "</last_update>" \
-        "<output>"  'OK: Swap Total: 1.60 GB Used: 91.25 MB (5.56%) Free: 1.51 GB (94.44%)\n'  "</output>" \
-        '0' \
-        "<url>"  'no action url for this host'  "</url>" \
-        "<source_host_id>" '3450'  "</source_host_id>" \
-        "<source_svc_id>"  '1245'  "</source_svc_id>" \
-        "<scheduled_downtime_depth>"  '0'  "</scheduled_downtime_depth>" \
- "</event_data>"}'
+curl -X POST https://centreon.bsm.server:30005/bsmc/rest/events/myCentreon/
+   -H "Content-Type: application/xml"
+   -H "Accept: application/xml"
+   -d "<event_data><hostname>Central</hostname><svc_desc>Ping</svc_desc><state>0</state><last_update>1640862289</last_update><output>OK - 10.30.2.31 rta 0.285ms lost 0%</output><service_severity>0</service_severity><url>no url for this service</url><source_host_id>19</source_host_id><source_svc_id>546</source_svc_id><scheduled_downtime_depth>0</scheduled_downtime_depth></event_data>"
 ```
