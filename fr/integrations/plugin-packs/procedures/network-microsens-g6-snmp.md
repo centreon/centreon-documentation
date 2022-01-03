@@ -115,7 +115,7 @@ la documentation officielle :
 ### Flux réseau
 
 La communication doit être possible sur le port UDP 161 depuis le collecteur
-Centreon vers le serveur Linux supervisé
+Centreon vers le serveur Linux supervisé.
 
 ## Installation
 
@@ -123,7 +123,7 @@ Centreon vers le serveur Linux supervisé
 
 <!--Online License-->
 
-1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources **Microsens G6 SNMP**:
+1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources **Microsens G6 SNMP** :
 
 ```bash
 yum install centreon-plugin-Network-Microsens-G6-Snmp
@@ -133,13 +133,13 @@ yum install centreon-plugin-Network-Microsens-G6-Snmp
 
 <!--Offline License-->
 
-1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources **Microsens G6 SNMP**:
+1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources **Microsens G6 SNMP** :
 
 ```bash
 yum install centreon-plugin-Network-Microsens-G6-Snmp
 ```
 
-2. Sur le serveur Central Centreon, installer le RPM du Pack **Microsens G6 SNMP**:
+2. Sur le serveur Central Centreon, installer le RPM du Pack **Microsens G6 SNMP** :
 
  ```bash
 yum install centreon-pack-network-microsens-g6-snmp
@@ -154,7 +154,7 @@ yum install centreon-pack-network-microsens-g6-snmp
 ### Hôte
 
 * Ajoutez un Hôte à Centreon depuis la page **Configuration > Hôtes**
-* Complétez les champs **Nom**,**Alias** & **IP Address / DNS** correspondant à votre serveur **Microsens G6 SNMP**.
+* Complétez les champs **Nom**, s**Alias** & **IP Address / DNS** correspondant à votre serveur **Microsens G6 SNMP**.
 * Appliquez le Modèle d'Hôte **network-microsens-g6-snmp-custom**
 
 Si vous utilisez SNMP en version 3, vous devez configurer les paramètres
@@ -225,4 +225,4 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 ### Diagnostic des erreurs communes
 
 Rendez-vous sur la [documentation dédiée](../tutorials/troubleshooting-plugins.html#snmp-checks)
-pour le diagnostique des erreurs commununes des Plugins Centreon.
+pour le diagnostic des erreurs communes des Plugins Centreon.
