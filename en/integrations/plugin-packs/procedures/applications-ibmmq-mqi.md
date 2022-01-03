@@ -91,9 +91,9 @@ yum install centreon-pack-applications-ibmmq-mqi
 ### Host
 
 * Log into Centreon and add a new Host through **Configuration > Hosts**
-* Fill the **Name**, **Alias** & **IP Address / DNS** fields according to your *IBM MQ MQI* server settings
+* Fill the **Name**, **Alias** & **IP Address / DNS** fields according to your **IBM MQ MQI** server settings
 * Select the **App-Ibmmq-Mqi-custom** template to apply to the Host
-* Once the template applied, some Macros marked as 'Mandatory' hereafter have to be configured.
+* Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
 
 | Mandatory | Name                 | Description                                                                                     |
 |:----------|:---------------------|:------------------------------------------------------------------------------------------------|
@@ -101,7 +101,7 @@ yum install centreon-pack-applications-ibmmq-mqi
 |           | IBMMQMQIPORT         | (Default: '1414')                                                                               |
 |           | EXTRAOPTIONS         | (Default: 'Any extra option you may want to add to every command\_line (eg. a --verbose flag)') |
 
-## How to check in the CLI that the configuration is OK and what are the main options for ? 
+## How to check in the CLI that the configuration is OK and what are the main options for? 
 
 Once the plugin is installed, log into your Centreon Poller CLI using the 
 **centreon-engine** user account and test the Plugin by running the following 
@@ -132,10 +132,10 @@ The expected command output is shown below:
 WARNING: current input connections: 9000 | 'queue.connections.input.count'=9000;200;;0; 'queue.messages.depth.count'=2400;;;0; 'queue.message.oldest.seconds'=9000;;;; 
 ```
 
-This command triggers a WARNING because the the number of current input connection is 9000 which is 
+This command triggers a WARNING because the number of current input connections is 9000 which is 
 above the warning threshold (`--warning-messages-depth='200'`). 
 
-It would trigger a CRITICAL alarm if a message in a queue would be here for more than one hour / 3600 seconds (`--critical-message-oldest='3600'`).
+It would trigger a CRITICAL alarm if a message was in a queue for more than one hour / 3600 seconds (`--critical-message-oldest='3600'`).
 
 All available options for a given mode can be displayed by adding the 
 `--help` parameter to the command:

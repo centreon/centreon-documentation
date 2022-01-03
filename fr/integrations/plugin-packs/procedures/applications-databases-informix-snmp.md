@@ -124,8 +124,8 @@ yum install centreon-pack-applications-databases-informix-snmp
 ### Hôte
 
 * Ajoutez un Hôte à Centreon depuis la page **Configuration > Hôtes**
-* Complétez les champs **Nom**,**Alias** & **IP Address / DNS** correspondant à votre serveur **Informix SNMP**.
-* Appliquez le Modèle d'Hôte **App-DB-Informix-SNMP-custom**
+* Complétez les champs **Nom**, **Alias** & **IP Address / DNS** correspondant à votre serveur **Informix SNMP**.
+* Appliquez le Modèle d'Hôte **App-DB-Informix-SNMP-custom**.
 
 Si vous utilisez SNMP en version 3, vous devez configurer les paramètres
 spécifiques associés via la macro SNMPEXTRAOPTIONS.
@@ -184,4 +184,4 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 ### Diagnostic des erreurs communes
 
 Rendez-vous sur la [documentation dédiée](../tutorials/troubleshooting-plugins.html)
-pour le diagnostique des erreurs commununes des Plugins Centreon.
+pour le diagnostic des erreurs communes des Plugins Centreon.

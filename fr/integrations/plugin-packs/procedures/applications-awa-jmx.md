@@ -44,8 +44,8 @@ Il apporte les Modèles de Service suivants :
 
 ## Prerequisites
 
-Veuiller installer l'agent Jolokia sur votre serveur AWA [Jolokia download page](https://jolokia.org/download.html).
-Demander à votre administrateur de le déployer et de vous fournir l'URL.
+Veuillez installer l'agent Jolokia sur votre serveur AWA ([Jolokia download page](https://jolokia.org/download.html)).
+Demandez à votre administrateur de le déployer et de vous en fournir l'URL.
 
 ## Installation
 
@@ -84,10 +84,10 @@ yum install centreon-pack-applications-awa-jmx
 ### Hôte
 
 * Ajoutez un Hôte à Centreon depuis la page **Configuration > Hôtes**
-* Complétez les champs **Nom**,**Alias** & **IP Address / DNS** correspondant à votre serveur **AWA JMX**.
+* Complétez les champs **Nom**, **Alias** & **IP Address / DNS** correspondant à votre serveur **AWA JMX**.
 * Appliquez le Modèle d'Hôte **applications-awa-jmx-custom**
 
-* Une fois le modèle appliqué, les Macros ci-dessous indiquées comme requises (*Mandatory*) doivent être renseignées 
+* Une fois le modèle appliqué, renseignez les macros correspondantes. Attention, certaines macros sont obligatoires ("mandatory"). 
 
 | Mandatory | Name         | Description                                                                                     |
 |:----------|:-------------|:------------------------------------------------------------------------------------------------|
@@ -145,4 +145,4 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 ### Diagnostic des erreurs communes
 
 Rendez-vous sur la [documentation dédiée](../tutorials/troubleshooting-plugins.html)
-pour le diagnostique des erreurs commununes des Plugins Centreon.
+pour le diagnostic des erreurs communes des Plugins Centreon.

@@ -28,7 +28,7 @@ It brings the following Service Templates:
 
 <!--Services-->
 
-No services discovery rule available on this pack
+No service discovery rule is available on this pack
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -105,9 +105,9 @@ yum install centreon-pack-cloud-aws-fsx
 ### Host
 
 * Log into Centreon and add a new Host through **Configuration > Hosts**
-* Fill the **Name**, **Alias** & **IP Address / DNS** fields according to your *Amazon FSx* server settings
-* Select the *cloud-aws-fsx-custom* template to apply to the Host
-* Once the template applied, some Macros marked as 'Mandatory' hereafter have to be configured.
+* Fill the **Name**, **Alias** & **IP Address / DNS** fields according to your **Amazon FSx** server settings
+* Select the **cloud-aws-fsx-custom** template to apply to the Host
+* Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
 
 | Mandatory | Name            | Description                                                                                     |
 |:----------|:----------------|:------------------------------------------------------------------------------------------------|
@@ -120,7 +120,7 @@ yum install centreon-pack-cloud-aws-fsx
 |           | PROXYURL        |                                                                                                 |
 |           | EXTRAOPTIONS    | (Default: 'Any extra option you may want to add to every command\_line (eg. a --verbose flag)') |
 
-## How to check in the CLI that the configuration is OK and what are the main options for ? 
+## How to check in the CLI that the configuration is OK and what are the main options for? 
 
 Once the plugin is installed, log into your Centreon Poller CLI using the 
 **centreon-engine** user account and test the Plugin by running the following 
@@ -159,7 +159,7 @@ The expected command output is shown below:
 OK: All FSx metrics are ok | 
 ```
 
-This command would trigger a CRITICAL alarm if the number of read operations is reported as over
+This command would trigger a CRITICAL alarm if the number of read operations was reported as over
 1000 (`--critical-data-read-ops='1000'`).
 
 All available options for a given mode can be displayed by adding the 

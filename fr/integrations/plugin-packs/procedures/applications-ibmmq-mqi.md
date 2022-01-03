@@ -47,7 +47,7 @@ Il apporte les Modèles de Service suivants :
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-## Prerequisites
+## Prérequis
 
 Afin de pouvoir exploiter ce Pack, vous devez installer le client IBM MQ pour 
 Linux. Une procédure est disponible ici: https://www.ibm.com/docs/en/ibm-mq/8.0?topic=server-installing-mq-linux. 
@@ -92,7 +92,7 @@ yum install centreon-pack-applications-ibmmq-mqi
 * Complétez les champs **Nom**,**Alias** & **IP Address / DNS** correspondant à votre serveur **IBM MQ MQI**.
 * Appliquez le Modèle d'Hôte **App-Ibmmq-Mqi-custom**
 
-* Une fois le modèle appliqué, les Macros ci-dessous indiquées comme requises (*Mandatory*) doivent être renseignées 
+* Une fois le modèle appliqué, renseignez les macros correspondantes. Attention, certaines macros sont obligatoires ("mandatory").
 
 | Mandatory | Name                 | Description                                                                                     |
 |:----------|:---------------------|:------------------------------------------------------------------------------------------------|
@@ -134,7 +134,7 @@ WARNING: current input connections: 9000 | 'queue.connections.input.count'=9000;
 Dans cet exemple, une alarme de type WARNING est déclenchée car le nombre de connexions entrantes
 est supérieure au seuil de 200 configuré (`--warning-messages-depth='200'`). 
 
-Une alarme CRITICAL serait déclenchée si un des messages date de plus d'une heure/3600 secondes (`--critical-message-oldest='3600'`). 
+Une alarme CRITICAL serait déclenchée si un des messages datait de plus d'une heure/3600 secondes (`--critical-message-oldest='3600'`). 
 
 La liste de toutes les options complémentaires et leur signification peut être
 affichée en ajoutant le paramètre `--help` à la commande:
@@ -158,4 +158,4 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 ### Diagnostic des erreurs communes
 
 Rendez-vous sur la [documentation dédiée](../tutorials/troubleshooting-plugins.html)
-pour le diagnostique des erreurs commununes des Plugins Centreon.
+pour le diagnostic des erreurs communes des Plugins Centreon.

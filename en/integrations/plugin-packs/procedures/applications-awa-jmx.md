@@ -44,8 +44,8 @@ It brings the following Service Templates:
 
 ## Prerequisites
 
-Please deploy jolokia agent on your AWA Server [Jolokia download page](https://jolokia.org/download.html). 
-Ask to your admin to deploy it and give you the URL.
+Please deploy the Jolokia agent on your AWA Server ([Jolokia download page](https://jolokia.org/download.html)). 
+Ask your admin to deploy it and give you the URL.
 
 ## Setup
 
@@ -84,15 +84,15 @@ yum install centreon-pack-applications-awa-jmx
 ### Host
 
 * Log into Centreon and add a new Host through **Configuration > Hosts**
-* Fill the **Name**, **Alias** & **IP Address / DNS** fields according to your *AWA JMX* server settings
-* Select the *applications-awa-jmx-custom* template to apply to the Host
-* Once the template applied, some Macros marked as 'Mandatory' hereafter have to be configured.
+* Fill the **Name**, **Alias** & **IP Address / DNS** fields according to your **AWA JMX** server settings
+* Select the **applications-awa-jmx-custom** template to apply to the Host
+* Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
 
 | Mandatory | Name         | Description                                                                                     |
 |:----------|:-------------|:------------------------------------------------------------------------------------------------|
 |           | EXTRAOPTIONS | (Default: 'Any extra option you may want to add to every command\_line (eg. a --verbose flag)') |
 
-## How to check in the CLI that the configuration is OK and what are the main options for ? 
+## How to check in the CLI that the configuration is OK and what are the main options for? 
 
 Once the plugin is installed, log into your Centreon Poller CLI using the 
 **centreon-engine** user account and test the Plugin by running the following 

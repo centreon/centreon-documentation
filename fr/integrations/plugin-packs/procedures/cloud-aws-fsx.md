@@ -61,7 +61,7 @@ No services discovery rule available on this pack
 
 ## Prérequis
 
-Configurer un compte de service ayant les autorisations suivantes: 
+Configurer un compte de service ayant les autorisations suivantes : 
 
 | AWS Privilege                  | Description                                          |
 | :----------------------------- | :--------------------------------------------------- |
@@ -108,7 +108,7 @@ yum install centreon-pack-cloud-aws-fsx
 * Complétez les champs **Nom**,**Alias** & **IP Address / DNS** correspondant à votre serveur **Amazon FSx**.
 * Appliquez le Modèle d'Hôte **Cloud-Aws-Fsx-custom**
 
-* Une fois le modèle appliqué, les Macros ci-dessous indiquées comme requises (*Mandatory*) doivent être renseignées 
+* Une fois le modèle appliqué, renseignez les macros correspondantes. Attention, certaines macros sont obligatoires ("mandatory"). 
 
 | Mandatory | Name            | Description                                                                                     |
 |:----------|:----------------|:------------------------------------------------------------------------------------------------|
@@ -160,7 +160,7 @@ La commande devrait retourner un message de sortie similaire à :
 OK: All FSx metrics are ok| 
 ```
 
-Dans cet exemple, une alarme de type CRITICAL si le volume de données écrites en octets 
+Dans cet exemple, une alarme de type CRITICAL est déclenchée si le volume de données écrites en octets 
 dépasse 1Go (`--critical-data-write-bytes='1000000000'`). 
 
 La liste de toutes les options complémentaires et leur signification peut être
@@ -186,4 +186,4 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 ### Diagnostic des erreurs communes
 
 Rendez-vous sur la [documentation dédiée](../tutorials/troubleshooting-plugins.html)
-pour le diagnostique des erreurs commununes des Plugins Centreon.
+pour le diagnostic des erreurs communes des Plugins Centreon.

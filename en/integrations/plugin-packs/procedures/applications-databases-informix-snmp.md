@@ -124,7 +124,7 @@ yum install centreon-pack-applications-databases-informix-snmp
 ### Host
 
 * Log into Centreon and add a new Host through **Configuration > Hosts**
-* Fill the **Name**, **Alias** & **IP Address / DNS** fields according to your *Informix SNMP* server settings
+* Fill the **Name**, **Alias** & **IP Address / DNS** fields according to your **Informix SNMP** server settings
 * Select the **App-DB-Informix-SNMP-custom** template to apply to the Host
 
 If you are using SNMP Version 3, use the SNMPEXTRAOPTIONS Macro to configure
@@ -134,7 +134,7 @@ your own SNMPv3 credentials combo.
 |:----------|:-----------------|:---------------------------------------------------------|
 |           | SNMPEXTRAOPTIONS | (Default: 'Configure your own SNMPv3 credentials combo') |
 
-## How to check in the CLI that the configuration is OK and what are the main options for ? 
+## How to check in the CLI that the configuration is OK and what are the main options for? 
 
 Once the plugin is installed, log into your Centreon Poller CLI using the 
 **centreon-engine** user account and test the Plugin by running the following 

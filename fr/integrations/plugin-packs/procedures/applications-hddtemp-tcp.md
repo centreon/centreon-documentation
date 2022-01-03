@@ -25,7 +25,7 @@ Il apporte le Modèle de Service suivant :
 | Metric Name | Unit                    |
 |:------------|:------------------------|
 | status      | string                  |
-| temperature | celsius of fareneinheit |
+| temperature | celsius or fahrenheit |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -75,7 +75,7 @@ yum install centreon-pack-applications-hddtemp-tcp
 * Complétez les champs **Nom**,**Alias** & **IP Address / DNS** correspondant à votre serveur **Hddtemp**.
 * Appliquez le Modèle d'Hôte **App-Hddtemp-Tcp-custom**
 
-* Une fois le modèle appliqué, les Macros ci-dessous indiquées comme requises (*Mandatory*) doivent être renseignées 
+* Une fois le modèle appliqué, renseignez les macros correspondantes. Attention, certaines macros sont obligatoires ("mandatory"). 
 
 | Mandatory | Name           | Description                                                                                     |
 |:----------|:---------------|:------------------------------------------------------------------------------------------------|
@@ -114,7 +114,7 @@ OK: Drive '/dev/sda' temperature: 24 C status: ok | /dev/sda#drive.temperature.c
 Dans cet exemple, une alarme de type WARNING sera déclenchée si la température du 
 disque est supérieure à 30° (`--warning-temperature='30`).
 
-Une alarme CRITICAL sera déclenché si la température est supérieure à 50° ou que 
+Une alarme CRITICAL sera déclenchée si la température est supérieure à 50° ou que 
 le statut est différent de 'ok' (`--critical-temperature='50' --critical-status='%{status} !~ /ok/i'`).
 
 La liste de toutes les options complémentaires et leur signification peut être
@@ -139,4 +139,4 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 ### Diagnostic des erreurs communes
 
 Rendez-vous sur la [documentation dédiée](../tutorials/troubleshooting-plugins.html)
-pour le diagnostique des erreurs commununes des Plugins Centreon.
+pour le diagnostic des erreurs communes des Plugins Centreon.

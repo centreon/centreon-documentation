@@ -25,14 +25,14 @@ It brings the following Service Template:
 | Metric Name | Unit                    |
 |:------------|:------------------------|
 | status      | string                  |
-| temperature | celsius of fareneinheit |
+| temperature | celsius or fahrenheit |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
 To use this Pack, install the Hddtemp utility on your Linux server. Most of the 
-distribution make it available as a standard package. 
+distributions make it available as a standard package. 
 
 ## Setup
 
@@ -71,16 +71,16 @@ yum install centreon-pack-applications-hddtemp-tcp
 ### Host
 
 * Log into Centreon and add a new Host through **Configuration > Hosts**
-* Fill the **Name**, **Alias** & **IP Address / DNS** fields according to your *Hddtemp* server settings
+* Fill the **Name**, **Alias** & **IP Address / DNS** fields according to your **Hddtemp** server settings
 * Select the **App-Hddtemp-Tcp** template to apply to the Host
-* Once the template applied, some Macros marked as 'Mandatory' hereafter have to be configured.
+* Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
 
 | Mandatory | Name           | Description                                                                                     |
 |:----------|:---------------|:------------------------------------------------------------------------------------------------|
 |           | HDDTEMPTCPPORT | (Default: '7634')                                                                               |
 |           | EXTRAOPTIONS   | (Default: 'Any extra option you may want to add to every command\_line (eg. a --verbose flag)') |
 
-## How to check in the CLI that the configuration is OK and what are the main options for ? 
+## How to check in the CLI that the configuration is OK and what are the main options for? 
 
 Once the plugin is installed, log into your Centreon Poller CLI using the 
 **centreon-engine** user account and test the Plugin by running the following 
@@ -109,11 +109,11 @@ The expected command output is shown below:
 OK: Drive '/dev/sda' temperature: 24 C status: ok | /dev/sda#drive.temperature.celsius 
 ```
 
-This command would trigger a WARNING alarm if the disk's temperature is reported as over 
+This command would trigger a WARNING alarm if the disk's temperature was reported as over 
 30° (`---warning-temperature='30'`). 
 
-A CRITICAL alarm would be trigger is the temperature is reported as over 50° or the status 
-isn't equal to 'ok' (`--critical-temperature='50' --critical-status='%{status} !~ /ok/i'`).
+A CRITICAL alarm would be triggered if the temperature was reported as over 50° or the status 
+wasn't equal to 'ok' (`--critical-temperature='50' --critical-status='%{status} !~ /ok/i'`).
 
 All available options for a given mode can be displayed by adding the 
 `--help` parameter to the command:
