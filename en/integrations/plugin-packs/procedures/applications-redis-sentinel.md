@@ -54,7 +54,7 @@ It brings the following Service Templates:
 
 ## Prerequisites
 
-To control your Redis Sentinel, the Poller should be able to perform ```redis-cli``` requests over TCP/26379 port (by default).
+To control your Redis Sentinel, the Poller should be able to perform ```redis-cli``` requests over the TCP/26379 port (by default).
 The following commands are used:
 * sentinel ckquorum <cluster_name>
 * sentinel masters
@@ -98,9 +98,9 @@ yum install centreon-pack-applications-redis-sentinel
 ### Host
 
 * Log into Centreon and add a new Host through **Configuration > Hosts**
-* Fill the **Name**, **Alias** & **IP Address / DNS** fields according to your *Redis Sentinel* server settings
+* Fill the **Name**, **Alias** & **IP Address / DNS** fields according to your **Redis Sentinel** server settings
 * Select the *applications-redis-sentinel-custom* template to apply to the Host
-* Once the template applied, some Macros marked as 'Mandatory' hereafter have to be configured.
+* Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
 
 | Mandatory | Name             | Description                                                                  |
 |:----------|:-----------------|:-----------------------------------------------------------------------------|
@@ -109,9 +109,9 @@ yum install centreon-pack-applications-redis-sentinel
 |           | SENTINELPASSWORD | Sentinel password                                                            |
 |           | EXTRAOPTIONS     | Any extra option you may want to add to the command (eg. a --tls --insecure) |
 
-## How to install _redis-cli_ 6.x ?
+## How to install redis-cli 6.x ?
 
-To use _tls_ and/or ACL users, you need _redis-cli_ >= 6.x.
+To support TLS and/or ACL users, you need **redis-cli** >= 6.x.
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -125,7 +125,7 @@ yum --enablerepo=remi install redis
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-## How to check in the CLI that the configuration is OK and what are the main options for ? 
+## How to check in the CLI that the configuration is OK and what are the main options for? 
 
 Once the plugin is installed, log into your Centreon Poller CLI using the 
 **centreon-engine** user account and test the Plugin by running the following 

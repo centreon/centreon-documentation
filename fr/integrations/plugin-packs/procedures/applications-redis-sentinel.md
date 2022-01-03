@@ -52,9 +52,9 @@ Il apporte les Modèles de Service suivants :
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-## Prerequisites
+## Prérequis
 
-Afin de superviser Redis Sentinel, le collecteur doit pouvoir réaliser des requêtes avec l'utilitaire ```redis-cli``` sur le port TCP/26379 (par défaut).
+Afin de superviser Redis Sentinel, le collecteur doit pouvoir réaliser des requêtes avec l'utilitaire **redis-cli** sur le port TCP/26379 (par défaut).
 Voici la liste des commandes utilisées:
 * sentinel ckquorum <cluster_name>
 * sentinel masters
@@ -98,10 +98,10 @@ yum install centreon-pack-applications-redis-sentinel
 ### Hôte
 
 * Ajoutez un Hôte à Centreon depuis la page **Configuration > Hôtes**
-* Complétez les champs **Nom**,**Alias** & **IP Address / DNS** correspondant à votre serveur **Redis Sentinel**.
+* Complétez les champs **Nom**, **Alias** & **IP Address / DNS** correspondant à votre serveur **Redis Sentinel**.
 * Appliquez le Modèle d'Hôte **applications-redis-sentinel-custom**
 
-* Une fois le modèle appliqué, les Macros ci-dessous indiquées comme requises (*Mandatory*) doivent être renseignées 
+* Une fois le modèle appliqué, renseignez les macros correspondantes. Attention, certaines macros sont obligatoires ("mandatory").
 
 | Mandatory | Name             | Description                                                                  |
 |:----------|:-----------------|:-----------------------------------------------------------------------------|
@@ -110,9 +110,9 @@ yum install centreon-pack-applications-redis-sentinel
 |           | SENTINELPASSWORD | Sentinel password                                                            |
 |           | EXTRAOPTIONS     | Any extra option you may want to add to the command (eg. a --tls --insecure) |
 
-## Comment installer _redis-cli_ 6.x ?
+## Comment installer redis-cli 6.x ?
 
-Pour le support _tls_ et des utilisateurs ACLs, une version 6.x minimum de _redis-cli_ est nécessaire.
+Pour le support TLS et des utilisateurs ACLs, une version 6.x minimum de **redis-cli** est nécessaire.
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -176,4 +176,4 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 ### Diagnostic des erreurs communes
 
 Rendez-vous sur la [documentation dédiée](../tutorials/troubleshooting-plugins.html)
-pour le diagnostique des erreurs commununes des Plugins Centreon.
+pour le diagnostic des erreurs communes des Plugins Centreon.
