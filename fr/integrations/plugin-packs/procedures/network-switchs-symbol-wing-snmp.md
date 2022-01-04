@@ -88,7 +88,7 @@ yum install centreon-plugin-Network-Symbol-Wing-Snmp
 yum install centreon-plugin-Network-Symbol-Wing-Snmp
 ```
 
-2. Sur le serveur Central Centreon, installer le RPM du Pack **Symbol WiNG switch SNMP**:
+2. Sur le serveur Central Centreon, installer le RPM du Pack **Symbol WiNG switch SNMP** :
 
  ```bash
 yum install centreon-pack-network-switchs-symbol-wing-snmp
