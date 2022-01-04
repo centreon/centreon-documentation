@@ -460,6 +460,7 @@
                     "integrations/plugin-packs/procedures/applications-rabbitmq-restapi",
                     "integrations/plugin-packs/procedures/applications-rapidrecovery-snmp",
                     "integrations/plugin-packs/procedures/applications-redis-rlec-restapi",
+                    "integrations/plugin-packs/procedures/applications-redis-sentinel",
                     "integrations/plugin-packs/procedures/applications-rubrik-restapi",                    
                     "integrations/plugin-packs/procedures/applications-rudder-restapi",
                     "integrations/plugin-packs/procedures/applications-salesforce-restapi",
