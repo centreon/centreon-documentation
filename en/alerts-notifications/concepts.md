@@ -47,7 +47,7 @@ In addition to their status, resources can be in several states:
 
 ## Status types
 
-The status of a resource can have 2 types:
+The status of a resource can have one of these 2 types:
 
 -   SOFT: Signifies that an incident has just been detected and that it
     has to be confirmed.
