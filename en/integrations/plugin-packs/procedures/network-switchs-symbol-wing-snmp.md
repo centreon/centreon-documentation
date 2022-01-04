@@ -109,9 +109,9 @@ yum install centreon-pack-network-switchs-symbol-wing-snmp
 If you are using SNMP Version 3, use the SNMPEXTRAOPTIONS Macro to configure
 your own SNMPv3 credentials combo.
 
-| Mandatory | Name             | Description                                              |
-|:----------|:-----------------|:---------------------------------------------------------|
-|           | SNMPEXTRAOPTIONS | (Default: 'Configure your own SNMPv3 credentials combo') |
+| Mandatory | Name             | Description                                 |
+|:----------|:-----------------|:--------------------------------------------|
+|           | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo |
 
 ## How to check in the CLI that the configuration is OK and what are the main options for ? 
 
