@@ -554,6 +554,7 @@
                     "integrations/plugin-packs/procedures/cloud-azure-analytics-eventhubs",
                     "integrations/plugin-packs/procedures/cloud-azure-network-expressroute",
                     "integrations/plugin-packs/procedures/cloud-azure-network-firewall",
+                    "integrations/plugin-packs/procedures/cloud-azure-compute-aks",
                     "integrations/plugin-packs/procedures/cloud-azure-compute-functions",
                     "integrations/plugin-packs/procedures/cloud-azure-network-frontdoor",
                     "integrations/plugin-packs/procedures/cloud-azure-management-insightsmetrics",
