@@ -23,7 +23,7 @@ Les modules suivants doivent être installés séparément et nécessitent une l
 - [Anomaly Detection](../monitoring/anomaly-detection.html)
 - [Service mapping (BAM)](../service-mapping/install.html)
 - [Vues graphiques (MAP)](../graph-views/install.html)
-- [Reporting (MBI)](https://docs.centreon.com/current/fr/reporting/installation.html)
+- [Reporting (MBI)](../reporting/installation.html)
 
 ## Voir les modules soumis à licence
 
