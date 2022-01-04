@@ -104,7 +104,7 @@ yum install centreon-pack-network-switchs-symbol-wing-snmp
 
 * Ajoutez un Hôte à Centreon depuis la page **Configuration > Hôtes**.
 * Complétez les champs **Nom**,**Alias** & **IP Address/DNS** correspondant à votre serveur **Symbol WiNG**.
-* Appliquez le Modèle d'Hôte **Net-Symbol-Wing-SNMP-custom** 
+* Appliquez le Modèle d'Hôte **Net-Symbol-Wing-SNMP-custom** .
 
 Si vous utilisez SNMP en version 3, vous devez configurer les paramètres
 spécifiques associés via la macro SNMPEXTRAOPTIONS.
