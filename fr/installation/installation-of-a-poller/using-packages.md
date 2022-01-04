@@ -212,7 +212,7 @@ Suivre ensuite les instructions
 1. Saisir le mot de passe :
 
     ``` shell
-    192.168.0.1: please enter your password:
+    Please enter the password of 192.168.0.1:
     ```
 
 2. Sélectionner l'adresse IP si plusieurs interfaces réseau existent:
@@ -239,7 +239,7 @@ Suivre ensuite les instructions
     type: poller
     address: 192.168.0.2
     
-    Do you want to register this server with those informations ? (y/n)y
+    Do you want to register this server with those information? (y/n): y
     ```
 
 Vous recevrez la validation du serveur Centreon central ou du serveur Remote Server :
