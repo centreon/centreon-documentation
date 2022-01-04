@@ -21,7 +21,7 @@ Les modules suivants doivent être installés séparément et nécessitent une l
 - [Plugin Packs](../monitoring/pluginpacks.html#installation)
 - [Auto Discovery](../monitoring/discovery/installation.html)
 - [Anomaly Detection](../monitoring/anomaly-detection.html)
-- [Service mapping (BAM)](https://docs.centreon.com/current/fr/service-mapping/install.html)
+- [Service mapping (BAM)](../service-mapping/install.html)
 - [Vues graphiques (MAP)](https://docs.centreon.com/current/fr/graph-views/install.html)
 - [Reporting (MBI)](https://docs.centreon.com/current/fr/reporting/installation.html)
 
