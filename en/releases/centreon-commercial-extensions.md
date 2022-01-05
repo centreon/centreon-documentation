@@ -432,6 +432,18 @@ standalone SSH connections.
 
 ## Centreon License Manager
 
+### 20.10.4
+
+Release date: `January 5, 2022`
+
+#### Bug fixes
+
+- Fixed getting fingerprint on Safari
+
+#### Security fixes
+
+- Packaging, remove .gitignore files
+
 ### 20.10.3
 
 `May 6, 2021`
