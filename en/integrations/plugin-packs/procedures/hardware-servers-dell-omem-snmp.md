@@ -23,18 +23,18 @@ It brings the following Service Templates:
 
 <!--Hardware-->
 
-| Metric name                                              | Description                                                    | Unit  |
-| :------------------------------------------------------- | :------------------------------------------------------------- | :---- |
-| *chassis_num*#hardware.chassis.power.watt                | Temperature of the sensor                                      | W     |
-| iom status                                               | Current IOM subsystem status                                   |       |
-| redundancy status                                        | Current redundancy status                                      |       |
-| power status                                             | Current power subsystem health status                          |       |
-| fan status                                               | Current fan subsystem health status                            |       |
-| blade status                                             | Current blade subsystem health status                          |       |
-| temperature status                                       | Current temp sensor subsystem health status                    |       |
-| mm status                                                | Current management module status                               |       |
-| psu status                                               | Current status of the power supply                             |       |
-| chassis ambient temperature#hardware.temperature.celsius | Ambient temperature reading for the chassis front panel module | C     |
+| Metric name                               | Description                                                    | Unit  |
+| :---------------------------------------- | :------------------------------------------------------------- | :---- |
+| *chassis_num*#hardware.chassis.power.watt | Temperature of the sensor                                      | W     |
+| iom status                                | Current IOM subsystem status                                   |       |
+| redundancy status                         | Current redundancy status                                      |       |
+| power status                              | Current power subsystem health status                          |       |
+| fan status                                | Current fan subsystem health status                            |       |
+| blade status                              | Current blade subsystem health status                          |       |
+| temperature status                        | Current temp sensor subsystem health status                    |       |
+| mm status                                 | Current management module status                               |       |
+| psu status                                | Current status of the power supply                             |       |
+| chassis#hardware.temperature.celsius      | Ambient temperature reading for the chassis front panel module | C     |
 
 <!--Uptime-->
 
