@@ -596,6 +596,8 @@ configuration value:
 
 ### 20.04.6
 
+Release date: `January 5, 2022`
+
 #### Security fixes
 
 - Packaging, remove .gitignore files
