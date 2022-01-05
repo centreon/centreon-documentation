@@ -15,7 +15,7 @@ It brings the following Service Templates:
 | Service Alias | Service Template                      | Default | Discovery |
 |:--------------|:--------------------------------------|:--------|:----------|
 | Cpu           | Net-Lenovo-Rackswitch-Cpu-SNMP        | X       |           |
-| Hardware      | Net-Lenovo-Rackswitch-Memory-SNMP     | X       |           |
+| Hardware      | Net-Lenovo-Rackswitch-Hardware-SNMP   | X       |           |
 | Interfaces    | Net-Lenovo-Rackswitch-Interfaces-SNMP |         | X         |
 | Memory        | Net-Lenovo-Rackswitch-Memory-SNMP     | X       |           |
 | Uptime        | Net-Lenovo-Rackswitch-Uptime-SNMP     | X       |           |
