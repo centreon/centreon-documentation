@@ -15,7 +15,7 @@ It brings the following Service Templates:
 | Service Alias | Service Template                      | Default | Discovery |
 |:--------------|:--------------------------------------|:--------|:----------|
 | Cpu           | Net-Lenovo-Rackswitch-Cpu-SNMP        | X       |           |
-| Hardwar       | Net-Lenovo-Rackswitch-Memory-SNMP     | X       |           |
+| Hardware      | Net-Lenovo-Rackswitch-Memory-SNMP     | X       |           |
 | Interfaces    | Net-Lenovo-Rackswitch-Interfaces-SNMP |         | X         |
 | Memory        | Net-Lenovo-Rackswitch-Memory-SNMP     | X       |           |
 | Uptime        | Net-Lenovo-Rackswitch-Uptime-SNMP     | X       |           |
@@ -82,7 +82,7 @@ To use this pack, the SNMP service must be properly configured on your device.
 
 ### Network flow
 
-The target server must be reachable from the Centreon Poller on the UDP/161 SNMP
+The target equipment must be reachable from the Centreon Poller on the UDP/161 SNMP
 port.
 
 ## Setup

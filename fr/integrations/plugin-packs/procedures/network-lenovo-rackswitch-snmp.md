@@ -15,7 +15,7 @@ Il apporte les Modèles de Service suivants :
 | Service Alias | Service Template                      | Default | Discovery |
 |:--------------|:--------------------------------------|:--------|:----------|
 | Cpu           | Net-Lenovo-Rackswitch-Cpu-SNMP        | X       |           |
-| Hardwar       | Net-Lenovo-Rackswitch-Memory-SNMP     | X       |           |
+| Hardware      | Net-Lenovo-Rackswitch-Memory-SNMP     | X       |           |
 | Interfaces    | Net-Lenovo-Rackswitch-Interfaces-SNMP |         | X         |
 | Memory        | Net-Lenovo-Rackswitch-Memory-SNMP     | X       |           |
 | Uptime        | Net-Lenovo-Rackswitch-Uptime-SNMP     | X       |           |
@@ -83,7 +83,7 @@ Afin de superviser votre équipement, le SNMP v2 ou v3 doit être configuré.
 ### Flux réseau
 
 La communication doit être possible sur le port UDP 161 depuis le collecteur
-Centreon vers le serveur Linux supervisé.
+Centreon vers l'équipement supervisé.
 
 ## Installation
 
