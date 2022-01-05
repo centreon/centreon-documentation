@@ -88,9 +88,9 @@ yum install centreon-pack-applications-awa-jmx
 * Select the **applications-awa-jmx-custom** template to apply to the Host
 * Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
 
-| Mandatory | Name         | Description                                                                                     |
-|:----------|:-------------|:------------------------------------------------------------------------------------------------|
-|           | EXTRAOPTIONS | (Default: 'Any extra option you may want to add to every command\_line (eg. a --verbose flag)') |
+| Mandatory | Name         | Description                                                                        |
+|:----------|:-------------|:-----------------------------------------------------------------------------------|
+|           | EXTRAOPTIONS | Any extra option you may want to add to every command\_line (eg. a --verbose flag) |
 
 ## How to check in the CLI that the configuration is OK and what are the main options for? 
 

@@ -22,10 +22,10 @@ It brings the following Service Template:
 
 <!--Temperatures-->
 
-| Metric Name | Unit                    |
-|:------------|:------------------------|
-| status      | string                  |
-| temperature | celsius or fahrenheit |
+| Metric Name                              | Unit                    |
+|:-----------------------------------------|:------------------------|
+| status                                   | string                  |
+| drive_name#drive.temperature.<temp_unit> | celsius or fahrenheit   |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -106,7 +106,7 @@ command:
 The expected command output is shown below:
 
 ```bash
-OK: Drive '/dev/sda' temperature: 24 C status: ok | /dev/sda#drive.temperature.celsius 
+OK: Drive '/dev/sda' temperature: 24 C status: ok | '/dev/sda#drive.temperature.celsius'=24C;0:30;0:50;;
 ```
 
 This command would trigger a WARNING alarm if the disk's temperature was reported as over 

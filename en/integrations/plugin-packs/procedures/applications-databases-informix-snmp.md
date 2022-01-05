@@ -68,9 +68,9 @@ It brings the following Service Templates:
 
 <!--Sessions-->
 
-| Metric Name | Unit |
-|:------------|:-----|
-| sessions    |      |
+| Metric Name | Unit  |
+|:------------|:------|
+| sessions    | count |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 

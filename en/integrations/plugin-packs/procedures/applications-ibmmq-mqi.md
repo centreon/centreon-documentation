@@ -27,8 +27,8 @@ It brings the following Service Templates:
 | Metric Name                       | Unit   |
 |:----------------------------------|:-------|
 | status                            | string |
-| channel.traffic.in.bitspersecond  |        |
-| channel.traffic.out.bitspersecond |        |
+| channel.traffic.in.bitspersecond   | b/s       |
+| channel.traffic.out.bitspersecond | b/s      |
 
 <!--Queue-Manager-->
 
