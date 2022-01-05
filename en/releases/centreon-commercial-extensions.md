@@ -408,6 +408,8 @@ standalone SSH connections.
 
 ### 20.10.4
 
+Release date: `January 5, 2022`
+
 #### Bug fixes
 
 - Fixed getting fingerprint on Safari
