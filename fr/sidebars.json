@@ -1020,6 +1020,7 @@
             },
             {
                 "ids": [
+                    "integrations/plugin-packs/procedures/virtualization-hpe-simplivity-restapi",
                     "integrations/plugin-packs/procedures/virtualization-hyperv-2012-nrpe",
                     "integrations/plugin-packs/procedures/virtualization-nutanix-snmp",
                     "integrations/plugin-packs/procedures/virtualization-proxmox-ve-restapi",
