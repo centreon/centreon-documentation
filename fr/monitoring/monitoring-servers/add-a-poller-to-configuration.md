@@ -120,7 +120,7 @@ recommandé) ou en utilisant le protocole SSH.
     > Vous pouvez copier la configuration en sélectionnant le contenu de la pop-in
     > pour la coller dans un fichier de configuration personnalisé.
 
-3. Démarrer le démon Gorgone :
+3. Démarrer le daemon Gorgone :
 
     Depuis le Poller, exécutez la commande suivante pour démarrer le service
     Gorgone :
