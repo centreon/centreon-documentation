@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'ec2-fleet' } 
+    agent { label 'C++' } 
     stages {
 
       stage('Install documentation dependencies') {
