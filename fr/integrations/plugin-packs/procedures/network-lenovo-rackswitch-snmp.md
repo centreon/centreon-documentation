@@ -146,7 +146,7 @@ l'utilisateur **centreon-engine**:
     --snmp-version='2c' \
     --snmp-community='my-snmp-community' \
     --warning-usage-prct='' \
-    --critical-usage-prc='' \
+    --critical-usage-prct='' \
     --verbose
 ```
 
