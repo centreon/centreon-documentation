@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'C++' } 
+    agent any
     stages {
 
       stage('Install documentation dependencies') {
