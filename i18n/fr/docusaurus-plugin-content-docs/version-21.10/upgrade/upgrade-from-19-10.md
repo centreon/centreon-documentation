@@ -304,9 +304,9 @@ nouveaux fichiers de configuration, suivez ces étapes :
 2. Redémarrer Broker et Engine sur le serveur Central en exécutant la commande
 suivante:
 
-    ```shell
-    systemctl restart cbd centengine
-    ```
+  ```shell
+  systemctl restart cbd centengine
+  ```
 
 ### Montée de version du serveur MariaDB
 

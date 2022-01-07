@@ -334,7 +334,7 @@ Position Status [OK]
 
 > Si la synchronisation présente des `KO` vous devez corriger ces dernières en vous aidant du [guide d'opération](operating-guide).
 
-### Retour en situation nominal
+### Retour en situation nominale
 
 Afin de revenir en situation nominale, vous devez lancer la bascule des ressources.
 
@@ -552,7 +552,7 @@ Active resources:
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-### Retour en situation nominal
+### Retour en situation nominale
 
 Pour vérifier les différentes règles iptables configurées sur le nœud primaire, éxecuter la commande suivante :
 
@@ -679,7 +679,7 @@ Position Status [OK]
 ## Simuler la perte du nœud primaire
 
 Afin de simuler une coupure réseau qui isolerait le nœud primaire, vous pouvez utiliser `iptables` pour bloquer le trafic vers le nœud secondaire et le Qdevice.
-Le nœud primaire sera complètement exclu du cluster. Le nœud secondaire gagne la majorité avec le QDevice.```
+Le nœud primaire sera complètement exclu du cluster. Le nœud secondaire gagne la majorité avec le QDevice.
 
 ### Exécution
 
@@ -797,7 +797,7 @@ No active resources
 
 Ce test permet de vérifier qu'en cas d'indisponibilité du nœud primaire, les ressources basculeront sur le nœud secondaire et permet une continuité de service.
 
-### Retour en situation nominal
+### Retour en situation nominale
 
 Pour vérifier les différentes règles iptables configurées sur le nœud primaire, exécuter la commande suivante :
 

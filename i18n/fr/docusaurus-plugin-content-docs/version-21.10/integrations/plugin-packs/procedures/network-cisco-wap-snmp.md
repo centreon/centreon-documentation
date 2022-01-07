@@ -106,7 +106,7 @@ yum install centreon-plugin-Network-Cisco-Wap-Snmp
 
 2. Sur le serveur Central Centreon, installer le RPM du Plugin Pack *Cisco Wap SNMP* :
 
- ```bash
+```bash
 yum install centreon-pack-network-cisco-wap-snmp
 ```
 

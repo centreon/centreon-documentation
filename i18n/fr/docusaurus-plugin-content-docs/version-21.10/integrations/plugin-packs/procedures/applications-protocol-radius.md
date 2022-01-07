@@ -63,7 +63,7 @@ yum install centreon-plugin-Applications-Protocol-Radius
 
 2. Sur le serveur Central Centreon, installer le RPM du Pack *Radius Service*:
 
- ```bash
+```bash
 yum install centreon-pack-applications-protocol-radius
 ```
 

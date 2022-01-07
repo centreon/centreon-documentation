@@ -32,10 +32,10 @@ La machine hôte doit avoir les caractéristiques suivantes :
 
 4. Dans la section 3, **Download your image**, cliquez sur le bouton **Download** à côté de **VMWare Virtual Machine (OVA)**. Une nouvelle page apparaît.
 
-    • Si vous souhaitez être contacté par Centreon, entrez vos informations de contact, puis
+   * Si vous souhaitez être contacté par Centreon, entrez vos informations de contact, puis
 cliquez sur **Download**.
 
-    • Dans le cas contraire, cliquez sur **Direct download**.
+   * Dans le cas contraire, cliquez sur **Direct download**.
 
 5. Le fichier téléchargé est une archive compressée : extrayez son contenu dans le répertoire désiré.
 
@@ -95,9 +95,9 @@ cliquez sur **Download**.
 4. À votre première connexion au serveur, des instructions s’affichent pour vous aider à terminer la
 configuration :
 
-    ![image](../../assets/installation/terminal_centreon.png)
+   ![image](../../assets/installation/terminal_centreon.png)
 
-    Définissez les paramètres suivants :
+   Définissez les paramètres suivants :
 
 - Le fuseau horaire (timezone) du serveur Centreon. Par défaut, celui-ci est UTC. Cela définira l'heure des différents logs de Centreon.
 
@@ -152,13 +152,13 @@ entrez:
 5. Ajoutez une partition pour la table MariaDB : cette étape est obligatoire. Votre serveur ne
 fonctionnera pas si vous ne l’exécutez pas.
 
-    1. Connectez-vous en tant que l’utilisateur `centreon` :
+   1. Connectez-vous en tant que l’utilisateur `centreon` :
 
-        ```shell
-        su - centreon
-        ```
+     ```shell
+     su - centreon
+     ```
 
-    2. Entrez la commande suivante :
+   2. Entrez la commande suivante :
 
         ```shell
         /bin/php /usr/share/centreon/cron/centreon-partitioning.php
@@ -168,13 +168,13 @@ fonctionnera pas si vous ne l’exécutez pas.
 
         ![image](../../assets/installation/partition_created.png)
 
-    3. Connectez-vous à nouveau en tant que l'utilisateur `root` :
+   3. Connectez-vous à nouveau en tant que l'utilisateur `root` :
 
         ```shell
         exit
         ```
 
-    4. Redémarrez le processus Centreon broker pour que les changements soient appliqués :
+   4. Redémarrez le processus Centreon broker pour que les changements soient appliqués :
 
         ```shell
         systemctl restart cbd centengine gorgoned

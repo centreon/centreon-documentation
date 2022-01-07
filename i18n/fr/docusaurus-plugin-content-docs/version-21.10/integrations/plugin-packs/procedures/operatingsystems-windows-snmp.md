@@ -128,9 +128,9 @@ Centreon vers le serveur Windows supervisé.
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des
 serveurs Windows:
 
-    ``` shell
-    yum install centreon-plugin-Operatingsystems-Windows-Snmp
-    ```
+  ``` shell
+  yum install centreon-plugin-Operatingsystems-Windows-Snmp
+  ```
 
 2. Installer le pack depuis la page `Configuration > Plugin Packs`
 
@@ -139,9 +139,9 @@ serveurs Windows:
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des
 serveurs Windows:
 
-    ``` shell
-    yum install centreon-plugin-Operatingsystems-Windows-Snmp
-    ```
+  ``` shell
+  yum install centreon-plugin-Operatingsystems-Windows-Snmp
+  ```
 
 2. Installer le RPM contenant les modèles de supervision
 

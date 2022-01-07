@@ -45,7 +45,7 @@ Principales fonctionnalités:
     Word et PPT
 -   Visualisation web & interactive des statistiques grâce aux widgets
     fournis exploitables directement sur Centreon
--   Publication des rapports par email et par d\'autres protocoles
+-   Publication des rapports par email et par d'autres protocoles
     standards (FTP, CIFS, ...)
 -   Gestion des listes de contrôle d'accès
 -   Interface d'administration et d'exploitation intégrée dans

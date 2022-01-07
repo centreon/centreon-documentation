@@ -44,11 +44,11 @@ Pour créer un groupe d'accès :
 4. Pour ajouter des utilisateurs (contacts) ou des groupes de contacts au groupe d'accès, utilisez le tableau **Contacts liés**/**Groupes de contacts liés**. (Sélectionnez le ou les utilisateurs désirés dans la colonne **Disponible** puis cliquez sur **Ajouter**. 
 L'utilisateur ou le groupe d'utilisateurs passe dans la colonne **Sélectionné**.)
 
-    > Les groupes de contacts peuvent être des groupes provenant de l'annuaire LDAP
-    > connecté à l'interface Centreon.
-    >
-    > Les groupes créés dans Centreon ne doivent pas avoir le même nom que les groupes
-    > LDAP. Si c'est le cas, les groupes dans Centreon devront être renommés.
+  > Les groupes de contacts peuvent être des groupes provenant de l'annuaire LDAP
+  > connecté à l'interface Centreon.
+  >
+  > Les groupes créés dans Centreon ne doivent pas avoir le même nom que les groupes
+  > LDAP. Si c'est le cas, les groupes dans Centreon devront être renommés.
 
 5. Dans l'onglet **Autorisations**, définissez les droits désirés sur le groupe d'accès en choisissant les filtres d'accès aux [menus](#filtres-daccès-aux-menus), [ressources](#filtres-daccès-aux-ressources) et [actions](#filtres-daccès-sur-les-actions) (si vous les avez déjà créés).
 

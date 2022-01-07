@@ -143,7 +143,7 @@ Ce Plugin-Pack est conçu de manière à avoir dans Centreon un hôte par équip
 Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle Net-Dell-Os10-SNMP-custom. 
 Il est nécessaire de remplir les valeurs des champs "SNMP Community" et "SNMP Version".
 
-:warning: Si vous utilisez SNMP version 3, sélectionnez la version SNMP appropriée 
+> Si vous utilisez SNMP version 3, sélectionnez la version SNMP appropriée 
 et configurez les paramètres SNMP v3 via la macro SNMPEXTRAOPTIONS.
 
 | Mandatory   | Name                    | Description                                                                                 |
@@ -152,7 +152,7 @@ et configurez les paramètres SNMP v3 via la macro SNMPEXTRAOPTIONS.
 
 ## FAQ
 
-#### Comment faire le test en ligne de commande et que signifient les principales options ?
+### Comment faire le test en ligne de commande et que signifient les principales options ?
 
 Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande depuis votre Collecteur Centreon avec l'utilisateur _centreon-engine_ :
 

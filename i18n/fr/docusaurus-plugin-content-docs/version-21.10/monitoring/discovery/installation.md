@@ -21,7 +21,7 @@ Extensions > Gestionnaire**.
 4. Cliquez sur l’icône d’installation correspondant au module **Centreon Auto
 Discovery**. Le module est maintenant installé :
 
-    ![image](../../assets/monitoring/discovery/install-after.png)
+  ![image](../../assets/monitoring/discovery/install-after.png)
 
 5. Rendez-vous dans le menu **Configuration > Packs de plugins** et [installez les plugin packs
 ](../pluginpacks#installation-du-pack) correspondant aux fournisseurs de découverte désirés.

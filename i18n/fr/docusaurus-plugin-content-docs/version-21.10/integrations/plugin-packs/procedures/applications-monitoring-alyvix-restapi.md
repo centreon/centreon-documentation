@@ -65,7 +65,7 @@ Le collecteur Centreon en charge de la supervision des ressources doit égalemen
 le(s) port(s) TCP/80 ou TCP/443.
 
 Pour plus d'informations sur la configuration d'Alyvix Server et l'implémentation des *testcases*, vous pouvez consulter la documentation
-officielle: https://www.alyvix.com/learn/\.
+officielle: https://www.alyvix.com/learn/.
 
 ## Installation
 
