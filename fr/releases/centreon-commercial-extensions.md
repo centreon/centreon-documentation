@@ -160,7 +160,7 @@ liens
 
 - [Configuration] Fixed an error when generating config if a disabled BA is connected to an escalation task
 - [Configuration] BA escalation configuration is not exported to Remote Server anymore if the BA is not linked to this Remote Server
-- [Monitoring] Fixed Business Activities widget height doesn't adapt
+- [Monitoring] Business Activities widget now scales to the number of BAs
 
 ### 20.04.8
 
