@@ -12,7 +12,7 @@ pipeline {
       stage('Build documentation') {
         steps {
           echo 'Using yarn to build documentation'
-          sh 'export NODE_OPTIONS=--max_old_space_size=8192 && yarn build'
+          sh 'export NODE_OPTIONS=--max_old_space_size=32000 && yarn build'
         }
       }
       stage('Deploy documentation to staging') {

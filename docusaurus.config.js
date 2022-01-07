@@ -42,19 +42,23 @@ const config = {
           editUrl:
             'https://github.com/centreon/centreon-documentation/edit/staging/',
           showLastUpdateTime: true,
+          includeCurrentVersion: false,
           onlyIncludeVersions: ['21.10', '21.04', '20.10', '20.04'],
           versions: {
+            22.04: {
+              label: '🥴 22.04',
+            },
             '21.10': {
-              label: '💸  21.10',
+              label: '💸 21.10',
             },
             21.04: {
-              label: '🐲  21.04',
+              label: '🐲 21.04',
             },
             '20.10': {
-              label: '🏖️  20.10',
+              label: '🏖️ 20.10',
             },
             20.04: {
-              label: '🏂  20.04',
+              label: '🏂 20.04',
             },
           },
         },
