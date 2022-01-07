@@ -156,7 +156,7 @@ If you have feature requests or want to report a bug, please contact support.
 #### Bugfixes
 
 - [Configuration] Fixed an error when generating poller configuration with a disabled BA linked to an escalation task
-- [Configuration] Fixed the relations between BA and escalations are exported in RS engine conf regardless the BA is linked to the RS or not
+- [Configuration] BA escalation configuration is not exported to Remote Server anymore if the BA is not linked to this Remote Server
 - [Monitoring] Business Activities widget now scales to the number of BAs
 
 
