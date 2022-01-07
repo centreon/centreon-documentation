@@ -51,6 +51,7 @@ Release date: `December 16, 2021`
  - Metrics labels with specific characters and white spaces are now supported
  - Service elements in a view are not clickable anymore
  - Metrics not following the naming specification do not cause map server to crash anymore
+   > You may need to apply the following [fix](../graph-views/troubleshooter.html#metric-links-are-black-after-updating-map).
 
 #### Enhancements
 
