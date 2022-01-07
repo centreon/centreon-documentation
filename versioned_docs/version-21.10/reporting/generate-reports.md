@@ -36,6 +36,7 @@ Description of columns:
 
 In the "Name" column on the table, an icon is displayed according on
 the job state:
+
   Icon                                                  | Status 
   ------------------------------------------------------|------------------------------------
   ![image](../assets/reporting/guide/clock_stopped.png) | Job stopped

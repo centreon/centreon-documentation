@@ -13,7 +13,7 @@ This plugin pack requires the use of:
     target server as described on
     [documentation](http://documentation.centreon.com)
 
-Note: Powershell and `DellStorage.ApiCommandSet.dll` have to be installed on
+Powershell and `DellStorage.ApiCommandSet.dll` have to be installed on
 Windows Server. You'll need to add the file `powershell.exe.config` in directory
 `C:WindowsSystem32WindowsPowerShellv1.0`:
 
@@ -25,16 +25,16 @@ Windows Server. You'll need to add the file `powershell.exe.config` in directory
         </startup> 
     </configuration>
 
-Note: If you use the NSClient++ installer provided by Centreon, the plugin is
+If you use the NSClient++ installer provided by Centreon, the plugin is
 already included in centreon\_plugins.exe configured in NSClient++
 
-Note: The plugin uses the Compellent Entreprise Manager. So you need information
+The plugin uses the Compellent Entreprise Manager. So you need information
 to connect.
 
-Warning: Set host macro `CEMUSER`, `CEMPASSWORD`, `CEMADDRESS`,
+> Set host macro `CEMUSER`, `CEMPASSWORD`, `CEMADDRESS`,
 `DELLSTORAGESDKDLL` (the complete path of `DellStorage.ApiCommandSet.dll` file)
 
-Warning: Don't use '\!' character in centreon macro configuration\!\!\!
+> Don't use the '!' character in centreon macro configuration!
 
 ## Centreon Configuration
 

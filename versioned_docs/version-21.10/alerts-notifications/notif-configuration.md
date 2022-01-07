@@ -5,20 +5,20 @@ title: Configuring notifications
 
 ## Prerequisites
 
-1. Check that the monitoring engine is programmed to send notifications.
+**Step 1**: Check that the monitoring engine is programmed to send notifications.
 
-    1. Go to **Configuration > Pollers > Engine configuration**.
+1. Go to **Configuration > Pollers > Engine configuration**.
 
-    2. Click on the poller you want.
+2. Click on the poller you want.
 
-    3. On the **Check Options** tab, in the **Misc options** section, select **Yes** for the **Notification Option**
+3. On the **Check Options** tab, in the **Misc options** section, select **Yes** for the **Notification Option**
 option. 
 
-    4. Click **Save**.
+4. Click **Save**.
 
-2. Check that your Centreon can send notifications, [e.g. emails](../administration/postfix).
+**Step 2**: Check that your Centreon can send notifications, [e.g. emails](../administration/postfix).
 
-    Notification commands are executed by the poller that monitors the resource: you will need to configure the ability to send notifications on all pollers.
+> Notification commands are executed by the poller that monitors the resource: you will need to configure the ability to send notifications on all pollers.
 
 ## Configuring notifications
 

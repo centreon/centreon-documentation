@@ -24,7 +24,7 @@ To access the API documentation, two possibilities:
 
      `http(s)://{map_server_url}/centreon-studio/api/beta/`
 
--   You don\'t have Centreon MAP, you can preview the API capabilities
+-   You don't have Centreon MAP, you can preview the API capabilities
     here: [Online documentation](https://docs.centreon.com/api/centreon-map/)
 
 Because the Centreon Map API is not trivial to use, here is a scenario

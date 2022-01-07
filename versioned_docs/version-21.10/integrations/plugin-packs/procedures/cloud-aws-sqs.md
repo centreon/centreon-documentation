@@ -86,7 +86,7 @@ yum install awscli
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-> **Warning** For now, it is not possible to use *paws* in the following situations:
+> For now, it is not possible to use *paws* in the following situations:
 > * if you are using a proxy to reach AWS Cloudwatch APIs. 
 > * to automatically add Hosts in Centreon using the *Host Discovery* feature
 

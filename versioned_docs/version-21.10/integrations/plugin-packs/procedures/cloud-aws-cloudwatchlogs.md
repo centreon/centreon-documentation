@@ -10,7 +10,7 @@ and AWS services that you use, in a single, highly scalable service. You can the
 search them for specific error codes or patterns, filter them based on specific fields, 
 or archive them securely for future analysis
 
-> **Warning** This Plugin may generate very huge queries toward CloudWatch Logs API. Make sure to use filtering capability
+> This Plugin may generate very huge queries toward CloudWatch Logs API. Make sure to use filtering capability
 > with ```--group-name``` and ```--stream-name``` options. 
 
 ## Plugin-Pack assets
@@ -64,7 +64,7 @@ yum install awscli
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-> **Warning** For now, it is not possible to use *paws* in the following situations:
+> For now, it is not possible to use *paws* in the following situations:
 > * if you are using a proxy to reach AWS Cloudwatch APIs. 
 > * to automatically add Hosts in Centreon using the *Host Discovery* feature
 

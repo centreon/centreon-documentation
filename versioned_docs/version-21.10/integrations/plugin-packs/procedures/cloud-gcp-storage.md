@@ -109,7 +109,7 @@ yum install centreon-pack-cloud-gcp-storage
 |             | DUMMYSTATUS          | Host state. Default is OK, do not modify it until you know what you are doing               |
 |             | DUMMYOUTPUT          | Host check output. Default is 'This is a dummy check'. Customize it with your own if needed |
 
-> **WARNING**: Service account key file must be stored on Centreon Poller. *centreon-engine* user account must have read privileges on that file. 
+> Service account key file must be stored on Centreon Poller. *centreon-engine* user account must have read privileges on that file. 
 
 ## FAQ
 

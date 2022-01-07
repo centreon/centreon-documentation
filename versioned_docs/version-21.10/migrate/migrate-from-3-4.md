@@ -59,7 +59,7 @@ rsync -avz --exclude centcore/ --exclude log/ /var/lib/centreon root@<IP_NEW_CEN
 rsync -avz /var/spool/centreon/.ssh root@<IP_NEW_CENTREON>:/var/spool/centreon
 ```
 
-> Replace **\<IP_NEW_CENTREON\>** by the IP or the new Centreon server.
+> Replace **<IP_NEW_CENTREON>** by the IP or the new Centreon server.
 
 ### Retrieve databases
 
@@ -79,24 +79,24 @@ rsync -avz /var/spool/centreon/.ssh root@<IP_NEW_CENTREON>:/var/spool/centreon
 3. Export the dumps to the new Centreon 21.10 database server (make sure you
 have enough space for large databases dumps):
 
-    ```shell
-    rsync -avz /tmp/centreon.sql root@<IP_NEW_CENTREON>:/tmp/
-    rsync -avz /tmp/centreon_storage.sql root@<IP_NEW_CENTREON>:/tmp/
-    ```
+  ```shell
+  rsync -avz /tmp/centreon.sql root@<IP_NEW_CENTREON>:/tmp/
+  rsync -avz /tmp/centreon_storage.sql root@<IP_NEW_CENTREON>:/tmp/
+  ```
 
 4. On the Centreon 21.10 database server, drop the original databases and
 create them again:
 
-    ```shell
-    mysql -u root -p
-    ```
+  ```shell
+  mysql -u root -p
+  ```
 
-    ```SQL
-    DROP DATABASE centreon;
-    DROP DATABASE centreon_storage;
-    CREATE DATABASE centreon;
-    CREATE DATABASE centreon_storage;
-    ```
+  ```SQL
+  DROP DATABASE centreon;
+  DROP DATABASE centreon_storage;
+  CREATE DATABASE centreon;
+  CREATE DATABASE centreon_storage;
+  ```
 
 5. Import the previously transfered dumps:
 
@@ -129,7 +129,7 @@ create them again:
     systemctl start mariadb
     ```
 
-> Replace **\<IP_NEW_CENTREON\>** by the IP or the new Centreon server.
+> Replace **<IP_NEW_CENTREON>** by the IP or the new Centreon server.
 
 ### Synchronize the plugins
 
@@ -178,7 +178,7 @@ mv install-21.10.0-YYYYMMDD_HHMMSS/ /usr/share/centreon/www/install/
 > If you use the same IP address or same DNS name between old Centreon webserver
 > and the new one, do a full cache cleanup of your browser to avoid JS issues
 
-Go to *http://\<IP_NEW_CENTREON\>/centreon* URL and perform the upgrade.
+Go to `http://<IP_NEW_CENTREON>/centreon` URL and perform the upgrade.
 
 > If you changed the *centreon* password during the installation process you must
 > follow these steps:

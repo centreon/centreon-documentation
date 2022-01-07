@@ -18,22 +18,22 @@ Be sure to have with you the following information:
   - Read-Only SNMP v3 access (ca have some timeout issue with SNMP v1)
   - IP Address of the equipment
 
-## Configure SNMP on your server
+### Configure SNMP on your server
 
 Follow constructor procedure for your equipment.
 
-## SNMP Permissions
+### SNMP Permissions
 
 Read-Only access.
 
-## Troubleshooting
+### Troubleshooting
 
 Read [Troubleshooting
 SNM](../tutorials/troubleshooting-plugins#snmp-checks).
 
-# Centreon Configuration
+## Centreon Configuration
 
-## Create a host using the appropriate template
+### Create a host using the appropriate template
 
 Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
 the following table:

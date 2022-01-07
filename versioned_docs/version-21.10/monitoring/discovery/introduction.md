@@ -23,7 +23,7 @@ within [Plugin Packs](../pluginpacks).
 1. Create a discovery job for each type of ressource, using the corresponding [Plugin Pack](../pluginpacks). 
 For instance, one job to discover ESX nodes and one job to discover virtual machines in a VMWare cluster.
 
-    For services, create discovery rules: for instance, one rule to discover network interfaces and one rule
+  For services, create discovery rules: for instance, one rule to discover network interfaces and one rule
 to discover disk volumes in a Linux server.
 
 2. The discovery job or rule is performed: you get a list of all new hosts or services that match the Plugin Pack.
