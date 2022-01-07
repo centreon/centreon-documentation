@@ -155,7 +155,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 #### Bugfixes
 
-- [Configuration] Fixed an error when generating config if a disabled BA is connected to an escalation task
+- [Configuration] Fixed an error when generating poller configuration with a disabled BA linked to an escalation task
 - [Configuration] Fixed the relations between BA and escalations are exported in RS engine conf regardless the BA is linked to the RS or not
 - [Monitoring] Fixed Business Activities widget height doesn't adapt
 
