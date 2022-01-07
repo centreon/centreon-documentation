@@ -149,6 +149,17 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon BAM
 
+### 20.04.9
+
+`January 07, 2022`
+
+#### Bugfixes
+
+- [Configuration] Fixed an error when generating config if a disabled BA is connected to an escalation task
+- [Configuration] Fixed the relations between BA and escalations are exported in RS engine conf regardless the BA is linked to the RS or not
+- [Monitoring] Fixed Business Activities widget height doesn't adapt
+
+
 ### 20.04.8
 
 `May 06, 2021`
