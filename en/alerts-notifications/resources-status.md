@@ -115,7 +115,8 @@ You can filter the list of resources according to a number of predefined criteri
 
     - **Resource**: display only hosts, services or metaservices
     - **State**: whether the problem is already acknowledged, in a planned downtime or simply unhandled
-    - **Status**: **OK**, **Up**, **Warning**, **Down**, **Critical**, **Unreachable**, **Unknown**, **Pending**
+    - [**Status**](concepts.html): **OK**, **Up**, **Warning**, **Down**, **Critical**, **Unreachable**, **Unknown**, **Pending**
+    - [**Status type**](concepts.html#status-types): SOFT or HARD 
     - **Host group**
     - **Service group**
     - **Monitoring server**: resources monitored by a specific server (or poller)
@@ -245,7 +246,7 @@ the panel and the header will be colored accordingly.
 
 ### Timeline tab
 
-The **Timeline** tab shows an antichronological list of events that occurred for this service or host. Use the **Event** list to display only the types of event you want.
+The **Timeline** tab shows an antichronological list of events that occurred for this service or host (status alerts, notifications sent, scheduled downtimes, comments). Use the **Event** list to display only the types of event you want.
 
 ![image](../assets/alerts/resources-status/timeline.png)
 

@@ -4,10 +4,12 @@ title: Possible statuses of a resource
 ---
 
 Statuses show the availability of a host, and the availability or performance of a service. Each status has a
-precise meaning for the resource. Each status is determined following
-the monitoring of the resource according to user-defined thresholds.
+precise meaning for the resource. 
+* The statuses and states of a resource
+can be seen on page [Resources Status](resources-status.html). You can filter the page according to these statuses and to certain states.
+* Some statuses are determined according to user-defined thresholds. 
 
-### Host status
+## Host status
 
 The table below summarizes all the possible statuses for a host.
 
@@ -16,8 +18,9 @@ The table below summarizes all the possible statuses for a host.
 | <span style="color:#88b917">UP</span>          | The host is available and reachable |
 | <span style="color:#e00b3d">DOWN</span>        | The host is unavailable             |
 | <span style="color:#818185">UNREACHABLE</span> | The host is unreachable: it [depends](notif-dependencies.html) on a host whose status is **DOWN**                      |
+| <span style="color:#2ad1d4">PENDING</span>     | The host has just been created and has not been checked yet by the monitoring engine |
 
-### Service status
+## Service status
 
 The table below summarizes all the possible statuses for a service.
 
@@ -25,39 +28,34 @@ The table below summarizes all the possible statuses for a service.
 |--------------------------------------------|---------------------------------------------------------------------------|
 | <span style="color:#88b917">OK</span>      | The service presents no problem                                           |
 | <span style="color:#ff9a13">WARNING</span> | The service has reached the warning threshold                             |
-| <span style="color:#e00b3d">CRITICAL</span>    | The service has reached the critical threshold                            |
+| <span style="color:#e00b3d">CRITICAL</span> | The service has reached the critical threshold                            |
 | <span style="color:#bcbdc0">UNKNOWN</span> | The status of the service cannot be checked (e.g.: SNMP agent down, etc.) |
+| <span style="color:#2ad1d4">PENDING</span> | The service has just been created and has not been checked yet by the monitoring engine |
 
-### Advanced statuses
+## States
 
-In addition to the standard statuses, new statuses can be used to add
-additional information:
+In addition to their status, resources can be in several states:
 
--   The <span style="color:#2ad1d4">PENDING</span> status is a status
-    displayed for a service or a host freshly configured but which has
-    not yet been checked by the scheduler.
--   The <span style="color:#818185">UNREACHABLE</span> status is a
-    status indicating that the host ([parent relationship](notif-dependencies.html)) is situated
-    downstream of a host with a DOWN status.
--   The FLAPPING status is a status indicating that the status change
+-   <span style="color:#ae9500">Acknowledged</span>: indicates that the incident on the service or on the host
+    has been taken into account by a user. (See [Acknowledging a problem](acknowledge.html).)
+-   <span style="color:#cc99ff">In downtime</span>: indicates that notifications are temporarily stopped. A [downtime](downtimes.html) can be [planned in advance](downtimes.html#recurrent-downtimes) to avoid receiving alerts during maintenance periods, or be set following an incident.
+
+-   [Flapping](notif-flapping.html): indicates that the status change
     percentage of the resource is very high. This percentage is obtained
-    from calculations performed by the network monitoring engine.
--   The <span style="color:#ae9500">ACKNOWLEDGED</span> status is a
-    status indicating that the incident of the service or of the host
-    has been taken into account by a user.
--   The <span style="color:#cc99ff">DOWNTIME</span> status is a status
-    indicating that the incident of the service or of the host occurred
-    during a downtime period.
+    from calculations performed by the network monitoring engine.  Flapping resources have the following icon in their **Details** panel:
+    ![image](../assets/alerts/flapping_icon.png)
 
-## Status confirmation
+## Status types
 
-A resource can have two states:
+The status of a resource can have one of these 2 types:
 
 -   SOFT: Signifies that an incident has just been detected and that it
     has to be confirmed.
 -   HARD: Signifies that the status of the incident is confirmed. Once
     the status is confirmed, the notification process is engaged
-    (sending of a mail, SMS, etc.).
+    (sending of an email, SMS, etc.).
+
+You can filter the view on the [Resources Status](resources-status.html) page according to the status type.
 
 ### Explanation
 
@@ -80,7 +78,7 @@ Let us imagine the following scenario:
 
 ![image](../assets/configuration/soft_hard_states.png)
 
-| Time | Check attempt | Status   | State | State change | Note                                                                                                                                                                                                          |
+| Time | Check attempt | Status   | Status type | State change | Note                                                                                                                                                                                                          |
 |------|---------------|----------|-------|--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | t+0  | 1/3           | OK       | HARD  | No           | Initial state of the service                                                                                                                                                                                  |
 | t+5  | 1/3           | CRITICAL | SOFT  | Yes          | First detection of a non-OK state. Event handlers execute.                                                                                                                                                    |
