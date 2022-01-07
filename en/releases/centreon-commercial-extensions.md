@@ -58,6 +58,24 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon BAM
 
+### 21.04.1
+
+`January 7, 2022`
+
+#### Improvements
+
+- Add Feature Flipping for Resources Status vs Legacy Pages
+- ACL: Authorize visualisation on daughter Business Activities even if not part of the same Business View
+- Add warning when enabling notifications for a BA, for the user to know about the necessity of setting notification commands
+
+#### Bugfixes
+
+- Fixed the message in popup when deleting "Activités Métiers" (Fr language)
+- Fixed an error when generating poller configuration with a disabled BA linked to an escalation task
+- Fixed the relations between BA and escalations are exported in RS engine conf regardless the BA is linked to the RS or not
+- Fixed the alignment of "required" input text on panel in Add Business Activity panel
+
+
 ### 21.04.0
 
 - Compatibility with Centreon 21.04
