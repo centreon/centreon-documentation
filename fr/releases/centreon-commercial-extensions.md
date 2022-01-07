@@ -159,7 +159,7 @@ liens
 #### Bugfixes
 
 - [Configuration] Fixed an error when generating config if a disabled BA is connected to an escalation task
-- [Configuration] Fixed the relations between BA and escalations are exported in RS engine conf regardless the BA is linked to the RS or not
+- [Configuration] BA escalation configuration is not exported to Remote Server anymore if the BA is not linked to this Remote Server
 - [Monitoring] Fixed Business Activities widget height doesn't adapt
 
 ### 20.04.8
