@@ -30,7 +30,7 @@ To duplicate an object:
 For exemple, to duplicate a Business Activity:
 
 1. Select the Business Activity that you want to duplicate by checking the associated box.
-2. Click on the duplicate icon: <img src="../assets/configuration/common/duplicate_new.png" />
+2. Click on the duplicate icon: <img src={require('../assets/configuration/common/duplicate_new.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 3. Enter the number of extra copies that you want to obtain:
 
     ![image](../assets/configuration/common/duplicate_objects_new.png)
@@ -91,8 +91,8 @@ To enable/disable an object:
 1. Select the objects you want to enable/disable.
 2. Click on the icon you want in the line of the object, or above the list:
 
-    * **Enable**: <img src="../assets/configuration/common/enabled_new.png" />
-    * **Disable**: <img src="../assets/configuration/common/disabled_new.png" />
+    * **Enable**: <img src={require('../assets/configuration/common/enabled_new.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+    * **Disable**: <img src={require('../assets/configuration/common/disabled_new.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 
 <!--Method 2-->
 
@@ -101,8 +101,8 @@ To enable/disable an object:
 
 You can also use the following buttons at the end of the line:
 
-*  **Enable**: <img src="../assets/configuration/common/enabled.png"  />
-* **Disable**: <img src="../assets/configuration/common/disabled.png"  />
+*  **Enable**: <img src={require('../assets/configuration/common/enabled.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+* **Disable**: <img src={require('../assets/configuration/common/disabled.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 
 ![image](../assets/configuration/common/enable_disable.png)
 
@@ -120,7 +120,7 @@ To delete an object:
 <!--Method 1-->
 
 1. Select the objects you want to delete.
-2. Click on the **Delete** icon: <img src="../assets/configuration/common/delete_new.png" />
+2. Click on the **Delete** icon: <img src={require('../assets/configuration/common/delete_new.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 3. Confirm the action.
 
 <!--Method 2-->

@@ -91,7 +91,7 @@ recommandé) ou en utilisant le protocole SSH.
 2. Copier la configuration de Gorgone :
 
     Depuis la liste des collecteurs, cliquez sur l'icône d'action **Gorgone
-    configuration** sur la ligne correspondant à votre serveur distant <img src="../../assets/monitoring/monitoring-servers/gorgone-configuration.png" width="32" />
+    configuration** sur la ligne correspondant à votre serveur distant <img src={require('../../assets/monitoring/monitoring-servers/gorgone-configuration.png').default} style={{width:'32px', marginBottom:'-6px'}} />
 
     Une pop-in affiche la configuration à copier dans le **terminal du serveur
     distant**.
