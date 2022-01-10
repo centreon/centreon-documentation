@@ -1033,7 +1033,7 @@
                     "integrations/plugin-packs/procedures/applications-monitoring-alyvix-restapi",
                     "integrations/plugin-packs/procedures/applications-monitoring-iplabel-datametrie-restapi",
                     "integrations/plugin-packs/procedures/applications-monitoring-mip-restapi",
-                    "integrations/digital-experience-monitoring/pack-skylight-pvx"
+                    "integrations/plugin-packs/procedures/applications-pvx-restapi.md"
                 ],
                 "label": "Digital Experience Monitoring",
                 "type": "subcategory"
