@@ -179,8 +179,7 @@ mv broker_public.crt /etc/centreon/broker_cert/
 
 ### MAP server configuration
 
-First of all, you should [activate HTTPS/TLS on the web
-server](../administration/secure-platform.md#enable-https-on-the-web-server)
+First of all, you should [activate HTTPS/TLS on the web server](../administration/secure-platform.md#enable-https-on-the-web-server)
 
 Then, set the following parameters in MAP server configuration at
 `/etc/centreon-studio/studio-config.properties` :
