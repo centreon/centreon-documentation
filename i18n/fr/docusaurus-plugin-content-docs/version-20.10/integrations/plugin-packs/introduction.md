@@ -1,6 +1,6 @@
 ---
 id: introduction
-title: Introduction to Plugin Packs
+title: Introduction aux Plugin Packs
 ---
 
 > Pour savoir comment installer un Plugin Pack, vous pouvez vous rendre sur la documentation dédiée: 
