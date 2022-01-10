@@ -80,7 +80,7 @@ SSH protocol.
 2. Copy the Gorgone configuration:
 
     From the Pollers listing, click on the **Display Gorgone configuration** action
-    icon on the line corresponding to your Poller <img src="../../assets/monitoring/monitoring-servers/gorgone-configuration.png" width="32" />
+    icon on the line corresponding to your Poller <img src={require('../../assets/monitoring/monitoring-servers/gorgone-configuration.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 
     A pop-in will show the configuration to copy into the **Poller terminal**.
     Click on **Copy to clipboard**.

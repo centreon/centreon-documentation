@@ -9,7 +9,7 @@ Custom views are dashboards created with widgets. You can share views with other
  
 1. Go to **Home > Custom Views**.
 
-2. Click the **Show/Hide edit mode** icon in the top right corner of the page: <img src={require('../assets/alerts/edit_mode.png').default} style={{width:'14px'}} />
+2. Click the **Show/Hide edit mode** icon in the top right corner of the page: <img src={require('../assets/alerts/edit_mode.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 
     The control bar appears:
 
@@ -32,8 +32,7 @@ Custom views are dashboards created with widgets. You can share views with other
 
 7. Click **Submit**. The widget appears. Some widgets require extra configuration (e.g., selecting a poller): click the wrench icon in the top right corner of the widget to [edit](#editing-a-widget) it.
 
-8. Once you have created the view and added all the widgets you want, click the **Show/Hide edit mode** icon again : <img src={require('../assets/alerts/no_edit_mode.png').default} style={{width:'14px'}} />
-
+8. Once you have created the view and added all the widgets you want, click the **Show/Hide edit mode** icon again : <img src={require('../assets/alerts/no_edit_mode.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 
 ## Editing a custom view
 
@@ -71,7 +70,7 @@ To share a view with "locked"/"unlocked users" :
 
 ## Displaying a custom view users have shared with you
 
-1. On the **Home > Custom Views** page, click the **Show/Hide edit mode** icon in the top right corner of the page: <img src={require('../assets/alerts/edit_mode.png').default} style={{width:'14px'}} />
+1. On the **Home > Custom Views** page, click the **Show/Hide edit mode** icon in the top right corner of the page: <img src={require('../assets/alerts/edit_mode.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 
     The control bar appears:
 

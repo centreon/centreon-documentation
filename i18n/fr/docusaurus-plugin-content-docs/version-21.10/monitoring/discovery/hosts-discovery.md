@@ -160,14 +160,14 @@ Plusieurs actions peuvent être réalisées sur les tâches :
 
     ![image](../../assets/monitoring/discovery/host-discovery-hosts-listing.png)
 
-2. Si vous le souhaitez, vous pouvez éditer les [modificateurs](#comment-utiliser-les-modificateurs) liés à la tâche en cliquant sur le bouton d'édition : <img src="../../assets/monitoring/discovery/host-discovery-edit.png" width="24" />
+2. Si vous le souhaitez, vous pouvez éditer les [modificateurs](#comment-utiliser-les-modificateurs) liés à la tâche en cliquant sur le bouton d'édition : <img src={require('../../assets/monitoring/discovery/host-discovery-edit.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 
     Les changements seront appliqués directement à la liste des résultats. 
 
     Attention, éditer les modificateurs après l'exécution de la tâche de découverte n'a de sens que si les hôtes n'ont pas encore été ajoutés à la configuration. Les changements de modificateurs au niveau de la tâche de découverte ne sont pas pris en compte pour les hôtes déjà créés.
     
 3. Si vous avez configuré une découverte manuelle à l'étape 5 de l'assistant, sélectionnez les hôtes que vous voulez ajouter à la configuration, puis cliquez
-sur le bouton d'enregistrement : <img src="../../assets/monitoring/discovery/host-discovery-hosts-save.png" width="24" />
+sur le bouton d'enregistrement : <img src={require('../../assets/monitoring/discovery/host-discovery-hosts-save.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 
   Les hôtes sont alors créés ainsi que les services liés à leurs modèles d'hôte.
 
@@ -190,7 +190,7 @@ de la tâche désirée. Un panneau apparaît à droite.
 
     Attention, éditer les modificateurs après l'exécution de la tâche de découverte n'a de sens que si les hôtes n'ont pas encore été ajoutés à la configuration. Les changements de modificateurs au niveau de la tâche de découverte ne sont pas pris en compte pour les hôtes déjà créés.
 
-2. Cliquez sur l'icône de sauvegarde en haut à droite du panneau : <img src="../../assets/monitoring/discovery/host-discovery-save.png" width="50" />
+2. Cliquez sur l'icône de sauvegarde en haut à droite du panneau : <img src={require('../../assets/monitoring/discovery/host-discovery-save.png').default} style={{width:'48px', marginBottom:'-6px'}} />
 
 ## Comment utiliser les modificateurs
 
@@ -247,7 +247,7 @@ tous les champs requis.
 
 1. Depuis l'étape quatre de l'assistant de création d'une tâche, ou depuis
 le panneau d'édition dans la section **Modificateurs**, cliquez sur l'icône 
-d'édition : <img src="../../assets/monitoring/discovery/host-discovery-edit.png" width="25" />
+d'édition : <img src={require('../../assets/monitoring/discovery/host-discovery-edit.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 
 2. Modifiez n'importe quel champ ou le type de modificateur lui-même.
 
@@ -257,7 +257,7 @@ d'édition : <img src="../../assets/monitoring/discovery/host-discovery-edit.png
 
 1. Depuis l'étape quatre de l'assistant de création d'une tâche, ou depuis le
 panneau d'édition dans la section **Modificateurs**, cliquez sur l'icône de
-suppression :  <img src="../../assets/monitoring/discovery/host-discovery-delete.png" width="25" />
+suppression : <img src={require('../../assets/monitoring/discovery/host-discovery-delete.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 
   Une fenêtre demandera de confirmer l'action.
 
