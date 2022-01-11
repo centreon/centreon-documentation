@@ -1,6 +1,6 @@
 ---
-id: applications-databases-mssql
-title: Microsoft SQL Server
+id: applications-dynamics-ax-mssql
+title: Microsoft Dynamics AX Database
 ---
 
 ## Prerequisites
