@@ -5,7 +5,6 @@ title: AWS Health
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 ## Vue d'ensemble
 
 AWS Health fournit des informations personnalisées à propos d'événements qui peuvent concerner votre infrastructure AWS, 
@@ -18,9 +17,6 @@ Le Plugin Centreon AWS Health utilise l'API Amazon Health pour collecter les mé
 ### Objets supervisés
 
 * Évènements liés aux comptes AWS et ressources associées
-
-<Tabs groupId="sync">
-</Tabs>
 
 ## Métriques supervisées
 
@@ -57,14 +53,14 @@ Le SDK est recommandé car plus performant.
 Installez le binaire choisi en lançant l'une des commandes suivantes:
 
 <Tabs groupId="sync">
-<TabItem value="perlPawsinstallation" label="perlPawsinstallation">
+<TabItem value="perl-Paws-installation" label="perl-Paws-installation">
 
 ```bash
 yum install perl-Paws
 ```
 
 </TabItem>
-<TabItem value="awscliinstallation" label="awscliinstallation">
+<TabItem value="aws-cli-installation" label="aws-cli-installation">
 
 ```bash
 yum install awscli
