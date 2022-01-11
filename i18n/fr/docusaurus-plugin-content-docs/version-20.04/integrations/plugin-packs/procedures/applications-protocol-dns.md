@@ -11,7 +11,7 @@ This chapter describes the prerequisites installation needed by plugins to run.
 
 Install this plugin on each needed poller:
 
-``` shell
+```shell
 yum install centreon-plugin-Applications-Protocol-Dns
 ```
 
@@ -23,15 +23,15 @@ The remote server must have a DNS service running and available.
 
 ### Create a host using the appropriate template
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+Go to _Configuration \> Hosts_ and click _Add_. Then, fill the form as shown by
 the following table:
 
-| Field                                | Value                      |
-| :----------------------------------- | :------------------------- |
-| Host name                            | *Name of the host*         |
-| Alias                                | *Host description*         |
-| IP                                   | *Host IP Address*          |
-| Monitored from                       | *Monitoring Poller to use* |
-| Host Multiple Templates              | App-Protocol-DNS-custom    |
+| Field                   | Value                      |
+| :---------------------- | :------------------------- |
+| Host name               | _Name of the host_         |
+| Alias                   | _Host description_         |
+| IP                      | _Host IP Address_          |
+| Monitored from          | _Monitoring Poller to use_ |
+| Host Multiple Templates | App-Protocol-DNS-custom    |
 
-Click on the *Save* button.
+Click on the _Save_ button.
