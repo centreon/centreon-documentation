@@ -130,7 +130,7 @@ configuration fournisseur, vous pouvez les configurer dans **Lists** et
 **Custom list definition**. Pour chaque entrée dans **Lists**, vous pouvez
 définir :
 
--   **Id** : valeur alphanumerique (doit être unique) ;
+-   **Id** : valeur alphanumérique (doit être unique) ;
 -   **Label** : affiché dans la fenêtre ;
 -   **Type** : type de liste. Il existe 3 types de listes :
     -   Liste du fournisseur (données du logiciel de gestion de tickets),
