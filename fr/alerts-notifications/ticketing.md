@@ -53,7 +53,7 @@ personnalisée. Allez dans le menu **Accueil > Vues personnalisées**,
 affichez le mode édition, sélectionnez votre vue et cliquez sur le
 bouton **Ajouter widget**.
 
-Définissez un titre pour votre widget (par exemple : _Open-Tickets_) et
+Définissez un titre pour votre widget (par exemple : **Open-Tickets**) et
 sélectionnez le widget **Open Tickets**. Faites la même manipulation
 pour ajouter à nouveau ce widget.
 
