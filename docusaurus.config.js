@@ -37,7 +37,6 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
           admonitions: {},
           editUrl:
             'https://github.com/centreon/centreon-documentation/edit/staging/',
@@ -81,6 +80,17 @@ const config = {
         steps: 2, // the max number of images generated between min and max (inclusive)
       },
     ],
+
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'cloud',
+        path: 'cloud',
+        routeBasePath: 'cloud',
+        sidebarPath: require.resolve('./sidebarsCloud.js'),
+      },
+    ],
+
     require.resolve('docusaurus-plugin-image-zoom'),
   ],
 
@@ -109,6 +119,17 @@ const config = {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
         defaultLanguage: 'shell',
+        additionalLanguages: [
+          'java',
+          'json',
+          'cpp',
+          'php',
+          'python',
+          'ruby',
+          'bash',
+          'perl',
+          'powershell',
+        ],
       },
 
       googleAnalytics: {
@@ -142,6 +163,11 @@ const config = {
           href: '/',
         },
         items: [
+          {
+            to: '/cloud/cloud-supervision',
+            label: 'Cloud',
+            position: 'left',
+          },
           {
             type: 'doc',
             docId: 'getting-started/installation-first-steps',
