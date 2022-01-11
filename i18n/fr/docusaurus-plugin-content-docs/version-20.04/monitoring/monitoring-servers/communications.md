@@ -2,6 +2,9 @@
 id: communications
 title: Communications
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Modes de communication
 
@@ -21,21 +24,22 @@ Les modes de communication sont listés ci-après :
 
 ### Sans Remote Server
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Moderne (recommandé)-->
+<Tabs groupId="sync">
+<TabItem value="Moderne (recommandé)" label="Moderne (recommandé)">
 
 | Communications                         | Actions autorisées                                                                |
 | -------------------------------------- | --------------------------------------------------------------------------------- |
 | **Central** \<-- *ZMQ* --\> **Poller** | Actions de supervision\*, collecte des statistiques Engine/Broker, Host Discovery |
 
-<!--Legacy (ex-Centcore)-->
+</TabItem>
+<TabItem value="Legacy (exCentcore)" label="Legacy (exCentcore)">
 
 | Communications                         | Actions autorisées                                                                |
 | -------------------------------------- | --------------------------------------------------------------------------------- |
 | **Central** \<-- *SSH* --\> **Poller** | Actions de supervision\*, collecte des statistiques Engine/Broker, Host Discovery |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 \* Les actions de supervision sont toutes les actions disponibles dans
 l'interface web comme ajouter des temps d'arrêt, des acquittements, etc et
@@ -43,27 +47,29 @@ exporter la configuration.
 
 ### Avec Remote Server
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Moderne (recommandé)-->
+<Tabs groupId="sync">
+<TabItem value="Moderne (recommandé)" label="Moderne (recommandé)">
 
 | Communications                                                    | Actions autorisées                                                                |
 | ----------------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | **Central** \<-- *ZMQ* --\> **Remote** \<-- *ZMQ* --\> **Poller** | Actions de supervision\*, collecte des statistiques Engine/Broker, Host Discovery |
 
-<!--Mixed-->
+</TabItem>
+<TabItem value="Mixed" label="Mixed">
 
 | Communications                                                    | Actions autorisées                                                                |
 | ----------------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | **Central** \<-- *ZMQ* --\> **Remote** \<-- *SSH* --\> **Poller** | Actions de supervision\*, collecte des statistiques Engine/Broker, Host Discovery |
 
-<!--Legacy (ex-Centcore)-->
+</TabItem>
+<TabItem value="Legacy (exCentcore)" label="Legacy (exCentcore)">
 
 | Communications                                                    | Actions autorisées                                                                                                      |
 | ----------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
 | **Central** \<-- *SSH* --\> **Remote** \<-- *SSH* --\> **Poller** | Actions de supervision\*, collecte des statistiques Engine/Broker (seulement Remote), Host Discovery (seulement Remote) |
 
-<!--Autre (non recommandé)-->
+</TabItem>
+<TabItem value="Autre (non recommandé)" label="Autre (non recommandé)">
 
 | Communications                                                    | Actions autorisées       |
 | ----------------------------------------------------------------- | ------------------------ |
@@ -73,7 +79,8 @@ exporter la configuration.
 > impossible l'affichage de la configuration du Gorgone du Poller depuis
 > l'interface web.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 \* Les actions de supervision sont toutes les actions disponibles dans
 l'interface web comme ajouter des temps d'arrêt, des acquittements, etc et
@@ -81,9 +88,8 @@ exporter la configuration.
 
 ## Changer la communication de SSH à ZMQ
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Pour un Poller-->
+<Tabs groupId="sync">
+<TabItem value="Pour un Poller" label="Pour un Poller">
 
 #### Sélectionner le type de communication
 
@@ -192,7 +198,8 @@ systemctl enable gorgoned
 > systemctl restart gorgoned
 > ```
 
-<!--Pour un Remote Server-->
+</TabItem>
+<TabItem value="Pour un Remote Server" label="Pour un Remote Server">
 
 #### Sélectionner le type de communication
 
@@ -325,7 +332,8 @@ Le résultat devrait être similaire :
 Mar 24 19:45:00 localhost.localdomain systemd[1]: Started Centreon Gorgone.
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 **Pour forcer le Gorgone du Central à changer le mode de communication**,
 redémarrez le avec la commande suivante depuis le **serveur Central** :

@@ -2,6 +2,9 @@
 id: applications-databases-db2
 title: DB2 Database
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Contenu du Pack
 
@@ -17,33 +20,34 @@ Le Pack DB2 collecte les données pour:
 
 ### Règles de découvertes
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Services-->
+<Tabs groupId="sync">
+<TabItem value="Services" label="Services">
 
 | Nom de la règle            | Description                                         |
 | :------------------------- | :-------------------------------------------------- |
 | App-DB-Db2-Tablespace-Name | Découvre les tablespaces et supervise l'utilisation |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Connection-time-->
+<Tabs groupId="sync">
+<TabItem value="Connectiontime" label="Connectiontime">
 
 | Metric name           | Description                        | Unit  |
 | :--------------------------- | :-------------------------- | :---- |
 | connection.time.milliseconds | Connection established time | ms    |
 
-<!--Connected-users-->
+</TabItem>
+<TabItem value="Connectedusers" label="Connectedusers">
 
 | Metric name           | Description               | Unit  |
 | :-------------------- | :------------------------ | :---- |
 | users.connected.count | Number of connected users |       |
 
-<!--Database-logs-->
+</TabItem>
+<TabItem value="Databaselogs" label="Databaselogs">
 
 | Metric name                                                    | Description              | Unit  |
 | :------------------------------------------------------------- | :----------------------- | :---- |
@@ -51,7 +55,8 @@ Le Pack DB2 collecte les données pour:
 | *db\_name~partition\_num*\#database.log.space.free.bytes       | Free space               | B     |
 | *db\_name~partition\_num*\#database.log.space.usage.percentage | Used space in percentage | %     |
 
-<!--Database-usage-->
+</TabItem>
+<TabItem value="Databaseusage" label="Databaseusage">
 
 | Metric name                                 | Description              | Unit  |
 | :------------------------------------------ | :----------------------- | :---- |
@@ -59,7 +64,8 @@ Le Pack DB2 collecte les données pour:
 | *db\_name*\#database.space.free.bytes       | Free space               | B     |
 | *db\_name*\#database.space.usage.percentage | Used space in percentage | %     |
 
-<!--Hadr-->
+</TabItem>
+<TabItem value="Hadr" label="Hadr">
 
 | Metric name                                | Description                                                                           | Unit  |
 | :----------------------------------------- | :------------------------------------------------------------------------------------ | :---- |
@@ -68,7 +74,8 @@ Le Pack DB2 collecte les données pour:
 | hadr state                                 | The current high availability disaster recovery state of the database                 |       |
 | *standby\_id*\#hadr.instance.log.gap.bytes | Recent average of the gap between the PRIMARY_LOG_POS value and STANDBY_LOG_POS value | B     |
 
-<!--Tablespaces-->
+</TabItem>
+<TabItem value="Tablespaces" label="Tablespaces">
 
 | Metric name                                                    | Description              | Unit  |
 | :------------------------------------------------------------- | :----------------------- | :---- |
@@ -77,7 +84,8 @@ Le Pack DB2 collecte les données pour:
 | *db\_name~tablespace\_name*\#tablespace.space.free.bytes       | Free space               | B     |
 | *db\_name~tablespace\_name*\#tablespace.space.usage.percentage | Used space in percentage | %     |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -147,9 +155,8 @@ Ce compte utilisateur doit avoir la permission d'exécuter la procédure `SYSPRO
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -159,7 +166,8 @@ yum install centreon-plugin-Applications-Databases-Db2
 
 2. Sur l'interface Web de Centreon, installer le Pack *DB2 Database* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -175,7 +183,8 @@ yum install centreon-pack-applications-databases-db2
 
 3. Sur l'interface Web de Centreon, installer le Pack *DB2 Database* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

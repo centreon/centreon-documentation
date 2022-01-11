@@ -2,6 +2,9 @@
 id: applications-monitoring-alyvix-restapi
 title: Alyvix Server
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -25,21 +28,20 @@ by requesting the dedicated built-in RestAPI.
 
 ### Discovery rules
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Testcases-->
+<Tabs groupId="sync">
+<TabItem value="Testcases" label="Testcases">
 
 | Rule name                                    | Description                                                        |
 | :------------------------------------------- | :----------------------------------------------------------------- |
 | App-Monitoring-Alyvix-Restapi-Testcase-Name  | Discover all the testcases handled by Alyvix Server                |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Monitored metrics 
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Testcases-Global-->
+<Tabs groupId="sync">
+<TabItem value="TestcasesGlobal" label="TestcasesGlobal">
 
 * Global (for each *testcase*)
 
@@ -56,7 +58,8 @@ by requesting the dedicated built-in RestAPI.
 | *testcase_alias*~*transaction_alias*#transaction-state    | Status of the the transaction job execution           |      |
 | *testcase_alias*~*transaction_alias*#transaction-duration | Total time of the transaction job execution           | ms   |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -68,9 +71,8 @@ https://www.alyvix.com/learn/.
 
 ## Setup 
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor *Alyvix Server* ressources:
 
@@ -80,7 +82,8 @@ yum install centreon-plugin-Applications-Monitoring-Alyvix-Restapi
 
 2. On the Centreon Web interface, install the *Alyvix Server* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor *Alyvix Server* ressources:
 
@@ -96,7 +99,8 @@ yum install centreon-pack-applications-monitoring-alyvix-restapi
 
 3. On the Centreon Web interface, install the *Alyvix Server* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

@@ -2,6 +2,9 @@
 id: applications-smartermail-api
 title: Smartermail Server
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -20,19 +23,20 @@ giving insights about the health of the solution.
 
 ### Monitored metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Licenses-->
+<Tabs groupId="sync">
+<TabItem value="Licenses" label="Licenses">
 
 | Metric name                                    | Description                                | Unit   |
 | :--------------------------------------------- | :----------------------------------------- | :----- |
 | license.upgrade.protection.expires.days.count  | Number of days before license expiration   | Count  |
 
-<!--Services-->
+</TabItem>
+<TabItem value="Services" label="Services">
 
 No metrics available. The Plugin checks that the services are in a *running* state. 
 
-<!--Spools-->
+</TabItem>
+<TabItem value="Spools" label="Spools">
 
 | Metric name                        | Description                       | Unit   |
 | :--------------------------------- | :-------------------------------- | :----- |
@@ -40,7 +44,8 @@ No metrics available. The Plugin checks that the services are in a *running* sta
 
 Filtering on the Spool name can be done with `--filter-spool` option. 
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -52,9 +57,8 @@ HTTPS protocol.
 
 ## Package installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin package on every poller expected to monitor a Smartermail server:
 
@@ -64,7 +68,8 @@ yum install centreon-plugin-Applications-Smartermail-Api
 
 2. On the Centreon Web interface, install the Centreon Plugin-Pack *Smartermail Server* from the "Configuration > Plugin Packs > Manager" page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every poller expected to monitor a Graylog server:
 
@@ -80,7 +85,8 @@ yum install centreon-pack-smartermail-api
 
 3. On the Centreon Web interface, install the Centreon Plugin-Pack *Smartermail Server* from the "Configuration > Plugin Packs > Manager" page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

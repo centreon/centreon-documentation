@@ -2,6 +2,8 @@
 id: virtualization-vmware2-esx
 title: VMware ESX
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 ## Overview
 
@@ -17,26 +19,28 @@ The Centreon Plugin and Plugin-Packs rely on the Centreon VMWare Connector to re
 	
 ### Discovery rules
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Host-->
+<Tabs groupId="sync">
+<TabItem value="Host" label="Host">
 
 | Rule name                      | Description                                     |
 | :----------------------------- | :---------------------------------------------- |
 | Virt-VMWare2-Esx-HostDiscovery | Discover VMWare ESX linked to a vcenter or ESXi |
 	
-<!--Services-->
+</TabItem>
+<TabItem value="Services" label="Services">
 
 | Rule name                                | Description                                 |
 | :--------------------------------------- | :------------------------------------------ |
 | Virt-VMWare2-Esx-Datastores-Latency-Name | Discover the Datastores and monitor latency |
 | Virt-VMWare2-Esx-Nics-Traffic-Name       | Discover the traffic NIC and monitor        |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 	
 ## Monitored Metrics 
 
-<!--Esx-Cpu-->
+<Tabs groupId="sync">
+<TabItem value="EsxCpu" label="EsxCpu">
 
 | Metric name                                   | Description                      | Unit |
 | :-------------------------------------------- | :------------------------------- | :--- |
@@ -44,7 +48,8 @@ The Centreon Plugin and Plugin-Packs rely on the Centreon VMWare Connector to re
 | host.cpu.utilization.mhz                      | Total CPU usage in MHz           | MHz  |
 | core#host.core.cpu.utilization.percentage     | CPU usage per core in percentage | %    |
 
-<!--Esx-Health-->
+</TabItem>
+<TabItem value="EsxHealth" label="EsxHealth">
 
 | Metric name                         | Description                         | Unit  |
 | :---------------------------------- | :---------------------------------- | :---- |
@@ -53,7 +58,8 @@ The Centreon Plugin and Plugin-Packs rely on the Centreon VMWare Connector to re
 | host.health.yellow.current.count    | Number of health checks in yellow   | Count |
 | host.health.red.current.count       | Number of health checks in red      | Count |
 
-<!--Esx-Memory-->
+</TabItem>
+<TabItem value="EsxMemory" label="EsxMemory">
 
 | Metric name                   | Description                                  | Unit  |
 | :---------------------------- | :------------------------------------------- | :---- |
@@ -61,26 +67,32 @@ The Centreon Plugin and Plugin-Packs rely on the Centreon VMWare Connector to re
 | host.memory.overhead.bytes    | Memory overhead needed by the VMs on the ESX | Bytes |
 | host.memory.state.count       | Memory state                                 |       |
 
-<!--Esx-Status-->
+</TabItem>
+<TabItem value="EsxStatus" label="EsxStatus">
 
 | Metric name | Description               | Unit |
 | :---------- | :------------------------ | :--- |
 | Status      | Overall status on the ESX |      |
 
-<!--Esx-Swap-->
+</TabItem>
+<TabItem value="EsxSwap" label="EsxSwap">
 
 | Metric name                           | Description         | Unit |
 | :------------------------------------ | :------------------ | :--- |
 | host.swap.in.usage.bytespersecond     | Swap in rate Usage  | B/s  |
 | host.swap.out.usage.bytespersecond    | Swap out rate Usage | B/s  |
 
-<!--Esx-Vm-Count-->
+</TabItem>
+<TabItem value="EsxVmCount" label="EsxVmCount">
 
 | Metric name                       | Description                          | Unit  |
 | :-------------------------------- | :----------------------------------- | :---- |
 | host.vm.poweredon.current.count   | Number of powered on VMs on the ESX  | Count |
 | host.vm.poweredoff.current.count  | Number of powered off VMs on the ESX | Count |
 | host.vm.suspended.current.count   | Number of suspended VMs on the ESX   | Count |
+
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -162,9 +174,8 @@ The Pollers that request the Centreon VMWare Connector host need to access in TC
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-	
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Vmware2 Connector Centreon Plugin on every Poller expected to monitor the devices: 
 	
@@ -174,7 +185,8 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 
 2. Install the 'Vmware ESX' Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page 
 	
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Vmware ESX Centreon Plugin on every poller expected to monitor the devices:
 
@@ -190,7 +202,8 @@ yum install centreon-pack-virtualization-vmware2-esx
 	
 3. Install the 'Vmware ESX' Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page 
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 	
 ## Configuration
 

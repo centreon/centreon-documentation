@@ -2,6 +2,9 @@
 id: applications-monitoring-iplabel-datametrie-restapi
 title: IP-Label datametrie API
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -16,8 +19,8 @@ IP-Label is a specialist in measurement of the quality of the user’s experienc
 
 ## Monitored Metrics 
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Alarms-->
+<Tabs groupId="sync">
+<TabItem value="Alarms" label="Alarms">
 
 | Metric name                              | Description                                          |
 | :--------------------------------------- | :--------------------------------------------------- |
@@ -25,7 +28,8 @@ IP-Label is a specialist in measurement of the quality of the user’s experienc
 | alarms.orange.count                      | Current orange alarms. Unit: Count                   |
 | alarms.red.count                         | Current red alarms. Unit: Count                      |
 
-<!--Kpi-->
+</TabItem>
+<TabItem value="Kpi" label="Kpi">
 
 | Metric name                     | Description                                          |
 | :------------------------------ | :--------------------------------------------------- |
@@ -33,7 +37,8 @@ IP-Label is a specialist in measurement of the quality of the user’s experienc
 | kpi.sla.availability.percentage | Monitor SLA availability. Unit: %                    |
 | kpi.performance.count           | Monitor performance. Unit: Count                     |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisistes
 
@@ -43,9 +48,8 @@ A read-only account (login/password) to ```https://api.ip-label.net``` is requir
 
 ## Setup 
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin package on every poller expected to monitor IP-Label datametrie:
 
@@ -55,7 +59,8 @@ yum install centreon-plugin-Applications-Monitoring-Iplabel-Datametrie-Restapi
 
 2. Install the monitoring templates from the Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every poller expected to monitor IP-Label datametrie:
 
@@ -71,7 +76,8 @@ yum install centreon-pack-applications-monitoring-iplabel-datametrie-restapi
 
 3. Install the monitoring templates from the Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

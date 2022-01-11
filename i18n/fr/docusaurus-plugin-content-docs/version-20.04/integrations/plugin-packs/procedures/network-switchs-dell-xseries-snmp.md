@@ -2,6 +2,9 @@
 id: network-switchs-dell-xseries-snmp
 title: Dell Xseries
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -15,8 +18,8 @@ La gamme Dell EMC Networking X-Series est une famille de produits conçus pour l
 
 ## Métriques collectées 
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Cpu-->
+<Tabs groupId="sync">
+<TabItem value="Cpu" label="Cpu">
 
 | Metric Name                              | Description            | Unit  |
 | :--------------------------------------- | :--------------------- | :---- |
@@ -24,7 +27,8 @@ La gamme Dell EMC Networking X-Series est une famille de produits conçus pour l
 | cpu.utilization.1m.percentage            | CPU usage on 1m.       |   %   |
 | cpu.utilization.5m.percentage            | CPU usage on 5m.       |   %   |
 
-<!--Interfaces-->
+</TabItem>
+<TabItem value="Interfaces" label="Interfaces">
 
 | Metric name                              | Description                                             | Unit   |
 |:-----------------------------------------|:--------------------------------------------------------|:-------|
@@ -36,13 +40,15 @@ La gamme Dell EMC Networking X-Series est une famille de produits conçus pour l
 | interface.packets.out.error.percentage   | Outgoing errored packets going through the interface.   | %      |
 | interface.packets.out.discard.percentage | Outgoing discarded packets going through the interface. | %      |
 
-<!--Uptime-->
+</TabItem>
+<TabItem value="Uptime" label="Uptime">
 
 | Metric name | Description                                | Unit |
 | :---------- | :----------------------------------------- | :--: |
 | uptime      | Elapsed time since last reboot             |   s  |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -57,9 +63,8 @@ La communication doit être possible sur le port UDP 161 de l'équipement Dell X
  
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur l'ensemble des Collecteurs Centreon supervisant des ressources *Dell Xseries* :
 
@@ -69,7 +74,8 @@ yum install centreon-plugin-Network-Dell-Xseries-Snmp
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Dell Xseries* depuis la page "Configuration > Plugin-Packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur l'ensemble des Collecteurs Centreon supervisant des ressources *Dell Xseries* :
 
@@ -85,7 +91,8 @@ yum install centreon-pack-network-switch-dell-xseries-snmp
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Dell Xseries* depuis la page "Configuration > Plugin-Packs > Manager"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

@@ -2,6 +2,9 @@
 id: applications-docker-restapi
 title: Docker
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -20,8 +23,8 @@ The service has both free and premium tiers. The software that hosts the contain
 
 More information about gathered metrics can be found into Docker official API documentation : https://docs.docker.com/engine/api/v1.30/
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Container-Usage-->
+<Tabs groupId="sync">
+<TabItem value="ContainerUsage" label="ContainerUsage">
 
 | Metric name     | Description                                                                                  |
 | :-------------- | :------------------------------------------------------------------------------------------- |
@@ -35,7 +38,8 @@ More information about gathered metrics can be found into Docker official API do
 | Traffic_in      | The percentage of inbound traffic usage. Units: Percent & Bytes/Second                       |
 | Traffic_out     | The percentage of outbound traffic usage. Units: Percent & Bytes/Second                      |
 
-<!--Nodes-Status-->
+</TabItem>
+<TabItem value="NodesStatus" label="NodesStatus">
 
 | Metric name        | Description                                                                                             |
 | :----------------- | :------------------------------------------------------------------------------------------------------ |
@@ -44,7 +48,8 @@ More information about gathered metrics can be found into Docker official API do
 | Containers-stopped | The number of stopped containers. Unit: counter                                                         |
 | Containers_paused  | The Number of paused containers. Unit: counter                                                          |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -66,9 +71,8 @@ ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
  
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the plugin on every poller expected to monitor Docker resources:
 
@@ -78,7 +82,8 @@ yum install centreon-plugin-Applications-Docker-Restapi
 
 2. Install the "Docker-Restapi" Centreon Plugin-Pack from the "Configuration > Plugin packs > Manager" page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the plugin on every poller expected to monitor Docker resources:
 
@@ -94,7 +99,8 @@ yum install centreon-pack-applications-docker-restapi
 
 3. Install the "Docker-Restapi" Centreon Plugin-Pack from the "Configuration > Plugin packs > Manager" page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host Configuration
 

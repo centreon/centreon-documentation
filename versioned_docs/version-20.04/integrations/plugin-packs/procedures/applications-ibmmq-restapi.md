@@ -2,6 +2,9 @@
 id: applications-ibmmq-restapi
 title: IBM MQ Rest API
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Pack Assets
 
@@ -13,29 +16,29 @@ The Pack IBM MQ collects metrics for:
 
 ### Discovery rules
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Services-->
+<Tabs groupId="sync">
+<TabItem value="Services" label="Services">
 
 | Rule name                            | Description                                    |
 | :----------------------------------- | :--------------------------------------------- |
 | App-Ibmmq-Restapi-Queue-Manager-Name | Discover queue managers and monitor statistics |
 | App-Ibmmq-Restapi-Queue-Name         | Discover queues and monitor statistics         |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Collected Metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Queue-managers-->
+<Tabs groupId="sync">
+<TabItem value="Queuemanagers" label="Queuemanagers">
 
 | Metric name                                           | Description                   | Unit  |
 | :---------------------------------------------------- | :---------------------------- | :---- |
 | queue manager status                                  | Queue manager status          |       |
 | *queue\_manager_name*\#queuemanager.connections.count | Current number of connections |       |
 
-<!--Queues-->
+</TabItem>
+<TabItem value="Queues" label="Queues">
 
 | Metric name                                                        | Description               | Unit  |
 | :----------------------------------------------------------------- | :------------------------ | :---- |
@@ -43,7 +46,8 @@ The Pack IBM MQ collects metrics for:
 | *queue\_manager_name*~*queue\_name*\#queue.messages.depth.count    | Current messages depth    |       |
 | *queue\_manager_name*~*queue\_name*\#queue.message.oldest.seconds  | Oldest message            | s     |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -54,9 +58,8 @@ The Pack supports only the basic authentification.
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -66,7 +69,8 @@ yum install centreon-plugin-Applications-Ibmmq-Restapi
 
 2. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *IBM MQ Rest API* Pack
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -82,7 +86,8 @@ yum install centreon-pack-applications-ibmmq-restapi
 
 3. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *IBM MQ Rest API* Pack
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host configuration
 

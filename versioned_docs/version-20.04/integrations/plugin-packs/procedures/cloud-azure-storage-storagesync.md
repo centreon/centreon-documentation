@@ -2,6 +2,9 @@
 id: cloud-azure-storage-storagesync
 title: Azure Storage Sync
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -33,9 +36,8 @@ documentation:
 
 ### Collected metrics & status
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Files-Synced-->
+<Tabs groupId="sync">
+<TabItem value="FilesSynced" label="FilesSynced">
 
 | Metric name                    | Description  | Unit  |
 | :----------------------------- | :----------- | :---- |
@@ -43,7 +45,8 @@ documentation:
 | storagesync.item.errors.count  | Item errors  | Count |
 | storagesync.bytes.synced.bytes | Bytes synced | B     |
 
-<!--Recalls-->
+</TabItem>
+<TabItem value="Recalls" label="Recalls">
 
 | Metric name                                        | Description                              | Unit |
 | :------------------------------------------------- | :--------------------------------------- | :--- |
@@ -53,13 +56,15 @@ documentation:
 | storagesync.recalls.total.size.bytes               | Cloud tiering recall                     | B    |
 | storagesync.recalls.throughput.size.bytespersecond | Cloud tiering recall throughput          | B/s  |
 
-<!--Server-Status-->
+</TabItem>
+<TabItem value="ServerStatus" label="ServerStatus">
 
 | Metric name                 | Description | Unit  |
 | :-------------------------- | :---------- | :---- |
 | storagesync.heartbeat.count | Heartbeat   | Count |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -71,9 +76,8 @@ Centreon recommends to use the API instead of the CLI for the following reasons:
 * API is much more efficient by avoiding CLI binary execution
 * API supports application authentication while CLI does not (yet)
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Azure Monitor API-->
+<Tabs groupId="sync">
+<TabItem value="Azure Monitor API" label="Azure Monitor API">
 
 To use the 'api' custom mode, make sure to obtain the required information using the 
 how-to below. Keep it safe until including it in a Host or Host Template definition.
@@ -119,7 +123,8 @@ how-to below. Keep it safe until including it in a Host or Host Template definit
 	- Click on *Save*.
 	- **Copy and store the key value. You won't be able to retrieve it after you leave this page.**
 
-<!--Azure AZ CLI-->
+</TabItem>
+<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 To use the 'azcli' custom mode, install the required packages on every Centreon Poller expected to 
 monitor Azure Resources using CLI:
@@ -172,13 +177,13 @@ information below:
 Credentials are now stored locally in the .accessTokens.json file so the Plugin
 can use it.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor *Azure Storage Sync* ressources:
 
@@ -188,7 +193,8 @@ yum install centreon-plugin-Cloud-Azure-Storage-StorageSync-Api
 
 2. On the Centreon Web interface, install the *Azure Storage Sync* Centreon Plugin Pack on the "Configuration > Plugin Packs" page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor *Azure Storage Sync* ressources:
 
@@ -204,7 +210,8 @@ yum install centreon-pack-cloud-azure-storage-storagesync
 
 3. On the Centreon Web interface, install the *Azure Storage Sync* Centreon Plugin Pack on the "Configuration > Plugin Packs" page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -222,7 +229,8 @@ These mandatory Macros differ regarding the custom mode used.
 in *AZURERESOURCE*
 > * Resource Name in *AZURERESOURCE* associated with Resource Group (in *AZURERESOURCEGROUP*)
 
-<!--Azure Monitor API-->
+<Tabs groupId="sync">
+<TabItem value="Azure Monitor API" label="Azure Monitor API">
 
 | Mandatory | Nom                | Description                                        |
 | :-------- | :----------------- | :------------------------------------------------- |
@@ -234,7 +242,8 @@ in *AZURERESOURCE*
 | X         | AZURERESOURCE      | ID or name of the Storage Sync resource            |
 |           | AZURERESOURCEGROUP | Associated Resource Group if resource name is used |
 
-<!--Azure AZ CLI-->
+</TabItem>
+<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 | Mandatory | Nom                | Description                                        |
 | :-------- | :----------------- | :------------------------------------------------- |
@@ -243,7 +252,8 @@ in *AZURERESOURCE*
 | X         | AZURERESOURCE      | ID or name of the Storage Sync resource            |
 |           | AZURERESOURCEGROUP | Associated Resource Group if resource name is used |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## How to check in the CLI that the configuration is OK and what are the main options for ? 
 

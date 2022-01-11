@@ -2,6 +2,9 @@
 id: network-cisco-firepower-fmc-restapi
 title: Cisco Firepower Management Console Rest API
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Contenu du Plugin-Pack
 
@@ -11,9 +14,8 @@ Le Plugin-Pack inclut la supervision des équipements rattachés à la console d
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Devices-->
+<Tabs groupId="sync">
+<TabItem value="Devices" label="Devices">
 
 | Metric name                  | Description                     | Unit |
 | :----------------------------| :------------------------------ | :--- |
@@ -25,7 +27,8 @@ Le Plugin-Pack inclut la supervision des équipements rattachés à la console d
 | devices.status.yellow.count  | Number of yellow status devices |      |
 | device status                | Device status                   |      |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -34,9 +37,8 @@ Afin de contrôler l'application Cisco Firepower Management Center, l'API Rest d
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -46,7 +48,8 @@ yum install centreon-plugin-Network-Cisco-Firepower-Fmc-Restapi
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Cisco Firepower FMC Rest API* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -62,7 +65,8 @@ yum install centreon-pack-network-cisco-firepower-fmc-restapi
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Cisco Firepower FMC Rest API* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

@@ -2,6 +2,9 @@
 id: cloud-aws-transitgateway
 title: AWS Transit Gateway
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -21,15 +24,15 @@ Le Plugin-Pack Centreon *AWS Transit Gateway* s'appuie sur les APIs Amazon Cloud
 
 ### Règles de découvertes
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Gateways-->
+<Tabs groupId="sync">
+<TabItem value="Gateways" label="Gateways">
 
 | Rule name                           | Description                                                        |
 | :---------------------------------- | :----------------------------------------------------------------- |
 | Cloud-Aws-Transitgateways-Gateways  | Discover the Transit Gateways within an AWS infrastructure         |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Métriques collectées 
 
@@ -37,9 +40,8 @@ Plus de détails sur les métriques présentées ci-après sont disponibles sur 
 documentation officielle du service AWS Transit Gateway:
 https://docs.aws.amazon.com/fr_fr/vpc/latest/tgw/transit-gateway-cloudwatch-metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Gateways-Traffic-*-->
+<Tabs groupId="sync">
+<TabItem value="GatewaysTraffic*" label="GatewaysTraffic*">
 
 | Metric name                            | Description                                                           | Unit |
 |:---------------------------------------|:----------------------------------------------------------------------|:-----|
@@ -56,7 +58,8 @@ ajoutez simplement le paramètre ``` --per-sec``` à la commande.
 > Le Modèle de Service *Gateways-Traffic-Global* supervise par défaut l'ensemble des *Gateways* de votre infrastructure AWS.
 > Utilisez le module de **découverte automatique des Services** afin d'obtenir un Service par *Gateway*.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -76,30 +79,30 @@ Afin de récupérer les informations nécessaires via les APIs AWS, il est possi
 d'utiliser soit le binaire *awscli*, soit le SDK perl *Paws*. Le SDK est
 recommandé car plus performant. 
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--perl-Paws-installation-->
+<Tabs groupId="sync">
+<TabItem value="perlPawsinstallation" label="perlPawsinstallation">
 
 ```bash
 yum install perl-Paws
 ```
 
-<!--aws-cli-installation-->
+</TabItem>
+<TabItem value="awscliinstallation" label="awscliinstallation">
 
 ```bash
 yum install awscli
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 > **Attention** il n'est pas possible pour le moment d'utiliser perl Paws si la
 > connexion s'effectue au travers d'un proxy.
 
 ## Setup 
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des ressources AWS Transit Gateway:
 
@@ -109,7 +112,8 @@ yum install centreon-plugin-Cloud-Aws-Transitgateway-Api
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *AWS Transit Gateway* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des ressources AWS Transit Gateway:
 
@@ -125,7 +129,8 @@ yum install centreon-pack-cloud-aws-transitgateway.noarch
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *AWS Transit Gateway* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

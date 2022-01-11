@@ -2,6 +2,9 @@
 id: applications-google-workspace-api
 title: Google Workspace
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -21,28 +24,28 @@ https://workspace.google.fr/intl/en/features/
 
 ### Discovery rules
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Services-->
+<Tabs groupId="sync">
+<TabItem value="Services" label="Services">
 
 | Rule name                          | Description                                |
 | :--------------------------------- | :----------------------------------------- |
 | App-Google-Workspace-Services-Name | Discover services and monitor their status |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Monitored metrics 
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Services-->
+<Tabs groupId="sync">
+<TabItem value="Services" label="Services">
 
 | Metric name                     | Description                            |
 | :------------------------------ | :------------------------------------- |
 | google.workspace.services.count | Number of services currently monitored |
 | status                          | Status of the service                  |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -51,9 +54,8 @@ using the TCP/443 HTTPS port. The plugin allows you to use a proxy if needed.
 
 ## Setup 
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor *Google Workspace* services:
 
@@ -63,7 +65,8 @@ yum install centreon-plugin-Applications-Google-Workspace-Api
 
 2. On the Centreon Web interface, install the *Google Workspace* Centreon Pack on the **Configuration > Plugin Packs > Manager** page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor *Google Workspace* services:
 
@@ -79,7 +82,8 @@ yum install centreon-pack-applications-google-workspace-api
 
 3. On the Centreon Web interface, install the *Google Workspace* Centreon Pack on the **Configuration > Plugin Packs > Manager** page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host configuration
 

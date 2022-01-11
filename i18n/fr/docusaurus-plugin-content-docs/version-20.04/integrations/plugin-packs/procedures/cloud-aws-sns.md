@@ -2,6 +2,9 @@
 id: cloud-aws-sns
 title: Amazon SNS
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -20,24 +23,23 @@ Le Plugin Centreon Amazon SNS s'appuie sur les APIs Amazon Cloudwatch pour la co
 
 ### Règles de découvertes
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Services-->
+<Tabs groupId="sync">
+<TabItem value="Services" label="Services">
 
 | Rule name                         | Description                                                                 |
 |:----------------------------------|:----------------------------------------------------------------------------|
 | Cloud-Aws-Sns-Topic-Notifications | Discover Amazon SNS topics and monitor the related notifications statistics |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Métriques collectées
 
 Plus de détails sur les métriques présentées ci-après sont disponibles sur la documentation officielle du service SNS:
 https://docs.aws.amazon.com/fr_fr/sns/latest/dg/sns-monitoring-using-cloudwatch
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Sns-Topic-Notifications-->
+<Tabs groupId="sync">
+<TabItem value="SnsTopicNotifications" label="SnsTopicNotifications">
 
 | Metric name                       | Description                                                                                         |
 |:----------------------------------|:----------------------------------------------------------------------------------------------------|
@@ -46,7 +48,8 @@ https://docs.aws.amazon.com/fr_fr/sns/latest/dg/sns-monitoring-using-cloudwatch
 | sns.notifications.failed.count    | The number of messages that Amazon SNS failed to deliver.                                           |
 | sns.notifications.filtered.count  | The number of messages that were rejected by subscription filter policies.                          |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -67,27 +70,27 @@ Afin de récupérer les informations nécessaires via les APIs AWS, il est possi
 
 **Attention** il n'est pas possible d'utiliser perl-Paws si la connexion s'effectue au travers d'un proxy.
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--perl-Paws-installation-->
+<Tabs groupId="sync">
+<TabItem value="perlPawsinstallation" label="perlPawsinstallation">
 
 ```bash
 yum install perl-Paws
 ```
 
-<!--aws-cli-installation-->
+</TabItem>
+<TabItem value="awscliinstallation" label="awscliinstallation">
 
 ```bash
 yum install awscli
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des ressources Amazon SNS:
 
@@ -97,7 +100,8 @@ yum install centreon-plugin-Cloud-Aws-Sns-Api
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Amazon SNS* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des ressources Amazon SNS:
 
@@ -113,7 +117,8 @@ yum install centreon-pack-cloud-aws-sns.noarch
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Amazon SNS* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

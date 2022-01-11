@@ -2,6 +2,9 @@
 id: hardware-devices-barco-cs-restapi
 title: Barco ClickShare Rest API
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Contenu du Plugin Pack
 
@@ -11,9 +14,8 @@ Le Pack Barco ClickShare collecte les données pour différents types de matéri
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Device-->
+<Tabs groupId="sync">
+<TabItem value="Device" label="Device">
 
 | Metric name                       | Description                               | Unit |
 | :-------------------------------- | :---------------------------------------- | :--- |
@@ -24,7 +26,8 @@ Le Pack Barco ClickShare collecte les données pour différents types de matéri
 | cpu#hardware.fan.speed.rpm        | Cpu fan speed (supported since api v1.11) | rpm  |
 | process status                    | Status of processes                       |      |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -32,9 +35,8 @@ Afin de contrôler l'équipement Barco ClickShare, l'API Rest doit être configu
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -44,7 +46,8 @@ yum install centreon-plugin-Hardware-Devices-Barco-Cs-Restapi
 
 2. Sur l'interface Web de Centreon, installer le Pack *Barco ClickShare Rest API* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -60,7 +63,8 @@ yum install centreon-pack-hardware-devices-barco-cs-restapi
 
 3. Sur l'interface Web de Centreon, installer le Pack *Barco ClickShare Rest API* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

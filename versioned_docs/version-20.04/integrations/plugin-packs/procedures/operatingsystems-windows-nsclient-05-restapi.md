@@ -2,6 +2,9 @@
 id: operatingsystems-windows-nsclient-05-restapi
 title: Windows NSClient API
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -18,20 +21,22 @@ through HTTPS connections.
 
 ### Monitored metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--query/Counter-Active-Sessions-->
+<Tabs groupId="sync">
+<TabItem value="query/CounterActiveSessions" label="query/CounterActiveSessions">
 
 | Metric name     | Description                             |
 | :-------------- | :-------------------------------------- |
 | Sessions\_value | Number of actived sessions. Unit: Count |
 
-<!--query/Counter-Generic-->
+</TabItem>
+<TabItem value="query/CounterGeneric" label="query/CounterGeneric">
 
 | Metric name    | Description                          |
 | :------------- | :----------------------------------- |
 | Counter\_value | Number of counter found. Unit: Count |
 
-<!--query/Cpu-->
+</TabItem>
+<TabItem value="query/Cpu" label="query/Cpu">
 
 | Metric name | Description                                                      |
 | :---------- | :--------------------------------------------------------------- |
@@ -39,25 +44,29 @@ through HTTPS connections.
 | total 1m    | CPU Utilization of Windows serveur over 1 minutes. Unit: Percent |
 | total 5s    | CPU Utilization of Windows serveur over 5 seconds. Unit: Percent |
 
-<!--query/Disk-->
+</TabItem>
+<TabItem value="query/Disk" label="query/Disk">
 
 | Metric name | Description                                   |
 | :---------- | :-------------------------------------------- |
 | used        | Used and Total Storage allocated. Unit: Bytes |
 
-<!--query/Eventlog-Generic-->
+</TabItem>
+<TabItem value="query/EventlogGeneric" label="query/EventlogGeneric">
 
 | Metric name  | Description                            |
 | :----------- | :------------------------------------- |
 | problemCount | Number of event log found. Unit: Count |
 
-<!--query/Files-Generic-->
+</TabItem>
+<TabItem value="query/FilesGeneric" label="query/FilesGeneric">
 
 | Metric name | Description                        |
 | :---------- | :--------------------------------- |
 | count       | Number of files found. Unit: Count |
 
-<!--query/Logfiles-Generic-->
+</TabItem>
+<TabItem value="query/LogfilesGeneric" label="query/LogfilesGeneric">
 
 | Metric name        | Description                                                                   |
 | :----------------- | :---------------------------------------------------------------------------- |
@@ -66,19 +75,22 @@ through HTTPS connections.
 | default\_criticals | Number of line that match with critical pattern found in logfile. Unit: Count |
 | default\_unknowns  | Number of line that match with unknown pattern found in logfile. Unit: Count  |
 
-<!--query/Memory-->
+</TabItem>
+<TabItem value="query/Memory" label="query/Memory">
 
 | Metric name | Description                        |
 | :---------- | :--------------------------------- |
 | used        | Total usage of memory. Unit: Bytes |
 
-<!--query/Swap-->
+</TabItem>
+<TabItem value="query/Swap" label="query/Swap">
 
 | Metric name | Description                             |
 | :---------- | :-------------------------------------- |
 | swap        | Total usage of swap memory. Unit: Bytes |
 
-<!--query/Sessions-->
+</TabItem>
+<TabItem value="query/Sessions" label="query/Sessions">
 
 | Metric name                   | Description                                               |
 | :---------------------------- | :-------------------------------------------------------- |
@@ -88,7 +100,8 @@ through HTTPS connections.
 | sessions-active               | Number of active users session. Unit: Count               |
 | sessions-disconnected-current | Number of current disconnected users session. Unit: Count |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -100,9 +113,8 @@ and make sure that the **Webserver / RESTApi** configuration is correct.
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor Windows ressources using REST API:
 
@@ -112,7 +124,8 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 
 2. On the Centreon Web interface, install the *Windows NSClient API* Centreon Pack on the **Configuration > Plugin Packs > Manager** page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor Windows ressources using REST API:
 
@@ -128,7 +141,8 @@ yum install centreon-pack-operatingsystems-windows-nsclient-05-restapi
 
 3. On the Centreon Web interface, install the *Windows NSClient API* Pack on the **Configuration > Plugin Packs > Manager** page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

@@ -2,6 +2,9 @@
 id: network-cisco-esa-restapi
 title: Cisco ESA Rest API
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Pack Assets
 
@@ -12,9 +15,8 @@ The Pack Cisco ESA collects metrics for:
 
 ### Collected Metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--System-->
+<Tabs groupId="sync">
+<TabItem value="System" label="System">
 
 | Metric name                                    | Description                      | Unit  |
 | :--------------------------------------------- | :------------------------------- | :---- |
@@ -26,7 +28,8 @@ The Pack Cisco ESA collects metrics for:
 | system.queue.messages.workqueue.current.count  | Number of messages in workqueue  |       |
 | system.queue.utilization.percentage            | Queue utilization                |       |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -35,9 +38,8 @@ E.g: https://www.cisco.com/c/en/us/support/security/email-security-appliance/pro
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -47,7 +49,8 @@ yum install centreon-plugin-Network-Cisco-Esa-Restapi
 
 2. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *Cisco ESA Rest API* Pack
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -63,7 +66,8 @@ yum install centreon-pack-network-cisco-esa-restapi
 
 3. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *Cisco ESA Rest API* Pack
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host configuration
 

@@ -2,6 +2,9 @@
 id: hardware-devices-polycom-rprm-snmp
 title: Polycom RPRM SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -19,16 +22,16 @@ The Centreon Plugin Pack relies on the SNMP protocol to query and collect status
 
 ### Collected metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Cluster-Status-->
+<Tabs groupId="sync">
+<TabItem value="ClusterStatus" label="ClusterStatus">
 
 | Metric name          | Description                             |
 |:---------------------|:----------------------------------------|
 | cluster-status       | Current status of the RPRM SuperCluster |
 | cluster-change-cause | Reason of the last cluster state change |
 
-<!--License-->
+</TabItem>
+<TabItem value="License" label="License">
 
 | Metric name                    | Description                                                     | Unit  |
 |:-------------------------------|:----------------------------------------------------------------|:------|
@@ -36,7 +39,8 @@ The Centreon Plugin Pack relies on the SNMP protocol to query and collect status
 | rprm.license.audio.usage.count | Current usage of audio assets vs the license maximum capability | Count |
 | rprm.license.video.usage.count | Current usage of video assets vs the license maximum capability | Count |
 
-<!--Provisioning-->
+</TabItem>
+<TabItem value="Provisioning" label="Provisioning">
 
 | Metric name                     | Description                           | Unit  |
 |:--------------------------------|:--------------------------------------|:------|
@@ -44,7 +48,8 @@ The Centreon Plugin Pack relies on the SNMP protocol to query and collect status
 | rprm.provisioning.failed.count  | Number of failed provisioning jobs    | Count |
 | rprm.provisioning.success.count | Number of successed provisioning jobs | Count |
 
-<!--SiteLinks-->
+</TabItem>
+<TabItem value="SiteLinks" label="SiteLinks">
 
 * Global
 
@@ -65,7 +70,8 @@ The Centreon Plugin Pack relies on the SNMP protocol to query and collect status
 | rprm.sitelink.jitter.average.milliseconds    | Average jitter time on the SiteLink                 | ms    |
 | rprm.sitelink.delay.average.milliseconds     | Average delay time on the SiteLink                  | ms    |
 
-<!--Sites-->
+</TabItem>
+<TabItem value="Sites" label="Sites">
 
 * Global
 
@@ -85,7 +91,8 @@ The Centreon Plugin Pack relies on the SNMP protocol to query and collect status
 | rprm.site.jitter.average.milliseconds    | Average jitter time on the Site                 | ms    |
 | rprm.site.delay.average.milliseconds     | Average delay time on the Site                  | ms    |
 
-<!--Updates-->
+</TabItem>
+<TabItem value="Updates" label="Updates">
 
 | Metric name                | Description                      | Unit  |
 |:---------------------------|:---------------------------------|:------|
@@ -93,7 +100,8 @@ The Centreon Plugin Pack relies on the SNMP protocol to query and collect status
 | rprm.updates.failed.count  | Number of failed updates jobs    | Count |
 | rprm.updates.success.count | Number of successed updates jobs | Count |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -108,9 +116,8 @@ The Centreon Poller must be able to reach the UDP/161 SNMP port of the Polycom R
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor 
 Polycom RPRM devices:
@@ -122,7 +129,8 @@ yum install centreon-plugin-Hardware-Devices-Polycom-Rprm-Snmp
 2. On the Centreon Web interface, install the *Polycom RPRM SNMP* Plugin-Pack 
 through "Configuration > Plugin packs > Manager" page.
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor
 Polycom RPRM devices:
@@ -140,7 +148,8 @@ yum install centreon-pack-hardware-devices-polycom-rprm-snmp
 3. On the Centreon Web interface, install the *Polycom RPRM SNMP* Plugin-Pack 
 through "Configuration > Plugin packs > Manager" page.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host configuration 
 

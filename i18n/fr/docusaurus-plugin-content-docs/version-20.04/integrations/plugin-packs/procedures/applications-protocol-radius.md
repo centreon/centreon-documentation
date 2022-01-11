@@ -2,6 +2,9 @@
 id: applications-protocol-radius
 title: Radius Service
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -20,16 +23,16 @@ temps de réponse d'une connexion à un serveur RADIUS
 
 ### Métriques & statuts collectés
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Radius-Login-->
+<Tabs groupId="sync">
+<TabItem value="RadiusLogin" label="RadiusLogin">
 
 | Metric name                  | Description         | Unit       |
 |:-----------------------------|:--------------------|:-----------|
 | status                       | Login status        |            |
 | radius.response.time.seconds | Login response time | seconds    |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -41,9 +44,8 @@ Pour faire fonctionner le Plugin Pack, il est nécessaire d'avoir :
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources RADIUS:
 
@@ -53,7 +55,8 @@ yum install centreon-plugin-Applications-Protocol-Radius
 
 2. Sur l'interface Integration de Centreon, installer le Plugin Pack *Radius Service* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources RADIUS:
 
@@ -69,7 +72,8 @@ yum install centreon-pack-applications-protocol-radius
 
 3. Sur l'interface Integration de Centreon, installer le Plugin Pack *Radius Service* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

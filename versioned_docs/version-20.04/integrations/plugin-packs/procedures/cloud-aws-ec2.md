@@ -2,6 +2,9 @@
 id: cloud-aws-ec2
 title: Amazon EC2
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -17,19 +20,21 @@ Amazon Elastic Compute Cloud (Amazon EC2) is a web service that provides secure,
 
 ### Discovery rules
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Hosts-->
+<Tabs groupId="sync">
+<TabItem value="Hosts" label="Hosts">
 
 | Rule name                           | Description                                                   |
 | :---------------------------------- | :------------------------------------------------------------ |
 | Cloud-Aws-Ec2-Api-HostDiscovery-Ec2 | Discover EC2 Instances from your Cloudwatch endpoint          |
 | Cloud-Aws-Ec2-Api-HostDiscovery-Asg | Discover EC2 Autoscalingroups from your Cloudwatch endpoint   |
 
-<!--Services-->
+</TabItem>
+<TabItem value="Services" label="Services">
 
 No services discovery rule available on this pack
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Monitored metrics 
 
@@ -40,9 +45,8 @@ In addition to modes and metrics described here, it is also possible to monitor 
  * Instance-Types: Number of instances of each AWS Family and associated types.
  * Instance-Status: Global health check and count of EC2 instances.
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Ec2-Cpu-Credit-->
+<Tabs groupId="sync">
+<TabItem value="Ec2CpuCredit" label="Ec2CpuCredit">
 
 This check is available with 'Cloud-Aws-Ec2-Asg' and 'Cloud-Aws-Ec2-Instance' Host Templates.
 
@@ -53,7 +57,8 @@ This check is available with 'Cloud-Aws-Ec2-Asg' and 'Cloud-Aws-Ec2-Instance' Ho
 | CPUSurplusCreditBalance      | The number of surplus credits that have been spent by an unlimited instance when its CPUCreditBalance value is zero. Credits (vCPU-minutes)        |
 | CPUSurplusCreditsCharged     | The number of spent surplus credits that are not paid down by earned CPU credits, and which thus incur an additional charge. Unit: Credits(vCPU-minutes)|
 
-<!--Ec2-Cpu-Usage-->
+</TabItem>
+<TabItem value="Ec2CpuUsage" label="Ec2CpuUsage">
 
 This check is available with 'Cloud-Aws-Ec2-Asg' and 'Cloud-Aws-Ec2-Instance' Host Templates.
 
@@ -61,7 +66,8 @@ This check is available with 'Cloud-Aws-Ec2-Asg' and 'Cloud-Aws-Ec2-Instance' Ho
 | :--------------- | :------------------------------------------------------------------------------------- |
 | CPUUtilization   | The percentage of CPU utilization. Unit: Percent                                       |
 
-<!--Ec2-Diskio-->
+</TabItem>
+<TabItem value="Ec2Diskio" label="Ec2Diskio">
 
 This check is available with 'Cloud-Aws-Ec2-Asg' and 'Cloud-Aws-Ec2-Instance' Host Templates.
 
@@ -77,7 +83,8 @@ This check is available with 'Cloud-Aws-Ec2-Asg' and 'Cloud-Aws-Ec2-Instance' Ho
 
 > These metrics are most of the time irrelevant or null when applied to an AutoscalingGroup
 
-<!--Ec2-Network-->
+</TabItem>
+<TabItem value="Ec2Network" label="Ec2Network">
 
 This check is available with 'Cloud-Aws-Ec2-Asg' and 'Cloud-Aws-Ec2-Instance' Host Templates.
 
@@ -88,7 +95,8 @@ This check is available with 'Cloud-Aws-Ec2-Asg' and 'Cloud-Aws-Ec2-Instance' Ho
 | NetworkPacketsIn  | The number of packets received on all network interfaces by the instance. This metric identifies the volume of incoming traffic in terms of the number of packets on a single instance. This metric is available for basic monitoring only. Unit: Packets/Second  |
 | NetworkPacketsOut | The number of packets sent out on all network interfaces by the instance. This metric identifies the volume of outgoing traffic in terms of the number of packets on a single instance. This metric is available for basic monitoring only. Unit: Packets/Second  |
 
-<!--EC2Spot-Active-Instances-->
+</TabItem>
+<TabItem value="EC2SpotActiveInstances" label="EC2SpotActiveInstances">
 
 This check is available with 'Cloud-Aws-Ec2-Spot-Fleet-Request' Host Template
 
@@ -98,7 +106,8 @@ This check is available with 'Cloud-Aws-Ec2-Spot-Fleet-Request' Host Template
 | HealthyInstances    | Number of healthy instances for a give EC2Spot fleet request. Unit: Count.    |
 | UnhealthyInstances  | Number of unhealthy instances for a give EC2Spot fleet request. Unit: Count.  |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisistes
 
@@ -118,27 +127,27 @@ To interact with Amazon APIs, you can use either use the *awscli* binary provide
 
 > For now, it is not possible to use *paws* if you are using a proxy to reach AWS Cloudwatch APIs. 
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--perl-Paws-installation-->
+<Tabs groupId="sync">
+<TabItem value="perlPawsinstallation" label="perlPawsinstallation">
 
 ```bash
 yum install perl-Paws
 ```
 
-<!--aws-cli-installation-->
+</TabItem>
+<TabItem value="awscliinstallation" label="awscliinstallation">
 
 ```bash
 yum install awscli
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Setup 
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin package on every poller expected to monitor Amazon EC2 ressources:
 
@@ -148,7 +157,8 @@ yum install centreon-plugin-Cloud-Aws-Ec2-Api
 
 2. On the Centreon Web interface, install the Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every poller expected to monitor Amazon EC2 resources:
 
@@ -164,7 +174,8 @@ yum install centreon-pack-cloud-aws-ec2.noarch
 
 3. On the Centreon Web interface, install the Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -186,22 +197,23 @@ All of the Host Templates share the following configuration macros:
 
 Set additionnal macros that comes with the Host Templates: 
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Cloud-Aws-Ec2-Asg-&-Cloud-Aws-Ec2-Instance-->
+<Tabs groupId="sync">
+<TabItem value="CloudAwsEc2Asg&CloudAwsEc2Instance" label="CloudAwsEc2Asg&CloudAwsEc2Instance">
 
 | Mandatory   | Nom             | Description                                                |
 | :---------- | :-------------- | :--------------------------------------------------------- |
 | X           | AWSINSTANCENAME | Name of the instance you want to monitor                   |
 | X           | AWSINSTANCETYPE | Type of instance to check ('instance' or 'cluster')        |
 
-<!--Cloud-Aws-Ec2-Spot-Fleet-Request-->
+</TabItem>
+<TabItem value="CloudAwsEc2SpotFleetRequest" label="CloudAwsEc2SpotFleetRequest">
 
 | Mandatory   | Nom                | Description                                             |
 | :---------- | :----------------- | :------------------------------------------------------ |
 | X           | SPOTFLEETREQUESTID | Spot Fleet Request identifier. (e.g: sfr-abcd1234)      |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## FAQ
 

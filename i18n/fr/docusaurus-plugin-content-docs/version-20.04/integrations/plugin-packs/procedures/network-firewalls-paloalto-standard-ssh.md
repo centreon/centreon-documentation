@@ -2,6 +2,9 @@
 id: network-firewalls-paloalto-standard-ssh
 title: Palo Alto firewall SSH
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Contenu du Plugin Pack
 
@@ -12,29 +15,29 @@ utilisant des commandes systèmes.
 
 ### Règles de découvertes 
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Services-->
+<Tabs groupId="sync">
+<TabItem value="Services" label="Services">
 
 | Rule name                                     | Description                                                                  |
 | :-------------------------------------------- | :--------------------------------------------------------------------------- |
 | Net-PaloAlto-Standard-SNMP-Packet-Errors-Name | Découverte des interfaces et contrôle des paquets en erreurs                 |
 | Net-PaloAlto-Standard-SNMP-Traffic-Name       | Découverte des interfaces et contrôle de leur statut et de la bande-passante |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Environnement-->
+<Tabs groupId="sync">
+<TabItem value="Environnement" label="Environnement">
 
 | Metric name                               | Description                            | Unit |
 | :---------------------------------------- | :------------------------------------- | :--- |
 | hardware.temperature.celsius              | Temperature of the different sensors   | C    |
 | hardware.voltage.volt                     | Voltage of the different sensors       | V    |
 
-<!--HA-->
+</TabItem>
+<TabItem value="HA" label="HA">
 
 | Metric name                               | Description         | Unit |
 | :---------------------------------------- | :------------------ | :--- |
@@ -42,26 +45,30 @@ utilisant des commandes systèmes.
 | member status                             | HA member status    |      |
 | link status                               | HA Link status      |      |
 
-<!--Interfaces-->
+</TabItem>
+<TabItem value="Interfaces" label="Interfaces">
 
 | Metric name                               | Description                                                       | Unit  |
 | :---------------------------------------- | :---------------------------------------------------------------- | :---- |
 | interfaces.total.count                    | Total number of interfaces	                                    | count |
 | interfaces status                         | Status of the interface operationnal and high availability state	|       |
 
-<!--IPSec-->
+</TabItem>
+<TabItem value="IPSec" label="IPSec">
 
 | Metric name                               | Description                            | Unit  |
 | :---------------------------------------- | :------------------------------------- | :---- |
 | tunnels.ipsec.total.count                 | Total number of ipsec tunnels          | count |
 
-<!--Licenses-->
+</TabItem>
+<TabItem value="Licenses" label="Licenses">
 
 | Metric name                               | Description                                             | Unit |
 | :---------------------------------------- | :------------------------------------------------------ | :--- |
 | status                                    | Licence validity check of enabled features Sync status  |      |
 
-<!--System-->
+</TabItem>
+<TabItem value="System" label="System">
 
 | Metric name                               | Description                            | Unit  |
 | :---------------------------------------- | :------------------------------------- | :---- |
@@ -70,7 +77,8 @@ utilisant des commandes systèmes.
 | system.sessions.traffic.count             | Number of traffic sessions             | count |
 | system.sessions.total.active.count        | Total number of active sessions        | count |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -79,9 +87,8 @@ doit avoir assez de privilèges pour exécuter des commandes systèmes.
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -91,7 +98,8 @@ yum install centreon-plugin-Network-Firewalls-Paloalto-Standard-Ssh
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Palo Alto firewall SSH* depuis la page "Configuration > Plugin Packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -107,7 +115,8 @@ yum install centreon-pack-network-firewalls-paloalto-standard-ssh
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Palo Alto firewall SSH* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -115,9 +124,8 @@ Ce Plugin Pack est conçu de manière à avoir dans Centreon un hôte par pare-f
 Lorsque vous ajoutez un Hôte à Centreon, appliquez-lui le modèle *Net-PaloAlto-Standard-SSH-custom*. 
 Une fois celui-ci configuré, certaines macros doivent être renseignées:
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--sshcli backend-->
+<Tabs groupId="sync">
+<TabItem value="sshcli backend" label="sshcli backend">
 
 | Mandatory   | Name            | Description                                                                                     |
 | :---------- | :-------------- | :---------------------------------------------------------------------------------------------- |
@@ -130,7 +138,8 @@ Une fois celui-ci configuré, certaines macros doivent être renseignées:
 > Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur _centreon-engine_ du Collecteur
 et l'utilisateur applicatif créé sur le serveur distant. (Macro SSHUSERNAME).
 
-<!--plink backend-->
+</TabItem>
+<TabItem value="plink backend" label="plink backend">
 
 | Mandatory   | Name            | Description                                                                                     |
 | :---------- | :-------------- | :---------------------------------------------------------------------------------------------- |
@@ -143,7 +152,8 @@ et l'utilisateur applicatif créé sur le serveur distant. (Macro SSHUSERNAME).
 > Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur _centreon-engine_ du Collecteur
 et l'utilisateur applicatif créé sur le serveur distant. (Macro SSHUSERNAME).
 
-<!--libssh backend (par défaut)-->
+</TabItem>
+<TabItem value="libssh backend (par défaut)" label="libssh backend (par défaut)">
 
 | Mandatory   | Name            | Description                                                                                     |
 | :---------- | :-------------- | :---------------------------------------------------------------------------------------------- |
@@ -155,7 +165,8 @@ et l'utilisateur applicatif créé sur le serveur distant. (Macro SSHUSERNAME).
 
 Avec ce backend, vous n'avez pas à valider manuellement le fingerprint du serveur cible. 
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Comment puis-je tester le Plugin et que signifient les options des commandes ?
 

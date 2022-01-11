@@ -2,6 +2,9 @@
 id: hardware-devices-polycom-hdx-snmp
 title: Polycom HDX SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -19,9 +22,8 @@ performances during a call.
 
 ### Collected metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Cpu-Detailed-->
+<Tabs groupId="sync">
+<TabItem value="CpuDetailed" label="CpuDetailed">
 
 | Metric name                           | Description                 | Unit  |
 | :------------------------------------ | :-------------------------- | :---- |
@@ -37,7 +39,8 @@ performances during a call.
 | cpu.guest.utilization.percentage      | CPU Guest utilization       |   %   |
 | cpu.guestnice.utilization.percentage  | CPU Guest Nice utilization  |   %   |
 
-<!--Interfaces-->
+</TabItem>
+<TabItem value="Interfaces" label="Interfaces">
 
 | Metric name                         | Description                                   | Unit |
 | :---------------------------------- | :-------------------------------------------- | :--- |
@@ -48,7 +51,8 @@ performances during a call.
 
 A regexp filter is available to target a specific interface identifier - ifName [```--interface='^eth0$' --name```]
 
-<!--Load-->
+</TabItem>
+<TabItem value="Load" label="Load">
 
 | Metric name                 | Description                                        |
 | :-------------------------- | :------------------------------------------------- |
@@ -56,7 +60,8 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | load5                       | System load 5 minutes-sample                       |
 | load15                      | System load 15 minutes-sample                      |
 
-<!--Memory-->
+</TabItem>
+<TabItem value="Memory" label="Memory">
 
 | Metric name             | Description                               | Unit  |
 | :---------------------  | :---------------------------------------- | :---- |
@@ -67,13 +72,15 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | memory.cached.bytes     | Cached Memory allocation.                 |   B   |
 | memory.shared.bytes     | Shared Memory allocation.                 |   B   |
 
-<!--Uptime-->
+</TabItem>
+<TabItem value="Uptime" label="Uptime">
 
 | Metric name           | Description        | Unit  |
 | :-------------------- | :----------------- | :---- |
 | system.uptime.seconds | System uptime      |   s   |
 
-<!--ViewStation-Statistics-->
+</TabItem>
+<TabItem value="ViewStationStatistics" label="ViewStationStatistics">
 
 | Metric name                             | Description                                                                                  | Unit |
 | :-------------------------------------- | :------------------------------------------------------------------------------------------- | :--- |
@@ -81,7 +88,8 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | viewstation.h323.jitter.milliseconds    | The current combined (audio/video) cumulative average jitter (in ms) when in an H.323 call.  |  ms  |
 | viewstation.h323.latency.count          | The current average latency based on round trip delay when in an H.323 call.                 |      |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -98,9 +106,8 @@ The Centreon Poller must be able to reach the UDP/161 SNMP port of the Polycom H
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor Polycom HDX devices:
 
@@ -111,7 +118,8 @@ yum install centreon-plugin-Hardware-Devices-Polycom-Hdx-Snmp
 2. On the Centreon Web interface, install the *Polycom HDX SNMP* Plugin-Pack 
 through "Configuration > Plugin packs > Manager" page.
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor Polycom HDX devices:
 
@@ -128,7 +136,8 @@ yum install centreon-pack-hardware-devices-polycom-hdx-snmp
 3. On the Centreon Web interface, install the *Polycom HDX SNMP* Plugin-Pack 
 through "Configuration > Plugin packs > Manager" page.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host configuration 
 

@@ -2,6 +2,9 @@
 id: applications-graylog-restapi
 title: Graylog
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -22,15 +25,15 @@ specific queries by requesting the dedicated built-in RestAPI.
 
 ### Monitored metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Query-->
+<Tabs groupId="sync">
+<TabItem value="Query" label="Query">
 
 | Metric name                | Description               | Unit   |
 | :------------------------- | :------------------------ | :----- |
 | graylog.query.match.count  | Number of query matches   | Count  |
 
-<!--System-Notifications-->
+</TabItem>
+<TabItem value="SystemNotifications" label="SystemNotifications">
 
 | Metric name                                 | Description                                       | Unit   |
 | :------------------------------------------ | :------------------------------------------------ | :----- |
@@ -38,7 +41,8 @@ specific queries by requesting the dedicated built-in RestAPI.
 | graylog.system.notifications.normal.count   | Number of system notifications (normal severity)  | Count  | 
 | graylog.system.notifications.urgent.count   | Number of system notifications (urgent severity)  | Count  |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -51,9 +55,8 @@ https://docs.graylog.org/en/latest/pages/configuration/rest_api.
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin package on every poller expected to monitor a Graylog server:
 
@@ -63,7 +66,8 @@ yum install centreon-plugin-Applications-Graylog-Restapi
 
 2. On the Centreon Web interface, install the Centreon Plugin-Pack *Graylog* from the "Configuration > Plugin Packs > Manager" page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every poller expected to monitor a Graylog server:
 
@@ -79,7 +83,8 @@ yum install centreon-pack-graylog-restapi
 
 3. On the Centreon Web interface, install the Centreon Plugin-Pack *Graylog* from the "Configuration > Plugin Packs > Manager" page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

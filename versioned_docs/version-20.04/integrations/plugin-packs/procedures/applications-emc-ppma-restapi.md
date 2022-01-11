@@ -2,6 +2,9 @@
 id: applications-emc-ppma-restapi
 title: EMC PPMA Rest API
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Plugin-Pack Assets
 
@@ -12,9 +15,8 @@ The Plugin-Pack EMC PowerPath Management Appliance collects metrics for:
 
 ### Collected Metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Hosts-->
+<Tabs groupId="sync">
+<TabItem value="Hosts" label="Hosts">
 
 | Metric name                            | Description                                                  | Unit |
 | :------------------------------------- | :----------------------------------------------------------- | :--- |
@@ -25,7 +27,8 @@ The Plugin-Pack EMC PowerPath Management Appliance collects metrics for:
 | *hostname*#host.volumes.dead.count     | Number of dead volumes attached                              |      |
 | *hostname*#host.volumes.degraded.count | Number of degraded volumes attached                          |      |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -35,9 +38,8 @@ E.g: https://dl.dell.com/content/docu98223_PowerPath-Management-Appliance-3.x-Re
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -47,7 +49,8 @@ yum install centreon-plugin-Applications-Emc-Ppma-Restapi
 
 2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Emc PPMA Rest API* Plugin-Pack
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -63,7 +66,8 @@ yum install centreon-pack-applications-emc-ppma-restapi
 
 3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Emc PPMA Rest API* Plugin-Pack
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host configuration 
 

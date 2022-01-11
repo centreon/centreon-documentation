@@ -2,6 +2,9 @@
 id: hardware-devices-cisco-cts-snmp
 title: Cisco Telepresence System SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -17,9 +20,8 @@ with video and audio capabilities.
 
 ## Monitored metrics 
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Calls-->
+<Tabs groupId="sync">
+<TabItem value="Calls" label="Calls">
 
 | Metric name                                    | Description                                     | Unit |
 |:---------------------------------------------- |:----------------------------------------------- |:---- |
@@ -47,14 +49,16 @@ In addition to global metrics above, the following metrics are monitoring for au
 | *mediatype*#calls.streams.active.packetloss.in.percentage  | Packet Loss In rate on ongoing call             |  %   |
 | *mediatype*#calls.streams.active.packetloss.out.percentage | Packet Loss Out rate on ongoing call            |  %   |
 
-<!--Peripherals-->
+</TabItem>
+<TabItem value="Peripherals" label="Peripherals">
 
 | Metric name                | Description                                             | Unit |
 |:---------------------------|:--------------------------------------------------------|:-----|
 | peripherals.total.count    | Number of pysical entity on the CTS                     |      |
 | Peripheral Status          | Operating status of each peripheral (MIC, CAM, DISPLAY) |      |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -66,9 +70,8 @@ https://www.cisco.com/c/en/us/td/docs/video/cuct/1_1/english/configuration/guide
 
 ## Setup 
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor *Cisco CTS* ressources:
 
@@ -78,7 +81,8 @@ yum install centreon-plugin-Hardware-Devices-Cisco-Cts-Snmp
 
 2. On the Centreon Web interface, install the *Cisco CTS* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor *Cisco CTS* applications:
 
@@ -94,7 +98,8 @@ yum install centreon-pack-hardware-devices-cisco-cts-snmp
 
 3. On the Centreon Web interface, install the *Cisco CTS* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

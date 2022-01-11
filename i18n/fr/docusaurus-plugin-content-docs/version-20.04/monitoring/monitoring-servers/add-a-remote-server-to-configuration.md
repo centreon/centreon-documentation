@@ -2,6 +2,9 @@
 id: add-a-remote-server-to-configuration
 title: Ajouter un Remote Server à la configuration
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Configurer un nouveau Remote Server
 
@@ -63,9 +66,8 @@ La communication entre un Central et un Remote Server est assurée par Gorgone e
 être faite en utilisant ZMQ (avec un Gorgone s'exécutant sur le Remote Server,
 recommandé) ou en utilisant le protocole SSH.
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Avec ZMQ (Recommandé)-->
+<Tabs groupId="sync">
+<TabItem value="Avec ZMQ (Recommandé)" label="Avec ZMQ (Recommandé)">
 
 #### Sélectionner le type de communication
 
@@ -201,7 +203,9 @@ Le résultat devrait être similaire :
 
 Mar 24 19:45:00 localhost.localdomain systemd[1]: Started Centreon Gorgone.
 ```
-<!--Avec SSH-->
+
+</TabItem>
+<TabItem value="Avec SSH" label="Avec SSH">
 
 #### Sélectionner le type de communication
 
@@ -241,7 +245,8 @@ les commandes suivantes :
 su - centreon-gorgone
 ssh-copy-id -i .ssh/id_rsa.pub centreon@<IP_REMOTE_SERVER>
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 **Pour forcer le Gorgone du Central à se connecter au Remote Server**,
 redémarrez le avec la commande suivante depuis le **serveur Central** :

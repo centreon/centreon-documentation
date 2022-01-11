@@ -2,6 +2,9 @@
 id: applications-nginx-plus-restapi
 title: Nginx Plus Restapi
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -22,9 +25,8 @@ The Centreon Plugin and Plugin-Packs rely on the Nginx Plus Rest API to collect 
 
 More information about collected metrics is available in the official Nginx Plus API documentation: https://docs.nginx.com/nginx/admin-guide/load-balancer/dynamic-configuration-api/
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Connections-->
+<Tabs groupId="sync">
+<TabItem value="Connections" label="Connections">
 
 | Metric name                 | Description                    |
 | :-------------------------- | :----------------------------- |
@@ -33,7 +35,8 @@ More information about collected metrics is available in the official Nginx Plus
 | connections.accepted.count  | Number of accepted connections |
 | connections.dropped.count   | Number of dropped connections  |
 
-<!--Http-Zone-->
+</TabItem>
+<TabItem value="HttpZone" label="HttpZone">
 
 | Metric name                                             | Description                                              |
 | :------------------------------------------------------ | :------------------------------------------------------- |
@@ -44,7 +47,8 @@ More information about collected metrics is available in the official Nginx Plus
 | http.$name.zone.responses.total.count                   | Number total of http-zone responses                      |
 | http.$name.zone.responses.[1xx,2xx,3xx,4xx,5xx].count   | Number 1xx,2xx,3xx,4xx,5xx of http-zone responses        |
 
-<!--Ssl-->
+</TabItem>
+<TabItem value="Ssl" label="Ssl">
 
 | Metric name                      | Description                         |
 | :------------------------------- | :---------------------------------- |
@@ -52,7 +56,8 @@ More information about collected metrics is available in the official Nginx Plus
 | ssl.handshakes.failed.count      | Number of SSL Handshakes failed     |
 | ssl.sessions.reuses.count        | Number of SSL sessions reuses       |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -61,9 +66,8 @@ More infomation is avaible in official Nginx documentation : https://docs.nginx.
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin on every poller monitoring Nginx Plus resources: :
 
@@ -73,7 +77,8 @@ yum install centreon-plugin-Applications-Nginx-Plus-Restapi.noarch
 
 2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Nginx Plus* Plugin-Pack
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin on every poller monitoring Nginx Plus resources :
 
@@ -89,7 +94,8 @@ yum install centreon-pack-applications-nginx-plus-restapi.noarch
 
 3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Nginx Plus* Plugin-Pack
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

@@ -2,6 +2,9 @@
 id: hardware-storage-nimble-snmp
 title: Nimble Storage
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -27,15 +30,15 @@ The current version of the Nimble SNMP Plugin-Pack can monitor the following ser
 
 The following metrics are collected by the Centreon Nimble SNMP Plugin:
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Volume-Usage-->
+<Tabs groupId="sync">
+<TabItem value="VolumeUsage" label="VolumeUsage">
 
 | Metric name                    | Description                          | Unit  |
 | :----------------------------- | :----------------------------------- | :---- |
 | volume.space.usage.bytes       | Per volume space usage (in Bytes)    | Bytes |
 
-<!--Global-Stats-->
+</TabItem>
+<TabItem value="GlobalStats" label="GlobalStats">
 
 | Metric name                           | Description                          | Unit    |
 | :------------------------------------ | :----------------------------------- | :------ |
@@ -46,7 +49,8 @@ The following metrics are collected by the Centreon Nimble SNMP Plugin:
 | system.io.read.time.seconds           | Sytem read time                      | Seconds |
 | system.io.write.time.seconds          | Sytem write time                     | Seconds |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -57,9 +61,8 @@ https://infosight.hpe.com/InfoSight/media/cms/active/public/pubs_GUI_Administrat
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor Nimble Flash Arrays:
 
@@ -69,7 +72,8 @@ yum install centreon-plugin-Hardware-Storage-Nimble-Snmp
 
 2. On the centreon Web interface, install the *Netdata RestAPI* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor Nimble Flash Arrays:
 
@@ -84,6 +88,9 @@ yum install centreon-pack-hardware-storage-nimble-snmp
 ```
 
 3. On the centreon Web interface, install the *Nimble SNMP* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+
+</TabItem>
+</Tabs>
 
 ## Configuration
 

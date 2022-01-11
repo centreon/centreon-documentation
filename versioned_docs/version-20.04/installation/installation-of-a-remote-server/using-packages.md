@@ -2,6 +2,9 @@
 id: using-packages
 title: Using packages
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 After installating your server, consider updating your operating system via the
 command:
@@ -76,9 +79,8 @@ This section describes how to install a Centreon Remote Server.
 It's possible to install this server with a local database on the server, or
 a remote database on a dedicated server.
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--With a local database-->
+<Tabs groupId="sync">
+<TabItem value="With a local database" label="With a local database">
 
 Run the commands:
 
@@ -88,7 +90,8 @@ systemctl daemon-reload
 systemctl restart mariadb
 ```
 
-<!--With a remote database-->
+</TabItem>
+<TabItem value="With a remote database" label="With a remote database">
 
 > If installing database on a dedicated server, this server should also have
 > the prerequired repositories.
@@ -122,7 +125,8 @@ Once the installation is complete you can delete this user using:
 DROP USER '<USER>'@'<IP>';
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 > The package **centreon-database** installs an optimized MariaDB configuration
 > to be used with Centreon.

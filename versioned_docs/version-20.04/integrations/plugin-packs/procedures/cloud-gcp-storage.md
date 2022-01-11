@@ -2,6 +2,9 @@
 id: cloud-gcp-storage
 title: Google Storage
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Plugin-Pack Assets
 
@@ -28,9 +31,8 @@ More information about the Host Discovery module is available in the Centreon do
 
 For all collected metrics, we can choose the *aggregation*: _average_, _minimum_, _maximum_ and _total_.
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Bucket-->
+<Tabs groupId="sync">
+<TabItem value="Bucket" label="Bucket">
 
 | Metric name                                                                | Description                                         | Unit  |
 | :------------------------------------------------------------------------- | :-------------------------------------------------- | :---- |
@@ -40,7 +42,8 @@ For all collected metrics, we can choose the *aggregation*: _average_, _minimum_
 | *bucket_name*~*aggregation*#storage.network.sent.volume.bytes              | Count of bytes sent over the network                | B     |
 | *bucket_name*~*aggregation*#storage.network.sent.volume.bytespersecond     | Count of bytes sent per second over the network     | B/s   |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -61,9 +64,8 @@ should be readable by centreon-engine poller.
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -73,7 +75,8 @@ yum install centreon-plugin-Cloud-Gcp-Storage-Api
 
 2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Google Storage* Plugin-Pack
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -89,7 +92,8 @@ yum install centreon-pack-cloud-gcp-storage
 
 3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Google Storage* Plugin-Pack
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host configuration
 

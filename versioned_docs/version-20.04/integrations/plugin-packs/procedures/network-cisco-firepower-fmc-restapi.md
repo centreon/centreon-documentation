@@ -2,6 +2,9 @@
 id: network-cisco-firepower-fmc-restapi
 title: Cisco Firepower Management Console Rest API
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Plugin-Pack Assets
 
@@ -11,9 +14,8 @@ The Plugin-Pack includes health monitoring of devices managed by Firepower Manag
 
 ### Collected Metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Devices-->
+<Tabs groupId="sync">
+<TabItem value="Devices" label="Devices">
 
 | Metric name                  | Description                     | Unit |
 | :----------------------------| :------------------------------ | :--- |
@@ -25,7 +27,8 @@ The Plugin-Pack includes health monitoring of devices managed by Firepower Manag
 | devices.status.yellow.count  | Number of yellow status devices |      |
 | device status                | Device status                   |      |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -35,9 +38,8 @@ E.g: https://www.cisco.com/c/en/us/td/docs/security/firepower/620/api/REST/Firep
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -47,7 +49,8 @@ yum install centreon-plugin-Network-Cisco-Firepower-Fmc-Restapi
 
 2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Cisco Firepower FMC Rest API* Plugin-Pack
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -63,7 +66,8 @@ yum install centreon-pack-network-cisco-firepower-fmc-restapi
 
 3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Cisco Firepower FMC Rest API* Plugin-Pack
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host configuration 
 

@@ -2,6 +2,9 @@
 id: applications-php-fpm-web
 title: PHP FPM
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Pack Assets
 
@@ -18,9 +21,8 @@ It brings the following Service Template:
 
 ### Collected metrics & status
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Php-Fpm-Usage-->
+<Tabs groupId="sync">
+<TabItem value="PhpFpmUsage" label="PhpFpmUsage">
 
 | Metric name                | Description                               | Unit  |
 |:---------------------------|:------------------------------------------|:------|
@@ -29,7 +31,8 @@ It brings the following Service Template:
 | fpm.queue.listen.count     | Number of connections in the listen queue | count |
 | fpm.requests.persecond     | Number of requests per seconds            | /s    |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -39,9 +42,8 @@ specified port in the *PHPFPMWEBPORT* Host Macro. More information in the
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor your *PHP FPM* ressources:
 
@@ -51,7 +53,8 @@ yum install centreon-plugin-Applications-Php-Fpm-Web
 
 2. On the Centreon Web interface, install the *PHP FPM* Centreon Plugin Pack on the **Configuration > Plugin Packs** page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor your *PHP FPM* ressources:
 
@@ -61,13 +64,14 @@ yum install centreon-plugin-Applications-Php-Fpm-Web
 
 2. Install the *PHP FPM* Centreon Plugin Pack RPM on the Centreon Central server:
 
- ```bash
+```bash
 yum install centreon-pack-applications-php-fpm-web
 ```
 
 3. On the Centreon Web interface, install the *PHP FPM* Centreon Plugin Pack on the **Configuration > Plugin Packs** page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

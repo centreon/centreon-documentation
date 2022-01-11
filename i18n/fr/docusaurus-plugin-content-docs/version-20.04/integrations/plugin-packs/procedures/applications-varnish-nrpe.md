@@ -2,42 +2,45 @@
 id: applications-varnish-nrpe
 title: Varnish NRPE
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-> Hello community! We're looking for a contributor to help us to translate the 
-content in french and provide a sample execution command. If it's you, let us 
-know by making a PR or pinging us on [slack](https://centreon.slack.com)
+
+> Hello community! We're looking for a contributor to help us to translate the
+> content in french and provide a sample execution command. If it's you, let us
+> know by making a PR or pinging us on [slack](https://centreon.slack.com)
 
 ## Overview
 
-The Plugin Pack *Varnish* works with the Centreon NSClient++ monitoring agent on Windows
-and NRPE Server on Linux to check the performance and behavior of a Varnish HTTP Cache Server. 
+The Plugin Pack _Varnish_ works with the Centreon NSClient++ monitoring agent on Windows
+and NRPE Server on Linux to check the performance and behavior of a Varnish HTTP Cache Server.
 
 ## Pack assets
 
 ### Monitored objects
 
-* Varnish Cache statistics
+- Varnish Cache statistics
 
 ### Collected metrics
 
-*Coming soon*
+_Coming soon_
 
 ## Prerequisites
 
 ### Command-line utility
 
-The Plugin uses the *varnishstat* binary. 
+The Plugin uses the _varnishstat_ binary.
 
 ### NRPE Server
 
-On RPM-Based distribution, you can use the centreon-nrpe3-daemon package deploying 
-a preconfigured version of the NRPE Server. 
+On RPM-Based distribution, you can use the centreon-nrpe3-daemon package deploying
+a preconfigured version of the NRPE Server.
 
 Most of the Linux distributions provide a NRPE package you can deploy using the system
 package default manager. When using these, it's important to modify following directives
-in the config files: 
+in the config files:
 
-* `allowed_hosts`
+- `allowed_hosts`
 
 ```shell
 [...]
@@ -50,7 +53,7 @@ allowed_hosts=X.X.X.X,X.Y.Z.V
 [...]
 ```
 
-* `dont_blame_nrpe`
+- `dont_blame_nrpe`
 
 ```shell
 [...]
@@ -64,24 +67,26 @@ dont_blame_nrpe=1
 ```
 
 **Important note: the `NASTY_METACHARS` parameter should be left as its default value.
-Modifying it might open serious security hole and RCE exploitation from an attacker.** 
+Modifying it might open serious security hole and RCE exploitation from an attacker.**
 
-## Installation 
+## Installation
 
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
-1. Install the Centreon NRPE Client package on every Poller expected to monitor *Varnish*:
+1. Install the Centreon NRPE Client package on every Poller expected to monitor _Varnish_:
 
 ```bash
 yum install centreon-nrpe3-plugin
 ```
 
-2. On the Centreon Web interface, install the Centreon Pack *Varnish* 
-from the **Configuration > Plugin Packs > Manager** page
+2. On the Centreon Web interface, install the Centreon Pack _Varnish_
+   from the **Configuration > Plugin Packs > Manager** page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
-1. Install the Centreon Plugin package on every Poller expected to monitor *Varnish*:
+1. Install the Centreon Plugin package on every Poller expected to monitor _Varnish_:
 
 ```bash
 yum install centreon-nrpe-plugin
@@ -93,18 +98,19 @@ yum install centreon-nrpe-plugin
 yum install centreon-pack-applications-varnish-nrpe
 ```
 
-3. On the Centreon Web interface, install the Centreon Pack *Varnish* 
-from the **Configuration > Plugin Packs > Manager** page
+3. On the Centreon Web interface, install the Centreon Pack _Varnish_
+   from the **Configuration > Plugin Packs > Manager** page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host configuration
 
-* Log into Centreon and add a new Host through "Configuration > Hosts".
-* Apply the *App-Varnish-NRPE-custom* template and configure all the mandatory Macros:
+- Log into Centreon and add a new Host through "Configuration > Hosts".
+- Apply the _App-Varnish-NRPE-custom_ template and configure all the mandatory Macros:
 
 | Mandatory | Name             | Description                                                      |
-|:----------|:-----------------|:---------------------------------------------------------------- |
+| :-------- | :--------------- | :--------------------------------------------------------------- |
 | X         | NRPECLIENT       | NRPE Plugin binary to use (Default: 'check_centreon_nrpe')       |
 | X         | NRPEPORT         | NRPE Port of the target server (Default: '5666')                 |
 | X         | NRPETIMEOUT      | Timeout value (Default: '30')                                    |

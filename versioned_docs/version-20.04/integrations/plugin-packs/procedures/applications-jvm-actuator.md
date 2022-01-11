@@ -2,6 +2,9 @@
 id: applications-jvm-actuator
 title: JVM Actuator
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Plugin Pack Assets
 
@@ -15,23 +18,24 @@ The Pack collects metrics for:
 
 ### Collected Metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Class-count-->
+<Tabs groupId="sync">
+<TabItem value="Classcount" label="Classcount">
 
 | Metric name                | Description                      | Unit |
 | :------------------------- | :------------------------------- | :--- |
 | class.loaded.current.count | Current number of classes loaded |      |
 | class.unloaded.count       | Number of classes unloaded       |      |
 
-<!--Cpu-load-->
+</TabItem>
+<TabItem value="Cpuload" label="Cpuload">
 
 | Metric name                 | Description                  | Unit |
 | :-------------------------- | :--------------------------  | :--- |
 | system.cpu.load.percentage  | Cpu load of the machine      | %    |
 | process.cpu.load.percentage | Cpu load of the jvm instance | %    |
 
-<!--Fd-usage-->
+</TabItem>
+<TabItem value="Fdusage" label="Fdusage">
 
 | Metric name                | Description                                   | Unit |
 | :------------------------- | :-------------------------------------------- | :--- |
@@ -39,20 +43,23 @@ The Pack collects metrics for:
 | fd.opened.free.count       | Number of free file descriptors               |      |
 | fd.opened.usage.percentage | Number of used file descriptors in percentage | %    |
 
-<!--Load-average-->
+</TabItem>
+<TabItem value="Loadaverage" label="Loadaverage">
 
 | Metric name          | Description                             | Unit |
 | :------------------- | :-------------------------------------- | :--- |
 | system.load.1m.count | System load average for the last minute |      |
 
-<!--Memory-->
+</TabItem>
+<TabItem value="Memory" label="Memory">
 
 | Metric name                | Description                           | Unit |
 | :------------------------- | :------------------------------------ | :--- |
 | memory.heap.usage.bytes    | Current heap memory usage             | B    |
 | memory.nonheap.usage.bytes | Current memory usage outside the heap | B    |
 
-<!--Memory-detailed-->
+</TabItem>
+<TabItem value="Memorydetailed" label="Memorydetailed">
 
 | Metric name                  | Description                    | Unit |
 | :--------------------------- | :----------------------------- | :--- |
@@ -62,14 +69,16 @@ The Pack collects metrics for:
 | memory.permanent.usage.bytes | Current permanent memory usage | B    |
 | memory.code.usage.bytes      | Current code memory usage      | B    |
 
-<!--Threads-->
+</TabItem>
+<TabItem value="Threads" label="Threads">
 
 | Metric name           | Description                        | Unit |
 | :-------------------- | :--------------------------------- | :--- |
 | threads.active.count  | Number of active threads           |      |
 | threads.daemon.count  | Count of threads marked as daemons |      |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -78,9 +87,8 @@ Ask to your admin to deploy it and give you the URL.
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -90,7 +98,8 @@ yum install centreon-plugin-Applications-Jvm-Actuator
 
 2. On the Centreon Web interface in **Configuration > Plugin Packs > Manager**, install the *JVM Actuator* Pack
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -106,7 +115,8 @@ yum install centreon-pack-applications-jvm-actuator
 
 3. On the Centreon Web interface in **Configuration > Plugin Packs > Manager**, install the *JVM Actuator* Pack
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host configuration 
 

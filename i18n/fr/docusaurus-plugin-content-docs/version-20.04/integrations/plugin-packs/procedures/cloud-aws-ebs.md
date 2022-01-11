@@ -2,6 +2,9 @@
 id: cloud-aws-ebs
 title: Amazon EBS
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -20,34 +23,36 @@ Le Plugin Centreon Amazon EBS utilise l'API Amazon Cloudwatch pour collecter les
 
 ### Règles de découvertes
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Hosts-->
+<Tabs groupId="sync">
+<TabItem value="Hosts" label="Hosts">
 
 | Rule name                       | Description                   |
 | :------------------------------ | :---------------------------- |
 | Cloud-Aws-Ebs-Api-HostDiscovery | Découverte de vos volumes EBS |
 
-<!--Services-->
+</TabItem>
+<TabItem value="Services" label="Services">
 
 Aucune règle de découverte de service n'est associée à ce Plugin-Pack. 
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Métriques supervisées
 
 Les métriques présentées ci-après sont également détaillées dans la documentation officielle du service EBS:
 https://docs.aws.amazon.com/fr_fr/AWSEC2/latest/UserGuide/using_cloudwatch_ebs
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Ebs-Volume-Io-->
+<Tabs groupId="sync">
+<TabItem value="EbsVolumeIo" label="EbsVolumeIo">
 
 | Metric name      | Description                                                                             |
 | :--------------- | :-------------------------------------------------------------------------------------- |
 | VolumeReadBytes  | Provides information on the read operations in a specified period of time. Unit: Bytes  |
 | VolumeWriteBytes | Provides information on the write operations in a specified period of time. Unit: Bytes |
 
-<!--Ebs-Iops-->
+</TabItem>
+<TabItem value="EbsIops" label="EbsIops">
 
 | Metric name                | Description                                                                                                                           |
 | :------------------------- | :------------------------------------------------------------------------------------------------------------------------------------ |
@@ -57,7 +62,8 @@ https://docs.aws.amazon.com/fr_fr/AWSEC2/latest/UserGuide/using_cloudwatch_ebs
 | VolumeConsumedReadWriteOps | The total amount of read and write operations (normalized to 256K capacity units) consumed in a specified period of time. Unit: Count |
 | VolumeQueueLength          | The number of read and write operation requests waiting to be completed in a specified period of time. Unit: Count                    |
 
-<!--Ebs-Time-->
+</TabItem>
+<TabItem value="EbsTime" label="EbsTime">
 
 | Metric name          | Description                                                                                                              |
 | :------------------- | :----------------------------------------------------------------------------------------------------------------------- |
@@ -65,7 +71,8 @@ https://docs.aws.amazon.com/fr_fr/AWSEC2/latest/UserGuide/using_cloudwatch_ebs
 | VolumeTotalWriteTime | The total number of seconds spent by all write operations that completed in a specified period of time. Unit: Seconds    |
 | VolumeIdleTime       | The total number of seconds in a specified period of time when no read or write operations were submitted. Unit: Seconds |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -85,21 +92,22 @@ Le SDK est recommandé car plus performant.
 
 Installez le binaire choisi en lançant l'une des commandes suivantes:
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--perl-Paws-installation-->
+<Tabs groupId="sync">
+<TabItem value="perlPawsinstallation" label="perlPawsinstallation">
 
 ```bash
 yum install perl-Paws
 ```
 
-<!--aws-cli-installation-->
+</TabItem>
+<TabItem value="awscliinstallation" label="awscliinstallation">
 
 ```bash
 yum install awscli
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 > **Attention** il n'est actuellement **pas** possible d'utiliser *paws* dans les cas suivants:
 > * si la connexion s'effectue au travers d'un proxy.
@@ -107,9 +115,8 @@ yum install awscli
 
 ## Installation 
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources Amazon EBS:
 
@@ -119,7 +126,8 @@ yum install centreon-plugin-Cloud-Aws-Ebs-Api
 
 2. Dans l'interface Centreon, installer le Plugin-Pack 'Amazon EBS' depuis la page "Configuration > Plugin Packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources Amazon EBS:
 
@@ -135,7 +143,8 @@ yum install centreon-pack-cloud-aws-ebs.noarch
 
 3. Dans l'interface Web de Centreon, installer le Plugin-Pack 'Amazon EBS' depuis la page "Configuration > Plugin Packs > Manager"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -154,7 +163,6 @@ Lorsque vous ajoutez un Hôte à Centreon, choisissez le modèle *Cloud-Aws-Ebs-
 |             | DUMMYSTATUS     | Host state. Default is OK, do not modify it unless you know what you are doing              |
 |             | DUMMYOUTPUT     | Host check output. Default is 'This is a dummy check'. Customize it with your own if needed |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## FAQ
 

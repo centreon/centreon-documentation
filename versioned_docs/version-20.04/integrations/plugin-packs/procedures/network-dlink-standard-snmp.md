@@ -2,6 +2,9 @@
 id: network-dlink-standard-snmp
 title: D-Link standard SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Plugin-Pack Assets
 
@@ -13,9 +16,8 @@ The pack had been tested on following models: DGS-1510, DGS 3130, DGS-3630.
 
 ### Collected Metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Cpu-->
+<Tabs groupId="sync">
+<TabItem value="Cpu" label="Cpu">
 
 | Metric name                         | Description           | Unit |
 | :---------------------------------- | :-------------------- | :--- |
@@ -26,7 +28,8 @@ The pack had been tested on following models: DGS-1510, DGS 3130, DGS-3630.
 | core.cpu.utilization.1m.percentage  | CPU Core utilization  | %    |
 | core.cpu.utilization.5m.percentage  | CPU Core utilization  | %    |
 
-<!--Interfaces-->
+</TabItem>
+<TabItem value="Interfaces" label="Interfaces">
 
 | Metric name                              | Description                                             | Unit |
 |:---------------------------------------- |:------------------------------------------------------- | :--- |
@@ -40,7 +43,8 @@ The pack had been tested on following models: DGS-1510, DGS 3130, DGS-3630.
 
 It is possible to filter on the name of an interface using a REGEXP of the form [```--interface='^eth1/0/1$' --name```].
 
-<!--Hardware-->
+</TabItem>
+<TabItem value="Hardware" label="Hardware">
 
 * Per intances :
 
@@ -51,7 +55,8 @@ It is possible to filter on the name of an interface using a REGEXP of the form 
 | temperature-status            | Status of temperature sensor              |      |
 | hardware.temperature.celsius  | Temperature of the different sensors      | C    |
 
-<!--Memory-->
+</TabItem>
+<TabItem value="Memory" label="Memory">
 
 | Metric name             | Description                | Unit |
 | :---------------------- | :------------------------- | :--- |
@@ -59,7 +64,8 @@ It is possible to filter on the name of an interface using a REGEXP of the form 
 | memory.free.bytes       | Free memory                | B    |
 | memory.usage.percentage | Memory usage in percentage | %    |
 
-<!--Stack-->
+</TabItem>
+<TabItem value="Stack" label="Stack">
 
 | Metric name               | Description                | Unit |
 | :------------------------ | :------------------------- | :--- |
@@ -69,7 +75,8 @@ It is possible to filter on the name of an interface using a REGEXP of the form 
 
 On some equipments, there are no ```link-status``` informations. 
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -77,9 +84,8 @@ To control your D-Link equipment, the SNMP v2 must be configured.
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -89,7 +95,8 @@ yum install centreon-plugin-Network-Dlink-Standard-Snmp.noarch
 
 2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *D-Link Network* Plugin-Pack
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -105,7 +112,8 @@ yum install network-dlink-standard-snmp.noarch
 
 3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *D-Link Network* Plugin-Pack
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host configuration 
 

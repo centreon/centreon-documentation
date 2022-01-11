@@ -2,6 +2,9 @@
 id: manage-alerts
 title: Gestion des alertes
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 Ce chapitre présente les différentes méthodes de gestion des alertes.
 
@@ -31,18 +34,20 @@ nominal après changement du disque.
 
 Pour acquitter un incident, deux solutions sont possibles :
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--From real time monitoring-->
+<Tabs groupId="sync">
+<TabItem value="From real time monitoring" label="From real time monitoring">
 1. Rendez-vous dans le menu **Monitoring > Status Details > Hosts** (or **services**) menu
 2. Select the object(s) that you want acknowledge
 3. In the menu: **More actions** click on **Hosts: Acknowledge** or on **Services: Acknowledge**
 
-<!--From the detailed sheet of an object-->
+</TabItem>
+<TabItem value="From the detailed sheet of an object" label="From the detailed sheet of an object">
 \
 A partir de la page de détail d’un objet, cliquez sur l’icône activé associé au champ **Acknowledged** dans le cadre
 **Options** 
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 La fenêtre suivante s’affiche :
 
@@ -95,24 +100,27 @@ Il y a trois possibilités différentes de définir un temps d’arrêt :
 * Depuis l’interface de supervision temps réelle
 * Depuis le menu **Downtime**
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Page de détails d'un objet-->
+<Tabs groupId="sync">
+<TabItem value="Page de détails d'un objet" label="Page de détails d'un objet">
 
 1. Accédez à la page de détails d’un objet
 2. Dans la catégorie **Commands**, cliquez sur **Schedule downtime for this host/service**
 
-<!--Interface temps réelle-->
+</TabItem>
+<TabItem value="Interface temps réelle" label="Interface temps réelle">
 
 1. Rendez-vous dans le menu **Monitoring > Status Details > Hosts** (ou **services**)
 2. Sélectionnez le(s) objet(s) sur lesquels vous souhaitez planifier un temps d’arrêt
 3. Dans le menu **More actions...**, cliquez sur **Hosts : Set Downtime** ou **Services : Set Downtime**
 
-<!--Depuis le menu Downtime-->
+</TabItem>
+<TabItem value="Depuis le menu Downtime" label="Depuis le menu Downtime">
 
 1. Rendez-vous dans le menu **Monitoring > Downtimes > Downtimes**
 2. Cliquez sur **Add a service downtime** ou **Add a host downtime**
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 La fenêtre suivante s’affiche :
 
@@ -204,18 +212,20 @@ ressource (hôte ou service). Un commentaire possède les propriétés suivantes
 
 Pour ajouter un commentaire, deux solutions sont possibles :
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Page de détails d'un objet-->
+<Tabs groupId="sync">
+<TabItem value="Page de détails d'un objet" label="Page de détails d'un objet">
 
 1. Accédez à la page de détails de l’objet
 2. Dans la catégorie **Host/Service Commands**, cliquez sur **Add a comment for this host/this service**
 
-<!--Depuis le menu commentaires-->
+</TabItem>
+<TabItem value="Depuis le menu commentaires" label="Depuis le menu commentaires">
 
 1. Rendez-vous dans le menu **Monitoring > Downtimes > Comments**
 2. Cliquez sur **Add a Service Comment** ou **Add a Host Comment**
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 La fenêtre suivante s’affiche :
 
@@ -240,8 +250,8 @@ Il est possible d’activer ou de désactiver momentanément la vérification d�
 
 #### En pratique
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Page de détails d'un objet-->
+<Tabs groupId="sync">
+<TabItem value="Page de détails d'un objet" label="Page de détails d'un objet">
 
 1. Accédez à la page de détails de l’objet
 2. Dans la catégorie **Options** rendez-vous à la ligne **Active checks** pour vérifier l’état des contrôles.
@@ -251,7 +261,8 @@ Pour :
 * Activer la vérification, cliquez sur ![image](../assets/configuration/common/enabled.png)
 * Désactiver la vérification, cliquez sur ![image](../assets/configuration/common/disabled.png)
 
-<!--Interface temps réelle-->
+</TabItem>
+<TabItem value="Interface temps réelle" label="Interface temps réelle">
 
 1. Rendez-vous dans le menu **Monitoring > Status Details > Hosts** (ou **services**)
 2. Sélectionnez le(s) objet(s) sur lesquels vous souhaitez activer ou de désactiver la vérification
@@ -260,7 +271,8 @@ Pour :
 * **Hosts : Disable Check** ou **Services: Disable Check** pour arrêter la vérification d’un hôte ou d’un service
 * **Hosts: Enable Check** ou **Services: Enable Check** pour activer la vérification d’un hôte ou d’un service
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Soumettre un résultat
 
@@ -297,8 +309,8 @@ Il est possible d’activer ou de désactiver momentanément la notification d�
 
 Il y a deux moyens de gérer les notifications :
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Page de détails d'un objet-->
+<Tabs groupId="sync">
+<TabItem value="Page de détails d'un objet" label="Page de détails d'un objet">
 
 1. Accédez à la page de détails de l’objet
 2. Dans la catégorie **Options** rendez-vous à la ligne : **Service Notifications**
@@ -308,7 +320,8 @@ To:
 * Activer la notification, cliquez sur ![image](../assets/configuration/common/enabled.png)
 * Désactiver la notification, cliquez sur ![image](../assets/configuration/common/disabled.png)
 
-<!--Interface temps réelle-->
+</TabItem>
+<TabItem value="Interface temps réelle" label="Interface temps réelle">
 
 1. Rendez-vous dans le menu **Monitoring > Status Details > Hosts** (ou **services**)
 2. Sélectionnez le ou les hôtes/services pour lesquels vous souhaitez activer ou de désactiver la notification
@@ -317,7 +330,8 @@ To:
 * **Hosts: Disable Notification** ou **Services: Disable Notification** pour arrêter la notification d’un hôte ou d’un service
 * **Hosts: Enable Notification** ou **Services: Enable Notification** pour activer la notification d’un hôte ou d’un service
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Reprogrammation des contrôles
 
@@ -339,17 +353,19 @@ Il existe deux types de programmation :
 
 Il y a deux moyens de forcer la vérification d’un service :
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Page de détails d'un objet-->
+<Tabs groupId="sync">
+<TabItem value="Page de détails d'un objet" label="Page de détails d'un objet">
 
 1. Accédez à la page de détail de l’objet
 2. Dans la catégorie **Host Commands** (ou **Service Commands**), cliquez sur **Re-schedule the next check for this host /
   service** ou **Re-schedule the next check for this host / service (forced)**
 
-<!--Interface temps réelle-->
+</TabItem>
+<TabItem value="Interface temps réelle" label="Interface temps réelle">
 
 1. Rendez-vous dans le menu **Monitoring > Status Details > Hosts** (ou **services**)
 2. Sélectionnez le ou les objets pour lesquels vous souhaitez forcer la vérification
 3. Dans le menu **More actions...** cliquez sur **Schedule immediate check** ou **Schedule immediate check (Forced)**
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>

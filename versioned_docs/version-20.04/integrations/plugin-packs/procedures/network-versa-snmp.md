@@ -2,6 +2,9 @@
 id: network-versa-snmp
 title: Versa SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -20,9 +23,8 @@ The Centreon Plugin-Pack relies on the SNMP protocol to query and collect status
 
 ### Discovery Rules
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Services-->
+<Tabs groupId="sync">
+<TabItem value="Services" label="Services">
 
 | Rule Name                         | Description                                                   |
 |:--------------------------------- |:------------------------------------------------------------- |
@@ -31,20 +33,21 @@ The Centreon Plugin-Pack relies on the SNMP protocol to query and collect status
 | Net-Versa-SNMP-Traffic-Name       | Discover network interfaces and monitor bandwidth utilization |
 | Net-Versa-SNMP-Packet-Errors-Name | Discover network interfaces and monitor packet errors/discard |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Collected metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Bgp-Peers-->
+<Tabs groupId="sync">
+<TabItem value="BgpPeers" label="BgpPeers">
 
 | Metric name              | Description         | Unit |
 |:------------------------ |:------------------- |:---- |
 | status                   | Status of the peers |      |
 | peer.update.last.seconds | Last update by peer | s    |
 
-<!--Devices-->
+</TabItem>
+<TabItem value="Devices" label="Devices">
 
 | Metric name                       | Description                                 | Unit  |
 |:--------------------------------- | :------------------------------------------ |:----- |
@@ -55,7 +58,8 @@ The Centreon Plugin-Pack relies on the SNMP protocol to query and collect status
 | device.sessions.failed.count      | Number of failed sessions on the device     | Count |
 | device.sessions.failed.percentage | Percentage of failed sessions on the device | %     |
 
-<!--Interfaces-->
+</TabItem>
+<TabItem value="Interfaces" label="Interfaces">
 
 | Metric name                               | Description                                            | Unit |
 |:----------------------------------------- |:------------------------------------------------------ |:---- |
@@ -67,7 +71,8 @@ The Centreon Plugin-Pack relies on the SNMP protocol to query and collect status
 | interface.packets.in.discards.percentage  | Incoming discarded packets going through the interface | %    |
 | interface.packets.out.discards.percentage | Outgoing discarded packets going through the interface | %    |
 
-<!--Ipsec-->
+</TabItem>
+<TabItem value="Ipsec" label="Ipsec">
 
 | Metric name                      | Description                                        | Unit  |
 |:-------------------------------- |:-------------------------------------------------- |:----- |
@@ -78,7 +83,8 @@ The Centreon Plugin-Pack relies on the SNMP protocol to query and collect status
 | ipsec.packets.invalid.count      | Number of invalid packets through the IPsec tunnel | Count |
 | ipsec.ike.disconnected.count     | number of IKE disconnect by IPsec tunnel           | Count |
 
-<!--Qos-Policy-->
+</TabItem>
+<TabItem value="QosPolicy" label="QosPolicy">
 
 * by QoS policy
 
@@ -101,7 +107,8 @@ The Centreon Plugin-Pack relies on the SNMP protocol to query and collect status
 | appqos.policy.packets.forwarded.count          | Number of packets forwarded by Application Qos Policy | Count |
 | appqos.policy.traffic.forwarded.bytespersecond | Traffic forwarded by QoS Policy                       | B/s   |
 
-<!--Sdwan-->
+</TabItem>
+<TabItem value="Sdwan" label="Sdwan">
 
 | Metric name                             | Description                                     | Unit  |
 |:--------------------------------------- |:----------------------------------------------- |:----- |
@@ -111,7 +118,8 @@ The Centreon Plugin-Pack relies on the SNMP protocol to query and collect status
 | sdwan.policy.packets.out.count          | Number of outgoing packets by SDWAN policy      | Count |
 | sdwan.policy.traffic.out.bytespersecond | Outcoming traffic going through by SDWAN Policy | B/s   |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -126,9 +134,8 @@ The Centreon Poller must be able to reach the UDP/161 SNMP port of the Versa Net
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor 
 Versa Networks devices:
@@ -140,7 +147,8 @@ yum install centreon-plugin-Network-Versa-Snmp
 2. On the Centreon Web interface, install the *Versa SNMP* Plugin-Pack 
 through "Configuration > Plugin packs > Manager" page.
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor
 Versa Networks devices:
@@ -158,7 +166,8 @@ yum install centreon-pack-network-versa-snmp
 3. On the Centreon Web interface, install the *Versa SNMP* Plugin-Pack 
 through "Configuration > Plugin packs > Manager" page.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host configuration 
 

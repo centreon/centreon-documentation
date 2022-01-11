@@ -2,6 +2,9 @@
 id: hardware-storage-purestorage-restapi
 title: Pure Storage RestAPI 
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -18,20 +21,22 @@ proprietary de-duplication and compression software to improve the amount of dat
 
 More information is available in the Pure Storage official API documentation : https://blog.purestorage.com/introducing-the-pure1-rest-api/
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Alarms-Global-->
+<Tabs groupId="sync">
+<TabItem value="AlarmsGlobal" label="AlarmsGlobal">
 
 | Metric name        | Description                                              |
 | :----------------- | :------------------------------------------------------- |
 | Status             | Status of alarms. Threshold/Unit: String                 |
 
-<!--Hardware-Global-->
+</TabItem>
+<TabItem value="HardwareGlobal" label="HardwareGlobal">
 
 | Metric name        | Description                                             |
 | :----------------- | :------------------------------------------------------ |
 | Status             | Status of components. Threshold/Unit: String            |
 
-<!--Volume-Usage-Global-->
+</TabItem>
+<TabItem value="VolumeUsageGlobal" label="VolumeUsageGlobal">
 
 | Metric name        | Description                                              |
 | :----------------- | :------------------------------------------------------- |
@@ -39,7 +44,8 @@ More information is available in the Pure Storage official API documentation : h
 | Data-Reduction     | The data-reduction ratio on the volume. Unit: ratio      |
 | Total-Reduction    | The total-reduction on the volume. Unit: count           |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -49,9 +55,8 @@ More information is available in the Pure Storage official API documentation : h
  
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Plugin on every poller expected to monitor Pure Storage arrays:
 
@@ -61,7 +66,8 @@ yum install centreon-plugin-Hardware-Storage-Purestorage-Restapi
 
 2. Install the "Pure-Storage-Restapi" Centreon Plugin-Pack from the "Configuration > Plugin Packs > Manager" page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Plugin on every poller expected to monitor Pure Storage resources:
 
@@ -77,7 +83,8 @@ yum install centreon-pack-hardware-storage-purestorage-restapi
 
 3. Install the "Pure-Storage-Restapi" Centreon Plugin-Pack from the "Configuration > Plugin Packs > Manager" page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host Configuration
 

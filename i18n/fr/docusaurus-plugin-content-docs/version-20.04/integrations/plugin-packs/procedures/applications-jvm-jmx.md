@@ -2,6 +2,9 @@
 id: applications-jvm-jmx
 title: JVM JMX
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Contenu du Plugin Pack
 
@@ -16,9 +19,8 @@ Le Pack JVM JMX collecte les données pour:
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Class-count-->
+<Tabs groupId="sync">
+<TabItem value="Classcount" label="Classcount">
 
 | Metric name                | Description                      | Unit |
 | :------------------------- | :------------------------------- | :--- |
@@ -26,14 +28,16 @@ Le Pack JVM JMX collecte les données pour:
 | class.loaded.count         | Number of classes loaded         |      |
 | class.unloaded.count       | Number of classes unloaded       |      |
 
-<!--Cpu-load-->
+</TabItem>
+<TabItem value="Cpuload" label="Cpuload">
 
 | Metric name                 | Description                  | Unit |
 | :-------------------------- | :--------------------------  | :--- |
 | system.cpu.load.percentage  | Cpu load of the machine      | %    |
 | process.cpu.load.percentage | Cpu load of the jvm instance | %    |
 
-<!--Fd-usage-->
+</TabItem>
+<TabItem value="Fdusage" label="Fdusage">
 
 | Metric name                | Description                                   | Unit |
 | :------------------------- | :-------------------------------------------- | :--- |
@@ -41,27 +45,31 @@ Le Pack JVM JMX collecte les données pour:
 | fd.opened.free.count       | Number of free file descriptors               |      |
 | fd.opened.usage.percentage | Number of used file descriptors in percentage | %    |
 
-<!--Gc-usage-->
+</TabItem>
+<TabItem value="Gcusage" label="Gcusage">
 
 | Metric name                             | Description                              | Unit |
 | :-------------------------------------- | :--------------------------------------- | :--- |
 | gc.collection.time.elapsed.milliseconds | Accumulated collection elapsed time      | ms   |
 | gc.collection.count                     | Number of collections that have occurred |      |
 
-<!--Load-average-->
+</TabItem>
+<TabItem value="Loadaverage" label="Loadaverage">
 
 | Metric name          | Description                             | Unit |
 | :------------------- | :-------------------------------------- | :--- |
 | system.load.1m.count | System load average for the last minute |      |
 
-<!--Memory-->
+</TabItem>
+<TabItem value="Memory" label="Memory">
 
 | Metric name                | Description                           | Unit |
 | :------------------------- | :------------------------------------ | :--- |
 | memory.heap.usage.bytes    | Current heap memory usage             | B    |
 | memory.nonheap.usage.bytes | Current memory usage outside the heap | B    |
 
-<!--Memory-detailed-->
+</TabItem>
+<TabItem value="Memorydetailed" label="Memorydetailed">
 
 | Metric name                  | Description                    | Unit |
 | :--------------------------- | :----------------------------- | :--- |
@@ -71,7 +79,8 @@ Le Pack JVM JMX collecte les données pour:
 | memory.permanent.usage.bytes | Current permanent memory usage | B    |
 | memory.code.usage.bytes      | Current code memory usage      | B    |
 
-<!--Threads-->
+</TabItem>
+<TabItem value="Threads" label="Threads">
 
 | Metric name           | Description                        | Unit |
 | :-------------------- | :--------------------------------- | :--- |
@@ -79,7 +88,8 @@ Le Pack JVM JMX collecte les données pour:
 | threads.started.count | Number of threads started          |      |
 | threads.daemon.count  | Count of threads marked as daemons |      |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -88,9 +98,8 @@ Demander à votre administrateur de le déployer et de vous fournir l'URL.
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -100,7 +109,8 @@ yum install centreon-plugin-Applications-Jvm-Jmx
 
 2. Sur l'interface Web de Centreon, installer le Pack *JVM JMX* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -116,7 +126,8 @@ yum install centreon-pack-applications-jvm-jmx
 
 3. Sur l'interface Web de Centreon, installer le Pack *JVM JMX* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

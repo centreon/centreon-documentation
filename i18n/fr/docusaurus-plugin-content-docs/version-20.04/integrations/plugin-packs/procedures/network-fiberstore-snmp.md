@@ -2,6 +2,9 @@
 id: network-fiberstore-snmp
 title: Fiberstore SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Contenu du Plugin-Pack
 
@@ -11,15 +14,15 @@ Le Plugin-Pack Fiberstore SNMP inclut le CPU, Hardware, Interfaces et Memoire.
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Cpu-->
+<Tabs groupId="sync">
+<TabItem value="Cpu" label="Cpu">
 
 | Metric name                 | Description                  | Unit  |
 | :-------------------------- | :--------------------------- | :---- |
 | cpu.utilization.percentage  | Current CPU usage percentage | %     |
 
-<!--Hardware-->
+</TabItem>
+<TabItem value="Hardware" label="Hardware">
 
 | Metric name                                    | Description                     | Unit |
 | :--------------------------------------------- | :------------------------------ | :--- |
@@ -28,7 +31,8 @@ Le Plugin-Pack Fiberstore SNMP inclut le CPU, Hardware, Interfaces et Memoire.
 | *fandescription*#hardware.fan.speed.percentage | Speed of the fan                | %    |
 | power status                                   | Status of the power module      |      |
 
-<!--Interfaces-->
+</TabItem>
+<TabItem value="Interfaces" label="Interfaces">
 
 | Metric name                                            | Description                                         | Unit |
 |:-------------------------------------------------------|:----------------------------------------------------|:-----|
@@ -40,7 +44,8 @@ Le Plugin-Pack Fiberstore SNMP inclut le CPU, Hardware, Interfaces et Memoire.
 
 A regexp filter is available to target a specific interface identifier - ifName [```--interface='^eth0$' --name```]
 
-<!--Memory-->
+</TabItem>
+<TabItem value="Memory" label="Memory">
 
 | Metric name             | Description                               | Unit  |
 | :---------------------  | :---------------------------------------- | :---- |
@@ -48,7 +53,8 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | memory.free.bytes       | Free memory                               | B     |
 | memory.usage.percentage | Memory usage in percentage                | %     |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -56,9 +62,8 @@ Afin de contrôler votre équipement Fiberstore, le SNMP doit être configuré.
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -68,7 +73,8 @@ yum install centreon-plugin-Network-Fiberstore-Snmp
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Fiberstore SNMP* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -84,7 +90,8 @@ yum install centreon-pack-network-fiberstore-snmp
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Fiberstore SNMP* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

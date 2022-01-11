@@ -2,6 +2,9 @@
 id: applications-squid-snmp
 title: Squid SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Contenu du Pack
 
@@ -12,9 +15,8 @@ title: Squid SNMP
 
 ### Métriques & statuts collectés
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Caches-Usage-->
+<Tabs groupId="sync">
+<TabItem value="CachesUsage" label="CachesUsage">
 
 | Metric name                      | Description                | Unit  |
 |:---------------------------------|:---------------------------|:------|
@@ -23,7 +25,8 @@ title: Squid SNMP
 | cache.filedescriptors.count      | Number of file descriptors | count |
 | cache.objects.count              | Number of object stored    | count |
 
-<!--Protocol-Stats-->
+</TabItem>
+<TabItem value="ProtocolStats" label="ProtocolStats">
 
 * HTTP statistics
 
@@ -49,7 +52,8 @@ title: Squid SNMP
 | cache.server.traffic.out.bitspersecond | Cache server traffic out      | b/s   |
 | cache.clients.count                    | Current number of clients: %s | count |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -64,9 +68,8 @@ SNMP (UDP/161) du proxy Squid.
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des *proxy Squid*:
 
@@ -76,7 +79,8 @@ yum install centreon-plugin-Applications-Squid-Snmp
 
 2. Sur l'interface Integration de Centreon, installer le Plugin Pack *Squid SNMP* depuis la page `Configuration > Packs de plugins`
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des *proxy Squid*:
 
@@ -92,7 +96,8 @@ yum install centreon-pack-applications-squid-snmp
 
 3. Sur l'interface Integration de Centreon, installer le Plugin Pack *Squid SNMP* depuis la page `Configuration > Packs de plugins`
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

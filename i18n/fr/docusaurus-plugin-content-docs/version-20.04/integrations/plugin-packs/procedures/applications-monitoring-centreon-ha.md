@@ -2,6 +2,9 @@
 id: applications-monitoring-centreon-ha
 title: Centreon-HA
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -9,8 +12,8 @@ Centreon-HA est l'implémentation en haute disponibilité de la fonction central
 
 Le Plugin-Pack Centreon-HA s'appuie sur deux autre Plugin-Packs :
 
-* [Pacemaker](integrations/plugin-packs/procedures/applications-pacemaker-ssh.md)
-* [Linux SNMP](integrations/plugin-packs/procedures/operatingsystems-linux-snmp.md)
+- [Pacemaker](integrations/plugin-packs/procedures/applications-pacemaker-ssh.md)
+- [Linux SNMP](integrations/plugin-packs/procedures/operatingsystems-linux-snmp.md)
 
 Par conséquent, il utilise les protocoles de ces deux Plugin-Packs - **SNMP** et **SSH** - pour se connecter aux nœuds du cluster Centreon-HA et récupérer informations et métriques relatives aux processus et à la santé du cluster.
 
@@ -18,50 +21,53 @@ Par conséquent, il utilise les protocoles de ces deux Plugin-Packs - **SNMP** e
 
 ### Objets supervisés
 
-* Nœuds d'un cluster Centreon-HA
-* Noœud actif d'un cluster Centreon-HA *via* la VIP
-* Serveur tiers fournissant le service de Quorum Device (service `corosync-qnetd`)
+- Nœuds d'un cluster Centreon-HA
+- Noœud actif d'un cluster Centreon-HA _via_ la VIP
+- Serveur tiers fournissant le service de Quorum Device (service `corosync-qnetd`)
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--PCS-Status-->
+<Tabs groupId="sync">
+<TabItem value="PCSStatus" label="PCSStatus">
 
 Ce modèle ne collecte pas de métrique, mais donne l'état général du cluster :
 
-* remontée des "failed actions"
-* état des ressource :
-  * `php7`
-  * `cbd_rrd`
-  * `vip`
-  * `http`
-  * `gorgone`
-  * `centreon_central_sync`
-  * `cbd_central_broker`
-  * `centengine`
-  * `centreontrapd`
-  * `snmptrapd`
+- remontée des "failed actions"
+- état des ressource :
+  - `php7`
+  - `cbd_rrd`
+  - `vip`
+  - `http`
+  - `gorgone`
+  - `centreon_central_sync`
+  - `cbd_central_broker`
+  - `centengine`
+  - `centreontrapd`
+  - `snmptrapd`
 
-<!--proc-corosync-->
+</TabItem>
+<TabItem value="proccorosync" label="proccorosync">
 
 | Metric name | Description                                                    | Unit  |
-|:------------|:---------------------------------------------------------------|:------|
+| :---------- | :------------------------------------------------------------- | :---- |
 | nbproc      | Nombre de processus dont le nom correpond au filtre `corosync` | Count |
 
-<!--proc-pacemakerd-->
+</TabItem>
+<TabItem value="procpacemakerd" label="procpacemakerd">
 
 | Metric name | Description                                                      | Unit  |
-|:------------|:-----------------------------------------------------------------|:------|
+| :---------- | :--------------------------------------------------------------- | :---- |
 | nbproc      | Nombre de processus dont le nom correpond au filtre `pacemakerd` | Count |
 
-<!--proc-pcsd-->
+</TabItem>
+<TabItem value="procpcsd" label="procpcsd">
 
 | Metric name | Description                                                | Unit  |
-|:------------|:-----------------------------------------------------------|:------|
+| :---------- | :--------------------------------------------------------- | :---- |
 | nbproc      | Nombre de processus dont le nom correpond au filtre `pcsd` | Count |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -75,8 +81,8 @@ La configuration de SNMP sur un serveur Linux est expliquée dans [la page de do
 
 Ouvrir une session en ligne de commande sur :
 
-* le poller qui sera chargé de superviser le cluster
-* chaque nœud de ce cluster
+- le poller qui sera chargé de superviser le cluster
+- chaque nœud de ce cluster
 
 Une fois ces sessions ouvertes, lancer cette commande :
 
@@ -90,7 +96,7 @@ su - centreon-engine
 ssh-keygen -t ed25519 -a 100
 ```
 
-Nous avons généré une paire de clés sur chaque serveur, ainsi que le répertoire `~/.ssh`. 
+Nous avons généré une paire de clés sur chaque serveur, ainsi que le répertoire `~/.ssh`.
 
 Sur le poller lancer cette commande pour afficher la clé publique créée :
 
@@ -110,7 +116,7 @@ Une fois cette étape effectuée sur chaque nœud central, il ne reste plus qu'�
 ssh <cluster-node-ip-address>
 ```
 
-L'utilisateur `centreon-engine` du poller est alors capable d'ouvrir une session SSH sur les deux nœuds centraux. 
+L'utilisateur `centreon-engine` du poller est alors capable d'ouvrir une session SSH sur les deux nœuds centraux.
 
 Il ne reste plus qu'à l'intégrer au groupe `haclient` pour lui permettre d'exécuter les commandes nécessaires à la surveillance du cluster :
 
@@ -120,9 +126,8 @@ usermod -a -G haclient centreon-engine
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur chaque collecteur Centreon devant superviser un cluster Centreon-HA :
 
@@ -130,9 +135,10 @@ usermod -a -G haclient centreon-engine
 yum install centreon-plugin-Operatingsystems-Linux-Snmp centreon-plugin-Applications-Pacemaker-Ssh
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Centreon-HA* depuis la page "Configuration > Plugin Packs > Gestionnaire" 
+2. Sur l'interface Web de Centreon, installer le Plugin-Pack _Centreon-HA_ depuis la page "Configuration > Plugin Packs > Gestionnaire"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur chaque collecteur Centreon devant superviser un cluster Centreon-HA :
 
@@ -146,19 +152,22 @@ yum install centreon-plugin-Operatingsystems-Linux-Snmp centreon-plugin-Applicat
 yum install centreon-pack-applications-monitoring-centreon-ha
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Centreon-HA* depuis la page "Configuration > Plugin Packs > Gestionnaire"
+3. Sur l'interface Web de Centreon, installer le Plugin-Pack _Centreon-HA_ depuis la page "Configuration > Plugin Packs > Gestionnaire"
+
+</TabItem>
+</Tabs>
 
 ## Configuration
 
-* Ajoutez un nouvel Hôte depuis la page "Configuration > Hôtes"
-* Complétez les champs *Communauté SNMP* et *Version SNMP*
-* Appliquez le Modèle d'Hôte *App-Monitoring-Centreon-HA-Cluster-Node-custom*
+- Ajoutez un nouvel Hôte depuis la page "Configuration > Hôtes"
+- Complétez les champs _Communauté SNMP_ et _Version SNMP_
+- Appliquez le Modèle d'Hôte _App-Monitoring-Centreon-HA-Cluster-Node-custom_
 
-> Si vous utilisez la version 3 du protocole SNMP, utilisez la Macro *SNMPEXTRAOPTIONS* afin de renseigner les paramètres d'authentification et de chiffrement adéquats.
+> Si vous utilisez la version 3 du protocole SNMP, utilisez la Macro _SNMPEXTRAOPTIONS_ afin de renseigner les paramètres d'authentification et de chiffrement adéquats.
 
-| Mandatory   | Name                    | Description                       |
-| :---------- | :---------------------- | :---------------------------------|
-|             | SNMPEXTRAOPTIONS        | Extra options SNMP                |
+| Mandatory | Name             | Description        |
+| :-------- | :--------------- | :----------------- |
+|           | SNMPEXTRAOPTIONS | Extra options SNMP |
 
 ## FAQ
 
@@ -195,9 +204,9 @@ Resource 'centreontrapd' is started on node 'central-secondary'
 Resource 'snmptrapd' is started on node 'central-secondary'
 ```
 
-Dans cet exemple, le Plugin récupère les informations concernant l'état général du cluster Centreon-HA par l'intermédiaire du nœud identifié par l'adresse IP *10.0.0.1* (```--hostname=10.0.0.1```). 
+Dans cet exemple, le Plugin récupère les informations concernant l'état général du cluster Centreon-HA par l'intermédiaire du nœud identifié par l'adresse IP _10.0.0.1_ (`--hostname=10.0.0.1`).
 
-Une alarme WARNING sera ainsi déclenchée si une ou plusieurs *failed actions* sont remontées par la commande `pcs status --full`. L'alarme sera de type CRITICAL si une ou plusieurs ressource sont arrêtées alors qu'elles devraient être démarrées.
+Une alarme WARNING sera ainsi déclenchée si une ou plusieurs _failed actions_ sont remontées par la commande `pcs status --full`. L'alarme sera de type CRITICAL si une ou plusieurs ressource sont arrêtées alors qu'elles devraient être démarrées.
 
 Pour chaque mode, la liste de toutes les métriques, seuils associés et options complémentaires peut être affichée en ajoutant le paramètre `--help` à la commande:
 

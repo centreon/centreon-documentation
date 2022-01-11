@@ -2,6 +2,9 @@
 id: applications-salesforce-restapi
 title: Salesforce
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -15,14 +18,15 @@ Salesforce est un éditeur de logiciels, basé à San Francisco aux États-Unis.
 
 ## Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Instance-Status-->
+<Tabs groupId="sync">
+<TabItem value="InstanceStatus" label="InstanceStatus">
 
 | Metric name               | Description                                              |
 | :------------------------ | :------------------------------------------------------- |
 | instanceStatus            | Status of a Salesforce instance                          |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -30,9 +34,8 @@ Afin de superviser le statut d'une instance Salesforce, l'adresse api.status.sal
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin Salesforce sur le collecteur supervisant Salesforce
 
@@ -42,7 +45,8 @@ yum install centreon-plugin-Applications-Salesforce-Restapi
 
 2. Installer le plugin-pack Salesforce via le menu "Configuration > Plugin packs > Manager" 
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin Salesforce sur le collecteur supervisant Salesforce
 
@@ -58,7 +62,8 @@ yum install centreon-pack-applications-salesforce-restapi
 
 3. Installer le plugin-pack Salesforce via le menu "Configuration > Plugin packs > Manager" 
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

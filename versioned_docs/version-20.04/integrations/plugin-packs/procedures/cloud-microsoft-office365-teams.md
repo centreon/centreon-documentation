@@ -2,6 +2,9 @@
 id: cloud-microsoft-office365-teams
 title: Office365 Teams
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -29,16 +32,16 @@ See link for details about metrics :
 * https://docs.microsoft.com/en-us/office365/admin/activity-reports/microsoft-teams-device-usage?view=o365-worldwide
 * https://docs.microsoft.com/en-us/office365/admin/activity-reports/microsoft-teams-user-activity?view=o365-worldwide
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Devices-Usage-->
+<Tabs groupId="sync">
+<TabItem value="DevicesUsage" label="DevicesUsage">
 
 | Metric name                  | Description                                    | Unit   |
 | :--------------------------- | :--------------------------------------------- | :----- |
 | teams.devices.active.count   | Number of active devices                       | Count  |
 | teams.devices.\*.count       | Number of windows/mac/web/iOS/android devices  | Count  |
 
-<!--User-Activity-->
+</TabItem>
+<TabItem value="UserActivity" label="UserActivity">
 
 | Metric name                               | Description                            | Unit   |
 | :---------------------------------------- | :------------------------------------- | :----- |
@@ -48,7 +51,8 @@ See link for details about metrics :
 | teams.users.call.total.count              | Total number of calls                  | Count  |
 | teams.users.meeting.total.count           | Total number of meetings               | Count  |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 Once the host created, you can configure some macros on the service to filter 
 information by user. More info in the [Configuration](#Configuration)
@@ -89,9 +93,8 @@ https://docs.microsoft.com/en-us/office/office-365-management-api/get-started-wi
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin package on every poller expected to monitor Office365 Teams:
 
@@ -101,7 +104,8 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Teams-Api
 
 2. On the Centreon Web interface, install the Centreon Plugin-Pack *Office365 Teams* from the "Configuration > Plugin Packs > Manager" page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every poller expected to monitor Office365 Teams:
 
@@ -117,7 +121,8 @@ yum install centreon-pack-cloud-microsoft-office365-teams
 
 3. On the Centreon Web interface, install the Centreon Plugin-Pack *Office365 Teams* from the "Configuration > Plugin Packs > Manager" page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

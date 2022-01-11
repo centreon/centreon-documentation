@@ -2,6 +2,9 @@
 id: applications-bluemind-ssh
 title: BlueMind SSH
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -24,8 +27,8 @@ BlueMind is a complete unified enterprise messaging and communications solution.
 
 You can get an overview of all the metrics gathered from BlueMind in the official documentation: https://forge.bluemind.net/confluence/display/BM35/Reference+des+metriques
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Core-->
+<Tabs groupId="sync">
+<TabItem value="Core" label="Core">
 
 | Metric name                              | Description                                          |
 | :--------------------------------------- | :--------------------------------------------------- |
@@ -36,7 +39,8 @@ You can get an overview of all the metrics gathered from BlueMind in the officia
 | core.request.handling.total.milliseconds | Total time Core spent to handle requests. Unit: ms   |
 | core.request.handling.mean.milliseconds  | Mean time Core spent to handle requests. Unit: ms    |
 
-<!--Eas-->
+</TabItem>
+<TabItem value="Eas" label="Eas">
 
 | Metric name                              | Description                                          |
 | :--------------------------------------- | :--------------------------------------------------- |
@@ -44,7 +48,8 @@ You can get an overview of all the metrics gathered from BlueMind in the officia
 | eas.execution.total.milliseconds         | Total execution time. Unit: ms                       |
 | eas.execution.mean.milliseconds          | Mean execution time. Unit: ms                        |
 
-<!--Hps-->
+</TabItem>
+<TabItem value="Hps" label="Hps">
 
 | Metric name                                  | Description                                          |
 | :------------------------------------------- | :--------------------------------------------------- |
@@ -57,13 +62,15 @@ You can get an overview of all the metrics gathered from BlueMind in the officia
 | hps.upstream.requests.size.total.bytes       | By instances. e.g. /login /webmail ...               |
 | hps.upstream.requests.total.count            | By instances. e.g. /login /webmail ...               |
 
-<!--Ips-->
+</TabItem>
+<TabItem value="Ips" label="Ips">
 
 | Metric name                              | Description                                          |
 | :--------------------------------------- | :--------------------------------------------------- |
 | ips.connections.active.count             | IPS active connections. Unit: Count                  |
 
-<!--Lmtpd-->
+</TabItem>
+<TabItem value="Lmtpd" label="Lmtpd">
 
 | Metric name                                        | Description                                    |
 | :------------------------------------------------- | :--------------------------------------------- |
@@ -77,7 +84,8 @@ You can get an overview of all the metrics gathered from BlueMind in the officia
 | lmtpd.traffic.transport.latency.total.milliseconds | Transport total latency. Unit: ms              |
 | lmtpd.traffic.transport.latency.mean.milliseconds  | Transport mean latency. Unit: ms               |
  
-<!--Milter-->
+</TabItem>
+<TabItem value="Milter" label="Milter">
 
 | Metric name                                 | Description                                          |
 | :------------------------------------------ | :--------------------------------------------------- |
@@ -89,7 +97,8 @@ You can get an overview of all the metrics gathered from BlueMind in the officia
 | milter.sessions.duration.total.milliseconds | Sessions total duration. Unit: ms                    |
 | milter.sessions.duration.mean.milliseconds  | Sessions mean duration. Unit: ms                     |
 
-<!--Webserver-->
+</TabItem>
+<TabItem value="Webserver" label="Webserver">
 
 | Metric name                                | Description                                          |
 | :----------------------------------------- | :--------------------------------------------------- |
@@ -99,14 +108,16 @@ You can get an overview of all the metrics gathered from BlueMind in the officia
 | webserver.requests.status.200.count        | Total 200/OK requests. Unit: Count                   |
 | webserver.requests.status.304.count        | Total 304/Not Modified. Unit: Count                  |
 
-<!--Xmpp-->
+</TabItem>
+<TabItem value="Xmpp" label="Xmpp">
 
 | Metric name                              | Description                                          |
 | :--------------------------------------- | :--------------------------------------------------- |
 | xmpp.packets.all.count                   | XMPP packet number. Unit: Count                      |
 | xmpp.packets.chat.count                  | XMPP IM packet number. Unit: Count                   |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisistes
 
@@ -130,9 +141,8 @@ bm-core.heartbeat.broadcast,state=core.state.stopping,meterType=Counter count=2
 
 ## Setup 
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin package on every poller expected to monitor BlueMind servers:
 
@@ -142,7 +152,8 @@ yum install centreon-plugin-Applications-Bluemind-Ssh
 
 2. Install the monitoring templates from the Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every poller expected to monitor BlueMind servers:
 
@@ -158,7 +169,8 @@ yum install centreon-pack-applications-bluemind-ssh
 
 3. Install the monitoring templates from the Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

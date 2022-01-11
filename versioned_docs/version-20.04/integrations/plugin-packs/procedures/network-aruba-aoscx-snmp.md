@@ -2,6 +2,9 @@
 id: network-aruba-aoscx-snmp
 title: ArubaOS-CX SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Plugin Pack Assets
 
@@ -15,21 +18,20 @@ The Plugin Pack ArubaOS-CX SNMP collects metrics for:
 
 ### Discovery rules
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Services-->
+<Tabs groupId="sync">
+<TabItem value="Services" label="Services">
 
 | Rule name                            | Description                                                           |
 | :----------------------------------- | :-------------------------------------------------------------------- |
 | Net-Aruba-Aoscx-SNMP-Interface-Name  | Discover network interfaces and monitor bandwidth utilization         |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Collected Metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Hardware-->
+<Tabs groupId="sync">
+<TabItem value="Hardware" label="Hardware">
 
 | Metric name                                 | Description                           | Unit |
 | :------------------------------------------ | :------------------------------------ | :--- |
@@ -40,7 +42,8 @@ The Plugin Pack ArubaOS-CX SNMP collects metrics for:
 | temperature status                          | Status of the sensor                  |      |
 | *sensor\_name*#hardware.temperature.celsius | Temperature of the sensor             | C    |
 
-<!--Interfaces-->
+</TabItem>
+<TabItem value="Interfaces" label="Interfaces">
 
 | Metric name                                            | Description                                         | Unit |
 | :----------------------------------------------------- | :-------------------------------------------------- | :--- |
@@ -52,7 +55,8 @@ The Plugin Pack ArubaOS-CX SNMP collects metrics for:
 
 A regexp filter is available to target a specific interface identifier - ifName [```--interface='^eth0$' --name```]
 
-<!--Vsf-->
+</TabItem>
+<TabItem value="Vsf" label="Vsf">
 
 | Metric name                                     | Description              | Unit |
 | :---------------------------------------------- | :----------------------- | :--- |
@@ -63,7 +67,8 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | *member\_id*\#member.cpu.utilization.percentage | CPU utilization          | %    |
 | *member\_id*\#member.memory.usage.percentage    | Memory usage             | %    |
 
-<!--Vsx-->
+</TabItem>
+<TabItem value="Vsx" label="Vsx">
 
 | Metric name                     | Description                                       | Unit |
 | :------------------------------ | :------------------------------------------------ | :--- |
@@ -75,7 +80,8 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | vsx.keepalive.packets.in.count  | Incoming keepalive packets going through the link |      |
 | vsx.keepalive.packets.out.count | Outgoing keepalive packets going through the link |      |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -84,9 +90,8 @@ The Poller should be able to perform SNMP requests toward the Infoblox device ov
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -96,7 +101,8 @@ yum install centreon-plugin-Network-Aruba-Aoscx-Snmp
 
 2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *ArubaOS-CX SNMP* Plugin Pack
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -112,7 +118,8 @@ yum install centreon-pack-network-aruba-aoscx-snmp
 
 3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *ArubaOS-CX SNMP* Plugin Pack
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host configuration
 

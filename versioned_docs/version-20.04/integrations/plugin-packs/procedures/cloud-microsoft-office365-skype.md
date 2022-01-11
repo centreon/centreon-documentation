@@ -2,6 +2,9 @@
 id: cloud-microsoft-office365-skype
 title: Office365 Skype
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -29,16 +32,16 @@ de Microsoft :
 * https://docs.microsoft.com/fr-fr/SkypeForBusiness/skype-for-business-online-reporting/device-usage-report
 * https://docs.microsoft.com/fr-fr/SkypeForBusiness/skype-for-business-online-reporting/activity-report
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Devices-Usage-->
+<Tabs groupId="sync">
+<TabItem value="DevicesUsage" label="DevicesUsage">
 
 | Metric name                       | Description                                                  | Unit   |
 | :-------------------------------- | :----------------------------------------------------------- | :----- |
 | skype.devices.active.count        | Number of active devices                                     | Count  |
 | skype.devices.\*.count            | Number of windows/ipad/iphone/android/windows phone devices  | Count  |
 
-<!--User-Activity-->
+</TabItem>
+<TabItem value="UserActivity" label="UserActivity">
 
 | Metric name                                       | Description                           | Unit   |
 | :------------------------------------------------ | :------------------------------------ | :----- |
@@ -51,7 +54,8 @@ Une fois l'hôte crée, les macros de services peuvent être configurées pour
 filtrer les métriques par utilisateurs ou par boites mail. Plus d'informations
 dans la section [Configuration](#Configuration).
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -89,9 +93,8 @@ https://docs.microsoft.com/fr-fr/office/office-365-management-api/get-started-wi
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des ressources Office 365 Skype :
 
@@ -101,7 +104,8 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Skype-Api
 
 2. Depuis l'interface Web de Centreon, installer le Plugin-Pack *Office365 Skype* depuis la page "Configuration > Plugin packs > Manager" 
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des ressources Office 365 Skype :
 
@@ -117,7 +121,8 @@ yum install centreon-pack-cloud-microsoft-office365-skype
 
 3. Depuis l'interface Web de Centreon, installer le Plugin-Pack *Office365 Skype* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

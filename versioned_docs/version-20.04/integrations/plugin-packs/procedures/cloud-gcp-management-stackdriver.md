@@ -2,6 +2,9 @@
 id: cloud-gcp-management-stackdriver
 title: Google Stackdriver
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Plugin-Pack Assets
 
@@ -16,9 +19,8 @@ A description of all GCP metrics can be found here: https://cloud.google.com/mon
 
 For all collected metrics, following *aggregation* are available: _average_, _minimum_, _maximum_ and _total_.
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Get-metrics-->
+<Tabs groupId="sync">
+<TabItem value="Getmetrics" label="Getmetrics">
 
 | Metric name                         | Description | Unit  |
 | :---------------------------------- | :---------- | :---- |
@@ -26,7 +28,8 @@ For all collected metrics, following *aggregation* are available: _average_, _mi
 
 E.g: average metric *https/backend_latencies* = *average#https.backend_latencies* 
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -47,9 +50,8 @@ should be readable by centreon-engine poller.
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -59,7 +61,8 @@ yum install centreon-plugin-Cloud-Gcp-Management-Stackdriver-Api
 
 2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Google Stackdriver* Plugin-Pack
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -75,7 +78,8 @@ yum install centreon-pack-cloud-gcp-management-stackdriver
 
 3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Google Stackdriver* Plugin-Pack
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host configuration
 

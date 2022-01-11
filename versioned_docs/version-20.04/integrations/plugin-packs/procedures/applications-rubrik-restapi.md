@@ -2,6 +2,9 @@
 id: applications-rubrik-restapi
 title: Rubrik Rest API
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Plugin-Pack assets
 
@@ -11,16 +14,16 @@ like Cluster, Nodes, Disks, etc.
 
 ## Monitored metrics 
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Disk-->
+<Tabs groupId="sync">
+<TabItem value="Disk" label="Disk">
 
 | Metric name                                          | Description                                      | Unit |
 |:---------------------------------------------------- |:------------------------------------------------ |:---- |
 | cluster.disks.total.count                            | Total number cluster disks                       |      |
 | cluster.disks.active.count                           | Number of active disks                           | ms   |
 
-<!--Cluster-->
+</TabItem>
+<TabItem value="Cluster" label="Cluster">
 
 | Metric name                                          | Description                                      | Unit |
 |:---------------------------------------------------- |:------------------------------------------------ |:---- |
@@ -29,21 +32,24 @@ like Cluster, Nodes, Disks, etc.
 | cluster.io.read.usage.iops                           | Usage of cluster read I/Os                       | iops |
 | cluster.io.write.usage.iops                          | Usage IOPS of cluster write I/Os                 | iops |
 
-<!--Compliance-->
+</TabItem>
+<TabItem value="Compliance" label="Compliance">
 
 | Metric name                                          | Description                                      | Unit |
 |:---------------------------------------------------- |:------------------------------------------------ |:---- |
 | backup.objects.incompliance.24h.count                | Number of backup objects compliance in 24h       |      |
 | backup.objects.noncompliance.24h.count               | Number of backup objects no compliance in 24h    |      |
 
-<!--Node-->
+</TabItem>
+<TabItem value="Node" label="Node">
 
 | Metric name                                          | Description                                      | Unit |
 |:---------------------------------------------------- |:------------------------------------------------ |:---- |
 | cluster.nodes.total.count                            | Total number of node in the cluster              |      |
 | cluster.nodes.ok.count                               | Number of node "OK" in the cluster               |      |
 
-<!--Storage-->
+</TabItem>
+<TabItem value="Storage" label="Storage">
 
 | Metric name                                          | Description                                      | Unit |
 |:---------------------------------------------------- |:------------------------------------------------ |:---- |
@@ -52,7 +58,8 @@ like Cluster, Nodes, Disks, etc.
 | storage.space.usage.percentage                       | Percentage usage space storage                   | %    |
 | storage.full.remaining.days.count                    | Number of remaining day storage full             | d    |
 
-<!--Task-->
+</TabItem>
+<TabItem value="Task" label="Task">
 
 | Metric name                                          | Description                                      | Unit |
 |:---------------------------------------------------- |:------------------------------------------------ |:---- |
@@ -60,7 +67,8 @@ like Cluster, Nodes, Disks, etc.
 | tasks.failed.24h.count                               | Number of task failed in 24h                     |      |
 | tasks.canceled.24h.count                             | Number of task canceled in 24h                   |      |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -73,9 +81,8 @@ Information about its configuration is available on github: https://github.com/r
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor *Rubrik Rest API* resources:
 
@@ -86,7 +93,8 @@ yum install centreon-plugin-Applications-Rubrik-Restapi
 2. On the Centreon Web interface, install the *Rubrik Rest API* Centreon Plugin-Pack 
 on the "Configuration > Plugin Packs > Manager" page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor *Rubrik Rest API* resources:
 
@@ -102,6 +110,9 @@ yum install centreon-pack-applications-rubrik-restapi
 
 3. On the Centreon Web interface, install the *Rubrik Rest API* Centreon Plugin-Pack 
 on the "Configuration > Plugin Packs > Manager" page
+
+</TabItem>
+</Tabs>
 
 ## Configuration
 

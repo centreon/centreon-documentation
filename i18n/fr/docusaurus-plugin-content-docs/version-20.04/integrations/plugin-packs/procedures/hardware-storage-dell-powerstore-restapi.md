@@ -2,6 +2,9 @@
 id: hardware-storage-dell-powerstore-restapi
 title: Dell PowerStore Rest API
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Contenu du Pack
 
@@ -13,9 +16,8 @@ Le Pack Dell PowerStore collecte les données pour:
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Alerts-->
+<Tabs groupId="sync">
+<TabItem value="Alerts" label="Alerts">
 
 | Metric name                    | Description                                | Unit  |
 | :----------------------------- | :----------------------------------------- | :---- |
@@ -25,7 +27,8 @@ Le Pack Dell PowerStore collecte les données pour:
 | alerts.severity.major.count    | Number of alerts with major severity       |       |
 | alerts.severity.critical.count | Number of alerts with critical severity    |       |
 
-<!--Hardware-->
+</TabItem>
+<TabItem value="Hardware" label="Hardware">
 
 | Metric name         | Description                  | Unit  |
 | :------------------ | :--------------------------- | :---- |
@@ -40,7 +43,8 @@ Le Pack Dell PowerStore collecte les données pour:
 | power supply status | Power supply lifecycle state |       |
 | sfp status          | SFP lifecycle state          |       |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -48,9 +52,8 @@ Afin de contrôler votre équipement Dell PowerStore, l'API Rest doit être conf
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -60,7 +63,8 @@ yum install centreon-plugin-Hardware-Storage-Dell-Powerstore-Restapi
 
 2. Sur l'interface Web de Centreon, installer le Pack *Dell PowerStore Rest API* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -76,7 +80,8 @@ yum install centreon-pack-hardware-storage-dell-powerstore-restapi
 
 3. Sur l'interface Web de Centreon, installer le Pack *Dell PowerStore Rest API* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

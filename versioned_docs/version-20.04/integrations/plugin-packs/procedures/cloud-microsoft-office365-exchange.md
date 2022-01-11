@@ -2,6 +2,9 @@
 id: cloud-microsoft-office365-exchange
 title: Office365 Exchange
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -27,9 +30,8 @@ See link for details about metrics :
 * https://docs.microsoft.com/en-us/office365/admin/activity-reports/email-activity?view=o365-worldwide
 * https://docs.microsoft.com/en-us/microsoft-365/admin/activity-reports/mailbox-usage?view=o365-worldwide
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Email-activity-->
+<Tabs groupId="sync">
+<TabItem value="Emailactivity" label="Emailactivity">
 
 | Metric name                                  | Description                            |
 | :------------------------------------------- | :------------------------------------- |
@@ -38,7 +40,8 @@ See link for details about metrics :
 | exchange.users.emails.received.total.count   | Number of total received mails         |
 | exchange.users.emails.read.total.count       | Number of total read mails             |
 
-<!--Mailbox-usage-->
+</TabItem>
+<TabItem value="Mailboxusage" label="Mailboxusage">
 
 | Metric name                                   | Description                             | Unit    |
 | :-------------------------------------------- | :-------------------------------------- |-------- |
@@ -46,7 +49,8 @@ See link for details about metrics :
 | exchange.mailboxes.active.usage.total.bytes   | Total usage space (active mailboxes)    | Bytes   |
 | exchange.mailboxes.inactive.usage.total.bytes | Total usage space (inactive mailboxes)  | Bytes   |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 Once the host created, you can configure some macros on the services to filter
 information by user or by mailbox. More information in the [Configuration](#Configuration)
@@ -87,9 +91,8 @@ https://docs.microsoft.com/en-us/office/office-365-management-api/get-started-wi
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin package on every poller expected to monitor Office365 Exchange:
 
@@ -99,7 +102,8 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Exchange-Api
 
 2. On the Centreon Web interface, install the Centreon Plugin-Pack *Office365 Exchange* from the "Configuration > Plugin Packs > Manager" page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every poller expected to monitor Office365 Exchange:
 
@@ -115,7 +119,8 @@ yum install centreon-pack-cloud-microsoft-office365-exchange
 
 3. On the Centreon Web interface, install the Centreon Plugin-Pack *Office365 Exchange* from the "Configuration > Plugin Packs > Manager" page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

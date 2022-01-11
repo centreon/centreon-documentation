@@ -2,6 +2,9 @@
 id: cloud-azure-devtools-appconfiguration
 title: Azure App Configuration
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -35,9 +38,8 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 
 ### Métriques & statuts collectés 
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Http-Requests-->
+<Tabs groupId="sync">
+<TabItem value="HttpRequests" label="HttpRequests">
 
 | Metric Name                                             | Description                            | Unit  |
 | :------------------------------------------------------ | :------------------------------------- | :---- |
@@ -45,7 +47,8 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 | appconfiguration.http.incoming.requests.milliseconds    | Latency on an http request             | ms    |
 | appconfiguration.http.throttled.incoming.requests.count | Throttled http requests                | Count |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -54,9 +57,8 @@ Deux moyens sont disponibles pour interroger les API Microsoft Azure.
 Centreon préconise l'utilisation de la méthode *API* plutôt que la *CLI*, cette dernière étant significativement
 moins performante. L'API permet également une authentification *Application* et ne nécessite pas de compte de service dédié.
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Azure Monitor API-->
+<Tabs groupId="sync">
+<TabItem value="Azure Monitor API" label="Azure Monitor API">
 
 Pour le custom-mode 'api', récupérez les informations en suivant la procédure ci-dessous (en anglais)
 et notez celles-ci en lieu sûr. Elles seront en effet indispensables lors de la configuration des ressources
@@ -103,7 +105,8 @@ dans Centreon.
     - Click on *Save*.
     - **Copy and store the key value. You won't be able to retrieve it after you leave this page.**
 
-<!--Azure AZ CLI-->
+</TabItem>
+<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 Afin d'utiliser le custom-mode 'azcli', installez le binaire associé sur tous les Collecteurs Centreon
 devant superviser des resources Azure:
@@ -157,13 +160,13 @@ du collecteur Centreon:
 Vous avez désormais les informations stockées localement dans un fichier 
 accessTokens.json qui sera utilisé automatiquement par le Plugin. 
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Installation 
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des resources Azure App Configuration:
 
@@ -173,7 +176,8 @@ yum install centreon-plugin-Cloud-Azure-DevTools-AppConfiguration-Api
 
 2. Sur l'interface Integration de Centreon, installer le Plugin-Pack *Azure App Configuration* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des resources Azure App Configuration:
 
@@ -189,7 +193,8 @@ yum install centreon-pack-cloud-azure-devtools-appconfiguration.noarch
 
 3. Sur l'interface Integration de Centreon, installer le Plugin-Pack *Azure App Configuration* depuis la page "Configuration > Plugin packs > Gestionnaire"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -200,9 +205,8 @@ et appliquez-lui le Modèle d'Hôte *Cloud-Azure-DevTools-AppConfiguration-custo
 * Une fois le modèle appliqué, les Macros ci-dessous indiquées comme requises (*Mandatory*) 
 doivent être renseignées selon le custom-mode utilisé:
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Azure Monitor API-->
+<Tabs groupId="sync">
+<TabItem value="Azure Monitor API" label="Azure Monitor API">
 
 | Mandatory | Nom               | Description                          |
 | :-------- | :---------------- | :----------------------------------- |
@@ -213,7 +217,8 @@ doivent être renseignées selon le custom-mode utilisé:
 | X         | AZURECLIENTSECRET | Client secret                        |
 | X         | AZURERESOURCE     | Id of the App Configuration instance |
 
-<!--Azure AZ CLI-->
+</TabItem>
+<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 | Mandatory | Nom               | Description                          |
 | :-------- | :---------------- | :----------------------------------- |
@@ -221,7 +226,8 @@ doivent être renseignées selon le custom-mode utilisé:
 | X         | AZURESUBSCRIPTION | Subscription ID                      |
 | X         | AZURERESOURCE     | Id of the App Configuration instance |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## FAQ
 

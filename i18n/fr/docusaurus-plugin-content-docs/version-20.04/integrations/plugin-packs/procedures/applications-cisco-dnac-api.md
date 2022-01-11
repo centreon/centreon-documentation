@@ -2,6 +2,9 @@
 id: applications-cisco-dnac-api
 title: Cisco DNA Center Rest API
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Contenu du Plugin-Pack
 
@@ -11,9 +14,8 @@ Le Plugin-Pack inclut la supervision de l'état de santé des équipements Rése
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Network-devices-->
+<Tabs groupId="sync">
+<TabItem value="Networkdevices" label="Networkdevices">
 
 | Metric name                                                           | Description                                          | Unit |
 | :-------------------------------------------------------------------- | :--------------------------------------------------- | :--- |
@@ -27,7 +29,8 @@ Le Plugin-Pack inclut la supervision de l'état de santé des équipements Rése
 | *categoryname*#category.network.devices.health.unmonitored.count      | Number of unmonitored health devices by category     |      |
 | *categoryname*#category.network.devices.health.unmonitored.percentage | Number of unmonitored health devices by category     | %    |
 
-<!--Sites-->
+</TabItem>
+<TabItem value="Sites" label="Sites">
 
 | Metric name                                        | Description                | Unit |
 |:-------------------------------------------------- |:-------------------------- | :--- |
@@ -36,7 +39,8 @@ Le Plugin-Pack inclut la supervision de l'état de santé des équipements Rése
 | *sitename*#site.clients.healthy.count              | Number of healthy clients  |      |
 | *sitename*#site.clients.healthy.percentage         | Number of healthy clients  | %    |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -45,9 +49,8 @@ Afin de contrôler l'application Cisco DNA Center, l'API Rest doit être configu
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -57,7 +60,8 @@ yum install centreon-plugin-Applications-Cisco-Dnac-Restapi
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Cisco DNA Center Rest API* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -73,7 +77,8 @@ yum install centreon-pack-applications-cisco-dnac-restapi
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Cisco DNA Center Rest API* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

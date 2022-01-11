@@ -2,6 +2,9 @@
 id: network-fritzbox-upnp
 title: Fritz!Box UPnP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Pack Assets
 
@@ -13,23 +16,24 @@ The Pack Fritz!Box collects metrics for:
 
 ### Collected Metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--System-->
+<Tabs groupId="sync">
+<TabItem value="System" label="System">
 
 | Metric name           | Description                         | Unit  |
 | :-------------------- | :---------------------------------- | :---- |
 | connection status     | Connection and physical link status |       |
 | system.uptime.seconds | Elapsed time since the last reboot  | s     |
 
-<!--Traffic-->
+</TabItem>
+<TabItem value="Traffic" label="Traffic">
 
 | Metric name                                    | Description                                      | Unit  |
 | :--------------------------------------------- | :----------------------------------------------- | :---- |
 | system.interface.wan.traffic.in.bitspersecond  | Incoming traffic going through the WAN interface | b/s   |
 | system.interface.wan.traffic.out.bitspersecond | Outgoing traffic going through the WAN interface | b/s   |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -37,9 +41,8 @@ To control your Fritz!Box, the UPnP must be configured.
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -49,7 +52,8 @@ yum install centreon-plugin-Network-Fritzbox-Upnp
 
 2. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *Fritz!Box UPnP* Pack
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -65,7 +69,8 @@ yum install centreon-pack-network-fritzbox-upnp
 
 3. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *Fritz!Box UPnP* Pack
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host configuration
 

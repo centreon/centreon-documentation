@@ -2,6 +2,9 @@
 id: pluginpacks
 title: Les Plugin Packs
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 Un Plugin Pack (ou pack de supervision en français) est un jeu téléchargeable
 de modèles de configuration qui rendent la supervision de votre infrastructure
@@ -118,8 +121,8 @@ L’installation est en 3 étapes :
 * **en ligne**: if your platform is linked to an online subscription
 * **hors ligne** otherwise
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--En ligne-->
+<Tabs groupId="sync">
+<TabItem value="En ligne" label="En ligne">
 
 Si vous bénéficiez d’une souscription en ligne, vous devez vous authentifier.
 
@@ -134,7 +137,8 @@ Cliquez sur **Install** pour pour accéder au catalogue :
 
 Vous pouvez maintenant installer vos packs.
 
-<!--Hors ligne-->
+</TabItem>
+<TabItem value="Hors ligne" label="Hors ligne">
 
 Pour installer ou mettre à jour le catalogue, exécutez :
 
@@ -148,7 +152,8 @@ Ou:
 yum update centreon-pack-*
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 #### Installation du pack
 

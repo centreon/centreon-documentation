@@ -2,6 +2,9 @@
 id: applications-wallix-bastion-snmp
 title: Wallix Bastion SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Pack Assets
 
@@ -13,9 +16,8 @@ The Pack Wallix Bastion collects metrics for:
 
 ### Collected Metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--License-->
+<Tabs groupId="sync">
+<TabItem value="License" label="License">
 
 | Metric name                                   | Description                                 | Unit  |
 | :-------------------------------------------- | :------------------------------------------ | :---- |
@@ -25,7 +27,8 @@ The Pack Wallix Bastion collects metrics for:
 | *license\_resource*\#license.free.count       | Number of free resources on the license     |       |
 | *license\_resource*\#license.usage.percentage | Percentage of used resources on the license | %     |
 
-<!--System-->
+</TabItem>
+<TabItem value="System" label="System">
 
 | Metric name              | Description                             | Unit  |
 | :----------------------- | :-------------------------------------- | :---- |
@@ -36,7 +39,8 @@ The Pack Wallix Bastion collects metrics for:
 | sessions.ghost.count     | Number of ghost sessions                |       |
 | requests.pending.count   | Number of requests pending for approval |       |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -45,9 +49,8 @@ The Poller should be able to perform SNMP requests toward the Lenovo device over
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -57,7 +60,8 @@ yum install centreon-plugin-Applications-Wallix-Bastion-Snmp
 
 2. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *Wallix Bastion SNMP* Pack
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -73,7 +77,8 @@ yum install centreon-pack-applications-wallix-bastion-snmp
 
 3. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *Wallix Bastion SNMP* Pack
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host configuration
 
