@@ -586,6 +586,7 @@ Release date: `December 14, 2021`
 - Gorgone was too long to restart, which could cause the service to reach the systemctl timeout. The time to stop has been thoroughly decreased.
 - Fixed export of configuration files on a poller with Debian 11
 - Fixed error in log for autodiscovery module
+- Fixed SSH reconnection
 
 ### 21.04.3
 
