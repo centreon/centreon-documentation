@@ -2,9 +2,6 @@
 id: network-cisco-meraki-restapi
 title: Cisco Meraki Rest API
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Overview
 
@@ -21,8 +18,9 @@ Their products include wireless, switching, security, enterprise mobility manage
 
 ### Monitored metrics 
 
-<Tabs groupId="sync">
-<TabItem value="ApiRequests" label="ApiRequests">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Api-Requests-->
 
 | Metric name                         | Description                                                                     |
 | :---------------------------------- | :------------------------------------------------------------------------------ |
@@ -30,8 +28,7 @@ Their products include wireless, switching, security, enterprise mobility manage
 | organization.api.requests.404.count | Number of requests returning a HTTP Status 404 (Not found). Unit: Count         |
 | organization.api.requests.429.count | Number of requests returning a HTTP Status 249 (TOO MANY REQUESTS). Unit: Count |
 
-</TabItem>
-<TabItem value="Device" label="Device">
+<!--Device-->
 
 | Metric name                      | Description                                                       |
 | :------------------------------- | :---------------------------------------------------------------- |
@@ -47,8 +44,7 @@ Their products include wireless, switching, security, enterprise mobility manage
 | device.traffic.in.bitspersecond  | Incoming traffic going through the device. Unit: bits/second      |
 | device.traffic.out.bitspersecond | Outcoming traffic going through the device. Unit: bits/second     |
 
-</TabItem>
-<TabItem value="Network" label="Network">
+<!--Network-->
 
 | Metric name                       | Description                                                    |
 | :-------------------------------- | :------------------------------------------------------------- |
@@ -60,8 +56,7 @@ Their products include wireless, switching, security, enterprise mobility manage
 | network.traffic.in.bitspersecond  | Incoming traffic going through the network. Unit: bits/second  |
 | network.traffic.out.bitspersecond | Outcoming traffic going through the network. Unit: bits/second |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -79,8 +74,9 @@ You can generate, revoke, and regenerate your API key on your profile.
 
 ## Setup 
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor Cisco Meraki ressources:
 
@@ -90,8 +86,7 @@ yum install centreon-plugin-Network-Cisco-Meraki-Restapi
 
 2. On the Centreon Web interface, install the *Cisco Meraki Rest API* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor Cisco Meraki ressources:
 
@@ -107,8 +102,7 @@ yum install centreon-pack-network-cisco-meraki-restapi.noarch
 
 3. On the Centreon Web interface, install the *Cisco Meraki Rest API* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
@@ -127,22 +121,19 @@ All of the Host Templates share the following configuration Macros:
 
 Set additionnal Macros that come with the Host Templates: 
 
-<Tabs groupId="sync">
-<TabItem value="NetCiscoMerakiDeviceRestapicustom" label="NetCiscoMerakiDeviceRestapicustom">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Net-Cisco-Meraki-Device-Restapi-custom-->
 
 | Mandatory   | Nom              | Description                                                |
 | :---------- | :--------------- | :--------------------------------------------------------- |
 | X           | MERAKIDEVICENAME | Name of the device you want to monitor (can be a regexp)   |
 
-</TabItem>
-<TabItem value="NetCiscoMerakiNetworkRestapicustom" label="NetCiscoMerakiNetworkRestapicustom">
+<!--Net-Cisco-Meraki-Network-Restapi-custom-->
 
 | Mandatory   | Nom               | Description                                              |
 | :---------- | :---------------- | :------------------------------------------------------- |
 | X           | MERAKINETWORKNAME | Name of the network you want to monitor (can be a regexp)|
-
-</TabItem>
-</Tabs>
 
 ## FAQ
 

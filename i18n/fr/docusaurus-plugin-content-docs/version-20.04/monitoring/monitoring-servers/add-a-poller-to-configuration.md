@@ -2,9 +2,6 @@
 id: add-a-poller-to-configuration
 title: Ajouter un Poller à la configuration
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Configurer un nouveau Poller
 
@@ -51,8 +48,9 @@ La communication entre un Central et un Poller est assurée par Gorgone et peut
 être faite en utilisant ZMQ (avec un Gorgone s'exécutant sur le Poller,
 recommandé) ou en utilisant le protocole SSH.
 
-<Tabs groupId="sync">
-<TabItem value="Avec ZMQ (Recommandé)" label="Avec ZMQ (Recommandé)">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Avec ZMQ (Recommandé)-->
 
 #### Sélectionner le type de communication
 
@@ -150,8 +148,7 @@ Enfin, activez le démarrage automatique du service avec la commande :
 systemctl enable gorgoned
 ```
 
-</TabItem>
-<TabItem value="Avec SSH" label="Avec SSH">
+<!--Avec SSH-->
 
 #### Sélectionner le type de communication
 
@@ -190,8 +187,7 @@ commandes suivantes :
 su - centreon-gorgone
 ssh-copy-id -i .ssh/id_rsa.pub centreon@<IP_POLLER>
 ```
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 **Pour forcer le Gorgone du Central à se connecter au Poller**, redémarrez le avec
 la commande suivante depuis le **serveur Central** :

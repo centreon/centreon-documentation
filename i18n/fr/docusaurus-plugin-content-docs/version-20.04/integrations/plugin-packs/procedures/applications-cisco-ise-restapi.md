@@ -2,9 +2,6 @@
 id: applications-cisco-ise-restapi
 title: Cisco ISE
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Vue d'ensemble
 
@@ -23,8 +20,9 @@ ainsi que le nombre que le nombre de  *postured endpoints*.
 
 ### Métriques collectées
 
-<Tabs groupId="sync">
-<TabItem value="Session" label="Session">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Session-->
 
 | Metric name              | Description                             | Unit  |
 |:-------------------------|:----------------------------------------|:------|
@@ -32,8 +30,7 @@ ainsi que le nombre que le nombre de  *postured endpoints*.
 | endpoints.postured.count | The number of postured endpoints        | Count |
 | sessions.profiler.count  | The number of profiler service sessions | Count |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -53,8 +50,9 @@ https://developer.cisco.com/docs/identity-services-engine/3.0/#!introduction-to-
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des ressources Cisco Identity Service Engine:
 
@@ -64,8 +62,7 @@ yum install centreon-plugin-Applications-Cisco-Ise-Restapi
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Cisco ISE* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des resources Cisco Identity Service Engine :
 
@@ -81,8 +78,7 @@ yum install centreon-pack-applications-cisco-ise-restapi
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Cisco ISE* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

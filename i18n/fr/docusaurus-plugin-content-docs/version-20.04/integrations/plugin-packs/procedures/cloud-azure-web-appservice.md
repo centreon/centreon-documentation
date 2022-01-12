@@ -2,9 +2,6 @@
 id: cloud-azure-web-appservice
 title: Azure App Service
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Vue d'ensemble
 
@@ -38,8 +35,9 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 
 ### Métriques & statuts collectés 
 
-<Tabs groupId="sync">
-<TabItem value="AppUsage" label="AppUsage">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--App-Usage-->
 
 | Metric Name                          | Description                                                                       | Unit  |
 | :----------------------------------- | :-------------------------------------------------------------------------------- | :---- |
@@ -50,30 +48,26 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 | appservice.appdomains.count          | The current number of AppDomains loaded in this application                       | Count |
 | appservice.appdomains.unloaded.count | The total number of AppDomains unloaded since the start of the application        | Count |
 
-</TabItem>
-<TabItem value="CpuTime" label="CpuTime">
+<!--Cpu-Time-->
 
 | Metric Name                     | Description                                      | Unit |
 | :------------------------------ | :----------------------------------------------- | :--- |
 | appservice.cpu.consumed.seconds | The amount of CPU consumed by the app in seconds | s    |
 
-</TabItem>
-<TabItem value="Data" label="Data">
+<!--Data-->
 
 | Metric Name               | Description                                          | Unit |
 | :------------------------ | :--------------------------------------------------- | :--- |
 | appservice.data.in.bytes  | The amount of incoming bandwidth consumed by the app | B    |
 | appservice.data.out.bytes | The amount of outgoing bandwidth consumed by the app | B    |
 
-</TabItem>
-<TabItem value="FileSystem" label="FileSystem">
+<!--File-System-->
 
 | Metric Name                       | Description                          | Unit |
 | :-------------------------------- | :----------------------------------- | :--- |
 | appservice.filesystem.usage.bytes | Filesystem quota consumed by the app | B    |
  
-</TabItem>
-<TabItem value="GcUsage" label="GcUsage">
+<!--Gc-Usage-->
 
 | Metric Name              | Description                                                                                           | Unit  |
 | :----------------------- | :---------------------------------------------------------------------------------------------------- | :---- |
@@ -81,16 +75,14 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 | appservice.gc.gen1.count | The number of times the generation 1 objects are garbage collected since the start of the app process | Count |
 | appservice.gc.gen2.count | The number of times the generation 2 objects are garbage collected since the start of the app process | Count |
 
-</TabItem>
-<TabItem value="Health" label="Health">
+<!--Health-->
 
 | Status Name | Description                 |
 | :---------- | :-------------------------- |
 | status      | Current operational status  |
 | summary     | Last related status message |
 
-</TabItem>
-<TabItem value="HttpRequests" label="HttpRequests">
+<!--Http-Requests-->
 
 | Metric Name                         | Description                                                                 | Unit  |
 | :---------------------------------- | :-------------------------------------------------------------------------- | :---- |
@@ -98,8 +90,7 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 | appservice.http.request.queue.count | The number of requests in the application request queue                     | Count |
 | appservice.htpp.request.XXX.count   | The count of requests resulting in an HTTP status code = XXX                | Count |
 
-</TabItem>
-<TabItem value="IOOperations" label="IOOperations">
+<!--IO-Operations-->
 
 | Metric Name                                | Description                                                                                      | Unit |
 | :----------------------------------------- | :----------------------------------------------------------------------------------------------- | :--- |
@@ -110,8 +101,7 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 | appservice.bytes.write.bytespersecond      | The rate at which the app process is writing bytes to I/O operations                             | B/s  |
 | appservice.operations.write.bytespersecond | The rate at which the app process is issuing write I/O operations                                | B/s  |
 
-</TabItem>
-<TabItem value="Memory" label="Memory">
+<!--Memory-->
 
 | Metric Name                                | Description                                                                                           | Unit |
 | :----------------------------------------- | :---------------------------------------------------------------------------------------------------- | :--- |
@@ -119,22 +109,19 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 | appservice.memory.usage.bytes              | The current amount of memory used by the app                                                          | B    |
 | appservice.memory.privatebytes.usage.bytes | The amount of memory allocated allocated by the app process that can't be shared with other processes | B    |
 
-</TabItem>
-<TabItem value="ResponseTime" label="ResponseTime">
+<!--Response-Time-->
 
 | Metric Name                           | Description                                  | Unit |
 | :------------------------------------ | :------------------------------------------- | :--- |
 | appservice.http.response.time.seconds | The time taken for the app to serve requests | s    |
 
-</TabItem>
-<TabItem value="Status" label="Status">
+<!--Status-->
 
 | Metric Name             | Description         | Unit  |
 | :---------------------- | :------------------ | :---- |
 | appservice.status.count | Health check status | Count |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -143,8 +130,9 @@ Deux moyens sont disponibles pour interroger les API Microsoft Azure.
 Centreon préconise l'utilisation de la méthode *API* plutôt que la *CLI*, cette dernière étant significativement
 moins performante. L'API permet également une authentification *Application* et ne nécessite pas de compte de service dédié.
 
-<Tabs groupId="sync">
-<TabItem value="Azure Monitor API" label="Azure Monitor API">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Azure Monitor API-->
 
 Pour le custom-mode 'api', récupérez les informations en suivant la procédure ci-dessous (en anglais)
 et notez celles-ci en lieu sûr. Elles seront en effet indispensables lors de la configuration des ressources
@@ -191,8 +179,7 @@ dans Centreon.
     - Click on *Save*.
     - **Copy and store the key value. You won't be able to retrieve it after you leave this page.**
 
-</TabItem>
-<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
+<!--Azure AZ CLI-->
 
 Afin d'utiliser le custom-mode 'azcli', installez le binaire associé sur tous les Collecteurs Centreon
 devant superviser des resources Azure:
@@ -246,13 +233,13 @@ du collecteur Centreon:
 Vous avez désormais les informations stockées localement dans un fichier 
 accessTokens.json qui sera utilisé automatiquement par le Plugin. 
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Installation 
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des resources Azure App Service:
 
@@ -262,8 +249,7 @@ yum install centreon-plugin-Cloud-Azure-Web-AppService-Api
 
 2. Sur l'interface Integration de Centreon, installer le Plugin-Pack *Azure App Service* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des resources Azure App Service:
 
@@ -279,8 +265,7 @@ yum install centreon-pack-cloud-azure-web-appservice.noarch
 
 3. Sur l'interface Integration de Centreon, installer le Plugin-Pack *Azure App Service* depuis la page "Configuration > Plugin packs > Gestionnaire"
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
@@ -291,8 +276,9 @@ et appliquez-lui le Modèle d'Hôte *Cloud-Azure-Web-AppService-custom*.
 * Une fois le modèle appliqué, les Macros ci-dessous indiquées comme requises (*Mandatory*) 
 doivent être renseignées selon le custom-mode utilisé:
 
-<Tabs groupId="sync">
-<TabItem value="Azure Monitor API" label="Azure Monitor API">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Azure Monitor API-->
 
 | Mandatory | Nom               | Description                    |
 | :-------- | :---------------- | :----------------------------- |
@@ -303,8 +289,7 @@ doivent être renseignées selon le custom-mode utilisé:
 | X         | AZURECLIENTSECRET | Client secret                  |
 | X         | AZURERESOURCE     | Id of the App Service instance |
 
-</TabItem>
-<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
+<!--Azure AZ CLI-->
 
 | Mandatory | Nom               | Description                    |
 | :-------- | :---------------- | :----------------------------- |
@@ -312,8 +297,7 @@ doivent être renseignées selon le custom-mode utilisé:
 | X         | AZURESUBSCRIPTION | Subscription ID                |
 | X         | AZURERESOURCE     | Id of the App Service instance |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## FAQ
 

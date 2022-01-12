@@ -2,9 +2,6 @@
 id: virtualization-vmware2-vcenter-5
 title: VMware vCenter v5
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Overview
 
@@ -23,16 +20,16 @@ The Centreon Plugin and Plugin-Packs rely on the Centreon VMWare Connector to re
 
 This pack uses "VMware vCenter" pack to extend monitored indicators (virtualization-vmware2-vcenter-generic).
 
-<Tabs groupId="sync">
-<TabItem value="VmSnapshotGlobal" label="VmSnapshotGlobal">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Vm-Snapshot-Global-->
 
 | Metric name  | Description                                               | Unit  |
 | :----------- | :-------------------------------------------------------- | :---- |
 | num_warning  | Number of snapshots older than 3 days (default treshold)  | Count |
 | num_critical | Number of snapshots older than 5 days (default threshold) | Count |
 
-</TabItem>
-<TabItem value="VmToolsGlobal" label="VmToolsGlobal">
+<!--Vm-Tools-Global-->
 
 | Metric name   | Description                                                   | Unit  |
 | :------------ | :------------------------------------------------------------ | :---- |
@@ -40,8 +37,7 @@ This pack uses "VMware vCenter" pack to extend monitored indicators (virtualizat
 | not_running   | Number of VMs with VM-Tools not running (default threshold)   | Count |
 | not_installed | Number of VMs with VM-Tools not installed (default threshold) | Count |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -123,8 +119,9 @@ The Pollers that request the Centreon VMWare Connector host need to access in TC
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the VMWare Connector Centreon Plugin on every poller expected to monitor VMWare infrastructures:
 
@@ -134,8 +131,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 
 2. Install the 'Vmware vCenter v5' Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page 
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the VMWare Connector Centreon Plugin on every poller expected to monitor the VMWare Infrastructures:
 
@@ -151,8 +147,7 @@ yum install centreon-pack-virtualization-vmware2-vcenter-5.noarch
 
 3. Install the 'Vmware  vCenter v5' Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page 
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

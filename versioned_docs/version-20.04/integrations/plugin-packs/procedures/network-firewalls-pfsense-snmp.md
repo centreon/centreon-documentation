@@ -2,9 +2,6 @@
 id: network-firewalls-pfsense-snmp
 title: pfSense
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Overview
 
@@ -22,8 +19,9 @@ and the several number of packets per second using with the SNMP protocol.
 
 ### Monitored metrics
 
-<Tabs groupId="sync">
-<TabItem value="BlockedPacketsPerInterface" label="BlockedPacketsPerInterface">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Blocked-Packets-Per-Interface-->
 
 | Metric name                                 | Description       | Unit    |
 |:--------------------------------------------|:------------------|:--------|
@@ -32,50 +30,43 @@ and the several number of packets per second using with the SNMP protocol.
 | pfinterface.block.traffic.in.bitspersecond  | Traffic in Block  | b/s     |
 | pfinterface.block.traffic.out.bitspersecond | Traffic out Block | b/s     |
 
-</TabItem>
-<TabItem value="ShortPackets" label="ShortPackets">
+<!--Short-Packets-->
 
 | Metric name             | Description                            |
 |:------------------------|:---------------------------------------|
 | packets.short.persecond | The number of short packets per second |
 
-</TabItem>
-<TabItem value="NormalizePackets" label="NormalizePackets">
+<!--Normalize-Packets-->
 
 | Metric name                  | Description                                  |
 |:-----------------------------|:---------------------------------------------|
 | packets.normalized.persecond | The number of normalized  packets per second |
 
-</TabItem>
-<TabItem value="MemoryDroppedPackets" label="MemoryDroppedPackets">
+<!--Memory-Dropped-Packets-->
 
 | Metric name                     | Description                                            |
 |:--------------------------------|:-------------------------------------------------------|
 | packets.memorydropped.persecond | The number of dropped packets due to memory per second |
 
-</TabItem>
-<TabItem value="MatchPackets" label="MatchPackets">
+<!--Match-Packets-->
 
 | Metric name               | Description                              |
 |:--------------------------|:-----------------------------------------|
 | packets.matched.persecond | The number of matched packets per second |
 
-</TabItem>
-<TabItem value="FragmentPackets" label="FragmentPackets">
+<!--Fragment-Packets-->
 
 | Metric name                  | Description                                 |
 |:-----------------------------|:--------------------------------------------|
 | packets.fragmented.persecond | The number of fragmented packets per second |
 
-</TabItem>
-<TabItem value="BadOffsetPackets" label="BadOffsetPackets">
+<!--Bad-Offset-Packets-->
 
 | Metric name                 | Description                                 |
 |:----------------------------|:--------------------------------------------|
 | packets.badoffset.persecond | The number of bad offset packets per second |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -92,8 +83,9 @@ port.
 
 ## Setup
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor a pfSense firewall:
 
@@ -103,8 +95,7 @@ yum install centreon-plugin-Network-Firewalls-Pfsense-Snmp
 
 2. On the Centreon Web interface, install the *pfSense* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor a pfSense firewall:
 
@@ -120,8 +111,7 @@ yum install centreon-pack-network-firewalls-pfsense-snmp
 
 3. On the Centreon Web interface, install the *pfSense* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

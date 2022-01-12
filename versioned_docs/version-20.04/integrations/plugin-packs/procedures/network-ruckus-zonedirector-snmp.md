@@ -2,8 +2,6 @@
 id: network-ruckus-zonedirector-snmp
 title: Ruckus Zonedirector
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 ## Overview
 
@@ -18,14 +16,17 @@ Ruckus Wireless ZoneDirector is RUCKUS’ centrally managed Smart Wireless LAN (
 
 ### Discovery rules
 
+<!--Services-->
+
 | Rule name                            | Description                                         |
 | :----------------------------------- | :-------------------------------------------------- |
 | Net-Ruckus-Zonedirector-SNMP-Ap-Name | Discover access point attached to your controller   |
 
 ### Monitored metrics 
 
-<Tabs groupId="sync">
-<TabItem value="AccessPoint" label="AccessPoint">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Access-Point-->
 
 | Metric name                                            | Description                                                                             |
 | :----------------------------------------------------- | :-------------------------------------------------------------------------------------- |
@@ -40,8 +41,7 @@ Ruckus Wireless ZoneDirector is RUCKUS’ centrally managed Smart Wireless LAN (
 | accesspoint.traffic.in.bitspersecon                    | Incoming traffic going through the access point. Unit: bits/second                      |
 | accesspoint.traffic.out.bitspersecond                  | Outgoing traffic going through the access point. Unit: bits/second                      |
 
-</TabItem>
-<TabItem value="System" label="System">
+<!--System-->
 
 | Metric name                                       | Description                                                  |
 | :------------------------------------------------ | :----------------------------------------------------------- |
@@ -57,8 +57,7 @@ Ruckus Wireless ZoneDirector is RUCKUS’ centrally managed Smart Wireless LAN (
 | system.traffic.in.bitspersecond                   | Incoming traffic going through the system. Unit: bits/second |
 | system.traffic.out.bitspersecond                  | Outgoing traffic going through the system. Unit: bits/second |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -72,8 +71,9 @@ Your Centreon Poller must be able to reach the Ruckus device over UDP/161 SNMP p
 
 ## Setup 
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin package on every Poller expected to monitor Ruckus Zonedirector ressources:
 
@@ -83,8 +83,7 @@ yum install centreon-plugin-Network-Ruckus-Zonedirector-Snmp
 
 2. On the Centreon Web interface, install the 'Ruckus Zonedirector' Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor Ruckus Zonedirector ressources:
 
@@ -100,8 +99,7 @@ yum install centreon-pack-network-ruckus-zonedirector-snmp.noarch
 
 3. On the Centreon Web interface, install the 'Ruckus Zonedirector' Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

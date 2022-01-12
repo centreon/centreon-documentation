@@ -2,9 +2,6 @@
 id: applications-ibm-tsamp-ssh
 title: IBM TSAMP SSH
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Pack Assets
 
@@ -15,20 +12,21 @@ The Pack IBM Tivoli System Automation for Multiplatforms collects metrics for:
 
 ### Discovery rules
 
-<Tabs groupId="sync">
-<TabItem value="Services" label="Services">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Services-->
 
 | Rule name                             | Description                                 |
 | :------------------------------------ | :------------------------------------------ |
 | App-Ibm-Tsamp-SSH-Resource-Group-Name | Discover resource groups and monitor status |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Collected Metrics
 
-<Tabs groupId="sync">
-<TabItem value="Resourcegroups" label="Resourcegroups">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Resource-groups-->
 
 | Metric name                           | Description                               | Unit  |
 | :------------------------------------ | :---------------------------------------- | :---- |
@@ -42,8 +40,7 @@ The Pack IBM Tivoli System Automation for Multiplatforms collects metrics for:
 | resource_groups.ineligible.count      | Number of ineligible resource groups      |       |
 | status resource group                 | Current state of the resource group       |       |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -51,8 +48,9 @@ The centreon-engine user performs a SSH connection to a remote system user. This
 
 ## Setup
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -62,8 +60,7 @@ yum install centreon-plugin-Applications-Ibm-Tsamp-Ssh
 
 2. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *IBM TSAMP SSH* Pack
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -79,8 +76,7 @@ yum install centreon-pack-applications-ibm-tsamp-ssh
 
 3. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *IBM TSAMP SSH* Pack
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Host configuration
 
@@ -89,8 +85,9 @@ yum install centreon-pack-applications-ibm-tsamp-ssh
 > Once the template applied, some Macros have to be configured.
 > 3 SSH backends are available to connect to the remote server: *sshcli*, *plink* and *libssh* which are detailed below.
 
-<Tabs groupId="sync">
-<TabItem value="sshcli backend" label="sshcli backend">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--sshcli backend-->
 
 | Mandatory   | Name            | Description                                                                                 |
 | :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
@@ -102,8 +99,7 @@ yum install centreon-pack-applications-ibm-tsamp-ssh
 
 > With that backend, you have to validate the target server fingerprint manually (with the SSHUSERNAME used).
 
-</TabItem>
-<TabItem value="plink backend" label="plink backend">
+<!--plink backend-->
 
 | Mandatory   | Name            | Description                                                                                 |
 | :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
@@ -115,8 +111,7 @@ yum install centreon-pack-applications-ibm-tsamp-ssh
 
 > With that backend, you have to validate the target server fingerprint manually (with the SSHUSERNAME used).
 
-</TabItem>
-<TabItem value="libssh backend (default)" label="libssh backend (default)">
+<!--libssh backend (default)-->
 
 | Mandatory   | Name            | Description                                                                                 |
 | :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
@@ -128,8 +123,7 @@ yum install centreon-pack-applications-ibm-tsamp-ssh
 
 With that backend, you do not have to validate the target server fingerprint manually.
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## How to test the Plugin and what are the main options for?
 

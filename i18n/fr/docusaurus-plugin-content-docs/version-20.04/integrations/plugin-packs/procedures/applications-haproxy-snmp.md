@@ -2,9 +2,6 @@
 id: applications-haproxy-snmp
 title: Haproxy SNMP
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Vue d'ensemble
 
@@ -25,8 +22,9 @@ l'intermédiaire du protocole SNMP.
 
 ### Métriques & statuts collectés
 
-<Tabs groupId="sync">
-<TabItem value="FrontendUsage" label="FrontendUsage">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Frontend-Usage-->
 
 | Metric name                       | Description                | Unit  |
 |:----------------------------------|:---------------------------|:------|
@@ -36,8 +34,7 @@ l'intermédiaire du protocole SNMP.
 | frontend.traffic.in.bitpersecond  | Incomming frontend traffic | b/s   |
 | frontend.traffic.out.bitpersecond | Outgoing frontend traffic  | b/s   |
 
-</TabItem>
-<TabItem value="BackendUsage" label="BackendUsage">
+<!--Backend-Usage-->
 
 | Metric name                      | Description                        | Unit  |
 |:---------------------------------|:-----------------------------------|:------|
@@ -48,8 +45,7 @@ l'intermédiaire du protocole SNMP.
 | backend.traffic.in.bitpersecond  | Incomming backend traffic          | b/s   |
 | backend.traffic.out.bitpersecond | Outgoing backend traffic           | b/s   |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -59,8 +55,9 @@ https://www.haproxy.com/documentation/hapee/latest/observability/metrics/snmp/
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources HAProxy:
 
@@ -70,8 +67,7 @@ yum install centreon-plugin-Applications-Haproxy-Snmp
 
 2. Sur l'interface Integration de Centreon, installer le Plugin Pack *Haproxy SNMP* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources HAProxy:
 
@@ -87,8 +83,7 @@ yum install centreon-pack-applications-haproxy-snmp
 
 3. Sur l'interface Integration de Centreon, installer le Plugin Pack *Haproxy SNMP* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

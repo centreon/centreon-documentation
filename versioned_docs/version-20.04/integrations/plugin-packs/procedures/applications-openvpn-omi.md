@@ -2,9 +2,6 @@
 id: applications-openvpn-omi
 title: OpenVPN OMI
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Pack Assets
 
@@ -21,8 +18,9 @@ It brings the following Service Template:
 
 ### Collected metrics & status
 
-<Tabs groupId="sync">
-<TabItem value="ServerUsage" label="ServerUsage">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Server-Usage-->
 
 | Metric name                      | Description               | Unit  |
 |:---------------------------------|:--------------------------|:------|
@@ -30,8 +28,7 @@ It brings the following Service Template:
 | server.traffic.in.bitspersecond  | Server traffic in         | b/s   |
 | server.traffic.out.bitspersecond | Server traffic out        | b/s   |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -40,8 +37,9 @@ A user and password dedicated to monitoring is needed for security reasons.
 
 ## Setup
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor your *Open VPN* server:
 
@@ -51,8 +49,7 @@ yum install centreon-plugin-Applications-Openvpn-Omi
 
 2. On the Centreon Web interface, install the *OpenVPN OMI* Centreon Plugin Pack on the **Configuration > Plugin Packs** page
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor your *Open VPN* server:
 
@@ -62,14 +59,13 @@ yum install centreon-plugin-Applications-Openvpn-Omi
 
 2. Install the *OpenVPN OMI* Centreon Plugin Pack RPM on the Centreon Central server:
 
-```bash
+ ```bash
 yum install centreon-pack-applications-openvpn-omi
 ```
 
 3. On the Centreon Web interface, install the *OpenVPN OMI* Centreon Plugin Pack on the **Configuration > Plugin Packs** page
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

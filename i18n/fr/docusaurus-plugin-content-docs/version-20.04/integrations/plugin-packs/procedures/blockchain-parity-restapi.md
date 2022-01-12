@@ -2,8 +2,6 @@
 id: blockchain-parity-restapi
 title: Parity API
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 ## Vue d'ensemble
 
@@ -24,8 +22,9 @@ des noeuds d'un réseau Blockchain au travers d'une API.
 
 ### Métriques collectées
 
-<Tabs groupId="sync">
-<TabItem value="Parity" label="Parity">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Parity-->
 
 | Metric name                 | Description                      | Unit |
 |:----------------------------|:---------------------------------|------|
@@ -36,8 +35,7 @@ des noeuds d'un réseau Blockchain au travers d'une API.
 | parity.peers.max            | Maximum number of peers          |      |
 | parity.peers.usage          | Peers usage expressed in percent |   %  |
 
-</TabItem>
-<TabItem value="Eth" label="Eth">
+<!--Eth-->
 
 | Metric name                          | Description                   |
 |:-------------------------------------|:------------------------------|
@@ -51,15 +49,13 @@ des noeuds d'un réseau Blockchain au travers d'une API.
 | parity.eth.gas.price                 | Gas price                     |
 | parity.eth.gas.used                  | Gas consumption               |
 
-</TabItem>
-<TabItem value="Net" label="Net">
+<!--Net-->
 
 | Metric name                   | Description              |
 |:------------------------------|:-------------------------|
 | parity.network.peers.count    | Number of known peers    |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -68,8 +64,9 @@ via le port configuré (par défaut: 8545).
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon supervisant des noeuds Parity:
 
@@ -80,8 +77,7 @@ yum install centreon-plugin-Blockchain-Parity-Restapi
 2. Sur l'interface Web de Centreon, installer le Plugin Pack *Parity API* depuis 
 la page  `Configuration > Plugin Packs`.
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon supervisant des noeuds Parity:
 
@@ -91,15 +87,14 @@ yum install centreon-plugin-Blockchain-Parity-Restapi
 
 2. Installer le RPM du Plugin Pack *Parity API* sur le serveur Central: 
 
-```bash
+ ```bash
 yum install centreon-pack-blockchain-parity-restapi
 ```
 
 3. Sur l'interface Web de Centreon, installer le Plugin Pack *Parity API* depuis 
 la page  `Configuration > Plugin Packs`.
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration d'un Hôte
 

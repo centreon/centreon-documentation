@@ -2,9 +2,6 @@
 id: hardware-devices-polycom-dma-snmp
 title: Polycom DMA SNMP
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Overview
 
@@ -26,8 +23,9 @@ or Microsoft Azure cloud.
 
 ### Collected metrics
 
-<Tabs groupId="sync">
-<TabItem value="Alerts" label="Alerts">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Alerts-->
 
 | Metric name             | Description        | Unit  |
 | :---------------------- | :----------------- | :---- |
@@ -36,8 +34,7 @@ or Microsoft Azure cloud.
 Specify through the `--warning-status` and `--critical-status` options which severities
 increase the total count of alerts.
 
-</TabItem>
-<TabItem value="ConferenceManager" label="ConferenceManager">
+<!--Conference-Manager-->
 
 | Metric name                               | Description                                    | Unit   |
 |:----------------------------------------- |:-----------------------------------------------|:-------|
@@ -55,8 +52,7 @@ increase the total count of alerts.
 
 You can use the `--filter-cluster` option to narrow check scope to a specific cluster.
 
-</TabItem>
-<TabItem value="ClustersUsage" label="ClustersUsage">
+<!--Clusters-Usage-->
 
 | Metric name                           | Description                                              | Unit  |
 |:--------------------------------------|:---------------------------------------------------------|:------|
@@ -67,8 +63,7 @@ You can use the `--filter-cluster` option to narrow check scope to a specific cl
 
 You can use the `--filter-cluster` option to narrow check scope to a specific cluster.
 
-</TabItem>
-<TabItem value="DeviceRegistrations" label="DeviceRegistrations">
+<!--Device-Registrations-->
 
 | Metric name                                         | Description                                            | Unit  | 
 | :-------------------------------------------------- | :----------------------------------------------------- |------ |
@@ -78,8 +73,7 @@ You can use the `--filter-cluster` option to narrow check scope to a specific cl
 
 You can use the `--filter-cluster` option to narrow check scope to a specific cluster.
 
-</TabItem>
-<TabItem value="Serversusage" label="Serversusage">
+<!--Servers-usage-->
 
 | Metric name                           | Description                               | Unit  |
 |:------------------------------------- |:------------------------------------------|:----- |
@@ -97,8 +91,7 @@ You can use the `--filter-cluster` option to narrow check scope to a specific cl
 | dma.server.logs.free.bytes            | Free logs space on a server               |   B   |
 | dma.server.logs.usage.percentage      | Logs percentage space usage on a server   |   %   |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -113,8 +106,9 @@ The Centreon Poller must be able to reach the UDP/161 SNMP port of the Polycom R
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor 
 Polycom RealPresence DMA devices:
@@ -126,8 +120,7 @@ yum install centreon-plugin-Hardware-Devices-Polycom-Dma-Snmp
 2. On the Centreon Web interface, install the *Polycom DMA SNMP* Plugin-Pack 
 through "Configuration > Plugin packs > Manager" page.
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor
 Polycom RealPresence DMA devices:
@@ -145,8 +138,7 @@ yum install centreon-pack-hardware-devices-polycom-dma-snmp
 3. On the Centreon Web interface, install the *Polycom DMA SNMP* Plugin-Pack 
 through "Configuration > Plugin packs > Manager" page.
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Host configuration 
 

@@ -2,9 +2,6 @@
 id: virtualization-vmware2-vcenter-generic
 title: VMware vCenter
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Overview
 
@@ -22,6 +19,10 @@ The Centreon Plugin and Plugin-Packs rely on the Centreon VMWare Connector to re
 
 ### Discovery Rules
 
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Services-->
+
 | Rule name                                     | Description                                               |
 | :-------------------------------------------- | :-------------------------------------------------------- |
 | Virt-VMWare2-Datacenters-Alarm-Name           | Discover the Datacenters and monitor the alarms           | 
@@ -33,8 +34,9 @@ The Centreon Plugin and Plugin-Packs rely on the Centreon VMWare Connector to re
 
 ### Collected Metrics
 
-<Tabs groupId="sync">
-<TabItem value="DatacenterAlarmsGlobal" label="DatacenterAlarmsGlobal">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Datacenter-Alarms-Global-->
 
 | Metric name                                        | Description                              | Unit  |
 | :------------------------------------------------- | :--------------------------------------- | :---- |
@@ -44,15 +46,13 @@ The Centreon Plugin and Plugin-Packs rely on the Centreon VMWare Connector to re
 | dcname#datacenter.alarms.warning.current.count     | Number of warning alarms per Datacenter  | Count |
 | dcname#datacenter.alarms.critical.current.count    | Number of critical alarms per Datacenter | Count |
 
-</TabItem>
-<TabItem value="ClusterStatusGlobal" label="ClusterStatusGlobal">
+<!--Cluster-Status-Global-->
 
 | Metric name | Description           | Unit |
 | :---------- | :-------------------- | :--- |
 | Status      | Status of the Cluster |      |
 
-</TabItem>
-<TabItem value="DatastoreIoGlobal" label="DatastoreIoGlobal">
+<!--Datastore-Io-Global-->
 
 | Metric name                                        | Description              | Unit |
 | :------------------------------------------------- | :----------------------- | :--- |
@@ -61,8 +61,7 @@ The Centreon Plugin and Plugin-Packs rely on the Centreon VMWare Connector to re
 | datastorename#datastore.read.usage.bytespersecond  | Read rate per Datastore  | B/s  |
 | datastorename#datastore.write.usage.bytespersecond | Write rate per Datastore | B/s  |
 
-</TabItem>
-<TabItem value="DatastoreIopsGlobal" label="DatastoreIopsGlobal">
+<!--Datastore-Iops-Global-->
 
 | Metric name                   | Description                        | Unit |
 | :---------------------------- | :--------------------------------- | :--- |
@@ -71,8 +70,7 @@ The Centreon Plugin and Plugin-Packs rely on the Centreon VMWare Connector to re
 | datastore.vm.read.usage.iops  | Read IOPS per VM on the Datastore  | iops |
 | datastore.vm.write.usage.iops | Write IOPS per VM on the Datastore | iops |
 
-</TabItem>
-<TabItem value="DatastoreUsageGlobal" label="DatastoreUsageGlobal">
+<!--Datastore-Usage-Global-->
 
 | Metric name                       | Description                            | Unit |
 | :-------------------------------- | :------------------------------------- | :--- |
@@ -81,8 +79,7 @@ The Centreon Plugin and Plugin-Packs rely on the Centreon VMWare Connector to re
 | datastore.space.usage.percentage  | Usage of the Datastore in percentage   | %    |
 | datastore.space.provisioned.bytes | Provisioned Space allocated to the VMs | B    |
 
-</TabItem>
-<TabItem value="DatastoreVmCountGlobal" label="DatastoreVmCountGlobal">
+<!--Datastore-Vm-Count-Global-->
 
 | Metric name                            | Description                          | Unit  |
 | :------------------------------------- | :----------------------------------- | :---- |
@@ -90,8 +87,7 @@ The Centreon Plugin and Plugin-Packs rely on the Centreon VMWare Connector to re
 | datastore.vm.poweredoff.current.count  | Number of powered off VMs on the ESX | Count |
 | datastore.vm.suspended.current.count   | Number of suspended VMs on the ESX   | Count |
 
-</TabItem>
-<TabItem value="VmToolsGlobal" label="VmToolsGlobal">
+<!--Vm-Tools-Global-->
 
 | Metric name                         | Description                                                   | Unit  |
 | :---------------------------------- | :------------------------------------------------------------ | :---- |
@@ -99,8 +95,7 @@ The Centreon Plugin and Plugin-Packs rely on the Centreon VMWare Connector to re
 | vm.tools.notrunning.current.count   | Number of VMs with VM-Tools not running (default threshold)   | Count |
 | vm.tools.notinstalled.current.count | Number of VMs with VM-Tools not installed (default threshold) | Count |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -182,8 +177,9 @@ The Pollers that request the Centreon VMWare Connector host need to access in TC
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the VMWare Connector Centreon Plugin on every poller expected to monitor VMWare infrastructures:
 
@@ -193,8 +189,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 
 2. Install the 'Vmware vCenter' Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page 
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the VMWare Connector Centreon Plugin on every poller expected to monitor the VMWare Infrastructures:
 
@@ -210,8 +205,7 @@ yum install centreon-pack-virtualization-vmware2-vcenter-generic.noarch
 
 3. Install the 'Vmware vCenter' Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page 
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

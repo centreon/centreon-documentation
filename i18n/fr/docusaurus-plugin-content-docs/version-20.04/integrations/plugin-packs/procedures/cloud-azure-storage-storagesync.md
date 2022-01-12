@@ -2,8 +2,6 @@
 id: cloud-azure-storage-storagesync
 title: Azure Storage Sync
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 ## Vue d'ensemble
 
@@ -38,8 +36,9 @@ fonctionnement sur la documentation du module:
 
 ### Métriques & statuts collectés
 
-<Tabs groupId="sync">
-<TabItem value="FilesSynced" label="FilesSynced">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Files-Synced-->
 
 | Metric name                    | Description  | Unit  |
 | :----------------------------- | :----------- | :---- |
@@ -47,8 +46,7 @@ fonctionnement sur la documentation du module:
 | storagesync.item.errors.count  | Item errors  | Count |
 | storagesync.bytes.synced.bytes | Bytes synced | B     |
 
-</TabItem>
-<TabItem value="Recalls" label="Recalls">
+<!--Recalls-->
 
 | Metric name                                        | Description                              | Unit |
 | :------------------------------------------------- | :--------------------------------------- | :--- |
@@ -58,15 +56,13 @@ fonctionnement sur la documentation du module:
 | storagesync.recalls.total.size.bytes               | Cloud tiering recall                     | B    |
 | storagesync.recalls.throughput.size.bytespersecond | Cloud tiering recall throughput          | B/s  |
 
-</TabItem>
-<TabItem value="ServerStatus" label="ServerStatus">
+<!--Server-Status-->
 
 | Metric name                 | Description | Unit  |
 | :-------------------------- | :---------- | :---- |
 | storagesync.heartbeat.count | Heartbeat   | Count |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -75,8 +71,9 @@ Deux moyens sont disponibles pour interroger les API Microsoft Azure.
 Centreon préconise l'utilisation de la méthode *API* plutôt que la *CLI*, cette dernière étant significativement
 moins performante. L'API permet également une authentification *Application* et ne nécessite pas de compte de service dédié.
 
-<Tabs groupId="sync">
-<TabItem value="Azure Monitor API" label="Azure Monitor API">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Azure Monitor API-->
 
 Pour le custom-mode 'api', récupérez les informations en suivant la procédure ci-dessous (en anglais)
 et notez celles-ci en lieu sûr. Elles seront en effet indispensables lors de la configuration des ressources
@@ -123,8 +120,7 @@ dans Centreon.
 	- Click on *Save*.
 	- **Copy and store the key value. You won't be able to retrieve it after you leave this page.**
 
-</TabItem>
-<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
+<!--Azure AZ CLI-->
 
 Afin d'utiliser le custom-mode 'azcli', installez le binaire associé sur tous les Collecteurs Centreon
 devant superviser des resources Azure:
@@ -178,13 +174,13 @@ du collecteur Centreon:
 Vous avez désormais les informations stockées localement dans un fichier
 accessTokens.json qui sera utilisé automatiquement par le Plugin.
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources *Azure Storage Sync*:
 
@@ -194,8 +190,7 @@ yum install centreon-plugin-Cloud-Azure-Storage-StorageSync-Api
 
 2. Sur l'interface Integration de Centreon, installer le Plugin Pack *Azure Storage Sync* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources *Azure Storage Sync*:
 
@@ -211,8 +206,7 @@ yum install centreon-pack-cloud-azure-storage-storagesync
 
 3. Sur l'interface Integration de Centreon, installer le Plugin Pack *Azure Storage Sync* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
@@ -228,8 +222,7 @@ doivent être renseignées selon le *custom mode* utilisé.
 dans la Macro *AZURERESOURCE*
 > * Utilisation du nom de la ressource dans la Macro *AZURERESOURCE* associée à la Macro *AZURERESOURCEGROUP* 
 
-<Tabs groupId="sync">
-<TabItem value="Azure Monitor API" label="Azure Monitor API">
+<!--Azure Monitor API-->
 
 | Mandatory | Nom                | Description                                        |
 | :-------- | :----------------- | :------------------------------------------------- |
@@ -241,8 +234,7 @@ dans la Macro *AZURERESOURCE*
 | X         | AZURERESOURCE      | ID or name of the Storage Sync resource            |
 |           | AZURERESOURCEGROUP | Associated Resource Group if resource name is used |
 
-</TabItem>
-<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
+<!--Azure AZ CLI-->
 
 | Mandatory | Nom                | Description                                        |
 | :-------- | :----------------- | :------------------------------------------------- |
@@ -251,8 +243,7 @@ dans la Macro *AZURERESOURCE*
 | X         | AZURERESOURCE      | ID or name of the Storage Sync resource            |
 |           | AZURERESOURCEGROUP | Associated Resource Group if resource name is used |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Comment puis-je tester le Plugin et que signifient les options des commandes ? 
 

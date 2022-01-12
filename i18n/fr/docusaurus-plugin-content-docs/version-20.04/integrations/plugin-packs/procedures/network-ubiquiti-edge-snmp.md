@@ -2,9 +2,6 @@
 id: network-ubiquiti-edge-snmp
 title: Ubiquiti Edge SNMP
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Contenu du Pack de supervision
 
@@ -18,20 +15,21 @@ Le Pack Ubiquiti Edge collecte les données pour:
 
 ### Règles de découvertes
 
-<Tabs groupId="sync">
-<TabItem value="Services" label="Services">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Services-->
 
 | Rule name                             | Description                                                                                  |
 | :------------------------------------ | :------------------------------------------------------------------------------------------- |
 | Net-Ubiquiti-Edge-SNMP-Interface-Name | Découvre les interfaces réseaux et supervise le statut et l'utilisation de la bande passante |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Métriques collectées 
 
-<Tabs groupId="sync">
-<TabItem value="Cpu" label="Cpu">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Cpu-->
 
 | Metric name                   | Description                            | Unit |
 | :---------------------------- | :------------------------------------- |:---- |
@@ -39,8 +37,7 @@ Le Pack Ubiquiti Edge collecte les données pour:
 | cpu.utilization.1m.percentage | CPU utilization during last minute.    | %    |
 | cpu.utilization.5m.percentage | CPU utilization during last 5 minutes. | %    |
 
-</TabItem>
-<TabItem value="Hardware" label="Hardware">
+<!--Hardware-->
 
 | Metric name                   | Description                               | Unit |
 |:----------------------------- |:----------------------------------------- |:---- |
@@ -53,8 +50,7 @@ Le Pack Ubiquiti Edge collecte les données pour:
 | hardware.temperature.celsius  | temperature of the different sensors      | C    |
 | hardware.voltage.millivolt    | Voltage of the different sensors          | mV   |
 
-</TabItem>
-<TabItem value="Interfaces" label="Interfaces">
+<!--Interfaces-->
 
 | Metric name                                                 | Description                                             | Unit |
 |:----------------------------------------------------------- |:------------------------------------------------------- |:---- |
@@ -66,15 +62,13 @@ Le Pack Ubiquiti Edge collecte les données pour:
 | *interface\_name*\#interface.packets.out.error.percentage   | Outgoing errored packets going through the interface.   | %    |
 | *interface\_name*\#interface.packets.out.discard.percentage | Outgoing discarded packets going through the interface. | %    |
 
-</TabItem>
-<TabItem value="Memory" label="Memory">
+<!--Memory-->
 
 | Metric name              | Description                | Unit |
 | :----------------------- | :------------------------- |:---- |
 | memory.usage.bytes       | Memory usage               | B    | 
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -84,8 +78,9 @@ Les collecteurs Centreon doivent pouvoir communiquer via le port UDP/161 SNMP av
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -95,8 +90,7 @@ yum install centreon-plugin-Network-Ubiquiti-Edge-Snmp
 
 2. Sur l'interface Web de Centreon, installer le Pack *Ubiquiti Edge SNMP* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -112,8 +106,7 @@ yum install centreon-pack-network-ubiquiti-edge-snmp
 
 3. Sur l'interface Web de Centreon, installer le Pack *Ubiquiti Edge SNMP* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

@@ -2,9 +2,6 @@
 id: operatingsystems-windows-nsclient-05-restapi
 title: Windows NSClient API
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Vue d'ensemble
 
@@ -20,22 +17,20 @@ les données de monitoring des serveurs Windows à travers une connexion HTTP s�
 
 ### Métriques collectées
 
-<Tabs groupId="sync">
-<TabItem value="query/CounterActiveSessions" label="query/CounterActiveSessions">
+<!--DOCUSAURUS_CODE_TABS-->
+<!--query/Counter-Active-Sessions-->
 
 | Metric name     | Description                             |
 | :-------------- | :-------------------------------------- |
 | Sessions\_value | Number of actived sessions. Unit: Count |
 
-</TabItem>
-<TabItem value="query/CounterGeneric" label="query/CounterGeneric">
+<!--query/Counter-Generic-->
 
 | Metric name    | Description                          |
 | :------------- | :----------------------------------- |
 | Counter\_value | Number of counter found. Unit: Count |
 
-</TabItem>
-<TabItem value="query/Cpu" label="query/Cpu">
+<!--query/Cpu-->
 
 | Metric name | Description                                                      |
 | :---------- | :--------------------------------------------------------------- |
@@ -43,29 +38,25 @@ les données de monitoring des serveurs Windows à travers une connexion HTTP s�
 | total 1m    | CPU Utilization of Windows serveur over 1 minutes. Unit: Percent |
 | total 5s    | CPU Utilization of Windows serveur over 5 seconds. Unit: Percent |
 
-</TabItem>
-<TabItem value="query/Disk" label="query/Disk">
+<!--query/Disk-->
 
 | Metric name | Description                                   |
 | :---------- | :-------------------------------------------- |
 | used        | Used and Total Storage allocated. Unit: Bytes |
 
-</TabItem>
-<TabItem value="query/EventlogGeneric" label="query/EventlogGeneric">
+<!--query/Eventlog-Generic-->
 
 | Metric name  | Description                            |
 | :----------- | :------------------------------------- |
 | problemCount | Number of event log found. Unit: Count |
 
-</TabItem>
-<TabItem value="query/FilesGeneric" label="query/FilesGeneric">
+<!--query/Files-Generic-->
 
 | Metric name | Description                        |
 | :---------- | :--------------------------------- |
 | count       | Number of files found. Unit: Count |
 
-</TabItem>
-<TabItem value="query/LogfilesGeneric" label="query/LogfilesGeneric">
+<!--query/Logfiles-Generic-->
 
 | Metric name        | Description                                                                   |
 | :----------------- | :---------------------------------------------------------------------------- |
@@ -74,22 +65,19 @@ les données de monitoring des serveurs Windows à travers une connexion HTTP s�
 | default\_criticals | Number of line that match with critical pattern found in logfile. Unit: Count |
 | default\_unknowns  | Number of line that match with unknown pattern found in logfile. Unit: Count  |
 
-</TabItem>
-<TabItem value="query/Memory" label="query/Memory">
+<!--query/Memory-->
 
 | Metric name | Description                        |
 | :---------- | :--------------------------------- |
 | used        | Total usage of memory. Unit: Bytes |
 
-</TabItem>
-<TabItem value="query/Swap" label="query/Swap">
+<!--query/Swap-->
 
 | Metric name | Description                             |
 | :---------- | :-------------------------------------- |
 | swap        | Total usage of swap memory. Unit: Bytes |
 
-</TabItem>
-<TabItem value="query/Sessions" label="query/Sessions">
+<!--query/Sessions-->
 
 | Metric name                   | Description                                               |
 | :---------------------------- | :-------------------------------------------------------- |
@@ -99,8 +87,7 @@ les données de monitoring des serveurs Windows à travers une connexion HTTP s�
 | sessions-active               | Number of active users session. Unit: Count               |
 | sessions-disconnected-current | Number of current disconnected users session. Unit: Count |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -135,8 +122,9 @@ net start nscp
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des ressources Windows NSCP Rest:
 
@@ -146,8 +134,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 
 2. Installer le Plugin-Pack depuis la page "Configuration > Plugin Packs > Manager"
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des ressources Windows NSCP Rest:
 
@@ -163,8 +150,7 @@ yum install centreon-pack-operatingsystems-windows-nsclient-05-restapi
 
 3. Installer le Plugin-Pack depuis la page "Configuration > Plugin Packs > Manager"
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

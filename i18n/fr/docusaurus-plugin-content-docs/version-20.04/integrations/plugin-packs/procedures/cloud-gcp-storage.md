@@ -2,9 +2,6 @@
 id: cloud-gcp-storage
 title: Google Storage
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Contenu du Plugin-Pack
 
@@ -29,8 +26,9 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 
 Pour l'ensemble des métriques collectées, il est possible de choisir *aggregation*: _average_, _minimum_, _maximum_ et _total_.
 
-<Tabs groupId="sync">
-<TabItem value="Bucket" label="Bucket">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Bucket-->
 
 | Metric name                                                                | Description                                         | Unit  |
 | :------------------------------------------------------------------------- | :-------------------------------------------------- | :---- |
@@ -40,8 +38,7 @@ Pour l'ensemble des métriques collectées, il est possible de choisir *aggregat
 | *bucket_name*~*aggregation*#storage.network.sent.volume.bytes              | Count of bytes sent over the network                | B     |
 | *bucket_name*~*aggregation*#storage.network.sent.volume.bytespersecond     | Count of bytes sent per second over the network     | B/s   |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -57,8 +54,9 @@ Comment créer une clé de compte de service: https://developers.google.com/iden
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -68,8 +66,7 @@ yum install centreon-plugin-Cloud-Gcp-Storage-Api
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Google Storage* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -85,8 +82,7 @@ yum install centreon-pack-cloud-gcp-storage
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Google Storage* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

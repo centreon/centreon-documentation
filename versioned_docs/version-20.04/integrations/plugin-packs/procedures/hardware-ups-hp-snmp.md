@@ -2,9 +2,6 @@
 id: hardware-ups-hp-snmp
 title: HP UPS SNMP
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Pack Assets
 
@@ -18,8 +15,9 @@ The Pack HP UPS collects metrics for:
 
 ### Collected Metrics
 
-<Tabs groupId="sync">
-<TabItem value="Batterystatus" label="Batterystatus">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Battery-status-->
 
 | Metric name                      | Description                    | Unit |
 | :------------------------------- | :----------------------------- | :--- |
@@ -29,8 +27,7 @@ The Pack HP UPS collects metrics for:
 | battery.current.ampere           | Battery ampere level           | A    |
 | battery.voltage.volt             | Battery voltage                | V    |
 
-</TabItem>
-<TabItem value="Environment" label="Environment">
+<!--Environment-->
 
 | Metric name                              | Description               | Unit  |
 | :--------------------------------------- | :------------------------ | :---- |
@@ -39,8 +36,7 @@ The Pack HP UPS collects metrics for:
 | environment.remote.temperature.celsius   | Remote temperature sensor | C     |
 | environment.remote.humidity.percentage   | Remote humidity sensor    | %     |
 
-</TabItem>
-<TabItem value="Inputlines" label="Inputlines">
+<!--Input-lines-->
 
 | Metric name                              | Description           | Unit  |
 | :--------------------------------------- | :-------------------- | :---- |
@@ -49,8 +45,7 @@ The Pack HP UPS collects metrics for:
 | *line\_phase*\#line.input.voltage.volt   | Input line voltage    | V     |
 | *line\_phase*\#line.input.power.watt     | Input line real power | W     |
 
-</TabItem>
-<TabItem value="Outputlines" label="Outputlines">
+<!--Output-lines-->
 
 | Metric name                               | Description           | Unit  |
 | :---------------------------------------- | :-------------------- | :---- |
@@ -61,8 +56,7 @@ The Pack HP UPS collects metrics for:
 | *line\_phase*\#line.output.voltage.volt   | Output line voltage   | V     |
 | *line\_phase*\#line.output.power.watt     | Ouput line real power | W     |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -71,8 +65,9 @@ The Poller should be able to perform SNMP requests toward the HP device over SNM
 
 ## Setup
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -82,8 +77,7 @@ yum install centreon-plugin-Hardware-Ups-Hp-Snmp
 
 2. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *HP UPS SNMP* Pack
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -99,8 +93,7 @@ yum install centreon-pack-hardware-ups-hp-snmp
 
 3. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *HP UPS SNMP* Pack
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Host configuration
 

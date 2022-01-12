@@ -2,9 +2,6 @@
 id: cloud-aws-rds
 title: Amazon RDS
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Overview
 
@@ -19,34 +16,31 @@ Amazon Relational Database Service (Amazon RDS) makes it easy to set up, operate
 
 ### Discovery rules
 
-<Tabs groupId="sync">
-<TabItem value="Hosts" label="Hosts">
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Hosts-->
 
 | Rule name                       | Description                                                   |
 | :------------------------------ | :------------------------------------------------------------ |
 | Cloud-Aws-Rds-Api-HostDiscovery | Discover Instances and Clusters from your Cloudwatch endpoint |
 
-</TabItem>
-<TabItem value="Services" label="Services">
+<!--Services-->
 
 No services discovery rule available on this pack
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Monitored metrics 
 
 You can get an overview of all gathered metrics from AWS/RDS in the official documentation: https://docs.aws.amazon.com/rds/index
 
-<Tabs groupId="sync">
-<TabItem value="Connections" label="Connections">
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Connections-->
 
 | Metric name         | Description                             | Unit:  |
 | :------------------ | :-------------------------------------- |:------ |
 | DatabaseConnections | Number of connections to the database.  | Count  |
 
-</TabItem>
-<TabItem value="Cpu" label="Cpu">
+<!--Cpu-->
 
 | Metric name      | Description                                                | Unit                    |                   
 | :--------------- | :--------------------------------------------------------- |:----------------------- |
@@ -54,8 +48,7 @@ You can get an overview of all gathered metrics from AWS/RDS in the official doc
 | CPUCreditUsage   | Number of CPU credit consumed.                             | Credits (vCPU-minutes)  |
 | CPUUtilization   | The percentage of CPU utilization.                         | Percentage              |
 
-</TabItem>
-<TabItem value="DiskIO" label="DiskIO">
+<!--Disk-IO-->
 
 | Metric name     | Description                                                                     | Unit         |
 | :-------------- | :------------------------------------------------------------------------------ |:------------ |
@@ -67,24 +60,21 @@ You can get an overview of all gathered metrics from AWS/RDS in the official doc
 | WriteLatency    | The average amount of time taken per disk I/O write operation.                  | Seconds      |
 | DiskQueueDepth  | The number of outstanding IOs (read/write requests) waiting to access the disk. | Count        |
 
-</TabItem>
-<TabItem value="Network" label="Network">
+<!--Network-->
 
 | Metric name               | Description                                                                                                                          | Unit          |
 | :------------------------ | :----------------------------------------------------------------------------------------------------------------------------------- |:------------- |
 | NetworkReceiveThroughput  | The incoming traffic on the DB instance, including both customer db traffic and AWS/RDS traffic used for monitoring and replication. | Bytes/Second  |
 | NetworkTransmitThroughput | The outgoing traffic on the DB instance, including both customer db traffic and AWS/RDS traffic used for monitoring and replication. | Bytes/Second  |
 
-</TabItem>
-<TabItem value="Storage" label="Storage">
+<!--Storage-->
 
 | Metric name      | Description                                   | Unit          |
 | :--------------- | :---------------------------------------------|:------------- |
 | FreeStorageSpace | The amount of available storage space.        | Bytes/Second  |
 | FreeableMemory   | The amount of available random access memory. | Bytes/Second  |
 
-</TabItem>
-<TabItem value="Queries" label="Queries">
+<!--Queries-->
 
 | Metric name      | Description                                                                                             |
 | :--------------- | :------------------------------------------------------------------------------------------------------ |
@@ -96,8 +86,7 @@ You can get an overview of all gathered metrics from AWS/RDS in the official doc
 | DDLThroughput    | The average number of DataDefinitionLanguage requests per second **(Only available on Aurora MySQL)**   |
 | DMLThroughput    | The average number of DataModificationLanguage requests per second **(Only available on Aurora MySQL)** |
 
-</TabItem>
-<TabItem value="Transactions" label="Transactions">
+<!--Transactions-->
 
 | Metric name         | Description                                                                                                                                                                                                                  |
 | :------------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -106,8 +95,7 @@ You can get an overview of all gathered metrics from AWS/RDS in the official doc
 | CommitLatency       | The amount of latency for commit operations, in milliseconds **(Only available on Aurora MySQL and Postgres)**                                                                                                               |
 | CommitThroughput    | The average number of commit operations per second **(Only available on Aurora MySQL and Postgres)**                                                                                                                         |
 
-</TabItem>
-<TabItem value="Volume" label="Volume">
+<!--Volume-->
 
 | Metric name     | Description                                                                                                                                                    |
 | :-------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -115,8 +103,7 @@ You can get an overview of all gathered metrics from AWS/RDS in the official doc
 | VolumeReadIOPs  | The number of billed read I/O operations from a cluster volume, reported at 5-minute intervals. **(Only available on Aurora MySQL and Postgres)**              |
 | VolumeWriteIOPs | The number of write disk I/O operations to the cluster volume, reported at 5-minute intervals. **(Only available on Aurora MySQL and Postgres)**               |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisistes
 
@@ -135,27 +122,27 @@ To interact with Amazon APIs, you can use either use awscli binary or paws, a pe
 
 > At the moment it is not possible to use perl-Paws if you are using a proxy to talk with AWS Cloudwatch APIs. 
 
-<Tabs groupId="sync">
-<TabItem value="perlPawsinstallation" label="perlPawsinstallation">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--perl-Paws-installation-->
 
 ```bash
 yum install perl-Paws
 ```
 
-</TabItem>
-<TabItem value="awscliinstallation" label="awscliinstallation">
+<!--aws-cli-installation-->
 
 ```bash
 yum install awscli
 ```
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Setup 
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin package on every poller expected to monitor Amazon RDS ressources:
 
@@ -165,8 +152,7 @@ yum install centreon-plugin-Cloud-Aws-Rds-Api
 
 2. Install the monitoring templates from the Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin package on every poller expected to monitor Amazon RDS ressources:
 
@@ -182,8 +168,7 @@ yum install centreon-pack-cloud-aws-rds.noarch
 
 3. Install the monitoring templates from the Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

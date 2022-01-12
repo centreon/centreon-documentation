@@ -2,9 +2,6 @@
 id: cloud-aws-vpn
 title: AWS VPN
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Vue d'ensemble
 
@@ -22,23 +19,24 @@ Le Plugin-Pack Centreon *AWS VPN* s'appuie sur les APIs Amazon Cloudwatch pour l
 
 ### Règles de découvertes
 
-<Tabs groupId="sync">
-<TabItem value="Services" label="Services">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Services-->
 
 | Rule name                 | Description                                                   |
 |:--------------------------|:--------------------------------------------------------------|
 | Cloud-Aws-Vpn-Connections | Discover VPN connections and monitor their status and traffic |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Métriques collectées
 
 Vous pouvez vous renseigner en détails sur les métriques présentées ci-après sur la documentation officiel du service VPN:
 https://docs.aws.amazon.com/fr_fr/vpn/latest/s2svpn/monitoring-cloudwatch-vpn
 
-<Tabs groupId="sync">
-<TabItem value="VpnTraffic*" label="VpnTraffic*">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Vpn-Traffic-*-->
 
 | Metric name                         | Description                                                                                                                                             | Unit |
 |:------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------|:-----|
@@ -52,8 +50,7 @@ ajoutez simplement le paramètre ``` --per-sec``` à la commande.
 > Le Modèle de Service *Vpn-Traffic-Global* supervise par défaut l'ensemble des liens VPN de votre infrastructure AWS.
 > Utilisez le module de **découverte automatique des Services** afin d'obtenir un Service par *VPN ID*.
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -73,27 +70,27 @@ Afin de récupérer les informations nécessaires via les APIs AWS, il est possi
 
 **Attention** il n'est pas possible d'utiliser perl-Paws si la connexion s'effectue au travers d'un proxy.
 
-<Tabs groupId="sync">
-<TabItem value="perlPawsinstallation" label="perlPawsinstallation">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--perl-Paws-installation-->
 
 ```bash
 yum install perl-Paws
 ```
 
-</TabItem>
-<TabItem value="awscliinstallation" label="awscliinstallation">
+<!--aws-cli-installation-->
 
 ```bash
 yum install awscli
 ```
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources AWS/VPN:
 
@@ -103,8 +100,7 @@ yum install centreon-plugin-Cloud-Aws-Vpn-Api
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *AWS VPN* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources AWS/VPN:
 
@@ -120,8 +116,7 @@ yum install centreon-pack-cloud-aws-vpn.noarch
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *AWS VPN* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

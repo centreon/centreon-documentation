@@ -2,9 +2,6 @@
 id: cloud-aws-transitgateway
 title: AWS Transit Gateway
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Overview
 
@@ -25,23 +22,24 @@ related metrics and status.
 
 ### Discovery rules
 
-<Tabs groupId="sync">
-<TabItem value="Gateways" label="Gateways">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Gateways-->
 
 | Rule name                           | Description                                                        |
 | :---------------------------------- | :----------------------------------------------------------------- |
 | Cloud-Aws-Transitgateways-Gateways  | Discover the Transit Gateways within an AWS infrastructure         |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Collected metrics 
 
 More information about collected metrics is available in the official Amazon documentation:
 https://docs.aws.amazon.com/fr_fr/vpc/latest/tgw/transit-gateway-cloudwatch-metrics
 
-<Tabs groupId="sync">
-<TabItem value="GatewaysTraffic*" label="GatewaysTraffic*">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Gateways-Traffic-*-->
 
 | Metric name                            | Description                                                           | Unit |
 |:---------------------------------------|:----------------------------------------------------------------------|:-----|
@@ -58,8 +56,7 @@ simply add the setting ```--per-sec``` to the command and/or the Service Macros
 > By default, the *Gateways-Traffic-Global* Service will monitor all of the Transit Gateways of the AWS infrastructure.
 > To get one Service per Gateway, use the **Service Autodiscovery module** with the rule described above.
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -77,29 +74,29 @@ To interact with Amazon APIs, you can use either use the *awscli* binary
 provided by Amazon or *paws*, a Perl AWS SDK (recommended). 
 You must install it on every Centreon poller expected to monitor AWS resources: 
 
-<Tabs groupId="sync">
-<TabItem value="perlPawsinstallation" label="perlPawsinstallation">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--perl-Paws-installation-->
 
 ```bash
 yum install perl-Paws
 ```
 
-</TabItem>
-<TabItem value="awscliinstallation" label="awscliinstallation">
+<!--aws-cli-installation-->
 
 ```bash
 yum install awscli
 ```
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 > For now, it is not possible to use *paws* if you are using a proxy to reach AWS Cloudwatch APIs. 
 
 ## Setup 
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor AWS Transit Gateway resources:
 
@@ -109,8 +106,7 @@ yum install centreon-plugin-Cloud-Aws-Transitgateway-Api
 
 2. On the Centreon Web interface, install the *AWS Transit Gateway* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor AWS Transit Gateway resources:
 
@@ -126,8 +122,7 @@ yum install centreon-pack-cloud-aws-transitgateway.noarch
 
 3. On the Centreon Web interface, install the *AWS Transit Gateway* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

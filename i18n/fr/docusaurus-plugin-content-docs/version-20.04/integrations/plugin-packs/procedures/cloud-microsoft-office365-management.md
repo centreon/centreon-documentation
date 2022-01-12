@@ -2,9 +2,6 @@
 id: cloud-microsoft-office365-management
 title: Office 365
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Vue d'ensemble
 
@@ -20,8 +17,9 @@ Les informations de monitoring de la suite Office sont mises à disposition par 
 
 ## Métriques collectées
 
-<Tabs groupId="sync">
-<TabItem value="ServiceStatus" label="ServiceStatus">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Service-Status-->
 
 | Metric name      | Description                                        |
 | :--------------- | :------------------------------------------------- |
@@ -29,8 +27,7 @@ Les informations de monitoring de la suite Office sont mises à disposition par 
 | status (service) | Status of the monitored service. Unit: Text        |
 | status (feature) | Status of monitored feature of service. Unit: Text |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -105,8 +102,9 @@ Suivez le guide pratique pour obtenir une explication complète sur la façon d�
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des ressources Office 365 Management:
 
@@ -116,8 +114,7 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Management-Api
 
 2. Installer le Plugin-Pack depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 1. Installer le Plugin sur l'ensemble des collecteurs supervisant des ressources Office 365 Management:
 
 ```bash
@@ -130,8 +127,7 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Management-Api
 yum install centreon-pack-cloud-microsoft-office365-management 
 ```
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

@@ -2,9 +2,6 @@
 id: virtualization-vmware2-vm
 title: VMware VM
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 ## Overview
 
 VMware is an software compagny based in USA. VMware provides cloud computing and virtualization software and services.
@@ -19,15 +16,15 @@ The Centreon Plugin and Plugin-Packs rely on the Centreon VMWare Connector to re
 
 ### Discovery Rules
 
-<Tabs groupId="sync">
-<TabItem value="Hosts" label="Hosts">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Hosts-->
 
 | Rule name                      | Description                                 |
 | :----------------------------- | :------------------------------------------ |
 |  Virt-VMWare2-VM-HostDiscovery | Discover the VMs bound to a vCenter or ESXi |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Collected Metrics
 
@@ -38,37 +35,34 @@ In addition to modes and metrics described here, it is also possible to monitor 
 * VM-Swap: VM swap usage
 * VM-Device: Check VM's devices status (e.g. VirtualCdrom)
 
-<Tabs groupId="sync">
-<TabItem value="VmTools" label="VmTools">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Vm-Tools-->
 
 | Metric name | Description                                                    | Unit |
 | :---------- | :------------------------------------------------------------- | :--- |
 | status      | Status of the VMware Tools (installed, running and up-to-date) |      |
 
-</TabItem>
-<TabItem value="VmThinprovisioning" label="VmThinprovisioning">
+<!--Vm-Thinprovisioning-->
 
 | Metric name | Description                                | Unit |
 | :---------- | :----------------------------------------- | :--- |
 | status      | Status of the Thinprovisoning virtualdisks |      |
 
-</TabItem>
-<TabItem value="VmStatus" label="VmStatus">
+<!--Vm-Status-->
 
 | Metric name   | Description              | Unit |
 | :------------ | :----------------------- | :--- |
 | status        | Overall status of the VM |      |
 
-</TabItem>
-<TabItem value="VmSnapshot" label="VmSnapshot">
+<!--Vm-Snapshot-->
 
 | Metric name                         | Description                                                   | Unit  |
 | :---------------------------------- | :------------------------------------------------------------ | :---- |
 | vm.snapshots.warning.current.count  | Number of VM's snapshot older than 3 days (default threshold) | Count |
 | vm.snapshots.critical.current.count | Number of VM's snapshot older than 5 days (default threshold) | Count |
 
-</TabItem>
-<TabItem value="VmLimit" label="VmLimit">
+<!--Vm-Limit-->
 
 | Metric name                  | Description            | Unit  |
 | :--------------------------- | :--------------------- | :---- |
@@ -76,8 +70,7 @@ In addition to modes and metrics described here, it is also possible to monitor 
 | vm.limit.memory.alerts.count | Alerts on Memory limit | Count |
 | vm.limit.disk.alerts.count   | Alerts on Disk limit   | Count |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -159,8 +152,9 @@ The Pollers that request the Centreon VMWare Connector host need to access in TC
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Vmware2 Connector Centreon Plugin on every poller expected to monitor the devices:
 
@@ -170,8 +164,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 
 2. Install the 'Vmware VM' Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Vmware VM Centreon Plugin on every poller expected to monitor the devices:
 
@@ -187,8 +180,7 @@ yum install centreon-pack-virtualization-vmware2-vm
 
 3. Install the 'Vmware VM' Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

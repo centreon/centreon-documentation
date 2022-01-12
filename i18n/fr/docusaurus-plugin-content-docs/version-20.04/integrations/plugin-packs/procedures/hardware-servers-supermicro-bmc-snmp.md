@@ -2,9 +2,6 @@
 id: hardware-servers-supermicro-bmc-snmp
 title: Supermicro BMC SNMP
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Contenu du Pack de supervision
 
@@ -15,16 +12,16 @@ Le Pack Supermicro collecte les données pour:
 
 ### Métriques collectées 
 
-<Tabs groupId="sync">
-<TabItem value="Sensors" label="Sensors">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Sensors-->
 
 | Metric name                                   | Description          | Unit  |
 | :-------------------------------------------- | :------------------- | :---- |
 | sensor status                                 | Status of the sensor |       |
 | *sensor\_name*\#hardware.sensor.reading.count | Sensor reading value |       |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -34,8 +31,9 @@ https://www.supermicro.com/en/solutions/management-software/bmc-resources
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -45,8 +43,7 @@ yum install centreon-plugin-Hardware-Servers-Supermicro-Bmc-Snmp
 
 2. Sur l'interface Web de Centreon, installer le Pack *Supermicro BMC SNMP* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -62,8 +59,7 @@ yum install centreon-pack-hardware-servers-supermicro-bmc-snmp
 
 3. Sur l'interface Web de Centreon, installer le Pack *Supermicro BMC SNMP* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

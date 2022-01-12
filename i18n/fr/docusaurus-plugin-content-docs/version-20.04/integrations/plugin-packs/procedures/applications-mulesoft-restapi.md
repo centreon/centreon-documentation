@@ -2,9 +2,6 @@
 id: applications-mulesoft-restapi
 title: Mulesoft Anypoint
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Vue d'ensemble
 
@@ -23,8 +20,9 @@ Le Plugin Centreon associé permet d'interroger l'API Rest de Mulesoft Anypoint 
 
 ### Règles de découvertes
 
-<Tabs groupId="sync">
-<TabItem value="Services" label="Services">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Services-->
 
 | Rule name                                | Description                                                        |
 | :--------------------------------------- | :----------------------------------------------------------------- |
@@ -32,16 +30,16 @@ Le Plugin Centreon associé permet d'interroger l'API Rest de Mulesoft Anypoint 
 | App-Mulesoft-Restapi-Server-Name         | Discover Anypoint servers and monitor their status                 |
 | App-Mulesoft-Restapi-Queue-Messages-Name | Discover Anypoint MQ queues and monitor the related messages count |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Métriques collectées
 
 Vous pouvez vous renseigner en détails sur les métriques présentées ci-après sur la documentation officielle de 
 l'API Rest Mulesoft: https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/arm-rest-services/
 
-<Tabs groupId="sync">
-<TabItem value="Applications" label="Applications">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Applications-->
 
 | Metric name                                | Description                        |
 | :----------------------------------------- | :--------------------------------- |
@@ -51,8 +49,7 @@ l'API Rest Mulesoft: https://anypoint.mulesoft.com/exchange/portals/anypoint-pla
 | mulesoft.applications.status.stopped.count | Number of stopped applications     |
 | mulesoft.applications.status.failed.count  | Number of failed applications      |
 
-</TabItem>
-<TabItem value="Clusters" label="Clusters">
+<!--Clusters-->
 
 | Metric name                                 | Description                     |
 | :------------------------------------------ | :------------------------------ |
@@ -61,8 +58,7 @@ l'API Rest Mulesoft: https://anypoint.mulesoft.com/exchange/portals/anypoint-pla
 | mulesoft.clusters.status.running.count      | Number of running clusters      |
 | mulesoft.clusters.status.disconnected.count | Number of disconnected clusters |
 
-</TabItem>
-<TabItem value="Messages" label="Messages">
+<!--Messages-->
 
 | Metric name                      | Description                                  |
 | :------------------------------- | :------------------------------------------- |
@@ -73,8 +69,7 @@ l'API Rest Mulesoft: https://anypoint.mulesoft.com/exchange/portals/anypoint-pla
 | mulesoft.mq.visible.count        | Number of visible messages in the queue      |
 | mulesoft.mq.acked.count          | Number of acknowledged messages in the queue |
 
-</TabItem>
-<TabItem value="Servers" label="Servers">
+<!--Servers-->
 
 | Metric name                                | Description                    |
 | :----------------------------------------- | :----------------------------- |
@@ -83,8 +78,7 @@ l'API Rest Mulesoft: https://anypoint.mulesoft.com/exchange/portals/anypoint-pla
 | mulesoft.servers.status.running.count      | Number of running servers      |
 | mulesoft.servers.status.disconnected.count | Number of disconnected servers |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -97,8 +91,9 @@ et de l'organisation en question.
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources Mulesoft Anypoint :
 
@@ -108,8 +103,7 @@ yum install centreon-plugin-Applications-Mulesoft-Restapi.noarch
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Mulesoft Anypoint* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources Mulesoft Anypoint :
 
@@ -125,8 +119,7 @@ yum install centreon-pack-applications-mulesoft-restapi.noarch
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Mulesoft Anypoint* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

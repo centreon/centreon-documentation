@@ -2,9 +2,6 @@
 id: model-it-services
 title: Modéliser un service IT
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 L'extension Centreon BAM est utilisée pour modéliser des services IT et applications
 mis à disposition des utilisateurs finaux. Il permet de connaître en
@@ -110,35 +107,33 @@ Définissons simplement ce qu'est un serveur frontend-x qui est ok:
 Partant de ces règles, l'état d'un serveur frontal le plus approprié va être déterminé par la
  règle de calcul "Worst status". Voici un exemple avec le serveur (1)
 
-<Tabs groupId="sync">
-<TabItem value="Concept" label="Concept">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!-- Concept   -->
 
 ![image](../assets/service-mapping/frontend-1-concept.png)
 
-</TabItem>
-<TabItem value="Configuration" label="Configuration">
+<!-- Configuration -->
 
 ![image](../assets/service-mapping/frontend-1-conf.png)
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 Maintenant que nous avons définis nos 10 serveurs frontaux en suivant cette règle, il est temps de créer notre BA 
 principale: le cluster des serveurs frontaux. Nous allons pour cela utiliser la règle "Ratio" et défnir que ce Cluster
 passera en Critique lorsque plus de 80% des serveurs frontaux seront non-ok.
 
-<Tabs groupId="sync">
-<TabItem value="Concept" label="Concept">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!-- Concept   -->
 
 ![image](../assets/service-mapping/ratio.png)
 
-</TabItem>
-<TabItem value="Configuration" label="Configuration">
+<!-- Configuration -->
 
 ![image](../assets/service-mapping/conf-ratio.png)
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 Pour rajouter de la pro-activité dans notre gestion et éviter que le cluster comptent 80% de frontaux non fonctionnels,
 nous pouvons également ajouter la règle suivant: à partir de 50% de serveurs frontaux non disponibles, nous voulons être

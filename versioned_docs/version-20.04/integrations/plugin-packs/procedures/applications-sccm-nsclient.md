@@ -2,9 +2,6 @@
 id: applications-sccm-nsclient
 title: Microsoft SCCM
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Overview
 
@@ -28,23 +25,22 @@ are supported.
 
 ### Collected metrics
 
-<Tabs groupId="sync">
-<TabItem value="databasereplicationstatus" label="databasereplicationstatus">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--database-replication-status-->
 
 | Metric name              | Description                    |
 | :----------------------- | :----------------------------- |
 | link-status              | Status of the replication link |
 | site-status              | Status of the site replication |
 
-</TabItem>
-<TabItem value="sitestatus" label="sitestatus">
+<!--site-status-->
 
 | Metric name                 | Description                    |
 | :-------------------------- | :----------------------------- |
 | status                      | Operational status of the site |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites 
 
@@ -60,8 +56,9 @@ of the agent can be found [here](../tutorials/centreon-nsclient-tutorial)
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Depending on the monitoring method chosen (NRPE or RestAPI), install the relevant Centreon Plugin package on every Centreon
 Poller expected to monitor SCCM through *centreon-nsclient*:
@@ -80,8 +77,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 
 2. On the Centreon Web interface, install the *Microsoft SCCM* Centreon Pack from the **Configuration > Plugin Packs > Manager** page
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Depending on the monitoring method chosen (NRPE or RestAPI), install the relevant Centreon Plugin package on every Centreon
 Poller expected to monitor SCCM through *centreon-nsclient*:
@@ -106,8 +102,7 @@ yum install centreon-pack-applications-sccm-nsclient
 
 3. On the Centreon Web interface, install the *Microsoft SCCM* Centreon Pack from the **Configuration > Plugin Packs > Manager** page
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Host configuration 
 
@@ -117,8 +112,9 @@ yum install centreon-pack-applications-sccm-nsclient
     * *App-Sccm-NSClient-05-Restapi-custom* for RestAPI
 * Depending on the Host template, fill the Macro fields as follows:
 
-<Tabs groupId="sync">
-<TabItem value="AppSccmNRPEcustom" label="AppSccmNRPEcustom">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--App-Sccm-NRPE-custom-->
 
 | Mandatory | Name             | Description                                                                         |
 |:----------|:-----------------|:------------------------------------------------------------------------------------|
@@ -127,8 +123,7 @@ yum install centreon-pack-applications-sccm-nsclient
 | X         | NRPETIMEOUT      | Timeout value (Default: '30')                                                       |
 |           | NRPEEXTRAOPTIONS | Any extra option you may want to add to every command\_line (Default: '-u -m 8192') |
 
-</TabItem>
-<TabItem value="AppSccmNSClient05Restapicustom" label="AppSccmNSClient05Restapicustom">
+<!--App-Sccm-NSClient-05-Restapi-custom-->
 
 | Mandatory | Name                      | Description                                                                |
 |:----------|:--------------------------|:-------------------------------------------------------------------------- |
@@ -137,8 +132,7 @@ yum install centreon-pack-applications-sccm-nsclient
 |           | NSCPRESTAPILEGACYPASSWORD | Password to authenticate against the API if relevant                       |
 |           | NSCPRESTAPIEXTRAOPTIONS   | Any extra option you may want to add to the command (eg. a --verbose flag) |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 Click on the *Save* button.
 
@@ -147,8 +141,9 @@ Click on the *Save* button.
 Once the plugin installed, log into your Centreon Poller CLI using the *centreon-engine* 
 user account and test the Plugin by running the following command:
 
-<Tabs groupId="sync">
-<TabItem value="NRPE" label="NRPE">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--NRPE-->
 
 ```bash
 /usr/lib64/nagios/plugins/check_centreon_nrpe \
@@ -178,8 +173,7 @@ parameter to the command:
 /usr/lib64/nagios/plugins/check_centreon_nrpe -c check_centreon_plugins -a 'apps::sccm::local::plugin' 'site-status' '--help'
 ```
 
-</TabItem>
-<TabItem value="RestAPI" label="RestAPI">
+<!--RestAPI-->
 
 ```bash
 /usr/lib/centreon/plugins/centreon_nsclient_restapi.pl \
@@ -214,5 +208,4 @@ parameter to the command:
 /usr/lib/centreon/plugins//centreon_nsclient_restapi.pl --plugin=apps::nsclient::restapi::plugin --mode=query --command=check_centreon_plugins --arg='apps::sccm::local::plugin' --arg='site-status' --arg='--help'
 ```
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->

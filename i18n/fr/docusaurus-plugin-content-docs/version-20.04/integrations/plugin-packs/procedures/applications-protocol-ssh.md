@@ -2,8 +2,6 @@
 id: applications-protocol-ssh
 title: Protocole SSH
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 ## Vue d'ensemble
 
@@ -22,16 +20,17 @@ SSH.
 
 ### Métriques & statuts collectés
 
-<Tabs groupId="sync">
-<TabItem value="SshLogin" label="SshLogin">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Ssh-Login-->
 
 | Metric name           | Description         | Unit       |
 |:----------------------|:--------------------|:-----------|
 | status                | Login status        |            |
 | response.time.seconds | Login response time | seconds    |
 
-</TabItem>
-</Tabs>
+
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -44,8 +43,9 @@ d'hôtes doivent être renseignées. Plus d'information dans le chapite
 "Configuration" [ici](###Hôte).
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des serveurs SSH:
 
@@ -55,8 +55,7 @@ yum install centreon-plugin-Applications-Protocol-Ssh
 
 2. Sur l'interface Integration de Centreon, installer le Plugin Pack *Protocol SSH* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des serveurs SSH:
 
@@ -66,14 +65,13 @@ yum install centreon-plugin-Applications-Protocol-Ssh
 
 2. Sur le serveur Central Centreon, installer le RPM du Pack *Protocol SSH*:
 
-```bash
+ ```bash
 yum install centreon-pack-applications-protocol-ssh
 ```
 
 3. Sur l'interface Integration de Centreon, installer le Plugin Pack *Protocol SSH* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

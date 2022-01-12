@@ -2,9 +2,6 @@
 id: applications-antivirus-kaspersky-snmp
 title: Kaspersky
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Vue d'ensemble
 
@@ -24,8 +21,9 @@ administrées.
 
 ### Métriques collectées
 
-<Tabs groupId="sync">
-<TabItem value="Deployment" label="Deployment">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Deployment-->
 
 | Metric name                          | Description                               |
 |:-------------------------------------|:------------------------------------------|
@@ -34,15 +32,13 @@ administrées.
 | hosts.expiring.licence.count         | Number of hosts with expiring licence     |
 | hosts.expired.licence.count          | Number of hosts with expired licence      |
 
-</TabItem>
-<TabItem value="Events" label="Events">
+<!--Events-->
 
 | Metric name           | Description               |
 |:---------------------|:---------------------------| 
 | events.critical.count | Number of critical events |     
 
-</TabItem>
-<TabItem value="LogicalNetwork" label="LogicalNetwork">
+<!--Logical-Network-->
 
 | Metric name              | Description                                             |
 | :------------------------| :-------------------------------------------------------|
@@ -51,8 +47,7 @@ administrées.
 | hosts.notconnected.count | Number of hosts that have not connected for a long time |
 | hosts.uncontrolled.count | Number of uncontrolled hosts                            |
 
-</TabItem>
-<TabItem value="Protection" label="Protection">
+<!--Protection-->
 
 | Metric name                                        | Description                                            |
 |:---------------------------------------------------|:-------------------------------------------------------|
@@ -62,23 +57,20 @@ administrées.
 | protection.hosts.uncured.objects.count             | Number of hosts with uncured objects                   |
 | protection.hosts.2manythreats.count                | Number of hosts with too many threats                  |
 
-</TabItem>
-<TabItem value="Updates" label="Updates">
+<!--Updates-->
 
 | Metric name                     | Description                    | Unit   |
 |:--------------------------------|:-------------------------------|:------ |
 | update.server.freshness.seconds | Date of the last server update | s      |
 | update.hosts.outdated.count     | Number of outdated hosts       |        |
 
-</TabItem>
-<TabItem value="FullScan" label="FullScan">
+<!--Full-Scan-->
 
 | Metric name           | Description                          |
 |:----------------------|:-------------------------------------|
 | hosts.unscanned.count | Number of hosts not recently scanned |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -95,8 +87,9 @@ SNMP (UDP/161) du Kaspersky Security Center.
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin Centreon Kaspersky sur l'ensemble des collecteurs Centreon supervisant des ressources Kaspersky Security Center :
 
@@ -106,8 +99,7 @@ yum install centreon-plugin-Applications-Antivirus-Kaspersky-Snmp
 
 2. Installer le Plugin-Pack 'Kaspersky' depuis la page "Configuration > Plugin packs > Manager" de l'interface Web Centreon
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin Centreon Kaspersky sur l'ensemble des collecteurs Centreon supervisant des ressources Kaspersky Security Center :
 
@@ -123,8 +115,7 @@ yum install centreon-pack-applications-antivirus-kaspersky-snmp
 
 3. Installer le Plugin-Pack 'Kaspersky' depuis la page "Configuration > Plugin packs > Manager" de l'interface Web Centreon
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration de l'Hôte
 

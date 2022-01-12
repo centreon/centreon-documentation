@@ -5,7 +5,6 @@ title: ActiveMQ JMX
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 ## Overview
 
 Apache ActiveMQ is an open source message broker written in Java together with a full Java Message Service (JMS) client.
@@ -18,7 +17,7 @@ Apache ActiveMQ is an open source message broker written in Java together with a
 
 ### Discovery rules
 
-<Tabs groupId="sync">
+<Tabs>
 <TabItem value="Services" label="Services">
 
 ## Monitored metrics
@@ -70,8 +69,9 @@ More information on how to set up and configure the ActiveMQ RestAPI can be foun
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Plugin on every poller expected to monitor ActiveMQ resources:
 
@@ -81,8 +81,7 @@ yum install centreon-plugin-Applications-ActiveMQ-Jmx
 
 2. On the Centreon Web interface, install the *ActiveMQ JMX* Centreon Plugin-Pack from the "Configuration > Plugin packs > Manager" page
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Plugin on every poller expected to monitor ActiveMQ resources:
 
@@ -98,8 +97,7 @@ centreon-pack-applications-activemq-jmx.noarch
 
 3. On the Centreon Web interface, install the *ActiveMQ JMX* Centreon Plugin-Pack from the "Configuration > Plugin packs > Manager" page
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

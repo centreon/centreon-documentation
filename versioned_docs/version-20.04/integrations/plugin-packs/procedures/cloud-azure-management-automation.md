@@ -2,9 +2,6 @@
 id: cloud-azure-management-automation
 title: Azure Automation
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Overview
 
@@ -39,8 +36,9 @@ More information about the Host Discovery module is available in the Centreon do
 
 ### Collected Metrics
 
-<Tabs groupId="sync">
-<TabItem value="Jobs" label="Jobs">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Jobs-->
 
 | Metric Name                        | Description                                    |
 | :--------------------------------- | :--------------------------------------------- |
@@ -48,8 +46,7 @@ More information about the Host Discovery module is available in the Centreon do
 | automation.machineruns.total.count | Number of total update deployment machine runs |
 | automation.runs.total.count        | Number of total Update deployment runs         |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -61,8 +58,9 @@ Centreon recommends to use the API instead of the CLI for the following reasons:
 * API is much more efficient by avoiding CLI binary execution
 * API supports application authentication while CLI does not (yet)
 
-<Tabs groupId="sync">
-<TabItem value="Azure Monitor API" label="Azure Monitor API">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Azure Monitor API-->
 
 To use the 'api' custom mode, make sure to obtain the required information using the 
 how-to below. Keep it safe until including it in a Host or Host Template definition.
@@ -108,8 +106,7 @@ how-to below. Keep it safe until including it in a Host or Host Template definit
     - Click on *Save*.
     - **Copy and store the key value. You won't be able to retrieve it after you leave this page.**
 
-</TabItem>
-<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
+<!--Azure AZ CLI-->
 
 To use the 'azcli' custom mode, install the required packages on every Centreon poller expected to 
 monitor Azure Resources using CLI:
@@ -162,13 +159,13 @@ information below:
 Credentials are now stored locally in the .accessTokens.json file so the Plugin 
 can use it. 
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Setup 
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1.  Install the Centreon Plugin package on every Centreon poller expected to monitor Azure Automation resources:
 
@@ -178,8 +175,7 @@ yum install centreon-plugin-Cloud-Azure-Management-Automation-Api
 
 2. On the Centreon Web interface, install the *Azure Automation* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor Azure Automation resources:
 
@@ -195,8 +191,7 @@ yum install centreon-pack-cloud-azure-management-automation.noarch
 
 3. On the Centreon Web interface, install the *Azure Automation* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
@@ -209,8 +204,9 @@ yum install centreon-pack-cloud-azure-management-automation.noarch
 * Once the template applied, some Macros marked as 'Mandatory' hereafter have to be configured.
 These mandatory Macros differ regarding the custom mode used:
 
-<Tabs groupId="sync">
-<TabItem value="Azure Monitor API" label="Azure Monitor API">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Azure Monitor API-->
 
 | Mandatory | Nom               | Description                   |
 | :-------- | :---------------- | :---------------------------- |
@@ -221,8 +217,7 @@ These mandatory Macros differ regarding the custom mode used:
 | X         | AZURECLIENTSECRET | Client secret                 |
 | X         | AZURERESOURCE     | Id of the Automation instance |
 
-</TabItem>
-<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
+<!--Azure AZ CLI-->
 
 | Mandatory | Nom               | Description                   |
 | :-------- | :---------------- | :---------------------------- |
@@ -230,8 +225,7 @@ These mandatory Macros differ regarding the custom mode used:
 | X         | AZURESUBSCRIPTION | Subscription ID               |
 | X         | AZURERESOURCE     | Id of the Automation instance |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## FAQ
 

@@ -2,9 +2,6 @@
 id: network-cisco-standard-snmp
 title: Cisco Standard
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Vue d'ensemble
 
@@ -23,23 +20,22 @@ Vous pouvez superviser tous les équipements embarquant les MIBs standards de Ci
 
 ### Règles de découverte 
 
-<Tabs groupId="sync">
-<TabItem value="Hosts" label="Hosts">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Hosts-->
 
 | Nom de la règle                            | Description                                                                             |
 | :----------------------------------------- | :-------------------------------------------------------------------------------------- |
 | App-Protocol-SNMP-HostDiscovery            | Découvrez vos équipements Cisco en scannant les agents SNMP sur un sous-réseau donné    |
 
-</TabItem>
-<TabItem value="Services" label="Services">
+<!--Services-->
 
 | Nom de la règle                            | Description                                                                                   |
 | :----------------------------------------- | :-------------------------------------------------------------------------------------------- |
 | Net-Cisco-Standard-SNMP-Packet-Errors-Name | Découverte des interfaces réseau et supervision des paquets en erreur/discard sur l'interface |
 | Net-Cisco-Standard-SNMP-Traffic-Name       | Découverte des interfaces réseau et supervision du trafic sur l'interface                     |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Métriques collectées
 
@@ -53,8 +49,9 @@ Seules les métriques de base sont décrites dans cette section. De nombreux mod
 * qosusage: Contrôle des configurations et consommations sur la partie QOS
 * stack: Etat de votre stack d'équipements
 
-<Tabs groupId="sync">
-<TabItem value="cpu" label="cpu">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--cpu-->
 
 | Metric name                        | Description                                                          |
 | :--------------------------------- | :------------------------------------------------------------------- |
@@ -65,16 +62,14 @@ Seules les métriques de base sont décrites dans cette section. De nombreux mod
 | core.cpu.utilization.1m.percentage | Each core CPU Utilization during last 1 minutes. Unit : %            |
 | core.cpu.utilization.5m.percentage | Each core CPU Utilization during last 5 minutes. Unit : %            |
 
-</TabItem>
-<TabItem value="Memory" label="Memory">
+<!--Memory-->
 
 | Metric name             | Description                                                    |
 | :---------------------  | :------------------------------------------------------------- |
 | memory.usage.bytes      | Memory usage on the device. Unit : Bytes                       |
 | memory.usage.percentage | Memory usage on the device. Unit : %                           |
 
-</TabItem>
-<TabItem value="Traffic" label="Traffic">
+<!--Traffic-->
 
 | Metric name                              | Description                                                                                |
 | :--------------------------------------- | :----------------------------------------------------------------------------------------- |
@@ -85,8 +80,7 @@ Seules les métriques de base sont décrites dans cette section. De nombreux mod
 
 Il est possible de filtrer sur une interface en particulier (L'utilisation de REGEX est possible). Par défaut ce filtre se base sur l'OID 'ifName' [```--interface='^my-interface-name$' --name```] 
 
-</TabItem>
-<TabItem value="Environment" label="Environment">
+<!--Environment-->
 
 | Metric name                   | Description                                                    |
 | :---------------------------- | :------------------------------------------------------------- |
@@ -97,8 +91,7 @@ Ce mode permet de superviser les éléments physiques embarqués dans l'équipem
 
 Il est possible d'utiliser l'option ```--absent-problem``` si vous souhaitez avoir une alerte lorsqu'un composant est enlevé/non-detecté. Les états par défaut peuvent également être paramétrés via l'option ```--threshold-overload```. 
 
-</TabItem>
-<TabItem value="Configuration" label="Configuration">
+<!--Configuration-->
 
 | Metric name                  | Description                                                                    |
 | :--------------------------- | :----------------------------------------------------------------------------- |
@@ -106,8 +99,7 @@ Il est possible d'utiliser l'option ```--absent-problem``` si vous souhaitez avo
 | ccmHistoryRunningLastSaved   | The value of sysUpTime when the running configuration was last saved (written) |
 | ccmHistoryStartupLastChanged | The value of sysUpTime when the startup configuration was last written         |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -139,8 +131,9 @@ Les collecteurs Centreon doivent pouvoir communiquer via le port UDP/161 SNMP av
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des équipements Cisco:
 
@@ -150,8 +143,7 @@ yum install centreon-plugin-Network-Cisco-Standard-Snmp
 
 2. Installer le Plugin-Pack 'Cisco-Standard-Snmp' depuis l'interface Web et la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisants des équipements Cisco:
 
@@ -167,8 +159,7 @@ yum install centreon-pack-network-cisco-standard-snmp
 
 3. Installer le Plugin-Pack 'Cisco-Standard-Snmp' depuis la page "Configuration > Plugin packs > Manager" de l'interface Web. 
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration d'un hôte
 

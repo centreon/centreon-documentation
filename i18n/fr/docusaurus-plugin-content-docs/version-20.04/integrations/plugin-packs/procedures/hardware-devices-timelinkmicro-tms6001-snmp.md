@@ -2,9 +2,6 @@
 id: hardware-devices-timelinkmicro-tms6001-snmp
 title: Timelinkmicro Tms6001
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Vue d'ensemble
 
@@ -20,50 +17,45 @@ avec référence GNSS et IRIGB
 
 ## Métriques collectées
 
-<Tabs groupId="sync">
-<TabItem value="Alarms" label="Alarms">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Alarms-->
 
 | Metric name             | Description        | Unit  |
 | :---------------------- | :----------------- | :---- |
 | alarms.total.count      | Number of alarms.  | Count |
 
-</TabItem>
-<TabItem value="Antenna" label="Antenna">
+<!--Antenna-->
 
 | Metric name | Description    | Unit   |
 |:------------|:---------------|:-------|
 | status      | Antenna status | String |
 
-</TabItem>
-<TabItem value="Frequency" label="Frequency">
+<!--Frequency-->
 
 | Metric name                              | Description                       | Unit   | 
 | :--------------------------------------- | :-------------------------------- |:------ |
 | generation.frequency.quality.count       | Quality of frequency generation:  | Count  |
 
-</TabItem>
-<TabItem value="Gnss" label="Gnss">
+<!--Gnss-->
 
 | Metric name | Description                               | Unit   |
 |:------------|:------------------------------------------|:-------|
 | status      | A textual description of physical entity. | String |
 
-</TabItem>
-<TabItem value="Satellites" label="Satellites">
+<!--Satellites-->
 
 | Metric name                   | Description                | Unit  |
 | :---------------------------- | :------------------------- | :---- |
 | satellites.seen.count         | Number of satellites seen. | Count |
 
-</TabItem>
-<TabItem value="Time" label="Time">
+<!--Time-->
 
 | Metric name                   | Description                 | Unit  |
 | :---------------------------- | :-------------------------- | :---- |
 | generation.time.quality.count | Quality of time generation. | Count |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -78,8 +70,9 @@ Les collecteurs Centreon doivent être en mesure de pouvoir joindre l'équipemen
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des équipements Tms6001:
 
@@ -89,8 +82,7 @@ yum install centreon-plugin-Hardware-Devices-Timelinkmicro-Tms6001-Snmp
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Timelinkmicro-Tms6001-Snmp* sur la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisants des équipements Tms6001:
 
@@ -106,8 +98,7 @@ yum install centreon-pack-hardware-devices-timelinkmicro-tms6001-snmp
 
 3. Installer le Plugin-Pack *Timelinkmicro-Tms6001-Snmp* depuis la page "Configuration > Plugin packs > Manager" de l'interface Web. 
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration d'un hôte
 

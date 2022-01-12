@@ -2,9 +2,6 @@
 id: network-ubiquiti-edge-snmp
 title: Ubiquiti Edge SNMP
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Pack Assets
 
@@ -18,20 +15,21 @@ The Plugin-Pack Ubiquiti Edge SNMP collects metrics for:
 
 ### Discovery rules
 
-<Tabs groupId="sync">
-<TabItem value="Services" label="Services">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Services-->
 
 | Rule name                              | Description                                                           |
 | :------------------------------------- | :-------------------------------------------------------------------- |
 | Net-Ubiquiti-Edge-SNMP-Interface-Name  | Discover network interfaces and monitor bandwidth utilization         |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Collected Metrics
 
-<Tabs groupId="sync">
-<TabItem value="Cpu" label="Cpu">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Cpu-->
 
 | Metric name                   | Description                            | Unit |
 | :---------------------------- | :------------------------------------- |:---- |
@@ -39,8 +37,7 @@ The Plugin-Pack Ubiquiti Edge SNMP collects metrics for:
 | cpu.utilization.1m.percentage | CPU utilization during last minute.    | %    |
 | cpu.utilization.5m.percentage | CPU utilization during last 5 minutes. | %    |
 
-</TabItem>
-<TabItem value="Hardware" label="Hardware">
+<!--Hardware-->
 
 | Metric name                   | Description                               | Unit |
 |:----------------------------- |:----------------------------------------- |:---- |
@@ -53,8 +50,7 @@ The Plugin-Pack Ubiquiti Edge SNMP collects metrics for:
 | hardware.temperature.celsius  | temperature of the different sensors      | C    |
 | hardware.voltage.millivolt    | Voltage of the different sensors          | mV   |
 
-</TabItem>
-<TabItem value="Interfaces" label="Interfaces">
+<!--Interfaces-->
 
 | Metric name                                                 | Description                                             | Unit |
 |:----------------------------------------------------------- |:------------------------------------------------------- |:---- |
@@ -66,15 +62,13 @@ The Plugin-Pack Ubiquiti Edge SNMP collects metrics for:
 | *interface\_name*\#interface.packets.out.error.percentage   | Outgoing errored packets going through the interface.   | %    |
 | *interface\_name*\#interface.packets.out.discard.percentage | Outgoing discarded packets going through the interface. | %    |
 
-</TabItem>
-<TabItem value="Memory" label="Memory">
+<!--Memory-->
 
 | Metric name              | Description                | Unit |
 | :----------------------- | :------------------------- |:---- |
 | memory.usage.bytes       | Memory usage               | B    | 
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -83,8 +77,9 @@ The Poller should be able to perform SNMP requests toward the Lenovo device over
 
 ## Setup
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -94,8 +89,7 @@ yum install centreon-plugin-Network-Ubiquiti-Edge-Snmp
 
 2. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *Ubiquiti Edge SNMP* Pack
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -111,8 +105,7 @@ yum install centreon-pack-network-ubiquiti-edge-snmp
 
 3. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *Ubiquiti Edge SNMP* Pack
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Host configuration
 

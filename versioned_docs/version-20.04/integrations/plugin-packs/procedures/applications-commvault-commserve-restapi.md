@@ -2,9 +2,6 @@
 id: applications-commvault-commserve-restapi
 title: Commvault CommServe Rest API
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Plugin-Pack Assets
 
@@ -14,8 +11,9 @@ The Plugin-Pack includes monitoring of Alerts, Jobs, Media-agents and Storage-po
 
 ### Collected Metrics
 
-<Tabs groupId="sync">
-<TabItem value="Alerts" label="Alerts">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Alerts-->
 
 | Metric name           | Description                                        | Unit |
 | :-------------------- | :------------------------------------------------- | :--- |
@@ -25,8 +23,7 @@ The Plugin-Pack includes monitoring of Alerts, Jobs, Media-agents and Storage-po
 | alerts.warning.count  | Number of warning alerts                           |      |
 | alerts.info.count     | Number of informational alerts                     |      |
 
-</TabItem>
-<TabItem value="Jobs" label="Jobs">
+<!--Jobs-->
 
 | Metric name           | Description                  | Unit |
 | :-------------------- | :--------------------------- | :--- |
@@ -34,16 +31,14 @@ The Plugin-Pack includes monitoring of Alerts, Jobs, Media-agents and Storage-po
 | job long status       | Status on job time duration  |      |
 | jobs.total.count      | Number of jobs               |      |
 
-</TabItem>
-<TabItem value="Mediaagents" label="Mediaagents">
+<!--Media-agents-->
 
 | Metric name              | Description             | Unit |
 | :----------------------- | :---------------------- | :--- |
 | media agent status       | Media agent status      |      |
 | media.agents.total.count | Number of media agents  |      |
 
-</TabItem>
-<TabItem value="Storagepools" label="Storagepools">
+<!--Storage-pools-->
 
 | Metric name                                          | Description                                          | Unit |
 | :--------------------------------------------------- | :--------------------------------------------------- | :--- |
@@ -52,8 +47,7 @@ The Plugin-Pack includes monitoring of Alerts, Jobs, Media-agents and Storage-po
 | *storagepoolname*#storagepool.space.free.bytes       | Free space                                           | B    |
 | *storagepoolname*#storagepool.space.usage.percentage | Space usage in percentage                            | %    |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -63,8 +57,9 @@ E.g: https://api.commvault.com/
 
 ## Setup
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -74,8 +69,7 @@ yum install centreon-plugin-Applications-Commvault-Commserve-Restapi
 
 2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Commvault Commserve Rest API* Plugin-Pack
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -91,8 +85,7 @@ yum install centreon-pack-applications-commvault-commserve-restapi
 
 3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Commvault Commserve Rest API* Plugin-Pack
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Host configuration 
 

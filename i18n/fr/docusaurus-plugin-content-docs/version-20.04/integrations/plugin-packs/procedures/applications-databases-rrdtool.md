@@ -2,9 +2,6 @@
 id: applications-databases-rrdtool
 title: RRDtool
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Contenu du Plugin-Pack
 
@@ -14,8 +11,9 @@ Le plugin-pack inclue la supervision Query.
 
 ### Métriques collectées
 
-<Tabs groupId="sync">
-<TabItem value="Query" label="Query">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Query-->
 
 | Metric name                                  | Description                | Unit |
 | :------------------------------------------- | :------------------------- | :--- |
@@ -23,8 +21,7 @@ Le plugin-pack inclue la supervision Query.
 | *dsname*#datasource.value.average.count      | Average value on timeframe |      |
 | *dsname*#datasource.value.maximum.count      | Maximul value on timeframe |      |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -37,8 +34,9 @@ La sonde permet de requêter RRDtool avec :
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -48,8 +46,7 @@ yum install centreon-plugin-Applications-Databases-Rrdtool
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *RRDtool* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -65,13 +62,13 @@ yum install centreon-pack-applications-databases-rrdtool
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *RRDtool* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration d'un service
 
-<Tabs groupId="sync">
-<TabItem value="Local" label="Local">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Local-->
 
 * Créer un service et appliquer le modèle de service the *App-DB-Rrdtool-Local-Query*.
 
@@ -83,8 +80,7 @@ yum install centreon-pack-applications-databases-rrdtool
 | X         | DSNAME    | Datasource cible  (Défaut: 'value')                                          |
 | X         | TIMEFRAME | Set timeframe in seconds (E.g '3600' to check last 60 minutes) (Défaut: 600) |
 
-</TabItem>
-<TabItem value="SSH" label="SSH">
+<!--SSH-->
 
 * Créer un service et appliquer le modèle de service *App-DB-Rrdtool-SSH-Query*.
 
@@ -98,8 +94,9 @@ yum install centreon-pack-applications-databases-rrdtool
 
 * Sur votre hôte, certaines Macros doivent être renseignées :
 
-</TabItem>
-<TabItem value="sshcli backend" label="sshcli backend">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--sshcli backend-->
 
 | Mandatory   | Name            | Description                                                                                     |
 | :---------- | :-------------- | :---------------------------------------------------------------------------------------------- |
@@ -112,8 +109,7 @@ yum install centreon-pack-applications-databases-rrdtool
 > Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur centreon-engine du Collecteur
 et l'utilisateur applicatif créé sur le serveur distant. (Macro SSHUSERNAME).
 
-</TabItem>
-<TabItem value="plink backend" label="plink backend">
+<!--plink backend-->
 
 | Mandatory   | Name            | Description                                                                                     |
 | :---------- | :-------------- | :---------------------------------------------------------------------------------------------- | 
@@ -126,8 +122,7 @@ et l'utilisateur applicatif créé sur le serveur distant. (Macro SSHUSERNAME).
 > Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur centreon-engine du Collecteur
 et l'utilisateur applicatif créé sur le serveur distant. (Macro SSHUSERNAME).
 
-</TabItem>
-<TabItem value="libssh backend (par défaut)" label="libssh backend (par défaut)">
+<!--libssh backend (par défaut)-->
 
 | Mandatory   | Name            | Description                                                                                     |
 | :---------- | :-------------- | :---------------------------------------------------------------------------------------------- |
@@ -138,9 +133,6 @@ et l'utilisateur applicatif créé sur le serveur distant. (Macro SSHUSERNAME).
 |             | SSHEXTRAOPTIONS | Personnalisez-le avec le vôtre si nécessaire. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```      |
 
 Avec ce backend, vous n'avez pas à valider manuellement le fingerprint du serveur cible.
-
-</TabItem>
-</Tabs>
 
 ## FAQ
 

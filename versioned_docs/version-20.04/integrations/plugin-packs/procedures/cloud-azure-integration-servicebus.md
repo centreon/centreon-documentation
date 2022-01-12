@@ -2,9 +2,6 @@
 id: cloud-azure-integration-servicebus
 title: Azure ServiceBus
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Overview
 
@@ -43,8 +40,9 @@ More information about the Host Discovery module is available in the Centreon do
 
 ### Collected Metrics
 
-<Tabs groupId="sync">
-<TabItem value="Messages" label="Messages">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Messages-->
 
 | Metric Name                                      | Description                                      | Unit  |
 | :----------------------------------------------- | :----------------------------------------------- | :---- |
@@ -55,8 +53,7 @@ More information about the Host Discovery module is available in the Centreon do
 | servicebus.namespace.messages.scheduled.count    | Count of scheduled messages in a Queue/Topic.    | Count |
 | servicebus.namespace.messages.total.count        | Total messages                                   | Count |
 
-</TabItem>
-<TabItem value="Requests" label="Requests">
+<!--Requests-->
 
 | Metric Name                                    | Description         | Unit  |
 | :--------------------------------------------- | :------------------ | :---- |
@@ -64,16 +61,14 @@ More information about the Host Discovery module is available in the Centreon do
 | servicebus.namespace.requests.successful.count | Successful Requests | Count |
 | servicebus.namespace.requests.throttled.count  | Throttled Requests  | Count |
 
-</TabItem>
-<TabItem value="Namespaces" label="Namespaces">
+<!--Namespaces-->
 
 | Metric Name                                  | Description  | Unit |
 | :------------------------------------------- | :----------- | :--- |
 | servicebus.namespace.cpu.usage.percentage    | CPU          | %    |
 | servicebus.namespace.memory.usage.percentage | Memory Usage | %    |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -85,8 +80,9 @@ Centreon recommends to use the API instead of the CLI for the following reasons:
 * API is much more efficient by avoiding CLI binary execution
 * API supports application authentication while CLI does not (yet)
 
-<Tabs groupId="sync">
-<TabItem value="Azure Monitor API" label="Azure Monitor API">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Azure Monitor API-->
 
 To use the 'api' custom mode, make sure to obtain the required information using the 
 how-to below. Keep it safe until including it in a Host or Host Template definition.
@@ -132,8 +128,7 @@ how-to below. Keep it safe until including it in a Host or Host Template definit
     - Click on *Save*.
     - **Copy and store the key value. You won't be able to retrieve it after you leave this page.**
 
-</TabItem>
-<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
+<!--Azure AZ CLI-->
 
 To use the 'azcli' custom mode, install the required packages on every Centreon poller expected to 
 monitor Azure Resources using CLI:
@@ -186,13 +181,13 @@ information below:
 Credentials are now stored locally in the .accessTokens.json file so the Plugin 
 can use it. 
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Setup 
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1.  Install the Centreon Plugin package on every Centreon poller expected to monitor Azure ServiceBus resources:
 
@@ -202,8 +197,7 @@ yum install centreon-plugin-Cloud-Azure-Integration-ServiceBus-Api
 
 2. On the Centreon Web interface, install the *Azure ServiceBus* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor Azure ServiceBus resources:
 
@@ -219,8 +213,7 @@ yum install centreon-pack-cloud-azure-integration-servicebus.noarch
 
 3. On the Centreon Web interface, install the *Azure ServiceBus* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
@@ -233,8 +226,9 @@ yum install centreon-pack-cloud-azure-integration-servicebus.noarch
 * Once the template applied, some Macros marked as 'Mandatory' hereafter have to be configured.
 These mandatory Macros differ regarding the custom mode used:
 
-<Tabs groupId="sync">
-<TabItem value="Azure Monitor API" label="Azure Monitor API">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Azure Monitor API-->
 
 | Mandatory | Nom               | Description                   |
 | :-------- | :---------------- | :---------------------------- |
@@ -245,8 +239,7 @@ These mandatory Macros differ regarding the custom mode used:
 | X         | AZURECLIENTSECRET | Client secret                 |
 | X         | AZURERESOURCE     | Id of the ServiceBus instance |
 
-</TabItem>
-<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
+<!--Azure AZ CLI-->
 
 | Mandatory | Nom               | Description                   |
 | :-------- | :---------------- | :---------------------------- |
@@ -254,8 +247,7 @@ These mandatory Macros differ regarding the custom mode used:
 | X         | AZURESUBSCRIPTION | Subscription ID               |
 | X         | AZURERESOURCE     | Id of the ServiceBus instance |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## FAQ
 

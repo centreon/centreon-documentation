@@ -2,9 +2,6 @@
 id: cloud-aws-sqs
 title: Amazon SQS
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Vue d'ensemble
 
@@ -23,23 +20,24 @@ Le Plugin Centreon Amazon SQS s'appuie sur les APIs Amazon Cloudwatch pour la co
 
 ### Règles de découvertes
 
-<Tabs groupId="sync">
-<TabItem value="Services" label="Services">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Services-->
 
 | Rule name            | Description                                                             |
 |:---------------------|:------------------------------------------------------------------------|
 | Cloud-Aws-Sqs-Queues | Discover Amazon SQS queues and monitor their status and related metrics |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Métriques collectées
 
 Plus de détails sur les métriques présentées ci-après sont disponibles sur la documentation officielle du service SQS:
 https://docs.aws.amazon.com/fr_fr/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-monitoring-using-cloudwatch
 
-<Tabs groupId="sync">
-<TabItem value="SqsQueues" label="SqsQueues">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Sqs-Queues-->
 
 | Metric name                         | Description                                                                                     | Unit |
 |:------------------------------------|:------------------------------------------------------------------------------------------------|:-----|
@@ -52,8 +50,7 @@ https://docs.aws.amazon.com/fr_fr/AWSSimpleQueueService/latest/SQSDeveloperGuide
 | sqs.queue.messages.received.count   | The number of messages returned by calls to the ReceiveMessage action.                          |      |
 | sqs.queue.messages.sent.count       | The number of messages added to a queue.                                                        |      |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -74,27 +71,27 @@ Afin de récupérer les informations nécessaires via les APIs AWS, il est possi
 
 **Attention** il n'est pas possible d'utiliser perl-Paws si la connexion s'effectue au travers d'un proxy.
 
-<Tabs groupId="sync">
-<TabItem value="perlPawsinstallation" label="perlPawsinstallation">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--perl-Paws-installation-->
 
 ```bash
 yum install perl-Paws
 ```
 
-</TabItem>
-<TabItem value="awscliinstallation" label="awscliinstallation">
+<!--aws-cli-installation-->
 
 ```bash
 yum install awscli
 ```
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des ressources Amazon SQS:
 
@@ -104,8 +101,7 @@ yum install centreon-plugin-Cloud-Aws-Sqs-Api
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Amazon SQS* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des ressources Amazon SQS:
 
@@ -121,8 +117,7 @@ yum install centreon-pack-cloud-aws-sqs.noarch
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Amazon SQS* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

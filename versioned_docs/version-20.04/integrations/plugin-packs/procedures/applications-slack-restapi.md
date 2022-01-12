@@ -2,9 +2,6 @@
 id: applications-slack-restapi
 title: Slack
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Pack assets
 
@@ -17,43 +14,41 @@ The Pack Slack collects metrics for:
 
 ### Discovery rules
 
-<Tabs groupId="sync">
-<TabItem value="Services" label="Services">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Services-->
 
 | Rule name                        | Description                                |
 | -------------------------------- | :----------------------------------------- |
 | App-Slack-Restapi-Services-Name  | Discover services and monitor their status |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Monitored metrics 
 
-<Tabs groupId="sync">
-<TabItem value="Countchannels" label="Countchannels">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Count-channels-->
 
 | Metric name                            | Description                      | Unit |
 | :------------------------------------- | :------------------------------- | :--- |
 | channels.total.count                   | Number of channels               |      |
 | *channel\_name*\#channel.members.count | Number of members in the channel |      |
 
-</TabItem>
-<TabItem value="Countmembers" label="Countmembers">
+<!--Count-members-->
 
 | Metric name         | Description     | Unit |
 | :-------------------| :-------------- | :--- |
 | members.total.count | Number of users |      |
 
-</TabItem>
-<TabItem value="Services" label="Services">
+<!--Services-->
 
 | Metric name          | Description                            | Unit |
 | :------------------- | :------------------------------------- | :--- |
 | slack.services.count | Number of services currently monitored |      |
 | status               | Status of the service                  |      |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -68,8 +63,9 @@ using the TCP/443 HTTPS port. The plugin allows you to use a proxy if needed.
 
 ## Setup 
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -79,8 +75,7 @@ yum install centreon-plugin-Applications-Slack-Restapi
 
 2. On the Centreon Web interface, install the *Slack* Centreon Pack on the **Configuration > Plugin Packs > Manager** page
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -96,8 +91,7 @@ yum install centreon-pack-applications-slack-restapi
 
 3. On the Centreon Web interface, install the *Slack* Centreon Pack on the **Configuration > Plugin Packs > Manager** page
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Host configuration
 

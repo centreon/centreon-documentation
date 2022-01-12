@@ -2,9 +2,6 @@
 id: install
 title: Install Centreon MAP extension
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 > Centreon MAP requires a valid license key. To purchase one and retrieve the
 > necessary repositories, contact [Centreon](mailto:sales@centreon.com).
@@ -149,22 +146,21 @@ Your screen resolution must be at least 1280 x 768.
 To optimize the desktop client, you have to "give" it more memory than the
 default value. Modify the following file:
 
-<Tabs groupId="sync">
-<TabItem value="Windows" label="Windows">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Windows-->
 
 ```shell
 C:\Users\<YOUR_USERNAME>\AppData\Local\Centreon-Map4\Centreon-Map4.ini
 ```
 
-</TabItem>
-<TabItem value="Linux" label="Linux">
+<!--Linux-->
 
 ```shell
 /opt/centreon-map4-desktop-client/Centreon-Map4.ini
 ```
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 And add the following lines at the end of the file, on a new line:
 
@@ -413,8 +409,9 @@ To check the Java version run the command:
 java -version
 ```
 
-<Tabs groupId="sync">
-<TabItem value="Windows" label="Windows">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Windows-->
 
 Execute centreon-map4-desktop-client-xxxx.exe:
 
@@ -432,8 +429,7 @@ Windows dedicated configuration page.
 
 ![image](../assets/graph-views/windows_start_menu.png)
 
-</TabItem>
-<TabItem value="Debian" label="Debian">
+<!--Debian-->
 
 Download the provided DEB file and run the command from the root directory:
 
@@ -453,8 +449,7 @@ You will also find it in the list of installed applications.
 
 ![image](../assets/graph-views/ubuntu_launch_menu.png)
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Updates
 

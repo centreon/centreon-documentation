@@ -2,9 +2,6 @@
 id: hardware-storage-dell-powerstore-restapi
 title: Dell PowerStore Rest API
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Pack Assets
 
@@ -16,8 +13,9 @@ The Pack Dell PowerStore collects metrics for:
 
 ### Collected Metrics
 
-<Tabs groupId="sync">
-<TabItem value="Alerts" label="Alerts">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Alerts-->
 
 | Metric name                    | Description                                | Unit  |
 | :----------------------------- | :----------------------------------------- | :---- |
@@ -27,8 +25,7 @@ The Pack Dell PowerStore collects metrics for:
 | alerts.severity.major.count    | Number of alerts with major severity       |       |
 | alerts.severity.critical.count | Number of alerts with critical severity    |       |
 
-</TabItem>
-<TabItem value="Hardware" label="Hardware">
+<!--Hardware-->
 
 | Metric name         | Description                  | Unit  |
 | :------------------ | :--------------------------- | :---- |
@@ -43,8 +40,7 @@ The Pack Dell PowerStore collects metrics for:
 | power supply status | Power supply lifecycle state |       |
 | sfp status          | SFP lifecycle state          |       |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -53,8 +49,9 @@ E.g: https://downloads.dell.com/manuals/common/pwrstr-apig_en-us.pdf
 
 ## Setup
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -64,8 +61,7 @@ yum install centreon-plugin-Hardware-Storage-Dell-Powerstore-Restapi
 
 2. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *Dell PowerStore Rest API* Pack
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -81,8 +77,7 @@ yum install centreon-pack-hardware-storage-dell-powerstore-restapi
 
 3. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *Dell PowerStore Rest API* Pack
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Host configuration
 

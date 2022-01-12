@@ -2,9 +2,6 @@
 id: network-denyall-snmp
 title: DenyAll SNMP
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Contenu du Plugin-Pack
 
@@ -21,16 +18,16 @@ Le Plugin-Pack DenyAll SNMP collecte les données pour:
 
 ### Métriques collectées
 
-<Tabs groupId="sync">
-<TabItem value="Cpu" label="Cpu">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Cpu-->
 
 | Metric name                              | Description              | Unit |
 | :--------------------------------------- | :----------------------- | :--- |
 | cpu.utilization.percentage               | CPU utilization          | %    |
 | *cpuid*\#core.cpu.utilization.percentage | Per Core CPU utilization | %    |
 
-</TabItem>
-<TabItem value="Interfaces" label="Interfaces">
+<!--Interfaces-->
 
 | Metric name                                            | Description                                         | Unit |
 | :----------------------------------------------------- | :-------------------------------------------------- | :--- |
@@ -42,8 +39,7 @@ Le Plugin-Pack DenyAll SNMP collecte les données pour:
 
 A regexp filter is available to target a specific interface identifier - ifName [```--interface='^eth0$' --name```]
 
-</TabItem>
-<TabItem value="Load" label="Load">
+<!--Load-->
 
 | Metric name                 | Description                       | Unit |
 | :-------------------------- | :-------------------------------- | :--- |
@@ -51,8 +47,7 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | load5                       | System load 5 minutes-sample      |      |
 | load15                      | System load 15 minutes-sample     |      |
 
-</TabItem>
-<TabItem value="Memory" label="Memory">
+<!--Memory-->
 
 | Metric name             | Description                               | Unit  |
 | :---------------------  | :---------------------------------------- | :---- |
@@ -63,8 +58,7 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | memory.cached.bytes     | Cached Memory allocation                  | B     |
 | memory.shared.bytes     | Shared Memory allocation                  | B     |
 
-</TabItem>
-<TabItem value="ReverseProxy" label="ReverseProxy">
+<!--Reverse-Proxy-->
 
 | Metric name                                                   | Description                    | Unit |
 | :------------------------------------------------------------ | :----------------------------- |:-----|
@@ -73,16 +67,14 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | *reverseproxy\_uid*\#reverse_proxy.memory.usage.bytes         | Memory usage                   | B    |
 | *reverseproxy\_uid*\#reverse_proxy.requests.persecond         | Number of requests per second  |      |
 
-</TabItem>
-<TabItem value="Storage" label="Storage">
+<!--Storage-->
 
 | Metric name                                 | Description                     | Unit  |
 | :------------------------------------------ | :------------------------------ | :---- |
 | storage.partitions.count                    | Number of disk partition        |       |
 | *partition_path*\#storage.space.usage.bytes | Used space on a disk partition  | B     |
 
-</TabItem>
-<TabItem value="Swap" label="Swap">
+<!--Swap-->
 
 | Metric name                 | Description                          | Unit  |
 | :-------------------------- | :----------------------------------- | :---- |
@@ -90,8 +82,7 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | swap.free.bytes             | Free swap                            | B     |
 | swap.usage.percentage       | Percentage of used swap              | %     |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -99,8 +90,9 @@ Afin de contrôler votre équipement DenyAll, le SNMP doit être configuré.
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -110,8 +102,7 @@ yum install centreon-plugin-Network-Denyall-Snmp
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *DenyAll SNMP* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -127,8 +118,7 @@ yum install centreon-pack-network-denyall-snmp
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *DenyAll SNMP* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

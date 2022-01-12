@@ -2,9 +2,6 @@
 id: applications-php-fpm-web
 title: PHP FPM
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Contenu du Pack
 
@@ -21,8 +18,9 @@ Il apporte le Modèle de Service suivant :
 
 ### Métriques & statuts collectés
 
-<Tabs groupId="sync">
-<TabItem value="PhpFpmUsage" label="PhpFpmUsage">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Php-Fpm-Usage-->
 
 | Metric name                | Description                               | Unit  |
 |:---------------------------|:------------------------------------------|:------|
@@ -31,8 +29,7 @@ Il apporte le Modèle de Service suivant :
 | fpm.queue.listen.count     | Number of connections in the listen queue | count |
 | fpm.requests.persecond     | Number of requests per seconds            | /s    |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -42,8 +39,9 @@ les Macros d'Hôte dans la partie [Configuration](#Configuration).
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources *PHP FPM*:
 
@@ -53,8 +51,7 @@ yum install centreon-plugin-Applications-Php-Fpm-Web
 
 2. Sur l'interface Web de Centreon, installer le Plugin Pack *PHP FPM* depuis la page **Configuration > Packs de plugins**
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources *PHP FPM*:
 
@@ -64,14 +61,13 @@ yum install centreon-plugin-Applications-Php-Fpm-Web
 
 2. Sur le serveur Central Centreon, installer le RPM du Pack *PHP FPM*:
 
-```bash
+ ```bash
 yum install centreon-pack-applications-php-fpm-web
 ```
 
 3. Sur l'interface Web de Centreon, installer le Plugin Pack *PHP FPM* depuis la page **Configuration > Packs de plugins**
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

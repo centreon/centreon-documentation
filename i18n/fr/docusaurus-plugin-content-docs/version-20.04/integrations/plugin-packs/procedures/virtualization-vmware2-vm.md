@@ -2,9 +2,6 @@
 id: virtualization-vmware2-vm
 title: VMware VM
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 ## Vue d'ensemble
 
 VMWare est une solution de Virtualisation et d'infrastructure de Cloud Computing.
@@ -19,15 +16,15 @@ Le Plugin-Pack Centreon s'appuie sur le SDK VMWare pour requêter l'API du vCent
 
 ### Règles de découvertes
 
-<Tabs groupId="sync">
-<TabItem value="Hosts" label="Hosts">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Hosts-->
 
 | Rule name                      | Description                                                       |
 | :----------------------------- | :---------------------------------------------------------------- |
 |  Virt-VMWare2-VM-HostDiscovery | Découvrez vos Machines Virtuelles liées à un vCenter ou à un ESXi |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Métriques Collectées
 
@@ -38,37 +35,34 @@ En plus des modes et des métriques détaillées ci-après, il est également po
 * VM-Swap : Utilisation du swap de la VM
 * VM-Device : Contrôle un périphérique d'une VM (Par exemple VirtualCdrom)
 
-<Tabs groupId="sync">
-<TabItem value="VmTools" label="VmTools">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Vm-Tools-->
 
 | Metric name | Description                                                    | Unit |
 | :---------- | :------------------------------------------------------------- | :--- |
 | status      | Status of the VMware Tools (installed, running and up-to-date) |      |
 
-</TabItem>
-<TabItem value="VmThinprovisioning" label="VmThinprovisioning">
+<!--Vm-Thinprovisioning-->
 
 | Metric name | Description                                | Unit |
 | :---------- | :----------------------------------------- | :--- |
 | status      | Status of the Thinprovisoning virtualdisks |      |
 
-</TabItem>
-<TabItem value="VmStatus" label="VmStatus">
+<!--Vm-Status-->
 
 | Metric name   | Description              | Unit |
 | :------------ | :----------------------- | :--- |
 | status        | Overall status of the VM |      |
 
-</TabItem>
-<TabItem value="VmSnapshot" label="VmSnapshot">
+<!--Vm-Snapshot-->
 
 | Metric name                         | Description                                                   | Unit  |
 | :---------------------------------- | :------------------------------------------------------------ | :---- |
 | vm.snapshots.warning.current.count  | Number of VM's snapshot older than 3 days (default threshold) | Count |
 | vm.snapshots.critical.current.count | Number of VM's snapshot older than 5 days (default threshold) | Count |
 
-</TabItem>
-<TabItem value="VmLimit" label="VmLimit">
+<!--Vm-Limit-->
 
 | Metric name                  | Description            | Unit  |
 | :--------------------------- | :--------------------- | :---- |
@@ -76,8 +70,7 @@ En plus des modes et des métriques détaillées ci-après, il est également po
 | vm.limit.memory.alerts.count | Alerts on Memory limit | Count |
 | vm.limit.disk.alerts.count   | Alerts on Disk limit   | Count |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -157,8 +150,9 @@ Les Collecteurs requêtant le Collecteur avec le connecteur VMWare doit accéder
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur l'ensemble des Collecteurs Centreon supervisant l'infrastructure VMWare:
 
@@ -168,8 +162,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 
 2. Installer le Plugin-Pack 'Vmware VM' depuis la page "Configuration > Plugin packs > Manager" sur l'interface Web de Centreon.
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant l'infrastructure VMWare:
 
@@ -185,8 +178,7 @@ yum install centreon-pack-virtualization-vmware2-vm
 
 3. Installer le Plugin-Pack 'Vmware VM' depuis la page "Configuration > Plugin packs > Manager" sur l'interface Web de Centreon.
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

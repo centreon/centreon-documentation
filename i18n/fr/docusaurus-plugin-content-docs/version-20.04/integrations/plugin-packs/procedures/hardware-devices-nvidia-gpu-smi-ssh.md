@@ -2,9 +2,6 @@
 id: hardware-devices-nvidia-gpu-smi-ssh
 title: NVIDIA GPU SMI SSH
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Contenu du Pack
 
@@ -15,8 +12,9 @@ Le Pack NVIDIA GPU collecte les données pour:
 
 ### Métriques collectées
 
-<Tabs groupId="sync">
-<TabItem value="Gpustats" label="Gpustats">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Gpu-stats-->
 
 | Metric name                                                        | Description                                                                                                                                                          | Unit  |
 | :----------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---- |
@@ -35,8 +33,7 @@ Le Pack NVIDIA GPU collecte les données pour:
 | *product\_name:id*#device.gpu.temperature.celsius                  | Temperature value                                                                                                                                                    | C     |
 | *product\_name:id*#device.gpu.power.consumption.watt               | The last measured power draw for the  entire  board                                                                                                                  | W     |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -45,8 +42,9 @@ doit avoir assez de privilèges pour executer la commande ```nvidia-smi```.
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -56,8 +54,7 @@ yum install centreon-plugin-Hardware-Devices-Nvidia-Gpu-Smi-Ssh
 
 2. Sur l'interface Web de Centreon, installer le Pack *NVIDIA GPU SMI SSH* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -73,16 +70,16 @@ yum install centreon-pack-hardware-devices-nvidia-gpu-smi-ssh
 
 3. Sur l'interface Web de Centreon, installer le Pack *NVIDIA GPU SMI SSH* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
 Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *HW-Device-Nvidia-Gpu-Smi-SSH-custom*. 
 Une fois celui-ci configuré, certaines macros doivent être renseignées.
 
-<Tabs groupId="sync">
-<TabItem value="sshcli backend" label="sshcli backend">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--sshcli backend-->
 
 | Mandatory   | Name            | Description                                                                                     |
 | :---------- | :-------------- | :---------------------------------------------------------------------------------------------- |
@@ -95,8 +92,7 @@ Une fois celui-ci configuré, certaines macros doivent être renseignées.
 > Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur centreon-engine du Collecteur
 et l'utilisateur applicatif créé sur le serveur distant (Macro SSHUSERNAME).
 
-</TabItem>
-<TabItem value="plink backend" label="plink backend">
+<!--plink backend-->
 
 | Mandatory   | Name            | Description                                                                                     |
 | :---------- | :-------------- | :---------------------------------------------------------------------------------------------- | 
@@ -109,8 +105,7 @@ et l'utilisateur applicatif créé sur le serveur distant (Macro SSHUSERNAME).
 > Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur centreon-engine du Collecteur
 et l'utilisateur applicatif créé sur le serveur distant (Macro SSHUSERNAME).
 
-</TabItem>
-<TabItem value="libssh backend (par défaut)" label="libssh backend (par défaut)">
+<!--libssh backend (par défaut)-->
 
 | Mandatory   | Name            | Description                                                                                     |
 | :---------- | :-------------- | :---------------------------------------------------------------------------------------------- |
@@ -122,8 +117,7 @@ et l'utilisateur applicatif créé sur le serveur distant (Macro SSHUSERNAME).
 
 Avec ce backend, vous n'avez pas à valider manuellement le fingerprint du serveur cible.
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Comment puis-je tester le Plugin et que signifient les options des commandes ?
 

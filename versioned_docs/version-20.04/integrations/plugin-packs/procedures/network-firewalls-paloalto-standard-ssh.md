@@ -2,9 +2,6 @@
 id: network-firewalls-paloalto-standard-ssh
 title: Palo Alto firewall SSH
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Plugin Pack Assets
 
@@ -14,29 +11,29 @@ The Centreon Plugin Pack includes monitoring of the system, interfaces, licenses
 
 ### Discovery Rules
 
-<Tabs groupId="sync">
-<TabItem value="Services" label="Services">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Services-->
 
 | Rule name                                     | Description                                                              |
 | :-------------------------------------------- | :----------------------------------------------------------------------- |
 | Net-PaloAlto-Standard-SNMP-Packet-Errors-Name | Discover network interfaces and monitor errors and discards              |
 | Net-PaloAlto-Standard-SNMP-Traffic-Name       | Discover network interfaces and monitor status and bandwidth utilization |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Collected Metrics
 
-<Tabs groupId="sync">
-<TabItem value="Environnement" label="Environnement">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Environnement-->
 
 | Metric name                               | Description                            | Unit |
 | :---------------------------------------- | :------------------------------------- | :--- |
 | hardware.temperature.celsius              | Temperature of the different sensors   | C    |
 | hardware.voltage.volt                     | Voltage of the different sensors       | V    |
 
-</TabItem>
-<TabItem value="HA" label="HA">
+<!--HA-->
 
 | Metric name                               | Description         | Unit |
 | :---------------------------------------- | :------------------ | :--- |
@@ -44,30 +41,26 @@ The Centreon Plugin Pack includes monitoring of the system, interfaces, licenses
 | member status                             | HA member status    |      |
 | link status                               | HA Link status      |      |
 
-</TabItem>
-<TabItem value="Interfaces" label="Interfaces">
+<!--Interfaces-->
 
 | Metric name                               | Description                                                       | Unit  |
 | :---------------------------------------- | :---------------------------------------------------------------- | :---- |
 | interfaces.total.count                    | Total number of interfaces	                                    | count |
 | interfaces status                         | Status of the interface operationnal and high availability state	|       |
 
-</TabItem>
-<TabItem value="IPSec" label="IPSec">
+<!--IPSec-->
 
 | Metric name                               | Description                            | Unit  |
 | :---------------------------------------- | :------------------------------------- | :---- |
 | tunnels.ipsec.total.count                 | Total number of ipsec tunnels          | count |
 
-</TabItem>
-<TabItem value="Licenses" label="Licenses">
+<!--Licenses-->
 
 | Metric name                               | Description                                             | Unit |
 | :---------------------------------------- | :------------------------------------------------------ | :--- |
 | status                                    | Licence validity check of enabled features Sync status  |      |
 
-</TabItem>
-<TabItem value="System" label="System">
+<!--System-->
 
 | Metric name                               | Description                            | Unit  |
 | :---------------------------------------- | :------------------------------------- | :---- |
@@ -76,8 +69,7 @@ The Centreon Plugin Pack includes monitoring of the system, interfaces, licenses
 | system.sessions.traffic.count             | Number of traffic sessions             | count |
 | system.sessions.total.active.count        | Total number of active sessions        | count |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -86,8 +78,9 @@ The remote user must have enough privileges to execute system commands.
 
 ## Setup
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -97,8 +90,7 @@ yum install centreon-plugin-Network-Firewalls-Paloalto-Standard-Ssh
 
 2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Palo Alto firewall SSH* Plugin-Pack
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -114,8 +106,7 @@ yum install centreon-pack-network-firewalls-paloalto-standard-ssh
 
 3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Palo Alto firewall SSH* Plugin-Pack
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Host Configuration
 
@@ -123,8 +114,9 @@ yum install centreon-pack-network-firewalls-paloalto-standard-ssh
 
 > Three SSH backends are available to connect to the remote server: *sshcli*, *plink* and *libssh* which are detailed below.
 
-<Tabs groupId="sync">
-<TabItem value="sshcli backend" label="sshcli backend">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--sshcli backend-->
 
 | Mandatory   | Name            | Description                                                                                 |
 | :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
@@ -136,8 +128,7 @@ yum install centreon-pack-network-firewalls-paloalto-standard-ssh
 
 > With that backend, you have to validate the target server fingerprint manually (with the SSHUSERNAME used).
 
-</TabItem>
-<TabItem value="plink backend" label="plink backend">
+<!--plink backend-->
 
 | Mandatory   | Name            | Description                                                                                 |
 | :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
@@ -149,8 +140,7 @@ yum install centreon-pack-network-firewalls-paloalto-standard-ssh
 
 > With that backend, you have to validate the target server fingerprint manually (with the SSHUSERNAME used).
 
-</TabItem>
-<TabItem value="libssh backend (default)" label="libssh backend (default)">
+<!--libssh backend (default)-->
 
 | Mandatory   | Name            | Description                                                                                 |
 | :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
@@ -162,8 +152,7 @@ yum install centreon-pack-network-firewalls-paloalto-standard-ssh
 
 With that backend, you do not have to validate the target server fingerprint manually.
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## How to check in the CLI that the configuration is OK and what are the main options for ?
 

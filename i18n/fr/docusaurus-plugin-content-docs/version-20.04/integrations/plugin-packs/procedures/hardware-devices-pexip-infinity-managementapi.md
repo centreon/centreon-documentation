@@ -2,9 +2,6 @@
 id: hardware-devices-pexip-infinity-managementapi
 title: Pexip Infinity ManagementAPI
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Vue d'ensemble
 
@@ -26,16 +23,16 @@ Pexip Infinity comprend une API de gestion qui permet à des tiers de contrôler
 Vous pouvez vous renseigner en détails sur les métriques présentées ci-après sur la documentation officielle 
 de Pexip Infinity ManagementAPI : https://docs.pexip.com/api_manage/management_intro.htm
 
-<Tabs groupId="sync">
-<TabItem value="Alarms" label="Alarms">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Alarms-->
 
 | Metric name                                | Description                         | Unit  |
 | :----------------------------------------- | :-----------------------------------| :---- |
 | status                                     | Alarms status                       |       |
 | alerts.problems.current.count              | Number of  current alerts problems  | count |
 
-</TabItem>
-<TabItem value="Conferences" label="Conferences">
+<!--Conferences-->
 
 | Metric name                                 | Description                                                                            | Unit  |
 | :------------------------------------------ | :------------------------------------------------------------------------------------- | :---- |
@@ -43,8 +40,7 @@ de Pexip Infinity ManagementAPI : https://docs.pexip.com/api_manage/management_i
 | participants.total.count                    | Total number of participants			                                               | count |
 | participants.callquality.$state.count       | Number of states participants callquality ('good', 'ok', 'bad', 'terrible', 'unknown') | count |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -57,8 +53,9 @@ Plus d'informations sont disponible sur la documentation officielle de Pexip Inf
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources Pexip Infinity ManagementAPI :
 
@@ -68,8 +65,7 @@ yum install centreon-plugin-Hardware-Devices-Pexip-Infinity-Managementapi.noarch
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Pexip Infinity ManagementAPI* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources Pexip Infinity ManagementAPI :
 
@@ -85,8 +81,7 @@ yum install centreon-pack-hardware-devices-pexip-infinity-managementapi.noarch
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Pexip Infinity ManagementAPI* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

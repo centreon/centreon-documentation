@@ -2,13 +2,10 @@
 id: applications-google-workspace-api
 title: Google Workspace
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Vue d'ensemble
 
-Google Workspace est une suite d'outils et de logiciels de productivité de type Cloud computing et de groupware destinée aux professionnels,
+Google Workspace est une suite d'outils et de logiciels de productivité de type Cloud computing et de groupware destinée aux professionnels, 
 proposée par Google sous la forme d'un abonnement.
 
 Le Plugin Pack Centreon permet de récupérer le statut en temps réel de la disponibilité des services composant cette suite,
@@ -18,35 +15,35 @@ ceci par le biais du portail dédié mis à disposition par Google.
 
 ### Objets supervisés
 
-- Applications: Gmail, Meet, Drive, etc...
+* Applications: Gmail, Meet, Drive, etc...
 
 La liste complète des applications prises en charge est disponible ici:
 https://workspace.google.fr/intl/en/features/
 
 ### Règles de découvertes
 
-<Tabs groupId="sync">
-<TabItem value="Services" label="Services">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Services-->
 
 | Rule name                          | Description                                |
 | :--------------------------------- | :----------------------------------------- |
 | App-Google-Workspace-Services-Name | Discover services and monitor their status |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Métriques collectées
 
-<Tabs groupId="sync">
-<TabItem value="Services" label="Services">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Services-->
 
 | Metric name                     | Description                            |
 | :------------------------------ | :------------------------------------- |
 | google.workspace.services.count | Number of services currently monitored |
 | status                          | Status of the service                  |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -55,21 +52,21 @@ Il est possible de spécifier un proxy à utiliser le cas échéant.
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
 
-1. Installer le Plugin sur chaque collecteur Centreon devant superviser les services _Google Workspace_:
+<!--Online IMP Licence & IT-100 Editions-->
+
+1. Installer le Plugin sur chaque collecteur Centreon devant superviser les services *Google Workspace*:
 
 ```bash
 yum install centreon-plugin-Applications-Google-Workspace-Api
 ```
 
-2. Sur l'interface Web de Centreon, installer le Pack _Google Workspace_ depuis la page **Configuration > Plugin Packs > Gestionnaire**
+2. Sur l'interface Web de Centreon, installer le Pack *Google Workspace* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
-1. Installer le Plugin sur chaque collecteur Centreon devant superviser les services _Google Workspace_:
+1. Installer le Plugin sur chaque collecteur Centreon devant superviser les services *Google Workspace*:
 
 ```bash
 yum install centreon-plugin-Applications-Google-Workspace-Api
@@ -81,19 +78,16 @@ yum install centreon-plugin-Applications-Google-Workspace-Api
 yum install centreon-pack-applications-google-workspace-api
 ```
 
-3. Sur l'interface Web de Centreon, installer le Pack _Google Workspace_ depuis la page **Configuration > Plugin Packs > Gestionnaire**
-
-</TabItem>
-</Tabs>
+3. Sur l'interface Web de Centreon, installer le Pack *Google Workspace* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
 ## Configuration
 
-- Ajoutez un nouvel Hôte depuis la page **Configuration > Hôtes**
-- Complétez le champ "IP Address / DNS" en indiquant une IP _localhost_ (par exemple 127.0.0.1)
-- Appliquez le Modèle d'Hôte _App-Google-Workspace-Api-custom_
+* Ajoutez un nouvel Hôte depuis la page **Configuration > Hôtes**
+* Complétez le champ "IP Address / DNS" en indiquant une IP *localhost* (par exemple 127.0.0.1)
+* Appliquez le Modèle d'Hôte *App-Google-Workspace-Api-custom*
 
-> Ce modèle d'Hôte est de type _dummy_ afin de ne pas initier de commande de vérification (_ping_) vers Internet
-> (ce type de requête étant souvent bloquée). l'Hôte ajouté renverra donc par défaut _OK_.
+> Ce modèle d'Hôte est de type *dummy* afin de ne pas initier de commande de vérification (*ping*) vers Internet
+> (ce type de requête étant souvent bloquée). l'Hôte ajouté renverra donc par défaut *OK*.
 
 | Mandatory | Name                          | Description                                                                                 |
 | :-------- | :---------------------------- | :------------------------------------------------------------------------------------------ |
@@ -101,7 +95,7 @@ yum install centreon-pack-applications-google-workspace-api
 | X         | GOOGLEWORKSPACESTATUSPORT     | Port used to reach the Google server (Default: '443')                                       |
 | X         | GOOGLEWORKSPACESTATUSPROTO    | Protocol used to reach the Google server (Default: 'https')                                 |
 |           | PROXYURL                      | Configure a proxy URL to use if needed                                                      |
-|           | GOOGLEWORKSPACEEXTRAOPTIONS   | Any extra option you may want to add to every command_line (eg. a --verbose flag)           |
+|           | GOOGLEWORKSPACEEXTRAOPTIONS   | Any extra option you may want to add to every command\_line (eg. a --verbose flag)          |
 |           | DUMMYSTATUS                   | Host state. Default is OK, do not modify it unless you know what you are doing              |
 |           | DUMMYOUTPUT                   | Host check output. Default is 'This is a dummy check'. Customize it with your own if needed |
 
@@ -111,7 +105,7 @@ yum install centreon-pack-applications-google-workspace-api
 ## Comment puis-je tester le Plugin et que signifient les options des commandes ?
 
 Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande
-depuis un collecteur Centreon en vous connectant avec l'utilisateur _centreon-engine_:
+depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-engine*:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_google_workspace_api.pl \
@@ -136,15 +130,15 @@ Service 'Google Drive' status is available
 Service 'Google Meet' status is available
 ```
 
-Dans cet exemple, le Plugin récupère les statuts des services Google Workspace (`--plugin='apps::google::workspace::plugin' --mode=services`)
-depuis le site dédié (--hostname='www.google.com'). On choisit ci-desus de n'afficher que le statut des applications _gmail_, _drive_ et _meet_
-(`--filter-name='gmail|drive|meet'`).
+Dans cet exemple, le Plugin récupère les statuts des services Google Workspace (```--plugin='apps::google::workspace::plugin' --mode=services```)
+depuis le site dédié (--hostname='www.google.com'). On choisit ci-desus de n'afficher que le statut des applications *gmail*, *drive* et *meet*
+(```--filter-name='gmail|drive|meet'```).
 
-Une alarme WARNING sera ainsi déclenchée si le statut d'un de ces services est signalée comme dégradée (`--warning-status='%{status} eq "disruption"'`);
-l'alarme sera de type CRITICAL pour un service inaccessible (`--critical-status='%{status} eq "outage"'`).
+Une alarme WARNING sera ainsi déclenchée si le statut d'un de ces services est signalée comme dégradée (```--warning-status='%{status} eq "disruption"'```);
+l'alarme sera de type CRITICAL pour un service inaccessible (```--critical-status='%{status} eq "outage"'```).
 
-Pour chaque mode, la liste de toutes les métriques, seuils associés et options complémentaires peut être affichée
-en ajoutant le paramètre `--help` à la commande:
+Pour chaque mode, la liste de toutes les métriques, seuils associés et options complémentaires peut être affichée 
+en ajoutant le paramètre ```--help``` à la commande:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_google_workspace_api.pl \

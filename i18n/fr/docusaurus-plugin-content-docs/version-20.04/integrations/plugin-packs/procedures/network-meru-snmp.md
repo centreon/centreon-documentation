@@ -2,9 +2,6 @@
 id: network-meru-snmp
 title: Meru SNMP
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Contenu du Plugin-Pack
 
@@ -21,8 +18,9 @@ Le Plugin-Pack Meru SNMP collecte les données pour:
 
 ### Métriques collectées
 
-<Tabs groupId="sync">
-<TabItem value="Alarms" label="Alarms">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Alarms-->
 
 | Metric name           | Description               | Unit |
 | :-------------------- | :------------------------ | :--- |
@@ -30,15 +28,13 @@ Le Plugin-Pack Meru SNMP collecte les données pour:
 | alarms.major.count    | Number of major alarms    |      |
 | alarms.minor.count    | Number of minor alarms    |      |
 
-</TabItem>
-<TabItem value="Cpu" label="Cpu">
+<!--Cpu-->
 
 | Metric name                              | Description              | Unit |
 | :--------------------------------------- | :----------------------- | :--- |
 | cpu.utilization.percentage               | CPU utilization          | %    |
 
-</TabItem>
-<TabItem value="Interfaces" label="Interfaces">
+<!--Interfaces-->
 
 | Metric name                                            | Description                                         | Unit |
 | :----------------------------------------------------- | :-------------------------------------------------- | :--- |
@@ -50,8 +46,7 @@ Le Plugin-Pack Meru SNMP collecte les données pour:
 
 A regexp filter is available to target a specific interface identifier - ifName [```--interface='^eth0$' --name```]
 
-</TabItem>
-<TabItem value="Memory" label="Memory">
+<!--Memory-->
 
 | Metric name             | Description                               | Unit  |
 | :---------------------  | :---------------------------------------- | :---- |
@@ -59,16 +54,14 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | memory.free.bytes       | Free memory                               | B     |
 | memory.usage.percentage | Memory usage in percentage                | %     |
 
-</TabItem>
-<TabItem value="Wireless" label="Wireless">
+<!--Wireless-->
 
 | Metric name                 | Description                          | Unit  |
 | :-------------------------- | :----------------------------------- | :---- |
 | accesspoints.online.count   | Number of online access points       |       |
 | stations.wireless.count     | Number of wireless stations          |       |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -76,8 +69,9 @@ Afin de contrôler votre équipement Meru, le SNMP doit être configuré.
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -87,8 +81,7 @@ yum install centreon-plugin-Network-Meru-Snmp
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Meru Networks SNMP* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -104,8 +97,7 @@ yum install centreon-pack-network-meru-snmp
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Meru Networks SNMP* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

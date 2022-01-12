@@ -2,8 +2,6 @@
 id: operatingsystems-linux-nrpe3
 title: Linux NRPE3
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 ## Vue d'ensemble
 
@@ -59,8 +57,8 @@ partitions ou filtrage par expression régulière)
 
 Voici les métriques collectées pour les services liés au modèle dhôte par défaut :
 
-<Tabs groupId="sync">
-<TabItem value="Cpu" label="Cpu">
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Cpu-->
 
 | Métrique                            | Description                   | Unité |
 | :---------------------------------- | :---------------------------- | :---: |
@@ -69,8 +67,7 @@ Voici les métriques collectées pour les services liés au modèle dhôte par d
 | ...                                 | ...                           |   %   |
 | `cpu.utilization.percentage`        | Utilisation moyenne globale   |   %   |
 
-</TabItem>
-<TabItem value="Load" label="Load">
+<!--Load-->
 
 | Métrique | Description                           | Unité |
 | :------- | :------------------------------------ | :---: |
@@ -78,8 +75,7 @@ Voici les métriques collectées pour les services liés au modèle dhôte par d
 | `load5`  | Charge système moyenne sur 5 minutes  |       |
 | `load15` | Charge système moyenne sur 15 minutes |       |
 
-</TabItem>
-<TabItem value="Memory" label="Memory">
+<!--Memory-->
 
 | Métrique | Description                 | Unité |
 | :------- | :-------------------------- | :---: |
@@ -88,8 +84,7 @@ Voici les métriques collectées pour les services liés au modèle dhôte par d
 | `slab`   | Allocation Slab             |   B   |
 | `used`   | Mémoire consommée totale    |   B   |
 
-</TabItem>
-<TabItem value="Swap" label="Swap">
+<!--Swap-->
 
 | Métrique                | Description                       | Unité |
 | :---------------------- | :-------------------------------- | :---: |
@@ -97,15 +92,13 @@ Voici les métriques collectées pour les services liés au modèle dhôte par d
 | `swap.usage.bytes`      | Espace d'échange utilisé          |   B   |
 | `swap.usage.percentage` | Utilisation de l'espace d'échange |   %   |
 
-</TabItem>
-<TabItem value="Uptime" label="Uptime">
+<!--Uptime-->
 
 | Métrique | Description                                | Unité |
 | :------- | :----------------------------------------- | :---: |
 | `uptime` | Temps écoulé depuis le dernier redémarrage |   s   |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -162,13 +155,13 @@ systemctl restart centreon-nrpe3.service
 
 L'installation du Plugin-Pack en lui-même ne concerne que le serveur central et la procédure dépend du type de licence.
 
-<Tabs groupId="sync">
-<TabItem value="Licence IMP/EPP Online & IT100 Editions" label="Licence IMP/EPP Online & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Licence IMP/EPP "Online" & IT-100 Editions-->
 
 Installer le Plugin-Pack "Linux NRPE3" depuis la page "Configuration > Plugin Packs > Manager".
 
-</TabItem>
-<TabItem value="Licence IMP/EPP Offline" label="Licence IMP/EPP Offline">
+<!--Licence IMP/EPP "Offline"-->
 
 1. Installer le RPM du Plugin-Pack contenant les modèles de supervision sur le serveur Centreon Central:
 
@@ -178,8 +171,7 @@ yum install centreon-pack-operatingsystems-linux-nrpe3
 
 2. Installer le Plugin-Pack "Linux NRPE3" depuis la page "Configuration > Plugin Packs > Manager".
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Centreon NRPE3 Plugin
 

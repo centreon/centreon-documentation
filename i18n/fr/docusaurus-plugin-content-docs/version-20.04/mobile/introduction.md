@@ -2,9 +2,6 @@
 id: introduction
 title: Introduction
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 Une application mobile est disponible et vous permet de visualiser le statut des resources supervisées
 par Centreon, sur une tablette ou un téléphone.
@@ -44,8 +41,9 @@ connecter à votre plateforme Centreon
 
 La manière d'installer l'application dépend de votre appareil:
 
-<Tabs groupId="sync">
-<TabItem value="Android" label="Android">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!-- Android -->
 
 Pour **Android**, deux possibilités:
 
@@ -55,16 +53,14 @@ Pour **Android**, deux possibilités:
 
     ![image](../assets/mobile/andoid-add-to-home-screen.png)
 
-</TabItem>
-<TabItem value="Apple/iOS" label="Apple/iOS">
+<!-- Apple/iOS -->
 
 Pour **iOS**, rendez vous sur [mobile.centreon.com](https://mobile.centreon.com/)  avec le navigateur Safari
 puis installer l'application via la fonctionnalité "Sur l'écran d'accueil"
 
 ![image](../assets/mobile/ios-add-to-home-screen.png)
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Se connecter à l'application
 

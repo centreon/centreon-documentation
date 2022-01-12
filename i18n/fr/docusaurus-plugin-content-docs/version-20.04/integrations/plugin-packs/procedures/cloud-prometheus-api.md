@@ -2,9 +2,6 @@
 id: cloud-prometheus-api
 title: Prometheus Server
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Vue d'ensemble
 
@@ -24,8 +21,9 @@ de données orientée séries temporelles.
 
 ### Métriques collectées
 
-<Tabs groupId="sync">
-<TabItem value="Expression" label="Expression">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Expression-->
 
 Mode générique pour executer des requêtes PromQL
 
@@ -33,8 +31,7 @@ Mode générique pour executer des requêtes PromQL
 | :--------------------------------------------------- | :---------- |
 | *instance*#*centreon_prometheus_metric_display_name* | Any metric  |
 
-</TabItem>
-<TabItem value="TargetStatus" label="TargetStatus">
+<!--Target-Status-->
 
 | Metric name           | Description                |
 | :-------------------- | :------------------------- |
@@ -44,8 +41,7 @@ Mode générique pour executer des requêtes PromQL
 | targets.down.count    | Number of down targets     |
 | targets.unknown.count | Number of unknown targets  | 
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -54,8 +50,9 @@ Serveur Prometheus.
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin Centreon sur les Collecteurs interrogeant Prometheus:
 
@@ -65,8 +62,7 @@ yum install centreon-plugin-Cloud-Prometheus-Api
 
 2. Dans l'interface Centreon, installer le Plugin Pack *Prometheus API* via le menu "Configuration > Plugin Packs > Gestionnaire"
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin Centreon sur les Collecteurs interrogeant Prometheus:
 
@@ -82,8 +78,7 @@ yum install centreon-pack-cloud-prometheus-api
 
 3. Dans l'interface Centreon, installer le Plugin Pack *Prometheus API* via le menu "Configuration > Plugin Packs > Gestionnaire"
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

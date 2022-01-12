@@ -2,9 +2,6 @@
 id: applications-docker-restapi
 title: Docker
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Vue d'ensemble
 
@@ -21,8 +18,8 @@ Docker permet d'embarquer une application dans un ou plusieurs containers logici
 
 Plus d'informations sur les métriques remontées sont disponibles sur la documentation officielle de l'Api Rest Docker: https://docs.docker.com/engine/api/v1.30/
 
-<Tabs groupId="sync">
-<TabItem value="ContainerUsage" label="ContainerUsage">
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Container-Usage-->
 
 | Metric name     | Description                                                                                  |
 | :-------------- | :------------------------------------------------------------------------------------------- |
@@ -36,8 +33,7 @@ Plus d'informations sur les métriques remontées sont disponibles sur la docume
 | Traffic_in      | The percentage of Inbound Traffic utilization. Units: Percent & Bytes/s                      |
 | Traffic_out     | The percentage of Outbound Traffic utilization. Units: Percent & Bytes/s                     |
 
-</TabItem>
-<TabItem value="NodesStatus" label="NodesStatus">
+<!--Nodes-Status-->
 
 | Metric name        | Description                                                                                             |
 | :----------------- | :------------------------------------------------------------------------------------------------------ |
@@ -46,8 +42,7 @@ Plus d'informations sur les métriques remontées sont disponibles sur la docume
 | Containers-stopped | The number of Containers system stopped. Units: counter                                                 |
 | Containers_paused  | The Number of Containers system paused. Units: counter                                                  |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -69,8 +64,9 @@ ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
  
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des ressources Docker:
 
@@ -80,8 +76,7 @@ yum install centreon-plugin-Applications-Docker-Restapi
 
 2. Installer le Plugin-Pack "Docker" depuis la page "Configuration > Plugin packs > Manager" de l'interface Web de Centreon
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 1. Installer le Plugin sur l'ensemble des collecteurs supervisant des ressources Docker:
 
 ```bash
@@ -96,8 +91,7 @@ yum install centreon-pack-applications-docker-restapi
 
 3. Installer le Plugin-Pack "Docker" depuis la page "Configuration > Plugin packs > Manager" de l'interface Web de Centreon
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

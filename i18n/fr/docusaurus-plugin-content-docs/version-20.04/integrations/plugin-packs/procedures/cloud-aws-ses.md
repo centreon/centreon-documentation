@@ -2,9 +2,6 @@
 id: cloud-aws-ses
 title: Amazon SES
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Vue d'ensemble
 
@@ -28,8 +25,9 @@ Plus de détails sur les métriques présentées ci-après sont disponibles sur 
 documentation officielle du service Amazon SES :
 https://docs.aws.amazon.com/fr_fr/ses/latest/DeveloperGuide/monitor-sending-activity
 
-<Tabs groupId="sync">
-<TabItem value="SesEmails" label="SesEmails">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Ses-Emails-->
 
 | Metric name                 | Description                                                                                  
 |:--------------------------- | :----------------------------------------|
@@ -38,8 +36,7 @@ https://docs.aws.amazon.com/fr_fr/ses/latest/DeveloperGuide/monitor-sending-acti
 | ses.emails.rejected.rate    | Rate of rejected emails                  |
 | ses.emails.spam.rate        | Rate of emails marked as spam            |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -59,30 +56,30 @@ Afin de récupérer les informations nécessaires via les APIs AWS, il est possi
 d'utiliser soit le binaire *awscli*, soit le SDK perl *Paws*. Le SDK est
 recommandé car plus performant. 
 
-<Tabs groupId="sync">
-<TabItem value="perlPawsinstallation" label="perlPawsinstallation">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--perl-Paws-installation-->
 
 ```bash
 yum install perl-Paws
 ```
 
-</TabItem>
-<TabItem value="awscliinstallation" label="awscliinstallation">
+<!--aws-cli-installation-->
 
 ```bash
 yum install awscli
 ```
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 > **Attention** il n'est pas possible pour le moment d'utiliser perl Paws si la
 > connexion s'effectue au travers d'un proxy.
 
 ## Setup 
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des ressources Amazon SES:
 
@@ -92,8 +89,7 @@ yum install centreon-plugin-Cloud-Aws-Ses-Api
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Amazon SES* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des ressources Amazon SES:
 
@@ -109,8 +105,7 @@ yum install centreon-pack-cloud-aws-ses.noarch
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Amazon SES* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

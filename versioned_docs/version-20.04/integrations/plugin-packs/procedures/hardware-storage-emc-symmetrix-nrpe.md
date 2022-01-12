@@ -2,9 +2,6 @@
 id: hardware-storage-emc-symmetrix-nrpe
 title: EMC Symmetrix NRPE
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Overview
 
@@ -33,8 +30,7 @@ and make sure that the **NRPE Server** configuration is correct.
 
 ## Installation 
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon NRPE Client package on every Poller expected to monitor *EMC Symmetrix*:
 
@@ -45,8 +41,7 @@ yum install centreon-nrpe-plugin
 2. On the Centreon Web interface, install the Centreon Pack *Veeam* 
 from the **Configuration > Plugin Packs > Manager** page
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin package on every Poller expected to monitor *EMC Symmetrix*:
 
@@ -63,8 +58,7 @@ yum install centreon-pack-hardware-storage-emc-symmetrix
 3. On the Centreon Web interface, install the Centreon Pack *EMC Symmetrix* 
 from the **Configuration > Plugin Packs > Manager** page
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Host configuration
 

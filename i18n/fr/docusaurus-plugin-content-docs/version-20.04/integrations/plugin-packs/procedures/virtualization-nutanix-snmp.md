@@ -2,9 +2,6 @@
 id: virtualization-nutanix-snmp
 title: Nutanix
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Vue d'ensemble
 
@@ -22,8 +19,8 @@ Nutanix est une une plateforme hyperconvergée permettant le déploiement de mac
 
 ### Règles de découvertes
 
-<Tabs groupId="sync">
-<TabItem value="Hosts" label="Hosts">
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Hosts-->
 
 | Nom de la règle                            | Description                                                   |
 | :----------------------------------------- | :------------------------------------------------------------ |
@@ -31,21 +28,19 @@ Nutanix est une une plateforme hyperconvergée permettant le déploiement de mac
 | Virt-Nutanix-VM-SNMP-HostDiscovery         | Découvrez vos machines virtuelles                             |
 | Virt-Nutanix-Container-SNMP-HostDiscovery  | Découvrez vos containers                                      |
 
-</TabItem>
-<TabItem value="Services" label="Services">
+<!--Services-->
 
 | Nom de la règle                            | Description                                                   |
 | :----------------------------------------- | :------------------------------------------------------------ |
 | Virt-Nutanix-Disk-SNMP                     |  Découvrez les disques attachés à votre cluster               |
 | Virt-Nutanix-Storage-Pools-SNMP            |  Découvrez les espaces de stockage exposés à vos ressources   |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Métriques collectées
 
-<Tabs groupId="sync">
-<TabItem value="Clusterusage" label="Clusterusage">
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Cluster-usage-->
 
 | Metric name              | Description                                              |
 | :----------------------- | :------------------------------------------------------- |
@@ -54,8 +49,7 @@ Nutanix est une une plateforme hyperconvergée permettant le déploiement de mac
 | clusterIops              | Number of IOPS on the cluster. Unit: Count/persecond     |
 | clusterLatency           | Cluster storage latency. Unit: Milliseconds              |
 
-</TabItem>
-<TabItem value="Containerusage" label="Containerusage">
+<!--Container-usage-->
 
 | Metric name        | Description                                                    |
 | :----------------- | :------------------------------------------------------------- |
@@ -65,8 +59,7 @@ Nutanix est une une plateforme hyperconvergée permettant le déploiement de mac
 
 Il est possible de filtrer les containeurs (*citContainerName*) en utilisant une REGEXP sur le paramètre ```--filter-name```: [```--filter-name='^my-container-name$'```]
 
-</TabItem>
-<TabItem value="Diskusage" label="Diskusage">
+<!--Disk-usage-->
 
 | Metric name       | Description                                              |
 | :---------------- | :------------------------------------------------------- |
@@ -78,8 +71,7 @@ Il est possible de filtrer les containeurs (*citContainerName*) en utilisant une
 
 Il est possible de filtrer les résultats sur un ID de disque donné (*dstDiskId*) en utilisant une REGEXP sur le paramètre ```--filter-name```: [```--filter-name='^my-disk-name$'```]
 
-</TabItem>
-<TabItem value="Hypervisorusage" label="Hypervisorusage">
+<!--Hypervisor-usage-->
 
 | Metric name                   | Description                                                    |
 | :---------------------------- | :------------------------------------------------------------- |
@@ -93,8 +85,7 @@ Il est possible de filtrer les résultats sur un ID de disque donné (*dstDiskId
 
 Il est possible de filtrer les résultats sur un hyperviseur donné (*hypervisorName*) en utilisant une REGEXP sur le paramètre ```--filter-name```: [```--filter-name='^my-hypervisor-name$'```]
 
-</TabItem>
-<TabItem value="Storagepoolusage" label="Storagepoolusage">
+<!--Storagepool-usage-->
 
 | Metric name               | Description                                                                                                                                              |
 | :------------------------ | :----------------------------------------------------------- |
@@ -104,8 +95,7 @@ Il est possible de filtrer les résultats sur un hyperviseur donné (*hypervisor
 
 Il est possible de filtrer les résultats sur un hyperviseur donné (*spitStoragePoolName*) en utilisant une REGEXP sur le paramètre ```--filter-name```: [```--filter-name='^my-storage-pool-name$'```]
 
-</TabItem>
-<TabItem value="VMUsage" label="VMUsage">
+<!--VM-Usage-->
 
 | Metric name          | Description                                            |
 | :------------------- | :----------------------------------------------------- |
@@ -120,8 +110,7 @@ Il est possible de filtrer les résultats sur un hyperviseur donné (*spitStorag
 
 Il est possible de filtrer les résultats sur un hyperviseur donné (*vmName*) en utilisant une REGEXP sur le paramètre ```--filter-name```: [```--filter-name='^my-vm-name$'```]
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -131,8 +120,9 @@ La communication doit être possible sur le port UDP 161 depuis le collecteur Ce
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des ressources Nutanix:
 
@@ -142,8 +132,7 @@ yum install centreon-plugin-Virtualization-Nutanix-Snmp
 
 2. Installer le Plugin-Pack 'Nutanix' depuis la page "Configuration > Plugin packs > Manager" de l'interface Web Centreon
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des ressources Nutanix:
 
@@ -159,8 +148,7 @@ yum install centreon-pack-virtualization-nutanix-snmp
 
 3. Installer le Plugin-Pack 'Nutanix' depuis la page "Configuration > Plugin packs > Manager" de l'interface Web Centreon
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
