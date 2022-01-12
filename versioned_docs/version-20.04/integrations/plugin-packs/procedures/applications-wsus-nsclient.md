@@ -2,6 +2,10 @@
 id: applications-wsus-nsclient
 title: Microsoft WSUS NSClient++
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+
 
 ## Overview
 
@@ -40,9 +44,8 @@ module can be loaded: `Microsoft.UpdateServices.Administration`.
 
 ## Installation 
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Depending on the monitoring method chosen (NRPE or RestAPI), install the relevant Centreon Plugin package on every Centreon
 Poller expected to monitor WSUS through *centreon-nsclient*:
@@ -61,7 +64,8 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 
 2. On the Centreon Web interface, install the *Microsoft WSUS* Centreon Pack from the **Configuration > Plugin Packs > Manager** page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Depending on the monitoring method chosen (NRPE or RestAPI), install the relevant Centreon Plugin package on every Centreon
 Poller expected to monitor WSUS through *centreon-nsclient*:
@@ -86,7 +90,8 @@ yum install centreon-pack-applications-wsus-nsclient
 
 3. On the Centreon Web interface, install the *Microsoft WSUS* Centreon Pack from the **Configuration > Plugin Packs > Manager** page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host configuration
 
@@ -96,9 +101,8 @@ yum install centreon-pack-applications-wsus-nsclient
     * *App-Wsus-NSClient-05-Restapi-custom* for RestAPI
 * Depending on the Host template, fill the Macro fields as follows:
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--App-Wsus-NRPE-custom-->
+<Tabs groupId="sync">
+<TabItem value="App-Wsus-NRPE-custom" label="App-Wsus-NRPE-custom">
 
 | Mandatory | Name             | Description                                                                         |
 |:----------|:-----------------|:------------------------------------------------------------------------------------|
@@ -107,7 +111,8 @@ yum install centreon-pack-applications-wsus-nsclient
 | X         | NRPETIMEOUT      | Timeout value (Default: '30')                                                       |
 |           | NRPEEXTRAOPTIONS | Any extra option you may want to add to every command\_line (Default: '-u -m 8192') |
 
-<!--App-Wsus-NSClient-05-Restapi-custom-->
+</TabItem>
+<TabItem value="App-Wsus-NSClient-05-Restapi-custom" label="App-Wsus-NSClient-05-Restapi-custom">
 
 | Mandatory | Name                      | Description                                                                |
 |:----------|:--------------------------|:-------------------------------------------------------------------------- |
@@ -115,3 +120,6 @@ yum install centreon-pack-applications-wsus-nsclient
 | X         | NSCPRESTAPIPROTO          | NSClient++ RestAPI protocol to use (Default: 'https')                      |
 |           | NSCPRESTAPILEGACYPASSWORD | Password to authenticate against the API if relevant                       |
 |           | NSCPRESTAPIEXTRAOPTIONS   | Any extra option you may want to add to the command (eg. a --verbose flag) |
+
+</TabItem>
+</Tabs>

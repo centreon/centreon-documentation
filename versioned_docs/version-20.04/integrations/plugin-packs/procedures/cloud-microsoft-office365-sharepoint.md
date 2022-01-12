@@ -2,6 +2,9 @@
 id: cloud-microsoft-office365-sharepoint
 title: Office365 SharePoint
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -28,9 +31,8 @@ See link for details about metrics :
 * https://docs.microsoft.com/en-us/microsoft-365/admin/activity-reports/sharepoint-site-usage?view=o365-worldwide
 * https://docs.microsoft.com/en-us/microsoft-365/admin/activity-reports/sharepoint-activity?view=o365-worldwide
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Site-Usage-->
+<Tabs groupId="sync">
+<TabItem value="Site-Usage" label="Site-Usage">
 
 | Metric name                                    | Description                              | Unit   |
 | :--------------------------------------------- | :--------------------------------------- | :----- |
@@ -43,7 +45,8 @@ See link for details about metrics :
 | sharepoint.sites.pages.visited.total.count     | Total number of visited pages            | Count  |  
 | sharepoint.sites.pages.viewed.total.count      | Total numver of viewed pages             | Count  |
 
-<!--User-Activity-->
+</TabItem>
+<TabItem value="User-Activity" label="User-Activity">
 
 | Metric name                                           | Description                                    | Unit   |
 | :---------------------------------------------------- | :--------------------------------------------- | :----- |
@@ -54,7 +57,8 @@ See link for details about metrics :
 | sharepoint.users.files.shared.externally.total.count  | Total number of files share externally         | Count  |
 | sharepoint.users.pages.visited.total.count            | Total number of visited pages (active sites)   | Count  |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 Once the host created, you can configure some macros on the services to filter 
 information by site or by user. More info in the [Configuration](#Configuration)
@@ -95,9 +99,8 @@ https://docs.microsoft.com/en-us/office/office-365-management-api/get-started-wi
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Install the Centreon Plugin package on every poller expected to monitor Office365 Sharepoint:
 
@@ -107,7 +110,8 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Sharepoint-Api
 
 2. On the Centreon Web interface, install the Centreon Plugin-Pack *Office365 Sharepoint* from the "Configuration > Plugin Packs > Manager" page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every poller expected to monitor Office365 Sharepoint:
 
@@ -123,7 +127,8 @@ yum install centreon-pack-cloud-microsoft-office365-sharepoint
 
 3. On the Centreon Web interface, install the Centreon Plugin-Pack *Office365 Sharepoint* from the "Configuration > Plugin Packs > Manager" page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

@@ -2,6 +2,9 @@
 id: installation-4-nodes
 title: Installing a Centreon HA 4-nodes cluster
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Prerequisites
 
@@ -726,9 +729,8 @@ pcs resource create "ms_mysql" \
 
 > **WARNING:** the syntax of the following command depends on the Linux Distribution you are using.
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--CentOS7-->
+<Tabs groupId="sync">
+<TabItem value="CentOS7" label="CentOS7">
 
 ```bash
 pcs resource meta ms_mysql-master \
@@ -739,7 +741,8 @@ pcs resource meta ms_mysql-master \
     notify="true"
 ```
 
-<!--RHEL-->
+</TabItem>
+<TabItem value="RHEL" label="RHEL">
 
 ```bash
 pcs resource master ms_mysql \
@@ -750,7 +753,8 @@ pcs resource master ms_mysql \
     notify="true"
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 #### MariaDB Virtual IP Address
 

@@ -2,6 +2,9 @@
 id: pluginpacks
 title: Plugin Packs
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 A Plugin Pack is a downloadable package containing a set of configuration
 templates that make it fast and easy to monitor your IT infrastructure.
@@ -111,8 +114,8 @@ Installation is a 3-step process:
 * **online platform**: if your platform is linked to an online subscription
 * **offline** otherwise
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Online platform-->
+<Tabs groupId="sync">
+<TabItem value="Online platform" label="Online platform">
 
 If you benefit from an online subscription, you must first authenticate your
 Centreon platform.
@@ -128,7 +131,8 @@ Click on **install** to access the catalog:
 
 You can now proceed to the pack installation.
 
-<!--Offline platform-->
+</TabItem>
+<TabItem value="Offline platform" label="Offline platform">
 
 From your Centreon Central server, install or update the Plugin Packs catalog:
 
@@ -142,7 +146,8 @@ or:
 yum update centreon-pack-*
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 #### Pack installation
 

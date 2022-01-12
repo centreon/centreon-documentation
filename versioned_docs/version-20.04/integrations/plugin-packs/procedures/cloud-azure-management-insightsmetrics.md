@@ -2,6 +2,9 @@
 id: cloud-azure-management-insightsmetrics
 title: Azure InsightsMetrics
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -25,16 +28,16 @@ Available indicators and metrics:
 
 ### Collected metrics & status
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Cpu-->
+<Tabs groupId="sync">
+<TabItem value="Cpu" label="Cpu">
 
 | Metric Name                                                   | Description                    | Unit |
 |:--------------------------------------------------------------|:-------------------------------|:-----|
 | *instance*#azure.insights.cpu.average.utilization.percentage  | Average utilization percentage | %    |
 | *instance\~ID*#azure.insights.cpu.core.utilization.percentage | Current utilization per core   | %    |
 
-<!--Logical-Disks-->
+</TabItem>
+<TabItem value="Logical-Disks" label="Logical-Disks">
 
 | Metric Name                                                               | Description                            | Unit    |
 |:--------------------------------------------------------------------------|:---------------------------------------|:--------|
@@ -46,7 +49,8 @@ Available indicators and metrics:
 | *instance\~mount_point*#azure.insights.logicaldisks.io.writespersecond    | Logical Disk current IO writes rate    | count/s |
 | *instance\~mount_point*#azure.insights.logicaldisks.io.transferspersecond | Logical Disk current IO transfers rate | count/s |
 
-<!--Memory-->
+</TabItem>
+<TabItem value="Memory" label="Memory">
 
 | Metric Name                                           | Description                         | Unit |
 |:------------------------------------------------------|:------------------------------------|:-----|
@@ -55,19 +59,20 @@ Available indicators and metrics:
 | *instance*#azure.insights.memory.usage.percentage     | Current memory usage percentage     | %    |
 | *instance*#azure.insights.memory.available.percentage | Current memory available percentage | %    |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Discovery rules
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Services-->
+<Tabs groupId="sync">
+<TabItem value="Services" label="Services">
 
 | Rule name                                                                    | Description                                                 |
 |:-----------------------------------------------------------------------------|:------------------------------------------------------------|
 | Cloud-Azure-Management-InsightsMetrics-Api-VirtualMachine-Logical-Disks-Name | Discover logical disks associated to Azure Virtual Machines |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -119,9 +124,8 @@ how-to below. Keep it safe until including it in the Autodiscovery job settings 
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Install the Centreon Plugin on every Centreon Poller expected to monitor Azure resources based on InsightsMetrics:
 
@@ -131,7 +135,8 @@ yum install centreon-plugin-Cloud-Azure-Management-InsightsMetrics-Api
 
 2. On the Centreon Web interface, install the *Azure InsightsMetrics* Centreon Pack on the **Configuration > Plugin Packs > Manager** page.
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin on every Centreon Poller expected to monitor Azure resources based on InsightsMetrics:
 
@@ -147,7 +152,8 @@ yum install centreon-pack-cloud-azure-management-insightsmetrics.noarch
 
 3. On the Centreon Web interface, install the *Azure InsightsMetrics* Centreon Pack on the **Configuration > Plugin Packs > Manager** page.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

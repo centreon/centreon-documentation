@@ -2,6 +2,9 @@
 id: applications-mulesoft-restapi
 title: Mulesoft Anypoint
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -21,9 +24,8 @@ The Centreon Plugin and Plugin-Packs rely on the Mulesoft Anypoint Rest API to c
 
 ### Discovery Rules
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Services-->
+<Tabs groupId="sync">
+<TabItem value="Services" label="Services">
 
 | Rule name                                | Description                                                        |
 | :--------------------------------------- | :----------------------------------------------------------------- |
@@ -31,15 +33,15 @@ The Centreon Plugin and Plugin-Packs rely on the Mulesoft Anypoint Rest API to c
 | App-Mulesoft-Restapi-Server-Name         | Discover Anypoint servers and monitor their status                 |
 | App-Mulesoft-Restapi-Queue-Messages-Name | Discover Anypoint MQ queues and monitor the related messages count |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Collected Metrics
 
 More information about collected metrics is available in the official Mulesoft Rest API documentation: https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/arm-rest-services/
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Applications-->
+<Tabs groupId="sync">
+<TabItem value="Applications" label="Applications">
 
 | Metric name                                | Description                        |
 | :----------------------------------------- | :--------------------------------- |
@@ -49,7 +51,8 @@ More information about collected metrics is available in the official Mulesoft R
 | mulesoft.applications.status.stopped.count | Number of stopped applications     |
 | mulesoft.applications.status.failed.count  | Number of failed applications      |
 
-<!--Clusters-->
+</TabItem>
+<TabItem value="Clusters" label="Clusters">
 
 | Metric name                                 | Description                     |
 | :------------------------------------------ | :------------------------------ |
@@ -58,7 +61,8 @@ More information about collected metrics is available in the official Mulesoft R
 | mulesoft.clusters.status.running.count      | Number of running clusters      |
 | mulesoft.clusters.status.disconnected.count | Number of disconnected clusters |
 
-<!--Messages-->
+</TabItem>
+<TabItem value="Messages" label="Messages">
 
 | Metric name                      | Description                                  |
 | :------------------------------- | :------------------------------------------- |
@@ -69,7 +73,8 @@ More information about collected metrics is available in the official Mulesoft R
 | mulesoft.mq.visible.count        | Number of visible messages in the queue      |
 | mulesoft.mq.acked.count          | Number of acknowledged messages in the queue |
 
-<!--Servers-->
+</TabItem>
+<TabItem value="Servers" label="Servers">
 
 | Metric name                                | Description                    |
 | :----------------------------------------- | :----------------------------- |
@@ -78,7 +83,8 @@ More information about collected metrics is available in the official Mulesoft R
 | mulesoft.servers.status.running.count      | Number of running servers      |
 | mulesoft.servers.status.disconnected.count | Number of disconnected servers |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -89,9 +95,8 @@ This account has to own the privileges to manage Applications, Servers, Clusters
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Install the Centreon Plugin on every poller monitoring Mulesoft Anypoint resources:
 
@@ -101,7 +106,8 @@ yum install centreon-plugin-Applications-Mulesoft-Restapi.noarch
 
 2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Mulesoft Anypoint* Plugin-Pack
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin on every poller monitoring Mulesoft Anypoint resources:
 
@@ -117,7 +123,8 @@ yum install centreon-pack-applications-mulesoft-restapi.noarch
 
 3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Mulesoft Anypoint* Plugin-Pack
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

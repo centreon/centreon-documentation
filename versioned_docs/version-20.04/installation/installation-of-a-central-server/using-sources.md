@@ -2,13 +2,16 @@
 id: using-sources
 title: Using sources
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Prerequisites
 
 > Most CentOS users will find easier to install Centreon Web by [using packages](using-packages).
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Redhat/CentOS-->
+<Tabs groupId="sync">
+<TabItem value="Redhat/CentOS" label="Redhat/CentOS">
 To install Centreon you will need to set up the official software collections repository supported by Redhat.
 
 > Software collections are required for installing PHP 7 and associated libraries (Centreon requirement).
@@ -88,7 +91,9 @@ Then execute:
 ``` shell
 /opt/rh/rh-php72/root/bin/pear upgrade-all
 ```
-<!--Debian Stretch / Ubuntu 18.04-->
+
+</TabItem>
+<TabItem value="Debian Stretch / Ubuntu 18.04" label="Debian Stretch / Ubuntu 18.04">
 Add the php 7.2 repository:
 
 ### For Debian Stretch
@@ -192,7 +197,8 @@ service snmpd restart
 service snmptrapd restart
 ```
 
-<!--Suse-->
+</TabItem>
+<TabItem value="Suse" label="Suse">
 Install the following prerequisites:
 
 ``` shell
@@ -257,7 +263,8 @@ Save the file and restart Apache:
 ``` shell
 /etc/init.d/apache2 restart
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Monitoring engine (Centreon Engine)
 

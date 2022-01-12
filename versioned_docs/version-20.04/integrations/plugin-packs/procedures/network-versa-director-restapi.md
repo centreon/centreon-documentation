@@ -2,6 +2,9 @@
 id: network-versa-director-restapi
 title: Versa Director Restapi
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -22,21 +25,20 @@ https://apidocs.versa-networks.com/
 
 ### Discovery Rules
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Hosts-->
+<Tabs groupId="sync">
+<TabItem value="Hosts" label="Hosts">
 
 | Rule Name                                        | Description                                                   |
 |:------------------------------------------------ |:------------------------------------------------------------- |
 | Net-Versa-Director-Restapi-HostDiscovery-devices | Discover and monitor Versa Devices managed by Versa Director  |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Collected metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Devices-->
+<Tabs groupId="sync">
+<TabItem value="Devices" label="Devices">
 
 * Global
 
@@ -65,7 +67,8 @@ https://apidocs.versa-networks.com/
 | `<monitor-name>`.health.disabled.count | Number of health monitors disabled | Count |
 | `<monitor-name>`.health.down.count     | Number of health monitors down     | Count |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -80,9 +83,8 @@ The Centreon Poller must be able to reach the TCP/9182 HTTPS port of the Versa D
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor 
 Versa devices trough Versa Director API:
@@ -94,7 +96,8 @@ yum install centreon-plugin-Network-Versa-Director-Restapi
 2. On the Centreon Web interface, install the *Versa Director Restapi* Plugin-Pack 
 through "Configuration > Plugin packs > Manager" page.
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor
 Versa devices trough Versa Director API 
@@ -112,7 +115,8 @@ yum install centreon-pack-network-versa-director-restapi
 3. On the Centreon Web interface, install the *Versa Director Restapi* Plugin-Pack 
 through "Configuration > Plugin packs > Manager" page.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host configuration 
 

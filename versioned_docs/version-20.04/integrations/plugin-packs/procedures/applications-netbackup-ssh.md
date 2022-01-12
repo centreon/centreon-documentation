@@ -2,6 +2,9 @@
 id: applications-netbackup-ssh
 title: Symantec Netbackup SSH
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Pack Assets
 
@@ -28,28 +31,30 @@ It brings the following Service Templates:
 
 ### Collected metrics & status
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Dedup-Status-->
+<Tabs groupId="sync">
+<TabItem value="Dedup-Status" label="Dedup-Status">
 
 | Metric name                                   | Unit |
 |:----------------------------------------------|:-----|
 | status                                        |      |
 | disk_pool.deduplication.usage.percentage      | %    |
 
-<!--Drive-Cleaning-->
+</TabItem>
+<TabItem value="Drive-Cleaning" label="Drive-Cleaning">
 
 | Metric name          | Description                        | Unit  |
 |:---------------------|:-----------------------------------|:------|
 | drives.unclean.count | %d drives needs a reset mount time | count |
 
-<!--Drive-Status-->
+</TabItem>
+<TabItem value="Drive-Status" label="Drive-Status">
 
 | Metric name | Description |
 |:------------|:------------|
 | status      |             |
 
-<!--Job-Status-->
+</TabItem>
+<TabItem value="Job-Status" label="Job-Status">
 
 * Global
 
@@ -63,14 +68,16 @@ It brings the following Service Templates:
 |:------------|:------------|
 | status      |             |
 
-<!--Tape-Usage-->
+</TabItem>
+<TabItem value="Tape-Usage" label="Tape-Usage">
 
 | Metric name            | Description |
 |:-----------------------|:------------|
 | tape.usage.bytes       |             |
 | tape.usage.percentage  |             |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -84,9 +91,8 @@ The remote user must have enough privileges to execute system commands.
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online License-->
+<Tabs groupId="sync">
+<TabItem value="Online License" label="Online License">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor **Netbackup** ressources:
 
@@ -96,7 +102,8 @@ yum install centreon-plugin-Applications-Netbackup-Ssh
 
 2. On the Centreon Web interface, install the **Netbackup SSH** Centreon Plugin Pack on the **Configuration > Plugin Packs** page
 
-<!--Offline License-->
+</TabItem>
+<TabItem value="Offline License" label="Offline License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor **Netbackup** ressources:
 
@@ -106,13 +113,14 @@ yum install centreon-plugin-Applications-Netbackup-Ssh
 
 2. Install the **Netbackup SSH** Centreon Plugin Pack RPM on the Centreon Central server:
 
- ```bash
+```bash
 yum install centreon-pack-applications-netbackup-ssh
 ```
 
 3. On the Centreon Web interface, install the **Netbackup SSH** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -125,9 +133,8 @@ yum install centreon-pack-applications-netbackup-ssh
 
 > 3 SSH backends are available to connect to the remote server: *sshcli*, *plink* and *libssh* which are detailed below.
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--sshcli backend-->
+<Tabs groupId="sync">
+<TabItem value="sshcli backend" label="sshcli backend">
 
 | Mandatory   | Name            | Description                                                                                 |
 | :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
@@ -139,7 +146,8 @@ yum install centreon-pack-applications-netbackup-ssh
 
 > With that backend, you have to validate the target server fingerprint manually (with the SSHUSERNAME used).
 
-<!--plink backend-->
+</TabItem>
+<TabItem value="plink backend" label="plink backend">
 
 | Mandatory   | Name            | Description                                                                                 |
 | :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
@@ -151,7 +159,8 @@ yum install centreon-pack-applications-netbackup-ssh
 
 > With that backend, you have to validate the target server fingerprint manually (with the SSHUSERNAME used).
 
-<!--libssh backend (default)-->
+</TabItem>
+<TabItem value="libssh backend (default)" label="libssh backend (default)">
 
 | Mandatory   | Name            | Description                                                                                 |
 | :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
@@ -163,7 +172,8 @@ yum install centreon-pack-applications-netbackup-ssh
 
 With that backend, you do not have to validate the target server fingerprint manually.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## How to check in the CLI that the configuration is OK and what are the main options for ?
 

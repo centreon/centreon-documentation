@@ -2,6 +2,9 @@
 id: applications-gorgone-restapi
 title: Gorgone Restapi
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -16,22 +19,23 @@ Gorgone daemon is a lightweight, distributed, modular tasks handler (https://git
 
 ### Monitored metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Events-->
+<Tabs groupId="sync">
+<TabItem value="Events" label="Events">
 
 | Metric name             | Description                                                                            |
 | :---------------------- | :------------------------------------------------------------------------------------- |
 | path.events.total.count | By instances. e.g. `internal` `external`. Number of events on a path                   |
 | event.total.count       | By instances. e.g. `internal~pong`, `internal~command`, ... Number of a specific event |
 
-<!--Nodes-->
+</TabItem>
+<TabItem value="Nodes" label="Nodes">
 
 | Metric name                         | Description                                                             |
 | :---------------------------------- | :-----------------------------------------------------------------------|
 | node.ping.received.lasttime.seconds | By instances (`node_id`'). Time since last ping response. Unit: seconds |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -58,9 +62,8 @@ modules:
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor Gorgone ressources:
 
@@ -70,7 +73,8 @@ yum install centreon-plugin-Applications-Gorgone-Restapi
 
 2. On the Centreon Web interface, install the 'Gorgone Rest API' Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor Gorgone ressources:
 
@@ -86,7 +90,8 @@ yum install centreon-pack-applications-gorgone-restapi.noarch
 
 3. On the Centreon Web interface, install the 'Gorgone Rest API' Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

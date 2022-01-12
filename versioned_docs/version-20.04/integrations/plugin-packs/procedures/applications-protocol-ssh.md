@@ -2,6 +2,9 @@
 id: applications-protocol-ssh
 title: Protocol SSH
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -19,9 +22,8 @@ time of a SSH server login.
 
 ### Collected metrics & status
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Ssh-Login-->
+<Tabs groupId="sync">
+<TabItem value="Ssh-Login" label="Ssh-Login">
 
 | Metric name           | Description         | Unit       |
 |:----------------------|:--------------------|:-----------|
@@ -29,7 +31,8 @@ time of a SSH server login.
 | response.time.seconds | Login response time | seconds    |
 
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -39,9 +42,8 @@ the mandatory Host Macros must be properly configured. More info in the
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor a SSH server:
 
@@ -51,7 +53,8 @@ yum install centreon-plugin-Applications-Protocol-Ssh
 
 2. On the Centreon Web interface, install the *Protocol SSH* Centreon Plugin Pack on the "Configuration > Plugin Packs" page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor a SSH server:
 
@@ -67,7 +70,8 @@ yum install centreon-pack-applications-protocol-ssh
 
 3. On the Centreon Web interface, install the *Protocol SSH* Centreon Plugin Pack on the "Configuration > Plugin Packs" page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
