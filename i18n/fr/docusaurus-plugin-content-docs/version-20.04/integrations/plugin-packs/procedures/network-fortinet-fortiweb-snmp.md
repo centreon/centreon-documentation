@@ -2,6 +2,9 @@
 id: network-fortinet-fortiweb-snmp
 title: Fortinet FortiWeb SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Contenu du Plugin Pack
 
@@ -14,21 +17,20 @@ Le Plugin Pack Fortinet FortiWeb SNMP collecte les données pour:
 
 ### Règles de découvertes
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Services-->
+<Tabs groupId="sync">
+<TabItem value="Services" label="Services">
 
 | Nom de la règle                             | Description                                                                                  |
 | :------------------------------------------ | :------------------------------------------------------------------------------------------- |
 | Net-Fortinet-Fortiweb-SNMP-Interface-Name   | Découvre les interfaces réseaux et supervise le statut et l'utilisation de la bande passante |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Interfaces-->
+<Tabs groupId="sync">
+<TabItem value="Interfaces" label="Interfaces">
 
 | Metric name                                            | Description                                         | Unit |
 | :----------------------------------------------------- | :-------------------------------------------------- | :--- |
@@ -40,7 +42,8 @@ Le Plugin Pack Fortinet FortiWeb SNMP collecte les données pour:
 
 A regexp filter is available to target a specific interface identifier - ifName [```--interface='^eth0$' --name```]
 
-<!--Proxy-->
+</TabItem>
+<TabItem value="Proxy" label="Proxy">
 
 | Metric name                 | Description                   | Unit |
 | :-------------------------- | :---------------------------- | :--- |
@@ -48,7 +51,8 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | proxy.connections.persecond | Average number of connections |      |
 | proxy.services.count        | Number of services            |      |
 
-<!--System-->
+</TabItem>
+<TabItem value="System" label="System">
 
 | Metric name                     | Description              | Unit |
 | :------------------------------ | :----------------------- | :--- |
@@ -57,7 +61,8 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | memory.usage.percentage         | Memory usage             | %    |
 | disk.log.space.usage.percentage | Log disk usage           | %    |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -67,9 +72,8 @@ Le flux SNMP UDP/161 doit être ouvert entre le Collecteur et l'équipement.
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -79,7 +83,8 @@ yum install centreon-plugin-Network-Fortinet-Fortiweb-Snmp
 
 2. Sur l'interface Web de Centreon, installer le Pack *Fortinet FortiWeb SNMP* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -95,7 +100,8 @@ yum install centreon-pack-network-fortinet-fortiweb-snmp
 
 3. Sur l'interface Web de Centreon, installer le Pack *Fortinet FortiWeb SNMP* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

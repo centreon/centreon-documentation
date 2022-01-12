@@ -2,6 +2,8 @@
 id: operatingsystems-as400-connector
 title: IBM AS400 Connector
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 > Hello community! We're looking for a contributor to help us to translate this 
 content in french. If it's you, let us know and ping us on [slack](https://centreon.slack.com)
@@ -37,15 +39,15 @@ It brings the following Service Templates:
 
 ### Collected metrics & status
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Command-->
+<Tabs groupId="sync">
+<TabItem value="Command" label="Command">
 
 | Metric name | Description                                  |
 |:------------|:---------------------------------------------|
 | status      | Status of the remote command (failed or not) |
 
-<!--Disks-->
+</TabItem>
+<TabItem value="Disks" label="Disks">
 
 * Global
 
@@ -66,7 +68,8 @@ It brings the following Service Templates:
 | disk.space.usage.percentage | %    |
 | disk.space.reserved.bytes   | B    |
 
-<!--Job-Queues-->
+</TabItem>
+<TabItem value="Job-Queues" label="Job-Queues">
 
 * Global
 
@@ -83,26 +86,30 @@ It brings the following Service Templates:
 | jobqueue.jobs.scheduled.count | count |
 | jobqueue.jobs.held.count      | count |
 
-<!--Jobs-->
+</TabItem>
+<TabItem value="Jobs" label="Jobs">
 
 | Metric name      | Unit  |
 |:-----------------|:------|
 | jobs.total.count | count |
 
-<!--Message-Queue-->
+</TabItem>
+<TabItem value="Message-Queue" label="Message-Queue">
 
 | Metric name       | Unit  |
 |:------------------|:------|
 | mq.messages.count | count |
 
-<!--Page-Faults-->
+</TabItem>
+<TabItem value="Page-Faults" label="Page-Faults">
 
 | Metric name                             | Unit |
 |:----------------------------------------|:-----|
 | pagefaults.database.ratio.percentage    | %    |
 | pagefaults.nondatabase.ratio.percentage | %    |
 
-<!--SubSystem-->
+</TabItem>
+<TabItem value="SubSystem" label="SubSystem">
 
 * Global
 
@@ -117,7 +124,8 @@ It brings the following Service Templates:
 | status                      |       |
 | subsystem.jobs.active.count | count |
 
-<!--System-->
+</TabItem>
+<TabItem value="System" label="System">
 
 * *CPU*
 
@@ -140,7 +148,8 @@ It brings the following Service Templates:
 | system.batch_jobs.running.count | count |
 | system.batch_jobs.waiting.count | count |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -157,9 +166,8 @@ A connector can act as a relay between several Hosts and several AS400 systems.
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor *AS400/iSeries* ressources:
 
@@ -169,7 +177,8 @@ yum install centreon-plugin-Operatingsystems-AS400-Connector
 
 2. On the Centreon Web interface, install the *IBM AS400 Connector* Centreon Plugin Pack on the **Configuration > Plugin Packs** page:
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor *AS400/iSeries* ressources:
 
@@ -179,13 +188,14 @@ yum install centreon-plugin-Operatingsystems-AS400-Connector
 
 2. Install the *IBM AS400 Connector* Centreon Plugin Pack RPM on the Centreon Central server:
 
- ```bash
+```bash
 yum install centreon-pack-operatingsystems-as400-connector
 ```
 
 3. On the Centreon Web interface, install the *IBM AS400 Connector* Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

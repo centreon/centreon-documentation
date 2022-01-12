@@ -2,6 +2,9 @@
 id: operatingsystems-linux-snmp
 title: Linux SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -21,15 +24,15 @@ Tous les systèmes d'exploitation s'appuyant sur le noyau Linux sont supportés:
 
 ### Règles de découvertes
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Host-->
+<Tabs groupId="sync">
+<TabItem value="Host" label="Host">
 
 | Nom de la règle                            | Description                                                                 |
 | :----------------------------------------- | :-------------------------------------------------------------------------- |
 | App-Protocol-SNMP-HostDiscovery            |  Découvrez vos serveurs Linux en scannant les agents SNMP sur un sous-réseau donné            |
 
-<!--Services-->
+</TabItem>
+<TabItem value="Services" label="Services">
 
 | Nom de la règle                            | Description                                                                                  |
 | :----------------------------------------- | :------------------------------------------------------------------------------------------- |
@@ -38,7 +41,8 @@ Tous les systèmes d'exploitation s'appuyant sur le noyau Linux sont supportés:
 | OS-Linux-SNMP-Packet-Errors-Name           | Découvre les interfaces réseaux et supervise les paquets en erreurs                          |
 | OS-Linux-SNMP-Traffic-Name                 | Découvre les interfaces réseaux et supervise le statut et l'utilisation de la bande passante |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Métriques collectées
 
@@ -48,16 +52,16 @@ En plus des modes et des métriques détaillés ci-après, il est également pos
   *  TCP connection: Contrôle des connexions TCP en cours ainsi que leur statut (ESTABLISHED, ...)
   *  Uptime: Temps écoulé depuis le dernier redémarrage de l'équipement
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Cpu-->
+<Tabs groupId="sync">
+<TabItem value="Cpu" label="Cpu">
 
 | Metric name                        | Description                                   |
 | :--------------------------------- | :-------------------------------------------- |
 | cpu.utilization.percentage         | CPU utilization. Unit: %                      |
 | core.cpu.utilization.percentage    | CPU Core utilization. Units: %                |
 
-<!--Memory-->
+</TabItem>
+<TabItem value="Memory" label="Memory">
 
 | Metric name             | Description                                             |
 | :---------------------  | :------------------------------------------------------ |
@@ -68,7 +72,8 @@ En plus des modes et des métriques détaillés ci-après, il est également pos
 | memory.cached.bytes     | Cached Memory allocation. Unit : Bytes                  |
 | memory.shared.bytes     | Shared Memory allocation. Unit : Bytes                  |
 
-<!--Traffic-->
+</TabItem>
+<TabItem value="Traffic" label="Traffic">
 
 | Metric name                         | Description                                                      |
 | :---------------------------------- | :--------------------------------------------------------------- |
@@ -78,7 +83,8 @@ En plus des modes et des métriques détaillés ci-après, il est également pos
 
 Il est possible de filtrer sur le nom d'une interface en utilisant une REGEXP de la forme [```--interface='^ens160$' --name```]
 
-<!--Swap-->
+</TabItem>
+<TabItem value="Swap" label="Swap">
 
 | Metric name                 | Description                                      |
 | :-------------------------- | :----------------------------------------------- |
@@ -86,7 +92,8 @@ Il est possible de filtrer sur le nom d'une interface en utilisant une REGEXP de
 | swap.free.bytes             | Swap free Unit: Bytes                            |
 | swap.usage.percentage       | Swap usage Unit: %                               |
 
-<!--Load-->
+</TabItem>
+<TabItem value="Load" label="Load">
 
 | Metric name                 | Description                                        |
 | :-------------------------- | :------------------------------------------------- |
@@ -94,7 +101,8 @@ Il est possible de filtrer sur le nom d'une interface en utilisant une REGEXP de
 | load5                       | System load 5 minutes sample                       |
 | load15                      | System load 15 minutes sample                      |
 
-<!--Disk-IO-->
+</TabItem>
+<TabItem value="Disk-IO" label="Disk-IO">
 
 | Metric name                 | Description                                          |
 | :-------------------------- | :--------------------------------------------------- |
@@ -105,13 +113,15 @@ Il est possible de filtrer sur le nom d'une interface en utilisant une REGEXP de
 | disk\#read_iops              | Number or read operation on a device. Unit: iops    | 
 | disk\#write_iops             | Number or read operation on a device. Unit: iops    | 
 
-<!--Storage-->
+</TabItem>
+<TabItem value="Storage" label="Storage">
 
 | Metric name                            | Description                                   |
 | :------------------------------------- | :-------------------------------------------- |
 | partition\#storage.space.usage.bytes    | Used space on a disk partition. Unit: Bytes  |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -145,9 +155,8 @@ La communication doit être possible sur le port UDP 161 depuis le collecteur Ce
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des serveurs Linux:
 
@@ -157,7 +166,8 @@ yum install centreon-plugin-Operatingsystems-Linux-Snmp
 
 2. Installer le Plugin-Pack 'Linux SNMP' depuis la page "Configuration > Plugin packs > Manager" sur l'interface Web de Centreon.
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des serveurs Linux:
 
@@ -173,7 +183,8 @@ yum install centreon-pack-operatingsystems-linux-snmp
 
 3. Installer le Plugin-Pack 'Linux SNMP' depuis la page "Configuration > Plugin packs > Manager"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

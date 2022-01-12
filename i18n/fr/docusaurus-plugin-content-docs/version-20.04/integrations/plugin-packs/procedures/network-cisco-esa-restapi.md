@@ -2,6 +2,9 @@
 id: network-cisco-esa-restapi
 title: Cisco ESA Rest API
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Contenu du Pack
 
@@ -12,9 +15,8 @@ Le Pack Cisco ESA collecte les données pour:
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--System-->
+<Tabs groupId="sync">
+<TabItem value="System" label="System">
 
 | Metric name                                    | Description                      | Unit  |
 | :--------------------------------------------- | :------------------------------- | :---- |
@@ -26,7 +28,8 @@ Le Pack Cisco ESA collecte les données pour:
 | system.queue.messages.workqueue.current.count  | Number of messages in workqueue  |       |
 | system.queue.utilization.percentage            | Queue utilization                |       |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -34,9 +37,8 @@ Afin de contrôler votre équipement Cisco ESA, l'API Rest doit être configuré
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -46,7 +48,8 @@ yum install centreon-plugin-Network-Cisco-Esa-Restapi
 
 2. Sur l'interface Web de Centreon, installer le Pack *Cisco ESA Rest API* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -62,7 +65,8 @@ yum install centreon-pack-network-cisco-esa-restapi
 
 3. Sur l'interface Web de Centreon, installer le Pack *Cisco ESA Rest API* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

@@ -2,6 +2,9 @@
 id: sc-kafka-events
 title: Kafka Event Manager 
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 > Hello community! We're looking for a contributor to help us to translate the content in french and provide a sample execution command. If it's you, let us know and ping us on [slack](https://centreon.slack.com).
 
@@ -15,8 +18,8 @@ title: Kafka Event Manager
 
 ### Dependencies
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS 7/Redhat 7-->
+<Tabs groupId="sync">
+<TabItem value="CentOS 7/Redhat 7" label="CentOS 7/Redhat 7">
 
 Install **Epel** repository.
 
@@ -36,7 +39,8 @@ Install **luaffi**.
 luarocks install --server=https://luarocks.org/dev luaffi
 ```
 
-<!-- CentOS 8 -->
+</TabItem>
+<TabItem value="CentOS 8" label="CentOS 8">
 
 Install dnf plugins package.
 
@@ -68,7 +72,8 @@ Install **c-ffi**.
 luarocks install cffi-lua
 ```
 
-<!-- RedHat 8 -->
+</TabItem>
+<TabItem value="RedHat 8" label="RedHat 8">
 
 Install dnf plugins package.
 
@@ -100,7 +105,8 @@ Install **c-ffi**.
 luarocks install cffi-lua
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Lua modules
 

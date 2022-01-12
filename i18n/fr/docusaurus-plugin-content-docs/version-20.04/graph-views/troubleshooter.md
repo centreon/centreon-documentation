@@ -2,6 +2,9 @@
 id: troubleshooter
 title: Troubleshooter
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 This chapter describes common errors you might encounter while using
 Centreon MAP. Please read the questions and answers below before
@@ -50,39 +53,41 @@ Once you are sure your server is running, try to access its API through
 your web browser. Check the REST API used by the web interface as
 follows:
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--HTTP-->
+<Tabs groupId="sync">
+<TabItem value="HTTP" label="HTTP">
 
 ```shell
 http://<MAP_IP>:8080/centreon-studio/api/beta/actuator/health
 ```
 
-<!--HTTPS-->
+</TabItem>
+<TabItem value="HTTPS" label="HTTPS">
 
 ```shell
 https://<MAP_IP>:8443/centreon-studio/api/beta/actuator/health
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 You can also check the SOAP API used by the desktop client:
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--HTTP-->
+<Tabs groupId="sync">
+<TabItem value="HTTP" label="HTTP">
 
 ```shell
 http://<MAP_IP>:8080/centreon-studio/services
 ```
 
-<!--HTTPS-->
+</TabItem>
+<TabItem value="HTTPS" label="HTTPS">
 
 ```shell
 https://<MAP_IP>:8443/centreon-studio/services
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ![image](../assets/graph-views/server-api-soap.png)
 
@@ -256,21 +261,22 @@ this IP is not reachable by your desktop client (because both your
 Centreon MAP server and Centreon Central server are on a DMZ) you must
 specify a new one to your desktop client. To do so, edit the file:
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Windows-->
+<Tabs groupId="sync">
+<TabItem value="Windows" label="Windows">
 
 ```shell
 C:\Users\<YOUR_USERNAME>\AppData\Local\Centreon-Map4\Centreon-Map4.ini
 ```
 
-<!--Linux-->
+</TabItem>
+<TabItem value="Linux" label="Linux">
 
 ```shell
 /opt/centreon-map4-desktop-client/Centreon-Map4.ini
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 Add the following line at the end of the file on a new line, where
 `<CENTREON_URL>` is the URL with which you access the web interface of
@@ -339,21 +345,22 @@ is working hard, your desktop client requires more memory.
 
 To increase memory, edit the .ini file:
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Windows-->
+<Tabs groupId="sync">
+<TabItem value="Windows" label="Windows">
 
 ```shell
 C:\Users\<YOUR_USERNAME>\AppData\Local\Centreon-Map4\Centreon-Map4.ini
 ```
 
-<!--Linux-->
+</TabItem>
+<TabItem value="Linux" label="Linux">
 
 ```shell
 /opt/centreon-map4-desktop-client/Centreon-Map4.ini
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 And add the following line at the end of the file, on a new line:
 

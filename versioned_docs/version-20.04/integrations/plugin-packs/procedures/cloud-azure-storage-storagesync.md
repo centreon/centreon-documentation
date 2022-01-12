@@ -5,7 +5,6 @@ title: Azure Storage Sync
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 ## Overview
 
 By transforming a Windows Server into a quick cache, Azure Storage Sync service
@@ -252,6 +251,8 @@ in *AZURERESOURCE*
 | X         | AZURERESOURCE      | ID or name of the Storage Sync resource            |
 |           | AZURERESOURCEGROUP | Associated Resource Group if resource name is used |
 
+</TabItem>
+</Tabs>
 
 ## How to check in the CLI that the configuration is OK and what are the main options for ? 
 
@@ -275,14 +276,14 @@ command:
     --interval='PT5M' \
     --warning-item-errors='800'  \
     --critical-item-errors='900'
- ```
+```
 
- Expected command output is shown below:
+Expected command output is shown below:
 
 ```bash
 OK : Instance 'STO001ABCD' Statistic 'total'Files Synced: 546.00, Item errors: 3.00, Bytes synced: 246.00 |
 'STO001ABCD~storagesync.files.synced.count'=546;;;; 'STO001ABCD~storagesync.item.errors.count'=3;800;900;0; 'STO001ABCD~storagesync.bytes.synced.bytes'=246;;;0;
- ```
+```
 
 The command above checks the number of failed files synchronization of an Azure *Storage Sync* instance using the 'api' custom-mode
 (`--plugin=cloud::azure::network::cdn::plugin --mode=requests --custommode=api`).
@@ -313,9 +314,6 @@ the command:
     --plugin=cloud::azure::storage::storagesync::plugin  \
     --list-mode
 ```
-
-</TabItem>
-</Tabs>
 
 ### Troubleshooting
 

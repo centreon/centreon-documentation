@@ -2,6 +2,9 @@
 id: hardware-storage-purestorage-restapi
 title: Pure Storage
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -18,22 +21,24 @@ Il fournit un logiciel propriétaire de déduplication et de compression des don
 
 Plus d'informations dans la documentation officielle de l'API de Pure Storage : https://blog.purestorage.com/introducing-the-pure1-rest-api/
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Alarms-Global-->
+<Tabs groupId="sync">
+<TabItem value="Alarms-Global" label="Alarms-Global">
 
 | Nom de métrique    | Description                                                                                             |
 | :----------------- | :------------------------------------------------------------------------------------------------------ |
 | Category           | Nom de la catégorie.                                                                                    |
 | Status             | État des alertes. Unité : texte                                                                            |
 
-<!--Hardware-Global-->
+</TabItem>
+<TabItem value="Hardware-Global" label="Hardware-Global">
 
 | Nom de métrique    | Description                                                                                             |
 | :----------------- | :------------------------------------------------------------------------------------------------------ |
 | Component          | Nom du composant (entité ou température)                                                                |
 | Status             | Le statut des composants. Unité : texte                                                                 |
 
-<!--Volume-Usage-Global-->
+</TabItem>
+<TabItem value="Volume-Usage-Global" label="Volume-Usage-Global">
 
 | Nom de métrique    | Description                                                                                             |
 | :----------------- | :------------------------------------------------------------------------------------------------------ |
@@ -43,7 +48,8 @@ Plus d'informations dans la documentation officielle de l'API de Pure Storage : 
 | Data-Reduction     | La réduction des données du volume. Unité : count                                                       |
 | Total-Reduction    | La réduction totale du volume. Unité : count                                                            |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -56,9 +62,8 @@ Cet utilisateur doit avoir au moins un accès "en lecture seule" à la baie de s
  
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le code du connecteur sur l'ensemble des collecteurs supervisant des ressources de Pure Storage:
 
@@ -68,7 +73,8 @@ yum install centreon-plugin-Hardware-Storage-Purestorage-Restapi
 
 2. Installer le pack depuis la page "Configuration > Plugin packs > Manager":
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le code du connecteur sur l'ensemble des collecteurs supervisant des ressources de Pure Storage:
 
@@ -84,7 +90,8 @@ yum install centreon-pack-hardware-storage-purestorage-restapi
 
 3. Installer le pack depuis la page "Configuration > Plugin packs > Manager":
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

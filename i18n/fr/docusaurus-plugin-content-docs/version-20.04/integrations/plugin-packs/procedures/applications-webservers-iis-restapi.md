@@ -2,6 +2,9 @@
 id: applications-webservers-iis-restapi
 title: Microsoft IIS Server Restapi
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -16,8 +19,6 @@ Internet Information Services (IIS, anciennement Internet Information Server) es
 
 ### Règles de découverte
 
-<!--Services-->
-
 | Rule name                             | Description                                          |
 | :------------------------------------ | :--------------------------------------------------- |
 | App-IIS-Restapi-ApplicationPools-Name | Discover application pools hosted by your IIS server |
@@ -25,16 +26,16 @@ Internet Information Services (IIS, anciennement Internet Information Server) es
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--ApplicationPools-->
+<Tabs groupId="sync">
+<TabItem value="ApplicationPools" label="ApplicationPools">
 
 | Metric name                        | Description                                                               |
 | :--------------------------------- | :------------------------------------------------------------------------ |
 | status                             | Status of the application pool.                                           |
 | applicationpool.requests.persecond | Number of requests per second by application pools. Unit: requests/second |
 
-<!--Websites-->
+</TabItem>
+<TabItem value="Websites" label="Websites">
 
 | Metric name                         | Description                                                             |
 | :---------------------------------- | :---------------------------------------------------------------------- |
@@ -44,7 +45,8 @@ Internet Information Services (IIS, anciennement Internet Information Server) es
 | website.connections.current.count   | Nomber of current connections by website. Unit: count                   |
 | website.connections.total.persecond | Number of total connecions per second by website. Unit: requests/second |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -54,9 +56,8 @@ Pour utiliser ce Plugin-Pack, vous devez activer l'API Microsoft IIS Administrat
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources IIS :
 
@@ -66,7 +67,8 @@ yum install centreon-plugin-Applications-Webservers-Iis-Restapi
 
 2. Dans l'interface Centreon, installer le Plugin-Pack *Microsoft IIS Server Restapi* depuis la page "Configuration > Plugin Packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources IIS :
 
@@ -82,7 +84,8 @@ yum install centreon-pack-applications-webservers-iis-restapi.noarch
 
 3. Dans l'interface Centreon, installer le Plugin-Pack *Microsoft IIS Server Restapi* depuis la page "Configuration > Plugin Packs > Manager"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

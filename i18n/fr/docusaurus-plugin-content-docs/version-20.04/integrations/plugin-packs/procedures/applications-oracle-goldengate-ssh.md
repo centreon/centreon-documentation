@@ -2,6 +2,9 @@
 id: applications-oracle-goldengate-ssh
 title: Oracle GoldenGate SSH
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Contenu du Plugin-Pack
 
@@ -12,9 +15,8 @@ utilisant la commande GGSCI.
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Resources-->
+<Tabs groupId="sync">
+<TabItem value="Resources" label="Resources">
 
 | Metric name                                   | Description                     | Unit |
 | :-------------------------------------------- | :------------------------------ | :--- |
@@ -22,7 +24,8 @@ utilisant la commande GGSCI.
 | *processname*#process.lag.seconds             | processus lag at checkpoint     |      |
 | *processname*#process.time.checkpoint.seconds | processus time since checkpoint |      |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -31,9 +34,8 @@ doit avoir assez de privilèges pour executer la commande ```ggsci```.
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -43,7 +45,8 @@ yum install centreon-plugin-Applications-Oracle-Goldengate-Ssh
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Oracle GoldenGate SSH* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -59,7 +62,8 @@ yum install centreon-pack-applications-oracle-goldengate-ssh
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Oracle GoldenGate SSH* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -72,9 +76,8 @@ Une fois celui-ci configuré, certaines macros doivent être renseignées:
 |           | GGSHOME            | Directory of ```ggsci```                                                   |
 |           | ORACLEHOME         | Oracle home directory                                                      |
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--sshcli backend-->
+<Tabs groupId="sync">
+<TabItem value="sshcli backend" label="sshcli backend">
 
 | Mandatory   | Name            | Description                                                                                     |
 | :---------- | :-------------- | :---------------------------------------------------------------------------------------------- |
@@ -87,7 +90,8 @@ Une fois celui-ci configuré, certaines macros doivent être renseignées:
 > Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur centreon-engine du Collecteur
 et l'utilisateur applicatif créé sur le serveur distant. (Macro SSHUSERNAME).
 
-<!--plink backend-->
+</TabItem>
+<TabItem value="plink backend" label="plink backend">
 
 | Mandatory   | Name            | Description                                                                                     |
 | :---------- | :-------------- | :---------------------------------------------------------------------------------------------- | 
@@ -100,7 +104,8 @@ et l'utilisateur applicatif créé sur le serveur distant. (Macro SSHUSERNAME).
 > Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur centreon-engine du Collecteur
 et l'utilisateur applicatif créé sur le serveur distant. (Macro SSHUSERNAME).
 
-<!--libssh backend (par défaut)-->
+</TabItem>
+<TabItem value="libssh backend (par défaut)" label="libssh backend (par défaut)">
 
 | Mandatory   | Name            | Description                                                                                     |
 | :---------- | :-------------- | :---------------------------------------------------------------------------------------------- |
@@ -111,6 +116,9 @@ et l'utilisateur applicatif créé sur le serveur distant. (Macro SSHUSERNAME).
 |             | SSHEXTRAOPTIONS | Personnalisez-le avec le vôtre si nécessaire. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```      |
 
 Avec ce backend, vous n'avez pas à valider manuellement le fingerprint du serveur cible. 
+
+</TabItem>
+</Tabs>
 
 ## FAQ
 

@@ -2,6 +2,9 @@
 id: nagios-to-centreon
 title: Nagios Reader vers Centreon CLAPI
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 **Nagios Reader to Centreon CLAPI** est un projet libre et open source qui
 permet d'analyser une configuration Nagios contenue dans les fichiers CFG et de
@@ -20,16 +23,21 @@ Le script nécessite le module Perl-Nagios-Object pour lire les fichiers CFG.
 Pour installer ce dernier, exécutez les commandes suivantes sur votre serveur
 Nagios(R) :
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS-->
+<Tabs groupId="sync">
+<TabItem value="CentOS" label="CentOS">
+
 ```shell
 yum install perl-Module-Build
 ```
-<!--Debian-->
+
+</TabItem>
+<TabItem value="Debian" label="Debian">
+
 ```shell
 apt-get install libmodule-build-perl
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ```shell
 cd /tmp

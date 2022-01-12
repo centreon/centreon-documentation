@@ -2,6 +2,9 @@
 id: blockchain-parity-ethpoller-restapi
 title: Parity Ethpoller API
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -23,9 +26,8 @@ du réseaux au travers du comportement des noeuds observés.
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Tracking-->
+<Tabs groupId="sync">
+<TabItem value="Tracking" label="Tracking">
 
 | Metric name                               | Description                          | Unit |
 |:----------------------------------------- |:------------------------------------ | ---- |
@@ -33,7 +35,8 @@ du réseaux au travers du comportement des noeuds observés.
 | parity.tracking.mined.block.prct          | Percentage of block mined            |  %   |
 | parity.tracking.balance.changes.perminute | Number of balance changes per minute | wei  |
 
-<!--Stats-->
+</TabItem>
+<TabItem value="Stats" label="Stats">
 
 * Per *block*
 
@@ -43,7 +46,8 @@ du réseaux au travers du comportement des noeuds observés.
 | parity.stats.transaction.perminute | Number of transaction per minute |      |
 | parity.stats.fork.perminute        | Number of fork per minute        |      |
 
-<!--Disk-->
+</TabItem>
+<TabItem value="Disk" label="Disk">
 
 | Metric name                     | Description                   | Unit |
 |:--------------------------------|:------------------------------|:-----|
@@ -54,7 +58,8 @@ du réseaux au travers du comportement des noeuds observés.
 | eth.poller.disk.usage           |  Disk usage                   |  %   |
 | eth.poller.blockchain.directory |  Size of blockchain directory |  B   |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -66,9 +71,8 @@ configuré (par défaut: 8000).
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon interrogeant des ressources *Ethpoller API*:
 
@@ -78,7 +82,8 @@ yum install centreon-plugin-Blockchain-Parity-Ethpoller-Restapi
 
 2. Dans l'interface Web de Centreon, installer le Plugin Pack *Ethpoller API* depuis la page  `Configuration > Plugin Packs`.
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon interrogeant des ressources *Ethpoller API*:
 
@@ -88,13 +93,14 @@ yum install centreon-plugin-Blockchain-Parity-Ethpoller-Restapi
 
 2. Sur le serveur Central Centreon, installer le paquet RPM *Ethpoller API*:
 
- ```bash
+```bash
 yum install centreon-pack-blockchain-parity-ethpoller-restapi
 ```
 
 3. Dans l'interface Web de Centreon, installer le Plugin Pack *Ethpoller API* depuis la page  `Configuration > Plugin Packs`.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration d'un Hôte
 

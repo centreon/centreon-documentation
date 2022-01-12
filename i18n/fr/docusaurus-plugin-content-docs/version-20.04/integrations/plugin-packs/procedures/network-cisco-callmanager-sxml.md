@@ -2,6 +2,9 @@
 id: network-cisco-callmanager-sxml
 title: Cisco Call Manager SXML
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -18,24 +21,23 @@ En utilisant le SXML, ce Plugin-Pack Cisco Call Manager, supervise les alertes d
 Vous pouvez vous renseigner en détails sur les métriques présentées ci-après sur la documentation officielle 
 de Cisco Callmanager : https://www.cisco.com/c/en/us/support/docs/unified-communications/unified-communications-manager-callmanager/213291-real-time-monitoring-tool-alerts#anc8
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Alerts-->
+<Tabs groupId="sync">
+<TabItem value="Alerts" label="Alerts">
 
 | Metric name                      | Description                         | Unit  |
 | :------------------------------- | :---------------------------------- | :---- |
 | alerts.total.count               | Total number of alerts              | count |
 | severity-$alerts.severity.count  | Number of different severities      | count |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon supervisant des ressources Cisco Callmanager :
 
@@ -45,7 +47,8 @@ yum install centreon-plugin-Network-Cisco-Callmanager-Sxml.noarch
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Cisco Callmanager SXML* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon supervisant des ressources Cisco Callmanager :
 
@@ -61,7 +64,8 @@ yum install centreon-pack-network-cisco-callmanager-sxml.noarch
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Cisco Callmanager SXML* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

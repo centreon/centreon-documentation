@@ -2,6 +2,9 @@
 id: hardware-pdu-gude-epc-snmp
 title: Gude EPC PDU SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Contenu du Pack de supervision
 
@@ -13,21 +16,20 @@ Le Pack Gude Export Power Control collecte les données pour:
 
 ### Règles de découverte
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Services-->
+<Tabs groupId="sync">
+<TabItem value="Services" label="Services">
 
 | Nom de la règle                            | Description                                                |
 | :----------------------------------------- | :--------------------------------------------------------- |
 | HW-Pdu-Gude-Epc-SNMP-Sp-Power-Channel-Name | Découvre les ports unitaires et supervise leur utilisation |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Métriques collectées 
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Power-channels-->
+<Tabs groupId="sync">
+<TabItem value="Power-channels" label="Power-channels">
 
 | Metric name                                                                    | Description                                    | Unit  |
 | :----------------------------------------------------------------------------- | :--------------------------------------------- | :---- |
@@ -45,7 +47,8 @@ Le Pack Gude Export Power Control collecte les données pour:
 | *power\_channel\_name*\#pdu.interface.power_channel.power.reactive.voltampere  | L line mean reactive power                     | Var   |
 | *power\_channel\_name*\#pdu.interface.power_channel.voltage.volt               | Actual voltage                                 | V     |
 
-<!--Sp-power-channels-->
+</TabItem>
+<TabItem value="Sp-power-channels" label="Sp-power-channels">
 
 | Metric name                                                                        | Description                                    | Unit  |
 | :--------------------------------------------------------------------------------- | :--------------------------------------------- | :---- |
@@ -62,7 +65,8 @@ Le Pack Gude Export Power Control collecte les données pour:
 | *sp\_power\_channel\_name*\#pdu.interface.power_channel.power.reactive.voltampere  | L line mean reactive power                     | Var   |
 | *sp\_power\_channel\_name*\#pdu.interface.power_channel.voltage.volt               | Actual voltage                                 | V     |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -70,9 +74,8 @@ Afin de contrôler votre Gude Export Power Control, le SNMP doit être configur�
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -82,7 +85,8 @@ yum install centreon-plugin-Hardware-Pdu-Gude-Epc-Snmp
 
 2. Sur l'interface Web de Centreon, installer le Pack *Gude EPC PDU SNMP* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -98,7 +102,8 @@ yum install centreon-pack-hardware-pdu-gude-epc-snmp
 
 3. Sur l'interface Web de Centreon, installer le Pack *Gude EPC SNMP* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

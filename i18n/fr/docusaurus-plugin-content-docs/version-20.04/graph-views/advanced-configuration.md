@@ -2,6 +2,9 @@
 id: advanced-configuration
 title: Advanced configuration
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 This chapter describes advanced procedures for configuring your Centreon MAP
 system.
@@ -75,21 +78,22 @@ Important:
 3. Enter the Jolokia URL, accessible on the Centreon Map server, through
    actuator endpoint:
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--HTTP-->
+<Tabs groupId="sync">
+<TabItem value="HTTP" label="HTTP">
 
 ```shell
 http://<MAP_IP>:8080/centreon-studio/actuator/jolokia
 ```
 
-<!--HTTPS-->
+</TabItem>
+<TabItem value="HTTPS" label="HTTPS">
 
 ```shell
 https://<MAP_IP>:8443/centreon-studio/actuator/jolokia
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 > Replace \<MAP\_IP\> by the IP address of your Centreon MAP server.
 
@@ -107,21 +111,22 @@ monitored.
 You may also just check the access to the following URL that tells that
 the server is up or not:
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--HTTP-->
+<Tabs groupId="sync">
+<TabItem value="HTTP" label="HTTP">
 
 ```shell
 http://<MAP_IP>:8080/centreon-studio/api/beta/actuator/health.
 ```
 
-<!--HTTPS-->
+</TabItem>
+<TabItem value="HTTPS" label="HTTPS">
 
 ```shell
 https://<MAP_IP>:8443/centreon-studio/api/beta/actuator/health.
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Migrating your Centreon MAP server
 

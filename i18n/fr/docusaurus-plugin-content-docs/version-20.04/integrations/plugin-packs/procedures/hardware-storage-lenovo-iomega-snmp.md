@@ -2,6 +2,9 @@
 id: hardware-storage-lenovo-iomega-snmp
 title: Lenovo Iomega
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 	
 ## Contenu du Pack de supervision
 
@@ -16,29 +19,29 @@ Le Pack Lenovo Iomega collecte les données pour:
 
 ### Règles de découvertes
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Services-->
+<Tabs groupId="sync">
+<TabItem value="Services" label="Services">
 
 | Nom de la règle                              | Description                                                                                  |
 | :------------------------------------------- | :------------------------------------------------------------------------------------------- |
 | HW-Storage-Lenovo-Iomega-SNMP-Disk-Name      | Découvre les partitions et supervise l'utilisation disque                                    |
 | HW-Storage-Lenovo-Iomega-SNMP-Interface-Name | Découvre les interfaces réseaux et supervise le statut et l'utilisation de la bande passante |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Métriques collectées 
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Cpu-->
+<Tabs groupId="sync">
+<TabItem value="Cpu" label="Cpu">
 
 | Metric name                     | Description           | Unit |
 | :------------------------------ | :-------------------- | :--- |
 | cpu.utilization.percentage      | CPU utilization.      | %    |
 | core.cpu.utilization.percentage | CPU Core utilization. | %    |
 
-<!--Disks-->
+</TabItem>
+<TabItem value="Disks" label="Disks">
 
 | Metric name                                  | Description                     | Unit |
 | :------------------------------------------- | :------------------------------ | :--- |
@@ -46,7 +49,8 @@ Le Pack Lenovo Iomega collecte les données pour:
 | *partition\_name*\#storage.space.usage.bytes | Used space on a disk partition. | B    |
 | *partition\_name*\#storage.access            | Access disk partition.          |      |
 
-<!--Hardware-->
+</TabItem>
+<TabItem value="Hardware" label="Hardware">
 
 | Metric name                  | Description                          | Unit |
 | :--------------------------- | :----------------------------------- | :--- |
@@ -59,7 +63,8 @@ Le Pack Lenovo Iomega collecte les données pour:
 | hardware.temperature.celsius | temperature of the different sensors | C    |
 | hardware.voltage.millivolt   | Voltage of the different sensors     | mV   |
 
-<!--Interfaces-->
+</TabItem>
+<TabItem value="Interfaces" label="Interfaces">
 
 | Metric name                                                 | Description                                             | Unit |
 | :---------------------------------------------------------- | :------------------------------------------------------ | :--- |
@@ -71,7 +76,8 @@ Le Pack Lenovo Iomega collecte les données pour:
 | *interface\_name*\#interface.packets.out.error.percentage   | Outgoing errored packets going through the interface.   | %    |
 | *interface\_name*\#interface.packets.out.discard.percentage | Outgoing discarded packets going through the interface. | %    |
 
-<!--Memory-->
+</TabItem>
+<TabItem value="Memory" label="Memory">
 
 | Metric name             | Description                | Unit |
 | :---------------------- | :------------------------- | :--- |
@@ -81,7 +87,8 @@ Le Pack Lenovo Iomega collecte les données pour:
 | memory.buffer.bytes     | Buffer memory              | B    |
 | memory.cached.bytes     | Memory cached              | B    |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -91,9 +98,8 @@ http://download.lenovo.com/nasupdate/manuals/px2-300d/px2-300d-4.1-en.pdf#page=6
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -103,7 +109,8 @@ yum install centreon-plugin-Hardware-Storage-Lenovo-Iomega-Snmp
 
 2. Sur l'interface Web de Centreon, installer le Pack *Lenovo Iomega* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -119,7 +126,8 @@ yum install centreon-pack-hardware-storage-lenovo-iomega-snmp
 
 3. Sur l'interface Web de Centreon, installer le Pack *Lenovo Iomega* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

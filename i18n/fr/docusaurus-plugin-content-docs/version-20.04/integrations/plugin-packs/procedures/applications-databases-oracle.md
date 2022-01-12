@@ -2,6 +2,9 @@
 id: applications-databases-oracle
 title: Oracle Database
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 ##  Vue d'ensemble
 
 Oracle est un système de gestion de base de données fourni par Oracle Corporation.
@@ -16,65 +19,73 @@ Le Plugin Centreon associé *Oracle Database* permet d'interroger l'API Rest afi
 
 ### Métriques Collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Connection-Time-->
+<Tabs groupId="sync">
+<TabItem value="Connection-Time" label="Connection-Time">
 
 | Metric name         | Description                            | Unit   |
 | :------------------ | :------------------------------------- | :----- |
 | connection_time     | Connection time to the database        | ms     |
 
-<!--Tnsping-->
+</TabItem>
+<TabItem value="Tnsping" label="Tnsping">
 
 | Metric name | Description                                | Unit |
 | :---------- | :----------------------------------------- | :--- |
 | status      | Check Oracle listener status               |      |
 
-<!--Tablespace-Usage-->
+</TabItem>
+<TabItem value="Tablespace-Usage" label="Tablespace-Usage">
 
 | Metric name           | Description                                     | Unit |
 | :-------------------- | :-----------------------------------------------| :--- |
 |  tbs_#instance_usage  | Tablespace usage per Instance                   |   B  |
 |  tbs_#instance_free   | Tablespace free space left per instance         |   B  |
 
-<!--Session-Usage-->
+</TabItem>
+<TabItem value="Session-Usage" label="Session-Usage">
 
 | Metric name      | Description                                                       | Unit |
 | :--------------- | :---------------------------------------------------------------- | :--- |
 | session_used     | The percentage of Oracle session used                             |   %  |
 
-<!--Rman-Backup-Problems-->
+</TabItem>
+<TabItem value="Rman-Backup-Problems" label="Rman-Backup-Problems">
 
 | Metric name		   | Description                                                         | Unit   |
 | :----------------------- | :------------------------------------------------------------------ | :----  |
 |  #backup_backup_problems | Number of problems per backup (last 3 days by default)              | Count  |
 
-<!--Process-Usage-->
+</TabItem>
+<TabItem value="Process-Usage" label="Process-Usage">
 
 | Metric name      | Description                                                       | Unit |
 | :--------------- | :---------------------------------------------------------------- | :--- |
 | process_used     | The percentage of Oracle process used                             |   %  |
 
-<!--Datacache-Hitratio-->
+</TabItem>
+<TabItem value="Datacache-Hitratio" label="Datacache-Hitratio">
 
 | Metric name               | Description                                          | Unit |
 | :------------------------ | :--------------------------------------------------- | :--- |
 | sga_data_buffer_hit_ratio | Check the 'Data Buffer Cache Hit Ratio' of the server|  %   |
 
-<!--Corrupted-Blocks-->
+</TabItem>
+<TabItem value="Corrupted-Blocks" label="Corrupted-Blocks">
 
 | Metric name         | Description                                          | Unit   |
 | :------------------ | :----------------------------------------------------| :----- |
 | corrupted_blocks    | The number of corrupted blocks in the database       | Count  |
 
-<!--Connection-Number-->
+</TabItem>
+<TabItem value="Connection-Number" label="Connection-Number">
 
 | Metric name       | Description                                     | Unit   |
 | :---------------- | :-----------------------------------------------| :----- |
 | connected_users   | The number of connection to the Oracle server   | Count  |
 
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -177,9 +188,8 @@ Ce compte utilisateur doit avoir la permission de lecture sur les tables suivant
   
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant une base de données Oracle :
 
@@ -189,7 +199,8 @@ yum install centreon-plugin-Applications-Databases-Oracle
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Oracle Database* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant une base de données Oracle :
 
@@ -205,7 +216,8 @@ yum install centreon-pack-applications-databases-oracle
 
 3.  Sur l'interface Web de Centreon, installer le Plugin-Pack *Oracle Database* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

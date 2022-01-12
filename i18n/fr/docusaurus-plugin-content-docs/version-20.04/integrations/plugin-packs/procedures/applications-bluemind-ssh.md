@@ -2,6 +2,9 @@
 id: applications-bluemind-ssh
 title: BlueMind SSH
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -23,8 +26,8 @@ utilisant JavaScript et HTML5.
 Au delà des métriques présentés ci-après, un référentiel est disponible dans la documentation
 officielle : https://forge.bluemind.net/confluence/display/BM35/Reference+des+metriques
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Core-->
+<Tabs groupId="sync">
+<TabItem value="Core" label="Core">
 
 | Metric name                              | Description                                                     |
 | :--------------------------------------- | :-------------------------------------------------------------- |
@@ -35,7 +38,8 @@ officielle : https://forge.bluemind.net/confluence/display/BM35/Reference+des+me
 | core.request.handling.total.milliseconds | Total of core request handling. Unit: ms                        |                                            
 | core.request.handling.mean.milliseconds  | Mean of core request handling. Unit: ms                         |                                          
 
-<!--Eas-->
+</TabItem>
+<TabItem value="Eas" label="Eas">
 
 | Metric name                              | Description                                          |
 | :--------------------------------------- | :--------------------------------------------------- |
@@ -43,7 +47,8 @@ officielle : https://forge.bluemind.net/confluence/display/BM35/Reference+des+me
 | eas.execution.total.milliseconds         | Total eas execution. Unit: ms                        |
 | eas.execution.mean.milliseconds          | Mean eas execution. Unit: ms                         |
 
-<!--Hps-->
+</TabItem>
+<TabItem value="Hps" label="Hps">
 
 | Metric name                                  | Description                                          |
 | :------------------------------------------- | :--------------------------------------------------- |
@@ -56,13 +61,15 @@ officielle : https://forge.bluemind.net/confluence/display/BM35/Reference+des+me
 | hps.upstream.requests.size.total.bytes       | By instances. e.g. /login /webmail ... Unit: ms      |
 | hps.upstream.requests.total.count            | By instances. e.g. /login /webmail ... Unit: ms      |
 
-<!--Ips-->
+</TabItem>
+<TabItem value="Ips" label="Ips">
 
 | Metric name                              | Description                                          |
 | :--------------------------------------- | :--------------------------------------------------- |
 | ips.connections.active.count             | Number of ips connections active. Unit: Count        |
 
-<!--Webserver-->
+</TabItem>
+<TabItem value="Webserver" label="Webserver">
 
 | Metric name                                | Description                                                       |
 | :----------------------------------------- | :---------------------------------------------------------------- |
@@ -72,14 +79,16 @@ officielle : https://forge.bluemind.net/confluence/display/BM35/Reference+des+me
 | webserver.requests.status.200.count        | Number of requests status webserver whith code 200. Unit: Count   |
 | webserver.requests.status.304.count        | Number of requests status webserver whith code 304. Unit: Count   |
 
-<!--Xmpp-->
+</TabItem>
+<TabItem value="Xmpp" label="Xmpp">
 
 | Metric name                              | Description                                          |
 | :--------------------------------------- | :--------------------------------------------------- |
 | xmpp.packets.all.count                   | Number of all xmpp packets. Unit: Count              |
 | xmpp.packets.chat.count                  | Number of chat xmpp packets. Unit: Count             |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -100,9 +109,8 @@ bm-core.heartbeat.broadcast,state=core.state.stopping,meterType=Counter count=2
 
 ## Installation 
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le Plugin sur l'ensemble des Collecteurs Centreon supervisant des serveurs BlueMind :
 
@@ -112,7 +120,8 @@ yum install centreon-plugin-Applications-Bluemind-Ssh
 
 Installer le Plugin-Pack 'BlueMind SSH' depuis la page "Configuration > Plugin packs > Manager" sur l'interface Web de Centreon.
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur l'ensemble des Collecteurs Centreon supervisant des serveurs BlueMind :
 
@@ -128,7 +137,8 @@ yum install centreon-pack-applications-bluemind-ssh
 
 3. Installer le Plugin-Pack 'BlueMind' depuis la page "Configuration > Plugin packs > Manager" sur l'interface Web de Centreon.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -137,9 +147,8 @@ Vous pouvez choisir entre 3 backends SSH pour vous connecter sur votre serveur B
 Ajoutez un nouvel Hôte dans Centreon, appliquez le Modèle d'Hôte ```App-Bluemind-SSH```. 
 Une fois le modèle choisi, vous devez définir des valeurs en fonction du backend ssh. 
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--sshcli backend-->
+<Tabs groupId="sync">
+<TabItem value="sshcli backend" label="sshcli backend">
 
 | Mandatory   | Name            | Description                                                                                     |
 | :---------- | :-------------- | :---------------------------------------------------------------------------------------------- |
@@ -152,7 +161,8 @@ Une fois le modèle choisi, vous devez définir des valeurs en fonction du backe
 > :warning: Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur centreon-engine du Collecteur
 et l'utilisateur applicatif créé sur le serveur BlueMind. (Macro SSHUSERNAME).
 
-<!--plink backend-->
+</TabItem>
+<TabItem value="plink backend" label="plink backend">
 
 | Mandatory   | Name            | Description                                                                                        |
 | :---------- | :-------------- | :------------------------------------------------------------------------------------------------- | 
@@ -165,7 +175,8 @@ et l'utilisateur applicatif créé sur le serveur BlueMind. (Macro SSHUSERNAME).
 > :warning: Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur centreon-engine du Collecteur
 et l'utilisateur applicatif créé sur le serveur BlueMind. (Macro SSHUSERNAME).
 
-<!--libssh backend-->
+</TabItem>
+<TabItem value="libssh backend" label="libssh backend">
 
 | Mandatory   | Name            | Description                                                                                        |
 | :---------- | :-------------- | :------------------------------------------------------------------------------------------------- |
@@ -177,7 +188,8 @@ et l'utilisateur applicatif créé sur le serveur BlueMind. (Macro SSHUSERNAME).
 
 Avec ce backend, vous n'avez pas à valider manuellement le fingerprint du serveur cible. Sympa :)
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## FAQ
 
