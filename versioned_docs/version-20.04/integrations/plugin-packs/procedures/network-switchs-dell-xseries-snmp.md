@@ -2,9 +2,6 @@
 id: network-switchs-dell-xseries-snmp
 title: Dell Xseries
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Overview
 
@@ -19,8 +16,8 @@ for small and medium businesses.
 
 ## Monitored metrics 
 
-<Tabs groupId="sync">
-<TabItem value="Cpu" label="Cpu">
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Cpu-->
 
 | Metric Name                              | Description            | Unit  |
 | :--------------------------------------- | :--------------------- | :---- |
@@ -28,8 +25,7 @@ for small and medium businesses.
 | cpu.utilization.1m.percentage            | CPU usage on 1m.       |   %   |
 | cpu.utilization.5m.percentage            | CPU usage on 5m.       |   %   |
 
-</TabItem>
-<TabItem value="Interfaces" label="Interfaces">
+<!--Interfaces-->
 
 | Metric name                              | Description                                             | Unit   |
 |:-----------------------------------------|:--------------------------------------------------------|:-------|
@@ -41,15 +37,13 @@ for small and medium businesses.
 | interface.packets.out.error.percentage   | Outgoing errored packets going through the interface.   | %      |
 | interface.packets.out.discard.percentage | Outgoing discarded packets going through the interface. | %      |
 
-</TabItem>
-<TabItem value="Uptime" label="Uptime">
+<!--Uptime-->
 
 | Metric name | Description                                | Unit |
 | :---------- | :----------------------------------------- | :--: |
 | uptime      | Elapsed time since last reboot             |   s  |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Prerequisites
 
@@ -63,8 +57,9 @@ The Centreon Poller should be able to reach the UDP/161 SNMP port of the Dell Xs
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Plugin on every Poller expected to monitor *Dell Xseries* resources:
 
@@ -74,8 +69,7 @@ yum install centreon-plugin-Network-Dell-Xseries-Snmp
 
 2. Install the *Dell Xseries* Centreon Plugin-Pack from the "Configuration > Plugin packs > Manager" page
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Plugin on every Poller expected to monitor *Dell Xseries* resources:
 
@@ -91,8 +85,7 @@ yum install centreon-pack-network-switch-dell-xseries-snmp
 
 3. Install the *Dell Xseries* Centreon Pack from the "Configuration > Plugin packs > Manager" page
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

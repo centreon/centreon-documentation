@@ -2,9 +2,6 @@
 id: cloud-cadvisor-api
 title: cAdvisor API
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Overview
 
@@ -41,8 +38,9 @@ découverte de Service de Centreon. Voici un résumé des règles disponibles:
 
 ### Métriques collectées
 
-<Tabs groupId="sync">
-<TabItem value="ContainerUsage" label="ContainerUsage">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Container-Usage-->
 
 | Metric name                                                        | Description                    | Unit   |
 | :------------------------------------------------------------------| :----------------------------- | :----- |
@@ -58,8 +56,7 @@ découverte de Service de Centreon. Voici un résumé des règles disponibles:
 By default, the --use-name flag will instance the metric with the <container_name>. 
 If you want to use the <container_id> instead, remove it from the EXTRAOPTIONS macro at the Service Template level.
 
-</TabItem>
-<TabItem value="ContainerDiskIO" label="ContainerDiskIO">
+<!--Container-Disk-IO-->
 
 | Metric name                                                   | Description                      | Unit   |
 | :-------------------------------------------------------------| :------------------------------- | :----- |
@@ -69,8 +66,7 @@ If you want to use the <container_id> instead, remove it from the EXTRAOPTIONS m
 By default, the --use-name flag will instance the metric with the <container_name>. 
 If you want to use the <container_id> instead, remove it from the EXTRAOPTIONS macro at the Service Template level.
 
-</TabItem>
-<TabItem value="ContainerTraffic" label="ContainerTraffic">
+<!--Container-Traffic-->
 
 | Metric name                                                            | Description                      | Unit   |
 | :----------------------------------------------------------------------| :------------------------------- | :----- |
@@ -80,8 +76,7 @@ If you want to use the <container_id> instead, remove it from the EXTRAOPTIONS m
 By default, the --use-name flag will instance the metric with the <container_name>. 
 If you want to use the <container_id> instead, remove it from the EXTRAOPTIONS macro at the Service Template level.
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -97,8 +92,9 @@ du port TCP/8080. Attention, selon la configuration le port peut être différen
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon allant superviser des containers via cAdvisor:
 
@@ -108,8 +104,7 @@ yum install centreon-plugin-Cloud-cAdvisor-Api
 
 2. Dans l'interface de Centreon, installer le Plugin Pack *cAdvisor API* depuis la page `Configuration > Plugin Packs > Manager`
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des containers via cAdvisor:
 
@@ -125,8 +120,7 @@ yum install centreon-pack-cloud-cadvisor-api
 
 3. Dans l'interface de Centreon, installer le Plugin Pack *cAdvisor API* depuis la page `Configuration > Plugin Packs > Manager`
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Configuration de l'hôte
 

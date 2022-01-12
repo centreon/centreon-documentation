@@ -2,9 +2,6 @@
 id: applications-oracle-goldengate-ssh
 title: Oracle GoldenGate SSH
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Plugin-Pack Assets
 
@@ -14,8 +11,9 @@ The Plugin-Pack includes monitoring of status and lags of Oracle GG Processes th
 
 ### Collected Metrics
 
-<Tabs groupId="sync">
-<TabItem value="Processes" label="Processes">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Processes-->
 
 | Metric name                                   | Description                     | Unit |
 | :-------------------------------------------- | :------------------------------ | :--- |
@@ -23,8 +21,7 @@ The Plugin-Pack includes monitoring of status and lags of Oracle GG Processes th
 | *processname*#process.lag.seconds             | processus lag at checkpoint     |      |
 | *processname*#process.time.checkpoint.seconds | processus time since checkpoint |      |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -32,8 +29,9 @@ The centreon-engine user performs a SSH connection to a remote system user. This
 
 ## Setup
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -43,8 +41,7 @@ yum install centreon-plugin-Applications-Oracle-Goldengate-Ssh
 
 2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Oracle GoldenGate SSH* Plugin-Pack
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -60,8 +57,7 @@ yum install centreon-pack-applications-oracle-goldengate-ssh
 
 3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Oracle GoldenGate SSH* Plugin-Pack
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
@@ -76,8 +72,9 @@ yum install centreon-pack-applications-oracle-goldengate-ssh
 
 > 3 SSH backends are available to connect to the remote server: *sshcli*, *plink* and *libssh* which are detailed below.
 
-<Tabs groupId="sync">
-<TabItem value="sshcli backend" label="sshcli backend">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--sshcli backend-->
 
 | Mandatory   | Name            | Description                                                                                 |
 | :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
@@ -89,8 +86,7 @@ yum install centreon-pack-applications-oracle-goldengate-ssh
 
 > With that backend, you have to validate the target server fingerprint manually (with the SSHUSERNAME used).
 
-</TabItem>
-<TabItem value="plink backend" label="plink backend">
+<!--plink backend-->
 
 | Mandatory   | Name            | Description                                                                                 |
 | :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
@@ -102,8 +98,7 @@ yum install centreon-pack-applications-oracle-goldengate-ssh
 
 > With that backend, you have to validate the target server fingerprint manually (with the SSHUSERNAME used).
 
-</TabItem>
-<TabItem value="libssh backend (default)" label="libssh backend (default)">
+<!--libssh backend (default)-->
 
 | Mandatory   | Name            | Description                                                                                 |
 | :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
@@ -115,8 +110,7 @@ yum install centreon-pack-applications-oracle-goldengate-ssh
 
 With that backend, you do not have to validate the target server fingerprint manually.
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## FAQ
 

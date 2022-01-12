@@ -2,9 +2,6 @@
 id: network-fortinet-fortiauthenticator-snmp
 title: Fortinet FortiAuthenticator SNMP
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Vue d'ensemble
 
@@ -18,15 +15,16 @@ et métriques relatives aux équipements FortiAuthenticator.
 
 ### Objets supervisés
 
-- _Appliances_ et machines virtuelles FortiAuthenticator
+* *Appliances* et machines virtuelles FortiAuthenticator
 
 ### Métriques collectées
 
-<Tabs groupId="sync">
-<TabItem value="Authenticator" label="Authenticator">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Authenticator-->
 
 | Metric name                                     | Description                                  | Unit |
-| :---------------------------------------------- | :------------------------------------------- | :--- |
+|:------------------------------------------------|:---------------------------------------------|:-----|
 | authenticator.authentication.events.persecond   | Number of authentication events per second   |      |
 | authenticator.authentication.failures.persecond | Number of authentication failures per second |      |
 | authenticator.groups.count                      | Total number of user groups                  |      |
@@ -36,52 +34,46 @@ et métriques relatives aux équipements FortiAuthenticator.
 | authenticator.users.count                       | Total number of local users                  |      |
 | authenticator.users.percentage                  | Percentage of users usage                    | %    |
 
-</TabItem>
-<TabItem value="Cpu" label="Cpu">
+<!--Cpu-->
 
-| Metric name                | Description                  | Unit |
-| :------------------------- | :--------------------------- | :--- |
-| cpu.utilization.percentage | Current CPU usage percentage | %    |
+| Metric name                 | Description                  | Unit  |
+| :-------------------------- | :--------------------------- | :---- |
+| cpu.utilization.percentage  | Current CPU usage percentage |   %   |
 
-</TabItem>
-<TabItem value="DiskLog" label="DiskLog">
+<!--Disk-Log-->
 
 | Metric name                     | Description                                       | Unit |
-| :------------------------------ | :------------------------------------------------ | :--- |
+|:--------------------------------|:--------------------------------------------------|:-----|
 | disk.log.space.usage.percentage | Percentage of used space on the device's log disk | %    |
 
-</TabItem>
-<TabItem value="Ha" label="Ha">
+<!--Ha-->
 
 | Metric name | Description                                     |
-| :---------- | :---------------------------------------------- |
+|:------------|:------------------------------------------------|
 | ha-status   | Current status of the high-availability feature |
 
-</TabItem>
-<TabItem value="Interfaces" label="Interfaces">
+<!--Interfaces-->
 
-- Per interface
+* Per interface
 
-| Metric name                                           | Description                                         | Unit |
-| :---------------------------------------------------- | :-------------------------------------------------- | :--- |
-| status                                                | Status of the interface                             |      |
-| _interface_name_\#interface.traffic.in.bitspersecond  | Incoming traffic going through the interface.       | b/s  |
-| _interface_name_\#interface.traffic.in.percentage     | Percentage of the interface's _in_ bandwidth usage  | %    |
-| _interface_name_\#interface.traffic.out.bitspersecond | Outgoing traffic going through the interface.       | b/s  |
-| _interface_name_\#interface.traffic.out.percentage    | Percentage of the interface's _out_ bandwidth usage | %    |
+| Metric name                                            | Description                                         | Unit |
+|:-------------------------------------------------------|:----------------------------------------------------|:-----|
+| status                                                 | Status of the interface                             |      |
+| *interface\_name*\#interface.traffic.in.bitspersecond  | Incoming traffic going through the interface.       | b/s  |
+| *interface\_name*\#interface.traffic.in.percentage     | Percentage of the interface's *in* bandwidth usage  | %    |
+| *interface\_name*\#interface.traffic.out.bitspersecond | Outgoing traffic going through the interface.       | b/s  |
+| *interface\_name*\#interface.traffic.out.percentage    | Percentage of the interface's *out* bandwidth usage | %    |
 
 Vous pouvez restreindre ce contrôle sur une interface donnée en spécifiant le nom de l'interface à superviser
-(par exemple `--interface='^eth0$'`) conjointement avec le paramètre `--name`.
+(par exemple ```--interface='^eth0$'```) conjointement avec le paramètre ```--name```.
 
-</TabItem>
-<TabItem value="Memory" label="Memory">
+<!--Memory-->
 
-| Metric name             | Description                               | Unit |
-| :---------------------- | :---------------------------------------- | :--- |
-| memory.usage.percentage | Percentage of memory usage on the device. | %    |
+| Metric name             | Description                               | Unit  |
+| :---------------------  | :---------------------------------------- | :---- |
+| memory.usage.percentage | Percentage of memory usage on the device. |   %   |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -89,14 +81,15 @@ Vous pouvez restreindre ce contrôle sur une interface donnée en spécifiant le
 
 Sur l'équipement FortiAuthenticator, configurez et activez l'agent SNMP en suivant ces étapes:
 
-- Connectez-vous à l'interface Web d'administration de l'équipement
-- Dans le menu, sélectionnez _System > Administration > SNMP_
-- Configurez les paramètres SNMP en spécifiant la version et la communauté à utiliser
+* Connectez-vous à l'interface Web d'administration de l'équipement
+* Dans le menu, sélectionnez *System > Administration > SNMP*
+* Configurez les paramètres SNMP en spécifiant la version et la communauté à utiliser
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur chaque collecteur Centreon devant superviser des équipements FortiAuthenticator:
 
@@ -104,11 +97,10 @@ Sur l'équipement FortiAuthenticator, configurez et activez l'agent SNMP en suiv
 yum install centreon-plugin-Network-Fortinet-Fortiauthenticator-Snmp
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack _Fortinet Fortiauthenticator SNMP_
-   depuis la page "Configuration > Plugin Packs > Gestionnaire"
+2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Fortinet Fortiauthenticator SNMP*
+depuis la page "Configuration > Plugin Packs > Gestionnaire"
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur chaque collecteur Centreon devant superviser des équipements FortiAuthenticator:
 
@@ -122,31 +114,28 @@ yum install centreon-plugin-Network-Fortinet-Fortiauthenticator-Snmp
 yum install centreon-pack-network-fortinet-fortiauthenticator-snmp
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin-Pack _Fortinet Fortiauthenticator SNMP_
-   depuis la page "Configuration > Plugin Packs > Gestionnaire"
-
-</TabItem>
-</Tabs>
+3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Fortinet Fortiauthenticator SNMP*
+depuis la page "Configuration > Plugin Packs > Gestionnaire"
 
 ## Configuration
 
-- Ajoutez un nouvel Hôte depuis la page "Configuration > Hôtes"
-- Complétez les champs _Adresse IP/DNS_, _Communauté SNMP_ et _Version SNMP_
-- Appliquez le Modèle d'Hôte _Net-Fortinet-Fortiauthenticator-SNMP-Custom_
+* Ajoutez un nouvel Hôte depuis la page "Configuration > Hôtes"
+* Complétez les champs *Adresse IP/DNS*, *Communauté SNMP* et *Version SNMP*
+* Appliquez le Modèle d'Hôte *Net-Fortinet-Fortiauthenticator-SNMP-Custom*
 
-> Si vous utilisez la version 3 du protocole SNMP, utilisez la Macro _SNMPEXTRAOPTIONS_ afin de renseigner les paramètres
+> Si vous utilisez la version 3 du protocole SNMP, utilisez la Macro *SNMPEXTRAOPTIONS* afin de renseigner les paramètres
 > d'authentification et de chiffrement adéquats
 
-| Mandatory | Name             | Description        |
-| :-------- | :--------------- | :----------------- |
-|           | SNMPEXTRAOPTIONS | Extra options SNMP |
+| Mandatory   | Name                    | Description                       |
+| :---------- | :---------------------- | :---------------------------------|
+|             | SNMPEXTRAOPTIONS        | Extra options SNMP                |
 
 ## FAQ
 
 ### Comment puis-je tester le Plugin et que signifient les options des commandes ?
 
 Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande
-depuis un collecteur Centreon en vous connectant avec l'utilisateur _centreon-engine_:
+depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-engine*:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_fortinet_fortiauthenticator_snmp.pl \
@@ -176,15 +165,17 @@ checking authenticator
     authentication events: 0/s, failures: 0/s
 ```
 
-Dans cet exemple, le Plugin récupère les statistiques d'authentification d'un équipement FortiAuthenticator (`--plugin=network::fortinet::fortiauthenticator::snmp::plugin --mode=authenticator`) identifié par l'adresse IP _10.0.0.1_ (`--hostname=10.0.0.1`). Les paramètres de communauté et de version SNMP (`--snmp-version='2c' --snmp-community='mysnmpcommunity'`)
+Dans cet exemple, le Plugin récupère les statistiques d'authentification d'un équipement FortiAuthenticator (```--plugin=network::fortinet::fortiauthenticator::snmp::plugin
+--mode=authenticator```) identifié par l'adresse IP *10.0.0.1* (```--hostname=10.0.0.1```). Les paramètres de communauté et de version SNMP (```--snmp-version='2c' --snmp-community='mysnmpcommunity'```)
 correspondants sont renseignés afin de pouvoir joindre l'équipement.
 
-Une alarme WARNING sera ainsi déclenchée si le nombre de sessions utilisateur en cours est supérieur à 80% (`--warning-users-usage-prct='80'`) des capacités
-de l'équipement; l'alarme sera de type CRITICAL au delà de 90% de sessions utilisées (`--critical-users-usage-prct='90'`).
-De la même manière, des alarmes WARNING & CRITICAL seront déclenchées en cas de dépassement des seuils fixés du nombre d'authentifications erronées par seconde (`--warning-authentication-failures='50' --critical-authentication-failures='100'`).
+Une alarme WARNING sera ainsi déclenchée si le nombre de sessions utilisateur en cours est supérieur à 80% (```--warning-users-usage-prct='80'```) des capacités
+de l'équipement; l'alarme sera de type CRITICAL au delà de 90% de sessions utilisées (```--critical-users-usage-prct='90'```).
+De la même manière, des alarmes WARNING & CRITICAL seront déclenchées en cas de dépassement des seuils fixés du nombre d'authentifications erronées par seconde (```--warning-authentication-failures='50'
+--critical-authentication-failures='100'```).
 
 Pour chaque mode, la liste de toutes les métriques, seuils associés et options complémentaires peut être affichée
-en ajoutant le paramètre `--help` à la commande:
+en ajoutant le paramètre ```--help``` à la commande:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_fortinet_fortiauthenticator_snmp.pl --plugin=network::fortinet::fortiauthenticator::snmp::plugin --mode=authenticator --help
@@ -200,6 +191,5 @@ ou que la communauté SNMP configurée n'est pas correcte. Il est également pos
 #### UNKNOWN: SNMP GET Request : Cant get a single value.
 
 Les causes de cette erreur peuvent être les suivantes:
-
-- cet équipement ne supporte ou n'embarque pas la MIB utilisée par ce mode
-- les autorisations données à l'utilisateur en SNMP sont trop restreintes.
+  * cet équipement ne supporte ou n'embarque pas la MIB utilisée par ce mode
+  * les autorisations données à l'utilisateur en SNMP sont trop restreintes.

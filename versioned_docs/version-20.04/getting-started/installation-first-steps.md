@@ -2,9 +2,6 @@
 id: installation-first-steps
 title: Installation & first steps
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 Hello & Welcome! We are excited to help you begin your Centreon journey.
 
@@ -46,21 +43,20 @@ You can install Centreon:
 
 The virtual machines are available on the [Centreon download web site](https://download.centreon.com).
 
-<Tabs groupId="sync">
-<TabItem value="VMware environment" label="VMware environment">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--VMware environment-->
 \
 Go to to **File > Deploy OVF Template** and select the **OVA file**. Since the menu selections are actually linked to
 your specific VMWare configuration, we are unable to provide more information. Be advised that best practice is to use
 the **Thin Provision** option to save as much free space as possible on the disk.
 
-</TabItem>
-<TabItem value="Oracle Virtualbox" label="Oracle Virtualbox">
+<!--Oracle Virtualbox-->
 \
 Extract the contents of the archive and double-click on the **OVF file**. Follow the instructions to import the virtual
 machine.
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 Once your virtual machine is imported, you will need to **add a network card**. Edit the settings of the virtual machine and
 a network card. Select the correct associated network to access to Internet.

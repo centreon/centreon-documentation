@@ -2,9 +2,6 @@
 id: applications-webservers-nginx-serverstatus
 title: Nginx Server
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Vue d'ensemble
 
@@ -18,8 +15,9 @@ Nginx est un serveur web open-source aussi utilisé comme reverse proxy, cache H
 
 ### Métriques collectées
 
-<Tabs groupId="sync">
-<TabItem value="Requests" label="Requests">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Requests-->
 
 | Metric name                               | Description                    | Unit               |
 | :---------------------------------------- | :----------------------------- | :----------------- |
@@ -29,8 +27,7 @@ Nginx est un serveur web open-source aussi utilisé comme reverse proxy, cache H
 | server.requests.persecond                 | Number of requests             | Requests/second    |
 
 
-</TabItem>
-<TabItem value="Connections" label="Connections">
+<!--Connections-->
 
 | Metric name                        | Description                       | Unit  |
 | :--------------------------------- | :-------------------------------- | :---- |
@@ -39,8 +36,7 @@ Nginx est un serveur web open-source aussi utilisé comme reverse proxy, cache H
 | server.connections.writing.count   | The number of writing connections | Count |
 | server.connections.reading.count   | The number of reading connections | Count |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -83,8 +79,9 @@ Accéder à l'url suivante pour contrôler le résultat :
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des serveurs Nginx:
 
@@ -94,8 +91,7 @@ yum install centreon-plugin-Applications-Webservers-Nginx-Serverstatus
 
 2. Sur l'interface Web de Centreon, installer le Plugin Pack *Nginx Server* depuis la page "Configuration > Plugin Packs > Manager"
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des serveurs Nginx:
 
@@ -111,8 +107,7 @@ yum install centreon-pack-applications-webservers-nginx-serverstatus
 
 3. Sur l'interface Web de Centreon, installer le Plugin Pack *Nginx Server* depuis la page "Configuration > Plugin Packs > Manager"
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 
 ## Configuration

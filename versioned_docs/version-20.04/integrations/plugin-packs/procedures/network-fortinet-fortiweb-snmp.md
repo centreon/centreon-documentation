@@ -2,9 +2,6 @@
 id: network-fortinet-fortiweb-snmp
 title: Fortinet FortiWeb SNMP
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Plugin Pack Assets
 
@@ -17,20 +14,21 @@ The Plugin Pack Fortinet FortiWeb SNMP collects metrics for:
 
 ### Discovery rules
 
-<Tabs groupId="sync">
-<TabItem value="Services" label="Services">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Services-->
 
 | Rule name                                 | Description                                                           |
 | :---------------------------------------- | :-------------------------------------------------------------------- |
 | Net-Fortinet-Fortiweb-SNMP-Interface-Name | Discover network interfaces and monitor bandwidth utilization         |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Collected Metrics
 
-<Tabs groupId="sync">
-<TabItem value="Interfaces" label="Interfaces">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Interfaces-->
 
 | Metric name                                            | Description                                         | Unit |
 | :----------------------------------------------------- | :-------------------------------------------------- | :--- |
@@ -42,8 +40,7 @@ The Plugin Pack Fortinet FortiWeb SNMP collects metrics for:
 
 A regexp filter is available to target a specific interface identifier - ifName [```--interface='^eth0$' --name```]
 
-</TabItem>
-<TabItem value="Proxy" label="Proxy">
+<!--Proxy-->
 
 | Metric name                 | Description                   | Unit |
 | :-------------------------- | :---------------------------- | :--- |
@@ -51,8 +48,7 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | proxy.connections.persecond | Average number of connections |      |
 | proxy.services.count        | Number of services            |      |
 
-</TabItem>
-<TabItem value="System" label="System">
+<!--System-->
 
 | Metric name                     | Description              | Unit |
 | :------------------------------ | :----------------------- | :--- |
@@ -61,8 +57,7 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | memory.usage.percentage         | Memory usage             | %    |
 | disk.log.space.usage.percentage | Log disk usage           | %    |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -71,8 +66,9 @@ The Poller should be able to perform SNMP requests toward the Fortinet device ov
 
 ## Setup
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -82,8 +78,7 @@ yum install centreon-plugin-Network-Fortinet-Fortiweb-Snmp
 
 2. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *Fortinet FortiWeb SNMP* Pack
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -99,8 +94,7 @@ yum install centreon-pack-network-fortinet-fortiweb-snmp
 
 3. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *Fortinet FortiWeb SNMP* Pack
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Host configuration
 

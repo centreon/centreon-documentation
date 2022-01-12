@@ -2,9 +2,6 @@
 id: cloud-aws-cloudwatchlogs
 title: Amazon CloudWatch Logs
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Vue d'ensemble
 
@@ -26,15 +23,14 @@ les archiver en toute sécurité à des fins d’analyse ultérieure.
 
 ### Données collectées
 
-<Tabs groupId="sync">
-<TabItem value="GetLogs" label="GetLogs">
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Get-Logs-->
 
 | Metric name | Description                                                                                                               |
 |:------------|:--------------------------------------------------------------------------------------------------------------------------|
 | Logs        | Refer to any log entry that match filters. Threshold are String on top of %{message}, %{stream\_name}, %{since} variables |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -54,22 +50,21 @@ Le SDK est recommandé car plus performant.
 
 Installez le binaire choisi en lançant l'une des commandes suivantes:
 
-<Tabs groupId="sync">
-<TabItem value="perlPawsinstallation" label="perlPawsinstallation">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--perl-Paws-installation-->
 
 ```bash
 yum install perl-Paws
 ```
 
-</TabItem>
-<TabItem value="awscliinstallation" label="awscliinstallation">
+<!--aws-cli-installation-->
 
 ```bash
 yum install awscli
 ```
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 > **Attention** il n'est actuellement **pas** possible d'utiliser *paws* dans les cas suivants:
 > * si la connexion s'effectue au travers d'un proxy.
@@ -77,8 +72,9 @@ yum install awscli
 
 ## Installation 
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser la ressource Amazon CloudWatch Logs:
 
@@ -88,8 +84,7 @@ yum install centreon-plugin-Cloud-Aws-CloudWatchLogs-Api
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Amazon CloudWatch Logs* depuis la page "Configuration > Plugin Packs > Manager"
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser la ressource Amazon CloudWatch Logs:
 
@@ -105,8 +100,7 @@ yum install centreon-pack-cloud-aws-cloudwatchlogs
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Amazon CloudWatch Logs* depuis la page "Configuration > Plugin Packs > Manager"
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
@@ -124,6 +118,7 @@ yum install centreon-pack-cloud-aws-cloudwatchlogs
 |             | DUMMYSTATUS     | Host state. Default is OK, do not modify it unless you know what you are doing              |
 |             | DUMMYOUTPUT     | Host check output. Default is 'This is a dummy check'. Customize it with your own if needed |
 
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## FAQ
 

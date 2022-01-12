@@ -2,9 +2,6 @@
 id: applications-hashicorp-vault-restapi
 title: HashiCorp Vault Rest API
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Overview
 
@@ -23,16 +20,16 @@ The Plugin Pack Centreon HashiCorp Vault relies on the Vault Rest API to collect
 
 ### Collected metrics & status
 
-<Tabs groupId="sync">
-<TabItem value="Health" label="Health">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Health-->
 
 | Status Name | Description                       |
 |:------------|:----------------------------------|
 | seal-status | Seal status of the node           |
 | init-status | Initialization status of the node |
 
-</TabItem>
-<TabItem value="RaftStorage" label="RaftStorage">
+<!--Raft-Storage-->
 
 | Metric Name                                        | Description                                | Unit |
 |:---------------------------------------------------|:-------------------------------------------|:-----|
@@ -41,8 +38,7 @@ The Plugin Pack Centreon HashiCorp Vault relies on the Vault Rest API to collect
 | *db_name*#vault.raftstorage.rebalance_time.seconds | Average rebalance_time                     | s    |
 | *db_name*#vault.raftstorage.write_time.seconds     | Average write time                         | s    |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -66,8 +62,9 @@ https://www.vaultproject.io/api-docs/auth .
 
 ## Setup 
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor HashiCorp Vault Rest API resources:
 
@@ -77,8 +74,7 @@ yum install centreon-plugin-Applications-HashiCorp-Vault-Restapi
 
 2. On the Centreon Web interface, install the *HashiCorp Vault Rest API* Centreon Pack on the "Configuration > Plugin Packs > Manager" page
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor HashiCorp Vault Rest API resources:
 
@@ -94,8 +90,7 @@ yum install centreon-pack-applications-hashicorp-vault-restapi.noarch
 
 3. On the Centreon Web interface, install the *HashiCorp Vault Rest API* Centreon Pack on the "Configuration > Plugin Packs > Manager" page
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

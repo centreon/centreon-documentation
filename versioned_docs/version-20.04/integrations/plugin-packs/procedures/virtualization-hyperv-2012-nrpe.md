@@ -2,9 +2,6 @@
 id: virtualization-hyperv-2012-nrpe
 title: Hyper-V 2012 NSClient++ NRPE
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Overview
 
@@ -31,10 +28,9 @@ To monitor *HyperV* components through NRPE, install the Centreon packaged versi
 of the NSClient++ agent. Please follow our [official documentation](../tutorials/centreon-nsclient-tutorial) 
 and make sure that the **NRPE Server** configuration is correct.
 
-## Installation
+## Installation 
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon NRPE Client package on every Poller expected to monitor *Varnish*:
 
@@ -45,8 +41,7 @@ yum install centreon-nrpe-plugin
 2. On the Centreon Web interface, install the Centreon Pack *Varnish* 
 from the **Configuration > Plugin Packs > Manager** page
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin package on every Poller expected to monitor *Varnish*:
 
@@ -63,8 +58,7 @@ yum install centreon-pack-virtualization-hyperv-2012-nrpe
 3. On the Centreon Web interface, install the Centreon Pack *Varnish* 
 from the **Configuration > Plugin Packs > Manager** page
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Host configuration
 

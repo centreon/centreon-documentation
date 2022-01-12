@@ -2,9 +2,6 @@
 id: applications-exchange-nsclient-restapi
 title: Exchange NSClient++ API
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Overview
 
@@ -37,8 +34,9 @@ on the target Server.
 
 ## Installation 
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon NRPE Client package on every Poller expected to monitor *Microsoft Exchange servers*:
 
@@ -49,8 +47,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 2. On the Centreon Web interface, install the Centreon Plugin-Pack *Exchange NSClient API* 
 from the **Configuration > Plugin Packs > Manager** page
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin package on every Poller expected to monitor *Microsoft Exchange*:
 
@@ -67,8 +64,7 @@ yum install centreon-pack-applications-exchange-nsclient-restapi
 3. On the Centreon Web interface, install the Centreon Plugin-Pack *Exchange NSClient API* 
 from the **Configuration > Plugin Packs > Manager** page
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Host configuration
 

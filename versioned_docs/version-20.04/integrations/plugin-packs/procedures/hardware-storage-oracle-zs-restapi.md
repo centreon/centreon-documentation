@@ -2,9 +2,6 @@
 id: hardware-storage-oracle-zs-restapi
 title: Oracle ZS Rest API
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Pack Assets
 
@@ -16,8 +13,9 @@ The Pack Oracle ZS collects metrics for:
 
 ### Collected Metrics
 
-<Tabs groupId="sync">
-<TabItem value="Hardware" label="Hardware">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Hardware-->
 
 | Metric name         | Description        | Unit  |
 | :------------------ | :----------------- | :---- |
@@ -29,8 +27,7 @@ The Pack Oracle ZS collects metrics for:
 | power supply status | Power supply state |       |
 | slot status         | Slot state         |       |
 
-</TabItem>
-<TabItem value="Pools" label="Pools">
+<!--Pools-->
 
 | Metric name                              | Description               | Unit  |
 | :--------------------------------------- | :------------------------ | :---- |
@@ -39,8 +36,7 @@ The Pack Oracle ZS collects metrics for:
 | *pool\_name*#pool.space.free.bytes       | Free space                | B     |
 | *pool\_name*#pool.space.usage.percentage | Space usage in percentage | %     |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -49,8 +45,9 @@ E.g: https://docs.oracle.com/cd/E79446_01/html/E79460/index
 
 ## Setup
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -60,8 +57,7 @@ yum install centreon-plugin-Hardware-Storage-Oracle-Zs-Restapi
 
 2. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *Oracle ZS Rest API* Pack
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -77,8 +73,7 @@ yum install centreon-pack-hardware-storage-oracle-zs-restapi
 
 3. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *Oracle ZS Rest API* Pack
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Host configuration
 

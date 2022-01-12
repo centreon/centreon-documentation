@@ -2,9 +2,6 @@
 id: hardware-servers-supermicro-bmc-snmp
 title: Supermicro BMC SNMP
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Pack Assets
 
@@ -15,16 +12,16 @@ The Pack Supermicro collects metrics for:
 
 ### Collected Metrics
 
-<Tabs groupId="sync">
-<TabItem value="Sensors" label="Sensors">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Sensors-->
 
 | Metric name                                   | Description          | Unit  |
 | :-------------------------------------------- | :------------------- | :---- |
 | sensor status                                 | Status of the sensor |       |
 | *sensor\_name*\#hardware.sensor.reading.count | Sensor reading value |       |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -33,8 +30,9 @@ The Poller should be able to perform SNMP requests toward the Lenovo device over
 
 ## Setup
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -44,8 +42,7 @@ yum install centreon-plugin-Hardware-Servers-Supermicro-Bmc-Snmp
 
 2. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *Supermicro BMC SNMP* Pack
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -61,8 +58,7 @@ yum install centreon-pack-hardware-servers-supermicro-bmc-snmp
 
 3. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *Supermicro BMC SNMP* Pack
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Host configuration
 

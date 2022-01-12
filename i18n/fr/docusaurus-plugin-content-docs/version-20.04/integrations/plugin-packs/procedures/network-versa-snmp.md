@@ -2,9 +2,6 @@
 id: network-versa-snmp
 title: Versa SNMP
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Vue d'ensemble
 
@@ -24,8 +21,9 @@ et des métriques relatives aux équipements Versa Networks
 
 ### Règles de découverte
 
-<Tabs groupId="sync">
-<TabItem value="Services" label="Services">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Services-->
 
 | Nom de la règle                   | Description                                                                                  |
 |:--------------------------------- |:-------------------------------------------------------------------------------------------- |
@@ -34,21 +32,20 @@ et des métriques relatives aux équipements Versa Networks
 | Net-Versa-SNMP-Traffic-Name       | Découvre les interfaces réseaux et supervise le statut et l'utilisation de la bande passante |
 | Net-Versa-SNMP-Packet-Errors-Name | Découvre les interfaces réseaux et supervise les paquets en erreurs                          |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Métriques collectées
 
-<Tabs groupId="sync">
-<TabItem value="BgpPeers" label="BgpPeers">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Bgp-Peers-->
 
 | Metric name              | Description         | Unit |
 |:------------------------ |:------------------- |:---- |
 | status                   | Status of the peers |      |
 | peer.update.last.seconds | Last update by peer | s    |
 
-</TabItem>
-<TabItem value="Devices" label="Devices">
+<!--Devices-->
 
 | Metric name                       | Description                                 | Unit  |
 |:--------------------------------- | :------------------------------------------ |:----- |
@@ -59,8 +56,7 @@ et des métriques relatives aux équipements Versa Networks
 | device.sessions.failed.count      | Number of failed sessions on the device     | Count |
 | device.sessions.failed.percentage | Percentage of failed sessions on the device | %     |
 
-</TabItem>
-<TabItem value="Interfaces" label="Interfaces">
+<!--Interfaces-->
 
 | Metric name                               | Description                                            | Unit |
 |:----------------------------------------- |:------------------------------------------------------ |:---- |
@@ -72,8 +68,7 @@ et des métriques relatives aux équipements Versa Networks
 | interface.packets.in.discards.percentage  | Incoming discarded packets going through the interface | %    |
 | interface.packets.out.discards.percentage | Outgoing discarded packets going through the interface | %    |
 
-</TabItem>
-<TabItem value="Ipsec" label="Ipsec">
+<!--Ipsec-->
 
 | Metric name                      | Description                                        | Unit  |
 |:-------------------------------- |:-------------------------------------------------- |:----- |
@@ -84,8 +79,7 @@ et des métriques relatives aux équipements Versa Networks
 | ipsec.packets.invalid.count      | Number of invalid packets through the IPsec tunnel | Count |
 | ipsec.ike.disconnected.count     | number of IKE disconnect by IPsec tunnel           | Count |
 
-</TabItem>
-<TabItem value="QosPolicy" label="QosPolicy">
+<!--Qos-Policy-->
 
 * Par QoS policy
 
@@ -108,8 +102,7 @@ et des métriques relatives aux équipements Versa Networks
 | appqos.policy.packets.forwarded.count          | Number of packets forwarded by Application Qos Policy | Count |
 | appqos.policy.traffic.forwarded.bytespersecond | Traffic forwarded by QoS Policy                       | B/s   |
 
-</TabItem>
-<TabItem value="Sdwan" label="Sdwan">
+<!--Sdwan-->
 
 | Metric name                             | Description                                     | Unit  |
 |:--------------------------------------- |:----------------------------------------------- |:----- |
@@ -119,8 +112,7 @@ et des métriques relatives aux équipements Versa Networks
 | sdwan.policy.packets.out.count          | Number of outgoing packets by SDWAN policy      | Count |
 | sdwan.policy.traffic.out.bytespersecond | Outcoming traffic going through by SDWAN Policy | B/s   |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -134,8 +126,9 @@ La communication doit être possible sur le port UDP 161 depuis le collecteur Ce
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur chaque collecteur Centreon devant superviser des équipements
 Versa Networks :
@@ -147,8 +140,7 @@ yum install centreon-plugin-Network-Versa-Snmp
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Versa SNMP* 
 depuis la page "Configuration > Plugin Packs > Gestionnaire" 
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur chaque collecteur Centreon devant superviser des équipements
 Versa Networks :
@@ -166,8 +158,7 @@ yum install centreon-pack-network-versa-snmp
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Versa SNMP*
 depuis la page "Configuration > Plugin Packs > Gestionnaire" 
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

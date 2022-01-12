@@ -2,9 +2,6 @@
 id: applications-gorgone-restapi
 title: Gorgone Restapi
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Vue d'ensemble
 
@@ -18,23 +15,22 @@ Le démon Gorgone est un gestionnaire de tâche en mode distribué (https://gith
 
 ### Métriques collectées
 
-<Tabs groupId="sync">
-<TabItem value="Events" label="Events">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Events-->
 
 | Metric name             | Description                                                                            |
 | :---------------------- | :------------------------------------------------------------------------------------- |
 | path.events.total.count | By instances. e.g. `internal` `external`. Number of events on a path                   |
 | event.total.count       | By instances. e.g. `internal~pong`, `internal~command`, ... Number of a specific event |
 
-</TabItem>
-<TabItem value="Nodes" label="Nodes">
+<!--Nodes-->
 
 | Metric name                         | Description                                                            |
 | :---------------------------------- | :----------------------------------------------------------------------|
 | node.ping.received.lasttime.seconds | By instances (`node_id`). Time since last ping response. Unit: seconds |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -60,8 +56,9 @@ modules:
 
 ## Setup
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur les Poller supervisant des instances de Gorgone:
 
@@ -71,8 +68,7 @@ yum install centreon-plugin-Applications-Gorgone-Restapi
 
 2. Dans l'interface Centreon, rendez-vous dans le menu "Configuration > Plugin Packs > Gestionnaire" et installer le Plugin-Pack 'Gorgone Rest API'
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur les Poller supervisant des instances de Gorgone:
 
@@ -88,8 +84,7 @@ yum install centreon-pack-applications-gorgone-restapi.noarch
 
 3. Dans l'interface Centreon, rendez-vous dans le menu "Configuration > Plugin Packs > Gestionnaire" et installer le Plugin-Pack 'Gorgone Rest API'
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

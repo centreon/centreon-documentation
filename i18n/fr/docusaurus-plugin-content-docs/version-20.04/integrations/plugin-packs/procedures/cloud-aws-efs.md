@@ -2,9 +2,6 @@
 id: cloud-aws-efs
 title: Amazon EFS
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Vue d'ensemble
 
@@ -18,34 +15,31 @@ Amazon Elastic File System (Amazon EFS) est un système de stockage de fichiers 
 
 ### Règles de découvertes
 
-<Tabs groupId="sync">
-<TabItem value="Hosts" label="Hosts">
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Hosts-->
 
 | Rule name                             | Description                                                   |
 | :------------------------------------ | :------------------------------------------------------------ |
 | Cloud-Aws-Efs-Api-HostDiscovery       | Discover File Systems from your Cloudwatch endpoint           |
 
-</TabItem>
-<TabItem value="Services" label="Services">
+<!--Services-->
 
 Pas de règles de découverte de service pour ce pack 
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Métriques collectées
 
 Vous pouvez vous renseigner en détails sur les métriques présentées ci-après sur la documentation officiel du service EFS: https://docs.aws.amazon.com/efs/latest/ug/monitoring-cloudwatch
 
-<Tabs groupId="sync">
-<TabItem value="Connections" label="Connections">
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Connections-->
 
 | Metric name         | Description                                                     |
 | :------------------ | :-------------------------------------------------------------- |
 | ClientConnections   | The number of client connections to a file system. Unit: Count  |
 
-</TabItem>
-<TabItem value="Data Usage" label="Data Usage">
+<!--Data Usage-->
 
 | Metric name        | Description                                                                                                                                                                                |
 | :----------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -55,8 +49,7 @@ Vous pouvez vous renseigner en détails sur les métriques présentées ci-aprè
 | TotalIOBytes       | The number of bytes for each file system operation, including data read, data write, and metadata operations. Unit: Bytes                                                                  |
 | BurstCreditBalance | The number of burst credits that a file system has. Burst credits allow a file system to burst to throughput levels above a file system’s baseline level for periods of time. Unit: Bytes  |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -74,27 +67,27 @@ Voici la liste des droits nécessaires au travers des access/secret key utilisé
 
 Afin de récupérer les informations nécessaires via les APIs AWS, il est possible d'utiliser soit le binaire *awscli*, soit le SDK perl Paws. Le SDK est recommandé car plus performant. **Attention** il n'est pas possible d'utiliser perl-Paws si vous passez pas un proxy.
 
-<Tabs groupId="sync">
-<TabItem value="perlPawsinstallation" label="perlPawsinstallation">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--perl-Paws-installation-->
 
 ```bash
 yum install perl-Paws
 ```
 
-</TabItem>
-<TabItem value="awscliinstallation" label="awscliinstallation">
+<!--aws-cli-installation-->
 
 ```bash
 yum install awscli
 ```
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources AWS/EFS:
 
@@ -104,8 +97,7 @@ yum install centreon-plugin-Cloud-Aws-Efs-Api
 
 2. Dans l'interface Centreon, installer le Plugin-Pack 'Amazon EFS' depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources AWS/EFS:
 
@@ -121,8 +113,7 @@ yum install centreon-pack-cloud-aws-efs.noarch
 
 3. Dans l'interface Web de Centreon, installer le Plugin-Pack 'Amazon EFS' depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

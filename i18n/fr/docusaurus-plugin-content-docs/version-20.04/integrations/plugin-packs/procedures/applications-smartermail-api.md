@@ -2,9 +2,6 @@
 id: applications-smartermail-api
 title: Smartermail Server
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Vue d'ensemble
 
@@ -23,21 +20,20 @@ de la solution au travers de son API.
 
 ### Métriques collectées
 
-<Tabs groupId="sync">
-<TabItem value="Licenses" label="Licenses">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Licenses-->
 
 | Metric name                                    | Description                                | Unit   |
 | :--------------------------------------------- | :----------------------------------------- | :----- |
 | license.upgrade.protection.expires.days.count  | Number of days before license expiration   | Count  |
 
-</TabItem>
-<TabItem value="Services" label="Services">
+<!--Services-->
 
 Aucune métrique remontée, le Mode contrôle que les Services utilisées sont bien dans un état 
 *running*
 
-</TabItem>
-<TabItem value="Spools" label="Spools">
+<!--Spools-->
 
 | Metric name                        | Description                       | Unit   |
 | :--------------------------------- | :-------------------------------- | :----- |
@@ -45,8 +41,7 @@ Aucune métrique remontée, le Mode contrôle que les Services utilisées sont b
 
 Il est possible de filtrer sur le nom du *Spool* grâce à l'option `--filter-spool`. 
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis 
 
@@ -59,8 +54,9 @@ protocole HTTPS.
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur les Collecteurs utilisés pour superviser le serveur SmarterMail:
 
@@ -71,8 +67,7 @@ yum install centreon-plugin-Applications-Smartermail-Api
 2. Dans l'interface web Centreon, utiliser le menu "Configuration > Plugin Packs > Gestionnaire de Plugin Pack"
 pour installer le Plugin Pack *Smartermail Server* 
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur les Collecteurs utilisés pour superviser le serveur SmarterMail:
 
@@ -89,8 +84,7 @@ yum install centreon-pack-smartermail-api
 3. Dans l'interface web Centreon, utiliser le menu "Configuration > Plugin Packs > Gestionnaire de Plugin Pack"
 pour installer le Plugin Pack *Smartermail Server* 
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Centreon Configuration
 

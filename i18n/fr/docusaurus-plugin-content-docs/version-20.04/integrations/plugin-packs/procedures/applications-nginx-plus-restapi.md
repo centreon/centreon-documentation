@@ -2,9 +2,6 @@
 id: applications-nginx-plus-restapi
 title: Nginx Plus Restapi
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Vue d'ensemble
 
@@ -26,8 +23,9 @@ Le Plugin Centreon associé permet d'interroger l'API Rest de Nginx Plus afin de
 Vous pouvez vous renseigner en détails sur les métriques présentées ci-après sur la documentation officielle de 
 l'API Rest Nginx Plus: https://docs.nginx.com/nginx/admin-guide/load-balancer/dynamic-configuration-api/
 
-<Tabs groupId="sync">
-<TabItem value="Connections" label="Connections">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Connections-->
 
 | Metric name                 | Description                    |
 | :-------------------------- | :----------------------------- |
@@ -36,8 +34,7 @@ l'API Rest Nginx Plus: https://docs.nginx.com/nginx/admin-guide/load-balancer/dy
 | connections.accepted.count  | Number of accepted connections |
 | connections.dropped.count   | Number of dropped connections  |
 
-</TabItem>
-<TabItem value="HttpZone" label="HttpZone">
+<!--Http-Zone-->
 
 | Metric name                                             | Description                                              |
 | :------------------------------------------------------ | :------------------------------------------------------- |
@@ -48,8 +45,7 @@ l'API Rest Nginx Plus: https://docs.nginx.com/nginx/admin-guide/load-balancer/dy
 | http.$name.zone.responses.total.count                   | Number total of http-zone responses                      |
 | http.$name.zone.responses.[1xx,2xx,3xx,4xx,5xx].count   | Number 1xx,2xx,3xx,4xx,5xx of http-zone responses        |
 
-</TabItem>
-<TabItem value="Ssl" label="Ssl">
+<!--Ssl-->
 
 | Metric name                      | Description                         |
 | :------------------------------- | :---------------------------------- |
@@ -57,8 +53,7 @@ l'API Rest Nginx Plus: https://docs.nginx.com/nginx/admin-guide/load-balancer/dy
 | ssl.handshakes.failed.count      | Number of SSL Handshakes failed     |
 | ssl.sessions.reuses.count        | Number of SSL Sessions reuses       |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -67,8 +62,9 @@ Plus d'informations sont disponible sur la documentation officielle de Nginx : h
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources Nginx Plus :
 
@@ -78,8 +74,7 @@ yum install centreon-plugin-Applications-Nginx-Plus-Restapi.noarch
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Nginx Plus* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources Nginx Plus :
 
@@ -95,8 +90,7 @@ yum install centreon-pack-applications-nginx-plus-restapi.noarch
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Nginx Plus* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

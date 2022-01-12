@@ -2,9 +2,6 @@
 id: network-aruba-aoscx-snmp
 title: ArubaOS-CX SNMP
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Contenu du Plugin Pack
 
@@ -18,20 +15,21 @@ Le Plugin Pack ArubaOS-CX SNMP collecte les données pour:
 
 ### Règles de découvertes
 
-<Tabs groupId="sync">
-<TabItem value="Services" label="Services">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Services-->
 
 | Nom de la règle                      | Description                                                                                  |
 | :----------------------------------- | :------------------------------------------------------------------------------------------- |
 | Net-Aruba-Aoscx-SNMP-Interface-Name  | Découvre les interfaces réseaux et supervise le statut et l'utilisation de la bande passante |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Métriques collectées
 
-<Tabs groupId="sync">
-<TabItem value="Hardware" label="Hardware">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Hardware-->
 
 | Metric name                                 | Description                           | Unit |
 | :------------------------------------------ | :------------------------------------ | :--- |
@@ -42,8 +40,7 @@ Le Plugin Pack ArubaOS-CX SNMP collecte les données pour:
 | temperature status                          | Status of the sensor                  |      |
 | *sensor\_name*#hardware.temperature.celsius | Temperature of the sensor             | C    |
 
-</TabItem>
-<TabItem value="Interfaces" label="Interfaces">
+<!--Interfaces-->
 
 | Metric name                                            | Description                                         | Unit |
 | :----------------------------------------------------- | :-------------------------------------------------- | :--- |
@@ -55,8 +52,7 @@ Le Plugin Pack ArubaOS-CX SNMP collecte les données pour:
 
 A regexp filter is available to target a specific interface identifier - ifName [```--interface='^eth0$' --name```]
 
-</TabItem>
-<TabItem value="Vsf" label="Vsf">
+<!--Vsf-->
 
 | Metric name                                     | Description              | Unit |
 | :---------------------------------------------- | :----------------------- | :--- |
@@ -67,8 +63,7 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | *member\_id*\#member.cpu.utilization.percentage | CPU utilization          | %    |
 | *member\_id*\#member.memory.usage.percentage    | Memory usage             | %    |
 
-</TabItem>
-<TabItem value="Vsx" label="Vsx">
+<!--Vsx-->
 
 | Metric name                     | Description                                       | Unit |
 | :------------------------------ | :------------------------------------------------ | :--- |
@@ -80,8 +75,7 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | vsx.keepalive.packets.in.count  | Incoming keepalive packets going through the link |      |
 | vsx.keepalive.packets.out.count | Outgoing keepalive packets going through the link |      |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -91,8 +85,9 @@ Le flux SNMP UDP/161 doit être ouvert entre le Collecteur et l'équipement.
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -102,8 +97,7 @@ yum install centreon-plugin-Network-Aruba-Aoscx-Snmp
 
 2. Sur l'interface Web de Centreon, installer le Plugin Pack *ArubaOS-CX SNMP* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -119,8 +113,7 @@ yum install centreon-pack-network-aruba-aoscx-snmp
 
 3. Sur l'interface Web de Centreon, installer le Plugin Pack *ArubaOS-CX SNMP* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

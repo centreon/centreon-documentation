@@ -2,9 +2,6 @@
 id: cloud-gcp-compute-computeengine
 title: Google Compute Engine
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Plugin-Pack Assets
 
@@ -33,16 +30,16 @@ More information about the Host Discovery module is available in the Centreon do
 
 For all collected metrics, we can choose the *aggregation*: _average_, _minimum_, _maximum_ and _total_.
 
-<Tabs groupId="sync">
-<TabItem value="Cpu" label="Cpu">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Cpu-->
 
 | Metric name                                                            | Description                                          | Unit  |
 | :--------------------------------------------------------------------- | :--------------------------------------------------- | :---- |
 | *instance_name*~*aggregation*#computeengine.cpu.utilization.percentage | Utilization of allocated CPU                         | %     |
 | *instance_name*~*aggregation*#computeengine.cpu.reserved_cores.count   | Number of vCPUs reserved on the host of the instance |       |
 
-</TabItem>
-<TabItem value="Diskio" label="Diskio">
+<!--Diskio-->
 
 | Metric name                                                                            | Description                                              | Unit  |
 | :------------------------------------------------------------------------------------- | :------------------------------------------------------- | :---- |
@@ -59,8 +56,7 @@ For all collected metrics, we can choose the *aggregation*: _average_, _minimum_
 | *instance_name*~*aggregation*#computeengine.disk.write.ops.persecond                   | Count of data disk write IO operations                   |       |
 | *instance_name*~*aggregation*#computeengine.disk.write.ops.persecond                   | Count of data disk write IOPs operations                 |       |
 
-</TabItem>
-<TabItem value="Network" label="Network">
+<!--Network-->
 
 | Metric name                                                                        | Description                                            | Unit  |
 | :--------------------------------------------------------------------------------- | :----------------------------------------------------- | :---- |
@@ -73,8 +69,7 @@ For all collected metrics, we can choose the *aggregation*: _average_, _minimum_
 | *instance_name*~*aggregation*#computeengine.network.sent.packets.count             | Count of packets sent over the network                 |       |
 | *instance_name*~*aggregation*#computeengine.network.sent.packets.persecond         | Count of packets sent per seconds over the network     |       |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -90,8 +85,9 @@ How to create a service account key: https://developers.google.com/identity/prot
 
 ## Setup
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -101,8 +97,7 @@ yum install centreon-plugin-Cloud-Gcp-Compute-ComputeEngine-Api
 
 2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Google Compute Engine* Plugin-Pack
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -118,8 +113,7 @@ yum install centreon-pack-cloud-gcp-compute-computeengine
 
 3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Google Compute Engine* Plugin-Pack
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Host configuration
 

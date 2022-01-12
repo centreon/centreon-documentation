@@ -2,9 +2,6 @@
 id: applications-salesforce-restapi
 title: Salesforce
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Overview
 
@@ -18,15 +15,14 @@ Salesforce.com, Inc. is an American cloud-based software company headquartered i
 
 ## Collected metrics
 
-<Tabs groupId="sync">
-<TabItem value="InstanceStatus" label="InstanceStatus">
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Instance-Status-->
 
 | Metric name               | Description                                              |
 | :------------------------ | :------------------------------------------------------- |
 | instanceStatus            | Status of a Salesforce instance                          |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -34,8 +30,9 @@ To monitoring your Salesforce instance, the Centreon poller must be allowed to r
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin on poller(s) expected to monitor Salesforce
 
@@ -45,8 +42,7 @@ yum install centreon-plugin-Applications-Salesforce-Restapi
 
 2. Install the Salesforce Plugin-Pack on "Configuration > Plugin packs > Manager" Centreon Web UI page
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin on every poller expected to monitor Salesforce:
 
@@ -62,8 +58,7 @@ yum install centreon-pack-applications-salesforce-restapi
 
 3. Install the Salesforce Plugin-Pack on "Configuration > Plugin packs > Manager" Centreon Web UI page:
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

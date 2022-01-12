@@ -2,8 +2,6 @@
 id: operatingsystems-linux-nrpe3
 title: Linux NRPE3
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 ## Overview
 
@@ -53,8 +51,8 @@ interfaces or filtered with regexp)
 
 Here are the metrics that are collected by default:
 
-<Tabs groupId="sync">
-<TabItem value="Cpu" label="Cpu">
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Cpu-->
 
 | Metric                              | Description               | UOM |
 | :---------------------------------- | :------------------------ | :-: |
@@ -63,8 +61,7 @@ Here are the metrics that are collected by default:
 | ...                                 | ...                       |  %  |
 | `cpu.utilization.percentage`        | Average overall CPU usage |  %  |
 
-</TabItem>
-<TabItem value="Load" label="Load">
+<!--Load-->
 
 | Metric   | Description                            | UOM |
 | :------- | :------------------------------------- | :-: |
@@ -72,8 +69,7 @@ Here are the metrics that are collected by default:
 | `load5`  | System load average on last 5 minutes  |     |
 | `load15` | System load average on last 15 minutes |     |
 
-</TabItem>
-<TabItem value="Memory" label="Memory">
+<!--Memory-->
 
 | Metric   | Description                           | UOM |
 | :------- | :------------------------------------ | :-: |
@@ -82,8 +78,7 @@ Here are the metrics that are collected by default:
 | `slab`   | Amount of memory allocated to Slab    |  B  |
 | `used`   | Total amount of used memory           |  B  |
 
-</TabItem>
-<TabItem value="Swap" label="Swap">
+<!--Swap-->
 
 | Metric                  | Description      | UOM |
 | :---------------------- | :--------------- | :-: |
@@ -91,15 +86,12 @@ Here are the metrics that are collected by default:
 | `swap.usage.bytes`      | Used Swap space  |  B  |
 | `swap.usage.percentage` | Swap space usage |  %  |
 
-</TabItem>
-<TabItem value="Uptime" label="Uptime">
-
+<!--Uptime-->
 | Metric   | Description                    | UOM |
 | :------- | :----------------------------- | :-: |
 | `uptime` | Elapsed time since last reboot |  s  |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -156,13 +148,13 @@ systemctl restart centreon-nrpe3.service
 
 The Plugin-Pack installation concerns only the central server and the procedure depends on the type of license.
 
-<Tabs groupId="sync">
-<TabItem value="IMP/EPP Online License & IT100 Editions" label="IMP/EPP Online License & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
 
-1. Install the "Linux NRPE3" Plugin Pack from "Configuration > Plugin Packs > Manager" in the WUI.
+<!--IMP/EPP "Online" License & IT-100 Editions-->
 
-</TabItem>
-<TabItem value="IMP/EPP Offline License" label="IMP/EPP Offline License">
+ Install the "Linux NRPE3" Plugin Pack from "Configuration > Plugin Packs > Manager" in the WUI.
+
+<!--IMP/EPP "Offline" License-->
 
 1. Install the Plugin Pack's RPM on the central server.
 
@@ -172,8 +164,7 @@ yum install centreon-pack-operatingsystems-linux-nrpe3
 
 2. Install the "Linux NRPE3" Plugin Pack from "Configuration > Plugin Packs > Manager" in the WUI.
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Centreon NRPE3 Plugin
 

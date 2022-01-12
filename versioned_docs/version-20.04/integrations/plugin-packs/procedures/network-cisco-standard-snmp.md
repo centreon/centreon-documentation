@@ -2,9 +2,6 @@
 id: network-cisco-standard-snmp
 title: Cisco Standard
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Overview
 
@@ -23,23 +20,22 @@ All Cisco devices supporting standard MIBs can be monitored:
 
 ### Discovery rules
 
-<Tabs groupId="sync">
-<TabItem value="Hosts" label="Hosts">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Hosts-->
 
 | Rule name                                  | Description                                              |
 | :----------------------------------------- | :------------------------------------------------------- |
 | App-Protocol-SNMP-HostDiscovery            | Discover your Cisco devices through a SNMP subnet scan   |
 
-</TabItem>
-<TabItem value="Services" label="Services">
+<!--Services-->
 
 | Rule name                                  | Description                                                              |
 | :----------------------------------------- | :----------------------------------------------------------------------- |
 | Net-Cisco-Standard-SNMP-Packet-Errors-Name | Discover network interfaces and monitor errors and discards              |
 | Net-Cisco-Standard-SNMP-Traffic-Name       | Discover network interfaces and monitor status and bandwidth utilization |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Collected metrics
 
@@ -53,8 +49,9 @@ Only standard metrics are described in this section. Be aware that a lot of othe
 * qosusage: Check QOS configuration and associated consumptions
 * stack: Check the health of your device stack
 
-<Tabs groupId="sync">
-<TabItem value="cpu" label="cpu">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--cpu-->
 
 | Metric name                        | Description                                                         |
 | :--------------------------------- | :------------------------------------------------------------------ |
@@ -65,16 +62,14 @@ Only standard metrics are described in this section. Be aware that a lot of othe
 | core.cpu.utilization.1m.percentage | Per core CPU utilization for the last minute. Unit: %               |
 | core.cpu.utilization.5m.percentage | Per core CPU utilization for the last 5 minutes. Unit: %            |
 
-</TabItem>
-<TabItem value="Memory" label="Memory">
+<!--Memory-->
 
 | Metric name             | Description                                                   |
 | :---------------------  | :------------------------------------------------------------ |
 | memory.usage.bytes      | Memory usage on the device. Unit: Bytes                       |
 | memory.usage.percentage | Memory usage on the device. Unit: %                           |
 
-</TabItem>
-<TabItem value="Traffic" label="Traffic">
+<!--Traffic-->
 
 | Metric name                              | Description                                                                                |
 | :--------------------------------------- | :----------------------------------------------------------------------------------------- |
@@ -85,8 +80,7 @@ Only standard metrics are described in this section. Be aware that a lot of othe
 
 A regexp filter is available to target a specific interface identifier/ifName [```--interface='^my-interface-name$' --name```] 
 
-</TabItem>
-<TabItem value="Environment" label="Environment">
+<!--Environment-->
 
 | Metric name                   | Description                                   |
 | :---------------------------- | :-------------------------------------------- |
@@ -97,8 +91,7 @@ Monitoring all hardware components of the device. It may include the following :
 
 You can use --absent-problem if you want to alert when a component is absent/removed. You can also overload the default status using the --threshold-overload option. 
 
-</TabItem>
-<TabItem value="Configuration" label="Configuration">
+<!--Configuration-->
 
 | Metric name                  | Description                                                                    |
 | :--------------------------- | :----------------------------------------------------------------------------- |
@@ -106,8 +99,7 @@ You can use --absent-problem if you want to alert when a component is absent/rem
 | ccmHistoryRunningLastSaved   | The value of sysUpTime when the running configuration was last saved (written) |
 | ccmHistoryStartupLastChanged | The value of sysUpTime when the startup configuration was last written         |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -139,8 +131,9 @@ Your centreon server must be able to reach the Cisco device over UDP/161 SNMP po
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Cisco SNMP Centreon Plugin on every poller expected to monitor Cisco devices: 
 
@@ -150,8 +143,7 @@ yum install centreon-plugin-Network-Cisco-Standard-Snmp
 
 2. Install The 'Cisco-Standard-Snmp' Centreon Plugin-Pack from the "Configuration > Plugin packs > Manager" page
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Cisco SNMP Centreon Plugin on every poller expected to monitor Cisco devices:
 
@@ -167,8 +159,7 @@ yum install centreon-pack-network-cisco-standard-snmp
 
 3. Install The 'Cisco-Standard-Snmp' Centreon Plugin-Pack from the "Configuration > Plugin packs > Manager" page
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

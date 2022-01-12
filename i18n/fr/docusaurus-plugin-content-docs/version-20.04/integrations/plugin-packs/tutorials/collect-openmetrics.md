@@ -2,9 +2,6 @@
 id: collect-openmetrics
 title: Collecter des OpenMetrics
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 Le format d'exposition des métriques des exporteurs Prometheus a fait l'objet
 d'une standardisation sous le nom d'OpenMetrics afin de pouvoir être réutilisé
@@ -13,8 +10,9 @@ d'InfluxData, InfluxDB, et Google Cloud Platform.
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1.  Installer le code du connecteur sur l'ensemble des collecteurs récupérant
     des openmetrics :
@@ -25,8 +23,7 @@ d'InfluxData, InfluxDB, et Google Cloud Platform.
 
 2.  Installer le pack depuis la page `Configuration > Plugin Packs`.
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1.  Installer le code du connecteur sur l'ensemble des collecteurs récupérant
     des openmetrics :
@@ -44,8 +41,7 @@ d'InfluxData, InfluxDB, et Google Cloud Platform.
 
 3.  Installer le pack depuis la page `Configuration > Plugin Packs`.
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

@@ -2,9 +2,6 @@
 id: hardware-pdu-gude-epc-snmp
 title: Gude EPC PDU SNMP
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Pack Assets
 
@@ -16,20 +13,21 @@ The Pack Gude Export Power Control collects metrics for:
 
 ### Discovery rules
 
-<Tabs groupId="sync">
-<TabItem value="Services" label="Services">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Services-->
 
 | Rule name                                  | Description                                          |
 | :----------------------------------------- | :--------------------------------------------------- |
 | HW-Pdu-Gude-Epc-SNMP-Sp-Power-Channel-Name | Discover single power channel port and monitor usage |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Collected Metrics
 
-<Tabs groupId="sync">
-<TabItem value="Powerchannels" label="Powerchannels">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Power-channels-->
 
 | Metric name                                                                    | Description                                    | Unit  |
 | :----------------------------------------------------------------------------- | :--------------------------------------------- | :---- |
@@ -47,8 +45,7 @@ The Pack Gude Export Power Control collects metrics for:
 | *power\_channel\_name*\#pdu.interface.power_channel.power.reactive.voltampere  | L line mean reactive power                     | Var   |
 | *power\_channel\_name*\#pdu.interface.power_channel.voltage.volt               | Actual voltage                                 | V     |
 
-</TabItem>
-<TabItem value="Sppowerchannels" label="Sppowerchannels">
+<!--Sp-power-channels-->
 
 | Metric name                                                                        | Description                                    | Unit  |
 | :--------------------------------------------------------------------------------- | :--------------------------------------------- | :---- |
@@ -65,8 +62,7 @@ The Pack Gude Export Power Control collects metrics for:
 | *sp\_power\_channel\_name*\#pdu.interface.power_channel.power.reactive.voltampere  | L line mean reactive power                     | Var   |
 | *sp\_power\_channel\_name*\#pdu.interface.power_channel.voltage.volt               | Actual voltage                                 | V     |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -75,8 +71,9 @@ The Poller should be able to perform SNMP requests toward the Lenovo device over
 
 ## Setup
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -86,8 +83,7 @@ yum install centreon-plugin-Hardware-Pdu-Gude-Epc-Snmp
 
 2. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *Gude EPC SNMP* Pack
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -103,8 +99,7 @@ yum install centreon-pack-hardware-pdu-gude-epc-snmp
 
 3. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *Gude EPC SNMP* Pack
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Host configuration
 

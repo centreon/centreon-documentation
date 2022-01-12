@@ -2,9 +2,6 @@
 id: ba-management
 title: Manage Business Activities
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Business Activities (BA)
 
@@ -32,8 +29,9 @@ There are four calculation methods that you can use:
 
 Find below examples & configuration of each calculation methods
 
-<Tabs groupId="sync">
-<TabItem value="Best Status" label="Best Status">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!-- Best Status -->
 
 ![image](../assets/service-mapping/best.png)
 
@@ -43,8 +41,7 @@ The configuration is as follow:
 
 ![image](../assets/service-mapping/conf-best.png)
 
-</TabItem>
-<TabItem value="Worst Status" label="Worst Status">
+<!-- Worst Status -->
 
 ![image](../assets/service-mapping/worst.png)
 
@@ -55,8 +52,7 @@ The configuration is as follow:
 ![image](../assets/service-mapping/conf-worst.png)
 
 
-</TabItem>
-<TabItem value="Ratio" label="Ratio">
+<!-- Ratio -->
 
 This method helps you model "Cluster" concepts. The calculation is based on the
 **number or percentage of indicator in CRITICAL status** that you compare to 
@@ -76,8 +72,7 @@ have to be configured:
  - Critical threshold: if the number/percentage of **Critical** indicators exceed that number/percentage, the Business activity will be Critical
  - Warning threshold: if the number/percentage of **Critical** indicators exceed that number/percentage, the Business activity will be Warning
 
-</TabItem>
-<TabItem value="Impact" label="Impact">
+<!-- Impact -->
 
 > This mode is complex to use but may help you model heighly severity-related concepts.
 
@@ -98,8 +93,7 @@ The health value between 100% and 0% is often related to a service quality measu
 A variation in this value is used to determine whether the modelized IT service or application 
 is in an **OK**, **Warning** or **Critical** state.
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Create a Business Activity
 

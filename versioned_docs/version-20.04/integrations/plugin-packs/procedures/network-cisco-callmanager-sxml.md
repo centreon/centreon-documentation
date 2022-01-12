@@ -2,9 +2,6 @@
 id: network-cisco-callmanager-sxml
 title: Cisco Callmanager SXML
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Overview
 
@@ -21,23 +18,24 @@ Using SXML, this Cisco Call Manager Plugin-Pack monitors alerts from the Cisco U
 More information about collected metrics is available in the official Cisco Callmanager documentation : 
 https://www.cisco.com/c/en/us/support/docs/unified-communications/unified-communications-manager-callmanager/213291-real-time-monitoring-tool-alerts#anc8
 
-<Tabs groupId="sync">
-<TabItem value="Alerts" label="Alerts">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Alerts-->
 
 | Metric name                      | Description                         | Unit  |
 | :------------------------------- | :---------------------------------- | :---- |
 | alerts.total.count               | Total number of alerts              | count |
 | severity-$alerts.severity.count  | Number of different severities      | count |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
 ## Setup
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin on every Poller monitoring Cisco Callmanager resources:
 
@@ -47,8 +45,7 @@ yum install centreon-plugin-Network-Cisco-Callmanager-Sxml.noarch
 
 2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Cisco Callmanager SXML* Plugin-Pack
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin on every Poller monitoring Cisco Callmanager resources:
 
@@ -64,8 +61,7 @@ yum install centreon-pack-network-cisco-callmanager-sxml.noarch
 
 3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Cisco Callmanager SXML* Plugin-Pack
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

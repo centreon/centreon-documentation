@@ -2,9 +2,6 @@
 id: cloud-azure-management-automation
 title: Azure Automation
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Vue d'ensemble
 
@@ -42,8 +39,9 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 
 ### Métriques & statuts collectés 
 
-<Tabs groupId="sync">
-<TabItem value="Jobs" label="Jobs">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Jobs-->
 
 | Metric Name                        | Description                                    |
 | :--------------------------------- | :--------------------------------------------- |
@@ -51,8 +49,7 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 | automation.machineruns.total.count | Number of total update deployment machine runs |
 | automation.runs.total.count        | Number of total Update deployment runs         |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -61,8 +58,9 @@ Deux moyens sont disponibles pour interroger les API Microsoft Azure.
 Centreon préconise l'utilisation de la méthode *API* plutôt que la *CLI*, cette dernière étant significativement
 moins performante. L'API permet également une authentification *Application* et ne nécessite pas de compte de service dédié.
 
-<Tabs groupId="sync">
-<TabItem value="Azure Monitor API" label="Azure Monitor API">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Azure Monitor API-->
 
 Pour le custom-mode 'api', récupérez les informations en suivant la procédure ci-dessous (en anglais)
 et notez celles-ci en lieu sûr. Elles seront en effet indispensables lors de la configuration des ressources
@@ -109,8 +107,7 @@ dans Centreon.
     - Click on *Save*.
     - **Copy and store the key value. You won't be able to retrieve it after you leave this page.**
 
-</TabItem>
-<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
+<!--Azure AZ CLI-->
 
 Afin d'utiliser le custom-mode 'azcli', installez le binaire associé sur tous les Collecteurs Centreon
 devant superviser des resources Azure:
@@ -164,13 +161,13 @@ du collecteur Centreon:
 Vous avez désormais les informations stockées localement dans un fichier 
 accessTokens.json qui sera utilisé automatiquement par le Plugin. 
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Installation 
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des resources Azure Automation:
 
@@ -180,8 +177,7 @@ yum install centreon-plugin-Cloud-Azure-Management-Automation-Api
 
 2. Sur l'interface Integration de Centreon, installer le Plugin-Pack *Azure Automation* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des resources Azure Automation:
 
@@ -197,8 +193,7 @@ yum install centreon-pack-cloud-azure-management-automation.noarch
 
 3. Sur l'interface Integration de Centreon, installer le Plugin-Pack *Azure Automation* depuis la page "Configuration > Plugin packs > Gestionnaire"
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
@@ -209,8 +204,9 @@ et appliquez-lui le Modèle d'Hôte *Cloud-Azure-Management-Automation-custom*.
 * Une fois le modèle appliqué, les Macros ci-dessous indiquées comme requises (*Mandatory*) 
 doivent être renseignées selon le custom-mode utilisé:
 
-<Tabs groupId="sync">
-<TabItem value="Azure Monitor API" label="Azure Monitor API">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Azure Monitor API-->
 
 | Mandatory | Nom               | Description                   |
 | :-------- | :---------------- | :---------------------------- |
@@ -221,8 +217,7 @@ doivent être renseignées selon le custom-mode utilisé:
 | X         | AZURECLIENTSECRET | Client secret                 |
 | X         | AZURERESOURCE     | Id of the Automation instance |
 
-</TabItem>
-<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
+<!--Azure AZ CLI-->
 
 | Mandatory | Nom               | Description                   |
 | :-------- | :---------------- | :---------------------------- |
@@ -230,8 +225,7 @@ doivent être renseignées selon le custom-mode utilisé:
 | X         | AZURESUBSCRIPTION | Subscription ID               |
 | X         | AZURERESOURCE     | Id of the Automation instance |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## FAQ
 

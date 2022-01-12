@@ -2,9 +2,6 @@
 id: applications-squid-snmp
 title: Squid SNMP
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Pack assets
 
@@ -15,8 +12,9 @@ import TabItem from '@theme/TabItem';
 
 ### Collected metrics & status
 
-<Tabs groupId="sync">
-<TabItem value="CachesUsage" label="CachesUsage">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Caches-Usage-->
 
 | Metric name                      | Description                | Unit  |
 |:---------------------------------|:---------------------------|:------|
@@ -25,8 +23,7 @@ import TabItem from '@theme/TabItem';
 | cache.filedescriptors.count      | Number of file descriptors | count |
 | cache.objects.count              | Number of object stored    | count |
 
-</TabItem>
-<TabItem value="ProtocolStats" label="ProtocolStats">
+<!--Protocol-Stats-->
 
 * HTTP statistics
 
@@ -52,8 +49,7 @@ import TabItem from '@theme/TabItem';
 | cache.server.traffic.out.bitspersecond | Cache server traffic out      | b/s   |
 | cache.clients.count                    | Current number of clients: %s | count |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -68,8 +64,9 @@ UDP/161 SNMP port.
 
 ## Setup
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor your *Squid proxy* ressources:
 
@@ -79,8 +76,7 @@ yum install centreon-plugin-Applications-Squid-Snmp
 
 2. On the Centreon Web interface, install the *Squid SNMP* Centreon Plugin Pack on the **Configuration > Plugin Packs** page
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor your *Squid proxy* ressources:
 
@@ -96,8 +92,7 @@ yum install centreon-pack-applications-squid-snmp
 
 3. On the Centreon Web interface, install the *Squid SNMP* Centreon Plugin Pack on the **Configuration > Plugin Packs** page
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

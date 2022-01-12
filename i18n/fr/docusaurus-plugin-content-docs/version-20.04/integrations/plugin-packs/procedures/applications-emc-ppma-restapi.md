@@ -2,9 +2,6 @@
 id: applications-emc-ppma-restapi
 title: EMC PPMA Rest API
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Contenu du Plugin-Pack
 
@@ -15,8 +12,9 @@ Le Plugin-Pack EMC PowerPath Management Appliance collecte les données pour:
 
 ### Métriques collectées
 
-<Tabs groupId="sync">
-<TabItem value="Hosts" label="Hosts">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Hosts-->
 
 | Metric name                            | Description                                                  | Unit |
 | :------------------------------------- | :----------------------------------------------------------- | :--- |
@@ -27,8 +25,7 @@ Le Plugin-Pack EMC PowerPath Management Appliance collecte les données pour:
 | *hostname*#host.volumes.dead.count     | Number of dead volumes attached                              |      |
 | *hostname*#host.volumes.degraded.count | Number of degraded volumes attached                          |      |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -36,8 +33,9 @@ Afin de contrôler l'application EMC PPMA, l'API Rest doit être configuré (cf:
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -47,8 +45,7 @@ yum install centreon-plugin-Applications-Emc-Ppma-Restapi
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Emc PPMA Rest API* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -64,8 +61,7 @@ yum install centreon-pack-applications-emc-ppma-restapi
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Emc PPMA Rest API* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

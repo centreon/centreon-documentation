@@ -2,9 +2,6 @@
 id: applications-monitoring-netdata-restapi
 title: Netdata RestAPI
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Overview
 
@@ -45,8 +42,9 @@ The current version of the Netdata RestAPI Plugin-Pack can monitor the following
 
 The following metrics are collected by the Centreon Netdata RestAPI Plugin:
 
-<Tabs groupId="sync">
-<TabItem value="Alarms" label="Alarms">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Alarms-->
 
 | Metric name                           | Description                                                | Unit |
 | :------------------------------------ | :--------------------------------------------------------- | :--- |
@@ -54,16 +52,14 @@ The following metrics are collected by the Centreon Netdata RestAPI Plugin:
 | netdata.alarms.current.warning.count  | Current warning alarms triggered by the Netdata agent      |      |
 | netdata.alarms.current.critical.count | Current critical alarms triggered by the Netdata agent     |      |
 
-</TabItem>
-<TabItem value="CPU" label="CPU">
+<!--CPU-->
 
 | Metric name                     | Description             | Unit |
 | :------------------------------ | :---------------------- | :--- |
 | cpu.utilization.percentage      | Average total CPU usage | %    |
 | core.cpu.utilization.percentage | Per core CPU usage      | %    |
 
-</TabItem>
-<TabItem value="Disks" label="Disks">
+<!--Disks-->
 
 | Metric name                    | Description                          | Unit |
 | :----------------------------- | :----------------------------------- | :--- |
@@ -72,15 +68,13 @@ The following metrics are collected by the Centreon Netdata RestAPI Plugin:
 | storage.space.usage.percentage | Per partition space usage (in %)     | %    |
 | storage.space.free.bytes       | Per partition free space (in Bytes)  | B    |
 
-</TabItem>
-<TabItem value="Inodes" label="Inodes">
+<!--Inodes-->
 
 | Metric name                     | Description                | Unit |
 | :------------------------------ | :------------------------- | :--- |
 | storage.inodes.usage.percentage | Per partition Inodes usage | %    |
 
-</TabItem>
-<TabItem value="Load" label="Load">
+<!--Load-->
 
 | Metric name | Description                                | Unit |
 | :---------- | :----------------------------------------- | :--: |
@@ -88,8 +82,7 @@ The following metrics are collected by the Centreon Netdata RestAPI Plugin:
 | load5       | System load average on a 5 minutes period  |      |
 | load15      | System load average on a 15 minutes period |      |
 
-</TabItem>
-<TabItem value="Memory" label="Memory">
+<!--Memory-->
 
 | Metric name             | Description                                    | Unit |
 | :---------------------- | :--------------------------------------------- | :--: |
@@ -100,8 +93,7 @@ The following metrics are collected by the Centreon Netdata RestAPI Plugin:
 | memory.cached.bytes     | Current amount of memory allocated to 'cached' |  B   |
 | memory.shared.bytes     | Current amount of memory allocated to 'shared' |  B   |
 
-</TabItem>
-<TabItem value="Swap" label="Swap">
+<!--Swap-->
 
 | Metric name           | Description                 | Unit |
 | :-------------------- | :-------------------------- | :--: |
@@ -109,16 +101,14 @@ The following metrics are collected by the Centreon Netdata RestAPI Plugin:
 | swap.usage.percentage | Swap space usage (in %)     |  %   |
 | swap.free.bytes       | Free Swap space             |  B   |
 
-</TabItem>
-<TabItem value="Traffic" label="Traffic">
+<!--Traffic-->
 
 | Metric name                       | Description                    | Unit |
 | :-------------------------------- | :----------------------------- | :--: |
 | network.traffic.in.bitspersecond  | Per interface incoming traffic | b/s  |
 | network.traffic.out.bitspersecond | Per interface outgoing traffic | b/s  |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -131,8 +121,9 @@ https://learn.netdata.cloud/docs/agent/packaging/installer
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor Netdata agents:
 
@@ -142,8 +133,7 @@ yum install centreon-plugin-Applications-Monitoring-Netdata-Restapi
 
 2. On the centreon Web interface, install the *Netdata RestAPI* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor Netdata agents:
 
@@ -159,8 +149,7 @@ yum install centreon-pack-applications-monitoring-netdata-restapi.noarch
 
 3. On the centreon Web interface, install the *Netdata RestAPI* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

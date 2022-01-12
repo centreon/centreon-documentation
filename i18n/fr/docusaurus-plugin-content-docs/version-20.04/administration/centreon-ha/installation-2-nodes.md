@@ -2,9 +2,6 @@
 id: installation-2-nodes
 title: Installation d'un cluster à 2 nœuds
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Prérequis
 
@@ -686,8 +683,9 @@ pcs resource create "ms_mysql" \
 
 > **ATTENTION :** la commande suivante varie suivant la distribution Linux utilisée.
 
-<Tabs groupId="sync">
-<TabItem value="CentOS7" label="CentOS7">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--CentOS7-->
 
 ```bash
 pcs resource meta ms_mysql-master \
@@ -698,8 +696,7 @@ pcs resource meta ms_mysql-master \
     notify="true"
 ```
 
-</TabItem>
-<TabItem value="RHEL" label="RHEL">
+<!--RHEL-->
 
 ```bash
 pcs resource master ms_mysql \
@@ -710,8 +707,7 @@ pcs resource master ms_mysql \
     notify="true"
 ```
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Création des ressources clones
 

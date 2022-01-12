@@ -2,9 +2,6 @@
 id: applications-cisco-ssms-restapi
 title: Cisco SSMS
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Vue d'ensemble
 
@@ -25,16 +22,16 @@ sans utiliser de connexion Internet directe pour gérer leur base d'installation
 
 ### Métriques collectées
 
-<Tabs groupId="sync">
-<TabItem value="Alerts" label="Alerts">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Alerts-->
 
 | Metric Name                | Description              |
 | :------------------------- | :------------------------|
 | account.alerts.minor.count | Number of alerts minor.  |
 | account.alerts.major.count | Number of alerts major.  |
 
-</TabItem>
-<TabItem value="Licenses" label="Licenses">
+<!--Licenses-->
 
 | Metric Name                | Description                            |
 | :------------------------- | :------------------------------------- |
@@ -42,8 +39,7 @@ sans utiliser de connexion Internet directe pour gérer leur base d'installation
 | licenses.free.count        | Number of licenses free.               |
 | licenses.usage.percentage  | Percentage of licenses usage. Unit : % |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -52,8 +48,9 @@ Plus d'information sont disponible dans la documentation officielle de Cisco SSM
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources Cisco SSMS :
 
@@ -63,8 +60,7 @@ yum install centreon-plugin-Applications-Cisco-Ssms-Restapi.noarch
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Cisco SSSM* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources Cisco SSMS :
 
@@ -79,8 +75,7 @@ yum install centreon-pack-applications-cisco-ssms-restapi.noarch
 ```
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Cisco SSMS* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

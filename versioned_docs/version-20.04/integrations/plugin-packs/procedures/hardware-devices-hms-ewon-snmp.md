@@ -2,9 +2,6 @@
 id: hardware-devices-hms-ewon-snmp
 title: HMS Ewon SNMP
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Plugin-Pack Assets
 
@@ -14,8 +11,9 @@ The Plugin-Pack HMS Ewon including monitoring of Tags.
 
 ### Collected Metrics
 
-<Tabs groupId="sync">
-<TabItem value="Tags" label="Tags">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Tags-->
 
 | Metric name                | Description        | Unit |
 | :------------------------- | :----------------- | :--- |
@@ -24,8 +22,7 @@ The Plugin-Pack HMS Ewon including monitoring of Tags.
 
 It is possible to filter on the name of a tag using a REGEXP of the form [```--filter-tag-name='Fuel'```].
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -33,8 +30,9 @@ To control your HMS Ewon, the SNMP must be configured.
 
 ## Setup
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -44,8 +42,7 @@ yum install centreon-plugin-Hardware-Devices-Hms-Ewon-Snmp
 
 2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *HMS Ewon SNMP* Plugin-Pack
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -61,8 +58,7 @@ yum install centreon-pack-hardware-devices-hms-ewon-snmp
 
 3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *HMS Ewon SNMP* Plugin-Pack
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Host configuration 
 

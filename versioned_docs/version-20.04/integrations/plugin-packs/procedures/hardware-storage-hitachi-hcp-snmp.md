@@ -2,9 +2,6 @@
 id: hardware-storage-hitachi-hcp-snmp
 title: Hitachi HCP SNMP
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Plugin-Pack Assets
 
@@ -14,8 +11,9 @@ The Plugin-Pack Hitachi HCP SNMP including monitoring of Nodes, Tenants and Volu
 
 ### Collected Metrics
 
-<Tabs groupId="sync">
-<TabItem value="Nodes" label="Nodes">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Nodes-->
 
 | Metric name                              | Description                       | Unit |
 | :--------------------------------------- | :-------------------------------- | :--- |
@@ -32,8 +30,7 @@ The Plugin-Pack Hitachi HCP SNMP including monitoring of Nodes, Tenants and Volu
 
 It is possible to filter on the ID of a node using a REGEXP of the form [```--filter-node-id='101'```].
 
-</TabItem>
-<TabItem value="Tenants" label="Tenants">
+<!--Tenants-->
 
 | Metric name                                | Description                       | Unit |
 | :----------------------------------------- | :-------------------------------- | :--- |
@@ -43,8 +40,7 @@ It is possible to filter on the ID of a node using a REGEXP of the form [```--fi
 
 It is possible to filter on the name of a tenant using a REGEXP of the form [```--filter-tenant-name='backup'```].
 
-</TabItem>
-<TabItem value="Volumes" label="Volumes">
+<!--Volumes-->
 
 | Metric name                                    | Description                       | Unit |
 | :--------------------------------------------- | :-------------------------------- | :--- |
@@ -53,8 +49,7 @@ It is possible to filter on the name of a tenant using a REGEXP of the form [```
 | *nodeid*:*label*#volume.space.free.bytes       | Free space left on the volume     | B    |
 | *nodeid*:*label*#volume.space.usage.percentage | Usage of the volume in percentage | %    |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -63,8 +58,9 @@ To control your Hitachi HCP, the SNMP must be configured.
 
 ## Setup
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -74,8 +70,7 @@ yum install centreon-plugin-Hardware-Storage-Hitachi-Hcp-Snmp
 
 2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Hitachi HCP SNMP* Plugin-Pack
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -91,8 +86,7 @@ yum install hardware-storage-hitachi-hcp-snmp
 
 3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Hitachi HCP SNMP* Plugin-Pack
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Host configuration 
 

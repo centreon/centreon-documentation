@@ -2,9 +2,6 @@
 id: hardware-pdu-cyberpower-snmp
 title: CyberPower Systems PDU SNMP
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Vue d'ensemble
 
@@ -20,8 +17,9 @@ Le Plugin-Pack CyberPower PDU
 
 ## Collected metrics 
 
-<Tabs groupId="sync">
-<TabItem value="Load" label="Load">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Load-->
 
 | Metric name              | Description                                       | Unit |
 |:------------------------ |:------------------------------------------------- |:---- |
@@ -31,16 +29,14 @@ Le Plugin-Pack CyberPower PDU
 | phase.current.ampere     | Current Ampere level on a given Phase             |  A   |
 | phase.power.watt         | Current Watt Power on a given Phase               |  W   |
 
-</TabItem>
-<TabItem value="Outlets" label="Outlets">
+<!--Outlets-->
 
 | Metric name                | Description                                             | Unit |
 |:---------------------------|:--------------------------------------------------------|:-----|
 | outlet status              | Outlet status, possible to set string-based alerts      |      |
 | outlet.current.ampere      | Current Ampere on a given outlet                        |   A  |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis 
 
@@ -55,8 +51,9 @@ https://dl4jz3rbrsfum.cloudfront.net/documents/CyberPower_UM_IntelligentPDUUserG
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des ressources *CyberPower Systems PDU SNMP*:
 
@@ -66,8 +63,7 @@ yum install centreon-plugin-Hardware-Pdu-Cyberpower-Snmp
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *CyberPower Systems PDU SNMP* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor *CyberPower Systems PDU SNMP* applications:
 
@@ -83,8 +79,7 @@ yum install centreon-pack-hardware-pdu-cyberpower-snmp
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *CyberPower Systems PDU SNMP* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

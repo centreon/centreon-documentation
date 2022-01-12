@@ -2,9 +2,6 @@
 id: network-firewalls-pfsense-snmp
 title: pfSense
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Vue d'ensemble
 
@@ -23,8 +20,9 @@ secondes par l'intermédiaire du protocole SNMP.
 
 ### Métriques collectées
 
-<Tabs groupId="sync">
-<TabItem value="BlockedPacketsPerInterface" label="BlockedPacketsPerInterface">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Blocked-Packets-Per-Interface-->
 
 | Metric name                                 | Description       | Unit    |
 |:--------------------------------------------|:------------------|:--------|
@@ -33,50 +31,43 @@ secondes par l'intermédiaire du protocole SNMP.
 | pfinterface.block.traffic.in.bitspersecond  | Traffic in Block  | b/s     |
 | pfinterface.block.traffic.out.bitspersecond | Traffic out Block | b/s     |
 
-</TabItem>
-<TabItem value="ShortPackets" label="ShortPackets">
+<!--Short-Packets-->
 
 | Metric name             | Description                            |
 |:------------------------|:---------------------------------------|
 | packets.short.persecond | The number of short packets per second |
 
-</TabItem>
-<TabItem value="NormalizePackets" label="NormalizePackets">
+<!--Normalize-Packets-->
 
 | Metric name                  | Description                                  |
 |:-----------------------------|:---------------------------------------------|
 | packets.normalized.persecond | The number of normalized  packets per second |
 
-</TabItem>
-<TabItem value="MemoryDroppedPackets" label="MemoryDroppedPackets">
+<!--Memory-Dropped-Packets-->
 
 | Metric name                     | Description                                            |
 |:--------------------------------|:-------------------------------------------------------|
 | packets.memorydropped.persecond | The number of dropped packets due to memory per second |
 
-</TabItem>
-<TabItem value="MatchPackets" label="MatchPackets">
+<!--Match-Packets-->
 
 | Metric name               | Description                              |
 |:--------------------------|:-----------------------------------------|
 | packets.matched.persecond | The number of matched packets per second |
 
-</TabItem>
-<TabItem value="FragmentPackets" label="FragmentPackets">
+<!--Fragment-Packets-->
 
 | Metric name                  | Description                                 |
 |:-----------------------------|:--------------------------------------------|
 | packets.fragmented.persecond | The number of fragmented packets per second |
 
-</TabItem>
-<TabItem value="BadOffsetPackets" label="BadOffsetPackets">
+<!--Bad-Offset-Packets-->
 
 | Metric name                 | Description                                 |
 |:----------------------------|:--------------------------------------------|
 | packets.badoffset.persecond | The number of bad offset packets per second |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -94,8 +85,9 @@ SNMP (UDP/161) du serveur Kaspersky Security Center.
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser un pare-feu pfSense :
 
@@ -105,8 +97,7 @@ yum install centreon-plugin-Network-Firewalls-Pfsense-Snmp
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *pfSense* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser un pare-feu pfSense :
 
@@ -122,8 +113,7 @@ yum install centreon-pack-network-firewalls-pfsense-snmp
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *pfSense* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

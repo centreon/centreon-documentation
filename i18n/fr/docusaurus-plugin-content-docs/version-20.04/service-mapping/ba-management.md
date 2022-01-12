@@ -2,9 +2,6 @@
 id: ba-management
 title: Gestion
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Les activités métier
 
@@ -33,8 +30,9 @@ y a quatre méthodes de calcul disponibles afin de rendre compte de l'état d'un
 
 Ci-dessous des explications et exemples pour chacune des méthodes
 
-<Tabs groupId="sync">
-<TabItem value="Best Status" label="Best Status">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!-- Best Status -->
 
 L'ordre appliqué pour "Best" status est le suivant: `OK > Unknown > Warning > Critical > Pending`
 
@@ -44,8 +42,7 @@ Et la configuration correspondante:
 
 ![image](../assets/service-mapping/conf-best.png)
 
-</TabItem>
-<TabItem value="Worst Status" label="Worst Status">
+<!-- Worst Status -->
 
 L'ordre appliqué pour "Worst" status est le suivant: `CRITICAL > Warning > Unknown > OK > Pending`
 
@@ -55,8 +52,7 @@ Et la configuration correspondante:
 
 ![image](../assets/service-mapping/conf-worst.png)
 
-</TabItem>
-<TabItem value="Ratio" label="Ratio">
+<!-- Ratio -->
 
 La méthode ratio permet de modéliser des concepts de "Cluster" et s'appuie sur 
 le **nombre ou pourcentage d'indicateurs en statut CRITIQUE** et compare ces 
@@ -78,8 +74,7 @@ la BA sera **Critique**
 - Seuil **Warning**: si le nombre/pourcentage d'indicateur en statut **Critique** dépasse ce nombre/pourcentage, 
   la BA sera **Warning**
 
-</TabItem>
-<TabItem value="Impact" label="Impact">
+<!-- Impact -->
 
 > Ce mode est le plus compliqué à utiliser mais vous permet de modéliser finement des concepts de degré d'impact en 
 fonction des statuts et de l'indicateur considéré
@@ -100,8 +95,7 @@ dépendra alors des paramètres présents dans la section Indicateur.
 
 ![image](../assets/service-mapping/conf-impact.png)
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Création d'une activité métier
 

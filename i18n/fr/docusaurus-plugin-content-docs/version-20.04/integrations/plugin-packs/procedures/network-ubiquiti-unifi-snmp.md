@@ -2,9 +2,6 @@
 id: network-ubiquiti-unifi-snmp
 title: Ubiquiti UniFi SNMP
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Contenu du Pack
 
@@ -22,20 +19,21 @@ Le Pack Ubiquiti UniFi collecte les données pour:
 
 ### Règles de découvertes
 
-<Tabs groupId="sync">
-<TabItem value="Services" label="Services">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Services-->
 
 | Nom de la règle                        | Description                                                                                  |
 | :------------------------------------- | :------------------------------------------------------------------------------------------- |
 | Net-Ubiquiti-Unifi-SNMP-Interface-Name | Découvre les interfaces réseaux et supervise le statut et l'utilisation de la bande passante |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Métriques collectées
 
-<Tabs groupId="sync">
-<TabItem value="Cpu" label="Cpu">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Cpu-->
 
 | Metric name                           | Description                 | Unit  |
 | :------------------------------------ | :-------------------------- | :---- |
@@ -51,8 +49,7 @@ Le Pack Ubiquiti UniFi collecte les données pour:
 | cpu.guest.utilization.percentage      | CPU Guest utilization       | %     |
 | cpu.guestnice.utilization.percentage  | CPU Guest Nice utilization  | %     |
 
-</TabItem>
-<TabItem value="Disks" label="Disks">
+<!--Disks-->
 
 | Metric name                     | Description                      | Unit  |
 | :------------------------------ | :------------------------------- | :---- |
@@ -62,8 +59,7 @@ Le Pack Ubiquiti UniFi collecte les données pour:
 | storage.space.usage.percentage  | Usage Space in percentage        | %     |
 | storage.inodes.usage.percentage | Inode usage in percentage        | %     |
 
-</TabItem>
-<TabItem value="Interfaces" label="Interfaces">
+<!--Interfaces-->
 
 | Metric name                                            | Description                                         | Unit |
 | :----------------------------------------------------- | :-------------------------------------------------- | :--- |
@@ -75,8 +71,7 @@ Le Pack Ubiquiti UniFi collecte les données pour:
 
 A regexp filter is available to target a specific interface identifier - ifName [```--interface='^eth0$' --name```]
 
-</TabItem>
-<TabItem value="Load" label="Load">
+<!--Load-->
 
 | Metric name            | Description                                                       | Unit |
 | :--------------------- | :---------------------------------------------------------------- | :--- |
@@ -87,8 +82,7 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | load.5m.average.count  | System load 5 minutes-sample divided by the number of processors  |      |
 | load.15m.average.count | System load 15 minutes-sample divided by the number of processors |      |
 
-</TabItem>
-<TabItem value="Memory" label="Memory">
+<!--Memory-->
 
 | Metric name             | Description                              | Unit  |
 | :---------------------  | :--------------------------------------- | :---- |
@@ -99,8 +93,7 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | memory.cached.bytes     | Cached memory allocation                 | B     |
 | memory.shared.bytes     | Shared memory allocation                 | B     |
 
-</TabItem>
-<TabItem value="Swap" label="Swap">
+<!--Swap-->
 
 | Metric name                 | Description             | Unit   |
 | :-------------------------- | :---------------------- | :----- |
@@ -108,15 +101,13 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | swap.free.bytes             | Free swap               | B      |
 | swap.usage.percentage       | Percentage of used swap | %      |
 
-</TabItem>
-<TabItem value="Uptime" label="Uptime">
+<!--Uptime-->
 
 | Metric name           | Description        | Unit  |
 | :-------------------- | :----------------- | :---- |
 | system.uptime.seconds | System uptime      | s     |
 
-</TabItem>
-<TabItem value="Virtualaccesspoints" label="Virtualaccesspoints">
+<!--Virtual-access-points-->
 
 | Metric name                                                | Description                               | Unit   |
 | :--------------------------------------------------------- | :---------------------------------------- | :----- |
@@ -127,8 +118,7 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | *vap_name*\#virtual_access_point.traffic.in.bitspersecond  | Incoming traffic                          | b/s    |
 | *vap_name*\#virtual_access_point.traffic.out.bitspersecond | Outgoing traffic                          | b/s    |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -138,8 +128,9 @@ Le flux SNMP UDP/161 doit être ouvert entre le Collecteur et l'équipement.
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -149,8 +140,7 @@ yum install centreon-plugin-Network-Ubiquiti-Unifi-Snmp
 
 2. Sur l'interface Web de Centreon, installer le Pack *Ubiquiti UniFi SNMP* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -166,8 +156,7 @@ yum install centreon-pack-network-ubiquiti-unifi-snmp
 
 3. Sur l'interface Web de Centreon, installer le Pack *Ubiquiti UniFi SNMP* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

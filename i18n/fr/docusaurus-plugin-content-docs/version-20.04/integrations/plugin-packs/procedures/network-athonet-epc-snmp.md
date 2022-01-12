@@ -2,9 +2,6 @@
 id: network-athonet-epc-snmp
 title: Athonet ePC SNMP
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Contenu du Plugin-Pack
 
@@ -32,8 +29,9 @@ Ce tableau décrit quelles données peuvent être collectés sur les différents
 
 ### Métriques collectées
 
-<Tabs groupId="sync">
-<TabItem value="Aggregate" label="Aggregate">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Aggregate-->
 
 | Metric name                          | Description                       | Unit  |
 | :----------------------------------- | :-------------------------------- | :---- |
@@ -43,8 +41,7 @@ Ce tableau décrit quelles données peuvent être collectés sur les différents
 | hss.requests.authentication.count    | Number of authentication requests |       |
 | hss.location.updates.count           | Number of location updates        |       |
 
-</TabItem>
-<TabItem value="Apns" label="Apns">
+<!--Apns-->
 
 | Metric name                                | Descritption                           | Unit  |
 | :----------------------------------------- | :------------------------------------- | :---- |
@@ -52,8 +49,7 @@ Ce tableau décrit quelles données peuvent être collectés sur les différents
 | *apn_name*\#apn.traffic.out.bytespersecond | Outgoing traffic going through the apn | B/s   |
 | *apn_name*\#apn.pdp_contexts.count         | Number of pdp contexts                 |       |
 
-</TabItem>
-<TabItem value="Interfacesdiameter" label="Interfacesdiameter">
+<!--Interfaces-diameter-->
 
 | Metric name                     | Description                  | Unit  |
 | :------------------------------ | :--------------------------- | :---- |
@@ -61,24 +57,21 @@ Ce tableau décrit quelles données peuvent être collectés sur les différents
 | status                          | Status of the interface      |       |
 | transport status                | Status of the transport      |       |
 
-</TabItem>
-<TabItem value="Interfacesgtpc" label="Interfacesgtpc">
+<!--Interfaces-gtpc-->
 
 | Metric name                     | Description                  | Unit  |
 | :------------------------------ | :--------------------------- | :---- |
 | gtpc.interfaces.total.count     | Number of interfaces         |       |
 | status                          | Status of the interface      |       |
 
-</TabItem>
-<TabItem value="Interfacesga" label="Interfacesga">
+<!--Interfaces-ga-->
 
 | Metric name                     | Description                  | Unit  |
 | :------------------------------ | :--------------------------- | :---- |
 | ga.interfaces.total.count       | Number of interfaces         |       |
 | status                          | Status of the interface      |       |
 
-</TabItem>
-<TabItem value="Interfaceslte" label="Interfaceslte">
+<!--Interfaces-lte-->
 
 | Metric name                                                                             | Description                                                                     | Unit  |
 | :-------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------ | :---- |
@@ -99,8 +92,7 @@ Ce tableau décrit quelles données peuvent être collectés sur les différents
 | *interface_name*\#lte.interface.requests.pdn_context.reject.no_apn.count                | Number of PDN Context reject with cause 'Missing or unknown APN'                |       |
 | *interface_name*\#lte.interface.requests.pdn_context.reject.not_subscribed.count        | Number of PDN Context reject with cause 'Request service option not subscribed' |       |
 
-</TabItem>
-<TabItem value="License" label="License">
+<!--License-->
 
 | Metric name                              | Description                                   | Unit  |
 | :--------------------------------------- | :-------------------------------------------- | :---- |
@@ -116,8 +108,7 @@ Ce tableau décrit quelles données peuvent être collectés sur les différents
 | license.usim.free.count                  | Number of provisioned usim on the license     |       |
 | license.usim.usage.percentage            | Percentage of provisioned usim on the license | %     |
 
-</TabItem>
-<TabItem value="Lte" label="Lte">
+<!--Lte-->
 
 | Metric name                                                           | Description                                                                     | Unit  |
 | :-------------------------------------------------------------------- | :------------------------------------------------------------------------------ | :---- |
@@ -136,8 +127,7 @@ Ce tableau décrit quelles données peuvent être collectés sur les différents
 | lte.interface.requests.pdn_context.reject.no_apn.count                | Number of PDN Context reject with cause 'Missing or unknown APN'                |       |
 | lte.interface.requests.pdn_context.reject.not_subscribed.count        | Number of PDN Context reject with cause 'Request service option not subscribed' |       |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 
 ## Prérequis
@@ -146,8 +136,9 @@ Afin de contrôler vos équipement Athonet ePC, le SNMP doit être configuré.
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -157,8 +148,7 @@ yum install centreon-plugin-Network-Athonet-Epc-Snmp
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Athonet ePC SNMP* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -174,8 +164,7 @@ yum install centreon-pack-network-athonet-epc-snmp
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Athonet ePC SNMP* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

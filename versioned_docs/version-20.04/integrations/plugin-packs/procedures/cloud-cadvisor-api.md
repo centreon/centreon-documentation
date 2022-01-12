@@ -2,9 +2,6 @@
 id: cloud-cadvisor-api
 title: cAdvisor API
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Overview
 
@@ -38,8 +35,9 @@ To monitor container metrics, you must launch a discovery to add relevant servic
 
 ### Collected metrics
 
-<Tabs groupId="sync">
-<TabItem value="ContainerUsage" label="ContainerUsage">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Container-Usage-->
 
 | Metric name                                                        | Description                    | Unit   |
 | :------------------------------------------------------------------| :----------------------------- | :----- |
@@ -55,8 +53,7 @@ To monitor container metrics, you must launch a discovery to add relevant servic
 By default, the --use-name flag will instance the metric with the <container_name>. 
 If you want to use the <container_id> instead, remove it from the EXTRAOPTIONS macro at the Service Template level.
 
-</TabItem>
-<TabItem value="ContainerDiskIO" label="ContainerDiskIO">
+<!--Container-Disk-IO-->
 
 | Metric name                                                   | Description                      | Unit   |
 | :-------------------------------------------------------------| :------------------------------- | :----- |
@@ -66,8 +63,7 @@ If you want to use the <container_id> instead, remove it from the EXTRAOPTIONS m
 By default, the --use-name flag will instance the metric with the <container_name>. 
 If you want to use the <container_id> instead, remove it from the EXTRAOPTIONS macro at the Service Template level.
 
-</TabItem>
-<TabItem value="ContainerTraffic" label="ContainerTraffic">
+<!--Container-Traffic-->
 
 | Metric name                                                            | Description                      | Unit   |
 | :----------------------------------------------------------------------| :------------------------------- | :----- |
@@ -77,8 +73,7 @@ If you want to use the <container_id> instead, remove it from the EXTRAOPTIONS m
 By default, the --use-name flag will instance the metric with the <container_name>. 
 If you want to use the <container_id> instead, remove it from the EXTRAOPTIONS macro at the Service Template level.
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -94,8 +89,9 @@ may be different on your setup.
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor containers with cAdvisor:
 
@@ -105,8 +101,7 @@ yum install centreon-plugin-Cloud-cAdvisor-Api
 
 2. On the Centreon Web interface, install the *cAdvisor API* Plugin Pack through the `Configuration > Plugin Packs > Manager` page.
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor containers with cAdvisor:
 
@@ -122,8 +117,7 @@ yum install centreon-pack-cloud-cadvisor-api
 
 3. On the Centreon Web interface, install the *cAdvisor API* Plugin Pack through the `Configuration > Plugin Packs > Manager` page.
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Host configuration
 

@@ -2,9 +2,6 @@
 id: anomaly-detection
 title: Détection d'anomalies
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 > Centreon Anomaly Detection est actuellement en **phase de béta fermée** et
 > nécessitent un jeton valide fourni par Centreon. Nous ouvrirons bientôt la
@@ -45,17 +42,14 @@ Le module **Centreon Anomaly Detection** requiert les prérequis suivants :
 ### Installation des paquets
 
 Ajouter un référentiel supplémentaire:
-<Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 Rien à faire
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
+<!--CentOS 7-->
 ```shell
 yum install -y epel-release
 ```
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 Puis, exécutez la commande suivante :
 ```shell

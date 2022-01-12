@@ -2,9 +2,6 @@
 id: applications-antivirus-mcafee-webgateway-snmp
 title: McAfee Web Gateway
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Vue d'ensemble
 
@@ -24,16 +21,16 @@ détections des logiciels malveillants par l'intermédiaire du protocole SNMP.
 
 ### Métriques collectées
 
-<Tabs groupId="sync">
-<TabItem value="Clients" label="Clients">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Clients-->
 
 | Metric name             | Description                         |
 |:------------------------|:------------------------------------|
 | clients.connected.count | The number of connected client      |
 | sockets.connected.count | The number of open network sockets  |
 
-</TabItem>
-<TabItem value="Connections" label="Connections">
+<!--Connections-->
 
 | Metric name                               | Description                                                      | Unit          |
 |:------------------------------------------|:-----------------------------------------------------------------|:--------------|
@@ -43,8 +40,7 @@ détections des logiciels malveillants par l'intermédiaire du protocole SNMP.
 | connections.mediafilter.blocked.persecond | The number of connections blocked by the Media Filter per second | connections/s |
 | connections.urlfilter.blocked.persecond   | The number of connections blocked by the URL Filter per second   | connections/s |
 
-</TabItem>
-<TabItem value="Detections" label="Detections">
+<!--Detections-->
 
 * Global
 
@@ -58,8 +54,7 @@ détections des logiciels malveillants par l'intermédiaire du protocole SNMP.
 |:----------------------------------------------------|:------------------------------------------|:-------------|
 | *categoryname*#category.malwares.detected.persecond | The number of malware detected per second | detections/s |
 
-</TabItem>
-<TabItem value="Ftpstatistics" label="Ftpstatistics">
+<!--Ftpstatistics-->
 
 | Metric name                            | Description                      | Unit    |
 |:---------------------------------------|:---------------------------------|:------- |
@@ -68,8 +63,7 @@ détections des logiciels malveillants par l'intermédiaire du protocole SNMP.
 | ftp.traffic.proxytoclient.bitspersecond | FTP traffic from proxy to client | b/s     |
 | ftp.traffic.proxytoserver.bitspersecond | FTP traffic from proxy to server | b/s     |
 
-</TabItem>
-<TabItem value="Httpstatistics" label="Httpstatistics">
+<!--Httpstatistics-->
 
 | Metric name                             | Description                           | Unit    |
 |:----------------------------------------|:--------------------------------------|:------- |
@@ -79,8 +73,7 @@ détections des logiciels malveillants par l'intermédiaire du protocole SNMP.
 | http.traffic.proxytoclient.bitspersecond | HTTP traffic from proxy to client     | b/s     |
 | http.traffic.proxytoserver.bitspersecond | HTTP traffic from proxy to server     | b/s     |
 
-</TabItem>
-<TabItem value="Httpsstatistics" label="Httpsstatistics">
+<!--Httpsstatistics-->
 
 
 | Metric name                              | Description                            | Unit    |
@@ -91,8 +84,7 @@ détections des logiciels malveillants par l'intermédiaire du protocole SNMP.
 | https.traffic.proxytoclient.bitspersecond | HTTPS traffic from proxy to client     | b/s     |
 | https.traffic.proxytoserver.bitspersecond | HTTPS traffic from proxy to server     | b/s     |
 
-</TabItem>
-<TabItem value="Versions" label="Versions">
+<!--Versions-->
 
 | Metric name       | Description                    |
 |:------------------|:-------------------------------|
@@ -100,8 +92,7 @@ détections des logiciels malveillants par l'intermédiaire du protocole SNMP.
 | tsdb-version      | TrustedSource Database Version |
 | proactive-version | ProActive Database Version     |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -120,8 +111,9 @@ La communication doit être possible depuis le Collecteur Centreon vers le port 
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin Centreon McAfee Web Gatewaysur l'ensemble des Collecteurs Centreon supervisant un proxy McAfee Web Gateway :
 
@@ -131,8 +123,7 @@ yum install centreon-plugin-Applications-Antivirus-Mcafee-Webgateway-Snmp
 
 2. Installer le Plugin-Pack 'McAfee Web Gateway' depuis la page "Configuration > Plugin packs > Manager" de l'interface Web Centreon
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin Centreon McAfee Web Gateway sur l'ensemble des Collecteurs Centreon supervisant un proxy McAfee Web Gateway :
 
@@ -148,8 +139,7 @@ yum install centreon-pack-applications-antivirus-mcafee-webgateway-snmp
 
 3. Installer le Plugin-Pack 'McAfee Web Gateway' depuis la page "Configuration > Plugin packs > Manager" de l'interface Web Centreon
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration de l'Hôte
 

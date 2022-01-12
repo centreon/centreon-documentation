@@ -2,9 +2,6 @@
 id: cloud-gcp-cloudsql-mysql
 title: Google CloudSQL MySQL
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Contenu du Plugin-Pack
 
@@ -33,16 +30,16 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 
 Pour l'ensemble des métriques collectées, il est possible de choisir *aggregation*: _average_, _minimum_, _maximum_ et _total_.
 
-<Tabs groupId="sync">
-<TabItem value="Cpu" label="Cpu">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Cpu-->
 
 | Metric name                                                     | Description                                          | Unit  |
 | :-------------------------------------------------------------- | :--------------------------------------------------- | :---- |
 | *database_id*~*aggregation*#database.cpu.utilization.percentage | Utilization of the reserved CPU                      | %     |
 | *database_id*~*aggregation*#database.cpu.reserved_cores.count   | Number of cores reserved for the database instance   |       |
 
-</TabItem>
-<TabItem value="Innodb" label="Innodb">
+<!--Innodb-->
 
 | Metric name                                                               | Description                                              | Unit  |
 | :------------------------------------------------------------------------ | :------------------------------------------------------- | :---- |
@@ -55,8 +52,7 @@ Pour l'ensemble des métriques collectées, il est possible de choisir *aggregat
 | *database_id*~*aggregation*#database.mysql.innodb.pages_written.count     | Count of InnoDB pages written                            |       |
 | *database_id*~*aggregation*#database.mysql.innodb.pages_written.persecond | Count of InnoDB pages written per second                 |       |
 
-</TabItem>
-<TabItem value="Network" label="Network">
+<!--Network-->
 
 | Metric name                                                                 | Description                                            | Unit  |
 | :-------------------------------------------------------------------------- | :----------------------------------------------------- | :---- |
@@ -66,8 +62,7 @@ Pour l'ensemble des métriques collectées, il est possible de choisir *aggregat
 | *database_id*~*aggregation*#database.network.sent.volume.bytes              | Count of bytes sent through the network                | B     |
 | *database_id*~*aggregation*#database.network.sent.volume.bytespersecond     | Count of bytes sent per second through the network     | B/s   |
 
-</TabItem>
-<TabItem value="Queries" label="Queries">
+<!--Queries-->
 
 | Metric name                                                    | Description                                                              | Unit  |
 | :------------------------------------------------------------- | :----------------------------------------------------------------------- | :---- |
@@ -76,8 +71,7 @@ Pour l'ensemble des métriques collectées, il est possible de choisir *aggregat
 | *database_id*~*aggregation*#database.mysql.queries.count       | Count of statements executed by the server                               |       |
 | *database_id*~*aggregation*#database.mysql.queries.persecond   | Count of statements per second executed by the server                    |       |
 
-</TabItem>
-<TabItem value="Storage" label="Storage">
+<!--Storage-->
 
 | Metric name                                                             | Description                                       | Unit  |
 | :---------------------------------------------------------------------- | :------------------------------------------------ | :---- |
@@ -87,8 +81,7 @@ Pour l'ensemble des métriques collectées, il est possible de choisir *aggregat
 | *database_id*~*aggregation*#database.disk.write.io.operations.count     | Count of data disk write IO operations            |       |
 | *database_id*~*aggregation*#database.disk.write.io.operations.persecond | Count of data disk write IO operations per second |       |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -104,8 +97,9 @@ Comment créer une clé de compte de service: https://developers.google.com/iden
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -115,8 +109,7 @@ yum install centreon-plugin-Cloud-Gcp-CloudSQL-MySQL-Api
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Google CloudSQL MySQL* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -132,8 +125,7 @@ yum install centreon-pack-cloud-gcp-cloudsql-mysql
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Google CloudSQL MySQL* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

@@ -2,9 +2,6 @@
 id: applications-monitoring-iplabel-newtest-restapi
 title: IP-Label Newtest Rest API
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Overview
 
@@ -22,8 +19,8 @@ and performance of your critical application services.
 
 ## Monitored Metrics 
 
-<Tabs groupId="sync">
-<TabItem value="Scenario" label="Scenario">
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Scenario-->
 
 | Metric name                              | Description                | Unit |
 | :--------------------------------------- | :------------------------- | :----|
@@ -35,8 +32,7 @@ and performance of your critical application services.
 
 The ```--filter-robot-name``` and ```--filter-scenario-name``` options allow to narrow results to specific measurement.
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisistes
 
@@ -49,8 +45,9 @@ if necessary.
 
 ## Setup 
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin package on every poller expected to monitor IP-Label Newtest instances:
 
@@ -61,8 +58,7 @@ yum install centreon-plugin-Applications-Monitoring-Iplabel-Newtest-Restapi
 2. On the Centreon Web interface, install the monitoring templates from the Centreon Plugin-Pack on the
 Configuration > Plugin packs > Manager" page
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin package on every poller expected to monitor IP-Label Newtest instances:
 
@@ -78,8 +74,7 @@ yum install centreon-pack-applications-monitoring-iplabel-newtest-restapi
 
 3. On the Centreon Web interface, install the monitoring templates from the Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

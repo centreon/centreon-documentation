@@ -2,9 +2,6 @@
 id: hardware-storage-dell-me4-restapi
 title: Dell ME4 Rest API
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Pack Assets
 
@@ -18,21 +15,22 @@ The Pack Dell ME4 collects metrics for:
 
 ### Discovery rules
 
-<Tabs groupId="sync">
-<TabItem value="Services" label="Services">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Services-->
 
 | Rule name                                              | Description                                 |
 | :----------------------------------------------------- | :------------------------------------------ |
 | HW-Storage-Dell-Me4-Restapi-Controller-Statistics-Name | Discover controllers and monitor statistics |
 | HW-Storage-Dell-Me4-Restapi-Volume-Statistics-Name     | Discover volumes and monitor statistics     |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Collected Metrics
 
-<Tabs groupId="sync">
-<TabItem value="Controllerstatistics" label="Controllerstatistics">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Controller-statistics-->
 
 | Metric name                                               | Description                                                                                                                   | Unit  |
 | :-------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------- | :---- |
@@ -50,8 +48,7 @@ The Pack Dell ME4 collects metrics for:
 | *controller\_id*\#controller.cache.read.misses.persecond  | For the controller that owns the volume, the number of times the block to be read is not found in cache                       |       |
 | *controller\_id*\#controller.cpu.utilization.percentage   | Percentage of time the CPU is busy                                                                                            | %     |
 
-</TabItem>
-<TabItem value="Hardware" label="Hardware">
+<!--Hardware-->
 
 | Metric name                                             | Description                                | Unit  |
 | :------------------------------------------------------ | :----------------------------------------- | :---- |
@@ -69,8 +66,7 @@ The Pack Dell ME4 collects metrics for:
 | *sensor\_instance*\#hardware.sensor.capacity.percentage | Charge capacity of the sensor              | %     |
 | volume status                                           | Status of the volume                       |       |
 
-</TabItem>
-<TabItem value="Interfaces" label="Interfaces">
+<!--Interfaces-->
 
 | Metric name                                                           | Description                                                                                                                                                | Unit  |
 | :-------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------- | :---- |
@@ -83,8 +79,7 @@ The Pack Dell ME4 collects metrics for:
 | *port\_name*~*interface\_name*\#port.interface.lost.dwords.count      | The number of times the PHY has lost doubleword synchronization and restarted the Link Reset sequence                                                      |       |
 | *port\_name*~*interface\_name*\#port.interface.invalid.dwords.count   | The number of invalid doublewords that have been received by the PHY, not including those received during Link Reset sequences                             |       |
 
-</TabItem>
-<TabItem value="Volumestatistics" label="Volumestatistics">
+<!--Volume-statistics-->
 
 | Metric name                                         | Description                                                                                             | Unit  |
 | :-------------------------------------------------- | :------------------------------------------------------------------------------------------------------ | :---- |
@@ -100,8 +95,7 @@ The Pack Dell ME4 collects metrics for:
 | *volume\_name*\#volume.cache.read.hits.persecond    | For the controller that owns the volume, the number of times the block to be read is found in cache     |       |
 | *volume\_name*\#volume.cache.read.misses.persecond  | For the controller that owns the volume, the number of times the block to be read is not found in cache |       |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -111,8 +105,9 @@ E.g: https://www.dell.com/support/manuals/fr-fr/powervault-me4024/me4_series_cli
 
 ## Setup
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -122,8 +117,7 @@ yum install centreon-plugin-Hardware-Storage-Dell-Me4-Restapi
 
 2. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *Dell Me4 Rest API* Pack
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -139,8 +133,7 @@ yum install centreon-pack-hardware-storage-dell-me4-restapi
 
 3. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *Dell Me4 Rest API* Pack
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Host configuration
 

@@ -2,9 +2,6 @@
 id: applications-openvpn-omi
 title: OpenVPN OMI
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Contenu du Pack
 
@@ -21,8 +18,9 @@ Il apporte le Modèle de Service suivant :
 
 ### Métriques & statuts collectés
 
-<Tabs groupId="sync">
-<TabItem value="ServerUsage" label="ServerUsage">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Server-Usage-->
 
 | Metric name                      | Description               | Unit  |
 |:---------------------------------|:--------------------------|:------|
@@ -30,8 +28,7 @@ Il apporte le Modèle de Service suivant :
 | server.traffic.in.bitspersecond  | Server traffic in         | b/s   |
 | server.traffic.out.bitspersecond | Server traffic out        | b/s   |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -41,8 +38,9 @@ sécurité.
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources *Open VPN*:
 
@@ -52,8 +50,7 @@ yum install centreon-plugin-Applications-Openvpn-Omi
 
 2. Sur l'interface Web de Centreon, installer le Plugin Pack *OpenVPN OMI* depuis la page **Configuration > Packs de plugins**
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources *Open VPN*:
 
@@ -69,8 +66,7 @@ yum install centreon-pack-applications-openvpn-omi
 
 3. Sur l'interface Web de Centreon, installer le Plugin Pack *OpenVPN OMI* depuis la page **Configuration > Packs de plugins**
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

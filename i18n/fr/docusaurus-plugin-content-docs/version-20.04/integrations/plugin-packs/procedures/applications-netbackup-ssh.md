@@ -2,9 +2,6 @@
 id: applications-netbackup-ssh
 title: Symantec Netbackup SSH
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Contenu du Pack
 
@@ -31,30 +28,28 @@ Il apporte les Modèles de Services suivants :
 
 ### Collected metrics & status
 
-<Tabs groupId="sync">
-<TabItem value="DedupStatus" label="DedupStatus">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Dedup-Status-->
 
 | Metric name                                   | Unit |
 |:----------------------------------------------|:-----|
 | status                                        |      |
 | disk_pool.deduplication.usage.percentage      | %    |
 
-</TabItem>
-<TabItem value="DriveCleaning" label="DriveCleaning">
+<!--Drive-Cleaning-->
 
 | Metric name          | Description                        | Unit  |
 |:---------------------|:-----------------------------------|:------|
 | drives.unclean.count | %d drives needs a reset mount time | count |
 
-</TabItem>
-<TabItem value="DriveStatus" label="DriveStatus">
+<!--Drive-Status-->
 
 | Metric name | Description |
 |:------------|:------------|
 | status      |             |
 
-</TabItem>
-<TabItem value="JobStatus" label="JobStatus">
+<!--Job-Status-->
 
 * Global
 
@@ -68,16 +63,14 @@ Il apporte les Modèles de Services suivants :
 |:------------|:------------|
 | status      |             |
 
-</TabItem>
-<TabItem value="TapeUsage" label="TapeUsage">
+<!--Tape-Usage-->
 
 | Metric name            | Description |
 |:-----------------------|:------------|
 | tape.usage.bytes       |             |
 | tape.usage.percentage  |             |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -95,8 +88,9 @@ Deux méthodes de connexion SSH sont possibles:
 
 L'utilisateur distant doit pouvoir exécuter des commandes système. 
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources *Netbackup*:
 
@@ -106,8 +100,7 @@ yum install centreon-plugin-Applications-Netbackup-Ssh
 
 2. Sur l'interface web de Centreon, installer le Plugin Pack *Netbackup SSH* depuis la page **Configuration > Packs de plugins**
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources *Netbackup*:
 
@@ -117,14 +110,13 @@ yum install centreon-plugin-Applications-Netbackup-Ssh
 
 2. Sur le serveur Central Centreon, installer le RPM du Pack *Netbackup SSH*:
 
-```bash
+ ```bash
 yum install centreon-pack-applications-netbackup-ssh
 ```
 
 3. Sur l'interface Integration de Centreon, installer le Plugin Pack *Netbackup SSH* depuis la page **Configuration > Packs de plugins**
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 
 ## Configuration
@@ -138,8 +130,9 @@ yum install centreon-pack-applications-netbackup-ssh
 
 > Il y a trois backends SSH disponibles pour établir la connexion au serveur distant, *sshcli*, *plink*, *libssh* (le plus performant).
 
-<Tabs groupId="sync">
-<TabItem value="sshcli backend" label="sshcli backend">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--sshcli backend-->
 
 | Mandatory   | Name            | Description                                                                                     |
 | :---------- | :-------------- | :---------------------------------------------------------------------------------------------- |
@@ -152,8 +145,7 @@ yum install centreon-pack-applications-netbackup-ssh
 > Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur **centreon-engine** du Collecteur
 et l'utilisateur applicatif créé sur le serveur distant. (Macro SSHUSERNAME).
 
-</TabItem>
-<TabItem value="plink backend" label="plink backend">
+<!--plink backend-->
 
 | Mandatory   | Name            | Description                                                                                     |
 | :---------- | :-------------- | :---------------------------------------------------------------------------------------------- |
@@ -166,8 +158,7 @@ et l'utilisateur applicatif créé sur le serveur distant. (Macro SSHUSERNAME).
 > Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur **centreon-engine** du Collecteur
 et l'utilisateur applicatif créé sur le serveur distant. (Macro SSHUSERNAME).
 
-</TabItem>
-<TabItem value="libssh backend (par défaut)" label="libssh backend (par défaut)">
+<!--libssh backend (par défaut)-->
 
 | Mandatory   | Name            | Description                                                                                     |
 | :---------- | :-------------- | :---------------------------------------------------------------------------------------------- |
@@ -179,8 +170,7 @@ et l'utilisateur applicatif créé sur le serveur distant. (Macro SSHUSERNAME).
 
 Avec ce backend, vous n'avez pas à valider manuellement l'empreinte du serveur cible. 
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Comment puis-je tester le Plugin et que signifient les options des commandes ?
 

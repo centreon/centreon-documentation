@@ -2,9 +2,6 @@
 id: applications-monitoring-centreon-ha
 title: Centreon-HA
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Overview
 
@@ -27,8 +24,9 @@ It consequently uses both **SNMP** and **SSH** protocols to access a Centreon-HA
 
 ### Collected metrics
 
-<Tabs groupId="sync">
-<TabItem value="PCSStatus" label="PCSStatus">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--PCS-Status-->
 
 This template does not collect metrics, but provides the general state of the cluster:
 
@@ -45,29 +43,25 @@ This template does not collect metrics, but provides the general state of the cl
   * `centreontrapd`
   * `snmptrapd`
 
-</TabItem>
-<TabItem value="proccorosync" label="proccorosync">
+<!--proc-corosync-->
 
 | Metric name | Description                                         | Unit  |
 |:------------|:----------------------------------------------------|:------|
 | nbproc      | Number of processes matching the filter: `corosync` | Count |
 
-</TabItem>
-<TabItem value="procpacemakerd" label="procpacemakerd">
+<!--proc-pacemakerd-->
 
 | Metric name | Description                                           | Unit  |
 |:------------|:------------------------------------------------------|:------|
 | nbproc      | Number of processes matching the filter: `pacemakerd` | Count |
 
-</TabItem>
-<TabItem value="procpcsd" label="procpcsd">
+<!--proc-pcsd-->
 
 | Metric name | Description                                     | Unit  |
 |:------------|:------------------------------------------------|:------|
 | nbproc      | Number of processes matching the filter: `pcsd` | Count |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -132,8 +126,9 @@ usermod -a -G haclient centreon-engine
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor the Centreon-HA cluster:
 
@@ -143,8 +138,7 @@ yum install centreon-plugin-Operatingsystems-Linux-Snmp centreon-plugin-Applicat
 
 2. On the Centreon Web interface, install the *Centreon-HA* Plugin-Pack through "Configuration > Plugin packs > Manager" page.
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor the Centreon-HA cluster:
 
@@ -160,8 +154,7 @@ yum install centreon-pack-applications-monitoring-centreon-ha
 
 3. On the Centreon Web interface, install the *Centreon-HA* Plugin-Pack through "Configuration > Plugin packs > Manager" page.
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Host configuration
 

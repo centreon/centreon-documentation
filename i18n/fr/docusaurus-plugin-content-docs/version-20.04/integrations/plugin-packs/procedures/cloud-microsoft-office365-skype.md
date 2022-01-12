@@ -2,9 +2,6 @@
 id: cloud-microsoft-office365-skype
 title: Office365 Skype
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Overview
 Microsoft’s Office365 suite includes Skype, which is an application that
@@ -31,16 +28,16 @@ See link for details about metrics :
 * https://docs.microsoft.com/en-us/SkypeForBusiness/skype-for-business-online-reporting/device-usage-report
 * https://docs.microsoft.com/en-us/SkypeForBusiness/skype-for-business-online-reporting/activity-report
 
-<Tabs groupId="sync">
-<TabItem value="DevicesUsage" label="DevicesUsage">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Devices-Usage-->
 
 | Metric name                 | Description                                                  | Unit   |
 | :-------------------------- | :----------------------------------------------------------- | :----- |
 | skype.active.devices.count  | Number of active devices                                     | Count  |
 | skype.devices.\*.count      | Number of windows/ipad/iphone/android/windows phone devices  | Count  |
 
-</TabItem>
-<TabItem value="UserActivity" label="UserActivity">
+<!--User-Activity-->
 
 | Metric name                                       | Description                           | Unit   |
 | :------------------------------------------------ | :------------------------------------ | :----- |
@@ -49,8 +46,7 @@ See link for details about metrics :
 | skype.users.conferences.organized.total.count     | Number of organized conferences       | Count  |
 | skype.users.conferences.participated.total.count  | Number of participed conferences      | Count  |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 Once the host created, you can configure some macros on the service to filter 
 information by user. More info in the [Configuration](#Configuration)
@@ -91,8 +87,9 @@ https://docs.microsoft.com/en-us/office/office-365-management-api/get-started-wi
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin package on every poller expected to monitor Office365 Skype:
 
@@ -102,8 +99,7 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Skype-Api
 
 2. On the Centreon Web interface, install the Centreon Plugin-Pack *Office365 Skype* from the "Configuration > Plugin Packs > Manager" page
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin package on every poller expected to monitor Office365 Skype:
 
@@ -119,8 +115,7 @@ yum install centreon-pack-cloud-microsoft-office365-skype
 
 3. On the Centreon Web interface, install the Centreon Plugin-Pack *Office365 Skype* from the "Configuration > Plugin Packs > Manager" page
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

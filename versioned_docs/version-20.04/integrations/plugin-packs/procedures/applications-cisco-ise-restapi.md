@@ -2,9 +2,6 @@
 id: applications-cisco-ise-restapi
 title: Cisco ISE
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Overview
 
@@ -23,8 +20,9 @@ dedicated built-in REST API.
 
 ### Monitored metrics
 
-<Tabs groupId="sync">
-<TabItem value="Session" label="Session">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Session-->
 
 | Metric name              | Description                             | Unit  |
 |:-------------------------|:----------------------------------------|:------|
@@ -32,8 +30,7 @@ dedicated built-in REST API.
 | endpoints.postured.count | The number of postured endpoints        | Count |
 | sessions.profiler.count  | The number of profiler service sessions | Count |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -54,8 +51,9 @@ https://developer.cisco.com/docs/identity-services-engine/3.0/#!introduction-to-
 
 ## Setup
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor a Cisco Identity Service Engine:
 
@@ -65,8 +63,7 @@ yum install centreon-plugin-Applications-Cisco-Ise-Restapi
 
 2. On the Centreon Web interface, install the *Cisco ISE* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor a Cisco Identity Service Engine:
 
@@ -82,8 +79,7 @@ yum install centreon-pack-applications-cisco-ise-restapi
 
 3. On the Centreon Web interface, install the *Cisco ISE* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

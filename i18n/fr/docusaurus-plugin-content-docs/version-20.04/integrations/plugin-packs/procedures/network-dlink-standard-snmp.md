@@ -2,9 +2,6 @@
 id: network-dlink-standard-snmp
 title: D-Link standard SNMP
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Contenu du Plugin-Pack
 
@@ -14,8 +11,9 @@ D-Link standard inclue le CPU, Hardware, Inodes, Interfaces, Memoire et Stack.
 
 ### Métriques collectées
 
-<Tabs groupId="sync">
-<TabItem value="Cpu" label="Cpu">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Cpu-->
 
 | Metric name                         | Description           | Unit |
 | :---------------------------------- | :-------------------- | :--- |
@@ -26,8 +24,7 @@ D-Link standard inclue le CPU, Hardware, Inodes, Interfaces, Memoire et Stack.
 | core.cpu.utilization.1m.percentage  | CPU Core utilization  | %    |
 | core.cpu.utilization.5m.percentage  | CPU Core utilization  | %    |
 
-</TabItem>
-<TabItem value="Interfaces" label="Interfaces">
+<!--Interfaces-->
 
 | Metric name                              | Description                                             | Unit |
 |:---------------------------------------- |:------------------------------------------------------- | :--- |
@@ -41,8 +38,7 @@ D-Link standard inclue le CPU, Hardware, Inodes, Interfaces, Memoire et Stack.
 
 Il est possible de filtrer sur le nom d'une interface en utilisant une REGEXP de la forme [```--interface='^eth1/0/1$' --name```]
 
-</TabItem>
-<TabItem value="Hardware" label="Hardware">
+<!--Hardware-->
 
 * Par intances :
 
@@ -53,8 +49,7 @@ Il est possible de filtrer sur le nom d'une interface en utilisant une REGEXP de
 | temperature-status            | Status of temperature sensor              |      |
 | hardware.temperature.celsius  | Temperature of the different sensors      | C    |
 
-</TabItem>
-<TabItem value="Memory" label="Memory">
+<!--Memory-->
 
 | Metric name             | Description                | Unit |
 | :---------------------- | :------------------------- | :--- |
@@ -62,8 +57,7 @@ Il est possible de filtrer sur le nom d'une interface en utilisant une REGEXP de
 | memory.free.bytes       | Free memory                | B    |
 | memory.usage.percentage | Memory usage in percentage | %    |
 
-</TabItem>
-<TabItem value="Stack" label="Stack">
+<!--Stack-->
 
 | Metric name               | Description                | Unit |
 | :------------------------ | :------------------------- | :--- |
@@ -73,8 +67,7 @@ Il est possible de filtrer sur le nom d'une interface en utilisant une REGEXP de
 
 Sur certains équipements, il n'y a pas d'informations pour ```link-status```.
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -82,8 +75,9 @@ Afin de contrôler vos équipements D-Link, le SNMP v2 doit être configuré.
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -93,8 +87,7 @@ yum install centreon-plugin-Network-Dlink-Standard-Snmp.noarch
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *D-Link Network* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -110,8 +103,7 @@ yum install network-dlink-standard-snmp.noarch
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *D-Link Network* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

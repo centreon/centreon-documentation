@@ -2,9 +2,6 @@
 id: cloud-azure-storage-acr
 title: Azure Container Registry
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Overview
 
@@ -51,8 +48,9 @@ Centreon recommends to use the API instead of the CLI for the following reasons:
     * the API is much more efficient because it avoids CLI binary execution
     * the API supports application authentication while CLI does not (yet)
 
-<Tabs groupId="sync">
-<TabItem value="Azure Monitor API" label="Azure Monitor API">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Azure Monitor API-->
 
 To use the 'api' custom mode, make sure to obtain the required information using the 
 how-to below. Keep it safe until including it in a Host or Host Template definition.
@@ -100,8 +98,7 @@ how-to below. Keep it safe until including it in a Host or Host Template definit
 
 Please make sure to assign the **Monitoring Reader** role to the application.
 
-</TabItem>
-<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
+<!--Azure AZ CLI-->
 
 To use the 'azcli' custom mode, install the required packages on every Centreon poller expected to 
 monitor Azure Resources using CLI:
@@ -154,13 +151,13 @@ the following information:
 Credentials are now stored locally in the **.accessTokens.json** file so the Plugin 
 can use it. 
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Setup 
 
-<Tabs groupId="sync">
-<TabItem value="Online License" label="Online License">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online License-->
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor *Azure Container Registry* resources:
 
@@ -170,8 +167,7 @@ yum install centreon-plugin-Cloud-Azure-Storage-ContainerRegistry-Api
 
 2. On the Centreon Web interface, install the *Azure Container Registry* Pack on the **Configuration > Plugin Packs > Manager** page.
 
-</TabItem>
-<TabItem value="Offline License" label="Offline License">
+<!--Offline License-->
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor *Azure Container Registry* resources:
 
@@ -187,8 +183,7 @@ yum install centreon-pack-cloud-azure-storage-acr.noarch
 
 3. On the Centreon Web interface, install the *Azure Container Registry* Pack on the **Configuration > Plugin Packs > Manager** page
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
@@ -206,8 +201,9 @@ These mandatory Macros differ regarding the custom mode used.
 in *AZURERESOURCE*
 > * Resource Name in *AZURERESOURCE* associated with Resource Group (in *AZURERESOURCEGROUP*) and Resource Type (in *AZURERESOURCETYPE*)
 
-<Tabs groupId="sync">
-<TabItem value="Azure Monitor API" label="Azure Monitor API">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Azure Monitor API-->
 
 | Mandatory | Nom                | Description                                        |
 |:----------|:-------------------|:---------------------------------------------------|
@@ -219,8 +215,7 @@ in *AZURERESOURCE*
 | X         | AZURERESOURCE      | ID or name of the Container Registry resource      |
 |           | AZURERESOURCEGROUP | Associated Resource Group if resource name is used |
 
-</TabItem>
-<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
+<!--Azure AZ CLI-->
 
 | Mandatory | Nom                | Description                                        |
 |:----------|:-------------------|:---------------------------------------------------|
@@ -229,8 +224,7 @@ in *AZURERESOURCE*
 | X         | AZURERESOURCE      | ID or name of the Container Registry resource      |
 |           | AZURERESOURCEGROUP | Associated Resource Group if resource name is used |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## How to check in the CLI that the configuration is OK and what are the main options for ?
 

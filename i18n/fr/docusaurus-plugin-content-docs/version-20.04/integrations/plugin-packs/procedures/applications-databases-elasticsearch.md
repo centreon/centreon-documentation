@@ -2,9 +2,6 @@
 id: applications-databases-elasticsearch
 title: Elasticsearch
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Vue d'ensemble
 
@@ -24,8 +21,9 @@ Elasticsearch est un moteur de recherche et d'analyse distribué et en open sour
 
 ### Métriques Collectées
 
-<Tabs groupId="sync">
-<TabItem value="clusterstatistics" label="clusterstatistics">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--cluster-statistics-->
 
 | Métrique                 | Description                                | Unité   |
 | :----------------------- | :----------------------------------------- | :------ |
@@ -46,8 +44,7 @@ Elasticsearch est un moteur de recherche et d'analyse distribué et en open sour
 | docs_count               | Nombre de documents                        |         |
 | size_in_bytes            | Tailles de toutes les partitions assignées |    B    |
 
-</TabItem>
-<TabItem value="indicestatistics" label="indicestatistics">
+<!--indice-statistics-->
 
 | Métrique           | Description                                            |  Unité   |
 | :----------------------- | :----------------------------------------------- | :------ |
@@ -59,8 +56,7 @@ Elasticsearch est un moteur de recherche et d'analyse distribué et en open sour
 | size_in_bytes_primaries  | Taille de toute les partitions primaires         |    B    |
 | size_in_bytes_total      | Taille totale de toutes les partitions assignées |    B    |
 
-</TabItem>
-<TabItem value="license" label="license">
+<!--license-->
 
 | Métrique           | Description                              | Unité   |
 | :----------------- | :--------------------------------------- | :------ |
@@ -69,8 +65,7 @@ Elasticsearch est un moteur de recherche et d'analyse distribué et en open sour
 | issued_to          | Propriétaire de la licence               |         |
 | issue_date         | Date de concession de la licence         |         |
 
-</TabItem>
-<TabItem value="nodestatistics" label="nodestatistics">
+<!--node-statistics-->
 
 | Métrique          | Description                                               | Unité   |
 | :---------------- | :-------------------------------------------------------- | :-----  |
@@ -84,16 +79,14 @@ Elasticsearch est un moteur de recherche et d'analyse distribué et en open sour
 | docs_count        | Nombre de documents dans l'indice                         |         |
 | size_in_bytes     | Taille totale de toutes les partitions assignées au noeud |    B    |
 
-</TabItem>
-<TabItem value="Rules" label="Rules">
+<!--Rules-->
 
 | Non de la rêgle                        | Description                                       |
 | :------------------------------------- | :------------------------------------------------ |
 | App-DB-Elasticsearch-Indice-Statistics | Découverte des indices sur votre BD Elasticsearch |
 | App-DB-Elasticsearch-Node-Statistics   | Découverte des noeuds sur votre BD Elasticsearch  |  
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 Utilisez le module de découverte pour pouvoir superviser vos bases de donnée Elasticsearch, Allez dans  Configuration > Services > Découverte pour lancer l'analyse.
 
@@ -104,8 +97,9 @@ Pour pouvoir communiquer avec le collecteurs Centreon poller, l'API du noeud Ela
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Licence Business & IT Editions en ligne" label="Licence Business & IT Editions en ligne">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!-- Licence Business & IT Editions en ligne-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon contrôlants les ressources Elasticsearch:
 
@@ -115,8 +109,7 @@ yum install centreon-plugin-Applications-donnéebases-Elasticsearch
 
 2. Installer le Plugin-Pack *Elasticsearch* dans la page *Configuration  \>  Packs de plugins*  de l'interface Web Centreon
 
-</TabItem>
-<TabItem value="Licenses hors lignes" label="Licenses hors lignes">
+<!--Licenses hors lignes-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon contrôlants les ressources Elasticsearch:
 
@@ -132,8 +125,7 @@ yum install centreon-pack-applications-donnéebases-elasticsearch
 
 3. Dans la page *Configuration  \> Packs de plugins* de l'interface Web Centreon, installer le Plugin-Pack *Elasticsearch*
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

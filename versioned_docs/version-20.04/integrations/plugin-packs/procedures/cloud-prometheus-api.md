@@ -2,9 +2,6 @@
 id: cloud-prometheus-api
 title: Prometheus Server
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Overview
 
@@ -23,8 +20,9 @@ from the time-series database.
 
 ### Collected Metrics
 
-<Tabs groupId="sync">
-<TabItem value="Expression" label="Expression">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Expression-->
 
 Generic mode to perform PromQL queries
 
@@ -34,8 +32,7 @@ Generic mode to perform PromQL queries
 
 E.g: Throttled CPU metrics on a specific node: '*amzkubemaster.int.centreon.com*#*throttled*'=2.4699414529294077;;;; 
 
-</TabItem>
-<TabItem value="TargetStatus" label="TargetStatus">
+<!--Target-Status-->
 
 | Metric name           | Description                |
 | :-------------------- | :------------------------- |
@@ -45,8 +42,7 @@ E.g: Throttled CPU metrics on a specific node: '*amzkubemaster.int.centreon.com*
 | targets.down.count    | Number of down targets     |
 | targets.unknown.count | Number of unknown targets  | 
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -55,8 +51,9 @@ HTTP.
 
 ## Setup 
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to query Prometheus:
 
@@ -67,8 +64,7 @@ yum install centreon-plugin-Cloud-Prometheus-Api
 
 2. On the Centreon Web interface, install the *Prometheus API* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin package on every Centreon poller expected toto query Prometheus:
 
@@ -84,8 +80,7 @@ yum install centreon-pack-cloud-prometheus-api
 
 3. On the Centreon Web interface, install the *Prometheus API* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

@@ -2,9 +2,6 @@
 id: installation-first-steps
 title: Installation & premier pas
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 Bonjour et bienvenue ! Nous sommes heureux que vous ayez décidé de mettre en place la
 supervision de votre IT via Centreon.
@@ -52,21 +49,20 @@ Vous pouvez installer Centreon :
 
 Les machines virtuelles sont disponibles sur notre site de [téléchargement Centreon](https://download.centreon.com).
 
-<Tabs groupId="sync">
-<TabItem value="VMware environment" label="VMware environment">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--VMware environment-->
 \
 Accédez à **Fichier > Déployer le modèle OVF** et sélectionnez le **fichier OVA**. Parce que les sélections de menu sont
 liées à votre configuration VMWare, nous ne pouvons pas fournir plus d'informations. Sachez que la meilleure pratique
 consiste à utiliser l'option **Thin Provision** pour économiser autant d'espace libre que possible sur le disque.
 
-</TabItem>
-<TabItem value="Oracle Virtualbox" label="Oracle Virtualbox">
+<!--Oracle Virtualbox-->
 \
 Extraire le contenu de l'archive et double-cliquez sur le **fichier OVF**. Suivez les instructions pour importer la
 machine virtuelle.
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 Une fois votre machine virtuelle importée, vous devez **ajouter une carte réseau**. Modifiez les paramètres de la
 machine virtuelle et d'une carte réseau. Sélectionnez le bon réseau associé pour accéder à Internet.

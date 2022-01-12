@@ -2,9 +2,6 @@
 id: network-ibm-bladecenter-snmp
 title: IBM Bladecenter Switch
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Overview
 
@@ -26,24 +23,21 @@ the following indicators:
 * Ntp: Check time offset of server with ntp server
 * Uptime: Elapsed time since the last reboot
 
-<Tabs groupId="sync">
-<TabItem value="Cpu" label="Cpu">
+<!--Cpu-->
 
 | Metric name                    | Description                              | Unit   |
 | :----------------------------- | :--------------------------------------- | :------|
 | cpu.utilization.1m.percentage  | CPU utilization for the last minute      | %      |
 | cpu.utilization.5m.percentage  | CPU utilization for the last 5 minutes   | %      |
 
-</TabItem>
-<TabItem value="Storage" label="Storage">
+<!--Storage-->
 
 | Metric name                         | Description                    | Unit   |
 | :---------------------------------- | :----------------------------- |------- |
 | storage.partitions.count            | Total number of partition      |        |
 | partition#storage.space.usage.bytes | Used space on a disk partition | Bytes  |
 
-</TabItem>
-<TabItem value="MemoryUsage" label="MemoryUsage">
+<!--Memory-Usage-->
 
 | Metric name             | Description                 | Unit   |
 | :---------------------- | :---------------------------| :----- |
@@ -51,8 +45,7 @@ the following indicators:
 | memory.usage.percentage | Total current memory usage  |  %     |
 | memory.free.bytes       | Current free memory         | Bytes  |
 
-</TabItem>
-<TabItem value="Traffic" label="Traffic">
+<!--Traffic-->
 
 | Metric name                              | Description                                                               | Unit        |
 | :--------------------------------------- | :------------------------------------------------------------------------ | :---------- |
@@ -63,8 +56,7 @@ the following indicators:
 
 A regexp filter is available to target a specific interface identifier/ifName [```--interface='^my-interface-name$' --name```] 
 
-</TabItem>
-<TabItem value="Environment" label="Environment">
+<!--Environment-->
 
 | Metric name                   | Description                      | Unit     |               
 | :---------------------------- | :------------------------------- | :--------|
@@ -75,8 +67,7 @@ You can use ```--no-component``` if you want to alert when a component is
 absent/removed. You can also overload the default status using the 
 ```--threshold-overload option```. 
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -93,8 +84,9 @@ Poller on the UDP/161 SNMP port.
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Plugin package on every Centreon poller expected to monitor an IBM BladeCenter switch module:
 
@@ -104,8 +96,7 @@ yum install centreon-plugin-Network-Ibm-Bladecenter-Snmp
 
 2. On the centreon Web interface, install the *IBM BladeCenter Switch* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Plugin on every Centreon poller expected to monitor an IBM BladeCenter switch module:
 
@@ -121,8 +112,7 @@ yum install centreon-pack-network-ibm-bladecenter-snmp
 
 3. On the centreon Web interface, install the *IBM BladeCenter Switch* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

@@ -2,9 +2,6 @@
 id: cloud-microsoft-office365-onedrive
 title: Office365 OneDrive
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Vue d'ensemble
 
@@ -28,8 +25,9 @@ Plus d'informations sur les métriques collectées sur la documentation officiel
 de Microsoft : 
 https://docs.microsoft.com/fr-fr/microsoft-365/admin/activity-reports/onedrive-for-business-usage?view=o365-worldwide
 
-<Tabs groupId="sync">
-<TabItem value="SiteUsage" label="SiteUsage">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Site-Usage-->
 
 | Metric name                                  | Description                              | Unit  |
 | :------------------------------------------- | :--------------------------------------- | :-----|
@@ -40,8 +38,7 @@ https://docs.microsoft.com/fr-fr/microsoft-365/admin/activity-reports/onedrive-f
 | onedrive.sites.inactive.files.total.count    | Total number of files (inactive sites )  | Count |
 | onedrive.sites.files.active.total.count      | Total number of active files             | Count |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 Une fois l'hôte crée, les macros de services peuvent être configurées pour
 filtrer les métriques par utilisateurs ou par boites mail. Plus d'informations
@@ -83,8 +80,9 @@ https://docs.microsoft.com/fr-fr/office/office-365-management-api/get-started-wi
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des ressources Office 365 Onedrive :
 
@@ -94,8 +92,7 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Onedrive-Api
 
 2. Depuis l'interface Web de Centreon, installer le Plugin-Pack *Office365 Onedrive* depuis la page "Configuration > Plugin packs > Manager" 
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des ressources Office 365 Onedrive :
 
@@ -111,8 +108,7 @@ yum install centreon-pack-cloud-microsoft-office365-onedrive
 
 3. Depuis l'interface Web de Centreon, installer le Plugin-Pack *Office365 Onedrive* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

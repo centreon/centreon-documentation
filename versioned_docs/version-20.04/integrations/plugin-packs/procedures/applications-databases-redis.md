@@ -2,9 +2,6 @@
 id: applications-databases-redis
 title: Redis Database
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Pack Assets
 
@@ -21,8 +18,9 @@ The Pack Redis collects metrics for:
 
 ### Collected Metrics
 
-<Tabs groupId="sync">
-<TabItem value="Clients" label="Clients">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Clients-->
 
 | Metric name                        | Description                                                  | Unit  |
 | :--------------------------------- | :----------------------------------------------------------- | :---- |
@@ -31,16 +29,14 @@ The Pack Redis collects metrics for:
 | clients.longest_output_list.count  | Longest output list among current client connections         |       |
 | clients.biggest_input_buffer.count | Biggest input buffer among current client connections        |       |
 
-</TabItem>
-<TabItem value="Commands" label="Commands">
+<!--Commands-->
 
 | Metric name                  | Description                                      | Unit  |
 | :--------------------------- | :----------------------------------------------- | :---- |
 | commands.processed.count     | Total number of commands processed by the server |       |
 | commands.processed.persecond | Number of commands processed per second          |       |
 
-</TabItem>
-<TabItem value="Connections" label="Connections">
+<!--Connections-->
 
 | Metric name                       | Description                                                | Unit  |
 | :-------------------------------- | :--------------------------------------------------------- | :---- |
@@ -49,8 +45,7 @@ The Pack Redis collects metrics for:
 | network.traffic.in.bitspersecond  | Incoming traffic going through from the network            | b/s   |
 | network.traffic.out.bitspersecond | Outgoing traffic going through from the network            | b/s   |
 
-</TabItem>
-<TabItem value="Cpu" label="Cpu">
+<!--Cpu-->
 
 | Metric name                          | Description                                     | Unit  |
 | :----------------------------------- | :---------------------------------------------- | :---- |
@@ -59,8 +54,7 @@ The Pack Redis collects metrics for:
 | cpu.system.children.usage.percentage | System CPU consumed by the background processes | %     |
 | cpu.user.children.usage.percentage   | User CPU consumed by the background processes   | %     |
 
-</TabItem>
-<TabItem value="Memory" label="Memory">
+<!--Memory-->
 
 | Metric name                          | Description                                                                                           | Unit  |
 | :----------------------------------- | :---------------------------------------------------------------------------------------------------- | :---- |
@@ -75,8 +69,7 @@ The Pack Redis collects metrics for:
 | memory.defragmentation.running.count | Indicates whether defragmentation is currently active                                                 |       |
 | memory.lazy_pending_objects.count    | The number of objects waiting to be freed                                                             |       |
 
-</TabItem>
-<TabItem value="Persistence" label="Persistence">
+<!--Persistence-->
 
 | Metric name                       | Description                                                       | Unit  |
 | :-------------------------------- | :---------------------------------------------------------------- | :---- |
@@ -87,8 +80,7 @@ The Pack Redis collects metrics for:
 | rdb.last_save.duration.seconds    | Duration of the last RDB save operation                           | s     |
 | rdb.current_save.duration.seconds | NDuration of the on-going RDB save operation                      | s     |
 
-</TabItem>
-<TabItem value="Replication" label="Replication">
+<!--Replication-->
 
 | Metric name                                 | Description                                                 | Unit  |
 | :------------------------------------------ | :---------------------------------------------------------- | :---- |
@@ -100,8 +92,7 @@ The Pack Redis collects metrics for:
 | replication.slave.priority.count            | The priority of the instance as a candidate for failover    |       |
 | replication.slave.readonly.count            | Flag indicating if the replica is read-only                 |       |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -109,8 +100,9 @@ To control your Redis database, the poller can execute _INFO_ command (Eg: https
 
 ## Setup
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -120,8 +112,7 @@ yum install centreon-plugin-Applications-Databases-Redis
 
 2. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *Redis Database* Pack
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -137,17 +128,16 @@ yum install centreon-pack-applications-databases-redis
 
 3. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *Redis Database* Pack
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Host configuration
 
 * Add a new Host and apply the *App-DB-Redis-custom* Host Template
 
 > Once the template applied, some Macros have to be configured.
+<!--DOCUSAURUS_CODE_TABS-->
 
-<Tabs groupId="sync">
-<TabItem value="cli" label="cli">
+<!--cli-->
 
 With that configuration, the Plugin uses _redis-cli_ executable. _tls_ is supported (redis-cli >= 6.x mandatory).
 
@@ -162,8 +152,7 @@ With that configuration, the Plugin uses _redis-cli_ executable. _tls_ is suppor
 |           | REDISSERVICE      | Service parameter (mandatory if _REDISENTINEL_ macro used)                   |
 |           | REDISEXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --tls --insecure) |
 
-</TabItem>
-<TabItem value="perlmod (default)" label="perlmod (default)">
+<!--perlmod (default)-->
 
 With that configuration, the Plugin uses Perl _Redis_ module (eg: https://metacpan.org/pod/Redis). _tls_ is unsupported.
 
@@ -177,15 +166,15 @@ With that configuration, the Plugin uses Perl _Redis_ module (eg: https://metacp
 |           | REDISSERVICE      | Service parameter (mandatory if _REDISENTINEL_ macro used) |
 |           | REDISEXTRAOPTIONS | Any extra option you may want to add to the command        |
 
-</TabItem>
-</Tabs>
+<!--DOCUSAURUS_CODE_TABS-->
 
 ## How to install _redis-cli_ 6.x ?
 
 To use _tls_ and/or ACL users, you need _redis-cli_ >= 6.x.
 
-<Tabs groupId="sync">
-<TabItem value="Centos 7" label="Centos 7">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Centos 7-->
 
 ```bash
 yum install epel-release
@@ -193,8 +182,7 @@ yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm
 yum --enablerepo=remi install redis
 ```
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## How to test the Plugin and what are the main options for?
 

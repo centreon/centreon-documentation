@@ -2,9 +2,6 @@
 id: hardware-storage-purestorage-snmp
 title: Pure Storage SNMP
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Vue d'ensemble
 
@@ -21,8 +18,9 @@ Il fournit un logiciel propriétaire de déduplication et de compression des don
 
 Les métriques collectées sont les suivantes 
 
-<Tabs groupId="sync">
-<TabItem value="Stats" label="Stats">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Stats-->
 
 | Metric Name              | Description                                                     |
 | :----------------------- | :-------------------------------------------------------------- |
@@ -33,8 +31,7 @@ Les métriques collectées sont les suivantes
 | pureArrayReadLatency     | Storage array Read Latency (us/op). Unit: us/operations         |
 | pureArrayWriteLatency    | Storage array Write Latency (us/op). Unit: us/operations        |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -48,8 +45,9 @@ La communication doit être possible sur le port UDP 161 depuis le Collecteur Ce
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des ressources de Pure Storage:
 
@@ -59,8 +57,7 @@ yum install centreon-plugin-Hardware-Storage-Purestorage-Snmp
 
 2. Installer le Plugin-Pack depuis la page "Configuration > Plugin packs > Manager":
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des ressources de Pure Storage:
 
@@ -76,8 +73,7 @@ yum install centreon-pack-hardware-storage-purestorage-snmp
 
 3. Installer le Plugin-Pack 'PureStorage SNMP' depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

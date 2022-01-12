@@ -2,9 +2,6 @@
 id: hardware-devices-camera-mobotix-snmp
 title: Mobotix camera SNMP
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Plugin Pack Assets
 
@@ -16,20 +13,21 @@ The Plugin Pack Mobotix SNMP collects metrics for:
 
 ### Discovery rules
 
-<Tabs groupId="sync">
-<TabItem value="Services" label="Services">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Services-->
 
 | Rule name                                    | Description                                                           |
 | :------------------------------------------- | :-------------------------------------------------------------------- |
 | HW-Device-Camera-Mobotix-SNMP-Interface-Name | Discover network interfaces and monitor bandwidth utilization         |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Collected Metrics
 
-<Tabs groupId="sync">
-<TabItem value="Interfaces" label="Interfaces">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Interfaces-->
 
 | Metric name                                            | Description                                         | Unit |
 | :----------------------------------------------------- | :-------------------------------------------------- | :--- |
@@ -41,8 +39,7 @@ The Plugin Pack Mobotix SNMP collects metrics for:
 
 A regexp filter is available to target a specific interface identifier - ifName [```--interface='^eth0$' --name```]
 
-</TabItem>
-<TabItem value="System" label="System">
+<!--System-->
 
 | Metric name                         | Description                      | Unit |
 | :---------------------------------- | :------------------------------- | :--- |
@@ -54,8 +51,7 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | system.illumination.left.lux        | Illumination of the left sensor  | lx   |
 | system.video.framerate.persecond    | Current video framerate          |      |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -65,8 +61,9 @@ The Poller should be able to perform requests against the Mobotix device over SN
 
 ## Setup
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -76,8 +73,7 @@ yum install centreon-plugin-Hardware-Devices-Camera-Mobotix-Snmp
 
 2. On the Centreon Web interface in "Configuration > Plugin Packs > Manager", install the *Mobotix Camera* Plugin Pack
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -93,8 +89,7 @@ yum install centreon-pack-hardware-devices-camera-mobotix-snmp
 
 3. On the Centreon Web interface in "Configuration > Plugin Packs > Manager", install the *Mobotix Camera* Plugin Pack
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Host configuration
 

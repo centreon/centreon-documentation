@@ -2,9 +2,6 @@
 id: hardware-servers-supermicro-superdoctor-snmp
 title: Supermicro SuperDoctor SNMP
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Pack Assets
 
@@ -15,8 +12,9 @@ The Pack Supermicro SuperDoctor collects metrics for:
 
 ### Collected Metrics
 
-<Tabs groupId="sync">
-<TabItem value="Hardware" label="Hardware">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Hardware-->
 
 | Metric name                                         | Description               | Unit  |
 | :-------------------------------------------------- | :------------------------ | :---- |
@@ -29,8 +27,7 @@ The Pack Supermicro SuperDoctor collects metrics for:
 | *sensor\_name*\#hardware.sensor.voltage.volt        | Voltage of the sensor     | V     |
 | *sensor\_name*\#hardware.sensor.discrete.xxx        | Discrete sensor           |       |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -39,8 +36,9 @@ The Poller should be able to perform SNMP requests toward the Supermicro device 
 
 ## Setup
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -50,8 +48,7 @@ yum install centreon-plugin-Hardware-Servers-Supermicro-Superdoctor-Snmp
 
 2. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *Supermicro SuperDoctor SNMP* Pack
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -67,8 +64,7 @@ yum install centreon-pack-hardware-servers-supermicro-superdoctor-snmp
 
 3. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *Supermicro SuperDoctor SNMP* Pack
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Host configuration
 

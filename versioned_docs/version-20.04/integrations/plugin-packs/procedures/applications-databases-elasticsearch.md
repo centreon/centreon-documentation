@@ -2,9 +2,6 @@
 id: applications-databases-elasticsearch
 title: Elasticsearch
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Overview
 
@@ -24,23 +21,24 @@ Elasticsearch is a distributed, open source search and analytics engine for all 
 
 ### Discovery rules
 
-<Tabs groupId="sync">
-<TabItem value="Services" label="Services">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Services-->
 
 | Rule name                              | Description                                   |
 | :------------------------------------- | :-------------------------------------------- |
 | App-DB-Elasticsearch-Indice-Statistics | Discover the indices on your Elasticsearch DB |
 | App-DB-Elasticsearch-Node-Statistics   | Discover the nodes on your Elasticsearch DB   |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 Use the discovery module to add the monitoring of your Elasticsearch databases, Go to *Configuration > Services > Scan* to perform a scan.
 
 ### Collected metrics
 
-<Tabs groupId="sync">
-<TabItem value="Clusterstatistics" label="Clusterstatistics">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Cluster-statistics-->
 
 | Metric name              | Description                              | Unit    |
 | :----------------------- | :--------------------------------------- | :---    |
@@ -61,8 +59,7 @@ Use the discovery module to add the monitoring of your Elasticsearch databases, 
 | docs_count               | Number of documents                      |         |
 | size_in_bytes            | Size of all shards assigned              |    B    |
 
-</TabItem>
-<TabItem value="Indicestatistics" label="Indicestatistics">
+<!--Indice-statistics-->
 
 | Metric name              | Description                              | Unit    |
 | :----------------------- | :--------------------------------------- | :------ |
@@ -74,8 +71,7 @@ Use the discovery module to add the monitoring of your Elasticsearch databases, 
 | size_in_bytes_primaries  | Size of all primary shards               |    B    |
 | size_in_bytes_total      | Total size of all shards assigned        |    B    |
 
-</TabItem>
-<TabItem value="License" label="License">
+<!--License-->
 
 | Metric name        | Description                              | Unit    |
 | :----------------- | :--------------------------------------- | :------ |
@@ -84,8 +80,7 @@ Use the discovery module to add the monitoring of your Elasticsearch databases, 
 | issued_to          | Licence owner                            |         |
 | issue_date         | Licence issue date                       |         |
 
-</TabItem>
-<TabItem value="Nodestatistics" label="Nodestatistics">
+<!--Node-statistics-->
 
 | Metric name        | Description                                           | Unit    |
 | :----------------- | :---------------------------------------------------- | :-----  |
@@ -99,8 +94,7 @@ Use the discovery module to add the monitoring of your Elasticsearch databases, 
 | docs_count         | Number of documents inside the indice                 |         |
 | size_in_bytes      | Total size of all shards assigned to the node         |    B    |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites 
 
@@ -110,8 +104,9 @@ In order to be able to communicate with the Elasticsearch node's API, the Centre
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online Licence Business & IT Editions" label="Online Licence Business & IT Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online Licence Business & IT Editions-->
 
 1. Install the Plugin on all Centreon pollers monitoring Elasticsearch ressources:
 
@@ -121,8 +116,7 @@ yum install centreon-plugin-Applications-Databases-Elasticsearch
 
 2. Install the Plugin-Pack 'Elasticsearch' in the " Configuration  >  Plugin Packs"  page of the Web Centreon interface
 
-</TabItem>
-<TabItem value="Offline Licenses" label="Offline Licenses">
+<!--Offline Licenses-->
 
 1. Install the Plugin on all Centreon pollers monitoring Elasticsearch ressources:
 
@@ -138,8 +132,7 @@ yum install centreon-pack-applications-databases-elasticsearch
 
 3. In the *Configuration  \>  Plugin Packs*  page of the Web Centreon interface, install the Plugin-Pack 'Elasticsearch'
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Host Configuration
 

@@ -2,9 +2,6 @@
 id: applications-vernemq-restapi
 title: VerneMQ Restapi
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Vue d'ensemble
 
@@ -22,8 +19,9 @@ Le Plugin-Pack VerneMQ, supervise les Clusters, Listeners, Plugins et sessions e
 Vous pouvez vous renseigner en détails sur les métriques présentées ci-après sur la documentation officielle 
 de VerneMQ : https://docs.vernemq.com/monitoring/introduction
 
-<Tabs groupId="sync">
-<TabItem value="Clusters" label="Clusters">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Clusters-->
 
 | Metric name                      | Description                         | Unit  |
 | :------------------------------- | :---------------------------------- | :---- |
@@ -31,8 +29,7 @@ de VerneMQ : https://docs.vernemq.com/monitoring/introduction
 | clusters.running.count           | Number of clusters running          | count |
 | clusters.notrunning.count        | Number of cluster not running       | count |
 
-</TabItem>
-<TabItem value="Listeners" label="Listeners">
+<!--Listeners-->
 
 | Metric name                      | Description                         | Unit  |
 | :------------------------------- | :---------------------------------- | :---- |
@@ -40,23 +37,20 @@ de VerneMQ : https://docs.vernemq.com/monitoring/introduction
 | listeners.running.count          | Number of listeners running         | count |
 | listeners.notrunning.count       | Number of listeners not running     | count |
 
-</TabItem>
-<TabItem value="Plugins" label="Plugins">
+<!--Plugins-->
 
 | Metric name                      | Description                         | Unit  |
 | :------------------------------- | :---------------------------------- | :---- |
 | plugins.total.count              | Total number of plugins             | count |
 
-</TabItem>
-<TabItem value="Sessions" label="Sessions">
+<!--Sessions-->
 
 | Metric name                      | Description                         | Unit  |
 | :------------------------------- | :---------------------------------- | :---- |
 | sessions.online.count            | Number of sessions online           | count |
 | sessions.total.count             | Total number of sessions            | count |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
@@ -78,8 +72,9 @@ Plus d'informations sur l'API HTTP de VerneMQ sur : https://docs.vernemq.com/adm
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon supervisant des ressources VerneMQ :
 
@@ -89,8 +84,7 @@ yum install centreon-plugin-Applications-Vernemq-Restapi.noarch
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *VerneMQ Restapi* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon supervisant des ressources VerneMQ :
 
@@ -106,8 +100,7 @@ yum install centreon-pack-applications-vernemq-restapi.noarch
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *VerneMQ Restapi* depuis la page "Configuration > Plugin packs > Manager"
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

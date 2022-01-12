@@ -2,9 +2,6 @@
 id: network-ruckus-icx-snmp
 title: Ruckus ICX
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Overview
 
@@ -20,20 +17,21 @@ the most performance and cost effective unified wired and wireless access soluti
 
 ### Discovery rules
 
-<Tabs groupId="sync">
-<TabItem value="Services" label="Services">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Services-->
 
 | Rule name                        | Description                                                                |
 | :------------------------------- | :------------------------------------------------------------------------- |
 | Net-Ruckus-Icx-SNMP-Traffic-Name |  Discover network interfaces and monitor status and bandwidth utilization  |
 
-</TabItem>
-</Tabs>
+<!--DOCUSAURUS_CODE_TABS-->
 
 ## Monitored metrics
 
-<Tabs groupId="sync">
-<TabItem value="Cpu" label="Cpu">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Cpu-->
 
 | Metric Name                   | Description                                            |
 | :---------------------------- | :----------------------------------------------------- |
@@ -41,8 +39,7 @@ the most performance and cost effective unified wired and wireless access soluti
 | cpu.utilization.1m.percentage | CPU usage for the last 1m period. Unit: percentage (%) |
 | cpu.utilization.5m.percentage | CPU usage for the last 5m period. Unit: percentage (%) |
 
-</TabItem>
-<TabItem value="Memory" label="Memory">
+<!--Memory-->
 
 | Metric Name             | Description                                      |
 | :---------------------- | :----------------------------------------------- |
@@ -50,8 +47,7 @@ the most performance and cost effective unified wired and wireless access soluti
 | memory.usage.percentage | Memory usage in percentage. Unit: percentage (%) |
 | memory.free.bytes       | Free memory. Unit: Bytes (B)                     |
 
-</TabItem>
-<TabItem value="Interfaces" label="Interfaces">
+<!--Interfaces-->
 
 | Metric Name                              | Description                                                                  |
 | :--------------------------------------- | :--------------------------------------------------------------------------- |
@@ -63,8 +59,7 @@ the most performance and cost effective unified wired and wireless access soluti
 | interface.packets.out.error.percentage   | Outgoing errored packets going through the interface. Unit: percentage (%)   |
 | interface.packets.out.discard.percentage | Outgoing discarded packets going through the interface. Unit: percentage (%) |
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -78,8 +73,9 @@ The Centreon poller should be able to reach the UDP SNMP port 161 of the Ruckus 
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT100 Editions" label="Online IMP Licence & IT100 Editions">
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
 
 1. Install the Plugin on every poller expected to monitor Ruckus ICX SNMP resources:
 
@@ -89,8 +85,7 @@ yum install centreon-plugin-Network-Switch-Ruckus-Icx-Snmp
 
 2. Install the *Ruckus ICX* Centreon Plugin-Pack from the "Configuration > Plugin packs > Manager" page
 
-</TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<!--Offline IMP License-->
 
 1. Install the Plugin on every poller expected to monitor Ruckus ICX resources:
 
@@ -106,8 +101,7 @@ yum install centreon-pack-network-switch-ruckus-icx-snmp
 
 3. Install the *Ruckus ICX* Centreon Plugin-Pack from the "Configuration > Plugin packs > Manager" page
 
-</TabItem>
-</Tabs>
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Host Configuration
 
