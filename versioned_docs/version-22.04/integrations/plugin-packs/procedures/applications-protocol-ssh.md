@@ -61,7 +61,7 @@ yum install centreon-plugin-Applications-Protocol-Ssh
 
 2. Install the *Protocol SSH* Centreon Plugin Pack RPM on the Centreon Central server:
 
- ```bash
+```bash
 yum install centreon-pack-applications-protocol-ssh
 ```
 

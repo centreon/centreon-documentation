@@ -32,11 +32,11 @@ products and go to the `Administration > Extensions > Manager` page.
 4. Click on the update icon corresponding to the **Auto Discovery**
 module:
 
-    ![image](../../assets/monitoring/discovery/update.png)
+  ![image](../../assets/monitoring/discovery/update.png)
 
-    The module is now updated:
+  The module is now updated:
 
-    ![image](../../assets/monitoring/discovery/install-after.png)
+  ![image](../../assets/monitoring/discovery/install-after.png)
 
 ## Uninstallation
 
@@ -49,7 +49,7 @@ products and go to the `Administration > Extensions > Manager` page.
 2. Click on the delete icon corresponding to the **Auto Discovery**
 module:
 
-    ![image](../../assets/monitoring/discovery/install-after.png)
+  ![image](../../assets/monitoring/discovery/install-after.png)
 
 3. A confirmation popup will appear. Confirm the action:
 

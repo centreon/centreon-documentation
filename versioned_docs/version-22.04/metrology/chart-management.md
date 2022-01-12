@@ -1,6 +1,6 @@
 ---
 id: chart-management
-title: Charts managment
+title: Charts management
 ---
 
 Centreon can be used to generate graphs from monitoring information. There are two types of graph:

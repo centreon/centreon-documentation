@@ -15,7 +15,7 @@ yum install centreon-plugin-Applications-Webservers-Tomcat-Webmanager
 
 ## Install Tomcat
 
-Warning: The following procedure is an example. Cannot be applied on all
+> The following procedure is an example. Cannot be applied on all
 context.
 
 This chapter describes the prerequisites installation needed by plugins to run.

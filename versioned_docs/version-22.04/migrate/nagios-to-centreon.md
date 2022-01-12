@@ -89,4 +89,4 @@ server:
 /usr/share/centreon/bin/centreon -u admin -p <PASSWORD> -i /tmp/centreon_clapi_import_commands.txt
 ```
 
-Replace **\<PASSWORD\>** by password of **admin** Centreon web user.
+Replace **<PASSWORD\>** by password of **admin** Centreon web user.

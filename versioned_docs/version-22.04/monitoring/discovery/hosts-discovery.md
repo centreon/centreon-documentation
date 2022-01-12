@@ -75,9 +75,9 @@ discovery results could look like:
       > [exclusion](#exclusion) mapper).
   - **Enable hosts already added to configuration if they are discovered but disabled**: hosts that have already been added to the configuration but are in a disabled state will be enabled again.
 
-    ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-5-2.png)
+  ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-5-2.png)
 
-    Read the [example](#dynamically-update-your-configuration) below to better
+  Read the [example](#dynamically-update-your-configuration) below to better
 understand the scope of these policies.
 
 ### Step 6: Plan execution
@@ -151,7 +151,7 @@ Several actions can be done on jobs:
 1. On the **Configuration > Hosts > Discovery** page, click on the arrow <img src={require('../../assets/monitoring/discovery/host-discovery-goto-results.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 next to the status of a **Finished** job to visualize the results.
 
-![image](../../assets/monitoring/discovery/host-discovery-hosts-listing.png)
+  ![image](../../assets/monitoring/discovery/host-discovery-hosts-listing.png)
 
 2. If you want, you can edit the mappers linked to this job by clicking the **Edit** icon: <img src={require('../../assets/monitoring/discovery/host-discovery-edit.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 
@@ -165,13 +165,13 @@ next to the status of a **Finished** job to visualize the results.
 3. If your job was set to **Manual analysis** at step 5 of the wizard, select the hosts you want to add to the configuration and click on the **Save**
 button: <img src={require('../../assets/monitoring/discovery/host-discovery-hosts-save.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 
-    The hosts are created as well as the services linked to their host templates.
+  The hosts are created as well as the services linked to their host templates.
 
 4. Go to the **Configuration > Hosts** page: the newly created hosts appear in the list.
 
-    ![image](../../assets/monitoring/discovery/host-discovery-configuration-hosts.png)
+  ![image](../../assets/monitoring/discovery/host-discovery-configuration-hosts.png)
 
-    If the hosts you selected are not visible in the configuration, go back to the
+  If the hosts you selected are not visible in the configuration, go back to the
 list of jobs and see if an error occured during the saving task.
 
 5. [Deploy](../monitoring-servers/deploying-a-configuration) the configuration. The new hosts are now monitored.
@@ -254,7 +254,7 @@ section, click on the **Edit** icon: <img src={require('../../assets/monitoring/
 1. In the job wizard at step four, or on the edition panel in the **Mappers**
 section, click on the **Delete** icon: <img src={require('../../assets/monitoring/discovery/host-discovery-delete.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 
-    A popin window will ask you to confirm the action.
+  A popin window will ask you to confirm the action.
 
 2. Click on **DELETE** to delete the mapper.
 

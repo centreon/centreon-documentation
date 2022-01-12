@@ -126,7 +126,7 @@ yum install centreon-pack-network-firewalls-paloalto-standard-ssh
 |             | SSHPORT         | By default: 22                                                                              |
 |             | SSHEXTRAOPTIONS | Customize it with your own if needed. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```          |
 
-**Warning** With that backend, you have to validate the target server fingerprint manually (with the SSHUSERNAME used).
+> With that backend, you have to validate the target server fingerprint manually (with the SSHUSERNAME used).
 
 <!--plink backend-->
 

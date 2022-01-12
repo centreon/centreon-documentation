@@ -74,8 +74,8 @@ To perform a massive change:
 2. In the **More actions** menu, click on **Massive Change**.
 3. The form for the type of object opens, with 2 options next to each field:
 
-    * **Incremental**: signifies that the change will be added to the existing options
-    * **Replacement**: signifies that the change will overwrite the existing options.
+  * **Incremental**: signifies that the change will be added to the existing options
+  * **Replacement**: signifies that the change will overwrite the existing options.
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Enabling/disabling objects

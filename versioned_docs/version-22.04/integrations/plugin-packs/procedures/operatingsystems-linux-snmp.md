@@ -120,7 +120,7 @@ To monitor a Linux based device, the SNMP service must be installed and configur
 
 ## net-snmp server configuration
 
-:note: A detailed documentation on how-to configure SNMP is available in the documentation of each Linux distribution.
+> A detailed documentation on how-to configure SNMP is available in the documentation of each Linux distribution.
 
 Find below a minimalist snmpd.conf / net-snmp config file (replace **my-snmp-community** by the relevant value).
 
@@ -178,7 +178,7 @@ yum install centreon-pack-operatingsystems-linux-snmp
 
 When adding a new Linux host into Centreon, make sure to fill the Snmp Version and Snmp Community fields. 
 
-  :warning: When using snmp v3, set extra SNMP parameters in the SNMPEXTRAOPTIONS macro. 
+> When using snmp v3, set extra SNMP parameters in the SNMPEXTRAOPTIONS macro. 
 
 | Obligatoire | Nom              | Description                                    |
 | :---------- | :--------------- | :--------------------------------------------- |

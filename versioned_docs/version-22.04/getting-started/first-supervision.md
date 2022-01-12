@@ -555,10 +555,10 @@ automatically to the monitoring engine. To apply the changes performed, it is ne
     ![image](../assets/monitoring/monitoring-servers/export_conf.png)
 
 4. Check the following boxes:
-  - **Generate Configuration Files**
-  - **Run monitoring engine debug (-v)**
-  - **Move Export Files**
-  - **Restart Monitoring Engine**.
+    - **Generate Configuration Files**
+    - **Run monitoring engine debug (-v)**
+    - **Move Export Files**
+    - **Restart Monitoring Engine**.
 
 5. Click **Export**.
 

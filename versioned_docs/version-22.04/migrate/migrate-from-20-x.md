@@ -44,7 +44,7 @@ rsync -avz --exclude centcore/ --exclude log/ /var/lib/centreon root@<IP_NEW_CEN
 rsync -avz /var/spool/centreon/.ssh root@<IP_NEW_CENTREON>:/var/spool/centreon
 ```
 
-> Replace **\<IP_NEW_CENTREON\>** by the IP or the new Centreon server.
+> Replace **<IP_NEW_CENTREON>** by the IP or the new Centreon server.
 
 ### Retrieve databases
 
@@ -114,7 +114,7 @@ mysql_upgrade -u root -p
 systemctl start mariadb
 ```
 
-> Replace **\<IP_NEW_CENTREON\>** by the IP or the new Centreon server.
+> Replace **<IP_NEW_CENTREON>** by the IP or the new Centreon server.
 
 ### Synchronize the plugins
 
@@ -140,7 +140,7 @@ mv install-21.10.0-YYYYMMDD_HHMMSS/ /usr/share/centreon/www/install/
 > If you use the same IP address or same DNS name between old Centreon webserver
 > and the new one, do a full cache cleanup of your browser to avoid JS issues
 
-Go to *http://\<IP_NEW_CENTREON\>/centreon* URL and perform the upgrade.
+Go to `http://<IP_NEW_CENTREON>/centreon` URL and perform the upgrade.
 
 > If you changed the *centreon* password during the installation process you must
 > follow these steps:

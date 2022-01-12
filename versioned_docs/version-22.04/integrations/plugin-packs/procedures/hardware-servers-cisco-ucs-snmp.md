@@ -102,7 +102,7 @@ yum install centreon-plugin-Hardware-Servers-Cisco-Ucs-Snmp
 
 2. Install the Centreon Plugin Pack RPM on the Centreon Central server:
 
- ```bash
+```bash
 yum install centreon-pack-hardware-servers-cisco-ucs-snmp
 ```
 

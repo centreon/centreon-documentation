@@ -15,8 +15,9 @@ Install this plugin on each needed poller:
 yum install centreon-plugin-Applications-Protocol-Dhcp
 ```
 
-\#\#Remote server The remote server must have a DHCP service running and
-available.
+## Remote server
+
+The remote server must have a DHCP service running and available.
 
 ## Centreon Configuration
 
