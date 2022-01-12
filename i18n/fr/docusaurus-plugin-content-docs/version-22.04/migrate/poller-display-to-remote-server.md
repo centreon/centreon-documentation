@@ -33,9 +33,9 @@ supprimez le module **Centreon Poller Display**.
 2. Si vous avez installé le module à partir du paquet RPM, supprimez le paquet
 en exécutant la commande suivante :
 
-    ```shell
-    yum remove centreon-poller-display
-    ```
+  ```shell
+  yum remove centreon-poller-display
+  ```
 
 3. Si votre serveur est basé sur la distribution CentOS ou Red Hat en version
 7, réalisez la montée de version en suivant [cette procédure](../upgrade/upgrade-from-3-4),

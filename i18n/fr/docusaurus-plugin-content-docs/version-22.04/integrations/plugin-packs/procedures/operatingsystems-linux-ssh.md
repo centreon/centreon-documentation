@@ -282,7 +282,7 @@ Une fois le modèle défini, vous devez définir des valeurs en fonction du back
 |             | SSHPORT         | Par default: 22                                                                                 |
 |             | SSHEXTRAOPTIONS | Personnalisez-le avec le vôtre si nécessaire. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```      |
 
-:warning: Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur centreon-engine du Collecteur
+> Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur centreon-engine du Collecteur
 et l'utilisateur applicatif créé sur le serveur Linux. (Macro SSHUSERNAME).
 
 <!--plink backend-->
@@ -295,7 +295,7 @@ et l'utilisateur applicatif créé sur le serveur Linux. (Macro SSHUSERNAME).
 |             | SSHPORT         | Par default: 22                                                                                 |
 |             | SSHEXTRAOPTIONS | Personnalisez-le avec le vôtre si nécessaire. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```      |
 
-:warning: Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur centreon-engine du Collecteur
+> Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur centreon-engine du Collecteur
 et l'utilisateur applicatif créé sur le serveur Linux. (Macro SSHUSERNAME).
 
 <!--libssh backend (par défaut)-->

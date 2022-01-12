@@ -72,7 +72,7 @@ yum install centreon-plugin-Applications-Cisco-Ise-Restapi
 
 2. Sur le serveur Central Centreon, installer le RPM du Plugin-Pack *Cisco ISE* :
 
- ```bash
+```bash
 yum install centreon-pack-applications-cisco-ise-restapi
 ```
 

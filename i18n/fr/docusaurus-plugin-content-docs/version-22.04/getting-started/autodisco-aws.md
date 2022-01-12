@@ -37,7 +37,7 @@ Vous devez disposer :
  (sections [Plugin dependencies](../integrations/plugin-packs/procedures/cloud-aws-ec2#plugin-dependencies) et 
 [Setup](../integrations/plugin-packs/procedures/cloud-aws-ec2#setup)) pour finir d'installer le Plugin Pack. (Vous pouvez également accéder à la documentation d'un Plugin Pack en cliquant sur le `i`.)
 
-    ![image](../assets/getting-started/aws-doc.png)
+  ![image](../assets/getting-started/aws-doc.png)
 
 ## Étape 2 : Configurer la tâche de découverte
 

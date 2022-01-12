@@ -20,7 +20,7 @@ sont plus disponibles, afin d'éventuellement les désactiver dans la configurat
 
 1. Paramétrez une tâche de découverte pour chaque type d'hôte, en utilisant le bon [Plugin Pack](../pluginpacks). Par exemple, une tâche pour découvrir les noeuds ESX et une autre pour découvrir les machines virtuelles dans un cluster VMware. 
 
-    Pour les services, paramétrez des règles de découverte : par exemple, une pour découvrir les 
+  Pour les services, paramétrez des règles de découverte : par exemple, une pour découvrir les 
 interfaces réseau sur un serveur Linux, et une autre pour découvrir les volumes de disque.
 
 2. La tâche ou la règle de découverte sont effectuées : on obtient une liste des nouveaux hôtes ou services correspondant au Plugin Pack.

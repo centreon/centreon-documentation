@@ -464,21 +464,21 @@ fonctionnement de votre rapport sur notre plateforme.
 
 Pour être en mesure d'utiliser ce modèle, vous devez :
 
-:   -   Récupérer le fichier sur le serveur de reporting et le placer
-        dans le dossier "Resources/template" de votre projet BIRT :
-        "/Resources/templates/generic_component_script.rpttemplate"
-    -   Faire un clique droit sur ce fichier et cliquer sur "Register
-        Template with New Report Wizard"
+- Récupérer le fichier sur le serveur de reporting et le placer
+  dans le dossier "Resources/template" de votre projet BIRT :
+  "/Resources/templates/generic_component_script.rpttemplate"
+- Faire un clique droit sur ce fichier et cliquer sur "Register
+  Template with New Report Wizard"
 
-    ![image](../assets/reporting/dev-guide/registerTemplate.png)
+  ![image](../assets/reporting/dev-guide/registerTemplate.png)
 
-    -   Pour chaque nouveau rapport que vous créez, faites New->Report,
-        choisissez un nom puis cliquez sur "Next" pour accéder à la
-        fenêtre des modèles
-    -   Sélectionnez alors le modèle appelé "Component Template" puis
-        cliquez sur "Finish"
+- Pour chaque nouveau rapport que vous créez, faites New->Report,
+choisissez un nom puis cliquez sur "Next" pour accéder à la
+fenêtre des modèles
+- Sélectionnez alors le modèle appelé "Component Template" puis
+cliquez sur "Finish"
 
-![image](../assets/reporting/dev-guide/componentTemplate.png)
+  ![image](../assets/reporting/dev-guide/componentTemplate.png)
 
 ### Définir la structure du projet
 

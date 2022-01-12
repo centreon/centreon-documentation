@@ -40,15 +40,15 @@ Les données sont envoyées vers la Plateforme Centreon Cloud. Aucune donnée pe
     ```
 
 
-    Le message suivant sera retourné si la connexion aboutit:
+  Le message suivant sera retourné si la connexion aboutit:
 
-    ```
-    "Missing Authentication Token"
-    ```
+  ```
+  "Missing Authentication Token"
+  ```
 
-    Si vous recevez une réponse différente ou pas de réponse du tout, c'est que votre machine ne peut pas accéder à notre endpoint, probablement à cause de vos paramètres réseau (pare-feu, proxy, etc.).
+  Si vous recevez une réponse différente ou pas de réponse du tout, c'est que votre machine ne peut pas accéder à notre endpoint, probablement à cause de vos paramètres réseau (pare-feu, proxy, etc.).
 
-    >Si un proxy est configuré sur la machine hôte, vous devez copier l'adresse et le port du proxy dans le fichier de configuration de l'Agent (voir la section [Réseau](#réseau)).
+  >Si un proxy est configuré sur la machine hôte, vous devez copier l'adresse et le port du proxy dans le fichier de configuration de l'Agent (voir la section [Réseau](#réseau)).
 
 - Si une machine hôte n'a pas d'accès direct à l'extérieur, deux options complémentaires l'une de l'autre se présentent : la [configuration proxy](#configuration-proxy) et la [configuration passerelle](#configuration-en-mode-passerelle).
 

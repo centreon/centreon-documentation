@@ -275,7 +275,7 @@ Pour chaque mode, les options disponibles peuvent être consultées en ajoutant 
     --help
 ```
 
-### Pourquoi j'obtiens les erreurs suivantes :
+### J'obtiens les erreurs suivantes :
 
 #### UNKNOWN: Unknown container name 'default' |
 

@@ -75,7 +75,7 @@ La communauté SNMP doit être activée sur le serveur UCS en mode Read-only.
 
 La communication doit être possible sur le port UDP 161 depuis le collecteur Centreon vers les ressources UCS.
 
-  :Remarque: si vous utilisez SNMP v3, définissez tous les paramètres spécifiques dans la macro hôte SNMPEXTRAOPTIONS
+> si vous utilisez SNMP v3, définissez tous les paramètres spécifiques dans la macro hôte SNMPEXTRAOPTIONS
 
 | Mandatory   | Nom              | Description                                    |
 | :---------- | :--------------- | :--------------------------------------------- |
@@ -105,7 +105,7 @@ yum install centreon-plugin-Hardware-Servers-Cisco-Ucs-Snmp
 
 2. Sur le serveur Central Centreon, installer le RPM du Plugin Pack *Cisco UCS* :
 
- ```bash
+```bash
 yum install centreon-pack-hardware-servers-cisco-ucs-snmp
 ```
 

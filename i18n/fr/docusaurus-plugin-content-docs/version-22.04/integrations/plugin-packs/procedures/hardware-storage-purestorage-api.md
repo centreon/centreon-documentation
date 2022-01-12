@@ -14,7 +14,7 @@ Il fournit un logiciel propriétaire de déduplication et de compression des don
 
 * Baie de stockage
 
-## Métriques collectées                                                                                             
+## Métriques collectées
 
 Plus d'informations dans la documentation officielle de l'API de Pure Storage : https://blog.purestorage.com/introducing-the-pure1-rest-api/
 
@@ -49,7 +49,7 @@ Plus d'informations dans la documentation officielle de l'API de Pure Storage : 
 
 * Ce Plugin de supervision nécessite au moins une version de l'API Pure Storage >= 1.11 (https://static.pure1.purestorage.com/api-swagger/index).
 
-#### Créer un utilisateur spécifique
+### Créer un utilisateur spécifique
 
 Vous devez configurer l'utilisateur qui peut se connecter à la baie de stockage. 
 Cet utilisateur doit avoir au moins un accès "en lecture seule" à la baie de stockage.
@@ -100,7 +100,7 @@ Ensuite, remplisser les fichiers de valeur des macros marqués comme obligatoire
 
 ## FAQ
 
-#### Comment tester et interpréter le Plugin Rest API en ligne de commande?
+### Comment tester et interpréter le Plugin Rest API en ligne de commande?
 
 Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande depuis votre collecteur Centreon avec l'utilisateur centreon-engine:
 
@@ -145,7 +145,7 @@ La syntaxe des différentes options des seuils ainsi que la liste des options et
 --help
 ```
 
-#### Le Plugin renvoie l'erreur suivante: "UNKNOWN: Cannot decode json response"
+### Le Plugin renvoie l'erreur suivante: "UNKNOWN: Cannot decode json response"
 
 Si vous recevez ce message, ajoutez le parmamètre ```--debug``` à la commande afin d'afficher plus 
 d'informations sur la cause de l'erreur.

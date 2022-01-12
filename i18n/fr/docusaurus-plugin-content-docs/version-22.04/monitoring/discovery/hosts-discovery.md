@@ -169,13 +169,13 @@ Plusieurs actions peuvent être réalisées sur les tâches :
 3. Si vous avez configuré une découverte manuelle à l'étape 5 de l'assistant, sélectionnez les hôtes que vous voulez ajouter à la configuration, puis cliquez
 sur le bouton d'enregistrement : <img src={require('../../assets/monitoring/discovery/host-discovery-hosts-save.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 
-    Les hôtes sont alors créés ainsi que les services liés à leurs modèles d'hôte.
+  Les hôtes sont alors créés ainsi que les services liés à leurs modèles d'hôte.
 
 4. Allez à la page **Configuration > Hôtes > Hôtes** : les hôtes que vous venez de créer apparaissent dans la liste.
 
-    ![image](../../assets/monitoring/discovery/host-discovery-configuration-hosts.png)
+  ![image](../../assets/monitoring/discovery/host-discovery-configuration-hosts.png)
 
-    Si les hôtes que vous aviez sélectionnés ne sont pas visibles dans la
+  Si les hôtes que vous aviez sélectionnés ne sont pas visibles dans la
 liste, retournez à la liste des tâches et regardez si une erreur est
 survenue pendant la tâche d'enregistrement.
 
@@ -259,7 +259,7 @@ d'édition : <img src={require('../../assets/monitoring/discovery/host-discovery
 panneau d'édition dans la section **Modificateurs**, cliquez sur l'icône de
 suppression :  <img src={require('../../assets/monitoring/discovery/host-discovery-delete.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 
-    Une fenêtre demandera de confirmer l'action.
+  Une fenêtre demandera de confirmer l'action.
 
 2. Cliquez sur **SUPPRIMER** pour supprimer le modificateur.
 
@@ -322,12 +322,12 @@ automatiquement à des groupes d'hôtes. Cela peut se faire de deux manières.
 caractères et/ou d'informations issues de la découverte (une aide à la 
 saisie propose les informations disponibles).
 
-    ![image](../../assets/monitoring/discovery/host-discovery-mappers-hostgroup-create.png)
+  ![image](../../assets/monitoring/discovery/host-discovery-mappers-hostgroup-create.png)
 
-    Dans cet exemple, si l'on découvre des serveurs Linux, alors un groupe d'hôtes
+  Dans cet exemple, si l'on découvre des serveurs Linux, alors un groupe d'hôtes
 `os-linux` sera créé.
 
-    Si un groupe d'hôtes existe déjà avec ce nom, il ne sera pas recréé,
+  Si un groupe d'hôtes existe déjà avec ce nom, il ne sera pas recréé,
 l'hôte sera simplement rattaché à ce groupe.
 
 ### Host category

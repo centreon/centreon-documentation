@@ -19,11 +19,11 @@ yum install centreon-plugin-Applications-Protocol-Smtp
 
 The remote server must have a SMTP service running and available.
 
-\#\#Centreon Configuration
+## Centreon Configuration
 
 ### Create a host using the appropriate template
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+Go to *Configuration > Hosts* and click *Add*. Then, fill the form as shown by
 the following table:
 
 | Field                                   | Value                      |

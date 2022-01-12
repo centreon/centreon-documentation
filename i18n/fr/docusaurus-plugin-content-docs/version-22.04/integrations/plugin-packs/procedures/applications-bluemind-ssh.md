@@ -3,14 +3,14 @@ id: applications-bluemind-ssh
 title: BlueMind SSH
 ---
 
-## Vue d'ensemble
+## Vue d'ensemble
 
 BlueMind est une suite logicielle libre de messagerie d’entreprise, d’agendas et de travail collaboratif
 utilisant JavaScript et HTML5. 
 
-## Contenu du pack de supervision
+## Contenu du pack de supervision
 
-### Objets supervisés
+### Objets supervisés
 
 * Suite BlueMind dont: 
     * Lmtpd: Envoie/Récéption courriels
@@ -18,7 +18,7 @@ utilisant JavaScript et HTML5.
     * Webserver: Serveur d'application web / méssagerie
     * Chat/Xmpp: Communications unifiées
 
-### Métriques collectées
+### Métriques collectées
 
 Au delà des métriques présentés ci-après, un référentiel est disponible dans la documentation
 officielle : https://forge.bluemind.net/confluence/display/BM35/Reference+des+metriques

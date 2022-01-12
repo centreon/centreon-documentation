@@ -80,7 +80,7 @@ Une fois celui-ci configuré, certaines Macros doivent être renseignées:
 
 ## FAQ
 
-#### Comment faire le test en ligne de commande et que signifient les principales options ?
+### Comment faire le test en ligne de commande et que signifient les principales options ?
 
 Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande depuis votre collecteur Centreon avec l'utilisateur *centreon-engine*
 (Les paramètres tels que ```api-username``` ou ```api-password``` doivront être ajustés):
