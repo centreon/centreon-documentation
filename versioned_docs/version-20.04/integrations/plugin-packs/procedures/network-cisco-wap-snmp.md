@@ -26,7 +26,7 @@ The Centreon Plugin Pack _Cisco Wap SNMP_ relies on the SNMP protocol to query a
 ### Collected metrics
 
 <Tabs groupId="sync">
-<TabItem value="Clients" label="Clients">
+<TabItem value="Clients-1" label="Clients">
 
 | Metric name                   | Description                                                   | Unit  |
 | :---------------------------- | :------------------------------------------------------------ | :---- |
@@ -41,7 +41,7 @@ The Centreon Plugin Pack _Cisco Wap SNMP_ relies on the SNMP protocol to query a
 | cpu.utilization.percentage | Percentage of CPU utilization | %    |
 
 </TabItem>
-<TabItem value="Clients" label="Clients">
+<TabItem value="Clients-2" label="Clients">
 
 | Metric name                   | Description                                                   | Unit  |
 | :---------------------------- | :------------------------------------------------------------ | :---- |
