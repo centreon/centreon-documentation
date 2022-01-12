@@ -3,58 +3,165 @@ id: applications-voip-asterisk-ami
 title: Asterisk VoIP Server
 ---
 
+## Pack Assets
+
+### Templates
+
+The Centreon Plugin Pack Asterisk VoIP Server brings 1 host template:
+* App-VoIP-Asterisk-AMI-custom
+
+It brings the following Service Templates:
+
+| Service Alias   | Service Template                      | Service Description                | Default |
+|:----------------|:--------------------------------------|:-----------------------------------|:--------|
+| Channel-Usage   | App-Voip-Asterisk-AMI-Channel-Usage   | Check number of calls and channels | X       |
+| Dahdi-Status    | App-Voip-Asterisk-AMI-Dahdi-Status    | Check status of dahdi lines        |         |
+| Sip-Peers-Usage | App-Voip-Asterisk-AMI-Sip-Peers-Usage | Check SIP peers usage              | X       |
+
+### Collected metrics & status
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Channel-Usage-->
+
+| Metric Name           | Unit  |
+|:----------------------|:------|
+| calls.active.count    | count |
+| calls.processed.count | count |
+| channels.active.count | count |
+| extcalls.active.count | count |
+
+<!--Dahdi-Status-->
+
+| Metric Name | Unit   |
+|:------------|:-------|
+| status      | string |
+
+<!--Sip-Peers-Usage-->
+
+| Metric Name                       | Unit   |
+|:----------------------------------|:-------|
+| sip.peers.monitor.offline.count   | count  |
+| sip.peers.monitor.online.count    | count  |
+| sip.peers.total.count             | count  |
+| sip.peers.unmonitor.offline.count | count  |
+| sip.peers.unmonitor.online.count  | count  |
+| status                            | string |
+
+<!--END_DOCUSAURUS_CODE_TABS-->
+
 ## Prerequisites
 
-### Centreon Plugin
+### Asterisk Manager Interface (AMI)
 
-Install this plugin on each needed poller:
+In order to collect the necessary metrics and status, an user accounts with the 
+"read" permission need to be configured in the **/etc/asterisk/manager.conf file**.
+More information in the [official documentation](https://wiki.asterisk.org/wiki/pages/viewpage.action?pageId=4817239).
 
-``` shell
+## Setup
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online License-->
+
+1. Install the Centreon Plugin package on every Centreon poller expected to monitor *Asterisk* resources:
+
+```bash
 yum install centreon-plugin-Applications-Voip-Asterisk-Ami
 ```
 
-### Asterisk server configuration
+2. On the Centreon Web interface, install the **Asterisk VoIP Server** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
 
-After connecting with root account to your Asterisk server, you must do the
-following configurations.
+<!--Offline License-->
 
-### AMI
+1. Install the Centreon Plugin package on every Centreon poller expected to monitor *Asterisk* resources:
 
-For any remote acces, you must create an Asterisk user:
+```bash
+yum install centreon-plugin-Applications-Voip-Asterisk-Ami
+```
 
-    vi /etc/aserisk/manager.conf
+2. Install the **Asterisk VoIP Server** Centreon Plugin Pack RPM on the Centreon Central server:
 
-example of user:
+ ```bash
+yum install centreon-pack-applications-voip-asterisk-ami
+```
 
-    [xivo_centreon_user]
-    secret = centreon
-    deny=0.0.0.0/0.0.0.0
-    permit=127.0.0.1/255.255.255.0
-    read = system,call,log,verbose,command,agent,user,dtmf
-    write = system,call,log,verbose,command,agent,user,dtmf
+3. On the Centreon Web interface, install the **Asterisk VoIP Server** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
 
-In te newly created user, add a *permit* line to allow the centreon server to
-conect to the AMI:
+<!--END_DOCUSAURUS_CODE_TABS-->
 
-    vi /etc/aserisk/manager.conf
+## Configuration
 
-example:
+### Host
 
-    permit=10.30.2.32/255.255.255.0
+* Log into Centreon and add a new Host through **Configuration > Hosts**.
+* Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your *Asterisk* server settings.
+* Select the *App-VoIP-Asterisk-AMI-custom* template to apply to the Host.
+* Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
 
-## Centreon Configuration
+| Mandatory   | Macro                   | Description                                                                        |
+|:------------|:------------------------|:-----------------------------------------------------------------------------------|
+|             | ASTERISKAMIEXTRAOPTIONS | Any extra option you may want to add to every command\_line (eg. a --verbose flag) |
+| X           | ASTERISKAMIPASSWORD     | AMI user password                                                                  |
+|             | ASTERISKAMIPORT         | AMI port                                                                           |
+| X           | ASTERISKAMIUSERNAME     | AMI user                                                                           |
 
-### Create a host using the appropriate template
+## How to check in the CLI that the configuration is OK and what are the main options for? 
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
-the following table:
+Once the plugin is installed, log into your Centreon Poller CLI using the 
+**centreon-engine** user account (`su - centreon-engine`) and test the Plugin by
+running the following command:
 
-| Field                                | Value                        |
-| :----------------------------------- | :--------------------------- |
-| Host name                            | *Name of the host*           |
-| Alias                                | *Host description*           |
-| IP                                   | *Host IP Address*            |
-| Monitored from                       | *Monitoring Poller to use*   |
-| Host Multiple Templates              | App-VoIP-Asterisk-AMI-custom |
+```bash
+/usr/lib/centreon/plugins//centreon_asterisk_ami.pl \
+    --plugin=apps::voip::asterisk::ami::plugin \
+    --mode=channel-usage \
+    --ami-hostname='10.0.0.1' \
+    --ami-port='' \
+    --ami-username='' \
+    --ami-password='' \
+    --warning-channels-active='' \
+    --critical-channels-active='' \
+    --warning-calls-active='100' \
+    --critical-calls-active='200' \
+    --warning-calls-count='' \
+    --critical-calls-count='' \
+    --warning-extcalls-active='' \
+    --critical-extcalls-active='' \
+    --verbose \
+    --use-new-perfdata 
+```
 
-Click on the *Save* button.
+The expected command output is shown below:
+
+```bash
+OK: channels active: 54 calls active: 73 external calls active: 5 calls count: 746 | 'channels.active.count'=54;;;0; 'calls.active.count'=73;0:100;0:200;0; 'extcalls.active.count'=5;;;0; 'calls.processed.count'=746;;;0;
+```
+
+This command would trigger a WARNING alarm if the number of active calls is 
+reported as over 100 (`--warning-calls-active='100'`) and a CRITICAL alarm if 
+over 200than 50% (`--critical-calls-active='200'`).
+
+All available options for a given mode can be displayed by adding the 
+`--help` parameter to the command:
+
+```bash
+/usr/lib/centreon/plugins//centreon_asterisk_ami.pl \
+    --plugin=apps::voip::asterisk::ami::plugin \
+    --mode=channel-usage \
+    --help
+```
+
+All available options for a given mode can be displayed by adding the 
+`--list-mode` parameter to the command:
+
+```bash
+/usr/lib/centreon/plugins//centreon_asterisk_ami.pl \
+    --plugin=apps::voip::asterisk::ami::plugin \
+    --list-mode
+```
+
+### Troubleshooting
+
+Please find all the troubleshooting documentation for the Centreon Plugins
+in the [dedicated page](../tutorials/troubleshooting-plugins.html)
