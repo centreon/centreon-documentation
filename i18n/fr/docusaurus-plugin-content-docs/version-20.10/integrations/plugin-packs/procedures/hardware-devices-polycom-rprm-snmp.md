@@ -2,6 +2,9 @@
 id: hardware-devices-polycom-rprm-snmp
 title: Polycom RPRM SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -21,16 +24,16 @@ Polycom RPRM.
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Cluster-Status-->
+<Tabs groupId="sync">
+<TabItem value="Cluster-Status" label="Cluster-Status">
 
 | Metric name          | Description                             |
 |:---------------------|:----------------------------------------|
 | cluster-status       | Current status of the RPRM SuperCluster |
 | cluster-change-cause | Reason of the last cluster state change |
 
-<!--License-->
+</TabItem>
+<TabItem value="License" label="License">
 
 | Metric name                    | Description                                                     | Unit  |
 |:-------------------------------|:----------------------------------------------------------------|:------|
@@ -38,7 +41,8 @@ Polycom RPRM.
 | rprm.license.audio.usage.count | Current usage of audio assets vs the license maximum capability | Count |
 | rprm.license.video.usage.count | Current usage of video assets vs the license maximum capability | Count |
 
-<!--Provisioning-->
+</TabItem>
+<TabItem value="Provisioning" label="Provisioning">
 
 | Metric name                     | Description                           | Unit  |
 |:--------------------------------|:--------------------------------------|:------|
@@ -46,7 +50,8 @@ Polycom RPRM.
 | rprm.provisioning.failed.count  | Number of failed provisioning jobs    | Count |
 | rprm.provisioning.success.count | Number of successed provisioning jobs | Count |
 
-<!--SiteLinks-->
+</TabItem>
+<TabItem value="SiteLinks" label="SiteLinks">
 
 * Global
 
@@ -67,7 +72,8 @@ Polycom RPRM.
 | rprm.sitelink.jitter.average.milliseconds    | Average jitter time on the SiteLink                 | ms    |
 | rprm.sitelink.delay.average.milliseconds     | Average delay time on the SiteLink                  | ms    |
 
-<!--Sites-->
+</TabItem>
+<TabItem value="Sites" label="Sites">
 
 * Global
 
@@ -87,7 +93,8 @@ Polycom RPRM.
 | rprm.site.jitter.average.milliseconds    | Average jitter time on the Site                 | ms    |
 | rprm.site.delay.average.milliseconds     | Average delay time on the Site                  | ms    |
 
-<!--Updates-->
+</TabItem>
+<TabItem value="Updates" label="Updates">
 
 | Metric name                | Description                      | Unit  |
 |:---------------------------|:---------------------------------|:------|
@@ -95,7 +102,8 @@ Polycom RPRM.
 | rprm.updates.failed.count  | Number of failed updates jobs    | Count |
 | rprm.updates.success.count | Number of successed updates jobs | Count |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 

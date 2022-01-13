@@ -2,6 +2,9 @@
 id: hardware-ups-phoenixtec-snmp
 title: Phoenixtec UPS SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Contenu du Pack
 
@@ -14,9 +17,8 @@ Le Pack Phoenixtec collecte les données pour:
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Battery-status-->
+<Tabs groupId="sync">
+<TabItem value="Battery-status" label="Battery-status">
 
 | Metric name                      | Description                    | Unit |
 | :------------------------------- | :----------------------------- | :--- |
@@ -26,14 +28,16 @@ Le Pack Phoenixtec collecte les données pour:
 | battery.voltage.volt             | Battery voltage                | V    |
 | battery.temperature.celsius      | Battery temperature            | C    |
 
-<!--Input-lines-->
+</TabItem>
+<TabItem value="Input-lines" label="Input-lines">
 
 | Metric name                 | Description                  | Unit  |
 | :-------------------------- | :--------------------------- | :---- |
 | lines.input.frequence.hertz | Current input line frequency | Hz    |
 | lines.input.voltage.volt    | Current input line voltage   | V     |
 
-<!--Output-lines-->
+</TabItem>
+<TabItem value="Output-lines" label="Output-lines">
 
 | Metric name                  | Description               | Unit  |
 | :--------------------------- | :------------------------ | :---- |
@@ -42,7 +46,8 @@ Le Pack Phoenixtec collecte les données pour:
 | lines.output.voltage.volt    | Current output voltage    | V     |
 | lines.output.frequence.hertz | Current output frequency  | Hz    |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -52,9 +57,8 @@ Le flux SNMP UDP/161 doit être ouvert entre le Collecteur et l'équipement.
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -64,7 +68,8 @@ yum install centreon-plugin-Hardware-Ups-Phoenixtec-Snmp
 
 2. Sur l'interface Web de Centreon, installer le Pack *Phoenixtec UPS SNMP* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -80,7 +85,8 @@ yum install centreon-pack-hardware-ups-phoenixtec-snmp
 
 3. Sur l'interface Web de Centreon, installer le Pack *Phoenixtec UPS SNMP* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

@@ -2,6 +2,9 @@
 id: operatingsystems-windows-snmp
 title: Windows SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -20,22 +23,23 @@ Tous les systèmes d'exploitation Microsoft Windows sont supportés:
 
 ### Règles de découvertes
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Host-->
+<Tabs groupId="sync">
+<TabItem value="Host" label="Host">
 
 | Nom de la règle                 | Description                                                                         |
 | ------------------------------- | ----------------------------------------------------------------------------------- |
 | App-Protocol-SNMP-HostDiscovery | Découvrez vos serveurs Windows en scannant les agents SNMP sur un sous-réseau donné |
 
-<!--Services-->
+</TabItem>
+<TabItem value="Services" label="Services">
 
 | Nom de la règle              | Description                                                                                  |
 | ---------------------------- | -------------------------------------------------------------------------------------------- |
 | OS-Windows-SNMP-Disk-Name    | Découvre les disques/partitions et leur taux d'occupation                                    |
 | OS-Windows-SNMP-Traffic-Name | Découvre les interfaces réseaux et supervise le statut et l'utilisation de la bande passante |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Métriques collectées
 
@@ -47,22 +51,23 @@ disponibles:
   - Process state : Etat d'un ou plusieurs processus
   - Service state : Etat d'un ou plusieurs services
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Cpu-->
+<Tabs groupId="sync">
+<TabItem value="Cpu" label="Cpu">
 
 | Nom de la métrique              | Description                    |
 | ------------------------------- | ------------------------------ |
 | cpu.utilization.percentage      | CPU utilization. Unit: %       |
 | core.cpu.utilization.percentage | CPU Core utilization. Units: % |
 
-<!--Memory-->
+</TabItem>
+<TabItem value="Memory" label="Memory">
 
 | Nom de la métrique | Description                         |
 | ------------------ | ----------------------------------- |
 | memory.usage.bytes | Memory usage on the device. Unit: % |
 
-<!--Traffic-->
+</TabItem>
+<TabItem value="Traffic" label="Traffic">
 
 | Nom de la métrique                  | Description                                                               |
 | ----------------------------------- | ------------------------------------------------------------------------- |
@@ -73,26 +78,30 @@ disponibles:
 Il est possible de filtrer sur le nom d'une interface en utilisant une REGEXP de
 la forme : `--interface='^card0$' --name`
 
-<!--Swap-->
+</TabItem>
+<TabItem value="Swap" label="Swap">
 
 | Nom de la métrique | Description            |
 | ------------------ | ---------------------- |
 | swap.usage.bytes   | Swap usage Unit: Bytes |
 
-<!--Storage-->
+</TabItem>
+<TabItem value="Storage" label="Storage">
 
 | Nom de la métrique        | Description                       |
 | ------------------------- | --------------------------------- |
 | storage.partitions.count  | Number of partition               |
 | storage.space.usage.bytes | Space usage of disk. Units: Bytes |
 
-<!--Uptime-->
+</TabItem>
+<TabItem value="Uptime" label="Uptime">
 
 | Nom de la métrique | Description                    |
 | ------------------ | ------------------------------ |
 | uptime             | Status of last boot of serveur |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -121,9 +130,8 @@ Centreon vers le serveur Windows supervisé.
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des
 serveurs Windows:
@@ -134,7 +142,8 @@ serveurs Windows:
 
 2. Installer le pack depuis la page `Configuration > Plugin Packs`
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des
 serveurs Windows:
@@ -151,7 +160,8 @@ serveurs Windows:
 
 3. Installer le pack depuis la page `Configuration > Plugin Packs`
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

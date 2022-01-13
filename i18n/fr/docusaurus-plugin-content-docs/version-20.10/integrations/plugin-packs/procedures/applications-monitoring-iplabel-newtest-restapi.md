@@ -2,6 +2,9 @@
 id: applications-monitoring-iplabel-newtest-restapi
 title: IP-Label Newtest Rest API
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -17,8 +20,8 @@ A partir de points représentatifs de votre entreprise, chaque Newtest Robot sim
 
 ## Métriques collectées 
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Scenario-->
+<Tabs groupId="sync">
+<TabItem value="Scenario" label="Scenario">
 
 | Metric name                              | Description                | Unit |
 | :--------------------------------------- | :------------------------- | :----|
@@ -30,7 +33,8 @@ A partir de points représentatifs de votre entreprise, chaque Newtest Robot sim
 
 Les options  ```--filter-robot-name``` et  ```--filter-scenario-name``` permettent de filtrer les résultats. 
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -44,9 +48,8 @@ lors de l'ajout de l'Hôte dans Centreon.
 
 ## Setup 
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le Plugin *IP-Label Newtest* sur chaque collecteur Centreon devant superviser des robots Newtest:
 
@@ -56,7 +59,8 @@ yum install centreon-plugin-Applications-Monitoring-Iplabel-Newtest-Restapi
 
 2. Sur l'interface Web de Centreon, installer Plugin-Pack *IP-Label Newtest Rest API* au travers du menu "Configuration > Plugin packs > Gestionnaire"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin *IP-Label Newtest* sur chaque collecteur Centreon devant superviser des robots Newtest:
 
@@ -72,7 +76,8 @@ yum install centreon-pack-applications-monitoring-iplabel-newtest-restapi
 
 3. Sur l'interface Web de Centreon, installer Plugin-Pack *IP-Label Newtest Rest API* au travers du menu "Configuration > Plugin packs > Gestionnaire"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

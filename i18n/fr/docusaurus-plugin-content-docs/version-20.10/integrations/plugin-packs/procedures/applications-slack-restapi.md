@@ -2,6 +2,9 @@
 id: applications-slack-restapi
 title: Slack
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Contenu du Plugin-Pack
 
@@ -14,41 +17,43 @@ Le Pack Slack collecte les données pour:
 
 ### Règles de découvertes
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Services-->
+<Tabs groupId="sync">
+<TabItem value="Services" label="Services">
 
 | Rule name                       | Description                                |
 | :------------------------------ | :----------------------------------------- |
 | App-Slack-Restapi-Services-Name | Discover services and monitor their status |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Count-channels-->
+<Tabs groupId="sync">
+<TabItem value="Count-channels" label="Count-channels">
 
 | Metric name                            | Description                      | Unit |
 | :------------------------------------- | :------------------------------- | :--- |
 | channels.total.count                   | Number of channels               |      |
 | *channel\_name*\#channel.members.count | Number of members in the channel |      |
 
-<!--Count-members-->
+</TabItem>
+<TabItem value="Count-members" label="Count-members">
 
 | Metric name         | Description     | Unit |
 | :-------------------| :-------------- | :--- |
 | members.total.count | Number of users |      |
 
-<!--Services-->
+</TabItem>
+<TabItem value="Services" label="Services">
 
 | Metric name          | Description                            | Unit |
 | :------------------- | :------------------------------------- | :--- |
 | slack.services.count | Number of services currently monitored |      |
 | status               | Status of the service                  |      |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 

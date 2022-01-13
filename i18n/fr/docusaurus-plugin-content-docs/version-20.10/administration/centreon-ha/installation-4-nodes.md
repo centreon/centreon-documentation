@@ -2,6 +2,9 @@
 id: installation-4-nodes
 title: Installation d'un cluster à 4 nœuds
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Prérequis
 
@@ -728,9 +731,8 @@ pcs resource create "ms_mysql" \
 
 > **ATTENTION :** la commande suivante varie suivant la distribution Linux utilisée.
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--CentOS7-->
+<Tabs groupId="sync">
+<TabItem value="CentOS7" label="CentOS7">
 
 ```bash
 pcs resource meta ms_mysql-master \
@@ -741,7 +743,8 @@ pcs resource meta ms_mysql-master \
     notify="true"
 ```
 
-<!--RHEL-->
+</TabItem>
+<TabItem value="RHEL" label="RHEL">
 
 ```bash
 pcs resource master ms_mysql \
@@ -752,7 +755,8 @@ pcs resource master ms_mysql \
     notify="true"
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ##### Adresse VIP Serveurs bases de données 
 

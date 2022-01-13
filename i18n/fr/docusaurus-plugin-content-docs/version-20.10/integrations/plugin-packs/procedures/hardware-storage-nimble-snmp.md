@@ -2,6 +2,9 @@
 id: hardware-storage-nimble-snmp
 title: Nimble Storage
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -25,15 +28,15 @@ Les Services suivants sont mis à disposition au travers du Plugin-Pack:
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Volume-Usage-->
+<Tabs groupId="sync">
+<TabItem value="Volume-Usage" label="Volume-Usage">
 
 | Metric name                    | Description                          | Unit  |
 | :----------------------------- | :----------------------------------- | :---- |
 | volume.space.usage.bytes       | Per volume space usage (in Bytes)    | Bytes |
 
-<!--Global-Stats-->
+</TabItem>
+<TabItem value="Global-Stats" label="Global-Stats">
 
 | Metric name                           | Description                          | Unit    |
 | :------------------------------------ | :----------------------------------- | :------ |
@@ -44,7 +47,8 @@ Les Services suivants sont mis à disposition au travers du Plugin-Pack:
 | system.io.read.time.seconds           | Sytem read time                      | Seconds |
 | system.io.write.time.seconds          | Sytem write time                     | Seconds |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 

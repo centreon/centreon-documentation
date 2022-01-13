@@ -2,6 +2,9 @@
 id: applications-monitoring-alyvix-restapi
 title: Alyvix Server
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -25,21 +28,20 @@ le temps d’exécution d'un ou de multiples scénarios (*testcases*) lancés pa
 
 ### Règles de découvertes
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Testcases-->
+<Tabs groupId="sync">
+<TabItem value="Testcases" label="Testcases">
 
 | Rule name                                    | Description                                                        |
 | :------------------------------------------- | :----------------------------------------------------------------- |
 | App-Monitoring-Alyvix-Restapi-Testcase-Name  | Discover all the testcases handled by Alyvix Server                |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Testcases-Global-->
+<Tabs groupId="sync">
+<TabItem value="Testcases-Global" label="Testcases-Global">
 
 * Global (pour chaque *testcase*)
 
@@ -56,7 +58,8 @@ le temps d’exécution d'un ou de multiples scénarios (*testcases*) lancés pa
 | *testcase_alias*~*transaction_alias*#transaction-state    | Status of the the transaction job execution           |      |
 | *testcase_alias*~*transaction_alias*#transaction-duration | Total time of the transaction job execution           | ms   |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 

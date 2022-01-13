@@ -2,6 +2,9 @@
 id: applications-monitoring-centreon-ha
 title: Centreon-HA
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -24,9 +27,8 @@ Par conséquent, il utilise les protocoles de ces deux Plugin-Packs - **SNMP** e
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--PCS-Status-->
+<Tabs groupId="sync">
+<TabItem value="PCS-Status" label="PCS-Status">
 
 Ce modèle ne collecte pas de métrique, mais donne l'état général du cluster :
 
@@ -43,25 +45,29 @@ Ce modèle ne collecte pas de métrique, mais donne l'état général du cluster
   * `centreontrapd`
   * `snmptrapd`
 
-<!--proc-corosync-->
+</TabItem>
+<TabItem value="proc-corosync" label="proc-corosync">
 
 | Metric name | Description                                                    | Unit  |
 |:------------|:---------------------------------------------------------------|:------|
 | nbproc      | Nombre de processus dont le nom correpond au filtre `corosync` | Count |
 
-<!--proc-pacemakerd-->
+</TabItem>
+<TabItem value="proc-pacemakerd" label="proc-pacemakerd">
 
 | Metric name | Description                                                      | Unit  |
 |:------------|:-----------------------------------------------------------------|:------|
 | nbproc      | Nombre de processus dont le nom correpond au filtre `pacemakerd` | Count |
 
-<!--proc-pcsd-->
+</TabItem>
+<TabItem value="proc-pcsd" label="proc-pcsd">
 
 | Metric name | Description                                                | Unit  |
 |:------------|:-----------------------------------------------------------|:------|
 | nbproc      | Nombre de processus dont le nom correpond au filtre `pcsd` | Count |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 

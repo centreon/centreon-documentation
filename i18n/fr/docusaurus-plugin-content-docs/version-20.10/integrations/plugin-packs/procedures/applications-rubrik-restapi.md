@@ -2,6 +2,9 @@
 id: applications-rubrik-restapi
 title: Rubrik Rest API
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Contenu du Plugin-Pack
 
@@ -13,16 +16,16 @@ disques, les tâches, etc.
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Disk-->
+<Tabs groupId="sync">
+<TabItem value="Disk" label="Disk">
 
 | Metric name                                          | Description                                      | Unit |
 |:---------------------------------------------------- |:------------------------------------------------ |:---- |
 | cluster.disks.total.count                            | Total number cluster disks                       |      |
 | cluster.disks.active.count                           | Number of active disks                           | ms   |
 
-<!--Cluster-->
+</TabItem>
+<TabItem value="Cluster" label="Cluster">
 
 | Metric name                                          | Description                                      | Unit |
 |:---------------------------------------------------- |:------------------------------------------------ |:---- |
@@ -31,21 +34,24 @@ disques, les tâches, etc.
 | cluster.io.read.usage.iops                           | Usage of cluster read I/Os                       | iops |
 | cluster.io.write.usage.iops                          | Usage IOPS of cluster write I/Os                 | iops |
 
-<!--Compliance-->
+</TabItem>
+<TabItem value="Compliance" label="Compliance">
 
 | Metric name                                          | Description                                      | Unit |
 |:---------------------------------------------------- |:------------------------------------------------ |:---- |
 | backup.objects.incompliance.24h.count                | Number of backup objects compliance in 24h       |      |
 | backup.objects.noncompliance.24h.count               | Number of backup objects no compliance in 24h    |      |
 
-<!--Node-->
+</TabItem>
+<TabItem value="Node" label="Node">
 
 | Metric name                                          | Description                                      | Unit |
 |:---------------------------------------------------- |:------------------------------------------------ |:---- |
 | cluster.nodes.total.count                            | Total number of node in the cluster              |      |
 | cluster.nodes.ok.count                               | Number of node "OK" in the cluster               |      |
 
-<!--Storage-->
+</TabItem>
+<TabItem value="Storage" label="Storage">
 
 | Metric name                                          | Description                                      | Unit |
 |:---------------------------------------------------- |:------------------------------------------------ |:---- |
@@ -54,7 +60,8 @@ disques, les tâches, etc.
 | storage.space.usage.percentage                       | Percentage usage space storage                   | %    |
 | storage.full.remaining.days.count                    | Number of remaining day storage full             | d    |
 
-<!--Task-->
+</TabItem>
+<TabItem value="Task" label="Task">
 
 | Metric name                                          | Description                                      | Unit |
 |:---------------------------------------------------- |:------------------------------------------------ |:---- |
@@ -62,7 +69,8 @@ disques, les tâches, etc.
 | tasks.failed.24h.count                               | Number of task failed in 24h                     |      |
 | tasks.canceled.24h.count                             | Number of task canceled in 24h                   |      |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 

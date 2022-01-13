@@ -2,6 +2,9 @@
 id: hardware-devices-polycom-dma-snmp
 title: Polycom DMA SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -22,15 +25,15 @@ Polycom DMA.
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Alerts-->
+<Tabs groupId="sync">
+<TabItem value="Alerts" label="Alerts">
 
 | Metric name             | Description        | Unit  |
 | :---------------------- | :----------------- | :---- |
 | dma.alerts.total.count  | Number of alerts.  | Count |
 
-<!--Conference-Manager-->
+</TabItem>
+<TabItem value="Conference-Manager" label="Conference-Manager">
 
 | Metric name                               | Description                                    | Unit   |
 |:----------------------------------------- |:-----------------------------------------------|:-------|
@@ -48,7 +51,8 @@ Polycom DMA.
 
 Vous pouvez utiliser l'option `--filter-cluster` afin de restreindre le contrôle sur un cluster donné.
 
-<!--Clusters-Usage-->
+</TabItem>
+<TabItem value="Clusters-Usage" label="Clusters-Usage">
 
 | Metric name                           | Description                                              | Unit  |
 |:--------------------------------------|:---------------------------------------------------------|:------|
@@ -59,7 +63,8 @@ Vous pouvez utiliser l'option `--filter-cluster` afin de restreindre le contrôl
 
 Vous pouvez utiliser l'option `--filter-cluster` afin de restreindre le contrôle sur un cluster donné.
 
-<!--Device-Registrations-->
+</TabItem>
+<TabItem value="Device-Registrations" label="Device-Registrations">
 
 | Metric name                                         | Description                                            | Unit  | 
 | :-------------------------------------------------- | :----------------------------------------------------- |------ |
@@ -69,7 +74,8 @@ Vous pouvez utiliser l'option `--filter-cluster` afin de restreindre le contrôl
 
 Vous pouvez utiliser l'option `--filter-cluster` afin de restreindre le contrôle sur un cluster donné.
 
-<!--Servers-usage-->
+</TabItem>
+<TabItem value="Servers-usage" label="Servers-usage">
 
 | Metric name                           | Description                               | Unit  |
 |:------------------------------------- |:------------------------------------------|:----- |
@@ -87,7 +93,8 @@ Vous pouvez utiliser l'option `--filter-cluster` afin de restreindre le contrôl
 | dma.server.logs.free.bytes            | Free logs space on a server               |   B   |
 | dma.server.logs.usage.percentage      | Logs percentage space usage on a server   |   %   |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 

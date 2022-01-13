@@ -2,6 +2,9 @@
 id: hardware-devices-polycom-hdx-snmp
 title: Polycom HDX SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -20,9 +23,8 @@ Polycom HDX.
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Cpu-Detailed-->
+<Tabs groupId="sync">
+<TabItem value="Cpu-Detailed" label="Cpu-Detailed">
 
 | Metric name                           | Description                 | Unit  |
 | :------------------------------------ | :-------------------------- | :---- |
@@ -38,7 +40,8 @@ Polycom HDX.
 | cpu.guest.utilization.percentage      | CPU Guest utilization       |   %   |
 | cpu.guestnice.utilization.percentage  | CPU Guest Nice utilization  |   %   |
 
-<!--Interfaces-->
+</TabItem>
+<TabItem value="Interfaces" label="Interfaces">
 
 | Metric name                         | Description                                   | Unit |
 | :---------------------------------- | :-------------------------------------------- | :--- |
@@ -50,7 +53,8 @@ Polycom HDX.
 Vous pouvez restreindre ce contrôle sur une interface donnée en spécifiant le nom de l'interface à superviser
 (par exemple ```--interface='^eth0$'```) conjointement avec le paramètre ```--name```.
 
-<!--Load-->
+</TabItem>
+<TabItem value="Load" label="Load">
 
 | Metric name                 | Description                                        |
 | :-------------------------- | :------------------------------------------------- |
@@ -58,7 +62,8 @@ Vous pouvez restreindre ce contrôle sur une interface donnée en spécifiant le
 | load5                       | System load 5 minutes-sample                       |
 | load15                      | System load 15 minutes-sample                      |
 
-<!--Memory-->
+</TabItem>
+<TabItem value="Memory" label="Memory">
 
 | Metric name             | Description                               | Unit  |
 | :---------------------  | :---------------------------------------- | :---- |
@@ -69,13 +74,15 @@ Vous pouvez restreindre ce contrôle sur une interface donnée en spécifiant le
 | memory.cached.bytes     | Cached Memory allocation.                 |   B   |
 | memory.shared.bytes     | Shared Memory allocation.                 |   B   |
 
-<!--Uptime-->
+</TabItem>
+<TabItem value="Uptime" label="Uptime">
 
 | Metric name           | Description        | Unit  |
 | :-------------------- | :----------------- | :---- |
 | system.uptime.seconds | System uptime      |   s   |
 
-<!--ViewStation-Statistics-->
+</TabItem>
+<TabItem value="ViewStation-Statistics" label="ViewStation-Statistics">
 
 | Metric name                             | Description                                                                                  | Unit |
 | :-------------------------------------- | :------------------------------------------------------------------------------------------- | :--- |
@@ -83,7 +90,8 @@ Vous pouvez restreindre ce contrôle sur une interface donnée en spécifiant le
 | viewstation.h323.jitter.milliseconds    | The current combined (audio/video) cumulative average jitter (in ms) when in an H.323 call.  |  ms  |
 | viewstation.h323.latency.count          | The current average latency based on round trip delay when in an H.323 call.                 |      |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 

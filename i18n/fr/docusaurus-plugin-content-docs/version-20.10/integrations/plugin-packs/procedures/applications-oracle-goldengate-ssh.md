@@ -2,6 +2,9 @@
 id: applications-oracle-goldengate-ssh
 title: Oracle GoldenGate SSH
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Contenu du Plugin-Pack
 
@@ -12,9 +15,8 @@ utilisant la commande GGSCI.
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Resources-->
+<Tabs groupId="sync">
+<TabItem value="Resources" label="Resources">
 
 | Metric name                                   | Description                     | Unit |
 | :-------------------------------------------- | :------------------------------ | :--- |
@@ -22,7 +24,8 @@ utilisant la commande GGSCI.
 | *processname*#process.lag.seconds             | processus lag at checkpoint     |      |
 | *processname*#process.time.checkpoint.seconds | processus time since checkpoint |      |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -31,9 +34,8 @@ doit avoir assez de privilèges pour executer la commande ```ggsci```.
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -43,7 +45,8 @@ yum install centreon-plugin-Applications-Oracle-Goldengate-Ssh
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Oracle GoldenGate SSH* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -59,7 +62,8 @@ yum install centreon-pack-applications-oracle-goldengate-ssh
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Oracle GoldenGate SSH* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

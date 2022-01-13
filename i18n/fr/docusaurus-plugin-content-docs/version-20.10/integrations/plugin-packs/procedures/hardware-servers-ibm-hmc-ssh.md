@@ -2,6 +2,9 @@
 id: hardware-servers-ibm-hmc-ssh
 title: IBM HMC SSH
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Contenu du Plugin-Pack
 
@@ -13,20 +16,21 @@ Le Plugin-Pack IBM HMC SSH collecte les données pour:
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Hardware-errors-->
+<Tabs groupId="sync">
+<TabItem value="Hardware-errors" label="Hardware-errors">
 
 No metrics.
 
-<!--Led-status-->
+</TabItem>
+<TabItem value="Led-status" label="Led-status">
 
 | Metric name                     | Description                                         | Unit |
 | :------------------------------ | :-------------------------------------------------- | :--- |
 | physical status                 | Physical system attention led status                |      |
 | virtuallpar status              | Logical partition system attention led status       |      |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -35,9 +39,8 @@ doit avoir assez de privilèges pour executer les commandes ``lssvcevents``` et 
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -47,7 +50,8 @@ yum install centreon-plugin-Hardware-Servers-Ibm-Hmc-Ssh
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *IBM HMC SSH* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -63,7 +67,8 @@ yum install centreon-pack-hardware-servers-ibm-hmc-ssh
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *IBM HMC SSH* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

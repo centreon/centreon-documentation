@@ -2,6 +2,9 @@
 id: applications-oracle-ovm-api
 title: Oracle VM Manager API
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Contenu du Plugin-Pack
 
@@ -11,9 +14,8 @@ Le plugin-pack inclue la supervision File-servers, Manager, Server-pools, Server
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--File-servers-->
+<Tabs groupId="sync">
+<TabItem value="File-servers" label="File-servers">
 
 | Metric name                                                         | Description               | Unit |
 | :------------------------------------------------------------------ | :------------------------ | :--- |
@@ -21,7 +23,8 @@ Le plugin-pack inclue la supervision File-servers, Manager, Server-pools, Server
 | *serverpoolname*~*filesystemname*#serverpool.space.free.bytes       | Free space                | B    |
 | *serverpoolname*~*filesystemname*#serverpool.space.usage.percentage | Space usage in percentage | %    |
 
-<!--Manager-->
+</TabItem>
+<TabItem value="Manager" label="Manager">
 
 | Metric name                                | Description                                          | Unit |
 | :----------------------------------------- | :--------------------------------------------------- | :--- |
@@ -29,7 +32,8 @@ Le plugin-pack inclue la supervision File-servers, Manager, Server-pools, Server
 | *managername*#manager.jobs.succeeded.count | Number of jobs succeeded                             |      |
 | *managername*#manager.jobs.failed.count    | Number of jobs failed                                |      |
 
-<!--Server-pools-->
+</TabItem>
+<TabItem value="Server-pools" label="Server-pools">
 
 | Metric name                                         | Description                | Unit |
 |:--------------------------------------------------- |:-------------------------- | :--- |
@@ -41,7 +45,8 @@ Le plugin-pack inclue la supervision File-servers, Manager, Server-pools, Server
 | *serverpoolname*#serverpool.memory.free.bytes       | Free memory                | B    |
 | *serverpoolname*#serverpool.memory.usage.percentage | Memory usage in percentage | %    |
 
-<!--Servers-->
+</TabItem>
+<TabItem value="Servers" label="Servers">
 
 | Metric name                                 | Description                | Unit |
 | :------------------------------------------ | :------------------------- | :--- |
@@ -52,7 +57,8 @@ Le plugin-pack inclue la supervision File-servers, Manager, Server-pools, Server
 | *servername*#server.memory.free.bytes       | Free memory                | B    |
 | *servername*#server.memory.usage.percentage | Memory usage in percentage | %    |
 
-<!--Vm-->
+</TabItem>
+<TabItem value="Vm" label="Vm">
 
 | Metric name                             | Description          | Unit |
 | :---------------------------- --------- | :--------------------| :--- |
@@ -60,7 +66,8 @@ Le plugin-pack inclue la supervision File-servers, Manager, Server-pools, Server
 | virtualmachines.stopped.count           | Number of vm stopped |      |
 | vm status                               | vm status            |      |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -68,9 +75,8 @@ Afin de contrôler l'application Oracle VM Manager, l'API Rest doit être config
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -80,7 +86,8 @@ yum install centreon-plugin-Applications-Oracle-Ovm-Api
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Oracle VM Manager API* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -96,7 +103,8 @@ yum install centreon-pack-applications-oracle-ovm-api
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Oracle VM Manager API* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

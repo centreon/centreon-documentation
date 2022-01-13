@@ -2,6 +2,9 @@
 id: hardware-storage-nimble-restapi
 title: Nimble Storage Rest API
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -26,9 +29,8 @@ Le Plugin-Pack Nimble SNMP offre les Services suivants:
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Arrays-->
+<Tabs groupId="sync">
+<TabItem value="Arrays" label="Arrays">
 
 | Metric name                            | Description (per array )        | Unit    |
 | :------------------------------------- | :------------------------------ | :------ |
@@ -39,7 +41,8 @@ Le Plugin-Pack Nimble SNMP offre les Services suivants:
 | array.snapshots.compression.rate.count | Snapshot compression ratio      |         |
 | array.snapshots.reduction.rate.count   | Snapshot reduction ratio        |         |
 
-<!--Hardware-->
+</TabItem>
+<TabItem value="Hardware" label="Hardware">
 
 | Component name | Description (per array ) | Unit   |
 |:---------------|:-------------------------|:-------|
@@ -48,7 +51,8 @@ Le Plugin-Pack Nimble SNMP offre les Services suivants:
 | Power Supply   | Power Supply state       | String |
 | Temperature    | Temperature state        | °C     |
 
-<!--Volumes-->
+</TabItem>
+<TabItem value="Volumes" label="Volumes">
 
 | Metric name                           | Description (per volume)         | Unit    |
 | :------------------------------------ | :------------------------------- | :------ |
@@ -61,7 +65,8 @@ Le Plugin-Pack Nimble SNMP offre les Services suivants:
 | volume.io.read.latency.milliseconds   | Read latency                     | ms      |
 | volume.io.write.latency.milliseconds  | Write latency                    | ms      |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 

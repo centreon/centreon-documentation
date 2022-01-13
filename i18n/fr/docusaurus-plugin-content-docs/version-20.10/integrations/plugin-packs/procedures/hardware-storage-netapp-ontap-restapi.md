@@ -2,6 +2,9 @@
 id: hardware-storage-netapp-ontap-restapi
 title: NetApp Ontap Rest API
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -23,9 +26,8 @@ Le Plugin-Pack permet de superviser les ressources:
 
 Les métriques collectées sont les suivantes:
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Cluster-->
+<Tabs groupId="sync">
+<TabItem value="Cluster" label="Cluster">
 
 | Metric name                           | Description                                                                                    |
 | :------------------------------------ | :--------------------------------------------------------------------------------------------- |
@@ -37,25 +39,29 @@ Les métriques collectées sont les suivantes:
 | cluster.io.read.latency.milliseconds  | I/O read latency. Unit: ms                                                                     |
 | cluster.io.write.latency.milliseconds | I/O written latency. Unit: ms                                                                  |
 
-<!--Hardware-->
+</TabItem>
+<TabItem value="Hardware" label="Hardware">
 
 | Metric name                         | Description                                                                 |
 | :---------------------------------- | :---------------------------------------------------------------------------|
 | status                              | Check components operational status: bay, fru, shelf. Unit: count           |
 
-<!--Luns-->
+</TabItem>
+<TabItem value="Luns" label="Luns">
 
 | Metric name                         | Description                                                                 |
 | :---------------------------------- | :---------------------------------------------------------------------------|
 | status                              | The LUN status                                                              |
 
-<!--Snapmirrors-->
+</TabItem>
+<TabItem value="Snapmirrors" label="Snapmirrors">
 
 | Metric name                         | Description                                                                 |
 | :---------------------------------- | :---------------------------------------------------------------------------|
 | status                              | The snapmirror status                                                       |
 
-<!--Volumes-->
+</TabItem>
+<TabItem value="Volumes" label="Volumes">
 
 | Metric name                          | Description                                                                                    |
 | :----------------------------------- | :--------------------------------------------------------------------------------------------- |
@@ -70,7 +76,8 @@ Les métriques collectées sont les suivantes:
 | volume.io.read.latency.milliseconds  | Volume I/O read latency. Unit: ms. By instances (```volume_name```)                            |
 | volume.io.write.latency.milliseconds | Volume I/O written latency. Unit: ms. By instances (```volume_name```)                         |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 

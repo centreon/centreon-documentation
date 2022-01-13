@@ -2,6 +2,9 @@
 id: applications-google-workspace-api
 title: Google Workspace
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -22,28 +25,28 @@ https://workspace.google.fr/intl/en/features/
 
 ### Règles de découvertes
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Services-->
+<Tabs groupId="sync">
+<TabItem value="Services" label="Services">
 
 | Rule name                          | Description                                |
 | :--------------------------------- | :----------------------------------------- |
 | App-Google-Workspace-Services-Name | Discover services and monitor their status |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Services-->
+<Tabs groupId="sync">
+<TabItem value="Services" label="Services">
 
 | Metric name                     | Description                            |
 | :------------------------------ | :------------------------------------- |
 | google.workspace.services.count | Number of services currently monitored |
 | status                          | Status of the service                  |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
