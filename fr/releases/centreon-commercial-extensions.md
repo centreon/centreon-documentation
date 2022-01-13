@@ -158,7 +158,7 @@ liens
 
 #### Bugfixes
 
-- [Configuration] Fixed an error when generating config if a disabled BA is connected to an escalation task
+[Configuration] Fixed an error when generating poller configuration with a disabled BA linked to an escalation task
 - [Configuration] BA escalation configuration is not exported to Remote Server anymore if the BA is not linked to this Remote Server
 - [Monitoring] Business Activities widget now scales to the number of BAs
 
