@@ -28,7 +28,7 @@ The Centreon Plugin relies on the Office 365 Graph API to collect and monitor th
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-## Prequisites
+## Prerequisites
 
 More information is available in the official Microsoft documentation: https://docs.microsoft.com/en-us/graph/use-the-api?context=graph%2Fapi%2F1.0&view=graph-rest-1.0
 
