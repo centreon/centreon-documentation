@@ -50,6 +50,14 @@ commerciales, vous pouvez vous rendre sur notre
 
 ## Centreon Open Ticket
 
+### 20.10.3
+
+Release date: `December 29, 2021`
+
+#### Enhancements
+
+- Add filter "enable/disable notifications" in widget
+
 ### 20.10.2
 
 `28 mai 2021`
