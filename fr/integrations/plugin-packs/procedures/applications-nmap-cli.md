@@ -10,13 +10,6 @@ Ce Pack fournit exclusivement une règle de découverte d'Hôte.
 À l'aide du fournisseur **Nmap Discovery** vous pouvez facilement découvrir les Hôtes au 
 sein de sous-réseaux donnés. 
 
-## Installation 
-
----
-id: applications-nmap-cli
-title: Nmap CLI Discovery
----
-
 ## Pack content
 
 This Pack offers a Host discovery rule.
@@ -25,7 +18,7 @@ Thanks to the *Nmap Discovery* provider, discover Hosts within a predefined subn
 
 ## Setup
 
-To install required Plugin and Pack, take the following steps: 
+Pour installer le Plugin et le Pack, suivez les étapes ci-après. 
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -41,7 +34,7 @@ yum install centreon-plugin-Applications-Nmap-Cli
 
 <!--Offline License-->
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor *Nmap* ressources:
+1. Installez le paquet Centreon Plugin sur les collecteurs allant découvrir des ressources grâce à *Nmap*:
 
 ```bash
 yum install centreon-plugin-Applications-Nmap-Cli
