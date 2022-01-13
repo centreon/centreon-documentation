@@ -208,7 +208,7 @@ Then follow instructions by
 1. Entering your password:
 
     ``` shell
-    192.168.0.1: please enter your password:
+    please enter the password of 192.168.0.1:
     ```
 
 2. Select the IP adress if multiple network interfaces exist:
@@ -235,7 +235,7 @@ Then follow instructions by
     type: poller
     address: 192.168.0.2
     
-    Do you want to register this server with those informations ? (y/n)y
+    Do you want to register this server with those information ? (y/n)y
     ```
 
 You will receive the validation of the Centreon central or the Remote Server server:
