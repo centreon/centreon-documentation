@@ -10,13 +10,7 @@ Ce Pack fournit exclusivement une règle de découverte d'Hôte.
 À l'aide du fournisseur **Nmap Discovery** vous pouvez facilement découvrir les Hôtes au 
 sein de sous-réseaux donnés. 
 
-## Pack content
-
-This Pack offers a Host discovery rule.
-
-Thanks to the *Nmap Discovery* provider, discover Hosts within a predefined subnet. 
-
-## Setup
+## Installation
 
 Pour installer le Plugin et le Pack, suivez les étapes ci-après. 
 
