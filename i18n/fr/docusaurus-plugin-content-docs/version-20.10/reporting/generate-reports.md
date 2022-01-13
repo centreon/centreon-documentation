@@ -2,6 +2,9 @@
 id: manage-reports
 title: Générer des rapports
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 Ce chapitre décrit les fonctionnalités à utiliser afin de générer et gérer les rapports.
 
@@ -118,9 +121,8 @@ planifiée:
 
 ![image](../assets/reporting/guide/addJob.png)
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--1. Configuration-->
+<Tabs groupId="sync">
+<TabItem value="1. Configuration" label="1. Configuration">
 
 Une tâche de génération de rapport doit être liée à un modèle de
 rapport.
@@ -179,7 +181,8 @@ lancement:
 -   Les rapports mensuels auront comme période de reporting le mois
     précédent.
 
-<!--2. Paramètres du rapport-->
+</TabItem>
+<TabItem value="2. Paramètres du rapport" label="2. Paramètres du rapport">
 
 L'onglet "Paramètres de rapport" est utilisé pour définir les paramètres
 spécifiques du modèle de rapport.
@@ -216,7 +219,8 @@ Il existe trois types de champs dans ce formulaire:
 > seront utilisées.
 
 
-<!--3. Publication (optionel)-->
+</TabItem>
+<TabItem value="3. Publication (optionel)" label="3. Publication (optionel)">
 
 Une fois le rapport généré, il peut être automatiquement publié en
 utilisant des règles de publication pré-définies. Lors de la création
@@ -229,7 +233,8 @@ publication de rapports).
 ![image](../assets/reporting/guide/jobPublication.png)
 
 
-<!--4. Tuning (optionel)-->
+</TabItem>
+<TabItem value="4. Tuning (optionel)" label="4. Tuning (optionel)">
 
 -   **Le thème de couleurs des rapports**: La gestion des thèmes a été
     implémentée. Elle permet de choisir entre des palettes de couleurs.
@@ -253,7 +258,8 @@ chapitre [Options générales](configure#options-g%C3%A9n%C3%A9rales)
 -   Activé ou non l'envoi de notifications aux administrateurs
     lorsqu'un rapport est généré.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Accéder aux rapports générés
 

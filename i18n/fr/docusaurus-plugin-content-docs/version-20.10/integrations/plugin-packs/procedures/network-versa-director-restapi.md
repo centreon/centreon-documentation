@@ -2,6 +2,9 @@
 id: network-versa-director-restapi
 title: Versa Director Restapi
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -22,21 +25,20 @@ https://apidocs.versa-networks.com/
 
 ### Règles de découvertes
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Hosts-->
+<Tabs groupId="sync">
+<TabItem value="Hosts" label="Hosts">
 
 | Nom de la règle                                  | Description                                                   |
 |:------------------------------------------------ |:------------------------------------------------------------- |
 | Net-Versa-Director-Restapi-HostDiscovery-devices | Découvrez vos équipements Versa managés par un Versa Director |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Métriques Collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Devices-->
+<Tabs groupId="sync">
+<TabItem value="Devices" label="Devices">
 
 * Global
 
@@ -65,7 +67,8 @@ https://apidocs.versa-networks.com/
 | `<monitor-name>`.health.disabled.count | Number of health monitors disabled | Count |
 | `<monitor-name>`.health.down.count     | Number of health monitors down     | Count |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -80,9 +83,8 @@ La communication doit être possible sur le port TCP 9182 (en HTTPS) depuis le c
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant
 des équipements Versa via l'API du Versa Director :
@@ -93,7 +95,8 @@ yum install centreon-plugin-Network-Versa-Director-Restapi
 
 2. Installer le Plugin-Pack *Versa Director Restapi* depuis la page "Configuration > Plugin packs > Manager" sur l'interface Web de Centreon.
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant
 des équipements Versa via l'API du Versa Director :
@@ -110,7 +113,8 @@ yum install centreon-pack-network-versa-director-restapi
 
 3. Installer le Plugin-Pack *Versa Director Restapi* depuis la page "Configuration > Plugin packs > Manager" sur l'interface Web de Centreon.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration 
 

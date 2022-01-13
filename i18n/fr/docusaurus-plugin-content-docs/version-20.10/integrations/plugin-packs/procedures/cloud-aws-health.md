@@ -2,6 +2,8 @@
 id: cloud-aws-health
 title: AWS Health
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 ## Vue d'ensemble
 
@@ -16,13 +18,10 @@ Le Plugin Centreon AWS Health utilise l'API Amazon Health pour collecter les mé
 
 * Évènements liés aux comptes AWS et ressources associées
 
-<!--END_DOCUSAURUS_CODE_TABS-->
-
 ## Métriques supervisées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Events-->
+<Tabs groupId="sync">
+<TabItem value="Events" label="Events">
 
 | Metric name           | Description               |
 |:----------------------|:--------------------------|
@@ -31,7 +30,8 @@ Le Plugin Centreon AWS Health utilise l'API Amazon Health pour collecter les mé
 | events.closed.count   | Number of closed events   |
 | events.upcoming.count | Number of upcoming events |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -52,21 +52,22 @@ Le SDK est recommandé car plus performant.
 
 Installez le binaire choisi en lançant l'une des commandes suivantes:
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--perl-Paws-installation-->
+<Tabs groupId="sync">
+<TabItem value="perl-Paws-installation" label="perl-Paws-installation">
 
 ```bash
 yum install perl-Paws
 ```
 
-<!--aws-cli-installation-->
+</TabItem>
+<TabItem value="aws-cli-installation" label="aws-cli-installation">
 
 ```bash
 yum install awscli
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 > **Attention** il n'est actuellement **pas** possible d'utiliser *paws* dans les cas suivants:
 > * si la connexion s'effectue au travers d'un proxy.
@@ -74,9 +75,8 @@ yum install awscli
 
 ## Installation 
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser la ressource AWS Health:
 
@@ -86,7 +86,8 @@ yum install centreon-plugin-Cloud-Aws-Health-Api
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *AWS Health* depuis la page "Configuration > Plugin Packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser la ressource AWS Health:
 
@@ -102,7 +103,8 @@ yum install centreon-pack-cloud-aws-health.noarch
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *AWS Health* depuis la page "Configuration > Plugin Packs > Manager"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -120,7 +122,6 @@ yum install centreon-pack-cloud-aws-health.noarch
 |             | DUMMYSTATUS     | Host state. Default is OK, do not modify it unless you know what you are doing              |
 |             | DUMMYOUTPUT     | Host check output. Default is 'This is a dummy check'. Customize it with your own if needed |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## FAQ
 

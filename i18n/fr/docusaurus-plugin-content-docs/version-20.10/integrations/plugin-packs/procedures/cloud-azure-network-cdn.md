@@ -2,6 +2,9 @@
 id: cloud-azure-network-cdn
 title: Azure CDN
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -37,21 +40,22 @@ fonctionnement sur la documentation du module:
 
 ### Métriques & statuts collectés
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Hit-Ratio-->
+<Tabs groupId="sync">
+<TabItem value="Hit-Ratio" label="Hit-Ratio">
 
 | Metric name             | Description    | Unit |
 | :---------------------- | :------------- | :--- |
 | cdn.byte.hit.percentage | Byte Hit Ratio | %    |
 
-<!--Latency-->
+</TabItem>
+<TabItem value="Latency" label="Latency">
 
 | Metric name                    | Description   | Unit |
 | :----------------------------- | :------------ | :--- |
 | cdn.latency.total.milliseconds | Total Latency | ms   |
 
-<!--Requests-->
+</TabItem>
+<TabItem value="Requests" label="Requests">
 
 | Metric name                 | Description       | Unit  |
 | :-------------------------- | :---------------- | :---- |
@@ -59,13 +63,15 @@ fonctionnement sur la documentation du module:
 | cdn.requests.4xx.percentage | Percentage of 4XX | %     |
 | cdn.requests.5xx.percentage | Percentage of 5XX | %     |
 
-<!--Response-Size-->
+</TabItem>
+<TabItem value="Response-Size" label="Response-Size">
 
 | Metric name             | Description   | Unit |
 | :---------------------- | :------------ | :--- |
 | cdn.response.size.bytes | Response Size | B    |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -74,9 +80,8 @@ Deux moyens sont disponibles pour interroger les API Microsoft Azure.
 Centreon préconise l'utilisation de la méthode *API* plutôt que la *CLI*, cette dernière étant significativement
 moins performante. L'API permet également une authentification *Application* et ne nécessite pas de compte de service dédié.
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Azure Monitor API-->
+<Tabs groupId="sync">
+<TabItem value="Azure Monitor API" label="Azure Monitor API">
 
 Pour le custom-mode 'api', récupérez les informations en suivant la procédure ci-dessous (en anglais)
 et notez celles-ci en lieu sûr. Elles seront en effet indispensables lors de la configuration des ressources
@@ -123,7 +128,8 @@ dans Centreon.
 	- Click on *Save*.
 	- **Copy and store the key value. You won't be able to retrieve it after you leave this page.**
 
-<!--Azure AZ CLI-->
+</TabItem>
+<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 Afin d'utiliser le custom-mode 'azcli', installez le binaire associé sur tous les Collecteurs Centreon
 devant superviser des resources Azure:
@@ -177,13 +183,13 @@ du collecteur Centreon:
 Vous avez désormais les informations stockées localement dans un fichier
 accessTokens.json qui sera utilisé automatiquement par le Plugin.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources*Azure CDN*:
 
@@ -193,7 +199,8 @@ yum install centreon-plugin-Cloud-Azure-Network-CDN-Api
 
 2. Sur l'interface Integration de Centreon, installer le Plugin Pack *Azure CDN* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources*Azure CDN*:
 
@@ -209,7 +216,8 @@ yum install centreon-pack-cloud-azure-network-cdn
 
 3. Sur l'interface Integration de Centreon, installer le Plugin Pack *Azure CDN* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -225,7 +233,8 @@ doivent être renseignées selon le *custom mode* utilisé.
 dans la Macro *AZURERESOURCE*
 > * Utilisation du nom de la ressource dans la Macro *AZURERESOURCE* associée à la Macro *AZURERESOURCEGROUP* 
 
-<!--Azure Monitor API-->
+<Tabs groupId="sync">
+<TabItem value="Azure Monitor API" label="Azure Monitor API">
 
 | Mandatory | Nom                | Description                                        |
 | :-------- | :----------------- | :------------------------------------------------- |
@@ -237,7 +246,8 @@ dans la Macro *AZURERESOURCE*
 | X         | AZURERESOURCE      | ID or name of the CDN profile resource             |
 |           | AZURERESOURCEGROUP | Associated Resource Group if resource name is used |
 
-<!--Azure AZ CLI-->
+</TabItem>
+<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 | Mandatory | Nom                | Description                                        |
 | :-------- | :----------------- | :------------------------------------------------- |
@@ -246,7 +256,8 @@ dans la Macro *AZURERESOURCE*
 | X         | AZURERESOURCE      | ID or name of the CDN profile resource             |
 |           | AZURERESOURCEGROUP | Associated Resource Group if resource name is used |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Comment puis-je tester le Plugin et que signifient les options des commandes ? 
 

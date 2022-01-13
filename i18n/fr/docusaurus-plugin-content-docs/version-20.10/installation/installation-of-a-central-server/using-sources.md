@@ -2,14 +2,17 @@
 id: using-sources
 title: A partir des sources
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Prérequis
 
 > La plupart des utilisateurs de CentOS préfèreront installer Centreon Web en utilisant
 [les paquets fournis par Centreon](using-packages).
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Redhat/CentOS-->
+<Tabs groupId="sync">
+<TabItem value="Redhat/CentOS" label="Redhat/CentOS">
 Afin d’installer les logiciels Centreon, le dépôt Software collections de Red Hat doit être activé.
 
 > Le dépôt Software collections est nécessaire pour l’installation de PHP 7 et les librairies associées.
@@ -89,7 +92,9 @@ Puis exécutez :
 ``` shell
 /opt/rh/rh-php72/root/bin/pear upgrade-all
 ```
-<!--Debian Stretch / Ubuntu 18.04-->
+
+</TabItem>
+<TabItem value="Debian Stretch / Ubuntu 18.04" label="Debian Stretch / Ubuntu 18.04">
 Ajoutez le dépot suivant, nécéssaire pour installer php 7.2 :
 
 ### For Debian Stretch
@@ -193,7 +198,9 @@ Redémarrez le service SNMP :
 service snmpd restart
 service snmptrapd restart
 ```
-<!--Suse-->
+
+</TabItem>
+<TabItem value="Suse" label="Suse">
 Installez les dépendances nécessaires :
 
 ``` shell
@@ -258,7 +265,8 @@ Sauvegardez le fichier et redémarrez apache :
 ``` shell
 /etc/init.d/apache2 restart
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Moteur de supervision (Centreon Engine)
 

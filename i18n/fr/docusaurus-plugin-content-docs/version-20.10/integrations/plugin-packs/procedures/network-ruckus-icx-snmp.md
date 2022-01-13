@@ -2,6 +2,9 @@
 id: network-ruckus-icx-snmp
 title: Ruckus ICX
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -18,21 +21,20 @@ et Ruckus Cloud pour délivrer les meilleurs performances et unifier les coûts.
 
 ### Règles de découverte
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Services-->
+<Tabs groupId="sync">
+<TabItem value="Services" label="Services">
 
 | Rule name                        | Description                                                                |
 | :------------------------------- | :------------------------------------------------------------------------- |
 | Net-Ruckus-Icx-SNMP-Traffic-Name |  Discover network interfaces and monitor status and bandwidth utilization  |
 
-<!--DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Cpu-->
+<Tabs groupId="sync">
+<TabItem value="Cpu" label="Cpu">
 
 | Metric Name                   | Description                                            |
 | :---------------------------- | :----------------------------------------------------- |
@@ -40,7 +42,8 @@ et Ruckus Cloud pour délivrer les meilleurs performances et unifier les coûts.
 | cpu.utilization.1m.percentage | CPU usage for the last 1m period. Unit: percentage (%) |
 | cpu.utilization.5m.percentage | CPU usage for the last 5m period. Unit: percentage (%) |
 
-<!--Memory-->
+</TabItem>
+<TabItem value="Memory" label="Memory">
 
 | Metric Name             | Description                                      |
 | :---------------------- | :----------------------------------------------- |
@@ -48,7 +51,8 @@ et Ruckus Cloud pour délivrer les meilleurs performances et unifier les coûts.
 | memory.usage.percentage | Memory usage in percentage. Unit: percentage (%) |
 | memory.free.bytes       | Free memory. Unit: Bytes (B)                     |
 
-<!--Interfaces-->
+</TabItem>
+<TabItem value="Interfaces" label="Interfaces">
 
 | Metric Name                              | Description                                                                  |
 | :--------------------------------------- | :--------------------------------------------------------------------------- |
@@ -60,7 +64,8 @@ et Ruckus Cloud pour délivrer les meilleurs performances et unifier les coûts.
 | interface.packets.out.error.percentage   | Outgoing errored packets going through the interface. Unit: percentage (%)   |
 | interface.packets.out.discard.percentage | Outgoing discarded packets going through the interface. Unit: percentage (%) |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -74,9 +79,8 @@ Les collecteurs Centreon doivent pouvoir joindre le port UDP/161 SNMP de l'équi
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des équipements Ruckus ICX:
 
@@ -86,7 +90,8 @@ yum install centreon-plugin-Network-Switch-Ruckus-Icx-Snmp
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Ruckus ICX* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des équipements Ruckus ICX:
 
@@ -102,7 +107,8 @@ yum install centreon-pack-network-switch-ruckus-icx-snmp
 
 3. Sur l'interface Web de Centreon, installer le Centreon Plugin Pack *Ruckus ICX* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration d'un hôte
 

@@ -2,6 +2,9 @@
 id: virtualization-vmware2-vcenter-5
 title: VMware vCenter v5
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -22,16 +25,16 @@ Avec le connecteur, Centreon peut superviser les VMs, Datastores, ESXs, Clusters
 
 Ce pack s'appuie sur le pack "VMware vCenter" pour obtenir plus d'indicateurs (virtualization-vmware2-vcenter-generic).
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Vm-Snapshot-Global-->
+<Tabs groupId="sync">
+<TabItem value="Vm-Snapshot-Global" label="Vm-Snapshot-Global">
 
 | Metric name                         | Description                                               | Unit  |
 | :---------------------------------- | :-------------------------------------------------------- | :---- |
 | vm.snapshots.warning.current.count  | Number of snapshots older than 3 days (default treshold)  | Count |
 | vm.snapshots.critical.current.count | Number of snapshots older than 5 days (default threshold) | Count |
 
-<!--Vm-Tools-Global-->
+</TabItem>
+<TabItem value="Vm-Tools-Global" label="Vm-Tools-Global">
 
 | Metric name                         | Description                                                   | Unit  |
 | :---------------------------------- | :------------------------------------------------------------ | :---- |
@@ -39,7 +42,8 @@ Ce pack s'appuie sur le pack "VMware vCenter" pour obtenir plus d'indicateurs (v
 | vm.tools.notrunning.current.count   | Number of VMs with VM-Tools not running (default threshold)   | Count |
 | vm.tools.notinstalled.current.count | Number of VMs with VM-Tools not installed (default threshold) | Count |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -119,9 +123,8 @@ Les Collecteurs requêtant le Collecteur avec le connecteur VMWare doit accéder
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le Plugin sur l'ensemble des Collecteurs Centreon supervisant l'infrastructure VMWare :
 
@@ -131,7 +134,8 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 
 2. Installer le Plugin-Pack 'Vmware vCenter v5' depuis la page "Configuration > Plugin packs > Manager" sur l'interface Web de Centreon.
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant l'infrastructure VMWare:
 
@@ -147,7 +151,8 @@ yum install centreon-pack-virtualization-vmware2-vcenter-5.noarch
 
 3. Installer le Plugin-Pack 'Vmware vCenter v5' depuis la page "Configuration > Plugin packs > Manager" sur l'interface Web de Centreon.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

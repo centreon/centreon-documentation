@@ -2,6 +2,9 @@
 id: applications-ibm-tsamp-ssh
 title: IBM TSAMP SSH
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Contenu du Pack
 
@@ -12,21 +15,20 @@ Le Pack IBM Tivoli System Automation for Multiplatforms collecte les données po
 
 ### Règles de découvertes
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Services-->
+<Tabs groupId="sync">
+<TabItem value="Services" label="Services">
 
 | Nom de la règle                       | Description                                                 |
 | :------------------------------------ | :---------------------------------------------------------- |
 | App-Ibm-Tsamp-SSH-Resource-Group-Name | Découvre les groupes de ressources et supervise leur statut |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Resource-groups-->
+<Tabs groupId="sync">
+<TabItem value="Resource-groups" label="Resource-groups">
 
 | Metric name                           | Description                               | Unit  |
 | :------------------------------------ | :---------------------------------------- | :---- |
@@ -40,7 +42,8 @@ Le Pack IBM Tivoli System Automation for Multiplatforms collecte les données po
 | resource_groups.ineligible.count      | Number of ineligible resource groups      |       |
 | status resource group                 | Current state of the resource group       |       |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -49,9 +52,8 @@ doit avoir assez de privilèges pour executer la commande ```lssam```.
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -61,7 +63,8 @@ yum install centreon-plugin-Applications-Ibm-Tsamp-Ssh
 
 2. Sur l'interface Web de Centreon, installer le Pack *IBM TSAMP SSH* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -77,16 +80,16 @@ yum install centreon-pack-applications-ibm-tsamp-ssh
 
 3. Sur l'interface Web de Centreon, installer le Pack *IBM TSAMP SSH* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
 Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *App-Ibm-Tsamp-SSH-custom*. 
 Une fois celui-ci configuré, certaines macros doivent être renseignées.
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--sshcli backend-->
+<Tabs groupId="sync">
+<TabItem value="sshcli backend" label="sshcli backend">
 
 | Mandatory   | Name            | Description                                                                                     |
 | :---------- | :-------------- | :---------------------------------------------------------------------------------------------- |
@@ -99,7 +102,8 @@ Une fois celui-ci configuré, certaines macros doivent être renseignées.
 > Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur centreon-engine du Collecteur
 et l'utilisateur applicatif créé sur le serveur distant (Macro SSHUSERNAME).
 
-<!--plink backend-->
+</TabItem>
+<TabItem value="plink backend" label="plink backend">
 
 | Mandatory   | Name            | Description                                                                                     |
 | :---------- | :-------------- | :---------------------------------------------------------------------------------------------- | 
@@ -112,7 +116,8 @@ et l'utilisateur applicatif créé sur le serveur distant (Macro SSHUSERNAME).
 > Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur centreon-engine du Collecteur
 et l'utilisateur applicatif créé sur le serveur distant (Macro SSHUSERNAME).
 
-<!--libssh backend (par défaut)-->
+</TabItem>
+<TabItem value="libssh backend (par défaut)" label="libssh backend (par défaut)">
 
 | Mandatory   | Name            | Description                                                                                     |
 | :---------- | :-------------- | :---------------------------------------------------------------------------------------------- |
@@ -124,7 +129,8 @@ et l'utilisateur applicatif créé sur le serveur distant (Macro SSHUSERNAME).
 
 Avec ce backend, vous n'avez pas à valider manuellement le fingerprint du serveur cible.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Comment puis-je tester le Plugin et que signifient les options des commandes ?
 

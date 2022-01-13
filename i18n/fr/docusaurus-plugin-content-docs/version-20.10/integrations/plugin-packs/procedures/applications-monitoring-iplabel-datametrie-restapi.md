@@ -2,6 +2,9 @@
 id: applications-monitoring-iplabel-datametrie-restapi
 title: IP-Label datametrie API
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -16,8 +19,8 @@ IP-Label est un spécialiste de la mesure de la qualité de l'expérience de l'u
 
 ## Monitored Metrics 
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Alarms-->
+<Tabs groupId="sync">
+<TabItem value="Alarms" label="Alarms">
 
 | Metric name                              | Description                                          |
 | :--------------------------------------- | :--------------------------------------------------- |
@@ -25,7 +28,8 @@ IP-Label est un spécialiste de la mesure de la qualité de l'expérience de l'u
 | alarms.orange.count                      | Current orange alarms. Unit: Count                   |
 | alarms.red.count                         | Current red alarms. Unit: Count                      |
 
-<!--Kpi-->
+</TabItem>
+<TabItem value="Kpi" label="Kpi">
 
 | Metric name                     | Description                                          |
 | :------------------------------ | :--------------------------------------------------- |
@@ -33,7 +37,8 @@ IP-Label est un spécialiste de la mesure de la qualité de l'expérience de l'u
 | kpi.sla.availability.percentage | Monitor SLA availability. Unit: %                    |
 | kpi.performance.count           | Monitor performance. Unit: Count                     |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -43,9 +48,8 @@ Un compte en lecture seule (login/mot de passe) sur ```https://api.ip-label.net`
 
 ## Installation 
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le Plugin sur l'ensemble des collecteurs supervisant des ressources IP-Label datametrie:
 
@@ -55,7 +59,8 @@ yum install centreon-plugin-Applications-Monitoring-Iplabel-Datametrie-Restapi
 
 2. Installer le Plugin-Pack depuis la page "Configuration > Plugin packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le code du connecteur sur l'ensemble des collecteurs supervisant des ressources de IP-Label datametrie:
 
@@ -71,7 +76,8 @@ yum install centreon-pack-applications-monitoring-iplabel-datametrie-restapi
 
 3. Installer le Plugin-Pack depuis la page Centreon Plugin-Pack "Configuration > Plugin packs > Manager"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

@@ -2,6 +2,9 @@
 id: installation
 title: Installation de Centreon MBI
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Architecture
 
@@ -75,8 +78,8 @@ serveur de reporting pour des questions de performances & d'isolation.
 
 **Logiciels**
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
 - Centreon Web 20.10
 - Vérifiez que `date.timezone` est correctement configurée dans le fichier
   `/etc/php.d/php.ini` (même que celui retourné par la commande
@@ -87,7 +90,8 @@ serveur de reporting pour des questions de performances & d'isolation.
   des rapports.
   - wait_timeout
   - interactive_timeout
-<!--CentOS 7-->
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 - Centreon Web 20.10
 - Vérifiez que `date.timezone` est correctement configurée dans le fichier
   `/etc/opt/rh/rh-php72/php.ini` (même que celui retourné par la commande
@@ -98,7 +102,8 @@ serveur de reporting pour des questions de performances & d'isolation.
   des rapports.
   - wait_timeout
   - interactive_timeout
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 **Ajout d'utilisateurs ou de groupes**
 
@@ -178,16 +183,18 @@ Installer le dépôt MBI, vous pouvez le trouver sur le
 
 Puis lancez la commande suivante :
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
 ```shell
 dnf install centreon-bi-server
 ```
-<!--CentOS 7-->
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 ```shell
 yum install centreon-bi-server
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Activer l'extension
 
@@ -300,16 +307,18 @@ Installer le dépôt MBI, vous pouvez le trouver sur le
 
 Puis lancer la commande suivante:
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
 ```shell
 dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
 ```
-<!--CentOS 7-->
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 ```shell
 yum install centreon-bi-reporting-server MariaDB-server MariaDB-client
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 Dans le cas d'une installation basée sur une image CentOS vierge, installez la clé GPG :
 ```shell
