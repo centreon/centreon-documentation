@@ -28,7 +28,7 @@ Il apporte les Modèles de Service suivants :
 
 <!--Services-->
 
-No services discovery rule available on this pack
+Pas de règles de découverte de services pour ce pack.
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 

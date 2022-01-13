@@ -28,7 +28,7 @@ It brings the following Service Templates:
 
 <!--Services-->
 
-No service discovery rule is available on this pack
+No service discovery rule is available in this pack
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
