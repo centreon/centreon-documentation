@@ -75,10 +75,10 @@ yum install centreon-pack-applications-hddtemp-tcp
 * Select the **App-Hddtemp-Tcp** template to apply to the Host
 * Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
 
-| Mandatory | Name           | Description                                                                                     |
-|:----------|:---------------|:------------------------------------------------------------------------------------------------|
-|           | HDDTEMPTCPPORT | (Default: '7634')                                                                               |
-|           | EXTRAOPTIONS   | (Default: 'Any extra option you may want to add to every command\_line (eg. a --verbose flag)') |
+| Mandatory | Name           | Description                                                                         |
+|:----------|:---------------|:------------------------------------------------------------------------------------|
+|           | HDDTEMPTCPPORT | HDD Listening port (Default: '7634')                                                |
+|           | EXTRAOPTIONS   | Any extra option you may want to add to every command\_line (eg. a --verbose flag)' |
 
 ## How to check in the CLI that the configuration is OK and what are the main options for? 
 

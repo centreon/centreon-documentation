@@ -27,8 +27,8 @@ It brings the following Service Templates:
 | Metric Name                       | Unit   |
 |:----------------------------------|:-------|
 | status                            | string |
-| channel.traffic.in.bitspersecond   | b/s       |
-| channel.traffic.out.bitspersecond | b/s      |
+| channel.traffic.in.bitspersecond  | b/s    |
+| channel.traffic.out.bitspersecond | b/s    |
 
 <!--Queue-Manager-->
 
@@ -95,11 +95,11 @@ yum install centreon-pack-applications-ibmmq-mqi
 * Select the **App-Ibmmq-Mqi-custom** template to apply to the Host
 * Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
 
-| Mandatory | Name                 | Description                                                                                     |
-|:----------|:---------------------|:------------------------------------------------------------------------------------------------|
-|           | IBMMQMQIEXTRAOPTIONS | (Default: '--runas=centreon')                                                                   |
-|           | IBMMQMQIPORT         | (Default: '1414')                                                                               |
-|           | EXTRAOPTIONS         | (Default: 'Any extra option you may want to add to every command\_line (eg. a --verbose flag)') |
+| Mandatory | Name                 | Description                                                                         |
+|:----------|:---------------------|:------------------------------------------------------------------------------------|
+|           | IBMMQMQIEXTRAOPTIONS | Specify a username which will run the command (Default: '--runas=centreon')         |
+|           | IBMMQMQIPORT         | IBM MQ Listening port (Default: '1414')                                             |
+|           | EXTRAOPTIONS         | Any extra option you may want to add to every command\_line (eg. a --verbose flag)) |
 
 ## How to check in the CLI that the configuration is OK and what are the main options for? 
 
@@ -129,11 +129,10 @@ command:
 The expected command output is shown below:
 
 ```bash
-WARNING: current input connections: 9000 | 'queue.connections.input.count'=9000;200;;0; 'queue.messages.depth.count'=2400;;;0; 'queue.message.oldest.seconds'=9000;;;; 
+WARNING: current input connections: 9000 | 'queue.connections.input.count'=9000;200;;0; 'queue.messages.depth.count'=20;200;;0; 'queue.message.oldest.seconds'=150;;3600;; 
 ```
 
-This command triggers a WARNING because the number of current input connections is 9000 which is 
-above the warning threshold (`--warning-messages-depth='200'`). 
+This command triggers a WARNING because the size of the message queur is greater than 200 which is the warning threshold (`--warning-messages-depth='200'`).
 
 It would trigger a CRITICAL alarm if a message was in a queue for more than one hour / 3600 seconds (`--critical-message-oldest='3600'`).
 

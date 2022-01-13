@@ -94,11 +94,11 @@ yum install centreon-pack-applications-ibmmq-mqi
 
 * Une fois le modèle appliqué, renseignez les macros correspondantes. Attention, certaines macros sont obligatoires ("mandatory").
 
-| Mandatory | Name                 | Description                                                                                     |
-|:----------|:---------------------|:------------------------------------------------------------------------------------------------|
-|           | IBMMQMQIEXTRAOPTIONS | (Default: '--runas=centreon')                                                                   |
-|           | IBMMQMQIPORT         | (Default: '1414')                                                                               |
-|           | EXTRAOPTIONS         | (Default: 'Any extra option you may want to add to every command\_line (eg. a --verbose flag)') |
+| Mandatory | Name                 | Description                                                                                  |
+|:----------|:---------------------|:---------------------------------------------------------------------------------------------|
+|           | IBMMQMQIEXTRAOPTIONS | Nom de l'utilisateur à utiliser pour lancer les commandes (Par défaut: '--runas=centreon')   |
+|           | IBMMQMQIPORT         | Port d'écoute de l'instance IBM MQ (Par défaut: '1414')                                      |
+|           | EXTRAOPTIONS         | Option supplémentaire à ajouter à toutes les commandes de contrôles (ex: l'option --verbose) |
 
 ## Comment puis-je tester le Plugin et que signifient les options des commandes ? 
 
@@ -128,11 +128,11 @@ l'utilisateur **centreon-engine**:
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-WARNING: current input connections: 9000 | 'queue.connections.input.count'=9000;200;;0; 'queue.messages.depth.count'=2400;;;0; 'queue.message.oldest.seconds'=9000;;;; 
+WARNING: current input connections: 9000 | 'queue.connections.input.count'=9000;200;;0; 'queue.messages.depth.count'=20;200;;0; 'queue.message.oldest.seconds'=9000;;3600;; 
 ```
 
-Dans cet exemple, une alarme de type WARNING est déclenchée car le nombre de connexions entrantes
-est supérieure au seuil de 200 configuré (`--warning-messages-depth='200'`). 
+Dans cet exemple, une alarme de type WARNING est déclenchée car le nombre de message dans la queue est 
+supérieur au seuil de 200 configuré (`--warning-messages-depth='200'`). 
 
 Une alarme CRITICAL serait déclenchée si un des messages datait de plus d'une heure/3600 secondes (`--critical-message-oldest='3600'`). 
 

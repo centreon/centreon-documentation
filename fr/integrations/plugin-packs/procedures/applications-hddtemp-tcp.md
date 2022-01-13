@@ -77,10 +77,10 @@ yum install centreon-pack-applications-hddtemp-tcp
 
 * Une fois le modèle appliqué, renseignez les macros correspondantes. Attention, certaines macros sont obligatoires ("mandatory"). 
 
-| Mandatory | Name           | Description                                                                                     |
-|:----------|:---------------|:------------------------------------------------------------------------------------------------|
-|           | HDDTEMPTCPPORT | (Default: '7634')                                                                               |
-|           | EXTRAOPTIONS   | (Default: 'Any extra option you may want to add to every command\_line (eg. a --verbose flag)') |
+| Mandatory | Name           | Description                                                                           |
+|:----------|:---------------|:--------------------------------------------------------------------------------------|
+|           | HDDTEMPTCPPORT | Port d'écoute de HDDTemp (Par défaut: '7634')                                         |
+|           | EXTRAOPTIONS   | Options supplémentaires à ajouter à l'ensemble des commandes de l'hôte (ex: --verbose |
 
 ## Comment puis-je tester le Plugin et que signifient les options des commandes ? 
 

@@ -107,7 +107,7 @@ l'utilisateur **centreon-engine**:
     --url='' \
     --username='' \
     --password='' \
-    --filter-name='$_SERVICEFILTERNAME' \
+    --filter-name='$_SERVICEFILTERNAME$' \
     --warning-status='' \
     --critical-status='%{status} !~ /GREEN/i' \
     --use-new-perfdata 
@@ -116,7 +116,7 @@ l'utilisateur **centreon-engine**:
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK:  | 
+OK: All queues are ok 
 ```
 
 Dans cet exemple, une alarme de type CRITICAL sera déclenchée si le statut de la 

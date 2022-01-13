@@ -38,18 +38,18 @@ No service discovery rule is available on this pack
 
 <!--Fsx-DataUsage-->
 
-| Metric Name                     | Unit  |
-|:--------------------------------|:------|
-| fsx.data.read.bytes             | B     |
-| fsx.data.read.bytespersecond    | B/s   |
-| fsx.data.write.bytes            | B     |
-| fsx.data.write.bytespersecond   | B/s   |
-| fsx.data.io.read.count          |       |
-| fsx.data.io.read.persecond      |       |
-| fsx.data.io.write.count         |       |
-| fsx.data.io.write.persecond     |       |
-| fsx.metadata.ops.bytes          | B     |
-| fsx.metadata.ops.bytespersecond | B/s   |
+| Metric Name                     | Unit      |
+|:--------------------------------|:----------|
+| fsx.data.read.bytes             | B         |
+| fsx.data.read.bytespersecond    | B/s       |
+| fsx.data.write.bytes            | B         |
+| fsx.data.write.bytespersecond   | B/s       |
+| fsx.data.io.read.count          | count     |
+| fsx.data.io.read.persecond      | persecond |
+| fsx.data.io.write.count         | count     |
+| fsx.data.io.write.persecond     | persecond |
+| fsx.metadata.ops.bytes          | B         |
+| fsx.metadata.ops.bytespersecond | B/s       |
 
 <!--Fsx-Freespace-->
 
@@ -109,16 +109,16 @@ yum install centreon-pack-cloud-aws-fsx
 * Select the **cloud-aws-fsx-custom** template to apply to the Host
 * Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
 
-| Mandatory | Name            | Description                                                                                     |
-|:----------|:----------------|:------------------------------------------------------------------------------------------------|
-|           | AWSACCESSKEY    |                                                                                                 |
-|           | AWSCUSTOMMODE   | (Default: 'awscli')                                                                             |
-|           | AWSEXTRAOPTIONS |                                                                                                 |
-|           | AWSREGION       |                                                                                                 |
-|           | AWSSECRETKEY    |                                                                                                 |
-|           | FILESYSTEMID    |                                                                                                 |
-|           | PROXYURL        |                                                                                                 |
-|           | EXTRAOPTIONS    | (Default: 'Any extra option you may want to add to every command\_line (eg. a --verbose flag)') |
+| Mandatory   | Nom             | Description                                                                                 |
+| :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
+| X           | AWSSECRETKEY    | AWS Secret key of your IAM role. Password checkbox must be checked                          |
+| X           | AWSACESSKEY     | AWS Access key of your IAM role. Password checkbox must be checked                          |
+| X           | AWSREGION       | Region where the instance is running                                                        |
+| X           | AWSCUSTOMMODE   | Custom mode to get metrics, 'awscli' is the default, you can also use 'paws' perl library   |
+|             | PROXYURL        | Configure proxy URL                                                                         |
+|             | EXTRAOPTIONS    | Any extra option you may want to add to every command\_line (eg. a --verbose flag)          |
+|             | DUMMYSTATUS     | Host state. Default is OK, do not modify it unless you know what you are doing              |
+|             | DUMMYOUTPUT     | Host check output. Default is 'This is a dummy check'. Customize it with your own if needed |
 
 ## How to check in the CLI that the configuration is OK and what are the main options for? 
 
@@ -142,10 +142,10 @@ command:
     --period='60' \
     --warning-data-write-ops='' \
     --critical-data-write-ops='' \
-    --warning-data-read-ops='' \
+    --warning-data-read-ops='1000' \
     --critical-data-read-ops='' \
     --warning-data-write-bytes='' \
-    --critical-data-write-bytes='1000000000' \
+    --critical-data-write-bytes='' \
     --warning-data-read-bytes='' \
     --critical-data-read-bytes='' \
     --warning-metadata-ops-bytes='' \

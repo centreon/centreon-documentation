@@ -106,7 +106,7 @@ command:
     --url='' \
     --username='' \
     --password='' \
-    --filter-name='$_SERVICEFILTERNAME' \
+    --filter-name='$_SERVICEFILTERNAME$' \
     --warning-status='' \
     --critical-status='%{status} !~ /GREEN/i' \
     --use-new-perfdata 
@@ -115,7 +115,7 @@ command:
 The expected command output is shown below:
 
 ```bash
-OK:  | 
+OK:  All queues are ok 
 ```
 
 This command would trigger a CRITICAL alarm if the queue status isn't equal to 'GREEN'
