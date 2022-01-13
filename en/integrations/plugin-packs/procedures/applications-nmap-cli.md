@@ -43,7 +43,7 @@ yum install centreon-pack-applications-nmap-cli
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-## Additionnal resources
+## Additional resources
 
 Several resources on The Watch can help you to use this Pack. 
 
