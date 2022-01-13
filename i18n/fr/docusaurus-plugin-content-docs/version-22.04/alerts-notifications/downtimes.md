@@ -129,7 +129,7 @@ La fenêtre suivante s'affiche :
 
 
 
-## Les temps d'arrêts récurrents
+## Les temps d'arrêt récurrents
 
 ### Principe
 

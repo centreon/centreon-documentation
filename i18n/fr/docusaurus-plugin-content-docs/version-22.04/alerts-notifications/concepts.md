@@ -4,9 +4,11 @@ title: Statuts possibles d'une ressource
 ---
 
 Les statuts indiquent la disponibilité d'un hôte, et la disponibilité ou la performance d'un service. Chaque
-statut a une signification bien précise pour l'objet. À chaque statut
-correspond un code généré par la sonde de supervision en fonction des
-seuils définis par l'utilisateur.
+statut a une signification bien précise pour la ressource.
+* Les statuts et états d'une ressource sont affichés à la page 
+[Statut des ressources](resources-status). Vous pouvez filtrer cette page en fonction des statuts et de certains états.
+* Certains statuts sont déterminés par des seuils définis par l'utilisateur. 
+<!--* À chaque statut correspond un code généré par la sonde de supervision.-->
 
 ## Statut des hôtes
 
@@ -17,6 +19,7 @@ Le tableau ci-dessous résume l'ensemble des statuts possibles pour un hôte.
 | <span style="color:#88b917">DISPONIBLE</span>          | L'hôte est disponible et joignable |
 | <span style="color:#e00b3d">INDISPONIBLE</span>        | L'hôte est indisponible            |
 | <span style="color:#818185">INJOIGNABLE</span> | L'hôte est injoignable : il [dépend](notif-dependencies) d'un hôte dont le statut est **INDISPONIBLE**             |
+| <span style="color:#2ad1d4">EN ATTENTE</span> | L'hôte vient d'être créé mais n'a pas encore été contrôlé par le moteur de supervision |
 
 ## Statut des services
 
@@ -28,37 +31,31 @@ Le tableau ci-dessous résume l'ensemble des statuts possibles pour un service.
 | <span style="color:#ff9a13">ALERTE</span> | Le service a dépassé le seuil d'alerte                                 |
 | <span style="color:#e00b3d">CRITIQUE</span>    | Le service a dépassé le seuil critique                                 |
 | <span style="color:#bcbdc0">INCONNU</span> | Le statut du service ne peut être vérifié (exemple : agent SNMP DOWN…) |
+| <span style="color:#2ad1d4">EN ATTENTE</span> |  Le service vient d'être créé mais n'a pas encore été contrôlé par le moteur de supervision |
 
-## Statuts avancés
+## États
 
-En plus des statuts standards, de nouveaux statuts permettent d'ajouter
-des informations complémentaires :
+En plus de leur statut, les ressources peuvent avoir différents états :
 
--   Le statut <span style="color:#2ad1d4">EN ATTENTE</span> est un statut
-    affiché pour un service ou un hôte fraîchement configuré mais qui
-    n'a pas encore été contrôlé par l'ordonnanceur.
--   Le statut <span style="color:#818185">INJOIGNABLE</span> est un
-    statut indiquant que l'hôte est situé ([relation de parenté](notif-dependencies)) en aval
-    d'un hôte dans un statut INDISPONIBLE.
--   Le statut FLAPPING est un statut indiquant que le pourcentage de
-    changement de statut de l'objet est très élevé. Ce pourcentage est
-    obtenu à partir de calculs effectués par le moteur de supervision.
--   Le statut <span style="color:#ae9500">ACKNOWLEDGED</span> est un
-    statut indiquant que l'incident du service ou de l'hôte est pris en
-    compte par un utilisateur.
--   Le statut <span style="color:#cc99ff">DOWNTIME</span> est un statut
-    indiquant que l'incident du service ou de l'hôte est survenu durant
-    une période de temps d'arrêt programmé.
+- <span style="color:#ae9500">Acquitté</span> : indique que l'incident sur le service ou l'hôte est pris en
+    compte par un utilisateur. (Voir [Acquitter un problème](acknowledge).)
+- <span style="color:#cc99ff">En maintenance</span> : indique que les notifications sont temporairement suspendues pour cette ressource. Une [plage de maintenance](downtimes) peut être [planifiée à l'avance](downtimes#les-temps-darrêt-récurrents) pour éviter de recevoir des alertes pendant une opération de maintenance. Elle peut également être définie suite à un incident.
+- [Flapping](notif-flapping) (bagotement) : le pourcentage de
+changement de statut de la ressource est très élevé. Ce pourcentage est
+obtenu à partir de calculs effectués par le moteur de supervision. Les ressources dans un état de bagotement affichent l'icône suivante dans leur panneau **Détails** :
+    ![image](../assets/alerts/flapping_icon.png)
 
-## Confirmation du statut
+## Types de statuts
 
-Une ressource peut avoir deux états :
+Le statut d'une ressource peut avoir deux types :
 
 -   SOFT : Signifie qu'un incident vient d'être détecté et que ce
     dernier doit être confirmé.
 -   HARD : Signifie que le statut de l'incident est confirmé. Lorsque le
     statut est confirmé, le processus de notification est enclenché
     (envoi d'un mail, SMS, …).
+
+Vous pouvez filtrer la page [Resources Status](resources-status) suivant le type de statut.
 
 ### Explication
 
@@ -74,7 +71,7 @@ Exemple :
 
 ![image](../assets/configuration/soft_hard_states.png)
 
-| Temps | Nombre de vérifications | Statut   | Etat | Changement d'état | Commentaire                                                                                                                                                                                                                                                                    |
+| Temps | Nombre de vérifications | Statut   | Type de statut | Changement d'état | Commentaire                                                                                                                                                                                                                                                                    |
 |-------|-------------------------|----------|------|-------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | t+0   | 1/3                     | OK       | HARD | No                | État initial du service                                                                                                                                                                                                                                                        |
 | t+5   | 1/3                     | CRITICAL | SOFT | Yes               | Première détection d'un état non-OK. Le gestionnaire d'événements s'exécute (event handlers).                                                                                                                                                                                  |
