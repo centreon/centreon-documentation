@@ -639,7 +639,7 @@ Release date: `null`
 #### Bug fixes
 
 - The central broker's cache generation loaded too much data and took too much time when BAM was activated
-- Fixed the removal of RRD files for single metrics deletion
+- When a single metric is deleted, the corresponding RRD file is now removed
 - Fixed an issue causing BAM Business Activities (best status) to remain in OK state when the OK KPIs are removed
 
 
