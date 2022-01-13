@@ -2,6 +2,9 @@
 id: hardware-storage-netapp-ontap-restapi
 title: NetApp Ontap Rest API
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -19,17 +22,14 @@ ONTAP or Data ONTAP or Clustered Data ONTAP (cDOT) or Data ONTAP 7-Mode is NetAp
 
 ### Discovery rules
 
-<!--Services-->
-
 | Rule name                                   | Description                                 |
 | :------------------------------------------ | :------------------------------------------ |
 | HW-Storage-Netapp-Ontap-Restapi-Volume-Name |  Discover volumes attached to your storage  |
 
 ### Monitored metrics 
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Cluster-->
+<Tabs groupId="sync">
+<TabItem value="Cluster" label="Cluster">
 
 | Metric name                           | Description                                                                                    |
 | :------------------------------------ | :--------------------------------------------------------------------------------------------- |
@@ -41,25 +41,29 @@ ONTAP or Data ONTAP or Clustered Data ONTAP (cDOT) or Data ONTAP 7-Mode is NetAp
 | cluster.io.read.latency.milliseconds  | I/O read latency. Unit: ms                                                                     |
 | cluster.io.write.latency.milliseconds | I/O written latency. Unit: ms                                                                  |
 
-<!--Hardware-->
+</TabItem>
+<TabItem value="Hardware" label="Hardware">
 
 | Metric name                         | Description                                                                 |
 | :---------------------------------- | :---------------------------------------------------------------------------|
 | status                              | Check components operational status: bay, fru, shelf. Unit: count           |
 
-<!--Luns-->
+</TabItem>
+<TabItem value="Luns" label="Luns">
 
 | Metric name                         | Description                                                                 |
 | :---------------------------------- | :---------------------------------------------------------------------------|
 | status                              | The LUN status                                                              |
 
-<!--Snapmirrors-->
+</TabItem>
+<TabItem value="Snapmirrors" label="Snapmirrors">
 
 | Metric name                         | Description                                                                 |
 | :---------------------------------- | :---------------------------------------------------------------------------|
 | status                              | The snapmirror status                                                       |
 
-<!--Volumes-->
+</TabItem>
+<TabItem value="Volumes" label="Volumes">
 
 | Metric name                          | Description                                                                                    |
 | :----------------------------------- | :--------------------------------------------------------------------------------------------- |
@@ -74,7 +78,8 @@ ONTAP or Data ONTAP or Clustered Data ONTAP (cDOT) or Data ONTAP 7-Mode is NetAp
 | volume.io.read.latency.milliseconds  | Volume I/O read latency. Unit: ms. By instances (```volume_name```)                            |
 | volume.io.write.latency.milliseconds | Volume I/O written latency. Unit: ms. By instances (```volume_name```)                         |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -84,9 +89,8 @@ A read-only account (login/password) is required.
 
 ## Setup 
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor NetApp ONTAP ressources:
 
@@ -96,7 +100,8 @@ yum install centreon-plugin-Hardware-Storage-Netapp-Ontap-Restapi
 
 2. On the Centreon Web interface, install the 'NetApp Ontap Rest API' Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor NetApp ONTAP ressources:
 
@@ -112,7 +117,8 @@ yum install centreon-pack-hardware-storage-netapp-ontap-restapi
 
 3. On the Centreon Web interface, install the 'NetApp Ontap Rest API' Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

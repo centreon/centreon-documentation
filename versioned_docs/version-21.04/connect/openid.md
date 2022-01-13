@@ -2,6 +2,9 @@
 id: openid
 title: Configuring connection via OpenId Connect
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 Centreon is compatible with OAuth 2.0/OpenId Connect authentication.
 
@@ -51,8 +54,8 @@ in the **Authentication by OpenId Connect** section.
 
 ### Examples of configuration
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Microsoft Azure AD-->
+<Tabs groupId="sync">
+<TabItem value="Microsoft Azure AD" label="Microsoft Azure AD">
 Here is an example configuration for Microsoft Azure Active Directory:
 
 | Fields                       | Values                                                    |
@@ -71,7 +74,8 @@ Here is an example configuration for Microsoft Azure Active Directory:
 
 > Please replace `${tenantId}`, `${ipCentreon}`, `${clientId}` and `${clientSecret}` with your own values.
 
-<!--Okta-->
+</TabItem>
+<TabItem value="Okta" label="Okta">
 Here is an example configuration for Okta:
 
 | Fields                       | Values                                   |
@@ -90,7 +94,8 @@ Here is an example configuration for Okta:
 
 > Please replace `${theIdPdomain}`, `${ipCentreon}`, `${clientId}` and `${clientSecret}` with your own values.
 
-<!--Keycloak-->
+</TabItem>
+<TabItem value="Keycloak" label="Keycloak">
 Here is an example configuration for Keycloak:
 
 | Fields                       | Values                                                                  |
@@ -109,7 +114,8 @@ Here is an example configuration for Keycloak:
 
 > Please replace `${theIdPdomain}`, `${ipCentreon}`, `${resource}` and `${secret}` with your own values.
 
-<!--LemonLDAP::NG-->
+</TabItem>
+<TabItem value="LemonLDAP::NG" label="LemonLDAP::NG">
 Here is an example configuration for LemonLDAP::NG:
 
 | Fields                       | Values                                   |
@@ -128,7 +134,8 @@ Here is an example configuration for LemonLDAP::NG:
 
 > Please replace `auth.example.com`, `${ipCentreon}`, `${clientId}` and `${clientSecret}` with your own values.
 
-<!--Others-->
+</TabItem>
+<TabItem value="Others" label="Others">
 Most of the service providers have one URL presenting the configuration parameters configuration as defined by
 [the protocol](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfig).
 
@@ -178,4 +185,5 @@ Retrieve the following parameters to configure your Centreon:
 - scopes_supported
 - claims_supported (Login claim value)
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>

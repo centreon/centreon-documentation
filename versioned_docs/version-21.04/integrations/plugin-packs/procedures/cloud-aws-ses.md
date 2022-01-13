@@ -2,6 +2,9 @@
 id: cloud-aws-ses
 title: Amazon SES
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -26,9 +29,8 @@ More information about collected metrics is available in the official Amazon
 documentation:
 https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Ses-Emails-->
+<Tabs groupId="sync">
+<TabItem value="Ses-Emails" label="Ses-Emails">
 
 | Metric name                 | Description                                                                                  
 |:--------------------------- | :----------------------------------------|
@@ -37,7 +39,8 @@ https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity
 | ses.emails.rejected.rate    | Rate of rejected emails                  |
 | ses.emails.spam.rate        | Rate of emails marked as spam            |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -55,29 +58,29 @@ To interact with Amazon APIs, you can use either use the *awscli* binary
 provided by Amazon or *paws*, a Perl AWS SDK (recommended). 
 You must install it on every Centreon poller expected to monitor AWS resources: 
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--perl-Paws-installation-->
+<Tabs groupId="sync">
+<TabItem value="perl-Paws-installation" label="perl-Paws-installation">
 
 ```bash
 yum install perl-Paws
 ```
 
-<!--aws-cli-installation-->
+</TabItem>
+<TabItem value="aws-cli-installation" label="aws-cli-installation">
 
 ```bash
 yum install awscli
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 > For now, it is not possible to use *paws* if you are using a proxy to reach AWS Cloudwatch APIs. 
 
 ## Setup 
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor Amazon SES resources:
 
@@ -87,7 +90,8 @@ yum install centreon-plugin-Cloud-Aws-Ses-Api
 
 2. On the Centreon Web interface, install the *Amazon SES* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor Amazon SES resources:
 
@@ -103,7 +107,8 @@ yum install centreon-pack-cloud-aws-ses
 
 3. On the Centreon Web interface, install the *Amazon SES* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

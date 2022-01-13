@@ -2,6 +2,9 @@
 id: network-tplink-snmp
 title: TP-Link SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -20,16 +23,16 @@ The Centreon Plugin Pack *TP-Link SNMP* relies on the SNMP protocol to query and
 
 ### Collected metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--CPU-->
+<Tabs groupId="sync">
+<TabItem value="CPU" label="CPU">
 * These 3 metrics for CPU core and average utilization
 
 | Metric name                         | Description                    | Unit   |
 | :---------------------------------- | :----------------------------- | :----- |
 | cpu.utilization.percentage          | Percentage of CPU utilization  | %      |
 
-<!--Interfaces-->
+</TabItem>
+<TabItem value="Interfaces" label="Interfaces">
 
 | Metric name                              | Description                                             | Unit |
 |:---------------------------------------- |:------------------------------------------------------- | :--- |
@@ -41,19 +44,22 @@ The Centreon Plugin Pack *TP-Link SNMP* relies on the SNMP protocol to query and
 | interface.packets.out.error.percentage   | Outgoing errored packets going through the interface.   | %    |
 | interface.packets.out.discard.percentage | Outgoing discarded packets going through the interface. | %    |
 
-<!--Memory-->
+</TabItem>
+<TabItem value="Memory" label="Memory">
 
 | Metric name                         | Description                 | Unit   |
 | :---------------------------------- | :-------------------------- | :----- |
 | memory.usage.percentage             | Percentage of memory usage  | %      |
 
-<!--Uptime-->
+</TabItem>
+<TabItem value="Uptime" label="Uptime">
 
 | Metric name                 | Description                                        | Unit   |
 | :-------------------------- | :------------------------------------------------- | :----- |
 | system.uptime               | Duration of system has been working and available. | s      |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -62,9 +68,8 @@ The Centreon Poller must be able to reach the UDP/161 SNMP port of the TP-Link e
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor TP-Link equipments:
 
@@ -74,7 +79,8 @@ yum install centreon-plugin-Network-Tplink-Snmp
 
 2. On the Centreon Web interface, install the *TP-Link SNMP* Plugin Pack through "Configuration > Plugin Packs > Manager" page.
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor TP-Link equipments:
 
@@ -90,7 +96,8 @@ yum install centreon-pack-network-tplink-snmp
 
 3. On the Centreon Web interface, install the *TP-Link SNMP* Plugin Pack through "Configuration > Plugin Packs > Manager" page.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host configuration
 

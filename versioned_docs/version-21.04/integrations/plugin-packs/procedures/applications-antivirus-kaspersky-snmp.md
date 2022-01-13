@@ -2,6 +2,9 @@
 id: applications-antivirus-kaspersky-snmp
 title: Kaspersky
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -19,7 +22,8 @@ Administration Server and managed products with the SNMP protocol.
 
 ### Collected Metrics
 
-<!--Deployment-->
+<Tabs groupId="sync">
+<TabItem value="Deployment" label="Deployment">
 
 | Metric name                          | Description                               |
 |:-------------------------------------|:------------------------------------------|
@@ -28,13 +32,15 @@ Administration Server and managed products with the SNMP protocol.
 | hosts.expiring.licence.count         | Number of hosts with expiring licence     |
 | hosts.expired.licence.count          | Number of hosts with expired licence      |
 
-<!--Events-->
+</TabItem>
+<TabItem value="Events" label="Events">
 
 | Metric name           | Description               |
 |:----------------------|:--------------------------| 
 | events.critical.count | Number of critical events |     
 
-<!--Logical-Network-->
+</TabItem>
+<TabItem value="Logical-Network" label="Logical-Network">
 
 | Metric name              | Description                                             |
 | :------------------------| :-------------------------------------------------------|
@@ -43,7 +49,8 @@ Administration Server and managed products with the SNMP protocol.
 | hosts.notconnected.count | Number of hosts that have not connected for a long time |
 | hosts.uncontrolled.count | Number of uncontrolled hosts                            |
 
-<!--Protection-->
+</TabItem>
+<TabItem value="Protection" label="Protection">
 
 | Metric name                                        | Description                                            |
 |:---------------------------------------------------|:-------------------------------------------------------|
@@ -53,20 +60,23 @@ Administration Server and managed products with the SNMP protocol.
 | protection.hosts.uncured.objects.count             | Number of hosts with uncured objects                   |
 | protection.hosts.toomanythreats.count              | Number of hosts with too many threats                  |
 
-<!--Updates-->
+</TabItem>
+<TabItem value="Updates" label="Updates">
 
 | Metric name                     | Description                    | Unit   |
 |:--------------------------------|:-------------------------------|:------ |
 | update.server.freshness.seconds | Date of the last server update | s      |
 | update.hosts.outdated.count     | Number of outdated hosts       |        |
 
-<!--Full-Scan-->
+</TabItem>
+<TabItem value="Full-Scan" label="Full-Scan">
 
 | Metric name           | Description                          |
 |:----------------------|:-------------------------------------|
 | hosts.unscanned.count | Number of hosts not recently scanned |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -83,9 +93,8 @@ UDP/161 SNMP port.
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Install the Centreon Kaspersky Plugin package on every Centreon poller expected to monitor a Kaspersky Security Center:
 
@@ -95,7 +104,8 @@ yum install centreon-plugin-Applications-Antivirus-Kaspersky-Snmp
 
 2. On the centreon Web interface, install the *Kaspersky* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Kaspersky Plugin package on every Centreon poller expected to monitor a Kaspersky Security Center:
 
@@ -111,7 +121,8 @@ yum install centreon-pack-applications-antivirus-kaspersky-snmp
 
 3. On the Centreon Web interface, install the *Kaspersky* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host configuration
 

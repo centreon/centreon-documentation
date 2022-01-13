@@ -2,6 +2,9 @@
 id: network-infoblox-snmp
 title: Infoblox SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Plugin Pack Assets
 
@@ -16,21 +19,20 @@ The Plugin Pack Infoblox SNMP collects metrics for:
 
 ### Discovery rules
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Services-->
+<Tabs groupId="sync">
+<TabItem value="Services" label="Services">
 
 | Rule name                        | Description                                                           |
 | :------------------------------- | :-------------------------------------------------------------------- |
 | Net-Infoblox-SNMP-Interface-Name | Discover network interfaces and monitor bandwidth utilization         |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Collected Metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Dhcp-->
+<Tabs groupId="sync">
+<TabItem value="Dhcp" label="Dhcp">
 
 | Metric name                                         | Description                                              | Unit |
 | :-------------------------------------------------- | :------------------------------------------------------- | :--- |
@@ -45,7 +47,8 @@ The Plugin Pack Infoblox SNMP collects metrics for:
 | dhcp.others.count                                   | Number of other messages received                        |      |
 | *subnet\_ipaddr*\#subnet.addresses.usage.percentage | Percentage of dynamic DHCP address for subnet leased out | %    |
 
-<!--Dns-->
+</TabItem>
+<TabItem value="Dns" label="Dns">
 
 | Metric name                                            | Description                                                                                                | Unit |
 | :----------------------------------------------------- | :--------------------------------------------------------------------------------------------------------- | :--- |
@@ -62,7 +65,8 @@ The Plugin Pack Infoblox SNMP collects metrics for:
 | *zone\_name*\#zone.queries.nxrrset.count               | Number of DNS query received for non-existent record                                                       |      |
 | *zone\_name*\#zone.queries.failed.count                | Number of Failed queries                                                                                   |      |
 
-<!--Interfaces-->
+</TabItem>
+<TabItem value="Interfaces" label="Interfaces">
 
 | Metric name                                            | Description                                         | Unit |
 | :----------------------------------------------------- | :-------------------------------------------------- | :--- |
@@ -74,13 +78,15 @@ The Plugin Pack Infoblox SNMP collects metrics for:
 
 A regexp filter is available to target a specific interface identifier - ifName [```--interface='^eth0$' --name```]
 
-<!--Services-->
+</TabItem>
+<TabItem value="Services" label="Services">
 
 | Metric name                                        | Description                      | Unit |
 | :------------------------------------------------- | :------------------------------- | :--- |
 | service status                                     | Status of the service            |      |
 
-<!--System-->
+</TabItem>
+<TabItem value="System" label="System">
 
 | Metric name                     | Description                 | Unit |
 | :------------------------------ | :-------------------------- | :--- |
@@ -91,7 +97,8 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | system.cpu2.temperature.celsius | CPU2 temperature            | C    |
 | ha status                       | Status of high-availability |      |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -99,9 +106,8 @@ To monitor your Infoblox, the SNMP must be configured.
 The Poller should be able to perform SNMP requests toward the Infoblox device over SNMP UDP/161 port.
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -111,7 +117,8 @@ yum install centreon-plugin-Network-Infoblox-Snmp
 
 2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Infoblox SNMP* Plugin Pack
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -127,7 +134,8 @@ yum install centreon-pack-network-infoblox-snmp
 
 3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Infoblox SNMP* Plugin Pack
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host configuration
 

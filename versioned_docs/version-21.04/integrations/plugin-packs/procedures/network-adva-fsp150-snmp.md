@@ -2,6 +2,9 @@
 id: network-adva-fsp150-snmp
 title: Adva FSP 150 SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -20,22 +23,23 @@ All Adva FSP 150 models can be monitored.
 * interfaces: interfaces status, traffic and errors.
 * systems: CPU and memory
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Alarms-->
+<Tabs groupId="sync">
+<TabItem value="Alarms" label="Alarms">
 
 | Metric name                        | Description                                                         |
 | :--------------------------------- | :------------------------------------------------------------------ |
 | alerts.problems.current.count      | Current total alarms or new alarms. Unit: Count                     |
 
-<!--Hardware-->
+</TabItem>
+<TabItem value="Hardware" label="Hardware">
 
 | Metric name                             | Description                                                         |
 | :-------------------------------------- | :------------------------------------------------------------------ |
 | hardware.card.count                     | Number of cards. Unit: Count                                        |
 | hardware.shelf.count                    | Number of shelfs. Unit: Count                                       |
 
-<!--Interfaces-->
+</TabItem>
+<TabItem value="Interfaces" label="Interfaces">
 
 | Metric name                               | Description                                                             |
 | :---------------------------------------- | :---------------------------------------------------------------------- |
@@ -48,14 +52,16 @@ All Adva FSP 150 models can be monitored.
 
 A regexp filter is available to target a specific interface identifier/ifName [```--interface='^my-interface-name$' --name```] 
 
-<!--Systems-->
+</TabItem>
+<TabItem value="Systems" label="Systems">
 
 | Metric name                             | Description                                                         |
 | :-------------------------------------- | :------------------------------------------------------------------ |
 | system.cpu.utilization.15min.percentage | CPU utilization for the last 15 minutes. Unit: %                    |
 | system.memory.usage.bytes               | Memory usage on the device. Unit: Bytes                             |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -69,9 +75,8 @@ Your Centreon poller must be able to reach the SNMP port (UDP/161) of the Adva d
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Install the Adva FSP 150 SNMP Centreon Plugin on every poller expected to monitor Adva resources:
 
@@ -81,7 +86,8 @@ yum install centreon-plugin-Network-Adva-Fsp150-Snmp
 
 2. Install the monitoring templates from the Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Adva FSP 150 SNMP Centreon Plugin on every poller expected to monitor Adva resources:
 
@@ -97,7 +103,8 @@ yum install centreon-pack-network-adva-fsp150-snmp
 
 3. Install the monitoring templates from the Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

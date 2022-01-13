@@ -2,6 +2,9 @@
 id: upgrade-from-20-10
 title: Upgrade from Centreon 20.10
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 This chapter describes how to upgrade your Centreon platform from version 20.10
 to version 21.04.
@@ -48,17 +51,20 @@ yum install -y https://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/ce
 
 Centreon 21.04 use PHP in version 7.3.
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
 You need to change the PHP stream from version 7.2 to 7.3 by executing the following commands and answering **y**
 to confirm:
 ```shell
 dnf module reset php
 dnf module install php:7.3
 ```
-<!--CentOS 7-->
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 PHP will be updated with Centreon automatically.
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Upgrade the Centreon solution
 
@@ -86,14 +92,16 @@ yum update centreon\*
 
 > Accept new GPG keys from the repositories as needed.
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
 Execute the following commands:
 ```shell
 systemctl enable php-fpm
 systemctl restart php-fpm
 ```
-<!--CentOS 7-->
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 The PHP timezone should be set. Run the command:
 ```shell
 echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php73/php.d/50-centreon.ini
@@ -109,24 +117,28 @@ systemctl disable rh-php72-php-fpm
 systemctl enable rh-php73-php-fpm
 systemctl start rh-php73-php-fpm
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Finalizing the upgrade
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
 Before starting the web upgrade process, reload the Apache server with the
 following command:
 ```shell
 systemctl reload httpd
 ```
-<!--CentOS 7-->
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 Before starting the web upgrade process, reload the Apache server with the
 following command:
 ```shell
 systemctl reload httpd24-httpd
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 Then log on to the Centreon web interface to continue the upgrade process:
 

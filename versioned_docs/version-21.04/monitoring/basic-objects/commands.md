@@ -2,6 +2,9 @@
 id: commands
 title: Commands
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Definition
 
@@ -95,8 +98,8 @@ This program is compatible only with Unix-like platforms (Linux, FreeBSD, Solari
 
 ##### Prerequisites
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS-->
+<Tabs groupId="sync">
+<TabItem value="CentOS" label="CentOS">
 In CentOS you need to add manually cmake. After that you can install binary packages. Either use the Package Manager or
 the yum tool to install them. You should check packages version when necessary.
 
@@ -126,7 +129,8 @@ yum install cmake
 
 See the Centreon Clib @TODO@:ref:`documentation <centreon-clib:centreon_clib_install>`.
 
-<!--Debian/Ubuntu-->
+</TabItem>
+<TabItem value="Debian/Ubuntu" label="Debian/Ubuntu">
 In recent Debian/Ubuntu versions, necessary software is available as binary packages from distribution repositories.
 Either use the Package Manager or the apt-get tool to install them. You should check packages version when necessary.
 
@@ -150,7 +154,8 @@ apt-get install build-essential cmake libssh2-1-dev libgcrypt11-dev
 
 See the Centreon Clib @TODO@:ref:`documentation <centreon-clib:centreon_clib_install>`.
 
-<!--OpenSUSE-->
+</TabItem>
+<TabItem value="OpenSUSE" label="OpenSUSE">
 In recent OpenSUSE versions, necessary software is available as binary packages from OpenSUSE repositories. Either use
 the Package Manager or the zypper tool to install them. You should check packages version when necessary.
 
@@ -174,7 +179,8 @@ zypper install gcc gcc-c++ make cmake libssh2-devel libgcrypt-devel
 
 See the Centreon Clib @TODO@:ref:`documentation <centreon-clib:centreon_clib_install>`.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ##### Build
 
@@ -367,8 +373,8 @@ This program is compatible only with Unix-like platforms (Linux, FreeBSD, Solari
 
 ##### Prerequisites
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS-->
+<Tabs groupId="sync">
+<TabItem value="CentOS" label="CentOS">
 In CentOS you need to add manually cmake. After that you can install binary packages. Either use the Package Manager or
 the yum tool to install them. You should check packages version when necessary.
 
@@ -397,7 +403,8 @@ yum install cmake
 
 See the Centreon Clib @TODO@:ref:`documentation <centreon-clib:centreon_clib_install>`.
 
-<!--Debian/Ubuntu-->
+</TabItem>
+<TabItem value="Debian/Ubuntu" label="Debian/Ubuntu">
 In recent Debian/Ubuntu versions, necessary software is available as binary packages from distribution repositories.
 Either use the Package Manager or the apt-get tool to install them. You should check packages version when necessary.
 
@@ -420,7 +427,8 @@ apt-get install build-essential cmake libperl-dev
 
 See the Centreon Clib @TODO@:ref:`documentation <centreon-clib:centreon_clib_install>`.
 
-<!--OpenSUSE-->
+</TabItem>
+<TabItem value="OpenSUSE" label="OpenSUSE">
 In recent OpenSUSE versions, necessary software is available as binary packages from OpenSUSE repositories. Either use
 the Package Manager or the zypper tool to install them. You should check packages version when necessary.
 
@@ -443,7 +451,8 @@ zypper install gcc gcc-c++ make cmake perl
 
 See the Centreon Clib @TODO@:ref:`documentation <centreon-clib:centreon_clib_install>`.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ##### Build
 

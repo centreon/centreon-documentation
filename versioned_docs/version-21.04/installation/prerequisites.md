@@ -2,6 +2,9 @@
 id: prerequisites
 title: Prerequisites
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 The Centreon web interface is compatible with the following web browsers:
 
@@ -155,8 +158,9 @@ Files system description:
 
 Description of software and linked users:
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+
 | Software          | Service          | User             | Comment         |
 | ----------------- | ---------------- | ---------------- | --------------- |
 | Apache            | httpd            | apache           | automatic start |
@@ -167,7 +171,10 @@ Description of software and linked users:
 | Centreon Broker   | cbd              | centreon-broker  | automatic start |
 | Centreon Engine   | centengine       | centreon-engine  | automatic start |
 | Centreon Gorgone  | gorgoned         | centreon-gorgone | automatic start |
-<!--CentOS 7-->
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 | Software          | Service          | User             | Comment         |
 | ----------------- | ---------------- | ---------------- | --------------- |
 | Apache            | httpd24-httpd    | apache           | automatic start |
@@ -178,7 +185,8 @@ Description of software and linked users:
 | Centreon Broker   | cbd              | centreon-broker  | automatic start |
 | Centreon Engine   | centengine       | centreon-engine  | automatic start |
 | Centreon Gorgone  | gorgoned         | centreon-gorgone | automatic start |
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 Description of optional software and linked users:
 

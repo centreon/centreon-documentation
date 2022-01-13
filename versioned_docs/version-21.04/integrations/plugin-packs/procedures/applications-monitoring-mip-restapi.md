@@ -2,6 +2,9 @@
 id: applications-monitoring-mip-restapi
 title: Maltem Insight Rest API
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview 
 
@@ -25,9 +28,8 @@ To be able to get data from MIP API, you must have a valid API key. Contact MIP 
 
 ### Centreon
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Install the MIP plugin on each poller monitoring MIP endpoints:
 
@@ -37,7 +39,8 @@ yum install -y centreon-plugin-Applications-Monitoring-Mip-Restapi`
 
 2. Install the Plugin-Pack RPM on your Central Server:
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the MIP plugin on each poller monitoring MIP endpoints:
 
@@ -55,7 +58,8 @@ yum install -y centreon-pack-applications-monitoring-mip-restapi`
 
 ![install\_epp](../../../assets/integrations/external/mip-epp-install.png)-->
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

@@ -2,6 +2,9 @@
 id: applications-proxmox-mg-api
 title: Proxmox Mail Gateway
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Plugin Pack Assets
 
@@ -13,9 +16,8 @@ The Plugin Pack Proxmox Mail Gateway collects metrics for:
 
 ### Collected Metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Mail-->
+<Tabs groupId="sync">
+<TabItem value="Mail" label="Mail">
 
 | Metric name                      | Description                    | Unit |
 | :------------------------------- | :----------------------------- | :--- |
@@ -28,13 +30,15 @@ The Plugin Pack Proxmox Mail Gateway collects metrics for:
 | mails.virus.incoming.count       | Number of incoming virus mails |      |
 | mails.virus.outgoing.count       | Number of outgoing virus mails |      |
 
-<!--Version-->
+</TabItem>
+<TabItem value="Version" label="Version">
 
 | Metric name     | Description                  | Unit |
 | :-------------- | :--------------------------- | :--- |
 | version status  | Proxmox Mail Gateway version |      |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -44,9 +48,8 @@ E.g: https://pmg.proxmox.com/pmg-docs/api-viewer/index
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -56,7 +59,8 @@ yum install centreon-plugin-Applications-Proxmox-Mg-Api
 
 2. On the Centreon Web interface in "Configuration > Plugin Packs > Manager", install the *Proxmox Mail Gateway* Plugin Pack
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -72,7 +76,8 @@ yum install centreon-pack-applications-proxmox-mg-api
 
 3. On the Centreon Web interface in "Configuration > Plugin Packs > Manager", install the *Proxmox Mail Gateway* Plugin Pack
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host configuration 
 

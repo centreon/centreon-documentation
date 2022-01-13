@@ -2,6 +2,9 @@
 id: operatingsystems-aix-ssh
 title: AIX SSH
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Plugin Pack Assets
 
@@ -17,28 +20,30 @@ The Plugin Pack includes monitoring the AIX system commands using SSH, such as:
 
 ### Collected Metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Cmdreturn-->
+<Tabs groupId="sync">
+<TabItem value="Cmdreturn" label="Cmdreturn">
 
 | Metric name                               | Description                            | Unit  |
 | :---------------------------------------- | :------------------------------------- | :---- |
 | command.exit.code.count                   | Number of exit code return             | count |
 
-<!--Inodes-->
+</TabItem>
+<TabItem value="Inodes" label="Inodes">
 
 | Metric name                               | Description                            | Unit  |
 | :---------------------------------------- | :------------------------------------- | :---- |
 | storage.inodes.usage.percentage           | Inodes usage in percentage             | %     |
 
-<!--Process-->
+</TabItem>
+<TabItem value="Process" label="Process">
 
 | Metric name                               | Description                            | Unit  |
 | :---------------------------------------- | :------------------------------------- | :---- |
 | processes.alerts.count                    | Number of alerts processes             | count |
 | processes.total.count                     | Total number of alerts processes       | count |
 
-<!--Storage-->
+</TabItem>
+<TabItem value="Storage" label="Storage">
 
 | Metric name                               | Description                            | Unit  |
 | :---------------------------------------- | :------------------------------------- | :---- |
@@ -48,7 +53,8 @@ The Plugin Pack includes monitoring the AIX system commands using SSH, such as:
 
 
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -56,9 +62,8 @@ A user is required to query the OS AIX by SSH. There is no need for root or sudo
 There are two possible ways to perform SSH check, either by exchanging the SSH key from centreon-engine to the target server, 
 or by setting your unique user and password directly in the host macros.
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--SSH keys exchange-->
+<Tabs groupId="sync">
+<TabItem value="SSH keys exchange" label="SSH keys exchange">
 
 Add and generate a password for your user on the **Target sever**:
 
@@ -80,17 +85,18 @@ ssh-keygen -t ed25519 -a 100
 ssh-copy-id -i .ssh/id_ed25519.pub ro_ssh_centreon@<IP_TARGET_SERVER>
 ```
 
-<!--User/Password Authentication-->
+</TabItem>
+<TabItem value="User/Password Authentication" label="User/Password Authentication">
 
 After setting the Name, Alias, IP, and Host Template parameters, you need to set up in the macros described in the **Configuration** part below.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -100,7 +106,8 @@ yum install centreon-plugin-Operatingsystems-Aix-Local
 
 2. On the Centreon Web interface in "Configuration > Plugin Packs > Manager", install the *AIX SSH* Plugin-Pack
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -116,7 +123,8 @@ yum install centreon-pack-operatingsystems-aix-ssh
 
 3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *AIX SSH* Plugin-Pack
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -124,9 +132,8 @@ yum install centreon-pack-operatingsystems-aix-ssh
 
 > 3 SSH backends are available to connect to the remote server: *sshcli*, *plink* and *libssh* which are detailed below.
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--sshcli backend-->
+<Tabs groupId="sync">
+<TabItem value="sshcli backend" label="sshcli backend">
 
 | Mandatory   | Name            | Description                                                                                 |
 | :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
@@ -138,7 +145,8 @@ yum install centreon-pack-operatingsystems-aix-ssh
 
 **Warning** With that backend, you have to validate the target server fingerprint manually (with the SSHUSERNAME used).
 
-<!--plink backend-->
+</TabItem>
+<TabItem value="plink backend" label="plink backend">
 
 | Mandatory   | Name            | Description                                                                                 |
 | :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
@@ -150,7 +158,8 @@ yum install centreon-pack-operatingsystems-aix-ssh
 
 **Warning** With that backend, you have to validate the target server fingerprint manually (with the SSHUSERNAME used).
 
-<!--libssh backend (default)-->
+</TabItem>
+<TabItem value="libssh backend (default)" label="libssh backend (default)">
 
 | Mandatory   | Name            | Description                                                                                 |
 | :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
@@ -162,7 +171,8 @@ yum install centreon-pack-operatingsystems-aix-ssh
 
 With that backend, you do not have to validate the target server fingerprint manually.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## How to check in the CLI that the configuration is OK and what are the main options for ?
 
