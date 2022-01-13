@@ -695,6 +695,7 @@
                     "integrations/plugin-packs/procedures/network-athonet-epc-snmp",
                     "integrations/plugin-packs/procedures/network-atto-fibrebridge-snmp",
                     "integrations/plugin-packs/procedures/network-barracuda-cloudgen-snmp",
+                    "integrations/plugin-packs/procedures/network-barracuda-bma-snmp",
                     "integrations/plugin-packs/procedures/network-beeware-snmp",
                     "integrations/plugin-packs/procedures/applications-protocol-bgp-snmp",
                     "integrations/plugin-packs/procedures/network-generic-bluecoat-snmp",
