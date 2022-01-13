@@ -634,7 +634,7 @@ state was HARD even if no notification is configured nor sent.
 
 ### 20.10.10
 
-Release date: `null`
+Release date: `January 13, 2022`
 
 #### Bug fixes
 
