@@ -647,6 +647,7 @@
                     "integrations/plugin-packs/procedures/hardware-servers-dell-cmc-snmp",
                     "integrations/plugin-packs/procedures/hardware-servers-dell-idrac-snmp",
                     "integrations/plugin-packs/procedures/hardware-servers-dell-openmanage-snmp",
+                    "integrations/plugin-packs/procedures/hardware-servers-dell-omem-snmp",
                     "integrations/plugin-packs/procedures/hardware-devices-eltek-enexus-snmp",
                     "integrations/plugin-packs/procedures/hardware-servers-fujitsu-snmp",
                     "integrations/plugin-packs/procedures/hardware-devices-camera-hanwha-snmp",
