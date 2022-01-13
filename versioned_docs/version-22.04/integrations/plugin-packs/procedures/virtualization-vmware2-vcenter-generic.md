@@ -5,7 +5,7 @@ title: VMware vCenter
 
 ## Overview
 
-VMware is an software compagny based in USA. VMware provides cloud computing and virtualization software and services.
+VMware is an software company based in the USA. VMware provides cloud computing and virtualization software and services.
 
 The Centreon Plugin and Plugin-Packs rely on the Centreon VMWare Connector to request the vCenter SDK.
 
@@ -13,9 +13,10 @@ The Centreon Plugin and Plugin-Packs rely on the Centreon VMWare Connector to re
 
 ### Monitored Objects
 
-* VMs
-* Datastores
 * Clusters
+* Datastores
+* Licenses
+* VMs
 
 ### Discovery Rules
 
@@ -45,6 +46,13 @@ The Centreon Plugin and Plugin-Packs rely on the Centreon VMWare Connector to re
 | datacenter.alarms.critical.current.count           | Number of Total critical alarms          | Count |
 | dcname#datacenter.alarms.warning.current.count     | Number of warning alarms per Datacenter  | Count |
 | dcname#datacenter.alarms.critical.current.count    | Number of critical alarms per Datacenter | Count |
+
+<!--Cluster-Cpu-Global-->
+
+| Metric name                                       | Description                   | Unit |
+| :------------------------------------------------ | :---------------------------- | :--- |
+| *cluster_name*#cluster.cpu.utilization.percentage | Total CPU usage in percentage | %    |
+| *cluster_name*#cluster.cpu.utilization.mhz        | Total CPU usage in MHz        | MHz  |
 
 <!--Cluster-Status-Global-->
 
@@ -86,6 +94,43 @@ The Centreon Plugin and Plugin-Packs rely on the Centreon VMWare Connector to re
 | datastore.vm.poweredon.current.count   | Number of powered on VMs on the ESX  | Count |
 | datastore.vm.poweredoff.current.count  | Number of powered off VMs on the ESX | Count |
 | datastore.vm.suspended.current.count   | Number of suspended VMs on the ESX   | Count |
+
+<!--Esx-Storage-Global-->
+
+| Metric name                            | Description                                       | Unit |
+| :------------------------------------- | :------------------------------------------------ | :--- |
+| status                                 | Status of the ESX                                 |      |
+| adapters status                        | Adapter statuses of the ESX                       |      |
+| *esx_name*#host.adapters.total.count   | Number of adapters on the ESX                     |      |
+| *esx_name*#host.adapters.online.count  | Number of adapters with status online on the ESX  |      |
+| *esx_name*#host.adapters.offline.count | Number of adapters with status offline on the ESX |      |
+| *esx_name*#host.adapters.fault.count   | Number of adapters with status fault on the ESX   |      |
+| *esx_name*#host.adapters.unknown.count | Number of adapters with status unknown on the ESX |      |
+| luns status                            | LUN statuses of the ESX                           |      |
+| *esx_name*#host.luns.total.count       | Number of LUNs on the ESX                         |      |
+| *esx_name*#host.luns.ok.count          | Number of LUNs with status ok on the ESX          |      |
+| *esx_name*#host.luns.error.count       | Number of LUNs with status error on the ESX       |      |
+| *esx_name*#host.luns.off.count         | Number of LUNs with status off on the ESX         |      |
+| *esx_name*#host.luns.unknown.count     | Number of LUNs with status unknown on the ESX     |      |
+| *esx_name*#host.luns.quiesced.count    | Number of LUNs with status quiesced on the ESX    |      |
+| *esx_name*#host.luns.degraded.count    | Number of LUNs with status degraded on the ESX    |      |
+| paths status                           | Paths statuses of the ESX                         |      |
+| *esx_name*#host.paths.total.count      | Number of paths on the ESX                        |      |
+| *esx_name*#host.paths.active.count     | Number of paths with status active on the ESX     |      |
+| *esx_name*#host.paths.disabled.count   | Number of paths with status disabed on the ESX    |      |
+| *esx_name*#host.paths.standby.count    | Number of paths with status standby on the ESX    |      |
+| *esx_name*#host.paths.dead.count       | Number of paths with status dead on the ESX       |      |
+| *esx_name*#host.paths.unknown.count    | Number of paths with status unknown on the ESX    |      |
+
+<!--Licenses-->
+
+| Metric name                             | Description                                 | Unit |
+| :-------------------------------------- | :------------------------------------------ | :--- |
+| licenses.total.count                    | Number of licenses                          |      |
+| *license_name*#license.usage.count      | Number of used resources on the license     |      |
+| *license_name*#license.free.count       | Number of free resources on the license     |      |
+| *license_name*#license.usage.percentage | Percentage of used resources on the license | %    |
+| *license_name*#license.expires.days     | Expiration time                             |      |
 
 <!--Vm-Tools-Global-->
 
