@@ -373,6 +373,17 @@ future.
 
 ## Centreon Broker
 
+### 21.04.6
+
+Release date: `null`
+
+#### Bug fixes
+
+- The central broker's cache generation loaded too much data and took too much time when the BAM was activated
+- Fixed the removal of RRD files for single metrics deletion
+- Fixed an issue causing BAM Business Activities (best status) to remain in OK state when the OK KPIs are removed
+
+
 ### 21.04.5
 
 `October 27, 2021`
