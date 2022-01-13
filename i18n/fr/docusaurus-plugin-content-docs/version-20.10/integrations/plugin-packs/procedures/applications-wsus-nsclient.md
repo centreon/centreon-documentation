@@ -6,6 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
+
 > Hello community! We're looking for a contributor to help us to translate the 
 content in french and provide a sample execution command. If it's you, let us 
 know and ping us on [slack](https://centreon.slack.com)
@@ -104,9 +105,8 @@ yum install centreon-pack-applications-wsus-nsclient
     * *App-Wsus-NSClient-05-Restapi-custom* for RestAPI
 * Depending on the Host template, fill the Macro fields as follows:
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--App-Wsus-NRPE-custom-->
+<Tabs groupId="sync">
+<TabItem value="App-Wsus-NRPE-custom" label="App-Wsus-NRPE-custom">
 
 | Mandatory | Name             | Description                                                                         |
 |:----------|:-----------------|:------------------------------------------------------------------------------------|
@@ -115,7 +115,8 @@ yum install centreon-pack-applications-wsus-nsclient
 | X         | NRPETIMEOUT      | Timeout value (Default: '30')                                                       |
 |           | NRPEEXTRAOPTIONS | Any extra option you may want to add to every command\_line (Default: '-u -m 8192') |
 
-<!--App-Wsus-NSClient-05-Restapi-custom-->
+</TabItem>
+<TabItem value="App-Wsus-NSClient-05-Restapi-custom" label="App-Wsus-NSClient-05-Restapi-custom">
 
 | Mandatory | Name                      | Description                                                                |
 |:----------|:--------------------------|:-------------------------------------------------------------------------- |
@@ -123,3 +124,6 @@ yum install centreon-pack-applications-wsus-nsclient
 | X         | NSCPRESTAPIPROTO          | NSClient++ RestAPI protocol to use (Default: 'https')                      |
 |           | NSCPRESTAPILEGACYPASSWORD | Password to authenticate against the API if relevant                       |
 |           | NSCPRESTAPIEXTRAOPTIONS   | Any extra option you may want to add to the command (eg. a --verbose flag) |
+
+</TabItem>
+</Tabs>

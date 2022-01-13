@@ -76,9 +76,8 @@ Une fois celui-ci configuré, certaines macros doivent être renseignées:
 |           | GGSHOME            | Directory of ```ggsci```                                                   |
 |           | ORACLEHOME         | Oracle home directory                                                      |
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--sshcli backend-->
+<Tabs groupId="sync">
+<TabItem value="sshcli backend" label="sshcli backend">
 
 | Mandatory   | Name            | Description                                                                                     |
 | :---------- | :-------------- | :---------------------------------------------------------------------------------------------- |
@@ -91,7 +90,8 @@ Une fois celui-ci configuré, certaines macros doivent être renseignées:
 > Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur centreon-engine du Collecteur
 et l'utilisateur applicatif créé sur le serveur distant. (Macro SSHUSERNAME).
 
-<!--plink backend-->
+</TabItem>
+<TabItem value="plink backend" label="plink backend">
 
 | Mandatory   | Name            | Description                                                                                     |
 | :---------- | :-------------- | :---------------------------------------------------------------------------------------------- | 
@@ -104,7 +104,8 @@ et l'utilisateur applicatif créé sur le serveur distant. (Macro SSHUSERNAME).
 > Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur centreon-engine du Collecteur
 et l'utilisateur applicatif créé sur le serveur distant. (Macro SSHUSERNAME).
 
-<!--libssh backend (par défaut)-->
+</TabItem>
+<TabItem value="libssh backend (par défaut)" label="libssh backend (par défaut)">
 
 | Mandatory   | Name            | Description                                                                                     |
 | :---------- | :-------------- | :---------------------------------------------------------------------------------------------- |
@@ -115,6 +116,9 @@ et l'utilisateur applicatif créé sur le serveur distant. (Macro SSHUSERNAME).
 |             | SSHEXTRAOPTIONS | Personnalisez-le avec le vôtre si nécessaire. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```      |
 
 Avec ce backend, vous n'avez pas à valider manuellement le fingerprint du serveur cible. 
+
+</TabItem>
+</Tabs>
 
 ## FAQ
 

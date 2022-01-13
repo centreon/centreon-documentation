@@ -75,9 +75,8 @@ yum install centreon-pack-hardware-servers-ibm-hmc-ssh
 Ce Plugin-Pack est conçu de manière à avoir dans Centreon un hôte par IBM HMC.
 Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *HW-Server-IBM-Hmc-SSH-custom*. 
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--sshcli backend-->
+<Tabs groupId="sync">
+<TabItem value="sshcli backend" label="sshcli backend">
 
 | Mandatory   | Name            | Description                                                                                     |
 | :---------- | :-------------- | :---------------------------------------------------------------------------------------------- |
@@ -90,7 +89,8 @@ Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *HW-Server-I
 > Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur centreon-engine du Collecteur
 et l'utilisateur applicatif créé sur le serveur distant. (Macro SSHUSERNAME).
 
-<!--plink backend-->
+</TabItem>
+<TabItem value="plink backend" label="plink backend">
 
 | Mandatory   | Name            | Description                                                                                     |
 | :---------- | :-------------- | :---------------------------------------------------------------------------------------------- | 
@@ -103,7 +103,8 @@ et l'utilisateur applicatif créé sur le serveur distant. (Macro SSHUSERNAME).
 > Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur centreon-engine du Collecteur
 et l'utilisateur applicatif créé sur le serveur distant. (Macro SSHUSERNAME).
 
-<!--libssh backend (par défaut)-->
+</TabItem>
+<TabItem value="libssh backend (par défaut)" label="libssh backend (par défaut)">
 
 | Mandatory   | Name            | Description                                                                                     |
 | :---------- | :-------------- | :---------------------------------------------------------------------------------------------- |
@@ -115,6 +116,8 @@ et l'utilisateur applicatif créé sur le serveur distant. (Macro SSHUSERNAME).
 
 Avec ce backend, vous n'avez pas à valider manuellement le fingerprint du serveur cible. 
 
+</TabItem>
+</Tabs>
 
 ## FAQ
 

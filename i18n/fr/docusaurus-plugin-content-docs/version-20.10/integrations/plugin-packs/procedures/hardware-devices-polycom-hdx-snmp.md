@@ -105,9 +105,8 @@ Sur l'équipement Polycom HDX, configurez et activez l'agent SNMP en suivant ces
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le Plugin sur chaque collecteur Centreon devant superviser des équipements Polycom HDX:
 
@@ -118,7 +117,8 @@ yum install centreon-plugin-Hardware-Devices-Polycom-Hdx-Snmp
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Polycom HDX SNMP* 
 depuis la page "Configuration > Plugin Packs > Gestionnaire" 
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur chaque collecteur Centreon devant superviser des équipements Polycom HDX:
 
@@ -134,6 +134,9 @@ yum install centreon-pack-hardware-devices-polycom-hdx-snmp
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Polycom HDX SNMP* 
 depuis la page "Configuration > Plugin Packs > Gestionnaire"
+
+</TabItem>
+</Tabs>
 
 ## Configuration
 

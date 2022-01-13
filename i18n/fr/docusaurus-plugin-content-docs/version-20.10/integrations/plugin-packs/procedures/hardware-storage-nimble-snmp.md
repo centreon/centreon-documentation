@@ -59,9 +59,8 @@ https://infosight.hpe.com/InfoSight/media/cms/active/public/pubs_GUI_Administrat
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le Plugin sur chaque Collecteur Centreon devant superviser des équipements Nimble:
 
@@ -71,7 +70,8 @@ yum install centreon-plugin-Hardware-Storage-Nimble-Snmp
 
 2. Sur l'interface Web de Centreon, rendez-vous sur la page "Configuration > Plugin Packs > Gestionnaire" et installer le Plugin-Pack *Nimble SNMP*
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur chaque Collecteur Centreon devant superviser des équipements Nimble:
 
@@ -86,6 +86,9 @@ yum install centreon-pack-hardware-storage-nimble-snmp
 ```
 
 3. Sur l'interface Web de Centreon, rendez-vous sur la page "Configuration > Plugin Packs > Gestionnaire" et installer le Plugin-Pack *Nimble SNMP*
+
+</TabItem>
+</Tabs>
 
 ## Configuration
 

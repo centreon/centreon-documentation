@@ -95,9 +95,8 @@ Sur l'équipement FortiAuthenticator, configurez et activez l'agent SNMP en suiv
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le Plugin sur chaque collecteur Centreon devant superviser des équipements FortiAuthenticator:
 
@@ -108,7 +107,8 @@ yum install centreon-plugin-Network-Fortinet-Fortiauthenticator-Snmp
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Fortinet Fortiauthenticator SNMP*
 depuis la page "Configuration > Plugin Packs > Gestionnaire"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur chaque collecteur Centreon devant superviser des équipements FortiAuthenticator:
 
@@ -124,6 +124,9 @@ yum install centreon-pack-network-fortinet-fortiauthenticator-snmp
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Fortinet Fortiauthenticator SNMP*
 depuis la page "Configuration > Plugin Packs > Gestionnaire"
+
+</TabItem>
+</Tabs>
 
 ## Configuration
 

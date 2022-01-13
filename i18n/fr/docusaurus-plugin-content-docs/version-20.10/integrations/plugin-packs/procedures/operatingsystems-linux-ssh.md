@@ -292,9 +292,8 @@ Créer un nouvel hôte dans Centreon et lui appliquer le modèle d'hôte "OS-Lin
 Une fois le modèle défini, vous devez définir des valeurs en fonction du backend SSH choisi.
 3 backends SSH sont disponibles pour se connecter au serveur Linux : *sshcli*, *plink* et *libssh* qui sont détaillés ci-dessous.  
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--sshcli backend-->
+<Tabs groupId="sync">
+<TabItem value="sshcli backend" label="sshcli backend">
 
 | Mandatory   | Name            | Description                                                                                     |
 | :---------- | :-------------- | :---------------------------------------------------------------------------------------------- |
@@ -307,7 +306,8 @@ Une fois le modèle défini, vous devez définir des valeurs en fonction du back
 > Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur centreon-engine du Collecteur
 et l'utilisateur applicatif créé sur le serveur Linux. (Macro SSHUSERNAME).
 
-<!--plink backend-->
+</TabItem>
+<TabItem value="plink backend" label="plink backend">
 
 | Mandatory   | Name            | Description                                                                                     |
 | :---------- | :-------------- | :---------------------------------------------------------------------------------------------- | 
@@ -320,7 +320,8 @@ et l'utilisateur applicatif créé sur le serveur Linux. (Macro SSHUSERNAME).
 > Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur centreon-engine du Collecteur
 et l'utilisateur applicatif créé sur le serveur Linux. (Macro SSHUSERNAME).
 
-<!--libssh backend (par défaut)-->
+</TabItem>
+<TabItem value="libssh backend (par défaut)" label="libssh backend (par défaut)">
 
 | Mandatory   | Name            | Description                                                                                     |
 | :---------- | :-------------- | :---------------------------------------------------------------------------------------------- |
@@ -331,6 +332,9 @@ et l'utilisateur applicatif créé sur le serveur Linux. (Macro SSHUSERNAME).
 |             | SSHEXTRAOPTIONS | Personnalisez-le avec le vôtre si nécessaire. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```      |
 
 Avec ce backend, vous n'avez pas à valider manuellement le fingerprint du serveur cible. 
+
+</TabItem>
+</Tabs>
 
 ## FAQ
 

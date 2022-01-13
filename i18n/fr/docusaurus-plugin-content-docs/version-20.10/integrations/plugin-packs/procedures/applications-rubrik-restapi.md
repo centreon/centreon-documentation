@@ -88,9 +88,8 @@ Plus d'informations disponibles sur : https://github.com/rubrikinc/api-documenta
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le Plugin sur chaque collecteur Centreon devant superviser les ressources *Rubrik Rest API*:
 
@@ -101,7 +100,8 @@ yum install centreon-plugin-Applications-Rubrik-Restapi
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Rubrik Rest API*
 depuis la page "Configuration > Plugin Packs > Gestionnaire"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur chaque collecteur Centreon devant superviser les ressources *Rubrik Rest API*:
 
@@ -117,6 +117,9 @@ yum install centreon-pack-applications-rubrik-restapi
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Rubrik RestAPI*
 depuis la page "Configuration > Plugin Packs > Gestionnaire"
+
+</TabItem>
+</Tabs>
 
 ## Configuration
 
