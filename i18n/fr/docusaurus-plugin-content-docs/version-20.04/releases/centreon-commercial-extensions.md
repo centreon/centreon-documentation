@@ -594,6 +594,14 @@ configuration value:
 
 ## Centreon License Manager
 
+### 20.04.6
+
+Release date: `January 5, 2022`
+
+#### Security fixes
+
+- Packaging, remove .gitignore files
+
 ### 20.04.5
 
 - Add a retry mechanism to get list of subscription
