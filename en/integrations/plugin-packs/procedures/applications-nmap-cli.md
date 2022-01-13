@@ -11,19 +11,19 @@ Thanks to the *Nmap Discovery* provider, discover Hosts within a predefined subn
 
 ## Setup
 
-To install required Plugin and Pack, take the following steps: 
+To install the required Plugin and Pack, take the following steps: 
 
 <!--DOCUSAURUS_CODE_TABS-->
 
 <!--Online Licence-->
 
-1. Install the Centreon Plugin package on every Centreon Poller expected to use **Nmap** binary to discover resources:
+1. Install the Centreon Plugin package on every Centreon Poller expected to use the **Nmap** binary to discover resources:
 
 ```bash
 yum install centreon-plugin-Applications-Nmap-Cli
 ```
 
-2. On the Centreon Web interface, install the **Nmap CLI** Centreon Plugin Pack on the **Configuration > Plugin Packs** page
+2. On the Centreon Web interface, install the **Nmap CLI** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
 
 <!--Offline License-->
 

@@ -30,7 +30,7 @@ Pour installer le Plugin et le Pack, suivez les étapes ci-après.
 yum install centreon-plugin-Applications-Nmap-Cli
 ```
 
-2. Sur l'interface web de Centreon, installer le Plugin Pack *Nmap CLI* depuis la page **Configuration > Packs de plugins**
+2. Sur l'interface web de Centreon, installer le Plugin Pack *Nmap CLI* depuis la page **Configuration > Packs de plugins**.
 
 <!--Offline License-->
 
@@ -50,9 +50,9 @@ yum install centreon-pack-applications-nmap-cli
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-## Ressources aditionnelles
+## Ressources complémentaires
 
-Plusieurs articles existent pour vous aider à utiliser de Pack: 
+Plusieurs articles existent pour vous aider à utiliser ce Pack : 
 
 - [Comment configurer une tâche de découverte ?](https://thewatch.centreon.com/product-how-to-21/discovery-pack-speed-up-your-monitoring-and-make-it-more-reliable-using-the-new-nmap-discovery-tools-149)
 - [Comment améliorer la détection d'équipement et améliorer les propositions de Modèles associés ?](https://thewatch.centreon.com/product-how-to-21/network-discovery-nmap-snmp-how-does-it-work-and-how-can-you-help-162)
