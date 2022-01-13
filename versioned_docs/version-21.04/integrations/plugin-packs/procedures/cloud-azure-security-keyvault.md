@@ -2,6 +2,9 @@
 id: cloud-azure-security-keyvault
 title: Azure Key Vault
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -34,9 +37,8 @@ More information about the Host Discovery module is available in the Centreon do
 
 ### Collected Metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--ServiceAPI-->
+<Tabs groupId="sync">
+<TabItem value="ServiceAPI" label="ServiceAPI">
 
 | Metric name                              | Description                 | Unit  |
 | :--------------------------------------- | :-------------------------- | :---- |
@@ -44,19 +46,22 @@ More information about the Host Discovery module is available in the Centreon do
 | keyvault.serviceapi.latency.milliseconds | Overall Service Api Latency | B     |
 | keyvault.serviceapi.results.count        | Total Service Api Results   | Count |
 
-<!--Vault-Availability-->
+</TabItem>
+<TabItem value="Vault-Availability" label="Vault-Availability">
 
 | Metric name                            | Description                | Unit |
 | :------------------------------------- | :------------------------- | :--- |
 | keyvault.vault.availability.percentage | Overall Vault Availability | %    |
 
-<!--Vault-Capacity-->
+</TabItem>
+<TabItem value="Vault-Capacity" label="Vault-Capacity">
 
 | Metric name                          | Description              | Unit |
 | :----------------------------------- | :----------------------- | :--- |
 | keyvault.vault.saturation.percentage | Overall Vault Saturation | %    |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -68,9 +73,8 @@ Centreon recommends to use the API instead of the CLI for the following reasons:
 * API is much more efficient by avoiding CLI binary execution
 * API supports application authentication while CLI does not (yet)
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Azure Monitor API-->
+<Tabs groupId="sync">
+<TabItem value="Azure Monitor API" label="Azure Monitor API">
 
 To use the 'api' custom mode, make sure to obtain the required information using the 
 how-to below. Keep it safe until including it in a Host or Host Template definition.
@@ -116,7 +120,8 @@ how-to below. Keep it safe until including it in a Host or Host Template definit
     - Click on *Save*.
     - **Copy and store the key value. You won't be able to retrieve it after you leave this page.**
 
-<!--Azure AZ CLI-->
+</TabItem>
+<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 To use the 'azcli' custom mode, install the required packages on every Centreon poller expected to 
 monitor Azure Resources using CLI:
@@ -169,13 +174,13 @@ information below:
 Credentials are now stored locally in the .accessTokens.json file so the Plugin 
 can use it. 
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Setup 
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1.  Install the Centreon Plugin package on every Centreon poller expected to monitor Azure Key Vault resources:
 
@@ -185,7 +190,8 @@ yum install centreon-plugin-Cloud-Azure-Security-KeyVault-Api
 
 2. On the Centreon Web interface, install the *Azure Key Vault* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor Azure Key Vault resources:
 
@@ -201,7 +207,8 @@ yum install centreon-pack-cloud-azure-security-keyvault.noarch
 
 3. On the Centreon Web interface, install the *Azure Key Vault* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -214,9 +221,8 @@ yum install centreon-pack-cloud-azure-security-keyvault.noarch
 * Once the template applied, some Macros marked as 'Mandatory' hereafter have to be configured.
 These mandatory Macros differ regarding the custom mode used:
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Azure Monitor API-->
+<Tabs groupId="sync">
+<TabItem value="Azure Monitor API" label="Azure Monitor API">
 
 | Mandatory | Nom               | Description                  |
 | :-------- | :---------------- | :--------------------------- |
@@ -227,7 +233,8 @@ These mandatory Macros differ regarding the custom mode used:
 | X         | AZURECLIENTSECRET | Client secret                |
 | X         | AZURERESOURCE     | Id of the Key Vault instance |
 
-<!--Azure AZ CLI-->
+</TabItem>
+<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 | Mandatory | Nom               | Description                  |
 | :-------- | :---------------- | :--------------------------- |
@@ -235,7 +242,8 @@ These mandatory Macros differ regarding the custom mode used:
 | X         | AZURESUBSCRIPTION | Subscription ID              |
 | X         | AZURERESOURCE     | Id of the Key Vault instance |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## FAQ
 

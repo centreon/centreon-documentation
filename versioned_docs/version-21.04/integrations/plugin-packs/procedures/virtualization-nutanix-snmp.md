@@ -2,6 +2,9 @@
 id: virtualization-nutanix-snmp
 title: Nutanix
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -19,8 +22,8 @@ Nutanix, Inc. is a cloud computing company that sells hyper-converged infrastruc
 
 ### Discovery rules
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Hosts-->
+<Tabs groupId="sync">
+<TabItem value="Hosts" label="Hosts">
 
 > **_NOTE:_**  Coming soon ...
 
@@ -30,19 +33,21 @@ Nutanix, Inc. is a cloud computing company that sells hyper-converged infrastruc
 | Virt-Nutanix-VM-SNMP-HostDiscovery         | Virtual Machine discovery                                     |
 | Virt-Nutanix-Container-SNMP-HostDiscovery  | Containers discovery                                          |
 
-<!--Services-->
+</TabItem>
+<TabItem value="Services" label="Services">
 
 | Rule name                                  | Description                                                   |
 | :----------------------------------------- | :------------------------------------------------------------ |
 | Virt-Nutanix-Disk-SNMP                     |  Discover disks attached to your cluster                      |
 | Virt-Nutanix-Storage-Pools-SNMP            |  Discover storage pool exposed to managed resources           |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Collected metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Cluster-usage-->
+<Tabs groupId="sync">
+<TabItem value="Cluster-usage" label="Cluster-usage">
 
 | Metric name               | Description                                              |
 | :------------------------ | :------------------------------------------------------- |
@@ -51,7 +56,8 @@ Nutanix, Inc. is a cloud computing company that sells hyper-converged infrastruc
 | clusterIops               | Number of IOPS on the cluster. Unit: Count/persecond     |
 | clusterLatency            | Cluster storage latency. Unit: Milliseconds              |
 
-<!--Container-usage-->
+</TabItem>
+<TabItem value="Container-usage" label="Container-usage">
 
 | Metric name         | Description                                                    |
 | :------------------ | :------------------------------------------------------------- |
@@ -61,7 +67,8 @@ Nutanix, Inc. is a cloud computing company that sells hyper-converged infrastruc
 
 A regexp filter is available on the name of the container - citContainerName [```--filter-name='^my-container-name$'```]
 
-<!--Disk-usage-->
+</TabItem>
+<TabItem value="Disk-usage" label="Disk-usage">
 
 | Metric name       | Description                                              |
 | :---------------- | :------------------------------------------------------- |
@@ -73,7 +80,8 @@ A regexp filter is available on the name of the container - citContainerName [``
 
 A regexp filter is available to target a specific disk identifier - dstDiskId [```--filter-name='^my-disk-name$'```]
 
-<!--Hypervisor-usage-->
+</TabItem>
+<TabItem value="Hypervisor-usage" label="Hypervisor-usage">
 
 | Metric name                   | Description                                                    |
 | :---------------------------- | :------------------------------------------------------------- |
@@ -87,7 +95,8 @@ A regexp filter is available to target a specific disk identifier - dstDiskId [`
 
 A regexp filter is available to target a specific hypervisor - hypervisorName [```--filter-name='^my-hypervisor-name$'```]
 
-<!--Storagepool-usage-->
+</TabItem>
+<TabItem value="Storagepool-usage" label="Storagepool-usage">
 
 | Metric name                | Description                                                  |
 | :------------------------- | :----------------------------------------------------------- |
@@ -97,7 +106,8 @@ A regexp filter is available to target a specific hypervisor - hypervisorName [`
 
 A regexp filter is available on the name of the storage pool - spitStoragePoolName [```--filter-name='^my-storage-pool-name$'```]
 
-<!--VM-Usage-->
+</TabItem>
+<TabItem value="VM-Usage" label="VM-Usage">
 
 | Metric name          | Description                                            |
 | :------------------- | :----------------------------------------------------- |
@@ -112,7 +122,8 @@ A regexp filter is available on the name of the storage pool - spitStoragePoolNa
 
 A regexp filter is available on the name of the VM - vmName [```--filter-name='^my-vm-name$'```]
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -122,9 +133,8 @@ The network flows should be allowed from the Centreon poller to the Nutanix appl
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Install the Centreon Plugin on every poller expected to monitor Nutanix resources:
 
@@ -134,7 +144,8 @@ yum install centreon-plugin-Virtualization-Nutanix-Snmp
 
 2. Install the Nutanix plugin-pack on "Configuration > Plugin packs > Manager" Centreon Web UI page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin on every poller expected to monitor Nutanix resources:
 
@@ -150,7 +161,8 @@ yum install centreon-pack-virtualization-nutanix-snmp
 
 3. Install the Nutanix plugin-pack on "Configuration > Plugin packs > Manager" Centreon Web UI page:
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

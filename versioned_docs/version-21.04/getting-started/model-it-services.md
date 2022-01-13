@@ -2,6 +2,9 @@
 id: model-it-services
 title: Model your IT services
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 Centreon Business Activity Monitoring (Centreon-BAM) is an extension for modeling
 IT services and applications, ideally, from end users point of view. It reports on the
@@ -97,33 +100,35 @@ Let's say that a frontend server that correctly perform may be defined by:
 So the state of a frontend-X is the Worst status between these 3 indicators: the first step is over, let's create a 
 Frontend-1 business activity:
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!-- Concept   -->
+<Tabs groupId="sync">
+<TabItem value="Concept" label="Concept">
 
 ![image](../assets/service-mapping/frontend-1-concept.png)
 
-<!-- Configuration -->
+</TabItem>
+<TabItem value="Configuration" label="Configuration">
 
 ![image](../assets/service-mapping/frontend-1-conf.png)
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 
 Now that we've define our 10 frontend servers, we'll attach them to a parent business activity called "Frontends Cluster"
 so that it tell us wether we've 20% of Frontend servers available or not
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!-- Concept   -->
+<Tabs groupId="sync">
+<TabItem value="Concept" label="Concept">
 
 ![image](../assets/service-mapping/ratio.png)
 
-<!-- Configuration -->
+</TabItem>
+<TabItem value="Configuration" label="Configuration">
 
 ![image](../assets/service-mapping/conf-ratio.png)
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 
 If we want to be proactive and NEVER go to 20%, we may add a Warning threshold to our Cluster business activity 

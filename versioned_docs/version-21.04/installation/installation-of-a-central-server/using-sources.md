@@ -2,13 +2,16 @@
 id: using-sources
 title: Using sources
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Prerequisites
 
 > Most CentOS users will find easier to install Centreon Web by [using packages](using-packages).
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS 8-->
+<Tabs groupId="sync">
+<TabItem value="CentOS 8" label="CentOS 8">
 To install Centreon you will need to enable the official PowerTools repository.
 
 Enable the PowerTools repository using these commands:
@@ -143,7 +146,9 @@ Then execute:
 ```shell
 /bin/pear upgrade-all
 ```
-<!--Oracle Linux 8-->
+
+</TabItem>
+<TabItem value="Oracle Linux 8" label="Oracle Linux 8">
 To install Centreon you will need to enable the official Oracle CodeReady Builder repository supported by Oracle.
 
 Enable the CodeReady Builder repository using these commands:
@@ -270,7 +275,9 @@ Then execute:
 ```shell
 /bin/pear upgrade-all
 ```
-<!--RHEL 8-->
+
+</TabItem>
+<TabItem value="RHEL 8" label="RHEL 8">
 To install Centreon you will need to enable the official CodeReady Builder repository supported by Redhat.
 
 Enable the CodeReady Builder repository using these commands:
@@ -397,7 +404,9 @@ Then execute:
 ```shell
 /bin/pear upgrade-all
 ```
-<!--Redhat/CentOS 7-->
+
+</TabItem>
+<TabItem value="Redhat/CentOS 7" label="Redhat/CentOS 7">
 To install Centreon you will need to set up the official software collections repository supported by Redhat.
 
 > Software collections are required for installing PHP 7 and associated libraries (Centreon requirement).
@@ -507,7 +516,9 @@ Then execute:
 ``` shell
 /opt/rh/rh-php73/root/bin/pear upgrade-all
 ```
-<!--Debian Buster-->
+
+</TabItem>
+<TabItem value="Debian Buster" label="Debian Buster">
 Install the following prerequisites:
 ```shell
 apt-get install \
@@ -631,7 +642,8 @@ Restart SNMP service:
 service snmpd restart
 service snmptrapd restart
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Centreon library (Centreon CLIB)
 

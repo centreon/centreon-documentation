@@ -2,6 +2,9 @@
 id: cloud-azure-management-discover
 title: Azure Discover
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -80,9 +83,8 @@ how-to below. Keep it safe until including it in the Autodiscovery job settings 
 
 ## Setup 
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Install the Plugin on every Centreon Poller expected to discover Azure resources:
 
@@ -94,7 +96,8 @@ yum install centreon-plugin-Cloud-Azure-Management-Discover-Api
 You'll be prompted to install several other Azure Plugin Packs as dependencies (they will be used to set the proper templates/indicators
 on the discovered elements).
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Plugin on every Centreon Poller expected to discover Azure resources:
 
@@ -113,7 +116,8 @@ yum install centreon-pack-cloud-azure\*
 You'll be prompted to install several other Azure Plugin Packs as dependencies (they will be used to set the proper templates/indicators
 on the discovered elements).
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Set up a discovery job
 

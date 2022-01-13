@@ -2,6 +2,9 @@
 id: cloud-microsoft-office365-management
 title: Office 365
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -18,14 +21,16 @@ The Centreon Plugin relies on the Office 365 management API to collect and monit
 
 ## Collected metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Service-Status-->
+<Tabs groupId="sync">
+<TabItem value="Service-Status" label="Service-Status">
+
 | Metric name     | Description                                        |
 | :-------------- | :------------------------------------------------- |
 | service         | Name of monitored service. Unit: Text              |
 | status (service)| Status of the monitored service. Unit: Text        |
 | status (feature)| Status of monitored feature of service. Unit: Text |
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prrequisites
 
@@ -98,9 +103,8 @@ https://docs.microsoft.com/en-us/office/office-365-management-api/get-started-wi
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Install the Centreon Plugin package on every poller expected to monitor Office 365 ressources:
 
@@ -110,7 +114,8 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Management-Api
 
 2. On the Centreon Web interface, install the Plugin-Pack on the "Configuration > Plugin packs > Manager" page.
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every poller expected to monitor Office 365 ressources:
 
@@ -126,7 +131,8 @@ yum install centreon-pack-cloud-microsoft-office365-management
 
 3. On the Centreon Web interface, install the Plugin-Pack on the "Configuration > Plugin packs > Manager" page.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

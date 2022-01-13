@@ -2,6 +2,9 @@
 id: hardware-storage-lenovo-iomega-snmp
 title: Lenovo Iomega
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Pack Assets
 
@@ -16,29 +19,29 @@ The Pack Lenovo Iomega collects metrics for:
 
 ### Discovery rules
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Services-->
+<Tabs groupId="sync">
+<TabItem value="Services" label="Services">
 
 | Rule name                                     | Description                                                   |
 | :-------------------------------------------- | :------------------------------------------------------------ |
 | HW-Storage-Lenovo-Iomega-SNMP-Disk-Name       | Discover partitions and monitor disk usage                    |
 | HW-Storage-Lenovo-Iomega-SNMP-Interface-Name  | Discover network interfaces and monitor bandwidth utilization |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Collected Metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Cpu-->
+<Tabs groupId="sync">
+<TabItem value="Cpu" label="Cpu">
 
 | Metric name                      | Description           | Unit |
 | :------------------------------- | :-------------------- |:---- |
 | cpu.utilization.percentage       | CPU utilization.      | %    |
 | core.cpu.utilization.percentage  | CPU Core utilization. | %    |
 
-<!--Disks-->
+</TabItem>
+<TabItem value="Disks" label="Disks">
 
 | Metric name                                  | Description                     | Unit  |
 | :------------------------------------------- | :------------------------------ |:----- |
@@ -46,7 +49,8 @@ The Pack Lenovo Iomega collects metrics for:
 | *partition\_name*\#storage.space.usage.bytes | Used space on a disk partition. | B     |
 | *partition\_name*\#storage.access            | Access disk partition.          |       |
 
-<!--Hardware-->
+</TabItem>
+<TabItem value="Hardware" label="Hardware">
 
 | Metric name                   | Description                               | Unit |
 |:----------------------------- |:----------------------------------------- |:---- |
@@ -59,7 +63,8 @@ The Pack Lenovo Iomega collects metrics for:
 | hardware.temperature.celsius  | temperature of the different sensors      | C    |
 | hardware.voltage.millivolt    | Voltage of the different sensors          | mV   |
 
-<!--Interfaces-->
+</TabItem>
+<TabItem value="Interfaces" label="Interfaces">
 
 | Metric name                                                 | Description                                             | Unit |
 |:----------------------------------------------------------- |:------------------------------------------------------- |:---- |
@@ -71,7 +76,8 @@ The Pack Lenovo Iomega collects metrics for:
 | *interface\_name*\#interface.packets.out.error.percentage   | Outgoing errored packets going through the interface.   | %    |
 | *interface\_name*\#interface.packets.out.discard.percentage | Outgoing discarded packets going through the interface. | %    |
 
-<!--Memory-->
+</TabItem>
+<TabItem value="Memory" label="Memory">
 
 | Metric name              | Description                | Unit |
 | :----------------------- | :------------------------- |:---- |
@@ -81,7 +87,8 @@ The Pack Lenovo Iomega collects metrics for:
 | memory.buffer.bytes      | Buffer memory              | B    |
 | memory.cached.bytes      | Memory cached              | B    |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -90,9 +97,8 @@ The Poller should be able to perform SNMP requests toward the Lenovo device over
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -102,7 +108,8 @@ yum install centreon-plugin-Hardware-Storage-Lenovo-Iomega-Snmp
 
 2. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *Lenovo Iomega* Pack
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -118,7 +125,8 @@ yum install centreon-pack-hardware-storage-lenovo-iomega-snmp
 
 3. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *Lenovo Iomega* Pack
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host configuration
 

@@ -2,6 +2,9 @@
 id: cloud-aws-efs
 title: Amazon EFS
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -17,31 +20,34 @@ Amazon Elastic File System (Amazon EFS) provides a simple, scalable, fully manag
 
 This pack provides a host discovery rule:
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Hosts-->
+<Tabs groupId="sync">
+<TabItem value="Hosts" label="Hosts">
 
 | Rule name                             | Description                                                   |
 | :------------------------------------ | :------------------------------------------------------------ |
 | Cloud-Aws-Efs-Api-HostDiscovery       | Discover File Systems from your Cloudwatch endpoint           |
 
-<!--Services-->
+</TabItem>
+<TabItem value="Services" label="Services">
 
 No services discovery rule available on this pack
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Collected Metrics
 
 More information about collected metrics is available in the official Amazon documentation: https://docs.aws.amazon.com/efs/latest/ug/monitoring-cloudwatch
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Connections-->
+<Tabs groupId="sync">
+<TabItem value="Connections" label="Connections">
 
 | Metric name         | Description                                                     |
 | :------------------ | :-------------------------------------------------------------- |
 | ClientConnections   | The number of client connections to a file system. Unit: Count  |
 
-<!--Data Usage-->
+</TabItem>
+<TabItem value="Data Usage" label="Data Usage">
 
 | Metric name        | Description                                                                                                                                                                                |
 | :----------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -51,7 +57,8 @@ More information about collected metrics is available in the official Amazon doc
 | TotalIOBytes       | The number of bytes for each file system operation, including data read, data write, and metadata operations. Unit: Bytes                                                                  |
 | BurstCreditBalance | The number of burst credits that a file system has. Burst credits allow a file system to burst to throughput levels above a file system’s baseline level for periods of time. Unit: Bytes  |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -71,27 +78,27 @@ To interact with Amazon APIs, you can use either use awscli binary or paws, a pe
 
 **Warning** At the moment it is not possible to use perl-Paws if you are using a proxy to talk with AWS Cloudwatch APIs. 
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--perl-Paws-installation-->
+<Tabs groupId="sync">
+<TabItem value="perl-Paws-installation" label="perl-Paws-installation">
 
 ```bash
 yum install perl-Paws
 ```
 
-<!--aws-cli-installation-->
+</TabItem>
+<TabItem value="aws-cli-installation" label="aws-cli-installation">
 
 ```bash
 yum install awscli
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Install the Centreon Plugin on every poller monitoring EFS ressources:
 
@@ -101,7 +108,8 @@ yum install centreon-plugin-Cloud-Aws-Efs-Api
 
 2. On Centreon Web interface in "Configuration > Plugin packs > Manager", install the "Amazon EFS" Plugin-Pack
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin on every poller monitoring EFS ressources:
 
@@ -117,7 +125,8 @@ yum install centreon-pack-cloud-aws-efs.noarch
 
 3. On Centreon Web interface in "Configuration > Plugin packs > Manager", install the "Amazon EFS" Plugin-Pack:
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

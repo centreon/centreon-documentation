@@ -2,6 +2,9 @@
 id: applications-vernemq-restapi
 title: VerneMQ Restapi
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -18,9 +21,8 @@ The VerneMQ Plugin-Pack monitors Clusters, Listeners, Plugins, and sessions usin
 
 More information about collected metrics is available in the official VerneMQ documentation : https://docs.vernemq.com/monitoring/introduction
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Clusters-->
+<Tabs groupId="sync">
+<TabItem value="Clusters" label="Clusters">
 
 | Metric name                      | Description                         | Unit  |
 | :------------------------------- | :---------------------------------- | :---- |
@@ -28,7 +30,8 @@ More information about collected metrics is available in the official VerneMQ do
 | clusters.running.count           | Number of clusters running          | count |
 | clusters.notrunning.count        | Number of cluster not running       | count |
 
-<!--Listeners-->
+</TabItem>
+<TabItem value="Listeners" label="Listeners">
 
 | Metric name                      | Description                         | Unit  |
 | :------------------------------- | :---------------------------------- | :---- |
@@ -36,20 +39,23 @@ More information about collected metrics is available in the official VerneMQ do
 | listeners.running.count          | Number of listeners running         | count |
 | listeners.notrunning.count       | Number of listeners not running     | count |
 
-<!--Plugins-->
+</TabItem>
+<TabItem value="Plugins" label="Plugins">
 
 | Metric name                      | Description                         | Unit  |
 | :------------------------------- | :---------------------------------- | :---- |
 | plugins.total.count              | Total number of plugins             | count |
 
-<!--Sessions-->
+</TabItem>
+<TabItem value="Sessions" label="Sessions">
 
 | Metric name                      | Description                         | Unit  |
 | :------------------------------- | :---------------------------------- | :---- |
 | sessions.online.count            | Number of sessions online           | count |
 | sessions.total.count             | Total number of sessions            | count |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -71,9 +77,8 @@ More information on VerneMQ HTTP API on : https://docs.vernemq.com/administratio
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Install the Centreon Plugin on every Poller monitoring VerneMQ resources:
 
@@ -83,7 +88,8 @@ yum install centreon-plugin-Applications-Vernemq-Restapi.noarch
 
 2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *VerneMQ RestAPI* Plugin-Pack
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin on every Poller monitoring VerneMQ resources:
 
@@ -99,7 +105,8 @@ yum install centreon-pack-applications-vernemq-restapi.noarch
 
 3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *VerneMQ RestAPI* Plugin-Pack
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -113,7 +120,6 @@ Once the template applied, some Macros have to be configured:
 | X           | APIKEY           | VerneMQ API Token                                   |
 |             | APIEXTRAOPTIONS  | Any extra option you may want to add to the command |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## FAQ
 

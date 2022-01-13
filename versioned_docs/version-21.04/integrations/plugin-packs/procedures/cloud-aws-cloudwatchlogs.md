@@ -2,6 +2,9 @@
 id: cloud-aws-cloudwatchlogs
 title: Amazon CloudWatch Logs
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -20,9 +23,8 @@ or archive them securely for future analysis
 
 ### Collected data 
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Get-Logs-->
+<Tabs groupId="sync">
+<TabItem value="Get-Logs" label="Get-Logs">
 
 | Metric name | Description                                                                                                               |
 |:------------|:--------------------------------------------------------------------------------------------------------------------------|
@@ -30,7 +32,8 @@ or archive them securely for future analysis
 
 You can filter the scope of the query using ```--group-name``` and ```--stream-name``` options.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -47,21 +50,22 @@ Configure a service account (*access/secret keys* combo) for which the following
 To interact with Amazon APIs, you can use either use the *awscli* binary provided by Amazon or *paws*, a Perl AWS SDK (recommended). 
 You must install it on every Centreon poller expected to monitor AWS Health: 
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--perl-Paws-installation-->
+<Tabs groupId="sync">
+<TabItem value="perl-Paws-installation" label="perl-Paws-installation">
 
 ```bash
 yum install perl-Paws
 ```
 
-<!--aws-cli-installation-->
+</TabItem>
+<TabItem value="aws-cli-installation" label="aws-cli-installation">
 
 ```bash
 yum install awscli
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 > For now, it is not possible to use *paws* in the following situations:
 > * if you are using a proxy to reach AWS Cloudwatch APIs. 
@@ -69,9 +73,8 @@ yum install awscli
 
 ## Setup 
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor Amazon CloudWatch Logs:
 
@@ -81,7 +84,8 @@ yum install centreon-plugin-Cloud-Aws-CloudWatchLogs-Api
 
 2. On the Centreon Web interface, install the *Amazon CloudWatch Logs* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor Amazon CloudWatch Logs:
 
@@ -97,7 +101,8 @@ yum install centreon-pack-cloud-aws-cloudwatchlogs.noarch
 
 3. On the Centreon Web interface, install the *Amazon CloudWatch Logs* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
