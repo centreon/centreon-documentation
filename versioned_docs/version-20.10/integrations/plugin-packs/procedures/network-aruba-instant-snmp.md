@@ -2,6 +2,9 @@
 id: network-aruba-instant-snmp
 title: Aruba Instant SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -18,9 +21,8 @@ The Centreon Plugin Pack *Aruba Instant SNMP* relies on the SNMP protocol to que
 
 ### Collected metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Ap-Usage-->
+<Tabs groupId="sync">
+<TabItem value="Ap-Usage" label="Ap-Usage">
 
 | Metric name                         | Description                                      | Unit   |
 | :---------------------------------- | :----------------------------------------------- | :----- |
@@ -35,13 +37,15 @@ The Centreon Plugin Pack *Aruba Instant SNMP* relies on the SNMP protocol to que
 | ap_name#memory.usage.percentage     | Percentage of memory usage on the access point   |   %    |
 
 
-<!--SSID-Status-->
+</TabItem>
+<TabItem value="SSID-Status" label="SSID-Status">
 
 | Metric name | Description                                | Unit |
 | :---------- | :----------------------------------------- | :--- |
 | status      | Check SSID status                          |      |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -55,9 +59,8 @@ The Centreon Poller must be able to reach the UDP/161 SNMP port of the Aruba dev
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor Aruba Wireless Access Point equipments:
 
@@ -67,7 +70,8 @@ yum install centreon-plugin-Network-Aruba-Instant-Snmp
 
 2. On the Centreon Web interface, install the *Aruba Instant SNMP* Plugin Pack through "Configuration > Plugin packs > Manager" page.
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor Aruba Wireless Access Point equipments :
 
@@ -77,13 +81,15 @@ yum install centreon-plugin-Network-Aruba-Instant-Snmp
 
 2. Install the Centreon Plugin Pack RPM on the Centreon Central server:
 
- ```bash
+ 
+```bash
 yum install centreon-pack-network-aruba-instant-snmp
 ```
 
 3. On the Centreon Web interface, install the *Aruba Instant SNMP* Plugin Pack through "Configuration > Plugin packs > Manager" page.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host configuration
 

@@ -2,6 +2,9 @@
 id: applications-ericsson-enm-api
 title: Ericsson ENM API
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Pack Assets
 
@@ -12,9 +15,8 @@ The Pack Ericsson ENM collects metrics for:
 
 ### Discovery rules
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Hosts-->
+<Tabs groupId="sync">
+<TabItem value="Hosts" label="Hosts">
 
 The Centreon Pack *Ericsson ENM API* includes a Host Discovery *provider* to automatically discover nodes 
 for a given Ericsson Network Manager.
@@ -22,7 +24,8 @@ for a given Ericsson Network Manager.
 More information about the Host Discovery module is available in the Centreon documentation:
 [Host Discovery](../../../monitoring/discovery/hosts-discovery)
 
-<!--Services-->
+</TabItem>
+<TabItem value="Services" label="Services">
 
 | Rule name                            | Description                                         |
 | :----------------------------------- | :-------------------------------------------------- |
@@ -30,13 +33,13 @@ More information about the Host Discovery module is available in the Centreon do
 | App-Ericsson-Enm-Api-Node-Fru-Id     | Discover field replaceable units and monitor status |
 | App-Ericsson-Enm-Api-Node-Id         | Discover nodes and monitor components (frus, cells) |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Collected Metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Nodes-->
+<Tabs groupId="sync">
+<TabItem value="Nodes" label="Nodes">
 
 | Metric name                 | Description                                  | Unit  |
 | :-------------------------- | :------------------------------------------- | :---- |
@@ -45,7 +48,8 @@ More information about the Host Discovery module is available in the Centreon do
 | fru status                  | Current status of the field replaceable unit |       |
 | cell tdd status             | Current status of the cell tdd               |       |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -54,9 +58,8 @@ The pack supports only the authentication by username/password.
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -66,7 +69,8 @@ yum install centreon-plugin-Applications-Ericsson-Enm-Api
 
 2. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *Ericsson ENM API* Pack
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -82,7 +86,8 @@ yum install centreon-pack-applications-ericsson-enm-api
 
 3. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *Ericsson ENM API* Pack
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host configuration
 

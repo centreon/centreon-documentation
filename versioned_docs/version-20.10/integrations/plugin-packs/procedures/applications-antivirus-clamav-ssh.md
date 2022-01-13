@@ -2,6 +2,9 @@
 id: applications-antivirus-clamav-ssh
 title: Antivirus ClamAV
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Pack assets
 
@@ -22,9 +25,8 @@ or by setting your unique user and password directly in the Host Macros.
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor *ClamAV* ressources:
 
@@ -34,7 +36,8 @@ yum install centreon-plugin-Applications-Clamav-Ssh
 
 2. On the Centreon Web interface, install the *Antivirus ClamAV* Centreon Plugin Pack on the **Configuration > Plugin Packs** page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor *ClamAV* ressources:
 
@@ -50,7 +53,8 @@ yum install centreon-pack-applications-antivirus-clamav-ssh
 
 3. On the Centreon Web interface, install the *Antivirus ClamAV* Centreon Plugin Pack on the **Configuration > Plugin Packs** page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

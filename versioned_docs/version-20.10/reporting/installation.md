@@ -2,6 +2,9 @@
 id: installation
 title: Install Centreon MBI extension
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 > Centreon MBI is a Centreon **extension** that requires a valid license key. To
 > purchase one and retrieve the necessary repositories, contact
@@ -80,8 +83,8 @@ considerations.
 
 **Software**
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
 - Centreon 20.10
 - Check that the parameter `date.timezone` is correctly configured in `/etc/php.d/php.ini`
   (same timezone displayed with the command `timedatectl status`)
@@ -89,7 +92,8 @@ considerations.
   They halt long queries execution and can stop the ETL or the report generation jobs:
   - wait_timeout
   - interactive_timeout
-<!--CentOS 7-->
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 - Centreon 20.10
 - Check that the parameter `date.timezone` is correctly configured in
   `/etc/opt/rh/rh-php72/php.ini` (same timezone displayed with the
@@ -98,7 +102,8 @@ considerations.
   They halt long queries execution and can stop the ETL or the report generation jobs:
   - wait_timeout
   - interactive_timeout
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 **Users and groups**
 
@@ -183,16 +188,18 @@ Install the Centreon MBI repository, you can find it on the
 
 Then run the following command:
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
 ```shell
 dnf install centreon-bi-server
 ```
-<!--CentOS 7-->
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 ```shell
 yum install centreon-bi-server
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Activate the extension
 
@@ -306,16 +313,18 @@ To start installing the reporting server, install the MBI repository, you can fi
 
 Then execute the following command:
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
 ```shell
 dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
 ```
-<!--CentOS 7-->
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 ```shell
 yum install centreon-bi-reporting-server MariaDB-server MariaDB-client
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 If you installed your reporting server using a fresh CentOS image you
 need to add the following GPG key:

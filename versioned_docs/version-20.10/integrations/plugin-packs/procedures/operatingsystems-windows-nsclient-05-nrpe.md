@@ -2,6 +2,9 @@
 id: operatingsystems-windows-nsclient-05-nrpe
 title: Windows NRPE 0.5
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -17,21 +20,22 @@ monitoring agent and its embedded NRPE Server.
 
 ### Collected metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Counter-Active-Sessions-->
+<Tabs groupId="sync">
+<TabItem value="Counter-Active-Sessions" label="Counter-Active-Sessions">
 
 | Metric name     | Description                             |
 | :-------------- | :-------------------------------------- |
 | Sessions\_value | Number of actived sessions. Unit: Count |
 
-<!--Counter-Generic-->
+</TabItem>
+<TabItem value="Counter-Generic" label="Counter-Generic">
 
 | Metric name    | Description                          |
 | :------------- | :----------------------------------- |
 | Counter\_value | Number of counter found. Unit: Count |
 
-<!--Cpu-->
+</TabItem>
+<TabItem value="Cpu" label="Cpu">
 
 | Metric name | Description                                                      |
 | :---------- | :--------------------------------------------------------------- |
@@ -39,25 +43,29 @@ monitoring agent and its embedded NRPE Server.
 | total 1m    | CPU Utilization of Windows serveur over 1 minutes. Unit: Percent |
 | total 5s    | CPU Utilization of Windows serveur over 5 seconds. Unit: Percent |
 
-<!--Disk-->
+</TabItem>
+<TabItem value="Disk" label="Disk">
 
 | Metric name | Description                                   |
 | :---------- | :-------------------------------------------- |
 | used        | Used and Total Storage allocated. Unit: Bytes |
 
-<!--Eventlog-Generic-->
+</TabItem>
+<TabItem value="Eventlog-Generic" label="Eventlog-Generic">
 
 | Metric name  | Description                            |
 | :----------- | :------------------------------------- |
 | problemCount | Number of event log found. Unit: Count |
 
-<!--Files-Generic-->
+</TabItem>
+<TabItem value="Files-Generic" label="Files-Generic">
 
 | Metric name | Description                        |
 | :---------- | :--------------------------------- |
 | count       | Number of files found. Unit: Count |
 
-<!--Logfiles-Generic-->
+</TabItem>
+<TabItem value="Logfiles-Generic" label="Logfiles-Generic">
 
 | Metric name        | Description                                                                   |
 | :----------------- | :---------------------------------------------------------------------------- |
@@ -66,19 +74,22 @@ monitoring agent and its embedded NRPE Server.
 | default\_criticals | Number of line that match with critical pattern found in logfile. Unit: Count |
 | default\_unknowns  | Number of line that match with unknown pattern found in logfile. Unit: Count  |
 
-<!--Memory-->
+</TabItem>
+<TabItem value="Memory" label="Memory">
 
 | Metric name | Description                        |
 | :---------- | :--------------------------------- |
 | used        | Total usage of memory. Unit: Bytes |
 
-<!--Swap-->
+</TabItem>
+<TabItem value="Swap" label="Swap">
 
 | Metric name | Description                             |
 | :---------- | :-------------------------------------- |
 | swap        | Total usage of swap memory. Unit: Bytes |
 
-<!--Sessions-->
+</TabItem>
+<TabItem value="Sessions" label="Sessions">
 
 | Metric name                   | Description                                               |
 | :---------------------------- | :-------------------------------------------------------- |
@@ -88,7 +99,8 @@ monitoring agent and its embedded NRPE Server.
 | sessions-active               | Number of active users session. Unit: Count               |
 | sessions-disconnected-current | Number of current disconnected users session. Unit: Count |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -100,7 +112,8 @@ and make sure that the **NRPE Server** configuration is correct.
 
 ## Installation 
 
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Install the Centreon NRPE Client package on every Poller expected to monitor *Varnish*:
 
@@ -111,7 +124,8 @@ yum install centreon-nrpe-plugin
 2. On the Centreon Web interface, install the Centreon Pack *Varnish* 
 from the **Configuration > Plugin Packs > Manager** page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Poller expected to monitor *Varnish*:
 
@@ -128,7 +142,8 @@ yum install centreon-pack-operatingsystems-windows-nsclient-05-nrpe
 3. On the Centreon Web interface, install the Centreon Pack *Varnish* 
 from the **Configuration > Plugin Packs > Manager** page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host configuration
 

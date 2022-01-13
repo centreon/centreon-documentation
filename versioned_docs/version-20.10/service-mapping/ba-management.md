@@ -2,6 +2,9 @@
 id: ba-management
 title: Manage Business Activities
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Business Activities (BA)
 
@@ -36,9 +39,8 @@ There are four calculation methods that you can use:
 
 Find below examples & configuration of each calculation methods
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!-- Best Status -->
+<Tabs groupId="sync">
+<TabItem value="Best Status" label="Best Status">
 
 ![image](../assets/service-mapping/guide/business-activity-best-status-tree.png)
 
@@ -49,7 +51,8 @@ The configuration is as follow:
 
 ![image](../assets/service-mapping/guide/business-activity-best-status.png)
 
-<!-- Worst Status -->
+</TabItem>
+<TabItem value="Worst Status" label="Worst Status">
 
 ![image](../assets/service-mapping/guide/business-activity-worst-status-tree.png)
 
@@ -60,7 +63,8 @@ The configuration is as follow:
 
 ![image](../assets/service-mapping/guide/business-activity-worst-status.png)
 
-<!-- Ratio -->
+</TabItem>
+<TabItem value="Ratio" label="Ratio">
 
 This method helps you model “Cluster” concepts. The calculation is based
 on the **number or percentage of indicator in CRITICAL status** that you
@@ -85,7 +89,8 @@ thresholds parameters have to be configured:
     indicators exceed that number/percentage, the Business activity will
     be Warning
 
-<!-- Impact -->
+</TabItem>
+<TabItem value="Impact" label="Impact">
 
 > This mode is complex to use but may help you model heighly
 > severity-related concepts.
@@ -111,7 +116,8 @@ quality measurement. A variation in this value is used to determine
 whether the modelized IT service or application is in an **OK**,
 **Warning** or **Critical** state.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Create a Business Activity
 

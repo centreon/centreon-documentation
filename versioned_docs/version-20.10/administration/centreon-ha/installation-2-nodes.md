@@ -2,6 +2,9 @@
 id: installation-2-nodes
 title: Installing a Centreon HA 2-nodes cluster
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Prerequisites
 
@@ -665,9 +668,8 @@ pcs quorum device add model net \
 
 To be run **only on one central node**:
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--CentOS7-->
+<Tabs groupId="sync">
+<TabItem value="CentOS7" label="CentOS7">
 
 ```bash
 pcs resource create "ms_mysql" \
@@ -686,7 +688,9 @@ pcs resource create "ms_mysql" \
     test_table='centreon.host' \
     master
 ```
-<!--RHEL-->
+
+</TabItem>
+<TabItem value="RHEL" label="RHEL">
 
 ```bash
 pcs resource create "ms_mysql" \
@@ -704,13 +708,13 @@ pcs resource create "ms_mysql" \
     test_passwd="@MARIADB_REPL_PASSWD@" \
     test_table='centreon.host'
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 > **WARNING:** the syntax of the following command depends on the Linux Distribution you are using.
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--CentOS7-->
+<Tabs groupId="sync">
+<TabItem value="CentOS7" label="CentOS7">
 
 ```bash
 pcs resource meta ms_mysql-master \
@@ -721,7 +725,9 @@ pcs resource meta ms_mysql-master \
     notify="true"
 ```
 
-<!--RHEL-->
+
+</TabItem>
+<TabItem value="RHEL" label="RHEL">
 
 ```bash
 pcs resource master ms_mysql \
@@ -732,7 +738,8 @@ pcs resource master ms_mysql \
     notify="true"
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Creating the clone resources
 

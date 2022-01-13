@@ -2,6 +2,9 @@
 id: blockchain-parity-restapi
 title: Parity API
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -22,9 +25,8 @@ Parity API.
 
 ### Collected metrics & status
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Parity-->
+<Tabs groupId="sync">
+<TabItem value="Parity" label="Parity">
 
 | Metric name                 | Description                      | Unit |
 |:----------------------------|:---------------------------------|------|
@@ -35,7 +37,8 @@ Parity API.
 | parity.peers.max            | Maximum number of peers          |      |
 | parity.peers.usage          | Peers usage expressed in percent |   %  |
 
-<!--Eth-->
+</TabItem>
+<TabItem value="Eth" label="Eth">
 
 | Metric name                          | Description                   |
 |:-------------------------------------|:------------------------------|
@@ -49,13 +52,15 @@ Parity API.
 | parity.eth.gas.price                 | Gas price                     |
 | parity.eth.gas.used                  | Gas consumption               |
 
-<!--Net-->
+</TabItem>
+<TabItem value="Net" label="Net">
 
 | Metric name                   | Description              |
 |:------------------------------|:-------------------------|
 | parity.network.peers.count    | Number of known peers    |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -64,9 +69,8 @@ configured port (default: 8545).
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor 
 Parity network nodes:
@@ -78,7 +82,8 @@ yum install centreon-plugin-Blockchain-Parity-Restapi
 2. On the Centreon Web interface, install the *Parity API* Centreon Plugin-Pack on 
 the "Configuration > Plugin Packs" page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor 
 Blockchain Parity nodes:
@@ -89,14 +94,15 @@ yum install centreon-plugin-Blockchain-Parity-Restapi
 
 2. Install the *Parity API* Centreon Plugin-Pack RPM on the Centreon Central server:
 
- ```bash
+```bash
 yum install centreon-pack-blockchain-parity-restapi
 ```
 
 3. On the Centreon Web interface, install the *Parity API* Centreon Plugin-Pack on 
 the "Configuration > Plugin Packs" page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host configuration
 
