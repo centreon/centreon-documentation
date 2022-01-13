@@ -77,10 +77,10 @@ yum install centreon-pack-applications-hddtemp-tcp
 
 * Une fois le modèle appliqué, renseignez les macros correspondantes. Attention, certaines macros sont obligatoires ("mandatory"). 
 
-| Mandatory | Name           | Description                                                                           |
-|:----------|:---------------|:--------------------------------------------------------------------------------------|
-|           | HDDTEMPTCPPORT | Port d'écoute de HDDTemp (Par défaut: '7634')                                         |
-|           | EXTRAOPTIONS   | Options supplémentaires à ajouter à l'ensemble des commandes de l'hôte (ex: --verbose |
+| Mandatory | Name           | Description                                                                            |
+|:----------|:---------------|:---------------------------------------------------------------------------------------|
+|           | HDDTEMPTCPPORT | Port d'écoute de HDDTemp (Par défaut: '7634')                                          |
+|           | EXTRAOPTIONS   | Options supplémentaires à ajouter à l'ensemble des commandes de l'hôte (ex: --verbose) |
 
 ## Comment puis-je tester le Plugin et que signifient les options des commandes ? 
 
@@ -108,7 +108,7 @@ l'utilisateur **centreon-engine**:
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: Drive '/dev/sda' temperature: 24 C status: ok | /dev/sda#drive.temperature.celsius 
+OK: Drive '/dev/sda' temperature: 24 C status: ok | '/dev/sda#drive.temperature.celsius'=24C;0:30;0:50;;
 ```
 
 Dans cet exemple, une alarme de type WARNING sera déclenchée si la température du 

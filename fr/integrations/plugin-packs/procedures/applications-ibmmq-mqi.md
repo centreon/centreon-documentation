@@ -27,8 +27,8 @@ Il apporte les Modèles de Service suivants :
 | Metric Name                       | Unit   |
 |:----------------------------------|:-------|
 | status                            | string |
-| channel.traffic.in.bitspersecond  |        |
-| channel.traffic.out.bitspersecond |        |
+| channel.traffic.in.bitspersecond  | b/s     |
+| channel.traffic.out.bitspersecond | b/s    |
 
 <!--Queue-Manager-->
 
@@ -128,7 +128,7 @@ l'utilisateur **centreon-engine**:
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-WARNING: current input connections: 9000 | 'queue.connections.input.count'=9000;200;;0; 'queue.messages.depth.count'=20;200;;0; 'queue.message.oldest.seconds'=9000;;3600;; 
+WARNING: current input connections: 9000 | 'queue.connections.input.count'=9000;;;0; 'queue.messages.depth.count'=20;200;;0; 'queue.message.oldest.seconds'=9000;;3600;; 
 ```
 
 Dans cet exemple, une alarme de type WARNING est déclenchée car le nombre de message dans la queue est 

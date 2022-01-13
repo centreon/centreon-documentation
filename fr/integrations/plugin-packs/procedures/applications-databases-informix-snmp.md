@@ -132,7 +132,7 @@ spécifiques associés via la macro SNMPEXTRAOPTIONS.
 
 | Mandatory | Name             | Description                                              |
 |:----------|:-----------------|:---------------------------------------------------------|
-|           | SNMPEXTRAOPTIONS | (Default: 'Configure your own SNMPv3 credentials combo') |
+|           | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo |
 
 ## Comment puis-je tester le Plugin et que signifient les options des commandes ? 
 
@@ -155,7 +155,7 @@ l'utilisateur **centreon-engine**:
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: %d client sessions | 
+OK: 7 client sessions | sessions=7;10;20;0;;
 ```
 
 Dans cet exemple, une alarme de type WARNING sera déclenchée si le nombre de sessions 

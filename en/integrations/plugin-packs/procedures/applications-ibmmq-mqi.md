@@ -129,7 +129,7 @@ command:
 The expected command output is shown below:
 
 ```bash
-WARNING: current input connections: 9000 | 'queue.connections.input.count'=9000;200;;0; 'queue.messages.depth.count'=20;200;;0; 'queue.message.oldest.seconds'=150;;3600;; 
+WARNING: current input connections: 9000 | 'queue.connections.input.count'=9000;;;0; 'queue.messages.depth.count'=20;200;;0; 'queue.message.oldest.seconds'=150;;3600;; 
 ```
 
 This command triggers a WARNING because the size of the message queue is greater than 200 which is the warning threshold (`--warning-messages-depth='200'`).

@@ -91,7 +91,7 @@ yum install centreon-pack-applications-awa-jmx
 
 | Mandatory | Name         | Description                                                                                     |
 |:----------|:-------------|:------------------------------------------------------------------------------------------------|
-|           | EXTRAOPTIONS | (Default: 'Any extra option you may want to add to every command\_line (eg. a --verbose flag)') |
+|           | EXTRAOPTIONS | Any extra option you may want to add to every command\_line (eg. a --verbose flag) |
 
 ## Comment puis-je tester le Plugin et que signifient les options des commandes ? 
 
@@ -107,7 +107,7 @@ l'utilisateur **centreon-engine**:
     --url='' \
     --username='' \
     --password='' \
-    --filter-name='$_SERVICEFILTERNAME$' \
+    --filter-name='' \
     --warning-status='' \
     --critical-status='%{status} !~ /GREEN/i' \
     --use-new-perfdata 

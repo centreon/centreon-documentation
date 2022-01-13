@@ -132,7 +132,7 @@ your own SNMPv3 credentials combo.
 
 | Mandatory | Name             | Description                                              |
 |:----------|:-----------------|:---------------------------------------------------------|
-|           | SNMPEXTRAOPTIONS | (Default: 'Configure your own SNMPv3 credentials combo') |
+|           | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo |
 
 ## How to check in the CLI that the configuration is OK and what are the main options for? 
 

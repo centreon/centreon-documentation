@@ -106,7 +106,7 @@ command:
     --url='' \
     --username='' \
     --password='' \
-    --filter-name='$_SERVICEFILTERNAME$' \
+    --filter-name='' \
     --warning-status='' \
     --critical-status='%{status} !~ /GREEN/i' \
     --use-new-perfdata 
