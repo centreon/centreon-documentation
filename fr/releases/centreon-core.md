@@ -632,6 +632,17 @@ state was HARD even if no notification is configured nor sent.
 
 ## Centreon Broker
 
+### 20.10.10
+
+Release date: `null`
+
+#### Bug fixes
+
+- The central broker's cache generation loaded too much data and took too much time when the BAM was activated
+- Fixed the removal of RRD files for single metrics deletion
+- Fixed an issue causing BAM Business Activities (best status) to remain in OK state when the OK KPIs are removed
+
+
 ### 20.10.9
 
 `27 octobre 2021`
