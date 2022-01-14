@@ -32,7 +32,7 @@ Release date: `December 16, 2021`
 - Path to map server backup log file in cron is now correct
 - A simple link can now be created between a container and a view through API
 - Map server now supports metrics label with '=' and white spaces
-  > You may need to apply the following [fix](../graph-views/troubleshooter.html#metric-links-are-black-after-updating-map) after upating/upgrading MAP.
+  > You may need to apply the following [fix](../graph-views/troubleshooter#metric-links-are-black-after-updating-map) after upating/upgrading MAP.
 - Non-conventional metric labels do not cause map server to crash anymore
 - Configuration file for Centreon map server is not replaced during upgrade anymore
 
