@@ -154,7 +154,7 @@ liens
 
 ### 20.04.9
 
-`January 07, 2022`
+Release date: `January 14, 2022`
 
 #### Bugfixes
 
