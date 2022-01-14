@@ -2,6 +2,9 @@
 id: applications-php-apc-web
 title: PHP APC
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Contenu du Pack
 
@@ -19,9 +22,8 @@ Il apporte les Modèles de Services suivants :
 
 ### Métriques & statuts collectés
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Php-Apc-File-Cache-->
+<Tabs groupId="sync">
+<TabItem value="Php-Apc-File-Cache" label="Php-Apc-File-Cache">
 
 | Metric name                      | Description                     | Unit |
 |:---------------------------------|:--------------------------------|:-----|
@@ -34,14 +36,16 @@ Il apporte les Modèles de Services suivants :
 | filecache.hits.percentage        | GLobal hit ratio                | %    |
 | filecache.hits.now.percentage    | Hit ratio                       | %    |
 
-<!--Php-Apc-Memory-->
+</TabItem>
+<TabItem value="Php-Apc-Memory" label="Php-Apc-Memory">
 
 | Metric name                     | Description                   | Unit |
 |:--------------------------------|:------------------------------|:-----|
 | memory.usage.bytes              | Memory usage in bytes         | B    |
 | memory.fragmentation.percentage | Memory Fragmentation          | %    |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -51,9 +55,8 @@ les Macros d'Hôte dans la partie [Configuration](#Configuration).
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources *PHP APC*:
 
@@ -63,7 +66,8 @@ yum install centreon-plugin-Applications-Php-Apc-Web
 
 2. Sur l'interface Web de Centreon, installer le Plugin Pack *PHP APC* depuis la page **Configuration > Packs de plugins**
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources *PHP APC*:
 
@@ -73,13 +77,14 @@ yum install centreon-plugin-Applications-Php-Apc-Web
 
 2. Sur le serveur Central Centreon, installer le RPM du Pack *PHP APC*:
 
- ```bash
+```bash
 yum install centreon-pack-applications-php-apc-web
 ```
 
 3. Sur l'interface Web de Centreon, installer le Plugin Pack *PHP APC* depuis la page **Configuration > Packs de plugins**
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

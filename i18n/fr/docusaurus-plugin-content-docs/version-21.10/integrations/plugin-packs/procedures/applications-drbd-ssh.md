@@ -2,6 +2,9 @@
 id: applications-drbd-ssh
 title: DRBD SSH
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -20,9 +23,8 @@ DRBD est un logiciel libre, mais un support existe. DRBD est composé d'un modul
 Vous pouvez vous renseigner en détails sur les métriques présentées ci-après sur la documentation officielle 
 de DRDB : https://www.linbit.com/drbd-user-guide/drbd-guide-9_0-en/
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Resources-->
+<Tabs groupId="sync">
+<TabItem value="Resources" label="Resources">
 
 | Metric name                         | Description                         | Unit  |
 | :-----------------------------------| :-----------------------------------| :---- |
@@ -36,7 +38,8 @@ de DRDB : https://www.linbit.com/drbd-user-guide/drbd-guide-9_0-en/
 | peer.traffic.in.bitspersecond       | Peer traffic in                     |  b/s  |
 | peer.traffic.out.bitspersecond      | Peer traffic out                    |  b/s  |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -50,9 +53,8 @@ doit avoir assez de privilèges pour executer la commande `/usr/sbin/drbdsetup`.
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon supervisant des ressources DRDB :
 
@@ -62,7 +64,8 @@ yum install centreon-plugin-Applications-Drbd-Ssh.noarch
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *DRBD SSH* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon supervisant des ressources DRBD :
 
@@ -78,7 +81,8 @@ yum install ccentreon-pack-applications-drbd-ssh.noarch
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *DRBD SSH* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -86,9 +90,8 @@ Ce Plugin-Pack est conçu de manière à avoir dans Centreon un Hôte par enviro
 Lorsque vous ajoutez un Hôte à Centreon, appliquez-lui le modèle *App-Drbd-SSH-custom*.
 Une fois celui-ci configuré, certaines Macros doivent être renseignées:
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--sshcli backend-->
+<Tabs groupId="sync">
+<TabItem value="sshcli backend" label="sshcli backend">
 
 | Mandatory   | Name            | Description                                                                                     |
 | :---------- | :-------------- | :---------------------------------------------------------------------------------------------- |
@@ -101,7 +104,8 @@ Une fois celui-ci configuré, certaines Macros doivent être renseignées:
 > Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur centreon-engine du Collecteur
 et l'utilisateur applicatif créé sur le serveur distant. (Macro SSHUSERNAME).
 
-<!--plink backend-->
+</TabItem>
+<TabItem value="plink backend" label="plink backend">
 
 | Mandatory   | Name            | Description                                                                                     |
 | :---------- | :-------------- | :---------------------------------------------------------------------------------------------- | 
@@ -114,7 +118,8 @@ et l'utilisateur applicatif créé sur le serveur distant. (Macro SSHUSERNAME).
 > Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur centreon-engine du Collecteur
 et l'utilisateur applicatif créé sur le serveur distant. (Macro SSHUSERNAME).
 
-<!--libssh backend (par défaut)-->
+</TabItem>
+<TabItem value="libssh backend (par défaut)" label="libssh backend (par défaut)">
 
 | Mandatory   | Name            | Description                                                                                     |
 | :---------- | :-------------- | :---------------------------------------------------------------------------------------------- |
@@ -125,6 +130,9 @@ et l'utilisateur applicatif créé sur le serveur distant. (Macro SSHUSERNAME).
 |             | SSHEXTRAOPTIONS | Personnalisez-le avec le vôtre si nécessaire. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```      |
 
 Avec ce backend, vous n'avez pas à valider manuellement le fingerprint du serveur cible. 
+
+</TabItem>
+</Tabs>
 
 ## FAQ
 

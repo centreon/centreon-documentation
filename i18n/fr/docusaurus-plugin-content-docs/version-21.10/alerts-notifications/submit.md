@@ -2,6 +2,9 @@
 id: submit
 title: Soumettre un résultat
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Soumettre un résultat
 
@@ -13,9 +16,8 @@ soit pris en compte par l'ordonnanceur.
 
 ### En pratique
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Depuis la page Statut des ressources-->
+<Tabs groupId="sync">
+<TabItem value="Depuis la page Statut des ressources" label="Depuis la page Statut des ressources">
 
 1. Allez à la page **Supervision > Statut des ressources**.
 
@@ -33,7 +35,8 @@ soit pris en compte par l'ordonnanceur.
     -   Le champ **Données de performance** permet de définir des données de
         performance pour la génération des graphiques.
 
-<!--Depuis la page de supervision temps réel-->
+</TabItem>
+<TabItem value="Depuis la page de supervision temps réel" label="Depuis la page de supervision temps réel">
 
 Accédez à la page de détails de l'objet.
 Dans la catégorie **Service Commands** cliquez sur **Submit result for
@@ -51,4 +54,5 @@ La fenêtre suivante s'affiche :
 -   Le champ **Performance data** permet de définir des données de
     performances pour la génération des graphiques
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>

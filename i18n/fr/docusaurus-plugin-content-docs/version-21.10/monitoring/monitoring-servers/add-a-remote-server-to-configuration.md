@@ -2,6 +2,9 @@
 id: add-a-remote-server-to-configuration
 title: Ajouter un serveur distant à la configuration
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Prérequis
 
@@ -69,9 +72,8 @@ La communication entre le serveur Central et un serveur distant est assurée par
 être faite en utilisant ZMQ (avec un Gorgone s'exécutant sur le serveur distant,
 recommandé) ou en utilisant le protocole SSH.
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Avec ZMQ-->
+<Tabs groupId="sync">
+<TabItem value="Avec ZMQ" label="Avec ZMQ">
 
 1. Sélectionner le type de communication :
 
@@ -215,15 +217,14 @@ redémarrez-le avec la commande suivante depuis le **serveur Central** :
 systemctl restart gorgoned
 ```
 
-<!--Avec SSH (Déprécié)-->
+</TabItem>
+<TabItem value="Avec SSH (Déprécié)" label="Avec SSH (Déprécié)">
 
 > **Déprécié**
 >
 > Ce mode ne doit plus être utilisé car il n'autorise pas la
 > synchronisation des données entre l'interface utilisateur du Central
 > et du Remote Server.
-<!--END_DOCUSAURUS_CODE_TABS-->
-
 
 ## Étape 3 : Exporter la configuration
 
@@ -245,6 +246,9 @@ collecte :
     Broker Central.
 
     ![image](../../assets/monitoring/monitoring-servers/remote-list-zmq-started.png)
+
+</TabItem>
+</Tabs>
 
 ## Premiers pas
 

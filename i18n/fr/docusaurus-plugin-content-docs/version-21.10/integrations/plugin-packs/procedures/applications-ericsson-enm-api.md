@@ -2,6 +2,9 @@
 id: applications-ericsson-enm-api
 title: Ericsson ENM API
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Contenu du Pack
 
@@ -12,9 +15,8 @@ Le Pack Ericsson ENM collecte les données pour:
 
 ### Règles de découvertes
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Hosts-->
+<Tabs groupId="sync">
+<TabItem value="Hosts" label="Hosts">
 
 Le Pack Centreon *Ericsson ENM API* inclut un *provider* de découverte d'Hôtes.
 Celui-ci permet de découvrir l'ensemble des noeuds rattachés à un Ericsson Network Manager.
@@ -22,7 +24,8 @@ Celui-ci permet de découvrir l'ensemble des noeuds rattachés à un Ericsson Ne
 Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionnement sur la documentation du module:
 [Découverte des hôtes](../../../monitoring/discovery/hosts-discovery)
 
-<!--Services-->
+</TabItem>
+<TabItem value="Services" label="Services">
 
 | Nom de la règle                      | Description                                                  |
 | :----------------------------------- | :----------------------------------------------------------- |
@@ -30,13 +33,13 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 | App-Ericsson-Enm-Api-Node-Fru-Id     | Découvre les unités remplaçables et supervise leur statut    |
 | App-Ericsson-Enm-Api-Node-Id         | Découvre les noeuds et supervise ses composants (fru, cells) |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Nodes-->
+<Tabs groupId="sync">
+<TabItem value="Nodes" label="Nodes">
 
 | Metric name                 | Description                                  | Unit  |
 | :-------------------------- | :------------------------------------------- | :---- |
@@ -45,7 +48,8 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 | fru status                  | Current status of the field replaceable unit |       |
 | cell tdd status             | Current status of the cell tdd               |       |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -54,9 +58,8 @@ Le Pack ne supporte que l'authentification par utilisateur et mot de passe.
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -66,7 +69,8 @@ yum install centreon-plugin-Applications-Ericsson-Enm-Api
 
 2. Sur l'interface Web de Centreon, installer le Pack *Ericsson ENM API* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -82,7 +86,8 @@ yum install centreon-pack-applications-ericsson-enm-api
 
 3. Sur l'interface Web de Centreon, installer le Pack *Ericsson ENM API* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

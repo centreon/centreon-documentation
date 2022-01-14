@@ -2,6 +2,9 @@
 id: cloud-azure-management-loganalytics
 title: Azure Log Analytics
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -21,9 +24,8 @@ Il peut s'appuyer sur l'API Azure Management Monitor ou l'Azure CLI.
 
 ### Métriques collectées 
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Kusto-Query-->
+<Tabs groupId="sync">
+<TabItem value="Kusto-Query" label="Kusto-Query">
 
 | Metric name               | Description                                        | Unit  |
 |:--------------------------|:-------------------------------------------------- |:----- |
@@ -31,7 +33,8 @@ Il peut s'appuyer sur l'API Azure Management Monitor ou l'Azure CLI.
 
 La Macro KUSTOQUERY est obligatoire. 
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -40,9 +43,8 @@ Deux moyens sont disponibles pour interroger les API Microsoft Azure.
 Centreon préconise l'utilisation de la méthode *API* plutôt que la *CLI*, cette dernière étant significativement
 moins performante. L'API permet également une authentification *Application* et ne nécessite pas de compte de service dédié.
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Azure Monitor API-->
+<Tabs groupId="sync">
+<TabItem value="Azure Monitor API" label="Azure Monitor API">
 
 Pour le custom-mode 'api', récupérez les informations en suivant la procédure ci-dessous (en anglais)
 et notez celles-ci en lieu sûr. Elles seront en effet indispensables lors de la configuration des ressources
@@ -89,7 +91,8 @@ dans Centreon.
     - Click on *Save*.
     - **Copy and store the key value. You won't be able to retrieve it after you leave this page.**
 
-<!--Azure AZ CLI-->
+</TabItem>
+<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 Afin d'utiliser le custom-mode 'azcli', installer le binaire associé sur tous les Collecteurs Centreon
 devant superviser des resources Azure:
@@ -143,13 +146,13 @@ l'affichage des éléments suivants dans le terminal:
 Vous avez désormais les informations stockées localement dans un fichier 
 accessTokens.json qui sera utilisé automatiquement par le Plugin. 
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Installation 
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant effectuer des requêtes vers Azure Log Analytics:
 
@@ -159,7 +162,8 @@ yum install centreon-plugin-Cloud-Azure-Management-Log-Analytics-Api
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Azure Log Analytics* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant effectuer des requêtes vers Azure Log Analytics:
 
@@ -175,7 +179,8 @@ yum install centreon-pack-cloud-azure-management-log-analytics-api
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Azure Log Analytics* depuis la page "Configuration > Plugin packs > Gestionnaire"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -186,9 +191,8 @@ et appliquez-lui le Modèle d'Hôte *Cloud-Azure-Management-Log-Analytics-custom
 * Une fois le modèle appliqué, les Macros ci-dessous indiquées comme requises (*Mandatory*) 
 doivent être renseignées selon le custom-mode utilisé:
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Azure Monitor API-->
+<Tabs groupId="sync">
+<TabItem value="Azure Monitor API" label="Azure Monitor API">
 
 | Mandatory   | Nom               | Description       |
 | :---------- | :---------------- | :---------------- |
@@ -198,14 +202,16 @@ doivent être renseignées selon le custom-mode utilisé:
 | X           | AZURECLIENTID     | Client ID         |
 | X           | AZURECLIENTSECRET | Client secret     |
 
-<!--Azure AZ CLI-->
+</TabItem>
+<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 | Nom               | Description         |
 | :---------------- | :------------------ |
 | AZURECUSTOMMODE   | Custom mode 'azcli' |
 | AZURESUBSCRIPTION | Subscription ID     |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## FAQ
 

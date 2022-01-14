@@ -2,6 +2,9 @@
 id: operatingsystems-linux-nrpe3
 title: Linux NRPE3
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -57,8 +60,8 @@ partitions ou filtrage par expression régulière)
 
 Voici les métriques collectées pour les services liés au modèle dhôte par défaut :
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Cpu-->
+<Tabs groupId="sync">
+<TabItem value="Cpu" label="Cpu">
 
 | Métrique                            | Description                   | Unité |
 | :---------------------------------- | :---------------------------- | :---: |
@@ -67,7 +70,8 @@ Voici les métriques collectées pour les services liés au modèle dhôte par d
 | ...                                 | ...                           |   %   |
 | `cpu.utilization.percentage`        | Utilisation moyenne globale   |   %   |
 
-<!--Load-->
+</TabItem>
+<TabItem value="Load" label="Load">
 
 | Métrique | Description                           | Unité |
 | :------- | :------------------------------------ | :---: |
@@ -75,7 +79,8 @@ Voici les métriques collectées pour les services liés au modèle dhôte par d
 | `load5`  | Charge système moyenne sur 5 minutes  |       |
 | `load15` | Charge système moyenne sur 15 minutes |       |
 
-<!--Memory-->
+</TabItem>
+<TabItem value="Memory" label="Memory">
 
 | Métrique | Description                 | Unité |
 | :------- | :-------------------------- | :---: |
@@ -84,7 +89,8 @@ Voici les métriques collectées pour les services liés au modèle dhôte par d
 | `slab`   | Allocation Slab             |   B   |
 | `used`   | Mémoire consommée totale    |   B   |
 
-<!--Swap-->
+</TabItem>
+<TabItem value="Swap" label="Swap">
 
 | Métrique                | Description                       | Unité |
 | :---------------------- | :-------------------------------- | :---: |
@@ -92,13 +98,15 @@ Voici les métriques collectées pour les services liés au modèle dhôte par d
 | `swap.usage.bytes`      | Espace d'échange utilisé          |   B   |
 | `swap.usage.percentage` | Utilisation de l'espace d'échange |   %   |
 
-<!--Uptime-->
+</TabItem>
+<TabItem value="Uptime" label="Uptime">
 
 | Métrique | Description                                | Unité |
 | :------- | :----------------------------------------- | :---: |
 | `uptime` | Temps écoulé depuis le dernier redémarrage |   s   |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -121,18 +129,24 @@ Les hôtes supervisés ont besoin de deux composants pour que cela fonctionne :
 
 Installer les paquets suivants :
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+
 ```shell
 dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-2.el8.noarch.rpm
 dnf install centreon-nrpe3-daemon.x86_64 centreon-plugin-Operatingsystems-Linux-Local.noarch
 ```
-<!--CentOS 7-->
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 ```shell
 yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-2.el7.centos.noarch.rpm
 yum install centreon-nrpe3-daemon.x86_64 centreon-plugin-Operatingsystems-Linux-Local.noarch
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+
+</TabItem>
+</Tabs>
 
 > **NB :** Pour éviter l'ajout du dépôt Centreon sur tous vos serveurs, il est possible d'installer directement les paquets `https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-plugin-Operatingsystems-Linux-Local-20201006-142255.el7.centos.noarch.rpm` et `https://yum.centreon.com/standard/21.10/el7/stable/x86_64/RPMS/centreon-nrpe3-daemon-3.2.1-8.el7.centos.x86_64.rpm` (versions courantes au moment de la rédaction de cette documentation) **mais dans ce cas il ne sera pas possible de les mettre à jour par un `yum update`**.
 
@@ -163,13 +177,13 @@ systemctl restart centreon-nrpe3.service
 
 L'installation du Plugin-Pack en lui-même ne concerne que le serveur central et la procédure dépend du type de licence.
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Licence IMP/EPP "Online" & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Licence IMP/EPP Online & IT-100 Editions" label="Licence IMP/EPP Online & IT-100 Editions">
 
 Installer le Plugin-Pack "Linux NRPE3" depuis la page "Configuration > Plugin Packs > Manager".
 
-<!--Licence IMP/EPP "Offline"-->
+</TabItem>
+<TabItem value="Licence IMP/EPP Offline" label="Licence IMP/EPP Offline">
 
 1. Installer le RPM du Plugin-Pack contenant les modèles de supervision sur le serveur Centreon Central:
 
@@ -179,7 +193,8 @@ yum install centreon-pack-operatingsystems-linux-nrpe3
 
 2. Installer le Plugin-Pack "Linux NRPE3" depuis la page "Configuration > Plugin Packs > Manager".
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Centreon NRPE3 Plugin
 

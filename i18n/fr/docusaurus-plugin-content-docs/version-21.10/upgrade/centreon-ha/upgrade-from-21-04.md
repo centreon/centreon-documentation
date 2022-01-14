@@ -2,6 +2,9 @@
 id: upgrade-centreon-ha-from-21-04
 title: Montée de version de Centreon HA depuis Centreon 21.04
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 Ce chapitre décrit la procédure de montée de version de votre plateforme
 Centreon HA depuis la version 21.04 vers la version 21.10
@@ -38,16 +41,22 @@ Il est nécessaire de mettre à jour le dépôt Centreon.
 
 Exécutez la commande suivante :
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+
 ```shell
 dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-2.el8.noarch.rpm
 ```
-<!--CentOS 7-->
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 ```shell
 yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-2.el7.centos.noarch.rpm
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+
+</TabItem>
+</Tabs>
 
 > **WARNING:** pour éviter des problèmes de dépendances manquantes, référez-vous à la documentation des modules additionnels pour mettre à jour les dépôts Centreon Business
 
@@ -55,8 +64,9 @@ yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/ce
 
 Centreon 21.10 utilise PHP en version 8.0.
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
+
 Vous devez tout d'abord installer les dépôts **remi** :
 ```shell
 dnf install -y dnf-plugins-core
@@ -70,7 +80,10 @@ pour confirmer :
 dnf module reset php
 dnf module install php:remi-8.0
 ```
-<!--RHEL / CentOS 7-->
+
+</TabItem>
+<TabItem value="RHEL / CentOS 7" label="RHEL / CentOS 7">
+
 Vous devez tout d'abord installer les dépôts **remi** :
 ```shell
 yum install -y yum-utils
@@ -81,7 +94,9 @@ Ensuite, vous devez activer le dépôt php 8.0
 ```shell
 yum-config-manager --enable remi-php80
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+
+</TabItem>
+</Tabs>
 
 ### Montée de version de la solution Centreon
 
@@ -96,21 +111,24 @@ yum clean all --enablerepo=*
 
 Mettez à jour l'ensemble des composants :
 
-<!--RHEL / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```shell
 dnf update centreon\*
 mv /etc/centreon-ha/centreon_central_sync.pm.rpmsave /etc/centreon-ha/centreon_central_sync.pm
 ```
 
-<!--RHEL / CentOS 7-->
+</TabItem>
+<TabItem value="RHEL / CentOS 7" label="RHEL / CentOS 7">
 
 ```shell
 yum update centreon\*
 mv /etc/centreon-ha/centreon_central_sync.pm.rpmsave /etc/centreon-ha/centreon_central_sync.pm
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 > Acceptez les nouvelles clés GPG des dépôts si nécessaire.
 
@@ -124,8 +142,9 @@ echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
 
 > **WARNING** les commandes suivantes ne doivent être exécutées que sur un seul nœud du cluster.
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--HA 2 Nodes-->
+<Tabs groupId="sync">
+<TabItem value="HA 2 Nodes" label="HA 2 Nodes">
+
 ```bash
 pcs resource delete php7 --force
 pcs resource create "php" \
@@ -136,7 +155,10 @@ pcs resource create "php" \
     monitor interval="5s" timeout="30s" \
     clone
 ```
-<!--HA 4 Nodes-->
+
+</TabItem>
+<TabItem value="HA 4 Nodes" label="HA 4 Nodes">
+
 ```bash
 pcs resource delete php7 --force
 pcs resource create "php" \
@@ -148,7 +170,9 @@ pcs resource create "php" \
     clone
 pcs constraint location php-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+
+</TabItem>
+</Tabs>
 
 Une fois les mises à jour terminées sur les deux serveurs, il reste à appliquer la mise à jour via l'interface web en fermant la session en cours ou en rafraichissant la page de login.
 
@@ -245,8 +269,9 @@ pcs resource restart ms_mysql
 
 Il est possible de suivre l'état du cluster en temps réel via la commande `crm_mon` :
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--HA 2 Nodes-->
+<Tabs groupId="sync">
+<TabItem value="HA 2 Nodes" label="HA 2 Nodes">
+
 ```bash
 Stack: corosync
 Current DC: @CENTRAL_SLAVE_NAME@ (version 1.1.20-5.el7_7.2-3c4c782f70) - partition with quorum
@@ -277,7 +302,10 @@ Active resources:
  Clone Set: php-clone [php]
      Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
 ```
-<!--HA 4 Nodes-->
+
+</TabItem>
+<TabItem value="HA 4 Nodes" label="HA 4 Nodes">
+
 ```bash
 [...]
 4 nodes configured
@@ -305,7 +333,9 @@ Active resources:
  Clone Set: php-clone [php]
      Started: [@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@]
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+
+</TabItem>
+</Tabs>
 
 ## Vérification de la stabilité de la plateforme
 

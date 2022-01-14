@@ -2,6 +2,9 @@
 id: operatingsystems-aix-ssh
 title: AIX SSH
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Contenu du Plugin Pack
 
@@ -17,28 +20,30 @@ Le Plugin Pack inclue la supervision le système AIX en utilisant les commandes 
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Cmdreturn-->
+<Tabs groupId="sync">
+<TabItem value="Cmdreturn" label="Cmdreturn">
 
 | Metric name                               | Description                            | Unit  |
 | :---------------------------------------- | :------------------------------------- | :---- |
 | command.exit.code.count                   | Number of exit code return             | count |
 
-<!--Inodes-->
+</TabItem>
+<TabItem value="Inodes" label="Inodes">
 
 | Metric name                               | Description                            | Unit  |
 | :---------------------------------------- | :------------------------------------- | :---- |
 | storage.inodes.usage.percentage           | Inodes usage in percenta               | %     |
 
-<!--Process-->
+</TabItem>
+<TabItem value="Process" label="Process">
 
 | Metric name                               | Description                            | Unit  |
 | :---------------------------------------- | :------------------------------------- | :---- |
 | processes.alerts.count                    | Number of alerts processes             | count |
 | processes.total.count                     | Total number of alerts processes       | count |
 
-<!--Storage-->
+</TabItem>
+<TabItem value="Storage" label="Storage">
 
 | Metric name                               | Description                            | Unit  |
 | :---------------------------------------- | :------------------------------------- | :---- |
@@ -46,7 +51,8 @@ Le Plugin Pack inclue la supervision le système AIX en utilisant les commandes 
 | storage.space.free.bytes                  | Storage free space usage               | B     |
 | storageresource.space.usage.percentage    | Storage percentage space usage         | %     |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -54,9 +60,8 @@ Un simple utilisateur est nécessaire pour interroger le système d'exploitation
 Il y a deux façons possibles d'effectuer la vérification SSH, soit en échangeant la clé SSH de centreon-engine au serveur cible, 
 ou en définissant votre utilisateur et votre mot de passe directement dans les macros hôtes.
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Exchange des Clés SSH -->
+<Tabs groupId="sync">
+<TabItem value="Exchange des Clés SSH" label="Exchange des Clés SSH">
 
 Ajouter et générer un mot de passe pour votre utilisateur sur le **Serveur Cible** :
 
@@ -78,17 +83,18 @@ ssh-keygen -t ed25519 -a 100
 ssh-copy-id -i .ssh/id_ed25519.pub ro_ssh_centreon@<IP_TARGET_SERVER>
 ```
 
-<!--Autentification Utilisateur/Mot de passe-->
+</TabItem>
+<TabItem value="Autentification Utilisateur/Mot de passe" label="Autentification Utilisateur/Mot de passe">
 
 Après avoir défini les paramètres du nom, de l'alias, de l'IP et du modèle d'hôte, vous devez remplir les macros décritent dans la partie **Configuration** ci-dessous.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -98,7 +104,8 @@ yum install centreon-plugin-Operatingsystems-Aix-Local
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *AIX SSH* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -114,7 +121,8 @@ yum install centreon-pack-operatingsystems-aix-ssh
 
 3. Sur l'interface Web de Centreon, installer le Plugin Pack *AIX SSH* depuis la page "Configuration > Plugin Packs > Manager"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -122,9 +130,8 @@ Ce Plugin Pack est conçu de manière à avoir dans Centreon un hôte par serveu
 Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *OS-AIX-SSH-custom*. 
 Une fois celui-ci configuré, certaines macros doivent être renseignées:
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--sshcli backend-->
+<Tabs groupId="sync">
+<TabItem value="sshcli backend" label="sshcli backend">
 
 | Mandatory   | Name            | Description                                                                                     |
 | :---------- | :-------------- | :---------------------------------------------------------------------------------------------- |
@@ -137,7 +144,8 @@ Une fois celui-ci configuré, certaines macros doivent être renseignées:
 > Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur centreon-engine du Collecteur
 et l'utilisateur applicatif créé sur le serveur distant. (Macro SSHUSERNAME).
 
-<!--plink backend-->
+</TabItem>
+<TabItem value="plink backend" label="plink backend">
 
 | Mandatory   | Name            | Description                                                                                     |
 | :---------- | :-------------- | :---------------------------------------------------------------------------------------------- | 
@@ -150,7 +158,8 @@ et l'utilisateur applicatif créé sur le serveur distant. (Macro SSHUSERNAME).
 > Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur centreon-engine du Collecteur
 et l'utilisateur applicatif créé sur le serveur distant. (Macro SSHUSERNAME).
 
-<!--libssh backend (par défaut)-->
+</TabItem>
+<TabItem value="libssh backend (par défaut)" label="libssh backend (par défaut)">
 
 | Mandatory   | Name            | Description                                                                                     |
 | :---------- | :-------------- | :---------------------------------------------------------------------------------------------- |
@@ -161,6 +170,9 @@ et l'utilisateur applicatif créé sur le serveur distant. (Macro SSHUSERNAME).
 |             | SSHEXTRAOPTIONS | Personnalisez-le avec le vôtre si nécessaire. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```      |
 
 Avec ce backend, vous n'avez pas à valider manuellement le fingerprint du serveur cible. 
+
+</TabItem>
+</Tabs>
 
 ## Comment puis-je tester le Plugin et que signifient les options des commandes ?
 

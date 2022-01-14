@@ -2,6 +2,9 @@
 id: generic-actions
 title: Actions génériques
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 Au sein du menu **Configuration** il est possible d’effectuer certaines actions "génériques" sur les différents objets.
 
@@ -24,8 +27,8 @@ d’un nouvel objet. Exemple : J’ai 10 serveurs web identiques à superviser :
 Grâce à cette méthode, il n’est plus nécessaire de créer unitairement chaque hôte.
 
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Méthode 1-->
+<Tabs groupId="sync">
+<TabItem value="Méthode 1" label="Méthode 1">
 
 Par exemple, pour dupliquer une Business Activity:
 
@@ -37,7 +40,8 @@ Par exemple, pour dupliquer une Business Activity:
 
 4. Cliquez sur **OK**.
 
-<!--Méthode 2-->
+</TabItem>
+<TabItem value="Méthode 2" label="Méthode 2">
 
 Par exemple, pour dupliquer un hôte :
 
@@ -51,7 +55,8 @@ Par exemple, pour dupliquer un hôte :
     ![image](../assets/configuration/common/01duplicateobjects.png)
 
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Changement massif
 
@@ -62,14 +67,15 @@ modifier cette communauté sans devoir modifier chaque fiche de chaque hôte uni
 
 Pour effectuer un changement massif :
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Méthode 1-->
+<Tabs groupId="sync">
+<TabItem value="Méthode 1" label="Méthode 1">
 
 1. Sélectionnez les objets que vous souhaitez modifier.
 2. Cliquez sur l'icône **Changement multiple** au-dessus de la liste des objets : ![image](../assets/configuration/common/mass_change.png)
 3. Confirmez les changements.
 
-<!--Méthode 2-->
+</TabItem>
+<TabItem value="Méthode 2" label="Méthode 2">
 
 1. Sélectionnez les objets que vous souhaitez modifier.
 2. Dans le menu **Plus d'actions**, cliquez sur **Changement massif**.
@@ -78,7 +84,8 @@ Pour effectuer un changement massif :
     * **Incrémentale** : la modification va s’ajouter aux options déjà existantes
     * **Remplacement** : la modification va écraser les options déjà existantes.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Activer/Désactiver un objet
 
@@ -87,8 +94,8 @@ configuration. Le principal intérêt est de pouvoir garder la configuration d�
 
 Pour activer/désactiver un objet :
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Méthode 1-->
+<Tabs groupId="sync">
+<TabItem value="Méthode 1" label="Méthode 1">
 
 1. Sélectionnez les objets que vous souhaitez modifier.
 2. Cliquez sur l'icône désirée dans la ligne de l'objet ou au-dessus de la liste :
@@ -96,7 +103,8 @@ Pour activer/désactiver un objet :
     * **Activer** <img src={require('../assets/configuration/common/enabled_new.png').default} style={{width:'32px', marginBottom:'-6px'}} />
     * **Désactiver** <img src={require('../assets/configuration/common/disabled_new.png').default} style={{width:'32px', marginBottom:'-6px'}} />
 
-<!--Méthode 2-->
+</TabItem>
+<TabItem value="Méthode 2" label="Méthode 2">
 
 1. Sélectionnez les objets que vous souhaitez modifier.
 2. Dans le menu **Plus d'actions**, cliquez sur **Activer/désactiver**.
@@ -108,7 +116,8 @@ Vous pouvez également utiliser les boutons suivants en fin de ligne :
 
    ![image](../assets/configuration/common/enable_disable.png)
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Supprimer un objet
 
@@ -118,17 +127,19 @@ Vous pouvez également utiliser les boutons suivants en fin de ligne :
 
 Pour supprimer un objet :
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Méthode 1-->
+<Tabs groupId="sync">
+<TabItem value="Méthode 1" label="Méthode 1">
 
 1. Sélectionnez les objets que vous souhaitez supprimer.
 2. Cliquez sur l'icône **Supprimer** : <img src={require('../assets/configuration/common/delete_new.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 3. Confirmer l'action.
 
-<!--Méthode 2-->
+</TabItem>
+<TabItem value="Méthode 2" label="Méthode 2">
 
 1. Sélectionnez les objets que vous souhaitez supprimer.
 2. Dans le menu **Plus d'actions**, cliquez sur **Supprimer**.
 3. Confirmer l'action.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>

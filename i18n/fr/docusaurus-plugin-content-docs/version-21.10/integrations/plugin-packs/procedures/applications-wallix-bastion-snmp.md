@@ -2,6 +2,9 @@
 id: applications-wallix-bastion-snmp
 title: Wallix Bastion SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Contenu du Pack de supervision
 
@@ -13,9 +16,8 @@ Le Pack Wallix Bastion collecte les données pour:
 
 ### Métriques collectées 
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--License-->
+<Tabs groupId="sync">
+<TabItem value="License" label="License">
 
 | Metric name                                   | Description                                 | Unit  |
 | :-------------------------------------------- | :------------------------------------------ | :---- |
@@ -25,7 +27,8 @@ Le Pack Wallix Bastion collecte les données pour:
 | *license\_resource*\#license.free.count       | Number of free resources on the license     |       |
 | *license\_resource*\#license.usage.percentage | Percentage of used resources on the license | %     |
 
-<!--System-->
+</TabItem>
+<TabItem value="System" label="System">
 
 | Metric name              | Description                             | Unit  |
 | :----------------------- | :-------------------------------------- | :---- |
@@ -36,7 +39,8 @@ Le Pack Wallix Bastion collecte les données pour:
 | sessions.ghost.count     | Number of ghost sessions                |       |
 | requests.pending.count   | Number of requests pending for approval |       |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -44,9 +48,8 @@ Afin de contrôler votre application Wallix Bastion, le SNMP doit être configur
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -56,7 +59,8 @@ yum install centreon-plugin-Applications-Wallix-Bastion-Snmp
 
 2. Sur l'interface Web de Centreon, installer le Pack *Wallix Bastion SNMP* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -72,7 +76,8 @@ yum install centreon-pack-applications-wallix-bastion-snmp
 
 3. Sur l'interface Web de Centreon, installer le Pack *Wallix Bastion SNMP* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
