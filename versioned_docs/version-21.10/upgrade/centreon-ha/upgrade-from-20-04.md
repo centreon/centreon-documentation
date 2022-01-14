@@ -2,6 +2,9 @@
 id: upgrade-centreon-ha-from-20-04
 title: Upgrade Centreon HA from Centreon 20.04
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 This chapter describes how to upgrade your Centreon HA platform from version 20.04
 to version 21.10.
@@ -70,8 +73,8 @@ yum clean all --enablerepo=*
 
 Then upgrade all the components with the following command:
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--HA 2 Nodes-->
+<Tabs groupId="sync">
+<TabItem value="HA 2 Nodes" label="HA 2 Nodes">
 
 ```shell
 yum remove centreon-ha
@@ -81,7 +84,8 @@ mv /etc/centreon-ha/centreon_central_sync.pm.rpmsave /etc/centreon-ha/centreon_c
 mv /etc/centreon-ha/mysql-resources.sh.rpmsave /etc/centreon-ha/mysql-resources.sh
 ```
 
-<!--HA 4 Nodes-->
+</TabItem>
+<TabItem value="HA 4 Nodes" label="HA 4 Nodes">
 
 On the Central Servers:
 
@@ -101,7 +105,8 @@ yum install centreon-ha-common
 mv /etc/centreon-ha/mysql-resources.sh.rpmsave /etc/centreon-ha/mysql-resources.sh
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 The PHP timezone should be set. Run the command on both Central Server nodes:
 
@@ -114,8 +119,8 @@ echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
 
 > **WARNING** the following commands must be executed on only one node of the cluster.
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--HA 2 Nodes-->
+<Tabs groupId="sync">
+<TabItem value="HA 2 Nodes" label="HA 2 Nodes">
 ```bash
 pcs resource delete php7 --force
 pcs resource create "php" \
@@ -126,7 +131,8 @@ pcs resource create "php" \
     monitor interval="5s" timeout="30s" \
     clone
 ```
-<!--HA 4 Nodes-->
+</TabItem>
+<TabItem value="HA 4 Nodes" label="HA 4 Nodes">
 ```bash
 pcs resource delete php7
 pcs resource create "php" \
@@ -138,7 +144,8 @@ pcs resource create "php" \
     clone
 pcs constraint location php-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 Then to perform the WEB UI upgrade, please [follow the official documentation](../../upgrade/upgrade-from-20-04.md#finalizing-the-upgrade) Only on the **active central node**.
 
@@ -325,8 +332,8 @@ pcs resource cleanup ms_mysql
 
 You can monitor the cluster's resources in real time using the `crm_mon` command:
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--HA 2 Nodes-->
+<Tabs groupId="sync">
+<TabItem value="HA 2 Nodes" label="HA 2 Nodes">
 ```bash
 Stack: corosync
 Current DC: @CENTRAL_SLAVE_NAME@ (version 1.1.20-5.el7_7.2-3c4c782f70) - partition with quorum
@@ -357,7 +364,8 @@ Active resources:
  Clone Set: php-clone [php]
      Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
 ```
-<!--HA 4 Nodes-->
+</TabItem>
+<TabItem value="HA 4 Nodes" label="HA 4 Nodes">
 ```bash
 [...]
 4 nodes configured
@@ -385,7 +393,8 @@ Active resources:
  Clone Set: php-clone [php]
      Started: [@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE@]
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Verifying the platform stability
 

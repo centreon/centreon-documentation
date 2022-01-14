@@ -2,6 +2,9 @@
 id: hardware-storage-bdt-multistak-snmp
 title: BDT MultiStak SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Plugin Pack Assets
 
@@ -12,9 +15,8 @@ The Plugin Pack BDT MutliStak SNMP collects metrics for:
 
 ### Collected Metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Hardware-->
+<Tabs groupId="sync">
+<TabItem value="Hardware" label="Hardware">
 
 | Metric name                                        | Description                       | Unit |
 | :------------------------------------------------- | :-------------------------------- | :--- |
@@ -23,7 +25,8 @@ The Plugin Pack BDT MutliStak SNMP collects metrics for:
 | module board status                                | Status of the module board        |      |
 | module psu status                                  | Status of the module power supply |      |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -31,9 +34,8 @@ To monitor your BDT MultiStak device, the SNMP must be configured.
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -43,7 +45,8 @@ yum install centreon-plugin-Hardware-Storage-Bdt-Multistak-Snmp
 
 2. On the Centreon Web interface in "Configuration > Plugin ¨Packs > Manager", install the *BDT MultiStak SNMP* Plugin-Pack
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -59,7 +62,8 @@ yum install centreon-pack-hardware-storage-bdt-multistak-snmp
 
 3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *BDT MultiStak SNMP* Plugin-Pack
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host configuration
 

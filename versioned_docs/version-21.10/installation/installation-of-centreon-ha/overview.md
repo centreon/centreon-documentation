@@ -2,6 +2,9 @@
 id: overview
 title: Centreon-HA Overview
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Introduction 
 
@@ -128,21 +131,22 @@ scope is above 5k Hosts.
 Schemas below show both architecture flavor and network flows between servers. To get the complete network 
 flow matrix, refer to the architecture dedicated installation page.
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Two-nodes-cluster-->
+<Tabs groupId="sync">
+<TabItem value="Two-nodes-cluster" label="Two-nodes-cluster">
 
 ![image](../../assets/integrations/centreon-ha/centreon-ha-2-nodes-arch.png)
 
 Reach [this page](../../installation/installation-of-centreon-ha/installation-2-nodes) to start your two nodes setup! 
 
-<!--Four-nodes-cluster-->
+</TabItem>
+<TabItem value="Four-nodes-cluster" label="Four-nodes-cluster">
 
 ![image](../../assets/integrations/centreon-ha/centreon-ha-4-nodes-arch.png)
 
 Reach [this page](../../installation/installation-of-centreon-ha/installation-4-nodes) to start your four nodes setup!
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Additionnal information
 

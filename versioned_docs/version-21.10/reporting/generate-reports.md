@@ -2,6 +2,9 @@
 id: manage-reports
 title: Generate reports
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 This chapters describes features you need to manipulate to be able to generate & manage reports.
 
@@ -106,9 +109,8 @@ The following menu is used for adding a new scheduled job:
 
 ![image](../assets/reporting/guide/addJob.png)
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--1. Configuration-->
+<Tabs groupId="sync">
+<TabItem value="1. Configuration" label="1. Configuration">
 
 A report generation job *must* be linked to a report design ("Report design").
 
@@ -158,7 +160,8 @@ frequency:
  - Weekly reports cover the previous week.
  - Monthly reports cover the previous month.
 
-<!--2. Report parameters-->
+</TabItem>
+<TabItem value="2. Report parameters" label="2. Report parameters">
 
 The "Report Parameters" menu is used to set the specific parameters for the report design.
 
@@ -188,7 +191,8 @@ parameter when metrics are excluded.
 
 By defaut, all metrics will be applied.
 
-<!--3. Report publication (Optional) -->
+</TabItem>
+<TabItem value="3. Report publication (Optional)" label="3. Report publication (Optional)">
 
  Once a report is generated, it can be automatically published using pre-defined rules. When creating
  a job, you can create several rules under the tab "Publication" (refer to 
@@ -197,7 +201,8 @@ By defaut, all metrics will be applied.
 
 ![image](../assets/reporting/guide/jobPublication.png)
 
-<!--4. Tunning (Optional)-->
+</TabItem>
+<TabItem value="4. Tunning (Optional)" label="4. Tunning (Optional)">
 
 The "Tuning" menu contains three parameters:
 
@@ -224,7 +229,8 @@ The "Tuning" menu contains three parameters:
 -   **Administrator e-mail notification**: Enable or disable
     notification when scheduled job is generated.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Accessing generated reports
 

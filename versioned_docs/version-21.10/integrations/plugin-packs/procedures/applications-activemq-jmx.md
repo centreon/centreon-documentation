@@ -2,6 +2,9 @@
 id: applications-activemq-jmx
 title: ActiveMQ JMX
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -15,21 +18,20 @@ Apache ActiveMQ is an open source message broker written in Java together with a
 
 ### Discovery rules
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Services-->
+<Tabs groupId="sync">
+<TabItem value="Services" label="Services">
 
 | Rule name                     | Description                |
 | :---------------------------- | :------------------------- |
 | App-Activemq-Jmx-Brokers-Name |  Discover ActiveMQ Broker  |
 
-<!--DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Monitored metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Brokers-->
+<Tabs groupId="sync">
+<TabItem value="Brokers" label="Brokers">
 
 | Metric name                                    | Description                                         |
 | :--------------------------------------------- | :-------------------------------------------------- |
@@ -57,7 +59,8 @@ Apache ActiveMQ is an open source message broker written in Java together with a
 | Broker.topic.messages.inflighted.count         | Broker inflighted messages per topic. Unit: count   |
 | Broker.topic.messages.size.average.bytes       | Broker average messages size per topic. Unit: bytes |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -68,9 +71,8 @@ More information on how to set up and configure the ActiveMQ RestAPI can be foun
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Install the Plugin on every poller expected to monitor ActiveMQ resources:
 
@@ -80,7 +82,8 @@ yum install centreon-plugin-Applications-ActiveMQ-Jmx
 
 2. On the Centreon Web interface, install the *ActiveMQ JMX* Centreon Plugin-Pack from the "Configuration > Plugin packs > Manager" page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Plugin on every poller expected to monitor ActiveMQ resources:
 
@@ -96,7 +99,8 @@ centreon-pack-applications-activemq-jmx.noarch
 
 3. On the Centreon Web interface, install the *ActiveMQ JMX* Centreon Plugin-Pack from the "Configuration > Plugin packs > Manager" page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

@@ -2,6 +2,9 @@
 id: network-acmepacket-snmp
 title: Acme Packet SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Plugin Pack Assets
 
@@ -19,9 +22,8 @@ The Plugin Pack Acme Packet SNMP collects metrics for:
 
 ### Discovery rules
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Services-->
+<Tabs groupId="sync">
+<TabItem value="Services" label="Services">
 
 | Rule name                              | Description                                                   |
 | :------------------------------------- | :------------------------------------------------------------ |
@@ -30,13 +32,13 @@ The Plugin Pack Acme Packet SNMP collects metrics for:
 | Net-Acmepacket-SNMP-Realm-Name         | Discover realms and monitor utilization                       |
 | Net-Acmepacket-SNMP-Sip-Name           | Discover Sip interfaces and monitor utilization               |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Collected metrics & status
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Codec-->
+<Tabs groupId="sync">
+<TabItem value="Codec" label="Codec">
 
 | Metric name                            | Description                                              | Unit |
 | :------------------------------------- | :------------------------------------------------------- | :--- |
@@ -45,7 +47,8 @@ The Plugin Pack Acme Packet SNMP collects metrics for:
 | transcoding.resources.free.count       | Number of transcoding resources currently free           |      |
 | transcoding.resources.usage.percentage | The percentage of transcoding resources currently in-use | %    |
 
-<!--Hardware-->
+</TabItem>
+<TabItem value="Hardware" label="Hardware">
 
 | Metric name                                        | Description                      | Unit |
 | :------------------------------------------------- | :------------------------------- | :--- |
@@ -57,7 +60,8 @@ The Plugin Pack Acme Packet SNMP collects metrics for:
 | voltage status                                     | Status of the voltage sensor     |      |
 | *sensor\_description*#hardware.voltage.volt        | Voltage of the sensor            | V    |
 
-<!--Interfaces-->
+</TabItem>
+<TabItem value="Interfaces" label="Interfaces">
 
 | Metric name                                            | Description                                         | Unit |
 | :----------------------------------------------------- | :-------------------------------------------------- | :--- |
@@ -69,7 +73,8 @@ The Plugin Pack Acme Packet SNMP collects metrics for:
 
 A regexp filter is available to target a specific interface identifier - ifName [```--interface='^eth0$' --name```]
 
-<!--Policy-servers-->
+</TabItem>
+<TabItem value="Policy-servers" label="Policy-servers">
 
 | Metric name                                                                                | Description                                                                        | Unit |
 | :----------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------- | :--- |
@@ -94,7 +99,8 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | *policy\_name*\#policy_server.messages.re_auth_answer.succeeded.count                      | Total number of RAA success messages for Rx policy server                          |      |
 | *policy\_name*\#policy_server.messages.re_auth_answer.errors.count                         | Total number of RAA error messages for Rx policy server                            |      |
 
-<!--Realm-usage-->
+</TabItem>
+<TabItem value="Realm-usage" label="Realm-usage">
 
 | Metric name                                       | Description                              | Unit |
 | :------------------------------------------------ | :--------------------------------------- | :--- |
@@ -107,7 +113,8 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | *realm\_name*\#realm.rfactor.qos.average.count    | Average number of QoS RFactor            |      |
 | *realm\_name*\#realm.rfactor.execeded.total.count | Total number of RFactor exceeded         |      |
 
-<!--Security-->
+</TabItem>
+<TabItem value="Security" label="Security">
 
 | Metric name                                                            | Description                                                    | Unit |
 | :--------------------------------------------------------------------- | :------------------------------------------------------------- | :--- |
@@ -124,7 +131,8 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | security.ims_aka.security_association_del.responses.out.failed.count   | Total number of IMS-AKA DEL-SA fail responses sent             |      |
 | security.ims_aka.security_association_del.deleted.count                | Total number of IMS-AKA DEL-SA fail responses sent             |      |
 
-<!--Sip-usage-->
+</TabItem>
+<TabItem value="Sip-usage" label="Sip-usage">
 
 | Metric name                                 | Description                         | Unit |
 | :------------------------------------------ | :---------------------------------- | :--- |
@@ -134,7 +142,8 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | *sip\_name*\#sip.stats.latency.milliseconds | Average Latency                     |      |
 | *sip\_name*\#sip.stats.asr.percentage       | Answer-to-seizure ratio             |      |
 
-<!--System-usage-->
+</TabItem>
+<TabItem value="System-usage" label="System-usage">
 
 | Metric name                | Description                 | Unit |
 | :------------------------- | :-------------------------- | :--- |
@@ -146,7 +155,8 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | calls.current.count        | Current number of calls     |      |
 | replication status         | Status of the replication   |      |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -154,9 +164,8 @@ To control your Acme Packet, the SNMP must be configured.
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -166,7 +175,8 @@ yum install centreon-plugin-Network-Acmepacket-Snmp
 
 2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Acme Packet* Plugin Pack
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -182,7 +192,8 @@ yum install centreon-pack-network-acmepacket-snmp
 
 3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Acme Packet* Plugin Pack
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host configuration
 

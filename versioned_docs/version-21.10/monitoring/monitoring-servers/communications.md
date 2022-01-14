@@ -2,6 +2,9 @@
 id: communications
 title: Communications
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Communication modes
 
@@ -21,48 +24,51 @@ Communication modes are listed below:
 
 ### Without Remote Server
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Modern (recommended)-->
+<Tabs groupId="sync">
+<TabItem value="Modern (recommended)" label="Modern (recommended)">
 
 | Communications                         | Allowed actions                                                           |
 | -------------------------------------- | ------------------------------------------------------------------------- |
 | **Central** \<-- *ZMQ* --\> **Poller** | Monitoring actions\*, Engine/Broker statistics collection, Host Discovery |
 
-<!--Legacy (ex-Centcore)-->
+</TabItem>
+<TabItem value="Legacy (ex-Centcore)" label="Legacy (ex-Centcore)">
 
 | Communications                         | Allowed actions                                                           |
 | -------------------------------------- | ------------------------------------------------------------------------- |
 | **Central** \<-- *SSH* --\> **Poller** | Monitoring actions\*, Engine/Broker statistics collection, Host Discovery |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 \* Monitoring actions are all actions provided by Centreon UI like downtimes,
 acknowledgements, etc and configuration export.
 
 ### With Remote Server
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Modern (recommended)-->
+<Tabs groupId="sync">
+<TabItem value="Modern (recommended)" label="Modern (recommended)">
 
 | Communications                                                    | Allowed actions                                                           |
 | ----------------------------------------------------------------- | ------------------------------------------------------------------------- |
 | **Central** \<-- *ZMQ* --\> **Remote** \<-- *ZMQ* --\> **Poller** | Monitoring actions\*, Engine/Broker statistics collection, Host Discovery |
 
-<!--Mixed-->
+</TabItem>
+<TabItem value="Mixed" label="Mixed">
 
 | Communications                                                    | Allowed actions                                                           |
 | ----------------------------------------------------------------- | ------------------------------------------------------------------------- |
 | **Central** \<-- *ZMQ* --\> **Remote** \<-- *SSH* --\> **Poller** | Monitoring actions\*, Engine/Broker statistics collection, Host Discovery |
 
-<!--Legacy (ex-Centcore)-->
+</TabItem>
+<TabItem value="Legacy (ex-Centcore)" label="Legacy (ex-Centcore)">
 
 | Communications                                                    | Allowed actions                                                                                       |
 | ----------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
 | **Central** \<-- *SSH* --\> **Remote** \<-- *SSH* --\> **Poller** | Monitoring actions\*, Engine/Broker statistics collection (Remote only), Host Discovery (Remote only) |
 
-<!--Other (not recommended)-->
+</TabItem>
+<TabItem value="Other (not recommended)" label="Other (not recommended)">
 
 | Communications                                                    | Allowed actions      |
 | ----------------------------------------------------------------- | -------------------- |
@@ -71,16 +77,16 @@ acknowledgements, etc and configuration export.
 > This mode does not allow to retrieve Remote's thumbprint therefore it's
 > not possible to display Poller's Gorgone configuration from Centreon UI.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 \* Monitoring actions are all actions provided by Centreon UI like downtimes,
 acknowledgements, etc and configuration export.
 
 ## Change communication from SSH to ZMQ
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--For a Poller-->
+<Tabs groupId="sync">
+<TabItem value="For a Poller" label="For a Poller">
 
 #### Select communication type
 
@@ -187,7 +193,8 @@ systemctl enable gorgoned
 > systemctl restart gorgoned
 > ```
 
-<!--For a Remote Server-->
+</TabItem>
+<TabItem value="For a Remote Server" label="For a Remote Server">
 
 #### Select communication type
 
@@ -318,7 +325,8 @@ It should result as follow:
 Mar 24 19:45:00 localhost.localdomain systemd[1]: Started Centreon Gorgone.
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 **To force the Central's Gorgone daemon to change the communication type**,
 restart it with the following command from the **Central server**:
