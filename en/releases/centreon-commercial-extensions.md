@@ -151,7 +151,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 20.04.9
 
-`January 07, 2022`
+Release date: `January 14, 2022`
 
 #### Bugfixes
 
