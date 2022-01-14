@@ -2,6 +2,9 @@
 id: hardware-storage-purestorage-snmp
 title: Pure Storage SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -16,8 +19,8 @@ proprietary de-duplication and compression software to improve the amount of dat
 
 ## Monitored metrics 
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Stats-->
+<Tabs groupId="sync">
+<TabItem value="Stats" label="Stats">
 
 | Metric Name              | Description                                                     |
 | :----------------------- | :-------------------------------------------------------------- |
@@ -28,7 +31,8 @@ proprietary de-duplication and compression software to improve the amount of dat
 | pureArrayReadLatency     | Storage array Read Latency (us/op). Unit: us/operations         |
 | pureArrayWriteLatency    | Storage array Write Latency (us/op). Unit: us/operations        |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -42,9 +46,8 @@ Your Centreon poller must be able to reach the PureStorage storage array on the 
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Install the Plugin on every poller expected to monitor Pure Storage SNMP resources:
 
@@ -54,7 +57,8 @@ yum install centreon-plugin-Hardware-Storage-Purestorage-Snmp
 
 2. Install the "Pure Storage SNMP" Centreon Plugin-Pack from the "Configuration > Plugin packs > Manager" page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Plugin on every poller expected to monitor Pure Storage resources:
 
@@ -70,7 +74,8 @@ yum install centreon-pack-hardware-storage-purestorage-snmp
 
 3. Install the "Pure Storage SNMP" Centreon Plugin-Pack from the "Configuration > Plugin packs > Manager" page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host Configuration
 

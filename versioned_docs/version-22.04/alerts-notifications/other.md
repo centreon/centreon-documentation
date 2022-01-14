@@ -2,6 +2,9 @@
 id: other
 title: Other actions
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Adding a comment
 
@@ -22,19 +25,21 @@ following properties:
 
 There are two solutions to add a comment:
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--From the detailed sheet of an object-->
+<Tabs groupId="sync">
+<TabItem value="From the detailed sheet of an object" label="From the detailed sheet of an object">
 
 1.  Access to the details page of the object
 2.  In the category **Host/Service Commands**, click on **Add a comment
     for this host/this service**
 
-<!--From the Comment menu-->
+</TabItem>
+<TabItem value="From the Comment menu" label="From the Comment menu">
 
 1.  Go into the **Monitoring > Downtimes > Comments** menu
 2.  Click on **Add a Service Comment** or **Add a Host Comment**
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 The following window appears:
 
@@ -59,8 +64,8 @@ It is possible to temporarily enable or disable check on a host or a service.
 
 ### Practice
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--From the detailed sheet of an object-->
+<Tabs groupId="sync">
+<TabItem value="From the detailed sheet of an object" label="From the detailed sheet of an object">
 
 1.  Access the details page of the object
 2.  In the category: **Options** go to the line: **Active checks** to
@@ -71,7 +76,8 @@ To:
 -   Enable the check, click on ![image](../assets/configuration/common/enabled.png)
 -   Disable the check, click on ![image](../assets/configuration/common/disabled.png)
 
-<!--From real time monitoring-->
+</TabItem>
+<TabItem value="From real time monitoring" label="From real time monitoring">
 
 1.  Go into the **Monitoring > Status Details > Hosts** (or **Services**)
     menu
@@ -84,7 +90,8 @@ To:
 -   **Hosts: Enable Check** or **Services: Enable Check** to enable the
     check of a host or of a service
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 
 ## Management of notifications
@@ -102,8 +109,8 @@ host or a service.
 
 There are two ways of managing the notifications:
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--From the detailed sheet of an object-->
+<Tabs groupId="sync">
+<TabItem value="From the detailed sheet of an object" label="From the detailed sheet of an object">
 
 1.  Access the details page of the object
 2.  In the category: **Options** go to the line: **Service
@@ -114,7 +121,8 @@ To:
 -   Enable the notification, click on ![image](../assets/configuration/common/enabled.png)
 -   Disable the notification, click on ![image](../assets/configuration/common/disabled.png)
 
-<!--From real time monitoring-->
+</TabItem>
+<TabItem value="From real time monitoring" label="From real time monitoring">
 
 1.  Go into the **Monitoring > Status Details > Hosts** (or **Services**)
     menu
@@ -127,7 +135,8 @@ To:
 -   **Hosts: Enable Notification** or **Services: Enable Notification**
     to enable the notification of a host or a service
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Reprogramming checks
 
@@ -151,15 +160,16 @@ There are two types of programming:
 
 There are two ways of forcing the check of a service:
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--From the detailed sheet of an object-->
+<Tabs groupId="sync">
+<TabItem value="From the detailed sheet of an object" label="From the detailed sheet of an object">
 
 1.  Access the detail page of the object
 2.  In the category **Host Commands** (or **Service Commands**), click
     on **Re-schedule the next check for this host / service** or
     **Re-schedule the next check for this host / service (forced)**
 
-<!--From real time monitoring-->
+</TabItem>
+<TabItem value="From real time monitoring" label="From real time monitoring">
 
 1.  Go into the menu: **Monitoring > Status Details > Hosts** (or
     **Services**)
@@ -167,4 +177,5 @@ There are two ways of forcing the check of a service:
 3.  In the menu: **More actions…** click on **Schedule immediate check**
     or **Schedule immediate check (Forced)**
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>

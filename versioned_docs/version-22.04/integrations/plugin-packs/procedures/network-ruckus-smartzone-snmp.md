@@ -2,6 +2,9 @@
 id: network-ruckus-smartzone-snmp
 title: Ruckus Smartzone
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -16,8 +19,6 @@ Ruckus SmartZone network controllers simplify the complexity of scaling and mana
 
 ### Discovery rules
 
-<!--Services-->
-
 | Rule name                              | Description                                         |
 | :------------------------------------- | :-------------------------------------------------- |
 | Net-Ruckus-Smartzone-SNMP-Ap-Name      |  Discover access point attached to your controller  |
@@ -26,9 +27,8 @@ Ruckus SmartZone network controllers simplify the complexity of scaling and mana
 
 ### Monitored metrics 
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Access-Point-->
+<Tabs groupId="sync">
+<TabItem value="Access-Point" label="Access-Point">
 
 | Metric name                                            | Description                                                                            |
 | :----------------------------------------------------- | :------------------------------------------------------------------------------------- |
@@ -39,14 +39,16 @@ Ruckus SmartZone network controllers simplify the complexity of scaling and mana
 | accesspoint.traffic.in.bitspersecond                   | Incoming traffic going through the access point. Unit: bits/second                     |
 | accesspoint.traffic.out.bitspersecond                  | Outgoing traffic going through the access point. Unit: bits/second                     |
 
-<!--Cpu-->
+</TabItem>
+<TabItem value="Cpu" label="Cpu">
 
 | Metric name                     | Description                        |
 | :------------------------------ | :--------------------------------- |
 | cpu.utilization.percentage      | CPU utilization. Unit : %          |
 | core.cpu.utilization.percentage | Per Core CPU utilization. Unit : % |
 
-<!--Interfaces-->
+</TabItem>
+<TabItem value="Interfaces" label="Interfaces">
 
 | Metric name                              | Description                                                      |
 | :--------------------------------------- | :--------------------------------------------------------------- |
@@ -58,7 +60,8 @@ Ruckus SmartZone network controllers simplify the complexity of scaling and mana
 | interface.packets.out.error.percentage   | Outgoing errored packets going through the interface. Units: %   |
 | interface.packets.out.discard.percentage | Outgoing discarded packets going through the interface. Units: % |
 
-<!--Load-->
+</TabItem>
+<TabItem value="Load" label="Load">
 
 | Metric name | Description                   |
 | :---------- | :---------------------------- |
@@ -66,7 +69,8 @@ Ruckus SmartZone network controllers simplify the complexity of scaling and mana
 | load5       | System load 5 minutes-sample  |
 | load15      | System load 15 minutes-sample |
 
-<!--Memory-->
+</TabItem>
+<TabItem value="Memory" label="Memory">
 
 | Metric name             | Description                                        |
 | :---------------------  | :------------------------------------------------- |
@@ -77,13 +81,15 @@ Ruckus SmartZone network controllers simplify the complexity of scaling and mana
 | memory.cached.bytes     | Cached Memory allocation. Unit : Bytes             |
 | memory.shared.bytes     | Shared Memory allocation. Unit : Bytes             |
 
-<!--Storage-->
+</TabItem>
+<TabItem value="Storage" label="Storage">
 
 | Metric name               | Description                                 |
 | :------------------------ | :------------------------------------------ |
 | storage.space.usage.bytes | Used space on a disk partition. Unit: Bytes |
 
-<!--System-->
+</TabItem>
+<TabItem value="System" label="System">
 
 | Metric name                                       | Description                                                  |
 | :------------------------------------------------ | :----------------------------------------------------------- |
@@ -92,7 +98,8 @@ Ruckus SmartZone network controllers simplify the complexity of scaling and mana
 | system.traffic.in.bitspersecond                   | Incoming traffic going through the system. Unit: bits/second |
 | system.traffic.out.bitspersecond                  | Outgoing traffic going through the system. Unit: bits/second |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -106,9 +113,8 @@ Your centreon server must be able to reach the Ruckus device over UDP/161 SNMP p
 
 ## Setup 
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor Ruckus Smartzone ressources:
 
@@ -118,7 +124,8 @@ yum install centreon-plugin-Network-Ruckus-Smartzone-Snmp
 
 2. On the Centreon Web interface, install the 'Ruckus Smartzone' Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor Ruckus Smartzone ressources:
 
@@ -134,7 +141,8 @@ yum install centreon-pack-network-ruckus-smartzone-snmp.noarch
 
 3. On the Centreon Web interface, install the 'Ruckus Smartzone' Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

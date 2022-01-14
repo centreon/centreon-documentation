@@ -2,6 +2,9 @@
 id: cloud-azure-database-cosmosdb
 title: Azure Cosmos DB
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -40,15 +43,15 @@ More information about the Host Discovery module is available in the Centreon do
 
 ### Collected metrics & status
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Availability-->
+<Tabs groupId="sync">
+<TabItem value="Availability" label="Availability">
 
 | Metric Name                                      | Description          | Unit |
 |:-------------------------------------------------|:---------------------|:-----|
 | cosmosdb.account.service.availability.percentage | Service Availability | %    |
 
-<!--Cache-->
+</TabItem>
+<TabItem value="Cache" label="Cache">
 
 | Metric Name                                          | Description                           | Unit  |
 |:-----------------------------------------------------|:--------------------------------------|:------|
@@ -58,48 +61,55 @@ More information about the Host Discovery module is available in the Centreon do
 | cosmosdb.account.integratedcache.ttlexpiration.count | Integrated Cache TTL Expiration Count | Count |
 
 
-<!--Document-->
+</TabItem>
+<TabItem value="Document" label="Document">
 
 | Metric Name                           | Description    | Unit  |
 |:--------------------------------------|:---------------|:------|
 | cosmosdb.account.document.count       | Document Count | Count |
 | cosmosdb.account.document.quota.bytes | Document Quota | B     |
 
-<!--Health-->
+</TabItem>
+<TabItem value="Health" label="Health">
 
 | Status Name | Description                 |
 |:------------|:----------------------------|
 | status      | Current operational status  |
 | summary     | Last related status message |
 
-<!--Latency-->
+</TabItem>
+<TabItem value="Latency" label="Latency">
 
 | Metric Name                                       | Description             | Unit |
 |:--------------------------------------------------|:------------------------|:-----|
 | cosmosdb.account.latency.replication.milliseconds | P99 Replication Latency | ms   |
 | cosmosdb.account.latency.serverside.milliseconds  | Server Side Latency     | ms   |
 
-<!--Throughput-->
+</TabItem>
+<TabItem value="Throughput" label="Throughput">
 
 | Metric Name                                  | Description              | Unit  |
 |:---------------------------------------------|:-------------------------|:------|
 | cosmosdb.account.troughput.autoscale.count   | Autoscale Max Throughput | Count |
 | cosmosdb.account.troughput.provisioned.count | Provisioned Throughput   | Count |
 
-<!--Units-->
+</TabItem>
+<TabItem value="Units" label="Units">
 
 | Metric Name                               | Description         | Unit  |
 |:------------------------------------------|:--------------------|:------|
 | cosmosdb.account.requestunits.total.count | Total Request Units | Count |
 
-<!--Usage-->
+</TabItem>
+<TabItem value="Usage" label="Usage">
 
 | Metric Name                        | Description | Unit |
 |:-----------------------------------|:------------|:-----|
 | cosmosdb.account.data.usage.bytes  | Data Usage  | B    |
 | cosmosdb.account.index.usage.bytes | Index Usage | B    |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -111,9 +121,8 @@ Centreon recommends to use the API instead of the CLI for the following reasons:
 * API is much more efficient by avoiding CLI binary execution
 * API supports application authentication while CLI does not (yet)
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Azure Monitor API-->
+<Tabs groupId="sync">
+<TabItem value="Azure Monitor API" label="Azure Monitor API">
 
 To use the 'api' custom mode, make sure to obtain the required information using the 
 how-to below. Keep it safe until including it in a Host or Host Template definition.
@@ -159,7 +168,8 @@ how-to below. Keep it safe until including it in a Host or Host Template definit
     - Click on *Save*.
     - **Copy and store the key value. You won't be able to retrieve it after you leave this page.**
 
-<!--Azure AZ CLI-->
+</TabItem>
+<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 To use the 'azcli' custom mode, install the required packages on every Centreon poller expected to 
 monitor Azure Resources using CLI:
@@ -212,13 +222,13 @@ information below:
 Credentials are now stored locally in the .accessTokens.json file so the Plugin 
 can use it. 
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Setup 
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor Azure Cosmos DB resources:
 
@@ -228,7 +238,8 @@ yum install centreon-plugin-Cloud-Azure-Database-CosmosDb-Api
 
 2. On the Centreon Web interface, install the *Azure Cosmos DB* Centreon Plugin Pack on the "Configuration > Plugin Packs > Manager" page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor Azure Cosmos DB resources:
 
@@ -244,7 +255,8 @@ yum install centreon-pack-cloud-azure-database-cosmosdb.noarch
 
 3. On the Centreon Web interface, install the *Azure Cosmos DB* Centreon Plugin Pack on the "Configuration > Plugin Packs > Manager" page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -262,9 +274,8 @@ These mandatory Macros differ regarding the custom mode used.
 in *AZURERESOURCE*
 > * Resource Name in *AZURERESOURCE* associated with Resource Group (in *AZURERESOURCEGROUP*) and Resource Type (in *AZURERESOURCETYPE*)
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Azure Monitor API-->
+<Tabs groupId="sync">
+<TabItem value="Azure Monitor API" label="Azure Monitor API">
 
 | Mandatory | Nom                | Description                                        |
 |:----------|:-------------------|:---------------------------------------------------|
@@ -277,7 +288,8 @@ in *AZURERESOURCE*
 |           | AZURERESOURCEGROUP | Associated Resource Group if resource name is used |
 |           | AZURERESOURCETYPE  | Associated Resource Type if resource name is used  |
 
-<!--Azure AZ CLI-->
+</TabItem>
+<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 | Mandatory | Nom                | Description                                        |
 |:----------|:-------------------|:---------------------------------------------------|
@@ -287,7 +299,8 @@ in *AZURERESOURCE*
 |           | AZURERESOURCEGROUP | Associated Resource Group if resource name is used |
 |           | AZURERESOURCETYPE  | Associated Resource Type if resource name is used  |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## How to check in the CLI that the configuration is OK and what are the main options for ?
 

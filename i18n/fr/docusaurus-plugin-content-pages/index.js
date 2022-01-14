@@ -4,7 +4,7 @@ import Layout from "@theme/Layout";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import styles from "/src/pages/index.module.css";
 
-const basePathImg = "/img/homepage/";
+const basePathImg = "/fr/img/homepage/";
 
 const links = {
   doc: {

@@ -2,6 +2,9 @@
 id: hardware-devices-eltek-enexus-snmp
 title: Eltek eNexus SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -24,15 +27,15 @@ Following models can be monitored:
 * load: input status and usage
 * outputs: output status for control units
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Alarms-->
+<Tabs groupId="sync">
+<TabItem value="Alarms" label="Alarms">
 
 | Metric name                        | Description                         |
 | :--------------------------------- | :---------------------------------- |
 | alarms.active.count                | Current total alarms. Unit: Count   |
 
-<!--Battery-->
+</TabItem>
+<TabItem value="Battery" label="Battery">
 
 | Metric name                             | Description                                                         |
 | :-------------------------------------- | :------------------------------------------------------------------ |
@@ -43,7 +46,8 @@ Following models can be monitored:
 | battery.voltage.volt                    | Current battery voltage. Unit: volt                                 |
 | battery.current.ampere                  | Current battery load. Unit: ampere                                  |
 
-<!--Load-->
+</TabItem>
+<TabItem value="Load" label="Load">
 
 | Metric name                               | Description                                                             |
 | :---------------------------------------- | :---------------------------------------------------------------------- |
@@ -51,14 +55,16 @@ Following models can be monitored:
 | load.energy.delivered.watt                | Accumulated energy delivered. Unit: watt                                |
 | phase.voltage.volt                        | By phase instance. Current voltage. Unit: volt                          |
 
-<!--Outputs-->
+</TabItem>
+<TabItem value="Outputs" label="Outputs">
 
 | Metric name                             | Description                                                         |
 | :-------------------------------------- | :------------------------------------------------------------------ |
 | outputs.disconnected.count              | Current disconnected outputs. Unit: Count                           |
 | outputs.notenergized.count              | Current not energized outputs. Unit: Count                          |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -72,9 +78,8 @@ The Centreon Poller must be able to reach the SNMP port (UDP/161) of the Eltek e
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Install the Eltek eNexus SNMP Centreon Plugin on every poller expected to monitor Eltek eNexus devices: 
 
@@ -84,7 +89,8 @@ yum install centreon-plugin-Hardware-Devices-Eltek-Enexus-Snmp
 
 2. Install the monitoring templates from the Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Eltek eNexus SNMP Centreon Plugin on every poller expected to monitor Eltek eNexus devices:
 
@@ -100,7 +106,8 @@ yum install hardware-devices-eltek-enexus-snmp
 
 3. Install the monitoring templates from the Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

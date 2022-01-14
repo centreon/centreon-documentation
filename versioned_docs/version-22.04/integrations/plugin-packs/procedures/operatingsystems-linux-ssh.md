@@ -2,6 +2,9 @@
 id: operatingsystems-linux-ssh
 title: Linux SSH
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -21,16 +24,16 @@ This Plugin-Pack provides assets to monitor all types of Linux based systems wit
 
 ### Collected Metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Cpu-->
+<Tabs groupId="sync">
+<TabItem value="Cpu" label="Cpu">
 
 | Metric name                        | Description                       |
 | :--------------------------------- | :-------------------------------- |
 | cpu.utilization.percentage         | CPU utilization. Unit : %         |
 | core.cpu.utilization.percentage    | CPU utilization by core. Unit : % |
 
-<!--Cpu Detailled-->
+</TabItem>
+<TabItem value="Cpu Detailled" label="Cpu Detailled">
 
 * Per CPU :
 
@@ -62,7 +65,8 @@ This Plugin-Pack provides assets to monitor all types of Linux based systems wit
 | total_cpu_user_avg       | Total average user CPUs. Unit : %       |
 | total_cpu_wait_avg       | Total average wait CPUs. Unit : %       |
 
-<!--Memory-->
+</TabItem>
+<TabItem value="Memory" label="Memory">
 
 | Metric name           | Description                             |
 | :-------------------- | :-------------------------------------- |
@@ -71,20 +75,23 @@ This Plugin-Pack provides assets to monitor all types of Linux based systems wit
 | buffer                | Memory buffured. Unit : B               |
 | cached                | Memory cached. Unit : B                 |
 
-<!--Filesdate-->
+</TabItem>
+<TabItem value="Filesdate" label="Filesdate">
 
 | Metric name           | Description                                                 |
 | :-------------------- | :---------------------------------------------------------- |
 | name                  | Time (modified, creation,...) of files/directories. Unit: s |
 
-<!--Filessize-->
+</TabItem>
+<TabItem value="Filessize" label="Filessize">
 
 | Metric name           | Description                               |
 | :-------------------- | :---------------------------------------- |
 | name                  | Size of one file/directorie. Unit : B     |
 | total                 | Total Size of files/directories. Unit : B |
 
-<!--Diskio-->
+</TabItem>
+<TabItem value="Diskio" label="Diskio">
 
 | Metric name                            | Description                                                  |
 | :------------------------------------- | :----------------------------------------------------------- |
@@ -94,13 +101,15 @@ This Plugin-Pack provides assets to monitor all types of Linux based systems wit
 | device.io.write.time.milliseconds      | Write time in milliseconds. Unit : ms                        |
 | device.io.utils.percentage             | IO utilization for different usage type of CPU. Unit : %     |
 
-<!--Openfiles-->
+</TabItem>
+<TabItem value="Openfiles" label="Openfiles">
 
 | Metric name                 | Description                          |
 | :-------------------------- | :----------------------------------- |
 | system.files.open.count     | Number of files opened on the system |
 
-<!--Swap-->
+</TabItem>
+<TabItem value="Swap" label="Swap">
 
 | Metric name                 | Description                       |
 | :-------------------------- | :-------------------------------- |
@@ -108,7 +117,8 @@ This Plugin-Pack provides assets to monitor all types of Linux based systems wit
 | swap.free.bytes             | Swap free. Unit: B                |
 | swap.usage.percentage       | Swap usage in percentage. Unit: % |
 
-<!--Load-->
+</TabItem>
+<TabItem value="Load" label="Load">
 
 | Metric name                 | Description                |
 | :-------------------------- | :------------------------- |
@@ -116,13 +126,15 @@ This Plugin-Pack provides assets to monitor all types of Linux based systems wit
 | load5                       | Load average on 5 minutes. |
 | load15                      | Load average on 15 minutes.|
 
-<!--Uptime-->
+</TabItem>
+<TabItem value="Uptime" label="Uptime">
 
 | Metric name                 | Description                                                 |
 | :-------------------------- | :---------------------------------------------------------- |
 | uptime                      | Duration of system has been working and available. Unit : s |
 
-<!--Paging-->
+</TabItem>
+<TabItem value="Paging" label="Paging">
 
 | Metric name                            | Description                                                      |
 | :------------------------------------- | :--------------------------------------------------------------- |
@@ -133,7 +145,8 @@ This Plugin-Pack provides assets to monitor all types of Linux based systems wit
 | system.pgfault.usage.bytespersecond    | Usage pgfault in bytes per second. Unit : B/s                    |
 | system.pgmajfault.usage.bytespersecond | Usage pgmajfault in bytes per second. Unit : B/s                 |
 
-<!--Connections-->
+</TabItem>
+<TabItem value="Connections" label="Connections">
 
 | Metric name                 | Description                                        |
 | :-------------------------- | :------------------------------------------------- |
@@ -152,37 +165,43 @@ This Plugin-Pack provides assets to monitor all types of Linux based systems wit
 | con_timeWait                | Number of connection on time wait                  | 
 | total                       | Total of connection                                |
 
-<!--Inodes-->
+</TabItem>
+<TabItem value="Inodes" label="Inodes">
 
 | Metric name                 | Description                                 |
 | :-------------------------- | :------------------------------------------ |
 | used                        | Inodes space usage on partitions. Unit : %  |
 
-<!--Process-->
+</TabItem>
+<TabItem value="Process" label="Process">
 
 | Metric name                 | Description                        |
 | :-------------------------- | :--------------------------------- |
 | nbproc                      |  Number of current processes.      |
 
-<!--Ntp-->
+</TabItem>
+<TabItem value="Ntp" label="Ntp">
 
 | Metric name           | Description                        |
 | :-------------------- | :--------------------------------- |
 | offset                | Offset of ntpd service. Unit : ms  |
 
-<!--Quota-->
+</TabItem>
+<TabItem value="Quota" label="Quota">
 
 | Metric name           | Description                         |
 | :-------------------- | :---------------------------------- |
 | data_used             | Quota usage on partitions. Unit : B |
 
-<!--Storage-->
+</TabItem>
+<TabItem value="Storage" label="Storage">
 
 | Metric name           | Description              |
 | :-------------------- | :----------------------- |
 | used                  | Storage usages. Unit : B |
 
-<!--Traffic-->
+</TabItem>
+<TabItem value="Traffic" label="Traffic">
 
 | Metric name                         | Description                                                 |
 | :---------------------------------- | :---------------------------------------------------------- |
@@ -190,7 +209,8 @@ This Plugin-Pack provides assets to monitor all types of Linux based systems wit
 | interface.traffic.in.bitspersecond  | Incoming traffic going through the interface. Units: b/s    |
 | interface.traffic.out.bitspersecond | Outgoing traffic going through the interface. Units: b/s    |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -200,9 +220,8 @@ A user is required to query the OS Linux by SSH. There is no need for root or su
 There are two possible ways to perform SSH check, either by exchanging the SSH key from centreon-engine to the target server, 
 or by setting your unique user and password directly in the host macros.
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--SSH keys exchange-->
+<Tabs groupId="sync">
+<TabItem value="SSH keys exchange" label="SSH keys exchange">
 
 Add and generate a password for your user on the **Target sever**:
 
@@ -224,17 +243,18 @@ ssh-keygen -t ed25519 -a 100
 ssh-copy-id -i .ssh/id_ed25519.pub ro_ssh_centreon@<IP_TARGET_SERVER>
 ```
 
-<!--User/Password Authentication-->
+</TabItem>
+<TabItem value="User/Password Authentication" label="User/Password Authentication">
 
 After setting the Name, Alias, IP, and Host Template parameters, you need to set up in the macros described in the **Configuration** part below.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Install the Centreon Plugin on every poller monitoring Linux SSH resources:
 
@@ -244,7 +264,8 @@ yum install centreon-plugin-Operatingsystems-Linux-Ssh.noarch
 
 2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Linux SSH* Plugin-Pack
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin on every poller monitoring Linux SSH resources:
 
@@ -260,7 +281,8 @@ yum install centreon-pack-operatingsystems-linux-ssh.noarch
 
 3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Linux SSH* Plugin-Pack
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

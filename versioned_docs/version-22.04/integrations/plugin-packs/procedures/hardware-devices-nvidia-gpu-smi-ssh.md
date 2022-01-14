@@ -2,6 +2,9 @@
 id: hardware-devices-nvidia-gpu-smi-ssh
 title: NVIDIA GPU SMI SSH
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Pack Assets
 
@@ -12,9 +15,8 @@ The Pack NVIDIA GPU collects metrics for:
 
 ### Collected Metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Gpu-stats-->
+<Tabs groupId="sync">
+<TabItem value="Gpu-stats" label="Gpu-stats">
 
 | Metric name                                                        | Description                                                                                                                                                          | Unit  |
 | :----------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---- |
@@ -33,7 +35,8 @@ The Pack NVIDIA GPU collects metrics for:
 | *product\_name:id*#device.gpu.temperature.celsius                  | Temperature value                                                                                                                                                    | C     |
 | *product\_name:id*#device.gpu.power.consumption.watt               | The last measured power draw for the  entire  board                                                                                                                  | W     |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -41,9 +44,8 @@ The centreon-engine user performs a SSH connection to a remote system user. This
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -53,7 +55,8 @@ yum install centreon-plugin-Hardware-Devices-Nvidia-Gpu-Smi-Ssh
 
 2. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *NVIDIA GPU SMI SSH* Pack
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -69,7 +72,8 @@ yum install centreon-pack-hardware-devices-nvidia-gpu-smi-ssh
 
 3. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *NVIDIA GPU SMI SSH* Pack
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host configuration
 
@@ -78,9 +82,8 @@ yum install centreon-pack-hardware-devices-nvidia-gpu-smi-ssh
 > Once the template applied, some Macros have to be configured.
 > 3 SSH backends are available to connect to the remote server: *sshcli*, *plink* and *libssh* which are detailed below.
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--sshcli backend-->
+<Tabs groupId="sync">
+<TabItem value="sshcli backend" label="sshcli backend">
 
 | Mandatory   | Name            | Description                                                                                 |
 | :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
@@ -92,7 +95,8 @@ yum install centreon-pack-hardware-devices-nvidia-gpu-smi-ssh
 
 **Warning** With that backend, you have to validate the target server fingerprint manually (with the SSHUSERNAME used).
 
-<!--plink backend-->
+</TabItem>
+<TabItem value="plink backend" label="plink backend">
 
 | Mandatory   | Name            | Description                                                                                 |
 | :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
@@ -104,7 +108,8 @@ yum install centreon-pack-hardware-devices-nvidia-gpu-smi-ssh
 
 **Warning** With that backend, you have to validate the target server fingerprint manually (with the SSHUSERNAME used).
 
-<!--libssh backend (default)-->
+</TabItem>
+<TabItem value="libssh backend (default)" label="libssh backend (default)">
 
 | Mandatory   | Name            | Description                                                                                 |
 | :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
@@ -116,7 +121,8 @@ yum install centreon-pack-hardware-devices-nvidia-gpu-smi-ssh
 
 With that backend, you do not have to validate the target server fingerprint manually.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## How to test the Plugin and what are the main options for?
 

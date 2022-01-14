@@ -2,6 +2,9 @@
 id: hardware-servers-cisco-ucs-snmp
 title: Cisco UCS
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -17,9 +20,8 @@ The Centreon Plugin Pack *Cisco UCS* relies on the SNMP protocol to query and co
 
 ### Collected metrics 
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Audit-Logs-->
+<Tabs groupId="sync">
+<TabItem value="Audit-Logs" label="Audit-Logs">
 
 | Metric name                  | Description                                | Unit  |
 | :--------------------------- | :----------------------------------------- | :---- |
@@ -31,13 +33,15 @@ The Centreon Plugin Pack *Cisco UCS* relies on the SNMP protocol to query and co
 | audit.minor.count            | Number of minor audit logs                 | count |                          
 | audit.critical.count         | Number of critical audit logs              | count |                             
 
-<!--Equipment-->
+</TabItem>
+<TabItem value="Equipment" label="Equipment">
 
 | Metric name | Description                                | Unit |
 | :---------- | :----------------------------------------- | :--- |
 | status      | Check Hardware status                      |      |
 
-<!--Faults-->
+</TabItem>
+<TabItem value="Faults" label="Faults">
 
 | Metric name                   | Description                                | Unit  |
 | :---------------------------- | :----------------------------------------- | :---- |
@@ -51,13 +55,15 @@ The Centreon Plugin Pack *Cisco UCS* relies on the SNMP protocol to query and co
 | faults.major.count            | Number of major faults                     | count |
 | faults.critical.count         | Number of critical faults                  | count |
 
-<!--Mgmt-Entities-->
+</TabItem>
+<TabItem value="Mgmt-Entities" label="Mgmt-Entities">
 
 | Metric name                     | Description                                | Unit  |
 | :------------------------------ | :----------------------------------------- | :---- |
 | management_entities.total.count | Number of management entities              | count |
 
-<!--Service-Profile-->
+</TabItem>
+<TabItem value="Service-Profile" label="Service-Profile">
 
 | Metric name                   | Description                                | Unit  |
 | :---------------------------- | :----------------------------------------- | :---- |
@@ -66,7 +72,8 @@ The Centreon Plugin Pack *Cisco UCS* relies on the SNMP protocol to query and co
 | serviceprofiles.offline.count | Number of offline service profiles         | count |
 
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -80,9 +87,8 @@ The Centreon Poller must be able to reach the UDP/161 SNMP port of the UCS serve
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor UCS servers:
 
@@ -92,7 +98,8 @@ yum install centreon-plugin-Hardware-Servers-Cisco-Ucs-Snmp
 
 2. On the Centreon Web interface, install the *Cisco UCS* Plugin Pack through "Configuration > Plugin Packs > Manager" page.
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor UCS servers :
 
@@ -108,7 +115,8 @@ yum install centreon-pack-hardware-servers-cisco-ucs-snmp
 
 3. On the Centreon Web interface, install the *Cisco UCS* Plugin Pack through "Configuration > Plugin Packs > Manager" page.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host configuration
 

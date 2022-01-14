@@ -2,6 +2,9 @@
 id: network-cisco-wap-snmp
 title: Cisco Wap SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -22,29 +25,31 @@ The Centreon Plugin Pack *Cisco Wap SNMP* relies on the SNMP protocol to query a
 
 ### Collected metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Clients-->
+<Tabs groupId="sync">
+<TabItem value="Clients-1" label="Clients">
 
 | Metric name                         | Description                                                    | Unit   |
 | :---------------------------------- | :------------------------------------------------------------- | :----- |
 | clients.connected.count             | Total number of clients connected on the access point          | count  |
 | radio.clients.connected.count       | Number of clients connected radio channel of the access point  | count  |
 
-<!--CPU-->
+</TabItem>
+<TabItem value="CPU" label="CPU">
 
 | Metric name                         | Description                    | Unit   |
 | :---------------------------------- | :----------------------------- | :----- |
 | cpu.utilization.percentage          | Percentage of CPU utilization  | %      |
 
-<!--Clients-->
+</TabItem>
+<TabItem value="Clients-2" label="Clients">
 
 | Metric name                         | Description                                                    | Unit   |
 | :---------------------------------- | :------------------------------------------------------------- | :----- |
 | clients.connected.count             | Total number of clients connected on the access point          | count  |
 | radio.clients.connected.count       | Number of clients connected radio channel of the access point  | count  |
 
-<!--Interfaces-->
+</TabItem>
+<TabItem value="Interfaces" label="Interfaces">
 
 | Metric name                              | Description                                             | Unit |
 |:---------------------------------------- |:------------------------------------------------------- | :--- |
@@ -56,25 +61,29 @@ The Centreon Plugin Pack *Cisco Wap SNMP* relies on the SNMP protocol to query a
 | interface.packets.out.error.percentage   | Outgoing errored packets going through the interface.   | %    |
 | interface.packets.out.discard.percentage | Outgoing discarded packets going through the interface. | %    |
 
-<!--Memory-->
+</TabItem>
+<TabItem value="Memory" label="Memory">
 
 | Metric name                         | Description                 | Unit   |
 | :---------------------------------- | :-------------------------- | :----- |
 | memory.usage.percentage             | Percentage of memory usage  | %      |
 
-<!--Uptime-->
+</TabItem>
+<TabItem value="Uptime" label="Uptime">
 
 | Metric name                 | Description                                        | Unit   |
 | :-------------------------- | :------------------------------------------------- | :----- |
 | system.uptime               | Duration of system has been working and available. | s      |
 
-<!--Virual Access Point-->
+</TabItem>
+<TabItem value="Virual Access Point" label="Virual Access Point">
 
 | Metric name                         | Description                                | Unit   |
 | :---------------------------------- | :----------------------------------------- | :----- |
 | virtual_access_points.total.count   | Total number of virtual access point       | count  |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -83,9 +92,8 @@ The Centreon Poller must be able to reach the UDP/161 SNMP port of the Cisco Wap
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor Cisco Wireless Access Point equipments:
 
@@ -95,7 +103,8 @@ yum install centreon-plugin-Network-Cisco-Wap-Snmp
 
 2. On the Centreon Web interface, install the *Cisco Wap SNMP* Plugin Pack through "Configuration > Plugin packs > Manager" page.
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor Cisco Wireless Access Point equipments :
 
@@ -111,7 +120,8 @@ yum install centreon-pack-network-cisco-wap-snmp
 
 3. On the Centreon Web interface, install the *Cisco Wap SNMP* Plugin Pack through "Configuration > Plugin packs > Manager" page.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host configuration
 

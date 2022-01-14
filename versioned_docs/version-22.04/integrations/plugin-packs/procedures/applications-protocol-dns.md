@@ -2,6 +2,9 @@
 id: applications-protocol-dns
 title: DNS Service
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 ## Overview
 
 The Domain Name System (DNS) is a naming system for resources connected to the Internet or a private network. A DNS Service provides a way to match domain names to IP addresses.
@@ -16,9 +19,8 @@ The Centreon Plugin-Pack * DNS Service * checks if a resolution for a domain nam
 
 ### Monitored metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--DNS-Request-->
+<Tabs groupId="sync">
+<TabItem value="DNS-Request-1" label="DNS-Request">
 
 | Metric name                 | Description                                | Unit |
 | :-------------------------- | :----------------------------------------- | :--- |
@@ -26,7 +28,8 @@ The Centreon Plugin-Pack * DNS Service * checks if a resolution for a domain nam
 
 This mode allow to check that the server executing the probe correctly resolve its own address.
 
-<!--DNS-Request-->
+</TabItem>
+<TabItem value="DNS-Request-2" label="DNS-Request">
 
 | Metric name                 | Description                                | Unit |
 | :-------------------------- | :----------------------------------------- | :--- |
@@ -34,15 +37,15 @@ This mode allow to check that the server executing the probe correctly resolve i
 
 This mode is meant to be used on a server with the DNS role. 
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Install the Centreon Plugin package on every poller expected to monitor a DNS server:
 
@@ -52,7 +55,8 @@ yum install centreon-plugin-Applications-Protocol-Dns
 
 2. On the Centreon Web interface, install the Centreon Plugin-Pack *DNS Service* from the "Configuration > Plugin Packs > Manager" page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every poller expected to monitor a DNS server:
 
@@ -68,7 +72,8 @@ yum install centreon-pack-applications-protocol-dns
 
 3. On the Centreon Web interface, install the Centreon Plugin-Pack *DNS Service* from the "Configuration > Plugin Packs > Manager" page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

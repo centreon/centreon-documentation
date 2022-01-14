@@ -2,6 +2,9 @@
 id: applications-php-apc-web
 title: PHP APC
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Pack Assets
 
@@ -19,9 +22,8 @@ It brings the following Service Templates:
 
 ### Collected metrics & status
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Php-Apc-File-Cache-->
+<Tabs groupId="sync">
+<TabItem value="Php-Apc-File-Cache" label="Php-Apc-File-Cache">
 
 | Metric name                      | Description                     | Unit |
 |:---------------------------------|:--------------------------------|:-----|
@@ -34,14 +36,16 @@ It brings the following Service Templates:
 | filecache.hits.percentage        | GLobal hit ratio                | %    |
 | filecache.hits.now.percentage    | Hit ratio                       | %    |
 
-<!--Php-Apc-Memory-->
+</TabItem>
+<TabItem value="Php-Apc-Memory" label="Php-Apc-Memory">
 
 | Metric name                     | Description                   | Unit |
 |:--------------------------------|:------------------------------|:-----|
 | memory.usage.bytes              | Memory usage in bytes         | B    |
 | memory.fragmentation.percentage | Memory Fragmentation          | %    |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -51,9 +55,8 @@ specified port in the *PHPAPCWEBPORT* Host Macro. More information in the
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor your *PHP APC* ressources:
 
@@ -63,7 +66,8 @@ yum install centreon-plugin-Applications-Php-Apc-Web
 
 2. On the Centreon Web interface, install the *PHP APC* Centreon Plugin Pack on the **Configuration > Plugin Packs** page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor your *PHP APC* ressources:
 
@@ -73,13 +77,14 @@ yum install centreon-plugin-Applications-Php-Apc-Web
 
 2. Install the *PHP APC* Centreon Plugin Pack RPM on the Centreon Central server:
 
- ```bash
+```bash
 yum install centreon-pack-applications-php-apc-web
 ```
 
 3. On the Centreon Web interface, install the *PHP APC* Centreon Plugin Pack on the **Configuration > Plugin Packs** page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

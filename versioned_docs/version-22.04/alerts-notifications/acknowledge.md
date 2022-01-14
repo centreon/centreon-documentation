@@ -2,6 +2,9 @@
 id: acknowledge
 title: Acknowledging a problem
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ### Principle
 
@@ -34,9 +37,8 @@ of disk.
 
 To acknowledge an incident, there are several solutions:
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--From the Resources Status page-->
+<Tabs groupId="sync">
+<TabItem value="From the Resources Status page" label="From the Resources Status page">
 
 1. Go to **Monitoring > Resources Status**.
 2. Use one of the following methods:
@@ -67,7 +69,8 @@ To acknowledge an incident, there are several solutions:
     UNREACHABLE or WARNING to CRITICAL). Otherwise, the acknowledgment
     disappears and the notification process is reactivated.
 
-<!--From real time monitoring-->
+</TabItem>
+<TabItem value="From real time monitoring" label="From real time monitoring">
 
 1.  Go to **Monitoring > Status Details > Hosts** (or **Services**).
 2.  Select the object(s) that you want to acknowledge.
@@ -98,7 +101,8 @@ To acknowledge an incident, there are several solutions:
 -   If the **Force active checks** box is checked, a command will be
     sent to the scheduler to recheck the resource as soon as possible.
 
-<!--From the detailed sheet of an object-->
+</TabItem>
+<TabItem value="From the detailed sheet of an object" label="From the detailed sheet of an object">
 
 From of the detail page of an object, click on the icon |enabled| associated
 with the **Acknowledged** field in the **Options** frame.
@@ -127,25 +131,27 @@ The following window appears:
 -   If the **Force active checks** box is checked, a command will be
     sent to the scheduler to recheck the resource as soon as possible.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Disacknowledging resources
 
 To delete the acknowledgment of an incident on an object:
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--From the Resources Status page-->
+<Tabs groupId="sync">
+<TabItem value="From the Resources Status page" label="From the Resources Status page">
 
 1. Go to **Monitoring > Resources Status**.
 2. Select the objects you want to disacknowledge.
 3. On the **More actions** menu, click **Disacknowledge**.
 
-<!--From real time monitoring-->
+</TabItem>
+<TabItem value="From real time monitoring" label="From real time monitoring">
 
 1.  Go to **Monitoring > Status Details > Hosts** (or **Services**).
 2.  Select the objects you want to disacknowledge.
 3.  In the **More actions** menu, click on **Hosts: Disacknowledge** or
     on **Services: Disacknowledge**
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>

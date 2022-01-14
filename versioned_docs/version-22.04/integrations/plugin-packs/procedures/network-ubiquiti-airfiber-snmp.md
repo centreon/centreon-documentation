@@ -2,6 +2,9 @@
 id: network-ubiquiti-airfiber-snmp
 title: Ubiquiti AirFiber SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Plugin-Pack Assets
 
@@ -15,22 +18,21 @@ The Plugin-Pack Ubiquiti AirFiber SNMP collects metrics for:
 
 ### Discovery rules
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Services-->
+<Tabs groupId="sync">
+<TabItem value="Services" label="Services">
 
 | Rule name                                  | Description                                                           |
 | :----------------------------------------- | :-------------------------------------------------------------------- |
 | Net-Ubiquiti-Airfiber-SNMP-Interface-Name  | Discover network interfaces and monitor bandwidth utilization         |
 | Net-Ubiquiti-Airfiber-SNMP-Radio-Name      | Discover radio interfaces and monitor bandwidth utilization           |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Collected Metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Interfaces-->
+<Tabs groupId="sync">
+<TabItem value="Interfaces" label="Interfaces">
 
 | Metric name                                            | Description                                         | Unit |
 | :----------------------------------------------------- | :-------------------------------------------------- | :--- |
@@ -42,7 +44,8 @@ The Plugin-Pack Ubiquiti AirFiber SNMP collects metrics for:
 
 A regexp filter is available to target a specific interface identifier - ifName [```--interface='^eth0$' --name```]
 
-<!--Load-->
+</TabItem>
+<TabItem value="Load" label="Load">
 
 | Metric name                  | Description                       | Unit |
 | :--------------------------- | :-------------------------------- | :--- |
@@ -50,7 +53,8 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | system.loadaverage.5m.count  | System load 5 minutes-sample      |      |
 | system.loadaverage.15m.count | System load 15 minutes-sample     |      |
 
-<!--Memory-->
+</TabItem>
+<TabItem value="Memory" label="Memory">
 
 | Metric name             | Description                               | Unit  |
 | :---------------------  | :---------------------------------------- | :---- |
@@ -58,7 +62,8 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | memory.free.bytes       | Free memory                               | B     |
 | memory.usage.percentage | Memory usage in percentage                | %     |
 
-<!--Radios-->
+</TabItem>
+<TabItem value="Radios" label="Radios">
 
 | Metric name                                                      | Description                                  | Unit   |
 | :--------------------------------------------------------------- | :------------------------------------------- | :----- |
@@ -68,7 +73,8 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | *interfacename*\#radio.interface.traffic.in.bitspersecond        | Incoming traffic going through the interface | b/s    |
 | *interfacename*\#radio.interface.traffic.out.bitspersecond       | utgoing traffic going through the interface  | b/s    |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -76,9 +82,8 @@ To control your Ubiquiti AirFiber, the SNMP must be configured.
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -88,7 +93,8 @@ yum install centreon-plugin-Network-Ubiquiti-Airfiber-Snmp
 
 2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Ubiquiti AirFiber SNMP* Plugin-Pack
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -104,7 +110,8 @@ yum install centreon-pack-network-ubiquiti-airfiber-snmp
 
 3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Ubiquiti AirFiber SNMP* Plugin-Pack
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host configuration
 

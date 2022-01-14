@@ -2,6 +2,9 @@
 id: licenses
 title: Licenses
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## How can I obtain a license?
 
@@ -33,8 +36,8 @@ Go to **Administration > Extensions > Manager**. All modules currently installed
 
 ## Adding a license to your Centreon platform
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Offline licenses-->
+<Tabs groupId="sync">
+<TabItem value="Offline licenses" label="Offline licenses">
 
 1. To request your license:
 
@@ -52,7 +55,8 @@ Go to **Administration > Extensions > Manager**. All modules currently installed
 
 6. If you have several licenses (e.g. for BAM, MBI...), repeat the steps above until you have uploaded all license files.
 
-<!--Online licenses-->
+</TabItem>
+<TabItem value="Online licenses" label="Online licenses">
 
 To use an online license, your Centreon platform must be connected to the internet.
 
@@ -74,7 +78,8 @@ To use an online license, your Centreon platform must be connected to the intern
 
     The **Add token** button changes to become a **View license** button.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Free IT-100 license
 
