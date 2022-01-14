@@ -989,6 +989,10 @@
             },
             {
               "type": "doc",
+              "id": "version-21.10/integrations/plugin-packs/procedures/applications-awa-jmx"
+            },
+            {
+              "type": "doc",
               "id": "version-21.10/integrations/plugin-packs/procedures/applications-bind9-web"
             },
             {
@@ -1061,7 +1065,15 @@
             },
             {
               "type": "doc",
+              "id": "version-21.10/integrations/plugin-packs/procedures/applications-hddtemp-tcp"
+            },
+            {
+              "type": "doc",
               "id": "version-21.10/integrations/plugin-packs/procedures/applications-hibernate-jmx"
+            },
+            {
+              "type": "doc",
+              "id": "version-21.10/integrations/plugin-packs/procedures/applications-ibmmq-mqi"
             },
             {
               "type": "doc",
@@ -1472,6 +1484,10 @@
             {
               "type": "doc",
               "id": "version-21.10/integrations/plugin-packs/procedures/cloud-aws-efs"
+            },
+            {
+              "type": "doc",
+              "id": "version-21.10/integrations/plugin-packs/procedures/cloud-aws-fsx"
             },
             {
               "type": "doc",
