@@ -259,12 +259,12 @@
 
 .bannerCustom {
   padding: 0;
-  background: #0072ce;
+  background: #685BC7;
 }
 
 .bannerImage {
   max-width: initial;
-  padding: 10px 0;
+  padding: 20px 0;
   min-width: fit-content;
   display: flex;
   flex-wrap: nowrap;
