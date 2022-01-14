@@ -2,6 +2,9 @@
 id: hardware-servers-supermicro-superdoctor-snmp
 title: Supermicro SuperDoctor SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Contenu du Pack de supervision
 
@@ -12,9 +15,8 @@ Le Pack Supermicro SuperDoctor collecte les données pour:
 
 ### Métriques collectées 
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Hardware-->
+<Tabs groupId="sync">
+<TabItem value="Hardware" label="Hardware">
 
 | Metric name                                         | Description               | Unit  |
 | :-------------------------------------------------- | :------------------------ | :---- |
@@ -27,7 +29,8 @@ Le Pack Supermicro SuperDoctor collecte les données pour:
 | *sensor\_name*\#hardware.sensor.voltage.volt        | Voltage of the sensor     | V     |
 | *sensor\_name*\#hardware.sensor.discrete.xxx        | Discrete sensor           |       |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -37,9 +40,8 @@ https://www.supermicro.com/en/solutions/management-software/superdoctor
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -49,7 +51,8 @@ yum install centreon-plugin-Hardware-Servers-Supermicro-Superdoctor-Snmp
 
 2. Sur l'interface Web de Centreon, installer le Pack *Supermicro SuperDoctor SNMP* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -65,7 +68,8 @@ yum install centreon-pack-hardware-servers-supermicro-superdoctor-snmp
 
 3. Sur l'interface Web de Centreon, installer le Pack *Supermicro SuperDoctor SNMP* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

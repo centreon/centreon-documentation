@@ -2,6 +2,9 @@
 id: hardware-devices-camera-hikvision-snmp
 title: Hikvision camera SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Contenu du Plugin Pack
 
@@ -15,15 +18,15 @@ Le Plugin Pack Hikvision SNMP collecte les données pour:
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Cpu-->
+<Tabs groupId="sync">
+<TabItem value="Cpu" label="Cpu">
 
 | Metric name                              | Description              | Unit |
 | :--------------------------------------- | :----------------------- | :--- |
 | cpu.utilization.percentage               | CPU utilization          | %    |
 
-<!--Disk-->
+</TabItem>
+<TabItem value="Disk" label="Disk">
 
 | Metric name           | Description                             | Unit  |
 | :-------------------- | :-------------------------------------- | :---- |
@@ -31,7 +34,8 @@ Le Plugin Pack Hikvision SNMP collecte les données pour:
 | disk.free.bytes       | Free disk                               | B     |
 | disk.usage.percentage | Disk usage in percentage                | %     |
 
-<!--Memory-->
+</TabItem>
+<TabItem value="Memory" label="Memory">
 
 | Metric name             | Description                               | Unit  |
 | :---------------------- | :---------------------------------------- | :---- |
@@ -39,13 +43,15 @@ Le Plugin Pack Hikvision SNMP collecte les données pour:
 | memory.free.bytes       | Free memory                               | B     |
 | memory.usage.percentage | Memory usage in percentage                | %     |
 
-<!--Time-->
+</TabItem>
+<TabItem value="Time" label="Time">
 
 | Metric name            | Description                               | Unit  |
 | :--------------------- | :---------------------------------------- | :---- |
 | time.offset.seconds    | Time offset                               | s     |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -53,9 +59,8 @@ Afin de contrôler votre équipement Hikvision, le SNMP doit être configuré.
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -65,7 +70,8 @@ yum install centreon-plugin-Hardware-Devices-Camera-Hikvision-Snmp
 
 2. Sur l'interface Web de Centreon, installer le Plugin Pack *Hikvision camera SNMP* depuis la page "Configuration > Plugin Packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -81,7 +87,8 @@ yum install centreon-pack-hardware-devices-camera-hikvision-snmp
 
 3. Sur l'interface Web de Centreon, installer le Plugin Pack *Hikvision camera SNMP* depuis la page "Configuration > Plugin Packs > Manager"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

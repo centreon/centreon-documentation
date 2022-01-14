@@ -2,6 +2,9 @@
 id: operatingsystems-linux-ssh
 title: Linux SSH
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -23,16 +26,16 @@ Ce Plugin-Pack est compatible avec n'importe quelle distribution Linux avec un d
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Cpu-->
+<Tabs groupId="sync">
+<TabItem value="Cpu" label="Cpu">
 
 | Metric name                        | Description                                    |
 | :--------------------------------- | :--------------------------------------------- |
 | cpu.utilization.percentage         | CPU utilization. Unit: %                       |
 | core.cpu.utilization.percentage    | CPU utilization by core. Unit: %               |
 
-<!--Cpu Detailled-->
+</TabItem>
+<TabItem value="Cpu Detailled" label="Cpu Detailled">
 
 * Per CPU :
 
@@ -64,7 +67,8 @@ Ce Plugin-Pack est compatible avec n'importe quelle distribution Linux avec un d
 | total_cpu_user_avg 	   | Total average user CPUs. Unit : %       |
 | total_cpu_wait_avg       | Total average wait CPUs. Unit : %       |
 
-<!--Memory-->
+</TabItem>
+<TabItem value="Memory" label="Memory">
 
 | Metric name           | Description                                   |
 | :-------------------- | :-------------------------------------------- |
@@ -73,20 +77,23 @@ Ce Plugin-Pack est compatible avec n'importe quelle distribution Linux avec un d
 | buffer                | Memory buffured. Unit : B                     |
 | cached                | Memory cached. Unit : B                       |
 
-<!--Filesdate-->
+</TabItem>
+<TabItem value="Filesdate" label="Filesdate">
 
 | Metric name           | Description                                                 |
 | :-------------------- | :---------------------------------------------------------- |
 | name                  | Time (modified, creation,...) of files/directories. Unit: s |
 
-<!--Filessize-->
+</TabItem>
+<TabItem value="Filessize" label="Filessize">
 
 | Metric name           | Description                               |
 | :-------------------- | :---------------------------------------- |
 | name                  | Size of one file/directorie. Unit : B     |
 | total                 | Total Size of files/directories. Unit : B |
 
-<!--Diskio-->
+</TabItem>
+<TabItem value="Diskio" label="Diskio">
 
 | Metric name                            | Description                                                  |
 | :------------------------------------- | :----------------------------------------------------------- |
@@ -96,13 +103,15 @@ Ce Plugin-Pack est compatible avec n'importe quelle distribution Linux avec un d
 | device.io.write.time.milliseconds      | Write time in milliseconds. Unit : ms                        |
 | device.io.utils.percentage             | IO utilization for  different usage type of CPU. Unit : %    |
 
-<!--Openfiles-->
+</TabItem>
+<TabItem value="Openfiles" label="Openfiles">
 
 | Metric name                 | Description                           |
 | :-------------------------- | :------------------------------------ |
 | system.files.open.count     | Number of files opened on the system  |
 
-<!--Swap-->
+</TabItem>
+<TabItem value="Swap" label="Swap">
 
 | Metric name                 | Description                       |
 | :-------------------------- | :-------------------------------- |
@@ -110,7 +119,8 @@ Ce Plugin-Pack est compatible avec n'importe quelle distribution Linux avec un d
 | swap.free.bytes             | Swap free. Unit: B                |
 | swap.usage.percentage       | Swap usage in percentage. Unit: % |
 
-<!--Load-->
+</TabItem>
+<TabItem value="Load" label="Load">
 
 | Metric name                 | Description                  |
 | :-------------------------- | :--------------------------- |
@@ -118,13 +128,15 @@ Ce Plugin-Pack est compatible avec n'importe quelle distribution Linux avec un d
 | load5                       | Load average on 5 minutes.   |
 | load15                      | Load average on 15 minutes.  |
 
-<!--Uptime-->
+</TabItem>
+<TabItem value="Uptime" label="Uptime">
 
 | Metric name                 | Description                                                 |
 | :-------------------------- | :---------------------------------------------------------- |
 | uptime                      | Duration of system has been working and available. Unit : s |
 
-<!--Paging-->
+</TabItem>
+<TabItem value="Paging" label="Paging">
 
 | Metric name                            | Description                                                      |
 | :------------------------------------- | :--------------------------------------------------------------- |
@@ -135,7 +147,8 @@ Ce Plugin-Pack est compatible avec n'importe quelle distribution Linux avec un d
 | system.pgfault.usage.bytespersecond    | Usage pgfault in bytes per second. Unit : B/s                    |
 | system.pgmajfault.usage.bytespersecond | Usage pgmajfault in bytes per second. Unit : B/s                 |
 
-<!--Connections-->
+</TabItem>
+<TabItem value="Connections" label="Connections">
 
 | Metric name                 | Description                                        |
 | :-------------------------- | :------------------------------------------------- |
@@ -154,37 +167,43 @@ Ce Plugin-Pack est compatible avec n'importe quelle distribution Linux avec un d
 | con_timeWait                | Number of connection on time wait                  | 
 | total                       | Total of connection                                |
 
-<!--Inodes-->
+</TabItem>
+<TabItem value="Inodes" label="Inodes">
 
 | Metric name                 | Description                                 |
 | :-------------------------- | :------------------------------------------ |
 | used                        | Inodes space usage on partitions. Unit : %  |
 
-<!--Process-->
+</TabItem>
+<TabItem value="Process" label="Process">
 
 | Metric name                 | Description                    |
 | :-------------------------- | :----------------------------- |
 | nbproc                      |  Number of current processes.  |
 
-<!--Ntp-->
+</TabItem>
+<TabItem value="Ntp" label="Ntp">
 
 | Metric name           | Description                        |
 | :-------------------- | :--------------------------------- |
 | offset                | Offset of ntpd service. Unit : ms  |
 
-<!--Quota-->
+</TabItem>
+<TabItem value="Quota" label="Quota">
 
 | Metric name           | Description                         |
 | :-------------------- | :---------------------------------- |
 | data_used             | Quota usage on partitions. Unit : B |
 
-<!--Storage-->
+</TabItem>
+<TabItem value="Storage" label="Storage">
 
 | Metric name           | Description              |
 | :-------------------- | :----------------------- |
 | used                  | Storage usages. Unit : B |
 
-<!--Traffic-->
+</TabItem>
+<TabItem value="Traffic" label="Traffic">
 
 | Metric name                         | Description                                                |
 | :---------------------------------- | :--------------------------------------------------------- |
@@ -192,7 +211,8 @@ Ce Plugin-Pack est compatible avec n'importe quelle distribution Linux avec un d
 | interface.traffic.in.bitspersecond  | Incoming traffic going through the interface. Units: b/s   |
 | interface.traffic.out.bitspersecond | Outgoing traffic going through the interface. Units: b/s   |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -202,9 +222,8 @@ Un simple utilisateur est nécessaire pour interroger le système d'exploitation
 Il y a deux façons possibles d'effectuer la vérification SSH, soit en échangeant la clé SSH de centreon-engine au serveur cible, 
 ou en définissant votre utilisateur et votre mot de passe directement dans les macros hôtes.
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Exchange des Clés SSH -->
+<Tabs groupId="sync">
+<TabItem value="Exchange des Clés SSH" label="Exchange des Clés SSH">
 
 Ajouter et générer un mot de passe pour votre utilisateur sur le **Serveur Cible** :
 
@@ -226,17 +245,18 @@ ssh-keygen -t ed25519 -a 100
 ssh-copy-id -i .ssh/id_ed25519.pub ro_ssh_centreon@<IP_TARGET_SERVER>
 ```
 
-<!--Autentification Utilisateur/Mot de passe-->
+</TabItem>
+<TabItem value="Autentification Utilisateur/Mot de passe" label="Autentification Utilisateur/Mot de passe">
 
 Après avoir défini les paramètres du nom, de l'alias, de l'IP et du modèle d'hôte, vous devez remplir les macros décritent dans la partie **Configuration** ci-dessous.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources Linux SSH :
 
@@ -246,7 +266,8 @@ yum install centreon-plugin-Operatingsystems-Linux-Ssh.noarch
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Linux SSH* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources Linux SSH :
 
@@ -262,7 +283,8 @@ yum install centreon-pack-operatingsystems-linux-ssh.noarch
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Linux SSH* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -270,9 +292,8 @@ Créer un nouvel hôte dans Centreon et lui appliquer le modèle d'hôte "OS-Lin
 Une fois le modèle défini, vous devez définir des valeurs en fonction du backend SSH choisi.
 3 backends SSH sont disponibles pour se connecter au serveur Linux : *sshcli*, *plink* et *libssh* qui sont détaillés ci-dessous.  
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--sshcli backend-->
+<Tabs groupId="sync">
+<TabItem value="sshcli backend" label="sshcli backend">
 
 | Mandatory   | Name            | Description                                                                                     |
 | :---------- | :-------------- | :---------------------------------------------------------------------------------------------- |
@@ -285,7 +306,8 @@ Une fois le modèle défini, vous devez définir des valeurs en fonction du back
 > Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur centreon-engine du Collecteur
 et l'utilisateur applicatif créé sur le serveur Linux. (Macro SSHUSERNAME).
 
-<!--plink backend-->
+</TabItem>
+<TabItem value="plink backend" label="plink backend">
 
 | Mandatory   | Name            | Description                                                                                     |
 | :---------- | :-------------- | :---------------------------------------------------------------------------------------------- | 
@@ -298,7 +320,8 @@ et l'utilisateur applicatif créé sur le serveur Linux. (Macro SSHUSERNAME).
 > Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur centreon-engine du Collecteur
 et l'utilisateur applicatif créé sur le serveur Linux. (Macro SSHUSERNAME).
 
-<!--libssh backend (par défaut)-->
+</TabItem>
+<TabItem value="libssh backend (par défaut)" label="libssh backend (par défaut)">
 
 | Mandatory   | Name            | Description                                                                                     |
 | :---------- | :-------------- | :---------------------------------------------------------------------------------------------- |
@@ -309,6 +332,9 @@ et l'utilisateur applicatif créé sur le serveur Linux. (Macro SSHUSERNAME).
 |             | SSHEXTRAOPTIONS | Personnalisez-le avec le vôtre si nécessaire. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```      |
 
 Avec ce backend, vous n'avez pas à valider manuellement le fingerprint du serveur cible. 
+
+</TabItem>
+</Tabs>
 
 ## FAQ
 

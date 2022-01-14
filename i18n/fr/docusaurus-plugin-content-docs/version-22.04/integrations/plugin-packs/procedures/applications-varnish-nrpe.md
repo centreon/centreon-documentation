@@ -2,6 +2,9 @@
 id: applications-varnish-nrpe
 title: Varnish NRPE
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 > Hello community! We're looking for a contributor to help us to translate the 
 content in french and provide a sample execution command. If it's you, let us 
@@ -68,7 +71,8 @@ Modifying it might open serious security hole and RCE exploitation from an attac
 
 ## Installation 
 
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Install the Centreon NRPE Client package on every Poller expected to monitor *Varnish*:
 
@@ -79,7 +83,8 @@ yum install centreon-nrpe3-plugin
 2. On the Centreon Web interface, install the Centreon Pack *Varnish* 
 from the **Configuration > Plugin Packs > Manager** page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Poller expected to monitor *Varnish*:
 
@@ -96,7 +101,8 @@ yum install centreon-pack-applications-varnish-nrpe
 3. On the Centreon Web interface, install the Centreon Pack *Varnish* 
 from the **Configuration > Plugin Packs > Manager** page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host configuration
 

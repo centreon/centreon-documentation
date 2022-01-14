@@ -2,6 +2,9 @@
 id: upgrade-centreon-ha-from-20-10
 title: Montée de version de Centreon HA depuis Centreon 20.10
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 Ce chapitre décrit la procédure de montée de version de votre plateforme
 Centreon HA depuis la version 20.10 vers la version 21.10.
@@ -75,8 +78,8 @@ yum clean all --enablerepo=*
 
 Mettez à jour l'ensemble des composants :
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--HA 2 Nodes-->
+<Tabs groupId="sync">
+<TabItem value="HA 2 Nodes" label="HA 2 Nodes">
 
 ```shell
 yum remove centreon-ha
@@ -86,7 +89,8 @@ mv /etc/centreon-ha/centreon_central_sync.pm.rpmsave /etc/centreon-ha/centreon_c
 mv /etc/centreon-ha/mysql-resources.sh.rpmsave /etc/centreon-ha/mysql-resources.sh
 ```
 
-<!--HA 4 Nodes-->
+</TabItem>
+<TabItem value="HA 4 Nodes" label="HA 4 Nodes">
 
 Sur les serveurs Centraux:
 
@@ -106,7 +110,8 @@ yum install centreon-ha-common
 mv /etc/centreon-ha/mysql-resources.sh.rpmsave /etc/centreon-ha/mysql-resources.sh
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 > Acceptez les nouvelles clés GPG des dépôts si nécessaire.
 
@@ -121,8 +126,8 @@ echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
 
 > **WARNING** les commandes suivantes ne doivent être exécutées que sur un seul nœud du cluster.
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--HA 2 Nodes-->
+<Tabs groupId="sync">
+<TabItem value="HA 2 Nodes" label="HA 2 Nodes">
 ```bash
 pcs resource delete php7 --force
 pcs resource create "php" \
@@ -133,7 +138,8 @@ pcs resource create "php" \
     monitor interval="5s" timeout="30s" \
     clone
 ```
-<!--HA 4 Nodes-->
+</TabItem>
+<TabItem value="HA 4 Nodes" label="HA 4 Nodes">
 ```bash
 pcs resource delete php7 --force
 pcs resource create "php" \
@@ -145,7 +151,8 @@ pcs resource create "php" \
     clone
 pcs constraint location php-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 Une fois les mises à jour terminées sur les deux serveurs, il reste à appliquer la mise à jour via l'interface web en fermant la session en cours ou en rafraichissant la page de login.
 
@@ -332,8 +339,8 @@ pcs resource cleanup ms_mysql
 
 Il est possible de suivre l'état du cluster en temps réel via la commande `crm_mon` :
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--HA 2 Nodes-->
+<Tabs groupId="sync">
+<TabItem value="HA 2 Nodes" label="HA 2 Nodes">
 ```bash
 Stack: corosync
 Current DC: @CENTRAL_SLAVE_NAME@ (version 1.1.20-5.el7_7.2-3c4c782f70) - partition with quorum
@@ -364,7 +371,8 @@ Active resources:
  Clone Set: php-clone [php]
      Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
 ```
-<!--HA 4 Nodes-->
+</TabItem>
+<TabItem value="HA 4 Nodes" label="HA 4 Nodes">
 ```bash
 [...]
 4 nodes configured
@@ -392,7 +400,8 @@ Active resources:
  Clone Set: php-clone [php]
      Started: [@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE@]
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Vérification de la stabilité de la plateforme
 

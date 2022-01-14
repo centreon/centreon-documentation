@@ -2,6 +2,9 @@
 id: network-fortinet-fortiauthenticator-snmp
 title: Fortinet FortiAuthenticator SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -19,9 +22,8 @@ et métriques relatives aux équipements FortiAuthenticator.
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Authenticator-->
+<Tabs groupId="sync">
+<TabItem value="Authenticator" label="Authenticator">
 
 | Metric name                                     | Description                                  | Unit |
 |:------------------------------------------------|:---------------------------------------------|:-----|
@@ -34,25 +36,29 @@ et métriques relatives aux équipements FortiAuthenticator.
 | authenticator.users.count                       | Total number of local users                  |      |
 | authenticator.users.percentage                  | Percentage of users usage                    | %    |
 
-<!--Cpu-->
+</TabItem>
+<TabItem value="Cpu" label="Cpu">
 
 | Metric name                 | Description                  | Unit  |
 | :-------------------------- | :--------------------------- | :---- |
 | cpu.utilization.percentage  | Current CPU usage percentage |   %   |
 
-<!--Disk-Log-->
+</TabItem>
+<TabItem value="Disk-Log" label="Disk-Log">
 
 | Metric name                     | Description                                       | Unit |
 |:--------------------------------|:--------------------------------------------------|:-----|
 | disk.log.space.usage.percentage | Percentage of used space on the device's log disk | %    |
 
-<!--Ha-->
+</TabItem>
+<TabItem value="Ha" label="Ha">
 
 | Metric name | Description                                     |
 |:------------|:------------------------------------------------|
 | ha-status   | Current status of the high-availability feature |
 
-<!--Interfaces-->
+</TabItem>
+<TabItem value="Interfaces" label="Interfaces">
 
 * Per interface
 
@@ -67,13 +73,15 @@ et métriques relatives aux équipements FortiAuthenticator.
 Vous pouvez restreindre ce contrôle sur une interface donnée en spécifiant le nom de l'interface à superviser
 (par exemple ```--interface='^eth0$'```) conjointement avec le paramètre ```--name```.
 
-<!--Memory-->
+</TabItem>
+<TabItem value="Memory" label="Memory">
 
 | Metric name             | Description                               | Unit  |
 | :---------------------  | :---------------------------------------- | :---- |
 | memory.usage.percentage | Percentage of memory usage on the device. |   %   |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -87,9 +95,8 @@ Sur l'équipement FortiAuthenticator, configurez et activez l'agent SNMP en suiv
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le Plugin sur chaque collecteur Centreon devant superviser des équipements FortiAuthenticator:
 
@@ -100,7 +107,8 @@ yum install centreon-plugin-Network-Fortinet-Fortiauthenticator-Snmp
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Fortinet Fortiauthenticator SNMP*
 depuis la page "Configuration > Plugin Packs > Gestionnaire"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur chaque collecteur Centreon devant superviser des équipements FortiAuthenticator:
 
@@ -116,6 +124,9 @@ yum install centreon-pack-network-fortinet-fortiauthenticator-snmp
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Fortinet Fortiauthenticator SNMP*
 depuis la page "Configuration > Plugin Packs > Gestionnaire"
+
+</TabItem>
+</Tabs>
 
 ## Configuration
 

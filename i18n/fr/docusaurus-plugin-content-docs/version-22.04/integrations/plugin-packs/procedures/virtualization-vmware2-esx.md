@@ -2,6 +2,9 @@
 id: virtualization-vmware2-esx
 title: VMware ESX
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -19,22 +22,23 @@ Avec le connecteur, Centreon peut superviser les VMs, Datastores, ESXs, Clusters
 	
 ### Règles de découvertes
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Host-->
+<Tabs groupId="sync">
+<TabItem value="Host" label="Host">
 
 | Nom de la règle                | Description                                  |
 | :----------------------------- | :------------------------------------------- |
 | Virt-VMWare2-Esx-HostDiscovery | Découvrez vos ESX liés à vCenter ou vos ESXi |
 	
-<!--Services-->
+</TabItem>
+<TabItem value="Services" label="Services">
 
 | Rule name                                | Description                                     |
 | :--------------------------------------- | :---------------------------------------------- |
 | Virt-VMWare2-Esx-Datastores-Latency-Name | Découvre les datastores et supervise la latence |
 | Virt-VMWare2-Esx-Nics-Traffic-Name       | Découvre les Nics et supervise le trafic        |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 	
 ## Métriques Collectées
 
@@ -47,9 +51,8 @@ En plus des modes et des métriques détaillées ci-après, il est également po
 * Traffic : Contrôle les interfaces et le trafic
 * Uptime : temps écoulé depuis le dernier redémarrage de l'ESX
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Esx-Cpu-->
+<Tabs groupId="sync">
+<TabItem value="Esx-Cpu" label="Esx-Cpu">
 
 | Metric name                                   | Description                      | Unit |
 | :-------------------------------------------- | :------------------------------- | :--- |
@@ -57,7 +60,8 @@ En plus des modes et des métriques détaillées ci-après, il est également po
 | host.cpu.utilization.mhz                      | Total CPU usage in MHz           | MHz  |
 | core#host.core.cpu.utilization.percentage     | CPU usage per core in percentage | %    |
 
-<!--Esx-Health-->
+</TabItem>
+<TabItem value="Esx-Health" label="Esx-Health">
 
 | Metric name                         | Description                         | Unit  |
 | :---------------------------------- | :---------------------------------- | :---- |
@@ -66,7 +70,8 @@ En plus des modes et des métriques détaillées ci-après, il est également po
 | host.health.yellow.current.count    | Number of health checks in yellow   | Count |
 | host.health.red.current.count       | Number of health checks in red      | Count |
 
-<!--Esx-Memory-->
+</TabItem>
+<TabItem value="Esx-Memory" label="Esx-Memory">
 
 | Metric name                   | Description                                  | Unit  |
 | :---------------------------- | :------------------------------------------- | :---- |
@@ -74,13 +79,15 @@ En plus des modes et des métriques détaillées ci-après, il est également po
 | host.memory.overhead.bytes    | Memory overhead needed by the VMs on the ESX | Bytes |
 | host.memory.state.count       | Memory state                                 |       |
 
-<!--Esx-Status-->
+</TabItem>
+<TabItem value="Esx-Status" label="Esx-Status">
 
 | Metric name | Description               | Unit |
 | :---------- | :------------------------ | :--- |
 | Status      | Overall status on the ESX |      |
 
-<!--Esx-Storage-->
+</TabItem>
+<TabItem value="Esx-Storage" label="Esx-Storage">
 
 | Metric name                            | Description                                       | Unit |
 | :------------------------------------- | :------------------------------------------------ | :--- |
@@ -107,14 +114,16 @@ En plus des modes et des métriques détaillées ci-après, il est également po
 | *esx_name*#host.paths.dead.count       | Number of paths with status dead on the ESX       |      |
 | *esx_name*#host.paths.unknown.count    | Number of paths with status unknown on the ESX    |      |
 
-<!--Esx-Swap-->
+</TabItem>
+<TabItem value="Esx-Swap" label="Esx-Swap">
 
 | Metric name                           | Description         | Unit |
 | :------------------------------------ | :------------------ | :--- |
 | host.swap.in.usage.bytespersecond     | Swap in rate Usage  | B/s  |
 | host.swap.out.usage.bytespersecond    | Swap out rate Usage | B/s  |
 
-<!--Esx-Vm-Count-->
+</TabItem>
+<TabItem value="Esx-Vm-Count" label="Esx-Vm-Count">
 
 | Metric name                       | Description                          | Unit  |
 | :-------------------------------- | :----------------------------------- | :---- |
@@ -122,7 +131,8 @@ En plus des modes et des métriques détaillées ci-après, il est également po
 | host.vm.poweredoff.current.count  | Number of powered off VMs on the ESX | Count |
 | host.vm.suspended.current.count   | Number of suspended VMs on the ESX   | Count |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -202,9 +212,8 @@ Les Collecteurs requêtant le Collecteur avec le connecteur VMWare doit accéder
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-	
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le Plugin sur l'ensemble des Collecteurs Centreon supervisant l'infrastructure VMWare:
 	
@@ -214,7 +223,8 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 
 2. Installer le Plugin-Pack 'Vmware ESX' depuis la page "Configuration > Plugin packs > Manager" sur l'interface Web de Centreon. 
 	
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant l'infrastructure VMWare:
 
@@ -230,7 +240,8 @@ yum install centreon-pack-virtualization-vmware2-esx
 
 3. Installer le Plugin-Pack 'Vmware ESX' depuis la page "Configuration > Plugin packs > Manager" sur l'interface Web de Centreon.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 	
 ## Configuration
 

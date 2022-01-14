@@ -2,6 +2,9 @@
 id: acceptance-guide
 title: Guide de recette du cluster
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 > Sauf mention contraire, toutes les commandes présentées dans ce document sont à lancer en tant que `root`.
 
@@ -24,8 +27,8 @@ pcs status
 
 La commande doit vous renvoyer les informations suivantes :
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL 8 / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
 
 ```bash
 Cluster Summary:
@@ -56,7 +59,9 @@ Full List of Resources:
     * snmptrapd (systemd:snmptrapd):     Started @CENTRAL_MASTER_NAME@
 ```
 
-<!--RHEL 7 / CentOS 7-->
+</TabItem>
+<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
+
 ```bash
 Stack: corosync
 Current DC: @CENTRAL_MASTER_NAME@ (version 1.1.23-1.el7_9.1-9acf116022) - partition with quorum
@@ -87,7 +92,8 @@ Active resources:
      centreontrapd      (systemd:centreontrapd):        Started @CENTRAL_MASTER_NAME@
      snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_MASTER_NAME@
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 > Vérifier les erreurs de type `Failed` présentes sur les ressources et corriger ces dernières en vous aidant du [guide de troubleshooting](troubleshooting-guide).
 
@@ -101,9 +107,8 @@ pcs constraint
 
 La commande doit vous retourner les informations suivantes :
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--RHEL 8 / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
 ```bash
 Location Constraints:
 Ordering Constraints:
@@ -113,7 +118,9 @@ Colocation Constraints:
 Ticket Constraints:
 ```
 
-<!--RHEL 7 / CentOS 7-->
+</TabItem>
+<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
+
 ```bash
 Location Constraints:
 Ordering Constraints:
@@ -123,7 +130,8 @@ Colocation Constraints:
 Ticket Constraints:
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Vérifier le status de la synchronisation des bases
 
@@ -156,8 +164,8 @@ pcs status
 
 Le résultat attendu est :
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL 8 / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
 ```bash
 Cluster Summary:
   * Stack: corosync
@@ -187,7 +195,9 @@ Full List of Resources:
     * snmptrapd (systemd:snmptrapd):     Started @CENTRAL_MASTER_NAME@
 ```
 
-<!--RHEL 7 / CentOS 7-->
+</TabItem>
+<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
+
 ```bash
 Stack: corosync
 Current DC: @CENTRAL_MASTER_NAME@ (version 1.1.23-1.el7_9.1-9acf116022) - partition with quorum
@@ -217,7 +227,8 @@ Online: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
      centreontrapd      (systemd:centreontrapd):        Started @CENTRAL_MASTER_NAME@
      snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_MASTER_NAME@
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Exécuter une bascule
 
@@ -239,9 +250,8 @@ pcs status
 
 Le résultat attendu est :
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--RHEL 8 / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
 
 ```bash
 Cluster Summary:
@@ -272,7 +282,9 @@ Full List of Resources:
     * snmptrapd (systemd:snmptrapd):     Started @CENTRAL_SLAVE_NAME@
 ```
 
-<!--RHEL 7 / CentOS 7-->
+</TabItem>
+<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
+
 ```bash
 Stack: corosync
 Current DC: @CENTRAL_MASTER_NAME@ (version 1.1.23-1.el7_9.1-9acf116022) - partition with quorum
@@ -303,7 +315,8 @@ Active resources:
      centreontrapd      (systemd:centreontrapd):        Started @CENTRAL_SLAVE_NAME@
      snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_SLAVE_NAME@
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 Vous pouvez remarquer qu'en plus des ressources `centreon`, le nœud secondaire a aussi été promu comme `master` pour la ressource `ms_mysql`. Ce comportement est voulu et dû aux `Colocation Contraints` entre la ressource `centreon` et `msq_mysql`.
 
@@ -345,9 +358,8 @@ pcs status
 ```
 
 afin de vérifier qu'il n'ait pas d'erreurs :
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--RHEL 8 / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
 
 ```bash
 Cluster Summary:
@@ -378,7 +390,9 @@ Full List of Resources:
     * snmptrapd (systemd:snmptrapd):     Started @CENTRAL_SLAVE_NAME@
 ```
 
-<!--RHEL 7 / CentOS 7-->
+</TabItem>
+<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
+
 ```bash
 Stack: corosync
 Current DC: @CENTRAL_MASTER_NAME@ (version 1.1.23-1.el7_9.1-9acf116022) - partition with quorum
@@ -409,7 +423,8 @@ Active resources:
      centreontrapd      (systemd:centreontrapd):        Started @CENTRAL_SLAVE_NAME@
      snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_SLAVE_NAME@
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 Ensuite, lancer la commande de nettoyage des contraintes au cas où vous avez :
 
@@ -446,9 +461,8 @@ iptables -A OUTPUT -d @IP_SECONDARY_NODE@ -j DROP
 ```
 
 L'exécution de la commande a pour effet de ne voir aucune ressource active sur le nœud secondaire et de voir le nœud primaire comme `offline` :
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--RHEL 8 / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
 
 ```bash
 Cluster Summary:
@@ -465,7 +479,9 @@ Node List:
 No active resources
 ```
 
-<!--RHEL 7 / CentOS 7-->
+</TabItem>
+<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
+
 ```bash
 Stack: corosync
 Current DC: @CENTRAL_SLAVE_NAME@ (version 1.1.23-1.el7_9.1-9acf116022) - partition WITHOUT quorum
@@ -480,14 +496,14 @@ OFFLINE: [ @CENTRAL_MASTER_NAME@ ]
 
 No active resources
 ``` 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 En exécutant un `crm_mon` sur le premier nœud, les ressources et le cluster fonctionne toujours.
 Le nœud secondaire est vue `offline` sur le primaire.
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--RHEL 8 / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
 
 ```bash
 Cluster Summary:
@@ -519,7 +535,9 @@ Full List of Resources:
     * snmptrapd (systemd:snmptrapd):     Started @CENTRAL_MASTER_NAME@
 ```
 
-<!--RHEL 7 / CentOS 7-->
+</TabItem>
+<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
+
 ```bash
 Stack: corosync
 Current DC: @CENTRAL_MASTER_NAME@ (version 1.1.23-1.el7_9.1-9acf116022) - partition with quorum
@@ -550,7 +568,8 @@ Active resources:
      centreontrapd      (systemd:centreontrapd):        Started @CENTRAL_MASTER_NAME@
      snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_MASTER_NAME@
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Retour en situation nominale
 
@@ -596,9 +615,8 @@ iptables -D OUTPUT @RULE_NUMBER@
 
 Le nœud secondaire est de nouveau vu `online` par le cluster :
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--RHEL 8 / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
 ```bash
 Cluster Summary:
   * Stack: corosync
@@ -628,7 +646,9 @@ Full List of Resources:
     * snmptrapd (systemd:snmptrapd):     Started @CENTRAL_MASTER_NAME@
 ```
 
-<!--RHEL 7 / CentOS 7-->
+</TabItem>
+<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
+
 ```bash
 Stack: corosync
 Current DC: @CENTRAL_MASTER_NAME@ (version 1.1.23-1.el7_9.1-9acf116022) - partition with quorum
@@ -659,7 +679,8 @@ Active resources:
      centreontrapd      (systemd:centreontrapd):        Started @CENTRAL_MASTER_NAME@
      snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_MASTER_NAME@
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 Vérifier aussi que la réplication MySQL est toujours opérationnelle à l'aide de la commande :
 
@@ -694,8 +715,8 @@ iptables -A OUTPUT -d @QDEVICE_IP@  -j DROP
 
 Les ressources sur le nœud primaire doivent s'arrêter et doivent démarrer sur le nœud secondaire. Vous pouvez utiliser la commande `crm_mon -fr` sur le nœud secondaire pour suivre le démarrage des ressources :
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL 8 / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
 
 ```bash
 Cluster Summary:
@@ -727,7 +748,9 @@ Full List of Resources:
     * snmptrapd (systemd:snmptrapd):     Started @CENTRAL_SLAVE_NAME@
 ```
 
-<!--RHEL 7 / CentOS 7-->
+</TabItem>
+<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
+
 ```bash
 Stack: corosync
 Current DC: @CENTRAL_MASTER_NAME@ (version 1.1.23-1.el7_9.1-9acf116022) - partition with quorum
@@ -758,12 +781,13 @@ Active resources:
      centreontrapd      (systemd:centreontrapd):        Started @CENTRAL_SLAVE_NAME@
      snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_SLAVE_NAME@
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 Sur le nœud primaire, la commande `pcs status` doit vous retourner le résultat suivant :
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL 8 / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
 ```bash
 Cluster Summary:
   * Stack: corosync
@@ -778,7 +802,9 @@ Node List:
 
 No active resources
 ```
-<!--RHEL 7 / CentOS 7-->
+</TabItem>
+<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
+
 ```bash
 Stack: corosync
 Current DC: @CENTRAL_MASTER_NAME@ (version 1.1.23-1.el7_9.1-9acf116022) - partition WITHOUT quorum
@@ -793,7 +819,8 @@ OFFLINE: [ @CENTRAL_SLAVE_NAME@ ]
 
 No active resources
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 Ce test permet de vérifier qu'en cas d'indisponibilité du nœud primaire, les ressources basculeront sur le nœud secondaire et permet une continuité de service.
 

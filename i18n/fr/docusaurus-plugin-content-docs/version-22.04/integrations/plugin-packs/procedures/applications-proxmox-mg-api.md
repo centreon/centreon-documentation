@@ -2,6 +2,9 @@
 id: applications-proxmox-mg-api
 title: Proxmox Mail Gateway
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Contenu du Plugin Pack
 
@@ -13,9 +16,8 @@ Le Plugin Pack Proxmox Mail Gateway collecte les données pour:
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Mail-->
+<Tabs groupId="sync">
+<TabItem value="Mail" label="Mail">
 
 | Metric name                      | Description                    | Unit |
 | :------------------------------- | :----------------------------- | :--- |
@@ -28,13 +30,15 @@ Le Plugin Pack Proxmox Mail Gateway collecte les données pour:
 | mails.virus.incoming.count       | Number of incoming virus mails |      |
 | mails.virus.outgoing.count       | Number of outgoing virus mails |      |
 
-<!--Version-->
+</TabItem>
+<TabItem value="Version" label="Version">
 
 | Metric name     | Description                  | Unit |
 | :-------------- | :--------------------------- | :--- |
 | version status  | Proxmox Mail Gateway version |      |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -42,9 +46,8 @@ Afin de contrôler l'application Proxmox Mail Gateway, l'API Rest doit être con
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -54,7 +57,8 @@ yum install centreon-plugin-Applications-Proxmox-Mg-Api
 
 2. Sur l'interface Web de Centreon, installer le Plugin Pack *Proxmox Mail Gateway* depuis la page "Configuration > Plugin Packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -70,7 +74,8 @@ yum install centreon-pack-applications-proxmox-mg-api
 
 3. Sur l'interface Web de Centreon, installer le Plugin Pack *Proxmox Mail Gateway* depuis la page "Configuration > Plugin Packs > Manager"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

@@ -2,6 +2,9 @@
 id: cloud-azure-storage-acr
 title: Azure Container Registry
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -35,15 +38,15 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 
 ### Métriques collectées 
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Storage-usage-->
+<Tabs groupId="sync">
+<TabItem value="Storage-usage" label="Storage-usage">
 
 | Metric Name                                            | Description  | Unit |
 |:-------------------------------------------------------|:-------------|:-----|
 | *instance*#azure.containerregistry.storage.used.bytes  | Storage used | B    |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -52,9 +55,8 @@ Deux moyens sont disponibles pour interroger les API Microsoft Azure.
 Centreon préconise l'utilisation de la méthode *API* plutôt que la *CLI*, cette dernière étant significativement
 moins performante. L'API Rest permet également une authentification *Application* et ne nécessite pas de compte de service dédié.
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Azure Monitor API-->
+<Tabs groupId="sync">
+<TabItem value="Azure Monitor API" label="Azure Monitor API">
 
 Pour le custom-mode 'api', récupérez les informations en suivant la procédure ci-dessous (en anglais)
 et notez celles-ci en lieu sûr. Elles seront en effet indispensables lors de la configuration des ressources
@@ -103,7 +105,8 @@ dans Centreon.
 
 Please make sure to assign the **Monitoring Reader** role to the application.
 
-<!--Azure AZ CLI-->
+</TabItem>
+<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 Afin d'utiliser le custom-mode 'azcli', installez le binaire associé sur tous les Collecteurs Centreon
 devant superviser des resources Azure:
@@ -157,13 +160,13 @@ du collecteur Centreon:
 Vous avez désormais les informations stockées localement dans un fichier
 **accessTokens.json** qui sera utilisé automatiquement par le Plugin.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Installation 
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des resources *Azure Container Registry*:
 
@@ -173,7 +176,8 @@ yum install centreon-plugin-Cloud-Azure-Storage-ContainerRegistry-Api
 
 2. Sur l'interface Web Centreon, installer le Pack *Azure Container Registry* depuis la page **Configuration > Plugin packs > Gestionnaire**.
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des resources *Azure Container Registry*:
 
@@ -188,7 +192,8 @@ yum install centreon-pack-cloud-azure-storage-acr.noarch
 
 3. Sur l'interface Web Centreon, installer le Pack *Azure Container Registry* depuis la page **Configuration > Plugin packs > Gestionnaire**.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -204,7 +209,8 @@ doivent être renseignées selon le *custom mode* utilisé.
 dans la Macro *AZURERESOURCE*
 > * Utilisation du nom de la ressource dans la Macro *AZURERESOURCE* associée à la Macro *AZURERESOURCEGROUP* 
 
-<!--Azure Monitor API-->
+<Tabs groupId="sync">
+<TabItem value="Azure Monitor API" label="Azure Monitor API">
 
 | Mandatory | Nom                | Description                                        |
 |:----------|:-------------------|:---------------------------------------------------|
@@ -216,7 +222,8 @@ dans la Macro *AZURERESOURCE*
 | X         | AZURERESOURCE      | ID or name of the Container Registry resource      |
 |           | AZURERESOURCEGROUP | Associated Resource Group if resource name is used |
 
-<!--Azure AZ CLI-->
+</TabItem>
+<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 | Mandatory | Nom                | Description                                        |
 |:----------|:-------------------|:---------------------------------------------------|
@@ -225,7 +232,8 @@ dans la Macro *AZURERESOURCE*
 | X         | AZURERESOURCE      | ID or name of the Container Registry resource      |
 |           | AZURERESOURCEGROUP | Associated Resource Group if resource name is used |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## FAQ
 

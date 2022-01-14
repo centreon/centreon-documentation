@@ -2,6 +2,9 @@
 id: add-a-poller-to-configuration
 title: Ajouter un Poller à la configuration
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Prérequis
 
@@ -57,9 +60,8 @@ La communication entre le serveur Central et un Poller est assurée par Gorgone 
 être faite en utilisant ZMQ (avec un Gorgone s'exécutant sur le Poller,
 recommandé) ou en utilisant le protocole SSH.
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Avec ZMQ (Recommandé)-->
+<Tabs groupId="sync">
+<TabItem value="Avec ZMQ (Recommandé)" label="Avec ZMQ (Recommandé)">
 
 1. Sélectionner le type de communication :
 
@@ -163,7 +165,9 @@ la commande suivante depuis le **serveur Central** :
     ```shell
     systemctl restart gorgoned
     ```
-<!--Avec SSH-->
+
+</TabItem>
+<TabItem value="Avec SSH" label="Avec SSH">
 
 1. Sélectionner le type de communication :
 
@@ -214,7 +218,9 @@ la commande suivante depuis le **serveur Central** :
   ```shell
   systemctl restart gorgoned
   ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+  
+</TabItem>
+</Tabs>
 
 ## Étape 3 : Exporter la configuration
 
