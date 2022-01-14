@@ -2,6 +2,9 @@
 id: key-rotation
 title: Rotating RPM keys
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 For security reasons, the keys used to sign Centreon RPMs have to be rotated regularly.
 
@@ -55,8 +58,8 @@ before the new RPM key was published, the existing key has to be replaced with t
 
 You can then check that the new key has been correctly imported. For the [new key published on October 14, 2021](#list-of-keys):
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Fresh installation-->
+<Tabs groupId="sync">
+<TabItem value="Fresh installation" label="Fresh installation">
 
 * After installation, check if the new key has been correctly imported into the RPM database:
 
@@ -142,7 +145,8 @@ You can then check that the new key has been correctly imported. For the [new ke
     gpg-pubkey-3fc49c1b-6166eb52	gpg(Centreon Enterprise Server Official Signing Key <admin@centreon.com>)
     ```
 
-<!--Existing installation-->
+</TabItem>
+<TabItem value="Existing installation" label="Existing installation">
 
 * Check if the new key has been correctly imported into the RPM database:
 
@@ -229,7 +233,8 @@ only be **gpg-pubkey-3fc49c1b-6166eb52**):
   gpg-pubkey-3fc49c1b-6166eb52	gpg(Centreon Enterprise Server Official Signing Key <admin@centreon.com>)
   ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## List of keys
 

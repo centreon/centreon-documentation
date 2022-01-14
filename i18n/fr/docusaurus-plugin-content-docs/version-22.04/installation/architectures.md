@@ -2,6 +2,9 @@
 id: architectures
 title: Architectures possibles
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 Centreon permet plusieurs choix dans la composition de l'architecture de votre outil de supervision. D'une architecture
 relativement simple avec un serveur hébergeant tous les services, l'architecture peut aussi être organisée autour d'un
@@ -12,8 +15,9 @@ de collecte sur plusieurs continents.
 
 Vous trouverez ici toutes les architectures supportées :
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Architecture simple-->
+<Tabs groupId="sync">
+<TabItem value="Architecture simple" label="Architecture simple">
+
 #### Description (Architecture simple)
 
 L'architecture simple consiste à avoir toutes les entités de supervision au sein du même serveur, à savoir :
@@ -44,7 +48,9 @@ Le schéma ci-dessous résume le fonctionnement de l'architecture :
 
 ![image](../assets/architectures/Architecture_standalone.png)
 
-<!-- Architecture distribuée-->
+</TabItem>
+<TabItem value="Architecture distribuée" label="Architecture distribuée">
+
 #### Description (Architecture distribuée)
 
 L'architecture distribuée consiste à avoir deux types d'entités :
@@ -97,7 +103,9 @@ Le schéma ci-dessous résume le fonctionnement de l'architecture :
 
 ![image](../assets/architectures/Architecture_distributed.png)
 
-<!--SGBD déporté-->
+</TabItem>
+<TabItem value="SGBD déporté" label="SGBD déporté">
+
 #### Description (SGBD déporté)
 
 L'architecture distribuée avec base de données déportée consiste à avoir trois types d'entités :
@@ -162,7 +170,9 @@ Le schéma ci-dessous résume le fonctionnement de l'architecture :
 
 ![image](../assets/architectures/Architecture_distributed_dbms.png)
 
-<!--Remote Server-->
+</TabItem>
+<TabItem value="Remote Server" label="Remote Server">
+
 #### Description (Remote server)
 
 L'architecture distribuée avec Remote Server consiste à avoir trois types d'entités :
@@ -242,7 +252,8 @@ Le schéma ci-dessous résume le fonctionnement de l'architecture :
 
 ![image](../assets/architectures/Architecture_distributed_remote.png)
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Tableaux des flux réseau
 

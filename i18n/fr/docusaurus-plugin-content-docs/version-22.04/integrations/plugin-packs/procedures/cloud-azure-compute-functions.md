@@ -2,6 +2,9 @@
 id: cloud-azure-compute-functions
 title: Azure Functions
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -35,9 +38,8 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 
 ### Métriques & statuts collectés 
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--App-Usage-->
+<Tabs groupId="sync">
+<TabItem value="App-Usage" label="App-Usage">
 
 | Metric Name                          | Description                                                                       | Unit  |
 |:-------------------------------------|:----------------------------------------------------------------------------------|:------|
@@ -48,33 +50,38 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 | appservice.appdomains.count          | The current number of AppDomains loaded in this application                       | Count |
 | appservice.appdomains.unloaded.count | The total number of AppDomains unloaded since the start of the application        | Count |
 
-<!--Cpu-Time-->
+</TabItem>
+<TabItem value="Cpu-Time" label="Cpu-Time">
 
 | Metric Name                     | Description                                      | Unit |
 |:--------------------------------|:-------------------------------------------------|:-----|
 | appservice.cpu.consumed.seconds | The amount of CPU consumed by the app in seconds | s    |
 
-<!--Data-->
+</TabItem>
+<TabItem value="Data" label="Data">
 
 | Metric Name               | Description                                          | Unit |
 |:--------------------------|:-----------------------------------------------------|:-----|
 | appservice.data.in.bytes  | The amount of incoming bandwidth consumed by the app | B    |
 | appservice.data.out.bytes | The amount of outgoing bandwidth consumed by the app | B    |
 
-<!--Executions-->
+</TabItem>
+<TabItem value="Executions" label="Executions">
 
 | Metric Name                      | Description                           | Unit  |
 |:---------------------------------|:--------------------------------------|:------|
 | functions.executions.count       | The number of function exectution     | Count |
 | functions.executions.units.count | The number of functon execution units | Count |
 
-<!--File-System-->
+</TabItem>
+<TabItem value="File-System" label="File-System">
 
 | Metric Name                       | Description                          | Unit |
 |:----------------------------------|:-------------------------------------|:-----|
 | appservice.filesystem.usage.bytes | Filesystem quota consumed by the app | B    |
  
-<!--Gc-Usage-->
+</TabItem>
+<TabItem value="Gc-Usage" label="Gc-Usage">
 
 | Metric Name              | Description                                                                                           | Unit  |
 |:-------------------------|:------------------------------------------------------------------------------------------------------|:------|
@@ -82,14 +89,16 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 | appservice.gc.gen1.count | The number of times the generation 1 objects are garbage collected since the start of the app process | Count |
 | appservice.gc.gen2.count | The number of times the generation 2 objects are garbage collected since the start of the app process | Count |
 
-<!--Health-->
+</TabItem>
+<TabItem value="Health" label="Health">
 
 | Status Name | Description                 |
 |:------------|:----------------------------|
 | status      | Current operational status  |
 | summary     | Last related status message |
 
-<!--Http-Requests-->
+</TabItem>
+<TabItem value="Http-Requests" label="Http-Requests">
 
 | Metric Name                         | Description                                                                 | Unit  |
 |:------------------------------------|:----------------------------------------------------------------------------|:------|
@@ -97,7 +106,8 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 | appservice.http.request.queue.count | The number of requests in the application request queue                     | Count |
 | appservice.htpp.request.XXX.count   | The count of requests resulting in an HTTP status code = XXX                | Count |
 
-<!--IO-Operations-->
+</TabItem>
+<TabItem value="IO-Operations" label="IO-Operations">
 
 | Metric Name                                | Description                                                                                      | Unit |
 |:-------------------------------------------|:-------------------------------------------------------------------------------------------------|:-----|
@@ -108,7 +118,8 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 | appservice.bytes.write.bytespersecond      | The rate at which the app process is writing bytes to I/O operations                             | B/s  |
 | appservice.operations.write.bytespersecond | The rate at which the app process is issuing write I/O operations                                | B/s  |
 
-<!--Memory-->
+</TabItem>
+<TabItem value="Memory" label="Memory">
 
 | Metric Name                                | Description                                                                                           | Unit |
 |:-------------------------------------------|:------------------------------------------------------------------------------------------------------|:-----|
@@ -116,19 +127,22 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 | appservice.memory.usage.bytes              | The current amount of memory used by the app                                                          | B    |
 | appservice.memory.privatebytes.usage.bytes | The amount of memory allocated allocated by the app process that can't be shared with other processes | B    |
 
-<!--Response-Time-->
+</TabItem>
+<TabItem value="Response-Time" label="Response-Time">
 
 | Metric Name                           | Description                                  | Unit |
 |:--------------------------------------|:---------------------------------------------|:-----|
 | appservice.http.response.time.seconds | The time taken for the app to serve requests | s    |
 
-<!--Status-->
+</TabItem>
+<TabItem value="Status" label="Status">
 
 | Metric Name             | Description         | Unit  |
 |:------------------------|:--------------------|:------|
 | appservice.status.count | Health check status | Count |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -137,9 +151,8 @@ Deux moyens sont disponibles pour interroger les API Microsoft Azure.
 Centreon préconise l'utilisation de la méthode *API* plutôt que la *CLI*, cette dernière étant significativement
 moins performante. L'API permet également une authentification *Application* et ne nécessite pas de compte de service dédié.
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Azure Monitor API-->
+<Tabs groupId="sync">
+<TabItem value="Azure Monitor API" label="Azure Monitor API">
 
 Pour le custom-mode 'api', récupérez les informations en suivant la procédure ci-dessous (en anglais)
 et notez celles-ci en lieu sûr. Elles seront en effet indispensables lors de la configuration des ressources
@@ -186,7 +199,8 @@ dans Centreon.
     - Click on *Save*.
     - **Copy and store the key value. You won't be able to retrieve it after you leave this page.**
 
-<!--Azure AZ CLI-->
+</TabItem>
+<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 Afin d'utiliser le custom-mode 'azcli', installez le binaire associé sur tous les Collecteurs Centreon
 devant superviser des resources Azure:
@@ -240,13 +254,13 @@ du collecteur Centreon:
 Vous avez désormais les informations stockées localement dans un fichier 
 accessTokens.json qui sera utilisé automatiquement par le Plugin. 
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Installation 
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des resources Azure Functions:
 
@@ -256,7 +270,8 @@ yum install centreon-plugin-Cloud-Azure-Compute-Functions-Api
 
 2. Sur l'interface Integration de Centreon, installer le Plugin-Pack *Azure Functions* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des resources Azure Functions:
 
@@ -272,7 +287,8 @@ yum install centreon-pack-cloud-azure-compute-functions.noarch
 
 3. Sur l'interface Integration de Centreon, installer le Plugin-Pack *Azure Functions* depuis la page "Configuration > Plugin packs > Gestionnaire"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -283,9 +299,8 @@ et appliquez-lui le Modèle d'Hôte *Cloud-Azure-Compute-Functions-custom*.
 * Une fois le modèle appliqué, les Macros ci-dessous indiquées comme requises (*Mandatory*) 
 doivent être renseignées selon le custom-mode utilisé:
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Azure Monitor API-->
+<Tabs groupId="sync">
+<TabItem value="Azure Monitor API" label="Azure Monitor API">
 
 | Mandatory | Nom               | Description                             |
 |:----------|:------------------|:----------------------------------------|
@@ -296,7 +311,8 @@ doivent être renseignées selon le custom-mode utilisé:
 | X         | AZURECLIENTSECRET | Client secret                           |
 | X         | AZURERESOURCE     | Id of the Functions instance            |
 
-<!--Azure AZ CLI-->
+</TabItem>
+<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 | Mandatory | Nom               | Description                             |
 |:----------|:------------------|:----------------------------------------|
@@ -304,7 +320,8 @@ doivent être renseignées selon le custom-mode utilisé:
 | X         | AZURESUBSCRIPTION | Subscription ID                         |
 | X         | AZURERESOURCE     | Id of the Functions instance            |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## FAQ
 

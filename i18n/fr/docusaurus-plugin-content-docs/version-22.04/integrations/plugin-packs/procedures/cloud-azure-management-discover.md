@@ -2,6 +2,9 @@
 id: cloud-azure-management-discover
 title: Azure Discover
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -78,9 +81,8 @@ dans Centreon.
 
 ## Installation 
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant découvrir des resources Azure:
 
@@ -91,7 +93,8 @@ yum install centreon-plugin-Cloud-Azure-Management-Discover-Api
 2. Sur l'interface Web Centreon, installer le Plugin Pack *Azure Discover* depuis la page "Configuration > Plugin packs > Manager".
 Des Plugin Packs supplémentaires seront installés en dépendance afin de permettre la supervision de l'ensemble des ressources découvertes.
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant découvrir des resources Azure:
 
@@ -108,7 +111,8 @@ yum install centreon-pack-cloud-azure\*
 3. Sur l'interface Web Centreon, installer le Plugin Pack *Azure Discover* depuis la page "Configuration > Plugin packs > Gestionnaire".
 Les Plugin Packs supplémentaires seront installés en dépendance afin de permettre la supervision de l'ensemble des ressources découvertes.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Paramétrer une découverte
 

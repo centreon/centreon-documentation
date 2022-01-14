@@ -2,6 +2,9 @@
 id: network-dell-os10-snmp
 title: Dell OS10 SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Contenu du Plugin-Pack
 
@@ -10,16 +13,16 @@ title: Dell OS10 SNMP
 * Dell OS 10 incluant le CPU, Usage du Disque, Hardware, Inodes, Interfaces, Load, Memoire, Swap et l'Uptime.
 
 ### Métriques collectées
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Cpu-->
+<Tabs groupId="sync">
+<TabItem value="Cpu" label="Cpu">
 
 | Metric name                      | Description           | Unit |
 | :------------------------------- | :-------------------- | :--- |
 | cpu.utilization.percentage       | CPU utilization.      | %    |
 | core.cpu.utilization.percentage  | CPU Core utilization. | %    |
 
-<!--Disk-usage-->
+</TabItem>
+<TabItem value="Disk-usage" label="Disk-usage">
 
 | Metric name                     | Description                      | Unit  |
 | :------------------------------ | :------------------------------- | :---- |
@@ -31,13 +34,15 @@ title: Dell OS10 SNMP
 
 Il est possible de filtrer les résultats sur le chemin de disque donné en utilisant une REGEXP sur le paramètre ```--disk-path```: [```--disk-patch='^my-disk-path$'```]
 
-<!--Inodes-->
+</TabItem>
+<TabItem value="Inodes" label="Inodes">
 
 | Metric name                 | Description                       | Unit |
 | :-------------------------- | :---------------------------------| :--- |
 | used                        | Inodes space usage on partitions. | %    |
 
-<!--Interfaces-->
+</TabItem>
+<TabItem value="Interfaces" label="Interfaces">
 
 | Metric name                              | Description                                             | Unit |
 |:---------------------------------------- |:------------------------------------------------------- | :--- |
@@ -51,7 +56,8 @@ Il est possible de filtrer les résultats sur le chemin de disque donné en util
 
 Il est possible de filtrer sur le nom d'une interface en utilisant une REGEXP de la forme [```--interface='^ens160$' --name```]
 
-<!--Hardware-->
+</TabItem>
+<TabItem value="Hardware" label="Hardware">
 
 * Par intances :
 
@@ -64,7 +70,8 @@ Il est possible de filtrer sur le nom d'une interface en utilisant une REGEXP de
 | resource.oper_status          | Status of the resources                   |      |
 | hardware.temperature.celsius  | Temperature of the different sensors      | C    |
 
-<!--Load-->
+</TabItem>
+<TabItem value="Load" label="Load">
 
 | Metric name                 | Description                      | Unit |
 | :-------------------------- | :--------------------------------| :--- |
@@ -72,7 +79,8 @@ Il est possible de filtrer sur le nom d'une interface en utilisant une REGEXP de
 | load5                       | System load 5 minutes sample     |      |
 | load15                      | System load 15 minutes sample    |      |
 
-<!--Memory-->
+</TabItem>
+<TabItem value="Memory" label="Memory">
 
 | Metric name             | Description                | Unit |
 | :---------------------- | :------------------------- | :--- |
@@ -83,7 +91,8 @@ Il est possible de filtrer sur le nom d'une interface en utilisant une REGEXP de
 | memory.cached.bytes     | Memory cached              | B    |
 | memory.shared.bytes     | Shared Memory allocation   | B    |
 
-<!--Swap-->
+</TabItem>
+<TabItem value="Swap" label="Swap">
 
 | Metric name                 | Description   | Unit |
 | :-------------------------- | :------------ | :--- |
@@ -91,13 +100,15 @@ Il est possible de filtrer sur le nom d'une interface en utilisant une REGEXP de
 | swap.free.bytes             | Swap free     | B    |
 | swap.usage.percentage       | Swap usage    | %    |
 
-<!--Uptime-->
+</TabItem>
+<TabItem value="Uptime" label="Uptime">
 
 | Metric name                 | Description                                        | Unit |
 | :-------------------------- | :------------------------------------------------- | :--- |
 | system.uptime               | Duration of system has been working and available. | s    |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -107,9 +118,8 @@ https://www.dell.com/support/manuals/fr/fr/frbsdt1/networking-z9100/os10-enterpr
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon supervisant des ressources Dell OS10 :
 
@@ -119,7 +129,8 @@ yum install centreon-plugin-Network-Dell-Os10-Snmp.noarch
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Dell OS10 SNMP* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon supervisant des ressources Dell OS10 :
 
@@ -135,7 +146,8 @@ yum install centreon-pack-network-dell-os10-snmp.noarch
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Dell OS10 SNMP* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

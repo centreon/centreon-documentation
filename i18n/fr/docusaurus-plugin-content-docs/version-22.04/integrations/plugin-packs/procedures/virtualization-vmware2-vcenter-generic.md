@@ -2,6 +2,9 @@
 id: virtualization-vmware2-vcenter-generic
 title: VMware vCenter
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -22,10 +25,6 @@ Avec le connecteur, Centreon peut superviser les VMs, Datastores, ESXs, Clusters
 
 ### Règles de découvertes
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Services-->
-
 | Nom de la règle                               | Description                                                       |
 | :-------------------------------------------- | :---------------------------------------------------------------- |
 | Virt-VMWare2-Datacenters-Alarm-Name           | Découvrez les Datacenters et supervisez leurs alarmes             | 
@@ -37,9 +36,8 @@ Avec le connecteur, Centreon peut superviser les VMs, Datastores, ESXs, Clusters
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Datacenter-Alarms-Global-->
+<Tabs groupId="sync">
+<TabItem value="Datacenter-Alarms-Global" label="Datacenter-Alarms-Global">
 
 | Metric name                                        | Description                              | Unit  |
 | :------------------------------------------------- | :--------------------------------------- | :---- |
@@ -49,20 +47,23 @@ Avec le connecteur, Centreon peut superviser les VMs, Datastores, ESXs, Clusters
 | dcname#datacenter.alarms.warning.current.count     | Number of warning alarms per Datacenter  | Count |
 | dcname#datacenter.alarms.critical.current.count    | Number of critical alarms per Datacenter | Count |
 
-<!--Cluster-Cpu-Global-->
+</TabItem>
+<TabItem value="Cluster-Cpu-Global" label="Cluster-Cpu-Global">
 
 | Metric name                                       | Description                   | Unit |
 | :------------------------------------------------ | :---------------------------- | :--- |
 | *cluster_name*#cluster.cpu.utilization.percentage | Total CPU usage in percentage | %    |
 | *cluster_name*#cluster.cpu.utilization.mhz        | Total CPU usage in MHz        | MHz  |
 
-<!--Cluster-Status-Global-->
+</TabItem>
+<TabItem value="Cluster-Status-Global" label="Cluster-Status-Global">
 
 | Metric name | Description           | Unit |
 | :---------- | :-------------------- | :--- |
 | Status      | Status of the Cluster |      |
 
-<!--Datastore-Io-Global-->
+</TabItem>
+<TabItem value="Datastore-Io-Global" label="Datastore-Io-Global">
 
 | Metric name                                        | Description              | Unit |
 | :------------------------------------------------- | :----------------------- | :--- |
@@ -71,7 +72,8 @@ Avec le connecteur, Centreon peut superviser les VMs, Datastores, ESXs, Clusters
 | datastorename#datastore.read.usage.bytespersecond  | Read rate per Datastore  | B/s  |
 | datastorename#datastore.write.usage.bytespersecond | Write rate per Datastore | B/s  |
 
-<!--Datastore-Iops-Global-->
+</TabItem>
+<TabItem value="Datastore-Iops-Global" label="Datastore-Iops-Global">
 
 | Metric name                   | Description                        | Unit |
 | :---------------------------- | :--------------------------------- | :--- |
@@ -80,7 +82,8 @@ Avec le connecteur, Centreon peut superviser les VMs, Datastores, ESXs, Clusters
 | datastore.vm.read.usage.iops  | Read IOPS per VM on the Datastore  | iops |
 | datastore.vm.write.usage.iops | Write IOPS per VM on the Datastore | iops |
 
-<!--Datastore-Usage-Global-->
+</TabItem>
+<TabItem value="Datastore-Usage-Global" label="Datastore-Usage-Global">
 
 | Metric name                       | Description                            | Unit |
 | :-------------------------------- | :------------------------------------- | :--- |
@@ -89,7 +92,8 @@ Avec le connecteur, Centreon peut superviser les VMs, Datastores, ESXs, Clusters
 | datastore.space.usage.percentage  | Usage of the Datastore in percentage   | %    |
 | datastore.space.provisioned.bytes | Provisioned Space allocated to the VMs | B    |
 
-<!--Datastore-Vm-Count-Global-->
+</TabItem>
+<TabItem value="Datastore-Vm-Count-Global" label="Datastore-Vm-Count-Global">
 
 | Metric name                            | Description                          | Unit  |
 | :------------------------------------- | :----------------------------------- | :---- |
@@ -97,7 +101,8 @@ Avec le connecteur, Centreon peut superviser les VMs, Datastores, ESXs, Clusters
 | datastore.vm.poweredoff.current.count  | Number of powered off VMs on the ESX | Count |
 | datastore.vm.suspended.current.count   | Number of suspended VMs on the ESX   | Count |
 
-<!--Esx-Storage-Global-->
+</TabItem>
+<TabItem value="Esx-Storage-Global" label="Esx-Storage-Global">
 
 | Metric name                            | Description                                       | Unit |
 | :------------------------------------- | :------------------------------------------------ | :--- |
@@ -124,7 +129,8 @@ Avec le connecteur, Centreon peut superviser les VMs, Datastores, ESXs, Clusters
 | *esx_name*#host.paths.dead.count       | Number of paths with status dead on the ESX       |      |
 | *esx_name*#host.paths.unknown.count    | Number of paths with status unknown on the ESX    |      |
 
-<!--Licenses-->
+</TabItem>
+<TabItem value="Licenses" label="Licenses">
 
 | Metric name                             | Description                                 | Unit |
 | :-------------------------------------- | :------------------------------------------ | :--- |
@@ -134,7 +140,8 @@ Avec le connecteur, Centreon peut superviser les VMs, Datastores, ESXs, Clusters
 | *license_name*#license.usage.percentage | Percentage of used resources on the license | %    |
 | *license_name*#license.expires.days     | Expiration time                             |      |
 
-<!--Vm-Tools-Global-->
+</TabItem>
+<TabItem value="Vm-Tools-Global" label="Vm-Tools-Global">
 
 | Metric name                         | Description                                                   | Unit  |
 | :---------------------------------- | :------------------------------------------------------------ | :---- |
@@ -142,7 +149,8 @@ Avec le connecteur, Centreon peut superviser les VMs, Datastores, ESXs, Clusters
 | vm.tools.notrunning.current.count   | Number of VMs with VM-Tools not running (default threshold)   | Count |
 | vm.tools.notinstalled.current.count | Number of VMs with VM-Tools not installed (default threshold) | Count |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -222,9 +230,8 @@ Les Collecteurs requêtant le Collecteur avec le connecteur VMWare doit accéder
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le Plugin sur l'ensemble des Collecteurs Centreon supervisant l'infrastructure VMWare :
 
@@ -234,7 +241,8 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 
 2. Installer le Plugin-Pack 'Vmware vCenter' depuis la page "Configuration > Plugin packs > Manager" sur l'interface Web de Centreon.
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant l'infrastructure VMWare:
 
@@ -250,7 +258,8 @@ yum install centreon-pack-virtualization-vmware2-vcenter-generic.noarch
 
 3. Installer le Plugin-Pack 'Vmware vCenter' depuis la page "Configuration > Plugin packs > Manager" sur l'interface Web de Centreon.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

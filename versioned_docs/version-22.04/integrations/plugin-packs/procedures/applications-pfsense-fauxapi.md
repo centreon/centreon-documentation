@@ -2,6 +2,9 @@
 id: applications-pfsense-fauxapi
 title: Pfsense Fauxapi
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -22,16 +25,16 @@ even if the API user manages to deploy a “very broken” configuration.
 
 More information about collected metrics is available in the official Pfsense Fauxapi documentation: https://github.com/ndejong/pfsense_fauxapi
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Backup-files-->
+<Tabs groupId="sync">
+<TabItem value="Backup-files" label="Backup-files">
 
 | Metric name                                | Description                 | Unit  |
 | :----------------------------------------- | :---------------------------| :---- | 
 | backups.total.count                        | Total number of backups     | count |
 | backups.time.last.seconds                  | Last backup time in seconds.| s     |
 
-<!--Gateways-->
+</TabItem>
+<TabItem value="Gateways" label="Gateways">
 
 | Metric name                                 | Description                                                          | Unit |
 | :------------------------------------------ | :------------------------------------------------------------------- | :--- |
@@ -40,14 +43,16 @@ More information about collected metrics is available in the official Pfsense Fa
 | gateway.packets.loss.percentage             | Lost packets going through the Pfsense in percentage.                | %    |
 | gateway.packets.stddev.milliseconds         | Standard deviation packets going through the Pfsense in milliseconds.| ms   |
 
-<!--Rules-->
+</TabItem>
+<TabItem value="Rules" label="Rules">
 
 | Metric name                 | Description                                           | Unit  |
 | :-------------------------- | :-----------------------------------------------------| :---- |
 | rules.total.count           | Total number of rules                                 | count |
 | rule.traffic.bitspersecond  | Traffic by rules in bits per seconds.| b/s   |
 
-<!--System-->
+</TabItem>
+<TabItem value="System" label="System">
 
 | Metric name                                | Description                         | Unit  |
 | :----------------------------------------- | :-----------------------------------| :---- |
@@ -55,7 +60,8 @@ More information about collected metrics is available in the official Pfsense Fa
 | system.connections.tcp.usage.percentage    | Usage TCP connections in percentage.| %     |
 | system.temperature.celsius                 | System temperature in celsius.      | C     |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -70,9 +76,8 @@ More infomation is avaible in official Pfsense Fauxpi documentation : https://gi
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Install the Centreon Plugin on every poller monitoring Pfsense Fauxapi resources:
 
@@ -82,7 +87,8 @@ yum install centreon-plugin-Applications-Pfsense-Fauxapi.noarch
 
 2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Pfsense Fauxapi* Plugin-Pack
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin on every poller monitoring Pfsense Fauxapi resources:
 
@@ -98,7 +104,8 @@ yum install centreon-pack-applications-pfsense-fauxapi.noarch
 
 3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Pfsense Fauxapi* Plugin-Pack
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

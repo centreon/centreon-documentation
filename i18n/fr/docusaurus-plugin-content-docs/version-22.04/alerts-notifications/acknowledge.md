@@ -2,6 +2,9 @@
 id: acknowledge
 title: Acquitter un problème
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 
 
@@ -38,8 +41,8 @@ nominal après changement du disque.
 
 Pour acquitter un incident, plusieurs solutions sont possibles :
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Page Statut des ressources-->
+<Tabs groupId="sync">
+<TabItem value="Page Statut des ressources" label="Page Statut des ressources">
 
 1. Allez à la page **Supervision > Statut des ressources**.
 2. Utilisez une des méthodes suivantes :
@@ -60,7 +63,8 @@ Pour acquitter un incident, plusieurs solutions sont possibles :
 
     - Si la case **Persistant (non-OK)** est cochée, alors l'acquittement sera conservé en cas de changement de statut non-OK (Exemple DOWN à UNREACHABLE ou bien WARNING à CRITICAL). Sinon, l'acquittement disparaît et le processus de notification est réactivé.
 
-<!--Supervision temps réel-->
+</TabItem>
+<TabItem value="Supervision temps réel" label="Supervision temps réel">
 
 1.  Rendez-vous dans le menu **Monitoring > Status Details > Hosts** (ou
     **Services**)
@@ -92,7 +96,8 @@ La fenêtre suivante s'affiche :
     sera envoyée à l'ordonnanceur pour recontrôler la ressource dans les plus brefs
     délais.
 
-<!--Page de détail d'un objet-->
+</TabItem>
+<TabItem value="Page de détail d'un objet" label="Page de détail d'un objet">
 
 A partir de la page de détail d'un objet, cliquez sur l'icône activé
 associé au champ **Acknowledged** dans le cadre **Options**.
@@ -121,21 +126,22 @@ La fenêtre suivante s'affiche :
     sera envoyée à l'ordonnanceur pour recontrôler la ressource dans les plus brefs
     délais.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Supprimer un acquittement
 
 Pour supprimer l'acquittement d'un incident sur un objet :
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--À partir de la page Statut des ressources-->
+<Tabs groupId="sync">
+<TabItem value="À partir de la page Statut des ressources" label="À partir de la page Statut des ressources">
 
 1. Allez à la page **Supervision > Statut des ressources**.
 2. Sélectionnez le ou les objets à désacquitter.
 3. Dans le menu **Plus d'actions**, cliquez sur **Désacquitter**.
 
-<!--À partir de la supervision temps réel-->
+</TabItem>
+<TabItem value="À partir de la supervision temps réel" label="À partir de la supervision temps réel">
 
 1.  Rendez-vous dans le menu **Monitoring > Status Details > Hosts** (or
     **Services**) menu
@@ -144,4 +150,5 @@ Pour supprimer l'acquittement d'un incident sur un objet :
 3.  Dans le menu **More actions**, cliquez sur **Hosts: Disacknowledge**
     ou sur **Services: Disacknowledge**
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>

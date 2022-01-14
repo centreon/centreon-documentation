@@ -2,6 +2,9 @@
 id: applications-drbd-ssh
 title: DRBD SSH
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -20,9 +23,8 @@ user space as well as shell scripts.
 
 More information about collected metrics is available in the official DRBD documentation : https://www.linbit.com/drbd-user-guide/drbd-guide-9_0-en/
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Resources-->
+<Tabs groupId="sync">
+<TabItem value="Resources" label="Resources">
 
 | Metric name                         | Description                         | Unit  |
 | :-----------------------------------| :-----------------------------------| :---- |
@@ -36,7 +38,8 @@ More information about collected metrics is available in the official DRBD docum
 | peer.traffic.in.bitspersecond       | Peer traffic in                     |  b/s  |
 | peer.traffic.out.bitspersecond      | Peer traffic out                    |  b/s  |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -50,9 +53,8 @@ The centreon-engine user performs a SSH connection to a remote system user. This
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Install the Centreon Plugin on every Poller monitoring DRBD resources:
 
@@ -62,7 +64,8 @@ yum install centreon-plugin-Applications-Drbd-Ssh.noarch
 
 2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *DRBD SSH* Plugin-Pack
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin on every Poller monitoring DRBD resources:
 
@@ -78,7 +81,8 @@ yum install ccentreon-pack-applications-drbd-ssh.noarch
 
 3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *DRBD SSH* Plugin-Pack
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -86,9 +90,8 @@ Adding a Host into Centreon, link it to the Template named *App-Drbd-SSH-custom*
 Once the Template set, you have to set values according to the chosen SSH backend.
 3 SSH backends are available to connect to the remote server: *sshcli*, *plink* and *libssh* which are detailed below.
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--sshcli backend-->
+<Tabs groupId="sync">
+<TabItem value="sshcli backend" label="sshcli backend">
 
 | Mandatory   | Name            | Description                                                                                 |
 | :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
@@ -100,7 +103,8 @@ Once the Template set, you have to set values according to the chosen SSH backen
 
 > With that backend, you have to validate the target server fingerprint manually (with the SSHUSERNAME used).
 
-<!--plink backend-->
+</TabItem>
+<TabItem value="plink backend" label="plink backend">
 
 | Mandatory   | Name            | Description                                                                                 |
 | :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
@@ -112,7 +116,8 @@ Once the Template set, you have to set values according to the chosen SSH backen
 
 > With that backend, you have to validate the target server fingerprint manually (with the SSHUSERNAME used).
 
-<!--libssh backend (default)-->
+</TabItem>
+<TabItem value="libssh backend (default)" label="libssh backend (default)">
 
 | Mandatory   | Name            | Description                                                                                 |
 | :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
@@ -124,7 +129,8 @@ Once the Template set, you have to set values according to the chosen SSH backen
 
 With that backend, you do not have to validate the target server fingerprint manually.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## FAQ
 

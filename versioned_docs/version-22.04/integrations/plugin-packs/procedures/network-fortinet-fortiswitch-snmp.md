@@ -2,6 +2,9 @@
 id: network-fortinet-fortiswitch-snmp
 title: Fortinet FortiSwitch SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Pack Assets
 
@@ -29,9 +32,8 @@ It brings the following Service Templates:
 
 ### Collected metrics & status
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Arp-->
+<Tabs groupId="sync">
+<TabItem value="Arp" label="Arp">
 
 | Metric name                 | Description                       | Unit  |
 | :-------------------------- | :-------------------------------- | :---- |
@@ -39,13 +41,15 @@ It brings the following Service Templates:
 | arp.duplicate.macaddr.count | Number of duplicate mac addresses |       |
 | arp.duplicate.ipaddr.count  | Number of duplicate ip addresses  |       |
 
-<!--Cpu-->
+</TabItem>
+<TabItem value="Cpu" label="Cpu">
 
 | Metric name                | Description     | Unit  |
 | :------------------------- | :-------------- | :---- |
 | cpu.utilization.percentage | CPU utilization | %     |
 
-<!--Disk-->
+</TabItem>
+<TabItem value="Disk" label="Disk">
 
 | Metric name           | Description              | Unit  |
 | :-------------------- | :----------------------- | :---- |
@@ -53,7 +57,8 @@ It brings the following Service Templates:
 | disk.free.bytes       | Free disk                | B     |
 | disk.usage.percentage | Disk usage in percentage | %     |
 
-<!--Interfaces-->
+</TabItem>
+<TabItem value="Interfaces" label="Interfaces">
 
 | Metric name                                               | Description                                             | Unit |
 |:--------------------------------------------------------- |:------------------------------------------------------- |:---- |
@@ -65,7 +70,8 @@ It brings the following Service Templates:
 | *interface_name*#interface.packets.out.error.percentage   | Outgoing errored packets going through the interface    | %    |
 | *interface_name*#interface.packets.out.discard.percentage | Outgoing discarded packets going through the interface  | %    |
 
-<!--Memory-->
+</TabItem>
+<TabItem value="Memory" label="Memory">
 
 | Metric name             | Description                | Unit  |
 | :---------------------- | :------------------------- | :---- |
@@ -73,13 +79,15 @@ It brings the following Service Templates:
 | memory.free.bytes       | Free memory                | B     |
 | memory.usage.percentage | Memory usage in percentage | %     |
 
-<!--Uptime-->
+</TabItem>
+<TabItem value="Uptime" label="Uptime">
 
 | Metric name           | Description        | Unit  |
 | :-------------------- | :----------------- | :---- |
 | system.uptime.seconds | System uptime      | s     |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -95,9 +103,8 @@ port.
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online License-->
+<Tabs groupId="sync">
+<TabItem value="Online License" label="Online License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor **Fortinet FortiSwitch SNMP** resources:
 
@@ -107,7 +114,8 @@ yum install centreon-plugin-Network-Fortinet-Fortiswitch-Snmp
 
 2. On the Centreon Web interface, install the **Fortinet FortiSwitch SNMP** Centreon Pack on the **Configuration > Plugin Packs** page.
 
-<!--Offline License-->
+</TabItem>
+<TabItem value="Offline License" label="Offline License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor **Fortinet FortiSwitch SNMP** resources:
 
@@ -117,13 +125,14 @@ yum install centreon-plugin-Network-Fortinet-Fortiswitch-Snmp
 
 2. Install the **Fortinet FortiSwitch SNMP** Centreon Pack RPM on the Centreon Central server:
 
- ```bash
+```bash
 yum install centreon-pack-network-fortinet-fortiswitch-snmp
 ```
 
 3. On the Centreon Web interface, install the **Fortinet FortiSwitch SNMP** Centreon Pack on the **Configuration > Plugin Packs** page.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

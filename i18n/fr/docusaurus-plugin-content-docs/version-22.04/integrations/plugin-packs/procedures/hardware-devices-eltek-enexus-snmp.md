@@ -2,6 +2,9 @@
 id: hardware-devices-eltek-enexus-snmp
 title: Eltek eNexus
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -17,15 +20,15 @@ Eltek est un spécialiste mondial de la gestion et la transformation de l'énerg
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Alarms-->
+<Tabs groupId="sync">
+<TabItem value="Alarms" label="Alarms">
 
 | Metric name                        | Description                         |
 | :--------------------------------- | :---------------------------------- |
 | alarms.active.count                | Current total alarms. Unit: Count   |
 
-<!--Battery-->
+</TabItem>
+<TabItem value="Battery" label="Battery">
 
 | Metric name                             | Description                                                         |
 | :-------------------------------------- | :------------------------------------------------------------------ |
@@ -36,7 +39,8 @@ Eltek est un spécialiste mondial de la gestion et la transformation de l'énerg
 | battery.voltage.volt                    | Current battery voltage. Unit: volt                                 |
 | battery.current.ampere                  | Current battery load. Unit: ampere                                  |
 
-<!--Load-->
+</TabItem>
+<TabItem value="Load" label="Load">
 
 | Metric name                               | Description                                                             |
 | :---------------------------------------- | :---------------------------------------------------------------------- |
@@ -44,14 +48,16 @@ Eltek est un spécialiste mondial de la gestion et la transformation de l'énerg
 | load.energy.delivered.watt                | Accumulated energy delivered. Unit: watt                                |
 | phase.voltage.volt                        | By phase instance. Current voltage. Unit: volt                          |
 
-<!--Outputs-->
+</TabItem>
+<TabItem value="Outputs" label="Outputs">
 
 | Metric name                             | Description                                                         |
 | :-------------------------------------- | :------------------------------------------------------------------ |
 | outputs.disconnected.count              | Current disconnected outputs. Unit: Count                           |
 | outputs.notenergized.count              | Current not energized outputs. Unit: Count                          |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -76,9 +82,8 @@ La communication doit être possible sur le port UDP 161 depuis le Collecteur Ce
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le Plugin sur l'ensemble des Collecteurs Centreon supervisant des équipements Eltek eNexus:
 
@@ -89,7 +94,8 @@ Installer le Plugin-Pack 'Eltek eNexus' depuis la page "Configuration > Plugin p
 
 2. Installer le pack depuis la page "Configuration > Plugin packs > Manager":
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur l'ensemble des Collecteurs Centreon supervisant des équipemnts Eltek eNexus:
 
@@ -105,7 +111,8 @@ yum install hardware-devices-eltek-enexus-snmp
 
 3. Installer le pack depuis la page "Configuration > Plugin packs > Manager":
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

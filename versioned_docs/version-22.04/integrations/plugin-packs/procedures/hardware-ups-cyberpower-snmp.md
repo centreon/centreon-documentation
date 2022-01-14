@@ -2,6 +2,9 @@
 id: hardware-ups-cyberpower-snmp
 title: CyberPower Systems UPS SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Pack Assets
 
@@ -14,9 +17,8 @@ The Pack CyberPower UPS collects metrics for:
 
 ### Collected Metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Battery-status-->
+<Tabs groupId="sync">
+<TabItem value="Battery-status" label="Battery-status">
 
 | Metric name                      | Description         | Unit |
 | :------------------------------- | :------------------ | :--- |
@@ -25,7 +27,8 @@ The Pack CyberPower UPS collects metrics for:
 | battery.voltage.volt             | Battery voltage     | V    |
 | battery.temperature.celsius      | Battery temperature | C    |
 
-<!--Input-lines-->
+</TabItem>
+<TabItem value="Input-lines" label="Input-lines">
 
 | Metric name                 | Description                                             | Unit  |
 | :-------------------------- | :------------------------------------------------------ | :---- |
@@ -33,7 +36,8 @@ The Pack CyberPower UPS collects metrics for:
 | lines.input.frequence.hertz | Current input line frequency                            | Hz    |
 | lines.input.voltage.volt    | Current input line voltage                              | V     |
 
-<!--Output-lines-->
+</TabItem>
+<TabItem value="Output-lines" label="Output-lines">
 
 | Metric name                  | Description               | Unit  |
 | :--------------------------- | :------------------------ | :---- |
@@ -44,7 +48,8 @@ The Pack CyberPower UPS collects metrics for:
 | lines.output.power.watt      | Total output active power | W     |
 | lines.output.frequence.hertz | Current output frequency  | Hz     |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -53,9 +58,8 @@ The Poller should be able to perform SNMP requests toward the CyberPower device 
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -65,7 +69,8 @@ yum install centreon-plugin-Hardware-Ups-Cyberpower-Snmp
 
 2. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *CyberPower Systems UPS SNMP* Pack
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -81,7 +86,8 @@ yum install centreon-pack-hardware-ups-cyberpower-snmp
 
 3. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *CyberPower Systems UPS SNMP* Pack
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host configuration
 

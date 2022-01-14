@@ -2,6 +2,9 @@
 id: network-microsens-g6-snmp
 title: Microsens G6 SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Pack Assets
 
@@ -31,9 +34,8 @@ It brings the following Service Templates:
 
 ### Collected metrics & status
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Cpu-Detailed-->
+<Tabs groupId="sync">
+<TabItem value="Cpu-Detailed" label="Cpu-Detailed">
 
 | Metric name                           | Description                 | Unit  |
 | :------------------------------------ | :-------------------------- | :---- |
@@ -49,7 +51,8 @@ It brings the following Service Templates:
 | cpu.guest.utilization.percentage      | CPU Guest utilization       | %     |
 | cpu.guestnice.utilization.percentage  | CPU Guest Nice utilization  | %     |
 
-<!--Hardware-->
+</TabItem>
+<TabItem value="Hardware" label="Hardware">
 
 | Metric name                         | Description                        | Unit  |
 | :---------------------------------- | :--------------------------------- | :---- |
@@ -58,7 +61,8 @@ It brings the following Service Templates:
 | sd card status                      | Status/health/state of the SD card |       |
 | system#hardware.temperature.celsius | Temperature of the system          | C     |
 
-<!--Interfaces-->
+</TabItem>
+<TabItem value="Interfaces" label="Interfaces">
 
 | Metric name                                               | Description                                             | Unit |
 |:--------------------------------------------------------- |:------------------------------------------------------- |:---- |
@@ -70,7 +74,8 @@ It brings the following Service Templates:
 | *interface_name*#interface.packets.out.error.percentage   | Outgoing errored packets going through the interface    | %    |
 | *interface_name*#interface.packets.out.discard.percentage | Outgoing discarded packets going through the interface  | %    |
 
-<!--Load-->
+</TabItem>
+<TabItem value="Load" label="Load">
 
 | Metric name            | Description                   | Unit |
 | :--------------------- | :---------------------------- | :--- |
@@ -78,7 +83,8 @@ It brings the following Service Templates:
 | load.5m.count          | System load 5 minutes-sample  |      |
 | load.15m.count         | System load 15 minutes-sample |      |
 
-<!--Memory-->
+</TabItem>
+<TabItem value="Memory" label="Memory">
 
 | Metric name             | Description                              | Unit  |
 | :---------------------  | :--------------------------------------- | :---- |
@@ -89,7 +95,8 @@ It brings the following Service Templates:
 | memory.cached.bytes     | Cached memory allocation                 | B     |
 | memory.shared.bytes     | Shared memory allocation                 | B     |
 
-<!--Sfp-->
+</TabItem>
+<TabItem value="Sfp" label="Sfp">
 
 | Metric name                           | Description                     | Unit |
 |:------------------------------------- |:------------------------------- |:---- |
@@ -98,13 +105,15 @@ It brings the following Service Templates:
 | *port_index*#port.output.power.dbm    | Optical output of the SFP port  | dBm  |
 | *port_index*#port.temperature.celsius | Temperature inside the SFP port | C    |
 
-<!--Uptime-->
+</TabItem>
+<TabItem value="Uptime" label="Uptime">
 
 | Metric name           | Description        | Unit  |
 | :-------------------- | :----------------- | :---- |
 | system.uptime.seconds | System uptime      | s     |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -120,9 +129,8 @@ port.
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online License-->
+<Tabs groupId="sync">
+<TabItem value="Online License" label="Online License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor **Microsens G6 SNMP** resources:
 
@@ -132,7 +140,8 @@ yum install centreon-plugin-Network-Microsens-G6-Snmp
 
 2. On the Centreon Web interface, install the **Microsens G6 SNMP** Centreon Pack on the **Configuration > Plugin Packs** page.
 
-<!--Offline License-->
+</TabItem>
+<TabItem value="Offline License" label="Offline License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor **Microsens G6 SNMP** resources:
 
@@ -142,13 +151,14 @@ yum install centreon-plugin-Network-Microsens-G6-Snmp
 
 2. Install the **Microsens G6 SNMP** Centreon Pack RPM on the Centreon Central server:
 
- ```bash
+```bash
 yum install centreon-pack-network-microsens-g6-snmp
 ```
 
 3. On the Centreon Web interface, install the **Microsens G6 SNMP** Centreon Pack on the **Configuration > Plugin Packs** page.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

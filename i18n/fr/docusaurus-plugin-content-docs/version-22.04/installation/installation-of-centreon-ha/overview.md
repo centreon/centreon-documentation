@@ -2,6 +2,9 @@
 id: overview
 title: Centreon-HA Overview
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Introduction 
 
@@ -128,21 +131,22 @@ est supérieur à 5k hôtes.
 Les schémas ci-dessous montrent à la fois la structure de l'architecture et les flux réseau entre les serveurs. Pour obtenir la matrice 
 complète des flux, reportez-vous à la page d'installation de l'architecture dédiée.
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Cluster-deux-nœuds-->
+<Tabs groupId="sync">
+<TabItem value="Cluster-deux-nœuds" label="Cluster-deux-nœuds">
 
 ![image](../../assets/integrations/centreon-ha/centreon-ha-2-nodes-arch.png)
 
 Accéder à [cette page](../../installation/installation-of-centreon-ha/installation-2-nodes) pour commencer votre installation à deux nœuds !
 
-<!--Cluster-quatre-nœuds-->
+</TabItem>
+<TabItem value="Cluster-quatre-nœuds" label="Cluster-quatre-nœuds">
 
 ![image](../../assets/integrations/centreon-ha/centreon-ha-4-nodes-arch.png)
 
 Accéder à [cette page](../../installation/installation-of-centreon-ha/installation-4-nodes) pour commencer votre installation à quatre nœuds !
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Informations complémentaires
 

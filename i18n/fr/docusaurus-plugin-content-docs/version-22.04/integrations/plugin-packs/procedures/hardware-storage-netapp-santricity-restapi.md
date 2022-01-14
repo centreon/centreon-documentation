@@ -2,6 +2,9 @@
 id: hardware-storage-netapp-santricity-restapi
 title: Netapp Santricity Restapi
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -21,22 +24,23 @@ Le Plugin-Pack SANtricity permet de superviser les ressources NetApp accessibles
 
 Les métriques collectées sont les suivantes:
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Hardware-->
+<Tabs groupId="sync">
+<TabItem value="Hardware" label="Hardware">
 
 | Metric name                        | Description                                                                                              |
 | :--------------------------------- | :------------------------------------------------------------------------------------------------------- |
 | status                             | Check components operational status: battery, cbd, ctrl, drive, fan, psu, storage, thsensor. Unit: count |
 | hardware.drive.temperature.celsius | Check drives temperature. Unit: °C                                                                       |
 
-<!--Storage Pools-->
+</TabItem>
+<TabItem value="Storage Pools" label="Storage Pools">
 
 | Metric name            | Description              |
 | :--------------------  | :----------------------- |
 | raid\_status           | Raid status information  |
 
-<!--Storage Controllers-->
+</TabItem>
+<TabItem value="Storage Controllers" label="Storage Controllers">
 
 | Metric name                          | Description                          |
 | :----------------------------------- | :----------------------------------- |
@@ -47,7 +51,8 @@ Les métriques collectées sont les suivantes:
 | system.io.read.usage.iops            | System read IOPS usage. Unit: count  |
 | system.io.write.usage.iops           | System write IOPS usage. Unit: count |
 
-<!--Storage Systems-->
+</TabItem>
+<TabItem value="Storage Systems" label="Storage Systems">
 
 | Metric name                 | Description                          |
 | :-------------------------- | :----------------------------------- |
@@ -56,7 +61,8 @@ Les métriques collectées sont les suivantes:
 | pool.space.usage.percentage | Pool space percentage usage. Unit: % |
 | pool.space.free.bytes       | Pool free space. Unit: B             |
 
-<!--Storage Volumes-->
+</TabItem>
+<TabItem value="Storage Volumes" label="Storage Volumes">
 
 | Metric name                          | Description                          |
 | :----------------------------------- | :----------------------------------- |
@@ -66,7 +72,8 @@ Les métriques collectées sont les suivantes:
 | system.io.read.usage.iops            | Volume read IOPS usage. Unit: count  |
 | system.io.write.usage.iops           | Volume write IOPS usage. Unit: count |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -83,9 +90,8 @@ Les ressources ci-après décrivent les méthodes d'installation ainsi que le fo
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources Netapp SANtricity:
 
@@ -95,7 +101,8 @@ yum install centreon-plugin-Hardware-Storage-Netapp-Santricity-Restapi
 
 2. Depuis l'interface Web de Centreon, installer le Plugin-Pack *Netapp Santricity Restapi* depuis la page "Configuration > Plugin Packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources Netapp SANtricity:
 
@@ -110,6 +117,9 @@ centreon-pack-hardware-storage-netapp-santricity-restapi.noarch
 ```
 
 3. Depuis l'interface Web de Centreon, installer le Plugin-Pack *Netapp Santricity Restapi* depuis la page "Configuration > Plugin Packs > Manager"
+
+</TabItem>
+</Tabs>
 
 ## Configuration
 

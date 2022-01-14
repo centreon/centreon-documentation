@@ -2,6 +2,9 @@
 id: secure-platform
 title: Sécurisez votre plateforme
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 Ce chapitre vous propose de sécuriser votre plateforme Centreon.
 
@@ -100,8 +103,9 @@ shutdown -r now
 
 Suivant le type de serveur, installer les paquets avec la commande suivante :
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Central / Remote Server-->
+<Tabs groupId="sync">
+<TabItem value="Central / Remote Server" label="Central / Remote Server">
+
    ```shell
    yum install centreon-common-selinux \
    centreon-web-selinux \
@@ -110,7 +114,10 @@ Suivant le type de serveur, installer les paquets avec la commande suivante :
    centreon-gorgoned-selinux \
    centreon-plugins-selinux
    ```
-<!--Poller-->
+
+</TabItem>
+<TabItem value="Poller" label="Poller">
+
    ```shell
    yum install centreon-common-selinux \
    centreon-broker-selinux \
@@ -118,15 +125,22 @@ Suivant le type de serveur, installer les paquets avec la commande suivante :
    centreon-gorgoned-selinux \
    centreon-plugins-selinux
    ```
-<!--Map server-->
+
+</TabItem>
+<TabItem value="Map server" label="Map server">
+
    ```shell
    yum install centreon-map-selinux
    ```
-<!--MBI server-->
+
+</TabItem>
+<TabItem value="MBI server" label="MBI server">
+
    ```shell
    yum install centreon-mbi-selinux
    ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 Pour vérifier l'installation, exécutez la commande suivante :
 
@@ -208,8 +222,9 @@ systemctl start firewalld
 > La liste des flux réseau nécessaires pour chaque type de serveur est définie
 > [ici](../installation/architectures#tableau-des-flux-de-la-plate-forme).
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Central / Remote Server-->
+<Tabs groupId="sync">
+<TabItem value="Central / Remote Server" label="Central / Remote Server">
+
 Exemple de règles pour un Centreon Central ou Remote Server:
 ```shell
 # For default protocols
@@ -222,7 +237,10 @@ firewall-cmd --zone=public --add-port=5556/tcp --permanent
 # Centreon Broker
 firewall-cmd --zone=public --add-port=5669/tcp --permanent
 ```
-<!--Poller-->
+
+</TabItem>
+<TabItem value="Poller" label="Poller">
+
 Exemple de règles pour un collecteur Centreon:
 ```shell
 # For default protocols
@@ -230,7 +248,8 @@ firewall-cmd --zone=public --add-service=ssh --permanent
 firewall-cmd --zone=public --add-service=snmp --permanent
 firewall-cmd --zone=public --add-service=snmptrap --permanent
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 Une fois les règles ajoutées, il est nécessaire de recharger firewalld:
 ```shell
@@ -326,16 +345,21 @@ Une fois votre certificat obtenu, effectuez la procédure suivante pour activer 
 
 1. Installez le module SSL pour Apache
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+
 ```shell
 dnf install mod_ssl mod_security openssl
 ```
-<!--CentOS 7-->
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 ```shell
 yum install httpd24-mod_ssl httpd24-mod_security openssl
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 2. Installez vos certificats
 
@@ -346,28 +370,38 @@ Copiez votre certificat et votre clé sur le serveur en fonction de votre config
 
 3. Sauvegardez la configuration actuelle du serveur Apache pour Centreon
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+
 ```shell
 cp /etc/httpd/conf.d/10-centreon.conf{,.origin}
 ```
-<!--CentOS 7-->
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 ```shell
 cp /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf{,.origin}
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 4. Éditez la configuration Apache pour Centreon
 
 > Centreon propose un fichier de configuration d'exemple HTTPS disponible dans le répertoire:
 > **/usr/share/centreon/examples/centreon.apache.https.conf**
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+
 Éditez  le fichier **/etc/httpd/conf.d/10-centreon.conf** tel que :
-<!--CentOS 7-->
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 Éditez  le fichier **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf** tel que :
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ```apacheconf
 Define base_uri "/centreon"
@@ -435,8 +469,9 @@ ServerTokens Prod
 
 5. Activez les flags HttpOnly et Secure et cachez la signature du serveur
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+
 Éditez le fichier **/etc/httpd/conf.d/10-centreon.conf** et ajouter la ligne suivante :
 
 ```apacheconf
@@ -450,7 +485,10 @@ ServerTokens Prod
 ```phpconf
 expose_php = Off
 ```
-<!--CentOS 7-->
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 Éditez le fichier **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf** et ajouter la ligne suivante :
 
 ```apacheconf
@@ -466,29 +504,36 @@ TraceEnable Off
 ```phpconf
 expose_php = Off
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 6. Cacher le répertoire par défaut /icons
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+
 Éditez le fichier **/etc/httpd/conf.d/autoindex.conf** et commentez la ligne suivante :
 
 ```apacheconf
 #Alias /icons/ "/usr/share/httpd/icons/"
 ```
-<!--CentOS 7-->
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 Éditez le fichier **/opt/rh/httpd24/root/etc/httpd/conf.d/autoindex.conf** et commentez la ligne suivante :
 
 ```apacheconf
 #Alias /icons/ "/opt/rh/httpd24/root/usr/share/httpd/icons/"
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 7. Redémarrez le serveur web Apache et PHP pour prendre en compte la configuration
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+
 ```shell
 systemctl restart php-fpm httpd
 ```
@@ -520,7 +565,10 @@ Si tout est correct, vous devriez avoir quelque chose comme :
            ├─1487 /usr/sbin/httpd -DFOREGROUND
            └─1887 /usr/sbin/httpd -DFOREGROUND
 ```
-<!--CentOS 7-->
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 ```shell
 systemctl restart php-fpm httpd24-httpd
 ```
@@ -553,7 +601,8 @@ Si tout est correct, vous devriez avoir quelque chose comme :
            ├─31903 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
            └─32050 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Sécurisez le serveur web Apache avec un certificat auto-signé
 
@@ -728,16 +777,21 @@ Pour mettre à jour l'URI Centreon, vous devez suivre les étapes suivantes:
 
 2. Éditez le fichier de configuration Apache pour Centreon
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+
 ```shell
 vim /etc/httpd/conf.d/10-centreon.conf
 ```
-<!--CentOS 7-->
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 ```shell
 vim /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 et modifiez le chemin **/centreon** par le nouveau.
 
@@ -747,8 +801,9 @@ Il est possible d'activer le protocole http2 pour améliorer les performances r�
 
 Pour utiliser http2, vous devez suivre les étapes suivantes:
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+
 1. [Configurer le https pour Centreon](./secure-platform#passer-le-serveur-web-en-https)
 
 2. Installer le module nghttp2:
@@ -783,7 +838,10 @@ dnf install nghttp2
 ```shell
 systemctl restart httpd
 ```
-<!--CentOS 7-->
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 1. [Configurer le https pour Centreon](./secure-platform#passer-le-serveur-web-en-https)
 
 2. Installer le module nghttp2:
@@ -818,7 +876,8 @@ yum install httpd24-nghttp2
 ```shell
 systemctl restart httpd24-httpd
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Authentification des utilisateurs
 

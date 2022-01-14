@@ -2,6 +2,9 @@
 id: downtimes
 title: Planifier un temps d'arrêt
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Ajouter un temps d'arrêt
 
@@ -34,9 +37,8 @@ Il existe plusieurs manières de définir un temps d'arrêt :
 -   Depuis l'interface de supervision temps réel
 -   Depuis le menu **Downtime**
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Page Statut des ressources-->
+<Tabs groupId="sync">
+<TabItem value="Page Statut des ressources" label="Page Statut des ressources">
 
 1. Allez à la page **Supervision > Statut des ressources**.
 2. Utilisez une des méthodes suivantes :
@@ -57,7 +59,8 @@ Il existe plusieurs manières de définir un temps d'arrêt :
 
     - Le champ **Commentaire** sert à indiquer pourquoi le temps d'arrêt est programmé
 
-<!--Page de détails d'un objet-->
+</TabItem>
+<TabItem value="Page de détails d'un objet" label="Page de détails d'un objet">
 
 1.  Accédez à la page de détails d'un objet
 2.  Dans la catégorie **Commands**, cliquez sur **Schedule downtime for
@@ -79,7 +82,8 @@ La fenêtre suivante s'affiche :
 -   Le champ **Comments** sert à indiquer pourquoi le temps d'arrêt est
     programmé
 
-<!--Interface temps réel-->
+</TabItem>
+<TabItem value="Interface temps réel" label="Interface temps réel">
 
 1.  Rendez-vous dans le menu **Monitoring > Status Details > Hosts** (ou
     **Services**)
@@ -104,7 +108,8 @@ La fenêtre suivante s'affiche :
 -   Le champ **Comments** sert à indiquer pourquoi le temps d'arrêt est
     programmé
 
-<!--Menu Downtime-->
+</TabItem>
+<TabItem value="Menu Downtime" label="Menu Downtime">
 
 1.  Rendez-vous dans le menu **Monitoring > Downtimes > Downtimes**
 2.  Cliquez sur **Add a service downtime** ou **Add a host downtime**
@@ -125,7 +130,8 @@ La fenêtre suivante s'affiche :
 -   Le champ **Comments** sert à indiquer pourquoi le temps d'arrêt est
     programmé
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 
 

@@ -2,6 +2,9 @@
 id: hardware-devices-barco-cs-restapi
 title: Barco ClickShare Rest API
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Plugin Pack Assets
 
@@ -11,9 +14,8 @@ The Barco ClickShare Pack collects metrics and status from various Barco hardwar
 
 ### Collected Metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Device-->
+<Tabs groupId="sync">
+<TabItem value="Device" label="Device">
 
 | Metric name                       | Description                               | Unit |
 | :-------------------------------- | :---------------------------------------- | :--- |
@@ -24,7 +26,8 @@ The Barco ClickShare Pack collects metrics and status from various Barco hardwar
 | cpu#hardware.fan.speed.rpm        | Cpu fan speed (supported since api v1.11) | rpm  |
 | process status                    | Status of processes                       |      |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -34,9 +37,8 @@ E.g: https://www.barco.com/en/support/knowledge-base/kb11350
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -46,7 +48,8 @@ yum install centreon-plugin-Hardware-Devices-Barco-Cs-Restapi
 
 2. On the Centreon Web interface in **Configuration > Plugin Packs > Manager**, install the *Barco ClickShare Rest API* Pack
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -62,7 +65,8 @@ yum install centreon-pack-hardware-devices-barco-cs-restapi
 
 3. On the Centreon Web interface in **Configuration > Plugin Packs > Manager**, install the *Barco ClickShare Rest API* Pack
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host configuration 
 

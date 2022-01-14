@@ -2,6 +2,9 @@
 id: hardware-storage-huawei-oceanstor-snmp
 title: Huawei OceanStor SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Plugin Pack Assets
 
@@ -14,22 +17,21 @@ The Plugin Pack *Huawei OceanStor SNMP* collects metrics for:
 
 ### Discovery rules
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Services-->
+<Tabs groupId="sync">
+<TabItem value="Services" label="Services">
 
 | Rule name                                          | Description                                           |
 | :------------------------------------------------- | :---------------------------------------------------- |
 | HW-Storage-Huawei-Oceanstor-SNMP-Controller-Id     | Discover controllers and monitor cpu and memory usage |
 | HW-Storage-Huawei-Oceanstor-SNMP-Storage-Pool-Name | Discover storage pools and monitor space usage        |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Collected Metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Controllers-->
+<Tabs groupId="sync">
+<TabItem value="Controllers" label="Controllers">
 
 | Metric name                                             | Description                              | Unit |
 | :------------------------------------------------------ | :--------------------------------------- | :--- |
@@ -37,7 +39,8 @@ The Plugin Pack *Huawei OceanStor SNMP* collects metrics for:
 | *controller\_id*\#controller.cpu.utilization.percentage | CPU utilization                          | %    |
 | *controller\_id*\#controller.memory.usage.percentage    | Memory usage                             | %    |
 
-<!--Hardware-->
+</TabItem>
+<TabItem value="Hardware" label="Hardware">
 
 | Metric name                                            | Description                       | Unit |
 | :----------------------------------------------------- | :-------------------------------- | :--- |
@@ -50,7 +53,8 @@ The Plugin Pack *Huawei OceanStor SNMP* collects metrics for:
 | fan status                                             | Status of the fan                 |      |
 | psu status                                             | Status of the power supply        |      |
 
-<!--Storage-pools-->
+</TabItem>
+<TabItem value="Storage-pools" label="Storage-pools">
 
 | Metric name                                              | Description                              | Unit |
 | :------------------------------------------------------- | :--------------------------------------- | :--- |
@@ -59,7 +63,8 @@ The Plugin Pack *Huawei OceanStor SNMP* collects metrics for:
 | *storagepool\_name*\#storage_pool.space.free.bytes       | Free space left on the storage pool      | B    |
 | *storagepool\_name*\#storage_pool.space.usage.percentage | Usage of the storage pool in percentage  | %    |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -67,9 +72,8 @@ To control your Huawei OceanStor, the SNMP must be configured.
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -79,7 +83,8 @@ yum install centreon-plugin-Hardware-Storage-Huawei-Oceanstor-Snmp
 
 2. On the Centreon Web interface in "Configuration > Plugin Packs > Manager", install the *Huawei OceanStor SNMP* Plugin-Pack
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -95,7 +100,8 @@ yum install centreon-pack-hardware-storage-huawei-oceanstor-snmp
 
 3. On the Centreon Web interface in "Configuration > Plugin Packs > Manager", install the *Huawei OceanStor SNMP* Plugin Pack
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host configuration
 

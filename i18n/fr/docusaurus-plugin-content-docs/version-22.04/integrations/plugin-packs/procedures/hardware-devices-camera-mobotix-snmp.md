@@ -2,6 +2,9 @@
 id: hardware-devices-camera-mobotix-snmp
 title: Mobotix camera SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Contenu du Plugin Pack
 
@@ -13,21 +16,20 @@ Le Plugin Pack Mobotix SNMP collecte les données pour:
 
 ### Règles de découvertes
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Services-->
+<Tabs groupId="sync">
+<TabItem value="Services" label="Services">
 
 | Nom de la règle                              | Description                                                                                  |
 | :------------------------------------------- | :------------------------------------------------------------------------------------------- |
 | HW-Device-Camera-Mobotix-SNMP-Interface-Name | Découvre les interfaces réseaux et supervise le statut et l'utilisation de la bande passante |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Interfaces-->
+<Tabs groupId="sync">
+<TabItem value="Interfaces" label="Interfaces">
 
 | Metric name                                            | Description                                         | Unit |
 | :----------------------------------------------------- | :-------------------------------------------------- | :--- |
@@ -39,7 +41,8 @@ Le Plugin Pack Mobotix SNMP collecte les données pour:
 
 A regexp filter is available to target a specific interface identifier - ifName [```--interface='^eth0$' --name```]
 
-<!--System-->
+</TabItem>
+<TabItem value="System" label="System">
 
 | Metric name                         | Description                      | Unit |
 | :---------------------------------- | :------------------------------- | :--- |
@@ -51,7 +54,8 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | system.illumination.left.lux        | Illumination of the left sensor  | lx   |
 | system.video.framerate.persecond    | Current video framerate          |      |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -59,9 +63,8 @@ Afin de contrôler votre équipement Mobotix, le SNMP doit être configuré.
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -71,7 +74,8 @@ yum install centreon-plugin-Hardware-Devices-Camera-Mobotix-Snmp
 
 2. Sur l'interface Web de Centreon, installer le Plugin Pack *Mobotix Camera* depuis la page "Configuration > Plugin Packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -87,7 +91,8 @@ yum install centreon-pack-hardware-devices-camera-mobotix-snmp
 
 3. Sur l'interface Web de Centreon, installer le Plugin Pack *Mobotix Camera* depuis la page "Configuration > Plugin Packs > Manager"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

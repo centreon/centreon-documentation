@@ -2,13 +2,16 @@
 id: troubleshooting-guide
 title: Troubleshooting
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Une ressource ne démarre pas 
 
 Si une ressource (par exemple une ressource du groupe centreon) ne démarre pas correctement, des *failed actions* apparaîtront dans `crm_mon`. Par exemple ci-dessous, `centreontrapd` a rencontré une erreur :
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL 8 / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
 
 ```bash
 Cluster Summary:
@@ -43,7 +46,8 @@ Failed Resource Actions:
     last-rc-change='Wed Sep 15 13:42:19 2021', queued=1ms, exec=2122ms
 ```
 
-<!--RHEL 7 / CentOS 7-->
+</TabItem>
+<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
 
 ```bash
 Stack: corosync
@@ -79,7 +83,9 @@ Failed Resource Actions:
 * centreontrapd_start_0 on @CENTRAL_MASTER_NAME@ 'not running' (7): call=82, status=complete, exitreason='',
     last-rc-change='Thu Feb 20 13:42:19 2020', queued=1ms, exec=2122ms
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+
+</TabItem>
+</Tabs>
 
 Afin d'avoir plus d'informations sur la cause de cette panne, se connecter via SSH au nœud maître (celui où la ressource devrait tourner) et lancer la commande suivante :
 
@@ -103,8 +109,8 @@ pcs resource cleanup centreontrapd
 
 Si suite à une bascule, qu'elle soit manuelle ou à cause d'une panne ou de l'arrêt d'un serveur, la situation suivante se produit :
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL 8 / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
 
 ```bash
 Cluster Summary:
@@ -125,7 +131,9 @@ Full List of Resources:
     * Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
 ```
 
-<!--RHEL 7 / CentOS 7-->
+</TabItem>
+<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
+
 ```bash
 Stack: corosync
 Current DC: @CENTRAL_SLAVE_NAME@ (version 1.1.20-5.el7_7.2-3c4c782f70) - partition with quorum
@@ -146,16 +154,18 @@ Active resources:
  Clone Set: cbd_rrd-clone [cbd_rrd]
      Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+
+</TabItem>
+</Tabs>
 
 Aucune erreur n'est remontée, mais le groupe centreon n'apparaît plus, et aucune de ses ressources n'est donc démarrée. Ce cas de figure est généralement dû à un enchainement de deux bascules (`pcs resource move ...`) sans avoir supprimé la contrainte par la suite. Pour le vérifier lancer:
 
 ```bash
 pcs constraint show
 ```
-<!--DOCUSAURUS_CODE_TABS-->
+<Tabs groupId="sync">
+<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
 
-<!--RHEL 8 / Oracle Linux 8-->
 ```bash
 Location Constraints:
     Disabled on: @CENTRAL_SLAVE_NAME@ (score:-INFINITY) (role: Started)
@@ -167,7 +177,9 @@ Colocation Constraints:
 Ticket Constraints:
 ```
 
-<!--RHEL 7 / CentOS 7-->
+</TabItem>
+<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
+
 ```bash
 Location Constraints:
   Resource: centreon
@@ -179,7 +191,9 @@ Colocation Constraints:
   ms_mysql-master with centreon (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
 Ticket Constraints:
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+
+</TabItem>
+</Tabs>
 
 On constate que le groupe centreon n'est plus "autorisé" à démarrer sur aucun des nœuds.
 

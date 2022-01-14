@@ -2,6 +2,9 @@
 id: hardware-ups-socomec-netvision-snmp
 title: UPS Socomec Net Vision SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Plugin-Pack Assets
 
@@ -11,15 +14,15 @@ The Plugin-Pack Socomec Net Vision SNMP including Alarms, Battery, Input-lines, 
 
 ### Collected Metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Alarms-->
+<Tabs groupId="sync">
+<TabItem value="Alarms" label="Alarms">
 
 | Metric name                 | Description                  | Unit  |
 | :-------------------------- | :--------------------------- | :---- |
 | alarms.current.count        | Number of alarms             |       |
 
-<!--Battery-->
+</TabItem>
+<TabItem value="Battery" label="Battery">
 
 | Metric name                                    | Description                     | Unit |
 | :--------------------------------------------- | :------------------------------ | :--- |
@@ -30,7 +33,8 @@ The Plugin-Pack Socomec Net Vision SNMP including Alarms, Battery, Input-lines, 
 | battery.voltage.volt                           | Battery voltage                 | V    |
 | battery.temperature.celsius                    | Battery temperature             | C    |
 
-<!--Input-lines-->
+</TabItem>
+<TabItem value="Input-lines" label="Input-lines">
 
 | Metric name                            | Description                               | Unit  |
 | :------------------------------------- | :---------------------------------------- | :---- |
@@ -38,7 +42,8 @@ The Plugin-Pack Socomec Net Vision SNMP including Alarms, Battery, Input-lines, 
 | *linenumber*#line.input.current.ampere | Line current                              | A     |
 | *linenumber*#line.input.voltage.volt   | Line voltage                              | V     |
 
-<!--Output-lines-->
+</TabItem>
+<TabItem value="Output-lines" label="Output-lines">
 
 | Metric name                              | Description                               | Unit  |
 | :--------------------------------------- | :---------------------------------------- | :---- |
@@ -47,7 +52,8 @@ The Plugin-Pack Socomec Net Vision SNMP including Alarms, Battery, Input-lines, 
 | *linenumber*#line.output.current.ampere  | Line current                              | A     |
 | *linenumber*#line.output.voltage.volt    | Line voltage                              | V     |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -55,9 +61,8 @@ To control your Socomec, the SNMP must be configured.
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -67,7 +72,8 @@ yum install centreon-plugin-Hardware-Ups-Socomec-Netvision-Snmp
 
 2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Socomec Net Vision UPS SNMP* Plugin-Pack
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -83,7 +89,8 @@ yum install centreon-pack-hardware-ups-socomec-netvision-snmp
 
 3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Socomec Net Vision UPS SNMP* Plugin-Pack
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Host configuration
 

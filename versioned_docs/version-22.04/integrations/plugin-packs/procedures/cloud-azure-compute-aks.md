@@ -1,8 +1,9 @@
 ---
 id: cloud-azure-compute-aks
 title: Azure Kubernetes Service
-
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 ## Overview
 
@@ -42,48 +43,53 @@ More information about the Host Discovery module is available in the Centreon do
 
 ### Collected metrics & status
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Allocatable-resources-->
+<Tabs groupId="sync">
+<TabItem value="Allocatable-resources" label="Allocatable-resources">
 
 | Metric Name                                  | Unit  |
 | :------------------------------------------- | :---- |
 | *instance*#aks.node.allocatable.cpu.cores    | Count |
 | *instance*#aks.node.allocatable.memory.bytes | B     |
 
-<!--Cpu-Usage-->
+</TabItem>
+<TabItem value="Cpu-Usage" label="Cpu-Usage">
 
 | Metric Name                                    | Unit |
 | :--------------------------------------------- | :--- |
 | *instance*#aks.node.cpu.utilization.percentage | %    |
 
-<!--Health-->
+</TabItem>
+<TabItem value="Health" label="Health">
 
 | Metric Name | Unit   |
 | :---------- | :----- |
 | Status      | String |
 
-<!--Storage-->
+</TabItem>
+<TabItem value="Storage" label="Storage">
 
 | Metric Name                               | Unit |
 | :---------------------------------------- | :--- |
 | *instance*#aks.node.disk.usage.percentage | %    |
 | *instance*#aks.node.disk.usage.bytes      | B    |
 
-<!--Traffic-->
+</TabItem>
+<TabItem value="Traffic" label="Traffic">
 
 | Metric Name                           | Unit |
 | :------------------------------------ | :--- |
 | *instance*#aks.node.traffic.in.bytes  | B    |
 | *instance*#aks.node.traffic.out.bytes | B    |
 
-<!--Unneeded-nodes-->
+</TabItem>
+<TabItem value="Unneeded-nodes" label="Unneeded-nodes">
 
 | Metric Name                                      | Unit  |
 | :----------------------------------------------- | :---- |
 | *instance*#aks.cluster.autoscaler.unneeded.nodes | Count |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -97,9 +103,8 @@ Centreon recommends to use the API instead of the CLI for the following reasons:
  * the API is much more efficient because it avoids CLI binary execution.
  * the API supports application authentication and does not require a dedicated service account.
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Azure Monitor API-->
+<Tabs groupId="sync">
+<TabItem value="Azure Monitor API" label="Azure Monitor API">
 
 To use the 'api' custom mode, make sure to obtain the required information using the 
 how-to below. Keep it safe until including it in a Host or Host Template definition.
@@ -147,7 +152,8 @@ how-to below. Keep it safe until including it in a Host or Host Template definit
 
 Please make sure to assign the **Monitoring Reader** role to the application.
 
-<!--Azure AZ CLI-->
+</TabItem>
+<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 To use the 'azcli' custom mode, install the required packages on every Centreon poller expected to monitor Azure Resources using CLI:
 
@@ -197,13 +203,13 @@ As a result, the shell should prompt the information below:
 
 Credentials are now stored locally in the **accessTokens.json** file so the Plugin can use it.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online License-->
+<Tabs groupId="sync">
+<TabItem value="Online License" label="Online License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor **Azure Kubernetes Service** resources:
 
@@ -213,7 +219,8 @@ yum install centreon-plugin-Cloud-Azure-Compute-Aks-Api
 
 2. On the Centreon Web interface, install the **Azure Kubernetes Service** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
 
-<!--Offline License-->
+</TabItem>
+<TabItem value="Offline License" label="Offline License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor **Azure Kubernetes Service** resources:
 
@@ -229,7 +236,8 @@ yum install centreon-pack-cloud-azure-compute-aks
 
 3. On the Centreon Web interface, install the **Azure Kubernetes Service** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

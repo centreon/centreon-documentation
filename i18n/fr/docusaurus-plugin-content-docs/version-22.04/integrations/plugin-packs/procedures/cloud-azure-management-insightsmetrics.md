@@ -2,6 +2,9 @@
 id: cloud-azure-management-insightsmetrics
 title: Azure InsightsMetrics
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -24,16 +27,16 @@ Ce Pack permet par exemple de récupérer et de superviser les indicateurs syst�
 
 ### Métriques & statuts collectés 
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Cpu-->
+<Tabs groupId="sync">
+<TabItem value="Cpu" label="Cpu">
 
 | Metric Name                                                   | Description                    | Unit |
 |:--------------------------------------------------------------|:-------------------------------|:-----|
 | *instance*#azure.insights.cpu.average.utilization.percentage  | Average utilization percentage | %    |
 | *instance\~ID*#azure.insights.cpu.core.utilization.percentage | Current utilization per core   | %    |
 
-<!--Logical-Disks-->
+</TabItem>
+<TabItem value="Logical-Disks" label="Logical-Disks">
 
 | Metric Name                                                               | Description                            | Unit    |
 |:--------------------------------------------------------------------------|:---------------------------------------|:--------|
@@ -45,7 +48,8 @@ Ce Pack permet par exemple de récupérer et de superviser les indicateurs syst�
 | *instance\~mount_point*#azure.insights.logicaldisks.io.writespersecond    | Logical Disk current IO writes rate    | count/s |
 | *instance\~mount_point*#azure.insights.logicaldisks.io.transferspersecond | Logical Disk current IO transfers rate | count/s |
 
-<!--Memory-->
+</TabItem>
+<TabItem value="Memory" label="Memory">
 
 | Metric Name                                           | Description                         | Unit |
 |:------------------------------------------------------|:------------------------------------|:-----|
@@ -54,19 +58,20 @@ Ce Pack permet par exemple de récupérer et de superviser les indicateurs syst�
 | *instance*#azure.insights.memory.usage.percentage     | Current memory usage percentage     | %    |
 | *instance*#azure.insights.memory.available.percentage | Current memory available percentage | %    |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Règles de découverte
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Services-->
+<Tabs groupId="sync">
+<TabItem value="Services" label="Services">
 
 | Rule name                                                                    | Description                                                 |
 |:-----------------------------------------------------------------------------|:------------------------------------------------------------|
 | Cloud-Azure-Management-InsightsMetrics-Api-VirtualMachine-Logical-Disks-Name | Discover logical disks associated to Azure Virtual Machines |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -121,9 +126,8 @@ dans Centreon.
 
 ## Installation 
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des resources *via* InsightsMetrics:
 
@@ -133,7 +137,8 @@ yum install centreon-plugin-Cloud-Azure-Management-InsightsMetrics-Api
 
 2. Sur l'interface Web Centreon, installer le Pack *Azure InsightsMetrics* depuis la page **Configuration > Plugin packs > Manager**.
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des resources *via* InsightsMetrics:
 
@@ -148,7 +153,8 @@ yum install centreon-pack-cloud-azure-management-insightsmetrics.noarch
 
 3. Sur l'interface Web Centreon, installer le Pack *Azure InsightsMetrics* depuis la page **Configuration > Plugin packs > Gestionnaire**.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
