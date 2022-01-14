@@ -2,6 +2,9 @@
 id: hardware-storage-nimble-restapi
 title: Nimble Storage Rest API
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -28,9 +31,8 @@ The current version of the Nimble SNMP Plugin-Pack can monitor the following ser
 
 The following metrics are collected by the Centreon Nimble Rest API Plugin:
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Arrays-->
+<Tabs groupId="sync">
+<TabItem value="Arrays" label="Arrays">
 
 | Metric name                            | Description (per array )             | Unit    |
 | :------------------------------------- | :----------------------------------- | :------ |
@@ -41,7 +43,8 @@ The following metrics are collected by the Centreon Nimble Rest API Plugin:
 | array.snapshots.compression.rate.count | Snapshot compression ratio           |         |
 | array.snapshots.reduction.rate.count   | Snapshot reduction ratio             |         |
 
-<!--Hardware-->
+</TabItem>
+<TabItem value="Hardware" label="Hardware">
 
 | Component name | Description (per array ) | Unit   |
 |:---------------|:-------------------------|:-------|
@@ -50,7 +53,8 @@ The following metrics are collected by the Centreon Nimble Rest API Plugin:
 | Power Supply   | Power Supply state       | String |
 | Temperature    | Temperature state        | °C     |
 
-<!--Volumes-->
+</TabItem>
+<TabItem value="Volumes" label="Volumes">
 
 | Metric name                           | Description (per volume)             | Unit    |
 | :------------------------------------ | :----------------------------------- | :------ |
@@ -63,7 +67,8 @@ The following metrics are collected by the Centreon Nimble Rest API Plugin:
 | volume.io.read.latency.milliseconds   | Read latency                         | ms      |
 | volume.io.write.latency.milliseconds  | Write latency                        | ms      |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -74,9 +79,8 @@ https://infosight.hpe.com/InfoSight/media/cms/active/public/pubs_REST_API_Refere
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor Nimble Flash Arrays:
 
@@ -86,7 +90,8 @@ yum install centreon-pack-hardware-storage-nimble-restapi.noarch
 
 2. On the centreon Web interface, install the *Nimble Storage Rest API* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor Nimble Flash Arrays:
 
@@ -101,6 +106,9 @@ yum install centreon-pack-hardware-storage-nimble-restapi.noarch
 ```
 
 3. On the centreon Web interface, install the *Nimble Storage Rest API* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+
+</TabItem>
+</Tabs>
 
 ## Configuration
 

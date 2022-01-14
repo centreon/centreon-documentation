@@ -2,6 +2,9 @@
 id: hardware-servers-ibm-hmc-ssh
 title: IBM HMC SSH
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Plugin-Pack Assets
 
@@ -13,20 +16,21 @@ The Plugin-Pack IBM HMC SSH collects metrics for:
 
 ### Collected Metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Hardware-errors-->
+<Tabs groupId="sync">
+<TabItem value="Hardware-errors" label="Hardware-errors">
 
 No metrics.
 
-<!--Led-status-->
+</TabItem>
+<TabItem value="Led-status" label="Led-status">
 
 | Metric name                     | Description                                         | Unit |
 | :------------------------------ | :-------------------------------------------------- | :--- |
 | physical status                 | Physical system attention led status                |      |
 | virtuallpar status              | Logical partition system attention led status       |      |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -34,9 +38,8 @@ The centreon-engine user performs a SSH connection to a remote system user. This
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -46,7 +49,8 @@ yum install centreon-plugin-Hardware-Servers-Ibm-Hmc-Ssh
 
 2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *IBM HMC SSH* Plugin-Pack
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -62,7 +66,8 @@ yum install centreon-pack-hardware-servers-ibm-hmc-ssh
 
 3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *IBM HMC SSH* Plugin-Pack
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -70,9 +75,8 @@ yum install centreon-pack-hardware-servers-ibm-hmc-ssh
 
 > 3 SSH backends are available to connect to the remote server: *sshcli*, *plink* and *libssh* which are detailed below.
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--sshcli backend-->
+<Tabs groupId="sync">
+<TabItem value="sshcli backend" label="sshcli backend">
 
 | Mandatory   | Name            | Description                                                                                 |
 | :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
@@ -84,7 +88,8 @@ yum install centreon-pack-hardware-servers-ibm-hmc-ssh
 
 **Warning** With that backend, you have to validate the target server fingerprint manually (with the SSHUSERNAME used).
 
-<!--plink backend-->
+</TabItem>
+<TabItem value="plink backend" label="plink backend">
 
 | Mandatory   | Name            | Description                                                                                 |
 | :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
@@ -96,7 +101,8 @@ yum install centreon-pack-hardware-servers-ibm-hmc-ssh
 
 **Warning** With that backend, you have to validate the target server fingerprint manually (with the SSHUSERNAME used).
 
-<!--libssh backend (default)-->
+</TabItem>
+<TabItem value="libssh backend (default)" label="libssh backend (default)">
 
 | Mandatory   | Name            | Description                                                                                 |
 | :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
@@ -108,7 +114,8 @@ yum install centreon-pack-hardware-servers-ibm-hmc-ssh
 
 With that backend, you do not have to validate the target server fingerprint manually.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## FAQ
 

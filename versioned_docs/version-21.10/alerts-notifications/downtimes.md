@@ -2,6 +2,9 @@
 id: downtimes
 title: Planning a downtime
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Adding a downtime
 
@@ -32,9 +35,8 @@ There are several ways to define a downtime:
 -   From the real time monitoring interface
 -   From the **Downtime** menu
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Resources Status page-->
+<Tabs groupId="sync">
+<TabItem value="Resources Status page" label="Resources Status page">
 
 1. Go to **Monitoring > Resources Status**.
 2. Use one of the following methods:
@@ -59,7 +61,8 @@ There are several ways to define a downtime:
     -   The **Comments** field can be used to indicate why the downtime is
     defined.
 
-<!--Detailed sheet of an object-->
+</TabItem>
+<TabItem value="Detailed sheet of an object" label="Detailed sheet of an object">
 
 1.  Access the detail page of an object
 2.  In the category: **Commands**, click on **Schedule downtime for this
@@ -80,7 +83,8 @@ There are several ways to define a downtime:
 -   The **Comments** field can be used to indicate why the downtime is
     defined
 
-<!--Real time monitoring-->
+</TabItem>
+<TabItem value="Real time monitoring" label="Real time monitoring">
 
 1.  Go into the **Monitoring > Status Details > Hosts** (or **Services**)
     menu
@@ -104,7 +108,8 @@ There are several ways to define a downtime:
     -   The **Comments** field can be used to indicate why the downtime is
         defined
 
-<!--Downtime menu-->
+</TabItem>
+<TabItem value="Downtime menu" label="Downtime menu">
 
 1.  Go into the **Monitoring > Downtimes > Downtimes** menu
 2.  Click on **Add a service downtime** or **Add a host downtime**
@@ -124,7 +129,8 @@ There are several ways to define a downtime:
     -   The **Comments** field can be used to indicate why the downtime is
         defined
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Recurrent downtimes
 

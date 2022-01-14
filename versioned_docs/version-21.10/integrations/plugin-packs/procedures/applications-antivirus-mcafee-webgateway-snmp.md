@@ -2,6 +2,9 @@
 id: applications-antivirus-mcafee-webgateway-snmp
 title: McAfee Web Gateway
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -21,16 +24,16 @@ protocol.
 
 ### Monitored metrics
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Clients-->
+<Tabs groupId="sync">
+<TabItem value="Clients" label="Clients">
 
 | Metric name             | Description                         |
 |:------------------------|:------------------------------------|
 | clients.connected.count | The number of connected client      |
 | sockets.connected.count | The number of open network sockets  |
 
-<!--Connections-->
+</TabItem>
+<TabItem value="Connections" label="Connections">
 
 | Metric name                               | Description                                                      | Unit          |
 |:------------------------------------------|:-----------------------------------------------------------------|:--------------|
@@ -40,7 +43,8 @@ protocol.
 | connections.mediafilter.blocked.persecond | The number of connections blocked by the Media Filter per second | connections/s |
 | connections.urlfilter.blocked.persecond   | The number of connections blocked by the URL Filter per second   | connections/s |
 
-<!--Detections-->
+</TabItem>
+<TabItem value="Detections" label="Detections">
 
 * Global
 
@@ -54,7 +58,8 @@ protocol.
 |:----------------------------------------------------|:------------------------------------------|:-------------|
 | *categoryname*#category.malwares.detected.persecond | The number of malware detected per second | detections/s |
 
-<!--Ftpstatistics-->
+</TabItem>
+<TabItem value="Ftpstatistics" label="Ftpstatistics">
 
 | Metric name                            | Description                      | Unit    |
 |:---------------------------------------|:---------------------------------|:------- |
@@ -63,7 +68,8 @@ protocol.
 | ftp.traffic.proxytoclient.bitspersecond | FTP traffic from proxy to client | b/s     |
 | ftp.traffic.proxytoserver.bitspersecond | FTP traffic from proxy to server | b/s     |
 
-<!--Httpstatistics-->
+</TabItem>
+<TabItem value="Httpstatistics" label="Httpstatistics">
 
 | Metric name                             | Description                           | Unit    |
 |:----------------------------------------|:--------------------------------------|:------- |
@@ -73,7 +79,8 @@ protocol.
 | http.traffic.proxytoclient.bitspersecond | HTTP traffic from proxy to client     | b/s     |
 | http.traffic.proxytoserver.bitspersecond | HTTP traffic from proxy to server     | b/s     |
 
-<!--Httpsstatistics-->
+</TabItem>
+<TabItem value="Httpsstatistics" label="Httpsstatistics">
 
 
 | Metric name                              | Description                            | Unit    |
@@ -84,7 +91,8 @@ protocol.
 | https.traffic.proxytoclient.bitspersecond | HTTPS traffic from proxy to client     | b/s     |
 | https.traffic.proxytoserver.bitspersecond | HTTPS traffic from proxy to server     | b/s     |
 
-<!--Versions-->
+</TabItem>
+<TabItem value="Versions" label="Versions">
 
 | Metric name       | Description                    |
 |:------------------|:-------------------------------|
@@ -92,7 +100,8 @@ protocol.
 | tsdb-version      | TrustedSource Database Version |
 | proactive-version | ProActive Database Version     |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -110,9 +119,8 @@ UDP/161 SNMP port.
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Install the Centreon McAfee Web Gateway Plugin package on every Centreon Poller expected to monitor a McAfee Web Gateway proxy:
 
@@ -122,7 +130,8 @@ yum install centreon-plugin-Applications-Antivirus-Mcafee-Webgateway-Snmp
 
 2. On the Centreon Web interface, install the *McAfee Web Gateway* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Install the Centreon McAfee Web Gateway Plugin package on every Centreon Poller expected to monitor a McAfee Web Gateway proxy:
 
@@ -138,7 +147,8 @@ yum install centreon-pack-applications-antivirus-mcafee-webgateway-snmp
 
 3. On the Centreon Web interface, install the *McAfee Web Gateway* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

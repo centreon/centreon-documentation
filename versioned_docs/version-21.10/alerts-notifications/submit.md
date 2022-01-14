@@ -2,6 +2,9 @@
 id: submit
 title: Submitting a status
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ### Principle
 
@@ -10,9 +13,8 @@ scheduler so that it is taken into account.
 
 ### Practice
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--From the Resources status page-->
+<Tabs groupId="sync">
+<TabItem value="From the Resources status page" label="From the Resources status page">
 
 1. Go to **Monitoring > Resources Status**.
 
@@ -28,7 +30,8 @@ scheduler so that it is taken into account.
     - The **Output** field defines the message to be displayed for the service in the **Information** column
     - The **Performance data** field can be used to define performance data for the generation of graphs.
 
-<!--From real-time monitoring-->
+</TabItem>
+<TabItem value="From real-time monitoring" label="From real-time monitoring">
 
 To submit a result, access the details page of the object. In the category
 **Service Commands** click on **Submit result for this service**
@@ -45,4 +48,5 @@ The following window appears:
 -   The **Performance data** field can be used to define performance
     data for the generation of graphs
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>

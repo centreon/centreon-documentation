@@ -2,6 +2,9 @@
 id: using-virtual-machines
 title: Using a virtual machine (VM)
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 On its [download page](https://download.centreon.com), Centreon provides a ready-to-use virtual machine. This virtual machine is available in OVA format for VMware environments and for Oracle VirtualBox. It is based on the **Linux CentOS 7** operating system and includes a Centreon installation that allows you to easily start your first monitoring.
 
@@ -33,9 +36,8 @@ The host machine must have the following characteristics:
 
 ## Step 2 : Installing the virtual machine
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--VMware environment-->
+<Tabs groupId="sync">
+<TabItem value="VMware environment" label="VMware environment">
 
 1. Import the **centreon-central.ova** file into VMWare. A terminal window opens: wait for the server to start. When it is ready, the terminal shows the following message:
 
@@ -45,7 +47,8 @@ The host machine must have the following characteristics:
 
     ![image](../../assets/installation/VMW_network_adapter.png)
 
-<!--Oracle VirtualBox-->
+</TabItem>
+<TabItem value="Oracle VirtualBox" label="Oracle VirtualBox">
 
 1. Import the **centreon-central.ova** file into VirtualBox. The VM is added to your list of VMs in VirtualBox.
 
@@ -69,7 +72,8 @@ The host machine must have the following characteristics:
 
     ![image](../../assets/installation/terminal_ready.png)
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Step 3 : Completing the configuration
 

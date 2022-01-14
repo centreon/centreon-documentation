@@ -2,11 +2,14 @@
 id: troubleshooting-guide
 title: Troubleshooting guide
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## A failed action is displayed in `crm_mon` but the resource seems to be working fine
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL 8 / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
 
 ```bash
 Cluster Summary:
@@ -40,7 +43,9 @@ Failed Resource Actions:
     last-rc-change='Wed Sep 15 13:42:19 2021', queued=1ms, exec=2122ms
 ```
 
-<!--RHEL 7 / CentOS 7-->
+</TabItem>
+<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
+
 ```bash
 Stack: corosync
 Current DC: @CENTRAL_SLAVE_NAME@ (version 1.1.20-5.el7_7.2-3c4c782f70) - partition with quorum
@@ -75,14 +80,16 @@ Failed Resource Actions:
 * centreontrapd_start_0 on @CENTRAL_MASTER_NAME@ 'not running' (7): call=82, status=complete, exitreason='',
     last-rc-change='Thu Feb 20 13:42:19 2020', queued=1ms, exec=2122ms
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+
+</TabItem>
+</Tabs>
 
 ## Resource not starting
 
 In the event of a Centreon resource (eg. `centreontrpad`) failing to start, *failed actions* will appear at the bottom of the `crm_mon` command's output **and** the resources that are supposed to be started after it. It will look like this:
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL 8 / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
 
 ```bash
 Cluster Summary:
@@ -103,7 +110,9 @@ Full List of Resources:
     * Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
 ```
 
-<!--RHEL 7 / CentOS 7-->
+</TabItem>
+<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
+
 ```bash
 Stack: corosync
 Current DC: @CENTRAL_SLAVE_NAME@ (version 1.1.20-5.el7_7.2-3c4c782f70) - partition with quorum
@@ -138,7 +147,9 @@ Failed Resource Actions:
 * centreontrapd_start_0 on @CENTRAL_MASTER_NAME@ 'not running' (7): call=82, status=complete, exitreason='',
     last-rc-change='Thu Feb 20 13:42:19 2020', queued=1ms, exec=2122ms
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+
+</TabItem>
+</Tabs>
 
 In order to get more information regarding this failure, you should first check the service's status by running this command on the node **where the service should be currently running**:
 
@@ -162,9 +173,9 @@ pcs resource cleanup centreontrapd
 
 If after a failover, could it be a manual one or after a server shutdown, the following situation happens:
 
-<!--DOCUSAURUS_CODE_TABS-->
+<Tabs groupId="sync">
+<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
 
-<!--RHEL 8 / Oracle Linux 8-->
 ```bash
 Location Constraints:
     Disabled on: @CENTRAL_SLAVE_NAME@ (score:-INFINITY) (role: Started)
@@ -176,7 +187,9 @@ Colocation Constraints:
 Ticket Constraints:
 ```
 
-<!--RHEL 7 / CentOS 7-->
+</TabItem>
+<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
+
 ```bash
 Stack: corosync
 Current DC: @CENTRAL_SLAVE_NAME@ (version 1.1.20-5.el7_7.2-3c4c782f70) - partition with quorum
@@ -197,7 +210,9 @@ Active resources:
  Clone Set: cbd_rrd-clone [cbd_rrd]
      Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+
+</TabItem>
+</Tabs>
 
 No error is displayed but the centreon group doesn't show up anymore and none of its resources is started. This mostly happens when there were multiples failover (`pcs resource move ....`) without deleting the constraint. To check that:
 
@@ -205,9 +220,9 @@ No error is displayed but the centreon group doesn't show up anymore and none of
 pcs constraint show
 ```
 
-<!--DOCUSAURUS_CODE_TABS-->
+<Tabs groupId="sync">
+<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
 
-<!--RHEL 8 / Oracle Linux 8-->
 ```bash
 Location Constraints:
     Disabled on: @CENTRAL_SLAVE_NAME@ (score:-INFINITY) (role: Started)
@@ -219,7 +234,9 @@ Colocation Constraints:
 Ticket Constraints:
 ```
 
-<!--RHEL 7 / CentOS 7-->
+</TabItem>
+<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
+
 ```bash
 Location Constraints:
   Resource: centreon
@@ -231,7 +248,9 @@ Colocation Constraints:
   ms_mysql-master with centreon (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
 Ticket Constraints:
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+
+</TabItem>
+</Tabs>
 
 We notice that the centreon group isn't authorized to start on any node
 

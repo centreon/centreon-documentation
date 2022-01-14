@@ -2,6 +2,9 @@
 id: introduction
 title: Introduction
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 Centreon comes with its application to let you access resources status, whether you're on phone or tablet.
 
@@ -38,8 +41,8 @@ To be able to connect your mobile application to your Centreon platform:
 
 The application installation mechanism depends on your device:
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!-- Android -->
+<Tabs groupId="sync">
+<TabItem value="Android" label="Android">
 
 For **Android**, you can:
 
@@ -48,14 +51,16 @@ For **Android**, you can:
 
     ![image](../assets/mobile/andoid-add-to-home-screen.png)
 
-<!-- Apple/iOS -->
+</TabItem>
+<TabItem value="Apple/iOS" label="Apple/iOS">
 
 For **Apple iOS**, go to [mobile.centreon.com](https://mobile.centreon.com/) using Safari and use the
 "Add to home screen" feature
 
 ![image](../assets/mobile/ios-add-to-home-screen.png)
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## How to connect
 

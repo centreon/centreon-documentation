@@ -2,6 +2,9 @@
 id: applications-redis-sentinel
 title: Redis Sentinel
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Pack Assets
 
@@ -26,9 +29,8 @@ It brings the following Service Templates:
 
 ### Collected metrics & status
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Redis-Clusters-->
+<Tabs groupId="sync">
+<TabItem value="Redis-Clusters" label="Redis-Clusters">
 
 | Metric name                                                                        | Description                                                      | Unit |
 |:---------------------------------------------------------------------------------- |:---------------------------------------------------------------- |:---- |
@@ -39,7 +41,8 @@ It brings the following Service Templates:
 | status                                                                             | Status of redis instance                                         |      |
 | *cluster_name~redis_address:redis_port*#cluster.redis.ping_ok.latency.milliseconds | Last ok ping latency                                             | ms   |
 
-<!--Sentinel-Clusters-->
+</TabItem>
+<TabItem value="Sentinel-Clusters" label="Sentinel-Clusters">
 
 | Metric name                                                                                 | Description                                    | Unit |
 |:------------------------------------------------------------------------------------------- |:---------------------------------------------- |:---- |
@@ -50,7 +53,8 @@ It brings the following Service Templates:
 | status                                                                                      | Status of sentinel instance                    |      |
 | *cluster_name~sentinel_address:sentinel_port*#cluster.sentinel.ping_ok.latency.milliseconds | Last ok ping latency                           | ms   |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -63,9 +67,8 @@ The following commands are used:
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online License-->
+<Tabs groupId="sync">
+<TabItem value="Online License" label="Online License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor **Redis Sentinel** resources:
 
@@ -75,7 +78,8 @@ yum install centreon-plugin-Applications-Redis-Sentinel
 
 2. On the Centreon Web interface, install the **Redis Sentinel** Centreon Pack on the **Configuration > Plugin Packs** page.
 
-<!--Offline License-->
+</TabItem>
+<TabItem value="Offline License" label="Offline License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor **Redis Sentinel** resources:
 
@@ -91,7 +95,8 @@ yum install centreon-pack-applications-redis-sentinel
 
 3. On the Centreon Web interface, install the **Redis Sentinel** Centreon Pack on the **Configuration > Plugin Packs** page.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -113,9 +118,8 @@ yum install centreon-pack-applications-redis-sentinel
 
 To support TLS and/or ACL users, you need **redis-cli** >= 6.x.
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Centos 7-->
+<Tabs groupId="sync">
+<TabItem value="Centos 7" label="Centos 7">
 
 ```bash
 yum install epel-release
@@ -123,7 +127,8 @@ yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm
 yum --enablerepo=remi install redis
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## How to check in the CLI that the configuration is OK and what are the main options for? 
 

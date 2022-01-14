@@ -2,6 +2,9 @@
 id: upgrade-from-20-10
 title: Upgrade from Centreon 20.10
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 This chapter describes how to upgrade your Centreon platform from version 20.10
 to version 21.10.
@@ -48,23 +51,29 @@ Update your platform to the latest available minor version of Centreon 20.10.
 
 Run the following commands:
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+
 ```shell
 dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-2.el8.noarch.rpm 
 ```
-<!--CentOS 7-->
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 ```shell
 yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-2.el7.centos.noarch.rpm
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Upgrade PHP
 
 Centreon 21.10 uses PHP in version 8.0.
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+
 First, you need to install the **remi** repository:
 ```shell
 dnf install -y dnf-plugins-core
@@ -78,7 +87,10 @@ to confirm:
 dnf module reset php
 dnf module install php:remi-8.0
 ```
-<!--CentOS 7-->
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 First, you need to install the **remi** repository:
 ```shell
 yum install -y yum-utils
@@ -89,7 +101,8 @@ Then, you need to enable the php 8.0 repository
 ```shell
 yum-config-manager --enable remi-php80
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Upgrade the Centreon solution
 
@@ -123,14 +136,18 @@ yum update centreon\*
 
 > Accept new GPG keys from the repositories as needed.
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+
 Execute the following commands:
 ```shell
 systemctl enable php-fpm
 systemctl restart php-fpm
 ```
-<!--CentOS 7-->
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 The PHP timezone should be set. Run the command:
 ```shell
 echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
@@ -154,7 +171,8 @@ systemctl disable rh-php74-php-fpm
 systemctl enable php-fpm
 systemctl start php-fpm
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Update your customized Apache configuration
 
@@ -181,20 +199,25 @@ In particular, make sure your customized Apache configuration contains the follo
 
 ### Finalizing the upgrade
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+
 Before starting the web upgrade process, reload the Apache server with the
 following command:
 ```shell
 systemctl reload httpd
 ```
-<!--CentOS 7-->
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 Before starting the web upgrade process, reload the Apache server with the
 following command:
 ```shell
 systemctl reload httpd24-httpd
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 Then log on to the Centreon web interface to continue the upgrade process:
 
@@ -256,16 +279,21 @@ The MariaDB components can now be upgraded.
 
 Run the following command on the dedicated DBMS server:
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+
 ```shell
 dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-2.el8.noarch.rpm 
 ```
-<!--CentOS 7-->
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 ```shell
 yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-2.el7.centos.noarch.rpm
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 #### Upgrading MariaDB
 
@@ -336,16 +364,21 @@ This procedure is the same than to upgrade a Centreon Central server.
 
 Run the following command:
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+
 ```shell
 dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-2.el8.noarch.rpm 
 ```
-<!--CentOS 7-->
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 ```shell
 yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-2.el7.centos.noarch.rpm
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Upgrade the Centreon solution
 
