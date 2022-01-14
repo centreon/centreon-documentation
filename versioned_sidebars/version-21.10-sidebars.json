@@ -1887,6 +1887,10 @@
             },
             {
               "type": "doc",
+              "id": "version-21.10/integrations/plugin-packs/procedures/hardware-servers-dell-omem-snmp"
+            },
+            {
+              "type": "doc",
               "id": "version-21.10/integrations/plugin-packs/procedures/hardware-devices-eltek-enexus-snmp"
             },
             {
