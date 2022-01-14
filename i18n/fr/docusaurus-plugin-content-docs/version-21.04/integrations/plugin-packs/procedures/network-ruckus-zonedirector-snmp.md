@@ -2,6 +2,8 @@
 id: network-ruckus-zonedirector-snmp
 title: Ruckus Zonedirector
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 ## Vue d'ensemble
 
@@ -16,17 +18,14 @@ Le ZoneDirector de Ruckus Wireless est le système de réseau sans fil (WLAN) in
 
 ### Règles de découverte
 
-<!--Services-->
-
 | Rule name                            | Description                                           |
 | :----------------------------------- | :---------------------------------------------------- |
 | Net-Ruckus-Zonedirector-SNMP-Ap-Name | Découverte des points d'accès gérés par un contrôleur |
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Access-Point-->
+<Tabs groupId="sync">
+<TabItem value="Access-Point" label="Access-Point">
 
 | Metric name                                            | Description                                                                             |
 | :----------------------------------------------------- | :-------------------------------------------------------------------------------------- |
@@ -41,7 +40,8 @@ Le ZoneDirector de Ruckus Wireless est le système de réseau sans fil (WLAN) in
 | accesspoint.traffic.in.bitspersecon                    | Incoming traffic going through the access point. Unit: bits/second                      |
 | accesspoint.traffic.out.bitspersecond                  | Outgoing traffic going through the access point. Unit: bits/second                      |
 
-<!--System-->
+</TabItem>
+<TabItem value="System" label="System">
 
 | Metric name                                       | Description                                                  |
 | :------------------------------------------------ | :----------------------------------------------------------- |
@@ -57,7 +57,8 @@ Le ZoneDirector de Ruckus Wireless est le système de réseau sans fil (WLAN) in
 | system.traffic.in.bitspersecond                   | Incoming traffic going through the system. Unit: bits/second |
 | system.traffic.out.bitspersecond                  | Outgoing traffic going through the system. Unit: bits/second |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -71,9 +72,8 @@ Les Collecteurs Centreon doivent pouvoir communiquer via le port UDP/161 SNMP av
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des équipements Ruckus Zonedirector:
 
@@ -83,7 +83,8 @@ yum install centreon-plugin-Network-Ruckus-Zonedirector-Snmp
 
 2. Installer le Plugin-Pack 'Ruckus Zonedirector' depuis l'interface Web et la page "Configuration > Plugin packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisants des équipements Ruckus Zonedirector:
 
@@ -99,7 +100,8 @@ yum install centreon-pack-network-ruckus-zonedirector-snmp.noarch
 
 3. Installer le Plugin-Pack 'Ruckus ZoneDirector' depuis la page "Configuration > Plugin Packs > Manager" de l'interface Web.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

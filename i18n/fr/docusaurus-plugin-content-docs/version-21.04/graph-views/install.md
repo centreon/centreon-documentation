@@ -2,6 +2,9 @@
 id: install
 title: Install Centreon MAP extension
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 > Centreon MAP demande une licence valide. Pour en acheter une et récupérer les
 > référentiels nécessaires, contactez [Centreon](mailto:sales@centreon.com).
@@ -145,21 +148,22 @@ La résolution de votre écran doit être d'au moins 1280 x 768.
 Pour optimiser le client Desktop, vous devez lui allouer plus de mémoire que la
 valeur par défaut. Modifiez le fichier suivant:
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Windows-->
+<Tabs groupId="sync">
+<TabItem value="Windows" label="Windows">
 
 ```shell
 C:\Users\<YOUR_USERNAME>\AppData\Local\Centreon-Map4\Centreon-Map4.ini
 ```
 
-<!--Linux-->
+</TabItem>
+<TabItem value="Linux" label="Linux">
 
 ```shell
 /opt/centreon-map4-desktop-client/Centreon-Map4.ini
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 Et ajoutez les lignes suivantes à la fin du fichier, sur une nouvelle ligne :
 
@@ -219,21 +223,22 @@ une nouvelle sortie Centreon Broker. Il sera révoqué ultérieurement.
 
 Si vous avez installé votre serveur Centreon MAP à partir d'une nouvelle installation CentOS, vous devez installer le paquet `centreon-release`.
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
 
 ```shell
 dnf install https://yum.centreon.com/standard/21.04/el8/stable/noarch/RPMS/centreon-release-21.04-6.el8.noarch.rpm
 ```
 
-<!--CentOS 7-->
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
 yum install https://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-6.el7.centos.noarch.rpm
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 > Si l'URL ne fonctionne pas, vous pouvez trouver manuellement ce paquet dans le dossier.
 
@@ -242,21 +247,22 @@ le [portail du support](https://support.centreon.com/s/repositories).
 
 Ensuite, installez le serveur Centreon MAP à l'aide de la commande suivante :
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
 
 ```shell
 dnf install centreon-map-server
 ```
 
-<!--CentOS 7-->
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
 yum install centreon-map-server
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 Lors de l'installation du serveur Centreon MAP, java (OpenJDK 11) sera automatiquement installé si nécessaire.
 
@@ -341,21 +347,22 @@ Installez le dépôt MAP de Centreon. Vous pouvez le trouver sur le [portail du 
 
 Ensuite, exécutez la commande suivante :
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
 
 ```shell
 dnf install centreon-map-web-client
 ```
 
-<!--CentOS 7-->
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
 yum install centreon-map-web-client
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Web
 
@@ -435,9 +442,8 @@ Pour vérifier la version de Java, exécutez la commande :
 java -version
 ```
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Windows-->
+<Tabs groupId="sync">
+<TabItem value="Windows" label="Windows">
 
 Exécutez **centreon-map4-desktop-client-xxxx.exe** :
 
@@ -454,7 +460,8 @@ l'intégrer dans l'environnement Windows. Le programme d'installation peut égal
 être utilisé pour le désinstaller à partir de la page de configuration dédiée de Windows.
 ![image](../assets/graph-views/windows_start_menu.png)
 
-<!--Debian-->
+</TabItem>
+<TabItem value="Debian" label="Debian">
 
 Téléchargez le fichier DEB fourni et exécutez la commande suivante depuis le répertoire racine :
 
@@ -474,7 +481,8 @@ Vous le trouverez également dans la liste des applications installées.
 
 ![image](../assets/graph-views/ubuntu_launch_menu.png)
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Mises à jour
 
@@ -496,19 +504,20 @@ Le serveur Centreon MAP NG est disponible sur le même dépôt que le serveur ha
 
 Pour commencer, installez le serveur en utilisant la commande suivante :
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
 
 ```shell
 dnf install centreon-map-server-ng
 ```
-<!--CentOS 7-->
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
 yum install centreon-map-server-ng
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 Et procédez à la configuration avec la commande suivante :
 

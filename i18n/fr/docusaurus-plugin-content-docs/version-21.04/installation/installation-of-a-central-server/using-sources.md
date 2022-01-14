@@ -2,14 +2,17 @@
 id: using-sources
 title: A partir des sources
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Prérequis
 
 > La plupart des utilisateurs de CentOS préfèreront installer Centreon Web en utilisant
 [les paquets fournis par Centreon](using-packages).
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS 8-->
+<Tabs groupId="sync">
+<TabItem value="CentOS 8" label="CentOS 8">
 Afin d'installer les logiciels Centreon, le dépôt PowerTools de Red Hat doit être
 activé.
 
@@ -144,7 +147,9 @@ Puis exécutez :
 ```shell
 /bin/pear upgrade-all
 ```
-<!--Oracle Linux 8-->
+
+</TabItem>
+<TabItem value="Oracle Linux 8" label="Oracle Linux 8">
 Afin d'installer les logiciels Centreon, le dépôt Oracle CodeReady Builder de Oracle doit être activé.
 
 Exécutez les commandes suivantes :
@@ -270,7 +275,9 @@ Puis exécutez :
 ```shell
 /bin/pear upgrade-all
 ```
-<!--RHEL 8-->
+
+</TabItem>
+<TabItem value="RHEL 8" label="RHEL 8">
 Afin d'installer les logiciels Centreon, le dépôt CodeReady Builder de Redhat doit être activé.
 
 Exécutez les commandes suivantes :
@@ -396,7 +403,9 @@ Puis exécutez :
 ```shell
 /bin/pear upgrade-all
 ```
-<!--Redhat/CentOS 7-->
+
+</TabItem>
+<TabItem value="Redhat/CentOS 7" label="Redhat/CentOS 7">
 Pour installer Centreon, vous devrez configurer le dépôt officiel des collections de logiciels pris en charge par
 Redhat.
 
@@ -507,7 +516,9 @@ Puis exécutez :
 ``` shell
 /opt/rh/rh-php73/root/bin/pear upgrade-all
 ```
-<!--Debian Buster-->
+
+</TabItem>
+<TabItem value="Debian Buster" label="Debian Buster">
 Installez les prérequis suivants :
 ```shell
 apt-get install \
@@ -626,7 +637,8 @@ Redémarrez le service SNMP :
 service snmpd restart
 service snmptrapd restart
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Centreon library (Centreon CLIB)
 

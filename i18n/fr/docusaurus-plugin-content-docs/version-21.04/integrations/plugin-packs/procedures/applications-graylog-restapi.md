@@ -2,6 +2,9 @@
 id: applications-graylog-restapi
 title: Graylog
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -21,15 +24,15 @@ de résultats obtenu suite à une requête Lucène.
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Query-->
+<Tabs groupId="sync">
+<TabItem value="Query" label="Query">
 
 | Metric name                | Description               | Unit   |
 | :------------------------- | :------------------------ | :----- |
 | graylog.query.match.count  | Number of query matches   | Count  |
 
-<!--System-Notifications-->
+</TabItem>
+<TabItem value="System-Notifications" label="System-Notifications">
 
 | Metric name                                 | Description                                       | Unit   |
 | :------------------------------------------ | :------------------------------------------------ | :----- |
@@ -37,7 +40,8 @@ de résultats obtenu suite à une requête Lucène.
 | graylog.system.notifications.normal.count   | Number of system notifications (normal severity)  | Count  | 
 | graylog.system.notifications.urgent.count   | Number of system notifications (urgent severity)  | Count  |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequis
 
@@ -51,9 +55,8 @@ https://docs.graylog.org/en/latest/pages/configuration/rest_api.
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant un serveur Graylog :
 
@@ -63,7 +66,8 @@ yum install centreon-plugin-Applications-Graylog-Restapi
 
 2. Depuis l'interface Web de Centreon, installer le Plugin-Pack *Graylog* depuis la page "Configuration > Packs de plugins > Manager" 
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant un serveur Graylog :
 
@@ -79,7 +83,8 @@ yum install centreon-pack-graylog-restapi
 
 3. Depuis l'interface Web de Centreon, installer le Plugin-Pack *Graylog* depuis la page "Configuration > Packs de plugins > Manager" 
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

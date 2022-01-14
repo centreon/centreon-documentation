@@ -2,6 +2,9 @@
 id: applications-microsoft-dhcp-snmp
 title: Microsoft DHCP SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Contenu du Plugin-Pack
 
@@ -11,9 +14,8 @@ Le Plugin-Pack Microsoft DHCP SNMP inclut la supervision des Subnets.
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Subnets-->
+<Tabs groupId="sync">
+<TabItem value="Subnets" label="Subnets">
 
 | Metric name                                       | Description                       | Unit |
 | :------------------------------------------------ | :-------------------------------- | :--- |
@@ -24,7 +26,8 @@ Le Plugin-Pack Microsoft DHCP SNMP inclut la supervision des Subnets.
 
 It is possible to filter on the address of a subnet using a REGEXP of the form [```--subnet-address='192.168.1.0'```].
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -32,9 +35,8 @@ Afin de contrôler votre application Microsoft DHCP, le SNMP doit être configur
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -44,7 +46,8 @@ yum install centreon-plugin-Applications-Microsoft-Dhcp-Snmp
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Microsoft DHCP SNMP* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -60,7 +63,8 @@ yum install centreon-pack-applications-microsoft-dhcp-snmp
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Microsoft DHCP SNMP* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

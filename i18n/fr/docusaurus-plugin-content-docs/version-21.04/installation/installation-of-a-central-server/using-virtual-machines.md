@@ -2,6 +2,9 @@
 id: using-virtual-machines
 title: À partir d'une VM
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 Sur sa [page de téléchargement](https://download.centreon.com), Centreon fournit une machine virtuelle prête à l’emploi. Cette machine virtuelle est disponible au format OVA pour les environnements
 VMware et pour l'outil Oracle VirtualBox.
@@ -41,9 +44,8 @@ cliquez sur **Download**.
 
 ## Étape 2 : Installer la machine virtuelle
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Environnement VMware-->
+<Tabs groupId="sync">
+<TabItem value="Environnement VMware" label="Environnement VMware">
 
 1. Importez le fichier `centreon-central.ova` dans VMWare. Un terminal s’ouvre : attendez que le serveur démarre. Lorsque celui-ci est prêt, le terminal affiche le message suivant :
     
@@ -55,7 +57,8 @@ cliquez sur **Download**.
 
     ![image](../../assets/installation/VMW_network_adapter.png)
 
-<!--Oracle VirtualBox-->
+</TabItem>
+<TabItem value="Oracle VirtualBox" label="Oracle VirtualBox">
 
 1. Importez le fichier `centreon-central.ova` dans VirtualBox. La VM apparaît dans votre liste de VMs dans VirtualBox.
 
@@ -80,7 +83,8 @@ cliquez sur **Download**.
 
     ![image](../../assets/installation/terminal_ready.png)
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Étape 3 : Terminer la configuration
 

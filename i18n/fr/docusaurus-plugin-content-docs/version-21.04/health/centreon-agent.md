@@ -2,6 +2,9 @@
 id: centreon-agent
 title: Installer l'Agent Centreon
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Introduction
 
@@ -54,16 +57,21 @@ Les données sont envoyées vers la Plateforme Centreon Cloud. Aucune donnée pe
 
 - Les fichiers RPM sont disponibles sur les dépôts Centreon officiels des versions actuellement supportées. Le dépôt Centreon officiel doit être installé :
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+
 ```shell
 dnf install -y https://yum.centreon.com/standard/21.04/el8/stable/noarch/RPMS/centreon-release-21.04-6.el8.noarch.rpm
 ```
-<!--CentOS 7-->
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 ```shell
 yum install -y https://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-6.el7.centos.noarch.rpm
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 - Vous devez être en possession de votre jeton unique vous permettant d'envoyer des données vers notre plateforme. Ce jeton vous est fourni par notre équipe support.
 

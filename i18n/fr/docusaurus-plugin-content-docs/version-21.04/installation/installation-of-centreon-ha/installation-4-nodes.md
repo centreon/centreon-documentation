@@ -2,6 +2,9 @@
 id: installation-4-nodes
 title: Installation d'un cluster à 4 nœuds
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Prérequis
 
@@ -142,8 +145,9 @@ Avant d'en arriver au paramétrage du cluster à proprement parler, quelques ét
 
 Afin d'améliorer la fiabilité du cluster et étant donné que *Centreon HA* ne fonctionne qu'en IP v4, il est recommandé d'appliquer le tuning suivant sur tous les serveurs de la plateforme Centreon :
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL 8 / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+
 ```bash
 cat >> /etc/sysctl.conf <<EOF
 net.ipv6.conf.all.disable_ipv6 = 1
@@ -156,7 +160,9 @@ EOF
 systemctl restart NetworkManager
 ```
 
-<!--RHEL 7 / CentOS 7-->
+</TabItem>
+<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
+
 ```bash
 cat >> /etc/sysctl.conf <<EOF
 net.ipv6.conf.all.disable_ipv6 = 1
@@ -168,7 +174,8 @@ net.ipv4.tcp_keepalive_intvl = 2
 EOF
 systemctl restart network
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Résolution de noms
 
@@ -195,65 +202,80 @@ Centreon propose les paquets `centreon-ha-common` et `centreon-ha-web`, qui four
 
 Ces paquets sont à installer sur l'ensemble les 2 Serveurs Centraux :
 
-<!--DOCUSAURUS_CODE_TABS-->
+<Tabs groupId="sync">
+<TabItem value="RHEL 8" label="RHEL 8">
 
-<!--RHEL 8-->
 ```bash
 dnf -y install dnf-plugins-core https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 subscription-manager repos --enable rhel-8-for-x86_64-highavailability-rpms
 dnf install centreon-ha-web pcs pacemaker corosync corosync-qdevice
 ```
 
-<!--Oracle Linux 8-->
+</TabItem>
+<TabItem value="Oracle Linux 8" label="Oracle Linux 8">
+
 ```bash
 dnf config-manager --enable ol8_addons
 dnf install centreon-ha-web pcs pacemaker corosync corosync-qdevice
 ```
 
-<!--RHEL 7-->
+</TabItem>
+<TabItem value="RHEL 7" label="RHEL 7">
+
 ```bash
 yum install epel-release
 subscription-manager repos --enable rhel-7-for-x86_64-highavailability-rpms
 dnf install centreon-ha-web pcs pacemaker corosync corosync-qdevice
 ```
 
-<!--CentOS 7-->
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 ```bash
 yum install epel-release centos-release-scl
 yum install centreon-ha-web pcs pacemaker corosync corosync-qdevice 
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 #### Serveurs Base de données
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL 8" label="RHEL 8">
+
 ```bash
 dnf -y install dnf-plugins-core https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 subscription-manager repos --enable rhel-8-for-x86_64-highavailability-rpms
 dnf install centreon-ha-common pcs pacemaker corosync corosync-qdevice
 ```
 
-<!--Oracle Linux 8-->
+</TabItem>
+<TabItem value="Oracle Linux 8" label="Oracle Linux 8">
+
 ```bash
 dnf config-manager --enable ol8_addons
 dnf install centreon-ha-common pcs pacemaker corosync corosync-qdevice
 ```
 
-<!--RHEL 7-->
+</TabItem>
+<TabItem value="RHEL 7" label="RHEL 7">
+
 ```bash
 yum install epel-release
 subscription-manager repos --enable rhel-7-for-x86_64-highavailability-rpms
 dnf install centreon-ha-common pcs pacemaker corosync corosync-qdevice
 ```
 
-<!--CentOS 7-->
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 ```bash
 yum install epel-release centos-release-scl
 yum install centreon-ha-common pcs pacemaker corosync corosync-qdevice 
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Échanges de clefs SSH
 
@@ -696,19 +718,23 @@ sur le fonctionnement.
 
 Les services applicatifs de Centreon ne seront plus lancés au démarrage du serveur comme c'est le cas pour une installation standard, ce sont les services de clustering qui s'en chargeront. Il faut donc arrêter et désactiver ces services.
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL 8 / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+
 ```bash
 systemctl stop centengine snmptrapd centreontrapd gorgoned cbd httpd centreon mysql
 systemctl disable centengine snmptrapd centreontrapd gorgoned cbd httpd centreon mysql
 ```
 
-<!--RHEL 7 / CentOS 7-->
+</TabItem>
+<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
+
 ```bash
 systemctl stop centengine snmptrapd centreontrapd gorgoned cbd httpd24-httpd centreon mysql
 systemctl disable centengine snmptrapd centreontrapd gorgoned cbd httpd24-httpd centreon mysql
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 Le service MariaDB étant sur un mode mixte entre SysV init et systemd, pour bien s'assurer qu'il ne soit plus lancé au démarrage, il faut également lancer la commande :
 
@@ -730,8 +756,9 @@ systemctl start pcsd
 
 **Informations :** Cette opération doit être réalisée sur le serveur `@QDEVICE_NAME@`
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL 8" label="RHEL 8">
+
 ```bash
 dnf -y install dnf-plugins-core https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 subscription-manager repos --enable rhel-8-for-x86_64-highavailability-rpms
@@ -742,7 +769,9 @@ pcs qdevice setup model net --enable --start
 pcs qdevice status net --full
 ```
 
-<!--Oracle Linux 8-->
+</TabItem>
+<TabItem value="Oracle Linux 8" label="Oracle Linux 8">
+
 ```bash
 dnf config-manager --enable ol8_addons
 dnf install pcs corosync-qnetd
@@ -752,7 +781,9 @@ pcs qdevice setup model net --enable --start
 pcs qdevice status net --full
 ```
 
-<!--RHEL 7-->
+</TabItem>
+<TabItem value="RHEL 7" label="RHEL 7">
+
 ```bash
 yum install epel-release
 subscription-manager repos --enable rhel-7-for-x86_64-highavailability-rpms
@@ -763,7 +794,9 @@ pcs qdevice setup model net --enable --start
 pcs qdevice status net --full
 ```
 
-<!--CentOS 7-->
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 ```bash
 yum install epel-release
 yum install pcs corosync-qnetd
@@ -772,7 +805,8 @@ systemctl enable pcsd.service
 pcs qdevice setup model net --enable --start
 pcs qdevice status net --full
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 Modifier le paramètre `COROSYNC_QNETD_OPTIONS` du fichier de configuration `/etc/sysconfig/corosync-qnetd` du Quorum afin de restreindre les connexions entrant à IPv4.
 
@@ -789,8 +823,9 @@ passwd hacluster
 
 Une fois ce mot de passe commun défini, il est possible pour un nœud de s'authentifier sur les autres. **La commande suivante ainsi que toutes les commandes agissant sur le cluster doivent être lancée sur un seul nœud.**
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL 8 / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+
 ```bash
 pcs host auth \
     "@CENTRAL_MASTER_NAME@" \
@@ -802,7 +837,9 @@ pcs host auth \
     -p '@CENTREON_CLUSTER_PASSWD@'
 ```
 
-<!--RHEL 7 / CentOS 7-->
+</TabItem>
+<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
+
 ```bash
 pcs cluster auth \
     "@CENTRAL_MASTER_NAME@" \
@@ -814,14 +851,16 @@ pcs cluster auth \
     -p '@CENTREON_CLUSTER_PASSWD@' \
     --force
  ``` 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 #### Création du cluster
 
 Cette commande doit être lancée sur un des nœuds :
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL 8 / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+
 ```bash
 pcs cluster setup \
     centreon_cluster \
@@ -832,7 +871,9 @@ pcs cluster setup \
     --force \
 ```
 
-<!--RHEL 7 / CentOS 7-->
+</TabItem>
+<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
+
 ```bash
 pcs cluster setup \
     --force \
@@ -842,7 +883,8 @@ pcs cluster setup \
     "@DATABASE_MASTER_NAME@" \
     "@DATABASE_SLAVE_NAME@"
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 Démarrer ensuite `pacemaker` sur l'ensemble des nœuds :
 
@@ -876,8 +918,9 @@ Les commandes de cette section doivent être lancées depuis un seul nœud, le C
 
 #### Process MariaDB Primaire/secondaire
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL 8 / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+
 
 ```bash
 pcs resource create "ms_mysql" \
@@ -895,7 +938,9 @@ pcs resource create "ms_mysql" \
     test_passwd="@MARIADB_REPL_PASSWD@" \
     test_table='centreon.host'
 ```
-<!--RHEL 7-->
+</TabItem>
+<TabItem value="RHEL 7" label="RHEL 7">
+
 
 ```bash
 pcs resource create "ms_mysql" \
@@ -913,7 +958,9 @@ pcs resource create "ms_mysql" \
     test_passwd="@MARIADB_REPL_PASSWD@" \
     test_table='centreon.host'
 ```
-<!--CentOS 7-->
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 
 ```bash
 pcs resource create "ms_mysql" \
@@ -932,12 +979,14 @@ pcs resource create "ms_mysql" \
     test_table='centreon.host' \
     master
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 > **ATTENTION :** la commande suivante varie suivant la distribution Linux utilisée.
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL 8 / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+
 ```bash
 pcs resource promotable ms_mysql \
     master-node-max="1" \
@@ -947,7 +996,9 @@ pcs resource promotable ms_mysql \
     notify="true"
 ```
 
-<!--RHEL 7-->
+</TabItem>
+<TabItem value="RHEL 7" label="RHEL 7">
+
 ```bash
 pcs resource master ms_mysql \
     master-node-max="1" \
@@ -957,7 +1008,9 @@ pcs resource master ms_mysql \
     notify="true"
 ```
 
-<!--CentOS7-->
+</TabItem>
+<TabItem value="CentOS7" label="CentOS7">
+
 ```bash
 pcs resource meta ms_mysql-master \
     master-node-max="1" \
@@ -966,7 +1019,8 @@ pcs resource meta ms_mysql-master \
     clone-node-max="1" \
     notify="true"
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ##### Adresse VIP Serveurs bases de données 
 
@@ -992,8 +1046,9 @@ Les ressources clones sont des ressources actives sur les deux nœuds Centraux.
 
 ##### PHP7
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL 8 / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+
 ```bash
 pcs resource create "php7" \
     systemd:rh-php73-php-fpm \
@@ -1004,7 +1059,9 @@ pcs resource create "php7" \
     clone
 ```
 
-<!--RHEL 7 / CentOS 7-->
+</TabItem>
+<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
+
 ```bash
 pcs resource create "php7" \
     systemd:rh-php73-php-fpm \
@@ -1014,7 +1071,8 @@ pcs resource create "php7" \
     monitor interval="5s" timeout="30s" \
     clone
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ##### Broker RRD
 
@@ -1049,8 +1107,9 @@ pcs resource create vip \
 
 ##### Service httpd
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL 8 / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+
 ```bash
 pcs resource create http \
     systemd:httpd \
@@ -1062,7 +1121,9 @@ pcs resource create http \
     --force
 ```
 
-<!--RHEL 7 / CentOS 7-->
+</TabItem>
+<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
+
 ```bash
 pcs resource create http \
     systemd:httpd24-httpd \
@@ -1073,7 +1134,8 @@ pcs resource create http \
     --group centreon \
     --force
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ##### Service Gorgone
 
@@ -1155,26 +1217,30 @@ sur quels nœuds les ressources doivent être exécutées.
 
 Exécuter les commandes suivantes pour indiquer au Cluster que les ressources vip_mysql & le rôle primaire doivent être démarrées sur le même nœud :
 
-<!--DOCUSAURUS_CODE_TABS-->
+<Tabs groupId="sync">
+<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
 
-<!--RHEL 8 / Oracle Linux 8-->
 ```bash
 pcs constraint colocation add "vip_mysql" with master "ms_mysql-clone"
 pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
 ```
 
-<!--RHEL 7 / CentOS 7-->
+</TabItem>
+<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
+
 ```bash
 pcs constraint colocation add "vip_mysql" with master "ms_mysql-master"
 pcs constraint colocation add master "ms_mysql-master" with "vip_mysql"
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 Exécuter les commandes suivantes pour indiquer au Cluster sur quels nœuds les ressources doivent être exécutées :
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL 8 / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+
 ```bash
 pcs constraint location centreon avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
 pcs constraint location ms_mysql-clone avoids @CENTRAL_MASTER_NAME@=INFINITY @CENTRAL_SLAVE_NAME@=INFINITY
@@ -1182,14 +1248,17 @@ pcs constraint location cbd_rrd-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DA
 pcs constraint location php7-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
 ```
 
-<!--RHEL 7 / CentOS 7-->
+</TabItem>
+<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
+
 ```bash
 pcs constraint location centreon avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
 pcs constraint location ms_mysql-master avoids @CENTRAL_MASTER_NAME@=INFINITY @CENTRAL_SLAVE_NAME@=INFINITY
 pcs constraint location cbd_rrd-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
 pcs constraint location php7-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Lancement du Cluster et contrôle de l'état des ressources
 
@@ -1212,8 +1281,9 @@ pcs resource meta http target-role="started"
 Il est possible de suivre l'état du cluster en temps réel via la commande `crm_mon`. Suite à l'activation 
 des ressources, vous devriez obtenir une sortie similaire à celle-ci: 
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL 8 / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+
 ```bash
 Cluster Summary:
   * Stack: corosync
@@ -1246,7 +1316,9 @@ Active Resources:
     * snmptrapd (systemd:snmptrapd):     Started @CENTRAL_MASTER_NAME@
 ```
 
-<!--RHEL 7 / CentOS 7-->
+</TabItem>
+<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
+
 ```bash
 Stack: corosync
 Current DC: @CENTRAL_SLAVE_NAME@ (version 1.1.20-5.el7_7.2-3c4c782f70) - partition with quorum
@@ -1274,7 +1346,8 @@ Active resources:
      snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_MASTER_NAME@
      vip_mysql       (ocf::heartbeat:IPaddr2):       Started @CENTRAL_MASTER_NAME@
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 #### Contrôler la synchronisation des bases
 
@@ -1295,25 +1368,29 @@ Position Status [OK]
 
 Il est possible qu'immédiatement après l'installation, le thread de réplication ne soit pas actif. Un redémarrage de la ressource `ms_mysql` doit permettre d'y remédier.
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL 8 / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+
 ```bash 
 pcs resource restart ms_mysql-clone
 ```
 
-<!--RHEL 7 / CentOS 7-->
+</TabItem>
+<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
+
 ```bash 
 pcs resource restart ms_mysql
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 #### Contrôle de l'absence de contraintes
 
 En temps normal, seules les contraintes de colocation doivent être actives sur le cluster. La commande `pcs constraint show` doit retourner :
 
-<!--DOCUSAURUS_CODE_TABS-->
+<Tabs groupId="sync">
+<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
 
-<!--RHEL 8 / Oracle Linux 8-->
 ```bash
 Location Constraints:
   Resource: cbd_rrd-clone
@@ -1335,7 +1412,9 @@ Colocation Constraints:
 Ticket Constraints:
 ```
 
-<!--RHEL7 / CentOS 7-->
+</TabItem>
+<TabItem value="RHEL7 / CentOS 7" label="RHEL7 / CentOS 7">
+
 ```bash
 Location Constraints:
   Resource: cbd_rrd-clone
@@ -1356,7 +1435,8 @@ Colocation Constraints:
   ms_mysql-master with vip_mysql (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
 Ticket Constraints:
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Modifications des fichiers de configuration Centreon
 Suite à la mise en place du cluster et de la _vip_mysql_, il est nécessaire de modifier les outputs du Centreon Broker et 3 fichiers de configuration du Central. Ces éléments devront pointer sur la _vip_mysql_ afin de toujours pointer sur le nœud actif MariaDB.

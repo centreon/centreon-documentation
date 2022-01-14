@@ -2,6 +2,9 @@
 id: upgrade-from-20-10
 title: Montée de version depuis Centreon 20.10
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 Ce chapitre décrit la procédure de montée de version de votre plate-forme
 Centreon depuis la version 20.10 vers la version 21.04.
@@ -52,17 +55,20 @@ yum install -y https://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/ce
 
 Centreon 21.04 utilise PHP en version 7.3.
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
 Vous devez changer le flux PHP de la version 7.2 à 7.3 en exécutant les commandes suivantes et en répondant **y**
 pour confirmer :
 ```shell
 dnf module reset php
 dnf module install php:7.3
 ```
-<!--CentOS 7-->
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 PHP sera mis à jour automatiquement avec Centreon.
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Montée de version de la solution Centreon
 
@@ -90,14 +96,16 @@ yum update centreon\*
 
 > Acceptez les nouvelles clés GPG des dépôts si nécessaire.
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
 Exécutez les commandes suivantes :
 ```shell
 systemctl enable php-fpm
 systemctl restart php-fpm
 ```
-<!--CentOS 7-->
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 Le fuseau horaire par défaut de PHP 7 doit être configuré. Executez la commande suivante :
 ```shell
 echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php73/php.d/50-centreon.ini
@@ -113,22 +121,26 @@ systemctl disable rh-php72-php-fpm
 systemctl enable rh-php73-php-fpm
 systemctl start rh-php73-php-fpm
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Finalisation de la mise à jour
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<Tabs groupId="sync">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
 Avant de démarrer la montée de version via l'interface web, rechargez le serveur Apache avec la commande suivante :
 ```shell
 systemctl reload httpd
 ```
-<!--CentOS 7-->
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 Avant de démarrer la montée de version via l'interface web, rechargez le serveur Apache avec la commande suivante :
 ```shell
 systemctl reload httpd24-httpd
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 Connectez-vous ensuite à l'interface web Centreon pour démarrer le processus de
 mise à jour :
