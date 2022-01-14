@@ -152,6 +152,16 @@ liens
 
 ## Centreon BAM
 
+### 20.04.9
+
+Release date: `January 14, 2022`
+
+#### Bugfixes
+
+[Configuration] Fixed an error when generating poller configuration with a disabled BA linked to an escalation task
+- [Configuration] BA escalation configuration is not exported to Remote Server anymore if the BA is not linked to this Remote Server
+- [Monitoring] Business Activities widget now scales to the number of BAs
+
 ### 20.04.8
 
 `6 mai 2021`
