@@ -2317,7 +2317,7 @@ Columns are the following :
 
 | Column      | Description                                   |
 | ----------- | --------------------------------------------- |
-| ID ID of co | ntact                                         |
+| ID          | ID of contact                                 |
 | Name        | Name of contact                               |
 | Alias       | Alias of contact (also login id)              |
 | Email       | Email of contact                              |
