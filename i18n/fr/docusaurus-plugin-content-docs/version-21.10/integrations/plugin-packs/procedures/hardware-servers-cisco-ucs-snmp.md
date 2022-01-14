@@ -2,6 +2,9 @@
 id: hardware-servers-cisco-ucs-snmp
 title: Cisco UCS
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -17,9 +20,8 @@ Le Plugin Pack *Cisco UCS* utilise le protocole SNMP pour se connecter, récupé
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Audit-Logs-->
+<Tabs groupId="sync">
+<TabItem value="Audit-Logs" label="Audit-Logs">
 
 | Metric name                  | Description                                | Unit  |
 | :--------------------------- | :----------------------------------------- | :---- |
@@ -31,13 +33,15 @@ Le Plugin Pack *Cisco UCS* utilise le protocole SNMP pour se connecter, récupé
 | audit.minor.count            | Number of minor audit logs                 | count |                          
 | audit.critical.count         | Number of critical audit logs              | count |                             
 
-<!--Equipment-->
+</TabItem>
+<TabItem value="Equipment" label="Equipment">
 
 | Metric name | Description                                | Unit |
 | :---------- | :----------------------------------------- | :--- |
 | status      | Check Hardware status                      |      |
 
-<!--Faults-->
+</TabItem>
+<TabItem value="Faults" label="Faults">
 
 | Metric name                   | Description                                | Unit  |
 | :---------------------------- | :----------------------------------------- | :---- |
@@ -51,13 +55,15 @@ Le Plugin Pack *Cisco UCS* utilise le protocole SNMP pour se connecter, récupé
 | faults.major.count            | Number of major faults                     | count |
 | faults.critical.count         | Number of critical faults                  | count |
 
-<!--Mgmt-Entities-->
+</TabItem>
+<TabItem value="Mgmt-Entities" label="Mgmt-Entities">
 
 | Metric name                     | Description                                | Unit  |
 | :------------------------------ | :----------------------------------------- | :---- |
 | management_entities.total.count | Number of management entities              | count |
 
-<!--Service-Profile-->
+</TabItem>
+<TabItem value="Service-Profile" label="Service-Profile">
 
 | Metric name                   | Description                                | Unit  |
 | :---------------------------- | :----------------------------------------- | :---- |
@@ -66,7 +72,8 @@ Le Plugin Pack *Cisco UCS* utilise le protocole SNMP pour se connecter, récupé
 | serviceprofiles.offline.count | Number of offline service profiles         | count |
 
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 
 ## Prérequis
@@ -83,9 +90,8 @@ La communication doit être possible sur le port UDP 161 depuis le collecteur Ce
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des serveurs UCS:
 
@@ -95,7 +101,8 @@ yum install centreon-plugin-Hardware-Servers-Cisco-Ucs-Snmp
 
 2. Sur l'interface Web de Centreon, installer le Plugin Pack *Cisco UCS* depuis la page "Configuration > Plugin Packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des serveurs UCS:
 
@@ -111,7 +118,8 @@ yum install centreon-pack-hardware-servers-cisco-ucs-snmp
 
 3. Sur l'interface Web de Centreon, installer le Plugin Pack *Cisco UCS* depuis la page "Configuration > Plugin Packs > Manager"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

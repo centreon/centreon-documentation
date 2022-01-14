@@ -2,6 +2,9 @@
 id: applications-redis-sentinel
 title: Redis Sentinel
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Contenu du Pack
 
@@ -26,9 +29,8 @@ Il apporte les Modèles de Service suivants :
 
 ### Métriques & statuts collectés
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Redis-Clusters-->
+<Tabs groupId="sync">
+<TabItem value="Redis-Clusters" label="Redis-Clusters">
 
 | Metric name                                                                        | Description                                                      | Unit |
 |:---------------------------------------------------------------------------------- |:---------------------------------------------------------------- |:---- |
@@ -39,7 +41,8 @@ Il apporte les Modèles de Service suivants :
 | status                                                                             | Status of redis instance                                         |      |
 | *cluster_name~redis_address:redis_port*#cluster.redis.ping_ok.latency.milliseconds | Last ok ping latency                                             | ms   |
 
-<!--Sentinel-Clusters-->
+</TabItem>
+<TabItem value="Sentinel-Clusters" label="Sentinel-Clusters">
 
 | Metric name                                                                                 | Description                                    | Unit |
 |:------------------------------------------------------------------------------------------- |:---------------------------------------------- |:---- |
@@ -50,7 +53,8 @@ Il apporte les Modèles de Service suivants :
 | status                                                                                      | Status of sentinel instance                    |      |
 | *cluster_name~sentinel_address:sentinel_port*#cluster.sentinel.ping_ok.latency.milliseconds | Last ok ping latency                           | ms   |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -63,9 +67,8 @@ Voici la liste des commandes utilisées:
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online License-->
+<Tabs groupId="sync">
+<TabItem value="Online License" label="Online License">
 
 1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources **Redis Sentinel**:
 
@@ -75,7 +78,8 @@ yum install centreon-plugin-Applications-Redis-Sentinel
 
 2. Sur l'interface Web de Centreon, installer le Pack **Redis Sentinel** depuis la page **Configuration > Packs de plugins**.
 
-<!--Offline License-->
+</TabItem>
+<TabItem value="Offline License" label="Offline License">
 
 1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources **Redis Sentinel**:
 
@@ -91,7 +95,8 @@ yum install centreon-pack-applications-redis-sentinel
 
 3. Sur l'interface Web de Centreon, installer le Pack **Redis Sentinel** depuis la page **Configuration > Packs de plugins**.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -114,9 +119,8 @@ yum install centreon-pack-applications-redis-sentinel
 
 Pour le support TLS et des utilisateurs ACLs, une version 6.x minimum de **redis-cli** est nécessaire.
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Centos 7-->
+<Tabs groupId="sync">
+<TabItem value="Centos 7" label="Centos 7">
 
 ```bash
 yum install epel-release
@@ -124,7 +128,8 @@ yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm
 yum --enablerepo=remi install redis
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Comment puis-je tester le Plugin et que signifient les options des commandes ? 
 

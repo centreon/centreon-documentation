@@ -2,6 +2,9 @@
 id: cloud-azure-network-appgateway
 title: Azure Application Gateway
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -55,28 +58,28 @@ Les métriques et statuts disponibles peuvent différer selon la version de l'in
 
 #### Spécifiques v1
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Backend-Health-->
+<Tabs groupId="sync">
+<TabItem value="Backend-Health" label="Backend-Health">
 
 | Metric Name                             | Description          | Unit  |
 |:----------------------------------------|:---------------------|:------|
 | appgateway.backend.healthy.host.count   | Healthy Host Count   | Count |
 | appgateway.backend.unhealthy.host.count | Unhealthy Host Count | Count |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 #### Spécifiques v2
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Backend-Status-->
+<Tabs groupId="sync">
+<TabItem value="Backend-Status" label="Backend-Status">
 
 | Metric Name                              | Description             | Unit  |
 |:-----------------------------------------|:------------------------|:------|
 | appgateway.backend.response.status.count | Backend Response Status | Count |
 
-<!--Backend-Time-->
+</TabItem>
+<TabItem value="Backend-Time" label="Backend-Time">
 
 | Metric Name                                            | Description                      | Unit |
 |:-------------------------------------------------------|:---------------------------------|:-----|
@@ -84,20 +87,23 @@ Les métriques et statuts disponibles peuvent différer selon la version de l'in
 | appgateway.backend.firstbyte.responsetime.milliseconds | Backend First Byte Response Time | ms   |
 | appgateway.backend.lastbyte.responsetime.milliseconds  | Backend Last Byte Response Time  | ms   |
 
-<!--Clients-Traffic-->
+</TabItem>
+<TabItem value="Clients-Traffic" label="Clients-Traffic">
 
 | Metric Name                               | Description            | Unit |
 |:------------------------------------------|:-----------------------|:-----|
 | appgateway.traffic.clients.received.bytes | Clients Bytes Received | B    |
 | appgateway.traffic.clients.sent.bytes     | Clients Bytes Sent     | B    |
 
-<!--Gateway-Time-->
+</TabItem>
+<TabItem value="Gateway-Time" label="Gateway-Time">
 
 | Metric Name                        | Description                    | Unit |
 |:-----------------------------------|:-------------------------------|:-----|
 | appgateway.time.total.milliseconds | Application Gateway Total Time | ms   |
 
-<!--Units-->
+</TabItem>
+<TabItem value="Units" label="Units">
 
 | Metric Name                             | Description                     | Unit  |
 |:----------------------------------------|:--------------------------------|:------|
@@ -108,33 +114,38 @@ Les métriques et statuts disponibles peuvent différer selon la version de l'in
 
 #### Communs aux 2 versions
 
-<!--Connections-->
+</TabItem>
+<TabItem value="Connections" label="Connections">
 
 | Metric Name                                  | Description         | Unit  |
 |:---------------------------------------------|:--------------------|:------|
 | appgateway.backend.connections.current.count | Current Connections | Count |
 
-<!--Health-->
+</TabItem>
+<TabItem value="Health" label="Health">
 
 | Status Name | Description                 |
 |:------------|:----------------------------|
 | status      | Current operational status  |
 | summary     | Last related status message |
 
-<!--Requests-->
+</TabItem>
+<TabItem value="Requests" label="Requests">
 
 | Metric Name                      | Description     | Unit  |
 |:---------------------------------|:----------------|:------|
 | appgateway.requests.failed.count | Failed Requests | Count |
 | appgateway.requests.total.count  | Total Requests  | Count |
 
-<!--Throughput-->
+</TabItem>
+<TabItem value="Throughput" label="Throughput">
 
 | Metric Name                          | Description | Unit |
 |:-------------------------------------|:------------|:-----|
 | appgateway.throughput.bytespersecond | Throughput  | B/s  |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -143,9 +154,8 @@ Deux moyens sont disponibles pour interroger les API Microsoft Azure.
 Centreon préconise l'utilisation de la méthode *API* plutôt que la *CLI*, cette dernière étant significativement
 moins performante. L'API permet également une authentification *Application* et ne nécessite pas de compte de service dédié.
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Azure Monitor API-->
+<Tabs groupId="sync">
+<TabItem value="Azure Monitor API" label="Azure Monitor API">
 
 Pour le custom-mode 'api', récupérez les informations en suivant la procédure ci-dessous (en anglais)
 et notez celles-ci en lieu sûr. Elles seront en effet indispensables lors de la configuration des ressources
@@ -192,7 +202,8 @@ dans Centreon.
     - Click on *Save*.
     - **Copy and store the key value. You won't be able to retrieve it after you leave this page.**
 
-<!--Azure AZ CLI-->
+</TabItem>
+<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 Afin d'utiliser le custom-mode 'azcli', installez le binaire associé sur tous les Collecteurs Centreon
 devant superviser des resources Azure:
@@ -246,13 +257,13 @@ du collecteur Centreon:
 Vous avez désormais les informations stockées localement dans un fichier 
 accessTokens.json qui sera utilisé automatiquement par le Plugin. 
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Installation 
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des resources Azure Application Gateway:
 
@@ -262,7 +273,8 @@ yum install centreon-plugin-Cloud-Azure-Network-AppGateway-Api
 
 2. Sur l'interface Integration de Centreon, installer le Plugin-Pack *Azure Application Gateway* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des resources Azure Application Gateway:
 
@@ -278,7 +290,8 @@ yum install centreon-pack-cloud-azure-network-appgateway.noarch
 
 3. Sur l'interface Integration de Centreon, installer le Plugin-Pack *Azure Application Gateway* depuis la page "Configuration > Plugin Packs > Gestionnaire"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -294,9 +307,8 @@ doivent être renseignées selon le *custom mode* utilisé.
 dans la Macro *AZURERESOURCE*
 > * Utilisation du nom de la ressource dans la Macro *AZURERESOURCE* associée aux Macros *AZURERESOURCEGROUP* et *AZURERESOURCETYPE*
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Azure Monitor API-->
+<Tabs groupId="sync">
+<TabItem value="Azure Monitor API" label="Azure Monitor API">
 
 | Mandatory | Nom                | Description                                        |
 |:----------|:-------------------|:---------------------------------------------------|
@@ -309,7 +321,8 @@ dans la Macro *AZURERESOURCE*
 |           | AZURERESOURCEGROUP | Associated Resource Group if resource name is used |
 |           | AZURERESOURCETYPE  | Associated Resource Type if resource name is used  |
 
-<!--Azure AZ CLI-->
+</TabItem>
+<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 | Mandatory | Nom                | Description                                        |
 |:----------|:-------------------|:---------------------------------------------------|
@@ -319,7 +332,8 @@ dans la Macro *AZURERESOURCE*
 |           | AZURERESOURCEGROUP | Associated Resource Group if resource name is used |
 |           | AZURERESOURCETYPE  | Associated Resource Type if resource name is used  |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Comment puis-je tester le Plugin et que signifient les options des commandes ?
 

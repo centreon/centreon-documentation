@@ -2,6 +2,9 @@
 id: network-tplink-snmp
 title: TP-Link SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -20,9 +23,8 @@ Le Plugin Pack *TP-Link* utilise le protocole SNMP pour se connecter, récupére
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--CPU-->
+<Tabs groupId="sync">
+<TabItem value="CPU" label="CPU">
 
 * These 3 metrics for CPU core and average utilization
 
@@ -32,7 +34,8 @@ Le Plugin Pack *TP-Link* utilise le protocole SNMP pour se connecter, récupére
 | cpu.utilization.1m.percentage       | Percentage of CPU utilization  | %      |
 | cpu.utilization.5m.percentage       | Percentage of CPU utilization  | %      |
 
-<!--Interfaces-->
+</TabItem>
+<TabItem value="Interfaces" label="Interfaces">
 
 | Metric name                              | Description                                             | Unit |
 |:---------------------------------------- |:------------------------------------------------------- | :--- |
@@ -44,19 +47,22 @@ Le Plugin Pack *TP-Link* utilise le protocole SNMP pour se connecter, récupére
 | interface.packets.out.error.percentage   | Outgoing errored packets going through the interface.   | %    |
 | interface.packets.out.discard.percentage | Outgoing discarded packets going through the interface. | %    |
 
-<!--Memory-->
+</TabItem>
+<TabItem value="Memory" label="Memory">
 
 | Metric name                         | Description                 | Unit   |
 | :---------------------------------- | :-------------------------- | :----- |
 | memory.usage.percentage             | Percentage of memory usage  | %      |
 
-<!--Uptime-->
+</TabItem>
+<TabItem value="Uptime" label="Uptime">
 
 | Metric name                 | Description                                        | Unit   |
 | :-------------------------- | :------------------------------------------------- | :----- |
 | system.uptime               | Duration of system has been working and available. | s      |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -66,9 +72,8 @@ La communication doit être possible sur le port UDP 161 depuis le collecteur Ce
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des équipements TP-Link:
 
@@ -78,7 +83,8 @@ yum install centreon-plugin-Network-Tplink-Snmp
 
 2. Sur l'interface Web de Centreon, installer le Plugin Pack *TP-Link SNMP* depuis la page "Configuration > Plugin Packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des équipements TP-Link :
 
@@ -94,7 +100,8 @@ yum install centreon-pack-network-tplink-snmp
 
 3. Sur l'interface Web de Centreon, installer le Plugin Pack *TP-Link SNMP* depuis la page "Configuration > Plugin Packs > Manager"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

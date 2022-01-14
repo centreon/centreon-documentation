@@ -2,6 +2,9 @@
 id: applications-hashicorp-vault-restapi
 title: HashiCorp Vault Rest API
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -20,16 +23,16 @@ relatifs au fonctionnement de Vault.
 
 ### Métriques & statuts collectés 
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Health-->
+<Tabs groupId="sync">
+<TabItem value="Health" label="Health">
 
 | Status Name | Description                       |
 |:------------|:----------------------------------|
 | seal-status | Seal status of the node           |
 | init-status | Initialization status of the node |
 
-<!--Raft-Storage-->
+</TabItem>
+<TabItem value="Raft-Storage" label="Raft-Storage">
 
 | Metric Name                                        | Description                                | Unit |
 |:---------------------------------------------------|:-------------------------------------------|:-----|
@@ -38,7 +41,8 @@ relatifs au fonctionnement de Vault.
 | *db_name*#vault.raftstorage.rebalance_time.seconds | Average rebalance_time                     | s    |
 | *db_name*#vault.raftstorage.write_time.seconds     | Average write time                         | s    |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -62,9 +66,8 @@ https://www.vaultproject.io/api-docs/auth .
 
 ## Installation 
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des resources HashiCorp Vault:
 
@@ -74,7 +77,8 @@ yum install centreon-plugin-Applications-HashiCorp-Vault-Restapi
 
 2. Sur l'interface Integration de Centreon, installer le Pack *HashiCorp Vault Rest API* depuis la page "Configuration > Plugin packs > Manager"
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des resources Azure Cosmos DB:
 
@@ -90,7 +94,8 @@ yum install centreon-pack-applications-hashicorp-vault-restapi.noarch
 
 3. Sur l'interface Integration de Centreon, installer le Pack *HashiCorp Vault Rest API* depuis la page "Configuration > Plugin Packs > Gestionnaire"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

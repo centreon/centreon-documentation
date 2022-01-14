@@ -2,6 +2,9 @@
 id: hardware-storage-nimble-snmp
 title: Nimble Storage
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -26,15 +29,15 @@ Les Services suivants sont mis à disposition au travers du Plugin-Pack:
 
 ### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Volume-Usage-->
+<Tabs groupId="sync">
+<TabItem value="Volume-Usage" label="Volume-Usage">
 
 | Metric name                    | Description                          | Unit  |
 | :----------------------------- | :----------------------------------- | :---- |
 | volume.space.usage.bytes       | Per volume space usage (in Bytes)    | Bytes |
 
-<!--Global-Stats-->
+</TabItem>
+<TabItem value="Global-Stats" label="Global-Stats">
 
 | Metric name                           | Description                          | Unit    |
 | :------------------------------------ | :----------------------------------- | :------ |
@@ -45,7 +48,8 @@ Les Services suivants sont mis à disposition au travers du Plugin-Pack:
 | system.io.read.time.seconds           | Sytem read time                      | Seconds |
 | system.io.write.time.seconds          | Sytem write time                     | Seconds |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -56,9 +60,8 @@ https://infosight.hpe.com/InfoSight/media/cms/active/public/pubs_GUI_Administrat
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online IMP Licence & IT-100 Editions-->
+<Tabs groupId="sync">
+<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
 
 1. Installer le Plugin sur chaque Collecteur Centreon devant superviser des équipements Nimble:
 
@@ -68,7 +71,8 @@ yum install centreon-plugin-Hardware-Storage-Nimble-Snmp
 
 2. Sur l'interface Web de Centreon, rendez-vous sur la page "Configuration > Plugin Packs > Gestionnaire" et installer le Plugin-Pack *Nimble SNMP*
 
-<!--Offline IMP License-->
+</TabItem>
+<TabItem value="Offline IMP License" label="Offline IMP License">
 
 1. Installer le Plugin sur chaque Collecteur Centreon devant superviser des équipements Nimble:
 
@@ -83,6 +87,9 @@ yum install centreon-pack-hardware-storage-nimble-snmp
 ```
 
 3. Sur l'interface Web de Centreon, rendez-vous sur la page "Configuration > Plugin Packs > Gestionnaire" et installer le Plugin-Pack *Nimble SNMP*
+
+</TabItem>
+</Tabs>
 
 ## Configuration
 

@@ -2,6 +2,9 @@
 id: other
 title: Autres actions
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Ajouter un commentaire
 
@@ -22,19 +25,21 @@ service). Un commentaire possède les propriétés suivantes :
 
 Pour ajouter un commentaire, deux solutions sont possibles :
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Page de détails d'un objet-->
+<Tabs groupId="sync">
+<TabItem value="Page de détails d'un objet" label="Page de détails d'un objet">
 
 1.  Accédez à la page de détails de l'objet
 2.  Dans la catégorie **Host/Service Commands**, cliquez sur **Add a
     comment for this host/this service**
 
-<!--Depuis le menu commentaires-->
+</TabItem>
+<TabItem value="Depuis le menu commentaires" label="Depuis le menu commentaires">
 
 1.  Rendez-vous dans le menu `Monitoring > Downtimes > Comments`
 2.  Cliquez sur **Add a Service Comment** ou **Add a Host Comment**
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 La fenêtre suivante s'affiche :
 
@@ -63,8 +68,8 @@ d'un hôte ou d'un service.
 
 ### En pratique
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Page de détails d'un objet-->
+<Tabs groupId="sync">
+<TabItem value="Page de détails d'un objet" label="Page de détails d'un objet">
 
 1.  Accédez à la page de détails de l'objet
 2.  Dans la catégorie **Options** rendez-vous à la ligne **Active
@@ -75,7 +80,8 @@ Pour :
 -   Activer la vérification, cliquez sur ![image](../assets/configuration/common/enabled.png)
 -   Désactiver la vérification, cliquez sur ![image](../assets/configuration/common/disabled.png)
 
-<!--Interface temps réel-->
+</TabItem>
+<TabItem value="Interface temps réel" label="Interface temps réel">
 
 1.  Rendez-vous dans le menu `Monitoring > Status Details > Hosts` (ou
     `Services`)
@@ -88,7 +94,8 @@ Pour :
 -   **Hosts: Enable Check** ou **Services: Enable Check** pour activer
     la vérification d'un hôte ou d'un service
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Gestion des notifications
 
@@ -106,8 +113,8 @@ d'un hôte ou d'un service.
 
 Il y a deux moyens de gérer les notifications :
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Page de détails d'un objet-->
+<Tabs groupId="sync">
+<TabItem value="Page de détails d'un objet" label="Page de détails d'un objet">
 
 1.  Accédez à la page de détails de l'objet
 2.  Dans la catégorie **Options** rendez-vous à la ligne : **Service
@@ -118,7 +125,8 @@ Pour :
 -   Activer la notification, cliquez sur ![image](../assets/configuration/common/enabled.png)
 -   Désactiver la notification, cliquez sur ![image](../assets/configuration/common/disabled.png)
 
-<!--Interface temps réel-->
+</TabItem>
+<TabItem value="Interface temps réel" label="Interface temps réel">
 
 1.  Rendez-vous dans le menu `Monitoring > Status Details > Hosts` (ou
     `Services`)
@@ -132,7 +140,8 @@ Pour :
 -   **Hosts: Enable Notification** ou **Services: Enable Notification**
     pour activer la notification d'un hôte ou d'un service
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Reprogrammation des contrôles
 
@@ -157,15 +166,16 @@ Il existe deux types de programmation :
 
 Il y a deux moyens de forcer la vérification d'un service :
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Page de détails d'un objet-->
+<Tabs groupId="sync">
+<TabItem value="Page de détails d'un objet" label="Page de détails d'un objet">
 
 1.  Accédez à la page de détail de l’objet
 2.  Dans la catégorie **Host Commands** (ou **Service Commands**),
     cliquez sur **Re-schedule the next check for this host / service**
     ou **Re-schedule the next check for this host / service (forced)**
 
-<!--Interface temps réel-->
+</TabItem>
+<TabItem value="Interface temps réel" label="Interface temps réel">
 
 1.  Rendez-vous dans le menu `Monitoring > Status Details > Hosts` (ou
     `Services`)
@@ -174,4 +184,5 @@ Il y a deux moyens de forcer la vérification d'un service :
 3.  Dans le menu **More actions…** cliquez sur **Schedule immediate
     check** ou **Schedule immediate check (Forced)**
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>

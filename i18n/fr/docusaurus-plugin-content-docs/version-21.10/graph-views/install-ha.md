@@ -2,6 +2,9 @@
 id: install-ha
 title: Install Centreon-Map in High Availability
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 > Centreon-Map nécessite une licence valide. Pour en acquérir une et récupérer les référentiels
 > nécessaires, contactez [Centreon] mailto:sales@centreon.com).
@@ -28,9 +31,8 @@ quelconque panne ou perte de données.
 En plus des flux nécessaires décrits dans la [documentation officielle](install#architecture), 
 vous devrez ouvrir les flux suivants :
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--2 Nœuds-->
+<Tabs groupId="sync">
+<TabItem value="2 Nœuds" label="2 Nœuds">
 
 | De                    | Destination           | Protocol | Port     | Application                                                                       |
 | :-------------------- | :-------------------- | :------- | :------- | :-------------------------------------------------------------------------------- |
@@ -40,7 +42,8 @@ vous devrez ouvrir les flux suivants :
 | Map Servers + QDevice | Map Servers + QDevice | PCS      | TCP 2224 | Communication à l'intérieur le cluster                                            |
 | Map Servers + QDevice | Map Servers + QDevice | Corosync | TCP 5403 | Communication avec le QDevice                                                     |
 
-<!--4 Nœuds-->
+</TabItem>
+<TabItem value="4 Nœuds" label="4 Nœuds">
 
 | De                         | Destination                 | Protocol | Port     | Application                                                                       |
 | :------------------------- | :-------------------------- | :------- | :------- | :-------------------------------------------------------------------------------- |
@@ -50,7 +53,8 @@ vous devrez ouvrir les flux suivants :
 | Map Servers + DB + QDevice | Map Servers + DB + QDevice  | PCS      | TCP 2224 | Communication à l'intérieur du cluster                                            |
 | Map Servers + DB + QDevice | Map Servers + DB + QDevice  | Corosync | TCP 5403 | Communication avec le QDevice                                                     |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Installation de la plateforme Map de Centreon
 
@@ -592,9 +596,8 @@ pcs quorum device add model net \
 
 À exécuter **seulement sur un nœud de Centreon-Map** :
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--CentOS7-->
+<Tabs groupId="sync">
+<TabItem value="CentOS7" label="CentOS7">
 
 ```bash
 pcs resource create "ms_mysql" \
@@ -613,7 +616,9 @@ pcs resource create "ms_mysql" \
 	test_table='centreon_studio.data' \
 	master
 ```
-<!--RHEL-->
+
+</TabItem>
+<TabItem value="RHEL" label="RHEL">
 
 ```bash
 pcs resource create "ms_mysql" \
@@ -631,13 +636,13 @@ pcs resource create "ms_mysql" \
 	test_passwd="@MARIADB_REPL_PASSWD@" \
 	test_table='centreon_studio.data'
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 > **AVERTISSEMENT:** la syntaxe de la commande suivante dépend de la distribution Linux que vous utilisez.
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--CentOS7-->
+<Tabs groupId="sync">
+<TabItem value="CentOS7" label="CentOS7">
 
 ```bash
 pcs resource meta ms_mysql-master \
@@ -648,7 +653,9 @@ pcs resource meta ms_mysql-master \
 	notify="true"
 ```
 
-<!--RHEL-->
+
+</TabItem>
+<TabItem value="RHEL" label="RHEL">
 
 ```bash
 pcs resource master ms_mysql \
@@ -659,7 +666,8 @@ pcs resource master ms_mysql \
 	notify="true"
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Création du groupe de ressources *centreon_map*.
 
