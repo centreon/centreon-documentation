@@ -3165,6 +3165,10 @@
           "items": [
             {
               "type": "doc",
+              "id": "version-21.04/integrations/plugin-packs/procedures/virtualization-hpe-simplivity-restapi"
+            },
+            {
+              "type": "doc",
               "id": "version-21.04/integrations/plugin-packs/procedures/virtualization-hyperv-2012-nrpe"
             },
             {
