@@ -1523,6 +1523,10 @@
             },
             {
               "type": "doc",
+              "id": "version-21.04/integrations/plugin-packs/procedures/cloud-azure-compute-aks"
+            },
+            {
+              "type": "doc",
               "id": "version-21.04/integrations/plugin-packs/procedures/cloud-azure-compute-functions"
             },
             {
