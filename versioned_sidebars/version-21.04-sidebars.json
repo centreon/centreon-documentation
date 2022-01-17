@@ -2213,6 +2213,10 @@
             },
             {
               "type": "doc",
+              "id": "version-21.04/integrations/plugin-packs/procedures/network-lenovo-rackswitch-snmp"
+            },
+            {
+              "type": "doc",
               "id": "version-21.04/integrations/plugin-packs/procedures/network-fiberstore-snmp"
             },
             {
