@@ -1823,6 +1823,10 @@
             },
             {
               "type": "doc",
+              "id": "version-21.04/integrations/plugin-packs/procedures/hardware-servers-dell-omem-snmp"
+            },
+            {
+              "type": "doc",
               "id": "version-21.04/integrations/plugin-packs/procedures/hardware-devices-eltek-enexus-snmp"
             },
             {
