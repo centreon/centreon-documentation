@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'Centreon Documentation',
   tagline: '',
-  url: 'https://docs-dev.centreon.com',
+  url: 'https://docs-staging.centreon.com',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -78,16 +78,6 @@ const config = {
         max: 1030, // max resized image's size.
         min: 640, // min resized image's size. if original is lower, use that size.
         steps: 2, // the max number of images generated between min and max (inclusive)
-      },
-    ],
-
-    [
-      '@docusaurus/plugin-content-docs',
-      {
-        id: 'cloud',
-        path: 'cloud',
-        routeBasePath: 'cloud',
-        sidebarPath: require.resolve('./sidebarsCloud.js'),
       },
     ],
 
@@ -163,11 +153,6 @@ const config = {
           href: '/',
         },
         items: [
-          {
-            to: '/cloud/cloud-supervision',
-            label: 'Cloud',
-            position: 'left',
-          },
           {
             type: 'doc',
             docId: 'getting-started/installation-first-steps',
