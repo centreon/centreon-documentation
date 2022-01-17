@@ -921,6 +921,10 @@
             },
             {
               "type": "doc",
+              "id": "version-21.04/integrations/plugin-packs/procedures/applications-awa-jmx"
+            },
+            {
+              "type": "doc",
               "id": "version-21.04/integrations/plugin-packs/procedures/applications-bind9-web"
             },
             {
