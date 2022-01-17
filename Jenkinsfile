@@ -18,7 +18,7 @@ pipeline {
       stage('Deploy documentation to staging') {
         when { branch 'staging' }       
         steps {
-          sh 'aws s3 sync --delete build s3://blablablal/'
+          sh 'aws s3 sync --delete build s3://centreon-documentation-test-prod/'
           sh 'aws cloudfront create-invalidation --distribution-id E3T0F281DYJGMK --paths "/*"'
         }
       }
@@ -26,7 +26,7 @@ pipeline {
         when { branch 'production' }       
         steps {
           input message: 'Deploying to production ? (Click "Proceed" to continue)'
-          sh 'aws s3 sync --delete build s3://blablablal/'
+          sh 'aws s3 sync --delete build s3://centreon-documentation-test-prod/'
           sh 'aws cloudfront create-invalidation --distribution-id E3T0F281DYJGMK --paths "/*"'
         }
       }
