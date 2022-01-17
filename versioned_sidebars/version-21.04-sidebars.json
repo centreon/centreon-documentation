@@ -2229,6 +2229,10 @@
             },
             {
               "type": "doc",
+              "id": "version-21.04/integrations/plugin-packs/procedures/network-fortinet-fortiswitch-snmp"
+            },
+            {
+              "type": "doc",
               "id": "version-21.04/integrations/plugin-packs/procedures/network-fortinet-fortiweb-snmp"
             },
             {
