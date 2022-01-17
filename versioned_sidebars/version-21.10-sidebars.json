@@ -3368,6 +3368,10 @@
             {
               "type": "doc",
               "id": "version-21.10/integrations/plugin-packs/procedures/applications-monitoring-mip-restapi"
+            },
+            {
+              "type": "doc",
+              "id": "version-21.10/integrations/plugin-packs/procedures/applications-pvx-restapi"
             }
           ]
         },
