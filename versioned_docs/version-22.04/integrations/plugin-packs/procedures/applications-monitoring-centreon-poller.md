@@ -68,7 +68,7 @@ It brings the following Service Templates:
 
 ### SNMP
 
-SNMP must be configured on each poller being monitored. You can refer to this [documentation](../operatingsystems-linux-snmp#prerequisites) describing how to set up a quick SNMP configuration.
+SNMP must be configured on each poller being monitored. You can refer to this [documentation](operatingsystems-linux-snmp#prerequisites) describing how to set up a quick SNMP configuration.
 
 ### SSH key exchange
 

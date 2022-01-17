@@ -68,7 +68,7 @@ Il apporte les Modèles de Service suivants :
 
 ### SNMP
 
-SNMP doit être configuré sur chaque collecteur supervisé. Vous pouvez vous aider de cette [documentation](../operatingsystems-linux-snmp#prerequisites) pour mettre en place rapidement une simple configuration SNMP. 
+SNMP doit être configuré sur chaque collecteur supervisé. Vous pouvez vous aider de cette [documentation](operatingsystems-linux-snmp#prerequisites) pour mettre en place rapidement une simple configuration SNMP. 
 
 ### Echange de clef SSH
 
