@@ -1843,6 +1843,10 @@
             },
             {
               "type": "doc",
+              "id": "version-21.04/integrations/plugin-packs/procedures/hardware-devices-hikvision-nvr-snmp"
+            },
+            {
+              "type": "doc",
               "id": "version-21.04/integrations/plugin-packs/procedures/hardware-devices-hms-ewon-snmp"
             },
             {
