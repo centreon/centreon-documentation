@@ -1419,6 +1419,10 @@
             },
             {
               "type": "doc",
+              "id": "version-21.04/integrations/plugin-packs/procedures/cloud-aws-fsx"
+            },
+            {
+              "type": "doc",
               "id": "version-21.04/integrations/plugin-packs/procedures/cloud-aws-kinesis"
             },
             {
