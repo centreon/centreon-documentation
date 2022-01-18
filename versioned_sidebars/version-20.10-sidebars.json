@@ -1911,6 +1911,10 @@
             },
             {
               "type": "doc",
+              "id": "version-20.10/integrations/plugin-packs/procedures/network-barracuda-bma-snmp"
+            },
+            {
+              "type": "doc",
               "id": "version-20.10/integrations/plugin-packs/procedures/network-beeware-snmp"
             },
             {
