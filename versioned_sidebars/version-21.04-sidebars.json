@@ -997,7 +997,15 @@
             },
             {
               "type": "doc",
+              "id": "version-21.04/integrations/plugin-packs/procedures/applications-hddtemp-tcp"
+            },
+            {
+              "type": "doc",
               "id": "version-21.04/integrations/plugin-packs/procedures/applications-hibernate-jmx"
+            },
+            {
+              "type": "doc",
+              "id": "version-21.04/integrations/plugin-packs/procedures/applications-ibmmq-mqi"
             },
             {
               "type": "doc",
