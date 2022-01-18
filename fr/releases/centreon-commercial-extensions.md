@@ -645,6 +645,8 @@ subscriptions are now automatically downloaded.
 
 ### 20.04.5
 
+`18 janvier 2022`
+
 #### Bugfixes
 
 - Fixed generation of contacts/groups for notification
