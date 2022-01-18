@@ -4,7 +4,7 @@
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
-/** @type {import('@docusaurus/types').Config} */
+
 const config = {
   title: 'Centreon Documentation',
   tagline: '',
@@ -12,7 +12,6 @@ const config = {
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-  trailingSlash: false,
   favicon: 'img/logo-centreon.png',
   // organizationName: 'Centreon Documentation', // Usually your GitHub org/user name.
   projectName: 'Centreon Documentation', // Usually your repo name.
