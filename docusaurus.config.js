@@ -12,6 +12,7 @@ const config = {
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
+  trailingSlash: false,
   favicon: 'img/logo-centreon.png',
   // organizationName: 'Centreon Documentation', // Usually your GitHub org/user name.
   projectName: 'Centreon Documentation', // Usually your repo name.
