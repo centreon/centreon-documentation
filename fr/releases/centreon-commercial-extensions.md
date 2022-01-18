@@ -661,6 +661,14 @@ subscriptions are now automatically downloaded.
 
 ## Centreon Anomaly Detection
 
+### 20.04.5
+
+`18 janvier 2022`
+
+#### Bugfixes
+
+- Fixed generation of contacts/groups for notification
+
 ### 20.04.4
 
 `26 novembre 2020`
