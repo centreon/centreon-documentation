@@ -631,6 +631,16 @@ state was HARD even if no notification is configured nor sent.
 
 ## Centreon Broker
 
+### 20.10.10
+
+Release date: `January 13, 2022`
+
+#### Bug fixes
+
+- The central broker's cache generation loaded too much data and took too much time when BAM was activated
+- When a single metric is deleted, the corresponding RRD file is now removed
+- Fixed an issue causing BAM Business Activities (best status) to remain in an OK state when the OK KPIs were removed
+
 ### 20.10.9
 
 `27 octobre 2021`
