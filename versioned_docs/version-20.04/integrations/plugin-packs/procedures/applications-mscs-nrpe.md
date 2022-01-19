@@ -32,7 +32,7 @@ and make sure that the **NRPE Server** configuration is correct.
 ## Installation 
 
 <Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
+<TabItem value="Online License" label="Online License">
 
 1. Install the Centreon NRPE Client package on every Poller expected to monitor *Microsoft Cluster servers*:
 
@@ -44,7 +44,7 @@ yum install centreon-nrpe-plugin
 from the **Configuration > Plugin Packs > Manager** page
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="Offline License" label="Offline License">
 
 1. Install the Centreon Plugin package on every Poller expected to monitor *Microsoft Cluster servers*:
 

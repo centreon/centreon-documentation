@@ -35,7 +35,7 @@ doit avoir assez de privilèges pour executer la commande ```ggsci```.
 ## Installation
 
 <Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
+<TabItem value="Online License" label="Online License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -46,7 +46,7 @@ yum install centreon-plugin-Applications-Oracle-Goldengate-Ssh
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Oracle GoldenGate SSH* depuis la page "Configuration > Plugin packs > Manager"
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="Offline License" label="Offline License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 

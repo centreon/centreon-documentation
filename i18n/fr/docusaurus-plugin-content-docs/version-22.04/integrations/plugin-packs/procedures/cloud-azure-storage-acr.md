@@ -166,7 +166,7 @@ Vous avez désormais les informations stockées localement dans un fichier
 ## Installation 
 
 <Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
+<TabItem value="Online License" label="Online License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des resources *Azure Container Registry*:
 
@@ -177,7 +177,7 @@ yum install centreon-plugin-Cloud-Azure-Storage-ContainerRegistry-Api
 2. Sur l'interface Web Centreon, installer le Pack *Azure Container Registry* depuis la page **Configuration > Plugin packs > Gestionnaire**.
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="Offline License" label="Offline License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des resources *Azure Container Registry*:
 

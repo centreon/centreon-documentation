@@ -44,7 +44,7 @@ For this Plugin Pack you will need :
 ## Setup
 
 <Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
+<TabItem value="Online License" label="Online License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor RADIUS ressources:
 
@@ -55,7 +55,7 @@ yum install centreon-plugin-Applications-Protocol-Radius
 2. On the Centreon Web interface, install the *Radius Service* Centreon Plugin Pack on the "Configuration > Plugin Packs" page
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="Offline License" label="Offline License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor RADIUS ressources:
 

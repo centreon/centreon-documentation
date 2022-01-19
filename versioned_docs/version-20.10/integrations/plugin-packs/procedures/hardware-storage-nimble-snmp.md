@@ -62,7 +62,7 @@ https://infosight.hpe.com/InfoSight/media/cms/active/public/pubs_GUI_Administrat
 ## Installation
 
 <Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
+<TabItem value="Online License" label="Online License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor Nimble Flash Arrays:
 
@@ -73,7 +73,7 @@ yum install centreon-plugin-Hardware-Storage-Nimble-Snmp
 2. On the centreon Web interface, install the *Netdata RestAPI* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="Offline License" label="Offline License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor Nimble Flash Arrays:
 

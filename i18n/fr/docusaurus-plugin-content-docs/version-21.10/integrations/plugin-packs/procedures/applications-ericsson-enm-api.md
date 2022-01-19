@@ -59,7 +59,7 @@ Le Pack ne supporte que l'authentification par utilisateur et mot de passe.
 ## Installation
 
 <Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
+<TabItem value="Online License" label="Online License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -70,7 +70,7 @@ yum install centreon-plugin-Applications-Ericsson-Enm-Api
 2. Sur l'interface Web de Centreon, installer le Pack *Ericsson ENM API* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="Offline License" label="Offline License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 

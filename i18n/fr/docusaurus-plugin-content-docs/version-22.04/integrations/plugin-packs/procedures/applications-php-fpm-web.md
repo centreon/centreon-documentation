@@ -43,7 +43,7 @@ les Macros d'Hôte dans la partie [Configuration](#Configuration).
 ## Installation
 
 <Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
+<TabItem value="Online License" label="Online License">
 
 1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources *PHP FPM*:
 
@@ -54,7 +54,7 @@ yum install centreon-plugin-Applications-Php-Fpm-Web
 2. Sur l'interface Web de Centreon, installer le Plugin Pack *PHP FPM* depuis la page **Configuration > Packs de plugins**
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="Offline License" label="Offline License">
 
 1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources *PHP FPM*:
 

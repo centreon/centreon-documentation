@@ -56,7 +56,7 @@ https://docs.graylog.org/en/latest/pages/configuration/rest_api.
 ## Installation
 
 <Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
+<TabItem value="Online License" label="Online License">
 
 1. Install the Centreon Plugin package on every poller expected to monitor a Graylog server:
 
@@ -67,7 +67,7 @@ yum install centreon-plugin-Applications-Graylog-Restapi
 2. On the Centreon Web interface, install the Centreon Plugin-Pack *Graylog* from the "Configuration > Plugin Packs > Manager" page
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="Offline License" label="Offline License">
 
 1. Install the Centreon Plugin package on every poller expected to monitor a Graylog server:
 

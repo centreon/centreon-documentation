@@ -14,7 +14,7 @@ d'InfluxData, InfluxDB, et Google Cloud Platform.
 ## Installation
 
 <Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
+<TabItem value="Online License" label="Online License">
 
 1.  Installer le code du connecteur sur l'ensemble des collecteurs récupérant
     des openmetrics :
@@ -26,7 +26,7 @@ d'InfluxData, InfluxDB, et Google Cloud Platform.
 2.  Installer le pack depuis la page `Configuration > Plugin Packs`.
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="Offline License" label="Offline License">
 
 1.  Installer le code du connecteur sur l'ensemble des collecteurs récupérant
     des openmetrics :

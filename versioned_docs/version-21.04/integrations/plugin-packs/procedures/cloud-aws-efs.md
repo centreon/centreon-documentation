@@ -98,7 +98,7 @@ yum install awscli
 ## Installation
 
 <Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
+<TabItem value="Online License" label="Online License">
 
 1. Install the Centreon Plugin on every poller monitoring EFS ressources:
 
@@ -109,7 +109,7 @@ yum install centreon-plugin-Cloud-Aws-Efs-Api
 2. On Centreon Web interface in "Configuration > Plugin packs > Manager", install the "Amazon EFS" Plugin-Pack
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="Offline License" label="Offline License">
 
 1. Install the Centreon Plugin on every poller monitoring EFS ressources:
 

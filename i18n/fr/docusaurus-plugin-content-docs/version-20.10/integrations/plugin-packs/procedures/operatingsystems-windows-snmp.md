@@ -131,7 +131,7 @@ Centreon vers le serveur Windows supervisé.
 ## Installation
 
 <Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
+<TabItem value="Online License" label="Online License">
 
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des
 serveurs Windows:
@@ -143,7 +143,7 @@ serveurs Windows:
 2. Installer le pack depuis la page `Configuration > Plugin Packs`
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="Offline License" label="Offline License">
 
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des
 serveurs Windows:

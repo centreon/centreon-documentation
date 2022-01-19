@@ -56,7 +56,7 @@ Il est possible de spécifier un proxy à utiliser le cas échéant.
 ## Installation
 
 <Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
+<TabItem value="Online License" label="Online License">
 
 1. Installer le Plugin sur chaque collecteur Centreon devant superviser les services *Google Workspace*:
 
@@ -67,7 +67,7 @@ yum install centreon-plugin-Applications-Google-Workspace-Api
 2. Sur l'interface Web de Centreon, installer le Pack *Google Workspace* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="Offline License" label="Offline License">
 
 1. Installer le Plugin sur chaque collecteur Centreon devant superviser les services *Google Workspace*:
 

@@ -98,7 +98,7 @@ du port TCP/8080. Attention, selon la configuration le port peut être différen
 ## Installation
 
 <Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
+<TabItem value="Online License" label="Online License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon allant superviser des containers via cAdvisor:
 
@@ -109,7 +109,7 @@ yum install centreon-plugin-Cloud-cAdvisor-Api
 2. Dans l'interface de Centreon, installer le Plugin Pack *cAdvisor API* depuis la page `Configuration > Plugin Packs > Manager`
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="Offline License" label="Offline License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des containers via cAdvisor:
 

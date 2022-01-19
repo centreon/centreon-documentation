@@ -47,7 +47,7 @@ Your Centreon poller must be able to reach the PureStorage storage array on the 
 ## Installation
 
 <Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
+<TabItem value="Online License" label="Online License">
 
 1. Install the Plugin on every poller expected to monitor Pure Storage SNMP resources:
 
@@ -58,7 +58,7 @@ yum install centreon-plugin-Hardware-Storage-Purestorage-Snmp
 2. Install the "Pure Storage SNMP" Centreon Plugin-Pack from the "Configuration > Plugin packs > Manager" page
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="Offline License" label="Offline License">
 
 1. Install the Plugin on every poller expected to monitor Pure Storage resources:
 

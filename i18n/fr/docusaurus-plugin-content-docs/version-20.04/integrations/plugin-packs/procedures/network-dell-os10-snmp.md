@@ -119,7 +119,7 @@ https://www.dell.com/support/manuals/fr/fr/frbsdt1/networking-z9100/os10-enterpr
 ## Installation
 
 <Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
+<TabItem value="Online License" label="Online License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon supervisant des ressources Dell OS10 :
 
@@ -130,7 +130,7 @@ yum install centreon-plugin-Network-Dell-Os10-Snmp.noarch
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Dell OS10 SNMP* depuis la page "Configuration > Plugin packs > Manager"
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="Offline License" label="Offline License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon supervisant des ressources Dell OS10 :
 

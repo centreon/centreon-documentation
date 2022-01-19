@@ -127,7 +127,7 @@ usermod -a -G haclient centreon-engine
 ## Installation
 
 <Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
+<TabItem value="Online License" label="Online License">
 
 1. Installer le Plugin sur chaque collecteur Centreon devant superviser un cluster Centreon-HA :
 
@@ -138,7 +138,7 @@ yum install centreon-plugin-Operatingsystems-Linux-Snmp centreon-plugin-Applicat
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Centreon-HA* depuis la page "Configuration > Plugin Packs > Gestionnaire" 
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="Offline License" label="Offline License">
 
 1. Installer le Plugin sur chaque collecteur Centreon devant superviser un cluster Centreon-HA :
 

@@ -53,7 +53,7 @@ More information is available in the official Cisco SSMS API : https://www.cisco
 ## Setup
 
 <Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
+<TabItem value="Online License" label="Online License">
 
 1. Install the Centreon Plugin on every poller monitoring Cisco SSMS resources:
 
@@ -64,7 +64,7 @@ yum install centreon-plugin-Applications-Cisco-Ssms-Restapi.noarch
 2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Cisco SSMS* Plugin-Pack
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="Offline License" label="Offline License">
 
 1. Install the Centreon Plugin on every poller monitoring Cisco SSMS resources:
 

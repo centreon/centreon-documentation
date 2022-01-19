@@ -37,7 +37,7 @@ de Cisco Callmanager : https://www.cisco.com/c/en/us/support/docs/unified-commun
 ## Installation
 
 <Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
+<TabItem value="Online License" label="Online License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon supervisant des ressources Cisco Callmanager :
 
@@ -48,7 +48,7 @@ yum install centreon-plugin-Network-Cisco-Callmanager-Sxml.noarch
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Cisco Callmanager SXML* depuis la page "Configuration > Plugin packs > Manager"
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="Offline License" label="Offline License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon supervisant des ressources Cisco Callmanager :
 

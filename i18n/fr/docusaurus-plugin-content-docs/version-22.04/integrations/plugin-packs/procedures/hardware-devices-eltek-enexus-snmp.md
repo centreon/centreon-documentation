@@ -83,7 +83,7 @@ La communication doit être possible sur le port UDP 161 depuis le Collecteur Ce
 ## Installation
 
 <Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
+<TabItem value="Online License" label="Online License">
 
 1. Installer le Plugin sur l'ensemble des Collecteurs Centreon supervisant des équipements Eltek eNexus:
 
@@ -95,7 +95,7 @@ Installer le Plugin-Pack 'Eltek eNexus' depuis la page "Configuration > Plugin p
 2. Installer le pack depuis la page "Configuration > Plugin packs > Manager":
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="Offline License" label="Offline License">
 
 1. Installer le Plugin sur l'ensemble des Collecteurs Centreon supervisant des équipemnts Eltek eNexus:
 

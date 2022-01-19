@@ -51,7 +51,7 @@ E.g: ```https://developer.cisco.com/docs/dna-center/#!cisco-dna-center-platform-
 ## Setup
 
 <Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
+<TabItem value="Online License" label="Online License">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -62,7 +62,7 @@ yum install centreon-plugin-Applications-Cisco-Dnac-Restapi
 2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Cisco DNA Center Rest API* Plugin-Pack
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="Offline License" label="Offline License">
 
 1. Install the Centreon Plugin on every Poller:
 

@@ -165,7 +165,7 @@ To control your Acme Packet, the SNMP must be configured.
 ## Setup
 
 <Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
+<TabItem value="Online License" label="Online License">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -176,7 +176,7 @@ yum install centreon-plugin-Network-Acmepacket-Snmp
 2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Acme Packet* Plugin Pack
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="Offline License" label="Offline License">
 
 1. Install the Centreon Plugin on every Poller:
 

@@ -93,7 +93,7 @@ More information about the setup steps and the service configuration can be foun
 ## Setup
 
 <Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
+<TabItem value="Online License" label="Online License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor Netapp SANtricity:
 
@@ -104,7 +104,7 @@ yum install centreon-plugin-Hardware-Storage-Netapp-Santricity-Restapi
 2. On the centreon Web interface, install the  *Netapp Santricity Restapi* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="Offline License" label="Offline License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor Netapp SANtricity:
 

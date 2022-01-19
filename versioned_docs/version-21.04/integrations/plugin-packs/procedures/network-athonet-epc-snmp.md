@@ -146,7 +146,7 @@ To control your Athonet ePC equipments, the SNMP must be configured.
 ## Setup
 
 <Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
+<TabItem value="Online License" label="Online License">
 
 1. Install the Centreon Plugin on every Poller:
 
@@ -157,7 +157,7 @@ yum install centreon-plugin-Network-Athonet-Epc-Snmp
 2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Athonet ePC SNMP* Plugin-Pack
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="Offline License" label="Offline License">
 
 1. Install the Centreon Plugin on every Poller:
 

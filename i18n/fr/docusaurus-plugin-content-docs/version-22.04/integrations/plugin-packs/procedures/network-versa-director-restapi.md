@@ -84,7 +84,7 @@ La communication doit être possible sur le port TCP 9182 (en HTTPS) depuis le c
 ## Installation
 
 <Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
+<TabItem value="Online License" label="Online License">
 
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant
 des équipements Versa via l'API du Versa Director :
@@ -96,7 +96,7 @@ yum install centreon-plugin-Network-Versa-Director-Restapi
 2. Installer le Plugin-Pack *Versa Director Restapi* depuis la page "Configuration > Plugin packs > Manager" sur l'interface Web de Centreon.
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="Offline License" label="Offline License">
 
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant
 des équipements Versa via l'API du Versa Director :

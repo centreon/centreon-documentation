@@ -45,7 +45,7 @@ This mode is meant to be used on a server with the DNS role.
 ## Installation
 
 <Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
+<TabItem value="Online License" label="Online License">
 
 1. Install the Centreon Plugin package on every poller expected to monitor a DNS server:
 
@@ -56,7 +56,7 @@ yum install centreon-plugin-Applications-Protocol-Dns
 2. On the Centreon Web interface, install the Centreon Plugin-Pack _DNS Service_ from the "Configuration > Plugin Packs > Manager" page
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="Offline License" label="Offline License">
 
 1. Install the Centreon Plugin package on every poller expected to monitor a DNS server:
 

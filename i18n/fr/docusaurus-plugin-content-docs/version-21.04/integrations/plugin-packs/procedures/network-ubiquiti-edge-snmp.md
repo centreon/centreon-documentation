@@ -85,7 +85,7 @@ Les collecteurs Centreon doivent pouvoir communiquer via le port UDP/161 SNMP av
 ## Installation
 
 <Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
+<TabItem value="Online License" label="Online License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -96,7 +96,7 @@ yum install centreon-plugin-Network-Ubiquiti-Edge-Snmp
 2. Sur l'interface Web de Centreon, installer le Pack *Ubiquiti Edge SNMP* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="Offline License" label="Offline License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 

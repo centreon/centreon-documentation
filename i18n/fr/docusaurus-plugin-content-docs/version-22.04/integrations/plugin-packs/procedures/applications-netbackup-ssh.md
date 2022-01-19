@@ -98,7 +98,7 @@ Deux méthodes de connexion SSH sont possibles:
 L'utilisateur distant doit pouvoir exécuter des commandes système. 
 
 <Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
+<TabItem value="Online License" label="Online License">
 
 1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources *Netbackup*:
 
@@ -109,7 +109,7 @@ yum install centreon-plugin-Applications-Netbackup-Ssh
 2. Sur l'interface web de Centreon, installer le Plugin Pack *Netbackup SSH* depuis la page **Configuration > Packs de plugins**
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="Offline License" label="Offline License">
 
 1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources *Netbackup*:
 

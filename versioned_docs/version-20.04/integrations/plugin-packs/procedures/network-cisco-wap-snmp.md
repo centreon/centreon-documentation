@@ -93,7 +93,7 @@ The Centreon Poller must be able to reach the UDP/161 SNMP port of the Cisco Wap
 ## Installation
 
 <Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
+<TabItem value="Online License" label="Online License">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor Cisco Wireless Access Point equipments:
 
@@ -104,7 +104,7 @@ yum install centreon-plugin-Network-Cisco-Wap-Snmp
 2. On the Centreon Web interface, install the _Cisco Wap SNMP_ Plugin Pack through "Configuration > Plugin packs > Manager" page.
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="Offline License" label="Offline License">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor Cisco Wireless Access Point equipments :
 

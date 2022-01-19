@@ -90,7 +90,7 @@ A read-only account (login/password) is required.
 ## Setup 
 
 <Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
+<TabItem value="Online License" label="Online License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor NetApp ONTAP ressources:
 
@@ -101,7 +101,7 @@ yum install centreon-plugin-Hardware-Storage-Netapp-Ontap-Restapi
 2. On the Centreon Web interface, install the 'NetApp Ontap Rest API' Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="Offline License" label="Offline License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor NetApp ONTAP ressources:
 

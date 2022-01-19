@@ -257,7 +257,7 @@ Après avoir défini les paramètres du nom, de l'alias, de l'IP et du modèle d
 ## Installation
 
 <Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
+<TabItem value="Online License" label="Online License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources Linux SSH :
 
@@ -268,7 +268,7 @@ yum install centreon-plugin-Operatingsystems-Linux-Ssh.noarch
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Linux SSH* depuis la page "Configuration > Plugin packs > Manager"
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="Offline License" label="Offline License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources Linux SSH :
 

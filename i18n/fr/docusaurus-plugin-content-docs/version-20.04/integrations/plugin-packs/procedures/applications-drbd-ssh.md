@@ -54,7 +54,7 @@ doit avoir assez de privilèges pour executer la commande `/usr/sbin/drbdsetup`.
 ## Installation
 
 <Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
+<TabItem value="Online License" label="Online License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon supervisant des ressources DRDB :
 
@@ -65,7 +65,7 @@ yum install centreon-plugin-Applications-Drbd-Ssh.noarch
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *DRBD SSH* depuis la page "Configuration > Plugin packs > Manager"
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="Offline License" label="Offline License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon supervisant des ressources DRBD :
 

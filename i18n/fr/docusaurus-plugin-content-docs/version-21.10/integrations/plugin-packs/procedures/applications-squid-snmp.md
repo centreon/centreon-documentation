@@ -69,7 +69,7 @@ SNMP (UDP/161) du proxy Squid.
 ## Installation
 
 <Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
+<TabItem value="Online License" label="Online License">
 
 1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des *proxy Squid*:
 
@@ -80,7 +80,7 @@ yum install centreon-plugin-Applications-Squid-Snmp
 2. Sur l'interface Integration de Centreon, installer le Plugin Pack *Squid SNMP* depuis la page `Configuration > Packs de plugins`
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="Offline License" label="Offline License">
 
 1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des *proxy Squid*:
 

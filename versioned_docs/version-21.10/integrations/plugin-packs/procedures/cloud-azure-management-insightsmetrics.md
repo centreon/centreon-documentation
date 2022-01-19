@@ -125,7 +125,7 @@ how-to below. Keep it safe until including it in the Autodiscovery job settings 
 ## Setup
 
 <Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
+<TabItem value="Online License" label="Online License">
 
 1. Install the Centreon Plugin on every Centreon Poller expected to monitor Azure resources based on InsightsMetrics:
 
@@ -136,7 +136,7 @@ yum install centreon-plugin-Cloud-Azure-Management-InsightsMetrics-Api
 2. On the Centreon Web interface, install the *Azure InsightsMetrics* Centreon Pack on the **Configuration > Plugin Packs > Manager** page.
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="Offline License" label="Offline License">
 
 1. Install the Centreon Plugin on every Centreon Poller expected to monitor Azure resources based on InsightsMetrics:
 

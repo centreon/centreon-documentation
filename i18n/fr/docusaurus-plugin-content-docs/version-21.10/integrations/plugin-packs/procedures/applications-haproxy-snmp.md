@@ -60,7 +60,7 @@ https://www.haproxy.com/documentation/hapee/latest/observability/metrics/snmp/
 ## Installation
 
 <Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
+<TabItem value="Online License" label="Online License">
 
 1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources HAProxy:
 
@@ -71,7 +71,7 @@ yum install centreon-plugin-Applications-Haproxy-Snmp
 2. Sur l'interface Integration de Centreon, installer le Plugin Pack *Haproxy SNMP* depuis la page "Configuration > Plugin packs > Manager"
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="Offline License" label="Offline License">
 
 1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources HAProxy:
 

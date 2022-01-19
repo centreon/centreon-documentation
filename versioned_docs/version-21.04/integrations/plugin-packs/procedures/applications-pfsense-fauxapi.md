@@ -77,7 +77,7 @@ More infomation is avaible in official Pfsense Fauxpi documentation : https://gi
 ## Setup
 
 <Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
+<TabItem value="Online License" label="Online License">
 
 1. Install the Centreon Plugin on every poller monitoring Pfsense Fauxapi resources:
 
@@ -88,7 +88,7 @@ yum install centreon-plugin-Applications-Pfsense-Fauxapi.noarch
 2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Pfsense Fauxapi* Plugin-Pack
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="Offline License" label="Offline License">
 
 1. Install the Centreon Plugin on every poller monitoring Pfsense Fauxapi resources:
 

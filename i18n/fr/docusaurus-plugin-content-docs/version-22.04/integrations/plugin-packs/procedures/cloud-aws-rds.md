@@ -153,7 +153,7 @@ yum install awscli
 ## Installation
 
 <Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
+<TabItem value="Online License" label="Online License">
 
 1. Installer le code du connecteur sur l'ensemble des collecteurs supervisant des ressources RDS:
 
@@ -164,7 +164,7 @@ yum install centreon-plugin-Cloud-Aws-Rds-Api
 2. Installer le pack depuis la page "Configuration > Plugin packs > Manager":
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="Offline License" label="Offline License">
 
 1. Installer le code du connecteur sur l'ensemble des collecteurs supervisant des ressources RDS:
 

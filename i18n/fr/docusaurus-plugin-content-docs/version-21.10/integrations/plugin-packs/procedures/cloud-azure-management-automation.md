@@ -170,7 +170,7 @@ accessTokens.json qui sera utilisé automatiquement par le Plugin.
 ## Installation 
 
 <Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
+<TabItem value="Online License" label="Online License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des resources Azure Automation:
 
@@ -181,7 +181,7 @@ yum install centreon-plugin-Cloud-Azure-Management-Automation-Api
 2. Sur l'interface Integration de Centreon, installer le Plugin-Pack *Azure Automation* depuis la page "Configuration > Plugin packs > Manager"
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="Offline License" label="Offline License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des resources Azure Automation:
 

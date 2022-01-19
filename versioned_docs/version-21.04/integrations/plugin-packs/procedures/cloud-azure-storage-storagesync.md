@@ -183,7 +183,7 @@ can use it.
 ## Setup
 
 <Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
+<TabItem value="Online License" label="Online License">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor *Azure Storage Sync* ressources:
 
@@ -194,7 +194,7 @@ yum install centreon-plugin-Cloud-Azure-Storage-StorageSync-Api
 2. On the Centreon Web interface, install the *Azure Storage Sync* Centreon Plugin Pack on the "Configuration > Plugin Packs" page
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="Offline License" label="Offline License">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor *Azure Storage Sync* ressources:
 

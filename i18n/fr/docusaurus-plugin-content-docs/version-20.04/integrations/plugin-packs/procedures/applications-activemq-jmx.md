@@ -72,7 +72,7 @@ Vous trouverez plus d'informations sur la documentation officielle d'ActiveMQ : 
 ## Installation
 
 <Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
+<TabItem value="Online License" label="Online License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources ActiveMQ via JMX:
 
@@ -83,7 +83,7 @@ yum install centreon-plugin-Applications-ActiveMQ-Jmx
 2. Dans l'interface Web de Centreon, installer le Plugin-Pack *ActiveMQ JMX* depuis la page "Configuration > Plugin Packs > Manager"
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="Offline License" label="Offline License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources ActiveMQ via JMX:
 

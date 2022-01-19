@@ -75,7 +75,7 @@ Afin de contrôler votre Gude Export Power Control, le SNMP doit être configur�
 ## Installation
 
 <Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
+<TabItem value="Online License" label="Online License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
@@ -86,7 +86,7 @@ yum install centreon-plugin-Hardware-Pdu-Gude-Epc-Snmp
 2. Sur l'interface Web de Centreon, installer le Pack *Gude EPC SNMP* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="Offline License" label="Offline License">
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 

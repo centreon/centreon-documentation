@@ -155,7 +155,7 @@ The target server must be reachable from the Centreon Poller on the UDP/161 SNMP
 ## Installation
 
 <Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
+<TabItem value="Online License" label="Online License">
 
 1. Install the Linux SNMP Centreon Plugin on every poller expected to monitor the devices: 
 
@@ -166,7 +166,7 @@ yum install centreon-plugin-Operatingsystems-Linux-Snmp
 2. Install the 'OS-Linux-SNMP' Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page 
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="Offline License" label="Offline License">
 
 1. Install the Linux SNMP Centreon Plugin on every poller expected to monitor the devices:
 

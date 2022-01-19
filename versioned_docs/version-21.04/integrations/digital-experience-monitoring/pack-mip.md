@@ -29,7 +29,7 @@ To be able to get data from MIP API, you must have a valid API key. Contact MIP 
 ### Centreon
 
 <Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
+<TabItem value="Online License" label="Online License">
 
 1. Install the MIP plugin on each poller monitoring MIP endpoints:
 
@@ -40,7 +40,7 @@ yum install -y centreon-plugin-Applications-Monitoring-Mip-Restapi`
 2. Install the Plugin-Pack RPM on your Central Server:
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="Offline License" label="Offline License">
 
 1. Install the MIP plugin on each poller monitoring MIP endpoints:
 

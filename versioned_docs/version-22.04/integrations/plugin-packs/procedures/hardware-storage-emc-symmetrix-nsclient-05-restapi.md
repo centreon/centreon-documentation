@@ -34,7 +34,7 @@ and make sure that the **Webserver / RESTApi** configuration is correct.
 ## Installation 
 
 <Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
+<TabItem value="Online License" label="Online License">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor *EMC Symmetrix API* using REST API:
 
@@ -45,7 +45,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 2. On the Centreon Web interface, install the *EMC Symmetrix API* Centreon Pack on the **Configuration > Plugin Packs > Manager** page
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="Offline License" label="Offline License">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor *EMC Symmetrix API* using REST API:
 

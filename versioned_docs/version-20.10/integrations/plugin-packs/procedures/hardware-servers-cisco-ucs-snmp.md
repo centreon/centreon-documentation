@@ -88,7 +88,7 @@ The Centreon Poller must be able to reach the UDP/161 SNMP port of the UCS serve
 ## Installation
 
 <Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
+<TabItem value="Online License" label="Online License">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor UCS servers:
 
@@ -99,7 +99,7 @@ yum install centreon-plugin-Hardware-Servers-Cisco-Ucs-Snmp
 2. On the Centreon Web interface, install the *Cisco UCS* Plugin Pack through "Configuration > Plugin Packs > Manager" page.
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="Offline License" label="Offline License">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor UCS servers :
 

@@ -97,7 +97,7 @@ The Centreon Poller must be able to reach the UDP/161 SNMP port of the FortiAuth
 ## Installation
 
 <Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
+<TabItem value="Online License" label="Online License">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor FortiAuthenticator devices:
 
@@ -109,7 +109,7 @@ yum install centreon-plugin-Network-Fortinet-Fortiauthenticator-Snmp
 through "Configuration > Plugin packs > Manager" page.
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="Offline License" label="Offline License">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor FortiAuthenticator devices:
 

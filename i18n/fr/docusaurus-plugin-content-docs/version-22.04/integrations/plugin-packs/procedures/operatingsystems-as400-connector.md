@@ -168,7 +168,7 @@ A connector can act as a relay between several Hosts and several AS400 systems.
 ## Setup
 
 <Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
+<TabItem value="Online License" label="Online License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor *AS400/iSeries* ressources:
 
@@ -179,7 +179,7 @@ yum install centreon-plugin-Operatingsystems-AS400-Connector
 2. On the Centreon Web interface, install the *IBM AS400 Connector* Centreon Plugin Pack on the **Configuration > Plugin Packs** page:
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="Offline License" label="Offline License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor *AS400/iSeries* ressources:
 

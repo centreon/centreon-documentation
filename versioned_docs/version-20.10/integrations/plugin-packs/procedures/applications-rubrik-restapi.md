@@ -82,7 +82,7 @@ Information about its configuration is available on github: https://github.com/r
 ## Setup
 
 <Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
+<TabItem value="Online License" label="Online License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor *Rubrik Rest API* resources:
 
@@ -94,7 +94,7 @@ yum install centreon-plugin-Applications-Rubrik-Restapi
 on the "Configuration > Plugin Packs > Manager" page
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="Offline License" label="Offline License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor *Rubrik Rest API* resources:
 

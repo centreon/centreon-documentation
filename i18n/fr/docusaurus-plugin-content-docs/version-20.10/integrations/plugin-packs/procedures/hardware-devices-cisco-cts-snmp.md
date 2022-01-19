@@ -74,7 +74,7 @@ https://www.cisco.com/c/en/us/td/docs/video/cuct/1_1/english/configuration/guide
 ## Installation
 
 <Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
+<TabItem value="Online License" label="Online License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des ressources *Cisco CTS*:
 
@@ -85,7 +85,7 @@ yum install centreon-plugin-Hardware-Devices-Cisco-Cts-Snmp
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Cisco CTS* depuis la page "Configuration > Plugin packs > Manager"
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="Offline License" label="Offline License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor *Cisco CTS* applications:
 

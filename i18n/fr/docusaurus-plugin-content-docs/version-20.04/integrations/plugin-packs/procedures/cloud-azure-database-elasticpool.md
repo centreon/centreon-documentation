@@ -204,7 +204,7 @@ accessTokens.json qui sera utilisé automatiquement par le Plugin.
 ## Installation 
 
 <Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
+<TabItem value="Online License" label="Online License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des resources Azure Elastic Pool:
 
@@ -215,7 +215,7 @@ yum install centreon-plugin-Cloud-Azure-Database-Elasticpool-Api
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Azure Elastic Pool* depuis la page "Configuration > Plugin packs > Manager"
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="Offline License" label="Offline License">
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des resources Azure Elastic Pool::
 

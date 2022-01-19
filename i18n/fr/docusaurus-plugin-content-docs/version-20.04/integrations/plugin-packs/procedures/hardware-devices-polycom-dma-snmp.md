@@ -106,7 +106,7 @@ https://documents.polycom.com/bundle/dma-ops-9-0/page/dma-ops-help/snmp/TOC_Conf
 ## Installation
 
 <Tabs groupId="sync">
-<TabItem value="Online IMP Licence & IT-100 Editions" label="Online IMP Licence & IT-100 Editions">
+<TabItem value="Online License" label="Online License">
 
 1. Installer le Plugin sur chaque collecteur Centreon devant superviser des équipements Polycom DMA:
 
@@ -118,7 +118,7 @@ yum install centreon-plugin-Hardware-Devices-Polycom-Dma-Snmp
 depuis la page "Configuration > Plugin Packs > Gestionnaire" 
 
 </TabItem>
-<TabItem value="Offline IMP License" label="Offline IMP License">
+<TabItem value="Offline License" label="Offline License">
 
 1. Installer le Plugin sur chaque collecteur Centreon devant superviser des équipements Polycom DMA:
 
