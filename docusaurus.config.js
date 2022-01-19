@@ -18,6 +18,8 @@ const config = {
 
   noIndex: true,
 
+  trailingSlash: false,
+
   i18n: {
     defaultLocale: 'en',
     locales: ['en', 'fr'],
@@ -42,7 +44,7 @@ const config = {
             'https://github.com/centreon/centreon-documentation/edit/staging/',
           showLastUpdateTime: true,
           includeCurrentVersion: false,
-          onlyIncludeVersions: ['21.10', '21.04', '20.10', '20.04'],
+          onlyIncludeVersions: ['21.10', '21.04', '20.10'],
           versions: {
             22.04: {
               label: '🥴 22.04',
