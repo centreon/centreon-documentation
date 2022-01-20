@@ -18,8 +18,6 @@ const config = {
 
   noIndex: true,
 
-  trailingSlash: true,
-
   i18n: {
     defaultLocale: 'en',
     locales: ['en', 'fr'],
