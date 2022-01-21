@@ -12,6 +12,7 @@ import TabItem from '@theme/TabItem';
 
 <Tabs groupId="sync">
 <TabItem value="CentOS 8" label="CentOS 8">
+
 To install Centreon you will need to enable the official PowerTools repository.
 
 Enable the PowerTools repository using these commands:
@@ -149,6 +150,7 @@ Then execute:
 
 </TabItem>
 <TabItem value="Oracle Linux 8" label="Oracle Linux 8">
+
 To install Centreon you will need to enable the official Oracle CodeReady Builder repository supported by Oracle.
 
 Enable the CodeReady Builder repository using these commands:
@@ -278,6 +280,7 @@ Then execute:
 
 </TabItem>
 <TabItem value="RHEL 8" label="RHEL 8">
+
 To install Centreon you will need to enable the official CodeReady Builder repository supported by Redhat.
 
 Enable the CodeReady Builder repository using these commands:
@@ -407,6 +410,7 @@ Then execute:
 
 </TabItem>
 <TabItem value="Redhat/CentOS 7" label="Redhat/CentOS 7">
+
 To install Centreon you will need to set up the official software collections repository supported by Redhat.
 
 > Software collections are required for installing PHP 7 and associated libraries (Centreon requirement).
@@ -519,6 +523,7 @@ Then execute:
 
 </TabItem>
 <TabItem value="Debian Buster" label="Debian Buster">
+
 Install the following prerequisites:
 ```shell
 apt-get install \

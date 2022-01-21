@@ -12,6 +12,7 @@ import TabItem from '@theme/TabItem';
 
 <Tabs groupId="sync">
 <TabItem value="Redhat/CentOS" label="Redhat/CentOS">
+
 To install Centreon you will need to set up the official software collections repository supported by Redhat.
 
 > Software collections are required for installing PHP 7 and associated libraries (Centreon requirement).
@@ -199,6 +200,7 @@ service snmptrapd restart
 
 </TabItem>
 <TabItem value="Suse" label="Suse">
+
 Install the following prerequisites:
 
 ``` shell

@@ -201,6 +201,7 @@ service snmptrapd restart
 
 </TabItem>
 <TabItem value="Suse" label="Suse">
+
 Installez les dépendances nécessaires :
 
 ``` shell
