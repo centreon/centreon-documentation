@@ -70,7 +70,7 @@ const config = {
 
   scripts: [
     {
-      src: './js/fix-location.js',
+      src: '/js/fix-location.js',
       async: false,
       defer: false,
     },
