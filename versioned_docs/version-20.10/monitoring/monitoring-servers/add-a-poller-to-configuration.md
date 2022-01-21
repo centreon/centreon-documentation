@@ -193,6 +193,7 @@ Then, copy this key on to the **new Poller** with the following commands:
 su - centreon-gorgone
 ssh-copy-id -i .ssh/id_rsa.pub centreon@<IP_POLLER>
 ```
+
 </TabItem>
 </Tabs>
 

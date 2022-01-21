@@ -52,6 +52,7 @@ dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/ce
 ```shell
 yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-5.el7.centos.noarch.rpm
 ```
+
 </TabItem>
 </Tabs>
 
@@ -114,6 +115,7 @@ Then upgrade all the components with the following command:
 
 <Tabs groupId="sync">
 <TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
+
 ```shell
 dnf update centreon\*
 mv /etc/centreon-ha/centreon_central_sync.pm.rpmsave /etc/centreon-ha/centreon_central_sync.pm
@@ -171,6 +173,7 @@ pcs resource create "php" \
     clone
 pcs constraint location php-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
 ```
+
 </TabItem>
 </Tabs>
 
@@ -331,6 +334,7 @@ Active resources:
  Clone Set: php-clone [php]
      Started: [@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@]
 ```
+
 </TabItem>
 </Tabs>
 

@@ -121,6 +121,7 @@ systemctl disable rh-php72-php-fpm
 systemctl enable rh-php73-php-fpm
 systemctl start rh-php73-php-fpm
 ```
+
 </TabItem>
 </Tabs>
 
@@ -128,6 +129,7 @@ systemctl start rh-php73-php-fpm
 
 <Tabs groupId="sync">
 <TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+
 Avant de démarrer la montée de version via l'interface web, rechargez le serveur Apache avec la commande suivante :
 ```shell
 systemctl reload httpd
@@ -135,10 +137,12 @@ systemctl reload httpd
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
+
 Avant de démarrer la montée de version via l'interface web, rechargez le serveur Apache avec la commande suivante :
 ```shell
 systemctl reload httpd24-httpd
 ```
+
 </TabItem>
 </Tabs>
 

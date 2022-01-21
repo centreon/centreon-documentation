@@ -32,6 +32,7 @@ dnf update
 ```shell
 yum update
 ```
+
 </TabItem>
 </Tabs>
 
@@ -188,6 +189,7 @@ yum install -y centreon centreon-database
 systemctl daemon-reload
 systemctl restart mariadb
 ```
+
 </TabItem>
 </Tabs>
 

@@ -162,6 +162,7 @@ net.ipv4.tcp_keepalive_intvl = 2
 EOF
 systemctl restart network
 ```
+
 </TabItem>
 </Tabs>
 
@@ -217,6 +218,7 @@ dnf install centreon-ha-web pcs pacemaker corosync corosync-qdevice
 yum install epel-release
 yum install centreon-ha-web pcs pacemaker corosync corosync-qdevice 
 ```
+
 </TabItem>
 </Tabs>
 
@@ -637,6 +639,7 @@ Centreon's application services won't be launched at boot time anymore, they wil
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+
 ```bash
 systemctl stop centengine snmptrapd centreontrapd gorgoned cbd httpd php-fpm centreon mysql
 systemctl disable centengine snmptrapd centreontrapd gorgoned cbd httpd php-fpm centreon mysql
@@ -644,10 +647,12 @@ systemctl disable centengine snmptrapd centreontrapd gorgoned cbd httpd php-fpm 
 
 </TabItem>
 <TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
+
 ```bash
 systemctl stop centengine snmptrapd centreontrapd gorgoned cbd httpd24-httpd php-fpm centreon mysql
 systemctl disable centengine snmptrapd centreontrapd gorgoned cbd httpd24-httpd php-fpm centreon mysql
 ```
+
 </TabItem>
 </Tabs>
 
@@ -673,6 +678,7 @@ You can use one of your pollers to play this role. It must be prepared with the 
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8" label="RHEL 8">
+
 ```bash
 dnf -y install dnf-plugins-core https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 subscription-manager repos --enable rhel-8-for-x86_64-highavailability-rpms
@@ -685,6 +691,7 @@ pcs qdevice status net --full
 
 </TabItem>
 <TabItem value="Oracle Linux 8" label="Oracle Linux 8">
+
 ```bash
 dnf config-manager --enable ol8_addons
 dnf install pcs corosync-qnetd
@@ -696,6 +703,7 @@ pcs qdevice status net --full
 
 </TabItem>
 <TabItem value="RHEL 7" label="RHEL 7">
+
 ```bash
 yum install epel-release
 subscription-manager repos --enable rhel-7-for-x86_64-highavailability-rpms
@@ -705,8 +713,10 @@ systemctl enable pcsd.service
 pcs qdevice setup model net --enable --start
 pcs qdevice status net --full
 ```
+
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
+
 ```bash
 yum install epel-release
 yum install pcs corosync-qnetd
@@ -715,6 +725,7 @@ systemctl enable pcsd.service
 pcs qdevice setup model net --enable --start
 pcs qdevice status net --full
 ```
+
 </TabItem>
 </Tabs>
 
@@ -736,6 +747,7 @@ Now that both of the central nodes **and** the *quorum device* server are sharin
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+
 ```bash
 pcs host auth \
     "@CENTRAL_MASTER_NAME@" \
@@ -747,6 +759,7 @@ pcs host auth \
 
 </TabItem>
 <TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
+
 ```bash
 pcs cluster auth \
     "@CENTRAL_MASTER_NAME@" \
@@ -756,6 +769,7 @@ pcs cluster auth \
     -p '@CENTREON_CLUSTER_PASSWD@' \
     --force
  ```
+
 </TabItem>
 </Tabs>
 
@@ -765,6 +779,7 @@ The following command creates the cluster. It must be run **only on one of the c
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+
 ```bash
 pcs cluster setup \
     centreon_cluster \
@@ -775,6 +790,7 @@ pcs cluster setup \
 
 </TabItem>
 <TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
+
 ```bash
 pcs cluster setup \
     --force \
@@ -782,6 +798,7 @@ pcs cluster setup \
     "@CENTRAL_MASTER_NAME@" \
     "@CENTRAL_SLAVE_NAME@"
 ```
+
 </TabItem>
 </Tabs>
 
@@ -818,6 +835,7 @@ To be run **only on one central node**:
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+
 ```bash
 pcs resource create "ms_mysql" \
     ocf:heartbeat:mysql-centreon \
@@ -837,6 +855,7 @@ pcs resource create "ms_mysql" \
 
 </TabItem>
 <TabItem value="RHEL 7" label="RHEL 7">
+
 ```bash
 pcs resource create "ms_mysql" \
     ocf:heartbeat:mysql-centreon \
@@ -856,6 +875,7 @@ pcs resource create "ms_mysql" \
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
+
 ```bash
 pcs resource create "ms_mysql" \
     ocf:heartbeat:mysql-centreon \
@@ -873,6 +893,7 @@ pcs resource create "ms_mysql" \
     test_table='centreon.host' \
     master
 ```
+
 </TabItem>
 </Tabs>
 
@@ -892,6 +913,7 @@ pcs resource promotable ms_mysql \
 
 </TabItem>
 <TabItem value="RHEL 7" label="RHEL 7">
+
 ```bash
 pcs resource master ms_mysql \
     master-node-max="1" \
@@ -912,6 +934,7 @@ pcs resource meta ms_mysql-master \
     clone-node-max="1" \
     notify="true"
 ```
+
 </TabItem>
 </Tabs>
 
@@ -967,6 +990,7 @@ pcs resource create vip \
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+
 ```bash
 pcs resource create http \
     systemd:httpd \
@@ -980,6 +1004,7 @@ pcs resource create http \
 
 </TabItem>
 <TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
+
 ```bash
 pcs resource create http \
     systemd:httpd24-httpd \
@@ -990,6 +1015,7 @@ pcs resource create http \
     --group centreon \
     --force
 ```
+
 </TabItem>
 </Tabs>
 
@@ -1072,6 +1098,7 @@ In order to force the cluster running both `centreon` resource group and the Mar
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+
 ```bash
 pcs constraint colocation add "centreon" with master "ms_mysql-clone"
 pcs constraint colocation add master "ms_mysql-clone" with "centreon"
@@ -1079,10 +1106,12 @@ pcs constraint colocation add master "ms_mysql-clone" with "centreon"
 
 </TabItem>
 <TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
+
 ```bash
 pcs constraint colocation add "centreon" with master "ms_mysql-master"
 pcs constraint colocation add master "ms_mysql-master" with "centreon"
 ```
+
 </TabItem>
 </Tabs>
 
@@ -1096,6 +1125,7 @@ You can monitor the cluster's resources in real time using the `crm_mon` command
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+
 ```bash
 Cluster Summary:
   * Stack: corosync
@@ -1127,6 +1157,7 @@ Full List of Resources:
 
 </TabItem>
 <TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
+
 ```bash
 Stack: corosync
 Current DC: @CENTRAL_SLAVE_NAME@ (version 1.1.20-5.el7_7.2-3c4c782f70) - partition with quorum
@@ -1153,6 +1184,7 @@ Active resources:
      cbd_central_broker (systemd:cbd-sql):	Started @CENTRAL_MASTER_NAME@
      centengine (systemd:centengine):   Started @CENTRAL_MASTER_NAME@
 ```
+
 </TabItem>
 </Tabs>
 
@@ -1177,15 +1209,18 @@ It can happen that the replication thread is not running right after installatio
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+
 ```bash 
 pcs resource restart ms_mysql-clone
 ```
 
 </TabItem>
 <TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
+
 ```bash 
 pcs resource restart ms_mysql
 ```
+
 </TabItem>
 </Tabs>
 
@@ -1195,6 +1230,7 @@ Normally the two colocation constraints that have been created during the setup 
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+
 ```bash
 Location Constraints:
 Ordering Constraints:
@@ -1215,6 +1251,7 @@ Colocation Constraints:
   ms_mysql-master with centreon (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
 Ticket Constraints:
 ```
+
 </TabItem>
 </Tabs>
 

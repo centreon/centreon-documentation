@@ -84,6 +84,7 @@ sudo chown -R apache.apache /usr/share/centreon/www/locale/`locale | grep LC_MES
 
 <Tabs groupId="sync">
 <TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+
 Restart Apache:
 ```shell
 systemctl restart httpd
@@ -91,10 +92,12 @@ systemctl restart httpd
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
+
 Restart Apache:
 ```shell
 systemctl restart httpd24-httpd
 ```
+
 </TabItem>
 </Tabs>
 

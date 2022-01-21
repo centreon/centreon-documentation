@@ -31,6 +31,7 @@ dnf update
 ```shell
 yum update
 ```
+
 </TabItem>
 </Tabs>
 

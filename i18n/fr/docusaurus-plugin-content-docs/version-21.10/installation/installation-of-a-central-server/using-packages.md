@@ -36,6 +36,7 @@ dnf update
 ```shell
 yum update
 ```
+
 </TabItem>
 </Tabs>
 
@@ -196,6 +197,7 @@ dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/ce
 ```shell
 yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-2.el7.centos.noarch.rpm
 ```
+
 </TabItem>
 </Tabs>
 
@@ -225,6 +227,7 @@ yum install -y centreon centreon-database
 systemctl daemon-reload
 systemctl restart mariadb
 ```
+
 </TabItem>
 </Tabs>
 
@@ -249,6 +252,7 @@ dnf install -y centreon-base-config-centreon-engine centreon-widget\*
 ```shell
 yum install -y centreon-base-config-centreon-engine centreon-widget\*
 ```
+
 </TabItem>
 </Tabs>
 
@@ -270,6 +274,7 @@ yum install -y centreon-database
 systemctl daemon-reload
 systemctl restart mariadb
 ```
+
 </TabItem>
 </Tabs>
 
@@ -398,6 +403,7 @@ systemctl enable php-fpm httpd mariadb centreon cbd centengine gorgoned snmptrap
 ```shell
 systemctl enable php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
 ```
+
 </TabItem>
 </Tabs>
 
@@ -435,6 +441,7 @@ systemctl start httpd
 ```shell
 systemctl start httpd24-httpd
 ```
+
 </TabItem>
 </Tabs>
 

@@ -51,15 +51,19 @@ Le module **Centreon Anomaly Detection** requiert les prérequis suivants :
 ### Installation des paquets
 
 Ajouter un référentiel supplémentaire:
+
 <Tabs groupId="sync">
 <TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+
 Rien à faire
+
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
 yum install -y epel-release
 ```
+
 </TabItem>
 </Tabs>
 

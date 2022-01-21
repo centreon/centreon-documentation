@@ -92,6 +92,7 @@ Active resources:
      centreontrapd      (systemd:centreontrapd):        Started @CENTRAL_MASTER_NAME@
      snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_MASTER_NAME@
 ```
+
 </TabItem>
 </Tabs>
 
@@ -109,6 +110,7 @@ La commande doit vous retourner les informations suivantes :
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+
 ```bash
 Location Constraints:
 Ordering Constraints:
@@ -166,6 +168,7 @@ Le résultat attendu est :
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+
 ```bash
 Cluster Summary:
   * Stack: corosync
@@ -227,6 +230,7 @@ Online: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
      centreontrapd      (systemd:centreontrapd):        Started @CENTRAL_MASTER_NAME@
      snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_MASTER_NAME@
 ```
+
 </TabItem>
 </Tabs>
 
@@ -315,6 +319,7 @@ Active resources:
      centreontrapd      (systemd:centreontrapd):        Started @CENTRAL_SLAVE_NAME@
      snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_SLAVE_NAME@
 ```
+
 </TabItem>
 </Tabs>
 
@@ -423,6 +428,7 @@ Active resources:
      centreontrapd      (systemd:centreontrapd):        Started @CENTRAL_SLAVE_NAME@
      snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_SLAVE_NAME@
 ```
+
 </TabItem>
 </Tabs>
 
@@ -568,6 +574,7 @@ Active resources:
      centreontrapd      (systemd:centreontrapd):        Started @CENTRAL_MASTER_NAME@
      snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_MASTER_NAME@
 ```
+
 </TabItem>
 </Tabs>
 
@@ -617,6 +624,7 @@ Le nœud secondaire est de nouveau vu `online` par le cluster :
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+
 ```bash
 Cluster Summary:
   * Stack: corosync
@@ -679,6 +687,7 @@ Active resources:
      centreontrapd      (systemd:centreontrapd):        Started @CENTRAL_MASTER_NAME@
      snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_MASTER_NAME@
 ```
+
 </TabItem>
 </Tabs>
 
@@ -781,6 +790,7 @@ Active resources:
      centreontrapd      (systemd:centreontrapd):        Started @CENTRAL_SLAVE_NAME@
      snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_SLAVE_NAME@
 ```
+
 </TabItem>
 </Tabs>
 
@@ -788,6 +798,7 @@ Sur le nœud primaire, la commande `pcs status` doit vous retourner le résultat
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+
 ```bash
 Cluster Summary:
   * Stack: corosync
@@ -802,6 +813,7 @@ Node List:
 
 No active resources
 ```
+
 </TabItem>
 <TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
 
@@ -819,6 +831,7 @@ OFFLINE: [ @CENTRAL_SLAVE_NAME@ ]
 
 No active resources
 ```
+
 </TabItem>
 </Tabs>
 

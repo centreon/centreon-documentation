@@ -637,6 +637,7 @@ Redémarrez le service SNMP :
 service snmpd restart
 service snmptrapd restart
 ```
+
 </TabItem>
 </Tabs>
 

@@ -265,6 +265,7 @@ Sauvegardez le fichier et redémarrez apache :
 ``` shell
 /etc/init.d/apache2 restart
 ```
+
 </TabItem>
 </Tabs>
 

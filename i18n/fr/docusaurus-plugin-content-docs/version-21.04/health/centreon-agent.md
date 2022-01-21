@@ -70,6 +70,7 @@ dnf install -y https://yum.centreon.com/standard/21.04/el8/stable/noarch/RPMS/ce
 ```shell
 yum install -y https://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-6.el7.centos.noarch.rpm
 ```
+
 </TabItem>
 </Tabs>
 
