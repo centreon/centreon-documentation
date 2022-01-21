@@ -27,7 +27,7 @@ Remote Server on the Centreon platform.
   the option **Select a Remote Server**, then select your server and fill in the
   form:
 
-      ![image](../../assets/monitoring/monitoring-servers/wizard-add-remote-2a.png)
+    ![image](../../assets/monitoring/monitoring-servers/wizard-add-remote-2a.png)
 
     - Otherwise, select the **Create new Remote Server** option and fill in the form:
 
@@ -53,15 +53,15 @@ Remote Server on the Centreon platform.
 5. Select the poller(s) to be linked to this Remote Server, then click on
 **Apply**:
 
-    ![image](../../assets/monitoring/monitoring-servers/wizard-add-remote-3.png)
+  ![image](../../assets/monitoring/monitoring-servers/wizard-add-remote-3.png)
 
-    The wizard will configure your new server:
+  The wizard will configure your new server:
 
-    ![image](../../assets/monitoring/monitoring-servers/wizard-add-remote-4.png)
+  ![image](../../assets/monitoring/monitoring-servers/wizard-add-remote-4.png)
 
-    The Remote Server is now configured:
+  The Remote Server is now configured:
 
-    ![image](../../assets/monitoring/monitoring-servers/remote-list-zmq.png)
+  ![image](../../assets/monitoring/monitoring-servers/remote-list-zmq.png)
 
 ## Step 2: Enable communication
 
@@ -209,9 +209,9 @@ recommended) or using SSH protocol.
 4. **To force the Central's Gorgone daemon to connect to the Remote Server**, restart
 it with the following command from the **Central server**:
 
-    ```shell
-    systemctl restart gorgoned
-    ```
+  ```shell
+  systemctl restart gorgoned
+  ```
 
 </TabItem>
 <TabItem value="Using SSH (Deprecated)" label="Using SSH (Deprecated)">

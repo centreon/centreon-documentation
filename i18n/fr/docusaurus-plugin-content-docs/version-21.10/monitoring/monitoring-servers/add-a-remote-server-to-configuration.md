@@ -22,30 +22,29 @@ configuration.
 2. Sélectionnez **Ajouter un serveur distant Centreon** et cliquez sur
 **Suivant** :
 
-    ![image](../../assets/monitoring/monitoring-servers/wizard-add-remote-1.png)
+  ![image](../../assets/monitoring/monitoring-servers/wizard-add-remote-1.png)
 
 3. Sélectionnez l'option désirée :
 
-    - Si vous avez activé votre serveur en suivant la documentation, sélectionnez
+  - Si vous avez activé votre serveur en suivant la documentation, sélectionnez
 l'option **Sélectionnez un serveur distant**. Dans la liste déroulante
 sélectionnez votre serveur, puis saisissez les informations demandées :
 
-    ![image](../../assets/monitoring/monitoring-servers/wizard-add-remote-2a.png)
+  ![image](../../assets/monitoring/monitoring-servers/wizard-add-remote-2a.png)
 
-    - Sinon, sélectionnez l'option **Créer un nouveau serveur distant** et saisissez
-les informations demandées :
+  - Sinon, sélectionnez l'option **Créer un nouveau serveur distant** et saisissez les informations demandées :
 
-      ![image](../../assets/monitoring/monitoring-servers/wizard-add-remote-2b.png)
+    ![image](../../assets/monitoring/monitoring-servers/wizard-add-remote-2b.png)
 
-      Les champs **Nom de l'utilisateur ayant accès à la base de données** et **Mot de
+    Les champs **Nom de l'utilisateur ayant accès à la base de données** et **Mot de
       passe de l'utilisateur ayant accès à la base de données** sont les accès aux
       bases de données Centreon définis durant l'installation de votre serveur distant.
 
-      Le champ **Adresse IP du serveur** est de la forme : [(http|https)://]@IP[:(port)].
+    Le champ **Adresse IP du serveur** est de la forme : [(http|https)://]@IP[:(port)].
       Si votre serveur distant est accessible en HTTPS, il est nécessaire de préciser
       la méthode d'accès et le port si celui-ci n'est pas par défaut.
 
-      L'option **Do not check SSL certificate validation** permet de contacter le
+    L'option **Do not check SSL certificate validation** permet de contacter le
       serveur distant si celui-ci possède un certificat SSL auto-signé.
 
       L'option **Do not use configured proxy to connect to this server** permet de
@@ -174,48 +173,48 @@ recommandé) ou en utilisant le protocole SSH.
 
 3. Démarrer le daemon Gorgone :
 
-    Depuis le serveur distant, exécutez la commande suivante pour redémarrer le
+  Depuis le serveur distant, exécutez la commande suivante pour redémarrer le
     service Gorgone :
 
-    ```shell
-    systemctl restart gorgoned
-    ```
+  ```shell
+  systemctl restart gorgoned
+  ```
 
-    Assurez-vous que le service est démarré en exécutant la commande suivante :
+  Assurez-vous que le service est démarré en exécutant la commande suivante :
 
-    ```shell
-    systemctl status gorgoned
-    ```
+  ```shell
+  systemctl status gorgoned
+  ```
 
-    Le résultat devrait être similaire :
+  Le résultat devrait être similaire :
 
-    ```shell
-    ● gorgoned.service - Centreon Gorgone
-      Loaded: loaded (/etc/systemd/system/gorgoned.service; enabled; vendor preset: disabled)
-      Active: active (running) since Wed 2020-03-24 19:45:00 CET; 6s ago
-    Main PID: 30902 (perl)
-      CGroup: /system.slice/gorgoned.service
-              ├─30902 /usr/bin/perl /usr/bin/gorgoned --config=/etc/centreon-gorgone/config.yaml --logfile=/var/log/centreon-gorgone/gorgoned.log --severity=info
-              ├─30916 gorgone-nodes
-              ├─30917 gorgone-dbcleaner
-              ├─30924 gorgone-proxy
-              ├─30925 gorgone-proxy
-              ├─30938 gorgone-proxy
-              ├─30944 gorgone-proxy
-              ├─30946 gorgone-proxy
-              ├─30959 gorgone-engine
-              ├─30966 gorgone-action
-              └─30967 gorgone-legacycmd
+  ```shell
+  ● gorgoned.service - Centreon Gorgone
+    Loaded: loaded (/etc/systemd/system/gorgoned.service; enabled; vendor preset: disabled)
+    Active: active (running) since Wed 2020-03-24 19:45:00 CET; 6s ago
+  Main PID: 30902 (perl)
+    CGroup: /system.slice/gorgoned.service
+            ├─30902 /usr/bin/perl /usr/bin/gorgoned --config=/etc/centreon-gorgone/config.yaml --logfile=/var/log/centreon-gorgone/gorgoned.log --severity=info
+            ├─30916 gorgone-nodes
+            ├─30917 gorgone-dbcleaner
+            ├─30924 gorgone-proxy
+            ├─30925 gorgone-proxy
+            ├─30938 gorgone-proxy
+            ├─30944 gorgone-proxy
+            ├─30946 gorgone-proxy
+            ├─30959 gorgone-engine
+            ├─30966 gorgone-action
+            └─30967 gorgone-legacycmd
 
-    Mar 24 19:45:00 localhost.localdomain systemd[1]: Started Centreon Gorgone.
-    ```
+  Mar 24 19:45:00 localhost.localdomain systemd[1]: Started Centreon Gorgone.
+  ```
 
    4. **Pour forcer le Gorgone du Central à se connecter au serveur distant**,
 redémarrez-le avec la commande suivante depuis le **serveur Central** :
 
-```shell
-systemctl restart gorgoned
-```
+  ```shell
+  systemctl restart gorgoned
+  ```
 
 </TabItem>
 <TabItem value="Avec SSH (Déprécié)" label="Avec SSH (Déprécié)">

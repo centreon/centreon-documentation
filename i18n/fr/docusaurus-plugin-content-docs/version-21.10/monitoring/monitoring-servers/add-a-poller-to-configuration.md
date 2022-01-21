@@ -32,22 +32,22 @@ configuration.
 4. Saisissez le nom, l'adresse IP du collecteur et celle du serveur Central, puis
 cliquez sur **Suivant** :
 
-    ![image](../../assets/monitoring/monitoring-servers/wizard-add-poller-2.png)
+  ![image](../../assets/monitoring/monitoring-servers/wizard-add-poller-2.png)
 
-    > L'adresse IP du collecteur est l'adresse IP ou le FQDN pour accéder au
-    > collecteur depuis le serveur Central.
-    >
-    > L'adresse IP du serveur Central est l'adresse IP ou le FQDN pour accéder au
-    > serveur Central depuis le collecteur.
+  > L'adresse IP du collecteur est l'adresse IP ou le FQDN pour accéder au
+  > collecteur depuis le serveur Central.
+  >
+  > L'adresse IP du serveur Central est l'adresse IP ou le FQDN pour accéder au
+  > serveur Central depuis le collecteur.
 
 5. Reliez le collecteur au central ou à un serveur distant :
 
    - Si vous souhaitez lier ce collecteur au serveur Central, cliquez sur
 **Appliquer** :
 
-      ![image](../../assets/monitoring/monitoring-servers/wizard-add-poller-3.png)
+   ![image](../../assets/monitoring/monitoring-servers/wizard-add-poller-3.png)
 
-    - Si vous souhaitez lier ce collecteur à un serveur distant, sélectionnez celui-ci dans la liste et cliquez sur **Appliquer**.
+   - Si vous souhaitez lier ce collecteur à un serveur distant, sélectionnez celui-ci dans la liste et cliquez sur **Appliquer**.
 
     Patientez quelques secondes, l'assistant va configurer votre nouveau serveur.
 
@@ -161,19 +161,19 @@ recommandé) ou en utilisant le protocole SSH.
 4. Pour forcer le Gorgone du Central à se connecter au collecteur, redémarrez-le avec
 la commande suivante depuis le **serveur Central** :
 
-    ```shell
-    systemctl restart gorgoned
-    ```
+  ```shell
+  systemctl restart gorgoned
+  ```
 
 </TabItem>
 <TabItem value="Avec SSH" label="Avec SSH">
 
 1. Sélectionner le type de communication :
 
-    Éditez la configuration du collecteur fraîchement créé, et sélectionnez **SSH**
+  Éditez la configuration du collecteur fraîchement créé, et sélectionnez **SSH**
 comme **Protocole de connexion utilisé par Gorgone**. Définissez le **port** adéquat.
 
-    ![image](../../assets/monitoring/monitoring-servers/poller-edit-ssh.png)
+  ![image](../../assets/monitoring/monitoring-servers/poller-edit-ssh.png)
 
  2. Cliquez sur **Sauvegarder**.
 
@@ -227,14 +227,13 @@ la commande suivante depuis le **serveur Central** :
 la configuration**.
 
 2. Cochez ensuite les quatre premières cases, sélectionnez la méthode **Redémarrer**
-et cliquez sur  **Exporter** :
+et cliquez sur **Exporter** :
 
-    ![image](../../assets/monitoring/monitoring-servers/poller-generate-config.png)
+  ![image](../../assets/monitoring/monitoring-servers/poller-generate-config.png)
 
-    Le moteur de supervision du collecteur va alors démarrer et se connecter au Broker
-Central.
+  Le moteur de supervision du collecteur va alors démarrer et se connecter au Broker Central.
 
-    ![image](../../assets/monitoring/monitoring-servers/poller-list-zmq-started.png)
+  ![image](../../assets/monitoring/monitoring-servers/poller-list-zmq-started.png)
 
 ## Premiers pas
 

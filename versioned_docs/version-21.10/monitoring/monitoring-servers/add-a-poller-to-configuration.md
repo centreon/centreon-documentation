@@ -28,32 +28,31 @@ poller to the Centreon platform.
 4. Type in the name, the IP address of the new poller and IP address of the Central
 Server. Click on **Next**:
 
-    ![image](../../assets/monitoring/monitoring-servers/wizard-add-poller-2.png)
+  ![image](../../assets/monitoring/monitoring-servers/wizard-add-poller-2.png)
 
-    > The IP address of the Poller is the IP address or the FQDN used to access this
-    > poller from the Central server.
-    >
-    > The IP address of the Central server is the IP address or the FQDN used to
-    > access the Central server from the Poller.
+  > The IP address of the Poller is the IP address or the FQDN used to access this
+  > poller from the Central server.
+  >
+  > The IP address of the Central server is the IP address or the FQDN used to
+  > access the Central server from the Poller.
 
 5. Link the poller to the central server or to a remote server:
 
-    - If you want to link the poller to the Central Server, click **Apply**:
+  - If you want to link the poller to the Central Server, click **Apply**:
 
-      ![image](../../assets/monitoring/monitoring-servers/wizard-add-poller-3.png)
+    ![image](../../assets/monitoring/monitoring-servers/wizard-add-poller-3.png)
 
-    - If you want to link the poller to an existing Remote Server,
-select one from the list, then click **Apply**.
+  - If you want to link the poller to an existing Remote Server, select one from the list, then click **Apply**.
 
-      > If you want to change the direction of the flow between the Central Server
-      > (or the Remote Server and the Poller, check the **Advanced: reverse Centreon
-      > Broker communication flow** checkbox. In this case, it will be necessary to
-      > export the configuration of the poller as well as the server to which it
-      > will be attached.
+    > If you want to change the direction of the flow between the Central Server
+    > (or the Remote Server and the Poller, check the **Advanced: reverse Centreon
+    > Broker communication flow** checkbox. In this case, it will be necessary to
+    > export the configuration of the poller as well as the server to which it
+    > will be attached.
 
-      In a few seconds the wizard will configure your new poller.
+    In a few seconds the wizard will configure your new poller.
 
-      ![image](../../assets/monitoring/monitoring-servers/poller-list-zmq.png)
+    ![image](../../assets/monitoring/monitoring-servers/poller-list-zmq.png)
 
 ## Step 2: Enable communication
 
@@ -162,9 +161,9 @@ SSH protocol.
 4. **To force the Central's Gorgone daemon to connect to the Poller**, restart it with
 the following command from the **Central server**:
 
-    ``` shell
-    systemctl restart gorgoned
-    ```
+  ```shell
+  systemctl restart gorgoned
+  ```
 
 </TabItem>
 <TabItem value="Using SSH" label="Using SSH">
@@ -213,9 +212,9 @@ the following command from the **Central server**:
 4. **To force the Central's Gorgone daemon to connect to the Poller**, restart it with
 the following command from the **Central server**:
 
-    ``` shell
-    systemctl restart gorgoned
-    ```
+  ```shell
+  systemctl restart gorgoned
+  ```
 
 </TabItem>
 </Tabs>
@@ -228,11 +227,11 @@ configuration**.
 2. Then check the four first boxes, select the **Restart** method and click on
 **Export**:
 
-    ![image](../../assets/monitoring/monitoring-servers/poller-generate-config.png)
+  ![image](../../assets/monitoring/monitoring-servers/poller-generate-config.png)
 
-    The Poller's engine will then start and connect to the Central Broker.
+  The Poller's engine will then start and connect to the Central Broker.
 
-    ![image](../../assets/monitoring/monitoring-servers/poller-list-zmq-started.png)
+  ![image](../../assets/monitoring/monitoring-servers/poller-list-zmq-started.png)
 
 ## Getting started
 
