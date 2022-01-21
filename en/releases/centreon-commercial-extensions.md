@@ -60,7 +60,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 21.04.1
 
-`January 7, 2022`
+`January 21, 2022`
 
 #### Improvements
 
