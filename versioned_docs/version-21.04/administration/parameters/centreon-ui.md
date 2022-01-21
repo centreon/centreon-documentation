@@ -146,6 +146,7 @@ in the **Authentication by OpenId Connect** section.
 
 <Tabs groupId="sync">
 <TabItem value="Microsoft Azure AD" label="Microsoft Azure AD">
+
 Here is an example configuration for Microsoft Azure Active Directory:
 
 | Fields                       | Values                                                    |
@@ -166,6 +167,7 @@ Here is an example configuration for Microsoft Azure Active Directory:
 
 </TabItem>
 <TabItem value="Okta" label="Okta">
+
 Here is an example configuration for Okta:
 
 | Fields                       | Values                                   |
@@ -186,6 +188,7 @@ Here is an example configuration for Okta:
 
 </TabItem>
 <TabItem value="Keycloak" label="Keycloak">
+
 Here is an example configuration for Keycloak:
 
 | Fields                       | Values                                                                  |
@@ -206,6 +209,7 @@ Here is an example configuration for Keycloak:
 
 </TabItem>
 <TabItem value="LemonLDAP::NG" label="LemonLDAP::NG">
+
 Here is an example configuration for LemonLDAP::NG:
 
 | Fields                       | Values                                   |
@@ -226,6 +230,7 @@ Here is an example configuration for LemonLDAP::NG:
 
 </TabItem>
 <TabItem value="Others" label="Others">
+
 Most of the service providers have one URL presenting the configuration parameters configuration as defined by
 [the protocol](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfig).
 

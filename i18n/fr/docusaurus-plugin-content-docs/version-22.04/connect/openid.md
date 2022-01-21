@@ -57,6 +57,7 @@ L'authentification se paramètre à la page **Administration > Paramètres > Cen
 
 <Tabs groupId="sync">
 <TabItem value="Microsoft Azure AD" label="Microsoft Azure AD">
+
 Voici un exemple de configuration pour Microsoft Azure Active Directory:
 
 | Champs                       | Valeurs                                                   |
@@ -77,6 +78,7 @@ Voici un exemple de configuration pour Microsoft Azure Active Directory:
 
 </TabItem>
 <TabItem value="Okta" label="Okta">
+
 Voici un exemple de configuration pour Okta:
 
 | Champs                       | Valeurs                                  |
@@ -97,6 +99,7 @@ Voici un exemple de configuration pour Okta:
 
 </TabItem>
 <TabItem value="Keycloak" label="Keycloak">
+
 Voici un exemple de configuration pour Keycloak:
 
 | Champs                       | Valeurs                                                                 |
@@ -117,6 +120,7 @@ Voici un exemple de configuration pour Keycloak:
 
 </TabItem>
 <TabItem value="LemonLDAP::NG" label="LemonLDAP::NG">
+
 Voici un exemple de configuration pour LemonLDAP::NG:
 
 | Champs                       | Valeurs                                  |
@@ -137,6 +141,7 @@ Voici un exemple de configuration pour LemonLDAP::NG:
 
 </TabItem>
 <TabItem value="Autres" label="Autres">
+
 La plupart des fournisseurs de services en ont une URL présentant la configuration des paramètres de configuration telle que
 définie par [le protocole](https://openid.net/specs/openid-connect-discovery-1_0#ProviderConfig).
 

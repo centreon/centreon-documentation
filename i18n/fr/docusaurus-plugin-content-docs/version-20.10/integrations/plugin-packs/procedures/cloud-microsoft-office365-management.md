@@ -116,6 +116,7 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Management-Api
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
+
 1. Installer le Plugin sur l'ensemble des collecteurs supervisant des ressources Office 365 Management:
 
 ```bash

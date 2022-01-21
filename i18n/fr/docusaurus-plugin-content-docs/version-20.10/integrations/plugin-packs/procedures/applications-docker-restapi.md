@@ -82,6 +82,7 @@ yum install centreon-plugin-Applications-Docker-Restapi
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
+
 1. Installer le Plugin sur l'ensemble des collecteurs supervisant des ressources Docker:
 
 ```bash

@@ -13,6 +13,7 @@ import TabItem from '@theme/TabItem';
 
 <Tabs groupId="sync">
 <TabItem value="CentOS 8" label="CentOS 8">
+
 Afin d'installer les logiciels Centreon, le dépôt PowerTools de Red Hat doit être
 activé.
 
@@ -150,6 +151,7 @@ Puis exécutez :
 
 </TabItem>
 <TabItem value="Oracle Linux 8" label="Oracle Linux 8">
+
 Afin d'installer les logiciels Centreon, le dépôt Oracle CodeReady Builder de Oracle doit être activé.
 
 Exécutez les commandes suivantes :
@@ -278,6 +280,7 @@ Puis exécutez :
 
 </TabItem>
 <TabItem value="RHEL 8" label="RHEL 8">
+
 Afin d'installer les logiciels Centreon, le dépôt CodeReady Builder de Redhat doit être activé.
 
 Exécutez les commandes suivantes :
@@ -406,6 +409,7 @@ Puis exécutez :
 
 </TabItem>
 <TabItem value="Redhat/CentOS 7" label="Redhat/CentOS 7">
+
 Pour installer Centreon, vous devrez configurer le dépôt officiel des collections de logiciels pris en charge par
 Redhat.
 

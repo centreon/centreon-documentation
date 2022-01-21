@@ -64,6 +64,7 @@ Centreon 21.10 uses PHP in version 8.0.
 
 <Tabs groupId="sync">
 <TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
+
 First, you need to install the **remi** repository:
 
 ```shell
@@ -83,6 +84,7 @@ dnf module install php:remi-8.0
 
 </TabItem>
 <TabItem value="RHEL / CentOS 7" label="RHEL / CentOS 7">
+
 First, you need to install the **remi** repository:
 
 ```shell

@@ -53,6 +53,7 @@ Centreon 21.04 use PHP in version 7.3.
 
 <Tabs groupId="sync">
 <TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+
 You need to change the PHP stream from version 7.2 to 7.3 by executing the following commands and answering **y**
 to confirm:
 ```shell
@@ -62,7 +63,9 @@ dnf module install php:7.3
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
+
 PHP will be updated with Centreon automatically.
+
 </TabItem>
 </Tabs>
 
@@ -94,6 +97,7 @@ yum update centreon\*
 
 <Tabs groupId="sync">
 <TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+
 Execute the following commands:
 ```shell
 systemctl enable php-fpm
@@ -102,6 +106,7 @@ systemctl restart php-fpm
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
+
 The PHP timezone should be set. Run the command:
 ```shell
 echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php73/php.d/50-centreon.ini
@@ -125,6 +130,7 @@ systemctl start rh-php73-php-fpm
 
 <Tabs groupId="sync">
 <TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+
 Before starting the web upgrade process, reload the Apache server with the
 following command:
 ```shell
@@ -133,6 +139,7 @@ systemctl reload httpd
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
+
 Before starting the web upgrade process, reload the Apache server with the
 following command:
 ```shell

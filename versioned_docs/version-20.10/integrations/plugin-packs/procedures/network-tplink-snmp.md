@@ -25,6 +25,7 @@ The Centreon Plugin Pack *TP-Link SNMP* relies on the SNMP protocol to query and
 
 <Tabs groupId="sync">
 <TabItem value="CPU" label="CPU">
+
 * These 3 metrics for CPU core and average utilization
 
 | Metric name                         | Description                    | Unit   |
