@@ -237,14 +237,13 @@ redémarrez-le avec la commande suivante depuis le **serveur Central** :
 3. Pour finir, depuis le serveur distant, démarrez/redémarrez les services de
 collecte :
 
-    ```shell
-    systemctl restart cbd centengine
-    ```
+  ```shell
+  systemctl restart cbd centengine
+  ```
 
-    Le moteur de supervision du Remote Server va alors démarrer et se connecter au
-    Broker Central.
+  Le moteur de supervision du Remote Server va alors démarrer et se connecter au Broker Central.
 
-    ![image](../../assets/monitoring/monitoring-servers/remote-list-zmq-started.png)
+  ![image](../../assets/monitoring/monitoring-servers/remote-list-zmq-started.png)
 
 </TabItem>
 </Tabs>
