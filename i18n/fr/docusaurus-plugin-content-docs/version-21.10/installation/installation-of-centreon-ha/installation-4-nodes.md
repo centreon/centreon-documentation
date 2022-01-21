@@ -174,6 +174,7 @@ net.ipv4.tcp_keepalive_intvl = 2
 EOF
 systemctl restart network
 ```
+
 </TabItem>
 </Tabs>
 
@@ -235,6 +236,7 @@ dnf install centreon-ha-web pcs pacemaker corosync corosync-qdevice
 yum install epel-release centos-release-scl
 yum install centreon-ha-web pcs pacemaker corosync corosync-qdevice 
 ```
+
 </TabItem>
 </Tabs>
 
@@ -734,6 +736,7 @@ systemctl disable centengine snmptrapd centreontrapd gorgoned cbd httpd php-fpm 
 systemctl stop centengine snmptrapd centreontrapd gorgoned cbd httpd24-httpd php-fpm centreon mysql
 systemctl disable centengine snmptrapd centreontrapd gorgoned cbd httpd24-httpd php-fpm centreon mysql
 ```
+
 </TabItem>
 </Tabs>
 
@@ -806,6 +809,7 @@ systemctl enable pcsd.service
 pcs qdevice setup model net --enable --start
 pcs qdevice status net --full
 ```
+
 </TabItem>
 </Tabs>
 
@@ -884,6 +888,7 @@ pcs cluster setup \
     "@DATABASE_MASTER_NAME@" \
     "@DATABASE_SLAVE_NAME@"
 ```
+
 </TabItem>
 </Tabs>
 
@@ -939,9 +944,9 @@ pcs resource create "ms_mysql" \
     test_passwd="@MARIADB_REPL_PASSWD@" \
     test_table='centreon.host'
 ```
+
 </TabItem>
 <TabItem value="RHEL 7" label="RHEL 7">
-
 
 ```bash
 pcs resource create "ms_mysql" \
@@ -959,9 +964,9 @@ pcs resource create "ms_mysql" \
     test_passwd="@MARIADB_REPL_PASSWD@" \
     test_table='centreon.host'
 ```
+
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
-
 
 ```bash
 pcs resource create "ms_mysql" \
@@ -980,6 +985,7 @@ pcs resource create "ms_mysql" \
     test_table='centreon.host' \
     master
 ```
+
 </TabItem>
 </Tabs>
 
@@ -1020,6 +1026,7 @@ pcs resource meta ms_mysql-master \
     clone-node-max="1" \
     notify="true"
 ```
+
 </TabItem>
 </Tabs>
 
@@ -1117,6 +1124,7 @@ pcs resource create http \
     --group centreon \
     --force
 ```
+
 </TabItem>
 </Tabs>
 
@@ -1240,6 +1248,7 @@ pcs constraint location ms_mysql-master avoids @CENTRAL_MASTER_NAME@=INFINITY @C
 pcs constraint location cbd_rrd-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
 pcs constraint location php-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
 ```
+
 </TabItem>
 </Tabs>
 
@@ -1329,6 +1338,7 @@ Active resources:
      snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_MASTER_NAME@
      vip_mysql       (ocf::heartbeat:IPaddr2):       Started @CENTRAL_MASTER_NAME@
 ```
+
 </TabItem>
 </Tabs>
 
@@ -1364,6 +1374,7 @@ pcs resource restart ms_mysql-clone
 ```bash 
 pcs resource restart ms_mysql
 ```
+
 </TabItem>
 </Tabs>
 
@@ -1418,6 +1429,7 @@ Colocation Constraints:
   ms_mysql-master with vip_mysql (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
 Ticket Constraints:
 ```
+
 </TabItem>
 </Tabs>
 

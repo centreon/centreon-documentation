@@ -164,6 +164,7 @@ net.ipv4.tcp_keepalive_intvl = 2
 EOF
 systemctl restart network
 ```
+
 </TabItem>
 </Tabs>
 
@@ -713,6 +714,7 @@ systemctl enable pcsd.service
 pcs qdevice setup model net --enable --start
 pcs qdevice status net --full
 ```
+
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
@@ -835,6 +837,7 @@ Cette commande ne doit être lancée que sur un des deux nœuds centraux :
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+
 ```bash
 pcs resource create "ms_mysql" \
     ocf:heartbeat:mysql-centreon \
@@ -854,6 +857,7 @@ pcs resource create "ms_mysql" \
 
 </TabItem>
 <TabItem value="RHEL 7" label="RHEL 7">
+
 ```bash
 pcs resource create "ms_mysql" \
     ocf:heartbeat:mysql-centreon \
@@ -873,6 +877,7 @@ pcs resource create "ms_mysql" \
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
+
 ```bash
 pcs resource create "ms_mysql" \
     ocf:heartbeat:mysql-centreon \
@@ -898,6 +903,7 @@ pcs resource create "ms_mysql" \
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+
 ```bash
 pcs resource promotable ms_mysql \
     master-node-max="1" \
@@ -909,6 +915,7 @@ pcs resource promotable ms_mysql \
 
 </TabItem>
 <TabItem value="RHEL 7" label="RHEL 7">
+
 ```bash
 pcs resource master ms_mysql \
     master-node-max="1" \
@@ -943,6 +950,7 @@ Certaines ressources ne doivent être démarrées que sur un seul nœud, mais po
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+
 ```bash
 pcs resource create "php7" \
     systemd:rh-php73-php-fpm \
@@ -955,6 +963,7 @@ pcs resource create "php7" \
 
 </TabItem>
 <TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
+
 ```bash
 pcs resource create "php7" \
     systemd:rh-php73-php-fpm \
@@ -1003,6 +1012,7 @@ pcs resource create vip \
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+
 ```bash
 pcs resource create http \
     systemd:httpd \
@@ -1241,7 +1251,9 @@ pcs resource restart ms_mysql
 En temps normal, seules les contraintes de colocation doivent être actives sur le cluster. La commande `pcs constraint` doit retourner :
 
 <Tabs groupId="sync">
+
 <TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+
 ```bash
 Location Constraints:
 Ordering Constraints:
@@ -1253,6 +1265,7 @@ Ticket Constraints:
 
 </TabItem>
 <TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
+
 ```bash
 Location Constraints:
 Ordering Constraints:

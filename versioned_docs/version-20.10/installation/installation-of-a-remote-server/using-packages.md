@@ -237,6 +237,7 @@ yum install -y centreon-database
 systemctl daemon-reload
 systemctl restart mariadb
 ```
+
 </TabItem>
 </Tabs>
 

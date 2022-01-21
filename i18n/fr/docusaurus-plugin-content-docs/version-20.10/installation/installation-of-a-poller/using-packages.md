@@ -117,6 +117,7 @@ Installez le référentiel de collections de logiciels à l'aide de cette comman
 ```shell
 yum install -y centos-release-scl
 ```
+
 </TabItem>
 </Tabs>
 

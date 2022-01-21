@@ -125,5 +125,6 @@ systemctl restart httpd
 ```shell
 systemctl restart httpd24-httpd
 ```
+
 </TabItem>
 </Tabs>

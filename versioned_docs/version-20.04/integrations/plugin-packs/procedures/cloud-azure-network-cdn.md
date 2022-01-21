@@ -317,6 +317,7 @@ command:
     --plugin=cloud::azure::network::cdn::plugin  \
     --list-mode
 ```
+
 </TabItem>
 </Tabs>
 

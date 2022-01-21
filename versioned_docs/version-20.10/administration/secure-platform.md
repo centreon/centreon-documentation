@@ -137,6 +137,7 @@ Depending on the type of server, install the packages with the following command
    ```shell
    yum install centreon-mbi-selinux
    ```
+
 </TabItem>
 </Tabs>
 
@@ -245,6 +246,7 @@ firewall-cmd --zone=public --add-service=ssh --permanent
 firewall-cmd --zone=public --add-service=snmp --permanent
 firewall-cmd --zone=public --add-service=snmptrap --permanent
 ```
+
 </TabItem>
 </Tabs>
 
@@ -351,6 +353,7 @@ dnf install mod_ssl mod_security openssl
 ```shell
 yum install httpd24-mod_ssl httpd24-mod_security openssl
 ```
+
 </TabItem>
 </Tabs>
 
@@ -376,6 +379,7 @@ cp /etc/httpd/conf.d/10-centreon.conf{,.origin}
 ```shell
 cp /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf{,.origin}
 ```
+
 </TabItem>
 </Tabs>
 
@@ -501,6 +505,7 @@ Edit the **/etc/opt/rh/rh-php72/php.d/50-centreon.ini** file and turn off the `e
 ```phpconf
 expose_php = Off
 ```
+
 </TabItem>
 </Tabs>
 
@@ -523,6 +528,7 @@ Edit the **/opt/rh/httpd24/root/etc/httpd/conf.d/autoindex.conf** file and comme
 ```apacheconf
 #Alias /icons/ "/opt/rh/httpd24/root/usr/share/httpd/icons/"
 ```
+
 </TabItem>
 </Tabs>
 
@@ -608,6 +614,7 @@ If everything is ok, you must have:
            ├─31903 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
            └─32050 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
 ```
+
 </TabItem>
 </Tabs>
 
@@ -861,6 +868,7 @@ yum install httpd24-nghttp2
 ```shell
 systemctl restart httpd24-httpd
 ```
+
 </TabItem>
 </Tabs>
 

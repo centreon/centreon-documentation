@@ -190,14 +190,18 @@ Then run the following command:
 
 <Tabs groupId="sync">
 <TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+
 ```shell
 dnf install centreon-bi-server
 ```
+
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
+
 ```shell
 yum install centreon-bi-server
 ```
+
 </TabItem>
 </Tabs>
 
@@ -315,6 +319,7 @@ Then execute the following command:
 
 <Tabs groupId="sync">
 <TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+
 ```shell
 dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
 ```
@@ -326,8 +331,10 @@ need to add the following GPG key:
 cd /etc/pki/rpm-gpg/
 wget https://yum.centreon.com/standard/21.04/el8/stable/RPM-GPG-KEY-CES
 ```
+
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
+
 ```shell
 yum install centreon-bi-reporting-server MariaDB-server MariaDB-client
 ```
@@ -339,6 +346,7 @@ need to add the following GPG key:
 cd /etc/pki/rpm-gpg/
 wget https://yum.centreon.com/standard/21.04/el7/stable/RPM-GPG-KEY-CES
 ```
+
 </TabItem>
 </Tabs>
 

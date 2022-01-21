@@ -187,6 +187,7 @@ dnf install centreon-bi-server
 ```shell
 yum install centreon-bi-server
 ```
+
 </TabItem>
 </Tabs>
 
@@ -331,6 +332,7 @@ need to add the following GPG key:
 cd /etc/pki/rpm-gpg/
 wget https://yum.centreon.com/standard/21.10/el7/stable/RPM-GPG-KEY-CES
 ```
+
 </TabItem>
 </Tabs>
 

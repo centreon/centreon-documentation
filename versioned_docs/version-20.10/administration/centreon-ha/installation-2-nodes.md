@@ -708,6 +708,7 @@ pcs resource create "ms_mysql" \
     test_passwd="@MARIADB_REPL_PASSWD@" \
     test_table='centreon.host'
 ```
+
 </TabItem>
 </Tabs>
 

@@ -527,12 +527,14 @@ To begin, install the server using the following command:
 ```shell
 dnf install centreon-map-server-ng
 ```
+
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
 yum install centreon-map-server-ng
 ```
+
 </TabItem>
 </Tabs>
 

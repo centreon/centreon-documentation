@@ -245,6 +245,7 @@ les commandes suivantes :
 su - centreon-gorgone
 ssh-copy-id -i .ssh/id_rsa.pub centreon@<IP_REMOTE_SERVER>
 ```
+
 </TabItem>
 </Tabs>
 

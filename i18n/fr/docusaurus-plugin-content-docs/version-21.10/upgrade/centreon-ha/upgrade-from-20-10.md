@@ -128,6 +128,7 @@ echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
 
 <Tabs groupId="sync">
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
+
 ```bash
 pcs resource delete php7 --force
 pcs resource create "php" \
@@ -138,8 +139,10 @@ pcs resource create "php" \
     monitor interval="5s" timeout="30s" \
     clone
 ```
+
 </TabItem>
 <TabItem value="HA 4 Nodes" label="HA 4 Nodes">
+
 ```bash
 pcs resource delete php7 --force
 pcs resource create "php" \
@@ -151,6 +154,7 @@ pcs resource create "php" \
     clone
 pcs constraint location php-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
 ```
+
 </TabItem>
 </Tabs>
 
@@ -341,6 +345,7 @@ Il est possible de suivre l'état du cluster en temps réel via la commande `crm
 
 <Tabs groupId="sync">
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
+
 ```bash
 Stack: corosync
 Current DC: @CENTRAL_SLAVE_NAME@ (version 1.1.20-5.el7_7.2-3c4c782f70) - partition with quorum
@@ -371,8 +376,10 @@ Active resources:
  Clone Set: php-clone [php]
      Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
 ```
+
 </TabItem>
 <TabItem value="HA 4 Nodes" label="HA 4 Nodes">
+
 ```bash
 [...]
 4 nodes configured
@@ -400,6 +407,7 @@ Active resources:
  Clone Set: php-clone [php]
      Started: [@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE@]
 ```
+
 </TabItem>
 </Tabs>
 

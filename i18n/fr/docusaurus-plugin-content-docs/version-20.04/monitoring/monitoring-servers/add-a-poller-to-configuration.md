@@ -190,6 +190,7 @@ commandes suivantes :
 su - centreon-gorgone
 ssh-copy-id -i .ssh/id_rsa.pub centreon@<IP_POLLER>
 ```
+
 </TabItem>
 </Tabs>
 

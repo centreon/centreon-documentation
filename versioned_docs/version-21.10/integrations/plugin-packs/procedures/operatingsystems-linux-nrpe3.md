@@ -138,6 +138,7 @@ dnf install centreon-nrpe3-daemon.x86_64 centreon-plugin-Operatingsystems-Linux-
 yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-2.el7.centos.noarch.rpm
 yum install centreon-nrpe3-daemon.x86_64 centreon-plugin-Operatingsystems-Linux-Local.noarch
 ```
+
 </TabItem>
 </Tabs>
 

@@ -129,6 +129,7 @@ Install the Software Collections repository using this command:
 ```shell
 yum install -y centos-release-scl
 ```
+
 </TabItem>
 </Tabs>
 
@@ -152,6 +153,7 @@ dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/ce
 ```shell
 yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-5.el7.centos.noarch.rpm
 ```
+
 </TabItem>
 </Tabs>
 
@@ -172,6 +174,7 @@ dnf install -y centreon-poller-centreon-engine
 ```shell
 yum install -y centreon-poller-centreon-engine
 ```
+
 </TabItem>
 </Tabs>
 
@@ -222,6 +225,7 @@ Example:
 ``` shell
 /usr/share/centreon/bin/registerServerTopology.sh -u admin -t poller -h 192.168.0.1 -n poller-1
 ```
+
 </TabItem>
 </Tabs>
 

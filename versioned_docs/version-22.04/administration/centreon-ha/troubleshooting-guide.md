@@ -80,6 +80,7 @@ Failed Resource Actions:
 * centreontrapd_start_0 on @CENTRAL_MASTER_NAME@ 'not running' (7): call=82, status=complete, exitreason='',
     last-rc-change='Thu Feb 20 13:42:19 2020', queued=1ms, exec=2122ms
 ```
+
 </TabItem>
 </Tabs>
 
@@ -146,6 +147,7 @@ Failed Resource Actions:
 * centreontrapd_start_0 on @CENTRAL_MASTER_NAME@ 'not running' (7): call=82, status=complete, exitreason='',
     last-rc-change='Thu Feb 20 13:42:19 2020', queued=1ms, exec=2122ms
 ```
+
 </TabItem>
 </Tabs>
 
@@ -173,6 +175,7 @@ If after a failover, could it be a manual one or after a server shutdown, the fo
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+
 ```bash
 Location Constraints:
     Disabled on: @CENTRAL_SLAVE_NAME@ (score:-INFINITY) (role: Started)
@@ -207,6 +210,7 @@ Active resources:
  Clone Set: cbd_rrd-clone [cbd_rrd]
      Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
 ```
+
 </TabItem>
 </Tabs>
 
@@ -218,6 +222,7 @@ pcs constraint show
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+
 ```bash
 Location Constraints:
     Disabled on: @CENTRAL_SLAVE_NAME@ (score:-INFINITY) (role: Started)
@@ -243,6 +248,7 @@ Colocation Constraints:
   ms_mysql-master with centreon (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
 Ticket Constraints:
 ```
+
 </TabItem>
 </Tabs>
 

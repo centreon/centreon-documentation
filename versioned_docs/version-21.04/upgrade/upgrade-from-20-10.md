@@ -117,6 +117,7 @@ systemctl disable rh-php72-php-fpm
 systemctl enable rh-php73-php-fpm
 systemctl start rh-php73-php-fpm
 ```
+
 </TabItem>
 </Tabs>
 
@@ -137,6 +138,7 @@ following command:
 ```shell
 systemctl reload httpd24-httpd
 ```
+
 </TabItem>
 </Tabs>
 

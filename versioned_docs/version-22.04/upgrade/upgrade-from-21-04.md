@@ -49,6 +49,7 @@ dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/ce
 ```shell
 yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-5.el7.centos.noarch.rpm
 ```
+
 </TabItem>
 </Tabs>
 
@@ -86,6 +87,7 @@ Then, you need to enable the php 8.0 repository
 ```shell
 yum-config-manager --enable remi-php80
 ```
+
 </TabItem>
 </Tabs>
 
@@ -156,6 +158,7 @@ systemctl disable rh-php74-php-fpm
 systemctl enable php-fpm
 systemctl start php-fpm
 ```
+
 </TabItem>
 </Tabs>
 
@@ -201,6 +204,7 @@ following command:
 ```shell
 systemctl reload httpd24-httpd
 ```
+
 </TabItem>
 </Tabs>
 
@@ -273,6 +277,7 @@ dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/ce
 ```shell
 yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-5.el7.centos.noarch.rpm
 ```
+
 </TabItem>
 </Tabs>
 
