@@ -66,7 +66,7 @@ commerciales, veuillez contacter le support.
 #### Improvements
 
 - Add Feature Flipping for Resources Status vs Legacy Pages
-- ACL: Authorize visualisation on daughter Business Activities even if not part of the same Business View
+- ACL: Authorize visualisation on child Business Activities even if not part of the same Business View
 - Add warning when enabling notifications for a BA, for the user to know about the necessity of setting notification commands
 
 #### Bugfixes
