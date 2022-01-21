@@ -51,6 +51,10 @@ Le Pack supporte les méthodes d'authentification:
 * par utilisateur et mot de passe
 * par token directement
 
+La version minimum VTOM 6.6.1a est nécessaire pour le bon fonctionnement du Pack:
+* /auth/1.0/authorize
+* /monitoring/1.0/jobs/status 
+
 ## Installation
 
 <!--DOCUSAURUS_CODE_TABS-->

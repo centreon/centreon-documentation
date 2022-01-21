@@ -47,9 +47,13 @@ It brings the following Service Templates:
 
 To control your VTOM, the Rest API must be configured.
 
-The pack supports following authentication:
+The Pack supports following authentication:
 * username/password
 * direct token
+
+At least VTOM 6.6.1a is mandatory for the Pack:
+* /auth/1.0/authorize
+* /monitoring/1.0/jobs/status
 
 ## Setup
 
