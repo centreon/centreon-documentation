@@ -75,7 +75,7 @@ commerciales, veuillez contacter le support.
 - Fixed an error when generating poller configuration with a disabled BA linked to an escalation task
 - Fixed the relations between BA and escalations exported in RS engine conf regardless of whether the BA is linked to the RS or not
 - Fixed the alignment of "required" input text on panel in Add Business Activity
-- Fixed MBI menu entry not visible after upgrade from 19.10 to 21.10.0-beta.2 due to BAM module
+- Fixed MBI menu entry that was not visible after upgrade from 19.10 to 21.10.0-beta.2 due to BAM module
 
 
 ### 21.04.0
