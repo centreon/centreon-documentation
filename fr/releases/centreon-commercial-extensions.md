@@ -61,7 +61,7 @@ commerciales, veuillez contacter le support.
 
 ### 21.04.1
 
-`January 7, 2022`
+`January 21, 2022`
 
 #### Improvements
 
