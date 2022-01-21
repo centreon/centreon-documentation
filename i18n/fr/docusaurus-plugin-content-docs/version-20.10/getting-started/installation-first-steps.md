@@ -54,14 +54,14 @@ Les machines virtuelles sont disponibles sur notre site de [téléchargement Cen
 
 <Tabs groupId="sync">
 <TabItem value="VMware environment" label="VMware environment">
-\
+
 Accédez à **Fichier > Déployer le modèle OVF** et sélectionnez le **fichier OVA**. Parce que les sélections de menu sont
 liées à votre configuration VMWare, nous ne pouvons pas fournir plus d'informations. Sachez que la meilleure pratique
 consiste à utiliser l'option **Thin Provision** pour économiser autant d'espace libre que possible sur le disque.
 
 </TabItem>
 <TabItem value="Oracle Virtualbox" label="Oracle Virtualbox">
-\
+
 Extraire le contenu de l'archive et double-cliquez sur le **fichier OVF**. Suivez les instructions pour importer la
 machine virtuelle.
 

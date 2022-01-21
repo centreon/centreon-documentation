@@ -85,6 +85,7 @@ considerations.
 
 <Tabs groupId="sync">
 <TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+
 - Centreon 20.10
 - Check that the parameter `date.timezone` is correctly configured in `/etc/php.d/php.ini`
   (same timezone displayed with the command `timedatectl status`)
@@ -92,8 +93,10 @@ considerations.
   They halt long queries execution and can stop the ETL or the report generation jobs:
   - wait_timeout
   - interactive_timeout
+
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
+
 - Centreon 20.10
 - Check that the parameter `date.timezone` is correctly configured in
   `/etc/opt/rh/rh-php72/php.ini` (same timezone displayed with the
@@ -102,6 +105,7 @@ considerations.
   They halt long queries execution and can stop the ETL or the report generation jobs:
   - wait_timeout
   - interactive_timeout
+
 </TabItem>
 </Tabs>
 

@@ -36,13 +36,14 @@ To acknowledge an incident, there are two solutions:
 
 <Tabs groupId="sync">
 <TabItem value="From real time monitoring" label="From real time monitoring">
+
 1. Go into the **Monitoring > Status Details > Hosts** (or **services**) menu
 2. Select the object(s) that you want acknowledge
 3. In the menu: **More actions** click on **Hosts: Acknowledge** or on **Services: Acknowledge**
 
 </TabItem>
 <TabItem value="From the detailed sheet of an object" label="From the detailed sheet of an object">
-\
+
 From of the detail page of an object, click on the icon |enabled| associated with the **Acknowledged** field in the
 **Options** frame
 

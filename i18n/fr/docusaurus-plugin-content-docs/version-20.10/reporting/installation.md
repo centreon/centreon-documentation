@@ -80,6 +80,7 @@ serveur de reporting pour des questions de performances & d'isolation.
 
 <Tabs groupId="sync">
 <TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+
 - Centreon Web 20.10
 - Vérifiez que `date.timezone` est correctement configurée dans le fichier
   `/etc/php.d/php.ini` (même que celui retourné par la commande
@@ -90,8 +91,10 @@ serveur de reporting pour des questions de performances & d'isolation.
   des rapports.
   - wait_timeout
   - interactive_timeout
+
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
+
 - Centreon Web 20.10
 - Vérifiez que `date.timezone` est correctement configurée dans le fichier
   `/etc/opt/rh/rh-php72/php.ini` (même que celui retourné par la commande
@@ -102,6 +105,7 @@ serveur de reporting pour des questions de performances & d'isolation.
   des rapports.
   - wait_timeout
   - interactive_timeout
+
 </TabItem>
 </Tabs>
 

@@ -95,6 +95,7 @@ Then execute:
 
 </TabItem>
 <TabItem value="Debian Stretch / Ubuntu 18.04" label="Debian Stretch / Ubuntu 18.04">
+
 Add the php 7.2 repository:
 
 ### For Debian Stretch
