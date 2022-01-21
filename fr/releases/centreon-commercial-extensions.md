@@ -71,7 +71,7 @@ commerciales, veuillez contacter le support.
 
 #### Bugfixes
 
-- Fixed the wrong message in popup when deleting "Activités Métiers" (Fr language)
+- Fixed the message that appeared in a popup when deleting "Activités Métiers" (Fr language)
 - Fixed an error when generating poller configuration with a disabled BA linked to an escalation task
 - Fixed the relations between BA and escalations exported in RS engine conf regardless the BA is linked to the RS or not
 - Fixed the alignment of "required" input text on panel in Add Business Activity
