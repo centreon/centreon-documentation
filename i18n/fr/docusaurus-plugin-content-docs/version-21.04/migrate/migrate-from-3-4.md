@@ -82,24 +82,24 @@ Centreon.
 3. Transférer les exports vers le nouveau serveur de base de données Centreon
 21.04 :
 
-    ```shell
-    rsync -avz /tmp/centreon.sql root@<IP_NOUVEAU_CENTREON>:/tmp/
-    rsync -avz /tmp/centreon_storage.sql root@<IP_NOUVEAU_CENTREON>:/tmp/
-    ```
+  ```shell
+  rsync -avz /tmp/centreon.sql root@<IP_NOUVEAU_CENTREON>:/tmp/
+  rsync -avz /tmp/centreon_storage.sql root@<IP_NOUVEAU_CENTREON>:/tmp/
+  ```
 
 4. Sur le serveur de base de données Centreon 21.04, supprimer les bases de
 données vierges et les recréer :
 
-    ```shell
-    mysql -u root -p
-    ```
+  ```shell
+  mysql -u root -p
+  ```
 
-    ```SQL
-    DROP DATABASE centreon;
-    DROP DATABASE centreon_storage;
-    CREATE DATABASE centreon;
-    CREATE DATABASE centreon_storage;
-    ```
+  ```SQL
+  DROP DATABASE centreon;
+  DROP DATABASE centreon_storage;
+  CREATE DATABASE centreon;
+  CREATE DATABASE centreon_storage;
+  ```
 
 5. Importer les dumps :
 
