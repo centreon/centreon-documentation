@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'Centreon Documentation',
   tagline: '',
-  url: 'https://docs-staging.centreon.com',
+  url: 'https://docs-prod.centreon.com',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -38,8 +38,8 @@ const config = {
       ({
         docs: {
           admonitions: {},
-          editUrl:
-            'https://github.com/centreon/centreon-documentation/edit/staging/',
+          editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
+          editLocalizedFiles : true,
           showLastUpdateTime: true,
           includeCurrentVersion: false,
           onlyIncludeVersions: ['21.10', '21.04', '20.10', '20.04'],
