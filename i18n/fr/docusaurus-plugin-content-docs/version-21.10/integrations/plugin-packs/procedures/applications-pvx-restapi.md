@@ -144,7 +144,7 @@ yum install centreon-plugin-Applications-Pvx-Restapi
 
 2. Sur le serveur Central Centreon, installer le RPM du Pack **PVX** :
 
- ```bash
+```bash
 yum install centreon-pack-applications-pvx-restapi
 ```
 
