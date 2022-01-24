@@ -41,8 +41,8 @@ en exécutant la commande suivante :
 7, réalisez la montée de version en suivant [cette procédure](../upgrade/upgrade-from-3-4),
 sinon référez vous à [la procédure de migration](../migrate/migrate-from-3-4).
 
-    > Si vous possédez des modules Centreon EMS, il est nécessaire de mettre à jour
-    > ces dépôts. Contactez votre support Centreon pour obtenir ces derniers.
+  > Si vous possédez des modules Centreon EMS, il est nécessaire de mettre à jour
+  > ces dépôts. Contactez votre support Centreon pour obtenir ces derniers.
 
 4. Rendez-vous dans le menu **Administration > Extensions > Modules** et
 installez le module **centreon-license-manager**.
