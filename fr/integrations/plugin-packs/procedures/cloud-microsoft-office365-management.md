@@ -12,11 +12,21 @@ Les informations de monitoring de la suite Office sont mises à disposition par 
 
 ### Objets supervisés
 
+* Application credentials : L'expiration des clés et mot de passes pour les applications.
 * Services Office : Tous les services Office 365 : Office 365 Portal, Exchange Online, Microsoft Intune, Skype for Business, Mobile Device Management for Office 365, OneDrive for Business, SharePoint Online, Microsoft Teams, etc...
 
 ## Métriques collectées
 
 <!--DOCUSAURUS_CODE_TABS-->
+
+<!--App-Credentials-->
+
+| Metric name                                            | Description                                  | Unit   |
+| :----------------------------------------------------- | :------------------------------------------- | :----- |
+| password status                                        | Current password status (valid or expired)   |        |
+| *app_name~key_id*#application.password.expires.seconds | Number of seconds before password expiration | s      |
+| key status                                             | Current key status (valid or expired)        |        |
+| *app_name~key_id*#application.key.expires.seconds      | Number of seconds before key expiration      | s      |
 
 <!--Service-Status-->
 

@@ -13,11 +13,21 @@ The Centreon Plugin relies on the Office 365 Graph API to collect and monitor th
 
 ### Monitored objects
 
+* Application credentials: Expiration of key and password credentials for each applications.
 * Office services: Applications available on the Office 365 portal: Exchange Online, Microsoft Intune, Skype for Business, Mobile Device Management for Office 365, OneDrive for Business, SharePoint Online, Microsoft Teams, etc...
 
 ## Collected metrics
 
 <!--DOCUSAURUS_CODE_TABS-->
+
+<!--App-Credentials-->
+
+| Metric name                                            | Description                                  | Unit   |
+| :----------------------------------------------------- | :------------------------------------------- | :----- |
+| password status                                        | Current password status (valid or expired)   |        |
+| *app_name~key_id*#application.password.expires.seconds | Number of seconds before password expiration | s      |
+| key status                                             | Current key status (valid or expired)        |        |
+| *app_name~key_id*#application.key.expires.seconds      | Number of seconds before key expiration      | s      |
 
 <!--Service-Status-->
 
