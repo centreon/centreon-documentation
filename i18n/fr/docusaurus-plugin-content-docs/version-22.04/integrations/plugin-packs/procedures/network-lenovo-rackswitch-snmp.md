@@ -116,7 +116,7 @@ yum install centreon-plugin-Network-Lenovo-Rackswitch-Snmp
 
 2. Sur le serveur Central Centreon, installer le RPM du Pack **Lenovo RackSwitch SNMP** :
 
- ```bash
+```bash
 yum install centreon-pack-network-lenovo-rackswitch-snmp
 ```
 

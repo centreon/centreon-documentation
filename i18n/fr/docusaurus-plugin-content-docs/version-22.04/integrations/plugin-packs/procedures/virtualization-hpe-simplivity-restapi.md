@@ -108,7 +108,7 @@ yum install centreon-plugin-Virtualization-Hpe-Simplivity-Restapi
 
 2. Sur le serveur Central Centreon, installer le RPM du Pack **HPE Simplivity Rest API** :
 
- ```bash
+```bash
 yum install centreon-pack-virtualization-hpe-simplivity-restapi
 ```
 

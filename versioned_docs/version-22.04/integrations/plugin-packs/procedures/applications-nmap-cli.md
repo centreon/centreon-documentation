@@ -38,7 +38,7 @@ yum install centreon-plugin-Applications-Nmap-Cli
 
 2. Install the **Nmap CLI** Centreon Plugin Pack RPM on the Centreon Central server:
 
- ```bash
+```bash
 yum install centreon-pack-applications-nmap-cli
 ```
 

@@ -1178,7 +1178,7 @@
     "@docsearch/css" "3.0.0-alpha.42"
     algoliasearch "^4.0.0"
 
-"@docusaurus/core@2.0.0-beta.14":
+"@docusaurus/core@2.0.0-beta.14", "@docusaurus/core@^2.0.0-beta.14":
   version "2.0.0-beta.14"
   resolved "https://registry.yarnpkg.com/@docusaurus/core/-/core-2.0.0-beta.14.tgz#9baf8fbfe29f444f985616013b5d80435ea5f29e"
   integrity sha512-dW95WbD+WE+35Ee1RYIS1QDcBhvUxUWuDmrWr1X0uH5ZHIeOmOnsGVjjn4FA8VN2MkF0uuWknmRakQmJk0KMZw==
@@ -3535,6 +3535,11 @@ d3-helpers@0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/d3-helpers/-/d3-helpers-0.3.0.tgz#4b31dce4a2121a77336384574d893fbed5fb293d"
   integrity sha1-SzHc5KISGnczY4RXTYk/vtX7KT0=
+
+debug-mode@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/debug-mode/-/debug-mode-2.0.2.tgz#52d13ff324fd41c3164ea2ad4a8392a7cabd2e0c"
+  integrity sha512-uOGKcpU0ZSADgNKzyoZ3I3Sj5xAgGGOavQKhH60sTrW4+EtOa2MDrcop+XUdRmLqI4p0rjSrqPcQbwlBtLLhRw==
 
 debug@2.6.3:
   version "2.6.3"

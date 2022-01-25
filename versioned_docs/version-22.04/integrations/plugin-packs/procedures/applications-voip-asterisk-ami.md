@@ -87,7 +87,7 @@ yum install centreon-plugin-Applications-Voip-Asterisk-Ami
 
 2. Install the **Asterisk VoIP Server** Centreon Plugin Pack RPM on the Centreon Central server:
 
- ```bash
+```bash
 yum install centreon-pack-applications-voip-asterisk-ami
 ```
 

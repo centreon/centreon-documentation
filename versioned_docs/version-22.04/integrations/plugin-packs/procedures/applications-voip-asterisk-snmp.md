@@ -69,7 +69,7 @@ yum install centreon-plugin-Applications-Voip-Asterisk-Snmp
 
 2. Install the **Asterisk VoIP SNMP** Centreon Plugin Pack RPM on the Centreon Central server:
 
- ```bash
+```bash
 yum install centreon-pack-applications-voip-asterisk-snmp
 ```
 
