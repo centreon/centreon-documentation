@@ -31,7 +31,7 @@ Il apporte les Modèles de Service suivants :
 ### Métriques & statuts collectés
 
 <Tabs groupId="sync">
-<TabItem value="proc-sshd" label="proc-sshd">
+<TabItem value="Broker-Stats" label="Broker-Stats">
 
 | Nom                   | Unité  |
 | :-------------------- | :----- |

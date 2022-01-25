@@ -32,7 +32,7 @@ pipeline {
        when { branch 'test' }      
        steps {
          input message: 'Deploying to production ? (Click "Proceed" to continue)'
-         sh 'aws s3 sync --delete s3://centreon-documentation-staging/* s3://centreon-documentation-production/'
+         sh 'aws s3 sync --delete s3://centreon-documentation-staging/ s3://centreon-documentation-production/'
          sh 'aws cloudfront create-invalidation --distribution-id E2ZKHBQFFL6WGV --paths "/*"'
        }
      }
