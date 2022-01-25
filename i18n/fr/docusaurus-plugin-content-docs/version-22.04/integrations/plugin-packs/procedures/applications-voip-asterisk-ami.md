@@ -2,6 +2,9 @@
 id: applications-voip-asterisk-ami
 title: Asterisk VoIP Server
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Contenu du Pack
 
@@ -20,9 +23,8 @@ Il apporte les Modèles de Service suivants :
 
 ### Métriques & statuts collectés
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Channel-Usage-->
+<Tabs groupId="sync">
+<TabItem value="Channel-Usage" label="Channel-Usage">
 
 | Métrique              | Unité |
 |:----------------------|:------|
@@ -31,13 +33,15 @@ Il apporte les Modèles de Service suivants :
 | channels.active.count | count |
 | extcalls.active.count | count |
 
-<!--Dahdi-Status-->
+</TabItem>
+<TabItem value="Dahdi-Status" label="Dahdi-Status">
 
 | Métrique    | Unité  |
 |:------------|:-------|
 | status      | string |
 
-<!--Sip-Peers-Usage-->
+</TabItem>
+<TabItem value="Sip-Peers-Usage" label="Sip-Peers-Usage">
 
 | Métrique                          | Unité  |
 |:----------------------------------|:-------|
@@ -48,7 +52,8 @@ Il apporte les Modèles de Service suivants :
 | sip.peers.unmonitor.online.count  | count  |
 | status                            | string |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -61,9 +66,8 @@ les droits de lecture doit être configurer dans le fichier
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online License-->
+<Tabs groupId="sync">
+<TabItem value="Online License" label="Online License">
 
 1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des ressources **Asterisk** :
 
@@ -73,7 +77,8 @@ yum install centreon-plugin-Applications-Voip-Asterisk-Ami
 
 2. Sur l'interface Web de Centreon, installer le Plugin Pack **Asterisk VoIP Server** depuis la page **Configuration > Packs de plugins**.
 
-<!--Offline License-->
+</TabItem>
+<TabItem value="Offline License" label="Offline License">
 
 1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des ressources **Asterisk** :
 
@@ -89,7 +94,8 @@ yum install centreon-pack-applications-voip-asterisk-ami
 
 3. Sur l'interface Web de Centreon, installer le Plugin Pack **Asterisk VoIP Server** depuis la page **Configuration > Packs de plugins**.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

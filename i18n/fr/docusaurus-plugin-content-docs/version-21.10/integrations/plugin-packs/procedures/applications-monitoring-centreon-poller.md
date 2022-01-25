@@ -2,6 +2,9 @@
 id: applications-monitoring-centreon-poller
 title: Centreon Poller
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Vue d'ensemble
 
@@ -27,9 +30,8 @@ Il apporte les Modèles de Service suivants :
 
 ### Métriques & statuts collectés
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--proc-sshd-->
+<Tabs groupId="sync">
+<TabItem value="proc-sshd" label="proc-sshd">
 
 | Nom                   | Unité  |
 | :-------------------- | :----- |
@@ -38,31 +40,36 @@ Il apporte les Modèles de Service suivants :
 | status                | string |
 | unacknowledged-events | string |
 
-<!--proc-centegine-->
+</TabItem>
+<TabItem value="proc-centegine" label="proc-centegine">
 
 | Metric Name | Unit   |
 | :---------- | :----- |
 | Status      | string |
 
-<!--proc-gorgoned-->
+</TabItem>
+<TabItem value="proc-gorgoned" label="proc-gorgoned">
 
 | Metric Name | Unit   |
 | :---------- | :----- |
 | Status      | string |
 
-<!--proc-ntpd-->
+</TabItem>
+<TabItem value="proc-ntpd" label="proc-ntpd">
 
 | Metric Name | Unit   |
 | :---------- | :----- |
 | Status      | string |
 
-<!--proc-sshd-->
+</TabItem>
+<TabItem value="proc-sshd" label="proc-sshd">
 
 | Metric Name | Unit   |
 | :---------- | :----- |
 | Status      | string |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -96,9 +103,8 @@ ssh-copy-id -i ~/.ssh/id_ed25519.pub centreon@<IP_POLLER>
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online License-->
+<Tabs groupId="sync">
+<TabItem value="Online License" label="Online License">
 
 1. Installer le Plugin Centreon sur le serveur Central :
 
@@ -108,7 +114,8 @@ yum install centreon-plugin-Applications-Monitoring-Centreon-Poller centreon-plu
 
 2. Sur l'interface Web de Centreon, installer le Plugin Pack **Centreon Poller** depuis la page **Configuration > Packs de plugins**.
 
-<!--Offline License-->
+</TabItem>
+<TabItem value="Offline License" label="Offline License">
 
 1. Installer le Plugin Centreon sur le serveur Central :
 
@@ -124,7 +131,8 @@ yum install centreon-pack-applications-monitoring-centreon-poller
 
 3. Sur l'interface Web de Centreon, installer le Plugin Pack **Centreon Poller** depuis la page **Configuration > Packs de plugins**.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

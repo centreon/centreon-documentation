@@ -2,6 +2,9 @@
 id: network-lenovo-rackswitch-snmp
 title: Lenovo RackSwitch SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Pack Assets
 
@@ -28,9 +31,8 @@ It brings the following Service Templates:
 
 ### Collected metrics & status
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Cpu-->
+<Tabs groupId="sync">
+<TabItem value="Cpu" label="Cpu">
 
 | Metric name                   | Description                            | Unit  |
 | :---------------------------- | :------------------------------------- | :---- |
@@ -38,7 +40,8 @@ It brings the following Service Templates:
 | cpu.utilization.1m.percentage | CPU utilization for the last minute    | %     |
 | cpu.utilization.5m.percentage | CPU utilization for the last 5 minutes | %     |
 
-<!--Hardware-->
+</TabItem>
+<TabItem value="Hardware" label="Hardware">
 
 | Metric name                                      | Description                        | Unit  |
 | :----------------------------------------------- | :--------------------------------- | :---- |
@@ -46,7 +49,8 @@ It brings the following Service Templates:
 | *sensor_num*#hardware.sensor.temperature.celsius | Temperature of the sensor          | C     |
 | *fan_num*#hardware.fan.speed.rpm                 | Speed of the fan                   | rpm   |
 
-<!--Interfaces-->
+</TabItem>
+<TabItem value="Interfaces" label="Interfaces">
 
 | Metric name                                               | Description                                             | Unit |
 |:--------------------------------------------------------- |:------------------------------------------------------- |:---- |
@@ -58,7 +62,8 @@ It brings the following Service Templates:
 | *interface_name*#interface.packets.out.error.percentage   | Outgoing errored packets going through the interface    | %    |
 | *interface_name*#interface.packets.out.discard.percentage | Outgoing discarded packets going through the interface  | %    |
 
-<!--Memory-->
+</TabItem>
+<TabItem value="Memory" label="Memory">
 
 | Metric name             | Description                | Unit  |
 | :---------------------- | :------------------------- | :---- |
@@ -66,13 +71,15 @@ It brings the following Service Templates:
 | memory.free.bytes       | Free memory                | B     |
 | memory.usage.percentage | Memory usage in percentage | %     |
 
-<!--Uptime-->
+</TabItem>
+<TabItem value="Uptime" label="Uptime">
 
 | Metric name           | Description        | Unit  |
 | :-------------------- | :----------------- | :---- |
 | system.uptime.seconds | System uptime      | s     |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -87,9 +94,8 @@ port.
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online License-->
+<Tabs groupId="sync">
+<TabItem value="Online License" label="Online License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor **Lenovo RackSwitch SNMP** resources:
 
@@ -99,7 +105,8 @@ yum install centreon-plugin-Network-Lenovo-Rackswitch-Snmp
 
 2. On the Centreon Web interface, install the **Lenovo RackSwitch SNMP** Centreon Pack on the **Configuration > Plugin Packs** page.
 
-<!--Offline License-->
+</TabItem>
+<TabItem value="Offline License" label="Offline License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor **Lenovo RackSwitch SNMP** resources:
 
@@ -109,13 +116,14 @@ yum install centreon-plugin-Network-Lenovo-Rackswitch-Snmp
 
 2. Install the **Lenovo RackSwitch SNMP** Centreon Pack RPM on the Centreon Central server:
 
- ```bash
+```bash
 yum install centreon-pack-network-lenovo-rackswitch-snmp
 ```
 
 3. On the Centreon Web interface, install the **Lenovo RackSwitch SNMP** Centreon Pack on the **Configuration > Plugin Packs** page.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

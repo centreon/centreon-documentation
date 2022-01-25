@@ -2,6 +2,9 @@
 id: applications-voip-asterisk-snmp
 title: Asterisk VoIP SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Pack Assets
 
@@ -18,9 +21,8 @@ It brings the following Service Template:
 
 ### Collected metrics & status
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Channel-Usage-->
+<Tabs groupId="sync">
+<TabItem value="Channel-Usage" label="Channel-Usage">
 
 | Metric Name           | Unit  |
 |:----------------------|:------|
@@ -28,7 +30,8 @@ It brings the following Service Template:
 | calls.processed.count | count |
 | channels.active.count | count |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -44,9 +47,8 @@ port.
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online License-->
+<Tabs groupId="sync">
+<TabItem value="Online License" label="Online License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor **Asterisk** resources:
 
@@ -56,7 +58,8 @@ yum install centreon-plugin-Applications-Voip-Asterisk-Snmp
 
 2. On the Centreon Web interface, install the **Asterisk VoIP SNMP** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
 
-<!--Offline License-->
+</TabItem>
+<TabItem value="Offline License" label="Offline License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor **Asterisk** resources:
 
@@ -72,7 +75,8 @@ yum install centreon-pack-applications-voip-asterisk-snmp
 
 3. On the Centreon Web interface, install the **Asterisk VoIP SNMP** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

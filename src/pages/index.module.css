@@ -289,17 +289,20 @@ html[data-theme="dark"] .subTitle {
 @media only screen and (max-width: 769px) {
   .containerContentPrerequisite {
     text-align: center;
-    padding: 0px;
+    padding: 0;
+    padding-top: 8%;
   }
 
   .containerContentInstallation {
     text-align: center;
-    padding: 0px;
+    padding: 0;
+    padding-top: 8%;
   }
 
   .containerContentMonitoring {
     text-align: center;
-    padding: 0px;
+    padding: 0;
+    padding-top: 8%;
   }
 
   .containerBlock {

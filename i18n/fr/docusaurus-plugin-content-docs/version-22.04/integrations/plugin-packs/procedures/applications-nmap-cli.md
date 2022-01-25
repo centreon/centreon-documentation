@@ -2,6 +2,9 @@
 id: applications-nmap-cli
 title: Nmap CLI Discovery
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Contenu du Pack 
 
@@ -14,9 +17,8 @@ sein de sous-réseaux donnés.
 
 Pour installer le Plugin et le Pack, suivez les étapes ci-après. 
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online Licence-->
+<Tabs groupId="sync">
+<TabItem value="Online Licence" label="Online Licence">
 
 1. Installer le Plugin Centreon sur tous les collecteurs Centreon utilisant le binaire **Nmap** pour découvrir des ressources: 
 
@@ -26,7 +28,8 @@ yum install centreon-plugin-Applications-Nmap-Cli
 
 2. Sur l'interface web de Centreon, installer le Plugin Pack **Nmap CLI** depuis la page **Configuration > Packs de plugins**.
 
-<!--Offline License-->
+</TabItem>
+<TabItem value="Offline License" label="Offline License">
 
 1. Installez le paquet Centreon Plugin sur les collecteurs allant découvrir des ressources grâce à **Nmap**:
 
@@ -42,7 +45,8 @@ yum install centreon-pack-applications-nmap-cli
 
 3. Sur l'interface web de Centreon, installer le Plugin Pack **Nmap CLI** depuis la page **Configuration > Packs de plugins**.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Ressources complémentaires
 

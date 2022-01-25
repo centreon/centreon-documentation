@@ -2,6 +2,9 @@
 id: applications-pvx-restapi
 title: Skylight PVX
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Overview
 
@@ -37,9 +40,8 @@ It brings the following Service Templates:
 
 ### Collected metrics & status
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Http-Hits-->
+<Tabs groupId="sync">
+<TabItem value="Http-Hits" label="Http-Hits">
 
 | Metric Name                           | Unit   |
 |:--------------------------------------|:-------|
@@ -47,7 +49,8 @@ It brings the following Service Templates:
 | *instances*#http.hits.error.persecond | hits/s |
 | *instances*#http.hits.percentage      |        |
 
-<!--Network-Connection-->
+</TabItem>
+<TabItem value="Network-Connection" label="Network-Connection">
 
 | Metric Name                                  | Unit          |
 |:---------------------------------------------|:--------------|
@@ -56,7 +59,8 @@ It brings the following Service Templates:
 | *instances*#connections.ratio.percentage     |               |
 | *instances*#connections.successful.persecond | connections/s |
 
-<!--Network-Traffic-->
+</TabItem>
+<TabItem value="Network-Traffic" label="Network-Traffic">
 
 | Metric Name                                           | Unit  |
 |:------------------------------------------------------|:------|
@@ -67,13 +71,15 @@ It brings the following Service Templates:
 | *instances*#instance.traffic.server.bitspersecond     | b/s   |
 | *instances*#instance.traffic.aggregated.bitspersecond | b/s   |
 
-<!--Network-User-Experience-->
+</TabItem>
+<TabItem value="Network-User-Experience" label="Network-User-Experience">
 
 | Metric Name                            | Unit  |
 |:---------------------------------------|:------|
 | *instances*#enduser.experience.seconds | s     |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -120,9 +126,8 @@ In this example the API key is "secret:e40b1cc6-f629-43a4-8be6-14a9c9f036e0".
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online License-->
+<Tabs groupId="sync">
+<TabItem value="Online License" label="Online License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor **PVX** resources:
 
@@ -132,7 +137,8 @@ yum install centreon-plugin-Applications-Pvx-Restapi
 
 2. On the Centreon Web interface, install the **PVX** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
 
-<!--Offline License-->
+</TabItem>
+<TabItem value="Offline License" label="Offline License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor **PVX** resources:
 
@@ -148,7 +154,8 @@ yum install centreon-pack-applications-pvx-restapi
 
 3. On the Centreon Web interface, install the **PVX** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

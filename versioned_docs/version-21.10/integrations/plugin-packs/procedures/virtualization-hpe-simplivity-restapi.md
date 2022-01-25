@@ -2,6 +2,9 @@
 id: virtualization-hpe-simplivity-restapi
 title: HPE Simplivity Rest API
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Pack Assets
 
@@ -26,9 +29,8 @@ It brings the following Service Templates:
 
 ### Collected metrics & status
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Hosts-->
+<Tabs groupId="sync">
+<TabItem value="Hosts" label="Hosts">
 
 | Metric name                               | Description                                       | Unit  |
 | :---------------------------------------- | :------------------------------------------------ | :---- |
@@ -46,7 +48,8 @@ It brings the following Service Templates:
 | logical drive status                      | Current status of each logical drives per host    |       |
 | physical drive status                     | Current status of each physical drives per host   |       |
 
-<!--Omnistack-Clusters-->
+</TabItem>
+<TabItem value="Omnistack-Clusters" label="Omnistack-Clusters">
 
 | Metric name                                                | Description                             | Unit  |
 | :--------------------------------------------------------- | :-------------------------------------- | :---- |
@@ -57,7 +60,8 @@ It brings the following Service Templates:
 | *cluster_name*#omnistack_cluster.ratio.compression.count   | Current compression ratio               |       |
 | *cluster_name*#omnistack_cluster.ratio.efficiency.count    | Current efficiency ratio                |       |
 
-<!--Virtual-Machines-->
+</TabItem>
+<TabItem value="Virtual-Machines" label="Virtual-Machines">
 
 | Metric name                                            | Description                                          | Unit |
 |:------------------------------------------------------ |:---------------------------------------------------- |:---- |
@@ -66,7 +70,8 @@ It brings the following Service Templates:
 | *vm_id:vm_name*#virtual_machine.space.free.bytes       | Free allocated space left on the hypervisor          | B    |
 | *vm_id:vm_name*#virtual_machine.space.usage.percentage | Space allocated used on the hypervisor in percentage | %    |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -75,9 +80,8 @@ To control your HPE Simplivity, the Rest API must be configured:
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online License-->
+<Tabs groupId="sync">
+<TabItem value="Online License" label="Online License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor **HPE Simplivity Rest API** resources:
 
@@ -87,7 +91,8 @@ yum install centreon-plugin-Virtualization-Hpe-Simplivity-Restapi
 
 2. On the Centreon Web interface, install the **HPE Simplivity Rest API** Centreon Pack on the **Configuration > Plugin Packs** page.
 
-<!--Offline License-->
+</TabItem>
+<TabItem value="Offline License" label="Offline License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor **HPE Simplivity Rest API** resources:
 
@@ -97,13 +102,14 @@ yum install centreon-plugin-Virtualization-Hpe-Simplivity-Restapi
 
 2. Install the **HPE Simplivity Rest API** Centreon Pack RPM on the Centreon Central server:
 
- ```bash
+```bash
 yum install centreon-pack-virtualization-hpe-simplivity-restapi
 ```
 
 3. On the Centreon Web interface, install the **HPE Simplivity Rest API** Centreon Pack on the **Configuration > Plugin Packs** page.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

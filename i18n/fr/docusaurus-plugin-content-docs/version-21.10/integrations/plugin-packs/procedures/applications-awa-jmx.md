@@ -2,6 +2,9 @@
 id: applications-awa-jmx
 title: AWA (Automic Workload Automation) JMX
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Contenu du Pack
 
@@ -20,27 +23,29 @@ Il apporte les Modèles de Service suivants :
 
 ### Métriques & statuts collectés
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Awa-Agent-->
-
-| Metric Name | Unit   |
-|:------------|:-------|
-| status      | string |
-
-<!--Awa-Queue-->
+<Tabs groupId="sync">
+<TabItem value="Awa-Agent" label="Awa-Agent">
 
 | Metric Name | Unit   |
 |:------------|:-------|
 | status      | string |
 
-<!--Awa-Server-->
+</TabItem>
+<TabItem value="Awa-Queue" label="Awa-Queue">
 
 | Metric Name | Unit   |
 |:------------|:-------|
 | status      | string |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+<TabItem value="Awa-Server" label="Awa-Server">
+
+| Metric Name | Unit   |
+|:------------|:-------|
+| status      | string |
+
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -49,9 +54,8 @@ Demandez à votre administrateur de le déployer et de vous en fournir l'URL.
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online License-->
+<Tabs groupId="sync">
+<TabItem value="Online License" label="Online License">
 
 1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources **AWA JMX**:
 
@@ -61,7 +65,8 @@ yum install centreon-plugin-Applications-Awa-Jmx
 
 2. Sur l'interface Web de Centreon, installer le Plugin Pack **Awa JMX** depuis la page **Configuration > Packs de plugins**.
 
-<!--Offline License-->
+</TabItem>
+<TabItem value="Offline License" label="Offline License">
 
 1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources **AWA JMX**:
 
@@ -77,7 +82,8 @@ yum install centreon-pack-applications-awa-jmx
 
 3. Sur l'interface Web de Centreon, installer le Plugin Pack **Awa JMX** depuis la page **Configuration > Packs de plugins**.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

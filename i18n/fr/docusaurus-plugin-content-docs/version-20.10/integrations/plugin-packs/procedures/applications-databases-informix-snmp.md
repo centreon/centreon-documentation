@@ -2,6 +2,9 @@
 id: applications-databases-informix-snmp
 title: Informix DB SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Contenu du Pack
 
@@ -24,34 +27,37 @@ Il apporte les Modèles de Service suivants :
 
 ### Métriques & statuts collectés
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Archivelevel0-->
+<Tabs groupId="sync">
+<TabItem value="Archivelevel0" label="Archivelevel0">
 
 | Metric Name | Description                                 | Unit |
 |:------------|:--------------------------------------------|:-----|
 | seconds     | Number of seconds elapsed since last backup | s    |
 
-<!--Chunk-Status-->
+</TabItem>
+<TabItem value="Chunk-Status" label="Chunk-Status">
 
 | Metric Name | Unit   |
 |:------------|:-------|
 | status      | string |
 
-<!--Dbspace-Usage-->
+</TabItem>
+<TabItem value="Dbspace-Usage" label="Dbspace-Usage">
 
 | Metric Name | Description                         | Unit |
 |:------------|:------------------------------------|:-----|
 | used        | Space utilization for each DBspace  | %    |
 
-<!--Global-Cache-->
+</TabItem>
+<TabItem value="Global-Cache" label="Global-Cache">
 
 | Metric Name | Description                         | Unit |
 |:------------|:------------------------------------|:-----|
 | read        | Disk and logical read operations    |  %   |
 | write       | Disk and logical write operations   |  %   |
 
-<!--Lock-Stats-->
+</TabItem>
+<TabItem value="Lock-Stats" label="Lock-Stats">
 
 | Metric Name  | Unit   |
 |:-------------|:-------|
@@ -60,19 +66,22 @@ Il apporte les Modèles de Service suivants :
 | lock_timeout | count  |
 | lock_wait    | count  |
 
-<!--Logfile-Usage-->
+</TabItem>
+<TabItem value="Logfile-Usage" label="Logfile-Usage">
 
 | Metric Name | Description                         | Unit |
 |:------------|:------------------------------------|:-----|
 | used        | Space utilization of the Logfile    |  %   |
 
-<!--Sessions-->
+</TabItem>
+<TabItem value="Sessions" label="Sessions">
 
 | Metric Name | Unit |
 |:------------|:-----|
 | sessions    |      |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -89,9 +98,8 @@ Centreon vers le serveur supervisé.
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online License-->
+<Tabs groupId="sync">
+<TabItem value="Online License" label="Online License">
 
 1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources **Informix SNMP**:
 
@@ -101,7 +109,8 @@ yum install centreon-plugin-Applications-Databases-Informix-Snmp
 
 2. Sur l'interface Web de Centreon, installer le Plugin Pack **Informix DB SNMP** depuis la page **Configuration > Packs de plugins**.
 
-<!--Offline License-->
+</TabItem>
+<TabItem value="Offline License" label="Offline License">
 
 1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources **Informix SNMP**:
 
@@ -117,7 +126,8 @@ yum install centreon-pack-applications-databases-informix-snmp
 
 3. Sur l'interface Web de Centreon, installer le Plugin Pack **Informix DB SNMP** depuis la page **Configuration > Packs de plugins**.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

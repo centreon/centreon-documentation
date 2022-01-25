@@ -2,6 +2,9 @@
 id: virtualization-hpe-simplivity-restapi
 title: HPE Simplivity Rest API
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Contenu du Pack
 
@@ -26,9 +29,8 @@ Il apporte les Modèles de Service suivants :
 
 ### Métriques & statuts collectés
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Cpu-->
+<Tabs groupId="sync">
+<TabItem value="Cpu" label="Cpu">
 
 | Metric name                   | Description                            | Unit  |
 | :---------------------------- | :------------------------------------- | :---- |
@@ -36,7 +38,8 @@ Il apporte les Modèles de Service suivants :
 | cpu.utilization.1m.percentage | CPU utilization for the last minute    | %     |
 | cpu.utilization.5m.percentage | CPU utilization for the last 5 minutes | %     |
 
-<!--Hardware-->
+</TabItem>
+<TabItem value="Hardware" label="Hardware">
 
 | Metric name                                      | Description                        | Unit  |
 | :----------------------------------------------- | :--------------------------------- | :---- |
@@ -44,7 +47,8 @@ Il apporte les Modèles de Service suivants :
 | *sensor_num*#hardware.sensor.temperature.celsius | Temperature of the sensor          | C     |
 | *fan_num*#hardware.fan.speed.rpm                 | Speed of the fan                   | rpm   |
 
-<!--Interfaces-->
+</TabItem>
+<TabItem value="Interfaces" label="Interfaces">
 
 | Metric name                                               | Description                                             | Unit |
 |:--------------------------------------------------------- |:------------------------------------------------------- |:---- |
@@ -56,7 +60,8 @@ Il apporte les Modèles de Service suivants :
 | *interface_name*#interface.packets.out.error.percentage   | Outgoing errored packets going through the interface    | %    |
 | *interface_name*#interface.packets.out.discard.percentage | Outgoing discarded packets going through the interface  | %    |
 
-<!--Memory-->
+</TabItem>
+<TabItem value="Memory" label="Memory">
 
 | Metric name             | Description                | Unit  |
 | :---------------------- | :------------------------- | :---- |
@@ -64,13 +69,15 @@ Il apporte les Modèles de Service suivants :
 | memory.free.bytes       | Free memory                | B     |
 | memory.usage.percentage | Memory usage in percentage | %     |
 
-<!--Uptime-->
+</TabItem>
+<TabItem value="Uptime" label="Uptime">
 
 | Metric name           | Description        | Unit  |
 | :-------------------- | :----------------- | :---- |
 | system.uptime.seconds | System uptime      | s     |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -79,9 +86,8 @@ Afin de contrôler votre HPE Simplivity, l'API Rest doit être configurée:
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online License-->
+<Tabs groupId="sync">
+<TabItem value="Online License" label="Online License">
 
 1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources **HPE Simplivity Rest API** :
 
@@ -91,7 +97,8 @@ yum install centreon-plugin-Virtualization-Hpe-Simplivity-Restapi
 
 2. Sur l'interface Web de Centreon, installer le Pack **HPE Simplivity Rest API** depuis la page **Configuration > Packs de plugins**.
 
-<!--Offline License-->
+</TabItem>
+<TabItem value="Offline License" label="Offline License">
 
 1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources **HPE Simplivity Rest API** :
 
@@ -107,7 +114,8 @@ yum install centreon-pack-virtualization-hpe-simplivity-restapi
 
 3. Sur l'interface Web de Centreon, installer le Pack **HPE Simplivity Rest API** depuis la page **Configuration > Packs de plugins**.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
