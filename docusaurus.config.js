@@ -48,7 +48,7 @@ const config = {
               label: '⭐ 21.10',
             },
             21.04: {
-              label: '21.04',
+              label: ' 21.04',
             },
             '20.10': {
               label: '20.10',
@@ -131,7 +131,7 @@ const config = {
       },
 
       zoom: {
-        selector: '.markdown :not(em) > img',
+        selector: '.markdown img',
         config: {
           background: {
             light: 'rgb(255, 255, 255)',
