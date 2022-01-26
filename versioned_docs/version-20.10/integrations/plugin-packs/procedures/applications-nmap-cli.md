@@ -2,6 +2,9 @@
 id: applications-nmap-cli
 title: Nmap CLI Discovery
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Pack content
 
@@ -13,9 +16,8 @@ Thanks to the *Nmap Discovery* provider, discover Hosts within a predefined subn
 
 To install the required Plugin and Pack, take the following steps: 
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online Licence-->
+<Tabs groupId="sync">
+<TabItem value="Online Licence" label="Online Licence">
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to use the **Nmap** binary to discover resources:
 
@@ -25,7 +27,8 @@ yum install centreon-plugin-Applications-Nmap-Cli
 
 2. On the Centreon Web interface, install the **Nmap CLI** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
 
-<!--Offline License-->
+</TabItem>
+<TabItem value="Offline License" label="Offline License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor **Nmap** ressources:
 
@@ -35,13 +38,14 @@ yum install centreon-plugin-Applications-Nmap-Cli
 
 2. Install the **Nmap CLI** Centreon Plugin Pack RPM on the Centreon Central server:
 
- ```bash
+```bash
 yum install centreon-pack-applications-nmap-cli
 ```
 
 3. On the Centreon Web interface, install the **Nmap CLI** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Additional resources
 

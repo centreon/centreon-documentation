@@ -2,6 +2,9 @@
 id: applications-hddtemp-tcp
 title: Hddtemp TCP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Contenu du Pack
 
@@ -18,16 +21,16 @@ Il apporte le Modèle de Service suivant :
 
 ### Métriques & statuts collectés
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Temperatures-->
+<Tabs groupId="sync">
+<TabItem value="Temperatures" label="Temperatures">
 
 | Metric Name | Unit                    |
 |:------------|:------------------------|
 | status      | string                  |
 | temperature | celsius or fahrenheit |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -37,9 +40,8 @@ socle standard.
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online License-->
+<Tabs groupId="sync">
+<TabItem value="Online License" label="Online License">
 
 1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources **Hddtemp**:
 
@@ -49,7 +51,8 @@ yum install centreon-plugin-Applications-Hddtemp
 
 2. Sur l'interface Web de Centreon, installer le Plugin Pack **Hddtemp TCP** depuis la page **Configuration > Packs de plugins**.
 
-<!--Offline License-->
+</TabItem>
+<TabItem value="Offline License" label="Offline License">
 
 1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources **Hddtemp**:
 
@@ -65,7 +68,8 @@ yum install centreon-pack-applications-hddtemp-tcp
 
 3. Sur l'interface Web de Centreon, installer le Plugin Pack **Hddtemp TCP** depuis la page **Configuration > Packs de plugins**.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

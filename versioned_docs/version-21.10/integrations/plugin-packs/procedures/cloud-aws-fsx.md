@@ -2,6 +2,9 @@
 id: cloud-aws-fsx
 title: Amazon FSx
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Pack Assets
 
@@ -19,24 +22,25 @@ It brings the following Service Templates:
 
 ### Discovery rules
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Hosts-->
+<Tabs groupId="sync">
+<TabItem value="Hosts" label="Hosts">
 
 | Rule name                           | Description                                                   |
 | :---------------------------------- | :------------------------------------------------------------ |
 | Cloud-Aws-Fsx-Api-HostDiscovery     | Discover FSx Filesystems from your Cloudwatch endpoint        |
 
-<!--Services-->
+</TabItem>
+<TabItem value="Services" label="Services">
 
 No service discovery rule is available in this pack
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ### Collected metrics & status
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Fsx-DataUsage-->
+<Tabs groupId="sync">
+<TabItem value="Fsx-DataUsage" label="Fsx-DataUsage">
 
 | Metric Name                     | Unit      |
 |:--------------------------------|:----------|
@@ -51,13 +55,15 @@ No service discovery rule is available in this pack
 | fsx.metadata.ops.bytes          | B         |
 | fsx.metadata.ops.bytespersecond | B/s       |
 
-<!--Fsx-Freespace-->
+</TabItem>
+<TabItem value="Fsx-Freespace" label="Fsx-Freespace">
 
 | Metric Name                     | Unit  |
 |:--------------------------------|:------|
 | fsx.storage.free.byt            | B     |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -70,9 +76,8 @@ Configure a service account (access/secret key combo) for which the following pr
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online License-->
+<Tabs groupId="sync">
+<TabItem value="Online License" label="Online License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor **Amazon FSx** resources:
 
@@ -82,7 +87,8 @@ yum install centreon-plugin-Cloud-Aws-Fsx-Api
 
 2. On the Centreon Web interface, install the **Amazon FSx** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
 
-<!--Offline License-->
+</TabItem>
+<TabItem value="Offline License" label="Offline License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor **Amazon FSx** resources:
 
@@ -98,7 +104,8 @@ yum install centreon-pack-cloud-aws-fsx
 
 3. On the Centreon Web interface, install the **Amazon FSx** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

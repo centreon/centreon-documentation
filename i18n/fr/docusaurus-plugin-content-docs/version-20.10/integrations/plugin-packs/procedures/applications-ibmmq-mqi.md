@@ -2,6 +2,9 @@
 id: applications-ibmmq-mqi
 title: IBM MQ MQI
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Contenu du Pack
 
@@ -20,9 +23,8 @@ Il apporte les Modèles de Service suivants :
 
 ### Métriques & statuts collectés
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Channels-->
+<Tabs groupId="sync">
+<TabItem value="Channels" label="Channels">
 
 | Metric Name                       | Unit   |
 |:----------------------------------|:-------|
@@ -30,14 +32,16 @@ Il apporte les Modèles de Service suivants :
 | channel.traffic.in.bitspersecond  | b/s     |
 | channel.traffic.out.bitspersecond | b/s    |
 
-<!--Queue-Manager-->
+</TabItem>
+<TabItem value="Queue-Manager" label="Queue-Manager">
 
 | Metric Name                    | Unit   |
 |:-------------------------------|:-------|
 | queuemanager.connections.count | count  |
 | status                         | string |
 
-<!--Queues-->
+</TabItem>
+<TabItem value="Queues" label="Queues">
 
 | Metric Name                   | Unit  |
 |:------------------------------|:------|
@@ -45,7 +49,8 @@ Il apporte les Modèles de Service suivants :
 | queue.message.oldest.seconds  |       |
 | queue.messages.depth.count    | count |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -54,9 +59,8 @@ Linux. Une procédure est disponible ici: https://www.ibm.com/docs/en/ibm-mq/8.0
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online License-->
+<Tabs groupId="sync">
+<TabItem value="Online License" label="Online License">
 
 1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources **IBM MQ MQI**:
 
@@ -66,7 +70,8 @@ yum install centreon-plugin-Applications-Ibmmq-Mqi
 
 2. Sur l'interface Web de Centreon, installer le Plugin Pack **IBM MQ MQI** depuis la page **Configuration > Packs de plugins**.
 
-<!--Offline License-->
+</TabItem>
+<TabItem value="Offline License" label="Offline License">
 
 1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources **IBM MQ MQI**:
 
@@ -82,7 +87,8 @@ yum install centreon-pack-applications-ibmmq-mqi
 
 3. Sur l'interface Web de Centreon, installer le Plugin Pack **IBM MQ MQI** depuis la page **Configuration > Packs de plugins**.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

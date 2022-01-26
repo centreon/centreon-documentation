@@ -2,6 +2,9 @@
 id: applications-awa-jmx
 title: AWA (Automic Workload Automation) JMX
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Pack Assets
 
@@ -20,27 +23,29 @@ It brings the following Service Templates:
 
 ### Collected metrics & status
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Awa-Agent-->
-
-| Metric Name | Unit   |
-|:------------|:-------|
-| status      | string |
-
-<!--Awa-Queue-->
+<Tabs groupId="sync">
+<TabItem value="Awa-Agent" label="Awa-Agent">
 
 | Metric Name | Unit   |
 |:------------|:-------|
 | status      | string |
 
-<!--Awa-Server-->
+</TabItem>
+<TabItem value="Awa-Queue" label="Awa-Queue">
 
 | Metric Name | Unit   |
 |:------------|:-------|
 | status      | string |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+<TabItem value="Awa-Server" label="Awa-Server">
+
+| Metric Name | Unit   |
+|:------------|:-------|
+| status      | string |
+
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -49,9 +54,8 @@ Ask your admin to deploy it and give you the URL.
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online License-->
+<Tabs groupId="sync">
+<TabItem value="Online License" label="Online License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor **AWA JMX** resources:
 
@@ -61,7 +65,8 @@ yum install centreon-plugin-Applications-Awa-Jmx
 
 2. On the Centreon Web interface, install the **Awa JMX** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
 
-<!--Offline License-->
+</TabItem>
+<TabItem value="Offline License" label="Offline License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor **AWA JMX** resources:
 
@@ -77,7 +82,8 @@ yum install centreon-pack-applications-awa-jmx
 
 3. On the Centreon Web interface, install the **Awa JMX** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

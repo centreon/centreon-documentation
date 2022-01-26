@@ -2,6 +2,9 @@
 id: applications-voip-asterisk-snmp
 title: Asterisk VoIP SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 ## Contenu du Pack
 
@@ -18,9 +21,8 @@ Il apporte le Modèle de Service suivant :
 
 ### Métriques & statuts collectés
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Channel-Usage-->
+<Tabs groupId="sync">
+<TabItem value="Channel-Usage" label="Channel-Usage">
 
 | Métrique              | Unité |
 |:----------------------|:------|
@@ -28,7 +30,8 @@ Il apporte le Modèle de Service suivant :
 | calls.processed.count | count |
 | channels.active.count | count |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -44,9 +47,8 @@ Centreon vers le serveur Asterisk supervisé.
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online License-->
+<Tabs groupId="sync">
+<TabItem value="Online License" label="Online License">
 
 1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des ressources **Asterisk** :
 
@@ -56,7 +58,8 @@ yum install centreon-plugin-Applications-Voip-Asterisk-Snmp
 
 2. Sur l'interface Web de Centreon, installer le Plugin Pack **Asterisk VoIP SNMP** depuis la page **Configuration > Packs de plugins**.
 
-<!--Offline License-->
+</TabItem>
+<TabItem value="Offline License" label="Offline License">
 
 1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des ressources **Asterisk** :
 
@@ -66,13 +69,14 @@ yum install centreon-plugin-Applications-Voip-Asterisk-Snmp
 
 2. Sur le serveur Central Centreon, installer le RPM du Pack **Asterisk VoIP SNMP** :
 
- ```bash
+```bash
 yum install centreon-pack-applications-voip-asterisk-snmp
 ```
 
 3. Sur l'interface Web de Centreon, installer le Plugin Pack **Asterisk VoIP SNMP** depuis la page **Configuration > Packs de plugins**.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 

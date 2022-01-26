@@ -44,9 +44,6 @@ const config = {
           includeCurrentVersion: false,
           onlyIncludeVersions: ['21.10', '21.04', '20.10', '20.04'],
           versions: {
-            22.04: {
-              label: '🥴 22.04',
-            },
             '21.10': {
               label: '💸 21.10',
             },
@@ -54,7 +51,7 @@ const config = {
               label: '🐲 21.04',
             },
             '20.10': {
-              label: '🏖️ 20.10',
+              label: '🥴 20.10',
             },
             20.04: {
               label: '🏂 20.04',
