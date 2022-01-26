@@ -70,7 +70,7 @@ Release date: `December 7, 2021`
 
 ## Centreon Auto Discovery
 
-### 21.10.1
+### 21.10.1
 
 Release date: `November 19, 2021`
 
