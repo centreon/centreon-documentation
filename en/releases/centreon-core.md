@@ -19,10 +19,6 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 21.10.3
 
-#### Enhancements
-
-- [Dashboard] Add select2 to host reporting dashboard
-
 #### Bug Fixes
 
 - [Graph] Fixed display of additional graph if it came from Resource Status

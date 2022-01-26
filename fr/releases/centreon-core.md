@@ -18,10 +18,6 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ### 21.10.3
 
-#### Enhancements
-
-- [Dashboard] Add select2 to host reporting dashboard
-
 #### Bug Fixes
 
 - [Graph] Fixed display of additional graph if it came from Resource Status
