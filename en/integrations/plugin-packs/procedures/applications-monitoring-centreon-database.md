@@ -15,20 +15,20 @@ The Centreon Plugin Pack Centreon Central brings a host template:
 
 It brings the following service templates:
 
-| Service Alias      | Service Template                              | Service Description                        | Default |
-|:-------------------|:----------------------------------------------|:-------------------------------------------|:--------|
-| Partitioning       | App-Centreon-MySQL-Partitioning-custom  | Check Centreon Database partitionning | X       |
-| Connection-Time       | App-DB-MySQL-Connection-Time-custom  | Check Centreon Database connection time | X       |
-| Connections-Number       | App-DB-MySQL-Connections-Number-custom  | Check Centreon Database connections number | X       |
-| Database-size       | App-DB-MySQL-Database-Size-custom  | Check Centreon Database size | X       |
-| Myisam-Keycache       | App-DB-MySQL-Myisam-Keycache-custom  | Check Centreon Database partitionning | X       |
-| Open-Files       | App-DB-MySQL-Open-Files-custom  | Check Centreon Database open files | X       |
-| Queries       | App-DB-MySQL-Queries-custom  | Check Centreon Database queries number | X       |
-| Slowqueries       | App-DB-MySQL-Slowqueries-custom  | Check Centreon Database slow queries | X       |
-| Swap       | OS-Linux-Swap-SNMP-custom  | Check swap usage | X       |
-| Memory       | OS-Linux-Memory-SNMP-custom  | Check memory usage | X       |
-| Load       | OS-Linux-Load-SNMP-custom  | Check load | X       |
-| Cpu       | OS-Linux-Cpu-SNMP-custom  | Check Cpu usage | X       |
+| Service Alias      | Service Template                        | Service Description                        | Default |
+|:-------------------|:----------------------------------------|:-------------------------------------------|:--------|
+| Partitioning       | App-Centreon-MySQL-Partitioning-custom  | Check Centreon Database partitionning      | X       |
+| Connection-Time    | App-DB-MySQL-Connection-Time-custom     | Check Centreon Database connection time    | X       |
+| Connections-Number | App-DB-MySQL-Connections-Number-custom  | Check Centreon Database connections number | X       |
+| Database-size      | App-DB-MySQL-Database-Size-custom       | Check Centreon Database size               | X       |
+| Myisam-Keycache    | App-DB-MySQL-Myisam-Keycache-custom     | Check Centreon Database partitionning      | X       |
+| Open-Files         | App-DB-MySQL-Open-Files-custom          | Check Centreon Database open files         | X       |
+| Queries            | App-DB-MySQL-Queries-custom             | Check Centreon Database queries number     | X       |
+| Slowqueries        | App-DB-MySQL-Slowqueries-custom         | Check Centreon Database slow queries       | X       |
+| Swap               | OS-Linux-Swap-SNMP-custom               | Check swap usage                           | X       |
+| Memory             | OS-Linux-Memory-SNMP-custom             | Check memory usage                         | X       |
+| Load               | OS-Linux-Load-SNMP-custom               | Check load                                 | X       |
+| Cpu                | OS-Linux-Cpu-SNMP-custom                | Check Cpu usage                            | X       |
 
 
 ### Collected metrics & status
@@ -37,85 +37,85 @@ It brings the following service templates:
 
 <!--Partitionning-->
 
-| Metric Name | Unit   |
-| :---------- | :----- |
-| Partitioning Status      | string |
+| Metric Name          | Unit   |
+| :------------------- | :----- |
+| Partitioning Status  | string |
 
 <!--Connection-time-->
 
-| Metric name           | Unit  |
-| :--------------------------- | :---- |
-| Connection time | s    |
+| Metric name      | Unit  |
+| :--------------- | :---- |
+| Connection time  | s     |
 
 <!--Connections-Number-->
 
-| Metric name           | Unit  |
-| :--------------------------- | :---- |
-| Connections number | count or %    |
+| Metric name        | Unit       |
+| :----------------- | :--------- |
+| Connections number | count or % |
 
 <!--Database-size-->
 
-| Metric name           | Unit  |
-| :--------------------------- | :---- |
-| Database size | Bytes or %    |
+| Metric name   | Unit       |
+| :------------ | :--------- |
+| Database size | Bytes or % |
 
 <!--Myisam-Keycache-->
 
-| Metric name           | Unit  |
-| :--------------------------- | :---- |
-| Myisam Keycache | %    |
+| Metric name     | Unit  |
+| :-------------- | :---- |
+| Myisam Keycache | %     |
 
 <!--Open-files-->
 
-| Metric name           | Unit  |
-| :--------------------------- | :---- |
-| Open Files | %    |
+| Metric name    | Unit  |
+| :------------- | :---- |
+| Open Files     | %     |
 
 <!--Slowqueries-->
 
-| Metric name           | Unit  |
-| :--------------------------- | :---- |
-| Slowqueries | count    |
+| Metric name   | Unit  |
+| :------------ | :---- |
+| Slowqueries   | count |
 
 <!--Queries-->
 
-| Metric name           | Unit  |
-| :--------------------------- | :---- |
-| Queries | count    |
+| Metric name | Unit  |
+| :---------- | :---- |
+| Queries     | count |
 
 <!--Cpu-->
 
 | Metric name                        | Unit |
-| :--------------------------------- | :-------------------------------------------- |
-| cpu.utilization.percentage         | %                     |
-| core.cpu.utilization.percentage    | %            |
+| :--------------------------------- | :--- |
+| cpu.utilization.percentage         | %    |
+| core.cpu.utilization.percentage    | %    |
 
 <!--Memory-->
 
-| Metric name             | Unit |
-| :---------------------  | :------------------------------------------------------- |
-| memory.usage.bytes      | Bytes                 |
-| memory.free.bytes       | Bytes                  |
-| memory.usage.percentage | %       |
-| memory.buffer.bytes     | Bytes                 |
-| memory.cached.bytes     | Bytes                   |
-| memory.shared.bytes     | Bytes                   |
+| Metric name             | Unit  |
+| :---------------------  | :---- |
+| memory.usage.bytes      | Bytes |
+| memory.free.bytes       | Bytes |
+| memory.usage.percentage | %     |
+| memory.buffer.bytes     | Bytes |
+| memory.cached.bytes     | Bytes |
+| memory.shared.bytes     | Bytes |
 
 <!--Swap-->
 
-| Metric name                 | Unit |
-| :-------------------------- | :------------------------------------------------ |
-| swap.usage.bytes            | Bytes                            |
-| swap.free.bytes             | Bytes                            |
-| swap.usage.percentage       | %                  |
+| Metric name                 | Unit  |
+| :-------------------------- | :---- |
+| swap.usage.bytes            | Bytes |
+| swap.free.bytes             | Bytes | 
+| swap.usage.percentage       | %     |
 
 <!--Load-->
 
-| Metric name                 | Unit |
-| :-------------------------- | :------------------------------------------------- |
-| load1                       | System load 1 minute-sample                        |
-| load5                       | System load 5 minutes-sample                       |
-| load15                      | System load 15 minutes-sample                      |
+| Metric name                 | Unit                          |
+| :-------------------------- | :---------------------------- |
+| load1                       | System load 1 minute-sample   |
+| load5                       | System load 5 minutes-sample  |
+| load15                      | System load 15 minutes-sample |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -177,12 +177,12 @@ yum install centreon-pack-applications-monitoring-centreon-database
 * Select the *App-Monitoring-Centreon-Database-custom* template to apply to the host.
 * Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
 
-| Mandatory                 | Macro |
-| :-------------------------- | :------------------------------------------------- |
-| X                       | MYSQLPORT |
-| X                       | MYSQLUSERNAME  |
-| X                      | MYSQLPASSWORD
-|                       | SNMPEXTRAOPTIONS
+| Mandatory  | Macro            |
+| :--------- | :--------------- |
+| X          | MYSQLPORT        |
+| X          | MYSQLUSERNAME    |
+| X          | MYSQLPASSWORD    |
+|            | SNMPEXTRAOPTIONS |
 
 ## How to check in the CLI that the configuration is OK and what are the main options for? 
 

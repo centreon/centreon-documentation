@@ -15,20 +15,20 @@ Le Plugin Pack Centreon Centreon Database apporte un modèle d'hôte :
 
 Il apporte les templates de services suivants : 
 
-| Service Alias      | Service Template                              | Service Description                        | Default |
-|:-------------------|:----------------------------------------------|:-------------------------------------------|:--------|
-| Partitioning       | App-Centreon-MySQL-Partitioning-custom  | Contrôle le partitionnement de la base de données de supervision | X       |
-| Connection-Time       | App-DB-MySQL-Connection-Time-custom  | Contrôle le temps de connexion à la base de données | X       |
-| Connections-Number       | App-DB-MySQL-Connections-Number-custom  | Contrôle le nombre de connexions à la base de données | X       |
-| Database-size       | App-DB-MySQL-Database-Size-custom  | Contrôle la taille de la base de données | X       |
-| Myisam-Keycache       | App-DB-MySQL-Myisam-Keycache-custom  | Contrôle du Mysisam Keycache | X       |
-| Open-Files       | App-DB-MySQL-Open-Files-custom  | Cpntrôle le nombre de fichiers ouverts | X       |
-| Queries       | App-DB-MySQL-Queries-custom  | Contrôle le nombre de requêtes faites à la base | X       |
-| Slowqueries       | App-DB-MySQL-Slowqueries-custom  | Contrôle le nombre de requêtes lentes | X       |
-| Swap       | OS-Linux-Swap-SNMP-custom  | Contrôle l'utilisation de la swap | X       |
-| Memory       | OS-Linux-Memory-SNMP-custom  | Contrôle l'utilisation de la mémoire | X       |
-| Load       | OS-Linux-Load-SNMP-custom  | Contrôle la load | X       |
-| Cpu       | OS-Linux-Cpu-SNMP-custom  | Contrôle l'utilisation du CPU | X       |
+| Service Alias      | Service Template                              | Service Description                                              | Default |
+|:-------------------|:----------------------------------------------|:-----------------------------------------------------------------|:--------|
+| Partitioning       | App-Centreon-MySQL-Partitioning-custom        | Contrôle le partitionnement de la base de données de supervision | X       |
+| Connection-Time    | App-DB-MySQL-Connection-Time-custom           | Contrôle le temps de connexion à la base de données              | X       |
+| Connections-Number | App-DB-MySQL-Connections-Number-custom        | Contrôle le nombre de connexions à la base de données            | X       |
+| Database-size      | App-DB-MySQL-Database-Size-custom             | Contrôle la taille de la base de données                         | X       |
+| Myisam-Keycache    | App-DB-MySQL-Myisam-Keycache-custom           | Contrôle du Mysisam Keycache                                     | X       |
+| Open-Files         | App-DB-MySQL-Open-Files-custom                | Cpntrôle le nombre de fichiers ouverts                           | X       |
+| Queries            | App-DB-MySQL-Queries-custom                   | Contrôle le nombre de requêtes faites à la base                  | X       |
+| Slowqueries        | App-DB-MySQL-Slowqueries-custom               | Contrôle le nombre de requêtes lentes                            | X       |
+| Swap               | OS-Linux-Swap-SNMP-custom                     | Contrôle l'utilisation de la swap                                | X       |
+| Memory             | OS-Linux-Memory-SNMP-custom                   | Contrôle l'utilisation de la mémoire                             | X       |
+| Load               | OS-Linux-Load-SNMP-custom                     | Contrôle la load                                                 | X       |
+| Cpu                | OS-Linux-Cpu-SNMP-custom                      | Contrôle l'utilisation du CPU                                    | X       |
 
 
 ### Métriques & statuts collectés
@@ -37,85 +37,85 @@ Il apporte les templates de services suivants :
 
 <!--Partitionning-->
 
-| Métrique | Unité   |
+| Métrique                     | Unité |
 | :--------------------------- | :---- |
-| Partitioning Status      | string |
+| Partitioning Status          | string |
 
 <!--Connection-time-->
 
-| Métrique | Unité   |
+| Métrique                     | Unité |
 | :--------------------------- | :---- |
-| Connection time | s    |
+| Connection time              | s     |
 
 <!--Connections-Number-->
 
-| Métrique | Unité   |
-| :--------------------------- | :---- |
-| Connections number | count or %    |
+| Métrique                     | Unité         |
+| :--------------------------- | :------------ |
+| Connections number           | count or %    |
 
 <!--Database-size-->
 
-| Métrique | Unité   |
-| :--------------------------- | :---- |
-| Database size | Bytes or %    |
+| Métrique                     | Unité         |
+| :--------------------------- | :------------ |
+| Database size                | Bytes or %    |
 
 <!--Myisam-Keycache-->
 
-| Métrique | Unité   |
+| Métrique                     | Unité |
 | :--------------------------- | :---- |
-| Myisam Keycache | %    |
+| Myisam Keycache              | %     |
 
 <!--Open-files-->
 
-| Métrique | Unité   |
+| Métrique                     | Unité |
 | :--------------------------- | :---- |
-| Open Files | %    |
+| Open Files                   | %     |
 
 <!--Slowqueries-->
 
-| Métrique | Unité   |
+| Métrique                     | Unité |
 | :--------------------------- | :---- |
-| Slowqueries | count    |
+| Slowqueries                  | count |
 
 <!--Queries-->
 
-| Métrique | Unité   |
-| :--------------------------- | :---- |
-| Queries | count    |
+| Métrique                     | Unité  |
+| :--------------------------- | :----- |
+| Queries                      | count  |
 
 <!--Cpu-->
 
-| Métrique | Unité   |
-| :--------------------------------- | :-------------------------------------------- |
-| cpu.utilization.percentage         | %                     |
-| core.cpu.utilization.percentage    | %            |
+| Métrique                           | Unité  |
+| :--------------------------------- | :----- |
+| cpu.utilization.percentage         | %      |
+| core.cpu.utilization.percentage    | %      |
 
 <!--Memory-->
 
-| Métrique | Unité   |
-| :---------------------  | :------------------------------------------------------- |
-| memory.usage.bytes      | Bytes                 |
-| memory.free.bytes       | Bytes                  |
-| memory.usage.percentage | %       |
-| memory.buffer.bytes     | Bytes                 |
-| memory.cached.bytes     | Bytes                   |
-| memory.shared.bytes     | Bytes                   |
+| Métrique                | Unité |
+| :---------------------  | :---- |
+| memory.usage.bytes      | Bytes |
+| memory.free.bytes       | Bytes |
+| memory.usage.percentage | %     |
+| memory.buffer.bytes     | Bytes |
+| memory.cached.bytes     | Bytes |
+| memory.shared.bytes     | Bytes |
 
 <!--Swap-->
 
-| Métrique | Unité   |
-| :-------------------------- | :------------------------------------------------ |
-| swap.usage.bytes            | Bytes                            |
-| swap.free.bytes             | Bytes                            |
-| swap.usage.percentage       | %                  |
+| Métrique                    | Unité   |
+| :-------------------------- | :------ |
+| swap.usage.bytes            | Bytes   |
+| swap.free.bytes             | Bytes   |
+| swap.usage.percentage       | %       |
 
 <!--Load-->
 
-| Métrique | Unité   |
-| :-------------------------- | :------------------------------------------------- |
-| load1                       | System load 1 minute-sample                        |
-| load5                       | System load 5 minutes-sample                       |
-| load15                      | System load 15 minutes-sample                      |
+| Métrique                    | Unité                          |
+| :-------------------------- | :----------------------------- |
+| load1                       | System load 1 minute-sample    |
+| load5                       | System load 5 minutes-sample   |
+| load15                      | System load 15 minutes-sample  |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -179,12 +179,12 @@ yum install centreon-pack-applications-monitoring-centreon-database
 * Appliquez le Modèle d'Hôte **App-Monitoring-Centreon-Database-custom**.
 * Une fois le modèle appliqué, les Macros ci-dessous indiquées comme requises (*Obligatoire*) doivent être renseignées.
 
-| Mandatory                 | Macro |
-| :-------------------------- | :------------------------------------------------- |
-| X                       | MYSQLPORT |
-| X                       | MYSQLUSERNAME  |
-| X                      | MYSQLPASSWORD
-|                       | SNMPEXTRAOPTIONS
+| Mandatory  | Macro            |
+| :--------- | :--------------  |
+| X          | MYSQLPORT        |
+| X          | MYSQLUSERNAME    |
+| X          | MYSQLPASSWORD    |
+|            | SNMPEXTRAOPTIONS |
 
 ## Comment puis-je tester le Plugin et que signifient les options des commandes ?
 
