@@ -18,6 +18,8 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ### 21.10.3
 
+Release date: `January 26, 2022`
+
 #### Bug Fixes
 
 - [Graph] Fixed display of additional graph if it came from Resources Status
