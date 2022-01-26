@@ -20,7 +20,7 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 #### Bug Fixes
 
-- [Graph] Fixed display of additional graph if it came from Resource Status
+- [Graph] Fixed display of additional graph if it came from Resources Status
 - [Install] Fixed SQL request syntax error for cron with MySQL 8
 - [Resources Status] Fixed display of meta-services
 - [Resources Status] Fixed graph unit displayed twice
