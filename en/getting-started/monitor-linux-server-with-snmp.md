@@ -18,7 +18,7 @@ A detailed documentation on how-to configure SNMP is available in the documentat
 
 Find below a minimalist snmpd.conf / net-snmp config file
   - replace my-snmp-community by the relevant value.
-  - Add the line "view  centreon  included .1.3.6.1" to have access on all informations in the MIB required by plugin
+  - Add the line **view  centreon  included .1.3.6.1** to have access on all informations in the MIB required by plugin
 
 ```Shell
 #       sec.name  source          community
@@ -58,7 +58,7 @@ You need to install the Linux SNMP plugin as below (see monitoring procedure of 
 yum install centreon-plugin-Operatingsystems-Linux-Snmp
 ```
 
-## Install Linux SNMP templates, confiure and deploy configuration
+## Install Linux SNMP templates, configure and deploy configuration
 
 First, go to the **Configuration \> Plugin Packs** menu and install **Linux SNMP** Plugin Pack:
 
@@ -88,7 +88,7 @@ Your equipment has been added to the monitoring configuration:
 
 Go to **Configuration \> Services \> Services by host** menu. A set of indicators has been automatically deployed:
 
-![image](../assets/getting-started/quick_start_linux_4.png)
+![image](../assets/getting-started/quick_start_linux_4a.png)
 
 You can also use the shortcut beside of the host name to go directly on **Configuration \> Services \> Services by host** filtered by host-name
 
@@ -100,7 +100,7 @@ It is now time to [deploy the supervision](#deploying-a-configuration).
 
 Then go to the **Monitoring \> Resource Status** menu and select **All** value for the **Resource status**
 filter.
-At start, the resources appears with the status **Pending**, which significate checks are not yet executed
+At start, the resources appears with the status **Pending**, which significate checks are not yet executed:
 
 ![image](../assets/getting-started/quick_start_linux_6.png)
 
