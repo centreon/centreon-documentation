@@ -45,16 +45,16 @@ const config = {
           onlyIncludeVersions: ['21.10', '21.04', '20.10', '20.04'],
           versions: {
             '21.10': {
-              label: '💸 21.10',
+              label: '⭐ 21.10',
             },
             21.04: {
-              label: '🐲 21.04',
+              label: '21.04',
             },
             '20.10': {
-              label: '🥴 20.10',
+              label: '20.10',
             },
             20.04: {
-              label: '🏂 20.04',
+              label: '20.04',
             },
           },
         },
@@ -93,12 +93,10 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       algolia: {
+        appId: 'BH4D9OD16A',
         apiKey: '2c8912e81dc56e382c3964f26634e056',
         indexName: 'centreon',
         contextualSearch: true,
-        algoliaOptions: {
-          facetFilters: ['tags:dev'],
-        },
       },
 
       announcementBar: {

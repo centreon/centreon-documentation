@@ -18,9 +18,7 @@ The main capabilities of Centreon Mobile application are :
 - See detail information of host or service
 - Access metrics history via charts
 
-  `<video width="375" height="812" controls="true" allowfullscreen="true" poster="../assets/mobile/mobile-login.png">`
-    `<source src="../assets/mobile/mobile-demo.mp4" type="video/mp4">`
-  `</video>`
+<video width="675" height="712" controls={true} allowFullScreen={true} poster={require('../assets/mobile/mobile-login.png').default}><source src={require('../assets/mobile/mobile-demo.mp4').default} type="video/mp4"/></video>
 
 > The mobile application has been developed using the
 > PWA - [Progressive Web App mechanism](https://en.wikipedia.org/wiki/Progressive_web_application).

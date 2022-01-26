@@ -60,9 +60,7 @@ votre mobile:
   - Afficher le détail du statut des ressources et un graphiques lorsque
     disponible
 
-<video width="375" height="812" controls="true" allowfullscreen="true" poster="../assets/mobile/mobile-login.png">
-    <source src="../assets/mobile/mobile-demo.mp4" type="video/mp4"/>
-</video>
+<video width="675" height="712" controls={true} allowFullScreen={true} poster={require('../assets/mobile/mobile-login.png').default}><source src={require('../assets/mobile/mobile-demo.mp4').default} type="video/mp4"/></video>
 
 Plus d'information sur l'installation et l'utilisation de l'application mobile
 sur [cette page](../mobile/introduction)

@@ -19,9 +19,7 @@ Les fonctionnalités principales de cette application sont:
 - Accéder aux informations détaillées des ressources
 - Accéder à l'historique d'une métrique via un graphique
 
-  <video width="375" height="812" controls="true" allowfullscreen="true" poster="../assets/mobile/mobile-login.png">
-    <source src="../assets/mobile/mobile-demo.mp4" type="video/mp4"/>
-  </video>
+<video width="675" height="712" controls={true} allowFullScreen={true} poster={require('../assets/mobile/mobile-login.png').default}><source src={require('../assets/mobile/mobile-demo.mp4').default} type="video/mp4"/></video>
 
 > L'application mobile est une application de type PWA
 > [(Progressive Web App)](https://en.wikipedia.org/wiki/Progressive_web_application). Elle est composée

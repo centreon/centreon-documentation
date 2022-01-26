@@ -33,7 +33,12 @@ html[data-theme="dark"] .docusaurus-highlight-code-line {
 
 .dropdown__menu {
   min-width: fit-content !important;
-  text-align: center;
+  text-align: right !important;
+}
+
+.dropdown__menu li:nth-child(1){
+  min-width: fit-content !important;
+  text-align: left !important;
 }
 
 .navbar__item {

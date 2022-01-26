@@ -52,9 +52,7 @@ able to perform the most common actions on resources:
   - Act on any resource: acknowledge or set a downtime
   - Display detail status information and graph when appropriate
 
-<video width="375" height="812" controls="true" allowfullscreen="true" poster="../assets/mobile/mobile-login.png">
-    <source src="../assets/mobile/mobile-demo.mp4" type="video/mp4"/>
-</video>
+<video width="675" height="712" controls={true} allowFullScreen={true} poster={require('../assets/mobile/mobile-login.png').default}><source src={require('../assets/mobile/mobile-demo.mp4').default} type="video/mp4"/></video>
 
 Find more about this mobile application in the [dedicated
 section](../mobile/introduction)
