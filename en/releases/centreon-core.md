@@ -19,6 +19,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 21.10.3
 
+Release date: `January 26, 2022`
+
 #### Bug Fixes
 
 - [Graph] Fixed display of additional graph if it came from Resources Status
