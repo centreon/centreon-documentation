@@ -108,9 +108,9 @@ de type Posix.
 > SWA](https://help.okta.com/en/prod/Content/Topics/Apps/Apps_Configure_Template_App.htm) :
 >
 > - le champ **Utilisateur du domaine** est du type
-> **uid=\<USER\>,dc=\<ORGANIZATION\>,dc=okta,dc=com**
+> **uid=<USER\>,dc=<ORGANIZATION\>,dc=okta,dc=com**
 > - et le champ **Base de recherche de groupe DN** du type
-> **ou=\<OU\>,dc=\<ORGANIZATION\>,dc=okta,dc=com**
+> **ou=<OU\>,dc=<ORGANIZATION\>,dc=okta,dc=com**
 
 Sous CentOS 7, on peut définir de ne pas vérifier le certificat serveur avec la
 procédure suivante:

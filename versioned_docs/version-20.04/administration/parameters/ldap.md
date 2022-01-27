@@ -95,8 +95,8 @@ on the MS Active Directory, Okta or of Posix type directories.
 > plugin](https://help.okta.com/en/prod/Content/Topics/Apps/Apps_Configure_Template_App.htm).
 > Please define:
 >
-> - **uid=\<USER\>,dc=\<ORGANIZATION\>,dc=okta,dc=com** for **Bind DN** field
-> - **ou=\<OU\>,dc=\<ORGANIZATION\>,dc=okta,dc=com** \*\* for **Search group
+> - **uid=<USER\>,dc=<ORGANIZATION\>,dc=okta,dc=com** for **Bind DN** field
+> - **ou=<OU\>,dc=<ORGANIZATION\>,dc=okta,dc=com** \*\* for **Search group
 > base DN** field.
 
 With CentOS 7, it's possible to not check server certificate, follow procedure:
