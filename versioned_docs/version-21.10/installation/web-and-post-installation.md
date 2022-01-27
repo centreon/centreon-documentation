@@ -5,7 +5,7 @@ title: Web And Post Installation
 
 ## Web installation
 
-Log in to Centreon web interface via the URL *http://\<IP\>/centreon*.
+Log in to Centreon web interface via the URL `http://<IP\>/centreon`.
 
 The Centreon setup wizard is displayed. Click on **Next**.
 

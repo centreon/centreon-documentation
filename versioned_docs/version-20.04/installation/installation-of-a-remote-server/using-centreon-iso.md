@@ -151,30 +151,30 @@ execute following command:
 -v '<IP_CENTREON_CENTRAL>;<don't check SSL CA on Central>;<HTTP method>;<TCP port>;<don't check SSL CA on Remote>;<no proxy to call Central>'
 ```
 
-  - Replace **\<IP_CENTREON_CENTRAL\>** by the IP of the Centreon server as seen
+  - Replace **<IP_CENTREON_CENTRAL\>** by the IP of the Centreon server as seen
     by the poller. You can define multiple IP address using a comma as separator.
 
-    > To use HTTPS, replace **\<IP_CENTREON_CENTRAL\>** by
-    > **https://\<IP_CENTREON_CENTRAL\>**.
+    > To use HTTPS, replace **<IP_CENTREON_CENTRAL\>** by
+    > **https://<IP_CENTREON_CENTRAL\>**.
     >
-    > To use non default port, replace **\<IP_CENTREON_CENTRAL\>** by
-    > **\<IP_CENTREON_CENTRAL\>:\<PORT\>**
+    > To use non default port, replace **<IP_CENTREON_CENTRAL\>** by
+    > **<IP_CENTREON_CENTRAL\>:<PORT\>**
 
-  - For the **\<don't check SSL CA on Central\>** option, you should put **1** if
+  - For the **<don't check SSL CA on Central\>** option, you should put **1** if
     you intend not to check the SSL CA on the Centreon Central Server whenever
     HTTPS is enabled, or put **0**.
 
-  - The **\<HTTP method\>** option defines how the Centreon Central server can
+  - The **<HTTP method\>** option defines how the Centreon Central server can
     contact the Remote server: HTTP or HTTPS.
 
-  - The **\<TCP port\>** option defines on which TCP port the Centreon Central
+  - The **<TCP port\>** option defines on which TCP port the Centreon Central
     server can contact the Remote server.
 
-  - For the **\<don't check SSL CA on Remote\>** option, you should put **1** if
+  - For the **<don't check SSL CA on Remote\>** option, you should put **1** if
     you intend not to check the SSL CA on the Remote server whenever HTTPS is
     enabled, or put **0**.
 
-  - For the **\<no proxy to call Central\>** option, you should put **1** if you
+  - For the **<no proxy to call Central\>** option, you should put **1** if you
     intend not to use an HTTP(S) proxy to contact the Centreon Central server.
 
 

@@ -122,10 +122,10 @@ GRANT ALL PRIVILEGES ON *.* TO '<USER>'@'<IP>' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 ```
 
-> Remplacez **\<IP\>** par l'adresse IP avec laquelle le serveur Centreon
+> Remplacez **<IP\>** par l'adresse IP avec laquelle le serveur Centreon
 > Remote Server se connectera au serveur de base de données.
 >
-> Remplacez **\<USER\>** et **\<PASSWORD\>** par les identifiants de
+> Remplacez **<USER\>** et **<PASSWORD\>** par les identifiants de
 > l'utilisateur.
 
 Une fois l'installation terminée vous pouvez supprimer cet utilisateur via la
@@ -218,30 +218,30 @@ exécutez la commande suivante :
 -v '<IP_CENTREON_CENTRAL>;<not check SSL CA on Central>;<HTTP method>;<TCP port>;<not check SSL CA on Remote>;<no proxy to call Central>'
 ```
 
-  - Remplacez **\<IP_CENTREON_CENTRAL\>** par l'IP du serveur Centreon vu par le
+  - Remplacez **<IP_CENTREON_CENTRAL\>** par l'IP du serveur Centreon vu par le
     collecteur. Vous pouvez définir plusieurs adresses IP en utilisant la virgule
     comme séparateur.
 
-    > Pour utiliser HTTPS, remplacez **\<IP_CENTREON_CENTRAL\>** par
-    > **https://\<IP_CENTREON_CENTRAL\>**.
+    > Pour utiliser HTTPS, remplacez **<IP_CENTREON_CENTRAL\>** par
+    > **https://<IP_CENTREON_CENTRAL\>**.
     >
     > Pour utiliser un autre port TCP, remplacez **@IP_CENTREON_CENTRAL** par
-    > **\<IP_CENTREON_CENTRAL\>:\<PORT\>**.
+    > **<IP_CENTREON_CENTRAL\>:<PORT\>**.
 
   - Pour ne pas contrôler le certificat SSL sur le serveur Centreon Central, mettre
-    à **1** l'option **\<not check SSL CA on Central\>**, sinon **0**.
+    à **1** l'option **<not check SSL CA on Central\>**, sinon **0**.
 
-  - L'option **\<HTTP method\>** permet de définir la méthode de connexion pour
+  - L'option **<HTTP method\>** permet de définir la méthode de connexion pour
     contacter le Remote Server : HTTP ou HTTPS.
 
-  - L'option **\<TCP port\>** permet de définir sur quel port TCP communiquer avec
+  - L'option **<TCP port\>** permet de définir sur quel port TCP communiquer avec
     le Remote Server.
 
   - Pour ne pas contrôler le certificat SSL sur le Remote server, mettre à **1**
-    l'option **\<not check SSL CA on Central\>**, sinon **0**.
+    l'option **<not check SSL CA on Central\>**, sinon **0**.
 
   - Pour ne pas utiliser le proxy pour contacter le serveur Centreon Central,
-    mettre à **1** l'option **\<no proxy to call Central\>**, sinon **0**.
+    mettre à **1** l'option **<no proxy to call Central\>**, sinon **0**.
 
 Par exemple :
 

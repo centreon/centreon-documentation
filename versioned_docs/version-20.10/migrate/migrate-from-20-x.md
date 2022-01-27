@@ -102,7 +102,7 @@ mysql_upgrade
 systemctl start mariadb
 ```
 
-> Replace **\<IP_NEW_CENTREON\>** by the IP or the new Centreon server.
+> Replace **<IP_NEW_CENTREON\>** by the IP or the new Centreon server.
 
 ### Synchronize the plugins
 
@@ -128,7 +128,7 @@ mv install-20.10.0-YYYYMMDD_HHMMSS/ /usr/share/centreon/www/install/
 > If you use the same IP address or same DNS name between old Centreon webserver
 > and the new one, do a full cache cleanup of your browser to avoid JS issues
 
-Go to *http://\<IP_NEW_CENTREON\>/centreon* URL and perform the upgrade.
+Go to `http://<IP_NEW_CENTREON\>/centreon` URL and perform the upgrade.
 
 > If you changed the *centreon* password during the installation process you must
 > follow these steps:
