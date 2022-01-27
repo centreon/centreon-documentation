@@ -1,5 +1,5 @@
 ---
-id: sc-omi-events
+id: sc-hp-omi
 title: HP OMi Events
 ---
 
