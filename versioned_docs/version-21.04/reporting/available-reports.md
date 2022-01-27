@@ -327,10 +327,10 @@ Parameters required for the report:
 |---------------|---------------|------------------------------------------------------------------------------------------------|
 | logo          | Dropdown list | Select logo to display in header.                                                              |
 | business View | Dropdown list | Select a Business View for generating the report.                                              |
-| sla 1\*       | Text field    | Time in minutes corresponding to the high threshold of the first interval \[0 min, **sla1** \[ |
-| sla 2\*       | Text field    | Time in minutes corresponding to the high threshold of the second interval \[sla1, **sla2** \[ |
-| sla 3\*       | Text field    | Time in minutes corresponding to the high threshold of the third interval \[sla2, **sla3** \[  |
-| sla 4\*       | Text field    | Time in minutes corresponding to the high threshold of the fourth interval \[sla3, **sla4** \[ |
+| sla 1\*       | Text field    | Time in minutes corresponding to the high threshold of the first interval [0 min, **sla1**]    |
+| sla 2\*       | Text field    | Time in minutes corresponding to the high threshold of the second interval [sla1, **sla2**]    |
+| sla 3\*       | Text field    | Time in minutes corresponding to the high threshold of the third interval [sla2, **sla3**]     |
+| sla 4\*       | Text field    | Time in minutes corresponding to the high threshold of the fourth interval [sla3, **sla4**]    |
 | title         | Text field    | Specify report title.                                                                          |
 | time period   | Dropdown list | Specify reporting time period or a specific one.\*\*                                           |
 

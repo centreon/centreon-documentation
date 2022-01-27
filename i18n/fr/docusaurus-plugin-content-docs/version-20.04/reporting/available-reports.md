@@ -371,10 +371,10 @@ Les paramètres attendus dans ce rapport :
 |---------------|------------------|-------------------------------------------------------------------------|
 | logo          | Liste déroulante | Logo à afficher dans l’en tête du rapport                               |
 | business View | Liste déroulante | Sélection de la business view sur laquelle générer le rapport           |
-| sla 1         | Champ texte      | Temps maximum en minutes du premier intervalle \[0 min, **sla1** \[     |
-| sla 2         | Champ texte      | Temps maximum en minutes du second intervalle \[sla1 min, **sla2** \[   |
-| sla 3         | Champ texte      | Temps maximum en minutes du troisième intervalle \[sl2 min, **sla3** \[ |
-| sla 4         | Champ texte      | Temps maximum en minutes du quatrième intervalle \[sl3 min, **sla4** \[ |
+| sla 1         | Champ texte      | Temps maximum en minutes du premier intervalle [0 min, **sla1**]        |
+| sla 2         | Champ texte      | Temps maximum en minutes du second intervalle [sla1 min, **sla2**]      |
+| sla 3         | Champ texte      | Temps maximum en minutes du troisième intervalle [sl2 min, **sla3**]    |
+| sla 4         | Champ texte      | Temps maximum en minutes du quatrième intervalle [sl3 min, **sla4**]    |
 | title         | Champ texte      | Permet de préciser un titre particulier pour le rapport                 |
 | time period   | Liste déroulante | Sélectionner la période de reporting à appliquer\*                      |
 
