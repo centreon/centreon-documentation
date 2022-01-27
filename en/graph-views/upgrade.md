@@ -18,7 +18,7 @@ MariaDB dump (backup) of your `centreon_studio` database. This will
 allow you easily to roll back to the previous state if necessary.
 
 Be sure to read the release notes for an explanation of features, fixes
-& custom procedures. Please note that [applying a fix](../graph-views/troubleshooter.html#metric-links-are-black-after-updating-map) may be necessary if you upgrade MAP to version 21.10.1 or later.
+& custom procedures.
 
 **When you're upgrading to a new major or minor version (i.e:A.B.x with
 A or B that changes) you need to contact our Support service to retrieve
