@@ -464,7 +464,7 @@ in the following example: :
     [Table mod_bi_serviceavailability, last entry: 2020-07-01 00:00:00] [Table data_bin, last entry: 2020-08-01 00:00:00] [Table mod_bi_metricdailyvalue, last entry: 2020-08-01 00:00:00]
     [Table mod_bi_metrichourlyvalue, last entry: 2020-08-01 23:00:00]
 
--   When only the **mod_bi_*** tables appear, there is an incident
+-   When only the **mod_bi_** tables appear, there is an incident
     with aggregated data and not the Centreon data.
 
     In this case, **skip the "Import Missing data" section** below.

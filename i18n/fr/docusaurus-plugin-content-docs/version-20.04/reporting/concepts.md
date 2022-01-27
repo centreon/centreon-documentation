@@ -506,7 +506,7 @@ données n'est pas à jour : :
     [Table mod_bi_serviceavailability, last entry: 2015-07-01 00:00:00] [Table data_bin, last entry: 2015-08-01 00:00:00] [Table mod_bi_metricdailyvalue, last entry: 2015-08-01 00:00:00]
     [Table mod_bi_metrichourlyvalue, last entry: 2015-08-01 23:00:00]
 
--   Si vous ne voyez que les tables **mod_bi_*** cela signifie que le
+-   Si vous ne voyez que les tables **mod_bi_** cela signifie que le
     problème se situe uniquement sur les données agrégées et pas les
     données provenant de Centreon.
 
