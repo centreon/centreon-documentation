@@ -356,19 +356,19 @@ pour ce service.
 
 -   **View host status page** : Permet d'accéder à la page des détails
     de l'hôte.
--   **Configure host `<value>`** : Permet d'accéder à la page de
+-   **Configure host** : Permet d'accéder à la page de
     configuration de l'hôte.
--   **View logs for host `<value>`** : Permet d'accéder aux journaux des
+-   **View logs for host** : Permet d'accéder aux journaux des
     événements de l'hôte.
--   **View report for host `<value>`** : Permet d'accéder au rapport de
+-   **View report for host** : Permet d'accéder au rapport de
     taux de disponibilité de l'hôte.
--   **View graphs for host `<value>`** : Permet d'accéder à tous les
+-   **View graphs for host** : Permet d'accéder à tous les
     graphiques de performances des services de l'hôte.
 -   **Configure service** : Permet d'accéder à la page de configuration
     du service.
--   **View logs for service `<value>`** : permet d'accéder aux journaux
+-   **View logs for service** : permet d'accéder aux journaux
     des événements du service.
--   **View report for service `<value>`** : Permet d'accéder au rapport de
+-   **View report for service** : Permet d'accéder au rapport de
     taux de disponibilité du service.
 
 ### Commandes de service
