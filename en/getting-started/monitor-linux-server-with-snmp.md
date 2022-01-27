@@ -96,7 +96,7 @@ You can also use the shortcut beside of the host name to go directly on **Config
 
 ![image](../assets/getting-started/quick_start_linux_5.png)
 
-It is now time to [deploy the supervision](#deploying-a-configuration).
+It is now time to [deploy the supervision](\first-supervision#deploying-a-configuration).
 
 Then go to the **Monitoring \> Resource Status** menu and select **All** value for the **Resource status**
 filter.
