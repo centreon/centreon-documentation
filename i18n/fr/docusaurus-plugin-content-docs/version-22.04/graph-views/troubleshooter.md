@@ -139,7 +139,7 @@ To open the appropriate ports:
 /sbin/iptables -A INPUT -p tcp --dport <PORT> -j ACCEPT
 ```
 
-> Replace \<PORT\> by the port your Centreon MAP server is using (mostly 8080 or
+> Replace <PORT\> by the port your Centreon MAP server is using (mostly 8080 or
 > 8443 if you have configured it in SSL).
 
 To simply disable your firewall, execute:
