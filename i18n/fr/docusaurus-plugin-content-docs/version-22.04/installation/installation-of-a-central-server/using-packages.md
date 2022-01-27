@@ -294,10 +294,10 @@ GRANT ALL PRIVILEGES ON *.* TO '<USER>'@'<IP>' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 ```
 
-> Remplacez **\<IP\>** par l'adresse IP avec laquelle le serveur Centreon
+> Remplacez **<IP\>** par l'adresse IP avec laquelle le serveur Centreon
 > Central se connectera au serveur de base de données.
 >
-> Remplacez **\<USER\>** et **\<PASSWORD\>** par les identifiants de
+> Remplacez **<USER\>** et **<PASSWORD\>** par les identifiants de
 > l'utilisateur.
 
 Une fois l'installation terminée vous pouvez supprimer cet utilisateur via la
