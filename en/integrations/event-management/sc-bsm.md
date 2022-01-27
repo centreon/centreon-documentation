@@ -186,7 +186,7 @@ Some of them are overridden by this stream connector.
 
 ## Event bulking
 
-This stream connector is compatible with event bulking. Meaning that it is able to send more that one event in each call to the Splunk REST API.
+This stream connector is compatible with event bulking. Meaning that it is able to send more that one event in each call to the BSM REST API.
 
 To use this feature you must add the following parameter in your stream connector configuration.
 
