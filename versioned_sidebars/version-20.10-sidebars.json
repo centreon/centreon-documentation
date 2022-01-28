@@ -3395,30 +3395,6 @@
     },
     {
       "type": "category",
-      "label": "Monitoring your platform",
-      "items": [
-        {
-          "type": "category",
-          "label": "Centreon HA",
-          "items": [
-            {
-              "type": "doc",
-              "id": "version-20.10/administration/centreon-ha/monitoring-guide"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.10/administration/centreon-ha/operating-guide"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.10/administration/centreon-ha/troubleshooting-guide"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "category",
       "label": "Releases",
       "items": [
         {
