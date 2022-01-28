@@ -81,7 +81,7 @@ activity, in terms of percentages and minutes.
 - An availability calendar displays only days when availability was below 100%.
 - For days with 100% availability, the cell background color appears in a light
   grey with no values displayed.
-- If data aren\'t present on a specific day, the cell background color appears
+- If data aren't present on a specific day, the cell background color appears
   in white with no values displayed.
 
 ![image](../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page2-3.png)
@@ -108,7 +108,7 @@ Parameters required for the report:
 | title          | Text field    | Specify report title.                                |
 | time period    | Dropdown list | Specify reporting time period.\*                     |
 
-\* *If different from \"Default\", be sure that the selected time period
+\* *If different from "Default", be sure that the selected time period
 is defined as a Default or Extra reporting time period in the BA
 configuration or it will not appear in the report.*
 
@@ -166,7 +166,7 @@ Parameters required for the report:
 | title                  | text field                       | Specify report title.                                 |
 | time period - Dropdown | Specify reporting time period.\* |                                                       |
 
-\* *If different from \"Default\", be sure that the selected time period is
+\* *If different from "Default", be sure that the selected time period is
 defined as a Default or Extra reporting time period in the BA configuration.*
 
 ### BV-BA-Availabilities-List
@@ -206,7 +206,7 @@ Parameters required for the report:
 | title          | Text field    | Specify report title.                                |
 | time period    | Dropdown list | Specify reporting time period.\*                     |
 
-\* *If different from \"Default\", be sure that the selected time period
+\* *If different from "Default", be sure that the selected time period
 is defined as a Default or Extra reporting time period in the BA
 configuration or it will not appear in the report.*
 
@@ -235,7 +235,7 @@ The report displays a list of events for a business activity during a given peri
 | title             | text field    | Specify report title.                                 |
 | time period       | Dropdown      | Specify reporting time period.\*                      |
 
-\* *If different from \"Default\", be sure that the selected time period is
+\* *If different from "Default", be sure that the selected time period is
 defined as a Default or Extra reporting time period in the BA configuration.*
 
 ### BV-BA-Current-Health-VS-Past
@@ -269,7 +269,7 @@ Parameters required for the report:
 | title                         | Text field    | Specify report title.                                                  |
 | time period                   | Dropdown list | Specify reporting time period or a other.\*                            |
 
-\* *If different from \"Default\", be sure that the selected time period is
+\* *If different from "Default", be sure that the selected time period is
 defined as a Default or Extra reporting time period in the BA configuration or
 it will not appear in the report.*
 
@@ -293,17 +293,17 @@ The first calendar displays the availability of your business activities
 by month. Cells are colored according to the SLA defined for each
 business activity in percentages (in the Extended Information tab menu).
 If the SLAs are not defined in the BA configuration, values are
-displayed in cells if availability is below 100% or if unavailability \>
-0 secondes. The time period that applies is the \"Default reporting
-period\" selected for each business activity (in the Configuration tab
+displayed in cells if availability is below 100% or if unavailability >
+0 seconds. The time period that applies is the "Default reporting
+period" selected for each business activity (in the Configuration tab
 menu).
 
 The second calendar displays the unavailability and number of events for
 your business activities by month. Cells are colored according to the
 SLA defined for each business activity in minutes. If the SLAs are not
 defined in the BA configuration, values are displayed in cells if
-availability is below 100% or if unavailability \> 0 secondes. The time
-period that applies is the \"Default reporting period\" selected for
+availability is below 100% or if unavailability > 0 seconds. The time
+period that applies is the "Default reporting period" selected for
 each business activity.
 
 ![image](../assets/reporting/guide/available-reports/bv-ba-calendar-first-page.png)
@@ -338,7 +338,7 @@ Parameters required for the report:
 
 ![image](../assets/reporting/guide/available-reports/bv-ba-calendar-legende.png)
 
-\* *If different from \"Default\", be sure that the selected time period is
+\* *If different from "Default", be sure that the selected time period is
 defined as a Default or Extra reporting time period in the BA configuration or
 it will not appear in the report.*
 
@@ -844,7 +844,7 @@ sent to the URL of the API should generate an image file.
 curl http://$CENTREON-IP-OR-DNS$//include/views/graphs/generateGraphs/generateImage.php?akey=$AUTH_KEY$&username=$USER$&hostname=$HOSTNAME$&service=$SERVICENAME$&start=$TIMESTAMPSTART$&end=$TIMESTAMPEND$
 ```
 
-Replace the \'\$xxxx\$\' by real values.
+Replace the values between $ signs by real values.
 
 Example:
 
@@ -921,7 +921,7 @@ sent to the URL of the API should generate an image file.
 curl http://$CENTREON-IP-OR-DNS$//include/views/graphs/generateGraphs/generateImage.php?akey=$AUTH_KEY$&username=$USER$&hostname=$HOSTNAME$&service=$SERVICENAME$&start=$TIMESTAMPSTART$&end=$TIMESTAMPEND$
 ```
 
-Replace the \'\$xxxx\$\' by real values.
+Replace the values between $ signs by real values.
 
 Example:
 
@@ -997,7 +997,7 @@ Metrics must return a maximum value on their performances data. Using warning
 and critical thresholds on performances data is highly recommended.
 
 Performance data returned by a plugin must be formatted as follows, preceded by
-a pipe (\|):
+a pipe (|):
 
 ``` text
 output-plugin | metric1=valeur(unité);seuil_warning;seuil_critique;minimum;maximum metric2=valeur ...
@@ -1064,7 +1064,7 @@ thresholds for all service metrics selected.
   columns are displayed in percentage (%).
   The calculation is: value / maximum value.
 - If the maximum value not returned by the plugin, the Average, Max and Min
-  columns are displayed in the metric\'s units.
+  columns are displayed in the metric's units.
 
 ![image](../assets/reporting/guide/available-reports/Hostgroup-Service-Metric-Performance-List.png)
 
@@ -1095,7 +1095,7 @@ mininimum and maximum value reached over the time period.
   Min columns are displayed in percentage (%). The calculation is:
   value / maximum value.
 - If the maximum value not returned by the plugin, the Average, Max
-  and Min columns are displayed in the metric\'s units.
+  and Min columns are displayed in the metric's units.
 
 ![image](../assets/reporting/guide/available-reports/Hostgroups-Categories-Performance-List.png)
 
@@ -1174,7 +1174,7 @@ Parameters required for the report:
 
 For consistency in graphs and statistics, certain prerequisites apply to
 performance data returned by the storage plugins. This data must be formatted as
-follows, preceded by a pipe (\|):
+follows, preceded by a pipe (|):
 
 ``` text
 output-plugin | metric1=valueunit;warning_treshold;critical_treshold;minimum;maximum metric2=value...
@@ -1188,9 +1188,9 @@ to calculate statistics. The unit must be expressed in bytes.
 > - The ETL configuration must include service categories for storage,
 >   otherwise the evolution graphics remain empty.
 > - This report is compatible with the 24x7 time period only. This time
->   period must be configured on the menu \"General options \| Capacity
->   statistic aggregated by month \| Live services for capacity statistics
->   calculation\".
+>   period must be configured on the menu "General options | Capacity
+>   statistic aggregated by month | Live services for capacity statistics
+>   calculation".
 
 ### Hostgroup-Storage-Capacity-2
 
@@ -1260,7 +1260,7 @@ Parameters required for this report:
 
 For consistency in graphs and statistics, certain prerequisites apply to
 performance data returned by the storage plugins. This data must be
-formatted as follows, preceded by a pipe (\|):
+formatted as follows, preceded by a pipe (|):
 
 ``` text
 output-plugin | metric1=valueunit;warning_treshold;critical_treshold;minimum;maximum metric2=value...
@@ -1274,9 +1274,9 @@ in order to calculate statistics. The unit must be expressed in bytes.
 > - The ETL configuration must include service categories for storage,
 >   otherwise the evolution graphics remain empty.
 > - This report is compatible with the 24x7 time period only. This time
->   period must be configured on the menu \"General options \| Capacity
->   statistic aggregated by month \| Live services for capacity statistics
->   calculation\".
+>   period must be configured on the menu "General options | Capacity
+>   statistic aggregated by month | Live services for capacity statistics
+>   calculation".
 
 ### Hostgroup-Storage-Capacity-List
 
@@ -1287,7 +1287,7 @@ This report displays storage space usage on hosts within a host group.
 #### How to interpret the report
 
 The report presents a table with all available partitions for
-hostgroup\'s ressources. Detailed information is provided on the
+hostgroup's ressources. Detailed information is provided on the
 allocated and used space, the evolution since the last month, and
 estimate time before saturation.
 
@@ -1321,7 +1321,7 @@ Parameters required for the report:
 
 For consistency in graphs and statistics, certain prerequisites apply to
 performance data returned by the storage plugins. This data must be
-formatted as follows, preceded by a pipe (\|):
+formatted as follows, preceded by a pipe (|):
 
 ``` text
 output-plugin | metric1=valueunit;warning_treshold;critical_treshold;minimum;maximum metric2=value...
@@ -1393,7 +1393,7 @@ Parameters required for the report:
 
 For consistency in graphs and statistics, certain prerequisites apply to
 performance data returned by the storage plugins. This data must be
-formatted as follows, preceded by a pipe (\|):
+formatted as follows, preceded by a pipe (|):
 
 ``` text
 output-plugin | traffic_in=valueunit;warning_treshold;critical_treshold;minimum;maximum traffic_out=value
@@ -1487,7 +1487,7 @@ Parameters required for the report:
 
 For consistency in graphs and statistics, certain prerequisites apply to
 performance data returned by the storage plugins. This data must be
-formatted as follows, preceded by a pipe (\|):
+formatted as follows, preceded by a pipe (|):
 
 ``` text
 output-plugin | traffic_in=valueunit;warning_treshold;critical_treshold;minimum;maximum traffic_out=value
@@ -1543,11 +1543,11 @@ Parameters required for the reports:
 
 #### Prerequisites
 
-- Percentile should be correctly configured in the General Options \> ETL tab
+- Percentile should be correctly configured in the General Options > ETL tab
   menu.
 - For consistency in graphs and statistics, certain prerequisites apply to
   performance data returned by the storage plugins. This data must be formatted
-  as follows, preceded by a pipe (\|):
+  as follows, preceded by a pipe (|):
 
 ``` text
 output-plugin | traffic_in=valueunit;warning_treshold;critical_treshold;minimum;maximum traffic_out=value
@@ -1817,8 +1817,8 @@ memory and CPU for a given host.
 
 #### How to interpret the report
 
-The first page displays detailed statistics on a host\'s availability.
-The second page shows statistics on the host\'s performance (CPU and
+The first page displays detailed statistics on a host's availability.
+The second page shows statistics on the host's performance (CPU and
 Memory). On the third page, statistics describe storage capacity by
 partition.
 
@@ -1876,7 +1876,7 @@ Parameters required for the report:
 
 For consistency in graphs and statistics, certain prerequisites apply to
 performance data returned by the plugins. This data must be formatted as
-follows, preceded by a pipe (\|):
+follows, preceded by a pipe (|):
 
 ``` text
 output-plugin | metric1=valueunit;warning_treshold;critical_treshold;minimum;maximum metric2=value...
@@ -1889,9 +1889,9 @@ expressed in bytes for storage and memory plugins.
 > **Warning**
 >
 > This report is compatible with the 24x7 time period only. This time
-> period must be configured on the menu \"General options \| Capacity
-> statistic aggregated by month \| Live services for capacity statistics
-> calculation\".
+> period must be configured on the menu "General options | Capacity
+> statistic aggregated by month | Live services for capacity statistics
+> calculation".
 
 ### Host-Detail-3
 
@@ -1902,9 +1902,9 @@ storage usage, memory, CPU and traffic for a given host.
 
 #### How to interpret the report
 
-The first page displays detailed statistics on a host\'s availability.
+The first page displays detailed statistics on a host's availability.
 
-The second page shows statistics on the host\'s performance (CPU and
+The second page shows statistics on the host's performance (CPU and
 memory).
 
 The third page shows statistics on storage capacity by partition.
@@ -1973,7 +1973,7 @@ Parameters needed by report are:
 
 For consistency in graphs and statistics, certain prerequisites apply to
 performance data returned by the plugins. This data must be formatted as
-follows, preceded by a pipe (\|):
+follows, preceded by a pipe (|):
 
 ``` text
 output-plugin | metric1=valueunit;warning_treshold;critical_treshold;minimum;maximum metric2=value...
@@ -1987,9 +1987,9 @@ traffic plugins.
 > **Warning**
 >
 > This report is compatible with the 24x7 time period only. This time
-> period must be configured on the menu \"General options \| Capacity
-> statistic aggregated by month \| Live services for capacity statistics
-> calculation\".
+> period must be configured on the menu "General options | Capacity
+> statistic aggregated by month | Live services for capacity statistics
+> calculation".
 
 ### Hostgroup-Host-Details-1
 
@@ -2065,7 +2065,7 @@ Parameters required for the report:
 
 For consistency in graphs and statistics, certain prerequisites apply to
 performance data returned by the plugins. This data must be formatted as
-follows, preceded by a pipe (\|):
+follows, preceded by a pipe (|):
 
 ``` text
 output-plugin | metric1=valueunit;warning_treshold;critical_treshold;minimum;maximum metric2=value...
@@ -2079,9 +2079,9 @@ traffic plugins.
 > **Warning**
 >
 > This report is compatible with the 24x7 time period only. This time
-> period must be configured on the menu \"General options \| Capacity
-> statistic aggregated by month \| Live services for capacity statistics
-> calculation\".
+> period must be configured on the menu "General options | Capacity
+> statistic aggregated by month | Live services for capacity statistics
+> calculation".
 
 ## Inventory & Configuration
 
@@ -2206,7 +2206,7 @@ The prerequisites for this report are:
   be: load1, load5 and load15)
 - Monitoring of the CPU on the poller ( metric names should contain
   *cpu* string with the core number. Example: for a 4 core CPU,
-  metrics can be cpu0,cpu1,\...or cpu\_0,cpu\_1,\...
+  metrics can be cpu0,cpu1... or cpu\_0,cpu\_1...
 
 ### Hosts-not-classified
 
