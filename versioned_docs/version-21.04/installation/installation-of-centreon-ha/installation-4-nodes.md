@@ -652,7 +652,7 @@ Position Status [OK]
 
 ## Setting up the *Centreon* cluster
 
-**Note: unless otherwise stated, each of the following steps have to be run **on both central nodes (`@CENTRAL_MASTER_NAME@` and `@CENTRAL_SLAVE_NAME@`)**.
+**Note**: unless otherwise stated, each of the following steps have to be run **on both central nodes (`@CENTRAL_MASTER_NAME@` and `@CENTRAL_SLAVE_NAME@`)**.
 
 ### Configuring the file synchronization service
 
