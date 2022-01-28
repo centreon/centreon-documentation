@@ -3,24 +3,22 @@ id: monitor-linux-server-with-snmp
 title: Monitor your first Linux host
 ---
 
-# Monitor a Linux server with SNMP
+## Monitoring a Linux server with SNMP
 
-## Context
+In this tutorial, we're assuming that your Centreon platform is installed and running well, and that you have at least a [Centreon IT 100 Edition](IT100.html) that provides Centreon Plugin Packs (your [license](../administration/licenses.html) is already set up).
 
-In this documentation, we consider your centreon platform is installed and running well. And we supposed you have at least a Centreon IT 100 Edition who provide centreon Plugin-Packs
+## Prerequisites
 
-## Prerequesites
+### On the Linux server you want to monitor
 
-### On Linux server
+The first step is to activate and configure an SNMP agent on your monitored host.
+A detailed documentation on how to configure SNMP is available in the documentation of each Linux distribution.
 
-First step is to activate and configure SNMP agent on your monitored host.
-A detailed documentation on how-to configure SNMP is available in the documentation of each Linux distribution.
+Find below a minimalist snmpd.conf/net-snmp configuration file:
+  - replace **my-snmp-community** by the correct value for your environment.
+  - Add the line **view  centreon  included .1.3.6.1** to have access to all information in the MIB required by the plugin
 
-Find below a minimalist snmpd.conf / net-snmp config file
-  - replace my-snmp-community by the relevant value.
-  - Add the line **view  centreon  included .1.3.6.1** to have access on all informations in the MIB required by plugin
-
-```Shell
+```shell
 #       sec.name  source          community
 com2sec notConfigUser  default       my-snmp-community
 
@@ -41,71 +39,66 @@ view    systemview    included   .1.3.6.1.2.1.1
 view    systemview    included   .1.3.6.1.2.1.25.1.1
 
 ```
-The SNMP server must be restarted each time the configuration is modified. Also make sure that the SNMP server is configured to automatically start on boot.
-Like this for recent distributions:
-```Shell
+The SNMP server must be restarted each time the configuration is modified. Also make sure that the SNMP server is configured to automatically start on boot. Use the following commands for recent distributions:
+
+```shell
 systemctl restart snmpd
 systemctl enable snmpd
 ```
 
 > The target server must be reachable from the Centreon Poller on the UDP/161 SNMP port.
 
-### On poller
+### On the poller
 
-You need to install the Linux SNMP plugin as below (see monitoring procedure of **Linux SNMP** Plugin-Pack for more informations):
+1. Connect to your poller in SSH and install the Linux SNMP plugin (see the [monitoring procedure for the **Linux SNMP** Plugin Pack](../integrations/plugin-packs/procedures/operatingsystems-linux-snmp.html) for more information):
 
-```Shell
-yum install centreon-plugin-Operatingsystems-Linux-Snmp
-```
+   ```shell
+   yum install centreon-plugin-Operatingsystems-Linux-Snmp
+   ```
 
-## Install Linux SNMP templates, configure and deploy configuration
+2. In the web interface, go to **Configuration > Plugin Packs** and install the **Linux SNMP** Plugin Pack:
 
-First, go to the **Configuration \> Plugin Packs** menu and install **Linux SNMP** Plugin Pack:
+   ![image](../assets/getting-started/quick_start_linux_0.gif)
 
-![image](../assets/getting-started/quick_start_linux_0.gif)
 
-Next, go to the **Configuration \> Hosts \> Hosts** menu and click on **Add**:
+## Configure the host and deploy the configuration
 
-![image](../assets/getting-started/quick_start_linux_1.gif)
+1. Go to **Configuration > Hosts > Hosts** and click on **Add**:
 
-Fill in the following information:
+   ![image](../assets/getting-started/quick_start_linux_1.gif)
 
-* The name of the server (1)
-* A description of the server (2)
-* The IP address (3)
-* The SNMP version and community (4)
-* Select the monitoring poller (keep "central" if no other poller) (5)
+2. Fill in the following information:
 
-Click on **+ Add a new entry** button in **Templates** field (6), then select the **OS-Linux-SNMP-custom** template (7) in the list like this:
+   * The name of the server (1)
+   * A description of the server (2)
+   * The IP address (3)
+   * The SNMP version and community (4)
+   * Select the monitoring poller (keep "Central" if you have no other poller) (5)
 
-![image](../assets/getting-started/quick_start_linux_2.png)
+3. Click on **+ Add a new entry** in the **Templates** field (6), then select the **OS-Linux-SNMP-custom** template (7) from the list:
 
-Click on **Save** (8).
+   ![image](../assets/getting-started/quick_start_linux_2.png)
 
-Your equipment has been added to the monitoring configuration:
+4. Click on **Save** (8). Your equipment has been added to the list of hosts:
 
-![image](../assets/getting-started/quick_start_linux_3.png)
+   ![image](../assets/getting-started/quick_start_linux_3.png)
 
-Go to **Configuration \> Services \> Services by host** menu. A set of indicators has been automatically deployed:
+5. Go to **Configuration > Services > Services by host**. A set of indicators has been created automatically.
 
-![image](../assets/getting-started/quick_start_linux_4a.png)
+   You can also use the shortcut beside the host's name to go directly to **Configuration > Services > Services by host**. The list will be filtered by the name of the host:
 
-You can also use the shortcut beside of the host name to go directly on **Configuration \> Services \> Services by host** filtered by host-name
+   ![image](../assets/getting-started/quick_start_linux_4b.png)
 
-![image](../assets/getting-started/quick_start_linux_4b.png)
+   ![image](../assets/getting-started/quick_start_linux_5.png)
 
-![image](../assets/getting-started/quick_start_linux_5.png)
+6. [Deploy the configuration](first-supervision#deploying-a-configuration).
 
-It is now time to [deploy the supervision](\first-supervision#deploying-a-configuration).
+7. Go to **Monitoring > Resources Status** and select **All** from the **Resource status** filter. At first, the resources appear with the status **Pending**, which means that no checks have been executed yet:
 
-Then go to the **Monitoring \> Resource Status** menu and select **All** value for the **Resource status**
-filter.
-At start, the resources appears with the status **Pending**, which significate checks are not yet executed:
+   ![image](../assets/getting-started/quick_start_linux_6.png)
 
-![image](../assets/getting-started/quick_start_linux_6.png)
+   After a few minutes, the first results of the monitoring appear:
 
-After a few minutes, the first results of the monitoring appear:
+   ![image](../assets/getting-started/quick_start_linux_7.png)
 
-![image](../assets/getting-started/quick_start_linux_7.png)
-
-In the best case, all is OK, but if not verify causes of errors and correct it.
+   If not all services are in an OK state, check what causes the error and fix the problem.
