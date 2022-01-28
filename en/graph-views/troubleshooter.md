@@ -193,25 +193,6 @@ Wait a few minutes for the Centreon MAP server to synchronize the
 Centreon Web resources. The images on Centreon Web should then appear on
 your desktop client in the Centreon folder.
 
-### Metric links are black after updating MAP
-
-After updating or migrating to version 20.10.6 or later of Centreon MAP, metric links may become black. The reason for this is that from version 20.10.6, Centreon MAP does not consider single quotes as part of the metrics' names.
-
-The following fix should only be applied if your version is 20.10.6 or later. If you are only updating/upgrading up to version 20.10.5, do NOT apply the procedure. If you have already applied it once after upgrading to version 20.10.6, you do not have to do it again for subsequent versions.
-
-1. Create a backup of the database.
-2. Update the database.
-
-  ```shell
-  systemctl stop centreon-map
-  mysql
-  use centreon_studio
-  update element_property set value=Substring(value, 2, LENGTH(value) - 1) where name="metricName1" and value like "'%'";
-  update element_property set value=Substring(value, 2, LENGTH(value) - 1) where name="metricName2" and value like "'%'";
-  exit
-  systemctl start centreon-map
-  ```
-
 ## Centreon MAP desktop client
 
 ### The desktop can't start: "Java was started but returned exit code = 13"
