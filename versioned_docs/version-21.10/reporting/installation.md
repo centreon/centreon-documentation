@@ -200,8 +200,8 @@ Upload the license sent by the Centreon team to be able to start configuring the
 
 ### Configure the general options
 
-Set the following parameters in the General Options menu `Reporting \>
-Monitoring Business Intelligence \> General Options`:
+Set the following parameters in the General Options menu `Reporting >
+Monitoring Business Intelligence > General Options`:
 
 | Tab                  | Option                                           | Value                                                       |
 |----------------------|--------------------------------------------------|-------------------------------------------------------------|
@@ -220,8 +220,8 @@ installation process.*
 Launch the command below to authorize the reporting server to connect to
 the monitoring server databases. Use the following option:
 
-**\@ROOTPWD@**: Root MariaDB password of the monitoring databases
-server.If there is no password for \"root\" user, don\'t specify the
+**@ROOTPWD@**: Root MariaDB password of the monitoring databases
+server.If there is no password for "root" user, don't specify the
 option **root-password**.
 
 ```shell
@@ -240,7 +240,7 @@ GRANT ALL PRIVILEGES ON centreon_storage.* TO 'centreonbi'@'$BI_ENGINE_IP$';
 
 **$BI_ENGINE_IP$**: IP address of the reporting server.
 
-> If you\'re using MariaDB replication for your **monitoring databases**,
+> If you're using MariaDB replication for your **monitoring databases**,
 > certain views are created during installation of Centreon MBI. You need
 > to exclude them from replication by adding the following line in the
 > my.cnf file of the slave server.
@@ -466,7 +466,7 @@ data retention can be managed by:
 > engine uses a dedicated MariaDB server** option is correctly set to
 > "Yes" in the *Reporting > Business Intelligence > General options ETL options* menu.
 
-Enable data retention management by selecting \"Yes\", then set the
+Enable data retention management by selecting "Yes", then set the
 options in the configuration (example below).
 
 ![image](../assets/reporting/installation/bi_retention.png)
