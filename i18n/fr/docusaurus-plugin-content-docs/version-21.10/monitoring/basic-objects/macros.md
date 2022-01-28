@@ -16,7 +16,7 @@ Exemple :
 * La macro **$HOSTADDRESS$** permet de récupérer l’adresse IP d’un hôte
 * La macro **$CONTACTEMAIL$** permet de récupérer l’adresse mail du contact
 
-> La liste complète des macros est disponible à cette *[adresse](http://nagios.sourceforge.net/docs/3_0/macrolist)*.
+> La liste complète des macros est disponible à cette *[adresse](https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/3/en/macrolist.html)*.
 
 ## Les macros personnalisées
 
@@ -95,7 +95,7 @@ Elles sont complémentaires aux macros standards. Exemple :
 * La macro standard $CONTACTEMAIL$ fait référence à l’adresse email du contact qui utilisera la commande de notification
 * La macro d’environnement $CONTACTEMAIL:centreon$ retournera l’adresse email de l’utilisateur "centreon"
 
-La documentation complète des macros à la demande est disponible à cette *[adresse](http://nagios.sourceforge.net/docs/3_0/macrolist)*.
+La documentation complète des macros à la demande est disponible à cette *[adresse](https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/3/en/macros.html)*.
 
 > L’utilisation de ces macros n’est pas recommandée car la recherche d’une valeur d’un paramètre d’un objet depuis un
 > autre objet est consommateur en termes de ressources.
