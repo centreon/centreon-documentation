@@ -176,6 +176,7 @@ yum install centreon-pack-applications-monitoring-centreon-database
 * Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your *Centreon Central* server settings.
 * Select the *App-Monitoring-Centreon-Database-custom* template to apply to the host.
 * Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
+* Values for macros MYSQLUSERNAME and MYSQLPASSWORD are the ones set before when creating the user to monitor the database.
 
 | Mandatory  | Macro            |
 | :--------- | :--------------- |
@@ -217,7 +218,7 @@ All available options for a given mode can be displayed by adding the
 /usr/lib/centreon/plugins//centreon_mysql.pl \
 	--plugin=database::mysql::plugin  \
 	--host=localhost   \
-        --help
+    --help
 ```
 
 All available options for a given mode can be displayed by adding the 
@@ -226,7 +227,7 @@ All available options for a given mode can be displayed by adding the
 ```
 /usr/lib/centreon/plugins//centreon_mysql.pl \
 	--plugin=database::mysql::plugin  \
-        --list-mode
+    --list-mode
 ```
 
 ### Troubleshooting
