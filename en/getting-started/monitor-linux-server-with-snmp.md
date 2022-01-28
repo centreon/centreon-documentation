@@ -7,12 +7,14 @@ title: Monitor your first Linux host
 
 In this tutorial, we're assuming that your Centreon platform is installed and running well, and that you have at least a [Centreon IT 100 Edition](IT100.html) that provides Centreon Plugin Packs (your [license](../administration/licenses.html) is already set up).
 
+Your Linux server will be monitored using the [Linux SNMP Plugin Pack](../integrations/plugin-packs/procedures/operatingsystems-linux-snmp.html). (More about Plugin Packs [here](../monitoring/pluginpacks.html)). 
+
 ## Prerequisites
 
 ### On the Linux server you want to monitor
 
 The first step is to activate and configure an SNMP agent on your monitored host.
-A detailed documentation on how to configure SNMP is available in the documentation of each Linux distribution.
+Please refer to the documentation of your Linux distribution to know how to configure the SNMP agent.
 
 Find below a minimalist snmpd.conf/net-snmp configuration file:
   - replace **my-snmp-community** by the correct value for your environment.
