@@ -55,7 +55,7 @@ Ce script :
 
 ## Vérifications
 
-Vérifiez que la nouvelle clé a été correctement importée. Pour la [nouvelle clé publiée le 14 octobre 2021](#list-of-keys) :
+Vérifiez que la nouvelle clé a été correctement importée. Pour la [nouvelle clé publiée le 14 octobre 2021](#liste-des-cles) :
 
 <Tabs groupId="sync">
 <TabItem value="Nouvelle installation" label="Nouvelle installation">
