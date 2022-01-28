@@ -141,7 +141,7 @@ Afin de vous prémunir de ce problème, utiliser le backend HTTP *curl* en ajout
 
 Ce message d'erreur signifie qu'une dépendance est manquante lors de l'utilisation du backend *curl*. 
 
-Afin de corriger cette erreur, installer la librairie 'Net\:\:Curl\:\:Easy':
+Afin de corriger cette erreur, installer la librairie 'Net::Curl::Easy':
 
 ```bash
 yum install perl-Net-Curl

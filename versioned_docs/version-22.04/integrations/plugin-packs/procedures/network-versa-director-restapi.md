@@ -242,7 +242,7 @@ In order to prevent this issue, use the *curl* HTTP backend by adding the follow
 #### ```UNKNOWN: Cannot load module 'Net::Curl::Easy'```
 
 This error message means that a Perl library required to use the *curl* backend is missing.
-In order to fix this issue, install the Net\:\:Curl\:\:Easy Perl library using the following command:
+In order to fix this issue, install the Net::Curl::Easy Perl library using the following command:
 
 ```bash
 yum install perl-Net-Curl
