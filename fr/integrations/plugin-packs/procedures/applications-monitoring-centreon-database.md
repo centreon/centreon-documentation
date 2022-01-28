@@ -124,7 +124,8 @@ Il apporte les templates de services suivants :
 
 ### Création d'un utilisateur de base de données 
 
-Pour permettre la récolte d'informations liées à la base de données, la création d'un utilisateur avec des droits spécifiques est nécessaire :
+Pour permettre la collecte d'informations liées à la base de données, la création d'un utilisateur avec des droits spécifiques est nécessaire :
+
 
 ``` mysql
 CREATE USER 'monitor_user'@'IP_POLLER' IDENTIFIED BY 'a_very_secure_passwd';
