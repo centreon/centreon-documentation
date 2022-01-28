@@ -31,7 +31,7 @@ group, by month.
 
 -   Select the group: Specify host group for displaying statistics.
 -   Type the name of host categories to filter on: Indicate one or more
-    host categories. Separate multiple entries by a comma \",\".
+    host categories. Separate multiple entries by a comma.
 -   Type the name of the reporting period you want to use (has to be
     calculated by Centreon BI): Make sure the reporting period is
     preconfigured in MBI.
@@ -63,7 +63,7 @@ group, by day.
 
 -   Select the group: Specify host group for displaying statistics.
 -   Type the name of host categories to filter on: Indicate one or more
-    host categories. Separate multiple entries by a comma \",\".
+    host categories. Separate multiple entries by a comma.
 -   Type the name of the reporting period you want to use (has to be
     calculated by Centreon MBI): Make sure the reporting period must be
     preconfigured in MBI.
@@ -94,7 +94,7 @@ group, segmenting the hosts by category and by month.
 
 -   Select the group: Specify host group for displaying statistics.
 -   Type the name of host categories to filter on: Indicate one or more
-    host categories. Separate multiple entries by a comma \",\".
+    host categories. Separate multiple entries by a comma.
 -   Type the name of the reporting period you want to use (has to be
     calculated by Centreon BI): Make sure the reporting period is
     preconfigured in MBI.
@@ -115,7 +115,7 @@ group, segmenting the hosts by category and by month.
 
 This widget provides information on the reliability (MTBF) and
 maintenability (MTRS) of your services as well as the level of your
-team\'s efficiency when managing downtime (MTTA). Data is shown as a top
+team's efficiency when managing downtime (MTTA). Data is shown as a top
 N aggregate statistic. Additional information such as current status,
 availability, number of events or last state change are also provided to
 help in decision-making.
@@ -161,7 +161,7 @@ help in decision-making.
 #### Description
 
 This widget provides information on the reliability (MTBF) and
-maintenability (MTRS) of your hosts as well as the level of your team\'s
+maintenability (MTRS) of your hosts as well as the level of your team's
 efficiency when managing downtime (MTTA). Data is shown as a top N
 aggregate statistic. Additional information such as current status,
 availability, number of events or last state change are also provided to
@@ -183,9 +183,9 @@ help in decision-making.
 **Menu description**
 
 -   Select the group: Specify host group for displaying statistics:
-    Separate multiple entries by a comma \",\".
+    Separate multiple entries by a comma.
 -   Type the name of host categories to filter on: Indicate one or more
-    host categories. Separate multiple entries by a comma \",\".
+    host categories. Separate multiple entries by a comma.
 -   Number of hosts to display: Maximum number of hosts displayed.
 -   Select the reporting period.
 -   Order By MTBF, MTRS or MTTA.
@@ -252,7 +252,7 @@ storage space that increases is shown in this widget.
 -   Number of hosts to display: Specify for number of lines in table.
 -   Display a warning when number of days remaining is less than N:
     Estimate the number of days before saturation. A warning icon
-    appears before reaching this \"security\" threshold.
+    appears before reaching this "security" threshold.
 -   Base the speed calculation on the (Days -x) with X =: Specify day to
     compare to current day for calculating the evolution of speed and
     saturation.
@@ -313,7 +313,7 @@ categories.
 -   Type the name of a host categories to filter on (separate with ,).
 -   Type the name of a service categories to filter on (separate with
     ,).
--   Metric name (for multiple metrics, separate them with \',\').
+-   Metric name (for multiple metrics, separate them with a comma).
 -   Type the name the reporting period you want to use (has to be
     calculated by Centreon MBI): Make sure the reporting period is
     preconfigured in MBI.
@@ -352,14 +352,14 @@ day over a defined period for groups and categories.
 
 **Menu description**
 
--   Type name of groups: Separate multiple entries by a comma \",\".
+-   Type name of groups: Separate multiple entries by a comma.
 -   Type the name of a host category to filter on: Separate multiple
-    entries by a comma \",\".
+    entries by a comma.
 -   Type the name of a service category to filter on: Separate multiple
-    entries by a comma \",\".
+    entries by a comma.
 -   Retrieve data with metric name LIKE or IN?: Use this method to
     filter on metric name.
--   Metric name (for multiple metrics, separate them with \',\'): Type
+-   Metric name (for multiple metrics, separate them with a comma): Type
     the name of the metric (if filter mode = like) or multiple metrics
     (if mode = IN).
 -   Type the name of the reporting period you want to use (has to be
@@ -461,8 +461,8 @@ statistic.
 
 This widget displays the availability of one BA, its SLAs (if available)
 for the selected reporting period and the current BA level. If you
-select a reporting period for which there is no data, such as \"Current
-month\" on the first day of the month, the current available level is
+select a reporting period for which there is no data, such as "Current
+month" on the first day of the month, the current available level is
 displayed on the graph.
 
 ![image](../assets/reporting/guide/mbi-ba-availability-gauge.png)
