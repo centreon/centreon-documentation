@@ -750,6 +750,7 @@
                     "integrations/plugin-packs/procedures/network-lenovo-flexsystem-snmp",
                     "integrations/plugin-packs/procedures/network-lenovo-rackswitch-snmp",
                     "integrations/plugin-packs/procedures/network-fiberstore-snmp",
+                    "integrations/plugin-packs/procedures/network-fortinet-fortiadc-snmp",
                     "integrations/plugin-packs/procedures/network-fortinet-fortiauthenticator-snmp",
                     "integrations/plugin-packs/procedures/network-firewalls-fortinet-fortigate-snmp",
                     "integrations/plugin-packs/procedures/network-fortinet-fortimanager-snmp",
