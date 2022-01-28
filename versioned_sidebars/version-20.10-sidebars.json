@@ -477,6 +477,10 @@
             },
             {
               "type": "doc",
+              "id": "version-20.10/graph-views/configure"
+            },
+            {
+              "type": "doc",
               "id": "version-20.10/graph-views/remote-server"
             },
             {
