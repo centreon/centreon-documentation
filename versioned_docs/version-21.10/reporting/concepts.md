@@ -217,12 +217,12 @@ categories. They must correspond to your reporting needs.
 
 **Creating categories and groups**
 
--   You associate hosts to host groups in the *Configuration \> Hosts \>
+-   You associate hosts to host groups in the *Configuration > Hosts >
     Host groups* menu on the Centreon interface. You can also use the
     Tab *Relations* in the host add/modification form.
 -   You associate hosts and host categories in the menu
-    *Configuration \> Hosts \> Categories*. You can also use the Tab
-    *Relations* in the host add/modification form.
+    **Configuration > Hosts > Categories**. You can also use the Tab
+    **Relations** in the host add/modification form.
 
 ### Service categories
 
@@ -243,7 +243,7 @@ defined according to your reporting needs.**
 For instance, if you need to analyze the storage space allocated and
 used by DBMS or an application type, you may need to create several
 service categories. Instead of using only one service category named
-\"Storage\" or \"Disk\" you could create these service categories:
+"Storage" or "Disk" you could create these service categories:
 
 -   "Operating system"
 -   "Oracle"
@@ -464,7 +464,7 @@ in the following example: :
     [Table mod_bi_serviceavailability, last entry: 2020-07-01 00:00:00] [Table data_bin, last entry: 2020-08-01 00:00:00] [Table mod_bi_metricdailyvalue, last entry: 2020-08-01 00:00:00]
     [Table mod_bi_metrichourlyvalue, last entry: 2020-08-01 23:00:00]
 
--   When only the **mod_bi_** tables appear, there is an incident
+-   When only the `mod_bi` tables appear, there is an incident
     with aggregated data and not the Centreon data.
 
     In this case, **skip the "Import Missing data" section** below.
