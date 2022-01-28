@@ -235,17 +235,17 @@ Then follow instructions by
     ```
 
 4. Add additional information to enable future communication between your Remote Server and its Central,
-kindly fill in the required information to convert your platform into Remote :
+fill in the required information to convert your platform into a Remote server:
 
-    ```shell
-    <CURRENT_NODE_ADDRESS> : Please enter your username:
-    admin
-    <CURRENT_NODE_ADDRESS> : Please enter your password:
+  ```shell
+  <CURRENT_NODE_ADDRESS> : Please enter your username:
+  admin
+  <CURRENT_NODE_ADDRESS> : Please enter your password:
     
-    <CURRENT_NODE_ADDRESS> : Protocol [http]:
-    <CURRENT_NODE_ADDRESS> : Port [80]:
-    <CURRENT_NODE_ADDRESS> : centreon root folder [centreon]:
-    ```
+  <CURRENT_NODE_ADDRESS> : Protocol [http]:
+  <CURRENT_NODE_ADDRESS> : Port [80]:
+  <CURRENT_NODE_ADDRESS> : centreon root folder [centreon]:
+  ```
 
 5. If you use a proxy, please define credentials:
 
