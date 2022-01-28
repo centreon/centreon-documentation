@@ -668,7 +668,7 @@ useradd -u 6001 -g centreon-engine -m -r -d /var/lib/centreon-engine -c "Centreo
 ### Installation
 
 Please install Centreon Engine using [this procedure](https://github.com/centreon/centreon-engine/blob/master/README.md#fetching-sources).
-> Don’t forget to install the [Nagios plugins](http://nagios.sourceforge.net/docs/3_0/quickstart) if you have not already done so.
+> Don’t forget to install the [Nagios plugins](https://library.nagios.com/) if you have not already done so.
 
 ## Stream Multiplexer (Centreon Broker)
 

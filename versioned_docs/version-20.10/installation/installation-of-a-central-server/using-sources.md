@@ -273,7 +273,7 @@ Save the file and restart Apache:
 ## Monitoring engine (Centreon Engine)
 
 You can install it following the procedure in documentation. Don’t forget to install the
-[Nagios plugins](http://nagios.sourceforge.net/docs/3_0/quickstart) if you have not already done so.
+[Nagios plugins](https://library.nagios.com/) if you have not already done so.
 
 ## Stream Multiplexer (Centreon Broker)
 

@@ -275,7 +275,7 @@ Sauvegardez le fichier et redémarrez apache :
 ## Moteur de supervision (Centreon Engine)
 
 Installez ce moteur avant de poursuivre l'installation. N'oubliez pas d'installer les
-[Nagios plugins](http://nagios.sourceforge.net/docs/3_0/quickstart) si vous ne l'avez pas déjà fait.
+[Nagios plugins](https://library.nagios.com/) si vous ne l'avez pas déjà fait.
 
 ## Multiplexeur de flux (Centreon Broker)
 
