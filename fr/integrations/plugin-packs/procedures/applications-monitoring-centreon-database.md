@@ -230,7 +230,7 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 ```
 /usr/lib/centreon/plugins//centreon_mysql.pl \
 	--plugin=database::mysql::plugin  \
-    --list-mode
+        --list-mode
 ```
 
 
