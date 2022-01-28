@@ -142,10 +142,10 @@ Une fois les indicateurs et la méthode de calcul sélectionnée, vous pouvez en
 sera impactée
 - **Inherit the downtime**: Dans ce cas la BA hérite automatiquement de la plage de maintenance dès lorsqu'un indicateurs
 l'impactant est en plage de maintenance. L'héritage suit ces règles:
-    - Une activité métier hérite des plages de maintenance planifiées de ses KPIs lorsque son statut est Non-OK
-    - Lorsqu'une activité métier est en plage de maintenance planifiée grâce au mécanisme d'héritage, 
+  - Une activité métier hérite des plages de maintenance planifiées de ses KPIs lorsque son statut est Non-OK
+  - Lorsqu'une activité métier est en plage de maintenance planifiée grâce au mécanisme d'héritage, 
     dès que le statut de l'activité métier remonte à OK, alors la plage de maintenance planifiée est arrêtée
-    - Lorsqu'une activité métier est en plage de maintenance planifiée grâce au mécanisme d'héritage, 
+  - Lorsqu'une activité métier est en plage de maintenance planifiée grâce au mécanisme d'héritage, 
     si un des impacts provient d'un de ses indicateurs n'étant pas sous plage de maintenance planifiée,
     alors la plage de maintenance de la BA est arrêtée
 - **Ignore the indicator in the calculation**: lorsqu'un indicateur est en plage de maintenance planifiée, son statut/impact
