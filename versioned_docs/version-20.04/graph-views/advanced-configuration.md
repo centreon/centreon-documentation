@@ -46,7 +46,7 @@ GRANT SELECT ON centreon_studio.* TO 'centreon_map'@'<POLLER_IP>' identified by 
 ```
 
 - Replace 'centreon\_studio' by the DB name of your Centreon MAP server.
-- Replace \<POLLER\_IP\> by the IP address of the poller which will be
+- Replace <POLLER\_IP\> by the IP address of the poller which will be
   monitoring your DB.
 - Replace 'PASSWORD' by any password you prefer.
 
@@ -95,7 +95,7 @@ https://<MAP_IP>:8443/centreon-studio/actuator/jolokia
 </TabItem>
 </Tabs>
 
-> Replace \<MAP\_IP\> by the IP address of your Centreon MAP server.
+> Replace <MAP\_IP\> by the IP address of your Centreon MAP server.
 
 4. *If you have installed a MariaDB server on your Centreon MAP server*, enter
    the user/password you used in [Configure your
