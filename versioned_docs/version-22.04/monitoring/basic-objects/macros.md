@@ -16,7 +16,7 @@ E.g.:
 * The macro called **$HOSTADDRESS$** enables us to retrieve the IP address of a host
 * The macro called **$CONTACTEMAIL$** enables us to retrieve the e-mail address of the contact
 
-> A complete list of macros is available at the following *[address](http://nagios.sourceforge.net/docs/3_0/macrolist)*.
+> A complete list of macros is available at the following *[address](https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/3/en/macrolist.html)*.
 
 ## Custom macros
 
@@ -90,7 +90,7 @@ They are complementary to standard macros. E.g.:
   notification
 * The environment macro $CONTACTEMAIL:centreon$ returns the e-mail address of the user: “centreon”
 
-The complete documentation on macros “on demand” is available at this *[address](http://nagios.sourceforge.net/docs/3_0/macrolist)*.
+The complete documentation on macros “on demand” is available at this *[address](https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/3/en/macros.html)*.
 
 > The use of these macros is not recommended because the search for a value of a setting of an object from another
 object is a consumer in terms of resources.
