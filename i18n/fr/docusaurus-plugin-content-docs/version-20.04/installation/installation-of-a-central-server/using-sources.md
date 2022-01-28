@@ -13,6 +13,7 @@ import TabItem from '@theme/TabItem';
 
 <Tabs groupId="sync">
 <TabItem value="Redhat/CentOS" label="Redhat/CentOS">
+
 Afin d’installer les logiciels Centreon, le dépôt Software collections de Red Hat doit être activé.
 
 > Le dépôt Software collections est nécessaire pour l’installation de PHP 7 et les librairies associées.
@@ -95,6 +96,7 @@ Puis exécutez :
 
 </TabItem>
 <TabItem value="Debian Stretch / Ubuntu 18.04" label="Debian Stretch / Ubuntu 18.04">
+
 Ajoutez le dépot suivant, nécéssaire pour installer php 7.2 :
 
 ### For Debian Stretch
@@ -169,7 +171,7 @@ useradd -u 6000 -g centreon -m -r -d /var/lib/centreon -c "Centreon Admin" -s /b
 ```
 
 Pour finir, vous devez installer des MIBs SNMP. En raison d'un problème de licence, les fichiers MIBs ne sont pas
-disponibles par défaut sous Debian. Pour les ajouter, modifiez le fichier */etc/apt/sources.list* et ajouter la
+disponibles par défaut sous Debian. Pour les ajouter, modifiez le fichier */etc/apt/sources.list* et ajoutez la
 catégorie **non-free**.
 
 Puis exécutez les commandes suivantes :
