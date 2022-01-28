@@ -218,7 +218,7 @@ All available options for a given mode can be displayed by adding the
 /usr/lib/centreon/plugins//centreon_mysql.pl \
 	--plugin=database::mysql::plugin  \
 	--host=localhost   \
-    --help
+        --help
 ```
 
 All available options for a given mode can be displayed by adding the 
@@ -227,7 +227,7 @@ All available options for a given mode can be displayed by adding the
 ```
 /usr/lib/centreon/plugins//centreon_mysql.pl \
 	--plugin=database::mysql::plugin  \
-    --list-mode
+        --list-mode
 ```
 
 ### Troubleshooting
