@@ -222,7 +222,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 /usr/lib/centreon/plugins//centreon_mysql.pl \
 	--plugin=database::mysql::plugin  \
 	--host=localhost   \
-    --help
+        --help
 ```
 
 Tous les modes disponibles peuvent être affichés en ajoutant le paramètre 
@@ -231,7 +231,7 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 ```
 /usr/lib/centreon/plugins//centreon_mysql.pl \
 	--plugin=database::mysql::plugin  \
-    --list-mode
+        --list-mode
 ```
 
 
