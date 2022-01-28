@@ -691,6 +691,10 @@
           "items": [
             {
               "type": "doc",
+              "id": "version-20.10/upgrade/introduction"
+            },
+            {
+              "type": "doc",
               "id": "version-20.10/upgrade/upgrade-from-20-04"
             },
             {
