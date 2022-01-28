@@ -189,7 +189,7 @@ usr/lib/centreon/plugins//centreon_nginx_serverstatus.pl \
 
 Ce message d'erreur indique qu'une librairie Perl est manquante pour utiliser le backend *curl*.
 
-Pour corriger ce problème, installer la librairie Perl Net\:\:Curl\:\:Easy à l'aide de la commande suivante :
+Pour corriger ce problème, installer la librairie Perl Net::Curl::Easy à l'aide de la commande suivante :
 
 ```bash
 yum install perl-Net-Curl

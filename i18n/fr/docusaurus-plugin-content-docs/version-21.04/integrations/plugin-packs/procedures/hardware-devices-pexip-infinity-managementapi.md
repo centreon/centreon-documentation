@@ -157,7 +157,7 @@ Cette erreur peut être résolue en utilisant le backend HTTP *curl*. Pour ce fa
 
 Ce message d'erreur indique qu'une librairie Perl est maquante pour utiliser le backend *curl*.
 
-Pour corriger ce problème, installer la librairie Perl Net\:\:Curl\:\:Easy à l'aide de la commande suivante :
+Pour corriger ce problème, installer la librairie Perl Net::Curl::Easy à l'aide de la commande suivante :
 
 ```bash
 yum install perl-Net-Curl
