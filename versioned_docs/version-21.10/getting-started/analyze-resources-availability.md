@@ -25,7 +25,7 @@ Follow this simple procedure:
 
 Here is a example based on a typical requirement for basic use of
 Centreon MBI: monitoring the availability of IT resources. In this
-scenario, the company\'s IT manager in charge of the European network
+scenario, the company's IT manager in charge of the European network
 tells us that the routers seem at times unreachable and wants us to
 analyze the problem. To respond we have to retrieve information on the
 availability of the routers located in Europe.
@@ -45,7 +45,7 @@ routers.
 ## Configure the report by "adding a job"
 
 In Centreon MBI, you configure a report by creating a scheduled job. Go
-to menu: Reporting → Business Intelligence → Configuraton \| Jobs / Add
+to menu: Reporting → Business Intelligence → Configuration | Jobs / Add
 (for a new one):
 
 ![image](../assets/getting-started/1_EN_createJob.png)
@@ -107,7 +107,7 @@ the page is set to "All" to display all the jobs.
 
 Once the job is finished, go to *Report view* which contains the list of
 all reports generated. To visualize your report, simply download it by
-clicking on the \"Output format\" icon, in this case, PDF.
+clicking on the "Output format" icon, in this case, PDF.
 
 ![image](../assets/getting-started/7_EN_reportView.png)
 
