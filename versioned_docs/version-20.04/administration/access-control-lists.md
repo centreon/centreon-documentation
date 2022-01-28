@@ -162,8 +162,8 @@ filter
 parent menu should be checked to be able to access the child menu)
 - The **Comments** field gives indications on the filter
 
-> On the access definition to the **Configuration > Hosts** and **Configuration
-> > Service** menus, it is possible to give read only or read / write access to
+> On the access definition to the **Configuration > Hosts** and **Configuration > Service** menus, 
+> it is possible to give read only or read / write access to
 > various objects.
 
 > At each addition of a new Centreon module possessing a web interface accessible
