@@ -18,7 +18,7 @@ plusieurs sections afin d'installer & utiliser rapidement Centreon suivis de que
 * [Ajouter son jeton Centreon IT Edition](#ajouter-son-jeton-centreon-it-edition)
 * [Principe de base de la supervision](#principe-de-base-de-la-supervision)
 * [Superviser votre premier hôte](#superviser-votre-premier-hôte)
-* [Deployer la configuration](#deployer-la-configuration)
+* [Deployer la configuration](#deployer-une-configuration)
 * [Tutoriels pour profiter de votre supervision](introduction-tutorials)
 
 ## Installation rapide
