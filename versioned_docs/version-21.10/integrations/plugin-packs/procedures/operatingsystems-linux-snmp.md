@@ -189,7 +189,7 @@ yum install centreon-pack-operatingsystems-linux-snmp
 
 When adding a new Linux host into Centreon, make sure to fill the Snmp Version and Snmp Community fields. 
 
-  :warning: When using snmp v3, set extra SNMP parameters in the SNMPEXTRAOPTIONS macro. 
+  > When using snmp v3, set extra SNMP parameters in the SNMPEXTRAOPTIONS macro. 
 
 | Obligatoire | Nom              | Description                                    |
 | :---------- | :--------------- | :--------------------------------------------- |

@@ -67,7 +67,7 @@ Afin de superviser vos équipements Eltek le SNMP v2 doit être configu
 
 ### Configuration d'un équipement SNMP
 
-> :warning: Les instructions ci-après peuvent changer en fonction de la version de votre Eltek. Des documentations sont le cas échéant disponibles sur le site officiel du constructeur.
+> Les instructions ci-après peuvent changer en fonction de la version de votre Eltek. Des documentations sont le cas échéant disponibles sur le site officiel du constructeur.
 
 Sur l'interface Web:
 
