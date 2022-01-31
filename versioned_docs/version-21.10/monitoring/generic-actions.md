@@ -33,10 +33,10 @@ To duplicate an object:
 For exemple, to duplicate a Business Activity:
 
 1. Select the Business Activity that you want to duplicate by checking the associated box.
-2. Click on the duplicate icon: <img src={require('../assets/configuration/common/duplicate_new.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+2. Click on the duplicate icon: ![image](../assets/configuration/common/duplicate_new.png)
 3. Enter the number of extra copies that you want to obtain:
 
-    ![image](../assets/configuration/common/duplicate_objects_new.png)
+![image](../assets/configuration/common/duplicate_objects_new.png)
 
 4. Click on **OK**.
 
@@ -48,11 +48,11 @@ For example, to duplicate a host:
 1. Select the host that you want to duplicate.
 2. In the **Options** column, enter the number of extra copies that you want to obtain:
 
-    ![image](../assets/configuration/common/01duplicate.png)
+![image](../assets/configuration/common/01duplicate.png)
 
 3. In the **More actions** menu click on **Duplicate**:
 
-    ![image](../assets/configuration/common/01duplicateobjects.png)
+![image](../assets/configuration/common/01duplicateobjects.png)
 
 </TabItem>
 </Tabs>
@@ -80,8 +80,8 @@ To perform a massive change:
 2. In the **More actions** menu, click on **Massive Change**.
 3. The form for the type of object opens, with 2 options next to each field:
 
-  * **Incremental**: signifies that the change will be added to the existing options
-  * **Replacement**: signifies that the change will overwrite the existing options.
+* **Incremental**: signifies that the change will be added to the existing options
+* **Replacement**: signifies that the change will overwrite the existing options.
 
 </TabItem>
 </Tabs>
@@ -99,8 +99,8 @@ To enable/disable an object:
 1. Select the objects you want to enable/disable.
 2. Click on the icon you want in the line of the object, or above the list:
 
-    * **Enable**: <img src={require('../assets/configuration/common/enabled_new.png').default} style={{width:'24px', marginBottom:'-6px'}} />
-    * **Disable**: <img src={require('../assets/configuration/common/disabled_new.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+* **Enable**: ![image](../assets/configuration/common/enabled_new.png)
+* **Disable**: ![image](../assets/configuration/common/disabled_new.png)
 
 </TabItem>
 <TabItem value="Method 2" label="Method 2">
@@ -110,8 +110,8 @@ To enable/disable an object:
 
 You can also use the following buttons at the end of the line:
 
-*  **Enable**: <img src={require('../assets/configuration/common/enabled_new.png').default} style={{width:'24px', marginBottom:'-6px'}} />
-* **Disable**: <img src={require('../assets/configuration/common/disabled_new.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+*  **Enable**: ![image](../assets/configuration/common/enabled.png)
+* **Disable**: ![image](../assets/configuration/common/disabled.png)
 
 ![image](../assets/configuration/common/enable_disable.png)
 
@@ -130,7 +130,7 @@ To delete an object:
 <TabItem value="Method 1" label="Method 1">
 
 1. Select the objects you want to delete.
-2. Click on the **Delete** icon: <img src={require('../assets/configuration/common/delete_new.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+2. Click on the **Delete** icon: ![image](../assets/configuration/common/delete_new.png)
 3. Confirm the action.
 
 </TabItem>

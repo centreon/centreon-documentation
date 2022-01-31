@@ -6,6 +6,7 @@
 
 # Generated files 
 .cache-loader
+.docusaurus/
 harmonize_tabs.php
 migrate_tabs.php
 clean_file.php

@@ -92,7 +92,7 @@ Metric drop down list.
 If you have chosen the option **Service list**, in the screen containing all the meta-services:
 
 1. Click on the following icon to select the metrics entering into the calculation of the meta-service. These
-  metrics are called indicators. <img src={require('../../assets/configuration/common/flechedirection.png').default} style={{width:'32px', marginBottom:'-6px'}} />
+  metrics are called indicators. ![image](../../assets/configuration/common/flechedirection.png)
 2. Click on **Add**
 
 ![image](../../assets/configuration/02metaservicesindicators.png)

@@ -51,7 +51,7 @@ E.g.: An administrator wants to define a time period which covers the times when
 * National holidays and exceptional closure days
 
 To be able to define the national holidays days and the exceptional closure days, it is necessary to use the exceptions.
-To add  an exception, click on the button <img src={require('../../assets/configuration/common/navigate_plus.png').default} style={{width:'24px', marginBottom:'-6px'}} />.
+To add  an exception, click on the button ![image](../../assets/configuration/common/navigate_plus.png).
 For each exceptional day, you will need to define a time period. The table below shows some possible examples :
 
 | Day(s)            | Time period             | Meaning                                                |

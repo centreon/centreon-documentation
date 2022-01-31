@@ -36,13 +36,13 @@ The **Macros** part serves to add customized macros.
 The **macro name** and **macro value** fields allow us to define the name and value of the macro. The **Password** box
 can be used to hide the value of the macro.
 
-To reinitialize to the default value (defined in template) click on <img src={require('../../assets/configuration/common/undo.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+To reinitialize to the default value (defined in template) click on ![image](../../assets/configuration/common/undo.png)
 
-To view the description of the macro, click on <img src={require('../../assets/configuration/common/description.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+To view the description of the macro, click on ![image](../../assets/configuration/common/description.png)
 
-To delete the macro, click on <img src={require('../../assets/configuration/common/delete.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+To delete the macro, click on ![image](../../assets/configuration/common/delete.png)
 
-To change the order of the macros, click on <img src={require('../../assets/configuration/common/move.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+To change the order of the macros, click on ![image](../../assets/configuration/common/move.png)
 
 ### Notification
 
