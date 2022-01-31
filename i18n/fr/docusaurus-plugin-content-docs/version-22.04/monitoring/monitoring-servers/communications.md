@@ -29,14 +29,14 @@ Les modes de communication sont listés ci-après :
 
 | Communications                         | Actions autorisées                                                                |
 | -------------------------------------- | --------------------------------------------------------------------------------- |
-| **Central** \<-- *ZMQ* --\> **Poller** | Actions de supervision\*, collecte des statistiques Engine/Broker, Host Discovery |
+| **Central** <-- *ZMQ* --\> **Poller** | Actions de supervision\*, collecte des statistiques Engine/Broker, Host Discovery |
 
 </TabItem>
 <TabItem value="Legacy (ex-Centcore)" label="Legacy (ex-Centcore)">
 
 | Communications                         | Actions autorisées                                                                |
 | -------------------------------------- | --------------------------------------------------------------------------------- |
-| **Central** \<-- *SSH* --\> **Poller** | Actions de supervision\*, collecte des statistiques Engine/Broker, Host Discovery |
+| **Central** <-- *SSH* --\> **Poller** | Actions de supervision\*, collecte des statistiques Engine/Broker, Host Discovery |
 
 </TabItem>
 </Tabs>
@@ -52,28 +52,28 @@ exporter la configuration.
 
 | Communications                                                    | Actions autorisées                                                                |
 | ----------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| **Central** \<-- *ZMQ* --\> **Remote** \<-- *ZMQ* --\> **Poller** | Actions de supervision\*, collecte des statistiques Engine/Broker, Host Discovery |
+| **Central** <-- *ZMQ* --\> **Remote** <-- *ZMQ* --\> **Poller** | Actions de supervision\*, collecte des statistiques Engine/Broker, Host Discovery |
 
 </TabItem>
 <TabItem value="Mixed" label="Mixed">
 
 | Communications                                                    | Actions autorisées                                                                |
 | ----------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| **Central** \<-- *ZMQ* --\> **Remote** \<-- *SSH* --\> **Poller** | Actions de supervision\*, collecte des statistiques Engine/Broker, Host Discovery |
+| **Central** <-- *ZMQ* --\> **Remote** <-- *SSH* --\> **Poller** | Actions de supervision\*, collecte des statistiques Engine/Broker, Host Discovery |
 
 </TabItem>
 <TabItem value="Legacy (ex-Centcore)" label="Legacy (ex-Centcore)">
 
 | Communications                                                    | Actions autorisées                                                                                                      |
 | ----------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| **Central** \<-- *SSH* --\> **Remote** \<-- *SSH* --\> **Poller** | Actions de supervision\*, collecte des statistiques Engine/Broker (seulement Remote), Host Discovery (seulement Remote) |
+| **Central** <-- *SSH* --\> **Remote** <-- *SSH* --\> **Poller** | Actions de supervision\*, collecte des statistiques Engine/Broker (seulement Remote), Host Discovery (seulement Remote) |
 
 </TabItem>
 <TabItem value="Autre (non recommandé)" label="Autre (non recommandé)">
 
 | Communications                                                    | Actions autorisées       |
 | ----------------------------------------------------------------- | ------------------------ |
-| **Central** \<-- *SSH* --\> **Remote** \<-- *ZMQ* --\> **Poller** | Actions de supervision\* |
+| **Central** <-- *SSH* --\> **Remote** <-- *ZMQ* --\> **Poller** | Actions de supervision\* |
 
 > Ce mode ne permet pas de récupérer l'empreinte du Remote et rend donc
 > impossible l'affichage de la configuration du Gorgone du Poller depuis

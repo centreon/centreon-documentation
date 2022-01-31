@@ -29,14 +29,14 @@ Communication modes are listed below:
 
 | Communications                         | Allowed actions                                                           |
 | -------------------------------------- | ------------------------------------------------------------------------- |
-| **Central** \<-- *ZMQ* --\> **Poller** | Monitoring actions\*, Engine/Broker statistics collection, Host Discovery |
+| **Central** <-- *ZMQ* --\> **Poller** | Monitoring actions\*, Engine/Broker statistics collection, Host Discovery |
 
 </TabItem>
 <TabItem value="Legacy (ex-Centcore)" label="Legacy (ex-Centcore)">
 
 | Communications                         | Allowed actions                                                           |
 | -------------------------------------- | ------------------------------------------------------------------------- |
-| **Central** \<-- *SSH* --\> **Poller** | Monitoring actions\*, Engine/Broker statistics collection, Host Discovery |
+| **Central** <-- *SSH* --\> **Poller** | Monitoring actions\*, Engine/Broker statistics collection, Host Discovery |
 
 </TabItem>
 </Tabs>
@@ -51,28 +51,28 @@ acknowledgements, etc and configuration export.
 
 | Communications                                                    | Allowed actions                                                           |
 | ----------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| **Central** \<-- *ZMQ* --\> **Remote** \<-- *ZMQ* --\> **Poller** | Monitoring actions\*, Engine/Broker statistics collection, Host Discovery |
+| **Central** <-- *ZMQ* --\> **Remote** <-- *ZMQ* --\> **Poller** | Monitoring actions\*, Engine/Broker statistics collection, Host Discovery |
 
 </TabItem>
 <TabItem value="Mixed" label="Mixed">
 
 | Communications                                                    | Allowed actions                                                           |
 | ----------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| **Central** \<-- *ZMQ* --\> **Remote** \<-- *SSH* --\> **Poller** | Monitoring actions\*, Engine/Broker statistics collection, Host Discovery |
+| **Central** <-- *ZMQ* --\> **Remote** <-- *SSH* --\> **Poller** | Monitoring actions\*, Engine/Broker statistics collection, Host Discovery |
 
 </TabItem>
 <TabItem value="Legacy (ex-Centcore)" label="Legacy (ex-Centcore)">
 
 | Communications                                                    | Allowed actions                                                                                       |
 | ----------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| **Central** \<-- *SSH* --\> **Remote** \<-- *SSH* --\> **Poller** | Monitoring actions\*, Engine/Broker statistics collection (Remote only), Host Discovery (Remote only) |
+| **Central** <-- *SSH* --\> **Remote** <-- *SSH* --\> **Poller** | Monitoring actions\*, Engine/Broker statistics collection (Remote only), Host Discovery (Remote only) |
 
 </TabItem>
 <TabItem value="Other (not recommended)" label="Other (not recommended)">
 
 | Communications                                                    | Allowed actions      |
 | ----------------------------------------------------------------- | -------------------- |
-| **Central** \<-- *SSH* --\> **Remote** \<-- *ZMQ* --\> **Poller** | Monitoring actions\* |
+| **Central** <-- *SSH* --\> **Remote** <-- *ZMQ* --\> **Poller** | Monitoring actions\* |
 
 > This mode does not allow to retrieve Remote's thumbprint therefore it's
 > not possible to display Poller's Gorgone configuration from Centreon UI.
