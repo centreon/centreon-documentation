@@ -64,7 +64,7 @@ Centreon](https://centreon.force.com/) pour obtenir et installer votre clé de l
 
 Les prérequis matériels pour votre serveur Centreon MAP sont les suivants :
 
-| *Services supervisés*    | \< 10 000               | \< 20 000            | \< 40 000            | \> 40 000                     |
+| *Services supervisés*    | < 10 000                | < 20 000             | < 40 000             | > 40 000                      |
 | ------------------------ | ----------------------- | -------------------- | -------------------- | ----------------------------- |
 | *CPU*                    | 2 vCPU ( 3Ghz ) minimum | 4 CPU (3GHz) minimum | 4 CPU (3GHz) minimum | Contacter le support Centreon |
 | *Memoire dédiée*         | 2GB                     | 4GB                  | 8GB                  | Contacter le support Centreon |
