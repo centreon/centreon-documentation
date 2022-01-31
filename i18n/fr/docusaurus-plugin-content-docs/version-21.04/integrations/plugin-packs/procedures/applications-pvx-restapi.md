@@ -92,7 +92,7 @@ Le connecteur a été testé avec la version suivante : \* PVX version 5.1.1.
 Pour interroger les instances via l'API, une clé d'accès est nécessaire. Cette 
 clé n'a pas de date d'expiration. La procédure suivante, extrait de la 
 [documentation officielle](<http://docs.performancevision.com/api_use.html>),
-permet de la générer. A chaque étape, remplacez les valeurs des macro '\< \>' 
+permet de la générer. A chaque étape, remplacez les valeurs des macro '< \>' 
 avec les vôtres.
 
 ```bash 

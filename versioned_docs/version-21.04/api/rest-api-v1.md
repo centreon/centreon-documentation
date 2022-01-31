@@ -2383,7 +2383,7 @@ Use the GET method and URL below: :
 Additionnal information:
 
   - current_status: 0 = OK, 1 = warning, 2 = Critical, 3 = Unknown
-  - current_impact: impact on linked BA in \%
+  - current_impact: impact on linked BA in %
   - number: page number (first page is 0)
   - limit: page limit (default= 30)
 

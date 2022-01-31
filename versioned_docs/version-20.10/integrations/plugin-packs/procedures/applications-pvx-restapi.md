@@ -92,7 +92,7 @@ The connector has been tested with the following versions: \* PVX version 5.1.1
 To query PVX API, you need to generate an access key. This key will never expire
 and the procedure below is an extract from the 
 [official documentation](<http://docs.performancevision.com/api_use.html>). In 
-each step replace the value of the macros enclosed by '\< \>' with yours.
+each step replace the value of the macros enclosed by '< \>' with yours.
 
 ```bash 
 curl -k 'https://**<pvxapihost>**/api/login?user=**<user>**&password=**<password>**'`
