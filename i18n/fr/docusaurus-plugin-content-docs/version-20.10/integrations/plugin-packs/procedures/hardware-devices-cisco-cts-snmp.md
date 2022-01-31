@@ -69,7 +69,7 @@ UDP/161.
 
 Afin d'obtenir plus d'information sur la configuration SNMP, il est recommandé de se référer à la
 documentation officielle de Cisco pour ces équipements: 
-https://www.cisco.com/c/en/us/td/docs/video/cuct/1_1/english/configuration/guide/maint\.
+https://www.cisco.com/c/en/us/td/docs/video/cuct/1_1/english/configuration/guide/maint.html.
 
 ## Installation
 

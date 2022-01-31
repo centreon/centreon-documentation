@@ -66,7 +66,7 @@ The SNMP service must be installed and configured on the Cisco CTS Device.
 The Centreon Pollers must as well be able to reach the CTS over the UDP/161 port. 
 
 More information about how to configure your CTS can be found in the official documentation:
-https://www.cisco.com/c/en/us/td/docs/video/cuct/1_1/english/configuration/guide/maint\.
+https://www.cisco.com/c/en/us/td/docs/video/cuct/1_1/english/configuration/guide/maint.html.
 
 ## Setup 
 
