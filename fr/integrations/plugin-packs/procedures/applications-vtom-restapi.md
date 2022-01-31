@@ -55,6 +55,8 @@ La version minimum VTOM 6.6.1a est nécessaire pour le bon fonctionnement du Pac
 * /auth/1.0/authorize
 * /monitoring/1.0/jobs/status 
 
+Pour les versions antérieurs, il est nécessaire d'utiliser le mode **legacy** du Plugin.
+
 ## Installation
 
 <!--DOCUSAURUS_CODE_TABS-->
@@ -99,8 +101,9 @@ Une fois celui-ci configuré, certaines macros doivent être renseignées:
 
 | Mandatory | Name                | Description                                                                |
 | :-------- | :------------------ | :------------------------------------------------------------------------- |
+| X         | VTOMCUSTOMMODE      | Access mode for the Plugin (default: 'api'. Can: 'legacy')                 |
 | X         | VTOMAPIPORT         | Port used (Default: 30002)                                                 |
-| X         | VTOMAPIPROTO        | Specify https if needed (Default: 'https')                                 |
+| X         | VTOMAPIPROTO        | Specify https if needed (default: 'https')                                 |
 | X         | VTOMAPITOKEN        | Api token                                                                  |
 | X         | VTOMAPIUSERNAME     | Api username                                                               |
 | X         | VTOMAPIPASSWORD     | Api password                                                               |

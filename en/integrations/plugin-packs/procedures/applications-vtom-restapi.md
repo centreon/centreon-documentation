@@ -55,6 +55,8 @@ At least VTOM 6.6.1a is mandatory for the Pack:
 * /auth/1.0/authorize
 * /monitoring/1.0/jobs/status
 
+For previous VTOM version, please use **legacy** Plugin mode.
+
 ## Setup
 
 <!--DOCUSAURUS_CODE_TABS-->
@@ -97,14 +99,16 @@ yum install centreon-pack-applications-vtom-restapi
 
 > Once the template applied, some Macros have to be configured:
 
-| Mandatory | Name                  | Description                                                                |
-| :-------- | :-------------------- | :------------------------------------------------------------------------- |
+| Mandatory | Name                | Description                                                                |
+| :-------- | :------------------ | :------------------------------------------------------------------------- |
+| X         | VTOMCUSTOMMODE      | Access mode for the Plugin (default: 'api'. Can: 'legacy')                 |
 | X         | VTOMAPIPORT         | Port used (Default: 30002)                                                 |
-| X         | VTOMAPIPROTO        | Specify https if needed (Default: 'https')                                 |
+| X         | VTOMAPIPROTO        | Specify https if needed (default: 'https')                                 |
 | X         | VTOMAPITOKEN        | Api token                                                                  |
 | X         | VTOMAPIUSERNAME     | Api username                                                               |
 | X         | VTOMAPIPASSWORD     | Api password                                                               |
 |           | VTOMAPIEXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
+
 
 ## How to check in the CLI that the configuration is OK and what are the main options for? 
 
