@@ -51,14 +51,14 @@ Pour modifier la valeur de rotation des sauvegardes, éditer la valeur
 **RETENTION\_AGE** (ligne **67**) dans le script de sauvegarde :
 **/usr/share/centreon-bi-backup/centreon-bi-backup-web.sh**
 
-> Il est important d\'exporter les sauvegardes sur une autre machine
-> afin d\'assurer leurs pérennités.
+> Il est important d'exporter les sauvegardes sur une autre machine
+> afin d'assurer leurs pérennités.
 
 ### Sauvegarde du serveur de reporting dédié
 
 
-> Il est important de disposer d\'au moins 5 Go d\'espace libre sur le
-> **Volume Group** hébergeant l\'espace de stockage **data** du SGBD
+> Il est important de disposer d'au moins 5 Go d'espace libre sur le
+> **Volume Group** hébergeant l'espace de stockage **data** du SGBD
 > MariaDB. Pour cela, exécuter la commande suivante en renseignant
 > le nom du **Volume Group** :
 
@@ -103,9 +103,9 @@ Trois types de sauvegarde sont exécutés dans la semaine :
 -   tous les jours une sauvegarde des fichiers de configuration du
     moteur de génération des rapports, format :
     centreon-bin-reports-and-conf-aaaa-mm-jj.tar.gz
--   tous les dimanches une sauvegarde complète de l\'ETL, format :
+-   tous les dimanches une sauvegarde complète de l'ETL, format :
     mysql-centreon\_storage-bi-aaaa-mm-jj.tar.gz
--   du lundi au samedi une sauvegarde incrémentale de l\'ETL (toutes les
+-   du lundi au samedi une sauvegarde incrémentale de l'ETL (toutes les
     tables et seulement la dernière partition des tables partitionnées),
     format : mysql-centreon\_storage-bi-aaaa-mm-jj.tar.gz
 
@@ -163,8 +163,8 @@ Intégrer les rapports générés via la commande ::
 
     /bin/cp -rf /tmp/var/lib/centreon/centreon-bi-server/archives/* /var/lib/centreon/centreon-bi-server/archives
 
-> Si le répertoire est différent, c\'est que les paramètres par défaut ont
-> été modifiés par l\'utilisateur. Il suffit simplement de reprendre la
+> Si le répertoire est différent, c'est que les paramètres par défaut ont
+> été modifiés par l'utilisateur. Il suffit simplement de reprendre la
 > bonne arborescence.
 
 Modifier les droits sur les fichiers ::
@@ -269,7 +269,7 @@ totale est faite le dimanche)::
 
     tar -xzf /var/backup/mysql-centreon_storage-bi-xxxx-xx-xx.tar.gz -C /
 
-Décompresser l\'ensemble des sauvegardes partielles faites entre la
+Décompresser l'ensemble des sauvegardes partielles faites entre la
 sauvegarde totale et la date du jour, **de la plus ancienne à la plus
 récente** en lançant la commande ::
 

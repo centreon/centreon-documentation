@@ -20,7 +20,7 @@ Stopper mysqld sur les **deux** serveurs de reporting:
 
     service mysql stop
 
-Copier les fichiers à partir de l\'ancien serveur de reporting vers le
+Copier les fichiers à partir de l'ancien serveur de reporting vers le
 nouveau:
 
     rsync -avz /var/lib/mysql/* root@IP_New_Reporting_Server:/var/lib/mysql/
@@ -29,8 +29,8 @@ Lancer la commande suivante pour assurer la compatibilité des données:
 
     mysql_upgrade
 
--   Si aucune erreur n\'apparaît, redémarrez MariaDB et continuer à la
-    section ci-dessous \"Déplacer les rapports générés\".
+-   Si aucune erreur n'apparaît, redémarrez MariaDB et continuer à la
+    section ci-dessous "Déplacer les rapports générés".
 -   Si des erreurs sont visibles, notamment sur les tables mysql
     innodb\_index\_stats, innodb\_table\_stats, gtid\_slave\_pos, cela
     peut être dû à une incompatibilité entre MySQL/MariaDB 5.5 et
@@ -54,7 +54,7 @@ Lancer la commande suivante pour assurer la compatibilité des données:
 ## Déplacer les rapports générés
 
 Synchroniser les rapports générés sur votre ancien serveur Centreon vers
-le nouveau pour être en mesure de les consulter via l\'interface.
-Connectez vous sur l\'ancien serveur Centreon puis:
+le nouveau pour être en mesure de les consulter via l'interface.
+Connectez vous sur l'ancien serveur Centreon puis:
 
     rsync -avz /var/lib/centreon/centreon-bi-server/archives/ root@IP_New_Centreon_Server:/var/lib/centreon/centreon-bi-server/archives/

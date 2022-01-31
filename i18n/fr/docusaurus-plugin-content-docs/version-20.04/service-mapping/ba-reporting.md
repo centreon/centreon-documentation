@@ -48,9 +48,9 @@ statuts est arrivé.
 
 ### Forcer le calcul des statistiques de disponibilité et évènements
 
-Des statistiques de disponibilité et d\'évènements sont automatiquement
+Des statistiques de disponibilité et d'évènements sont automatiquement
 calculées tous les jours. Dans le cas de modification de période de
-reporting ou d\'association à des vues métier, il est possible d\'avoir
+reporting ou d'association à des vues métier, il est possible d'avoir
 à reconstruire ces statistiques pour appliquer les modifications de
 configuration sur la passé.
 
@@ -63,7 +63,7 @@ Il est également possible de reconstruire les données d'une BA spécifique:
 ```Bash
 ./centreon-bam-rebuild-events --ba=<id of ba>
 ```
-Pour plus d\'informations concernant ce script, lancer la commande suivante:
+Pour plus d'informations concernant ce script, lancer la commande suivante:
 ```Bash
 ./centreon-bam-rebuild-events --help
 ```
