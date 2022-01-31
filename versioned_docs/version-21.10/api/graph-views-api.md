@@ -85,7 +85,7 @@ Retrieve the ID of the view returned: {viewId}
 GET http://{{serverURL}}:8080/centreon-studio/api/beta/maps/{viewId}
 ```
 
-**4.Create a \"Shape\" (Rectangle) element (not yet on the map)**
+**4.Create a "Shape" (Rectangle) element (not yet on the map)**
 
 ```
 POST http://{{serverURL}}:8080/centreon-studio/api/beta/centreon-resources
