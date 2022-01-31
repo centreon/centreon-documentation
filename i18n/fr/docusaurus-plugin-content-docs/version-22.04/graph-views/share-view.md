@@ -19,7 +19,7 @@ How to create the URL :
   *You can retrieve the URL by using the "Copy to clipboard" shortcut next to
   the breadcrumb.*
 
-- Decide to hide Centreon menu or not (ex: add *\&min=1* to the URL to minify
+- Decide to hide Centreon menu or not (ex: add *&min=1* to the URL to minify
   the menu)
 
 Here is an example that uses our demo platform so the user (partner-1) directly
