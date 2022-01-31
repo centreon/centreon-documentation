@@ -4,7 +4,7 @@
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
-
+/** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Centreon Documentation',
   tagline: '',
@@ -39,7 +39,7 @@ const config = {
         docs: {
           admonitions: {},
           editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
-          editLocalizedFiles : true,
+          editLocalizedFiles: true,
           showLastUpdateTime: true,
           includeCurrentVersion: false,
           onlyIncludeVersions: ['21.10', '21.04', '20.10', '20.04'],
@@ -60,6 +60,10 @@ const config = {
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
+        },
+        googleAnalytics: {
+          trackingID: 'UA-8418698-13',
+          anonymizeIP: true,
         },
       }),
     ],
@@ -85,8 +89,7 @@ const config = {
         steps: 2, // the max number of images generated between min and max (inclusive)
       },
     ],
-
-    require.resolve('docusaurus-plugin-image-zoom'),
+    'plugin-image-zoom',
   ],
 
   themeConfig:
@@ -108,6 +111,8 @@ const config = {
         isCloseable: false,
       },
 
+      zoomSelector: '.markdown :not(.authority-availability) > img',
+
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
@@ -125,24 +130,9 @@ const config = {
         ],
       },
 
-      googleAnalytics: {
-        trackingID: 'UA-8418698-13',
-        anonymizeIP: true,
-      },
-
-      zoom: {
-        selector: '.markdown img',
-        config: {
-          background: {
-            light: 'rgb(255, 255, 255)',
-            dark: 'rgb(50, 50, 50)',
-          },
-        },
-      },
-
       hideableSidebar: true,
       colorMode: {
-        defaultMode: 'dark',
+        defaultMode: 'light',
         disableSwitch: false,
         respectPrefersColorScheme: true,
       },
