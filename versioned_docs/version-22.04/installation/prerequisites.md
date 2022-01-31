@@ -69,7 +69,7 @@ The table below describes requirements for installing Centreon:
 
 | Number of Services | Estimated number of hosts | Number of pollers     | Central       | Poller        |
 | ------------------ | ------------------------- | --------------------- | ------------- | ------------- |
-| \< 500             | 50                        | 1 central             | 1 vCPU / 1 GB |               |
+| < 500              | 50                        | 1 central             | 1 vCPU / 1 GB |               |
 | 500 - 2000         | 50 - 200                  | 1 central             | 2 vCPU / 2 GB |               |
 | 2000 - 7000        | 200 - 700                 | 1 central + 1 poller  | 4 vCPU / 4 GB | 1 vCPU / 4 GB |
 | 7000 - 14000       | 700 - 1400                | 1 central + 1 poller  | 4 vCPU / 8 GB | 2 vCPU / 4 GB |
