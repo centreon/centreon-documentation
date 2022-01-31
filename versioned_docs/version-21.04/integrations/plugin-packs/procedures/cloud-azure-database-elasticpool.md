@@ -256,7 +256,7 @@ These mandatory Macros differ regarding the custom mode used:
 | X         | AZURETENANT       | Tenant ID                                                                                       |
 | X         | AZURECLIENTID     | Client ID                                                                                       |
 | X         | AZURECLIENTSECRET | Client secret                                                                                   |
-| X         | AZURERESOURCE     | Id of the Elastic Pool resource (syntax: \<server\_name\>\/elasticpool\/\<elasticpools\_name\>) |
+| X         | AZURERESOURCE     | Id of the Elastic Pool resource (syntax: <server\_name\>/elasticpool/<elasticpools\_name\>)     |
 
 </TabItem>
 <TabItem value="Azure AZ CLI" label="Azure AZ CLI">
@@ -265,7 +265,7 @@ These mandatory Macros differ regarding the custom mode used:
 | :-------- | :---------------- | :---------------------------------------------------------------------------------------------- |
 | X         | AZURECUSTOMMODE   | Custom mode 'azcli'                                                                             |
 | X         | AZURESUBSCRIPTION | Subscription ID                                                                                 |
-| X         | AZURERESOURCE     | Id of the Elastic Pool resource (syntax: \<server\_name\>\/elasticpool\/\<elasticpools\_name\>) |
+| X         | AZURERESOURCE     | Id of the Elastic Pool resource (syntax: <server\_name\>/elasticpool/<elasticpools\_name\>)     |
 
 </TabItem>
 </Tabs>
