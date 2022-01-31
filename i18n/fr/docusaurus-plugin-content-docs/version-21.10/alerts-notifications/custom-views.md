@@ -9,7 +9,7 @@ Les vues personnalisées sont des tableaux de bord, créés à l'aide de widgets
  
 1. Allez à la page **Accueil > Vues personnalisées**.
 
-2. Cliquez sur l'icône **Afficher/cacher le mode édition** en haut à droite de la page : <img src={require('../assets/alerts/edit_mode.png').default} style={{width:'14px'}} />
+2. Cliquez sur l'icône **Afficher/cacher le mode édition** en haut à droite de la page : ![image](../assets/alerts/edit_mode.png#thumbnail1)
 
     La barre d'édition apparaît:
 
@@ -32,7 +32,7 @@ Les vues personnalisées sont des tableaux de bord, créés à l'aide de widgets
 
 7. Cliquez sur **Soumettre**. Le widget apparaît. Certains widgets demandent un paramétrage supplémentaire (par exemple, sélectionner un collecteur) : cliquez sur l'icône clé à molette en haut à droite du widget pour [l'éditer](#éditer-un-widget).
 
-8. Une fois la vue créée et tous les widgets ajoutés, cliquez à nouveau sur l'icône **Afficher/cacher le mode édition** : <img src={require('../assets/alerts/edit_mode.png').default} style={{width:'14px'}} />
+8. Une fois la vue créée et tous les widgets ajoutés, cliquez à nouveau sur l'icône **Afficher/cacher le mode édition** : ![image](../assets/alerts/edit_mode.png#thumbnail1)
 
 
 ## Éditer une vue personnalisée
@@ -74,7 +74,7 @@ Pour partager une vue avec des "locked"/"unlocked users" :
 
 ## Afficher une vue personnalisée partagée avec vous
 
-1. À la page **Accueil > Vues personnalisées**, cliquez sur l'icône **Afficher/cacher le mode édition** en haut à droite de la page <img src={require('../assets/alerts/edit_mode.png').default} style={{width:'14px'}} />
+1. À la page **Accueil > Vues personnalisées**, cliquez sur l'icône **Afficher/cacher le mode édition** en haut à droite de la page ![image](../assets/alerts/edit_mode.png#thumbnail1)
 
     La barre d'édition apparaît :
 
