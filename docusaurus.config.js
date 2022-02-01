@@ -1,16 +1,16 @@
-// @ts-check
+// @ts-nocheck
 // Note: type annotations allow type checking and IDEs autocompletion
 
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
-/** @type {import('@docusaurus/types').Config} */
+/** @type {import('@docusaurus/types').DocusaurusConfig} */
 const config = {
   title: 'Centreon Documentation',
   tagline: '',
   url: 'https://docs-prod.centreon.com',
   baseUrl: '/',
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/logo-centreon.png',
   // organizationName: 'Centreon Documentation', // Usually your GitHub org/user name.
@@ -138,7 +138,7 @@ const config = {
       },
 
       navbar: {
-        hideOnScroll: false,
+        hideOnScroll: true,
         title: 'Centreon Docs',
         logo: {
           alt: 'Logo Centreon Docs',

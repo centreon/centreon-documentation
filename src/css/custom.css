@@ -36,7 +36,7 @@ html[data-theme="dark"] .docusaurus-highlight-code-line {
   text-align: right !important;
 }
 
-.dropdown__menu li:nth-child(1){
+.dropdown__menu li:nth-child(1) {
   min-width: fit-content !important;
   text-align: left !important;
 }
@@ -151,9 +151,19 @@ html[data-theme="dark"] .tabs__item--active {
 }
 
 .medium-zoom-overlay {
-    background: #ffffffee!important;
+  background: #ffffffee!important;
 }
 
 html[data-theme=dark] .medium-zoom-overlay {
-    background: #272727ee!important;
+  background: #272727ee!important;
+}
+
+img[src*="thumbnail1"] {
+  width: 24px!important;
+  margin-bottom: -4px!important;
+}
+
+img[src*="thumbnail2"] {
+  width: 36px!important;
+  margin-bottom: -6px!important;
 }

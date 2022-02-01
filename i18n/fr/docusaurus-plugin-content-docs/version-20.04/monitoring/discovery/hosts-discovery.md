@@ -69,11 +69,11 @@ tâches de découverte.
 
 Les états d'une tâche peuvent être :
 
-  - Programmé <img src={require('../../assets/monitoring/discovery/host-discovery-scheduled.png').default} style={{width:'24px', marginBottom:'-6px'}} />
-  - En cours <img src={require('../../assets/monitoring/discovery/host-discovery-running.png').default} style={{width:'24px', marginBottom:'-6px'}} />
-  - En cours d'enregistrement <img src={require('../../assets/monitoring/discovery/host-discovery-saving.png').default} style={{width:'24px', marginBottom:'-6px'}} />
-  - Terminé <img src={require('../../assets/monitoring/discovery/host-discovery-finished.png').default} style={{width:'24px', marginBottom:'-6px'}} />
-  - Echoué <img src={require('../../assets/monitoring/discovery/host-discovery-failed.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+  - Programmé ![image](../../assets/monitoring/discovery/host-discovery-scheduled.png#thumbnail1)
+  - En cours ![image](../../assets/monitoring/discovery/host-discovery-running.png#thumbnail1)
+  - En cours d'enregistrement ![image](../../assets/monitoring/discovery/host-discovery-saving.png#thumbnail1)
+  - Terminé ![image](../../assets/monitoring/discovery/host-discovery-finished.png#thumbnail1)
+  - Echoué ![image](../../assets/monitoring/discovery/host-discovery-failed.png#thumbnail1)
 
 Si une tâche est dans un état *Echoué*, survolez l'icone pour en connaitre la
 raison.
@@ -82,11 +82,11 @@ Si une tâche est dans l'état *Terminé*, cliquez dessus pour analyser le
 résultat. Allez au chapitre [Analyser le résultat d'une
 tâche](#analyser-le-résultat-dune-tâche) pour en savoir plus.
 
-Les tâches peuvent être reprogrammées en utilisant l'action *Reprogrammer* <img src={require('../../assets/monitoring/discovery/host-discovery-reschedule.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+Les tâches peuvent être reprogrammées en utilisant l'action *Reprogrammer* ![image](../../assets/monitoring/discovery/host-discovery-reschedule.png#thumbnail1)
 
-Elles peuvent aussi être éditées <img src={require('../../assets/monitoring/discovery/host-discovery-edit.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+Elles peuvent aussi être éditées ![image](../../assets/monitoring/discovery/host-discovery-edit.png#thumbnail1)
 
-Ou même supprimées <img src={require('../../assets/monitoring/discovery/host-discovery-delete.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+Ou même supprimées ![image](../../assets/monitoring/discovery/host-discovery-delete.png#thumbnail1)
 
 ## Analyser le résultat d'une tâche
 
@@ -122,7 +122,7 @@ modifiés.
 L'édition des *modificateurs* aura un effet direct sur les résultats de la
 tâche.
 
-Cliquez sur l'icone de sauvegarde <img src={require('../../assets/monitoring/discovery/host-discovery-save.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+Cliquez sur l'icone de sauvegarde ![image](../../assets/monitoring/discovery/host-discovery-save.png#thumbnail2)
 
 ## Comment utiliser les *modificateurs*
 
@@ -164,7 +164,7 @@ Cliquez sur **ENREGISTRER** pour ajouter un *modificateur*.
 ### Editer un *modificateur*
 
 Depuis l'étape quatre de l'assistant de création d'une tâche, ou depuis le
-panneau d'édition dans la section *Modificateurs*, cliquez sur l'icone d'édition <img src={require('../../assets/monitoring/discovery/host-discovery-edit.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+panneau d'édition dans la section *Modificateurs*, cliquez sur l'icone d'édition ![image](../../assets/monitoring/discovery/host-discovery-edit.png#thumbnail1)
 
 Modifiez n'importe quel champs ou le type de *modificateur* lui-même.
 
@@ -174,7 +174,7 @@ Cliquez sur **ENREGISTRER** pour enregistrer le *modificateur*.
 
 Depuis l'étape quatre de l'assistant de création d'une tâche, ou depuis le
 panneau d'édition dans la section *Modificateurs*, cliquez sur l'icone de
-suppression <img src={require('../../assets/monitoring/discovery/host-discovery-delete.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+suppression ![image](../../assets/monitoring/discovery/host-discovery-delete.png# thumbnail)
 
 Une fenêtre demandera de confirmer l'action.
 

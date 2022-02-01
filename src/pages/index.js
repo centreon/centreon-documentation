@@ -204,7 +204,7 @@ function CommunityBlock() {
             </li>
           </a>
           <a href={links.github} target={'_blank'}>
-            <li>
+            <li className={clsx(styles.bgDm)}>
             <img src={basePathImg + 'social-network/github.svg'} />
             </li>
           </a>

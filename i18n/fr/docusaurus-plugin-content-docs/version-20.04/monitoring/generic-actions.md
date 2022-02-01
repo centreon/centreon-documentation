@@ -43,7 +43,7 @@ Grâce à cette méthode, il n’est plus nécessaire de créer unitairement cha
 Pour dupliquer une Business Activity:
 
 1. Sélectionnez la Business Activity que vous souhaitez dupliquer en cochant la case associée
-2. Cliquez sur l'icône de duplication : <img src={require('../assets/configuration/common/duplicate_new.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+2. Cliquez sur l'icône de duplication : ![image](../assets/configuration/common/duplicate_new.png#thumbnail1)
 3. Entrez le nombre de duplications que vous souhaitez obtenir
 
 ![image](../assets/configuration/common/duplicate_objects_new.png)
@@ -108,8 +108,8 @@ Pour activer / désactiver un objet :
 Il est également possible d’activer ou de désactiver un objet via le champ **State** de la fiche de détails de l’objet
 ou en utilisant les icônes suivantes :
 
-* <img src={require('../assets/configuration/common/enabled_new.png').default} style={{width:'24px', marginBottom:'-6px'}} />
-* <img src={require('../assets/configuration/common/disabled_new.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+* ![image](../assets/configuration/common/enabled_new.png#thumbnail1)
+* ![image](../assets/configuration/common/disabled_new.png#thumbnail1)
 
 </TabItem>
 <TabItem value="Legacy pages" label="Legacy pages">
@@ -122,8 +122,8 @@ Pour activer / désactiver un objet :
 Il est également possible d’activer ou de désactiver un objet via le champ **Status** de la fiche de détails de l’objet
 ou en utilisant les icônes suivantes :
 
-* <img src={require('../assets/configuration/common/enabled.png').default} style={{width:'24px', marginBottom:'-6px'}} />
-* <img src={require('../assets/configuration/common/disabled.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+* ![image](../assets/configuration/common/enabled.png#thumbnail1)
+* ![image](../assets/configuration/common/disabled.png#thumbnail1)
 
 </TabItem>
 </Tabs>
@@ -136,7 +136,7 @@ ou en utilisant les icônes suivantes :
 Pour supprimer un objet :
 
 1. Sélectionnez les objets que vous souhaitez supprimer
-2. Cliquez sur l'icône pour supprimer <img src={require('../assets/configuration/common/delete_new.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+2. Cliquez sur l'icône pour supprimer ![image](../assets/configuration/common/delete_new.png#thumbnail1)
 3. Confirmer l'action
 
 </TabItem>

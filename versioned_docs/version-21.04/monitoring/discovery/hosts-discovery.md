@@ -148,11 +148,11 @@ Several actions can be done on jobs:
 
 ## Analyze the results of a discovery job
 
-1. On the **Configuration > Hosts > Discovery** page, click on the arrow ![image](../../assets/monitoring/discovery/host-discovery-goto-results.png) next to the status of a **Finished** job to visualize the results.
+1. On the **Configuration > Hosts > Discovery** page, click on the arrow ![image](../../assets/monitoring/discovery/host-discovery-goto-results.png#thumbnail1) next to the status of a **Finished** job to visualize the results.
 
   ![image](../../assets/monitoring/discovery/host-discovery-hosts-listing.png)
 
-2. If you want, you can edit the mappers linked to this job by clicking the **Edit** icon: ![image](../../assets/monitoring/discovery/host-discovery-edit.png)
+2. If you want, you can edit the mappers linked to this job by clicking the **Edit** icon: ![image](../../assets/monitoring/discovery/host-discovery-edit.png#thumbnail1)
 
     The results will be updated automatically.
     
@@ -162,7 +162,7 @@ Several actions can be done on jobs:
     account for hosts that have already been created.
 
 1. If your job was set to **Manual analysis** at step 5 of the wizard, select the hosts you want to add to the configuration and click on the **Save**
-button: ![image](../../assets/monitoring/discovery/host-discovery-hosts-save.png)
+button: ![image](../../assets/monitoring/discovery/host-discovery-hosts-save.png#thumbnail1)
 
   The hosts are created as well as the services linked to their host templates.
 
@@ -186,7 +186,7 @@ list of jobs and see if an error occured during the saving task.
     Warning: editing mappers after a discovery job has been executed only makes sense if
     the hosts have not yet been added to your monitoring configuration (either manually or automatically). Changes made to mappers in the discovery task are not taken into account for hosts that have already been created.
 
-3. Click on the **Save** icon at the top right of the panel: ![image](../../assets/monitoring/discovery/host-discovery-save.png)
+3. Click on the **Save** icon at the top right of the panel: ![image](../../assets/monitoring/discovery/host-discovery-save.png#thumbnail2)
 
 ## How to use mappers
 
@@ -239,7 +239,7 @@ field.
 ### Edit a mapper
 
 1. In the job wizard at step four, or on the edition panel in the **Mappers**
-section, click on the **Edit** icon: ![image](../../assets/monitoring/discovery/host-discovery-edit.png)
+section, click on the **Edit** icon: ![image](../../assets/monitoring/discovery/host-discovery-edit.png#thumbnail1)
 
 1. Edit the fields you want, or even the type of mapper.
 
@@ -248,7 +248,7 @@ section, click on the **Edit** icon: ![image](../../assets/monitoring/discovery/
 ### Delete a mapper
 
 1. In the job wizard at step four, or on the edition panel in the **Mappers**
-section, click on the **Delete** icon: ![image](../../assets/monitoring/discovery/host-discovery-delete.png)
+section, click on the **Delete** icon: ![image](../../assets/monitoring/discovery/host-discovery-delete.png#thumbnail1)
 
   A popin window will ask you to confirm the action.
 

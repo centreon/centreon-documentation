@@ -104,8 +104,7 @@ Cliquer sur **Save**.
 
 #### Afficher la configuration de Gorgone
 
-Depuis la liste des Pollers, cliquer sur l'icon d'action **Gorgone
-configuration** sur la ligne correspondant à votre Poller <img src={require('../../assets/monitoring/monitoring-servers/gorgone-configuration.png').default} style={{width:'32px', marginBottom:'-6px'}} />
+Depuis la liste des Pollers, cliquer sur l'icon d'action **Gorgone configuration** sur la ligne correspondant à votre Poller ![image](../../assets/monitoring/monitoring-servers/gorgone-configuration.png#thumbnail2)
 
 Une pop-in affiche la configuration à copier dans le **terminal du Poller**.
 Cliquer sur **Copy to clipboard**.
@@ -214,8 +213,7 @@ Cliquer sur **Save**.
 
 #### Afficher la configuration de Gorgone
 
-Depuis la liste des Pollers, cliquer sur l'icon d'action **Gorgone
-configuration** sur la ligne correspondant à votre Remote Server <img src={require('../../assets/monitoring/monitoring-servers/gorgone-configuration.png').default} style={{width:'32px', marginBottom:'-6px'}} />
+Depuis la liste des Pollers, cliquer sur l'icon d'action **Gorgone configuration** sur la ligne correspondant à votre Remote Server ![image](../../assets/monitoring/monitoring-servers/gorgone-configuration.png#thumbnail2)
 
 Une pop-in affiche la configuration à copier dans le **terminal du Remote
 Server**.

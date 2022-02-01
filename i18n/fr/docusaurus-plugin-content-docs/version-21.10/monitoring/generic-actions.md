@@ -33,7 +33,7 @@ Grâce à cette méthode, il n’est plus nécessaire de créer unitairement cha
 Par exemple, pour dupliquer une Business Activity:
 
 1. Sélectionnez la Business Activity que vous souhaitez dupliquer en cochant la case associée.
-2. Cliquez sur l'icône **Dupliquer** qui apparaît au survol de l'objet : <img src={require('../assets/configuration/common/duplicate_new.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+2. Cliquez sur l'icône **Dupliquer** qui apparaît au survol de l'objet : ![image](../assets/configuration/common/duplicate_new.png#thumbnail1)
 3. Entrez le nombre d'exemplaires supplémentaires de l'objet que vous souhaitez obtenir.
 
   ![image](../assets/configuration/common/duplicate_objects_new.png)
@@ -100,8 +100,8 @@ Pour activer/désactiver un objet :
 1. Sélectionnez les objets que vous souhaitez modifier.
 2. Cliquez sur l'icône désirée dans la ligne de l'objet ou au-dessus de la liste :
 
-    * **Activer** <img src={require('../assets/configuration/common/enabled_new.png').default} style={{width:'32px', marginBottom:'-6px'}} />
-    * **Désactiver** <img src={require('../assets/configuration/common/disabled_new.png').default} style={{width:'32px', marginBottom:'-6px'}} />
+    * **Activer** ![image](../assets/configuration/common/enabled_new.png#thumbnail2)
+    * **Désactiver** ![image](../assets/configuration/common/disabled_new.png#thumbnail2)
 
 </TabItem>
 <TabItem value="Méthode 2" label="Méthode 2">
@@ -111,8 +111,8 @@ Pour activer/désactiver un objet :
   
 Vous pouvez également utiliser les boutons suivants en fin de ligne : 
 
-  * **Activer** <img src={require('../assets/configuration/common/enabled.png').default} style={{width:'24px', marginBottom:'-6px'}} />
-  * **Désactiver** <img src={require('../assets/configuration/common/disabled.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+  * **Activer** ![image](../assets/configuration/common/enabled.png#thumbnail1)
+  * **Désactiver** ![image](../assets/configuration/common/disabled.png#thumbnail1)
 
    ![image](../assets/configuration/common/enable_disable.png)
 
@@ -131,7 +131,7 @@ Pour supprimer un objet :
 <TabItem value="Méthode 1" label="Méthode 1">
 
 1. Sélectionnez les objets que vous souhaitez supprimer.
-2. Cliquez sur l'icône **Supprimer** : <img src={require('../assets/configuration/common/delete_new.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+2. Cliquez sur l'icône **Supprimer** : ![image](../assets/configuration/common/delete_new.png#thumbnail1)
 3. Confirmer l'action.
 
 </TabItem>

@@ -26,9 +26,9 @@ Tous les ajouts d’hôtes se font dans le menu : **Configuration > Hosts > Add*
 En cas de conflits de paramètres présents sur plusieurs modèles, le modèle d’hôte au-dessus écrase les propriétés
 identiques définies dans modèles d’hôtes en dessous.
 
-Ce bouton nous permet de changer l'ordre des modèles hôtes <img src={require('../../assets/configuration/common/move.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+Ce bouton nous permet de changer l'ordre des modèles hôtes ![image](../../assets/configuration/common/move.png#thumbnail1)
 
-Ce bouton sert à supprimer le modèle hôte <img src={require('../../assets/configuration/common/delete.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+Ce bouton sert à supprimer le modèle hôte ![image](../../assets/configuration/common/delete.png#thumbnail1)
 
 * Si la case **Create Services linked to the Template too** est définit à **Yes**, Centreon génère automatiquement les
   services en se basant sur les modèles de services liés aux modèles d’hôtes définis au-dessus
@@ -44,13 +44,13 @@ La partie Macros permet d’ajouter des macros personnalisées.
 * Les champs **Macro name** et **Macro value** permettent respectivement de définir le nom et la valeur de la macro.
 * La case **Password** permet de cacher la valeur de la macro.
 
-Pour réinitialiser la macro avec sa valeur par défaut (définie dans le templae) cliquez sur <img src={require('../../assets/configuration/common/undo.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+Pour réinitialiser la macro avec sa valeur par défaut (définie dans le templae) cliquez sur ![image](../../assets/configuration/common/undo.png#thumbnail1)
 
-Pour afficher la description de la macro, cliquez sur <img src={require('../../assets/configuration/common/description.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+Pour afficher la description de la macro, cliquez sur ![image](../../assets/configuration/common/description.png#thumbnail1)
 
-Pour supprimer la macro, cliquez sur <img src={require('../../assets/configuration/common/delete.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+Pour supprimer la macro, cliquez sur ![image](../../assets/configuration/common/delete.png#thumbnail1)
 
-Pour déplacer l’ordre des macros, cliquez sur <img src={require('../../assets/configuration/common/move.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+Pour déplacer l’ordre des macros, cliquez sur ![image](../../assets/configuration/common/move.png#thumbnail1)
 
 ### Propriété d’ordonancement de l’hôte
 

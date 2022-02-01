@@ -42,7 +42,7 @@ Thanks to this method, it is no longer necessary to create each host individuall
 To duplicate a Business Activity:
 
 1. Select the Business Activity that you want to duplicate by checking the associated box
-2. Click on the duplicate icon: ![image](../assets/configuration/common/duplicate_new.png)
+2. Click on the duplicate icon: ![image](../assets/configuration/common/duplicate_new.png#thumbnail1)
 3. Enter the number of duplications that you want to obtain
 
 ![image](../assets/configuration/common/duplicate_objects_new.png)
@@ -106,8 +106,8 @@ To enable / disable an object:
 
 It is also possible to enable or disable an object via the **State** field of the object detail sheet or by using the following icons
 
-* ![image](../assets/configuration/common/enabled_new.png)
-* ![image](../assets/configuration/common/disabled_new.png)
+* ![image](../assets/configuration/common/enabled_new.png#thumbnail1)
+* ![image](../assets/configuration/common/disabled_new.png#thumbnail1)
 
 </TabItem>
 <TabItem value="Legacy pages" label="Legacy pages">
@@ -119,8 +119,8 @@ To enable / disable an object:
 
 It is also possible to enable or disable an object via the **Status** field of the object detail sheet or by using the following icons:
 
-* ![image](../assets/configuration/common/enabled.png)
-* ![image](../assets/configuration/common/disabled.png)
+* ![image](../assets/configuration/common/enabled.png#thumbnail1)
+* ![image](../assets/configuration/common/disabled.png#thumbnail1)
 
 </TabItem>
 </Tabs>
@@ -133,7 +133,7 @@ It is also possible to enable or disable an object via the **Status** field of t
 To delete an object:
 
 1. Select the objects you want to delete
-2. Click on icon to delete ![image](../assets/configuration/common/delete_new.png)
+2. Click on icon to delete ![image](../assets/configuration/common/delete_new.png#thumbnail1)
 3. Confirm the action
 
 </TabItem>
