@@ -81,6 +81,23 @@ const config = {
 
   plugins: [
     [
+      '@docusaurus/plugin-client-redirects',
+      {
+        redirects: [
+          // Redirection EN
+          {
+            to: '/',
+            from: '/current/en/',
+          },
+          // Redirection FR
+          {
+            to: '/',
+            from: '/current/fr/',
+          },
+        ],
+      },
+    ],
+    [
       '@docusaurus/plugin-ideal-image',
       {
         quality: 70,

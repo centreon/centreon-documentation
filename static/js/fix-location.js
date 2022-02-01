@@ -4,5 +4,5 @@ if (window && window.location && window.location.pathname.endsWith('/') && windo
 }
 else if (window && window.location && window.location.pathname.indexOf('/#') && window.location.pathname !== '/#')
 {
-  window.history.replaceState('#', '#', window.location.pathname.substr(-1, 0))
+  window.history.replaceState('#', '#', window.location.pathname.substr(0, window.location.pathname.length - 1))
 }
