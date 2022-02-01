@@ -21,12 +21,7 @@ Votre résolution doit être au minimum à 1280 x 768.
 Centreon fournit des RPM pour ses produits au travers de la solution
 Centreon Open Sources disponible gratuitement sur notre dépôt.
 
-Ces paquets ont été testés avec succès sur les environnements CentOS
-en version 7 et 8.
-
-> Cependant, suite au changement de stratégie effectué par Red Hat, nous pensons
-> qu'il est préférable de ne pas utiliser CentOS 8 en production. Ces paquets
-> pour CentOS 8 sont compatible avec RHEL et Oracle Linux en version 8.
+Les OS supportés par Centreon sont CentOS 7 et RedHat/OracleLinux 7 ou 8.
 
 Les utilisateurs Open Source, sans contrat de support, peuvent utiliser une autre distribution GNU/Linux.
 L'installation de la plate-forme sera plus complexe à partir des fichiers sources de chaque composant. sera plus
