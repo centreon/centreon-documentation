@@ -16,6 +16,20 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon Web
 
+### 21.10.3
+
+Release date: `January 26, 2022`
+
+#### Bug Fixes
+
+- [Graph] Fixed display of additional graph if it came from Resources Status
+- [Install] Fixed SQL request syntax error for cron with MySQL 8
+- [Resources Status] Fixed display of meta-services
+- [Resources Status] Fixed graph unit displayed twice
+- [Resources Status] Fixed saving a filter on an existing name
+- [Resources Status] Take the default downtime options to set downtime
+- [UX] Fixed random disconnection since update to Centreon 21.10
+
 ### 21.10.2
 
 Release note: `December 24, 2021`
