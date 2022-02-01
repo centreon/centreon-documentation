@@ -51,7 +51,7 @@ UDP/161.
 
 Afin d'obtenir plus d'information sur la configuration SNMP, il est recommandé de se référer à la
 documentation officielle: 
-https://dl4jz3rbrsfum.cloudfront.net/documents/CyberPower_UM_IntelligentPDUUserGuide.pdf\.
+https://dl4jz3rbrsfum.cloudfront.net/documents/CyberPower_UM_IntelligentPDUUserGuide.pdf.
 
 ## Installation
 
