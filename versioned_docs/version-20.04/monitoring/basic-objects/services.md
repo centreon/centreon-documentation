@@ -36,13 +36,13 @@ The **Macros** part serves to add customized macros.
 The **macro name** and **macro value** fields allow us to define the name and value of the macro. The **Password** box
 can be used to hide the value of the macro.
 
-To reinitialize to the default value (defined in template) click on ![image](../../assets/configuration/common/undo.png)
+To reinitialize to the default value (defined in template) click on ![image](../../assets/configuration/common/undo.png#thumbnail1)
 
-To view the description of the macro, click on ![image](../../assets/configuration/common/description.png)
+To view the description of the macro, click on ![image](../../assets/configuration/common/description.png#thumbnail1)
 
-To delete the macro, click on ![image](../../assets/configuration/common/delete.png)
+To delete the macro, click on ![image](../../assets/configuration/common/delete.png#thumbnail1)
 
-To change the order of the macros, click on ![image](../../assets/configuration/common/move.png)
+To change the order of the macros, click on ![image](../../assets/configuration/common/move.png#thumbnail1)
 
 ### Notification
 

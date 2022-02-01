@@ -66,22 +66,22 @@ discovery jobs.
 
 The status of a job can be:
 
-  - Scheduled ![image](../../assets/monitoring/discovery/host-discovery-scheduled.png)
-  - Running ![image](../../assets/monitoring/discovery/host-discovery-running.png)
-  - Saving ![image](../../assets/monitoring/discovery/host-discovery-saving.png)
-  - Finished ![image](../../assets/monitoring/discovery/host-discovery-finished.png)
-  - Failed ![image](../../assets/monitoring/discovery/host-discovery-failed.png)
+  - Scheduled ![image](../../assets/monitoring/discovery/host-discovery-scheduled.png#thumbnail1)
+  - Running ![image](../../assets/monitoring/discovery/host-discovery-running.png#thumbnail1)
+  - Saving ![image](../../assets/monitoring/discovery/host-discovery-saving.png#thumbnail1)
+  - Finished ![image](../../assets/monitoring/discovery/host-discovery-finished.png#thumbnail1)
+  - Failed ![image](../../assets/monitoring/discovery/host-discovery-failed.png#thumbnail1)
 
 If a job is on a *Failed* status, hover on to the icon to know the reason.
 
 If a job is on a *Finished* status, click on it to analyse the result. See
 [Analyse a discovery job result](#analyse-a-discovery-job-result) to know more.
 
-Jobs can be rescheduled using the *Reschedule* action ![image](../../assets/monitoring/discovery/host-discovery-reschedule.png)
+Jobs can be rescheduled using the *Reschedule* action ![image](../../assets/monitoring/discovery/host-discovery-reschedule.png#thumbnail1)
 
-They can also be edited ![image](../../assets/monitoring/discovery/host-discovery-edit.png)
+They can also be edited ![image](../../assets/monitoring/discovery/host-discovery-edit.png#thumbnail1)
 
-Or even deleted ![image](../../assets/monitoring/discovery/host-discovery-delete.png)
+Or even deleted ![image](../../assets/monitoring/discovery/host-discovery-delete.png#thumbnail1)
 
 ## Analyse a discovery job result
 
@@ -112,7 +112,7 @@ On the panel on the right, every parameters of the job can be edited.
 
 Edition of the *mapper* will have a direct effect on the job result.
 
-Click on the *Save* icon ![image](../../assets/monitoring/discovery/host-discovery-save.png)
+Click on the *Save* icon ![image](../../assets/monitoring/discovery/host-discovery-save.png#thumbnail2)
 
 ## How to use the *mappers*
 
@@ -152,7 +152,7 @@ Click on **SAVE** to add the *mapper*.
 ### Edit a *mapper*
 
 From the job wizard at step four, or from the edition panel in the *Mappers*
-section, click on the *Edit* icon ![image](../../assets/monitoring/discovery/host-discovery-edit.png)
+section, click on the *Edit* icon ![image](../../assets/monitoring/discovery/host-discovery-edit.png#thumbnail1)
 
 Change any fields wanted or even the type of *mapper*.
 
@@ -161,7 +161,7 @@ Click on **SAVE** to save the *mapper*.
 ### Delete a *mapper*
 
 From the job wizard at step four, or from the edition panel in the *Mappers*
-section, click on the *Delete* icon ![image](../../assets/monitoring/discovery/host-discovery-delete.png)
+section, click on the *Delete* icon ![image](../../assets/monitoring/discovery/host-discovery-delete.png#thumbnail1)
 
 A popin window will ask you to confirm the action.
 

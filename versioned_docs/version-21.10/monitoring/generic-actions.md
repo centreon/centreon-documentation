@@ -33,7 +33,7 @@ To duplicate an object:
 For exemple, to duplicate a Business Activity:
 
 1. Select the Business Activity that you want to duplicate by checking the associated box.
-2. Click on the duplicate icon: ![image](../assets/configuration/common/duplicate_new.png)
+2. Click on the duplicate icon: ![image](../assets/configuration/common/duplicate_new.png#thumbnail1)
 3. Enter the number of extra copies that you want to obtain:
 
 ![image](../assets/configuration/common/duplicate_objects_new.png)
@@ -70,7 +70,7 @@ To perform a massive change:
 <TabItem value="Method 1" label="Method 1">
 
 1. Select the objects that you want to change.
-2. Click the **Massive change** icon above the list of objects: ![image](../assets/configuration/common/mass_change.png)
+2. Click the **Massive change** icon above the list of objects: ![image](../assets/configuration/common/mass_change.png#thumbnail1)
 3. Confirm the changes.
 
 </TabItem>
@@ -99,8 +99,8 @@ To enable/disable an object:
 1. Select the objects you want to enable/disable.
 2. Click on the icon you want in the line of the object, or above the list:
 
-* **Enable**: ![image](../assets/configuration/common/enabled_new.png)
-* **Disable**: ![image](../assets/configuration/common/disabled_new.png)
+* **Enable**: ![image](../assets/configuration/common/enabled_new.png#thumbnail1)
+* **Disable**: ![image](../assets/configuration/common/disabled_new.png#thumbnail1)
 
 </TabItem>
 <TabItem value="Method 2" label="Method 2">
@@ -110,8 +110,8 @@ To enable/disable an object:
 
 You can also use the following buttons at the end of the line:
 
-*  **Enable**: ![image](../assets/configuration/common/enabled.png)
-* **Disable**: ![image](../assets/configuration/common/disabled.png)
+*  **Enable**: ![image](../assets/configuration/common/enabled.png#thumbnail1)
+* **Disable**: ![image](../assets/configuration/common/disabled.png#thumbnail1)
 
 ![image](../assets/configuration/common/enable_disable.png)
 
@@ -130,7 +130,7 @@ To delete an object:
 <TabItem value="Method 1" label="Method 1">
 
 1. Select the objects you want to delete.
-2. Click on the **Delete** icon: ![image](../assets/configuration/common/delete_new.png)
+2. Click on the **Delete** icon: ![image](../assets/configuration/common/delete_new.png#thumbnail1)
 3. Confirm the action.
 
 </TabItem>
