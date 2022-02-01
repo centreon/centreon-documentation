@@ -5,24 +5,24 @@ title: HP OMi Events
 
 ## Avant de commencer
 
-- You can send events from a central server, a remote server or a poller.
-- By default, this stream connector sends **service_status** events. The event format is shown **[there](#event-format)**.
-- Aformentioned events are fired each time a host or a service is checked. Various parameters let you filter out events.
+- Vous avez la possibilité d'envoyer des événements depuis un serveur central, un serveur distant ou un poller.
+- Par défaut, ce *Stream Connector* envoie des événements **service_status**. Le format de l'événement est indiqué **[ici](#event-format)**.
+- Les événements susmentionnés sont déclenchés chaque fois qu'un hôte ou un service est contrôlé. Divers paramètres vous permettent de filtrer les événements.
 
 ## Installation
 
-### Dependencies
+### Dépendances
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--CentOS 7/Redhat 7-->
 
-Install **Epel** repository.
+Installer le dépôt **Epel**.
 
 ```shell
 yum -y install epel-release
 ```
 
-Install dependencies.
+Installer les dépendances.
 
 ```shell
 yum install luarocks make gcc lua-curl lua-devel
@@ -30,25 +30,25 @@ yum install luarocks make gcc lua-curl lua-devel
 
 <!-- CentOS 8 -->
 
-Install dnf plugins package.
+Installez le paquet dnf plugins.
 
 ```shell
 dnf -y install dnf-plugins-core
 ```
 
-Install **Powertools** repository.
+Installer le dépôt **Powertools**.
 
 ```shell
 dnf config-manager --set-enabled powertools
 ```
 
-Install **Epel** repository.
+Installer le dépôt **Epel**.
 
 ```shell
 dnf -y install epel-release
 ```
 
-Install dependencies.
+Installer les dépendances.
 
 ```shell
 dnf install make gcc libcurl-devel lua-devel luarocks
@@ -56,25 +56,25 @@ dnf install make gcc libcurl-devel lua-devel luarocks
 
 <!-- RedHat 8 -->
 
-Install dnf plugins package.
+Installez le paquet dnf plugins.
 
 ```shell
 dnf -y install dnf-plugins-core
 ```
 
-Install **Epel** repository.
+Installer le dépôt **Epel**.
 
 ```shell
 dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 ```
 
-Enable **Codeready** repository.
+Activez le dépôt **Codeready**.
 
 ```shell
 subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 ```
 
-Install dependencies.
+Installer les dépendances.
 
 ```shell
 dnf install make gcc libcurl-devel lua-devel luarocks
@@ -87,7 +87,7 @@ dnf install make gcc libcurl-devel lua-devel luarocks
 <!--DOCUSAURUS_CODE_TABS-->
 <!--CentOS/Redhat 7-->
 
-Install Centreon lua modules.
+Installer les modules lua de Centreon.
 
 ```shell
 luarocks install centreon-stream-connectors-lib
@@ -95,13 +95,13 @@ luarocks install centreon-stream-connectors-lib
 
 <!-- CentOS/Redhat 8-->
 
-Install **lua-curl**.
+Installer **lua-curl**.
 
 ```shell
 luarocks install Lua-cURL
 ```
 
-Install Centreon lua modules.
+Installer les modules lua de Centreon.
 
 ```shell
 luarocks install centreon-stream-connectors-lib
@@ -109,7 +109,7 @@ luarocks install centreon-stream-connectors-lib
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-### Download OMi events stream connector
+### Télécharger le Stream Connector OMi events
 
 ```shell
 wget -O /usr/share/centreon-broker/lua/omi-events-apiv2.lua https://raw.githubusercontent.com/centreon/centreon-stream-connector-scripts/master/centreon-certified/omi/omi-events-apiv2.lua
@@ -118,9 +118,9 @@ chmod 644 /usr/share/centreon-broker/lua/omi-events-apiv2.lua
 
 ## Configuration
 
-To configure your stream connector, you must **head over** the **Configuration --> Poller --> Broker configuration** menu. **Select** the **central-broker-master** configuration (or the appropriate broker configuration if it is a poller or a remote server that will send events) and **click** the **Output tab** when the broker form is displayed.
+Pour configurer votre Stream Connector, vous devez **allez** dans le menu **Configuration --> Poller --> Broker configuration**. **Sélectionner** la configuration **central-broker-master** (ou la configuration de broker appropriée s'il s'agit d'un poller ou d'un serveur distant qui enverra des événements) et **cliquer** sur l'onglet **Output** lorsque le formulaire du broker s'affiche.
 
-**Add** a new **generic - stream connector** output and **set** the following fields as follow:
+**Ajouter** une nouvelle sortie **généric - stream connector** et **régler** les champs suivants comme suit :
 
 | Field           | Value                                                  |
 | --------------- | ------------------------------------------------------ |
@@ -128,19 +128,19 @@ To configure your stream connector, you must **head over** the **Configuration -
 | Path            | /usr/share/centreon-broker/lua/omi-events-apiv2.lua    |
 | Filter category | Neb                                                    |
 
-### Add OMi mandatory parameters
+### Ajouter les paramètres obligatoires d'OMi
 
-Each stream connector has a set of mandatory parameters. To add them you must **click** on the **+Add a new entry** button located **below** the **filter category** input.
+Chaque Stream Connector dispose d'un ensemble de paramètres obligatoires. Pour les ajouter, vous devez **cliquer** sur le bouton **+Add a new entry** situé **sous** l'entrée **filter category**.
 
 | Type   | Name                | Value (explanation)                                         | defaultvalue                        |
 |--------|---------------------|------------------------------------------------------------ | ----------------------------------- |
-| string | `ipaddr`            | ip address of the operation connector server                | `192.168.56.15`                     |
+| string | `ipaddr`            | IP address of the operation connector server                | `192.168.56.15`                     |
 | string | `url`               | URL of your BSM platform                                    | `/bsmc/rest/events/opscx-sdk/v1/`   |
 | string | `port`              | the operation connector server port                         | 30005                               |
 
-### Add OMi optional parameters
+### Ajouter les paramètres optionnels d'OMi
 
-Some stream connectors have a set of optional parameters dedicated to the Software that they are associated with. To add them you must **click** on the **+Add a new entry** button located **below** the **filter category** input.
+Certains connecteurs de flux disposent d'un ensemble de paramètres optionnels dédiés au logiciel auquel ils sont associés.  Pour les ajouter, vous devez **cliquer** sur le bouton **+Add a new entry** situé **sous** l'entrée **filter category**.
 
 | Type   | Name                | Value (explanation)                                                                               | defaultvalue                                            |
 |--------|---------------------|-------------------------------------------------------------------------------------------------- | ------------------------------------------------------- |
@@ -149,9 +149,9 @@ Some stream connectors have a set of optional parameters dedicated to the Softwa
 | number | `log_level`         | Log verbosity level 0: errors only, 1: +warnings, 2: +verbose, 3: +debug                          | 2                                                       |
 | string | `log_path`          | Full path of the log file                                                                         | `/var/log/centreon-broker/my-custom-logfile.log`        |
 
-### Proxy configuration
+### Configuration du proxy
 
-When using a proxy to connect to the Signl4 endpoint, you can use additional parameters to configure it:
+Lorsque vous utilisez un proxy pour vous connecter au système HP OMi, vous pouvez utiliser des paramètres supplémentaires pour le configurer :
 
 | Type     | Name               | Value explanation                                     |
 | -------- | ------------------ | ----------------------------------------------------- |
@@ -160,26 +160,26 @@ When using a proxy to connect to the Signl4 endpoint, you can use additional par
 | string   | proxy_username     | Proxy username the file in which logs are written     |
 | password | proxy_password     | Proxy password (mandatory when proxy_username is set) |
 
-### Standard parameters
+### Paramètres standard
 
-All stream connectors can use a set of optional parameters that are made available through Centreon stream connectors lua modules.
+Tous les Stream Connectors peuvent utiliser un ensemble de paramètres optionnels qui sont mis à disposition par les modules lua des connecteurs de flux Centreon.
 
-All those parameters are documented **[here](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/sc_param.md#default-parameters)**.
+Tous ces paramètres sont documentés **[ici](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/sc_param.md#default-parameters)**.
 
-Some of them are overridden by this stream connector.
+Certains d'entre eux sont remplacés par ce Stream Connector.
 
 | Type   | Name                | Default value for the stream connector |
 | ------ | ------------------- | -------------------------------------- |
 | string | accepted_categories | neb                                    |
 | string | accepted_elements   | service_status                         |
 
-## Event bulking
+## Regroupement d'événements
 
-This stream connector is not compatible with event bulking. Meaning that the option `max_buffer_size` can't be higher than 1
+Ce connecteur de flux n'est pas compatible avec le groupage d'événements. Cela signifie que l'option `max_buffer_size` ne peut pas être supérieure à 1.
 
-## Event format
+## Format de l'événement
 
-This stream connector will send event with the following format.
+Ce Stream Connetor enverra l'évenement au format suivant.
 
 ### service_status event
 
@@ -198,9 +198,9 @@ This stream connector will send event with the following format.
 }
 ```
 
-### Custom event format
+### Format d'événement personnalisé
 
-This stream connector allows you to change the format of the event to suit your needs. Only the **event** part of the json is customisable. It also allows you to handle events type that are not handled by default such as **ba_status events**.
+Ce Stream Connector vous permet de modifier le format de l'événement en fonction de vos besoins. Seule la partie **event** du json est personnalisable. Il vous permet également de gérer des types d'événements qui ne sont pas gérés par défaut tels que les événements **ba_status**.
 
 In order to use this feature you need to configure a json event format file and add a new stream connector parameter.
 
@@ -208,15 +208,15 @@ In order to use this feature you need to configure a json event format file and 
 | ------ | ----------- | ------------------------------------------------------- |
 | string | format_file | /etc/centreon-broker/lua-conf/omi-events-format.json    |
 
-> The event format configuration file must be readable by the centreon-broker user
+> Le fichier de configuration du format des événements doit être lisible par l'utilisateur de *centreon-broker*.
 
-To learn more about custom event format and templating file, head over the following **[documentation](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/templating.md#templating-documentation)**.
+Pour en savoir plus sur le format d'événement personnalisé et le fichier modèle, consultez cette **[documentation](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/templating.md#templating-documentation)**.
 
-## Curl commands
+## Commande curl
 
-Here is the list of all the curl commands that are used by the stream connector.
+Voici la liste de toutes les commandes curl qui sont utilisées par le Stream Connector.
 
-### Send events
+### Envoie d'évenements
 
 ```shell
 curl -X POST https://192.168.56.15:300005/bsmc/rest/events/opscx-sdk/v1/

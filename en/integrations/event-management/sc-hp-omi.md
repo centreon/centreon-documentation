@@ -134,7 +134,7 @@ Each stream connector has a set of mandatory parameters. To add them you must **
 
 | Type   | Name                | Value (explanation)                                         | defaultvalue                        |
 |--------|---------------------|------------------------------------------------------------ | ----------------------------------- |
-| string | `ipaddr`            | ip address of the operation connector server                | `192.168.56.15`                     |
+| string | `ipaddr`            | IP address of the operation connector server                | `192.168.56.15`                     |
 | string | `url`               | URL of your BSM platform                                    | `/bsmc/rest/events/opscx-sdk/v1/`   |
 | string | `port`              | the operation connector server port                         | 30005                               |
 
@@ -151,7 +151,7 @@ Some stream connectors have a set of optional parameters dedicated to the Softwa
 
 ### Proxy configuration
 
-When using a proxy to connect to the Signl4 endpoint, you can use additional parameters to configure it:
+When using a proxy to connect to the OMi endpoint, you can use additional parameters to configure it:
 
 | Type     | Name               | Value explanation                                     |
 | -------- | ------------------ | ----------------------------------------------------- |
