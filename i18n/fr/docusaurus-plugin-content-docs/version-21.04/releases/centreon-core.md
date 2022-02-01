@@ -358,6 +358,25 @@ dans une prochaine version.
 
 ## Centreon Broker
 
+### 21.04.6
+
+Release date: `February 1, 2022`
+
+#### Improvements
+
+- Improved the multiplexing of events, which was a performance bottleneck. The processing speed of queued events should be significantly increased.
+
+#### Bug fixes
+
+- Fixed a regression due to the central broker's cache generation optimization, which was too thorough and prevented BAM from computing KPIs based on boolean rules
+- The central broker's cache generation loaded too much data and took too much time when BAM was activated.
+- Fixed an issue that could cause segmentation faults in centreon-engine when scheduling external commands
+- Fixed a design issue to avoid trying to access variables of broker's new logger when the logger is stopped. This issue could cause segmentation faults.
+- When a single metric is deleted, the corresponding RRD file is now actually removed.
+- If the SQL stream took too long to initialize its connection, then the Perfdata stream timed out and the whole connection failed. To fix this, the timeout has been increased.
+- In some circumstances, the `mysql_ping` function, which is used to test if the session is still active, could freeze. To fix this, the calls to `mysql_ping` have been spaced out, a timeout has been added, and the commit management has been consolidated.
+- Fixed an issue causing BAM Business Activities (best status) to remain in an OK state when the OK KPIs are removed
+
 ### 21.04.5
 
 `27 octobre 2021`
