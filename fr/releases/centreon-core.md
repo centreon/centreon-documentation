@@ -359,7 +359,7 @@ dans une prochaine version.
 
 ### 21.04.6
 
-Release date: `null`
+Release date: `February 1, 2022`
 
 #### Improvements
 
