@@ -18,16 +18,11 @@ Votre résolution doit être au minimum à 1280 x 768.
 
 ### Système d'exploitation
 
-Les OS supportés par Centreon sont CentOS/RedHat/OracleLinux 7 ou 8.
-
-> Cependant, suite au changement de stratégie effectué par Red Hat, nous pensons
-> qu'il est préférable de ne pas utiliser CentOS 8 en production. Les paquets
-> pour CentOS 8 sont compatibles avec RHEL et Oracle Linux en version 8.
+Les OS supportés par Centreon sont CentOS 7 et RedHat/OracleLinux 7 ou 8.
 
 | Version           | Mode d'installation                                   |
 |-------------------|-------------------------------------------------------|
 | CentOS 7          | ISO Centreon, paquets RPM, machine virtuelle, sources |
-| CentOS 8          | paquets RPM, sources                                  |
 | RHEL/Oracle Linux | paquets RPM, sources                                  |
 
 Les utilisateurs Open Source, sans contrat de support, peuvent utiliser une autre distribution GNU/Linux.
