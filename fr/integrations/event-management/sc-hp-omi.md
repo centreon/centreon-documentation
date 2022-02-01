@@ -140,7 +140,7 @@ Chaque Stream Connector dispose d'un ensemble de paramètres obligatoires. Pour 
 
 ### Ajouter les paramètres optionnels d'OMi
 
-Certains connecteurs de flux disposent d'un ensemble de paramètres optionnels dédiés au logiciel auquel ils sont associés.  Pour les ajouter, vous devez **cliquer** sur le bouton **+Add a new entry** situé **sous** l'entrée **filter category**.
+Certains Stream Connector disposent d'un ensemble de paramètres optionnels dédiés au logiciel auquel ils sont associés.  Pour les ajouter, vous devez **cliquer** sur le bouton **+Add a new entry** situé **sous** l'entrée **filter category**.
 
 | Type   | Name                | Value (explanation)                                                                               | defaultvalue                                            |
 |--------|---------------------|-------------------------------------------------------------------------------------------------- | ------------------------------------------------------- |
@@ -162,7 +162,7 @@ Lorsque vous utilisez un proxy pour vous connecter au système HP OMi, vous pouv
 
 ### Paramètres standard
 
-Tous les Stream Connectors peuvent utiliser un ensemble de paramètres optionnels qui sont mis à disposition par les modules lua des connecteurs de flux Centreon.
+Tous les Stream Connectors peuvent utiliser un ensemble de paramètres optionnels qui sont mis à disposition par les modules lua des Stream Connector Centreon.
 
 Tous ces paramètres sont documentés **[ici](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/sc_param.md#default-parameters)**.
 
@@ -175,13 +175,13 @@ Certains d'entre eux sont remplacés par ce Stream Connector.
 
 ## Regroupement d'événements
 
-Ce connecteur de flux n'est pas compatible avec le groupage d'événements. Cela signifie que l'option `max_buffer_size` ne peut pas être supérieure à 1.
+Ce Stream Connector n'est pas compatible avec le groupage d'événements. Cela signifie que l'option `max_buffer_size` ne peut pas être supérieure à 1.
 
 ## Format de l'événement
 
 Ce Stream Connetor enverra l'évenement au format suivant.
 
-### service_status event
+### Service status event
 
 ```xml
 {
@@ -202,7 +202,7 @@ Ce Stream Connetor enverra l'évenement au format suivant.
 
 Ce Stream Connector vous permet de modifier le format de l'événement en fonction de vos besoins. Seule la partie **event** du json est personnalisable. Il vous permet également de gérer des types d'événements qui ne sont pas gérés par défaut tels que les événements **ba_status**.
 
-In order to use this feature you need to configure a json event format file and add a new stream connector parameter.
+Afin d'utiliser cette fonctionnalité, vous devez configurer un fichier de format d'événement json et ajouter un nouveau paramètre du Stream Connector.
 
 | Type   | Name        | Value                                                   |
 | ------ | ----------- | ------------------------------------------------------- |
