@@ -6,7 +6,7 @@ title: HP OMi Events
 ## Before starting
 
 - You can send events from a central server, a remote server or a poller.
-- By default, this stream connector sends **host_status** and **service_status** events. The event format is shown **[there](#event-format)**.
+- By default, this stream connector sends **service_status** events. The event format is shown **[there](#event-format)**.
 - Aformentioned events are fired each time a host or a service is checked. Various parameters let you filter out events.
 
 ## Installation
