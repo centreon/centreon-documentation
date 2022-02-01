@@ -180,14 +180,14 @@ Install the Centreon repository using this command:
 <TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-2.el8.noarch.rpm
+dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-5.el8.noarch.rpm
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-2.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-5.el7.centos.noarch.rpm
 ```
 
 </TabItem>
@@ -497,17 +497,17 @@ Then follow instructions by
     ```
 
 4. Add additional information to enable future communication between your Remote Server and its Central,
- fill in the required information to convert your platform into a Remote server:
+Kindly fill in the required information to convert your platform into Remote :
 
-  ```shell
-  <CURRENT_NODE_ADDRESS> : Please enter your username:
-  admin
-  <CURRENT_NODE_ADDRESS> : Please enter your password:
+    ```shell
+    <CURRENT_NODE_ADDRESS> : Please enter your username:
+    admin
+    <CURRENT_NODE_ADDRESS> : Please enter your password:
 
-  <CURRENT_NODE_ADDRESS> : Protocol [http]:
-  <CURRENT_NODE_ADDRESS> : Port [80]:
-  <CURRENT_NODE_ADDRESS> : centreon root folder [centreon]:
-  ```
+    <CURRENT_NODE_ADDRESS> : Protocol [http]:
+    <CURRENT_NODE_ADDRESS> : Port [80]:
+    <CURRENT_NODE_ADDRESS> : centreon root folder [centreon]:
+    ```
 
 5. If you use a proxy, please define credentials:
 
