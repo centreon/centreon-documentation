@@ -141,7 +141,7 @@ Below are some of the available options:
 | \--centreon-token | an autologin token from centreon                       |                                                                                                                                                                                           |
 | \--centreon-url   | the centreon url                                       |                                                                                                                                                                                           |
 | \--graph-url      | graph url. You can use the above options as macro here | **%{centreon\_url}**/include/views/graphs/generateGraphs/generateImage.php?username=myuser&token=**%{centreon\_token}**&hostname=**%{host\_name}**&service=**%{service\_description}** |
-| \--link-url       | a link url                                             | **%{centreon\_url}**/main.php?p=20201\&o=svc&host\_search=**%{host\_name}**&svc\_search=**%{service\_description}**                                                                     |
+| \--link-url       | a link url                                             | **%{centreon\_url}**/main.php?p=20201&o=svc&host\_search=**%{host\_name}**&svc\_search=**%{service\_description}**                                                                     |
 | \--proxyurl       | the url to your proxy if needed                        |                                                                                                                                                                                           |
 
 All options can be displayed with the following command:
