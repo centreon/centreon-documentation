@@ -53,7 +53,6 @@ Release date: `December 16, 2021`
  - Disabled Business Activities are now displayed as disabled even after restarting centreon-map service
  - HeapDumpPath is now pointing to the proper folder (/var/log/centreon-map folder)
  - Metrics labels with specific characters and white spaces are now supported
-   > You may need to apply the following [fix](../graph-views/troubleshooter#metric-links-are-black-after-updating-map) after updating/upgrading MAP.
  - Service elements in a view are not clickable anymore
  - Metrics not following the naming specification do not cause map server to crash anymore
 
