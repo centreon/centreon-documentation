@@ -3,126 +3,235 @@ id: sc-hp-bsm
 title: BSM
 ---
 
-## Ce qu'apporte l'intégration de BSM + Centreon 
+## Installation
 
-Le Stream Connector BSM envoie les données de **Centreon** vers le gestionnaire de service **Micro Focus BSM** (Business Service Management).
+### Dépendances
 
-## Comment ça marche
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS 7/Redhat 7-->
 
-* Chaque fois qu'un service ou un hôte est vérifié par le moteur de supervision, le résultat passe par *Centreon Broker*, qui utilise les fonctions définies dans le script du Stream Connector pour transmettre les changements d'état à BSM.
+Installer le dépôt **Epel**.
 
-## Prérequis
-
-* Pour pouvoir transmettre des données vers BSM, il faut avoir créé un webservice au préalable. Veuillez contacter votre expert BSM pour cette partie.
-* L'intégration d'un Stream Connector nécessite un **compte Centreon avec des privilèges d'administrateur** ou bien les accès aux menus **Exporter la configuration** et **Configuration de Centreon Broker**.
-* Un **accès `root` en ligne de commande sur le serveur Centreon central** est également requis.
-
-## Support
-
-Si vous avez besoin d'aide, vous pourrez en trouver via deux canaux, suivant votre statut :
-
-* **Clients de Centreon titulaires d'un contrat de support** : vous pouvez vous adresser directement à [l'équipe du Support de Centreon](mailto:support@centreon.com).
-* **Utilisateurs de l'édition Open Source** ou de **Centreon IT-100** (versions gratuites) : nous vous invitons à rejoindre notre [communauté sur Slack](https://centreon.github.io) où nos utilisateurs et nos équipes feront de leur mieux pour vous aider.
-
-## Procédure d'intégration
-
-### Installation
-
-Se connecter en tant que `root` au serveur central Centreon avec votre client SSH favori.
-
-Dans le cas où votre serveur doit passer par un proxy pour accéder à Internet, il faudra exporter la variable d'environnement `https_proxy` et configurer `yum` pour être en mesure d'installer toutes les dépendances.
-
-```bash
-export https_proxy=http://my.proxy.server:3128
-echo "proxy=http://my.proxy.server:3128" >> /etc/yum.conf
+```shell
+yum -y install epel-release
 ```
 
-Maintenant que le serveur peut accéder à Internet, lancer les commandes :
+Installer les dépendances.
 
-```bash
-yum install -y lua-curl epel-release
-yum install -y luarocks
-luarocks install luaxml
+```shell
+yum install luarocks make gcc lua-curl lua-devel
 ```
 
-Ce paquet est nécessaire au bon fonctionnement du script LUA qu'il ne reste plus qu'à télécharger :
+<!-- CentOS 8 -->
 
-```bash
-wget -O /usr/share/centreon-broker/lua/bsm_connector.lua https://raw.githubusercontent.com/centreon/centreon-stream-connector-scripts/master/centreon-certified/bsm/bsm_connector-apiv1.lua
-chmod 644 /usr/share/centreon-broker/lua/bsm_connector.lua
+Installez le paquet dnf plugins.
+
+```shell
+dnf -y install dnf-plugins-core
 ```
 
-Le Stream Connector BSM est maintenant installé sur votre serveur Centreon central !
+Installer le dépôt **Powertools**.
 
-### Configuration
-
-#### Configuration de *Centreon Broker*
-
-1. Se connecter à l'interface Web de Centreon avec un compte administrateur.
-2. Naviguer vers **Configuration** > **Collecteurs** et choisir **Configuration de Centreon Broker**.
-3. Cliquer sur l'objet de configuration **central-broker-master** et naviguer dans l'onglet **Output**.
-4. Sélectionner **Generic - Stream connector** et cliquer sur **Ajouter** pour créer une nouvelle sortie.
-5. Choisir son nom (**Name**) par exemple **BSM** et saisir l'emplacement (**Path**) où le script a été installé : `/usr/share/centreon-broker/lua/bsm_connector.lua`.
-6. Le paramètre `http_server_url` est à personnaliser dans tous les cas :
-
-| Name              | Type   | Value                                                             |
-|-------------------|--------|-------------------------------------------------------------------|
-| `http_server_url` | String | `https://<my.bsm.server>:30005/bsmc/rest/events/<my-webservice>/` |
-
-7. Sauvegarder la configuration, puis naviguer vers le menu **Configuration** > **Collecteurs** et choisir **Collecteurs**.
-8. Sélectionner le collecteur **Central** et cliquer sur **Exporter la configuration**.
-9. Conserver les cases **Générer les fichiers de configuration** et **Lancer le débogage du moteur de supervision (-v)** et cocher également **Deplacer les fichiers générés** puis cliquer sur le bouton **Exporter**.
-10. Redémarrer le service `cbd` :
-
-```bash
-systemctl restart cbd
+```shell
+dnf config-manager --set-enabled powertools
 ```
 
-Votre serveur central a maintenant chargé le Stream Connector et commence à envoyer des données vers BSM !
+Installer le dépôt **Epel**.
 
-> Pour s'assurer que tout fonctionne bien, on consultera les fichiers `central-broker-master.log` et `stream-connector-bsm.log`, tous deux situés à l'emplacement `/var/log/centreon-broker` du serveur central.
-
-#### Configuration avancée
-
-**Tableau des paramètres**
-
-| Name                | Type   | Value (exemple)                                                   | Explication                                                                                                            |
-|---------------------|--------|-------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|
-| `http_server_url`   | String | `https://<my.bsm.server>:30005/bsmc/rest/events/<my-webservice>/` | URL de votre plateforme BSM                                                                                            |
-| `http_proxy_string` | String | `http://your.proxy.server:3128`                                   | Paramétrage du proxy permettant de sortir vers Internet en HTTP/HTTPS                                                  |
-| `source_ci`         | String | `Centreon` (valeur par défaut)                                    | Nom permettant d'identifier l'émetteur                                                                                 |
-| `log_level`         | Number | 2 (valeur par défaut)                                             | Niveau de verbosité des logs 0: errors seulement, 1: +warnings, 2: +verbose, 3: +debug                                 |
-| `log_path`          | String | `/var/log/centreon-broker/my-custom-logfile.log`                  | Chemin complet du fichier de log                                                                                       |
-| `max_buffer_size`   | Number | 1 (valeur par défaut)                                             | Nombre maximum d'événements à stocker en mémoire tampon en attendant de les transmettre en un seul envoi               |
-| `max_buffer_age`    | Number | 5 (valeur par défaut)                                             | Temps d'attente maximum avant d'envoyer les événements en mémoire tampon si `max_buffer_size` n'est pas encore atteint |
-
-**Remarques**
-
-* La valeur par défaut de 2 pour le paramètre `log_level` est adaptée à la mise en place et au *troubleshooting* initial éventuel, cela peut cependant générer un volume important de logs. Il est donc recommandé, une fois la mise en place validée, de l'abaisser à 1.
-* La valeur par défaut de 1 pour le paramètre `max_buffer_size` fonctionne bien et garantit une latence réduite au minimum entre l'apparition d'une alerte et sa transmission à BSM. Il pourrait s'avérer utile de l'augmenter dans le cas où le flux à transmettre comporterait en continu plusieurs événements par seconde et au-delà. 
-
----------------
-
-## Désinstallation
-
-1. Se connecter à l'interface Web de Centreon avec un compte administrateur.
-2. Naviguer vers **Configuration** > **Collecteurs** et choisir **Configuration de Centreon Broker**.
-3. Cliquer sur l'objet de configuration **central-broker-master** et naviguer dans l'onglet **Output**.
-4. Supprimer la sortie **Generic - Stream connector** en cliquant sur la croix rouge entourée d'un cercle à la fin de la ligne.
-5. Sauvegarder la configuration, puis naviguer vers le menu **Configuration** > **Collecteurs** et choisir **Collecteurs**.
-6. Sélectionner le collecteur **Central** et cliquer sur **Exporter la configuration**.
-7. Conserver les cases **Générer les fichiers de configuration** et **Lancer le débogage du moteur de supervision (-v)** et cocher également **Deplacer les fichiers générés** puis cliquer sur le bouton **Exporter**.
-8. Redémarrer le service `cbd` :
-
-```bash
-systemctl restart cbd
+```shell
+dnf -y install epel-release
 ```
 
-Le Stream Connector n'est plus chargé par `centreon-broker`.
+Installer les dépendances.
 
-9. Ce n'est pas nécessaire, mais vous pouvez également supprimer le script pour désinstaller complètement le Stream Connector :
-
-```bash
-rm -f /usr/share/centreon-broker/lua/bsm_connector.lua
+```shell
+dnf install make gcc libcurl-devel lua-devel luarocks
 ```
 
+<!-- RedHat 8 -->
+
+Installez le paquet dnf plugins.
+
+```shell
+dnf -y install dnf-plugins-core
+```
+
+Installer le dépôt **Epel**.
+
+```shell
+dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+```
+
+Activez le dépôt **Codeready**.
+
+```shell
+subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
+```
+
+Installer les dépendances.
+
+```shell
+dnf install make gcc libcurl-devel lua-devel luarocks
+```
+
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+### Lua modules
+
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS/Redhat 7-->
+
+Installer les modules lua de Centreon.
+
+```shell
+luarocks install centreon-stream-connectors-lib
+```
+
+<!-- CentOS/Redhat 8-->
+
+Installer **lua-curl**.
+
+```shell
+luarocks install Lua-cURL
+```
+
+Installer les modules lua de Centreon.
+
+```shell
+luarocks install centreon-stream-connectors-lib
+```
+
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+### Télécharger le Stream Connector BSM events
+
+```shell
+wget -O /usr/share/centreon-broker/lua/bsm-events-apiv2.lua  https://raw.githubusercontent.com/centreon/centreon-stream-connector-scripts/master/centreon-certified/bsm/bsm-events-apiv2.lua
+chmod 644 /usr/share/centreon-broker/lua/bsm-events-apiv2.lua
+```
+
+## Configuration
+
+Pour configurer votre Stream Connector, vous devez **allez** dans le menu **Configuration --> Poller --> Broker configuration**. **Sélectionner** la configuration **central-broker-master** (ou la configuration de broker appropriée s'il s'agit d'un poller ou d'un serveur distant qui enverra des événements) et **cliquer** sur l'onglet **Output** lorsque le formulaire du broker s'affiche.
+
+**Ajouter** une nouvelle sortie **généric - stream connector** et **régler** les champs suivants comme suit :
+
+| Field           | Value                                                  |
+| --------------- | ------------------------------------------------------ |
+| Name            | BSM                                                    |
+| Path            | /usr/share/centreon-broker/lua/bsm-events-apiv2.lua    |
+
+### Ajouter les paramètres obligatoires de BSM
+
+Chaque Stream Connector dispose d'un ensemble de paramètres obligatoires. Pour les ajouter, vous devez **cliquer** sur le bouton **+Add a new entry** situé **sous** l'entrée **filter category**.
+
+| Type   | Name                | Value (explanation)                                                                                                    | defaultvalue                                                      |
+|--------|---------------------|------------------------------------------------------------------------------------------------------------------------| ----------------------------------------------------------------- |
+| String | `http_server_url`   | URL of your BSM platform                                                                                             | `https://<my.bsm.server>:30005/bsmc/rest/events/<my-webservice>/` |
+
+### Ajouter les paramètres optionnels de BSM
+
+Certains Stream Connector disposent d'un ensemble de paramètres optionnels dédiés au logiciel auquel ils sont associés.  Pour les ajouter, vous devez **cliquer** sur le bouton **+Add a new entry** situé **sous** l'entrée **filter category**.
+
+| Type   | Name                | Value (explanation)                                                                                                    | defaultvalue                                                      |
+|--------|---------------------|------------------------------------------------------------------------------------------------------------------------| ----------------------------------------------------------------- |
+| String | `http_proxy_string` | Setting the proxy to output to the Internet in HTTP/HTTPS                                                               | `http://your.proxy.server:3128`                                   |
+| String | `source_ci`         | Name to identify the sender                                                                                             | `Centreon`                                                        |
+| Number | `log_level`         | Log verbosity level 0: errors only, 1: +warnings, 2: +verbose, 3: +debug                                               | 2                                                                 |
+| String | `log_path`          | Full path of the log file                                                                                               | `/var/log/centreon-broker/my-custom-logfile.log`                  |
+| Number | `max_buffer_size`   | Maximum number of events to be buffered while waiting to be transmitted in one transmission                             | 1                                                                 |
+| Number | `max_buffer_age`    | Maximum time to wait before sending events to the buffer if `max_buffer_size` is not yet reached                       | 5                                                                 |
+
+### Configuration du proxy
+
+Lorsque vous utilisez un proxy pour vous connecter au système BSM, vous pouvez utiliser des paramètres supplémentaires pour le configurer :
+
+| Type     | Name               | Value explanation                                     |
+| -------- | ------------------ | ----------------------------------------------------- |
+| string   | proxy_address      | Proxy address                                         |
+| number   | proxy_port         | Proxy port (mandatory when proxy_address is set)      |
+| string   | proxy_username     | Proxy username the file in which logs are written     |
+| password | proxy_password     | Proxy password (mandatory when proxy_username is set) |
+
+### Paramètres standard
+
+Tous les Stream Connectors peuvent utiliser un ensemble de paramètres optionnels qui sont mis à disposition par les modules lua des Stream Connector Centreon.
+
+Tous ces paramètres sont documentés **[ici](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/sc_param.md#default-parameters)**.
+
+Certains d'entre eux sont remplacés par ce Stream Connector.
+
+| Type   | Name                | Default value for the stream connector |
+| ------ | ------------------- | -------------------------------------- |
+| string | accepted_categories | neb                                    |
+| string | accepted_elements   | host_status,service_status             |
+
+## Regroupement d'événements
+
+Ce Stream Connector n'est pas compatible avec le groupage d'événements. Cela signifie que l'option `max_buffer_size` ne peut pas être supérieure à 1.
+
+## Format de l'événement
+
+Ce Stream Connetor enverra l'évenement au format suivant.
+
+### Service status event
+
+```xml
+{
+ "<event_data>"
+        "<hostname>"  Central  "</hostname>"
+        "<svc_desc>"  Ping  "</svc_desc>"
+        "<state>" 0 "</state>"
+        "<last_update>" 1640862289  "</last_update>"
+        "<output>"  OK - 10.30.2.31 rta 0.285ms lost 0%  "</output>"
+        "<service_severity>" 0 "</service_severity"
+        "<url>"  no url for this service  "</url>"
+        "<source_host_id>"  19  "</source_host_id>"
+        "<source_svc_id>"  546  "</source_svc_id>"
+        "<scheduled_downtime_depth>"  0  "</scheduled_downtime_depth>"
+ "</event_data>"
+}
+```
+
+### Host status event
+
+```xml
+{
+ "<event_data>"
+      "<hostname>" Central "</hostname>"
+      "<host_severity>" 0 "</host_severity>"
+      "<xml_notes>" no notes found on host "</xml_notes>"
+      "<url>" no action url for this host "</url>"
+      "<source_ci>" Centreon "</source_ci>"
+      "<source_host_id>" 0 "</source_host_id>"
+      "<scheduled_downtime_depth>" 0 "</scheduled_downtime_depth>"
+  "</event_data>"
+}
+```
+
+### Format d'événement personnalisé
+
+Ce Stream Connector vous permet de modifier le format de l'événement en fonction de vos besoins. Seule la partie **event** du json est personnalisable. Il vous permet également de gérer des types d'événements qui ne sont pas gérés par défaut tels que les événements **ba_status**.
+
+Afin d'utiliser cette fonctionnalité, vous devez configurer un fichier de format d'événement json et ajouter un nouveau paramètre du Stream Connector.
+
+| Type   | Name        | Value                                                   |
+| ------ | ----------- | ------------------------------------------------------- |
+| string | format_file | /etc/centreon-broker/lua-conf/bsm-events-format.json    |
+
+> Le fichier de configuration du format des événements doit être lisible par l'utilisateur de *centreon-broker*.
+
+Pour en savoir plus sur le format d'événement personnalisé et le fichier modèle, consultez cette **[documentation](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/templating.md#templating-documentation)**.
+
+## Commande curl
+
+Voici la liste de toutes les commandes curl qui sont utilisées par le Stream Connector.
+
+### Envoie d'évenements
+
+```shell
+curl -X POST https://centreon.bsm.server:30005/bsmc/rest/events/myCentreon/
+   -H "Content-Type: application/xml"
+   -H "Accept: application/xml"
+   -d "<event_data><hostname>Central</hostname><svc_desc>Ping</svc_desc><state>0</state><last_update>1640862289</last_update><output>OK - 10.30.2.31 rta 0.285ms lost 0%</output><service_severity>0</service_severity><url>no url for this service</url><source_host_id>19</source_host_id><source_svc_id>546</source_svc_id><scheduled_downtime_depth>0</scheduled_downtime_depth></event_data>"
+```
