@@ -379,7 +379,7 @@ Release date: `null`
 
 #### Improvements
 
-- Improved the multiplexing of events, which was a performance bottleneck. The the processing speed of queued events should be significantly increased.
+- Improved the multiplexing of events, which was a performance bottleneck. The processing speed of queued events should be significantly increased.
 
 #### Bug fixes
 
