@@ -631,6 +631,14 @@ state was HARD even if no notification is configured nor sent.
 
 ## Centreon Broker
 
+### 20.10.11
+
+Release date: `January 20, 2022`
+
+#### Bug fixes
+
+- Fixed a regression due to the central broker's cache generation optimization, which was too thorough and prevented BAM from computing KPIs based on boolean rules
+
 ### 20.10.10
 
 Release date: `January 13, 2022`
