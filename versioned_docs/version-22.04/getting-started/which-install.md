@@ -14,9 +14,7 @@ There are several ways to install Centreon. Which one suits your needs best?
 - Use the [Centreon ISO](../installation/installation-of-a-central-server/using-centreon-iso): if you want to
   install both the OS (CentOS 7) and Centreon.
 - Use [RPM packages](../installation/installation-of-a-central-server/using-packages): if you already have the
-  OS and you only want to install Centreon. The following operating systems are supported: CentOS/RedHat/OracleLinux 7 or 8. 
-  > Due to RedHat's stance on CentOS 8, we suggest not to use said version for your production environment. Nevertheless,
-  > the packages for CentOS 8 are compatible with the RHEL 8 and Oracle Linux 8 versions.
+  OS and you only want to install Centreon. Centreon supports the following operating systems: CentOS 7, RedHat/OracleLinux 7 or 8.
 
 ## To install Centreon on a Linux distribution that is not supported by Centreon
 
