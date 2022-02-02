@@ -122,7 +122,7 @@ const config = {
       announcementBar: {
         id: 'announcementBar-1',
         content:
-          'Research is not available at the moment. Thanks for your patience and understanding',
+          'The search feature is not available at the moment. Thank you for your patience and understanding.',
         backgroundColor: '#ebedf0',
         textColor: '#091E42',
         isCloseable: false,
