@@ -23,7 +23,7 @@ pipeline {
      }
       
      stage('Deploy PR to staging') {
-       when { changeRequest 'staging' }
+       when { changeRequest target: 'staging' }
        steps {
          input message: 'Deploying PR to staging ? (Click "Proceed" to continue)'
          sh 'aws s3 sync --delete build s3://centreon-documentation-dev/'
