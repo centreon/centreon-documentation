@@ -21,10 +21,19 @@ pipeline {
          sh 'export NODE_OPTIONS=--max_old_space_size=16000 && yarn build'
        }
      }
+      
+     stage('Deploy PR to staging') {
+       when { changeRequest 'staging' }
+       steps {
+         input message: 'Deploying PR to staging ? (Click "Proceed" to continue)'
+         sh 'aws s3 sync --delete build s3://centreon-documentation-dev/'
+         sh 'aws cloudfront create-invalidation --distribution-id E1BCVJJJ9ZUAQZ  --paths "/*"'
+       }
+     }
+      
      stage('Deploy documentation to staging') {
        when { branch 'staging' }
        steps {
-         input message: 'Deploying to staging ? (Click "Proceed" to continue)'
          sh 'aws s3 sync --delete build s3://centreon-documentation-staging/'
          sh 'aws cloudfront create-invalidation --distribution-id E3T0F281DYJGMK --paths "/*"'
        }
