@@ -13,9 +13,8 @@ dédiée aux intégrations [ITSM](../integrations/itsm/itsm-overview.html).
 Chaque fournisseur a sa propre configuration, cependant, l'ajout d'un
 fournisseur dans Centreon peut se faire de la manière suivante.
 
-Rendez-vous dans le menu
-`Configuration > Notifications > Open Tickets > Rules` et cliquez sur le
-bouton **Add** :
+Rendez-vous dans le menu **Configuration > Notifications > Open Tickets > Règles**
+et cliquez sur le bouton **Ajouter** :
 
 ![image](../assets/alerts/open_tickets_add_provider_01.png)
 
@@ -23,7 +22,7 @@ Définissez le nom de la règle **Rule name** et sélectionnez le **Provider**:
 
 ![image](../assets/alerts/open_tickets_add_provider_02.png)
 
-Un nouveau formulaire appraît. Configurez ce dernier en fonction de ses
+Un nouveau formulaire apparaît. Configurez ce dernier en fonction de ses
 spécificités.
 
 ### Hôtes et serivces
@@ -35,44 +34,45 @@ configuration.
 La meilleure façon est de créer ces macros dans un modèle hôte et un
 modèle de service hérité par toutes les ressources.
 
-Rendez-vous dans le menu `Configuration > Hosts > Templates` et
+Rendez-vous dans le menu **Configuration > Hôtes > Modèles** et
 recherchez le modèle **generic-active-host-custom** et éditez ce
-dernier. Ajouter la macro **TICKET\_ID** et cliquez sur **Save** :
+dernier. Ajouter la macro **TICKET\_ID** et cliquez sur **Sauvegarder** :
 
 ![image](../assets/alerts/open_tickets_macro.png)
 
-Rendez-vous dans le menu `Configuration > Services > Templates` et
+Rendez-vous dans le menu **Configuration > Services > Modèles** et
 recherchez le modèle **generic-active-service-custom** et éditez ce
-dernier. Ajouter la macro **TICKET\_ID** et cliquez sur \*\*Save\* :
+dernier. Ajouter la macro **TICKET\_ID** et cliquez sur **Sauvegarder** :
 
 ![image](../assets/alerts/open_tickets_macro.png)
 
 ### Configuration du widget
 
 Pour utiliser le widget, vous devez l'ajouter dans une vue
-personnalisée. Allez dans le menu `Home > Custom Views`, sélectionnez
-votre vue et cliquez sur le bouton **Add widget**.
+personnalisée. Allez dans le menu **Accueil > Vues personnalisées**,
+affichez le mode édition, sélectionnez votre vue et cliquez sur le
+bouton **Ajouter widget**.
 
-Définissez un titre pour votre widget (par exemple: Open-Tickets) et
+Définissez un titre pour votre widget (par exemple : **Open-Tickets**) et
 sélectionnez le widget **Open Tickets**. Faites la même manipulation
 pour ajouter à nouveau ce widget.
 
 Sur le premier widget, pour ouvrir le ticket, cliquez sur le bouton de
 **configuration** :
 
--   Sélectionnez la règle **Rule** précédemment définie
--   Ne cochez pas la case **Opened Tickets**
--   Sélectionnez d'autres filtres
+-   Sélectionnez la règle **Rule** précédemment définie ;
+-   Ne cochez pas la case **Opened Tickets** ;
+-   Sélectionnez d'autres filtres ;
 -   Ne cochez pas les cases **Display Ticket ID** et **Display Ticket
-    Time**
+    Time**.
 
 Sur le deuxième widget, pour afficher les tickets ouverts, cliquez sur
 le bouton de **configuration** :
 
--   Sélectionnez la règle **Rule** précédemment définie
--   Cochez la case **Opened Tickets**
--   Sélectionnez d'autres filtres
--   Cochez les cases **Display Ticket ID** et **Display Ticket Time**
+-   Sélectionnez la règle **Rule** précédemment définie ;
+-   Cochez la case **Opened Tickets** ;
+-   Sélectionnez d'autres filtres ;
+-   Cochez les cases **Display Ticket ID** et **Display Ticket Time**.
 
 ![image](../assets/alerts/open_tickets_add_widget.png)
 
@@ -80,18 +80,18 @@ le bouton de **configuration** :
 
 ### Créer un ticket
 
-Pour ouvrir un ticket, sélectionnez le ressources à l'aide de la case à
+Pour ouvrir un ticket, sélectionnez la ou les ressources à l'aide des cases à
 cocher et dans le menu **– More actions –** sélectionnez l'action
 requise :
 
 ![image](../assets/alerts/open_ticket_add_01.png)
 
-Une fenêtre s'ouvre pour saisir un commentaire. Une fois saisin cliquez sur
+Une fenêtre s'ouvre pour saisir un commentaire. Une fois saisi, cliquez sur
 le bouton **Open** pour créer le ticket :
 
 ![image](../assets/alerts/open_ticket_add_02.png)
 
-Une fois le ticket créé, l'ID de ce dernier appraît :
+Une fois le ticket créé, l'ID de ce dernier apparaît :
 
 ![image](../assets/alerts/open_ticket_add_03.png)
 
@@ -102,7 +102,7 @@ d'ouverture de tickets :
 
 ### Fermer un ticket
 
-Pour fermer un ticket, sélectionnez le ressources à l'aide de la case à
+Pour fermer un ticket, sélectionnez la ou les ressources à l'aide des cases à
 cocher et dans le menu **-- More actions --** sélectionnez l'action requise :
 
 ![image](../assets/alerts/open_ticket_close_ticket_01.png)
@@ -119,26 +119,26 @@ tickets ouverts :
 ## Configuration avancée
 
 Ce module propose des fournisseurs prêts à l'emploi. Cependant, selon la
-configuration de votre ITSM, il peut être nécessaire de modifiez-les
+configuration de votre ITSM, il peut être nécessaire de les modifier
 pour les adapter à votre environnement.
 
 ### Définition de liste
 
 Avant d'ouvrir un ticket, un utilisateur peut choisir certaines options
 dans une fenêtre. Une option peut être une liste de sélection. Dans la
-configuration fournisseur, vous pouvez les configurer dans `Lists` and
-`Custom list definition`. Pour chaque entrée dans `Lists`, vous pouvez
+configuration fournisseur, vous pouvez les configurer dans **Lists** et
+**Custom list definition**. Pour chaque entrée dans **Lists**, vous pouvez
 définir :
 
--   **Id** : valeur alphanumeric value (doit être unique)
--   **Label** : affiché dans la fenêtre
--   **Type** : type de liste. Il existe 3 types de listes
-    -   Liste du fournisseur (données du logiciel de gestion de tickets)
-    -   Liste Centreon (comme `Host group`)
+-   **Id** : valeur alphanumérique (doit être unique) ;
+-   **Label** : affiché dans la fenêtre ;
+-   **Type** : type de liste. Il existe 3 types de listes :
+    -   Liste du fournisseur (données du logiciel de gestion de tickets),
+    -   Liste Centreon (comme `Host group`),
     -   Liste personnalisées (provenant de la configuration
         `Custom list definition`. Les champs **Id** doivent être
-        identiques)
--   **Mandatory** : l'utilisateur doit définir l'option obligatoirement
+        identiques) ;
+-   **Mandatory** : l'utilisateur doit définir l'option obligatoirement.
 
 ![image](../assets/alerts/open_ticket_advanced_list_01.png)
 
