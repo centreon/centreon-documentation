@@ -3,9 +3,7 @@ pipeline {
    stages {
  
      stage('Install documentation dependencies') {
-       when {
-         not { branch 'test' }
-       }
+       when { not { branch 'test' } }
        steps {
          echo 'Using Yarn to install dependencies'
          sh 'cd .. && sudo npm cache clean -f && sudo npm install -g n && sudo n latest'
@@ -13,9 +11,7 @@ pipeline {
        }
      }
      stage('Build documentation') {
-       when {
-         not { branch 'test' }
-       }
+       when { not { branch 'test' } }
        steps {
          echo 'Using yarn to build documentation'
          sh 'export NODE_OPTIONS=--max_old_space_size=16000 && yarn build'
