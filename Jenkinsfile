@@ -2,7 +2,7 @@ pipeline {
    agent any
    stages {
  
-     stage('Install documentation dependencies') {
+     /*stage('Install documentation dependencies') {
        when { not { branch 'test' } }
        steps {
          echo 'Using Yarn to install dependencies'
@@ -16,7 +16,7 @@ pipeline {
          echo 'Using yarn to build documentation'
          sh 'export NODE_OPTIONS=--max_old_space_size=16000 && yarn build'
        }
-     }
+     }*/
       
      stage('Deploy PR to staging') {
        when { changeRequest target: 'staging' }
