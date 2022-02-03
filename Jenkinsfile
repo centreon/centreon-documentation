@@ -24,10 +24,10 @@ pipeline {
        }
      }
       
-     stage('Deploy PR to staging') {
+     stage('Deploy PR to prewiew platform') {
        when { changeRequest target: 'staging' }
        steps {
-         input message: 'Deploying PR to staging ? (Click "Proceed" to continue)'
+         input message: 'Deploy PR to prewiew platform? (Click "Proceed" to continue)'
          sh 'aws s3 sync --delete build s3://centreon-documentation-dev/'
          sh 'aws cloudfront create-invalidation --distribution-id E1BCVJJJ9ZUAQZ  --paths "/*"'
        }
@@ -43,7 +43,7 @@ pipeline {
      stage('Deploy documentation to production') {
        when { branch 'test' }      
        steps {
-         input message: 'Deploying to production ? (Click "Proceed" to continue)'
+         input message: 'Deploying to production? (Click "Proceed" to continue)'
          sh 'aws s3 sync --delete s3://centreon-documentation-staging/ s3://centreon-documentation-production/'
          sh 'aws cloudfront create-invalidation --distribution-id E2ZKHBQFFL6WGV --paths "/*"'
        }
