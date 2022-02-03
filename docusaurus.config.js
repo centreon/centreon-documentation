@@ -8,15 +8,15 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'Centreon Documentation',
   tagline: '',
-  url: 'https://docs-prod.centreon.com',
+  url: 'https://docs.centreon.com',
   baseUrl: '/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/logo-centreon.png',
-  // organizationName: 'Centreon Documentation', // Usually your GitHub org/user name.
-  projectName: 'Centreon Documentation', // Usually your repo name.
+  organizationName: 'Centreon',
+  projectName: 'Centreon Documentation',
 
-  noIndex: true,
+  noIndex: false,
 
   i18n: {
     defaultLocale: 'en',
@@ -84,15 +84,14 @@ const config = {
       '@docusaurus/plugin-client-redirects',
       {
         redirects: [
-          // Redirection EN
+          // Redirect old current urls EN/FR 
           {
-            to: '/',
             from: '/current/en/',
-          },
-          // Redirection FR
-          {
             to: '/',
+          },
+          {
             from: '/current/fr/',
+            to: '/',
           },
         ],
       },
@@ -188,8 +187,6 @@ const config = {
             type: 'localeDropdown',
             position: 'right',
           },
-          /*{to: '/blog', label: 'Blog', position: 'left'},
-          {href: '', label: 'GitHub', position: 'right'},*/
         ],
       },
       footer: {
