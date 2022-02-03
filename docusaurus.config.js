@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'Centreon Documentation',
   tagline: '',
-  url: 'https://docs.centreon.com',
+  url: 'https://docs-prod.centreon.com',
   baseUrl: '/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
@@ -16,7 +16,7 @@ const config = {
   organizationName: 'Centreon',
   projectName: 'Centreon Documentation',
 
-  noIndex: false,
+  noIndex: true,
 
   i18n: {
     defaultLocale: 'en',
@@ -42,7 +42,7 @@ const config = {
           editLocalizedFiles: true,
           showLastUpdateTime: true,
           includeCurrentVersion: false,
-          onlyIncludeVersions: ['21.10', '21.04', '20.10', '20.04'],
+          onlyIncludeVersions: ['21.10', '21.04', '20.10', '21.04'],
           versions: {
             '21.10': {
               label: '⭐ 21.10',
@@ -83,17 +83,38 @@ const config = {
     [
       '@docusaurus/plugin-client-redirects',
       {
+        fromExtensions: ['html'],
         redirects: [
           // Redirect old current urls EN/FR 
-          {
-            from: '/current/en/',
-            to: '/',
-          },
           {
             from: '/current/fr/',
             to: '/',
           },
+          {
+            from: '/current/en/',
+            to: '/',
+          },
         ],
+        createRedirects({locale, existingPath}) {
+          if (locale === 'en' && existingPath.includes('/docs')) {
+            return [
+              existingPath.replace('/docs', '/current/en'),
+              existingPath.replace('/docs', '/21.10/en'),
+              /*existingPath.replace('/docs/21.04', '/21.04/en'),
+              existingPath.replace('/docs/20.10', '/20.10/en'),
+              existingPath.replace('/docs/20.04', '/20.04/en'),*/
+            ];
+          }
+          return undefined;
+        },
+        /*createRedirects({locale, existingPath}) {
+          if (locale === 'fr' && existingPath.includes('/${locale}/docs')) {
+            return [
+              existingPath.replace('/${locale}/docs', '/current/fr'),
+            ];
+          }
+          return undefined;
+        },*/
       },
     ],
     [
