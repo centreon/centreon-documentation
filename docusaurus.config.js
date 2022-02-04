@@ -42,7 +42,7 @@ const config = {
           editLocalizedFiles: true,
           showLastUpdateTime: true,
           includeCurrentVersion: false,
-          onlyIncludeVersions: ['21.10'],
+          onlyIncludeVersions: ['21.10','21.04', '20.10', '20.04'],
           versions: {
             '21.10': {
               label: '⭐ 21.10',
@@ -84,24 +84,6 @@ const config = {
       '@docusaurus/plugin-client-redirects',
       {
         fromExtensions: ['html'],
-        redirects: [
-          {
-            from: ['/current/fr', '/current/en'],
-            to: '/',
-          },
-        ],
-        createRedirects(existingPath) {
-          if (existingPath.includes('/docs')) {
-            return [
-              existingPath.replace('/docs', '/current/en'),
-              existingPath.replace('/docs', '/21.10/en'),
-              /*existingPath.replace('/docs/21.04', '/21.04/en'),
-              existingPath.replace('/docs/20.10', '/20.10/en'),
-              existingPath.replace('/docs/20.04', '/20.04/en'),*/
-            ];
-          }
-          return undefined;
-        },
       },
     ],
     [
