@@ -42,7 +42,7 @@ const config = {
           editLocalizedFiles: true,
           showLastUpdateTime: true,
           includeCurrentVersion: false,
-          onlyIncludeVersions: ['21.10'],
+          onlyIncludeVersions: ['21.10','21.04', '20.10', '20.04'],
           versions: {
             '21.10': {
               label: '⭐ 21.10',
@@ -85,40 +85,23 @@ const config = {
       {
         fromExtensions: ['html'],
         redirects: [
-          // Redirect old current urls EN/FR 
           {
             from: ['/current/fr/', '/current/en/'],
             to: '/',
           },
         ],
         createRedirects(existingPath) {
-          if (existingPath.startsWith('/fr/docs')) {
+          if (existingPath.includes('/docs')) {
             return [
-              existingPath.replace('/fr/docs', '/current/fr'),
-              existingPath.replace('/fr/docs', '/21.10/fr'),
-              /*existingPath.replace('/docs/21.04', '/21.04/en'),
+              existingPath.replace('/docs', '/current/en'),
+              existingPath.replace('/docs', '/21.10/en'),
+              existingPath.replace('/docs/21.04', '/21.04/en'),
               existingPath.replace('/docs/20.10', '/20.10/en'),
-              existingPath.replace('/docs/20.04', '/20.04/en'),*/
+              existingPath.replace('/docs/20.04', '/20.04/en'),
             ];
           }
-          /*else (existingPath.startsWith('/fr/docs'))
-            return [
-              existingPath.replace('/fr/docs', '/current/fr'),
-              existingPath.replace('/fr/docs', '/21.10/fr'),
-              /*existingPath.replace('/fr/docs/21.04', '/21.04/fr'),
-              existingPath.replace('/fr/docs/20.10', '/20.10/fr'),
-              existingPath.replace('/fr/docs/20.04', '/20.04/fr'),*/
-            /*];*/
           return undefined;
         },
-        /*createRedirects({locale, existingPath}) {
-          if (locale === 'fr' && existingPath.includes('/${locale}/docs')) {
-            return [
-              existingPath.replace('/${locale}/docs', '/current/fr'),
-            ];
-          }
-          return undefined;
-        },*/
       },
     ],
     [
