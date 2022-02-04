@@ -87,6 +87,8 @@ systemctl enable snmpd
 
 5. Go to **Configuration > Services > Services by host**. A set of indicators has been created automatically.
 
+   ![image](../assets/getting-started/quick_start_linux_4a.png)
+
    You can also use the shortcut beside the host's name to go directly to **Configuration > Services > Services by host**. The list will be filtered by the name of the host:
 
    ![image](../assets/getting-started/quick_start_linux_4b.png)
