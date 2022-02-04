@@ -86,7 +86,7 @@ const config = {
         fromExtensions: ['html'],
         redirects: [
           {
-            from: ['/current/fr/', '/current/en/'],
+            from: ['/current/fr', '/current/en'],
             to: '/',
           },
         ],
