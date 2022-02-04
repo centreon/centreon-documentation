@@ -3,9 +3,10 @@
         "Getting Started": [
             "getting-started/installation-first-steps",
             "getting-started/which-install",
-		    "getting-started/IT100",
+            "getting-started/IT100",
             "getting-started/interface",
-		    "getting-started/first-supervision",
+            "getting-started/first-supervision",
+            "getting-started/monitor-linux-server-with-snmp",
             "getting-started/autodisco-aws",
             "getting-started/create-custom-view",
             "getting-started/create-graphical-view",
@@ -85,7 +86,7 @@
             {
                 "ids": [
                     "monitoring/about",
-                    "monitoring/pluginpacks",                   
+                    "monitoring/pluginpacks",
                     "monitoring/monitoring-servers/deploying-a-configuration"
                 ],
                 "label": "Bases de la supervision",
@@ -117,7 +118,7 @@
                     "monitoring/discovery/introduction", 
                     "monitoring/discovery/installation",
                     "monitoring/discovery/hosts-discovery",
-                    "monitoring/discovery/services-discovery",                    
+                    "monitoring/discovery/services-discovery",
                     "monitoring/discovery/administration"
                 ],
                 "label": "Auto-découverte d'hôtes et de services",
@@ -173,19 +174,19 @@
             "monitoring/event-handler",
             "monitoring/web-import-export"
         ],
-        "Gérer évènements et alertes": [    
+        "Gérer évènements et alertes": [
             {
                 "ids":[
             "alerts-notifications/concepts",
             "alerts-notifications/resources-status",
             "alerts-notifications/event-console",
             "alerts-notifications/event-log",
-            "alerts-notifications/custom-views"             
+            "alerts-notifications/custom-views"
                 ],
                 "label": "Visualiser les évènements",
                 "type": "subcategory"
-            },  
-            {   
+            },
+            {
                 "ids" : [
                     "alerts-notifications/acknowledge",
                     "alerts-notifications/downtimes",
@@ -194,7 +195,7 @@
                 ],
                 "label": "Gérer les alertes",
                 "type": "subcategory"
-            },           
+            },
             {
                 "ids": [
                     "alerts-notifications/notif-concept",
@@ -216,7 +217,7 @@
                 "type": "subcategory"
         }
         ],
-        "Graphiques de performance" : [      
+        "Graphiques de performance" : [
                 "metrology/chart-management",
                 "metrology/chart-template",
                 "metrology/chart-curves",
@@ -326,7 +327,6 @@
                 "label": "Paramétrer la connexion à Centreon",
                 "type": "subcategory"
             },
-
             "administration/extensions",
             "administration/licenses",
             "administration/database-partitioning",
@@ -472,7 +472,7 @@
                     "integrations/plugin-packs/procedures/applications-rapidrecovery-snmp",
                     "integrations/plugin-packs/procedures/applications-redis-rlec-restapi",
                     "integrations/plugin-packs/procedures/applications-redis-sentinel",
-                    "integrations/plugin-packs/procedures/applications-rubrik-restapi",                    
+                    "integrations/plugin-packs/procedures/applications-rubrik-restapi",
                     "integrations/plugin-packs/procedures/applications-rudder-restapi",
                     "integrations/plugin-packs/procedures/applications-salesforce-restapi",
                     "integrations/plugin-packs/procedures/applications-databases-sap-hana",
@@ -558,7 +558,7 @@
                     "integrations/plugin-packs/procedures/cloud-azure-management-applicationinsights",
                     "integrations/plugin-packs/procedures/cloud-azure-management-automation",
                     "integrations/plugin-packs/procedures/cloud-azure-web-appservice",
-                    "integrations/plugin-packs/procedures/cloud-azure-web-appserviceplan",                  
+                    "integrations/plugin-packs/procedures/cloud-azure-web-appserviceplan",
                     "integrations/plugin-packs/procedures/cloud-azure-database-redis",
                     "integrations/plugin-packs/procedures/cloud-azure-database-cosmosdb",
                     "integrations/plugin-packs/procedures/cloud-azure-management-discover",
@@ -841,7 +841,7 @@
                     "integrations/plugin-packs/procedures/operatingsystems-aix-snmp",
                     "integrations/plugin-packs/procedures/operatingsystems-aix-ssh",
                     "integrations/plugin-packs/procedures/operatingsystems-as400-connector",
-                    "integrations/plugin-packs/procedures/operatingsystems-as400",            
+                    "integrations/plugin-packs/procedures/operatingsystems-as400",
                     "integrations/plugin-packs/procedures/operatingsystems-freebsd-snmp",
                     "integrations/plugin-packs/procedures/operatingsystems-hpux-snmp",
                     "integrations/plugin-packs/procedures/operatingsystems-linux-nrpe",
@@ -1148,7 +1148,7 @@
                 "type": "subcategory"
             }
         ],
-        "Superviser votre plateforme": [  
+        "Superviser votre plateforme": [
             "health/centreon-agent",
             {
                 "ids": [
