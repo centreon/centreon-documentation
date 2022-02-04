@@ -575,6 +575,8 @@ configuration value:
 
 ### 20.04.3
 
+Release date: `February 4, 2022`
+
 #### Bugfixes
 
 - Fixed installation when Plugin Packs have similar names
