@@ -36,8 +36,8 @@ pipeline {
      stage('Deploy documentation to staging') {
        when { branch 'staging' }
        steps {
-         sh 'aws s3 sync --delete build s3://centreon-documentation-staging/'
-         sh 'aws cloudfront create-invalidation --distribution-id E3T0F281DYJGMK --paths "/*"'
+         sh 'ssh -o StrictHostKeyChecking=no admin@10.24.11.179 sudo rm -rf /var/www/html'
+         sh 'scp -r build/* admin@docs-staging.int.centreon.com:/var/www/html'
        }
      }
      stage('Deploy documentation to production') {
