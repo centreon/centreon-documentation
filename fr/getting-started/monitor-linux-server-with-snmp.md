@@ -5,13 +5,13 @@ title: Supervise ton premier serveur Linux
 
 ## Superviser un serveur Linux avec SNMP
 
-Dans ce tutoriel, nous partons du principe que votre plate-forme Centreon est installée et fonctionne correctement, et que vous disposez au moins d'une édition [Centreon IT 100](IT100.html) qui fournit les Plugin Packs Centreon (votre [license](../administration/licenses.html) est déjà en place).
+Dans ce tutoriel, nous partons du principe que votre plate-forme Centreon est installée et fonctionne correctement, et que vous disposez au moins d'une édition [Centreon IT 100](IT100.html) qui fournit les Plugin Packs Centreon (votre [licence](../administration/licenses.html) est déjà en place).
 
-Votre serveur sera supervisé à l'aide du Plugin Pack [Linux SNMP](../integrations/plugin-packs/procedures/operatingsystems-linux-snmp.html). (Plus d'informations sur les Plugin Packs [here](../monitoring/pluginpacks.html)). 
+Votre serveur sera supervisé à l'aide du Plugin Pack [Linux SNMP](../integrations/plugin-packs/procedures/operatingsystems-linux-snmp.html). (Plus d'informations sur les Plugin Packs [ici](../monitoring/pluginpacks.html)). 
 
 ## Prérequis
 
-### sur le serveur Linux que vous souhaitez superviser
+### Sur le serveur Linux que vous souhaitez superviser
 
 La première étape consiste à activer et à configurer l'agent SNMP sur l'hôte à superviser.
 Veuillez vous référer à la documentation de votre distribution Linux pour savoir comment configurer l'agent SNMP.
