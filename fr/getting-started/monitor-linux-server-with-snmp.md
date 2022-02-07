@@ -5,20 +5,20 @@ title: Supervise ton premier serveur Linux
 
 ## Superviser un serveur Linux avec SNMP
 
-Dans ce tutoriel, nous partons du principe que votre plate-forme Centreon est installée et fonctionne correctement, et que vous disposez au moins d'une [Centreon IT 100 Edition](IT100.html) qui fournit les Plugin Packs Centreon (votre [license](../administration/licenses.html) est déjà en place).
+Dans ce tutoriel, nous partons du principe que votre plate-forme Centreon est installée et fonctionne correctement, et que vous disposez au moins d'une édition [Centreon IT 100](IT100.html) qui fournit les Plugin Packs Centreon (votre [license](../administration/licenses.html) est déjà en place).
 
-Votre serveur sera supervisé à l'aide de [Linux SNMP Plugin Pack](../integrations/plugin-packs/procedures/operatingsystems-linux-snmp.html). (Plus d'informations sur les Plugin Packs [here](../monitoring/pluginpacks.html)). 
+Votre serveur sera supervisé à l'aide du Plugin Pack [Linux SNMP](../integrations/plugin-packs/procedures/operatingsystems-linux-snmp.html). (Plus d'informations sur les Plugin Packs [here](../monitoring/pluginpacks.html)). 
 
-## Pré-requis
+## Prérequis
 
-### sur le serveur Linux que vous souhaiter superviser
+### sur le serveur Linux que vous souhaitez superviser
 
-La première étape consiste à activer et à configurer l'agent SNMP sur votre hôte à superviser.
+La première étape consiste à activer et à configurer l'agent SNMP sur l'hôte à superviser.
 Veuillez vous référer à la documentation de votre distribution Linux pour savoir comment configurer l'agent SNMP.
 
-Trouvez ci-dessous un fichier de configuration minimaliste de snmpd.conf/net-snmp :
-  - remplacez **my-snmp-community** par la valeur correcte pour votre environnement.
-  - Ajouter la ligne **view centreon included .1.3.6.1** pour avoir accès à toutes les informations de la MIB requises par le plugin
+Trouvez ci-dessous un fichier de configuration snmpd.conf/net-snmp minimaliste :
+  - remplacez **my-snmp-community** par la valeur correspondant à votre environnement.
+  - Ajoutez la ligne **view centreon included .1.3.6.1** pour avoir accès à toutes les informations de la MIB requises par le plugin
 
 ```shell
 #       sec.name  source          community
@@ -52,20 +52,20 @@ systemctl enable snmpd
 
 ### Sur le collecteur
 
-1. Connectez-vous à votre collecteur en SSH et installez le plugin SNMP Linux (voir la [procédure de surveillance pour le **Linux SNMP** Plugin Pack](../integrations/plugin-packs/procédures/operatingsystems-linux-snmp.html) pour plus d'informations) :
+1. Connectez-vous à votre collecteur en SSH et installez le plugin SNMP Linux (voir la [procédure de surveillance pour le Plugin Pack **Linux SNMP**](../integrations/plugin-packs/procédures/operatingsystems-linux-snmp.html) pour plus d'informations) :
 
    ```shell
    yum install centreon-plugin-Operatingsystems-Linux-Snmp
    ```
 
-2. Dans l'interface web, allez dans **Configuration > Plugin Packs** et installez le Plugin Pack **Linux SNMP** :
+2. Dans l'interface web, allez à la page **Configuration > Plugin Packs** et installez le Plugin Pack **Linux SNMP** :
 
    ![image](../assets/getting-started/quick_start_linux_0.gif)
 
 
 ## Configurer l'hôte et déployer la configuration
 
-1. Allez dans **Configuration > Hôtes > Hôtes** et cliquez sur **Ajouter** :
+1. Allez à la page **Configuration > Hôtes > Hôtes** et cliquez sur **Ajouter** :
 
    ![image](../assets/getting-started/quick_start_linux_1.gif)
 
@@ -73,31 +73,31 @@ systemctl enable snmpd
 
    * Le nom du serveur (1)
    * Une description de celui-ci (2)
-   * L'adresse IP (3)
+   * L'adresse IP du serveur(3)
    * La communauté SNMP et sa version (4)
-   * Sélectionner le collecteur approprié (laissez "Central" si vous n'avez pas d'autre collecteur) (5)
+   * Sélectionnez le collecteur désiré (laissez "Central" si vous n'avez pas d'autre collecteur) (5)
 
-3. Cliquez sur **+ Ajouter une novelle entrée** dans le champ **Modèles** (6), puis sélectionnez le modèle **OS-Linux-SNMP-custom** (7) dans la liste :
+3. Cliquez sur **+ Ajouter une nouvelle entrée** dans le champ **Modèles** (6), puis sélectionnez le modèle **OS-Linux-SNMP-custom** (7) dans la liste :
 
    ![image](../assets/getting-started/quick_start_linux_2.png)
 
-4. Cliquez sur **Sauvegarderve** (8). Votre équipement a été ajouté à la liste des hôtes :
+4. Cliquez sur **Sauvegarder** (8). Votre équipement a été ajouté à la liste des hôtes :
 
    ![image](../assets/getting-started/quick_start_linux_3.png)
 
-5. Allez dans **Configuration > Services > Services par hôte**. Un ensemble d'indicateurs a été créé automatiquement.
+5. Allez à la page **Configuration > Services > Services par hôte**. Un ensemble d'indicateurs a été créé automatiquement.
 
-   ![image](../assets/getting-started/quick_start_linux_4.png)
+   ![image](../assets/getting-started/quick_start_linux_4a.png)
 
-   Vous pouvez également utiliser le raccourci situé à côté du nom de l'hôte pour accéder directement à **Configuration > Services > Services par hôte**. La liste sera filtrée par le nom de l'hôte :
+   Vous pouvez également utiliser le raccourci situé à côté du nom de l'hôte pour accéder directement à la page **Configuration > Services > Services par hôte**. La liste sera filtrée par le nom de l'hôte :
 
    ![image](../assets/getting-started/quick_start_linux_4b.png)
 
    ![image](../assets/getting-started/quick_start_linux_5.png)
 
-6. [Déployer la configuration](first-supervision#deploying-a-configuration).
+6. [Déployez la configuration](first-supervision#deploying-a-configuration).
 
-7. Allez dans **Surveillance > Statut des ressources** et sélectionnez **Toutes** dans le filtre **Statut des ressources**. Dans un premier temps, les ressources apparaissent avec le statut **En attente**, ce qui signifie qu'aucun contrôle n'a encore été exécuté :
+7. Allez à la page **Surveillance > Statut des ressources** et sélectionnez **Toutes** dans le filtre **Statut des ressources**. Dans un premier temps, les ressources apparaissent avec le statut **En attente**, ce qui signifie qu'aucun contrôle n'a encore été exécuté :
 
    ![image](../assets/getting-started/quick_start_linux_6.png)
 
