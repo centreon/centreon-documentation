@@ -432,6 +432,8 @@ Afin de pouvoir collecter les informations nécessaires à partir de la base de 
 # grant usage on *.* to 'centreon'@'IP_POLLER' identified by 'password'
 ```
 
+#### Ajout du Plugin Pack
+
 La base de données sera supervisée à l'aide du Plugin Pack **MySQL/MariaDB**
 Rendez-vous dans le menu **Configuration > Packs de plugins** et installez le Plugin Pack **MySQL/MariaDB** :
 
