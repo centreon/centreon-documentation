@@ -424,22 +424,35 @@ List ports with Spanning Tree Protocol:
 
 ### Superviser une base de données MySQL ou MariaDB
 
+### Prérequis
+
+L'objectif de ce tutoriel est de superviser une base de données Mysql/MariaDB. Nous partons du principe que vous disposez d'une base de données à superviser.
+Afin de pouvoir collecter les informations nécessaires à partir de la base de données, un utilisateur de la base de données disposant de privilèges spécifiques sera nécessaire :
+```
+# grant usage on *.* to 'centreon'@'IP_POLLER' identified by 'password'
+```
+
+La base de données sera supervisée à l'aide du Plugin Pack **MySQL/MariaDB**
 Rendez-vous dans le menu **Configuration > Packs de plugins** et installez le Plugin Pack **MySQL/MariaDB** :
 
 ![image](../assets/getting-started/quick_start_mysql_0.gif)
 
-Rendez-vous maintenant dans le menu **Configuration > Hôtes > Hôtes** et cliquez sur le bouton **Ajouter** :
+#### Configurer l'hôte et déployer la configuration 
 
-![image](../assets/getting-started/quick_start_mysql_1a.png)
+Pour ajouter un hôte à la supervision, rendez-vous dans le menu **Configuration > Hôtes > Hôtes** et cliquez sur le bouton **Ajouter** :
+
+![image](../assets/getting-started/quick_start_mysql_1a.gif)
 
 Renseignez les informations suivantes :
 
 * Le nom de votre serveur
 * Une description de votre serveur
 * Son adresse IP
-
-Cliquez sur le bouton **+ Ajouter une nouvelle entrée** pour le champ **Modèles** puis sélectionnez le modèle
+* Sélectionner le collecteur approprié (laissez "Central" si vous n'avez pas d'autre collecteur)
+* Cliquez sur le bouton **+ Ajouter une nouvelle entrée** pour le champ **Modèles** puis sélectionnez le modèle
 **App-DB-MySQL-custom**.
+
+![image](../assets/getting-started/quick_start_mysql_1a.png)
 
 Une liste de macros en correspondance avec le modèle va alors apparaître :
 
@@ -457,8 +470,7 @@ Votre équipement a été ajouté à la configuration de la supervision :
 
 ![image](../assets/getting-started/quick_start_mysql_2.png)
 
-Rendez-vous dans le menu **Configuration > Services > Services par hôte**. Un ensemble d'indicateurs a été déployé
-automatiquement :
+Allez dans **Configuration > Services > Services par hôte**. Un ensemble d'indicateurs a été créé automatiquement.
 
 ![image](../assets/getting-started/quick_start_mysql_3.png)
 
