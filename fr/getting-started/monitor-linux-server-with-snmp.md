@@ -1,6 +1,6 @@
 ---
 id: monitor-linux-server-with-snmp
-title: Supervise ton premier serveur Linux
+title: Superviser votre premier serveur Linux
 ---
 
 ## Superviser un serveur Linux avec SNMP
@@ -16,7 +16,7 @@ Votre serveur sera supervisé à l'aide du Plugin Pack [Linux SNMP](../integrati
 La première étape consiste à activer et à configurer l'agent SNMP sur l'hôte à superviser.
 Veuillez vous référer à la documentation de votre distribution Linux pour savoir comment configurer l'agent SNMP.
 
-Trouvez ci-dessous un fichier de configuration snmpd.conf/net-snmp minimaliste :
+Voici ci-dessous un fichier de configuration snmpd.conf/net-snmp minimaliste :
   - remplacez **my-snmp-community** par la valeur correspondant à votre environnement.
   - Ajoutez la ligne **view centreon included .1.3.6.1** pour avoir accès à toutes les informations de la MIB requises par le plugin
 
@@ -52,7 +52,7 @@ systemctl enable snmpd
 
 ### Sur le collecteur
 
-1. Connectez-vous à votre collecteur en SSH et installez le plugin SNMP Linux (voir la [procédure de surveillance pour le Plugin Pack **Linux SNMP**](../integrations/plugin-packs/procédures/operatingsystems-linux-snmp.html) pour plus d'informations) :
+1. Connectez-vous à votre collecteur en SSH et installez le plugin SNMP Linux (voir la [procédure de surveillance pour le Plugin Pack **Linux SNMP**](../integrations/plugin-packs/procedures/operatingsystems-linux-snmp.html) pour plus d'informations) :
 
    ```shell
    yum install centreon-plugin-Operatingsystems-Linux-Snmp
