@@ -823,7 +823,8 @@
                     "integrations/plugin-packs/procedures/network-watchguard-snmp",
                     "integrations/plugin-packs/procedures/network-zyxel-snmp",
                     "integrations/plugin-packs/procedures/network-versa-snmp",
-                    "integrations/plugin-packs/procedures/network-versa-director-restapi"
+                    "integrations/plugin-packs/procedures/network-versa-director-restapi",
+                    "integrations/plugin-packs/procedures/network-viptela-snmp",
                 ],
                 "label": "Network",
                 "type": "subcategory"
