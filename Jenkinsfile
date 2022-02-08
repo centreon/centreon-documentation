@@ -36,7 +36,8 @@ pipeline {
      stage('Deploy documentation to staging') {
        when { branch 'staging' }
        steps {
-         sh 'ssh -o StrictHostKeyChecking=no admin@10.24.11.179 sudo rm -rf /var/www/html/*'
+         sh 'ssh -o StrictHostKeyChecking=no admin@10.24.11.179 sudo rm -rf /var/www/html'
+         sh 'ssh -o StrictHostKeyChecking=no admin@10.24.11.179 sudo mkdir -p /var/www/html'
          sh 'scp -r build/* admin@10.24.11.179:/var/www/html/'
        }
      }
