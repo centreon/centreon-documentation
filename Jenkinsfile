@@ -37,7 +37,8 @@ pipeline {
        when { branch 'staging' }
        steps {
          sh 'ssh -o StrictHostKeyChecking=no admin@10.24.11.179 sudo rm -Rf /var/www/html'
-         sh 'ssh -o StrictHostKeyChecking=no admin@10.24.11.179 sudo mkdir -p /var/www/html && sudo chown -R www-data:www-data /var/www/html'
+         sh 'ssh -o StrictHostKeyChecking=no admin@10.24.11.179 sudo mkdir -p /var/www/html'
+         sh 'ssh -o StrictHostKeyChecking=no admin@10.24.11.179 sudo chown -R www-data:www-data /var/www/html'
          sh 'scp -r build/* admin@10.24.11.179:/var/www/html'
        }
      }
