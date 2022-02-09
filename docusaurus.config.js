@@ -138,7 +138,7 @@ const config = {
       },
 
       navbar: {
-        hideOnScroll: true,
+        hideOnScroll: false,
         title: 'Centreon Docs',
         logo: {
           alt: 'Logo Centreon Docs',
