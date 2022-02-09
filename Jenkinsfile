@@ -46,10 +46,8 @@ pipeline {
        when { branch 'test' }      
        steps {
          input message: 'Deploying to production? (Click "Proceed" to continue)'
-         sh 'ssh -o StrictHostKeyChecking=no admin@docs-dev.int.centreon.com rsync -arzvh --delete /var/www/html/* admin@docs.int.centreon.com:/var/www/html/'
-         /*TODO : invalidate cloudfront cache
-         sh 'aws cloudfront create-invalidation --distribution-id ID_DISTRIB_PROD --paths "/*"'
-         */
+         sh 'ssh -o StrictHostKeyChecking=no admin@docs-dev.int.centreon.com rsync -arzvh --delete /var/www/html admin@docs.int.centreon.com:/var/www/'
+         sh 'aws cloudfront create-invalidation --distribution-id E4YWX2X3MLBMI --paths "/*"'
        }
      }
    }
