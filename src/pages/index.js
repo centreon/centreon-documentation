@@ -16,7 +16,7 @@ const links = {
     monitoring: 'docs/integrations/plugin-packs/introduction',
   },
   github: 'https://github.com/centreon/centreon/',
-  slack: 'https://centreon.github.io/register-slack/',
+  thewatch: 'https://thewatch.centreon.com/',
   twitter: 'https://twitter.com/CentreonFR/',
   linkedin: 'https://www.linkedin.com/company/merethis/',
   contribute:'https://github.com/centreon/centreon/blob/master/CONTRIBUTING.md',
@@ -198,9 +198,9 @@ function CommunityBlock() {
       </h2>
       <div className={clsx(styles.cardBar)}>
         <ul className={clsx(styles.socialSet)}>
-          <a href={links.slack} target={'_blank'}>
+          <a href={links.thewatch} target={'_blank'}>
             <li>
-            <img src={basePathImg + 'social-network/slack.svg'} />
+            <img src={basePathImg + 'social-network/thewatch.png'} />
             </li>
           </a>
           <a href={links.github} target={'_blank'}>
