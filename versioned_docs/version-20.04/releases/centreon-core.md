@@ -435,7 +435,7 @@ If you have feature requests or want to report a bug, please go to our
 
 #### Enhancements
 
-- [Web] Add HTTP2 compatibility (see https://docs.centreon.com/current/en/administration/secure-platform#enabling-http2)
+- [Web] Add HTTP2 compatibility (see https://docs.centreon.com/docs/administration/secure-platform#enabling-http2)
 
 ### 20.04.4
 

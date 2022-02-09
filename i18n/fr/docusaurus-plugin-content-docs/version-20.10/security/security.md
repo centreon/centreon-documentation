@@ -94,8 +94,8 @@ cas, n'hésitez pas à nous relancer par e-mail pour vous assurer que nous avons
 
 ### Configuration sécurisée
 
-La documentation Centreon inclut les bonnes pratiques pour sécuriser les [composants de supervision](https://docs.centreon.com/current/fr/administration/secure-platform)
-ainsi que la [plateforme MAP](https://docs.centreon.com/current/fr/graph-views/secure-your-map-platform). Centreon recommande aux administrateurs de lire attentivement ces
+La documentation Centreon inclut les bonnes pratiques pour sécuriser les [composants de supervision](https://docs.centreon.com/fr/docs/administration/secure-platform)
+ainsi que la [plateforme MAP](https://docs.centreon.com/fr/docs/graph-views/secure-your-map-platform). Centreon recommande aux administrateurs de lire attentivement ces
 pages lors de la planification d'une installation et de partager ces directives avec leurs équipes de
 sécurité internes.
 

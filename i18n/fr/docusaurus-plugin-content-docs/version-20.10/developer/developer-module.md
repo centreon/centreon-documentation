@@ -43,7 +43,7 @@ $module_conf['dummy'] = [
     // Last time module was updated.
     'last_update' => '2020-12-01',
     // Release notes link, if any.
-    'release_note' => 'https://docs.centreon.com/current/en/releases/centreon-os-extensions',
+    'release_note' => 'https://docs.centreon.com/fr/docs/releases/centreon-os-extensions',
     // Images associated with this module.
     'images' => [
         'images/centreon.png',

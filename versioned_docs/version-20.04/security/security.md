@@ -85,8 +85,8 @@ email to ensure we received your original message.
 
 ### Secure configuration
 
-The Centreon documentation includes best practices to secure the [monitoring components](https://docs.centreon.com/current/en/administration/secure-platform) as well as
-the [MAP platform](https://docs.centreon.com/current/en/graph-views/secure-your-map-platform). Centreon recommends that administrators carefully review those pages when
+The Centreon documentation includes best practices to secure the [monitoring components](https://docs.centreon.com/docs/administration/secure-platform) as well as
+the [MAP platform](https://docs.centreon.com/docs/graph-views/secure-your-map-platform). Centreon recommends that administrators carefully review those pages when
 planning an installation and share those guidelines with their internal security teams.
 
 ### Security audit services
