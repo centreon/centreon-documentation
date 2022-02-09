@@ -36,16 +36,19 @@ pipeline {
      stage('Deploy documentation to staging') {
        when { branch 'staging' }
        steps {
-         sh 'ssh -o StrictHostKeyChecking=no admin@10.24.11.179 sudo rm -rf /var/www/html/*'
-         sh 'scp -r build/* admin@10.24.11.179:/var/www/html'
+         sh 'ssh -o StrictHostKeyChecking=no admin@docs-dev.int.centreon.com sudo rm -rf /var/www/html/*'
+         sh 'scp -r build/* admin@docs-dev.int.centreon.com:/var/www/html'
+         /*TODO : invalidate cloudfront cache*/
+
        }
      }
      stage('Deploy documentation to production') {
        when { branch 'test' }      
        steps {
          input message: 'Deploying to production? (Click "Proceed" to continue)'
-         sh 'aws s3 sync --delete s3://centreon-documentation-staging/ s3://centreon-documentation-production/'
-         sh 'aws cloudfront create-invalidation --distribution-id E2ZKHBQFFL6WGV --paths "/*"'
+         sh 'ssh -o StrictHostKeyChecking=no admin@docs.int.centreon.com sudo rm -rf /var/www/html/*'
+         sh 'ssh -o StrictHostKeyChecking=no admin@docs-dev.int.centreon.com scp -r /var/www/html/* admin@docs.int.centreon.com:/var/www/html'
+         /*TODO : invalidate cloudfront cache*/
        }
      }
    }
