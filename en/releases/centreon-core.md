@@ -25,7 +25,7 @@ If you have feature requests or want to report a bug, please go to our
 
 - [Authentication] Autologin Validation reinforcement
 - [Resources Status] Added custom variables definition in URL/Action URL for 21.10 and previous versions
-- [UX] Add TheWatch url to Centreon footer
+- [UX] Add The Watch url to Centreon footer
 
 #### Bug Fixes
 
