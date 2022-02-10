@@ -34,7 +34,7 @@ Release date: `February 10, 2022`
 - [APIv2] Fixed criticality null return for monitoring endpoint
 - [Configuration] Contact templates with "Enable notifications" set to "no" were not exported, even if used by contacts having it set to "yes", which caused export errors. Fixes issue [#10409](https://github.com/centreon/centreon/issues/10409).
 - [Configuration] Fixed loop in export of configuration
-- [Configuration] Wizard doesn't insert anymore old logger configuration
+- [Configuration] Wizard doesn't insert old logger configuration anymore
 - [Install] Fixed SQL request syntax error for cron with MySQL 8
 - [Monitoring] Fixed deletion of comments
 - [Resources Status] Fixed saving a filter on an existing name
