@@ -27,7 +27,7 @@ exemple par statut ou encore par sévérité.
 
 ### Prendre en compte un évènement
 
-Lorsqu'une ou plusieurs alertes apparaissent, il est possible de les [acquitter](manage-alerts#acquitter-un-problème) afin de montrer à votre équipe que le problème est bien
+Lorsqu'une ou plusieurs alertes apparaissent, il est possible de les [acquitter](acknowledge) afin de montrer à votre équipe que le problème est bien
 pris en compte, et ce de deux manières:
 
 -   En acquittant la ressource directement via le bouton qui s'affiche au survol de
@@ -52,7 +52,7 @@ sur **Désacquitter** dans le menu **Plus d'actions**.
 
 ### Planifier une plage de maintenance
 
-Il est possible de [planifier une plage de maintenance](manage-alerts#ajouter-un-temps-darrêt) :
+Il est possible de [planifier une plage de maintenance](downtimes) :
 
 -   En définissant directement une plage de maintenance via le bouton
     qui s'affiche au survol de la ligne

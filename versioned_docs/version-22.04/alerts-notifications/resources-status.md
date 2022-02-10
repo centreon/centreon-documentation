@@ -24,7 +24,7 @@ You can add or remove columns, and sort by the column of your choice.
 
 ### Acknowledge an event
 
-When one or more alerts are visible, you may need to [acknowledge](manage-alerts#acknowledging-a-problem) them to tell
+When one or more alerts are visible, you may need to [acknowledge](acknowledge) them to tell
 your team that the problem is handled. You can do that in two ways:
 
 -   By directly acknowledging the line: an **Acknowledge** button
@@ -49,7 +49,7 @@ of **Unhandled Problems** and its notifications will resume: in the **More actio
 ### Set a planned downtime
 
 When a maintenance is planned on one or multiple resources, you can set a
-[planned downtime](manage-alerts#add-a-downtime) for them in Centreon in two ways:
+[planned downtime](downtimes) for them in Centreon in two ways:
 
 -   By directly setting a planned downtime on the line:
     a **Set Downtime** button appears on mouseover
