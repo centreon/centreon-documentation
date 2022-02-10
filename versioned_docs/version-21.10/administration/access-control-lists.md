@@ -168,16 +168,16 @@ These fields are no longer in use.
 | ------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
 | Enable/Disable Checks for a service                           | Allows users to enable or disable checks for a service on page **Monitoring > Status details > Services** (deprecated page)                           |
 | Enable/Disable Notifications for a service                    | Allows users to enable or disable notifications for a service  on page **Monitoring > Status details > Services** (deprecated page)                          |
-| Acknowledge a service                                         | Allows users to [acknowledge a service](../alerts-notifications/manage-alerts#acknowledging-a-problem)                                                  |
+| Acknowledge a service                                         | Allows users to [acknowledge a service](../alerts-notifications/acknowledge)                                                  |
 | Disacknowledge a service | Allows users to disacknowledge a service |
 | Re-schedule the next check for a service                      | Allows users to [trigger a check on a service](../alerts-notifications/resources-status#refresh-a-status). The check is made even outside the service's check period.     |
 | Re-schedule the next check for a service (Forced)             | Allows users to [trigger a check on a service](../alerts-notifications/resources-status#refresh-a-status). The check is made even outside the service's check period.  |
-| Schedule downtime for a service                               | Allows users to [schedule downtime](../alerts-notifications/manage-alerts#add-a-downtime) on a service                                         |
-| Add/Delete a comment for a service                            | Allows users to add or delete a [comment](../alerts-notifications/manage-alerts#add-comment) on a service                                   |
+| Schedule downtime for a service                               | Allows users to [schedule downtime](../alerts-notifications/downtimes) on a service                                         |
+| Add/Delete a comment for a service                            | Allows users to add or delete a [comment](../alerts-notifications/other#adding-a-comment) on a service                                   |
 | Enable/Disable Event Handler for a service                    | Allows users to enable or disable the event handler processing of a service in the detailed sheet of a service accessible via the **Monitoring > Status Details > Services** menu (deprecated page)           |
 | Allows users to enable or disable flap detection of a service | Allows users to enable or disable flap detection of a service in the detailed sheet of a service accessible via the **Monitoring > Status Details > Services** menu (deprecated page)                          |
 | Enable/Disable passive checks of a service                    | Allows users to enable or disable passive checks of a service in the detailed sheet of a service accessible via the **Monitoring > Status Details > Services** menu (deprecated page)                         |
-| [Submit result](../alerts-notifications/manage-alerts#submitting-a-result) for a service                                   | Allows users to modify the status of a passive service manually, until the next check                                             |
+| [Submit result](../alerts-notifications/submit) for a service                                   | Allows users to modify the status of a passive service manually, until the next check                                             |
 | Display executed command by monitoring engine                 | Displays the executed command for a service in its [Details panel](../alerts-notifications/resources-status#service-panel)                             |
 
 #### Hosts Actions Access
@@ -186,17 +186,17 @@ These fields are no longer in use.
 | ----------------------------------------------- | ----------------------------------------------------------------------------------- |
 | Enable/Disable Checks for a host                | Allows users to enable or disable checks for a host on page **Monitoring > Status details > Hosts** (deprecated page)                                  |
 | Enable/Disable Notifications for a host         | Allows users to enable or disable notifications for a host on page **Monitoring > Status details > Hosts** (deprecated page)                          |
-| Acknowledge a host                              | Allows users to [acknowledge a host](../alerts-notifications/manage-alerts#acknowledging-a-problem)                                                  |
+| Acknowledge a host                              | Allows users to [acknowledge a host](../alerts-notifications/acknowledge)                                                  |
 | Disaknowledge a host                            | Allows users to disacknowledge a host                                               |
 | Schedule the check for a host                   | Allows users to [trigger a check on a host](../alerts-notifications/resources-status#refresh-a-status). The check is made even outside the host's check period.                                     |
 | Schedule the check for a host (Forced)          | Allows users to [trigger a check on a host](../alerts-notifications/resources-status#refresh-a-status). The check is made even outside the host's check period.   |
-| Schedule downtime for a host                    | Allows users to [schedule downtime](../alerts-notifications/manage-alerts#add-a-downtime) on a host                                         |
-| Add/Delete a comment for a host                 | Allows users to add or delete a [comment](../alerts-notifications/manage-alerts#add-comment) for a host                                   |
+| Schedule downtime for a host                    | Allows users to [schedule downtime](../alerts-notifications/downtimes) on a host                                         |
+| Add/Delete a comment for a host                 | Allows users to add or delete a [comment](../alerts-notifications/other#adding-a-comment) for a host                                   |
 | Enable/Disable Event Handler for a host         | Allows users to enable or disable the event handler processing of a host on page **Monitoring > Status details > Hosts** (deprecated page)            |
 | Enable/Disable Flap Detection for a host        | Allows users to enable or disable flap detection of a host on page **Monitoring > Status details > Hosts** (deprecated page)                         |
 | Enable/Disable Checks services of a host        | Allows users to enable or disable all service checks of a host on page **Monitoring > Status details > Hosts** (deprecated page)                     |
 | Enable/Disable Notifications services of a host | Allows users to enable or disable service notifications of a host on page **Monitoring > Status details > Hosts** (deprecated page)                  |
-| [Submit result](../alerts-notifications/manage-alerts#submitting-a-result) for a host   | Allows users to modify the status of a passive host manually, until the next check                                             |
+| [Submit result](../alerts-notifications/submit) for a host   | Allows users to modify the status of a passive host manually, until the next check                                             |
 
 - The **Status** field is used to enable or disable the filter.
 

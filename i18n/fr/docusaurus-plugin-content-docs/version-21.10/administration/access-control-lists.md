@@ -168,16 +168,16 @@ Ces champs ne sont plus utilisés.
 | -------------------------------------------------------------- | -------------------------------------------------------------------------------- |
 | Activer/Désactiver les vérifications pour un service           | Permettre à l'utilisateur d'activer/désactiver les vérifications pour un service à la page **Supervision > Détail des statuts > Services** (page dépréciée)                              |
 | Activer/Désactiver les notifications pour un service           | Permettre à l'utilisateur d'activer/désactiver les notifications pour un service à la page **Supervision > Détail des statuts > Services** (page dépréciée)                             |
-| Acquitter un service                     | Permettre à l'utilisateur [d'acquitter un service](../alerts-notifications/manage-alerts#acquitter-un-problème)                                |
+| Acquitter un service                     | Permettre à l'utilisateur [d'acquitter un service](../alerts-notifications/acknowledge)                                |
 | Supprimer l'acquittement de l'incident du service                      | Permettre à l'utilisateur de supprimer un acquittement sur un service               |
 | Re-planifier la prochaine vérification d'un service            | Permettre à l'utilisateur de [lancer la vérification d'un service](../alerts-notifications/resources-status#relancer-un-contrôle). La vérification est faite même si l'on se trouve hors de la période de contrôle du service.                              |
 | Re-planifier la prochaine vérification d'un service (Forcé)    | Permettre à l'utilisateur de [lancer la vérification d'un service](../alerts-notifications/resources-status#relancer-un-contrôle). La vérification est faite même si l'on se trouve hors de la période de contrôle du service.                     |
-| Planifier une plage de maintenance pour un service                     | Permettre à l'utilisateur de [planifier un temps d'arrêt](../alerts-notifications/manage-alerts#ajouter-un-temps-darrêt) pour un service                                       |
-| Ajouter/Supprimer un commentaire pour un service               | Autoriser l'utilisateur à ajouter des [commentaires](../alerts-notifications/manage-alerts#ajouter-un-commentaire) pour un service                                |
+| Planifier une plage de maintenance pour un service                     | Permettre à l'utilisateur de [planifier un temps d'arrêt](../alerts-notifications/downtimes) pour un service                                       |
+| Ajouter/Supprimer un commentaire pour un service               | Autoriser l'utilisateur à ajouter des [commentaires](../alerts-notifications/other#ajouter-un-commentaire) pour un service                                |
 | Activer/Désactiver le gestionnaire d'évènements pour un service | Permettre à l'utilisateur d'activer/désactiver le gestionnaire d'évènements pour un service à la page de détails d'un service accessible via le menu **Supervision > Détail des statuts > Services** (page dépréciée)                  |
 | Activer/Désactiver la détection de bagotage d'un service       | Activer/Désactiver la détection du statut FLAPPING (ou bagotage) pour un service à la page de détails d'un service accessible via le menu **Supervision > Détail des statuts > Services** (page dépréciée)  |
 | Activer/Désactiver le contrôle passif d'un service             | Activer/Désactiver le contrôle passif pour les services à la page de détails d'un service accessible via le menu **Supervision > Détail des statuts > Services** (page dépréciée)                        |
-| [Soumettre un résultat](../alerts-notifications/manage-alerts#soumettre-un-résultat) pour un service                          | Permettre à l'utilisateur de modifier manuellement le statut d'un service passif jusqu'au prochain contrôle                            |
+| [Soumettre un résultat](../alerts-notifications/submit) pour un service                          | Permettre à l'utilisateur de modifier manuellement le statut d'un service passif jusqu'au prochain contrôle                            |
 | Afficher la commande exécutée par le moteur de supervision        | Pour l'utilisateur, affiche la commande exécutée pour un service dans le [panneau **Détails** du service](../alerts-notifications/resources-status#panneau-de-service)            |
 
 #### Accès aux actions sur les hôtes
@@ -186,17 +186,17 @@ Ces champs ne sont plus utilisés.
 | ----------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | Activer/Désactiver les vérifications pour un hôte           | Activer/Désactiver les vérifications pour un hôte à la page **Supervision > Détail des statuts > Hôtes** (page dépréciée)                               |
 | Activer/Désactiver les notifications pour un hôte           | Activer/Désactiver les notifications pour un hôte à la page **Supervision > Détail des statuts > Hôtes** (page dépréciée)                               |
-| Acquitter un hôte                    | Permettre aux utilisateurs [d'acquitter un hôte](../alerts-notifications/manage-alerts#acquitter-un-problème)                          |
+| Acquitter un hôte                    | Permettre aux utilisateurs [d'acquitter un hôte](../alerts-notifications/acknowledge)                          |
 | Supprimer l'acquittement de l'incident de l'hôte               | Permettre aux utilisateurs de supprimer un acquittement d'un hôte             |
 | Planifier la vérification pour un hôte            | Permettre à l'utilisateur de [lancer la vérification](../alerts-notifications/resources-status#relancer-un-contrôle) d'un hôte                              |
 | Planifier la vérification pour un hôte (Forcé)    | Permettre à l'utilisateur de [lancer la vérification](../alerts-notifications/resources-status#relancer-un-contrôle) d'un hôte                            |
-| Planifier une plage de maintenance pour un hôte                    | Permettre à l'utilisateur de [planifier un temps d'arrêt](../alerts-notifications/manage-alerts#ajouter-un-temps-darrêt) pour un hôte                                       |
-| Ajouter/Supprimer un commentaire pour un hôte               | Autoriser l'utilisateur à ajouter des [commentaires](../alerts-notifications/manage-alerts#ajouter-un-commentaire) pour un hôte                                |
+| Planifier une plage de maintenance pour un hôte                    | Permettre à l'utilisateur de [planifier un temps d'arrêt](../alerts-notifications/downtimes) pour un hôte                                       |
+| Ajouter/Supprimer un commentaire pour un hôte               | Autoriser l'utilisateur à ajouter des [commentaires](../alerts-notifications/other#ajouter-un-commentaire) pour un hôte                                |
 | Activer/Désactiver le gestionnaire d'évènements pour un hôte | Activer/Désactiver le gestionnaire d'évènements pour un hôte à la page de détails d'un hôte accessible via le menu **Supervision > Détail des statuts > Hôtes** (page dépréciée)                            |
 | Activer/Désactiver la détection de bagotage pour un hôte       | Activer/Désactiver la détection du statut FLAPPING (ou bagotage) pour un hôte à la page de détails d'un hôte accessible via le menu **Supervision > Détail des statuts > Hôtes** (page dépréciée)          |
 | Activer/Désactiver les contrôles des services de l'hôte     | Activer/Désactiver les contrôles des services d'un hôte  à la page de détails d'un hôte accessible via le menu **Supervision > Détail des statuts > Hôtes** (page dépréciée)                                |
 | Activer/désactiver les notifications de service de l'hôte   | Activer/Désactiver les notifications des services d'un hôte à la page de détails d'un hôte accessible via le menu **Supervision > Détail des statuts > Hôtes** (page dépréciée)  |
-| [Soumettre le résultat](../alerts-notifications/manage-alerts#soumettre-un-résultat) pour un hôte                          | Permettre à l'utilisateur de modifier manuellement le statut d'un hôte passif jusqu'au prochain contrôle                           |
+| [Soumettre le résultat](../alerts-notifications/submit) pour un hôte                          | Permettre à l'utilisateur de modifier manuellement le statut d'un hôte passif jusqu'au prochain contrôle                           |
 
 - Le champ **Statut** permet d'activer ou de désactiver le filtre
 
