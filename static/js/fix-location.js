@@ -2,3 +2,7 @@ if (window && window.location && window.location.pathname.endsWith('/') && windo
 {
    window.history.replaceState('', '', window.location.pathname.substr(0, window.location.pathname.length - 1))
 }
+if (window && window.location && window.location.pathname.includes('/#') && window.location.pathname !== '/#')
+{
+   window.history.replaceState('', '', window.location.pathname.substr(0, window.location.pathname.length - 1))
+}
