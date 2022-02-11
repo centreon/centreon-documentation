@@ -28,8 +28,8 @@ pipeline {
        when { changeRequest target: 'staging' }
        steps {
          input message: 'Deploy PR to prewiew platform? (Click "Proceed" to continue)'
-         //sh 'aws s3 sync --delete build s3://centreon-documentation-preview-pr/ --exclude "robots.txt"'
-         //sh 'aws cloudfront create-invalidation --distribution-id E1JOAJFE0XFP6P  --paths "/*"'
+         sh 'aws s3 sync --delete build s3://centreon-documentation-preview-pr/ --exclude "robots.txt"'
+         sh 'aws cloudfront create-invalidation --distribution-id E1JOAJFE0XFP6P  --paths "/*"'
        }
      }
      /* 
