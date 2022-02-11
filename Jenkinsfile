@@ -4,7 +4,7 @@ pipeline {
  
      stage('Install documentation dependencies') {
        when {
-         not { branch 'test' }
+         not { branch 'production' }
        }
        steps {
          echo 'Using Yarn to install dependencies'
@@ -14,7 +14,7 @@ pipeline {
      }
      stage('Build documentation') {
        when {
-         not { branch 'test' }
+         not { branch 'production' }
        }
        steps {
          echo 'Using yarn to build documentation'
