@@ -28,28 +28,27 @@ pipeline {
        when { changeRequest target: 'staging' }
        steps {
          input message: 'Deploy PR to prewiew platform? (Click "Proceed" to continue)'
-         //sh 'aws s3 sync --delete build s3://centreon-documentation-preview-pr/ --exclude "robots.txt"'
-         //sh 'aws cloudfront create-invalidation --distribution-id E1JOAJFE0XFP6P  --paths "/*"'
+         sh 'aws s3 sync --delete build s3://centreon-documentation-preview-pr/ --exclude "robots.txt"'
+         sh 'aws cloudfront create-invalidation --distribution-id E1JOAJFE0XFP6P  --paths "/*"'
        }
      }
-     /* 
+      
      stage('Deploy documentation to staging') {
        when { branch 'staging' }
        steps {
          sh 'rsync -e "ssh -o StrictHostKeyChecking=no" -arzvh --delete build/* admin@docs-dev.int.centreon.com:/var/www/html/'
-         //TODO : invalidate cloudfront cache
          //sh 'aws cloudfront create-invalidation --distribution-id ID_DISTRIB_STAGING --paths "/*"'
          
        }
      }
      stage('Deploy documentation to production') {
-       when { branch 'test' }      
+       when { branch 'production' }      
        steps {
          input message: 'Deploying to production? (Click "Proceed" to continue)'
          sh 'ssh -o StrictHostKeyChecking=no admin@docs-dev.int.centreon.com rsync -arzvh --delete /var/www/html admin@docs.int.centreon.com:/var/www/'
-         sh 'aws cloudfront create-invalidation --distribution-id E4YWX2X3MLBMI --paths "/*"'
+         sh 'aws cloudfront create-invalidation --distribution-id E1CNJDQJ2JT4KZ --paths "/*"'
        }
-     }*/
+     }
    }
    post {
      always {
