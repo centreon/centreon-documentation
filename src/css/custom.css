@@ -140,7 +140,7 @@ ul ul ol {
 }
 
 html[data-theme="dark"] .tabs__item--active {
-  background-color: #ffffff38;
+  background-color: #282a36;
 }
 
 .dropdown > .navbar__link:after {
