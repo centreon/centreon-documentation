@@ -9,7 +9,7 @@ pipeline {
        steps {
          echo 'Using Yarn to install dependencies'
          sh 'cd .. && sudo npm cache clean -f && sudo npm install -g n && sudo n latest'
-         sh 'yarn install --verbose'
+         sh 'yarn install'
        }
      }
      stage('Build documentation') {
@@ -24,7 +24,7 @@ pipeline {
        }
      }
       
-     stage('Deploy PR to prewiew platform') {
+     /*stage('Deploy PR to prewiew platform') {
        when { changeRequest target: 'staging' }
        steps {
          input message: 'Deploy PR to prewiew platform? (Click "Proceed" to continue)'
@@ -37,9 +37,9 @@ pipeline {
        when { branch 'staging' }
        steps {
          sh 'rsync -e "ssh -o StrictHostKeyChecking=no" -arzvh --delete build/* admin@docs-dev.int.centreon.com:/var/www/html/'
-         /*TODO : invalidate cloudfront cache
-         sh 'aws cloudfront create-invalidation --distribution-id ID_DISTRIB_STAGING --paths "/*"'
-         */
+         //TODO : invalidate cloudfront cache
+         //sh 'aws cloudfront create-invalidation --distribution-id ID_DISTRIB_STAGING --paths "/*"'
+         
        }
      }
      stage('Deploy documentation to production') {
@@ -50,7 +50,7 @@ pipeline {
          sh 'aws cloudfront create-invalidation --distribution-id E4YWX2X3MLBMI --paths "/*"'
        }
      }
-   }
+   }*/
    post {
      always {
        cleanWs()
