@@ -36,7 +36,7 @@ pipeline {
      stage('Deploy documentation to staging') {
        when { branch 'staging' }
        steps {
-         sh 'rsync -e "ssh -o StrictHostKeyChecking=no" -arzvh --delete build/* admin@docs-dev.int.centreon.com:/var/www/html/'
+         sh 'rsync -e "ssh -o StrictHostKeyChecking=no" -arzvh --delete --exclude build/sitemap.xml build/* admin@docs-dev.int.centreon.com:/var/www/html/'
          //sh 'aws cloudfront create-invalidation --distribution-id ID_DISTRIB_STAGING --paths "/*"'
          
        }
@@ -45,7 +45,7 @@ pipeline {
        when { branch 'production' }      
        steps {
          input message: 'Deploying to production? (Click "Proceed" to continue)'
-         sh 'ssh -o StrictHostKeyChecking=no admin@docs-dev.int.centreon.com rsync -arzvh --delete /var/www/html admin@docs.int.centreon.com:/var/www/'
+         sh 'ssh -o StrictHostKeyChecking=no admin@docs-dev.int.centreon.com rsync -arzvh --delete --exclude build/sitemap.xml /var/www/html admin@docs.int.centreon.com:/var/www/'
          sh 'aws cloudfront create-invalidation --distribution-id E1CNJDQJ2JT4KZ --paths "/*"'
        }
      }
