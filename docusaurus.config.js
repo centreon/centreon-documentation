@@ -16,8 +16,6 @@ const config = {
   organizationName: 'Centreon',
   projectName: 'Centreon Documentation',
 
-  trailingSlash: false,
-
   noIndex: false,
 
   i18n: {
