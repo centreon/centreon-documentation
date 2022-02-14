@@ -91,14 +91,6 @@ const config = {
         steps: 2, // the max number of images generated between min and max (inclusive)
       },
     ],
-    [
-      '@docusaurus/plugin-sitemap',
-      {
-        changefreq: 'weekly',
-        priority: 0.5,
-        trailingSlash: true,
-      },
-    ],
     'plugin-image-zoom',
   ],
 
