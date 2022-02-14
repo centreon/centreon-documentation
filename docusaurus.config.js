@@ -16,6 +16,8 @@ const config = {
   organizationName: 'Centreon',
   projectName: 'Centreon Documentation',
 
+  trailingSlash: true,
+  
   noIndex: false,
 
   i18n: {
@@ -87,6 +89,14 @@ const config = {
         max: 1030, // max resized image's size.
         min: 640, // min resized image's size. if original is lower, use that size.
         steps: 2, // the max number of images generated between min and max (inclusive)
+      },
+    ],
+    [
+      '@docusaurus/plugin-sitemap',
+      {
+        changefreq: 'weekly',
+        priority: 0.5,
+        trailingSlash: false,
       },
     ],
     'plugin-image-zoom',
