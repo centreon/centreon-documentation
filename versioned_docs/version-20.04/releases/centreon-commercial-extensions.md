@@ -546,6 +546,18 @@ configuration value:
 
 ## Centreon Plugin Packs Manager
 
+### 20.04.3
+
+Release date: `February 4, 2022`
+
+#### Bugfixes
+
+- Fixed installation when Plugin Packs have similar names
+
+#### Security fixes
+
+- Packaging, remove . gitignore files
+
 ### 20.04.2
 
 `February 26, 2021`
