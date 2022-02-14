@@ -91,6 +91,12 @@ const config = {
         steps: 2, // the max number of images generated between min and max (inclusive)
       },
     ],
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        fromExtensions: ['html'], // /myPage.html -> /myPage
+      },
+    ],
     'plugin-image-zoom',
   ],
 
