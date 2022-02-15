@@ -99,6 +99,10 @@ to save your selection and return to the main configuration page for your applic
 Under both *Application Permissions* and *Delegated Permissions*, select the permissions your application requires. 
 Refer to the specific API reference for more details about each permission.
 
+#### Add permissions to Microsoft Graph
+
+You also need to specify permissions for **Microsoft Graph** for both *Application* and *Delegated* type of permission. You will have to set **ServiceHealth.Read.All**.
+
 #### Request access tokens from Azure AD
 
 After a tenant admin grants consent, your application receives an authorization code as a query string parameter 
