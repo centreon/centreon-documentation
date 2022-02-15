@@ -123,7 +123,7 @@ It brings the following Service Templates:
 
 ### SNMP Configuration
 
-To use this pack, the SNMP service must be properly configured on your device.
+To use this Pack, the SNMP service must be properly configured on your device.
 
 ### Network flow
 
