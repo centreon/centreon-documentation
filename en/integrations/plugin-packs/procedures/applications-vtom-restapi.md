@@ -1,6 +1,6 @@
 ---
 id: applications-vtom-restapi
-title: VTOM Rest API
+title: Absyss VTOM Rest API
 ---
 
 ## Pack Assets
