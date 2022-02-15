@@ -438,7 +438,7 @@ ServerTokens Prod
     </LocationMatch>
 
     ProxyTimeout 300
-    DirectoryIndex index.php
+    ErrorDocument 404 ${base_uri}/index.html
     Options -Indexes +FollowSymLinks
 
     <IfModule mod_security2.c>
@@ -727,7 +727,7 @@ ServerTokens Prod
     </LocationMatch>
 
     ProxyTimeout 300
-    DirectoryIndex index.php
+    ErrorDocument 404 ${base_uri}/index.html
     Options -Indexes +FollowSymLinks
 
     <IfModule mod_security2.c>
