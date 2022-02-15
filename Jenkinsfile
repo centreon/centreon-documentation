@@ -36,7 +36,7 @@ pipeline {
      stage('Deploy documentation to staging') {
        when { branch 'staging' }
        steps {
-         sh 'rsync -e "ssh -o StrictHostKeyChecking=no" -arzvh --delete --exclude={build/sitemap.xml, build/fr/sitemap.xml} build/sitemap.xml build/* admin@docs-dev.int.centreon.com:/var/www/html/'
+         sh 'rsync -e "ssh -o StrictHostKeyChecking=no" -arzvh --delete --exclude build/sitemap.xml --exclude build/fr/sitemap.xml build/* admin@docs-dev.int.centreon.com:/var/www/html/'
          //sh 'aws cloudfront create-invalidation --distribution-id ID_DISTRIB_STAGING --paths "/*"'
          
        }
