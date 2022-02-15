@@ -581,6 +581,21 @@ Nouvelle version majeure.
 
 ## Centreon Gorgone
 
+### 21.04.5
+
+#### Enhancements
+
+- Added an "audit" module to Gorgone to provide an overview of the system status, package versions, + some Centreon metrics.
+- Added a new "httpserverng" module to allow asynchronous API calls.
+
+#### Bugfixes
+
+- Fixed an issue that caused Service Discovery scans to fail because the wrong message was caught.
+- Fixed an issue that could make Gorgone crash in pull mode.
+- Fixed uninitialized values in Gorgone could cause error log messages.
+- Fixed an issue that prevented Gorgone from handling advanced [Service Discovery features](https://docs.centreon.com/fr/docs/21.04/monitoring/discovery/services-discovery#options-avanc%C3%A9es) correctly.
+- Fixed an issue in the module management that could cause crashes.
+
 ### 21.04.4
 
 Release date: `December 14, 2021`
@@ -611,6 +626,7 @@ Release date: `December 14, 2021`
 - Add endpoint to ask gorgoned to resync pollers configuration
 - Add Centreon platform audit module
 - Allow to define the list of the commands that can be run through the Action module
+- Add IPv6 support
 
 #### Correctifs
 
