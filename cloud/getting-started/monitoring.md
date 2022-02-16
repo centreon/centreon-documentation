@@ -1,5 +1,5 @@
 ---
-id: cloud-monitoring
+id: monitoring
 title: How do I monitor a resource?
 ---
 

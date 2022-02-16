@@ -1,5 +1,5 @@
 ---
-id: cloud-pp
+id: pp
 title: Plugin Packs
 ---
 

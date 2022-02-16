@@ -1,5 +1,5 @@
 ---
-id: cloud-connect
+id: connect
 title: Accessing the central server
 ---
 

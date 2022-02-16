@@ -1,5 +1,5 @@
 ---
-id: cloud-concepts
+id: concepts
 title: Monitoring basics
 ---
 

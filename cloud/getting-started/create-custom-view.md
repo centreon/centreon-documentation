@@ -1,5 +1,5 @@
 ---
-id: cloud-create-custom-view
+id: create-custom-view
 title: How do I create a custom view?
 ---
 

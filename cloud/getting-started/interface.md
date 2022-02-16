@@ -1,5 +1,5 @@
 ---
-id: cloud-interface
+id: interface
 title: Overview of the Centreon interface
 ---
 
