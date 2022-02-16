@@ -7,7 +7,7 @@ title: Plugin Packs
 
 A Plugin Pack is a downloadable package containing a set of configuration
 templates that make it fast and easy to monitor your IT infrastructure.
-Applying a Plugin Pack is the easiest way to monitor a host. There is one plugin pack per type of monitored equipment (e.g. a Plugin Pack to monitir Linux servers, a Plugin Pack to monitor Windows servers, etc.).
+Applying a Plugin Pack is the easiest way to monitor a host. There is one plugin pack per type of monitored equipment (e.g. a Plugin Pack to monitor Linux servers, a Plugin Pack to monitor Windows servers, etc.).
 
 Plugin Packs consist of 2 elements, which are installed separately:
 
