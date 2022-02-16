@@ -52,6 +52,10 @@ const config = {
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
+        googleAnalytics: {
+          trackingID: 'UA-8418698-13',
+          anonymizeIP: true,
+        },
       }),
     ],
   ],
@@ -74,6 +78,16 @@ const config = {
         max: 1030, // max resized image's size.
         min: 640, // min resized image's size. if original is lower, use that size.
         steps: 2, // the max number of images generated between min and max (inclusive)
+      },
+    ],
+
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'cloud',
+        path: 'cloud',
+        routeBasePath: 'cloud',
+        sidebarPath: require.resolve('./sidebarsCloud.js'),
       },
     ],
 
@@ -116,11 +130,6 @@ const config = {
           'perl',
           'powershell',
         ],
-      },
-
-      googleAnalytics: {
-        trackingID: 'UA-8418698-13',
-        anonymizeIP: true,
       },
 
       zoom: {
