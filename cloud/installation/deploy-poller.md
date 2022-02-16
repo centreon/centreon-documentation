@@ -9,7 +9,7 @@ Before deploying a poller, make sure the [prerequisites](../cloud-prerequisites)
 
 ## Step 1: Running the script
 
-1. Use SSH to connect to the server that will become a poller. 
+1. Use SSH to connect to the server that will become a poller.
 
 2. Run the command that will deploy the poller automatically. This command has been provided to you by our support team. It looks like this:
 
@@ -17,7 +17,7 @@ Before deploying a poller, make sure the [prerequisites](../cloud-prerequisites)
   bash -c "$(curl -H "content-type: application/json"  -H "x-api-key: <your_token>"  https://api.euwest1.prod1.centreon.cloud/v1/organization/<your_organization_code>/site/centreon/poller -s)"
   ```
 
-  Example: 
+  Example:
   
   ```shell
   bash -c "$(curl -H "content-type: application/json"  -H "x-api-key: prod.centreon-qa.f39d2fff-b3a2-4f17-b49a-42a3671f6e42"  https://api.euwest1.prod1.centreon.cloud/v1/organization/centreon-qa/site/centreon/poller -s)"
@@ -34,8 +34,9 @@ Before deploying a poller, make sure the [prerequisites](../cloud-prerequisites)
 
 ## Step 2: Exporting the configuration and restarting the poller
 
-Export the configuration for this poller: 
-1. Go to **Configuration > Pollers > Pollers**, then select the poller you have just created. 
+Export the configuration for this poller:
+
+1. Go to **Configuration > Pollers > Pollers**, then select the poller you have just created.
 2. Click **Export configuration**:
    * Check the 4 first boxes
    * Under **Restart Scheduler**, select Méthode RESTART

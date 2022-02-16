@@ -11,10 +11,10 @@ Applying a Plugin Pack is the easiest way to monitor a host. There is one plugin
 
 Plugin Packs consist of 2 elements, which are installed separately:
 
-- A plugin that executes the monitoring commands from a poller. All plugins are 
+- A plugin that executes the monitoring commands from a poller. All plugins are
 already installed on your pollers.
 
-- A pack that contains commands, host templates and service templates. 
+- A pack that contains commands, host templates and service templates.
 For each type of equipment,
  the templates determine which indicators will be
 monitored and set default warning and critical thresholds (these may be
@@ -53,7 +53,6 @@ Once the pack is installed, it has a green outline and a green check mark.
 | **Before installation**                                          | **After installation**                                          |
 | ---------------------------------------------------------------- | --------------------------------------------------------------- |
 | ![image](../assets/configuration/pluginpacks/before_install.png) | ![image](../assets/configuration/pluginpacks/after_install.png) |
-
 
 ### Managing dependencies
 
