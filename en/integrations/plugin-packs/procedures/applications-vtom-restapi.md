@@ -97,7 +97,7 @@ yum install centreon-pack-applications-vtom-restapi
 * Fill the **Name**, **Alias** & **IP Address / DNS** fields according to your **VTOM Rest API** server settings
 * Select the **App-Vtom-Restapi-custom** template to apply to the Host
 
-> Once the template applied, some Macros have to be configured:
+> Once the template is applied, some Macros have to be configured:
 
 | Mandatory | Name                | Description                                                                |
 | :-------- | :------------------ | :------------------------------------------------------------------------- |
