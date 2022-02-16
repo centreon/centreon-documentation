@@ -606,7 +606,7 @@ New release.
 - Fixed an issue that caused Service Discovery scans to fail because the wrong message was caught.
 - Fixed an issue that could make Gorgone crash in pull mode.
 - Fixed uninitialized values in Gorgone could cause error log messages.
-- Fixed an issue that prevented Gorgone from handling advanced [Service Discovery features](http://localhost:3000/docs/21.04/monitoring/discovery/services-discovery#advanced-options) correctly.
+- Fixed an issue that prevented Gorgone from handling advanced [Service Discovery features](../monitoring/discovery/services-discovery#advanced-options) correctly.
 - Fixed an issue in the module management that could cause crashes.
 
 ### 21.04.4
