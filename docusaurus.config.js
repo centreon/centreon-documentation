@@ -156,7 +156,7 @@ const config = {
             label: 'Centreon OnPrem',
           },
           {
-            to: '/cloud/getting-started/cloud-architecture',
+            to: '/cloud/getting-started/architecture',
             label: 'Centreon Cloud',
             position: 'left',
           },
