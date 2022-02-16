@@ -1145,6 +1145,10 @@
             },
             {
               "type": "doc",
+              "id": "version-21.10/integrations/plugin-packs/procedures/applications-monitoring-iplabel-ekara-restapi"
+            },
+            {
+              "type": "doc",
               "id": "version-21.10/integrations/plugin-packs/procedures/applications-monitoring-iplabel-newtest-restapi"
             },
             {
