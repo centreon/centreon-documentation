@@ -17,11 +17,11 @@ module.exports = {
       items: [
         {
           type: 'doc',
-          id: 'getting-started/cloud-architecture',
+          id: 'getting-started/architecture',
         },
         {
           type: 'doc',
-          id: 'getting-started/cloud-interface',
+          id: 'getting-started/interface',
         },
         {
           type: 'category',
@@ -29,29 +29,29 @@ module.exports = {
           items: [
             {
               type: 'doc',
-              id: 'cloud-prerequisites',
+              id: 'installation/prerequisites',
             },
             {
               type: 'doc',
-              id: 'installation/cloud-deploy-poller',
+              id: 'installation/deploy-poller',
             },
           ],
         },
         {
           type: 'doc',
-          id: 'getting-started/cloud-concepts',
+          id: 'getting-started/concepts',
         },
         {
           type: 'doc',
-          id: 'getting-started/cloud-pp',
+          id: 'getting-started/pp',
         },
         {
           type: 'doc',
-          id: 'getting-started/cloud-monitoring',
+          id: 'getting-started/monitoring',
         },
         {
           type: 'doc',
-          id: 'getting-started/cloud-create-custom-view',
+          id: 'getting-started/create-custom-view',
         },
       ],
     },
@@ -146,18 +146,13 @@ module.exports = {
       items: [
         {
           type: 'doc',
-          id: 'users/cloud-users',
+          id: 'users/users',
         },
         {
           type:'doc',
-          id: 'users/cloud-contacts-create',
+          id: 'users/contacts-create',
         },
       ],
-    },
-    {
-      type: 'link',
-      label: 'En savoir plus',
-      href: 'https://example.com',
     },
   ],
 };
