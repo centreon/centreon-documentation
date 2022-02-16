@@ -95,7 +95,8 @@ systemctl enable snmpd
 
    ![image](../assets/getting-started/quick_start_linux_5.png)
 
-6. [Déployez la configuration](first-supervision#deploying-a-configuration).
+6. [Déployez la configuration](first-supervision#deployer-une-configuration).
+
 
 7. Allez à la page **Surveillance > Statut des ressources** et sélectionnez **Toutes** dans le filtre **Statut des ressources**. Dans un premier temps, les ressources apparaissent avec le statut **En attente**, ce qui signifie qu'aucun contrôle n'a encore été exécuté :
 
