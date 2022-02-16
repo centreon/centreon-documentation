@@ -4,7 +4,8 @@ title: Possible statuses of a resource
 ---
 
 Statuses show the availability of a host, and the availability or performance of a service. Each status has a
-precise meaning for the resource. 
+precise meaning for the resource.
+
 * The statuses and states of a resource
 can be seen on page [Resources Status](resources-status). You can filter the page according to these statuses and to certain states.
 * Some statuses are determined according to user-defined thresholds.
@@ -36,23 +37,22 @@ The table below summarizes all the possible statuses for a service.
 
 In addition to their status, resources can be in several states:
 
--   <span style={{color:'#ae9500'}}>Acknowledged</span>: indicates that the incident on the service or on the host
+* <span style={{color:'#ae9500'}}>Acknowledged</span>: indicates that the incident on the service or on the host
     has been taken into account by a user. (See [Acknowledging a problem](acknowledge).)
--   <span style={{color:'#cc99ff'}}>In downtime</span>: indicates that notifications are temporarily stopped. A [downtime](downtimes) can be [planned in advance](downtimes#recurrent-downtimes) to avoid receiving alerts during maintenance periods, or be set following an incident.
+* <span style={{color:'#cc99ff'}}>In downtime</span>: indicates that notifications are temporarily stopped. A [downtime](downtimes) can be [planned in advance](downtimes#recurrent-downtimes) to avoid receiving alerts during maintenance periods, or be set following an incident.
 
--   [Flapping](notif-flapping): indicates that the status change
+* [Flapping](notif-flapping): indicates that the status change
     percentage of the resource is very high. This percentage is obtained
     from calculations performed by the network monitoring engine.  Flapping resources have the following icon in their **Details** panel:
     ![image](../assets/alerts/flapping_icon.png)
-
 
 ## Status types
 
 The status of a resource can have one of these 2 types:
 
--   SOFT: Signifies that an incident has just been detected and that it
+* SOFT: Signifies that an incident has just been detected and that it
     has to be confirmed.
--   HARD: Signifies that the status of the incident is confirmed. Once
+* HARD: Signifies that the status of the incident is confirmed. Once
     the status is confirmed, the notification process is engaged
     (sending of an email, SMS, etc.).
 
@@ -71,9 +71,9 @@ Example:
 
 A service has the following check settings:
 
--   Max check attempts: 3
--   Normal check interval: 5 minutes
--   Retry check interval: 1 minute
+* Max check attempts: 3
+* Normal check interval: 5 minutes
+* Retry check interval: 1 minute
 
 Let us imagine the following scenario:
 
