@@ -55,7 +55,7 @@ La version minimum VTOM 6.6.1a est nécessaire pour le bon fonctionnement du Pac
 * /auth/1.0/authorize
 * /monitoring/1.0/jobs/status 
 
-Pour les versions antérieurs, il est nécessaire d'utiliser le mode **legacy** du Plugin.
+Pour les versions antérieures, il est nécessaire d'utiliser le mode **legacy** du Plugin.
 
 ## Installation
 
