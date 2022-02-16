@@ -1,5 +1,5 @@
 ---
-id: cloud-users
+id: users
 title: Users in Centreon Cloud
 ---
 

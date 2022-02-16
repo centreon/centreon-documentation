@@ -1,5 +1,5 @@
 ---
-id: cloud-deploy-poller
+id: deploy-poller
 title: Deploying a poller
 ---
 

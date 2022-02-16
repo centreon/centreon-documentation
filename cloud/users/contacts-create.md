@@ -1,5 +1,5 @@
 ---
-id: cloud-contacts-create
+id: contacts-create
 title: Creating contacts manually
 ---
 

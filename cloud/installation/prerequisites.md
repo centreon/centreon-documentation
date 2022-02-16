@@ -1,5 +1,5 @@
 ---
-id: cloud-prerequisites
+id: prerequisites
 title: Prerequisites
 ---
 
