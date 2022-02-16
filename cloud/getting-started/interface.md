@@ -28,7 +28,6 @@ The Centreon web interface contains several menus, each with a specific function
   performance graphics.
 * **Reporting** provides an intuitive view (using diagrams) of the evolution of monitoring over a given time period.
 * **Configuration** allows you to configure all monitored items and the monitoring infrastructure.
-* **Administration** allows you to configure the Centreon platform (with settings such as authentication, proxy, extensions...) and view the overall status of the monitoring servers.
 
 ## Top banner
 
