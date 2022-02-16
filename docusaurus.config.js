@@ -102,6 +102,15 @@ const config = {
         contextualSearch: true,
       },
 
+      announcementBar: {
+        id: 'announcementBar-1',
+        content:
+          'The search feature is not available at the moment. Thank you for your patience and understanding.',
+        backgroundColor: '#ebedf0',
+        textColor: '#091E42',
+        isCloseable: false,
+      },
+
       zoomSelector: '.markdown :not(.authority-availability) > img',
 
       prism: {
