@@ -73,7 +73,7 @@ yum install centreon-plugin-Applications-Vtom-Restapi
 
 <!--Offline License-->
 
-1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources **VTOM Rest API** :
+1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des ressources **VTOM Rest API** :
 
 ```bash
 yum install centreon-plugin-Applications-Vtom-Restapi
