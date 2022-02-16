@@ -94,7 +94,7 @@ yum install centreon-pack-applications-vtom-restapi
 ### Hôte
 
 * Ajoutez un Hôte à Centreon depuis la page **Configuration > Hôtes**
-* Complétez les champs **Nom**, s**Alias** & **IP Address / DNS** correspondant à votre serveur **VTOM Rest API**.
+* Complétez les champs **Nom**, **Alias** & **IP Address / DNS** correspondant à votre serveur **VTOM Rest API**.
 * Appliquez le Modèle d'Hôte **App-Vtom-Restapi-custom**
 
 Une fois celui-ci configuré, certaines macros doivent être renseignées:
