@@ -200,6 +200,13 @@ It should result as follow:
 Mar 24 19:45:00 localhost.localdomain systemd[1]: Started Centreon Gorgone.
 ```
 
+**To force the Central's Gorgone daemon to connect to the Remote Server**, restart
+it with the following command from the **Central server**:
+
+```shell
+systemctl restart gorgoned
+```
+
 </TabItem>
 <TabItem value="Using SSH (Deprecated)" label="Using SSH (Deprecated)">
 
@@ -208,12 +215,8 @@ Mar 24 19:45:00 localhost.localdomain systemd[1]: Started Centreon Gorgone.
 > This mode should not be used anymore as it does not allow data
 > synchronisation between Central and Remote Server UI.
 
-**To force the Central's Gorgone daemon to connect to the Remote Server**, restart
-it with the following command from the **Central server**:
-
-```shell
-systemctl restart gorgoned
-```
+</TabItem>
+</Tabs>
 
 ## Export the configuration
 
@@ -234,9 +237,6 @@ The Remote Server's Broker and Engine will then start and connect to the
 Central Broker.
 
 ![image](../../assets/monitoring/monitoring-servers/remote-list-zmq-started.png)
-
-</TabItem>
-</Tabs>
 
 ## Getting started
 
