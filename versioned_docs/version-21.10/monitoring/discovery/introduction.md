@@ -4,13 +4,13 @@ title: Introduction
 ---
 
 > Centreon Auto Discovery is a Centreon **extension** that requires a valid
-> [license](../../administration/licenses) key. To purchase one and retrieve the necessary repositories, contact
+> [license](../../administration/licenses.md) key. To purchase one and retrieve the necessary repositories, contact
 > [Centreon](mailto:sales@centreon.com).
 
 
 The Auto Discovery module allows you to get a list of new hosts and services and to create them 
 automatically in your Centreon platform. The discovery is done by discovery providers, that are included
-within [Plugin Packs](../pluginpacks).
+within [Plugin Packs](../pluginpacks.md).
 
 - This discovery mechanism can also be scheduled and executed automatically.
 
@@ -20,7 +20,7 @@ within [Plugin Packs](../pluginpacks).
 
 ## How it works
 
-1. Create a discovery job for each type of ressource, using the corresponding [Plugin Pack](../pluginpacks). 
+1. Create a discovery job for each type of ressource, using the corresponding [Plugin Pack](../pluginpacks.md). 
 For instance, one job to discover ESX nodes and one job to discover virtual machines in a VMWare cluster.
 
   For services, create discovery rules: for instance, one rule to discover network interfaces and one rule

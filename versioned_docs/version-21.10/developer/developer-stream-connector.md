@@ -113,7 +113,7 @@ end
 ```
 
 > Information about the initialization of the Broker's log function and its parameters are given here
-> [see technical documentation](developer-broker-stream-connector#the-broker_log-object).
+> [see technical documentation](developer-broker-stream-connector.md#the-broker_log-object).
 
 Let's explain what we are doing in this script.
 
