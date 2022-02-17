@@ -90,7 +90,8 @@ yum install centreon-pack-applications-monitoring-iplabel-ekara-restapi
 
 3. On the Centreon Web interface, install the **IP-Label Ekara Rest API** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
