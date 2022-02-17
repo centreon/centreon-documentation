@@ -225,6 +225,9 @@ redémarrez-le avec la commande suivante depuis le **serveur Central** :
 > synchronisation des données entre l'interface utilisateur du Central
 > et du Remote Server.
 
+</TabItem>
+</Tabs>
+
 ## Étape 3 : Exporter la configuration
 
 1. Depuis la liste des collecteurs, sélectionnez le serveur distant et cliquez sur
@@ -245,9 +248,6 @@ collecte :
     Broker Central.
 
     ![image](../../assets/monitoring/monitoring-servers/remote-list-zmq-started.png)
-
-</TabItem>
-</Tabs>
 
 ## Premiers pas
 
