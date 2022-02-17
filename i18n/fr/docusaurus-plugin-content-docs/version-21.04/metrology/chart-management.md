@@ -72,7 +72,7 @@ Plusieurs actions sont possibles sur chaque graphique :
 * Exporter le graphique au format CSV en cliquant sur l'icône ![image](../assets/common/csv.png) ou en PNG en cliquant sur
   l'icône ![image](../assets/common/png.png)
 * Remonter dans le temps en cliquant sur l'icône ![image](../assets/metrology/right_arrow.png) ou avancer en cliquant sur
-  l'icône ![image](..:assets/metrology/left_arrow.png)
+  l'icône ![image](../assets/metrology/left_arrow.png)
 * Il est également possible de zoomer sur une période en cliquant sur le graphique puis en sélectionnant une fenêtre
   temporelle:
 

@@ -18,7 +18,7 @@ The Autologin feature allows you to give access to the Centreon platform through
 
 ## Step 2: Create an autologin user
 
-1. [Create a user](../monitoring/basic-objects/contacts-create) called **autologin** and give it [access rights](../administration/access-control-lists) only to the pages you will want to display.
+1. [Create a user](../monitoring/basic-objects/contacts-create.md) called **autologin** and give it [access rights](../administration/access-control-lists.md) only to the pages you will want to display.
 
 2. Edit the user. Go to the **Authentication** tab:
     - enable option **Reach Centreon Front-end**.

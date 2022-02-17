@@ -159,6 +159,23 @@ By:
 
 ## Centreon Gorgone
 
+### 21.10.2
+
+Release date: `February 17, 2022`
+
+#### Enhancements
+
+- Added an "audit" module to Gorgone to provide an overview of the system status, package versions, + some Centreon metrics.
+- Added a new "httpserverng" module to allow asynchronous API calls.
+
+#### Bugfixes
+
+- Fixed an issue that caused Service Discovery scans to fail because the wrong message was caught.
+- Fixed an issue that could make Gorgone crash in pull mode.
+- Fixed uninitialized values in Gorgone that could cause error log messages.
+- Fixed an issue that prevented Gorgone from handling advanced [Service Discovery features](../monitoring/discovery/services-discovery#options-avanc%C3%A9es) correctly.
+- Fixed an issue in the module management that could cause crashes.
+
 ### 21.10.1
 
 Release date: `December 14, 2021`
@@ -171,4 +188,4 @@ Release date: `December 14, 2021`
 
 ### 21.10.0
 
-- Compatibility with other 21.10 components.
+- Add IPv6 support

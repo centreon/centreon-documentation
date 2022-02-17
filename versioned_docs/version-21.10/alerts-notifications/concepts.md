@@ -15,7 +15,7 @@ The table below summarizes all the possible statuses for a host.
 |----------------------------------------------------|-----------------------------------------------------------------------------------------------|
 | <span style={{color:'#88b917'}}>UP</span>          | The host is available and reachable                                                           |
 | <span style={{color:'#e00b3d'}}>DOWN</span>        | The host is unavailable                                                                       |
-| <span style={{color:'#818185'}}>UNREACHABLE</span> | The host is unreachable: it [depends](notif-dependencies) on a host whose status is **DOWN**  |
+| <span style={{color:'#818185'}}>UNREACHABLE</span> | The host is unreachable: it [depends](notif-dependencies.md) on a host whose status is **DOWN**  |
 
 ### Service status
 
@@ -37,7 +37,7 @@ additional information:
     displayed for a service or a host freshly configured but which has
     not yet been checked by the scheduler.
 -   The <span style={{color:'#818185'}}>UNREACHABLE</span> status is a
-    status indicating that the host ([parent relationship](notif-dependencies)) is situated
+    status indicating that the host ([parent relationship](notif-dependencies.md)) is situated
     downstream of a host with a DOWN status.
 -   The FLAPPING status is a status indicating that the status change
     percentage of the resource is very high. This percentage is obtained
