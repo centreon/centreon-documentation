@@ -18,7 +18,7 @@ La fonctionnalité d'Autologin vous permet de donner accès à la plateforme via
 
 ## Étape 2 : Créer un utilisateur autologin
 
-1. [Créez un utilisateur](../monitoring/basic-objects/contacts-create) **autologin**, et [donnez-lui des droits d'accès](../administration/access-control-lists) uniquement sur les pages qui devront être affichées.
+1. [Créez un utilisateur](../monitoring/basic-objects/contacts-create.md) **autologin**, et [donnez-lui des droits d'accès](../administration/access-control-lists.md) uniquement sur les pages qui devront être affichées.
 
 2. Éditez l'utilisateur. Allez à l'onglet **Authentification** :
     - activez l'option **Autoriser l'utilisateur à se connecter à l'interface web**.

@@ -39,7 +39,7 @@ Rendez-vous dans le menu `Configuration > Services > Modèles` et cliquez
 sur le bouton **Ajouter**
 
 > Rapportez-vous au chapitre de configuration des
-> *[services](services)* pour configurer un modèle car le
+> *[services](services.md)* pour configurer un modèle car le
 > formulaire est identique.
 
 > Par défaut, les modèles de service verrouillés sont masqués. Cocher la case

@@ -257,7 +257,7 @@ Please go to the next chapter to continue the installation.
 
 ### Grant rights to user cbis
 
-When you install Centreon MBI, a [user](../monitoring/basic-objects/contacts) called **cbis** is automatically created. It allows the report generation engine to extract data from Centreon (using the APIs) in order to put them into the report. This user must [have access to all resources monitored by Centreon](../administration/access-control-lists) to be able to extract performance graphs for the following reports:
+When you install Centreon MBI, a [user](../monitoring/basic-objects/contacts.md) called **cbis** is automatically created. It allows the report generation engine to extract data from Centreon (using the APIs) in order to put them into the report. This user must [have access to all resources monitored by Centreon](../administration/access-control-lists.md) to be able to extract performance graphs for the following reports:
 
 - Host-Graph-v2 
 

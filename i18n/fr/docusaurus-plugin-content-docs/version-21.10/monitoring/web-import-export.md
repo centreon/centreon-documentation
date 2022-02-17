@@ -197,16 +197,16 @@ platform.
 
 Go to `Configuration > Import/Export > Import` menu:
 
-![imaage](../assets/configuration/awie/Import.png)
+![image](../assets/configuration/awie/Import.png)
 
 Select the centreon-clapi-export zip file you want to import then click on the
 **Import** button:
 
-![imaage](../assets/configuration/awie/zipfileuploaded.png)
+![image](../assets/configuration/awie/zipfileuploaded.png)
 
 You should get **Import successful** message at the end of the process:
 
-![imaage](../assets/configuration/awie/success.png)
+![image](../assets/configuration/awie/success.png)
 
 To check that objects have been properly imported, go to Configuration pages as
 usual.

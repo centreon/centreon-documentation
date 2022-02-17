@@ -16,7 +16,7 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 
 ## Mettre à jour la clé de signature RPM
 
-Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centreon sont changées régulièrement. Le dernier changement a eu lieu le 14 octobre 2021. Lorsque vous mettez Centreon à jour depuis une version plus ancienne, vous devez suivre la [procédure de changement de clé](../security/key-rotation#installation-existante), afin de supprimer l'ancienne clé et d'installer la nouvelle.
+Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centreon sont changées régulièrement. Le dernier changement a eu lieu le 14 octobre 2021. Lorsque vous mettez Centreon à jour depuis une version plus ancienne, vous devez suivre la [procédure de changement de clé](../security/key-rotation.md#installation-existante), afin de supprimer l'ancienne clé et d'installer la nouvelle.
 
 ## Montée de version du serveur Centreon Central
 
@@ -87,7 +87,7 @@ accéder à la page de connexion :
 ![image](../assets/upgrade/web_update_5.png)
 
 Si le module Centreon BAM est installé, référez-vous à la [documentation
-associée](../service-mapping/upgrade) pour le mettre à jour.
+associée](../service-mapping/upgrade.md) pour le mettre à jour.
 
 ### Actions post montée de version
 
@@ -150,4 +150,4 @@ systemctl enable gorgoned
 ## Sécurisez votre plateforme
 
 N'oubliez pas de sécuriser votre plateforme Centreon en suivant nos
-[recommandations](../administration/secure-platform)
+[recommandations](../administration/secure-platform.md)

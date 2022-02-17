@@ -38,7 +38,7 @@ time of a SSH server login.
 
 To use this pack, the SSH service must be properly configured on your server and
 the mandatory Host Macros must be properly configured. More info in the 
-"Configuration" section [here](###Host).
+"Configuration" section [here](#Host).
 
 ## Setup
 

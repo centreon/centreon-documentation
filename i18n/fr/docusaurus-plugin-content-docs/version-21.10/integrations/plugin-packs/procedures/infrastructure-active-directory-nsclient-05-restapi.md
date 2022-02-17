@@ -33,7 +33,7 @@ Centreon NSClient++ API to trigger their executions remotely.
 ### Centreon NSClient++
 
 To monitor an *Active Directory* domain controller through NSClient++ API, install the Centreon packaged version 
-of the NSClient++ agent. Please follow our [official documentation](../tutorials/centreon-nsclient-tutorial) 
+of the NSClient++ agent. Please follow our [official documentation](../tutorials/centreon-nsclient-tutorial.md) 
 and make sure that the **Webserver / RESTApi** configuration is correct.
 
 ## Installation 

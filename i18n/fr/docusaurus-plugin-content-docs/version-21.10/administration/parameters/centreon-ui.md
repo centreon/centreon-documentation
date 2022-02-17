@@ -72,12 +72,12 @@ Pour valider la configuration, cliquez sur le bouton **Test Internet Connection*
 
 ## Autologin
 
-Voir [Configurer une authentification par Autologin](../../connect/autologin).
+Voir [Configurer une authentification par Autologin](../../connect/autologin.md).
 
 ## SSO
 
-Voir [Configurer une authentification par SSO](../../connect/sso).
+Voir [Configurer une authentification par SSO](../../connect/sso.md).
 
 ## OpenId Connect
 
-Voir [Configurer une authentification par OpenId Connect](../../connect/openid).
+Voir [Configurer une authentification par OpenId Connect](../../connect/openid.md).
