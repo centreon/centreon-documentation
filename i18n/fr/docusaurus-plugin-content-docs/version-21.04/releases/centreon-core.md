@@ -583,6 +583,8 @@ Nouvelle version majeure.
 
 ### 21.04.5
 
+Release date: `February 17, 2022`
+
 #### Enhancements
 
 - Added an "audit" module to Gorgone to provide an overview of the system status, package versions, + some Centreon metrics.
