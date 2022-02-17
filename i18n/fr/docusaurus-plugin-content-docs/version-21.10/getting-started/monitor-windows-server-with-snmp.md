@@ -1,0 +1,169 @@
+---
+id: monitor-windows-server-with-snmp
+title: Monitor your first Windows host
+---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+## Superviser un serveur Windows en SNMP
+
+Dans ce tutoriel, nous supposons que votre plateforme Centreon est installée et fonctionnel. Une [licence](../administration/licenses) est nécessaire pour accéder au catalogue complet des Plugin Packs. Nous supposons que vous avez au moins une licence [Centreon IT 100 Edition](IT100).
+
+La supervision d'un serveur Windows en SNMP se fait via le [Plugin Pack Windows SNMP](../integrations/plugin-packs/procedures/operatingsystems-windows-snmp). (Vous pouvez obtenir plus d'informations sur les Plugin Pack [ici](../monitoring/pluginpacks)). 
+
+## Prérequis
+
+### Sur le serveur Windows que vous souhaitez superviser
+
+La première étape consiste à installer et à configurer le service SNMP sur l'hôte Windows.
+Veuillez vous référer à la documentation de votre distribution Windows pour savoir comment configurer le service SNMP.
+
+Retrouvez ci-dessous quelques étapes pour installer et configurer SNMP sur Windows 10.
+
+#### Installation de SNMP sur Windows 10
+
+Vous avez deux options : Installer SNMP en mode graphique ou Installer SNMP via PowerShell.
+
+<Tabs groupId="sync">
+<TabItem value="En mode Graphique" label="En mode Graphique">
+
+1. Rendez-vous dans le menu **Paramètres > Applications et fonctionnalités > Fonctionnalités facultatives**
+
+2. Cliquez sur le bouton **Ajouter une fonctionnalité** et rechercher **snmp**
+
+	![image](../assets/getting-started/prise_en_main_windows_snmp_4.png)
+
+3. Selectionnez **Protocole SNMP (Simple Network Management Protocol)** and cliquez sur **Installer**.
+
+</TabItem>
+<TabItem value="Via PowerShell" label="Via PowerShell">
+
+Dans la barre de recherche, tapez **PowerShell** et choisissez **Exécuter en tant qu'administrateur**.
+
+1. Vérifiez si le service SNMP est installé
+
+```shell
+Get-WindowsCapability  -Online -Name "SNMP*"
+```
+
+   ![image](../assets/getting-started/prise_en_main_windows_snmp_1.png)
+
+2. Pour installer le service SNMP à partir des serveurs de Microsoft, exécutez la commande suivante:
+
+```shell
+Add-WindowsCapability  -Online -Name "SNMP.Client~~~~0.0.1.0"
+```
+
+   ![image](../assets/getting-started/prise_en_main_windows_snmp_2.png)
+
+3. Vérifiez si le service SNMP a été installé avec succès
+
+```shell
+Get-WindowsCapability  -Online -Name "SNMP*"
+```
+
+   ![image](../assets/getting-started/prise_en_main_windows_snmp_3.png)
+
+</TabItem>
+</Tabs>
+
+#### Configuration de SNMP sur Windows 10
+
+Après l'installation de SNMP, vous devez procéder à la configuration.
+Dans la barre de recherche, tapez **services.msc** et appuyez sur **Entrée** pour lancer le panneau Services.
+
+1. Recherchez le service SNMP dans la liste.
+
+	![image](../assets/getting-started/prise_en_main_windows_snmp_55.png)
+
+2. Dans l'onglet **Agent**, renseignez les paramètres **Contact** et **Localisation**. Puis dans la rubrique **Service**, cochez les cases des services dont vous souhaitez collecter les données pour les transmettre au serveur Centreon qui supervisera l'hôte.
+
+	![image](../assets/getting-started/prise_en_main_windows_snmp_6.png)
+
+3. Dans l'onglet **Sécurité**, écrivez la communauté SNMP dans la section Noms de communauté acceptés et choisissez l'option **LECTURE SEULE**.
+Sélectionnez ensuite le bouton radio **Accepter les paquets SNMP de ces hôtes** et ajoutez l'adresse IP du serveur Centreon.
+
+   ![image](../assets/getting-started/prise_en_main_windows_snmp_8.png)
+
+4. Redémarrez le service SNMP
+
+	![image](../assets/getting-started/prise_en_main_windows_snmp_5.png)
+
+### Sur le serveur Centreon (Poller)
+
+1. Connectez-vous à votre Poller en SSH et installez le plugin Windows SNMP (voir la [Procédure de supervision du Plugin Pack **Windows SNMP**](../integrations/plugin-packs/procedures/operatingsystems-windows-snmp) pour plus d'informations):
+
+   ```shell
+   yum install centreon-plugin-Operatingsystems-Windows-Snmp
+   ```
+
+2. Dans l'interface Web, accédez à **Configuration > Plugin Packs** et installer le Plugin Pack **Windows SNMP** :
+
+   ![image](../assets/getting-started/prise_en_main_windows_snmp_10.gif)
+
+## Configurer l'hôte et déployer la configuration
+
+1. Rendez-vous dans le menu **Configuration > hôte > hôte** et cliquez sur **Ajouter**:
+
+	![image](../assets/getting-started/prise_en_main_windows_snmp_11.png)
+
+2. Remplissez les informations suivantes:
+
+   * Le nom du serveur (1)
+   * Une description du serveur (2)
+   * L'Adresse IP (3)
+   * La version et communauté SNMP(4)
+   * Sélectionnez le Poller (garder "Central" si vous n'avez pas d'autres pollers) (5)
+
+3. Cliquez sur **+ Ajouter une nouvelle entrée** dans le champ **Modèles** (6), ensuite sélectionnez le modèle **OS-Windows-SNMP-custom** (7) et enregistrer **Sauvegarder**.
+
+   ![image](../assets/getting-started/prise_en_main_windows_snmp_12.png)
+
+4. Votre équipement a été ajouté à la configuration de la supervision:
+
+   ![image](../assets/getting-started/prise_en_main_windows_snmp_13.png)
+
+5. Rendez-vous dans le menu **Configuration > Services > Services par hôte**. Un ensemble d'indicateurs a été déployé automatiquement ::
+
+   ![image](../assets/getting-started/prise_en_main_windows_snmp_14.png)
+
+6. [Déployer la configuration](first-supervision#deploying-a-configuration).
+
+7. Rendez-vous dans le menu **Monitoring > Status des Resources** et positionner le filtre sur **Tous** pour récupérer tous les indicateurs quel que soit leur état
+
+	![image](../assets/getting-started/prise_en_main_windows_snmp_1777.png)
+
+Les premiers résultats de la supervision apparaissent avec le statuts **En attente**, ce qui signifie qu'aucune vérification n'a encore été exécutée :
+
+   ![image](../assets/getting-started/prise_en_main_windows_snmp_15.png)
+
+   Après quelques minutes, les premiers résultats de la surveillance apparaissent:
+
+   ![image](../assets/getting-started/prise_en_main_windows_snmp_16.png)
+
+   Si tous les services ne sont pas dans un état **OK**, dépannez et [corrigez le problème](../integrations/plugin-packs/tutorials/troubleshooting-plugins)
+
+### Pour aller plus loin
+
+Le Plugin Pack **Windows SNMP** apporte de nombreux modèles de supervision. Rendez-vous dans le menu  **Configuration > Services > Modèles** et trouvez la liste complète:
+
+   ![image](../assets/getting-started/prise_en_main_windows_snmp_18.png)
+
+Avec **Centreon IT Edition**, vous pouvez ajouter très rapidement et très simplement la surpervision de vos cartes réseau, partition, processus et services en utilisant la fonctionnalité de [découverte des services](../monitoring/discovery/services-discovery)
+
+1. Rendez-vous dans le menu **Configuration > Services > Manuelle**. Commencez à saisir le nom de l’hôte sur lequel réaliser la découverte et l’interface vous proposera de compléter automatiquement ce dernier:
+
+	![image](../assets/getting-started/prise_en_main_windows_snmp_19.png)
+
+2. Sélectionnez ensuite la commande de découverte à exécuter dans la liste déroulante qui vient d’apparaître. Cliquez sur le bouton **Scan** et patientez durant l’analyse des éléments disponibles. Le résultat s’affiche. Sélectionnez les éléments à intégrer à la supervision et cliquez sur le bouton **Sauvegardez** :
+
+	![image](../assets/getting-started/prise_en_main_windows_snmp_20.png)
+
+Les éléments ont été ajouté. Vous pouvez sélectionner une autre commande de découverte et répéter le processus.
+
+3. Les services ont été ajoutés et peuvent être affichés dans le menu **Configuration > Services > Services par hôte**:
+
+	![image](../assets/getting-started/prise_en_main_windows_snmp_21.png)
+
+ 4. [Déployer la configuration](first-supervision#deploying-a-configuration).
+	
