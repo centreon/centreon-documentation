@@ -84,7 +84,7 @@ yum install centreon-plugin-Applications-Monitoring-Iplabel-Ekara-Restapi
 
 2. Install the **IP-Label Ekara Rest API** Centreon Plugin Pack RPM on the Centreon Central server:
 
- ```bash
+```bash
 yum install centreon-pack-applications-monitoring-iplabel-ekara-restapi
 ```
 
@@ -168,5 +168,5 @@ All available options for a given mode can be displayed by adding the
 ### Troubleshooting
 
 Please find all the troubleshooting documentation for the API-based Plugins in
-the [dedicated chapter](../tutorials/troubleshooting-plugins#http-and-api-checks)
+the [dedicated chapter](../tutorials/troubleshooting-plugins.md#http-and-api-checks)
 of the Centreon documentation.
