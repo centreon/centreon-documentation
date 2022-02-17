@@ -73,7 +73,7 @@ This template does not collect metrics, but provides the general state of the cl
 
 ### Device Configuration
 
-The configuration of SNMP on a Linux server is detailed in [the *Linux SNMP* Plugin-Pack's documentation page](operatingsystems-linux-snmp#net-snmp-server-configuration).
+The configuration of SNMP on a Linux server is detailed in [the *Linux SNMP* Plugin-Pack's documentation page](operatingsystems-linux-snmp.md#net-snmp-server-configuration).
 
 ### Network flows
 

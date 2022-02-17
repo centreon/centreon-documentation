@@ -8,7 +8,7 @@ title: Upgrade the extension
 > - Retrieve a new license from Centreon support
 > - Make sure your Centreon MBI server is based on CentOS/RH 7. You may use the
 >   following procedure to migrate your server: [Migrate your
->   reporting server](migrate)
+>   reporting server](migrate.md)
 
 The upgrade of Centreon MBI consists of 4 steps :
 
@@ -21,7 +21,7 @@ The upgrade of Centreon MBI consists of 4 steps :
 
 ### Update the RPM signing key
 
-For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation#existing-installation), to remove the old key and install the new one.
+For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation.md#existing-installation), to remove the old key and install the new one.
 
 ## Step 1: Update the repository
 
@@ -71,7 +71,7 @@ AirUpdate button to update the extension and the widgets
     systemctl stop cbis
     ```
 
-2. See [Upgrading MariaDB](../upgrade/upgrade-mariadb).
+2. See [Upgrading MariaDB](../upgrade/upgrade-mariadb.md).
 
 3. Start the **cbis** service:
     ```shell

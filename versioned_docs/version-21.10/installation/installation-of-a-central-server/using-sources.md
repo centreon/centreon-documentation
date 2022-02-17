@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 ## Prerequisites
 
-> Most CentOS users will find easier to install Centreon Web by [using packages](using-packages).
+> Most CentOS users will find easier to install Centreon Web by [using packages](using-packages.md).
 
 <Tabs groupId="sync">
 <TabItem value="CentOS 8" label="CentOS 8">
@@ -715,7 +715,7 @@ before installing Centreon.
 
 Answer yes to all questions except "Disallow root login remotely?". 
 It is mandatory to set a password for the **root** user of the database.
-You will need this password during the [web installation](../web-and-post-installation).
+You will need this password during the [web installation](../web-and-post-installation.md).
 
 ```shell
 mysql_secure_installation
@@ -1304,4 +1304,4 @@ After this step you should connect to Centreon to finalize the installation proc
 ## Web installation
 
 Conclude installation by performing
-[web installation steps](../web-and-post-installation#web-installation).
+[web installation steps](../web-and-post-installation.md#web-installation).
