@@ -22,11 +22,11 @@ Il apporte les modèles de service suivants :
 
 ### Règles de découverte
 
-Le Pack Centreon IP-Label Ekara Rest API apporte 1 règle de découverte d'hôtes
+Le Pack Centreon *IP-Label Ekara Rest API* inclut un *provider* de découverte d'Hôtes nommé **IP-Label Ekara**.
+Celui-ci permet de découvrir l'ensemble des scenarios Ekara d'une instance donnée et d'ajouter ceux-ci en tant qu'hôtes dans Centreon.
 
-| Nom du provider | Description                             |
-|:----------------|:----------------------------------------|
-| IP-Label Ekara  | Découverte des scénarios IP-Label Ekara |
+Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionnement sur la documentation du module:
+[Découverte des hôtes](../../../monitoring/discovery/hosts-discovery)
 
 ### Métriques & statuts collectés
 
@@ -167,5 +167,5 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 
 ### Diagnostic des erreurs communes
 
-Rendez-vous sur la [documentation dédiée](../tutorials/troubleshooting-plugins.html#http-and-api-checks)
+Rendez-vous sur la [documentation dédiée](../tutorials/troubleshooting-plugins#http-and-api-checks)
 des Plugins basés sur HTTP/API.

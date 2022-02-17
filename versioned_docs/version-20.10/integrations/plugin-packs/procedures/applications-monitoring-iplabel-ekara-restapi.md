@@ -5,7 +5,6 @@ title: IP-Label Ekara Rest API
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 ## Pack Assets
 
 ### Templates
@@ -22,9 +21,11 @@ It brings the following Service Templates:
 
 ### Discovery rules
 
-| Rule Name       | Description                       |
-|:----------------|:----------------------------------|
-| IP-Label Ekara  | Discover IP-Label Ekara scenarios |
+The Centreon Plugin-Pack *IP-Label Ekara Rest API* includes a Host Discovery *provider* to automatically discover the Ekara scenarios and add them as hosts to the Centreon inventory.
+This provider is named **IP-Label Ekara**.
+
+More information about the Host Discovery module is available in the Centreon documentation:
+[Host Discovery](../../../monitoring/discovery/hosts-discovery)
 
 ### Collected metrics & status
 
@@ -155,7 +156,7 @@ All available options for a given mode can be displayed by adding the
     --help
 ```
 
-All available options for a given mode can be displayed by adding the 
+All available options for a given mode can be displayed by adding the
 `--list-mode` parameter to the command:
 
 ```bash
@@ -167,5 +168,5 @@ All available options for a given mode can be displayed by adding the
 ### Troubleshooting
 
 Please find all the troubleshooting documentation for the API-based Plugins in
-the [dedicated chapter](../tutorials/troubleshooting-plugins.html#http-and-api-checks)
+the [dedicated chapter](../tutorials/troubleshooting-plugins#http-and-api-checks)
 of the Centreon documentation.
