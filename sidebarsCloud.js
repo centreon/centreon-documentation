@@ -43,18 +43,188 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'getting-started/pp',
+          id: 'monitoring/pluginpacks',
+        },
+        {
+          type: 'doc',
+          id: 'monitoring/monitoring-servers/deploying-a-configuration',
         },
         {
           type: 'doc',
           id: 'getting-started/monitoring',
         },
         {
-          type: 'doc',
-          id: 'getting-started/create-custom-view',
+          type: 'category',
+          label: 'Tutorials',
+          items: [
+            {
+              type: 'doc',
+              id: 'getting-started/tutorials/monitor-linux-server-with-snmp',
+            },
+            {
+              type: 'doc',
+              id: 'getting-started/tutorials/monitor-windows-server-with-snmp',
+            },
+            {
+              type: 'doc',
+              id: 'getting-started/tutorials/monitor-cisco-router-with-snmp',
+            },
+            {
+              type: 'doc',
+              id: 'getting-started/tutorials/monitor-mysql-server',
+            },
+            {
+              type: 'doc',
+              id: 'getting-started/tutorials/autodisco-aws',
+            },
+            {
+              type: 'doc',
+              id: 'getting-started/create-custom-view',
+            },
+          ],
         },
       ],
     },
+
+
+    {
+      type: 'category',
+      label: 'Monitoring resources',
+      items: [
+        {
+          type: 'category',
+          label: 'Monitoring hosts',
+          items: [
+            {
+              type: 'doc',
+              id: 'monitoring/basic-objects/hosts-create'
+            },
+            {
+              type: 'doc',
+              id: 'monitoring/basic-objects/hosts'
+            },
+            {
+              type: 'doc',
+              id: 'monitoring/basic-objects/hosts-create-disco'
+            },
+            {
+              type: 'doc',
+              id: 'monitoring/basic-objects/hosts-templates'
+            }
+          ]
+        },
+        {
+          type: 'category',
+          label: 'Monitoring services',
+          items: [
+            {
+              type: 'doc',
+              id: 'monitoring/basic-objects/services-create'
+            },
+            {
+              type: 'doc',
+              id: 'monitoring/basic-objects/services'
+            },
+            {
+              type: 'doc',
+              id: 'monitoring/basic-objects/services-create-disco'
+            },
+            {
+              type: 'doc',
+              id: 'monitoring/basic-objects/services-templates'
+            },
+            {
+              type: 'doc',
+              id: 'monitoring/basic-objects/meta-services'
+            }
+          ]
+        },
+        {
+          type: 'category',
+          label: 'Discovering hosts and services automatically',
+          items: [
+            {
+              type: 'doc',
+              id: 'monitoring/discovery/introduction'
+            },
+            {
+              type: 'doc',
+              id: 'monitoring/discovery/installation'
+            },
+            {
+              type: 'doc',
+              id: 'monitoring/discovery/hosts-discovery'
+            },
+            {
+              type: 'doc',
+              id: 'monitoring/discovery/services-discovery'
+            },
+          ]
+        },
+        {
+          type: 'category',
+          label: 'Organizing hosts, services and contacts',
+          items: [
+            {
+              type: 'doc',
+              id: 'monitoring/groups'
+            },
+            {
+              type: 'doc',
+              id: 'monitoring/categories'
+            }
+          ]
+        },
+        {
+          type: 'category',
+          label: 'Basic objects and actions',
+          items: [
+            {
+              type: 'doc',
+              id: 'monitoring/basic-objects/timeperiods'
+            },
+            {
+              type: 'doc',
+              id: 'monitoring/basic-objects/macros'
+            },
+            {
+              type: 'doc',
+              id: 'monitoring/basic-objects/commands'
+            },
+            {
+              type: 'doc',
+              id: 'monitoring/generic-actions'
+            }
+          ]
+        },
+        {
+          type: 'category',
+          label: 'Passive Monitoring',
+          items: [
+            {
+              type: 'doc',
+              id: 'monitoring/passive-monitoring/enable-snmp-traps'
+            },
+            {
+              type: 'doc',
+              id: 'monitoring/passive-monitoring/create-snmp-traps-definitions'
+            },
+            {
+              type: 'doc',
+              id: 'monitoring/passive-monitoring/monitoring-with-snmp-traps'
+            },
+            {
+              type: 'doc',
+              id: 'monitoring/passive-monitoring/debug-snmp-traps-management'
+            },
+          ]
+        },
+      ]
+    },
+
+
+
+
     {
       type: 'category',
       label: 'Managing events and alerts',
@@ -71,14 +241,6 @@ module.exports = {
                         {
                           type: 'doc',
                           id: 'alerts-notifications/resources-status'
-                        },
-                        {
-                          type: 'doc',
-                          id: "alerts-notifications/event-console"
-                        },
-                        {
-                          type: "doc",
-                          id: "alerts-notifications/event-log"
                         },
                         {
                           type: "doc",
@@ -128,14 +290,6 @@ module.exports = {
                           type: "doc",
                           id: "alerts-notifications/notif-escalation"
                         },
-                        {
-                          type: "doc",
-                          id: "alerts-notifications/notif-flapping"
-                        },
-                        {
-                          type: "doc",
-                          id: "alerts-notifications/notif-advanced"
-                        }
                       ]
                     },
       ],
@@ -154,5 +308,8 @@ module.exports = {
         },
       ],
     },
+
+
+
   ],
 };
