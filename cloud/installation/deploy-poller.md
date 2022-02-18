@@ -21,7 +21,7 @@ Before deploying a poller, make sure the [prerequisites](prerequisites) for your
 
   The script is executed (this should take about 10 minutes):
 
-  ![image](../assets/script2.png)
+  ![image](../assets/installation/script2.png)
 
 3. When this is finished, [log in to your central server](../getting-started/interface#accessing-the-central-servers-interface) and go to page **Configuration > Pollers > Pollers**. The new poller appears in the list of pollers.
    * By default, the name of the poller is its hostname (this may be shortened). Click on its name to rename it.
