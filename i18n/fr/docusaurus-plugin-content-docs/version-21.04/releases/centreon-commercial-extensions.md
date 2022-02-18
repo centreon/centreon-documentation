@@ -108,9 +108,12 @@ Release date: `December 16, 2021`
 
 `February 18 2022`
 
+#### Security fixes
+
+- Log4J MBI upgrade to 2.17.1
+
 #### Improvements
 
-- Log4J MBI upgrade
 - Add new column “reported duration” in report event list
 - Replace 'switch' with 'if' to accomodate RHEL 8 deployement
 - Compatibility PHP 7.4 (20.10 / 21.04) for MBI
