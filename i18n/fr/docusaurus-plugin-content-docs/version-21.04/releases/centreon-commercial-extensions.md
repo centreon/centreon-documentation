@@ -104,6 +104,31 @@ Release date: `December 16, 2021`
 
 ## Centreon MBI
 
+### 21.04.3
+
+`February 18 2022`
+
+#### Improvements
+
+- Log4J MBI upgrade
+- Add new column “reported duration” in report event list
+- Replace 'switch' with 'if' to accomodate RHEL 8 deployement
+- Compatibility PHP 7.4 (20.10 / 21.04) for MBI
+
+#### Bugfixes
+
+- Fixed: New line character missing from last line in MBI back up script preventing the script to execute
+- Fixed: Can't find init MySQL script if mariadb only configured for systemd
+- Fixed: Report job failed due to incompatibility with the Jsch library
+- Fixed: A service associated with several categories of services will be present several times on the reports (ex Hostgroups-Service-Current-Events)
+- Fixed: Notification for administrators not working on fail
+- Fixed: Hostgroups-Incidents-1 English translation issue (”Maintainability”)
+- Fixed: Availability on host or hostgroup, rounding issue
+- Fixed: Report BA-Availability-1 - Events when KPIs are in downtime should not be listed
+- Fixed: Inconsistency in Top 50 in EventHostgroup-service-incident-resolution-2
+- Fixed: Issue in Test SMTP Rule
+
+
 ### 21.04.2
 
 `15 juillet 2021`
