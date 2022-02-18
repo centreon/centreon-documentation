@@ -115,7 +115,7 @@ Release date: `December 16, 2021`
 
 - Add new column “reported duration” in report event list
 - Replace 'switch' with 'if' to accommodate RHEL 8 deployment
-- Compatibility PHP 7.4 (20.10 / 21.04) for MBI
+- Compatibility with PHP 7.4 (20.10 / 21.04) for MBI
 
 #### Bugfixes
 
