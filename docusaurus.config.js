@@ -10,11 +10,12 @@ const config = {
   tagline: '',
   url: 'https://docs.centreon.com',
   baseUrl: '/',
-  onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenLinks: 'error',
+  onBrokenMarkdownLinks: 'error',
   favicon: 'img/logo-centreon.png',
   organizationName: 'Centreon',
   projectName: 'Centreon Documentation',
+  
   noIndex: false,
 
   i18n: {
@@ -41,7 +42,7 @@ const config = {
           editLocalizedFiles: true,
           showLastUpdateTime: true,
           includeCurrentVersion: false,
-          onlyIncludeVersions: ['21.10','21.04', '20.10', '20.04'],
+          onlyIncludeVersions: ['21.10', '21.04', '20.10', '20.04'],
           versions: {
             '21.10': {
               label: '⭐ 21.10',
@@ -104,7 +105,7 @@ const config = {
       announcementBar: {
         id: 'announcementBar-1',
         content:
-          'The search feature is not available at the moment. Thank you for your patience and understanding.',
+          'The search function is only available for version 21.10 at the moment. Thank you for your patience and understanding.',
         backgroundColor: '#ebedf0',
         textColor: '#091E42',
         isCloseable: false,
