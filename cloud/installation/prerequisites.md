@@ -5,7 +5,7 @@ title: Prerequisites
 
 ## OS
 
-The poller should be installed on a CentOS 7 server.
+The poller should be installed on a dedicated fresh CentOS 7 server.
 
 ## Hardware
 
