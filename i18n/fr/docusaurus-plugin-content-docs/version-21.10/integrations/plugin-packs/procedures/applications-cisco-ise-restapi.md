@@ -37,7 +37,7 @@ ainsi que le nombre que le nombre de  *postured endpoints*.
 
 ## Prérequis
 
-L'utilisateur renseigné dans la Macro d'Hôte (plus d'information [ici](#Hôte.md)
+L'utilisateur renseigné dans la Macro d'Hôte (plus d'information [ici](#Hôte)
 doit faire partie des groupes Admin suivants et les informations 
 d'identification doivent être stockées dans la base de données interne de Cisco 
 ISE (utilisateurs administratifs internes)

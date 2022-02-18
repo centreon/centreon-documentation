@@ -233,4 +233,4 @@ La liste de toutes les options complémentaires et leur signification peut être
 
 ### Diagnostic des erreurs communes  
 
-[Diagnostique des plugins](../tutorials/troubleshooting-plugins.md#http-and-api-checks)
+[Diagnostique des plugins](../tutorials/troubleshooting-plugins#http-and-api-checks)
