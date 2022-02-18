@@ -74,7 +74,7 @@ Release date: `February 18, 2022`
 #### Enhancements
 
 - Add new column “reported duration” in report event list
-- Replace 'switch' with 'if' to accomodate RHEL 8 deployement
+- Replace 'switch' with 'if' to accommodate RHEL 8 deployment
 - MBI diagnostic script : added check for chrony service
 
 #### Bug fixes
