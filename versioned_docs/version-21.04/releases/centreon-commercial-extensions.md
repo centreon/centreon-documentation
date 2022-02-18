@@ -120,7 +120,7 @@ Release date: `December 16, 2021`
 #### Bugfixes
 
 - Fixed: New line character missing from last line in MBI back up script preventing the script to execute
-- Fixed: Can't find init MySQL script if mariadb only configured for systemd
+- Fixed: Can't find init MySQL script if MariaDB only configured for systemd
 - Fixed: Report job failed due to incompatibility with the Jsch library
 - Fixed: A service associated with several categories of services will be present several times on the reports (ex Hostgroups-Service-Current-Events)
 - Fixed: Notification for administrators not working on fail
