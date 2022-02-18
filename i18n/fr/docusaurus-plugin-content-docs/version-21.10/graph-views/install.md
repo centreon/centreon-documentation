@@ -195,7 +195,7 @@ configurations sont possibles.
 ### Interface Centreon Web
 
 Vous devez fournir au serveur Centreon MAP un utilisateur dédié
-**qui a accès à toutes les ressources** par le biais des [groupes de listes d'accès](../administration/access-control-lists) appropriés. 
+**qui a accès à toutes les ressources** par le biais des [groupes de listes d'accès](../administration/access-control-lists.md) appropriés. 
 Étant donné que le mot de passe sera stocké en clair dans un fichier 
 de configuration, vous ne devez pas utiliser un compte utilisateur administrateur Centreon.
 
@@ -487,4 +487,4 @@ La mise à jour automatique nécessite que votre ordinateur ait accès à intern
 
 ## Sécurisez votre plateforme
 
-N'oubliez pas de sécuriser votre plateforme Centreon en suivant nos [recommandations](secure-your-map-platform).
+N'oubliez pas de sécuriser votre plateforme Centreon en suivant nos [recommandations](secure-your-map-platform.md).

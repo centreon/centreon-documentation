@@ -41,7 +41,7 @@ Then click on **Next**.
 Provide the information needed to connect to the database instance.
 
 By default, the instance address is set to *localhost*, the instance root
-user is set to *root* and the root password is empty. Since MariaDB 10.5, it has been mandatory to add a password for the root user.  The **Root password** of the database is the password you have defined when executing `mysql_secure_installation` (whether you have installed Centreon from the [ISO](installation-of-a-central-server/using-centreon-iso.md#secure-the-database), from [packages](installation-of-a-central-server/using-packages.md#secure-the-database) or from [sources](installation-of-a-central-server/using-sources.md#secure-the-database)).
+user is set to *root* and the root password is empty. Since MariaDB 10.5, it has been mandatory to add a password for the root user.  The **Root password** of the database is the password you have defined when executing `mysql_secure_installation` (whether you have installed Centreon from the [ISO](installation-of-a-central-server/using-centreon-iso#secure-the-database.md), from [packages](installation-of-a-central-server/using-packages.md#secure-the-database) or from [sources](installation-of-a-central-server/using-sources.md#secure-the-database)).
 
 > If you use a remote database server, or use a specific root user, change
 > these entries

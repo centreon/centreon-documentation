@@ -15,7 +15,6 @@ const config = {
   favicon: 'img/logo-centreon.png',
   organizationName: 'Centreon',
   projectName: 'Centreon Documentation',
-  
   noIndex: false,
 
   i18n: {
@@ -42,7 +41,7 @@ const config = {
           editLocalizedFiles: true,
           showLastUpdateTime: true,
           includeCurrentVersion: false,
-          onlyIncludeVersions: ['21.10', '21.04', '20.10', '20.04'],
+          onlyIncludeVersions: ['21.10','21.04', '20.10', '20.04'],
           versions: {
             '21.10': {
               label: '⭐ 21.10',

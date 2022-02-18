@@ -7,7 +7,7 @@ Installer un Remote Server est similaire à l'installation d'un serveur Centreon
 
 > Si vous souhaitez installer Centreon sur une distribution CentOS / Oracle Linux
 > / RHEL en version 8, vous devez suivre la procédure
-> [à partir des paquets RPM](./using-packages)
+> [à partir des paquets RPM](./using-packages.md)
 
 ## Prérequis
 
@@ -56,7 +56,7 @@ Sélectionnez le disque dur et l'option **I will configure partitioning** puis c
 ![image](../../assets/installation/06_select_disk.png)
 
 A l'aide du bouton **+** créez votre partitionnement suivant les
-[prérequis de la documentation](../prerequisites#définition-de-lespace-disque) puis cliquez sur **Done** :
+[prérequis de la documentation](../prerequisites.md#définition-de-lespace-disque) puis cliquez sur **Done** :
 
 ![image](../../assets/installation/07_partitioning_filesystem.png)
 
@@ -159,7 +159,7 @@ sécuriser son installation avant d'installer Centreon.
 
 Répondez oui à toute question sauf "Disallow root login remotely?". 
 Vous devez obligatoirement définir un mot de passe pour l'utilisateur **root** de la base de données.
-Ce mot de passe vous sera demandé lors de l'[installation web](../web-and-post-installation).
+Ce mot de passe vous sera demandé lors de l'[installation web](../web-and-post-installation.md).
 
 ```shell
 mysql_secure_installation
@@ -170,7 +170,7 @@ mysql_secure_installation
 ## Installation web
 
 Terminez l'installation en réalisant les
-[étapes de l'installation web](../web-and-post-installation#installation-web).
+[étapes de l'installation web](../web-and-post-installation.md#installation-web).
 
 > Pendant l'installation web, il n'est pas nécessaire d'installer le module
 > Autodiscovery.
@@ -312,9 +312,9 @@ Failed connect to 192.168.0.1:444; Connection refused
 ## Ajouter le Remote Server à la configuration
 
 Rendez-vous au chapitre
-[Ajouter un Remote Server à la configuration](../../monitoring/monitoring-servers/add-a-remote-server-to-configuration).
+[Ajouter un Remote Server à la configuration](../../monitoring/monitoring-servers/add-a-remote-server-to-configuration.md).
 
 ## Sécurisez votre plateforme
 
 N'oubliez pas de sécuriser votre plateforme Centreon en suivant nos
-[recommandations](../../administration/secure-platform)
+[recommandations](../../administration/secure-platform.md)

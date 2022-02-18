@@ -3,7 +3,7 @@ id: loginpwd
 title: Configurer une connexion locale
 ---
 
-Pour permettre à un [contact](../monitoring/basic-objects/contacts) de se connecter à Centreon :
+Pour permettre à un [contact](../monitoring/basic-objects/contacts.md) de se connecter à Centreon :
 
 1. Allez à la page **Configuration > Utilisateurs > Contacts/Utilisateurs** et cliquez sur le contact désiré. 
 
