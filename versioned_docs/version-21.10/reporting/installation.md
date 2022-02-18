@@ -405,7 +405,7 @@ capabilities to:
 - Manage data retention on the reporting server.
 
 Before following the next steps, you should have read
-[the best practice parts](installation#best-practices-for-monitoring) to
+[the best practice parts](installation.md#best-practices-for-monitoring) to
 ensure that the Centreon objects (e.g., groups and categories) are configured
 according to Centreon MBI requirements.
 
@@ -545,4 +545,4 @@ systemctl restart crond
 > *eventReportBuilder* has finished on the monitoring server (see the cron
 > file \* /etc/cron.d/centreon\* on the monitoring server).
 
-Centreon MBI installation is now complete, check [the tutorial](../getting-started/analyze-resources-availability)
+Centreon MBI installation is now complete, check [the tutorial](../getting-started/analyze-resources-availability.md)

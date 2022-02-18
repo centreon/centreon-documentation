@@ -3,16 +3,16 @@ id: hosts-discovery
 title: Discovering hosts automatically
 ---
 
-See also our tutorial on [how to detect AWS EC2 instances](../../getting-started/autodisco-aws).
+See also our tutorial on [how to detect AWS EC2 instances](../../getting-started/autodisco-aws.md).
 
 ## Create a discovery job
 
-1. [Install](installation) the Auto Discovery module.
+1. [Install](installation.md) the Auto Discovery module.
 
 2. Install the Plugin Pack for the resources you want to discover.
     > The discovery providers are included in Plugin Packs (Azure,
     > Amazon AWS, VMware, etc.). To know the complete list, please go to
-    > the [Plugin Packs](../../integrations/plugin-packs/introduction)
+    > the [Plugin Packs](../../integrations/plugin-packs/introduction.md)
     > catalog.
 
 3. Create a discovery job for each type of resource you want to discover: go to **Configuration > Hosts > Discovery** and click on **+ADD**. A wizard opens.
@@ -173,7 +173,7 @@ button: ![image](../../assets/monitoring/discovery/host-discovery-hosts-save.png
   If the hosts you selected are not visible in the configuration, go back to the
 list of jobs and see if an error occured during the saving task.
 
-5. [Deploy](../monitoring-servers/deploying-a-configuration) the configuration. The new hosts are now monitored.
+5. [Deploy](../monitoring-servers/deploying-a-configuration.md) the configuration. The new hosts are now monitored.
 
 ## Edit a discovery job
 

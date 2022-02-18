@@ -173,4 +173,4 @@ All the options that can be used with this plugin can be found over the ```--hel
 
 ## Troubleshooting
 
-[Troubleshooting plugins](../tutorials/troubleshooting-plugins)
+[Troubleshooting plugins](../tutorials/troubleshooting-plugins.md)

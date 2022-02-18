@@ -7,7 +7,7 @@ There are several ways to install Centreon. Which one suits your needs best?
 
 ## To use Centreon [IT-100](it100.md) or to test the solution
 
-- Use a [ready-to-use virtual machine](../installation/installation-of-a-central-server/using-virtual-machines).
+- Use a [ready-to-use virtual machine](../installation/installation-of-a-central-server/using-virtual-machines.md).
 
 ## To install Centreon in production
 

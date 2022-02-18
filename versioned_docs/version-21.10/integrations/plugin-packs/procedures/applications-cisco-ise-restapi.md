@@ -37,7 +37,7 @@ dedicated built-in REST API.
 
 ## Prerequisites
 
-The users used in the Host Macro (more information [here](##Host) must be 
+The users used in the Host Macro (more information [here](#Host) must be 
 assigned to one of the following Admin Groups and must be authenticated against 
 the credentials stored in the Cisco ISE internal database (internal admin 
 users):

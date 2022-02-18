@@ -18,10 +18,10 @@ Packs are installed via the Centreon interface. For each type of equipment,
 monitored and set default warning and critical thresholds (these may be
 fine-tuned later on).
 
-  Some packs also contain [discovery rules](discovery/introduction).
+  Some packs also contain [discovery rules](discovery/introduction.md).
 
 To get an up-to-date list of all Plugin Packs with their respective monitoring
-procedure, please refer to the section on [Plugin Packs](../integrations/plugin-packs/introduction).
+procedure, please refer to the section on [Plugin Packs](../integrations/plugin-packs/introduction.md).
 
 ## Prerequisites
 
@@ -38,7 +38,7 @@ yum update centreon-pp-manager
 
 ### License
 
-A [license](../administration/licenses) is required to access the full Plugin Packs catalog. Contact the
+A [license](../administration/licenses.md) is required to access the full Plugin Packs catalog. Contact the
 [Centreon support team](https://centreon.force.com) to get your license.
 
 ### Connectors
@@ -65,7 +65,7 @@ Installing a plugin pack is a 4-step process:
 
 ### Accessing the Plugin Packs catalog
 
-* If you have an online [license](../administration/licenses), the Plugin Packs catalog is already available on your platform, on page **Configuration > Plugin Packs**.
+* If you have an online [license](../administration/licenses.md), the Plugin Packs catalog is already available on your platform, on page **Configuration > Plugin Packs**.
 
 * If you have an offline license:
     - install the Plugin Packs repository (contact the [Centreon support team](https://centreon.force.com/) for its address)
@@ -148,7 +148,7 @@ Apply a plugin pack to a host or service to start monitoring them:
 
 1. Create the host/the service, and in the **Template(s)** field, choose the template for the Plugin Pack you want.
 
-2. [Deploy](monitoring-servers/deploying-a-configuration) the configuration.
+2. [Deploy](monitoring-servers/deploying-a-configuration.md) the configuration.
 
 ## Updating Plugin Packs
 
@@ -195,7 +195,7 @@ To update the plugins:
   yum update centreon-plugins\*
   ```
 
-2. [Deploy the configuration](monitoring-servers/deploying-a-configuration) for all pollers. The **Restart Monitoring Engine** 
+2. [Deploy the configuration](monitoring-servers/deploying-a-configuration.md) for all pollers. The **Restart Monitoring Engine** 
 option must be set to **Restart**.
 
 3. Check that you do not have new errors while executing new plugins.

@@ -33,7 +33,7 @@ To add a Service Template:
 Go into the **Configuration > Services > Templates** menu and click on **Add**.
 
 > Refer to the chapter covering configuration of
-> *[services](services)* to configure a template because the
+> *[services](services.md)* to configure a template because the
 > form is identical.
 
 > By default, locked service templates are hidden. Check the "Locked elements"
