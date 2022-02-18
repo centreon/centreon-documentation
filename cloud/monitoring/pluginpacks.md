@@ -1,5 +1,5 @@
 ---
-id: pp
+id: pluginpacks
 title: Plugin Packs
 ---
 
