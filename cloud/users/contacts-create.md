@@ -5,7 +5,7 @@ title: Creating contacts manually
 
 * To create a contact, go to **Configuration > Users > Contacts/Users**, then click **Add**.
 * To grant a user the right to access a page or to perform an action, select the role(s) you want
-from the **Linked to Roles** list. See [Users in Centreon Cloud](cloud-users) to know more about roles.
+from the **Linked to Roles** list. See [Users in Centreon Cloud](users) to know more about roles.
 
 ![image](../assets/06useradd.png)
 
