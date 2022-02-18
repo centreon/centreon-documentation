@@ -50,6 +50,12 @@ Release date: `December 16, 2021`
 
 ## Centreon BAM
 
+### 21.10.2
+
+Release date: `February 18, 2022`
+
+- Fixed: Unable to retrieve Business Activities info through API
+
 ### 21.10.1
 
 Release date: `December 7, 2021`
