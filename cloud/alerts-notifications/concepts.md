@@ -39,7 +39,7 @@ In addition to their status, resources can be in several states:
 
 * <span style={{color:'#ae9500'}}>Acknowledged</span>: indicates that the incident on the service or on the host
     has been taken into account by a user. (See [Acknowledging a problem](acknowledge).)
-* <span style={{color:'#cc99ff'}}>In downtime</span>: indicates that notifications are temporarily stopped. A [downtime](downtimes) can be [planned in advance](downtimes#recurrent-downtimes) to avoid receiving alerts during maintenance periods, or be set following an incident.
+* <span style={{color:'#cc99ff'}}>In downtime</span>: indicates that notifications are temporarily stopped. A [downtime](downtimes.md) can be [planned in advance](downtimes#recurrent-downtimes) to avoid receiving alerts during maintenance periods, or be set following an incident.
 
 * [Flapping](notif-flapping): indicates that the status change
     percentage of the resource is very high. This percentage is obtained
