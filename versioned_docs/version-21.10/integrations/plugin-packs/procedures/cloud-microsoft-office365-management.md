@@ -5,7 +5,6 @@ title: Office 365
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 ## Overview
 
 Office 365 is a line of online subscription services offered by Microsoft in their Microsoft Office product suite. 
@@ -16,11 +15,23 @@ The Centreon Plugin relies on the Office 365 Graph API to collect and monitor th
 
 ### Monitored objects
 
+* Application credentials: Expiration of key and password credentials for each applications.
 * Office services: Applications available on the Office 365 portal: Exchange Online, Microsoft Intune, Skype for Business, Mobile Device Management for Office 365, OneDrive for Business, SharePoint Online, Microsoft Teams, etc...
 
 ## Collected metrics
 
-<Tabs groupId="sync">
+<Tabs groupId="Services">
+<TabItem value="App-Credentials" label="App-Credentials">
+
+| Metric name                                            | Description                                  | Unit   |
+| :----------------------------------------------------- | :------------------------------------------- | :----- |
+| password status                                        | Current password status (valid or expired)   |        |
+| *app_name~key_id*#application.password.expires.seconds | Number of seconds before password expiration | s      |
+| key status                                             | Current key status (valid or expired)        |        |
+| *app_name~key_id*#application.key.expires.seconds      | Number of seconds before key expiration      | s      |
+
+</TabItem>
+
 <TabItem value="Service-Status" label="Service-Status">
 
 | Metric name     | Description                                        |
@@ -92,6 +103,10 @@ to save your selection and return to the main configuration page for your applic
 Under both *Application Permissions* and *Delegated Permissions*, select the permissions your application requires. 
 Refer to the specific API reference for more details about each permission.
 
+#### Add permissions to Microsoft Graph
+
+You also need to specify permissions for **Microsoft Graph** for both *Application* and *Delegated* type of permission. You will have to set **ServiceHealth.Read.All**.
+
 #### Request access tokens from Azure AD
 
 After a tenant admin grants consent, your application receives an authorization code as a query string parameter 
@@ -102,36 +117,39 @@ https://docs.microsoft.com/en-us/office/office-365-management-api/get-started-wi
 
 ## Installation
 
-<Tabs groupId="sync">
+<Tabs groupId="Licenses">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every poller expected to monitor Office 365 ressources:
+1. Install the Centreon Plugin package on every poller expected to monitor **Office 365** ressources:
 
 ```bash
 yum install centreon-plugin-Cloud-Microsoft-Office365-Management-Api
 ```
 
-2. On the Centreon Web interface, install the Plugin-Pack on the "Configuration > Plugin packs > Manager" page.
+2. On the Centreon Web interface, install the Pack on the **Configuration > Plugin packs > Manager** page.
 
 </TabItem>
+
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every poller expected to monitor Office 365 ressources:
+1. Install the Centreon Plugin package on every poller expected to monitor **Office 365** ressources:
 
 ```bash
 yum install centreon-plugin-Cloud-Microsoft-Office365-Management-Api
 ```
 
-2. Install the Plugin-Pack RPM on the Centreon Central server:
+2. Install the Pack RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-cloud-microsoft-office365-management 
 ```
 
-3. On the Centreon Web interface, install the Plugin-Pack on the "Configuration > Plugin packs > Manager" page.
+3. On the Centreon Web interface, install the Pack on the **Configuration > Plugin packs > Manager** page.
 
 </TabItem>
 </Tabs>
+
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
@@ -164,15 +182,15 @@ Once the Centreon plugin installed, you can test it directly on the Centreon Pol
 OK: Service 'Exchange Online' status is 'serviceOperational' |
 ```
 
-The above command requests the Office 365 Graph API (```--plugin=cloud::microsoft::office365::management::plugin```) 
-with a set of credentials previously defined (```--tenant='b3dd23de-593f3cfe-4d741212-bcf9-f035c1a2eb24' --client-id='76f82731-073b-4eb2-9228-901d252d2cb6-1b0d' 
---client-secret='9/kRTASjPoy9FJfQZg6iznX\AkzCGertBgNq5r3tPfECJfKxj6zA='```).
-This command aims to check the status of the *Exchange Online* service (```--mode=service-status --filter-service-name='Exchange Online'```).
-A CRITICAL alert would be triggered if the *Exchange Online* returned service status is not *serviceOperational* (```--critical-status='%{status}```).
+The above command requests the Office 365 Graph API (`--plugin=cloud::microsoft::office365::management::plugin`) 
+with a set of credentials previously defined (`--tenant='b3dd23de-593f3cfe-4d741212-bcf9-f035c1a2eb24' --client-id='76f82731-073b-4eb2-9228-901d252d2cb6-1b0d' 
+--client-secret='9/kRTASjPoy9FJfQZg6iznX\AkzCGertBgNq5r3tPfECJfKxj6zA='`).
+This command aims to check  the status of the *Exchange Online* service (`--mode=service-status --filter-service-name='Exchange Online'`).
+A CRITICAL alert would be triggered if the *Exchange Online* returned service status is not *serviceOperational* (`--critical-status='%{status}`).
 
-### When executing the command, I get the following error message: ```UNKNOWN: Cannot decode json response```
+### When executing the command, I get the following error message: `UNKNOWN: Cannot decode json response`
 
-If you receive this message, add the ```--debug``` option to the command to get more information about the error:
+If you receive this message, add the `--debug` option to the command to get more information about the error:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_office365_management_api.pl
@@ -195,14 +213,14 @@ string or atom, at character offset 0 (before "System.Collections.G...") at
 Most common reasons for this message are:
 
 * Check that the *tenant id* / *client id* / *client secret* credentials are properly set. If any modification is made on 
-the associated privileges, delete the Plugin cache file: ```/var/lib/centreon/centplugins/office365_managementapi_*```.
+the associated privileges, delete the Plugin cache file: `/var/lib/centreon/centplugins/office365_managementapi_*`.
 * The Plugin cannot connect to the Office 365 API: there might be a third-party device (Firewall, Proxy...) dropping the flows.
 * The "lwp" web library used by the Plugin in unable to properly handle the request. Prevent this behavior by using the "curl" backend. 
-Just add the following option ```--http-backend=curl``` to the command.
+Just add the following option `--http-backend=curl` to the command.
 
 ### How do I get a description of the available options ?
 
-The whole list of options and their usage can be displayed by adding the ```--help``` parameter to the command:
+The whole list of options and their usage can be displayed by adding the `--help` parameter to the command:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_office365_management_api.pl \
