@@ -10,16 +10,15 @@ const config = {
   tagline: '',
   url: 'https://docs.centreon.com',
   baseUrl: '/',
-  onBrokenLinks: 'error',
-  onBrokenMarkdownLinks: 'error',
+  onBrokenLinks: 'warn',
+  onBrokenMarkdownLinks: 'warn',
   favicon: 'img/logo-centreon.png',
   organizationName: 'Centreon',
   projectName: 'Centreon Documentation',
-  trailingSlash: true,
   noIndex: false,
 
   i18n: {
-    defaultLocale: 'fr',
+    defaultLocale: 'en',
     locales: ['en', 'fr'],
     localeConfigs: {
       en: {
@@ -42,7 +41,7 @@ const config = {
           editLocalizedFiles: true,
           showLastUpdateTime: true,
           includeCurrentVersion: false,
-          onlyIncludeVersions: ['21.10'],
+          onlyIncludeVersions: ['21.10','21.04', '20.10', '20.04'],
           versions: {
             '21.10': {
               label: '⭐ 21.10',
