@@ -11,7 +11,7 @@ attachée à chaque contact à notifier. Centreon propose des commandes par
 défaut que vous pouvez modifier.
 
 Accédez au chapitre de [configuration des
-commandes](../monitoring/basic-objects/commands#definition) pour
+commandes](../monitoring/basic-objects/commands.md#definition) pour
 modifier / ajouter de nouvelles commandes de notification.
 
 > Vous pouvez également trouver dans les [plugins

@@ -236,5 +236,5 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 
 ### Diagnostic des erreurs communes
 
-Rendez-vous sur la [documentation dédiée](../tutorials/troubleshooting-plugins#snmp-checks)
+Rendez-vous sur la [documentation dédiée](../tutorials/troubleshooting-plugins.md#snmp-checks)
 pour le diagnostic des erreurs communes des Plugins Centreon.

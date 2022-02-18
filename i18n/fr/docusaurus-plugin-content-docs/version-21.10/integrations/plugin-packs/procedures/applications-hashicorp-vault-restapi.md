@@ -161,4 +161,4 @@ La liste de toutes les options complémentaires et leur signification peut être
 
 ### Diagnostic des erreurs communes  
 
-Rendez-vous sur la [documentation dédiée](../tutorials/troubleshooting-plugins#http-and-api-checks) des Plugins basés sur HTTP/API.
+Rendez-vous sur la [documentation dédiée](../tutorials/troubleshooting-plugins.md#http-and-api-checks) des Plugins basés sur HTTP/API.

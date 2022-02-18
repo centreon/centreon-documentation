@@ -10,7 +10,7 @@ Ce chapitre décrit la procédure de montée de version de votre plate-forme
 Centreon depuis la version 21.04 vers la version 21.10.
 
 > Si vous souhaitez migrer votre serveur Centreon vers CentOS / Oracle Linux
-> / RHEL 8, vous devez suivre la [procédure de migration](../migrate/migrate-from-20-x)
+> / RHEL 8, vous devez suivre la [procédure de migration](../migrate/migrate-from-20-x.md)
 
 ## Prérequis
 
@@ -24,7 +24,7 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 
 ### Mettre à jour la clé de signature RPM
 
-Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centreon sont changées régulièrement. Le dernier changement a eu lieu le 14 octobre 2021. Lorsque vous mettez Centreon à jour depuis une version plus ancienne, vous devez suivre la [procédure de changement de clé](../security/key-rotation#installation-existante), afin de supprimer l'ancienne clé et d'installer la nouvelle.
+Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centreon sont changées régulièrement. Le dernier changement a eu lieu le 14 octobre 2021. Lorsque vous mettez Centreon à jour depuis une version plus ancienne, vous devez suivre la [procédure de changement de clé](../security/key-rotation.md#installation-existante), afin de supprimer l'ancienne clé et d'installer la nouvelle.
 
 ### Mise à jour vers la dernière version mineure
 
@@ -234,7 +234,7 @@ accéder à la page de connexion :
 ![image](../assets/upgrade/web_update_5.png)
 
 Si le module Centreon BAM est installé, référez-vous à la [documentation
-associée](../service-mapping/upgrade) pour le mettre à jour.
+associée](../service-mapping/upgrade.md) pour le mettre à jour.
 
 ### Actions post montée de version
 
@@ -249,7 +249,7 @@ associée](../service-mapping/upgrade) pour le mettre à jour.
 
     Vous pouvez alors mettre à jour toutes les autres extensions commerciales.
 
-2. [Déployer la configuration](../monitoring/monitoring-servers/deploying-a-configuration).
+2. [Déployer la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
 
 3. Redémarrez les processus Centreon :
 

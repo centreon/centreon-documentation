@@ -14,7 +14,7 @@ Avant de suivre cette procédure, il est recommandé d'avoir un niveau de connai
 
 ### Flux réseaux
 
-En plus des flux réseaux nécessaires décrits dans le chapitre [prérequis](../architectures#tableaux-des-flux-réseau)
+En plus des flux réseaux nécessaires décrits dans le chapitre [prérequis](../architectures.md#tableaux-des-flux-réseau)
 Il sera nécessaire d'ouvrir les flux supplémentaires suivants :
 
 | Source                            | Destination                       | Protocole | Port     | Commentaires                                                                                                 |
@@ -30,7 +30,7 @@ Il sera nécessaire d'ouvrir les flux supplémentaires suivants :
 
 ### Installation de Centreon
 
-L'installation d'un cluster Centreon-HA ne peut se faire que sur la base d'une installation fonctionnelle de Centreon. Avant de suivre cette procédure, il est donc impératif d'avoir appliqué **[cette procédure d'installation](../../installation/introduction)** jusqu'au bout **en réservant environ 5GB de libre** sur le *volume group* qui contient  les données MariaDB (point de montage `/var/lib/mysql` par défaut). 
+L'installation d'un cluster Centreon-HA ne peut se faire que sur la base d'une installation fonctionnelle de Centreon. Avant de suivre cette procédure, il est donc impératif d'avoir appliqué **[cette procédure d'installation](../../installation/introduction.md)** jusqu'au bout **en réservant environ 5GB de libre** sur le *volume group* qui contient  les données MariaDB (point de montage `/var/lib/mysql` par défaut). 
 
 La commande `vgs` doit retourner un affichage de la forme ci-dessous (en particulier la valeur sous `VFree`) :
 
@@ -1554,4 +1554,4 @@ database:
 
 ## Intégrer des collecteurs
 
-Il ne reste maintenant plus qu'à [intégrer des collecteurs](integrating-pollers) et commencer à superviser !
+Il ne reste maintenant plus qu'à [intégrer des collecteurs](integrating-pollers.md) et commencer à superviser !
