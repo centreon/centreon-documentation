@@ -28,6 +28,7 @@ The Centreon web interface contains several menus, each with a specific function
   performance graphics.
 * **Reporting** provides an intuitive view (using diagrams) of the evolution of monitoring over a given time period.
 * **Configuration** allows you to configure all monitored items and the monitoring infrastructure.
+* **Administration** lets you access your user account.
 
 ## Top banner
 
@@ -35,7 +36,8 @@ The Centreon web interface contains several menus, each with a specific function
 
 ![image](../assets/getting-started/banner_pollers.png)
 
-The left part of the top banner shows the health of your platform in real time: 
+The left part of the top banner shows the health of your platform in real time:
+
 * whether all pollers are running or not: the icon becomes red when a poller has not sent data to the central server for at least 15 minutes
 * whether checks are running late or not. If the icon is orange or red, this may mean that your pollers are monitoring too many resources.
 
@@ -45,16 +47,18 @@ Click the **pollers** icon to expand the menu. On the menu, click **Configure po
 
 ![image](../assets/getting-started/top_counters.png)
 
-To the right of the top banner, statistics show the number of resources that are being monitored, with a specific status: 
-* For hosts: number of hosts with a **Down**, **Unreachable** and **Up** status. 
+To the right of the top banner, statistics show the number of resources that are being monitored, with a specific status:
+
+* For hosts: number of hosts with a **Down**, **Unreachable** and **Up** status.
 * For services: number of services with a **Critical**, **Warning**, **Unknown** and **OK** status.
 
 These numbers include unconfirmed (SOFT) alerts, but do not include resources that are acknowledged or in downtime. Pending resources are shown by a blue dot on the **hosts** or **services** icons.
- 
+
 Click on a circle representing a status:
+
 * Page **Monitoring > Resources status** opens.
 * The page is filtered according to the type of resource and the corresponding status.
- 
+
 Click the **hosts** or **services** icon to expand the menu and display the details of the hosts and services.
 
 ## Change the user interface language
