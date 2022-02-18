@@ -126,7 +126,7 @@ Release date: `December 16, 2021`
 - Fixed: Notification for administrators not working on fail
 - Fixed: Hostgroups-Incidents-1 English translation issue (”Maintainability”)
 - Fixed: Availability on host or hostgroup, rounding issue
-- Fixed: Report BA-Availability-1 - Events when KPIs are in downtime should not be listed
+- Fixed: Report BA-Availability-1 - When services are in downtime, events should not be listed
 - Fixed: Inconsistency in Top 50 in EventHostgroup-service-incident-resolution-2
 - Fixed: Issue in Test SMTP Rule
 
