@@ -3,59 +3,70 @@ id: monitor-mysql-server
 title: Monitor a MySQL or MariaDB database
 ---
 
-### Monitor a MySQL or MariaDB database
+## Prerequisites
 
-The objective of this tutorial is to supervise a Mysql/MariaDB database. We assume that you have a database to supervise.
-In order to be able to collect the necessary information from the database, a database user with specific privileges will be needed:
-```
-# grant ALL PRIVILEGES on *.* to 'centreon'@'IP_POLLER' identified by 'password'
-```
-### Adding the Plugin Pack
+The objective of this tutorial is to monitor a Mysql/MariaDB database.
 
-The database will be supervised using the **MySQL/MariaDB** Plugin Pack
+In order to be able to collect the necessary information from the database, a database user with specific privileges is required. If the database you want to monitor is a Centreon database, a dedicated user already exists and is called **centreon**. Otherwise, start by creating a new user: log in to your database, then run the following command:
+
+```shell
+CREATE USER 'username'@'IP_POLLER' IDENTIFIED BY 'password';
+```
+
+Then, whether your database is a Centreon database or not, run the following command:
+
+```shell
+grant ALL PRIVILEGES on *.* to 'username'@'IP_POLLER' identified by 'password'
+```
+
+> Replace the username, the IP address of the poller and the password by the values you want.
+
+### Installing the Plugin Pack
+
+The database will be monitored using the [**MySQL/MariaDB** Plugin Pack](../integrations/plugin-packs/procedures/applications-databases-mysql.md).
 Go to the menu **Configuration > Plugin Packs** and install the **MySQL/MariaDB** Plugin Pack:
 
 ![image](../assets/getting-started/quick_start_mysql_0.gif)
 
-### Set up the host and deploy the configuration
+## Set up the host and deploy the configuration
 
-To add a host to the supervision, go to the menu **Configuration > Hosts > Hosts** and click on the **Add** button:
+1. Go to **Configuration > Hosts > Hosts** and click on **Add**:
 
-![image](../assets/getting-started/quick_start_mysql_1a.gif)
+  ![image](../assets/getting-started/quick_start_mysql_1a.gif)
 
-Fill in the following information:
+2. Fill in the following information:
 
-* The name of your server
-* A description of your server
-* Its IP address
-* Select the appropriate Poller (leave "Central" if you have no other Poller)
-* Click on the **+ Add New Entry** button for the **Templates** field and select the template **App-DB-MySQL-custom**
+  * The name of your server
+  * A description of your server
+  * Its IP address
+  * Select the poller that will monitor the database (leave "Central" if you have no other poller)
 
-![image](../assets/getting-started/quick_start_mysql_1a.png)
+3. Click on the **+ Add New Entry** button for the **Templates** field and select the **App-DB-MySQL-custom** template:
 
-A list of macros matching the template will appear:
+  ![image](../assets/getting-started/quick_start_mysql_1a.png)
 
-![image](../assets/getting-started/quick_start_mysql_1b.png)
+4. A list of macros matching the template will appear:
 
-Fill in the value of following macros:
+  ![image](../assets/getting-started/quick_start_mysql_1b.png)
 
-* **MYSQLUSERNAME**: the name of the user to connect to the database.
-* **MySQLPASSWORD**: the password associated with the user.
-* **MySQLPORT**: the listening port of the database, by default 3306.
+  Fill in the value of following macros:
 
-Then click on the **Save** button.
+  * **MYSQLUSERNAME**: the name of the user that will connect to the database.
+  * **MySQLPASSWORD**: the password associated with this user.
+  * **MySQLPORT**: the listening port of the database, by default 3306.
 
-Your equipment has been added to the supervision configuration:
+5. Click on **Save**. Your equipment has been added to the list of hosts:
 
-![image](../assets/getting-started/quick_start_mysql_2.png)
+  ![image](../assets/getting-started/quick_start_mysql_2.png)
 
-Go to Configuration > Services > Services by host menu. A set of indicators has been automatically deployed:
+6. Go to **Configuration > Services > Services by host**. A set of indicators has been deployed automatically:
 
-![image](../assets/getting-started/quick_start_mysql_3.png)
+  ![image](../assets/getting-started/quick_start_mysql_3.png)
 
-It is now time to [deploy the supervision](#deploying-a-configuration).
+7. [Deploy the supervision](#deploying-a-configuration).
 
-Then go to the **Monitoring > Status Details > Services** menu and select **All** value for the **Service Status**
-filter. After a few minutes, the first results of the monitoring appear:
+8. Go to **Monitoring > Status Details > Services** and select **All**
+for the **Service Status** filter. At first, the resources appear with the status **Pending**,
+ which means that no checks have been executed yet. After a few minutes, the first results of the monitoring appear:
 
-![image](../assets/getting-started/quick_start_mysql_4.gif)
+  ![image](../assets/getting-started/quick_start_mysql_4.gif)
