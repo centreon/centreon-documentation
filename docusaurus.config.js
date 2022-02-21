@@ -160,12 +160,12 @@ const config = {
             type: 'docsVersionDropdown',
             position: 'right',
             dropdownActiveClassDisabled: true,
-            /*dropdownItemsAfter: [
+            dropdownItemsAfter: [
               {
-                to: 'https://docs.centreon.com/older/',
+                to: 'https://docs-older.centreon.com',
                 label: 'Older',
               },
-            ],*/
+            ],
           },
           {
             type: 'localeDropdown',
