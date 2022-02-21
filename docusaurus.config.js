@@ -1,21 +1,21 @@
-// @ts-check
+// @ts-nocheck
 // Note: type annotations allow type checking and IDEs autocompletion
 
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
-
+/** @type {import('@docusaurus/types').DocusaurusConfig} */
 const config = {
   title: 'Centreon Documentation',
   tagline: '',
-  url: 'https://docs-dev.centreon.com',
+  url: 'https://docs-next.int.centreon.com',
   baseUrl: '/',
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenLinks: 'error',
+  onBrokenMarkdownLinks: 'error',
   favicon: 'img/logo-centreon.png',
-  // organizationName: 'Centreon Documentation', // Usually your GitHub org/user name.
-  projectName: 'Centreon Documentation', // Usually your repo name.
-
+  organizationName: 'Centreon',
+  projectName: 'Centreon Documentation',
+  
   noIndex: true,
 
   i18n: {
@@ -91,29 +91,20 @@ const config = {
       },
     ],
 
-    require.resolve('docusaurus-plugin-image-zoom'),
+    require.resolve('plugin-image-zoom'),
   ],
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       algolia: {
-        apiKey: '2c8912e81dc56e382c3964f26634e056',
+        appId: '3WEC6XPLDB',
+        apiKey: 'be499306058f3e54012bab278e6e6d86',
         indexName: 'centreon',
         contextualSearch: true,
-        algoliaOptions: {
-          facetFilters: ['tags:dev'],
-        },
       },
 
-      announcementBar: {
-        id: 'announcementBar-1',
-        content:
-          'Research is not available at the moment. Thanks for your patience and understanding',
-        backgroundColor: '#ebedf0',
-        textColor: '#091E42',
-        isCloseable: false,
-      },
+      zoomSelector: '.markdown :not(.authority-availability) > img',
 
       prism: {
         theme: lightCodeTheme,
@@ -132,19 +123,9 @@ const config = {
         ],
       },
 
-      zoom: {
-        selector: '.markdown :not(em) > img',
-        config: {
-          background: {
-            light: 'rgb(255, 255, 255)',
-            dark: 'rgb(50, 50, 50)',
-          },
-        },
-      },
-
       hideableSidebar: true,
       colorMode: {
-        defaultMode: 'dark',
+        defaultMode: 'light',
         disableSwitch: false,
         respectPrefersColorScheme: true,
       },
@@ -188,8 +169,6 @@ const config = {
             type: 'localeDropdown',
             position: 'right',
           },
-          /*{to: '/blog', label: 'Blog', position: 'left'},
-          {href: '', label: 'GitHub', position: 'right'},*/
         ],
       },
       footer: {

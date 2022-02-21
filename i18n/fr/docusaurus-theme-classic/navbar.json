@@ -1,10 +1,18 @@
 {
   "title": {
-    "message": "Centreon Docs",
+    "message": "",
     "description": "The title in the navbar"
   },
   "item.label.Documentation": {
     "message": "Documentation",
     "description": "Navbar item with label Documentation"
+  },
+  "item.label.Centreon OnPrem": {
+    "message": "Centreon OnPrem",
+    "description": "Navbar item with label Centreon OnPrem"
+  },
+  "item.label.Centreon Cloud": {
+    "message": "Centreon Cloud",
+    "description": "Navbar item with label Centreon Cloud"
   }
 }
