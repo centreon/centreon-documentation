@@ -4,7 +4,8 @@ title: Creating hosts manually
 ---
 
 To create a host manually:
-1. Go to **Configuration \> Hosts \> Hosts** and then click **Add**.
+
+1. Go to **Configuration > Hosts > Hosts** and then click **Add**.
 2. Fill in the fields (see [below](#host-configuration-tab)), then click on **Save**.
 3. [Deploy the configuration](../monitoring-servers/deploying-a-configuration).
 
@@ -21,13 +22,14 @@ To create a host manually:
 * The **SNMP Community & Version** fields contain the name of the community and the SNMP version.
 * The **Monitored from** field indicates which poller server is charged with monitoring this host.
 * The **Timezone / Location** field indicates the timezone location of the monitored hosts.
-* The **Host Templates** field enables us to associated one or more templates of hosts with this object.
+* The **Host Templates** field enables us to associate one or more templates of hosts with this object.
 
 In case of conflicts of settings present on multiple templates, the host template above overwrites the identical properties
 defined in host templates below.
 
-This button enables us to change the order of host templates <img src={require('../../assets/configuration/common/move.png').default} style={{width:'32px', marginBottom:'-6px'}} />
-This button serves to delete the host template <img src={require('../../assets/configuration/common/delete.png').default} style={{width:'32px', marginBottom:'-6px'}} />
+This button enables us to change the order of host templates ![image](../../assets/configuration/common/move.png#thumbnail1)
+
+This button serves to delete the host template ![image](../../assets/configuration/common/delete.png#thumbnail1)
 
 * If the **Create Services linked to the Template too** field is defined as **Yes**, Centreon automatically generates
   the services based their self on the service templates linked to the host templates defined above
@@ -43,13 +45,13 @@ The Macros part serves to add custom macros.
 * The **Macro name** and **Macro value** field enable us to define the name and value of the macro.
 * The **Password** box enables the value of the macro to be hidden.
 
-To reinitialize to the default value (defined in template) click on <img src={require('../../assets/configuration/common/undo.png').default} style={{width:'32px', marginBottom:'-6px'}} />
+To reinitialize to the default value (defined in template) click on ![image](../../assets/configuration/common/undo.png#thumbnail1)
 
-To view the description of the macro, click on <img src={require('../../assets/configuration/common/description.png').default} style={{width:'32px', marginBottom:'-6px'}} />
+To view the description of the macro, click on ![image](../../assets/configuration/common/description.png#thumbnail1)
 
-To delete the macro, click on <img src={require('../../assets/configuration/common/delete.png').default} style={{width:'32px', marginBottom:'-6px'}} />
+To delete the macro, click on ![image](../../assets/configuration/common/delete.png#thumbnail1)
 
-To change the order of the macros, click on <img src={require('../../assets/configuration/common/move.png').default} style={{width:'32px', marginBottom:'-6px'}} />
+To change the order of the macros, click on ![image](../../assets/configuration/common/move.png#thumbnail1)
 
 ### Scheduling options
 
@@ -118,11 +120,6 @@ The fields presented below are obsolete:
 
 * **2d Coords**
 * **3d Coords**
-
-### Access groups
-
-* The **ACL Resource Groups** (only displayed for non administrator) allows to link this host to an hostgroup in order
-  to visualize it (see *[Access Control Lists](../../administration/access-control-lists)* chapter).
 
 ### Additional Information
 
