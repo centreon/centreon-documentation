@@ -483,7 +483,7 @@ RedirectMatch ^/$ /centreon
 Éditez le fichier **/etc/httpd/conf.d/10-centreon.conf** et ajouter la ligne suivante :
 
 ```apacheconf
-Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;Secure
+Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;Secure;SameSite=Strict
 ServerSignature Off
 ServerTokens Prod
 ```
@@ -501,7 +501,7 @@ expose_php = Off
 
 ```apacheconf
 Header set X-Frame-Options: "sameorigin"
-Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;Secure
+Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;Secure;SameSite=Strict
 ServerSignature Off
 ServerTokens Prod
 TraceEnable Off
