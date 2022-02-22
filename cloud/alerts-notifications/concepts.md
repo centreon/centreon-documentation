@@ -37,14 +37,9 @@ The table below summarizes all the possible statuses for a service.
 
 In addition to their status, resources can be in several states:
 
-* <span style={{color:'#ae9500'}}>Acknowledged</span>: indicates that the incident on the service or on the host
-    has been taken into account by a user. (See [Acknowledging a problem](acknowledge).)
-* <span style={{color:'#cc99ff'}}>In downtime</span>: indicates that notifications are temporarily stopped. A [downtime](downtimes.md) can be [planned in advance](downtimes#recurrent-downtimes) to avoid receiving alerts during maintenance periods, or be set following an incident.
-
-* [Flapping](notif-flapping): indicates that the status change
-    percentage of the resource is very high. This percentage is obtained
-    from calculations performed by the network monitoring engine.  Flapping resources have the following icon in their **Details** panel:
-    ![image](../assets/alerts/flapping_icon.png)
+* [Acknowledged](acknowledge): indicates that the incident on the service or on the host
+    has been taken into account by a user. Acknowledged resources have a yellow background.
+* [In downtime](downtimes.md): indicates that notifications are temporarily stopped. A downtime can be [planned in advance](downtimes#recurrent-downtimes) to avoid receiving alerts during maintenance periods, or be set following an incident. Resources in downtime have a purple background.
 
 ## Status types
 
