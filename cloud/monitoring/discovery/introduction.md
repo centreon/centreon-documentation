@@ -3,11 +3,6 @@ id: introduction
 title: Introduction
 ---
 
-> Centreon Auto Discovery is a Centreon **extension** that requires a valid
-> [license](../../administration/licenses) key. To purchase one and retrieve the necessary repositories, contact
-> [Centreon](mailto:sales@centreon.com).
-
-
 The Auto Discovery module allows you to get a list of new hosts and services and to create them 
 automatically in your Centreon platform. The discovery is done by discovery providers, that are included
 within [Plugin Packs](../pluginpacks).

@@ -26,8 +26,8 @@ If a problem occurs (not-OK/not-UP status), [contacts/users](../users/users.md) 
 
 In Centreon, monitoring is made easy by the following elements:
 
-* [Host templates](../monitoring/basic-objects/hosts-templates.md) and [service templates](basic-objects/services-templates), that allow you to define default values so as to speed up the creation of these objects.
+* [Host templates](../monitoring/basic-objects/hosts-templates.md) and [service templates](../monitoring/basic-objects/services-templates), that allow you to define default values so as to speed up the creation of these objects.
 
 * [Plugin Packs](../monitoring/pluginpacks.md), that provide ready-to-use host and service templates. These greatly simplify the configuration of hosts and services: for instance, all you have to do is to apply Plugin Pack templates to a host for it to be monitored.
 
-* The [autodiscovery feature for hosts and services](discovery/introduction), that allows you to get a list of new hosts and services and to add them automatically to the list of monitored resources.
+* The [autodiscovery feature for hosts and services](../monitoring/discovery/introduction.md), that allows you to get a list of new hosts and services and to add them automatically to the list of monitored resources.

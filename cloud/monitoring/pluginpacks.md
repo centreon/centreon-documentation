@@ -22,9 +22,6 @@ fine-tuned later on). If you want to use a pack, you must install it on the cent
 
   Some packs also contain [discovery rules](discovery/introduction).
 
-To get an up-to-date list of all Plugin Packs with their respective monitoring
-procedure, please refer to the section on [Plugin Packs](../integrations/plugin-packs/introduction).
-
 ## What do I need to do to be able to use a Plugin Pack?
 
 ### Checking the monitoring procedure

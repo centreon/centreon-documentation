@@ -15,7 +15,7 @@ Here are a few tutorials to help you getting started with your monitoring:
 * [Monitor your first Linux host](tutorials/monitor-linux-server-with-snmp)
 * [Monitor your first Windows host](tutorials/monitor-windows-server-with-snmp)
 * [Monitor your first Cisco router](tutorials/monitor-cisco-router-with-snmp)
-* [Monitor a MySQL or MariaDB database](tutorials/mysql_tuto)
+* [Monitor a MySQL or MariaDB database](tutorials/mysql_tuto.md)
 * [Monitor AWS EC2 instances using autodiscovery](tutorials/autodisco-aws)
 
 You may also find the following articles interesting (on our community platform The Watch):
