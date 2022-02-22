@@ -71,7 +71,7 @@ systemctl stop firewalld
 systemctl disable firewalld
 ```
 
-> Vous pouvez trouver des instructions [ici](../../administration/secure-platform#enable-firewalld)
+> Vous pouvez trouver des instructions [ici](../../administration/secure-platform.md#enable-firewalld)
 > pour configurer le pare-feu.
 
 ### Installer le dépôts
@@ -390,7 +390,7 @@ sécuriser son installation avant d'installer Centreon.
 
 Répondez oui à toute question sauf "Disallow root login remotely?". 
 Vous devez obligatoirement définir un mot de passe pour l'utilisateur **root** de la base de données.
-Ce mot de passe vous sera demandé lors de l'[installation web](../web-and-post-installation).
+Ce mot de passe vous sera demandé lors de l'[installation web](../web-and-post-installation.md).
 
 ```shell
 mysql_secure_installation
@@ -422,7 +422,7 @@ systemctl start httpd24-httpd
 
 
 Terminez l'installation en réalisant les
-[étapes de l'installation web](../web-and-post-installation#installation-web).
+[étapes de l'installation web](../web-and-post-installation.md#installation-web).
 
 > Pendant l'installation web, il n'est pas nécessaire d'installer le module
 > Autodiscovery.
@@ -584,9 +584,9 @@ Failed connect to 192.168.0.1:444; Connection refused
 ## Ajouter le Remote Server à la configuration
 
 Rendez-vous au chapitre
-[Ajouter un Remote Server à la configuration](../../monitoring/monitoring-servers/add-a-remote-server-to-configuration).
+[Ajouter un Remote Server à la configuration](../../monitoring/monitoring-servers/add-a-remote-server-to-configuration.md).
 
 ## Sécurisez votre plateforme
 
 N'oubliez pas de sécuriser votre plateforme Centreon en suivant nos
-[recommandations](../../administration/secure-platform)
+[recommandations](../../administration/secure-platform.md)

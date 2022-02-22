@@ -173,6 +173,6 @@ en ajoutant le paramètre ```--help``` à la commande:
     --help
 ```
 
-## Diagnostic
+## Diagnostique
 
-[Diagnostic des plugins](../tutorials/troubleshooting-plugins#ssh-and-cli-checks)
+[Diagnostique des plugins](../tutorials/troubleshooting-plugins.md#ssh-and-cli-checks)

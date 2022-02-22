@@ -8,12 +8,12 @@ import TabItem from '@theme/TabItem';
 
 When you connect Centreon to an LDAP directory, users in this directory can log in to Centreon using their LDAP credentials.
 
-Connecting Centreon to an LDAP directory does not create [users](../../monitoring/basic-objects/contacts) automatically in Centreon. According to your configuration, users from the LDAP directory can be created automatically when they log in to Centreon, or you can import them manually.
+Connecting Centreon to an LDAP directory does not create [users](../../monitoring/basic-objects/contacts.md) automatically in Centreon. According to your configuration, users from the LDAP directory can be created automatically when they log in to Centreon, or you can import them manually.
 
-You can [grant rights to these users](../access-control-lists) indirectly by adding them to a contact group (which in turn can be included in an [access group](../access-control-lists#creating-an-access-group)).
+You can [grant rights to these users](../access-control-lists.md) indirectly by adding them to a contact group (which in turn can be included in an [access group](../access-control-lists.md#creating-an-access-group)).
 
 > If you want to use SSO for authentication, please read
-> [this procedure](../../connect/sso).
+> [this procedure](../../connect/sso.md).
 
 ## Configuration
 
@@ -36,10 +36,10 @@ with the LDAP
 - **LDAP search size limit**: can be used to limit the number of users to search for (1000 users maximum).
 - **LDAP search timeout**: can be used define the maximum time for the
 LDAP search.
-- **Contact template**: defines the [contact template](../../monitoring/basic-objects/contacts-templates) that will be linked
+- **Contact template**: defines the [contact template](../../monitoring/basic-objects/contacts-templates.md) that will be linked
 to all users imported from this LDAP directory.
 - **Default contactgroup**: is used to add a new user to
-a default contactgroup. This allows you to [grant rights](../access-control-lists) indirectly to the LDAP users.
+a default contactgroup. This allows you to [grant rights](../access-control-lists.md) indirectly to the LDAP users.
 - **Use service DNS**: indicates if it is necessary to use the DNS server
 to solve the IP address of the LDAP directory.
 - **Enable LDAP synchronization on login**: If enabled, a user LDAP

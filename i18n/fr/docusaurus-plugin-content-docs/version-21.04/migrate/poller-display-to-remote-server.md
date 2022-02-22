@@ -16,9 +16,9 @@ désinstallez le module **centreon-poller-display-central**
     yum remove centreon-poller-display-central
     ```
 
-Puis suivez la [procédure de montée de version](../upgrade/upgrade-from-3-4)
+Puis suivez la [procédure de montée de version](../upgrade/upgrade-from-3-4.md)
 si vous avez une plateforme sous CentOS 7 avec paquets Centreon, sinon la
-[procédure de migration](../migrate/migrate-from-3-4) d'un serveur Centreon
+[procédure de migration](../migrate/migrate-from-3-4.md) d'un serveur Centreon
 Central vers 21.04.
 
 > Si vous possédez des modules Centreon EMS, il est nécessaire de mettre à jour
@@ -38,8 +38,8 @@ en exécutant la commande suivante :
   ```
 
 3. Si votre serveur est basé sur la distribution CentOS ou Red Hat en version
-7, réalisez la montée de version en suivant [cette procédure](../upgrade/upgrade-from-3-4),
-sinon référez vous à [la procédure de migration](../migrate/migrate-from-3-4).
+7, réalisez la montée de version en suivant [cette procédure](../upgrade/upgrade-from-3-4.md),
+sinon référez vous à [la procédure de migration](../migrate/migrate-from-3-4.md).
 
   > Si vous possédez des modules Centreon EMS, il est nécessaire de mettre à jour
   > ces dépôts. Contactez votre support Centreon pour obtenir ces derniers.
@@ -182,7 +182,7 @@ commande **LOAD DATA INFILE**:
 tous les collecteurs rattachés au **Remote Server** et liez ceux-ci au
 nouveau Remote Server via la liste de sélection.
 
-> N'oubliez pas de [générer la configuration](../monitoring/monitoring-servers/deploying-a-configuration) de votre
+> N'oubliez pas de [générer la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md) de votre
 > **Remote Server**.
 
 > Un serveur Centreon Remote Server est un serveur dont l’administration est

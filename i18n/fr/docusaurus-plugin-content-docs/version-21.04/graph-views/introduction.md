@@ -6,7 +6,7 @@ title: Introduction to Centreon MAP
 The graphical view capabilities in Centreon relies on the **Centreon MAP**
 extension.
 
-> Centreon MAP is a Centreon **extension** that requires a valid [license](../administration/licenses).
+> Centreon MAP is a Centreon **extension** that requires a valid [license](../administration/licenses.md).
 > To purchase one and retrieve the necessary repositories, contact
 > [Centreon](mailto:sales@centreon.com).
 

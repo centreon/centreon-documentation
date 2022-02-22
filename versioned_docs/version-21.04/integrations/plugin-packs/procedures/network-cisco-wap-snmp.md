@@ -26,7 +26,7 @@ The Centreon Plugin Pack *Cisco Wap SNMP* relies on the SNMP protocol to query a
 ### Collected metrics
 
 <Tabs groupId="sync">
-<TabItem value="Clients-1" label="Clients-1">
+<TabItem value="Clients-1" label="Clients">
 
 | Metric name                         | Description                                                    | Unit   |
 | :---------------------------------- | :------------------------------------------------------------- | :----- |
@@ -41,7 +41,7 @@ The Centreon Plugin Pack *Cisco Wap SNMP* relies on the SNMP protocol to query a
 | cpu.utilization.percentage          | Percentage of CPU utilization  | %      |
 
 </TabItem>
-<TabItem value="Clients-2" label="Clients-2">
+<TabItem value="Clients-2" label="Clients">
 
 | Metric name                         | Description                                                    | Unit   |
 | :---------------------------------- | :------------------------------------------------------------- | :----- |
@@ -127,7 +127,7 @@ yum install centreon-pack-network-cisco-wap-snmp
 
 Create your Host and apply the *Net-Cisco-Wap-SNMP-custom* Host Template. You must set SNMP Community and Version in the dedicated fields of the Host Form. 
 
- > If you are using SNMP v3, set all specific parameters within SNMPEXTRAOPTIONS Host Macro
+> If you are using SNMP v3, set all specific parameters within SNMPEXTRAOPTIONS Host Macro
 
 | Mandatory   | Name             | Description                                    |
 | :---------- | :--------------- | :--------------------------------------------- |

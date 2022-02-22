@@ -231,6 +231,6 @@ La liste de toutes les options complémentaires et leur signification peut être
     --help
 ```
 
-### Diagnostic des erreurs communes  
+### Diagnostic des erreurs communes
 
 [Diagnostique des plugins](../tutorials/troubleshooting-plugins#http-and-api-checks)

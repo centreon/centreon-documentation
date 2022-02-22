@@ -8,7 +8,7 @@ title: Monter de version de l'extension
 > - Récupérer une nouvelle license via le support Centreon
 > - S'assurer que votre serveur de reporting est basé sur CentOS 7. Si ce n'est
 >   pas le cas, utiliser la procédure de [migration de votre serveur de
->   reporting](migrate)
+>   reporting](migrate.md)
 
 La montée de version de Centreon MBI se fait en 4 étapes :
 
@@ -59,4 +59,4 @@ Vous trouverez ce dépôt depuis votre compte sur notre platefome de support htt
 
 ## Étape 4 : mise à jour de MariaDB
 
-Voir [Mettre à jour MariaDB](../upgrade/upgrade-mariadb).
+Voir [Mettre à jour MariaDB](../upgrade/upgrade-mariadb.md).

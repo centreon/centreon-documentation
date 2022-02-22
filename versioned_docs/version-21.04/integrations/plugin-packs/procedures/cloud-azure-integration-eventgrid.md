@@ -34,7 +34,7 @@ This provider is named **Microsoft Azure Event Grid**:
 > This discovery feature is only compatible with the 'api' custom mode. 'azcli' is not supported yet.
 
 More information about the Host Discovery module is available in the Centreon documentation:
-[Host Discovery](../../../monitoring/discovery/hosts-discovery)
+[Host Discovery](../../../monitoring/discovery/hosts-discovery.md)
 
 ### Collected Metrics
 
@@ -42,7 +42,7 @@ More information about the Host Discovery module is available in the Centreon do
 <TabItem value="Events" label="Events">
 
 | Metric name                         | Description                    |
-| :---------------------------------- | :----------------------------- |
+|:------------------------------------|:-------------------------------|
 | eventgrid.matched.events.count      | Number of matched Events       |
 | eventgrid.unmatched.events.count    | Number of unmatched Events     |
 | eventgrid.dropped.events.count      | Number of dropped Events       |
@@ -51,14 +51,14 @@ More information about the Host Discovery module is available in the Centreon do
 </TabItem>
 <TabItem value="Events Stats" label="Events Stats">
 
-| Metric name                                   | Description                               | Unit |
-| :-------------------------------------------- | :---------------------------------------- | :--- |
-| eventgrid.delivery.successfull.count          | Number of delivered Events                |      |
-| eventgrid.delivery.failed.count               | Number of delivery failed Events          |      |
-| eventgrid.publish.successfull.count           | Number of published Events                |      |
-| eventgrid.publish.failed.count                | Number of publish failed Events           |      |
-| eventgrid.public.success.latency.milliseconds | Number of publish success Latency         | ms   |
-| eventgrid.processing.duration.milliseconds    | Number of destination processing duration | ms   |
+| Metric name                                   | Description                                | Unit |
+|:----------------------------------------------|:-------------------------------------------|:-----|
+| eventgrid.delivery.successfull.count          | Number of delivered Events                 |      |
+| eventgrid.delivery.failed.count               | Number of delivery failed Events           |      |
+| eventgrid.publish.successfull.count           | Number of published Events                 |      |
+| eventgrid.publish.failed.count                | Number of publish failed Events            |      |
+| eventgrid.public.success.latency.milliseconds | Number of publish success Latency          | ms   |
+| eventgrid.processing.duration.milliseconds    | Number of destination processing duration  | ms   |
 
 </TabItem>
 </Tabs>
@@ -224,25 +224,25 @@ These mandatory Macros differ regarding the custom mode used:
 <Tabs groupId="sync">
 <TabItem value="Azure Monitor API" label="Azure Monitor API">
 
-| Mandatory | Nom               | Description                     |
-| :-------- | :---------------- | :------------------------------ |
-| X         | AZURECUSTOMMODE   | Custom mode 'api'               |
-| X         | AZURESUBSCRIPTION | Subscription ID                 |
-| X         | AZURETENANT       | Tenant ID                       |
-| X         | AZURECLIENTID     | Client ID                       |
-| X         | AZURECLIENTSECRET | Client secret                   |
-| X         | AZURERESOURCE     | Id of the Event Grid instance   |
-| X         | AZURERESOURCETYPE | Type of the Event Grid instance |
+| Mandatory | Nom                   | Description                      |
+|:----------|:----------------------|:---------------------------------|
+| X         | AZURECUSTOMMODE       | Custom mode 'api'                |
+| X         | AZURESUBSCRIPTION     | Subscription ID                  |
+| X         | AZURETENANT           | Tenant ID                        |
+| X         | AZURECLIENTID         | Client ID                        |
+| X         | AZURECLIENTSECRET     | Client secret                    |
+| X         | AZURERESOURCE         | Id of the Event Grid instance    |
+| X         | AZURERESOURCETYPE     | Type of the Event Grid instance  |
 
 </TabItem>
 <TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
-| Mandatory | Nom               | Description                     |
-| :-------- | :---------------- | :------------------------------ |
-| X         | AZURECUSTOMMODE   | Custom mode 'azcli'             |
-| X         | AZURESUBSCRIPTION | Subscription ID                 |
-| X         | AZURERESOURCE     | Id of the Event Grid resource   |
-| X         | AZURERESOURCETYPE | Type of the Event Grid instance |
+| Mandatory | Nom               | Description                          |
+|:----------|:------------------|:-------------------------------------|
+| X         | AZURECUSTOMMODE   | Custom mode 'azcli'                  |
+| X         | AZURESUBSCRIPTION | Subscription ID                      |
+| X         | AZURERESOURCE     | Id of the Event Grid resource        |
+| X         | AZURERESOURCETYPE | Type of the Event Grid instance      |
 
 </TabItem>
 </Tabs>
@@ -307,7 +307,7 @@ All the available options for a given mode can be displayed by adding the ```--h
 The Plugin is using a cache file to keep connection information and avoid an authentication at each call. 
 If some of the authentication parameters change, you must delete the cache file. 
 
-The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder with a name similar to `azure_api_<md5>_<md5>_<md5>_<md5>`.
+The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder with a name similar to azure_api_`<md5>_<md5>_<md5>_<md5>`.
 
 #### ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```
 

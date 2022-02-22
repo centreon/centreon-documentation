@@ -20,7 +20,7 @@ The Centreon Plugin-Pack * DNS Service * checks if a resolution for a domain nam
 ### Monitored metrics
 
 <Tabs groupId="sync">
-<TabItem value="DNS-Request-1" label="DNS-Request-1">
+<TabItem value="DNS-Request-1" label="DNS-Request">
 
 | Metric name                 | Description                                | Unit |
 | :-------------------------- | :----------------------------------------- | :--- |
@@ -29,7 +29,7 @@ The Centreon Plugin-Pack * DNS Service * checks if a resolution for a domain nam
 This mode allow to check that the server executing the probe correctly resolve its own address.
 
 </TabItem>
-<TabItem value="DNS-Request-2" label="DNS-Request-2">
+<TabItem value="DNS-Request-2" label="DNS-Request">
 
 | Metric name                 | Description                                | Unit |
 | :-------------------------- | :----------------------------------------- | :--- |

@@ -6,7 +6,6 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-
 > Hello community! We're looking for a contributor to help us to translate the 
 content in french and provide a sample execution command. If it's you, let us 
 know and ping us on [slack](https://centreon.slack.com)
@@ -33,7 +32,7 @@ agent and offer controls to monitor hardware components of EMC Storage arrays.
 ### NSClient++
 
 To monitor *EMC Symmetrix* disk controllers through NRPE, install the Centreon packaged version 
-of the NSClient++ agent. Please follow our [official documentation](../tutorials/centreon-nsclient-tutorial) 
+of the NSClient++ agent. Please follow our [official documentation](../tutorials/centreon-nsclient-tutorial.md)  
 and make sure that the **NRPE Server** configuration is correct.
 
 ## Installation 

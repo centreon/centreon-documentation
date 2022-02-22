@@ -112,7 +112,7 @@ Pollers.
 > Remote Server.
 >
 > Consultez la documentation sur les différents types de
-> [communication](../monitoring-servers/communications) pour en savoir
+> [communication](../monitoring-servers/communications.md) pour en savoir
 > plus.
 
 ### Tâche planifiée de découverte de services

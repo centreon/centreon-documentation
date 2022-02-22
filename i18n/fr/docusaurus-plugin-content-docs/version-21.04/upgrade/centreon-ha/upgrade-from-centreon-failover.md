@@ -62,7 +62,7 @@ la vérification sur les serveurs de bases de données s'ils sont dédiés.
 
 Centreon est compatible avec la version 10.5 de MariaDB depuis la version 21.04. 
 
-Réalisez la montée de version des bases de données en suivant [la documentation officielle](../../upgrade/upgrade-from-19-10#montée-de-version-du-serveur-mariadb). 
+Réalisez la montée de version des bases de données en suivant [la documentation officielle](../../upgrade/upgrade-from-19-10.md#montée-de-version-du-serveur-mariadb). 
 
 Un fois la mise à jour réalisée sur chaque noeud, arrêter les processus via les commandes suivantes: 
 
@@ -75,14 +75,14 @@ systemctl stop mysql mariadb
 Effectuer les opérations suivantes sur les deux noeuds hébergeant le serveur Apache et l'applicatif Centreon:
 
 Si vous utilisez Centreon 19.10:
-* [Déployer les dépôts 20.04](../../upgrade/upgrade-from-19-10#mise-à-jour-des-dépôts). Il est également nécessaire de mettre à jour les dépôts des modules de l'édition Business.
-* [Mettre à jour les paquets Centreon](../../upgrade/upgrade-from-19-10#montée-de-version-de-la-solution-centreon)
-* [Réaliser les étapes supplémentaires](../../upgrade/upgrade-from-19-10#actions-complémentaires)
+* [Déployer les dépôts 20.04](../../upgrade/upgrade-from-19-10.md#mise-à-jour-des-dépôts). Il est également nécessaire de mettre à jour les dépôts des modules de l'édition Business.
+* [Mettre à jour les paquets Centreon](../../upgrade/upgrade-from-19-10.md#montée-de-version-de-la-solution-centreon)
+* [Réaliser les étapes supplémentaires](../../upgrade/upgrade-from-19-10.md#actions-complémentaires)
 
 Si vous utilisez Centreon 19.04:
-* [Déployer les dépôts 20.04](../../upgrade/upgrade-from-19-04#mise-à-jour-des-dépôts). Also those of the Business Edition modules if installed.
-* [Mettre à jour les paquets Centreon](../../upgrade/upgrade-from-19-04#montée-de-version-de-la-solution-centreon)
-* [Réaliser les étapes supplémentaires](../../upgrade/upgrade-from-19-04#actions-complémentaires)
+* [Déployer les dépôts 20.04](../../upgrade/upgrade-from-19-04.md#mise-à-jour-des-dépôts). Also those of the Business Edition modules if installed.
+* [Mettre à jour les paquets Centreon](../../upgrade/upgrade-from-19-04.md#montée-de-version-de-la-solution-centreon)
+* [Réaliser les étapes supplémentaires](../../upgrade/upgrade-from-19-04.md#actions-complementaires)
 
 À la suite de ces opérations, stoppez le processus apache et contrôlez à nouveau qu'aucun processus géré par le Cluster
 n'est en cours d'exécution. 
@@ -90,14 +90,14 @@ n'est en cours d'exécution.
 ## Créer le cluster Centreon-HA
 
 En fonction de l'architecture utilisée, la procédure pour installer et configurer le Cluster diffère: 
-* Si Centreon et les bases de données sont sur le même noeud, suivez ce [guide d'installation](../../installation/installation-of-centreon-ha/installation-2-nodes#mise-en-place-du-cluster-centreon)
-* Si les bases de données tournent sur un serveur dédié, suivez ce [guide d'installation](../../installation/installation-of-centreon-ha/installation-4-nodes#mise-en-place-du-cluster-centreon)
+* Si Centreon et les bases de données sont sur le même noeud, suivez ce [guide d'installation](../../installation/installation-of-centreon-ha/installation-2-nodes.md#mise-en-place-du-cluster-centreon)
+* Si les bases de données tournent sur un serveur dédié, suivez ce [guide d'installation](../../installation/installation-of-centreon-ha/installation-4-nodes.md#mise-en-place-du-cluster-centreon)
 
 Avant de passer à la finalisation de la mise à jour, assurez-vous que toutes les ressources fonctionnent correctement sans erreurs. 
 
 Si ce n'est pas le cas, il est recommandé de vérifier les éléments suivants:
-* [Échanges de clefs SSH pour le Cluster](../../installation/installation-of-centreon-ha/installation-2-nodes#échanges-de-clefs-ssh)
-* [Droits et privilèges des utilisateurs de bases de données](../../installation/installation-of-centreon-ha/installation-2-nodes#création-du-compte-centreon)
+* [Échanges de clefs SSH pour le Cluster](../../installation/installation-of-centreon-ha/installation-2-nodes.md#échanges-de-clefs-ssh)
+* [Droits et privilèges des utilisateurs de bases de données](../../installation/installation-of-centreon-ha/installation-2-nodes.md#création-du-compte-centreon)
 
 Une fois que les clefs SSH des utilisateurs centreon et mysql ont bien été échangées, il est recommandé 
 de supprimer la clef publique de root de /root/.ssh/authorized_keys.
@@ -105,11 +105,11 @@ de supprimer la clef publique de root de /root/.ssh/authorized_keys.
 ### Finaliser la montée de version
 
 Vous pouvez désormais finaliser la mise à jour de Centreon via l'assistant web: 
-* Si vous étiez en version 19.10, suivez ce [chapitre](../../upgrade/upgrade-from-19-10#finalisation-de-la-mise-à-jour).
-* Si vous étiez en version 20.04, suivez ce [chapitre](../../upgrade/upgrade-from-19-04#finalisation-de-la-mise-à-jour).
+* Si vous étiez en version 19.10, suivez ce [chapitre](../../upgrade/upgrade-from-19-10.md#finalisation-de-la-mise-à-jour).
+* Si vous étiez en version 20.04, suivez ce [chapitre](../../upgrade/upgrade-from-19-04.md#finalisation-de-la-mise-à-jour).
 
 Ensuite, vérifiez que la commande de rechargement de Centreon-Broker pour le Serveur Central intègre bien la modification
-décrite [ici](../../installation/installation-of-centreon-ha/installation-2-nodes#modification-de-la-commande-de-rechargement-de-cbd). Celle-ci est configurable via le menu
+décrite [ici](../../installation/installation-of-centreon-ha/installation-2-nodes.md#modification-de-la-commande-de-rechargement-de-cbd). Celle-ci est configurable via le menu
 'Configuration > Collecteurs'. 
 
-Enfin, [mettez à jour les Pollers](../../upgrade/upgrade-from-19-04#montée-de-version-des-pollers), redéployez la configuration et redémarrez le processus centengine. 
+Enfin, [mettez à jour les Pollers](../../upgrade/upgrade-from-19-04.md#montée-de-version-des-pollers), redéployez la configuration et redémarrez le processus centengine. 
