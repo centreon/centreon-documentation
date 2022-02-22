@@ -130,7 +130,7 @@ from the **Configuration > Plugin Packs > Manager** page
 1. Install the Centreon Plugin package on every Poller expected to monitor *Varnish*:
 
 ```bash
-yum install centreon-nrpe-plugin
+yum install centreon-nrpe3-plugin
 ```
 
 2. Install the Centreon Pack RPM on the Centreon Central server:
