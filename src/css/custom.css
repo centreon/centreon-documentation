@@ -33,7 +33,12 @@ html[data-theme="dark"] .docusaurus-highlight-code-line {
 
 .dropdown__menu {
   min-width: fit-content !important;
-  text-align: center;
+  text-align: right !important;
+}
+
+.dropdown__menu li:nth-child(1) {
+  min-width: fit-content !important;
+  text-align: left !important;
 }
 
 .navbar__item {
@@ -102,6 +107,11 @@ blockquote {
   background-color: rgba(255, 229, 100, 0.3);
   border-left: 8px solid #ffe564;
   padding: 15px 30px 15px 15px;
+  border-radius: 6px;
+}
+
+html[data-theme="dark"] blockquote {
+  background-color: rgb(159 144 70 / 30%);
 }
 
 ol ol,
@@ -130,7 +140,7 @@ ul ul ol {
 }
 
 html[data-theme="dark"] .tabs__item--active {
-  background-color: #ffffff38;
+  background-color: #282a36;
 }
 
 .dropdown > .navbar__link:after {
@@ -143,4 +153,22 @@ html[data-theme="dark"] .tabs__item--active {
 
 .iconLanguage_node_modules-\@docusaurus-theme-classic-lib-next-theme-NavbarItem-LocaleDropdownNavbarItem-styles-module {
   display: none;
+}
+
+.medium-zoom-overlay {
+  background: #ffffffee!important;
+}
+
+html[data-theme=dark] .medium-zoom-overlay {
+  background: #272727ee!important;
+}
+
+img[src*="thumbnail1"] {
+  width: 24px!important;
+  margin-bottom: -4px!important;
+}
+
+img[src*="thumbnail2"] {
+  width: 36px!important;
+  margin-bottom: -6px!important;
 }

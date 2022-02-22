@@ -286,6 +286,17 @@ html[data-theme="dark"] .subTitle {
   color: #f5f6f7;
 }
 
+html[data-theme="dark"] .imageContainer, html[data-theme="dark"] .imageSectionPrerequisite,  html[data-theme="dark"] .imageSectionInstallation, html[data-theme="dark"] .imageSectionMonitoring, html[data-theme="dark"] .imageSectionOpenSource, html[data-theme="dark"] .imageSectionCommunity {
+  background: #a9a9a973;
+  border-radius: 6px;
+  padding: 2%;
+}
+
+html[data-theme="dark"] .bgDm img {
+  background: #f5f6f7;
+  border-radius: 6px;
+}
+
 @media only screen and (max-width: 769px) {
   .containerContentPrerequisite {
     text-align: center;
