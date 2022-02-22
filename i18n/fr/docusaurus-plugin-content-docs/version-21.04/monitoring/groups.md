@@ -22,7 +22,7 @@ propriété commune :
 
 Les groupes d’hôtes et de services sont utilisés pour :
 
-* La configuration des [ACLs](../administration/access-control-lists) afin de lier un ensemble de ressources à un type de profil
+* La configuration des [ACLs](../administration/access-control-lists.md) afin de lier un ensemble de ressources à un type de profil
 * Permettre de visualiser les rapports de disponibilité par groupe. Générer un rapport de disponibilité des ressources
   "Agence Paris".
 * Permettre de visualiser le statut d’un ensemble d’objets en sélectionnant dans les filtres de recherche un groupe d’objets
@@ -43,7 +43,7 @@ Les groupes de contacts sont utilisés pour pouvoir notifier des contacts :
 * Lors de la définition d’un hôte ou d’un service
 * Lors de la définition d’une escalade de notifications
 
-De plus, les groupes de contacts sont également utilisés lors de la définition d’un [groupe d’accès](../administration/access-control-lists#créer-un-groupe-daccès).
+De plus, les groupes de contacts sont également utilisés lors de la définition d’un [groupe d’accès](../administration/access-control-lists.md#créer-un-groupe-daccès).
 
 Par conséquent, il est nécessaire de regrouper les contacts d’une manière logique. La plupart du temps, ils sont regroupés
 suivant leurs rôles au sein du système d’information. Exemple : DSI, Administrateurs Windows, Administrateurs Linux,

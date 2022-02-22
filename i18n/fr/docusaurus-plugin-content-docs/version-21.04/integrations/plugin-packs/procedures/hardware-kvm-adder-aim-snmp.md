@@ -23,7 +23,7 @@ Be sure to have with you the following information:
 ### Troubleshooting
 
 Read [Troubleshooting
-SNMP](../tutorials/troubleshooting-plugins#snmp-checks)
+SNMP](../tutorials/troubleshooting-plugins.md#snmp-checks)
 
 ## Centreon Configuration
 

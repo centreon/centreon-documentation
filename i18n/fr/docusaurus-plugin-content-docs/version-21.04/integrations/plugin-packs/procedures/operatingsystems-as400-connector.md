@@ -10,6 +10,7 @@ import TabItem from '@theme/TabItem';
 content in french. If it's you, let us know and ping us on [slack](https://centreon.slack.com)
 or propose a PR on the documentation [github](https://github.com/centreon/centreon-documentation).
 
+
 ## Pack Assets
 
 ### Templates
@@ -266,4 +267,4 @@ All available options for a given mode can be displayed by adding the
 ### Troubleshooting
 
 Please find all the troubleshooting documentation for the Centreon Plugins
-in the [dedicated page](../tutorials/troubleshooting-plugins)
+in the [dedicated page](../tutorials/troubleshooting-plugins.md)

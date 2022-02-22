@@ -38,7 +38,7 @@ Vous devez avoir **/sbin/nologin** tel que :
 apache:x:48:48:Apache:/usr/share/httpd:/sbin/nologin
 ```
 
-> Pour rappel, la liste des utilisateurs et des groupes se trouve [ici](../installation/prerequisites#utilisateurs-et-groupes)
+> Pour rappel, la liste des utilisateurs et des groupes se trouve [ici](../installation/prerequisites.md#utilisateurs-et-groupes)
 
 ## Activer SELinux
 
@@ -221,7 +221,7 @@ systemctl start firewalld
 ```
 
 > La liste des flux réseau nécessaires pour chaque type de serveur est définie
-> [ici](../installation/architectures#tableau-des-flux-de-la-plate-forme).
+> [ici](../installation/architectures.md#tableau-des-flux-de-la-plate-forme).
 
 <Tabs groupId="sync">
 <TabItem value="Central / Remote Server" label="Central / Remote Server">
@@ -826,7 +826,7 @@ Pour utiliser http2, vous devez suivre les étapes suivantes:
 <Tabs groupId="sync">
 <TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
 
-1. [Configurer le https pour Centreon](./secure-platform#passer-le-serveur-web-en-https)
+1. [Configurer le https pour Centreon](./secure-platform.md#passer-le-serveur-web-en-https)
 
 2. Installer le module nghttp2:
 
@@ -864,7 +864,7 @@ systemctl restart httpd
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
-1. [Configurer le https pour Centreon](./secure-platform#passer-le-serveur-web-en-https)
+1. [Configurer le https pour Centreon](./secure-platform.md#passer-le-serveur-web-en-https)
 
 2. Installer le module nghttp2:
 
@@ -907,20 +907,20 @@ systemctl restart httpd24-httpd
 Centreon propose plusieurs méthodes pour authentifier les utilisateurs :
 
 - localement (MySQL)
-- [LDAP](./parameters/ldap)
-- [Generic SSO](./parameters/centreon-ui#sso) ou [OpenId Connect](./parameters/centreon-ui#openid-connect)
+- [LDAP](./parameters/ldap.md)
+- [Generic SSO](./parameters/centreon-ui.md#sso) ou [OpenId Connect](./parameters/centreon-ui.md#openid-connect)
 
 ## Créer des profils d'utilisateurs
 
 Centreon propose de gérer les autorisations d'accès aux différents menus, ressources et actions possibles sur ces ressources
-via la gestion de [liste de contrôle d'accès](./access-control-lists).
+via la gestion de [liste de contrôle d'accès](./access-control-lists.md).
 
 ## Communications sécurisées entre les serveurs
 
 Il est fortement recommandé de sécuriser les communications entre les différents serveurs de la plateforme Centreon si
 certains serveurs ne sont pas dans un réseau sécurisé.
 
-> Le tableau des flux réseau est disponible [ici](../installation/architectures#tableau-des-flux-réseau).
+> Le tableau des flux réseau est disponible [ici](../installation/architectures.md#tableau-des-flux-réseau).
 
 ### Communication Centreon Broker 
 
@@ -928,13 +928,13 @@ certains serveurs ne sont pas dans un réseau sécurisé.
 
 Parfois, il n'est pas possible d'initialiser le flux Centreon Broker depuis le collecteur (ou Remote Server)
 vers le serveur Centreon Central ou le Remote Server.
-[Voir la configuration suivante pour inverser le flux](../monitoring/monitoring-servers/advanced-configuration#centreon-broker-and-the-firewall).
+[Voir la configuration suivante pour inverser le flux](../monitoring/monitoring-servers/advanced-configuration.md#centreon-broker-and-the-firewall).
 
 #### Authentification des flux Centreon Broker
 
 Si vous devez authentifier des collecteurs qui envoient des données, vous pouvez utiliser le mécanisme d'authentification
 Centreon Broker, qui est basé sur des certificats X.509.
-[Voir la configuration suivante pour authentifier les collecteurs](../monitoring/monitoring-servers/advanced-configuration#authentification-avec-centreon-broker).
+[Voir la configuration suivante pour authentifier les collecteurs](../monitoring/monitoring-servers/advanced-configuration.md#authentification-avec-centreon-broker).
 
 #### Compressez et chiffrez la communication Centreon Broker
 
@@ -964,9 +964,9 @@ Les journaux des événements Centreon sont disponibles dans les répertoires su
 | /var/log/centreon-map     | X              | X             |        | X                   | X                   |
 
 > De plus, toutes les actions de modification de la configuration de Centreon effectuées par les utilisateurs sont
-> disponibles via le menu [`Administration > Logs`](./logging-configuration-changes).
+> disponibles via le menu [`Administration > Logs`](./logging-configuration-changes.md).
 
 # Sauvegardez votre plateforme
 
 Centreon propose de sauvegarder la configuration de la plateforme. Pour ce faire, accédez au menu
-[`Administration  >  Parameters  >  Backup`](./backup).
+[`Administration  >  Parameters  >  Backup`](./backup.md).

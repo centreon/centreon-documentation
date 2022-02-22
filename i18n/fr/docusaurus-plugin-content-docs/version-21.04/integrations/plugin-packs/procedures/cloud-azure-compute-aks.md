@@ -38,7 +38,7 @@ Le Plugin-Pack Centreon **Azure Kubernetes Service** inclut un fournisseur de d�
 
 > La découverte **Azure Kubernetes Service** n'est compatible qu'avec le mode 'api'. Le mode 'azcli' n'est pas supporté dans le cadre de cette utilisation.
 
-Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionnement sur la documentation du module : [Découverte des hôtes](../../../monitoring/discovery/hosts-discovery)
+Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionnement sur la documentation du module : [Découverte des hôtes](../../../monitoring/discovery/hosts-discovery.md)
 
 ### Métriques & statuts collectés
 
@@ -317,4 +317,4 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre`--l
 
 ### Diagnostic des erreurs communes
 
-Rendez-vous sur la [documentation dédiée](../tutorials/troubleshooting-plugins#http-and-api-checks) des Plugins basés sur HTTP/API.
+Rendez-vous sur la [documentation dédiée](../tutorials/troubleshooting-plugins.md#http-and-api-checks) des Plugins basés sur HTTP/API.

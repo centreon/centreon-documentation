@@ -4,7 +4,7 @@ title: Consoles d'évènements
 ---
 
 > Certaines de ces interfaces sont **dépréciées** et remplacées par la page
-> [Statut des ressources](resources-status). Cette nouvelle page a pour but de regrouper les expériences que vous
+> [Statut des ressources](resources-status.md). Cette nouvelle page a pour but de regrouper les expériences que vous
 > pouvez retrouver dans ces interfaces.
 >
 > Pour les nouvelles installations, les pages dépréciées sont automatiquement
@@ -38,7 +38,7 @@ les différentes fonctions de ces icônes :
 
 > Cette interface est **dépréciée** et remplacée par la page
 > `Statut des ressources` et la [liste des
-> évènements](resources-status#lister-les-evenements).
+> évènements](resources-status.md#lister-les-evenements).
 
 Pour visualiser le statut des hôtes, rendez-vous dans le menu
 `Monitoring > Status Details > Hosts`.
@@ -120,7 +120,7 @@ Pour visualiser le statut des groupes d'hôtes, rendez-vous dans le menu
 
 > Cette interface est **dépréciée** et remplacée par la page
 > `Statut des ressources` et la [panneau
-> d'hôte](resources-status#panneau-dhote).
+> d'hôte](resources-status.md#panneau-dhote).
 
 Lorsque vous cliquez sur le nom d'un hôte, vous accédez à la page de
 détails de la ressource.
@@ -193,7 +193,7 @@ contacts liés à l'hôte qui recevront notifications.
 
 > Cette interface est **dépréciée** et remplacée par la page
 > `Statut des ressources` et la [liste des
-> évènements](resources-status#lister-les-evenements).
+> évènements](resources-status.md#lister-les-evenements).
 
 Pour visualiser le statut des services, rendez-vous dans le menu
 `Monitoring > Status Details > Services`.
@@ -298,7 +298,7 @@ choisissez l'option **Summary** pour le filtre **Display** :
 
 > Cette interface est **dépréciée** et remplacée par la page
 > `Statut des ressources` et la [panneau de
-> service](resources-status#panneau-de-service).
+> service](resources-status.md#panneau-de-service).
 
 Lorsque vous cliquez sur un service, l'écran suivant apparaît:
 

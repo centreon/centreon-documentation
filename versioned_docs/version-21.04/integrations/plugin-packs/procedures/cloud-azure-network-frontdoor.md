@@ -37,7 +37,7 @@ This provider is named **Microsoft Azure Front Door**:
 > This discovery feature is only compatible with the 'api' custom mode. 'azcli' is not supported yet.
 
 More information about the Host Discovery module is available in the Centreon documentation:
-[Host Discovery](../../../monitoring/discovery/hosts-discovery)
+[Host Discovery](../../../monitoring/discovery/hosts-discovery.md)
 
 ### Collected metrics & status
 
@@ -45,14 +45,14 @@ More information about the Host Discovery module is available in the Centreon do
 <TabItem value="Backend-Health" label="Backend-Health">
 
 | Metric Name                         | Description               | Unit |
-| :---------------------------------- | :------------------------ | :--- |
+|:------------------------------------|:--------------------------|:-----|
 | frontdoor.backend.health.percentage | Backend Health Percentage | %    |
 
 </TabItem>
 <TabItem value="Health" label="Health">
 
 | Status Name | Description                 |
-| :---------- | :-------------------------- |
+|:------------|:----------------------------|
 | status      | Current operational status  |
 | summary     | Last related status message |
 
@@ -60,7 +60,7 @@ More information about the Host Discovery module is available in the Centreon do
 <TabItem value="Latency" label="Latency">
 
 | Metric Name                            | Description             | Unit |
-| :------------------------------------- | :---------------------- | :--- |
+|:---------------------------------------|:------------------------|:-----|
 | frontdoor.latency.backend.milliseconds | Backend Request Latency | ms   |
 | frontdoor.latency.total.milliseconds   | Total Latency           | ms   |
 
@@ -68,7 +68,7 @@ More information about the Host Discovery module is available in the Centreon do
 <TabItem value="Requests" label="Requests">
 
 | Metric Name                      | Description            | Unit  |
-| :------------------------------- | :--------------------- | :---- |
+|:---------------------------------|:-----------------------|:------|
 | frontdoor.requests.backend.count | Backend Requests Count | Count |
 | frontdoor.requests.total.count   | Total Requests Count   | Count |
 | frontdoor.requests.waf.count     | WAF Requests Count     | Count |
@@ -77,7 +77,7 @@ More information about the Host Discovery module is available in the Centreon do
 <TabItem value="Size" label="Size">
 
 | Metric Name                   | Description            | Unit |
-| :---------------------------- | :--------------------- | :--- |
+|:------------------------------|:-----------------------|:-----|
 | frontdoor.size.billable.bytes | Billable Response Size | B    |
 | frontdoor.size.requests.bytes | Requests Size          | B    |
 | frontdoor.size.response.bytes | Response Size          | B    |
@@ -247,7 +247,7 @@ These mandatory Macros differ regarding the custom mode used:
 <TabItem value="Azure Monitor API" label="Azure Monitor API">
 
 | Mandatory | Nom               | Description                   |
-| :-------- | :---------------- | :---------------------------- |
+|:----------|:------------------|:------------------------------|
 | X         | AZURECUSTOMMODE   | Custom mode 'api'             |
 | X         | AZURESUBSCRIPTION | Subscription ID               |
 | X         | AZURETENANT       | Tenant ID                     |
@@ -259,7 +259,7 @@ These mandatory Macros differ regarding the custom mode used:
 <TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 | Mandatory | Nom               | Description                   |
-| :-------- | :---------------- | :---------------------------- |
+|:----------|:------------------|:------------------------------|
 | X         | AZURECUSTOMMODE   | Custom mode 'azcli'           |
 | X         | AZURESUBSCRIPTION | Subscription ID               |
 | X         | AZURERESOURCE     | Id of the Front Door instance |
@@ -327,7 +327,7 @@ All the available options for a given mode can be displayed by adding the ```--h
 The Plugin is using a cache file to keep connection information and avoid an authentication at each call. 
 If some of the authentication parameters change, you must delete the cache file. 
 
-The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder with a name similar to `azure_api_<md5>_<md5>_<md5>_<md5>`.
+The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder with a name similar to azure_api_`<md5>_<md5>_<md5>_<md5>`.
 
 #### ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```
 

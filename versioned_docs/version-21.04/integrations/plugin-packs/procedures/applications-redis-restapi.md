@@ -7,4 +7,4 @@ title: Redis Restapi (Deprecated)
 
 This Pack has been deprecated and replaced by `Redis Labs Enterprise Cluster Rest API`. 
 
-Refer to [this procedure](applications-redis-rlec-restapi).
+Refer to [this procedure](applications-redis-rlec-restapi.md)

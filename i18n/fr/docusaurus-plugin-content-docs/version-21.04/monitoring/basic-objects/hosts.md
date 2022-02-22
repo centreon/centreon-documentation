@@ -6,7 +6,7 @@ title: Créer un hôte manuellement
 Pour créer un hôte manuellement :
 1. Allez à la page **Configuration > Hôtes > Hôtes**, puis cliquez sur **Ajouter**.
 2. Remplissez les différents champs (voir [ci-dessous](#onglet-configuration-de-lhôte)), puis cliquez sur **Sauvegarder**.
-3. [Déployez la configuration](../monitoring-servers/deploying-a-configuration).
+3. [Déployez la configuration](../monitoring-servers/deploying-a-configuration.md).
 
 ## Onglet Configuration de l’hôte
 
@@ -32,7 +32,7 @@ Ce bouton sert à supprimer le modèle hôte ![image](../../assets/configuration
 
 * Si la case **Create Services linked to the Template too** est définit à **Yes**, Centreon génère automatiquement les
   services en se basant sur les modèles de services liés aux modèles d’hôtes définis au-dessus
-  (voir chapitre Les *[modèles](../templates)*).
+  (voir chapitre Les *[modèles](../templates.md)*).
 
 ### Macros
 
@@ -128,7 +128,7 @@ Les champs présentés ci-dessous sont obsolètes :
 
 * Le champ **ACL Resource Groups** (seulement visible pour les utilisateurs non administrateurs), permet de lier l’hôte
   à un groupe d’hôtes afin de pouvoir visualiser ce dernier (voir le chapitre sur
-  *[les listes de contrôles d'accès](../../administration/access-control-lists)*).
+  *[les listes de contrôles d'accès](../../administration/access-control-lists.md)*).
 
 ### Informations supplémentaires
 

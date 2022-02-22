@@ -136,14 +136,14 @@ flow matrix, refer to the architecture dedicated installation page.
 
 ![image](../../assets/integrations/centreon-ha/centreon-ha-2-nodes-arch.png)
 
-Reach [this page](../../installation/installation-of-centreon-ha/installation-2-nodes) to start your two nodes setup! 
+Reach [this page](../../installation/installation-of-centreon-ha/installation-2-nodes.md) to start your two nodes setup! 
 
 </TabItem>
 <TabItem value="Four-nodes-cluster" label="Four-nodes-cluster">
 
 ![image](../../assets/integrations/centreon-ha/centreon-ha-4-nodes-arch.png)
 
-Reach [this page](../../installation/installation-of-centreon-ha/installation-4-nodes) to start your four nodes setup!
+Reach [this page](../../installation/installation-of-centreon-ha/installation-4-nodes.md) to start your four nodes setup!
 
 </TabItem>
 </Tabs>

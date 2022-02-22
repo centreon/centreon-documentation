@@ -11,7 +11,7 @@ certain objects to speed up the creation of similar objects.
 
 A template can inherit properties from another template.
 
-Templates from Plugin Packs make monitoring hosts easy, because they provide ready-to-use check [commands](commands).
+Templates from Plugin Packs make monitoring hosts easy, because they provide ready-to-use check [commands](commands.md).
 
 ## Inheritance
 
@@ -49,7 +49,7 @@ To add a host template:
 Go into the **Configuration > Hosts > Templates** menu and click on **Add**
 
 > Refer to the chapter covering configuration of
-> [hosts](hosts-create) to configure a template because the form
+> [hosts](hosts-create.md) to configure a template because the form
 > is identical.
 
 > By default, locked host templates are hidden. Check the "Locked elements" box

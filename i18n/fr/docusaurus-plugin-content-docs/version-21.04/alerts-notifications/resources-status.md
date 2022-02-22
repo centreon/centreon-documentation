@@ -27,7 +27,7 @@ exemple par statut ou encore par sévérité.
 
 ### Prendre en compte un évènement
 
-Lorsqu'une ou plusieurs alertes apparaissent, il est possible de les [acquitter](manage-alerts#acquitter-un-problème) afin de montrer à votre équipe que le problème est bien
+Lorsqu'une ou plusieurs alertes apparaissent, il est possible de les [acquitter](manage-alerts.md#acquitter-un-problème) afin de montrer à votre équipe que le problème est bien
 pris en compte, et ce de deux manières:
 
 -   En acquittant la ressource directement via le bouton qui s'affiche au survol de
@@ -40,7 +40,7 @@ Seule une ressource non acquittée peut être acquittée.
 
 Lorsqu'une ressource est acquittée :
 - l'alerte disparaît de la vue **Problèmes non acquittés**
-- les [notifications](notif-configuration) partant de la ressource sont stoppées
+- les [notifications](notif-configuration.md) partant de la ressource sont stoppées
 - L'arrière-plan de la ligne d'une ressource acquittée passe en jaune.
 
 L'acquittement peut aussi être supprimé pour reverser l'évènement dans la liste
@@ -51,7 +51,7 @@ sur **Désacquitter** dans le menu **Plus d'actions**.
 
 ### Planifier une plage de maintenance
 
-Il est possible de [planifier une plage de maintenance](manage-alerts#ajouter-un-temps-darrêt) :
+Il est possible de [planifier une plage de maintenance](manage-alerts.md#ajouter-un-temps-darrêt) :
 
 -   En définissant directement une plage de maintenance via le bouton
     qui s'affiche au survol de la ligne

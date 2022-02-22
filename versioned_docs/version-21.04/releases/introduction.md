@@ -10,6 +10,6 @@ note.
 
 To access detailed release note by component, use the following sections:
 
-- [Core](centreon-core)
-- [Commercial extensions](centreon-commercial-extensions)
-- [Open Source extensions](centreon-os-extensions)
+- [Core](centreon-core.md)
+- [Commercial extensions](centreon-commercial-extensions.md)
+- [Open Source extensions](centreon-os-extensions.md)

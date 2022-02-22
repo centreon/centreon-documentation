@@ -112,5 +112,5 @@ parameter to the command:
 
 ## Troubleshooting
 
-[Troubleshooting plugins](../tutorials/troubleshooting-plugins)
+[Troubleshooting plugins](../tutorials/troubleshooting-plugins.md)
 

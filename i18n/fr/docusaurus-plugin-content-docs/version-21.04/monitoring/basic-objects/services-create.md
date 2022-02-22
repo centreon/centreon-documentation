@@ -10,23 +10,23 @@ Pour consulter la liste des services supervisés, allez à la page **Configurati
 
 Vous pouvez :
 
-- [créer un service manuellement](services)
-- [découvrir des services automatiquement](../discovery/services-discovery).
+- [créer un service manuellement](services.md)
+- [découvrir des services automatiquement](../discovery/services-discovery.md).
 
 ## Mettre un service en supervision
 
 1. Créez un service :
 
-    - Utilisez l'[autodécouverte d'hôtes](../discovery/hosts-discovery) : celle-ci crée automatiquement les services associés.
+    - Utilisez l'[autodécouverte d'hôtes](../discovery/hosts-discovery.md) : celle-ci crée automatiquement les services associés.
 
-    - [Créez un hôte manuellement](hosts) en utilisant un [Plugin Pack](../pluginpacks), et cochez la case **Créer aussi les services liés aux modèles** : les services associés à l'hôte sont créés automatiquement.
+    - [Créez un hôte manuellement](hosts.md) en utilisant un [Plugin Pack](../pluginpacks.md), et cochez la case **Créer aussi les services liés aux modèles** : les services associés à l'hôte sont créés automatiquement.
 
-    - Utilisez [l'autodécouverte de services](../discovery/services-discovery).
+    - Utilisez [l'autodécouverte de services](../discovery/services-discovery.md).
 
-    - Créez le [service manuellement](services) et dans le champ **Modèle**, sélectionnez un [modèle de service](services-templates) (issu ou non d'un Plugin Pack).
+    - Créez le [service manuellement](services.md) et dans le champ **Modèle**, sélectionnez un [modèle de service](services-templates.md) (issu ou non d'un Plugin Pack).
 
-    - Créez ou utilisez une [commande](commands) de vérification existante, et liez-la à un service [créé manuellement](services).
+    - Créez ou utilisez une [commande](commands.md) de vérification existante, et liez-la à un service [créé manuellement](services.md).
 
-    - Créez un service via [les API](../../api/introduction).
+    - Créez un service via [les API](../../api/introduction.md).
 
-2. [Déployez la configuration](../monitoring-servers/deploying-a-configuration).
+2. [Déployez la configuration](../monitoring-servers/deploying-a-configuration.md).
