@@ -26,6 +26,6 @@ You can:
 
     - Create a check [command](commands) or use an existing one, and link it to a service you have [created manually](services).
 
-    - Create a service using [the API](../../api/introduction).
+    <!--- Create a service using [the API](../../api/introduction).-->
 
 2. [Deploy the configuration](../monitoring-servers/deploying-a-configuration).

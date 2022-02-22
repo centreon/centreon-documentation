@@ -7,8 +7,8 @@ To monitor a resource in Centreon Cloud:
 
 1. Create the resource (see creating a host, creating a service, a metaservice)
 2. Link the resource to the poller you want it monitored by.
-3. Link the resource to the correct template provided by a [Plugin Pack](pp).
-4. [Export the configuration](deploying-a-configuration). The resource appears in the [Resources status](../alerts-notifications/resources-status) page, where you can track any changes in status.
+3. Link the resource to the correct template provided by a [Plugin Pack](../monitoring/pluginpacks).
+4. [Export the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md). The resource appears in the [Resources status](../alerts-notifications/resources-status) page, where you can track any changes in status.
 
 Here are a few tutorials to help you getting started with your monitoring:
 

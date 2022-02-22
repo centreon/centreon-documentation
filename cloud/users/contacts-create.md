@@ -15,4 +15,4 @@ from the **Linked to Roles** list. See [Users in Centreon Cloud](users) to know 
 * The **Password** and **Confirm Password** fields contain the user's password.
 * The **Default Language** field serves to define the language of the Centreon interface for this user.
 * The **Contact template used** field allows us to link the contact to a Model of contact.
-* The **Linked to Roles** field assigns [roles](cloud-users#user-roles) to the user.
+* The **Linked to Roles** field assigns [roles](users#user-roles) to the user.
