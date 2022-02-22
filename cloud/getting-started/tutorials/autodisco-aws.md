@@ -12,19 +12,13 @@ You must have:
 * the credentials to the AWS group of instances you want to monitor (Name, AWS Access Key and AWS Secret Key)
 * the region your AWS instances are in.
 
-## Step 1: Installing the Amazon EC2 plugin
+## Step 1: Installing the Amazon EC2 plugin dependencies
 
-1. To install the Amazon EC2 Plugin Pack, go to **Configuration > Plugin Packs**.
+Using SSH, log in to the poller that will monitor your EC2 resources, then install the **awscli** binary:
 
-2. In the **Keyword** field, type **Amazon EC2** and then click **Search**.
-
-3. Click on the `+` sign in the top right corner of the Plugin Pack. The Plugin Pack now has a green border and a tick mark in the top right corner: configuration templates and discovery providers are now installed.
-
-4. Using SSH, log in to the poller that will monitor your Ec2 resources, then install the **awscli** binary:
-
-  ```shell
-  yum install awscli
-  ```
+```shell
+yum install awscli
+```
 
 ## Step 2: Configure the discovery job
 
