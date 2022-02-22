@@ -45,7 +45,7 @@ const config = {
           onlyIncludeVersions: ['22.04'],
           versions: {
             22.04: {
-              label: '22.04',
+              label: '⭐ 22.04',
             },
           },
         },
