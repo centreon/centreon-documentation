@@ -615,7 +615,7 @@ Release date: `February 17, 2022`
 - Added an "audit" module to Gorgone to provide an overview of the system status, package versions, + some Centreon metrics.
 - Added a new "httpserverng" module to allow asynchronous API calls.
 
-####  
+#### Bug fixes
 
 - Fixed an issue that caused Service Discovery scans to fail because the wrong message was caught.
 - Fixed an issue that could make Gorgone crash in pull mode.
@@ -627,7 +627,7 @@ Release date: `February 17, 2022`
 
 Release date: `December 14, 2021`
 
-####  
+#### Bug fixes
 
 - Make Gorgone’s private key readable by centreon-gorgone only
 - Gorgone was too long to restart, which could cause the service to reach the systemctl timeout. The time to stop has been thoroughly decreased.
@@ -639,7 +639,7 @@ Release date: `December 14, 2021`
 
 `September 30, 2021`
 
-####  
+#### Bug fixes
 
 - Merge YAML libraries to use only one
 - Fixed uninitialized value using pull mode
