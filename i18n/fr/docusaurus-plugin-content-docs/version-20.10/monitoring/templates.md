@@ -66,7 +66,7 @@ Rendez-vous dans le menu `Configuration > Hôtes > Modèles` et cliquez sur
 le bouton **Ajouter**
 
 > Rapportez-vous au chapitre de configuration des
-> *[hôtes](basic-objects/hosts)* pour configurer un modèle car le
+> *[hôtes](basic-objects/hosts.md)* pour configurer un modèle car le
 > formulaire est identique.
 
 > Par défaut, les modèles d’hôte verrouillés sont masqués. Cocher la case
@@ -89,7 +89,7 @@ Rendez-vous dans le menu `Configuration > Services > Modèles` et cliquez
 sur le bouton **Ajouter**
 
 > Rapportez-vous au chapitre de configuration des
-> *[services](basic-objects/services)* pour configurer un modèle car le
+> *[services](basic-objects/services.md)* pour configurer un modèle car le
 > formulaire est identique.
 
 > Par défaut, les modèles de service verrouillés sont masqués. Cocher la case
@@ -149,6 +149,6 @@ Rendez-vous dans le menu `Configuration > Utilisateurs > Modèles de contact` et
 cliquez sur le bouton **Ajouter**
 
 > Se rapporter au chapitre de configuration des
-> [contacts](basic-objects/contacts). De plus, les modèles de contacts
+> [contacts](basic-objects/contacts.md). De plus, les modèles de contacts
 > sont utilisés pour l’import automatique de profils via un annuaire
-> [LDAP](../administration/parameters/ldap).
+> [LDAP](../administration/parameters/ldap.md).

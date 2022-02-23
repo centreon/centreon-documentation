@@ -166,7 +166,7 @@ yum install centreon-pack-virtualization-nutanix-snmp
 
 Dans le formulaire de création de l'hôte sur l'interface Web de Centreon, il est nécessaire de renseigner les valeurs des champs "Snmp Community" et "Snmp Version". 
 
-> Si vous utilisez SNMP en version 3, selectionnez la version SNMP idone et configurez les paramètres SNMP v3 via la macro SNMPEXTRAOPTIONS 
+> Si vous utilisez SNMP en version 3, selectionnez la version SNMP idoine et configurez les paramètres SNMP v3 via la macro SNMPEXTRAOPTIONS 
 
 | Obligatoire | Nom              | Description                                    |
 | :---------- | :--------------- | :--------------------------------------------- |

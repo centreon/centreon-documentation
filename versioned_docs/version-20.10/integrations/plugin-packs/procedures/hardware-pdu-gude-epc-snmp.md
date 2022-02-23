@@ -112,6 +112,7 @@ yum install centreon-pack-hardware-pdu-gude-epc-snmp
 * Apply the *HW-Pdu-Gude-Epc-SNMP-custom* Host Template
 
 > When using SNMP v3, use the SNMPEXTRAOPTIONS Macro to add specific authentication parameters
+
 | Mandatory | Name             | Description                                    |
 | :-------- | :--------------- | :--------------------------------------------- |
 |           | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo    |
@@ -155,4 +156,5 @@ parameter to the command:
 
 ## Troubleshooting
 
-[Troubleshooting plugins](../tutorials/troubleshooting-plugins#snmp-checks)
+[Troubleshooting plugins](../tutorials/troubleshooting-plugins.md#snmp-checks)
+

@@ -64,7 +64,7 @@ To add a host template:
 Go into the `Configuration > Hosts > Templates` menu and click on **Add**
 
 > Refer to the chapter covering configuration of
-> *[hosts](basic-objects/hosts)* to configure a template because the form
+> *[hosts](basic-objects/hosts.md)* to configure a template because the form
 > is identical.
 
 > By default, locked host templates are hidden. Check the "Locked elements" box
@@ -86,7 +86,7 @@ To add a Service Template:
 Go into the `Configuration > Services > Templates` menu and click on **Add**
 
 > Refer to the chapter covering configuration of
-> *[services](basic-objects/services)* to configure a template because the
+> *[services](basic-objects/services.md)* to configure a template because the
 > form is identical.
 
 > By default, locked service templates are hidden. Check the "Locked elements"
@@ -145,6 +145,6 @@ Go into the menu: `Configuration > Users > Contact Templates` menu and click
 on **Add**
 
 > Refer to the chapter covering configuration of
-> [contacts](basic-objects/contacts). In addition, the contacts
+> [contacts](basic-objects/contacts.md). In addition, the contacts
 > templates are used for automatic import of profiles via
-> [LDAP](../administration/parameters/ldap)
+> [LDAP](../administration/parameters/ldap.md)

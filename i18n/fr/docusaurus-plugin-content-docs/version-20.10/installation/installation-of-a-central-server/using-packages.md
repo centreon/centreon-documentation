@@ -71,7 +71,7 @@ systemctl stop firewalld
 systemctl disable firewalld
 ```
 
-> Vous pouvez trouver des instructions [ici](../../administration/secure-platform#enable-firewalld)
+> Vous pouvez trouver des instructions [ici](../../administration/secure-platform.md#enable-firewalld)
 > pour configurer le pare-feu.
 
 ### Installer le dépôts
@@ -407,4 +407,4 @@ systemctl start httpd24-httpd
 </Tabs>
 
 Terminez l'installation en réalisant les
-[étapes de l'installation web](../web-and-post-installation#installation-web).
+[étapes de l'installation web](../web-and-post-installation.md#installation-web).

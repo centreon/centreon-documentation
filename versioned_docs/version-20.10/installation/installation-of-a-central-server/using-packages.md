@@ -72,7 +72,7 @@ systemctl stop firewalld
 systemctl disable firewalld
 ```
 
-> You can find instructions [here](../../administration/secure-platform#enable-firewalld) to configure firewalld.
+> You can find instructions [here](../../administration/secure-platform.md#enable-firewalld) to configure firewalld.
 
 ### Install the repositories
 
@@ -402,4 +402,4 @@ systemctl start httpd24-httpd
 </Tabs>
 
 Conclude installation by performing
-[web installation steps](../web-and-post-installation#web-installation).
+[web installation steps](../web-and-post-installation.md#web-installation).
