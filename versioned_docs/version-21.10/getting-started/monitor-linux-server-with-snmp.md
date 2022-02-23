@@ -74,9 +74,9 @@ systemctl enable snmpd
 
    * The name of the server (1)
    * A description of the server (2)
-   * The IP address (3)
+   * Its IP address (3)
    * The SNMP version and community (4)
-   * Select the monitoring poller (keep "Central" if you have no other poller) (5)
+   * Select the poller that will monitor your Linux server (keep "Central" if you have no other poller) (5)
 
 3. Click on **+ Add a new entry** in the **Templates** field (6), then select the **OS-Linux-SNMP-custom** template (7) from the list:
 

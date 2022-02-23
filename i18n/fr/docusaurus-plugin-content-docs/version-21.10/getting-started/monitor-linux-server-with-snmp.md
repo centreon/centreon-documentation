@@ -75,7 +75,7 @@ systemctl enable snmpd
 
    * Le nom du serveur (1)
    * Une description de celui-ci (2)
-   * L'adresse IP du serveur(3)
+   * L'adresse IP du serveur (3)
    * La communauté SNMP et sa version (4)
    * Sélectionnez le collecteur désiré (laissez "Central" si vous n'avez pas d'autre collecteur) (5)
 
