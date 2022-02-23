@@ -44,7 +44,8 @@ Remplissez les informations suivantes :
 * L'adresse IP du routeur (3)
 
 * La version et la communauté SNMP (4)
-* Sélectionnez le collecteur de surveillance (gardez "Central" si vous n'avez pas d'autre colecteur) (5)
+* Sélectionnez le collecteur qui supervisera votre routeur (gardez "Central" si vous n'avez pas d'autre collecteur) (5)
+
 
 3. Cliquez sur **+ Ajouter une nouvelle entrée** dans le champ **Modèles** (6), puis sélectionnez le modèle **Net-Cisco-Standard-SNMP-custom** (7) dans la liste :
 
