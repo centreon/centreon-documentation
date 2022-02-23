@@ -44,7 +44,7 @@ Celui-ci permet de découvrir l'ensemble des comptes *Cosmos DB* rattachés à u
 > de cette utilisation. 
 
 Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionnement sur la documentation du module:
-[Découverte des hôtes](../../../monitoring/discovery/hosts-discovery)
+[Découverte des hôtes](../../../monitoring/discovery/hosts-discovery.md)
 
 ### Métriques & statuts collectés 
 
@@ -52,14 +52,14 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 <TabItem value="Cache-Latency" label="Cache-Latency">
 
 | Metric Name                      | Description   | Unit |
-| :------------------------------- | :------------ | :--- |
+|:---------------------------------|:--------------|:-----|
 | redis.cache.latency.microseconds | Cache Latency | μs   |
 
 </TabItem>
 <TabItem value="Cache-Throughput" label="Cache-Throughput">
 
 | Metric Name                                 | Description            | Unit |
-| :------------------------------------------ | :--------------------- | :--- |
+|:--------------------------------------------|:-----------------------|:-----|
 | redis.cache.read.throughput.bytespersecond  | Cache Read Throughput  | B/s  |
 | redis.cache.write.throughput.bytespersecond | Cache Write Throughput | B/s  |
 
@@ -67,7 +67,7 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 <TabItem value="Cache-Usage" label="Cache-Usage">
 
 | Metric Name              | Description  | Unit  |
-| :----------------------- | :----------- | :---- |
+|:-------------------------|:-------------|:------|
 | redis.cache.hits.count   | Cache Hits   | Count |
 | redis.cache.misses.count | Cache Misses | Count |
 
@@ -75,28 +75,28 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 <TabItem value="Clients" label="Clients">
 
 | Metric Name                         | Description       | Unit  |
-| :---------------------------------- | :---------------- | :---- |
+|:------------------------------------|:------------------|:------|
 | redis.cache.clients.connected.count | Connected Clients | Count |
 
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
 
 | Metric Name                      | Description          | Unit |
-| :------------------------------- | :------------------- | :--- |
+|:---------------------------------|:---------------------|:-----|
 | redis.cache.cpu.usage.percentage | CPU Usage Percentage | %    |
 
 </TabItem>
 <TabItem value="Errors" label="Errors">
 
 | Metric Name              | Description | Unit  |
-| :----------------------- | :---------- | :---- |
+|:-------------------------|:------------|:------|
 | redis.cache.errors.count | Errors      | Count |
 
 </TabItem>
 <TabItem value="Health" label="Health">
 
 | Status Name | Description                 |
-| :---------- | :-------------------------- |
+|:------------|:----------------------------|
 | status      | Current operational status  |
 | summary     | Last related status message |
 
@@ -104,21 +104,21 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 <TabItem value="Load" label="Load">
 
 | Metric Name                        | Description | Unit |
-| :--------------------------------- | :---------- | :--- |
+|:-----------------------------------|:------------|:-----|
 | redis.cache.server.load.percentage | Server Load | %    |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
 | Metric Name                         | Description             | Unit |
-| :---------------------------------- | :---------------------- | :--- |
+|:------------------------------------|:------------------------|:-----|
 | redis.cache.memory.usage.percentage | Memory Usage Percentage | %    |
 
 </TabItem>
 <TabItem value="Operations" label="Operations">
 
 | Metric Name                      | Description            | Unit |
-| :------------------------------- | :--------------------- | :--- |
+|:---------------------------------|:-----------------------|:-----|
 | redis.cache.operations.persecond | Operations per seconds | op/s |
 
 </TabItem>
@@ -288,7 +288,7 @@ dans la Macro *AZURERESOURCE*
 <TabItem value="Azure Monitor API" label="Azure Monitor API">
 
 | Mandatory | Nom                | Description                                        |
-| :-------- | :----------------- | :------------------------------------------------- |
+|:----------|:-------------------|:---------------------------------------------------|
 | X         | AZURECUSTOMMODE    | Custom mode 'api'                                  |
 | X         | AZURESUBSCRIPTION  | Subscription ID                                    |
 | X         | AZURETENANT        | Tenant ID                                          |
@@ -302,7 +302,7 @@ dans la Macro *AZURERESOURCE*
 <TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 | Mandatory | Nom                | Description                                        |
-| :-------- | :----------------- | :------------------------------------------------- |
+|:----------|:-------------------|:---------------------------------------------------|
 | X         | AZURECUSTOMMODE    | Custom mode 'azcli'                                |
 | X         | AZURESUBSCRIPTION  | Subscription ID                                    |
 | X         | AZURERESOURCE      | ID or name of the Redis resource                   |
@@ -373,7 +373,7 @@ Le Plugin utilise un fichier de cache pour conserver les informations de connexi
 se ré-authentifier à chaque appel. Si des informations sur le Tenant, la Souscription ou les 
 Client ID / Secret changent, il est nécessaire de supprimer le fichier de cache du Plugin. 
 
-Celui ci se trouve dans le répertoire ```/var/lib/centreon/centplugins/``` avec le nom `azure_api_<md5>_<md5>_<md5>_<md5>`.
+Celui ci se trouve dans le répertoire ```/var/lib/centreon/centplugins/``` avec le nom azure_api_`<md5>_<md5>_<md5>_<md5>`.
 
 #### ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```
 

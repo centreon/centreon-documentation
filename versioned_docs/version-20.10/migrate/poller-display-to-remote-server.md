@@ -17,8 +17,8 @@ If the module **centreon-poller-display-central-1.6.x** is installed:
     ```
 
 If your server uses the CentOS or Red Hat v7 operating system, refer to the
-[upgrade procedure](../upgrade/upgrade-from-3-4) to upgrade your Central server.
-Otherwise, refer to the [migration procedure](../migrate/migrate-from-3-4).
+[upgrade procedure](../upgrade/upgrade-from-3-4.md) to upgrade your Central server.
+Otherwise, refer to the [migration procedure](../migrate/migrate-from-3-4.md).
 
 > If you use the Centreon EMS modules, you must update these repositories. Be sure
 > to contact Centreon support and request new licenses.
@@ -36,8 +36,8 @@ following command:
   ```
 
 3. If your server uses the CentOS or Red Hat v7 operating system, refer to the
-[upgrade procedure](../upgrade/upgrade-from-3-4) to upgrade your Remote Server.
-Otherwise, refer to the [migration procedure](../migrate/migrate-from-3-4).
+[upgrade procedure](../upgrade/upgrade-from-3-4.md) to upgrade your Remote Server.
+Otherwise, refer to the [migration procedure](../migrate/migrate-from-3-4.md).
 
 > If you use Centreon EMS modules, you must update the repositories. Be sure to
 > contact your Centreon support and request new licenses.
@@ -177,7 +177,7 @@ Failed connect to 192.168.0.1:444; Connection refused
 7. **On the Centreon Central server**, edit all pollers and attach them to the
 **Remote Server** using the selection list.
 
-> Remember to [generate the configuration](../monitoring/monitoring-servers/deploying-a-configuration) for your
+> Remember to [generate the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md) for your
 > **Remote Server**.
 
 > A Centreon Remote Server is self-administered.

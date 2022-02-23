@@ -26,7 +26,7 @@ The search bar allows to search for a specific provider:
 > The discovery providers are provided from installation of Plugin Packs (Azure,
 > Amazon AWS, VMware, etc.). To know the complete list, please go to
 > the [Plugin Packs
-> catalog](../../integrations/plugin-packs/introduction).
+> catalog](../../integrations/plugin-packs/introduction.md).
 
 A job name can be defined to identify it. The provider name will be used by
 default.

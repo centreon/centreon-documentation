@@ -45,7 +45,7 @@ systemctl stop firewalld
 systemctl disable firewalld
 ```
 
-> You can find instructions [here](../../administration/secure-platform#enable-firewalld) to configure firewalld.
+> You can find instructions [here](../../administration/secure-platform.md#enable-firewalld) to configure firewalld.
 
 ### Install the repositories
 
@@ -297,9 +297,9 @@ Failed connect to 192.168.0.1:444; Connection refused
 
 ## Add the Poller to configuration
 
-Go to the [Add a Poller to configuration](../../monitoring/monitoring-servers/add-a-poller-to-configuration).
+Go to the [Add a Poller to configuration](../../monitoring/monitoring-servers/add-a-poller-to-configuration.md).
 
 ## Secure your platform
 
 Don't forget to secure your Centreon platform following our
-[recommendations](../../administration/secure-platform)
+[recommendations](../../administration/secure-platform.md)

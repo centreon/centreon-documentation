@@ -35,7 +35,7 @@ d'Hôtes nommé *Microsoft Azure Storage Syncs**. Celui-ci permet de découvrir 
 
 Vous trouverez plus d'informations sur la découverte d'Hôtes et son
 fonctionnement sur la documentation du module:
-[Découverte des hôtes](../../../monitoring/discovery/hosts-discovery)
+[Découverte des hôtes](../../../monitoring/discovery/hosts-discovery.md)
 
 ### Métriques & statuts collectés
 
@@ -43,7 +43,7 @@ fonctionnement sur la documentation du module:
 <TabItem value="Files-Synced" label="Files-Synced">
 
 | Metric name                    | Description  | Unit  |
-| :----------------------------- | :----------- | :---- |
+|:-------------------------------|:-------------|:------|
 | storagesync.files.synced.count | Files Synced | Count |
 | storagesync.item.errors.count  | Item errors  | Count |
 | storagesync.bytes.synced.bytes | Bytes synced | B     |
@@ -52,7 +52,7 @@ fonctionnement sur la documentation du module:
 <TabItem value="Recalls" label="Recalls">
 
 | Metric name                                        | Description                              | Unit |
-| :------------------------------------------------- | :--------------------------------------- | :--- |
+|:---------------------------------------------------|:-----------------------------------------|:-----|
 | storagesync.recalls.succesful.percentage           | Cloud tiering recall success rate        | %    |
 | storagesync.recalls.application.size.bytes         | Cloud tiering recall size by application | B    |
 | storagesync.recalls.size.bytes                     | Cloud tiering recall size                | B    |
@@ -63,7 +63,7 @@ fonctionnement sur la documentation du module:
 <TabItem value="Server-Status" label="Server-Status">
 
 | Metric name                 | Description | Unit  |
-| :-------------------------- | :---------- | :---- |
+|:----------------------------|:------------|:------|
 | storagesync.heartbeat.count | Heartbeat   | Count |
 
 </TabItem>
@@ -233,7 +233,7 @@ dans la Macro *AZURERESOURCE*
 <TabItem value="Azure Monitor API" label="Azure Monitor API">
 
 | Mandatory | Nom                | Description                                        |
-| :-------- | :----------------- | :------------------------------------------------- |
+|:----------|:-------------------|:---------------------------------------------------|
 | X         | AZURECUSTOMMODE    | Custom mode 'api'                                  |
 | X         | AZURESUBSCRIPTION  | Subscription ID                                    |
 | X         | AZURETENANT        | Tenant ID                                          |
@@ -246,7 +246,7 @@ dans la Macro *AZURERESOURCE*
 <TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 | Mandatory | Nom                | Description                                        |
-| :-------- | :----------------- | :------------------------------------------------- |
+|:----------|:-------------------|:---------------------------------------------------|
 | X         | AZURECUSTOMMODE    | Custom mode 'azcli'                                |
 | X         | AZURESUBSCRIPTION  | Subscription ID                                    |
 | X         | AZURERESOURCE      | ID or name of the Storage Sync resource            |
@@ -324,7 +324,7 @@ Le Plugin utilise un fichier de cache pour conserver les informations de connexi
 se ré-authentifier à chaque appel. Si des informations sur le Tenant, la Souscription ou les 
 Client ID / Secret changent, il est nécessaire de supprimer le fichier de cache du Plugin. 
 
-Celui ci se trouve dans le répertoire `/var/lib/centreon/centplugins/` avec le nom `azure_api_<md5>_<md5>_<md5>_<md5>`.
+Celui ci se trouve dans le répertoire `/var/lib/centreon/centplugins/` avec le nom azure_api_`<md5>_<md5>_<md5>_<md5>`.
 
 #### `UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)`
 

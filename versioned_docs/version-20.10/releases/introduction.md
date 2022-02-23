@@ -10,9 +10,9 @@ note.
 
 To access detailed release note by component, use the following sections:
 
-- [Core](centreon-core)
-- [Commercial extensions](centreon-commercial-extensions)
-- [Open Source extensions](centreon-os-extensions)
+- [Core](centreon-core.md)
+- [Commercial extensions](centreon-commercial-extensions.md)
+- [Open Source extensions](centreon-os-extensions.md)
 
 ## New Resources Status (previously Events view)
 
@@ -38,7 +38,7 @@ brings the following capabilities:
 ![image](../assets/monitoring/resources_status_1.png)
 
 To know more about this feature, have a look at
-[the documentation](../alerts-notifications/resources-status)
+[the documentation](../alerts-notifications/resources-status.md)
 
 ## Embedded IT Automation: towards a fully automatic asset discovery
 
@@ -59,11 +59,11 @@ improved to add new capacities:
 
 ![image](../assets/monitoring/discovery/host_disco_intro.png)
 
-Take a look at the [dedicated section](../monitoring/discovery/hosts-discovery)
+Take a look at the [dedicated section](../monitoring/discovery/hosts-discovery.md)
 to know how to launch your first discovery job\!
 
 To know everything about these changes, have a look at
-[the release note](centreon-commercial-extensions#centreon-auto-discovery-release-notes)
+[the release note](centreon-commercial-extensions.md#centreon-auto-discovery-release-notes)
 
 ## A stronger Open Source core framework
 
@@ -75,7 +75,7 @@ authentication layer, promoted by the OpenID Foundation. All popular Identity
 Providers implementing Multi-Factor Authentication support this architecture. 
 
 Take a look at the
-[dedicated section](../administration/parameters/centreon-ui#openid-connect).
+[dedicated section](../administration/parameters/centreon-ui.md#openid-connect).
 
 ### SELinux compatibility for strict security policy enforcement
 

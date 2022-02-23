@@ -31,7 +31,7 @@ Celui-ci permet de découvrir l'ensemble des *Firewalls* rattachés à une *sous
 > de cette utilisation. 
 
 Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionnement sur la documentation du module:
-[Découverte des hôtes](../../../monitoring/discovery/hosts-discovery)
+[Découverte des hôtes](../../../monitoring/discovery/hosts-discovery.md)
 
 ### Métriques & statuts collectés 
 
@@ -39,14 +39,14 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 <TabItem value="Health" label="Health">
 
 | Metric name                | Description           | Unit |
-| :------------------------- | :-------------------- | :--- |
+|:---------------------------|:----------------------|:-----|
 | firewall.health.percentage | Firewall health state | %    |
 
 </TabItem>
 <TabItem value="Hits" label="Hits">
 
 | Metric name                            | Description                 | Unit  |
-| :------------------------------------- | :-------------------------- | :---- |
+|:---------------------------------------|:----------------------------|:------|
 | firewall.applications.rules.hits.count | Application rules hit count | Count |
 | firewall.newtork.rules.hits.count      | Network rules hit count     | Count |
 
@@ -54,7 +54,7 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 <TabItem value="Throughput" label="Throughput">
 
 | Metric name                       | Description    | Unit |
-| :-------------------------------- | :------------- | :--- |
+|:----------------------------------|:---------------|:-----|
 | firewall.data.processed.bytes     | Data processed | B    |
 | firewall.throughput.bitspersecond | Throughput     | b/s  |
 
@@ -220,7 +220,7 @@ doivent être renseignées selon le custom-mode utilisé:
 <TabItem value="Azure Monitor API" label="Azure Monitor API">
 
 | Mandatory | Nom               | Description                 |
-| :-------- | :---------------- | :-------------------------- |
+|:----------|:------------------|:----------------------------|
 | X         | AZURECUSTOMMODE   | Custom mode 'api'           |
 | X         | AZURESUBSCRIPTION | Subscription ID             |
 | X         | AZURETENANT       | Tenant ID                   |
@@ -232,7 +232,7 @@ doivent être renseignées selon le custom-mode utilisé:
 <TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 | Mandatory | Nom               | Description                 |
-| :-------- | :---------------- | :-------------------------- |
+|:----------|:------------------|:----------------------------|
 | X         | AZURECUSTOMMODE   | Custom mode 'azcli'         |
 | X         | AZURESUBSCRIPTION | Subscription ID             |
 | X         | AZURERESOURCE     | Id of the Firewall resource |
@@ -302,7 +302,7 @@ Le Plugin utilise un fichier de cache pour conserver les informations de connexi
 se ré-authentifier à chaque appel. Si des informations sur le Tenant, la Souscription ou les 
 Client ID / Secret changent, il est nécessaire de supprimer le fichier de cache du Plugin. 
 
-Celui ci se trouve dans le répertoire ```/var/lib/centreon/centplugins/``` avec le nom `azure_api_<md5>_<md5>_<md5>_<md5>`.
+Celui ci se trouve dans le répertoire ```/var/lib/centreon/centplugins/``` avec le nom azure_api_`<md5>_<md5>_<md5>_<md5>`.
 
 #### ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```
 

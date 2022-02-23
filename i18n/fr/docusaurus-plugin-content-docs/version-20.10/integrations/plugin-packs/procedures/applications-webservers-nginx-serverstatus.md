@@ -14,7 +14,7 @@ Nginx est un serveur web open-source aussi utilisé comme reverse proxy, cache H
 
 ### Objets supervisés
 
-# Nginx Server
+* Nginx Server
 
 ### Métriques collectées
 

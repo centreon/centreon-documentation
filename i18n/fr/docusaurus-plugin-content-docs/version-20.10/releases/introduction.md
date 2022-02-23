@@ -11,9 +11,9 @@ Centreon 20.10**.
 Pour accéder aux notes de version détaillées par composants, rendez vous dans
 les sections suivantes:
 
-- [Core](centreon-core)
-- [Extensions commerciales](centreon-commercial-extensions)
-- [Extensions Open Source](centreon-os-extensions)
+- [Core](centreon-core.md)
+- [Extensions commerciales](centreon-commercial-extensions.md)
+- [Extensions Open Source](centreon-os-extensions.md)
 
 #### Statut des ressources (précédemment Event View)
 
@@ -39,7 +39,7 @@ apporte les fonctionnalités suivantes:
 ![image](../assets/monitoring/resources_status_1.png)
 
 Pour en savoir plus sur cette fonctionnalité, [rendez vous sur cette
-page](../alerts-notifications/resources-status)
+page](../alerts-notifications/resources-status.md)
 
 ## Industrialisation de l’exploitation : automatisation des mises à jour de configuration
 
@@ -64,11 +64,11 @@ améliorée pour ajouter de nouvelles possibilités :
 
 ![image](../assets/monitoring/discovery/host_disco_intro.png)
 
-Jetez un oeil à la [section dédiée](../monitoring/discovery/hosts-discovery)
+Jetez un oeil à la [section dédiée](../monitoring/discovery/hosts-discovery.md)
 pour savoir comment lancer votre première découverte!
 
 Pour tout savoir sur les modifications, consultez
-[la note de publication](centreon-commercial-extensions#centreon-auto-discovery-release-notes)
+[la note de publication](centreon-commercial-extensions.md#centreon-auto-discovery-release-notes)
 
 ## Un coeur Open Source encore plus robuste
 
@@ -80,7 +80,7 @@ d’authentification OpenID Connect (OIDC), proposée par la fondation OpenID.
 Tous les fournisseurs de gestion d’identités et d’accès qui proposent une
 authentification à facteurs multiples supportent OIDC.
 
-Jetez un oeil à la [section dédiée](../administration/parameters/centreon-ui#openid-connect).
+Jetez un oeil à la [section dédiée](../administration/parameters/centreon-ui.md#openid-connect).
 
 ### Compatibilité SELinux pour un renforcement des contrôles d’accès au noyau
 

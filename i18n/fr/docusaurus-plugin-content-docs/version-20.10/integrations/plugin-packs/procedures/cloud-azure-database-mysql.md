@@ -39,7 +39,7 @@ Celui-ci permet de découvrir l'ensemble des instances *Azure Database for MySQL
 > de cette utilisation. 
 
 Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionnement sur la documentation du module:
-[Découverte des hôtes](../../../monitoring/discovery/hosts-discovery)
+[Découverte des hôtes](../../../monitoring/discovery/hosts-discovery.md)
 
 ### Métriques & statuts collectés 
 
@@ -47,7 +47,7 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 <TabItem value="Connections" label="Connections">
 
 | Metric Name                       | Description                   | Unit  |
-| :-------------------------------- | :---------------------------- | :---- |
+|:----------------------------------|:------------------------------|:------|
 | azmysql.connections.active.count  | Number of active connections  | Count |
 | azmysql.connections.failed.count  | Number of failed Connections  | Count |
 | azmysql.connections.aborted.count | Number of aborted Connections | Count |
@@ -56,44 +56,44 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
 
-| Metric Name                        | Description     | Unit       |
-| :--------------------------------- | :-------------- | :--------- |
+| Metric Name                        | Description     | Unit      |
+|:---------------------------------- |:----------------|:----------|
 | azmysql.cpu.utilization.percentage | CPU utilization | Percentage |
 
 </TabItem>
 <TabItem value="IO-Consumption" label="IO-Consumption">
 
 | Metric Name                            | Description    | Unit       |
-| :------------------------------------- | :------------- | :--------- |
+|:---------------------------------------|:---------------|:-----------|
 | azmysql.ioconsumption.usage.percentage | IO consumption | Percentage |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
 | Metric Name                     | Description  | Unit       |
-| :------------------------------ | :----------- | :--------- |
+|:--------------------------------|:-------------|:-----------|
 | azmysql.memory.usage.percentage | Memory usage | Percentage |
 
 </TabItem>
 <TabItem value="Queries" label="Queries">
 
 | Metric Name           | Description       | Unit  |
-| :-------------------- | :---------------- | :---- |
+|:----------------------|:------------------|:------|
 | azmysql.queries.count | Number of queries | Count |
 
 </TabItem>
 <TabItem value="Replication" label="Replication">
 
-| Metric Name                     | Description     | Unit    |
-| :------------------------------ | :-------------- | :------ |
-| azmysql.replication.lag.seconds | Replication Lag | Seconds |
-| azmysql.replication.lag.count   | Replication Lag | Count   |
+| Metric Name                     | Description      | Unit    |
+|:--------------------------------|:-----------------|:--------|
+| azmysql.replication.lag.seconds | Replication Lag  | Seconds |
+| azmysql.replication.lag.count   | Replication Lag  | Count   |
 
 </TabItem>
 <TabItem value="Storage" label="Storage">
 
 | Metric Name                                | Description              | Unit       |
-| :----------------------------------------- | :----------------------- | :--------- |
+|:-------------------------------------------|:-------------------------|:-----------|
 | azmysql.storage.usage.bytes                | Storage used             | Bytes      |
 | azmysql.storage.limit.bytes                | Storage limit            | Bytes      |
 | azmysql.storage.usage.percentage           | Storage used             | Percentage |
@@ -106,7 +106,7 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 <TabItem value="Traffic" label="Traffic">
 
 | Metric Name               | Description | Unit  |
-| :------------------------ | :---------- | :---- |
+|:--------------------------|:------------|:------|
 | azmysql.traffic.out.bytes | Network Out | Bytes |
 | azmysql.traffic.in.bytes  | Network In  | Bytes |
 
@@ -277,7 +277,7 @@ dans la Macro *AZURERESOURCE*
 <TabItem value="Azure Monitor API" label="Azure Monitor API">
 
 | Mandatory | Nom                | Description                                        |
-| :-------- | :----------------- | :------------------------------------------------- |
+|:----------|:-------------------|:---------------------------------------------------|
 | X         | AZURECUSTOMMODE    | Custom mode 'api'                                  |
 | X         | AZURESUBSCRIPTION  | Subscription ID                                    |
 | X         | AZURETENANT        | Tenant ID                                          |
@@ -291,7 +291,7 @@ dans la Macro *AZURERESOURCE*
 <TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 | Mandatory | Nom                | Description                                        |
-| :-------- | :----------------- | :------------------------------------------------- |
+|:----------|:-------------------|:---------------------------------------------------|
 | X         | AZURECUSTOMMODE    | Custom mode 'azcli'                                |
 | X         | AZURESUBSCRIPTION  | Subscription ID                                    |
 | X         | AZURERESOURCE      | ID or name of the API Management resource          |
@@ -363,7 +363,7 @@ Le Plugin utilise un fichier de cache pour conserver les informations de connexi
 se ré-authentifier à chaque appel. Si des informations sur le Tenant, la Souscription ou les 
 Client ID / Secret changent, il est nécessaire de supprimer le fichier de cache du Plugin. 
 
-Celui ci se trouve dans le répertoire ```/var/lib/centreon/centplugins/``` avec le nom `azure_api_<md5>_<md5>_<md5>_<md5>`.
+Celui ci se trouve dans le répertoire ```/var/lib/centreon/centplugins/``` avec le nom azure_api_`<md5>_<md5>_<md5>_<md5>`.
 
 #### ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```
 

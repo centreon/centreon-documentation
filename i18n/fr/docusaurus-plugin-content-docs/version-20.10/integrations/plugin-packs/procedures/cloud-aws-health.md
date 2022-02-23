@@ -122,7 +122,6 @@ yum install centreon-pack-cloud-aws-health.noarch
 |             | DUMMYSTATUS     | Host state. Default is OK, do not modify it unless you know what you are doing              |
 |             | DUMMYOUTPUT     | Host check output. Default is 'This is a dummy check'. Customize it with your own if needed |
 
-
 ## FAQ
 
 ### Comment puis-je tester le Plugin et que signifient les options des commandes ?

@@ -38,7 +38,7 @@ Celui-ci permet de découvrir l'ensemble des instances *App Service Plan* rattac
 > de cette utilisation. 
 
 Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionnement sur la documentation du module:
-[Découverte des hôtes](../../../monitoring/discovery/hosts-discovery)
+[Découverte des hôtes](../../../monitoring/discovery/hosts-discovery.md)
 
 ### Métriques & statuts collectés 
 
@@ -46,14 +46,14 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 <TabItem value="Cpu" label="Cpu">
 
 | Metric Name                         | Description    | Unit |
-| :---------------------------------- | :------------- | :--- |
+|:------------------------------------|:---------------|:-----|
 | appserviceplan.cpu.usage.percentage | CPU Percentage | %    |
 
 </TabItem>
 <TabItem value="Data" label="Data">
 
 | Metric Name                   | Description | Unit |
-| :---------------------------- | :---------- | :--- |
+|:------------------------------|:------------|:-----|
 | appserviceplan.data.in.bytes  | Data In     | B    |
 | appserviceplan.data.out.bytes | Data Out    | B    |
 
@@ -61,7 +61,7 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 <TabItem value="Health" label="Health">
 
 | Status Name | Description                 |
-| :---------- | :-------------------------- |
+|:------------|:----------------------------|
 | status      | Current operational status  |
 | summary     | Last related status message |
 
@@ -69,14 +69,14 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 <TabItem value="Memory" label="Memory">
 
 | Metric Name                      | Description       | Unit |
-| :------------------------------- | :---------------- | :--- |
+|:---------------------------------|:------------------|:-----|
 | appserviceplan.memory.percentage | Memory Percentage | %    |
 
 </TabItem>
 <TabItem value="Socket" label="Socket">
 
 | Metric Name                                     | Description               | Unit  |
-| :---------------------------------------------- | :------------------------ | :---- |
+|:------------------------------------------------|:--------------------------|:------|
 | appserviceplan.socket.inboundall.count          | SocketInboundAll          | Count |
 | appserviceplan.socket.loopback.count            | SocketLoopback            | Count |
 | appserviceplan.socket.outboundall.count         | SocketOutboundAll         | Count |
@@ -87,7 +87,7 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 <TabItem value="Tcp-Connections" label="Tcp-Connections">
 
 | Metric Name                                      | Description      | Unit  |
-| :----------------------------------------------- | :--------------- | :---- |
+|:-------------------------------------------------|:-----------------|:------|
 | appserviceplan.connections.tcp.closewait.count   | TCP Close Wait   | Count |
 | appserviceplan.connections.tcp.closing.count     | TCP Closing      | Count |
 | appserviceplan.connections.tcp.finwait1.count    | TCP Fin Wait 1   | Count |
@@ -264,7 +264,7 @@ dans la Macro *AZURERESOURCE*
 <TabItem value="Azure Monitor API" label="Azure Monitor API">
 
 | Mandatory | Nom                | Description                                        |
-| :-------- | :----------------- | :------------------------------------------------- |
+|:----------|:-------------------|:---------------------------------------------------|
 | X         | AZURECUSTOMMODE    | Custom mode 'api'                                  |
 | X         | AZURESUBSCRIPTION  | Subscription ID                                    |
 | X         | AZURETENANT        | Tenant ID                                          |
@@ -278,7 +278,7 @@ dans la Macro *AZURERESOURCE*
 <TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 | Mandatory | Nom                | Description                                        |
-| :-------- | :----------------- | :------------------------------------------------- |
+|:----------|:-------------------|:---------------------------------------------------|
 | X         | AZURECUSTOMMODE    | Custom mode 'azcli'                                |
 | X         | AZURESUBSCRIPTION  | Subscription ID                                    |
 | X         | AZURERESOURCE      | ID or name of the App Service Plan resource        |
@@ -351,7 +351,7 @@ Le Plugin utilise un fichier de cache pour conserver les informations de connexi
 se ré-authentifier à chaque appel. Si des informations sur le Tenant, la Souscription ou les 
 Client ID / Secret changent, il est nécessaire de supprimer le fichier de cache du Plugin. 
 
-Celui ci se trouve dans le répertoire ```/var/lib/centreon/centplugins/``` avec le nom `azure_api_<md5>_<md5>_<md5>_<md5>`.
+Celui ci se trouve dans le répertoire ```/var/lib/centreon/centplugins/``` avec le nom azure_api_`<md5>_<md5>_<md5>_<md5>`.
 
 #### ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```
 
