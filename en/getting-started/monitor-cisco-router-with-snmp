@@ -26,7 +26,8 @@ The target device must be reachable from the Centreon Poller on the UDP/161 SNMP
 
 ### On the poller
 
-1. Connect to your poller in SSH and install the Cisco standard plugin (see the [monitoring procedure for the **Cisco standard** Plugin Pack](../integrations/plugin-packs/procedures/network-cisco-standard-snmp.html) for more information):
+1. Connect to your poller using SSH and install the Cisco standard plugin (see the [monitoring procedure for the **Cisco standard** Plugin Pack](../integrations/plugin-packs/procedures/network-cisco-standard-snmp.html) for more information):
+
 
    ```shell
    yum install centreon-plugin-Network-Cisco-Standard-Snmp
