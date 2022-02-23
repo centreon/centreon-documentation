@@ -412,62 +412,6 @@ List ports with Spanning Tree Protocol:
 [port = Port-channel1] [state = forwarding] [op_status = up] [admin_status = up] [index = 5001]
 ```
 
-### Monitor a MySQL or MariaDB database
-
-Go to the **Configuration \> Plugin Packs** menu and install **MySQL/MariaDB** Plugin Pack:
-
-![image](../assets/getting-started/quick_start_mysql_0.gif)
-
-Go to the **Configuration \> Hosts \> Hosts** menu and click on **Add**:
-
-![image](../assets/getting-started/quick_start_mysql_1a.png)
-
-Fill in the following information:
-
-* The name of the server
-* A description of the server
-* The IP address
-
-Click on **+ Add a new entry button** in **Templates** field, then select the **App-DB-MySQL-custom** template in the list.
-
-A list of macros corresponding to the model will then appear:
-
-![image](../assets/getting-started/quick_start_mysql_1b.png)
-
-Fill in the value of following macros:
-
-* **MYSQLUSERNAME**: the username to connect to the database.
-* **MYSQLPASSWORD**: the password of the user.
-* **MYSQLPORT**: the TCP port to connect to the database, by default 3306.
-
-Click on **Save**.
-
-Your equipment has been added to the monitoring configuration:
-
-![image](../assets/getting-started/quick_start_mysql_2.png)
-
-Go to **Configuration \> Services \> Services by host** menu. A set of indicators has been automatically deployed:
-
-![image](../assets/getting-started/quick_start_mysql_3.png)
-
-It is now time to [deploy the supervision](#deploying-a-configuration).
-
-Then go to the **Monitoring \> Status Details \> Services** menu and select **All** value for the **Service Status**
-filter. After a few minutes, the first results of the monitoring appear:
-
-![image](../assets/getting-started/quick_start_mysql_4.png)
-
-#### To go further
-
-The **MySQL/MariaDB** Plugin Pack provides several monitoring templates. When creating a service, it is possible to
-search the available models in the selection list: 
-
-![image](../assets/getting-started/quick_start_mysql_5.png)
-
-It is also possible to access the **Configuration \> Services \> Templates** menu to know the complete list:
-
-![image](../assets/getting-started/quick_start_mysql_6.png)
-
 ### Monitor Printer equipment with SNMP
 
 Go to the **Configuration \> Plugin Packs** menu and install **Printer Standard** Plugin Pack:
