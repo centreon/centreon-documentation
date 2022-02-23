@@ -8,7 +8,8 @@ title: Monitor your first Cisco router
 
 In this tutorial, we're assuming that your Centreon platform is installed and running well, and that you have at least a [Centreon IT 100 Edition](IT100.html) that provides Centreon Plugin Packs (your [license](../administration/licenses.html) is already set up).
 
-Your Cisco router will be monitored using the [Cisco standard](../integrations/plugin-packs/procedures/network-cisco-standard-snmp.html). (More about Plugin Packs [here](../monitoring/pluginpacks.html)). 
+Your Cisco router will be monitored using the [Cisco standard plugin pack](../integrations/plugin-packs/procedures/network-cisco-standard-snmp.html). (More about Plugin Packs [here](../monitoring/pluginpacks.html)). 
+
 
 ## Prerequisites
 
