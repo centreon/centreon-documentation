@@ -143,7 +143,7 @@ By:
 ##  Centreon Collect
 
 > As of version 21.10.0, the components of Centreon Collect (Centreon Broker, Centreon Clib, Centreon Engine and Centreon Connectors)
-> are released concurrently.  They are now grouped under this section.
+> are released simultaneously. They are now grouped under this section.
 
 ### 21.10.1
 
