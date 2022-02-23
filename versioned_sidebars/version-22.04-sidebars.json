@@ -25,6 +25,10 @@
           "type": "doc",
           "id": "version-22.04/getting-started/first-supervision"
         },
+		{
+          "type": "doc",
+          "id": "version-22.04/getting-started/monitor-mysql-server"
+        },
         {
           "type": "doc",
           "id": "version-22.04/getting-started/autodisco-aws"
