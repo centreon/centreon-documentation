@@ -22,7 +22,8 @@ L'équipement doit être accessible depuis le collecteur Centreon sur le port SN
 
 ### Sur le collecteur
 
-1. Connectez-vous à votre poller en SSH et installez le plugin standard Cisco (voir la [procédure de surveillance pour le Plugin Pack **Cisco standard**](../integrations/plugin-packs/procedures/network-cisco-standard-snmp.html) pour plus d'informations) :
+1. Connectez-vous à votre collecteur en SSH et installez le plugin standard Cisco (voir la [procédure de surveillance pour le Plugin Pack **Cisco standard**](../integrations/plugin-packs/procedures/network-cisco-standard-snmp.html) pour plus d'informations) :
+
 
    ```shell
    yum install centreon-plugin-Network-Cisco-Standard-Snmp
