@@ -16,7 +16,7 @@ CREATE USER 'username'@'IP_POLLER' IDENTIFIED BY 'password';
 Then, whether your database is a Centreon database or not, run the following command:
 
 ```shell
-grant ALL PRIVILEGES on *.* to 'username'@'IP_POLLER' identified by 'password'
+GRANT SELECT ON *.* TO 'username'@'IP_POLLER';
 ```
 
 > Replace the username, the IP address of the poller and the password by the values you want.

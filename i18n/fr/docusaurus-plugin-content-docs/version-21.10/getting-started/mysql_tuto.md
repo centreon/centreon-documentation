@@ -16,7 +16,7 @@ CREATE USER 'username'@'IP_POLLER' IDENTIFIED BY 'password';
 Puis, que votre base soit une base Centreon ou non, exécutez la commande suivante :
 
 ```shell
-grant ALL PRIVILEGES on *.* to 'centreon'@'IP_POLLER' identified by 'password'
+GRANT SELECT ON *.* TO 'username'@'IP_POLLER';
 ```
 
 > Remplacez le nom d'utilisateur, l'adresse IP du collecteur et le mot de passe par les valeurs de votre choix.
