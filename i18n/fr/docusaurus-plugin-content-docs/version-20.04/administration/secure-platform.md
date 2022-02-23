@@ -174,7 +174,7 @@ RedirectMatch ^/$ /centreon
 
 ```apacheconf
 Header set X-Frame-Options: "sameorigin"
-Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;Secure
+Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;Secure;SameSite=Strict
 ServerSignature Off
 ServerTokens Prod
 TraceEnable Off
