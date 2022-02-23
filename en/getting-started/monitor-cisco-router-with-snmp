@@ -46,7 +46,8 @@ Fill in the following information:
 
 * The name of the router (1)
 * A description of the router (2)
-* The IP address (3)
+* The IP address of the router (3)
+
 * The SNMP version and community (4)
 * Select the monitoring poller (keep "Central" if you have no other poller) (5)
 
