@@ -167,7 +167,7 @@ Release date: `February 23, 2022`
 - When a single metric is deleted, the corresponding RRD file is now actually removed.
 - If the SQL stream took too long to initialize its connection, then the Perfdata stream timed out and the whole connection failed. To fix this, the timeout has been increased.
 - In some circumstances, the `mysql_ping` function, which is used to test if the session is still active, could freeze. To fix this, the calls to `mysql_ping` have been spaced out, a timeout has been added, and the commit management has been consolidated.
-- Fixed an issue causing BAM Business Activities (best status) to remain in an OK state when the OK KPIs are removed
+- Fixed an issue causing BAM Business Activities (best status) to remain in an OK state when the OK KPIs were removed
 - Refactored the BAM Business activities downtimes inheritance mechanism so that they are properly inherited and not duplicated anymore.
 
 ### 21.10.0
