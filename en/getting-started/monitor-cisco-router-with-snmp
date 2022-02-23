@@ -17,7 +17,8 @@ Your Cisco router will be monitored using the [Cisco standard plugin pack](../in
 
 
 The first step is to activate and configure an SNMP service on your Cisco device.
-Please refer to the documentation of your Cisco device to know how to configure the SNMP service. You have an example on the monitoring procedure of [Cisco standard](../integrations/plugin-packs/procedures/network-cisco-standard-snmp.html).
+Please refer to the documentation of your Cisco device to know how to configure the SNMP service. The monitoring procedure for the [Cisco standard plugin pack](../integrations/plugin-packs/procedures/network-cisco-standard-snmp.html) includes an example.
+
 
 ### Network flow
 
