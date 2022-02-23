@@ -3,7 +3,8 @@ id: monitor-cisco-router-with-snmp
 title: Monitor your first Cisco router
 ---
 
-### Monitoring a Cisco Router with SNMP
+## Monitoring a Cisco Router with SNMP
+
 
 In this tutorial, we're assuming that your Centreon platform is installed and running well, and that you have at least a [Centreon IT 100 Edition](IT100.html) that provides Centreon Plugin Packs (your [license](../administration/licenses.html) is already set up).
 
