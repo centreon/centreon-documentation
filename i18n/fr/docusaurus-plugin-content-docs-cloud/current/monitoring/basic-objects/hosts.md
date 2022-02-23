@@ -121,8 +121,8 @@ The fields presented below are obsolete:
 
 ### Access groups
 
-* The **ACL Resource Groups** (only displayed for non administrator) allows to link this host to an hostgroup in order
-  to visualize it (see *[Access Control Lists](../../administration/access-control-lists)* chapter).
+<!--* The **ACL Resource Groups** (only displayed for non administrator) allows to link this host to an hostgroup in order
+  to visualize it (see *[Access Control Lists]()* chapter).-->
 
 ### Additional Information
 

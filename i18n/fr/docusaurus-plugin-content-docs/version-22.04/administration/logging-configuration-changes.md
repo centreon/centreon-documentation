@@ -29,8 +29,8 @@ Le tableau ci-dessous définit les colonnes du tableau de résultats :
 
 <table>
 <colgroup>
-<col style="width: 17%" />
-<col style="width: 82%" />
+<col style={{width:'17%'}}/>
+<col style={{width:'82%'}}/>
 </colgroup>
 <thead>
 <tr class="header">
@@ -79,8 +79,8 @@ Le tableau ci-dessous définit les colonnes du tableau des modifications :
 
 <table>
 <colgroup>
-<col style="width: 27%" />
-<col style="width: 72%" />
+<col style={{width:'27%'}}/>
+<col style={{width:'72%'}}/>
 </colgroup>
 <thead>
 <tr class="header">

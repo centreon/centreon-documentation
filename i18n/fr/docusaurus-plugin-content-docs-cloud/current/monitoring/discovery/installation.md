@@ -31,7 +31,7 @@ discovery providers you want.
 
 We recommend that you set up a dedicated technical account (e.g. `autodisco`) that will execute the discovery jobs in the background (different from the one you use to create and launch jobs in the interface). 
 
-1. On page **Configuration > Users > Contacts/Users**, create a dedicated [user](../basic-objects/contacts-create). On the **Centreon Authentication** tab, give it the following rights:
+1. On page **Configuration > Users > Contacts/Users**, <!--create a dedicated [user]().--> On the **Centreon Authentication** tab, give it the following rights:
     - **Reach Centreon front-end**: **No**
     - **Admin**: **Yes**
     - **Reach API Configuration**: **Yes**.

@@ -14,32 +14,32 @@ statut a une signification bien précise pour la ressource.
 
 Le tableau ci-dessous résume l'ensemble des statuts possibles pour un hôte.
 
-| Status                                         | Description                        |
-|------------------------------------------------|------------------------------------|
-| <span style="color:#88b917">DISPONIBLE</span>          | L'hôte est disponible et joignable |
-| <span style="color:#e00b3d">INDISPONIBLE</span>        | L'hôte est indisponible            |
-| <span style="color:#818185">INJOIGNABLE</span> | L'hôte est injoignable : il [dépend](notif-dependencies) d'un hôte dont le statut est **INDISPONIBLE**             |
-| <span style="color:#2ad1d4">EN ATTENTE</span> | L'hôte vient d'être créé mais n'a pas encore été contrôlé par le moteur de supervision |
+| Status                                               | Description                        |
+|------------------------------------------------------|------------------------------------|
+| <span style={{color:'#88b917'}}>DISPONIBLE</span>    | L'hôte est disponible et joignable |
+| <span style={{color:'#e00b3d'}}>INDISPONIBLE</span>  | L'hôte est indisponible            |
+| <span style={{color:'#818185'}}>INJOIGNABLE</span>   | L'hôte est injoignable : il [dépend](notif-dependencies) d'un hôte dont le statut est **INDISPONIBLE** |
+| <span style={{color:'#2ad1d4'}}>EN ATTENTE</span>    | L'hôte vient d'être créé mais n'a pas encore été contrôlé par le moteur de supervision |
 
 ## Statut des services
 
 Le tableau ci-dessous résume l'ensemble des statuts possibles pour un service.
 
-| Status                                     | Description                                                            |
-|--------------------------------------------|------------------------------------------------------------------------|
-| <span style="color:#88b917">OK</span>      | Le service ne présente aucun problème                                  |
-| <span style="color:#ff9a13">ALERTE</span> | Le service a dépassé le seuil d'alerte                                 |
-| <span style="color:#e00b3d">CRITIQUE</span>    | Le service a dépassé le seuil critique                                 |
-| <span style="color:#bcbdc0">INCONNU</span> | Le statut du service ne peut être vérifié (exemple : agent SNMP DOWN…) |
-| <span style="color:#2ad1d4">EN ATTENTE</span> |  Le service vient d'être créé mais n'a pas encore été contrôlé par le moteur de supervision |
+| Status                                             | Description                                                            |
+|----------------------------------------------------|------------------------------------------------------------------------|
+| <span style={{color:'#88b917'}}>OK</span>          | Le service ne présente aucun problème                                  |
+| <span style={{color:'#ff9a13'}}>ALERTE</span>      | Le service a dépassé le seuil d'alerte                                 |
+| <span style={{color:'#e00b3d'}}>CRITIQUE</span>    | Le service a dépassé le seuil critique                                 |
+| <span style={{color:'#bcbdc0'}}>INCONNU</span>     | Le statut du service ne peut être vérifié (exemple : agent SNMP DOWN…) |
+| <span style={{color:'#2ad1d4'}}>EN ATTENTE</span>  |  Le service vient d'être créé mais n'a pas encore été contrôlé par le moteur de supervision |
 
 ## États
 
 En plus de leur statut, les ressources peuvent avoir différents états :
 
-- <span style="color:#ae9500">Acquitté</span> : indique que l'incident sur le service ou l'hôte est pris en
+- <span style={{color:'#ae9500'}}>Acquitté</span> : indique que l'incident sur le service ou l'hôte est pris en
     compte par un utilisateur. (Voir [Acquitter un problème](acknowledge).)
-- <span style="color:#cc99ff">En maintenance</span> : indique que les notifications sont temporairement suspendues pour cette ressource. Une [plage de maintenance](downtimes) peut être [planifiée à l'avance](downtimes#les-temps-darrêt-récurrents) pour éviter de recevoir des alertes pendant une opération de maintenance. Elle peut également être définie suite à un incident.
+- <span style={{color:'#cc99ff'}}>En maintenance</span> : indique que les notifications sont temporairement suspendues pour cette ressource. Une [plage de maintenance](downtimes) peut être [planifiée à l'avance](downtimes#les-temps-darrêt-récurrents) pour éviter de recevoir des alertes pendant une opération de maintenance. Elle peut également être définie suite à un incident.
 - [Flapping](notif-flapping) (bagotement) : le pourcentage de
 changement de statut de la ressource est très élevé. Ce pourcentage est
 obtenu à partir de calculs effectués par le moteur de supervision. Les ressources dans un état de bagotement affichent l'icône suivante dans leur panneau **Détails** :

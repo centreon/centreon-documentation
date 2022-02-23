@@ -27,7 +27,7 @@ All users can access their own account to change their password. Each user belon
 
 ## Creating users
 
-You must belong to the **Editor** group to be able to [create a user](cloud-contacts-create) in Centreon Cloud. However, a user must belong to a group if they want to create a user within that group. This means that you should also give **Editors** the **Users** and **Notifications** roles if you want them to be able to give users these roles.
+You must belong to the **Editor** group to be able to <!--[create a user](cloud-contacts-create)--> in Centreon Cloud. However, a user must belong to a group if they want to create a user within that group. This means that you should also give **Editors** the **Users** and **Notifications** roles if you want them to be able to give users these roles.
 
 * Typically, you would give **Users** the **Users** and **Notifications** roles if you wanted them to be able to receive notifications.
 * If you want **Editors** to be able to create **Users**, give **Editors** both the **Users** and **Editors** roles (plus the **Notifications** role if you want them to be able to receive notifications).

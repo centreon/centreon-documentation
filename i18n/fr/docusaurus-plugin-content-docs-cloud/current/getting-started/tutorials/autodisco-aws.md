@@ -3,7 +3,7 @@ id: autodisco-aws
 title: Monitor AWS EC2 instances using autodiscovery
 ---
 
-In this tutorial, we will use the [Auto Discovery module](../monitoring/discovery/hosts-discovery) to detect AWS EC2 instances and monitor them.
+In this tutorial, we will use the [Auto Discovery module](../../monitoring/discovery/hosts-discovery) to detect AWS EC2 instances and monitor them.
 
 ## Prerequisites
 
@@ -42,7 +42,7 @@ You must have:
 
 6. Enter the region your EC2 instances are in (for example, **eu-north-1**). Click **Next**.
 
-7. Edit or add [mappers](../monitoring/discovery/hosts-discovery#how-to-use-mappers):
+7. Edit or add [mappers](../../monitoring/discovery/hosts-discovery#how-to-use-mappers):
     * Map `host.name` to the `discovery.results.name` attribute. The names of your hosts in Centreon will be the ones defined in this attribute (i.e. the hostname of the instance).
     * In our example, we will exclude the instances whose hostname contains "test".
 
@@ -70,4 +70,4 @@ You must have:
 
 4. Go to **Configuration > Hosts > Hosts** and check that the hosts you selected at the previous step appear in the list. The hosts are added to the lists of hosts but they are not monitored yet.
 
-5. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration). The hosts appear in the **Resources Status** page: they are monitored.
+5. [Deploy the configuration](../../monitoring/monitoring-servers/deploying-a-configuration). The hosts appear in the **Resources Status** page: they are monitored.

@@ -41,7 +41,7 @@ In addition to their status, resources can be in several states:
     has been taken into account by a user. (See [Acknowledging a problem](acknowledge).)
 * <span style={{color:'#cc99ff'}}>In downtime</span>: indicates that notifications are temporarily stopped. A [downtime](downtimes.md) can be [planned in advance](downtimes#recurrent-downtimes) to avoid receiving alerts during maintenance periods, or be set following an incident.
 
-* [Flapping](notif-flapping): indicates that the status change
+* : indicates that the status change
     percentage of the resource is very high. This percentage is obtained
     from calculations performed by the network monitoring engine.  Flapping resources have the following icon in their **Details** panel:
     ![image](../assets/alerts/flapping_icon.png)

@@ -69,7 +69,7 @@ In Centreon Cloud, notifications are sent by the central server.
 
 2. In the **General Information** section, check that **Enable notifications** is set to **Yes**.
 
-3. In the **Roles Relation** section, check that the user has the **Notifications** [role](../users/users#user-roles).
+3. In the **Roles Relation** section, check that the user has the **Notifications** [role](../users/users.md#user-roles).
 
 4. Click **Save**.
 

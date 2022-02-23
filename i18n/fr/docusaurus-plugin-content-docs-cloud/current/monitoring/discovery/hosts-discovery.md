@@ -12,7 +12,7 @@ See also our tutorial on [how to detect AWS EC2 instances](../../getting-started
 2. Install the Plugin Pack for the resources you want to discover.
     > The discovery providers are included in Plugin Packs (Azure,
     > Amazon AWS, VMware, etc.). To know the complete list, please go to
-    > the [Plugin Packs](../../integrations/plugin-packs/introduction)
+    <!-- > the [Plugin Packs]()-->
     > catalog.
 
 3. Create a discovery job for each type of resource you want to discover: go to **Configuration > Hosts > Discovery** and click on **+ADD**. A wizard opens.

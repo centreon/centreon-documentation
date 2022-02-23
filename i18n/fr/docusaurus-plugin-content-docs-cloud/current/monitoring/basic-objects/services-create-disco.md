@@ -11,4 +11,4 @@ Services can be created automatically in several ways:
 
     - Autodiscovery is done using [Plugin Packs](../pluginpacks).
 
-    - The autodiscovery feature requires a valid [license](../../administration/licenses).
+    <!--- The autodiscovery feature requires a valid [license]().-->

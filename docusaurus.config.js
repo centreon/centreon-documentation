@@ -87,7 +87,7 @@ const config = {
         id: 'cloud',
         path: 'cloud',
         routeBasePath: 'cloud',
-        sidebarPath: require.resolve('./sidebarsCloud.js'),
+        sidebarPath: require.resolve('./cloud/sidebarsCloud.js'),
       },
     ],
 
@@ -160,7 +160,7 @@ const config = {
             dropdownActiveClassDisabled: true,
             dropdownItemsAfter: [
               {
-                to: 'https://docs.centreon.com/older/',
+                to: 'https://docs-older.centreon.com/older/',
                 label: 'Older',
               },
             ],

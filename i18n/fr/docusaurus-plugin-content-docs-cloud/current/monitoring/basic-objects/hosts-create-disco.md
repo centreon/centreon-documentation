@@ -7,4 +7,4 @@ Use the [hosts dicovery feature](../discovery/hosts-discovery) to detect hosts a
 
 Autodiscovery is done using [Plugin Packs](../pluginpacks).
 
-The autodiscovery feature requires a valid [license](../../administration/licenses).
+<!--The autodiscovery feature requires a valid [license]().-->
