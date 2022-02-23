@@ -41,7 +41,8 @@ Remplissez les informations suivantes :
 
 * Le nom du routeur (1)
 * Une description du routeur (2)
-* L'adresse IP (3)
+* L'adresse IP du routeur (3)
+
 * La version et la communauté SNMP (4)
 * Sélectionnez le collecteur de surveillance (gardez "Central" si vous n'avez pas d'autre colecteur) (5)
 
