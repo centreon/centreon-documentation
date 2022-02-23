@@ -33,7 +33,8 @@ The target device must be reachable from the Centreon Poller on the UDP/161 SNMP
    yum install centreon-plugin-Network-Cisco-Standard-Snmp
    ```
 
-2. In the web interface, go to **Configuration > Plugin Packs**, search and install the **Cisco standard** Plugin Pack:
+2. In the web interface, go to **Configuration > Plugin Packs**, search for the **Cisco standard** Plugin Pack and install it:
+
 
    ![image](../assets/getting-started/quick_start_cisco_0.gif)
 
