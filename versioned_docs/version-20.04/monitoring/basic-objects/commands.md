@@ -53,7 +53,7 @@ All the commands can be configured in the menu: **Configuration > Commands**.
 
 ## Arguments and macros
 
-In the **Command Line** field it is possible to use *[macros](macros.md)* and arguments.
+In the **Command Line** field it is possible to use *[macros](macros)* and arguments.
 
 The macros are used to be able to pass various settings to the scripts called up by the commands. During execution
 of the command by the scheduler, each of the arguments and macros are replaced by their respective values.
@@ -67,7 +67,7 @@ $CENTREONPLUGINS$/centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin --mode
 --critical-average='$_SERVICECRITICAL$' $_SERVICEEXTRAOPTIONS$
 ```
 
-> Good practice requires replacing the arguments by *[custom macros](macros.md#custom-macros)*.
+> Good practice requires replacing the arguments by *[custom macros](macros#custom-macros)*.
 
 ## Connectors
 

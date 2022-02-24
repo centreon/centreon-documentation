@@ -219,7 +219,7 @@ The "Tuning" menu contains three parameters:
 
     The default color theme can be changed through the Centreon MBI General
     options menu. For more information, see the General options chapter
-    [General options](configure.md#general-options)
+    [General options](configure#general-options)
 
 -   **Multiplier coefficient of the scheduled task**: Each report design
     has a weight. A scheduled task can multiply this weight according to

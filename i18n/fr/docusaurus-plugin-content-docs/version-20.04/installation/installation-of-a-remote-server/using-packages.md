@@ -203,7 +203,7 @@ systemctl start httpd24-httpd
 ```
 
 Terminez l'installation en réalisant les
-[étapes de l'installation web](../web-and-post-installation.md#installation-web).
+[étapes de l'installation web](../web-and-post-installation#installation-web).
 
 > A l'étape d'**Initialisation de la supervision**, seules les actions 6 à 8
 > doivent être faites.
@@ -278,9 +278,9 @@ GRANT FILE on *.* to 'centreon'@'localhost';
 ## Ajouter le Remote Server à la configuration
 
 Rendez-vous au chapitre
-[Ajouter un Remote Server à la configuration](../../monitoring/monitoring-servers/add-a-remote-server-to-configuration.md).
+[Ajouter un Remote Server à la configuration](../../monitoring/monitoring-servers/add-a-remote-server-to-configuration).
 
 ## Sécurisez votre plateforme
 
 N'oubliez pas de sécuriser votre plateforme Centreon en suivant nos
-[recommandations](../../administration/secure-platform.md)
+[recommandations](../../administration/secure-platform)

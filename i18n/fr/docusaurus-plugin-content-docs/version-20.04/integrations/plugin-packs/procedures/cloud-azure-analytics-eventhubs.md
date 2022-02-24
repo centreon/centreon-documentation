@@ -39,7 +39,7 @@ Celui-ci permet de découvrir l'ensemble des instances *Event Hubs* rattachés �
 > de cette utilisation. 
 
 Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionnement sur la documentation du module:
-[Découverte des hôtes](../../../monitoring/discovery/hosts-discovery.md)
+[Découverte des hôtes](../../../monitoring/discovery/hosts-discovery)
 
 ### Métriques & statuts collectés 
 
@@ -47,14 +47,14 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 <TabItem value="Backlog" label="Backlog">
 
 | Metric Name                     | Description     | Unit  |
-|:--------------------------------|:----------------|:------|
+| :------------------------------ | :-------------- | :---- |
 | eventhubs.backlog.capture.count | Capture Backlog | Count |
 
 </TabItem>
 <TabItem value="Connections" label="Connections">
 
 | Metric Name                        | Description        | Unit  |
-|:-----------------------------------|:-------------------|:------|
+| :--------------------------------- | :----------------- | :---- |
 | eventhubs.connections.active.count | Active Connections | Count |
 | eventhubs.connections.closed.count | Connections Closed | Count |
 | eventhubs.connections.opened.count | Connections Opened | Count |
@@ -63,7 +63,7 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 <TabItem value="Errors" label="Errors">
 
 | Metric Name                          | Description           | Unit  |
-|:-------------------------------------|:----------------------|:------|
+| :----------------------------------- | :-------------------- | :---- |
 | eventhubs.errors.quotaexceeded.count | Quota Exceeded Errors | Count |
 | eventhubs.errors.server.count        | Server Errors         | Count |
 | eventhubs.errors.user.count          | User Errors           | Count |
@@ -72,7 +72,7 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 <TabItem value="Health" label="Health">
 
 | Status Name | Description                 |
-|:------------|:----------------------------|
+| :---------- | :-------------------------- |
 | status      | Current operational status  |
 | summary     | Last related status message |
 
@@ -80,7 +80,7 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 <TabItem value="Messages" label="Messages">
 
 | Metric Name                       | Description       | Unit  |
-|:----------------------------------|:------------------|:------|
+| :-------------------------------- | :---------------- | :---- |
 | eventhubs.messages.captured.count | Captured messages | Count |
 | eventhubs.messages.incoming.count | Incoming Messages | Count |
 | eventhubs.messages.outgoing.count | Outgoing Messages | Count |
@@ -89,7 +89,7 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 <TabItem value="Requests" label="Requests">
 
 | Metric Name                         | Description         | Unit  |
-|:------------------------------------|:--------------------|:------|
+| :---------------------------------- | :------------------ | :---- |
 | eventhubs.requests.incoming.count   | Incoming Requests   | Count |
 | eventhubs.requests.successful.count | Successful Requests | Count |
 | eventhubs.requests.throttled.count  | Throttled Requests  | Count |
@@ -98,7 +98,7 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 <TabItem value="Throughput" label="Throughput">
 
 | Metric Name                         | Description    | Unit |
-|:------------------------------------|:---------------|:-----|
+| :---------------------------------- | :------------- | :--- |
 | eventhubs.throughput.captured.bytes | Captured Bytes | B    |
 | eventhubs.throughput.incoming.bytes | Incoming Bytes | B    |
 | eventhubs.throughput.outgoing.bytes | Outgoing Bytes | B    |
@@ -270,7 +270,7 @@ dans la Macro *AZURERESOURCE*
 <TabItem value="Azure Monitor API" label="Azure Monitor API">
 
 | Mandatory | Nom                | Description                                        |
-|:----------|:-------------------|:---------------------------------------------------|
+| :-------- | :----------------- | :------------------------------------------------- |
 | X         | AZURECUSTOMMODE    | Custom mode 'api'                                  |
 | X         | AZURESUBSCRIPTION  | Subscription ID                                    |
 | X         | AZURETENANT        | Tenant ID                                          |
@@ -284,7 +284,7 @@ dans la Macro *AZURERESOURCE*
 <TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 | Mandatory | Nom                | Description                                        |
-|:----------|:-------------------|:---------------------------------------------------|
+| :-------- | :----------------- | :------------------------------------------------- |
 | X         | AZURECUSTOMMODE    | Custom mode 'azcli'                                |
 | X         | AZURESUBSCRIPTION  | Subscription ID                                    |
 | X         | AZURERESOURCE      | ID or name of the Event Hub resource               |
@@ -362,7 +362,7 @@ Le Plugin utilise un fichier de cache pour conserver les informations de connexi
 se ré-authentifier à chaque appel. Si des informations sur le Tenant, la Souscription ou les 
 Client ID / Secret changent, il est nécessaire de supprimer le fichier de cache du Plugin. 
 
-Celui ci se trouve dans le répertoire ```/var/lib/centreon/centplugins/``` avec le nom azure_api_`<md5>_<md5>_<md5>_<md5>`.
+Celui ci se trouve dans le répertoire ```/var/lib/centreon/centplugins/``` avec le nom `azure_api_<md5>_<md5>_<md5>_<md5>`.
 
 #### ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```
 

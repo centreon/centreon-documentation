@@ -29,7 +29,7 @@ This provider is named **Google CloudSQL MySQL**:
 > Note that the key file must be deployed on the Poller(s) expected to discover GCP assets.
 
 More information about the Host Discovery module is available in the Centreon documentation:
-[Host Discovery](../../../monitoring/discovery/hosts-discovery.md)
+[Host Discovery](../../../monitoring/discovery/hosts-discovery)
 
 ### Collected Metrics
 

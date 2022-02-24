@@ -129,14 +129,14 @@ To make sure that everything goes fine, you should have a look at `central-broke
 | `skip_nil_id`               | Number | `1`                                                                     | Do not send events from objects that do not have an ID (meta services most of the time) |               
 | `accepted_hostgroups`       | String |                                                                         | List of hostgroups in which the host must be (coma separeted eg: grp1,grp2,grp3) |               
 | `date_format`               | String | `%Y-%m-%d %H:%M:%S`                                                     | The default date format for converted timestamps (https://www.lua.org/pil/22.1) |               
-| `host_alert_message`        | String | `{last_update_date} {hostname} is {state}`                              | The default message for host alerts. See [host event macros](sc-opsgenie.md#host-event-macros) for more details about macros |
-| `host_alert_description`    | String |                                                                         | The default description of a host alert. See [host event macros](sc-opsgenie.md#host-event-macros) for more details about macros |
-| `host_alert_alias`          | String | `{hostname}_{state}`                                                    | The default alias for a host alert, useful for alert deduplication. See [host event macros](sc-opsgenie.md#host-event-macros) for more details about macros  |
-| `service_alert_message`     | String | `{last_update_date} {hostname} // {serviceDescription} is {state}`      | The default message for service alerts. See [service event macros](sc-opsgenie.md#service-event-macros) for more details about macros |
-| `service_alert_description` | String |                                                                         | The default description of a service alert. See [service event macros](sc-opsgenie.md#service-event-macros) for more details about macros |
-| `service_alert_alias`       | String | `{hostname}_{serviceDescription}_{state}`                               | The default alias for a service alert, useful for alert deduplication. See [service event macros](sc-opsgenie.md#service-event-macros) for more details about macros  |
-| `ba_incident_message`       | String | `{baName} is {state}, health level reached {level_nominal}`             | The default message for a ba incident. See [BA event macros](sc-opsgenie.md#ba-event-macros) for more details about macros |
-| `ba_incident_description`   | String |                                                                         | The default description of a ba incident. See [BA event macros](sc-opsgenie.md#ba-event-macros) for more details about macros |
+| `host_alert_message`        | String | `{last_update_date} {hostname} is {state}`                              | The default message for host alerts. See [host event macros](sc-opsgenie#host-event-macros) for more details about macros |
+| `host_alert_description`    | String |                                                                         | The default description of a host alert. See [host event macros](sc-opsgenie#host-event-macros) for more details about macros |
+| `host_alert_alias`          | String | `{hostname}_{state}`                                                    | The default alias for a host alert, useful for alert deduplication. See [host event macros](sc-opsgenie#host-event-macros) for more details about macros  |
+| `service_alert_message`     | String | `{last_update_date} {hostname} // {serviceDescription} is {state}`      | The default message for service alerts. See [service event macros](sc-opsgenie#service-event-macros) for more details about macros |
+| `service_alert_description` | String |                                                                         | The default description of a service alert. See [service event macros](sc-opsgenie#service-event-macros) for more details about macros |
+| `service_alert_alias`       | String | `{hostname}_{serviceDescription}_{state}`                               | The default alias for a service alert, useful for alert deduplication. See [service event macros](sc-opsgenie#service-event-macros) for more details about macros  |
+| `ba_incident_message`       | String | `{baName} is {state}, health level reached {level_nominal}`             | The default message for a ba incident. See [BA event macros](sc-opsgenie#ba-event-macros) for more details about macros |
+| `ba_incident_description`   | String |                                                                         | The default description of a ba incident. See [BA event macros](sc-opsgenie#ba-event-macros) for more details about macros |
 | `enable_incident_tags`      | Number | `1`                                                                     | Add tags to incidents |
 | `get_bv`                    | Number | `1`                                                                      | Add BV names as tags if `enable_incident_tags` is set to `1`
 | `ba_incident_tags`          | String | `centreon,applications`                                                 | List of tags for an incident. must be coma separeted. It will automatically add all the BV related to the BA as tags |
@@ -184,7 +184,7 @@ Macros are a tool to create dynamic messages depending on the event you want to 
 | ---------- |
 | hostname   |
 
-All the Properties in the [Host status](../../developer/developer-broker-mapping.md#host-status) table are also usable
+All the Properties in the [Host status](../../developer/developer-broker-mapping#host-status) table are also usable
 
 #### Service event macros
 
@@ -193,7 +193,7 @@ All the Properties in the [Host status](../../developer/developer-broker-mapping
 | hostname             |
 | serviceDescription   |
 
-All the Properties in the [Service status](../../developer/developer-broker-mapping.md#service-status) table are also usable
+All the Properties in the [Service status](../../developer/developer-broker-mapping#service-status) table are also usable
 
 #### BA event macros
 
@@ -202,4 +202,4 @@ All the Properties in the [Service status](../../developer/developer-broker-mapp
 | baName        |
 | baDescription |
 
-All the Properties in the [Ba status event](../../developer/developer-broker-mapping.md#ba-status-event) table are also usable
+All the Properties in the [Ba status event](../../developer/developer-broker-mapping#ba-status-event) table are also usable

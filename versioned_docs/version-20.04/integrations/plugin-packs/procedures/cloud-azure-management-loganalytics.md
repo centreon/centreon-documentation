@@ -25,9 +25,9 @@ number of matched items. It can rely on both Azure API and Azure CLI.
 <Tabs groupId="sync">
 <TabItem value="Kusto-Query" label="Kusto-Query">
 
-| Metric name               | Description                                        | Unit  |
-|:--------------------------|:-------------------------------------------------- |:----- |
-| match.count               | The number of logs matching the query expression.  | count |
+| Metric name | Description                                       | Unit  |
+| :---------- | :------------------------------------------------ | :---- |
+| match.count | The number of logs matching the query expression. | count |
 
 The KUSTOQUERY Macro is mandatory. 
 
@@ -196,21 +196,21 @@ The Macros vary depending on the custom-mode used.
 <Tabs groupId="sync">
 <TabItem value="Azure Monitor API" label="Azure Monitor API">
 
-| Mandatory   | Name              | Description       |
-| :---------- | :---------------- | :---------------- |
-| X           | AZURECUSTOMMODE   | Custom mode 'api' |
-| X           | AZURESUBSCRIPTION | Subscription ID   |
-| X           | AZURETENANT       | Tenant ID         |
-| X           | AZURECLIENTID     | Client ID         |
-| X           | AZURECLIENTSECRET | Client secret     |
+| Mandatory | Name              | Description       |
+| :-------- | :---------------- | :---------------- |
+| X         | AZURECUSTOMMODE   | Custom mode 'api' |
+| X         | AZURESUBSCRIPTION | Subscription ID   |
+| X         | AZURETENANT       | Tenant ID         |
+| X         | AZURECLIENTID     | Client ID         |
+| X         | AZURECLIENTSECRET | Client secret     |
 
 </TabItem>
 <TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
-| Mandatory   | Name              | Description         |
-| :---------- | :---------------- | :------------------ |
-| X           | AZURECUSTOMMODE   | Custom mode 'azcli' |
-| X           | AZURESUBSCRIPTION | Subscription ID     |
+| Mandatory | Name              | Description         |
+| :-------- | :---------------- | :------------------ |
+| X         | AZURECUSTOMMODE   | Custom mode 'azcli' |
+| X         | AZURESUBSCRIPTION | Subscription ID     |
 
 </TabItem>
 </Tabs>
@@ -278,7 +278,7 @@ As an example, if my Client ID or Client Secret are wrong, 'ERROR_DESC' value wi
 The Plugin is using a cache file to keep connection information and avoid an authentication at each call. 
 If some of the authentication parameters change, you must delete the cache file. 
 
-The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder with a name similar to azure_api_`<md5>_<md5>_<md5>_<md5>`.
+The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder with a name similar to `azure_api_<md5>_<md5>_<md5>_<md5>`.
 
 #### UNKNOWN: 500 Can't connect to login.microsoftonline.com:443 
 

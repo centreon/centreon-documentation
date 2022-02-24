@@ -137,4 +137,4 @@ parameter to the command:
 
 ## Troubleshooting
 
-[Troubleshooting plugins](../tutorials/troubleshooting-plugins.md#http-and-api-checks)
+[Troubleshooting plugins](../tutorials/troubleshooting-plugins#http-and-api-checks)
