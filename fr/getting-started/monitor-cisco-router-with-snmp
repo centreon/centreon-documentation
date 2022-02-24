@@ -8,7 +8,8 @@ title: Superviser votre premier routeur Cisco
 
 Dans ce tutoriel, nous partons du principe que votre plate-forme Centreon est installée et fonctionne correctement, et que vous disposez au moins d'une édition [Centreon IT 100](IT100.html) qui fournit des Plugin Packs Centreon (votre [licence](../administration/licenses.html) est déjà configurée).
 
-Votre routeur Cisco sera surveillé à l'aide du plugin [Cisco standard](../integrations/plugin-packs/procédures/network-cisco-standard-snmp.html). (Plus d'informations sur les Plugin Packs [ici](../monitoring/pluginpacks.html)). 
+Votre routeur Cisco sera supervisé à l'aide du Plugin Pack [Cisco standard](../integrations/plugin-packs/procédures/network-cisco-standard-snmp.html). (Plus d'informations sur les Plugin Packs [ici](../monitoring/pluginpacks.html)). 
+
 
 ## Prérequis
 
