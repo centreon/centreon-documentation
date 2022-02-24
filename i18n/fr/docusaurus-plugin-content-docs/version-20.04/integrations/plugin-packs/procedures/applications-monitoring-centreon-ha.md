@@ -8,12 +8,12 @@ import TabItem from '@theme/TabItem';
 
 ## Vue d'ensemble
 
-Centreon-HA est l'implémentation en haute disponibilité de la fonction centrale de Centreon.
+Centreon-HA est l'implémentation en haute disponibilité de la fonction centrale de Centreon. Plus d'informations sont disponibles [ici](administration/centreon-ha/architecture.md).
 
 Le Plugin-Pack Centreon-HA s'appuie sur deux autre Plugin-Packs :
 
-* [Pacemaker](applications-pacemaker-ssh.md)
-* [Linux SNMP](operatingsystems-linux-snmp.md)
+* [Pacemaker](integrations/plugin-packs/procedures/applications-pacemaker-ssh.md)
+* [Linux SNMP](integrations/plugin-packs/procedures/operatingsystems-linux-snmp.md)
 
 Par conséquent, il utilise les protocoles de ces deux Plugin-Packs - **SNMP** et **SSH** - pour se connecter aux nœuds du cluster Centreon-HA et récupérer informations et métriques relatives aux processus et à la santé du cluster.
 
@@ -73,7 +73,7 @@ Ce modèle ne collecte pas de métrique, mais donne l'état général du cluster
 
 ### Configuration SNMP de l'équipement
 
-La configuration de SNMP sur un serveur Linux est expliquée dans [la page de documentation du Plugin-Pack Linux SNMP](operatingsystems-linux-snmp.md#configuration-du-serveur-snmp).
+La configuration de SNMP sur un serveur Linux est expliquée dans [la page de documentation du Plugin-Pack Linux SNMP](integrations/plugin-packs/procedures/operatingsystems-linux-snmp.md#configuration-du-serveur-snmp).
 
 ### Configuration de la connexion SSH sans mot de passe
 

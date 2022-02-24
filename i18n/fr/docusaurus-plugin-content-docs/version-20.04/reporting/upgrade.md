@@ -8,7 +8,7 @@ title: Monter de version de l'extension
 > - Récupérer une nouvelle license via le support Centreon
 > - S'assurer que votre serveur de reporting est basé sur CentOS 7. Si ce n'est
 >   pas le cas, utiliser la procédure de [migration de votre serveur de
->   reporting](migrate.md)
+>   reporting](migrate)
 
 La montée de version de Centreon MBI se fait en 3 étapes :
 

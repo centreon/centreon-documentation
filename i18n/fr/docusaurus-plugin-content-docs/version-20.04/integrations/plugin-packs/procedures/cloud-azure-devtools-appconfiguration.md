@@ -34,7 +34,7 @@ Celui-ci permet de découvrir l'ensemble des instances *App Configuration* ratta
 > de cette utilisation. 
 
 Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionnement sur la documentation du module:
-[Découverte des hôtes](../../../monitoring/discovery/hosts-discovery.md)
+[Découverte des hôtes](../../../monitoring/discovery/hosts-discovery)
 
 ### Métriques & statuts collectés 
 
@@ -42,7 +42,7 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 <TabItem value="Http-Requests" label="Http-Requests">
 
 | Metric Name                                             | Description                            | Unit  |
-|:--------------------------------------------------------|:---------------------------------------|:------|
+| :------------------------------------------------------ | :------------------------------------- | :---- |
 | appconfiguration.http.incoming.requests.count           | Total number of incoming http requests | Count |
 | appconfiguration.http.incoming.requests.milliseconds    | Latency on an http request             | ms    |
 | appconfiguration.http.throttled.incoming.requests.count | Throttled http requests                | Count |
@@ -209,7 +209,7 @@ doivent être renseignées selon le custom-mode utilisé:
 <TabItem value="Azure Monitor API" label="Azure Monitor API">
 
 | Mandatory | Nom               | Description                          |
-|:----------|:------------------|:-------------------------------------|
+| :-------- | :---------------- | :----------------------------------- |
 | X         | AZURECUSTOMMODE   | Custom mode 'api'                    |
 | X         | AZURESUBSCRIPTION | Subscription ID                      |
 | X         | AZURETENANT       | Tenant ID                            |
@@ -221,7 +221,7 @@ doivent être renseignées selon le custom-mode utilisé:
 <TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 | Mandatory | Nom               | Description                          |
-|:----------|:------------------|:-------------------------------------|
+| :-------- | :---------------- | :----------------------------------- |
 | X         | AZURECUSTOMMODE   | Custom mode 'azcli'                  |
 | X         | AZURESUBSCRIPTION | Subscription ID                      |
 | X         | AZURERESOURCE     | Id of the App Configuration instance |
@@ -296,7 +296,7 @@ Le Plugin utilise un fichier de cache pour conserver les informations de connexi
 se ré-authentifier à chaque appel. Si des informations sur le Tenant, la Souscription ou les 
 Client ID / Secret changent, il est nécessaire de supprimer le fichier de cache du Plugin. 
 
-Celui ci se trouve dans le répertoire ```/var/lib/centreon/centplugins/``` avec le nom azure_api_`<md5>_<md5>_<md5>_<md5>`.
+Celui ci se trouve dans le répertoire ```/var/lib/centreon/centplugins/``` avec le nom `azure_api_<md5>_<md5>_<md5>_<md5>`.
 
 #### ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```
 

@@ -6,6 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
+
 ## Overview
 
 Apache ActiveMQ is an open source message broker written in Java together with a full Java Message Service (JMS) client.
@@ -21,17 +22,16 @@ Apache ActiveMQ is an open source message broker written in Java together with a
 <Tabs groupId="sync">
 <TabItem value="Services" label="Services">
 
-| Rule name                     | Description                |
-| :---------------------------- | :------------------------- |
-| App-Activemq-Jmx-Brokers-Name |  Discover ActiveMQ Broker  |
-
-</TabItem>
-</Tabs>
-
 ## Monitored metrics
 
-<Tabs groupId="sync">
+| Rule name                     | Description              |
+| :---------------------------- | :----------------------- |
+| App-Activemq-Jmx-Brokers-Name | Discover ActiveMQ Broker |
+
+</TabItem>
 <TabItem value="Brokers" label="Brokers">
+
+## Monitored metrics
 
 | Metric name                                    | Description                                         |
 | :--------------------------------------------- | :-------------------------------------------------- |
@@ -107,12 +107,12 @@ centreon-pack-applications-activemq-jmx.noarch
 * Log into Centreon and add a new Host through "Configuration > Hosts".
 * Apply the *App-Activemq-JMX-custom* template to the Host and configure all of the Macros marked as mandatory :
 
-| Mandatory   | Name                | Description                                                                |
-| :---------- | :------------------ | :------------------------------------------------------------------------- |
-| X           | JOLOKIAURL          | Jolokia URL (eg: http://myactivemq.centreon.com:8161/api/jolokia)          |
-| X           | JOLOKIAUSERNAME     | Jolokia user name                                                          |
-| X           | JOLOKIAPASSWORD     | Jolokia password                                                           |
-|             | JOLOKIAEXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
+| Mandatory | Name                | Description                                                                |
+| :-------- | :------------------ | :------------------------------------------------------------------------- |
+| X         | JOLOKIAURL          | Jolokia URL (eg: http://myactivemq.centreon.com:8161/api/jolokia)          |
+| X         | JOLOKIAUSERNAME     | Jolokia user name                                                          |
+| X         | JOLOKIAPASSWORD     | Jolokia password                                                           |
+|           | JOLOKIAEXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
 
 > It is recommended to use the discovery module to add the monitoring of your *Brokers***
 > Go to *Configuration > Services > Scan* to perform a scan and easily add the discovered resources**

@@ -27,9 +27,9 @@ Il peut s'appuyer sur l'API Azure Management Monitor ou l'Azure CLI.
 <Tabs groupId="sync">
 <TabItem value="Kusto-Query" label="Kusto-Query">
 
-| Metric name               | Description                                        | Unit  |
-|:--------------------------|:-------------------------------------------------- |:----- |
-| match.count               | The number of logs matching the query expression.  | count |
+| Metric name | Description                                       | Unit  |
+| :---------- | :------------------------------------------------ | :---- |
+| match.count | The number of logs matching the query expression. | count |
 
 La Macro KUSTOQUERY est obligatoire. 
 
@@ -194,13 +194,13 @@ doivent être renseignées selon le custom-mode utilisé:
 <Tabs groupId="sync">
 <TabItem value="Azure Monitor API" label="Azure Monitor API">
 
-| Mandatory   | Nom               | Description       |
-| :---------- | :---------------- | :---------------- |
-| X           | AZURECUSTOMMODE   | Custom mode 'api' |
-| X           | AZURESUBSCRIPTION | Subscription ID   |
-| X           | AZURETENANT       | Tenant ID         |
-| X           | AZURECLIENTID     | Client ID         |
-| X           | AZURECLIENTSECRET | Client secret     |
+| Mandatory | Nom               | Description       |
+| :-------- | :---------------- | :---------------- |
+| X         | AZURECUSTOMMODE   | Custom mode 'api' |
+| X         | AZURESUBSCRIPTION | Subscription ID   |
+| X         | AZURETENANT       | Tenant ID         |
+| X         | AZURECLIENTID     | Client ID         |
+| X         | AZURECLIENTSECRET | Client secret     |
 
 </TabItem>
 <TabItem value="Azure AZ CLI" label="Azure AZ CLI">
@@ -285,7 +285,7 @@ Le Plugin utilise un fichier de cache pour conserver les informations de connexi
 se ré-authentifier à chaque appel. Si des informations sur le Tenant, la Souscription ou les 
 Client ID / Secret changent, il est nécessaire de supprimer le fichier de cache du Plugin. 
 
-Celui ci se trouve dans le répertoire ```/var/lib/centreon/centplugins/``` avec le nom azure_api_`<md5>_<md5>_<md5>_<md5>`.
+Celui ci se trouve dans le répertoire ```/var/lib/centreon/centplugins/``` avec le nom `azure_api_<md5>_<md5>_<md5>_<md5>`.
 
 #### UNKNOWN: 500 Can't connect to login.microsoftonline.com:443 
 

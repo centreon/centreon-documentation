@@ -131,7 +131,6 @@ const config = {
       },
 
       hideableSidebar: true,
-
       colorMode: {
         defaultMode: 'light',
         disableSwitch: false,

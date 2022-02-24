@@ -192,7 +192,7 @@ systemctl start httpd24-httpd
 ```
 
 Conclude installation by performing
-[web installation steps](../web-and-post-installation.md#web-installation).
+[web installation steps](../web-and-post-installation#web-installation).
 
 > In the step **Initialization of the monitoring**, only the actions from 6 to 8
 > must be done.
@@ -267,9 +267,9 @@ GRANT FILE on *.* to 'centreon'@'localhost';
 ## Add the Remote Server to configuration
 
 Go to the
-[Add a Remote Server to configuration](../../monitoring/monitoring-servers/add-a-remote-server-to-configuration.md).
+[Add a Remote Server to configuration](../../monitoring/monitoring-servers/add-a-remote-server-to-configuration).
 
 ## Secure your platform
 
 Don't forget to secure your Centreon platform following our
-[recommendations](../../administration/secure-platform.md)
+[recommendations](../../administration/secure-platform)

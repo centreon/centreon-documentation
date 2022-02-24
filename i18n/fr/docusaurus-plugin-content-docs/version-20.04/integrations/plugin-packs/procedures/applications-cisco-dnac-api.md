@@ -1,5 +1,5 @@
 ---
-id: applications-cisco-dnac-restapi
+id: applications-cisco-dnac-api
 title: Cisco DNA Center Rest API
 ---
 import Tabs from '@theme/Tabs';

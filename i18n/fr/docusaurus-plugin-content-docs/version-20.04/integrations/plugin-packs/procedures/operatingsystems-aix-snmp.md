@@ -20,13 +20,13 @@ SNMP must be configured on the monitored host.
 ### Troubleshooting
 
 Read [Troubleshooting
-SNMP](../tutorials/troubleshooting-plugins.md#snmp-checks)
+SNMP](../tutorials/troubleshooting-plugins#snmp-checks)
 
 ## Centreon Configuration
 
 ### Create a new AIX host
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+Go to *Configuration > Hosts* and click *Add*. Then, fill the form as shown by
 the following table:
 
 | Field                   | Value                      |
