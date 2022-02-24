@@ -97,7 +97,7 @@ Sélectionnez ensuite **Accepter les paquets SNMP de ces hôtes** et ajoutez l'a
    yum install centreon-plugin-Operatingsystems-Windows-Snmp
    ```
 
-2. Dans l'interface Web, accédez à **Configuration > Plugin Packs** et installer le Plugin Pack **Windows SNMP** :
+2. Dans l'interface Web, accédez à **Configuration > Plugin Packs** et installez le Plugin Pack **Windows SNMP** :
 
    ![image](../assets/getting-started/prise_en_main_windows_snmp_10.gif)
 
