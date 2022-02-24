@@ -31,7 +31,7 @@ Ceci est la dernière version 20.04.
 
 #### Bug fixes
 
-- Correction de l'usage de labels de métriques non standard empechant le serveur MAP de démarrer.
+- Correction de l'usage de labels de métriques non standard empêchant le serveur MAP de démarrer.
 - Correction du support des labels de métriques non standards et de l'usage du caractère '=' dans ces labels.
 - Correction du chemin de la variable d'environment HeapDumpPath pour pointer sur le bon répertoire.
 
