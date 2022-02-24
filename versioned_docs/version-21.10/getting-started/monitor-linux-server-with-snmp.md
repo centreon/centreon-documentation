@@ -5,7 +5,7 @@ title: Monitor your first Linux host
 
 ## Monitoring a Linux server with SNMP
 
-In this tutorial, we're assuming that your Centreon platform is installed and running well, and that you have at least a [Centreon IT 100 Edition](IT100.md) that provides Centreon Plugin Packs (your [license](../administration/licenses.md) is already set up).
+In this tutorial, we're assuming that your Centreon platform is installed and running well, and that you have at least a [Centreon IT 100 Edition](it100.md) that provides Centreon Plugin Packs (your [license](../administration/licenses.md) is already set up).
 
 Your Linux server will be monitored using the [Linux SNMP Plugin Pack](../integrations/plugin-packs/procedures/operatingsystems-linux-snmp.md). (More about Plugin Packs [here](../monitoring/pluginpacks.md)).
 
