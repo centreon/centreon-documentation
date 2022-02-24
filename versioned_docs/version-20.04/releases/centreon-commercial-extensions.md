@@ -23,7 +23,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 `February 24, 2022`
 
-This released is the last one from 20.04.
+This is the last 20.04 released.
 
 #### Enhancements
 
