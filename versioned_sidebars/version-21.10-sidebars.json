@@ -25,6 +25,10 @@
           "type": "doc",
           "id": "version-21.10/getting-started/first-supervision"
         },
+		{
+          "type": "doc",
+          "id": "version-21.10/getting-started/monitor-mysql-server"
+        },
         {
           "type": "doc",
           "id": "version-21.10/getting-started/monitor-linux-server-with-snmp"
