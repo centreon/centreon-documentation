@@ -43,11 +43,7 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'monitoring/pluginpacks',
-        },
-        {
-          type: 'doc',
-          id: 'monitoring/monitoring-servers/deploying-a-configuration',
+          id: 'users/users',
         },
         {
           type: 'doc',
@@ -82,234 +78,21 @@ module.exports = {
               id: 'getting-started/create-custom-view',
             },
           ],
-        },
-      ],
-    },
-
-
-    {
-      type: 'category',
-      label: 'Monitoring resources',
-      items: [
-        {
-          type: 'category',
-          label: 'Monitoring hosts',
-          items: [
-            {
-              type: 'doc',
-              id: 'monitoring/basic-objects/hosts-create'
-            },
-            {
-              type: 'doc',
-              id: 'monitoring/basic-objects/hosts'
-            },
-            {
-              type: 'doc',
-              id: 'monitoring/basic-objects/hosts-create-disco'
-            },
-            {
-              type: 'doc',
-              id: 'monitoring/basic-objects/hosts-templates'
-            }
-          ]
+          
         },
         {
-          type: 'category',
-          label: 'Monitoring services',
-          items: [
-            {
-              type: 'doc',
-              id: 'monitoring/basic-objects/services-create'
-            },
-            {
-              type: 'doc',
-              id: 'monitoring/basic-objects/services'
-            },
-            {
-              type: 'doc',
-              id: 'monitoring/basic-objects/services-create-disco'
-            },
-            {
-              type: 'doc',
-              id: 'monitoring/basic-objects/services-templates'
-            },
-            {
-              type: 'doc',
-              id: 'monitoring/basic-objects/meta-services'
-            }
-          ]
+          type: "doc",
+          id: "alerts-notifications/notif-configuration"
         },
-        {
-          type: 'category',
-          label: 'Discovering hosts and services automatically',
-          items: [
-            {
-              type: 'doc',
-              id: 'monitoring/discovery/introduction'
-            },
-            {
-              type: 'doc',
-              id: 'monitoring/discovery/installation'
-            },
-            {
-              type: 'doc',
-              id: 'monitoring/discovery/hosts-discovery'
-            },
-            {
-              type: 'doc',
-              id: 'monitoring/discovery/services-discovery'
-            },
-          ]
-        },
-        {
-          type: 'category',
-          label: 'Organizing hosts, services and contacts',
-          items: [
-            {
-              type: 'doc',
-              id: 'monitoring/groups'
-            },
-            {
-              type: 'doc',
-              id: 'monitoring/categories'
-            }
-          ]
-        },
-        {
-          type: 'category',
-          label: 'Basic objects and actions',
-          items: [
-            {
-              type: 'doc',
-              id: 'monitoring/basic-objects/timeperiods'
-            },
-            {
-              type: 'doc',
-              id: 'monitoring/basic-objects/macros'
-            },
-            {
-              type: 'doc',
-              id: 'monitoring/basic-objects/commands'
-            },
-            {
-              type: 'doc',
-              id: 'monitoring/generic-actions'
-            }
-          ]
-        },
-        {
-          type: 'category',
-          label: 'Passive Monitoring',
-          items: [
-            {
-              type: 'doc',
-              id: 'monitoring/passive-monitoring/enable-snmp-traps'
-            },
-            {
-              type: 'doc',
-              id: 'monitoring/passive-monitoring/create-snmp-traps-definitions'
-            },
-            {
-              type: 'doc',
-              id: 'monitoring/passive-monitoring/monitoring-with-snmp-traps'
-            },
-            {
-              type: 'doc',
-              id: 'monitoring/passive-monitoring/debug-snmp-traps-management'
-            },
-          ]
-        },
-      ]
-    },
-
-
-
-
-    {
-      type: 'category',
-      label: 'Managing events and alerts',
-      items: [
-        
-                {
-                  type: "category",
-                  label: "Viewing events",
-                  items: [
-                        {
-                          type: 'doc',
-                          id: 'alerts-notifications/concepts'
-                        },
-                        {
-                          type: 'doc',
-                          id: 'alerts-notifications/resources-status'
-                        },
-                        {
-                          type: "doc",
-                          id: "alerts-notifications/custom-views"
-                        }
-                      ],
-                    },
-                    {
-                      type: "category",
-                      label: "Managing alerts",
-                      items: [
-                        {
-                          type: "doc",
-                          id: "alerts-notifications/acknowledge"
-                        },
-                        {
-                          type: "doc",
-                          id: "alerts-notifications/downtimes"
-                        },
-                        {
-                          type: "doc",
-                          id: "alerts-notifications/submit"
-                        },
-                        {
-                          type: "doc",
-                          id: "alerts-notifications/other"
-                        }
-                      ]
-                    },
-                    {
-                      type: "category",
-                      label: "Managing notifications",
-                      items: [
-                        {
-                          type: "doc",
-                          id: "alerts-notifications/notif-concept"
-                        },
-                        {
-                          type: "doc",
-                          id: "alerts-notifications/notif-configuration"
-                        },
-                        {
-                          type: "doc",
-                          id: "alerts-notifications/notif-dependencies"
-                        },
-                        {
-                          type: "doc",
-                          id: "alerts-notifications/notif-escalation"
-                        },
-                      ]
-                    },
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Managing users',
-      items: [
         {
           type: 'doc',
-          id: 'users/users',
+          id: 'monitoring/pluginpacks',
         },
         {
-          type:'doc',
-          id: 'users/contacts-create',
+          type: 'doc',
+          id: 'monitoring/monitoring-servers/deploying-a-configuration',
         },
       ],
     },
-
-
-
   ],
 };
