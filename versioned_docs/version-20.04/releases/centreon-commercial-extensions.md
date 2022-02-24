@@ -32,7 +32,7 @@ This is the last 20.04 released.
 #### Bug fixes
 
 - Fixed server startup failure when non standard metrics labels were used.
-- Fixed support for metric labels using whitespaces and '=' character.
+- Fixed support for metric labels using whitespaces and the '=' character.
 - Fixed HeadDumpPath path environment variable to point to the proper log directory.
 
 ### 20.04.7
