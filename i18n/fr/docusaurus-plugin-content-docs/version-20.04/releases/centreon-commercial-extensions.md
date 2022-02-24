@@ -19,6 +19,22 @@ commerciales, veuillez contacter le support.
 
 ## Centreon MAP
 
+### 20.04.8
+
+`February 24, 2022`
+
+Ceci est la dernière version 20.04.
+
+#### Enhancements
+
+- Ajout du support pour les espaces blancs multiples dans les perfdatas.
+
+#### Bug fixes
+
+- Correction de l'usage de labels de métriques non standard empechant le serveur MAP de démarrer.
+- Correction du support des labels de métriques non standards et de l'usage du caractère '=' dans ces labels.
+- Correction du chemin de la variable d'environment HeapDumpPath pour pointer sur le bon répertoire.
+
 ### 20.04.7
 
 `12 mars 2021`

@@ -19,6 +19,22 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon MAP
 
+### 20.04.8
+
+`February 24, 2022`
+
+This released is the last one from 20.04.
+
+#### Enhancements
+
+- Added proper support for multiple white spaces in perfdata.
+
+#### Bug fixes
+
+- Fixed server startup failure when non standard metrics label were used.
+- Fixed support for metric labels using whitespaces and '=' character.
+- Fixed HeadDumpPath path environment variable to point to the proper log directory.
+
 ### 20.04.7
 
 `March 12, 2021`
