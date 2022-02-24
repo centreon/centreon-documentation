@@ -23,7 +23,8 @@ Veuillez vous référer à la documentation de votre appareil Cisco pour savoir 
 
 L'équipement doit être accessible depuis le collecteur Centreon sur le port SNMP UDP/161.
 
-### Sur le collecteur
+## Sur le collecteur
+
 
 1. Connectez-vous à votre collecteur en SSH et installez le plugin standard Cisco (voir la [procédure de surveillance pour le Plugin Pack **Cisco standard**](../integrations/plugin-packs/procedures/network-cisco-standard-snmp.html) pour plus d'informations) :
 
