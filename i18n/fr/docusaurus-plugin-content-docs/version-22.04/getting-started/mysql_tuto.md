@@ -64,7 +64,7 @@ Rendez-vous dans le menu **Configuration > Packs de plugins** et installez le Pl
 
   ![image](../assets/getting-started/quick_start_mysql_3.png)
 
-7. [Déployez la supervision](#déployer-une-configuration).
+7. [Déployez la supervision](first-supervision.md#déployer-une-configuration).
 
 8. À la page **Supervision > Status des ressources**, sélectionnez la valeur **Tous** pour le
 filtre **Afficher les détails**. Dans un premier temps, les ressources apparaissent avec le statut **En attente**, ce qui signifie qu'aucun contrôle n'a encore été exécuté. Après quelques minutes, les premiers résultats de la supervision apparaissent :

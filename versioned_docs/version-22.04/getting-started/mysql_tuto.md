@@ -63,7 +63,7 @@ Go to the menu **Configuration > Plugin Packs** and install the **MySQL/MariaDB*
 
   ![image](../assets/getting-started/quick_start_mysql_3.png)
 
-7. [Deploy the supervision](#deploying-a-configuration).
+7. [Deploy the supervision](first-supervision.md#deploying-a-configuration).
 
 8. Go to **Monitoring > Status Details > Services** and select **All**
 for the **Service Status** filter. At first, the resources appear with the status **Pending**,
