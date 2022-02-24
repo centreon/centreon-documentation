@@ -477,6 +477,7 @@ Edit the **/etc/httpd/conf.d/10-centreon.conf** file and add the following line:
 
 ```apacheconf
 Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;Secure;SameSite=Strict
+Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
 ServerSignature Off
 ServerTokens Prod
 ```
@@ -495,6 +496,7 @@ Edit the **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf** file and add
 ```apacheconf
 Header set X-Frame-Options: "sameorigin"
 Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;Secure;SameSite=Strict
+Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
 ServerSignature Off
 ServerTokens Prod
 TraceEnable Off
