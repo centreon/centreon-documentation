@@ -7,9 +7,9 @@ import TabItem from '@theme/TabItem';
 
 ## Superviser un serveur Windows en SNMP
 
-Dans ce tutoriel, nous supposons que votre plateforme Centreon est installée et fonctionnel. Une [licence](../administration/licenses) est nécessaire pour accéder au catalogue complet des Plugin Packs. Nous supposons que vous avez au moins une licence [Centreon IT 100 Edition](IT100).
+Dans ce tutoriel, nous supposons que votre plateforme Centreon est installée et fonctionnelle. Une [licence](../administration/licenses) est nécessaire pour accéder au catalogue complet des Plugin Packs. Nous supposons que vous avez au moins une licence [Centreon IT 100 Edition](IT100).
 
-La supervision d'un serveur Windows en SNMP se fait via le [Plugin Pack Windows SNMP](../integrations/plugin-packs/procedures/operatingsystems-windows-snmp). (Vous pouvez obtenir plus d'informations sur les Plugin Pack [ici](../monitoring/pluginpacks)). 
+La supervision d'un serveur Windows en SNMP se fait via le [Plugin Pack Windows SNMP](../integrations/plugin-packs/procedures/operatingsystems-windows-snmp). (Vous pouvez obtenir plus d'informations sur les Plugin Packs [ici](../monitoring/pluginpacks)). 
 
 ## Prérequis
 
@@ -22,18 +22,18 @@ Retrouvez ci-dessous quelques étapes pour installer et configurer SNMP sur Wind
 
 #### Installation de SNMP sur Windows 10
 
-Vous avez deux options pour installer SNMP: en mode graphique en accédant aux **Paramètres** ou en utilisant PowerShell.
+Vous avez deux options : installer SNMP en mode graphique ou installer SNMP via PowerShell.
 
 <Tabs groupId="sync">
 <TabItem value="En accédant aux Paramètres Windows" label="En accédant aux Paramètres Windows">
 
-1. Rendez-vous dans le menu **Paramètres > Applications et fonctionnalités > Fonctionnalités facultatives**
+1. Rendez-vous dans le menu **Paramètres > Applications et fonctionnalités > Fonctionnalités facultatives**.
 
 2. Cliquez sur le bouton **Ajouter une fonctionnalité** et recherchez **SNMP**:
 
 	![image](../assets/getting-started/prise_en_main_windows_snmp_4.png)
 
-3. Selectionnez **Protocole SNMP (Simple Network Management Protocol)** and cliquez sur **Installer**.
+3. Selectionnez **Protocole SNMP (Simple Network Management Protocol)** et cliquez sur **Installer**.
 
 </TabItem>
 <TabItem value=" Avec Windows PowerShell" label=" Avec Windows PowerShell">
@@ -70,7 +70,7 @@ Get-WindowsCapability  -Online -Name "SNMP*"
 #### Configuration de SNMP sur Windows 10
 
 Après l'installation de SNMP, vous devez procéder à la configuration.
-Dans la barre de recherche, tapez **services.msc** et appuyez sur **Entrée** pour lancer le panneau Services.
+Dans la barre de recherche, tapez **services.msc** et appuyez sur **Entrée** pour lancer le panneau des Services.
 
 1. Recherchez le service SNMP dans la liste.
 
@@ -80,8 +80,8 @@ Dans la barre de recherche, tapez **services.msc** et appuyez sur **Entrée** po
 
 	![image](../assets/getting-started/prise_en_main_windows_snmp_6.png)
 
-3. Dans l'onglet **Sécurité**, écrivez la communauté SNMP dans la section **Noms de communauté acceptés** et choisissez l'option **LECTURE SEULE**.
-Sélectionnez ensuite le bouton radio **Accepter les paquets SNMP de ces hôtes** et ajoutez l'adresse IP du serveur Centreon.
+3. Dans l'onglet **Sécurité**, renseignez la communauté SNMP dans la section **Noms de communauté acceptés** et choisissez l'option **LECTURE SEULE**.
+Sélectionnez ensuite **Accepter les paquets SNMP de ces hôtes** et ajoutez l'adresse IP du serveur Centreon.
 
    ![image](../assets/getting-started/prise_en_main_windows_snmp_8.png)
 
@@ -89,21 +89,21 @@ Sélectionnez ensuite le bouton radio **Accepter les paquets SNMP de ces hôtes*
 
 	![image](../assets/getting-started/prise_en_main_windows_snmp_5.png)
 
-### Sur le serveur Centreon (Poller)
+### Sur le serveur Centreon (collecteur)
 
-1. Connectez-vous à votre Poller en SSH et installez le plugin Windows SNMP (voir la [Procédure de supervision du Plugin Pack **Windows SNMP**](../integrations/plugin-packs/procedures/operatingsystems-windows-snmp) pour plus d'informations):
+1. Connectez-vous à votre collecteur en SSH et installez le plugin Windows SNMP (voir la [procédure de supervision du Plugin Pack **Windows SNMP**](../integrations/plugin-packs/procedures/operatingsystems-windows-snmp) pour plus d'informations):
 
    ```shell
    yum install centreon-plugin-Operatingsystems-Windows-Snmp
    ```
 
-2. Dans l'interface Web, accédez au menu **Configuration > Plugin Packs** et installer le Plugin Pack **Windows SNMP** :
+2. Dans l'interface Web, accédez à **Configuration > Plugin Packs** et installer le Plugin Pack **Windows SNMP** :
 
    ![image](../assets/getting-started/prise_en_main_windows_snmp_10.gif)
 
 ## Configurer l'hôte et déployer la configuration
 
-1. Rendez-vous dans le menu **Configuration > hôte > hôte** et cliquez sur **Ajouter**:
+1. Rendez-vous dans le menu **Configuration > Hôtes > Hôtes** et cliquez sur **Ajouter** :
 
 	![image](../assets/getting-started/prise_en_main_windows_snmp_11.gif)
 
@@ -112,8 +112,8 @@ Sélectionnez ensuite le bouton radio **Accepter les paquets SNMP de ces hôtes*
    * Le nom du serveur (1)
    * Une description du serveur (2)
    * L'Adresse IP du serveur (3)
-   * La version et communauté SNMP(4)
-   * Sélectionnez le serveur de supervision (garder "Central" si vous n'avez pas d'autres serveurs Centreon) (5)
+   * La version et communauté SNMP (4)
+   * Sélectionnez le collecteur (garder "Central" si vous n'avez pas d'autres collecteur) (5)
 
 3. Cliquez sur **+ Ajouter une nouvelle entrée** dans le champ **Modèles** (6), ensuite sélectionnez le modèle **OS-Windows-SNMP-custom** (7) et enregistrez en cliquant sur **Sauvegarder**.
 
