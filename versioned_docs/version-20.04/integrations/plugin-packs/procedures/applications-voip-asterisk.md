@@ -110,7 +110,7 @@ example:
   - Echange ssh keys from the centreon server to the asterisk server (user
     *centreon* in our exemple):
     
-    `ssh-copy-id centreon@<asterisk server>`
+    ssh-copy-id centreon@`<asterisk server>`
 
   - Push the script
     `/usr/lib/nagios/plugins/apps/voip/asterisk/remote/remote-script/asterisk_sendcommand.pm`

@@ -100,7 +100,7 @@ Une fois celui-ci configuré, certaines macros doivent être renseignées.
 |             | SSHEXTRAOPTIONS | Personnalisez-le avec le vôtre si nécessaire. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```      |
 
 > Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur centreon-engine du Collecteur
-et l'utilisateur applicatif créé sur le serveur distant (Macro SSHUSERNAME).
+> et l'utilisateur applicatif créé sur le serveur distant (Macro SSHUSERNAME).
 
 </TabItem>
 <TabItem value="plink backend" label="plink backend">
@@ -114,7 +114,7 @@ et l'utilisateur applicatif créé sur le serveur distant (Macro SSHUSERNAME).
 |             | SSHEXTRAOPTIONS | Personnalisez-le avec le vôtre si nécessaire. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```      |
 
 > Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur centreon-engine du Collecteur
-et l'utilisateur applicatif créé sur le serveur distant (Macro SSHUSERNAME).
+> et l'utilisateur applicatif créé sur le serveur distant (Macro SSHUSERNAME).
 
 </TabItem>
 <TabItem value="libssh backend (par défaut)" label="libssh backend (par défaut)">
@@ -172,6 +172,6 @@ en ajoutant le paramètre ```--help``` à la commande:
     --help
 ```
 
-## Diagnostic
+## Diagnostique
 
-[Diagnostic des plugins](../tutorials/troubleshooting-plugins#ssh-and-cli-checks)
+[Diagnostique des plugins](../tutorials/troubleshooting-plugins.md#ssh-and-cli-checks)

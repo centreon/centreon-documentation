@@ -16,6 +16,8 @@ const config = {
   organizationName: 'Centreon',
   projectName: 'Centreon Documentation',
   
+  /*trailingSlash: true,*/
+  
   noIndex: false,
 
   i18n: {
@@ -131,6 +133,8 @@ const config = {
       },
 
       hideableSidebar: true,
+      autoCollapseSidebarCategories: true,
+
       colorMode: {
         defaultMode: 'light',
         disableSwitch: false,

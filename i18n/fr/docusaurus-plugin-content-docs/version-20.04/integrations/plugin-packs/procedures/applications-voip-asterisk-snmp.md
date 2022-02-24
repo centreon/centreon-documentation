@@ -2,88 +2,149 @@
 id: applications-voip-asterisk-snmp
 title: Asterisk VoIP SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-## Prerequisites
 
-### Centreon Plugin
+## Contenu du Pack
 
-Install this plugin on each needed poller:
+### Modèles
 
-``` shell
+Le Plugin Pack Centreon Asterisk VoIP SNMP apporte 1 modèle d'hôte :
+* App-VoIP-Asterisk-SNMP-custom
+
+Il apporte le Modèle de Service suivant :
+
+| Alias         | Modèle de service                    | Description                                    | Défaut |
+|:--------------|:-------------------------------------|:-----------------------------------------------|:-------|
+| Channel-Usage | App-Voip-Asterisk-SNMP-Channel-Usage | Contrôle le nombre d'appels et canaux en cours | X      |
+
+### Métriques & statuts collectés
+
+<Tabs groupId="sync">
+<TabItem value="Channel-Usage" label="Channel-Usage">
+
+| Métrique              | Unité |
+|:----------------------|:------|
+| calls.active.count    | count |
+| calls.processed.count | count |
+| channels.active.count | count |
+
+</TabItem>
+</Tabs>
+
+## Prérequis
+
+### Configuration SNMP
+
+Afin de superviser le serveur Asterisk, le SNMP v2 ou v3 doit être configuré 
+comme indiqué sur la [documentation officielle](https://wiki.asterisk.org/wiki/display/AST/Simple+Network+Management+Protocol+%28SNMP%29+Support).
+
+### Flux réseau
+
+La communication doit être possible sur le port UDP 161 depuis le collecteur
+Centreon vers le serveur Asterisk supervisé.
+
+## Installation
+
+<Tabs groupId="sync">
+<TabItem value="Online License" label="Online License">
+
+1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des ressources **Asterisk** :
+
+```bash
 yum install centreon-plugin-Applications-Voip-Asterisk-Snmp
 ```
 
-### Asterisk server configuration
+2. Sur l'interface Web de Centreon, installer le Plugin Pack **Asterisk VoIP SNMP** depuis la page **Configuration > Packs de plugins**.
 
-After connecting with root account to your Asterisk server, you must do the
-following configurations.
+</TabItem>
+<TabItem value="Offline License" label="Offline License">
 
-### SNMP mode
+1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des ressources **Asterisk** :
 
-  - Install *snmpd* daemon.
+```bash
+yum install centreon-plugin-Applications-Voip-Asterisk-Snmp
+```
 
-  - Modify the file `/etc/asterisk/modules.conf` by commenting out the line
-    containing `res_snmp.so`:
-    
-    vi /etc/asterisk/modules.conf
+2. Sur le serveur Central Centreon, installer le RPM du Pack **Asterisk VoIP SNMP** :
 
-example:
+```bash
+yum install centreon-pack-applications-voip-asterisk-snmp
+```
 
-    [modules] autoload=yes
-    ... noload => res_config_pgsql.so noload => res_phoneprov.so #noload => res_snmp.so noload => res_speech.so noload => res_config_sqlite.so ...
+3. Sur l'interface Web de Centreon, installer le Plugin Pack **Asterisk VoIP SNMP** depuis la page **Configuration > Packs de plugins**.
 
-  - Modify or create the file `/etc/asterisk/res_snmp.conf` to add the following
-    parameters:
-    
-    vi /etc/asterisk/res\_snmp.conf
-    
-    \[general\] subagent = yes enabled = yes
+</TabItem>
+</Tabs>
 
-  - Modify the file `/etc/snmp/snmpd.conf` to add some parameters:
-    
-    /etc/snmp/snmpd.conf
+## Configuration
 
-exemple:
+### Hôte
 
-    # Acces to Asterisk snmp
-    # Asterisk user
-    createUser asteriskUser SHA "password" AES
-    rwuser asteriskUser priv
-    # Enable AgentX support
-    master agentx
-    agentXSocket /var/agentx/master
-    # Set permissions on AgentX socket and containing
-    # directory such that process in group 'asterisk'
-    # will be able to connect
-    agentXPerms  0660 0550 nobody asterisk
+* Ajoutez un Hôte à Centreon depuis la page **Configuration > Hôtes**.
+* Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre serveur **Asterisk**.
+* Appliquez le Modèle d'Hôte **App-VoIP-Asterisk-SNMP-custom**.
 
-  - Download the following 2 files and place them into /usr/share/snmp/mibs (or
-    mib2c-data):
-    
-    wget <https://wiki.asterisk.org/wiki/display/AST/Asterisk+MIB+Definitions>
-    wget <https://wiki.asterisk.org/wiki/display/AST/Digium+MIB+Definitions>
+Si vous utilisez SNMP en version 3, vous devez configurer les paramètres
+spécifiques associés via la macro SNMPEXTRAOPTIONS.
 
-  - Restart snmpd and asterisk server:
-    
-    /etc/init.d/snmpd restart /etc/init.d/asterisk restart
+| Obligatoire | Macro            | Description                                 |
+|:------------|:-----------------|:--------------------------------------------|
+|             | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo |
 
-Here is an exemple of a command to check the snmp functionality:
+## Comment puis-je tester le Plugin et que signifient les options des commandes ? 
 
-    snmpwalk -v 3 -u asteriskUser -l authPriv -a SHA -A "password" -x AES -X "password" <xivo serveur IP> .1.3.6.1.4.1.22736
+Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne 
+de commande depuis votre collecteur Centreon en vous connectant avec 
+l'utilisateur **centreon-engine** (`su - centreon-engine`) :
 
-## Centreon Configuration
+```bash
+/usr/lib/centreon/plugins//centreon_asterisk_snmp.pl \
+    --plugin=apps::voip::asterisk::snmp::plugin \
+    --mode=channel-usage \
+    --hostname='10.0.0.1' \
+    --snmp-version='2c' \
+    --snmp-community='my-snmp-community' \
+    --warning-channels-active='' \
+    --critical-channels-active='' \
+    --warning-calls-active='100' \
+    --critical-calls-active='200' \
+    --warning-calls-count='' \
+    --critical-calls-count='' \
+    --use-new-perfdata 
+```
 
-### Create a host using the appropriate template
+La commande devrait retourner un message de sortie similaire à :
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
-the following table:
+```bash
+OK: channels active: 54 calls active: 73 calls count: 746 | 'channels.active.count'=54;;;0; 'calls.active.count'=73;0:100;0:200;0; 'calls.processed.count'=746;;;0; 
+```
 
-| Field                                | Value                         |
-| :----------------------------------- | :---------------------------- |
-| Host name                            | *Name of the host*            |
-| Alias                                | *Host description*            |
-| IP                                   | *Host IP Address*             |
-| Monitored from                       | *Monitoring Poller to use*    |
-| Host Multiple Templates              | App-VoIP-Asterisk-SNMP-custom |
+Dans cet exemple, une alarme de type WARNING sera déclenchée si le nombre
+d'appels en cours est supérieur à 100 (`--warning-calls-active='100'`); l'alarme 
+sera de type CRITICAL au-delà de 200 (`--critical-calls-active='200'`).
 
-Click on the *Save* button.
+La liste de toutes les options complémentaires et leur signification peut être
+affichée en ajoutant le paramètre `--help` à la commande :
+
+```bash
+/usr/lib/centreon/plugins//centreon_asterisk_snmp.pl \
+    --plugin=apps::voip::asterisk::snmp::plugin \
+    --mode=channel-usage \
+    --help
+ ```
+
+Tous les modes disponibles peuvent être affichés en ajoutant le paramètre 
+`--list-mode` à la commande :
+
+```bash
+/usr/lib/centreon/plugins//centreon_asterisk_snmp.pl \
+    --plugin=apps::voip::asterisk::snmp::plugin \
+    --list-mode
+ ```
+
+### Diagnostic des erreurs communes
+
+Rendez-vous sur la [documentation dédiée](../tutorials/troubleshooting-plugins.md)
+pour le diagnostic des erreurs communes des Plugins Centreon.

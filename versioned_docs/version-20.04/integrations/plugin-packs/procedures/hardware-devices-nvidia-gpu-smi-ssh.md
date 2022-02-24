@@ -5,6 +5,7 @@ title: NVIDIA GPU SMI SSH
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+
 ## Pack Assets
 
 ### Monitored Objects
@@ -92,7 +93,7 @@ yum install centreon-pack-hardware-devices-nvidia-gpu-smi-ssh
 |             | SSHPORT         | By default: 22                                                                              |
 |             | SSHEXTRAOPTIONS | Customize it with your own if needed. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```          |
 
-> With that backend, you have to validate the target server fingerprint manually (with the SSHUSERNAME used).
+**Warning** With that backend, you have to validate the target server fingerprint manually (with the SSHUSERNAME used).
 
 </TabItem>
 <TabItem value="plink backend" label="plink backend">
@@ -105,7 +106,7 @@ yum install centreon-pack-hardware-devices-nvidia-gpu-smi-ssh
 |             | SSHPORT         | By default: 22                                                                              |
 |             | SSHEXTRAOPTIONS | Customize it with your own if needed. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```          |
 
-> With that backend, you have to validate the target server fingerprint manually (with the SSHUSERNAME used).
+**Warning** With that backend, you have to validate the target server fingerprint manually (with the SSHUSERNAME used).
 
 </TabItem>
 <TabItem value="libssh backend (default)" label="libssh backend (default)">
@@ -175,4 +176,4 @@ parameter to the command:
 
 ## Troubleshooting
 
-[Troubleshooting plugins](../tutorials/troubleshooting-plugins#ssh-and-cli-checks)
+[Troubleshooting plugins](../tutorials/troubleshooting-plugins.md#ssh-and-cli-checks)

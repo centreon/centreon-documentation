@@ -31,7 +31,7 @@ This provider is named **Microsoft Azure Firewall**:
 > This discovery feature is only compatible with the 'api' custom mode. 'azcli' is not supported yet.
 
 More information about the Host Discovery module is available in the Centreon documentation:
-[Host Discovery](../../../monitoring/discovery/hosts-discovery)
+[Host Discovery](../../../monitoring/discovery/hosts-discovery.md)
 
 ### Collected Metrics
 
@@ -39,14 +39,14 @@ More information about the Host Discovery module is available in the Centreon do
 <TabItem value="Health" label="Health">
 
 | Metric name                | Description           | Unit |
-| :------------------------- | :-------------------- | :--- |
+|:---------------------------|:----------------------|:-----|
 | firewall.health.percentage | Firewall health state | %    |
 
 </TabItem>
 <TabItem value="Hits" label="Hits">
 
 | Metric name                            | Description                 | Unit  |
-| :------------------------------------- | :-------------------------- | :---- |
+|:---------------------------------------|:----------------------------|:------|
 | firewall.applications.rules.hits.count | Application rules hit count | Count |
 | firewall.newtork.rules.hits.count      | Network rules hit count     | Count |
 
@@ -54,7 +54,7 @@ More information about the Host Discovery module is available in the Centreon do
 <TabItem value="Throughput" label="Throughput">
 
 | Metric name                       | Description    | Unit |
-| :-------------------------------- | :------------- | :--- |
+|:----------------------------------|:---------------|:-----|
 | firewall.data.processed.bytes     | Data processed | B    |
 | firewall.throughput.bitspersecond | Throughput     | b/s  |
 
@@ -223,7 +223,7 @@ These mandatory Macros differ regarding the custom mode used:
 <TabItem value="Azure Monitor API" label="Azure Monitor API">
 
 | Mandatory | Nom               | Description                 |
-| :-------- | :---------------- | :-------------------------- |
+|:----------|:------------------|:----------------------------|
 | X         | AZURECUSTOMMODE   | Custom mode 'api'           |
 | X         | AZURESUBSCRIPTION | Subscription ID             |
 | X         | AZURETENANT       | Tenant ID                   |
@@ -235,7 +235,7 @@ These mandatory Macros differ regarding the custom mode used:
 <TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 | Mandatory | Nom               | Description                 |
-| :-------- | :---------------- | :-------------------------- |
+|:----------|:------------------|:----------------------------|
 | X         | AZURECUSTOMMODE   | Custom mode 'azcli'         |
 | X         | AZURESUBSCRIPTION | Subscription ID             |
 | X         | AZURERESOURCE     | Id of the Firewall instance |
@@ -301,7 +301,7 @@ All the available options for a given mode can be displayed by adding the ```--h
 The Plugin is using a cache file to keep connection information and avoid an authentication at each call. 
 If some of the authentication parameters change, you must delete the cache file. 
 
-The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder with a name similar to `azure_api_<md5>_<md5>_<md5>_<md5>`.
+The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder with a name similar to azure_api_`<md5>_<md5>_<md5>_<md5>`.
 
 #### ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```
 

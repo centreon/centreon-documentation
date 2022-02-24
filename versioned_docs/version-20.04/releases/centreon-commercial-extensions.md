@@ -135,7 +135,7 @@ If you have feature requests or want to report a bug, please contact support.
 - Simplify packaging: The packaging has been simplified so we don't require
   Tomcat. Logs are now accessible in `/var/log/centreon-map/` and the service
   is now `centreon-map` (*systemctl restart centreon-map*). [Follow the
-  upgrade procedure](../graph-views/upgrade)
+  upgrade procedure](../graph-views/upgrade.md)
 - Silent installation: It's now possible to install Centreon Map using a
   silent mode instead of the only interactive mode.
 - License on Central server: The licensing system has been simplified.

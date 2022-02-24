@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 ## Vue d'ensemble
 
-Office 365 est une suite de services en ligne proposés par Microsoft dans le cadre de sa ligne de produit Microsoft Office.
+Office 365 est une suite de services en ligne proposés par Microsoft dans le cadre de sa ligne de produits Microsoft Office.
 Les informations de monitoring de la suite Office sont mises à disposition par Microsoft à travers une API de gestion Office 365.
 
 ## Contenu du Plugin-Pack
@@ -16,7 +16,6 @@ Les informations de monitoring de la suite Office sont mises à disposition par 
 ### Objets supervisés
 
 * Services Office : Tous les services Office 365 : Office 365 Portal, Exchange Online, Microsoft Intune, Skype for Business, Mobile Device Management for Office 365, OneDrive for Business, SharePoint Online, Microsoft Teams, etc...
-* Features Office : Toutes les fonctionnalités des services Office 365 : E-Mail and calendar access, E-Mail timely delivery, etc..
 
 ## Métriques collectées
 
@@ -27,7 +26,6 @@ Les informations de monitoring de la suite Office sont mises à disposition par 
 | :--------------- | :------------------------------------------------- |
 | service          | Name of monitored service. Unit: Text              |
 | status (service) | Status of the monitored service. Unit: Text        |
-| status (feature) | Status of monitored feature of service. Unit: Text |
 
 </TabItem>
 </Tabs>
@@ -140,7 +138,6 @@ Choisissez le modèle d'hôte correspondant à la plateforme de Management Offic
 
 | Obligatoire | Nom                   | Description                                                                           |
 | :---------- | :-------------------- | :------------------------------------------------------------------------------------ |
-| X           | OFFICE365CUSTOMMODE   | Mode d'accès spécifique au Plugin Office 365 (par défaut: 'managementapi')            |
 | X           | OFFICE365TENANT       | ID correspondant à l'espace de votre entreprise au sein d'Office 365                  |
 | X           | OFFICE365CLIENTID     | ID correspondant à l'utilisateur de votre entreprise au sein d'Office 365             |
 | X           | OFFICE365CLIENTSECRET | ID correspondant au mot de passe utilisateur de votre entreprise au sein d'Office 365 |
@@ -153,48 +150,41 @@ Une fois le Plugin installé, vous pouvez tester directement celui-ci en ligne d
 
 ```bash
 /usr/lib/centreon/plugins//centreon_office365_management_api.pl \
---plugin=cloud::microsoft::office365::management::plugin \
---mode=service-status --custommode='managementapi' \
---tenant='b3dd23de-593f3cfe-4d741212-bcf9-f035c1a2eb24' \
---client-id='76f82731-073b-4eb2-9228-901d252d2cb6-1b0d' \
---client-secret='9/kRTASjPoy9FJfQZg6iznX\AkzCGertBgNq5r3tPfECJfKxj6zA=' \
---verbose --filter-service-name='Exchange Online' \
---filter-feature-name='' --warning-status='' \
---critical-status='%{status} !~ /Normal/i'
+    --plugin=cloud::microsoft::office365::management::plugin \
+    --mode=service-status \
+    --tenant='b3dd23de-593f3cfe-4d741212-bcf9-f035c1a2eb24' \
+    --client-id='76f82731-073b-4eb2-9228-901d252d2cb6-1b0d' \
+    --client-secret='9/kRTASjPoy9FJfQZg6iznX\AkzCGertBgNq5r3tPfECJfKxj6zA=' \
+    --filter-service-name='Exchange Online' \
+    --critical-status='%{status} !~ /serviceOperational|serviceRestored/i' \
+    --verbose
 ```
 
 Le retour du plugin est le suivant: 
 
 ```bash
-OK: Service 'Exchange Online' Status is 'Normal service' - All features
-status are ok |
-Checking service 'Exchange Online'
-Status is 'Normal service'
-Feature 'E-Mail and calendar access' Status is 'Normal service'
-Feature 'E-Mail timely delivery' Status is 'Normal service'
-Feature 'Management and Provisioning' Status is 'Normal service'
-Feature 'Sign-in' Status is 'Normal service'
-Feature 'Voice mail' Status is 'Normal service'
+OK: Service 'Exchange Online' status is 'serviceOperational' |
 ```
 
 La commande ci-dessus requête une API de gestion Office 365 (```--plugin=cloud::microsoft::office365::management::plugin```) via le tenant (```--tenant='b3dd23de-593f3cfe-4d741212-bcf9-f035c1a2eb24'```),
 le client (```--client-id='76f82731-073b-4eb2-9228-901d252d2cb6-1b0d'```), le client secret (```--client-secret='9/kRTASjPoy9FJfQZg6iznX\AkzCGertBgNq5r3tPfECJfKxj6zA='```) 
 et fournit l'état du service (```--mode=service-status```) "Exchange Online" (```--filter-service-name='Exchange Online'```) ainsi que l'état des 'features' du service selectionné.
-Une alerte CRITICAL sera déclenchée si l'état du service Exchange Online n'est pas 'Normal'.
+Une alerte CRITICAL sera déclenchée si l'état du service Exchange Online n'est pas 'serviceOperational'.
 
 Dans le cas où vous recevez un retour de type UNKNOWN, exécutez le Plugin en mode debug en ajoutant l'option '--debug' :
 
 ```bash
 /usr/lib/centreon/plugins//centreon_office365_management_api.pl
---plugin=cloud::microsoft::office365::management::plugin
---mode=service-status --custommode='managementapi'
---tenant='b3dd23de-593f3cfe-4d741212-bcf9-f035c1a2eb24'
---client-id='76f82731-073b-4eb2-9228-901d252d2cb6-1b0d'
---client-secret='9/kRTASjPoy9FJfQZg6iznX\AkzCGertBgNq5r3tPfECJfKxj6zA='
---verbose --filter-service-name='Exchange Online'
---filter-feature-name='' --warning-status=''
---critical-status='%{status} !~ /Normal/i'
---debug
+    --plugin=cloud::microsoft::office365::management::plugin
+    --mode=service-status
+    --tenant='b3dd23de-593f3cfe-4d741212-bcf9-f035c1a2eb24'
+    --client-id='76f82731-073b-4eb2-9228-901d252d2cb6-1b0d'
+    --client-secret='9/kRTASjPoy9FJfQZg6iznX\AkzCGertBgNq5r3tPfECJfKxj6zA='
+    --filter-service-name='Exchange Online'
+    --warning-status='' \
+    --critical-status='%{status} !~ /serviceOperational|serviceRestored/i' \
+    --debug \
+    --verbose
 
 UNKNOWN: Cannot decode json response: malformed JSON string, neither tag, array, object, number, 
 string or atom, at character offset 0 (before "System.Collections.G...") at 
@@ -206,7 +196,7 @@ string or atom, at character offset 0 (before "System.Collections.G...") at
 * Vérifiez que vos *tenant id* / *client id* / *client secret* soient correctement configurés.
 * Si la sonde a été lancée pour la première fois avec un autre user que *centreon-engine* (root par exemple), il est nécessaire de supprimer le fichier de cache stocké dans ```/var/lib/centreon/centplugins/office365_managementapi_*```. Il en est de même lorsque vous avez fait une modification sur les droits 
 associés aux paramètres d'authentification utilisés.
-* Par défaut ce Plugin utilise la librairie web "Lwb" pour requêter l'API de Microsoft Office 365. 
+* Par défaut ce Plugin utilise la librairie web "Lwp" pour requêter l'API de Microsoft Office 365. 
 Pour palier à certaines erreurs web, nous préconisons d'utiliser la librairie Curl
 en appelant l'option  --http-backend=curl.
 * Les données étant récupérées depuis le Cloud Azure, le temps d'exécution des contrôles peut augmenter dans le cas de latences réseau. 
@@ -215,7 +205,8 @@ Il sera alors nécessaire d'augmenter la valeur "Service check timeout" dans les
 Toutes les options des différents modes sont consultables via l'option ```--help```:
 
 ```bash
-/usr/lib/centreon/plugins//centreon_office365_management_api.pl
---plugin=cloud::microsoft::office365::management::plugin
---mode=service-status --custommode='managementapi' --help
+/usr/lib/centreon/plugins//centreon_office365_management_api.pl \
+    --plugin=cloud::microsoft::office365::management::plugin \
+    --mode=service-status \
+    --help
 ```
