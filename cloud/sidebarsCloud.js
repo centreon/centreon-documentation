@@ -55,23 +55,23 @@ module.exports = {
           items: [
             {
               type: 'doc',
-              id: 'getting-started/tutorials/monitor-linux-server-with-snmp',
+              id: 'getting-started/monitor-linux-server-with-snmp',
             },
             {
               type: 'doc',
-              id: 'getting-started/tutorials/monitor-windows-server-with-snmp',
+              id: 'getting-started/monitor-windows-server-with-snmp',
             },
             {
               type: 'doc',
-              id: 'getting-started/tutorials/monitor-cisco-router-with-snmp',
+              id: 'getting-started/monitor-cisco-router-with-snmp',
             },
             {
               type: 'doc',
-              id: 'getting-started/tutorials/monitor-mysql-server',
+              id: 'getting-started/monitor-mysql-server',
             },
             {
               type: 'doc',
-              id: 'getting-started/tutorials/autodisco-aws',
+              id: 'getting-started/autodisco-aws',
             },
             {
               type: 'doc',

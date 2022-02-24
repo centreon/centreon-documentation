@@ -3,7 +3,7 @@ id: autodisco-aws
 title: Monitor AWS EC2 instances using autodiscovery
 ---
 
-In this tutorial, we will use the [Auto Discovery module](../../monitoring/discovery/hosts-discovery) to detect AWS EC2 instances and monitor them.
+In this tutorial, we will use the [Auto Discovery module](../monitoring/discovery/hosts-discovery) to detect AWS EC2 instances and monitor them.
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ You must have:
 
 2. Enter a name for your discovery job, and then select the **Amazon AWS EC2** provider. Click **Next**.
 
-    ![image](../../assets/getting-started/tutorials/aws-provider.png)
+    ![image](../assets/getting-started/tutorials/aws-provider.png)
 
 3. Select the poller you want to monitor the EC2 instances with.
 
@@ -42,11 +42,11 @@ You must have:
 
 6. Enter the region your EC2 instances are in (for example, **eu-north-1**). Click **Next**.
 
-7. Edit or add [mappers](../../monitoring/discovery/hosts-discovery#how-to-use-mappers):
+7. Edit or add [mappers](../monitoring/discovery/hosts-discovery#how-to-use-mappers):
     * Map `host.name` to the `discovery.results.name` attribute. The names of your hosts in Centreon will be the ones defined in this attribute (i.e. the hostname of the instance).
     * In our example, we will exclude the instances whose hostname contains "test".
 
-    ![image](../../assets/getting-started/tutorials/aws-mapper.png)
+    ![image](../assets/getting-started/tutorials/aws-mapper.png)
 
     Click **Next**.
 
@@ -54,20 +54,20 @@ You must have:
 
 9. Select **Execute immediately** and then click **Finish**. The discovery job appears in the list of jobs.
 
-  ![image](../../assets/getting-started/tutorials/aws-listofjobs.png)
+  ![image](../assets/getting-started/tutorials/aws-listofjobs.png)
 
 ## Step 3: Saving the hosts and monitoring them
 
 1. After a few seconds, refresh the page. There should be a green tick mark in the **Status** column.
 
-    ![image](../../assets/getting-started/tutorials/aws-success.png)
+    ![image](../assets/getting-started/tutorials/aws-success.png)
 
 2. Hover over the job that has just ended and then click **Display the job result** (the arrow icon). A list of hosts appears.
 
-    ![image](../../assets/getting-started/tutorials/aws-results.png)
+    ![image](../assets/getting-started/tutorials/aws-results.png)
 
-3. Select the hosts you want to add to the list of monitored hosts, and then click **Save**. ![image](../../assets/getting-started/tutorials/aws-save.png)
+3. Select the hosts you want to add to the list of monitored hosts, and then click **Save**. ![image](../assets/getting-started/tutorials/aws-save.png)
 
 4. Go to **Configuration > Hosts > Hosts** and check that the hosts you selected at the previous step appear in the list. The hosts are added to the lists of hosts but they are not monitored yet.
 
-5. [Deploy the configuration](../../monitoring/monitoring-servers/deploying-a-configuration). The hosts appear in the **Resources Status** page: they are monitored.
+5. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration). The hosts appear in the **Resources Status** page: they are monitored.
