@@ -10,13 +10,11 @@ const config = {
   tagline: '',
   url: 'https://docs.centreon.com',
   baseUrl: '/',
-  onBrokenLinks: 'error',
-  onBrokenMarkdownLinks: 'error',
+  onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'warn',
   favicon: 'img/logo-centreon.png',
   organizationName: 'Centreon',
   projectName: 'Centreon Documentation',
-  
-  /*trailingSlash: true,*/
   
   noIndex: false,
 
@@ -133,7 +131,6 @@ const config = {
       },
 
       hideableSidebar: true,
-      autoCollapseSidebarCategories: true,
 
       colorMode: {
         defaultMode: 'light',
