@@ -3,7 +3,8 @@ id: monitor-cisco-router-with-snmp
 title: Superviser votre premier routeur Cisco
 ---
 
-### Superviser un routeur Cisco avec SNMP
+## Superviser un routeur Cisco avec SNMP
+
 
 Dans ce tutoriel, nous partons du principe que votre plate-forme Centreon est installée et fonctionne correctement, et que vous disposez au moins d'une édition [Centreon IT 100](IT100.html) qui fournit des Plugin Packs Centreon (votre [licence](../administration/licenses.html) est déjà configurée).
 
