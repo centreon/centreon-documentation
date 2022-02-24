@@ -13,11 +13,11 @@ Un Plugin Pack est constitué de deux éléments, installés séparément :
 supervisés et définissent les valeurs par défaut des seuils Warning et
 Critical (celles-ci sont modifiables par la suite).
 
-  Certains packs contiennent aussi des [règles de découverte d'hôtes et de services](discovery/introduction).
+  Certains packs contiennent aussi des [règles de découverte d'hôtes et de services](discovery/introduction.md).
 
 La liste de tous les Plugin Packs disponibles dans la
 bibliothèque en ligne Centreon et les procédures de mise en supervision
-associées sont présentées dans le chapitre [Plugin Packs](../integrations/plugin-packs/introduction).
+associées sont présentées dans le chapitre [Plugin Packs](../integrations/plugin-packs/introduction.md).
 
 ## Prérequis
 
@@ -35,7 +35,7 @@ yum update centreon-pp-manager
 
 ### Licence
 
-Une [licence](../administration/licenses) est nécessaire pour accéder au catalogue complet des Plugin Packs. Contactez
+Une [licence](../administration/licenses.md) est nécessaire pour accéder au catalogue complet des Plugin Packs. Contactez
 les équipes [support Centreon](https://centreon.force.com) pour obtenir votre licence.
 
 
@@ -62,7 +62,7 @@ Un plugin pack s'installe en 4 étapes :
 
 ### Accéder au catalogue des Plugin Packs
 
-* Si vous avez une [licence](../administration/licenses) **en ligne**, le catalogue des Plugin Packs est déjà disponible sur votre plateforme à la page **Configuration > Packs de plugins**.
+* Si vous avez une [licence](../administration/licenses.md) **en ligne**, le catalogue des Plugin Packs est déjà disponible sur votre plateforme à la page **Configuration > Packs de plugins**.
 * Si vous avez une licence **hors ligne** :
   - installez le dépôt des Plugin Packs (contactez l'[équipe support Centreon](https://centreon.force.com/) pour en obtenir l'adresse)
   - installez ou mettez à jour le catalogue des Plugin Packs
@@ -144,7 +144,7 @@ Appliquez un plugin pack à un hôte ou à un service pour mettre celui-ci en su
 
 1. Créez l'hôte/le service, et dans le champ **Modèle(s)**, choisissez le modèle correspondant au plugin pack désiré.
 
-2. [Déployez](monitoring-servers/deploying-a-configuration) la configuration.
+2. [Déployez](monitoring-servers/deploying-a-configuration.md) la configuration.
 
 ## Mettre à jour un Plugin Pack
 

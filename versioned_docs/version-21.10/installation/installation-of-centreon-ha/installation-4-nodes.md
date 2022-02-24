@@ -15,7 +15,7 @@ and of Pacemaker clustering tools in order to have a proper understanding of wha
 
 ### Network Flows
 
-In addition of necessary flows describe on the [official documentation](../architectures#tables-of-network-flows),
+In addition of necessary flows describe on the [official documentation](../architectures.md#tables-of-network-flows),
 you will need to open the following flows:
 
 | From                           | Destination                    | Protocol | Port     | Application                                                                                |
@@ -32,7 +32,7 @@ you will need to open the following flows:
 
 ### Installed Centreon platform
 
-A Centreon HA cluster can only be installed on top of an operating Centreon platform. Before following this procedure, it is mandatory that **[this installation procedure](../../installation/introduction)** has already been completed and that **about 5GB free space have been spared on the LVM volume group** that carries the MariaDB data directory (`/var/lib/mysql` mount point by default).
+A Centreon HA cluster can only be installed on top of an operating Centreon platform. Before following this procedure, it is mandatory that **[this installation procedure](../../installation/introduction.md)** has already been completed and that **about 5GB free space have been spared on the LVM volume group** that carries the MariaDB data directory (`/var/lib/mysql` mount point by default).
 
 The output of the `vgs` command must look like (what must be payed attention on is the value under `VFree`):
 
@@ -1587,4 +1587,4 @@ database:
 
 ## Integrating pollers
 
-You can now [add your pollers](integrating-pollers) and begin to monitor!
+You can now [add your pollers](integrating-pollers.md) and begin to monitor!

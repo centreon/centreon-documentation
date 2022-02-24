@@ -10,7 +10,7 @@ const config = {
   tagline: '',
   url: 'https://docs.centreon.com',
   baseUrl: '/',
-  onBrokenLinks: 'warn',
+  onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/logo-centreon.png',
   organizationName: 'Centreon',
@@ -48,7 +48,7 @@ const config = {
               label: '⭐ 21.10',
             },
             21.04: {
-              label: ' 21.04',
+              label: '21.04',
             },
             '20.10': {
               label: '20.10',
@@ -105,7 +105,7 @@ const config = {
       announcementBar: {
         id: 'announcementBar-1',
         content:
-          'The search feature is not available at the moment. Thank you for your patience and understanding.',
+          'The search function is only available for version 21.10 at the moment. Thank you for your patience and understanding.',
         backgroundColor: '#ebedf0',
         textColor: '#091E42',
         isCloseable: false,
@@ -131,6 +131,7 @@ const config = {
       },
 
       hideableSidebar: true,
+
       colorMode: {
         defaultMode: 'light',
         disableSwitch: false,
@@ -160,12 +161,12 @@ const config = {
             type: 'docsVersionDropdown',
             position: 'right',
             dropdownActiveClassDisabled: true,
-            /*dropdownItemsAfter: [
+            dropdownItemsAfter: [
               {
-                to: 'https://docs.centreon.com/older/',
+                to: 'https://docs-older.centreon.com',
                 label: 'Older',
               },
-            ],*/
+            ],
           },
           {
             type: 'localeDropdown',

@@ -136,14 +136,14 @@ complète des flux, reportez-vous à la page d'installation de l'architecture d�
 
 ![image](../../assets/integrations/centreon-ha/centreon-ha-2-nodes-arch.png)
 
-Accéder à [cette page](../../installation/installation-of-centreon-ha/installation-2-nodes) pour commencer votre installation à deux nœuds !
+Accéder à [cette page](../../installation/installation-of-centreon-ha/installation-2-nodes.md) pour commencer votre installation à deux nœuds !
 
 </TabItem>
 <TabItem value="Cluster-quatre-nœuds" label="Cluster-quatre-nœuds">
 
 ![image](../../assets/integrations/centreon-ha/centreon-ha-4-nodes-arch.png)
 
-Accéder à [cette page](../../installation/installation-of-centreon-ha/installation-4-nodes) pour commencer votre installation à quatre nœuds !
+Accéder à [cette page](../../installation/installation-of-centreon-ha/installation-4-nodes.md) pour commencer votre installation à quatre nœuds !
 
 </TabItem>
 </Tabs>

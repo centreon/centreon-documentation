@@ -26,7 +26,7 @@ products and go to the **Administration > Extensions > Manager** menu.
     ![image](../../assets/monitoring/discovery/install-after.png)
 
 5. To get ready-to-use discovery rules, go to the **Configuration > Plugin
-Packs** page and [install the plugin packs](../pluginpacks#pack-installation) for the 
+Packs** page and [install the plugin packs](../pluginpacks.md#pack-installation) for the 
 discovery providers you want.
 
 
@@ -34,7 +34,7 @@ discovery providers you want.
 
 We recommend that you set up a dedicated technical account (e.g. `autodisco`) that will execute the discovery jobs in the background (different from the one you use to create and launch jobs in the interface). 
 
-1. On page **Configuration > Users > Contacts/Users**, create a dedicated [user](../basic-objects/contacts-create). On the **Centreon Authentication** tab, give it the following rights:
+1. On page **Configuration > Users > Contacts/Users**, create a dedicated [user](../basic-objects/contacts-create.md). On the **Centreon Authentication** tab, give it the following rights:
     - **Reach Centreon front-end**: **No**
     - **Admin**: **Yes**
     - **Reach API Configuration**: **Yes**.

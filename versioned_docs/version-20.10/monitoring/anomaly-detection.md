@@ -70,11 +70,11 @@ yum install centreon-anomaly-detection
 Go to `Administration > Extensions > Manager` and search **anomaly**. Click
 on **Install selection**:
 
-![imaage](../assets/monitoring/anomaly/install_01.png)
+![image](../assets/monitoring/anomaly/install_01.png)
 
 Your module is now installed:
 
-![imaage](../assets/monitoring/anomaly/install_02.png)
+![image](../assets/monitoring/anomaly/install_02.png)
 
 ### Restart process
 
@@ -89,11 +89,11 @@ systemctl restart gorgoned
 Go to the `Configuration > Services > Anomaly Detection` menu and click on
 **Add Centreon Cloud Token** button:
 
-![imaage](../assets/monitoring/anomaly/install_03.png)
+![image](../assets/monitoring/anomaly/install_03.png)
 
 Enter your token and click on **Save**:
 
-![imaage](../assets/monitoring/anomaly/install_04.png)
+![image](../assets/monitoring/anomaly/install_04.png)
 
 > If your Centreon Central server needs a proxy configuration to access the
 > Internet, check the **Use proxy** box.
@@ -123,7 +123,7 @@ Configuration must be done in 3 steps:
 Go to the `Configuration > Services > Anomaly Detection` menu and click on
 **Create manually** button:
 
-![imaage](../assets/monitoring/anomaly/configure_01.png)
+![image](../assets/monitoring/anomaly/configure_01.png)
 
 #### Configuration fields
 
@@ -142,7 +142,7 @@ Go to the `Configuration > Services > Anomaly Detection` menu and click on
 Click on **Save**.
 
 It is now time to [deploy the
-monitoring](./monitoring-servers/deploying-a-configuration).
+monitoring](./monitoring-servers/deploying-a-configuration.md).
 
 Then go to the `Monitoring > Status Details > Services` menu and select
 **All** value for the Service Status filter. After a few minutes, the first
@@ -165,14 +165,14 @@ stable, you can activate alert generation.
 Go to the `Configuration > Services > Anomaly Detection` menu and edit your
 anomaly detection service:
 
-![imaage](../assets/monitoring/anomaly/configure_02.png)
+![image](../assets/monitoring/anomaly/configure_02.png)
 
 You can now enable **Enable change of status** and select the number of
 deviations you want before to validate the alert using the **Detect anomalies
 after** field.
 
 Click on **Save** and [deploy the monitoring
-configuration](./monitoring-servers/deploying-a-configuration).
+configuration](./monitoring-servers/deploying-a-configuration.md).
 
 ### Activate the notification process
 
@@ -182,7 +182,7 @@ notification process.
 Go to the `Configuration > Services > Anomaly Detection` menu and edit your
 anomaly detection service:
 
-![imaage](../assets/monitoring/anomaly/configure_03.png)
+![image](../assets/monitoring/anomaly/configure_03.png)
 
   - Select **Enabled** for the **Enable notification** option.
   - Select the **Implied Contacts** will receive notification.
@@ -193,7 +193,7 @@ anomaly detection service:
   - Select the **Notification Type** that you want to receive.
 
 Click on **Save** and [deploy the monitoring
-configuration](./monitoring-servers/deploying-a-configuration).
+configuration](./monitoring-servers/deploying-a-configuration.md).
 
 ### Use the creation wizard
 
@@ -208,12 +208,12 @@ The list of existing services on your Centreon platform is displayed as well as 
 score in number of stars: from 5 stars to 0, 5 stars representing high potential
 services:
 
-![imaage](../assets/monitoring/anomaly/configure_analysis_01.png)
+![image](../assets/monitoring/anomaly/configure_analysis_01.png)
 
 After selecting an interesting service, click on the **ADD** button to the left
 of the row. You arrive on the pre-filled creation form:
 
-![imaage](../assets/monitoring/anomaly/configure_analysis_02.png)
+![image](../assets/monitoring/anomaly/configure_analysis_02.png)
 
 Modify the name of the service then click on the **Save** button.
 

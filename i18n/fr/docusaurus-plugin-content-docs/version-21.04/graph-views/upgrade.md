@@ -112,4 +112,4 @@ Map` and **Desktop client** button.
 
 ## Step 4 : MariaDB database
 
-See [Upgrading MariaDB](../upgrade/upgrade-mariadb).
+See [Upgrading MariaDB](../upgrade/upgrade-mariadb.md).

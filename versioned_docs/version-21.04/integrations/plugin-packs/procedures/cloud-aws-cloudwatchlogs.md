@@ -13,7 +13,8 @@ and AWS services that you use, in a single, highly scalable service. You can the
 search them for specific error codes or patterns, filter them based on specific fields, 
 or archive them securely for future analysis
 
-> This Plugin may generate very huge queries toward CloudWatch Logs API. Make sure to use filtering capability with ```--group-name``` and ```--stream-name``` options. 
+> This Plugin may generate very huge queries toward CloudWatch Logs API. Make sure to use filtering capability
+> with ```--group-name``` and ```--stream-name``` options. 
 
 ## Plugin-Pack assets
 

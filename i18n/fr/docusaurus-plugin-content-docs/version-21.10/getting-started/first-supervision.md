@@ -35,15 +35,15 @@ Centreon puis de les mettre en oeuvre pour superviser vos premiers équipements.
 
 ![image](../assets/getting-started/host_service_command.png)
 
-> Pour aller plus loin avec les modèles de configuration, lisez le chapitre [modèles](../monitoring/templates).
+> Pour aller plus loin avec les modèles de configuration, lisez le chapitre [modèles](../monitoring/templates.md).
 
-> Si vous disposez d'une licence adéquate, vous pouvez utiliser notre [module d'autodécouverte](../monitoring/discovery/introduction) afin de trouver et de configurer vos hôtes facilement. Voir aussi notre tutoriel [sur la détection d'instances AWS EC2](autodisco-aws).
+> Si vous disposez d'une licence adéquate, vous pouvez utiliser notre [module d'autodécouverte](../monitoring/discovery/introduction.md) afin de trouver et de configurer vos hôtes facilement. Voir aussi notre tutoriel [sur la détection d'instances AWS EC2](autodisco-aws.md).
 
 ### Installation des modèles de supervision de base
 
 Rendez-vous dans le menu **Configuration > Packs de plugins**.
 
-> Avant toute chose, appliquez la procédure de [configuration du proxy](../administration/parameters/centreon-ui#configuration-du-proxy)
+> Avant toute chose, appliquez la procédure de [configuration du proxy](../administration/parameters/centreon-ui.md#configuration-du-proxy)
 > pour configurer et vérifier la connexion de votre serveur Centreon à internet.
 
 Commencez par installer le Plugin Pack **Base Pack** (s'il n'est pas déjà installé) en déplaçant votre curseur sur ce dernier et en cliquant sur
@@ -62,121 +62,6 @@ Installez ensuite les Plugin Packs inclus gratuitement avec la solution, par exe
 Vous disposez maintenant des modèles de base pour configurer votre supervision !
 
 ## Superviser votre premier hôte
-
-### Superviser un serveur Linux en SNMP
-
-Rendez-vous dans le menu **Configuration > Packs de plugins** et installez le Plugin Pack **Linux SNMP** :
-
-![image](../assets/getting-started/quick_start_linux_0.gif)
-
-Rendez-vous maintenant dans le menu **Configuration > Hôtes > Hôtes** et cliquez sur le bouton **Ajouter** :
-
-![image](../assets/getting-started/quick_start_linux_1.png)
-
-Renseignez les informations suivantes :
-
-* Le nom de votre serveur
-* Une description de votre serveur
-* Son adresse IP
-* La communauté et la version SNMP
-
-Cliquez sur le bouton **+ Ajouter une nouvelle entrée** pour le champ **Modèles** puis sélectionnez le modèle **OS-Linux-SNMP-custom**.
-
-Cliquez sur le bouton **Sauvegarder**.
-
-Votre équipement a été ajouté à la configuration de la supervision :
-
-![image](../assets/getting-started/quick_start_linux_2.png)
-
-Rendez-vous dans le menu **Configuration > Services > Services par hôte**. Un ensemble d'indicateurs a été déployé
-automatiquement :
-
-![image](../assets/getting-started/quick_start_linux_3.png)
-
-D'autres indicateurs peuvent être supervisés. Cliquez sur le bouton **Ajouter** pour ajouter par exemple la supervision de
-la bande passante d'une interface réseau :
-
-![image](../assets/getting-started/quick_start_linux_4a.png)
-
-Dans le champ **Description**, saisissez le nom du service à ajouter puis sélectionnez l'hôte auquel lier cet
-indicateur. Dans le champ **Modèle** sélectionner le modèle **OS-Linux-Traffic-Generic-Name-SNMP-custom**.
-
-Une liste de macros en correspondance avec le modèle va alors apparaître :
-
-![image](../assets/getting-started/quick_start_linux_4b.png)
-
-Saisissez le nom de votre interface pour la macro **INTERFACENAME** et cliquez sur le bouton **Sauvegarder** pour ajouter cet
-indicateur à la configuration.
-
-Faites de même pour ajouter la supervision des erreurs de paquets :
-
-![image](../assets/getting-started/quick_start_linux_5.png)
-
-Ou la supervision d'une partition système :
-
-![image](../assets/getting-started/quick_start_linux_6.png)
-
-Il est maintenant temps de [déployer la supervision](#déployer-une-configuration).
-
-Rendez-vous ensuite dans le menu **Supervision > Détails des statuts > Regroupement par hôte** et sélectionnez la valeur **Tous** pour le
-filtre **Afficher les détails**. Après quelques minutes, les premiers résultats de la supervision apparaissent :
-
-![image](../assets/getting-started/quick_start_linux_7.png)
-
-#### Pour aller plus loin
-
-Le Plugin Pack **Linux SNMP** apporte de nombreux modèles de supervision. Lors de la création d'un service, il est
-possible de rechercher les modèles disponibles dans la liste de sélection :
-
-![image](../assets/getting-started/quick_start_linux_8.png)
-
-Il est également possible d'accéder au menu **Configuration > Services > Templates** pour en connaître la liste :
-
-![image](../assets/getting-started/quick_start_linux_9.png)
-
-> Avec **Centreon IT Edition**, vous pouvez ajouter très rapidement et très simplement la surveillance de vos cartes
-> réseau, partition, processus et services en utilisant la fonctionnalité de **[Découverte des services](../monitoring/discovery/services-discovery)**.
-
-Pour connaître manuellement le nom des partitions disponibles, vous pouvez exécuter le plugin Centreon en ligne de commande tel quel&nbsp;:
-
-```Shell
-/usr/lib/centreon/plugins/centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin \
-    --hostname=10.40.1.169 --snmp-community=public --snmp-version=2c --mode=list-storages
-```
-Voici le résultat :
-```Shell
-List storage:
-Skipping storage 'Physical memory': no type or no matching filter type
-Skipping storage 'Swap space': no type or no matching filter type
-Skipping storage 'Virtual memory': no type or no matching filter type
-'/' [size = 21003583488B] [id = 31]
-'/dev/shm' [size = 1986875392B] [id = 36]
-'/run' [size = 1986875392B] [id = 38]
-'/sys/fs/cgroup' [size = 1986875392B] [id = 39]
-'/boot' [size = 1015308288B] [id = 57]
-'/var/cache/centreon/backup' [size = 5150212096B] [id = 58]
-'/var/lib/centreon-broker' [size = 5150212096B] [id = 59]
-Skipping storage 'Memory buffers': no type or no matching filter type
-'/var/lib/centreon' [size = 7264002048B] [id = 60]
-'/var/log' [size = 10434662400B] [id = 61]
-'/var/lib/mysql' [size = 16776032256B] [id = 62]
-'/run/user/0' [size = 397377536B] [id = 63]
-Skipping storage 'Cached memory': no type or no matching filter type
-Skipping storage 'Shared memory': no type or no matching filter type
-```
-
-Faites de même pour connaître la liste des interfaces réseau :
-
-```Shell
-/usr/lib/centreon/plugins/centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin \
-    --hostname=10.40.1.169 --snmp-community=public --snmp-version=2c --mode=list-interfaces
-```
-Voici le résultat : 
-```Shell
-List interfaces:
-'lo' [speed = 10, status = up, id = 1]
-'enp0s3' [speed = 1000, status = up, id = 2]
-```
 
 ### Superviser un serveur Windows en SNMP
 
@@ -248,7 +133,7 @@ Il est également possible d'accéder au menu **Configuration > Services > Templ
 ![image](../assets/getting-started/quick_start_windows_8.png)
 
 > Avec **Centreon IT Edition**, vous pouvez ajouter très rapidement et très simplement la surveillance de vos cartes
-> réseau, partition, processus et services en utilisant la fonctionnalité de **[Découverte des services](../monitoring/discovery/services-discovery)**.
+> réseau, partition, processus et services en utilisant la fonctionnalité de **[Découverte des services](../monitoring/discovery/services-discovery.md)**.
 
 Pour connaître manuellement le nom des partitions disponibles, vous pouvez exécuter le plugin Centreon en ligne de commande tel quel&nbsp;:
 
@@ -366,7 +251,7 @@ Il est également possible d'accéder au menu **Configuration > Services > Templ
 ![image](../assets/getting-started/quick_start_cisco_8.png)
 
 > Avec **Centreon IT Edition**, vous pouvez ajouter très rapidement et très simplement la surveillance de vos cartes
-> réseau, partition, processus et services en utilisant la fonctionnalité de **[Découverte des services](../monitoring/discovery/services-discovery)**.
+> réseau, partition, processus et services en utilisant la fonctionnalité de **[Découverte des services](../monitoring/discovery/services-discovery.md)**.
 
 Pour connaître manuellement le nom des interfaces réseau disponibles, vous pouvez exécuter le plugin Centreon en ligne de commande tel quel :
 
@@ -421,64 +306,6 @@ List ports with Spanning Tree Protocol:
 [port = GigabitEthernet1/0/20] [state = forwarding] [op_status = up] [admin_status = up] [index = 10120]
 [port = Port-channel1] [state = forwarding] [op_status = up] [admin_status = up] [index = 5001]
 ```
-
-### Superviser une base de données MySQL ou MariaDB
-
-Rendez-vous dans le menu **Configuration > Packs de plugins** et installez le Plugin Pack **MySQL/MariaDB** :
-
-![image](../assets/getting-started/quick_start_mysql_0.gif)
-
-Rendez-vous maintenant dans le menu **Configuration > Hôtes > Hôtes** et cliquez sur le bouton **Ajouter** :
-
-![image](../assets/getting-started/quick_start_mysql_1a.png)
-
-Renseignez les informations suivantes :
-
-* Le nom de votre serveur
-* Une description de votre serveur
-* Son adresse IP
-
-Cliquez sur le bouton **+ Ajouter une nouvelle entrée** pour le champ **Modèles** puis sélectionnez le modèle
-**App-DB-MySQL-custom**.
-
-Une liste de macros en correspondance avec le modèle va alors apparaître :
-
-![image](../assets/getting-started/quick_start_mysql_1b.png)
-
-Renseignez la valeur des macros suivantes :
-
-* **MYSQLUSERNAME** : le nom de l'utilisateur pour se connecter à la base de données.
-* **MYSQLPASSWORD** : le mot de passe associé à l'utilisateur.
-* **MYSQLPORT** : le port d'écoute de la base de données, par défaut 3306.
-
-Puis, cliquez sur le bouton **Sauvegarder**.
-
-Votre équipement a été ajouté à la configuration de la supervision :
-
-![image](../assets/getting-started/quick_start_mysql_2.png)
-
-Rendez-vous dans le menu **Configuration > Services > Services par hôte**. Un ensemble d'indicateurs a été déployé
-automatiquement :
-
-![image](../assets/getting-started/quick_start_mysql_3.png)
-
-Il est maintenant temps de [déployer la supervision](#déployer-une-configuration).
-
-Rendez-vous ensuite dans le menu **Supervision > Détails des statuts > Regroupement par hôte** et sélectionnez la valeur **Tous** pour le
-filtre **Afficher les détails**. Après quelques minutes, les premiers résultats de la supervision apparaissent :
-
-![image](../assets/getting-started/quick_start_mysql_4.png)
-
-#### Pour aller plus loin
-
-Le Plugin Pack **MySQL/MariaDB** apporte de nombreux modèles de supervision. Lors de la création d'un service, il est
-possible de rechercher les modèles disponibles dans la liste de sélection :
-
-![image](../assets/getting-started/quick_start_mysql_5.png)
-
-Il est également possible d'accéder au menu **Configuration > Services > Templates** pour en connaître la liste :
-
-![image](../assets/getting-started/quick_start_mysql_6.png)
 
 ### Superviser une imprimante en SNMP
 

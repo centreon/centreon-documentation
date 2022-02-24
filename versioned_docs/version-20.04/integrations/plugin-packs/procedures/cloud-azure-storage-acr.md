@@ -31,15 +31,19 @@ This provider is named **Microsoft Azure Container Registry**:
 
 > This discovery feature is only compatible with the 'api' custom mode. 'azcli' is not supported.
 More information about the Host Discovery module is available in the Centreon documentation:
-[Host Discovery](../../../monitoring/discovery/hosts-discovery)
+[Host Discovery](../../../monitoring/discovery/hosts-discovery.md)
 
 ### Collected metrics
 
-**Storage-usage**
+<Tabs groupId="sync">
+<TabItem value="Storage-usage" label="Storage-usage">
 
 | Metric Name                                            | Description  | Unit |
 |:-------------------------------------------------------|:-------------|:-----|
 | *instance*#azure.containerregistry.storage.used.bytes  | Storage used | B    |
+
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -285,5 +289,5 @@ All the available options for a given mode can be displayed by adding the ```--h
 
 ### Troubleshooting
 
-Please find all the troubleshooting documentation for the API-based Plugins in the [dedicated chapter](../tutorials/troubleshooting-plugins#http-and-api-checks)
+Please find all the troubleshooting documentation for the API-based Plugins in the [dedicated chapter](../tutorials/troubleshooting-plugins.md#http-and-api-checks)
 of the Centreon documentation.

@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 ## How can I obtain a license?
 
-* You can request your token for the [free IT-100 edition](../getting-started/IT100) on our website.
+* You can request your token for the [free IT-100 edition](../getting-started/IT100.md) on our website.
 * If you have purchased a license, request your license files from our [support](https://support.centreon.com) team.
 
 ## Types of licenses
@@ -21,12 +21,12 @@ According to your [Centreon edition](https://www.centreon.com/en/editions/), you
 
 The following modules need to be installed separately and require a valid license.
 
-- [Plugin Packs](../monitoring/pluginpacks#installation)
-- [Auto Discovery](../monitoring/discovery/installation)
-- [Anomaly Detection](../monitoring/anomaly-detection)
-- [Service mapping (BAM)](../service-mapping/install)
-- [Graphical views (MAP)](../graph-views/install)
-- [Reporting (MBI)](../reporting/installation)
+- [Plugin Packs](../monitoring/pluginpacks.md#installation)
+- [Auto Discovery](../monitoring/discovery/installation.md)
+- [Anomaly Detection](../monitoring/anomaly-detection.md)
+- [Service mapping (BAM)](../service-mapping/install.md)
+- [Graphical views (MAP)](../graph-views/install.md)
+- [Reporting (MBI)](../reporting/installation.md)
 
 ## Viewing license-based modules
 
@@ -83,7 +83,7 @@ To use an online license, your Centreon platform must be connected to the intern
 
 ## Free IT-100 license
 
-See chapter [Set up your free IT-100 solution](https://docs.centreon.com/docs/getting-started/IT100).
+See chapter [Set up your free IT-100 solution](../getting-started/IT100.md).
 
 ## Troubleshooting
 

@@ -14,6 +14,7 @@ Nginx is an open-source Web Server also used as a proxy server for email (IMAP, 
 
 ### Monitored objects
 
+* Nginx Server
 
 ### Collected metrics
 

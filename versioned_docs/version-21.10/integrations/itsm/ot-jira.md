@@ -17,7 +17,7 @@ This integration is (at least) compatible with Jira cloud
 ## Requirements
 
 Before going any further, make sure that you correctly setup
-[centreon-open-ticket](../../alerts-notifications/ticketing-install)
+[centreon-open-ticket](../../alerts-notifications/ticketing-install.md)
 into your Centreon instance
 
 Our provider requires the following parameters:

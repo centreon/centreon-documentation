@@ -5,7 +5,6 @@ title: AWS Health
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 ## Vue d'ensemble
 
 AWS Health fournit des informations personnalisées à propos d'événements qui peuvent concerner votre infrastructure AWS, 
@@ -122,7 +121,6 @@ yum install centreon-pack-cloud-aws-health.noarch
 |             | EXTRAOPTIONS    | Any extra option you may want to add to every command\_line (eg. a --verbose flag)          |
 |             | DUMMYSTATUS     | Host state. Default is OK, do not modify it unless you know what you are doing              |
 |             | DUMMYOUTPUT     | Host check output. Default is 'This is a dummy check'. Customize it with your own if needed |
-
 
 ## FAQ
 

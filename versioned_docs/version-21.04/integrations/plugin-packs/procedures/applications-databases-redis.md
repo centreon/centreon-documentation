@@ -5,6 +5,7 @@ title: Redis Database
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+
 ## Pack Assets
 
 ### Monitored Objects
@@ -233,4 +234,4 @@ parameter to the command:
 
 ## Troubleshooting
 
-[Troubleshooting plugins](../tutorials/troubleshooting-plugins)
+[Troubleshooting plugins](../tutorials/troubleshooting-plugins.md)

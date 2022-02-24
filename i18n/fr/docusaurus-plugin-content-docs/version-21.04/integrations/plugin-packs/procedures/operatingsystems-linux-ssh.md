@@ -6,7 +6,6 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-
 ## Vue d'ensemble
 
 Linux est une famille de systèmes d'exploitation à source ouverte de type Unix basée sur le noyau Linux, un noyau de système d'exploitation publié pour la première fois le 17 septembre 1991 par Linus Torvalds. 

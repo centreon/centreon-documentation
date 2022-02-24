@@ -2,59 +2,173 @@
 id: applications-voip-asterisk-ami
 title: Asterisk VoIP Server
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-## Prerequisites
 
-### Centreon Plugin
+## Contenu du Pack
 
-Install this plugin on each needed poller:
+### Modèles
 
-``` shell
+Le Plugin Pack Centreon Asterisk VoIP Server apporte 1 modèle d'hôte :
+* App-VoIP-Asterisk-AMI-custom
+
+Il apporte les Modèles de Service suivants :
+
+| Alias           | Modèle de service                     | Description                                    | Défaut |
+|:----------------|:--------------------------------------|:-----------------------------------------------|:-------|
+| Channel-Usage   | App-Voip-Asterisk-AMI-Channel-Usage   | Contrôle le nombre d'appels et canaux en cours | X      |
+| Dahdi-Status    | App-Voip-Asterisk-AMI-Dahdi-Status    | Contrôle le statut des lignes 'dahdi'          |        |
+| Sip-Peers-Usage | App-Voip-Asterisk-AMI-Sip-Peers-Usage | Contrôle le statut des lien SIPs               | X      |
+
+### Métriques & statuts collectés
+
+<Tabs groupId="sync">
+<TabItem value="Channel-Usage" label="Channel-Usage">
+
+| Métrique              | Unité |
+|:----------------------|:------|
+| calls.active.count    | count |
+| calls.processed.count | count |
+| channels.active.count | count |
+| extcalls.active.count | count |
+
+</TabItem>
+<TabItem value="Dahdi-Status" label="Dahdi-Status">
+
+| Métrique    | Unité  |
+|:------------|:-------|
+| status      | string |
+
+</TabItem>
+<TabItem value="Sip-Peers-Usage" label="Sip-Peers-Usage">
+
+| Métrique                          | Unité  |
+|:----------------------------------|:-------|
+| sip.peers.monitor.offline.count   | count  |
+| sip.peers.monitor.online.count    | count  |
+| sip.peers.total.count             | count  |
+| sip.peers.unmonitor.offline.count | count  |
+| sip.peers.unmonitor.online.count  | count  |
+| status                            | string |
+
+</TabItem>
+</Tabs>
+
+## Prérequis
+
+### Asterisk Manager Interface (AMI)
+
+Pour récuper les métriques et statuts du serveur Asterisk, un utilisateur avec 
+les droits de lecture doit être configurer dans le fichier 
+**/etc/asterisk/manager.conf file**. Plus d'informations dans la
+[documentation officielle](https://wiki.asterisk.org/wiki/pages/viewpage.action?pageId=4817239).
+
+## Installation
+
+<Tabs groupId="sync">
+<TabItem value="Online License" label="Online License">
+
+1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des ressources **Asterisk** :
+
+```bash
 yum install centreon-plugin-Applications-Voip-Asterisk-Ami
 ```
 
-### Asterisk server configuration
+2. Sur l'interface Web de Centreon, installer le Plugin Pack **Asterisk VoIP Server** depuis la page **Configuration > Packs de plugins**.
 
-After connecting with root account to your Asterisk server, you must do the
-following configurations.
+</TabItem>
+<TabItem value="Offline License" label="Offline License">
 
-### AMI
+1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des ressources **Asterisk** :
 
-For any remote acces, you must create an Asterisk user:
+```bash
+yum install centreon-plugin-Applications-Voip-Asterisk-Ami
+```
 
-    vi /etc/aserisk/manager.conf
+2. Sur le serveur Central Centreon, installer le RPM du Pack **Asterisk VoIP Server** :
 
-example of user:
+```bash
+yum install centreon-pack-applications-voip-asterisk-ami
+```
 
-    [xivo_centreon_user]
-    secret = centreon
-    deny=0.0.0.0/0.0.0.0
-    permit=127.0.0.1/255.255.255.0
-    read = system,call,log,verbose,command,agent,user,dtmf
-    write = system,call,log,verbose,command,agent,user,dtmf
+3. Sur l'interface Web de Centreon, installer le Plugin Pack **Asterisk VoIP Server** depuis la page **Configuration > Packs de plugins**.
 
-In te newly created user, add a *permit* line to allow the centreon server to
-conect to the AMI:
+</TabItem>
+</Tabs>
 
-    vi /etc/aserisk/manager.conf
+## Configuration
 
-example:
+### Hôte
 
-    permit=10.30.2.32/255.255.255.0
+* Ajoutez un Hôte à Centreon depuis la page **Configuration > Hôtes**.
+* Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre serveur **Asterisk**.
+* Appliquez le Modèle d'Hôte **App-VoIP-Asterisk-AMI-custom**.
+* Une fois le modèle appliqué, les Macros ci-dessous indiquées comme requises (*Obligatoire*) doivent être renseignées.
 
-## Centreon Configuration
+| Obligatoire | Macro                   | Description                                                                                                         |
+|:------------|:------------------------|:--------------------------------------------------------------------------------------------------------------------|
+|             | ASTERISKAMIEXTRAOPTIONS | Toute option supplémentaire que vous souhaitez ajouter à chaque ligne de commande (par exemple, l'option --verbose) |
+| X           | ASTERISKAMIPASSWORD     | Mot de passe de l'utilisateur de l'AMI                                                                              |
+|             | ASTERISKAMIPORT         | Port de l'AMI                                                                                                       |
+| X           | ASTERISKAMIUSERNAME     | Utilisateur de l'AMI                                                                                                |
 
-### Create a host using the appropriate template
+## Comment puis-je tester le Plugin et que signifient les options des commandes ? 
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
-the following table:
+Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne 
+de commande depuis votre collecteur Centreon en vous connectant avec 
+l'utilisateur **centreon-engine** (`su - centreon-engine`) :
 
-| Field                                | Value                        |
-| :----------------------------------- | :--------------------------- |
-| Host name                            | *Name of the host*           |
-| Alias                                | *Host description*           |
-| IP                                   | *Host IP Address*            |
-| Monitored from                       | *Monitoring Poller to use*   |
-| Host Multiple Templates              | App-VoIP-Asterisk-AMI-custom |
+```bash
+/usr/lib/centreon/plugins//centreon_asterisk_ami.pl \
+    --plugin=apps::voip::asterisk::ami::plugin \
+    --mode=channel-usage \
+    --ami-hostname='10.0.0.1' \
+    --ami-port='' \
+    --ami-username='' \
+    --ami-password='' \
+    --warning-channels-active='' \
+    --critical-channels-active='' \
+    --warning-calls-active='100' \
+    --critical-calls-active='200' \
+    --warning-calls-count='' \
+    --critical-calls-count='' \
+    --warning-extcalls-active='' \
+    --critical-extcalls-active='' \
+    --verbose \
+    --use-new-perfdata 
+```
 
-Click on the *Save* button.
+La commande devrait retourner un message de sortie similaire à :
+
+```bash
+OK: channels active: 54 calls active: 73 external calls active: 5 calls count: 746 | 'channels.active.count'=54;;;0; 'calls.active.count'=73;0:100;0:200;0; 'extcalls.active.count'=5;;;0; 'calls.processed.count'=746;;;0;
+```
+
+Dans cet exemple, une alarme de type WARNING sera déclenchée si le nombre
+d'appels en cours est supérieur à 100 (`--warning-calls-active='100'`); l'alarme 
+sera de type CRITICAL au-delà de 200 (`--critical-calls-active='200'`).
+
+La liste de toutes les options complémentaires et leur signification peut être
+affichée en ajoutant le paramètre `--help` à la commande :
+
+```bash
+/usr/lib/centreon/plugins//centreon_asterisk_ami.pl \
+    --plugin=apps::voip::asterisk::ami::plugin \
+    --mode=channel-usage \
+    --help
+ ```
+
+Tous les modes disponibles peuvent être affichés en ajoutant le paramètre 
+`--list-mode` à la commande :
+
+```bash
+/usr/lib/centreon/plugins//centreon_asterisk_ami.pl \
+    --plugin=apps::voip::asterisk::ami::plugin \
+    --list-mode
+ ```
+
+### Diagnostic des erreurs communes
+
+Rendez-vous sur la [documentation dédiée](../tutorials/troubleshooting-plugins.md)
+pour le diagnostic des erreurs communes des Plugins Centreon.

@@ -463,7 +463,7 @@ Either no views are created on the server or you do not have access to them.
 
 If you are a Centreon MAP administrator, you can see all views. In this
 case, no views have been created. Here are [quick start
-instructions](create-standard-view) to create one.
+instructions](create-standard-view.md) to create one.
 
 Otherwise, contact the Centreon MAP administrator or create your own views if
 you have sufficient privileges.

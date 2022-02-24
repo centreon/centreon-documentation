@@ -38,7 +38,7 @@ An user with rights on SYS schema is needed.
 
 An example of command to test database connection:
 
-```# /usr/sap/hdbclient/hdbsql -n saphanadb\_servername:31041 -d databasename -u username -p password```
+```/usr/sap/hdbclient/hdbsql -n saphanadb\_servername:31041 -d databasename -u username -p password```
 
 ## Centreon Configuration
 

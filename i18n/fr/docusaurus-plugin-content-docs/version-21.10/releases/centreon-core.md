@@ -140,17 +140,45 @@ By:
 - Move to PHP 8.0
 - Preparing Debian 11 support
 
-## Centreon Engine
+##  Centreon Collect
+
+> As of version 21.10.0, the components of Centreon Collect (Centreon Broker, Centreon Clib, Centreon Engine and Centreon Connectors)
+> are released simultaneously. They are now grouped under this section.
+
+### 21.10.1
+
+Release date: `February 23, 2022`
+
+#### Centreon Broker
+
+##### Improvements
+- Improved the multiplexing of events, which was a performance bottleneck. The processing speed of queued events should be significantly increased.
+- Some TLS trace logs were logged as errors, flooding the log file.
+- The SQL connections stats have been added to the broker stats available via gRPC.
+- Added the SQL Manager statistics in gRPC and stabilized the stats provider.
+- Added to LUA Stream Connectors' perfdata label parser the compatibility with centreon-plugins new metrics naming convention.
+
+##### Bug fixes
+
+- Fixed a regression due to the central broker's cache generation optimization, which was too thorough and prevented BAM from computing KPIs based on boolean rules
+- The central broker's cache generation loaded too much data and took too much time when BAM was activated.
+- Fixed an issue that could cause segmentation faults in centreon-engine when scheduling external commands
+- Fixed a design issue to avoid trying to access variables of broker's new logger when the logger was stopped. This issue could cause segmentation faults.
+- When a single metric is deleted, the corresponding RRD file is now actually removed.
+- If the SQL stream took too long to initialize its connection, then the Perfdata stream timed out and the whole connection failed. To fix this, the timeout has been increased.
+- In some circumstances, the `mysql_ping` function, which is used to test if the session is still active, could freeze. To fix this, the calls to `mysql_ping` have been spaced out, a timeout has been added, and the commit management has been consolidated.
+- Fixed an issue causing BAM Business Activities (best status) to remain in an OK state when the OK KPIs were removed
+- Refactored the BAM Business activities downtimes inheritance mechanism so that they are properly inherited and not duplicated anymore.
 
 ### 21.10.0
+
+#### Centreon Engine
 
 - Flapping now starts only on non-OK states. Based on PR [#523](https://github.com/centreon/centreon-engine/pull/523)
 - Flapping now starts only for services of UP hosts or for hosts with UP parent. Based on PR [#524](https://github.com/centreon/centreon-engine/pull/524). Fixes Issue [#192](https://github.com/centreon/centreon-engine/issues/192)
 - Provide feedback on gRPC client execution success/failure
 
-## Centreon Broker
-
-### 21.10.0
+#### Centreon Broker
 
 - Queues (in memory and retention files) are now cleared for reversed broker flows without `peer retention` when the connection is reset. This is a change of behavior back to what it should have always been. It will prevent endless retention files for Centreon-Studio (Centreon-Map).
 - [BETA] Centreon-broker is now able to use OpenSSL instead of GNUTLS and allows forcing TLS/SSL version and cipher suite
@@ -173,7 +201,7 @@ Release date: `February 17, 2022`
 - Fixed an issue that caused Service Discovery scans to fail because the wrong message was caught.
 - Fixed an issue that could make Gorgone crash in pull mode.
 - Fixed uninitialized values in Gorgone that could cause error log messages.
-- Fixed an issue that prevented Gorgone from handling advanced [Service Discovery features](../monitoring/discovery/services-discovery#options-avanc%C3%A9es) correctly.
+- Fixed an issue that prevented Gorgone from handling advanced [Service Discovery features](../monitoring/discovery/services-discovery.md#options-avanc%C3%A9es) correctly.
 - Fixed an issue in the module management that could cause crashes.
 
 ### 21.10.1

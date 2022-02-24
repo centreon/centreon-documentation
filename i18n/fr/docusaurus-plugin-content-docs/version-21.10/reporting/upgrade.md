@@ -8,7 +8,7 @@ title: Monter de version de l'extension
 > - Récupérer une nouvelle license via le support Centreon
 > - S'assurer que votre serveur de reporting est basé sur CentOS 7. Si ce n'est
 >   pas le cas, utiliser la procédure de [migration de votre serveur de
->   reporting](migrate)
+>   reporting](migrate.md)
 
 La montée de version de Centreon MBI se fait en 4 étapes :
 
@@ -21,7 +21,7 @@ La montée de version de Centreon MBI se fait en 4 étapes :
 
 ### Mettre à jour la clé de signature RPM
 
-Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centreon sont changées régulièrement. Le dernier changement a eu lieu le 14 octobre 2021. Lorsque vous mettez Centreon à jour depuis une version plus ancienne, vous devez suivre la [procédure de changement de clé](../security/key-rotation#installation-existante), afin de supprimer l'ancienne clé et d'installer la nouvelle.
+Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centreon sont changées régulièrement. Le dernier changement a eu lieu le 14 octobre 2021. Lorsque vous mettez Centreon à jour depuis une version plus ancienne, vous devez suivre la [procédure de changement de clé](../security/key-rotation.md#installation-existante), afin de supprimer l'ancienne clé et d'installer la nouvelle.
 
 ## Étape 1 : Montée de version du paquet
 
@@ -70,7 +70,7 @@ Vous trouverez ce dépôt depuis votre compte sur notre platefome de support htt
     systemctl stop cbis
     ```
 
-2. Voir [Mettre à jour MariaDB](../upgrade/upgrade-mariadb).
+2. Voir [Mettre à jour MariaDB](../upgrade/upgrade-mariadb.md).
 
 3. Démarrez le service **cbis** :
     ```shell

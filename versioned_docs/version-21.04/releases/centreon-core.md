@@ -153,7 +153,7 @@ Release date: `November 15, 2021`
 
 - [Resources Status] Add link to performance page in detail panel
 
-#### Bugfixes
+#### Bug fixes
 
 - [ACL] Fixed missing ACL actions on CLAPI import
 - [Configuration] Fixed ineffective massive change on 'Reach API configuration' option on remote server
@@ -174,7 +174,7 @@ Release date: `November 15, 2021`
 
 - [Authentication] Improve centreonAuth.SSO.class for OpenId connection
 
-#### Bugfixes
+#### Bug fixes
 
 - [Administration] LDAP search fails
 - [Configuration] Changing a Remote Server's IP address converts it into a simple Poller
@@ -209,7 +209,7 @@ Release date: `November 15, 2021`
 - [Graph] Anchor point does not follow line path for stacked graphs
 - [Platform Topology] Update Exception handling
 
-#### Security fixe
+#### Security fixes
 
 - [Configuration] Input sent to unserialize() are not sanitized
 - [Configuration] SQL Injection on commands
@@ -229,7 +229,7 @@ Release date: `November 15, 2021`
 
 `June 7, 2021`
 
-#### Bugfixes
+#### Bug fixes
 
 - [APIv1] Cannot send external commands anymore
 - [APIv2] Can not authenticate using API when database name and database username are different from default
@@ -284,7 +284,7 @@ Release date: `November 15, 2021`
 
 `May 11, 2021`
 
-#### Bugfixes
+#### Bug fixes
 
 - [Configuration] Default Centreon Engine value is different from the tooltip, and affects performance
 - [Platform Topology] Register a remote / poller to central with proxy
@@ -633,7 +633,7 @@ Release date: `February 17, 2022`
 - Fixed an issue that caused Service Discovery scans to fail because the wrong message was caught.
 - Fixed an issue that could make Gorgone crash in pull mode.
 - Fixed uninitialized values in Gorgone that could cause error log messages.
-- Fixed an issue that prevented Gorgone from handling advanced [Service Discovery features](../monitoring/discovery/services-discovery#advanced-options) correctly.
+- Fixed an issue that prevented Gorgone from handling advanced [Service Discovery features](../monitoring/discovery/services-discovery.md#advanced-options) correctly.
 - Fixed an issue in the module management that could cause crashes.
 
 ### 21.04.4

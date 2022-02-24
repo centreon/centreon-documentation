@@ -70,7 +70,7 @@ devez les lier aux ressources à partir desquelles vous souhaitez
 recevoir des notifications.
 
 > Vous pouvez utiliser les **[modèles de
-> contact](../monitoring/templates#les-modèles-de-contacts)** pour
+> contact](../monitoring/templates.md#les-modèles-de-contacts)** pour
 > définir les paramètres par défaut et hériter de tous vos contacts de
 > ce modèle.
 

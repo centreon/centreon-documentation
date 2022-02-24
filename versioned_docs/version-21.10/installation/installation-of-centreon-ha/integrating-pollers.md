@@ -24,7 +24,7 @@ The command output should look like:
 
 ## Adding the Poller to configuration
 
-* Add your poller to the configuration "the standard way" [following these steps with ZeroMQ protocol](../../monitoring/monitoring-servers/add-a-poller-to-configuration) 
+* Add your poller to the configuration "the standard way" [following these steps with ZeroMQ protocol](../../monitoring/monitoring-servers/add-a-poller-to-configuration.md) 
 
 * You should now have overwritten the `/etc/centreon-gorgone/config.d/40-gorgoned.yaml` file, and it should contain such lines:
 

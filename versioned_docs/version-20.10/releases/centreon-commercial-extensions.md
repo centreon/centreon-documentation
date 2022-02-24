@@ -163,7 +163,7 @@ use these two servers. It is then possible to switch the consultation of
 maps from one server to the other easily.
 
 To use it, it is necessary to install and activate it. Refer to the
-[dedicated documentation](../graph-views/install#centreon-map-ng)
+[dedicated documentation](../graph-views/install.md#centreon-map-ng)
 
 ## Centreon BAM
 
@@ -360,7 +360,7 @@ vulnerabilities)
 
 `October 21, 2020`
 
-> Refer to the [Gorgone module configuration](../monitoring/discovery/administration#gorgone-module-configuration)
+> Refer to the [Gorgone module configuration](../monitoring/discovery/administration.md#gorgone-module-configuration)
 > to make sure the configuration matches minimal prerequisites.
 
 > If a discovery is performed on a Remote Server or a Poller, make sure
@@ -389,7 +389,7 @@ are meant to be added in the configuration, and the ones that should be
 disabled or enabled.
 
 Take a look at this example to fully understand their impacts:
-[Dynamically update your configuration](../monitoring/discovery/hosts-discovery#dynamically-update-your-configuration)
+[Dynamically update your configuration](../monitoring/discovery/hosts-discovery.md#dynamically-update-your-configuration)
 
 #### Service Discovery
 

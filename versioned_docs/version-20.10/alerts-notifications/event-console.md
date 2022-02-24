@@ -4,7 +4,7 @@ title: Events consoles
 ---
 
 > Some of this interfaces are **deprecated** and replaced by the
-> [Resources Status](resources-status) page. This new page aims to regroup all the experiences you can find in these
+> [Resources Status](resources-status.md) page. This new page aims to regroup all the experiences you can find in these
 > interfaces.
 >
 > For new installations, deprecated pages are automatically hidden. It is
@@ -37,7 +37,7 @@ functions of these icons:
 ## Hosts (deprecated)
 
 > This interface is **deprecated** and replaced by the `Resources Status` page
-> and the [events list](resources-status#events-list).
+> and the [events list](resources-status.md#events-list).
 
 To view the status of hosts, go into the `Monitoring > Status Details > Hosts`
 menu
@@ -114,7 +114,7 @@ Hostgroups Summary` menu
 ## Host details (deprecated)
 
 > This interface is **deprecated** and replaced by the `Resources Status` page
-> and the [host panel](resources-status#host-panel).
+> and the [host panel](resources-status.md#host-panel).
 
 When you click on the name of a host, you access to the details page of
 the resource.
@@ -184,7 +184,7 @@ linked to the host which will receive notifications.
 ## Services (deprecated)
 
 > This interface is **deprecated** and replaced by the `Resources Status` page
-> and the [events list](resources-status#events-list).
+> and the [events list](resources-status.md#events-list).
 
 To view the status of service, go into the `Monitoring > Status Details >
 Services` menu.
@@ -280,7 +280,7 @@ for **Display** filter:
 ## Service Details (deprecated)
 
 > This interface is **deprecated** and replaced by the `Resources Status` page
-> and the [service panel](resources-status#service-panel).
+> and the [service panel](resources-status.md#service-panel).
 
 When you click on a service, the following screen appears:
 

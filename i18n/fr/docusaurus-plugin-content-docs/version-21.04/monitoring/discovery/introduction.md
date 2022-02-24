@@ -3,13 +3,13 @@ id: introduction
 title: Introduction
 ---
 
-> Centreon Auto Discovery est une **extension** Centreon qui nécessite une [licence](../../administration/licenses) valide.
+> Centreon Auto Discovery est une **extension** Centreon qui nécessite une [licence](../../administration/licenses.md) valide.
 > Pour en acheter une et récupérer les référentiels
 > nécessaires, contactez [Centreon](mailto:sales@centreon.com).
 
 Le module de découverte automatique permet d'obtenir une liste des nouveaux hôtes ou services et, si vous le désirez, 
 de les créer automatiquement dans Centreon. La découverte se fait
-via des fournisseurs de recherche et des règles de découverte, qui sont inclus dans des [Plugin Packs](../pluginpacks).
+via des fournisseurs de recherche et des règles de découverte, qui sont inclus dans des [Plugin Packs](../pluginpacks.md).
 
 - La découverte peut être planifiée et exécutée automatiquement, régulièrement.
 - Vous pouvez également détecter que des ressources ne
@@ -18,7 +18,7 @@ sont plus disponibles, afin d'éventuellement les désactiver dans la configurat
 
 ## Fonctionnement
 
-1. Paramétrez une tâche de découverte pour chaque type d'hôte, en utilisant le bon [Plugin Pack](../pluginpacks). Par exemple, une tâche pour découvrir les noeuds ESX et une autre pour découvrir les machines virtuelles dans un cluster VMware. 
+1. Paramétrez une tâche de découverte pour chaque type d'hôte, en utilisant le bon [Plugin Pack](../pluginpacks.md). Par exemple, une tâche pour découvrir les noeuds ESX et une autre pour découvrir les machines virtuelles dans un cluster VMware. 
 
   Pour les services, paramétrez des règles de découverte : par exemple, une pour découvrir les 
 interfaces réseau sur un serveur Linux, et une autre pour découvrir les volumes de disque.

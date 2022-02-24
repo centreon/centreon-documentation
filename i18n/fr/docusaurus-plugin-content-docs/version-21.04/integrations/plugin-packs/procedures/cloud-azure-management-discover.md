@@ -26,7 +26,7 @@ Celui-ci permet de découvrir l'ensemble des ressources Microsoft Azure rattach�
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-management-discover-provider.png)
 
 Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionnement sur la documentation du module:
-[Découverte des hôtes](../../../monitoring/discovery/hosts-discovery)
+[Découverte des hôtes](../../../monitoring/discovery/hosts-discovery.md)
 
 ## Prérequis
 
@@ -116,7 +116,7 @@ Les Plugin Packs supplémentaires seront installés en dépendance afin de perme
 
 ## Paramétrer une découverte
 
-> Le descriptif du fonctionnement général de la fonctionnalité *Host Discovery* est disponible [ici](../../../monitoring/discovery/hosts-discovery)
+> Le descriptif du fonctionnement général de la fonctionnalité *Host Discovery* est disponible [ici](../../../monitoring/discovery/hosts-discovery.md)
 
 ### Paramètres d'accès
 
@@ -157,10 +157,10 @@ Renseignez si besoin les information ci-après:
 
 L'étape 4 permet d'ajuster les *mappers*; ceux-ci sont déjà prédéfinis par le Plugin Pack, il n'est normalement pas
 nécessaire de les modifier dans le cadre d'un *job* de découverte *standard*. Si besoin, référez-vous à la 
-[documentation des mappers](../../../monitoring/discovery/hosts-discovery#comment-utiliser-les-modificateurs).
+[documentation des mappers](../../../monitoring/discovery/hosts-discovery.md#comment-utiliser-les-modificateurs).
 
 Les étapes 5 & 6 permettent d'ajuster la politique de modélisation des résultats si besoin. Rendez-vous 
-[ici](../../../monitoring/discovery/hosts-discovery#définir-les-politiques-danalyse-et-de-mise-à-jour) pour plus d'informations.
+[ici](../../../monitoring/discovery/hosts-discovery.md#définir-les-politiques-danalyse-et-de-mise-à-jour) pour plus d'informations.
 
 Une fois la découverte terminé, vous pouvez afficher les résultats en cliquant sur *job results*. Les modèles relatifs aux types de resources
 Azure sont automatiquement appliqués:
@@ -181,7 +181,7 @@ Le Plugin de découverte utilise un fichier de cache pour conserver les informat
 se ré-authentifier à chaque appel. Si des informations sur le Tenant, la Souscription ou les 
 Client ID / Secret changent, il est nécessaire de supprimer le fichier de cache du Plugin. 
 
-Celui ci se trouve dans le répertoire ```/var/lib/centreon/centplugins/``` avec le nom `azure_api_<md5>_<md5>_<md5>_<md5>`.
+Celui ci se trouve dans le répertoire ```/var/lib/centreon/centplugins/``` avec le nom azure_api_`<md5>_<md5>_<md5>_<md5>`.
 
 ### ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```
 

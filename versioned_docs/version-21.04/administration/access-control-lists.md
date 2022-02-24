@@ -3,7 +3,7 @@ id: access-control-lists
 title: Granting rights to Centreon users
 ---
 
-You can grant rights to Centreon [users](../monitoring/basic-objects/contacts):
+You can grant rights to Centreon [users](../monitoring/basic-objects/contacts.md):
 
 - on resources: which hosts, services, etc. users will be allowed to see
 - on the menus in the Centreon interface (which pages users will be able to access)
@@ -13,18 +13,18 @@ Rights are not defined at user level but through [access groups](#creating-an-ac
 
 - A specific user can belong to several access groups: the rights defined in each group will be combined.
 - Non-administrator users that belong to no access group will have no rights at all on the monitoring platform (empty screen at login)
-- [Administrator](../monitoring/basic-objects/contacts-create#centreon-authentication) users have all rights (even if you add an administrator to an access group with limited rights).
+- [Administrator](../monitoring/basic-objects/contacts-create.md#centreon-authentication) users have all rights (even if you add an administrator to an access group with limited rights).
 
 ACLs are recalculated every minute; this is why it is sometimes necessary
 to wait a few seconds before changes are applied to a user. You can also [reload them](#reload-acl) manually.
 
-> The Centreon [MBI](../reporting/configure), BAM and [MAP](../graph-views/configuration) modules have their own ACLs.
+> The Centreon [MBI](../reporting/configure.md), BAM and [MAP](../graph-views/configuration.md) modules have their own ACLs.
 
 ## Granting rights to a user
 
 To grant rights to a user:
 
-1. [Create the user](../monitoring/basic-objects/contacts) in Centreon.
+1. [Create the user](../monitoring/basic-objects/contacts.md) in Centreon.
 
 2. [Create an access group](#creating-an-access-group).
 
@@ -168,17 +168,17 @@ These fields are no longer in use.
 | ---------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Enable/Disable Checks for a service                                                      | Allows users to enable or disable checks for a service on page **Monitoring > Status details > Services** (deprecated page)                                                                         |
 | Enable/Disable Notifications for a service                                               | Allows users to enable or disable notifications for a service  on page **Monitoring > Status details > Services** (deprecated page)                                                                 |
-| Acknowledge a service                                                                    | Allows users to [acknowledge a service](../alerts-notifications/manage-alerts#acknowledging-a-problem)                                                                                              |
+| Acknowledge a service                                                                    | Allows users to [acknowledge a service](../alerts-notifications/manage-alerts.md#acknowledging-a-problem)                                                                                              |
 | Disacknowledge a service                                                                 | Allows users to disacknowledge a service                                                                                                                                                            |
-| Re-schedule the next check for a service                                                 | Allows users to [trigger a check on a service](../alerts-notifications/resources-status#refresh-a-status). The check is made even outside the service's check period.                               |
-| Re-schedule the next check for a service (Forced)                                        | Allows users to [trigger a check on a service](../alerts-notifications/resources-status#refresh-a-status). The check is made even outside the service's check period.                               |
-| Schedule downtime for a service                                                          | Allows users to [schedule downtime](../alerts-notifications/manage-alerts#add-a-downtime) on a service                                                                                              |
-| Add/Delete a comment for a service                                                       | Allows users to add or delete a [comment](../alerts-notifications/manage-alerts#add-comment) on a service                                                                                           |
+| Re-schedule the next check for a service                                                 | Allows users to [trigger a check on a service](../alerts-notifications/resources-status.md#refresh-a-status). The check is made even outside the service's check period.                               |
+| Re-schedule the next check for a service (Forced)                                        | Allows users to [trigger a check on a service](../alerts-notifications/resources-status.md#refresh-a-status). The check is made even outside the service's check period.                               |
+| Schedule downtime for a service                                                          | Allows users to [schedule downtime](../alerts-notifications/manage-alerts.md#add-a-downtime) on a service                                                                                              |
+| Add/Delete a comment for a service                                                       | Allows users to add or delete a [comment](../alerts-notifications/manage-alerts.md#add-comment) on a service                                                                                           |
 | Enable/Disable Event Handler for a service                                               | Allows users to enable or disable the event handler processing of a service in the detailed sheet of a service accessible via the **Monitoring > Status Details > Services** menu (deprecated page) |
 | Allows users to enable or disable flap detection of a service                            | Allows users to enable or disable flap detection of a service in the detailed sheet of a service accessible via the **Monitoring > Status Details > Services** menu (deprecated page)               |
 | Enable/Disable passive checks of a service                                               | Allows users to enable or disable passive checks of a service in the detailed sheet of a service accessible via the **Monitoring > Status Details > Services** menu (deprecated page)               |
-| [Submit result](../alerts-notifications/manage-alerts#submitting-a-result) for a service | Allows users to modify the status of a passive service manually, until the next check                                                                                                               |
-| Display executed command by monitoring engine                                            | Displays the executed command for a service in its [Details panel](../alerts-notifications/resources-status#service-panel)                                                                          |
+| [Submit result](../alerts-notifications/manage-alerts.md#submitting-a-result) for a service | Allows users to modify the status of a passive service manually, until the next check                                                                                                               |
+| Display executed command by monitoring engine                                            | Displays the executed command for a service in its [Details panel](../alerts-notifications/resources-status.md#service-panel)                                                                          |
 
 #### Hosts Actions Access
 
@@ -186,17 +186,17 @@ These fields are no longer in use.
 | ------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Enable/Disable Checks for a host                                                      | Allows users to enable or disable checks for a host on page **Monitoring > Status details > Hosts** (deprecated page)                                           |
 | Enable/Disable Notifications for a host                                               | Allows users to enable or disable notifications for a host on page **Monitoring > Status details > Hosts** (deprecated page)                                    |
-| Acknowledge a host                                                                    | Allows users to [acknowledge a host](../alerts-notifications/manage-alerts#acknowledging-a-problem)                                                             |
+| Acknowledge a host                                                                    | Allows users to [acknowledge a host](../alerts-notifications/manage-alerts.md#acknowledging-a-problem)                                                             |
 | Disaknowledge a host                                                                  | Allows users to disacknowledge a host                                                                                                                           |
-| Schedule the check for a host                                                         | Allows users to [trigger a check on a host](../alerts-notifications/resources-status#refresh-a-status). The check is made even outside the host's check period. |
-| Schedule the check for a host (Forced)                                                | Allows users to [trigger a check on a host](../alerts-notifications/resources-status#refresh-a-status). The check is made even outside the host's check period. |
-| Schedule downtime for a host                                                          | Allows users to [schedule downtime](../alerts-notifications/manage-alerts#add-a-downtime) on a host                                                             |
-| Add/Delete a comment for a host                                                       | Allows users to add or delete a [comment](../alerts-notifications/manage-alerts#add-comment) for a host                                                         |
+| Schedule the check for a host                                                         | Allows users to [trigger a check on a host](../alerts-notifications/resources-status.md#refresh-a-status). The check is made even outside the host's check period. |
+| Schedule the check for a host (Forced)                                                | Allows users to [trigger a check on a host](../alerts-notifications/resources-status.md#refresh-a-status). The check is made even outside the host's check period. |
+| Schedule downtime for a host                                                          | Allows users to [schedule downtime](../alerts-notifications/manage-alerts.md#add-a-downtime) on a host                                                             |
+| Add/Delete a comment for a host                                                       | Allows users to add or delete a [comment](../alerts-notifications/manage-alerts.md#add-comment) for a host                                                         |
 | Enable/Disable Event Handler for a host                                               | Allows users to enable or disable the event handler processing of a host on page **Monitoring > Status details > Hosts** (deprecated page)                      |
 | Enable/Disable Flap Detection for a host                                              | Allows users to enable or disable flap detection of a host on page **Monitoring > Status details > Hosts** (deprecated page)                                    |
 | Enable/Disable Checks services of a host                                              | Allows users to enable or disable all service checks of a host on page **Monitoring > Status details > Hosts** (deprecated page)                                |
 | Enable/Disable Notifications services of a host                                       | Allows users to enable or disable service notifications of a host on page **Monitoring > Status details > Hosts** (deprecated page)                             |
-| [Submit result](../alerts-notifications/manage-alerts#submitting-a-result) for a host | Allows users to modify the status of a passive host manually, until the next check                                                                              |
+| [Submit result](../alerts-notifications/manage-alerts.md#submitting-a-result) for a host | Allows users to modify the status of a passive host manually, until the next check                                                                              |
 
 - The **Status** field is used to enable or disable the filter.
 

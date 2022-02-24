@@ -13,7 +13,7 @@ This chapter describes how to upgrade your Centreon platform from version 3.4
 > packages on CentOS **version 7** distributions.
 >
 > If this is not the case, refer to the
-> [migration procedure](../migrate/migrate-from-3-4).
+> [migration procedure](../migrate/migrate-from-3-4.md).
 
 ## Perform a backup
 
@@ -25,7 +25,7 @@ servers:
 
 ## Update the RPM signing key
 
-For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation#existing-installation), to remove the old key and install the new one.
+For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation.md#existing-installation), to remove the old key and install the new one.
 
 ## Upgrade the Centreon central server
 
@@ -122,7 +122,7 @@ systemctl start httpd24-httpd
 If you had a custom apache configuration, upgrade process through RPM did not update it.
 
 > If you use https, you can follow
-> [this procedure](../administration/secure-platform#securing-the-apache-web-server)
+> [this procedure](../administration/secure-platform.md#securing-the-apache-web-server)
 
 You'll then need to add API access section to your configuration file:
 **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf**
@@ -278,7 +278,7 @@ To make sure Broker and Engine's Broker module are using new configuration files
 follow this steps:
 
 1. Deploy Central's configuration from the Centreon web UI by following
-[this procedure](../monitoring/monitoring-servers/deploying-a-configuration),
+[this procedure](../monitoring/monitoring-servers/deploying-a-configuration.md),
 2. Restart both Broker and Engine on the Central server by running this
 command:
 
@@ -459,7 +459,7 @@ systemctl enable gorgoned
 ```
 
 If the Centreon BAM module is installed, refer to the
-[upgrade procedure](../service-mapping/upgrade).
+[upgrade procedure](../service-mapping/upgrade.md).
 
 ### Post-upgrade actions
 
@@ -467,14 +467,14 @@ Due to new configuration file format for Engine's Broker module, the
 configuration needs to be re-deployed.
 
 Deploy Poller's configuration from the Centreon web UI by following
-[this procedure](../monitoring/monitoring-servers/deploying-a-configuration),
+[this procedure](../monitoring/monitoring-servers/deploying-a-configuration.md),
 and choose *Restart* method for Engine process.
 
 ## Migrate Centreon Poller Display to Remote Server
 
 If the platform has Pollers with Poller Display module installed, refer to the
 [Migrate a platform with Poller Display
-module](../migrate/poller-display-to-remote-server) procedure.
+module](../migrate/poller-display-to-remote-server.md) procedure.
 
 ## Communications
 
@@ -482,10 +482,10 @@ By default, the communication between Central and Pollers or Remote Servers
 will still be using SSH protocol.
 
 Consider changing the communication protocol by following the
-[Change communication from SSH to ZMQ](../monitoring/monitoring-servers/communications#change-communication-from-ssh-to-zmq)
+[Change communication from SSH to ZMQ](../monitoring/monitoring-servers/communications.md#change-communication-from-ssh-to-zmq)
 procedure.
 
 ## Secure your platform
 
 Don't forget to secure your Centreon platform following our
-[recommendations](../administration/secure-platform)
+[recommendations](../administration/secure-platform.md)

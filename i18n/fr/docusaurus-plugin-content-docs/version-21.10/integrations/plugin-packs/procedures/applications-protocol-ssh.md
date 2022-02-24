@@ -39,11 +39,11 @@ SSH.
 
 To use this pack, the SSH service must be properly configured on your server and
 the mandatory Host Macros must be properly configured. More info in the 
-"Configuration" section [here](###Host).
+"Configuration" section [here](#Hôte).
 
 Afin de superviser le serveur SSH, le service doit être configuré et les Macro
 d'hôtes doivent être renseignées. Plus d'information dans le chapite 
-"Configuration" [ici](###Hôte).
+"Configuration" [ici](#Hôte).
 ## Installation
 
 <Tabs groupId="sync">

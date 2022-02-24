@@ -51,6 +51,12 @@ Release date: `December 16, 2021`
 
 ## Centreon BAM
 
+### 21.10.2
+
+Release date: `February 18, 2022`
+
+- Fixed: Unable to retrieve Business Activities info through API
+
 ### 21.10.1
 
 Release date: `December 7, 2021`
@@ -62,6 +68,33 @@ Release date: `December 7, 2021`
 - [Configuration] Warn the user for unsaved changes on BA/BV
 
 ## Centreon MBI
+
+### 21.10.1
+
+Release date: `February 18, 2022`
+
+#### Security fixes
+
+- Log4J MBI upgrade to 2.17.1
+
+#### Enhancements
+
+- Add new column “reported duration” in report event list
+- Replace 'switch' with 'if' to accommodate RHEL 8 deployment
+- MBI diagnostic script: added check for chrony service
+
+#### Bug fixes
+
+- Fixed: New line character missing from last line in MBI back up script preventing the script to execute
+- Fixed: Can't find init MySQL script if MariaDB only configured for systemd
+- Fixed: Report job failed due to incompatibility with the Jsch library
+- Fixed: A service associated with several categories of services will be present several times on the reports (ex Hostgroups-Service-Current-Events)
+- Fixed: Hostgroups-Incidents-1 English translation issue (”Maintainability”)
+- Fixed: Availability on host or hostgroup, rounding issue
+- Fixed: Report BA-Availability-1 - When services are in downtime, events should not be listed
+- Fixed: Inconsistency in Top 50 in EventHostgroup-service-incident-resolution-2
+- Fixed: Issue in Test SMTP Rule
+
 
 ### 21.10.0
 

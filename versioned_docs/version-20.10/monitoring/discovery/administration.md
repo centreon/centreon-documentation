@@ -104,7 +104,7 @@ on both Central and Remote Server or Pollers.
 > Server.
 >
 > Look at the section presenting the differente [communication
-> types](../monitoring-servers/communications) to know more.
+> types](../monitoring-servers/communications.md) to know more.
 
 ### Service Discovery scheduled job
 

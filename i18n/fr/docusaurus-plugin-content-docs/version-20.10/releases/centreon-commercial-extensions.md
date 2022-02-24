@@ -168,7 +168,7 @@ ces deux serveurs. Il est ainsi possible de basculer la consultation
 des cartes d'un serveur à l'autre facilement.
 
 Pour l'utiliser, il est nécessaire de l'installer et l'activer.
-Référez-vous à la [documentation dédiée](../graph-views/install#centreon-map-ng)
+Référez-vous à la [documentation dédiée](../graph-views/install.md#centreon-map-ng)
 
 ## Centreon BAM
 
@@ -372,7 +372,7 @@ version (apportant des corrections de failles de sécurité)
 
 `21 octobre 2020`
 
-> Référez vous à la [Configuration du module Gorgone](../monitoring/discovery/administration#configuration-du-module-Gorgone)
+> Référez vous à la [Configuration du module Gorgone](../monitoring/discovery/administration.md#configuration-du-module-Gorgone)
 > pour vous assurer que la configuration correspond aux prérequis minimaux.
 
 > Si une découverte est effectuée sur un Remote Server ou un Poller,
@@ -405,7 +405,7 @@ décider quels hôtes sont censés être ajoutés dans la configuration, et ceux
 qui doivent être désactivés ou activés.
 
 Jetez un oeil à cet exemple pour bien comprendre leurs impacts:
-[Mettre à jour votre configuration dynamiquement](../monitoring/discovery/hosts-discovery#mettre-a-jour-votre-configuration-dynamiquement)
+[Mettre à jour votre configuration dynamiquement](../monitoring/discovery/hosts-discovery.md#mettre-a-jour-votre-configuration-dynamiquement)
 
 #### Service Discovery
 

@@ -35,15 +35,15 @@ Centreon puis de les mettre en oeuvre pour superviser vos premiers équipements.
 
 ![image](../assets/getting-started/host_service_command.png)
 
-> Pour aller plus loin avec les modèles de configuration, lisez le chapitre [modèles](../monitoring/templates).
+> Pour aller plus loin avec les modèles de configuration, lisez le chapitre [modèles](../monitoring/templates.md).
 
-> Si vous disposez d'une licence adéquate, vous pouvez utiliser notre [module d'autodécouverte](../monitoring/discovery/introduction) afin de trouver et de configurer vos hôtes facilement. Voir aussi notre tutoriel [sur la détection d'instances AWS EC2](autodisco-aws).
+> Si vous disposez d'une licence adéquate, vous pouvez utiliser notre [module d'autodécouverte](../monitoring/discovery/introduction.md) afin de trouver et de configurer vos hôtes facilement. Voir aussi notre tutoriel [sur la détection d'instances AWS EC2](autodisco-aws.md).
 
 ### Installation des modèles de supervision de base
 
 Rendez-vous dans le menu **Configuration > Plugin Packs**.
 
-> Avant toute chose, appliquez la procédure de [configuration du proxy](../administration/parameters/centreon-ui#configuration-du-proxy)
+> Avant toute chose, appliquez la procédure de [configuration du proxy](../administration/parameters/centreon-ui.md#configuration-du-proxy)
 > pour configurer et vérifier la connexion de votre serveur Centreon à internet.
 
 Commencez par installer le Plugin Pack **Base Generic** (s'il n'est pas déjà installé) en déplaçant votre curseur sur ce dernier et en cliquant sur
@@ -135,7 +135,7 @@ Il est également possible d'accéder au menu **Configuration > Services > Templ
 ![image](../assets/getting-started/quick_start_linux_9.png)
 
 > Avec **Centreon IT Edition**, vous pouvez ajouter très rapidement et très simplement la surveillance de vos cartes
-> réseau, partition, processus et services en utilisant la fonctionnalité de **[Découverte des services](../monitoring/discovery/services-discovery)**.
+> réseau, partition, processus et services en utilisant la fonctionnalité de **[Découverte des services](../monitoring/discovery/services-discovery.md)**.
 
 Pour connaître manuellement le nom des partitions disponibles, vous pouvez exécuter le plugin Centreon en ligne de commande tel quel :
 
@@ -248,7 +248,7 @@ Il est également possible d'accéder au menu **Configuration > Services > Templ
 ![image](../assets/getting-started/quick_start_windows_8.png)
 
 > Avec **Centreon IT Edition**, vous pouvez ajouter très rapidement et très simplement la surveillance de vos cartes
-> réseau, partition, processus et services en utilisant la fonctionnalité de **[Découverte des services](../monitoring/discovery/services-discovery)**.
+> réseau, partition, processus et services en utilisant la fonctionnalité de **[Découverte des services](../monitoring/discovery/services-discovery.md)**.
 
 Pour connaître manuellement le nom des partitions disponibles, vous pouvez exécuter le plugin Centreon en ligne de commande tel quel :
 
@@ -366,7 +366,7 @@ Il est également possible d'accéder au menu **Configuration > Services > Templ
 ![image](../assets/getting-started/quick_start_cisco_8.png)
 
 > Avec **Centreon IT Edition**, vous pouvez ajouter très rapidement et très simplement la surveillance de vos cartes
-> réseau, partition, processus et services en utilisant la fonctionnalité de **[Découverte des services](../monitoring/discovery/services-discovery)**.
+> réseau, partition, processus et services en utilisant la fonctionnalité de **[Découverte des services](../monitoring/discovery/services-discovery.md)**.
 
 Pour connaître manuellement le nom des interfaces réseau disponibles, vous pouvez exécuter le plugin Centreon en ligne de commande tel quel :
 

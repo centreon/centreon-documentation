@@ -19,8 +19,8 @@ Red Hat 8.
 Perform the following actions:
 
 1. You will need to install a new Centreon Central server from the
-[ISO](../installation/installation-of-a-central-server/using-centreon-iso) or from
-[packages](../installation/installation-of-a-central-server/using-packages), until you
+[ISO](../installation/installation-of-a-central-server/using-centreon-iso.md) or from
+[packages](../installation/installation-of-a-central-server/using-packages.md), until you
 complete the installation process by connecting to the Centreon Web interface.
 
 2. Perform software and system updates:
@@ -143,10 +143,10 @@ Go to `http://<IP_NEW_CENTREON\>/centreon` URL and perform the upgrade.
 If the IP of your Centreon server has changed, edit the configuration for all
 the Centreon Broker modules of your Pollers and change the IP to connect to
 the Centreon Central server (output IPv4). See the [Advanced
-configuration](../monitoring/monitoring-servers/advanced-configuration#tcp-outputs)
+configuration](../monitoring/monitoring-servers/advanced-configuration.md#tcp-outputs)
 chapter for more information.
 
-Then [generate](../monitoring/monitoring-servers/deploying-a-configuration) the
+Then [generate](../monitoring/monitoring-servers/deploying-a-configuration.md) the
 configuration of all your pollers and export it.
 
 ### Upgrade the modules
