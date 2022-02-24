@@ -27,6 +27,10 @@
         },
         {
           "type": "doc",
+          "id": "version-22.04/getting-started/monitor-linux-server-with-snmp"
+        },
+        {
+          "type": "doc",
           "id": "version-22.04/getting-started/autodisco-aws"
         },
         {
