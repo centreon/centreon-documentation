@@ -1,26 +1,31 @@
 ---
 id: prerequisites
-title: Prerequisites
+title: Prérequis
 ---
 
 ## OS
 
-The poller should be installed on a dedicated fresh CentOS 7 server.
+Le collecteur doit être installé sur un serveur CentOS 7 dédié, fraîchement installé.
 
 ## Hardware
 
-The host machine must have the following characteristics:
+La machine hôte doit avoir les caractéristiques suivantes :
 
-| Element                     | Value     |
+| Élément                     | Valeur    |
 | ----------------------------| --------- |
-| CPU  (logical core at 3Ghz) | 1 CPU     |
+| CPU  (cœur logique à 3Ghz)  | 1 CPU     |
 | RAM                         | 4 GB      |
 | HDD                         | 40 GB     |
 
-## Network
+## Réseau
 
-| Description | Direction | Protocol   | IP           | Port   |
+| Description | Direction | Protocole  | IP           | Port   |
 | ----------- | --------- | ---------- | ------------ | ------ |
-| VPN         | Outbound  | UDP        | VPN IP (TBA) | 1194   |
-| INTERNET    | Outbound  | HTTP/HTTPS | *            | 80/443 |
-| NTP         | Outbound  | UDP        | TBA          | 123    |
+| VPN         | Sortante  | UDP        | VPN IP (TBA) | 1194   |
+| INTERNET    | Sortante  | HTTP/HTTPS | *            | 80/443 |
+| NTP         | Sortante  | UDP        | TBA          | 123    |
+
+| Source             | Destination                  | Port/Protocole     | Protocole de supervision   |
+| ------------------ | ---------------------------- | ------------------ | -------------------------- |
+| Serveurs Centreon  | Équipements à superviser     | 80/443 TCP         | API                        |
+| Serveurs Centreon  | Base de données à superviser | 3306/1521/1433 TCP | MySQL/Oracle/MSSQL         |

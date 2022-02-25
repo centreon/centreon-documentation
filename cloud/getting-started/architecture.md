@@ -16,6 +16,7 @@ Centreon Cloud consists of the following elements:
   * Pollers monitor resources in your infrastructure.
   * Pollers do not have a user interface (you see the pollers' activity on the central server's interface).
   * Pollers are part of your infrastructure, which means better security, latency and bandwidth.
+  * You [install your pollers](../installation/deploy-poller.md) using a simple script.
   * A VPN connects your pollers with the central server.
 
 ![image](../assets/getting-started/infra3.png)

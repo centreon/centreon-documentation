@@ -24,3 +24,8 @@ The host machine must have the following characteristics:
 | VPN         | Outbound  | UDP        | VPN IP (TBA) | 1194   |
 | INTERNET    | Outbound  | HTTP/HTTPS | *            | 80/443 |
 | NTP         | Outbound  | UDP        | TBA          | 123    |
+
+| Source            | Destination         | Port/Protocol      | Monitoring protocol   |
+| ----------------- | ------------------- | ------------------ | --------------------- |
+| Centreon servers  | Devices to monitor  | 80/443 TCP         | API                   |
+| Centreon servers  | Database to monitor | 3306/1521/1433 TCP | MySQL/Oracle/MSSQL    |
