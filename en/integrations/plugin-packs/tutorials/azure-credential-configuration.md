@@ -34,7 +34,7 @@ You need to create a new application in Azure to obtain these tokens. The steps 
 	- Select your new application as a member for this role by clicking on **+ Select members**.
 	- Review and assign.
 	
-Now that the application is created, the below steps will guide you to retrieve the 4 tokens: 
+Now that the application is created, the steps below will guide you to retrieve the 4 tokens: 
 * Get the **subscription ID**:
 	- Go to **Subscriptions** in Azure portal. 
 	- Copy the *Subscription ID* next to the name of your subscription.
