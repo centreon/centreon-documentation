@@ -25,6 +25,14 @@ If you have feature requests or want to report a bug, please contact support.
 
 This is the last 20.04 released.
 
+***Important Notice***
+If you have updated your MAP software with this version before official annoucement, you may have embeded one regression.
+In order to have the right version, please execute the following actions
+
+
+        download package centreon-map-sever-20.04.8-2.el7.noarch.rpm
+        yum downgrade centreon-map-server-20.04.8-2.el7.noarch.rpm
+
 #### Enhancements
 
 - Added proper support for multiple white spaces in perfdata.
