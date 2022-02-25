@@ -141,7 +141,7 @@ Il apporte les Modèles de Service suivants :
 
 ### SNMP
 
-SNMP doit être configuré sur le serveur central. Vous pouvez vous aider de cette [documentation](../operatingsystems-linux-snmp.html#prerequisites) pour mettre en place rapidement une simple configuration SNMP. 
+SNMP doit être configuré sur le serveur central. Vous pouvez vous aider de cette [documentation](../operatingsystems-linux-snmp.md#prerequisites) pour mettre en place rapidement une simple configuration SNMP. 
 
 ### SSH key exchange
 
