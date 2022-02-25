@@ -17,7 +17,7 @@ Azure CLI method is not be compatible with host autodiscovery.
 * **client ID**
 * **client secret** 
 
-To have these tokens, you need to create a new application in Azure. The below steps detail how to create this application and set the right permissions to monitor Azure resources.
+You need to create a new application in Azure to obtain these tokens. The steps below detail how to create this application and set the right permissions to monitor Azure resources.
 
 * Create an *Application* in Azure Active Directory:
 	- Log in to Azure Portal.
