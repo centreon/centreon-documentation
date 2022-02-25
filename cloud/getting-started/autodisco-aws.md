@@ -36,7 +36,7 @@ yum install awscli
 
 6. Enter the region your EC2 instances are in (for example, **eu-north-1**). Click **Next**.
 
-7. Edit or add [mappers](../monitoring/discovery/hosts-discovery.md#how-to-use-mappers):
+7. Edit or add mappers:
     * Map `host.name` to the `discovery.results.name` attribute. The names of your hosts in Centreon will be the ones defined in this attribute (i.e. the hostname of the instance).
     * In our example, we will exclude the instances whose hostname contains "test".
 
