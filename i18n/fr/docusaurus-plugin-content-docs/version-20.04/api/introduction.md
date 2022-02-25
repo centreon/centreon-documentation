@@ -9,8 +9,8 @@ configuration ou des données temps réel.
 En fonction du type de script ou de vos besoins d'*automation*, vous pouvez
 choisir parmis les documentations suivantes :
 
-- [API en ligne de commande (CLAPI)](clapi.md) pour gérer la configuration
-- [Rest API (v1)](rest-api-v1.md) pour gérer la configuration ou [Rest API
-  (v2)](rest-api-v2.md) pour gérer la configuration et les données temps réel
-- [Graphical Views API (beta)](graph-views-api.md) pour gérer certaines
+- [API en ligne de commande (CLAPI)](clapi) pour gérer la configuration
+- [Rest API (v1)](rest-api-v1) pour gérer la configuration ou [Rest API
+  (v2)](rest-api-v2) pour gérer la configuration et les données temps réel
+- [Graphical Views API (beta)](graph-views-api) pour gérer certaines
   données de Graphical Views *(extension Centreon Map)*

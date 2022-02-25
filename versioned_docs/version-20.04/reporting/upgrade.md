@@ -8,7 +8,7 @@ title: Upgrade the extension
 > - Retrieve a new license from Centreon support
 > - Make sure your Centreon MBI server is based on CentOS/RH 7. You may use the
 >   following procedure to migrate your server: [Migrate your
->   reporting server](migrate.md)
+>   reporting server](migrate)
 
 The upgrade of Centreon MBI is made of 3 steps :
 

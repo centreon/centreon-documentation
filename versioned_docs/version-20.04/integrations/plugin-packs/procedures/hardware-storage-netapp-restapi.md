@@ -7,4 +7,4 @@ title: Netapp RestAPI (Deprecated)
 
 This Plugin Pack has been deprecated and replaced by `Netapp ONTAP RestAPI`. 
 
-Refer to [this procedure](hardware-storage-netapp-ontap-restapi.md)
+Refer to [this procedure](hardware-storage-netapp-ontap-restapi)

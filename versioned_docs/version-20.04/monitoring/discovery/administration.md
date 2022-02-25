@@ -96,7 +96,7 @@ and Remote Server or Pollers.
 > Server.
 >
 > Look at the section presenting the differente [communication
-> types](../monitoring-servers/communications.md) to know more.
+> types](../monitoring-servers/communications) to know more.
 
 ## Services discovery
 
@@ -107,7 +107,7 @@ The **Auto Discovery** module for services discovery contains 3 parts:
   - Scheduled job (cron) which executes discovery rules.
 
 The discovery plugins look for new elements to monitor, see *[Discovery
-plugins](services-discovery.md#discovery-plugins)* for more
+plugins](services-discovery#discovery-plugins)* for more
 detail.
 
 The rules, managed through the web UI, are saved into **Centreon**'s database

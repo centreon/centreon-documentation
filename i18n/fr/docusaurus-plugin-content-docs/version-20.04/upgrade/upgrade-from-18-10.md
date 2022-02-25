@@ -16,7 +16,7 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 
 ## Mettre à jour la clé de signature RPM
 
-Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centreon sont changées régulièrement. Le dernier changement a eu lieu le 14 octobre 2021. Lorsque vous mettez Centreon à jour depuis une version plus ancienne, vous devez suivre la [procédure de changement de clé](../security/key-rotation.md#installation-existante), afin de supprimer l'ancienne clé et d'installer la nouvelle.
+Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centreon sont changées régulièrement. Le dernier changement a eu lieu le 14 octobre 2021. Lorsque vous mettez Centreon à jour depuis une version plus ancienne, vous devez suivre la [procédure de changement de clé](../security/key-rotation#installation-existante), afin de supprimer l'ancienne clé et d'installer la nouvelle.
 
 ## Montée de version du serveur Centreon Central
 
@@ -106,7 +106,7 @@ Si vous aviez une configuration personnalisée, le processus de mise à jour RPM
 n'y a pas touché.
 
 > Si vous utilisez le https, vous pouvez suivre
-> [cette procédure](../administration/secure-platform.md#sécurisez-le-serveur-web-apache)
+> [cette procédure](../administration/secure-platform#sécurisez-le-serveur-web-apache)
 
 Vous devez donc ajouter la section d'accès à l'API dans votre fichier de
 configuration apache : **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf**
@@ -199,7 +199,7 @@ accéder à la page de connexion :
 ![image](../assets/upgrade/web_update_5.png)
 
 Si le module Centreon BAM est installé, référez-vous à la [documentation
-associée](../service-mapping/upgrade.md) pour le mettre à jour.
+associée](../service-mapping/upgrade) pour le mettre à jour.
 
 ### Actions post montée de version
 
@@ -247,7 +247,7 @@ Pour être sur que Broker et que le module Broker de Engine utilisent les nouvea
 fichiers de configuration, suivez ces étapes :
 
 1. Déployer la configuration du Central depuis l'interface web en suivant
-[cette procedure](../monitoring/monitoring-servers/deploying-a-configuration.md),
+[cette procedure](../monitoring/monitoring-servers/deploying-a-configuration),
 2. Redémarrer Broker et Engine sur le serveur Central en exécutant la commande
 suivante:
 
@@ -431,7 +431,7 @@ Du fait du nouveau format de configuration du module Broker de Engine, la
 configuration doit être re-déployée.
 
 Déployer la configuration du Poller depuis l'interface web en suivant
-[cette procedure](../monitoring/monitoring-servers/deploying-a-configuration.md), et en choisissant la méthode
+[cette procedure](../monitoring/monitoring-servers/deploying-a-configuration), et en choisissant la méthode
 *Redémarrer* pour le processus Engine
 
 ## Communications
@@ -440,9 +440,9 @@ Par défaut, la communication entre le serveur Central et les Pollers ou les
 Remote Servers utilisera toujours SSH.
 
 Considérez changer le protocole de communication en suivant la procédure
-[Changer la communication de SSH à ZMQ](../monitoring/monitoring-servers/communications.md#changer-la-communication-de-ssh-a-zmq).
+[Changer la communication de SSH à ZMQ](../monitoring/monitoring-servers/communications#changer-la-communication-de-ssh-a-zmq).
 
 ## Sécurisez votre plateforme
 
 N'oubliez pas de sécuriser votre plateforme Centreon en suivant nos
-[recommandations](../administration/secure-platform.md)
+[recommandations](../administration/secure-platform)

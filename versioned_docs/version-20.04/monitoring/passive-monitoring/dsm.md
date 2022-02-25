@@ -107,7 +107,7 @@ An example of passive service template is available below:
 > The macro **ALARM_ID** is mandatory. The default **empty** value is also necessary.
 
 When you validate the form, Centreon will create or update all slot. If you don't have changed any value, you don't
-have to do other action. Else you have to *[deploy the configuration](../monitoring-servers/deploying-a-configuration.md)*.
+have to do other action. Else you have to *[deploy the configuration](../monitoring-servers/deploying-a-configuration)*.
 
 ### Configure traps
 
@@ -147,7 +147,7 @@ Your form should now be like that:
 ![image](../../assets/configuration/dsm/trap-form-2.png)
 
 After saving the form, please generate the
-*[SNMP traps database definition](monitoring-with-snmp-traps.md#applying-the-changes)*.
+*[SNMP traps database definition](monitoring-with-snmp-traps#Applying-the-changes)*.
 
 ### Configure Traps links
 

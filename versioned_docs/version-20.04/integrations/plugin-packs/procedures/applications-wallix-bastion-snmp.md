@@ -132,4 +132,4 @@ parameter to the command:
 
 ## Troubleshooting
 
-[Troubleshooting plugins](../tutorials/troubleshooting-plugins.md#snmp-checks)
+[Troubleshooting plugins](../tutorials/troubleshooting-plugins#snmp-checks)

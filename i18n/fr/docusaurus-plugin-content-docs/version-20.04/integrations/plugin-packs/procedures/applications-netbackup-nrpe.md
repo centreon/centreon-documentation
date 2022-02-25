@@ -34,7 +34,7 @@ agent or a NRPE agent on Linux to check Netbackup backup solutions.
 ### NSClient++
 
 To monitor *Netbackup* software with NRPE, install the Centreon packaged version 
-of the NSClient++ agent. Please follow our [official documentation](../tutorials/centreon-nsclient-tutorial.md) 
+of the NSClient++ agent. Please follow our [official documentation](../tutorials/centreon-nsclient-tutorial) 
 and make sure that the **NRPE Server** configuration is correct. 
 
 ### NetBackup cli

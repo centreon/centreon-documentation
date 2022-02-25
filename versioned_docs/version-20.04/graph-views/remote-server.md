@@ -13,7 +13,7 @@ If your Centreon Remote Server has not been installed yet, please refer to
 the following
 [documentation](https://documentation.centreon.com/docs/centreon/en/latest/administration_guide/poller/install_remote_server)
 
-Then refer to the [installation procedure](install.md) to install
+Then refer to the [installation procedure](install) to install
 the 2 mains components:
 
 - The web interface

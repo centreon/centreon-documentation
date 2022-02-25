@@ -30,4 +30,4 @@ The module is now installed:
 ## Installing the Plugin Packs
 
 To get discovery rules ready to use, please go to `Configuration > Plugin
-Packs` menu and [install your packs](../pluginpacks.md#pack-installation)
+Packs` menu and [install your packs](../pluginpacks#pack-installation)
