@@ -209,4 +209,4 @@ All the options that can be used with this plugin can be found using the `--help
 ### Troubleshooting
 
 Please find all the troubleshooting documentation for the Centreon Plugins
-on the [dedicated page](../tutorials/troubleshooting-plugins.md#ssh-and-cli-checks)
+on the [dedicated page](../tutorials/troubleshooting-plugins#ssh-and-cli-checks)

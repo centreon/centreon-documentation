@@ -4,7 +4,7 @@ title: LDAP
 ---
 
 > Si vous souhaitez implémenter une authentification SSO, suivez
-> [cette procédure](centreon-ui.md#sso).
+> [cette procédure](centreon-ui#sso).
 
 Cette partie permet de configurer la connexion au(x) annuaire(s) LDAP.
 
@@ -29,7 +29,7 @@ les utilisateurs que vous souhaitez importer
 > toute nouvelle personne qui se connecte à l'interface Centreon, ses paramètres
 > LDAP seront automatiquement importés dans Centreon (nom, prénom, adresse mail,
 > ...). Les profils ACL seront appliqués lors de l'accès (voir
-> [ACL](../access-control-lists.md)).
+> [ACL](../access-control-lists)).
 >
 > Par contre, si cette option n'est pas cochée, seuls les utilisateurs
 > importés manuellement pourront s'authentifier.

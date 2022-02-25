@@ -7,4 +7,4 @@ title: Centreon Map (Deprecated)
 
 Ce Plugin Pack n'est plus maintenu et ne doit pas être utilisé. Il a été remplacé par le Pack `JVM Actuator`.
 
-Référez vous à [cette procédure](applications-jvm-actuator.md)
+Référez vous à [cette procédure](applications-jvm-actuator)

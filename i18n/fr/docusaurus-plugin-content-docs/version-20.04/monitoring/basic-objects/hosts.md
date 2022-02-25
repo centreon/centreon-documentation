@@ -32,7 +32,7 @@ Ce bouton sert à supprimer le modèle hôte ![image](../../assets/configuration
 
 * Si la case **Create Services linked to the Template too** est définit à **Yes**, Centreon génère automatiquement les
   services en se basant sur les modèles de services liés aux modèles d’hôtes définis au-dessus
-  (voir chapitre Les *[modèles](../templates.md)*).
+  (voir chapitre Les *[modèles](../templates)*).
 
 ### Macros
 
@@ -128,7 +128,7 @@ Les champs présentés ci-dessous sont obsolètes :
 
 * Le champ **ACL Resource Groups** (seulement visible pour les utilisateurs non administrateur), permet de lier l’hôte
   à un groupe d’hôtes afin de pouvoir visualiser ce dernier (voir le chapitre sur
-  *[les listes de contrôles d'accès](../../administration/access-control-lists.md)*).
+  *[les listes de contrôles d'accès](../../administration/access-control-lists)*).
 
 ### Informations supplémentaires
 

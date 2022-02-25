@@ -57,7 +57,7 @@ four calculation method that can be used:
 - **Ratio**: When you want to model **Cluster** concepts by specifying a number of percentage of critical resources that you don't want to exceed
 - **Impact**: When you want to precisely define the weight of each indicators and reflect that on your BA status 
 
-For mor information, have a look to the [calculation method explanations](../service-mapping/ba-management.md#calculation-methods)
+For mor information, have a look to the [calculation method explanations](../service-mapping/ba-management#calculation-methods)
 
 ## Implementation method 
 

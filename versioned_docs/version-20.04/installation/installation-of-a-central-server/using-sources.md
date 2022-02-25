@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 ## Prerequisites
 
-> Most CentOS users will find easier to install Centreon Web by [using packages](using-packages.md).
+> Most CentOS users will find easier to install Centreon Web by [using packages](using-packages).
 
 <Tabs groupId="sync">
 <TabItem value="Redhat/CentOS" label="Redhat/CentOS">
@@ -842,4 +842,4 @@ After this step you should connect to Centreon to finalize the installation proc
 ## Web installation
 
 Conclude installation by performing
-[web installation steps](../web-and-post-installation.md#web-installation).
+[web installation steps](../web-and-post-installation#web-installation).
