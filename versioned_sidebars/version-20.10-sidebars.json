@@ -760,6 +760,10 @@
           "label": "Tutorials",
           "items": [
             {
+                "type": "doc",
+                "id": "version-20.10/integrations/plugin-packs/tutorials/azure-credential-configuration"
+              },
+            {
               "type": "doc",
               "id": "version-20.10/integrations/plugin-packs/tutorials/centreon-nsclient-tutorial"
             },
