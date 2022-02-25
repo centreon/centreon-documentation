@@ -18,7 +18,7 @@ Le gestionnaire d'événements est exécuté lorsqu'un service ou un hôte :
 * Est dans un état problématique SOFT
 * Entre initialement dans un état problématique HARD
 * Récupère initialement d'un état problématique SOFT ou HARD
-* Les états SOFT et HARD sont décrits [ici](../alerts-notifications/concepts.md#confirmation-du-statut)
+* Les états SOFT et HARD sont décrits [ici](../alerts-notifications/concepts#confirmation-du-statut)
 
 ### Types de gestionnaires d'événements
 
@@ -71,7 +71,7 @@ Idéalement, vous devez évaluer les types de gestionnaires d'événements que v
 assez de permissions à l'utilisateur Centreon Engine pour exécuter les commandes système nécessaires. Vous voudrez
 peut-être essayer d'utiliser sudo pour ce faire.
 
-Suivre [cette procédure pour créer une commande](./basic-objects/commands.md#adding-a-command).
+Suivre [cette procédure pour créer une commande](./basic-objects/commands#adding-a-command).
 
 > Utilisez ** Misc ** pour le type de commande pour classer vos commandes.
 

@@ -15,7 +15,7 @@ importer les objets dans l'interface Centreon web.
 
 Avant toute chose vous devez avoir une plate-forme Centreon installée et prête à
 l'emploi. Se référer à la documentation
-[d'installation de Centreon](../installation/installation-of-a-central-server/using-centreon-iso.md).
+[d'installation de Centreon](../installation/installation-of-a-central-server/using-centreon-iso).
 
 ## Installation
 

@@ -32,7 +32,7 @@ Celui-ci permet de découvrir l'ensemble des *Public IPs* rattachés à une *sou
 > de cette utilisation. 
 
 Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionnement sur la documentation du module:
-[Découverte des hôtes](../../../monitoring/discovery/hosts-discovery.md)
+[Découverte des hôtes](../../../monitoring/discovery/hosts-discovery)
 
 ### Métriques & statuts collectés 
 

@@ -16,7 +16,7 @@ servers:
 
 ## Update the RPM signing key
 
-For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation.md#existing-installation), to remove the old key and install the new one.
+For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation#existing-installation), to remove the old key and install the new one.
 
 ## Upgrade the Centreon Central server
 
@@ -104,7 +104,7 @@ systemctl start httpd24-httpd
 If you had a custom Apache configuration, upgrade process through RPM did not update it.
 
 > If you use https, you can follow
-> [this procedure](../administration/secure-platform.md#securing-the-apache-web-server)
+> [this procedure](../administration/secure-platform#securing-the-apache-web-server)
 
 You'll then need to add API access section to your configuration file:
 **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf**
@@ -196,7 +196,7 @@ page:
 ![image](../assets/upgrade/web_update_5.png)
 
 If the Centreon BAM module is installed, refer to the
-[upgrade procedure](../service-mapping/upgrade.md).
+[upgrade procedure](../service-mapping/upgrade).
 
 ### Post-upgrade actions
 
@@ -242,7 +242,7 @@ To make sure Broker and Engine's Broker module are using new configuration files
 follow this steps:
 
 1. Deploy Central's configuration from the Centreon web UI by following
-[this procedure](../monitoring/monitoring-servers/deploying-a-configuration.md),
+[this procedure](../monitoring/monitoring-servers/deploying-a-configuration),
 2. Restart both Broker and Engine on the Central server by running this
 command:
 
@@ -424,7 +424,7 @@ Due to new configuration file format for Engine's Broker module, the
 configuration needs to be re-deployed.
 
 Deploy Poller's configuration from the Centreon web UI by following
-[this procedure](../monitoring/monitoring-servers/deploying-a-configuration.md),
+[this procedure](../monitoring/monitoring-servers/deploying-a-configuration),
 and choose *Restart* method for Engine process.
 
 ## Communications
@@ -433,10 +433,10 @@ By default, the communication between Central and Pollers or Remote Servers
 will still be using SSH protocol.
 
 Consider changing the communication protocol by following the
-[Change communication from SSH to ZMQ](../monitoring/monitoring-servers/communications.md#change-communication-from-ssh-to-zmq)
+[Change communication from SSH to ZMQ](../monitoring/monitoring-servers/communications#change-communication-from-ssh-to-zmq)
 procedure.
 
 ## Secure your platform
 
 Don't forget to secure your Centreon platform following our
-[recommendations](../administration/secure-platform.md)
+[recommendations](../administration/secure-platform)

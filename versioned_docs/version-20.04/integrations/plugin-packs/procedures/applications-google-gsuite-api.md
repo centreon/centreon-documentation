@@ -7,4 +7,4 @@ title: Google Gsuite (Deprecated)
 
 This Plugin Pack has been deprecated and replaced by `Google Workspace`. 
 
-Refer to [this procedure](applications-google-workspace-api.md)
+Refer to [this procedure](applications-google-workspace-api)

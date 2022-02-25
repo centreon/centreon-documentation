@@ -73,9 +73,9 @@ systemctl start centreontrapd snmptrapd
 
 ## Ajouter le Poller à la configuration
 
-Rendez-vous au chapitre [Ajouter un Poller à la configuration](../../monitoring/monitoring-servers/add-a-poller-to-configuration.md).
+Rendez-vous au chapitre [Ajouter un Poller à la configuration](../../monitoring/monitoring-servers/add-a-poller-to-configuration).
 
 ## Sécurisez votre plateforme
 
 N'oubliez pas de sécuriser votre plateforme Centreon en suivant nos
-[recommandations](../../administration/secure-platform.md)
+[recommandations](../../administration/secure-platform)

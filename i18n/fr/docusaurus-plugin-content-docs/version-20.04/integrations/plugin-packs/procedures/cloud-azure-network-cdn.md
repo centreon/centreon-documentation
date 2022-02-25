@@ -35,7 +35,7 @@ d'Hôtes nommé *Microsoft Azure CDNs**. Celui-ci permet de découvrir l'ensembl
 
 Vous trouverez plus d'informations sur la découverte d'Hôtes et son
 fonctionnement sur la documentation du module:
-[Découverte des hôtes](../../../monitoring/discovery/hosts-discovery.md)
+[Découverte des hôtes](../../../monitoring/discovery/hosts-discovery)
 
 ### Métriques & statuts collectés
 
