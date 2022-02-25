@@ -20,23 +20,25 @@ Please refer to the documentation of your Cisco device to know how to configure 
 
 The target device must be reachable from the Centreon Poller on the UDP/161 SNMP port.
 
-## Configure the host and deploy the configuration
+### On the central server
 
-1. In the web interface, go to **Configuration > Plugin Packs**, search for the **Cisco standard** Plugin Pack and install it:
+In the web interface, go to **Configuration > Plugin Packs**, search for the **Cisco standard** Plugin Pack and install it:
 
    ![image](../assets/getting-started/quick_start_cisco_0.gif)
 
-Go to the **Configuration > Hosts > Hosts** menu and click on **Add**:
+## Configure the host and deploy the configuration
 
-![image](../assets/getting-started/quick_start_cisco_1.gif)
+1. Go to the **Configuration > Hosts > Hosts** menu and click on **Add**:
 
-Fill in the following information:
+  ![image](../assets/getting-started/quick_start_cisco_1.gif)
 
-* The name of the router (1)
-* A description of the router (2)
-* The IP address of the router (3)
-* The SNMP version and community (4)
-* Select the poller that will monitor the device (keep "Central" if you have no other poller) (5)
+2. Fill in the following information:
+
+  * The name of the router (1)
+  * A description of the router (2)
+  * The IP address of the router (3)
+  * The SNMP version and community (4)
+  * Select the poller that will monitor the device (5)
 
 3. Click on **+ Add a new entry** in the **Templates** field (6), then select the **Net-Cisco-Standard-SNMP-custom** template (7) from the list:
 

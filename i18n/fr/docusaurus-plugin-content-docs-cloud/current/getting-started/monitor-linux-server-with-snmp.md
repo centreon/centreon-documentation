@@ -52,7 +52,7 @@ systemctl enable snmpd
 
 > Le serveur cible doit être accessible depuis le collecteur Centreon sur le port SNMP UDP/161.
 
-### Sur le collecteur
+### Sur le serveur central
 
 Dans l'interface web, allez à la page **Configuration > Plugin Packs** et installez le Plugin Pack **Linux SNMP** :
 
@@ -70,7 +70,7 @@ Dans l'interface web, allez à la page **Configuration > Plugin Packs** et insta
    * Une description de celui-ci (2)
    * L'adresse IP du serveur (3)
    * La communauté SNMP et sa version (4)
-   * Sélectionnez le collecteur désiré (laissez "Central" si vous n'avez pas d'autre collecteur) (5)
+   * Sélectionnez le collecteur désiré (5)
 
 3. Cliquez sur **+ Ajouter une nouvelle entrée** dans le champ **Modèles** (6), puis sélectionnez le modèle **OS-Linux-SNMP-custom** (7) dans la liste :
 

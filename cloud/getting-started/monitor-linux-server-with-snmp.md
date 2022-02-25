@@ -52,7 +52,7 @@ systemctl enable snmpd
 
 > The target server must be reachable from the Centreon Poller on the UDP/161 SNMP port.
 
-### On the poller
+### On the central server
 
 On the web interface, go to **Configuration > Plugin Packs** and install the **Linux SNMP** Plugin Pack:
 
@@ -70,7 +70,7 @@ On the web interface, go to **Configuration > Plugin Packs** and install the **L
    * A description of the server (2)
    * Its IP address (3)
    * The SNMP version and community (4)
-   * Select the poller that will monitor your Linux server (keep "Central" if you have no other poller) (5)
+   * Select the poller that will monitor your Linux server (5)
 
 3. Click on **+ Add a new entry** in the **Templates** field (6), then select the **OS-Linux-SNMP-custom** template (7) from the list:
 

@@ -3,9 +3,11 @@ id: monitor-mysql-server
 title: Monitor a MySQL or MariaDB database
 ---
 
+The objective of this tutorial is to monitor a Mysql/MariaDB database.
+
 ## Prerequisites
 
-The objective of this tutorial is to monitor a Mysql/MariaDB database.
+### On the database you want to monitor
 
 In order to be able to collect the necessary information from the database, a database user with specific privileges is required. If the database you want to monitor is a Centreon database, a dedicated user already exists and is called **centreon**. Otherwise, start by creating a new user: log in to your database, then run the following command:
 
@@ -16,19 +18,19 @@ CREATE USER 'username'@'IP_POLLER' IDENTIFIED BY 'password';
 Then, whether your database is a Centreon database or not, run the following command:
 
 ```shell
-GRANT SELECT ON *.* TO 'centreon'@'IP_POLLER';
+GRANT SELECT ON *.* TO 'username'@'IP_POLLER';
 ```
 
 > Replace the username, the IP address of the poller and the password by the values you want.
 
-### Installing the Plugin Pack
+### On the central server
 
 The database will be monitored using the **MySQL/MariaDB** Plugin Pack.
-Go to the menu **Configuration > Plugin Packs** and install the **MySQL/MariaDB** Plugin Pack:
+Go to **Configuration > Plugin Packs** and install the **MySQL/MariaDB** Plugin Pack:
 
 ![image](../assets/getting-started/quick_start_mysql_0.gif)
 
-## Set up the host and deploy the configuration
+## Configure the host and deploy the configuration
 
 1. Go to **Configuration > Hosts > Hosts** and click on **Add**:
 
@@ -39,7 +41,7 @@ Go to the menu **Configuration > Plugin Packs** and install the **MySQL/MariaDB*
   * The name of your server
   * A description of your server
   * Its IP address
-  * Select the poller that will monitor the database (leave "Central" if you have no other poller)
+  * Select the poller that will monitor the database
 
 3. Click on the **+ Add New Entry** button for the **Templates** field and select the **App-DB-MySQL-custom** template:
 

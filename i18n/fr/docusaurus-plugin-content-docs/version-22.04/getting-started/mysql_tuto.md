@@ -3,9 +3,11 @@ id: monitor-mysql-server
 title: Superviser une base de données MySQL ou MariaDB
 ---
 
+L'objectif de ce tutoriel est de superviser une base de données Mysql/MariaDB.
+
 ## Prérequis
 
-L'objectif de ce tutoriel est de superviser une base de données Mysql/MariaDB.
+### Sur la base de données à superviser
 
 Afin de pouvoir collecter les informations nécessaires à partir de la base de données, un utilisateur de la base de données disposant de privilèges spécifiques sera nécessaire. Si la base que vous souhaitez superviser est une base Centreon, un utilisateur dédié existe déjà (il s'appelle **centreon**). Dans le cas contraire, commencez par créer un nouvel utilisateur : connectez-vous à votre base de données, puis exécutez la commande suivante :
 
@@ -16,19 +18,27 @@ CREATE USER 'username'@'IP_POLLER' IDENTIFIED BY 'password';
 Puis, que votre base soit une base Centreon ou non, exécutez la commande suivante :
 
 ```shell
-GRANT SELECT ON *.* TO 'centreon'@'IP_POLLER';
+GRANT SELECT ON *.* TO 'username'@'IP_POLLER';
 ```
 
 > Remplacez le nom d'utilisateur, l'adresse IP du collecteur et le mot de passe par les valeurs de votre choix.
 
-### Installer le Plugin Pack
+### Sur le collecteur
+
+Installez le plugin suivant sur le collecteur qui supervisera votre base de données :
+
+``` shell
+yum install centreon-plugin-Applications-Databases-Mysql
+```
+
+### Sur le serveur central
 
 La base de données sera supervisée à l'aide du [Plugin Pack **MySQL/MariaDB**](../integrations/plugin-packs/procedures/applications-databases-mysql.md).
 Rendez-vous dans le menu **Configuration > Packs de plugins** et installez le Plugin Pack **MySQL/MariaDB** :
 
 ![image](../assets/getting-started/quick_start_mysql_0.gif)
 
-#### Configurer l'hôte et déployer la configuration
+## Configurer l'hôte et déployer la configuration
 
 1. Allez à la page **Configuration > Hôtes > Hôtes** et cliquez sur le bouton **Ajouter** :
 
