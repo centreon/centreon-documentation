@@ -10,8 +10,8 @@ const config = {
   tagline: '',
   url: 'https://docs.centreon.com',
   baseUrl: '/',
-  onBrokenLinks: 'error',
-  onBrokenMarkdownLinks: 'error',
+  onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'warn',
   favicon: 'img/logo-centreon.png',
   organizationName: 'Centreon',
   projectName: 'Centreon Documentation',
@@ -48,7 +48,7 @@ const config = {
               label: '⭐ 21.10',
             },
             21.04: {
-              label: ' 21.04',
+              label: '21.04',
             },
             '20.10': {
               label: '20.10',
@@ -131,6 +131,7 @@ const config = {
       },
 
       hideableSidebar: true,
+
       colorMode: {
         defaultMode: 'light',
         disableSwitch: false,

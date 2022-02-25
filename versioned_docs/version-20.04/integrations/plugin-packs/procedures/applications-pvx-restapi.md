@@ -2,114 +2,238 @@
 id: applications-pvx-restapi
 title: Skylight PVX
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+
+## Overview
+
+Every PVX-Skylight instance provides XML API endpoints allowing Centreon to
+perform queries against it.
+
+![architecture](../../../assets/integrations/external/skylight-pvx-connector.png)
+
+## Pack Assets
+
+### Templates
+
+The Centreon Plugin Pack PVX brings 1 host template:
+* App-Pvx-Application-Restapi-custom
+
+It brings the following Service Templates:
+
+| Service Alias                       | Service Template                                    | Service Description                       | Default |
+|:------------------------------------|:----------------------------------------------------|:------------------------------------------|:--------|
+| Http-Hits-Application               | App-Pvx-Http-Hits-Application-Restapi               | Check the number of HTTP errors           | X       |
+| Http-Hits                           | App-Pvx-Http-Hits-Restapi                           | Check the number of HTTP errors           |         |
+| Http-Hits-Server-Ip                 | App-Pvx-Http-Hits-Server-Ip-Restapi                 | Check the number of HTTP errors           |         |
+| Network-Connection-Application      | App-Pvx-Network-Connection-Application-Restapi      | Check the connections attemps             | X       |
+| Network-Connection                  | App-Pvx-Network-Connection-Restapi                  | Check connections attemps                 |         |
+| Network-Connection-Server-Ip        | App-Pvx-Network-Connection-Server-Ip-Restapi        | Check the connections attemps             |         |
+| Network-Traffic-Application         | App-Pvx-Network-Traffic-Application-Restapi         | Check traffic by application.             | X       |
+| Network-Traffic-Layer               | App-Pvx-Network-Traffic-Layer-Restapi               | Check traffic by layer.                   |         |
+| Network-Traffic                     | App-Pvx-Network-Traffic-Restapi                     | Check traffic by instance                 |         |
+| Network-Traffic-Server-Ip           | App-Pvx-Network-Traffic-Server-Ip-Restapi           | Check traffic by IP                       |         |
+| Network-User-Experience-Application | App-Pvx-Network-User-Experience-Application-Restapi | Check the user experience by application. | X       |
+| Network-User-Experience             | App-Pvx-Network-User-Experience-Restapi             | Check the user experience by instance     |         |
+| Network-User-Experience-Server-Ip   | App-Pvx-Network-User-Experience-Server-Ip-Restapi   | Check the user experience by IP           |         |
+
+### Collected metrics & status
+
+<Tabs groupId="sync">
+<TabItem value="Http-Hits" label="Http-Hits">
+
+| Metric Name                           | Unit   |
+|:--------------------------------------|:-------|
+| *instances*#http.hits.persecond       | hits/s |
+| *instances*#http.hits.error.persecond | hits/s |
+| *instances*#http.hits.percentage      |        |
+
+</TabItem>
+<TabItem value="Network-Connection" label="Network-Connection">
+
+| Metric Name                                  | Unit          |
+|:---------------------------------------------|:--------------|
+| *instances*#connections.attempts.persecond   | connections/s |
+| *instances*#connection.time.milliseconds     | ms            |
+| *instances*#connections.ratio.percentage     |               |
+| *instances*#connections.successful.persecond | connections/s |
+
+</TabItem>
+<TabItem value="Network-Traffic" label="Network-Traffic">
+
+| Metric Name                                           | Unit  |
+|:------------------------------------------------------|:------|
+| traffic.client.bitspersecond                          | b/s   |
+| traffic.server.bitspersecond                          | b/s   |
+| traffic.aggregated.bitspersecond                      | b/s   |
+| *instances*#instance.traffic.client.bitspersecond     | b/s   |
+| *instances*#instance.traffic.server.bitspersecond     | b/s   |
+| *instances*#instance.traffic.aggregated.bitspersecond | b/s   |
+
+</TabItem>
+<TabItem value="Network-User-Experience" label="Network-User-Experience">
+
+| Metric Name                            | Unit  |
+|:---------------------------------------|:------|
+| *instances*#enduser.experience.seconds | s     |
+
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
-### PVX version
+### Compatibility
 
-Plugin requires PVX version 5.1.1 minimum.
+The connector has been tested with the following versions: \* PVX version 5.1.1
 
-### Centreon Plugin
+### PVX API
 
-Install this plugin on each needed poller:
+To query PVX API, you need to generate an access key. This key will never expire
+and the procedure below is an extract from the 
+[official documentation](<http://docs.performancevision.com/api_use.html>). In 
+each step replace the value of the macros enclosed by '< \>' with yours.
 
-``` shell
+```bash 
+curl -k 'https://**<pvxapihost>**/api/login?user=**<user>**&password=**<password>**'`
+```
+
+Result:
+
+``` json
+{
+    "type": "result",
+    "result": "**session:91554086-842b-4b73-9028-c51d20d91b94**"
+}
+```
+
+Thanks to the obtained session ID, execute the command below get a secret key
+
+```bash 
+curl -k 'https://**<pvxapihost>**/api/create-api-key?name=**<keyname>**&_session=session:91554086-842b-4b73-9028-c51d20d91b94'`
+```
+
+Result:
+
+``` json
+{
+    "type": "result",
+    "result": "**secret:e40b1cc6-f629-43a4-8be6-14a9c9f036e0**"
+}
+```
+
+In this example the API key is "secret:e40b1cc6-f629-43a4-8be6-14a9c9f036e0".
+
+## Setup
+
+<Tabs groupId="sync">
+<TabItem value="Online License" label="Online License">
+
+1. Install the Centreon Plugin package on every Centreon poller expected to monitor **PVX** resources:
+
+```bash
 yum install centreon-plugin-Applications-Pvx-Restapi
 ```
 
-## Centreon Configuration
+2. On the Centreon Web interface, install the **PVX** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
 
-### Create a host using the appropriate template
+</TabItem>
+<TabItem value="Offline License" label="Offline License">
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
-the following table:
+1. Install the Centreon Plugin package on every Centreon poller expected to monitor **PVX** resources:
 
-| Field                   | Value                              |
-| :---------------------- | :--------------------------------- |
-| Host name               | *Name of the host*                 |
-| Alias                   | *Host description*                 |
-| IP                      | *Host IP Address*                  |
-| Monitored from          | *Monitoring Poller to use*         |
-| Host Multiple Templates | App-Pvx-Application-Restapi-custom |
+```bash
+yum install centreon-plugin-Applications-Pvx-Restapi
+```
 
-Click on the *Save* button.
+2. Install the **PVX** Centreon Plugin Pack RPM on the Centreon Central server:
 
-### Host Macro Configuration
+```bash
+yum install centreon-pack-applications-pvx-restapi
+```
 
-The following macros must be configured on host:
+3. On the Centreon Web interface, install the **PVX** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
 
-| Macro          | Description                      | Default value |
-| :------------- | :------------------------------- | :------------ |
-| PVXCUSTOMMODE  | Mode used by plugin              | api           |
-| PVXAPIHOSTNAME | Hostname of the PVX API instance |               |
-| PVXAPIURLPATH  | Path to the PVX API              | /api          |
-| PVXAPIPORT     | Port of the PVX API instance     | 443           |
-| PVXAPIPROTO    | Protocol used by the PVX API     | http          |
-| PVXAPIKEY      | Key to access PVX API            |               |
+</TabItem>
+</Tabs>
 
-Click on the *Save* button.
+## Configuration
 
-### Other host templates
+### Host
 
-The "App-Pvx-Application-Restapi-custom" host template will add services that
-will retrieve metrics about traffic, connection, user experience and http hits
-by application.
+* Log into Centreon and add a new Host through **Configuration > Hosts**.
+* Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your **PVX** server settings.
+* Select the **App-Pvx-Application-Restapi-custom** template to apply to the Host.
+* Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
 
-It's possible to have the same metrics by other 'instances' like layer, server
-IP, client OS. For this, new host templates can be created and linked to
-existing service templates, or newly created ones, where the instance macro is
-set to instance name.
+| Mandatory   | Macro              | Description                                                                        |
+|:------------|:-------------------|:-----------------------------------------------------------------------------------|
+|             | PVXAPIEXTRAOPTIONS | Any extra option you may want to add to every command\_line (eg. a --verbose flag) |
+| X           | PVXAPIHOSTNAME     | PVX hostname                                                                       |
+| X           | PVXAPIKEY          | PVX API key                                                                        |
+|             | PVXAPIPORT         | (Default: '443')                                                                   |
+|             | PVXAPIPROTO        | (Default: 'https')                                                                 |
+|             | PVXAPIURLPATH      | (Default: '/api')                                                                  |
+|             | PVXCUSTOMMODE      | (Default: 'api')                                                                   |
 
-Examples of existing service templates :
+## How to check in the CLI that the configuration is OK and what are the main options for? 
 
-| Name                              | Alias                                             | Instance macro value |
-| :-------------------------------- | :------------------------------------------------ | :------------------- |
-| Network-Traffic-Layer             | App-Pvx-Network-Traffic-Layer-Restapi             | layer                |
-| Network-User-Experience-Server-Ip | App-Pvx-Network-User-Experience-Server-Ip-Restapi | server.ip            |
-| Http-Hits-Server-Ip               | App-Pvx-Http-Hits-Server-Ip-Restapi               | server.ip            |
+Once the plugin is installed, log into your Centreon Poller CLI using the 
+**centreon-engine** user account (`su - centreon-engine`) and test the Plugin by
+running the following command:
 
-### Create an API key
+```bash
+/usr/lib/centreon/plugins//centreon_pvx_restapi.pl \
+    --plugin=apps::pvx::restapi::plugin \
+    --mode=http-hits \
+    --custommode='api' \
+    --hostname='10.0.0.1' \
+    --url-path='/api' \
+    --api-key='' \
+    --port='443' \
+    --proto='https' \
+    --timeframe='3600' \
+    --instance='' \
+    --warning-ratio='' \
+    --critical-ratio='' \
+    --warning-hits-error='' \
+    --critical-hits-error='' \
+    --warning-hits='40' \
+    --critical-hits='60' \
+    --use-new-perfdata 
+```
 
-An API key has to be created to access the API. The key will never expire.
+The expected command output is shown below:
 
-(From the official documentation at
-<http://docs.performancevision.com/api_use>)
+```bash
+OK: ratio: 18 hits error: 2 hits/s hits: 39 hits/s | 'http.hits.percentage'=18;;;0; 'http.hits.error.persecond'=2hits/s;;;0; 'http.hits.persecond'=39hits/s;0:40;0:60;0; 
+```
 
-#### Create a session ID :
+This command would trigger a WARNING alarm if the HTTP hits count is reported as
+over 40 (`--warning-hits='40'`) and a CRITICAL if over than 60 
+(`--critical-hits='40'`) in the last hour (`--timeframe='3600'`).
 
-First, a session ID needs to be requested.
+All available options for a given mode can be displayed by adding the 
+`--help` parameter to the command:
 
-    (From the central or poller)
-    
-    # curl -k "https://<pvxapihost>/api/login?user=<user>&password=<password>"
+```bash
+/usr/lib/centreon/plugins//centreon_pvx_restapi.pl \
+    --plugin=apps::pvx::restapi::plugin \
+    --mode=http-hits \
+    --help
+```
 
-Replace pvxapihost, user and password by your values.
+All available options for a given mode can be displayed by adding the 
+`--list-mode` parameter to the command:
 
-The command line should return:
+```bash
+/usr/lib/centreon/plugins//centreon_pvx_restapi.pl \
+    --plugin=apps::pvx::restapi::plugin \
+    --list-mode
+```
 
-    {
-        "type": "result",
-        "result": "session:91554086-842b-4b73-9028-c51d20d91b94"
-    }
+### Troubleshooting
 
-The session ID is "session:91554086-842b-4b73-9028-c51d20d91b94".
-
-#### Create an API key :
-
-With the session ID, request an API key.
-
-    (From the central or poller)
-    
-    # curl -k "https://<pvxapihost>/api/create-api-key?name=<keyname>&_session=session:91554086-842b-4b73-9028-c51d20d91b94"
-
-Replace pvxapihost by your value, and use the session ID for the "\_session"
-argument.
-
-The command line should return:
-
-    {
-        "type": "result",
-        "result": "secret:e40b1cc6-f629-43a4-8be6-14a9c9f036e0"
-    }
-
-The API key is "secret:e40b1cc6-f629-43a4-8be6-14a9c9f036e0".
+Please find all the troubleshooting documentation for the API-based Plugins in
+the [dedicated chapter](../tutorials/troubleshooting-plugins.md#http-and-api-checks)
+of the Centreon documentation.

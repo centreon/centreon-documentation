@@ -34,7 +34,7 @@ Celui-ci permet de découvrir l'ensemble des *Key Vaults* rattachés à une *sou
 > de cette utilisation. 
 
 Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionnement sur la documentation du module:
-[Découverte des hôtes](../../../monitoring/discovery/hosts-discovery)
+[Découverte des hôtes](../../../monitoring/discovery/hosts-discovery.md)
 
 ### Métriques & statuts collectés 
 
@@ -42,7 +42,7 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 <TabItem value="ServiceAPI" label="ServiceAPI">
 
 | Metric name                              | Description                 | Unit  |
-| :--------------------------------------- | :-------------------------- | :---- |
+|:-----------------------------------------|:----------------------------|:------|
 | keyvault.serviceapi.hits.count           | Total Service Api Hits      | Count |
 | keyvault.serviceapi.latency.milliseconds | Overall Service Api Latency | B     |
 | keyvault.serviceapi.results.count        | Total Service Api Results   | Count |
@@ -51,14 +51,14 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 <TabItem value="Vault-Availability" label="Vault-Availability">
 
 | Metric name                            | Description                | Unit |
-| :------------------------------------- | :------------------------- | :--- |
+|:---------------------------------------|:---------------------------|:-----|
 | keyvault.vault.availability.percentage | Overall Vault Availability | %    |
 
 </TabItem>
 <TabItem value="Vault-Capacity" label="Vault-Capacity">
 
 | Metric name                          | Description              | Unit |
-| :----------------------------------- | :----------------------- | :--- |
+|:-------------------------------------|:-------------------------|:-----|
 | keyvault.vault.saturation.percentage | Overall Vault Saturation | %    |
 
 </TabItem>
@@ -223,7 +223,7 @@ doivent être renseignées selon le custom-mode utilisé:
 <TabItem value="Azure Monitor API" label="Azure Monitor API">
 
 | Mandatory | Nom               | Description                  |
-| :-------- | :---------------- | :--------------------------- |
+|:----------|:------------------|:-----------------------------|
 | X         | AZURECUSTOMMODE   | Custom mode 'api'            |
 | X         | AZURESUBSCRIPTION | Subscription ID              |
 | X         | AZURETENANT       | Tenant ID                    |
@@ -235,7 +235,7 @@ doivent être renseignées selon le custom-mode utilisé:
 <TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 | Mandatory | Nom               | Description                  |
-| :-------- | :---------------- | :--------------------------- |
+|:----------|:------------------|:-----------------------------|
 | X         | AZURECUSTOMMODE   | Custom mode 'azcli'          |
 | X         | AZURESUBSCRIPTION | Subscription ID              |
 | X         | AZURERESOURCE     | Id of the Key Vault resource |
@@ -306,7 +306,7 @@ Le Plugin utilise un fichier de cache pour conserver les informations de connexi
 se ré-authentifier à chaque appel. Si des informations sur le Tenant, la Souscription ou les 
 Client ID / Secret changent, il est nécessaire de supprimer le fichier de cache du Plugin. 
 
-Celui ci se trouve dans le répertoire ```/var/lib/centreon/centplugins/``` avec le nom `azure_api_<md5>_<md5>_<md5>_<md5>`.
+Celui ci se trouve dans le répertoire ```/var/lib/centreon/centplugins/``` avec le nom azure_api_`<md5>_<md5>_<md5>_<md5>`.
 
 #### ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```
 

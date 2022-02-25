@@ -19,6 +19,22 @@ commerciales, veuillez contacter le support.
 
 ## Centreon MAP
 
+### 20.04.8
+
+`February 24, 2022`
+
+Ceci est la dernière version 20.04.
+
+#### Enhancements
+
+- Ajout du support pour les espaces blancs multiples dans les perfdatas.
+
+#### Bug fixes
+
+- Correction de l'usage de labels de métriques non standard empêchant le serveur MAP de démarrer.
+- Correction du support des labels de métriques non standard et de l'usage du caractère '=' dans ces labels.
+- Correction du chemin de la variable d'environment HeapDumpPath pour pointer sur le bon répertoire.
+
 ### 20.04.7
 
 `12 mars 2021`
@@ -138,7 +154,7 @@ commerciales, veuillez contacter le support.
 - Simplification du packaging: la dépendance à Tomcat a été retirée, les logs
   sont désormais dans `/var/log/centreon-map/` et le service  s'appelle
   `centreon-map` (*systemctl restart centreon-map*). Suivez la [procédure de
-  mise à niveau](../graph-views/upgrade).
+  mise à niveau](../graph-views/upgrade.md).
 - Mode d'installation silencieux: il est possible de fournir des variables
   au script d'installation plutôt que de passer par le mode interactif
 - La licence est désormais gérée sur le serveur Central, comme pour les

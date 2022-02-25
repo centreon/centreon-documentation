@@ -25,9 +25,11 @@ Il apporte les Modèles de Services suivants :
 
 ### Règles de découverte
 
+
 | Rule name                    | Description                    |
 |:-----------------------------|:-------------------------------|
 | App-Netbackup-Job-Per-Policy | Découverte des Jobs            |
+
 
 ### Collected metrics & status
 
@@ -215,5 +217,5 @@ Toutes les options et leur utilisation peuvent être consultées avec le paramè
 
 ### Diagnostic des erreurs communes
 
-Rendez-vous sur la [documentation dédiée](../tutorials/troubleshooting-plugins#ssh-and-cli-checks)
+Rendez-vous sur la [documentation dédiée](../tutorials/troubleshooting-plugins.md#ssh-and-cli-checks)
 pour le diagnostic des erreurs communes des Plugins Centreon.

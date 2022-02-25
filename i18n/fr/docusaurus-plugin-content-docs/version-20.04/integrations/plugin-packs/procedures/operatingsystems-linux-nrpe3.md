@@ -129,12 +129,26 @@ Les hôtes supervisés ont besoin de deux composants pour que cela fonctionne :
 
 Installer les paquets suivants :
 
-```bash
-yum install https://yum.centreon.com/standard/20.04/el7/stable/noarch/RPMS/centreon-release-20.04-1.el7.centos.noarch.rpm
+<Tabs groupId="sync">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+
+```shell
+dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-5.el8.noarch.rpm
+dnf install centreon-nrpe3-daemon.x86_64 centreon-plugin-Operatingsystems-Linux-Local.noarch
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```shell
+yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-5.el7.centos.noarch.rpm
 yum install centreon-nrpe3-daemon.x86_64 centreon-plugin-Operatingsystems-Linux-Local.noarch
 ```
 
-> **NB :** Pour éviter l'ajout du dépôt Centreon sur tous vos serveurs, il est possible d'installer directement les paquets `http://yum-1.centreon.com/standard/20.04/el7/stable/noarch/RPMS/centreon-plugin-Operatingsystems-Linux-Local-20200602-094050.el7.centos.noarch.rpm` et `http://yum-1.centreon.com/standard/20.04/el7/stable/x86_64/RPMS/centreon-nrpe3-daemon-3.2.1-8.el7.centos.x86_64.rpm` (versions courantes au moment de la rédaction de cette documentation) **mais dans ce cas il ne sera pas possible de les mettre à jour par un `yum update`**.
+</TabItem>
+</Tabs>
+
+> **NB :** Pour éviter l'ajout du dépôt Centreon sur tous vos serveurs, il est possible d'installer directement les paquets `https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-plugin-Operatingsystems-Linux-Local-20201006-142255.el7.centos.noarch.rpm` et `https://yum.centreon.com/standard/21.10/el7/stable/x86_64/RPMS/centreon-nrpe3-daemon-3.2.1-8.el7.centos.x86_64.rpm` (versions courantes au moment de la rédaction de cette documentation) **mais dans ce cas il ne sera pas possible de les mettre à jour par un `yum update`**.
 
 ### Configuration de NRPE
 

@@ -6,6 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
+
 > Hello community! We're looking for a contributor to help us to translate the 
 content in french and provide a sample execution command. If it's you, let us 
 know and ping us on [slack](https://centreon.slack.com)
@@ -38,7 +39,7 @@ installed, configured and running on the Windows server running the WSUS Admin c
 
 The Centreon Poller can connect to the agent using either the NRPE method or the 
 RestAPI method. More information on how to achieve the installation and the configuration 
-of the agent can be found [here](../tutorials/centreon-nsclient-tutorial).
+of the agent can be found [here](../tutorials/centreon-nsclient-tutorial.md).
 
 ### Powershell
 
