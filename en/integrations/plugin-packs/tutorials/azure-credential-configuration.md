@@ -36,7 +36,7 @@ You need to create a new application in Azure to obtain these tokens. The steps 
 Now that the application is created, the below steps will guide you to retrieve the 4 tokens: 
 * Get the **subscription ID**:
 	- Go to **Subscriptions** in Azure portal. 
-	- Next to the name of your subscription you have the **Subscription ID**.
+	- Copy the *Subscription ID* next to the name of your subscription.
 * Get the **Tenant ID**:
 	- Go to **Azure Active Directory**.
 	- In **Overview**, under the name of the directory you will see the **Tenant ID**.
