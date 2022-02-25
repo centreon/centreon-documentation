@@ -26,6 +26,7 @@ You need to create a new application in Azure to obtain these tokens. The steps 
 	- Click on **+ New registration**, put the name of your application and then click on **Register**.
 	
 * Add the **Monitoring Reader role** to your new application:
+	- Go back to the Azure Portal home menu.
 	- Go to **Resource groups**.
 	- Choose the resource group containing the resources you want to monitor. 
 	- Click on **Access Control (IAM)** and **+ Add > Add role assignment**.
