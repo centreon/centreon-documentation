@@ -278,5 +278,5 @@ Broker Central.
 
 ## Premiers pas
 
-Rendez-vous dans le chapitre [Premiers pas](../../getting-started/installation-first-steps.md#start-to-monitor-your-first-host)
+Rendez-vous dans le chapitre [Premiers pas](../../getting-started/installation-first-steps#start-to-monitor-your-first-host)
 pour mettre en place votre première supervision.

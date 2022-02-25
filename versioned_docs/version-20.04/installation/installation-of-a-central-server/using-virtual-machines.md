@@ -34,5 +34,5 @@ additional oerations to be performed. **It is imperative that you complete the i
 
 ## Getting started
 
-Go to the [Getting Started](../../getting-started/installation-first-steps.md)
+Go to the [Getting Started](../../getting-started/installation-first-steps)
 chapter to configure your first monitoring.

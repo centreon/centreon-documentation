@@ -173,5 +173,5 @@ parameter to the command:
 
 ## Troubleshooting
 
-[Troubleshooting plugins](../tutorials/troubleshooting-plugins.md)
+[Troubleshooting plugins](../tutorials/troubleshooting-plugins)
 

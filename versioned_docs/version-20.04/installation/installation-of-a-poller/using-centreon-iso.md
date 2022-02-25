@@ -46,7 +46,7 @@ Select the hard disk drive and the **I will configure partitioning** option. The
 ![image](../../assets/installation/06_select_disk.png)
 
 Using the **+** button, create your own partitioning file system following the instructions in
-[prerequisites chapter](../prerequisites.md). Then click on **Done**:
+[prerequisites chapter](../prerequisites). Then click on **Done**:
 
 ![image](../../assets/installation/07_partitioning_filesystem.png)
 
@@ -125,9 +125,9 @@ reboot
 
 ## Add the Poller to configuration
 
-Go to the [Add a Poller to configuration](../../monitoring/monitoring-servers/add-a-poller-to-configuration.md).
+Go to the [Add a Poller to configuration](../../monitoring/monitoring-servers/add-a-poller-to-configuration).
 
 ## Secure your platform
 
 Don't forget to secure your Centreon platform following our
-[recommendations](../../administration/secure-platform.md)
+[recommendations](../../administration/secure-platform)

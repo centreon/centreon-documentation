@@ -107,7 +107,7 @@ Un exemple de modèle de service passif est disponible ci-dessous:
 
 Lorsque vous validez le formulaire, Centreon crée ou met à jour tous les emplacements. Si vous n'avez modifié aucune
 valeur, vous n'avez pas à effectuer d'autre action. Sinon, vous avez devez
-*[générer et exporter la configuration](../monitoring-servers/deploying-a-configuration.md)*.
+*[générer et exporter la configuration](../monitoring-servers/deploying-a-configuration)*.
 
 ### Configuration des traps
 
@@ -148,7 +148,7 @@ Votre formulaire devrait maintenant être comme ça :
 ![image](../../assets/configuration/dsm/trap-form-2.png)
 
 Après avoir enregistré le formulaire, veuillez générer la
-*[définition des traps SNMP](monitoring-with-snmp-traps.md#applying-the-changes)*.
+*[définition des traps SNMP](monitoring-with-snmp-traps#Applying-the-changes)*.
 
 ### Configurer les liens d'évènement
 

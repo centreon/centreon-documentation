@@ -17,7 +17,7 @@ Event handlers are executed when a service or host:
 * Is in a SOFT problem state
 * Initially goes into a HARD problem state
 * Initially recovers from a SOFT or HARD problem state
-* SOFT and HARD states are described [here](../alerts-notifications/concepts.md#status-confirmation)
+* SOFT and HARD states are described [here](../alerts-notifications/concepts#status-confirmation)
 
 ### Event Handler Types
 
@@ -64,7 +64,7 @@ restarts system services, as root privileges are generally required to do these 
 Ideally you should evaluate the types of event handlers you will be implementing and grant just enough permissions to
 the Centreon Engine user for executing the necessary system commands. You might want to try using sudo to accomplish this.
 
-Follow [this procédure to create a command](./basic-objects/commands.md#adding-a-command).
+Follow [this procédure to create a command](./basic-objects/commands#adding-a-command).
 
 > Use **Misc** for the command type to classify your commands.
 
