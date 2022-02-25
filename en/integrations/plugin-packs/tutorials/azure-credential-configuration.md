@@ -2,7 +2,7 @@
 id: azure-credential-configuration
 title: Azure Monitoring Prerequisites
 ---
-Two methods are available to get information from Azure:
+Two methods are available to get metrics from Azure:
 * Azure API ('api').
 * Azure CLI ('azcli').
 
