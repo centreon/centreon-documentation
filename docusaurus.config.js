@@ -58,6 +58,7 @@ const config = {
             },
           },
         },
+        blog: false,
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -100,15 +101,6 @@ const config = {
         apiKey: 'be499306058f3e54012bab278e6e6d86',
         indexName: 'centreon',
         contextualSearch: true,
-      },
-
-      announcementBar: {
-        id: 'announcementBar-1',
-        content:
-          'The search function is only available for version 21.10 at the moment. Thank you for your patience and understanding.',
-        backgroundColor: '#ebedf0',
-        textColor: '#091E42',
-        isCloseable: false,
       },
 
       zoomSelector: '.markdown :not(.authority-availability) > img',
