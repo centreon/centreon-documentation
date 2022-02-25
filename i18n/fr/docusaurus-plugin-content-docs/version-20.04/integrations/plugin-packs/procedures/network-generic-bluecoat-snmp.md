@@ -22,7 +22,7 @@ It's necessary to enable SNMP on your equipment
 ### Troubleshooting
 
 Read [Troubleshooting
-SNMP](../tutorials/troubleshooting-plugins#snmp-checks)
+SNMP](../tutorials/troubleshooting-plugins.md#snmp-checks)
 
 ## Centreon Configuration
 
