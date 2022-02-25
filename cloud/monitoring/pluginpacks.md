@@ -20,7 +20,7 @@ For each type of equipment,
 monitored and set default warning and critical thresholds (these may be
 fine-tuned later on). If you want to use a pack, you must install it on the central server.
 
-  Some packs also contain [discovery rules](discovery/introduction).
+  Some packs also contain discovery rules.
 
 ## What do I need to do to be able to use a Plugin Pack?
 
