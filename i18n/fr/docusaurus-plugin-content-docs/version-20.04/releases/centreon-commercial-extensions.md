@@ -31,7 +31,10 @@ Pour récupérer la version qui corrige ce problème, veuillez faire les actions
 
 * téléchargez le paquet **centreon-map-server-20.04.8-2.el7.noarch.rpm** depuis le dépôt **centreon-map**
 * exécutez la commande suivante :
+
+```shell
 yum downgrade centreon-map-server-20.04.8-2.el7.noarch.rpm
+```
 
 #### Enhancements
 

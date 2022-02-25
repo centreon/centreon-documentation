@@ -31,8 +31,10 @@ In order to have the right version, please execute the following actions:
 
 * download package **centreon-map-server-20.04.8-2.el7.noarch.rpm** from the **centreon-map** repository
 * execute the following command
-yum downgrade centreon-map-server-20.04.8-2.el7.noarch.rpm
 
+```shell
+yum downgrade centreon-map-server-20.04.8-2.el7.noarch.rpm
+```
 #### Enhancements
 
 - Added proper support for multiple white spaces in perfdata.
