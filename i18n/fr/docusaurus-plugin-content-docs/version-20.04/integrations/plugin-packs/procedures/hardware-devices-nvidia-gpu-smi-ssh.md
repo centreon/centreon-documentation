@@ -175,4 +175,4 @@ en ajoutant le paramètre ```--help``` à la commande:
 
 ## Diagnostic
 
-[Diagnostic des plugins](../tutorials/troubleshooting-plugins#ssh-and-cli-checks)
+[Diagnostic des plugins](../tutorials/troubleshooting-plugins.md#ssh-and-cli-checks)

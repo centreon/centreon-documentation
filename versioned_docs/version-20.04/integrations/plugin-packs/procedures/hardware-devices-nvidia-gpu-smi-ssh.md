@@ -175,4 +175,4 @@ parameter to the command:
 
 ## Troubleshooting
 
-[Troubleshooting plugins](../tutorials/troubleshooting-plugins#ssh-and-cli-checks)
+[Troubleshooting plugins](../tutorials/troubleshooting-plugins.md#ssh-and-cli-checks)
