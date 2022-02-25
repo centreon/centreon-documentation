@@ -6,8 +6,14 @@ Two methods are available to get metrics from Azure:
 * Azure API ('api').
 * Azure CLI ('azcli').
 
-Centreon recommends using **Azure API** instead of Azure CLI.  
-Azure CLI method is not be compatible with host autodiscovery.
+Centreon recommends to use Azure Monitor API instead of Azure CLI for the following reasons: 
+* The API is much more efficient by avoiding CLI binary execution
+* The API supports application authentication while CLI does not (yet)
+
+> This discovery feature is only compatible with Azure Monitor API.
+
+More information about the Host Discovery module is available in the Centreon documentation:
+[Host Discovery](../../../monitoring/discovery/hosts-discovery.html)
 
 ## Azure API setup 
 
