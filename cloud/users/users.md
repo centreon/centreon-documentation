@@ -33,7 +33,7 @@ There are 4 roles for users in Centreon Cloud, each with a specific set of right
 
 ## Creating users
 
-You must have the **Administrator** role to be able to [create a user](contacts-create) in Centreon Cloud. However, a user must belong to a group if they want to create a user within that group. This means that you should also give **Administrators** the **Editor**, **User** and **Notifications** roles if you want them to be able to give users these roles.
+You must have the **Administrator** role to be able to create a user in Centreon Cloud. However, a user must belong to a group if they want to create a user within that group. This means that you should also give **Administrators** the **Editor**, **User** and **Notifications** roles if you want them to be able to give users these roles.
 
 * Typically, you would give **User** the **Users** and **Notifications** roles if you wanted them to be able to receive notifications.
 * If you want **Administrators** to be able to create **Users** or **Editors**, give them also both the **User** and **Editor** roles (plus the **Notifications** role if you want them to be able to receive notifications).
