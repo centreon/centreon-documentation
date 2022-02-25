@@ -27,7 +27,7 @@ This is the last release for version 20.04.
 
 **Important Notice**
 If you have updated your MAP software with this version before the official announcement, be aware that the update may have caused a regression.
-In order to have the right version, please execute the following actions
+In order to have the right version, please execute the following actions:
 
 ```shell
 download package centreon-map-sever-20.04.8-2.el7.noarch.rpm from centreon-map repository
