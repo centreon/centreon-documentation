@@ -52,7 +52,7 @@ Now that the application is created, the below steps will guide you to retrieve 
 	
 These 4 tokens will be mandatory when using host autodiscovery and Centreon Azure based plugins. 
 
-## Azure CLI set up 
+## Azure CLI setup 
 
 *These steps are not required if you can use Azure API.* 
 
