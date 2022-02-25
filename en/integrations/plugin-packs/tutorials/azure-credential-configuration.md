@@ -43,8 +43,8 @@ Now that the application is created, the below steps will guide you to retrieve 
 	
 * Get the **Client ID**:
 	- Go to **Azure Active Directory**.
-	- On the left, select **App registrations** and the name of your application. 
-	- In the **Overview** panel you will have **Application (client) ID**.
+	- Go to **App registrations** in the sidebar on the left and click on your application.
+	- Go to **Overview** and copy the *Application (client) ID*.
 * Get the **Client secret**:
 	- Still in **Azure Active Directory > App registrations**, go to **Certificates & secrets**.
 	- Click on **+ New client secret**, set description as well as expiration date and Add.
