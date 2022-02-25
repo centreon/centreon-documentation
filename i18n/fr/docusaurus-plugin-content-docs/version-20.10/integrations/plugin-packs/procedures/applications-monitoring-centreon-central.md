@@ -167,8 +167,8 @@ ssh-copy-id -i ~/.ssh/id_ed25519.pub centreon@<IP_CENTRAL>
 
 Il faudra ensuite spécifier dans la configuration du service **Broker-Stats** que la vérification se fera à distance. Pour ce faire, après avoir appliqué le modèle d'hôte, vous devrez paramétrer la macro EXTRAOPTIONS sur le service **Broker-Stats** : 
 
-| Macro                  | Valeur     |
-|:---------------------------------|:---------|
+| Macro name          | Value                                           |
+|:--------------------|:------------------------------------------------|
 | EXTRAOPTIONS        | --verbose --remote --ssh-option='-l=centreon'   |
 
 ## Installation
