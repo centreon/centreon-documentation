@@ -23,7 +23,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 `February 24, 2022`
 
-This is the last 20.04 released.
+This is the last release for version 20.04.
 
 ***Important Notice***
 If you have updated your MAP software with this version before official annoucement, you may have embeded one regression.
