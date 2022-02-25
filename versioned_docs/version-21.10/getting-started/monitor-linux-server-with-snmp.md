@@ -54,13 +54,15 @@ systemctl enable snmpd
 
 ### On the poller
 
-1. Connect to your poller using SSH and install the Linux SNMP plugin (see the [monitoring procedure for the **Linux SNMP** Plugin Pack](../integrations/plugin-packs/procedures/operatingsystems-linux-snmp.md) for more information):
+Connect to your poller using SSH and install the Linux SNMP plugin (see the [monitoring procedure for the **Linux SNMP** Plugin Pack](../integrations/plugin-packs/procedures/operatingsystems-linux-snmp.md) for more information):
 
    ```shell
    yum install centreon-plugin-Operatingsystems-Linux-Snmp
    ```
 
-2. In the web interface, go to **Configuration > Plugin Packs** and install the **Linux SNMP** Plugin Pack:
+### On the central server
+
+In the web interface, go to **Configuration > Plugin Packs** and install the **Linux SNMP** Plugin Pack:
 
    ![image](../assets/getting-started/quick_start_linux_0.gif)
 
