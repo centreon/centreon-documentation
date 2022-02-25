@@ -57,7 +57,7 @@ These 4 tokens will be mandatory when using host autodiscovery and Centreon Azur
 
 > These steps are not required if you can use Azure Monitor API.
 
-Install Azure CLI:
+Install Azure CLI on every Centreon poller expected to monitor Azure Resources:
 
 ```bash
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
