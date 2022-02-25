@@ -27,7 +27,7 @@ Ceci est la dernière version 20.04.
 
 **Information importante**
 Si vous avez mis à jour votre version de MAP avec cette version avant l'annonce officielle, il se peut que vous ayez embarqué une régression.
-Pour récupérer la version qui corrige ce problème, veuillez faire les actions suivantes:
+Pour récupérer la version qui corrige ce problème, veuillez faire les actions suivantes :
 
 ```shell
 download package centreon-map-sever-20.04.8-2.el7.noarch.rpm from centreon-map repository
