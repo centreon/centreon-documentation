@@ -39,7 +39,7 @@ Now that the application is created, the below steps will guide you to retrieve 
 	- Copy the *Subscription ID* next to the name of your subscription.
 * Get the **Tenant ID**:
 	- Go to **Azure Active Directory**.
-	- In **Overview**, under the name of the directory you will see the **Tenant ID**.
+	- Go to **Overview** and copy the *Tenant ID*.
 	
 * Get the **Client ID**:
 	- Go to **Azure Active Directory**.
