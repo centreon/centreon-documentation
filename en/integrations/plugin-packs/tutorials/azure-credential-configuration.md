@@ -12,10 +12,10 @@ Azure CLI method is not be compatible with host autodiscovery.
 ## Azure API setup 
 
 4 tokens are needed for Centreon to request Azure Monitor API:
-* **subscription ID**
-* **tenant ID**
-* **client ID**
-* **client secret** 
+* subscription ID
+* tenant ID
+* client ID
+* client secret 
 
 You need to create a new application in Azure to obtain these tokens. The steps below detail how to create this application and set the right permissions to monitor Azure resources.
 
