@@ -55,10 +55,10 @@ page:
 ![image](../assets/upgrade/web_update_5.png)
 
 > If the Centreon BAM module is installed, refer to the
-> [update procedure](../service-mapping/update).
+> [update procedure](../service-mapping/update.md).
 
 Deploy Central's configuration from the Centreon web UI by following [this
-procedure](../monitoring/monitoring-servers/deploying-a-configuration),
+procedure](../monitoring/monitoring-servers/deploying-a-configuration.md),
 
 Finally, restart Broker, Engine and Gorgone on the Central server by running
 this command:
@@ -102,7 +102,7 @@ yum update centreon\*
 > Accept new GPG keys from the repositories as needed.
 
 Deploy Poller's configuration from the Centreon web UI by following [this
-procedure](../monitoring/monitoring-servers/deploying-a-configuration),
+procedure](../monitoring/monitoring-servers/deploying-a-configuration.md),
 and choose *Restart* method for Engine process.
 
 Finally, restart Gorgone service if it is used on the Poller:
