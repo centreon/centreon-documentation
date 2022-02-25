@@ -54,7 +54,7 @@ These 4 tokens will be mandatory when using host autodiscovery and Centreon Azur
 
 ## Azure CLI setup 
 
-*These steps are not required if you can use Azure API.* 
+> These steps are not required if you can use Azure Monitor API.
 
 Install Azure CLI:
 
