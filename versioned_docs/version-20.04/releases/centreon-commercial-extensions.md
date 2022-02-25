@@ -30,7 +30,7 @@ If you have updated your MAP software with this version before official annoucem
 In order to have the right version, please execute the following actions
 
 
-        download package centreon-map-sever-20.04.8-2.el7.noarch.rpm
+        download package centreon-map-sever-20.04.8-2.el7.noarch.rpm from centreon-map repository
         yum downgrade centreon-map-server-20.04.8-2.el7.noarch.rpm
 
 #### Enhancements
