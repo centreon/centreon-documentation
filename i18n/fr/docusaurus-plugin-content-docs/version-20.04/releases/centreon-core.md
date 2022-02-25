@@ -550,8 +550,8 @@ commerciales, vous pouvez vous rendre sur notre
 
 #### Nouvelles fonctionnalités
 
-- Add a new [Events view (beta)](../alerts-notifications/events-view)
-- Add [Mobility](../mobile/introduction)
+- Add a new [Events view (beta)](../alerts-notifications/events-view.md)
+- Add [Mobility](../mobile/introduction.md)
 
 #### Améliorations
 
@@ -586,7 +586,7 @@ commerciales, vous pouvez vous rendre sur notre
 
 #### Architecture & performances
 
-- Replace Centcore process by Centreon Gorgone (PR/#8414). [Please check the upgrade procedure](../upgrade/introduction)
+- Replace Centcore process by Centreon Gorgone (PR/#8414). [Please check the upgrade procedure](../upgrade/introduction.md)
 - [Broker] Definitely remove correlation (PR/#8128)
 - [Configuration] Export broker configuration in json format (PR/#8089)
 - [Extensions] handle .pre.php install and uninstall module scripts.

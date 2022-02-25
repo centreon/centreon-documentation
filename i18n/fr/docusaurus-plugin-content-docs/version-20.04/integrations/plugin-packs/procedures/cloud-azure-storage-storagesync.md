@@ -34,7 +34,7 @@ d'Hôtes nommé *Microsoft Azure Storage Syncs**. Celui-ci permet de découvrir 
 
 Vous trouverez plus d'informations sur la découverte d'Hôtes et son
 fonctionnement sur la documentation du module:
-[Découverte des hôtes](../../../monitoring/discovery/hosts-discovery)
+[Découverte des hôtes](../../../monitoring/discovery/hosts-discovery.md)
 
 ### Métriques & statuts collectés
 

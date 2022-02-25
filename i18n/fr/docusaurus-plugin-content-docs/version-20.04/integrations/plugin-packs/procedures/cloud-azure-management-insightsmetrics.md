@@ -230,7 +230,3 @@ La liste de toutes les options complémentaires et leur signification peut être
     --mode=cpu \
     --help
 ```
-
-### Diagnostic des erreurs communes  
-
-Rendez-vous sur la [documentation dédiée](../tutorials/troubleshooting-plugins#http-and-api-checks) des Plugins basés sur HTTP/API.
