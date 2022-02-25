@@ -29,7 +29,6 @@ Ceci est la dernière version 20.04.
 Si vous avez mis à jour votre version de MAP avec cette version avant l'annonce officielle, il se peut que vous ayez embarqué une régression.
 Pour récupérer la version qui corrige ce problème, veuillez faire les actions suivantes :
 
-```shell
 * téléchargez le paquet **centreon-map-server-20.04.8-2.el7.noarch.rpm** depuis le dépôt **centreon-map**
 yum downgrade centreon-map-server-20.04.8-2.el7.noarch.rpm
 
