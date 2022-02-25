@@ -30,7 +30,7 @@ Si vous avez mis à jour votre version de MAP avec cette version avant l'annonce
 Pour récupérer la version qui corrige ce problème, veuillez faire les actions suivantes :
 
 ```shell
-download package centreon-map-sever-20.04.8-2.el7.noarch.rpm from centreon-map repository
+* téléchargez le paquet **centreon-map-server-20.04.8-2.el7.noarch.rpm** depuis le dépôt **centreon-map**
 yum downgrade centreon-map-server-20.04.8-2.el7.noarch.rpm
 
 #### Enhancements
