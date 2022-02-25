@@ -22,7 +22,7 @@ You need to create a new application in Azure to obtain these tokens. The steps 
 * Create an *Application* in Azure Active Directory:
 	- Log in to Azure Portal.
 	- Select **Azure Active Directory**.
-	- On the left menu, go to **App registrations**.
+	- Go to **App registrations** in the sidebar on the left.
 	- Click on **+ New registration**, put the name of your application and then click on **Register**.
 	
 * Add the **Monitoring Reader role** to your new application:
