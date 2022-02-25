@@ -23,7 +23,7 @@ GRANT SELECT ON *.* TO 'centreon'@'IP_POLLER';
 
 ### Installing the Plugin Pack
 
-The database will be monitored using the [**MySQL/MariaDB** Plugin Pack](../integrations/plugin-packs/procedures/applications-databases-mysql.md).
+The database will be monitored using the **MySQL/MariaDB** Plugin Pack.
 Go to the menu **Configuration > Plugin Packs** and install the **MySQL/MariaDB** Plugin Pack:
 
 ![image](../assets/getting-started/quick_start_mysql_0.gif)

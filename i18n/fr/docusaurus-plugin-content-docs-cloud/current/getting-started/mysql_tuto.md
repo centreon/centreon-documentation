@@ -23,7 +23,7 @@ GRANT SELECT ON *.* TO 'centreon'@'IP_POLLER';
 
 ### Installer le Plugin Pack
 
-La base de données sera supervisée à l'aide du [Plugin Pack **MySQL/MariaDB**](../integrations/plugin-packs/procedures/applications-databases-mysql.md).
+La base de données sera supervisée à l'aide du Plugin Pack **MySQL/MariaDB**.
 Rendez-vous dans le menu **Configuration > Packs de plugins** et installez le Plugin Pack **MySQL/MariaDB** :
 
 ![image](../assets/getting-started/quick_start_mysql_0.gif)
@@ -64,7 +64,7 @@ Rendez-vous dans le menu **Configuration > Packs de plugins** et installez le Pl
 
   ![image](../assets/getting-started/quick_start_mysql_3.png)
 
-7. [Déployez la supervision](first-supervision.md#déployer-une-configuration).
+7. [Déployez la supervision](../monitoring/monitoring-servers/deploying-a-configuration.md).
 
 8. À la page **Supervision > Status des ressources**, sélectionnez la valeur **Tous** pour le
 filtre **Afficher les détails**. Dans un premier temps, les ressources apparaissent avec le statut **En attente**, ce qui signifie qu'aucun contrôle n'a encore été exécuté. Après quelques minutes, les premiers résultats de la supervision apparaissent :

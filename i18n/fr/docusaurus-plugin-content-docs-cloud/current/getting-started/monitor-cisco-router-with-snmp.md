@@ -5,19 +5,16 @@ title: Superviser votre premier routeur Cisco
 
 ## Superviser un routeur Cisco avec SNMP
 
+Dans ce tutoriel, nous partons du principe que votre plate-forme Centreon est installée et fonctionne correctement.
 
-Dans ce tutoriel, nous partons du principe que votre plate-forme Centreon est installée et fonctionne correctement, et que vous disposez au moins d'une édition [Centreon IT 100](IT100.html) qui fournit des Plugin Packs Centreon (votre [licence](../administration/licenses.html) est déjà configurée).
-
-Votre routeur Cisco sera supervisé à l'aide du Plugin Pack [Cisco standard](../integrations/plugin-packs/procédures/network-cisco-standard-snmp.html). (Plus d'informations sur les Plugin Packs [ici](../monitoring/pluginpacks.html)). 
-
+Votre routeur Cisco sera supervisé à l'aide du Plugin Pack Cisco standard. (Plus d'informations sur les Plugin Packs [ici](../monitoring/pluginpacks.md)).
 
 ## Prérequis
 
 ### Sur le routeur Cisco que vous souhaitez superviser
 
 La première étape consiste à activer et à configurer un service SNMP sur votre appareil Cisco.
-Veuillez vous référer à la documentation de votre appareil Cisco pour savoir comment configurer le service SNMP. La procédure de surveillance des Plugins Packs [Cisco standard](../integrations/plugin-packs/procedures/network-cisco-standard-snmp.html) inclut un exemple.
-
+Veuillez vous référer à la documentation de votre appareil Cisco pour savoir comment configurer le service SNMP.
 
 ### Flux réseau
 
@@ -25,15 +22,7 @@ L'équipement doit être accessible depuis le collecteur Centreon sur le port SN
 
 ## Sur le collecteur
 
-
-1. Connectez-vous à votre collecteur en SSH et installez le plugin standard Cisco (voir la [procédure de surveillance pour le Plugin Pack **Cisco standard**](../integrations/plugin-packs/procedures/network-cisco-standard-snmp.html) pour plus d'informations) :
-
-
-   ```shell
-   yum install centreon-plugin-Network-Cisco-Standard-Snmp
-   ```
-
-2. Dans l'interface web, allez à la page **Configuration > Plugin Packs**, recherchez et installez le Plugin Pack **Cisco standard** :
+1. Dans l'interface web, allez à la page **Configuration > Plugin Packs**, recherchez et installez le Plugin Pack **Cisco standard** :
 
    ![image](../assets/getting-started/quick_start_cisco_0.gif)
 
@@ -46,10 +35,8 @@ Remplissez les informations suivantes :
 * Le nom du routeur (1)
 * Une description du routeur (2)
 * L'adresse IP du routeur (3)
-
 * La version et la communauté SNMP (4)
 * Sélectionnez le collecteur qui supervisera votre routeur (gardez "Central" si vous n'avez pas d'autre collecteur) (5)
-
 
 3. Cliquez sur **+ Ajouter une nouvelle entrée** dans le champ **Modèles** (6), puis sélectionnez le modèle **Net-Cisco-Standard-SNMP-custom** (7) dans la liste :
 
@@ -69,7 +56,7 @@ Vous pouvez également utiliser le raccourci situé à côté du nom de l'hôte 
 
 ![image](../assets/getting-started/quick_start_cisco_5.png)
 
-6. [Déployez la configuration](first-supervision#deployer-une-configuration).
+6. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
 
 
 7. Allez dans **Supervision > Statut des ressources** et sélectionnez **Toutes** dans le filtre **Statut des ressources**. Dans un premier temps, les ressources apparaissent avec le statut **En attente**, ce qui signifie qu'aucun contrôle n'a encore été exécuté :

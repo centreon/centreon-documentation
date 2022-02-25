@@ -5,30 +5,24 @@ title: Monitor your first Cisco router
 
 ## Monitoring a Cisco Router with SNMP
 
-In this tutorial, we're assuming that your Centreon platform is installed and running well, and that you have at least a [Centreon IT 100 Edition](IT100.html) that provides Centreon Plugin Packs (your [license](../administration/licenses.html) is already set up).
+In this tutorial, we're assuming that your Centreon platform is installed and running well.
 
-Your Cisco router will be monitored using the [Cisco standard plugin pack](../integrations/plugin-packs/procedures/network-cisco-standard-snmp.html). (More about Plugin Packs [here](../monitoring/pluginpacks.html)).
+Your Cisco router will be monitored using the Cisco standard plugin pack. (More about Plugin Packs [here](../monitoring/pluginpacks.md)).
 
 ## Prerequisites
 
 ### On the Cisco router you want to monitor
 
 The first step is to activate and configure an SNMP service on your Cisco device.
-Please refer to the documentation of your Cisco device to know how to configure the SNMP service. The monitoring procedure for the [Cisco standard plugin pack](../integrations/plugin-packs/procedures/network-cisco-standard-snmp.html) includes an example.
+Please refer to the documentation of your Cisco device to know how to configure the SNMP service.
 
 ### Network flow
 
 The target device must be reachable from the Centreon Poller on the UDP/161 SNMP port.
 
-## On the poller
+## Configure the host and deploy the configuration
 
-1. Connect to your poller using SSH and install the Cisco standard plugin (see the [monitoring procedure for the **Cisco standard** Plugin Pack](../integrations/plugin-packs/procedures/network-cisco-standard-snmp.html) for more information):
-
-   ```shell
-   yum install centreon-plugin-Network-Cisco-Standard-Snmp
-   ```
-
-2. In the web interface, go to **Configuration > Plugin Packs**, search for the **Cisco standard** Plugin Pack and install it:
+1. In the web interface, go to **Configuration > Plugin Packs**, search for the **Cisco standard** Plugin Pack and install it:
 
    ![image](../assets/getting-started/quick_start_cisco_0.gif)
 
@@ -41,10 +35,8 @@ Fill in the following information:
 * The name of the router (1)
 * A description of the router (2)
 * The IP address of the router (3)
-
 * The SNMP version and community (4)
 * Select the poller that will monitor the device (keep "Central" if you have no other poller) (5)
-
 
 3. Click on **+ Add a new entry** in the **Templates** field (6), then select the **Net-Cisco-Standard-SNMP-custom** template (7) from the list:
 
@@ -64,7 +56,7 @@ Fill in the following information:
 
   ![image](../assets/getting-started/quick_start_cisco_5.png)
 
-6. [Deploy the configuration](monitoring/monitoring-servers#deploying-a-configuration).
+6. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
 
 7. Go to **Monitoring > Resources Status** and select **All** from the **Resource status** filter. At first, the resources appear with the status **Pending**, which means that no checks have been executed yet:
 

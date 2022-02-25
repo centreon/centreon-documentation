@@ -5,9 +5,9 @@ title: Superviser votre premier serveur Linux
 
 ## Superviser un serveur Linux avec SNMP
 
-Dans ce tutoriel, nous partons du principe que votre plate-forme Centreon est installée et fonctionne correctement, et que vous disposez au moins d'une édition [Centreon IT 100](it100.md) qui fournit les Plugin Packs Centreon (votre [licence](../administration/licenses.md) est déjà en place).
+Dans ce tutoriel, nous partons du principe que votre plate-forme Centreon est installée et fonctionne correctement.
 
-Votre serveur sera supervisé à l'aide du Plugin Pack [Linux SNMP](../integrations/plugin-packs/procedures/operatingsystems-linux-snmp.md). (Plus d'informations sur les Plugin Packs [ici](../monitoring/pluginpacks.md)).
+Votre serveur sera supervisé à l'aide du Plugin Pack Linux SNMP. (Plus d'informations sur les Plugin Packs [ici](../monitoring/pluginpacks.md)).
 
 ## Prérequis
 
@@ -54,16 +54,9 @@ systemctl enable snmpd
 
 ### Sur le collecteur
 
-1. Connectez-vous à votre collecteur en SSH et installez le plugin SNMP Linux (voir la [procédure de surveillance pour le Plugin Pack **Linux SNMP**](../integrations/plugin-packs/procedures/operatingsystems-linux-snmp.md) pour plus d'informations) :
+Dans l'interface web, allez à la page **Configuration > Plugin Packs** et installez le Plugin Pack **Linux SNMP** :
 
-   ```shell
-   yum install centreon-plugin-Operatingsystems-Linux-Snmp
-   ```
-
-2. Dans l'interface web, allez à la page **Configuration > Plugin Packs** et installez le Plugin Pack **Linux SNMP** :
-
-   ![image](../assets/getting-started/quick_start_linux_0.gif)
-
+![image](../assets/getting-started/quick_start_linux_0.gif)
 
 ## Configurer l'hôte et déployer la configuration
 
@@ -97,8 +90,7 @@ systemctl enable snmpd
 
    ![image](../assets/getting-started/quick_start_linux_5.png)
 
-6. [Déployez la configuration](first-supervision.md#deployer-une-configuration).
-
+6. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
 
 7. Allez à la page **Surveillance > Statut des ressources** et sélectionnez **Toutes** dans le filtre **Statut des ressources**. Dans un premier temps, les ressources apparaissent avec le statut **En attente**, ce qui signifie qu'aucun contrôle n'a encore été exécuté :
 

@@ -7,7 +7,7 @@ title: Monitor your first Linux host
 
 In this tutorial, we're assuming that your Centreon platform is installed and running well.
 
-Your Linux server will be monitored using the [Linux SNMP Plugin Pack](../integrations/plugin-packs/procedures/operatingsystems-linux-snmp.md). (More about Plugin Packs [here](../monitoring/pluginpacks.md)).
+Your Linux server will be monitored using the Linux SNMP Plugin Pack. (More about Plugin Packs [here](../monitoring/pluginpacks.md)).
 
 ## Prerequisites
 
@@ -54,15 +54,9 @@ systemctl enable snmpd
 
 ### On the poller
 
-1. Connect to your poller using SSH and install the Linux SNMP plugin (see the [monitoring procedure for the **Linux SNMP** Plugin Pack](../integrations/plugin-packs/procedures/operatingsystems-linux-snmp.md) for more information):
+On the web interface, go to **Configuration > Plugin Packs** and install the **Linux SNMP** Plugin Pack:
 
-   ```shell
-   yum install centreon-plugin-Operatingsystems-Linux-Snmp
-   ```
-
-2. In the web interface, go to **Configuration > Plugin Packs** and install the **Linux SNMP** Plugin Pack:
-
-   ![image](../assets/getting-started/quick_start_linux_0.gif)
+![image](../assets/getting-started/quick_start_linux_0.gif)
 
 ## Configure the host and deploy the configuration
 
@@ -96,7 +90,7 @@ systemctl enable snmpd
 
    ![image](../assets/getting-started/quick_start_linux_5.png)
 
-6. [Deploy the configuration](first-supervision.md#deploying-a-configuration).
+6. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
 
 7. Go to **Monitoring > Resources Status** and select **All** from the **Resource status** filter. At first, the resources appear with the status **Pending**, which means that no checks have been executed yet:
 
