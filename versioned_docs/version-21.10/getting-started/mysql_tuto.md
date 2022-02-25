@@ -3,9 +3,11 @@ id: monitor-mysql-server
 title: Monitor a MySQL or MariaDB database
 ---
 
+The objective of this tutorial is to monitor a Mysql/MariaDB database.
+
 ## Prerequisites
 
-The objective of this tutorial is to monitor a Mysql/MariaDB database.
+### On the database your want to monitor
 
 In order to be able to collect the necessary information from the database, a database user with specific privileges is required. If the database you want to monitor is a Centreon database, a dedicated user already exists and is called **centreon**. Otherwise, start by creating a new user: log in to your database, then run the following command:
 
@@ -21,7 +23,15 @@ GRANT SELECT ON *.* TO 'username'@'IP_POLLER';
 
 > Replace the username, the IP address of the poller and the password by the values you want.
 
-### Installing the Plugin Pack
+### On the poller
+
+Install the following plugin on the poller that will monitor your database:
+
+``` shell
+yum install centreon-plugin-Applications-Databases-Mysql
+```
+
+### On the central server
 
 The database will be monitored using the [**MySQL/MariaDB** Plugin Pack](../integrations/plugin-packs/procedures/applications-databases-mysql.md).
 Go to the menu **Configuration > Plugin Packs** and install the **MySQL/MariaDB** Plugin Pack:
@@ -63,7 +73,7 @@ Go to the menu **Configuration > Plugin Packs** and install the **MySQL/MariaDB*
 
   ![image](../assets/getting-started/quick_start_mysql_3.png)
 
-7. [Deploy the supervision](#deploying-a-configuration).
+7. [Deploy the supervision](first-supervision.md#deploying-a-configuration).
 
 8. Go to **Monitoring > Status Details > Services** and select **All**
 for the **Service Status** filter. At first, the resources appear with the status **Pending**,
