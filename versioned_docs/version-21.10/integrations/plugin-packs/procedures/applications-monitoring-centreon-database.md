@@ -166,7 +166,7 @@ GRANT SELECT ON *.* to 'monitor_user'@'IP_POLLER';
 
 ### SNMP
 
-SNMP must be configured on each poller being monitored. You can refer to this [documentation](../operatingsystems-linux-snmp.html#prerequisites) describing how to set up a quick SNMP configuration.
+SNMP must be configured on each poller being monitored. You can refer to this [documentation](../operatingsystems-linux-snmp.md#prerequisites) describing how to set up a quick SNMP configuration.
 
 ## Setup
 
