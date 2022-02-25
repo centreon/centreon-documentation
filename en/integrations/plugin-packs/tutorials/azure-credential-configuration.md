@@ -9,7 +9,7 @@ Two methods are available to get information from Azure:
 Centreon recommends using **Azure API** instead of Azure CLI.  
 Azure CLI method is not be compatible with host autodiscovery.
 
-## Azure API set up 
+## Azure API setup 
 
 For Centreon to be able to request information about Azure resources through **Azure API**, 4 tokens are needed:
 * **subscription ID**
