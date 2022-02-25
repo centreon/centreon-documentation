@@ -3,7 +3,7 @@ id: hosts-discovery
 title: Discovering hosts automatically
 ---
 
-See also our tutorial on [how to detect AWS EC2 instances](../../getting-started/tutorials/autodisco-aws).
+See also our tutorial on [how to detect AWS EC2 instances](../../getting-started/autodisco-aws).
 
 ## Create a discovery job
 
