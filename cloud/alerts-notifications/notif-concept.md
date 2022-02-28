@@ -4,18 +4,17 @@ title: How notifications work
 ---
 
 Before a contact can be notified in Centreon, it is necessary to go
-through several steps. If no notification escalation is defined, the
-notification management process is standard. It is described below:
+through several steps.
 
 1. A service (or a host) is checked at regular intervals according to
     the check period defined for it (In the case of a passive service,
     we wait for the status of the service to change)
 2. If an anomaly occurs (Not-OK status), the service (or the host) goes
-    into the SOFT state
+    into a SOFT state
 3. After the Max Check Attempts has taken place and if the service (or
     the host) persists in retaining its Not-OK status its state changes
     from SOFT to HARD. The monitoring engine caches the notification
-    number to the service (or the host): i.e. 0.
+    number for the service (or the host): i.e. 0.
 
 At each notification interval of the service (or the host) and until the
 end of the Not-OK status, the monitoring engine performs the following
