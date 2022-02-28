@@ -138,7 +138,7 @@ Dans l'interface Web, accédez à **Configuration > Plugin Packs** et installez 
 
    Les premiers résultats de la supervision apparaissent avec le statut **En attente**, ce qui signifie que le moteur de supervision n'a pas encore vérifié leur statut :
 
-   ![image](../assets/getting-started/prise_en_main_windows_snmp_15.png)
+   ![image](../assets/getting-started/prise_en_main_windows_snmp_17.png)
 
    Après quelques minutes, les premiers résultats de la supervision apparaissent :
 
