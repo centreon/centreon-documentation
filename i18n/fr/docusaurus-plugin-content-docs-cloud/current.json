@@ -8,11 +8,11 @@
     "description": "The label for category Getting started in sidebar cloud"
   },
   "sidebar.cloud.category.Installing a poller": {
-    "message": "Installer un poller",
+    "message": "Installer un collecteur",
     "description": "The label for category Installing a poller in sidebar cloud"
   },
   "sidebar.cloud.category.Tutorials": {
-    "message": "Tutorials",
+    "message": "Tutoriels",
     "description": "The label for category Tutorials in sidebar cloud"
   },
   "sidebar.cloud.category.Monitoring resources": {
