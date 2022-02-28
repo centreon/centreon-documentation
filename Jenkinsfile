@@ -20,6 +20,7 @@ pipeline {
        steps {
          echo 'Using yarn to build documentation'
          // sh 'export NODE_OPTIONS=--max_old_space_size=32000 && yarn build'
+         sh 'yarn build'
          sh 'tar czf build.tar.gz build'
          archiveArtifacts artifacts: "build.tar.gz"
        }
