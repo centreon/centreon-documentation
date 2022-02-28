@@ -215,5 +215,5 @@ Toutes les options et leur utilisation peuvent être consultées avec le paramè
 
 ### Diagnostic des erreurs communes
 
-Rendez-vous sur la [documentation dédiée](../tutorials/troubleshooting-plugins.md#ssh-and-cli-checks)
+Rendez-vous sur la [documentation dédiée](../tutorials/troubleshooting-plugins#ssh-and-cli-checks)
 pour le diagnostic des erreurs communes des Plugins Centreon.

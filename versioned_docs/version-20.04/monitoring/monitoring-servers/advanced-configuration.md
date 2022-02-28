@@ -92,7 +92,7 @@ Pollers > Pollers`) and the authentication will be complete.
 
 You must edit the Centreontrapd configuration file to be able to use the local
 SQLite database. Refer to the chapter
-[Passive Monitoring](../passive-monitoring/enable-snmp-traps.md).
+[Passive Monitoring](../passive-monitoring/enable-snmp-traps).
 
 ### Remote Server
 

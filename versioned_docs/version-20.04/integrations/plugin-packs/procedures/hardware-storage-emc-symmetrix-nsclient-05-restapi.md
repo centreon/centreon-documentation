@@ -28,7 +28,7 @@ agent and offer controls to monitor hardware components of EMC Storage arrays.
 ### Centreon NSClient++
 
 To monitor *EMC Symmetrix* disk controllers solutions through NSClient++ API, install the Centreon packaged version 
-of the NSClient++ agent. Please follow our [official documentation](../tutorials/centreon-nsclient-tutorial.md) 
+of the NSClient++ agent. Please follow our [official documentation](../tutorials/centreon-nsclient-tutorial) 
 and make sure that the **Webserver / RESTApi** configuration is correct.
 
 ## Installation 

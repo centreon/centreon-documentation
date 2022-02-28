@@ -100,7 +100,7 @@ fois sur le serveur Central et sur les Remote Servers ou Pollers.
 > Remote Server.
 >
 > Consultez la documentation sur les différents types de
-> [communication](../monitoring-servers/communications.md) pour en savoir
+> [communication](../monitoring-servers/communications) pour en savoir
 > plus.
 
 ## Découverte de services
@@ -115,7 +115,7 @@ de 3 parties :
 
 Les sondes de découverte vérifient la présence de nouveaux éléments à
 superviser. Voir [sondes de
-découvertes](services-discovery.md#sondes-de-découverte) pour
+découvertes](services-discovery#sondes-de-découverte) pour
 plus de détails.
 
 Les règles, gérées à travers l’interface Web, sont sauvegardées dans la base de

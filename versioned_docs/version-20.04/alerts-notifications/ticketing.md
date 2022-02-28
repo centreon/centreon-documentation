@@ -38,7 +38,7 @@ Your Centreon Open Tickets Module is now installed.
 ### Select a provider
 
 The module offers many ready-to-use providers listed in the dedicated [integration
-section](../integrations/itsm/itsm-overview.md).
+section](../integrations/itsm/itsm-overview).
 
 Each provider has its own configuration, however, adding a provider in Centreon can be done in the following way:
 
