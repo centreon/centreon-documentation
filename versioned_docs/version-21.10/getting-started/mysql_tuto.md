@@ -80,3 +80,9 @@ for the **Service Status** filter. At first, the resources appear with the statu
  which means that no checks have been executed yet. After a few minutes, the first results of the monitoring appear:
 
   ![image](../assets/getting-started/quick_start_mysql_4.gif)
+
+### To go further
+
+The **MySQL/MariaDB** Plugin Pack provides several monitoring templates. Go to **Configuration > Services > Templates** to know the complete list:
+
+   ![image](../assets/getting-started/quick_start_mysql_4.png)

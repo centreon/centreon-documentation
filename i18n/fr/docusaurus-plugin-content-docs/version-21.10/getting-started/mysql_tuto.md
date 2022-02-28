@@ -80,3 +80,9 @@ Rendez-vous dans le menu **Configuration > Packs de plugins** et installez le Pl
 filtre **Afficher les détails**. Dans un premier temps, les ressources apparaissent avec le statut **En attente**, ce qui signifie qu'aucun contrôle n'a encore été exécuté. Après quelques minutes, les premiers résultats de la supervision apparaissent :
 
   ![image](../assets/getting-started/quick_start_mysql_4.gif)
+
+### Pour aller plus loin
+
+Le Plugin Pack **MySQL/MariaDB** apporte de nombreux modèles de supervision. Rendez-vous dans le menu  **Configuration > Services > Modèles** et trouvez la liste complète:
+
+   ![image](../assets/getting-started/quick_start_mysql_5.png)
