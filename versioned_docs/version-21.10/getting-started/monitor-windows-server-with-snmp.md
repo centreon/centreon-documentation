@@ -76,12 +76,12 @@ After installing SNMP, you need to configure it.
 
   ![image](../assets/getting-started/quick_start_windows_snmp_55.png)
 
-3. On the **Agent** tab, fill in the **Contact and Location** parameter. Then in the **Service** section, check the boxes for services from which you want to collect data for forwarding it to the Centreon Poller which will monitor the host.
+3. On the **Agent** tab, fill in the **Contact** and **Location** parameters. Then in the **Service** section, check the boxes for services from which you want to collect data for forwarding it to the Centreon Poller which will monitor the host.
 
   ![image](../assets/getting-started/quick_start_windows_snmp_6.png)
 
-4. On the Security tab, write the SNMP community in the **Accepted community names** section and choose the **READ ONLY** option.
-Then select **Accept SNMP packets from these hosts** and add the IP Address of the Centreon poller.
+4. On the **Security** tab, write the SNMP community in the **Accepted community names** section and choose the **READ ONLY** option.
+Then select **Accept SNMP packets from these hosts** and add the IP address of the Centreon poller.
 
   ![image](../assets/getting-started/quick_start_windows_snmp_8.png)
 
@@ -113,15 +113,15 @@ In the web interface, go to **Configuration > Plugin Packs** and install the **W
 
    * The name of the server (1)
    * A description of the server (2)
-   * The IP address of the server(3)
+   * The IP address of the server (3)
    * The SNMP version and community (4)
    * Select the poller that will monitor your Windows server (keep "Central" if you have no other poller) (5)
 
-3. Click on **+ Add a new entry** in the **Templates** field (6), then select the **OS-Windows-SNMP-custom** template (7) from the list. Then click on **Save**.
+3. Click on **+ Add a new entry** in the **Templates** field (6), then select the **OS-Windows-SNMP-custom** template (7) from the list.
 
   ![image](../assets/getting-started/quick_start_windows_snmp_12.png)
 
-4. Your equipment has been added to the monitoring configuration:
+4. Click on **Save**. Your equipment has been added to the list of hosts:
 
   ![image](../assets/getting-started/quick_start_windows_snmp_13.png)
 
