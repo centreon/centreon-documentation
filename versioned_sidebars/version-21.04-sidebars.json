@@ -858,6 +858,10 @@
           "label": "Tutorials",
           "items": [
             {
+                "type": "doc",
+                "id": "version-21.04/integrations/plugin-packs/tutorials/azure-credential-configuration"
+            },              
+            {
               "type": "doc",
               "id": "version-21.04/integrations/plugin-packs/tutorials/centreon-nsclient-tutorial"
             },
