@@ -13,6 +13,7 @@ pipeline {
          sh 'yarn install'
        }
      }
+
      stage('Build documentation') {
        when {
          not { branch 'production' }
@@ -43,6 +44,7 @@ pipeline {
          
        }
      }
+
      stage('Deploy documentation to production') {
        when { branch 'production' }      
        steps {
@@ -52,6 +54,7 @@ pipeline {
        }
      }
    }
+   
    post {
      always {
        cleanWs()
