@@ -10,8 +10,8 @@ const config = {
   tagline: '',
   url: 'https://docs.centreon.com',
   baseUrl: '/',
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenLinks: 'error',
+  onBrokenMarkdownLinks: 'error',
   favicon: 'img/logo-centreon.png',
   organizationName: 'Centreon',
   projectName: 'Centreon Documentation',
@@ -42,7 +42,7 @@ const config = {
           editLocalizedFiles: true,
           showLastUpdateTime: true,
           includeCurrentVersion: false,
-          onlyIncludeVersions: ['20.10', '20.04'],
+          onlyIncludeVersions: ['21.04', '20.10', '20.04'],
           versions: {
             '21.10': {
               label: '⭐ 21.10',
