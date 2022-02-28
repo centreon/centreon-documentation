@@ -77,3 +77,28 @@ Dans l'interface web, allez à la page **Configuration > Plugin Packs**, recherc
    ![image](../assets/getting-started/quick_start_cisco_7.png)
 
    Si tous les services ne sont pas dans un état OK, vérifiez la cause de l'erreur et corrigez le problème.
+
+## Pour aller plus loin
+
+Le Plugin Pack **Cisco Standard** apporte de nombreux modèles de supervision. Rendez-vous dans le menu **Configuration > Services > Modèles** et trouvez la liste complète:
+
+   ![image](../assets/getting-started/quick_start_cisco_8.png)
+
+Avec **Centreon IT Edition**, vous pouvez ajouter très rapidement et très simplement la supervision de vos interfaces réseaux en utilisant la fonctionnalité de [découverte des services](../monitoring/discovery/services-discovery).
+
+1. Rendez-vous dans le menu **Configuration > Services > Manuelle**. Commencez à saisir le nom de l’hôte sur lequel réaliser la découverte et l’interface vous proposera de compléter automatiquement ce dernier :
+
+  ![image](../assets/getting-started/quick_start_cisco_9.png)
+
+2. Sélectionnez ensuite la commande de découverte à exécuter dans la liste déroulante qui vient d’apparaître en dessous du champ **Rule**. Cliquez sur le bouton **Scan** et patientez durant l’analyse des éléments disponibles. Le résultat s’affiche. Sélectionnez les éléments à intégrer à la supervision et cliquez sur le bouton **Save** :
+
+  ![image](../assets/getting-started/quick_start_cisco_10.png)
+
+  Les éléments ont été ajoutés. Vous pouvez sélectionner une autre commande de découverte et répéter le processus.
+
+3. Les services ont été ajoutés et peuvent être affichés dans le menu **Configuration > Services > Services par hôte** :
+
+  ![image](../assets/getting-started/quick_start_cisco_11.png)
+
+4. [Déployez la configuration](first-supervision#deploying-a-configuration).
+
