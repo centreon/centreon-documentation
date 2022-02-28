@@ -1,73 +1,68 @@
 ---
 id: autodisco-aws
-title: Monitor AWS EC2 instances using autodiscovery
+title: Découvrir des instances AWS EC2 avec autodiscovery
 ---
 
-In this tutorial, we will use the [Auto Discovery module](../monitoring/discovery/hosts-discovery) to detect AWS EC2 instances and monitor them.
+Dans ce tutoriel, nous allons utiliser le module Auto Discovery pour détecter des instances AWS EC2 et les mettre en supervision.
 
-## Prerequisites
+## Prérequis
 
-You must have:
+Vous devez disposer :
 
-* the credentials to the AWS group of instances you want to monitor (Name, AWS Access Key and AWS Secret Key)
-* the region your AWS instances are in.
+- des informations d'identification pour le groupe d'instances AWS que vous souhaitez superviser (nom, AWS Access Key et AWS Secret Key)
+- de la région dans laquelle se trouvent vos instances.
 
-## Step 1: Installing the Amazon EC2 plugin
+## Étape 1 : Installer les dépendances du plugin Amazon EC2
 
-1. To install the Amazon EC2 Plugin Pack, go to **Configuration > Plugin Packs**.
+Connectez-vous en SSH sur le collecteur qui supervisera vos instances EC2, puis installez le binaire awscli :
 
-2. In the **Keyword** field, type **Amazon EC2** and then click **Search**.
+```shell
+yum install awscli
+```
 
-3. Click on the `+` sign in the top right corner of the Plugin Pack. The Plugin Pack now has a green border and a tick mark in the top right corner: configuration templates and discovery providers are now installed.
+## Étape 2 : Configurer la tâche de découverte
 
-4. Using SSH, log in to the poller that will monitor your Ec2 resources, then install the **awscli** binary:
+1. Allez à la page **Configuration > Hôtes > Découverte**, puis cliquez sur **Ajouter**.
 
-  ```shell
-  yum install awscli
-  ```
+2. Entrez un nom pour votre tâche de découverte, puis sélectionnez le fournisseur **Amazon AWS EC2**. Cliquez sur **Suivant**.
 
-## Step 2: Configure the discovery job
+    ![image](../assets/getting-started/aws-provider.png)
 
-1. Go to **Configuration > Hosts > Discovery**, and then click **Add**.
+3. Sélectionnez le collecteur qui supervisera vos instances EC2.
 
-2. Enter a name for your discovery job, and then select the **Amazon AWS EC2** provider. Click **Next**.
+4. Si votre infrastructure le demande, renseignez les détails du proxy désiré.
 
-    ![image](../assets/getting-started/tutorials/aws-provider.png)
+5. Cliquez sur le `+` à droite de la liste **Choisir des identifants**. Renseignez les champs Nom, AWS Access Key et AWS Secret Key, 
+puis cliquez sur **Confirmer**. Cliquez sur **Suivant**.
 
-3. Select the poller you want to monitor the EC2 instances with.
+6. Entrez la région où se situent vos instances EC2 (par exemple, **eu-north-1**). Cliquez sur **Suivant**.
 
-4. If your infrastructure requires it, fill in the details for the proxy you want to use.
+7. Éditez ou ajoutez des modificateurs :
+    - Faites correspondre `host.name` à l'attribut `discovery.results.name`. Les noms de vos hôtes dans Centreon seront ceux définis dans cet attribut (c'est-à-dire le hostname de l'instance).
+    - Dans notre exemple, nous allons exclure les instances dont le hostname contient "test".
 
-5. Click on the `+` sign to the right of the **Choose credentials** list. Fill in the Name, AWS Access Key and AWS Secret Key fields, then click on **Confirm**. Click **Next**.
+    ![image](../assets/getting-started/aws-mapper.png)
 
-6. Enter the region your EC2 instances are in (for example, **eu-north-1**). Click **Next**.
+    Cliquez sur **Suivant**.
 
-7. Edit or add [mappers](../monitoring/discovery/hosts-discovery#how-to-use-mappers):
-    * Map `host.name` to the `discovery.results.name` attribute. The names of your hosts in Centreon will be the ones defined in this attribute (i.e. the hostname of the instance).
-    * In our example, we will exclude the instances whose hostname contains "test".
+8. Sélectionnez **Analyse manuelle** : nous devrons ajouter manuellement les hôtes à la liste des hôtes à superviser. Cliquez sur **Suivant**.
 
-    ![image](../assets/getting-started/tutorials/aws-mapper.png)
+9. Sélectionnez **Exécuter immédiatement** puis cliquez sur **Finir**. La tâche de découverte apparaît dans la liste des tâches.
 
-    Click **Next**.
+  ![image](../assets/getting-started/aws-listofjobs.png)
 
-8. Select **Manual analysis**: we will have to add the hosts to the list of monitored hosts manually. Click **Next**.
+## Étape 3 : Sauvegarder les hôtes et les mettre en supervision
 
-9. Select **Execute immediately** and then click **Finish**. The discovery job appears in the list of jobs.
+1. Après quelques secondes, rafraîchissez la page. Une coche verte devrait apparaître dans la colonne **Statut**.
 
-  ![image](../assets/getting-started/tutorials/aws-listofjobs.png)
+    ![image](../assets/getting-started/aws-success.png)
 
-## Step 3: Saving the hosts and monitoring them
+2. Survolez la ligne correspondant à la tâche qui vient de se terminer puis cliquez sur **Display the job result** (l'icône flèche). Une liste d'hôtes apparaît.
 
-1. After a few seconds, refresh the page. There should be a green tick mark in the **Status** column.
+   ![image](../assets/getting-started/aws-results.png)
 
-    ![image](../assets/getting-started/tutorials/aws-success.png)
+3. Sélectionnez les hôtes que vous souhaitez ajouter à la liste des hôtes supervisés, puis cliquez sur **Enregistrer**. ![image](../assets/getting-started/aws-save.png)
 
-2. Hover over the job that has just ended and then click **Display the job result** (the arrow icon). A list of hosts appears.
+4. Allez à la page **Configuration > Hôtes > Hôtes** et vérifiez que les hôtes que vous avez sélectionnés à l'étape précedente apparaissent bien dans la liste. Attention, les hôtes ont été ajoutés à la liste des hôtes mais ils ne sont pas encore supervisés.
 
-    ![image](../assets/getting-started/tutorials/aws-results.png)
-
-3. Select the hosts you want to add to the list of monitored hosts, and then click **Save**. ![image](../assets/getting-started/tutorials/aws-save.png)
-
-4. Go to **Configuration > Hosts > Hosts** and check that the hosts you selected at the previous step appear in the list. The hosts are added to the lists of hosts but they are not monitored yet.
-
-5. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration). The hosts appear in the **Resources Status** page: they are monitored.
+5. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration). Les hôtes apparaissent à la page **Statut des ressources** : ils sont maintenant supervisés.

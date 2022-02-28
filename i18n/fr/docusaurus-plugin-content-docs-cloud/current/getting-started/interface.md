@@ -1,74 +1,75 @@
 ---
 id: interface
-title: Overview of the Centreon interface
+title: Aperçu de l'interface Centreon
 ---
 
-## Accessing the central server's interface
+## Accéder à l'interface du serveur central
 
-When you first connect to Centreon Cloud, use the URL and credentials that the Centreon support team has provided to you. The connection URL looks like this: `https://<organization>.<region>.centreon.cloud`.
+Lors de votre première connexion à Centreon Cloud, utilisez l'URL et les identifiants que le support Centreon vous a fourni. L'URL de connexion a le format suivant : `https://<organisation>.<region>.centreon.cloud`.
 
-Fill in your user name and associated password and click on the **Connect** button:
+Renseignez votre identifiant et mot de passe, puis cliquez sur le bouton **Connect** :
 
 ![image](../assets/getting-started/aconnection.png)
 
-You are now connected to the Centreon web interface.
+Vous êtes maintenant connecté à l'interface web Centreon.
 
 ## Menus
 
 ![image](../assets/getting-started/menus.png)
 
-The Centreon web interface contains several menus, each with a specific function (click the Centreon logo at the top left of the screen to expand the menus):
+L'interface web de Centreon est composée de plusieurs menus, chaque menu a une fonction bien précise (cliquez sur le logo Centreon en haut à gauche de l'écran pour afficher les libellés) :
 
 ![image](../assets/getting-started/amenu.png)
 
-* **Home** shows [custom views](create-custom-view).
-  Your workspace may be blank for now. Once you configure customizable widgets, you will see data and charts according
-  to your customization.
-* **Monitoring** provides a combined view of the statuses of all monitored items in real and delayed time using logs and
-  performance graphics.
-* **Reporting** provides an intuitive view (using diagrams) of the evolution of monitoring over a given time period.
-* **Configuration** allows you to configure all monitored items and the monitoring infrastructure.
-* **Administration** lets you access your user account.
+* Le menu **Accueil** affiche les [vues personnalisées](create-custom-view). Votre espace de travail peut être vide pour l'instant. Une fois que vous aurez configuré les widgets
+  personnalisables, vous verrez les données et les graphiques en fonction de votre personnalisation.
+* Le menu **Supervision** regroupe l'état de tous les éléments supervisés en temps réel et en différé au travers de la
+  visualisation des logs.
+* Le menu **Rapports** permet de visualiser de manière intuitive (via des diagrammes) l'évolution de la supervision sur
+  une période donnée.
+* Le menu **Configuration** permet de configurer l'ensemble des éléments supervisés ainsi que l'infrastructure de supervision.
+* Le menu **Administration** vous permet d'accéder à votre compte utilisateur.
 
-## Top banner
+## Bandeau supérieur
 
-### Pollers section
+### Section Collecteurs
 
 ![image](../assets/getting-started/banner_pollers.png)
 
-The left part of the top banner shows the health of your platform in real time:
+La partie gauche du bandeau supérieur montre la santé de votre plateforme en temps réel :
 
-* whether all pollers are running or not: the icon becomes red when a poller has not sent data to the central server for at least 15 minutes
-* whether checks are running late or not. If the icon is orange or red, this may mean that your pollers are monitoring too many resources.
+* si tous les collecteurs sont en cours d'exécution ou non : l'icône devient rouge lorsqu'un collecteur n'a pas envoyé de données au serveur central depuis au moins 15 minutes
+* si les contrôles sont en retard ou non. Si l'icône est orange ou rouge, cela peut indiquer que vos collecteurs supervisent de trop nombreuse ressources.
 
-Click the **pollers** icon to expand the menu. On the menu, click **Configure pollers** to access page **Configuration > Pollers > Pollers**.
+Cliquez sur l'icône **collecteurs** pour développer le menu. Dans le menu, cliquez sur **Configurer les collecteurs** pour accéder à la page **Configuration > Collecteurs > Collecteurs**.
 
-### Hosts and services section (top counters)
+### Section hôtes et services ("top counters")
 
 ![image](../assets/getting-started/top_counters.png)
 
-To the right of the top banner, statistics show the number of resources that are being monitored, with a specific status:
+Dans la partie de droite du bandeau supérieur, des statistiques indiquent le nombre de ressources supervisées, avec un statut spécifique :
 
-* For hosts: number of hosts with a **Down**, **Unreachable** and **Up** status.
-* For services: number of services with a **Critical**, **Warning**, **Unknown** and **OK** status.
+* Pour les hôtes : le nombre d'hôtes avec le statut **INDISPONIBLE**, **INJOIGNABLE** et **DISPONIBLE**.
+* Pour les services: le nombre de services avec le statut **CRITIQUE**, **ALERTE**, **INCONNU** et **OK**.
 
-These numbers include unconfirmed (SOFT) alerts, but do not include resources that are acknowledged or in downtime. Pending resources are shown by a blue dot on the **hosts** or **services** icons.
+Ces nombres incluent les alertes non confirmées (SOFT), mais n'incluent pas les ressources acquittées ou en maintenance. Les ressources en attente sont indiquées par une pastille bleue sur les icônes **hôtes** ou **services**.
 
-Click on a circle representing a status:
+Cliquez sur un cercle représentant un statut :
 
-* Page **Monitoring > Resources status** opens.
-* The page is filtered according to the type of resource and the corresponding status.
+* La page **Supervision > Statut des ressources** s'ouvre.
+* La page est filtrée selon le type de ressource et le statut correspondant.
 
-Click the **hosts** or **services** icon to expand the menu and display the details of the hosts and services.
+Cliquez sur les icônes **hôtes** ou **services** pour développer le menu et afficher le détail des hôtes et services.
 
-## Change the user interface language
+## Changer la langue de l'interface
 
-On the banner, click on the profile icon, then click on **Edit profile**:
+Dans le bandeau, cliquez sur l'icône profil, puis cliquez sur **Edit profile**:
 
 ![image](../assets/getting-started/change_language_1.png)
 
-In the language select box, choose your language:
+Dans la liste de sélection des langues, sélectionnez la vôtre :
 
 ![image](../assets/getting-started/change_language_2.png)
 
-Then click on **Save**. Your interface is now translated.
+Puis cliquez sur **Save**. Votre interface est maintenant traduite dans votre
+langue.

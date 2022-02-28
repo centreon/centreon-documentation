@@ -1,24 +1,24 @@
 ---
 id: monitoring
-title: How do I monitor a resource?
+title: Comment mettre une ressource en supervision?
 ---
 
-To monitor a resource in Centreon Cloud:
+Pour mettre une ressource en supervision dans Centreon Cloud :
 
-1. Create the resource (see creating a host, creating a service, a metaservice)
-2. Link the resource to the poller you want it monitored by.
-3. Link the resource to the correct template provided by a <!--[Plugin Pack]().-->
-4. The resource appears in the [Resources status](../alerts-notifications/resources-status.md) page, where you can track any changes in status.
+1. Créez la ressource.
+2. Liez la ressource au collecteur qui la supervisera.
+3. Liez la ressource au modèle fourni par le Plugin Pack correspondant.
+4. [Exportez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md). La ressource apparaît à la page Statut des ressources : vous pouvez y suivre tout changement de statut.
 
-Here are a few tutorials to help you getting started with your monitoring:
+Voici quelques tutoriels pour vous aidez à mettre en place votre supervision :
 
-* [Monitor your first Linux host](monitor-linux-server-with-snmp.md)
+* [Superviser votre premier serveur Linux](monitor-linux-server-with-snmp.md)
 * [Monitor your first Windows host](monitor-windows-server-with-snmp.md)
-* [Monitor your first Cisco router](monitor-cisco-router-with-snmp.md)
-* [Monitor a MySQL or MariaDB database](mysql_tuto.md)
+* [Superviser votre premier routeur Cisco](monitor-cisco-router-with-snmp.md)
+* [Superviser une base de données MySQL ou MariaDB](mysql_tuto.md)
 * [Monitor AWS EC2 instances using autodiscovery](autodisco-aws.md)
 
-You may also find the following articles interesting (on our community platform The Watch):
+Les articles suivants peuvent également être intéressants (en anglais sur notre plateforme communautaire **The Watch**):
 
 * [Analyze the response time of your websites with precision with Curl and Centreon](https://thewatch.centreon.com/product-how-to-21/analyze-the-response-time-of-your-websites-with-precision-with-curl-and-centreon-113)
 * [Monitoring Microsoft Azure with Centreon](https://thewatch.centreon.com/product-how-to-21/monitoring-microsoft-azure-with-centreon-114)

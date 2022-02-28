@@ -3,21 +3,21 @@ id: architecture
 title: Architecture de Centreon Cloud
 ---
 
-Centreon Cloud consists of the following elements:
+Centreon Cloud comprend les éléments suivants :
 
-* **A central server**:
-  * The central server is provided to you by Centreon, ready to use.
-  * The central server does not monitor resources in your infrastucture (the pollers do).
-  * The central server has a [user interface](interface), in which you can see resources monitored by all pollers.
-  * You can reach the user interface from anywhere with a web browser at `<organisation>.centreon.cloud`.
-  * The central server is hosted in the cloud.
-  * Centreon installs and upgrades central servers.
+* **Un serveur central**:
+  * Le serveur central vous est fourni par Centreon, prêt à l'emploi.
+  * Le serveur central ne supervise pas de ressources au sein de votre infrastructure (c'est le rôle des collecteurs).
+  * Le serveur central offre une [interface utilisateur](interface), dans laquelle vous pouvez voir toutes les ressources supervisées par tous les collecteurs.
+  * Vous pouvez vous connecter à l'interface utilisateur depuis n'importe où en tapant `<organisation>.<region>.centreon.cloud` dans votre navigateur web.
+  * Le serveur central est hosté dans le cloud.
+  * Centreon installe et met à jour le serveur central.
 
-* **One or more pollers**:
-  * Pollers monitor resources.
-  * Pollers do not have a user interface (you see the pollers' activity on the central server's interface).
-  * Pollers are part of your infrastructure, which means better security, latency and bandwidth.
-  * You [install your pollers](../installation/deploy-poller.md) using a simple script.
-  * A VPN connects your pollers with the central server.
+* **Un ou plusieurs collecteurs**:
+  * Les collecteurs supervisent des ressources dans votre infrastructure.
+  * Les collecteurs n'ont pas d'interface utilisateur (l'activité des pollers est visible sur l'interface du serveur central).
+  * Les collecteurs sont situés dans votre infrastructure, ce qui veut dire une meilleure sécurité, latence et bande passante.
+  * Vous [installez vos collecteurs](../installation/deploy-poller.md) à l'aide d'un simple script.
+  * Un VPN connecte vos collecteurs et le serveur central.
 
 ![image](../assets/getting-started/infra3.png)

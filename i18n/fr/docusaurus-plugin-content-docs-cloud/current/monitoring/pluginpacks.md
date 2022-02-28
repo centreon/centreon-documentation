@@ -1,75 +1,71 @@
 ---
 id: pluginpacks
-title: Plugin Packs
+title: Utiliser des Plugin Packs
 ---
 
-## What is a Plugin Pack?
+## Qu'est-ce qu'un Plugin Pack?
 
-A Plugin Pack is a downloadable package containing a set of configuration
-templates that make it fast and easy to monitor your IT infrastructure.
-Applying a Plugin Pack is the easiest way to monitor a host. There is one plugin pack per type of monitored equipment (e.g. a Plugin Pack to monitor Linux servers, a Plugin Pack to monitor Windows servers, etc.).
+Un Plugin Pack est un jeu téléchargeable
+de modèles de configuration qui permet un déploiement rapide de la supervision de votre infrastructure IT. Les Plugin Packs sont le moyen le plus simple de mettre un hôte en supervision.
+Il existe un Plugin Pack par type d'équipement supervisé (par exemple, un Plugin Pack pour superviser des serveurs Linux, un Plugin Pack pour superviser des serveurs Windows, etc...).
 
-Plugin Packs consist of 2 elements, which are installed separately:
+Un Plugin Pack est constitué de deux éléments, installés séparément :
 
-- A plugin that executes the monitoring commands from a poller. All plugins are
-already installed on your pollers.
+- Un plugin, qui exécute les commandes de supervision depuis un collecteur. Tous les plugins sont déjà installés sur vos collecteurs.
+- Un pack, qui contient des commandes, des modèles de services et des modèles d’hôtes. Il est installé via l'interface du serveur central.
+  Pour chaque type d’équipement, les modèles déterminent quels indicateurs seront
+supervisés et définissent les valeurs par défaut des seuils Warning et
+Critical (celles-ci sont modifiables par la suite).
 
-- A pack that contains commands, host templates and service templates.
-For each type of equipment,
- the templates determine which indicators will be
-monitored and set default warning and critical thresholds (these may be
-fine-tuned later on). If you want to use a pack, you must install it on the central server.
+  Certains packs contiennent aussi des règles de découverte d'hôtes et de services.
 
-  Some packs also contain [discovery rules](discovery/introduction).
+## Que faire pour pouvoir utiliser un Plugin Pack?
 
-<!-- To get an up-to-date list of all Plugin Packs with their respective monitoring
-procedure, please refer to the section on [Plugin Packs]().-->
+### Vérifier la procédure de supervision
 
-## What do I need to do to be able to use a Plugin Pack?
-
-### Checking the monitoring procedure
-
-Some Plugin Packs require extra configuration steps. Read the monitoring procedure for each installed pack
-to understand the contents of the pack and to find out about any prerequisites. Go to page **Configuration > Plugin Packs** and click on the ``i`` icon of each pack to access its documentation:
+Certains Plugin Packs demandent des étapes de configuration supplémentaires. Consultez la procédure de supervision associée à chaque pack installé pour comprendre le contenu du pack ainsi
+que les prérequis nécessaires à son fonctionnement. Cliquez sur l'icône ``i`` de chaque pack pour accéder à la documentation associée :
 
 ![image](../assets/configuration/pluginpacks/doc.png)
 
-### Installing the pack
+### Installer le pack
 
-You now have access to the Plugin Packs catalog, on page **Configuration > Plugin Packs**:
+Vous avez maintenant accès au catalogue des Plugin Packs, à la page **Configuration > Packs de plugins** :
 
 ![image](../assets/configuration/pluginpacks/pp_list.png)
 
-To install a pack, hover over the icon with the mouse and click on the ``+``
+Pour installer un pack, cliquez sur le ``+``
 
 ![image](../assets/configuration/pluginpacks/install_pp.png)
 
-You can also click on the Plugin Pack to display more details and click on the ``+``
+Vous pouvez aussi cliquer sur le Plugin Pack. Vous accéderez à sa description et un bouton ``+`` permettant
+de l’installer.
 
 ![image](../assets/configuration/pluginpacks/install_pp_2.png)
 
-Once the pack is installed, it has a green outline and a green check mark.
+Une fois le pack installé, il apparaîtra avec un contour vert et une coche indiquant qu’il est installé.
 
-| **Before installation**                                          | **After installation**                                          |
-| ---------------------------------------------------------------- | --------------------------------------------------------------- |
+| **Avant installation**                                           | **Après installation**                                          |
+|------------------------------------------------------------------|-----------------------------------------------------------------|
 | ![image](../assets/configuration/pluginpacks/before_install.png) | ![image](../assets/configuration/pluginpacks/after_install.png) |
 
-### Managing dependencies
+#### Gestion des dépendances
 
-During installation, some objects in the pack may not be installed. These objects are often additional configuration
-objects and are not required to deploy the configuration templates provided by the pack.
+Il se peut que durant l’installation, certains objets du pack ne soient pas installés. Ces objets sont souvent des
+objets de configuration additionnels et ne sont pas obligatoires pour déployer les modèles de configuration apportés par
+le pack.
 
-Most of the time, it is necessary to update your Centreon platform and then reinstall your pack.
+La plupart du temps, il est nécessaire de mettre à jour votre plate-forme Centreon, puis de réinstaller votre pack.
 
-In the following example, the "autodiscover" object is a discovery rule for the "Centreon Auto Discovery" module, but
-this one is only available for Centreon in 18.10.x version:
+Dans l’exemple ci-dessus, l’objet “autodiscover” concerne une règle de découverte pour le module “Centreon Auto Discovery”,
+mais celles-ci ne sont disponibles que pour Centreon en version 18.10.x :
 
 ![image](../assets/configuration/pluginpacks/objects_not_installed.png)
 
-## How do I use a Plugin Pack?
+## Comment utiliser un Plugin Pack?
 
-Apply a plugin pack to a host or service to start monitoring them:
+Appliquez un Plugin Pack à un hôte ou à un service pour mettre celui-ci en supervision :
 
-1. Create the host/the service, and in the **Template(s)** field, choose the template for the Plugin Pack you want.
+1. Créez l'hôte/le service, et dans le champ **Modèle(s)**, choisissez le modèle correspondant au Plugin Pack désiré.
 
-2. [Deploy](monitoring-servers/deploying-a-configuration) the configuration. Your host or service is now monitored using the Plugin Pack.
+2. [Déployez](monitoring-servers/deploying-a-configuration.md) la configuration.

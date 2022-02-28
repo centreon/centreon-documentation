@@ -1,40 +1,40 @@
 ---
 id: deploy-poller
-title: Deploying a poller
+title: Déployer un collecteur
 ---
 
-With Centreon Cloud, your central server is already ready to use. All you have to do is to install pollers in your infrastructure, and that is very easy: just execute a script then export the configuration and there you are.
+Avec Centreon Cloud, votre serveur central est déjà prêt à l'emploi. Il ne vous reste qu'à installer un ou des collecteurs dans votre infrastructure, ce qui est très facile : exécutez un script, exportez la configuration et le collecteur est prêt.
 
-Before deploying a poller, make sure the [prerequisites](prerequisites) for your host machine are met.
+Avant de déployer un collecteur, assurez-vous que votre machine hôte répond aux [prérequis](prerequisites).
 
-## Step 1: Running the script
+## Étape 1 : Exécuter le script
 
-1. Use SSH to connect to the server that will become a poller.
+1. Connectez-vous en SSH au serveur qui deviendra un collecteur Centreon.
 
-2. Run the command that will deploy the poller automatically. This command has been provided to you by our support team. It looks like this:
+2. Exécutez la commande qui déploiera le collecteur automatiquement. Cette commande vous a été fournie par notre équipe support. Le format est le suivant :
 
   ```shell
-  bash -c "$(curl -H "content-type: application/json"  -H "x-api-key: <your_token>"  https://api.euwest1.prod1.centreon.cloud/v1/organization/<your_organization_code>/site/centreon/poller -s)"
+  bash -c "$(curl -H "content-type: application/json"  -H "x-api-key: <votre_token>"  https://api.euwest1.prod1.centreon.cloud/v1/organization/<votre_code_organisation>/site/centreon/poller -s)"
   ```
   
-  > Make sure you replace `<your_token>` and `<your_organization_code>` by the correct values.
+  > Remplacez `<votre_token>` et `<votre_code_organisation>` par les valeurs appropriées.
 
-  The script is executed (this should take about 10 minutes):
+  Le script s'exécute (cela devrait prendre environ 10 minutes) :
 
   ![image](../assets/installation/script2.png)
 
-3. When this is finished, [log in to your central server](../getting-started/interface#accessing-the-central-servers-interface) and go to page **Configuration > Pollers > Pollers**. The new poller appears in the list of pollers.
-   * By default, the name of the poller is its hostname (this may be shortened). Click on its name to rename it.
-   * In the **IP Address** column, the address it that of the poller as seen by the central server. Indeed, during the installation process, a VPN is installed, so this IP address is that of the poller inside the VPN.
-   * The poller is not running yet (**No** in the **Is running?** column).
+3. Une fois le script exécuté, [connectez-vous à votre serveur central](../getting-started/interface#accéder-à-linterface-du-serveur-central) et allez à la page **Configuration > Collecteurs > Collecteurs**. Le nouveau collecteur apparaît dans la liste des collecteurs.
+   * Par défaut, le nom du collecteur est son hostname (celui-ci peut avoir été abrégé). Cliquez sur le nom du collecteur pour le renommer.
+   * Dans la colonne **Adresse IP**, l'adresse indiquée est celle du collecteur vu par le serveur central. En effet, pendant le processus d'installation, un VPN est installé : l'adresse IP est celle du collecteur à l'intérieur du VPN.
+   * Le collecteur n'est pas encore démarré (**Non** dans la colonne **En cours d'exécution?**).
 
-## Step 2: Exporting the configuration and restarting the poller
+## Étape 2 : Exporter la configuration et redémarrer le collecteur
 
-Export the configuration for this poller:
+Exportez la configuration du collecteur :
 
-1. On the central server, go to **Configuration > Pollers > Pollers**, then select the poller you have just created.
-2. Click **Export configuration**. A new page opens:
-   * Check the first 4 boxes
-   * Under **Restart Monitoring Engine**, select the **Restart** method.
-3. Click **Export**. A log of the export is displayed: this should have no errors.
-4. Go back to **Configuration > Pollers > Pollers**: the poller now has **Yes** under **Is running?**. Your poller is now ready to monitor resources.
+1. Sur le serveur central, allez à la page **Configuration > Collecteurs > Collecteurs**, puis sélectionnez le collecteur que vous venez de créer.
+2. Cliquez sur **Exporter la configuration**. Un nouvelle page s'ouvre :
+   * Sélectionnez les 4 premières options
+   * À côté de **Redémarrer l'ordonnanceur**, sélectionnez la méthode **Redémarrer**.
+3. Cliquez sur **Exporter**. Un log de l'export s'affiche : il ne devrait pas y avoir d'erreurs.
+4. Retournez à la page **Configuration > Collecteurs > Collecteurs** : le collecteur affiche **Oui** dans la colonne **En cours d'exécution?**. Votre collecteur est maintenant prêt à superviser des ressources.

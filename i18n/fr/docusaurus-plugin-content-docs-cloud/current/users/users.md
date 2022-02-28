@@ -1,33 +1,45 @@
 ---
 id: users
-title: Users in Centreon Cloud
+title: Les utilisateurs dans Centreon Cloud
 ---
 
-In Centreon Cloud, users/contacts can:
+Dans Centreon Cloud, les utilisateurs/contacts peuvent :
 
-* Log in to the Centreon web interface.
-* Receive notifications (if they are given the **Notifications** role).
+* Se connecter à l'interface web de Centreon.
+* Recevoir des notifications (s'ils ont le rôle **Notifications**).
 
-## User roles
+Tous les utilisateurs peuvent accéder à leur compte afin de changer leur mot de passe. Tous les utilisateurs peuvent voir toutes les ressources supervisées par la plateforme.
 
-There are 3 roles for users in Centreon Cloud, each with a specific set of rights.
+## Rôles des utilisateurs
 
-* **Users**. Typically, the people who will do the monitoring itself. They can:
-  * use the **Resources Status** page : they can view the status of all resources, filter the view, acknowledge alerts, define/plan downtimes, force a check, add a comment.
-  * use custom views (create, edit and share them, but not delete them).
+Dans Centreon Cloud, les utilisateurs peuvent avoir 4 rôles, chacun avec des droits bien définis.
 
-* **Editors**. They can do the same things as **Users**, but they also can:
-  * create hosts, services, users, time periods, templates, categories...
-  * disacknowledge an acknowledgement, submit a result...
-  * view the list of pollers, export the configuration.
+* **Operator**. Typiquement, les opérateurs sont les personnes qui supervisent les ressources. Ils peuvent:
+  * utiliser la page **Statut des ressources** : ils peuvent voir le statut de toutes les ressources, filtrer la vue, acquitter des alertes, définir/planifier des acquittements, forcer un contrôle, ajouter un commentaire.
+  * utiliser des vues personnalisées, des graphiques de performance et des tableaux de bord.
 
-* **Notifications**: People with the **Notifications** role can receive [notifications](../alerts-notifications/notif-configuration) for all resources monitored by the platform. This role comes in addition to the **Users** and **Editors** roles (a user cannot have only the **Notifications** role, as this role does not give access to any menus).
+* **Editor**. Les éditeurs peuvent faire les mêmes choses que les opérateurs, mais ils peuvent également :
+  * créer des hôtes et des services, des méta-services, des modèles, des catégories...
+  * annuler un acquittement, soumettre un résultat...
+  * voir la liste des collecteurs et exporter la configuration.
 
-All users can access their own account to change their password. Each user belongs at least to the **Users** or **Editors** group.
+* **Administrator**. Les administrateurs peuvent faire les mêmes choses que les éditeurs, mais ils peuvent également :
+  * créer des utilisateurs et leur attribuer des droits
+  * créer des périodes de temps
+  * installer des plugin packs
+  * voir les logs et des informations concernant la plateforme et le moteur de supervision.
 
-## Creating users
+* **Notifications**: les utilisateurs ayant le rôle **Notifications** peuvent recevoir des [notifications](../alerts-notifications/notif-configuration) pour toutes les ressources supervisées par la plateforme. Ce rôle s'ajoute aux rôles **Operator**, **Editor** et **Administrator** (un utilisateur ne doit pas avoir uniquement le rôle **Notifications**, car celui-ci ne donne accès à aucun menu).
 
-You must belong to the **Editor** group to be able to <!--[create a user](cloud-contacts-create)--> in Centreon Cloud. However, a user must belong to a group if they want to create a user within that group. This means that you should also give **Editors** the **Users** and **Notifications** roles if you want them to be able to give users these roles.
+## Créer des utilisateurs
 
-* Typically, you would give **Users** the **Users** and **Notifications** roles if you wanted them to be able to receive notifications.
-* If you want **Editors** to be able to create **Users**, give **Editors** both the **Users** and **Editors** roles (plus the **Notifications** role if you want them to be able to receive notifications).
+Pour pouvoir créer des utilisateurs dans Centreon Cloud, vous devez avoir le rôle  **Administrator**. Cependant, un administrateur doit lui-même posséder un rôle s'il veut pouvoir l'attribuer à un autre utilisateur. Cela signifie que vous devez également donner aux administrateurs les rôles **Editor**, **Operator** et **Notifications** si vous voulez qu'ils soient en mesure d'attribuer eux-mêmes ces rôles.
+
+* Typiquement, un utilisateur avec le rôle **Operator** aurait également le rôle **Notifications** pour qu'il puisse recevoir des notifications.
+* Si vous voulez qu'un administrateur puisse créer des opérateurs ou des éditeurs, donnez-leur également les rôles **Operator** et **Editor** (plus le rôle **Notifications** si vous voulez qu'ils puissent donner le droit de recevoir des notifications).
+
+* Pour créer un utilisateur, allez à la page **Configuration > Utilisateurs > Contacts/Utilisateurs**, puis cliquez sur **Ajouter**.
+* Pour donner le droit à un utilisateur d'accéder à une page ou de réaliser certaines actions :
+  * sélectionnez le(s) rôle(s) adéquat(s) dans la liste **Lié aux rôles**.
+  * si vous avez donné à un utilisateur le rôle **Notifications**, sélectionnez **notification_tmpl** dans le champ **Modèle de contact utilisé**, et sélectionnez **Activer les notifications**.
+  

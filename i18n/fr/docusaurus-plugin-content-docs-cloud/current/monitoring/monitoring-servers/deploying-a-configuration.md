@@ -1,48 +1,46 @@
 ---
 id: deploying-a-configuration
-title: Deploying a configuration
+title: Déployer une configuration
 ---
 
-When you create, delete or edit objects in the **Configuration** menu, changes are not applied automatically (neither on the central server on which you have made the change, nor on any poller linked to it). For the changes to be taken into account, you have to export the configuration.
+Lorsque vous créez, supprimez ou modifiez des objets via le menu
+**Configuration**, les changements effectués ne sont pas appliqués de manière
+automatique (ni sur le serveur central sur lequel vous avez créé, supprimé ou modifié l'objet, ni sur aucun collecteur qui en dépendrait). Pour que les modifications soient prises en compte, il est nécessaire d'exporter la configuration.
 
-## Exporting the configuration
+## Exporter la configuration
 
-1. Go to the **Configuration > Pollers > Pollers** page. The page shows the state of your central
-server and of all pollers linked to it: changes are shown in the **Conf changed** column.
+1. Allez à la page **Configuration > Collecteurs > Collecteurs**. La page affiche l'état de votre serveur central et de tous les collecteurs qui y sont reliés : les changements sont signalés dans la colonne **Changement de configuration**.
 
-2. Select the central server or the poller whose configuration has changed.
+2. Sélectionnez le serveur central ou le collecteur dont la configuration a changé.
 
     ![image](../../assets/monitoring/monitoring-servers/export_conf.png)
 
-3. Click on **Export configuration**.
+3. Cliquez sur **Exporter la configuration**.
 
-4. Check the following boxes (see section [**Export options**](#export-options)) :
+4. Cochez les cases suivantes (voir la section [**Options d'export**](#options-dexport)) :
+    - **Générer les fichiers de configuration**
+    - **Lancer le débogage du moteur de supervision (-v)**
+    - **Déplacer les fichiers générés**
+    - **Redémarrer l'ordonnanceur**. Utilisez la méthode : 
+      - **Recharger** : lorsque vous avez créé, supprimé ou modifié des objets supervisés
+      - **Redémarrer** : lorsque vous avez apporté des changements à la communication entre un collecteur et le serveur central, ou à la configuration du moteur de collecte. Un redémarrage prend plus de temps qu'un rechargement.
 
-    - **Generate Configuration Files**
-    - **Run monitoring engine debug (-v)**
-    - **Move Export Files**
-    - **Restart Monitoring Engine**. Use the most appropriate method: 
-      - **Reload** : when you have created, deleted or edited monitored objects
-      - **Restart** : when you have made changes to the way a poller and the central server communicate together, or 
-      to the configuration of the engine. Restarting takes more time than reloading.
-
-5. Click **Export**. A log of the export is displayed.
+5. Cliquez sur **Exporter**. Un log de l'export s'affiche.
 
     ![image](../../assets/monitoring/monitoring-servers/export_conf_done.png)
 
-6. Read the log to check that the export has worked normally and that no errors were returned.
+6. Dans le log, vérifiez que l'export a bien fonctionné et qu'aucune erreur n'a été remontée.
 
-## Export options
+## Options d'export
 
-The options work in the following ways:
+Les différentes options fonctionnent de la manière suivante :
 
-- **Generate Configuration Files**: Generates the monitoring engine's configuration
-    files in a temporary directory. This configuration is generated from objects
-    configured via the web interface
-- **Run monitoring engine debug (-v)**: Performs a sanity check of the monitoring engine's configuration files
-- **Move Export Files**: Moves the configuration files from the temporary
-    directory to the monitoring engine's configuration directory
-- **Restart Monitoring Engine**: Restarts the monitoring engine to apply the new
-    configuration
-- **Post generation command**: Executes the post-generation command set in the
-    poller's configuration
+- **Générer les fichiers de configuration** : Génère les fichiers de
+    configuration du moteur de supervision dans un répertoire temporaire. Cette
+    configuration est générée à partir des objets configurés via l’interface web.
+- **Lancer le débogage du moteur de supervision (-v)** : Effectue une vérification de l'intégrité des fichiers de configuration du moteur de supervision.
+- **Déplacer les fichiers générés** : Déplace les fichiers générés d'un répertoire temporaire vers le répertoire de configuration du moteur de supervision
+- **Redémarrer l'ordonnanceur** : Redémarre ou recharge le moteur de supervision afin d’appliquer
+    la nouvelle configuration.
+- **Commande exécutée post-génération** : Exécute la commande post-génération
+    paramétrée au niveau de la configuration du collecteur.

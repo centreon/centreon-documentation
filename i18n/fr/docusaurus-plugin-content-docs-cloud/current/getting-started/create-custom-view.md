@@ -1,53 +1,55 @@
 ---
 id: create-custom-view
-title: How do I create a custom view?
+title: Comment créer une vue personnalisée?
 ---
 
-## Create your first custom view
+Rendez-vous au menu **Home > Custom Views** et cliquez sur l'icône crayon situé tout à droite de l'interface pour activer
+le mode d'édition.
 
-Go to **Home > Custom Views** menu and click on the pencil icon located to the far right of the interface to enable
-the edition mode.
-
-Click on **+ Add view** to create your first custom view, then enter **My view** for the name and select 2 columns.
-Finally click on **Submit**:
+Cliquez sur le bouton **+ Add view** pour créer votre première vue personnalisée, puis saisissez **My view** pour le nom
+de la vue et sélectionnez 2 colonnes. Cliquez enfin sur le bouton **Submit** :
 
 ![image](../assets/getting-started/cv_1.png)
 
-Add your first widget by clicking on **+ Add widget**, then enter **TOP 10 CPU** for the title and select
-**Live Top 10 CPU Usage**. Click on **Submit**:
+Ajoutez votre premier widget, en cliquant sur le bouton **+ Add widget**, puis saisissez le titre **TOP 10 CPU** et
+sélectionnez le widget **Live Top 10 CPU Usage**. Cliquez ensuite sur le bouton **Submit** :
 
 ![image](../assets/getting-started/cv_2.png)
 
-Click on **+ Add widget**, then enter **TOP 10 Memory** and select **Live Top 10 Memory Usage**. Click on **Submit**:
+Cliquez de nouveau sur le bouton **+ Add widget**, saisissez le titre **TOP 10 Memory** et sélectionnez le widget
+**Live Top 10 Memory Usage**. Cliquez ensuite sur le bouton **Submit** :
 
 ![image](../assets/getting-started/cv_3.png)
 
-The second widget is automatically placed on the second column:
+Le deuxième widget se place automatiquement sur la deuxième colonne :
 
 ![image](../assets/getting-started/cv_4.png)
 
-Click on **+ Add widget**, then enter **Unhandled Problems** and select **Services Monitoring**. Click on **Submit**:
+Cliquez de nouveau sur le bouton **+ Add widget**, saisissez le titre **Unhandled Problems** et sélectionnez le
+widget **Services Monitoring**. Cliquez ensuite sur le bouton **Submit** :
 
 ![image](../assets/getting-started/cv_5.png)
 
-Edit this widget by clicking on wrench icon:
+Éditez ce widget en cliquant sur l'icône clé à molette :
 
 ![image](../assets/getting-started/cv_6.png)
 
-In the popin, uncheck following cases:
+Dans la fenêtre qui s'ouvre, décochez les cases :
 
 * **Display Pending**
 * **Display Duration**
 * **Display Tries**
 
-Then click on **Apply**.
+Puis cliquez sur le bouton **Apply**.
 
-Click on **+ Add widget**, then enter **Global Health** and select **Global Health**. Click on **Submit**:
+Cliquez de nouveau sur le bouton **+ Add widget**, saisissez le titre **Global Health** et sélectionnez le widget
+**Global Health**. Cliquez ensuite sur le bouton **Submit** :
 
 ![image](../assets/getting-started/cv_7.png)
 
-Edit this widget clicking on wrench icon and select **Show services** for the **Services/Hosts** field. Then click on **Apply**:
+Éditez ce widget en cliquant sur l'icône clé à molette et sélectionnez **Show services** pour le champ **Services/Hosts**.
+Cliquez sur le bouton **Apply**.
 
-Your first custom view is created:
+Votre première vue personnalisée est créée :
 
 ![image](../assets/getting-started/cv_8.png)

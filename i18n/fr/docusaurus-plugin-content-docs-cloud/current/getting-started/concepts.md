@@ -1,33 +1,31 @@
 ---
 id: concepts
-title: Monitoring basics
+title: Bases de la supervision
 ---
 
-## What does Centreon monitor?
+## Que supervise Centreon?
 
-Centreon allows you to monitor resources. Resources can be hosts or services:
+Centreon vous permet de superviser des ressources. Les ressources peuvent être des hôtes ou des services :
 
-* A [**host**](../monitoring/basic-objects/hosts-create) is any device that has an IP address and that one wishes to monitor.
-For example, a physical server, a virtual machine, a temperature probe, an IP camera, a printer or a storage space.
-* A [**service**](../monitoring/basic-objects/services-create) is a check point, or indicator, to be monitored on a host.
-This can be the CPU usage rate, temperature, motion detection, bandwidth usage rate, disk I/O, and so on.
+* Un **hôte** (ou host en anglais) est tout équipement qui possède une adresse IP et que l'on souhaite superviser : un serveur physique, une machine virtuelle, une sonde de température, une caméra IP, une imprimante ou un espace de stockage, par exemple.
+* Un **service** est un point de contrôle, ou indicateur, à superviser sur un hôte. Cela peut être le taux d'utilisation du CPU, la température, la détection de mouvement, le taux d'utilisation de la bande passante, les E/S disque, etc.
 
-## How does the monitoring work?
+## Comment fonctionne la supervision?
 
-In order to collect each indicator value, monitoring plugins are used which are periodically executed by a collection engine called Centreon Engine.
+Afin de mesurer chaque indicateur, on utilise des sondes de supervision (plugin en anglais) qui sont exécutées périodiquement par un moteur de collecte appelé Centreon Engine.
 
-## How do I see the resources being monitored?
+## Comment voir les ressources en cours de supervision?
 
-Once hosts and services are monitored, they have a [status](../alerts-notifications/concepts) in Centreon (e.g. **OK**, **Warning**, **Critical**...). You can keep track of any changes using the [Resources Status](../alerts-notifications/resources-status) page.
+Une fois les hôtes et services mis en supervision, ceux-ci ont un statut dans Centreon (**OK**, **Alerte**, **Critique**...). Vous pouvez suivre leur évolution à la page **Statut des ressources**.
 
-If a problem occurs (not-OK/not-UP status), [contacts/users](../users/users.md) will be able to receive [notifications](../alerts-notifications/notif-configuration), within set [time periods](../monitoring/basic-objects/timeperiods).
+En cas de problème (statut non-OK/non-DISPONIBLE), les contacts pourront recevoir des notifications, suivant des périodes de temps définies.
 
-## What features can I use to help me monitor hosts?
+## Quelles fonctionnalités m'aident à superviser des ressources?
 
-In Centreon, monitoring is made easy by the following elements:
+Avec Centreon, la supervision est rendue facile par les éléments suivants :
 
-* [Host templates](../monitoring/basic-objects/hosts-templates.md) and <!--[service templates]()-->, that allow you to define default values so as to speed up the creation of these objects.
+* les modèles d'hôtes et de services, qui permettent de définir des valeurs par défaut afin d’accélérer la création de ces objets.
 
-* [Plugin Packs](../monitoring/pluginpacks.md), that provide ready-to-use host and service templates. These greatly simplify the configuration of hosts and services: for instance, all you have to do is to apply Plugin Pack templates to a host for it to be monitored.
+* les [Plugin Packs](../monitoring/pluginpacks.md), qui fournissent des modèles d'hôtes et de services prêts à l'emploi. Ceux-ci simplifient énormément la configuration des hôtes et des services : par exemple, il suffit d'appliquer les modèles issus d'un Plugin Pack à un hôte afin de mettre celui-ci en supervision.
 
-* The <!--[autodiscovery feature for hosts and services]()-->, that allows you to get a list of new hosts and services and to add them automatically to the list of monitored resources.
+* la fonctionnalité d'autodécouverte d'hôtes et de services qui permet d'obtenir une liste des nouveaux hôtes ou services et de les ajouter automatiquement à la liste des ressources supervisées.
