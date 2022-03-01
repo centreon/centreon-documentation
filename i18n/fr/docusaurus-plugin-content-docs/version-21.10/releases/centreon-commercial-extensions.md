@@ -15,6 +15,18 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 ## Centreon MAP
 
+### 21.10.3
+
+Release date: `March 1, 2022`
+
+### Security fixes
+
+- Log4J version updated to 2.17.1
+
+### Bug fixes
+
+- Fixed support for metrics label with '=' and white spaces
+
 ### 21.10.2
 
 Release date: `December 20, 2021`
