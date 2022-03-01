@@ -7,9 +7,9 @@ import TabItem from '@theme/TabItem';
 
 ## Superviser un serveur Windows en SNMP
 
-Dans ce tutoriel, nous supposons que votre plateforme Centreon est installée et fonctionnelle. Une [licence](../administration/licenses.md) est nécessaire pour accéder au catalogue complet des Plugin Packs. Nous supposons que vous avez au moins une licence [Centreon IT 100 Edition](it100.md).
+Dans ce tutoriel, nous supposons que votre plateforme Centreon est installée et fonctionnelle.
 
-La supervision d'un serveur Windows en SNMP se fait via le [Plugin Pack Windows SNMP](../integrations/plugin-packs/procedures/operatingsystems-windows-snmp.md). (Vous pouvez obtenir plus d'informations sur les Plugin Packs [ici](../monitoring/pluginpacks.md)).
+La supervision d'un serveur Windows en SNMP se fait via le Plugin Pack Windows SNMP. (Vous pouvez obtenir plus d'informations sur les Plugin Packs [ici](../monitoring/pluginpacks.md)).
 
 ## Prérequis
 
@@ -90,14 +90,6 @@ Sélectionnez ensuite **Accepter les paquets SNMP de ces hôtes** et ajoutez l'a
 
   ![image](../assets/getting-started/prise_en_main_windows_snmp_5.png)
 
-### Sur le serveur Centreon (collecteur)
-
-Connectez-vous à votre collecteur en SSH et installez le plugin Windows SNMP (voir la [procédure de supervision du Plugin Pack **Windows SNMP**](../integrations/plugin-packs/procedures/operatingsystems-windows-snmp.md) pour plus d'informations):
-
-```shell
-yum install centreon-plugin-Operatingsystems-Windows-Snmp
-```
-
 ### Sur le serveur central
 
 Dans l'interface Web, accédez à **Configuration > Plugin Packs** et installez le Plugin Pack **Windows SNMP** :
@@ -116,13 +108,13 @@ Dans l'interface Web, accédez à **Configuration > Plugin Packs** et installez 
    * Une description du serveur (2)
    * L'adresse IP du serveur (3)
    * La communauté SNMP et sa version (4)
-   * Sélectionnez le collecteur qui supervisera le serveur Windows (gardez "Central" si vous n'avez pas d'autres collecteur) (5)
+   * Sélectionnez le collecteur qui supervisera le serveur Windows (5)
 
 3. Cliquez sur **+ Ajouter une nouvelle entrée** dans le champ **Modèles** (6), puis sélectionnez le modèle **OS-Windows-SNMP-custom** (7) et enregistrez en cliquant sur **Sauvegarder**.
 
   ![image](../assets/getting-started/prise_en_main_windows_snmp_12.png)
 
-4. Votre équipement a été ajouté à la lite des hôtes :
+4. Votre équipement a été ajouté à la liste des hôtes :
 
   ![image](../assets/getting-started/prise_en_main_windows_snmp_13.png)
 
@@ -130,7 +122,7 @@ Dans l'interface Web, accédez à **Configuration > Plugin Packs** et installez 
 
    ![image](../assets/getting-started/prise_en_main_windows_snmp_14.gif)
 
-6. [Déployez la configuration](first-supervision#deploying-a-configuration).
+6. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
 
 7. Rendez-vous dans le menu **Monitoring > Status des Resources** et positionnez le filtre sur **Tous** pour récupérer tous les indicateurs quel que soit leur état :
 
@@ -144,7 +136,7 @@ Dans l'interface Web, accédez à **Configuration > Plugin Packs** et installez 
 
    ![image](../assets/getting-started/prise_en_main_windows_snmp_16.png)
 
-   Si tous les services ne sont pas dans un état **OK**, dépannez et [corrigez le problème](../integrations/plugin-packs/tutorials/troubleshooting-plugins)
+   Si tous les services ne sont pas dans un état **OK**, dépannez et corrigez le problème.
 
 ### Pour aller plus loin
 
@@ -152,7 +144,7 @@ Le Plugin Pack **Windows SNMP** apporte de nombreux modèles de supervision. Ren
 
 ![image](../assets/getting-started/prise_en_main_windows_snmp_18.png)
 
-Avec **Centreon IT Edition**, vous pouvez ajouter très rapidement et très simplement la supervision de vos cartes réseau, partitions, processus et services en utilisant la fonctionnalité de [découverte des services](../monitoring/discovery/services-discovery).
+Avec **Centreon IT Edition**, vous pouvez ajouter très rapidement et très simplement la supervision de vos cartes réseau, partitions, processus et services en utilisant la fonctionnalité de découverte des services.
 
 1. Rendez-vous dans le menu **Configuration > Services > Manuelle**. Commencez à saisir le nom de l’hôte sur lequel réaliser la découverte et l’interface vous proposera de compléter automatiquement ce dernier :
 
@@ -168,4 +160,4 @@ Avec **Centreon IT Edition**, vous pouvez ajouter très rapidement et très simp
 
   ![image](../assets/getting-started/prise_en_main_windows_snmp_21.png)
 
-4. [Déployez la configuration](first-supervision#deploying-a-configuration).
+4. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
