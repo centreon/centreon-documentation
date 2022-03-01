@@ -9,7 +9,7 @@ Le collecteur doit être installé sur un serveur CentOS 7 dédié, fraîchement
 
 ## Hardware
 
-La machine hôte doit avoir les caractéristiques suivantes :
+La machine hôte doit avoir au moins les caractéristiques suivantes :
 
 | Élément                     | Valeur    |
 | ----------------------------| --------- |

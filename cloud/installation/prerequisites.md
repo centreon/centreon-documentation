@@ -9,7 +9,7 @@ The poller should be installed on a dedicated fresh CentOS 7 server.
 
 ## Hardware
 
-The host machine must have the following characteristics:
+The host machine must have at least the following characteristics:
 
 | Element                     | Value     |
 | ----------------------------| --------- |
