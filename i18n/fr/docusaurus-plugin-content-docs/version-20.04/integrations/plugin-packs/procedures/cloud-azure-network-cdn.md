@@ -5,7 +5,6 @@ title: Azure CDN
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 ## Vue d'ensemble
 
 Azure Content Delivery Network est une solution conçue pour les développeurs
@@ -36,7 +35,7 @@ d'Hôtes nommé *Microsoft Azure CDNs**. Celui-ci permet de découvrir l'ensembl
 
 Vous trouverez plus d'informations sur la découverte d'Hôtes et son
 fonctionnement sur la documentation du module:
-[Découverte des hôtes](../../../monitoring/discovery/hosts-discovery.md)
+[Découverte des hôtes](../../../monitoring/discovery/hosts-discovery)
 
 ### Métriques & statuts collectés
 
@@ -44,21 +43,21 @@ fonctionnement sur la documentation du module:
 <TabItem value="Hit-Ratio" label="Hit-Ratio">
 
 | Metric name             | Description    | Unit |
-|:------------------------|:---------------|:-----|
+| :---------------------- | :------------- | :--- |
 | cdn.byte.hit.percentage | Byte Hit Ratio | %    |
 
 </TabItem>
 <TabItem value="Latency" label="Latency">
 
 | Metric name                    | Description   | Unit |
-|:-------------------------------|:--------------|:-----|
+| :----------------------------- | :------------ | :--- |
 | cdn.latency.total.milliseconds | Total Latency | ms   |
 
 </TabItem>
 <TabItem value="Requests" label="Requests">
 
 | Metric name                 | Description       | Unit  |
-|:----------------------------|:------------------|:------|
+| :-------------------------- | :---------------- | :---- |
 | cdn.requests.count          | Request count     | count |
 | cdn.requests.4xx.percentage | Percentage of 4XX | %     |
 | cdn.requests.5xx.percentage | Percentage of 5XX | %     |
@@ -67,7 +66,7 @@ fonctionnement sur la documentation du module:
 <TabItem value="Response-Size" label="Response-Size">
 
 | Metric name             | Description   | Unit |
-|:------------------------|:--------------|:-----|
+| :---------------------- | :------------ | :--- |
 | cdn.response.size.bytes | Response Size | B    |
 
 </TabItem>
@@ -237,7 +236,7 @@ dans la Macro *AZURERESOURCE*
 <TabItem value="Azure Monitor API" label="Azure Monitor API">
 
 | Mandatory | Nom                | Description                                        |
-|:----------|:-------------------|:---------------------------------------------------|
+| :-------- | :----------------- | :------------------------------------------------- |
 | X         | AZURECUSTOMMODE    | Custom mode 'api'                                  |
 | X         | AZURESUBSCRIPTION  | Subscription ID                                    |
 | X         | AZURETENANT        | Tenant ID                                          |
@@ -250,7 +249,7 @@ dans la Macro *AZURERESOURCE*
 <TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 | Mandatory | Nom                | Description                                        |
-|:----------|:-------------------|:---------------------------------------------------|
+| :-------- | :----------------- | :------------------------------------------------- |
 | X         | AZURECUSTOMMODE    | Custom mode 'azcli'                                |
 | X         | AZURESUBSCRIPTION  | Subscription ID                                    |
 | X         | AZURERESOURCE      | ID or name of the CDN profile resource             |
@@ -331,7 +330,7 @@ Le Plugin utilise un fichier de cache pour conserver les informations de connexi
 se ré-authentifier à chaque appel. Si des informations sur le Tenant, la Souscription ou les 
 Client ID / Secret changent, il est nécessaire de supprimer le fichier de cache du Plugin. 
 
-Celui ci se trouve dans le répertoire `/var/lib/centreon/centplugins/` avec le nom azure_api_`<md5>_<md5>_<md5>_<md5>`.
+Celui ci se trouve dans le répertoire `/var/lib/centreon/centplugins/` avec le nom `azure_api_<md5>_<md5>_<md5>_<md5>`.
 
 #### `UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)`
 

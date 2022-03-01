@@ -14,8 +14,6 @@ Nginx is an open-source Web Server also used as a proxy server for email (IMAP, 
 
 ### Monitored objects
 
-* Nginx Server
-
 ### Collected metrics
 
 <Tabs groupId="sync">
@@ -43,7 +41,7 @@ Nginx is an open-source Web Server also used as a proxy server for email (IMAP, 
 
 ## Prerequisites
 
-Warning: The following procedure is an example. Cannot be applied on all context.
+> The following procedure is an example. Cannot be applied on all context.
 
 The module allows the generation of a live Nginx report, available on a dedicated web page. This report is used to generate statistics in Centreon. 
 To activate this module, you have to open your nginx configuration file:

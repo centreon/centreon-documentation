@@ -33,12 +33,12 @@ The Centreon Plugin-Pack *Azure Event Hubs* includes a Host Discovery *provider*
 subscription and add them to the Centreon configuration.
 This provider is named **Microsoft Azure Event Hubs**:
 
-![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-analytics-eventhubs-provider.png)
+[image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-analytics-eventhubs-provider.png)-->
 
 > This discovery feature is only compatible with the 'api' custom mode. 'azcli' is not supported yet.
 
 More information about the Host Discovery module is available in the Centreon documentation:
-[Host Discovery](../../../monitoring/discovery/hosts-discovery.md)
+[Host Discovery](../../../monitoring/discovery/hosts-discovery)
 
 ### Collected metrics & status
 
@@ -46,14 +46,14 @@ More information about the Host Discovery module is available in the Centreon do
 <TabItem value="Backlog" label="Backlog">
 
 | Metric Name                     | Description     | Unit  |
-|:--------------------------------|:----------------|:------|
+| :------------------------------ | :-------------- | :---- |
 | eventhubs.backlog.capture.count | Capture Backlog | Count |
 
 </TabItem>
 <TabItem value="Connections" label="Connections">
 
 | Metric Name                        | Description        | Unit  |
-|:-----------------------------------|:-------------------|:------|
+| :--------------------------------- | :----------------- | :---- |
 | eventhubs.connections.active.count | Active Connections | Count |
 | eventhubs.connections.closed.count | Connections Closed | Count |
 | eventhubs.connections.opened.count | Connections Opened | Count |
@@ -62,7 +62,7 @@ More information about the Host Discovery module is available in the Centreon do
 <TabItem value="Errors" label="Errors">
 
 | Metric Name                          | Description           | Unit  |
-|:-------------------------------------|:----------------------|:------|
+| :----------------------------------- | :-------------------- | :---- |
 | eventhubs.errors.quotaexceeded.count | Quota Exceeded Errors | Count |
 | eventhubs.errors.server.count        | Server Errors         | Count |
 | eventhubs.errors.user.count          | User Errors           | Count |
@@ -71,7 +71,7 @@ More information about the Host Discovery module is available in the Centreon do
 <TabItem value="Health" label="Health">
 
 | Status Name | Description                 |
-|:------------|:----------------------------|
+| :---------- | :-------------------------- |
 | status      | Current operational status  |
 | summary     | Last related status message |
 
@@ -79,7 +79,7 @@ More information about the Host Discovery module is available in the Centreon do
 <TabItem value="Messages" label="Messages">
 
 | Metric Name                       | Description       | Unit  |
-|:----------------------------------|:------------------|:------|
+| :-------------------------------- | :---------------- | :---- |
 | eventhubs.messages.captured.count | Captured messages | Count |
 | eventhubs.messages.incoming.count | Incoming Messages | Count |
 | eventhubs.messages.outgoing.count | Outgoing Messages | Count |
@@ -88,7 +88,7 @@ More information about the Host Discovery module is available in the Centreon do
 <TabItem value="Requests" label="Requests">
 
 | Metric Name                         | Description         | Unit  |
-|:------------------------------------|:--------------------|:------|
+| :---------------------------------- | :------------------ | :---- |
 | eventhubs.requests.incoming.count   | Incoming Requests   | Count |
 | eventhubs.requests.successful.count | Successful Requests | Count |
 | eventhubs.requests.throttled.count  | Throttled Requests  | Count |
@@ -97,7 +97,7 @@ More information about the Host Discovery module is available in the Centreon do
 <TabItem value="Throughput" label="Throughput">
 
 | Metric Name                         | Description    | Unit |
-|:------------------------------------|:---------------|:-----|
+| :---------------------------------- | :------------- | :--- |
 | eventhubs.throughput.captured.bytes | Captured Bytes | B    |
 | eventhubs.throughput.incoming.bytes | Incoming Bytes | B    |
 | eventhubs.throughput.outgoing.bytes | Outgoing Bytes | B    |
@@ -272,7 +272,7 @@ in *AZURERESOURCE*
 <TabItem value="Azure Monitor API" label="Azure Monitor API">
 
 | Mandatory | Nom                | Description                                        |
-|:----------|:-------------------|:---------------------------------------------------|
+| :-------- | :----------------- | :------------------------------------------------- |
 | X         | AZURECUSTOMMODE    | Custom mode 'api'                                  |
 | X         | AZURESUBSCRIPTION  | Subscription ID                                    |
 | X         | AZURETENANT        | Tenant ID                                          |
@@ -286,7 +286,7 @@ in *AZURERESOURCE*
 <TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 | Mandatory | Nom                | Description                                        |
-|:----------|:-------------------|:---------------------------------------------------|
+| :-------- | :----------------- | :------------------------------------------------- |
 | X         | AZURECUSTOMMODE    | Custom mode 'azcli'                                |
 | X         | AZURESUBSCRIPTION  | Subscription ID                                    |
 | X         | AZURERESOURCE      | ID or name of the Event Hub resource               |
@@ -358,7 +358,7 @@ All the available options for a given mode can be displayed by adding the ```--h
 The Plugin is using a cache file to keep connection information and avoid an authentication at each call. 
 If some of the authentication parameters change, you must delete the cache file. 
 
-The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder with a name similar to azure_api_`<md5>_<md5>_<md5>_<md5>`.
+The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder with a name similar to `azure_api_<md5>_<md5>_<md5>_<md5>`.
 
 #### ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```
 

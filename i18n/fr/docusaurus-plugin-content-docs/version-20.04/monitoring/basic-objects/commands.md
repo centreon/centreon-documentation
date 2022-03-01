@@ -55,7 +55,7 @@ Toutes les commandes peuvent être configurées au sein du menu : **Configuratio
 ## Arguments et macros
 
 Au sein du champ **Command Line** il est possible de faire appel à des
-*[macros](macros.md)* ainsi qu’à des arguments.
+*[macros](macros)* ainsi qu’à des arguments.
 
 Les arguments sont utilisés afin de pouvoir passer différents paramètres aux scripts appelés par les commandes. Lors de
 l’exécution de la commande par l’ordonnanceur, chacun des arguments et macros sont remplacés par leur valeur respective.
@@ -70,7 +70,7 @@ $CENTREONPLUGINS$/centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin --mode
 ```
 
 > La bonne pratique veut que nous remplacions les arguments par des
-*[macros personnalisées](macros.md#les-macros-personnalisées)*.
+*[macros personnalisées](macros#les-macros-personnalisées)*.
 
 ## Les connecteurs
 

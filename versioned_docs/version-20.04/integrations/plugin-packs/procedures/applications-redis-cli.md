@@ -7,4 +7,4 @@ title: Redis Cli (Deprecated)
 
 This Pack has been deprecated and replaced by `Redis Database`. 
 
-Refer to [this procedure](applications-databases-redis.md)
+Refer to [this procedure](applications-databases-redis).

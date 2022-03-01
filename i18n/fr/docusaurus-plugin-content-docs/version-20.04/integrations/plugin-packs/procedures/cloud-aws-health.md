@@ -17,7 +17,6 @@ Le Plugin Centreon AWS Health utilise l'API Amazon Health pour collecter les mé
 ### Objets supervisés
 
 * Évènements liés aux comptes AWS et ressources associées
-
 ## Métriques supervisées
 
 <Tabs groupId="sync">
@@ -121,6 +120,7 @@ yum install centreon-pack-cloud-aws-health.noarch
 |             | EXTRAOPTIONS    | Any extra option you may want to add to every command\_line (eg. a --verbose flag)          |
 |             | DUMMYSTATUS     | Host state. Default is OK, do not modify it unless you know what you are doing              |
 |             | DUMMYOUTPUT     | Host check output. Default is 'This is a dummy check'. Customize it with your own if needed |
+
 
 ## FAQ
 

@@ -50,7 +50,7 @@ Celui-ci permet de découvrir l'ensemble des instances *Application Gateway* rat
 > de cette utilisation. 
 
 Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionnement sur la documentation du module:
-[Découverte des hôtes](../../../monitoring/discovery/hosts-discovery.md)
+[Découverte des hôtes](../../../monitoring/discovery/hosts-discovery)
 
 ### Métriques & statuts collectés 
 
@@ -62,7 +62,7 @@ Les métriques et statuts disponibles peuvent différer selon la version de l'in
 <TabItem value="Backend-Health" label="Backend-Health">
 
 | Metric Name                             | Description          | Unit  |
-|:----------------------------------------|:---------------------|:------|
+| :-------------------------------------- | :------------------- | :---- |
 | appgateway.backend.healthy.host.count   | Healthy Host Count   | Count |
 | appgateway.backend.unhealthy.host.count | Unhealthy Host Count | Count |
 
@@ -75,14 +75,14 @@ Les métriques et statuts disponibles peuvent différer selon la version de l'in
 <TabItem value="Backend-Status" label="Backend-Status">
 
 | Metric Name                              | Description             | Unit  |
-|:-----------------------------------------|:------------------------|:------|
+| :--------------------------------------- | :---------------------- | :---- |
 | appgateway.backend.response.status.count | Backend Response Status | Count |
 
 </TabItem>
 <TabItem value="Backend-Time" label="Backend-Time">
 
 | Metric Name                                            | Description                      | Unit |
-|:-------------------------------------------------------|:---------------------------------|:-----|
+| :----------------------------------------------------- | :------------------------------- | :--- |
 | appgateway.backend.connect.time.milliseconds           | Backend Connect Time             | ms   |
 | appgateway.backend.firstbyte.responsetime.milliseconds | Backend First Byte Response Time | ms   |
 | appgateway.backend.lastbyte.responsetime.milliseconds  | Backend Last Byte Response Time  | ms   |
@@ -91,7 +91,7 @@ Les métriques et statuts disponibles peuvent différer selon la version de l'in
 <TabItem value="Clients-Traffic" label="Clients-Traffic">
 
 | Metric Name                               | Description            | Unit |
-|:------------------------------------------|:-----------------------|:-----|
+| :---------------------------------------- | :--------------------- | :--- |
 | appgateway.traffic.clients.received.bytes | Clients Bytes Received | B    |
 | appgateway.traffic.clients.sent.bytes     | Clients Bytes Sent     | B    |
 
@@ -99,14 +99,14 @@ Les métriques et statuts disponibles peuvent différer selon la version de l'in
 <TabItem value="Gateway-Time" label="Gateway-Time">
 
 | Metric Name                        | Description                    | Unit |
-|:-----------------------------------|:-------------------------------|:-----|
+| :--------------------------------- | :----------------------------- | :--- |
 | appgateway.time.total.milliseconds | Application Gateway Total Time | ms   |
 
 </TabItem>
 <TabItem value="Units" label="Units">
 
 | Metric Name                             | Description                     | Unit  |
-|:----------------------------------------|:--------------------------------|:------|
+| :-------------------------------------- | :------------------------------ | :---- |
 | appgateway.billable.units.fixed.count   | Fixed Billable Capacity Units   | Count |
 | appgateway.billed.units.estimated.count | Estimated Billed Capacity Units | Count |
 | appgateway.capacity.units.count         | Capacity Units consumed         | Count |
@@ -118,14 +118,14 @@ Les métriques et statuts disponibles peuvent différer selon la version de l'in
 <TabItem value="Connections" label="Connections">
 
 | Metric Name                                  | Description         | Unit  |
-|:---------------------------------------------|:--------------------|:------|
+| :------------------------------------------- | :------------------ | :---- |
 | appgateway.backend.connections.current.count | Current Connections | Count |
 
 </TabItem>
 <TabItem value="Health" label="Health">
 
 | Status Name | Description                 |
-|:------------|:----------------------------|
+| :---------- | :-------------------------- |
 | status      | Current operational status  |
 | summary     | Last related status message |
 
@@ -133,7 +133,7 @@ Les métriques et statuts disponibles peuvent différer selon la version de l'in
 <TabItem value="Requests" label="Requests">
 
 | Metric Name                      | Description     | Unit  |
-|:---------------------------------|:----------------|:------|
+| :------------------------------- | :-------------- | :---- |
 | appgateway.requests.failed.count | Failed Requests | Count |
 | appgateway.requests.total.count  | Total Requests  | Count |
 
@@ -141,7 +141,7 @@ Les métriques et statuts disponibles peuvent différer selon la version de l'in
 <TabItem value="Throughput" label="Throughput">
 
 | Metric Name                          | Description | Unit |
-|:-------------------------------------|:------------|:-----|
+| :----------------------------------- | :---------- | :--- |
 | appgateway.throughput.bytespersecond | Throughput  | B/s  |
 
 </TabItem>
@@ -311,7 +311,7 @@ dans la Macro *AZURERESOURCE*
 <TabItem value="Azure Monitor API" label="Azure Monitor API">
 
 | Mandatory | Nom                | Description                                        |
-|:----------|:-------------------|:---------------------------------------------------|
+| :-------- | :----------------- | :------------------------------------------------- |
 | X         | AZURECUSTOMMODE    | Custom mode 'api'                                  |
 | X         | AZURESUBSCRIPTION  | Subscription ID                                    |
 | X         | AZURETENANT        | Tenant ID                                          |
@@ -325,7 +325,7 @@ dans la Macro *AZURERESOURCE*
 <TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 | Mandatory | Nom                | Description                                        |
-|:----------|:-------------------|:---------------------------------------------------|
+| :-------- | :----------------- | :------------------------------------------------- |
 | X         | AZURECUSTOMMODE    | Custom mode 'azcli'                                |
 | X         | AZURESUBSCRIPTION  | Subscription ID                                    |
 | X         | AZURERESOURCE      | ID or name of the Application Gateway resource     |
@@ -398,7 +398,7 @@ Le Plugin utilise un fichier de cache pour conserver les informations de connexi
 se ré-authentifier à chaque appel. Si des informations sur le Tenant, la Souscription ou les 
 Client ID / Secret changent, il est nécessaire de supprimer le fichier de cache du Plugin. 
 
-Celui ci se trouve dans le répertoire ```/var/lib/centreon/centplugins/``` avec le nom azure_api_`<md5>_<md5>_<md5>_<md5>`.
+Celui ci se trouve dans le répertoire ```/var/lib/centreon/centplugins/``` avec le nom `azure_api_<md5>_<md5>_<md5>_<md5>`.
 
 #### ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```
 

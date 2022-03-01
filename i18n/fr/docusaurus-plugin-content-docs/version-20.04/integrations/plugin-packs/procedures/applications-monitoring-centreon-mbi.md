@@ -93,8 +93,7 @@ You need a SNMP read access on following OIDs:
 
 ### Troubleshooting
 
-Read [Troubleshooting
-SNMP](../tutorials/troubleshooting-plugins.md#snmp-checks);
+Read [Troubleshooting SNMP](../tutorials/troubleshooting-plugins#snmp-checks);
 
 ## Centreon Configuration
 

@@ -12,7 +12,7 @@ Migration of the interface extension is linked to Centreon central migration.
 ## Install the new reporting server
 
 Install your new reporting server based and the Centreon MBI
-repositories using the [standard documentation](installation.md).
+repositories using the [standard documentation](installation).
 
 ## Synchronizing files & data
 

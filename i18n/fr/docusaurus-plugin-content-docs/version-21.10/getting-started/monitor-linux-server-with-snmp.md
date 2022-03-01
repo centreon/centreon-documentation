@@ -54,16 +54,17 @@ systemctl enable snmpd
 
 ### Sur le collecteur
 
-1. Connectez-vous à votre collecteur en SSH et installez le plugin SNMP Linux (voir la [procédure de surveillance pour le Plugin Pack **Linux SNMP**](../integrations/plugin-packs/procedures/operatingsystems-linux-snmp.md) pour plus d'informations) :
+Connectez-vous à votre collecteur en SSH et installez le plugin SNMP Linux (voir la [procédure de surveillance pour le Plugin Pack **Linux SNMP**](../integrations/plugin-packs/procedures/operatingsystems-linux-snmp.md) pour plus d'informations) :
 
-   ```shell
-   yum install centreon-plugin-Operatingsystems-Linux-Snmp
-   ```
+```shell
+yum install centreon-plugin-Operatingsystems-Linux-Snmp
+```
 
-2. Dans l'interface web, allez à la page **Configuration > Plugin Packs** et installez le Plugin Pack **Linux SNMP** :
+### Sur le serveur central
 
-   ![image](../assets/getting-started/quick_start_linux_0.gif)
+Dans l'interface web, allez à la page **Configuration > Plugin Packs** et installez le Plugin Pack **Linux SNMP** :
 
+![image](../assets/getting-started/quick_start_linux_0.gif)
 
 ## Configurer l'hôte et déployer la configuration
 
@@ -98,7 +99,6 @@ systemctl enable snmpd
    ![image](../assets/getting-started/quick_start_linux_5.png)
 
 6. [Déployez la configuration](first-supervision.md#deployer-une-configuration).
-
 
 7. Allez à la page **Surveillance > Statut des ressources** et sélectionnez **Toutes** dans le filtre **Statut des ressources**. Dans un premier temps, les ressources apparaissent avec le statut **En attente**, ce qui signifie qu'aucun contrôle n'a encore été exécuté :
 

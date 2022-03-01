@@ -23,8 +23,18 @@ If you have feature requests or want to report a bug, please contact support.
 
 `February 24, 2022`
 
-This is the last 20.04 released.
+This is the last release for version 20.04.
 
+**Important Notice**
+If you have updated your MAP software with this version before the official announcement, be aware that the update may have caused a regression.
+In order to have the right version, please execute the following actions:
+
+* download package **centreon-map-server-20.04.8-2.el7.noarch.rpm** from the **centreon-map** repository
+* execute the following command
+
+```shell
+yum downgrade centreon-map-server-20.04.8-2.el7.noarch.rpm
+```
 #### Enhancements
 
 - Added proper support for multiple white spaces in perfdata.
@@ -151,7 +161,7 @@ This is the last 20.04 released.
 - Simplify packaging: The packaging has been simplified so we don't require
   Tomcat. Logs are now accessible in `/var/log/centreon-map/` and the service
   is now `centreon-map` (*systemctl restart centreon-map*). [Follow the
-  upgrade procedure](../graph-views/upgrade.md)
+  upgrade procedure](../graph-views/upgrade)
 - Silent installation: It's now possible to install Centreon Map using a
   silent mode instead of the only interactive mode.
 - License on Central server: The licensing system has been simplified.

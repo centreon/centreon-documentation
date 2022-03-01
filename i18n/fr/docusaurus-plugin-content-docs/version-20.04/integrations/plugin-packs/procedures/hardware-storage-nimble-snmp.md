@@ -8,8 +8,7 @@ import TabItem from '@theme/TabItem';
 
 ## Vue d'ensemble
 
-HPE Nimble Storage est une technologue de solutions de stockage de données sur des baies Flash dont le siège
-est basé à San José en Californie. C'est une entité de Hewlett Packard Enterprise. 
+HPE Nimble Storage est une technologue de solutions de stockage de données sur des baies Flash dont le siège est basé à San José en Californie. C'est une entité de Hewlett Packard Enterprise. 
 
 Nimble Storage produit des solutions matérielles et logicielles pour le stockage de données en utilisant les protocoles
 iSCSI et Fiber Channel. Des solutions de sauvegarde et de protection de données sont également disponibles.

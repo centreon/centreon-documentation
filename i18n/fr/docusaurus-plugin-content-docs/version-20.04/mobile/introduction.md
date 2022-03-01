@@ -83,6 +83,6 @@ Si vous rencontrez des problèmes de connexion:
 
 - Assurez-vous que votre téléphone a bien accès en direct à votre plateforme Centreon (en vous rendant directement sur l'URL par exemple)
 - Il se peut que votre configuration Apache ait été modifiée et empêche l'applicatiaon d'accéder aux APIs de Centreon, dans ce cas,
-consultez [la section suivante](../upgrade/upgrade-from-19-10.md#configure-apache-api-access).
+consultez [la section suivante](../upgrade/upgrade-from-19-10#configure-apache-api-access).
 - Assurez-vous d'avoir donné à l'utilisateur les droits d'accès à l'API temps réel et à l'API de configuration. Vous pouvez vérifier cela dans le menu
 `Configuration > Utilisateurs > Contacts / Utilisateurs` : dans l'onglet **Authentification Centreon**, les paramètres **Accès à l'API de temps réel** et **Accès à l'API de configuration** doivent être activés.

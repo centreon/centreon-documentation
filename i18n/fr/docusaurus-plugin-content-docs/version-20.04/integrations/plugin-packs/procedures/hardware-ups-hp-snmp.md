@@ -157,4 +157,4 @@ en ajoutant le paramètre ```--help``` à la commande:
 
 ## Diagnostique
 
-[Diagnostique des plugins](../tutorials/troubleshooting-plugins.md)
+[Diagnostique des plugins](../tutorials/troubleshooting-plugins)

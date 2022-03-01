@@ -162,15 +162,15 @@ Tous les modes disponibles peuvent être affichés via l'option
     --list-mode 
 ```
 
-### J'obtiens le message d'erreur suivant: ```UNKNOWN: 500 Can't connect to 10.0.0.1:443 |```
+### J'obtiens le message d'erreur suivant: `UNKNOWN: 500 Can't connect to 10.0.0.1:443 |`
 
 Cette erreur signifie que Centreon n'a pas réussi à se connecter à l'API du 
 serveur Ciso ISE. Vérifiez que la requête n'est pas bloquée par un outil externe
 (un pare-feu par exemple). Si vous utilisez un proxy, renseignez son URL dans la
 Macro EXTRAOPTIONS de l'Hôte ou directement dans la commande avec l'option 
-```--proxyurl='http://proxy.mycompany:8080'```.
+`--proxyurl='http://proxy.mycompany:8080'`.
 
-### J'obtiens le message d'erreur suivant:  ``UNKNOWN: 501 Protocol scheme 'connect' is not supported |```
+### J'obtiens le message d'erreur suivant:  `UNKNOWN: 501 Protocol scheme 'connect' is not supported |`
 
 Dans certains cas, et plus spécifiquement lors de l'usage d'un proxy 
 d'entreprise, le protocole de connexion n'est pas supporté par la libraire lwp 
