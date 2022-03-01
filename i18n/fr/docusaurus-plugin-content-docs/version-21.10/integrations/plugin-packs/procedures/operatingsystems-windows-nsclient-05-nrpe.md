@@ -151,8 +151,9 @@ from the **Configuration > Plugin Packs > Manager** page
 ## Host configuration
 
 * Log into Centreon and add a new Host through "Configuration > Hosts".
-* Apply the *OS-Windows-NSClient-05-NRPE-custom*. 
-* Configure the following macros. If you're in 21.10 or higher version and you've just installed **centreon-nrpe3-plugin**, you will have to replace the default macro values by the bold ones:
+* Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your *Windows* server settings.
+* Select the *OS-Windows-NSClient-05-NRPE-custom* template to apply to the Host.
+* Once the template is applied, fill in the corresponding macros. If you're in 21.10 or higher version and you've just installed **centreon-nrpe3-plugin**, you will have to replace the default macro values by the bold ones:
 
 | Mandatory | Name             | Value                     | Description                                                      |
 |:----------|:-----------------|---------------------------| :----------------------------------------------------------------|
