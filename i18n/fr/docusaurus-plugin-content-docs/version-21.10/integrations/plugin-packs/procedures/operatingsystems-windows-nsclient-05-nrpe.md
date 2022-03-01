@@ -125,12 +125,11 @@ yum install centreon-nrpe3-plugin
 ```
 
 2. On the Centreon Web interface, install the **Windows NRPE 0.5** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
-from the **Configuration > Plugin Packs > Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Poller expected to monitor *Varnish*:
+1. Install the Centreon Plugin package on every Poller expected to monitor *Windows* resources:
 
 ```bash
 yum install centreon-nrpe3-plugin
@@ -142,9 +141,8 @@ yum install centreon-nrpe3-plugin
 yum install centreon-pack-operatingsystems-windows-nsclient-05-nrpe
 ```
 
-3. On the Centreon Web interface, install the Centreon Pack *Varnish* 
-from the **Configuration > Plugin Packs > Manager** page
-
+3.On the Centreon Web interface, install the **Windows NRPE 0.5** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
+  
 </TabItem>
 </Tabs>
 
