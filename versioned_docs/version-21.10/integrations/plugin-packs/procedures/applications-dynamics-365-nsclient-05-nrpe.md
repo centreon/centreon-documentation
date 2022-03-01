@@ -1,5 +1,5 @@
 ---
-id: applications-dynamics-365-nsclient-05-nrpe.md
+id: applications-dynamics-365-nsclient-05-nrpe
 title: Dynamics 365 NRPE 0.5
 ---
 import Tabs from '@theme/Tabs';
@@ -22,14 +22,14 @@ monitoring agent and its embedded NRPE Server.
 
 <Tabs groupId="sync">
 <TabItem value="New-Orders" label="New-Orders">
-														 
+
 | Service name | Description                        |
 | :----------- | :--------------------------------- |
 | New-Orders   | Check new orders presence and age. |
 
 </TabItem>
 </Tabs>
-	
+
 ## Prerequisites
 
 ### Centreon NSClient++
@@ -74,7 +74,7 @@ from the **Configuration > Plugin Packs > Manager** page
 ## Host configuration
 
 * Log into Centreon and add a new Host through "Configuration > Hosts".
-* Apply the *OS-Windows-NSClient-05-NRPE-custom* template and configure all the mandatory Macros:
+* Apply the *App-Dynamics-365-NRPE-custom* template and configure all the mandatory Macros:
 
 | Mandatory | Name             | Description                                                         |
 |:----------|:-----------------|:------------------------------------------------------------------- |
