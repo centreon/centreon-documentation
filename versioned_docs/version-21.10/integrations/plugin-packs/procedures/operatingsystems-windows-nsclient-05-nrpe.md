@@ -127,7 +127,7 @@ from the **Configuration > Plugin Packs > Manager** page
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Poller expected to monitor *Varnish*:
+1. Install the Centreon NRPE Client package on every Poller expected to monitor *Windows* resources:
 
 ```bash
 yum install centreon-nrpe3-plugin
