@@ -8,8 +8,8 @@ pipeline {
        }
        steps {
          echo 'Using Yarn to install dependencies'
-         sh 'cd .. && sudo npm cache clean -f && sudo npm install -g n && sudo n latest'
-         sh 'yarn install'
+         // sh 'cd .. && sudo npm cache clean -f && sudo npm install -g n && sudo n latest'
+         sh 'yarn'
        }
      }
      stage('Build documentation') {
