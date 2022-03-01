@@ -27,7 +27,7 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 - [Resource Status] Added custom variables definition in URL/Action URL
 - [Resource Status] Create new filter on type of status (Hard or Soft)
 - [Stats] Manage exception for statistics
-- [UX] Add TheWatch url to Centreon footer
+- [UX] Add The Watch URL to Centreon footer
 
 #### Bug Fixes
 
