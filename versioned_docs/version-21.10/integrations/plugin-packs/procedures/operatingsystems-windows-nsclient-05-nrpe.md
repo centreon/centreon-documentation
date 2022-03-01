@@ -161,4 +161,4 @@ from the **Configuration > Plugin Packs > Manager** page
 
 ## Troubleshooting
 
-Please find all the troubleshooting documentation for NRPE checks in the [dedicated chapter](../tutorials/troubleshooting-plugins.md#nrpe-checks) of the Centreon documentation.
+Please find the troubleshooting documentation for NRPE checks in the [dedicated chapter](../tutorials/troubleshooting-plugins.md#nrpe-checks) of the Centreon documentation.
