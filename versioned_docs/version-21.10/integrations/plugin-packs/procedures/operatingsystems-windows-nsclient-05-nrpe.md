@@ -133,7 +133,7 @@ from the **Configuration > Plugin Packs > Manager** page
 yum install centreon-nrpe3-plugin
 ```
 
-2. Install the Centreon Pack RPM on the Centreon Central server:
+2. Install the **Windows NRPE 0.5** Centreon Pack RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-operatingsystems-windows-nsclient-05-nrpe
