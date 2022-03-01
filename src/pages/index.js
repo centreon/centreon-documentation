@@ -8,7 +8,7 @@ const basePathImg = './img/homepage/';
 
 const links = {
   doc: {
-    api: 'docs/api/introduction',
+    cloud: 'cloud/getting-started/architecture',
     gettingstarted: 'docs/getting-started/installation-first-steps',
     pluginpacks: 'docs/integrations/plugin-packs/introduction',
     prerequisite: 'docs/installation/prerequisites',
@@ -27,9 +27,9 @@ const stringsAndParagraphs = {
   excellenceBlock: {
     title: `Welcome to Centreon documentation !`,
     subTitle: `Centreon’s AIOps-ready IT monitoring platform provides holistic visibility to complex IT workflows from Cloud-to-Edge.`,
-    btnStart: `Getting Started`,
+    btnStart: `Centreon On Prem`,
     btnPp: `Plugin Packs`,
-    btnApi: `API Reference`,
+    btnCloud: `Centreon Cloud`,
   },
   prerequisiteBlock: {
     title: `Prerequisites`,
@@ -104,8 +104,8 @@ function ExcellenceBlock() {
         />
         <Card
           imageSrc={'icon-api.svg'}
-          btnLabel={stringsAndParagraphs.excellenceBlock.btnApi}
-          btnLink={links.doc.api}
+          btnLabel={stringsAndParagraphs.excellenceBlock.btnCloud}
+          btnLink={links.doc.cloud}
         />
       </div>
     </header>
