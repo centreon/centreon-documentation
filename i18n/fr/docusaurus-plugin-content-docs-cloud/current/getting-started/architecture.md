@@ -5,7 +5,7 @@ title: Architecture de Centreon Cloud
 
 Centreon Cloud comprend les éléments suivants :
 
-* **Un serveur central**:
+* **Un serveur central** :
   * Le serveur central vous est fourni par Centreon, prêt à l'emploi.
   * Le serveur central ne supervise pas de ressources au sein de votre infrastructure (c'est le rôle des collecteurs).
   * Le serveur central offre une [interface utilisateur](interface), dans laquelle vous pouvez voir toutes les ressources supervisées par tous les collecteurs.
@@ -13,7 +13,7 @@ Centreon Cloud comprend les éléments suivants :
   * Le serveur central est hosté dans le cloud.
   * Centreon installe et met à jour le serveur central.
 
-* **Un ou plusieurs collecteurs**:
+* **Un ou plusieurs collecteurs** :
   * Les collecteurs supervisent des ressources dans votre infrastructure.
   * Les collecteurs n'ont pas d'interface utilisateur (l'activité des pollers est visible sur l'interface du serveur central).
   * Les collecteurs sont situés dans votre infrastructure, ce qui veut dire une meilleure sécurité, latence et bande passante.

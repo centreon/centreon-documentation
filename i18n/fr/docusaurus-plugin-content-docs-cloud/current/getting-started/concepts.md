@@ -18,7 +18,7 @@ Afin de mesurer chaque indicateur, on utilise des sondes de supervision (plugin 
 
 Une fois les hôtes et services mis en supervision, ceux-ci ont un statut dans Centreon (**OK**, **Alerte**, **Critique**...). Vous pouvez suivre leur évolution à la page **Statut des ressources**.
 
-En cas de problème (statut non-OK/non-DISPONIBLE), les contacts pourront recevoir des notifications, suivant des périodes de temps définies.
+En cas de problème (statut non-OK/non-DISPONIBLE), les [contacts](../users/users.md) pourront recevoir des [notifications](../alerts-notifications/notif-configuration.md), suivant des périodes de temps définies.
 
 ## Quelles fonctionnalités m'aident à superviser des ressources?
 
