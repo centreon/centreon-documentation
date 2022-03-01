@@ -15,7 +15,6 @@ const config = {
   favicon: 'img/logo-centreon.png',
   organizationName: 'Centreon',
   projectName: 'Centreon Documentation',
-  trailingSlash: true,
   
   noIndex: false,
 
