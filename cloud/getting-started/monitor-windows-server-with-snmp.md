@@ -7,9 +7,9 @@ import TabItem from '@theme/TabItem';
 
 ## Monitoring a Windows server with SNMP
 
-In this tutorial, we're assuming that your Centreon platform is installed and running well, and that you have at least a [Centreon IT 100 Edition](it100.md) that provides Centreon Plugin Packs (your [license](../administration/licenses.md) is already set up).
+In this tutorial, we're assuming that your Centreon platform is installed and running well.
 
-Your Windows server will be monitored using the [Windows SNMP Plugin Pack](../integrations/plugin-packs/procedures/operatingsystems-windows-snmp.md). (More about Plugin Packs [here](../monitoring/pluginpacks.md)).
+Your Windows server will be monitored using the Windows SNMP Plugin Pack. (More about Plugin Packs [here](../monitoring/pluginpacks.md)).
 
 ## Prerequisites
 
@@ -89,14 +89,6 @@ Then select **Accept SNMP packets from these hosts** and add the IP address of t
 
   ![image](../assets/getting-started/quick_start_windows_snmp_5.png)
 
-### On the Centreon poller
-
-Connect to your poller using SSH and install the Windows SNMP plugin (see the [monitoring procedure for the **Windows SNMP** Plugin Pack](../integrations/plugin-packs/procedures/operatingsystems-windows-snmp.md) for more information):
-
-```shell
-yum install centreon-plugin-Operatingsystems-Windows-Snmp
-```
-
 ### On the central server
 
 In the web interface, go to **Configuration > Plugin Packs** and install the **Windows SNMP** Plugin Pack:
@@ -115,7 +107,7 @@ In the web interface, go to **Configuration > Plugin Packs** and install the **W
    * A description of the server (2)
    * The IP address of the server (3)
    * The SNMP version and community (4)
-   * Select the poller that will monitor your Windows server (keep "Central" if you have no other poller) (5)
+   * Select the poller that will monitor your Windows server (5)
 
 3. Click on **+ Add a new entry** in the **Templates** field (6), then select the **OS-Windows-SNMP-custom** template (7) from the list.
 
@@ -129,7 +121,7 @@ In the web interface, go to **Configuration > Plugin Packs** and install the **W
 
   ![image](../assets/getting-started/quick_start_windows_snmp_14.png)
 
-6. [Deploy the configuration](first-supervision.md#deploying-a-configuration).
+6. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
 
 7. Go to **Monitoring > Resources Status** and select **All** from the **Resource status** filter. At first, the resources appear with the status **Pending**, which means that no checks have been executed yet:
 
@@ -139,7 +131,7 @@ In the web interface, go to **Configuration > Plugin Packs** and install the **W
 
    ![image](../assets/getting-started/quick_start_windows_snmp_16.png)
 
-   If not all services are in an OK state, check what causes the error and [fix the problem](../integrations/plugin-packs/tutorials/troubleshooting-plugins.md).
+   If not all services are in an OK state, check what causes the error and fix the problem.
 
 ### To go further
 
@@ -147,7 +139,7 @@ The **Windows SNMP** Plugin Pack provides several monitoring templates. Go to **
 
    ![image](../assets/getting-started/quick_start_windows_snmp_18.png)
 
-With **Centreon IT Edition** you can add very quickly and very simply the monitoring of your network cards, partitions, processes and services using the [Service Discovery](../monitoring/discovery/services-discovery.md) functionality.
+With **Centreon IT Edition** you can add very quickly and very simply the monitoring of your network cards, partitions, processes and services using the Service Discovery functionality.
 
 1. Go to **Configuration > Services > Scan**. Start writing the name of the host and the web interface automatically completes the name:
 
@@ -163,4 +155,4 @@ The item was added. You can select another discovery command below **Rule** and 
 
 	![image](../assets/getting-started/quick_start_windows_snmp_21.png)
 
-4. [Deploy the configuration](first-supervision.md#deploying-a-configuration).
+4. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
