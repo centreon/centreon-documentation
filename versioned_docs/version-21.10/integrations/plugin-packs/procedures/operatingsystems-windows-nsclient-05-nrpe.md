@@ -121,7 +121,7 @@ and make sure that the **NRPE Server** configuration is correct.
 yum install centreon-nrpe3-plugin
 ```
 
-2. On the Centreon Web interface, install the Centreon Pack *Varnish* 
+2. On the Centreon Web interface, install the **Windows NRPE 0.5** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
 from the **Configuration > Plugin Packs > Manager** page
 
 </TabItem>
