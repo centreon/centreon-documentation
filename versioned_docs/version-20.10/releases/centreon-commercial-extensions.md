@@ -25,7 +25,7 @@ Release date: `March 1, 2022`
 
 #### Bugfixes 
 
-- Fixed support for metric labels using whitespaces and the '=' character.
+- Fixed links not coloring according to status and output not functional when metric name contains special character
 
 #### Security fixes 
 
