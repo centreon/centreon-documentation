@@ -67,7 +67,7 @@ y a quatre méthodes de calcul disponible afin de rendre compte de l'état d'une
  de resources maximum en statut Critique que vous ne voulez pas dépassez
 - **Impact**: Lorsque vous souhaitez définir finement l'impact de chaque indicateur en fonction de leurs poids (<=> sévérité)
 
-Pour plus d'information sur les méthodes de calcul, consulter [ce chapitre](../service-mapping/ba-management.md#méthodes-de-calcul)
+Pour plus d'information sur les méthodes de calcul, consulter [ce chapitre](../service-mapping/ba-management#méthodes-de-calcul)
 
 ## Méthode d'implémentation
 

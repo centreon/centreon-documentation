@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Centreon Plugin Pack PHP FPM brings 1 host template :
+The Centreon Plugin Pack PHP FPM brings 1 host template:
 * App-Php-Fpm-Web-custom
 
 It brings the following Service Template:
@@ -146,4 +146,4 @@ All available options for a given mode can be displayed by adding the
 ### Troubleshooting
 
 Please find all the troubleshooting documentation for the Centreon Plugin
-in the [dedicated page](../tutorials/troubleshooting-plugins.md)
+in the [dedicated page](../tutorials/troubleshooting-plugins)

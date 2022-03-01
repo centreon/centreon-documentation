@@ -5,7 +5,6 @@ title: Ruckus Smartzone
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 ## Overview
 
 Ruckus SmartZone network controllers simplify the complexity of scaling and managing wired switches, and wireless access points through a common interface to support private-cloud network-as-a-service (NaaS) offerings in addition to general enterprise networks.

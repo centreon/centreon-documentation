@@ -226,5 +226,5 @@ All the available options for a given mode can be displayed by adding the ```--h
 
 ### Troubleshooting
 
-Please find all the troubleshooting documentation for the API-based Plugins in the [dedicated chapter](../tutorials/troubleshooting-plugins.md#http-and-api-checks)
+Please find all the troubleshooting documentation for the API-based Plugins in the [dedicated chapter](../tutorials/troubleshooting-plugins#http-and-api-checks)
 of the Centreon documentation.

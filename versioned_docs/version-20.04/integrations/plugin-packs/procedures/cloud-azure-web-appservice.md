@@ -31,7 +31,7 @@ This provider is named **Microsoft Azure App Service**:
 > This discovery feature is only compatible with the 'api' custom mode. 'azcli' is not supported yet.
 
 More information about the Host Discovery module is available in the Centreon documentation:
-[Host Discovery](../../../monitoring/discovery/hosts-discovery.md)
+[Host Discovery](../../../monitoring/discovery/hosts-discovery)
 
 ### Collected metrics and status
 
@@ -39,7 +39,7 @@ More information about the Host Discovery module is available in the Centreon do
 <TabItem value="App-Usage" label="App-Usage">
 
 | Metric Name                          | Description                                                                       | Unit  |
-|:-------------------------------------|:----------------------------------------------------------------------------------|:------|
+| :----------------------------------- | :-------------------------------------------------------------------------------- | :---- |
 | appservice.connections.count         | The number of bound sockets existing in the sandbox                               | Count |
 | appservice.assemblies.current.count  | The current number of assemblies loaded across all AppDomains in this application | Count |
 | appservice.handle.count              | The total number of handles currently open by the app process                     | Count |
@@ -51,14 +51,14 @@ More information about the Host Discovery module is available in the Centreon do
 <TabItem value="Cpu-Time" label="Cpu-Time">
 
 | Metric Name                     | Description                                      | Unit |
-|:--------------------------------|:-------------------------------------------------|:-----|
+| :------------------------------ | :----------------------------------------------- | :--- |
 | appservice.cpu.consumed.seconds | The amount of CPU consumed by the app in seconds | s    |
 
 </TabItem>
 <TabItem value="Data" label="Data">
 
 | Metric Name               | Description                                          | Unit |
-|:--------------------------|:-----------------------------------------------------|:-----|
+| :------------------------ | :--------------------------------------------------- | :--- |
 | appservice.data.in.bytes  | The amount of incoming bandwidth consumed by the app | B    |
 | appservice.data.out.bytes | The amount of outgoing bandwidth consumed by the app | B    |
 
@@ -66,14 +66,14 @@ More information about the Host Discovery module is available in the Centreon do
 <TabItem value="File-System" label="File-System">
 
 | Metric Name                       | Description                          | Unit |
-|:----------------------------------|:-------------------------------------|:-----|
+| :-------------------------------- | :----------------------------------- | :--- |
 | appservice.filesystem.usage.bytes | Filesystem quota consumed by the app | B    |
  
 </TabItem>
 <TabItem value="Gc-Usage" label="Gc-Usage">
 
 | Metric Name              | Description                                                                                           | Unit  |
-|:-------------------------|:------------------------------------------------------------------------------------------------------|:------|
+| :----------------------- | :---------------------------------------------------------------------------------------------------- | :---- |
 | appservice.gc.gen0.count | The number of times the generation 0 objects are garbage collected since the start of the app process | Count |
 | appservice.gc.gen1.count | The number of times the generation 1 objects are garbage collected since the start of the app process | Count |
 | appservice.gc.gen2.count | The number of times the generation 2 objects are garbage collected since the start of the app process | Count |
@@ -82,7 +82,7 @@ More information about the Host Discovery module is available in the Centreon do
 <TabItem value="Health" label="Health">
 
 | Status Name | Description                 |
-|:------------|:----------------------------|
+| :---------- | :-------------------------- |
 | status      | Current operational status  |
 | summary     | Last related status message |
 
@@ -90,7 +90,7 @@ More information about the Host Discovery module is available in the Centreon do
 <TabItem value="Http-Requests" label="Http-Requests">
 
 | Metric Name                         | Description                                                                 | Unit  |
-|:------------------------------------|:----------------------------------------------------------------------------|:------|
+| :---------------------------------- | :-------------------------------------------------------------------------- | :---- |
 | appservice.http.request.count       | The total number of requests regardless of their resulting HTTP status code | Count |
 | appservice.http.request.queue.count | The number of requests in the application request queue                     | Count |
 | appservice.htpp.request.XXX.count   | The count of requests resulting in an HTTP status code = XXX                | Count |
@@ -99,7 +99,7 @@ More information about the Host Discovery module is available in the Centreon do
 <TabItem value="IO-Operations" label="IO-Operations">
 
 | Metric Name                                | Description                                                                                      | Unit |
-|:-------------------------------------------|:-------------------------------------------------------------------------------------------------|:-----|
+| :----------------------------------------- | :----------------------------------------------------------------------------------------------- | :--- |
 | appservice.bytes.other.bytespersecond      | The rate at which the app process is issuing bytes to I/O operations that don't involve data     | B/s  |
 | appservice.operations.other.bytespersecond | The rate at which the app process is issuing I/O operations that aren't read or write operations | B/s  |
 | appservice.bytes.read.bytespersecond       | The rate at which the app process is reading bytes from I/O operations                           | B/s  |
@@ -111,7 +111,7 @@ More information about the Host Discovery module is available in the Centreon do
 <TabItem value="Memory" label="Memory">
 
 | Metric Name                                | Description                                                                                           | Unit |
-|:-------------------------------------------|:------------------------------------------------------------------------------------------------------|:-----|
+| :----------------------------------------- | :---------------------------------------------------------------------------------------------------- | :--- |
 | appservice.memory.average.usage.bytes      | The average amount of memory used by the app                                                          | B    |
 | appservice.memory.usage.bytes              | The current amount of memory used by the app                                                          | B    |
 | appservice.memory.privatebytes.usage.bytes | The amount of memory allocated allocated by the app process that can't be shared with other processes | B    |
@@ -120,14 +120,14 @@ More information about the Host Discovery module is available in the Centreon do
 <TabItem value="Response-Time" label="Response-Time">
 
 | Metric Name                           | Description                                  | Unit |
-|:--------------------------------------|:---------------------------------------------|:-----|
+| :------------------------------------ | :------------------------------------------- | :--- |
 | appservice.http.response.time.seconds | The time taken for the app to serve requests | s    |
 
 </TabItem>
 <TabItem value="Status" label="Status">
 
 | Metric Name             | Description         | Unit  |
-|:------------------------|:--------------------|:------|
+| :---------------------- | :------------------ | :---- |
 | appservice.status.count | Health check status | Count |
 
 </TabItem>
@@ -294,23 +294,23 @@ These mandatory Macros differ regarding the custom mode used:
 <Tabs groupId="sync">
 <TabItem value="Azure Monitor API" label="Azure Monitor API">
 
-| Mandatory | Nom               | Description                             |
-|:----------|:------------------|:----------------------------------------|
-| X         | AZURECUSTOMMODE   | Custom mode 'api'                       |
-| X         | AZURESUBSCRIPTION | Subscription ID                         |
-| X         | AZURETENANT       | Tenant ID                               |
-| X         | AZURECLIENTID     | Client ID                               |
-| X         | AZURECLIENTSECRET | Client secret                           |
-| X         | AZURERESOURCE     | Id of the App Service instance          |
+| Mandatory | Nom               | Description                    |
+| :-------- | :---------------- | :----------------------------- |
+| X         | AZURECUSTOMMODE   | Custom mode 'api'              |
+| X         | AZURESUBSCRIPTION | Subscription ID                |
+| X         | AZURETENANT       | Tenant ID                      |
+| X         | AZURECLIENTID     | Client ID                      |
+| X         | AZURECLIENTSECRET | Client secret                  |
+| X         | AZURERESOURCE     | Id of the App Service instance |
 
 </TabItem>
 <TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
-| Mandatory | Nom               | Description                             |
-|:----------|:------------------|:----------------------------------------|
-| X         | AZURECUSTOMMODE   | Custom mode 'azcli'                     |
-| X         | AZURESUBSCRIPTION | Subscription ID                         |
-| X         | AZURERESOURCE     | Id of the App Service instance          |
+| Mandatory | Nom               | Description                    |
+| :-------- | :---------------- | :----------------------------- |
+| X         | AZURECUSTOMMODE   | Custom mode 'azcli'            |
+| X         | AZURESUBSCRIPTION | Subscription ID                |
+| X         | AZURERESOURCE     | Id of the App Service instance |
 
 </TabItem>
 </Tabs>
@@ -374,7 +374,7 @@ All the available options for a given mode can be displayed by adding the ```--h
 The Plugin is using a cache file to keep connection information and avoid an authentication at each call. 
 If some of the authentication parameters change, you must delete the cache file. 
 
-The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder with a name similar to azure_api_`<md5>_<md5>_<md5>_<md5>`.
+The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder with a name similar to `azure_api_<md5>_<md5>_<md5>_<md5>`.
 
 #### ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```
 

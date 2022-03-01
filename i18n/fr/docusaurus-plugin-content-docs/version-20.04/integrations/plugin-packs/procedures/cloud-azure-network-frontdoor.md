@@ -38,7 +38,7 @@ Celui-ci permet de découvrir l'ensemble des instances *Front Door* rattachés �
 > de cette utilisation. 
 
 Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionnement sur la documentation du module:
-[Découverte des hôtes](../../../monitoring/discovery/hosts-discovery.md)
+[Découverte des hôtes](../../../monitoring/discovery/hosts-discovery)
 
 ### Métriques & statuts collectés 
 
@@ -46,14 +46,14 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 <TabItem value="Backend-Health" label="Backend-Health">
 
 | Metric Name                         | Description               | Unit |
-|:------------------------------------|:--------------------------|:-----|
+| :---------------------------------- | :------------------------ | :--- |
 | frontdoor.backend.health.percentage | Backend Health Percentage | %    |
 
 </TabItem>
 <TabItem value="Health" label="Health">
 
 | Status Name | Description                 |
-|:------------|:----------------------------|
+| :---------- | :-------------------------- |
 | status      | Current operational status  |
 | summary     | Last related status message |
 
@@ -61,7 +61,7 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 <TabItem value="Latency" label="Latency">
 
 | Metric Name                            | Description             | Unit |
-|:---------------------------------------|:------------------------|:-----|
+| :------------------------------------- | :---------------------- | :--- |
 | frontdoor.latency.backend.milliseconds | Backend Request Latency | ms   |
 | frontdoor.latency.total.milliseconds   | Total Latency           | ms   |
 
@@ -69,7 +69,7 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 <TabItem value="Requests" label="Requests">
 
 | Metric Name                      | Description            | Unit  |
-|:---------------------------------|:-----------------------|:------|
+| :------------------------------- | :--------------------- | :---- |
 | frontdoor.requests.backend.count | Backend Requests Count | Count |
 | frontdoor.requests.total.count   | Total Requests Count   | Count |
 | frontdoor.requests.waf.count     | WAF Requests Count     | Count |
@@ -78,7 +78,7 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 <TabItem value="Size" label="Size">
 
 | Metric Name                   | Description            | Unit |
-|:------------------------------|:-----------------------|:-----|
+| :---------------------------- | :--------------------- | :--- |
 | frontdoor.size.billable.bytes | Billable Response Size | B    |
 | frontdoor.size.requests.bytes | Requests Size          | B    |
 | frontdoor.size.response.bytes | Response Size          | B    |
@@ -244,20 +244,20 @@ doivent être renseignées selon le custom-mode utilisé:
 <Tabs groupId="sync">
 <TabItem value="Azure Monitor API" label="Azure Monitor API">
 
-| Mandatory | Nom               | Description                    |
-|:----------|:------------------|:-------------------------------|
-| X         | AZURECUSTOMMODE   | Custom mode 'api'              |
-| X         | AZURESUBSCRIPTION | Subscription ID                |
-| X         | AZURETENANT       | Tenant ID                      |
-| X         | AZURECLIENTID     | Client ID                      |
-| X         | AZURECLIENTSECRET | Client secret                  |
-| X         | AZURERESOURCE     | Id of the Front Door resource  |
+| Mandatory | Nom               | Description                   |
+| :-------- | :---------------- | :---------------------------- |
+| X         | AZURECUSTOMMODE   | Custom mode 'api'             |
+| X         | AZURESUBSCRIPTION | Subscription ID               |
+| X         | AZURETENANT       | Tenant ID                     |
+| X         | AZURECLIENTID     | Client ID                     |
+| X         | AZURECLIENTSECRET | Client secret                 |
+| X         | AZURERESOURCE     | Id of the Front Door resource |
 
 </TabItem>
 <TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 | Mandatory | Nom               | Description                   |
-|:----------|:------------------|:------------------------------|
+| :-------- | :---------------- | :---------------------------- |
 | X         | AZURECUSTOMMODE   | Custom mode 'azcli'           |
 | X         | AZURESUBSCRIPTION | Subscription ID               |
 | X         | AZURERESOURCE     | Id of the Front Door resource |
@@ -330,7 +330,7 @@ Le Plugin utilise un fichier de cache pour conserver les informations de connexi
 se ré-authentifier à chaque appel. Si des informations sur le Tenant, la Souscription ou les 
 Client ID / Secret changent, il est nécessaire de supprimer le fichier de cache du Plugin. 
 
-Celui ci se trouve dans le répertoire ```/var/lib/centreon/centplugins/``` avec le nom azure_api_`<md5>_<md5>_<md5>_<md5>`.
+Celui ci se trouve dans le répertoire ```/var/lib/centreon/centplugins/``` avec le nom `azure_api_<md5>_<md5>_<md5>_<md5>`.
 
 #### ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```
 

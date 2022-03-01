@@ -235,7 +235,6 @@ en ajoutant le paramètre ```--help``` à la commande:
     --help
 ```
 
-## Diagnostique
+## Diagnostic
 
-[Diagnostique des plugins](../tutorials/troubleshooting-plugins.md)
-
+[Diagnostic des plugins](../tutorials/troubleshooting-plugins)

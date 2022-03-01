@@ -7,4 +7,4 @@ title: Microsoft IIS Server NRPE (Deprecated)
 
 This Plugin Pack has been deprecated and replaced by `Microsoft IIS Server Restapi`. 
 
-Refer to [this procedure](applications-webservers-iis-restapi.md)
+Refer to [this procedure](applications-webservers-iis-restapi)

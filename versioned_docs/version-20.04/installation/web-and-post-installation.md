@@ -134,10 +134,10 @@ Go to `Administration > Extensions > Manager` menu and click on
 
 ## Getting started
 
-Go to the [Getting Started](../getting-started/installation-first-steps.md#request-your-free-trial)
+Go to the [Getting Started](../getting-started/installation-first-steps#request-your-free-trial)
 chapter to configure your first monitoring.
 
 ## Secure your platform
 
 Don't forget to secure your Centreon platform following our
-[recommendations](../administration/secure-platform.md)
+[recommendations](../administration/secure-platform)

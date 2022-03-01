@@ -35,7 +35,7 @@ This provider is named **Microsoft Azure Automation**:
 > This discovery feature is only compatible with the 'api' custom mode. 'azcli' is not supported yet.
 
 More information about the Host Discovery module is available in the Centreon documentation:
-[Host Discovery](../../../monitoring/discovery/hosts-discovery.md)
+[Host Discovery](../../../monitoring/discovery/hosts-discovery)
 
 ### Collected Metrics
 
@@ -43,7 +43,7 @@ More information about the Host Discovery module is available in the Centreon do
 <TabItem value="Jobs" label="Jobs">
 
 | Metric Name                        | Description                                    |
-|:-----------------------------------|:-----------------------------------------------|
+| :--------------------------------- | :--------------------------------------------- |
 | automation.jobs.total.count        | Number of total jobs                           |
 | automation.machineruns.total.count | Number of total update deployment machine runs |
 | automation.runs.total.count        | Number of total Update deployment runs         |
@@ -213,7 +213,7 @@ These mandatory Macros differ regarding the custom mode used:
 <TabItem value="Azure Monitor API" label="Azure Monitor API">
 
 | Mandatory | Nom               | Description                   |
-|:----------|:------------------|:------------------------------|
+| :-------- | :---------------- | :---------------------------- |
 | X         | AZURECUSTOMMODE   | Custom mode 'api'             |
 | X         | AZURESUBSCRIPTION | Subscription ID               |
 | X         | AZURETENANT       | Tenant ID                     |
@@ -225,7 +225,7 @@ These mandatory Macros differ regarding the custom mode used:
 <TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 | Mandatory | Nom               | Description                   |
-|:----------|:------------------|:------------------------------|
+| :-------- | :---------------- | :---------------------------- |
 | X         | AZURECUSTOMMODE   | Custom mode 'azcli'           |
 | X         | AZURESUBSCRIPTION | Subscription ID               |
 | X         | AZURERESOURCE     | Id of the Automation instance |
@@ -265,7 +265,7 @@ OK: Instance 'AUTOMATION01' Statistic 'total' Metrics Total Update Deployment Ru
 ```
 
 The command above checks the *jobs* of an Azure *Automation* instance using the 'api' custom-mode
-(```--plugin=cloud::azure::management::automation::plugin --mode=jobs --custommode=api```).
+(```--plugin=cloud::azure::managemen::automation::plugin --mode=jobs --custommode=api```).
 This Automation instance is identified by its id (```--resource='SVC001ABCD'```) and the authentication parameters
 to be used with the custom mode are specified in the options (```--subscription='xxxxxxxxx' --tenant='xxxxxxx'
 --client-id='xxxxxxxx' --client-secret='xxxxxxxxxx'```).
@@ -280,7 +280,7 @@ All the available options for a given mode can be displayed by adding the ```--h
 
 ```bash
 /usr/lib/centreon/plugins/centreon_azure_management_automation_api.pl \
-    --plugin=cloud::azure::management::automation::plugin \
+    --plugin=cloud::azure::managemen::automation::plugin \
     --mode=jobs \
     --help
 ```
@@ -292,7 +292,7 @@ All the available options for a given mode can be displayed by adding the ```--h
 The Plugin is using a cache file to keep connection information and avoid an authentication at each call. 
 If some of the authentication parameters change, you must delete the cache file. 
 
-The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder with a name similar to azure_api_`<md5>_<md5>_<md5>_<md5>`.
+The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder with a name similar to `azure_api_<md5>_<md5>_<md5>_<md5>`.
 
 #### ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```
 

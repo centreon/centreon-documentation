@@ -199,7 +199,7 @@ configurations are possible.
 ### Centreon Web interface
 
 You must provide to Centreon MAP server a dedicated user
-**who has access to all resources** through the appropriate [access list groups](../administration/access-control-lists.md). 
+**who has access to all resources** through the appropriate [access list groups](../administration/access-control-lists). 
 Since the password will be stored in human-readable form in a 
 configuration file, you should not use a Centreon admin user account.
 

@@ -119,7 +119,7 @@ checking system
 
 Cette commande contrôle l'état du système Wallix Bastion (```--mode=system```) ayant pour adresse *10.30.2.114* (```--hostname=10.30.2.114```) 
 en version *2c* du protocol SNMP (```--snmp-version='2c'```) et avec la communauté *wallix_ro* (```--snmp-community='wallix_ro'```).
- 
+
 Pour chaque mode, la liste de toutes les métriques, seuils associés et options complémentaires peuvent être affichées
 en ajoutant le paramètre ```--help``` à la commande:
 
@@ -130,6 +130,6 @@ en ajoutant le paramètre ```--help``` à la commande:
     --help
 ```
 
-## Diagnostique
+## Diagnostic
 
-[Diagnostique des plugins](../tutorials/troubleshooting-plugins.md#snmp-checks)
+[Diagnostic des plugins](../tutorials/troubleshooting-plugins#snmp-checks)

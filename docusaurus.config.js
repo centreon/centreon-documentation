@@ -48,7 +48,7 @@ const config = {
               label: '⭐ 21.10',
             },
             21.04: {
-              label: ' 21.04',
+              label: '21.04',
             },
             '20.10': {
               label: '20.10',
@@ -58,6 +58,7 @@ const config = {
             },
           },
         },
+        blog: false,
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -102,15 +103,6 @@ const config = {
         contextualSearch: true,
       },
 
-      announcementBar: {
-        id: 'announcementBar-1',
-        content:
-          'The search function is only available for version 21.10 at the moment. Thank you for your patience and understanding.',
-        backgroundColor: '#ebedf0',
-        textColor: '#091E42',
-        isCloseable: false,
-      },
-
       zoomSelector: '.markdown :not(.authority-availability) > img',
 
       prism: {
@@ -131,7 +123,6 @@ const config = {
       },
 
       hideableSidebar: true,
-
       colorMode: {
         defaultMode: 'light',
         disableSwitch: false,

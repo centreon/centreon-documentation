@@ -29,10 +29,6 @@ By installing the plugin, some perl depencies will be installed :
 
 The login and access token handling will be made by the plugin itself.
 
-> You are using a proxy? Add this optional dependency to your central server and all the pollers that will perform discovery using a proxy. 
->
-> `yum install perl-LWP-Protocol-connect̀`
-
 ### Azure CLI 2.0 (for 'azcli' custom mode)
 
 The CLI needs at least Python version 2.7
@@ -134,6 +130,4 @@ Click on the *Save* button.
 
 ## Available metrics
 
-Go to
-<https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-supported-metrics#microsoftcomputevirtualmachines>
-to see the description of return metrics for this Azure service.
+Go to <https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-supported-metrics#microsoftcomputevirtualmachines> to see the description of return metrics for this Azure service.

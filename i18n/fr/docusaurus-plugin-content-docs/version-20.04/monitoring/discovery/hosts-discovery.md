@@ -8,7 +8,7 @@ title: Découverte des hôtes
 > Les fournisseurs de découverte sont amnenés par l'installation de Plugin Packs
 > (Azure, Amazon AWS, VMware, etc). Pour connaître la liste complète, consultez
 > le [catalogue des Plugin
-> Packs](../../integrations/plugin-packs/introduction.md).
+> Packs](../../integrations/plugin-packs/introduction).
 
 ## Ajouter une tâche de découverte
 

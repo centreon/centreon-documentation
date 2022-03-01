@@ -1,6 +1,6 @@
 ---
 id: applications-redis-rlec-restapi
-title: Redis Labs Enterprise Cluster Rest API
+title:  Redis Labs Enterprise Cluster Rest API
 ---
 
 ## Prerequisites

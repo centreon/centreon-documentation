@@ -136,4 +136,4 @@ Toutes les options et leur utilisation peuvent être consultées avec le paramè
 
 ## Diagnostic
 
-[Diagnostic des plugins](../tutorials/troubleshooting-plugins.md)
+[Diagnostic des plugins](../tutorials/troubleshooting-plugins)

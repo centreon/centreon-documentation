@@ -20,7 +20,7 @@ SNMP must be configured on the monitored host.
 ### Troubleshooting
 
 Read [Troubleshooting
-SNMP](../tutorials/troubleshooting-plugins.md#snmp-checks)
+SNMP](../tutorials/troubleshooting-plugins#snmp-checks)
 
 ## Centreon Configuration
 
