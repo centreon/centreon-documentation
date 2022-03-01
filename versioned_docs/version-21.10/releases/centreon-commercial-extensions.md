@@ -26,7 +26,7 @@ Release date: `March 1, 2022`
 
 ### Bug fixes
 
-- Fixed support for metrics label with '=' and white spaces
+- Fixed links not coloring according to status and outpout not functionnal when metric name contains special character
 
 ### 21.10.2
 
