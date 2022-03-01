@@ -118,7 +118,7 @@ and make sure that the **NRPE Server** configuration is correct.
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon NRPE Client package on every Poller expected to monitor *Varnish*:
+1. Install the Centreon NRPE Client package on every Poller expected to monitor *Windows* resources:
 
 ```bash
 yum install centreon-nrpe3-plugin
