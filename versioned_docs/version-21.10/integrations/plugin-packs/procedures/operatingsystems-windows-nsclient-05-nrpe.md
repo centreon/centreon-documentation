@@ -158,3 +158,7 @@ from the **Configuration > Plugin Packs > Manager** page
 | X         | NRPEPORT         | 5666                      | NRPE Port of the target server (Default: '5666')                 |
 | X         | NRPETIMEOUT      | 30                        | Timeout value (Default: '30')                                    |
 | X         | NRPEEXTRAOPTIONS | **-u -2 -P 8192**         | Extraoptions to use with the NRPE binary (default: '-u -m 8192') |
+
+## Troubleshooting
+
+Please find all the troubleshooting documentation for NRPE checks in the [dedicated chapter](../tutorials/troubleshooting-plugins.md#nrpe-checks) of the Centreon documentation.
