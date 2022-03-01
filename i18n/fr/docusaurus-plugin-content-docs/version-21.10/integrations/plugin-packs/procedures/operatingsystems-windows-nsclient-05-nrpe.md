@@ -5,6 +5,9 @@ title: Windows NRPE 0.5
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> Hello community! We're looking for a contributor to help us to translate the 
+content in french and provide a sample execution command. If it's you, let us 
+know and ping us on our community website [The Watch](https://thewatch.centreon.com/).
 
 ## Overview
 
