@@ -27,6 +27,9 @@ monitoring agent and its embedded NRPE Server.
 | :----------- | :--------------------------------- |
 | New-Orders   | Check new orders presence and age. |
 
+</TabItem>
+</Tabs>
+	
 ## Prerequisites
 
 ### Centreon NSClient++
