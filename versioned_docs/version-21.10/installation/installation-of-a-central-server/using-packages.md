@@ -72,7 +72,7 @@ Disabled
 
 ### Configure or disable the firewall
 
-If your firewall is active, add [firewall rules](../../administration/secure-platform#enable-firewalld). You can also disable the firewall during installation by running the following commands:
+If your firewall is active, add [firewall rules](../../administration/secure-platform.md#enable-firewalld). You can also disable the firewall during installation by running the following commands:
 
 ```shell
 systemctl stop firewalld
@@ -413,7 +413,7 @@ Since MariaDB 10.5, it is necessary to secure its installation
 before installing Centreon.
 
 > Answer yes to all questions except to "Disallow root login remotely?". It is mandatory
-> to set a password for the **root** user of the database. You will need this password during the [web installation](../web-and-post-installation).
+> to set a password for the **root** user of the database. You will need this password during the [web installation](../web-and-post-installation.md).
 
 ```shell
 mysql_secure_installation
@@ -444,4 +444,4 @@ systemctl start httpd24-httpd
 </Tabs>
 
 2. To complete the installation, follow the
-[web installation steps](../web-and-post-installation#web-installation) procedure.
+[web installation steps](../web-and-post-installation.md#web-installation) procedure.

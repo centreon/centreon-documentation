@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 ## Prérequis
 
-Installez le serveur distant (soit [en utilisant l'ISO](../../installation/installation-of-a-remote-server/using-centreon-iso), soit [en utilisant les paquets](../../installation/installation-of-a-remote-server/using-packages)).
+Installez le serveur distant (soit [en utilisant l'ISO](../../installation/installation-of-a-remote-server/using-centreon-iso.md), soit [en utilisant les paquets](../../installation/installation-of-a-remote-server/using-packages.md)).
 
 ## Étape 1 : Configurer un nouveau Remote Server
 
@@ -225,6 +225,9 @@ redémarrez-le avec la commande suivante depuis le **serveur Central** :
 > synchronisation des données entre l'interface utilisateur du Central
 > et du Remote Server.
 
+</TabItem>
+</Tabs>
+
 ## Étape 3 : Exporter la configuration
 
 1. Depuis la liste des collecteurs, sélectionnez le serveur distant et cliquez sur
@@ -245,10 +248,7 @@ collecte :
 
   ![image](../../assets/monitoring/monitoring-servers/remote-list-zmq-started.png)
 
-</TabItem>
-</Tabs>
-
 ## Premiers pas
 
-Rendez-vous dans le chapitre [Premiers pas](../../getting-started/installation-first-steps#start-to-monitor-your-first-host)
+Rendez-vous dans le chapitre [Premiers pas](../../getting-started/installation-first-steps.md#start-to-monitor-your-first-host)
 pour mettre en place votre première supervision.

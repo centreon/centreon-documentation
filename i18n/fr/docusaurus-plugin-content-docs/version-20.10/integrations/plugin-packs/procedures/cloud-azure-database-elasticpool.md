@@ -32,7 +32,7 @@ Celui-ci permet de découvrir l'ensemble des *Elastic Pools* rattachés à une *
 > de cette utilisation. 
 
 Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionnement sur la documentation du module:
-[Découverte des hôtes](../../../monitoring/discovery/hosts-discovery)
+[Découverte des hôtes](../../../monitoring/discovery/hosts-discovery.md)
 
 ### Métriques collectées 
 
@@ -42,7 +42,7 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 > Ces métriques sont disponibles uniquement pour les *Pools* de type *vCore*
 
 | Metric name                      | Description    | Unit  |
-| :------------------------------- | :------------- | :---- |
+|:---------------------------------|:---------------|:------|
 | elasticpool.cpu.limit.count      | CPU limit      | Count |
 | elasticpool.cpu.usage.percentage | CPU percentage | %     |
 | elasticpool.cpu.used.count       | CPU used       | Count |
@@ -53,7 +53,7 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 > Ces métriques sont disponibles uniquement pour les *Pools* de type *DTU*
 
 | Metric name                             | Description    | Unit  |
-| :-------------------------------------- | :------------- | :---- |
+|:----------------------------------------|:---------------|:------|
 | elasticpool.dtu.consumpution.percentage | DTU percentage | %     |
 | elasticpool.edtu.limit.count            | eDTU limit     | Count |
 | elasticpool.edtu.used.count             | eDTU used      | Count |
@@ -62,7 +62,7 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 <TabItem value="Log" label="Log">
 
 | Metric name                             | Description                    | Unit |
-| :-------------------------------------- | :----------------------------- | :--- |
+|:----------------------------------------|:-------------------------------|:-----|
 | elasticpool.log.write.percentage        | Log IO percentage              | %    |
 | elasticpool.log.tempdb.size.kilobytes   | Tempdb Log File Size Kilobytes | KB   |
 | elasticpool.log.tempdb.usage.percentage | Tempdb Percent Log Used        | %    |
@@ -71,7 +71,7 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 <TabItem value="Sessions" label="Sessions">
 
 | Metric name                           | Description         | Unit |
-| :------------------------------------ | :------------------ | :--- |
+|:--------------------------------------|:--------------------|:-----|
 | elasticpool.sessions.usage.percentage | Sessions percentage | %    |
 | elasticpool.workers.usage.percentage  | Workers percentage  | %    |
 
@@ -79,7 +79,7 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 <TabItem value="Storage" label="Storage">
 
 | Metric name                                   | Description                  | Unit |
-| :-------------------------------------------- | :--------------------------- | :--- |
+|:----------------------------------------------|:-----------------------------|:-----|
 | elasticpool.storage.data.allocated.bytes      | Data space allocated         | B    |
 | elasticpool.storage.data.allocated.percentage | Data space allocated percent | %    |
 | elasticpool.storage.used.bytes                | Data space used              | B    |
@@ -247,7 +247,7 @@ doivent être renseignées selon le custom-mode utilisé:
 <TabItem value="Azure Monitor API" label="Azure Monitor API">
 
 | Mandatory | Nom               | Description                                                                                     |
-| :-------- | :---------------- | :---------------------------------------------------------------------------------------------- |
+|:----------|:------------------|:------------------------------------------------------------------------------------------------|
 | X         | AZURECUSTOMMODE   | Custom mode 'api'                                                                               |
 | X         | AZURESUBSCRIPTION | Subscription ID                                                                                 |
 | X         | AZURETENANT       | Tenant ID                                                                                       |
@@ -259,10 +259,10 @@ doivent être renseignées selon le custom-mode utilisé:
 <TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 | Mandatory | Nom               | Description                                                                                     |
-| :-------- | :---------------- | :---------------------------------------------------------------------------------------------- |
+|:----------|:------------------|:------------------------------------------------------------------------------------------------|
 | X         | AZURECUSTOMMODE   | Custom mode 'azcli'                                                                             |
 | X         | AZURESUBSCRIPTION | Subscription ID                                                                                 |
-| X         | AZURERESOURCE     | Id of the Elastic Pool resource (syntax: <server\_name\>/elasticpool/<elasticpools\_name\>)    |
+| X         | AZURERESOURCE     | Id of the Elastic Pool resource (syntax: <server\_name\>/elasticpool/<elasticpools\_name\>)     |
 
 </TabItem>
 </Tabs>
@@ -344,7 +344,7 @@ Le Plugin utilise un fichier de cache pour conserver les informations de connexi
 se ré-authentifier à chaque appel. Si des informations sur le Tenant, la Souscription ou les 
 Client ID / Secret changent, il est nécessaire de supprimer le fichier de cache du Plugin. 
 
-Celui ci se trouve dans le répertoire ```/var/lib/centreon/centplugins/``` avec le nom `azure_api_<md5>_<md5>_<md5>_<md5>`.
+Celui ci se trouve dans le répertoire ```/var/lib/centreon/centplugins/``` avec le nom azure_api_`<md5>_<md5>_<md5>_<md5>`.
 
 #### UNKNOWN: 500 Can't connect to login.microsoftonline.com:443 
 

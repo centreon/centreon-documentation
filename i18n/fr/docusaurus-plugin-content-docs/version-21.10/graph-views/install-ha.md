@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 ## Aperçu
 
 Centreon-Map HA repose sur les mêmes concepts que Centreon HA.
-Vous trouverez toutes les informations sur l'[aperçu](../installation/installation-of-centreon-ha/overview).
+Vous trouverez toutes les informations sur l'[aperçu](../installation/installation-of-centreon-ha/overview.md).
 
 > **AVERTISSEMENT:** La documentation suivante n'est compatible qu'avec MariaDB 10.3 et CentOS 7.
 
@@ -28,7 +28,7 @@ quelconque panne ou perte de données.
 
 ### Flux réseau
 
-En plus des flux nécessaires décrits dans la [documentation officielle](install#architecture), 
+En plus des flux nécessaires décrits dans la [documentation officielle](install.md#architecture), 
 vous devrez ouvrir les flux suivants :
 
 <Tabs groupId="sync">
@@ -59,7 +59,7 @@ vous devrez ouvrir les flux suivants :
 ### Installation de la plateforme Map de Centreon
 
 Un cluster Centreon-Map HA ne peut être installé que sur la base d'une plateforme Centreon-Map en fonctionnement.
-Avant de suivre cette procédure, il est nécessaire que **[cette procédure d'installation](install)** ait déjà été complétée
+Avant de suivre cette procédure, il est nécessaire que **[cette procédure d'installation](install.md)** ait déjà été complétée
 et qu'un **environ 5GB d'espace libre soit disponible du volume groupe LVM** qui contient
 le répertoire de données MariaDB (point de montage `/var/lib/mysql` par défaut).
 
@@ -119,7 +119,7 @@ Le script `/etc/centreon-studio/diagnostic.sh` doit retourner `[OK]` sur **les d
 
 Toutes les options spécifiques configurées dans `/etc/centreon-studio/studio-config.properties` doivent 
 être les mêmes sur les 2 nœuds. Les options qui peuvent être activées ou désactivées 
-sont décrites [ici](configuration#define-views--status-computation-parameters).
+sont décrites [ici](configuration.md#define-views--status-computation-parameters).
 
 ### Quorum Device
 

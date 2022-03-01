@@ -135,4 +135,4 @@ en ajoutant le paramètre ```--help``` à la commande:
 
 ## Diagnostique
 
-[Diagnostique des plugins](../tutorials/troubleshooting-plugins#http-and-api-checks)
+[Diagnostique des plugins](../tutorials/troubleshooting-plugins.md#http-and-api-checks)

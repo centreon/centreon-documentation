@@ -174,7 +174,7 @@ yum install centreon-pack-network-cisco-standard-snmp
 
 Lorsque vous ajoutez un hôte, complétez les champs 'Communauté Snmp' et 'Version Snmp' pour refléter la configuration de l'équipement cible. 
 
-  > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro SNMPEXTRAOPTIONS
+> Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro SNMPEXTRAOPTIONS
 
 | Obligatoire | Nom              | Description                                    |
 | :---------- | :--------------- | :--------------------------------------------- |

@@ -13,7 +13,7 @@ De manière générale, les logiciels Open Sources fournis par Centreon sont dis
 Les paquets RPM sont le meilleur format pour obtenir nos logiciels. Ces derniers ont été packagés par des experts
 Centreon et permettent de ne pas se soucier du processus d'installation.
 
-> Centreon recommande l'utilisation de la version [Centreon RPM packages](installation-of-a-central-server/using-packages).
+> Centreon recommande l'utilisation de la version [Centreon RPM packages](installation-of-a-central-server/using-packages.md).
 
 Si votre plate-forme ne supporte pas les paquets RPMs, vous devrez utiliser les archives contenant les sources des
 versions stables de nos logiciels et installer ces derniers manuellement. La compilation manuelle de certains paquets

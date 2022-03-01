@@ -68,7 +68,7 @@ systemctl stop firewalld
 systemctl disable firewalld
 ```
 
-> You can find instructions [here](../../administration/secure-platform#enable-firewalld) to configure firewalld.
+> You can find instructions [here](../../administration/secure-platform.md#enable-firewalld) to configure firewalld.
 
 ### Install the repositories
 
@@ -382,7 +382,7 @@ If you have installed the Centreon server with a local database, since MariaDB 1
 before installing Centreon.
 
 Answer yes to all questions except "Disallow root login remotely?". It is mandatory
-to set a password for the **root** user of the database. You will need this password during the [web installation](../web-and-post-installation).
+to set a password for the **root** user of the database. You will need this password during the [web installation](../web-and-post-installation.md).
 
 ```shell
 mysql_secure_installation
@@ -413,7 +413,7 @@ systemctl start httpd24-httpd
 </Tabs>
 
 Conclude installation by performing
-[web installation steps](../web-and-post-installation#web-installation).
+[web installation steps](../web-and-post-installation.md#web-installation).
 
 > During web installation, it is not necessary to install Autodiscovery module.
 
@@ -576,9 +576,9 @@ GRANT FILE on *.* to 'centreon'@'localhost';
 ## Add the Remote Server to configuration
 
 Go to the
-[Add a Remote Server to configuration](../../monitoring/monitoring-servers/add-a-remote-server-to-configuration).
+[Add a Remote Server to configuration](../../monitoring/monitoring-servers/add-a-remote-server-to-configuration.md).
 
 ## Secure your platform
 
 Don't forget to secure your Centreon platform following our
-[recommendations](../../administration/secure-platform)
+[recommendations](../../administration/secure-platform.md)

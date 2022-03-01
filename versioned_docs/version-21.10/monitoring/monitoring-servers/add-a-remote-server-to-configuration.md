@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 ## Prerequisites
 
-Install the remote server (either [using the ISO](../../installation/installation-of-a-remote-server/using-centreon-iso), or [using packages](../../installation/installation-of-a-remote-server/using-packages)).
+Install the remote server (either [using the ISO](../../installation/installation-of-a-remote-server/using-centreon-iso.md), or [using packages](../../installation/installation-of-a-remote-server/using-packages.md)).
 
 ## Step 1: Configure a new Remote Server
 
@@ -221,6 +221,9 @@ it with the following command from the **Central server**:
 > This mode should not be used anymore as it does not allow data
 > synchronisation between Central and Remote Server UI.
 
+</TabItem>
+</Tabs>
+
 ## Step 3: Export the configuration
 
 1. From the Pollers listing, select the Remote Server and click on **Export
@@ -241,10 +244,7 @@ configuration**.
 
     ![image](../../assets/monitoring/monitoring-servers/remote-list-zmq-started.png)
 
-</TabItem>
-</Tabs>
-
 ## Getting started
 
-Go to the [Getting Started](../../getting-started/installation-first-steps#start-to-monitor-your-first-host)
+Go to the [Getting Started](../../getting-started/installation-first-steps.md#start-to-monitor-your-first-host)
 chapter to configure your first monitoring.

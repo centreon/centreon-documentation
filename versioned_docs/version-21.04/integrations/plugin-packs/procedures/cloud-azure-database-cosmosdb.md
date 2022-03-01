@@ -39,7 +39,7 @@ This provider is named **Microsoft Azure Cosmos DB Account**:
 > This discovery feature is only compatible with the 'api' custom mode. 'azcli' is not supported yet.
 
 More information about the Host Discovery module is available in the Centreon documentation:
-[Host Discovery](../../../monitoring/discovery/hosts-discovery)
+[Host Discovery](../../../monitoring/discovery/hosts-discovery.md)
 
 ### Collected metrics & status
 
@@ -47,14 +47,14 @@ More information about the Host Discovery module is available in the Centreon do
 <TabItem value="Availability" label="Availability">
 
 | Metric Name                                      | Description          | Unit |
-| :----------------------------------------------- | :------------------- | :--- |
+|:-------------------------------------------------|:---------------------|:-----|
 | cosmosdb.account.service.availability.percentage | Service Availability | %    |
 
 </TabItem>
 <TabItem value="Cache" label="Cache">
 
 | Metric Name                                          | Description                           | Unit  |
-| :--------------------------------------------------- | :------------------------------------ | :---- |
+|:-----------------------------------------------------|:--------------------------------------|:------|
 | cosmosdb.account.integratedcache.evicted.size.bytes  | Integrated Cache Evicted Entries Size | B     |
 | cosmosdb.account.integratedcache.hitrate.percentage  | Integrated Cache Hit Rate             | %     |
 | cosmosdb.account.integratedcache.size.bytes          | Integrated Cache Size                 | B     |
@@ -65,7 +65,7 @@ More information about the Host Discovery module is available in the Centreon do
 <TabItem value="Document" label="Document">
 
 | Metric Name                           | Description    | Unit  |
-| :------------------------------------ | :------------- | :---- |
+|:--------------------------------------|:---------------|:------|
 | cosmosdb.account.document.count       | Document Count | Count |
 | cosmosdb.account.document.quota.bytes | Document Quota | B     |
 
@@ -73,7 +73,7 @@ More information about the Host Discovery module is available in the Centreon do
 <TabItem value="Health" label="Health">
 
 | Status Name | Description                 |
-| :---------- | :-------------------------- |
+|:------------|:----------------------------|
 | status      | Current operational status  |
 | summary     | Last related status message |
 
@@ -81,7 +81,7 @@ More information about the Host Discovery module is available in the Centreon do
 <TabItem value="Latency" label="Latency">
 
 | Metric Name                                       | Description             | Unit |
-| :------------------------------------------------ | :---------------------- | :--- |
+|:--------------------------------------------------|:------------------------|:-----|
 | cosmosdb.account.latency.replication.milliseconds | P99 Replication Latency | ms   |
 | cosmosdb.account.latency.serverside.milliseconds  | Server Side Latency     | ms   |
 
@@ -89,7 +89,7 @@ More information about the Host Discovery module is available in the Centreon do
 <TabItem value="Throughput" label="Throughput">
 
 | Metric Name                                  | Description              | Unit  |
-| :------------------------------------------- | :----------------------- | :---- |
+|:---------------------------------------------|:-------------------------|:------|
 | cosmosdb.account.troughput.autoscale.count   | Autoscale Max Throughput | Count |
 | cosmosdb.account.troughput.provisioned.count | Provisioned Throughput   | Count |
 
@@ -97,14 +97,14 @@ More information about the Host Discovery module is available in the Centreon do
 <TabItem value="Units" label="Units">
 
 | Metric Name                               | Description         | Unit  |
-| :---------------------------------------- | :------------------ | :---- |
+|:------------------------------------------|:--------------------|:------|
 | cosmosdb.account.requestunits.total.count | Total Request Units | Count |
 
 </TabItem>
 <TabItem value="Usage" label="Usage">
 
 | Metric Name                        | Description | Unit |
-| :--------------------------------- | :---------- | :--- |
+|:-----------------------------------|:------------|:-----|
 | cosmosdb.account.data.usage.bytes  | Data Usage  | B    |
 | cosmosdb.account.index.usage.bytes | Index Usage | B    |
 
@@ -278,7 +278,7 @@ in *AZURERESOURCE*
 <TabItem value="Azure Monitor API" label="Azure Monitor API">
 
 | Mandatory | Nom                | Description                                        |
-| :-------- | :----------------- | :------------------------------------------------- |
+|:----------|:-------------------|:---------------------------------------------------|
 | X         | AZURECUSTOMMODE    | Custom mode 'api'                                  |
 | X         | AZURESUBSCRIPTION  | Subscription ID                                    |
 | X         | AZURETENANT        | Tenant ID                                          |
@@ -292,7 +292,7 @@ in *AZURERESOURCE*
 <TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 | Mandatory | Nom                | Description                                        |
-| :-------- | :----------------- | :------------------------------------------------- |
+|:----------|:-------------------|:---------------------------------------------------|
 | X         | AZURECUSTOMMODE    | Custom mode 'azcli'                                |
 | X         | AZURESUBSCRIPTION  | Subscription ID                                    |
 | X         | AZURERESOURCE      | ID or name of the Cosmos DB account                |
@@ -360,7 +360,7 @@ All the available options for a given mode can be displayed by adding the ```--h
 The Plugin is using a cache file to keep connection information and avoid an authentication at each call. 
 If some of the authentication parameters change, you must delete the cache file. 
 
-The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder with a name similar to `azure_api_<md5>_<md5>_<md5>_<md5>`.
+The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder with a name similar to azure_api_`<md5>_<md5>_<md5>_<md5>`.
 
 #### ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```
 

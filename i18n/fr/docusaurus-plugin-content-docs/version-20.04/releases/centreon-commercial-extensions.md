@@ -19,6 +19,33 @@ commerciales, veuillez contacter le support.
 
 ## Centreon MAP
 
+### 20.04.8
+
+`February 24, 2022`
+
+Ceci est la dernière version 20.04.
+
+**Information importante**
+Si vous avez mis à jour votre version de MAP avec cette version avant l'annonce officielle, il se peut que vous ayez embarqué une régression.
+Pour récupérer la version qui corrige ce problème, veuillez faire les actions suivantes :
+
+* téléchargez le paquet **centreon-map-server-20.04.8-2.el7.noarch.rpm** depuis le dépôt **centreon-map**
+* exécutez la commande suivante :
+
+```shell
+yum downgrade centreon-map-server-20.04.8-2.el7.noarch.rpm
+```
+
+#### Enhancements
+
+- Ajout du support pour les espaces blancs multiples dans les perfdatas.
+
+#### Bug fixes
+
+- Correction de l'usage de labels de métriques non standard empêchant le serveur MAP de démarrer.
+- Correction du support des labels de métriques non standard et de l'usage du caractère '=' dans ces labels.
+- Correction du chemin de la variable d'environment HeapDumpPath pour pointer sur le bon répertoire.
+
 ### 20.04.7
 
 `12 mars 2021`

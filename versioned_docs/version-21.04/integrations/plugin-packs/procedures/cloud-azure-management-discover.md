@@ -31,7 +31,7 @@ This provider is named **Microsoft Azure Management Discover**:
 > This discovery feature is only compatible with the 'api' custom mode.
 
 More information about the Host Discovery module is available in the Centreon documentation:
-[Host Discovery](../../../monitoring/discovery/hosts-discovery)
+[Host Discovery](../../../monitoring/discovery/hosts-discovery.md)
 
 ## Prerequisites
 
@@ -121,7 +121,7 @@ on the discovered elements).
 
 ## Set up a discovery job
 
-> The general specifications and mechanics of the *Host Discovery* feature is available [here](../../../monitoring/discovery/hosts-discovery)
+> The general specifications and mechanics of the *Host Discovery* feature is available [here](../../../monitoring/discovery/hosts-discovery.md)
 
 ### Access parameters
 
@@ -161,10 +161,10 @@ If necessary, adjust the following settings:
 
 The step 4 of the wizard allows to adjust and set **mappers** if necessary; the Plugin Pack comes along with predefined **mappers** that
 don't typically need to be changed. If you have a specific need and want to edit the **mappers** section, refer to 
-[this documentation](../../../monitoring/discovery/hosts-discovery#how-to-use-the-mappers) to do so.
+[this documentation](../../../monitoring/discovery/hosts-discovery.md#how-to-use-the-mappers) to do so.
 
 Final steps 5 & 6 will allow you to define a specific policy about the data modeling of the discovered results. Although the default configuration
-is usually enough to proceed, [this documentation](../../../monitoring/discovery/hosts-discovery#define-analysis-and-update-policies) 
+is usually enough to proceed, [this documentation](../../../monitoring/discovery/hosts-discovery.md#define-analysis-and-update-policies) 
 will help you to customize it if needed. Coming to step 6, just click on *finish* to launch the discovery job.
 
 Once the discovery job complete, you can display the results by clicking on *job results*. All the available Host Templates
@@ -185,7 +185,7 @@ Just select the elements you want to add to the Centreon configuration and click
 The Plugin is using a cache file to keep connection information and avoid an authentication at each call. 
 If some of the authentication parameters change, you must delete the cache file. 
 
-The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder with a name similar to `azure_api_<md5>_<md5>_<md5>_<md5>`.
+The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder with a name similar to azure_api_`<md5>_<md5>_<md5>_<md5>`.
 
 ### ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```
 

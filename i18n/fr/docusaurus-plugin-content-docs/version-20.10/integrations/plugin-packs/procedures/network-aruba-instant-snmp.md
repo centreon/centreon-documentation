@@ -76,7 +76,6 @@ yum install centreon-plugin-Network-Aruba-Instant-Snmp
 
 2. Sur le serveur Central Centreon, installer le RPM du Plugin Pack *Aruba Instant SNMP* :
 
-
 ```bash
 yum install centreon-pack-network-aruba-instant-snmp
 ```

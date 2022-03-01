@@ -20,7 +20,9 @@ yum install centreon-plugin-Applications-Databases-Mysql
 In order to be able to collect the needed information from the database a
 database user with specific privileges is required:
 
-    # grant usage on *.* to 'centreon'@'pollerip' identified by 'password'
+```shell
+grant usage on *.* to 'centreon'@'pollerip' identified by 'password'
+```
 
 ### MariaDB, perl-dbi, perl-dbd-mysql
 

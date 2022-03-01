@@ -6,7 +6,6 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-
 > Hello community! We're looking for a contributor to help us to translate this 
 content in french and provide a sample execution command. If it's you, let us 
 know and ping us on [slack](https://centreon.slack.com)
@@ -21,8 +20,8 @@ Microsoft Hypervisor and Virtualization solutions.
 ### Monitored objects
 
 * Microsoft HyperV Servers from 2k12 to latest versions
-* Nodes
-* System Center Virtual Machine Manager
+    * Nodes
+    * System Center Virtual Machine Manager
 
 ### Collected metrics
 
@@ -33,7 +32,7 @@ Microsoft Hypervisor and Virtualization solutions.
 ### Centreon NSClient++
 
 To monitor *HyperV* components through NRPE, install the Centreon packaged version 
-of the NSClient++ agent. Please follow our [official documentation](../tutorials/centreon-nsclient-tutorial) 
+of the NSClient++ agent. Please follow our [official documentation](../tutorials/centreon-nsclient-tutorial.md) 
 and make sure that the **NRPE Server** configuration is correct.
 
 ## Installation 

@@ -48,7 +48,7 @@ Select the hard disk drive and the **I will configure partitioning** option. The
 ![image](../../assets/installation/06_select_disk.png)
 
 Using the **+** button, create your own partitioning file system following the instructions in
-[prerequisites chapter](../prerequisites). Then click on **Done**:
+[prerequisites chapter](../prerequisites.md). Then click on **Done**:
 
 ![image](../../assets/installation/07_partitioning_filesystem.png)
 
@@ -136,7 +136,7 @@ systemctl enable rh-php72-php-fpm httpd24-httpd mariadb centreon cbd centengine 
 
 ## Web installation
 
-Conclude installation by performing [web installation steps](../web-and-post-installation#Web-installation).
+Conclude installation by performing [web installation steps](../web-and-post-installation.md#Web-installation).
 
 > During web installation, it is not necessary to install Autodiscovery module.
 
@@ -278,9 +278,9 @@ GRANT FILE on *.* to 'centreon'@'localhost';
 ## Add the Remote Server to configuration
 
 Go to the
-[Add a Remote Server to configuration](../../monitoring/monitoring-servers/add-a-remote-server-to-configuration).
+[Add a Remote Server to configuration](../../monitoring/monitoring-servers/add-a-remote-server-to-configuration.md).
 
 ## Secure your platform
 
 Don't forget to secure your Centreon platform following our
-[recommendations](../../administration/secure-platform)
+[recommendations](../../administration/secure-platform.md)

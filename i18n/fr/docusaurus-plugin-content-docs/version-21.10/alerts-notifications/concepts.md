@@ -16,7 +16,7 @@ Le tableau ci-dessous résume l'ensemble des statuts possibles pour un hôte.
 |------------------------------------------------|------------------------------------|
 | <span style={{color:'#88b917'}}>DISPONIBLE</span>          | L'hôte est disponible et joignable |
 | <span style={{color:'#e00b3d'}}>INDISPONIBLE</span>        | L'hôte est indisponible            |
-| <span style={{color:'#818185'}}>INJOIGNABLE</span> | L'hôte est injoignable : il [dépend](notif-dependencies) d'un hôte dont le statut est **INDISPONIBLE**             |
+| <span style={{color:'#818185'}}>INJOIGNABLE</span> | L'hôte est injoignable : il [dépend](notif-dependencies.md) d'un hôte dont le statut est **INDISPONIBLE**             |
 
 ## Statut des services
 
@@ -38,7 +38,7 @@ des informations complémentaires :
     affiché pour un service ou un hôte fraîchement configuré mais qui
     n'a pas encore été contrôlé par l'ordonnanceur.
 -   Le statut <span style={{color:'#818185'}}>INJOIGNABLE</span> est un
-    statut indiquant que l'hôte est situé ([relation de parenté](notif-dependencies)) en aval
+    statut indiquant que l'hôte est situé ([relation de parenté](notif-dependencies.md)) en aval
     d'un hôte dans un statut INDISPONIBLE.
 -   Le statut FLAPPING est un statut indiquant que le pourcentage de
     changement de statut de l'objet est très élevé. Ce pourcentage est

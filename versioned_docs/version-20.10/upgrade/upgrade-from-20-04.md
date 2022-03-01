@@ -16,7 +16,7 @@ servers:
 
 ## Update the RPM signing key
 
-For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation#existing-installation), to remove the old key and install the new one.
+For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation.md#existing-installation), to remove the old key and install the new one.
 
 ## Upgrade the Centreon Central server
 
@@ -84,7 +84,7 @@ page:
 ![image](../assets/upgrade/web_update_5.png)
 
 If the Centreon BAM module is installed, refer to the
-[upgrade procedure](../service-mapping/upgrade).
+[upgrade procedure](../service-mapping/upgrade.md).
 
 ### Post-upgrade actions
 
@@ -146,4 +146,4 @@ systemctl enable gorgoned
 ## Secure your platform
 
 Don't forget to secure your Centreon platform following our
-[recommendations](../administration/secure-platform)
+[recommendations](../administration/secure-platform.md)

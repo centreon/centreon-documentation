@@ -6,8 +6,8 @@ title: Catégories
 D’une manière générale, les catégories servent soit à définir un niveau de criticité pour un hôte ou un service, soit à
 regrouper techniquement un ensemble d’objets (services liés à une exécution de requête sur un SGBD MariaDB, ...). La
 bonne pratique demande à ce qu’on regroupe des hôtes ou des services au sein de catégories pour pouvoir faciliter le
-filtrage de ces objets au sein [d’ACL](../administration/access-control-lists). Les catégories sont également utilisées pour définir des types d’objets au sein
-du module [Centreon MAP](../graph-views/introduction) ou pour classer les objets au sein de sous-groupes dans le module [Centreon BI](../reporting/introduction).
+filtrage de ces objets au sein [d’ACL](../administration/access-control-lists.md). Les catégories sont également utilisées pour définir des types d’objets au sein
+du module [Centreon MAP](../graph-views/introduction.md) ou pour classer les objets au sein de sous-groupes dans le module [Centreon BI](../reporting/introduction.md).
 
 Il est possible de créer des catégories [d'hôtes](#catégories-dhôtes) ou de [services](#catégories-de-services).
 

@@ -43,7 +43,7 @@ This provider is named **Microsoft Azure Cache for Redis**:
 > This discovery feature is only compatible with the 'api' custom mode. 'azcli' is not supported.
 
 More information about the Host Discovery module is available in the Centreon documentation:
-[Host Discovery](../../../monitoring/discovery/hosts-discovery)
+[Host Discovery](../../../monitoring/discovery/hosts-discovery.md)
 
 ### Collected metrics & status
 
@@ -51,14 +51,14 @@ More information about the Host Discovery module is available in the Centreon do
 <TabItem value="Cache-Latency" label="Cache-Latency">
 
 | Metric Name                      | Description   | Unit |
-| :------------------------------- | :------------ | :--- |
+|:---------------------------------|:--------------|:-----|
 | redis.cache.latency.microseconds | Cache Latency | μs   |
 
 </TabItem>
 <TabItem value="Cache-Throughput" label="Cache-Throughput">
 
 | Metric Name                                 | Description            | Unit |
-| :------------------------------------------ | :--------------------- | :--- |
+|:--------------------------------------------|:-----------------------|:-----|
 | redis.cache.read.throughput.bytespersecond  | Cache Read Throughput  | B/s  |
 | redis.cache.write.throughput.bytespersecond | Cache Write Throughput | B/s  |
 
@@ -66,7 +66,7 @@ More information about the Host Discovery module is available in the Centreon do
 <TabItem value="Cache-Usage" label="Cache-Usage">
 
 | Metric Name              | Description  | Unit  |
-| :----------------------- | :----------- | :---- |
+|:-------------------------|:-------------|:------|
 | redis.cache.hits.count   | Cache Hits   | Count |
 | redis.cache.misses.count | Cache Misses | Count |
 
@@ -74,28 +74,28 @@ More information about the Host Discovery module is available in the Centreon do
 <TabItem value="Clients" label="Clients">
 
 | Metric Name                         | Description       | Unit  |
-| :---------------------------------- | :---------------- | :---- |
+|:------------------------------------|:------------------|:------|
 | redis.cache.clients.connected.count | Connected Clients | Count |
 
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
 
 | Metric Name                      | Description          | Unit |
-| :------------------------------- | :------------------- | :--- |
+|:---------------------------------|:---------------------|:-----|
 | redis.cache.cpu.usage.percentage | CPU Usage Percentage | %    |
 
 </TabItem>
 <TabItem value="Errors" label="Errors">
 
 | Metric Name              | Description | Unit  |
-| :----------------------- | :---------- | :---- |
+|:-------------------------|:------------|:------|
 | redis.cache.errors.count | Errors      | Count |
 
 </TabItem>
 <TabItem value="Health" label="Health">
 
 | Status Name | Description                 |
-| :---------- | :-------------------------- |
+|:------------|:----------------------------|
 | status      | Current operational status  |
 | summary     | Last related status message |
 
@@ -103,21 +103,21 @@ More information about the Host Discovery module is available in the Centreon do
 <TabItem value="Load" label="Load">
 
 | Metric Name                        | Description | Unit |
-| :--------------------------------- | :---------- | :--- |
+|:-----------------------------------|:------------|:-----|
 | redis.cache.server.load.percentage | Server Load | %    |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
 | Metric Name                         | Description             | Unit |
-| :---------------------------------- | :---------------------- | :--- |
+|:------------------------------------|:------------------------|:-----|
 | redis.cache.memory.usage.percentage | Memory Usage Percentage | %    |
 
 </TabItem>
 <TabItem value="Operations" label="Operations">
 
 | Metric Name                      | Description            | Unit |
-| :------------------------------- | :--------------------- | :--- |
+|:---------------------------------|:-----------------------|:-----|
 | redis.cache.operations.persecond | Operations per seconds | op/s |
 
 </TabItem>
@@ -290,7 +290,7 @@ in *AZURERESOURCE*
 <TabItem value="Azure Monitor API" label="Azure Monitor API">
 
 | Mandatory | Nom                | Description                                        |
-| :-------- | :----------------- | :------------------------------------------------- |
+|:----------|:-------------------|:---------------------------------------------------|
 | X         | AZURECUSTOMMODE    | Custom mode 'api'                                  |
 | X         | AZURESUBSCRIPTION  | Subscription ID                                    |
 | X         | AZURETENANT        | Tenant ID                                          |
@@ -304,7 +304,7 @@ in *AZURERESOURCE*
 <TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 | Mandatory | Nom                | Description                                        |
-| :-------- | :----------------- | :------------------------------------------------- |
+|:----------|:-------------------|:---------------------------------------------------|
 | X         | AZURECUSTOMMODE    | Custom mode 'azcli'                                |
 | X         | AZURESUBSCRIPTION  | Subscription ID                                    |
 | X         | AZURERESOURCE      | ID or name of the Redis resource                   |
@@ -371,7 +371,7 @@ All the available options for a given mode can be displayed by adding the ```--h
 The Plugin is using a cache file to keep connection information and avoid an authentication at each call. 
 If some of the authentication parameters change, you must delete the cache file. 
 
-The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder with a name similar to `azure_api_<md5>_<md5>_<md5>_<md5>`.
+The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder with a name similar to azure_api_`<md5>_<md5>_<md5>_<md5>`.
 
 #### ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```
 

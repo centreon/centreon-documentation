@@ -56,7 +56,7 @@ yum install -y centreon-pack-applications-monitoring-mip-restapi`
 
 3. Install the Plugin-Pack through "Configuration \> Plugin-Packs \> Manager" menu:
 
-![install\_epp](../../../assets/integrations/external/mip-epp-install.png)-->
+![install\_epp](../../../assets/integrations/external/mip-epp-install.png)
 
 </TabItem>
 </Tabs>

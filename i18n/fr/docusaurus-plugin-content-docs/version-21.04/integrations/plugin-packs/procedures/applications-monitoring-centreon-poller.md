@@ -75,7 +75,7 @@ Il apporte les Modèles de Service suivants :
 
 ### SNMP
 
-SNMP doit être configuré sur chaque collecteur supervisé. Vous pouvez vous aider de cette [documentation](operatingsystems-linux-snmp#prerequisites) pour mettre en place rapidement une simple configuration SNMP. 
+SNMP doit être configuré sur chaque collecteur supervisé. Vous pouvez vous aider de cette [documentation](operatingsystems-linux-snmp.md#prerequis) pour mettre en place rapidement une simple configuration SNMP. 
 
 ### Echange de clef SSH
 
@@ -198,4 +198,4 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre `--
 
 ### Diagnostic des erreurs communes
 
-Rendez-vous sur la [documentation dédiée](../tutorials/troubleshooting-plugins) pour le diagnostic des erreurs communes des Plugins Centreon.
+Rendez-vous sur la [documentation dédiée](../tutorials/troubleshooting-plugins.md) pour le diagnostic des erreurs communes des Plugins Centreon.

@@ -130,7 +130,7 @@ Aller dans Configuration > Host > et cliquer sur Ajouter. Puis complétez les
 champs SNMP Community et SNMP Version et appliquer le modèle d'hôte
 *Net-Lenovo-Flexsystem-SNMP-custom*.
 
-> Si vous utilisez SNMP en version 3, sélectionnez la version SNMP 3 et
+> Si vous utilisez SNMP en version 3, selectionnez la version SNMP 3 et
 configurez les paramètres SNMP v3 via la macro SNMPEXTRAOPTIONS.
 
 | Mandatory   | Name             | Description                                    |

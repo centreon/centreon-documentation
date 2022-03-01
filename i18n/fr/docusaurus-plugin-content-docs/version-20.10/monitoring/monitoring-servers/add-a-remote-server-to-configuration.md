@@ -204,6 +204,13 @@ Le résultat devrait être similaire :
 Mar 24 19:45:00 localhost.localdomain systemd[1]: Started Centreon Gorgone.
 ```
 
+**Pour forcer le Gorgone du Central à se connecter au Remote Server**,
+redémarrez le avec la commande suivante depuis le **serveur Central** :
+
+```shell
+systemctl restart gorgoned
+```
+
 </TabItem>
 <TabItem value="Avec SSH (Déprécié)" label="Avec SSH (Déprécié)">
 
@@ -213,12 +220,8 @@ Mar 24 19:45:00 localhost.localdomain systemd[1]: Started Centreon Gorgone.
 > synchronisation des données entre l'interface utilisateur du Central
 > et du Remote Server.
 
-**Pour forcer le Gorgone du Central à se connecter au Remote Server**,
-redémarrez le avec la commande suivante depuis le **serveur Central** :
-
-```shell
-systemctl restart gorgoned
-```
+</TabItem>
+</Tabs>
 
 ## Exporter la configuration
 
@@ -241,10 +244,7 @@ Broker Central.
 
 ![image](../../assets/monitoring/monitoring-servers/remote-list-zmq-started.png)
 
-</TabItem>
-</Tabs>
-
 ## Premiers pas
 
-Rendez-vous dans le chapitre [Premiers pas](../../getting-started/installation-first-steps#start-to-monitor-your-first-host)
+Rendez-vous dans le chapitre [Premiers pas](../../getting-started/installation-first-steps.md#start-to-monitor-your-first-host)
 pour mettre en place votre première supervision.

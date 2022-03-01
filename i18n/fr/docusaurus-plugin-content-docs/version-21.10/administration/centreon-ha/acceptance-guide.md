@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 > Sauf mention contraire, toutes les commandes présentées dans ce document sont à lancer en tant que `root`.
 
-> Dans ce document, nous ferons référence à des paramètres variant d'une installation à une autre (noms et adresses IP des nœuds par exemple) par l'intermédiaire des [macros définies ici](../../installation/installation-of-centreon-ha/installation-2-nodes#définition-des-noms-et-adresses-ip-des-serveurs)
+> Dans ce document, nous ferons référence à des paramètres variant d'une installation à une autre (noms et adresses IP des nœuds par exemple) par l'intermédiaire des [macros définies ici](../../installation/installation-of-centreon-ha/installation-2-nodes.md#définition-des-noms-et-adresses-ip-des-serveurs)
 
 ## Condition des tests
 
@@ -96,7 +96,7 @@ Active resources:
 </TabItem>
 </Tabs>
 
-> Vérifier les erreurs de type `Failed` présentes sur les ressources et corriger ces dernières en vous aidant du [guide de troubleshooting](troubleshooting-guide).
+> Vérifier les erreurs de type `Failed` présentes sur les ressources et corriger ces dernières en vous aidant du [guide de troubleshooting](troubleshooting-guide.md).
 
 ### Vérifier les contraintes 
 
@@ -152,7 +152,7 @@ Slave Thread Status [OK]
 Position Status [OK]
 ```
 
-> Si la synchronisation présente des `KO` vous devez corriger ces dernières en vous aidant du [guide d'opération](operating-guide).
+> Si la synchronisation présente des `KO` vous devez corriger ces dernières en vous aidant du [guide d'opération](operating-guide.md).
 
 ## Bascule des ressource Centreon
 
@@ -350,7 +350,7 @@ Slave Thread Status [OK]
 Position Status [OK]
 ```
 
-> Si la synchronisation présente des `KO` vous devez corriger ces dernières en vous aidant du [guide d'opération](operating-guide).
+> Si la synchronisation présente des `KO` vous devez corriger ces dernières en vous aidant du [guide d'opération](operating-guide.md).
 
 ### Retour en situation nominale
 
@@ -881,4 +881,4 @@ iptables -D OUTPUT @RULE_NUMBER@
 ```
 
 En lançant la commande `crm_mon` sur le second nœud, vous verrez le nœud primaire remonter dans le cluster.
-Si vous souhaitez basculer sur le nœud primaire, exécuter les [commandes de bascule](acceptance-guide#retour-en-situation-nominal).
+Si vous souhaitez basculer sur le nœud primaire, exécuter les [commandes de bascule](acceptance-guide.md#retour-en-situation-nominal).

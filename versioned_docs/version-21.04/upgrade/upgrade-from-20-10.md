@@ -10,10 +10,10 @@ This chapter describes how to upgrade your Centreon platform from version 20.10
 to version 21.04.
 
 > If you want to migrate your Centreon server to CentOS / Oracle Linux / RHEL 8
-> you need to follow the [migration procedure](../migrate/migrate-from-20-x)
+> you need to follow the [migration procedure](../migrate/migrate-from-20-x.md)
 
 > To perform this procedure, your MariaDB version must be >= 10.3.22.
-> If not, please follow before the [MariaDB update chapter](./upgrade-from-19-10#upgrade-mariadb-server)
+> If not, please follow before the [MariaDB update chapter](./upgrade-from-19-10.md#upgrade-mariadb-server)
 
 > Warning, following the correction of a problem relating to the database schema, it will be necessary to stop the 
 > insertion of the data collected into the database during the update. These will be stored in temporary files and then
@@ -29,7 +29,7 @@ servers:
 
 ## Update the RPM signing key
 
-For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation#existing-installation), to remove the old key and install the new one.
+For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation.md#existing-installation), to remove the old key and install the new one.
 
 ## Upgrade the Centreon Central server
 
@@ -173,11 +173,11 @@ page:
 ![image](../assets/upgrade/web_update_5.png)
 
 If the Centreon BAM module is installed, refer to the
-[upgrade procedure](../service-mapping/upgrade).
+[upgrade procedure](../service-mapping/upgrade.md).
 
 ### Post-upgrade actions
 
-1. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration).
+1. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
 
 2. Restart the processes:
     ```

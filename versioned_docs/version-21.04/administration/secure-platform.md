@@ -38,7 +38,7 @@ You must have **/sbin/nologin** like:
 apache:x:48:48:Apache:/usr/share/httpd:/sbin/nologin
 ```
 
-> As a reminder, the list of users and groups can be found [here](../installation/prerequisites#users-and-groups)
+> As a reminder, the list of users and groups can be found [here](../installation/prerequisites.md#users-and-groups)
 
 ## Enable SELinux
 
@@ -218,7 +218,7 @@ systemctl start firewalld
 ```
 
 > The list of network flows required for each type of server is defined
-> [here](../installation/architectures#tables-of-platform-flows).
+> [here](../installation/architectures.md#tables-of-platform-flows).
 
 <Tabs groupId="sync">
 <TabItem value="Central / Remote Server" label="Central / Remote Server">
@@ -483,7 +483,8 @@ RedirectMatch ^/$ /centreon
 Edit the **/etc/httpd/conf.d/10-centreon.conf** file and add the following line:
 
 ```apacheconf
-Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;Secure
+Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;Secure;SameSite=Strict
+Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
 ServerSignature Off
 ServerTokens Prod
 ```
@@ -501,7 +502,8 @@ Edit the **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf** file and add
 
 ```apacheconf
 Header set X-Frame-Options: "sameorigin"
-Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;Secure
+Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;Secure;SameSite=Strict
+Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
 ServerSignature Off
 ServerTokens Prod
 TraceEnable Off
@@ -809,7 +811,7 @@ To use http2, you need to follow those steps:
 <Tabs groupId="sync">
 <TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
 
-1. [Configure https on Centreon](./secure-platform#enable-https-on-the-web-server)
+1. [Configure https on Centreon](secure-platform.md#enable-https-on-the-web-server)
 
 2. Install nghttp2 module:
 
@@ -847,7 +849,7 @@ systemctl restart httpd
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
-1. [Configure https on Centreon](./secure-platform#enable-https-on-the-web-server)
+1. [Configure https on Centreon](secure-platform.md#enable-https-on-the-web-server)
 
 2. Install nghttp2 module:
 
@@ -889,21 +891,21 @@ systemctl restart httpd24-httpd
 
 Centreon offers several methods to authenticate users:
 
-- [local](../connect/loginpwd) (MySQL)
-- [LDAP](./parameters/ldap)
-- [Generic SSO](../connect/sso) or [OpenId Connect](../connect/openid#connect)
+- [local](../connect/loginpwd.md) (MySQL)
+- [LDAP](./parameters/ldap.md)
+- [Generic SSO](../connect/sso.md) or [OpenId Connect](../connect/openid.md#connect)
 
 ## Create user profiles
 
 Centreon offers to manage access permissions to the different menus, resources and possible actions on resources via
-the management of [Access Control List](./access-control-lists).
+the management of [Access Control List](./access-control-lists.md).
 
 ## Secure communications between servers
 
 It is strongly recommended to secure communications between the different servers of the Centreon platform if some servers
 are not in a secure network.
 
-> The Table of network flows is available [here](../installation/architectures#table-of-network-flows).
+> The Table of network flows is available [here](../installation/architectures.md#table-of-network-flows).
 
 ### Centreon Broker communication
 
@@ -911,13 +913,13 @@ are not in a secure network.
 
 In certain cases, you may not be able to initialize the Centreon Broker data flow from the poller (or the Remote Server)
 to the Central Server or the Remote Server.
-[See the following configuration to invert the flow](../monitoring/monitoring-servers/advanced-configuration#centreon-broker-and-the-firewall).
+[See the following configuration to invert the flow](../monitoring/monitoring-servers/advanced-configuration.md#centreon-broker-and-the-firewall).
 
 #### Centreon Broker flow authentication
 
 If you need to authenticate pollers that are sending data to the monitoring system, you can use the Centreon Broker
 authentication mechanism, which is based on X.509 certificates.
-[See the following configuration to authenticate the peer](../monitoring/monitoring-servers/advanced-configuration#centreon-broker-flow-authentication).
+[See the following configuration to authenticate the peer](../monitoring/monitoring-servers/advanced-configuration.md#centreon-broker-flow-authentication).
 
 #### Compress and encrypt the Centreon Broker communication
 
@@ -948,9 +950,9 @@ Centreon event logs are available in the following directories:
 | /var/log/centreon-map     | X              | X             |        | X                   | X                   |
 
 > In addition, all actions to modify the Centreon configuration carried out by users are available via the
-[`Administration > Logs`](./logging-configuration-changes) menu.
+[`Administration > Logs`](./logging-configuration-changes.md) menu.
 
 ## Backing up the platform
 
 Centreon offers to save the configuration of the platform. To do this, go to the
-[`Administration  >  Parameters  >  Backup`](./backup) menu.
+[`Administration  >  Parameters  >  Backup`](./backup.md) menu.

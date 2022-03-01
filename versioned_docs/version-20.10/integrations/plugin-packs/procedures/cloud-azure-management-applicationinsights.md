@@ -39,7 +39,7 @@ This provider is named **Microsoft Azure Application Insights**:
 > This discovery feature is only compatible with the 'api' custom mode. 'azcli' is not supported yet.
 
 More information about the Host Discovery module is available in the Centreon documentation:
-[Host Discovery](../../../monitoring/discovery/hosts-discovery)
+[Host Discovery](../../../monitoring/discovery/hosts-discovery.md)
 
 ### Collected metrics & status
 
@@ -47,7 +47,7 @@ More information about the Host Discovery module is available in the Centreon do
 <TabItem value="Availability" label="Availability">
 
 | Metric Name                                          | Description                | Unit  |
-| :--------------------------------------------------- | :------------------------- | :---- |
+|:-----------------------------------------------------|:---------------------------|:------|
 | appinsights.availability.percentage                  | Availability               | %     |
 | appinsights.availability.tests.count                 | Availability tests         | Count |
 | appinsights.availability.tests.duration.milliseconds | Availability test duration | ms    |
@@ -56,7 +56,7 @@ More information about the Host Discovery module is available in the Centreon do
 <TabItem value="Browsertimings" label="Browsertimings">
 
 | Metric Name                                  | Description                    | Unit |
-| :------------------------------------------- | :----------------------------- | :--- |
+|:---------------------------------------------|:-------------------------------|:-----|
 | appinsights.processing.duration.milliseconds | Client processing time         | ms   |
 | appinsights.processing.duration.milliseconds | Page load network connect time | ms   |
 | appinsights.receive.duration.milliseconds    | Receiving response time        | ms   |
@@ -67,7 +67,7 @@ More information about the Host Discovery module is available in the Centreon do
 <TabItem value="Cpu" label="Cpu">
 
 | Metric Name                                 | Description    | Unit |
-| :------------------------------------------ | :------------- | :--- |
+|:--------------------------------------------|:---------------|:-----|
 | appinsights.cpu.nonidle.time.percentage     | Processor time | %    |
 | appinsights.cpu.w3wp.utilization.percentage | Process CPU    | %    |
 
@@ -75,7 +75,7 @@ More information about the Host Discovery module is available in the Centreon do
 <TabItem value="Exceptions" label="Exceptions">
 
 | Metric Name                          | Description        | Unit  |
-| :----------------------------------- | :----------------- | :---- |
+|:-------------------------------------|:-------------------|:------|
 | appinsights.exceptions.browser.count | Browser exceptions | Count |
 | appinsights.exceptions.server.count  | Server exceptions  | Count |
 | appinsights.exceptions.total.count   | Exceptions         | Count |
@@ -84,7 +84,7 @@ More information about the Host Discovery module is available in the Centreon do
 <TabItem value="Externalcalls" label="Externalcalls">
 
 | Metric Name                             | Description              | Unit  |
-| :-------------------------------------- | :----------------------- | :---- |
+|:----------------------------------------|:-------------------------|:------|
 | appinsights.calls.count                 | Dependency calls         | Count |
 | appinsights.calls.duration.milliseconds | Dependency duration      | ms    |
 | appinsights.calls.failure.count         | Dependency call failures | Count |
@@ -92,15 +92,15 @@ More information about the Host Discovery module is available in the Centreon do
 </TabItem>
 <TabItem value="Iooperations" label="Iooperations">
 
-| Metric Name                                          | Description     | Unit |
-| :--------------------------------------------------- | :-------------- | :--- |
+| Metric Name                                        | Description     | Unit |
+|:---------------------------------------------------|:----------------|:-----|
 | appinsights.process.bytes.operations.bytesperseconds | Process IO rate | B/s  |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
 | Metric Name                        | Description           | Unit |
-| :--------------------------------- | :-------------------- | :--- |
+|:-----------------------------------|:----------------------|:-----|
 | appinsights.memory.available.bytes | Available memory      | B    |
 | appinsights.memory.private.bytes   | Process private bytes | B    |
 
@@ -108,7 +108,7 @@ More information about the Host Discovery module is available in the Centreon do
 <TabItem value="Pageviews" label="Pageviews">
 
 | Metric Name                             | Description         | Unit  |
-| :-------------------------------------- | :------------------ | :---- |
+|:----------------------------------------|:--------------------|:------|
 | appinsights.pageviews.load.milliseconds | Page view load time | ms    |
 | appinsights.pageviews.total.count       | Page views          | Count |
 
@@ -116,7 +116,7 @@ More information about the Host Discovery module is available in the Centreon do
 <TabItem value="Requests" label="Requests">
 
 | Metric Name                                      | Description                        | Unit       |
-| :----------------------------------------------- | :--------------------------------- | :--------- |
+|:-------------------------------------------------|:-----------------------------------|:-----------|
 | appinsights.requests.duration.milliseconds       | Server response time               | ms         |
 | appinsights.requests.execution.time.milliseconds | HTTP request execution time        | ms         |
 | appinsights.requests.failed.count                | Failed requests                    | Count      |
@@ -295,7 +295,7 @@ in *AZURERESOURCE*
 <TabItem value="Azure Monitor API" label="Azure Monitor API">
 
 | Mandatory | Nom                | Description                                        |
-| :-------- | :----------------- | :------------------------------------------------- |
+|:----------|:-------------------|:---------------------------------------------------|
 | X         | AZURECUSTOMMODE    | Custom mode 'api'                                  |
 | X         | AZURESUBSCRIPTION  | Subscription ID                                    |
 | X         | AZURETENANT        | Tenant ID                                          |
@@ -309,7 +309,7 @@ in *AZURERESOURCE*
 <TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 | Mandatory | Nom                | Description                                        |
-| :-------- | :----------------- | :------------------------------------------------- |
+|:----------|:-------------------|:---------------------------------------------------|
 | X         | AZURECUSTOMMODE    | Custom mode 'azcli'                                |
 | X         | AZURESUBSCRIPTION  | Subscription ID                                    |
 | X         | AZURERESOURCE      | ID or name of the Application Gateway resource     |
@@ -376,7 +376,7 @@ All the available options for a given mode can be displayed by adding the ```--h
 The Plugin is using a cache file to keep connection information and avoid an authentication at each call. 
 If some of the authentication parameters change, you must delete the cache file. 
 
-The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder with a name similar to `azure_api_<md5>_<md5>_<md5>_<md5>`.
+The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder with a name similar to azure_api_`<md5>_<md5>_<md5>_<md5>`.
 
 ### ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```
 

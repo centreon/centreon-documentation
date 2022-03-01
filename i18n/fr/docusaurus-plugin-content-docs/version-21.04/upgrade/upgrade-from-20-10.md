@@ -10,11 +10,11 @@ Ce chapitre décrit la procédure de montée de version de votre plate-forme
 Centreon depuis la version 20.10 vers la version 21.04.
 
 > Si vous souhaitez migrer votre serveur Centreon vers CentOS / Oracle Linux
-> / RHEL 8, vous devez suivre la [procédure de migration](../migrate/migrate-from-20-x)
+> / RHEL 8, vous devez suivre la [procédure de migration](../migrate/migrate-from-20-x.md)
 
 > Pour effectuer cette procédure, votre version de MariaDB doit être >= 10.3.22.
 > Si cela n'est pas le cas, merci de suivre avant le
-> [chapitre de mise à jour de MariaDB](./upgrade-from-19-10#upgrade-mariadb-server)
+> [chapitre de mise à jour de MariaDB](./upgrade-from-19-10.md#upgrade-mariadb-server)
 
 > Attention, suite à la correction d'un problème relatif au schéma de base de données, il sera nécessaire
 > d'arrêter l'insertion en base de données des données collectées le temps de la mise à jour. Celles-ci seront stockées
@@ -30,7 +30,7 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 
 ## Mettre à jour la clé de signature RPM
 
-Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centreon sont changées régulièrement. Le dernier changement a eu lieu le 14 octobre 2021. Lorsque vous mettez Centreon à jour depuis une version plus ancienne, vous devez suivre la [procédure de changement de clé](../security/key-rotation#installation-existante), afin de supprimer l'ancienne clé et d'installer la nouvelle.
+Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centreon sont changées régulièrement. Le dernier changement a eu lieu le 14 octobre 2021. Lorsque vous mettez Centreon à jour depuis une version plus ancienne, vous devez suivre la [procédure de changement de clé](../security/key-rotation.md#installation-existante), afin de supprimer l'ancienne clé et d'installer la nouvelle.
 
 ## Montée de version du serveur Centreon Central
 
@@ -175,11 +175,11 @@ accéder à la page de connexion :
 ![image](../assets/upgrade/web_update_5.png)
 
 Si le module Centreon BAM est installé, référez-vous à la [documentation
-associée](../service-mapping/upgrade) pour le mettre à jour.
+associée](../service-mapping/upgrade.md) pour le mettre à jour.
 
 ### Actions post montée de version
 
-1. [Déployer la configuration](../monitoring/monitoring-servers/deploying-a-configuration).
+1. [Déployer la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
 
 2. Redémarrez les processus Centreon :
 

@@ -11,7 +11,7 @@ d’objets similaires.
 Un modèle peut hériter des propriétés d’un autre modèle.
 
 Les modèles issus de Plugin Packs permettent de mettre facilement un hôte en supervision
-car ils fournissent les [commandes](commands) de vérification appropriées.
+car ils fournissent les [commandes](commands.md) de vérification appropriées.
 
 ## Héritage
 
@@ -50,7 +50,7 @@ Pour créer un modèle d’hôtes :
 le bouton **Ajouter**.
 
 > Rapportez-vous au chapitre de configuration des
-> *[hôtes](hosts)* pour configurer un modèle car le
+> *[hôtes](hosts.md)* pour configurer un modèle car le
 > formulaire est identique.
 
 > Par défaut, les modèles d’hôte verrouillés sont masqués. Cocher la case

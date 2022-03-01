@@ -196,14 +196,14 @@ fonctionnera pas si vous ne l’exécutez pas.
 
 7. Connectez-vous en utilisant les informations suivantes : Login: `admin`, password: `centreon`. Par défaut, votre serveur offre une configuration prédéfinie qui permet de le superviser lui-même.
 
-8. Selon votre édition de Centreon, vous pouvez avoir à [ajouter une licence](../../administration/licenses).
+8. Selon votre édition de Centreon, vous pouvez avoir à [ajouter une licence](../../administration/licenses.md).
 
-9. [Mettez à jour](../../update/update-centreon-platform) votre plateforme Centreon.
+9. [Mettez à jour](../../update/update-centreon-platform.md) votre plateforme Centreon.
 
-10. [Sécurisez votre serveur](../../administration/secure-platform). Il est notamment recommandé de changer les mots de passe des comptes `root` et `admin`, et
+10. [Sécurisez votre serveur](../../administration/secure-platform.md). Il est notamment recommandé de changer les mots de passe des comptes `root` et `admin`, et
 de définir un mot de passe pour la base MariaDB.
 
-11. Vous pouvez maintenant [superviser votre premier hôte](../../getting-started/first-supervision).
+11. Vous pouvez maintenant [superviser votre premier hôte](../../getting-started/first-supervision.md).
 
 ## Identifiants par défaut
 
