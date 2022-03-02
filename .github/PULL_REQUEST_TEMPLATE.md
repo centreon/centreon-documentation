@@ -2,11 +2,19 @@
 
 Exercise as part of the recruitment process. 
 
-Proofreading of the topics:
+Please contact [Samy Ben Kadour](sbenkadour@centreon.com) for information.
+
+### Content
+
+Redesign and rewrite of this section: 
 
 ```
 /versioned_docs/version-21.10/alerts-notifications/ticketing.md
+```
 
+Proofreading of this page:
+
+```
 /i18n/fr/docusaurus-plugin-content-docs/version-21.10/alerts-notifications/ticketing.md
 ```
 
@@ -16,3 +24,47 @@ Proofreading of the topics:
 - [ ] 21.04.x
 - [x] 21.10.x
 - [ ] 22.04.x (next)
+
+
+# Comments
+
+## General impression
+
+I felt that the page contained too much information of different types. Although it is handy to have everything in a single place, most users are not looking for more than one thing at time when accessing docs. For example mixing configuration with operation makes no sense to me.
+
+
+## Missing information
+
+In some cases when I did my edits I had to sometimes wildly guess how the system worked, so there may room for revisions... For example, not knowing how lists workd, I couldn't find info about it in the docs, so had to speculate a bit.
+
+Normally in such cases, I'd open up the system and try it out for myself, but that was beyond scope this time.
+
+
+## Missing images
+
+A lot of steps are missing screenshots. Either add them, or don't provide screenshots at all. It is confusing to try to follow instructions when the images don't match the steps.
+
+
+## Language errors in screenshots
+
+There seem to be language errors in the screenshots for example "finded" instead of "found". I haven't bothered fixing those. Somebody needs to go through the source code and fix system texts.
+
+## Instructions
+
+I prefer when instructions are clearly separated from descriptions, and that there is only one step per instruction. In some places you have multiple steps in the same sentence. While this is normally fine to understand, it might cause the user to lose track of where they are if they have to do multiple steps before returning to the docs. Simpler is normally better.
+
+## Indicators
+
+The screenshots are inconsistent, some have indicators, some do not.
+
+Either add red boxes and arrows for important stuff in all the screenshots, or don't use indicators.
+
+## Image size
+
+The advanced configuration image is so big it is hard to see the details, and it is distracting. Better to separate it and have two different images with better resolution.
+
+## Image content
+
+In the "Widget configuration" section, the image displays a list. The screenshot should be simplified and only show one row for each type of item. That makes the image smaller and easier to understand for the user.
+
+Extra rows with the same type of item may be more realistic, but it adds no informational value.

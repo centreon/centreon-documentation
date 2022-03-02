@@ -26,7 +26,7 @@ Définissez le nom de la règle **Rule name** et sélectionnez le **Provider**:
 Un nouveau formulaire appraît. Configurez ce dernier en fonction de ses
 spécificités.
 
-### Hôtes et serivces
+### Hôtes et services
 
 Pour que les ressources (hôtes et services) reçoivent un numéro de
 ticket, il est nécessaire de leur ajouter une macro personnalisée à leur
