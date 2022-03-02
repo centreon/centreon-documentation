@@ -20,7 +20,8 @@ The Centreon Plugin relies on the Office 365 Graph API to collect and monitor th
 
 ## Collected metrics
 
-<Tabs groupId="Services">
+<Tabs groupId="sync">
+
 <TabItem value="App-Credentials" label="App-Credentials">
 
 | Metric name                                            | Description                                  | Unit   |
