@@ -1039,6 +1039,10 @@
               "type": "doc",
               "id": "version-21.10/integrations/plugin-packs/procedures/applications-drbd-ssh"
             },
+			{
+              "type": "doc",
+              "id": "version-21.10/integrations/plugin-packs/procedures/applications-dynamics-ax-nsclient-05-nrpe"
+            },
             {
               "type": "doc",
               "id": "version-21.10/integrations/plugin-packs/procedures/applications-monitoring-dynatrace-restapi"
