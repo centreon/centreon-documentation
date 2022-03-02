@@ -19,11 +19,11 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 Release date: `March 1, 2022`
 
-### Security fixes
+#### Security fixes
 
 - Log4J version updated to 2.17.1
 
-### Bug fixes
+#### Bug fixes
 
 - Fixed links not coloring according to status and output not functional when metric name contains special character
 
