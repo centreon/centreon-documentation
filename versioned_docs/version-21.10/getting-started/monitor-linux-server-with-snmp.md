@@ -114,22 +114,22 @@ In the web interface, go to **Configuration > Plugin Packs** and install the **L
 
 The **Linux SNMP** Plugin Pack provides several monitoring templates. Go to **Configuration > Services > Templates** to know the complete list:
 
-   ![image](../assets/getting-started/quick_start_linux_snmp_8.png)
+   ![image](../assets/getting-started/quick_start_linux_8.png)
 
 With **Centreon IT Edition** you can add very quickly and very simply the monitoring of your network interfaces, partitions, processes and services using the [Service Discovery](../monitoring/discovery/services-discovery.md) functionality.
 
 1. Go to **Configuration > Services > Scan**. Start writing the name of the host and the web interface automatically completes the name:
 
-   ![image](../assets/getting-started/quick_start_linux_snmp_9.png)
+   ![image](../assets/getting-started/quick_start_linux_9.png)
 
 2. Select the discovery command to run from the list that has just appeared below the **Rule** field. Then click on the **Scan** button and wait during the discovery. The result is displayed. Select items to add to the monitoring and click on the **Save** button:
 
-   ![image](../assets/getting-started/quick_start_linux_snmp_10.png)
+   ![image](../assets/getting-started/quick_start_linux_10.png)
 
 The item was added. You can select another discovery command below **Rule** and repeat the process.
 
 3. The services are added and can be displayed in the **Configuration > Services > Services by host** menu:
 
-   ![image](../assets/getting-started/quick_start_linux_snmp_11.png)
+   ![image](../assets/getting-started/quick_start_linux_11.png)
 
 4. [Deploy the configuration](first-supervision.md#deploying-a-configuration).
