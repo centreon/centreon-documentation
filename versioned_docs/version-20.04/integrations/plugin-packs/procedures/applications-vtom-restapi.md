@@ -61,7 +61,7 @@ For previous VTOM version, please use **legacy** Plugin mode.
 
 ## Setup
 
-<Tabs groupId="license">
+<Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor **VTOM Rest API** resources:
