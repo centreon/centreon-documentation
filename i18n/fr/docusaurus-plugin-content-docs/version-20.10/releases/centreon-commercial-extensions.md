@@ -19,6 +19,18 @@ commerciales, veuillez contacter le support.
 
 ## Centreon MAP
 
+### 20.10.9
+
+Release date: `March 1, 2022`
+
+#### Bugfixes 
+
+- Fixed links not coloring according to status and output not functional when metric name contains special character
+
+#### Security fixes 
+
+- Log4J version updated to 2.17.1
+
 ### 20.10.8
 
 Release date: `December 20, 2021`
