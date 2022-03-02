@@ -26,7 +26,6 @@ Release date: `February 10, 2022`
 #### Enhancements
 
 - [Authentication] Autologin Validation reinforcement
-- [Resources Status] Added custom variables definition in URL/Action URL for 21.10 and previous versions
 - [UX] Add The Watch url to Centreon footer
 
 #### Bug Fixes

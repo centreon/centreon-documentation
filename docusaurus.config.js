@@ -37,6 +37,7 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+          breadcrumbs: false,
           admonitions: {},
           editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
           editLocalizedFiles: true,
@@ -91,6 +92,15 @@ const config = {
       },
     ],
     'plugin-image-zoom',
+	[
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'cloud',
+        path: 'cloud',
+        routeBasePath: 'cloud',
+        sidebarPath: require.resolve('./cloud/sidebarsCloud.js'),
+      },
+    ],
   ],
 
   themeConfig:
@@ -131,7 +141,7 @@ const config = {
 
       navbar: {
         hideOnScroll: false,
-        title: 'Centreon Docs',
+        title: '',
         logo: {
           alt: 'Logo Centreon Docs',
           src: 'img/logo-centreon.png',
@@ -141,8 +151,13 @@ const config = {
           {
             type: 'doc',
             docId: 'getting-started/installation-first-steps',
-            position: 'right',
-            label: 'Documentation',
+            position: 'left',
+            label: 'Centreon OnPrem',
+          },
+		  {
+            to: '/cloud/getting-started/architecture',
+            label: 'Centreon Cloud',
+            position: 'left',
           },
           {
             type: 'search',

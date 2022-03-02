@@ -9,4 +9,5 @@ Any relevant information should be added to help reviewers.
 - [ ] 20.10.x
 - [ ] 21.04.x
 - [ ] 21.10.x
-- [ ] 22.04.x (next)
+
+PRs for version 22.04 must be done on branch "next".

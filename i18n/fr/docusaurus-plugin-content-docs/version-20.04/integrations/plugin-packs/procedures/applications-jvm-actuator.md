@@ -179,4 +179,4 @@ Toutes les options et leur utilisation peuvent être consultées avec le paramè
 
 ## Diagnostique
 
-[Diagnostique des plugins](../tutorials/troubleshooting-plugins)
+[Diagnostique des plugins](../tutorials/troubleshooting-plugins.md)

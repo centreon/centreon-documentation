@@ -489,6 +489,7 @@ RedirectMatch ^/$ /centreon
 
 ```apacheconf
 Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;Secure;SameSite=Strict
+Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
 ServerSignature Off
 ServerTokens Prod
 ```
@@ -507,6 +508,7 @@ expose_php = Off
 ```apacheconf
 Header set X-Frame-Options: "sameorigin"
 Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;Secure;SameSite=Strict
+Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
 ServerSignature Off
 ServerTokens Prod
 TraceEnable Off

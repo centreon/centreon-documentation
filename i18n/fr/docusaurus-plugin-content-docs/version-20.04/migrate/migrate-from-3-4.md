@@ -17,7 +17,7 @@ et disposant des prérequis suivants :
 
 > Si votre plate-forme a été installé à partir de l'ISO Centreon ou des dépôts
 > Centreon 3.4 sur CentOS ou Red Hat en version 7, référez-vous à la documentation
-> de [montée de version](../upgrade/upgrade-from-3-4).
+> de [montée de version](../upgrade/upgrade-from-3-4.md).
 
 ## Migration
 
@@ -27,15 +27,15 @@ et disposant des prérequis suivants :
 
 > En cas de migration d'une plate-forme disposant du module **Centreon Poller
 > Display 1.6.x**, référez-vous à la
-> [procédure de migration](poller-display-to-remote-server).
+> [procédure de migration](poller-display-to-remote-server.md).
 
 ### Installation du nouveau serveur
 
 Réalisez les actions suivantes :
 
 1. Installez un nouveau serveur Centreon à partir de
-[l'ISO](../installation/installation-of-a-central-server/using-centreon-iso)
-ou des [paquets](../installation/installation-of-a-central-server/using-packages)
+[l'ISO](../installation/installation-of-a-central-server/using-centreon-iso.md)
+ou des [paquets](../installation/installation-of-a-central-server/using-packages.md)
 jusqu'à terminer le processus d'installation en vous connectant à l'interface
 web.
 
@@ -191,10 +191,10 @@ Si l'adresse IP de votre serveur Centreon a changé, éditez la configuration de
 l'ensemble des modules broker de vos collecteurs et modifiez l'adresse IP de
 connexion au serveur Centreon central (output IPv4). Consultez le chapitre
 [Configuration
-avancée](../monitoring/monitoring-servers/advanced-configuration#tcp-outputs)
+avancée](../monitoring/monitoring-servers/advanced-configuration.md#tcp-outputs)
 pour plus d'information.
 
-Puis [générez](../monitoring/monitoring-servers/deploying-a-configuration)
+Puis [générez](../monitoring/monitoring-servers/deploying-a-configuration.md)
 la configuration de l'ensemble de la plateforme et exportez là.
 
 ### Mise à jour des modules
