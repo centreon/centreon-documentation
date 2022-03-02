@@ -33,8 +33,8 @@ If you have feature requests or want to report a bug, please go to our
 #### Bug Fixes
 
 - [APIv2] Fixed criticality null return for monitoring endpoint
-- [Administration] Improve LDAP authentication and authorization
 - [Apache] Fixed SNMP MIB import mib with new mod_security rule definition
+- [Authentication] Improve LDAP authentication and authorization
 - [Authentication] Remove deadlocks on token deletion
 - [Configuration] A regression in the host/host template configuration form caused the inherited macros to be saved as owned by the host/host template instead of being inherited. This can be seen as the loss of orange coloration. To undo this unwanted change, remove the macros from the list and they will be inherited again.
 - [Configuration] Contact template properties not exported with the contact
