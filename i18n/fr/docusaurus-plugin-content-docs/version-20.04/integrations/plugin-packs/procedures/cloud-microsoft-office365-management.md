@@ -118,7 +118,8 @@ Suivez le guide pratique pour obtenir une explication complète sur la façon d�
 
 ## Installation
 
-<Tabs groupId="Licenses">
+<Tabs groupId="sync">
+
 <TabItem value="Online License" label="Online License">
 
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des ressources Office 365 Management:
