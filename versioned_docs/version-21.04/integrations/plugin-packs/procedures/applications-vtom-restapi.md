@@ -105,9 +105,9 @@ yum install centreon-pack-applications-vtom-restapi
 
 | Mandatory | Name                | Description                                                                |
 | :-------- | :------------------ | :------------------------------------------------------------------------- |
-| X         | VTOMCUSTOMMODE      | Access mode for the Plugin (default: 'api'. Can: 'legacy')                 |
+| X         | VTOMCUSTOMMODE      | Access mode for the Plugin (default: 'api'. Can be: 'legacy')              |
 | X         | VTOMAPIPORT         | Port used (Default: 30002)                                                 |
-| X         | VTOMAPIPROTO        | Specify https if needed (default: 'https')                                 |
+| X         | VTOMAPIPROTO        | Specify http if needed (default: 'https')                                  |
 | X         | VTOMAPITOKEN        | Api token                                                                  |
 | X         | VTOMAPIUSERNAME     | Api username                                                               |
 | X         | VTOMAPIPASSWORD     | Api password                                                               |

@@ -105,9 +105,9 @@ Une fois celui-ci configuré, certaines macros doivent être renseignées:
 
 | Mandatory | Name                | Description                                                                |
 | :-------- | :------------------ | :------------------------------------------------------------------------- |
-| X         | VTOMCUSTOMMODE      | Access mode for the Plugin (default: 'api'. Can: 'legacy')                 |
+| X         | VTOMCUSTOMMODE      | Access mode for the Plugin (default: 'api'. Can be: 'legacy')              |
 | X         | VTOMAPIPORT         | Port used (Default: 30002)                                                 |
-| X         | VTOMAPIPROTO        | Specify https if needed (default: 'https')                                 |
+| X         | VTOMAPIPROTO        | Specify http if needed (default: 'https')                                  |
 | X         | VTOMAPITOKEN        | Api token                                                                  |
 | X         | VTOMAPIUSERNAME     | Api username                                                               |
 | X         | VTOMAPIPASSWORD     | Api password                                                               |
@@ -177,5 +177,5 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 
 ### Diagnostic des erreurs communes
 
-Rendez-vous sur la [documentation dédiée](../tutorials/troubleshooting-plugins#http-and-api-checks)
+Rendez-vous sur la [documentation dédiée](../tutorials/troubleshooting-plugins.md#http-and-api-checks)
 pour le diagnostic des erreurs communes des Plugins Centreon.
