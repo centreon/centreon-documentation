@@ -117,7 +117,8 @@ https://docs.microsoft.com/en-us/office/office-365-management-api/get-started-wi
 
 ## Installation
 
-<Tabs groupId="Licenses">
+<Tabs groupId="sync">
+
 <TabItem value="Online License" label="Online License">
 
 1. Install the Centreon Plugin package on every poller expected to monitor **Office 365** ressources:
