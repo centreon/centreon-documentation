@@ -27,7 +27,7 @@ Il apporte les Modèles de Service suivants :
 
 ### Métriques & statuts collectés
 
-<Tabs groupId="jobs">
+<Tabs groupId="sync">
 <TabItem value="Jobs" label="Jobs">
 
 | Metric name                                               | Description                                                              | Unit  |
