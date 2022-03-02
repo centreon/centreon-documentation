@@ -27,7 +27,7 @@ It brings the following Service Templates:
 
 ### Collected metrics & status
 
-<Tabs groupId="jobs">
+<Tabs groupId="sync">
 <TabItem value="Jobs" label="Jobs">
 
 | Metric name                                               | Description                                                              | Unit  |
