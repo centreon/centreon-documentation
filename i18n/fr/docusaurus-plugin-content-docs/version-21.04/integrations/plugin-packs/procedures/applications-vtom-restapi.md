@@ -61,7 +61,7 @@ Pour les versions antérieures, il est nécessaire d'utiliser le mode **legacy**
 
 ## Installation
 
-<Tabs groupId="license">
+<Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
 1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des ressources **VTOM Rest API** :
