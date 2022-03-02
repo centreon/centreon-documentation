@@ -14,7 +14,7 @@ get the capability to send event and metrics to a third-party tool. They help yo
 insights from your monitoring data while seamlessly integrating with your existing processes thanks 
 to advanced filtering and formatting capabilities.
 
-- [Centreon Open Ticket](../alerts-notifications/ticketing/ticketing.md) 
+- [Centreon Open Tickets](../alerts-notifications/ticketing/index.md) 
 extension introduces additional UI actions and backend boiler-plates to create 
 cases within your favorite ticketing system. 
 
