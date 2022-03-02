@@ -27,7 +27,9 @@ pipeline {
      stage('Deploy PR to prewiew platform') {
        when { changeRequest target: 'staging' }
        steps {
-         input message: 'Deploy PR to prewiew platform? (Click "Proceed" to continue)'
+         timeout(time:2, unit:'HOURS') {
+           input message: 'Deploy PR to prewiew platform? (Click "Proceed" to continue)'
+         }
          sh 'aws s3 sync --delete build s3://centreon-documentation-preview-pr/ --exclude "robots.txt"'
          sh 'aws cloudfront create-invalidation --distribution-id E1JOAJFE0XFP6P  --paths "/*"'
        }
@@ -44,8 +46,10 @@ pipeline {
      stage('Deploy documentation to production') {
        when { branch 'production' }      
        steps {
-         input message: 'Deploying to production? (Click "Proceed" to continue)'
-         sh 'ssh -o StrictHostKeyChecking=no admin@docs-dev.int.centreon.com rsync -arzvh /var/www/html admin@docs.int.centreon.com:/var/www/'
+         timeout(time:2, unit:'HOURS') {
+           input message: 'Deploying to production? (Click "Proceed" to continue)'
+         }
+         sh 'ssh -o StrictHostKeyChecking=no admin@docs-dev.int.centreon.com rsync -arzvh --delete --exclude build/sitemap.xml /var/www/html admin@docs.int.centreon.com:/var/www/'
          sh 'aws cloudfront create-invalidation --distribution-id E1CNJDQJ2JT4KZ --paths "/*"'
        }
      }
