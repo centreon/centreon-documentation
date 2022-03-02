@@ -1377,6 +1377,10 @@
             },
             {
               "type": "doc",
+              "id": "version-20.04/integrations/plugin-packs/procedures/cloud-azure-compute-vmscalesets"
+            },             
+            {
+              "type": "doc",
               "id": "version-20.04/integrations/plugin-packs/procedures/cloud-azure-network-frontdoor"
             },
             {
