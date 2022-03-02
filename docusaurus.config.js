@@ -99,6 +99,7 @@ const config = {
         path: 'cloud',
         routeBasePath: 'cloud',
         sidebarPath: require.resolve('./cloud/sidebarsCloud.js'),
+        breadcrumbs: false,
       },
     ],
   ],
@@ -154,10 +155,11 @@ const config = {
             position: 'left',
             label: 'Centreon OnPrem',
           },
-		  {
+		     {
             to: '/cloud/getting-started/architecture',
             label: 'Centreon Cloud',
             position: 'left',
+            activeBaseRegex: '/cloud/',
           },
           {
             type: 'search',
