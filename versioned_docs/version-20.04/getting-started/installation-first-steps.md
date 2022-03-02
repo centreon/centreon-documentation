@@ -18,7 +18,7 @@ and use Centreon followed by tutorials to help you use the main capabilities of 
 * [Basic principles of monitoring](#basic-principle-of-monitoring)
 * [Start to monitor your first host](#start-to-monitor-your-first-host)
 * [Deploying a configuration](#deploying-a-configuration)
-* [Access to tutorials to enjoy your monitoring](introduction-tutorials)
+* [Access to tutorials to enjoy your monitoring](introduction-tutorials.md)
 
 ## Setup your first platform
 
@@ -35,13 +35,13 @@ The virtual machine needs:
 - Hard Disk storage: The virtual machine requires at least 6.5 GB of free space on your hard disk. However, if you want keep using Centreon, it is recommended to have at least 10 GB as its size will grow over time.
 - An Internet access to benefit from the IT-100 free offer.
 
-> For a more custom installation, the complete prerequisites are available [here](../installation/prerequisites).
+> For a more custom installation, the complete prerequisites are available [here](../installation/prerequisites.md).
 
 ### Download
 
 You can install Centreon:
 
-- [Using Centreon ISO](../installation/installation-of-a-central-server/using-centreon-iso)
+- [Using Centreon ISO](../installation/installation-of-a-central-server/using-centreon-iso.md)
 - From ready-to-use virtual machines:
 
 The virtual machines are available on the [Centreon download web site](https://download.centreon.com).
@@ -137,12 +137,12 @@ In the language select box, choose your language:
 Then click on **Save**. Your interface is now translated.
 
 > If your language doesn't appear in the available language list, you can help the Centreon community to translate
-> the web interface. For more details go to  [How to translate menu](../developer/developer-translate-centreon).
+> the web interface. For more details go to  [How to translate menu](../developer/developer-translate-centreon.md).
 
 ## Add your Centreon IT Edition token
 
 > Your **Centreon IT Edition** test token was sent to you by email.
-> [Configure the proxy](../administration/parameters/centreon-ui#proxy-configuration)
+> [Configure the proxy](../administration/parameters/centreon-ui.md#proxy-configuration)
 > to allow the Centreon server to access the Internet.
 
 Go to the **Administration > Extensions > Manager** menu an click on **Add Token**:
@@ -185,13 +185,13 @@ and then to implement them to monitor your first equipment.
 
 ![image](../assets/getting-started/host_service_command.png)
 
-> To go further with templates, please read the [templates chapter](../monitoring/templates#definition).
+> To go further with templates, please read the [templates chapter](../monitoring/templates.md#definition).
 
 ### Installation of basic monitoring templates
 
 Go to the **Configuration \> Plugin Packs** menu.
 
-> [Configure the proxy](../administration/parameters/centreon-ui#proxy-configuration) to allow the Centreon server to access the Internet.
+> [Configure the proxy](../administration/parameters/centreon-ui.md#proxy-configuration) to allow the Centreon server to access the Internet.
 
 Install the **Base Generic** Plugin Pack by moving your cursor on it and by clicking on **+** icon (it is a prerequisite
 to the installation of any other Plugin Packs):
@@ -281,7 +281,7 @@ It is also possible to access the **Configuration \> Services \> Templates** men
 ![image](../assets/getting-started/quick_start_linux_9.png)
 
 > With **Centreon IT Edition** you can add very quickly and very simply the monitoring of your network cards, partition,
-> processes and services using the **[Service Discovery](../monitoring/discovery/services-discovery)** functionality.
+> processes and services using the **[Service Discovery](../monitoring/discovery/services-discovery.md)** functionality.
 
 To know manually the name of the available files system you can execute the plugin in command line:
 
@@ -392,7 +392,7 @@ It is also possible to access the **Configuration \> Services \> Templates** men
 ![image](../assets/getting-started/quick_start_windows_8.png)
 
 > With **Centreon IT Edition** you can add very quickly and very simply the monitoring of your network cards, partition,
-> processes and services using the **[Service Discovery](../monitoring/discovery/services-discovery)** functionality.
+> processes and services using the **[Service Discovery](../monitoring/discovery/services-discovery.md)** functionality.
 
 To know manually the name of the available files system you can execute the plugin in command line:
 
@@ -508,7 +508,7 @@ It is also possible to access the **Configuration \> Services \> Templates** men
 ![image](../assets/getting-started/quick_start_cisco_8.png)
 
 > With **Centreon IT Edition** you can add very quickly and very simply the monitoring of your network cards, partition,
-> processes and services using the **[Service Discovery](../monitoring/discovery/services-discovery)** functionality.
+> processes and services using the **[Service Discovery](../monitoring/discovery/services-discovery.md)** functionality.
 
 To know manually the name of the available network interfaces you can execute the plugin in command line:
 

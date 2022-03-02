@@ -16,6 +16,44 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon Web
 
+### 21.10.4
+
+#### Enhancements
+
+- [Authentication] Autologin Validation reinforcement
+- [Install] Set broker retry interval to 15s instead of 60s
+- [Performance] Improve SQL queries to use index
+- [Reporting] Add select2 to hostgroup and servicegroup reporting dashboards
+- [Resource Status] Added custom variables definition in URL/Action URL
+- [Resource Status] Create new filter on type of status (Hard or Soft)
+- [Stats] Manage exception for statistics
+- [UX] Add The Watch URL to Centreon footer
+
+#### Bug Fixes
+
+- [APIv2] Fixed criticality null return for monitoring endpoint
+- [Apache] Fixed SNMP MIB import mib with new mod_security rule definition
+- [Authentication] Improve LDAP authentication and authorization
+- [Authentication] Remove deadlocks on token deletion
+- [Configuration] A regression in the host/host template configuration form caused the inherited macros to be saved as owned by the host/host template instead of being inherited. This can be seen as the loss of orange coloration. To undo this unwanted change, remove the macros from the list and they will be inherited again.
+- [Configuration] Contact template properties not exported with the contact
+- [Configuration] Fixed an infinite loop in export of configuration
+- [Configuration] Fixed an issue in the contact form. When a non-admin user modified another non-admin user, only access groups that were common to both users were kept, other access groups were lost for the second user.
+- [Configuration] Fixed an issue in the contact form: when a non-admin user modified a duplicated contact, it resulted in a blank screen
+- [Configuration] Wizard doesn't insert anymore old logger configuration
+- [Monitoring] Fixed deletion of comments
+- [Reporting] Fixed timeperiod selection in dashboards when changing resource
+- [Resources Status] Change "resource" by "type" in Resource status filter menu
+- [Resources Status] Contents cropped in many tiles in French
+- [Resources Status] Fixed display of old downtimes
+- [Resources Status] Removed the tooltips on hover for urls
+- [Resources Status] Rework Detail panel chip: hostgroup/servicegroup
+
+#### Security Fixes
+
+- XSS reflected from plugin's metric output
+- XSS in reporting dashboard
+
 ### 21.10.3
 
 Release date: `January 26, 2022`
