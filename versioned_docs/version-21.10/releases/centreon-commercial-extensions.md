@@ -20,11 +20,11 @@ If you have feature requests or want to report a bug, please contact support.
 
 Release date: `March 1, 2022`
 
-### Security fixes
+#### Security fixes
 
 - Log4J version updated to 2.17.1
 
-### Bug fixes
+#### Bug fixes
 
 - Fixed links not coloring according to status and output not functional when metric name contains special character
 
