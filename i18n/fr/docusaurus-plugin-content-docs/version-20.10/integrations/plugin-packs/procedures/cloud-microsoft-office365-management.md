@@ -19,7 +19,8 @@ Les informations de monitoring de la suite Office sont mises à disposition par 
 
 ## Métriques collectées
 
-<Tabs groupId="Services">
+<Tabs groupId="sync">
+
 <TabItem value="App-Credentials" label="App-Credentials">
 
 | Metric name                                            | Description                                  | Unit   |
