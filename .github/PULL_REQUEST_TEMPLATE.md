@@ -1,12 +1,18 @@
 ## Description
 
-Please include a short resume of the changes and what is the purpose of the PR.
+Exercise as part of the recruitment process. 
 
-Any relevant information should be added to help reviewers.
+Proofreading of the topics:
+
+```
+/versioned_docs/version-21.10/alerts-notifications/ticketing.md
+
+/i18n/fr/docusaurus-plugin-content-docs/version-21.10/alerts-notifications/ticketing.md
+```
 
 ## Target version
 
 - [ ] 20.10.x
 - [ ] 21.04.x
-- [ ] 21.10.x
+- [x] 21.10.x
 - [ ] 22.04.x (next)
