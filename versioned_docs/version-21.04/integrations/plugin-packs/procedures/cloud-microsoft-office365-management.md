@@ -151,7 +151,6 @@ yum install centreon-pack-cloud-microsoft-office365-management
 </TabItem>
 </Tabs>
 
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
