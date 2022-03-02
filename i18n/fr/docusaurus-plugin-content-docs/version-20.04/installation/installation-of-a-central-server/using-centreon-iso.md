@@ -46,7 +46,7 @@ Sélectionnez le disque dur et l'option **I will configure partitioning** puis c
 ![image](../../assets/installation/06_select_disk.png)
 
 A l'aide du bouton **+** créez votre partitionnement suivant les
-[prérequis de la documentation](../prerequisites#définition-de-lespace-disque) puis cliquez sur **Done** :
+[prérequis de la documentation](../prerequisites.md#définition-de-lespace-disque) puis cliquez sur **Done** :
 
 ![image](../../assets/installation/07_partitioning_filesystem.png)
 
@@ -133,4 +133,4 @@ systemctl enable rh-php72-php-fpm httpd24-httpd mariadb centreon cbd centengine 
 ## Installation web
 
 Terminez l'installation en réalisant les
-[étapes de l'installation web](../web-and-post-installation#installation-web).
+[étapes de l'installation web](../web-and-post-installation.md#installation-web).
