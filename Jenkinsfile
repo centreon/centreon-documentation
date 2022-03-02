@@ -1,5 +1,5 @@
 pipeline {
-   agent { label 'documentation-calcul' }
+   // agent { label 'documentation-calcul' }
    stages {
  
      stage('Install documentation dependencies') {
