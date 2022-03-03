@@ -171,7 +171,7 @@ yum install centreon-plugin-Network-Viptela-Snmp
 
 2. Sur le serveur Central Centreon, installer le RPM du Pack **Viptela SNMP** :
 
- ```bash
+```bash
 yum install centreon-pack-network-viptela-snmp
 ```
 
