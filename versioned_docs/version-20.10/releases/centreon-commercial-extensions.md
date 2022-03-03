@@ -251,7 +251,7 @@ if the Business Activity is disabled.
 
 ### 20.10.5
 
-Release date: `Marth 3, 2022`
+Release date: `March 3, 2022`
 
 #### Security fixes
 
