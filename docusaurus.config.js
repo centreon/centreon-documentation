@@ -37,6 +37,7 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+          breadcrumbs: false,
           admonitions: {},
           editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
           editLocalizedFiles: true,
@@ -98,6 +99,7 @@ const config = {
         path: 'cloud',
         routeBasePath: 'cloud',
         sidebarPath: require.resolve('./cloud/sidebarsCloud.js'),
+        breadcrumbs: false,
       },
     ],
   ],
@@ -153,10 +155,11 @@ const config = {
             position: 'left',
             label: 'Centreon OnPrem',
           },
-		  {
+		     {
             to: '/cloud/getting-started/architecture',
             label: 'Centreon Cloud',
             position: 'left',
+            activeBaseRegex: '/cloud/',
           },
           {
             type: 'search',

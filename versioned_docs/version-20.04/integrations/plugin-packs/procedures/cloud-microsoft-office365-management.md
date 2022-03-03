@@ -5,36 +5,47 @@ title: Office 365
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 ## Overview
 
 Office 365 is a line of online subscription services offered by Microsoft in their Microsoft Office product suite. 
 Office 365 covers document creation and management, emailing, video conferencing and many more collaboration offerings.
-The Centreon Plugin relies on the Office 365 management API to collect and monitor the Office 365 information and metrics.
+The Centreon Plugin relies on the Office 365 Graph API to collect and monitor the Office 365 information and metrics.
 
 ## Plugin-Pack Assets
 
 ### Monitored objects
 
+* Application credentials: Expiration of key and password credentials for each applications.
 * Office services: Applications available on the Office 365 portal: Exchange Online, Microsoft Intune, Skype for Business, Mobile Device Management for Office 365, OneDrive for Business, SharePoint Online, Microsoft Teams, etc...
-* Office features: E-Mail and calendar access, E-Mail timely delivery, etc..
 
 ## Collected metrics
 
 <Tabs groupId="sync">
+
+<TabItem value="App-Credentials" label="App-Credentials">
+
+| Metric name                                            | Description                                  | Unit   |
+| :----------------------------------------------------- | :------------------------------------------- | :----- |
+| password status                                        | Current password status (valid or expired)   |        |
+| *app_name~key_id*#application.password.expires.seconds | Number of seconds before password expiration | s      |
+| key status                                             | Current key status (valid or expired)        |        |
+| *app_name~key_id*#application.key.expires.seconds      | Number of seconds before key expiration      | s      |
+
+</TabItem>
+
 <TabItem value="Service-Status" label="Service-Status">
 
 | Metric name     | Description                                        |
 | :-------------- | :------------------------------------------------- |
 | service         | Name of monitored service. Unit: Text              |
 | status (service)| Status of the monitored service. Unit: Text        |
-| status (feature)| Status of monitored feature of service. Unit: Text |
+
 </TabItem>
 </Tabs>
 
-## Prrequisites
+## Prerequisites
 
-More information is available in the official Microsoft documentation: https://docs.microsoft.com/en-us/office/office-365-management-api/get-started-with-office-365-management-apis
+More information is available in the official Microsoft documentation: https://docs.microsoft.com/en-us/graph/use-the-api?context=graph%2Fapi%2F1.0&view=graph-rest-1.0
 
 ### Register an application in Azure AD
 
@@ -93,6 +104,10 @@ to save your selection and return to the main configuration page for your applic
 Under both *Application Permissions* and *Delegated Permissions*, select the permissions your application requires. 
 Refer to the specific API reference for more details about each permission.
 
+#### Add permissions to Microsoft Graph
+
+You also need to specify permissions for **Microsoft Graph** for both *Application* and *Delegated* type of permission. You will have to set **ServiceHealth.Read.All**.
+
 #### Request access tokens from Azure AD
 
 After a tenant admin grants consent, your application receives an authorization code as a query string parameter 
@@ -104,32 +119,34 @@ https://docs.microsoft.com/en-us/office/office-365-management-api/get-started-wi
 ## Installation
 
 <Tabs groupId="sync">
+
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every poller expected to monitor Office 365 ressources:
+1. Install the Centreon Plugin package on every poller expected to monitor **Office 365** ressources:
 
 ```bash
 yum install centreon-plugin-Cloud-Microsoft-Office365-Management-Api
 ```
 
-2. On the Centreon Web interface, install the Plugin-Pack on the "Configuration > Plugin packs > Manager" page.
+2. On the Centreon Web interface, install the Pack on the **Configuration > Plugin packs > Manager** page.
 
 </TabItem>
+
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every poller expected to monitor Office 365 ressources:
+1. Install the Centreon Plugin package on every poller expected to monitor **Office 365** ressources:
 
 ```bash
 yum install centreon-plugin-Cloud-Microsoft-Office365-Management-Api
 ```
 
-2. Install the Plugin-Pack RPM on the Centreon Central server:
+2. Install the Pack RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-cloud-microsoft-office365-management 
 ```
 
-3. On the Centreon Web interface, install the Plugin-Pack on the "Configuration > Plugin packs > Manager" page.
+3. On the Centreon Web interface, install the Pack on the **Configuration > Plugin packs > Manager** page.
 
 </TabItem>
 </Tabs>
@@ -141,7 +158,6 @@ In the host configuration form, apply the "Cloud-Microsoft-Office365-Management-
 
 | Mandatory | Name                  | Description                                            |
 | :-------- | :-------------------- | :----------------------------------------------------- |
-| X         | OFFICE365CUSTOMMODE   | Centreon Plugin access mode (default: 'managementapi') |
 | X         | OFFICE365TENANT       | Office 365 tenant ID                                   |
 | X         | OFFICE365CLIENTID     | Office 365 client ID                                   |
 | X         | OFFICE365CLIENTSECRET | Office 365 client secret                               |
@@ -154,48 +170,40 @@ Once the Centreon plugin installed, you can test it directly on the Centreon Pol
 
 ```bash
 /usr/lib/centreon/plugins//centreon_office365_management_api.pl \
---plugin=cloud::microsoft::office365::management::plugin \
---mode=service-status --custommode='managementapi' \
---tenant='b3dd23de-593f3cfe-4d741212-bcf9-f035c1a2eb24' \
---client-id='76f82731-073b-4eb2-9228-901d252d2cb6-1b0d' \
---client-secret='9/kRTASjPoy9FJfQZg6iznX\AkzCGertBgNq5r3tPfECJfKxj6zA=' \
---verbose --filter-service-name='Exchange Online' \
---filter-feature-name='' --warning-status='' \
---critical-status='%{status} !~ /Normal/i'
-```
-OK: Service 'Exchange Online' Status is 'Normal service' - All features
-status are ok |
-Checking service 'Exchange Online'
-Status is 'Normal service'
-Feature 'E-Mail and calendar access' Status is 'Normal service'
-Feature 'E-Mail timely delivery' Status is 'Normal service'
-Feature 'Management and Provisioning' Status is 'Normal service'
-Feature 'Sign-in' Status is 'Normal service'
-Feature 'Voice mail' Status is 'Normal service'
+    --plugin=cloud::microsoft::office365::management::plugin \
+    --mode=service-status \
+    --tenant='b3dd23de-593f3cfe-4d741212-bcf9-f035c1a2eb24' \
+    --client-id='76f82731-073b-4eb2-9228-901d252d2cb6-1b0d' \
+    --client-secret='9/kRTASjPoy9FJfQZg6iznX\AkzCGertBgNq5r3tPfECJfKxj6zA=' \
+    --filter-service-name='Exchange Online' \
+    --critical-status='%{status} !~ /serviceOperational|serviceRestored/i' \
+    --verbose
+
+OK: Service 'Exchange Online' status is 'serviceOperational' |
 ```
 
-The above command requests the Office 365 Management API (```--plugin=cloud::microsoft::office365::management::plugin --custommode='managementapi'```) 
-with a set of credentials previously defined (```--tenant='b3dd23de-593f3cfe-4d741212-bcf9-f035c1a2eb24' --client-id='76f82731-073b-4eb2-9228-901d252d2cb6-1b0d' 
---client-secret='9/kRTASjPoy9FJfQZg6iznX\AkzCGertBgNq5r3tPfECJfKxj6zA='```).
-This command aims to check  the status of the *Exchange Online* service (```--mode=service-status --filter-service-name='Exchange Online'```).
-It will also return the list of all of the associated features as no relevant filter has been set (```--filter-feature-name=''```).
-A CRITICAL alert would be triggered if the *Exchange Online* returned service status is not *Normal* (```--critical-status='%{status}```).
+The above command requests the Office 365 Graph API (`--plugin=cloud::microsoft::office365::management::plugin`) 
+with a set of credentials previously defined (`--tenant='b3dd23de-593f3cfe-4d741212-bcf9-f035c1a2eb24' --client-id='76f82731-073b-4eb2-9228-901d252d2cb6-1b0d' 
+--client-secret='9/kRTASjPoy9FJfQZg6iznX\AkzCGertBgNq5r3tPfECJfKxj6zA='`).
+This command aims to check  the status of the *Exchange Online* service (`--mode=service-status --filter-service-name='Exchange Online'`).
+A CRITICAL alert would be triggered if the *Exchange Online* returned service status is not *serviceOperational* (`--critical-status='%{status}`).
 
-### When executing the command, I get the following error message: ```UNKNOWN: Cannot decode json response```
+### When executing the command, I get the following error message: `UNKNOWN: Cannot decode json response`
 
-If you receive this message, add the ```--debug``` option to the command to get more information about the error:
+If you receive this message, add the `--debug` option to the command to get more information about the error:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_office365_management_api.pl
---plugin=cloud::microsoft::office365::management::plugin
---mode=service-status --custommode='managementapi'
---tenant='b3dd23de-593f3cfe-4d741212-bcf9-f035c1a2eb24'
---client-id='76f82731-073b-4eb2-9228-901d252d2cb6-1b0d'
---client-secret='9/kRTASjPoy9FJfQZg6iznX\AkzCGertBgNq5r3tPfECJfKxj6zA='
---verbose --filter-service-name='Exchange Online'
---filter-feature-name='' --warning-status=''
---critical-status='%{status} !~ /Normal/i'
---debug
+    --plugin=cloud::microsoft::office365::management::plugin
+    --mode=service-status
+    --tenant='b3dd23de-593f3cfe-4d741212-bcf9-f035c1a2eb24'
+    --client-id='76f82731-073b-4eb2-9228-901d252d2cb6-1b0d'
+    --client-secret='9/kRTASjPoy9FJfQZg6iznX\AkzCGertBgNq5r3tPfECJfKxj6zA='
+    --filter-service-name='Exchange Online'
+    --warning-status='' \
+    --critical-status='%{status} !~ /serviceOperational|serviceRestored/i' \
+    --debug \
+    --verbose
 
 UNKNOWN: Cannot decode json response: malformed JSON string, neither tag, array, object, number, 
 string or atom, at character offset 0 (before "System.Collections.G...") at 
@@ -205,17 +213,18 @@ string or atom, at character offset 0 (before "System.Collections.G...") at
 Most common reasons for this message are:
 
 * Check that the *tenant id* / *client id* / *client secret* credentials are properly set. If any modification is made on 
-the associated privileges, delete the Plugin cache file: ```/var/lib/centreon/centplugins/office365_managementapi_*```.
+the associated privileges, delete the Plugin cache file: `/var/lib/centreon/centplugins/office365_managementapi_*`.
 * The Plugin cannot connect to the Office 365 API: there might be a third-party device (Firewall, Proxy...) dropping the flows.
-* The "lwb" web library used by the Plugin in unable to properly handle the request. Prevent this behavior by using the "curl" backend. 
-Just add the following option ```--http-backend=curl``` to the command.
+* The "lwp" web library used by the Plugin in unable to properly handle the request. Prevent this behavior by using the "curl" backend. 
+Just add the following option `--http-backend=curl` to the command.
 
 ### How do I get a description of the available options ?
 
-The whole list of options and their usage can be displayed by adding the ```--help``` parameter to the command:
+The whole list of options and their usage can be displayed by adding the `--help` parameter to the command:
 
 ```bash
-/usr/lib/centreon/plugins//centreon_office365_management_api.pl
---plugin=cloud::microsoft::office365::management::plugin
---mode=service-status --custommode='managementapi' --help
+/usr/lib/centreon/plugins//centreon_office365_management_api.pl \
+    --plugin=cloud::microsoft::office365::management::plugin \
+    --mode=service-status \
+    --help
 ```
