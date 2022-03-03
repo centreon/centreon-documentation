@@ -5,6 +5,7 @@ title: Azure CDN
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+
 ## Overview
 
 Azure Content Delivery Network is a solution designed for developers for 
@@ -40,21 +41,21 @@ documentation:
 <TabItem value="Hit-Ratio" label="Hit-Ratio">
 
 | Metric name             | Description    | Unit |
-|:------------------------|:---------------|:-----|
+| :---------------------- | :------------- | :--- |
 | cdn.byte.hit.percentage | Byte Hit Ratio | %    |
 
 </TabItem>
 <TabItem value="Latency" label="Latency">
 
 | Metric name                    | Description   | Unit |
-|:-------------------------------|:--------------|:-----|
+| :----------------------------- | :------------ | :--- |
 | cdn.latency.total.milliseconds | Total Latency | ms   |
 
 </TabItem>
 <TabItem value="Requests" label="Requests">
 
 | Metric name                 | Description       | Unit  |
-|:----------------------------|:------------------|:------|
+| :-------------------------- | :---------------- | :---- |
 | cdn.requests.count          | Request count     | count |
 | cdn.requests.4xx.percentage | Percentage of 4XX | %     |
 | cdn.requests.5xx.percentage | Percentage of 5XX | %     |
@@ -63,7 +64,7 @@ documentation:
 <TabItem value="Response-Size" label="Response-Size">
 
 | Metric name             | Description   | Unit |
-|:------------------------|:--------------|:-----|
+| :---------------------- | :------------ | :--- |
 | cdn.response.size.bytes | Response Size | B    |
 
 </TabItem>
@@ -236,7 +237,7 @@ in *AZURERESOURCE*
 <TabItem value="Azure Monitor API" label="Azure Monitor API">
 
 | Mandatory | Nom                | Description                                        |
-|:----------|:-------------------|:---------------------------------------------------|
+| :-------- | :----------------- | :------------------------------------------------- |
 | X         | AZURECUSTOMMODE    | Custom mode 'api'                                  |
 | X         | AZURESUBSCRIPTION  | Subscription ID                                    |
 | X         | AZURETENANT        | Tenant ID                                          |
@@ -249,14 +250,12 @@ in *AZURERESOURCE*
 <TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 | Mandatory | Nom                | Description                                        |
-|:----------|:-------------------|:---------------------------------------------------|
+| :-------- | :----------------- | :------------------------------------------------- |
 | X         | AZURECUSTOMMODE    | Custom mode 'azcli'                                |
 | X         | AZURESUBSCRIPTION  | Subscription ID                                    |
 | X         | AZURERESOURCE      | ID or name of the CDN profile resource             |
 |           | AZURERESOURCEGROUP | Associated Resource Group if resource name is used |
 
-</TabItem>
-</Tabs>
 
 ## How to check in the CLI that the configuration is OK and what are the main options for ? 
 
@@ -319,6 +318,9 @@ command:
     --list-mode
 ```
 
+</TabItem>
+</Tabs>
+
 ### Troubleshooting
 
 #### The Azure credentials have changed and the Plugin does not work anymore
@@ -326,7 +328,7 @@ command:
 The Plugin is using a cache file to keep connection information and avoid an authentication at each call. 
 If some of the authentication parameters change, you must delete the cache file. 
 
-The cache file can be found within  `/var/lib/centreon/centplugins/` folder with a name similar to azure_api_`<md5>_<md5>_<md5>_<md5>`.
+The cache file can be found within  `/var/lib/centreon/centplugins/` folder with a name similar to `azure_api_<md5>_<md5>_<md5>_<md5>`.
 
 #### `UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)`
 

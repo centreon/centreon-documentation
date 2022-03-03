@@ -40,7 +40,7 @@ More information about the Host Discovery module is available in the Centreon do
 <TabItem value="Ddos-Traffic" label="Ddos-Traffic">
 
 | Metric name                          | Description                   | Unit    |
-|:-------------------------------------|:------------------------------|:--------|
+| :----------------------------------- | :---------------------------- | :------ |
 | publicip.ddos.dropped.bytes          | Inbound bytes dropped DDoS    | B       |
 | publicip.ddos.forwarded.bytes        | Inbound bytes forwarded DDoS' | B       |
 | publicip.ddos.inbound.bytes          | Inbound bytes DDoS            | B       |
@@ -50,7 +50,7 @@ More information about the Host Discovery module is available in the Centreon do
 <TabItem value="Status" label="Status">
 
 | Status name        | Description                                 |
-|:-------------------|:--------------------------------------------|
+| :----------------- | :------------------------------------------ |
 | ddos-status        | Is the Public IP under Ddos attack          |
 | provisioning-state | Current operational status of the Public IP |
 
@@ -219,7 +219,7 @@ These mandatory Macros differ regarding the custom mode used:
 <TabItem value="Azure Monitor API" label="Azure Monitor API">
 
 | Mandatory | Nom               | Description                  |
-|:----------|:------------------|:-----------------------------|
+| :-------- | :---------------- | :--------------------------- |
 | X         | AZURECUSTOMMODE   | Custom mode 'api'            |
 | X         | AZURESUBSCRIPTION | Subscription ID              |
 | X         | AZURETENANT       | Tenant ID                    |
@@ -231,7 +231,7 @@ These mandatory Macros differ regarding the custom mode used:
 <TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 | Mandatory | Nom               | Description                  |
-|:----------|:------------------|:-----------------------------|
+| :-------- | :---------------- | :--------------------------- |
 | X         | AZURECUSTOMMODE   | Custom mode 'azcli'          |
 | X         | AZURESUBSCRIPTION | Subscription ID              |
 | X         | AZURERESOURCE     | Id of the Public IP instance |
@@ -297,7 +297,7 @@ All the available options for a given mode can be displayed by adding the ```--h
 The Plugin is using a cache file to keep connection information and avoid an authentication at each call. 
 If some of the authentication parameters change, you must delete the cache file. 
 
-The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder with a name similar to azure_api_`<md5>_<md5>_<md5>_<md5>`.
+The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder with a name similar to `azure_api_<md5>_<md5>_<md5>_<md5>`.
 
 #### ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```
 

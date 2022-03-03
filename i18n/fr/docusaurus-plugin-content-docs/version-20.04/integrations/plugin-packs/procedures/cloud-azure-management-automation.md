@@ -46,7 +46,7 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 <TabItem value="Jobs" label="Jobs">
 
 | Metric Name                        | Description                                    |
-|:-----------------------------------|:-----------------------------------------------|
+| :--------------------------------- | :--------------------------------------------- |
 | automation.jobs.total.count        | Number of total jobs                           |
 | automation.machineruns.total.count | Number of total update deployment machine runs |
 | automation.runs.total.count        | Number of total Update deployment runs         |
@@ -213,7 +213,7 @@ doivent être renseignées selon le custom-mode utilisé:
 <TabItem value="Azure Monitor API" label="Azure Monitor API">
 
 | Mandatory | Nom               | Description                   |
-|:----------|:------------------|:------------------------------|
+| :-------- | :---------------- | :---------------------------- |
 | X         | AZURECUSTOMMODE   | Custom mode 'api'             |
 | X         | AZURESUBSCRIPTION | Subscription ID               |
 | X         | AZURETENANT       | Tenant ID                     |
@@ -225,7 +225,7 @@ doivent être renseignées selon le custom-mode utilisé:
 <TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 | Mandatory | Nom               | Description                   |
-|:----------|:------------------|:------------------------------|
+| :-------- | :---------------- | :---------------------------- |
 | X         | AZURECUSTOMMODE   | Custom mode 'azcli'           |
 | X         | AZURESUBSCRIPTION | Subscription ID               |
 | X         | AZURERESOURCE     | Id of the Automation instance |
@@ -275,8 +275,8 @@ Les statuts caculés se baseront sur les valeurs totales d'un échantillon dans 
 avec un état retourné par tranche de 5 minutes (```--interval='PT5M'```).
 
 Dans cet exemple, une alarme de type WARNING sera déclenchée si le nombre de *total jobs* pendant l'intervalle donné
-est supérieur à 80 (```--warning-jobs-total='80'```); l'alarme sera de type CRITICAL au-delà de 90 tâches
-(```--critical-jobs-total='90'```).
+est supérieur à 80 (```--warning-throttled-requests='80'```); l'alarme sera de type CRITICAL au-delà de 90 tâches
+(```--critical-throttled-requests='90'```).
 
 La liste de toutes les options complémentaires et leur signification
 peut être affichée en ajoutant le paramètre ```--help``` à la commande:
@@ -296,7 +296,7 @@ Le Plugin utilise un fichier de cache pour conserver les informations de connexi
 se ré-authentifier à chaque appel. Si des informations sur le Tenant, la Souscription ou les 
 Client ID / Secret changent, il est nécessaire de supprimer le fichier de cache du Plugin. 
 
-Celui ci se trouve dans le répertoire ```/var/lib/centreon/centplugins/``` avec le nom azure_api_`<md5>_<md5>_<md5>_<md5>`.
+Celui ci se trouve dans le répertoire ```/var/lib/centreon/centplugins/``` avec le nom `azure_api_<md5>_<md5>_<md5>_<md5>`.
 
 #### ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```
 

@@ -37,6 +37,7 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+          breadcrumbs: false,
           admonitions: {},
           editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
           editLocalizedFiles: true,
@@ -48,7 +49,7 @@ const config = {
               label: '⭐ 21.10',
             },
             21.04: {
-              label: ' 21.04',
+              label: '21.04',
             },
             '20.10': {
               label: '20.10',
@@ -58,6 +59,7 @@ const config = {
             },
           },
         },
+        blog: false,
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -90,6 +92,16 @@ const config = {
       },
     ],
     'plugin-image-zoom',
+	[
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'cloud',
+        path: 'cloud',
+        routeBasePath: 'cloud',
+        sidebarPath: require.resolve('./cloud/sidebarsCloud.js'),
+        breadcrumbs: false,
+      },
+    ],
   ],
 
   themeConfig:
@@ -100,15 +112,6 @@ const config = {
         apiKey: 'be499306058f3e54012bab278e6e6d86',
         indexName: 'centreon',
         contextualSearch: true,
-      },
-
-      announcementBar: {
-        id: 'announcementBar-1',
-        content:
-          'The search function is only available for version 21.10 at the moment. Thank you for your patience and understanding.',
-        backgroundColor: '#ebedf0',
-        textColor: '#091E42',
-        isCloseable: false,
       },
 
       zoomSelector: '.markdown :not(.authority-availability) > img',
@@ -131,7 +134,6 @@ const config = {
       },
 
       hideableSidebar: true,
-
       colorMode: {
         defaultMode: 'light',
         disableSwitch: false,
@@ -140,7 +142,7 @@ const config = {
 
       navbar: {
         hideOnScroll: false,
-        title: 'Centreon Docs',
+        title: '',
         logo: {
           alt: 'Logo Centreon Docs',
           src: 'img/logo-centreon.png',
@@ -150,8 +152,14 @@ const config = {
           {
             type: 'doc',
             docId: 'getting-started/installation-first-steps',
-            position: 'right',
-            label: 'Documentation',
+            position: 'left',
+            label: 'Centreon OnPrem',
+          },
+		     {
+            to: '/cloud/getting-started/architecture',
+            label: 'Centreon Cloud',
+            position: 'left',
+            activeBaseRegex: '/cloud/',
           },
           {
             type: 'search',

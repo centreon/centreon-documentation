@@ -180,6 +180,6 @@ en ajoutant le paramètre ```--help``` à la commande:
     --help
 ```
 
-## Diagnostique
+## Diagnostic
 
-[Diagnostique des plugins](../tutorials/troubleshooting-plugins.md#http-and-api-checks)
+[Diagnostic des plugins](../tutorials/troubleshooting-plugins.md#http-and-api-checks)

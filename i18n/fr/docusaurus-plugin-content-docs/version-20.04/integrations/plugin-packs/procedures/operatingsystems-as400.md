@@ -7,4 +7,4 @@ title: IBM AS400 (Déprécié)
 
 Ce Pack a été déprécié au profit du Pack "IBM AS400 Connector".
 
-Référez vous à [cette procedure](operatingsystems-as400-connector.md).
+Référez-vous à [cette procédure](operatingsystems-as400-connector.md).

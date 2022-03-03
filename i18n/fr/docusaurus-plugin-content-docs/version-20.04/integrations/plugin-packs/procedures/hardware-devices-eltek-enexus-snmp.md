@@ -6,19 +6,19 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Vue d'ensemble
+## Vue d'ensemble
 
 Eltek est un spécialiste mondial de la gestion et la transformation de l'énergie électrique. Ils développent et commercialisent des matériels utilisés dans les secteurs de l'industrie et des télécommunications.
 
-## Contenu du pack de supervision 
+## Contenu du pack de supervision 
 
-### Objets supervisés
+### Objets supervisés
 
 * SmartPack2 V2.x
 * SmartPack S V2.x
 * Compack V2.x
 
-### Métriques collectées
+### Métriques collectées
 
 <Tabs groupId="sync">
 <TabItem value="Alarms" label="Alarms">
@@ -65,7 +65,7 @@ Eltek est un spécialiste mondial de la gestion et la transformation de l'énerg
 
 Afin de superviser vos équipements Eltek le SNMP v2 doit être configuré.
 
-### Configuration d'un équipement SNMP
+### Configuration d'un équipement SNMP
 
 > Les instructions ci-après peuvent changer en fonction de la version de votre Eltek. Des documentations sont le cas échéant disponibles sur le site officiel du constructeur.
 
@@ -118,7 +118,7 @@ yum install hardware-devices-eltek-enexus-snmp
 
 Dans le formulaire de création de l'Hôte sur l'interface Web de Centreon, il est nécessaire de renseigner les champs "Snmp Community" et "Snmp Version". 
 
-> Si vous utilisez SNMP en version 3, selectionnez la version SNMP idoine et configurez les paramètres SNMP v3 via la macro SNMPEXTRAOPTIONS 
+> Si vous utilisez SNMP en version 3, sélectionnez la version SNMP idoine et configurez les paramètres SNMP v3 via la macro SNMPEXTRAOPTIONS 
 
 | Obligatoire | Nom              | Description                                         |
 | :---------- | :--------------- | :-------------------------------------------------- |
@@ -126,7 +126,7 @@ Dans le formulaire de création de l'Hôte sur l'interface Web de Centreon, il e
 
 ## FAQ
 
-### Comment tester en ligne de commande et quelles significations portent les options principales ?
+### Comment tester en ligne de commande et quelles significations portent les options principales ?
 
 A partir du moment ou la sonde est installée, connectez vous à votre Collecteur et executez la commande  suivante avec l'utilisateur centreon-engine:
 

@@ -39,7 +39,7 @@ More information about the Host Discovery module is available in the Centreon do
 <TabItem value="Http-Requests" label="Http-Requests">
 
 | Metric Name                                             | Description                            | Unit  |
-|:--------------------------------------------------------|:---------------------------------------|:------|
+| :------------------------------------------------------ | :------------------------------------- | :---- |
 | appconfiguration.http.incoming.requests.count           | Total number of incoming http requests | Count |
 | appconfiguration.http.incoming.requests.milliseconds    | Latency on an http request             | ms    |
 | appconfiguration.http.throttled.incoming.requests.count | Throttled http requests                | Count |
@@ -209,7 +209,7 @@ These mandatory Macros differ regarding the custom mode used:
 <TabItem value="Azure Monitor API" label="Azure Monitor API">
 
 | Mandatory | Nom               | Description                          |
-|:----------|:------------------|:-------------------------------------|
+| :-------- | :---------------- | :----------------------------------- |
 | X         | AZURECUSTOMMODE   | Custom mode 'api'                    |
 | X         | AZURESUBSCRIPTION | Subscription ID                      |
 | X         | AZURETENANT       | Tenant ID                            |
@@ -221,7 +221,7 @@ These mandatory Macros differ regarding the custom mode used:
 <TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 | Mandatory | Nom               | Description                          |
-|:----------|:------------------|:-------------------------------------|
+| :-------- | :---------------- | :----------------------------------- |
 | X         | AZURECUSTOMMODE   | Custom mode 'azcli'                  |
 | X         | AZURESUBSCRIPTION | Subscription ID                      |
 | X         | AZURERESOURCE     | Id of the App Configuration instance |
@@ -292,7 +292,7 @@ All the available options for a given mode can be displayed by adding the ```--h
 The Plugin is using a cache file to keep connection information and avoid an authentication at each call. 
 If some of the authentication parameters change, you must delete the cache file. 
 
-The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder with a name similar to azure_api_`<md5>_<md5>_<md5>_<md5>`.
+The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder with a name similar to `azure_api_<md5>_<md5>_<md5>_<md5>`.
 
 #### ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```
 

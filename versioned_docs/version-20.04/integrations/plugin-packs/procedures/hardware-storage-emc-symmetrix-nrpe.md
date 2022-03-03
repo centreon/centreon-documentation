@@ -31,7 +31,7 @@ To monitor *EMC Symmetrix* disk controllers through NRPE, install the Centreon p
 of the NSClient++ agent. Please follow our [official documentation](../tutorials/centreon-nsclient-tutorial.md) 
 and make sure that the **NRPE Server** configuration is correct.
 
-## Installation 
+## Installation
 
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">

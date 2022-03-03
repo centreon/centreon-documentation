@@ -38,15 +38,11 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 
 ### Métriques collectées 
 
-<Tabs groupId="sync">
-<TabItem value="Storage-usage" label="Storage-usage">
+**Storage-usage**
 
 | Metric Name                                            | Description  | Unit |
 |:-------------------------------------------------------|:-------------|:-----|
 | *instance*#azure.containerregistry.storage.used.bytes  | Storage used | B    |
-
-</TabItem>
-</Tabs>
 
 ## Prérequis
 

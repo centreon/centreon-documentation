@@ -189,7 +189,7 @@ yum install centreon-pack-operatingsystems-linux-snmp
 
 When adding a new Linux host into Centreon, make sure to fill the Snmp Version and Snmp Community fields. 
 
-  > When using snmp v3, set extra SNMP parameters in the SNMPEXTRAOPTIONS macro. 
+> When using snmp v3, set extra SNMP parameters in the SNMPEXTRAOPTIONS macro. 
 
 | Obligatoire | Nom              | Description                                    |
 | :---------- | :--------------- | :--------------------------------------------- |
@@ -202,12 +202,12 @@ When adding a new Linux host into Centreon, make sure to fill the Snmp Version a
 Once you've installed the plugin, you can test it logging with centreon-engine user:
 
 ```bash
-/usr/lib/centreon/plugins//centreon_linux_snmp.pl \
-    --plugin=os::linux::snmp::plugin \
-    --mode=cpu \
-    --hostname=10.30.2.114 \
-    --snmp-version='2c' \
-    --snmp-community='linux_ro' \
+/usr/lib/centreon/plugins//centreon_linux_snmp.pl
+    --plugin=os::linux::snmp::plugin
+    --mode=cpu
+    --hostname=10.30.2.114
+    --snmp-version='2c'
+    --snmp-community='linux_ro'
     --verbose
 ```
 

@@ -41,7 +41,7 @@ More information about the Host Discovery module is available in the Centreon do
 <TabItem value="ServiceAPI" label="ServiceAPI">
 
 | Metric name                              | Description                 | Unit  |
-|:-----------------------------------------|:----------------------------|:------|
+| :--------------------------------------- | :-------------------------- | :---- |
 | keyvault.serviceapi.hits.count           | Total Service Api Hits      | Count |
 | keyvault.serviceapi.latency.milliseconds | Overall Service Api Latency | B     |
 | keyvault.serviceapi.results.count        | Total Service Api Results   | Count |
@@ -50,14 +50,14 @@ More information about the Host Discovery module is available in the Centreon do
 <TabItem value="Vault-Availability" label="Vault-Availability">
 
 | Metric name                            | Description                | Unit |
-|:---------------------------------------|:---------------------------|:-----|
+| :------------------------------------- | :------------------------- | :--- |
 | keyvault.vault.availability.percentage | Overall Vault Availability | %    |
 
 </TabItem>
 <TabItem value="Vault-Capacity" label="Vault-Capacity">
 
 | Metric name                          | Description              | Unit |
-|:-------------------------------------|:-------------------------|:-----|
+| :----------------------------------- | :----------------------- | :--- |
 | keyvault.vault.saturation.percentage | Overall Vault Saturation | %    |
 
 </TabItem>
@@ -225,7 +225,7 @@ These mandatory Macros differ regarding the custom mode used:
 <TabItem value="Azure Monitor API" label="Azure Monitor API">
 
 | Mandatory | Nom               | Description                  |
-|:----------|:------------------|:-----------------------------|
+| :-------- | :---------------- | :--------------------------- |
 | X         | AZURECUSTOMMODE   | Custom mode 'api'            |
 | X         | AZURESUBSCRIPTION | Subscription ID              |
 | X         | AZURETENANT       | Tenant ID                    |
@@ -237,7 +237,7 @@ These mandatory Macros differ regarding the custom mode used:
 <TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 | Mandatory | Nom               | Description                  |
-|:----------|:------------------|:-----------------------------|
+| :-------- | :---------------- | :--------------------------- |
 | X         | AZURECUSTOMMODE   | Custom mode 'azcli'          |
 | X         | AZURESUBSCRIPTION | Subscription ID              |
 | X         | AZURERESOURCE     | Id of the Key Vault instance |
@@ -304,7 +304,7 @@ All the available options for a given mode can be displayed by adding the ```--h
 The Plugin is using a cache file to keep connection information and avoid an authentication at each call. 
 If some of the authentication parameters change, you must delete the cache file. 
 
-The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder with a name similar to azure_api_`<md5>_<md5>_<md5>_<md5>`.
+The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder with a name similar to `azure_api_<md5>_<md5>_<md5>_<md5>`.
 
 #### ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```
 

@@ -148,7 +148,7 @@ Votre formulaire devrait maintenant être comme ça :
 ![image](../../assets/configuration/dsm/trap-form-2.png)
 
 Après avoir enregistré le formulaire, veuillez générer la
-*[définition des traps SNMP](monitoring-with-snmp-traps.md#Applying-the-changes)*.
+*[définition des traps SNMP](monitoring-with-snmp-traps.md#applying-the-changes)*.
 
 ### Configurer les liens d'évènement
 

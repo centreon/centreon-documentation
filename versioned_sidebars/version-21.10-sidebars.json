@@ -35,6 +35,14 @@
         },
         {
           "type": "doc",
+          "id": "version-21.10/getting-started/monitor-cisco-router-with-snmp"
+        },
+        {
+          "type": "doc",
+          "id": "version-21.10/getting-started/monitor-windows-server-with-snmp"
+        },
+        {
+          "type": "doc",
           "id": "version-21.10/getting-started/autodisco-aws"
         },
         {

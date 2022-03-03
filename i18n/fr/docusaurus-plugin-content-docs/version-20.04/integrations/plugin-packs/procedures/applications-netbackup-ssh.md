@@ -25,11 +25,9 @@ Il apporte les Modèles de Services suivants :
 
 ### Règles de découverte
 
-
 | Rule name                    | Description                    |
 |:-----------------------------|:-------------------------------|
 | App-Netbackup-Job-Per-Policy | Découverte des Jobs            |
-
 
 ### Collected metrics & status
 

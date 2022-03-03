@@ -35,15 +35,11 @@ More information about the Host Discovery module is available in the Centreon do
 
 ### Collected metrics
 
-<Tabs groupId="sync">
-<TabItem value="Storage-usage" label="Storage-usage">
+**Storage-usage**
 
 | Metric Name                                            | Description  | Unit |
 |:-------------------------------------------------------|:-------------|:-----|
 | *instance*#azure.containerregistry.storage.used.bytes  | Storage used | B    |
-
-</TabItem>
-</Tabs>
 
 ## Prerequisites
 

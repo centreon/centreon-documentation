@@ -44,7 +44,7 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 <TabItem value="Errors" label="Errors">
 
 | Metric name                      | Description   | Unit |
-|:---------------------------------|:--------------|:-----|
+| :------------------------------- | :------------ | :--- |
 | signalr.errors.system.percentage | System Errors | %    |
 | signalr.errors.user.percentage   | User Errors   | %    |
 
@@ -52,7 +52,7 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 <TabItem value="Traffic" label="Traffic">
 
 | Metric name                    | Description      | Unit |
-|:-------------------------------|:-----------------|:-----|
+| :----------------------------- | :--------------- | :--- |
 | signalr.traffic.inbound.bytes  | Inbound Traffic  | B    |
 | signalr.traffic.outbound.bytes | Outbound Traffic | B    |
 
@@ -60,7 +60,7 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 <TabItem value="Usage" label="Usage">
 
 | Metric name               | Description      | Unit |
-|:--------------------------|:-----------------|:-----|
+| :------------------------ | :--------------- | :--- |
 | signalr.connections.count | Connection count |      |
 | signalr.messages.count    | Message count    |      |
 
@@ -225,20 +225,20 @@ doivent être renseignées selon le custom-mode utilisé:
 <Tabs groupId="sync">
 <TabItem value="Azure Monitor API" label="Azure Monitor API">
 
-| Mandatory | Nom               | Description                 |
-|:----------|:------------------|:----------------------------|
-| X         | AZURECUSTOMMODE   | Custom mode 'api'           |
-| X         | AZURESUBSCRIPTION | Subscription ID             |
-| X         | AZURETENANT       | Tenant ID                   |
-| X         | AZURECLIENTID     | Client ID                   |
-| X         | AZURECLIENTSECRET | Client secret               |
-| X         | AZURERESOURCE     | Id of the SignalR resource  |
+| Mandatory | Nom               | Description                |
+| :-------- | :---------------- | :------------------------- |
+| X         | AZURECUSTOMMODE   | Custom mode 'api'          |
+| X         | AZURESUBSCRIPTION | Subscription ID            |
+| X         | AZURETENANT       | Tenant ID                  |
+| X         | AZURECLIENTID     | Client ID                  |
+| X         | AZURECLIENTSECRET | Client secret              |
+| X         | AZURERESOURCE     | Id of the SignalR resource |
 
 </TabItem>
 <TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 | Mandatory | Nom               | Description                 |
-|:----------|:------------------|:----------------------------|
+| :-------- | :---------------- | :-------------------------- |
 | X         | AZURECUSTOMMODE   | Custom mode 'azcli'         |
 | X         | AZURESUBSCRIPTION | Subscription ID             |
 | X         | AZURERESOURCE     | Id of the SignalR  resource |
@@ -308,7 +308,7 @@ Le Plugin utilise un fichier de cache pour conserver les informations de connexi
 se ré-authentifier à chaque appel. Si des informations sur le Tenant, la Souscription ou les 
 Client ID / Secret changent, il est nécessaire de supprimer le fichier de cache du Plugin. 
 
-Celui ci se trouve dans le répertoire ```/var/lib/centreon/centplugins/``` avec le nom azure_api_`<md5>_<md5>_<md5>_<md5>`.
+Celui ci se trouve dans le répertoire ```/var/lib/centreon/centplugins/``` avec le nom `azure_api_<md5>_<md5>_<md5>_<md5>`.
 
 #### ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```
 

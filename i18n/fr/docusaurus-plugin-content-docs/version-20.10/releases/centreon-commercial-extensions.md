@@ -19,6 +19,18 @@ commerciales, veuillez contacter le support.
 
 ## Centreon MAP
 
+### 20.10.9
+
+Release date: `March 1, 2022`
+
+#### Bugfixes 
+
+- Fixed links not coloring according to status and output not functional when metric name contains special character
+
+#### Security fixes 
+
+- Log4J version updated to 2.17.1
+
 ### 20.10.8
 
 Release date: `December 20, 2021`
@@ -244,6 +256,24 @@ if the Business Activity is disabled.
   et *Vues métiers*
 
 ## Centreon MBI
+
+### 20.10.5
+
+Release date: `March 3, 2022`
+
+#### Security fixes
+
+- Log4J MBI upgrade to 2.17.1
+- Sanitize parameters in task generation form
+
+#### Improvements
+
+- Compatibility with PHP 7.4 (20.10 / 21.04) for MBI
+
+#### Bug fixes
+
+- Fixed: New line character missing from last line in MBI back up script preventing the script to execute
+- Fixed: Issue in Test SMTP Rule
 
 ### 20.10.4
 

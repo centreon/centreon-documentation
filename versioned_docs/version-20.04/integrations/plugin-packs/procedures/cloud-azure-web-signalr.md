@@ -43,7 +43,7 @@ More information about the Host Discovery module is available in the Centreon do
 <TabItem value="Errors" label="Errors">
 
 | Metric name                      | Description   | Unit |
-|:---------------------------------|:--------------|:-----|
+| :------------------------------- | :------------ | :--- |
 | signalr.errors.system.percentage | System Errors | %    |
 | signalr.errors.user.percentage   | User Errors   | %    |
 
@@ -51,7 +51,7 @@ More information about the Host Discovery module is available in the Centreon do
 <TabItem value="Traffic" label="Traffic">
 
 | Metric name                    | Description      | Unit |
-|:-------------------------------|:-----------------|:-----|
+| :----------------------------- | :--------------- | :--- |
 | signalr.traffic.inbound.bytes  | Inbound Traffic  | B    |
 | signalr.traffic.outbound.bytes | Outbound Traffic | B    |
 
@@ -59,7 +59,7 @@ More information about the Host Discovery module is available in the Centreon do
 <TabItem value="Usage" label="Usage">
 
 | Metric name               | Description      | Unit |
-|:--------------------------|:-----------------|:-----|
+| :------------------------ | :--------------- | :--- |
 | signalr.connections.count | Connection count |      |
 | signalr.messages.count    | Message count    |      |
 
@@ -227,23 +227,23 @@ These mandatory Macros differ regarding the custom mode used:
 <Tabs groupId="sync">
 <TabItem value="Azure Monitor API" label="Azure Monitor API">
 
-| Mandatory | Nom               | Description                 |
-|:----------|:------------------|:----------------------------|
-| X         | AZURECUSTOMMODE   | Custom mode 'api'           |
-| X         | AZURESUBSCRIPTION | Subscription ID             |
-| X         | AZURETENANT       | Tenant ID                   |
-| X         | AZURECLIENTID     | Client ID                   |
-| X         | AZURECLIENTSECRET | Client secret               |
-| X         | AZURERESOURCE     | Id of the SignalR instance  |
+| Mandatory | Nom               | Description                |
+| :-------- | :---------------- | :------------------------- |
+| X         | AZURECUSTOMMODE   | Custom mode 'api'          |
+| X         | AZURESUBSCRIPTION | Subscription ID            |
+| X         | AZURETENANT       | Tenant ID                  |
+| X         | AZURECLIENTID     | Client ID                  |
+| X         | AZURECLIENTSECRET | Client secret              |
+| X         | AZURERESOURCE     | Id of the SignalR instance |
 
 </TabItem>
 <TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
-| Mandatory | Nom               | Description                 |
-|:----------|:------------------|:----------------------------|
-| X         | AZURECUSTOMMODE   | Custom mode 'azcli'         |
-| X         | AZURESUBSCRIPTION | Subscription ID             |
-| X         | AZURERESOURCE     | Id of the SignalR instance  |
+| Mandatory | Nom               | Description                |
+| :-------- | :---------------- | :------------------------- |
+| X         | AZURECUSTOMMODE   | Custom mode 'azcli'        |
+| X         | AZURESUBSCRIPTION | Subscription ID            |
+| X         | AZURERESOURCE     | Id of the SignalR instance |
 
 </TabItem>
 </Tabs>
@@ -306,7 +306,7 @@ All the available options for a given mode can be displayed by adding the ```--h
 The Plugin is using a cache file to keep connection information and avoid an authentication at each call. 
 If some of the authentication parameters change, you must delete the cache file. 
 
-The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder with a name similar to azure_api_`<md5>_<md5>_<md5>_<md5>`.
+The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder with a name similar to `azure_api_<md5>_<md5>_<md5>_<md5>`.
 
 #### ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```
 

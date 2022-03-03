@@ -143,7 +143,6 @@ Set additionnal Macros that come with the Host Templates:
 
 </TabItem>
 </Tabs>
-
 ## FAQ
 
 ### How to test the Plugin and what are the main options for ?

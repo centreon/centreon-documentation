@@ -42,7 +42,7 @@ More information about the Host Discovery module is available in the Centreon do
 > These metrics are only relevant for *vCore* based *Pools*
 
 | Metric name                      | Description    | Unit  |
-|:---------------------------------|:---------------|:------|
+| :------------------------------- | :------------- | :---- |
 | elasticpool.cpu.limit.count      | CPU limit      | Count |
 | elasticpool.cpu.usage.percentage | CPU percentage | %     |
 | elasticpool.cpu.used.count       | CPU used       | Count |
@@ -53,7 +53,7 @@ More information about the Host Discovery module is available in the Centreon do
 > These metrics are only relevant for *DTU* based *Pools*
 
 | Metric name                             | Description    | Unit  |
-|:----------------------------------------|:---------------|:------|
+| :-------------------------------------- | :------------- | :---- |
 | elasticpool.dtu.consumpution.percentage | DTU percentage | %     |
 | elasticpool.edtu.limit.count            | eDTU limit     | Count |
 | elasticpool.edtu.used.count             | eDTU used      | Count |
@@ -62,7 +62,7 @@ More information about the Host Discovery module is available in the Centreon do
 <TabItem value="Log" label="Log">
 
 | Metric name                             | Description                    | Unit |
-|:----------------------------------------|:-------------------------------|:-----|
+| :-------------------------------------- | :----------------------------- | :--- |
 | elasticpool.log.write.percentage        | Log IO percentage              | %    |
 | elasticpool.log.tempdb.size.kilobytes   | Tempdb Log File Size Kilobytes | KB   |
 | elasticpool.log.tempdb.usage.percentage | Tempdb Percent Log Used        | %    |
@@ -71,7 +71,7 @@ More information about the Host Discovery module is available in the Centreon do
 <TabItem value="Sessions" label="Sessions">
 
 | Metric name                           | Description         | Unit |
-|:--------------------------------------|:--------------------|:-----|
+| :------------------------------------ | :------------------ | :--- |
 | elasticpool.sessions.usage.percentage | Sessions percentage | %    |
 | elasticpool.workers.usage.percentage  | Workers percentage  | %    |
 
@@ -79,7 +79,7 @@ More information about the Host Discovery module is available in the Centreon do
 <TabItem value="Storage" label="Storage">
 
 | Metric name                                   | Description                  | Unit |
-|:----------------------------------------------|:-----------------------------|:-----|
+| :-------------------------------------------- | :--------------------------- | :--- |
 | elasticpool.storage.data.allocated.bytes      | Data space allocated         | B    |
 | elasticpool.storage.data.allocated.percentage | Data space allocated percent | %    |
 | elasticpool.storage.used.bytes                | Data space used              | B    |
@@ -250,22 +250,22 @@ These mandatory Macros differ regarding the custom mode used:
 <TabItem value="Azure Monitor API" label="Azure Monitor API">
 
 | Mandatory | Nom               | Description                                                                                     |
-|:----------|:------------------|:------------------------------------------------------------------------------------------------|
+| :-------- | :---------------- | :---------------------------------------------------------------------------------------------- |
 | X         | AZURECUSTOMMODE   | Custom mode 'api'                                                                               |
 | X         | AZURESUBSCRIPTION | Subscription ID                                                                                 |
 | X         | AZURETENANT       | Tenant ID                                                                                       |
 | X         | AZURECLIENTID     | Client ID                                                                                       |
 | X         | AZURECLIENTSECRET | Client secret                                                                                   |
-| X         | AZURERESOURCE     | Id of the Elastic Pool resource (syntax: <server\_name\>/elasticpool/<elasticpools\_name\>)     |
+| X         | AZURERESOURCE     | Id of the Elastic Pool resource (syntax: <server\_name\>/elasticpool/<elasticpools\_name\>) |
 
 </TabItem>
 <TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 | Mandatory | Nom               | Description                                                                                     |
-|:----------|:------------------|:------------------------------------------------------------------------------------------------|
+| :-------- | :---------------- | :---------------------------------------------------------------------------------------------- |
 | X         | AZURECUSTOMMODE   | Custom mode 'azcli'                                                                             |
 | X         | AZURESUBSCRIPTION | Subscription ID                                                                                 |
-| X         | AZURERESOURCE     | Id of the Elastic Pool resource (syntax: <server\_name\>/elasticpool/<elasticpools\_name\>)     |
+| X         | AZURERESOURCE     | Id of the Elastic Pool resource (syntax: <server\_name\>/elasticpool/<elasticpools\_name\>) |
 
 </TabItem>
 </Tabs>
@@ -342,7 +342,7 @@ As an example, if my Client ID or Client Secret are wrong, 'ERROR_DESC' value wi
 The Plugin is using a cache file to keep connection information and avoid an authentication at each call. 
 If some of the authentication parameters change, you must delete the cache file. 
 
-The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder with a name similar to azure_api_`<md5>_<md5>_<md5>_<md5>`.
+The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder with a name similar to `azure_api_<md5>_<md5>_<md5>_<md5>`.
 
 #### UNKNOWN: 500 Can't connect to login.microsoftonline.com:443 
 

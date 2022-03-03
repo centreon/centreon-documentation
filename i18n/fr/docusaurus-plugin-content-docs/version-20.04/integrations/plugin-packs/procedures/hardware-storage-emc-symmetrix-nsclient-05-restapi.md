@@ -32,7 +32,7 @@ agent and offer controls to monitor hardware components of EMC Storage arrays.
 ### NSClient++
 
 To monitor *EMC Symmetrix* disk controllers through NRPE, install the Centreon packaged version 
-of the NSClient++ agent. Please follow our [official documentation](../tutorials/centreon-nsclient-tutorial.md)  
+of the NSClient++ agent. Please follow our [official documentation](../tutorials/centreon-nsclient-tutorial.md) 
 and make sure that the **NRPE Server** configuration is correct.
 
 ## Installation 

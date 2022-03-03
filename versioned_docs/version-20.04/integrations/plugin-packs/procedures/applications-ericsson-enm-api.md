@@ -94,7 +94,6 @@ yum install centreon-pack-applications-ericsson-enm-api
 * Add a new Host and apply the *App-Ericsson-Enm-Api-custom* Host Template
 
 > Once the template applied, some Macros have to be configured:
-
 | Mandatory | Name                    | Description                                                                |
 | :-------- | :---------------------- | :------------------------------------------------------------------------- |
 | X         | ERICSSONENMAPIPORT      | Port used (Default: 443)                                                   |

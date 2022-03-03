@@ -41,21 +41,21 @@ More information about the Host Discovery module is available in the Centreon do
 <TabItem value="Datapath" label="Datapath">
 
 | Metric name                                   | Description           | Unit |
-|:----------------------------------------------|:----------------------|:-----|
+| :-------------------------------------------- | :-------------------- | :--- |
 | loadbalancer.datapath.availability.percentage | Datapath availability | %    |
 
 </TabItem>
 <TabItem value="Healthprobe" label="Healthprobe">
 
 | Metric name                                      | Description              | Unit |
-|:-------------------------------------------------|:-------------------------|:-----|
+| :----------------------------------------------- | :----------------------- | :--- |
 | loadbalancer.healthprobe.availability.percentage | Healthprobe availability | %    |
 
 </TabItem>
 <TabItem value="Snat" label="Snat">
 
 | Metric name                             | Description                        | Unit  |
-|:----------------------------------------|:-----------------------------------|:------|
+| :-------------------------------------- | :--------------------------------- | :---- |
 | loadbalancer.snat.ports.allocated.count | Number of allocated SNAT ports     | Count |
 | loadbalancer.snat.ports.used.count      | Number of used SNAT ports          | Count |
 | loadbalancer.snat.connection.count      | Number of current SNAT connections | Count |
@@ -64,7 +64,7 @@ More information about the Host Discovery module is available in the Centreon do
 <TabItem value="Throughput" label="Throughput">
 
 | Metric name                   | Description                  | Unit |
-|:------------------------------|:-----------------------------|:-----|
+| :---------------------------- | :--------------------------- | :--- |
 | loadbalancer.throughput.bytes | Processed data throughput    | B    |
 | loadbalancer.packets.count    | Processed packets throughput | %    |
 
@@ -233,7 +233,7 @@ These mandatory Macros differ regarding the custom mode used:
 <TabItem value="Azure Monitor API" label="Azure Monitor API">
 
 | Mandatory | Nom               | Description                      |
-|:----------|:------------------|:---------------------------------|
+| :-------- | :---------------- | :------------------------------- |
 | X         | AZURECUSTOMMODE   | Custom mode 'api'                |
 | X         | AZURESUBSCRIPTION | Subscription ID                  |
 | X         | AZURETENANT       | Tenant ID                        |
@@ -245,7 +245,7 @@ These mandatory Macros differ regarding the custom mode used:
 <TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 | Mandatory | Nom               | Description                      |
-|:----------|:------------------|:---------------------------------|
+| :-------- | :---------------- | :------------------------------- |
 | X         | AZURECUSTOMMODE   | Custom mode 'azcli'              |
 | X         | AZURESUBSCRIPTION | Subscription ID                  |
 | X         | AZURERESOURCE     | Id of the Load Balancer instance |
@@ -323,7 +323,7 @@ As an example, if my Client ID or Client Secret are wrong, 'ERROR_DESC' value wi
 The Plugin is using a cache file to keep connection information and avoid an authentication at each call. 
 If some of the authentication parameters change, you must delete the cache file. 
 
-The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder with a name similar to azure_api_`<md5>_<md5>_<md5>_<md5>`.
+The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder with a name similar to `azure_api_<md5>_<md5>_<md5>_<md5>`.
 
 #### UNKNOWN: 500 Can't connect to login.microsoftonline.com:443 
 

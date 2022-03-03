@@ -5,7 +5,6 @@ title: VMware ESX
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 ## Overview
 
 VMWare is an software compagny based in USA. VMWare provides cloud computing and virtualization software and services.
@@ -74,34 +73,6 @@ The Centreon Plugin and Plugin-Packs rely on the Centreon VMWare Connector to re
 | Metric name | Description               | Unit |
 | :---------- | :------------------------ | :--- |
 | Status      | Overall status on the ESX |      |
-
-</TabItem>
-<TabItem value="Esx-Storage" label="Esx-Storage">
-
-| Metric name                            | Description                                       | Unit |
-| :------------------------------------- | :------------------------------------------------ | :--- |
-| status                                 | Status of the ESX                                 |      |
-| adapters status                        | Adapter statuses of the ESX                       |      |
-| *esx_name*#host.adapters.total.count   | Number of adapters on the ESX                     |      |
-| *esx_name*#host.adapters.online.count  | Number of adapters with status online on the ESX  |      |
-| *esx_name*#host.adapters.offline.count | Number of adapters with status offline on the ESX |      |
-| *esx_name*#host.adapters.fault.count   | Number of adapters with status fault on the ESX   |      |
-| *esx_name*#host.adapters.unknown.count | Number of adapters with status unknown on the ESX |      |
-| luns status                            | LUN statuses of the ESX                           |      |
-| *esx_name*#host.luns.total.count       | Number of LUNs on the ESX                         |      |
-| *esx_name*#host.luns.ok.count          | Number of LUNs with status ok on the ESX          |      |
-| *esx_name*#host.luns.error.count       | Number of LUNs with status error on the ESX       |      |
-| *esx_name*#host.luns.off.count         | Number of LUNs with status off on the ESX         |      |
-| *esx_name*#host.luns.unknown.count     | Number of LUNs with status unknown on the ESX     |      |
-| *esx_name*#host.luns.quiesced.count    | Number of LUNs with status quiesced on the ESX    |      |
-| *esx_name*#host.luns.degraded.count    | Number of LUNs with status degraded on the ESX    |      |
-| paths status                           | Paths statuses of the ESX                         |      |
-| *esx_name*#host.paths.total.count      | Number of paths on the ESX                        |      |
-| *esx_name*#host.paths.active.count     | Number of paths with status active on the ESX     |      |
-| *esx_name*#host.paths.disabled.count   | Number of paths with status disabed on the ESX    |      |
-| *esx_name*#host.paths.standby.count    | Number of paths with status standby on the ESX    |      |
-| *esx_name*#host.paths.dead.count       | Number of paths with status dead on the ESX       |      |
-| *esx_name*#host.paths.unknown.count    | Number of paths with status unknown on the ESX    |      |
 
 </TabItem>
 <TabItem value="Esx-Swap" label="Esx-Swap">
@@ -254,23 +225,23 @@ yum install centreon-pack-virtualization-vmware2-esx
 Once you've installed the plugin, you can test it logging with centreon-engine user:
 	
 ```bash
-/usr/lib/centreon/plugins//centreon_vmware_connector_client.pl \
-	--plugin=apps::vmware::connector::plugin \
-	--mode=cpu-host \
-	--custommode=connector \
-	--connector-hostname='localhost' \
-	--connector-port='5700' \
-	--container='vcenter01' \
-	--esx-hostname='SRV-ESX-TLS' \
-	--unknown-status='%{status} !~ /^connected$/i' \
-	--warning-status='' \
-	--critical-status='' \
-	--warning-total-cpu='80' \
-	--critical-total-cpu='90' \
-	--warning-total-cpu-mhz='' \
-	--critical-total-cpu-mhz='' \
-	--warning-cpu='' \
-	--critical-cpu=''
+/usr/lib/centreon/plugins//centreon_vmware_connector_client.pl
+	--plugin=apps::vmware::connector::plugin
+	--mode=cpu-host
+	--custommode=connector
+	--connector-hostname='localhost'
+	--connector-port='5700'
+	--container='vcenter01' 
+	--esx-hostname='SRV-ESX-TLS'
+	--unknown-status='%{status} !~ /^connected$/i'
+	--warning-status=''
+	--critical-status=''
+	--warning-total-cpu='80'
+	--critical-total-cpu='90'
+	--warning-total-cpu-mhz=''
+	--critical-total-cpu-mhz=''
+	--warning-cpu=''
+	--critical-cpu='' 
 ```
 
 Expected command output is shown below:

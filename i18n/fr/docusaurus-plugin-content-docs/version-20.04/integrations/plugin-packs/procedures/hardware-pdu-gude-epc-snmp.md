@@ -14,7 +14,7 @@ Le Pack Gude Export Power Control collecte les données pour:
 * Power-channels
 * Sp-power-channels
 
-### Règles de découvertes
+### Règles de découverte
 
 <Tabs groupId="sync">
 <TabItem value="Services" label="Services">
@@ -83,7 +83,7 @@ Afin de contrôler votre Gude Export Power Control, le SNMP doit être configur�
 yum install centreon-plugin-Hardware-Pdu-Gude-Epc-Snmp
 ```
 
-2. Sur l'interface Web de Centreon, installer le Pack *Gude EPC SNMP* depuis la page **Configuration > Plugin Packs > Gestionnaire**
+2. Sur l'interface Web de Centreon, installer le Pack *Gude EPC PDU SNMP* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -113,7 +113,6 @@ yum install centreon-pack-hardware-pdu-gude-epc-snmp
 
 > Si vous utilisez la version 3 du protocole SNMP, utilisez la Macro *SNMPEXTRAOPTIONS* afin de renseigner les paramètres
 > d'authentification et de chiffrement adéquats
-
 | Mandatory   | Name                    | Description                       |
 | :---------- | :---------------------- | :---------------------------------|
 |             | SNMPEXTRAOPTIONS        | Extra options SNMP                |
@@ -143,7 +142,7 @@ Power channel interface 'Meter-B' status: valid, ovp status: ok, power supply st
 
 Cette commande contrôle l'utilisation des power channels Gude (```--mode=power-channels```) ayant pour adresse *10.30.2.114* (```--hostname=10.30.2.114```) 
 en version *2c* du protocol SNMP (```--snmp-version='2c'```) et avec la communauté *gude_ro* (```--snmp-community='gude_ro'```).
- 
+
 Pour chaque mode, la liste de toutes les métriques, seuils associés et options complémentaires peuvent être affichées
 en ajoutant le paramètre ```--help``` à la commande:
 

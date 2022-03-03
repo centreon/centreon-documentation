@@ -70,11 +70,11 @@ yum install centreon-anomaly-detection
 Go to `Administration > Extensions > Manager` and search **anomaly**. Click
 on **Install selection**:
 
-![image](../assets/monitoring/anomaly/install_01.png)
+![imaage](../assets/monitoring/anomaly/install_01.png)
 
 Your module is now installed:
 
-![image](../assets/monitoring/anomaly/install_02.png)
+![imaage](../assets/monitoring/anomaly/install_02.png)
 
 ### Restart process
 
@@ -89,11 +89,11 @@ systemctl restart gorgoned
 Go to the `Configuration > Services > Anomaly Detection` menu and click on
 **Add Centreon Cloud Token** button:
 
-![image](../assets/monitoring/anomaly/install_03.png)
+![imaage](../assets/monitoring/anomaly/install_03.png)
 
 Enter your token and click on **Save**:
 
-![image](../assets/monitoring/anomaly/install_04.png)
+![imaage](../assets/monitoring/anomaly/install_04.png)
 
 > If your Centreon Central server needs a proxy configuration to access the
 > Internet, check the **Use proxy** box.
@@ -123,7 +123,7 @@ Configuration must be done in 3 steps:
 Go to the `Configuration > Services > Anomaly Detection` menu and click on
 **Add Anomaly Service** button:
 
-![image](../assets/monitoring/anomaly/configure_01.png)
+![imaage](../assets/monitoring/anomaly/configure_01.png)
 
 #### Configuration fields
 
@@ -165,7 +165,7 @@ stable, you can activate alert generation.
 Go to the `Configuration > Services > Anomaly Detection` menu and edit your
 anomaly detection service:
 
-![image](../assets/monitoring/anomaly/configure_02.png)
+![imaage](../assets/monitoring/anomaly/configure_02.png)
 
 You can now enable **Enable change of status** and select the number of
 deviations you want before to validate the alert using the **Detect anomalies
@@ -182,7 +182,7 @@ notification process.
 Go to the `Configuration > Services > Anomaly Detection` menu and edit your
 anomaly detection service:
 
-![image](../assets/monitoring/anomaly/configure_03.png)
+![imaage](../assets/monitoring/anomaly/configure_03.png)
 
   - Select **Enabled** for the **Enable notification** option.
   - Select the **Implied Contacts** will receive notification.
