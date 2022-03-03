@@ -396,6 +396,14 @@ future.
 
 ## Centreon Broker
 
+### 21.04.7
+
+Release date: `March 3, 2022`
+
+#### Bug fixes
+
+- Refactored the BAM Business activities downtimes inheritance mechanism so that they are properly inherited and not duplicated anymore.
+
 ### 21.04.6
 
 Release date: `February 1, 2022`
