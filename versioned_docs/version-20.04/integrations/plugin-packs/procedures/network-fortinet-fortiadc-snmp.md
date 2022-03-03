@@ -146,7 +146,7 @@ yum install centreon-plugin-Network-Fortinet-Fortiadc-Snmp
 
 2. Install the **Fortinet FortiADC SNMP** Centreon Pack RPM on the Centreon Central server:
 
- ```bash
+```bash
 yum install centreon-pack-network-fortinet-fortiadc-snmp
 ```
 
