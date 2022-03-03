@@ -185,7 +185,7 @@ yum install centreon-pack-network-viptela-snmp
 ### Hôte
 
 * Ajoutez un Hôte à Centreon depuis la page **Configuration > Hôtes**
-* Complétez les champs **Nom**, s**Alias** & **IP Address / DNS** correspondant à votre serveur **Viptela SNMP**.
+* Complétez les champs **Nom**, **Alias** & **IP Address / DNS** correspondant à votre serveur **Viptela SNMP**.
 * Appliquez le Modèle d'Hôte **Net-Viptela-SNMP-custom**
 
 Si vous utilisez SNMP en version 3, vous devez configurer les paramètres
