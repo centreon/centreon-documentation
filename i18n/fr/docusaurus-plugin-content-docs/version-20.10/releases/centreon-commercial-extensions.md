@@ -257,6 +257,24 @@ if the Business Activity is disabled.
 
 ## Centreon MBI
 
+### 20.10.5
+
+Release date: `Marth 3, 2022`
+
+#### Security fixes
+
+- Log4J MBI upgrade to 2.17.1
+- Sanitize parameters in task generation form
+
+#### Improvements
+
+- Compatibility with PHP 7.4 (20.10 / 21.04) for MBI
+
+#### Bug fixes
+
+- Fixed: New line character missing from last line in MBI back up script preventing the script to execute
+- Fixed: Issue in Test SMTP Rule
+
 ### 20.10.4
 
 `21 juillet 2021`
