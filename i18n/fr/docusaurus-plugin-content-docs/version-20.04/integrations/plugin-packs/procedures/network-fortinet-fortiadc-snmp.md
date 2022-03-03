@@ -161,7 +161,7 @@ yum install centreon-pack-network-fortinet-fortiadc-snmp
 ### Hôte
 
 * Ajoutez un Hôte à Centreon depuis la page **Configuration > Hôtes**
-* Complétez les champs **Nom**, s**Alias** & **IP Address / DNS** correspondant à votre serveur **Fortinet FortiADC SNMP**.
+* Complétez les champs **Nom**, **Alias** & **IP Address / DNS** correspondant à votre serveur **Fortinet FortiADC SNMP**.
 * Appliquez le Modèle d'Hôte **Net-Fortinet-Fortiadc-SNMP-custom**
 
 Si vous utilisez SNMP en version 3, vous devez configurer les paramètres
