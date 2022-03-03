@@ -18,6 +18,8 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ### 21.10.4
 
+Release date: `March 3, 2022`
+
 #### Enhancements
 
 - [Authentication] Autologin Validation reinforcement
