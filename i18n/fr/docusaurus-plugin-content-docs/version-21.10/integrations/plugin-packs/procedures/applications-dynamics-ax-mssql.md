@@ -6,41 +6,43 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Overview
+## Vue d'ensemble
 
-This Plugin Pack allow to get metrics and statuses collected through SQL queries.
+Ce Plugin Pack permet d'obtenir des métriques et des statuts collectés via des requêtes SQL.
 
-## Pack assets
+## Contenu du Plugin-Pack
 
-### Monitored objects
+### Objets surveillés
 
 * Microsoft SQL AX Database
 
-### Collected metrics
+### Métriques collectées
 
 <Tabs groupId="sync">
 <TabItem value="EDI-Order" label="EDI-Order">
 
-| Service           | Description                  |
-| :---------------- | :--------------------------- |
-| EDI-Order         | Check the EDI Orders errors. |
+| Service           | Description                            |
+| :---------------- | :------------------------------------- |
+| EDI-Order         | Vérifier les erreurs de commandes EDI. |
 
 </TabItem>
 </Tabs>
 
-## Prerequisites
+## Prérequis
 
 ### Username
 
-The username string should not be longer than 32 chararacters. Username must be
-in the following form: \[Servername|Domainname\] In order for the plugin to
-operate correctly, a database user with specific privileges is required. The
-most simple way is to assign the Nagios-user the role “serveradmin”. As an
-alternative you can use the sa-User for the database connection. Alas, this
-opens a serious security hole, as the (cleartext) administrator password can be
-found in the Centreon configuration files, Birk Bohne wrote the following script
-which allows the automated creation of a minimal, yet sufficient privileged
-monitoring-user.
+La chaîne du "username" ne doit pas dépasser 32 caractères. Le nom d'utilisateur
+doit être sous la forme suivante : \[Servername|Domainname\] Pour que le plugin
+fonctionnent correctement, un utilisateur de la base de données avec des privilèges
+spécifiques est requis. Le moyen le plus simple est d'assigner à "Nagios-user"
+le rôle “serveradmin”. En tant qu'alternative, vous pouvez utiliser l'utilisateur
+sa-User pour la connexion à la base de données. Hélas, cela ouvre une sérieuse faille
+de sécurité, car le mot de passe administrateur (en clair) peut être trouvé dans les
+fichiers de configuration de Centreon, Birk Bohne a écrit le script suivant qui permet
+la création automatisée d'un espace privilégié minimal mais suffisant dans le cadre de
+la surveillance.
+
 
     declare @dbname varchar(255)
     declare @check_mssql_health_USER varchar(255)
@@ -118,69 +120,67 @@ monitoring-user.
 
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
-1. Install the Centreon plugin package on every Poller:
+
+1. Installez le plugin Centreon sur chaque Poller :
 
 ```bash
 yum install centreon-plugin-Applications-Dynamics-Ax-Mssql
 ```
 
-2. On the Centreon Web interface, install the Centreon Pack *Dynamics AX Database* 
-from the **Configuration > Plugin Packs > Manager** page
+2. Sur l'interface Web Centreon, installez le Pack Centreon *Dynamics AX Database*
+depuis la page **Configuration > Plugin Packs > Manager**
 
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon plugin package on every Poller:
+1. Installez le plugin Centreon sur chaque Poller :
 
 ```bash
 yum install centreon-plugin-Applications-Dynamics-Ax-Mssql
 ```
 
-2. Install the Centreon Pack RPM on the Centreon Central server:
+2. Installez le RPM Centreon Pack sur le serveur Centreon Central :
 
 ```bash
 yum install centreon-pack-applications-dynamics-ax-mssql
 ```
 
-3. On the Centreon Web interface, install the Centreon Pack *Dynamics AX Database* 
-from the **Configuration > Plugin Packs > Manager** page
+3. Sur l'interface Web Centreon, installez le Pack Centreon *Dynamics AX Database*
+depuis la page **Configuration > Plugin Packs > Manager**
 
 </TabItem>
 </Tabs>
 
 ### RPM
 
-In order to use this template, the following RPM are needed:
+Pour utiliser ce modèle, les RPM suivants sont nécessaires :
 
   - freetds
   - perl-DBD-Sybase
   - unixODBC
 
-### Configuration of freetds.conf file
+### Configuration du fichier freetds.conf
 
-The /etc/freetds.conf file have to be modified in order to encrypt the password.
-To do that :
+Le fichier /etc/freetds.conf doit être modifié afin de chiffrer le mot de passe.
+Pour faire ça :
 
 ```bash
 vi /etc/freetds.conf
 ```
 
-Modify line tds 'version = auto' to 'tds version = 8.0'. Then remove comment
-symbol at the beginning of this line.
+Modifiez la ligne tds 'version = auto' en 'tds version = 8.0'. Puis supprimer le 
+symbole de commentaire au début de cette ligne.
 
 
-## Host configuration
+## Paramétrage de l'hôte
 
-* Log into Centreon and add a new host thfough "Configuration > Hosts". 
-* Apply the *App-Dynamics-AX-Database-Mssql-custom* template and configure all the mandatory Macros:
+* Connectez-vous à Centreon et ajoutez un nouvel Host via "Configuration > Hosts".
+* Appliquez le modèle *App-Dynamics-AX-Database-Mssql-custom* et configurez toutes les macros obligatoires :
 
-| Mandatory | Name          | Description                                       |
-| :-------- | :------------ | :------------------------------------------------ |
-| X         | MSSQLPASSWORD | MSSQL password to connect to the database         |
-| X         | MSSQLPORT     | MSSQL port of the target database (Default: 1433) |
-| X         | MSSQLUSERNAME | MSSQL username to connect to the database         |
-|           | EXTRAOPTIONS  | Extraoptions to use if needed                     |
-
-
-Click "Save" button.
+| Obligatoire | Nom           | Description                                                    |
+| :---------- | :------------ | :------------------------------------------------------------- |
+| X           | MSSQLPASSWORD | Mot de passe MSSQL pour se connecter à la base de données      |
+| X           | MSSQLPORT     | Port MSSQL de la base de données cible (Défaut: 1433)          |
+| X           | MSSQLUSERNAME | Nom d'utilisateur MSSQL pour se connecter à la base de données |
+|             | EXTRAOPTIONS  | Options supplémentaires à utiliser si nécessaire               |
