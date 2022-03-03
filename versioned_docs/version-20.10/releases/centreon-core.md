@@ -631,6 +631,15 @@ state was HARD even if no notification is configured nor sent.
 
 ## Centreon Broker
 
+### 20.10.12
+
+Release date: `null`
+
+#### Bug fixes
+
+- Refactored the BAM Business activities downtimes inheritance mechanism so that they are properly inherited and not duplicated anymore.
+
+
 ### 20.10.11
 
 Release date: `January 20, 2022`
