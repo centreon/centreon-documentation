@@ -763,7 +763,7 @@ Soit un serveur Centreon avec le FQDN suivant : **centreon7.localdomain**.
                 php_admin_value engine Off
             </IfModule>
 
-            FallbackResource /centreon/index
+            FallbackResource /centreon/index.html
 
             AddType text/plain hbs
         </Directory>
