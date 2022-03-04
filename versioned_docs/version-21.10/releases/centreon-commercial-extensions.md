@@ -22,7 +22,7 @@ Release date: `March 1, 2022`
 
 Due to the bug fix on the metric labels, Outputs and Metric Links that have been created in
 Centreon Map 21.10.0 , 21.10.1 or 21.10.2
-have to be recreated if needed.
+may have to be recreated after updating Map to version 21.10.3.
 
 #### Security fixes
 
