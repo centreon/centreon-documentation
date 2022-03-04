@@ -19,6 +19,22 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon MAP
 
+### 21.04.5
+
+Release date: `March 7, 2022`
+
+Due to the bug fix on the metric labels, Outputs and Metric Links that have been created in 
+Centreon Map 21.04.2, 21.04.3 and 21.04.4
+may have to be recreated after updating Map to version 21.04.5.
+
+### Security fixes
+
+- Log4J version updated to 2.17.1
+
+### Bug fixes
+
+- Fixed links not coloring according to status and output not functional when metric name contains special character
+
 ### 21.04.4
 
 Release date: `December 20, 2021`
