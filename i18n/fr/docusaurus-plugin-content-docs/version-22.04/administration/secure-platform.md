@@ -454,7 +454,7 @@ ServerTokens Prod
     <Directory "${install_dir}/www">
         AllowOverride none
         Require all granted
-        FallbackResource ${base_uri}/index
+        FallbackResource ${base_uri}/index.html
     </Directory>
 
     <Directory "${install_dir}/api">
