@@ -33,7 +33,7 @@ may have to be recreated after updating Map to version 21.04.5.
 
 ### Bug fixes
 
-- Fixed links not coloring according to status and output not functional when metric name contains special character
+- Fixed links not coloring according to status and output not functional when metric name contains special characters
 
 ### 21.04.4
 
