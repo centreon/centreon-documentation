@@ -6,8 +6,7 @@ Any relevant information should be added to help reviewers.
 
 ## Target version
 
-- [ ] 20.10.x
-- [ ] 21.04.x
-- [ ] 21.10.x
-
-PRs for version 22.04 must be done on branch "next".
+- [ ] 20.10.x (staging)
+- [ ] 21.04.x (staging)
+- [ ] 21.10.x (staging)
+- [ ] 22.04.x (next)
