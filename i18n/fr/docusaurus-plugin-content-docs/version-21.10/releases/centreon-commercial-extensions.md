@@ -19,6 +19,10 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 Release date: `March 1, 2022`
 
+Due to the bug fix on the metric labels, Outputs and Metric Links that have been created on 
+Centreon Map 21.10.1 and 21.10.2 (20.10.6, 20.10.7 and 20.10.8 / 21.04.2, 21.04.3 and 21.04.4)
+have to be recreated if needed.
+
 #### Security fixes
 
 - Log4J version updated to 2.17.1
