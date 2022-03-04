@@ -24,7 +24,7 @@ commerciales, veuillez contacter le support.
 Release date: `March 1, 2022`
 
 Due to the bug fix on the metric labels, Outputs and Metric Links that have been created on 
-Centreon Map 21.10.1 and 21.10.2 (20.10.6, 20.10.7 and 20.10.8 / 21.04.2, 21.04.3 and 21.04.4)
+Centreon Map 20.10.6, 20.10.7 and 20.10.8
 may have to be recreated after updating Map to version 20.10.9.
 
 #### Bugfixes 
