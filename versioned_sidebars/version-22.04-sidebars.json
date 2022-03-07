@@ -943,6 +943,10 @@
           "items": [
             {
               "type": "doc",
+              "id": "version-22.04/integrations/plugin-packs/tutorials/azure-credential-configuration"
+            },    
+            {
+              "type": "doc",
               "id": "version-22.04/integrations/plugin-packs/tutorials/centreon-nsclient-tutorial"
             },
             {
