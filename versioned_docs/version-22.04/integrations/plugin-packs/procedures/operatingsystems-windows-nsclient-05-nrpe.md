@@ -6,10 +6,10 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Overview
+## Overview 
 
 This Plugin Pack allow to get metrics and statuses collected thanks to the NSClient++ 
-monitoring agent and its embedded NRPE Server. 
+monitoring agent and its embedded NRPE Server.
 
 ## Pack assets
 
@@ -107,7 +107,7 @@ monitoring agent and its embedded NRPE Server.
 ### Centreon NSClient++
 
 To monitor an *Active Directory* domain controller through NRPE, install the Centreon packaged version 
-of the NSClient++ agent. Please follow our [official documentation](../tutorials/centreon-nsclient-tutorial) 
+of the NSClient++ agent. Please follow our [official documentation](../tutorials/centreon-nsclient-tutorial.md) 
 and make sure that the **NRPE Server** configuration is correct.
 
 ## Installation 
@@ -115,32 +115,31 @@ and make sure that the **NRPE Server** configuration is correct.
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon NRPE Client package on every Poller expected to monitor *Varnish*:
+1. Install the Centreon NRPE Client package on every Poller expected to monitor *Windows* resources:
 
 ```bash
-yum install centreon-nrpe-plugin
+yum install centreon-nrpe3-plugin
 ```
 
-2. On the Centreon Web interface, install the Centreon Pack *Varnish* 
+2. On the Centreon Web interface, install the **Windows NRPE 0.5** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
 from the **Configuration > Plugin Packs > Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Poller expected to monitor *Varnish*:
+1. Install the Centreon NRPE Client package on every Poller expected to monitor *Windows* resources:
 
 ```bash
-yum install centreon-nrpe-plugin
+yum install centreon-nrpe3-plugin
 ```
 
-2. Install the Centreon Pack RPM on the Centreon Central server:
+2. Install the **Windows NRPE 0.5** Centreon Pack RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-operatingsystems-windows-nsclient-05-nrpe
 ```
 
-3. On the Centreon Web interface, install the Centreon Pack *Varnish* 
-from the **Configuration > Plugin Packs > Manager** page
+3. On the Centreon Web interface, install the **Windows NRPE 0.5** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
 
 </TabItem>
 </Tabs>
@@ -148,11 +147,17 @@ from the **Configuration > Plugin Packs > Manager** page
 ## Host configuration
 
 * Log into Centreon and add a new Host through "Configuration > Hosts".
-* Apply the *OS-Windows-NSClient-05-NRPE-custom* template and configure all the mandatory Macros:
+* Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your *Windows* server settings.
+* Select the *OS-Windows-NSClient-05-NRPE-custom* template to apply to the Host.
+* Once the template is applied, fill in the corresponding macros. If you're in 21.10 or higher version and you've just installed **centreon-nrpe3-plugin**, you will have to replace the default macro values by the bold ones:
 
-| Mandatory | Name             | Description                                                      |
-|:----------|:-----------------|:---------------------------------------------------------------- |
-| X         | NRPECLIENT       | NRPE Plugin binary to use (Default: 'check_centreon_nrpe')       |
-| X         | NRPEPORT         | NRPE Port of the target server (Default: '5666')                 |
-| X         | NRPETIMEOUT      | Timeout value (Default: '30')                                    |
-| X         | NRPEEXTRAOPTIONS | Extraoptions to use with the NRPE binary (default: '-u -m 8192') |
+| Mandatory | Name             | Value                     | Description                                                      |
+|:----------|:-----------------|---------------------------| :----------------------------------------------------------------|
+| X         | NRPECLIENT       | **check_centreon_nrpe3**  | NRPE Plugin binary to use (Default: 'check_centreon_nrpe')       |
+| X         | NRPEPORT         | 5666                      | NRPE Port of the target server (Default: '5666')                 |
+| X         | NRPETIMEOUT      | 30                        | Timeout value (Default: '30')                                    |
+| X         | NRPEEXTRAOPTIONS | **-u -2 -P 8192**         | Extraoptions to use with the NRPE binary (default: '-u -m 8192') |
+
+## Troubleshooting
+
+Please find the troubleshooting documentation for NRPE checks in the [dedicated chapter](../tutorials/troubleshooting-plugins.md#nrpe-checks) of the Centreon documentation.
