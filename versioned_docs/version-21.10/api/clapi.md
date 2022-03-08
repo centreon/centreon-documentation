@@ -3288,6 +3288,10 @@ centreon -u admin -p centreon -o HOST -a setmacro -v "Centreon-Server;warning;80
 centreon -u admin -p centreon -o HOST -a setmacro -v "Centreon-Server;critical;90;0;description of macro"
 ```
 
+The second number, just before the description, can be :
+  * 0 for a normal macro
+  * 1 for a password macro
+
 > ***NOTE:*** If the macro already exists, this action will only update the macro value. Otherwise, macro will be created.
 
 #### Delmacro
