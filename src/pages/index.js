@@ -10,7 +10,7 @@ const links = {
   doc: {
     cloud: 'cloud/getting-started/architecture',
     gettingstarted: 'docs/getting-started/installation-first-steps',
-    pluginpacks: 'docs/integrations/plugin-packs/introduction',
+    pluginpacks: 'pp/integrations/plugin-packs/introduction',
     prerequisite: 'docs/installation/prerequisites',
     installation: 'docs/installation/introduction',
     monitoring: 'docs/integrations/plugin-packs/introduction',

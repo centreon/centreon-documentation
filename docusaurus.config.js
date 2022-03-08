@@ -102,6 +102,16 @@ const config = {
         breadcrumbs: false,
       },
     ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'pp',
+        path: 'pp',
+        routeBasePath: 'pp',
+        sidebarPath: require.resolve('./pp/sidebarsPp.js'),
+        breadcrumbs: false,
+      },
+    ],
   ],
 
   themeConfig:
@@ -160,6 +170,12 @@ const config = {
             label: 'Centreon Cloud',
             position: 'left',
             activeBaseRegex: '/cloud/',
+          },
+          {
+            to: '/pp/integrations/plugin-packs/introduction',
+            label: 'Plugin Packs',
+            position: 'left',
+            activeBaseRegex: '/pp/',
           },
           {
             type: 'search',

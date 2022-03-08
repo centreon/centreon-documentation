@@ -1,0 +1,6 @@
+{
+  "sidebar.pp.category.Applications": {
+    "message": "Applications",
+    "description": "The label for category Applications in pp sidebar"
+  }
+}
