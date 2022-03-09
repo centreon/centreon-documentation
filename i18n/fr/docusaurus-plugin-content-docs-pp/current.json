@@ -2,5 +2,61 @@
   "sidebar.pp.category.Applications": {
     "message": "Applications",
     "description": "The label for category Applications in pp sidebar"
+  },
+  "sidebar.docs.category.Blockchain": {
+    "message": "Blockchain",
+    "description": "The label for category Blockchain in sidebar docs"
+  },
+  "sidebar.docs.category.Centreon": {
+    "message": "Centreon",
+    "description": "The label for category Centreon in sidebar docs"
+  },
+  "sidebar.docs.category.Cloud": {
+    "message": "Cloud",
+    "description": "The label for category Cloud in sidebar docs"
+  },
+  "sidebar.docs.category.Database": {
+    "message": "Database",
+    "description": "The label for category Database in sidebar docs"
+  },
+  "sidebar.docs.category.Hardware Server": {
+    "message": "Hardware Server",
+    "description": "The label for category Hardware Server in sidebar docs"
+  },
+  "sidebar.docs.category.Network": {
+    "message": "Network",
+    "description": "The label for category Network in sidebar docs"
+  },
+  "sidebar.docs.category.Operating System": {
+    "message": "Operating System",
+    "description": "The label for category Operating System in sidebar docs"
+  },
+  "sidebar.docs.category.Printer": {
+    "message": "Printer",
+    "description": "The label for category Printer in sidebar docs"
+  },
+  "sidebar.docs.category.Protocol": {
+    "message": "Protocol",
+    "description": "The label for category Protocol in sidebar docs"
+  },
+  "sidebar.docs.category.Sensor": {
+    "message": "Sensor",
+    "description": "The label for category Sensor in sidebar docs"
+  },
+  "sidebar.docs.category.Storage": {
+    "message": "Storage",
+    "description": "The label for category Storage in sidebar docs"
+  },
+  "sidebar.docs.category.Toip Voip": {
+    "message": "Toip Voip",
+    "description": "The label for category Toip Voip in sidebar docs"
+  },
+  "sidebar.docs.category.Ups Pdu": {
+    "message": "Ups Pdu",
+    "description": "The label for category Ups Pdu in sidebar docs"
+  },
+  "sidebar.docs.category.Virtualization": {
+    "message": "Virtualization",
+    "description": "The label for category Virtualization in sidebar docs"
   }
 }
