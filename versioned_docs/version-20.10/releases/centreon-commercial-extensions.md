@@ -23,6 +23,10 @@ If you have feature requests or want to report a bug, please contact support.
 
 Release date: `March 1, 2022`
 
+Due to the bug fix on the metric labels, Outputs, Gauges and Metric Links that have been created in 
+Centreon Map 20.10.6, 20.10.7 and 20.10.8
+may have to be recreated after updating Map to version 20.10.9.
+
 #### Bugfixes 
 
 - Fixed links not coloring according to status and output not functional when metric name contains special character
@@ -248,6 +252,24 @@ if the Business Activity is disabled.
   *Business Views*
 
 ## Centreon MBI
+
+### 20.10.5
+
+Release date: `March 3, 2022`
+
+#### Security fixes
+
+- Log4J MBI upgrade to 2.17.1
+- Sanitize parameters in task generation form
+
+#### Improvements
+
+- Compatibility with PHP 7.4 (20.10 / 21.04) for MBI
+
+#### Bug fixes
+
+- Fixed: New line character missing from last line in MBI back up script preventing the script to execute
+- Fixed: Issue in Test SMTP Rule
 
 ### 20.10.4
 
