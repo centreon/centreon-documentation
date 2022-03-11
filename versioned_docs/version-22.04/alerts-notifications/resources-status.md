@@ -113,7 +113,7 @@ You can filter the list of resources according to a number of predefined criteri
 
     A pop-in window appears, that lists the following criteria:
 
-    - **Resource**: display only hosts, services or metaservices
+    - **Type**: display only hosts, services or metaservices
     - **State**: whether the problem is already acknowledged, in a planned downtime or simply unhandled
     - [**Status**](concepts): **OK**, **Up**, **Warning**, **Down**, **Critical**, **Unreachable**, **Unknown**, **Pending**
     - [**Status type**](concepts#status-types): SOFT or HARD
