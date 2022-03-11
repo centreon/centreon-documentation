@@ -27,7 +27,7 @@ const links = {
 
 const stringsAndParagraphs = {
   excellenceBlock: {
-    title: `Bienvenue dans la Documentation Centreon !`,
+    title: `Bienvenue dans la Documentation Centreon !`,
     subTitle: `La plateforme de supervision informatique orientée AIOps de Centreon offre une visibilité globale des workflows les plus complexes, du cloud jusqu’au Edge.`,
     btnStart: `Centreon OnPrem`,
     btnPp: `Plugin Packs`,
