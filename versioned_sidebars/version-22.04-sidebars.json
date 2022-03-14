@@ -3297,6 +3297,10 @@
             },
             {
               "type": "doc",
+              "id": "version-22.04/integrations/plugin-packs/procedures/virtualization-hyperv-nscp-restapi"
+            },
+            {
+              "type": "doc",
               "id": "version-22.04/integrations/plugin-packs/procedures/virtualization-nutanix-snmp"
             },
             {
