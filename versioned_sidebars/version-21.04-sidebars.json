@@ -3209,6 +3209,10 @@
             },
             {
               "type": "doc",
+              "id": "version-21.04/integrations/plugin-packs/procedures/virtualization-hyperv-nscp-restapi"
+            },
+            {
+              "type": "doc",
               "id": "version-21.04/integrations/plugin-packs/procedures/virtualization-nutanix-snmp"
             },
             {
