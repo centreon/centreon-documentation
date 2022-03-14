@@ -55,7 +55,7 @@ installed, configured and running on the Windows server running the SCCM Admin c
 
 The Centreon Poller can connect to the agent using either the NRPE method or the 
 RestAPI method. More information on how to achieve the installation and the configuration 
-of the agent can be found [here](/docs/tutorials/centreon-nsclient-tutorial)
+of the agent can be found [here](../tutorials/centreon-nsclient-tutorial.md)
 
 ## Installation
 
