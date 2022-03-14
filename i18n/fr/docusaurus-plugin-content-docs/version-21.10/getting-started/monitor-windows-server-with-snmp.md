@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 Dans ce tutoriel, nous supposons que votre plateforme Centreon est installée et fonctionnelle. Une [licence](../administration/licenses.md) est nécessaire pour accéder au catalogue complet des Plugin Packs. Nous supposons que vous avez au moins une licence [Centreon IT 100 Edition](it100.md).
 
-La supervision d'un serveur Windows en SNMP se fait via le [Plugin Pack Windows SNMP](../integrations/plugin-packs/procedures/operatingsystems-windows-snmp.md). (Vous pouvez obtenir plus d'informations sur les Plugin Packs [ici](../monitoring/pluginpacks.md)).
+La supervision d'un serveur Windows en SNMP se fait via le [Plugin Pack Windows SNMP](/pp/integrations/plugin-packs/procedures/operatingsystems-windows-snmp). (Vous pouvez obtenir plus d'informations sur les Plugin Packs [ici](../monitoring/pluginpacks.md)).
 
 ## Prérequis
 
@@ -92,7 +92,7 @@ Sélectionnez ensuite **Accepter les paquets SNMP de ces hôtes** et ajoutez l'a
 
 ### Sur le serveur Centreon (collecteur)
 
-Connectez-vous à votre collecteur en SSH et installez le plugin Windows SNMP (voir la [procédure de supervision du Plugin Pack **Windows SNMP**](../integrations/plugin-packs/procedures/operatingsystems-windows-snmp.md) pour plus d'informations):
+Connectez-vous à votre collecteur en SSH et installez le plugin Windows SNMP (voir la [procédure de supervision du Plugin Pack **Windows SNMP**](/pp/integrations/plugin-packs/procedures/operatingsystems-windows-snmp) pour plus d'informations):
 
 ```shell
 yum install centreon-plugin-Operatingsystems-Windows-Snmp

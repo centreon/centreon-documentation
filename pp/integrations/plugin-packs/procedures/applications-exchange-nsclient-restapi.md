@@ -27,7 +27,7 @@ performance of Microsoft Exchange Servers.
 ### NSClient++
 
 To monitor an *Exchange Server* through NSClient++ API, install the Centreon packaged version 
-of the NSClient++ agent. Please follow our [official documentation](../tutorials/centreon-nsclient-tutorial) 
+of the NSClient++ agent. Please follow our [official documentation](/docs/tutorials/centreon-nsclient-tutorial) 
 and make sure that the **Webserver / RESTApi** configuration is correct. 
 
 ### Powershell 
