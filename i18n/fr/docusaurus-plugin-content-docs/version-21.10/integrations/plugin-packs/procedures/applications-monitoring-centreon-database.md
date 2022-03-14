@@ -164,7 +164,7 @@ GRANT SELECT ON *.* to 'monitor_user'@'IP_POLLER';
 
 ### SNMP
 
-SNMP doit être configuré sur le serveur central. Vous pouvez vous aider de cette [documentation](operatingsystems-linux-snmp.md#prerequisites) pour mettre en place rapidement une simple configuration SNMP. 
+SNMP doit être configuré sur le serveur central. Vous pouvez vous aider de cette [documentation](operatingsystems-linux-snmp#prerequisites) pour mettre en place rapidement une simple configuration SNMP. 
 
 ## Installation
 

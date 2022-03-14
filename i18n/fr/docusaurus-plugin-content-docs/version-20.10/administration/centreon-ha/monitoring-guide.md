@@ -5,7 +5,7 @@ title: Supervision de Centreon-HA
 
 ## Supervision des services de clustering et des ressources du cluster
 
-Pour commencer, se référer à la [page de documentation du Plugin-Pack Linux SNMP](pp/integrations/plugin-packs/procedures/operatingsystems-linux-snmp) pour installer tous les prérequis et superviser les indicateurs de santé système basiques des deux serveurs centraux.
+Pour commencer, se référer à la [page de documentation du Plugin-Pack Linux SNMP](/pp/integrations/plugin-packs/procedures/operatingsystems-linux-snmp) pour installer tous les prérequis et superviser les indicateurs de santé système basiques des deux serveurs centraux.
 
 Puis se référer à la [page de documentation du Plugin-Pack Centreon-HA](integrations/plugin-packs/procedures/applications-monitoring-centreon-ha.md) pour superviser ces processus et ces ressources sur les deux nœuds centraux.
 

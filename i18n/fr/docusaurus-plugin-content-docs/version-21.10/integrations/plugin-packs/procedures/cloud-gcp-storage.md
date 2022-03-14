@@ -23,7 +23,7 @@ Celui-ci permet de découvrir l'ensemble des supports de stockage associés à u
 > Le fichier *key* doit être déployé sur les Collecteurs utilisés pour la découverte en amont de son execution (voir chapitre Prérequis)
 
 Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionnement sur la documentation du module:
-[Découverte des hôtes](../../../monitoring/discovery/hosts-discovery.md)
+[Découverte des hôtes](/docs/monitoring/discovery/hosts-discovery)
 
 ### Métriques collectées
 

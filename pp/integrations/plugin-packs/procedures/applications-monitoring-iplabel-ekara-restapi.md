@@ -26,7 +26,7 @@ The Centreon Plugin-Pack **IP-Label Ekara Rest API** includes a Host Discovery p
 This provider is named **IP-Label Ekara**.
 
 More information about the Host Discovery module is available in the Centreon documentation:
-[Host Discovery](../../../monitoring/discovery/hosts-discovery.md)
+[Host Discovery](/docs/monitoring/discovery/hosts-discovery)
 
 ### Collected metrics & status
 

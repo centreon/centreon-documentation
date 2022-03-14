@@ -34,7 +34,7 @@ to check Netbackup backup solutions using the Windows agent's API.
 ### NSClient++
 
 To monitor Netbackup software with NRPE, install the Centreon packaged version 
-of the NSClient++ agent. Please follow our [official documentation](../tutorials/centreon-nsclient-tutorial.md)  
+of the NSClient++ agent. Please follow our [official documentation](../tutorials/centreon-nsclient-tutorial)  
 and make sure that the **Webserver / RESTApi** configuration is correct. 
 
 ### NetBackup cli

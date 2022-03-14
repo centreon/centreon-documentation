@@ -22,7 +22,7 @@ Le Pack Centreon *Ericsson ENM API* inclut un *provider* de découverte d'Hôtes
 Celui-ci permet de découvrir l'ensemble des noeuds rattachés à un Ericsson Network Manager.
 
 Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionnement sur la documentation du module:
-[Découverte des hôtes](../../../monitoring/discovery/hosts-discovery.md)
+[Découverte des hôtes](/docs/monitoring/discovery/hosts-discovery)
 
 </TabItem>
 <TabItem value="Services" label="Services">
