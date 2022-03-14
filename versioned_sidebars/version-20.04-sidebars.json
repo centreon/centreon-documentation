@@ -732,6 +732,11 @@
       ]
     },
     {
+      "type": "link",
+      "href": "/pp/integrations/plugin-packs/introduction",
+      "label": "Plugin Packs"
+    },
+    {
       "type": "category",
       "label": "Integrations",
       "items": [
