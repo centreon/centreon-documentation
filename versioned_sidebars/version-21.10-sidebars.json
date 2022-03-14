@@ -948,6 +948,10 @@
             {
               "type": "doc",
               "id": "version-21.10/integrations/plugin-packs/tutorials/troubleshooting-plugins"
+            },
+			{
+              "type": "doc",
+              "id": "version-21.10/integrations/plugin-packs/tutorials/windows-winrm-wsman"
             }
           ]
         },
