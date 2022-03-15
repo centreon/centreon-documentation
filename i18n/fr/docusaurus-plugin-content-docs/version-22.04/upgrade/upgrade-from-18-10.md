@@ -202,7 +202,7 @@ ProxyTimeout 300
 </IfModule>
 
 <Directory "/usr/share/centreon/www">
-    DirectoryIndex index.php
+    ErrorDocument 404 ${base_uri}/index.html
     Options Indexes
     AllowOverride all
     Order allow,deny

@@ -443,7 +443,7 @@ ServerTokens Prod
     </LocationMatch>
 
     ProxyTimeout 300
-    DirectoryIndex index.php
+    ErrorDocument 404 ${base_uri}/index.html
     Options -Indexes +FollowSymLinks
 
     <IfModule mod_security2.c>
@@ -744,7 +744,7 @@ Soit un serveur Centreon avec le FQDN suivant : **centreon7.localdomain**.
         </LocationMatch>
 
         ProxyTimeout 300
-        DirectoryIndex index.php
+        ErrorDocument 404 ${base_uri}/index.html
         Options -Indexes +FollowSymLinks
 
         <IfModule mod_security2.c>
