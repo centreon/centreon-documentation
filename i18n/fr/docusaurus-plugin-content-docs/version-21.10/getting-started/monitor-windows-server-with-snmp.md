@@ -130,7 +130,7 @@ Dans l'interface Web, accédez à **Configuration > Plugin Packs** et installez 
 
    ![image](../assets/getting-started/prise_en_main_windows_snmp_14.gif)
 
-6. [Déployez la configuration](first-supervision#deploying-a-configuration).
+6. [Déployez la configuration](first-supervision.md#deploying-a-configuration).
 
 7. Rendez-vous dans le menu **Monitoring > Status des Resources** et positionnez le filtre sur **Tous** pour récupérer tous les indicateurs quel que soit leur état :
 
@@ -144,7 +144,7 @@ Dans l'interface Web, accédez à **Configuration > Plugin Packs** et installez 
 
    ![image](../assets/getting-started/prise_en_main_windows_snmp_16.png)
 
-   Si tous les services ne sont pas dans un état **OK**, dépannez et [corrigez le problème](../integrations/plugin-packs/tutorials/troubleshooting-plugins)
+   Si tous les services ne sont pas dans un état **OK**, dépannez et [corrigez le problème](/pp/integrations/plugin-packs/tutorials/troubleshooting-plugins)
 
 ### Pour aller plus loin
 
@@ -152,7 +152,7 @@ Le Plugin Pack **Windows SNMP** apporte de nombreux modèles de supervision. Ren
 
 ![image](../assets/getting-started/prise_en_main_windows_snmp_18.png)
 
-Avec **Centreon IT Edition**, vous pouvez ajouter très rapidement et très simplement la supervision de vos cartes réseau, partitions, processus et services en utilisant la fonctionnalité de [découverte des services](../monitoring/discovery/services-discovery).
+Avec **Centreon IT Edition**, vous pouvez ajouter très rapidement et très simplement la supervision de vos cartes réseau, partitions, processus et services en utilisant la fonctionnalité de [découverte des services](../monitoring/discovery/services-discovery.md).
 
 1. Rendez-vous dans le menu **Configuration > Services > Manuelle**. Commencez à saisir le nom de l’hôte sur lequel réaliser la découverte et l’interface vous proposera de compléter automatiquement ce dernier :
 
@@ -168,4 +168,4 @@ Avec **Centreon IT Edition**, vous pouvez ajouter très rapidement et très simp
 
   ![image](../assets/getting-started/prise_en_main_windows_snmp_21.png)
 
-4. [Déployez la configuration](first-supervision#deploying-a-configuration).
+4. [Déployez la configuration](first-supervision.md#deploying-a-configuration).

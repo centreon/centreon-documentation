@@ -26,7 +26,7 @@ Le Pack Centreon **IP-Label Ekara Rest API** inclut un fournisseur de découvert
 Celui-ci permet de découvrir l'ensemble des scenarios Ekara d'une instance donnée et d'ajouter ceux-ci en tant qu'hôtes dans Centreon.
 
 Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionnement dans la documentation du module:
-[Découverte des hôtes](../../../monitoring/discovery/hosts-discovery.md)
+[Découverte des hôtes](/docs/monitoring/discovery/hosts-discovery)
 
 ### Métriques & statuts collectés
 

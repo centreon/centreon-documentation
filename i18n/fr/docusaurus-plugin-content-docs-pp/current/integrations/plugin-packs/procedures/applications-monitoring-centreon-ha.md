@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 ## Vue d'ensemble
 
-Centreon-HA est l'implémentation en haute disponibilité de la fonction centrale de Centreon. Plus d'informations sont disponibles [ici](installation/installation-of-centreon-ha/overview.md).
+Centreon-HA est l'implémentation en haute disponibilité de la fonction centrale de Centreon. Plus d'informations sont disponibles [ici](/docs/installation/installation-of-centreon-ha/overview).
 
 Le Plugin-Pack Centreon-HA s'appuie sur deux autre Plugin-Packs :
 
