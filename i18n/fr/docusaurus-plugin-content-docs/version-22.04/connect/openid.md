@@ -11,14 +11,20 @@ Centreon est compatible avec l'authentification OAuth 2.0 / OpenId Connect.
 Il est possible d'utiliser un fournisseur d'identité (IdP) tel que Microsoft Azure AD, Okta, Keycloak, LemonLDAP::NG ou
 tout autre IdP compatible avec le flux d'autorisation via un code (Authorization Code Grant).
 
-L'authentification se paramètre à la page **Administration > Paramètres > Centreon web**, section **Authentication by OpenId Connect**.
+## Configurer l'authentification OpenID Connect
 
+### Activer l'authentification
+
+L'authentification se paramètre à la page **Administration > Authentification > OpenId Connect Configuration**.
+
+Activez d'abord l'authentification OpenID Connect:
 - La case **Enable OpenId Connect authentication** permet d'activer ou de désactiver l'authentification OpenId Connect.
 - Le champ **Authentication mode** indique si l'authentification doit avoir lieu uniquement par OpenId Connect ou en
   utilisant également l'authentification locale (mixte).
-- Le champ **Trusted client addresses** indique quelles sont les adresses IP/DNS des clients de confiance (correspond à
-  l'adresse du reverse proxy). Chaque client de confiance est séparé par une virgule.
-- Le champ **Blacklist client addresses** indique quelles sont les adresses IP/DNS des clients qui seront refusés.
+
+### Configurer les informations d'accès au fournisseur d'identité
+
+Ensuite, configurez les informations du fournisseur d'identité:
 - Le champ **Base Url** définit l'URL de base de l'IdP pour les points de terminaison OpenId Connect (obligatoire).
 - Le champ **Authorization Endpoint** définit le point de terminaison d'autorisation, par exemple `/authorize` (obligatoire).
 - Le champ **Token Endpoint** définit le point de terminaison du jeton, par exemple `/token` (obligatoire).
@@ -28,8 +34,6 @@ L'authentification se paramètre à la page **Administration > Paramètres > Cen
 - Le champ **Scope** définit la portée de l'IdP, par exemple «openid». Portée séparée par espace.
 - Le champ **Login claim value** définit la variable qui est renvoyée par les points de terminaison **Introspection Token Endpoint**
   ou **User Information Endpoint** pour authentifier l'utilisateur. Par exemple `sub` ou `email`.
-- La case **Redirect Url** définit l'URL de redirection après connexion pour accéder à votre serveur Centreon, par exemple
-  `https://192.168.0.1/centreon/index.php`.
 - **Client ID** défini l'ID client.
 - **Client Secret** défini le secret client.
 - La case **Use Basic Auth for Token Endpoint Authentication** oblige à utiliser la méthode `Authorization: Basic`.
@@ -43,15 +47,15 @@ L'authentification se paramètre à la page **Administration > Paramètres > Cen
 > Il est possible de définir une URL complète pour les points de terminaison au cas où la base de l'URL est différente
 > des autres.
 
-> Il est possible de ne pas spécifier le champ **Redirect Url**, dans ce cas, le serveur Centreon enverra au
-> fournisseur de service sa propre URL.
-
-> Si vous souhaitez importer automatiquement l'utilisateur après la connexion, vous pouvez configurer un serveur LDAP
-> et activer l'importation automatique. Assurez-vous que "l'attribut de connexion" de la configuration LDAP sera
-> identique à la "valeur de la demande de connexion".
-
 > Vous pouvez activer **Authentification debug** via le menu `Administration > Parameters > Debug` pour comprendre les
 > échecs d'authentification et améliorer votre configuration.
+
+### Configurer les adresses des clients
+
+Vous pouvez également configurer les adresses des clients:
+- Le champ **Trusted client addresses** indique quelles sont les adresses IP des clients de confiance (correspond à
+  l'adresse du reverse proxy). Chaque client de confiance est séparé par une virgule.
+- Le champ **Blacklist client addresses** indique quelles sont les adresses IP des clients qui seront refusés.
 
 ### Exemples de configuration
 
@@ -70,11 +74,10 @@ Voici un exemple de configuration pour Microsoft Azure Active Directory:
 | End Session Endpoint         |                                                           |
 | Scope                        | openid                                                    |
 | Login claim value            | email                                                     |
-| Redirect Url                 | https://${ipCentreon}/centreon/index.php                  |
 | Client ID                    | ${clientId}                                               |
 | Client Secret                | ${clientSecret}                                           |
 
-> Veuillez remplacer `${tenantId}`, `${ipCentreon}`, `${clientId}` et `${clientSecret}` par vos propres valeurs.
+> Veuillez remplacer `${tenantId}`, `${clientId}` et `${clientSecret}` par vos propres valeurs.
 
 </TabItem>
 <TabItem value="Okta" label="Okta">
@@ -91,11 +94,10 @@ Voici un exemple de configuration pour Okta:
 | End Session Endpoint         | /logout                                  |
 | Scope                        | profile openid                           |
 | Login claim value            | username                                 |
-| Redirect Url                 | https://${ipCentreon}/centreon/index.php |
 | Client ID                    | ${clientId}                              |
 | Client Secret                | ${clientSecret}                          |
 
-> Veuillez remplacer `${theIdPdomain}`, `${ipCentreon}`, `${clientId}` et `${clientSecret}` par vos propres valeurs.
+> Veuillez remplacer `${theIdPdomain}`, `${clientId}` et `${clientSecret}` par vos propres valeurs.
 
 </TabItem>
 <TabItem value="Keycloak" label="Keycloak">
@@ -112,11 +114,10 @@ Voici un exemple de configuration pour Keycloak:
 | End Session Endpoint         | /logout                                                                 |
 | Scope                        | openid                                                                  |
 | Login claim value            | email                                                                   |
-| Redirect Url                 | https://${ipCentreon}/centreon/index.php                                |
 | Client ID                    | ${resource}                                                             |
 | Client Secret                | ${secret}                                                               |
 
-> Veuillez remplacer `${theIdPdomain}`, `${ipCentreon}`, `${resource}` et `${secret}` par vos propres valeurs.
+> Veuillez remplacer `${theIdPdomain}`, `${resource}` et `${secret}` par vos propres valeurs.
 
 </TabItem>
 <TabItem value="LemonLDAP::NG" label="LemonLDAP::NG">
@@ -133,11 +134,10 @@ Voici un exemple de configuration pour LemonLDAP::NG:
 | End Session Endpoint         |                                          |
 | Scope                        | openid                                   |
 | Login claim value            | email                                    |
-| Redirect Url                 | https://${ipCentreon}/centreon/index.php |
 | Client ID                    | ${clientId}                              |
 | Client Secret                | ${clientSecret}                          |
 
-> Veuillez remplacer `auth.example.com`, `${ipCentreon}`, `${clientId}` et `${clientSecret}` par vos propres valeurs.
+> Veuillez remplacer `auth.example.com`, `${clientId}` et `${clientSecret}` par vos propres valeurs.
 
 </TabItem>
 <TabItem value="Autres" label="Autres">
