@@ -123,7 +123,7 @@ Release date: ``
 
 #### Security fixes
 
-- Fixed sql injection that could be used when enabling or disabling discovery rules.
+- Fixed sql injection on discovery rules configuration page.
 
 ### 21.10.1
 
