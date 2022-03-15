@@ -5,7 +5,7 @@ title: Deploying a poller
 
 With Centreon Cloud, your central server is already ready to use. All you have to do is to install pollers in your infrastructure, and that is very easy: just execute a script then export the configuration and there you are.
 
-Before deploying a poller, make sure the [prerequisites](prerequisites) for your host machine are met.
+Before deploying a poller, make sure the [prerequisites](prerequisites.md) for your host machine are met.
 
 ## Step 1: Running the script
 
@@ -23,7 +23,7 @@ Before deploying a poller, make sure the [prerequisites](prerequisites) for your
 
   ![image](../assets/installation/script2.png)
 
-3. When this is finished, [log in to your central server](../getting-started/interface#accessing-the-central-servers-interface) and go to page **Configuration > Pollers > Pollers**. The new poller appears in the list of pollers.
+3. When this is finished, [log in to your central server](../getting-started/interface.md#accessing-the-central-servers-interface) and go to page **Configuration > Pollers > Pollers**. The new poller appears in the list of pollers.
    * By default, the name of the poller is its hostname (this may be shortened). Click on its name to rename it.
    * In the **IP Address** column, the address it that of the poller as seen by the central server. Indeed, during the installation process, a VPN is installed, so this IP address is that of the poller inside the VPN.
    * The poller is not running yet (**No** in the **Is running?** column).
