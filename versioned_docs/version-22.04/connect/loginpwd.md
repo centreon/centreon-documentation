@@ -3,13 +3,16 @@ id: loginpwd
 title: Configuring a local authentication
 ---
 
-> Since Centreon 22.04, a **local password security policy** has been implemented.
+Since Centreon 22.04, a **local password security policy** has been implemented.
+This policy makes it possible to strengthen the security of local account passwords by forcing the user to enter a
+complex password, to give passwords a lifespan and to block brute force attempts.
 
 ## Configure local password security policy
 
 ### Password complexity policy
 
-Go to **Administration > Authentication** page and select **password minimum length** as well as **password complexity**:
+Go to **Administration > Authentication> Password Security Policy** page and select **password minimum length** as well
+as **password complexity**:
 
 ![image](../assets/administration/password_policy_complexity.png)
 
@@ -19,8 +22,8 @@ Configure expiration policy:
 
 ![image](../assets/administration/password_policy_expiration.png)
 
-- **Password expiration**: Once the password expires, the user will be redirected to a dedicated page to update their
-  password.
+- **Password expiration**: Once the password expires, the user will be redirected to a
+  [dedicated page](../getting-started/interface.md#reset-your-password-when-expired) to update their password.
 - **Time before setting a new password**: Delays between two changes of passwords.
 - **Can reuse last 3 passwords**: This option allows the user not to reuse one of his 3 old passwords when renewing.
 - **Excluded users**: This option makes it possible to exclude user accounts, in particular accounts accessing APIs

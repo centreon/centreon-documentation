@@ -3,25 +3,28 @@ id: loginpwd
 title: Configurer une authentification locale
 ---
 
-> Depuis Centreon 22.04, une **politique de sécurité par mot de passe** a été mise en place.
+Depuis Centreon 22.04, une **politique de sécurité par mot de passe** a été mise en place.
+Cette politique permet de renforcer la sécurité des mots de passe des comptes locaux en forcant l'utilisateur à saisir
+un mot de passe complexe, de donner une durée de vie aux mots de passe et de bloquer les tentative d'attue de type force
+brute.
 
 ## Configurer la politique de sécurité de mot de passe
 
 ### Politique de complexité des mots de passe
 
-Allez à la page **Administration > Authentication** et renseigner les valeurs **password minimum length** et
+Allez à la page **Administration > Authentication> Password Security Policy** et renseignez les valeurs **password minimum length** et
 **password complexity** :
 
 ![image](../assets/administration/password_policy_complexity.png)
 
 ### Politique d'expiration du mot de passe
 
-Configurer la politique d'expiration :
+Configurez la politique d'expiration :
 
 ![image](../assets/administration/password_policy_expiration.png)
 
-- **Password expiration**: Une fois le mot de passe expiré, l'utilisateur sera redirigé vers une page dédiée pour
-  mettre à jour son mot de passe.
+- **Password expiration**: Une fois le mot de passe expiré, l'utilisateur sera redirigé vers une
+  [page dédiée](../getting-started/interface.md#réinitialisez-votre-mot-de-passe-après-expiration) pour mettre à jour son mot de passe.
 - **Time before setting a new password**: Délais entre deux changements de mots de passe.
 - **Can reuse last 3 passwords**: Cette option permet à l'utilisateur de ne pas réutiliser l'un de ses 3 anciens mots
   de passe lors du renouvellement.
