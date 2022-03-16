@@ -39,6 +39,7 @@ If you have feature requests or want to report a bug, please go to our
 - Disabling allow_url_fopen in PHP
 - XSS reflected from plugin's metric output
 - XSS in reporting dashboard
+- SQL Injections on ACL group listing
 
 ### 21.04.11
 
