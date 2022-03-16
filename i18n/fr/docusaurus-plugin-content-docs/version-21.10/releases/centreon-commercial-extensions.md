@@ -119,7 +119,7 @@ Release date: `February 18, 2022`
 
 ### 21.10.2
 
-Release date: ``
+Release date: `March 16, 2022`
 
 #### Security fixes
 
