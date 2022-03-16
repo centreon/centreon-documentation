@@ -13,7 +13,7 @@ const links = {
     pluginpacks: '/fr/pp/integrations/plugin-packs/introduction',
     prerequisite: '/fr/docs/installation/prerequisites',
     installation: '/fr/docs/installation/introduction',
-    monitoring: '/fr/docs/integrations/plugin-packs/introduction',
+    monitoring: '/fr/pp/integrations/plugin-packs/introduction',
   },
   github: 'https://github.com/centreon/centreon/',
   thewatch: 'https://thewatch.centreon.com/',
