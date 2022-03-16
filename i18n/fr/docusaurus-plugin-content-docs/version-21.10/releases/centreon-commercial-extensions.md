@@ -123,7 +123,7 @@ Release date: `March 16, 2022`
 
 #### Security fixes
 
-- Fixed sql injection on discovery rules configuration page.
+- Fixed SQL injection on discovery rules configuration page.
 
 ### 21.10.1
 
