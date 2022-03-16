@@ -19,6 +19,28 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 21.04.12
+
+#### Enhancements
+
+- [Statistics] Manage exception for statistics
+- [Resource Status] Added custom variables definition in URL/Action URL
+
+#### Bug Fixes
+
+- [Authentication] Improve LDAP authentication and authorization
+- [Configuration] Fixed an issue in the contact form. When a non-admin user modified another non-admin user, only access groups that were common to both users were kept, other access groups were lost for the second user.
+- [Configuration] Fixed an issue in the contact form: when a non-admin user modified a duplicated contact, it resulted in a blank screen.
+- [Knowledge Base] Fixed links to knowledge base
+- [Resource Status] Fixed display of old downtimes
+
+#### Security Fixes
+
+- Disabling allow_url_fopen in PHP
+- XSS reflected from plugin's metric output
+- XSS in reporting dashboard
+- SQL Injections on ACL group listing
+
 ### 21.04.11
 
 Release date: `February 10, 2022`
