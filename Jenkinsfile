@@ -12,6 +12,7 @@ pipeline {
      stage('Build next documentation') {
        steps {
          echo 'Using yarn to build documentation'
+         sh 'yarn build'
        }
      }
      stage('Deploy next documentation release version to dev environment') {
