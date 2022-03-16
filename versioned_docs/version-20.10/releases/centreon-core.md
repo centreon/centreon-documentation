@@ -647,9 +647,9 @@ sed -i -zE 's/(servicecomment|servicedowntime) \{\nhost_name=_Module_BAM_1\n[^}]
 systemctl start centengine
 ```
 
-All the the downtimes applied on Business Activities have now been removed.
+All the downtimes applied on Business Activities have now been removed.
 
-You must then restart `centengine` service on all the other pollers to restore the legitimate inherited downtimes.
+You must then restart the `centengine` service on all the other pollers to restore the legitimate inherited downtimes.
 
 ### 20.10.11
 
