@@ -388,10 +388,7 @@ Release date: `March 3, 2022`
 
 #### Bug fixes
 
-- Refactored the BAM Business activities downtimes inheritance mechanism so that they are properly inherited and not duplicated anymore.
-
-> You may have remaining downtimes because they were duplicated from a KPI downtime that ended before the update. In t
-hat case, you will have to apply this procedure.
+> After having updated centreon-broker to this version, you may still have unwanted remaining downtimes on your Business Activities. It can happen if a downtime that was inherited from a KPI has been duplicated and if the original downtime ended before the bugfix was installed. In that case, you will have to apply the following procedure.
 
 ```bash
 systemctl stop centengine
@@ -399,9 +396,10 @@ sed -i -zE 's/(servicecomment|servicedowntime) \{\nhost_name=_Module_BAM_1\n[^}]
 systemctl start centengine
 ```
 
-All the the downtimes applied on Business Activities have now been removed.
+All the the downtimes applied on Business Activities have now
+ been removed.
 
-You must then restart `centengine` service on all pollers to restore the legitimate inherited downtimes.
+You must then restart `centengine` service on all the other pollers to restore the legitimate inherited downtimes.
 
 ### 21.04.6
 
