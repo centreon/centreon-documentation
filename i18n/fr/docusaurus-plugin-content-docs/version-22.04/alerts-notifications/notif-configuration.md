@@ -15,7 +15,7 @@ title: Configurer les notifications
 
     4. Cliquez sur **Sauvegarder**.
 
-2. Assurez-vous que votre Centreon peut envoyer des notifications, par exemple, [des emails](../administration/postfix).
+2. Assurez-vous que votre Centreon peut envoyer des notifications, par exemple, [des emails](../administration/postfix.md).
 
     Les commandes de notifications sont exécutées par le collecteur qui supervise la ressource : configurez la capacité à envoyer des notifications sur tous les collecteurs.
 
@@ -33,7 +33,7 @@ title: Configurer les notifications
 | Action                                                                                                                                                                                                                                                                                                       | Option à renseigner                                          |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------|
 | Activez les contrôles actifs.                                                                                                                                                                                                                                                                                   | Mettre **Contrôle actif activé** à **Oui**         |
-| Définissez pendant quelle [période de temps](../monitoring/basic-objects/timeperiods) les contrôles actifs doivent être réalisés. En-dehors de cette période de temps, aucun contrôle n'aura lieu, ce qui signifie qu'aucune notification ne sera envoyée.                                                                                                                                                                                                | **Période de contrôle**                                 |
+| Définissez pendant quelle [période de temps](../monitoring/basic-objects/timeperiods.md) les contrôles actifs doivent être réalisés. En-dehors de cette période de temps, aucun contrôle n'aura lieu, ce qui signifie qu'aucune notification ne sera envoyée.                                                                                                                                                                                                | **Période de contrôle**                                 |
 | Définissez la fréquence à laquelle les contrôles actifs doivent avoir lieu quand l'hôte est dans un état **OK**.                                                                                                                                                                                                                           | **Intervalle normal de contrôle**                        |
 | Définissez ce qui doit se produire lorsqu'un hôte ou service entre dans un état non-DISPONIBLE ou non-OK (SOFT) :<ul><li>combien de contrôles doivent être faites sur l'hôte ou le service avant que celui-ci entre dans un état HARD (c'est-à-dire quand les notifications commenceront à être envoyées). </li><li>à quel intervalle de temps ces contôles SOFT doivent être faits</li></ul> | <br/><ul><li>**Nombre de contrôles avant validation de l'état**</li><li>**Intervalle non-régulier de contrôle**</li></ul> |
 | Quand l'hôte ou le service entre dans un état HARD, les notifications commencent à être envoyées.                                                                                                                                                                                                             | Les contrôles sont faits selon l'**Intervalle normal de contrôle**, et une notification peut être envoyée uniquement suite à un contrôle                          |
@@ -62,7 +62,7 @@ title: Configurer les notifications
         - Si aucune valeur n'est définie sur l'hôte/le service, la valeur sera héritée d'un modèle parent (voir [Règles d'héritage des modèles](#règles-dhéritage-des-modèles)).
         - Si aucune valeur n'est définie sur l'hôte/le service ni sur aucun de ses modèles parents, la valeur par défaut est de 30 minutes. 
 
-    - **Période de notification** : Spécifiez la [période de temps](../monitoring/basic-objects/timeperiods) pendant laquelle des notifications peuvent être envoyées au contact pour cet hôte ou service.
+    - **Période de notification** : Spécifiez la [période de temps](../monitoring/basic-objects/timeperiods.md) pendant laquelle des notifications peuvent être envoyées au contact pour cet hôte ou service.
         - Si un changement d'état survient en-dehors de cette période de temps, aucune notification ne sera envoyée.
         - Si aucune valeur n'est définie sur l'hôte/le service ni sur aucun de ses modèles parents, la valeur par défaut est 24x7.
 
@@ -76,7 +76,7 @@ title: Configurer les notifications
         - Si la valeur est à 0, le moteur de supervision commencera à envoyer des notifications immédiatement.
         - Si aucune valeur n'est définie sur l'hôte/le service ni sur aucun de ses modèles parents, la valeur par défaut est 0.
 
-4. [Déployez](../monitoring/monitoring-servers/deploying-a-configuration) la configuration.
+4. [Déployez](../monitoring/monitoring-servers/deploying-a-configuration.md) la configuration.
 
 
 ### Étape 3 : Activer les notifications pour les contacts choisis
@@ -97,7 +97,7 @@ title: Configurer les notifications
 
 6. Cliquez sur **Sauvegarder**.
 
-7. [Déployez](../monitoring/monitoring-servers/deploying-a-configuration) la configuration.
+7. [Déployez](../monitoring/monitoring-servers/deploying-a-configuration.md) la configuration.
 
 #### Réference
 
@@ -105,7 +105,7 @@ title: Configurer les notifications
 
 - **Options de notification d'hôte/de service** : définissez dans quels cas le contact doit recevoir des notifications. Si vous sélectionnez **Aucune**, le contact ne recevra aucune notification d'aucun type pour les hôtes ou les services. 
 
-- **Période de notification d'hôte/de service** : définissez pendant quelle [période de temps](../monitoring/basic-objects/timeperiods) le contact recevra des notifications. Si un changement d'état survient hors de cette période, aucune notification ne sera envoyée (même si la période de temps correspond à celle définie sur l'hôte ou le service). N'oubliez pas que cette période de temps correspondra à celle du fuseau horaire définie dans le profil de l'utilisateur (par exemple, si la période de notification est de 9h à 5h, l'utilisateur recevra des notifications entre 9h et 5h dans son fuseau horaire, qui n'est pas nécessairement le même que le vôtre).
+- **Période de notification d'hôte/de service** : définissez pendant quelle [période de temps](../monitoring/basic-objects/timeperiods.md) le contact recevra des notifications. Si un changement d'état survient hors de cette période, aucune notification ne sera envoyée (même si la période de temps correspond à celle définie sur l'hôte ou le service). N'oubliez pas que cette période de temps correspondra à celle du fuseau horaire définie dans le profil de l'utilisateur (par exemple, si la période de notification est de 9h à 5h, l'utilisateur recevra des notifications entre 9h et 5h dans son fuseau horaire, qui n'est pas nécessairement le même que le vôtre).
 
 - **Commandes de notification d'hôte/de service** : définissez par quel moyen le contact doit être notifié (email, pager, jabber).
 

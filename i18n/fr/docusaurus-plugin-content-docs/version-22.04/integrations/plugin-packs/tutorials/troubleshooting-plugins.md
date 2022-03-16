@@ -160,7 +160,7 @@ It may also happen when the API returns an error instead of the expected data st
 You may want to dig deeper into this by adding the `--debug` flag to your command line 
 to get more information on the query and data received.
 
-### UNKNOWN: 500 Can't connect to `<ip_address>:<port>` (`<extra_reason_if_available>`)
+### UNKNOWN: 500 Can't connect to `<ip_address>:<port>` (<extra_reason_if_available>)
 
 When grabbing metrics or statuses from an API, multiple issues can show up because
 of proxies, remote devices' certificates, or simply the check configuration.
@@ -218,7 +218,7 @@ option (e.g. `--ssl='tlsv1'`). Refer to the manufacturer or software publisher d
 
 ### UNKNOWN: Command error: `<interpreter>`: `<command_name>`: command not found
 
-This error warns that the Plugin is not able to execute the <command_name> because it 
+This error warns that the Plugin is not able to execute the `<command_name>` because it 
 doesn't exist in PATH or is not installed.
 
 Depending on how the check is performed (locally or remotely), make sure that the 

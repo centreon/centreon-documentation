@@ -66,12 +66,12 @@ To validate the configuration, click on the **Test Internet Connection** button.
 
 ## Autologin
 
-See [Configuring Autologin](../../connect/autologin).
+See [Configuring Autologin](../../connect/autologin.md).
 
 ## SSO
 
-See [Configuring an SSO connection](../../connect/sso). 
+See [Configuring an SSO connection](../../connect/sso.md). 
 
 ## OpenId Connect
 
-See [Configuring connection via OpenId Connect](../../connect/openid).
+See [Configuring connection via OpenId Connect](../../connect/openid.md).

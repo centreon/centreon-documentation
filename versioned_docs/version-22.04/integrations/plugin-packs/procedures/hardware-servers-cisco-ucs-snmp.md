@@ -122,7 +122,7 @@ yum install centreon-pack-hardware-servers-cisco-ucs-snmp
 
 Create your Host and apply the *HW-Server-Cisco-Ucs-custom* Host Template. You must set SNMP Community and Version in the dedicated fields of the Host Form. 
 
-  :warning: If you are using SNMP v3, set all specific parameters within SNMPEXTRAOPTIONS Host Macro
+> If you are using SNMP v3, set all specific parameters within SNMPEXTRAOPTIONS Host Macro
 
 | Mandatory   | Nom              | Description                                    |
 | :---------- | :--------------- | :--------------------------------------------- |

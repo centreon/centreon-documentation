@@ -3,7 +3,7 @@ id: loginpwd
 title: Configuring a local connection
 ---
 
-To allow a [contact](../monitoring/basic-objects/contacts) to log in to Centreon:
+To allow a [contact](../monitoring/basic-objects/contacts.md) to log in to Centreon:
 
 1. Go to page **Configuration > Users > Contacts/Users** and click on the contact you want. 
 

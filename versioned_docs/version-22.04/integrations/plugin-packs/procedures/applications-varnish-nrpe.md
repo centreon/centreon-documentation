@@ -65,7 +65,7 @@ dont_blame_nrpe=1
 **Important note: the `NASTY_METACHARS` parameter should be left as its default value.
 Modifying it might open serious security hole and RCE exploitation from an attacker.** 
 
-## Installation
+## Installation 
 
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">

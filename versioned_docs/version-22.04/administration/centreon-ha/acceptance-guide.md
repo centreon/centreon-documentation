@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 > Please note that all commands presented in this document are respectively to be run as `root` unless otherwise stated.
 
-> This document will refer to parameters that vary from one installation to another (e.g., names and IP addresses of nodes) via. [macros defined here](../../installation/installation-of-centreon-ha/installation-2-nodes#defining-names-and-IP-addresses-of-servers)
+> This document will refer to parameters that vary from one installation to another (e.g., names and IP addresses of nodes) via. [macros defined here](../../installation/installation-of-centreon-ha/installation-2-nodes.md#defining-names-and-IP-addresses-of-servers)
 
 ## Requirements of the tests
 
@@ -95,7 +95,7 @@ Active resources:
 </TabItem>
 </Tabs>
 
-> Check the resources for `Failed` errors and correct them with the help of the [troubleshooting guide](troubleshooting-guide).
+> Check the resources for `Failed` errors and correct them with the help of the [troubleshooting guide](troubleshooting-guide.md).
 
 ### Check the constraints
 
@@ -150,7 +150,7 @@ Slave Thread Status [OK]
 Position Status [OK]
 ```
 
-> If the synchronization shows `KO` you have to fix it with the help of the [operating-guide](operating-guide).
+> If the synchronization shows `KO` you have to fix it with the help of the [operating-guide](operating-guide.md).
 
 ## Centreon resource failover
 
@@ -351,7 +351,7 @@ Slave Thread Status [OK]
 Position Status [OK]
 ```
 
-> If the synchronization has `KO` you have to fix it with the help of the [operating-guide](operating-guide).
+> If the synchronization has `KO` you have to fix it with the help of the [operating-guide](operating-guide.md).
 
 ### Back to the nominal situation
 
@@ -881,4 +881,4 @@ iptables -D OUTPUT @RULE_NUMBER@
 ```
 
 By running the `crm_mon` command on the second node, you will see the primary node move up in the cluster.
-If you want to switch to the primary node, run the [failover commands](acceptance-guide#return-to-nominal-situation).
+If you want to switch to the primary node, run the [failover commands](acceptance-guide.md#return-to-nominal-situation).

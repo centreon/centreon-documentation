@@ -67,7 +67,7 @@ traphandle default su -l centreon -c "/usr/share/centreon/bin/centreontrapdforwa
 
 If path to the file is incorrect, change it and restart the snmptrapd process.
 You can check the proper functioning of binary centreontrapdforward by checking the configuration part of
-*[centreontrapdforward](enable-snmp-traps#centreontrapdforward)*.
+*[centreontrapdforward](enable-snmp-traps.md#centreontrapdforward)*.
 
 ### Centreontrapd
 
@@ -76,7 +76,7 @@ host in Centreon using IP address or DNS from distant equipment.
 To check its operation, you should check the centreontrapd configuration settings.
 
 You can check the proper functioning of binary centreontrapd by checking the configuration part of
-*[centreontrapd](enable-snmp-traps#centreontrapd)*.
+*[centreontrapd](enable-snmp-traps.md#centreontrapd)*.
 
 ### Centreon Gorgone
 

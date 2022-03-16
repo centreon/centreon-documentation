@@ -32,7 +32,7 @@ Powershell to check operating status of a Veeam Server.
 ### Centreon NSClient++
 
 To monitor *Veeam* backup solution through NRPE, install the Centreon packaged version 
-of the NSClient++ agent. Please follow our [official documentation](../tutorials/centreon-nsclient-tutorial) 
+of the NSClient++ agent. Please follow our [official documentation](../tutorials/centreon-nsclient-tutorial.md) 
 and make sure that the **NRPE Server** configuration is correct.
 
 ### Powershell 
@@ -43,7 +43,7 @@ on the target Server.
 Starting with Veeam 11, the Plugin will try to find the most recent version of 
 the `VeeamPSSnapin`. 
 
-## Installation
+## Installation 
 
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">

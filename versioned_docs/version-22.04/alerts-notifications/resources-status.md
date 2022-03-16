@@ -24,7 +24,7 @@ You can add or remove columns, and sort by the column of your choice.
 
 ### Acknowledge an event
 
-When one or more alerts are visible, you may need to [acknowledge](acknowledge) them to tell
+When one or more alerts are visible, you may need to [acknowledge](acknowledge.md) them to tell
 your team that the problem is handled. You can do that in two ways:
 
 -   By directly acknowledging the line: an **Acknowledge** button
@@ -37,7 +37,7 @@ your team that the problem is handled. You can do that in two ways:
 When a resource is acknowledged:
 - The alert is not visible anymore in the
 **Unhandled problems** filter
-- [Notifications](notif-configuration) for this resource are stopped
+- [Notifications](notif-configuration.md) for this resource are stopped
 - The color of the line for acknowledged resources is changed
 to yellow.
 
@@ -49,7 +49,7 @@ of **Unhandled Problems** and its notifications will resume: in the **More actio
 ### Set a planned downtime
 
 When a maintenance is planned on one or multiple resources, you can set a
-[planned downtime](downtimes) for them in Centreon in two ways:
+[planned downtime](downtimes.md) for them in Centreon in two ways:
 
 -   By directly setting a planned downtime on the line:
     a **Set Downtime** button appears on mouseover
@@ -115,8 +115,8 @@ You can filter the list of resources according to a number of predefined criteri
 
     - **Resource**: display only hosts, services or metaservices
     - **State**: whether the problem is already acknowledged, in a planned downtime or simply unhandled
-    - [**Status**](concepts): **OK**, **Up**, **Warning**, **Down**, **Critical**, **Unreachable**, **Unknown**, **Pending**
-    - [**Status type**](concepts#status-types): SOFT or HARD
+    - [**Status**](concepts.md): **OK**, **Up**, **Warning**, **Down**, **Critical**, **Unreachable**, **Unknown**, **Pending**
+    - [**Status type**](concepts.md#status-types): SOFT or HARD
     - **Host group**
     - **Service group**
     - **Monitoring server**: resources monitored by a specific server (or poller)
@@ -161,7 +161,7 @@ in one or several fields.
 - **parent_name**: search for services, according to their parent's name
 - **parent_alias**: search for services, according to their parent's alias
 - **state**: search for resources in a non-OK or non-UP state, according to whether they are unhandled, acknowledged or in downtime
-- **status**: search for resources according to their [status](concepts)
+- **status**: search for resources according to their [status](concepts.md)
 - **service_group**: search for services that belong to a service group
 - **s.description**: search only in the description of the service (i.e. its name in column **Resource**)
 - **type**: display only hosts, services or metaservices

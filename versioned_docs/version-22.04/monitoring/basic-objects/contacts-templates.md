@@ -17,6 +17,6 @@ Go to **Configuration > Users > Contact Templates** and click
 on **Add**
 
 > Refer to the chapter covering configuration of
-> [contacts](contacts-create). In addition, the contacts
+> [contacts](contacts-create.md). In addition, the contacts
 > templates are used for automatic import of profiles via
-> [LDAP](../../administration/parameters/ldap).
+> [LDAP](../../administration/parameters/ldap.md).

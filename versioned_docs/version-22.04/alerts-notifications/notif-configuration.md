@@ -16,7 +16,7 @@ option.
 
 4. Click **Save**.
 
-**Step 2**:  Check that your Centreon can send notifications, [e.g. emails](../administration/postfix).
+**Step 2**:  Check that your Centreon can send notifications, [e.g. emails](../administration/postfix.md).
 
 > Notification commands are executed by the poller that monitors the resource: you will need to configure the ability to send notifications on all pollers.
 
@@ -32,7 +32,7 @@ option.
 | Action                                                                                                                                                                                                                                                                                                       | Option to fill in                                          |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------|
 | Enable active checks.                                                                                                                                                                                                                                                                                       | Set **Active checks enabled** to **Yes**         |
-| Define during which [time period](../monitoring/basic-objects/timeperiods) active checks should be made. Outside this time period, no checks will be made, which means that no notifications will be sent.                                                                                                                                                                                                | **Check Period**                                 |
+| Define during which [time period](../monitoring/basic-objects/timeperiods.md) active checks should be made. Outside this time period, no checks will be made, which means that no notifications will be sent.                                                                                                                                                                                                | **Check Period**                                 |
 | Define how often active checks should be made when the host is in an **OK** state.                                                                                                                                                                                                                           | **Normal Check Interval**                        |
 | Define what happens when the host or service enters a non-UP or non-OK (SOFT) state:<ul><li>how many times the host should be checked before it enters a HARD state (i.e. when notifications start being sent)</li><li>at what time interval these soft state checks must be made</li></ul> | <br/><ul><li>**Max Checks Attempts**</li><li>**Retry Check Interval**</li></ul> |
 | When the host or service enters a HARD state, notifications start being sent.                                                                                                                                                                                                             | The host is checked at the **Normal check interval**, and a notification can only be sent when a check has been made                          |
@@ -63,7 +63,7 @@ option.
         - If no value is defined here, the value will be inherited from a parent template (see [Template inheritance rules](#template-inheritance-rules)).
         - If nothing is defined on the host/service or on any of its parent templates, the default value is 30 minutes. 
 
-    - **Notification period**: Specify the [time period](../monitoring/basic-objects/timeperiods) during which notifications of events for this host or service can be sent out to contacts.
+    - **Notification period**: Specify the [time period](../monitoring/basic-objects/timeperiods.md) during which notifications of events for this host or service can be sent out to contacts.
         - If a state change occurs during a time which is not covered by the time period, no notifications will be sent out.
         - If no value is defined on the host/service or any of its parent templates, the default value is 24x7.
 
@@ -77,7 +77,7 @@ option.
         - If you set this value to 0, monitoring engine will start sending out notifications immediately. 
         - If nothing is defined on the host/service or on any of its parent templates, the default value is 0.
 
-4. [Deploy](../monitoring/monitoring-servers/deploying-a-configuration) the configuration.
+4. [Deploy](../monitoring/monitoring-servers/deploying-a-configuration.md) the configuration.
 
 
 ### Step 3: Enabling notifications for the contacts you have defined
@@ -99,7 +99,7 @@ option.
 
 6. Click **Save**.
 
-7. [Deploy](../monitoring/monitoring-servers/deploying-a-configuration) the configuration.
+7. [Deploy](../monitoring/monitoring-servers/deploying-a-configuration.md) the configuration.
 
 #### Reference
 
@@ -107,7 +107,7 @@ option.
 
 - **Host/Service Notification Options**: define in which cases the contact must receive a notification. If you select **None**, the contact will receive no notifications of any kind for hosts or services. 
 
-- **Host/Service notification Period**: define during which [time period](../monitoring/basic-objects/timeperiods) the contact will receive notifications. If a state change occurs during a time which is not covered by the time period, no notifications will be sent out (even if the time period matches that defined for the host or service). Bear in mind that this time period will match the timezone defined in the user's profile (i.e. if the time period is 9 to 5 pm, the user will receive notifications between 9 and 5 pm in his timezone, which is not necessarily the same as yours).
+- **Host/Service notification Period**: define during which [time period](../monitoring/basic-objects/timeperiods.md) the contact will receive notifications. If a state change occurs during a time which is not covered by the time period, no notifications will be sent out (even if the time period matches that defined for the host or service). Bear in mind that this time period will match the timezone defined in the user's profile (i.e. if the time period is 9 to 5 pm, the user will receive notifications between 9 and 5 pm in his timezone, which is not necessarily the same as yours).
 
 - **Host/Service notification Commands**: define how the contact should be notified (email, pager, jabber).
 

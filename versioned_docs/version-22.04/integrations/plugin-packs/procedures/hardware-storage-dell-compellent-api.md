@@ -34,7 +34,7 @@ to connect.
 > Set host macro `CEMUSER`, `CEMPASSWORD`, `CEMADDRESS`,
 `DELLSTORAGESDKDLL` (the complete path of `DellStorage.ApiCommandSet.dll` file)
 
-> Don't use the '!' character in centreon macro configuration.
+> Don't use the '!' character in centreon macro configuration!
 
 ## Centreon Configuration
 
