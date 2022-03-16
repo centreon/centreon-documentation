@@ -15,7 +15,7 @@ pipeline {
          sh 'yarn build'
        }
      }
-     stage('Deploy next documentation release version to dev environment') {
+     stage('Deploy next documentation release version to next environment') {
        when { branch 'next' }
        steps {
          sh 'aws s3 sync --delete build s3://centreon-documentation-next/'
