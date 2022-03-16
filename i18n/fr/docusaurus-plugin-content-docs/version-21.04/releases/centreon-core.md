@@ -31,7 +31,7 @@ If you have feature requests or want to report a bug, please go to our
 - [Authentication] Improve LDAP authentication and authorization
 - [Configuration] Fixed an issue in the contact form. When a non-admin user modified another non-admin user, only access groups that were common to both users were kept, other access groups were lost for the second user.
 - [Configuration] Fixed an issue in the contact form: when a non-admin user modified a duplicated contact, it resulted in a blank screen.
-- [Knowledge Base] Fixed llinks to knowledge base
+- [Knowledge Base] Fixed links to knowledge base
 - [Resource Status] Fixed display of old downtimes
 
 #### Security Fixes
