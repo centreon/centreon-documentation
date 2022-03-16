@@ -18,7 +18,7 @@ to advanced filtering and formatting capabilities.
 extension introduces additional UI actions and backend boiler-plates to create 
 cases within your favorite ticketing system. 
 
-- [Centreon Plugin Packs](../integrations/plugin-packs/introduction.md), offers 
+- [Centreon Plugin Packs](/pp/integrations/plugin-packs/introduction), offers 
 the possibility of grabbing data from other monitoring tools and making Centreon 
 the single pane of glass for all your alerts.
 

@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 ## Overview
 
-Centreon-HA is Centreon central server's high availability implementation. More information available [here](installation/installation-of-centreon-ha/overview.md).
+Centreon-HA is Centreon central server's high availability implementation. More information available [here](/docs/installation/installation-of-centreon-ha/overview).
 
 This Plugin-Pack relies on two other Plugin-Packs:
 

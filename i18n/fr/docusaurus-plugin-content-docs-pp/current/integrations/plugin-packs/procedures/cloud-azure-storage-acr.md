@@ -34,7 +34,7 @@ rattachées à une *souscription* Microsoft Azure donnée:
 > La découverte *Azure Container Registry* n'est compatible qu'avec le mode 'api'. Le mode 'azcli' n'est pas supporté dans le cadre
 > de cette utilisation.
 Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionnement sur la documentation du module:
-[Découverte des hôtes](../../../monitoring/discovery/hosts-discovery.md)
+[Découverte des hôtes](/docs/monitoring/discovery/hosts-discovery)
 
 ### Métriques collectées 
 

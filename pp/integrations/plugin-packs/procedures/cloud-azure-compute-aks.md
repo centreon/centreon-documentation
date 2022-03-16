@@ -39,7 +39,7 @@ automatically discover the Azure Kubernetes Service Clusters of a given subscrip
 
 > This discovery feature is only compatible with the 'api' custom mode. 'azcli' is not supported.
 
-More information about the Host Discovery module is available in the Centreon documentation: [Host Discovery](../../../monitoring/discovery/hosts-discovery.md)
+More information about the Host Discovery module is available in the Centreon documentation: [Host Discovery](/docs/monitoring/discovery/hosts-discovery)
 
 ### Collected metrics & status
 

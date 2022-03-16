@@ -39,7 +39,7 @@ This provider is named **Microsoft Azure ServiceBus**:
 > This discovery feature is only compatible with the 'api' custom mode. 'azcli' is not supported yet.
 
 More information about the Host Discovery module is available in the Centreon documentation:
-[Host Discovery](../../../monitoring/discovery/hosts-discovery.md)
+[Host Discovery](/docs/monitoring/discovery/hosts-discovery)
 
 ### Collected Metrics
 
