@@ -21,6 +21,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 21.04.12
 
+Release date: `March 16, 2022`
+
 #### Enhancements
 
 - [Statistics] Manage exception for statistics
