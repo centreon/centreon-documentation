@@ -25,7 +25,7 @@ const links = {
 
 const stringsAndParagraphs = {
   excellenceBlock: {
-    title: `Welcome to Centreon documentation !`,
+    title: `Welcome to Centreon documentation!`,
     subTitle: `Centreon’s AIOps-ready IT monitoring platform provides holistic visibility to complex IT workflows from Cloud-to-Edge.`,
     btnStart: `Centreon On Prem`,
     btnPp: `Plugin Packs`,
