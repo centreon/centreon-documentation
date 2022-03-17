@@ -117,6 +117,14 @@ Release date: `February 18, 2022`
 
 ## Centreon Auto Discovery
 
+### 21.10.2
+
+Release date: `March 16, 2022`
+
+#### Security fixes
+
+- Fixed SQL injection on discovery rules configuration page.
+
 ### 21.10.1
 
 Release date: `November 19, 2021`
