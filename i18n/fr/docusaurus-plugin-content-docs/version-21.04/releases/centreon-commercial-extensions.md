@@ -160,7 +160,7 @@ Release date: `December 16, 2021`
 
 ## Centreon Auto Discovery
 
-### 21.04.3
+### 21.04.3
 
 Release date: `November 24, 2021`
 

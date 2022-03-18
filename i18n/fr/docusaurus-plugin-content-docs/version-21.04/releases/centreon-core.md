@@ -426,7 +426,7 @@ All the downtimes applied on Business Activities have now been removed.
 
 You must then restart the `centengine` service on all the other pollers to restore the legitimate inherited downtimes.
 
-### 21.04.6
+### 21.04.6
 
 Release date: `February 1, 2022`
 
