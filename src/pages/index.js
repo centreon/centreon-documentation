@@ -8,12 +8,12 @@ const basePathImg = './img/homepage/';
 
 const links = {
   doc: {
-    cloud: 'cloud/getting-started/architecture',
-    gettingstarted: 'docs/getting-started/installation-first-steps',
-    pluginpacks: 'docs/integrations/plugin-packs/introduction',
-    prerequisite: 'docs/installation/prerequisites',
-    installation: 'docs/installation/introduction',
-    monitoring: 'docs/integrations/plugin-packs/introduction',
+    cloud: 'cloud/getting-started/architecture/',
+    gettingstarted: 'docs/getting-started/installation-first-steps/',
+    pluginpacks: 'docs/integrations/plugin-packs/introduction/',
+    prerequisite: 'docs/installation/prerequisites/',
+    installation: 'docs/installation/introduction/',
+    monitoring: 'docs/integrations/plugin-packs/introduction/',
   },
   github: 'https://github.com/centreon/centreon/',
   thewatch: 'https://thewatch.centreon.com/',
@@ -25,7 +25,7 @@ const links = {
 
 const stringsAndParagraphs = {
   excellenceBlock: {
-    title: `Welcome to Centreon documentation !`,
+    title: `Welcome to Centreon documentation!`,
     subTitle: `Centreon’s AIOps-ready IT monitoring platform provides holistic visibility to complex IT workflows from Cloud-to-Edge.`,
     btnStart: `Centreon On Prem`,
     btnPp: `Plugin Packs`,
