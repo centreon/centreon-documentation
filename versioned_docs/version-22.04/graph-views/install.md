@@ -196,7 +196,7 @@ configurations are possible.
 ### Centreon Web interface
 
 You must provide to Centreon MAP server a dedicated user
-**who has access to all resources** through the appropriate [access list groups](../administration/access-control-lists). 
+**who has access to all resources** through the appropriate [access list groups](../administration/access-control-lists.md). 
 Since the password will be stored in human-readable form in a 
 configuration file, you should not use a Centreon admin user account.
 
@@ -503,4 +503,4 @@ internet access.
 ## Secure your platform
 
 Don't forget to secure your Centreon platform following our
-[recommendations](secure-your-map-platform)
+[recommendations](secure-your-map-platform.md)

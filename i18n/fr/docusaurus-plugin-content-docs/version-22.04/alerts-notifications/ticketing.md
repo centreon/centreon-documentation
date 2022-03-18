@@ -8,7 +8,7 @@ title: Configuration
 ### Sélectionner un fournisseur de service
 
 La liste des fournisseurs disponibles est actualisée dans la section de documentation
-dédiée aux intégrations [ITSM](../integrations/itsm/itsm-overview).
+dédiée aux intégrations [ITSM](../integrations/itsm/itsm-overview.md).
 
 Chaque fournisseur a sa propre configuration, cependant, l'ajout d'un
 fournisseur dans Centreon peut se faire de la manière suivante.

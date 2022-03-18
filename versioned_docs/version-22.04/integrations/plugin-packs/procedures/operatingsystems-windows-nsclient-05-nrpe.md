@@ -6,10 +6,10 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Overview 
+## Overview
 
 This Plugin Pack allow to get metrics and statuses collected thanks to the NSClient++ 
-monitoring agent and its embedded NRPE Server.
+monitoring agent and its embedded NRPE Server. 
 
 ## Pack assets
 

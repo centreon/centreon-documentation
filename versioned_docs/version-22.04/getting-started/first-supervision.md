@@ -31,15 +31,15 @@ and then to implement them to monitor your first equipment.
 
 ![image](../assets/getting-started/host_service_command.png)
 
-> To go further with templates, please read the [templates chapter](../monitoring/templates#definition).
+> To go further with templates, please read the [templates chapter](../monitoring/templates.md#definition).
 
-> If you have a license for it, you can use our [Auto Discovery](../monitoring/discovery/introduction) feature to find and configure hosts easily. See also our tutorial on [how to detect AWS EC2 instances](autodisco-aws).
+> If you have a license for it, you can use our [Auto Discovery](../monitoring/discovery/introduction.md) feature to find and configure hosts easily. See also our tutorial on [how to detect AWS EC2 instances](autodisco-aws.md).
 
 ### Installation of basic monitoring templates
 
 Go to the **Configuration \> Plugin Packs** menu.
 
-> [Configure the proxy](../administration/parameters/centreon-ui#proxy-configuration) to allow the Centreon server to access the internet.
+> [Configure the proxy](../administration/parameters/centreon-ui.md#proxy-configuration) to allow the Centreon server to access the internet.
 
 Install the **Base Generic** Plugin Pack (if it is not already installed) by moving your cursor on it and by clicking on the **+** icon (it is a prerequisite
 to the installation of any other Plugin Packs):

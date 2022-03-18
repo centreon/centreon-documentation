@@ -36,6 +36,7 @@ The Centreon Plugin Pack *Aruba Instant SNMP* relies on the SNMP protocol to que
 | ap_name#memory.usage.bytes          | Memory usage on the access point                 |   B    |
 | ap_name#memory.usage.percentage     | Percentage of memory usage on the access point   |   %    |
 
+
 </TabItem>
 <TabItem value="SSID-Status" label="SSID-Status">
 
@@ -93,7 +94,7 @@ yum install centreon-pack-network-aruba-instant-snmp
 
 Create your Host and apply the *Net-Aruba-Instant-SNMP-custom* Host Template. You must set SNMP Community and Version in the dedicated fields of the Host Form. 
 
-  :warning: If you are using SNMP v3, set all specific parameters within SNMPEXTRAOPTIONS Host Macro
+  > If you are using SNMP v3, set all specific parameters within SNMPEXTRAOPTIONS Host Macro
 
 | Obligatoire | Nom              | Description                                    |
 | :---------- | :--------------- | :--------------------------------------------- |

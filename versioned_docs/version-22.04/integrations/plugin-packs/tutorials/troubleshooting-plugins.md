@@ -213,9 +213,9 @@ option (e.g. `--ssl='tlsv1'`). Refer to the manufacturer or software publisher d
 
 ## SSH and CLI checks
 
-### UNKNOWN: Command error: `<interpreter>`: `<command_name>`: command not found
+### UNKNOWN: Command error: `<interpreter>`: <command_name>: command not found
 
-This error warns that the Plugin is not able to execute the `<command_name>` because it 
+This error warns that the Plugin is not able to execute the <command_name> because it 
 doesn't exist in PATH or is not installed.
 
 Depending on how the check is performed (locally or remotely), make sure that the 

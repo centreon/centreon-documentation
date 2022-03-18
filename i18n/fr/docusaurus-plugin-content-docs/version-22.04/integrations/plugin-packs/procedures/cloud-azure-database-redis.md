@@ -44,7 +44,7 @@ Celui-ci permet de découvrir l'ensemble des comptes *Cosmos DB* rattachés à u
 > de cette utilisation. 
 
 Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionnement sur la documentation du module:
-[Découverte des hôtes](../../../monitoring/discovery/hosts-discovery)
+[Découverte des hôtes](../../../monitoring/discovery/hosts-discovery.md)
 
 ### Métriques & statuts collectés 
 

@@ -6,7 +6,7 @@ title: Possible statuses of a resource
 Statuses show the availability of a host, and the availability or performance of a service. Each status has a
 precise meaning for the resource. 
 * The statuses and states of a resource
-can be seen on page [Resources Status](resources-status). You can filter the page according to these statuses and to certain states.
+can be seen on page [Resources Status](resources-status.md). You can filter the page according to these statuses and to certain states.
 * Some statuses are determined according to user-defined thresholds.
 
 ### Host status
@@ -17,7 +17,7 @@ The table below summarizes all the possible statuses for a host.
 |----------------------------------------------------|-----------------------------------------------------------------------------------------------|
 | <span style={{color:'#88b917'}}>UP</span>          | The host is available and reachable                                                           |
 | <span style={{color:'#e00b3d'}}>DOWN</span>        | The host is unavailable                                                                       |
-| <span style={{color:'#818185'}}>UNREACHABLE</span> | The host is unreachable: it [depends](notif-dependencies) on a host whose status is **DOWN**  |
+| <span style={{color:'#818185'}}>UNREACHABLE</span> | The host is unreachable: it [depends](notif-dependencies.md) on a host whose status is **DOWN**  |
 | <span style={{color:'#2ad1d4'}}>PENDING</span>     | The host has just been created and has not been checked yet by the monitoring engine |
 
 ### Service status
@@ -37,10 +37,10 @@ The table below summarizes all the possible statuses for a service.
 In addition to their status, resources can be in several states:
 
 -   <span style={{color:'#ae9500'}}>Acknowledged</span>: indicates that the incident on the service or on the host
-    has been taken into account by a user. (See [Acknowledging a problem](acknowledge).)
--   <span style={{color:'#cc99ff'}}>In downtime</span>: indicates that notifications are temporarily stopped. A [downtime](downtimes) can be [planned in advance](downtimes#recurrent-downtimes) to avoid receiving alerts during maintenance periods, or be set following an incident.
+    has been taken into account by a user. (See [Acknowledging a problem](acknowledge.md).)
+-   <span style={{color:'#cc99ff'}}>In downtime</span>: indicates that notifications are temporarily stopped. A [downtime](downtimes.md) can be [planned in advance](downtimes.md#recurrent-downtimes) to avoid receiving alerts during maintenance periods, or be set following an incident.
 
--   [Flapping](notif-flapping): indicates that the status change
+-   [Flapping](notif-flapping.md): indicates that the status change
     percentage of the resource is very high. This percentage is obtained
     from calculations performed by the network monitoring engine.  Flapping resources have the following icon in their **Details** panel:
     ![image](../assets/alerts/flapping_icon.png)
@@ -56,7 +56,7 @@ The status of a resource can have one of these 2 types:
     the status is confirmed, the notification process is engaged
     (sending of an email, SMS, etc.).
 
-You can filter the view on the [Resources Status](resources-status) page according to the status type.
+You can filter the view on the [Resources Status](resources-status.md) page according to the status type.
 
 ### Explanation
 

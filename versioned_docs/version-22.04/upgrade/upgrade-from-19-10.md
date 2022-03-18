@@ -7,7 +7,7 @@ This chapter describes how to upgrade your Centreon platform from version 19.10
 to version 21.10.
 
 > If you want to migrate your Centreon server to CentOS / Oracle Linux / RHEL 8
-> you need to follow the [migration procedure](../migrate/migrate-from-20-x)
+> you need to follow the [migration procedure](../migrate/migrate-from-20-x.md)
 
 ## Prerequisites
 
@@ -21,7 +21,7 @@ servers:
 
 ### Update the RPM signing key
 
-For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation#existing-installation), to remove the old key and install the new one.
+For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation.md#existing-installation), to remove the old key and install the new one.
 
 ### Update to the latest minor version
 
@@ -150,7 +150,7 @@ If you had a custom apache configuration, upgrade process through RPM did not
 update it.
 
 > If you use https, you can follow [this
-> procedure](../administration/secure-platform#enable-https-on-the-web-server)
+> procedure](../administration/secure-platform.md#enable-https-on-the-web-server)
 
 You'll then need to add API access section to your configuration file:
 **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf**
@@ -179,7 +179,7 @@ ServerTokens Prod
     </LocationMatch>
 
     ProxyTimeout 300
-    DirectoryIndex index.php
+    ErrorDocument 404 ${base_uri}/index.html
     Options -Indexes +FollowSymLinks
 
     <IfModule mod_security2.c>
@@ -242,7 +242,7 @@ page:
 ![image](../assets/upgrade/web_update_5.png)
 
 If the Centreon BAM module is installed, refer to the
-[upgrade procedure](../service-mapping/upgrade).
+[upgrade procedure](../service-mapping/upgrade.md).
 
 ### Post-upgrade actions
 
@@ -290,7 +290,7 @@ To make sure Broker and Engine's Broker module are using new configuration
 files, follow this steps:
 
 1. Deploy Central's configuration from the Centreon web UI by following [this
-procedure](../monitoring/monitoring-servers/deploying-a-configuration),
+procedure](../monitoring/monitoring-servers/deploying-a-configuration.md),
 2. Restart both Broker and Engine on the Central server by running this
 command:
 
@@ -453,7 +453,7 @@ Due to new configuration file format for Engine's Broker module, the
 configuration needs to be re-deployed.
 
 Deploy Poller's configuration from the Centreon web UI by following
-[this procedure](../monitoring/monitoring-servers/deploying-a-configuration),
+[this procedure](../monitoring/monitoring-servers/deploying-a-configuration.md),
 and choose *Restart* method for Engine process.
 
 ## Communications
@@ -462,10 +462,10 @@ By default, the communication between Central and Pollers or Remote Servers
 will still be using SSH protocol.
 
 Consider changing the communication protocol by following the
-[Change communication from SSH to ZMQ](../monitoring/monitoring-servers/communications#change-communication-from-ssh-to-zmq)
+[Change communication from SSH to ZMQ](../monitoring/monitoring-servers/communications.md#change-communication-from-ssh-to-zmq)
 procedure.
 
 ## Secure your platform
 
 Don't forget to secure your Centreon platform following our
-[recommendations](../administration/secure-platform)
+[recommendations](../administration/secure-platform.md)

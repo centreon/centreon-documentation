@@ -27,7 +27,7 @@ exemple par statut ou encore par sévérité.
 
 ### Prendre en compte un évènement
 
-Lorsqu'une ou plusieurs alertes apparaissent, il est possible de les [acquitter](acknowledge) afin de montrer à votre équipe que le problème est bien
+Lorsqu'une ou plusieurs alertes apparaissent, il est possible de les [acquitter](acknowledge.md) afin de montrer à votre équipe que le problème est bien
 pris en compte, et ce de deux manières:
 
 -   En acquittant la ressource directement via le bouton qui s'affiche au survol de
@@ -41,7 +41,7 @@ Seule une ressource non acquittée peut être acquittée.
 
 Lorsqu'une ressource est acquittée :
 - l'alerte disparaît de la vue **Problèmes non traités**
-- les [notifications](notif-configuration) partant de la ressource sont stoppées
+- les [notifications](notif-configuration.md) partant de la ressource sont stoppées
 - L'arrière-plan de la ligne d'une ressource acquittée passe en jaune.
 
 L'acquittement peut aussi être supprimé pour reverser l'évènement dans la liste
@@ -52,7 +52,7 @@ sur **Désacquitter** dans le menu **Plus d'actions**.
 
 ### Planifier une plage de maintenance
 
-Il est possible de [planifier une plage de maintenance](downtimes) :
+Il est possible de [planifier une plage de maintenance](downtimes.md) :
 
 -   En définissant directement une plage de maintenance via le bouton
     qui s'affiche au survol de la ligne
@@ -119,8 +119,8 @@ Vous pouvez filtrer la liste des ressources selon un certain nombre de critères
 
     - **Ressource** : afficher uniquement les hôtes, les services ou les métaservices
     - **État** : y a-t'il une action en cours sur le service ou l'équipement ? (acquittement, plage de maintenance planifiée)
-    - [**Statut**](concepts) : **OK**, **Disponible**, **Alerte**, **Indisponible**, **Critique**, **Injoignable**, **Inconnu**, **En attente**
-    - [**Type de statut**](concepts#types-de-statuts): SOFT ou HARD
+    - [**Statut**](concepts.md) : **OK**, **Disponible**, **Alerte**, **Indisponible**, **Critique**, **Injoignable**, **Inconnu**, **En attente**
+    - [**Type de statut**](concepts.md#types-de-statuts): SOFT ou HARD
     - **Groupes d'hôtes**
     - **Groupe de services**
     - **Serveur de supervision** : ressources supervisées par un serveur (ou collecteur) particulier.
@@ -164,7 +164,7 @@ Cependant, vous pouvez faire une recherche beaucoup plus fine en utilisant le [C
 - **parent_name** : rechercher des services, selon le nom de leur parent
 - **parent_alias** : rechercher des services, selon l'alias de leur parent
 - **state** : rechercher des ressources problématiques, selon qu'elles sont non prises en compte, acquittées ou en maintenance
-- **status** : rechercher des ressources selon leur [statut](concepts)
+- **status** : rechercher des ressources selon leur [statut](concepts.md)
 - **service_group** : rechercher les services rattachés à un groupe de services
 - **s.description** : chercher uniquement sur la description du service (son nom dans la colonne **Resource**)
 - **type** : afficher uniquement les hôtes, les services ou les métaservices

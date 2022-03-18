@@ -5,6 +5,7 @@ title: Azure CDN
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+
 ## Vue d'ensemble
 
 Azure Content Delivery Network est une solution conçue pour les développeurs
@@ -35,7 +36,7 @@ d'Hôtes nommé *Microsoft Azure CDNs**. Celui-ci permet de découvrir l'ensembl
 
 Vous trouverez plus d'informations sur la découverte d'Hôtes et son
 fonctionnement sur la documentation du module:
-[Découverte des hôtes](../../../monitoring/discovery/hosts-discovery)
+[Découverte des hôtes](../../../monitoring/discovery/hosts-discovery.md)
 
 ### Métriques & statuts collectés
 

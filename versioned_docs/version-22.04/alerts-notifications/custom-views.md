@@ -3,7 +3,7 @@ id: custom-views
 title: Custom views
 ---
 
-Custom views are dashboards created with widgets. You can share views with other users. See also our [tutorial](../getting-started/create-custom-view) on custom views.
+Custom views are dashboards created with widgets. You can share views with other users. See also our [tutorial](../getting-started/create-custom-view.md) on custom views.
 
 ## Creating a custom view
  

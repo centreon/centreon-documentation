@@ -6,7 +6,7 @@ title: Creating hosts manually
 To create a host manually:
 1. Go to **Configuration \> Hosts \> Hosts** and then click **Add**.
 2. Fill in the fields (see [below](#host-configuration-tab)), then click on **Save**.
-3. [Deploy the configuration](../monitoring-servers/deploying-a-configuration).
+3. [Deploy the configuration](../monitoring-servers/deploying-a-configuration.md).
 
 ## Host configuration tab
 
@@ -31,7 +31,7 @@ This button serves to delete the host template <img src={require('../../assets/c
 
 * If the **Create Services linked to the Template too** field is defined as **Yes**, Centreon automatically generates
   the services based their self on the service templates linked to the host templates defined above
-  (see the *[templates chapter](../templates#definition)*).
+  (see the *[templates chapter](../templates.md#definition)*).
 
 ### Host check options
 
@@ -122,7 +122,7 @@ The fields presented below are obsolete:
 ### Access groups
 
 * The **ACL Resource Groups** (only displayed for non administrator) allows to link this host to an hostgroup in order
-  to visualize it (see *[Access Control Lists](../../administration/access-control-lists)* chapter).
+  to visualize it (see *[Access Control Lists](../../administration/access-control-lists.md)* chapter).
 
 ### Additional Information
 

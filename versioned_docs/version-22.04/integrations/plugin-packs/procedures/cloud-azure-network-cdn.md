@@ -5,7 +5,6 @@ title: Azure CDN
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 ## Overview
 
 Azure Content Delivery Network is a solution designed for developers for 
@@ -33,7 +32,7 @@ to the Centreon configuration. This provider is named **Microsoft Azure CDN**:
 > This discovery feature is only compatible with the 'api' custom mode. 'azcli' is not supported yet.
 More information about the Host Discovery module is available in the Centreon
 documentation:
-[Host Discovery](../../../monitoring/discovery/hosts-discovery)
+[Host Discovery](../../../monitoring/discovery/hosts-discovery.md)
 
 ### Collected metrics & status
 
