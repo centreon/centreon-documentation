@@ -37,9 +37,10 @@ Le tableau ci-dessous résume l'ensemble des statuts possibles pour un service.
 
 En plus de leur statut, les ressources peuvent avoir différents états :
 
-- <span style={{color:'#ae9500'}}>Acquitté</span> : indique que l'incident sur le service ou l'hôte est pris en
-    compte par un utilisateur. (Voir [Acquitter un problème](acknowledge.md).)
-- <span style={{color:'#cc99ff'}}>En maintenance</span> : indique que les notifications sont temporairement suspendues pour cette ressource. Une [plage de maintenance](downtimes.md) peut être [planifiée à l'avance](downtimes.md#les-temps-darrêt-récurrents) pour éviter de recevoir des alertes pendant une opération de maintenance. Elle peut également être définie suite à un incident.
+- [Acquitté](acknowledge.md) : indique que l'incident sur le service ou l'hôte est pris en
+    compte par un utilisateur. Les ressources acquittées ont un fond jaune.
+- [En maintenance](downtimes.md) : indique que les notifications sont temporairement suspendues pour cette ressource. Une plage de maintenance peut être [planifiée à l'avance](downtimes.md#les-temps-darrêt-récurrents) pour éviter de recevoir des alertes pendant une opération de maintenance. Elle peut également être définie suite à un incident. Les ressources en maintenance ont un fond violet.
+
 - [Flapping](notif-flapping.md) (bagotement) : le pourcentage de
 changement de statut de la ressource est très élevé. Ce pourcentage est
 obtenu à partir de calculs effectués par le moteur de supervision. Les ressources dans un état de bagotement affichent l'icône suivante dans leur panneau **Détails** :
