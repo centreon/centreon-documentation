@@ -18,6 +18,8 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ### 21.10.5
 
+Release date: `March 21, 2022`
+
 #### Security Fixes
 
 - [Administration] SQL Injections on ACL group listing
