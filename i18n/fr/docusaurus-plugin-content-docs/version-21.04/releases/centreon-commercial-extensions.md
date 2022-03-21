@@ -27,7 +27,7 @@ Due to the bug fix on the metric labels, Outputs, Gauges and Metric Links that h
 Centreon Map 21.04.2, 21.04.3 and 21.04.4
 may have to be recreated after updating Map to version 21.04.5.
 
-### Security fixes
+#### Security fixes
 
 - Log4J version updated to 2.17.1
 
