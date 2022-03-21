@@ -31,7 +31,7 @@ may have to be recreated after updating Map to version 21.04.5.
 
 - Log4J version updated to 2.17.1
 
-### Bug fixes
+#### Bug fixes
 
 - Fixed links not coloring according to status and output not functional when metric name contains special characters
 
