@@ -117,9 +117,10 @@ Vous pouvez filtrer la liste des ressources selon un certain nombre de critères
 
     Une pop-in apparaît, listant les critères suivants :
 
-    - **Ressource** : afficher uniquement les hôtes, les services ou les métaservices
+    - **Type** : afficher uniquement les hôtes, les services ou les métaservices
     - **État** : y a-t'il une action en cours sur le service ou l'équipement ? (acquittement, plage de maintenance planifiée)
-    - **Statut** : **OK**, **Disponible**, **Alerte**, **Indisponible**, **Critique**, **Injoignable**, **Inconnu**, **En attente**
+    - [**Statut**](concepts.md) : **OK**, **Disponible**, **Alerte**, **Indisponible**, **Critique**, **Injoignable**, **Inconnu**, **En attente**
+    - [**Type de statut**](concepts.md#types-de-statuts): SOFT ou HARD
     - **Groupes d'hôtes**
     - **Groupe de services**
     - **Serveur de supervision** : ressources supervisées par un serveur (ou collecteur) particulier.
