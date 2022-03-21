@@ -19,6 +19,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 21.10.5
 
+Release date: `March 21, 2022`
+
 #### Security Fixes
 
 - [Administration] SQL Injections on ACL group listing
