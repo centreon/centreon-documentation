@@ -5,7 +5,6 @@ title: Planifier un temps d'arrêt
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 ## Ajouter un temps d'arrêt
 
 ### Principe
@@ -133,9 +132,7 @@ La fenêtre suivante s'affiche :
 </TabItem>
 </Tabs>
 
-
-
-## Les temps d'arrêts récurrents
+## Les temps d'arrêt récurrents
 
 ### Principe
 
