@@ -277,13 +277,15 @@ Engine, one might configure commands that relates to SSH check
 
 ##### Binary arguments
 
-These arguments are centreon_connector_ssh options.
+Here are the supported arguments for `centreon_connector_perl`:
 
-| Short name | Long name  | Description                                         |
-| ---------- | ---------- | --------------------------------------------------- |
-| \-d        | \--debug   | If this flag is specified, print all logs messages. |
-| \-h        | \--help    | Print help and exit.                                |
-| \-v        | \--version | Print software version and exit.                    |
+| Short name | Long name   | Description                                                                   |
+| ---------- | ----------  | ----------------------------------------------------------------------------- |
+| \-d        | \--debug    | If this flag is specified, print all logs messages.                           |
+| \-h        | \--help     | Print help and exit.                                                          |
+| \-v        | \--version  | Print software version and exit.                                              |
+| \-c        | \--code     | Argument is some Perl code that will be executed by the embedded interpreter. |
+| \-l        | \--log-file | Specifies the log file (default: stderr).                                     |
 
 ##### Check arguments
 
@@ -319,7 +321,7 @@ Example:
 ```shell
 define connector{
     connector_name centreon_connector_ssh
-    connector_line /usr/bin/centreon-connector/centreon_connector_ssh
+    connector_line /usr/bin/centreon-connector/centreon_connector_ssh --log-file=/var/log/centreon-engine/centreon-connector-ssh.log
 }
 
 define command{
@@ -546,20 +548,22 @@ definition.
 
 ##### Binary arguments
 
-These arguments are centreon_connector_perl options.
+Here are the supported arguments for `centreon_connector_perl`:
 
-| Short name | Long name  | Description                                         |
-| ---------- | ---------- | --------------------------------------------------- |
-| \-d        | \--debug   | If this flag is specified, print all logs messages. |
-| \-h        | \--help    | Print help and exit.                                |
-| \-v        | \--version | Print software version and exit.                    |
+| Short name | Long name   | Description                                                                   |
+| ---------- | ----------  | ----------------------------------------------------------------------------- |
+| \-d        | \--debug    | If this flag is specified, print all logs messages.                           |
+| \-h        | \--help     | Print help and exit.                                                          |
+| \-v        | \--version  | Print software version and exit.                                              |
+| \-c        | \--code     | Argument is some Perl code that will be executed by the embedded interpreter. |
+| \-l        | \--log-file | Specifies the log file (default: stderr).                                     |
 
 Example:
 
 ```shell
 define connector{
     connector_name centreon_connector_perl
-    connector_line /usr/bin/centreon-connector/centreon_connector_perl
+    connector_line /usr/lib64/centreon-connector/centreon_connector_perl --log-file=/var/log/centreon-engine/centreon-connector-perl.log
 }
 
 define command{
