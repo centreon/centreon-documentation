@@ -326,7 +326,7 @@ Example:
 ```shell
 define connector{
     connector_name centreon_connector_ssh
-    connector_line /usr/bin/centreon-connector/centreon_connector_ssh --log-file=/var/log/centreon-engine/centreon-connector-ssh.log
+    connector_line /usr/lib64/centreon-connector/centreon_connector_ssh --log-file=/var/log/centreon-engine/centreon-connector-ssh.log
 }
 
 define command{
