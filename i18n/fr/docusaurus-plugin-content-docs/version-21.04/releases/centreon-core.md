@@ -19,6 +19,25 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 21.04.13
+
+#### Bug Fixes
+
+- [Chart] Fixed a PHP warning and removed a debug text appearing at the bottom of the page when modifying a curve template in "Monitoring  >  Performances  >  Curves"
+- [UX] When the user does not have the "Action access" rights for the top counter, when he connects then he gets the top counter "skeleton style"
+
+#### Security Fixes
+
+- [Administration] SQL Injections on ACL group listing
+- [Administration] SQL Injection on Knowledge Base configuration form
+- [Administration] SQL Injections on LDAP listing
+- [Configuration] Command path traversal resulting in RCE on command edition form
+- [Configuration] SQL Injection on export configuration
+- [Configuration] SQL Injections on SNMP traps edition form
+- [Configuration] SQL injection on Resources form
+- [Core] RCE in legacy PHP's class autoload
+- [Monitoring] SQL Injection on performance curve edition form
+
 ### 21.04.12
 
 Release date: `March 16, 2022`
