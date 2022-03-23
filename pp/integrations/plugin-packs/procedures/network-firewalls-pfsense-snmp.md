@@ -83,7 +83,7 @@ and the several number of packets per second using with the SNMP protocol.
 
 To use this pack, the SNMP service must be properly configured on your 
 pfSense firewall. Netgate provides an official documentation
-to achieve this: https://docs.netgate.com/pfsense/en/latest/services/snmp
+to achieve this: https://docs.netgate.com/pfsense/en/latest/services/snmp.html
 
 ### Network flow
 

@@ -44,7 +44,7 @@ The Plugin Pack Proxmox Mail Gateway collects metrics for:
 
 To control your Proxmox Mail Gateway, the Rest API must be configured.
 
-E.g: https://pmg.proxmox.com/pmg-docs/api-viewer/index
+E.g: https://pmg.proxmox.com/pmg-docs/api-viewer/index.html
 
 ## Setup
 

@@ -33,7 +33,7 @@ Le Pack Cisco ESA collecte les données pour:
 
 ## Prérequis
 
-Afin de contrôler votre équipement Cisco ESA, l'API Rest doit être configurée (cf: https://www.cisco.com/c/en/us/support/security/email-security-appliance/products-programming-reference-guides-list).
+Afin de contrôler votre équipement Cisco ESA, l'API Rest doit être configurée (cf: https://www.cisco.com/c/en/us/support/security/email-security-appliance/products-programming-reference-guides-list.html).
 
 ## Installation
 

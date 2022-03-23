@@ -113,7 +113,7 @@ Il est possible d'utiliser l'option ```--absent-problem``` si vous souhaitez avo
 
 ### Configuration de l'équipement
 
-Pour utiliser ce plugin-pack, vous devez configurer le service SNMP sur l'équipement. Une description complète est disponible sur le site officiel de Cisco: https://www.cisco.com/c/en/us/support/docs/ip/simple-network-management-protocol-snmp/7282-12
+Pour utiliser ce plugin-pack, vous devez configurer le service SNMP sur l'équipement. Une description complète est disponible sur le site officiel de Cisco: https://www.cisco.com/c/en/us/support/docs/ip/simple-network-management-protocol-snmp/7282-12.html
 
 Voici un exemple: 
 

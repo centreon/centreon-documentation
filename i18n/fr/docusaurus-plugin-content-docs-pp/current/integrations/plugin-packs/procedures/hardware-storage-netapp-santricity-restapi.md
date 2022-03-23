@@ -86,7 +86,7 @@ Les ressources ci-après décrivent les méthodes d'installation ainsi que le fo
 ### Ressources en ligne
 
 * Installation de SANtricity Web Services: https://library.netapp.com/ecm/ecm_download_file/ECMLP2846165
-* Prise en main et exploitation de l'API Rest: https://library.netapp.com/ecmdocs/ECMLP2839901/html/v2
+* Prise en main et exploitation de l'API Rest: https://library.netapp.com/ecmdocs/ECMLP2839901/html/v2.html
 
 ## Installation
 

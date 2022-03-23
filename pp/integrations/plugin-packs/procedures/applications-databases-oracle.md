@@ -98,7 +98,7 @@ yum install -y gcc wget
 
 ###  Oracle instant client
 
-Go to [Instant Client Downloads](http://www.oracle.com/technetwork/database/features/instant-client/index-097480),
+Go to [Instant Client Downloads](http://www.oracle.com/technetwork/database/features/instant-client/index-097480.html),
 choose the right OS your Poller is running on (Linux x86-64) and download the following packages:
 
   - oracle-instantclient-basic

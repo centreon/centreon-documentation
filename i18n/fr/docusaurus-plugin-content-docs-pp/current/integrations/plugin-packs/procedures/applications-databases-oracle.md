@@ -100,7 +100,7 @@ yum install -y gcc wget
 ###  Oracle instant client
 
 Se connecter sur [Instant Client
-Downloads](http://www.oracle.com/technetwork/database/features/instant-client/index-097480),
+Downloads](http://www.oracle.com/technetwork/database/features/instant-client/index-097480.html),
 Choisir le groupe de paquets correspondant au système d'exploitation du Collecteur, et télécharger les paquets suivants :
 
   - oracle-instantclient-basic

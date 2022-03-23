@@ -19,7 +19,7 @@ Il fournit un logiciel propriétaire de déduplication et de compression des don
 
 ## Métriques collectées
 
-Plus d'informations dans la documentation officielle de l'API de Pure Storage : https://blog.purestorage.com/introducing-the-pure1-rest-api/
+Plus d'informations dans la documentation officielle de l'API de Pure Storage : https://blog.purestorage.com/products/introducing-the-pure1-rest-api/
 
 <Tabs groupId="sync">
 <TabItem value="Alarms-Global" label="Alarms-Global">
