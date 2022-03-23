@@ -21,7 +21,7 @@ Two types of sets of data are available:
 The CDEF type works on a set of points (data table). The result of the processing (e.g.: multiplication by 8 to convert
 bits into Bytes) will be a set of points. The VDEF type enables us to extract the maximum from a set of points.
 
-> For more information on the RPN type notation, refer to the [official RRD documentation](http://oss.oetiker.ch/rrdtool/tut/rpntutorial.en)
+> For more information on the RPN type notation, refer to the [official RRD documentation](https://oss.oetiker.ch/rrdtool/doc/rrdgraph_rpn.en.html)
 
 ## Configuration
 
