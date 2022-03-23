@@ -83,6 +83,9 @@ considerations.
 
 **Software**
 
+<Tabs groupId="sync">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+
 - Centreon 20.10
 - Check that the parameter `date.timezone` is correctly configured in `/etc/php.d/php.ini`
   (same timezone displayed with the command `timedatectl status`)
@@ -90,6 +93,21 @@ considerations.
   They halt long queries execution and can stop the ETL or the report generation jobs:
   - wait_timeout
   - interactive_timeout
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+- Centreon 20.10
+- Check that the parameter `date.timezone` is correctly configured in
+  `/etc/opt/rh/rh-php72/php.ini` (same timezone displayed with the
+  command `timedatectl status`)
+- Avoid the usage of the following variables in your monitoring MariaDB configuration.
+  They halt long queries execution and can stop the ETL or the report generation jobs:
+  - wait_timeout
+  - interactive_timeout
+
+</TabItem>
+</Tabs>
 
 **Users and groups**
 
@@ -257,7 +275,7 @@ Please go to the next chapter to continue the installation.
 
 ### Grant rights to user cbis
 
-When you install Centreon MBI, a [user](../monitoring/basic-objects/contacts.md) called **cbis** is automatically created. It allows the report generation engine to extract data from Centreon (using the APIs) in order to put them into the report. This user must [have access to all resources monitored by Centreon](../administration/access-control-lists.md) to be able to extract performance graphs for the following reports:
+When you install Centreon MBI, a [user](../monitoring/basic-objects/contacts) called **cbis** is automatically created. It allows the report generation engine to extract data from Centreon (using the APIs) in order to put them into the report. This user must [have access to all resources monitored by Centreon](../administration/access-control-lists) to be able to extract performance graphs for the following reports:
 
 - Host-Graph-v2 
 
@@ -310,14 +328,6 @@ Then execute the following command:
 dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
 ```
 
-If you installed your reporting server using a fresh distribution you
-need to add the following GPG key:
-
-```shell
-cd /etc/pki/rpm-gpg/
-wget https://yum.centreon.com/standard/21.10/el8/stable/RPM-GPG-KEY-CES
-```
-
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
@@ -325,16 +335,16 @@ wget https://yum.centreon.com/standard/21.10/el8/stable/RPM-GPG-KEY-CES
 yum install centreon-bi-reporting-server MariaDB-server MariaDB-client
 ```
 
-If you installed your reporting server using a fresh distribution you
+</TabItem>
+</Tabs>
+
+If you installed your reporting server using a fresh CentOS image you
 need to add the following GPG key:
 
 ```shell
 cd /etc/pki/rpm-gpg/
-wget https://yum.centreon.com/standard/21.10/el7/stable/RPM-GPG-KEY-CES
+wget https://yum.centreon.com/standard/20.10/el7/stable/RPM-GPG-KEY-CES
 ```
-
-</TabItem>
-</Tabs>
 
 Enable the cbis service:
 
@@ -405,7 +415,7 @@ capabilities to:
 - Manage data retention on the reporting server.
 
 Before following the next steps, you should have read
-[the best practice parts](installation.md#best-practices-for-monitoring) to
+[the best practice parts](installation#best-practices-for-monitoring) to
 ensure that the Centreon objects (e.g., groups and categories) are configured
 according to Centreon MBI requirements.
 
@@ -466,7 +476,7 @@ data retention can be managed by:
 > engine uses a dedicated MariaDB server** option is correctly set to
 > "Yes" in the *Reporting > Business Intelligence > General options ETL options* menu.
 
-Enable data retention management by selecting "Yes", then set the
+Enable data retention management by selecting \"Yes\", then set the
 options in the configuration (example below).
 
 ![image](../assets/reporting/installation/bi_retention.png)
@@ -545,4 +555,4 @@ systemctl restart crond
 > *eventReportBuilder* has finished on the monitoring server (see the cron
 > file \* /etc/cron.d/centreon\* on the monitoring server).
 
-Centreon MBI installation is now complete, check [the tutorial](../getting-started/analyze-resources-availability.md)
+Centreon MBI installation is now complete, check [the tutorial](../getting-started/analyze-resources-availability)
