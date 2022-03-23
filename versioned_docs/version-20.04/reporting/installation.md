@@ -83,7 +83,7 @@ considerations.
 
 **Software**
 
-- Centreon 21.10
+- Centreon 20.04
 - Check that the parameter `date.timezone` is correctly configured in `/etc/php.d/php.ini`
   (same timezone displayed with the command `timedatectl status`)
 - Avoid the usage of the following variables in your monitoring MariaDB configuration.
@@ -138,7 +138,7 @@ vgdisplay vg_data | grep -i free
 **Software**
 
 - OS: CentOS / Redhat 7 or 8
-- SGBD: MariaDB 10.5
+- SGBD: MariaDB 10.3.x
 - Firewall: Disabled
 - SELinux: Disabled
 
