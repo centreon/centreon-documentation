@@ -1817,10 +1817,6 @@ module.exports = {
 		},
 		{
 		  type: 'doc',
-		  id: 'integrations/plugin-packs/procedures/applications-protocol-ftp'
-		},
-		{
-		  type: 'doc',
 		  id: 'integrations/plugin-packs/procedures/applications-protocol-snmp'
 		},
 		{

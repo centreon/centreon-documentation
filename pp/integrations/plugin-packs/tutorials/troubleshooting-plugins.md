@@ -90,7 +90,7 @@ In this situation, reach us on [slack](https://centreon.github.io) or, even bett
 track an issue within the [centreon-plugins](https://github.com/centreon/centreon-plugins/issues) 
 Github repository so we can patch it. 
 
-## SNMP checks
+## Troubleshooting SNMP
 
 ### UNKNOWN: SNMP GET Request : Timeout
 
