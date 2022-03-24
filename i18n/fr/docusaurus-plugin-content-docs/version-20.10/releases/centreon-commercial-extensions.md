@@ -340,6 +340,20 @@ Release date: `March 3, 2022`
 
 ## Centreon Auto Discovery
 
+### 20.10.5
+
+Release date: `null`
+
+#### Bug fixes
+
+- Fixed an issue that caused Service Discovery scans to fail because the wrong message was caught.
+- Fixed an issue that prevented from saving credentials with more than 512 characters.
+
+#### Security fixes
+
+- Fixed a SQL injection issue  in Service Discovery rules management.
+
+
 ### 20.10.4
 
 `13 juillet 2021`
