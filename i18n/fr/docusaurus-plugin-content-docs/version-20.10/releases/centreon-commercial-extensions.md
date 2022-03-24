@@ -346,7 +346,7 @@ Release date: `null`
 
 #### Bug fixes
 
-- Fixed an issue that caused Service Discovery scans to fail because the wrong message was caught.
+- Fixed an issue that caused Service Discovery scans to fail because the wrong message was caught
 - Fixed an issue that prevented from saving credentials with more than 512 characters.
 
 #### Security fixes
