@@ -131,7 +131,7 @@ Release date: `null`
 - Host discovery did not support `NULL` values for job parameters.
 - Changed the size of a column to allow storing host discovery provider coming from Plugin Packs with names > 50 characters.
 - ACL were not updated for items discovered by Host Discovery or Service Discovery.
-- Fixed an issue that caused Service Discovery scans to fail because the wrong message was caught.
+- Fixed an issue that caused Service Discovery scans to fail because the wrong message was caught
 
 
 ### 21.10.2
