@@ -344,7 +344,7 @@ Release date: `null`
 
 #### Security fixes
 
-- Fixed a SQL injection issue  in Service Discovery rules management.
+- Fixed an SQL injection issue in Service Discovery rules management
 
 
 ### 20.10.4
