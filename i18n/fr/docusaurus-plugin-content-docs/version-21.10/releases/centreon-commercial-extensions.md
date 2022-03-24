@@ -123,7 +123,7 @@ Release date: `null`
 
 #### Improvements
 
-- In the Host Discovery job result listing, the red "warning" sign that used to point out that a discovered host already existed has been replaced with a yellow one because it suggested that a severe problem occurred. The "info" sign that lead to the raw discovery data has been replaced with a "text file" icon.
+- In the Host Discovery job result listing, the red "warning" sign that used to point out that a discovered host already existed has been replaced with a yellow one because the colour red suggested that a severe problem had occurred. The "info" sign that led to the raw discovery data has been replaced with a "text file" icon.
 
 #### Bug fixes
 
