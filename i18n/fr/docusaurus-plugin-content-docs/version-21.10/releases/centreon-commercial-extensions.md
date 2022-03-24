@@ -127,7 +127,7 @@ Release date: `null`
 
 #### Bug fixes
 
-- Fixed a front-end issue when editing a hostgroup or a hostcategory mapper in Host Discovery led to a blank page.
+- Fixed a front-end issue where editing a hostgroup or a hostcategory mapper in Host Discovery led to a blank page.
 - Host discovery did not support `NULL` values for job parameters
 - Changed the size of a column to allow storing host discovery providers coming from Plugin Packs with names exceeding 50 characters.
 - ACLs were not updated for items discovered by Host Discovery or Service Discovery
