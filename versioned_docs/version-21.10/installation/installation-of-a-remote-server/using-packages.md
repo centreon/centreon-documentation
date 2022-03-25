@@ -377,17 +377,17 @@ systemctl enable php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned 
 
 ### Secure the database
 
-If you have installed the Centreon server with a local database, since MariaDB 10.5 it is necessary to secure its installation
-before installing Centreon.
-
-Answer yes to all questions except "Disallow root login remotely?". It is mandatory
-to set a password for the **root** user of the database. You will need this password during the [web installation](../web-and-post-installation.md).
+If you have installed the Centreon server with a local database, since MariaDB 10.5, it is mandatory to secure the database's root access before installing Centreon. Run the following command:
 
 ```shell
 mysql_secure_installation
 ```
 
+* Answer **yes** to all questions except "Disallow root login remotely?".
+* It is mandatory to set a password for the **root** user of the database. You will need this password during the [web installation](../web-and-post-installation.md).
+
 > For more information, please see the [official MariaDB documentation](https://mariadb.com/kb/en/mysql_secure_installation/).
+
 
 
 ## Web installation
