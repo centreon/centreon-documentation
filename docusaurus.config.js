@@ -79,6 +79,16 @@ const config = {
     ],
 
     require.resolve('plugin-image-zoom'),
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'pp',
+        path: 'pp',
+        routeBasePath: 'pp',
+        sidebarPath: require.resolve('./pp/sidebarsPp.js'),
+        breadcrumbs: false,
+      },
+    ],
   ],
 
   themeConfig:
@@ -131,6 +141,12 @@ const config = {
             docId: 'getting-started/installation-first-steps',
             position: 'left',
             label: 'Centreon OnPrem',
+          },
+          {
+            to: '/pp/integrations/plugin-packs/introduction',
+            label: 'Plugin Packs',
+            position: 'left',
+            activeBaseRegex: '/pp/',
           },
           {
             type: 'search',
