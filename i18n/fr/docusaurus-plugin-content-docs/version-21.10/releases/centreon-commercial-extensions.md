@@ -129,7 +129,7 @@ Release date: `null`
 
 - Fixed a front-end issue where editing a hostgroup or a hostcategory mapper in Host Discovery led to a blank page
 - Host discovery did not support `NULL` values for job parameters
-- Changed the size of a column to allow storing host discovery providers coming from Plugin Packs with names exceeding 50 characters.
+- Changed the size of a column to allow storing host discovery providers coming from Plugin Packs with names exceeding 50 characters
 - ACLs were not updated for items discovered by Host Discovery or Service Discovery
 - Fixed an issue that caused Service Discovery scans to fail because the wrong message was caught
 
