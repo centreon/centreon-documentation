@@ -83,13 +83,31 @@ considerations.
 
 **Software**
 
-- Centreon 21.10
+<Tabs groupId="sync">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+
+- Centreon 20.10
 - Check that the parameter `date.timezone` is correctly configured in `/etc/php.d/php.ini`
   (same timezone displayed with the command `timedatectl status`)
 - Avoid the usage of the following variables in your monitoring MariaDB configuration.
   They halt long queries execution and can stop the ETL or the report generation jobs:
   - wait_timeout
   - interactive_timeout
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+- Centreon 20.10
+- Check that the parameter `date.timezone` is correctly configured in
+  `/etc/opt/rh/rh-php72/php.ini` (same timezone displayed with the
+  command `timedatectl status`)
+- Avoid the usage of the following variables in your monitoring MariaDB configuration.
+  They halt long queries execution and can stop the ETL or the report generation jobs:
+  - wait_timeout
+  - interactive_timeout
+
+</TabItem>
+</Tabs>
 
 **Users and groups**
 
@@ -138,7 +156,7 @@ vgdisplay vg_data | grep -i free
 **Software**
 
 - OS: CentOS / Redhat 7 or 8
-- SGBD: MariaDB 10.5
+- SGBD: MariaDB 10.3
 - Firewall: Disabled
 - SELinux: Disabled
 
@@ -310,14 +328,6 @@ Then execute the following command:
 dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
 ```
 
-If you installed your reporting server using a fresh distribution you
-need to add the following GPG key:
-
-```shell
-cd /etc/pki/rpm-gpg/
-wget https://yum.centreon.com/standard/21.10/el8/stable/RPM-GPG-KEY-CES
-```
-
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
@@ -325,16 +335,16 @@ wget https://yum.centreon.com/standard/21.10/el8/stable/RPM-GPG-KEY-CES
 yum install centreon-bi-reporting-server MariaDB-server MariaDB-client
 ```
 
-If you installed your reporting server using a fresh distribution you
+</TabItem>
+</Tabs>
+
+If you installed your reporting server using a fresh CentOS image you
 need to add the following GPG key:
 
 ```shell
 cd /etc/pki/rpm-gpg/
-wget https://yum.centreon.com/standard/21.10/el7/stable/RPM-GPG-KEY-CES
+wget https://yum.centreon.com/standard/20.10/el7/stable/RPM-GPG-KEY-CES
 ```
-
-</TabItem>
-</Tabs>
 
 Enable the cbis service:
 
@@ -466,7 +476,7 @@ data retention can be managed by:
 > engine uses a dedicated MariaDB server** option is correctly set to
 > "Yes" in the *Reporting > Business Intelligence > General options ETL options* menu.
 
-Enable data retention management by selecting "Yes", then set the
+Enable data retention management by selecting \"Yes\", then set the
 options in the configuration (example below).
 
 ![image](../assets/reporting/installation/bi_retention.png)
