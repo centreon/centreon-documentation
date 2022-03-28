@@ -81,7 +81,7 @@ filtre **Afficher les détails**. Dans un premier temps, les ressources apparais
 
   ![image](../assets/getting-started/quick_start_mysql_4.gif)
 
-### Pour aller plus loin
+## Pour aller plus loin
 
 Le Plugin Pack **MySQL/MariaDB** apporte de nombreux modèles de supervision. Rendez-vous dans le menu  **Configuration > Services > Modèles** et trouvez la liste complète:
 

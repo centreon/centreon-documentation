@@ -111,7 +111,7 @@ Dans l'interface web, allez à la page **Configuration > Plugin Packs** et insta
    Si tous les services ne sont pas dans un état OK, vérifiez la cause de l'erreur et corrigez le problème.
 
 
-### Pour aller plus loin
+## Pour aller plus loin
 
 Le Plugin Pack **Linux SNMP** apporte de nombreux modèles de supervision. Rendez-vous dans le menu  **Configuration > Services > Modèles** et trouvez la liste complète:
 

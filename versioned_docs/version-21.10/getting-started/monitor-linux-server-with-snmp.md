@@ -110,7 +110,7 @@ In the web interface, go to **Configuration > Plugin Packs** and install the **L
 
    If not all services are in an OK state, check what causes the error and fix the problem.
 
-### To go further
+## To go further
 
 The **Linux SNMP** Plugin Pack provides several monitoring templates. Go to **Configuration > Services > Templates** to know the complete list:
 
