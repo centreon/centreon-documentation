@@ -117,7 +117,7 @@ Le Plugin Pack **Linux SNMP** apporte de nombreux modèles de supervision. Rende
 
    ![image](../assets/getting-started/quick_start_linux_8.png)
 
-Avec **Centreon IT Edition**, vous pouvez ajouter très rapidement et très simplement la supervision de vos interfaces réseaux, partitions, processus et services en utilisant la fonctionnalité de [découverte des services](../monitoring/discovery/services-discovery).
+Avec **Centreon IT Edition**, vous pouvez ajouter très rapidement et très simplement la supervision de vos interfaces réseaux, partitions, processus et services en utilisant la fonctionnalité de [découverte des services](../monitoring/discovery/services-discovery.md).
 
 1. Rendez-vous dans le menu **Configuration > Services > Manuelle**. Commencez à saisir le nom de l’hôte sur lequel réaliser la découverte et l’interface vous proposera de compléter automatiquement ce dernier :
 
@@ -133,4 +133,4 @@ Avec **Centreon IT Edition**, vous pouvez ajouter très rapidement et très simp
 
    ![image](../assets/getting-started/quick_start_linux_11.png)
 
-4. [Déployez la configuration](first-supervision#deploying-a-configuration).
+4. [Déployez la configuration](first-supervision.md#deploying-a-configuration).
