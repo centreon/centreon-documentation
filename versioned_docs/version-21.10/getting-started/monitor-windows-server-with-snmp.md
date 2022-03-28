@@ -141,7 +141,7 @@ In the web interface, go to **Configuration > Plugin Packs** and install the **W
 
    If not all services are in an OK state, check what causes the error and [fix the problem](/pp/integrations/plugin-packs/tutorials/troubleshooting-plugins).
 
-### To go further
+## To go further
 
 The **Windows SNMP** Plugin Pack provides several monitoring templates. Go to **Configuration > Services > Templates** to know the complete list:
 

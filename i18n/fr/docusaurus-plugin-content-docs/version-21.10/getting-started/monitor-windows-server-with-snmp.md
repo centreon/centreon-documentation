@@ -146,7 +146,7 @@ Dans l'interface Web, accédez à **Configuration > Plugin Packs** et installez 
 
    Si tous les services ne sont pas dans un état **OK**, dépannez et [corrigez le problème](/pp/integrations/plugin-packs/tutorials/troubleshooting-plugins)
 
-### Pour aller plus loin
+## Pour aller plus loin
 
 Le Plugin Pack **Windows SNMP** apporte de nombreux modèles de supervision. Rendez-vous dans le menu  **Configuration > Services > Modèles** et trouvez la liste complète:
 
