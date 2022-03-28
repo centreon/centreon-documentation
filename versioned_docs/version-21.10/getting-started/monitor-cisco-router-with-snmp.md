@@ -8,7 +8,7 @@ title: Monitor your first Cisco router
 
 In this tutorial, we're assuming that your Centreon platform is installed and running well, and that you have at least a [Centreon IT 100 Edition](it100.md) that provides Centreon Plugin Packs (your [license](../administration/licenses.md) is already set up).
 
-Your Cisco router will be monitored using the [Cisco standard plugin pack](../integrations/plugin-packs/procedures/network-cisco-standard-snmp.md). (More about Plugin Packs [here](../monitoring/pluginpacks.md)). 
+Your Cisco router will be monitored using the [Cisco standard plugin pack](/pp/integrations/plugin-packs/procedures/network-cisco-standard-snmp). (More about Plugin Packs [here](../monitoring/pluginpacks.md)). 
 
 
 ## Prerequisites
@@ -17,7 +17,7 @@ Your Cisco router will be monitored using the [Cisco standard plugin pack](../in
 
 
 The first step is to activate and configure an SNMP service on your Cisco device.
-Please refer to the documentation of your Cisco device to know how to configure the SNMP service. The monitoring procedure for the [Cisco standard plugin pack](../integrations/plugin-packs/procedures/network-cisco-standard-snmp.md) includes an example.
+Please refer to the documentation of your Cisco device to know how to configure the SNMP service. The monitoring procedure for the [Cisco standard plugin pack](/pp/integrations/plugin-packs/procedures/network-cisco-standard-snmp) includes an example.
 
 
 ### Network flow
@@ -26,7 +26,7 @@ The target device must be reachable from the Centreon Poller on the UDP/161 SNMP
 
 ### On the poller
 
-Connect to your poller using SSH and install the Cisco standard plugin (see the [monitoring procedure for the **Cisco standard** Plugin Pack](../integrations/plugin-packs/procedures/network-cisco-standard-snmp.md) for more information):
+Connect to your poller using SSH and install the Cisco standard plugin (see the [monitoring procedure for the **Cisco standard** Plugin Pack](/pp/integrations/plugin-packs/procedures/network-cisco-standard-snmp) for more information):
 
 ```shell
 yum install centreon-plugin-Network-Cisco-Standard-Snmp

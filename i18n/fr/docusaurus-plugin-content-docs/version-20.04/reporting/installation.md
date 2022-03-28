@@ -229,7 +229,7 @@ Allez au chapitre suivant pour continuer l'installation.
 
 ### Donner des droits à l'utilisateur cbis
 
-Lorsque vous installez Centreon MBI, un [utilisateur](../monitoring/basic-objects/contacts) nommé **cbis** est créé automatiquement. Il permet au moteur de génération de rapports d'extraire les données de Centreon (en utilisant les APIs) afin de les insérer dans le rapport. Cet utilisateur doit [avoir accès à toutes les ressources supervisées par Centreon](../administration/access-control-lists) afin de pouvoir extraire les graphes de performance pour les rapports suivants :
+Lorsque vous installez Centreon MBI, un [utilisateur](../monitoring/basic-objects/contacts.md) nommé **cbis** est créé automatiquement. Il permet au moteur de génération de rapports d'extraire les données de Centreon (en utilisant les APIs) afin de les insérer dans le rapport. Cet utilisateur doit [avoir accès à toutes les ressources supervisées par Centreon](../administration/access-control-lists.md) afin de pouvoir extraire les graphes de performance pour les rapports suivants :
 
 - Host-Graph-v2 
 
@@ -485,4 +485,4 @@ Redémarrez le service cron sur le serveur de reporting : :
 > *eventReportBuilder* est terminé sur le serveur de monitoring (vérifiez
 > les heures dans le cron `/etc/cron.d/centreon`).
 
-La configuration de votre installation de Centreon MBI est terminée, consultez le [tutorial](../getting-started/analyze-resources-availability)
+La configuration de votre installation de Centreon MBI est terminée, consultez le [tutorial](../getting-started/analyze-resources-availability.md)

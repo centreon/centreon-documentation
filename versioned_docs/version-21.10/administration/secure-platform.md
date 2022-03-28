@@ -450,7 +450,7 @@ ProxyTimeout 300
             php_admin_value engine Off
         </IfModule>
 
-        FallbackResource /centreon/index
+        FallbackResource /centreon/index.html
 
         AddType text/plain hbs
     </Directory>
@@ -484,6 +484,7 @@ Edit the **/etc/httpd/conf.d/10-centreon.conf** file and add the following line:
 
 ```apacheconf
 Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;Secure;SameSite=Strict
+Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
 ServerSignature Off
 ServerTokens Prod
 ```
@@ -502,6 +503,7 @@ Edit the **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf** file and add
 ```apacheconf
 Header set X-Frame-Options: "sameorigin"
 Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;Secure;SameSite=Strict
+Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
 ServerSignature Off
 ServerTokens Prod
 TraceEnable Off
@@ -510,8 +512,7 @@ TraceEnable Off
 Edit the **/etc/php.d/50-centreon.ini** file and turn off the `expose_php` parameter:
 
 ```phpconf
-expose_
-php = Off
+expose_php = Off
 ```
 
 </TabItem>

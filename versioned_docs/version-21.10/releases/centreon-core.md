@@ -17,6 +17,61 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 21.10.5
+
+Release date: `March 21, 2022`
+
+#### Security Fixes
+
+- [Administration] SQL Injections on ACL group listing
+- [Administration] SQL Injection on Knowledge Base configuration form
+- [Administration] SQL Injections on LDAP listing
+- [Configuration] Command path traversal resulting in RCE on command edition form
+- [Configuration] SQL Injection on export configuration
+- [Configuration] SQL Injections on SNMP traps edition form
+- [Core] RCE in legacy PHP's class autoload
+- [Monitoring] SQL Injection on performance curve edition form
+
+### 21.10.4
+
+Release date: `March 3, 2022`
+
+#### Enhancements
+
+- [Authentication] Autologin Validation reinforcement
+- [Install] Set broker retry interval to 15s instead of 60s
+- [Performance] Improve SQL queries to use index
+- [Reporting] Add select2 to hostgroup and servicegroup reporting dashboards
+- [Resource Status] Added custom variables definition in URL/Action URL
+- [Resource Status] Create new filter on type of status (Hard or Soft)
+- [Stats] Manage exception for statistics
+- [UX] Add TheWatch url to Centreon footer
+
+#### Bug Fixes
+
+- [APIv2] Fixed criticality null return for monitoring endpoint
+- [Apache] Fixed SNMP MIB import mib with new mod_security rule definition
+- [Authentication] Improve LDAP authentication and authorization
+- [Authentication] Remove deadlocks on token deletion
+- [Configuration] A regression in the host/host template configuration form caused the inherited macros to be saved as owned by the host/host template instead of being inherited. This can be seen as the loss of orange coloration. To undo this unwanted change, remove the macros from the list and they will be inherited again.
+- [Configuration] Contact template properties not exported with the contact
+- [Configuration] Fixed an infinite loop in export of configuration
+- [Configuration] Fixed an issue in the contact form. When a non-admin user modified another non-admin user, only access groups that were common to both users were kept, other access groups were lost for the second user.
+- [Configuration] Fixed an issue in the contact form: when a non-admin user modified a duplicated contact, it resulted in a blank screen
+- [Configuration] Wizard doesn't insert anymore old logger configuration
+- [Monitoring] Fixed deletion of comments
+- [Reporting] Fixed timeperiod selection in dashboards when changing resource
+- [Resources Status] Change "resource" by "type" in Resource status filter menu
+- [Resources Status] Contents cropped in many tiles in French
+- [Resources Status] Fixed display of old downtimes
+- [Resources Status] Removed the tooltips on hover for urls
+- [Resources Status] Rework Detail panel chip: hostgroup/servicegroup
+
+#### Security Fixes
+
+- XSS reflected from plugin's metric output
+- XSS in reporting dashboard
+
 ### 21.10.3
 
 Release date: `January 26, 2022`
@@ -170,6 +225,18 @@ Release date: `February 23, 2022`
 - In some circumstances, the `mysql_ping` function, which is used to test if the session is still active, could freeze. To fix this, the calls to `mysql_ping` have been spaced out, a timeout has been added, and the commit management has been consolidated.
 - Fixed an issue causing BAM Business Activities (best status) to remain in an OK state when the OK KPIs were removed
 - Refactored the BAM Business activities downtimes inheritance mechanism so that they are properly inherited and not duplicated anymore.
+
+> After having updated centreon-broker to this version, you may still have unwanted remaining downtimes on your Business Activities. It can happen if a downtime that was inherited from a KPI has been duplicated and if the original downtime ended before the bugfix was installed. In that case, you will have to apply the following procedure.
+
+```bash
+systemctl stop centengine
+sed -i -zE 's/(servicecomment|servicedowntime) \{\nhost_name=_Module_BAM_1\n[^}]*\}\n//g' /var/log/centreon-engine/retention.dat
+systemctl start centengine
+```
+
+All the downtimes applied on Business Activities have now been removed.
+
+You must then restart the `centengine` service on all the other pollers to restore the legitimate inherited downtimes.
 
 ### 21.10.0
 

@@ -15,6 +15,7 @@ const config = {
   favicon: 'img/logo-centreon.png',
   organizationName: 'Centreon',
   projectName: 'Centreon Documentation',
+  trailingSlash: true,
   
   noIndex: false,
 
@@ -37,6 +38,7 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+          breadcrumbs: false,
           admonitions: {},
           editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
           editLocalizedFiles: true,
@@ -91,6 +93,26 @@ const config = {
       },
     ],
     'plugin-image-zoom',
+	[
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'cloud',
+        path: 'cloud',
+        routeBasePath: 'cloud',
+        sidebarPath: require.resolve('./cloud/sidebarsCloud.js'),
+        breadcrumbs: false,
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'pp',
+        path: 'pp',
+        routeBasePath: 'pp',
+        sidebarPath: require.resolve('./pp/sidebarsPp.js'),
+        breadcrumbs: false,
+      },
+    ],
   ],
 
   themeConfig:
@@ -131,7 +153,7 @@ const config = {
 
       navbar: {
         hideOnScroll: false,
-        title: 'Centreon Docs',
+        title: '',
         logo: {
           alt: 'Logo Centreon Docs',
           src: 'img/logo-centreon.png',
@@ -141,8 +163,20 @@ const config = {
           {
             type: 'doc',
             docId: 'getting-started/installation-first-steps',
-            position: 'right',
-            label: 'Documentation',
+            position: 'left',
+            label: 'Centreon OnPrem',
+          },
+		     {
+            to: '/cloud/getting-started/architecture',
+            label: 'Centreon Cloud',
+            position: 'left',
+            activeBaseRegex: '/cloud/',
+          },
+          {
+            to: '/pp/integrations/plugin-packs/introduction',
+            label: 'Plugin Packs',
+            position: 'left',
+            activeBaseRegex: '/pp/',
           },
           {
             type: 'search',

@@ -1,5 +1,5 @@
 pipeline {
-   agent { label 'docs' }
+   agent any 
    stages {
  
      stage('Install documentation dependencies') {
@@ -8,7 +8,7 @@ pipeline {
        }
        steps {
          echo 'Using Yarn to install dependencies'
-         sh 'cd .. && sudo npm cache clean -f && sudo npm install -g n && sudo n latest'
+         sh 'cd .. && sudo apt install curl -y && curl -sL https://deb.nodesource.com/setup_16.x | sudo bash - && sudo apt install nodejs -y'
          sh 'yarn install'
        }
      }
@@ -18,7 +18,7 @@ pipeline {
        }
        steps {
          echo 'Using yarn to build documentation'
-         sh 'export NODE_OPTIONS=--max_old_space_size=32000 && yarn build'
+         sh 'yarn build'
          sh 'tar czf build.tar.gz build'
          archiveArtifacts artifacts: "build.tar.gz"
        }
@@ -27,7 +27,9 @@ pipeline {
      stage('Deploy PR to prewiew platform') {
        when { changeRequest target: 'staging' }
        steps {
-         input message: 'Deploy PR to prewiew platform? (Click "Proceed" to continue)'
+         timeout(time:2, unit:'HOURS') {
+           input message: 'Deploy PR to prewiew platform? (Click "Proceed" to continue)'
+         }
          sh 'aws s3 sync --delete build s3://centreon-documentation-preview-pr/ --exclude "robots.txt"'
          sh 'aws cloudfront create-invalidation --distribution-id E1JOAJFE0XFP6P  --paths "/*"'
        }
@@ -36,7 +38,7 @@ pipeline {
      stage('Deploy documentation to staging') {
        when { branch 'staging' }
        steps {
-         sh 'rsync -e "ssh -o StrictHostKeyChecking=no" -arzvh --delete --exclude build/sitemap.xml --exclude build/fr/sitemap.xml build/* admin@docs-dev.int.centreon.com:/var/www/html/'
+         sh 'rsync -e "ssh -o StrictHostKeyChecking=no" -arzvh --delete build/* admin@docs-dev.int.centreon.com:/var/www/html/'
          //sh 'aws cloudfront create-invalidation --distribution-id ID_DISTRIB_STAGING --paths "/*"'
          
        }
@@ -44,8 +46,10 @@ pipeline {
      stage('Deploy documentation to production') {
        when { branch 'production' }      
        steps {
-         input message: 'Deploying to production? (Click "Proceed" to continue)'
-         sh 'ssh -o StrictHostKeyChecking=no admin@docs-dev.int.centreon.com rsync -arzvh --delete --exclude build/sitemap.xml /var/www/html admin@docs.int.centreon.com:/var/www/'
+         timeout(time:2, unit:'HOURS') {
+           input message: 'Deploying to production? (Click "Proceed" to continue)'
+         }
+         sh 'ssh -o StrictHostKeyChecking=no admin@docs-dev.int.centreon.com rsync -arzvh --delete /var/www/html admin@docs.int.centreon.com:/var/www/'
          sh 'aws cloudfront create-invalidation --distribution-id E1CNJDQJ2JT4KZ --paths "/*"'
        }
      }

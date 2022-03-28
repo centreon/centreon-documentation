@@ -19,6 +19,30 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 21.04.12
+
+Release date: `March 16, 2022`
+
+#### Enhancements
+
+- [Statistics] Manage exception for statistics
+- [Resource Status] Added custom variables definition in URL/Action URL
+
+#### Bug Fixes
+
+- [Authentication] Improve LDAP authentication and authorization
+- [Configuration] Fixed an issue in the contact form. When a non-admin user modified another non-admin user, only access groups that were common to both users were kept, other access groups were lost for the second user.
+- [Configuration] Fixed an issue in the contact form: when a non-admin user modified a duplicated contact, it resulted in a blank screen.
+- [Knowledge Base] Fixed links to knowledge base
+- [Resource Status] Fixed display of old downtimes
+
+#### Security Fixes
+
+- Disabling allow_url_fopen in PHP
+- XSS reflected from plugin's metric output
+- XSS in reporting dashboard
+- SQL Injections on ACL group listing
+
 ### 21.04.11
 
 Release date: `February 10, 2022`
@@ -26,7 +50,6 @@ Release date: `February 10, 2022`
 #### Enhancements
 
 - [Authentication] Autologin Validation reinforcement
-- [Resources Status] Added custom variables definition in URL/Action URL for 21.10 and previous versions
 - [UX] Add The Watch url to Centreon footer
 
 #### Bug Fixes
@@ -383,7 +406,27 @@ dans une prochaine version.
 
 ## Centreon Broker
 
-### 21.04.6
+### 21.04.7
+
+Release date: `March 3, 2022`
+
+#### Bug fixes
+
+- Refactored the BAM Business activities downtimes inheritance mechanism so that they are properly inherited and not duplicated anymore.
+
+> After having updated centreon-broker to this version, you may still have unwanted remaining downtimes on your Business Activities. It can happen if a downtime that was inherited from a KPI has been duplicated and if the original downtime ended before the bugfix was installed. In that case, you will have to apply the following procedure.
+
+```bash
+systemctl stop centengine
+sed -i -zE 's/(servicecomment|servicedowntime) \{\nhost_name=_Module_BAM_1\n[^}]*\}\n//g' /var/log/centreon-engine/retention.dat
+systemctl start centengine
+```
+
+All the downtimes applied on Business Activities have now been removed.
+
+You must then restart the `centengine` service on all the other pollers to restore the legitimate inherited downtimes.
+
+### 21.04.6
 
 Release date: `February 1, 2022`
 

@@ -15,6 +15,22 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 ## Centreon MAP
 
+### 21.10.3
+
+Release date: `March 1, 2022`
+
+Due to the bug fix on the metric labels, Outputs, Gauges and Metric Links that have been created in
+Centreon Map 21.10.0 , 21.10.1 or 21.10.2
+may have to be recreated after updating Map to version 21.10.3.
+
+#### Security fixes
+
+- Log4J version updated to 2.17.1
+
+#### Bug fixes
+
+- Fixed links not coloring according to status and output not functional when metric name contains special character
+
 ### 21.10.2
 
 Release date: `December 20, 2021`
@@ -100,6 +116,14 @@ Release date: `February 18, 2022`
 - Compatibility with other 21.10 components.
 
 ## Centreon Auto Discovery
+
+### 21.10.2
+
+Release date: `March 16, 2022`
+
+#### Security fixes
+
+- Fixed SQL injection on discovery rules configuration page.
 
 ### 21.10.1
 

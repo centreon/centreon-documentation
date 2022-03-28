@@ -8,12 +8,12 @@ const basePathImg = '/fr/img/homepage/';
 
 const links = {
   doc: {
-    api: '/fr/docs/api/introduction',
+    cloud: '/fr/cloud/getting-started/architecture',
     gettingstarted: '/fr/docs/getting-started/installation-first-steps',
-    pluginpacks: '/fr/docs/integrations/plugin-packs/introduction',
+    pluginpacks: '/fr/pp/integrations/plugin-packs/introduction',
     prerequisite: '/fr/docs/installation/prerequisites',
     installation: '/fr/docs/installation/introduction',
-    monitoring: '/fr/docs/integrations/plugin-packs/introduction',
+    monitoring: '/fr/pp/integrations/plugin-packs/introduction',
   },
   github: 'https://github.com/centreon/centreon/',
   thewatch: 'https://thewatch.centreon.com/',
@@ -27,11 +27,11 @@ const links = {
 
 const stringsAndParagraphs = {
   excellenceBlock: {
-    title: `Bienvenue dans la Documentation Centreon !`,
+    title: `Bienvenue dans la Documentation Centreon !`,
     subTitle: `La plateforme de supervision informatique orientée AIOps de Centreon offre une visibilité globale des workflows les plus complexes, du cloud jusqu’au Edge.`,
-    btnStart: `Démarrer`,
+    btnStart: `Centreon OnPrem`,
     btnPp: `Plugin Packs`,
-    btnApi: `Voir les APIs`,
+    btnCloud: `Centreon Cloud`,
   },
   prerequisiteBlock: {
     title: `Pré-requis`,
@@ -112,8 +112,8 @@ function ExcellenceBlock() {
         />
         <Card
           imageSrc={'icon-api.svg'}
-          btnLabel={stringsAndParagraphs.excellenceBlock.btnApi}
-          btnLink={links.doc.api}
+          btnLabel={stringsAndParagraphs.excellenceBlock.btnCloud}
+          btnLink={links.doc.cloud}
         />
       </div>
     </header>

@@ -551,8 +551,8 @@ If you have feature requests or want to report a bug, please go to our
 
 #### New features
 
-- Add a new [Events view (beta)](../alerts-notifications/events-view)
-- Add [Mobility](../mobile/introduction)
+- Add a new [Events view (beta)](../alerts-notifications/events-view.md)
+- Add [Mobility](../mobile/introduction.md)
 
 #### Enhancements
 
@@ -587,7 +587,7 @@ If you have feature requests or want to report a bug, please go to our
 
 #### Architecture & performances
 
-- Replace Centcore process by Centreon Gorgone (PR/#8414). [Please check the upgrade procedure](../upgrade/introduction)
+- Replace Centcore process by Centreon Gorgone (PR/#8414). [Please check the upgrade procedure](../upgrade/introduction.md)
 - [Broker] Definitely remove correlation (PR/#8128)
 - [Configuration] Export broker configuration in json format (PR/#8089)
 - [Extensions] handle .pre.php install and uninstall module scripts.
@@ -724,7 +724,7 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Engine
 
-### 20.04.14
+### 20.04.14
 
 Release date: `December 1, 2021`
 
@@ -941,7 +941,7 @@ a check_command. It will use the poller_id field of your config.
 
 ## Centreon Broker
 
-### 20.04.17
+### 20.04.17
 
 Release date: `December 1, 2021`
 
@@ -1445,7 +1445,7 @@ This patch fixes that.
 
 ## Centreon Connector Perl
 
-### 20.04.2
+### 20.04.2
 
 Release date: `December 1, 2021`
 
@@ -1466,7 +1466,7 @@ Release date: `December 1, 2021`
 
 ## Centreon Connector SSH
 
-### 20.04.2
+### 20.04.2
 
 Release date: `December 1, 2021`
 
