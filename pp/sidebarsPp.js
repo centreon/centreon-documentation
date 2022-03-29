@@ -787,6 +787,10 @@ module.exports = {
 		  type: 'doc',
 		  id: 'integrations/plugin-packs/procedures/cloud-azure-storage-storagesync'
 		},
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-azure-compute-vmscalesets'
+        },  
 		{
 		  type: 'doc',
 		  id: 'integrations/plugin-packs/procedures/cloud-azure-compute-virtualmachine'
