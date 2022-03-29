@@ -15,7 +15,7 @@ which are compatible with the Authorization Code Flow.
 
 ### Enable authentication
 
-Go to the **Administration > Authentication> OpenID Connect Configuration** page.
+Go to the **Administration > Authentication > OpenID Connect Configuration** page.
 
 First enable OpenID Connect authentication:
 - **Enable OpenId Connect authentication** allows to enable or disable OpenId Connect authentication.
