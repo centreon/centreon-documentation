@@ -25,14 +25,14 @@ It brings the following Service Templates:
 
 ### Discovery rules
 
-The Centreon Plugin-Pack *Azure Virtual Machine Scale Sets* includes a Host Discovery provider to
+The Centreon Plugin Pack *Azure Virtual Machine Scale Sets* includes a Host Discovery provider to
 automatically discover the Azure instances of a given subscription and add them
 to the Centreon configuration. This provider is named **Microsoft Azure Virtual Machine Scale Sets**:
 
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-compute-vmscalesets-provider.png)
 > This discovery feature is only compatible with the 'api' custom mode. 'azcli' is not supported.
 
-More information about the Host Discovery module is available in the Centreon documentation:[Host Discovery](docs/monitoring/discovery/hosts-discovery)
+More information about the Host Discovery module is available in the Centreon documentation: [Host Discovery](/docs/monitoring/discovery/hosts-discovery)
 
 ### Collected metrics & status
 

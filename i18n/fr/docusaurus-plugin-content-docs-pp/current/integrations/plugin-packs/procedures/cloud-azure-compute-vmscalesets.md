@@ -25,7 +25,7 @@ Il apporte les Modèles de Service suivants :
 
 ### Règles de découverte
 
-Le Plugin-Pack Centreon *Azure Virtual Machine Scale Sets* inclut un fournisseur de découverte
+Le Plugin Pack Centreon *Azure Virtual Machine Scale Sets* inclut un fournisseur de découverte
 d'Hôtes nommé **Microsoft Azure Virtual Machine Scale Setss**. Celui-ci permet de découvrir l'ensemble des instances
 rattachées à une *souscription* Microsoft Azure donnée:
 
@@ -36,7 +36,7 @@ rattachées à une *souscription* Microsoft Azure donnée:
 
 Vous trouverez plus d'informations sur la découverte d'Hôtes et son
 fonctionnement sur la documentation du module:
-[Découverte des hôtes](docs/monitoring/discovery/hosts-discovery)
+[Découverte des hôtes](/docs/monitoring/discovery/hosts-discovery)
 
 ### Métriques & statuts collectés
 
@@ -144,7 +144,7 @@ dans la Macro *AZURERESOURCE*.
 |             | AZURESUBSCRIPTION  | Subscription ID                                    |
 |             | AZURETENANT        | Tenant ID                                          |
 
-
+</TabItem>
 <TabItem value="Azure azcli" label="Azure azcli">
 
 | Mandatory   | Macro              | Description                                        |
