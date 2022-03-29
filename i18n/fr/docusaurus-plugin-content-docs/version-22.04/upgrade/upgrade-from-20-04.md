@@ -4,9 +4,9 @@ title: Montée de version depuis Centreon 20.04
 ---
 
 Ce chapitre décrit la procédure de montée de version de votre plate-forme
-Centreon depuis la version 20.04 vers la version 21.10.
+Centreon depuis la version 20.04 vers la version 22.04.
 
-> Si vous souhaitez migrer votre serveur Centreon vers CentOS / Oracle Linux
+> Si vous souhaitez migrer votre serveur Centreon vers Oracle Linux
 > / RHEL 8, vous devez suivre la [procédure de migration](../migrate/migrate-from-20-x.md)
 
 > Pour effectuer cette procédure, votre version de MariaDB doit être >= 10.3.22.
@@ -47,12 +47,12 @@ Il est nécessaire de mettre à jour le dépôt Centreon.
 Exécutez la commande suivante :
 
 ```shell
-yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-2.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
 ```
 
 ### Montée de version de PHP
 
-Centreon 21.10 utilise PHP en version 8.0.
+Centreon 22.04 utilise PHP en version 8.0.
 
 Vous devez tout d'abord installer les dépôts **remi** :
 ```shell
@@ -70,7 +70,7 @@ yum-config-manager --enable remi-php80
 > Assurez-vous que tous les utilisateurs sont déconnectés avant de commencer
 > la procédure de mise à jour.
 
-Si vous avez des extensions Business installées, mettez à jour le dépôt business en 21.10.
+Si vous avez des extensions Business installées, mettez à jour le dépôt business en 22.04.
 Rendez-vous sur le [portail du support](https://support.centreon.com/s/repositories) pour en récupérer l'adresse.
 
 Arrêter le processus Centreon Broker :
@@ -122,7 +122,7 @@ Faites un diff entre l'ancien et le nouveau fichier de configuration Apache :
 diff -u /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf.rpmnew
 ```
 
-* **10-centreon.conf** (post montée de version) : ce fichier contient la configuration personnalisée. Il ne contient pas les nouveautés apportées par la version 21.10, par exemple la chaîne **authentication** dans la directive **LocationMatch**
+* **10-centreon.conf** (post montée de version) : ce fichier contient la configuration personnalisée. Il ne contient pas les nouveautés apportées par la montée de version, par exemple la chaîne **authentication** dans la directive **LocationMatch**
 * **10-centreon.conf.rpmnew** (post montée de version) : ce fichier est fourni par le rpm; il contient la chaîne **authentication**, mais ne contient pas la configuration personnalisée.
 
 Pour chaque différence entre les fichiers, évaluez si celle-ci doit être reportée du fichier **10-centreon.conf.rpmnew** au fichier **10-centreon.conf**.
@@ -173,20 +173,20 @@ associée](../service-mapping/upgrade.md) pour le mettre à jour.
 
 1. Montée de version des extensions :
 
-    Depuis le menu `Administration > Extensions > Gestionnaire`, mettez à jour
-    toutes les extensions, en commençant par les suivantes :
+   Depuis le menu **Administration > Extensions > Gestionnaire**, mettez à jour
+   toutes les extensions, en commençant par les suivantes :
 
-    - License Manager,
-    - Plugin Packs Manager,
-    - Auto Discovery.
+   - License Manager,
+   - Plugin Packs Manager,
+   - Auto Discovery.
 
-    Vous pouvez alors mettre à jour toutes les autres extensions commerciales.
+   Vous pouvez alors mettre à jour toutes les autres extensions commerciales.
 
-2. [Déployer la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
+2. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
 
 3. Redémarrez les processus Centreon :
 
-    ```
+    ```shell
     systemctl restart cbd centengine centreontrapd gorgoned
     ```
 
@@ -208,7 +208,7 @@ Les composants MariaDB peuvent maintenant être mis à jour.
 Exécutez la commande suivante sur le serveur de base de données dédié :
 
 ```shell
-yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-2.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
 ```
 
 #### Mettre à jour MariaDB
@@ -247,7 +247,7 @@ Il est nécessaire de désinstaller puis réinstaller MariaDB pour changer de ve
 
     Exemple : si votre utilisateur_admin_bdd est `root`, entrez:
 
-    ```
+    ```shell
     mysql_upgrade -u root -p
     ```
 
@@ -269,14 +269,14 @@ Central.
 
 > En fin de mise à jour, la configuration doit être déployée depuis le serveur Central.
 
-## Montée de version des Pollers
+## Montée de version des collecteurs
 
 ### Mise à jour des dépôts
 
 Exécutez la commande suivante :
 
 ```shell
-yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-2.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
 ```
 
 ### Montée de version de la solution Centreon

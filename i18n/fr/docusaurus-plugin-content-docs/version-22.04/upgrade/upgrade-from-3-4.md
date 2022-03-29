@@ -4,7 +4,7 @@ title: Montée de version depuis Centreon 3.4
 ---
 
 Ce chapitre décrit la procédure de montée de version de votre plate-forme
-Centreon depuis la version 3.4 (Centreon Web 2.8) vers la version 21.10.
+Centreon depuis la version 3.4 (Centreon Web 2.8) vers la version 22.04.
 
 > Cette procédure ne s'applique que pour une plate-forme Centreon installée à
 > partir des dépôts Centreon 3.4 sur des distributions **Red Hat / CentOS en
@@ -49,7 +49,7 @@ Il est nécessaire de mettre à jour le dépôt Centreon.
 Exécutez la commande suivante :
 
 ```shell
-yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-2.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
 ```
 
 > Si vous êtes dans un environnement CentOS, il faut installer les dépôts de
@@ -61,7 +61,7 @@ yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/ce
 
 ### Montée de version de PHP
 
-Centreon 21.10 utilise PHP en version 8.0.
+Centreon 22.04 utilise PHP en version 8.0.
 
 Vous devez tout d'abord installer les dépôts **remi** :
 ```shell
@@ -76,7 +76,7 @@ yum-config-manager --enable remi-php80
 
 ### Montée de version de la solution Centreon
 
-Si vous avez des extensions Business installées, mettez à jour le dépôt business en 21.10.
+Si vous avez des extensions Business installées, mettez à jour le dépôt business en 22.04.
 Rendez-vous sur le [portail du support](https://support.centreon.com/s/repositories) pour en récupérer l'adresse.
 
 Arrêtez le processus Centreon Broker :
@@ -145,7 +145,7 @@ Faites un diff entre l'ancien et le nouveau fichier de configuration Apache :
 diff -u /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf.rpmnew
 ```
 
-* **10-centreon.conf** (post montée de version) : ce fichier contient la configuration personnalisée. Il ne contient pas les nouveautés apportées par la version 21.10, par exemple la chaîne **authentication** dans la directive **LocationMatch**
+* **10-centreon.conf** (post montée de version) : ce fichier contient la configuration personnalisée. Il ne contient pas les nouveautés apportées par la montée de version, par exemple la chaîne **authentication** dans la directive **LocationMatch**
 * **10-centreon.conf.rpmnew** (post montée de version) : ce fichier est fourni par le rpm; il contient la chaîne **authentication**, mais ne contient pas la configuration personnalisée.
 
 Pour chaque différence entre les fichiers, évaluez si celle-ci doit être reportée du fichier **10-centreon.conf.rpmnew** au fichier **10-centreon.conf**.
@@ -157,7 +157,6 @@ Notamment, assurez-vous que votre configuration Apache personnalisée contient l
     ProxyPassMatch fcgi://127.0.0.1:9042/usr/share/centreon/api/index.php/$1
 </LocationMatch>
 ```
-
 
 ### Actions complémentaires
 
@@ -314,12 +313,12 @@ associée](../service-mapping/upgrade.md) pour le mettre à jour.
 
 #### Montée de version des extensions
 
-Depuis le menu `Administration > Extensions > Gestionnaire`, mettez à jour
+Depuis le menu **Administration > Extensions > Gestionnaire**, mettez à jour
 toutes les extensions, en commençant par les suivantes :
 
-  - License Manager,
-  - Plugin Packs Manager,
-  - Auto Discovery.
+- License Manager,
+- Plugin Packs Manager,
+- Auto Discovery.
 
 Vous pouvez alors mettre à jour toutes les autres extensions commerciales.
 
@@ -340,7 +339,7 @@ systemctl disable centcore
 Les statistiques Engine qui étaient collectées par *Centcore* le seront
 maintenant par *Gorgone*
 
-Il faut alors changer les droits sur les fichiers RRD de statistique en
+Il faut alors changer les droits sur les fichiers RRD de statistiques en
 exécutant la commande suivante:
 
 ```shell
@@ -356,9 +355,9 @@ Il utilise maintenant JSON à la place de XML.
 Pour être sur que Broker et que le module Broker de Engine utilisent les nouveaux
 fichiers de configuration, suivez ces étapes :
 
-1. Déployer la configuration du Central depuis l'interface web en suivant
-[cette procedure](../monitoring/monitoring-servers/deploying-a-configuration.md),
-2. Redémarrer Broker et Engine sur le serveur Central en exécutant la commande
+1. Déployez la configuration du Central depuis l'interface web en suivant
+[cette procédure](../monitoring/monitoring-servers/deploying-a-configuration.md),
+2. Redémarrez Broker et Engine sur le serveur Central en exécutant la commande
 suivante:
 
   ```shell
@@ -375,7 +374,7 @@ Les composants MariaDB peuvent maintenant être mis à jour.
 > https://mariadb.com/kb/en/upgrading-between-major-mariadb-versions/
 
 > Si vous utilisez une version plus ancienne que MariaDB 10.1, veuillez d'abord
-> mettre à jour vers la version 10.1
+> mettre à jour vers la version 10.1.
 
 #### Mettre à jour le dépôt Centreon
 
@@ -386,7 +385,7 @@ Les composants MariaDB peuvent maintenant être mis à jour.
 Exécutez la commande suivante sur le serveur de base de données dédié :
 
 ```shell
-yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-2.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
 ```
 
 #### Configuration
@@ -462,11 +461,11 @@ Il est nécessaire de désinstaller puis réinstaller MariaDB pour changer de ve
 
     Exemple : si votre utilisateur_admin_bdd est `root`, entrez:
 
-    ```
+    ```shell
     mysql_upgrade -u root -p
     ```
 
-    > Référez vous à la [documentation officielle](https://mariadb.com/kb/en/mysql_upgrade/)
+    > Référez-vous à la [documentation officielle](https://mariadb.com/kb/en/mysql_upgrade/)
     > pour plus d'informations ou si des erreurs apparaissent pendant cette dernière étape.
 
 #### Activer MariaDB au démarrage automatique
@@ -477,14 +476,14 @@ Exécutez la commande suivante :
 systemctl enable mariadb
 ```
 
-## Montée de version des Pollers
+## Montée de version des collecteurs
 
 ### Mise à jour des dépôts
 
 Exécutez la commande suivante :
 
 ```shell
-yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-2.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
 ```
 
 ### Montée de version de la solution Centreon
@@ -515,19 +514,19 @@ systemctl enable gorgoned
 Du fait du nouveau format de configuration du module Broker de Engine, la
 configuration doit être re-déployée.
 
-Déployer la configuration du Poller depuis l'interface web en suivant
-[cette procedure](../monitoring/monitoring-servers/deploying-a-configuration.md),
-et en choisissant la méthode *Redémarrer* pour le processus Engine
+Déployez la configuration du Poller depuis l'interface web en suivant
+[cette procédure](../monitoring/monitoring-servers/deploying-a-configuration.md),
+et en choisissant la méthode **Redémarrer** pour le processus Engine
 
 ## Migrer Centreon Poller Display vers Remote Server
 
-Si la plateforme a des Collecteurs avec le module Poller Display, reférez vous à
+Si la plateforme a des collecteurs avec le module Poller Display, reférez-vous à
 la procédure [Migration d'une plate-forme avec Poller
 Display](../migrate/poller-display-to-remote-server.md).
 
 ## Communications
 
-Par défaut, la communication entre le serveur Central et les Pollers ou les
+Par défaut, la communication entre le serveur Central et les collecteurs ou les
 Remote Servers utilisera toujours SSH.
 
 Considérez changer le protocole de communication en suivant la procédure
@@ -536,4 +535,4 @@ Considérez changer le protocole de communication en suivant la procédure
 ## Sécurisez votre plateforme
 
 N'oubliez pas de sécuriser votre plateforme Centreon en suivant nos
-[recommandations](../administration/secure-platform.md)
+[recommandations](../administration/secure-platform.md).

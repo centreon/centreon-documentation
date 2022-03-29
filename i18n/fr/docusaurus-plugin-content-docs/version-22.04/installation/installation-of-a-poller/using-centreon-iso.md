@@ -1,9 +1,9 @@
 ---
 id: using-centreon-iso
-title: A partir de l'ISO Centreon
+title: À partir de l'ISO Centreon
 ---
 
-> Si vous souhaitez installer Centreon sur une distribution CentOS / Oracle Linux
+> Si vous souhaitez installer Centreon sur une distribution Oracle Linux
 > / RHEL en version 8, vous devez suivre la procédure
 > [à partir des paquets RPM](./using-packages.md)
 
@@ -120,7 +120,7 @@ Si vous le désirez, changez le nom du serveur à l'aide de la commande suivante
 hostnamectl set-hostname new-server-name
 ```
 
-Remplacez new-server-name par le nom de votre choix. Exemple :
+Remplacez **new-server-name** par le nom de votre choix. Exemple :
 ```shell
 hostnamectl set-hostname poller1
 ```

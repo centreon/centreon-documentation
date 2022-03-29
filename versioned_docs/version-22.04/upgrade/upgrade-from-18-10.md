@@ -4,9 +4,9 @@ title: Upgrade from Centreon 18.10
 ---
 
 This chapter describes how to upgrade your Centreon platform from version 18.10
-to version 21.10.
+to version 22.04.
 
-> If you want to migrate your Centreon server to CentOS / Oracle Linux / RHEL 8
+> If you want to migrate your Centreon server to Oracle Linux / RHEL 8
 > you need to follow the [migration procedure](../migrate/migrate-from-20-x.md)
 
 ## Prerequisites
@@ -40,7 +40,7 @@ Update your platform to the latest available minor version of Centreon 18.10.
 Run the following commands:
 
 ```shell
-yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-5.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
 ```
 
 > If you are using a CentOS environment, you must install the *Software
@@ -52,7 +52,7 @@ yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/ce
 
 ### Upgrade PHP
 
-Centreon 21.10 uses PHP in version 8.0.
+Centreon 22.04 uses PHP in version 8.0.
 
 First, you need to install the **remi** repository:
 ```shell
@@ -67,10 +67,10 @@ yum-config-manager --enable remi-php80
 
 ### Upgrade the Centreon solution
 
-> Please, make sure all users are logged out from the Centreon web interface
+> Make sure all users are logged out from the Centreon web interface
 > before starting the upgrade procedure.
 
-If you have installed Business extensions, update the Business repository to version 21.10.
+If you have installed Business extensions, update the Business repository to version 22.04.
 Visit the [support portal](https://support.centreon.com/s/repositories) to get its address.
 
 Stop the Centreon Broker process:
@@ -129,7 +129,7 @@ Run a diff between the old and the new Apache configuration files:
 diff -u /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf.rpmnew
 ```
 
-* **10-centreon.conf** (post upgrade): this file contains the custom configuration. It does not contain anthing new brought by version 21.10, e.g. the **authentication** string in the **LocationMatch** directive
+* **10-centreon.conf** (post upgrade): this file contains the custom configuration. It does not contain anthing new brought by the upgrade, e.g. the **authentication** string in the **LocationMatch** directive
 * **10-centreon.conf.rpmnew** (post upgrade): this file is provided by the rpm; it contains the **authentication** string, but does not contain any custom configuration.
 
 For each difference between the files, assess whether you should copy it from **10-centreon.conf.rpmnew** to **10-centreon.conf**.
@@ -269,12 +269,12 @@ If the Centreon BAM module is installed, refer to the
 
 #### Upgrade extensions
 
-From `Administration > Extensions > Manager`, upgrade all extensions, starting
+From **Administration > Extensions > Manager**, upgrade all extensions, starting
 with the following:
 
-  - License Manager,
-  - Plugin Packs Manager,
-  - Auto Discovery.
+- License Manager,
+- Plugin Packs Manager,
+- Auto Discovery.
 
 Then you can upgrade all other commercial extensions.
 
@@ -335,7 +335,7 @@ The MariaDB components can now be upgraded.
 Run the following command on the dedicated DBMS server:
 
 ```shell
-yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-5.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
 ```
 
 #### Configuration
@@ -402,7 +402,7 @@ You have to uninstall then reinstall MariaDB to upgrade between major versions (
     ```shell
     mysql_upgrade
     ```
-    
+
     If your database is password-protected, enter:
 
     ```shell
@@ -411,7 +411,7 @@ You have to uninstall then reinstall MariaDB to upgrade between major versions (
 
     Example: if your database_admin_user is `root`, enter:
 
-    ```
+    ```shell
     mysql_upgrade -u root -p
     ```
 
@@ -428,7 +428,7 @@ systemctl enable mariadb
 
 ## Upgrade the Remote Servers
 
-This procedure is the same than to upgrade a Centreon Central server.
+This procedure is the same as for upgrading a Centreon Central server.
 
 > At the end of the update, configuration should be deployed from the Central server.
 
@@ -439,7 +439,7 @@ This procedure is the same than to upgrade a Centreon Central server.
 Run the following command:
 
 ```shell
-yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-5.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
 ```
 
 ### Upgrade the Centreon solution
@@ -472,7 +472,7 @@ configuration needs to be re-deployed.
 
 Deploy Poller's configuration from the Centreon web UI by following
 [this procedure](../monitoring/monitoring-servers/deploying-a-configuration.md),
-and choose *Restart* method for Engine process.
+and choose **Restart** method for Engine process.
 
 ## Communications
 
@@ -486,4 +486,4 @@ procedure.
 ## Secure your platform
 
 Don't forget to secure your Centreon platform following our
-[recommendations](../administration/secure-platform.md)
+[recommendations](../administration/secure-platform.md).

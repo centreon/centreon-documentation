@@ -5,7 +5,6 @@ title: Using a virtual machine (VM)
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 On its [download page](https://download.centreon.com), Centreon provides a ready-to-use virtual machine. This virtual machine is available in OVA format for VMware environments and for Oracle VirtualBox. It is based on the **Linux CentOS 7** operating system and includes a Centreon installation that allows you to easily start your first monitoring.
 
 The VM uses the **Thin Provision** option to save as much free space as possible on the disk (this is best practice).
@@ -177,20 +176,20 @@ The host machine must have the following characteristics:
 
 6. To log in to the web interface, go to `http://ip_address/centreon` or `http://FQDN/centreon`. (For example, a valid URL would be `http://192.168.1.44/centreon`.) 
 
-7. Log in using the following credentials: Login: `admin`, password: `centreon`. By default, your server has a predefined configuration to monitor the Centreon server itself.
+7. Log in using the following credentials: Login: `admin`, password: `Centreon!2021`. By default, your server has a predefined configuration to monitor the Centreon server itself.
 
 8. According to your Centreon edition, you may have to [add a license](../../administration/licenses.md).
 
 9. [Update](../../update/update-centreon-platform.md) your Centreon platform.
 
-9. [Secure your Centreon platform](../../administration/secure-platform.md). We recommend that you change the passwords for the root and admin accounts, and that you define a password for the MariaDB database.
+9. [Secure your Centreon platform](../../administration/secure-platform.md). We recommend that you change the passwords for the root and admin accounts. You must define a password for the MariaDB database.
 
 10. You can now [monitor your first host](../../getting-started/first-supervision.md).
 
 
 ## Default credentials
 
-- To log in to the Centreon web interface, the default credentials are: `admin`/`centreon`.
+- To log in to the Centreon web interface, the default credentials are: `admin`/`Centreon!2021`.
 - The server administration account (using SSH) is: `root`/`centreon`.
 - The root password of the DBMS is not initialized.
 

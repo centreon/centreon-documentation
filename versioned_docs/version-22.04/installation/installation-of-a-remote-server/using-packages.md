@@ -5,21 +5,16 @@ title: Using packages
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 Centreon provides RPM packages for its products through the Centreon Open
-Sources version available free of charge in our repository.
+Source version available free of charge in our repository.
 
-These packages have been successfully tested in CentOS 7 and 8 environments.
-
-> Due to Red Hat's stance on CentOS 8, we suggest not to use said version for
-> your production environment. Nevertheless, these packages for CentOS 8 are
-> compatible with RHEL 8 and Oracle Linux 8 versions.
+These packages can be installed on CentOS 7 and on RHEL/Oracle Linux 8.
 
 After installing your server, consider updating your operating system via the
 command:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ``` shell
 dnf update
@@ -95,28 +90,7 @@ dnf module install php:remi-8.0
 ```
 
 </TabItem>
-<TabItem value="CentOS 8" label="CentOS 8">
 
-#### Remi repository
-
-To install Centreon you will need to install the **remi** repository.
-
-Run the following commands:
-
-```shell
-dnf install -y dnf-plugins-core
-dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
-dnf config-manager --set-enabled 'powertools'
-```
-
-Enable PHP 8.0 using the following commands:
-```shell
-dnf module reset php
-dnf module install php:remi-8.0
-```
-
-</TabItem>
 <TabItem value="Oracle Linux 8" label="Oracle Linux 8">
 
 #### Remi and CodeReady Builder repositories
@@ -177,17 +151,17 @@ centreon-release package, which will provide the repository file.
 Install the Centreon repository using this command:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-5.el8.noarch.rpm
+dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04-3.el8.noarch.rpm
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-5.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
 ```
 
 </TabItem>
@@ -203,7 +177,7 @@ a remote database on a dedicated server.
 ### With a local database
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```shell
 dnf install -y centreon centreon-database
@@ -232,7 +206,7 @@ You can now move on to the [next step](#configuration).
 
 Run the following command on the Central server:
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```shell
 dnf install -y centreon-base-config-centreon-engine centreon-widget\*
@@ -250,7 +224,7 @@ yum install -y centreon-base-config-centreon-engine centreon-widget\*
 
 Then run the following commands on the dedicated server:
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```shell
 dnf install -y centreon-database
@@ -356,7 +330,7 @@ To make services start automatically during system bootup, run these commands
 on the central server:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```shell
 systemctl enable php-fpm httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
@@ -395,7 +369,7 @@ Before starting the web installation process, start the Apache server with the
 following command:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```shell
 systemctl start httpd
@@ -424,7 +398,7 @@ Conclude installation by performing
 To transform the server into a Remote Server and to register it to the Central server or to another Remote server, execute the following command on the future remote server:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ``` shell
 /usr/share/centreon/bin/registerServerTopology.sh -u <API_ACCOUNT> \

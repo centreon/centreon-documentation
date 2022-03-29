@@ -1,11 +1,11 @@
 ---
 id: using-centreon-iso
-title: A partir de l'ISO Centreon
+title: À partir de l'ISO Centreon
 ---
 
-Installer un Remote Server est similaire à l'installation d'un serveur Centreon Central.
+Installer un serveur distant (Remote Server) est similaire à l'installation d'un serveur Centreon Central.
 
-> Si vous souhaitez installer Centreon sur une distribution CentOS / Oracle Linux
+> Si vous souhaitez installer Centreon sur une distribution Oracle Linux
 > / RHEL en version 8, vous devez suivre la procédure
 > [à partir des paquets RPM](./using-packages.md)
 

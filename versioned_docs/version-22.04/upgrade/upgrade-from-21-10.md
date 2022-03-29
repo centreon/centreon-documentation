@@ -1,16 +1,15 @@
 ---
-id: upgrade-from-21-04
-title: Upgrade from Centreon 21.04
+id: upgrade-from-21-10
+title: Upgrade from Centreon 21.10
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-This chapter describes how to upgrade your Centreon platform from version 21.04
+This chapter describes how to upgrade your Centreon platform from version 21.10
 to version 22.04.
 
 > If you want to migrate your Centreon server to Oracle Linux / RHEL 8
-> you need to follow the [migration procedure](../migrate/migrate-from-20-x.md)
+> you need to follow the [migration procedure](../migrate/migrate-from-20-x.md).
 
 ## Prerequisites
 
@@ -22,13 +21,9 @@ servers:
 - Central server
 - Database server
 
-### Update the RPM signing key
-
-For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation.md#existing-installation), to remove the old key and install the new one.
-
 ### Update to the latest minor version
 
-Update your platform to the latest available minor version of Centreon 21.04.
+Update your platform to the latest available minor version of Centreon 21.10.
 
 ## Upgrade the Centreon Central server
 
@@ -48,44 +43,6 @@ dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/ce
 
 ```shell
 yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
-```
-
-</TabItem>
-</Tabs>
-
-### Upgrade PHP
-
-Centreon 22.04 uses PHP in version 8.0.
-
-<Tabs groupId="sync">
-<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
-
-First, you need to install the **remi** repository:
-```shell
-dnf install -y dnf-plugins-core
-dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
-dnf config-manager --set-enabled 'powertools'
-```
-Then, you need to change the PHP stream from version 7.3 to 8.0 by executing the following commands and answering **y**
-to confirm:
-```shell
-dnf module reset php
-dnf module install php:remi-8.0
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-First, you need to install the **remi** repository:
-```shell
-yum install -y yum-utils
-yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-yum install -y https://rpms.remirepo.net/enterprise/remi-release-7.rpm
-```
-Then, you need to enable the php 8.0 repository
-```shell
-yum-config-manager --enable remi-php80
 ```
 
 </TabItem>
@@ -123,45 +80,6 @@ yum update centreon\*
 
 > Accept new GPG keys from the repositories as needed.
 
-<Tabs groupId="sync">
-<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
-
-Execute the following commands:
-```shell
-systemctl enable php-fpm
-systemctl restart php-fpm
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-The PHP timezone should be set. Run the command:
-```shell
-echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
-```
-
-> Replace **Europe/Paris** by your time zone. You can find the list of
-> supported time zones [here](http://php.net/manual/en/timezones.php).
-
-Execute the following commands:
-```shell
-systemctl stop rh-php73-php-fpm
-systemctl disable rh-php73-php-fpm
-systemctl enable php-fpm
-systemctl start php-fpm
-```
-
-Or, if you have PHP 7.4:
-```shell
-systemctl stop rh-php74-php-fpm
-systemctl disable rh-php74-php-fpm
-systemctl enable php-fpm
-systemctl start php-fpm
-```
-
-</TabItem>
-</Tabs>
-
 ### Update your customized Apache configuration
 
 This section only applies if you customized your Apache configuration. When upgrading your platform, the Apache configuration file is not upgraded automatically: the new configuration file brought by the rpm does not replace tha old file. You must copy the changes manually to your customized configuration file.
@@ -172,18 +90,10 @@ Run a diff between the old and the new Apache configuration files:
 diff -u /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf.rpmnew
 ```
 
-* **10-centreon.conf** (post upgrade): this file contains the custom configuration. It does not contain anthing new brought by the upgrade, e.g. the **authentication** string in the **LocationMatch** directive
-* **10-centreon.conf.rpmnew** (post upgrade): this file is provided by the rpm; it contains the **authentication** string, but does not contain any custom configuration.
+* **10-centreon.conf** (post upgrade): this file contains the custom configuration. It does not contain anthing new brought by the upgrade.
+* **10-centreon.conf.rpmnew** (post upgrade): this file is provided by the rpm; it does not contain any custom configuration.
 
 For each difference between the files, assess whether you should copy it from **10-centreon.conf.rpmnew** to **10-centreon.conf**.
-
-In particular, make sure your customized Apache configuration contains the following directive (with **authentication**).
-
-```
-<LocationMatch ^\${base_uri}/?(authentication|api/(latest|beta|v[0-9]+|v[0-9]+\.[0-9]+))/.*$>
-    ProxyPassMatch "fcgi://127.0.0.1:9042${install_dir}/api/index.php/$1"
-</LocationMatch>
-```
 
 ### Finalizing the upgrade
 
@@ -248,7 +158,8 @@ with the following:
 2. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
 
 3. Restart the processes:
-    ```shell
+
+    ``` shell
     systemctl restart cbd centengine centreontrapd gorgoned
     ```
 

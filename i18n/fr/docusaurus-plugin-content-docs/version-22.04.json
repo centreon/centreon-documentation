@@ -20,7 +20,7 @@
     "description": "The label for category Installation of a Poller in sidebar docs"
   },
   "sidebar.docs.category.Installation of a Remote server": {
-    "message": "Installer un Remote Sever",
+    "message": "Installer un serveur distant",
     "description": "The label for category Installation of a Remote server in sidebar docs"
   },
   "sidebar.docs.category.Monitoring Servers": {
