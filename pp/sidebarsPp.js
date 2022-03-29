@@ -555,10 +555,10 @@ module.exports = {
 		  type: 'doc',
 		  id: 'integrations/plugin-packs/procedures/cloud-aws-apigateway'
 		},
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-aws-backup'
-        },
+                {
+                  type: 'doc',
+                  id: 'integrations/plugin-packs/procedures/cloud-aws-backup'
+                },
 		{
 		  type: 'doc',
 		  id: 'integrations/plugin-packs/procedures/cloud-aws-cloudfront'
