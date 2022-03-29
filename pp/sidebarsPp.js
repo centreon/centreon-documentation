@@ -20,6 +20,10 @@ module.exports = {
       label: 'Tutorials',
       items: [
         {
+            type: "doc",
+            id: "integrations/plugin-packs/tutorials/azure-credential-configuration"
+        },
+        {
           type: 'doc',
           id: 'integrations/plugin-packs/tutorials/centreon-nsclient-tutorial'
         },
