@@ -51,7 +51,7 @@ Il apporte les Modèles de Service suivants :
 
 | Metric Name | Unit   |
 | :---------- | :----- |
-| Status      | string |
+| nbproc      | count  |
 
 </TabItem>
 
@@ -59,7 +59,7 @@ Il apporte les Modèles de Service suivants :
 
 | Metric Name | Unit   |
 | :---------- | :----- |
-| Status      | string |
+| nbproc      | count  |
 
 </TabItem>
 
@@ -67,7 +67,7 @@ Il apporte les Modèles de Service suivants :
 
 | Metric Name | Unit   |
 | :---------- | :----- |
-| Status      | string |
+| nbproc      | count  |
 
 </TabItem>
 
@@ -75,7 +75,7 @@ Il apporte les Modèles de Service suivants :
 
 | Metric Name | Unit   |
 | :---------- | :----- |
-| Status      | string |
+| nbproc      | count  |
 
 </TabItem>
 
@@ -83,7 +83,7 @@ Il apporte les Modèles de Service suivants :
 
 | Metric Name | Unit   |
 | :---------- | :----- |
-| Status      | string |
+| nbproc      | count  |
 
 </TabItem>
 
@@ -91,7 +91,7 @@ Il apporte les Modèles de Service suivants :
 
 | Metric Name | Unit   |
 | :---------- | :----- |
-| Status      | string |
+| nbproc      | count  |
 
 </TabItem>
 
@@ -99,7 +99,7 @@ Il apporte les Modèles de Service suivants :
 
 | Metric Name | Unit   |
 | :---------- | :----- |
-| Status      | string |
+| nbproc      | count  |
 
 </TabItem>
 
@@ -107,7 +107,7 @@ Il apporte les Modèles de Service suivants :
 
 | Metric Name | Unit   |
 | :---------- | :----- |
-| Status      | string |
+| nbproc      | count  |
 
 </TabItem>
 
@@ -115,7 +115,7 @@ Il apporte les Modèles de Service suivants :
 
 | Metric Name | Unit   |
 | :---------- | :----- |
-| Status      | string |
+| nbproc      | count  |
 
 </TabItem>
 
@@ -123,7 +123,7 @@ Il apporte les Modèles de Service suivants :
 
 | Metric Name | Unit   |
 | :---------- | :----- |
-| Status      | string |
+| nbproc      | count  |
 
 </TabItem>
 
@@ -131,7 +131,7 @@ Il apporte les Modèles de Service suivants :
 
 | Metric Name | Unit   |
 | :---------- | :----- |
-| Status      | string |
+| nbproc      | count  |
 
 </TabItem>
 
