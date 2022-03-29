@@ -20,6 +20,10 @@ module.exports = {
       label: 'Tutorials',
       items: [
         {
+            type: "doc",
+            id: "integrations/plugin-packs/tutorials/azure-credential-configuration"
+        },
+        {
           type: 'doc',
           id: 'integrations/plugin-packs/tutorials/centreon-nsclient-tutorial'
         },
@@ -555,6 +559,10 @@ module.exports = {
 		  type: 'doc',
 		  id: 'integrations/plugin-packs/procedures/cloud-aws-apigateway'
 		},
+                {
+                  type: 'doc',
+                  id: 'integrations/plugin-packs/procedures/cloud-aws-backup'
+                },
 		{
 		  type: 'doc',
 		  id: 'integrations/plugin-packs/procedures/cloud-aws-cloudfront'
@@ -787,6 +795,10 @@ module.exports = {
 		  type: 'doc',
 		  id: 'integrations/plugin-packs/procedures/cloud-azure-storage-storagesync'
 		},
+                {
+                  type: 'doc',
+                  id: 'integrations/plugin-packs/procedures/cloud-azure-compute-vmscalesets'
+                },
 		{
 		  type: 'doc',
 		  id: 'integrations/plugin-packs/procedures/cloud-azure-compute-virtualmachine'
