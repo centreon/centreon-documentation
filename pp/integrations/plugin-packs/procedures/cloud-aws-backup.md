@@ -25,7 +25,7 @@ The pack provides a discovery rule to automatically discover Backup vault resour
 
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-aws-backup-vault-provider.png)
 
-More information about the Host Discovery module is available in the Centreon documentation: [Host Discovery](docs/monitoring/discovery/hosts-discovery)
+More information about the Host Discovery module is available in the Centreon documentation: [Host Discovery](/docs/monitoring/discovery/hosts-discovery)
 
 
 ### Collected metrics & status
