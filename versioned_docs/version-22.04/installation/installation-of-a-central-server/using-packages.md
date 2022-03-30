@@ -18,7 +18,7 @@ After installing your server, update your operating system using the following
 command:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
 dnf update
@@ -160,7 +160,7 @@ centreon-release package, which will provide the repository file.
 Install the Centreon repository using this command:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
 dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04-3.el8.noarch.rpm
@@ -186,7 +186,7 @@ a remote database on a dedicated server.
 ### With a local database
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
 dnf install -y centreon centreon-database
@@ -215,7 +215,7 @@ You can now move to [Step 3](#step-3-configuration).
 
 Run the following command on the Central server:
 <Tabs groupId="sync">
-<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
 dnf install -y centreon-base-config-centreon-engine centreon-widget\*
@@ -233,7 +233,7 @@ yum install -y centreon-base-config-centreon-engine centreon-widget\*
 
 Then run the following commands on the dedicated server:
 <Tabs groupId="sync">
-<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
 dnf install -y centreon-database
@@ -362,7 +362,7 @@ To make services start automatically during system bootup, run these commands
 on the central server:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
 systemctl enable php-fpm httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
@@ -400,7 +400,7 @@ mysql_secure_installation
 following command:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
 systemctl start httpd

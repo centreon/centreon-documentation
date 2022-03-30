@@ -63,7 +63,7 @@ yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/ce
 Centreon 21.10 uses PHP in version 8.0.
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 First, you need to install the **remi** repository:
 
@@ -116,7 +116,7 @@ yum clean all --enablerepo=*
 Then upgrade all the components with the following command:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
 dnf update centreon\*

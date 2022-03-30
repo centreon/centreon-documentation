@@ -34,7 +34,7 @@ Il est nécessaire de mettre à jour le dépôt Centreon.
 Exécutez la commande suivante :
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
 dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04-3.el8.noarch.rpm
@@ -100,7 +100,7 @@ Pour chaque différence entre les fichiers, évaluez si celle-ci doit être repo
 ### Finalisation de la mise à jour
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Avant de démarrer la montée de version via l'interface web, rechargez le serveur Apache avec la commande suivante :
 ```shell
@@ -180,7 +180,7 @@ Central.
 Exécutez la commande suivante :
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
 dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04-3.el8.noarch.rpm

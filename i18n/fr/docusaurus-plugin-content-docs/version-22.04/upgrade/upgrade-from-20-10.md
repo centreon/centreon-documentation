@@ -53,7 +53,7 @@ Il est nécessaire de mettre à jour le dépôt Centreon.
 Exécutez la commande suivante :
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
 dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04-3.el8.noarch.rpm
@@ -74,7 +74,7 @@ yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/ce
 Centreon 22.04 utilise PHP en version 8.0.
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Vous devez tout d'abord installer les dépôts **remi** :
 ```shell
@@ -140,7 +140,7 @@ yum update centreon\*
 > Acceptez les nouvelles clés GPG des dépôts si nécessaire.
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Exécutez les commandes suivantes :
 ```shell
@@ -204,7 +204,7 @@ Notamment, assurez-vous que votre configuration Apache personnalisée contient l
 ### Finalisation de la mise à jour
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Avant de démarrer la montée de version via l'interface web, rechargez le serveur Apache avec la commande suivante :
 
@@ -290,7 +290,7 @@ Les composants MariaDB peuvent maintenant être mis à jour.
 Exécutez la commande suivante sur le serveur de base de données dédié :
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
 dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04-3.el8.noarch.rpm
@@ -377,7 +377,7 @@ Central.
 Exécutez la commande suivante :
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
 dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04-3.el8.noarch.rpm
