@@ -175,7 +175,7 @@ Main options:
 
       - **/var/lib/centreon-broker/**
       - */var/lib/centreon-engine/*
-      - */var/cache/centreon/*
+      - **/var/cache/centreon/**
 
   - Status  
     Used to enable or disable the instance.
