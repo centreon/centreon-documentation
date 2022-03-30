@@ -179,7 +179,7 @@ Main options:
     For security reasons, you can use these directories:
 
       - **/var/lib/centreon-broker/**
-      - */var/lib/centreon-engine/*
+      - **/var/lib/centreon-engine/**
       - */var/cache/centreon/*
 
   - Status  
