@@ -170,7 +170,7 @@ Main options:
   - Retention path  
     When an output is in an error state, a failover is launched. Failovers save
     data in files called *retention files*. These in turn are saved in the
-    directory specified here. The best practice is */var/lib/centreon-broker/*.
+    directory specified here. The best practice is **/var/lib/centreon-broker/**.
     For security reasons, you can use these directories:
 
       - **/var/lib/centreon-broker/**
