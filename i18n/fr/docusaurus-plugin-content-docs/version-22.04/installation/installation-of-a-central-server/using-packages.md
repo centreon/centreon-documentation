@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 Centreon fournit des RPM pour ses produits au travers de la solution
 Centreon Open Source disponible gratuitement sur notre dépôt.
 
-Les paquets peuvent être installés sur CentOS7 ou sur RHEL/Oracle Linux 8.
+Les paquets peuvent être installés sur CentOS7 ou sur Alma/RHEL/Oracle Linux 8.
 
 L'ensemble de la procédure d'installation doit être faite en tant qu'utilisateur privilégié.
 
@@ -75,6 +75,28 @@ systemctl disable firewalld
 ### Installer les dépôts
 
 <Tabs groupId="sync">
+<TabItem value="Alma 8" label="Alma 8">
+
+#### Dépôt remi
+
+Afin d'installer les logiciels Centreon, le dépôt **remi** doit être installé.
+
+Exécutez les commandes suivantes :
+
+```shell
+dnf install -y dnf-plugins-core
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
+dnf config-manager --set-enabled 'powertools'
+```
+
+Activez PHP 8.0 en utilisant les commandes suivantes :
+```shell
+dnf module reset php
+dnf module install php:remi-8.0
+```
+
+</TabItem>
 <TabItem value="RHEL 8" label="RHEL 8">
 
 #### Dépôt remi et CodeReady Builder

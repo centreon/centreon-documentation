@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 Centreon fournit des RPM pour ses produits au travers de la solution
 Centreon Open Sources disponible gratuitement sur notre dépôt.
 
-Les paquets peuvent être installés sur CentOS7 ou sur RHEL/Oracle Linux 8.
+Les paquets peuvent être installés sur CentOS7 ou sur Alma/RHEL/Oracle Linux 8.
 
 ## Étapes pré-installation
 
@@ -76,7 +76,21 @@ subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 ```
 
 </TabItem>
+<TabItem value="Alma 8" label="Alma 8">
 
+#### Dépôt PowerTools de Red Hat
+
+Afin d'installer les logiciels Centreon, le dépôt PowerTools de Red Hat doit être
+activé.
+
+Exécutez les commandes suivantes :
+
+```shell
+dnf -y install dnf-plugins-core epel-release
+dnf config-manager --set-enabled powertools
+```
+
+</TabItem>
 <TabItem value="Oracle Linux 8" label="Oracle Linux 8">
 
 #### Dépôt CodeReady Builder de Oracle
