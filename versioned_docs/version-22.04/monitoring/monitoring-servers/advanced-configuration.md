@@ -173,7 +173,7 @@ Main options:
     directory specified here. The best practice is */var/lib/centreon-broker/*.
     For security reasons, you can use these directories:
 
-      - */var/lib/centreon-broker/*
+      - **/var/lib/centreon-broker/**
       - */var/lib/centreon-engine/*
       - */var/cache/centreon/*
 
