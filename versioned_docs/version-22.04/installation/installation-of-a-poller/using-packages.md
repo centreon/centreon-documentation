@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 Centreon provides RPM packages for its products through the Centreon Open
 Source version available free of charge in our repository.
 
-These packages can be installed on CentOS 7 and on RHEL/Oracle Linux 8.
+These packages can be installed on CentOS 7 and on Alma/RHEL/Oracle Linux 8.
 
 ## Pre-installation steps
 
@@ -57,6 +57,21 @@ hostnamectl set-hostname poller1
 ### Install the repositories
 
 <Tabs groupId="sync">
+<TabItem value="Alma 8" label="Alma 8">
+
+#### Redhat PowerTools repository
+
+To install Centreon you will need to enable the official PowerTools repository
+supported by Redhat.
+
+Enable the PowerTools repository using these commands:
+
+```shell
+dnf -y install dnf-plugins-core epel-release
+dnf config-manager --set-enabled powertools
+```
+
+</TabItem>
 <TabItem value="RHEL 8" label="RHEL 8">
 
 #### Redhat CodeReady Builder repository
