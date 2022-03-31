@@ -118,6 +118,23 @@ Release date: `February 18, 2022`
 
 ## Centreon Auto Discovery
 
+### 21.10.3
+
+Release date: `March 31, 2022`
+
+#### Improvements
+
+- In the Host Discovery job result listing, the red "warning" sign that used to point out that a discovered host already existed has been replaced with a yellow one because the colour red suggested that a severe problem had occurred. The "info" sign that led to the raw discovery data has been replaced with a "text file" icon.
+
+#### Bug fixes
+
+- Fixed a front-end issue where editing a hostgroup or a hostcategory mapper in Host Discovery led to a blank page
+- Host discovery did not support `NULL` values for job parameters
+- Changed the size of a column to allow storing host discovery providers coming from Plugin Packs with names exceeding 50 characters
+- ACLs were not updated for items discovered by Host Discovery or Service Discovery
+- Fixed an issue that caused Service Discovery scans to fail because the wrong message was caught
+
+
 ### 21.10.2
 
 Release date: `March 16, 2022`
