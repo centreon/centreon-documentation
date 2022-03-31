@@ -118,7 +118,7 @@ Release date: `February 18, 2022`
 
 ## Centreon Auto Discovery
 
-### 21.10.3
+### 21.10.3
 
 Release date: `March 31, 2022`
 
