@@ -120,7 +120,7 @@ Release date: `February 18, 2022`
 
 ### 21.10.3
 
-Release date: `null`
+Release date: `March 31, 2022`
 
 #### Improvements
 
