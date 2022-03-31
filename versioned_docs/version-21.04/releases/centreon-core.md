@@ -33,7 +33,7 @@ If you have feature requests or want to report a bug, please go to our
 - [Administration] SQL Injections on LDAP listing
 - [Configuration] Command path traversal resulting in RCE on command edition form
 - [Configuration] SQL Injection on export configuration
-- [Configuration] SQL Injections on SNMP traps edition form
+- [Configuration] SQL injections on SNMP traps edition form
 - [Configuration] SQL injection on Resources form
 - [Core] RCE in legacy PHP's class autoload
 - [Monitoring] SQL Injection on performance curve edition form
