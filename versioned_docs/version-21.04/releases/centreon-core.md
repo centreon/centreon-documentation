@@ -23,7 +23,7 @@ If you have feature requests or want to report a bug, please go to our
 
 #### Bug Fixes
 
-- [Chart] Fixed a PHP warning and removed a debug text appearing at the bottom of the page when modifying a curve template in "Monitoring  >  Performances  >  Curves"
+- [Chart] Fixed a PHP warning and removed a debug text appearing at the bottom of the page when modifying a curve template in "Monitoring > Performances > Curves"
 - [UX] When the user does not have the "Action access" rights for the top counter, when he connects then he gets the top counter "skeleton style"
 
 #### Security Fixes
