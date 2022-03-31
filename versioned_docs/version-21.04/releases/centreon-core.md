@@ -36,7 +36,7 @@ If you have feature requests or want to report a bug, please go to our
 - [Configuration] SQL injections on SNMP traps edition form
 - [Configuration] SQL injection on Resources form
 - [Core] RCE in legacy PHP's class autoload
-- [Monitoring] SQL Injection on performance curve edition form
+- [Monitoring] SQL injection on performance curve edition form
 
 ### 21.04.12
 
