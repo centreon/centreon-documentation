@@ -36,7 +36,7 @@ If you have feature requests or want to report a bug, please go to our
 #### Security Fixes
 
 - [Administration] SQL Injection on Knowledge Base configuration form
-- [Administration] SQL Injections on ACL group listing
+- [Administration] SQL injections on ACL group listing
 - [Administration] SQL Injections on LDAP listing
 - [Configuration] Command path traversal resulting in RCE on command edition form
 - [Configuration] SQL Injection on export configuration
