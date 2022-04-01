@@ -39,7 +39,7 @@ If you have feature requests or want to report a bug, please go to our
 - [Administration] SQL injections on ACL group listing
 - [Administration] SQL injections on LDAP listing
 - [Configuration] Command path traversal resulting in RCE on command edition form
-- [Configuration] SQL Injection on export configuration
+- [Configuration] SQL injection on export configuration
 - [Configuration] SQL Injections on SNMP traps edition form
 - [Configuration] SQL injection in Resources form
 - [Core] Disabling allow_url_fopen in PHP
