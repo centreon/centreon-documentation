@@ -21,6 +21,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.10.16
 
+Release date: `April 1, 2022`
+
 #### Enhancements
 
 - [Authentication] Autologin Validation reinforcement
