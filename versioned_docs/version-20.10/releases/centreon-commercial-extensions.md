@@ -335,7 +335,7 @@ Release date: `March 3, 2022`
 
 ### 20.10.5
 
-Release date: `null`
+Release date: `April 1, 2022`
 
 #### Bug fixes
 
