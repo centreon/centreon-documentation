@@ -31,7 +31,7 @@ If you have feature requests or want to report a bug, please go to our
 - [Authentication] Improve LDAP authentication and authorization
 - [Core] Fixed SQL request syntax error for cron with MySQL 8
 - [Install] Fixed SQL errors in upgrade process from Centreon version < 2.8.5
-- [Resources Status] Fixed the display of old downtimes in the details tab
+- [Resources Status] Fixed the display of old downtimes in the Details tab
 
 #### Security Fixes
 
