@@ -24,7 +24,7 @@ commerciales, vous pouvez vous rendre sur notre
 #### Enhancements
 
 - [Authentication] Autologin Validation reinforcement
-- [UX] Add TheWatch url to Centreon footer
+- [UX] Add TheWatch URL to Centreon footer
 
 #### Bug fixes
 
