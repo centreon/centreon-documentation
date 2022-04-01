@@ -19,6 +19,37 @@ commerciales, vous pouvez vous rendre sur notre
 
 ## Centreon Web
 
+### 20.10.16
+
+Release date: `April 1, 2022`
+
+#### Enhancements
+
+- [Authentication] Autologin Validation reinforcement
+- [UX] Add TheWatch URL to Centreon footer
+
+#### Bug fixes
+
+- [Authentication] Improve LDAP authentication and authorization
+- [Core] Fixed SQL request syntax error for cron with MySQL 8
+- [Install] Fixed SQL errors in upgrade process from Centreon version < 2.8.5
+- [Resources Status] Fixed the display of old downtimes in the Details tab
+
+#### Security Fixes
+
+- [Administration] SQL injection on Knowledge Base configuration form
+- [Administration] SQL injections on ACL group listing
+- [Administration] SQL injections on LDAP listing
+- [Configuration] Command path traversal resulting in RCE on command edition form
+- [Configuration] SQL injection on export configuration
+- [Configuration] SQL injections on SNMP traps edition form
+- [Configuration] SQL injection in Resources form
+- [Core] Disabling allow_url_fopen in PHP
+- [Core] RCE in legacy PHP's class autoload
+- [Dashboard] XSS in reporting dashboard
+- [Monitoring] SQL injection on performance curve edition form
+- [Resources Status] XSS reflected from plugin's metric output
+
 ### 20.10.15
 
 Release date: `December 23, 2021`
