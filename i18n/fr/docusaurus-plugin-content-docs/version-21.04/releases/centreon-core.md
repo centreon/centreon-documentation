@@ -21,7 +21,7 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 21.04.13
 
-Release date: `March 31, 2022`
+Release date: `April 1, 2022`
 
 #### Bug Fixes
 
