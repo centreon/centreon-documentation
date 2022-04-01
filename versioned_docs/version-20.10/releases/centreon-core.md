@@ -24,7 +24,7 @@ If you have feature requests or want to report a bug, please go to our
 #### Enhancements
 
 - [Authentication] Autologin Validation reinforcement
-- [UX] Add TheWatch url to Centreon footer
+- [UX] Add TheWatch URL to Centreon footer
 
 #### Bug fixes
 
