@@ -21,6 +21,8 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.10.16
 
+Release date: `April 1, 2022`
+
 #### Enhancements
 
 - [Authentication] Autologin Validation reinforcement
