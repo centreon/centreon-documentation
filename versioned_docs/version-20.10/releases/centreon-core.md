@@ -45,7 +45,7 @@ If you have feature requests or want to report a bug, please go to our
 - [Core] Disabling allow_url_fopen in PHP
 - [Core] RCE in legacy PHP's class autoload
 - [Dashboard] XSS in reporting dashboard
-- [Monitoring] SQL Injection on performance curve edition form
+- [Monitoring] SQL injection on performance curve edition form
 - [Resources Status] XSS reflected from plugin's metric output
 
 ### 20.10.15
