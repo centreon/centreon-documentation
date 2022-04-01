@@ -37,7 +37,7 @@ commerciales, vous pouvez vous rendre sur notre
 
 - [Administration] SQL injection on Knowledge Base configuration form
 - [Administration] SQL injections on ACL group listing
-- [Administration] SQL Injections on LDAP listing
+- [Administration] SQL injections on LDAP listing
 - [Configuration] Command path traversal resulting in RCE on command edition form
 - [Configuration] SQL Injection on export configuration
 - [Configuration] SQL Injections on SNMP traps edition form
