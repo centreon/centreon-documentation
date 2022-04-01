@@ -176,7 +176,7 @@ Release date: `December 16, 2021`
 
 ### 21.04.4
 
-Release date: `null`
+Release date: `April 1, 2022`
 
 #### Bug fixes
 
