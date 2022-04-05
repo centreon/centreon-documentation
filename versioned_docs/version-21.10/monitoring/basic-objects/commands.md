@@ -277,13 +277,26 @@ Engine, one might configure commands that relates to SSH check
 
 ##### Binary arguments
 
-These arguments are centreon_connector_ssh options.
+Here are the supported arguments for `centreon_connector_ssh`:
 
-| Short name | Long name  | Description                                         |
-| ---------- | ---------- | --------------------------------------------------- |
-| \-d        | \--debug   | If this flag is specified, print all logs messages. |
-| \-h        | \--help    | Print help and exit.                                |
-| \-v        | \--version | Print software version and exit.                    |
+| Short name | Long name        | Description                                         |
+|------------|------------------|-----------------------------------------------------|
+| -d         | --debug          | If this flag is specified, print all logs messages. |
+| -h         | --help           | Print help and exit.                                |
+| -v         | --version        | Print software version and exit.                    |
+| -l         | --log-file       | Specifies the log file (default: stderr).           |
+| -2         | --proto2         | Tell ssh to use Protocol 2.                         |
+| -4         | --use-ipv4       | Enable IPv4 connection.                             |
+| -6         | --use-ipv6       | Enable IPv6 connection.                             |
+| -a         | --authentication | Authentication password.                            |
+| -C         | --command        | Command to execute on the remote machine.           |
+| -E         | --skip-stderr    | Ignore all or first n lines on STDERR.              |
+| -H         | --hostname       | Host name, IP Address.                              |
+| -i         | --identity       | Identity of an authorized key.                      |
+| -l         | --logname        | SSH user name on remote host.                       |
+| -p         | --port           | Port number (default: 22)                           |
+| -S         | --skip-stdout    | Ignore all or first n lines on STDOUT.              |
+| -t         | --timeout        | Seconds before connection times out (default: 10).  |
 
 ##### Check arguments
 
@@ -319,7 +332,7 @@ Example:
 ```shell
 define connector{
     connector_name centreon_connector_ssh
-    connector_line /usr/bin/centreon-connector/centreon_connector_ssh
+    connector_line /usr/lib64/centreon-connector/centreon_connector_ssh --log-file=/var/log/centreon-engine/centreon-connector-ssh.log
 }
 
 define command{
@@ -546,20 +559,22 @@ definition.
 
 ##### Binary arguments
 
-These arguments are centreon_connector_perl options.
+Here are the supported arguments for `centreon_connector_perl`:
 
-| Short name | Long name  | Description                                         |
-| ---------- | ---------- | --------------------------------------------------- |
-| \-d        | \--debug   | If this flag is specified, print all logs messages. |
-| \-h        | \--help    | Print help and exit.                                |
-| \-v        | \--version | Print software version and exit.                    |
+| Short name | Long name   | Description                                                                   |
+| ---------- | ----------  | ----------------------------------------------------------------------------- |
+| \-d        | \--debug    | If this flag is specified, print all logs messages.                           |
+| \-h        | \--help     | Print help and exit.                                                          |
+| \-v        | \--version  | Print software version and exit.                                              |
+| \-c        | \--code     | Argument is some Perl code that will be executed by the embedded interpreter. |
+| \-l        | \--log-file | Specifies the log file (default: stderr).                                     |
 
 Example:
 
 ```shell
 define connector{
     connector_name centreon_connector_perl
-    connector_line /usr/bin/centreon-connector/centreon_connector_perl
+    connector_line /usr/lib64/centreon-connector/centreon_connector_perl --log-file=/var/log/centreon-engine/centreon-connector-perl.log
 }
 
 define command{
