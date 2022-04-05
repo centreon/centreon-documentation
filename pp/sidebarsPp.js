@@ -1485,6 +1485,10 @@ module.exports = {
 		  type: 'doc',
 		  id: 'integrations/plugin-packs/procedures/network-infoblox-snmp'
 		},
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-ipfabric-api'
+        },
 		{
 		  type: 'doc',
 		  id: 'integrations/plugin-packs/procedures/network-switchs-juniper-ex-snmp'
