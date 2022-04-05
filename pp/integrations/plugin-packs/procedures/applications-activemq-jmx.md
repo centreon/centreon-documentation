@@ -132,7 +132,7 @@ Once the Plugin installed, you can test it directly from the command line of the
   --password='admin' \
 ```
 
-This command will check all the Brokers (```--mode='brokers'```) of the ActiveMQ server of the `myactivemq.int.centreon.com` server. The RestAPI endpoint is set on the *http\://myactivemq.int.centreon.com\:8161/api/jolokia* URL 
+This command will check all the Brokers (```--mode='brokers'```) of the ActiveMQ server of the `myactivemq.int.centreon.com` server. The RestAPI endpoint is set on the `http://myactivemq.int.centreon.com:8161/api/jolokia` URL 
 (```--url='http://myactivemq.int.centreon.com:8161/api/jolokia'```).
 To authenticate against the Jolokia agent, the API username *admin* is used with the relevant password (```--username='admin' --password='admin'```).
 
