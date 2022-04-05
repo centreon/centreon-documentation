@@ -282,7 +282,7 @@ Engine, one might configure commands that relates to SSH check
 
 ##### Binary arguments
 
-Here are the supported arguments for `centreon_connector_perl`:
+Here are the supported arguments for `centreon_connector_ssh`:
 
 | Short name | Long name        | Description                                         |
 |------------|------------------|-----------------------------------------------------|
