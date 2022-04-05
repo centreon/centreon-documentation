@@ -294,7 +294,7 @@ Here are the supported arguments for `centreon_connector_ssh`:
 | -H         | --hostname       | Host name, IP Address.                              |
 | -i         | --identity       | Identity of an authorized key.                      |
 | -l         | --logname        | SSH user name on remote host.                       |
-| -p         | --port           | Port number (default                                |
+| -p         | --port           | Port number (default: 22)                           |
 | -S         | --skip-stdout    | Ignore all or first n lines on STDOUT.              |
 | -t         | --timeout        | Seconds before connection times out (default: 10).  |
 
