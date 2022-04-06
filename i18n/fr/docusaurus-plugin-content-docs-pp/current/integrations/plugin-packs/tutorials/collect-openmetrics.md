@@ -87,8 +87,8 @@ exemples pour collecter ces métriques de ces endpoints.
 
 #### Prometheus
 
-Notre serveur/conteneur Prometheus expose des données sur l'url suivante :
-<http://prometheus.int.centreon.com:9090/metrics> :
+Notre serveur/conteneur Prometheus expose des données sur l'URL suivante :
+`<http://prometheus.int.centreon.com:9090/metrics>` :
 
 ```text
 # HELP prometheus_http_requests_total Counter of HTTP requests.
