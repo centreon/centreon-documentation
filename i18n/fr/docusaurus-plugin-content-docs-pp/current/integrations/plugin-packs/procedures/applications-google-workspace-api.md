@@ -97,7 +97,7 @@ yum install centreon-pack-applications-google-workspace-api
 
 | Mandatory | Name                          | Description                                                                                 |
 | :-------- | :---------------------------- | :------------------------------------------------------------------------------------------ |
-| X         | GOOGLEWORKSPACESTATUSHOSTNAME | IP or name of the Status server (Default: 'www.google.com')                                 |
+| X         | GOOGLEWORKSPACESTATUSHOSTNAME | IP or name of the Status server (Default: `www.google.com`)                                 |
 | X         | GOOGLEWORKSPACESTATUSPORT     | Port used to reach the Google server (Default: '443')                                       |
 | X         | GOOGLEWORKSPACESTATUSPROTO    | Protocol used to reach the Google server (Default: 'https')                                 |
 |           | PROXYURL                      | Configure a proxy URL to use if needed                                                      |

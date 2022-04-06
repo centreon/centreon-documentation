@@ -86,7 +86,7 @@ examples to collect thoses metrics from thoses endpoints.
 #### Prometheus
 
 Our server/container Prometheus expose metrics from this url:
-'<http://prometheus.int.centreon.com:9090/metrics>'
+`<http://prometheus.int.centreon.com:9090/metrics>`
 
 ```text
 # HELP prometheus_http_requests_total Counter of HTTP requests.

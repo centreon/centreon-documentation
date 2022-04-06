@@ -139,7 +139,7 @@ your own SNMPv3 credentials combo.
 
 ## FAQ
 
-### How do I run my plugin through the CLI and what do the main parameters stand for ?
+### How do I run my plugin through the CLI and what do the main parameters stand for?
 
 Once you've installed the plugin, you can test it logging with *centreon-engine*
 user:
