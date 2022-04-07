@@ -241,14 +241,14 @@ Run the following command on the Central server:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y centreon-base-config-centreon-engine centreon-widget\*
+dnf install -y centreon
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install -y centreon-base-config-centreon-engine centreon-widget\*
+yum install -y centreon
 ```
 
 </TabItem>
