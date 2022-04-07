@@ -221,7 +221,7 @@ We are going to configure the host Prometheus by using the following parameters
 | OPENMETRICSPROTO   | http                                  |
 | OPENMETRICSURLPATH | /metrics                              |
 
-![image](../../../assets/integrations/plugin-packs/tutorials/openmetrics_prometheus_01_configuration_host.png)
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/openmetrics_prometheus_01_configuration_host.png)
 
 We can edit the service "Scrape-Metrics" which have been created automatically
 by using the template "App-Monitoring-Openmetrics-Web-custom" to configure the
@@ -238,9 +238,9 @@ macros as the same in CLI :
 | FILTERSUBINTACE | 200                               |
 | EXTRAOPTIONS    | \--verbose                        |
 
-![image](../../../assets/integrations/plugin-packs/tutorials/openmetrics_prometheus_01_configuration_service.png)
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/openmetrics_prometheus_01_configuration_service.png)
 
 And we rename the service by "Query-Api-Number". This service could be duplicate
 and modificate to collect other Openmetrics and get alerting/reporting:
 
-![image](../../../assets/integrations/plugin-packs/tutorials/openmetrics_prometheus_01_monitoring.png)
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/openmetrics_prometheus_01_monitoring.png)

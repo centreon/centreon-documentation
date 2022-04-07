@@ -156,5 +156,5 @@ parameter to the command:
 
 ## Troubleshooting
 
-[Troubleshooting plugins](../tutorials/troubleshooting-plugins.md#snmp-checks)
+[Troubleshooting plugins](../getting-started/how-to-guides/troubleshooting-plugins.md/#troubleshooting-snmp)
 

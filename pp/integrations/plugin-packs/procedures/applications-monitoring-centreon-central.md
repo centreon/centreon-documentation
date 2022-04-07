@@ -273,4 +273,4 @@ All available plugin modes can be displayed by adding the
 
 ### Troubleshooting
 
-Please find the [troubleshooting documentation](../tutorials/troubleshooting-plugins.md) for Centreon Plugins typical issues.
+Please find the [troubleshooting documentation](../getting-started/how-to-guides/troubleshooting-plugins.md) for Centreon Plugins typical issues.

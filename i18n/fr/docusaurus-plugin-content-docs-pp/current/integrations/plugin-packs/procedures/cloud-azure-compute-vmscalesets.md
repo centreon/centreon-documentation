@@ -82,7 +82,7 @@ Could not retrive metrics
 
 ## Prérequis
 
-Rendez-vous sur la [documentation dédiée](../tutorials/azure-credential-configuration.md) afin d'obtenir les prérequis nécessaires pour interroger les API d'Azure.
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/azure-credential-configuration.md) afin d'obtenir les prérequis nécessaires pour interroger les API d'Azure.
 
 ## Installation
 
@@ -212,5 +212,5 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 
 ### Diagnostic des erreurs communes
 
-Rendez-vous sur la [documentation dédiée](../tutorials/troubleshooting-plugins.md#http-and-api-checks)
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks)
 des Plugins basés sur HTTP/API.

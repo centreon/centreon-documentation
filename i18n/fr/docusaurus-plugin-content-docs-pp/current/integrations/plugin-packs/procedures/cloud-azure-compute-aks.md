@@ -317,4 +317,4 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre`--l
 
 ### Diagnostic des erreurs communes
 
-Rendez-vous sur la [documentation dédiée](../tutorials/troubleshooting-plugins.md#http-and-api-checks) des Plugins basés sur HTTP/API.
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks) des Plugins basés sur HTTP/API.
