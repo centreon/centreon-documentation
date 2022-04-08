@@ -8,14 +8,14 @@ import TabItem from '@theme/TabItem';
 
 ## 2022
 
-### April 
+### Avril
 
 Stay tuned!
 
-### February
+### Février
 
 <Tabs groupId="sync">
-<TabItem value="New" label="New connectors">
+<TabItem value="New connectors" label="New connectors">
 
 - (new) (garnier-quentin) (pack) network::viptela::snmp - initial release #1032
 - (new) (garnier-quentin) (pack) network::fortinet::fortiadc::snmp - initial release #1025
@@ -38,7 +38,7 @@ Stay tuned!
 - (fix) (lchrdn) (pack) cloud::azure::compute::virtualmachine - removing option in memory command #1021
 
 </TabItem>
-<TabItem value="Breaking" label="Breaking changes">
+<TabItem value="Breaking changes" label="Breaking changes">
 
 - (breaking change) (garnier-quentin) (pack) database::oracle - change threshold options for service rman-backup-problems #1024
 - (breaking change) (garnier-quentin) (pack) apps::vtom::restapi - use official api #1015
@@ -46,7 +46,7 @@ Stay tuned!
 </TabItem>
 </Tabs>
 
-### January
+### Janvier
 
 <Tabs groupId="sync">
 <TabItem value="New" label="New connectors">
@@ -66,6 +66,7 @@ Stay tuned!
 - (new) (Tpo76) (pack) applications-dynamics-ax-nsclient-05-nrpe initial release #963
 - (new) (Tpo76) (pack) applications-dynamics-ax-mssql initial release #962
 - (new) (Tpo76) (pack) applications-dynamics-365-nsclient-05-nrpe initial release #961
+
 
 </TabItem>
 <TabItem value="Enhancements" label="Enhancements">
