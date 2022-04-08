@@ -26,9 +26,9 @@ First enable authentication:
 
 Then configure Identity Provider information:
 - **Login header attribute name**: which variable from the headers should be used to retrieve the user's login.
-  For example **REMOTE_USER**.
+  For example `REMOTE_USER`.
 - **Pattern match login (regex)**: a pattern to search for in the login header attrivute name.
-  For instance, type **/@.\*/** to find the end of the email address in your login.
+  For instance, type `/@.*/` to find the end of the email address in your login.
 - **Pattern replace login (regex)**: the string that will replace the string defined in the **Pattern match login (regex)** field
   Leave **Pattern replace login (regex)** blank to delete the string found by **Pattern match login (regex)**.
 

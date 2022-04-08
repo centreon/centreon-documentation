@@ -26,9 +26,9 @@ Activez d'abord l'authentification :
 
 Ensuite, configurez les informations du fournisseur d'identité:
 - **Login header attribute name**: Quelle variable des en-têtes doit être utilisée pour récupérer le login de
-  l'utilisateur. Par exemple **REMOTE_USER**.
+  l'utilisateur. Par exemple `REMOTE_USER`.
 - **Pattern match login (regex)**: une expression régulière à rechercher dans l'identifiant. Par exemple, entrez
-  **/@.\*/** pour trouver la fin de l'adresse email de votre identifiant.
+  `/@.*/` pour trouver la fin de l'adresse email de votre identifiant.
 - **Pattern replace login (regex)**: la chaîne par laquelle remplacer celle définie dans le champ
   **Pattern match login (regex)** pour l'authentification (login). Laissez le champ vide pour supprimer cette chaîne.
 
