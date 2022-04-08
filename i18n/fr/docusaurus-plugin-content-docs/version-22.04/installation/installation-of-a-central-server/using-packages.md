@@ -243,14 +243,14 @@ Exécutez la commande suivante sur le serveur Centreon Central :
 <TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
 
 ```shell
-dnf install -y centreon-central centreon-widget\*
+dnf install -y centreon-central
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install -y centreon-central centreon-widget\*
+yum install -y centreon-central
 ```
 
 </TabItem>
