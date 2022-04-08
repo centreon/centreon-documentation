@@ -10,19 +10,17 @@ brute.
 
 ## Configurer la politique de sécurité de mot de passe
 
+Allez à la page **Administration > Authentication> Password Security Policy** :
+
+![image](../assets/administration/local-configuration.png)
+
 ### Politique de complexité des mots de passe
 
-Allez à la page **Administration > Authentication> Password Security Policy** et renseignez les valeurs **password minimum length** et
-**password complexity** :
-
-![image](../assets/administration/password_policy_complexity.png)
+Premièrement, définissez la longeur du mot de passe **password minimum length** et sa complexité **password complexity**.
 
 ### Politique d'expiration du mot de passe
 
-Configurez la politique d'expiration :
-
-![image](../assets/administration/password_policy_expiration.png)
-
+Puis, configurez la politique d'expiration :
 - **Password expiration**: Une fois le mot de passe expiré, l'utilisateur sera redirigé vers une
   [page dédiée](../getting-started/interface.md#réinitialisez-votre-mot-de-passe-après-expiration) pour mettre à jour son mot de passe.
 - **Time before setting a new password**: Délais entre deux changements de mots de passe.
@@ -34,9 +32,7 @@ Configurez la politique d'expiration :
 ### Politique de blocage des mots de passe
 
 Pour bloquer les attaques de type force brute, vous pouvez définir le nombre de tentatives infructueuses avant de
-bloquer les utilisateurs avant toute nouvelle tentative de connexion :
-
-![image](../assets/administration/password_policy_block.png)
+bloquer les utilisateurs avant toute nouvelle tentative de connexion.
 
 ## Autoriser les utilisateurs à accéder à Centreon
 

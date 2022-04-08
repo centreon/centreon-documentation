@@ -9,19 +9,17 @@ complex password, to give passwords a lifespan and to block brute force attempts
 
 ## Configure local password security policy
 
+Go to **Administration > Authentication> Password Security Policy** page:
+
+![image](../assets/administration/local-configuration.png)
+
 ### Password complexity policy
 
-Go to **Administration > Authentication> Password Security Policy** page and select **password minimum length** as well
-as **password complexity**:
-
-![image](../assets/administration/password_policy_complexity.png)
+First select the **password minimum length** as well as **password complexity** for new password definition.
 
 ### Password expiration policy
 
-Configure expiration policy:
-
-![image](../assets/administration/password_policy_expiration.png)
-
+Then, configure expiration policy:
 - **Password expiration**: Once the password expires, the user will be redirected to a
   [dedicated page](../getting-started/interface.md#reset-your-password-when-expired) to update their password.
 - **Time before setting a new password**: Delays between two changes of passwords.
@@ -32,9 +30,7 @@ Configure expiration policy:
 ### Password Password blocking policy
 
 To block brute force type attacks, you can define the number of failed attempts before to block the users before new
-connection attempt:
-
-![image](../assets/administration/password_policy_block.png)
+connection attempt.
 
 ## Authorise users to access to Centreon
 
