@@ -1,76 +1,92 @@
 ---
 id: sso
-title: Configuring an SSO connection
+title: Configuring an Web SSO connection
 ---
 
-## Example of SSO architecture
+Web SSO authentication relies on the Apache web server. It is Apache which, depending on its configuration, is
+responsible for authenticating the user before allowing access to the Centreon web interface.
+Many Apache modules allow authentication via OIDC, SAMLv2, TLS, Kerberos, etc. protocols.
 
-Here is an example of SSO architecture with LemonLDAP :
+> The user must be present in the Centreon configuration to access the interface.
 
-![image](../assets/connect/SSO_architecture.png)
+## Configure Web SSO authentication
 
-1. The user signs in to the SSO authentication portal.
+Go to the **Administration > Authentication > Web SSO Configuration** page:
 
-2. The authentication portal checks user access on the LDAP server.
+![image](../assets/administration/web-sso-configuration.png)
 
-3. The LDAP server returns user information.
+### Enable authentication
 
-4. The authentication portal creates a session to store user information and returns an SSO cookie to the user.
+First enable authentication:
+- **Enable Web SSO authentication** allows to enable or disable Web SSO authentication.
+- **Authentication mode** field indicates if the authentication should take place only by Web SSO or using local
+  authentication as well (Mixed).
 
-5. The user is redirected to Centreon Web and caught by the SSO handler which checks user access.
+### Configure Identity Provider access credentials
 
-6. The SSO handler sends a request to Centreon Web with the login header (i.e HTTP_AUTH_USER).
+Then configure Identity Provider information:
+- **Login header attribute name**: which variable from the headers should be used to retrieve the user's login.
+  For example **REMOTE_USER**.
+- **Pattern match login (regex)**: a pattern to search for in the login header attrivute name.
+  For instance, type **/@.\*/** to find the end of the email address in your login.
+- **Pattern replace login (regex)**: the string that will replace the string defined in the **Pattern match login (regex)** field
+  Leave **Pattern replace login (regex)** blank to delete the string found by **Pattern match login (regex)**.
 
-7. Centreon Web checks user access on LDAP server using the login header.
+### Configure clients addresses
 
-8. The LDAP server returns user information.
+You can also configure clients addresses:
+- **Trusted client addresses** field indicates which are the IP of the trusted clients (corresponding to the
+  reverse proxy). The trusted clients are separated by comas.
+- **Blacklist client addresses** field indicates which are the clients IP rejected.
 
-9. Centreon Web returns information to the handler.
+### Configure Apache web server
 
-10. The SSO handler transfers information to the user.
+You must configure the Apache module allowing authentication with the identity provider.
+Once this configuration is done, you must modify the Centreon configuration for Apache in order to allow access only
+to authenticated users.
 
-## Configuring an SSO authentication
+Edit **/etc/httpd/conf.d/10-centreon.conf** file and search the following block:
+```apache
+    Header set X-Frame-Options: "sameorigin"
+    Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;SameSite=Strict
+    ServerSignature Off
+    TraceEnable Off
 
-1. SSO is managed by Apache: edit the Apache configuration to include the settings you want.
-
-2. Fill in the following fields on page **Administration > Parameters > Centreon UI** (section **Authentication properties**).
-
-    - **Enable SSO authentication**: enable or disable SSO authentication.
-    - **SSO mode**:
-        - **SSO only**: users must authenticate using SSO (users that are not trusted clients will be blocked)
-        - **Mixed**: users that are not trusted clients can log in to Centreon using their login/password. You still need to fill in the **SSO trusted client addresses** field.
-    - **SSO trusted client addresses**: which IPs/DNSs will be allowed to connect using SSO (for example, a reverse proxy). Use commas between addresses.
-    - **SSO blacklist client addresses**: which IPs/DNSs will not be allowed to connect using SSO.
-    - **SSO login header**: the variables of the header that will
-    be used as a login (i.e HTTP\_AUTH\_USER).
-    - **SSO pattern matching login**: a pattern to search for in
-    the username. For instance, type **/@.\*/** to find the end of the email address in your login.
-    - **SSO pattern replace login**: the string that will replace the string defined in the **SSO pattern matching login** field. Leave **SSO pattern replace login** blank to delete the string found by **SSO pattern matching login**.
-
-> SSO feature is only to be enabled in a secured and dedicated environment for
-> SSO. Direct access to Centreon UI from users have to be disabled.
-
-## Configuration example
-
-Here is an example of Apache configuration for Kerberos (from file **/etc/httpd/conf.d/10-centreon.conf**):
-
+    Alias ${base_uri}/api ${install_dir}
+    Alias ${base_uri} ${install_dir}/www/
 ```
- <Location /centreon>
-        AuthType Kerberos
-        AuthName "Kerberos Login"
-        KrbServiceName HTTP/supervision.int.centreon.com
-        RequestHeader set X-Remote-User %{REMOTE_USER}s
-        KrbMethodNegotiate On
-        KrbMethodK5Passwd Off
-        KrbSaveCredentials Off
-        KrbVerifyKDC On
-        KrbAuthRealms SUPERVISION.INT
-        Krb5KeyTab /opt/rh/httpd24/root/etc/httpd/conf/centreon.keytab
-        <RequireAny>
-                # Allow this IP without auth
-                Require ip xx.xx.xx.xx xx.xx.xx.xx xx.xx.xx.xx
-                # Everyone else needs to authenticate
-                Require valid-user
-        </RequireAny>
-   </Location>
-   ```
+
+And change for:
+```apache
+    Header set X-Frame-Options: "sameorigin"
+    Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;SameSite=Strict
+    ServerSignature Off
+    TraceEnable Off
+
+    RequestHeader set X-Forwarded-Proto "http" early
+
+    Alias ${base_uri}/api ${install_dir}
+    Alias ${base_uri} ${install_dir}/www/
+
+    <Location ${base_uri}>
+        AuthType openid-connect
+        Require valid-user
+    </Location>
+```
+
+> In this example, the Apache module used was **mod_auth_openidc**. This is why authentication is **openid-connect**.
+
+Validate Apache configuration using:
+```shell
+/opt/rh/httpd24/root/usr/sbin/httpd -t
+```
+
+Then restart Apache web server:
+```shell
+systemctl restart httpd24-httpd
+```
+
+To conclude, rebuild cache:
+```shell
+sudo -u apache /usr/share/centreon/bin/console cache:clear
+```
