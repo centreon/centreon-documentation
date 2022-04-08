@@ -6,200 +6,239 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Vue d'ensemble
+## Contenu du Pack
 
-Nutanix est une une plateforme hyperconvergée permettant le déploiement de machines virtuelles, containers tout en permettant une maitrise avancée du stockage et de la couche d'hypervision. 
+### Modèles
 
-## Contenu du Plugin-Pack
+Le Plugin Pack Centreon **Nutanix** apporte 4 modèles d'hôte différents :
 
-### Objets supervisés
+* Virt-Nutanix-SNMP-custom
+* Virt-Nutanix-VM-SNMP-custom
+* Virt-Nutanix-Hypervisor-SNMP-custom
+* Virt-Nutanix-Container-SNMP-custom
 
-* Clusters
-* Machines virtuelles 
-* Containers 
-* Hyperviseurs
-* Disques et stockage logiciel 
+Il apporte les modèles de service suivants :
 
-### Règles de découvertes
+| Alias              | Modèle de service                     | Description                                                                      | Défaut | Découverte |
+|:-------------------|:--------------------------------------|:---------------------------------------------------------------------------------|:-------|:-----------|
+| Cluster-Usage      | Virt-Nutanix-Cluster-Usage-SNMP       | Contrôle l'utilisation du cluster                                                | X      |            |
+| Iops               | Virt-Nutanix-Container-Iops-SNMP      | Contrôle les opérations de lecture et d'écriture des containers Nutanix          | X      |            |
+| Latency            | Virt-Nutanix-Container-Latency-SNMP   | Contrôle la latence des containers Nutanix                                       | X      |            |
+| Storage            | Virt-Nutanix-Container-Storage-SNMP   | Contrôle l'utilisation du stockage des containers Nutanix                        | X      |            |
+| Container-Usage    | Virt-Nutanix-Container-Usage-SNMP     | Contrôle l'utilisation du containers                                             | X      |            |
+| Disk-Usage         | Virt-Nutanix-Disk-Usage-SNMP          | Contrôle l'utilisation des disques                                               | X      | X          |
+| Cpu                | Virt-Nutanix-Hypervisor-Cpu-SNMP      | Contrôle l'utilisation des processeurs des hyperviseurs Nutanix                  | X      |            |
+| Iops               | Virt-Nutanix-Hypervisor-Iops-SNMP     | Contrôle les opérations de lecture et d'écriture des hyperviseurs Nutanix        | X      |            |
+| Latency            | Virt-Nutanix-Hypervisor-Latency-SNMP  | Contrôle la latence des hyperviseurs Nutanix                                     | X      |            |
+| Memory             | Virt-Nutanix-Hypervisor-Memory-SNMP   | Contrôle l'utilisation de la mémoire des hyperviseurs Nutanix                    | X      |            |
+| Hypervisor-Usage   | Virt-Nutanix-Hypervisor-Usage-SNMP    | Contrôle l'utilisation des hyperviseurs                                          | X      |            |
+| Vm-count           | Virt-Nutanix-Hypervisor-Vm-Count-SNMP | Contrôle le nombre de machines virtuelles des hyperviseurs Nutanix               | X      |            |
+| Storage-Pool-Usage | Virt-Nutanix-Storage-Pool-Usage-SNMP  | Contrôle l'utilisation des 'storage pools'                                       | X      | X          |
+| Cpu                | Virt-Nutanix-VM-Cpu-SNMP              | Contrôle l'utilisation du processeur des machines virtuelles Nutanix             | X      |            |
+| Iops               | Virt-Nutanix-VM-Iops-SNMP             | Contrôle les opérations de lecture et d'écriture des machines virtuelles Nutanix | X      |            |
+| Latency            | Virt-Nutanix-VM-Latency-SNMP          | Contrôle la latence des machines virtuelles Nutanix                              | X      |            |
+| Power-State        | Virt-Nutanix-VM-Power-State-SNMP      | Contrôle l'état d'alimentation des machines virtuelles Nutanix                   | X      |            |
+| Traffic            | Virt-Nutanix-VM-Traffic-SNMP          | Contrôle le traffic des machines virtuelles Nutanix                              | X      |            |
+| Vm-Usage           | Virt-Nutanix-Vm-Usage-SNMP            | Contrôle l'utilisation des machines virtuelles                                   | X      |            |
+
+### Règles de découverte
 
 <Tabs groupId="sync">
-<TabItem value="Hosts" label="Hosts">
+<TabItem value="Host" label="Host">
 
-| Nom de la règle                            | Description                                                   |
-| :----------------------------------------- | :------------------------------------------------------------ |
-| Virt-Nutanix-Hypervisor-SNMP-HostDiscovery | Découvrez vos hyperviseurs                                    |
-| Virt-Nutanix-VM-SNMP-HostDiscovery         | Découvrez vos machines virtuelles                             |
-| Virt-Nutanix-Container-SNMP-HostDiscovery  | Découvrez vos containers                                      |
+| Nom de la règle    | Description                                                   |
+|:-------------------|:--------------------------------------------------------------|
+| Nutanix VM         | Découverte des machines virtuelles Nutanix avec l'agent SNMP  |
+| Nutanix Container  | Découverte des conteneurs Nutanix avec l'agent SNMP           |
+| Nutanix Hypervisor | Découverte des hyperviseurs Nutanix avec l'agent SNMP         |
+
+Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery)
+pour en savoir plus sur la découverte automatique d'hôtes.
 
 </TabItem>
-<TabItem value="Services" label="Services">
+<TabItem value="Service" label="Service">
 
-| Nom de la règle                            | Description                                                   |
-| :----------------------------------------- | :------------------------------------------------------------ |
-| Virt-Nutanix-Disk-SNMP                     |  Découvrez les disques attachés à votre cluster               |
-| Virt-Nutanix-Storage-Pools-SNMP            |  Découvrez les espaces de stockage exposés à vos ressources   |
+| Nom de la règle                 | Description                                                              |
+|:--------------------------------|:-------------------------------------------------------------------------|
+| Virt-Nutanix-SNMP-Disk-Name     | Découverte des partitions et supervision de l'espace de stockage utilisé |
+| Virt-Nutanix-SNMP-Storage-Pools | Découverte des Storage Pools et supervision de leur utilisation          |
+
+Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
+pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/administration#tâche-planifiée-de-découverte-de-services).
 
 </TabItem>
 </Tabs>
 
-## Métriques collectées
+### Métriques & statuts collectés
 
 <Tabs groupId="sync">
-<TabItem value="Cluster-usage" label="Cluster-usage">
+<TabItem value="Cluster-Usage" label="Cluster-Usage">
 
-| Metric name              | Description                                              |
-| :----------------------- | :------------------------------------------------------- |
-| clusterStatus            | Status of the Nutanix cluster                            |
-| cluster\*StorageCapacity | Used and Total cluster storage allocated. Unit: Bytes    |
-| clusterIops              | Number of IOPS on the cluster. Unit: Count/persecond     |
-| clusterLatency           | Cluster storage latency. Unit: Milliseconds              |
-
-</TabItem>
-<TabItem value="Container-usage" label="Container-usage">
-
-| Metric name        | Description                                                    |
-| :----------------- | :------------------------------------------------------------- |
-| cit\*Capacity      | Used and Total container storage allocated. Unit: Bytes        |
-| citIOPerSecond     | Number of IOPS of the container. Unit: Count/persecond         |
-| citAvgLatencyUsecs | Average Container I/O operations latency. Unit: Milliseconds   |
-
-Il est possible de filtrer les containeurs (*citContainerName*) en utilisant une REGEXP sur le paramètre ```--filter-name```: [```--filter-name='^my-container-name$'```]
+| Metric Name                             | Unit  |
+|:----------------------------------------|:------|
+| cluster.average.io.latency.microseconds | µs    |
+| cluster.operations.iops                 | iops  |
+| status                                  |       |
+| cluster.storage.space.usage.bytes       | bytes |
 
 </TabItem>
-<TabItem value="Disk-usage" label="Disk-usage">
+<TabItem value="Container-Usage" label="Container-Usage">
 
-| Metric name       | Description                                              |
-| :---------------- | :------------------------------------------------------- |
-| dstNum\*Bytes     | Used and Total disk storage allocated. Unit: Bytes       |
-| dstNum\*Inodes    | Used and Total Inodes available. Unit: Count             |
-| dstAverageLatency | Average Disk I/O operations latency. Units: Milliseconds |
-| dstNumberIops     | Number of Disk operations. Unit: Count/persecond         |
-| dstState          | State of the disk (online/offline).                      |
-
-Il est possible de filtrer les résultats sur un ID de disque donné (*dstDiskId*) en utilisant une REGEXP sur le paramètre ```--filter-name```: [```--filter-name='^my-disk-name$'```]
+| Metric Name                                           | Unit  |
+|:------------------------------------------------------|:------|
+| *container*#container.average.io.latency.microseconds | µs    |
+| *container*#container.operations.iops                 | iops  |
+| *container*#container.storage.space.usage.bytes       | bytes |
 
 </TabItem>
-<TabItem value="Hypervisor-usage" label="Hypervisor-usage">
+<TabItem value="Disk-Usage" label="Disk-Usage">
 
-| Metric name                   | Description                                                    |
-| :---------------------------- | :------------------------------------------------------------- |
-| hypervisorVmCount             | Number of VM running on the hypervisor. Unit: Count            |
-| hypervisorCpuUsagePercent     | CPU Utilization of the hypervisor. Unit: %                     |
-| hypervisorMemory              | Memory Usage of the hypervisor. Unit: Bytes                    |
-| hypervisorMemoryUsagePercent  | Memory Usage of the hypervisor. Unit: %                        |
-| hypervisorReadIOPerSecond     | Number of read operations from this hypervisor. Unit: count    |
-| hypervisorWriteIOPerSecond    | Number of write operations from this hypervisor. Unit: count   |
-| hypervisorAverageLatency      | Storage access latency for the hypervisor. Units: Milliseconds |
-
-Il est possible de filtrer les résultats sur un hyperviseur donné (*hypervisorName*) en utilisant une REGEXP sur le paramètre ```--filter-name```: [```--filter-name='^my-hypervisor-name$'```]
+| Metric Name                                 | Unit  |
+|:--------------------------------------------|:------|
+| *disk*#disk.average.io.latency.microseconds | µs    |
+| *disk*#disk.storage.inodes.usage.percentage | %     |
+| *disk*#disk.operations.iops                 | iops  |
+| *disk*#status                               |       |
+| *disk*#disk.storage.space.usage.bytes       | bytes |
 
 </TabItem>
-<TabItem value="Storagepool-usage" label="Storagepool-usage">
+<TabItem value="Hypervisor-Usage" label="Hypervisor-Usage">
 
-| Metric name               | Description                                                                                                                                              |
-| :------------------------ | :----------------------------------------------------------- |
-| spit\*Capacity             | Used and Total Storage pool allocated. Unit: Bytes          |
-| spitIOPerSecond           | Storage pool IO count. Unit: Count/persecond                 |
-| spitAvgLatencyUsecs       | Cluster storage latency. Unit: Milliseconds                  |
-
-Il est possible de filtrer les résultats sur un hyperviseur donné (*spitStoragePoolName*) en utilisant une REGEXP sur le paramètre ```--filter-name```: [```--filter-name='^my-storage-pool-name$'```]
+| Metric Name                                             | Unit  |
+|:--------------------------------------------------------|:------|
+| *hypervisor*#hypervisor.average.io.latency.microseconds | µs    |
+| *hypervisor*#hypervisor.cpu.utilization.percentage      | %     |
+| *hypervisor*#hypervisor.memory.usage.bytes              | bytes |
+| *hypervisor*#hypervisor.read.usage.iops                 | iops  |
+| *hypervisor*#hypervisor.vm.count                        | count |
+| *hypervisor*#hypervisor.write.usage.iops                | iops  |
 
 </TabItem>
-<TabItem value="VM-Usage" label="VM-Usage">
+<TabItem value="Storage-Pool-Usage" label="Storage-Pool-Usage">
 
-| Metric name          | Description                                            |
-| :------------------- | :----------------------------------------------------- |
-| vmCpuUsagePercent    | CPU Usage of the VM. Unit: %                           |
-| vmMemory             | Memory Usage of the VM. Unit: Bytes                    |
-| vmMemoryUsagePercent | Memory Usage of the VM. Unit: %                        |
-| vmReadIOPerSecond    | Number of read operation on disks. Unit: Count         |
-| vmWriteIOPerSecond   | Number of write operation on disks. Unit: Count        |
-| vmAverageLatency     | Average storage access latency. Unit: Milliseconds     |
-| vmRxBytes            | Incoming bytes VM traffic. Unit: Bytes/sec             |
-| vmTxBytes            | Outcoming bytes VM traffic. Unit: Bytes/sec            |
+| Metric Name                                      | Unit  |
+|:-------------------------------------------------|:------|
+| *sp*#storagepool.average.io.latency.microseconds | µs    |
+| *sp*#storagepool.operations.iops                 | iops  |
+| *sp*#storagepool.storage.space.usage.bytes       | bytes |
 
-Il est possible de filtrer les résultats sur un hyperviseur donné (*vmName*) en utilisant une REGEXP sur le paramètre ```--filter-name```: [```--filter-name='^my-vm-name$'```]
+</TabItem>
+<TabItem value="Vm-Usage" label="Vm-Usage">
+
+| Metric Name                             | Unit  |
+|:----------------------------------------|:------|
+| *vm*#vm.average.io.latency.microseconds | µs    |
+| *vm*#vm.cpu.utilization.percentage      | %     |
+| *vm*#vm.memory.usage.bytes              | bytes |
+| *vm*#vm.read.usage.iops                 | iops  |
+| *vm*#vm.traffic.in.bitspersecond        | b/s   |
+| *vm*#vm.traffic.out.bitspersecond       | b/s   |
+| *vm*#vm-power-state                     |       |
+| *vm*#vm.write.usage.iops                | iops  |
 
 </TabItem>
 </Tabs>
 
 ## Prérequis
 
-Afin de superviser votre cluster Nutanix, le SNMP v2 ou v3 doit être configuré comme indiqué sur la documentation officielle du constructeur: https://portal.nutanix.com/page/documents/details?targetId=Web-Console-Guide-Prism-v5_17:wc-system-snmp-wc-t
+### Configuration SNMP
 
-La communication doit être possible sur le port UDP 161 depuis le collecteur Centreon vers le cluster Nutanix.
+Afin de superviser votre **Nutanix** en SNMP,  il est nécessaire de configurer l'agent sur le serveur comme indiqué sur la documentation officielle :
+* LINK
+
+### Flux réseau
+
+La communication doit être possible sur le port UDP 161 depuis le collecteur
+Centreon vers le serveur supervisé.
 
 ## Installation
 
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des ressources Nutanix:
+1. Installez le plugin sur tous les collecteurs Centreon devant superviser des ressources **Nutanix** :
 
 ```bash
 yum install centreon-plugin-Virtualization-Nutanix-Snmp
 ```
 
-2. Installer le Plugin-Pack 'Nutanix' depuis la page "Configuration > Plugin packs > Manager" de l'interface Web Centreon
+2. Sur l'interface Web de Centreon, installez le Plugin Pack **Nutanix** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des ressources Nutanix:
+1. Installez le plugin sur tous les collecteurs Centreon devant superviser des ressources **Nutanix** :
 
 ```bash
 yum install centreon-plugin-Virtualization-Nutanix-Snmp
 ```
 
-2. Installer le RPM du Plugin-Pack contenant les modèles de supervision sur le serveur Centreon **Central**:
+2. Sur le serveur central Centreon, installez le RPM du Plugin Pack **Nutanix** :
 
 ```bash
 yum install centreon-pack-virtualization-nutanix-snmp
 ```
 
-3. Installer le Plugin-Pack 'Nutanix' depuis la page "Configuration > Plugin packs > Manager" de l'interface Web Centreon
+3. Sur l'interface Web de Centreon, installez le Plugin Pack **Nutanix** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>
 
 ## Configuration
 
-Dans le formulaire de création de l'hôte sur l'interface Web de Centreon, il est nécessaire de renseigner les valeurs des champs "Snmp Community" et "Snmp Version". 
+### hôte
 
-> Si vous utilisez SNMP en version 3, selectionnez la version SNMP idoine et configurez les paramètres SNMP v3 via la macro SNMPEXTRAOPTIONS 
+* Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
+* Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre serveur **Nutanix**.
+* Appliquez le Modèle d'hôte **Virt-Nutanix-SNMP-custom**.
 
-| Obligatoire | Nom              | Description                                    |
-| :---------- | :--------------- | :--------------------------------------------- |
-|             | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo    |
+Si vous utilisez SNMP en version 3, vous devez configurer les paramètres
+spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
 
-## FAQ
+| Obligatoire | Macro            | Description                                  |
+|:------------|:-----------------|:---------------------------------------------|
+|             | FILTERNAME       |                                              |
+|             | SNMPEXTRAOPTIONS | Configurer vos paramètres de sécurité SNMPv3 |
 
-### Comment tester en ligne de commande et que signifient les options principales ?
+## Comment puis-je tester le plugin et que signifient les options des commandes ?
 
-A partir du moment où le Plugin est installé, vous pouvez tester celui-ci directement en ligne de commande depuis votre collecteur Centreon avec l'utilisateur *centreon-engine*:
+Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
+de commande depuis votre collecteur Centreon en vous connectant avec
+l'utilisateur **centreon-engine** (`su - centreon-engine`) :
 
 ```bash
 /usr/lib/centreon/plugins//centreon_nutanix_snmp.pl \
     --plugin=cloud::nutanix::snmp::plugin \
-    --mode=cluster-usage \
-    --hostname=10.30.2.15 \
+    --mode=hypervisor-usage \
+    --hostname=10.0.0.1 \
     --snmp-version='2c' \
-    --snmp-community='test/nutanix' \
-    --warning-status=''
-    --critical-status=''
-    --warning-usage=''
-    --critical-usage=''
-    --warning-avg-latency=''
-    --critical-avg-latency=''
-    --warning-iops=''
-    --critical-iops='' 
-
-OK: Cluster 'Nutanix-awesome-cluster' status : started, Usage Total: 14.64 TB Used: 430.39 GB (2.87%) Free: 14.22 TB (97.13%), Average Latency : 953 µs, IOPs : 2 | 'used'=462125867281B;;;0;16102324391545 'avg_latency'=953µs;;;0; 'iops'=2iops;;;0;
+    --snmp-community='my-snmp-community' \
+    --filter-name='' \
+    --warning-vm-count='' \
+    --critical-vm-count='' \
+    --filter-counters='vm-count' \
+    --verbose \
+    --use-new-perfdata
 ```
 
-La commande ci-dessus interroge les métriques de performances d'un cluster Nutanix (```--mode=cluster-usage```). Les informations importantes sont l'adresse IP/FQDN  (```--hostname=10.30.2.15```) et la communauté SNMP configurée sur l'équipement (```--snmp-community='test/nutanix'```) 
+La commande devrait retourner un message de sortie similaire à :
 
-Tous les modes disponibles dans le Plugin peuvent être listés via la commande suivante:
+```bash
+OK: Hypervisor 'abc-123ntx1' VM Count : 2 | 'abc-123ntx1#hypervisor.vm.count'=2;;;0;
+```
+
+La liste de toutes les options complémentaires et leur signification peut être
+affichée en ajoutant le paramètre `--help` à la commande :
+
+```bash
+/usr/lib/centreon/plugins//centreon_nutanix_snmp.pl \
+    --plugin=cloud::nutanix::snmp::plugin \
+    --mode=hypervisor-usage \
+    --help
+```
+
+Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
+`--list-mode` à la commande :
 
 ```bash
 /usr/lib/centreon/plugins//centreon_nutanix_snmp.pl \
@@ -207,19 +246,7 @@ Tous les modes disponibles dans le Plugin peuvent être listés via la commande 
     --list-mode
 ```
 
-Les options des différents modes sont consultables via le paramètre ```--help``` du mode: 
+### Diagnostic des erreurs communes
 
-```bash
-/usr/lib/centreon/plugins//centreon_nutanix_snmp.pl \
-    --plugin=cloud::nutanix::snmp::plugin \
-    --mode=cluster-usage \
-    --help
-```
-
-### UNKNOWN: SNMP GET Request : Timeout
-
-Si vous obtenez ce message, cela signifie que le collecteur Centreon ne parvient pas à contacter votre cluster Nutanix sur le port UDP 161, ou alors que la communauté SNMP configurée n'est pas correcte.
-
-### UNKNOWN: SNMP GET Request : Cant get a single value.
-
-Si vous rencontrez cette erreur, il est probable que les autorisations données à l'agent SNMP soient trop restreintes. Ce dernier doit avoir accès à la branche entreprise Nutanix: .1.3.6.1.4.1.41263
+Rendez-vous sur la [documentation dédiée](../tutorials/troubleshooting-plugins)
+pour le diagnostic des erreurs communes des plugins Centreon.
