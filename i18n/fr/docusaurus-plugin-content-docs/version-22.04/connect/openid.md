@@ -13,9 +13,11 @@ tout autre IdP compatible avec le flux d'autorisation via un code (Authorization
 
 ## Configurer l'authentification OpenID Connect
 
-### Activer l'authentification
+L'authentification se paramètre à la page **Administration > Authentification > OpenId Connect Configuration** :
 
-L'authentification se paramètre à la page **Administration > Authentification > OpenId Connect Configuration**.
+![image](../assets/administration/oidc-configuration.png)
+
+### Activer l'authentification
 
 Activez d'abord l'authentification OpenID Connect:
 - La case **Enable OpenId Connect authentication** permet d'activer ou de désactiver l'authentification OpenId Connect.
@@ -38,8 +40,6 @@ Ensuite, configurez les informations du fournisseur d'identité:
 - **Client Secret** défini le secret client.
 - La case **Use Basic Auth for Token Endpoint Authentication** oblige à utiliser la méthode `Authorization: Basic`.
 - **Disable SSL verify peer** permet de désactiver la validation des pairs SSL, ne doit être utilisé que pour des tests
-
-![image](../assets/administration/openid-connect-configuration.png)
 
 > Selon le fournisseur d'identité, il est nécessaire de saisir plusieurs portées (scope) afin de récupérer la valeur
 > (claim) qui identifiera l'utilisateur. Ceci est indiqué dans la documentation de configuration du fournisseur.

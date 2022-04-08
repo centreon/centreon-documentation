@@ -13,9 +13,11 @@ which are compatible with the Authorization Code Flow.
 
 ## Configure OpenID Connect authentication
 
-### Enable authentication
+Go to the **Administration > Authentication > OpenID Connect Configuration** page:
 
-Go to the **Administration > Authentication > OpenID Connect Configuration** page.
+![image](../assets/administration/oidc-configuration.png)
+
+### Enable authentication
 
 First enable OpenID Connect authentication:
 - **Enable OpenId Connect authentication** allows to enable or disable OpenId Connect authentication.
@@ -38,8 +40,6 @@ Then configure Identity Provider information:
 - **Client Secret** field defines the Client secret.
 - **Use Basic Auth for Token Endpoint Authentication** field forces to use the `Authorization: Basic` method.
 - **Disable SSL verify peer** field allows to disable SSL peer validation, should only be used for tests.
-
-![image](../assets/administration/openid-connect-configuration.png)
 
 > Depending on the identity provider, it is necessary to enter several scopes in order to retrieve the claim which will
 > identify the user. This is indicated in the provider's configuration documentation.
