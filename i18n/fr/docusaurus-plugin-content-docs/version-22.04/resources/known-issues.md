@@ -7,11 +7,108 @@ Voici une liste de problèmes connus et/ou bugs que vous pouvez rencontrer.
 Nous essayons ici de fournir des contournements.
 Nous appliquons des correctifs lorsque cela est nécessaire et améliorons continuellement notre logiciel afin de résoudre les problèmes de prochaines versions.
 
-| Problèmes | contournement s'il existe |
-| --------- | ------------------------- |
-| Sur des plateformes ayant le module BAM et supervisant plusieurs dizaines de milliers de services, après un redémarrage du service `cbd`, il est possible que les données en provenance de la supervision mettent plusieurs dizaines de minutes avant de se rafraîchir dans l'interface. D'après nos observations, cela peut prendre 20 minutes pour une plateforme supervisant 50k services. **Aucune donnée n'est perdue, et la latence se résorbe durablement jusqu'au redémarrage suivant.** | Il n'existe pas de contournement, si ce n'est de désactiver les outputs BAM dans la configuration de broker, ce qui revient à désactiver BAM. Ce problème est rencontré sur toutes les versions majeures actuellement supportées et devrait être corrigé courant janvier 2022. |
-| Vous avez atteint le maximum d'id dans la table centreon_storage.index_data | Exécutez la requête suivante dans MariaDB :<br/> Dans votre base de données temps réel :<br /> `ALTER TABLE index_data MODIFY id bigint unsigned AUTO_INCREMENT;`<br /> `ALTER TABLE metrics MODIFY index_id bigint unsigned;`<br/> Dans votre base de données de configuration :<br /> `ALTER TABLE ods_view_details MODIFY index_id bigint unsigned;`<br /> `ALTER TABLE virtual_metrics MODIFY index_id bigint unsigned;`<br /> Selon la volumétrie de vos métriques, cette opération peut être plus ou moins longue. |
-|Dans MBI, l'onglet **Paramètres du rapport** d'une tâche est vide (**Rapports > Monitoring Business Intelligence > Tâches**)|<ul><li>Allez à l'onglet **Configuration** de la tâche</li><li>Sélectionnez un modèle différent dans la liste **Modèle de rapport**</li><li>Sélectionnez le bon modèle de rapport</li><li>Retournez sur l'onglet **Paramètres du rapport**.</li></ul>|
-|L'Autologin ne fonctionne pas avec certaines pages : <ul><li>Monitoring > Resources Status</li><li>Configuration > Hosts > Discovery</li><li>Configuration > Business Activity > Business Views</li><li>Configuration > Business Activity > Business Activity</li></ul>||
-| Le contenu des pages n'est pas traduit selon la langue de l'utilisateur | Vous devez installer les langues sur votre système d'exploitation avec la commande suivante : <br /> `yum install -y glibc-all-langpacks` <br /> puis redémarrer PHP à l'aide de la commande suivante : <br /> `systemctl restart php-fpm` |
+# Centreon Web
 
+## Vous avez atteint le nombre maximum d'id dans la table `centreon_storage.index_data`
+
+### Contournement
+
+Exécutez les requêtes suivantes dans MariaDB :
+
+Dans votre base de données temps réel :
+```sql
+ALTER TABLE index_data MODIFY id bigint unsigned AUTO_INCREMENT;
+ALTER TABLE metrics MODIFY index_id bigint unsigned;
+```
+
+Dans votre base de données de configuration :
+```sql
+ALTER TABLE ods_view_details MODIFY index_id bigint unsigned;
+ALTER TABLE virtual_metrics MODIFY index_id bigint unsigned;
+```
+
+> :warning: **Selon la volumétrie de vos métriques, cette opération peut être plus ou moins longue.**
+
+
+## L'Autologin ne fonctionne pas avec certaines pages
+
+### Description
+
+L'autologin n'est actuellement pas géré pour les pages suivantes :
+* *Monitoring > Resources Status*
+* *Configuration > Hosts > Discovery*
+* *Configuration > Business Activity > Business Views*
+* *Configuration > Business Activity > Business Activity*
+
+### Contournement
+
+Il n'existe actuellement pas de contournement.
+
+
+## Le contenu des pages n'est pas traduit selon la langue de l'utilisateur
+
+### Contournement
+
+Vous devez installer les langues sur votre système d'exploitation avec la commande suivante :
+```shell
+yum install -y glibc-all-langpacks
+```
+
+Puis redémarrer PHP à l'aide de la commande suivante :
+```shell
+systemctl restart php-fpm
+```
+
+
+# Centreon MBI
+
+## L'onglet **Paramètres du rapport** d'une tâche est vide (**Rapports > Monitoring Business Intelligence > Tâches**)
+
+### Contournement
+
+* Allez à l'onglet **Configuration** de la tâche
+* Sélectionnez un modèle différent dans la liste **Modèle de rapport**
+* Sélectionnez le bon modèle de rapport
+* Retournez sur l'onglet **Paramètres du rapport**
+
+
+## Vous avez atteint le nombre maximum d'id pour les colonnes `servicemetric_id`
+
+### Description
+
+Si vous possédez une très large infrastructure, il est possible que la taille limite de la colonne `servicemetric_id` soit atteinte.
+
+# Contournement
+
+* Connectez vous sur le serveur de reporting
+* Désactivez la tâche planifiée dans `/etc/cron.d/centreon-bi-engine` :
+
+    ```shell
+    #30 4 * * * root /usr/share/centreon-bi//bin/centreonBIETL -d >> /var/log/centreon-bi//centreonBIETL.log 2>&1
+    ```
+
+* Exécutez les requêtes suivantes dans la base de données `centreon_storage` :
+
+    ```sql
+    ALTER TABLE mod_bi_metricdailyvalue MODIFY servicemetric_id BIGINT(20) UNSIGNED NOT NULL;
+    ALTER TABLE mod_bi_metrichourlyvalue MODIFY servicemetric_id BIGINT(20) UNSIGNED NOT NULL;
+    ALTER TABLE mod_bi_metricmonthcapacity MODIFY servicemetric_id BIGINT(20) UNSIGNED NOT NULL;
+    ALTER TABLE mod_bi_metriccentiledailyvalue MODIFY servicemetric_id BIGINT(20) UNSIGNED NOT NULL;
+    ALTER TABLE mod_bi_metriccentilemonthlyvalue MODIFY servicemetric_id BIGINT(20) UNSIGNED NOT NULL;
+    ALTER TABLE mod_bi_metriccentileweeklyvalue MODIFY servicemetric_id BIGINT(20) UNSIGNED NOT NULL;
+    ALTER TABLE mod_bi_servicemetrics MODIFY id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+    ```
+
+* Activez la tâche planifiée dans `/etc/cron.d/centreon-bi-engine` :
+
+    ```shell
+    30 4 * * * root /usr/share/centreon-bi//bin/centreonBIETL -d >> /var/log/centreon-bi//centreonBIETL.log 2>&1
+    ```
+
+* Si l'opération est intervenu pendant le lancement habituel de la tâche planifiée, exécutez la commande suivante en indiquant les bonnes dates de début et de fin :
+
+    ```shell
+    /usr/share/centreon-bi/bin/centreonBIETL -rIEDP -s YYYY-MM-DD -e YYYY-MM-DD
+    ```
+
+> :warning: **Selon la volumétrie des données, cette opération peut être plus ou moins longue.**
