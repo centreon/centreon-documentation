@@ -29,7 +29,7 @@ Read-Only access.
 ### Troubleshooting
 
 Read [Troubleshooting
-SNM](../getting-started/how-to-guides/troubleshooting-plugins.md/#troubleshooting-snmp).
+SNM](../getting-started/how-to-guides/troubleshooting-plugins.md#troubleshooting-snmp).
 
 ## Centreon Configuration
 

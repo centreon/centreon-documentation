@@ -132,4 +132,4 @@ en ajoutant le paramètre ```--help``` à la commande:
 
 ## Diagnostique
 
-[Diagnostique des plugins](../getting-started/how-to-guides/troubleshooting-plugins.md/#troubleshooting-snmp)
+[Diagnostique des plugins](../getting-started/how-to-guides/troubleshooting-plugins.md#troubleshooting-snmp)

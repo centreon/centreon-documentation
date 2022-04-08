@@ -18,7 +18,7 @@ yum install centreon-plugin-Network-Switchs-Aruba-Standard-Snmp
 Follow constructor procedure to enable and configure SNMP on the equipment.
 
 Read *[this
-guide](../getting-started/how-to-guides/troubleshooting-plugins.md/#troubleshooting-snmp)*
+guide](../getting-started/how-to-guides/troubleshooting-plugins.md#troubleshooting-snmp)*
 to troubleshoot SNMP problems.
 
 ## Centreon Configuration
