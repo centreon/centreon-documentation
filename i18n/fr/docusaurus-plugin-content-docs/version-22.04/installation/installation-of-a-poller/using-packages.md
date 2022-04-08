@@ -155,14 +155,14 @@ Pour installer le moteur de supervision, exécutez la commande :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y centreon-poller-centreon-engine
+dnf install -y centreon-poller
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install -y centreon-poller-centreon-engine
+yum install -y centreon-poller
 ```
 
 </TabItem>

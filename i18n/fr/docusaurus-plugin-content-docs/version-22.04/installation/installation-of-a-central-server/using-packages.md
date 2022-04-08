@@ -209,7 +209,7 @@ serveur, ou déportée sur un serveur dédié.
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y centreon centreon-database
+dnf install -y centreon
 systemctl daemon-reload
 systemctl restart mariadb
 ```
@@ -218,7 +218,7 @@ systemctl restart mariadb
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install -y centreon centreon-database
+yum install -y centreon
 systemctl daemon-reload
 systemctl restart mariadb
 ```
@@ -238,14 +238,14 @@ Exécutez la commande suivante sur le serveur Centreon Central :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y centreon
+dnf install -y centreon-central
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install -y centreon
+yum install -y centreon-central
 ```
 
 </TabItem>
