@@ -165,14 +165,14 @@ To install the monitoring engine, run the command:
 <TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
 
 ```shell
-dnf install -y centreon-poller-centreon-engine
+dnf install -y centreon-poller
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install -y centreon-poller-centreon-engine
+yum install -y centreon-poller
 ```
 
 </TabItem>
