@@ -81,6 +81,8 @@ If you have a very large infrastructureSi vous possédez une très large infrast
 
 # Workaround
 
+> :warning: **Depending on your data volume, this operation could be more or less longer.**
+
 * Connect in the reporting server
 * Disable cron job in `/etc/cron.d/centreon-bi-engine`:
 
@@ -111,5 +113,3 @@ If you have a very large infrastructureSi vous possédez une très large infrast
     ```shell
     /usr/share/centreon-bi/bin/centreonBIETL -rIEDP -s YYYY-MM-DD -e YYYY-MM-DD
     ```
-
-> :warning: **Depending on your data volume, this operation could be more or less longer.**
