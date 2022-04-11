@@ -80,6 +80,8 @@ Si vous possédez une très large infrastructure, il est possible que la taille 
 
 # Contournement
 
+> :warning: **Selon la volumétrie des données, cette opération peut être plus ou moins longue.**
+
 * Connectez vous sur le serveur de reporting
 * Désactivez la tâche planifiée dans `/etc/cron.d/centreon-bi-engine` :
 
@@ -110,5 +112,3 @@ Si vous possédez une très large infrastructure, il est possible que la taille 
     ```shell
     /usr/share/centreon-bi/bin/centreonBIETL -rIEDP -s YYYY-MM-DD -e YYYY-MM-DD
     ```
-
-> :warning: **Selon la volumétrie des données, cette opération peut être plus ou moins longue.**
