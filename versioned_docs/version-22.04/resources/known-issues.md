@@ -73,11 +73,11 @@ systemctl restart php-fpm
 * Go back to the **Report Parameters** tab
 
 
-## Vous avez atteint le nombre maximum d'id pour les colonnes `servicemetric_id`
+## You have reached the maximum of id for `servicemetric_id` columns
 
 ### Description
 
-If you have a very large infrastructureSi vous possédez une très large infrastructure, it is possible that the `servicemetric_id` column size has been reached.
+If you have a very large infrastructure, it is possible that the `servicemetric_id` column size has been reached.
 
 # Workaround
 
