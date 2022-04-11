@@ -8,10 +8,6 @@ import TabItem from '@theme/TabItem';
 
 ## 2022
 
-### April 
-
-Stay tuned!
-
 ### February
 
 <Tabs groupId="sync">
