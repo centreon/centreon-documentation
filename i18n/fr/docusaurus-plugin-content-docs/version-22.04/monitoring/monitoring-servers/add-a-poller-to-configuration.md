@@ -80,7 +80,7 @@ recommandé) ou en utilisant le protocole SSH.
 2. Afficher la configuration de Gorgone :
 
     Depuis la liste des collecteurs, cliquez sur l'icône d'action **Gorgone
-    configuration** sur la ligne correspondant à votre collecteur : <img src={require('../../assets/monitoring/monitoring-servers/gorgone-configuration.png').default} style={{width:'32px', marginBottom:'-6px'}} />
+    configuration** sur la ligne correspondant à votre collecteur : ![image](../../assets/monitoring/monitoring-servers/gorgone-configuration.png#thumbnail2)
 
     Une pop-in affiche la configuration à copier dans le **terminal du collecteur**.
     Cliquez sur **Copy to clipboard**.
