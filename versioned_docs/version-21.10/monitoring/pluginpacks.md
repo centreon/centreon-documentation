@@ -21,7 +21,7 @@ fine-tuned later on).
   Some packs also contain [discovery rules](discovery/introduction.md).
 
 To get an up-to-date list of all Plugin Packs with their respective monitoring
-procedure, please refer to the section on [Plugin Packs](/pp/integrations/plugin-packs/introduction).
+procedure, please refer to the section on [Plugin Packs](/pp/integrations/plugin-packs/getting-started/introduction).
 
 ## Prerequisites
 

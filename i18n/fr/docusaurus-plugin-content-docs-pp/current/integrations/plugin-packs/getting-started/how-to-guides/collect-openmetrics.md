@@ -225,7 +225,7 @@ Nous allons configurer l'hôte Prometheus en définissant les paramètres suivan
 | OPENMETRICSPROTO   | http                                  |
 | OPENMETRICSURLPATH | /metrics                              |
 
-![image](../../../assets/integrations/plugin-packs/tutorials/openmetrics_prometheus_01_configuration_host.png)
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/openmetrics_prometheus_01_configuration_host.png)
 
 Nous pouvons maintenant éditer le service "Scrape-Metrics" qui a été créé
 automatiquement en utilisant le template "App-Monitoring-Openmetrics-Web-custom"
@@ -242,9 +242,9 @@ pour configurer les macros comme dans l'exemple en CLI :
 | FILTERSUBINTACE | 200                               |
 | EXTRAOPTIONS    | \--verbose                        |
 
-![image](../../../assets/integrations/plugin-packs/tutorials/openmetrics_prometheus_01_configuration_service.png)
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/openmetrics_prometheus_01_configuration_service.png)
 
 Et nous renommons le service en "Query-Api-Number". Ce service pourra être
 dupliqué et modifié pour obtenir d'autres métriques prometheus.
 
-![image](../../../assets/integrations/plugin-packs/tutorials/openmetrics_prometheus_01_monitoring.png)
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/openmetrics_prometheus_01_monitoring.png)
