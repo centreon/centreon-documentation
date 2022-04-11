@@ -49,7 +49,7 @@ Stay tuned!
 ### Janvier
 
 <Tabs groupId="sync">
-<TabItem value="New" label="New connectors">
+<TabItem value="New connectors" label="New connectors">
 
 - (new) (lchrdn) (pack) cloud::azure::compute::vmscalesets - initial release #1011
 - (new) (garnier-quentin) (pack) virtualization-hpe-simplivity-restapi - initial release #1007
@@ -84,7 +84,7 @@ Stay tuned!
 - (fix) (itoussies) (pack) applications-awa-jmx - fixing the filtername macro #997
 
 </TabItem>
-<TabItem value="Breaking" label="Breaking changes">
+<TabItem value="Breaking changes" label="Breaking changes">
 
 - (enhancement,breaking change) (garnier-quentin) (pack) cloud::microsoft::office365::management - use new microsoft api #1008
 - (enhancement,breaking change) (Sims24) (pack) cloud-azure-sqlserver/cloud-azure-sqldatabase - rewrite and extend #1004
