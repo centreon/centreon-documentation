@@ -6,7 +6,7 @@ title: Statuts possibles d'une ressource
 Les statuts indiquent la disponibilité d'un hôte, et la disponibilité ou la performance d'un service. Chaque
 statut a une signification bien précise pour la ressource.
 * Les statuts et états d'une ressource sont affichés à la page 
-[Statut des ressources](resources-status). Vous pouvez filtrer cette page en fonction des statuts et de certains états.
+[Statut des ressources](resources-status.md). Vous pouvez filtrer cette page en fonction des statuts et de certains états.
 * Certains statuts sont déterminés par des seuils définis par l'utilisateur. 
 <!--* À chaque statut correspond un code généré par la sonde de supervision.-->
 
@@ -18,7 +18,7 @@ Le tableau ci-dessous résume l'ensemble des statuts possibles pour un hôte.
 |------------------------------------------------------|------------------------------------|
 | <span style={{color:'#88b917'}}>DISPONIBLE</span>    | L'hôte est disponible et joignable |
 | <span style={{color:'#e00b3d'}}>INDISPONIBLE</span>  | L'hôte est indisponible            |
-| <span style={{color:'#818185'}}>INJOIGNABLE</span>   | L'hôte est injoignable : il [dépend](notif-dependencies) d'un hôte dont le statut est **INDISPONIBLE** |
+| <span style={{color:'#818185'}}>INJOIGNABLE</span>   | L'hôte est injoignable : il [dépend](notif-dependencies.md) d'un hôte dont le statut est **INDISPONIBLE** |
 | <span style={{color:'#2ad1d4'}}>EN ATTENTE</span>    | L'hôte vient d'être créé mais n'a pas encore été contrôlé par le moteur de supervision |
 
 ## Statut des services
@@ -37,10 +37,11 @@ Le tableau ci-dessous résume l'ensemble des statuts possibles pour un service.
 
 En plus de leur statut, les ressources peuvent avoir différents états :
 
-- <span style={{color:'#ae9500'}}>Acquitté</span> : indique que l'incident sur le service ou l'hôte est pris en
-    compte par un utilisateur. (Voir [Acquitter un problème](acknowledge).)
-- <span style={{color:'#cc99ff'}}>En maintenance</span> : indique que les notifications sont temporairement suspendues pour cette ressource. Une [plage de maintenance](downtimes) peut être [planifiée à l'avance](downtimes#les-temps-darrêt-récurrents) pour éviter de recevoir des alertes pendant une opération de maintenance. Elle peut également être définie suite à un incident.
-- [Flapping](notif-flapping) (bagotement) : le pourcentage de
+- [Acquitté](acknowledge.md) : indique que l'incident sur le service ou l'hôte est pris en
+    compte par un utilisateur. Les ressources acquittées ont un fond jaune.
+- [En maintenance](downtimes.md) : indique que les notifications sont temporairement suspendues pour cette ressource. Une plage de maintenance peut être [planifiée à l'avance](downtimes.md#les-temps-darrêt-récurrents) pour éviter de recevoir des alertes pendant une opération de maintenance. Elle peut également être définie suite à un incident. Les ressources en maintenance ont un fond violet.
+
+- [Flapping](notif-flapping.md) (bagotement) : le pourcentage de
 changement de statut de la ressource est très élevé. Ce pourcentage est
 obtenu à partir de calculs effectués par le moteur de supervision. Les ressources dans un état de bagotement affichent l'icône suivante dans leur panneau **Détails** :
     ![image](../assets/alerts/flapping_icon.png)
@@ -55,7 +56,7 @@ Le statut d'une ressource peut avoir deux types :
     statut est confirmé, le processus de notification est enclenché
     (envoi d'un mail, SMS, …).
 
-Vous pouvez filtrer la page [Resources Status](resources-status) suivant le type de statut.
+Vous pouvez filtrer la page [Resources Status](resources-status.md) suivant le type de statut.
 
 ### Explication
 

@@ -10,7 +10,7 @@ This chapter describes how to upgrade your Centreon platform from version 21.04
 to version 21.10.
 
 > If you want to migrate your Centreon server to CentOS / Oracle Linux / RHEL 8
-> you need to follow the [migration procedure](../migrate/migrate-from-20-x)
+> you need to follow the [migration procedure](../migrate/migrate-from-20-x.md)
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@ servers:
 
 ### Update the RPM signing key
 
-For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation#existing-installation), to remove the old key and install the new one.
+For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation.md#existing-installation), to remove the old key and install the new one.
 
 ### Update to the latest minor version
 
@@ -232,7 +232,7 @@ page:
 ![image](../assets/upgrade/web_update_5.png)
 
 If the Centreon BAM module is installed, refer to the
-[upgrade procedure](../service-mapping/upgrade).
+[upgrade procedure](../service-mapping/upgrade.md).
 
 ### Post-upgrade actions
 
@@ -245,7 +245,7 @@ with the following:
 
     Then you can upgrade all other commercial extensions.
 
-2. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration).
+2. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
 
 3. Restart the processes:
     ```

@@ -9,11 +9,11 @@ const basePathImg = '/fr/img/homepage/';
 const links = {
   doc: {
     api: '/fr/docs/api/introduction',
-    gettingstarted: '/fr/docs/getting-started/installation-first-steps',
-    pluginpacks: '/fr/docs/integrations/plugin-packs/introduction',
-    prerequisite: '/fr/docs/installation/prerequisites',
-    installation: '/fr/docs/installation/introduction',
-    monitoring: '/fr/docs/integrations/plugin-packs/introduction',
+    gettingstarted: '/fr/docs/getting-started/installation-first-steps/',
+    pluginpacks: '/fr/pp/integrations/plugin-packs/introduction/',
+    prerequisite: '/fr/docs/installation/prerequisites/',
+    installation: '/fr/docs/installation/introduction/',
+    monitoring: '/fr/pp/integrations/plugin-packs/introduction/',
   },
   github: 'https://github.com/centreon/centreon/',
   slack: 'https://centreon.github.io/register-slack/',

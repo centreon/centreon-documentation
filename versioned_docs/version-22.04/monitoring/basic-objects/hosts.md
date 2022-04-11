@@ -6,7 +6,7 @@ title: Creating hosts manually
 To create a host manually:
 1. Go to **Configuration \> Hosts \> Hosts** and then click **Add**.
 2. Fill in the fields (see [below](#host-configuration-tab)), then click on **Save**.
-3. [Deploy the configuration](../monitoring-servers/deploying-a-configuration).
+3. [Deploy the configuration](../monitoring-servers/deploying-a-configuration.md).
 
 ## Host configuration tab
 
@@ -26,12 +26,12 @@ To create a host manually:
 In case of conflicts of settings present on multiple templates, the host template above overwrites the identical properties
 defined in host templates below.
 
-This button enables us to change the order of host templates <img src={require('../../assets/configuration/common/move.png').default} style={{width:'32px', marginBottom:'-6px'}} />
-This button serves to delete the host template <img src={require('../../assets/configuration/common/delete.png').default} style={{width:'32px', marginBottom:'-6px'}} />
+This button enables us to change the order of host templates ![image](../../assets/configuration/common/move.png#thumbnail1)
+This button serves to delete the host template ![image](../../assets/configuration/common/delete.png#thumbnail1)
 
 * If the **Create Services linked to the Template too** field is defined as **Yes**, Centreon automatically generates
   the services based their self on the service templates linked to the host templates defined above
-  (see the *[templates chapter](../templates#definition)*).
+  (see the *[templates chapter](../templates.md#definition)*).
 
 ### Host check options
 
@@ -43,13 +43,12 @@ The Macros part serves to add custom macros.
 * The **Macro name** and **Macro value** field enable us to define the name and value of the macro.
 * The **Password** box enables the value of the macro to be hidden.
 
-To reinitialize to the default value (defined in template) click on <img src={require('../../assets/configuration/common/undo.png').default} style={{width:'32px', marginBottom:'-6px'}} />
+To reinitialize to the default value (defined in template) click on ![image](../../assets/configuration/common/undo.png#thumbnail1)
+To view the description of the macro, click on ![image](../../assets/configuration/common/description.png#thumbnail1)
 
-To view the description of the macro, click on <img src={require('../../assets/configuration/common/description.png').default} style={{width:'32px', marginBottom:'-6px'}} />
+To delete the macro, click on ![image](../../assets/configuration/common/delete.png#thumbnail1)
 
-To delete the macro, click on <img src={require('../../assets/configuration/common/delete.png').default} style={{width:'32px', marginBottom:'-6px'}} />
-
-To change the order of the macros, click on <img src={require('../../assets/configuration/common/move.png').default} style={{width:'32px', marginBottom:'-6px'}} />
+To change the order of the macros, click on ![image](../../assets/configuration/common/move.png#thumbnail1)
 
 ### Scheduling options
 
@@ -122,7 +121,7 @@ The fields presented below are obsolete:
 ### Access groups
 
 * The **ACL Resource Groups** (only displayed for non administrator) allows to link this host to an hostgroup in order
-  to visualize it (see *[Access Control Lists](../../administration/access-control-lists)* chapter).
+  to visualize it (see *[Access Control Lists](../../administration/access-control-lists.md)* chapter).
 
 ### Additional Information
 

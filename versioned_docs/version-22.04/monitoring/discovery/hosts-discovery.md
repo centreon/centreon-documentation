@@ -3,16 +3,16 @@ id: hosts-discovery
 title: Discovering hosts automatically
 ---
 
-See also our tutorial on [how to detect AWS EC2 instances](../../getting-started/autodisco-aws).
+See also our tutorial on [how to detect AWS EC2 instances](../../getting-started/autodisco-aws.md).
 
 ## Create a discovery job
 
-1. [Install](installation) the Auto Discovery module.
+1. [Install](installation.md) the Auto Discovery module.
 
 2. Install the Plugin Pack for the resources you want to discover.
     > The discovery providers are included in Plugin Packs (Azure,
     > Amazon AWS, VMware, etc.). To know the complete list, please go to
-    > the [Plugin Packs](../../integrations/plugin-packs/introduction)
+    > the [Plugin Packs](/pp/integrations/plugin-packs/introduction)
     > catalog.
 
 3. Create a discovery job for each type of resource you want to discover: go to **Configuration > Hosts > Discovery** and click on **+ADD**. A wizard opens.
@@ -148,12 +148,12 @@ Several actions can be done on jobs:
 
 ## Analyze the results of a discovery job
 
-1. On the **Configuration > Hosts > Discovery** page, click on the arrow <img src={require('../../assets/monitoring/discovery/host-discovery-goto-results.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+1. On the **Configuration > Hosts > Discovery** page, click on the arrow ![image](../../assets/monitoring/discovery/host-discovery-goto-results.png#thumbnail1)
 next to the status of a **Finished** job to visualize the results.
 
   ![image](../../assets/monitoring/discovery/host-discovery-hosts-listing.png)
 
-2. If you want, you can edit the mappers linked to this job by clicking the **Edit** icon: <img src={require('../../assets/monitoring/discovery/host-discovery-edit.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+2. If you want, you can edit the mappers linked to this job by clicking the **Edit** icon: ![image](../../assets/monitoring/discovery/host-discovery-edit.png#thumbnail1)
 
     The results will be updated automatically.
     
@@ -163,7 +163,7 @@ next to the status of a **Finished** job to visualize the results.
     account for hosts that have already been created.
 
 3. If your job was set to **Manual analysis** at step 5 of the wizard, select the hosts you want to add to the configuration and click on the **Save**
-button: <img src={require('../../assets/monitoring/discovery/host-discovery-hosts-save.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+button: ![image](../../assets/monitoring/discovery/host-discovery-hosts-save.png#thumbnail1)
 
   The hosts are created as well as the services linked to their host templates.
 
@@ -174,7 +174,7 @@ button: <img src={require('../../assets/monitoring/discovery/host-discovery-host
   If the hosts you selected are not visible in the configuration, go back to the
 list of jobs and see if an error occured during the saving task.
 
-5. [Deploy](../monitoring-servers/deploying-a-configuration) the configuration. The new hosts are now monitored.
+5. [Deploy](../monitoring-servers/deploying-a-configuration.md) the configuration. The new hosts are now monitored.
 
 ## Edit a discovery job
 
@@ -187,7 +187,7 @@ list of jobs and see if an error occured during the saving task.
     Warning: editing mappers after a discovery job has been executed only makes sense if
     the hosts have not yet been added to your monitoring configuration (either manually or automatically). Changes made to mappers in the discovery task are not taken into account for hosts that have already been created.
 
-3. Click on the **Save** icon at the top right of the panel: <img src={require('../../assets/monitoring/discovery/host-discovery-save.png').default} style={{width:'48px', marginBottom:'-6px'}} />
+3. Click on the **Save** icon at the top right of the panel: ![image](../../assets/monitoring/discovery/host-discovery-save.png#thumbnail2)
 
 ## How to use mappers
 
@@ -243,7 +243,7 @@ field.
 ### Edit a mapper
 
 1. In the job wizard at step four, or on the edition panel in the **Mappers**
-section, click on the **Edit** icon: <img src={require('../../assets/monitoring/discovery/host-discovery-edit.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+section, click on the **Edit** icon: ![image](../../assets/monitoring/discovery/host-discovery-edit.png#thumbnail1)
 
 2. Edit the fields you want, or even the type of mapper.
 
@@ -252,7 +252,7 @@ section, click on the **Edit** icon: <img src={require('../../assets/monitoring/
 ### Delete a mapper
 
 1. In the job wizard at step four, or on the edition panel in the **Mappers**
-section, click on the **Delete** icon: <img src={require('../../assets/monitoring/discovery/host-discovery-delete.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+section, click on the **Delete** icon: ![image](../../assets/monitoring/discovery/host-discovery-delete.png#thumbnail1)
 
   A popin window will ask you to confirm the action.
 

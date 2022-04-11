@@ -92,7 +92,7 @@ Pollers > Pollers`) and the authentication will be complete.
 
 You must edit the Centreontrapd configuration file to be able to use the local
 SQLite database. Refer to the chapter
-[Passive Monitoring](../passive-monitoring/enable-snmp-traps).
+[Passive Monitoring](../passive-monitoring/enable-snmp-traps.md).
 
 ### Remote Server
 
@@ -170,7 +170,12 @@ Main options:
   - Retention path  
     When an output is in an error state, a failover is launched. Failovers save
     data in files called *retention files*. These in turn are saved in the
-    directory specified here. The best practice is */var/lib/centreon-broker/*.
+    directory specified here. The best practice is **/var/lib/centreon-broker/**.
+    For security reasons, you can use these directories:
+
+      - **/var/lib/centreon-broker/**
+      - **/var/lib/centreon-engine/**
+      - **/var/cache/centreon/**
 
   - Status  
     Used to enable or disable the instance.
@@ -208,7 +213,7 @@ Log options:
     
   - bbdo
     Log level for `bbdo` log messages.
-    Useful to troubleshoot [broker binary data objects](../../developer/developer-broker-bbdo) issues.
+    Useful to troubleshoot [broker binary data objects](../../developer/developer-broker-bbdo.md) issues.
     
   - tcp
     Log level for `tcp` log messages.
@@ -220,11 +225,11 @@ Log options:
     
   - lua
     Log level for `lua` log messages.
-    Useful to troubleshoot [Lua Stream Connectors](../../developer/developer-broker-stream-connector) issues.
+    Useful to troubleshoot [Lua Stream Connectors](../../developer/developer-broker-stream-connector.md) issues.
     
   - bam
     Log level for `bam` log messages.
-    Useful to troubleshoot [Business Activity Monitoring](../../service-mapping/introduction) issues.
+    Useful to troubleshoot [Business Activity Monitoring](../../service-mapping/introduction.md) issues.
 
   - Write timestamp (applies to the [deprecated loggger options](#broker-logger-configuration-page-deprecated))
     If activated, each log entry is preceded by the timestamp of the time it was

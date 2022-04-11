@@ -3,17 +3,17 @@ id: hosts-discovery
 title: Découvrir des hôtes automatiquement
 ---
 
-Voir aussi [notre tutoriel sur la détection d'instances AWS EC2](../../getting-started/autodisco-aws).
+Voir aussi [notre tutoriel sur la détection d'instances AWS EC2](../../getting-started/autodisco-aws.md).
 
 ## Créer une tâche de découverte
 
-1. [Installez](installation) le module Auto Discovery.
+1. [Installez](installation.md) le module Auto Discovery.
 
-2. Installez le [Plugin Pack](../pluginpacks) correspondant aux ressources que vous voulez découvrir.
+2. Installez le [Plugin Pack](../pluginpacks.md) correspondant aux ressources que vous voulez découvrir.
     > Les fournisseurs de découverte sont amenés par l'installation de Plugin Packs
     > (Azure, Amazon AWS, VMware, etc). Pour connaître la liste complète, consultez
     > le [catalogue des Plugin
-    > Packs](../../integrations/plugin-packs/introduction).
+    > Packs](/pp/integrations/plugin-packs/introduction).
 
 3. Créez une tâche de découverte pour chaque type de ressources que vous souhaitez découvrir : à la page **Configuration > Hôtes > Découverte**, cliquez sur **+AJOUTER**. 
 Un assistant s'ouvre.
@@ -179,7 +179,7 @@ sur le bouton d'enregistrement : <img src={require('../../assets/monitoring/disc
 liste, retournez à la liste des tâches et regardez si une erreur est
 survenue pendant la tâche d'enregistrement.
 
-5. [Déployez](../monitoring-servers/deploying-a-configuration) la configuration. Les nouveaux hôtes sont maintenant supervisés.
+5. [Déployez](../monitoring-servers/deploying-a-configuration.md) la configuration. Les nouveaux hôtes sont maintenant supervisés.
 
 ## Éditer une tâche de découverte
 

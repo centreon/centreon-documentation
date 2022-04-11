@@ -179,13 +179,13 @@ The host machine must have the following characteristics:
 
 7. Log in using the following credentials: Login: `admin`, password: `centreon`. By default, your server has a predefined configuration to monitor the Centreon server itself.
 
-8. According to your Centreon edition, you may have to [add a license](../../administration/licenses).
+8. According to your Centreon edition, you may have to [add a license](../../administration/licenses.md).
 
-9. [Update](../../update/update-centreon-platform) your Centreon platform.
+9. [Update](../../update/update-centreon-platform.md) your Centreon platform.
 
-9. [Secure your Centreon platform](../../administration/secure-platform). We recommend that you change the passwords for the root and admin accounts, and that you define a password for the MariaDB database.
+9. [Secure your Centreon platform](../../administration/secure-platform.md). We recommend that you change the passwords for the root and admin accounts, and that you define a password for the MariaDB database.
 
-10. You can now [monitor your first host](../../getting-started/first-supervision).
+10. You can now [monitor your first host](../../getting-started/first-supervision.md).
 
 
 ## Default credentials

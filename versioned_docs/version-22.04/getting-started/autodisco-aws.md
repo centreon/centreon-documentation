@@ -3,7 +3,7 @@ id: autodisco-aws
 title: Discover resources automatically
 ---
 
-In this tutorial, we will use the [Auto Discovery module](../monitoring/discovery/hosts-discovery) to detect AWS EC2 instances and monitor them.
+In this tutorial, we will use the [Auto Discovery module](../monitoring/discovery/hosts-discovery.md) to detect AWS EC2 instances and monitor them.
 
 ## Prerequisites
 
@@ -13,9 +13,9 @@ You must have:
 
 ## Step 1: Installing the Amazon EC2 plugin
 
-1. Make sure your commercial [license](../administration/licenses) or your free [IT-100](IT100) license is installed.
+1. Make sure your commercial [license](../administration/licenses.md) or your free [IT-100](it100.md) license is installed.
 
-2. [Install](../monitoring/discovery/installation) the autodiscovery module.
+2. [Install](../monitoring/discovery/installation.md) the autodiscovery module.
 
 3. Make the Plugin Packs available:
 
@@ -33,7 +33,7 @@ You must have:
 
 6. Click on the `+` sign in the top right corner of the Plugin Pack. The Plugin Pack now has a green border and a tick mark in the top right corner: configuration templates and discovery providers are now installed.
 
-7. Follow [this procedure](../integrations/plugin-packs/procedures/cloud-aws-ec2) (sections [Plugin dependencies](../integrations/plugin-packs/procedures/cloud-aws-ec2#plugin-dependencies) and [Setup](../integrations/plugin-packs/procedures/cloud-aws-ec2#setup)) to finish installing the Plugin Pack. (You can also access the documentation for a Plugin Pack by clicking on the `i`.)
+7. Follow [this procedure](/pp/integrations/plugin-packs/procedures/cloud-aws-ec2) (sections [Plugin dependencies](/pp/integrations/plugin-packs/procedures/cloud-aws-ec2#plugin-dependencies) and [Setup](/pp/integrations/plugin-packs/procedures/cloud-aws-ec2#setup)) to finish installing the Plugin Pack. (You can also access the documentation for a Plugin Pack by clicking on the `i`.)
 
     ![image](../assets/getting-started/aws-doc.png)
 
@@ -51,7 +51,7 @@ You must have:
 
 5. Enter the region your EC2 instances are in (for example, **eu-north-1**). Click **Next**.
 
-6. Edit or add [mappers](../monitoring/discovery/hosts-discovery#how-to-use-mappers):
+6. Edit or add [mappers](../monitoring/discovery/hosts-discovery.md#how-to-use-mappers):
     - Map `host.name` to the `discovery.results.name` attribute. The names of your hosts in Centreon will be the ones defined in this attribute (i.e. the hostname of the instance).
     - In our example, we will exclude the instances whose hostname contains "test".
 
@@ -79,5 +79,5 @@ You must have:
 
 4. Go to **Configuration > Hosts > Hosts** and check that the hosts you selected at the previous step appear in the list. The hosts are added to the lists of hosts but they are not monitored yet.
 
-5. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration). The hosts appear in the **Resources Status** page: they are monitored.
+5. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md). The hosts appear in the **Resources Status** page: they are monitored.
 

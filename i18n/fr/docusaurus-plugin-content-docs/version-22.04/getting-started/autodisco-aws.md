@@ -3,7 +3,7 @@ id: autodisco-aws
 title: Découvrir des ressources automatiquement
 ---
 
-Dans ce tutoriel, nous allons utiliser le module [Auto Discovery](../monitoring/discovery/hosts-discovery) pour détecter des instances AWS EC2 et les mettre en supervision.
+Dans ce tutoriel, nous allons utiliser le module [Auto Discovery](../monitoring/discovery/hosts-discovery.md) pour détecter des instances AWS EC2 et les mettre en supervision.
 
 ## Prérequis
 
@@ -13,9 +13,9 @@ Vous devez disposer :
 
 ## Étape 1 : Installer le plugin Amazon EC2
 
-1. Assurez-vous que votre [licence](../administration/licenses) commerciale ou votre licence gratuite [IT-100](IT100) est installée.
+1. Assurez-vous que votre [licence](../administration/licenses.md) commerciale ou votre licence gratuite [IT-100](it100.md) est installée.
 
-2. [Installez](../monitoring/discovery/installation) le module d'autodécouverte.
+2. [Installez](../monitoring/discovery/installation.md) le module d'autodécouverte.
 
 3. Rendez les Plugin Packs disponibles :
 
@@ -33,9 +33,9 @@ Vous devez disposer :
 
 6. Cliquez sur le `+` dans le coin supérieur droit du Plugin Pack. Le Plugin Pack a maintenant une bordure verte et une coche dans le coin supérieur droit : les modèles de configuration et les fournisseurs de découverte sont maintenant installés.
 
-7. Suivez [cette procédure](../integrations/plugin-packs/procedures/cloud-aws-ec2)
- (sections [Plugin dependencies](../integrations/plugin-packs/procedures/cloud-aws-ec2#plugin-dependencies) et 
-[Setup](../integrations/plugin-packs/procedures/cloud-aws-ec2#setup)) pour finir d'installer le Plugin Pack. (Vous pouvez également accéder à la documentation d'un Plugin Pack en cliquant sur le `i`.)
+7. Suivez [cette procédure](/pp/integrations/plugin-packs/procedures/cloud-aws-ec2)
+ (sections [Plugin dependencies](/pp/integrations/plugin-packs/procedures/cloud-aws-ec2#plugin-dependencies) et 
+[Setup](/pp/integrations/plugin-packs/procedures/cloud-aws-ec2#setup)) pour finir d'installer le Plugin Pack. (Vous pouvez également accéder à la documentation d'un Plugin Pack en cliquant sur le `i`.)
 
   ![image](../assets/getting-started/aws-doc.png)
 
@@ -54,7 +54,7 @@ puis cliquez sur **Confirmer**. Cliquez sur **Suivant**.
 
 5. Entrez la région où se situent vos instances EC2 (par exemple, **eu-north-1**). Cliquez sur **Suivant**.
 
-6. Éditez ou ajoutez des [modificateurs](../monitoring/discovery/hosts-discovery#comment-utiliser-les-modificateurs) :
+6. Éditez ou ajoutez des [modificateurs](../monitoring/discovery/hosts-discovery.md#comment-utiliser-les-modificateurs) :
     - Faites correspondre `host.name` à l'attribut `discovery.results.name`. Les noms de vos hôtes dans Centreon seront ceux définis dans cet attribut (c'est-à-dire le hostname de l'instance).
     - Dans notre exemple, nous allons exclure les instances dont le hostname contient "test".
 
@@ -82,5 +82,5 @@ puis cliquez sur **Confirmer**. Cliquez sur **Suivant**.
 
 4. Allez à la page **Configuration > Hôtes > Hôtes** et vérifiez que les hôtes que vous avez sélectionnés à l'étape précedente apparaissent bien dans la liste. Attention, les hôtes ont été ajoutés à la liste des hôtes mais ils ne sont pas encore supervisés.
 
-5. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration). Les hôtes apparaissent à la page **Statut des ressources** : ils sont maintenant supervisés.
+5. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md). Les hôtes apparaissent à la page **Statut des ressources** : ils sont maintenant supervisés.
 

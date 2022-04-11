@@ -5,7 +5,7 @@ title: A partir de l'ISO Centreon
 
 > Si vous souhaitez installer Centreon sur une distribution CentOS / Oracle Linux
 > / RHEL en version 8, vous devez suivre la procédure
-> [à partir des paquets RPM](./using-packages)
+> [à partir des paquets RPM](./using-packages.md)
 
 ## Prérequis
 
@@ -54,7 +54,7 @@ Sélectionnez le disque dur et l'option **I will configure partitioning** puis c
 ![image](../../assets/installation/06_select_disk.png)
 
 A l'aide du bouton **+** créez votre partitionnement suivant les
-[prérequis de la documentation](../prerequisites#définition-de-lespace-disque) puis cliquez sur **Done** :
+[prérequis de la documentation](../prerequisites.md#définition-de-lespace-disque) puis cliquez sur **Done** :
 
 ![image](../../assets/installation/07_partitioning_filesystem.png)
 
@@ -152,18 +152,19 @@ systemctl enable php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned 
 
 ### Sécuriser la base de données
 
-Depuis MariaDB 10.5, il est nécessaire de sécuriser son installation avant d'installer Centreon.
-Répondez oui à toute question sauf à "Disallow root login remotely?". 
-Vous devez obligatoirement définir un mot de passe pour l'utilisateur **root** de la base de données.
-Ce mot de passe vous sera demandé lors de l'[installation web](../web-and-post-installation).
+Depuis MariaDB 10.5, il est obligatoire de sécuriser l'accès en root à la base avant d'installer Centreon. Exécutez la commande suivante :
 
 ```shell
 mysql_secure_installation
 ```
 
-> Pour plus d'informations, veuillez consulter la [documentation officielle](https://mariadb.com/kb/en/mysql_secure_installation/).
+* Répondez oui à toute question sauf à "Disallow root login remotely?". 
+* Vous devez obligatoirement définir un mot de passe pour l'utilisateur **root** de la base de données.
+Ce mot de passe vous sera demandé lors de l'[installation web](../web-and-post-installation.md).
+
+> Pour plus d'informations, veuillez consulter la [documentation officielle MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/).
 
 ## Installation web
 
 Terminez l'installation en réalisant les
-[étapes de l'installation web](../web-and-post-installation#installation-web).
+[étapes de l'installation web](../web-and-post-installation.md#installation-web).

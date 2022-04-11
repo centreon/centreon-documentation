@@ -10,11 +10,12 @@ const config = {
   tagline: '',
   url: 'https://docs-next.int.centreon.com',
   baseUrl: '/',
-  onBrokenLinks: 'error',
-  onBrokenMarkdownLinks: 'error',
+  onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'warn',
   favicon: 'img/logo-centreon.png',
   organizationName: 'Centreon',
   projectName: 'Centreon Documentation',
+  trailingSlash: true,
   
   noIndex: true,
 
@@ -37,6 +38,7 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+          breadcrumbs: false,
           admonitions: {},
           editUrl: 'https://github.com/centreon/centreon-documentation/edit/next/',
           editLocalizedFiles : true,
@@ -49,6 +51,7 @@ const config = {
             },
           },
         },
+        blog: false,
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -60,13 +63,7 @@ const config = {
     ],
   ],
 
-  scripts: [
-    {
-      src: '/js/fix-location.js',
-      async: false,
-      defer: false,
-    },
-  ],
+  scripts: [],
   
   themes: [],
 
@@ -81,17 +78,17 @@ const config = {
       },
     ],
 
+    require.resolve('plugin-image-zoom'),
     [
       '@docusaurus/plugin-content-docs',
       {
-        id: 'cloud',
-        path: 'cloud',
-        routeBasePath: 'cloud',
-        sidebarPath: require.resolve('./cloud/sidebarsCloud.js'),
+        id: 'pp',
+        path: 'pp',
+        routeBasePath: 'pp',
+        sidebarPath: require.resolve('./pp/sidebarsPp.js'),
+        breadcrumbs: false,
       },
     ],
-
-    require.resolve('plugin-image-zoom'),
   ],
 
   themeConfig:
@@ -146,9 +143,10 @@ const config = {
             label: 'Centreon OnPrem',
           },
           {
-            to: '/cloud/getting-started/architecture',
-            label: 'Centreon Cloud',
+            to: '/pp/integrations/plugin-packs/introduction',
+            label: 'Plugin Packs',
             position: 'left',
+            activeBaseRegex: '/pp/',
           },
           {
             type: 'search',

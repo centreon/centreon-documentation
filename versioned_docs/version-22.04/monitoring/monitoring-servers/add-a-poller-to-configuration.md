@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 ## Prerequisites
 
-Install the poller (either [using the ISO](../../installation/installation-of-a-poller/using-centreon-iso), or [using packages](../../installation/installation-of-a-poller/using-packages)).
+Install the poller (either [using the ISO](../../installation/installation-of-a-poller/using-centreon-iso.md), or [using packages](../../installation/installation-of-a-poller/using-packages.md)).
 
 ## Step 1: Configure a new Poller
 
@@ -81,7 +81,7 @@ SSH protocol.
 2. Copy the Gorgone configuration:
 
     From the Pollers listing, click on the **Display Gorgone configuration** action
-    icon on the line corresponding to your Poller <img src={require('../../assets/monitoring/monitoring-servers/gorgone-configuration.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+    icon on the line corresponding to your Poller ![image](../../assets/monitoring/monitoring-servers/gorgone-configuration.png#thumbnail1)
 
     A pop-in will show the configuration to copy into the **Poller terminal**.
     Click on **Copy to clipboard**.
@@ -235,5 +235,5 @@ configuration**.
 
 ## Getting started
 
-Go to the [Getting Started](../../getting-started/installation-first-steps#start-to-monitor-your-first-host)
+Go to the [Getting Started](../../getting-started/installation-first-steps.md#start-to-monitor-your-first-host)
 chapter to configure your first monitoring.

@@ -8,12 +8,12 @@ import TabItem from '@theme/TabItem';
 
 Lorsque vous connectez Centreon à un annuaire LDAP, les utilisateurs du LDAP peuvent se connecter à Centreon avec leur login LDAP.
 
-Connecter Centreon à un annuaire LDAP ne crée pas automatiquement les [utilisateurs](../../monitoring/basic-objects/contacts) dans Centreon. Suivant votre paramétrage, les utilisateurs issus du LDAP peuvent être créés automatiquement lorsqu'ils se connectent à Centreon, ou bien vous pouvez les importer manuellement.
+Connecter Centreon à un annuaire LDAP ne crée pas automatiquement les [utilisateurs](../../monitoring/basic-objects/contacts.md) dans Centreon. Suivant votre paramétrage, les utilisateurs issus du LDAP peuvent être créés automatiquement lorsqu'ils se connectent à Centreon, ou bien vous pouvez les importer manuellement.
 
-Vous pouvez [attribuer des droits aux utilisateurs](../access-control-lists) indirectement en les ajoutant à un groupe de contacts (qui pourra lui-même être inclus dans un [groupe d'accès](../access-control-lists#créer-un-groupe-daccès)).
+Vous pouvez [attribuer des droits aux utilisateurs](../access-control-lists.md) indirectement en les ajoutant à un groupe de contacts (qui pourra lui-même être inclus dans un [groupe d'accès](../access-control-lists.md#créer-un-groupe-daccès)).
 
 > Si vous souhaitez implémenter une authentification SSO, suivez
-> [cette procédure](../../connect/sso). 
+> [cette procédure](../../connect/sso.md). 
 
 ## Configuration
 
@@ -39,10 +39,10 @@ connexion avec l'annuaire pour authentifier les utilisateurs
  (1000 utilisateurs maximum)
 - Le champ **Temps maximum d'exécution de la recherche LDAP** permet de
 définir le temps maximum de la recherche LDAP
-- Le champ **Modèle de contact** définit le [modèle de contact](../../monitoring/basic-objects/contacts-templates) qui sera lié
+- Le champ **Modèle de contact** définit le [modèle de contact](../../monitoring/basic-objects/contacts-templates.md) qui sera lié
 à tous les utilisateurs importés depuis cet annuaire LDAP
 - Le champ **Groupe de contacts par défaut** permet d'ajouter à un
-groupe de contacts les contacts importés. Cela permet indirectement [d'attribuer des droits aux utilisateurs](../access-control-lists) du LDAP.
+groupe de contacts les contacts importés. Cela permet indirectement [d'attribuer des droits aux utilisateurs](../access-control-lists.md) du LDAP.
 - Le champ **Utiliser le service DNS** indique s'il faut utiliser le serveur
 DNS pour résoudre l'adresse IP de l'annuaire LDAP
 - Le champ **LDAP servers** permet d'ajouter un ou plusieurs annuaires LDAP

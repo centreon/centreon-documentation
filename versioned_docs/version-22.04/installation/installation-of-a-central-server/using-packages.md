@@ -72,7 +72,7 @@ Disabled
 
 ### Configure or disable the firewall
 
-If your firewall is active, add [firewall rules](../../administration/secure-platform#enable-firewalld). You can also disable the firewall during installation by running the following commands:
+If your firewall is active, add [firewall rules](../../administration/secure-platform.md#enable-firewalld). You can also disable the firewall during installation by running the following commands:
 
 ```shell
 systemctl stop firewalld
@@ -409,17 +409,16 @@ systemctl enable php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned 
 
 ### Secure the database
 
-Since MariaDB 10.5, it is necessary to secure its installation
-before installing Centreon.
-
-> Answer yes to all questions except to "Disallow root login remotely?". It is mandatory
-> to set a password for the **root** user of the database. You will need this password during the [web installation](../web-and-post-installation).
+Since MariaDB 10.5, it is mandatory to secure the database's root access before installing Centreon. Run the following command:
 
 ```shell
 mysql_secure_installation
 ```
 
-> For more information, refer to the [official MariaDB documentation](https://mariadb.com/kb/en/mysql_secure_installation/).
+* Answer **yes** to all questions except "Disallow root login remotely?".
+* It is mandatory to set a password for the **root** user of the database. You will need this password during the [web installation](../web-and-post-installation.md).
+
+> For more information, please see the [official MariaDB documentation](https://mariadb.com/kb/en/mysql_secure_installation/).
 
 ## Step 4: Web installation
 
@@ -444,4 +443,4 @@ systemctl start httpd24-httpd
 </Tabs>
 
 2. To complete the installation, follow the
-[web installation steps](../web-and-post-installation#web-installation) procedure.
+[web installation steps](../web-and-post-installation.md#web-installation) procedure.

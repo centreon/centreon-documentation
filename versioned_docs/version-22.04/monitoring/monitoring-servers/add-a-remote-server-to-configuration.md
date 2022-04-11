@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 ## Prerequisites
 
-Install the remote server (either [using the ISO](../../installation/installation-of-a-remote-server/using-centreon-iso), or [using packages](../../installation/installation-of-a-remote-server/using-packages)).
+Install the remote server (either [using the ISO](../../installation/installation-of-a-remote-server/using-centreon-iso.md), or [using packages](../../installation/installation-of-a-remote-server/using-packages.md)).
 
 ## Step 1: Configure a new Remote Server
 
@@ -90,7 +90,7 @@ recommended) or using SSH protocol.
 2. Copy the Gorgone configuration:
 
     From the Pollers listing, click on the **Display Gorgone configuration** action
-    icon on the line corresponding to your Remote Server <img src={require('../../assets/monitoring/monitoring-servers/gorgone-configuration.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+    icon on the line corresponding to your Remote Server ![image](../../assets/monitoring/monitoring-servers/gorgone-configuration.png#thumbnail1)
 
     A pop-in will show the configuration to copy into the **Remote Server
     terminal**.
@@ -246,5 +246,5 @@ configuration**.
 
 ## Getting started
 
-Go to the [Getting Started](../../getting-started/installation-first-steps#start-to-monitor-your-first-host)
+Go to the [Getting Started](../../getting-started/installation-first-steps.md#start-to-monitor-your-first-host)
 chapter to configure your first monitoring.
