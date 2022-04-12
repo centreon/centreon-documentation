@@ -406,7 +406,7 @@ systemctl enable php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned 
 
 ### Secure the database
 
-Since MariaDB 10.5, it is mandatory to secure the database's root access before installing Centreon. Run the following command:
+Since MariaDB 10.5, it is mandatory to secure the database's root access before installing Centreon. If you are using a local database, run the following command on the central server:
 
 ```shell
 mysql_secure_installation
