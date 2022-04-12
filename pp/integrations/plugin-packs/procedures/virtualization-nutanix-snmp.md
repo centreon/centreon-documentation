@@ -143,7 +143,7 @@ and in the [following chapter](/docs/monitoring/discovery/services-discovery/#di
 ### SNMP Configuration
 
 To monitor your Nutanix system, SNMP v2 or v3 must be enabled and configured: 
-https://portal.nutanix.com/page/documents/details?targetId=Web-Console-Guide-Prism-v5_17:wc-system-snmp-wc-t
+- https://portal.nutanix.com/page/documents/kbs/details?targetId=kA0600000008bAECAY
 
 ### Network flow
 
