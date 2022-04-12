@@ -144,7 +144,7 @@ pour en savoir plus sur la découverte automatique de services et sa [planificat
 ### Configuration SNMP
 
 Afin de superviser votre **Nutanix** en SNMP,  il est nécessaire de configurer l'agent sur le serveur comme indiqué sur la documentation officielle :
-* LINK
+* https://portal.nutanix.com/page/documents/kbs/details?targetId=kA0600000008bAECAY
 
 ### Flux réseau
 
@@ -248,5 +248,5 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 
 ### Diagnostic des erreurs communes
 
-Rendez-vous sur la [documentation dédiée](../tutorials/troubleshooting-plugins)
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#snmp-checks)
 pour le diagnostic des erreurs communes des plugins Centreon.
