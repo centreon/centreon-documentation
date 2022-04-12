@@ -1,6 +1,6 @@
 ---
 id: infrastructure-active-directory-nrpe
-title: MS Active Directory
+title: Microsoft Active Directory
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

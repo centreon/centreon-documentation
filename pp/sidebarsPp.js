@@ -57,10 +57,6 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/infrastructure-active-directory-nsclient-05-restapi'
-        },
-        {
-          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-activemq-jmx'
         },
         {
@@ -193,19 +189,7 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-microsoft-dhcp-snmp'
-        },
-        {
-          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-nmap-cli'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-webservers-iis-restapi'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-webservers-iis-nsclient-05-restapi'
         },
         {
           type: 'doc',
@@ -261,11 +245,47 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/infrastructure-active-directory-nrpe'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/infrastructure-active-directory-nsclient-05-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-biztalk'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-mscs-nrpe'
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-microsoft-dhcp-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-dynamics-365-nsclient-05-nrpe'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-dynamics-ax-nsclient-05-nrpe'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-exchange-nrpe'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-webservers-iis-nrpe'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-webservers-iis-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-webservers-iis-nsclient-05-restapi'
         },
         {
           type: 'doc',
@@ -277,19 +297,7 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/infrastructure-active-directory-nrpe'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-biztalk'
-        },
-        {
-          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-graylog-restapi'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-exchange-nrpe'
         },
         {
           type: 'doc',
@@ -1685,6 +1693,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-switchs-symbol-wing-snmp'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-teltonika-snmp'
         },
         {
@@ -2386,6 +2398,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/virtualization-hyperv-2012-nrpe'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/virtualization-hyperv-nscp-restapi'
         },
         {
           type: 'doc',
