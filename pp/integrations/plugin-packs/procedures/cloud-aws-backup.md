@@ -73,7 +73,9 @@ yum install perl-Paws
 <TabItem value="aws-cli-installation" label="aws-cli-installation">
 
 ```bash
-yum install awscli
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
 ```
 
 </TabItem>
