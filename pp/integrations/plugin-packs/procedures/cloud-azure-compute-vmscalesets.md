@@ -78,7 +78,7 @@ Could not retrive metrics
 
 ## Prerequisites
 
-Please find all the prerequisites needed for Centreon to get information from Azure in the [dedicated page](../tutorials/azure-credential-configuration.md).
+Please find all the prerequisites needed for Centreon to get information from Azure in the [dedicated page](../getting-started/how-to-guides/azure-credential-configuration.md).
 
 ## Setup
 
@@ -210,5 +210,5 @@ All available options for a given mode can be displayed by adding the
 ### Troubleshooting
 
 Please find all the troubleshooting documentation for the API-based Plugins in
-the [dedicated chapter](../tutorials/troubleshooting-plugins.md#http-and-api-checks)
+the [dedicated chapter](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks)
 of the Centreon documentation.

@@ -27,7 +27,7 @@ La bar de recherche permet de chercher un fournisseur spécifique :
 > Les fournisseurs de découverte sont amnenés par l'installation de Plugin Packs
 > (Azure, Amazon AWS, VMware, etc). Pour connaître la liste complète, consultez
 > le [catalogue des Plugin
-> Packs](/pp/integrations/plugin-packs/introduction).
+> Packs](/pp/integrations/plugin-packs/getting-started/introduction).
 
 Un nom peut être défini pour identifier la tâche. Le nom du fournisseur sera
 utiliser par défaut.

@@ -16,7 +16,7 @@ de partager, présenter ou retravailler les données dans un système annexe;
 - [Centreon Open Ticket](../alerts-notifications/ticketing.md), permet 
 l'ajout de fonctionnalités permettant l'ouverture manuelle de ticket sur la base des 
 données d'une alerte directement au travers des bacs à événements Centreon;
-- [Centreon Plugin Packs](/pp/integrations/plugin-packs/introduction), permet la 
+- [Centreon Plugin Packs](/pp/integrations/plugin-packs/getting-started/introduction), permet la 
 récupération d'informations de supervision de systèmes tiers afin d'utiliser 
 Centreon comme une tour de contrôle devenant le point unique de gestion 
 et de traitement des alertes de vos équipements et applicatifs critiques.

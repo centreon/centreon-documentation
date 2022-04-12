@@ -56,23 +56,23 @@ On the Windows server, launch the installation and follow the wizard:
 
 * The first step gives some information about the NSClient++ version you're about to install. Click on *Next* to go on:
 
-![image](../../../assets/integrations/plugin-packs/tutorials/centreon-nsclient-tutorial-wizard1.png)
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/centreon-nsclient-tutorial-wizard1.png)
 
 * Choose the installation folder and click on *Next*:
 
-![image](../../../assets/integrations/plugin-packs/tutorials/centreon-nsclient-tutorial-wizard2.png)
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/centreon-nsclient-tutorial-wizard2.png)
 
 * Wait until the installation process is completed:
 
-![image](../../../assets/integrations/plugin-packs/tutorials/centreon-nsclient-tutorial-wizard3.png)
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/centreon-nsclient-tutorial-wizard3.png)
 
 * Once the installation performed, click on *Next* once more:
 
-![image](../../../assets/integrations/plugin-packs/tutorials/centreon-nsclient-tutorial-wizard4.png)
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/centreon-nsclient-tutorial-wizard4.png)
 
 * The installation wizard should confirm that NSClient++ is installed and ready to rumble. Click on *Finish*:
 
-![image](../../../assets/integrations/plugin-packs/tutorials/centreon-nsclient-tutorial-wizard5.png)
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/centreon-nsclient-tutorial-wizard5.png)
 
 ## Update
 
@@ -85,7 +85,7 @@ packaged Plugins can be updated.
 To do so, go to the directory where the *centreon_plugins.exe* and *check_logfiles.exe* binaries are stored (usually `C:\Program Files\Centreon NSClient++\scripts\centreon`)
 and replace the two existing files with the new ones you downloaded from Github  (see the [Installation](#installation) chapter).
 
-![image](../../../assets/integrations/plugin-packs/tutorials/centreon-nsclient-tutorial-update.png)
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/centreon-nsclient-tutorial-update.png)
 
 > Be careful to rename the new files with the exact same names of the former ones (remove the *versioning* part of the files names so the files will
 > be named *centreon_plugins.exe* and *check_logfiles.exe*).
@@ -95,7 +95,7 @@ and replace the two existing files with the new ones you downloaded from Github 
 The general configuration, of the agent, its modules and the custom scripts to be used is stored in the `nsclient.ini`file, usually stored
 in the `C:\Program Files\Centreon NSClient++\` folder:
 
-![image](../../../assets/integrations/plugin-packs/tutorials/centreon-nsclient-tutorial-configuration.png)
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/centreon-nsclient-tutorial-configuration.png)
 
 The default configuration comes with most of the features and options already enabled and ready-to-use. Nevertheless, Centreon recommends to
 adjust and/or set some additional parameters (mostly for safety purposes).
@@ -194,7 +194,7 @@ net start nscp
 
 `https://127.0.0.1:8443/`
 
-![image](../../../assets/integrations/plugin-packs/tutorials/centreon-nsclient-tutorial-webserver.png)
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/centreon-nsclient-tutorial-webserver.png)
 
 ## Troubleshooting
 

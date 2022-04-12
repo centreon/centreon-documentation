@@ -2,6 +2,7 @@
 id: azure-credential-configuration
 title: Prérequis pour la supervision Azure
 ---
+
 Deux méthodes sont disponibles pour interroger les API d'Azure :
 * Azure API ('api').
 * Azure CLI ('azcli').
