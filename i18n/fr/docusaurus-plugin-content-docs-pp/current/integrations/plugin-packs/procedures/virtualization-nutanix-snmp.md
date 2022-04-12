@@ -64,7 +64,7 @@ pour en savoir plus sur la découverte automatique d'hôtes.
 | Virt-Nutanix-SNMP-Storage-Pools | Découverte des Storage Pools et supervision de leur utilisation          |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
-pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/administration#tâche-planifiée-de-découverte-de-services).
+pour en savoir plus sur la découverte automatique de services et sa [planification](https://docs.centreon.com/fr/docs/monitoring/discovery/services-discovery/#r%C3%A8gles-de-d%C3%A9couverte).
 
 </TabItem>
 </Tabs>
