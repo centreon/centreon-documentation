@@ -7,7 +7,7 @@ title: Symbol WiNG switch SNMP
 
 ### Modèles
 
-Le Plugin Pack Centreon Symbol WiNG switch SNMP apporte 1 modèle d'hôte:
+Le Plugin Pack Centreon Symbol WiNG switch SNMP apporte 1 modèle d'hôte :
 * Net-Symbol-Wing-SNMP
 
 Il apporte les Modèles de Services suivants :
@@ -72,17 +72,17 @@ Centreon vers le serveur Linux supervisé.
 
 <!--Online License-->
 
-1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources **Symbol WiNG**:
+1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources **Symbol WiNG** :
 
 ```bash
 yum install centreon-plugin-Network-Symbol-Wing-Snmp
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin Pack **Symbol WiNG switch SNMP** depuis la page **Configuration > Packs de plugins**
+2. Sur l'interface Web de Centreon, installer le Plugin Pack **Symbol WiNG switch SNMP** depuis la page **Configuration > Packs de plugins**.
 
 <!--Offline License-->
 
-1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources **Symbol WiNG**:
+1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources **Symbol WiNG** :
 
 ```bash
 yum install centreon-plugin-Network-Symbol-Wing-Snmp
