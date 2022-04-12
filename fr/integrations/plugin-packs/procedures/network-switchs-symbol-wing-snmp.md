@@ -111,7 +111,7 @@ spécifiques associés via la macro SNMPEXTRAOPTIONS.
 
 | Mandatory | Name             | Description                                              |
 |:----------|:-----------------|:---------------------------------------------------------|
-|           | SNMPEXTRAOPTIONS | (Default: 'Configurez vos propres identifiants SNMPv3')  |
+|           | SNMPEXTRAOPTIONS | Configurez vos propres identifiants SNMPv3               |
 
 ## Comment puis-je tester le Plugin et que signifient les options des commandes ? 
 
