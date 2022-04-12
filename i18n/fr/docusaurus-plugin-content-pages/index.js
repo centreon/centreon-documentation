@@ -18,7 +18,7 @@ const links = {
   github: 'https://github.com/centreon/centreon/',
   thewatch: 'https://thewatch.centreon.com/',
   twitter: 'https://twitter.com/CentreonFR/',
-  linkedin: 'https://www.linkedin.com/company/merethis/',
+  linkedin: 'https://www.linkedin.com/company/centreonsoftware',
   contribute:
     'https://github.com/centreon/centreon/blob/master/CONTRIBUTING.md',
   banner:
@@ -52,7 +52,7 @@ const stringsAndParagraphs = {
     content2ndPart: `pour chacun d’entre eux.`,
   },
   communityBlock: {
-    title: `A strong community`,
+    title: `Une communauté solide`,
   },
   heartOpenSourceBlock: {
     title: `Un coeur Open Source`,
