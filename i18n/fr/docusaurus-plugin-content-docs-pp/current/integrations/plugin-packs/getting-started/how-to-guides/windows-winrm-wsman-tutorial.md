@@ -1,7 +1,8 @@
 ---
-id: windows-winrm-wsman
+id: windows-winrm-wsman-tutorial
 title: Windows WSMAN
 ---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
