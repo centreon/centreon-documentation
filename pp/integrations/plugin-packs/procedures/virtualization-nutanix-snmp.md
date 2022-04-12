@@ -246,5 +246,5 @@ the command:
 
 ### Troubleshooting
 
-Please find the [troubleshooting documentation](../tutorials/troubleshooting-plugins.md)
+Please find the [troubleshooting documentation](../getting-started/how-to-guides/troubleshooting-plugins.md#snmp-checks)
 for Centreon Plugins typical issues.
