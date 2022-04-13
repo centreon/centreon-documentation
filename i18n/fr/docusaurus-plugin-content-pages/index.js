@@ -10,10 +10,10 @@ const links = {
   doc: {
     cloud: '/fr/cloud/getting-started/architecture',
     gettingstarted: '/fr/docs/getting-started/installation-first-steps',
-    pluginpacks: '/fr/pp/integrations/plugin-packs/introduction',
+    pluginpacks: '/fr/pp/integrations/plugin-packs/getting-started/introduction',
     prerequisite: '/fr/docs/installation/prerequisites',
     installation: '/fr/docs/installation/introduction',
-    monitoring: '/fr/pp/integrations/plugin-packs/introduction',
+    monitoring: '/fr/pp/integrations/plugin-packs/getting-started/introduction',
   },
   github: 'https://github.com/centreon/centreon/',
   thewatch: 'https://thewatch.centreon.com/',
