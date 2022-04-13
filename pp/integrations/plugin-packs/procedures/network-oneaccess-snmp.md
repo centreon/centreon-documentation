@@ -10,10 +10,10 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Centreon Pack OneAccess SNMP brings 1 host template:
+The Centreon Pack **OneAccess SNMP** brings 1 host template:
 * Net-Oneaccess-SNMP-custom
 
-It brings the following Service Templates:
+It brings the following service templates:
 
 | Service Alias | Service Template               | Default | Discovery |
 |:--------------|:-------------------------------|:--------|:----------|
@@ -96,7 +96,7 @@ port.
 yum install centreon-plugin-Network-Oneaccess-Snmp
 ```
 
-2. On the Centreon Web interface, install the **OneAccess SNMP** Centreon Pack on the **Configuration > Plugin Packs** page.
+2. On the Centreon web interface, install the **OneAccess SNMP** Centreon Pack on the **Configuration > Plugin Packs** page.
 
 </TabItem>
 
@@ -114,7 +114,7 @@ yum install centreon-plugin-Network-Oneaccess-Snmp
 yum install centreon-pack-network-oneaccess-snmp
 ```
 
-3. On the Centreon Web interface, install the **OneAccess SNMP** Centreon Pack on the **Configuration > Plugin Packs** page.
+3. On the Centreon web interface, install the **OneAccess SNMP** Centreon Pack on the **Configuration > Plugin Packs** page.
 
 </TabItem>
 </Tabs>
@@ -123,21 +123,21 @@ yum install centreon-pack-network-oneaccess-snmp
 
 ### Host
 
-* Log into Centreon and add a new Host through **Configuration > Hosts**
-* Fill the **Name**, **Alias** & **IP Address / DNS** fields according to your **OneAccess SNMP** equipment settings
-* Select the **Net-Oneaccess-SNMP-custom** template to apply to the Host
+* Log into Centreon and add a new host through **Configuration > Hosts**.
+* Fill the **Name**, **Alias** and **IP Address / DNS** fields according to your **OneAccess SNMP** equipment settings
+* Apply the **Net-Oneaccess-SNMP-custom** template to the host
 
-If you are using SNMP Version 3, use the SNMPEXTRAOPTIONS Macro to configure
+If you are using SNMP Version 3, use the SNMPEXTRAOPTIONS macro to configure
 your own SNMPv3 credentials combo.
 
 | Mandatory | Name             | Description                                              |
 |:----------|:-----------------|:---------------------------------------------------------|
 |           | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo              |
 
-## How to check in the CLI that the configuration is OK and what are the main options for? 
+## How to check in the CLI that the configuration is OK and what are the main options for?
 
-Once the plugin is installed, log into your Centreon Poller CLI using the 
-**centreon-engine** user account and test the Plugin by running the following 
+Once the plugin is installed, log into your Centreon Poller CLI using the
+**centreon-engine** user account and test the Plugin by running the following
 command:
 
 ```bash
@@ -158,7 +158,7 @@ The expected command output is shown below:
 OK: CPU Usage: 31 % | 'cpu.utilization.percentage'=31%;;;0;100
 ```
 
-All available options for a given mode can be displayed by adding the 
+All available options for a given mode can be displayed by adding the
 `--help` parameter to the command:
 
 ```bash
@@ -168,7 +168,7 @@ All available options for a given mode can be displayed by adding the
     --help
 ```
 
-All available options for a given mode can be displayed by adding the 
+All available options for a given mode can be displayed by adding the
 `--list-mode` parameter to the command:
 
 ```bash
@@ -180,4 +180,4 @@ All available options for a given mode can be displayed by adding the
 ### Troubleshooting
 
 Please find all the troubleshooting documentation for the Centreon Plugins
-in the [dedicated page](../getting-started/how-to-guides/troubleshooting-plugins.md#snmp-checks)
+on the [dedicated page](../getting-started/how-to-guides/troubleshooting-plugins.md#troubleshooting-snmp).

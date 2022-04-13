@@ -4,12 +4,12 @@ title: Microsoft Dynamics365 NRPE 0.5
 ---
 
 import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';						   
+import TabItem from '@theme/TabItem';
 
 ## Overview
 
-This Plugin Pack allow to get metrics and statuses collected thanks to the NSClient++ 
-monitoring agent and its embedded NRPE Server. 
+This Plugin Pack allows you to get metrics and statuses collected thanks to the NSClient++
+monitoring agent and its embedded NRPE Server.
 
 ## Pack assets
 
@@ -34,47 +34,48 @@ monitoring agent and its embedded NRPE Server.
 
 ### Centreon NSClient++
 
-To monitor an *Dynamics 365* through NRPE, install the Centreon packaged version of the NSClient++ agent. Please follow our [official documentation](../getting-started/how-to-guides/centreon-nsclient-tutorial.md) 
+To monitor **Dynamics 365** through NRPE, install the Centreon packaged version of the NSClient++ agent. Please follow our [official documentation](../getting-started/how-to-guides/centreon-nsclient-tutorial.md)
 and make sure that the **NRPE Server** configuration is correct.
 
-## Installation 
+## Installation
 
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
-1. Install the Centreon NRPE Client package on every Poller:
+
+1. Install the Centreon NRPE Client package on every poller:
 
 ```bash
 yum install centreon-nrpe3-plugin
 ```
 
-2. On the Centreon Web interface, install the Centreon Pack *Dynamics 365* 
-from the **Configuration > Plugin Packs > Manager** page
+2. On the Centreon Web interface, install the Centreon Pack **Dynamics 365** 
+from the **Configuration > Plugin Packs > Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Poller:
+1. Install the Centreon Plugin package on every poller:
 
 ```bash
 yum install centreon-nrpe3-plugin
 ```
 
-2. Install the Centreon Pack RPM on the Centreon Central server:
+2. Install the Centreon Pack RPM on the Centreon central server:
 
 ```bash
 yum install centreon-pack-operatingsystems-windows-nsclient-05-nrpe centreon-pack-applications-dynamics-365-nsclient-05-nrpe
 ```
 
-3. On the Centreon Web interface, install the Centreon Pack *Dynamics 365* 
-from the **Configuration > Plugin Packs > Manager** page
+3. On the Centreon Web interface, install the Centreon Pack **Dynamics 365**
+from the **Configuration > Plugin Packs > Manager** page.
 
 </TabItem>
 </Tabs>
 
 ## Host configuration
 
-* Log into Centreon and add a new Host through "Configuration > Hosts".
-* Apply the *App-Dynamics-365-NRPE-custom* template and configure all the mandatory Macros:
+* Log into Centreon and add a new host through **Configuration > Hosts > Hosts**.
+* Apply the **App-Dynamics-365-NRPE-custom** template and configure all the mandatory macros:
 
 | Mandatory | Name             | Description                                                         |
 |:----------|:-----------------|:------------------------------------------------------------------- |

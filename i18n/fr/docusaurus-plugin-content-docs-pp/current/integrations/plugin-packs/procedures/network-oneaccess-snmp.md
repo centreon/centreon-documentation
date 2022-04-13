@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 Le Pack Centreon OneAccess SNMP apporte 1 modèle d'hôte :
 * Net-Oneaccess-SNMP-custom
 
-Il apporte les Modèles de Service suivants :
+Il apporte les modèles de service suivants :
 
 | Service Alias | Service Template               | Default | Discovery |
 |:--------------|:-------------------------------|:--------|:----------|
@@ -89,31 +89,31 @@ Centreon vers l'équipement supervisé.
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources **OneAccess SNMP** :
+1. Installez le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources **OneAccess SNMP** :
 
 ```bash
 yum install centreon-plugin-Network-Oneaccess-Snmp
 ```
 
-2. Sur l'interface Web de Centreon, installer le Pack **OneAccess SNMP** depuis la page **Configuration > Packs de plugins**.
+2. Sur l'interface Web de Centreon, installez le Pack **OneAccess SNMP** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 
 <TabItem value="Offline License" label="Offline License">
 
-1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources **OneAccess SNMP** :
+1. Installez le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources **OneAccess SNMP** :
 
 ```bash
 yum install centreon-plugin-Network-Oneaccess-Snmp
 ```
 
-2. Sur le serveur Central Centreon, installer le RPM du Pack **OneAccess SNMP** :
+2. Sur le serveur Central Centreon, installez le RPM du Pack **OneAccess SNMP** :
 
 ```bash
 yum install centreon-pack-network-oneaccess-snmp
 ```
 
-3. Sur l'interface Web de Centreon, installer le Pack **OneAccess SNMP** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface Web de Centreon, installez le Pack **OneAccess SNMP** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>
@@ -122,9 +122,9 @@ yum install centreon-pack-network-oneaccess-snmp
 
 ### Hôte
 
-* Ajoutez un Hôte à Centreon depuis la page **Configuration > Hôtes**
-* Complétez les champs **Nom**, **Alias** & **IP Address / DNS** correspondant à votre équipement **OneAccess SNMP**.
-* Appliquez le Modèle d'Hôte **Net-Oneaccess-SNMP-custom**
+* Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
+* Complétez les champs **Nom**, **Alias** et **IP Address / DNS** correspondant à votre équipement **OneAccess SNMP**.
+* Appliquez le modèle d'hôte **Net-Oneaccess-SNMP-custom**.
 
 Si vous utilisez SNMP en version 3, vous devez configurer les paramètres
 spécifiques associés via la macro SNMPEXTRAOPTIONS.
@@ -133,10 +133,10 @@ spécifiques associés via la macro SNMPEXTRAOPTIONS.
 |:----------|:-----------------|:---------------------------------------------------------|
 |           | SNMPEXTRAOPTIONS | Configurez vos propres identifiants SNMPv3               |
 
-## Comment puis-je tester le Plugin et que signifient les options des commandes ? 
+## Comment puis-je tester le Plugin et que signifient les options des commandes ?
 
-Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne 
-de commande depuis votre collecteur Centreon en vous connectant avec 
+Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne
+de commande depuis votre collecteur Centreon en vous connectant avec
 l'utilisateur **centreon-engine**:
 
 ```bash
@@ -167,7 +167,7 @@ affichée en ajoutant le paramètre `--help` à la commande:
     --help
  ```
 
-Tous les modes disponibles peuvent être affichés en ajoutant le paramètre 
+Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 `--list-mode` à la commande:
 
 ```bash
@@ -178,5 +178,5 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 
 ### Diagnostic des erreurs communes
 
-Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#snmp-checks)
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#troubleshooting-snmp)
 pour le diagnostic des erreurs communes des Plugins Centreon.

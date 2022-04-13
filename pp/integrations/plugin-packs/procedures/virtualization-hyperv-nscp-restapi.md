@@ -9,11 +9,11 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Centreon Pack Hyper-V brings 2 host templates:
+The Centreon Pack **Hyper-V** brings 2 host templates:
 * Virt-Hyperv-Node-Nscp-Restapi-custom
 * Virt-Hyperv-Scvmm-Nscp-Restapi-custom
 
-It brings the following Service Templates:
+It brings the following service templates:
 
 | Service Alias             | Service Template                                   | Default | Discovery |
 |:--------------------------|:---------------------------------------------------|:--------|:----------|
@@ -107,8 +107,8 @@ It brings the following Service Templates:
 
 ### NSClient Configuration
 
-To monitor an *Hyper-V* through NRPE, install the Centreon packaged version of the NSClient++ agent. 
-Please follow our [official documentation](../getting-started/how-to-guides/centreon-nsclient-tutorial.md) 
+To monitor **Hyper-V** through NRPE, install the Centreon packaged version of the NSClient++ agent.
+Please follow our [official documentation](../getting-started/how-to-guides/centreon-nsclient-tutorial.md).
 
 Please download and install the last release of **Centreon-NSClient-xxx.exe**: https://github.com/centreon/centreon-nsclient-build/releases.
 
@@ -116,7 +116,7 @@ By default, the username/password is **centreon/centreon**.
 
 ### Network flow
 
-The target equipment must be reachable from the Centreon Poller on the TCP/8443 port.
+The target equipment must be reachable from the Centreon poller on the TCP/8443 port.
 
 ## Setup
 
@@ -129,7 +129,7 @@ The target equipment must be reachable from the Centreon Poller on the TCP/8443 
 yum install centreon-plugin-Applications-Protocol-Nrpe
 ```
 
-2. On the Centreon Web interface, install the **Hyper-V NSCP API** Centreon Pack on the **Configuration > Plugin Packs** page.
+2. On the Centreon web interface, install the **Hyper-V NSCP API** Centreon Pack on the **Configuration > Plugin Packs** page.
 
 </TabItem>
 
@@ -141,13 +141,13 @@ yum install centreon-plugin-Applications-Protocol-Nrpe
 yum install centreon-plugin-Applications-Protocol-Nrpe
 ```
 
-2. Install the **Hyper-V NSCP API** Centreon Pack RPM on the Centreon Central server:
+2. Install the **Hyper-V NSCP API** Centreon Pack RPM on the Centreon central server:
 
 ```bash
 yum install centreon-pack-virtualization-hyperv-nscp-restapi
 ```
 
-3. On the Centreon Web interface, install the **Hyper-V NSCP API** Centreon Pack on the **Configuration > Plugin Packs** page.
+3. On the Centreon web interface, install the **Hyper-V NSCP API** Centreon Pack on the **Configuration > Plugin Packs** page.
 
 </TabItem>
 </Tabs>
@@ -156,9 +156,9 @@ yum install centreon-pack-virtualization-hyperv-nscp-restapi
 
 ### Host
 
-* Add a new Host and apply one of following Host Templates
+* Add a new host and apply one of following host templates
 
-> Once the template applied, some Macros have to be configured.
+Once the template is applied, some macros have to be configured.
 
 <Tabs groupId="sync">
 <TabItem value="Virt-Hyperv-Node-Nscp-Restapi-custom" label="Virt-Hyperv-Node-Nscp-Restapi-custom">
@@ -191,10 +191,10 @@ yum install centreon-pack-virtualization-hyperv-nscp-restapi
 </TabItem>
 </Tabs>
 
-## How to check in the CLI that the configuration is OK and what are the main options for? 
+## How to check in the CLI that the configuration is OK and what are the main options for?
 
-Once the plugin is installed, log into your Centreon Poller CLI using the 
-**centreon-engine** user account and test the Plugin by running the following 
+Once the plugin is installed, log into your Centreon Poller CLI using the
+**centreon-engine** user account and test the Plugin by running the following
 command to check NSClient configuration:
 
 ```bash
@@ -216,7 +216,7 @@ The expected command output is shown below:
 0.5.2.41 2018-04-26
 ```
 
-Check Hyper-V Plugin by running the following command:
+Check the Hyper-V Plugin by running the following command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_protocol_nrpe.pl \
@@ -244,7 +244,7 @@ VM 'vm2' status: Operating normally (state: Running, is clustered: 0)
 VM 'vm3' status: Operating normally (state: Running, is clustered: 1)
 ```
 
-All available options for a given mode can be displayed by adding the 
+All available options for a given mode can be displayed by adding the
 `--help` parameter to the command:
 
 ```bash
@@ -263,7 +263,7 @@ All available options for a given mode can be displayed by adding the
     --arg='--help'
 ```
 
-All available modes can be displayed by adding the 
+All available modes can be displayed by adding the
 `--list-mode` parameter to the command:
 
 ```bash
@@ -285,4 +285,4 @@ All available modes can be displayed by adding the
 ### Troubleshooting
 
 Please find all the troubleshooting documentation for the Centreon Plugins
-in the [dedicated page](../getting-started/how-to-guides/troubleshooting-plugins.md)
+on the [dedicated page](../getting-started/how-to-guides/troubleshooting-plugins.md)

@@ -13,7 +13,7 @@ Le Pack Centreon Hyper-V apporte 2 modèles d'hôtes :
 * Virt-Hyperv-Node-Nscp-Restapi-custom
 * Virt-Hyperv-Scvmm-Nscp-Restapi-custom
 
-Il apporte les Modèles de Service suivants :
+Il apporte les modèles de service suivants :
 
 | Service Alias             | Service Template                                   | Default | Discovery |
 |:--------------------------|:---------------------------------------------------|:--------|:----------|
@@ -32,7 +32,7 @@ Il apporte les Modèles de Service suivants :
 
 | Rule name                                       | Description                                        |
 | :---------------------------------------------- | :------------------------------------------------- |
-| Virt-Hyperv-Nscp-Restapi-HostDiscovery-Scvmm-Vm | Découvrez vos Machines Virtuelles liées à un SCVMM |
+| Virt-Hyperv-Nscp-Restapi-HostDiscovery-Scvmm-Vm | Découvrez vos machines virtuelles liées à un SCVMM |
 
 </TabItem>
 </Tabs>
@@ -107,8 +107,8 @@ Il apporte les Modèles de Service suivants :
 
 ### NSClient Configuration
 
-Pour surveiller un *Hyper-V* via NRPE, installez la version packagée Centreon de l'agent NSClient++. 
-Merci de suivre notre [documentation officielle](../getting-started/how-to-guides/centreon-nsclient-tutorial.md)
+Pour superviser un **Hyper-V** via NRPE, installez la version packagée Centreon de l'agent NSClient++.
+Suivez notre [documentation officielle](../getting-started/how-to-guides/centreon-nsclient-tutorial.md)
 
 Veuillez télécharger et installer la dernière version en date de **Centreon-NSClient-xxx.exe**: https://github.com/centreon/centreon-nsclient-build/releases
 
@@ -116,7 +116,7 @@ Par défaut, l'utilisateur **centreon** avec le mot de passe **centreon** est ut
 
 ### Flux réseau
 
-La communication doit être possible sur le port TCP 8443 depuis le collecteur 
+La communication doit être possible sur le port TCP 8443 depuis le collecteur
 Centreon vers l'équipement supervisé.
 
 ## Installation
@@ -124,31 +124,31 @@ Centreon vers l'équipement supervisé.
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources **Hyper-V NSCP API** :
+1. Installez le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources **Hyper-V NSCP API** :
 
 ```bash
 yum install centreon-plugin-Applications-Protocol-Nrpe
 ```
 
-2. Sur l'interface Web de Centreon, installer le Pack **Hyper-V NSCP API** depuis la page **Configuration > Packs de plugins**.
+2. Sur l'interface Web de Centreon, installez le Pack **Hyper-V NSCP API** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 
 <TabItem value="Offline License" label="Offline License">
 
-1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources **Hyper-V NSCP API** :
+1. Installez le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources **Hyper-V NSCP API** :
 
 ```bash
 yum install centreon-plugin-Applications-Protocol-Nrpe
 ```
 
-2. Sur le serveur Central Centreon, installer le RPM du Pack **Hyper-V NSCP API** :
+2. Sur le serveur Central Centreon, installez le RPM du Pack **Hyper-V NSCP API** :
 
 ```bash
 yum install centreon-pack-virtualization-hyperv-nscp-restapi
 ```
 
-3. Sur l'interface Web de Centreon, installer le Pack **Hyper-V NSCP API** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface Web de Centreon, installez le Pack **Hyper-V NSCP API** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>
@@ -157,9 +157,9 @@ yum install centreon-pack-virtualization-hyperv-nscp-restapi
 
 ### Hôte
 
-* Ajoutez un Hôte à Centreon depuis la page **Configuration > Hôtes**
-* Complétez les champs **Nom**, **Alias** & **IP Address / DNS** correspondant à votre serveur **Hyper-V**.
-* Appliquez un des Modèles d'Hôtes suivants :
+* Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
+* Complétez les champs **Nom**, **Alias** et **IP Address / DNS** correspondant à votre serveur **Hyper-V**.
+* Appliquez un des modèles d'hôtes suivants :
 
 <Tabs groupId="sync">
 <TabItem value="Virt-Hyperv-Node-Nscp-Restapi-custom" label="Virt-Hyperv-Node-Nscp-Restapi-custom">
@@ -192,10 +192,10 @@ yum install centreon-pack-virtualization-hyperv-nscp-restapi
 </TabItem>
 </Tabs>
 
-## Comment puis-je tester le Plugin et que signifient les options des commandes ? 
+## Comment puis-je tester le Plugin et que signifient les options des commandes ?
 
-Une fois le Plugin installé, vous pouvez tester la bonne configuration NSClient directement en ligne 
-de commande depuis votre collecteur Centreon en vous connectant avec 
+Une fois le Plugin installé, vous pouvez tester la bonne configuration NSClient directement en ligne
+de commande depuis votre collecteur Centreon en vous connectant avec
 l'utilisateur **centreon-engine** :
 
 ```bash
@@ -264,7 +264,7 @@ affichée en ajoutant le paramètre `--help` à la commande:
     --arg='--help'
  ```
 
-Tous les modes disponibles peuvent être affichés en ajoutant le paramètre 
+Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 `--list-mode` à la commande:
 
 ```bash

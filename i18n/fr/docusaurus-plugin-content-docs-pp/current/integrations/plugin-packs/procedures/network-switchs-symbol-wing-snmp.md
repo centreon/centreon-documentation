@@ -10,7 +10,7 @@ title: Symbol WiNG Switchs SNMP
 Le Plugin Pack Centreon Symbol WiNG switch SNMP apporte 1 modèle d'hôte :
 * Net-Symbol-Wing-SNMP
 
-Il apporte les Modèles de Services suivants :
+Il apporte les modèles de services suivants :
 
 | Service Alias        | Service Template                          | Default | Discovery |
 |:---------------------|:------------------------------------------|:--------|:----------|
@@ -59,12 +59,12 @@ Il apporte les Modèles de Services suivants :
 
 ## Prérequis
 
-Pas de pré-requis particuliers
+Pas de prérequis particuliers
 
 ### Flux réseau
 
 La communication doit être possible sur le port UDP 161 depuis le collecteur
-Centreon vers le serveur Linux supervisé.
+Centreon vers le serveur supervisé.
 
 ## Installation
 
@@ -102,9 +102,9 @@ yum install centreon-pack-network-switchs-symbol-wing-snmp
 
 ### Hôte
 
-* Ajoutez un Hôte à Centreon depuis la page **Configuration > Hôtes**.
-* Complétez les champs **Nom**,**Alias** & **IP Address/DNS** correspondant à votre serveur **Symbol WiNG**.
-* Appliquez le Modèle d'Hôte **Net-Symbol-Wing-SNMP-custom** .
+* Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
+* Complétez les champs **Nom**,**Alias** et **IP Address/DNS** correspondant à votre serveur **Symbol WiNG**.
+* Appliquez le modèle d'hôte **Net-Symbol-Wing-SNMP-custom** .
 
 Si vous utilisez SNMP en version 3, vous devez configurer les paramètres
 spécifiques associés via la macro SNMPEXTRAOPTIONS.
@@ -113,10 +113,10 @@ spécifiques associés via la macro SNMPEXTRAOPTIONS.
 |:----------|:-----------------|:---------------------------------------------------------|
 |           | SNMPEXTRAOPTIONS | Configurez vos propres identifiants SNMPv3               |
 
-## Comment puis-je tester le Plugin et que signifient les options des commandes ? 
+## Comment puis-je tester le Plugin et que signifient les options des commandes ?
 
-Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne 
-de commande depuis votre collecteur Centreon en vous connectant avec 
+Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne
+de commande depuis votre collecteur Centreon en vous connectant avec
 l'utilisateur *centreon-engine*:
 
 ```bash
@@ -149,7 +149,7 @@ La commande devrait retourner un message de sortie similaire à :
 OK: total devices: %s %.2f %% (1m) %.2f %% (5m) %.2f %% (15m)    | 'devices.total.count'=9000;;;0; 'cpu.utilization.1m.percentage'=9000%;;;0;100 'cpu.utilization.5m.percentage'=9000%;80;90;0;100 'cpu.utilization.15m.percentage'=9000%;;;0;100 'device.memory.usage.bytes'=9000B;;;0; 'device.memory.free.bytes'=9000B;;;0; 'device.memory.usage.percentage'=9000%;;;0;100 
 ```
 
-Dans cet exemple, une alarme de type WARNING sera déclenchée si la charge CPU est supérieure à 80% durant les 5 dernières minutes 
+Dans cet exemple, une alarme de type WARNING sera déclenchée si la charge CPU est supérieure à 80% durant les 5 dernières minutes
 (`--warning-cpu-utilization-5m='80'`); l'alarme sera de type CRITICAL au-delà de 90% et durant les 5 dernières minutes.
 
 La liste de toutes les options complémentaires et leur signification peut être
@@ -162,7 +162,7 @@ affichée en ajoutant le paramètre `--help` à la commande:
     --help
  ```
 
-Tous les modes disponibles peuvent être affichés en ajoutant le paramètre 
+Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 `--list-mode` à la commande:
 
 ```bash
@@ -173,5 +173,5 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 
 ### Diagnostic des erreurs communes
 
-Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#snmp-checks)
-pour le diagnostique des erreurs commununes des Plugins Centreon.
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#troubleshooting-snmp)
+pour le diagnostic des erreurs communes des Plugins Centreon.
