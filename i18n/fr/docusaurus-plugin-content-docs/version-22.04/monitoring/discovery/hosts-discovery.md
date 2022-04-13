@@ -36,7 +36,7 @@ Un assistant s'ouvre.
 
 ### Étape 2 : Définir des paramètres d'accès
 
-Définissez le serveur de supervision depuis lequel sera faite la découverte :
+Définissez le serveur de supervision depuis lequel sera faite la découverte (celui-ci peut être surchargé à l'aide de [modificateurs](#comment-utiliser-les-modificateurs)) :
 
 ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-2.png)
 
@@ -62,20 +62,21 @@ ressemblerait le résultat de la découverte :
 
 ### Étape 5 : Définir les politiques d'analyse et de mise à jour
 
-- **Analyse manuelle** : Une fois la tâche de découverte exécutée, dans la liste des hôtes découverts, l'utilisateur choisira manuellement quels 
-    hôtes ajouter à la page **Configuration > Hôtes > Hôtes** (voir [Analyser le résultat d'une tâche de découverte](#analyser-le-résultat-dune-tâche-de-découverte)).
+- **Analyse manuelle** : Une fois la tâche de découverte exécutée, dans la liste des hôtes découverts,
+l'utilisateur choisira manuellement quels hôtes ajouter à la page **Configuration > Hôtes > Hôtes**
+(voir [Analyser le résultat d'une tâche de découverte](#analyser-le-résultat-dune-tâche-de-découverte)).
 
-- **Analyse automatique** : L'analyse traitera le résultat automatiquement selon l'option sélectionnée (au moins une option doit être cochée) :
+- **Analyse automatique** : L'analyse traitera le résultat automatiquement selon l'option sélectionnée (au moins une option parmi les 3 premières doit être cochée) :
 
     - **Ajouter les hôtes à la configuration quand ils sont découverts pour la
           première fois** : tous les hôtes détectés pour la première fois seront créés automatiquement dans 
           la page **Configuration > Hôtes > Hôtes**.
 
     - **Désactiver les hôtes déjà ajoutés à la configuration si la règle de
-          modification les exclut** : les ressources qui ont été ajoutées à un moment seront désactivées 
-          dans la configuration Centreon s'ils correspondent à une nouvelle règle d'exclusion.
+          modification les exclut** : les hôtes déjà supervisés seront désactivés
+          s'ils correspondent à une nouvelle règle d'exclusion lorsque la tâche de découverte est exécutée à nouveau.
 
-        >Le fait que des hôtes soient non découverts (ou plus découverts) ne
+        > Le fait que des hôtes soient non découverts (ou plus découverts) ne
         > désactivera pas les hôtes dans la configuration Centreon. Seuls les hôtes
         > découverts et dans le même temps exclus seront désactivés (voir
         > modificateur [exclusion](#exclusion)).
@@ -83,9 +84,13 @@ ressemblerait le résultat de la découverte :
     - **Activer les hôtes déjà ajoutés à la configuration si ils sont découverts
           mais désactivés** :  les hôtes déjà ajoutés à la configuration mais désactivés seront réactivés
 
+    - **Exporter et recharger la configuration des collecteurs** : une fois les hôtes créés ou mis à jour, [la configuration sera exportée](../monitoring-servers/deploying-a-configuration.md) automatiquement, ce qui veut dire que les hôtes seront supervisés ou mis à jour directement, sans devoir intervenir manuellement.
+
+    - **Modifier les hôtes existants** : si vous modifiez les modificateurs et exéctuez la tâche à nouveau, les hôtes existants seront mis à jour (voir [Éditer une tâche de découverte](#éditer-une-tâche-de-découverte)).
+
         ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-5-2.png)
 
-        Voir l'[exemple ci-dessous](#exemples) pour mieux comprendre le fonctionnement de ces options.
+        Voir l'[exemple ci-dessous](#exemples) pour mieux comprendre le fonctionnement des 3 premières options.
 
 ### Étape 6 : Définir l'exécution
 
@@ -117,7 +122,7 @@ ressemblerait le résultat de la découverte :
 
         ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-minute.png)
 
-Cliquez sur **TERMINER** à la dernière étape de l'assistant pour ajouter et planifier la tâche. La tâche apparaît dans la liste des tâches de découverte. Voir [Analyser le résultat d'une tâche de découverte](#analyser-le-résultat-dune-tâche-de-découverte).
+Cliquez sur **TERMINER** à la dernière étape de l'assistant pour créer la tâche et l'exécuter ou la planifier. La tâche apparaît dans la liste des tâches de découverte. Voir [Analyser le résultat d'une tâche de découverte](#analyser-le-résultat-dune-tâche-de-découverte).
 
 ## Gérer les tâches de découverte
 
@@ -147,12 +152,10 @@ Plusieurs actions peuvent être réalisées sur les tâches :
 | Icône                                                                          | Action                                                                                                                     |
 |--------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------|
 | ![image](../../assets/monitoring/discovery/host-discovery-force-execution.png) | **Forcer l'exécution** : réexécuter une tâche                                                                              |
-| ![image](../../assets/monitoring/discovery/host-discovery-edit.png)            | Éditer une tâche                                                                                                           |
 | ![image](../../assets/monitoring/discovery/host-discovery-delete.png)          | Supprimer une tâche. Seule la tâche sera supprimée : les hôtes ayant déjà été ajoutés à la configuration seront conservés. |
 | ![image](../../assets/monitoring/discovery/host-discovery-pause.png)           | Mettre en pause une tâche planifiée                                                                                        |
 | ![image](../../assets/monitoring/discovery/host-discovery-resume.png)          | Reprendre une tâche mise en pause                                                                                          |
 | ![image](../../assets/monitoring/discovery/host-discovery-goto-results.png)    | accéder aux résultats de la tâche de découverte                                                                            |
-
 
 ## Analyser le résultat d'une tâche de découverte
 
@@ -160,14 +163,16 @@ Plusieurs actions peuvent être réalisées sur les tâches :
 
     ![image](../../assets/monitoring/discovery/host-discovery-hosts-listing.png)
 
-2. Si vous le souhaitez, vous pouvez éditer les [modificateurs](#comment-utiliser-les-modificateurs) liés à la tâche en cliquant sur le bouton d'édition : ![image](../../assets/monitoring/discovery/host-discovery-edit.png#thumbnail1)
+2. Si vous le souhaitez, vous pouvez éditer les [modificateurs](#comment-utiliser-les-modificateurs) liés à la tâche en cliquant sur le bouton d'édition : <img src={require('../../assets/monitoring/discovery/host-discovery-edit.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 
-    Les changements seront appliqués directement à la liste des résultats. 
+    Les changements seront appliqués directement à la liste des résultats lorsque vous cliquerez sur l'icône **Sauvegarder** en haut à droite du panneau.
 
-    Attention, éditer les modificateurs après l'exécution de la tâche de découverte n'a de sens que si les hôtes n'ont pas encore été ajoutés à la configuration. Les changements de modificateurs au niveau de la tâche de découverte ne sont pas pris en compte pour les hôtes déjà créés.
-    
-3. Si vous avez configuré une découverte manuelle à l'étape 5 de l'assistant, sélectionnez les hôtes que vous voulez ajouter à la configuration, puis cliquez
-sur le bouton d'enregistrement : ![image](../../assets/monitoring/discovery/host-discovery-hosts-save.png#thumbnail1)
+    - Si vous aviez sélectionné **Analyse manuelle** à l'étape 5 de l'assistant, attention : éditer les modificateurs après l'exécution de la tâche de découverte n'a de sens que si les hôtes n'ont pas encore été ajoutés à la configuration. Les changements de modificateurs au niveau de la tâche de découverte ne sont pas pris en compte pour les hôtes déjà créés.
+
+    - Si vous aviez sélectionné **Analyse automatique** et **Modifier les hôtes existants** à l'étape 5 de l'assistant, les hôtes seront mis à jour quand vous réexécuterez la tâche (voir [Éditer une tâche de découverte](#éditer-une-tâche-de-découverte)).
+
+3. Si vous avez sélectionné **Analyse manuelle** à l'étape 5 de l'assistant, sélectionnez les hôtes que vous voulez ajouter à la configuration, puis cliquez
+sur le bouton d'enregistrement : sur le bouton d'enregistrement : ![image](../../assets/monitoring/discovery/host-discovery-hosts-save.png#thumbnail1)
 
   Les hôtes sont alors créés ainsi que les services liés à leurs modèles d'hôte.
 
@@ -179,16 +184,37 @@ sur le bouton d'enregistrement : ![image](../../assets/monitoring/discovery/host
 liste, retournez à la liste des tâches et regardez si une erreur est
 survenue pendant la tâche d'enregistrement.
 
-5. [Déployez](../monitoring-servers/deploying-a-configuration.md) la configuration. Les nouveaux hôtes sont maintenant supervisés.
+5. Dans les cas suivants, [déployez la configuration](../monitoring-servers/deploying-a-configuration.md) :
+
+   - si l'option **Analyse manuelle** a été sélectionnée à l'étape 5 de l'assistant
+   - si l'option **Analyse automatique** a été sélectionnée à l'étape 5 de l'assistant, mais que l'option **Exporter et recharger la configuration des collecteurs** était décochée.
+
+   Les nouveaux hôtes sont maintenant supervisés.
 
 ## Éditer une tâche de découverte
 
-1. À la page **Configuration > Hôtes > Découverte**, cliquez dans la ligne 
+Certaines tâches de découverte peuvent être éditées :
+
+- Si la tâche est réglée sur **Analyse automatique** et que vous avez sélectionné **Modifier les hôtes existants** à l'étape 5 de l'assistant, vous pouvez éditer la tâche et la réexécuter : les résultats de la tâche seront mis à jour. Pour réexécuter une tâche, allez à la page **Configuration > Hôtes > Découverte**, survolez la tâche puis cliquez sur **Forcer l'exécution**.
+- Une tâche réglée sur **Analyse manuelle** et dont les hôtes sont déjà supervisés ne sera pas mise à jour si celle-ci est éditée et exécutée à nouveau.
+
+1. À la page **Configuration > Hôtes > Découverte**, cliquez dans la ligne
 de la tâche désirée. Un panneau apparaît à droite.
 
-2. Depuis ce panneau, modifiez les paramètres de la tâche. Si vous éditez des modificateurs, les résultats de la tâche seront mis à jour immédiatement.
+2. Depuis ce panneau, modifiez les paramètres de la tâche.
 
-    Attention, éditer les modificateurs après l'exécution de la tâche de découverte n'a de sens que si les hôtes n'ont pas encore été ajoutés à la configuration. Les changements de modificateurs au niveau de la tâche de découverte ne sont pas pris en compte pour les hôtes déjà créés.
+   Si la tâche est réglée sur **Analyse automatique**, vous pouvez mettre à jour certaines propriétés des hôtes en utilisant les modificateurs. Vous pouvez :
+
+   - ajouter des modèles, des groupes d'hôtes ou des catégories d'hôtes
+   - mettre à jour ou définir la sévérité (il ne peut y avoir qu'une sévérité)
+   - mettre à jour ou définir la valeur d'une macro (une macro ne peut avoir qu'une valeur)
+   - mettre à jour le serveur de supervision (il ne peut y en avoir qu'un).
+
+  Afin de préserver la cohérence des données et la traçabilité des actions, le nom, l'alias et l'adresse IP d'un hôte ne peuvent pas être modifiés (c'est-à-dire les données apportées par les modificateurs de type **Property**).
+
+  Une fois les modificateurs édités, si vous aviez sélectionné **Modifier les hôtes existants** à l'étape 5 de l'assistant, les hôtes seront mis à jour lorsque la tâche de découverte sera réexécutée. Si vous n'aviez pas sélectionné cette option, exécuter la tâche de nouveau ajoutera seulement les nouveaux hôtes découverts à la supervision : les hôtes existants ne seront pas mis à jour.
+
+  Si le module d'autodécouverte découvre un hôte avec un nom déjà existant, ayant été créé manuellement à la page **Configuration > Hôtes > Hôtes**, cet hôte sera également mis à jour par le module d'autodécouverte, même s'il n'a pas été créé par autodécouverte.
 
 2. Cliquez sur l'icône de sauvegarde en haut à droite du panneau : ![image](../../assets/monitoring/discovery/host-discovery-save.png#thumbnail2)
 
@@ -196,7 +222,7 @@ de la tâche désirée. Un panneau apparaît à droite.
 
 Les modificateurs permettent de :
 
-- définir la configuration des hôtes qui seront créés, en faisant correspondre une valeur découverte sur l'hôte (un attribut) à un champ dans Centreon. La liste des attributs dépend du fournisseur. 
+- définir la configuration des hôtes qui seront créés, en faisant correspondre une valeur découverte sur l'hôte (un attribut) à un champ dans Centreon. La liste des attributs dépend du fournisseur.
 
 - inclure/exclure des hôtes de la liste des résultats.
 
@@ -227,11 +253,6 @@ de ces attributs avec une ou plusieurs chaînes de caractères personnalisées.
 
 ![image](../../assets/monitoring/discovery/host-discovery-mappers-concatenation.gif)
 
->Attention, ajouter, éditer ou supprimer des modificateurs après l'exécution de la
- tâche de découverte n'a de sens que si les hôtes n'ont pas encore été ajoutés à la
- configuration. Les changements de modificateurs au niveau de la tâche de découverte 
- ne sont pas pris en compte pour les hôtes déjà créés.
-
 ### Ajouter un modificateur
 
 1. Depuis l'étape quatre de l'assistant de création d'une tâche, ou depuis le
@@ -246,10 +267,10 @@ tous les champs requis.
 ### Éditer un modificateur
 
 1. Depuis l'étape quatre de l'assistant de création d'une tâche, ou depuis
-le panneau d'édition dans la section **Modificateurs**, cliquez sur l'icône 
+le panneau d'édition dans la section **Modificateurs**, cliquez sur l'icône
 d'édition : ![image](../../assets/monitoring/discovery/host-discovery-edit.png#thumbnail1)
 
-2. Modifiez n'importe quel champ ou le type de modificateur lui-même.
+2. Modifiez n'importe quel champ ou le type de modificateur lui-même. Voir [Éditer une tâche de découverte](#éditer-une-tâche-de-découverte).
 
 3. Cliquez sur **ENREGISTRER** pour enregistrer le modificateur.
 
