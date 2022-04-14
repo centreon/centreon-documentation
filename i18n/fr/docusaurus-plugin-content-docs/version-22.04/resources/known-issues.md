@@ -27,7 +27,7 @@ ALTER TABLE ods_view_details MODIFY index_id bigint unsigned;
 ALTER TABLE virtual_metrics MODIFY index_id bigint unsigned;
 ```
 
-> :warning: **Selon la volumétrie de vos métriques, cette opération peut être plus ou moins longue.**
+> Selon la volumétrie de vos métriques, cette opération peut être plus ou moins longue.
 
 
 ## L'Autologin ne fonctionne pas avec certaines pages
@@ -80,9 +80,9 @@ Si vous possédez une très large infrastructure, il est possible que la taille 
 
 # Contournement
 
-> :warning: **Selon la volumétrie des données, cette opération peut être plus ou moins longue.**
+> Selon la volumétrie des données, cette opération peut être plus ou moins longue.
 
-* Connectez vous sur le serveur de reporting
+* Connectez-vous sur le serveur de reporting
 * Désactivez la tâche planifiée dans `/etc/cron.d/centreon-bi-engine` :
 
     ```shell

@@ -14,7 +14,7 @@ issues for future releases.
 
 ### Workaround
 
-Play the following request into MariaDB :
+Play the following query into MariaDB :
 
 In your monitoring database :
 ```sql
@@ -28,14 +28,14 @@ ALTER TABLE ods_view_details MODIFY index_id bigint unsigned;
 ALTER TABLE virtual_metrics MODIFY index_id bigint unsigned;
 ```
 
-> :warning: **Depending on your metrics volumes, this operation could be more or less longer.**
+> Depending on your metrics volumes, this operation could be more or less long.
 
 
 ## Autologin does not work with some pages
 
 ### Description
 
-The autologin is cuurently not managed on the following pages :
+Autologin is currently not managed on the following pages :
 * *Monitoring > Resources Status*
 * *Configuration > Hosts > Discovery*
 * *Configuration > Business Activity > Business Views*
@@ -81,7 +81,7 @@ If you have a very large infrastructure, it is possible that the `servicemetric_
 
 # Workaround
 
-> :warning: **Depending on your data volume, this operation could be more or less longer.**
+> Depending on your data volume, this operation could be more or less long.
 
 * Connect in the reporting server
 * Disable cron job in `/etc/cron.d/centreon-bi-engine`:
