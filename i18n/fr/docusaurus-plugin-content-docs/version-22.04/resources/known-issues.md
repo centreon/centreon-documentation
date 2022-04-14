@@ -78,7 +78,7 @@ systemctl restart php-fpm
 
 Si vous possédez une très large infrastructure, il est possible que la taille limite de la colonne `servicemetric_id` soit atteinte.
 
-# Contournement
+### Contournement
 
 > Selon la volumétrie des données, cette opération peut être plus ou moins longue.
 
