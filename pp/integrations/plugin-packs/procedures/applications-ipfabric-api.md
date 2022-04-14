@@ -158,4 +158,4 @@ the command:
 ### Troubleshooting
 
 Please find the troubleshooting documentation for the API-based plugins in
-this [chapter](../tutorials/troubleshooting-plugins.md#http-and-api-checks).
+this [chapter](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks).
