@@ -2,6 +2,8 @@
 id: network-switchs-symbol-wing-snmp
 title: Symbol WiNG Switchs SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 ## Contenu du Pack
 
