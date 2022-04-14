@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 
 Ce chapitre décrit la procédure de montée de version de votre plateforme
-Centreon HA depuis la version 20.04 vers la version 21.10.
+Centreon HA depuis la version 20.04 vers la version 22.04.
 
 ## Prérequis
 
@@ -42,14 +42,14 @@ Il est nécessaire de mettre à jour le dépôt Centreon.
 Exécutez la commande suivante :
 
 ```shell
-yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-2.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
 ```
 
 > **WARNING:** pour éviter des problèmes de dépendances manquantes, référez-vous à la documentation des modules additionnels pour mettre à jour les dépôts Centreon Business
 
 ### Mise à jour PHP
 
-Centreon 21.10 utilise PHP en version 8.0.
+Centreon 22.04 utilise PHP en version 8.0.
 
 Vous devez tout d'abord installer les dépôts **remi** :
 

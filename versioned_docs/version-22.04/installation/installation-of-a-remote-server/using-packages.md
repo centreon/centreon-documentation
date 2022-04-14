@@ -556,7 +556,7 @@ Failed connect to 192.168.0.1:444; Connection refused
 2020-10-20T10:42:23+02:00 [ERROR]: No route found for “POST /centreon/api/latest/platform/topology”
 ```
 
-> Your Centreon target version is invalid. It should be greater or equal to 21.10.
+> Your Centreon target version is invalid. It should be greater or equal to 22.04.
 
 ## Extend local DBMS rights
 

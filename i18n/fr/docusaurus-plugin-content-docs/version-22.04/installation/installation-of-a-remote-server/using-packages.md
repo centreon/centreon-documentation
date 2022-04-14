@@ -573,7 +573,7 @@ Failed connect to 192.168.0.1:444; Connection refused
 2020-10-20T10:42:23+02:00 [ERROR]: No route found for “POST /centreon/api/latest/platform/topology”
 ```
 
-> La version Centreon du serveur distant est invalide. Elle doit être supérieure ou égale à 21.10.
+> La version Centreon du serveur distant est invalide. Elle doit être supérieure ou égale à 22.04.
 
 ## Ajouter le Remote Server à la configuration
 

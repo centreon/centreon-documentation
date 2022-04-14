@@ -19,6 +19,7 @@ When you upgrade from one major version of Centreon to another, you must:
 
 | Centreon | MariaDB |
 |----------|---------|
+| 22.04    | 10.5    |
 | 21.10    | 10.5    |
 | 21.04    | 10.5    |
 | 20.10    | 10.3.x  |
