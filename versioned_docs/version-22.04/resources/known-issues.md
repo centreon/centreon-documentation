@@ -79,7 +79,7 @@ systemctl restart php-fpm
 
 If you have a very large infrastructure, it is possible that the `servicemetric_id` column size has been reached.
 
-# Workaround
+### Workaround
 
 > Depending on your data volume, this operation could be more or less long.
 
