@@ -29,33 +29,34 @@ Il apporte les modèles de services suivants :
 
 ### Métriques & statuts collectés
 
-<!--DOCUSAURUS_CODE_TABS-->
+<Tabs groupId="sync">
+<TabItem value="Systems" label="Systems">
 
-<!--Systems-->
+| Metric name                             | Description                     | Unit   |
+|:----------------------------------------|:--------------------------------|:-------|
+| devices.total.count                     | Nombre total d'équipements      | nombre |
+| *core*#cpu.utilization.1m.percentage    | Utilisation CPU sur 1m          | %      |
+| *core*#cpu.utilization.5m.percentage    | Utilisation CPU sur 5m          | %      |
+| *core*#cpu.utilization.15m.percentage   | Utilisation CPU sur 15m         | %      |
+| *memory*#device.memory.usage.bytes      | Mémoire utilisée                | bytes  | 
+| *memory*#device.memory.free.bytes       | Mémoire libre                   | bytes  |
+| *memory*#device.memory.usage.percentage | Pourcentage de mémoire utilisée | %      |
 
-* Global
+</TabItem>
+<TabItem value="Interfaces" label="Interfaces">
 
-| Metric name         | Description                | Unit   |
-|:--------------------|:---------------------------|:-------|
-| devices.total.count | Nombre total d'équipements | nombre |
+| Metric name                                       | Description                                               | Unit   |
+|:--------------------------------------------------|:----------------------------------------------------------|:-------|
+| status                                            | Statut de l'interface                                     | String |
+| *ifname*#interface.traffic.in.bitspersecond       | Débit entrant sur l'interface                             | Bits/s |
+| *ifname*#interface.traffic.out.bitspersecond      | Débit sortant sur l'interface                             | Bits/s |
+| *ifname*#interface.packets.in.error.percentage    | Pourcentage de paquets en erreur en entrée de l'interface | %      |
+| *ifname*#interface.packets.in.discard.percentage  | Pourcentage de paquets refusés en entrée de l'interface   | %      |
+| *ifname*#interface.packets.out.error.percentage   | Pourcentage de paquets en erreur en sortie de l'interface | %      |
+| *ifname*#interface.packets.out.discard.percentage | Pourcentage de paquets refusés en sortie de l'interface   | %      |
 
-* Par *cpu*
-
-| Metric name                    | Description             | Unit |
-|:-------------------------------|:------------------------|:-----|
-| cpu.utilization.1m.percentage  | Utilisation CPU sur 1m  | %    |
-| cpu.utilization.5m.percentage  | Utilisation CPU sur 5m  | %    |
-| cpu.utilization.15m.percentage | Utilisation CPU sur 15m | %    |
-
-* Par *memory*
-
-| Metric name                    | Description      | Unit |
-|:-------------------------------|:-----------------|:-----|
-| device.memory.usage.bytes      | Mémoire utilisée | B    |
-| device.memory.free.bytes       | Mémoire libre    | B    |
-| device.memory.usage.percentage | Pourcentage de mémoire utilisée | %    |
-
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
@@ -146,7 +147,7 @@ l'utilisateur *centreon-engine*:
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: total devices: %s %.2f %% (1m) %.2f %% (5m) %.2f %% (15m)    | 'devices.total.count'=9000;;;0; 'cpu.utilization.1m.percentage'=9000%;;;0;100 'cpu.utilization.5m.percentage'=9000%;80;90;0;100 'cpu.utilization.15m.percentage'=9000%;;;0;100 'device.memory.usage.bytes'=9000B;;;0; 'device.memory.free.bytes'=9000B;;;0; 'device.memory.usage.percentage'=9000%;;;0;100 
+OK: total devices: %s %.2f %% (1m) %.2f %% (5m) %.2f %% (15m)    | 'devices.total.count'=1;;;0; 'cpu.utilization.1m.percentage'=1%;;;0;100 'cpu.utilization.5m.percentage'=3%;80;90;0;100 'cpu.utilization.15m.percentage'=20%;;;0;100 'device.memory.usage.bytes'=8000B;;;0; 'device.memory.free.bytes'=192B;;;0; 'device.memory.usage.percentage'=99%;;;0;100 
 ```
 
 Dans cet exemple, une alarme de type WARNING sera déclenchée si la charge CPU est supérieure à 80% durant les 5 dernières minutes

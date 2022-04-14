@@ -2,7 +2,8 @@
 id: network-switchs-symbol-wing-snmp
 title: Symbol WiNG Switchs SNMP
 ---
-
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 ## Pack Assets
 
 ### Templates
@@ -29,33 +30,35 @@ It brings the following service templates:
 
 ### Collected metrics & statuses
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Systems-->
+<Tabs groupId="sync">
+<TabItem value="Systems" label="Systems">
 
 * Global
 
-| Metric name         | Description             | Unit  |
-|:--------------------|:------------------------|:------|
-| devices.total.count | Number of total devices | count |
+| Metric name                             | Description               | Unit  |
+|:----------------------------------------|:--------------------------|:------|
+| devices.total.count                     | Number of total devices   | count |
+| *core*#cpu.utilization.1m.percentage    | Cpu usage for 1m          | %     |
+| *core*#cpu.utilization.5m.percentage    | Cpu usage for 5m          | %     |
+| *core*#cpu.utilization.15m.percentage   | Cpu usage for 15m         | %     |
+| *memory*#device.memory.usage.bytes      | Used memory               | B     |
+| *memory*#device.memory.free.bytes       | Free memory               | B     |
+| *memory*#device.memory.usage.percentage | Percentage of used memory | %     |
 
-* Per *cpu*
+<TabItem value="Interfaces" label="Interfaces">
 
-| Metric name                    | Description       | Unit |
-|:-------------------------------|:------------------|:-----|
-| cpu.utilization.1m.percentage  | Cpu usage for 1m  | %    |
-| cpu.utilization.5m.percentage  | Cpu usage for 5m  | %    |
-| cpu.utilization.15m.percentage | Cpu usage for 15m | %    |
+| Metric name                                       | Description                                             | Unit   |
+|:--------------------------------------------------|:--------------------------------------------------------|:-------|
+| status                                            | Status of the interface                                 | String |
+| *ifname*#interface.traffic.in.bitspersecond       | Incoming traffic going through the interface.           | Bits/s |
+| *ifname*#interface.traffic.out.bitspersecond      | Outgoing traffic going through the interface.           | Bits/s |
+| *ifname*#interface.packets.in.error.percentage    | Incoming errored packets going through the interface.   | %      |
+| *ifname*#interface.packets.in.discard.percentage  | Incoming discarded packets going through the interface. | %      |
+| *ifname*#interface.packets.out.error.percentage   | Outgoing errored packets going through the interface.   | %      |
+| *ifname*#interface.packets.out.discard.percentage | Outgoing discarded packets going through the interface. | %      |
 
-* Per *memory*
-
-| Metric name                    | Description               | Unit |
-|:-------------------------------|:--------------------------|:-----|
-| device.memory.usage.bytes      | Used memory               | B    |
-| device.memory.free.bytes       | Free memory               | B    |
-| device.memory.usage.percentage | Percentage of used memory | %    |
-
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
@@ -68,9 +71,8 @@ port.
 
 ## Setup
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online License-->
+<Tabs groupId="sync">
+<TabItem value="Online License" label="Online License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor **Symbol WiNG** resources:
 
@@ -80,7 +82,8 @@ yum install centreon-plugin-Network-Symbol-Wing-Snmp
 
 2. On the Centreon web interface, install the **Symbol WiNG switch SNMP** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
 
-<!--Offline License-->
+</TabItem>
+<TabItem value="Offline License" label="Offline License">
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor **Symbol WiNG** resources:
 
@@ -96,7 +99,8 @@ yum install centreon-pack-network-switchs-symbol-wing-snmp
 
 3. On the Centreon web interface, install the **Symbol WiNG switch SNMP** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -146,7 +150,7 @@ command:
 The expected command output is shown below:
 
 ```bash
-OK: total devices: %s %.2f %% (1m) %.2f %% (5m) %.2f %% (15m)    | 'devices.total.count'=9000;;;0; 'cpu.utilization.1m.percentage'=9000%;;;0;100 'cpu.utilization.5m.percentage'=9000%;80;90;0;100 'cpu.utilization.15m.percentage'=9000%;;;0;100 'device.memory.usage.bytes'=9000B;;;0; 'device.memory.free.bytes'=9000B;;;0; 'device.memory.usage.percentage'=9000%;;;0;100 
+OK: total devices: %s %.2f %% (1m) %.2f %% (5m) %.2f %% (15m)    | 'devices.total.count'=1;;;0; 'cpu.utilization.1m.percentage'=1%;;;0;100 'cpu.utilization.5m.percentage'=3%;80;90;0;100 'cpu.utilization.15m.percentage'=20%;;;0;100 'device.memory.usage.bytes'=8000B;;;0; 'device.memory.free.bytes'=192B;;;0; 'device.memory.usage.percentage'=99%;;;0;100 
 ```
 
 This command would trigger a WARNING alarm if the CPU was reported as over 80% during the last 5 minutes
