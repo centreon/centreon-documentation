@@ -34,8 +34,6 @@ It brings the following service templates:
 <Tabs groupId="sync">
 <TabItem value="Systems" label="Systems">
 
-* Global
-
 | Metric name                             | Description               | Unit  |
 |:----------------------------------------|:--------------------------|:------|
 | devices.total.count                     | Number of total devices   | count |
