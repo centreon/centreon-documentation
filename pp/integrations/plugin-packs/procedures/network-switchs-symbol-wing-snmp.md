@@ -46,6 +46,7 @@ It brings the following service templates:
 | *memory*#device.memory.free.bytes       | Free memory               | B     |
 | *memory*#device.memory.usage.percentage | Percentage of used memory | %     |
 
+</TabItem>
 <TabItem value="Interfaces" label="Interfaces">
 
 | Metric name                                       | Description                                             | Unit   |
