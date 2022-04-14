@@ -164,7 +164,7 @@ affichée en ajoutant le paramètre `--help` à la commande:
     --plugin=network::symbol::wing::snmp::plugin \
     --mode=systems \
     --help
- ```
+```
 
 Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 `--list-mode` à la commande:
@@ -173,7 +173,7 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 /usr/lib/centreon/plugins//centreon_symbol_wing.pl \
     --plugin=network::symbol::wing::snmp::plugin \
     --list-mode 
- ```
+```
 
 ### Diagnostic des erreurs communes
 
