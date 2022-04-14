@@ -1,59 +1,57 @@
 ---
 id: collect-openmetrics
-title: Collecter des OpenMetrics
+title: Collect OpenMetrics
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-Le format d'exposition des métriques des exporteurs Prometheus a fait l'objet
-d'une standardisation sous le nom d'OpenMetrics afin de pouvoir être réutilisé
-ailleurs. Certains produits ont adopté ce format comme par exemple la suite
-d'InfluxData, InfluxDB, et Google Cloud Platform.
+There is an effort to promote Prometheus exposition format into a standard known
+as OpenMetrics. Some products adopted the format: InfluxData's suite, InfluxDB
+and Google Cloud Platform.
 
 ## Installation
 
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1.  Installer le code du connecteur sur l'ensemble des collecteurs récupérant
-    des openmetrics :
+1.  Install the plugin on every poller expected to monitor openmetrics:
 
     ``` bash
     yum install centreon-plugin-Applications-Monitoring-Openmetrics
     ```
 
-2.  Installer le pack depuis la page `Configuration > Plugin Packs`.
+2.  Install the "OpenMetrics" Centreon Plugin Pack from the `Configuration >
+    Plugin Packs` page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1.  Installer le code du connecteur sur l'ensemble des collecteurs récupérant
-    des openmetrics :
+1.  Install the plugin on every poller expected to monitor openmetrics:
 
     ``` bash
     yum install centreon-plugin-Applications-Monitoring-Openmetrics
     ```
 
-2.  Installer le RPM contenant les modèles de supervision sur le serveur Central
-    :
+2.  Install the Centreon Plugin Pack RPM on your Central server:
 
     ``` bash
     yum install centreon-pack-applications-monitoring-openmetrics
     ```
 
-3.  Installer le pack depuis la page `Configuration > Plugin Packs`.
+3.  Install the "OpenMetrics" Centreon Plugin Pack from the `Configuration >
+    Plugin Packs` page.
 
 </TabItem>
 </Tabs>
 
 ## Configuration
 
-Le pack de supervision permet de récupérer des openmetrics via un fichier
-présent sur un collecteur contenant des openmetrics (le modèle sera
-App-Monitoring-Openmetrics-File-custom) ou une API exposant des openmetrics (le
-modèle sera App-Monitoring-Openmetrics-Web-custom). Selon le modèle à utiliser
-plusieurs macros seront à configurer :
+The Plugin Pack "OpenMetrics" provide the collect of openmetrics from file on
+the collector (the template will be App-Monitoring-Openmetrics-File-custom) or
+from a API providing openmetrics (the template will be
+App-Monitoring-Openmetrics-Web-custom). Following the template, several macros
+must be configured :
 
 ### App-Monitoring-Openmetrics-File-custom
 
@@ -73,22 +71,22 @@ plusieurs macros seront à configurer :
 |           | OPENMETRICSPASSWORD     | Password in case of authentication required                                       |
 |           | OPENMETRICSEXTRAOPTIONS | Any extraoptions you may want to add to every command line (eg. a --verbose flag) |
 
-Ces 2 modèles d'hôtes vont déployer automatiquement un service "Scrape-Metrics"
-à votre hôte. Ce service pourra être dupliqué autant de fois que nécessaire
-selon le nombre de métriques à récupérer.
+Thoses 2 host templates will deploy automatically a service "Scrape-Metrics"
+bind to your host. This service can be duplicated as often as necessary
+according to the number of metrics to collect.
 
 ## How To
 
-### Collecter une métrique en ligne de commande
+### Collect metrics using the command line
 
-Nous avons un serveur/conteneur Prometheus qui expose des métriques? Ou un
-serveur/conteneur Cadvisor qui expose des métriques ? Nous allons voir quelques
-exemples pour collecter ces métriques de ces endpoints.
+We have a server/container Prometheus which expose metrics ? Or a
+server/container Cadvisor which also expose metrics ? We are going to see some
+examples to collect thoses metrics from thoses endpoints.
 
 #### Prometheus
 
-Notre serveur/conteneur Prometheus expose des données sur l'url suivante :
-<http://prometheus.int.centreon.com:9090/metrics> :
+Our server/container Prometheus expose metrics from this url:
+`<http://prometheus.int.centreon.com:9090/metrics>`
 
 ```text
 # HELP prometheus_http_requests_total Counter of HTTP requests.
@@ -113,9 +111,9 @@ prometheus_http_requests_total{code="400",handler="/api/v1/query"} 1
 prometheus_http_requests_total{code="400",handler="/api/v1/query_range"} 4
 ```
 
-Nous souhaiterions ici récupérer le nombre total de requêtes sur l'url
-'/api/v1/query\_range', pour ce faire commençons tout d'abord par collecter les
-métriques "prometheus\_http\_requests\_total" :
+We would like here get the number of total requests on handler
+'/api/v1/query\_range', first we are going to collect all the mertics named
+"prometheus\_http\_requests\_total":
 
 ``` bash
 /usr/lib/centreon/plugins/centreon_monitoring_openmetrics.pl \
@@ -129,25 +127,24 @@ métriques "prometheus\_http\_requests\_total" :
  --filter-metrics='prometheus_http_requests_total'
 ```
 
-La commande renvoie alors :
+Command then returns:
 
 ``` bash
 OK: All metrics are ok | 'prometheus_http_requests_total'=1;;;; 'prometheus_http_requests_total'=24;;;; 'prometheus_http_requests_total'=3;;;; 'prometheus_http_requests_total'=5454;;;; 'prometheus_http_requests_total'=3390;;;; 'prometheus_http_requests_total'=3;;;; 'prometheus_http_requests_total'=2;;;; 'prometheus_http_requests_total'=2;;;; 'prometheus_http_requests_total'=17;;;; 'prometheus_http_requests_total'=155790;;;; 'prometheus_http_requests_total'=6;;;; 'prometheus_http_requests_total'=2;;;; 'prometheus_http_requests_total'=54;;;; 'prometheus_http_requests_total'=5;;;; 'prometheus_http_requests_total'=11;;;; 'prometheus_http_requests_total'=20;;;; 'prometheus_http_requests_total'=1;;;; 'prometheus_http_requests_total'=4;;;;
 ```
 
-Nous avons utilisé les options : custommode web (`--custommode web`) afin de
-requêter en HTTP/HTTPS prometheus. Nous avons ensuite configuré toutes les
-informations de connexion : le nom d'hôte
-(`--hostname='prometheus.int.centreon.com'`), le port (`--port='9090'`), le
-protocole (`--proto='http'`) et le chemin d'accès aux métriques
-(`--urlpath='/metrics'`). Enfin nous avons filtré uniquement les métriques
-'prometheus\_http\_requests\_total'
-(`filter-metrics='prometheus_http_requests_total'`).
+We used the options: custommode web (`--custommode web`) to request the API
+prometheus using HTTP or HTTPS. Then we configured all the informations about
+the connections: the hostname (`--hostname='prometheus.int.centreon/com'`), the
+port (`--port='9090'`), the protocol (`--proto='http'`) and the path of the URL
+where the metrics are accessible (`--urlpath='/metrics'`). Then we fetched only
+the metrics 'prometheus\_http\_requests\_totol'
+(`--filter-metrics='prometheus_http_requests_total'`).
 
-Maintenant nous aimerions filtrer uniquement le nombre de requêtes sur l'url
-'/api/v1/query\_range', nous allons donc utiliser l'option `--instance` pour
-avoir la possibilité de filtrer sur un champs, et ensuite utiliser
-`--filter-instance` pour filtrer sur la valeur de ces champs :
+Now we would like filter the requests on URL '/api/v1/query\_range', we are
+going to use the option `--instance` to have the possibility to filter on a
+field and then use the option `--filter-instance` to filter on the value of this
+fields:
 
 ``` bash
 /usr/lib/centreon/plugins/centreon_monitoring_openmetrics.pl \
@@ -163,19 +160,19 @@ avoir la possibilité de filtrer sur un champs, et ensuite utiliser
  --filter-instance='/api/v1/query_range'
 ```
 
-La commande renvoie alors :
+Command then returns:
 
 ``` bash
 OK: All metrics are ok | '/api/v1/query_range#prometheus_http_requests_total'=3390;;;; '/api/v1/query_range#prometheus_http_requests_total'=4;;;;
 ```
 
-Nous filtrons maintenant sur les 'handlers' (`--instance='handler'`) et nous ne
-récupèrons plus que les métriques dont le handler correspond à
-'/api/v1/query\_range' (`--filter-instance='/api/v1/query_range'`).
+We filtered on the 'handlers' (`--instance='hanlder'`) and so we only get the
+metrics where the handler is '/api/v1/query\_range'
+(`--filter-instance='/api/v1/query_range'`).
 
-Et pour finir, nous allons filtrer uniquement les requêtes qui ont retournées un
-code '200' pour avoir la possibilité d'avoir un graphique de performance et de
-l'alerting dans Centreon :
+And now to finish, we are going to filter the requests that return a '200' as
+the code. And we want to have the possibility to get a graph in Centreon and
+alerting.
 
 ``` bash
 /usr/lib/centreon/plugins/centreon_monitoring_openmetrics.pl \
@@ -195,27 +192,26 @@ l'alerting dans Centreon :
  --critical='10000'
 ```
 
-La commande renvoie alors :
+Command then returns:
 
 ``` bash
 OK: All metrics are ok | '/api/v1/query_range~200#prometheus_http_requests_total'=3390;;;;
 ```
 
-Ici, nous avons ajouté l'option `--subinstance='code'` pour obtenir un second
-filtre sur les codes HTTP, et nous filtrons ensuite sur le code '200 à l'aide de
-l'option `--filter-subinstance='200'`. Pour les seuils, les options
-`--warning='5000' --critical='10000'` sont utilisées pour obtenir un WARNING si
-la valeur de la métrique récupérée est supérieure à 5000 et un CRITICAL si elle
-est supérieure à 10000.
+Here, we added the option `--subinstance='code'` to have a second filter on the
+code value, and we filtered on the '200' code value with the opiton
+`--filter-subinstance='200'`. For the thresholds, the options `--warning='5000'
+--critical='10000'` are set to trigger a WARNING alert if the metric's value is
+granter than 5000 and a CRITICAL alert if the value is granter than 10000.
 
-Toutes les options des différents modes sont consultables via le help (`--help`)
+All the options of the different modes can be display using the help (`--help`)
 
-### Ajouter cette métrique à ma supervision
+### Add the metrics to our monitoring
 
-Nous allons configurer l'hôte Prometheus en définissant les paramètres suivants
+We are going to configure the host Prometheus by using the following parameters
 :
 
-| Paramètre          | Valeur                                |
+| Parameter          | Value                                 |
 | :----------------- | :------------------------------------ |
 | NAME               | prometheus.int.centreon.com           |
 | ALIAS              | internal prometheus                   |
@@ -225,13 +221,13 @@ Nous allons configurer l'hôte Prometheus en définissant les paramètres suivan
 | OPENMETRICSPROTO   | http                                  |
 | OPENMETRICSURLPATH | /metrics                              |
 
-![image](../../../assets/integrations/plugin-packs/tutorials/openmetrics_prometheus_01_configuration_host.png)
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/openmetrics_prometheus_01_configuration_host.png)
 
-Nous pouvons maintenant éditer le service "Scrape-Metrics" qui a été créé
-automatiquement en utilisant le template "App-Monitoring-Openmetrics-Web-custom"
-pour configurer les macros comme dans l'exemple en CLI :
+We can edit the service "Scrape-Metrics" which have been created automatically
+by using the template "App-Monitoring-Openmetrics-Web-custom" to configure the
+macros as the same in CLI :
 
-| Paramètre       | Valeur                            |
+| Parameter       | Value                             |
 | :-------------- | :-------------------------------- |
 | FILTERMETRICS   | prometheus\_http\_requests\_total |
 | WARNING         | 5000                              |
@@ -242,9 +238,9 @@ pour configurer les macros comme dans l'exemple en CLI :
 | FILTERSUBINTACE | 200                               |
 | EXTRAOPTIONS    | \--verbose                        |
 
-![image](../../../assets/integrations/plugin-packs/tutorials/openmetrics_prometheus_01_configuration_service.png)
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/openmetrics_prometheus_01_configuration_service.png)
 
-Et nous renommons le service en "Query-Api-Number". Ce service pourra être
-dupliqué et modifié pour obtenir d'autres métriques prometheus.
+And we rename the service by "Query-Api-Number". This service could be duplicate
+and modificate to collect other Openmetrics and get alerting/reporting:
 
-![image](../../../assets/integrations/plugin-packs/tutorials/openmetrics_prometheus_01_monitoring.png)
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/openmetrics_prometheus_01_monitoring.png)

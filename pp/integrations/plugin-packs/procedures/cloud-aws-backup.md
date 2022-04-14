@@ -73,7 +73,9 @@ yum install perl-Paws
 <TabItem value="aws-cli-installation" label="aws-cli-installation">
 
 ```bash
-yum install awscli
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
 ```
 
 </TabItem>
@@ -182,4 +184,4 @@ All available modes can be displayed by adding the
 
 ### Troubleshooting
 
-Please find the [troubleshooting documentation](../tutorials/troubleshooting-plugins.md) for Centreon Plugins typical issues.
+Please find the [troubleshooting documentation](../getting-started/how-to-guides/troubleshooting-plugins.md) for Centreon Plugins typical issues.

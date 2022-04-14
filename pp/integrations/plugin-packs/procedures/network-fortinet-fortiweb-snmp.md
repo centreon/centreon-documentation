@@ -160,4 +160,4 @@ parameter to the command:
 
 ## Troubleshooting
 
-[Troubleshooting plugins](../tutorials/troubleshooting-plugins.md)
+[Troubleshooting plugins](../getting-started/how-to-guides/troubleshooting-plugins.md)
