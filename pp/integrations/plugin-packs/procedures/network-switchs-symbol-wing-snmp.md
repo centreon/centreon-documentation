@@ -63,7 +63,7 @@ Configure SNMP on your Symbol WiNG device.
 
 ### Network flow
 
-The target server must be reachable from the Centreon Poller on the UDP/161 SNMP
+The target device must be reachable from the Centreon Poller on the UDP/161 SNMP
 port.
 
 ## Setup
