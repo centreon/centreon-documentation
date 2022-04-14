@@ -233,7 +233,7 @@ You can now move to [Step 3](#step-3-configuration).
 
 ### With a remote database
 
-> If installing database on a dedicated server, this server should also have
+> If installing the database on a dedicated server, this server should also have
 > the prerequired repositories.
 
 Run the following command on the Central server:
@@ -254,7 +254,7 @@ yum install -y centreon-central
 </TabItem>
 </Tabs>
 
-Then run the following commands on the dedicated server:
+Then run the following commands on the dedicated server for your database:
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
@@ -276,31 +276,47 @@ systemctl restart mariadb
 </TabItem>
 </Tabs>
 
-Secure your MariaDB installation by executing the following command:
+Secure your MariaDB root access by executing the following command:
+
 ```shell
 mysql_secure_installation
 ```
 
 > It is mandatory to set a password for the root user of the database.
 
-Then create a distant user with **root** privileges needed for Centreon
-installation:
+Then, in the remote dabatase, create a user with **root** privileges. You will have to enter this user during the 
+web installation process (at [step 6](../web-and-post-installation.md#step-6-database-infomation),
+in the **Root user** and **Root password** fields).
 
 ```SQL
-CREATE USER '<USER>'@'<IP>' IDENTIFIED BY '<PASSWORD>';
-GRANT ALL PRIVILEGES ON *.* TO '<USER>'@'<IP>' WITH GRANT OPTION;
+CREATE USER '<USER>'@'<CENTRAL_SERVER_IP>' IDENTIFIED BY '<PASSWORD>';
+GRANT ALL PRIVILEGES ON *.* TO '<USER>'@'<CENTRAL_SERVER_IP>' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 ```
 
-> Replace **<IP\>** with the Centreon Central IP address that will connect to
+Example:
+
+```shell
+CREATE USER 'dbadmin'@'<CENTRAL_SERVER_IP>' IDENTIFIED BY '<DBADMIN_PASSWORD>';
+GRANT ALL PRIVILEGES ON *.* TO 'dbadmin'@'<CENTRAL_SERVER_IP>' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+```
+
+> Replace **<CENTRAL_SERVER_IP\>** with the Centreon Central IP address that will connect to
 > the database server.
 >
-> Replace **<USER\>** and **<PASSWORD\>** by user's credentials.
+> Replace **<USER\>** and **<PASSWORD\>** by the user's credentials.
 
-Once the installation is complete you can delete this user using:
+This user will only be used for the installation process: once the [web installation](../web-and-post-installation.md) is complete you can delete this user using:
 
 ```SQL
 DROP USER '<USER>'@'<IP>';
+```
+
+Example:
+
+```SQL
+DROP USER 'dbadmin'@'<CENTRAL_SERVER_IP>';
 ```
 
 > The package **centreon-database** installs an optimized MariaDB configuration

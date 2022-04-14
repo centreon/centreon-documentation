@@ -273,35 +273,48 @@ systemctl restart mariadb
 </TabItem>
 </Tabs>
 
-Sécurisez votre installation MariaDB en exécutant la commande suivante :
+Sécurisez l'accès root à MariaDB en exécutant la commande suivante :
+
 ```shell
 mysql_secure_installation
 ```
 
 > Vous devez obligatoirement définir un mot de passe pour l'utilisateur root de la base de données.
 
-Créez enfin un utilisateur avec privilèges **root** nécessaire à l'installation de
-Centreon :
+Enfin, dans la base de données distante, créez un utilisateur avec privilèges **root**. Vous devrez renseigner cet utilisateur pendant le processus d'installation web (à [l'étape 6](../web-and-post-installation.md#étape-6--database-information), dans les champs **Root user** et **Root password**).
 
 ```SQL
-CREATE USER '<USER>'@'<IP>' IDENTIFIED BY '<PASSWORD>';
-GRANT ALL PRIVILEGES ON *.* TO '<USER>'@'<IP>' WITH GRANT OPTION;
+CREATE USER '<USER>'@'<IP_CENTRAL>' IDENTIFIED BY '<MOT_DE_PASSE>';
+GRANT ALL PRIVILEGES ON *.* TO '<USER>'@'<IP_CENTRAL>' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 ```
 
-> Remplacez **<IP\>** par l'adresse IP avec laquelle le serveur Centreon
+Exemple:
+
+```shell
+CREATE USER 'dbadmin'@'<IP_CENTRAL>' IDENTIFIED BY '<MOT_DE_PASSE_DBADMIN>';
+GRANT ALL PRIVILEGES ON *.* TO 'dbadmin'@'<IP_CENTRAL>' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+```
+
+> Remplacez **<IP_CENTRAL\>** par l'adresse IP avec laquelle le serveur Centreon
 > Central se connectera au serveur de base de données.
 >
-> Remplacez **<USER\>** et **<PASSWORD\>** par les identifiants de
+> Remplacez **<USER\>** et **<MOT_DE_PASSE\>** par les identifiants de
 > l'utilisateur.
 
-Une fois l'installation terminée vous pouvez supprimer cet utilisateur via la
+Cet utilisateur ne sera utilisé que pour le processus d'intallation. Une fois [l'installation web](../web-and-post-installation.md) terminée vous pouvez supprimer cet utilisateur via la
 commande :
 
 ```SQL
-DROP USER '<USER>'@'<IP>';
+DROP USER '<USER>'@'<IP_CENTRAL>';
 ```
 
+Exemple :
+
+```SQL
+DROP USER 'dbadmin'@'<IP_CENTRAL>';
+```
 
 > Le paquet **centreon-database** installe une configuration MariaDB optimisée
 > pour l'utilisation avec Centreon.
