@@ -19,6 +19,14 @@ commerciales, vous pouvez vous rendre sur notre
 
 ## Centreon Web
 
+### 20.10.17
+
+#### Bug fixes
+
+- [Core] Fixed save proxy setting with empty prameters
+- [MBI] Fixed MBI graphs reports not respecting graphs templates
+- [Resources Status] Fixed Monitoring command not displayed in Resources Status details panel
+
 ### 20.10.16
 
 Release date: `April 1, 2022`
