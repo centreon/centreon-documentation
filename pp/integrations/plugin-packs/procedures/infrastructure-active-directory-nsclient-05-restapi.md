@@ -1,6 +1,6 @@
 ---
 id: infrastructure-active-directory-nsclient-05-restapi
-title: Active Directory NSClient++ API
+title: Microsoft Active Directory NSClient++ API
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
