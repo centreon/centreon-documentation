@@ -71,9 +71,8 @@ Centreon vers l'équipement supervisé.
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Online License-->
+<Tabs groupId="sync">
+<TabItem value="Online License" label="Online License">
 
 1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources **Symbol WiNG** :
 
@@ -83,7 +82,8 @@ yum install centreon-plugin-Network-Symbol-Wing-Snmp
 
 2. Sur l'interface Web de Centreon, installer le Plugin Pack **Symbol WiNG switch SNMP** depuis la page **Configuration > Packs de plugins**.
 
-<!--Offline License-->
+</TabItem>
+<TabItem value="Offline License" label="Offline License">
 
 1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources **Symbol WiNG** :
 
@@ -99,7 +99,8 @@ yum install centreon-pack-network-switchs-symbol-wing-snmp
 
 3. Sur l'interface Web de Centreon, installer le Plugin Pack **Symbol WiNG switch SNMP** depuis la page **Configuration > Packs de plugins**.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 
 ## Configuration
 
@@ -149,7 +150,7 @@ l'utilisateur *centreon-engine*:
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: total devices: %s %.2f %% (1m) %.2f %% (5m) %.2f %% (15m)    | 'devices.total.count'=1;;;0; 'cpu.utilization.1m.percentage'=1%;;;0;100 'cpu.utilization.5m.percentage'=3%;80;90;0;100 'cpu.utilization.15m.percentage'=20%;;;0;100 'device.memory.usage.bytes'=8000B;;;0; 'device.memory.free.bytes'=192B;;;0; 'device.memory.usage.percentage'=99%;;;0;100 
+OK: total devices: %s %.2f %% (1m) %.2f %% (5m) %.2f %% (15m) | 'devices.total.count'=1;;;0; 'cpu.utilization.1m.percentage'=1%;;;0;100 'cpu.utilization.5m.percentage'=3%;80;90;0;100 'cpu.utilization.15m.percentage'=20%;;;0;100 'device.memory.usage.bytes'=8000B;;;0; 'device.memory.free.bytes'=192B;;;0; 'device.memory.usage.percentage'=99%;;;0;100 
 ```
 
 Dans cet exemple, une alarme de type WARNING sera déclenchée si la charge CPU est supérieure à 80% durant les 5 dernières minutes
