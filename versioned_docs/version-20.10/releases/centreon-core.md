@@ -23,7 +23,7 @@ If you have feature requests or want to report a bug, please go to our
 
 #### Bug fixes
 
-- [Core] Fixed save proxy setting with empty prameters
+- [Core] Proxy settings were saved with empty parameters
 - [MBI] MBI graphs reports were not using graph templates
 - [Resources Status] Fixed monitoring command not displayed in Resources Status Details panel
 
