@@ -25,7 +25,7 @@ If you have feature requests or want to report a bug, please go to our
 
 - [Core] Fixed save proxy setting with empty prameters
 - [MBI] Fixed MBI graphs reports not respecting graphs templates
-- [Resources Status] Fixed Monitoring command not displayed in Resources Status details panel
+- [Resources Status] Fixed monitoring command not displayed in Resources Status Details panel
 
 ### 20.10.16
 
