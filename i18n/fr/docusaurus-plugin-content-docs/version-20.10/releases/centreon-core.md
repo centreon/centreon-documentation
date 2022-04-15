@@ -24,7 +24,7 @@ commerciales, vous pouvez vous rendre sur notre
 #### Bug fixes
 
 - [Core] Fixed save proxy setting with empty prameters
-- [MBI] Fixed MBI graphs reports not respecting graphs templates
+- [MBI] MBI graphs reports were not using graph templates
 - [Resources Status] Fixed monitoring command not displayed in Resources Status Details panel
 
 ### 20.10.16
