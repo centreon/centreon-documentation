@@ -1288,4 +1288,4 @@ Ticket Constraints:
 
 ## Intégrer des collecteurs
 
-Il ne reste maintenant plus qu'à [intégrer les collecteurs](../integrating-pollers.md) et commencer à superviser !
+Il ne reste maintenant plus qu'à [intégrer les collecteurs](./integrating-pollers.md) et commencer à superviser !
