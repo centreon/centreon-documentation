@@ -22,6 +22,9 @@ Activez d'abord l'authentification :
 - **Authentication mode** indique si l'authentification doit avoir lieu uniquement par OpenId Connect ou en
   utilisant également l'authentification locale (mixte).
 
+> Lors du paramétrage, il est recommandé d'activer le mode "mixte". Cela vous permettra de garder l'accès au compte
+> local `admin` en cas de configuration érronée.
+
 ### Configurer les informations d'accès au fournisseur d'identité
 
 Ensuite, configurez les informations du fournisseur d'identité:

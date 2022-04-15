@@ -24,6 +24,9 @@ First enable OpenID Connect authentication:
 - **Authentication mode** field indicates if the authentication should take place only by OpenId Connect or using local
   authentication as well (Mixed).
 
+> When setting the parameters, it is recommended to activate the "mixed" mode. This will allow you to retain access to
+> the local `admin` account in the event of a misconfiguration.
+
 ### Configure Identity Provider access credentials
 
 Then configure Identity Provider information:
