@@ -13,24 +13,24 @@ Go to **Administration > Authentication> Password Security Policy** page:
 
 ![image](../assets/administration/local-configuration.png)
 
-### Password complexity policy
+### Password case policy
 
-First select the **password minimum length** as well as **password complexity** for new password definition.
+First select the **Minium password length** as well as **Choose letter cases** for new password definition.
 
 ### Password expiration policy
 
 Then, configure expiration policy:
-- **Password expiration**: Once the password expires, the user will be redirected to a
+- **Password expires after**: Once the password expires, the user will be redirected to a
   [dedicated page](../getting-started/interface.md#reset-your-password-when-expired) to update their password.
-- **Time before setting a new password**: Delays between two changes of passwords.
-- **Can reuse last 3 passwords**: This option allows the user not to reuse one of his 3 old passwords when renewing.
+- **Minimum time between password changes**: Delays between two changes of passwords.
+- **Last 3 passwords can be reused**: This option allows the user not to reuse one of his 3 old passwords when renewing.
 - **Excluded users**: This option makes it possible to exclude user accounts, in particular accounts accessing APIs
   from the password expiration policy.
 
-### Password Password blocking policy
+### Password blocking policy
 
-To block brute force type attacks, you can define the number of failed attempts before to block the users before new
-connection attempt.
+To block brute force type attacks, you can define the **Number of attempts before user is blocked** as well ass the
+**Time that must pass before new connection is allowed**.
 
 ## Authorise users to access to Centreon
 

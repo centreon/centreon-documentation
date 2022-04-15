@@ -10,29 +10,28 @@ brute.
 
 ## Configurer la politique de sécurité de mot de passe
 
-Allez à la page **Administration > Authentication> Password Security Policy** :
+Allez à la page **Administration > Authentication> Politique de sécurité de mot de passe** :
 
 ![image](../assets/administration/local-configuration.png)
 
-### Politique de complexité des mots de passe
+### Politique de casse du mot de passe
 
-Premièrement, définissez la longeur du mot de passe **password minimum length** et sa complexité **password complexity**.
+Premièrement, définissez la **Minimum password length** et **Choisir les casses d'écriture**.
 
 ### Politique d'expiration du mot de passe
 
 Puis, configurez la politique d'expiration :
-- **Password expiration**: Une fois le mot de passe expiré, l'utilisateur sera redirigé vers une
+- **Le mot de passe expire après** : Une fois le mot de passe expiré, l'utilisateur sera redirigé vers une
   [page dédiée](../getting-started/interface.md#réinitialisez-votre-mot-de-passe-après-expiration) pour mettre à jour son mot de passe.
-- **Time before setting a new password**: Délais entre deux changements de mots de passe.
-- **Can reuse last 3 passwords**: Cette option permet à l'utilisateur de ne pas réutiliser l'un de ses 3 anciens mots
-  de passe lors du renouvellement.
-- **Excluded users**: Cette option permet d'exclure des comptes utilisateurs, notamment les comptes accédant aux API,
+- **Durée minimum entre chaque changement de mot de passe**
+- activez ou non l'option **Les 3 derniers mot de passe peuvent être réutilisés**.
+- **Excluded users** : Cette option permet d'exclure des comptes utilisateurs, notamment les comptes accédant aux API,
   de la politique d'expiration des mots de passe.
 
-### Politique de blocage des mots de passe
+### Politique de blocage du mot de passe
 
-Pour bloquer les attaques de type force brute, vous pouvez définir le nombre de tentatives infructueuses avant de
-bloquer les utilisateurs avant toute nouvelle tentative de connexion.
+Pour bloquer les attaques de type force brute, vous pouvez définir le **Nombre de tentatives avant que l'utilisateur soit bloqué**,
+ainsi que la **Durée de blocage avant qu'une nouvelle connexion soit authorisée**.
 
 ## Autoriser les utilisateurs à accéder à Centreon
 
