@@ -402,21 +402,24 @@ commande suivante sur le serveur Central :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-systemctl enable php-fpm httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
+systemctl enable php-fpm httpd centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-systemctl enable php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
+systemctl enable php-fpm httpd24-httpd centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
 ```
 
 </TabItem>
 </Tabs>
 
-> Si la base de données est sur un serveur dédié, pensez à activer le
-> lancement du service **mariadb** sur ce dernier.
+Puis exécutez la commande suivante (sur le serveur central si vous utilisez une base de données locale, sinon sur le serveur de base de données déporté):
+
+```shell
+systemctl enable mariadb
+```
 
 ### Sécuriser la base de données
 
