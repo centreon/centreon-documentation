@@ -21,6 +21,8 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.10.17
 
+Release date: `April 15, 2022`
+
 #### Bug fixes
 
 - [Core] Proxy settings were saved with empty parameters

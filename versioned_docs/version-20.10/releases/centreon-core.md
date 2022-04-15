@@ -21,6 +21,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.10.17
 
+Release date: `April 15, 2022`
+
 #### Bug fixes
 
 - [Core] Proxy settings were saved with empty parameters
