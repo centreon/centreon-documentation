@@ -19,6 +19,16 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 20.10.17
+
+Release date: `April 15, 2022`
+
+#### Bug fixes
+
+- [Core] Proxy settings were saved with empty parameters
+- [MBI] MBI graphs reports were not using graph templates
+- [Resources Status] Fixed monitoring command not displayed in Resources Status Details panel
+
 ### 20.10.16
 
 Release date: `April 1, 2022`
