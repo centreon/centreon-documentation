@@ -196,7 +196,7 @@ Attention, vous devrez quand même [mettre à jour les plugins](#mettre-à-jour-
 
 ### Mettre à jour les plugins
 
-À la page **Configuration > Packs de plugins**, si **Installation automatique des plugins** est à **ON**, les plugins seront mis à jour automatiquement lorsque vous exporterez la configuration d'un collecteur qui supervise un hôt ou un service qui utilise ce plugin.
+À la page **Configuration > Packs de plugins**, si **Installation automatique des plugins** est à **ON**, les plugins seront mis à jour automatiquement lorsque vous exporterez la configuration d'un collecteur qui supervise un hôte ou un service qui utilise ce plugin.
 
 Si **Installation automatique des plugins** est à **OFF**, utilisez la commande suivante pour mettre à jour les plugins :
 
