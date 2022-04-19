@@ -43,7 +43,7 @@ As of now, the provider is able to retrieve the following objects from Glpi:
 It will also fill the following parameters from a predefined list in Centreon.
 You can extend those lists inside the provider configuration since they are
 custom lists
-<https://documentation.centreon.com/docs/centreon-open-tickets/en/latest/configuration_guide/index#advanced-configuration>
+<https://documentation.centreon.com/docs/centreon-open-tickets/en/latest/configuration_guide#advanced-configuration>
 
   - Urgency
   - Impact
