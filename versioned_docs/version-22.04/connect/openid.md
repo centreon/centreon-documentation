@@ -5,7 +5,6 @@ title: Configuring connection via OpenId Connect
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 Centreon is compatible with OAuth 2.0/OpenId Connect authentication.
 
 Usage of Identity Providers (IdP) is available, such as Microsoft Azure AD, Okta, Keycloak, LemonLDAP::NG or other IdP
@@ -13,50 +12,55 @@ which are compatible with the Authorization Code Flow.
 
 ## Configure OpenID Connect authentication
 
-Go to the **Administration > Authentication > OpenID Connect Configuration** page:
+Go to **Administration > Authentication > OpenID Connect Configuration**:
 
 ![image](../assets/administration/oidc-configuration.png)
 
-### Enable authentication
+### Step 1: Enable authentication
 
-First enable OpenID Connect authentication:
-- **Enable OpenId Connect authentication** allows to enable or disable OpenId Connect authentication.
-- **Authentication mode** field indicates if the authentication should take place only by OpenId Connect or using local
-  authentication as well (Mixed).
+Enable OpenID Connect authentication:
 
-### Configure Identity Provider access credentials
+- **Enable OpenId Connect authentication**: enables or disables OpenId Connect authentication.
+- **Authentication mode**: indicates if the authentication should be done using only OpenId Connect or using local
+  authentication as well (**Mixed**). In mixed mode, users created manually in Centreon (and not identified via Open ID) will also be able to log in.
 
-Then configure Identity Provider information:
-- **Base Url** field defines the IdP base URL for OpenId Connect endpoints (mandatory).
-- **Authorization Endpoint** field defines the authorization endpoint, for example `/authorize` (mandatory).
-- **Token Endpoint** field defines the token endpoint, for example `/token`(mandatory).
-- **Introspection Token Endpoint** field defines the introspection token endpoint, for example `/introspect` (mandatory).
-- **User Information Endpoint** field defines the user information endpoint, for example `/userinfo`.
-- **End Session Endpoint** field defines the logout endpoint, for example `/logout`.
-- **Login claim value** field defines the value returned from **Introspection Token Endpoint** or **User Information Endpoint**
-  to authenticate the user. For example `sub` or `email`.
-- **Scope** field defines the scope of the IdP, for example `openid`. Separate scope by space.
-- **Client ID** field defines the Client ID.
-- **Client Secret** field defines the Client secret.
-- **Use Basic Auth for Token Endpoint Authentication** field forces to use the `Authorization: Basic` method.
-- **Disable SSL verify peer** field allows to disable SSL peer validation, should only be used for tests.
+### Step 2: Configure Identity Provider access credentials
 
-> Depending on the identity provider, it is necessary to enter several scopes in order to retrieve the claim which will
-> identify the user. This is indicated in the provider's configuration documentation.
+Configure Identity Provider information:
 
-> It is possible to define a full URL for the endpoints in case the base of the URL is different from the others.
+- **Base URL**: defines the identity provider's base URL for OpenId Connect endpoints (mandatory).
+- **Authorization Endpoint**: defines the authorization endpoint, for example `/authorize` (mandatory).
+- **Token Endpoint**: defines the token endpoint, for example `/token` (mandatory).
+- **Introspection Token Endpoint**: defines the introspection token endpoint, for example `/introspect` (mandatory).
+- **Client ID**: defines the Client ID.
+- **Client Secret**: defines the Client secret.
+- **User Information Endpoint**: defines the user information endpoint, for example `/userinfo`.
+- **End Session Endpoint**: defines the logout endpoint, for example `/logout`.
+- **Scopes**: defines the scopes of the identity provider, for example `openid`. Separate scopes by spaces.
+  > Depending on the identity provider, it is necessary to enter several scopes in order to retrieve the claim which will
+  > identify users. This is indicated in the provider's configuration documentation.
+- **Login claim value**: defines which of the variables returned by **Introspection Token Endpoint** or **User Information Endpoint**
+  must be used to authenticate users. For example `sub` or `email`.
+- **Use Basic Auth for Token Endpoint Authentication**: the `Authorization: Basic` method will be used. Enable this option if your identity provider requires it.
+- **Disable SSL verify peer**: allows you to disable SSL peer validation. The identity provider's certificate will not be checked: use this option for test purposes only.
 
-> You can enable **Authentication debug** through `Administration > Parameters > Debug` menu to understand
+> You can define a full URL for the endpoints in case the base of the URL is different from the others.
+
+> You can enable **Authentication debug** through the **Administration > Parameters > Debug** menu to understand
 > authentication failures and improve your setup.
 
-### Configure clients addresses
+### Step 3: Configure client addresses
 
-You can also configure clients addresses:
-- **Trusted client addresses** field indicates which are the IP of the trusted clients (corresponding to the
-  reverse proxy). The trusted clients are separated by comas.
-- **Blacklist client addresses** field indicates which are the clients IP rejected.
+If you leave both fields blank, all IP adresses will be allowed to access the Centreon interface.
 
-### Examples of configuration
+- **Trusted client addresses**: If you enter IP addresses in this field, only these IP addresses will be allowed to access the Centreon interface. All other IP addresses will be blocked. IP addresses must be separated by commas.
+- **Blacklist client addresses**: These IP adresses will be blocked. All other IP addresses will be allowed to access the Centreon interface.
+
+### Step 4: Create users
+
+On page **Configuration > Users > Contacts/Users**, [create the users](../monitoring/basic-objects/contacts-create.md) that will log on to Centreon using OpenID and [grant them rights](../administration/access-control-lists.md) using access groups.
+
+## Examples of configuration
 
 <Tabs groupId="sync">
 <TabItem value="Microsoft Azure AD" label="Microsoft Azure AD">
@@ -182,6 +186,7 @@ Most of the service providers have one URL presenting the configuration paramete
 ```
 
 Retrieve the following parameters to configure your Centreon:
+
 - issuer (Base Url)
 - authorization_endpoint
 - token_endpoint

@@ -5,8 +5,7 @@ title: Configurer une authentification par OpenId Connect
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Centreon est compatible avec l'authentification OAuth 2.0 / OpenId Connect.
+Centreon est compatible avec l'authentification OAuth 2.0/OpenId Connect.
 
 Il est possible d'utiliser un fournisseur d'identité (IdP) tel que Microsoft Azure AD, Okta, Keycloak, LemonLDAP::NG ou
 tout autre IdP compatible avec le flux d'autorisation via un code (Authorization Code Grant).
@@ -17,45 +16,50 @@ L'authentification se paramètre à la page **Administration > Authentification 
 
 ![image](../assets/administration/oidc-configuration.png)
 
-### Activer l'authentification
+### Étape 1 : Activer l'authentification
 
-Activez d'abord l'authentification OpenID Connect:
-- La case **Enable OpenId Connect authentication** permet d'activer ou de désactiver l'authentification OpenId Connect.
-- Le champ **Authentication mode** indique si l'authentification doit avoir lieu uniquement par OpenId Connect ou en
-  utilisant également l'authentification locale (mixte).
+Activez l'authentification OpenID Connect :
 
-### Configurer les informations d'accès au fournisseur d'identité
+- **Enable OpenId Connect authentication** : active/désactive l'authentification OpenId Connect.
+- **Mode d'authentification** : indique si l'authentification doit se faire uniquement par OpenId Connect ou en
+  utilisant également l'authentification locale (**Mixte**). En mode mixte, des utilisateurs créés manuellement dans Centreon (et non identifiés par OpenID) pourront également se connecter.
 
-Ensuite, configurez les informations du fournisseur d'identité:
-- Le champ **Base Url** définit l'URL de base de l'IdP pour les points de terminaison OpenId Connect (obligatoire).
-- Le champ **Authorization Endpoint** définit le point de terminaison d'autorisation, par exemple `/authorize` (obligatoire).
-- Le champ **Token Endpoint** définit le point de terminaison du jeton, par exemple `/token` (obligatoire).
-- Le champ **Introspection Token Endpoint** définit le point de terminaison du jeton d'introspection, par exemple `/introspect` (obligatoire).
-- Le champ **User Information Endpoint** définit le point de terminaison des informations utilisateur, par exemple `/userinfo`.
-- Le champ **End Session Endpoint** définit le point de terminaison de déconnexion, par exemple `/logout`.
-- Le champ **Scope** définit la portée de l'IdP, par exemple «openid». Portée séparée par espace.
-- Le champ **Login claim value** définit la variable qui est renvoyée par les points de terminaison **Introspection Token Endpoint**
-  ou **User Information Endpoint** pour authentifier l'utilisateur. Par exemple `sub` ou `email`.
-- **Client ID** défini l'ID client.
-- **Client Secret** défini le secret client.
-- La case **Use Basic Auth for Token Endpoint Authentication** oblige à utiliser la méthode `Authorization: Basic`.
-- **Disable SSL verify peer** permet de désactiver la validation des pairs SSL, ne doit être utilisé que pour des tests
+### Étape 2 : Configurer les informations d'accès au fournisseur d'identité
 
-> Selon le fournisseur d'identité, il est nécessaire de saisir plusieurs portées (scope) afin de récupérer la valeur
-> (claim) qui identifiera l'utilisateur. Ceci est indiqué dans la documentation de configuration du fournisseur.
+Renseignez les informations du fournisseur d'identité :
 
-> Il est possible de définir une URL complète pour les points de terminaison au cas où la base de l'URL est différente
+- **URL de base** : définit l'URL de base du fournisseur d'identité pour les points d'entrée OpenId Connect (obligatoire).
+- **Point d'entrée d'autorisation** : définit le point d'entrée d'autorisation, par exemple `/authorize` (obligatoire).
+- **Point d'entrée de jeton** : définit le point d'entrée du jeton, par exemple `/token` (obligatoire).
+- **Point d'entrée de jeton d'introspection** : définit le point d'entrée du jeton d'introspection, par exemple `/introspect` (obligatoire).
+- **ID de client** : définit l'ID client.
+- **Secret de client** : définit le secret client.
+- **Point d'entrée d'information utilisateur** : définit le point d'entrée des informations utilisateur, par exemple `/userinfo`.
+- **Point d'entrée de fin de session** : définit le point d'entrée de déconnexion, par exemple `/logout`.
+- **Portées** : définit la portée du fournisseur d'identité, par exemple `openid`. Séparez différentes portées par des espaces.
+  > Selon le fournisseur d'identité, il est nécessaire de saisir plusieurs portées (scopes) afin de récupérer la valeur
+  > (claim) qui identifiera l'utilisateur. Ceci est indiqué dans la documentation de configuration du fournisseur.
+- **Valeur de la déclaration de connexion** : définit quelle variable renvoyée par les points d'entrée
+**Point d'entrée de jeton d'introspection** ou **Point d'entrée d'information utilisateur** doit être utilisée pour authentifier l'utilisateur. Par exemple `sub` ou `email`.
+- **Utiliser l'authentification basique pour l'authentification du point d'entrée de jeton** : si cette option est activée, la méthode `Authorization: Basic` sera utilisée. Activez cette option si votre fournisseur d'identité le demande.
+- **Disable SSL verify peer** : permet de désactiver la validation des pairs SSL. Le certificat du fournisseur d'identité ne sera pas vérifié : cette option ne doit être utilisée qu'à des fins de test.
+
+> Il est possible de définir une URL complète pour les points de entrée au cas où la base de l'URL est différente
 > des autres.
 
 > Vous pouvez activer **Authentification debug** via le menu `Administration > Parameters > Debug` pour comprendre les
 > échecs d'authentification et améliorer votre configuration.
 
-### Configurer les adresses des clients
+### Étape 3 : Configurer les adresses des clients
 
-Vous pouvez également configurer les adresses des clients:
-- Le champ **Trusted client addresses** indique quelles sont les adresses IP des clients de confiance (correspond à
-  l'adresse du reverse proxy). Chaque client de confiance est séparé par une virgule.
-- Le champ **Blacklist client addresses** indique quelles sont les adresses IP des clients qui seront refusés.
+Si vous laissez ces deux champs vides, toutes les adresses IP seront autorisées à accéder à l'interface Centreon.
+
+- **Adresses de clients de confiance** : Si vous entrez des adresses IP dans ce champ, seules ces adresses IP seront autorisées à accéder à l'interface Centreon. Toutes les autres adresses IP seront bloquées. Séparez les adressses IP par des virgules.
+- **Adresses de clients sur liste noire** : Ces adresses IP seront bloquées. Toutes les autres adresses IP seront autorisées.
+
+### Étape 4 : Créer les utilisateurs
+
+À la page **Configuration > Utilisateurs > Contacts/Utilisateurs**, [créez les utilisateurs](../monitoring/basic-objects/contacts-create.md) qui se connecteront à Centreon avec OpenID et [donnez-leur des droits](../administration/access-control-lists.md) via des groupes d'accès.
 
 ### Exemples de configuration
 
@@ -77,7 +81,7 @@ Voici un exemple de configuration pour Microsoft Azure Active Directory:
 | Client ID                    | ${clientId}                                               |
 | Client Secret                | ${clientSecret}                                           |
 
-> Veuillez remplacer `${tenantId}`, `${clientId}` et `${clientSecret}` par vos propres valeurs.
+> Remplacez `${tenantId}`, `${clientId}` et `${clientSecret}` par vos propres valeurs.
 
 </TabItem>
 <TabItem value="Okta" label="Okta">
@@ -97,7 +101,7 @@ Voici un exemple de configuration pour Okta:
 | Client ID                    | ${clientId}                              |
 | Client Secret                | ${clientSecret}                          |
 
-> Veuillez remplacer `${theIdPdomain}`, `${clientId}` et `${clientSecret}` par vos propres valeurs.
+> Remplacez `${theIdPdomain}`, `${clientId}` et `${clientSecret}` par vos propres valeurs.
 
 </TabItem>
 <TabItem value="Keycloak" label="Keycloak">
@@ -117,7 +121,7 @@ Voici un exemple de configuration pour Keycloak:
 | Client ID                    | ${resource}                                                             |
 | Client Secret                | ${secret}                                                               |
 
-> Veuillez remplacer `${theIdPdomain}`, `${resource}` et `${secret}` par vos propres valeurs.
+> Remplacez `${theIdPdomain}`, `${resource}` et `${secret}` par vos propres valeurs.
 
 </TabItem>
 <TabItem value="LemonLDAP::NG" label="LemonLDAP::NG">
@@ -137,12 +141,12 @@ Voici un exemple de configuration pour LemonLDAP::NG:
 | Client ID                    | ${clientId}                              |
 | Client Secret                | ${clientSecret}                          |
 
-> Veuillez remplacer `auth.example.com`, `${clientId}` et `${clientSecret}` par vos propres valeurs.
+> Remplacez `auth.example.com`, `${clientId}` et `${clientSecret}` par vos propres valeurs.
 
 </TabItem>
 <TabItem value="Autres" label="Autres">
 
-La plupart des fournisseurs de services en ont une URL présentant la configuration des paramètres de configuration telle que
+La plupart des fournisseurs de services ont une URL présentant la configuration des paramètres de configuration telle que
 définie par [le protocole](https://openid.net/specs/openid-connect-discovery-1_0#ProviderConfig).
 
 ```json
@@ -183,6 +187,7 @@ définie par [le protocole](https://openid.net/specs/openid-connect-discovery-1_
 ```
 
 Récupérez les paramètres suivants pour configurer votre Centreon :
+
 - issuer (Base Url)
 - authorization_endpoint
 - token_endpoint
