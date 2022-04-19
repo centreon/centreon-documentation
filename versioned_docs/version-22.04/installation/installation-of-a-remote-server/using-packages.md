@@ -424,7 +424,7 @@ To transform the server into a Remote Server and to register it to the Central s
 
 ``` shell
 /usr/share/centreon/bin/registerServerTopology.sh -u <API_ACCOUNT> \
--t remote -h <IP_TARGET_NODE> -n <POLLER_NAME>
+-t remote -h <IP_TARGET_NODE> -n <REMOTE_NAME>
 ```
 
 Example:
@@ -438,7 +438,7 @@ Example:
 
 ``` shell
 /usr/share/centreon/bin/registerServerTopology.sh -u <API_ACCOUNT> \
--t Poller -h <IP_TARGET_NODE> -n <POLLER_NAME>
+-t remote -h <IP_TARGET_NODE> -n <REMOTE_NAME>
 ```
 
 Example:
