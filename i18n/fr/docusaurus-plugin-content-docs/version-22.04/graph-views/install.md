@@ -203,6 +203,10 @@ Donnez à cet utilisateur l'accès à l'API Centreon Web en temps réel :
 
 ![image](../assets/graph-views/reach-api.png)
 
+Exclure l'utilisateur de la politique d'expiration des mots de passe dans **Administration > Authentification**
+
+![image](../assets/graph-views/password-expiration-policy.png)
+
 ### Serveur Centreon Central
 
 Créez un utilisateur dans l'instance mysql hébergeant les bases de données "centreon" et "centreon_storage".

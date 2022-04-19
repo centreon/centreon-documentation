@@ -204,6 +204,10 @@ Provide this user with access to the Centreon Web real-time API:
 
 ![image](../assets/graph-views/reach-api.png)
 
+Exclude the user from password expiration policy in **Administration > Authentication**
+
+![image](../assets/graph-views/password-expiration-policy.png)
+
 ### Centreon Central server
 
 Create a user in the mysql instance hosting 'centreon' and 'centreon_storage'
