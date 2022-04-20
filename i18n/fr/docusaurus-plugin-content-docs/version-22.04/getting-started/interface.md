@@ -49,10 +49,11 @@ langue.
 > Rendez-vous dans le chapitre [How to translate Centreon](../developer/developer-translate-centreon) pour plus d'informations.
 
 ## Réinitialisez votre mot de passe
+
 ### Réinitialisez votre mot de passe avant expiration
 
-Lorsque votre mot de passe expirera dans les 7 prochains jours, un point orange apparaîtra dans le bandeau à droite à
-côté de l'icône de profil :
+Lorsque votre mot de passe va expirer dans les 7 prochains jours, un point orange apparaît dans le
+bandeau à droite à côté de l'icône de profil :
 
 ![image](../assets/administration/password_will_expire.png)
 
@@ -62,9 +63,8 @@ Cliquez sur **Modifier le profil**, puis modifiez votre mot de passe :
 
 ### Réinitialisez votre mot de passe après expiration
 
-Si vous n'avez pas changé votre mot de passe avant son expiration, vous serez redirigé après saisie de votre identifiant
-et de votre mot de passe vers une page dédiée où vous pourrez le mettre à jour :
+Si vous n'avez pas changé votre mot de passe avant son expiration, après connexion vous serez redirigé vers une page dédiée où vous pourrez le mettre à jour :
 
 ![image](../assets/administration/password_expired.png)
 
-Veuillez définir votre mot de passe actuel, en définir un nouveau et cliquez sur le bouton **Réinitialiser le mot de passe**.
+Entrez votre mot de passe actuel, définissez-en un nouveau puis cliquez sur **Réinitialiser le mot de passe**.
