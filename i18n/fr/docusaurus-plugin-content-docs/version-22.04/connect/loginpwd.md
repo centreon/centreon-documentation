@@ -26,14 +26,14 @@ Cette politique permet de renforcer la sécurité des mots de passe des comptes 
 l'utilisateur à saisir un mot de passe complexe, de donner une durée de vie aux mots de passe
 et de bloquer les tentatives d'attaque de type force brute.
 
-Allez à la page **Administration > Authentication> Politique de sécurité de mot de passe** :
+Allez à la page **Administration > Authentification> Politique de sécurité de mot de passe** :
 
 ![image](../assets/administration/local-configuration.png)
 
 ### Politique de casse du mot de passe
 
 - Définissez la longueur minimum du mot de passe.
-- Définissez quels caractères le mot de passe doit contenir pour qu'il soit plus fort (minuscules/majuscules, chiffres, caractères pséciaux).
+- Définissez quels caractères le mot de passe doit contenir pour qu'il soit plus fort (minuscules/majuscules, chiffres, caractères spéciaux).
 
 ### Politique d'expiration du mot de passe
 
@@ -43,7 +43,7 @@ Configurez les conditions dans lesquelles les mots de passe expireront :
   [page dédiée](../getting-started/interface.md#réinitialisez-votre-mot-de-passe-après-expiration) pour mettre à jour son mot de passe.
 - **Durée minimum entre chaque changement de mot de passe** : Lorsqu'un mot de passe vient d'être changé, combien de temps doit s'écouler avant qu'il puisse être changé à nouveau.
 - Activez ou non l'option **Les 3 derniers mot de passe peuvent être réutilisés**.
-- **Excluded users** : Sélectionnez des comptes utilisateur pour qui la politique d'expiration de mot de passe ne s'appliquera pas (par exemple, le compte **admin**, ou les comptes accédant aux API). Les mots de passe de ces comptes n'expireront jamais.
+- **Excluded users** : Sélectionnez des comptes utilisateur pour lesquels la politique d'expiration de mot de passe ne s'appliquera pas (par exemple, le compte **admin**, ou les comptes accédant aux API). Les mots de passe de ces comptes n'expireront jamais.
 
 ### Politique de blocage du mot de passe
 
