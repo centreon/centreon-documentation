@@ -40,7 +40,7 @@ Then click on **Next**.
 
 ### Step 5: Admin information
 
-Define the information needed for the default admin account creation. This is the account you will use to log in to Centreon for the first time.
+Define the information needed for the default admin account creation. This is the account you will use to log in to Centreon for the first time. The password must comply with the default password security policy: 12 characters minimum, lower and upper case letters, numbers and special characters. You can change this policy later.
 
 ![image](../assets/installation/aadmininfo.png)
 

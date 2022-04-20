@@ -42,7 +42,7 @@ Puis cliquez sur **Next**.
 
 ### Étape 5 : Admin information
 
-Définissez les informations nécessaires pour la création de l'utilisateur par défaut, **admin**. Vous utiliserez ce compte pour vous connecter à Centreon la première fois.
+Définissez les informations nécessaires pour la création de l'utilisateur par défaut, **admin**. Vous utiliserez ce compte pour vous connecter à Centreon la première fois. Le mot de passe doit être conforme à la politique de sécurité de mot de passe par défaut : 12 caractères minimum, lettres minuscules et majuscules, chiffres et caractères spéciaux. Vous pourrez changer cette politique par la suite.
 
 ![image](../assets/installation/aadmininfo.png)
 
