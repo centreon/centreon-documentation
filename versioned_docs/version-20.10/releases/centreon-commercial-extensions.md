@@ -25,7 +25,7 @@ Release date: `April 20, 2022`
 
 #### Bugfixes
 
-- Link to MAP documentation on Monitoring > Centreon MAP Home Page now redirects to the proper documentation page.
+- Link to MAP documentation on Monitoring > Centreon MAP Home Page now redirects to the correct documentation page.
 
 ### 20.10.9
 
