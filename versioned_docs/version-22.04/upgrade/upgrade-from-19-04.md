@@ -50,6 +50,8 @@ yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/ce
 > yum install -y centos-release-scl-rh
 > ```
 
+> If you are using a Business edition, install the correct Business repository too. You can find it on the [support portal](https://support.centreon.com/s/repositories).
+
 ### Upgrade PHP
 
 Centreon 22.04 uses PHP in version 8.0.

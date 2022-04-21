@@ -48,6 +48,8 @@ yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/ce
 </TabItem>
 </Tabs>
 
+> If you are using a Business edition, install the correct Business repository too. You can find it on the [support portal](https://support.centreon.com/s/repositories).
+
 ### Upgrade the Centreon solution
 
 > Make sure all users are logged out from the Centreon web interface
