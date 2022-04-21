@@ -37,7 +37,7 @@ It brings the following Service Templates:
 </TabItem>
 <TabItem value="Virtual-Curve" label="Virtual-Curve">
 
-Metrics depends on the service configuration. Check The Watch article linked on top of this page. 
+Metrics depend on the service configuration. Check The Watch article linked at the top of this page.
 
 </TabItem>
 </Tabs>
