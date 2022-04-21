@@ -79,7 +79,7 @@ serveur de reporting pour des questions de performances & d'isolation.
 **Logiciels**
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 - Centreon Web 22.04
 - Vérifiez que `date.timezone` est correctement configurée dans le fichier
@@ -188,7 +188,7 @@ Installer le dépôt MBI, vous pouvez le trouver sur le
 Puis lancez la commande suivante :
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
 dnf install centreon-bi-server
@@ -316,7 +316,7 @@ Installer le dépôt MBI, vous pouvez le trouver sur le
 Puis lancer la commande suivante:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
 dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client

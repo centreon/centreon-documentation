@@ -57,7 +57,7 @@ The data is sent to the Centreon Cloud Platform. No personal data is collected.
 - The RPMs are available in the Centreon official repositories for the currently supported versions. The official Centreon repository must be installed:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
 dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04-3.el8.noarch.rpm

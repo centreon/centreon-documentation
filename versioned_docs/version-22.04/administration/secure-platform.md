@@ -343,7 +343,7 @@ Once you have your certificate, perform the following procedure to activate HTTP
 1. Install SSL module for Apache:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
 dnf install mod_ssl mod_security openssl
@@ -369,7 +369,7 @@ Copy your certificate and key on the server according your configuration; by def
 3. Backup previous Apache configuration for Centreon:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
 cp /etc/httpd/conf.d/10-centreon.conf{,.origin}
@@ -391,7 +391,7 @@ cp /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf{,.origin}
 > **/usr/share/centreon/examples/centreon.apache.https.conf**
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Edit the **/etc/httpd/conf.d/10-centreon.conf** as following:
 
@@ -469,7 +469,7 @@ ServerTokens Prod
 5. Enable HttpOnly / Secure flags and hide Apache server signature
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Edit the **/etc/httpd/conf.d/10-centreon.conf** file and add the following line:
 
@@ -512,7 +512,7 @@ expose_php = Off
 6. Hide the default /icons directory
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Edit the **/etc/httpd/conf.d/autoindex.conf** file and comment the following line:
 
@@ -536,7 +536,7 @@ Edit the **/opt/rh/httpd24/root/etc/httpd/conf.d/autoindex.conf** file and comme
 7. Restart the Apache and PHP process to take in account the new configuration:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
 systemctl restart php-fpm httpd
@@ -772,7 +772,7 @@ To update the Centreon URI, you need to follow those steps:
 2. Edit Apache configuration file for Centreon Web 
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
 vim /etc/httpd/conf.d/10-centreon.conf
@@ -796,7 +796,7 @@ It is possible to enable http2 protocol to improve Centreon network performance.
 To use http2, you need to follow those steps:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 1. [Configure https on Centreon](./secure-platform.md#enable-https-on-the-web-server)
 

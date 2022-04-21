@@ -95,7 +95,7 @@ qui doivent être inclus dans le décompte.
 
 #### Logiciel
 
-- OS: CentOS or Redhat 7 / 8
+- OS: CentOS 7 or Redhat 7 / 8
 - DBMS: MariaDB 10.5
 >- Firewall: Désactivé
 >- SELinux: Désactivé
@@ -221,7 +221,7 @@ une nouvelle sortie Centreon Broker. Il sera révoqué ultérieurement.
 Si vous avez installé votre serveur Centreon MAP à partir d'une nouvelle installation CentOS, vous devez installer le paquet `centreon-release`.
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
 dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04-3.el8.noarch.rpm
@@ -245,7 +245,7 @@ le [portail du support](https://support.centreon.com/s/repositories).
 Ensuite, installez le serveur Centreon MAP à l'aide de la commande suivante :
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
 dnf install centreon-map-server

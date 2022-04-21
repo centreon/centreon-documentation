@@ -137,7 +137,7 @@ vgdisplay vg_data | grep -i free
 
 **Software**
 
-- OS: CentOS / Redhat 7 or 8
+- OS: CentOS 7 / Redhat 7 or 8
 - SGBD: MariaDB 10.5
 - Firewall: Disabled
 - SELinux: Disabled
@@ -175,7 +175,7 @@ Install the Centreon MBI repository, you can find it on the
 Then run the following command:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
 dnf install centreon-bi-server
@@ -304,7 +304,7 @@ To start installing the reporting server, install the MBI repository, you can fi
 Then execute the following command:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
 dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client

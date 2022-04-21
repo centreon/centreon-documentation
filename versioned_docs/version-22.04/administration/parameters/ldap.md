@@ -113,7 +113,7 @@ TLS_REQCERT never
 Then restart Apache:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="Alma/ RHEL / Oracle Linux 8" label="Alma/ RHEL / Oracle Linux 8">
 
 ```shell
 systemctl restart httpd

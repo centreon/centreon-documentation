@@ -97,7 +97,7 @@ children which must be included in the count.
 
 #### Software
 
-- OS: CentOS or Redhat 7 / 8
+- OS: CentOS 7 or Redhat 7 / 8
 - DBMS: MariaDB 10.5
 - Firewall: Disabled
 - SELinux: Disabled
@@ -224,7 +224,7 @@ If you installed your Centreon MAP server from a "fresh CentOS installation"
 you need to install the `centreon-release` package:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
 dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04-3.el8.noarch.rpm
@@ -248,7 +248,7 @@ Install Centreon MAP repository, you can find it on the
 Then install Centreon MAP server using the following command:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
 dnf install centreon-map-server
@@ -352,7 +352,7 @@ Install Centreon MAP repository, you can find it on the
 Then execute the following command:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
 dnf install centreon-map-web-client

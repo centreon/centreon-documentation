@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 Centreon fournit des RPM pour ses produits au travers de la solution
 Centreon Open Source disponible gratuitement sur notre dépôt.
 
-Les paquets peuvent être installés sur CentOS7 ou sur Alma/RHEL/Oracle Linux 8.
+Les paquets peuvent être installés sur CentOS 7 ou sur Alma/RHEL/Oracle Linux 8.
 
 L'ensemble de la procédure d'installation doit être faite en tant qu'utilisateur privilégié.
 

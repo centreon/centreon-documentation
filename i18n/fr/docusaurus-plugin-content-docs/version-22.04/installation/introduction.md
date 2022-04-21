@@ -27,7 +27,7 @@ Avant toute installation :
 3. [Téléchargez Centreon](https://download.centreon.com/)
 4. Enfin, vous pourrez procéder à l'installation de la plateforme.
 
-Pour tester rapidement Centreon à partir d'un serveur Oracle Linux / RHEL
+Pour tester rapidement Centreon à partir d'un serveur AlmaLinux / Oracle Linux / RHEL
 en version 8, vous pouvez exécuter la commande suivante en **root** :
 
 ``` shell
