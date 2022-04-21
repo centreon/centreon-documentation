@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 ## Vue d'ensemble
 
-ce Pack construit des métriques sur la base d'informations récupérées dans la base de données temps-réel de Centreon. Un article sur la plateforme the Watch vous offre une vue d'ensemble de ses capacités autour des [courbes virtuelles](https://thewatch.centreon.com/product-how-to-21/get-to-know-app-centreon-sql-metric-pack-and-start-building-some-virtual-curves-296).
+Ce Plugin Pack construit des métriques sur la base d'informations récupérées dans la base de données temps-réel de Centreon. Un article sur la plateforme the Watch vous offre une vue d'ensemble de ses capacités autour des [courbes virtuelles](https://thewatch.centreon.com/product-how-to-21/get-to-know-app-centreon-sql-metric-pack-and-start-building-some-virtual-curves-296).
 
 ## Contenu du Pack
 
@@ -18,9 +18,9 @@ Le Plugin Pack Centreon Centreon Poller apporte un modèle d'hôte :
 
 * App-Monitoring-Centreon-SQL-Metrics-custom
 
-Il apporte les Modèles de Service suivants :
+Il apporte les modèles de service suivants :
 
-| Service Alias   | Service Template                            | Service Description                                                      | Default |
+| Alias           | Modèle de service                           | Description                                                              | Défaul |
 | :-------------- | :------------------------------------------ | :----------------------------------------------------------------------- | :------ |
 | Poller-Delay    | App-Monitoring-Centreon-SQL-Poller-Delay    | Controle le délai dans la mise à jour des collecteurs                    |         |
 | Virtual-Curve   | App-Monitoring-Centreon-SQL-Virtual-Curves  | Combine des métriques existantes et fais des calculs supplémentaires     |         |
@@ -89,10 +89,10 @@ yum install centreon-pack-applications-monitoring-centreon-poller
 ### Hôte
 
 * Ajoutez un Hôte à Centreon depuis la page **Configuration > Hôtes**.
-* Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre *serveur de base de données Centreon*. 
-* Appliquez le Modèle d'Hôte *App-Monitoring-Centreon-SQL-Metrics-custom*.
+* Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre serveur de base de données Centreon. 
+* Appliquez le modèle d'hôte **App-Monitoring-Centreon-SQL-Metrics-custom**.
 
-* Une fois le modèle appliqué, les Macros ci-dessous indiquées comme requises (*Mandatory*) doivent être renseignées.
+* Une fois le modèle appliqué, les macros ci-dessous indiquées comme requises (*Obligatoire*) doivent être renseignées.
 
 | Obligatoire | Nom                      | Description                                      |
 | :---------- | :----------------------- | :----------------------------------------------- |
@@ -102,7 +102,7 @@ yum install centreon-pack-applications-monitoring-centreon-poller
 
 ## Comment puis-je tester le Plugin et que signifient les options des commandes ? 
 
-Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande depuis votre collecteur Centreon en vous connectant avec l'utilisateur **centreon-engine** (`su - centreon-engine`) :
+Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne de commande depuis votre collecteur Centreon en vous connectant avec l'utilisateur **centreon-engine** (`su - centreon-engine`) :
 
 ```bash
 /usr/lib/centreon/plugins/centreon_centreon_sql_metrics.pl \
@@ -130,4 +130,4 @@ La liste de toutes les options complémentaires et leur signification peut être
 
 ### Diagnostic des erreurs communes
 
-Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md) pour le diagnostic des erreurs communes des Plugins Centreon.
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md) pour le diagnostic des erreurs communes des plugins Centreon.

@@ -18,7 +18,7 @@ The Centreon Plugin Pack Centreon SQL Metrics brings a host template:
 
 * App-Monitoring-Centreon-SQL-Metrics-custom
 
-It brings the following Service Templates:
+It brings the following service templates:
 
 | Service Alias   | Service Template                            | Service Description                         | Default |
 | :-------------- | :------------------------------------------ | :------------------------------------------ | :------ |
@@ -44,7 +44,7 @@ Metrics depend on the service configuration. Check The Watch article linked at t
 
 ## Prerequisites
 
-The Poller executing the check must be able to connect to the centreon_storage database over 3306/TCP port with values supplied through --username and --password options.
+The poller executing the check must be able to connect to the centreon_storage database over 3306/TCP port with values supplied through --username and --password options.
 
 The SQL user must hold required privileges to "SELECT" data within index_data and metrics tables part of the centreon_storage database.
 
@@ -55,7 +55,7 @@ When using the Virtual-Curve service, the configuration file must be readable by
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on the Central Server:
+1. Install the Centreon plugin package on the Central Server:
 
 ```bash
 yum install centreon-plugin-Applications-Monitoring-Centreon-SQL-Metrics
@@ -66,7 +66,7 @@ yum install centreon-plugin-Applications-Monitoring-Centreon-SQL-Metrics
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on the Central Server:
+1. Install the Centreon plugin package on the Central Server:
 
 ```bash
 yum install centreon-plugin-Applications-Monitoring-Centreon-SQL-Metrics
@@ -87,9 +87,9 @@ yum install centreon-pack-applications-monitoring-centreon-sql-metrics
 
 ### Host
 
-* Log into Centreon and add a new Host through **Configuration > Hosts**.
+* Log into Centreon and add a new host through **Configuration > Hosts**.
 * Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your *Centreon database server* server settings.
-* Select the *App-Monitoring-Centreon-SQL-Metrics-custom* template to apply to the Host.
+* Select the *App-Monitoring-Centreon-SQL-Metrics-custom* template to apply to the host.
 * Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
 
 | Mandatory | Name                     | Description                                                  |
@@ -100,7 +100,7 @@ yum install centreon-pack-applications-monitoring-centreon-sql-metrics
 
 ## How to check in the CLI that the configuration is OK and what are the main options for? 
 
-Once the plugin is installed, log into your Centreon Central Server CLI using the **centreon-engine** user account (`su - centreon-engine`) and test the Plugin by running the following 
+Once the plugin is installed, log into your Centreon Central Server CLI using the **centreon-engine** user account (`su - centreon-engine`) and test the plugin by running the following 
 command:
 
 ```bash
@@ -130,4 +130,4 @@ All available options for a given mode can be displayed by adding the
 
 ### Troubleshooting
 
-Please find all the troubleshooting documentation for the Centreon Plugins in the [dedicated page](../getting-started/how-to-guides/troubleshooting-plugins.md).
+Please find all the troubleshooting documentation for the Centreon plugins in the [dedicated page](../getting-started/how-to-guides/troubleshooting-plugins.md).
