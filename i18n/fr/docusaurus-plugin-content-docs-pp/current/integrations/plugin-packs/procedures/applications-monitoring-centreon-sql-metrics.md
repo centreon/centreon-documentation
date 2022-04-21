@@ -20,7 +20,7 @@ Le Plugin Pack Centreon Centreon Poller apporte un modèle d'hôte :
 
 Il apporte les modèles de service suivants :
 
-| Alias           | Modèle de service                           | Description                                                              | Défaul |
+| Alias           | Modèle de service                           | Description                                                              | Défaut  |
 | :-------------- | :------------------------------------------ | :----------------------------------------------------------------------- | :------ |
 | Poller-Delay    | App-Monitoring-Centreon-SQL-Poller-Delay    | Controle le délai dans la mise à jour des collecteurs                    |         |
 | Virtual-Curve   | App-Monitoring-Centreon-SQL-Virtual-Curves  | Combine des métriques existantes et fais des calculs supplémentaires     |         |
