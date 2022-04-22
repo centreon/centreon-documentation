@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 ## Overview
 
-This Pack ships metrics collected from Centreon SQL real-time database. Get a complete
+This Pack ships metrics collected from the Centreon SQL real-time database. Get a complete
 overview of its virtual curves capabilities [here](https://thewatch.centreon.com/product-how-to-21/get-to-know-app-centreon-sql-metric-pack-and-start-building-some-virtual-curves-296)
 
 ## Pack Assets
@@ -37,48 +37,47 @@ It brings the following service templates:
 </TabItem>
 <TabItem value="Virtual-Curve" label="Virtual-Curve">
 
-Metrics depend on the service configuration. Check The Watch article linked at the top of this page.
-
+Metrics depend on the service configuration. Check The Watch [blog post](https://thewatch.centreon.com/product-how-to-21/get-to-know-app-centreon-sql-metric-pack-and-start-building-some-virtual-curves-296)
 </TabItem>
 </Tabs>
 
 ## Prerequisites
 
-The poller executing the check must be able to connect to the centreon_storage database over 3306/TCP port with values supplied through --username and --password options.
+The poller executing the check must be able to connect to the centreon_storage database over the 3306/TCP port with values supplied through **--username** and **--password** options.
 
-The SQL user must hold required privileges to "SELECT" data within index_data and metrics tables part of the centreon_storage database.
+The SQL user must hold required privileges to "SELECT" data within **index_data**, **metrics**, and **instances** tables tables in the **centreon_storage** database.
 
-When using the Virtual-Curve service, the configuration file must be readable by the centreon-engine user. 
+When using the **Virtual-Curve** service, the configuration file must be readable by the **centreon-engine** user. 
 
 ## Setup
 
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon plugin package on the Central Server:
+1. Install the Centreon plugin package on the central server:
 
 ```bash
 yum install centreon-plugin-Applications-Monitoring-Centreon-SQL-Metrics
 ```
 
-2. On the Centreon Web interface, install the **Centreon SQL Metrics** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
+2. On the Centreon web interface, install the **Centreon SQL Metrics** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon plugin package on the Central Server:
+1. Install the Centreon plugin package on the central server:
 
 ```bash
 yum install centreon-plugin-Applications-Monitoring-Centreon-SQL-Metrics
 ```
 
-2. Install the **Centreon SQL Metrics** Centreon Plugin Pack RPM on the Centreon Central server:
+2. Install the **Centreon SQL Metrics** Centreon Plugin Pack RPM on the Centreon central server:
 
 ```bash
 yum install centreon-pack-applications-monitoring-centreon-sql-metrics
 ```
 
-3. On the Centreon Web interface, install the **Centreon SQL Metrics** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
+3. On the Centreon web interface, install the **Centreon SQL Metrics** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
 
 </TabItem>
 </Tabs>
@@ -88,8 +87,8 @@ yum install centreon-pack-applications-monitoring-centreon-sql-metrics
 ### Host
 
 * Log into Centreon and add a new host through **Configuration > Hosts**.
-* Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your *Centreon database server* server settings.
-* Select the *App-Monitoring-Centreon-SQL-Metrics-custom* template to apply to the host.
+* Fill the **Name**, **Alias** and **IP Address/DNS** fields according to your Centreon database server server settings.
+* Apply the **App-Monitoring-Centreon-SQL-Metrics-custom** to the host.
 * Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
 
 | Mandatory | Name                     | Description                                                  |
@@ -100,7 +99,7 @@ yum install centreon-pack-applications-monitoring-centreon-sql-metrics
 
 ## How to check in the CLI that the configuration is OK and what are the main options for? 
 
-Once the plugin is installed, log into your Centreon Central Server CLI using the **centreon-engine** user account (`su - centreon-engine`) and test the plugin by running the following 
+Once the plugin is installed, log into your Centreon poller's CLI using the **centreon-engine** user account (`su - centreon-engine`) and test the plugin by running the following 
 command:
 
 ```bash

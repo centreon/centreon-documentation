@@ -14,7 +14,7 @@ Ce Plugin Pack construit des métriques sur la base d'informations récupérées
 
 ### Modèles
 
-Le Plugin Pack Centreon Centreon Poller apporte un modèle d'hôte :
+Le Plugin Pack Centreon SQL Metrics apporte un modèle d'hôte :
 
 * App-Monitoring-Centreon-SQL-Metrics-custom
 
@@ -22,8 +22,8 @@ Il apporte les modèles de service suivants :
 
 | Alias           | Modèle de service                           | Description                                                              | Défaut  |
 | :-------------- | :------------------------------------------ | :----------------------------------------------------------------------- | :------ |
-| Poller-Delay    | App-Monitoring-Centreon-SQL-Poller-Delay    | Controle le délai dans la mise à jour des collecteurs                    |         |
-| Virtual-Curve   | App-Monitoring-Centreon-SQL-Virtual-Curves  | Combine des métriques existantes et fais des calculs supplémentaires     |         |
+| Poller-Delay    | App-Monitoring-Centreon-SQL-Poller-Delay    | Contrôle le délai dans la mise à jour des collecteurs                    |         |
+| Virtual-Curve   | App-Monitoring-Centreon-SQL-Virtual-Curves  | Combine des métriques existantes et effectue des calculs supplémentaires |         |
 
 ### Métriques & statuts collectés
 
@@ -32,12 +32,12 @@ Il apporte les modèles de service suivants :
 
 | Metric Name                    | Unit   |
 | :----------------------------- | :----- |
-| centreon.poller.delay.seconds  |    s   |
+| centreon.poller.delay.seconds  |   s    |
 
 </TabItem>
 <TabItem value="Virtual-Curve" label="Virtual-Curve">
 
-Les métriques dépendent de la configuration du service. Vous pouvez consulter l'article The Watch proposé en haut de la page. 
+Les métriques dépendent de la configuration du service. Vous pouvez consulter l'article sur [The Watch](https://thewatch.centreon.com/product-how-to-21/get-to-know-app-centreon-sql-metric-pack-and-start-building-some-virtual-curves-296)
 
 </TabItem>
 </Tabs>
@@ -45,41 +45,41 @@ Les métriques dépendent de la configuration du service. Vous pouvez consulter 
 ## Prérequis
 
 Le collecteur exécutant le contrôle doit pouvoir se connecter au serveur de base de données Centreon via le port 
-3306/TCP grâce aux valeurs fournies par les options --username et --password. 
+3306/TCP grâce aux valeurs fournies par les options **--username** et **--password**. 
 
-L'utilisateur doit avoir les droits de réaliser un 'SELECT' sur les tables index_data, metrics et instances de la base centreon_storage. 
+L'utilisateur doit avoir les droits de réaliser un 'SELECT' sur les tables **index_data**, **metrics** et **instances** de la base **centreon_storage**. 
 
-Pour le service Virtual-Curve, le fichier de configuration associé doit pouvoir être lu par l'utilisateur centreon-engine.
+Pour le service **Virtual-Curve**, le fichier de configuration associé doit pouvoir être lu par l'utilisateur **centreon-engine**.
 
 ## Installation
 
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Installer le Plugin Centreon sur le serveur Central :
+1. Installer le plugin Centreon sur le serveur Central :
 
 ```bash
 yum install centreon-plugin-Applications-Monitoring-Centreon-SQL-Metrics
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin Pack **Centreon SQL Metrics** depuis la page **Configuration > Packs de plugins**.
+2. Sur l'interface web de Centreon, installer le Plugin Pack **Centreon SQL Metrics** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Installer le Plugin Centreon sur le serveur Central :
+1. Installer le plugin Centreon sur le serveur Central :
 
 ```bash
 yum install centreon-plugin-Applications-Monitoring-Centreon-SQL-Metrics
 ```
 
-2. Sur le serveur Central, installer le RPM du Pack **Centreon SQL Metrics** :
+2. Sur le serveur central, installer le RPM du Pack **Centreon SQL Metrics** :
 
 ```bash
 yum install centreon-pack-applications-monitoring-centreon-poller
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin Pack **Centreon SQL Metrics** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface web de Centreon, installer le Plugin Pack **Centreon SQL Metrics** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>
@@ -88,8 +88,8 @@ yum install centreon-pack-applications-monitoring-centreon-poller
 
 ### Hôte
 
-* Ajoutez un Hôte à Centreon depuis la page **Configuration > Hôtes**.
-* Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre serveur de base de données Centreon. 
+* Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
+* Complétez les champs **Nom**, **Alias** et **IP Address/DNS** correspondant à votre serveur de base de données Centreon. 
 * Appliquez le modèle d'hôte **App-Monitoring-Centreon-SQL-Metrics-custom**.
 
 * Une fois le modèle appliqué, les macros ci-dessous indiquées comme requises (*Obligatoire*) doivent être renseignées.
@@ -100,7 +100,7 @@ yum install centreon-pack-applications-monitoring-centreon-poller
 |     x       | CENTREONDATABASEPASSWORD | Mot de passe pour la base centreon_storage       |
 |             | EXTRAOPTIONS             | Options supplémentaires pour les contrôles       |
 
-## Comment puis-je tester le Plugin et que signifient les options des commandes ? 
+## Comment puis-je tester le plugin et que signifient les options des commandes ? 
 
 Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne de commande depuis votre collecteur Centreon en vous connectant avec l'utilisateur **centreon-engine** (`su - centreon-engine`) :
 
