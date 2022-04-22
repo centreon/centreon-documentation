@@ -5,7 +5,6 @@ title: Sécurisez votre plateforme
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 Ce chapitre vous propose de sécuriser votre plateforme Centreon.
 
 ## Renforcez la sécurité des comptes utilisateurs
@@ -198,10 +197,10 @@ chown apache:apache /etc/centreon/centreon.conf.php
 chmod 660 /etc/centreon/centreon.conf.php
 ```
 
-## Sécurisez l'installation du SGBD
+## Sécurisez l'accès root au SGBD
 
 [MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/) propose une procédure par défaut pour sécuriser
-l'installation du SGBD. Vous devez obligatoirement définir un mot de passe pour l'utilisateur **root** de la base de données. Veuillez exécuter la commande suivante et suivre les instructions :
+l'installation du SGBD. Vous devez obligatoirement définir un mot de passe pour l'utilisateur **root** de la base de données. Si vous ne l'avez pas déjà fait, exécutez la commande suivante et suivez les instructions :
 
 ```shell
 mysql_secure_installation
@@ -220,13 +219,16 @@ systemctl enable firewalld
 systemctl start firewalld
 ```
 
+Ajoutez des règles pour firewalld :
+
 > La liste des flux réseau nécessaires pour chaque type de serveur est définie
 > [ici](../installation/architectures.md#tableau-des-flux-de-la-plate-forme).
 
 <Tabs groupId="sync">
 <TabItem value="Central / Remote Server" label="Central / Remote Server">
 
-Exemple de règles pour un Centreon Central ou Remote Server:
+Exécutez les commandes suivantes (changez les numéros de port si vous avez personnalisé ceux-ci) :
+
 ```shell
 # For default protocols
 firewall-cmd --zone=public --add-service=ssh --permanent
@@ -242,7 +244,8 @@ firewall-cmd --zone=public --add-port=5669/tcp --permanent
 </TabItem>
 <TabItem value="Poller" label="Poller">
 
-Exemple de règles pour un collecteur Centreon:
+Exécutez les commandes suivantes :
+
 ```shell
 # For default protocols
 firewall-cmd --zone=public --add-service=ssh --permanent
@@ -253,19 +256,64 @@ firewall-cmd --zone=public --add-service=snmptrap --permanent
 </TabItem>
 </Tabs>
 
-Une fois les règles ajoutées, il est nécessaire de recharger firewalld:
+Si besoin, utilisez la commande suivante pour lister toutes les règles actives :
+
+```shell
+firewall-cmd --list-all
+```
+
+Par exemple :
+
+```shell
+public (active)
+  target: default
+  icmp-block-inversion: no
+  interfaces: eth0
+  sources:
+  services: http snmp snmptrap ssh
+  ports: 5556/tcp 5669/tcp
+  protocols:
+  forward: no
+  masquerade: no
+  forward-ports:
+  source-ports:
+  icmp-blocks:
+  rich rules:
+```
+
+Une fois les règles ajoutées, rechargez firewalld:
+
 ```shell
 firewall-cmd --reload
 ```
 
-### Activez fail2ban
+## Activez fail2ban
 
 Fail2ban est un framework de prévention contre les intrusions, écrit en Python.
+
+Installez le module inotify:
+
+<Tabs groupId="sync">
+<TabItem value="Alma 8 / RHEL / Oracle Linux 8" label="Alma 8">
+
+```shell
+dnf install python3-inotify
+```
+
+</TabItem>
+<TabItem value="Centos 7" label="Centos 7">
+
+```shell
+yum install python-inotify
+```
+
+</TabItem>
+</Tabs>
 
 Installez fail2ban :
 ```shell
 yum install epel-release
-yum install fail2ban fail2ban-systemd python-inotify
+yum install fail2ban fail2ban-systemd
 ```
 
 Si SELinux est installé, mettez à jour les politiques SELinux :
@@ -273,7 +321,7 @@ Si SELinux est installé, mettez à jour les politiques SELinux :
 yum update -y selinux-policy*
 ```
 
-Activez firewalld :
+Activez fail2ban :
 ```shell
 systemctl enable fail2ban
 systemctl start fail2ban 
@@ -309,13 +357,20 @@ maxretry = 3
 > **findtime** est la plage de temps pour trouver les authentifications en échecs.
 
 Puis redémarrez fail2ban pour charger votre règle :
+
 ```shell
 systemctl restart fail2ban
 ```
 
 Pour vérifier l'état de la règle **centreon**, vous pouvez exécuter :
+
 ```shell
 fail2ban-client status centreon
+```
+
+Here is an example of output:
+
+```shell
 Status for the jail: centreon
 |- Filter
 |  |- Currently failed:	1
@@ -704,7 +759,7 @@ Soit un serveur Centreon avec le FQDN suivant : **centreon7.localdomain**.
 
 8. Mettre à jour le fichier de configuration Apache :
 
-    Selon le nom des fichiers créés, mettez à jour les paramètres **SSLCertificateFile** et **SSLCertificateKeyFile** dans votre fichier de configuration Apache (**/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf**).
+    Selon le nom des fichiers créés, mettez à jour les paramètres **SSLCertificateFile** et **SSLCertificateKeyFile** dans votre fichier de configuration Apache (**/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf** pour CentOS 7 ou `/etc/httpd/conf.d/10-centreon.conf` pour Alma/RHEL/Oracle Linux 8).
 
     Voici un exemple de ce à quoi le fichier peut ressembler:
 
@@ -910,7 +965,7 @@ certains serveurs ne sont pas dans un réseau sécurisé.
 
 > Le tableau des flux réseau est disponible [ici](../installation/architectures.md#tableau-des-flux-réseau).
 
-### Communication Centreon Broker 
+### Communication Centreon Broker
 
 #### Centreon Broker et pare-feu
 
@@ -952,9 +1007,9 @@ Les journaux des événements Centreon sont disponibles dans les répertoires su
 | /var/log/centreon-map     | X              | X             |        | X                   | X                   |
 
 > De plus, toutes les actions de modification de la configuration de Centreon effectuées par les utilisateurs sont
-> disponibles via le menu [`Administration > Logs`](./logging-configuration-changes.md).
+> disponibles via le menu [**Administration > Logs**](./logging-configuration-changes.md).
 
 # Sauvegardez votre plateforme
 
 Centreon propose de sauvegarder la configuration de la plateforme. Pour ce faire, accédez au menu
-[`Administration  >  Parameters  >  Backup`](./backup.md).
+[**Administration  >  Parameters  >  Backup**](./backup.md).
