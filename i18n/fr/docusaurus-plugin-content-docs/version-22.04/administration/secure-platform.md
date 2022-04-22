@@ -294,7 +294,7 @@ Fail2ban est un framework de prévention contre les intrusions, écrit en Python
 Installez le module inotify:
 
 <Tabs groupId="sync">
-<TabItem value="Alma 8 / RHEL / Oracle Linux 8" label="Alma 8">
+<TabItem value="Alma 8 / RHEL / Oracle Linux 8" label="Alma 8 / RHEL / Oracle Linux 8">
 
 ```shell
 dnf install python3-inotify

@@ -295,7 +295,7 @@ Fail2Ban is an intrusion prevention software framework that protects computer se
 Install the inotify module:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
 dnf install python3-inotify
