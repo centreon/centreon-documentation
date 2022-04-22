@@ -64,7 +64,7 @@ discovery results could look like:
 
 - **Manual analysis**: Once the discovery job is executed, in the list of discovered hosts, you will choose manually which hosts should be added to page **Configuration > Hosts > Hosts** (see [Analyze the results of a discovery job](#analyze-the-results-of-a-discovery-job)).
 
-- **Automatic analysis**: The results will be processed automatically according to the selected policy (you must choose at least one from the first 3):
+- **Automatic analysis**: The results will be processed automatically according to the selected policy (you must choose at least one):
 
   - **Add hosts to configuration when they are discovered for the first time**: all hosts that are detected for the first time are automatically created in the **Configuration > Hosts > Hosts** page.
   - **Disable hosts already added to configuration if the mapping rule excludes them**: resources that are already being monitored will be disabled if they match a new **Exclude** mapper when you run the job again.

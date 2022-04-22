@@ -66,7 +66,7 @@ ressemblerait le résultat de la découverte :
 l'utilisateur choisira manuellement quels hôtes ajouter à la page **Configuration > Hôtes > Hôtes**
 (voir [Analyser le résultat d'une tâche de découverte](#analyser-le-résultat-dune-tâche-de-découverte)).
 
-- **Analyse automatique** : L'analyse traitera le résultat automatiquement selon l'option sélectionnée (au moins une option parmi les 3 premières doit être cochée) :
+- **Analyse automatique** : L'analyse traitera le résultat automatiquement selon l'option sélectionnée (au moins une option doit être cochée) :
 
     - **Ajouter les hôtes à la configuration quand ils sont découverts pour la
           première fois** : tous les hôtes détectés pour la première fois seront créés automatiquement dans 
