@@ -161,7 +161,7 @@ All available options for a given mode can be displayed by adding the
     --help
 ```
 
-All available options for a given mode can be displayed by adding the 
+All available modes can be displayed by adding the 
 `--list-mode` parameter to the command:
 
 ```bash
