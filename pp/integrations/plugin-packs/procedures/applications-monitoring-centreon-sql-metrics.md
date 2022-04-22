@@ -37,7 +37,7 @@ It brings the following service templates:
 </TabItem>
 <TabItem value="Virtual-Curve" label="Virtual-Curve">
 
-Metrics depend on the service configuration. Check The Watch [blog post](https://thewatch.centreon.com/product-how-to-21/get-to-know-app-centreon-sql-metric-pack-and-start-building-some-virtual-curves-296)
+Metrics depend on the service configuration. Check our [The Watch blog post](https://thewatch.centreon.com/product-how-to-21/get-to-know-app-centreon-sql-metric-pack-and-start-building-some-virtual-curves-296).
 </TabItem>
 </Tabs>
 
