@@ -122,7 +122,7 @@ yum install centreon-pack-applications-monitoring-ntopng-restapi
 | Mandatory | Name                | Description                                                                  |
 | :-------- | :-------------------- | :------------------------------------------------------------------------- |
 | X         | NTOPNGAPIPORT         | Port used (Default: 3000)                                                  |
-| X         | NTOPNGAPIPROTO        | Specify http if needed (default: 'http')                                   |
+| X         | NTOPNGAPIPROTO        | Specify https if needed (default: 'http')                                   |
 | X         | NTOPNGAPIUSERNAME     | Api username                                                               |
 | X         | NTOPNGAPIPASSWORD     | Api password                                                               |
 |           | NTOPNGAPIEXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
