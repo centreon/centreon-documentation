@@ -113,25 +113,24 @@ yum install centreon-pack-applications-monitoring-ntopng-restapi
 
 ### Host
 
-* Log into Centreon and add a new Host through **Configuration > Hosts**
-* Fill the **Name**, **Alias** & **IP Address / DNS** fields according to your **NtopNG RestAPI** server settings
-* Select the **App-Monitoring-Ntopng-Restapi-custom** template to apply to the Host
-
-> Once the template is applied, some Macros have to be configured:
+* Log into Centreon and add a new Host through **Configuration > Hosts**.
+* Fill the **Name**, **Alias** & **IP Address / DNS** fields according to your **NtopNG RestAPI** server settings.
+* Apply the **App-Monitoring-Ntopng-Restapi-custom** template to the host.
+* Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
 
 | Mandatory | Name                | Description                                                                  |
 | :-------- | :-------------------- | :------------------------------------------------------------------------- |
 | X         | NTOPNGAPIPORT         | Port used (Default: 3000)                                                  |
-| X         | NTOPNGAPIPROTO        | Specify https if needed (default: 'http')                                   |
+| X         | NTOPNGAPIPROTO        | Specify https if needed (default: 'http')                                  |
 | X         | NTOPNGAPIUSERNAME     | Api username                                                               |
 | X         | NTOPNGAPIPASSWORD     | Api password                                                               |
 |           | NTOPNGAPIEXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
 
 ## How to check in the CLI that the configuration is OK and what are the main options for? 
 
-Once the plugin is installed, log into your Centreon Poller CLI using the 
-**centreon-engine** user account and test the Plugin by running the following 
-command:
+Once the plugin is installed, log into your Centreon poller's CLI using the
+**centreon-engine** user account (`su - centreon-engine`) and test the plugin by
+running the following command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_monitoring_ntopng_restapi.pl \
@@ -172,5 +171,5 @@ All available modes can be displayed by adding the
 
 ### Troubleshooting
 
-Please find all the troubleshooting documentation for the Centreon Plugins
-in the [dedicated page](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks)
+Please find the troubleshooting documentation for the API-based plugins in
+this [chapter](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks).

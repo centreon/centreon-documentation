@@ -115,23 +115,24 @@ yum install centreon-pack-applications-monitoring-ntopng-restapi
 
 * Ajoutez un Hôte à Centreon depuis la page **Configuration > Hôtes**
 * Complétez les champs **Nom**, **Alias** & **IP Address / DNS** correspondant à votre serveur **NtopNG RestAPI**.
-* Appliquez le Modèle d'Hôte **App-Monitoring-Ntopng-Restapi-custom**
+* Appliquez le modèle d'hôte **App-Monitoring-Ntopng-Restapi-custom**.
+* Une fois le modèle appliqué, les macros ci-dessous indiquées comme requises (**Obligatoire**) doivent être renseignées.
 
 Une fois celui-ci configuré, certaines macros doivent être renseignées:
 
 | Mandatory | Name                | Description                                                                  |
 | :-------- | :-------------------- | :------------------------------------------------------------------------- |
 | X         | NTOPNGAPIPORT         | Port used (Default: 3000)                                                  |
-| X         | NTOPNGAPIPROTO        | Specify https if needed (default: 'http')                                   |
+| X         | NTOPNGAPIPROTO        | Specify https if needed (default: 'http')                                  |
 | X         | NTOPNGAPIUSERNAME     | Api username                                                               |
 | X         | NTOPNGAPIPASSWORD     | Api password                                                               |
 |           | NTOPNGAPIEXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
 
 ## Comment puis-je tester le Plugin et que signifient les options des commandes ? 
 
-Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne 
-de commande depuis votre collecteur Centreon en vous connectant avec 
-l'utilisateur **centreon-engine**:
+Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
+de commande depuis votre collecteur Centreon en vous connectant avec
+l'utilisateur **centreon-engine** (`su - centreon-engine`) :
 
 ```bash
 /usr/lib/centreon/plugins/centreon_monitoring_ntopng_restapi.pl \
@@ -173,4 +174,4 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 ### Diagnostic des erreurs communes
 
 Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks)
-pour le diagnostic des erreurs communes des Plugins Centreon.
+des plugins basés sur HTTP/API.
