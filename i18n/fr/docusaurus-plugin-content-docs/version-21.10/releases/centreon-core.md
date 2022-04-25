@@ -16,6 +16,36 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon Web
 
+### 21.10.6
+
+#### Bug Fixes
+
+- [API] Fixed an issue in the `icons` API endpoint that always returned 0 for total number of results
+- [Banner] Fixed display of empty skeleton
+- [Charts] Fixed slowdown in graphics display
+- [Configuration] Fixed an issue that caused the export of the poller configuration files to fail when a disabled host template was used
+- [Configuration] Fixed checkbox selection after enabling/disabling a contact via icons
+- [Core] Proxy settings were saved with empty parameters
+- [Install] Fixed database user creation with remote DBMS
+- [Monitoring] Fixed display of acknowledgement information in legacy Resources Status pages
+- [Monitoring] fixed relation issue for recurrent downtimes
+- [Reporting] MBI graphs reports were not using graph templates
+- [Resources Status] Fixed default settings for acknowledgments and downtimes
+- [Resources Status] Fixed display of acknowledgements comments
+- [Resources Status] Fixed Hard/Soft translation
+- [Resources Status] Fixed monitoring command not displayed in Resources Status Details panel
+- [UX] Fixed display of date with UTC timezone in datepickers
+- [UX] Improved interface response time if CEIP is enabled but the browser does not have internet access
+
+#### Security Fixes
+
+- [Apache] Fixed cookies with missing or contradictory properties
+- [Apache] Improve Apache configuration to enable HSTS
+- [Configuration] Fixed a SQL injection issue in Configuration > Poller > Resources
+- [Core] Passwords are now obfuscated in the page's HTML source
+- [Core] Replace Math.random by Crypto JS API
+- [PHP] Disabling allow_url_fopen in PHP
+
 ### 21.10.5
 
 Release date: `March 21, 2022`
