@@ -204,7 +204,7 @@ Provide this user with access to the Centreon Web real-time API:
 
 ![image](../assets/graph-views/reach-api.png)
 
-Exclude the user from password expiration policy in **Administration > Authentication**
+Exclude the user from the password expiration policy on page **Administration > Authentication**: their password will never expire.
 
 ![image](../assets/graph-views/password-expiration-policy.png)
 
