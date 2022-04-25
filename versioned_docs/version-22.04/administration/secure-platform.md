@@ -256,7 +256,13 @@ firewall-cmd --zone=public --add-service=snmptrap --permanent
 </TabItem>
 </Tabs>
 
-If you need to, use the following command to list all active rules:
+Once the rules have been added, reload firewalld:
+
+```shell
+firewall-cmd --reload
+```
+
+To check that the configuration has been applied correctly, use the following command to list all active rules:
 
 ```shell
 firewall-cmd --list-all
@@ -279,13 +285,6 @@ public (active)
   source-ports:
   icmp-blocks:
   rich rules:
-```
-
-
-Once the rules have been added, reload firewalld:
-
-```shell
-firewall-cmd --reload
 ```
 
 ## Enable fail2ban
