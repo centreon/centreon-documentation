@@ -19,6 +19,28 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+
+### 21.04.14
+
+#### Bug Fixes
+
+- [API] Fixed an issue in the `icons` API endpoint that always returned 0 for total number of results
+- [Configuration] Fixed checkbox selection after enabling/disabling a contact via icons
+- [Core] Proxy settings were saved with empty parameters
+- [Install] Fixed database user creation with remote DBMS
+- [Reporting] MBI graphs reports were not using graph templates
+- [Resources Status] Fixed default settings for acknowledgments and downtimes
+- [Resources Status] Fixed display of acknowledgements comments
+- [Resources Status] Fixed monitoring command not displayed in Resources Status Details panel
+- [UX] Improved interface response time if CEIP is enabled but the browser does not have internet access
+
+#### Security Fixes
+
+- [Apache] Fixed cookies with missing or contradictory properties
+- [Apache] Improve Apache configuration to enable HSTS
+- [Core] Passwords are now obfuscated in the page's HTML source
+- [Core] Replace Math.random by Crypto JS API
+
 ### 21.04.13
 
 Release date: `April 1, 2022`
