@@ -36,7 +36,7 @@ Un assistant s'ouvre.
 
 ### Étape 2 : Définir des paramètres d'accès
 
-Définissez le serveur de supervision depuis lequel sera faite la découverte (celui-ci peut être surchargé à l'aide de [modificateurs](#comment-utiliser-les-modificateurs)) :
+Définissez le serveur de supervision depuis lequel sera faite la découverte. Le serveur qui assurera effectivement la supervision pourra être différencié pour chaque hôte à l'aide de [modificateurs](#comment-utiliser-les-modificateurs).
 
 ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-2.png)
 
@@ -62,9 +62,9 @@ ressemblerait le résultat de la découverte :
 
 ### Étape 5 : Définir les politiques d'analyse et de mise à jour
 
-- **Analyse manuelle** : Une fois la tâche de découverte exécutée, dans la liste des hôtes découverts,
-l'utilisateur choisira manuellement quels hôtes ajouter à la page **Configuration > Hôtes > Hôtes**
-(voir [Analyser le résultat d'une tâche de découverte](#analyser-le-résultat-dune-tâche-de-découverte)).
+- **Analyse manuelle** : Une fois la tâche de découverte exécutée,
+vous devrez choisir manuellement dans la liste des hôtes découverts quels hôtes ajouter à la liste des hôtes supervisés (visible à la page **Configuration > Hôtes > Hôtes**).
+Pour plus d'informations voir la section [Analyser le résultat d'une tâche de découverte](#analyser-le-résultat-dune-tâche-de-découverte).
 
 - **Analyse automatique** : L'analyse traitera le résultat automatiquement selon l'option sélectionnée (au moins une option doit être cochée) :
 
@@ -84,9 +84,9 @@ l'utilisateur choisira manuellement quels hôtes ajouter à la page **Configurat
     - **Activer les hôtes déjà ajoutés à la configuration si ils sont découverts
           mais désactivés** :  les hôtes déjà ajoutés à la configuration mais désactivés seront réactivés
 
-    - **Exporter et recharger la configuration des collecteurs** : une fois les hôtes créés ou mis à jour, [la configuration sera exportée](../monitoring-servers/deploying-a-configuration.md) automatiquement, ce qui veut dire que les hôtes seront supervisés ou mis à jour directement, sans devoir intervenir manuellement.
+    - **Exporter et recharger la configuration des collecteurs** : une fois les hôtes créés ou mis à jour, la nouvelle configuration sera [déployée](../monitoring-servers/deploying-a-configuration.md) automatiquement, ce qui veut dire que les hôtes seront supervisés ou mis à jour immédiatement, sans devoir intervenir manuellement.
 
-    - **Modifier les hôtes existants** : si vous modifiez les modificateurs et exéctuez la tâche à nouveau, les hôtes existants seront mis à jour (voir [Éditer une tâche de découverte](#éditer-une-tâche-de-découverte)).
+    - **Modifier les hôtes existants** : si vous effectuez des changements sur les modificateurs et exéctuez la tâche à nouveau, les hôtes existants seront mis à jour (voir [Éditer une tâche de découverte](#éditer-une-tâche-de-découverte)).
 
         ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-5-2.png)
 
@@ -172,7 +172,7 @@ Plusieurs actions peuvent être réalisées sur les tâches :
     - Si vous aviez sélectionné **Analyse automatique** et **Modifier les hôtes existants** à l'étape 5 de l'assistant, les hôtes seront mis à jour quand vous réexécuterez la tâche (voir [Éditer une tâche de découverte](#éditer-une-tâche-de-découverte)).
 
 3. Si vous avez sélectionné **Analyse manuelle** à l'étape 5 de l'assistant, sélectionnez les hôtes que vous voulez ajouter à la configuration, puis cliquez
-sur le bouton d'enregistrement : sur le bouton d'enregistrement : ![image](../../assets/monitoring/discovery/host-discovery-hosts-save.png#thumbnail1)
+sur le bouton d'enregistrement : ![image](../../assets/monitoring/discovery/host-discovery-hosts-save.png#thumbnail1)
 
   Les hôtes sont alors créés ainsi que les services liés à leurs modèles d'hôte.
 
@@ -195,8 +195,8 @@ survenue pendant la tâche d'enregistrement.
 
 Certaines tâches de découverte peuvent être éditées :
 
-- Si la tâche est réglée sur **Analyse automatique** et que vous avez sélectionné **Modifier les hôtes existants** à l'étape 5 de l'assistant, vous pouvez éditer la tâche et la réexécuter : les résultats de la tâche seront mis à jour. Pour réexécuter une tâche, allez à la page **Configuration > Hôtes > Découverte**, survolez la tâche puis cliquez sur **Forcer l'exécution**.
-- Une tâche réglée sur **Analyse manuelle** et dont les hôtes sont déjà supervisés ne sera pas mise à jour si celle-ci est éditée et exécutée à nouveau.
+- Si la tâche est réglée sur **Analyse automatique** et que vous avez sélectionné **Modifier les hôtes existants** à l'étape 5 de l'assistant, vous pouvez éditer la tâche et la réexécuter : les hôtes concernés par la tâche seront mis à jour. Pour réexécuter une tâche, allez à la page **Configuration > Hôtes > Découverte**, survolez la tâche puis cliquez sur **Forcer l'exécution**.
+- Si une tâche est réglée sur **Analyse manuelle** et les hôtes correspondants sont déjà supervisés, alors éditer la tâche et l'exécuter à nouveau n'aura aucun effet.
 
 1. À la page **Configuration > Hôtes > Découverte**, cliquez dans la ligne
 de la tâche désirée. Un panneau apparaît à droite.

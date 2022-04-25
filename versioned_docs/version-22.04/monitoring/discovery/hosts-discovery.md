@@ -35,7 +35,7 @@ See also our tutorial on [how to detect AWS EC2 instances](../../getting-started
 
 ### Step 2: Define access and discovery parameters
 
-Define the default monitoring server from which the discovery will be made (this can be overriden later using [mappers](#how-to-use-mappers)):
+Define the default monitoring server from which the discovery will be made. You can define different servers for various hosts according to criteria defined using [mappers](#how-to-use-mappers).
 
 ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-2.png)
 
@@ -62,7 +62,7 @@ discovery results could look like:
 
 ### Step 5: Define analysis and update policies
 
-- **Manual analysis**: Once the discovery job is executed, in the list of discovered hosts, you will choose manually which hosts should be added to page **Configuration > Hosts > Hosts** (see [Analyze the results of a discovery job](#analyze-the-results-of-a-discovery-job)).
+- **Manual analysis**: Once the discovery job is executed, in the list of discovered hosts, you will have to choose manually which hosts should be added to the list of monitored hosts (on page **Configuration > Hosts > Hosts**). See [Analyze the results of a discovery job](#analyze-the-results-of-a-discovery-job).
 
 - **Automatic analysis**: The results will be processed automatically according to the selected policy (you must choose at least one):
 
@@ -73,7 +73,7 @@ discovery results could look like:
       > time excluded can be disabled in the configuration (see
       > [exclusion](#exclusion) mapper).
   - **Enable hosts already added to configuration if they are discovered but disabled**: hosts that have already been added to the configuration but are in a disabled state will be enabled again.
-  - **Export and reload pollers configuration**: once the hosts have been created or updated, the [configuration will be exported](../monitoring-servers/deploying-a-configuration.md) automatically, which means that the hosts will be monitored or updated straightaway, without any need for manual action.
+  - **Export and reload pollers configuration**: once the hosts have been created or updated, the [configuration will be deployed](../monitoring-servers/deploying-a-configuration.md) automatically, which means that the hosts will be monitored or updated immediately, without any need for manual action.
   - **Update existing hosts**: if you modify the mappers and run the job again, existing hosts will be updated (see [Edit a discovery job](#edit-a-discovery-job)).
 
   ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-5-2.png)
@@ -184,8 +184,8 @@ list of jobs and see if an error occured during the saving task.
 
 Some discovery jobs can be edited:
 
-- if you have set the job to **Automatic analysis** and you have selected **Update existing hosts** at step 5 of the wizard, you can edit and rerun the job: the results of the job will be updated. To rerun the job, go to page **Configuration > Hosts > Discovery**, hover over the job and then click **Force execution**.
-- a job set to **Manual analysis** whose hosts are already monitored will not be updated if it is edited and run again.
+- if you have set the job to **Automatic analysis** and you have selected **Update existing hosts** at step 5 of the wizard, you can edit and rerun the job: the hosts linked to the job will be updated. To rerun the job, go to page **Configuration > Hosts > Discovery**, hover over the job and then click **Force execution**.
+- If a job is set to **Manual analysis** and its hosts are already monitored, then editing and running the job again will have no effect.
 
 1. On the **Configuration > Hosts > Discovery** page, click on the discovery job you want. A panel appears on the right.
 
