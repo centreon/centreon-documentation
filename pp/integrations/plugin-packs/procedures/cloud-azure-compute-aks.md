@@ -324,4 +324,4 @@ All available options for a given mode can be displayed by adding the`--list-mod
 
 ### Troubleshooting
 
-Please find all the troubleshooting documentation for the API-based Plugins in the [dedicated chapter](../tutorials/troubleshooting-plugins.md#http-and-api-checks) of the Centreon documentation.
+Please find all the troubleshooting documentation for the API-based Plugins in the [dedicated chapter](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks) of the Centreon documentation.

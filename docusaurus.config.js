@@ -173,7 +173,7 @@ const config = {
             activeBaseRegex: '/cloud/',
           },
           {
-            to: '/pp/integrations/plugin-packs/introduction',
+            to: '/pp/integrations/plugin-packs/getting-started/introduction',
             label: 'Plugin Packs',
             position: 'left',
             activeBaseRegex: '/pp/',

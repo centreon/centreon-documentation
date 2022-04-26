@@ -21,7 +21,7 @@ server](https://support.microsoft.com/en-us/kb/324263)
 ### Troubleshooting
 
 Read [Troubleshooting
-SNMP](../tutorials/troubleshooting-plugins.md#snmp-checks)
+SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#troubleshooting-snmp)
 
 ## Centreon Configuration
 

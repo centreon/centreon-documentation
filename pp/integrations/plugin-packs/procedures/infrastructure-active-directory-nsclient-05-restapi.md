@@ -1,6 +1,6 @@
 ---
 id: infrastructure-active-directory-nsclient-05-restapi
-title: Active Directory NSClient++ API
+title: Microsoft Active Directory NSClient++ API
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -29,7 +29,7 @@ Centreon NSClient++ API to trigger their executions remotely.
 ### Centreon NSClient++
 
 To monitor an *Active Directory* domain controller through NSClient++ API, install the Centreon packaged version 
-of the NSClient++ agent. Please follow our [official documentation](../tutorials/centreon-nsclient-tutorial.md) 
+of the NSClient++ agent. Please follow our [official documentation](../getting-started/how-to-guides/centreon-nsclient-tutorial.md) 
 and make sure that the **Webserver / RESTApi** configuration is correct.
 
 ## Installation 

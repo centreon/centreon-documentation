@@ -136,7 +136,7 @@ yum install centreon-pack-applications-jvm-jmx
 
 | Mandatory   | Name                | Description                                                                |
 | :---------- | :------------------ | :------------------------------------------------------------------------- |
-| X           | JOLOKIAURL          | Jolokia URL (eg: http://jvm.centreon.com:8080/jolokia)                     |
+| X           | JOLOKIAURL          | Jolokia URL (eg: `http://jvm.centreon.com:8080/jolokia`)                     |
 |             | JOLOKIAUSERNAME     | Jolokia user name                                                          |
 |             | JOLOKIAPASSWORD     | Jolokia password                                                           |
 |             | JOLOKIAEXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
@@ -173,4 +173,4 @@ All the options that can be used with this plugin can be found over the ```--hel
 
 ## Troubleshooting
 
-[Troubleshooting plugins](../tutorials/troubleshooting-plugins.md)
+[Troubleshooting plugins](../getting-started/how-to-guides/troubleshooting-plugins.md)

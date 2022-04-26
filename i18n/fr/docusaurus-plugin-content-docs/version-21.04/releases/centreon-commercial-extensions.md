@@ -176,6 +176,22 @@ Release date: `December 16, 2021`
 
 ## Centreon Auto Discovery
 
+### 21.04.4
+
+Release date: `April 1, 2022`
+
+#### Bug fixes
+
+- Changed the size of a column to allow storing host discovery providers coming from Plugin Packs with names exceeding 50 characters
+- ACLs were not updated for items discovered by Host Discovery or Service Discovery
+- Fixed a bug that duplicated custom text in mappers' sources
+- Fixed an issue that caused Service Discovery scans to fail because the wrong message was caught
+
+#### Security fixes
+
+- Fixed an SQL injection issue in Service Discovery rules management
+
+
 ### 21.04.3
 
 Release date: `November 24, 2021`

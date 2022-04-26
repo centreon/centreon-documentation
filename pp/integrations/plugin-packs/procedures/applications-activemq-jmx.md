@@ -109,7 +109,7 @@ centreon-pack-applications-activemq-jmx.noarch
 
 | Mandatory   | Name                | Description                                                                |
 | :---------- | :------------------ | :------------------------------------------------------------------------- |
-| X           | JOLOKIAURL          | Jolokia URL (eg: http://myactivemq.centreon.com:8161/api/jolokia)          |
+| X           | JOLOKIAURL          | Jolokia URL (eg: `http://myactivemq.centreon.com:8161/api/jolokia`)          |
 | X           | JOLOKIAUSERNAME     | Jolokia user name                                                          |
 | X           | JOLOKIAPASSWORD     | Jolokia password                                                           |
 |             | JOLOKIAEXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
@@ -132,7 +132,7 @@ Once the Plugin installed, you can test it directly from the command line of the
   --password='admin' \
 ```
 
-This command will check all the Brokers (```--mode='brokers'```) of the ActiveMQ server of the *myactivemq.int.centreon.com* server. The RestAPI endpoint is set on the *http\://myactivemq.int.centreon.com\:8161/api/jolokia* URL 
+This command will check all the Brokers (```--mode='brokers'```) of the ActiveMQ server of the `myactivemq.int.centreon.com` server. The RestAPI endpoint is set on the `http://myactivemq.int.centreon.com:8161/api/jolokia` URL 
 (```--url='http://myactivemq.int.centreon.com:8161/api/jolokia'```).
 To authenticate against the Jolokia agent, the API username *admin* is used with the relevant password (```--username='admin' --password='admin'```).
 
@@ -164,7 +164,7 @@ You can display all of the modes that come with the Plugin with the command belo
 
 ### Why do I get the following error:
 
-#### UNKNOWN: protocol issue: Error while fetching ```http://myactivemq.int.centreon.com:8161/url/path```
+#### UNKNOWN: protocol issue: Error while fetching `http://myactivemq.int.centreon.com:8161/url/path`
 
 This error message means that the Plugin failed to request the API. Check your credentials.
 

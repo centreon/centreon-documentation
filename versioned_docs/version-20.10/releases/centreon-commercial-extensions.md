@@ -19,6 +19,14 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon MAP
 
+### 20.10.10
+
+Release date: `April 20, 2022`
+
+#### Bugfixes
+
+- Link to MAP documentation on Monitoring > Centreon MAP Home Page now redirects to the correct documentation page.
+
 ### 20.10.9
 
 Release date: `March 1, 2022`
@@ -332,6 +340,20 @@ Release date: `March 3, 2022`
 - Compatibility with Centreon 20.10
 
 ## Centreon Auto Discovery
+
+### 20.10.5
+
+Release date: `April 1, 2022`
+
+#### Bug fixes
+
+- Fixed an issue that caused Service Discovery scans to fail because the wrong message was caught
+- Fixed an issue that made it impossible to save credentials with more than 512 characters
+
+#### Security fixes
+
+- Fixed an SQL injection issue in Service Discovery rules management
+
 
 ### 20.10.4
 
