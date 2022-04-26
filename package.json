@@ -29,6 +29,9 @@
     "react-dom": "^17.0.1",
     "url-loader": "^4.1.1"
   },
+  "engines": {
+    "node": "= 16.x"
+  },
   "browserslist": {
     "production": [
       ">0.5%",
