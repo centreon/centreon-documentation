@@ -129,7 +129,7 @@ que les prérequis nécessaires à son fonctionnement. Cliquez sur l'icône ``i`
 2. Vérifiez dans la [procédure de supervision](#vérifier-la-procédure-de-supervision) si des étapes de configuration supplémentaires sont requises.
 3. À la page **Configuration > Packs de plugins**, réglez **Installation automatique des plugins** sur **ON**.
 4. Utilisez un modèle fourni par le pack pour mettre en supervision un hôte ou un service.
-5. [Exportez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md) des collecteurs qui superviseront cet hôte ou ce service : les plugins correspondants seront installés automatiquement sur ces collecteurs.
+5. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md) des collecteurs qui superviseront cet hôte ou ce service : les plugins correspondants seront installés automatiquement sur ces collecteurs.
 
 #### Installation manuelle
 
