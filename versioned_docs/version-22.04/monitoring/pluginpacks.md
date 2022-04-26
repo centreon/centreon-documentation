@@ -197,7 +197,7 @@ Note that you will still have to [update the plugins](#updating-the-plugins).
 
 ### Updating the plugins
 
-On page **Configuration > Plugin Packs**, if **Automatic installation of plugins** is set to **ON**, plugins will be automatically updated when you export the configuration for a poller that monitors a host that uses these plugins.
+On page **Configuration > Plugin Packs**, if **Automatic installation of plugins** is set to **ON**, plugins will be automatically updated when you deploy the configuration for a poller that monitors a host that uses these plugins.
 
 If **Automatic installation of plugins** is set to **OFF**, use the following command to update the plugins:
 
