@@ -196,7 +196,7 @@ Ce compte utilisateur doit avoir la permission de lecture sur les tables suivant
 yum install centreon-plugin-Applications-Databases-Oracle
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin Pack *Oracle Database* depuis la page **Configuration > Plugin packs > Manager**.
+2. Sur l'interface web de Centreon, installer le Plugin Pack **Oracle Database** depuis la page **Configuration > Plugin packs > Manager**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
