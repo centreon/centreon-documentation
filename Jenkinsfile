@@ -4,7 +4,7 @@ pipeline {
      stage('Install next documentation dependencies') {
        steps {
          echo 'Using Yarn to install dependencies'
-         sh 'cd .. && sudo npm cache clean -f && sudo npm install -g n && sudo n 17'
+         sh 'cd .. && sudo npm install -g n && sudo n 17 && sudo npm cache clean -f'
          sh 'yarn install --verbose'
        }
      }
