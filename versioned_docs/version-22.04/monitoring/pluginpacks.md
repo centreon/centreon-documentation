@@ -131,7 +131,7 @@ Plugins can be installed from the command line or automatically.
 2. [Check the monitoring procedure](#checking-the-monitoring-procedure) for extra configuration steps.
 3. On page **Configuration > Plugin Packs**, set **Automatic installation of plugins** to **ON**.
 4. Use a template provided by the pack to monitor a host or a service.
-5. [Export the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md) for the pollers that monitor this host or service: the corresponding plugins will be automatically installed on these pollers.
+5. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md) for the pollers that monitor these hosts or services: the corresponding plugins will be automatically installed on these pollers.
 
 #### Manual installation
 
