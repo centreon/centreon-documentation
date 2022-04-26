@@ -1,11 +1,10 @@
 pipeline {
    agent any
    stages {
- 
      stage('Install next documentation dependencies') {
        steps {
          echo 'Using Yarn to install dependencies'
-         sh 'cd .. && sudo npm cache clean -f && sudo npm install -g n && sudo n latest'
+         sh 'cd .. && sudo apt install curl -y && curl -sL https://deb.nodesource.com/setup_17.x | sudo bash - && sudo apt install nodejs -y'
          sh 'yarn install --verbose'
        }
      }
