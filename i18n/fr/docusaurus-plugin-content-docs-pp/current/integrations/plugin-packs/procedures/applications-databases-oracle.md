@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 Oracle est un système de gestion de bases de données fourni par Oracle Corporation.
 
-Le plugin Centreon associé *Oracle Database* permet d'interroger l'API Rest afin de récupérer le statut de diverses métriques sur le serveur Oracle.
+Le plugin Centreon associé **Oracle Database** permet d'interroger l'API Rest afin de récupérer le statut de diverses métriques sur le serveur Oracle.
 
 ## Contenu du Plugin Pack
 
