@@ -233,6 +233,7 @@ Execute the following commands (change the port numbers if you have customized t
 # For default protocols
 firewall-cmd --zone=public --add-service=ssh --permanent
 firewall-cmd --zone=public --add-service=http --permanent
+firewall-cmd --zone=public --add-service=https --permanent
 firewall-cmd --zone=public --add-service=snmp --permanent
 firewall-cmd --zone=public --add-service=snmptrap --permanent
 # Centreon Gorgone
