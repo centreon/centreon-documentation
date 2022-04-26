@@ -221,7 +221,7 @@ yum install centreon-pack-applications-databases-oracle
 ## Configuration
 
 Toujours dans l'interface web Centreon, aller à la page **Configuration > Hôtes** et cliquer sur **Ajouter**. Remplir les champs du formulaire. 
-Dans le champ *Modèles* cliquer sur *+ Ajouter une nouvelle entrée* puis sélectionner *App-DB-Oracle-custom*.
+Dans le champ **Modèles** cliquer sur **+ Ajouter une nouvelle entrée** puis sélectionner **App-DB-Oracle-custom**.
 
 Une fois celui-ci configuré, certaines macros doivent être renseignées :
 
