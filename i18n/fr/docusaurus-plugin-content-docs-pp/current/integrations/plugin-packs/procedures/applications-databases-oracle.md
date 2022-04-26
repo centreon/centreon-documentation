@@ -116,7 +116,7 @@ rpm -ivh oracle-*.rpm
 
 > Remplacer 21.1 par la version d'instantclient installée.
 
-En tant que root, exécuter :
+En tant que **root**, exécuter :
 
 ```bash
 cd /usr/local/src 
