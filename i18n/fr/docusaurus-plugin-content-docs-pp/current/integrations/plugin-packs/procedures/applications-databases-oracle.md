@@ -213,7 +213,7 @@ yum install centreon-plugin-Applications-Databases-Oracle
 yum install centreon-pack-applications-databases-oracle
 ```
 
-3.  Sur l'interface Web de Centreon, installer le Plugin Pack *Oracle Database* depuis la page **Configuration > Plugin packs > Manager**.
+3.  Sur l'interface web de Centreon, installer le Plugin Pack **Oracle Database** depuis la page **Configuration > Plugin packs > Manager**.
 
 </TabItem>
 </Tabs>
