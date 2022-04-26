@@ -294,5 +294,5 @@ Vérifier qu'une base de données Oracle est installée sur cet hôte. Vérifier
 
 #### ```DBD::Oracle is not root directory |```
 
-Ce message d'erreur signifie que le module *DBD::Oracle* est installé sous le répertoire **/root**.
+Ce message d'erreur signifie que le module **DBD::Oracle** est installé sous le répertoire **/root**.
 Supprimer la variable d'environnement *shell* avec PERL et compiler *DBD::Oracle Perl Module*.
