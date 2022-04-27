@@ -6,7 +6,7 @@ title: Custom views
 Custom views are dashboards created with widgets. You can share views with other users. See also our [tutorial](../getting-started/create-custom-view.md) on custom views.
 
 ## Creating a custom view
- 
+
 1. Go to **Home > Custom Views**.
 
 2. Click the **Show/Hide edit mode** icon in the top right corner of the page: ![image](../assets/alerts/edit_mode.png)
@@ -70,7 +70,7 @@ To share a view with "locked"/"unlocked users" :
 
 ## Displaying a custom view users have shared with you
 
-1. On the **Home > Custom Views** page, click the **Show/Hide edit mode** icon in the top right corner of the page: <img src={require('../assets/alerts/edit_mode.png').default} style={{width:'14px'}} />
+1. On the **Home > Custom Views** page, click the **Show/Hide edit mode** icon in the top right corner of the page: ![image](../assets/alerts/edit_mode.png#thumbnail1)
 
     The control bar appears:
 
@@ -109,4 +109,5 @@ You can choose which view to display when you access the **Home > Custom Views**
 | Live top 10 memory usage | Displays the top 10 hosts by memory usage.                                                                                                                                                                                                                                                                                               |
 | Service monitoring       | Displays a list of services. Lots of options are available (sort by severity, filters, columns, etc..)                                                                                                                                             |
 | Servicegroup monitoring  |  Displays a list of service groups.                                                                                                                                                                                                                                                                                                              |
+| Single metric            | Displays the value of a single metric for the selected service. |
 | Tactical overview        | Displays the details for the hosts or services. By default hosts are displayed.                                                                                                                                                              |
