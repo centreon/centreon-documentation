@@ -70,7 +70,7 @@ To share a view with "locked"/"unlocked users" :
 
 ## Displaying a custom view users have shared with you
 
-1. On the **Home > Custom Views** page, click the **Show/Hide edit mode** icon in the top right corner of the page: ![image](../assets/alerts/edit_mode.png)
+1. On the **Home > Custom Views** page, click the **Show/Hide edit mode** icon in the top right corner of the page: ![image](../assets/alerts/edit_mode.png#thumbnail1)
 
     The control bar appears:
 
