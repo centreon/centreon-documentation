@@ -213,7 +213,6 @@ dnf config-manager --enable ha
 dnf install centreon-ha-web pcs pacemaker corosync corosync-qdevice
 ```
 
-
 </TabItem>
 <TabItem value="RHEL 7" label="RHEL 7">
 
@@ -336,6 +335,11 @@ slave_compressed_protocol=1
 slave_parallel_mode=conservative
 datadir=/var/lib/mysql
 pid-file=/var/lib/mysql/mysql.pid
+skip-slave-start
+log-slave-updates
+gtid_strict_mode=ON
+expire_logs_days=7
+ignore-db-dir=lost+found
 
 # Tuning standard Centreon
 innodb_file_per_table=1
@@ -403,9 +407,7 @@ GRANT ALL PRIVILEGES ON centreon.* TO '@MARIADB_CENTREON_USER@'@'@CENTRAL_MASTER
 GRANT ALL PRIVILEGES ON centreon_storage.* TO '@MARIADB_CENTREON_USER@'@'@CENTRAL_MASTER_IPADDR@';
 ```
 
-Lorsque la solution centreon-ha est ajoutée à une plateforme Centreon existante ou
-déployée via une VM OVA, le mot de passe de l'utilisateur
-`'@MARIADB_CENTREON_USER@'@'localhost'` doit être mis à jour: 
+Lorsque la solution centreon-ha est ajoutée à une plateforme Centreon existante ou déployée via une VM OVA, le mot de passe de l'utilisateur `'@MARIADB_CENTREON_USER@'@'localhost'` doit être mis à jour: 
 
 ```sql
 ALTER USER '@MARIADB_CENTREON_USER@'@'localhost' IDENTIFIED BY '@MARIADB_CENTREON_PASSWD@'; 
@@ -424,26 +426,6 @@ TO '@MARIADB_REPL_USER@'@'@CENTRAL_SLAVE_IPADDR@' IDENTIFIED BY '@MARIADB_REPL_P
 
 GRANT SHUTDOWN, PROCESS, RELOAD, SUPER, SELECT, REPLICATION CLIENT, REPLICATION SLAVE ON *.* 
 TO '@MARIADB_REPL_USER@'@'@CENTRAL_MASTER_IPADDR@' IDENTIFIED BY '@MARIADB_REPL_PASSWD@';
-```
-
-### Mise en place des purges des logs binaires
-
-Les logs binaires de MariaDB doivent être purgés sur les deux nœuds, mais pas en même temps, c'est pourquoi cette tâche automatique est mise en place manuellement de façon différenciée sur les deux serveurs.
-
-* Sur le serveur principal
-
-```bash
-cat >/etc/cron.d/centreon-ha-mysql <<EOF
-0 4 * * * root bash /usr/share/centreon-ha/bin/mysql-purge-logs.sh >> /var/log/centreon-ha/mysql-purge.log 2>&1
-EOF
-```
-
-* Sur le serveur secondaire
-
-```bash
-cat >/etc/cron.d/centreon-ha-mysql <<EOF
-30 4 * * * root bash /usr/share/centreon-ha/bin/mysql-purge-logs.sh >> /var/log/centreon-ha/mysql-purge.log 2>&1
-EOF
 ```
 
 ### Configuration des variables d'environnement des scripts MariaDB
@@ -648,7 +630,6 @@ chown apache: /tmp/centreon-autodisco/
 chmod 775 /tmp/centreon-autodisco/
 ```
 
-
 ### Arrêt et désactivation des services
 
 Les services applicatifs de Centreon ne seront plus lancés au démarrage du serveur comme c'est le cas pour une installation standard, ce sont les services de clustering qui s'en chargeront. Il faut donc arrêter et désactiver ces services.
@@ -689,6 +670,8 @@ systemctl start pcsd
 ```
 
 #### Préparation du serveur qui jouera le rôle de *Quorum Device*
+
+Vous pouvez utiliser un de vos pollers pour jouer ce rôle. Il doit être préparé avec les commandes suivantes: 
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8" label="RHEL 8">
@@ -757,7 +740,9 @@ pcs qdevice status net --full
 
 Modifier le paramètre `COROSYNC_QNETD_OPTIONS` du fichier de configuration `/etc/sysconfig/corosync-qnetd` du Quorum afin de restreindre les connexions entrant à IPv4.
 
-`COROSYNC_QNETD_OPTIONS="-4"`
+```bash
+COROSYNC_QNETD_OPTIONS="-4"
+```
 
 #### Authentification auprès des membres du cluster
 
@@ -855,7 +840,7 @@ pcs quorum device add model net \
 
 ### Création des ressources MariaDB
 
-Cette commande ne doit être lancée que sur un des deux nœuds centraux :
+Cette commande ne doit être lancée **uniquement sur un des deux nœuds centraux**:
 
 > **ATTENTION :** la commande suivante varie suivant la distribution Linux utilisée.
 
@@ -864,16 +849,15 @@ Cette commande ne doit être lancée que sur un des deux nœuds centraux :
 
 ```bash
 pcs resource create "ms_mysql" \
-    ocf:heartbeat:mysql-centreon \
+    ocf:heartbeat:mariadb-centreon \
     config="/etc/my.cnf.d/server.cnf" \
     pid="/var/lib/mysql/mysql.pid" \
     datadir="/var/lib/mysql" \
     socket="/var/lib/mysql/mysql.sock" \
+    binary="/usr/bin/mysqld_safe" \
+    node_list="@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@" \
     replication_user="@MARIADB_REPL_USER@" \
     replication_passwd='@MARIADB_REPL_PASSWD@' \
-    max_slave_lag="15" \
-    evict_outdated_slaves="false" \
-    binary="/usr/bin/mysqld_safe" \
     test_user="@MARIADB_REPL_USER@" \
     test_passwd="@MARIADB_REPL_PASSWD@" \
     test_table='centreon.host'
@@ -884,16 +868,15 @@ pcs resource create "ms_mysql" \
 
 ```bash
 pcs resource create "ms_mysql" \
-    ocf:heartbeat:mysql-centreon \
+    ocf:heartbeat:mariadb-centreon \
     config="/etc/my.cnf.d/server.cnf" \
     pid="/var/lib/mysql/mysql.pid" \
     datadir="/var/lib/mysql" \
     socket="/var/lib/mysql/mysql.sock" \
+    binary="/usr/bin/mysqld_safe" \
+    node_list="@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@" \
     replication_user="@MARIADB_REPL_USER@" \
     replication_passwd='@MARIADB_REPL_PASSWD@' \
-    max_slave_lag="15" \
-    evict_outdated_slaves="false" \
-    binary="/usr/bin/mysqld_safe" \
     test_user="@MARIADB_REPL_USER@" \
     test_passwd="@MARIADB_REPL_PASSWD@" \
     test_table='centreon.host'
@@ -904,16 +887,15 @@ pcs resource create "ms_mysql" \
 
 ```bash
 pcs resource create "ms_mysql" \
-    ocf:heartbeat:mysql-centreon \
+    ocf:heartbeat:mariadb-centreon \
     config="/etc/my.cnf.d/server.cnf" \
     pid="/var/lib/mysql/mysql.pid" \
     datadir="/var/lib/mysql" \
     socket="/var/lib/mysql/mysql.sock" \
+    binary="/usr/bin/mysqld_safe" \
+    node_list="@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@" \
     replication_user="@MARIADB_REPL_USER@" \
     replication_passwd='@MARIADB_REPL_PASSWD@' \
-    max_slave_lag="15" \
-    evict_outdated_slaves="false" \
-    binary="/usr/bin/mysqld_safe" \
     test_user="@MARIADB_REPL_USER@" \
     test_passwd="@MARIADB_REPL_PASSWD@" \
     test_table='centreon.host' \
@@ -1127,16 +1109,16 @@ Pour indiquer au cluster que les ressources Centreon doivent être démarrées s
 <TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
 
 ```bash
-pcs constraint colocation add "centreon" with master "ms_mysql-clone"
 pcs constraint colocation add master "ms_mysql-clone" with "centreon"
+pcs constraint order stop centreon then demote ms_mysql-clone
 ```
 
 </TabItem>
 <TabItem value="REHL 7 / CentOS 7" label="REHL 7 / CentOS 7">
 
 ```bash
-pcs constraint colocation add "centreon" with master "ms_mysql-master"
 pcs constraint colocation add master "ms_mysql-master" with "centreon"
+pcs constraint order stop centreon then demote ms_mysql-master
 ```
 
 </TabItem>
@@ -1265,8 +1247,8 @@ En temps normal, seules les contraintes de colocation doivent être actives sur 
 ```bash
 Location Constraints:
 Ordering Constraints:
+  pcs constraint order stop centreon then demote ms_mysql-clone
 Colocation Constraints:
-  centreon with ms_mysql-clone (score:INFINITY) (rsc-role:Started) (with-rsc-role:Master)
   ms_mysql-clone with centreon (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
 Ticket Constraints:
 ```
@@ -1277,8 +1259,8 @@ Ticket Constraints:
 ```bash
 Location Constraints:
 Ordering Constraints:
+  pcs constraint order stop centreon then demote ms_mysql-master
 Colocation Constraints:
-  centreon with ms_mysql-master (score:INFINITY) (rsc-role:Started) (with-rsc-role:Master)
   ms_mysql-master with centreon (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
 Ticket Constraints:
 ```

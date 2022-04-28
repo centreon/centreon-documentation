@@ -130,6 +130,8 @@ As stated above, the centreon-broker processes will be divided into `cbd` (for R
 
 Before actually setting the cluster up, some system prerequisites have to be met.
 
+**Note :** unless otherwise stated, each of the following steps must be performed **on the two central nodes**.
+
 ### Kernel network tuning
 
 In order to improve the cluster reliability, and since *Centreon HA* only supports IPv4, we recommend to apply the following kernel settings to all your Centreon servers (including pollers):
@@ -249,7 +251,7 @@ The second method will be documented below.
 
 Switch to `centreon`'s bash environment on both nodes:
 
-```
+```bash
 su - centreon
 ```
 
@@ -262,13 +264,13 @@ cat ~/.ssh/id_ed25519.pub
 
 Once done, copy the content of the public key file displayed by `cat` and paste it to `~/.ssh/authorized_keys` (must be created) on the other node and apply the correct file permissions (sill as `centreon` user):
 
-```
+```bash
 chmod 600 ~/.ssh/authorized_keys
 ```
 
 The keys exchange must be validated by an initial connection from each node to the other in order to accept and register the peer node's SSH fingerprint (sill as `centreon` user):
 
-```
+```bash
 ssh <peer node hostname>
 ```
 
@@ -448,7 +450,6 @@ CENTREON_STORAGE_DB='centreon_storage'
 
 ###############################
 ```
-
 
 To make sure that all the previous steps have been successful, and that the correct names, logins and passwords have been entered in the configuration bash file, run this command:
 
@@ -841,6 +842,8 @@ pcs quorum device add model net \
 
 To be run **only on one central node**:
 
+> **WARNING:** the syntax of the following command depends on the Linux Distribution you are using.
+
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
 
@@ -960,6 +963,7 @@ pcs resource create "php" \
     monitor interval="5s" timeout="30s" \
     clone
 ```
+
 ##### RRD broker resource
 
 ```bash
