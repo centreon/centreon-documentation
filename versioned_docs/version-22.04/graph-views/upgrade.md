@@ -90,6 +90,19 @@ cp /var/log/centreon-studio/* /var/log/centreon-map/
 rm -rf /var/log/centreon-studio
 ```
 
+5. This point only applies if you customized your **centreon-map.conf** configuration file. When upgrading your MAP module, the **/etc/centreon-studio/centreon-map.conf** file is not upgraded automatically: the new configuration file brought by the rpm does not replace the old file. You must copy the changes manually to your customized configuration file.
+
+  * The old configuration file is renamed **centreon-map.conf.rpmsave**
+  * The upgrade installs a new **centreon-map.conf** file.
+
+  Run a diff between the old and the new configuration files:
+
+  ```shell
+  diff -u /etc/centreon-studio/centreon-map.conf /etc/centreon-studio/centreon-map.conf.rpmsave
+  ```
+
+  For each difference between the files, assess whether you should copy it from **centreon-map.conf.rpmsave** to **centreon-map.conf**.
+
 ## Step 2: Centreon MAP web interface
 
 ```shell
