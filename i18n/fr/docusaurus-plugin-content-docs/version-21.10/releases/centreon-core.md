@@ -33,7 +33,7 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 - [Resources Status] Fixed default settings for acknowledgments and downtimes
 - [Resources Status] Fixed display of acknowledgements comments
 - [Resources Status] Fixed Hard/Soft translation
-- [Resources Status] Fixed monitoring command not displayed in Resources Status Details panel
+- [Resources Status] Fixed monitoring command that was not displayed in Resources Status Details panel
 - [UX] Fixed display of date with UTC timezone in datepickers
 - [UX] Improved interface response time if CEIP is enabled but the browser does not have internet access
 
