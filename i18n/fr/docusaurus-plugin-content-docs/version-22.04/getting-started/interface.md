@@ -9,15 +9,15 @@ Pour vous connecter à l'interface web, rendez-vous à l'adresse : `http://ADRES
 
 > Remplacez **ADRESSE_IP** par l'adresse IP ou le FQDN du serveur web Centreon.
 
-Renseignez le nom d'utilisateur et le mot de passe associé et cliquez sur le bouton **Connect** :
+Renseignez le nom d'utilisateur et le mot de passe associé et cliquez sur le bouton **Se connecter** :
 
-![image](../assets/getting-started/aconnection.png)
+![image](../assets/getting-started/aconnexion_FR.png)
 
 >Les identifiants par défaut sont : `admin`/`centreon`. 
 
 Vous êtes maintenant connecté à l'interface web Centreon.
 
-## Présentation rapide des menus
+## Menus
 
 L'interface web de Centreon est composée de plusieurs menus, chaque menu a une fonction bien précise (cliquez sur le logo Centreon en haut à gauche de l'écran pour afficher les libellés) :
 
@@ -32,7 +32,57 @@ L'interface web de Centreon est composée de plusieurs menus, chaque menu a une 
 * Le menu **Configuration** permet de configurer l'ensemble des éléments supervisés ainsi que l'infrastructure de supervision.
 * Le menu **Administration** permet de configurer la plateforme Centreon (authentification, proxy, extensions...) ainsi que de visualiser l'état général des serveurs.
 
-## Langue de l'interface utilisateur
+## Bandeau supérieur
+
+### Section Collecteurs
+
+![image](../assets/getting-started/banner_pollers.png)
+
+La partie gauche du bandeau supérieur montre la santé de votre plateforme en temps réel :
+
+* si tous les collecteurs sont en cours d'exécution ou non : l'icône devient rouge lorsqu'un collecteur n'a pas envoyé de données au serveur central depuis au moins 15 minutes
+* si les contrôles sont en retard ou non. Si l'icône est orange ou rouge, cela peut indiquer que vos collecteurs supervisent de trop nombreuse ressources.
+
+Cliquez sur l'icône **collecteurs** pour développer le menu. Dans le menu, cliquez sur **Configurer les collecteurs** pour accéder à la page **Configuration > Collecteurs > Collecteurs**.
+
+### Section hôtes et services ("top counters")
+
+![image](../assets/getting-started/top_counters.png)
+
+Dans la partie de droite du bandeau supérieur, des statistiques indiquent le nombre de ressources supervisées, avec un statut spécifique :
+
+* Pour les hôtes : le nombre d'hôtes avec le statut **INDISPONIBLE**, **INJOIGNABLE** et **DISPONIBLE**.
+* Pour les services: le nombre de services avec le statut **CRITIQUE**, **ALERTE**, **INCONNU** et **OK**.
+
+Ces nombres incluent les alertes non confirmées (SOFT), mais n'incluent pas les ressources acquittées ou en maintenance. Les ressources en attente sont indiquées par une pastille bleue sur les icônes **hôtes** ou **services**.
+
+Cliquez sur un cercle représentant un statut :
+
+* La page **Supervision > Statut des ressources** s'ouvre.
+* La page est filtrée selon le type de ressource et le statut correspondant.
+
+Cliquez sur les icônes **hôtes** ou **services** pour développer le menu et afficher le détail des hôtes et services.
+
+### Passer en mode sombre
+
+Lors de votre première connexion, l'interface Centreon s'affiche en mode clair par défaut.
+
+Dans le bandeau supérieur, utilisez le bouton pour activer le mode sombre. Lorsque vous vous reconnecterez, le mode que vous avez sélectionné précédemment restera activé.
+
+* Mode clair
+![image](../assets/getting-started/light_mode_switch.png)
+
+* Mode sombre
+![image](../assets/getting-started/dark_mode_switch.png)
+
+Vous pouvez aussi passer en mode sombre en modifiant le thème de l'interface dans les paramètres du compte.
+
+Allez dans **Administration > Parameters > My Account** et sélectionnez l'onglet **General Information**. 
+Sélectionnez **Light** ou **Dark** dans le champ **Front-end Theme**.
+
+Puis cliquez sur **Save**. Le thème de l'interface est maintenant dans le mode que vous avez choisi.
+
+### Langue de l'interface utilisateur
 
 Dans le bandeau, cliquez sur l'icône profil, puis cliquez sur **Edit profile**:
 
