@@ -27,7 +27,7 @@ If you have feature requests or want to report a bug, please go to our
 - [API] Fixed an issue in the `icons` API endpoint that always returned 0 for total number of results
 - [Configuration] Fixed checkbox selection after enabling/disabling a contact via icons
 - [Core] Fixed an issue where proxy settings were saved with empty parameters
-- [Install] Fixed database user creation with remote DBMS
+- [Install] Fixed an issue in database user creation with remote DBMS
 - [Reporting] MBI graphs reports were not using graph templates
 - [Resources Status] Fixed default settings for acknowledgments and downtimes
 - [Resources Status] Fixed display of acknowledgements comments
