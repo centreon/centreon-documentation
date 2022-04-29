@@ -61,6 +61,7 @@ getenforce
 ```
 
 You should have this result:
+
 ```shell
 Disabled
 ```

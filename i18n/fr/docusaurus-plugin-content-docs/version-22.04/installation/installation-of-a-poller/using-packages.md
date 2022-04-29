@@ -15,15 +15,19 @@ Les paquets peuvent être installés sur CentOS 7 ou sur Alma/RHEL/Oracle Linux 
 
 ### Désactiver SELinux
 
-SELinux doit être désactivé. Pour se faire, vous devez éditer le fichier
-**/etc/selinux/config** et remplacer **enforcing** par **disabled**, ou en
-exécutant la commande suivante :
+Pendant l'installation, SELinux doit être désactivé. Éditez le fichier
+**/etc/selinux/config** et remplacez **enforcing** par **disabled**, ou bien
+exécutez la commande suivante :
 
 ```shell
 sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
 ```
 
-> Redémarrez votre système d'exploitation pour prendre en compte le changement.
+Redémarrez votre système d'exploitation pour prendre en compte le changement.
+
+```shell
+reboot
+```
 
 Après le redémarrage, une vérification rapide permet de confirmer le statut de
 SELinux :
@@ -32,6 +36,7 @@ SELinux :
 $ getenforce
 Disabled
 ```
+
 
 ### Configurer ou désactiver le pare-feu
 

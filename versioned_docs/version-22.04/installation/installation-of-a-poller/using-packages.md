@@ -14,20 +14,28 @@ These packages can be installed on CentOS 7 and on Alma/RHEL/Oracle Linux 8.
 
 ### Disable SELinux
 
-SELinux should be disabled. To do this, you have to edit the file
-**/etc/selinux/config** and replace **enforcing** by **disabled**, or by
-running the following command:
+During installation, SELinux should be disabled. To do this, edit the file
+**/etc/selinux/config** and replace **enforcing** by **disabled**. You can also run the following command:
 
 ```shell
 sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
 ```
 
-> Reboot your operating system to apply the change.
+Reboot your operating system to apply the change.
+
+```shell
+reboot
+```
 
 After system startup, perform a quick check of the SELinux status:
 
 ```shell
-$ getenforce
+getenforce
+```
+
+You should have this result:
+
+```shell
 Disabled
 ```
 
