@@ -29,7 +29,7 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 - [Install] Fixed an issue in database user creation with remote DBMS
 - [Monitoring] Fixed display of acknowledgement information in legacy Resources Status pages
 - [Monitoring] Fixed relation issue for recurrent downtimes
-- [Reporting] MBI graphs reports were not using graph templates
+- [Reporting] Fixed an issue where MBI graphs reports were not using graph templates
 - [Resources Status] Fixed default settings for acknowledgments and downtimes
 - [Resources Status] Fixed display of acknowledgements comments
 - [Resources Status] Fixed Hard/Soft translation
