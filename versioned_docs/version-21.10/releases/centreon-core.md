@@ -27,7 +27,7 @@ If you have feature requests or want to report a bug, please go to our
 - [Configuration] Fixed an issue that caused the export of the poller configuration files to fail when a disabled host template was used
 - [Configuration] Fixed checkbox selection after enabling/disabling a contact via icons
 - [Core] Fixed an issue where proxy settings were saved with empty parameters
-- [Install] Fixed database user creation with remote DBMS
+- [Install] Fixed an issue in database user creation with remote DBMS
 - [Monitoring] Fixed display of acknowledgement information in legacy Resources Status pages
 - [Monitoring] fixed relation issue for recurrent downtimes
 - [Reporting] MBI graphs reports were not using graph templates
