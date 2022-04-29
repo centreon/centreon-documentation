@@ -28,7 +28,7 @@ If you have feature requests or want to report a bug, please go to our
 - [Configuration] Fixed checkbox selection after enabling/disabling a contact via icons
 - [Core] Fixed an issue where proxy settings were saved with empty parameters
 - [Install] Fixed an issue in database user creation with remote DBMS
-- [Reporting] MBI graphs reports were not using graph templates
+- [Reporting] Fixed an issue where MBI graphs reports were not using graph templates
 - [Resources Status] Fixed default settings for acknowledgments and downtimes
 - [Resources Status] Fixed display of acknowledgements comments
 - [Resources Status] Fixed monitoring command not displayed in Resources Status Details panel
