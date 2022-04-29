@@ -29,7 +29,7 @@ If you have feature requests or want to report a bug, please go to our
 - [Core] Fixed an issue where proxy settings were saved with empty parameters
 - [Install] Fixed an issue in database user creation with remote DBMS
 - [Monitoring] Fixed display of acknowledgement information in legacy Resources Status pages
-- [Monitoring] fixed relation issue for recurrent downtimes
+- [Monitoring] Fixed relation issue for recurrent downtimes
 - [Reporting] Fixed an issue where MBI graphs reports were not using graph templates
 - [Resources Status] Fixed default settings for acknowledgments and downtimes
 - [Resources Status] Fixed display of acknowledgements comments
