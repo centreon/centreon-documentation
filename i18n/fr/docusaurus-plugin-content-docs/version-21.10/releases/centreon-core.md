@@ -44,7 +44,7 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 - [Configuration] Fixed an SQL injection issue in Configuration > Poller > Resources
 - [Core] Passwords are now obfuscated in the page's HTML source
 - [Core] Replace Math.random by Crypto JS API
-- [PHP] Disabling allow_url_fopen in PHP
+- [PHP] Disabled allow_url_fopen in PHP
 
 ### 21.10.5
 
