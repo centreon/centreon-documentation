@@ -30,7 +30,7 @@ If you have feature requests or want to report a bug, please go to our
 - [Reporting] Fixed an issue where MBI graphs reports were not using graph templates
 - [Resources Status] Fixed default settings for acknowledgments and downtimes
 - [Resources Status] Fixed display of acknowledgements comments
-- [Resources Status] Fixed monitoring command not displayed in Resources Status Details panel
+- [Resources Status] Fixed monitoring command that was not displayed in Resources Status Details panel
 - [UX] Improved interface response time if CEIP is enabled but the browser does not have internet access
 
 #### Security Fixes
