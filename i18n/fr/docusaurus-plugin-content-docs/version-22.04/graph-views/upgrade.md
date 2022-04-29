@@ -39,14 +39,7 @@ For security reasons, the keys used to sign Centreon RPMs are rotated regularly.
 
 Run the following commands to upgrade your Centreon MAP server:
 
-1. Stop and disable legacy tomcat service coming from precedent version:
-
-    ```shell
-    systemctl stop tomcat
-    systemctl disable tomcat
-    ```
-
-2. Update Centreon & Centreon MAP repositories:
+1. Update Centreon & Centreon MAP repositories:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -68,13 +61,13 @@ yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/ce
     > Install Centreon MAP repository, you can find it on the
     > [support portal](https://support.centreon.com/s/repositories).
 
-3. Update Centreon MAP server:
+2. Update Centreon MAP server:
 
     ```shell
     yum update centreon-map-server
     ```
 
-4. Enable and start `centreon-map` service:
+3. Enable and start `centreon-map` service:
 
     ```shell
     systemctl enable centreon-map
