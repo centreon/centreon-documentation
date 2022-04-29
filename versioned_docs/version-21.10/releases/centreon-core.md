@@ -42,7 +42,7 @@ If you have feature requests or want to report a bug, please go to our
 
 - [Apache] Fixed cookies with missing or contradictory properties
 - [Apache] Improve Apache configuration to enable HSTS
-- [Configuration] Fixed a SQL injection issue in Configuration > Poller > Resources
+- [Configuration] Fixed an SQL injection issue in Configuration > Poller > Resources
 - [Core] Passwords are now obfuscated in the page's HTML source
 - [Core] Replace Math.random by Crypto JS API
 - [PHP] Disabling allow_url_fopen in PHP
