@@ -74,16 +74,32 @@ Then upgrade all the components with the following command:
 
 ```shell
 dnf update centreon\*
+```
+
+</TabItem>
+<TabItem value="RHEL / CentOS 7" label="RHEL / CentOS 7">
+
+
+```shell
+yum update centreon\*
+```
+
+</TabItem>
+</Tabs>
+
+Only on the Central Servers:
+
+<Tabs groupId="sync">
+<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
+
+```shell
 mv /etc/centreon-ha/centreon_central_sync.pm.rpmsave /etc/centreon-ha/centreon_central_sync.pm
 ```
 
 </TabItem>
 <TabItem value="RHEL / CentOS 7" label="RHEL / CentOS 7">
 
-On the Central Servers:
-
 ```shell
-yum update centreon\*
 mv /etc/centreon-ha/centreon_central_sync.pm.rpmsave /etc/centreon-ha/centreon_central_sync.pm
 ```
 
@@ -158,7 +174,7 @@ sudo -u apache /usr/share/centreon/bin/console cache:clear
 
 ### Removing cron jobs
 
-The RPM upgrade puts cron jobs back in place. Remove them to avoid concurrent executions: 
+The RPM upgrade puts cron jobs back in place on the Central and Databases servers. Remove them to avoid concurrent executions: 
 
 ```bash
 rm -rf /etc/cron.d/centreon
@@ -167,7 +183,7 @@ rm -rf /etc/cron.d/centstorage
 
 ### Reset the permissions for centreon_central_sync resource
 
-The RPM upgrade puts the permissions back in place. Change it using these commands:
+The RPM upgrade puts the permissions back in place on the Central servers. Change it using these commands:
 
 ```bash
 chmod 775 /var/log/centreon-engine/
@@ -217,8 +233,9 @@ This file will be necessary to recreate all the ressources of your cluster.
 
 These command should run only the active central node:
 
-```
+```bash
 pcs resource delete ms_mysql --force
+pcs resource delete vip_mysql --force
 pcs resource delete cbd_rrd --force
 pcs resource delete php --force
 pcs resource delete centreon --force
@@ -244,7 +261,7 @@ ignore-db-dir=lost+found
 
 ### Launch GTID replication
 
-Run this command **on the secondary node:**
+Run this command **on the secondary database node:**
 
 ```bash
 mysqladmin -p shutdown
@@ -256,7 +273,7 @@ It is important to make sure that MariaDB is completely shut down. You will run 
 ps -ef | grep mariadb[d]
 ```
 
-Once the service is stopped **on the secondary node**, you will run the synchronization script **from the primary node**:
+Once the service is stopped **on the secondary database node**, you will run the synchronization script **from the primary database node**:
 
 ```bash
 mysqladmin -p shutdown
@@ -390,6 +407,9 @@ pcs resource create "ms_mysql" \
 
 > **WARNING:** the syntax of the following command depends on the Linux Distribution you are using.
 
+
+<Tabs groupId="sync">
+<TabItem value="HA 2 nodes" label="HA 2 nodes">
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
 
@@ -400,6 +420,58 @@ pcs resource promotable ms_mysql \
     globally-unique="false" \
     clone-node-max="1" \
     notify="true"
+```
+</TabItem>
+<TabItem value="RHEL 7" label="RHEL 7">
+
+```bash
+pcs resource master ms_mysql \
+    master-node-max="1" \
+    clone_max="2" \
+    globally-unique="false" \
+    clone-node-max="1" \
+    notify="true"
+```
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+pcs resource meta ms_mysql-master \
+    master-node-max="1" \
+    clone_max="2" \
+    globally-unique="false" \
+    clone-node-max="1" \
+    notify="true"
+```
+</TabItem>
+</Tabs>
+</TabItem>
+<TabItem value="HA 4 nodes" label="HA 4 nodes">
+<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
+bash
+```
+pcs resource promotable ms_mysql \
+    master-node-max="1" \
+    clone_max="2" \
+    globally-unique="false" \
+    clone-node-max="1" \
+    notify="true"
+```
+
+VIP Address of databases servers
+
+```bash
+pcs resource create vip_mysql \
+    ocf:heartbeat:IPaddr2 \
+    ip="@VIP_SQL_IPADDR@" \
+    nic="@VIP_SQL_IFNAME@" \
+    cidr_netmask="@VIP_SQL_CIDR_NETMASK@" \
+    broadcast="@VIP_SQL_BROADCAST_IPADDR@" \
+    flush_routes="true" \
+    meta target-role="stopped" \
+    op start interval="0s" timeout="20s" \
+    stop interval="0s" timeout="20s" \
+    monitor interval="10s" timeout="20s"
 ```
 
 </TabItem>
@@ -414,6 +486,21 @@ pcs resource master ms_mysql \
     notify="true"
 ```
 
+VIP Address of databases servers
+
+```bash
+pcs resource create vip_mysql \
+    ocf:heartbeat:IPaddr2 \
+    ip="@VIP_SQL_IPADDR@" \
+    nic="@VIP_SQL_IFNAME@" \
+    cidr_netmask="@VIP_SQL_CIDR_NETMASK@" \
+    broadcast="@VIP_SQL_BROADCAST_IPADDR@" \
+    flush_routes="true" \
+    meta target-role="stopped" \
+    op start interval="0s" timeout="20s" \
+    stop interval="0s" timeout="20s" \
+    monitor interval="10s" timeout="20s"
+```
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
@@ -426,9 +513,25 @@ pcs resource meta ms_mysql-master \
     notify="true"
 ```
 
+VIP Address of databases servers
+
+```bash
+pcs resource create vip_mysql \
+    ocf:heartbeat:IPaddr2 \
+    ip="@VIP_SQL_IPADDR@" \
+    nic="@VIP_SQL_IFNAME@" \
+    cidr_netmask="@VIP_SQL_CIDR_NETMASK@" \
+    broadcast="@VIP_SQL_BROADCAST_IPADDR@" \
+    flush_routes="true" \
+    meta target-role="stopped" \
+    op start interval="0s" timeout="20s" \
+    stop interval="0s" timeout="20s" \
+    monitor interval="10s" timeout="20s"
+```
 </TabItem>
 </Tabs>
-
+</TabItem>
+</Tasbs>
 #### PHP resource
 
 ```bash
@@ -462,6 +565,8 @@ bash centreon_pcs_command.sh
 #### Recreating the constraint
 
 <Tabs groupId="sync">
+<TabItem value="HA 2 nodes" label="HA 2 nodes">
+<Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
 
 ```bash
@@ -475,6 +580,54 @@ pcs constraint order stop centreon then demote ms_mysql-clone
 ```bash
 pcs constraint colocation add master "ms_mysql-master" with "centreon"
 pcs constraint order stop centreon then demote ms_mysql-master
+```
+
+</TabItem>
+</Tabs>
+</TabItem>
+<TabItem value="HA 4 nodes" label="HA 4 nodes">
+In order to glue the Primary Database role with the Virtual IP, define a mutual Constraint:
+
+<Tabs groupId="sync">
+<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
+
+```bash
+pcs constraint colocation add "vip_mysql" with master "ms_mysql-clone"
+pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
+```
+
+</TabItem>
+<TabItem value="REHL 7 / CentOS 7" label="REHL 7 / CentOS 7">
+
+```bash
+pcs constraint colocation add "vip_mysql" with master "ms_mysql-master"
+pcs constraint colocation add master "ms_mysql-master" with "vip_mysql
+```
+
+</TabItem>
+</Tabs>
+</TabItem>
+</Tabs>
+Then recreate the Constraint that prevent Centreon Processes to run on Database nodes and vice-et-versa:
+
+<Tabs groupId="sync">
+<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
+
+```bash
+pcs constraint location centreon avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
+pcs constraint location ms_mysql-clone avoids @CENTRAL_MASTER_NAME@=INFINITY @CENTRAL_SLAVE_NAME@=INFINITY
+pcs constraint location cbd_rrd-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
+pcs constraint location php-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
+```
+
+</TabItem>
+<TabItem value="REHL 7 / CentOS 7" label="REHL 7 / CentOS 7">
+
+```bash
+pcs constraint location centreon avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
+pcs constraint location ms_mysql-master avoids @CENTRAL_MASTER_NAME@=INFINITY @CENTRAL_SLAVE_NAME@=INFINITY
+pcs constraint location cbd_rrd-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
+pcs constraint location php-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
 ```
 
 </TabItem>
@@ -540,10 +693,16 @@ Online: [@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ @DATABASE_MASTER_NAME@ @DATA
 Active resources:
 
  Master/Slave Set: ms_mysql-master [ms_mysql]
-     Masters: [@DATABASE_MASTER_NAME@]
-     Slaves: [@DATABASE_SLAVE_NAME@]
+     Masters: [ @DATABASE_MASTER_NAME@ ]
+     Slaves: [ @DATABASE_SLAVE_NAME@ ]
+     Stopped: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+vip_mysql       (ocf::heartbeat:IPaddr2):       Started @DATABASE_MASTER_NAME@
+ Clone Set: php-clone [php]
+     Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+     Stopped: [ @DATABASE_MASTER_NAME@ @DATABASE_SLAVE_NAME@ ]
  Clone Set: cbd_rrd-clone [cbd_rrd]
-     Started: [@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@]
+     Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+     Stopped: [ @DATABASE_MASTER_NAME@ @DATABASE_SLAVE_NAME@ ]
  Resource Group: centreon
      vip        (ocf::heartbeat:IPaddr2):       Started @CENTRAL_MASTER_NAME@
      http       (systemd:httpd24-httpd):        Started @CENTRAL_MASTER_NAME@
@@ -553,9 +712,6 @@ Active resources:
      centengine (systemd:centengine):   Started @CENTRAL_MASTER_NAME@
      centreontrapd      (systemd:centreontrapd):        Started @CENTRAL_MASTER_NAME@
      snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_MASTER_NAME@
-     vip_mysql       (ocf::heartbeat:IPaddr2):       Started @CENTRAL_MASTER_NAME@
- Clone Set: php-clone [php]
-     Started: [@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@]
 ```
 
 </TabItem>
