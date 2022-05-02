@@ -21,6 +21,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 21.04.14
 
+Release date: `May 2, 2022`
+
 #### Bug Fixes
 
 - [API] Fixed an issue in the `icons` API endpoint that always returned 0 for total number of results
