@@ -6,36 +6,37 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-This chapter describes how to upgrade your Centreon HA platform from version 21.10
-to version 22.04
+Ce chapitre décrit comment mettre à niveau votre plate-forme Centreon HA de la version 21.10
+à la version 22.04
 
-## Prerequisites
+## Prérequis
 
-### Suspend cluster resources management
+### Suspendre la gestion des ressources du cluster
 
-In order to avoid a failover of the cluster during the update, it is necessary to unmanage all Centreon resources, as well as MariaDB.
+Afin d'éviter un basculement du cluster pendant la mise à jour, il est nécessaire de unamange toutes les ressources Centreon, ainsi que MariaDB.
 
 ```bash
 pcs property set maintenance-mode=true
 ```
 
-### Perform a backup
+### Sauvegarde
 
-Be sure that you have fully backed up your environment for the following
-servers:
+Avant toute chose, il est préférable de s’assurer de l’état et de la consistance des sauvegardes de l’ensemble des serveurs centraux de votre plateforme :
 
-- Central server
-- Database server
+- Serveur Centreon Central
+- Serveur de Base de données
 
-### Update the RPM signing key
+### Mettre à jour la clé de signature RPM
 
-For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../../security/key-rotation.md#existing-installation), to remove the old key and install the new one.
+Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centreon sont changées régulièrement. Le dernier changement a eu lieu le 14 octobre 2021. Lorsque vous mettez Centreon à jour depuis une version plus ancienne, vous devez suivre la [procédure de changement de clé](../../security/key-rotation.md#existing-installation), afin de supprimer l'ancienne clé et d'installer la nouvelle.
 
-## Upgrade process
+## Processus de mise à jour
 
-### Update the Centreon repository
+### Mise à jour des dépôts
 
-Run the following commands:
+Il est nécessaire de mettre à jour le dépôt Centreon.
+
+Exécutez la commande suivante :
 
 <Tabs groupId="sync">
 <TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
@@ -54,47 +55,63 @@ yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/ce
 </TabItem>
 </Tabs>
 
-> **WARNING:** to avoid broken dependencies, please refer to the documentation of the additional modules to update the Centreon Business Repositories.
+> **WARNING:** pour éviter des problèmes de dépendances manquantes, référez-vous à la documentation des modules additionnels pour mettre à jour les dépôts Centreon Business
 
-### Upgrade the Centreon solution
+### Montée de version de la solution Centreon
 
-> Please, make sure all users are logged out from the Centreon web interface
-> before starting the upgrade procedure.
+> Assurez-vous que tous les utilisateurs sont déconnectés de l'interface web Centreon.
+> avant de commencer la procédure de mise à niveau.
 
-Clean yum cache:
+Videz le cache de yum :
 
 ```shell
 yum clean all --enablerepo=*
 ```
 
-Then upgrade all the components with the following command:
+Puis, mettez à jour l'ensemble des composants :
 
 <Tabs groupId="sync">
 <TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```shell
 dnf update centreon\*
+```
+
+</TabItem>
+<TabItem value="RHEL / CentOS 7" label="RHEL / CentOS 7">
+
+
+```shell
+yum update centreon\*
+```
+
+</TabItem>
+</Tabs>
+
+Uniquement sur les serveurs Centraux
+
+<Tabs groupId="sync">
+<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
+
+```shell
 mv /etc/centreon-ha/centreon_central_sync.pm.rpmsave /etc/centreon-ha/centreon_central_sync.pm
 ```
 
 </TabItem>
 <TabItem value="RHEL / CentOS 7" label="RHEL / CentOS 7">
 
-On the Central Servers:
-
 ```shell
-yum update centreon\*
 mv /etc/centreon-ha/centreon_central_sync.pm.rpmsave /etc/centreon-ha/centreon_central_sync.pm
 ```
 
 </TabItem>
 </Tabs>
 
-### Update your customized Apache configuration
+### Mettre à jour une configuration Apache personnalisée
 
-This section only applies if you customized your Apache configuration. When upgrading your platform, the Apache configuration file is not upgraded automatically: the new configuration file brought by the rpm does not replace the old file. You must copy the changes manually to your customized configuration file.
+Cette section s'applique uniquement si vous avez personnalisé votre configuration Apache. Lors de la montée de version, le fichier de configuration Apache n'est pas mis à jour automatiquement : le nouveau fichier de configuration amené par le rpm ne remplace pas l'ancien. Vous devez reporter les changements manuellement dans votre fichier de configuration personnalisée.
 
-Run a diff between the old and the new Apache configuration files:
+Faites un diff entre l'ancien et le nouveau fichier de configuration Apache :
 
 
 <Tabs groupId="sync">
@@ -118,19 +135,17 @@ diff -u /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf /opt/rh/httpd24/r
 </TabItem>
 </Tabs>
 
-* **10-centreon.conf** (post upgrade): this file contains the custom configuration. It does not contain anthing new brought by the upgrade.
-* **10-centreon.conf.rpmnew** (post upgrade): this file is provided by the rpm; it does not contain any custom configuration.
+* **10-centreon.conf** (post montée de version) : ce fichier contient la configuration personnalisée. Il ne contient pas les nouveautés apportées par la version 21.10, par exemple la chaîne **authentication** dans la directive **LocationMatch**
+* **10-centreon.conf.rpmnew** (post montée de version) : ce fichier est fourni par le rpm; il contient la chaîne **authentication**, mais ne contient pas la configuration personnalisée.
 
-For each difference between the files, assess whether you should copy it from **10-centreon.conf.rpmnew** to **10-centreon.conf**.
+Pour chaque différence entre les fichiers, évaluez si celle-ci doit être reportée du fichier **10-centreon.conf.rpmnew** au fichier **10-centreon.conf**.
 
-
-### Finalizing the upgrade
+### Finalisation de la mise à jour
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-Before starting the web upgrade process, reload the Apache server with the
-following command:
+Avant de démarrer la montée de version via l'interface web, rechargez le serveur Apache avec la commande suivante :
 ```shell
 systemctl reload httpd
 ```
@@ -138,8 +153,7 @@ systemctl reload httpd
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
-Before starting the web upgrade process, reload the Apache server with the
-following command:
+Avant de démarrer la montée de version via l'interface web, rechargez le serveur Apache avec la commande suivante :
 ```shell
 systemctl reload httpd24-httpd
 ```
@@ -147,27 +161,27 @@ systemctl reload httpd24-httpd
 </TabItem>
 </Tabs>
 
-Then to perform the WEB UI upgrade, please [follow the official documentation](../../upgrade/upgrade-from-21-10.md#finalizing-the-upgrade) Only on the **active central node**.
+Ensuite, pour effectuer la mise à jour de l'interface Web, veuillez [suivre la documentation officielle](../../upgrade/upgrade-from-21-10.md#finalizing-the-upgrade) Uniquement sur le **nœud Central Actif**.
 
-On the passive central node, move the "install" directory to avoid getting the "upgrade" screen in the WUI in the event of a further exchange of roles.
+Sur le nœud central passif, déplacez le répertoire "install" pour éviter d'obtenir l'écran "upgrade" dans le WUI en cas de nouvel échange de rôles.
 
 ```bash
 mv /usr/share/centreon/www/install /var/lib/centreon/installs/install-update-YYYY-MM-DD
 sudo -u apache /usr/share/centreon/bin/console cache:clear
 ```
 
-### Removing cron jobs
+### Suppression des crons
 
-The RPM upgrade puts cron jobs back in place. Remove them to avoid concurrent executions: 
+La mise à jour RPM remet en place les crons sur les serveurs Central et Bases de données. Supprimez-les pour éviter les exécutions simultanées : 
 
 ```bash
 rm -rf /etc/cron.d/centreon
 rm -rf /etc/cron.d/centstorage
 ```
 
-### Reset the permissions for centreon_central_sync resource
+### Réinitialiser les autorisations de la ressource centreon_central_sync
 
-The RPM upgrade puts the permissions back in place. Change it using these commands:
+L'upgrade RPM remet les permissions en place sur les serveurs centraux. Modifiez-les en utilisant ces commandes :
 
 ```bash
 chmod 775 /var/log/centreon-engine/
@@ -179,46 +193,49 @@ find /usr/share/centreon/www/img/media -type d -exec chmod 775 {} \;
 find /usr/share/centreon/www/img/media -type f \( ! -iname ".keep" ! -iname ".htaccess" \) -exec chmod 664 {} \;
 ```
 
-## Cluster ugprade
+## Ugprade du cluster
 
-Since Centreon 22.04, The mariaDB Replication is now based on [GTID](https://mariadb.com/kb/en/gtid/).
-It's necessary to destroy completely the cluster and configure back again with
-the latest version of Centreon and MariaDB Replication mechanismes.
+Depuis Centreon 22.04, la réplication de MariaDB est maintenant basée sur [GTID](https://mariadb.com/kb/en/gtid/).
+Il est nécessaire de détruire complètement le cluster et de le configurer à nouveau avec
+la dernière version de Centreon et les mécanismes de réplication de MariaDB GTID.
 
 
-### Maintenance mode and backup
+### Mode maintenance et sauvegarde
 
-perform a backup of the cluster using:
+Réaliser une sauvegarde du cluster en utilisant :
 
+shell
 ```
 pcs config backup centreon_cluster
 pcs config export pcs-commands | sed -e :a -e '/\\$/N; s/\\\n//; ta' | sed 's/-f tmp-cib.xml//' | egrep "create|group" | egrep -v "(mysql|php|cbd_rrd)" > centreon_pcs_command.sh
 ```
 
-Check the file `centreon_cluster.tar.bz2` exist before continuing this procedure.
+Vérifiez que le fichier `centreon_cluster.tar.bz2` existe avant de continuer cette procédure.
 
-Check the file centreon_pcs_command.sh, the content should looks like this:
+Vérifiez également, le fichier centreon_pcs_command.sh, le contenu doit ressembler à ceci :
 
+bash
 ```
-pcs  resource create vip ocf:heartbeat:IPaddr2   broadcast=@VIP_BROADCAST_IPADDR@ cidr_netmask=@VIP_CIDR_NETMASK@ flush_routes=true ip=@VIP_IPADDR@   nic=@VIP_IFNAME@   op monitor interval=10s timeout=20s start interval=0s timeout=20s stop   interval=0s timeout=20s meta target-role=started
-pcs  resource create http systemd:httpd24-httpd   op monitor interval=5s timeout=20s start interval=0s timeout=40s stop   interval=0s timeout=40s meta target-role=started
-pcs  resource create gorgone systemd:gorgoned   op monitor interval=5s timeout=20s start interval=0s timeout=90s stop   interval=0s timeout=90s meta target-role=started
-pcs    resource create centreon_central_sync systemd:centreon-central-sync   op monitor interval=5s timeout=20s start interval=0s timeout=90s stop   interval=0s timeout=90s meta target-role=started
-pcs  resource create cbd_central_broker systemd:cbd-sql   op monitor interval=5s timeout=30s start interval=0s timeout=90s stop   interval=0s timeout=90s meta target-role=started
-pcs  resource create centengine systemd:centengine   op monitor interval=5s timeout=30s start interval=0s timeout=90s stop   interval=0s timeout=90s meta multiple-active=stop_start target-role=started
-pcs  resource create centreontrapd systemd:centreontrapd   op monitor interval=5s timeout=20s start interval=0s timeout=30s stop   interval=0s timeout=30s meta target-role=started
-pcs  resource create snmptrapd systemd:snmptrapd   op monitor interval=5s timeout=20s start interval=0s timeout=30s stop   interval=0s timeout=30s meta target-role=started
-pcs    resource group add centreon vip http gorgone centreon_central_sync   cbd_central_broker centengine centreontrapd snmptrapd
+pcs resource create vip ocf:heartbeat:IPaddr2 broadcast=@VIP_BROADCAST_IPADDR@ cidr_netmask=@VIP_CIDR_NETMASK@ flush_routes=true ip=@VIP_IPADDR@ nic=@VIP_IFNAME@ op monitor interval=10s timeout=20s start interval=0s timeout=20s stop interval=0s timeout=20s meta target-role=started
+pcs resource create http systemd:httpd24-httpd op monitor interval=5s timeout=20s start interval=0s timeout=40s stop interval=0s timeout=40s meta target-role=started
+pcs resource create gorgone systemd:gorgoned op monitor interval=5s timeout=20s start interval=0s timeout=90s stop interval=0s timeout=90s meta target-role=started
+pcs resource create centreon_central_sync systemd:centreon-central-sync op monitor interval=5s timeout=20s start interval=0s timeout=90s stop interval=0s timeout=90s meta target-role=started
+pcs resource create cbd_central_broker systemd:cbd-sql op monitor interval=5s timeout=30s start interval=0s timeout=90s stop interval=0s timeout=90s meta target-role=started
+pcs resource create centengine systemd:centengine op monitor interval=5s timeout=30s start interval=0s timeout=90s stop interval=0s timeout=90s meta multiple-active=stop_start target-role=started
+pcs resource create centreontrapd systemd:centreontrapd op monitor interval=5s timeout=20s start interval=0s timeout=30s stop interval=0s timeout=30s meta target-role=started
+pcs resource create snmptrapd systemd:snmptrapd op monitor interval=5s timeout=20s start interval=0s timeout=30s stop interval=0s timeout=30s meta target-role=started
+pcs resource group add centreon vip http gorgone centreon_central_sync cbd_central_broker centengine centreontrapd snmptrapd
 ```
 
-This file will be necessary to recreate all the ressources of your cluster.
+Ce fichier sera nécessaire pour recréer toutes les ressources de votre cluster.
 
-### Delete the resources
+### Supprimer les ressources
 
-These command should run only the active central node:
+Ces commandes ne doivent être exécutées que sur le nœud central actif :
 
-```
+```bash
 pcs resource delete ms_mysql --force
+pcs resource delete vip_mysql --force
 pcs resource delete cbd_rrd --force
 pcs resource delete php --force
 pcs resource delete centreon --force
@@ -226,10 +243,10 @@ pcs resource delete centreon --force
 
 ### Reconfigure MariaDB
 
-It's necessary to modify the mysql configuration by editing `/etc/my.cnf.d/server.cnf`:
+Il est nécessaire de modifier la configuration de mysql en éditant `/etc/my.cnf.d/server.cnf` :
 
-> On the 2 Central servers in HA 2 nodes
-> On the 2 Database servers in HA 4 nodes.
+> Sur les 2 serveurs centraux dans une HA 2 nœuds
+> Sur les 2 serveurs de base de données dans une HA 4 noeuds.
 
 ```shell
 [server]
@@ -242,21 +259,21 @@ ignore-db-dir=lost+found
 ...
 ```
 
-### Launch GTID replication
+### Lancer la réplication GTID
 
-Run this command **on the secondary node:**
+Exécutez cette commande **sur le nœud de base de données secondaire:**.
 
 ```bash
 mysqladmin -p shutdown
 ```
 
-It is important to make sure that MariaDB is completely shut down. You will run this command and check that it returns no output:
+Il est important de s'assurer que MariaDB est complètement arrêté. Vous allez exécuter cette commande et vérifier qu'elle ne renvoie aucun résultat :
 
 ```bash
 ps -ef | grep mariadb[d]
 ```
 
-Once the service is stopped **on the secondary node**, you will run the synchronization script **from the primary node**:
+Une fois le service arrêté **sur le nœud de base de données secondaire**, vous allez exécuter le script de synchronisation **depuis le nœud de base de données primaire** :
 
 ```bash
 mysqladmin -p shutdown
@@ -264,7 +281,8 @@ systemctl restart mariadb
 /usr/share/centreon-ha/bin/mysql-sync-bigdb.sh
 ```
 
-This script's output is very verbose and you can't expect to understand everything, so to make sure it went well, focus on the last lines of its output, checking that it looks like:
+La sortie de ce script est très verbeuse et vous ne pouvez pas vous attendre à tout comprendre, donc pour vous assurer que tout s'est bien passé, concentrez-vous sur les dernières
+lignes de la sortie, en vérifiant qu'elle ressemble à ceci :
 
 ```text
 Umount and Delete LVM snapshot
@@ -275,15 +293,15 @@ Id	User	Host	db	Command	Time	State	Info	Progress
 [variable number of lines]
 ```
 
-The important thing to check is that `Start MySQL Slave` and `Start Replication` are present and that no errors follow it.
+La chose importante à vérifier est que `Start MySQL Slave` et `Start Replication` sont présents et qu'aucune erreur ne les suit.
 
-In addition, the output of this command must display only `OK` results:
+De plus, la sortie de cette commande ne doit afficher que des résultats `OK` :
 
 ```bash
 /usr/share/centreon-ha/bin/mysql-check-status.sh
 ```
 
-The expected output is:
+La sortie attendue est :
 
 ```text
 Connection Status '@CENTRAL_MASTER_NAME@' [OK]
@@ -292,25 +310,25 @@ Slave Thread Status [OK]
 Position Status [OK]
 ```
 
-### Restart Centreon process
+### Redémarrer les processus de Centreon
 
-Then to restart all the processes on the **active central node**:
+Puis de redémarrer tous les processus sur le **nœud central actif** :
 
 ```bash
 systemctl restart cbd-sql cbd gorgoned centengine centreontrapd 
 ```
 
-And on the **passive central node**:
+Et sur le **nœud central passif** :
 
 ```bash
 systemctl restart cbd
 ```
 
-### Clean broker memory files
+### Nettoyer les fichiers de mémoire de broker
 
-> **WARNING** perform this command only the passive central node.
+> **WARNING** exécuter cette commande uniquement sur le noeud central passif.
 
-Before resuming the cluster resources management, to avoid broker issues, cleanup all the *.memory.*, *.unprocessed.* or *.queue.* files:
+Avant de reprendre la gestion des ressources du cluster, pour éviter les problèmes de broker, il faut nettoyer tous les fichiers *.memory.*, *.unprocessed.* ou *.queue.* :
 
 ```bash
 rm -rf /var/lib/centreon-broker/central-broker-master.memory*
@@ -318,14 +336,14 @@ rm -rf /var/lib/centreon-broker/central-broker-master.queue*
 rm -rf /var/lib/centreon-broker/central-broker-master.unprocessed*
 ```
 
-### Recreate the cluster resources
+### Recréer les ressources du cluster
 
-To be run **only on one central node**:
+À exécuter **seulement sur un nœud central** :
 
-> **WARNING:** the syntax of the following command depends on the Linux Distribution you are using.
+> **WARNING:** la syntaxe de la commande suivante dépend de la distribution Linux que vous utilisez.
 
-> You can find @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ @MARIADB_REPL_USER@
-@MARIADB_REPL_USER@ variable in `/etc/centreon-ha/mysql-resources.sh`
+> Vous pouvez trouver les variables @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ @MARIADB_REPL_USER@
+@MARIADB_REPL_USER@ dans `/etc/centreon-ha/mysql-resources.sh`.
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
@@ -388,8 +406,10 @@ pcs resource create "ms_mysql" \
 </TabItem>
 </Tabs>
 
-> **WARNING:** the syntax of the following command depends on the Linux Distribution you are using.
+> **WARNING:** la syntaxe de la commande suivante dépend de la distribution Linux que vous utilisez.
 
+
+#### HA 2 nodes
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
 
@@ -400,6 +420,58 @@ pcs resource promotable ms_mysql \
     globally-unique="false" \
     clone-node-max="1" \
     notify="true"
+```
+</TabItem>
+<TabItem value="RHEL 7" label="RHEL 7">
+
+```bash
+pcs resource master ms_mysql \
+    master-node-max="1" \
+    clone_max="2" \
+    globally-unique="false" \
+    clone-node-max="1" \
+    notify="true"
+```
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+pcs resource meta ms_mysql-master \
+    master-node-max="1" \
+    clone_max="2" \
+    globally-unique="false" \
+    clone-node-max="1" \
+    notify="true"
+```
+</TabItem>
+</Tabs>
+
+#### HA 4 nodes
+<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
+
+```bash
+pcs resource promotable ms_mysql \
+    master-node-max="1" \
+    clone_max="2" \
+    globally-unique="false" \
+    clone-node-max="1" \
+    notify="true"
+```
+
+Adresse VIP des serveurs de bases de données
+
+```bash
+pcs resource create vip_mysql \
+    ocf:heartbeat:IPaddr2 \
+    ip="@VIP_SQL_IPADDR@" \
+    nic="@VIP_SQL_IFNAME@" \
+    cidr_netmask="@VIP_SQL_CIDR_NETMASK@" \
+    broadcast="@VIP_SQL_BROADCAST_IPADDR@" \
+    flush_routes="true" \
+    meta target-role="stopped" \
+    op start interval="0s" timeout="20s" \
+    stop interval="0s" timeout="20s" \
+    monitor interval="10s" timeout="20s"
 ```
 
 </TabItem>
@@ -414,6 +486,21 @@ pcs resource master ms_mysql \
     notify="true"
 ```
 
+Adresse VIP des serveurs de bases de données
+
+```bash
+pcs resource create vip_mysql \
+    ocf:heartbeat:IPaddr2 \
+    ip="@VIP_SQL_IPADDR@" \
+    nic="@VIP_SQL_IFNAME@" \
+    cidr_netmask="@VIP_SQL_CIDR_NETMASK@" \
+    broadcast="@VIP_SQL_BROADCAST_IPADDR@" \
+    flush_routes="true" \
+    meta target-role="stopped" \
+    op start interval="0s" timeout="20s" \
+    stop interval="0s" timeout="20s" \
+    monitor interval="10s" timeout="20s"
+```
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
@@ -426,10 +513,25 @@ pcs resource meta ms_mysql-master \
     notify="true"
 ```
 
+Adresse VIP des serveurs de bases de données
+
+```bash
+pcs resource create vip_mysql \
+    ocf:heartbeat:IPaddr2 \
+    ip="@VIP_SQL_IPADDR@" \
+    nic="@VIP_SQL_IFNAME@" \
+    cidr_netmask="@VIP_SQL_CIDR_NETMASK@" \
+    broadcast="@VIP_SQL_BROADCAST_IPADDR@" \
+    flush_routes="true" \
+    meta target-role="stopped" \
+    op start interval="0s" timeout="20s" \
+    stop interval="0s" timeout="20s" \
+    monitor interval="10s" timeout="20s"
+```
 </TabItem>
 </Tabs>
 
-#### PHP resource
+#### PHP ressource
 
 ```bash
 pcs resource create "php" \
@@ -441,7 +543,7 @@ pcs resource create "php" \
     clone
 ```
 
-#### RRD broker resource
+#### Ressource RRD broker
 
 ```bash
 pcs resource create "cbd_rrd" \
@@ -453,14 +555,15 @@ pcs resource create "cbd_rrd" \
     clone
 ```
 
-#### Recreating the *centreon* resource group
+#### Recréer le groupe de ressources *centreon*
 
 ```bash
 bash centreon_pcs_command.sh
 ```
 
-#### Recreating the constraint
+#### Recréer les contraintes
 
+#### HA 2 node
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
 
@@ -480,18 +583,65 @@ pcs constraint order stop centreon then demote ms_mysql-master
 </TabItem>
 </Tabs>
 
-## Resuming the cluster resources management
+#### HA 4 nodes
+Afin de fixer le rôle de la base de données primaire avec l'IP virtuelle, définissez une contrainte mutuelle :
 
-Now that the update is finished, the resources can be managed again:
+<Tabs groupId="sync">
+<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
+
+```bash
+pcs constraint colocation add "vip_mysql" with master "ms_mysql-clone"
+pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
+```
+
+</TabItem>
+<TabItem value="REHL 7 / CentOS 7" label="REHL 7 / CentOS 7">
+
+```bash
+pcs constraint colocation add "vip_mysql" with master "ms_mysql-master"
+pcs constraint colocation add master "ms_mysql-master" with "vip_mysql
+```
+
+</TabItem>
+</Tabs>
+
+Recréez ensuite les contraintes qui empêchent les processus Centreon de s'exécuter sur les nœuds de base de données et vice-versa :
+
+<Tabs groupId="sync">
+<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
+
+```bash
+pcs constraint location centreon avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
+pcs constraint location ms_mysql-clone avoids @CENTRAL_MASTER_NAME@=INFINITY @CENTRAL_SLAVE_NAME@=INFINITY
+pcs constraint location cbd_rrd-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
+pcs constraint location php-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
+```
+
+</TabItem>
+<TabItem value="REHL 7 / CentOS 7" label="REHL 7 / CentOS 7">
+
+```bash
+pcs constraint location centreon avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
+pcs constraint location ms_mysql-master avoids @CENTRAL_MASTER_NAME@=INFINITY @CENTRAL_SLAVE_NAME@=INFINITY
+pcs constraint location cbd_rrd-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
+pcs constraint location php-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
+```
+
+</TabItem>
+</Tabs>
+
+## Reprise de la gestion des ressources du cluster
+
+Maintenant que la mise à jour est terminée, les ressources peuvent être gérées à nouveau :
 
 ```bash
 pcs property set maintenance-mode=false
 pcs resource cleanup ms_mysql
 ```
 
-## Check cluster's health
+## Vérifier la santé du cluster
 
-You can monitor the cluster's resources in real time using the `crm_mon` command:
+Vous pouvez surveiller les ressources du cluster en temps réel en utilisant la commande `crm_mon` :
 
 <Tabs groupId="sync">
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
@@ -540,10 +690,16 @@ Online: [@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ @DATABASE_MASTER_NAME@ @DATA
 Active resources:
 
  Master/Slave Set: ms_mysql-master [ms_mysql]
-     Masters: [@DATABASE_MASTER_NAME@]
-     Slaves: [@DATABASE_SLAVE_NAME@]
+     Masters: [ @DATABASE_MASTER_NAME@ ]
+     Slaves: [ @DATABASE_SLAVE_NAME@ ]
+     Stopped: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+vip_mysql       (ocf::heartbeat:IPaddr2):       Started @DATABASE_MASTER_NAME@
+ Clone Set: php-clone [php]
+     Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+     Stopped: [ @DATABASE_MASTER_NAME@ @DATABASE_SLAVE_NAME@ ]
  Clone Set: cbd_rrd-clone [cbd_rrd]
-     Started: [@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@]
+     Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+     Stopped: [ @DATABASE_MASTER_NAME@ @DATABASE_SLAVE_NAME@ ]
  Resource Group: centreon
      vip        (ocf::heartbeat:IPaddr2):       Started @CENTRAL_MASTER_NAME@
      http       (systemd:httpd24-httpd):        Started @CENTRAL_MASTER_NAME@
@@ -553,19 +709,16 @@ Active resources:
      centengine (systemd:centengine):   Started @CENTRAL_MASTER_NAME@
      centreontrapd      (systemd:centreontrapd):        Started @CENTRAL_MASTER_NAME@
      snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_MASTER_NAME@
-     vip_mysql       (ocf::heartbeat:IPaddr2):       Started @CENTRAL_MASTER_NAME@
- Clone Set: php-clone [php]
-     Started: [@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@]
 ```
 
 </TabItem>
 </Tabs>
 
-## Verifying the platform stability
+## Vérification de la stabilité de la plate-forme
 
-You should now check that eveything works fine:
+Vous devez maintenant vérifier que tout fonctionne bien :
 
-* Access to the web UI menus.
-* Poller configuration generation + reload and restart method.
-* Schedule immediate checks (Central + Pollers) , acknowledgements, downtimes, etc.
-* Move resources or reboot active server and check again that everything is fine.
+* Accès aux menus de l'interface utilisateur web.
+* Génération de la configuration des pollers + méthode de rechargement et de redémarrage.
+* Planification des contrôles immédiats (Central + Pollers), des accusés de réception, des temps d'arrêt, etc.
+* Déplacer des ressources ou redémarrer le serveur actif et vérifier à nouveau que tout va bien.
