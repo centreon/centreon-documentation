@@ -447,6 +447,7 @@ pcs resource meta ms_mysql-master \
 </Tabs>
 
 #### HA 4 nodes
+<Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
 
 ```bash
