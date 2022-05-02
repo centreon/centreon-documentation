@@ -204,8 +204,8 @@ la dernière version de Centreon et les mécanismes de réplication de MariaDB G
 
 Réaliser une sauvegarde du cluster en utilisant :
 
-shell
-```
+
+```shell
 pcs config backup centreon_cluster
 pcs config export pcs-commands | sed -e :a -e '/\\$/N; s/\\\n//; ta' | sed 's/-f tmp-cib.xml//' | egrep "create|group" | egrep -v "(mysql|php|cbd_rrd)" > centreon_pcs_command.sh
 ```
@@ -214,8 +214,8 @@ Vérifiez que le fichier `centreon_cluster.tar.bz2` existe avant de continuer ce
 
 Vérifiez également, le fichier centreon_pcs_command.sh, le contenu doit ressembler à ceci :
 
-bash
-```
+
+```bash
 pcs resource create vip ocf:heartbeat:IPaddr2 broadcast=@VIP_BROADCAST_IPADDR@ cidr_netmask=@VIP_CIDR_NETMASK@ flush_routes=true ip=@VIP_IPADDR@ nic=@VIP_IFNAME@ op monitor interval=10s timeout=20s start interval=0s timeout=20s stop interval=0s timeout=20s meta target-role=started
 pcs resource create http systemd:httpd24-httpd op monitor interval=5s timeout=20s start interval=0s timeout=40s stop interval=0s timeout=40s meta target-role=started
 pcs resource create gorgone systemd:gorgoned op monitor interval=5s timeout=20s start interval=0s timeout=90s stop interval=0s timeout=90s meta target-role=started
