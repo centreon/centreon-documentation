@@ -118,7 +118,7 @@ Run a diff between the old and the new Apache configuration files:
 
 On the Central Servers:
 
-```
+```shell
 diff -u /etc/httpd/conf.d/10-centreon.conf /etc/httpd/conf.d/10-centreon.conf.rpmnew
 ```
 
@@ -127,7 +127,7 @@ diff -u /etc/httpd/conf.d/10-centreon.conf /etc/httpd/conf.d/10-centreon.conf.rp
 
 On the Central Servers:
 
-```
+```shell
 diff -u /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf.rpmnew
 ```
 
@@ -156,6 +156,7 @@ systemctl reload httpd
 
 Before starting the web upgrade process, reload the Apache server with the
 following command:
+  
 ```shell
 systemctl reload httpd24-httpd
 ```
@@ -206,7 +207,7 @@ the latest version of Centreon and MariaDB Replication mechanismes.
 
 perform a backup of the cluster using:
 
-```
+```shell
 pcs config backup centreon_cluster
 pcs config export pcs-commands | sed -e :a -e '/\\$/N; s/\\\n//; ta' | sed 's/-f tmp-cib.xml//' | egrep "create|group" | egrep -v "(mysql|php|cbd_rrd)" > centreon_pcs_command.sh
 ```
@@ -215,16 +216,17 @@ Check the file `centreon_cluster.tar.bz2` exist before continuing this procedure
 
 Check the file centreon_pcs_command.sh, the content should looks like this:
 
-```
-pcs  resource create vip ocf:heartbeat:IPaddr2   broadcast=@VIP_BROADCAST_IPADDR@ cidr_netmask=@VIP_CIDR_NETMASK@ flush_routes=true ip=@VIP_IPADDR@   nic=@VIP_IFNAME@   op monitor interval=10s timeout=20s start interval=0s timeout=20s stop   interval=0s timeout=20s meta target-role=started
-pcs  resource create http systemd:httpd24-httpd   op monitor interval=5s timeout=20s start interval=0s timeout=40s stop   interval=0s timeout=40s meta target-role=started
-pcs  resource create gorgone systemd:gorgoned   op monitor interval=5s timeout=20s start interval=0s timeout=90s stop   interval=0s timeout=90s meta target-role=started
-pcs    resource create centreon_central_sync systemd:centreon-central-sync   op monitor interval=5s timeout=20s start interval=0s timeout=90s stop   interval=0s timeout=90s meta target-role=started
-pcs  resource create cbd_central_broker systemd:cbd-sql   op monitor interval=5s timeout=30s start interval=0s timeout=90s stop   interval=0s timeout=90s meta target-role=started
-pcs  resource create centengine systemd:centengine   op monitor interval=5s timeout=30s start interval=0s timeout=90s stop   interval=0s timeout=90s meta multiple-active=stop_start target-role=started
-pcs  resource create centreontrapd systemd:centreontrapd   op monitor interval=5s timeout=20s start interval=0s timeout=30s stop   interval=0s timeout=30s meta target-role=started
-pcs  resource create snmptrapd systemd:snmptrapd   op monitor interval=5s timeout=20s start interval=0s timeout=30s stop   interval=0s timeout=30s meta target-role=started
-pcs    resource group add centreon vip http gorgone centreon_central_sync   cbd_central_broker centengine centreontrapd snmptrapd
+
+```bash
+pcs resource create vip ocf:heartbeat:IPaddr2 broadcast=@VIP_BROADCAST_IPADDR@ cidr_netmask=@VIP_CIDR_NETMASK@ flush_routes=true ip=@VIP_IPADDR@ nic=@VIP_IFNAME@ op monitor interval=10s timeout=20s start interval=0s timeout=20s stop interval=0s timeout=20s meta target-role=started
+pcs resource create http systemd:httpd24-httpd op monitor interval=5s timeout=20s start interval=0s timeout=40s stop interval=0s timeout=40s meta target-role=started
+pcs resource create gorgone systemd:gorgoned op monitor interval=5s timeout=20s start interval=0s timeout=90s stop interval=0s timeout=90s meta target-role=started
+pcs resource create centreon_central_sync systemd:centreon-central-sync op monitor interval=5s timeout=20s start interval=0s timeout=90s stop interval=0s timeout=90s meta target-role=started
+pcs resource create cbd_central_broker systemd:cbd-sql op monitor interval=5s timeout=30s start interval=0s timeout=90s stop interval=0s timeout=90s meta target-role=started
+pcs resource create centengine systemd:centengine op monitor interval=5s timeout=30s start interval=0s timeout=90s stop interval=0s timeout=90s meta multiple-active=stop_start target-role=started
+pcs resource create centreontrapd systemd:centreontrapd op monitor interval=5s timeout=20s start interval=0s timeout=30s stop interval=0s timeout=30s meta target-role=started
+pcs resource create snmptrapd systemd:snmptrapd op monitor interval=5s timeout=20s start interval=0s timeout=30s stop interval=0s timeout=30s meta target-role=started
+pcs resource group add centreon vip http gorgone centreon_central_sync cbd_central_broker centengine centreontrapd snmptrapd
 ```
 
 This file will be necessary to recreate all the ressources of your cluster.
@@ -408,8 +410,7 @@ pcs resource create "ms_mysql" \
 > **WARNING:** the syntax of the following command depends on the Linux Distribution you are using.
 
 
-<Tabs groupId="sync">
-<TabItem value="HA 2 nodes" label="HA 2 nodes">
+#### HA 2 nodes
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
 
@@ -445,11 +446,11 @@ pcs resource meta ms_mysql-master \
 ```
 </TabItem>
 </Tabs>
-</TabItem>
-<TabItem value="HA 4 nodes" label="HA 4 nodes">
+
+#### HA 4 nodes
 <TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
-bash
-```
+
+```bash
 pcs resource promotable ms_mysql \
     master-node-max="1" \
     clone_max="2" \
@@ -530,8 +531,7 @@ pcs resource create vip_mysql \
 ```
 </TabItem>
 </Tabs>
-</TabItem>
-</Tasbs>
+
 #### PHP resource
 
 ```bash
@@ -564,8 +564,7 @@ bash centreon_pcs_command.sh
 
 #### Recreating the constraint
 
-<Tabs groupId="sync">
-<TabItem value="HA 2 nodes" label="HA 2 nodes">
+#### HA 2 node
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
 
@@ -584,8 +583,8 @@ pcs constraint order stop centreon then demote ms_mysql-master
 
 </TabItem>
 </Tabs>
-</TabItem>
-<TabItem value="HA 4 nodes" label="HA 4 nodes">
+
+#### HA 4 nodes
 In order to glue the Primary Database role with the Virtual IP, define a mutual Constraint:
 
 <Tabs groupId="sync">
@@ -606,8 +605,7 @@ pcs constraint colocation add master "ms_mysql-master" with "vip_mysql
 
 </TabItem>
 </Tabs>
-</TabItem>
-</Tabs>
+
 Then recreate the Constraint that prevent Centreon Processes to run on Database nodes and vice-et-versa:
 
 <Tabs groupId="sync">
