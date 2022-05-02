@@ -241,95 +241,6 @@ Redémarrez ensuite le service Apache :
 systemctl restart httpd24-httpd
 ```
 
-### Finalisation de la mise à jour
-
-Avant de démarrer la montée de version via l'interface web, rechargez le serveur Apache avec la commande suivante :
-```shell
-systemctl reload httpd24-httpd
-```
-
-Connectez-vous ensuite à l'interface web Centreon pour démarrer le processus de
-mise à jour :
-
-Cliquez sur **Next** :
-
-![image](../assets/upgrade/web_update_1.png)
-
-Cliquez sur **Next** :
-
-![image](../assets/upgrade/web_update_2.png)
-
-La note de version présente les principaux changements, cliquez sur **Next** :
-
-![image](../assets/upgrade/web_update_3.png)
-
-Le processus réalise les différentes mises à jour, cliquez sur **Next** :
-
-![image](../assets/upgrade/web_update_4.png)
-
-Votre serveur Centreon est maintenant à jour, cliquez sur **Finish** pour
-accéder à la page de connexion :
-
-![image](../assets/upgrade/web_update_5.png)
-
-Si le module Centreon BAM est installé, référez-vous à la [documentation
-associée](../service-mapping/upgrade.md) pour le mettre à jour.
-
-### Actions post montée de version
-
-#### Montée de version des extensions
-
-Depuis le menu **Administration > Extensions > Gestionnaire**, mettez à jour
-toutes les extensions, en commençant par les suivantes :
-
-- License Manager,
-- Plugin Packs Manager,
-- Auto Discovery.
-
-Vous pouvez alors mettre à jour toutes les autres extensions commerciales.
-
-#### Démarrer le gestionnaire de tâches
-
-Depuis la version 20.04, Centreon a changé son gestionnaire de tâches en passant
-de *Centcore* à *Gorgone*.
-
-Pour acter ce changement, réalisez les actions suivantes :
-
-```shell
-systemctl stop centcore
-systemctl enable gorgoned
-systemctl start gorgoned
-systemctl disable centcore
-```
-
-Les statistiques Engine qui étaient collectées par *Centcore* le seront
-maintenant par *Gorgone*
-
-Il faut alors changer les droits sur les fichiers RRD de statistiques en
-exécutant la commande suivante:
-
-```shell
-chown -R centreon-gorgone /var/lib/centreon/nagios-perf/*
-```
-
-#### Redémarrage des processus de supervision
-
-Le composant Centreon Broker a changé le format de son fichier de configuration.
-
-Il utilise maintenant JSON à la place de XML.
-
-Pour être sur que Broker et que le module Broker de Engine utilisent les nouveaux
-fichiers de configuration, suivez ces étapes :
-
-1. Déployez la configuration du Central depuis l'interface web en suivant
-[cette procédure](../monitoring/monitoring-servers/deploying-a-configuration.md),
-2. Redémarrez Broker et Engine sur le serveur Central en exécutant la commande
-suivante:
-
-  ```shell
-  systemctl restart cbd centengine
-  ```
-
 ### Montée de version du serveur MariaDB
 
 Les composants MariaDB peuvent maintenant être mis à jour.
@@ -438,6 +349,121 @@ Exécutez la commande suivante :
 ```shell
 systemctl enable mariadb
 ```
+
+### Changer le format des tables
+
+Toutes les tables doivent être au format "dynamic". Pour connaître le type des tables, exécutez les commandes suivantes :
+
+```sql
+mysql -u root
+SELECT table_schema,table_name,row_format FROM information_schema.tables WHERE table_schema IN ("centreon", "centreon_storage") ORDER BY table_schema;
+```
+
+Puis quittez mariadb.
+
+```shell
+exit
+```
+
+Pour changer le type des tables de la base **centreon**, exécutez la commande suivante:
+
+```shell
+mysql --batch --skip-column-names --execute 'SELECT CONCAT("ALTER TABLE `", table_name, "` ROW_FORMAT=dynamic;") AS aQuery FROM information_schema.tables WHERE table_schema = "centreon" AND row_format IS NOT NULL AND row_format NOT IN ("Dynamic")' | mysql centreon
+```
+
+Pour changer le type des tables de la base **centreon_storage**, exécutez la commande suivante:
+
+```shell
+mysql --batch --skip-column-names --execute 'SELECT CONCAT("ALTER TABLE `", table_name, "` ROW_FORMAT=dynamic;") AS aQuery FROM information_schema.tables WHERE table_schema = "centreon_storage" AND row_format IS NOT NULL AND row_format NOT IN ("Dynamic")' | mysql centreon_storage
+```
+
+### Finalisation de la mise à jour
+
+Avant de démarrer la montée de version via l'interface web, rechargez le serveur Apache avec la commande suivante :
+```shell
+systemctl reload httpd24-httpd
+```
+
+Connectez-vous ensuite à l'interface web Centreon pour démarrer le processus de
+mise à jour :
+
+Cliquez sur **Next** :
+
+![image](../assets/upgrade/web_update_1.png)
+
+Cliquez sur **Next** :
+
+![image](../assets/upgrade/web_update_2.png)
+
+La note de version présente les principaux changements, cliquez sur **Next** :
+
+![image](../assets/upgrade/web_update_3.png)
+
+Le processus réalise les différentes mises à jour, cliquez sur **Next** :
+
+![image](../assets/upgrade/web_update_4.png)
+
+Votre serveur Centreon est maintenant à jour, cliquez sur **Finish** pour
+accéder à la page de connexion :
+
+![image](../assets/upgrade/web_update_5.png)
+
+Si le module Centreon BAM est installé, référez-vous à la [documentation
+associée](../service-mapping/upgrade.md) pour le mettre à jour.
+
+### Actions post montée de version
+
+#### Montée de version des extensions
+
+Depuis le menu **Administration > Extensions > Gestionnaire**, mettez à jour
+toutes les extensions, en commençant par les suivantes :
+
+- License Manager,
+- Plugin Packs Manager,
+- Auto Discovery.
+
+Vous pouvez alors mettre à jour toutes les autres extensions commerciales.
+
+#### Démarrer le gestionnaire de tâches
+
+Depuis la version 20.04, Centreon a changé son gestionnaire de tâches en passant
+de *Centcore* à *Gorgone*.
+
+Pour acter ce changement, réalisez les actions suivantes :
+
+```shell
+systemctl stop centcore
+systemctl enable gorgoned
+systemctl start gorgoned
+```
+
+Les statistiques Engine qui étaient collectées par *Centcore* le seront
+maintenant par *Gorgone*
+
+Il faut alors changer les droits sur les fichiers RRD de statistiques en
+exécutant la commande suivante:
+
+```shell
+chown -R centreon-gorgone /var/lib/centreon/nagios-perf/*
+```
+
+#### Redémarrage des processus de supervision
+
+Le composant Centreon Broker a changé le format de son fichier de configuration.
+
+Il utilise maintenant JSON à la place de XML.
+
+Pour être sur que Broker et que le module Broker de Engine utilisent les nouveaux
+fichiers de configuration, suivez ces étapes :
+
+1. Déployez la configuration du Central depuis l'interface web en suivant
+[cette procédure](../monitoring/monitoring-servers/deploying-a-configuration.md),
+2. Redémarrez Broker et Engine sur le serveur Central en exécutant la commande
+suivante:
+
+  ```shell
+  systemctl restart cbd centengine
+  ```
 
 ## Montée de version des Remote Servers
 

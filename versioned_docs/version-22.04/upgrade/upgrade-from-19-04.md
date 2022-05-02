@@ -212,93 +212,6 @@ Then, restart apache service :
 systemctl restart httpd24-httpd
 ```
 
-### Finalizing the upgrade
-
-Before starting the web upgrade process, reload the Apache server with the
-following command:
-```shell
-systemctl reload httpd24-httpd
-```
-
-Then log on to the Centreon web interface to continue the upgrade process:
-
-Click on **Next**:
-
-![image](../assets/upgrade/web_update_1.png)
-
-Click on **Next**:
-
-![image](../assets/upgrade/web_update_2.png)
-
-The release notes describe the main changes. Click on **Next**:
-
-![image](../assets/upgrade/web_update_3.png)
-
-This process performs the various upgrades. Click on **Next**:
-
-![image](../assets/upgrade/web_update_4.png)
-
-Your Centreon server is now up to date. Click on **Finish** to access the login
-page:
-
-![image](../assets/upgrade/web_update_5.png)
-
-If the Centreon BAM module is installed, refer to the
-[upgrade procedure](../service-mapping/upgrade.md).
-
-### Post-upgrade actions
-
-#### Upgrade extensions
-
-From **Administration > Extensions > Manager**, upgrade all extensions, starting
-with the following:
-
-- License Manager,
-- Plugin Packs Manager,
-- Auto Discovery.
-
-Then you can upgrade all other commercial extensions.
-
-#### Start the tasks manager
-
-Since 20.04, Centreon has changed his tasks manager from *Centcore* to *Gorgone*.
-
-To act this change, run the following commands:
-
-```shell
-systemctl stop centcore
-systemctl enable gorgoned
-systemctl start gorgoned
-systemctl disable centcore
-```
-
-Engine statistics that have been collected by *Centcore* will know be collected
-by *Gorgone*.
-
-Change the rights on the statistics RRD files by running the following command:
-
-```shell
-chown -R centreon-gorgone /var/lib/centreon/nagios-perf/*
-```
-
-#### Restart monitoring processes
-
-Centreon Broker component has changed its configuration file format.
-
-It now uses JSON instead of XML.
-
-To make sure Broker and Engine's Broker module are using new configuration files,
-follow this steps:
-
-1. Deploy Central's configuration from the Centreon web UI by following
-[this procedure](../monitoring/monitoring-servers/deploying-a-configuration.md),
-2. Restart both Broker and Engine on the Central server by running this
-command:
-
-    ```shell
-    systemctl restart cbd centengine
-    ```
-
 ### Upgrade the MariaDB server
 
 The MariaDB components can now be upgraded.
@@ -406,6 +319,119 @@ Execute the following command:
 ```shell
 systemctl enable mariadb
 ```
+
+### Change the format of the tables
+
+All tables must be in dynamic format. To know the type of tables, run the following commands:
+
+```sql
+mysql -u root
+SELECT table_schema,table_name,row_format FROM information_schema.tables WHERE table_schema IN ("centreon", "centreon_storage") ORDER BY table_schema;
+```
+
+Then exit mariadb.
+
+```shell
+exit
+```
+
+To change the type of tables for the **centreon** database, run:
+
+```shell
+mysql --batch --skip-column-names --execute 'SELECT CONCAT("ALTER TABLE `", table_name, "` ROW_FORMAT=dynamic;") AS aQuery FROM information_schema.tables WHERE table_schema = "centreon" AND row_format IS NOT NULL AND row_format NOT IN ("Dynamic")' | mysql centreon
+```
+
+To change the type of tables for the **centreon_storage** database, run:
+
+```shell
+mysql --batch --skip-column-names --execute 'SELECT CONCAT("ALTER TABLE `", table_name, "` ROW_FORMAT=dynamic;") AS aQuery FROM information_schema.tables WHERE table_schema = "centreon_storage" AND row_format IS NOT NULL AND row_format NOT IN ("Dynamic")' | mysql centreon_storage
+```
+
+### Finalizing the upgrade
+
+Before starting the web upgrade process, reload the Apache server with the
+following command:
+```shell
+systemctl reload httpd24-httpd
+```
+
+Then log on to the Centreon web interface to continue the upgrade process:
+
+Click on **Next**:
+
+![image](../assets/upgrade/web_update_1.png)
+
+Click on **Next**:
+
+![image](../assets/upgrade/web_update_2.png)
+
+The release notes describe the main changes. Click on **Next**:
+
+![image](../assets/upgrade/web_update_3.png)
+
+This process performs the various upgrades. Click on **Next**:
+
+![image](../assets/upgrade/web_update_4.png)
+
+Your Centreon server is now up to date. Click on **Finish** to access the login
+page:
+
+![image](../assets/upgrade/web_update_5.png)
+
+If the Centreon BAM module is installed, refer to the
+[upgrade procedure](../service-mapping/upgrade.md).
+
+### Post-upgrade actions
+
+#### Upgrade extensions
+
+From **Administration > Extensions > Manager**, upgrade all extensions, starting
+with the following:
+
+- License Manager,
+- Plugin Packs Manager,
+- Auto Discovery.
+
+Then you can upgrade all other commercial extensions.
+
+#### Start the tasks manager
+
+Since 20.04, Centreon has changed his tasks manager from *Centcore* to *Gorgone*.
+
+To act this change, run the following commands:
+
+```shell
+systemctl stop centcore
+systemctl enable gorgoned
+systemctl start gorgoned
+```
+
+Engine statistics that have been collected by *Centcore* will know be collected
+by *Gorgone*.
+
+Change the rights on the statistics RRD files by running the following command:
+
+```shell
+chown -R centreon-gorgone /var/lib/centreon/nagios-perf/*
+```
+
+#### Restart monitoring processes
+
+Centreon Broker component has changed its configuration file format.
+
+It now uses JSON instead of XML.
+
+To make sure Broker and Engine's Broker module are using new configuration files,
+follow this steps:
+
+1. Deploy Central's configuration from the Centreon web UI by following
+[this procedure](../monitoring/monitoring-servers/deploying-a-configuration.md),
+2. Restart both Broker and Engine on the Central server by running this
+command:
+
+    ```shell
+    systemctl restart cbd centengine
+    ```
 
 ## Upgrade the Remote Servers
 
