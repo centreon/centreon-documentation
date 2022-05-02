@@ -48,6 +48,9 @@ The output of the `vgs` command must look like (what must be payed attention on 
 
 In order to keep the cluster safe from split-brain issues, a third server is mandatory to resolve the master's election in the event of a connection loss. The role of Quorum Device, can be held by a poller of the monitoring platform.
 
+In order to adhere to best practices and be as resilient as possible, the Quorum server placement
+Quorum server should be at a different site than the two primary nodes, with independent network attachments.
+
 ### Defining hosts' names and addresses
 
 In this procedure, we will refer to characteristics that are bound to change from a platform to another (such as IP addresses) by the following macros:
@@ -73,6 +76,7 @@ In this procedure, we will refer to characteristics that are bound to change fro
 * `@VIP_SQL_IPADDR@` : virtual IP address of the SQL cluster
 * `@VIP_SQL_IFNAME@` : network device carrying the SQL cluster's VIP
 * `@VIP_SQL_CIDR_NETMASK@` : SQL Cluster subnet mask length in bits (eg. 24)
+* `@VIP_SQL_BROADCAST_IPADDR@` : cluster's VIP SQL broadcast address
 * `@CENTREON_CLUSTER_PASSWD@` : `hacluster` user's password
 
 ### Configuring  centreon-broker
@@ -309,7 +313,7 @@ The second method will be documented below.
 
 Switch to `centreon`'s bash environment on both nodes:
 
-```
+```bash
 su - centreon
 ```
 
@@ -322,13 +326,13 @@ cat ~/.ssh/id_ed25519.pub
 
 Once done, copy the content of the public key file displayed by `cat` and paste it to `~/.ssh/authorized_keys` (must be created) on the other node and apply the correct file permissions (sill as `centreon` user):
 
-```
+```bash
 chmod 600 ~/.ssh/authorized_keys
 ```
 
 The keys exchange must be validated by an initial connection from each node to the other in order to accept and register the peer node's SSH fingerprint (sill as `centreon` user):
 
-```
+```bash
 ssh <peer node hostname>
 ```
 
@@ -480,7 +484,7 @@ GRANT ALL PRIVILEGES ON centreon_storage.* TO '@MARIADB_CENTREON_USER@'@'@CENTRA
 When upgrading to centreon-ha from an existing Centreon platform or an OVA/OVF VM deployment, update `'@MARIADB_CENTREON_USER@'@'localhost'` password:
 
 ```sql
-ALTER USER '@MARIADB_CENTREON_USER@'@'localhost' IDENTIFIED BY '@MARIADB_CENTREON_PASSWD@'; 
+ALTER USER '@MARIADB_CENTREON_USER@'@'localhost' IDENTIFIED BY '@MARIADB_CENTREON_PASSWD@';
 ```
 
 ### Creating the MariaDB replication account
@@ -717,6 +721,7 @@ chmod 775 /tmp/centreon-autodisco/
 Centreon's application services won't be launched at boot time anymore, they will be managed by the clustering tools. These services must therefore be stopped and disabled:
 
 For ** Central nodes **
+
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
 
@@ -1240,8 +1245,7 @@ pcs constraint order stop centreon then demote ms_mysql-master
 </TabItem>
 </Tabs>
 
-Create the Constraint that prevent Centreon Processes to run on Database nodes and 
-vice-et-versa: 
+Create the Constraint that prevent Centreon Processes to run on Database nodes and  vice-et-versa: 
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
@@ -1482,44 +1486,6 @@ rsync -a /etc/centreon-broker/*json @CENTRAL_SLAVE_IPADDR@:/etc/centreon-broker/
 ```
 
 And then you need to restart all the centreon processes using the following command:
-
-```bash
-pcs resource restart centreon
-```
-
-## Modifications of the Centreon configuration files
-Following the installation of the cluster and the _vip_mysql_, it is necessary to modify the outputs of the Centreon Broker
-and 3 configuration files of the Central. These elements will have to point to the _vip_mysql_ in order to always point to
-the active MariaDB node.
-
-The 3 files are:
-/etc/centreon/centreon.conf.php
-/etc/centreon/conf.pm
-/etc/centreon/config.d/10-database.yaml
-It will be necessary to modify the IP of the old active node by the IP of the _vip_mysql_.
-
-### Modification of the central-broker-master outputs
-The configuration of the *Output* Broker of the central-broker-master is done with the menu *Configuration > Pollers > Broker configuration*.
-
-* Modify the "IPv4" output by replacing "@DATABASE_MASTER_IPADDR@" with @VIP_SQL_IPADDR@ in the *central-broker-master* configuration:
-* 
-| Broker Output                         | Parameter  | Value            |
-| ------------------------------------- | ---------- | ---------------- |
-| Broker SQL database                   | DB Host    | @VIP_SQL_IPADDR@ |
-| Perfdata Generator (Centreon Storage) | DB Host    | @VIP_SQL_IPADDR@ |
-
-### Exporting the configuration
-
-Once the actions in the two previous paragraphs have been carried out, the configuration must be exported (first 3 boxes for 
-the "Central" collector export) for it to be effective.
-
-These actions only on the `@CENTRAL_MASTER_NAME@` then the broker configuration files must be copied to `@CENTRAL_SLAVE_NAME@`.
-
-```bash
-rsync -a /etc/centreon-broker/*json @CENTRAL_SLAVE_IPADDR@:/etc/centreon-broker/
-```
-
-Then restart the Centreon services with the command:
 
 ```bash
 pcs resource restart centreon
