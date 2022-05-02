@@ -853,10 +853,6 @@
             },
             {
               "type": "doc",
-              "id": "version-22.04/upgrade/upgrade-from-21-10"
-            },
-            {
-              "type": "doc",
               "id": "version-22.04/upgrade/upgrade-from-21-04"
             },
             {
@@ -894,6 +890,10 @@
             {
               "type": "doc",
               "id": "version-22.04/upgrade/centreon-ha/upgrade-centreon-ha-from-21-04"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/upgrade/centreon-ha/upgrade-centreon-ha-from-21-10"
             },
             {
               "type": "doc",
