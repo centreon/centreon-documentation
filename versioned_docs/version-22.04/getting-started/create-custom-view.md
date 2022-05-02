@@ -18,7 +18,7 @@ Add your first widget by clicking on **+ Add widget**, then enter **TOP 10 CPU**
 
 ![image](../assets/getting-started/cv_2.png)
 
-Click on **+ Add widget**, then enter **TOP 10 Memory** and select **Live Top 10 Memory Usage**. Click on **Submit**:
+Click on **+ Add widget**, then enter **Host Monitoring** and select **Host Monitoring**. Click on **Submit**:
 
 ![image](../assets/getting-started/cv_3.png)
 

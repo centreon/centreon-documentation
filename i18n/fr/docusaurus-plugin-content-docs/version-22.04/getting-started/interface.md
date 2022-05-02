@@ -11,7 +11,7 @@ Pour vous connecter à l'interface web, rendez-vous à l'adresse : `http://ADRES
 
 Renseignez le nom d'utilisateur et le mot de passe associé et cliquez sur le bouton **Se connecter** :
 
-![image](../assets/getting-started/aconnexion_FR.png)
+![image](../assets/getting-started/aconnection.png)
 
 >Les identifiants par défaut sont : `admin`/`centreon`. 
 
