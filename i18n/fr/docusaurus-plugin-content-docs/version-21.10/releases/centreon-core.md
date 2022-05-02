@@ -18,6 +18,8 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ### 21.10.6
 
+Release date: `May 2, 2022`
+
 #### Bug Fixes
 
 - [API] Fixed an issue in the `icons` API endpoint that always returned 0 for total number of results
