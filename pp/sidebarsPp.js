@@ -249,10 +249,6 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-monitoring-ntopng-restapi'
-        },
-        {
-          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-antivirus-mcafee-webgateway-snmp'
         },
         {
@@ -334,6 +330,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-nginx-plus-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-monitoring-ntopng-restapi'
         },
         {
           type: 'doc',
