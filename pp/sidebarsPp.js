@@ -574,6 +574,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-monitoring-centreon-poller'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-monitoring-centreon-sql-metrics'
         }
       ]
     },
