@@ -642,7 +642,8 @@ pcs resource cleanup ms_mysql
 
 ## Vérifier la santé du cluster
 
-Vous pouvez surveiller les ressources du cluster en temps réel en utilisant la commande `crm_mon` :
+Vous pouvez surveiller les ressources du cluster en temps réel en utilisant la commande `crm_mon -fr` :
+> **INFO:**L'option `-fr` vous permet d'afficher toutes les resources même si elles sont disable.
 
 <Tabs groupId="sync">
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
@@ -714,6 +715,28 @@ vip_mysql       (ocf::heartbeat:IPaddr2):       Started @DATABASE_MASTER_NAME@
 
 </TabItem>
 </Tabs>
+
+### Ressources disable
+Lorsque vous faite une `crm_mon -fr` et que vous une ressource qui est disable :
+```bash
+...
+ Master/Slave Set: ms_mysql-master [ms_mysql]
+     Masters: [ @DATABASE_MASTER_NAME@ ]
+     Slaves: [ @DATABASE_SLAVE_NAME@ ]
+     Stopped: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+vip_mysql       (ocf::heartbeat:IPaddr2):       Stopped (disabled)
+...
+```
+
+Vous devez faire enable la resource avec la commande suivante :
+```bash
+pcs resource enable @RESSOURCE_NAME@
+```
+
+Dans notre cas :
+```bash
+pcs resource enable vip_mysql
+```
 
 ## Vérification de la stabilité de la plate-forme
 
