@@ -33,6 +33,18 @@ By:
 {protocol}://{server}:{port}/centreon/authentication/providers/configurations/openid
 ```
 
+> Moreover, for Web SSO authentication, you need also to change Apache configuration.
+
+For example replace:
+```shell
+{protocol}://{server}:{port}/centreon/index.php
+```
+
+By:
+```shell
+{protocol}://{server}:{port}/centreon/websso
+```
+
 ## Centreon Collect
 
 ### 22.04.0
