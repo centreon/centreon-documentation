@@ -447,6 +447,7 @@ ServerTokens Prod
     </IfModule>
 
     <Directory "${install_dir}/www">
+        DirectoryIndex index.php
         AllowOverride none
         Require all granted
         FallbackResource ${base_uri}/index.html
@@ -738,9 +739,10 @@ ServerTokens Prod
     </IfModule>
 
     <Directory "${install_dir}/www">
+        DirectoryIndex index.php
         AllowOverride none
         Require all granted
-        FallbackResource ${base_uri}/index
+        FallbackResource ${base_uri}/index.html
     </Directory>
 
     <Directory "${install_dir}/api">
