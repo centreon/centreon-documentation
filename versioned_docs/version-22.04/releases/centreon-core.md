@@ -19,7 +19,20 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 22.04.0
 
-- Compatibility with other 22.04 components.
+#### Breaking changes
+
+> Since the rewrite of the OpenID Connect authentication, it is necessary to reconfigure the redirect URL to Centreon in
+> the identity provider.
+
+For example replace:
+```shell
+{protocol}://{server}:{port}/centreon/index.php
+```
+
+By:
+```shell
+{protocol}://{server}:{port}/centreon/authentication/providers/configurations/openid
+```
 
 ## Centreon Collect
 
