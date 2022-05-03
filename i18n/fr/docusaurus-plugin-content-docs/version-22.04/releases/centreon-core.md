@@ -88,4 +88,9 @@ By:
 
 ### 22.04.0
 
-- Compatibility with other 22.04 components.
+#### Enhancements
+
+- Added ability to set cipher and key rotation time for encrypted communication
+- Added new httpsserverng module
+- Added the possibility for the poller to communicate using the socket web client instead of using the ZMQ protocol
+- Extended configuration to add multiple directories at the same time
