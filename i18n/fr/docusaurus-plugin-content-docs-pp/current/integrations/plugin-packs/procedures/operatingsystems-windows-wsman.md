@@ -11,9 +11,10 @@ import TabItem from '@theme/TabItem';
 ### Modèles
 
 Le Plugin Pack Centreon Windows WSMAN apporte 1 modèle d'hôte :
+
 * OS-Windows-WSMAN-custom
 
-Il apporte les Modèles de Service suivants :
+Il apporte les modèles de service suivants :
 
 | Alias              | Modèle de service                   | Description                                                                                                                                                                  | Défaut | Découverte |
 |:-------------------|:------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------|:-----------|
@@ -149,37 +150,37 @@ Il apporte les Modèles de Service suivants :
 
 ## Prérequis
 
-Pour superviser les serveurs Windows via WSMAN, merci de suivre notre [documentation officielle](../getting-started/how-to-guides/windows-winrm-wsman-tutorial.md) et vous s'assurer que WinRM et vos droits sont correctement configurés.
+Pour superviser les serveurs Windows via WSMAN, merci de suivre notre [documentation officielle](../getting-started/how-to-guides/windows-winrm-wsman-tutorial.md) et de vous assurer que WinRM et vos droits sont correctement configurés.
 
 ## Installation
 
 <Tabs groupId="setup">
 <TabItem value="Online License" label="Online License">
 
-1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des ressources *Windows WSMAN* :
+1. Installez le plugin Centreon sur tous les collecteurs Centreon devant superviser des ressources **Windows WSMAN** :
 
-```bash
-yum install centreon-plugin-Operatingsystems-Windows-Wsman
-```
+  ```bash
+  yum install centreon-plugin-Operatingsystems-Windows-Wsman
+  ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin Pack **Windows WSMAN** depuis la page **Configuration > Packs de plugins**.
+2. Sur l'interface web de Centreon, installez le Plugin Pack **Windows WSMAN** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des ressources *Windows WSMAN* :
+1. Installez le plugin Centreon sur tous les collecteurs Centreon devant superviser des ressources **Windows WSMAN** :
 
-```bash
-yum install centreon-plugin-Operatingsystems-Windows-Wsman
-```
+  ```bash
+  yum install centreon-plugin-Operatingsystems-Windows-Wsman
+  ```
 
-2. Sur le serveur Central Centreon, installer le RPM du Pack **Windows WSMAN** :
+2. Sur le serveur central Centreon, installez le RPM du Pack **Windows WSMAN** :
 
-```bash
-yum install centreon-pack-operatingsystems-windows-wsman
-```
+  ```bash
+  yum install centreon-pack-operatingsystems-windows-wsman
+  ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin Pack **Windows WSMAN** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface web de Centreon, installer le Plugin Pack **Windows WSMAN** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>
@@ -188,10 +189,10 @@ yum install centreon-pack-operatingsystems-windows-wsman
 
 ### Hôte
 
-* Ajoutez un Hôte à Centreon depuis la page **Configuration > Hôtes**.
-* Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre serveur *Windows WSMAN*.
+* Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
+* Complétez les champs **Nom**, **Alias** et **IP Address/DNS** correspondant à votre serveur **Windows WSMAN**.
 * Appliquez le Modèle d'Hôte **OS-Windows-WSMAN-custom**.
-* Une fois le modèle appliqué, les Macros ci-dessous indiquées comme requises (*Obligatoire*) doivent être renseignées.
+* Une fois le modèle appliqué, les macros ci-dessous indiquées comme requises (*Obligatoire*) doivent être renseignées.
 
 | Obligatoire | Macro             | Description                                                                            |
 |:------------|:------------------|:---------------------------------------------------------------------------------------|
@@ -201,10 +202,10 @@ yum install centreon-pack-operatingsystems-windows-wsman
 |             | WSMANPROTO        | http                                                                                   |
 |             | WSMANUSERNAME     |                                                                                        |
 
-## Comment puis-je tester le Plugin et que signifient les options des commandes ? 
+## Comment puis-je tester le Plugin et que signifient les options des commandes ?
 
-Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne 
-de commande depuis votre collecteur Centreon en vous connectant avec 
+Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne
+de commande depuis votre collecteur Centreon en vous connectant avec
 l'utilisateur **centreon-engine** (`su - centreon-engine`) :
 
 ```bash
@@ -237,7 +238,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
     --help
 ```
 
-Tous les modes disponibles peuvent être affichés en ajoutant le paramètre 
+Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 `--list-mode` à la commande :
 
 ```bash
