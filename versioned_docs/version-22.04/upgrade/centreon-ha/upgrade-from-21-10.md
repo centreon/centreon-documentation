@@ -645,6 +645,7 @@ pcs resource cleanup ms_mysql
 
 You can monitor the cluster's resources in real time using the `crm_mon -fr` command:
 > **INFO:** : The `-fr` option allows you to display all resources even if they are disable.
+
 <Tabs groupId="sync">
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
 
