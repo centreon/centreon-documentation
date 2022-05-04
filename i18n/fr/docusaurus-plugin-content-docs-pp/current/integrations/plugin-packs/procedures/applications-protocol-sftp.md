@@ -63,7 +63,7 @@ Il apporte les Modèles de Service suivants :
 ## Prérequis
 
 Pour superviser votre serveur SFTP, il est possible de réaliser une authentification par : 
-* clés publique
+* clé publique
 * utilisateur et mot de passe
 
 ## Installation
