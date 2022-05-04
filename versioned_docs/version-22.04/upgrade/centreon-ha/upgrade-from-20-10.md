@@ -425,7 +425,8 @@ pcs resource create "ms_mysql" \
 > **WARNING:** the syntax of the following command depends on the Linux Distribution you are using.
 
 
-#### HA 2 nodes
+<Tabs groupId="sync">
+<TabItem value="HA 2 Nodes" label="HA 2 Nodes">
 <Tabs groupId="sync">
 <TabItem value="RHEL 7" label="RHEL 7">
 
@@ -451,7 +452,8 @@ pcs resource meta ms_mysql-master \
 </TabItem>
 </Tabs>
 
-#### HA 4 nodes
+</TabItem>
+<TabItem value="HA 4 Nodes" label="HA 4 Nodes">
 <Tabs groupId="sync">
 <TabItem value="RHEL 7" label="RHEL 7">
 
@@ -464,7 +466,7 @@ pcs resource master ms_mysql \
     notify="true"
 ```
 
-VIP Address of databases servers
+VIP Address of Databases servers
 
 ```bash
 pcs resource create vip_mysql \
@@ -480,7 +482,6 @@ pcs resource create vip_mysql \
     monitor interval="10s" timeout="20s"
 ```
 </TabItem>
-
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
@@ -492,7 +493,7 @@ pcs resource meta ms_mysql-master \
     notify="true"
 ```
 
-VIP Address of databases servers
+VIP Address of Databases servers
 
 ```bash
 pcs resource create vip_mysql \
@@ -507,6 +508,8 @@ pcs resource create vip_mysql \
     stop interval="0s" timeout="20s" \
     monitor interval="10s" timeout="20s"
 ```
+</TabItem>
+</Tabs>
 </TabItem>
 </Tabs>
 
