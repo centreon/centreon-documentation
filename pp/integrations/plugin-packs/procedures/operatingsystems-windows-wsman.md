@@ -11,20 +11,21 @@ import TabItem from '@theme/TabItem';
 ### Templates
 
 The Centreon Plugin Pack Windows WSMAN brings 1 host template:
+
 * OS-Windows-WSMAN-custom
 
-It brings the following Service Templates:
+It brings the following service templates:
 
 | Service Alias      | Service Template                    | Service Description                                                                                                                                  | Default | Discovery |
 |:-------------------|:------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:--------|:----------|
-| Cpu                | OS-Windows-Cpu-WSMAN                | Check the rate of utilization of CPU for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPU.  | X       |           |
+| Cpu                | OS-Windows-Cpu-WSMAN                | Check the rate of utilization of CPU for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPUs.  | X       |           |
 | Disk-Global        | OS-Windows-Disk-Global-WSMAN        | Check the rate of free space on the disk. For each checks the name of the disk will appear                                                           |         | X         |
 | Files-Date-Generic | OS-Windows-Files-Date-Generic-WSMAN | Check time                                                                                                                                           |         |           |
 | Files-Size-Generic | OS-Windows-Files-Size-Generic-WSMAN | Check size of files                                                                                                                                  |         |           |
 | Memory             | OS-Windows-Memory-WSMAN             | Check the rate of the utilization of memory                                                                                                          | X       |           |
 | Ntp                | OS-Windows-Ntp-WSMAN                | Check the synchronization with an NTP server                                                                                                         |         |           |
 | Pending-Reboot     | OS-Windows-Pending-Reboot-WSMAN     | Check windows pending reboot                                                                                                                         |         |           |
-| Process-Global     | OS-Windows-Process-Global-WSMAN     | Check if Windows process are started                                                                                                                 |         | X         |
+| Process-Global     | OS-Windows-Process-Global-WSMAN     | Check if Windows processes are started                                                                                                                 |         | X         |
 | Service-Generic    | OS-Windows-Service-Generic-WSMAN    | Check if Windows services are started                                                                                                                |         | X         |
 | Services-Auto      | OS-Windows-Services-Auto-WSMAN      | Check if Windows services are started                                                                                                                | X       |           |
 | Sessions           | OS-Windows-Sessions-WSMAN           | Check Windows user sessions                                                                                                                          |         |           |
@@ -149,37 +150,37 @@ It brings the following Service Templates:
 
 ## Prerequisites
 
-To monitor an Windows Servers through WSMAN, please follow our [official documentation](../getting-started/how-to-guides/windows-winrm-wsman-tutorial.md) and make sure that WinRM and all right are properly configured.
+To monitor Windows Servers through WSMAN, please follow our [official documentation](../getting-started/how-to-guides/windows-winrm-wsman-tutorial.md) and make sure that WinRM and all rights are properly configured.
 
 ## Setup
 
 <Tabs groupId="setup">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor *Windows WSMAN* resources:
+1. Install the Centreon plugin package on every Centreon poller expected to monitor **Windows WSMAN** resources:
 
-```bash
-yum install centreon-plugin-Operatingsystems-Windows-Wsman
-```
+  ```bash
+  yum install centreon-plugin-Operatingsystems-Windows-Wsman
+  ```
 
-2. On the Centreon Web interface, install the **Windows WSMAN** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
+2. On the Centreon web interface, install the **Windows WSMAN** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor *Windows WSMAN* resources:
+1. Install the Centreon plugin package on every Centreon poller expected to monitor **Windows WSMAN** resources:
 
-```bash
-yum install centreon-plugin-Operatingsystems-Windows-Wsman
-```
+  ```bash
+  yum install centreon-plugin-Operatingsystems-Windows-Wsman
+  ```
 
 2. Install the **Windows WSMAN** Centreon Plugin Pack RPM on the Centreon Central server:
 
-```bash
-yum install centreon-pack-operatingsystems-windows-wsman
-```
+  ```bash
+  yum install centreon-pack-operatingsystems-windows-wsman
+  ```
 
-3. On the Centreon Web interface, install the **Windows WSMAN** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
+3. On the Centreon web interface, install the **Windows WSMAN** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
 
 </TabItem>
 </Tabs>
@@ -188,23 +189,23 @@ yum install centreon-pack-operatingsystems-windows-wsman
 
 ### Host
 
-* Log into Centreon and add a new Host through **Configuration > Hosts**.
-* Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your *Windows WSMAN* server settings.
-* Select the *OS-Windows-WSMAN-custom* template to apply to the Host.
+* Log into Centreon and add a new host through **Configuration > Hosts**.
+* Fill the **Name**, **Alias** and **IP Address/DNS** fields according to your **Windows WSMAN** server's settings.
+* Apply the **OS-Windows-WSMAN-custom** template to the host.
 * Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
 
 | Mandatory   | Macro             | Description                                                                            |
 |:------------|:------------------|:---------------------------------------------------------------------------------------|
-|             | WSMANEXTRAOPTIONS | Any extra option you may want to add to every command\_line (eg. a --verbose flag)     |
+|             | WSMANEXTRAOPTIONS | Any extra option you may want to add to every command line (eg. a --verbose flag)     |
 |             | WSMANPASSWORD     |                                                                                        |
 |             | WSMANPORT         | 5985                                                                                   |
 |             | WSMANPROTO        | http                                                                                   |
 |             | WSMANUSERNAME     |                                                                                        |
 
-## How to check in the CLI that the configuration is OK and what are the main options for? 
+## How to check in the CLI that the configuration is OK and what are the main options for?
 
-Once the plugin is installed, log into your Centreon Poller CLI using the 
-**centreon-engine** user account (`su - centreon-engine`) and test the Plugin by
+Once the plugin is installed, log into your Centreon Poller's CLI using the
+**centreon-engine** user account (`su - centreon-engine`) and test the plugin by
 running the following command:
 
 ```bash
@@ -227,7 +228,7 @@ The expected command output is shown below:
 OK:  | System uptime is: 53m 15s | 'system.uptime.seconds'=3195s;;;0;
 ```
 
-All available options for a given mode can be displayed by adding the 
+All available options for a given mode can be displayed by adding the
 `--help` parameter to the command:
 
 ```bash
@@ -237,7 +238,7 @@ All available options for a given mode can be displayed by adding the
     --help
 ```
 
-All available options for a given mode can be displayed by adding the 
+All available options for a given mode can be displayed by adding the
 `--list-mode` parameter to the command:
 
 ```bash
@@ -249,4 +250,4 @@ All available options for a given mode can be displayed by adding the
 ### Troubleshooting
 
 Please find all the troubleshooting documentation for the Centreon Plugins
-in the [dedicated page](../getting-started/how-to-guides/troubleshooting-plugins.md)
+in the [dedicated page](../getting-started/how-to-guides/troubleshooting-plugins.md).
