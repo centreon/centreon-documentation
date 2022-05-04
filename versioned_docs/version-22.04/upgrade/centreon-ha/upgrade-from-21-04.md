@@ -480,7 +480,7 @@ pcs constraint order stop centreon then demote ms_mysql-clone
 ```
 
 </TabItem>
-<TabItem value="REHL 7 / CentOS 7" label="REHL 7 / CentOS 7">
+<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
 
 ```bash
 pcs constraint colocation add master "ms_mysql-master" with "centreon"
@@ -503,7 +503,7 @@ pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
 ```
 
 </TabItem>
-<TabItem value="REHL 7 / CentOS 7" label="REHL 7 / CentOS 7">
+<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
 
 ```bash
 pcs constraint colocation add "vip_mysql" with master "ms_mysql-master"
@@ -528,7 +528,7 @@ pcs constraint location php-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABA
 ```
 
 </TabItem>
-<TabItem value="REHL 7 / CentOS 7" label="REHL 7 / CentOS 7">
+<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
 
 ```bash
 pcs constraint location centreon avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
