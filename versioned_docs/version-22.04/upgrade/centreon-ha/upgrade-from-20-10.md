@@ -242,7 +242,7 @@ ignore-db-dir=lost+found
 
 You have to uninstall then reinstall MariaDB to upgrade between major versions (i.e. to switch from version 10.3 to version 10.5).
 
-> **WARNING** the following commands must be executed first on the active 
+> **WARNING :** the following commands must be executed first on the active 
 database node. Once the active database node is in 10.5, you can upgrade the
 passive database node.
 
@@ -361,7 +361,7 @@ systemctl restart cbd
 
 ### Clean broker memory files
 
-> **WARNING** perform this command only the passive central node.
+> **WARNING :** perform this command only the passive central node.
 
 Before resuming the cluster resources management, to avoid broker issues, cleanup all the *.memory.*, *.unprocessed.* or *.queue.* files:
 
@@ -375,7 +375,7 @@ rm -rf /var/lib/centreon-broker/central-broker-master.unprocessed*
 
 To be run **only on one central node**:
 
-> **WARNING:** the syntax of the following command depends on the Linux Distribution you are using.
+> **WARNING :** the syntax of the following command depends on the Linux Distribution you are using.
 
 > You can find @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ @MARIADB_REPL_USER@
 @MARIADB_REPL_USER@ variable in `/etc/centreon-ha/mysql-resources.sh`
@@ -422,7 +422,7 @@ pcs resource create "ms_mysql" \
 </TabItem>
 </Tabs>
 
-> **WARNING:** the syntax of the following command depends on the Linux Distribution you are using.
+> **WARNING :** the syntax of the following command depends on the Linux Distribution you are using.
 
 
 <Tabs groupId="sync">
@@ -581,7 +581,7 @@ pcs resource cleanup
 ## Check cluster's health
 
 You can monitor the cluster's resources in real time using the `crm_mon -fr` command:
-> **INFO:** : The `-fr` option allows you to display all resources even if they are disable.
+> **INFO :** The `-fr` option allows you to display all resources even if they are disable.
 
 <Tabs groupId="sync">
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
