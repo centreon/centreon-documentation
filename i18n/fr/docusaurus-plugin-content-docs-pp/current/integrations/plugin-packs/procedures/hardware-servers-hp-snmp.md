@@ -2,55 +2,234 @@
 id: hardware-servers-hp-snmp
 title: HP Proliant
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-## Prerequisites
 
-### Centreon Plugin
+## Contenu du Pack
 
-Install this plugin on each needed poller:
+### Modèles
 
-``` shell
+Le Plugin Pack Centreon **HP Proliant** apporte un modèle d'hôte :
+
+* HW-Server-Hp-Server-SNMP-custom
+
+Il apporte les modèles de service suivants :
+
+| Alias                | Modèle de service                      | Description                              | Défaut |
+|:---------------------|:---------------------------------------|:-----------------------------------------|:-------|
+| Hardware-Cpu         | HW-Hp-Server-Hardware-Cpu-SNMP         | Contrôle les cpu                         |        |
+| Hardware-Fan         | HW-Hp-Server-Hardware-Fan-SNMP         | Contrôle les ventilateurs                |        |
+| Hardware-Global      | HW-Hp-Server-Hardware-Global-SNMP      | Contrôle l'ensemble des sondes           | X      |
+| Hardware-Network     | HW-Hp-Server-Hardware-Network-SNMP     | Contrôle les cartes réseaux              |        |
+| Hardware-Pc          | HW-Hp-Server-Hardware-Pc-SNMP          | Contrôle les convertisseurs de puissance |        |
+| Hardware-Psu         | HW-Hp-Server-Hardware-Psu-SNMP         | Contrôle les alimentations               |        |
+| Hardware-Storage     | HW-Hp-Server-Hardware-Storage-SNMP     | Contrôle le stockage                     |        |
+| Hardware-Temperature | HW-Hp-Server-Hardware-Temperature-SNMP | Contrôle les températures matérielles    |        |
+
+### Métriques & statuts collectés
+
+<Tabs groupId="sync">
+<TabItem value="Hardware-Cpu" label="Hardware-Cpu">
+
+| Metric name           | Description            | Unit  |
+| :-------------------- | :--------------------- | :---- |
+| status                | CPU status             |       |
+
+</TabItem>
+<TabItem value="Hardware-Fan" label="Hardware-Fan">
+
+| Metric name            | Description            | Unit  |
+| :--------------------- | :--------------------- | :---- |
+| status                 | Fan status             |       |
+| hardware.fan.speed.rpm | Fan speed              | Rpm   |
+
+
+</TabItem>
+<TabItem value="Hardware-Global" label="Hardware-Global">
+
+| Metric name           | Description               | Unit  |
+| :-------------------- | :------------------------ | :---- |
+| status                | Components global status  |       |
+
+</TabItem>
+<TabItem value="Hardware-Network" label="Hardware-Network">
+
+| Metric name           | Description            | Unit  |
+| :-------------------- | :--------------------- | :---- |
+| status                | NIC status             |       |
+
+</TabItem>
+<TabItem value="Hardware-Pc" label="Hardware-Pc">
+
+| Metric name           | Description            | Unit  |
+| :-------------------- | :--------------------- | :---- |
+| status                | Power Converter status |       |
+
+
+</TabItem>
+<TabItem value="Hardware-Psu" label="Hardware-Psu">
+
+| Metric name                       | Description                     | Unit  |
+| :-------------------------------- | :------------------------------ | :---- |
+| status                            | Power supply status             |       |
+| hardware.powersupply.power.watt   | Power supply watt capacity used | W     |
+| hardware.powersupply.voltage.volt | Power supply voltage            | V     |
+
+</TabItem>
+<TabItem value="Hardware-Storage" label="Hardware-Storage">
+
+| Metric name           | Description            | Unit  |
+| :-------------------- | :--------------------- | :---- |
+| status                | Storage status         |       |
+
+</TabItem>
+<TabItem value="Hardware-Temperature" label="Hardware-Temperature">
+
+| Metric name                  | Description             | Unit  |
+| :--------------------------- | :---------------------- | :---- |
+| status                       | Temperature status      |       |
+| hardware.temperature.celsius | Temperature  in celsius | C     |
+
+</TabItem>
+</Tabs>
+
+## Prérequis
+
+### Configuration SNMP
+
+Pour utiliser ce Plugin pack, le service SNMP doit démarré et configuré sur le serveur **HP Proliant**.
+
+### Flux réseau
+
+La communication doit être possible sur le port UDP 161 depuis le collecteur
+Centreon vers le serveur supervisé.
+
+## Configuration de l'agent snmp HP sur le collecteur Centreon
+
+> Attention : La procédure qui suit est valide seulement pour Centos 7. Les paquets HP health et HP snmp-agents sont en version 10.50 et disponibles uniquement pour Centos 7.
+
+> Pour le bon fonctionnement de l'agent et du plugin, le collecteur Centreon doit être installé sur un HP Proliant.
+
+<Tabs groupId="sync">
+<TabItem value="Centos 7" label="Centos 7">
+
+Installez les paquets HP health et snmp-agents sur le collecteur Centreon : 
+
+```bash
+yum install https://downloads.linux.hpe.com/SDR/repo/mcp/centos/7.0/x86_64/10.50/hp-health-10.50-1826.40.rhel7.x86_64.rpm
+yum install https://downloads.linux.hpe.com/SDR/repo/mcp/centos/7.0/x86_64/10.50/hp-snmp-agents-10.50-2926.49.rhel7.x86_64.rpm
+```
+
+Ajoutez la ligne suivante dans */etc/snmp/snmpd.conf* :
+
+```bash
+dlmod cmaX /usr/lib64/libcmaX64.so
+```
+
+Redémarrez les services suivants : 
+
+```bash
+systemctl restart hp-snmp-agents
+systemctl restart snmpd
+```
+
+</TabItem>
+</Tabs>
+
+
+## Installation du plugin
+
+<Tabs groupId="sync">
+<TabItem value="Online License" label="Online License">
+
+1. Installez le plugin sur tous les collecteurs Centreon devant superviser des ressources **HP Proliant** :
+
+```bash
 yum install centreon-plugin-Hardware-Servers-Hp-Snmp
 ```
 
-## HP Insight Management Agent
+2. Sur l'interface Web de Centreon, installez le Plugin Pack **HP Proliant** depuis la page **Configuration > Packs de plugins**.
 
-Warning: The following procedure is an example. Cannot be applied on all
-context. The procedure is for centos 6 and hp agent 9.5.
+</TabItem>
+<TabItem value="Offline License" label="Offline License">
 
-The agent allows to get hardware information in SNMP. First, you need to
-download ['hp-health'](https://support.hpe.com/hpsc/swd/public/detail?swItemId=MTX_c34b79933bcf4a6e89dc89df27) and ['hp-snmp-agents'](https://support.hpe.com/hpsc/swd/public/detail?swItemId=MTX_fe93eb05acc0417e95e177c0e7) packages (can be found in [HP Support
-Website](https://support.hpe.com/hpsc/swd/public/))
+1. Installez le plugin sur tous les collecteurs Centreon devant superviser des ressources **HP Proliant** :
 
-    # rpm -i hp-health-9.50-1628.32.rhel6.x86_64.rpm hp-snmp-agents-9.50-2564.40.rhel6.x86_64.rpm
+```bash
+yum install centreon-plugin-Hardware-Servers-Hp-Snmp
+```
 
-Add in */etc/snmp/snmpd.conf*:
+2. Sur le serveur central Centreon, installez le RPM du Plugin Pack **HP Proliant** :
 
-    # Following entries were added by HP Insight Management Agents
-    #      Mon May 26 12:42:41 CEST 2014
-    dlmod cmaX /usr/lib64/libcmaX64.so
+```bash
+yum install centreon-pack-hardware-servers-hp-snmp
+```
 
-Note: If you're using 32bits hardware so you have to add dlmod cmaX
-/usr/lib/libcmaX.so instead of dlmod cmaX /usr/lib64/libcmaX64.so
+3. Sur l'interface Web de Centreon, installez le Plugin Pack **HP Proliant** depuis la page **Configuration > Packs de plugins**.
 
-Following daemons must be reloaded:
+</TabItem>
+</Tabs>
 
-    # /etc/init.d/hp-snmp-agents restart
-    # /etc/init.d/snmpd restart
+## Configuration
 
-## Centreon configuration
+### Hôte
 
-### Create an HP server
+* Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
+* Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre serveur **HP Proliant**.
+* Appliquez le Modèle d'hôte **HW-Server-Hp-Server-SNMP-custom**.
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
-the following table:
+Si vous utilisez SNMP en version 3, vous devez configurer les paramètres
+spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
 
-| Field                   | Value                      |
-| :---------------------- | :------------------------- |
-| Host name               | *Name of the host*         |
-| Alias                   | *Host description*         |
-| IP                      | *Host IP Address*          |
-| Monitored from          | *Monitoring Poller to use* |
-| Host Multiple Templates | *HW-Server-Hp-SNMP-custom* |
+| Obligatoire | Macro            | Description                                  |
+|:------------|:-----------------|:---------------------------------------------|
+|             | SNMPEXTRAOPTIONS | Configurer vos paramètres de sécurité SNMPv3 |
 
-Click the *Save* button.
+## Comment puis-je tester le plugin et que signifient les options des commandes ?
+
+Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
+de commande depuis votre collecteur Centreon en vous connectant avec
+l'utilisateur **centreon-engine** (`su - centreon-engine`) :
+
+```bash
+/usr/lib/centreon/plugins//centreon_hp_proliant.pl \
+    --plugin=hardware::server::hp::proliant::snmp::plugin \
+    --mode=hardware \
+    --hostname=10.0.0.1 \
+    --snmp-version='2c' \
+    --snmp-community='my-snmp-community' \
+    --component='.*' \
+    --verbose \
+    --use-new-perfdata
+```
+
+La commande devrait retourner un message de sortie similaire à :
+
+```bash
+OK: All 18 components are ok [1/1 cpus, 1/1 da accelerator boards, 1/1 da controllers, 3/3 da logical drives, 12/12 da physical drives]. | 'hardware.cpu.count'=1;;;; 'hardware.daacc.count'=1;;;; 'hardware.dactl.count'=1;;;; 'hardware.daldrive.count'=3;;;; 'hardware.dapdrive.count'=12;;;;
+```
+
+La liste de toutes les options complémentaires et leur signification peut être
+affichée en ajoutant le paramètre `--help` à la commande :
+
+```bash
+/usr/lib/centreon/plugins//centreon_hp_proliant.pl \
+    --plugin=hardware::server::hp::proliant::snmp::plugin \
+    --mode=hardware \
+    --help
+```
+
+Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
+`--list-mode` à la commande :
+
+```bash
+/usr/lib/centreon/plugins//centreon_hp_proliant.pl \
+    --plugin=hardware::server::hp::proliant::snmp::plugin \
+    --list-mode
+```
+
+### Diagnostic des erreurs communes
+
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins)
+pour le diagnostic des erreurs communes des plugins Centreon.
