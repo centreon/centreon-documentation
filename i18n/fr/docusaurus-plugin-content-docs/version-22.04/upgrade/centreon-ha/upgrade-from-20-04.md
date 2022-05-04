@@ -486,10 +486,21 @@ pcs resource create "ms_mysql" \
 > **WARNING:** la syntaxe de la commande suivante dépend de la distribution Linux que vous utilisez.
 
 <Tabs groupId="sync">
-<TabItem value="HA 2 nodes" label="HA 2 nodes">
+<TabItem value="HA 2 Nodes" label="HA 2 Nodes">
 <Tabs groupId="sync">
+<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+
+```bash
+pcs resource promotable ms_mysql \
+    master-node-max="1" \
+    clone_max="2" \
+    globally-unique="false" \
+    clone-node-max="1" \
+    notify="true"
+```
+</TabItem>
 <TabItem value="RHEL 7" label="RHEL 7">
-​
+
 ```bash
 pcs resource master ms_mysql \
     master-node-max="1" \
@@ -500,7 +511,7 @@ pcs resource master ms_mysql \
 ```
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
-​
+
 ```bash
 pcs resource meta ms_mysql-master \
     master-node-max="1" \
@@ -511,11 +522,40 @@ pcs resource meta ms_mysql-master \
 ```
 </TabItem>
 </Tabs>
+
 </TabItem>
-<TabItem value="HA 4 nodes" label="HA 4 nodes">
+<TabItem value="HA 4 Nodes" label="HA 4 Nodes">
 <Tabs groupId="sync">
+<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+
+```bash
+pcs resource promotable ms_mysql \
+    master-node-max="1" \
+    clone_max="2" \
+    globally-unique="false" \
+    clone-node-max="1" \
+    notify="true"
+```
+
+Adresse VIP des serveurs de bases de données
+
+```bash
+pcs resource create vip_mysql \
+    ocf:heartbeat:IPaddr2 \
+    ip="@VIP_SQL_IPADDR@" \
+    nic="@VIP_SQL_IFNAME@" \
+    cidr_netmask="@VIP_SQL_CIDR_NETMASK@" \
+    broadcast="@VIP_SQL_BROADCAST_IPADDR@" \
+    flush_routes="true" \
+    meta target-role="stopped" \
+    op start interval="0s" timeout="20s" \
+    stop interval="0s" timeout="20s" \
+    monitor interval="10s" timeout="20s"
+```
+
+</TabItem>
 <TabItem value="RHEL 7" label="RHEL 7">
-​
+
 ```bash
 pcs resource master ms_mysql \
     master-node-max="1" \
@@ -524,9 +564,9 @@ pcs resource master ms_mysql \
     clone-node-max="1" \
     notify="true"
 ```
-​
-VIP Address of databases servers
-​
+
+Adresse VIP des serveurs de bases de données
+
 ```bash
 pcs resource create vip_mysql \
     ocf:heartbeat:IPaddr2 \
@@ -542,7 +582,7 @@ pcs resource create vip_mysql \
 ```
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
-​
+
 ```bash
 pcs resource meta ms_mysql-master \
     master-node-max="1" \
@@ -551,9 +591,9 @@ pcs resource meta ms_mysql-master \
     clone-node-max="1" \
     notify="true"
 ```
-​
-VIP Address of databases servers
-​
+
+Adresse VIP des serveurs de bases de données
+
 ```bash
 pcs resource create vip_mysql \
     ocf:heartbeat:IPaddr2 \
