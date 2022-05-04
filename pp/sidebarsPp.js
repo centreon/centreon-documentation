@@ -221,6 +221,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-monitoring-kadiska-restapi'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-antivirus-kaspersky-snmp'
         },
         {
