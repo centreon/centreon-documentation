@@ -438,34 +438,6 @@ pcs resource master ms_mysql \
     notify="true"
 ```
 
-Adresse VIP des serveurs de bases de données
-
-```bash
-pcs resource create vip_mysql \
-    ocf:heartbeat:IPaddr2 \
-    ip="@VIP_SQL_IPADDR@" \
-    nic="@VIP_SQL_IFNAME@" \
-    cidr_netmask="@VIP_SQL_CIDR_NETMASK@" \
-    broadcast="@VIP_SQL_BROADCAST_IPADDR@" \
-    flush_routes="true" \
-    meta target-role="stopped" \
-    op start interval="0s" timeout="20s" \
-    stop interval="0s" timeout="20s" \
-    monitor interval="10s" timeout="20s"
-```
-
-</TabItem>
-<TabItem value="RHEL 7" label="RHEL 7">
-
-```bash
-pcs resource master ms_mysql \
-    master-node-max="1" \
-    clone_max="2" \
-    globally-unique="false" \
-    clone-node-max="1" \
-    notify="true"
-```
-
 ```bash
 pcs resource create vip_mysql \
     ocf:heartbeat:IPaddr2 \
