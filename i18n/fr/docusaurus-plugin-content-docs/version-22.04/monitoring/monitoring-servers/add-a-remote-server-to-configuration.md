@@ -1,6 +1,6 @@
 ---
 id: add-a-remote-server-to-configuration
-title: Ajouter un serveur distant à la configuration
+title: Rattacher un serveur distant à un serveur central
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

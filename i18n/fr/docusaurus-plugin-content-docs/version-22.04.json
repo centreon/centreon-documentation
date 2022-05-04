@@ -23,9 +23,9 @@
     "message": "Installer un Remote Sever",
     "description": "The label for category Installation of a Remote server in sidebar docs"
   },
-  "sidebar.docs.category.Monitoring Servers": {
-    "message": "Serveurs de Supervision",
-    "description": "The label for category Monitoring Servers in sidebar docs"
+  "sidebar.docs.category.Configuring monitoring servers": {
+    "message": "Configurer les serveurs de supervision",
+    "description": "The label for category Configuring monitoring servers in sidebar docs"
   },
   "sidebar.docs.category.Installation of Centreon HA": {
     "message": "Installation de Centreon HA",
