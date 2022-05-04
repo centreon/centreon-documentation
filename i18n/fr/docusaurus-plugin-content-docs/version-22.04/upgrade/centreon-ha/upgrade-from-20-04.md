@@ -487,8 +487,8 @@ pcs resource create "ms_mysql" \
 
 <Tabs groupId="sync">
 <TabItem value="HA 2 nodes" label="HA 2 nodes">
-    <Tabs groupId="sync">
-        <TabItem value="RHEL 7" label="RHEL 7">
+<Tabs groupId="sync">
+<TabItem value="RHEL 7" label="RHEL 7">
 ​
 ```bash
 pcs resource master ms_mysql \
@@ -498,8 +498,8 @@ pcs resource master ms_mysql \
     clone-node-max="1" \
     notify="true"
 ```
-        </TabItem>
-        <TabItem value="CentOS 7" label="CentOS 7">
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 ​
 ```bash
 pcs resource meta ms_mysql-master \
@@ -509,12 +509,12 @@ pcs resource meta ms_mysql-master \
     clone-node-max="1" \
     notify="true"
 ```
-        </TabItem>
-    </Tabs>
+</TabItem>
+</Tabs>
 </TabItem>
 <TabItem value="HA 4 nodes" label="HA 4 nodes">
-    <Tabs groupId="sync">
-        <TabItem value="RHEL 7" label="RHEL 7">
+<Tabs groupId="sync">
+<TabItem value="RHEL 7" label="RHEL 7">
 ​
 ```bash
 pcs resource master ms_mysql \
@@ -540,8 +540,8 @@ pcs resource create vip_mysql \
     stop interval="0s" timeout="20s" \
     monitor interval="10s" timeout="20s"
 ```
-        </TabItem>
-        <TabItem value="CentOS 7" label="CentOS 7">
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 ​
 ```bash
 pcs resource meta ms_mysql-master \
@@ -567,8 +567,8 @@ pcs resource create vip_mysql \
     stop interval="0s" timeout="20s" \
     monitor interval="10s" timeout="20s"
 ```
-        </TabItem>
-    </Tabs>
+</TabItem>
+</Tabs>
 </TabItem>
 </Tabs>
 
