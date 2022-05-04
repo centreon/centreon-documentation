@@ -410,9 +410,10 @@ pcs resource create "ms_mysql" \
 > **WARNING:** the syntax of the following command depends on the Linux Distribution you are using.
 
 
-#### HA 2 nodes
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
+<TabItem value="HA 2 Nodes" label="HA 2 Nodes">
+<Tabs groupId="sync">
+<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
 
 ```bash
 pcs resource promotable ms_mysql \
@@ -447,9 +448,10 @@ pcs resource meta ms_mysql-master \
 </TabItem>
 </Tabs>
 
-#### HA 4 nodes
+</TabItem>
+<TabItem value="HA 4 Nodes" label="HA 4 Nodes">
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
+<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
 
 ```bash
 pcs resource promotable ms_mysql \
@@ -460,7 +462,7 @@ pcs resource promotable ms_mysql \
     notify="true"
 ```
 
-VIP Address of databases servers
+Adresse VIP des serveurs de bases de données
 
 ```bash
 pcs resource create vip_mysql \
@@ -488,7 +490,7 @@ pcs resource master ms_mysql \
     notify="true"
 ```
 
-VIP Address of databases servers
+Adresse VIP des serveurs de bases de données
 
 ```bash
 pcs resource create vip_mysql \
@@ -515,7 +517,7 @@ pcs resource meta ms_mysql-master \
     notify="true"
 ```
 
-VIP Address of databases servers
+Adresse VIP des serveurs de bases de données
 
 ```bash
 pcs resource create vip_mysql \
@@ -532,6 +534,9 @@ pcs resource create vip_mysql \
 ```
 </TabItem>
 </Tabs>
+</TabItem>
+</Tabs>
+
 
 #### PHP resource
 
