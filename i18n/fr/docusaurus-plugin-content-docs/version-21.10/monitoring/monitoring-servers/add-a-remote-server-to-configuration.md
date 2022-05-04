@@ -65,6 +65,19 @@ sélectionnez votre serveur, puis saisissez les informations demandées :
 
     ![image](../../assets/monitoring/monitoring-servers/remote-list-zmq.png)
 
+6. Si vous avez personnalisé les noms des bases à l'étape 6 de [l'installation web](../../installation/web-and-post-installation.md), effectuez les étapes suivantes:
+
+  1. Allez à la page **Configuration > Collecteurs > Configuration de Centreon broker**.
+  2. Sélectionnez le service broker du serveur distant désiré.
+  3. Dans l'onglet **Output**, dans la section **Output 1 - Unified SQL**, mettez à jour le nom de la base dans le champ **DB name** (le nom par défaut de la base est **centreon_storage**), puis cliquez sur **Sauvegarder**.
+  4. [Exportez la configuration](deploying-a-configuration.md) du serveur distant.
+  5. Redémarrez cbd:
+
+     ```shell
+     systemctl restart cbd
+     ```
+  Si besoin, consultez **/var/log/centreon-broker/remote1.log** pour identifier des erreurs.
+
 ## Étape 2 : Activer la communication
 
 La communication entre le serveur Central et un serveur distant est assurée par Gorgone et peut
