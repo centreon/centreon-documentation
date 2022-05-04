@@ -371,16 +371,104 @@ In the same *Enable WinRM* GPO rule.
 
 A dedicated certificate will be issue for each server part of your domain. This certificates will be use to encrypt the communication between Centreon and your Windows servers by using WSMAN and HTTPS protocol.
 
+#### Deploy script
+
 To link those certificate with the WinRM service you will have to run the following PowerShell (.ps1) script on each server.
 It can be done though GPO or locally on each servers.
 
+Create a "WinRM-HTTPS.ps1" on your Domain Controler.
+
+> Example of script bellow
+
 ``` bash
 $FQDN=$(($i=[System.Net.Dns]::GetHostByName($env:computerName))).HostName
-$Thumbprint=$((Get-ChildItem cert:\LocalMachine\my |Where-Object{($TmplExt = $_.Extensions |Where-Object {$_.Oid.FriendlyName -match 'Certificate Template'}) -and $TmplExt.format(0) -match 'WinRM'})).Thumbprint
+
+$Thumbprint=Invoke-Command -ComputerName $FQDN `
+                             -ScriptBlock {
+                                Get-ChildItem -Path Cert:\LocalMachine\My |
+                                Where-Object{($TmplExt = $_.Extensions |Where-Object {$_.Oid.FriendlyName -match 'Certificate Template'}) -and $TmplExt.format(0) -match 'WinRM'} |
+                                Sort-Object -Property NotAfter |
+                                Select-Object -Last 1 -ExpandProperty Thumbprint
+                             }
+
+
+Set-WSManInstance -ResourceURI winrm/config/Listener `
+                  -SelectorSet @{Address="*";Transport="HTTPS"} `
+                  -ComputerName $FQDN `
+                  -ValueSet @{CertificateThumbprint=$Thumbprint}
 
 winrm create winrm/config/Listener?Address=*+Transport=HTTPS "@{Hostname=".$FQDN.".;CertificateThumbprint=".$Thumbprint."}"
 ```
 
+* Copy this script in the following location to be able to massively deploy this script
+
+``` bash
+\\<DOMAIN_NAME>\SYSVOL\<DOMAIN_NAME>\scripts
+```
+
+In our case it look like this
+
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-https-1.png)
+
+* Go back in your "Enable WinRM" policy
+* Go into Computer Configuration > Preferences > Windows Settings > Files
+* Right click on the right pannel select New > Files
+
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-https-2.png)
+
+* Select the *Source file(s)* and *Destination File*
+    * In this example:
+        * Source file: \\contoso.local\SYSVOL\contoso.local\scripts\WinRM-HTTPS.ps1
+        * Destination file: C:\Windows\Temp\WinRM-HTTPS.ps1
+
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-https-3.png)
+
+* Click *Apply* and *OK*
+
+#### Create a schedule task
+
+* Go in the menu Computer Configuration > Preferences > Control Panel Settings > Schedule Task
+
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-https-4.png)
+
+* Right click on the right panel select New > Scheduled Task (At least Windows 7)
+* Named your task
+* Select the user "NT Authority\Systems"
+* Select "Run wheter user is logged on or not"
+* Check "Run with highest privileges"
+
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-https-5.png)
+
+* Go in the "Triggers" tab
+* Add a new trigger
+* On top select "At task creation/modification"
+* Check *Repeate task every:*
+    * Select *5 minutes*
+    * and *For a duration of 30 minutes*
+* Check *Enabled*
+* Click on "OK"
+
+> The repeat task parameter is necessary when new servers will join the domain.
+> It might happen that the script gets executed before that certificate gets issued.
+> With that parameter we are making sure that the task will be executed at least once after the WinRM certificated gets issued.
+> If any memmber of the community know what event can be use to triger that task we will be more than happy to get your feedback to adapte this procedure
+
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-https-6.png)
+
+* Go in the "Actions" tab
+* Add a new action
+* Put the following setting:
+    * Action: "Start a program"
+    * Program/script: PowerShell.exe
+    * Add argument: -file C:\Windows\Temp\WinRM-HTTPS.ps1
+        * Adjust this parameter to match with the "File destination" setting previously configured
+
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-https-7.png)
+
+* Save this configuration
+
+> Feel free to adapt the configuration to feet your needs
+        
 ### Configure service user
 
 On your Active Directory server 
@@ -415,36 +503,36 @@ On your Active Directory server
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-user-4.png)
 
 * Go back in the *Group Policy Manager* and edit the rule *Enable WinRM*
-* Go in Computer Configuration > Windows Settings > Local Policies > Security Options
+* Go in Computer Configuration > Windows Settings > Security Settings > Restricted Groups
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-user-5.png)
 
-* Select the rule *DCOM: Machine Access Restriction...(SDDL)*
-* Check *Define this policy setting*
-* Click on *Edit Security...*
-* Click on *Add...*
-* Add *Dstributed DCOM User* group
-* Allow *Local Access* and *remote Access*
+* Right click on the right panel and click on *Add Group...*
+* Click on *Browse...*
+* Type *Distributed COM Users*, and click on *Check Names*, then *OK*
+* Click on *OK...* again
+* Then add your service user in the "Member of this group:" section
 * Click *OK*
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-user-6.png)
 
-* Select the rule *DCOM: Machine Lunch Restriction in Security...*
-* Click on *Edit Security...*
-* Click on *Add...*
-* Add *Dstributed DCOM User* group
-* Allow all options
-* Click *OK*
+* Repeat the process for all builtin groups:
+    * Event Log Readers
+    * Performance Log Users
+    * Performance Monitor Users
+    * Remote Management Users
+
+When all configuration done, it should look like that:
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-user-7.png)
 
-Your policies must look like this:
-
-![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-user-8.png)
-
 ### Configure WMI permissions
 
-In a prompt run the following command line:
+For this step you will need to conect on one server you want to monitor to configure the right.
+Unfortunatly the WMI permission delegation can't be done through GPO, this confiugration need to be done localy on each server.
+So to massively apply that configuration we will create a configuration template from one of your servers then apply this template throught a schedule task on your servers.
+
+In PowerShell run the following command line:
 
 ``` bash
 WmiMgmt.msc
@@ -462,29 +550,327 @@ Select *Root* and click on *Security*
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-wmi-configuration-3.png)
 
-Click on *Add...*, select the *Remote Management Users* group
+Click on *Add...*, select the service user (here sa_centreon)
 And allow the following permissions:
-* Execute Methods
 * Enable Account
 * Remote Enable
-* Read Security
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-wmi-configuration-4.png)
 
-Click on *Apply* and *OK*
+> To make it easier we will allow that permission on this namespace and all subnamspaces.
+> If you want to allow each mandatory namespaces manually, you'll have to create one dédicated template per namespaces.
+> Mandatory namspaces:
+> * Root
+> * Root/CIMV2
+> * Root/DEFAULT
+> * Root/RSOP
+> * Root/RSOP/Computer
+> * Root/WMI
+> * Root/CIMv2/Security/MicrosoftTpm
 
-The permissions are not apply recursively, so you will have to repeat the previous process on the following directories:
 
-* Root
-* Root/CIMV2
-* Root/DEFAULT
-* Root/RSOP
-* Root/RSOP/Computer
-* Root/WMI
-* Root/CIMv2/Security/MicrosoftTpm
+* Click on *Advanced*
 
-*Apply* and *OK*
-Close WMImgmt windows
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-wmi-configuration-5.png)
+
+* Click on your service user, then *Edit*
+
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-wmi-configuration-6.png)
+
+* On the line "Applies to:", select *This namespace and all subnamespaces*
+
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-wmi-configuration-7.png)
+
+* Click on *OK* on each open windows
+
+#### Create WMI security template file
+
+On the same server run the following command line in PowerShell
+
+``` bash
+$SidHelper = New-Object System.Management.ManagementClass Win32_SecurityDescriptorHelper
+$SdList = @($null)
+$(Get-WMIObject -Namespace "root" -Class __SystemSecurity).PsBase.InvokeMethod("GetSD",$SdList)
+
+[System.Management.Automation.PSSerializer]::Serialize($SdList) | Set-Content sdlist.txt 
+```
+
+You should now have a *sdlist.txt* file
+
+* Copy this file on your Domain Controler in the directory *\\contoso.local\SYSVOL\contoso.local\scripts*
+
+#### Deploy WMI security template through GPO
+
+
+* On your Domain Controler
+* Create the "Set-WMINameSpaceSecurity.ps1" script
+
+Script:
+
+``` bash
+$SdList = [System.Management.Automation.PSSerializer]::Deserialize($(Get-Content C:\Windows\Temp\sdlist.txt))
+
+$SidHelper = New-Object System.Management.ManagementClass Win32_SecurityDescriptorHelper
+$RootSecurity = $(Get-WMIObject -Namespace "root" -Class __SystemSecurity)
+$RootSecurity.PsBase.InvokeMethod("SetSd",$SdList) 
+```
+
+* Copy this script in the following location to be able to massively deploy this script
+
+``` bash
+\\<DOMAIN_NAME>\SYSVOL\<DOMAIN_NAME>\scripts
+```
+
+* Go back in your "Enable WinRM" policy
+* Go into Computer Configuration > Preferences > Windows Settings > Files
+* Right click on the right pannel select New > Files
+
+* Select the *Source file(s)* and *Destination File*
+    * In this example:
+        * Source file: \\contoso.local\SYSVOL\contoso.local\scripts\Set-WMINameSpaceSecurity.ps1
+        * Destination file: C:\Windows\Temp\Set-WMINameSpaceSecurity.ps1
+
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-wmi-configuration-8.png)
+
+* Click *Apply* and *OK*
+
+* Repeat that process for the *sdlist.txt* file
+* Select the *Source file(s)* and *Destination File*
+    * In this example:
+        * Source file: \\contoso.local\SYSVOL\contoso.local\scripts\sdlist.txt
+        * Destination file: C:\Windows\Temp\sdlist.txt
+        
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-wmi-configuration-9.png)
+
+#### Executre WMI security template through GPO
+
+* Go in the menu Computer Configuration > Preferences > Control Panel Settings > Schedule Task
+
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-https-4.png)
+
+* Right click on the right panel select New > Scheduled Task (At least Windows 7)
+* Named your task
+* Select the user "NT Authority\Systems"
+* Select "Run wheter user is logged on or not"
+* Check "Run with highest privileges"
+
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-wmi-configuration-10.png)
+
+* Go in the "Triggers" tab
+* Add a new trigger
+* On top select "At task creation/modification"
+* Check *Enabled*
+* Click on "OK"
+
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-wmi-configuration-11.png)
+
+* Go in the "Actions" tab
+* Add a new action
+* Put the following setting:
+    * Action: "Start a program"
+    * Program/script: PowerShell.exe
+    * Add argument: -file C:\Windows\Temp\Set-WMINameSpaceSecurity.ps1
+        * Adjust this parameter to match with the "File destination" setting previously configured
+
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-wmi-configuration-12.png)
+
+* Save this configuration
+
+> Feel free to adapt the configuration to feet your needs
+
+### Configure Services permissions
+
+Same as the previous section though permission have to be manage locally on each servers
+
+#### File deployment
+
+On your Domain Controler
+
+* Create the "system-services.ps1" script
+
+Script:
+
+```bash
+# Query service manager to get the current permissions in SDDL format.
+$command = @'
+cmd.exe /C  sc sdshow scmanager
+'@
+
+$HostPermissions = Invoke-Expression -Command:$command
+
+# Visually compare the two strings
+Write-Host "  Host: " $HostPermissions
+
+$NewPermission = $HostPermissions.replace('(A;;CC;;;AU)','(A;;CCLCRPRC;;;AU)')
+
+Write-Host "New: $NewPermission"
+
+$SetPermissionsCommand = @"
+cmd.exe /C  sc sdset scmanager `"$($NewPermission)`"
+"@
+
+Invoke-Expression -Command:$SetPermissionsCommand
+```
+
+* Copy this script in the following location to be able to massively deploy this script
+
+``` bash
+\\<DOMAIN_NAME>\SYSVOL\<DOMAIN_NAME>\scripts
+```
+
+* Go back in your "Enable WinRM" policy
+* Go into Computer Configuration > Preferences > Windows Settings > Files
+* Right click on the right pannel select New > Files
+
+* Select the *Source file(s)* and *Destination File*
+    * In this example:
+        * Source file: \\contoso.local\SYSVOL\contoso.local\scripts\system-services.ps1
+        * Destination file: C:\Windows\Temp\system-services.ps1
+
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-services-permissions-1.png)
+
+* Click *Apply* and *OK*
+
+#### Schedule task creation
+
+* Go in the menu Computer Configuration > Preferences > Control Panel Settings > Schedule Task
+
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-https-4.png)
+
+* Right click on the right panel select New > Scheduled Task (At least Windows 7)
+* Named your task
+* Select the user "NT Authority\Systems"
+* Select "Run wheter user is logged on or not"
+* Check "Run with highest privileges"
+
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-services-permissions-2.png)
+
+* Go in the "Triggers" tab
+* Add a new trigger
+* On top select "At task creation/modification"
+* Check *Enabled*
+* Click on "OK"
+
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-wmi-configuration-11.png)
+
+* Go in the "Actions" tab
+* Add a new action
+* Put the following setting:
+    * Action: "Start a program"
+    * Program/script: PowerShell.exe
+    * Add argument: -file C:\Windows\Temp\system-services.ps1
+        * Adjust this parameter to match with the "File destination" setting previously configured
+
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-services-permissions-3.png)
+
+* Save this configuration
+
+> Feel free to adapt the configuration to feet your needs
+
+### Allow PowerShell command line execution
+
+Same as the previous section though permission have to be manage locally on each servers
+
+#### File deployment
+
+On your Domain Controler
+
+* Create the "RootSDDL-Permision.ps1" script
+
+> This script will allow the permission *Execution* and *Read* permision for your service user through WinRM.
+
+Script:
+
+``` bash
+$user = $args[0]
+
+#Adding the below script should replace "winrm configSDDL default"
+$GENERIC_READ = 0x80000000
+$GENERIC_WRITE = 0x40000000
+$GENERIC_EXECUTE = 0x20000000
+$GENERIC_ALL = 0x10000000
+
+# get SID of user/group to add
+
+$user_sid = (New-Object -TypeName System.Security.Principal.NTAccount -ArgumentList $user).Translate([System.Security.Principal.SecurityIdentifier])
+
+# get the existing SDDL of the WinRM listener
+$sddl = (Get-Item -Path WSMan:\localhost\Service\RootSDDL).Value
+
+# convert the SDDL string to a SecurityDescriptor object
+$sd = New-Object -TypeName System.Security.AccessControl.CommonSecurityDescriptor -ArgumentList $false, $false, $sddl
+
+# apply a new DACL to the SecurityDescriptor object
+$sd.DiscretionaryAcl.AddAccess(
+[System.Security.AccessControl.AccessControlType]::Allow,
+$user_sid,
+($GENERIC_READ -bor $GENERIC_EXECUTE),
+[System.Security.AccessControl.InheritanceFlags]::None,
+[System.Security.AccessControl.PropagationFlags]::None
+)
+
+# get the SDDL string from the changed SecurityDescriptor object
+$new_sddl = $sd.GetSddlForm([System.Security.AccessControl.AccessControlSections]::All)
+
+# apply the new SDDL to the WinRM listener
+Set-Item -Path WSMan:\localhost\Service\RootSDDL -Value $new_sddl -Force
+```
+
+* Copy this script in the following location to be able to massively deploy this script
+
+``` bash
+\\<DOMAIN_NAME>\SYSVOL\<DOMAIN_NAME>\scripts
+```
+
+* Go back in your "Enable WinRM" policy
+* Go into Computer Configuration > Preferences > Windows Settings > Files
+* Right click on the right pannel select New > Files
+
+* Select the *Source file(s)* and *Destination File*
+    * In this example:
+        * Source file: \\contoso.local\SYSVOL\contoso.local\scripts\RootSDDL-Permision.ps1
+        * Destination file: C:\Windows\Temp\RootSDDL-Permision.ps1
+
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-rootsddl-1.png)
+
+* Click *Apply* and *OK*
+
+#### Schedule task creation
+
+* Go in the menu Computer Configuration > Preferences > Control Panel Settings > Schedule Task
+
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-https-4.png)
+
+* Right click on the right panel select New > Scheduled Task (At least Windows 7)
+* Named your task
+* Select the user "NT Authority\Systems"
+* Select "Run wheter user is logged on or not"
+* Check "Run with highest privileges"
+
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-rootsddl-2.png)
+
+* Go in the "Triggers" tab
+* Add a new trigger
+* On top select "At task creation/modification"
+* Check *Enabled*
+* Click on "OK"
+
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-wmi-configuration-11.png)
+
+* Go in the "Actions" tab
+* Add a new action
+* Put the following setting:
+    * Action: "Start a program"
+    * Program/script: PowerShell.exe
+    * Add argument: -file C:\Windows\Temp\RootSDDL-Permision.ps1 @SERVICE_USERNAME@
+        * Adjust this parameter to match with the "File destination" setting previously configured
+        * In our exemple the argumant is *-file C:\Windows\Temp\RootSDDL-Permision.ps1 sa_centreon*
+
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-rootsddl-2.png)
+
+* Save this configuration
+
+> Feel free to adapt the configuration to feet your needs
 
 ### Configure Kerberos on the Centreon server
 
@@ -496,21 +882,58 @@ realm join --user=administrator <YOUR_DOMAIN>
 ```
 
 You will be ask to type your domain account password.
-When done run the follwoing command:
+When done run the follwing commands to allow centreon-engine and centreon-gorgone to perform the authentication:
 
 ``` bash
-kinit Administrator@<YOUR_DOMAIN>
+su - centreon-engine
+kinit <SERVICE_USERNAME>
+logout
+su - centreon-gorgone
+kinit <SERVICE_USERNAME>
+```
+
+In your example it look like this:
+
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-centreon-kerberos-1.png)
+
+#### Renew Kerberos ticket
+
+Kerberos authentication are expireing every 10h which will disconnect centreon-engine user and disable the authentication process.
+To workaround this issue we will automatically renew the authentication ticket every 9h through a cron job
+
+``` bash
+cat <<EOF > /etc/cron.d/kerberos
+# ########################################
+#
+# Cron Configuration for Kerberos
+#
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+
+# rewrite file with new cron line
+CRONTAB_EXEC_USER=""
+
+############################
+0 */9 * * *  centreon-engine kinit -R
+0 */9 * * *  centreon-gorgone kinit -R
+EOF
+```
+
+Now restart the crond process
+
+``` bash
+systemctle restart crond
 ```
 
 From here everything is configure to monitor your Windows servers by using WSMAN with a service user account, with encrypted protocol.
-Plkease find bellow an example of command line from Centreon
+
+
+Please find bellow an example of command line from Centreon
 
 ### Test check from Centreon server
 
 ```bash
-./centreon_plugins.pl --plugin=os::windows::wsman::plugin --mode=cpu --hostname=EC2AMAZ-VU25UDV  --wsman-scheme=https --wsman-port=5986 --wsman-username="sa_centreon@CONTOSO.LOCAL" --wsman-password='XXXXX' --wsman-auth-method='gssnegotiate' --verbose
-OK: CPU(s) average usage is 0.24 % - CPU '0' usage: 0.24 % | 'cpu.utilization.percentage'=0.24%;;;0;100 '0#core.cpu.utilization.percentage'=0.24%;;;0;100
-CPU '0' usage: 0.24 %
+/usr/lib/centreon/plugins/centreon_windows_wsman.pl --plugin=os::windows::wsman::plugin --mode=cpu --hostname=wsman.contoso.local --wsman-scheme=https --wsman-port=5986 --wsman-username='sa_centreon@CONTOSO.LOCAL' --wsman-password='100treon!' --wsman-auth-method='gssnegotiate'
+OK: CPU(s) average usage is 0.84 % - CPU '0' usage: 0.84 % | 'cpu.utilization.percentage'=0.84%;;;0;100 '0#core.cpu.utilization.percentage'=0.84%;;;0;100
 ```
 
 > This authentication methode require you to use the DNS name of your windows server or Kerberos will not allow the connection
