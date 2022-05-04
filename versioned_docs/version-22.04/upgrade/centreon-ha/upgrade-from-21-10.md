@@ -341,7 +341,7 @@ rm -rf /var/lib/centreon-broker/central-broker-master.unprocessed*
 
 To be run **only on one central node**:
 
-> **WARNING:** the syntax of the following command depends on the Linux Distribution you are using.
+> **WARNING :** the syntax of the following command depends on the Linux Distribution you are using.
 
 > You can find @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ @MARIADB_REPL_USER@
 @MARIADB_REPL_USER@ variable in `/etc/centreon-ha/mysql-resources.sh`
@@ -407,7 +407,7 @@ pcs resource create "ms_mysql" \
 </TabItem>
 </Tabs>
 
-> **WARNING:** the syntax of the following command depends on the Linux Distribution you are using.
+> **WARNING :** the syntax of the following command depends on the Linux Distribution you are using.
 
 
 <Tabs groupId="sync">
@@ -462,7 +462,7 @@ pcs resource promotable ms_mysql \
     notify="true"
 ```
 
-Adresse VIP des serveurs de bases de données
+VIP Address of Databases servers
 
 ```bash
 pcs resource create vip_mysql \
@@ -490,7 +490,7 @@ pcs resource master ms_mysql \
     notify="true"
 ```
 
-Adresse VIP des serveurs de bases de données
+VIP Address of Databases servers
 
 ```bash
 pcs resource create vip_mysql \
@@ -517,7 +517,7 @@ pcs resource meta ms_mysql-master \
     notify="true"
 ```
 
-Adresse VIP des serveurs de bases de données
+VIP Address of Databases servers
 
 ```bash
 pcs resource create vip_mysql \
