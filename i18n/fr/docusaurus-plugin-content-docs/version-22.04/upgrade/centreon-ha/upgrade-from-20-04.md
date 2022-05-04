@@ -487,6 +487,7 @@ pcs resource create "ms_mysql" \
 
 <Tabs groupId="sync">
 <TabItem value="HA 2 nodes" label="HA 2 nodes">
+    <Tabs groupId="sync">
         <TabItem value="RHEL 7" label="RHEL 7">
 ​
 ```bash
