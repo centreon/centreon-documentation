@@ -346,7 +346,7 @@ rm -rf /var/lib/centreon-broker/central-broker-master.unprocessed*
 @MARIADB_REPL_USER@ dans `/etc/centreon-ha/mysql-resources.sh`.
 
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
+<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
 
 ```bash
 pcs resource create "ms_mysql" \
@@ -409,9 +409,10 @@ pcs resource create "ms_mysql" \
 > **WARNING:** la syntaxe de la commande suivante dépend de la distribution Linux que vous utilisez.
 
 
-#### HA 2 nodes
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
+<TabItem value="HA 2 Nodes" label="HA 2 Nodes">
+<Tabs groupId="sync">
+<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
 
 ```bash
 pcs resource promotable ms_mysql \
@@ -446,9 +447,10 @@ pcs resource meta ms_mysql-master \
 </TabItem>
 </Tabs>
 
-#### HA 4 nodes
+</TabItem>
+<TabItem value="HA 4 Nodes" label="HA 4 Nodes">
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
+<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
 
 ```bash
 pcs resource promotable ms_mysql \
@@ -529,6 +531,8 @@ pcs resource create vip_mysql \
     stop interval="0s" timeout="20s" \
     monitor interval="10s" timeout="20s"
 ```
+</TabItem>
+</Tabs>
 </TabItem>
 </Tabs>
 
