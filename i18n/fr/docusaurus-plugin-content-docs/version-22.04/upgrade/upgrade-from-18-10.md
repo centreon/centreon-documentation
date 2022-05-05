@@ -180,57 +180,54 @@ n'y a pas touché.
 Vous devez donc ajouter la section d'accès à l'API dans votre fichier de
 configuration apache : **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf**
 
-Seules les lignes avec le symbole "+" doivent être prises en compte.
+```apacheconf
+Define base_uri "/centreon"
+Define install_dir "/usr/share/centreon"
 
-```diff
-+Alias /centreon/api /usr/share/centreon
-Alias /centreon /usr/share/centreon/www/
+ServerTokens Prod
 
-+<LocationMatch ^/centreon/(?!api/latest/|api/beta/|api/v[0-9]+/|api/v[0-9]+\.[0-9]+/)(.*\.php(/.*)?)$>
-+  ProxyPassMatch fcgi://127.0.0.1:9042/usr/share/centreon/www/$1
-+</LocationMatch>
+<VirtualHost *:80>
+    Header set X-Frame-Options: "sameorigin"
+    Header always edit Set-Cookie ^(.*)$ $1;HttpOnly
+    ServerSignature Off
+    TraceEnable Off
 
-+<LocationMatch ^/centreon/(authentication|api/(latest|beta|v[0-9]+|v[0-9]+\.[0-9]+))/.*$>
-+  ProxyPassMatch fcgi://127.0.0.1:9042/usr/share/centreon/api/index.php/$1
-+</LocationMatch>
+    Alias ${base_uri}/api ${install_dir}
+    Alias ${base_uri} ${install_dir}/www/
 
-ProxyTimeout 300
+    <LocationMatch ^\${base_uri}/?(?!api/latest/|api/beta/|api/v[0-9]+/|api/v[0-9]+\.[0-9]+/)(.*\.php(/.*)?)$>
+        ProxyPassMatch "fcgi://127.0.0.1:9042${install_dir}/www/$1"
+    </LocationMatch>
 
-<IfModule mod_security2.c>
-    # https://github.com/SpiderLabs/ModSecurity/issues/652
-    SecRuleRemoveById 200003
-</IfModule>
+    <LocationMatch ^\${base_uri}/?(authentication|api/(latest|beta|v[0-9]+|v[0-9]+\.[0-9]+))/.*$>
+        ProxyPassMatch "fcgi://127.0.0.1:9042${install_dir}/api/index.php/$1"
+    </LocationMatch>
 
-<Directory "/usr/share/centreon/www">
+    ProxyTimeout 300
     ErrorDocument 404 ${base_uri}/index.html
-    Options Indexes
-    AllowOverride all
-    Order allow,deny
-    Allow from all
-    Require all granted
-    <IfModule mod_php5.c>
-        php_admin_value engine Off
+    Options -Indexes +FollowSymLinks
+
+    <IfModule mod_security2.c>
+        # https://github.com/SpiderLabs/ModSecurity/issues/652
+        SecRuleRemoveById 200003
     </IfModule>
 
-+    FallbackResource /centreon/index
+    <Directory "${install_dir}/www">
+        DirectoryIndex index.php
+        AllowOverride none
+        Require all granted
+        FallbackResource ${base_uri}/index.html
+    </Directory>
 
-    AddType text/plain hbs
-</Directory>
+    <Directory "${install_dir}/api">
+        AllowOverride none
+        Require all granted
+    </Directory>
 
-+<Directory "/usr/share/centreon/api">
-+    Options Indexes
-+    AllowOverride all
-+    Order allow,deny
-+    Allow from all
-+    Require all granted
-+    <IfModule mod_php5.c>
-+        php_admin_value engine Off
-+    </IfModule>
-+
-+    AddType text/plain hbs
-+</Directory>
-
-RedirectMatch ^/$ /centreon
+    <If "'${base_uri}' != '/'">
+        RedirectMatch ^/$ ${base_uri}
+    </If>
+</VirtualHost>
 ```
 
 Redémarrez ensuite le service Apache :
