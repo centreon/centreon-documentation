@@ -475,7 +475,10 @@ In our case it look like this:
 * Save this configuration
 
 > Feel free to adapt the configuration to meet your needs
-        
+
+> If you don't mind authenticate with the domain Admin user you can jump straight to the Kerberos section.
+> Else, you can continue following the documentation to set up a dedicated service user.
+
 ### Configure service user
 
 On your Active Directory server:
@@ -882,6 +885,34 @@ Set-Item -Path WSMan:\localhost\Service\RootSDDL -Value $new_sddl -Force
 
 > Feel free to adapt the configuration to meet your needs
 
+### File systems permissions
+
+On your Domain Controler
+
+* Go back in your **Enable WinRM** policy
+* Go to **Computer Configuration > Windows settigns > Security Settings > File System**
+* Right click on the right panel select **Add File...**
+
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-file-system-1.png)
+
+* Select the directory you want to grant permissions and click on **OK**
+
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-file-system-2.png)
+
+* Click on **Add...**, select your service user
+* Allow the following permissions:
+    * **Read and Execute**
+    * **List Folder Contents**
+    * **Read**
+* Click on **Apply** and **OK**
+
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-file-system-3.png)
+
+* Select to propagate those permissions to subfolder or not.
+* Click on **OK**
+
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-file-system-4.png)
+
 ### Configure Kerberos on the Centreon server
 
 On the Centreon server run the following command:
@@ -931,7 +962,7 @@ EOF
 Now, restart the crond process
 
 ``` bash
-systemctle restart crond
+systemctl restart crond
 ```
 
 Everything is now configured to monitor your Windows servers by using WSMAN with a service user account with an encrypted protocol.
@@ -943,13 +974,14 @@ Please find below an example of a command-line from Centreon
 ### Test check from Centreon server
 
 ```bash
-/usr/lib/centreon/plugins/centreon_windows_wsman.pl --plugin=os::windows::wsman::plugin --mode=cpu --hostname=wsman.contoso.local --wsman-scheme=https --wsman-port=5986 --wsman-username='sa_centreon@CONTOSO.LOCAL' --wsman-password='100treon!' --wsman-auth-method='gssnegotiate'
+/usr/lib/centreon/plugins/centreon_windows_wsman.pl --plugin=os::windows::wsman::plugin --mode=cpu --hostname=wsman.contoso.local --wsman-scheme=https --wsman-port=5986 --wsman-username='' --wsman-password='' --wsman-auth-method='gssnegotiate'
 OK: CPU(s) average usage is 0.84 % - CPU '0' usage: 0.84 % | 'cpu.utilization.percentage'=0.84%;;;0;100 '0#core.cpu.utilization.percentage'=0.84%;;;0;100
 ```
 
 > This authentication method requires you to use the DNS name of your windows server, or Kerberos will not allow the connection.
 > Option `--wsman-auth-method='gssnegotiate'` is mandatory to use a domain account.
-> The domain name in `--wsman-username="sa_centreon@CONTOSO.LOCAL"` is case sensitive and must be in capital letters.
+> As the Centreon system users (centreon-engine and centreon-gorgone) are already authenticate through the **kinit** command you don't need to feel up the options **wsman-username** and  **wsman-password**
+
 
 </TabItem>
 </Tabs>
