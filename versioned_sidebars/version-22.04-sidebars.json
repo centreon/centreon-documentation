@@ -792,6 +792,28 @@
           ]
         },
         {
+          "type": "category",
+          "label": "Centreon HA",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-22.04/administration/centreon-ha/acceptance-guide"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/administration/centreon-ha/monitoring-guide"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/administration/centreon-ha/operating-guide"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/administration/centreon-ha/troubleshooting-guide"
+            }
+          ]
+        },
+        {
           "type": "doc",
           "id": "version-22.04/administration/extensions"
         },
