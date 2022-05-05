@@ -67,16 +67,17 @@ sélectionnez votre serveur, puis saisissez les informations demandées :
 
 6. Si vous avez personnalisé les noms des bases à l'étape 6 de [l'installation web](../../installation/web-and-post-installation.md), effectuez les étapes suivantes:
 
-  1. Allez à la page **Configuration > Collecteurs > Configuration de Centreon broker**.
-  2. Sélectionnez le service broker du serveur distant désiré.
-  3. Dans l'onglet **Output**, dans la section **Output 1 - Unified SQL**, mettez à jour le nom de la base dans le champ **DB name** (le nom par défaut de la base est **centreon_storage**), puis cliquez sur **Sauvegarder**.
-  4. [Exportez la configuration](deploying-a-configuration.md) du serveur distant.
-  5. Redémarrez cbd:
+   1. Allez à la page **Configuration > Collecteurs > Configuration de Centreon broker**.
+   2. Sélectionnez le service broker du serveur distant désiré.
+   3. Dans l'onglet **Output**, dans la section **Output 1 - Unified SQL**, mettez à jour le nom de la base dans le champ **DB name** (le nom par défaut de la base est **centreon_storage**), puis cliquez sur **Sauvegarder**.
+   4. [Exportez la configuration](deploying-a-configuration.md) du serveur distant.
+   5. Redémarrez cbd:
 
      ```shell
      systemctl restart cbd
      ```
-  Si besoin, consultez **/var/log/centreon-broker/<nom-du-serveur-distant\>.log** pour identifier des erreurs. (Dans l'exemple ci-dessus, il s'agit du fichier **/var/log/centreon-broker/remote-server.log**.)
+
+   Si besoin, consultez **/var/log/centreon-broker/<nom-du-serveur-distant\>.log** pour identifier des erreurs. (Dans l'exemple ci-dessus, il s'agit du fichier **/var/log/centreon-broker/remote-server.log**.)
 
 ## Étape 2 : Activer la communication
 
