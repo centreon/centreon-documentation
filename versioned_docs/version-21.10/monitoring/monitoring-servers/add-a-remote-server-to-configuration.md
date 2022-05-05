@@ -74,7 +74,7 @@ Remote Server on the Centreon platform.
      ```shell
      systemctl restart cbd
      ```
-  If needed, check **/var/log/centreon-broker/\<remote-server-name>.log** for issues/errors. (In the example above, the file would be **/var/log/centreon-broker/remote-server.log**.)
+  If needed, check **/var/log/centreon-broker/<remote-server-name\>.log** for issues/errors. (In the example above, the file would be **/var/log/centreon-broker/remote-server.log**.)
 
 ## Step 2: Enable communication
 
