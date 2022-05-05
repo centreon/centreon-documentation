@@ -14,12 +14,12 @@ Le Pack Centreon SFTP apporte un modèle d'hôte :
 
 Il apporte les Modèles de Service suivants :
 
-| Service Alias  | Service Templat               | Default | Discovery |
-|:---------------|:------------------------------|:--------|:----------|
-| Connection     | App-Protocol-Sftp-Connection  | X       |           |
-| Files-Count    | App-Protocol-Sftp-Files-Count |         |           |
-| Files-Date     | App-Protocol-Sftp-Files-Date  |         |           |
-| Scenario       | App-Protocol-Sftp-Scenario    |         |           |
+| Alias          | Découverte                    | Défaut  | Découverte |
+|:---------------|:------------------------------|:--------|:-----------|
+| Connection     | App-Protocol-Sftp-Connection  | X       |            |
+| Files-Count    | App-Protocol-Sftp-Files-Count |         |            |
+| Files-Date     | App-Protocol-Sftp-Files-Date  |         |            |
+| Scenario       | App-Protocol-Sftp-Scenario    |         |            |
 
 ### Métriques & statuts collectés
 

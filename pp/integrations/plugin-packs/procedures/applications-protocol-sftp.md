@@ -14,7 +14,7 @@ The Centreon Pack SFTP brings 1 host template:
 
 It brings the following Service Templates:
 
-| Service Alias  | Service Templat               | Default | Discovery |
+| Service Alias  | Service Template              | Default | Discovery |
 |:---------------|:------------------------------|:--------|:----------|
 | Connection     | App-Protocol-Sftp-Connection  | X       |           |
 | Files-Count    | App-Protocol-Sftp-Files-Count |         |           |
