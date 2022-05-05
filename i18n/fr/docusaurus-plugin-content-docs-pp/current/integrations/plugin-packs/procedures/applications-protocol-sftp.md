@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le Pack Centreon SFTP apporte 1 modèle d'hôte :
+Le Pack Centreon SFTP apporte un modèle d'hôte :
 * App-Protocol-Sftp-custom
 
 Il apporte les Modèles de Service suivants :
