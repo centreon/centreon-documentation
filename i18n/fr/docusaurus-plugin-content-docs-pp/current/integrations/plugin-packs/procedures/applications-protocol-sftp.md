@@ -71,7 +71,7 @@ Pour superviser votre serveur SFTP, il est possible de réaliser une authentific
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des ressources **Protocol SFTP** :
+1. Installer le plugin Centreon sur tous les collecteurs Centreon devant superviser des ressources **Protocol SFTP** :
 
 ```bash
 yum install centreon-plugin-Applications-Protocol-Sftp
