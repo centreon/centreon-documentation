@@ -65,16 +65,16 @@ Remote Server on the Centreon platform.
 
 6. If you have customized the names of the databases at step 6 of the [web installation wizard](../../installation/web-and-post-installation.md), carry out the following steps:
 
-  1. Go to **Configuration > Pollers > Broker configuration**.
-  2. Select the broker service for the remote server you want.
-  3. On the **Output** tab, in section **Output 1 - Unified SQL**, update the name of the database in the **DB name** field (the default name is **centreon_storage**), then click **Save**.
-  4. [Export the configuration](deploying-a-configuration.md) of the remote server.
-  5. Restart cbd:
+   1. Go to **Configuration > Pollers > Broker configuration**.
+   2. Select the broker service for the remote server you want.
+   3. On the **Output** tab, in section **Output 1 - Unified SQL**, update the name of the database in the **DB name** field (the default name is **centreon_storage**), then click **Save**.
+   4. [Export the configuration](deploying-a-configuration.md) of the remote server.
+   5. Restart cbd:
 
      ```shell
      systemctl restart cbd
      ```
-  If needed, check **/var/log/centreon-broker/<remote-server-name\>.log** for issues/errors. (In the example above, the file would be **/var/log/centreon-broker/remote-server.log**.)
+   If needed, check **/var/log/centreon-broker/<remote-server-name\>.log** for issues/errors. (In the example above, the file would be **/var/log/centreon-broker/remote-server.log**.)
 
 ## Step 2: Enable communication
 
