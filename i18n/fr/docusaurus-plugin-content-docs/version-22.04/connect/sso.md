@@ -15,19 +15,22 @@ L'authentification se paramètre à la page **Administration > Authentication > 
 
 ![image](../assets/administration/web-sso-configuration.png)
 
-### Activer l'authentification
+### Étape 1 : Activer l'authentification
 
-Activez d'abord l'authentification :
+Activez l'authentification :
+
 - **Enable Web SSO authentication** permet d'activer ou de désactiver l'authentification Web SSO.
-- **Authentication mode** indique si l'authentification doit avoir lieu uniquement par OpenId Connect ou en
-  utilisant également l'authentification locale (mixte).
+- **Mode d'authentification** : indique si l'authentification doit se faire uniquement par Web SSO ou en
+  utilisant également l'authentification locale (**Mixte**). En mode mixte, des utilisateurs créés manuellement dans
+  Centreon (et non identifiés par Web SSO) pourront également se connecter.
 
 > Lors du paramétrage, il est recommandé d'activer le mode "mixte". Cela vous permettra de garder l'accès au compte
 > local `admin` en cas de configuration érronée.
 
-### Configurer les informations d'accès au fournisseur d'identité
+### Étape 2 : Configurer les informations d'accès au fournisseur d'identité
 
-Ensuite, configurez les informations du fournisseur d'identité:
+Configurez les informations du fournisseur d'identité:
+
 - **Login header attribute name**: Quelle variable des en-têtes doit être utilisée pour récupérer le login de
   l'utilisateur. Par exemple `REMOTE_USER`.
 - **Pattern match login (regex)**: une expression régulière à rechercher dans l'identifiant. Par exemple, entrez
@@ -35,61 +38,66 @@ Ensuite, configurez les informations du fournisseur d'identité:
 - **Pattern replace login (regex)**: la chaîne par laquelle remplacer celle définie dans le champ
   **Pattern match login (regex)** pour l'authentification (login). Laissez le champ vide pour supprimer cette chaîne.
 
-### Configurer les adresses des clients
+### Étape 3 : Configurer les adresses des clients
 
-Vous pouvez également configurer les adresses des clients:
-- Le champ **Trusted client addresses** indique quelles sont les adresses IP des clients de confiance (correspond à
-  l'adresse du reverse proxy). Chaque client de confiance est séparé par une virgule.
-- Le champ **Blacklist client addresses** indique quelles sont les adresses IP des clients qui seront refusés.
+Si vous laissez ces deux champs vides, toutes les adresses IP seront autorisées à accéder à l'interface Centreon.
 
-### Configure Apache web server
+- **Adresses de clients de confiance** : Si vous entrez des adresses IP dans ce champ, seules ces adresses IP seront autorisées à accéder à l'interface Centreon. Toutes les autres adresses IP seront bloquées. Séparez les adressses IP par des virgules.
+- **Adresses de clients sur liste noire** : Ces adresses IP seront bloquées. Toutes les autres adresses IP seront autorisées.
+
+### Étape 4 : Configurer le serveur web Apache
 
 Vous devez configurer le module Apache permettant l'authentification auprès du fournisseur d'identité.
 Une fois cette configuration effectuée, vous devez modifier la configuration de Centreon pour Apache afin de
 n'autoriser l'accès qu'aux utilisateurs authentifiés.
 
-Editez le fichier **/etc/httpd/conf.d/10-centreon.conf** et recherchez le bloc suivant :
-```apache
-    Header set X-Frame-Options: "sameorigin"
-    Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;SameSite=Strict
-    ServerSignature Off
-    TraceEnable Off
+1. Éditez le fichier **/etc/httpd/conf.d/10-centreon.conf** et recherchez le bloc suivant :
 
-    Alias ${base_uri}/api ${install_dir}
-    Alias ${base_uri} ${install_dir}/www/
-```
+  ```apache
+      Header set X-Frame-Options: "sameorigin"
+      Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;SameSite=Strict
+      ServerSignature Off
+      TraceEnable Off
 
-Le changer pour :
-```apache
-    Header set X-Frame-Options: "sameorigin"
-    Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;SameSite=Strict
-    ServerSignature Off
-    TraceEnable Off
+      Alias ${base_uri}/api ${install_dir}
+      Alias ${base_uri} ${install_dir}/www/
+  ```
 
-    RequestHeader set X-Forwarded-Proto "http" early
+2. Remplacez-le par :
 
-    Alias ${base_uri}/api ${install_dir}
-    Alias ${base_uri} ${install_dir}/www/
+  ```apache
+      Header set X-Frame-Options: "sameorigin"
+      Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;SameSite=Strict
+      ServerSignature Off
+      TraceEnable Off
 
-    <Location ${base_uri}>
-        AuthType openid-connect
-        Require valid-user
-    </Location>
-```
+      RequestHeader set X-Forwarded-Proto "http" early
 
-> Dans cet exemple, le module Apache utilisé était **mod_auth_openidc**. C'est pourquoi l'authentification est **openid-connect**.
+      Alias ${base_uri}/api ${install_dir}
+      Alias ${base_uri} ${install_dir}/www/
 
-Validez la configuration d'Apache à l'aide de la commande suivante :
-```shell
-/opt/rh/httpd24/root/usr/sbin/httpd -t
-```
+      <Location ${base_uri}>
+          AuthType openid-connect
+          Require valid-user
+      </Location>
+  ```
 
-Redémarrez ensuite le serveur Web Apache :
-```shell
-systemctl restart httpd24-httpd
-```
+  > Dans cet exemple, le module Apache utilisé était **mod_auth_openidc**. C'est pourquoi l'authentification est **openid-connect**.
 
-Pour conclure, reconstruisez le cache :
-```shell
-sudo -u apache /usr/share/centreon/bin/console cache:clear
-```
+3. Validez la configuration d'Apache à l'aide de la commande suivante :
+
+  ```shell
+  /opt/rh/httpd24/root/usr/sbin/httpd -t
+  ```
+
+4. Redémarrez ensuite le serveur Web Apache :
+
+  ```shell
+  systemctl restart httpd24-httpd
+  ```
+
+5. Pour conclure, reconstruisez le cache :
+
+  ```shell
+  sudo -u apache /usr/share/centreon/bin/console cache:clear
+  ```
