@@ -69,7 +69,7 @@ To monitor your SFTP server, you can use pubkey authentication and/or username a
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor **Protocol SFTP** resources:
+1. Install the Centreon plugin package on every Centreon poller expected to monitor **Protocol SFTP** resources:
 
 ```bash
 yum install centreon-plugin-Applications-Protocol-Sftp
