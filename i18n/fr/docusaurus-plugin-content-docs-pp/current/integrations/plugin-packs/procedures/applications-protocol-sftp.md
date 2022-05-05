@@ -77,7 +77,7 @@ Pour superviser votre serveur SFTP, il est possible de réaliser une authentific
 yum install centreon-plugin-Applications-Protocol-Sftp
 ```
 
-2. Sur l'interface Web de Centreon, installer le Pack **Protocol SFTP** depuis la page **Configuration > Packs de plugins**.
+2. Sur l'interface web de Centreon, installer le Pack **Protocol SFTP** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 
