@@ -5,7 +5,6 @@ title: Upgrade Centreon HA from Centreon 21.10
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 This chapter describes how to upgrade your Centreon HA platform from version 21.10
 to version 22.04
 
@@ -184,7 +183,7 @@ rm -rf /etc/cron.d/centstorage
 
 ### Reset the permissions for centreon_central_sync resource
 
-The RPM upgrade puts the permissions back in place on the Central servers. Change it using these commands:
+The RPM upgrade puts the permissions back in place on the **Central servers**. Change it using these commands:
 
 ```bash
 chmod 775 /var/log/centreon-engine/
@@ -205,19 +204,34 @@ the latest version of Centreon and MariaDB Replication mechanismes.
 
 ### Maintenance mode and backup
 
-perform a backup of the cluster using:
+Perform a backup of the cluster using:
 
-```shell
+```bash
 pcs config backup centreon_cluster
 pcs config export pcs-commands | sed -e :a -e '/\\$/N; s/\\\n//; ta' | sed 's/-f tmp-cib.xml//' | egrep "create|group" | egrep -v "(mysql|php|cbd_rrd)" > centreon_pcs_command.sh
 ```
 
 Check the file `centreon_cluster.tar.bz2` exist before continuing this procedure.
 
-Check the file centreon_pcs_command.sh, the content should looks like this:
+```bash
+ls -l centreon_cluster.tar.bz2
+```
 
+You should have a result like this:
+
+```text
+-rw------- 1 root root 2777 May  3 17:49 centreon_cluster.tar.bz2
+```
+
+Then check the file centreon_pcs_command.sh, the export command may display some Warning lines but it's not blocking.
 
 ```bash
+cat centreon_pcs_command.sh
+```
+
+The content should looks like this:
+
+```text
 pcs resource create vip ocf:heartbeat:IPaddr2 broadcast=@VIP_BROADCAST_IPADDR@ cidr_netmask=@VIP_CIDR_NETMASK@ flush_routes=true ip=@VIP_IPADDR@ nic=@VIP_IFNAME@ op monitor interval=10s timeout=20s start interval=0s timeout=20s stop interval=0s timeout=20s meta target-role=started
 pcs resource create http systemd:httpd24-httpd op monitor interval=5s timeout=20s start interval=0s timeout=40s stop interval=0s timeout=40s meta target-role=started
 pcs resource create gorgone systemd:gorgoned op monitor interval=5s timeout=20s start interval=0s timeout=90s stop interval=0s timeout=90s meta target-role=started
@@ -235,6 +249,19 @@ This file will be necessary to recreate all the ressources of your cluster.
 
 These command should run only the active central node:
 
+<Tabs groupId="sync">
+<TabItem value="HA 2 Nodes" label="HA 2 Nodes">
+
+```bash
+pcs resource delete ms_mysql --force
+pcs resource delete cbd_rrd --force
+pcs resource delete php --force
+pcs resource delete centreon --force
+```
+
+</TabItem>
+<TabItem value="HA 4 Nodes" label="HA 4 Nodes">
+
 ```bash
 pcs resource delete ms_mysql --force
 pcs resource delete vip_mysql --force
@@ -243,9 +270,12 @@ pcs resource delete php --force
 pcs resource delete centreon --force
 ```
 
+</TabItem>
+</Tabs>
+
 ### Reconfigure MariaDB
 
-It's necessary to modify the mysql configuration by editing `/etc/my.cnf.d/server.cnf`:
+It's necessary to modify the mysql configuration by editing the file `/etc/my.cnf.d/server.cnf`:
 
 > On the 2 Central servers in HA 2 nodes
 > On the 2 Database servers in HA 4 nodes.
@@ -263,7 +293,7 @@ ignore-db-dir=lost+found
 
 ### Launch GTID replication
 
-Run this command **on the secondary database node:**
+Run this command **on the secondary database node**:
 
 ```bash
 mysqladmin -p shutdown
@@ -316,7 +346,7 @@ Position Status [OK]
 Then to restart all the processes on the **active central node**:
 
 ```bash
-systemctl restart cbd-sql cbd gorgoned centengine centreontrapd 
+systemctl restart cbd-sql cbd gorgoned centengine centreontrapd
 ```
 
 And on the **passive central node**:
@@ -327,7 +357,7 @@ systemctl restart cbd
 
 ### Clean broker memory files
 
-> **WARNING** perform this command only the passive central node.
+> **WARNING:** perform this command only the **passive central node**.
 
 Before resuming the cluster resources management, to avoid broker issues, cleanup all the *.memory.*, *.unprocessed.* or *.queue.* files:
 
@@ -341,7 +371,7 @@ rm -rf /var/lib/centreon-broker/central-broker-master.unprocessed*
 
 To be run **only on one central node**:
 
-> **WARNING :** the syntax of the following command depends on the Linux Distribution you are using.
+> **WARNING:** the syntax of the following command depends on the Linux Distribution you are using.
 
 > You can find @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ @MARIADB_REPL_USER@
 @MARIADB_REPL_USER@ variable in `/etc/centreon-ha/mysql-resources.sh`
@@ -407,7 +437,7 @@ pcs resource create "ms_mysql" \
 </TabItem>
 </Tabs>
 
-> **WARNING :** the syntax of the following command depends on the Linux Distribution you are using.
+> **WARNING:** the syntax of the following command depends on the Linux Distribution you are using.
 
 
 <Tabs groupId="sync">
@@ -462,7 +492,7 @@ pcs resource promotable ms_mysql \
     notify="true"
 ```
 
-VIP Address of Databases servers
+VIP Address of databases servers
 
 ```bash
 pcs resource create vip_mysql \
@@ -490,7 +520,7 @@ pcs resource master ms_mysql \
     notify="true"
 ```
 
-VIP Address of Databases servers
+VIP Address of databases servers
 
 ```bash
 pcs resource create vip_mysql \
@@ -517,7 +547,7 @@ pcs resource meta ms_mysql-master \
     notify="true"
 ```
 
-VIP Address of Databases servers
+VIP Address of databases servers
 
 ```bash
 pcs resource create vip_mysql \
@@ -532,11 +562,11 @@ pcs resource create vip_mysql \
     stop interval="0s" timeout="20s" \
     monitor interval="10s" timeout="20s"
 ```
-</TabItem>
-</Tabs>
-</TabItem>
-</Tabs>
 
+</TabItem>
+</Tabs>
+</TabItem>
+</Tabs>
 
 #### PHP resource
 
@@ -570,7 +600,8 @@ bash centreon_pcs_command.sh
 
 #### Recreating the constraint
 
-#### HA 2 node
+<Tabs groupId="sync">
+<TabItem value="HA 2 Nodes" label="HA 2 Nodes">
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
 
@@ -580,7 +611,7 @@ pcs constraint order stop centreon then demote ms_mysql-clone
 ```
 
 </TabItem>
-<TabItem value="REHL 7 / CentOS 7" label="REHL 7 / CentOS 7">
+<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
 
 ```bash
 pcs constraint colocation add master "ms_mysql-master" with "centreon"
@@ -589,8 +620,9 @@ pcs constraint order stop centreon then demote ms_mysql-master
 
 </TabItem>
 </Tabs>
+</TabItem>
+<TabItem value="HA 4 Nodes" label="HA 4 Nodes">
 
-#### HA 4 nodes
 In order to glue the Primary Database role with the Virtual IP, define a mutual Constraint:
 
 <Tabs groupId="sync">
@@ -602,13 +634,15 @@ pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
 ```
 
 </TabItem>
-<TabItem value="REHL 7 / CentOS 7" label="REHL 7 / CentOS 7">
+<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
 
 ```bash
 pcs constraint colocation add "vip_mysql" with master "ms_mysql-master"
 pcs constraint colocation add master "ms_mysql-master" with "vip_mysql
 ```
 
+</TabItem>
+</Tabs>
 </TabItem>
 </Tabs>
 
@@ -625,7 +659,7 @@ pcs constraint location php-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABA
 ```
 
 </TabItem>
-<TabItem value="REHL 7 / CentOS 7" label="REHL 7 / CentOS 7">
+<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
 
 ```bash
 pcs constraint location centreon avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
@@ -643,18 +677,18 @@ Now that the update is finished, the resources can be managed again:
 
 ```bash
 pcs property set maintenance-mode=false
-pcs resource cleanup ms_mysql
+pcs resource cleanup
 ```
 
 ## Check cluster's health
 
 You can monitor the cluster's resources in real time using the `crm_mon -fr` command:
-> **INFO:** : The `-fr` option allows you to display all resources even if they are disable.
+> **INFO:** The `-fr` option allows you to display all resources even if they are disable.
 
 <Tabs groupId="sync">
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
 
-```bash
+```text
 Stack: corosync
 Current DC: @CENTRAL_SLAVE_NAME@ (version 1.1.20-5.el7_7.2-3c4c782f70) - partition with quorum
 Last updated: Thu Feb 20 13:14:17 2020
@@ -688,7 +722,7 @@ Active resources:
 </TabItem>
 <TabItem value="HA 4 Nodes" label="HA 4 Nodes">
 
-```bash
+```text
 [...]
 4 nodes configured
 21 resources configured
@@ -723,8 +757,10 @@ vip_mysql       (ocf::heartbeat:IPaddr2):       Started @DATABASE_MASTER_NAME@
 </Tabs>
 
 ### Disabled resources
+
 When you do a `crm_mon -fr` and you have a resource that is disable :
-```bash
+
+```text
 ...
  Master/Slave Set: ms_mysql-master [ms_mysql]
      Masters: [ @DATABASE_MASTER_NAME@ ]
@@ -735,11 +771,13 @@ vip_mysql       (ocf::heartbeat:IPaddr2):       Stopped (disabled)
 ```
 
 You must enable the resource with the following command :
+
 ```bash
 pcs resource enable @RESSOURCE_NAME@
 ```
 
 In our case :
+
 ```bash
 pcs resource enable vip_mysql
 ```

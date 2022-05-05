@@ -5,15 +5,14 @@ title: Montée de version de Centreon HA depuis Centreon 21.10
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 Ce chapitre décrit comment mettre à niveau votre plate-forme Centreon HA de la version 21.10
-à la version 22.04
+vers la version 22.04.
 
 ## Prérequis
 
 ### Suspendre la gestion des ressources du cluster
 
-Afin d'éviter un basculement du cluster pendant la mise à jour, il est nécessaire de unamange toutes les ressources Centreon, ainsi que MariaDB.
+Afin d'éviter un basculement du cluster pendant la mise à jour, il est nécessaire de surpendre toutes les ressources Centreon, ainsi que MariaDB.
 
 ```bash
 pcs property set maintenance-mode=true
@@ -41,14 +40,14 @@ Exécutez la commande suivante :
 <Tabs groupId="sync">
 <TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
 
-```shell
+```bash
 dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04-3.el8.noarch.rpm
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
-```shell
+```bash
 yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
 ```
 
@@ -64,7 +63,7 @@ yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/ce
 
 Videz le cache de yum :
 
-```shell
+```bash
 yum clean all --enablerepo=*
 ```
 
@@ -73,7 +72,7 @@ Puis, mettez à jour l'ensemble des composants :
 <Tabs groupId="sync">
 <TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
-```shell
+```bash
 dnf update centreon\*
 ```
 
@@ -81,7 +80,7 @@ dnf update centreon\*
 <TabItem value="RHEL / CentOS 7" label="RHEL / CentOS 7">
 
 
-```shell
+```bash
 yum update centreon\*
 ```
 
@@ -93,14 +92,14 @@ Uniquement sur les serveurs Centraux
 <Tabs groupId="sync">
 <TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
-```shell
+```bash
 mv /etc/centreon-ha/centreon_central_sync.pm.rpmsave /etc/centreon-ha/centreon_central_sync.pm
 ```
 
 </TabItem>
 <TabItem value="RHEL / CentOS 7" label="RHEL / CentOS 7">
 
-```shell
+```bash
 mv /etc/centreon-ha/centreon_central_sync.pm.rpmsave /etc/centreon-ha/centreon_central_sync.pm
 ```
 
@@ -112,7 +111,6 @@ mv /etc/centreon-ha/centreon_central_sync.pm.rpmsave /etc/centreon-ha/centreon_c
 Cette section s'applique uniquement si vous avez personnalisé votre configuration Apache. Lors de la montée de version, le fichier de configuration Apache n'est pas mis à jour automatiquement : le nouveau fichier de configuration amené par le rpm ne remplace pas l'ancien. Vous devez reporter les changements manuellement dans votre fichier de configuration personnalisée.
 
 Faites un diff entre l'ancien et le nouveau fichier de configuration Apache :
-
 
 <Tabs groupId="sync">
 <TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
@@ -146,7 +144,8 @@ Pour chaque différence entre les fichiers, évaluez si celle-ci doit être repo
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Avant de démarrer la montée de version via l'interface web, rechargez le serveur Apache avec la commande suivante :
-```shell
+
+```bash
 systemctl reload httpd
 ```
 
@@ -154,7 +153,8 @@ systemctl reload httpd
 <TabItem value="CentOS 7" label="CentOS 7">
 
 Avant de démarrer la montée de version via l'interface web, rechargez le serveur Apache avec la commande suivante :
-```shell
+
+```bash
 systemctl reload httpd24-httpd
 ```
 
@@ -199,23 +199,36 @@ Depuis Centreon 22.04, la réplication de MariaDB est maintenant basée sur [GTI
 Il est nécessaire de détruire complètement le cluster et de le configurer à nouveau avec
 la dernière version de Centreon et les mécanismes de réplication de MariaDB GTID.
 
-
 ### Mode maintenance et sauvegarde
 
 Réaliser une sauvegarde du cluster en utilisant :
 
-
-```shell
+```bash
 pcs config backup centreon_cluster
 pcs config export pcs-commands | sed -e :a -e '/\\$/N; s/\\\n//; ta' | sed 's/-f tmp-cib.xml//' | egrep "create|group" | egrep -v "(mysql|php|cbd_rrd)" > centreon_pcs_command.sh
 ```
 
 Vérifiez que le fichier `centreon_cluster.tar.bz2` existe avant de continuer cette procédure.
 
-Vérifiez également, le fichier centreon_pcs_command.sh, le contenu doit ressembler à ceci :
+```bash
+ls -l centreon_cluster.tar.bz2
+```
 
+Vous devriez obtenir un résultat comme celui-ci :
+
+```text
+-rw------- 1 root root 2777 May  3 17:49 centreon_cluster.tar.bz2
+```
+
+Vérifiez ensuite le fichier centreon_pcs_command.sh, la commande d'exportation peut afficher quelques lignes d'avertissement mais elle n'est pas bloquante.
 
 ```bash
+cat centreon_pcs_command.sh
+```
+
+Le contenu doit ressembler à ceci :
+
+```text
 pcs resource create vip ocf:heartbeat:IPaddr2 broadcast=@VIP_BROADCAST_IPADDR@ cidr_netmask=@VIP_CIDR_NETMASK@ flush_routes=true ip=@VIP_IPADDR@ nic=@VIP_IFNAME@ op monitor interval=10s timeout=20s start interval=0s timeout=20s stop interval=0s timeout=20s meta target-role=started
 pcs resource create http systemd:httpd24-httpd op monitor interval=5s timeout=20s start interval=0s timeout=40s stop interval=0s timeout=40s meta target-role=started
 pcs resource create gorgone systemd:gorgoned op monitor interval=5s timeout=20s start interval=0s timeout=90s stop interval=0s timeout=90s meta target-role=started
@@ -248,7 +261,7 @@ Il est nécessaire de modifier la configuration de mysql en éditant `/etc/my.cn
 > Sur les 2 serveurs centraux dans une HA 2 nœuds
 > Sur les 2 serveurs de base de données dans une HA 4 noeuds.
 
-```shell
+```bash
 [server]
 ...
 skip-slave-start
@@ -326,7 +339,7 @@ systemctl restart cbd
 
 ### Nettoyer les fichiers de mémoire de broker
 
-> **WARNING** exécuter cette commande uniquement sur le noeud central passif.
+> **WARNING:** exécuter cette commande uniquement sur le noeud central passif.
 
 Avant de reprendre la gestion des ressources du cluster, pour éviter les problèmes de broker, il faut nettoyer tous les fichiers *.memory.*, *.unprocessed.* ou *.queue.* :
 
@@ -408,7 +421,6 @@ pcs resource create "ms_mysql" \
 
 > **WARNING:** la syntaxe de la commande suivante dépend de la distribution Linux que vous utilisez.
 
-
 <Tabs groupId="sync">
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
 <Tabs groupId="sync">
@@ -446,7 +458,6 @@ pcs resource meta ms_mysql-master \
 ```
 </TabItem>
 </Tabs>
-
 </TabItem>
 <TabItem value="HA 4 Nodes" label="HA 4 Nodes">
 <Tabs groupId="sync">
@@ -568,7 +579,8 @@ bash centreon_pcs_command.sh
 
 #### Recréer les contraintes
 
-#### HA 2 node
+<Tabs groupId="sync">
+<TabItem value="HA 2 Nodes" label="HA 2 Nodes">
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
 
@@ -587,8 +599,9 @@ pcs constraint order stop centreon then demote ms_mysql-master
 
 </TabItem>
 </Tabs>
+</TabItem>
+<TabItem value="HA 4 Nodes" label="HA 4 Nodes">
 
-#### HA 4 nodes
 Afin de fixer le rôle de la base de données primaire avec l'IP virtuelle, définissez une contrainte mutuelle :
 
 <Tabs groupId="sync">
@@ -607,6 +620,8 @@ pcs constraint colocation add "vip_mysql" with master "ms_mysql-master"
 pcs constraint colocation add master "ms_mysql-master" with "vip_mysql
 ```
 
+</TabItem>
+</Tabs>
 </TabItem>
 </Tabs>
 
@@ -647,7 +662,7 @@ pcs resource cleanup ms_mysql
 ## Vérifier la santé du cluster
 
 Vous pouvez surveiller les ressources du cluster en temps réel en utilisant la commande `crm_mon -fr` :
-> **INFO:**L'option `-fr` vous permet d'afficher toutes les resources même si elles sont disable.
+> **INFO:** L'option `-fr` vous permet d'afficher toutes les resources même si elles sont disable.
 
 <Tabs groupId="sync">
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
@@ -720,8 +735,10 @@ vip_mysql       (ocf::heartbeat:IPaddr2):       Started @DATABASE_MASTER_NAME@
 </TabItem>
 </Tabs>
 
-### Ressources disable
+### Ressources désactivées
+
 Lorsque vous faite une `crm_mon -fr` et que vous une ressource qui est disable :
+
 ```bash
 ...
  Master/Slave Set: ms_mysql-master [ms_mysql]
@@ -733,11 +750,13 @@ vip_mysql       (ocf::heartbeat:IPaddr2):       Stopped (disabled)
 ```
 
 Vous devez faire enable la resource avec la commande suivante :
+
 ```bash
 pcs resource enable @RESSOURCE_NAME@
 ```
 
 Dans notre cas :
+
 ```bash
 pcs resource enable vip_mysql
 ```

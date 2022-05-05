@@ -5,15 +5,14 @@ title: Montée de version de Centreon HA depuis Centreon 20.04
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Ce chapitre décrit la procédure de montée de version de votre plateforme
-Centreon HA depuis la version 20.04 vers la version 22.04.
+Ce chapitre décrit comment mettre à niveau votre plate-forme Centreon HA de la version 20.04
+vers la version 22.04.
 
 ## Prérequis
 
 ### Suspension de la gestion des resources par le cluster
 
-Cette opération nécessite de suspendre la gestion des ressources Centreon et MariaDB par le cluster pour éviter qu'une bascule se produise en pleine mise à jour.
+Afin d'éviter un basculement du cluster pendant la mise à jour, il est nécessaire de surpendre toutes les ressources Centreon, ainsi que MariaDB.
 
 ```bash
 pcs property set maintenance-mode=true
@@ -35,15 +34,13 @@ Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centre
 
 ### Mise à jour des dépôts
 
-Il est nécessaire de mettre à jour le dépôt Centreon.
-
 Exécutez la commande suivante :
 
-```shell
+```bash
 yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
 ```
 
-> **WARNING:** pour éviter des problèmes de dépendances manquantes, référez-vous à la documentation des modules additionnels pour mettre à jour les dépôts Centreon Business
+> **Attention:** pour éviter des problèmes de dépendances manquantes, référez-vous à la documentation des modules additionnels pour mettre à jour les dépôts Centreon Business
 
 ### Mise à jour PHP
 
@@ -51,7 +48,7 @@ Centreon 22.04 utilise PHP en version 8.0.
 
 Vous devez tout d'abord installer les dépôts **remi** :
 
-```shell
+```bash
 yum install -y yum-utils
 yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 yum install -y https://rpms.remirepo.net/enterprise/remi-release-7.rpm
@@ -59,7 +56,7 @@ yum install -y https://rpms.remirepo.net/enterprise/remi-release-7.rpm
 
 Ensuite, vous devez activer le dépôt php 8.0
 
-```shell
+```bash
 yum-config-manager --enable remi-php80
 ```
 
@@ -70,7 +67,7 @@ yum-config-manager --enable remi-php80
 
 Videz le cache de yum :
 
-```shell
+```bash
 yum clean all --enablerepo=*
 ```
 
@@ -81,31 +78,31 @@ Mettez à jour l'ensemble des composants :
 
 Suppression de l'ancien paquet Centreon-HA :
 
-```shell
+```bash
 yum remove centreon-ha
 ```
 
 Mise à jour des paquets Centreon: 
 
-```shell
+```bash
 yum update centreon\* 
 ```
 
 Installation des nouveaux paquets Centreon-HA :
 
-```shell
+```bash
 yum install centreon-ha-web centreon-ha-common
 ```
 
 Écrasez l'ancien fichier *centreon_central_sync.pm* :
 
-```shell
+```bash
 mv /etc/centreon-ha/centreon_central_sync.pm.rpmsave /etc/centreon-ha/centreon_central_sync.pm
 ```
 
 Écrasez l'ancien fichier _mysql-resources.sh_:
 
-```shell
+```bash
 mv /etc/centreon-ha/mysql-resources.sh.rpmsave /etc/centreon-ha/mysql-resources.sh
 ```
 
@@ -116,25 +113,25 @@ Sur les serveurs **Centraux** :
 
 Suppression de l'ancien paquet Centreon-HA :
 
-```shell
+```bash
 yum remove centreon-ha
 ```
 
 Mise à jour des paquets Centreon: 
 
-```shell
+```bash
 yum update centreon\*
 ```
 
 Installation des nouveaux paquets Centreon-HA :
 
-```shell
+```bash
 yum install centreon-ha-web centreon-ha-common
 ```
 
 Écrasez l'ancien fichier *centreon_central_sync.pm* :
 
-```shell
+```bash
 mv /etc/centreon-ha/centreon_central_sync.pm.rpmsave /etc/centreon-ha/centreon_central_sync.pm
 ```
 
@@ -142,25 +139,25 @@ Sur les serveurs de **base de données** :
 
 Suppression de l'ancien paquet Centreon-HA :
 
-```shell
+```bash
 yum remove centreon-ha
 ```
 
 Mise à jour des paquets Centreon: 
 
-```shell
+```bash
 yum update centreon\*
 ```
 
 Installation des nouveaux paquets Centreon-HA :
 
-```shell
+```bash
 yum install centreon-ha-common
 ```
 
 Écrasez l'ancien fichier _mysql-resources.sh_:
 
-```shell
+```bash
 mv /etc/centreon-ha/mysql-resources.sh.rpmsave /etc/centreon-ha/mysql-resources.sh
 ```
 
@@ -171,7 +168,7 @@ mv /etc/centreon-ha/mysql-resources.sh.rpmsave /etc/centreon-ha/mysql-resources.
 
 Le fuseau horaire par défaut de PHP 8 doit être configuré. Executez la commande suivante :
 
-```shell
+```bash
 echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
 ```
 
@@ -195,13 +192,13 @@ Pour chaque différence entre les fichiers, évaluez si celle-ci doit être repo
 
 Avant de démarrer la montée de version via l'interface web, lancez PHP 8 avec la commande suivante sur les deux Centraux :
 
-```shell
+```bash
 systemctl stop rh-php72-php-fpm
 systemctl start php-fpm
 ```
 
 Puis rechargez Apache sur le noeud primaire :
-```shell
+```bash
 systemctl reload httpd24-httpd
 ```
 
@@ -218,37 +215,37 @@ Il est nécessaire de désinstaller puis réinstaller MariaDB pour changer de ve
 
 1. Arrêtez le service mariadb :
 
-    ```shell
+    ```bash
     mysqladmin -p shutdown 
     ```
 
 2. Désinstallez la version actuelle :
 
-    ```shell
+    ```bash
     rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-compat MariaDB-common
     ```
 
 3. Installez la version 10.5 :
 
-    ```shell
+    ```bash
     yum install MariaDB-server-10.5\* MariaDB-client-10.5\* MariaDB-shared-10.5\* MariaDB-compat-10.5\* MariaDB-common-10.5\*
     ```
 
 4. Écrasez la configuration mariadbd:
 
-   ```shell
+   ```bash
    mv /etc/my.cnf.d/server.cnf.rpmsave /etc/my.cnf.d/server.cnf
    ```
 
 5. Démarrez le service mariadb :
 
-    ```shell
+    ```bash
     systemctl start mariadb
     ```
 
 6. Lancez le processus de mise à jour MariaDB :
 
-   ```shell
+   ```bash
     mysql_upgrade -u <utilisateur_admin_bdd> -p
     ```
 
@@ -265,7 +262,7 @@ Il est nécessaire de désinstaller puis réinstaller MariaDB pour changer de ve
 
 Exécutez la commande suivante :
 
-```shell
+```bash
 systemctl enable mariadb
 ```
 
@@ -307,23 +304,36 @@ Depuis Centreon 22.04, la réplication de MariaDB est maintenant basée sur [GTI
 Il est nécessaire de détruire complètement le cluster et de le configurer à nouveau avec
 la dernière version de Centreon et les mécanismes de réplication de MariaDB GTID.
 
-
 ### Mode maintenance et sauvegarde
 
 Réaliser une sauvegarde du cluster en utilisant :
 
-
-```shell
+```bash
 pcs config backup centreon_cluster
 pcs config export pcs-commands | sed -e :a -e '/\\$/N; s/\\\n//; ta' | sed 's/-f tmp-cib.xml//' | egrep "create|group" | egrep -v "(mysql|php|cbd_rrd)" > centreon_pcs_command.sh
 ```
 
 Vérifiez que le fichier `centreon_cluster.tar.bz2` existe avant de continuer cette procédure.
 
-Vérifiez également, le fichier centreon_pcs_command.sh, le contenu doit ressembler à ceci :
+```bash
+ls -l centreon_cluster.tar.bz2
+```
 
+Vous devriez obtenir un résultat comme celui-ci :
+
+```text
+-rw------- 1 root root 2777 May  3 17:49 centreon_cluster.tar.bz2
+```
+
+Vérifiez ensuite le fichier centreon_pcs_command.sh, la commande d'exportation peut afficher quelques lignes d'avertissement mais elle n'est pas bloquante.
 
 ```bash
+cat centreon_pcs_command.sh
+```
+
+Le contenu doit ressembler à ceci :
+
+```text
 pcs resource create vip ocf:heartbeat:IPaddr2 broadcast=@VIP_BROADCAST_IPADDR@ cidr_netmask=@VIP_CIDR_NETMASK@ flush_routes=true ip=@VIP_IPADDR@ nic=@VIP_IFNAME@ op monitor interval=10s timeout=20s start interval=0s timeout=20s stop interval=0s timeout=20s meta target-role=started
 pcs resource create http systemd:httpd24-httpd op monitor interval=5s timeout=20s start interval=0s timeout=40s stop interval=0s timeout=40s meta target-role=started
 pcs resource create gorgone systemd:gorgoned op monitor interval=5s timeout=20s start interval=0s timeout=90s stop interval=0s timeout=90s meta target-role=started
@@ -372,7 +382,7 @@ Il est nécessaire de modifier la configuration de mysql en éditant `/etc/my.cn
 > Sur les 2 serveurs centraux dans une HA 2 nœuds
 > Sur les 2 serveurs de base de données dans une HA 4 noeuds.
 
-```shell
+```bash
 [server]
 ...
 skip-slave-start
@@ -511,7 +521,6 @@ pcs resource meta ms_mysql-master \
 ```
 </TabItem>
 </Tabs>
-
 </TabItem>
 <TabItem value="HA 4 Nodes" label="HA 4 Nodes">
 <Tabs groupId="sync">
@@ -619,7 +628,7 @@ Afin de fixer le rôle de la base de données primaire avec l'IP virtuelle, déf
 
 ```bash
 pcs constraint colocation add "vip_mysql" with master "ms_mysql-master"
-pcs constraint colocation add master "ms_mysql-master" with "vip_mysql
+pcs constraint colocation add master "ms_mysql-master" with "vip_mysql"
 ```
 
 Recréez ensuite les contraintes qui empêchent les processus Centreon de s'exécuter sur les nœuds de base de données et vice-versa :
@@ -718,7 +727,7 @@ vip_mysql       (ocf::heartbeat:IPaddr2):       Started @DATABASE_MASTER_NAME@
 </TabItem>
 </Tabs>
 
-### Ressources disable
+### Ressources désactivées
 Lorsque vous faite une `crm_mon -fr` et que vous une ressource qui est _disable_ :
 
 ```bash

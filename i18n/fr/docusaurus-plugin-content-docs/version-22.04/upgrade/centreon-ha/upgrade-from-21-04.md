@@ -6,13 +6,13 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 Ce chapitre décrit comment mettre à niveau votre plate-forme Centreon HA de la version 21.04
-à la version 22.04
+vers la version 22.04.
 
 ## Prérequis
 
 ### Suspendre la gestion des ressources du cluster
 
-Afin d'éviter un basculement du cluster pendant la mise à jour, il est nécessaire de dérégler toutes les ressources Centreon, ainsi que MariaDB.
+Afin d'éviter un basculement du cluster pendant la mise à jour, il est nécessaire de surpendre toutes les ressources Centreon, ainsi que MariaDB.
 
 ```bash
 pcs property set maintenance-mode=true
@@ -136,6 +136,19 @@ Ce fichier sera nécessaire pour recréer toutes les ressources de votre cluster
 
 Ces commandes ne doivent être exécutées que sur le nœud central actif :
 
+<Tabs groupId="sync">
+<TabItem value="HA 2 Nodes" label="HA 2 Nodes">
+
+```bash
+pcs resource delete ms_mysql --force
+pcs resource delete cbd_rrd --force
+pcs resource delete php7 --force
+pcs resource delete centreon --force
+```
+
+</TabItem>
+<TabItem value="HA 4 Nodes" label="HA 4 Nodes">
+
 ```bash
 pcs resource delete ms_mysql --force
 pcs resource delete vip_mysql --force
@@ -143,6 +156,9 @@ pcs resource delete cbd_rrd --force
 pcs resource delete php7 --force
 pcs resource delete centreon --force
 ```
+
+</TabItem>
+</Tabs>
 
 ### Reconfigurer MariaDB
 
@@ -228,7 +244,7 @@ systemctl restart cbd
 
 ### Nettoyer les fichiers de mémoire du courtier
 
-> **Attention** n'exécutez cette commande que sur le **noeud central passif**.
+> **Attention:** n'exécutez cette commande que sur le **noeud central passif**.
 
 Avant de reprendre la gestion des ressources du cluster, pour éviter les problèmes de broker, nettoyez tous les fichiers *.memory.*, *.unprocessed.* ou *.queue.* :
 
@@ -242,7 +258,7 @@ rm -rf /var/lib/centreon-broker/central-broker-master.unprocessed*
 
 A exécuter **seulement sur un noeud central** :
 
-> **Attention** : la syntaxe de la commande suivante dépend de la distribution Linux que vous utilisez.
+> **Attention:** la syntaxe de la commande suivante dépend de la distribution Linux que vous utilisez.
 
 > Vous pouvez trouver @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ @MARIADB_REPL_USER@
 La variable @MARIADB_REPL_USER@ dans `/etc/centreon-ha/mysql-resources.sh`.
@@ -308,7 +324,7 @@ pcs resource create "ms_mysql" \
 </TabItem>
 </Tabs>
 
-> **Attention : ** la syntaxe de la commande suivante dépend de la distribution Linux que vous utilisez.
+> **Attention:** la syntaxe de la commande suivante dépend de la distribution Linux que vous utilisez.
 
 <Tabs groupId="sync">
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
@@ -347,7 +363,6 @@ pcs resource meta ms_mysql-master \
 ```
 </TabItem>
 </Tabs>
-
 </TabItem>
 <TabItem value="HA 4 Nodes" label="HA 4 Nodes">
 <Tabs groupId="sync">
@@ -480,7 +495,7 @@ pcs constraint order stop centreon then demote ms_mysql-clone
 ```
 
 </TabItem>
-<TabItem value="REHL 7 / CentOS 7" label="REHL 7 / CentOS 7">
+<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
 
 ```bash
 pcs constraint colocation add master "ms_mysql-master" with "centreon"
@@ -503,7 +518,7 @@ pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
 ```
 
 </TabItem>
-<TabItem value="REHL 7 / CentOS 7" label="REHL 7 / CentOS 7">
+<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
 
 ```bash
 pcs constraint colocation add "vip_mysql" with master "ms_mysql-master"
@@ -528,7 +543,7 @@ pcs constraint location php-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABA
 ```
 
 </TabItem>
-<TabItem value="REHL 7 / CentOS 7" label="REHL 7 / CentOS 7">
+<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
 
 ```bash
 pcs constraint location centreon avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
@@ -546,13 +561,13 @@ Maintenant que la mise à jour est terminée, les ressources peuvent être gér�
 
 ```bash
 pcs property set maintenance-mode=false
-pcs resource cleanup ms_mysql
+pcs resource cleanup
 ```
 
 ## Vérifier la santé du cluster
 
 Vous pouvez surveiller les ressources du cluster en temps réel à l'aide de la commande `crm_mon -fr` :
-> **INFO:** : L'option `-fr` vous permet d'afficher toutes les ressources même si elles sont désactivées.
+> **INFO:** L'option `-fr` vous permet d'afficher toutes les ressources même si elles sont désactivées.
 
 <Tabs groupId="sync">
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">

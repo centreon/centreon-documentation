@@ -136,6 +136,19 @@ This file will be necessary to recreate all the ressources of your cluster.
 
 These command should run only the active central node:
 
+<Tabs groupId="sync">
+<TabItem value="HA 2 Nodes" label="HA 2 Nodes">
+
+```bash
+pcs resource delete ms_mysql --force
+pcs resource delete cbd_rrd --force
+pcs resource delete php7 --force
+pcs resource delete centreon --force
+```
+
+</TabItem>
+<TabItem value="HA 4 Nodes" label="HA 4 Nodes">
+
 ```bash
 pcs resource delete ms_mysql --force
 pcs resource delete vip_mysql --force
@@ -143,6 +156,9 @@ pcs resource delete cbd_rrd --force
 pcs resource delete php7 --force
 pcs resource delete centreon --force
 ```
+
+</TabItem>
+</Tabs>
 
 ### Reconfigure MariaDB
 
@@ -164,7 +180,7 @@ ignore-db-dir=lost+found
 
 ### Launch GTID replication
 
-Run this command **on the secondary database node:**
+Run this command **on the secondary database node**:
 
 ```bash
 mysqladmin -p shutdown
@@ -217,7 +233,7 @@ Position Status [OK]
 Then to restart all the processes on the **active central node**:
 
 ```bash
-systemctl restart cbd-sql cbd gorgoned centengine centreontrapd 
+systemctl restart cbd-sql cbd gorgoned centengine centreontrapd
 ```
 
 And on the **passive central node**:
@@ -228,7 +244,7 @@ systemctl restart cbd
 
 ### Clean broker memory files
 
-> **WARNING** perform this command only the **passive central node**.
+> **WARNING:** perform this command only the **passive central node**.
 
 Before resuming the cluster resources management, to avoid broker issues, cleanup all the *.memory.*, *.unprocessed.* or *.queue.* files:
 
@@ -245,7 +261,7 @@ To be run **only on one central node**:
 > **WARNING:** the syntax of the following command depends on the Linux Distribution you are using.
 
 > You can find @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ @MARIADB_REPL_USER@
-@MARIADB_REPL_USER@ variable in `/etc/centreon-ha/mysql-resources.sh`
+@MARIADB_REPL_USER@ variable in `/etc/centreon-ha/mysql-resources.sh`.
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
@@ -347,7 +363,6 @@ pcs resource meta ms_mysql-master \
 ```
 </TabItem>
 </Tabs>
-
 </TabItem>
 <TabItem value="HA 4 Nodes" label="HA 4 Nodes">
 <Tabs groupId="sync">
@@ -546,13 +561,13 @@ Now that the update is finished, the resources can be managed again:
 
 ```bash
 pcs property set maintenance-mode=false
-pcs resource cleanup ms_mysql
+pcs resource cleanup
 ```
 
 ## Check cluster's health
 
 You can monitor the cluster's resources in real time using the `crm_mon -fr` command:
-> **INFO:** : The `-fr` option allows you to display all resources even if they are disable.
+> **INFO:** The `-fr` option allows you to display all resources even if they are disable.
 
 <Tabs groupId="sync">
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
