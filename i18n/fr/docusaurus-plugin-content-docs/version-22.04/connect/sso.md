@@ -101,3 +101,15 @@ n'autoriser l'accès qu'aux utilisateurs authentifiés.
   ```shell
   sudo -u apache /usr/share/centreon/bin/console cache:clear
   ```
+
+### Step 5: Configurer le fournisseur d'identité
+
+Configurer votre fournisseur d'identité pour ajouter l'application Centreon à utiliser votre protocole pour
+authentifier vos utilisateur, et pour autoriser `l'uri de redirection` suivante une fois vos utilisateurs authentifiés :
+
+```shell
+{protocol}://{server}:{port}/centreon/websso
+```
+
+> Remplacez `{protocol}`, `{server}` et `{port}` par l'URI permettant d'accéder à votre serveur Centreon.
+> Par exemple : `https://centreon.domain.net/centreon/websso`

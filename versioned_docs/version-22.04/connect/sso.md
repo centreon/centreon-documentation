@@ -100,3 +100,15 @@ to authenticated users.
   ```shell
   sudo -u apache /usr/share/centreon/bin/console cache:clear
   ```
+
+### Step 5: Configure your Identity Provider (IdP)
+
+Configure your IdP to add the Centreon application to use your protocol to authenticate your users,
+And to authorize the following `redirect URI` to forward your connecter users to Centreon:
+
+```shell
+{protocol}://{server}:{port}/centreon/websso
+```
+
+> Replace `{protocol}`, `{server}` and `{port}` by the URI to access to your Centreon server.
+> For example: `https://centreon.domain.net/centreon/centreon/websso`
