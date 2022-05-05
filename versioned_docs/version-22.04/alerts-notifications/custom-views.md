@@ -37,7 +37,7 @@ Custom views are dashboards created with widgets. You can share views with other
 
 ## Editing a custom view
 
-On the control bar, click **Edit**. ![image](../assets/alerts/view_edit.png)
+On the control bar, click **Edit view**. ![image](../assets/alerts/view_edit.png)
 
 You can rename the view, change the layout of the columns, and [share the view](#sharing-a-custom-view) in read-only mode with other users. You can also edit or move widgets.
 

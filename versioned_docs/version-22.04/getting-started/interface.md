@@ -17,7 +17,7 @@ You are now connected to the Centreon web interface.
 
 ## Menus
 
-![image](../assets/getting-started/menus_EN.png)
+![image](../assets/getting-started/menus.png)
 
 The Centreon web interface contains several menus, each with a specific function (click the Centreon logo at the top left of the screen to expand the menus):
 

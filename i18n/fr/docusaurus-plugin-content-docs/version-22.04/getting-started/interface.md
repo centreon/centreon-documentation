@@ -19,6 +19,8 @@ Vous êtes maintenant connecté à l'interface web Centreon.
 
 ## Menus
 
+![image](../assets/getting-started/menus.png)
+
 L'interface web de Centreon est composée de plusieurs menus, chaque menu a une fonction bien précise (cliquez sur le logo Centreon en haut à gauche de l'écran pour afficher les libellés) :
 
 ![image](../assets/getting-started/amenu.png)
@@ -77,14 +79,16 @@ Dans le bandeau supérieur, utilisez le bouton pour activer le mode sombre. Lors
 
 Vous pouvez aussi passer en mode sombre en modifiant le thème de l'interface dans les paramètres du compte.
 
-Allez dans **Administration > Parameters > My Account** et sélectionnez l'onglet **General Information**. 
+Allez dans **Administration > Paramètres > Mon compte** et sélectionnez l'onglet **Informations générales**. 
 Sélectionnez **Light** ou **Dark** dans le champ **Front-end Theme**.
 
-Puis cliquez sur **Save**. Le thème de l'interface est maintenant dans le mode que vous avez choisi.
+![image](../assets/getting-started/front-end_theme_mode.png)
+
+Puis cliquez sur **Sauvegarder**. Le thème de l'interface est maintenant dans le mode que vous avez choisi.
 
 ### Langue de l'interface utilisateur
 
-Dans le bandeau, cliquez sur l'icône profil, puis cliquez sur **Edit profile**:
+Dans le bandeau, cliquez sur l'icône profil, puis cliquez sur **Editer Le Profil**:
 
 ![image](../assets/getting-started/change_language_1.png)
 
@@ -92,7 +96,7 @@ Dans la liste de sélection des langues, sélectionnez la vôtre :
 
 ![image](../assets/getting-started/change_language_2.png)
 
-Puis cliquez sur **Save**. Votre interface est maintenant traduite dans votre
+Puis cliquez sur **Sauvegarder**. Votre interface est maintenant traduite dans votre
 langue.
 
 > Si votre langue n'apparaît pas dans la liste, vous pouvez aider la communauté Centreon à traduire l'interface web.
