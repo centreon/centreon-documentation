@@ -102,7 +102,7 @@ yum install centreon-pack-applications-protocol-sftp
 
 ### Host
 
-* Log into Centreon and add a new Host through **Configuration > Hosts**.
+* Log into Centreon and add a new host through **Configuration > Hosts**.
 * Fill the **Name**, **Alias** & **IP Address / DNS** fields according to your **Protocol SFTP** server settings.
 * Apply the **App-Protocol-Sftp-custom** template to the host.
 * Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
