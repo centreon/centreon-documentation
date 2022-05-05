@@ -83,7 +83,7 @@ yum install centreon-plugin-Applications-Protocol-Sftp
 
 <TabItem value="Offline License" label="Offline License">
 
-1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des ressources **Protocol SFTP** :
+1. Installer le plugin Centreon sur tous les collecteurs Centreon devant superviser des ressources **Protocol SFTP** :
 
 ```bash
 yum install centreon-plugin-Applications-Protocol-Sftp
