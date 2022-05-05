@@ -76,7 +76,7 @@ sélectionnez votre serveur, puis saisissez les informations demandées :
      ```shell
      systemctl restart cbd
      ```
-  Si besoin, consultez **/var/log/centreon-broker/<nom-du-serveur-distant>.log** pour identifier des erreurs. (Dans l'exemple ci-dessus, il s'agit du fichier **/var/log/centreon-broker/remote-server.log**.)
+  Si besoin, consultez **/var/log/centreon-broker/\<nom-du-serveur-distant>.log** pour identifier des erreurs. (Dans l'exemple ci-dessus, il s'agit du fichier **/var/log/centreon-broker/remote-server.log**.)
 
 ## Étape 2 : Activer la communication
 
