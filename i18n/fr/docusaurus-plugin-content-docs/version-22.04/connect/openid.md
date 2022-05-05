@@ -35,16 +35,22 @@ Renseignez les informations du fournisseur d'identité :
 - **URL de base** : définit l'URL de base du fournisseur d'identité pour les points d'entrée OpenId Connect (obligatoire).
 - **Point d'entrée d'autorisation** : définit le point d'entrée d'autorisation, par exemple `/authorize` (obligatoire).
 - **Point d'entrée de jeton** : définit le point d'entrée du jeton, par exemple `/token` (obligatoire).
-- **Point d'entrée de jeton d'introspection** : définit le point d'entrée du jeton d'introspection, par exemple `/introspect` (obligatoire).
 - **ID de client** : définit l'ID client.
 - **Secret de client** : définit le secret client.
-- **Point d'entrée d'information utilisateur** : définit le point d'entrée des informations utilisateur, par exemple `/userinfo`.
-- **Point d'entrée de fin de session** : définit le point d'entrée de déconnexion, par exemple `/logout`.
 - **Portées** : définit la portée du fournisseur d'identité, par exemple `openid`. Séparez différentes portées par des espaces.
   > Selon le fournisseur d'identité, il est nécessaire de saisir plusieurs portées (scopes) afin de récupérer la valeur
   > (claim) qui identifiera l'utilisateur. Ceci est indiqué dans la documentation de configuration du fournisseur.
 - **Valeur de la déclaration de connexion** : définit quelle variable renvoyée par les points d'entrée
 **Point d'entrée de jeton d'introspection** ou **Point d'entrée d'information utilisateur** doit être utilisée pour authentifier l'utilisateur. Par exemple `sub` ou `email`.
+- **Point d'entrée de fin de session** : définit le point d'entrée de déconnexion, par exemple `/logout`.
+
+Suivant votre fournisseur d'identité, définissez l'un ou l'autre des deux endpoints suivants :
+
+- **Point d'entrée de jeton d'introspection** : définit le point d'entrée du jeton d'introspection, par exemple `/introspect` (obligatoire).
+- **Point d'entrée d'information utilisateur** : définit le point d'entrée des informations utilisateur, par exemple `/userinfo`.
+
+Vous pouvez également configurer :
+
 - **Utiliser l'authentification basique pour l'authentification du point d'entrée de jeton** : si cette option est activée, la méthode `Authorization: Basic` sera utilisée. Activez cette option si votre fournisseur d'identité le demande.
 - **Disable SSL verify peer** : permet de désactiver la validation des pairs SSL. Le certificat du fournisseur d'identité ne sera pas vérifié : cette option ne doit être utilisée qu'à des fins de test.
 
@@ -65,6 +71,18 @@ Si vous laissez ces deux champs vides, toutes les adresses IP seront autorisées
 
 À la page **Configuration > Utilisateurs > Contacts/Utilisateurs**, [créez les utilisateurs](../monitoring/basic-objects/contacts-create.md) qui se connecteront à Centreon avec OpenID et [donnez-leur des droits](../administration/access-control-lists.md) via des groupes d'accès.
 
+### Step 5: Configurer le fournisseur d'identité
+
+Configurer votre fournisseur d'identité pour ajouter l'application Centreon à utiliser le protocole OpenID Connect pour
+authentifier vos utilisateur, et pour autoriser `l'uri de redirection` suivante une fois vos utilisateurs authentifiés :
+
+```shell
+{protocol}://{server}:{port}/centreon/authentication/providers/configurations/openid
+```
+
+> Remplacez `{protocol}`, `{server}` et `{port}` par l'URI permettant d'accéder à votre serveur Centreon.
+> Par exemple : `https://centreon.domain.net/centreon/authentication/providers/configurations/openid`
+
 ### Exemples de configuration
 
 <Tabs groupId="sync">
@@ -77,7 +95,6 @@ Voici un exemple de configuration pour Microsoft Azure Active Directory:
 | Base Url                     | https://login.microsoftonline.com/${tenantId}/oauth2/v2.0 |
 | Authorization Endpoint       | /authorize                                                |
 | Token Endpoint               | /token                                                    |
-| Introspection Token Endpoint | /introspect                                               |
 | User Information Endpoint    | https://graph.microsoft.com/oidc/userinfo                 |
 | End Session Endpoint         |                                                           |
 | Scope                        | openid                                                    |
@@ -122,10 +139,10 @@ Voici un exemple de configuration pour Keycloak:
 | End Session Endpoint         | /logout                                                                 |
 | Scope                        | openid                                                                  |
 | Login claim value            | email                                                                   |
-| Client ID                    | ${resource}                                                             |
-| Client Secret                | ${secret}                                                               |
+| Client ID                    | ${clientId}                                                             |
+| Client Secret                | ${clientSecret}                                                         |
 
-> Remplacez `${theIdPdomain}`, `${resource}` et `${secret}` par vos propres valeurs.
+> Remplacez `${theIdPdomain}`, `${clientId}` et `${clientSecret}` par vos propres valeurs.
 
 </TabItem>
 <TabItem value="LemonLDAP::NG" label="LemonLDAP::NG">

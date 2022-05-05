@@ -34,16 +34,22 @@ Configure Identity Provider information:
 - **Base URL**: defines the identity provider's base URL for OpenId Connect endpoints (mandatory).
 - **Authorization Endpoint**: defines the authorization endpoint, for example `/authorize` (mandatory).
 - **Token Endpoint**: defines the token endpoint, for example `/token` (mandatory).
-- **Introspection Token Endpoint**: defines the introspection token endpoint, for example `/introspect` (mandatory).
 - **Client ID**: defines the Client ID.
 - **Client Secret**: defines the Client secret.
-- **User Information Endpoint**: defines the user information endpoint, for example `/userinfo`.
-- **End Session Endpoint**: defines the logout endpoint, for example `/logout`.
 - **Scopes**: defines the scopes of the identity provider, for example `openid`. Separate scopes by spaces.
   > Depending on the identity provider, it is necessary to enter several scopes in order to retrieve the claim which will
   > identify users. This is indicated in the provider's configuration documentation.
-- **Login claim value**: defines which of the variables returned by **Introspection Token Endpoint** or **User Information Endpoint**
+  - **Login claim value**: defines which of the variables returned by **Introspection Token Endpoint** or **User Information Endpoint**
   must be used to authenticate users. For example `sub` or `email`.
+- **End Session Endpoint**: defines the logout endpoint, for example `/logout`.
+
+Depending on your identity provider, set either of the following two endpoints:
+
+- **User Information Endpoint**: defines the user information endpoint, for example `/userinfo`.
+- **Introspection Token Endpoint**: defines the introspection token endpoint, for example `/introspect` (mandatory).
+
+You can also configure:
+
 - **Use Basic Auth for Token Endpoint Authentication**: the `Authorization: Basic` method will be used. Enable this option if your identity provider requires it.
 - **Disable SSL verify peer**: allows you to disable SSL peer validation. The identity provider's certificate will not be checked: use this option for test purposes only.
 
@@ -63,6 +69,18 @@ If you leave both fields blank, all IP adresses will be allowed to access the Ce
 
 On page **Configuration > Users > Contacts/Users**, [create the users](../monitoring/basic-objects/contacts-create.md) that will log on to Centreon using OpenID and [grant them rights](../administration/access-control-lists.md) using access groups.
 
+### Step 5: Configure your Identity Provider (IdP)
+
+Configure your IdP to add the Centreon application to use the OpenID Connect protocol to authenticate your users,
+And to authorize the following `redirect URI` to forward your connecter users to Centreon:
+
+```shell
+{protocol}://{server}:{port}/centreon/authentication/providers/configurations/openid
+```
+
+> Replace `{protocol}`, `{server}` and `{port}` by the URI to access to your Centreon server.
+> For example: `https://centreon.domain.net/centreon/authentication/providers/configurations/openid`
+
 ## Examples of configuration
 
 <Tabs groupId="sync">
@@ -75,7 +93,6 @@ Here is an example configuration for Microsoft Azure Active Directory:
 | Base Url                     | https://login.microsoftonline.com/${tenantId}/oauth2/v2.0 |
 | Authorization Endpoint       | /authorize                                                |
 | Token Endpoint               | /token                                                    |
-| Introspection Token Endpoint | /introspect                                               |
 | User Information Endpoint    | https://graph.microsoft.com/oidc/userinfo                 |
 | End Session Endpoint         |                                                           |
 | Scope                        | openid                                                    |
@@ -120,10 +137,10 @@ Here is an example configuration for Keycloak:
 | End Session Endpoint         | /logout                                                                 |
 | Scope                        | openid                                                                  |
 | Login claim value            | email                                                                   |
-| Client ID                    | ${resource}                                                             |
-| Client Secret                | ${secret}                                                               |
+| Client ID                    | ${clientId}                                                             |
+| Client Secret                | ${clientSecret}                                                         |
 
-> Please replace `${theIdPdomain}`, `${resource}` and `${secret}` with your own values.
+> Please replace `${theIdPdomain}`, `${clientId}` and `${clientSecret}` with your own values.
 
 </TabItem>
 <TabItem value="LemonLDAP::NG" label="LemonLDAP::NG">
