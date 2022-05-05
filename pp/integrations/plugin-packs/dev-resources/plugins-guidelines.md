@@ -23,7 +23,7 @@ shipped with all enterprise-grade operating systems, and often a prerequisites. 
 The output of a monitoring probe must always be: 
 
 ```bash
-SERVICE STATUS: Information text | metric1=<value>[UOM];<warning_value>;<critical_value>;<minimum>;<maximum> metric2=value[OEM];<warning_value>;<critical_value>;<minimum>;<maximum> \n
+STATUS: Information text | metric1=<value>[UOM];<warning_value>;<critical_value>;<minimum>;<maximum> metric2=value[OEM];<warning_value>;<critical_value>;<minimum>;<maximum> \n
 Line 1 containing additional details \n
 Line 2 containing additional details \n 
 Line 3 containing additional details \n
@@ -31,21 +31,21 @@ Line 3 containing additional details \n
 
 Let’s identify and name its three main parts: 
 
-* Output: everything before the pipe (|)
-* Performance data and Metrics: everything after the pipe (|) 
-* Extended output: Everything after the first carriage return (\n), splitting each detail line is the best practice.
+* Short output: everything before the pipe (`|`)
+* Performance data and Metrics: everything after the pipe (`|`) 
+* Extended output: Everything after the first carriage return (`\n`), splitting each detail line is the best practice.
 
-#### Short Output
+### Short output
 
 This part is the one the user will more likely see in its monitoring tool or obtain as part of a push / alert message. The information should be straightforward and help identify what is going on quickly.
 
 A plugin must always propose at least such output: 
 
 ```bash
-SERVICE STATUS: Information text 
+STATUS: Information text 
 ```
 
-`SERVICE STATUS`must stick with return codes: 
+`STATUS`must stick with return codes: 
 
 * 0: OK
 * 1: WARNING
@@ -67,7 +67,7 @@ SERVICE STATUS: Information text
 > 
 > `WARNING: Storage '/var/lib' Usage Total: 9.30 GB Used: 956.44 MB (10.04%) Free: 8.37 GB (89.96%) |`
 
-#### Performance data and metrics
+### Performance data and metrics
 
 This part is not mandatory. However, if you want to benefit from Centreon or Nagios©-like tools with built-in metrology features, you will need to adopt this format: 
 
@@ -128,7 +128,7 @@ Less frequently, you may want to add even more context; that’s why we created 
 >
 > `%` is the legacy metric’s unit
 
-#### Extended output
+### Extended output
 
 The extended output's primary purpose is to display each bit of collected information separately on a single line. It will only print if the user supplies a `--verbose` flag to its command. 
 
@@ -171,7 +171,7 @@ Overall, you should use it to:
 >   sensor 'GigabitEthernet1/1/1 Receive Power Sensor' status is 'ok' [instance: 1119] [value: -1.2 dBm]
 > ```
 
-### Options
+## Options
 
 Option management is a central piece of a successful plugin. You should: 
 
@@ -179,34 +179,33 @@ Option management is a central piece of a successful plugin. You should:
 * For a given option, **only one format** is possible (either a flag, expect a value, but not both)
 * Always **check** for values supplied by the user and print a **clear message** when they doesn’t fit with plugin requirements
 
-### Discovery 
+## Discovery 
 
 This section describes how you should format your data to comply with the requirements of Centreon discovery UI modules. 
 
 In a nutshell: 
-* host discovery allows you to return a JSON list the autodiscovery module will understand so the user can choose to automatically or manually add to its monitoring configuration. Optionally, it can use one of the discovered items properties to make some decision (filter in or out, create or assign a specific host group, etc.)
-* service discovery allows you to return XML data to help users configure unitary checks and link them to a given host (e.g. each VPN definition in AWS VPN, each network interface on a router, ...). 
+* [host discovery](/docs/monitoring/discovery/hosts-discovery) allows you to return a JSON list the autodiscovery module will understand so the user can choose to automatically or manually add to its monitoring configuration. Optionally, it can use one of the discovered items properties to make some decision (filter in or out, create or assign a specific host group, etc.)
+* [service discovery](/docs/monitoring/discovery/services-discovery) allows you to return XML data to help users configure unitary checks and link them to a given host (e.g. each VPN definition in AWS VPN, each network interface on a router, ...). 
 
 There's no choice here; you should stick with the guidelines described hereafter if you want your code to be fully compliant with our modules. 
 
-#### Hosts 
+### Hosts 
 
 The discovery plugin can be a specific script or a particular execution mode enabled with an option. In centreon-plugins, we do it through dedicated `discovery*.pm` modes. 
 
 This execution mode is limited to a query toward a cloud provider, an application, or whatever contains a list of assets. The expected output must hold some keys:
-`end_time`: the timestamp when the execution stops 
-`start_time`: the timestamp when the execution starts
-`duration`: the duration (`end_time - start_time`)
-`discovered_items`: the number of discovered items 
-`results`: an array of hashes, each hash being a collection of key/values describing the discovered assets. 
-
+* `end_time`: the unix timestamp when the execution stops 
+* `start_time`: the unix timestamp when the execution starts
+* `duration`: the duration in seconds (`end_time - start_time`)
+* `discovered_items`: the number of discovered items 
+* `results`: an array of hashes, each hash being a collection of key/values describing the discovered assets. 
 
 ```json title='Sample host discovery output'
 {
    "end_time" : 1649431535,
    "start_time" : 1649431534,
    "duration" : 1,
-   "discovered_items" : 327,
+   "discovered_items" : 2,
    "results" : [
          {
          "public_dns_name" : "ec2-name.eu-west-1.compute.amazonaws.com",
@@ -230,7 +229,6 @@ This execution mode is limited to a query toward a cloud provider, an applicatio
          "private_ip" : "W.X.Y.Z",
          "instance_type" : "t2.medium"
       },
-[...]
       {
          "public_dns_name" : "other-ec2-name.eu-west-1.compute.amazonaws.com",
          "name" : "prod-other-ec2",
@@ -252,15 +250,55 @@ This execution mode is limited to a query toward a cloud provider, an applicatio
          "id" : "i-3gfbgfb",
          "private_ip" : "A.B.C.D",
          "instance_type" : "t2.medium"
-      },
+      }
    ]
 }
 ```
 
-#### Services
+You can use more advanced structures for values in the result sets, it can be: 
 
-### Performancs 
+* an array of hashes:
 
-### Security & performances 
+```json title='Nmap discovery - Tags'
+"services" : [
+  {
+    "name" : "ssh",
+    "port" : "22/tcp"
+  },
+  {
+    "port" : "80/tcp",
+    "name" : "http"
+  }
+]
+```
 
-### Help and manual
+* flat array: 
+
+```json title='VMWare discovery - IP vMotion'
+"ip_vmotion": [
+  "10.10.5.21",
+  "10.30.5.21"
+],
+```
+
+Using those structures is convenient when you need to group object properties behind a single key. 
+
+On the users' side, it allows using these values to filter in or out some value or make a better choice 
+about the host template for a given discovered host.
+
+### Services
+
+## Performances 
+
+### Execution time
+
+### Timeout
+
+## Security
+
+### System commands
+
+### Dependencies
+
+## Help and documentation
+
