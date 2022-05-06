@@ -124,7 +124,7 @@ yum install centreon-pack-applications-backupexec-nscp-restapi
 
 Une fois celui-ci configuré, certaines macros doivent être renseignées:
 
-| Mandatory | Name                      | Description                                                                                  |
+| Obligatoire| Nom                      | Description                                                                                  |
 | :-------- | :------------------------ | :------------------------------------------------------------------------------------------- |
 |           | NSCPRESTAPIPORT           | Port used (Default: 8443)                                                                    |
 |           | NSCPRESTAPIPROTO          | Protocol used (Default: https)                                                               |
