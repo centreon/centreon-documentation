@@ -317,10 +317,6 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-backupexec-nscp-restapi'
-        },
-        {
-          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-netbackup-nsclient-05-restapi'
         },
         {
@@ -494,6 +490,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-veeam-nsclient-05-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-backupexec-nscp-restapi'
         },
         {
           type: 'doc',
