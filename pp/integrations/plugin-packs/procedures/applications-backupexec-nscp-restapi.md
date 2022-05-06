@@ -95,7 +95,7 @@ yum install centreon-plugin-Applications-Protocol-Nrpe
 
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor **Veritas Backup Exec NSCP API** resources:
+1. Install the Centreon plugin package on every Centreon poller expected to monitor **Veritas Backup Exec NSCP API** resources:
 
 ```bash
 yum install centreon-plugin-Applications-Protocol-Nrpe
