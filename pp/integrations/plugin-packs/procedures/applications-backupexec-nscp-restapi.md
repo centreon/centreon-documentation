@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Centreon Pack Backup Exec brings 1 host template:
+The Centreon Pack Backup Exec brings a host template:
 * App-Backupexec-Nscp-Restapi-custom
 
 It brings the following service templates:
