@@ -108,7 +108,7 @@ yum install centreon-plugin-Applications-Protocol-Nrpe
 yum install centreon-pack-applications-backupexec-nscp-restapi
 ```
 
-3. Sur l'interface Web de Centreon, installez le Pack **Veritas Backup Exec NSCP API** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface web de Centreon, installez le Pack **Veritas Backup Exec NSCP API** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>
