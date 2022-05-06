@@ -136,7 +136,7 @@ Une fois celui-ci configuré, certaines macros doivent être renseignées:
 
 ## Comment puis-je tester le Plugin et que signifient les options des commandes ?
 
-Une fois le Plugin installé, vous pouvez tester la bonne configuration NSClient directement en ligne
+Une fois le plugin installé, vous pouvez tester la bonne configuration NSClient directement en ligne
 de commande depuis votre collecteur Centreon en vous connectant avec
 l'utilisateur **centreon-engine** :
 
