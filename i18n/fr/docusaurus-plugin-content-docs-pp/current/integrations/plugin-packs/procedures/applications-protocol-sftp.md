@@ -95,7 +95,7 @@ yum install centreon-plugin-Applications-Protocol-Sftp
 yum install centreon-pack-applications-protocol-sftp
 ```
 
-3. Sur l'interface Web de Centreon, installer le Pack **Protocol SFTP** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface web de Centreon, installer le Pack **Protocol SFTP** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>
