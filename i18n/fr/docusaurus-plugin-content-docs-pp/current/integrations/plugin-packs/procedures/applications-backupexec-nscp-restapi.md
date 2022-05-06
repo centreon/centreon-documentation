@@ -84,7 +84,7 @@ Centreon vers l'équipement supervisé.
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Installez le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources **Veritas Backup Exec NSCP API** :
+1. Installez le plugin Centreon sur tous les collecteurs Centreon devant superviser des resources **Veritas Backup Exec NSCP API** :
 
 ```bash
 yum install centreon-plugin-Applications-Protocol-Nrpe
