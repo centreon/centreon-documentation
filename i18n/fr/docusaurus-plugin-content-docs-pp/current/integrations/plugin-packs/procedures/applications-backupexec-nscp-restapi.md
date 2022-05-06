@@ -67,7 +67,7 @@ Il apporte les modèles de service suivants :
 
 ### NSClient Configuration
 
-Pour superviser un **Backup Exec** via NRPE, installez la version packagée Centreon de l'agent NSClient++.
+Pour superviser un **Backup Exec** de Veritas via NRPE, installez la version packagée Centreon de l'agent NSClient++.
 Suivez notre [documentation officielle](../getting-started/how-to-guides/centreon-nsclient-tutorial.md)
 
 Veuillez télécharger et installer la dernière version en date de **Centreon-NSClient-xxx.exe**: https://github.com/centreon/centreon-nsclient-build/releases
