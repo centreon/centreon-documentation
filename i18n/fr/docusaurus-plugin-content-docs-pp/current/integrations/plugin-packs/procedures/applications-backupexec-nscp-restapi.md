@@ -159,7 +159,7 @@ La commande devrait retourner un message de sortie similaire à :
 0.5.2.41 2018-04-26
 ```
 
-Vous pouvez maintenant tester le Plugin Backup Exec :
+Vous pouvez maintenant tester le plugin Backup Exec :
 
 ```bash
 /usr/lib/centreon/plugins/centreon_protocol_nrpe.pl \
