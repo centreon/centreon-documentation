@@ -14,7 +14,7 @@ Le Pack Centreon Backup Exec apporte 1 modèle d'hôte :
 
 Il apporte les modèles de service suivants :
 
-| Service Alias | Service Template                   | Default | Discovery |
+| Alias | Modèle de service                   | Défaut | Découverte |
 |:--------------|:-----------------------------------|:--------|:----------|
 | Alerts        | App-Backupexec-Alerts-Nscp-Restapi | X       |           |
 | Disks         | App-Backupexec-Disks-Nscp-Restapi  | X       | X         |
