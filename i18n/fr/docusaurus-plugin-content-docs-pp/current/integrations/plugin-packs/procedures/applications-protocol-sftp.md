@@ -111,11 +111,11 @@ yum install centreon-pack-applications-protocol-sftp
 
 Une fois celui-ci configuré, certaines macros doivent être renseignées:
 
-| Mandatory | Name                     | Description                                                                |
-| :-------- | :----------------------- | :------------------------------------------------------------------------- |
-|           | PROTOCOLSFTPUSERNAME     | sftp username                                                              |
-|           | PROTOCOLSFTPPASSWORD     | sftp password                                                              |
-|           | PROTOCOLSFTPEXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
+| Obligatoire | Nom                      | Description                                                                |
+| :---------- | :----------------------- | :------------------------------------------------------------------------- |
+|             | PROTOCOLSFTPUSERNAME     | sftp username                                                              |
+|             | PROTOCOLSFTPPASSWORD     | sftp password                                                              |
+|             | PROTOCOLSFTPEXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
 
 ## Comment puis-je tester le Plugin et que signifient les options des commandes ? 
 
