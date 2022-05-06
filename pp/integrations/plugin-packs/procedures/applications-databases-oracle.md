@@ -174,6 +174,15 @@ This user account must have the read permission on following tables:
   - dba\_temp\_files
   - dba\_segments
   - dba\_jobs
+  - dba\_objects
+  - DBA\_MVIEW\_refresh\_times
+  - dba\_indexes
+  - dba\_ind\_partitions
+  - dba\_ind\_subpartitions
+  - dba\_registry
+  - dba\_tablespaces
+  - DBA\_MVIEW\_refresh\_times
+  - DBA\_TABLESPACE\_USAGE\_METRICS
   - v$sysstat
   - v$sgastat
   - v$parameter
@@ -182,7 +191,24 @@ This user account must have the read permission on following tables:
   - v$filestat
   - v$log
   - v$instance
-  
+  - V$ASM\_DISKGROUP
+  - v$database\_block\_corruption
+  - v$tempstat
+  - v$rowcache
+  - v$system\_event
+  - v$recovery\_area\_usage
+  - v$librarycache
+  - v$sql\_monitor
+  - v$resource\_limit
+  - v$rman\_status
+  - v$backup
+  - v$rman\_status
+  - v$rollstat
+  - v$resource\_limit
+  - v$tablespace
+  - v$event\_name
+  - v$waitstat
+
 ## Setup
 
 <Tabs groupId="sync">
