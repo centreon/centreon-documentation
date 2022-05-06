@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le Pack Centreon Backup Exec apporte 1 modèle d'hôte :
+Le Pack Veritas Backup Exec apporte un modèle d'hôte :
 * App-Backupexec-Nscp-Restapi-custom
 
 Il apporte les modèles de service suivants :
