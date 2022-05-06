@@ -83,7 +83,7 @@ The target equipment must be reachable from the Centreon poller on the TCP/8443 
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor **Veritas Backup Exec NSCP API** resources:
+1. Install the Centreon plugin package on every Centreon poller expected to monitor **Veritas Backup Exec NSCP API** resources:
 
 ```bash
 yum install centreon-plugin-Applications-Protocol-Nrpe
