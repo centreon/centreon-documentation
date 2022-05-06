@@ -133,7 +133,7 @@ yum install centreon-pack-applications-backupexec-nscp-restapi
 
 ## How to check in the CLI that the configuration is OK and what are the main options for?
 
-Once the plugin is installed, log into your Centreon Poller CLI using the
+Once the plugin is installed, log into your Centreon poller CLI using the
 **centreon-engine** user account and test the Plugin by running the following
 command to check NSClient configuration:
 
