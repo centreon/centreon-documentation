@@ -77,14 +77,14 @@ Next time you connect to the interface, the mode you previously selected remains
 * Dark mode
 ![image](../assets/getting-started/dark_mode_switch.png)
 
-You can also switch to dark mode by changing the front-end theme in the account parameters.
+You can also switch to dark mode by changing the theme in the account parameters.
 
 Go to **Administration > Parameters > My Account** and select the **General Information** tab.
 Select **Light** or **Dark** in the **Front-end Theme** field.
 
 ![image](../assets/getting-started/front-end_theme_mode.png)
 
-Then click on **Save**. The front-end theme is now in the mode you have chosen.
+Then click on **Save**. The theme is now in the mode you have chosen.
 
 ### Change the user interface language
 
