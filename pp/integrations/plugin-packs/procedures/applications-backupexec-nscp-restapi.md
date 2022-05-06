@@ -156,7 +156,7 @@ The expected command output is shown below:
 0.5.2.41 2018-04-26
 ```
 
-Check the Backup Exec Plugin by running the following command:
+Check the Backup Exec plugin by running the following command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_protocol_nrpe.pl \
