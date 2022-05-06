@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Centreon Pack SFTP brings 1 host template:
+The Centreon Pack SFTP brings a host template:
 * App-Protocol-Sftp-custom
 
 It brings the following Service Templates:
