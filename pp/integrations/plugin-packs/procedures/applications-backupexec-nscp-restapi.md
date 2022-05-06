@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Centreon Pack Backup Exec brings 1 host template:
+The Centreon Pack Backup Exec brings a host template:
 * App-Backupexec-Nscp-Restapi-custom
 
 It brings the following service templates:
@@ -83,7 +83,7 @@ The target equipment must be reachable from the Centreon poller on the TCP/8443 
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor **Veritas Backup Exec NSCP API** resources:
+1. Install the Centreon plugin package on every Centreon poller expected to monitor **Veritas Backup Exec NSCP API** resources:
 
 ```bash
 yum install centreon-plugin-Applications-Protocol-Nrpe
@@ -95,7 +95,7 @@ yum install centreon-plugin-Applications-Protocol-Nrpe
 
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor **Veritas Backup Exec NSCP API** resources:
+1. Install the Centreon plugin package on every Centreon poller expected to monitor **Veritas Backup Exec NSCP API** resources:
 
 ```bash
 yum install centreon-plugin-Applications-Protocol-Nrpe
@@ -133,7 +133,7 @@ yum install centreon-pack-applications-backupexec-nscp-restapi
 
 ## How to check in the CLI that the configuration is OK and what are the main options for?
 
-Once the plugin is installed, log into your Centreon Poller CLI using the
+Once the plugin is installed, log into your Centreon poller CLI using the
 **centreon-engine** user account and test the Plugin by running the following
 command to check NSClient configuration:
 
@@ -156,7 +156,7 @@ The expected command output is shown below:
 0.5.2.41 2018-04-26
 ```
 
-Check the Backup Exec Plugin by running the following command:
+Check the Backup Exec plugin by running the following command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_protocol_nrpe.pl \

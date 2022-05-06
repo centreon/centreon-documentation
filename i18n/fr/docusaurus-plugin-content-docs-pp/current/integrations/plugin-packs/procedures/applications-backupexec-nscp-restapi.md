@@ -9,12 +9,12 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le Pack Centreon Backup Exec apporte 1 modèle d'hôte :
+Le Pack Veritas Backup Exec apporte un modèle d'hôte :
 * App-Backupexec-Nscp-Restapi-custom
 
 Il apporte les modèles de service suivants :
 
-| Service Alias | Service Template                   | Default | Discovery |
+| Alias | Modèle de service                   | Défaut | Découverte |
 |:--------------|:-----------------------------------|:--------|:----------|
 | Alerts        | App-Backupexec-Alerts-Nscp-Restapi | X       |           |
 | Disks         | App-Backupexec-Disks-Nscp-Restapi  | X       | X         |
@@ -67,7 +67,7 @@ Il apporte les modèles de service suivants :
 
 ### NSClient Configuration
 
-Pour superviser un **Backup Exec** via NRPE, installez la version packagée Centreon de l'agent NSClient++.
+Pour superviser un **Backup Exec** de Veritas via NRPE, installez la version packagée Centreon de l'agent NSClient++.
 Suivez notre [documentation officielle](../getting-started/how-to-guides/centreon-nsclient-tutorial.md)
 
 Veuillez télécharger et installer la dernière version en date de **Centreon-NSClient-xxx.exe**: https://github.com/centreon/centreon-nsclient-build/releases
@@ -84,7 +84,7 @@ Centreon vers l'équipement supervisé.
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Installez le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources **Veritas Backup Exec NSCP API** :
+1. Installez le plugin Centreon sur tous les collecteurs Centreon devant superviser des resources **Veritas Backup Exec NSCP API** :
 
 ```bash
 yum install centreon-plugin-Applications-Protocol-Nrpe
@@ -96,7 +96,7 @@ yum install centreon-plugin-Applications-Protocol-Nrpe
 
 <TabItem value="Offline License" label="Offline License">
 
-1. Installez le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources **Veritas Backup Exec NSCP API** :
+1. Installez le plugin Centreon sur tous les collecteurs Centreon devant superviser des resources **Veritas Backup Exec NSCP API** :
 
 ```bash
 yum install centreon-plugin-Applications-Protocol-Nrpe
@@ -136,7 +136,7 @@ Une fois celui-ci configuré, certaines macros doivent être renseignées:
 
 ## Comment puis-je tester le Plugin et que signifient les options des commandes ?
 
-Une fois le Plugin installé, vous pouvez tester la bonne configuration NSClient directement en ligne
+Une fois le plugin installé, vous pouvez tester la bonne configuration NSClient directement en ligne
 de commande depuis votre collecteur Centreon en vous connectant avec
 l'utilisateur **centreon-engine** :
 
@@ -159,7 +159,7 @@ La commande devrait retourner un message de sortie similaire à :
 0.5.2.41 2018-04-26
 ```
 
-Vous pouvez maintenant tester le Plugin Backup Exec :
+Vous pouvez maintenant tester le plugin Backup Exec :
 
 ```bash
 /usr/lib/centreon/plugins/centreon_protocol_nrpe.pl \
@@ -231,4 +231,4 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 ### Diagnostic des erreurs communes
 
 Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md)
-pour le diagnostic des erreurs communes des Plugins Centreon.
+pour le diagnostic des erreurs communes des plugins Centreon.
