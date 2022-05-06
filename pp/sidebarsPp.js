@@ -38,6 +38,10 @@ module.exports = {
             {
               type: 'doc',
               id: 'integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins'
+            },
+            {
+              type: 'doc',
+              id: 'integrations/plugin-packs/getting-started/how-to-guides/windows-winrm-wsman-tutorial'
             }
           ]
         },
@@ -1836,6 +1840,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/operatingsystems-windows-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/operatingsystems-windows-wsman'
         }
       ]
     },
