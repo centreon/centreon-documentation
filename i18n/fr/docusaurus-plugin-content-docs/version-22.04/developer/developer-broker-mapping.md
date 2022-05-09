@@ -1179,7 +1179,7 @@ must be deleted.
 ### Pb Rebuild Message
 
 This event comes with BBDO 3. When some graphs have to be rebuilt. Messages
-handling these rebuilds are of that type. They replace the old bbdo rebuild
+handling these rebuilds are of that type. They replace the old BBDO rebuild
 message.
 
 There are three states for this message:
