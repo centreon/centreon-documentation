@@ -63,7 +63,7 @@ previous versions it is data serialized as explained in the Types section.
 ### Packet ID
 
 As seen in the previous paragraph, every packet holds an ID that expresses
-by itself how data is encoded. This ID can be splitted in two 16-bits
+by itself how data is encoded. This ID can be split into two 16-bit
 components. The 16 most significant bits are the event category and the
 16 least significant bits the event type.
 
