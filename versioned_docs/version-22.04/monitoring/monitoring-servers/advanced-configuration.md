@@ -687,7 +687,7 @@ operation of Centreon Web.
 
 Moreover, this output has a **garbage collector** that will clean old data from
 the database occasionally. This is an optional process, as old data is marked
-**disabled**, and can actually be useful to keep for debugging purpose.
+**disabled**, and can actually be useful to keep for debugging purposes.
 
 Since **bbdo 3**, this output is the prefered one instead of **storage** and
 **sql** output. That way, you just need one output to the database,
