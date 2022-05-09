@@ -3,8 +3,9 @@ id: developer-broker-bbdo
 title: The BBDO protocol
 ---
 
-The BBDO protocol has been created to be the default protocol of Centreon Broker. It is lightweight on the wire and
-easy to decode. It is especially designed for monitoring area of Centreon Broker.
+The BBDO protocol has been created to be the default protocol of Centreon
+Broker. It is lightweight on the wire and easy to decode. It is especially
+designed for monitoring resources with Centreon Broker.
 
 ## Introduction
 
@@ -295,27 +296,27 @@ is enabled (ie. it immediately starts).
 
 ### Example
 
-Let's have *C* the client and *S* the server. The following steps are
+Let's have **C** the client and *S* the server. The following steps are
 performed sequentially.
 
-  - *C* initiates a TCP connection with *S* and connection gets established
-  - *C* sends a *version_response* packet with the following attributes
+  - **C** initiates a TCP connection with **S** and connection gets established
+  - **C** sends a *version_response* packet with the following attributes
     - protocol major : 1
     - protocol minor : 0
     - protocol patch : 0
     - extensions : "TLS COMPRESSION"
-  - *S* sends its own *version_response* packet in reply to *C*'s
+  - **S** sends its own **version_response** packet in reply to **C**'s
     - protocol major : 1
     - protocol minor : 0
     - protocol patch : 0
     - extensions : "TLS COMPRESSION"
-  - *C* and *S* determine which extensions they have in common (here TLS
+  - **C** and **S** determine which extensions they have in common (here TLS
     and COMPRESSION)
   - if order is important, extensions are applied in the order provided
     by the server
   - TLS connection is initiated, handshake performed, ...
   - compression connection is opened
-  - now data transmitted between *C* and *S* is both encrypted and
+  - now data transmitted between **C** and **S** is both encrypted and
     compressed !
 
 ## Acknowledgement
