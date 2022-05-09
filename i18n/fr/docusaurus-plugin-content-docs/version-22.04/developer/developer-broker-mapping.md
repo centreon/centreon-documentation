@@ -1187,7 +1187,7 @@ There are three states for this message:
 to be rebuilt.
 * DATA: once the START state has been sent, one or more messages with DATA state
 may be sent to the RRD broker.
-* END: When all the rebuild events are sent, this one is sent to close the
+* END: When all the rebuild events have been sent, this one is sent to close the
 rebuilds. And the RRD broker falls back in a nominal state.
 
 The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
