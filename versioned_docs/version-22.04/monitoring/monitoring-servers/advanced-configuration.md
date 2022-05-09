@@ -735,7 +735,7 @@ outputs.
   - Rebuild check interval in seconds
     The number of seconds between each rebuild check. Default 300 seconds.
 
-  - Store in performance data in data\_bin
+  - Store performance data in data\_bin
     Should this output save the metric data in the database? Default is *yes*.
     If *no*, this output will generate RRD data without saving them into the
     database, making a rebuild impossible.
