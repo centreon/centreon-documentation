@@ -1226,7 +1226,7 @@ message RebuildMessage {
 This event comes with BBDO 3. When we want to remove graph files, we can use
 the centengine gRPC API and this call makes cbd to generate a **Pb Remove Graph
 Message**. Two possibilities are mixed in this event. We can remove graphes
-matching some index data or graphes matching some metric data. It is also
+matching some index data or graphs matching some metric data. It is also
 possible to mix the two kinds of possibility.
 
 The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
