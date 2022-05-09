@@ -56,7 +56,7 @@ Fields are provided in the big endian format.
 | destination_id | unsigned integer       | The id of the destination instance for this event.
 | data           |                        | Payload data.
 
-Here, the only difference between BBDO 3 and previous versions is the data
+Here, the only difference between BBDO 3 and the previous versions is the data
 content. In BBDO 3, this part is a serialized Protobuf object whereas in
 previous versions it is data serialized as explained in the Types section.
 
