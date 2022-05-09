@@ -1178,7 +1178,7 @@ must be deleted.
 
 ### Pb Rebuild Message
 
-This event comes with BBDO 3. When some graphes have to be rebuild. Messages
+This event comes with BBDO 3. When some graphs have to be rebuilt. Messages
 handling these rebuilds are of that type. They replace the old bbdo rebuild
 message.
 
