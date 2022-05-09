@@ -585,7 +585,7 @@ or unloaded.
 ### Pb Service
 
 This event is a Protobuf event so items are not serialized as in the previous
-events but using Protobuf 3 serialization mechanism. When BBDO 3 version is
+events but using the Protobuf 3 serialization mechanism. When BBDO 3 version is
 used, no more **Service** messages should be sent, instead you should see these
 ones.
 
