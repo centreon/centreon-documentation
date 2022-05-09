@@ -589,7 +589,7 @@ events but using the Protobuf 3 serialization mechanism. When BBDO 3 version is
 used, no more **Service** messages should be sent, instead you should see these
 ones.
 
-A such message is sent to declare a new service or to declare a service change.
+Such a message is sent to declare a new service or to declare a service change.
 
 The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
 is the following:
