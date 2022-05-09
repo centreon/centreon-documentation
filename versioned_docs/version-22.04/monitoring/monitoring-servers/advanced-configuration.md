@@ -691,7 +691,7 @@ the database occasionally. This is an optional process, as old data is marked
 
 Since **bbdo 3**, this output is the preferred one instead of the **storage** and
 **sql** outputs. That way, you just need one output to the database,
-configurations have to be filled one time and there are less conflicts between
+configurations have to be filled once and there are less conflicts between
 outputs.
 
 **unified-sql**-type outputs have the following parameters:
