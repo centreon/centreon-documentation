@@ -577,16 +577,16 @@ or unloaded.
 
 ### Responsive instance
 
-| Property   | Type             | Description                                                                | Version |
-|------------|------------------|----------------------------------------------------------------------------|---------|
-| poller\_id | unsigned integer | ID of the poller which received a configuration update request (reload).   |         |
-| responsive | boolean          | A boolean telling if the poller with ID *poller\_id* is responsive or not. |         |
+| Property   | Type             | Description                                                                  | Version |
+|------------|------------------|------------------------------------------------------------------------------|---------|
+| poller\_id | unsigned integer | ID of the poller which received a configuration update request (reload).     |         |
+| responsive | boolean          | A boolean telling if the poller with ID **poller\_id** is responsive or not. |         |
 
 ### Pb Service
 
 This event is a Protobuf event so items are not serialized as in the previous
 events but using Protobuf 3 serialization mechanism. When BBDO 3 version is
-used, no more *Service* messages should be sent, instead you should see these
+used, no more **Service** messages should be sent, instead you should see these
 ones.
 
 A such message is sent to declare a new service or to declare a service change.
@@ -751,9 +751,9 @@ is the following:
 ### Pb Service Status
 
 When BBDO 3 version is used, this type of event is sent instead of
-*Service Status*. Its content is almost the same but the old one contains some
-configuration items you don't have here, A *Pb Service Status* is smaller than
-a *Service Status*. Missing items can be found in *Pb Service*.
+**Service Status**. Its content is almost the same but the old one contains some
+configuration items you don't have here, A **Pb Service Status** is smaller than
+a **Service Status**. Missing items can be found in **Pb Service**.
 
 The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
 is the following:
@@ -827,7 +827,7 @@ is the following:
 ### Pb Host
 
 When BBDO 3 version is used, this type of event is sent instead of
-*Host*. Its content is almost the same.
+**Host**. Its content is almost the same.
 
 The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
 is the following:
@@ -971,9 +971,9 @@ is the following:
 ### Pb Host Status
 
 When BBDO 3 version is used, this type of event is sent instead of
-*Host Status*. Its content is almost the same but the old one contains some
-configuration items you don't have here, A *Pb Host Status* is smaller than
-a *Host Status*. Missing items can be found in *Pb Host*.
+**Host Status**. Its content is almost the same but the old one contains some
+configuration items you don't have here, A **Pb Host Status** is smaller than
+a **Host Status**. Missing items can be found in **Pb Host**.
 
 The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
 is the following:
@@ -1062,9 +1062,9 @@ is the following:
 ### Pb Tag
 
 This event comes with BBDO 3. It is used to associate a tag to a resource.
-There are four types of tag, *SERVICEGROUP*, *HOSTGROUP*, *SERVICECATEGORY*,
-*HOSTCATEGORY*. A tag is not associated with a poller, but we must know for
-internal handling which poller sent the tag, that is why there is a *poller\_id*
+There are four types of tag, **SERVICEGROUP**, **HOSTGROUP**, **SERVICECATEGORY**,
+**HOSTCATEGORY**. A tag is not associated with a poller, but we must know for
+internal handling which poller sent the tag, that is why there is a **poller\_id**
 item in the message.
 
 The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
@@ -1206,8 +1206,8 @@ is the following:
 ### Pb Remove Graph Message
 
 This event comes with BBDO 3. When we want to remove graph files, we can use
-the centengine gRPC API and this call makes cbd to generate a *Pb Remove Graph
-Message*. Two possibilities are mixed in this event. We can remove graphes
+the centengine gRPC API and this call makes cbd to generate a **Pb Remove Graph
+Message**. Two possibilities are mixed in this event. We can remove graphes
 matching some index data or graphes matching some metric data. It is also
 possible to mix the two kinds of possibility.
 
@@ -1226,10 +1226,10 @@ is the following:
 
 | Property    | Type          | Description                                                                                                               | Version |
 |-------------|---------------|---------------------------------------------------------------------------------------------------------------------------|---------|
-| bbdo\_major | short integer | BBDO protocol major used by the peer sending this *version\_response* packet. The sole current protocol version is 1.0.0. |         |
-| bbdo\_minor | short integer | BBDO protocol minor used by the peer sending this *version\_response* packet.                                             |         |
-| bbdo\_patch | short integer | BBDO protocol patch used by the peer sending this *version\_response* packet.                                             |         |
-| extensions  | string        | Space-separated string of extensions supported by the peer sending this *version\_response* packet.                       |         |
+| bbdo\_major | short integer | BBDO protocol major used by the peer sending this **version\_response** packet. The sole current protocol version is 1.0.0. |         |
+| bbdo\_minor | short integer | BBDO protocol minor used by the peer sending this **version\_response** packet.                                             |         |
+| bbdo\_patch | short integer | BBDO protocol patch used by the peer sending this **version\_response** packet.                                             |         |
+| extensions  | string        | Space-separated string of extensions supported by the peer sending this **version\_response** packet.                       |         |
 
 ### Ack
 

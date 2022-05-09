@@ -289,8 +289,8 @@ replies to this message with another *version_response* packet
 containing its own supported protocol version and extensions. If
 protocol versions match, then starts the extensions negotiation.
 
-Currently two extensions are supported : *TLS* and *COMPRESSION*. Right
-after the *version_response* packet, each peer searches in the other
+Currently two extensions are supported : **TLS** and **COMPRESSION**. Right
+after the **version_response** packet, each peer searches in the other
 peer's extension list the extensions it supports. When one is found, it
 is enabled (ie. it immediately starts).
 
