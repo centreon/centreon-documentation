@@ -1185,7 +1185,7 @@ message.
 There are three states for this message:
 * START: here is the first state, this message initializes which metrics have
 to be rebuilt.
-* DATA: once the start STATE has been sent, one or more messages with DATA state
+* DATA: once the START state has been sent, one or more messages with DATA state
 may be sent to the RRD broker.
 * END: When all the rebuild events are sent, this one is sent to close the
 rebuilds. And the RRD broker falls back in a nominal state.
