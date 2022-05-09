@@ -575,6 +575,538 @@ or unloaded.
 | loaded     | boolean          | True if the instance loaded successfully.                                |         |
 | poller\_id | unsigned integer | ID of the poller which received a configuration update request (reload). |         |
 
+### Responsive instance
+
+| Property   | Type             | Description                                                                  | Version |
+|------------|------------------|------------------------------------------------------------------------------|---------|
+| poller\_id | unsigned integer | ID of the poller which received a configuration update request (reload).     |         |
+| responsive | boolean          | A boolean telling if the poller with ID **poller\_id** is responsive or not. |         |
+
+### Pb Service
+
+This event is a Protobuf event so items are not serialized as in the previous
+events but using the Protobuf 3 serialization mechanism. When BBDO 3 version is
+used, no more **Service** messages should be sent, instead you should see these
+ones.
+
+Such a message is sent to declare a new service or to declare a service change.
+
+The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
+is the following:
+
+```text
+enum ServiceType {
+  SERVICE = 0;
+  METASERVICE = 2;
+  BA = 3;
+}
+
+message Service {
+  uint64 host_id = 1;
+  uint64 service_id = 2;
+
+  enum AckType {
+    NONE = 0;
+    NORMAL = 1;
+    STICKY = 2;
+  }
+  bool acknowledged = 3;
+  AckType acknowledgement_type = 4;
+
+  bool active_checks_enabled = 5;
+  bool enabled = 6;
+  int32 downtime_depth = 7;
+  string check_command = 8;
+  uint32 check_interval = 9;
+  string check_period = 10;
+
+  enum CheckType {
+    ACTIVE = 0;
+    PASSIVE = 1;
+  }
+  CheckType check_type = 11;
+  int32 current_check_attempt = 12;
+  enum State {
+    OK = 0;
+    WARNING = 1;
+    CRITICAL = 2;
+    UNKNOWN = 3;
+    PENDING = 4;
+  }
+  State current_state = 13;
+  bool event_handler_enabled = 14;
+  string event_handler = 15;
+  double execution_time = 16;
+  bool flap_detection_enabled = 17;
+  bool has_been_checked = 18;
+  bool is_flapping = 19;
+  int64 last_check = 20;
+  State last_hard_state = 21;
+  int64 last_hard_state_change = 22;
+  int64 last_notification = 23;
+  int32 notification_number = 24;
+  int64 last_state_change = 25;
+  int64 last_time_ok = 26;
+  int64 last_time_warning = 27;
+  int64 last_time_critical = 28;
+  int64 last_time_unknown = 29;
+  int64 last_update = 30;
+  double latency = 31;
+  uint32 max_check_attempts = 32;
+  int64 next_check = 33;
+  int64 next_notification = 34;
+  bool no_more_notifications = 35;
+  bool notifications_enabled = 36;
+  string output = 37;
+  string long_output = 38;
+  bool passive_checks_enabled = 39;
+  double percent_state_change = 40;
+  string perf_data = 41;
+  double retry_interval = 42;
+  string host_name = 43;
+  string service_description = 44;
+  bool should_be_scheduled = 45;
+  bool obsess_over = 46;
+
+  enum StateType {
+    SOFT = 0;
+    HARD = 1;
+  }
+
+  StateType state_type = 47;
+  string action_url = 48;
+  bool check_freshness = 49;
+  bool default_active_checks_enabled = 50;
+  bool default_event_handler_enabled = 51;
+  bool default_flap_detection_enabled = 52;
+  bool default_notifications_enabled = 53;
+  bool default_passive_checks_enabled = 54;
+  string display_name = 55;
+  double first_notification_delay = 56;
+  bool flap_detection_on_critical = 57;
+  bool flap_detection_on_ok = 58;
+  bool flap_detection_on_unknown = 59;
+  bool flap_detection_on_warning = 60;
+  double freshness_threshold = 61;
+  double high_flap_threshold = 62;
+  string icon_image = 63;
+  string icon_image_alt = 64;
+  bool is_volatile = 65;
+  double low_flap_threshold = 66;
+  string notes = 67;
+  string notes_url = 68;
+  double notification_interval = 69;
+  string notification_period = 70;
+  bool notify_on_critical = 71;
+  bool notify_on_downtime = 72;
+  bool notify_on_flapping = 73;
+  bool notify_on_recovery = 74;
+  bool notify_on_unknown = 75;
+  bool notify_on_warning = 76;
+  bool stalk_on_critical = 77;
+  bool stalk_on_ok = 78;
+  bool stalk_on_unknown = 79;
+  bool stalk_on_warning = 80;
+  bool retain_nonstatus_information = 81;
+  bool retain_status_information = 82;
+  uint64 severity_id = 83;
+  repeated TagInfo tags = 84;
+
+  ServiceType type = 85;
+
+  /* In case of metaservice and ba, they also have an internal id. We keep it
+   * here. */
+  uint64 internal_id = 86;
+  uint64 icon_id = 87;
+}
+```
+
+### Pb Adaptive service
+
+When BBDO 3 version is used, you can see this event sent when a service has
+changes in its configuration.
+
+The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
+is the following:
+
+```text
+message AdaptiveService {
+  uint64 host_id = 1;
+  uint64 service_id = 2;
+
+  optional bool notifications_enabled = 3;
+  optional bool active_checks_enabled = 4;
+  optional bool should_be_scheduled = 5;
+  optional bool passive_checks_enabled = 6;
+  optional bool event_handler_enabled = 7;
+  optional bool flap_detection_enabled = 8;
+  optional bool obsess_over = 9;
+  optional string event_handler = 10;
+  optional string check_command = 11;
+  optional uint32 check_interval = 12;
+  optional uint32 retry_interval = 13;
+  optional uint32 max_check_attempts  = 14;
+  optional bool check_freshness = 15;
+  optional string check_period = 16;
+  optional string notification_period = 17;
+}
+```
+
+### Pb Service Status
+
+When BBDO 3 version is used, this type of event is sent instead of
+**Service Status**. Its content is almost the same but the old one contains some
+configuration items you don't have here, A **Pb Service Status** is smaller than
+a **Service Status**. Missing items can be found in **Pb Service**.
+
+The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
+is the following:
+
+```text
+message ServiceStatus {
+  uint64 host_id = 1;
+  uint64 service_id = 2;
+
+  bool has_been_checked = 3;
+  enum CheckType {
+    ACTIVE = 0;
+    PASSIVE = 1;
+  }
+  CheckType check_type = 4;
+
+  enum State {
+    OK = 0;
+    WARNING = 1;
+    CRITICAL = 2;
+    UNKNOWN = 3;
+    PENDING = 4;
+  }
+  State current_state = 5;
+  enum StateType {
+    SOFT = 0;
+    HARD = 1;
+  }
+  StateType state_type = 6;
+  int64 last_state_change = 7;
+  State last_hard_state = 8;
+  int64 last_hard_state_change = 9;
+  int64 last_time_ok = 10;
+  int64 last_time_warning = 11;
+  int64 last_time_critical = 12;
+  int64 last_time_unknown = 13;
+
+  string output = 14;
+  string long_output = 15;
+  string perf_data = 16;
+
+  bool is_flapping = 17;
+  double percent_state_change = 18;
+  double latency = 19;
+  double execution_time = 20;
+  int64 last_check = 21;
+  int64 next_check = 22;
+  bool should_be_scheduled = 23;
+  int32 current_check_attempt = 24;
+
+  int32 notification_number = 25;
+  bool no_more_notifications = 26;
+  int64 last_notification = 27;
+  int64 next_notification = 28;
+
+  enum AckType {
+    NONE = 0;
+    NORMAL = 1;
+    STICKY = 2;
+  }
+  AckType acknowledgement_type = 29;
+  int32 downtime_depth = 30;
+
+  ServiceType type = 31;
+
+  /* In case of metaservice and ba, they also have an internal id. We keep it
+   * here. */
+  uint64 internal_id = 32;
+}
+```
+
+
+### Pb Host
+
+When BBDO 3 version is used, this type of event is sent instead of
+**Host**. Its content is almost the same.
+
+The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
+is the following:
+
+```text
+message Host {
+  uint64 host_id = 1;
+
+  enum AckType {
+    NONE = 0;
+    NORMAL = 1;
+    STICKY = 2;
+  }
+  bool acknowledged = 2;
+  int32 acknowledgement_type = 3;
+
+  bool active_checks_enabled = 4;
+  bool enabled = 5;
+  int32 downtime_depth = 6;
+  string check_command = 7;
+  int32 check_interval = 8;
+  string check_period = 9;
+
+  enum CheckType {
+    ACTIVE = 0;
+    PASSIVE = 1;
+  }
+  CheckType check_type = 10;
+  int32 current_check_attempt = 11;
+  enum State {
+    UP = 0;
+    DOWN = 1;
+    UNREACHABLE = 2;
+  }
+  State current_state = 12;
+  bool event_handler_enabled = 13;
+  string event_handler = 14;
+  double execution_time = 15;
+  bool flap_detection_enabled = 16;
+  bool has_been_checked = 17;
+  bool is_flapping = 18;
+  int64 last_check = 19;
+  State last_hard_state = 20;
+  int64 last_hard_state_change = 21;
+  int64 last_notification = 22;
+  int32 notification_number = 23;
+  int64 last_state_change = 24;
+  int64 last_time_down = 25;
+  int64 last_time_unreachable = 26;
+  int64 last_time_up = 27;
+  int64 last_update = 28;
+  double latency = 29;
+  int32 max_check_attempts = 30;
+  int64 next_check = 31;
+  int64 next_notification = 32;
+  bool no_more_notifications = 33;
+  bool notifications_enabled = 34;
+  string output = 35;
+  bool passive_checks_enabled = 36;
+  double percent_state_change = 37;
+  string perf_data = 38;
+  double retry_interval = 39;
+  bool should_be_scheduled = 40;
+  bool obsess_over = 41;
+
+  enum StateType {
+    SOFT = 0;
+    HARD = 1;
+  }
+
+  StateType state_type = 42;
+  string action_url = 43;
+  string address = 44;
+  string alias = 45;
+  bool check_freshness = 46;
+  bool default_active_checks_enabled = 47;
+  bool default_event_handler_enabled = 48;
+  bool default_flap_detection_enabled = 49;
+  bool default_notifications_enabled = 50;
+  bool default_passive_checks_enabled = 51;
+  string display_name = 52;
+  double first_notification_delay = 53;
+  bool flap_detection_on_down = 54;
+  bool flap_detection_on_unreachable = 55;
+  bool flap_detection_on_up = 56;
+  double freshness_threshold = 57;
+  double high_flap_threshold = 58;
+  string host_name = 59;
+  string icon_image = 60;
+  string icon_image_alt = 61;
+  int32 poller_id = 62;
+  double low_flap_threshold = 63;
+  string notes = 64;
+  string notes_url = 65;
+  double notification_interval = 66;
+  string notification_period = 67;
+  bool notify_on_down = 68;
+  bool notify_on_downtime = 69;
+  bool notify_on_flapping = 70;
+  bool notify_on_recovery = 71;
+  bool notify_on_unreachable = 72;
+  bool stalk_on_down = 73;
+  bool stalk_on_unreachable = 74;
+  bool stalk_on_up = 75;
+  string statusmap_image = 76;
+  bool retain_nonstatus_information = 77;
+  bool retain_status_information = 78;
+  string timezone = 79;
+  uint64 severity_id = 80;
+  repeated TagInfo tags = 81;
+  uint64 icon_id = 82;
+}
+```
+
+### Pb Adaptive host
+
+When BBDO 3 version is used, you can see this event sent when a host has
+changes in its configuration.
+
+The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
+is the following:
+
+```text
+message AdaptiveHost {
+  uint64 host_id = 1;
+
+  optional bool notifications_enabled = 2;
+  optional bool active_checks_enabled = 3;
+  optional bool should_be_scheduled = 4;
+  optional bool passive_checks_enabled = 5;
+  optional bool event_handler_enabled = 6;
+  optional bool flap_detection_enabled  = 7;
+  optional bool obsess_over  = 8;
+  optional string event_handler = 9;
+  optional string check_command  = 10;
+  optional uint32 check_interval  = 11;
+  optional uint32 retry_interval  = 12;
+  optional uint32 max_check_attempts  = 13;
+  optional bool check_freshness = 14;
+  optional string check_period  = 15;
+  optional string notification_period  = 16;
+}
+```
+
+### Pb Host Status
+
+When BBDO 3 version is used, this type of event is sent instead of
+**Host Status**. Its content is almost the same but the old one contains some
+configuration items you don't have here, A **Pb Host Status** is smaller than
+a **Host Status**. Missing items can be found in **Pb Host**.
+
+The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
+is the following:
+
+```text
+message HostStatus {
+  uint64 host_id = 1;
+
+  bool has_been_checked = 2;
+  enum CheckType {
+    ACTIVE = 0;
+    PASSIVE = 1;
+  }
+  CheckType check_type = 3;
+
+  enum State {
+    UP = 0;
+    DOWN = 1;
+    UNREACHABLE = 2;
+  }
+  State current_state = 4;
+  enum StateType {
+    SOFT = 0;
+    HARD = 1;
+  }
+  StateType state_type = 5;
+  int64 last_state_change = 6;
+  State last_hard_state = 7;
+  int64 last_hard_state_change = 8;
+  int64 last_time_up = 9;
+  int64 last_time_down = 10;
+  int64 last_time_unreachable = 11;
+
+  string output = 12;
+  string long_output = 13;
+  string perf_data = 14;
+
+  bool is_flapping = 15;
+  double percent_state_change = 16;
+  double latency = 17;
+  double execution_time = 18;
+  int64 last_check = 19;
+  int64 next_check = 20;
+  bool should_be_scheduled = 21;
+  int32 current_check_attempt = 22;
+
+  int32 notification_number = 23;
+  bool no_more_notifications = 24;
+  int64 last_notification = 25;
+  int64 next_notification = 26;
+
+  enum AckType {
+    NONE = 0;
+    NORMAL = 1;
+    STICKY = 2;
+  }
+  AckType acknowledgement_type = 27;
+  int32 downtime_depth = 28;
+}
+```
+
+### Pb Severity
+
+This event comes with BBDO 3. It contains the severity of a resource.
+The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
+is the following:
+
+```text
+message Severity {
+  uint64 id = 1;
+  enum Action {
+    ADD = 0;
+    DELETE = 1;
+    MODIFY = 2;
+  }
+  Action action = 2;
+  uint32 level = 3;
+  uint64 icon_id = 4;
+  string name = 5;
+  enum Type {
+    SERVICE = 0;
+    HOST = 1;
+  }
+  Type type = 6;
+  uint64 poller_id = 7;
+}
+```
+
+
+### Pb Tag
+
+This event comes with BBDO 3. It is used to associate a tag to a resource.
+There are four types of tag, **SERVICEGROUP**, **HOSTGROUP**, **SERVICECATEGORY**,
+**HOSTCATEGORY**. A tag is not associated with a poller, but we must know for
+internal handling which poller sent the tag, that is why there is a **poller\_id**
+item in the message.
+
+The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
+is the following:
+
+```text
+enum TagType {
+  SERVICEGROUP = 0;
+  HOSTGROUP = 1;
+  SERVICECATEGORY = 2;
+  HOSTCATEGORY = 3;
+}
+
+message Tag {
+  uint64 id = 1;
+  enum Action {
+    ADD = 0;
+    DELETE = 1;
+    MODIFY = 2;
+  }
+
+  Action action = 2;
+  TagType type = 3;
+  string name = 4;
+  int64 poller_id = 5;
+}
+```
+
 ## Storage
 
 ### Metric
@@ -643,16 +1175,81 @@ must be deleted.
 | index\_id   | unsigned integer | Index ID.   |         |
 | host\_id    | unsigned integer | Index ID.   |         |
 | service\_id | unsigned integer | Index ID.   |         |
+
+### Pb Rebuild Message
+
+This event comes with BBDO 3. When some graphs have to be rebuilt. Messages
+handling these rebuilds are of that type. They replace the old BBDO rebuild
+message.
+
+There are three states for this message:
+* START: here is the first state, this message initializes which metrics have
+to be rebuilt.
+* DATA: once the START state has been sent, one or more messages with DATA state
+may be sent to the RRD broker.
+* END: When all the rebuild events have been sent, this one is sent to close the
+rebuilds. And the RRD broker falls back in a nominal state.
+
+The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
+is the following:
+
+```text
+message Point {
+  int64 ctime = 1;
+  double value = 2;
+}
+
+message Timeserie {
+  repeated Point pts = 1;
+  int32 data_source_type = 2;
+  uint32 check_interval = 3;
+  uint32 rrd_retention = 4;
+}
+
+message RebuildMessage {
+  enum State {
+    START = 0;
+    DATA = 1;
+    END = 2;
+  }
+  State state = 1;
+  /* Only used on DATA state */
+  map<uint64, Timeserie> timeserie = 2;
+
+  /* Only used on START/END state */
+  repeated uint64 metric_id = 3;
+}
+```
+
+### Pb Remove Graph Message
+
+This event comes with BBDO 3. When we want to remove graph files, we can use
+the centengine gRPC API and this call makes cbd to generate a **Pb Remove Graph
+Message**. Two possibilities are mixed in this event. We can remove graphes
+matching some index data or graphs matching some metric data. It is also
+possible to mix the two kinds.
+
+The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
+is the following:
+
+```text
+message RemoveGraphMessage {
+  repeated uint64 index_ids = 1;
+  repeated uint64 metric_ids = 2;
+}
+```
+
+
 ## BBDO
 
 ### Version response
 
 | Property    | Type          | Description                                                                                                               | Version |
 |-------------|---------------|---------------------------------------------------------------------------------------------------------------------------|---------|
-| bbdo\_major | short integer | BBDO protocol major used by the peer sending this *version\_response* packet. The sole current protocol version is 1.0.0. |         |
-| bbdo\_minor | short integer | BBDO protocol minor used by the peer sending this *version\_response* packet.                                             |         |
-| bbdo\_patch | short integer | BBDO protocol patch used by the peer sending this *version\_response* packet.                                             |         |
-| extensions  | string        | Space-separated string of extensions supported by the peer sending this *version\_response* packet.                       |         |
+| bbdo\_major | short integer | BBDO protocol major used by the peer sending this **version\_response** packet. The sole current protocol version is 1.0.0. |         |
+| bbdo\_minor | short integer | BBDO protocol minor used by the peer sending this **version\_response** packet.                                             |         |
+| bbdo\_patch | short integer | BBDO protocol patch used by the peer sending this **version\_response** packet.                                             |         |
+| extensions  | string        | Space-separated string of extensions supported by the peer sending this **version\_response** packet.                       |         |
 
 ### Ack
 
