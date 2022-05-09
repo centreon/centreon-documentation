@@ -1244,8 +1244,8 @@ message RemoveGraphMessage {
 
 ### Version response
 
-| Property    | Type          | Description                                                                                                               | Version |
-|-------------|---------------|---------------------------------------------------------------------------------------------------------------------------|---------|
+| Property    | Type          | Description                                                                                                                 | Version |
+|-------------|---------------|-----------------------------------------------------------------------------------------------------------------------------|---------|
 | bbdo\_major | short integer | BBDO protocol major used by the peer sending this **version\_response** packet. The sole current protocol version is 1.0.0. |         |
 | bbdo\_minor | short integer | BBDO protocol minor used by the peer sending this **version\_response** packet.                                             |         |
 | bbdo\_patch | short integer | BBDO protocol patch used by the peer sending this **version\_response** packet.                                             |         |
