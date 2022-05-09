@@ -1,9 +1,9 @@
 ---
 id: introduction
-title: Centreon Platform 21.10
+title: Centreon Platform 22.04
 ---
 
-Vous trouverez dans ce chapitre la note de version globale de la **Plateforme Centreon 21.10**.
+Vous trouverez dans ce chapitre la note de version globale de la **Plateforme Centreon 22.04**.
 
 Pour accéder aux notes de version détaillées par composants, rendez vous dans les sections suivantes:
 

@@ -65,14 +65,14 @@ service mysqld stop
 ```
 
 3. Transférer les exports vers le nouveau serveur de base de données Centreon
-21.10 :
+22.04 :
 
 ```shell
 rsync -avz /tmp/centreon.sql root@<IP_NOUVEAU_CENTREON>:/tmp/
 rsync -avz /tmp/centreon_storage.sql root@<IP_NOUVEAU_CENTREON>:/tmp/
 ```
 
-4. Sur le serveur de base de données Centreon 21.10, supprimer les bases de
+4. Sur le serveur de base de données Centreon 22.04, supprimer les bases de
 données vierges et les recréer :
 
 ```shell
@@ -133,12 +133,12 @@ dépend de votre installation. Les principaux répertoires à synchroniser sont 
 ### Montée de version de la solution Centreon
 
 Forcez la montée de version du nouveau serveur en déplacant le contenu du répertoire
-**/var/lib/centreon/installs/install-21.10.0-YYYYMMDD\_HHMMSS** dans le
+**/var/lib/centreon/installs/install-22.04.0-YYYYMMDD\_HHMMSS** dans le
 répertoire  **/usr/share/centreon/www/install** :
 
 ```shell
 cd /var/lib/centreon/installs/
-mv install-21.10.0-YYYYMMDD_HHMMSS/ /usr/share/centreon/www/install/
+mv install-22.04.0-YYYYMMDD_HHMMSS/ /usr/share/centreon/www/install/
 ```
 
 > Si vous utilisez la meme adresse IP ou le même nom DNS entre l'ancien serveur
@@ -173,4 +173,4 @@ la configuration de l'ensemble de la plateforme et exportez là.
 ### Mise à jour des modules
 
 Référez-vous à la documentation des modules installés afin de connaître leur
-compatibilité avec Centreon 21.10, et pour mettre à jour ces derniers.
+compatibilité avec Centreon 22.04, et pour mettre à jour ces derniers.

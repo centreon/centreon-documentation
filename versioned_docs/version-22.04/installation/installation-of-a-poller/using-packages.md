@@ -5,34 +5,37 @@ title: Using packages
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 Centreon provides RPM packages for its products through the Centreon Open
-Sources version available free of charge in our repository.
+Source version available free of charge in our repository.
 
-These packages have been successfully tested in CentOS 7 and 8 environments.
-
-> Due to Red Hat's stance on CentOS 8, we suggest not to use said version for
-> your production environment. Nevertheless, these packages for CentOS 8 are
-> compatible with RHEL 8 and Oracle Linux 8 versions.
+These packages can be installed on CentOS 7 and on Alma/RHEL/Oracle Linux 8.
 
 ## Pre-installation steps
 
 ### Disable SELinux
 
-SELinux should be disabled. To do this, you have to edit the file
-**/etc/selinux/config** and replace **enforcing** by **disabled**, or by
-running the following command:
+During installation, SELinux should be disabled. To do this, edit the file
+**/etc/selinux/config** and replace **enforcing** by **disabled**. You can also run the following command:
 
 ```shell
 sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
 ```
 
-> Reboot your operating system to apply the change.
+Reboot your operating system to apply the change.
+
+```shell
+reboot
+```
 
 After system startup, perform a quick check of the SELinux status:
 
 ```shell
-$ getenforce
+getenforce
+```
+
+You should have this result:
+
+```shell
 Disabled
 ```
 
@@ -62,6 +65,21 @@ hostnamectl set-hostname poller1
 ### Install the repositories
 
 <Tabs groupId="sync">
+<TabItem value="Alma 8" label="Alma 8">
+
+#### Redhat PowerTools repository
+
+To install Centreon you will need to enable the official PowerTools repository
+supported by Redhat.
+
+Enable the PowerTools repository using these commands:
+
+```shell
+dnf -y install dnf-plugins-core epel-release
+dnf config-manager --set-enabled powertools
+```
+
+</TabItem>
 <TabItem value="RHEL 8" label="RHEL 8">
 
 #### Redhat CodeReady Builder repository
@@ -77,29 +95,7 @@ subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 ```
 
 </TabItem>
-<TabItem value="CentOS 8" label="CentOS 8">
 
-#### Redhat PowerTools repository
-
-To install Centreon you will need to enable the official PowerTools repository
-supported by Redhat.
-
-Enable the PowerTools repository using these commands:
-
-- For Centos 8.2:
-
-    ```shell
-    dnf -y install dnf-plugins-core epel-release
-    dnf config-manager --set-enabled PowerTools
-    ```
-
-- For CentOS 8.3 and CentOS Stream:
-    ```shell
-    dnf -y install dnf-plugins-core epel-release
-    dnf config-manager --set-enabled powertools
-    ```
-
-</TabItem>
 <TabItem value="Oracle Linux 8" label="Oracle Linux 8">
 
 #### Oracle CodeReady Builder repository
@@ -141,17 +137,17 @@ centreon-release package, which will provide the repository file.
 Install the Centreon repository using this command:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-5.el8.noarch.rpm
+dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04-3.el8.noarch.rpm
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-5.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
 ```
 
 </TabItem>
@@ -162,17 +158,17 @@ yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/ce
 To install the monitoring engine, run the command:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y centreon-poller-centreon-engine
+dnf install -y centreon-poller
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install -y centreon-poller-centreon-engine
+yum install -y centreon-poller
 ```
 
 </TabItem>
@@ -199,7 +195,7 @@ systemctl restart centengine
 To turn the server into a poller and to register it to the Central server or to a Remote server, execute the following command on the future poller:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ``` shell
 /usr/share/centreon/bin/registerServerTopology.sh -u <API_ACCOUNT> \
@@ -306,7 +302,7 @@ Failed connect to 192.168.0.1:444; Connection refused
 2020-10-20T10:42:23+02:00 [ERROR]: No route found for “POST /centreon/api/latest/platform/topology”
 ```
 
-> Your Centreon target version is invalid. It should be greater or equal to 21.10.
+> Your Centreon target version is invalid. It should be greater or equal to 22.04.
 
 ## Add the Poller to configuration
 

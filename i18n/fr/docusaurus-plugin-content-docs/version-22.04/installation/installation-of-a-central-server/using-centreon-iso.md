@@ -3,7 +3,7 @@ id: using-centreon-iso
 title: A partir de l'ISO Centreon
 ---
 
-> Si vous souhaitez installer Centreon sur une distribution CentOS / Oracle Linux
+> Si vous souhaitez installer Centreon sur une distribution Oracle Linux
 > / RHEL en version 8, vous devez suivre la procédure
 > [à partir des paquets RPM](./using-packages.md)
 

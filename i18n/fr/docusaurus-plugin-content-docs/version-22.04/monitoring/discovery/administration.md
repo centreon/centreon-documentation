@@ -17,7 +17,7 @@ title: Administration
 >
 > Les hôtes découverts au travers des tâches ne sont pas touchés.
 >
-> La montée de version vers 21.10 conserve toutes les données présentes depuis
+> La montée de version vers 22.04 conserve toutes les données présentes depuis
 > la version 20.04.
 
 1. Pour mettre à jour le module, exécutez la commande suivante :

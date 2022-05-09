@@ -60,7 +60,7 @@ la vérification sur les serveurs de bases de données s'ils sont dédiés.
 
 ## Mise à jour de MariaDB / MySQL
 
-Centreon est compatible avec la version 10.5 de MariaDB depuis la version 21.10. 
+Centreon est compatible avec la version 10.5 de MariaDB depuis la version 21.04. 
 
 Réalisez la montée de version des bases de données en suivant [la documentation officielle](../../upgrade/upgrade-from-19-10.md#montée-de-version-du-serveur-mariadb). 
 
@@ -75,12 +75,12 @@ systemctl stop mysql mariadb
 Effectuer les opérations suivantes sur les deux noeuds hébergeant le serveur Apache et l'applicatif Centreon:
 
 Si vous utilisez Centreon 19.10:
-* [Déployer les dépôts 21.10](../../upgrade/upgrade-from-19-10.md#mise-à-jour-des-dépôts). Il est également nécessaire de mettre à jour les dépôts des modules de l'édition Business.
+* [Déployer les dépôts 22.04](../../upgrade/upgrade-from-19-10.md#mise-à-jour-des-dépôts). Il est également nécessaire de mettre à jour les dépôts des modules de l'édition Business.
 * [Mettre à jour les paquets Centreon](../../upgrade/upgrade-from-19-10.md#montée-de-version-de-la-solution-centreon)
 * [Réaliser les étapes supplémentaires](../../upgrade/upgrade-from-19-10.md#actions-complémentaires)
 
 Si vous utilisez Centreon 19.04:
-* [Déployer les dépôts 21.10](../../upgrade/upgrade-from-19-04.md#mise-à-jour-des-dépôts). Also those of the Business Edition modules if installed.
+* [Déployer les dépôts 22.04](../../upgrade/upgrade-from-19-04.md#mise-à-jour-des-dépôts). Also those of the Business Edition modules if installed.
 * [Mettre à jour les paquets Centreon](../../upgrade/upgrade-from-19-04.md#montée-de-version-de-la-solution-centreon)
 * [Réaliser les étapes supplémentaires](../../upgrade/upgrade-from-19-04.md#actions-complémentaires)
 

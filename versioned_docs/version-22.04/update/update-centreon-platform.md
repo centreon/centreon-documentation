@@ -1,9 +1,9 @@
 ---
 id: update-centreon-platform
-title: Update a Centreon 21.10 platform
+title: Update a Centreon 22.04 platform
 ---
 
-This chapter describes how to update your Centreon 21.10 platform.
+This chapter describes how to update your Centreon 22.04 platform (i.e. switch from version 22.04.x to version 22.04.y).
 
 ## Perform a backup
 
@@ -75,9 +75,9 @@ systemctl restart cbd centengine gorgoned
 From `Administration > Extensions > Manager`, update all extensions, starting
 with the following:
 
-  - License Manager,
-  - Plugin Packs Manager,
-  - Auto Discovery.
+- License Manager,
+- Plugin Packs Manager,
+- Auto Discovery.
 
 Then you can update all other commercial extensions.
 

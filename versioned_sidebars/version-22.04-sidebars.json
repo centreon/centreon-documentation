@@ -853,6 +853,10 @@
             },
             {
               "type": "doc",
+              "id": "version-22.04/upgrade/upgrade-from-21-10"
+            },
+            {
+              "type": "doc",
               "id": "version-22.04/upgrade/upgrade-from-21-04"
             },
             {

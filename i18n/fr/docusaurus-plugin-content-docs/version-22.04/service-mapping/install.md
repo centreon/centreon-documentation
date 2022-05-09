@@ -9,7 +9,7 @@ title: Installer l'extension Centreon BAM
 
 ## Prerequisites
 
-Le serveur central et Centreon BAM doivent être dans la même version majeure (c'est-à-dire tous les deux en 21.10.x).
+Le serveur central et Centreon BAM doivent être dans la même version majeure (c'est-à-dire tous les deux en 22.04.x).
 
 ## Installation
 
