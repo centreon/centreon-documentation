@@ -4,7 +4,7 @@ title: The BBDO protocol
 ---
 
 The BBDO protocol has been created to be the default protocol of Centreon Broker. It is lightweight on the wire and
-easy to decode. It is especially designed the for monitoring area of Centreon Broker.
+easy to decode. It is especially designed for monitoring area of Centreon Broker.
 
 ## Introduction
 
@@ -14,7 +14,17 @@ the time monitoring information provided by the monitoring engine (eg.
 Centreon Engine or Nagios). It uses mostly raw binary values which
 allows it to consume very few memory.
 
+With Broker 22.04.0, we introduce a new version of BBDO. It is based on
+[Google Protobuf 3](https://developers.google.com/protocol-buffers). The new
+protocol stays compatible with previous one but introduces
+new events. For example, there is PbService and PbServiceStatus events that are
+sent instead of Service and ServiceStatus events. Configured with BBDO 3, Broker
+still understands Service and ServiceStatus events but by default it should
+send the new versions.
+
 ## Types
+
+This section is about BBDO 2.
 
 As a binary protocol, BBDO uses data types to serialize data. They are
 written in a Big Endian format and described in the following table.
@@ -32,11 +42,11 @@ written in a Big Endian format and described in the following table.
 
 ## Packet format
 
-The packets format of Centreon Broker introduce only 16 bytes of header
+The packets format of Centreon Broker introduces only 16 bytes of header
 to transmit each monitoring event (usually about 100-200 bytes each).
 Fields are provided in the big endian format.
 
-| Field          | Type                   | Description                                             
+| Field          | Type                   | Description
 |----------------|------------------------|-------------------------------------------------------
 | checksum       | unsigned short integer | CRC-16-CCITT X.25 of size, id, source and destination. The checksum can be used to recover from an incomplete data packet sent in the stream by dropping bytes one by one.
 | size           | unsigned short integer | Size of the packet, excluding header.
@@ -45,9 +55,13 @@ Fields are provided in the big endian format.
 | destination_id | unsigned integer       | The id of the destination instance for this event.
 | data           |                        | Payload data.
 
+Here, the only difference between BBDO 3 and previous versions is the data
+content. In BBDO 3, this part is a serialized Protobuf object whereas in
+previous versions it is data serialized as explained in the Types section.
+
 ### Packet ID
 
-As seen in the previous paragraph, every packet holds an ID that express
+As seen in the previous paragraph, every packet holds an ID that expresses
 by itself how data is encoded. This ID can be splitted in two 16-bits
 components. The 16 most significant bits are the event category and the
 16 least significant bits the event type.
@@ -64,10 +78,10 @@ The current available categories are described in the table below.
 | NEB         | BBDO_NEB_TYPE         | 1     | Classical monitoring events (hosts, services, notifications, event handlers, plugin execution, ...).
 | BBDO        | BBDO_BBDO_TYPE        | 2     | Category internal to the BBDO protocol.
 | Storage     | BBDO_STORAGE_TYPE     | 3     | Category related to RRD graph building.
-| Correlation | BBDO_CORRELATION_TYPE | 4     | Status correlation.
-| Dumper      | BBDO_DUMPER_TYPE      | 5     | Dumper events.
+| Correlation | BBDO_CORRELATION_TYPE | 4     | Status correlation (deprecated).
+| Dumper      | BBDO_DUMPER_TYPE      | 5     | Dumper events (only used for tests).
 | Bam         | BBDO_BAM_TYPE         | 6     | Bam events.
-| Extcmd      | BBDO_EXTCMD_TYPE      | 7     | Centreon Broker external commands.
+| Extcmd      | BBDO_EXTCMD_TYPE      | 7     | Centreon Broker external commands (deprecated).
 | Internal    | BBDO_INTERNAL_TYPE    | 65535 | Reserved for internal protocol use.
 
 ### NEB
@@ -76,48 +90,59 @@ The table below lists event types available in the NEB category. They
 have to be mixed with the BBDO_NEB_TYPE category to get a BBDO event ID.
 
 
-| Type                   | Value
-|------------------------|------
-| Acknowledgement        | 1
-| Comment                | 2
-| Custom variable        | 3
-| Custom variable status | 4
-| Downtime               | 5
-| Event handler          | 6
-| Flapping status        | 7
-| Host check             | 8
-| Host dependency        | 9
-| Host group             | 10
-| Host group member      | 11
-| Host                   | 12
-| Host parent            | 13
-| Host status            | 14
-| Instance               | 15
-| Instance status        | 16
-| Log entry              | 17
-| Module                 | 18
-| Service check          | 19
-| Service dependency     | 20
-| Service group          | 21
-| Service group member   | 22
-| Service                | 23
-| Service status         | 24
-| Instance Configuration | 25
+| Type                   | Value | Uses Protobuf |
+|------------------------|-------|---------------|
+| Acknowledgement        | 1     |            No |
+| Comment                | 2     |            No |
+| Custom variable        | 3     |            No |
+| Custom variable status | 4     |            No |
+| Downtime               | 5     |            No |
+| Event handler          | 6     |            No |
+| Flapping status        | 7     |            No |
+| Host check             | 8     |            No |
+| Host dependency        | 9     |            No |
+| Host group             | 10    |            No |
+| Host group member      | 11    |            No |
+| Host                   | 12    |            No |
+| Host parent            | 13    |            No |
+| Host status            | 14    |            No |
+| Instance               | 15    |            No |
+| Instance status        | 16    |            No |
+| Log entry              | 17    |            No |
+| Module                 | 18    |            No |
+| Service check          | 19    |            No |
+| Service dependency     | 20    |            No |
+| Service group          | 21    |            No |
+| Service group member   | 22    |            No |
+| Service                | 23    |            No |
+| Service status         | 24    |            No |
+| Instance Configuration | 25    |            No |
+| Responsive Instance    | 26    |            No |
+| Pb Service             | 27    |           Yes |
+| Pb Adaptive Service    | 28    |           Yes |
+| Pb Service Status      | 29    |           Yes |
+| Pb Host                | 30    |           Yes |
+| Pb Adaptive Host       | 31    |           Yes |
+| Pb Host Status         | 32    |           Yes |
+| Pb Severity            | 33    |           Yes |
+| Pb Tag                 | 34    |           Yes |
 
 ### Storage
 
 The table below lists event types available in the Storage category.
-They have to be mixed with the BBDO_STORAGE_TYPE category to get a BBDO
+They have to be mixed with the BBDO\_STORAGE\_TYPE category to get a BBDO
 event ID.
 
-| Type            | Value
-|-----------------|------
-| metric          | 1
-| rebuild         | 2
-| remove_graph    | 3
-| status          | 4
-| index mapping   | 5
-| metric mapping  | 6
+| Type                    | Value | Uses Protobuf |
+|-------------------------|-------|---------------|
+| metric                  | 1     |            No |
+| rebuild                 | 2     |            No |
+| remove\_graph           | 3     |            No |
+| status                  | 4     |            No |
+| index mapping           | 5     |            No |
+| metric mapping          | 6     |            No |
+| Pb Rebuild Message      | 7     |           Yes |
+| Pb Remove Graph Message | 8     |           Yes |
 
 ### BBDO
 
@@ -126,10 +151,10 @@ They have to be mixed with the BBDO_BBDO_TYPE category to get a BBDO
 event ID.
 
 
-| Type             | Value
-|------------------|------
-| version_response | 1
-| ack              | 2
+| Type              | Value
+|-------------------|------
+| version\_response | 1
+| ack               | 2
 
 ### BAM
 
@@ -263,34 +288,34 @@ replies to this message with another *version_response* packet
 containing its own supported protocol version and extensions. If
 protocol versions match, then starts the extensions negotiation.
 
-Currently two extensions are supported : *TLS* and *compression*. Right
-after the *version_response* packet, each peer search in the other
+Currently two extensions are supported : *TLS* and *COMPRESSION*. Right
+after the *version_response* packet, each peer searches in the other
 peer's extension list the extensions it supports. When one is found, it
 is enabled (ie. it immediately starts).
 
 ### Example
 
-Let's have C the client and S the server. The following steps are
+Let's have *C* the client and *S* the server. The following steps are
 performed sequentially.
 
-  - C initiates a TCP connection with S and connection gets established
-  - C sends a *version_response* packet with the following attributes
+  - *C* initiates a TCP connection with *S* and connection gets established
+  - *C* sends a *version_response* packet with the following attributes
     - protocol major : 1
     - protocol minor : 0
     - protocol patch : 0
-    - extensions : "TLS compression"
-  - S sends its own *version_response* packet in reply to C's
+    - extensions : "TLS COMPRESSION"
+  - *S* sends its own *version_response* packet in reply to *C*'s
     - protocol major : 1
     - protocol minor : 0
     - protocol patch : 0
-    - extensions : "TLS compression"
-  - C and S determines which extensions they have in common (here TLS
-    and compression)
+    - extensions : "TLS COMPRESSION"
+  - *C* and *S* determine which extensions they have in common (here TLS
+    and COMPRESSION)
   - if order is important, extensions are applied in the order provided
     by the server
   - TLS connection is initiated, handshake performed, ...
   - compression connection is opened
-  - now data transmitted between C and S is both encrypted and
+  - now data transmitted between *C* and *S* is both encrypted and
     compressed !
 
 ## Acknowledgement
