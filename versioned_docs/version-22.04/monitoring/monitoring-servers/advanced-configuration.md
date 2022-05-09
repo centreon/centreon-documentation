@@ -338,25 +338,31 @@ Centreon Broker can have as many outputs as needed.
 
 For each output, the parameters are:
 
-  - Type  
+  - Type
     There are several types of outputs managed by the Centreon Broker:
-    
-    1.  *TCP - IPV4* and *TCP - IPV6*: This output forwards data to another
-        server, another Centreon Broker or Centreon Map.
-    2.  File: Writes data into a file.
-    3.  RRD: Generates RRD data from performance data.
-    4.  Storage: Writes metrics into the database and generates performance
-        data.
-    5.  SQL: Writes the real-time status into Centreon's database.
-    6.  Dumper Reader: Reads from a database when Broker is asked to synchronize
-        databases.
-    7.  Dumper Writer: Writes into a database when Broker is asked to
-        synchronize databases.
-    8.  BAM Monitoring: Generates BAM data from raw events and updates real-time
-        BAM status.
-    9.  BAM Reporting: Writes long-term BAM logs that can then be used by BI.
 
-  - Failover  
+    1.  **TCP - IPV4** and **TCP - IPV6**: This output forwards data to another
+        server, another Centreon Broker or Centreon Map.
+    2.  **File**: Writes data into a file.
+    3.  **RRD**: Generates RRD data from performance data.
+    4.  **Storage**: Writes metrics into the database and generates performance
+        data (deprecated).
+    5.  **SQL**: Writes the real-time status into Centreon's database
+        (deprecated).
+    6.  **unified-sql**: Writes the real-time status into Centreon's database.
+        One such output replaces **Storage** and **SQL** outputs in the same
+        time.
+    7.  **Dumper Reader**: Reads from a database when Broker is asked to synchronize
+        databases.
+    8.  **Dumper Writer**: Writes into a database when Broker is asked to
+        synchronize databases.
+    9.  **BAM Monitoring**: Generates BAM data from raw events and updates real-time
+        BAM status.
+    10. **BAM Reporting**: Writes long-term BAM logs that can then be used by BI.
+    11. **Generic - Stream connector**: This is a generic output. You need to
+        write a Lua script to explain what you want.
+
+  - Failover
     A *failover* is an output that will be started when in an error state.
     Examples are TCP connections "gone haywire" or a MySQL server suddenly
     disconnecting, etc. By default, each output has an automatic failover that
@@ -365,7 +371,7 @@ For each output, the parameters are:
     Alternatively, you can specify another output that will act as a failover if
     needed.
 
-  - Retry interval  
+  - Retry interval
     When the output is in an error state, this parameter controls the amount of
     time the output will wait before retrying. Default is one attempt every 30
     seconds.
@@ -413,6 +419,7 @@ their configuration.
 | -------------- | ----------------- |
 | SQL            | centreon-storage  |
 | Storage        | centreon-storage  |
+| Unified SQL    | centreon-storage  |
 | Dumper Reader  | centreon          |
 | Dumper Writer  | centreon          |
 | BAM Monitoring | centreon          |
@@ -660,29 +667,120 @@ the database occasionally. This is an optional process, as old data is marked
     Number of seconds before an instance is marked as *unresponding* and all of
     its hosts and services marked as *unknown*. Default is 300 seconds.
 
+#### Unified SQL outputs
+
+Unified SQL outputs are the union of **Storage** outputs and **SQL** outputs.
+They save metric data into a database and generate RRD data used by the RRD
+output.
+
+This output usually generates multiple queries and is very performance intensive.
+If Centreon Broker is slow, try adjusting the
+**maximum queries per transaction** parameter to optimize processing speed.
+
+This output can be tasked to rebuild RRD data from a database of stored metric
+data. This is usually a slow, costly process, though you can simultaneously
+process new metric data at a reduced speed.
+
+**Unified SQL** outputs also save real-time status data into the real-time
+database used by Centreon Web. This is the most important output for the
+operation of Centreon Web.
+
+Moreover, this output has a **garbage collector** that will clean old data from
+the database occasionally. This is an optional process, as old data is marked
+**disabled**, and can actually be useful to keep for debugging purpose.
+
+Since **bbdo 3**, this output is the prefered one instead of **storage** and
+**sql** output. That way, you just need one output to the database,
+configurations have to be filled one time and there are less conflicts between
+outputs.
+
+**unified-sql**-type outputs have the following parameters:
+
+  - DB Type
+    The type of the database being accessed. MariaDB is a state-of-the-art
+    database that has been extensively tested by Centreon. We advise using
+    MariaDB.
+
+  - DB Port
+    The port of the database being accessed.
+
+  - DB User
+    The user account for connecting to this database.
+
+  - DB Name
+    The name of the database. In Centreon terms, this is the database containing
+    the real-time monitoring data, generally called *centreon-storage*.
+
+  - DB Password
+    The password used by the output to connect to this database.
+
+  - Maximum queries per transaction
+    This parameter is used to batch several queries in large transactions. This
+    allows for improved performance but can generate latency if an insufficient
+    number of queries are generated to fill those batches. The default is 20000
+    queries per transaction. If you have a low load and unexpectedly high
+    latency, try lowering this number. If you have a high load and high latency,
+    try raising it.
+
+  - Transaction commit timeout
+    Number of seconds allowed before a forced commit is made. Default is
+    infinite. If you have a low load and unexpectedly high latency, try 5
+    seconds.
+
+  - Replication enabled
+    Should Centreon Broker check that the replication status of this database is
+    complete before trying to insert data? Only useful if replication is enabled
+    for this database.
+
+  - Rebuild check interval in seconds
+    The number of seconds between each rebuild check. Default 300 seconds.
+
+  - Store in performance data in data\_bin
+    Should this output save the metric data in the database? Default is *yes*.
+    If *no*, this output will generate RRD data without saving them into the
+    database, making a rebuild impossible.
+
+  - Insert in index data
+    Should new index data be inserted into the database? Default is *no*. This
+    should never be modified unless prompted by Centreon Support or explicitly
+    advised in the documentation.
+
+  - Cleanup check interval
+    Number of seconds between each run of the garbage collector "cleaning" out
+    old data in the database. Default is never.
+
+  - Instance timeout
+    Number of seconds before an instance is marked as *unresponding* and all of
+    its hosts and services marked as *unknown*. Default is 300 seconds.
+
+  - Connections count
+    Number of connections to the database maintained by this output. This allows
+    broker to write data in parallel on several connections. This feature stays
+    experimental as it can lock the database writes.
+
 #### Lua outputs
 
 *Lua* outputs send metrics information into a script by a key-value system. The
 Lua script should reside on your server.
 
-  - Path  
+  - Path
     The path of the Lua script in your server.
 
-  - Filter category  
+  - Filter category
     The categories of events accepted by this output. If empty, no restriction
     on events is accepted. If specified, only events of the given type will be
     processed. Outputs that accept data from Centreon Engine's Broker module
     should be set to only accept *Neb* events.
 
-*Lua parameter*
+**Lua parameter**
 
-  - Type  
+  - Type
     Type of metric value.
 
-  - Name/Key  
+  - Name/Key
     Name of metric value.
 
-  - Value  
+  - Value
     Value of metric.
 
 #### Dumper reader/writer
