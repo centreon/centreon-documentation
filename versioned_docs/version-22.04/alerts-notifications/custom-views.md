@@ -6,10 +6,11 @@ title: Custom views
 Custom views are dashboards created with widgets. You can share views with other users. See also our [tutorial](../getting-started/create-custom-view.md) on custom views.
 
 ## Creating a custom view
- 
+
 1. Go to **Home > Custom Views**.
 
-2. Click the **Show/Hide edit mode** icon in the top right corner of the page: <img src={require('../assets/alerts/edit_mode.png').default} style={{width:'14px'}} />
+2. Click the **Show/Hide edit mode** icon in the top right corner of the page: ![image](../assets/alerts/edit_mode.png)
+    
     The control bar appears:
 
     ![image](../assets/alerts/bar.png)
@@ -31,12 +32,12 @@ Custom views are dashboards created with widgets. You can share views with other
 
 7. Click **Submit**. The widget appears. Some widgets require extra configuration (e.g., selecting a poller): click the wrench icon in the top right corner of the widget to [edit](#editing-a-widget) it.
 
-8. Once you have created the view and added all the widgets you want, click the **Show/Hide edit mode** icon again : <img src={require('../assets/alerts/no_edit_mode.png').default} style={{width:'14px'}} />
+8. Once you have created the view and added all the widgets you want, click the **Show/Hide edit mode** icon again: ![image](../assets/alerts/no_edit_mode.png)
 
 
 ## Editing a custom view
 
-On the control bar, click **Edit**. ![image](../assets/alerts/view_edit.png)
+On the control bar, click **Edit view**. ![image](../assets/alerts/view_edit.png)
 
 You can rename the view, change the layout of the columns, and [share the view](#sharing-a-custom-view) in read-only mode with other users. You can also edit or move widgets.
 
@@ -70,7 +71,7 @@ To share a view with "locked"/"unlocked users" :
 
 ## Displaying a custom view users have shared with you
 
-1. On the **Home > Custom Views** page, click the **Show/Hide edit mode** icon in the top right corner of the page: <img src={require('../assets/alerts/edit_mode.png').default} style={{width:'14px'}} />
+1. On the **Home > Custom Views** page, click the **Show/Hide edit mode** icon in the top right corner of the page: ![image](../assets/alerts/edit_mode.png#thumbnail1)
 
     The control bar appears:
 
@@ -109,4 +110,5 @@ You can choose which view to display when you access the **Home > Custom Views**
 | Live top 10 memory usage | Displays the top 10 hosts by memory usage.                                                                                                                                                                                                                                                                                               |
 | Service monitoring       | Displays a list of services. Lots of options are available (sort by severity, filters, columns, etc..)                                                                                                                                             |
 | Servicegroup monitoring  |  Displays a list of service groups.                                                                                                                                                                                                                                                                                                              |
+| Single metric            | Displays the value of a single metric for the selected service. |
 | Tactical overview        | Displays the details for the hosts or services. By default hosts are displayed.                                                                                                                                                              |

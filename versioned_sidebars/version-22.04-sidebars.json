@@ -139,7 +139,7 @@
         },
         {
           "type": "category",
-          "label": "Monitoring Servers",
+          "label": "Configuring monitoring servers",
           "items": [
             {
               "type": "doc",

@@ -1,6 +1,6 @@
 ---
 id: add-a-remote-server-to-configuration
-title: Ajouter un serveur distant à la configuration
+title: Rattacher un serveur distant à un serveur central
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -65,6 +65,20 @@ sélectionnez votre serveur, puis saisissez les informations demandées :
 
     ![image](../../assets/monitoring/monitoring-servers/remote-list-zmq.png)
 
+6. Si vous avez personnalisé les noms des bases à l'étape 6 de [l'installation web](../../installation/web-and-post-installation.md), effectuez les étapes suivantes:
+
+   1. Allez à la page **Configuration > Collecteurs > Configuration de Centreon broker**.
+   2. Sélectionnez le service broker du serveur distant désiré.
+   3. Dans l'onglet **Output**, dans la section **Output 1 - Unified SQL**, mettez à jour le nom de la base dans le champ **DB name** (le nom par défaut de la base est **centreon_storage**), puis cliquez sur **Sauvegarder**.
+   4. [Exportez la configuration](deploying-a-configuration.md) du serveur distant.
+   5. Redémarrez cbd:
+
+     ```shell
+     systemctl restart cbd
+     ```
+
+   Si besoin, consultez **/var/log/centreon-broker/<nom-du-serveur-distant\>.log** pour identifier des erreurs. (Dans l'exemple ci-dessus, il s'agit du fichier **/var/log/centreon-broker/remote-server.log**.)
+
 ## Étape 2 : Activer la communication
 
 La communication entre le serveur Central et un serveur distant est assurée par Gorgone et peut
@@ -92,7 +106,7 @@ recommandé) ou en utilisant le protocole SSH.
 2. Copier la configuration de Gorgone :
 
     Depuis la liste des collecteurs, cliquez sur l'icône d'action **Gorgone
-    configuration** sur la ligne correspondant à votre serveur distant <img src={require('../../assets/monitoring/monitoring-servers/gorgone-configuration.png').default} style={{width:'32px', marginBottom:'-6px'}} />
+    configuration** sur la ligne correspondant à votre serveur distant ![image](../../assets/monitoring/monitoring-servers/gorgone-configuration.png#thumbnail2)
 
     Une pop-in affiche la configuration à copier dans le **terminal du serveur
     distant**.

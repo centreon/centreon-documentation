@@ -7,7 +7,8 @@ Un Plugin Pack est un jeu téléchargeable
 de modèles de configuration qui permet un déploiement rapide de la supervision de votre infrastructure IT. Les Plugin Packs sont le moyen le plus simple de mettre un hôte en supervision.
 
 Un Plugin Pack est constitué de deux éléments, installés séparément :
-- Un plugin, qui exécute les commandes de supervision depuis un collecteur. Il est installé en ligne de commande.
+
+- Un plugin, qui exécute les commandes de supervision depuis un collecteur. Il peut être installé en ligne de commande ou automatiquement.
 - Un pack, qui contient des commandes, des modèles de services et des modèles d’hôtes. Il est installé via l'interface de Centreon.
   Pour chaque type d’équipement, les modèles déterminent quels indicateurs seront
 supervisés et définissent les valeurs par défaut des seuils Warning et
@@ -17,7 +18,7 @@ Critical (celles-ci sont modifiables par la suite).
 
 La liste de tous les Plugin Packs disponibles dans la
 bibliothèque en ligne Centreon et les procédures de mise en supervision
-associées sont présentées dans le chapitre [Plugin Packs](/pp/integrations/plugin-packs/introduction).
+associées sont présentées dans la section [Plugin Packs](/pp/integrations/plugin-packs/introduction).
 
 ## Prérequis
 
@@ -37,7 +38,6 @@ yum update centreon-pp-manager
 
 Une [licence](../administration/licenses.md) est nécessaire pour accéder au catalogue complet des Plugin Packs. Contactez
 les équipes [support Centreon](https://centreon.force.com) pour obtenir votre licence.
-
 
 ### Connecteurs
 
@@ -123,6 +123,16 @@ que les prérequis nécessaires à son fonctionnement. Cliquez sur l'icône ``i`
 
 ### Installer le plugin
 
+#### Installation automatique
+
+1. [Installez le pack](#installer-le-pack).
+2. Vérifiez dans la [procédure de supervision](#vérifier-la-procédure-de-supervision) si des étapes de configuration supplémentaires sont requises.
+3. À la page **Configuration > Packs de plugins**, réglez **Installation automatique des plugins** sur **ON**.
+4. Utilisez un modèle fourni par le pack pour mettre en supervision un hôte ou un service.
+5. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md) des collecteurs qui superviseront cet hôte ou ce service : les plugins correspondants seront installés automatiquement sur ces collecteurs.
+
+#### Installation manuelle
+
 La procédure de supervision comprend une section **Installation** qui vous indique comment installer le plugin, que ce soit avec une licence en ligne ou une licence hors ligne. Installez le plugin sur tous les collecteurs qui exécuteront les contrôles.
 
 La commande d'installation suit le modèle suivant :
@@ -141,7 +151,7 @@ yum install centreon-plugin-Cloud-Aws-Ec2-Api
 
 ## Utiliser un plugin pack
 
-Appliquez un plugin pack à un hôte ou à un service pour mettre celui-ci en supervision :
+Appliquez un modèle issu d'un plugin pack à un hôte ou à un service pour mettre celui-ci en supervision :
 
 1. Créez l'hôte/le service, et dans le champ **Modèle(s)**, choisissez le modèle correspondant au plugin pack désiré.
 
@@ -149,7 +159,7 @@ Appliquez un plugin pack à un hôte ou à un service pour mettre celui-ci en su
 
 ## Mettre à jour un Plugin Pack
 
-Vous devez mettre à jour et le plugin et le pack.
+> Vous devez mettre à jour et le plugin et le pack.
 
 ### Mettre à jour un ou plusieurs packs
 
@@ -185,6 +195,10 @@ Attention, vous devrez quand même [mettre à jour les plugins](#mettre-à-jour-
 ![image](../assets/configuration/pluginpacks/update_all.png)
 
 ### Mettre à jour les plugins
+
+À la page **Configuration > Packs de plugins**, si **Installation automatique des plugins** est à **ON**, les plugins seront mis à jour automatiquement lorsque vous déploierez la configuration d'un collecteur qui supervise un hôte ou un service qui utilise ce plugin.
+
+Si **Installation automatique des plugins** est à **OFF**, utilisez la commande suivante pour mettre à jour les plugins :
 
 1. Exécutez la commande suivante sur **tous les collecteurs**:
 

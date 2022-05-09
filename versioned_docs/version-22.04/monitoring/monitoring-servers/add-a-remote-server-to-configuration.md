@@ -1,6 +1,6 @@
 ---
 id: add-a-remote-server-to-configuration
-title: Add a Remote Server to configuration
+title: Attach a remote server to a central server
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -63,6 +63,20 @@ Remote Server on the Centreon platform.
 
   ![image](../../assets/monitoring/monitoring-servers/remote-list-zmq.png)
 
+6. If you have customized the names of the databases at step 6 of the [web installation wizard](../../installation/web-and-post-installation.md), carry out the following steps:
+
+   1. Go to **Configuration > Pollers > Broker configuration**.
+   2. Select the broker service for the remote server you want.
+   3. On the **Output** tab, in section **Output 1 - Unified SQL**, update the name of the database in the **DB name** field (the default name is **centreon_storage**), then click **Save**.
+   4. [Export the configuration](deploying-a-configuration.md) of the remote server.
+   5. Restart cbd:
+
+     ```shell
+     systemctl restart cbd
+     ```
+
+   If needed, check **/var/log/centreon-broker/<remote-server-name\>.log** for issues/errors. (In the example above, the file would be **/var/log/centreon-broker/remote-server.log**.)
+
 ## Step 2: Enable communication
 
 The communication between the Central server and a Remote Server  is ensured by Gorgone
@@ -90,7 +104,7 @@ recommended) or using SSH protocol.
 2. Copy the Gorgone configuration:
 
     From the Pollers listing, click on the **Display Gorgone configuration** action
-    icon on the line corresponding to your Remote Server <img src={require('../../assets/monitoring/monitoring-servers/gorgone-configuration.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+    icon on the line corresponding to your Remote Server ![image](../../assets/monitoring/monitoring-servers/gorgone-configuration.png#thumbnail1)
 
     A pop-in will show the configuration to copy into the **Remote Server
     terminal**.
