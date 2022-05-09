@@ -10,6 +10,7 @@ Custom views are dashboards created with widgets. You can share views with other
 1. Go to **Home > Custom Views**.
 
 2. Click the **Show/Hide edit mode** icon in the top right corner of the page: ![image](../assets/alerts/edit_mode.png)
+    
     The control bar appears:
 
     ![image](../assets/alerts/bar.png)
@@ -31,12 +32,12 @@ Custom views are dashboards created with widgets. You can share views with other
 
 7. Click **Submit**. The widget appears. Some widgets require extra configuration (e.g., selecting a poller): click the wrench icon in the top right corner of the widget to [edit](#editing-a-widget) it.
 
-8. Once you have created the view and added all the widgets you want, click the **Show/Hide edit mode** icon again : ![image](../assets/alerts/no_edit_mode.png)
+8. Once you have created the view and added all the widgets you want, click the **Show/Hide edit mode** icon again: ![image](../assets/alerts/no_edit_mode.png)
 
 
 ## Editing a custom view
 
-On the control bar, click **Edit**. ![image](../assets/alerts/view_edit.png)
+On the control bar, click **Edit view**. ![image](../assets/alerts/view_edit.png)
 
 You can rename the view, change the layout of the columns, and [share the view](#sharing-a-custom-view) in read-only mode with other users. You can also edit or move widgets.
 
