@@ -1,6 +1,6 @@
 ---
-id: sc-splunk-metrics
-title: Splunk Metrics
+id: sc-datadog-metrics
+title: Datadog Metrics
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -118,11 +118,11 @@ luarocks install centreon-stream-connectors-lib
 </TabItem>
 </Tabs>
 
-### Download Splunk metrics stream connector
+### Download Datadog metrics stream connector
 
 ```shell
-wget -O /usr/share/centreon-broker/lua/splunk-metrics-apiv2.lua https://raw.githubusercontent.com/centreon/centreon-stream-connector-scripts/master/centreon-certified/splunk/splunk-metrics-apiv2.lua
-chmod 644 /usr/share/centreon-broker/lua/splunk-metrics-apiv2.lua
+wget -O /usr/share/centreon-broker/lua/datadog-metrics-apiv2.lua https://raw.githubusercontent.com/centreon/centreon-stream-connector-scripts/master/centreon-certified/datadog/datadog-metrics-apiv2.lua
+chmod 644 /usr/share/centreon-broker/lua/datadog-metrics-apiv2.lua
 ```
 
 ## Configuration
@@ -131,33 +131,31 @@ To configure your stream connector, you must **head over** the **Configuration -
 
 **Add** a new **generic - stream connector** output and **set** the following fields as follow:
 
-| Field           | Value                                                   |
-| --------------- | ------------------------------------------------------- |
-| Name            | Splunk metrics                                          |
-| Path            | /usr/share/centreon-broker/lua/splunk-metrics-apiv2.lua |
-| Filter category | Neb                                                     |
+| Field           | Value                                                    |
+| --------------- | -------------------------------------------------------- |
+| Name            | Datadog metrics                                          |
+| Path            | /usr/share/centreon-broker/lua/datadog-metrics-apiv2.lua |
+| Filter category | Neb                                                      |
 
-### Add Splunk mandatory parameters
+### Add Datadog mandatory parameters
 
 Each stream connector has a set of mandatory parameters. To add them you must **click** on the **+Add a new entry** button located **below** the **filter category** input.
 
-| Type   | Name            | Value explanation                       | Value exemple                                           |
-| ------ | --------------- | --------------------------------------- | ------------------------------------------------------- |
-| string | http_server_url | the url of the Splunk service collector | `https://mysplunk.centreon.com:8088/services/collector` |
-| string | splunk_token    | Token to use the event collector api    |                                                         |
+| Type   | Name    | Value explanation   | Value exemple |
+| ------ | ------- | ------------------- | ------------- |
+| string | api_key | the datadog api key |               |
 
-### Add Splunk optional parameters
+### Add Datadog optional parameters
 
 Some stream connectors have a set of optional parameters dedicated to the Software that are associated with. To add them you must **click** on the **+Add a new entry** button located **below** the **filter category** input.
 
-| Type   | Name              | Value explanation                                               | default value                               |
-| ------ | ----------------- | --------------------------------------------------------------- | ------------------------------------------- |
-| string | splunk_sourcetype | Identifies the data structure of the event                      | _json                                       |
-| string | splunk_host       | Name or address of the server that generated the event          | Central                                     |
-| string | splunk_index      | Index where the events are stored                               |                                             |
-| string | splunk_source     | source of the http event collector. like `http:<name_of_index>` |                                             |
-| string | logfile           | the file in which logs are written                              | /var/log/centreon-broker/splunk-metrics.log |
-| number | log_level         | logging level from 1 (errors) to 3 (debug)                      | 1                                           |
+| Type   | Name                    | Value explanation                                  | default value                                |
+| ------ | ----------------------- | -------------------------------------------------- | -------------------------------------------- |
+| string | datadog_centreon_url    | your centreon server address                       | `http://yourcentreonaddress.local`           |
+| string | datadog_metric_endpoint | the API endpoint that must be used to send metrics | /api/v1/series                               |
+| string | http_server_url         | The Datadog API hosting server address             | https://api.datadoghq.com                    |
+| string | logfile                 | the file in which logs are written                 | /var/log/centreon-broker/datadog-metrics.log |
+| number | log_level               | logging level from 1 (errors) to 3 (debug)         | 1                                            |
 
 ### Standard parameters
 
@@ -175,12 +173,12 @@ Some of them are overridden by this stream connector.
 | number | hard_only                    | 0                                      |
 | number | enable_service_status_dedup  | 0                                      |
 | number | enable_host_status_dedup     | 0                                      |
-| string | metric_name_regex            | `[^a-zA-Z0-9_]`                        |
+| string | metric_name_regex            | `[^a-zA-Z0-9_%.]`                      |
 | string | metric_replacement_character | _                                      |
 
 ## Event bulking
 
-This stream connector is compatible with event bulking. Meaning that it is able to send more that one event in each call to the Splunk REST API.
+This stream connector is compatible with event bulking. Meaning that it is able to send more that one event in each call to the Datadog REST API.
 
 > The default value for this stream connector is 30. A small value is more likely to slow down the Centreon broker thus generating retention.
 
@@ -196,22 +194,15 @@ This stream connector will send event with the following format.
 
 ```json
 {
-  "sourcetype": "_json",
-  "source": "http:my_index",
-  "index": "my_index",
-  "host": "Central",
-  "time": 1630590530,
-  "fields": {
-    "event_type": "service",
-    "state": 2,
-    "state_type": 1,
-    "hostname": "my_host",
-    "service_description": "my_service",
-    "ctime": 1630590520,
-    "metric_name: database.used.percent": 80,
-    "instance": "my_db",
-    "subinstance": ["sub_1", "sub_2"]
-  }
+  "host": "my_host",
+  "metric": "database.used.percent",
+  "points": [[1630590530, 80]],
+  "tags": [
+    "service:my_service",
+    "instance:my_instance",
+    "subinstance:sub_1",
+    "subinstance:sub_2"
+  ]
 }
 ```
 
@@ -219,21 +210,14 @@ This stream connector will send event with the following format.
 
 ```json
 {
-  "sourcetype": "_json",
-  "source": "http:my_index",
-  "index": "my_index",
-  "host": "Central",
-  "time": 1630590530,
-  "fields": {
-    "event_type": "host",
-    "state": 1,
-    "state_type": 1,
-    "hostname": "my_host",
-    "ctime": 1630590520,
-    "metric_name: database.used.percent": 80,
-    "instance": "my_db",
-    "subinstance": ["sub_1", "sub_2"]
-  }
+  "host": "my_host",
+  "metric": "database.used.percent",
+  "points": [[1630590530, 80]],
+  "tags": [
+    "instance:my_instance",
+    "subinstance:sub_1",
+    "subinstance:sub_2"
+  ]
 }
 ```
 
@@ -248,7 +232,7 @@ Here is the list of all the curl commands that are used by the stream connector.
 ### Send events
 
 ```shell
-curl -X POST -H "content-type: application/json" -H "authorization: Splunk <splunk_token>" '<http_server_url>' -d '{"sourcetype": "<splunk_sourcetype>","source": "<splunk_source>","index": "<splunk_index>","host": "<splunk_host>","time": <epoch_timestamp>,"event": {"event_type": "host","state": 1,"state_type": 1,"hostname":"my_host","ctime": 1630590520,"metric_name: database.used.percent": 80,"instance": "my_db","subinstance": ["sub_1", "sub_2"]}}'
+curl -X POST -H "content-type: application/json" -H "DD-API-KEY: <api_key>" '<http_server_url><datadog_metric_endpoint>' -d '{"host":"my_host","metric":"database.used.percent","points":[[1630590530,80]],"tags":["service:my_service","instance:my_instance","subinstance:sub_1","subinstance:sub_2"]}'
 ```
 
-You must replace all the *`<xxxx>`* inside the above command with their appropriate value. *<splunk_sourcetype>* may become *_json*.
+You must replace all the *`<xxxx>`* inside the above command with their appropriate value. *<http_server_url>* may become *https://api.datadoghq.com*.

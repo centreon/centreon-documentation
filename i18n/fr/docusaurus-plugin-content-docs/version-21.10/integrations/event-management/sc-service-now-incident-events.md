@@ -1,10 +1,9 @@
 ---
-id: sc-service-now-events
-title: ServiceNow Event Manager 
+id: sc-service-now-incident-events
+title: ServiceNow Incident 
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-
 
 > Hello community! We're looking for a contributor to help us to translate the content in french. If it's you, let us know and ping us on [slack](https://centreon.slack.com).
 
@@ -122,8 +121,8 @@ luarocks install centreon-stream-connectors-lib
 ### Download Service Now events stream connector
 
 ```shell
-wget -O /usr/share/centreon-broker/lua/servicenow-events-apiv2.lua https://raw.githubusercontent.com/centreon/centreon-stream-connector-scripts/master/centreon-certified/servicenow/servicenow-events-apiv2.lua
-chmod 644 /usr/share/centreon-broker/lua/servicenow-events-apiv2.lua
+wget -O /usr/share/centreon-broker/lua/servicenow-incident-events-apiv2.lua https://raw.githubusercontent.com/centreon/centreon-stream-connector-scripts/master/centreon-certified/servicenow/servicenow-incident-events-apiv2.lua
+chmod 644 /usr/share/centreon-broker/lua/servicenow-incident-events-apiv2.lua
 ```
 
 ## Configuration
@@ -132,11 +131,11 @@ To configure your stream connector, you must **head over** the **configuration -
 
 **Add** a new **generic - stream connector** output and **set** the following fields as follow:
 
-| Field           | Value                                                      |
-| --------------- | ---------------------------------------------------------- |
-| Name            | Servicenow events                                          |
-| Path            | /usr/share/centreon-broker/lua/servicenow-events-apiv2.lua |
-| Filter category | Neb                                                        |
+| Field           | Value                                                               |
+| --------------- | ------------------------------------------------------------------- |
+| Name            | Servicenow events                                                   |
+| Path            | /usr/share/centreon-broker/lua/servicenow-incident-events-apiv2.lua |
+| Filter category | Neb                                                                 |
 
 ### Add Service Now mandatory parameters
 
@@ -154,10 +153,13 @@ Each stream connector has a set of mandatory parameters. To add them you must **
 
 Some stream connectors have a set of optional parameters dedicated to the Software that they are associated with. To add them you must **click** on the **+Add a new entry** button located **below** the **filter category** input.
 
-| Type   | Name      | Value explanation                          | default value                                            |
-| ------ | --------- | ------------------------------------------ | -------------------------------------------------------- |
-| string | logfile   | the file in which logs are written         | /var/log/centreon-broker/servicenow-stream-connector.log |
-| number | log_level | logging level from 1 (errors) to 3 (debug) | 1                                                        |
+| Type   | Name            | Value explanation                          | default value                                                     |
+| ------ | --------------- | ------------------------------------------ | ----------------------------------------------------------------- |
+| string | http_server_url | service-now.com                            | the address of the service-now server                             |
+| string | incident_table  | incident                                   | the name of the incident table                                    |
+| string | source          | centreon                                   | the source name of the incident                                   |
+| string | logfile         | the file in which logs are written         | /var/log/centreon-broker/servicenow-incident-stream-connector.log |
+| number | log_level       | logging level from 1 (errors) to 3 (debug) | 1                                                                 |
 
 ### Standard parameters
 
@@ -171,6 +173,8 @@ Some of them are overridden by this stream connector.
 | ------ | ------------------- | -------------------------------------- |
 | string | accepted_categories | neb                                    |
 | string | accepted_elements   | host_status,service_status             |
+| string | host_status         | 1,2                                    |
+| string | service_status      | 1,2,3                                  |
 
 ## Event bulking
 
@@ -184,21 +188,16 @@ To use this feature you must add the following parameter in your stream connecto
 
 ## Event format
 
-This stream connector will send event with the following format.
+This stream connector is not compatible with event bulking. Meaning that the option `max_buffer_size` can't be higher than 1
 
 ### service_status event
 
 ```json
 {
-  "records": [{
-    "source": "centreon",
-    "event_class": "centreon",
-    "severity": 5,
-    "node": "my_host",
-    "resource": "my_service",
-    "time_of_event": "2022-09-06 11:52:12",
-    "description": "CRITICAL: USB cable behaving like a water hose"
-  }]
+  "source": "centreon",
+  "short_description": "CRITICAL  my_host my_service is not doing well",
+  "cmdb_ci": "my_host",
+  "comments": "HOST: my_host\n SERVICE: my_service\n OUTPUT: is not doing well"
 }
 ```
 
@@ -206,15 +205,10 @@ This stream connector will send event with the following format.
 
 ```json
 {
-  "records": [{
-    "source": "centreon",
-    "event_class": "centreon",
-    "severity": 5,
-    "node": "my_host",
-    "resource": "my_host",
-    "time_of_event": "2022-09-06 11:52:12",
-    "description": "DOWN: someone plugged an UPS on another UPS to create infinite energy"
-  }]
+  "source": "centreon",
+  "short_description": "CRITICAL  my_host is not doing well",
+  "cmdb_ci": "my_host",
+  "comments": "HOST: my_host\n OUTPUT: is not doing well"
 }
 ```
 
@@ -224,9 +218,9 @@ This stream connector allows you to change the format of the event to suit your 
 
 In order to use this feature you need to configure a json event format file and add a new stream connector parameter.
 
-| Type   | Name        | Value                                          |
-| ------ | ----------- | ---------------------------------------------- |
-| string | format_file | /etc/centreon-broker/servicenow-events-format.json |
+| Type   | Name        | Value                                              |
+| ------ | ----------- | -------------------------------------------------- |
+| string | format_file | /etc/centreon-broker/servicenow-incident-events-format.json |
 
 > The event format configuration file must be readable by the centreon-broker user
 
@@ -255,7 +249,7 @@ The *`<refresh_token>`* is obtained thanks to **[this curl](#get-oauth-tokens)**
 ### Send events
 
 ```shell
-curl -X POST -H 'content-type: application/json' -H 'Accept: application/json' -H 'Authorization: Bearer <access_token>' 'https://<instance_name>.service-now.com/api/global/em/jsonv2' -d '{"records":[{"source": "centreon","event_class": "centreon","severity": 5,"node": "my_host","resource": "my_service","time_of_event": "2022-09-06 11:52:12","description": "CRITICAL: USB cable behaving like a water hose"}]}'
+curl -X POST -H 'content-type: application/json' -H 'Accept: application/json' -H 'Authorization: Bearer <access_token>' 'https://<instance_name>.service-now.com/api/now/table/incident' -d '{"source":"centreon","short_description":"CRITICAL  my_host my_service is not doing well","cmdb_ci":"my_host","comments":"HOST: my_host\n SERVICE: my_service\n OUTPUT: is not doing well"}'
 ```
 
 The *`<access_token>`* is obtained thanks to **[this curl](#get-oauth-tokens)**.
