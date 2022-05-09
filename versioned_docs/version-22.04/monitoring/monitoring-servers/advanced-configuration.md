@@ -690,7 +690,7 @@ the database occasionally. This is an optional process, as old data is marked
 **disabled**, and can actually be useful to keep for debugging purposes.
 
 Since **bbdo 3**, this output is the preferred one instead of the **storage** and
-**sql** output. That way, you just need one output to the database,
+**sql** outputs. That way, you just need one output to the database,
 configurations have to be filled one time and there are less conflicts between
 outputs.
 
