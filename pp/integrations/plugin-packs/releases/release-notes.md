@@ -13,33 +13,32 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
 
-- **Protocol CIFS** (centreon-pack-applications-protocol-cifs) - Version: 22.05.0 - Status: stable - initial release [Documentation](../procedures/applications-protocol-cifs.md)
-- **Protocol SFTP** (centreon-pack-applications-protocol-sftp) - Version: 22.05.0 - Status: stable - initial release [Documentation](../procedures/applications-protocol-sftp.md)
-- **NtopNG RestAPI** (centreon-pack-applications-monitoring-ntopng-restapi) - Version: 22.05.0 - Status: stable - initial release [Documentation](../procedures/applications-monitoring-ntopng-restapi.md)
+- [**Protocol CIFS**](../procedures/applications-protocol-cifs.md) - Initial release - Status: stable - centreon-pack-applications-protocol-cifs-22.05.0-1
+- [**Protocol SFTP**](../procedures/applications-protocol-sftp.md) - Initial release - Status: stable - centreon-pack-applications-protocol-sftp-22.05.0-1
+- [**NtopNG RestAPI**](../procedures/applications-monitoring-ntopng-restapi.md) - Initial release - Status: stable - centreon-pack-applications-monitoring-ntopng-restapi-22.05.0-1
 
 </TabItem>
 <TabItem value="Enhancements" label="Enhancements">
 
-- **IP Fabric API** (centreon-pack-applications-ipfabric-api) - Version: 22.05.0 - Status: stable - Add new discovery capabilities (aruba, cisco, checkpoint, ...) [Documentation](../procedures/applications-ipfabric-api.md)
-- **VMware ESX**(centreon-pack-virtualization-vmware2-esx) - Version: 22.05.0 - Status: stable - Use custom_attributes in VMWare Discovery providers [Documentation](../procedures/virtualization-vmware2-esx.md)
-- **VMware VM** (centreon-pack-virtualization-vmware2-vm) - Version: 22.05.0 - Status: stable - Use custom_attributes in VMWare Discovery providers [Documentation](../procedures/virtualization-vmware2-vm.md)
-- **Generic SNMP** (centreon-pack-applications-protocol-snmp) - Version: 22.05.0 - Status: stable - Add Cisco ASA support in SNMP discovery providers [Documentation](../procedures/applications-protocol-snmp.md)
+- [**IP Fabric API**](../procedures/applications-ipfabric-api.md) - Add new discovery capabilities (aruba, cisco, checkpoint, ...) - Status: stable - centreon-pack-applications-ipfabric-api-22.05.0-1
+- [**VMware ESX**](../procedures/virtualization-vmware2-esx.md) - Use custom_attributes in VMWare Discovery providers - Status: stable - centreon-pack-virtualization-vmware2-esx-22.05.0-1
+- [**VMware VM**](../procedures/virtualization-vmware2-vm.md) - Use custom_attributes in VMWare Discovery providers - Status: stable - centreon-pack-virtualization-vmware2-vm-22.05.0-1
+- [**Generic SNMP**](../procedures/applications-protocol-snmp.md) - Add Cisco ASA support in SNMP discovery providers - Status: stable - centreon-pack-applications-protocol-snmp-22.05.0-1
 
 </TabItem>
 <TabItem value="Fix" label="Fix">
 
-- **Dell Me4 Rest API** (centreon-pack-hardware-storage-dell-me4-restapi) - Version: 22.05.0 - Status: stable - Fix controller-statistics command options [Documentation](../procedures/hardware-storage-dell-me4-restapi.md)
-- **Amazon FSx** (centreon-pack-cloud-aws-fsx) - Version: 10.0.0 - Status: stable - Fix inverted mapper logic leading to erroneous exclusions - [Documentation](../procedures/cloud-aws-fsx.md)
-- **Amazon RDS** (centreon-pack-cloud-aws-rds) - Version: 10.0.1 - Status: stable - Discovery jobs several fixes [Documentation](../procedures/cloud-aws-rds.md)
-- **Protocol SSH** (centreon-pack-applications-protocol-ssh) - Version: 22.05.0 - Status: stable - Fix translation [Documentation](../procedures/applications-protocol-ssh.md)
-- **Windows WSMAN** (centreon-pack-operatingsystems-windows-wsman) - Version: 22.05.0 - Status: stable - Fix typos in command lines options [Documentation](../procedures/operatingsystems-windows-wsman.md)
-- **Linux SSH** (centreon-pack-operatingsystems-linux-ssh) - Version: 22.05.00 - Status: stable - Adding missing Memory service template - [Documentation](../procedures/operatingsystems-linux-ssh.md)
-
+- [**Dell Me4 Rest API**](../procedures/hardware-storage-dell-me4-restapi.md) - Fix controller-statistics command options - Status: stable - centreon-pack-hardware-storage-dell-me4-restapi-22.05.0-1
+- [**Amazon FSx**](../procedures/cloud-aws-fsx.md) - Fix inverted mapper logic leading to erroneous exclusions - Status: stable - centreon-pack-cloud-aws-fsx-22.05.0-1
+- [**Amazon RDS**](../procedures/cloud-aws-rds.md) - Discovery jobs several fixes - Status: stable - centreon-pack-cloud-aws-rds-22.05.0-1
+- [**Protocol SSH**](../procedures/applications-protocol-ssh.md) - Fix translation - Status: stable - centreon-pack-applications-protocol-ssh-22.05.0-1
+- [**Windows WSMAN**](../procedures/operatingsystems-windows-wsman.md) - Fix typos in command lines options - Status: stable -  centreon-pack-operatingsystems-windows-wsman-22.05.0-1
+- [**Linux SSH**](../procedures/operatingsystems-linux-ssh.md) - Adding missing Memory service template - Status: stable - centreon-pack-operatingsystems-linux-ssh-22.05.0-1
 
 </TabItem>
 <TabItem value="Breaking changes" label="Breaking changes">
 
-- **AWS ELB** (centreon-pack-cloud-aws-elb) - Version: 22.05.0 - Status: stable - Adding a service disco rule and modify uuid attributes for Network ELB discovery [Documentation](../procedures/cloud-aws-elb.md)
+- [**AWS ELB**](../procedures/cloud-aws-elb.md) - Adding a service disco rule and modify uuid attributes for Network ELB discovery - Status: stable - centreon-pack-cloud-aws-elb-22.05.0-1
 
 </TabItem>
 </Tabs>
