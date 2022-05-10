@@ -19,6 +19,7 @@ It brings the following Service Templates:
 | Connection     | App-Protocol-Cifs-Connection  | X       |           |
 | Files-Count    | App-Protocol-Cifs-Files-Count |         |           |
 | Files-Date     | App-Protocol-Cifs-Files-Date  |         |           |
+| Files-Size     | App-Protocol-Cifs-Files-Size  |         |           |
 | Scenario       | App-Protocol-Cifs-Scenario    |         |           |
 
 ### Collected metrics & status
@@ -44,6 +45,13 @@ It brings the following Service Templates:
 | Metric name                        | Description        | Unit   |
 | :--------------------------------- | :----------------- | :----- |
 | *filename*#file.mtime.last.seconds | Last modified time | s      |
+
+</TabItem>
+<TabItem value="Files-Size" label="Files-Size">
+
+| Metric name                | Description   | Unit   |
+| :------------------------- | :------------ | :----- |
+| *filename*#file.size.bytes | Current size  | B      |
 
 </TabItem>
 <TabItem value="Scenario" label="Scenario">
