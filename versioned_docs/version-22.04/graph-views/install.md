@@ -305,6 +305,13 @@ If it's your first installation, we advice you to use the standard mode
 /etc/centreon-studio/configure.sh
 ```
 
+If you have just installed Centreon 22.04, be aware that the platform now uses the new BBDO v3 protocol. For MAP to work properly,
+edit the following file: **/etc/centreon-map/map-config.properties**
+
+```text
+broker.pb.message.enabled=true
+```
+
 ### Central server
 
 > Before restarting Broker you must export the configuration from the Centreon
