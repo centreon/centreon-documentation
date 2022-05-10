@@ -31,7 +31,7 @@ issue.
 
 ## An example of stream connector that won't work with BBDO 3.0
 
-Here is a Lua code for a stream connector that worked before BBDO 3.0 and
+Here is some Lua code for a stream connector that worked before BBDO 3.0 and
 that will not work with Centreon Broker 22.04 if BBDO 3.0 is enabled:
 
 ```LUA
