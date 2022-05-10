@@ -304,8 +304,8 @@ The graph opens on page **Monitoring > Performances > Graphs**, allowing you to 
 ![image](../assets/alerts/resources-status/graph-open2.png)
 
 ### Notification tab
-The Notification tab shows whether notifications are enabled for the selected resource. You can see the recipients of these notifications in the contacts and contact groups sections.
+The Notification tab shows whether notifications are enabled for the selected resource. You can see the recipients of these notifications in the **Contacts** and **Contact groups** sections.
 
-To configure the recipients, click on the **gear icon** in the contacts or contact groups section.
+To configure the recipients, click on the **gear icon** in the **Contacts** or **Contact groups** section.
 
 ![image](../assets/alerts/resources-status/notification_tab.png)

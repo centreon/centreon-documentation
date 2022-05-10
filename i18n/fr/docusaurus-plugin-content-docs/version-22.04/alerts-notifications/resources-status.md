@@ -187,7 +187,7 @@ Un même critère peut avoir plusieurs valeurs possibles. Les valeurs doivent ê
 La recherche ramènera toutes les valeurs selon un critère OU, par exemple, **type:service,metaservice** ramènera 
 toutes les ressources de type services et métaservices.
 
-    ![image](../assets/alerts/resources-status/search_tab.gif)
+![image](../assets/alerts/resources-status/search_tab.gif)
 
 3. Séparez les critères de recherche par des espaces. Les critères s'additionnent 
 selon un critère "ET" : les résultats correspondront à tous les critères saisis. Vous pouvez utiliser des expressions régulières.
@@ -321,8 +321,8 @@ Le graphique s'ouvre dans la page **Supervision > Informations de performance > 
 ![image](../assets/alerts/resources-status/graph-open2.png)
 
 ### Onglet Notification
-L'onglet Notification affiche si les notifications sont activées pour la ressource sélectionnée. Vous pouvez voir les destinataires de ces notifications dans les sections Contacts et Contact groups.
+L'onglet Notification affiche si les notifications sont activées pour la ressource sélectionnée. Vous pouvez voir les destinataires de ces notifications dans les sections **Contacts** et **Contact groups**.
 
-Pour paramétrer les destinataires, cliquez sur l'icône "roue dentée" de la section Contacts ou Contact groups.
+Pour paramétrer les destinataires, cliquez sur l'icône "roue dentée" de la section **Contacts** ou **Contact groups**.
 
 ![image](../assets/alerts/resources-status/notification_tab.png)
