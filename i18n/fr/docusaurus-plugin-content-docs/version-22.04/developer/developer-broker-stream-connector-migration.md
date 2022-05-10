@@ -59,7 +59,7 @@ events, **neb::service** event (with ``category`` 1 and ``element`` 23) and
 
 For each of them, it is serialized in JSON and written to the log file.
 
-This script does not work with BBDO 3.0 because it expects for the legacy events
+This script does not work with BBDO 3.0 because it expects the legacy events
 **neb::host** and **neb::service**, and while these events can still be
 forwarded by Centreon Broker, they are no longer produced with the new protocol. So
 all the events received by the ``write()`` function do not match the expected
