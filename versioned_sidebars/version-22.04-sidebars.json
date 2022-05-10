@@ -1124,6 +1124,10 @@
         },
         {
           "type": "doc",
+          "id": "version-22.04/developer/developer-stream-connector-migration"
+        },
+        {
+          "type": "doc",
           "id": "version-22.04/developer/developer-translate-centreon"
         },
         {

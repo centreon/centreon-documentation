@@ -45,6 +45,11 @@ In this how-to, we will write two scripts:
 * The second one is more exigent for the reader, it exports performance data to the TSDB InfluxDB but is easily
   adaptable to export to another TSDB.
 
+## Migrating a stream connector from BBDO 2 to BBDO 3
+
+The technical migration documentation is available [here](developer-broker-stream-connector-migration.md).
+This how-to gives several tips to succeed with the migration and presents a little example.
+
 ### Programming language
 
 Centreon chose the Lua programming language to let you handle, aggregate and transfer data. Lua is a programming language
