@@ -29,6 +29,7 @@ import TabItem from '@theme/TabItem';
 <TabItem value="Fix" label="Fix">
 
 - **Dell Me4 Rest API** (centreon-pack-hardware-storage-dell-me4-restapi) - Version: 5.0.0 - Status: stable -Fix controller-statistics command options [Documentation](../hardware-storage-dell-me4-restapi.md)
+- **Amazon FSx** (centreon-pack-cloud-aws-fsx) - Version: 10.0.0 - Status: stable Fix inverted mapper logic leading to erroneous exclusions - [Documentation](../cloud-aws-fsx.md)
 - **Amazon RDS** (centreon-pack-cloud-aws-rds) - Version: 10.0.1 - Status: stable - Content: Discovery jobs several fixes [Documentation](../cloud-aws-rds.md)
 - **Protocol SSH** (centreon-pack-applications-protocol-ssh) - Version: 5.0.0 - Status: stable - Content: Fix translation [Documentation](../applications-protocol-ssh.md)
 - **Windows WSMAN** (centreon-pack-operatingsystems-windows-wsman) - Version: 3.0.6 - Status: stable - Fix typos in command lines options [Documentation](../operatingsystems-windows-wsman.md)
