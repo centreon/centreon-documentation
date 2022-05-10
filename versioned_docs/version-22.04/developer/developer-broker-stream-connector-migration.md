@@ -99,10 +99,10 @@ For the migration, this tabular can help:
 
 | **legacy object**       | **bbdo 3.0 object**        |     **Comments**                             |
 |-------------------------|----------------------------|----------------------------------------------|
-| **neb::service**        | **neb::pb_service          |                                              |
+| **neb::service**        | **neb::pb_service**        |                                              |
 |   (1, 23)               |     (1, 27)                |                                              |
 |-------------------------|----------------------------|----------------------------------------------|
-| **neb::host**           | **neb::pb_host             |                                              |
+| **neb::host**           | **neb::pb_host**           |                                              |
 |   (1, 12)               |     (1, 30)                |                                              |
 |-------------------------|----------------------------|----------------------------------------------|
 | **neb::service_status** | **neb::pb_service_status** | New events are lighter. Several fields       |
