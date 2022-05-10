@@ -15,7 +15,7 @@ import TabItem from '@theme/TabItem';
 
 - **Protocol CIFS** (centreon-pack-applications-protocol-cifs) - Version: 5.0.0 - Status: stable - initial release [Documentation](../applications-protocol-cifs.md)
 - **Protocol SFTP** (centreon-pack-applications-protocol-sftp) - Version: 5.0.1 - Status: stable - initial release [Documentation](../applications-protocol-sftp.md)
-- **NtopNG RestAPI** (centreon-pack-applications-monitoring-ntopng-restapi) - Version: 3.0.1 - Status: stable initial release [Documentation](../applications-monitoring-ntopng-restapi.md)
+- **NtopNG RestAPI** (centreon-pack-applications-monitoring-ntopng-restapi) - Version: 3.0.1 - Status: stable - initial release [Documentation](../applications-monitoring-ntopng-restapi.md)
 
 </TabItem>
 <TabItem value="Enhancements" label="Enhancements">
@@ -23,15 +23,15 @@ import TabItem from '@theme/TabItem';
 - **IP Fabric API** (centreon-pack-applications-ipfabric-api) - Version: 3.0.2 - Status: stable - Add new discovery capabilities (aruba, cisco, checkpoint, ...) [Documentation](../applications-ipfabric-api.md)
 - **VMware ESX**(centreon-pack-virtualization-vmware2-esx) - Version: 5.0.4 - Status: stable - Use custom_attributes in VMWare Discovery providers [Documentation](../virtualization-vmware2-esx.md)
 - **VMware VM** (centreon-pack-virtualization-vmware2-vm) - Version: 5.0.3 - Status: stable - Use custom_attributes in VMWare Discovery providers [Documentation](../virtualization-vmware2-vm.md)
-- **Generic SNMP** (centreon-pack-applications-protocol-snmp) - Version: 5.0.3 - Status: stable Add Cisco ASA support in SNMP discovery providers [Documentation](../applications-protocol-snmp.md)
+- **Generic SNMP** (centreon-pack-applications-protocol-snmp) - Version: 5.0.3 - Status: stable - Add Cisco ASA support in SNMP discovery providers [Documentation](../applications-protocol-snmp.md)
 
 </TabItem>
 <TabItem value="Fix" label="Fix">
 
-- **Dell Me4 Rest API** (centreon-pack-hardware-storage-dell-me4-restapi) - Version: 5.0.0 - Status: stable -Fix controller-statistics command options [Documentation](../hardware-storage-dell-me4-restapi.md)
-- **Amazon FSx** (centreon-pack-cloud-aws-fsx) - Version: 10.0.0 - Status: stable Fix inverted mapper logic leading to erroneous exclusions - [Documentation](../cloud-aws-fsx.md)
-- **Amazon RDS** (centreon-pack-cloud-aws-rds) - Version: 10.0.1 - Status: stable - Content: Discovery jobs several fixes [Documentation](../cloud-aws-rds.md)
-- **Protocol SSH** (centreon-pack-applications-protocol-ssh) - Version: 5.0.0 - Status: stable - Content: Fix translation [Documentation](../applications-protocol-ssh.md)
+- **Dell Me4 Rest API** (centreon-pack-hardware-storage-dell-me4-restapi) - Version: 5.0.0 - Status: stable - Fix controller-statistics command options [Documentation](../hardware-storage-dell-me4-restapi.md)
+- **Amazon FSx** (centreon-pack-cloud-aws-fsx) - Version: 10.0.0 - Status: stable - Fix inverted mapper logic leading to erroneous exclusions - [Documentation](../cloud-aws-fsx.md)
+- **Amazon RDS** (centreon-pack-cloud-aws-rds) - Version: 10.0.1 - Status: stable - Discovery jobs several fixes [Documentation](../cloud-aws-rds.md)
+- **Protocol SSH** (centreon-pack-applications-protocol-ssh) - Version: 5.0.0 - Status: stable - Fix translation [Documentation](../applications-protocol-ssh.md)
 - **Windows WSMAN** (centreon-pack-operatingsystems-windows-wsman) - Version: 3.0.6 - Status: stable - Fix typos in command lines options [Documentation](../operatingsystems-windows-wsman.md)
 - **Linux SSH** (centreon-pack-operatingsystems-linux-ssh) - Version: 3.0.10 - Status: stable - Adding missing Memory service template - [Documentation](../operatingsystems-linux-ssh.md)
 
@@ -39,7 +39,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 <TabItem value="Breaking changes" label="Breaking changes">
 
-- **AWS ELB** (centreon-pack-cloud-aws-elb) - Version: 5.0.4 - Status: stable Adding a service disco rule and modify uuid attributes for Network ELB discovery [Documentation](../cloud-aws-elb.md)
+- **AWS ELB** (centreon-pack-cloud-aws-elb) - Version: 5.0.4 - Status: stable - Adding a service disco rule and modify uuid attributes for Network ELB discovery [Documentation](../cloud-aws-elb.md)
 
 </TabItem>
 </Tabs>
