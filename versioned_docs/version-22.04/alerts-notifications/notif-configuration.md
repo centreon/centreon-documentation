@@ -111,6 +111,15 @@ option.
 
 - **Host/Service notification Commands**: define how the contact should be notified (email, pager, jabber).
 
+### Checking the configuration of notifications
+You can quickly check whether the configuration is well applied in the [Resources Status](../alerts-notifications/resources-status.md) page.
+1. Go to **Monitoring > Resources Status**.
+
+2. Click on the resource that you have configured notifications for.
+A detail panel opens on the right side.
+
+This panel shows whether notifications are enabled for this resource, and lists the contacts and contact groups that will be notified.
+
 ## Template inheritance rules
 
 For hosts and services, section **Scheduling Options/Service Scheduling Options** of the **General information** tab, and section **Notification Options** of the **Notifications** tab, work in the same way.
