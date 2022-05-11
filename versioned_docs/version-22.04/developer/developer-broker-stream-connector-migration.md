@@ -97,12 +97,12 @@ except the new types to handle, you will have nothing more to do.
 
 For the migration, this table can help:
 
-|        **legacy object**             |         **BBDO 3.0 object**             |                                                **Comments**                                                |
-|:------------------------------------:|:---------------------------------------:|------------------------------------------------------------------------------------------------------------|
-|     **neb::service** <br> (1, 23)    |     **neb::pb_service** <br> (1, 27)    |                                                                                                            |
-|      **neb::host** <br> (1, 12)      |      **neb::pb_host** <br> (1, 30)      |                                                                                                            |
-| **neb::service_status** <br> (1, 24) | **neb::pb_service_status** <br> (1, 29) | New events are lighter. Several fields can be missing. In that case, **pb_service** is useful to get them. |
-| **neb::host_status** <br> (1, 14)    | **neb::pb_host_status** <br> (1, 32)    | New events are lighter. Several fields can be missing. Tn that case, **pb_host** is useful to get them.    |
+| **legacy object**                    |  **BBDO 3.0 object**                 | **Comments** |
+|:------------------------------------:|:------------------------------------:|--------------|
+| **neb::service** <br/> (1, 23)        | **neb::pb_service** <br/> (1, 27)     |              |
+| **neb::host** <br/> (1, 12)           | **neb::pb_host** <br/> (1, 30)        |              |
+| **neb::service_status** <br/> (1, 24) | **neb::pb_service_status** <br/> (1, 29) | New events are lighter. Several fields can be missing. In that case, **pb_service** is useful to get them. |
+| **neb::host_status** <br/> (1, 14)    | **neb::pb_host_status** <br/> (1, 32)    | New events are lighter. Several fields can be missing. In that case, **pb_host** is useful to get them.    |
 
 There are also two new events with BBDO 3.0, **neb::pb_adaptive_host** and
 **neb::pb_adaptive_service**. They carry configuration changes for a host or a
