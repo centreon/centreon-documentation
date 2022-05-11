@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 ## Prerequisites
 
-Install the remote server (either [using the ISO](../../installation/installation-of-a-remote-server/using-centreon-iso.md), or [using packages](../../installation/installation-of-a-remote-server/using-packages.md)).
+Install the remote server [using packages](../../installation/installation-of-a-remote-server/using-packages.md).
 
 ## Step 1: Configure a new Remote Server
 

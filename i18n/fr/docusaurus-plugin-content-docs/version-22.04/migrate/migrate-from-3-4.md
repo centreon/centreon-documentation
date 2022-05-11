@@ -33,9 +33,7 @@ et disposant des prérequis suivants :
 
 Réalisez les actions suivantes :
 
-1. Installez un nouveau serveur Centreon à partir de
-[l'ISO](../installation/installation-of-a-central-server/using-centreon-iso.md)
-ou des [paquets](../installation/installation-of-a-central-server/using-packages.md)
+1. Installez un nouveau serveur Centreon à partir des [paquets](../installation/installation-of-a-central-server/using-packages.md)
 jusqu'à terminer le processus d'installation en vous connectant à l'interface
 web.
 

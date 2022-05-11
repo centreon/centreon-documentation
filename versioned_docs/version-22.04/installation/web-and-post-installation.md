@@ -52,7 +52,7 @@ Provide the information needed to connect to the database instance.
 
 - **Database Host Address**: If you are using a local database, leave the field blank (the default value is **localhost**). Otherwise, enter the IP address of your remote database.
 - **Root user/password**: this is the account that will be used to install the databases.
-   - if this is the default account (**root**), the root password of the database is the password you have defined when executing `mysql_secure_installation` (whether you have installed Centreon from the [ISO](installation-of-a-central-server/using-centreon-iso.md#secure-the-database), from [packages](installation-of-a-central-server/using-packages.md#secure-the-database) or from [sources](installation-of-a-central-server/using-sources.md#secure-the-database)).
+   - if this is the default account (**root**), the root password of the database is the password you have defined when executing `mysql_secure_installation` (whether you have installed Centreon from [packages](installation-of-a-central-server/using-packages.md#secure-the-database) or from [sources](installation-of-a-central-server/using-sources.md#secure-the-database)).
    - if you have defined a custom user with root privileges on all databases (e.g. during the process of installing a [remote database](../installation/installation-of-a-central-server/using-packages.md#with-a-remote-database)), use this one. This user can be deleted once the web installation process is finished.
 
 - **Database user name/password**: the credentials of the account that will be used to interact with the Centreon databases. The account will be created when the database is installed.

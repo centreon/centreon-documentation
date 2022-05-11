@@ -18,9 +18,7 @@ Oracle Linux / RHEL 8.
 
 Perform the following actions:
 
-1. You will need to install a new Centreon Central server from the
-[ISO](../installation/installation-of-a-central-server/using-centreon-iso.md) or from
-[packages](../installation/installation-of-a-central-server/using-packages.md), until you
+1. You will need to install a new Centreon Central server from [packages](../installation/installation-of-a-central-server/using-packages.md), until you
 complete the installation process by connecting to the Centreon Web interface.
 
 2. Perform software and system updates:

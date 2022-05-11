@@ -89,10 +89,6 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-22.04/installation/installation-of-a-central-server/using-centreon-iso"
-            },
-            {
-              "type": "doc",
               "id": "version-22.04/installation/installation-of-a-central-server/using-packages"
             },
             {
@@ -115,10 +111,6 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-22.04/installation/installation-of-a-poller/using-centreon-iso"
-            },
-            {
-              "type": "doc",
               "id": "version-22.04/installation/installation-of-a-poller/using-packages"
             }
           ]
@@ -127,10 +119,6 @@
           "type": "category",
           "label": "Installation of a Remote server",
           "items": [
-            {
-              "type": "doc",
-              "id": "version-22.04/installation/installation-of-a-remote-server/using-centreon-iso"
-            },
             {
               "type": "doc",
               "id": "version-22.04/installation/installation-of-a-remote-server/using-packages"

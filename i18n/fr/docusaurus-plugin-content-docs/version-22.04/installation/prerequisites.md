@@ -25,7 +25,7 @@ Les OS supportés par Centreon sont CentOS 7, AlmaLinux 8 et RedHat/OracleLinux 
 
 | Version                | Mode d'installation                                   |
 |------------------------|-------------------------------------------------------|
-| CentOS 7               | ISO Centreon, paquets RPM, machine virtuelle, sources |
+| CentOS 7               | paquets RPM, machine virtuelle, sources               |
 | Alma/RHEL/Oracle Linux | paquets RPM, sources                                  |
 
 Les utilisateurs Open Source, sans contrat de support, peuvent utiliser une autre distribution GNU/Linux.

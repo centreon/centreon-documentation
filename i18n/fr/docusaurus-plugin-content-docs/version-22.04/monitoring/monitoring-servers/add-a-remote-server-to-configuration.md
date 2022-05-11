@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 ## Prérequis
 
-Installez le serveur distant (soit [en utilisant l'ISO](../../installation/installation-of-a-remote-server/using-centreon-iso.md), soit [en utilisant les paquets](../../installation/installation-of-a-remote-server/using-packages.md)).
+Installez le serveur distant [en utilisant les paquets](../../installation/installation-of-a-remote-server/using-packages.md).
 
 ## Étape 1 : Configurer un nouveau Remote Server
 

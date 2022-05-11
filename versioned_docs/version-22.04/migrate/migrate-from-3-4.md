@@ -32,8 +32,7 @@ Here are the system requirements:
 
 Perform the following actions:
 
-1. You will need to install a new Centreon Central server from the
-[ISO](../installation/installation-of-a-central-server/using-centreon-iso.md) or from
+1. You will need to install a new Centreon Central server from
 [packages](../installation/installation-of-a-central-server/using-packages.md), until you
 complete the installation process by connecting to the Centreon Web
 interface.

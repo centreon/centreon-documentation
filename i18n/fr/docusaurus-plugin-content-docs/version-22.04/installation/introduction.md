@@ -7,7 +7,7 @@ Ce chapitre décrit les différentes étapes de mise en place d'une plateforme d
 supervision Centreon.
 
 La plateforme de supervision peut être installée de plusieurs manières.
-Cependant, **nous vous recommandons vivement d'utiliser Centreon ISO ou les dépôts
+Cependant, **nous vous recommandons vivement d'utiliser les dépôts
 Centreon (paquets), pour installer votre plateforme**. Profitez ainsi de nos
 travaux d'industrialisation de l'installation et de la mise à jour de
 l'environnement. Profitez également des optimisations installées en standard par

@@ -6,7 +6,7 @@ title: Introduction
 This chapter describes how to install your Centreon monitoring platform.
 
 The monitoring platform may be installed in several ways. However, **we strongly
-recommend using Centreon ISO or Centreon repositories (packages) to install your
+recommend using Centreon repositories (packages) to install your
 platform**. Enjoy our industrialization work during installation and update steps
 of the environment. Also enjoy optimizations installed by default on the system.
 
