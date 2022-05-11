@@ -3,9 +3,8 @@ id: download
 title: Téléchargements
 ---
 
-De manière générale, les logiciels Open Source fournis par Centreon sont disponibles sous 4 formats :
+De manière générale, les logiciels Open Source fournis par Centreon sont disponibles sous 3 formats :
 
-* [ISO Linux basée sur la distribution CentOS 7](https://download.centreon.com) (recommandé),
 * [Paquets RPM pour les distribution CentOS 7, AlmaLinux 8 et Oracle Linux / RHEL en versions 7 et 8](https://download.centreon.com) (recommandé),
 * [Machine virtuelle basées sur les distributions CentOS 7](https://download.centreon.com),
 * [Archives contenant les sources](https://download.centreon.com).

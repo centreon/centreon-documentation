@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 ## Prerequisites
 
-Install the poller (either [using the ISO](../../installation/installation-of-a-poller/using-centreon-iso.md), or [using packages](../../installation/installation-of-a-poller/using-packages.md)).
+Install the poller [using packages](../../installation/installation-of-a-poller/using-packages.md).
 
 ## Step 1: Configure a new Poller
 

@@ -140,9 +140,6 @@ Ces opérations peuvent prendre un certain temps du fait de la taille de la base
 > configuration restaurés précédemment. Par exemple le champ **$mysql\_passwd**
 > dans le fichier **/etc/centreon/conf.pm**.
 
-> Par défaut, il n'y a pas de mot de passe pour le compte root de mysql lors de
-> l'installation d'un serveur via Centreon ISO.
-
 La manipulation ci-dessus est valide pour des versions identiques de Centreon.
 
 ### Restauration des clés SSH

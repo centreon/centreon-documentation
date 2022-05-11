@@ -43,8 +43,7 @@ section:
 open_files_limit = 32000
 ```
 
-> If you install Centreon via the dedicated ISO, this parameter is already
-> configured. If you do it on your RedHat or CentOS Linux version, you will be
+> If you install Centreon on your RedHat or CentOS Linux version, you will be
 > able to do it manually. Don't forget to restart mariadb processes if you change
 > this value in my.cnf.
 

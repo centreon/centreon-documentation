@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 ## Prérequis
 
-Installez le collecteur (soit [en utilisant l'ISO](../../installation/installation-of-a-poller/using-centreon-iso.md), soit [en utilisant les paquets](../../installation/installation-of-a-poller/using-packages.md)).
+Installez le collecteur [en utilisant les paquets](../../installation/installation-of-a-poller/using-packages.md).
 
 ## Étape 1 : Configurer un nouveau collecteur
 
