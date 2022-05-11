@@ -1915,6 +1915,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-protocol-cifs'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-protocol-dhcp'
         },
         {

@@ -101,6 +101,8 @@ const config = {
         routeBasePath: 'cloud',
         sidebarPath: require.resolve('./cloud/sidebarsCloud.js'),
         breadcrumbs: false,
+        editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
+        editLocalizedFiles: true,
       },
     ],
     [
@@ -111,6 +113,8 @@ const config = {
         routeBasePath: 'pp',
         sidebarPath: require.resolve('./pp/sidebarsPp.js'),
         breadcrumbs: false,
+        editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
+        editLocalizedFiles: true,
       },
     ],
   ],
