@@ -3,7 +3,7 @@ id: download
 title: Download
 ---
 
-Open Source software supplied by Centreon is generally available in 4 formats:
+Open Source software supplied by Centreon is generally available in 3 formats:
 
 * [RPM packages available for CentOS 7, AlmaLinux 8 and Oracle Linux / RHEL distributions 7 and 8](https://download.centreon.com) (recommended),
 * [Virtual machine based on CentOS 7](https://download.centreon.com) in OVA formats,
