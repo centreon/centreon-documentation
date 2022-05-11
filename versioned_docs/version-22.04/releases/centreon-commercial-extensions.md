@@ -18,6 +18,8 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 22.04.0
 
+> If you have just installed Centreon 22.04 or upgraded your platform to this version, be aware that the platform now uses the new BBDO v3 protocol. [Configure MAP](../graph-views/install.md#configuration) to use it.
+
 - Compatibility with other 22.04 components.
 
 ## Centreon BAM
