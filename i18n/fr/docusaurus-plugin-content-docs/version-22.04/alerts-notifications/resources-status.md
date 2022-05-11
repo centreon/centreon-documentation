@@ -235,6 +235,7 @@ Le panneau d'hôte contient les éléments suivants :
 - Onglet **Détails** : Informations détaillées sur le statut courant. Vous pouvez glisser-déposer les tuiles pour changer leur disposition.
 - Onglet **Services** : La liste des services rattachés à cet hôte avec leur statut (et de leurs graphiques, quand le mode correspondant est sélectionné),
 - Onglet **Historique** : La chronologie des évènements survenus pour cet hôte,
+- Onglet **Notification** : Affiche si les notifications sont activées pour cette hôte, ainsi que les contacts et groupes de contacts qui seront notifiés.
 - Des raccourcis vers la configuration, les journaux d'évènements et les
     rapports de disponibilité.
 
@@ -250,6 +251,7 @@ Le panneau de service contient les éléments suivants :
 - Onglet **Détails** : Informations détaillées sur le statut courant. Vous pouvez glisser-déposer les tuiles pour changer leur disposition.
 - Onglet **Historique** : La chronologie des évènements survenus pour ce service,
 - Onglet **Graphique** : Un graphique avec une courbe par métrique collectée par ce service,
+- Onglet **Notification** : Affiche si les notifications sont activées pour ce service, ainsi que les contacts et groupes de contacts qui seront notifiés.
 - Des raccourcis vers les configurations, les journaux d'évènements et les
     rapports de disponibilité pour ce service et son hôte.
 - Sous le nom du service, le nom de son hôte parent. Cliquez sur celui-ci pour ouvrir le panneau de détail d'hôte de l'hôte parent.
@@ -317,3 +319,10 @@ Pour voir une version plus grande du graphique, cliquez sur **Go to performance 
 Le graphique s'ouvre dans la page **Supervision > Informations de performance > Graphiques**, vous permettant de filtrer celui-ci plus précisément.
 
 ![image](../assets/alerts/resources-status/graph-open2.png)
+
+### Onglet Notification
+L'onglet Notification affiche si les notifications sont activées pour la ressource sélectionnée. Vous pouvez voir les destinataires de ces notifications dans les sections Contacts et Contact groups.
+
+Pour paramétrer les destinataires, cliquez sur l'icône "roue dentée" de la section Contacts ou Contact groups.
+
+![image](../assets/alerts/resources-status/notification_tab.png)

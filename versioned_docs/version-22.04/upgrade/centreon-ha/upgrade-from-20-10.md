@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 
 This chapter describes how to upgrade your Centreon HA platform from version 20.10
-to version 21.10.
+to version 22.04.
 
 ## Prerequisites
 
@@ -40,14 +40,14 @@ For security reasons, the keys used to sign Centreon RPMs are rotated regularly.
 Run the following commands:
 
 ```shell
-yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-5.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
 ```
 
 > **WARNING:** to avoid broken dependencies, please refer to the documentation of the additional modules to update the Centreon Business Repositories.
 
 ### Upgrade PHP
 
-Centreon 21.10 uses PHP in version 8.0.
+Centreon 22.04 uses PHP in version 8.0.
 
 First, you need to install the **remi** repository:
 ```shell

@@ -1,6 +1,6 @@
 ---
 id: using-sources
-title: A partir des sources
+title: À partir des sources
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -12,144 +12,6 @@ import TabItem from '@theme/TabItem';
 [les paquets fournis par Centreon](using-packages.md).
 
 <Tabs groupId="sync">
-<TabItem value="CentOS 8" label="CentOS 8">
-
-Afin d'installer les logiciels Centreon, le dépôt PowerTools de Red Hat doit être
-activé.
-
-Exécutez les commandes suivantes :
-
-- Pour CentOS 8.2 :
-    ```shell
-    dnf -y install dnf-plugins-core epel-release
-    dnf config-manager --set-enabled PowerTools
-    ```
-- Pour CentOS 8.3 et Centos Stream :
-
-    ```shell
-    dnf -y install dnf-plugins-core epel-release
-    dnf config-manager --set-enabled powertools
-    ```
-
-Installez le dépôt Centreon pour les dépendances perl additionnelles :
-```shell
-dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-5.el8.noarch.rpm
-```
-
-Activez PHP 7.3 avec la commande suivante :
-```shell
-dnf module enable php:7.3 -y
-```
-
-Contrôlez que PHP 7.3 est activé :
-```shell
-dnf module list php
-```
-
-Vous devriez avoir le résultat suivant :
-```shell
-CentOS Linux 8 - AppStream
-Name                                Stream                                 Profiles                                                 Summary
-php                                 7.2 [d]                                common [d], devel, minimal                               PHP scripting language
-php                                 7.3 [e]                                common [d], devel, minimal                               PHP scripting language
-php                                 7.4                                    common [d], devel, minimal                               PHP scripting language
-
-Hint: [d]efault, [e]nabled, [x]disabled, [i]nstalled
-```
-
-Les dépôts sont maintenant installés.
-
-Vous pouvez maintenant installer les prérequis :
-```shell
-dnf update
-dnf install -y \
-    cpp \
-    dmidecode \
-    fping \
-    freetds \
-    gcc \
-    gcc-c++ \
-    glib2-devel \
-    gnutls \
-    gnutls-devel \
-    httpd \
-    libstdc++ \
-    lm_sensors \
-    lua \
-    lua-devel \
-    mailx \
-    make \
-    net-snmp \
-    net-snmp-libs \
-    net-snmp-perl \
-    net-snmp-utils \
-    net-tools \
-    npm \
-    openssl \
-    openwsman-perl \
-    perl \
-    perl-Crypt-DES \
-    perl-DBD-MySQL \
-    perl-DBI \
-    perl-DateTime \
-    perl-DateTime-Format-Duration-ISO8601 \
-    perl-Digest-HMAC \
-    perl-Digest-SHA1 \
-    perl-Encode \
-    perl-interpreter \
-    perl-IO-Socket-INET6 \
-    perl-JSON \
-    perl-MQSeries \
-    perl-MongoDB \
-    perl-Net-Curl \
-    perl-Redis \
-    perl-Socket \
-    perl-Socket6 \
-    perl-Sys-Syslog \
-    perl-URI \
-    perl-UUID \
-    perl-rrdtool \
-    php \
-    php-cli \
-    php-common \
-    php-devel \
-    php-fpm \
-    php-gd \
-    php-intl \
-    php-json \
-    php-ldap \
-    php-mbstring \
-    php-mysqlnd \
-    php-pdo \
-    php-pear \
-    php-process \
-    php-snmp \
-    php-xml \
-    php-zip \
-    plink \
-    quota \
-    rrdtool \
-    rrdtool-devel \
-    unixODBC
-```
-
-Des commandes supplémentaires sont nécessaires pour configurer correctement l'environnement :
-```shell
-/bin/pear channel-update pear.php.net
-```
-
-Si vous ne pouvez pas accéder directement à Internet mais que vous devez passer par un proxy, exécutez la commande
-suivante :
-```shell
-/bin/pear config-set http_proxy http://my_proxy.com:port
-```
-
-Puis exécutez :
-```shell
-/bin/pear upgrade-all
-```
-
-</TabItem>
 <TabItem value="Oracle Linux 8" label="Oracle Linux 8">
 
 Afin d'installer les logiciels Centreon, le dépôt Oracle CodeReady Builder de Oracle doit être activé.
@@ -162,7 +24,7 @@ dnf config-manager --set-enabled ol8_codeready_builder
 
 Installez le dépôt Centreon pour les dépendances perl additionnelles :
 ```shell
-dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-5.el8.noarch.rpm
+dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04-3.el8.noarch.rpm
 ```
 
 Activez PHP 7.3 avec la commande suivante :
@@ -291,7 +153,7 @@ subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 
 Installez le dépôt Centreon pour les dépendances perl additionnelles :
 ```shell
-dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-5.el8.noarch.rpm
+dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04-3.el8.noarch.rpm
 ```
 
 Activez PHP 7.3 avec la commande suivante :

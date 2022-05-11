@@ -139,7 +139,7 @@
         },
         {
           "type": "category",
-          "label": "Monitoring Servers",
+          "label": "Configuring monitoring servers",
           "items": [
             {
               "type": "doc",
@@ -853,6 +853,10 @@
             },
             {
               "type": "doc",
+              "id": "version-22.04/upgrade/upgrade-from-21-10"
+            },
+            {
+              "type": "doc",
               "id": "version-22.04/upgrade/upgrade-from-21-04"
             },
             {
@@ -1117,6 +1121,10 @@
         {
           "type": "doc",
           "id": "version-22.04/developer/developer-stream-connector"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.04/developer/developer-stream-connector-migration"
         },
         {
           "type": "doc",

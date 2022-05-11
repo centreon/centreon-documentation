@@ -1,11 +1,11 @@
 ---
 id: using-centreon-iso
-title: A partir de l'ISO Centreon
+title: À partir de l'ISO Centreon
 ---
 
-Installer un Remote Server est similaire à l'installation d'un serveur Centreon Central.
+Installer un serveur distant (Remote Server) est similaire à l'installation d'un serveur Centreon Central.
 
-> Si vous souhaitez installer Centreon sur une distribution CentOS / Oracle Linux
+> Si vous souhaitez installer Centreon sur une distribution Oracle Linux
 > / RHEL en version 8, vous devez suivre la procédure
 > [à partir des paquets RPM](./using-packages.md)
 
@@ -306,7 +306,7 @@ Failed connect to 192.168.0.1:444; Connection refused
 2020-10-20T10:42:23+02:00 [ERROR]: No route found for “POST /centreon/api/latest/platform/topology”
 ```
 
-> La version Centreon du serveur distant est invalide. Elle doit être supérieure ou égale à 21.10.
+> La version Centreon du serveur distant est invalide. Elle doit être supérieure ou égale à 22.04.
 
 ## Ajouter le Remote Server à la configuration
 

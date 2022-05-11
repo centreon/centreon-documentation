@@ -83,7 +83,7 @@ sudo chown -R apache.apache /usr/share/centreon/www/locale/`locale | grep LC_MES
 ```
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="Alma/ RHEL / Oracle Linux 8" label="Alma/ RHEL / Oracle Linux 8">
 
 Restart Apache:
 ```shell

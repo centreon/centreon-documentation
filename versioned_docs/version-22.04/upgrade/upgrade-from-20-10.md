@@ -5,11 +5,10 @@ title: Upgrade from Centreon 20.10
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 This chapter describes how to upgrade your Centreon platform from version 20.10
-to version 21.10.
+to version 22.04.
 
-> If you want to migrate your Centreon server to CentOS / Oracle Linux / RHEL 8
+> If you want to migrate your Centreon server to Oracle Linux / RHEL 8
 > you need to follow the [migration procedure](../migrate/migrate-from-20-x.md)
 
 > To perform this procedure, your MariaDB version must be >= 10.3.22.
@@ -52,28 +51,30 @@ Update your platform to the latest available minor version of Centreon 20.10.
 Run the following commands:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-5.el8.noarch.rpm 
+dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04-3.el8.noarch.rpm
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-5.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
 ```
 
 </TabItem>
 </Tabs>
 
+> If you are using a Business edition, install the correct Business repository too. You can find it on the [support portal](https://support.centreon.com/s/repositories).
+
 ### Upgrade PHP
 
-Centreon 21.10 uses PHP in version 8.0.
+Centreon 22.04 uses PHP in version 8.0.
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 First, you need to install the **remi** repository:
 ```shell
@@ -108,10 +109,10 @@ yum-config-manager --enable remi-php80
 
 ### Upgrade the Centreon solution
 
-> Please, make sure all users are logged out from the Centreon web interface
+> Make sure all users are logged out from the Centreon web interface
 > before starting the upgrade procedure.
 
-If you have installed Business extensions, update the Business repository to version 21.10.
+If you have installed Business extensions, update the Business repository to version 22.04.
 Visit the [support portal](https://support.centreon.com/s/repositories) to get its address.
 
 Stop the Centreon Broker process:
@@ -139,7 +140,7 @@ yum update centreon\*
 > Accept new GPG keys from the repositories as needed.
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Execute the following commands:
 ```shell
@@ -187,7 +188,7 @@ Run a diff between the old and the new Apache configuration files:
 diff -u /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf.rpmnew
 ```
 
-* **10-centreon.conf** (post upgrade): this file contains the custom configuration. It does not contain anthing new brought by version 21.10, e.g. the **authentication** string in the **LocationMatch** directive
+* **10-centreon.conf** (post upgrade): this file contains the custom configuration. It does not contain anthing new brought by the upgrade, e.g. the **authentication** string in the **LocationMatch** directive
 * **10-centreon.conf.rpmnew** (post upgrade): this file is provided by the rpm; it contains the **authentication** string, but does not contain any custom configuration.
 
 For each difference between the files, assess whether you should copy it from **10-centreon.conf.rpmnew** to **10-centreon.conf**.
@@ -203,7 +204,7 @@ In particular, make sure your customized Apache configuration contains the follo
 ### Finalizing the upgrade
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Before starting the web upgrade process, reload the Apache server with the
 following command:
@@ -251,7 +252,7 @@ If the Centreon BAM module is installed, refer to the
 
 ### Post-upgrade actions
 
-1. Upgrade extensions. From `Administration > Extensions > Manager`, upgrade all extensions, starting
+1. Upgrade extensions. From **Administration > Extensions > Manager**, upgrade all extensions, starting
 with the following:
 
     - License Manager,
@@ -263,7 +264,7 @@ with the following:
 2. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
 
 3. Restart the processes:
-    ```
+    ```shell
     systemctl restart cbd centengine centreontrapd gorgoned
     ```
 
@@ -284,17 +285,17 @@ The MariaDB components can now be upgraded.
 Run the following command on the dedicated DBMS server:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-5.el8.noarch.rpm 
+dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04-3.el8.noarch.rpm 
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-5.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
 ```
 
 </TabItem>
@@ -359,7 +360,7 @@ systemctl enable mariadb
 
 ## Upgrade the Remote Servers
 
-This procedure is the same than to upgrade a Centreon Central server.
+This procedure is the same as for upgrading a Centreon Central server.
 
 > At the end of the update, configuration should be deployed from the Central server.
 
@@ -370,17 +371,17 @@ This procedure is the same than to upgrade a Centreon Central server.
 Run the following command:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-5.el8.noarch.rpm 
+dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04-3.el8.noarch.rpm
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-5.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
 ```
 
 </TabItem>

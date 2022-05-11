@@ -83,7 +83,7 @@ considerations.
 
 **Software**
 
-- Centreon 21.10
+- Centreon 22.04
 - Check that the parameter `date.timezone` is correctly configured in `/etc/php.d/php.ini`
   (same timezone displayed with the command `timedatectl status`)
 - Avoid the usage of the following variables in your monitoring MariaDB configuration.
@@ -137,7 +137,7 @@ vgdisplay vg_data | grep -i free
 
 **Software**
 
-- OS: CentOS / Redhat 7 or 8
+- OS: CentOS 7 / Redhat 7 or 8
 - SGBD: MariaDB 10.5
 - Firewall: Disabled
 - SELinux: Disabled
@@ -175,7 +175,7 @@ Install the Centreon MBI repository, you can find it on the
 Then run the following command:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
 dnf install centreon-bi-server
@@ -304,7 +304,7 @@ To start installing the reporting server, install the MBI repository, you can fi
 Then execute the following command:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
 dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
@@ -315,7 +315,7 @@ need to add the following GPG key:
 
 ```shell
 cd /etc/pki/rpm-gpg/
-wget https://yum.centreon.com/standard/21.10/el8/stable/RPM-GPG-KEY-CES
+wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 ```
 
 </TabItem>
@@ -330,7 +330,7 @@ need to add the following GPG key:
 
 ```shell
 cd /etc/pki/rpm-gpg/
-wget https://yum.centreon.com/standard/21.10/el7/stable/RPM-GPG-KEY-CES
+wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 ```
 
 </TabItem>

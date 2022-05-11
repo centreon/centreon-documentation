@@ -79,9 +79,9 @@ serveur de reporting pour des questions de performances & d'isolation.
 **Logiciels**
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-- Centreon Web 21.10
+- Centreon Web 22.04
 - Vérifiez que `date.timezone` est correctement configurée dans le fichier
   `/etc/php.d/php.ini` (même que celui retourné par la commande
   `timedatectl status`)
@@ -95,7 +95,7 @@ serveur de reporting pour des questions de performances & d'isolation.
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
-- Centreon Web 21.10
+- Centreon Web 22.04
 - Vérifiez que `date.timezone` est correctement configurée dans le fichier
   `/etc/opt/rh/rh-php73/php.ini` (même que celui retourné par la commande
   `timedatectl status`)
@@ -188,7 +188,7 @@ Installer le dépôt MBI, vous pouvez le trouver sur le
 Puis lancez la commande suivante :
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
 dnf install centreon-bi-server
@@ -316,7 +316,7 @@ Installer le dépôt MBI, vous pouvez le trouver sur le
 Puis lancer la commande suivante:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
 dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
@@ -326,7 +326,7 @@ Dans le cas d'une installation basée sur une distribution vierge, installez la
 clé GPG :
 ```shell
 cd /etc/pki/rpm-gpg/
-wget https://yum.centreon.com/standard/21.10/el8/stable/RPM-GPG-KEY-CES
+wget hhttps://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 ```
 
 </TabItem>
@@ -340,7 +340,7 @@ Dans le cas d'une installation basée sur une distribution vierge, installez la
 clé GPG :
 ```shell
 cd /etc/pki/rpm-gpg/
-wget https://yum.centreon.com/standard/21.10/el7/stable/RPM-GPG-KEY-CES
+wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 ```
 
 </TabItem>
