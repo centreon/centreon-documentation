@@ -7,11 +7,11 @@ Voici une liste de problèmes connus et/ou bugs que vous pouvez rencontrer.
 Nous essayons ici de fournir des contournements.
 Nous appliquons des correctifs lorsque cela est nécessaire et améliorons continuellement notre logiciel afin de résoudre les problèmes de prochaines versions.
 
-# Centreon Web
+## Centreon Web
 
-## Vous avez atteint le nombre maximum d'id dans la table `centreon_storage.index_data`
+### Vous avez atteint le nombre maximum d'id dans la table centreon_storage.index_data
 
-### Contournement
+#### Contournement
 
 Exécutez les requêtes suivantes dans MariaDB :
 
@@ -29,25 +29,24 @@ ALTER TABLE virtual_metrics MODIFY index_id bigint unsigned;
 
 > Selon la volumétrie de vos métriques, cette opération peut être plus ou moins longue.
 
+### L'Autologin ne fonctionne pas avec certaines pages
 
-## L'Autologin ne fonctionne pas avec certaines pages
-
-### Description
+#### Description
 
 L'autologin n'est actuellement pas géré pour les pages suivantes :
-* *Monitoring > Resources Status*
-* *Configuration > Hosts > Discovery*
-* *Configuration > Business Activity > Business Views*
-* *Configuration > Business Activity > Business Activity*
 
-### Contournement
+* **Monitoring > Resources Status**
+* **Configuration > Hosts > Discovery**
+* **Configuration > Business Activity > Business Views**
+* **Configuration > Business Activity > Business Activity**
+
+#### Contournement
 
 Il n'existe actuellement pas de contournement.
 
+### Le contenu des pages n'est pas traduit selon la langue de l'utilisateur
 
-## Le contenu des pages n'est pas traduit selon la langue de l'utilisateur
-
-### Contournement
+#### Contournement
 
 Vous devez installer les langues sur votre système d'exploitation avec la commande suivante :
 ```shell
@@ -59,26 +58,34 @@ Puis redémarrer PHP à l'aide de la commande suivante :
 systemctl restart php-fpm
 ```
 
+## Centreon MBI
 
-# Centreon MBI
+### MBI ne fonctionne pas si les bases de données ont des noms personnalisés
 
-## L'onglet **Paramètres du rapport** d'une tâche est vide (**Rapports > Monitoring Business Intelligence > Tâches**)
+#### Contournement
 
-### Contournement
+Il n'existe actuellement pas de contournement.
+
+### L'onglet Paramètres du rapport d'une tâche est vide
+
+#### Description
+
+L'onglet **Paramètres du rapport** d'une tâche est vide (**Rapports > Monitoring Business Intelligence > Tâches**)
+
+#### Contournement
 
 * Allez à l'onglet **Configuration** de la tâche
 * Sélectionnez un modèle différent dans la liste **Modèle de rapport**
 * Sélectionnez le bon modèle de rapport
 * Retournez sur l'onglet **Paramètres du rapport**
 
+### Vous avez atteint le nombre maximum d'id pour les colonnes servicemetric_id
 
-## Vous avez atteint le nombre maximum d'id pour les colonnes `servicemetric_id`
-
-### Description
+#### Description
 
 Si vous possédez une très large infrastructure, il est possible que la taille limite de la colonne `servicemetric_id` soit atteinte.
 
-### Contournement
+#### Contournement
 
 > Selon la volumétrie des données, cette opération peut être plus ou moins longue.
 
