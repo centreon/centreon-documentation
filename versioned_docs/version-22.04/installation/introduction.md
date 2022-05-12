@@ -50,7 +50,6 @@ subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 
 ```shell
 dnf update
-subscription-manager register --username my_username --password my_password --auto-attach --force
 ```
 
 > Replace **my_username** and **my_password** by the correct values.
