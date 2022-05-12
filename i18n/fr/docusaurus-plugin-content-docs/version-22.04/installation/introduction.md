@@ -34,13 +34,24 @@ Pour tester rapidement Centreon et installer un serveur central sur CentOS 7 ou 
 1. Mettez votre système à jour :
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value=" RHEL 8" label="RHEL 8">
 
 ```shell
 dnf update
 subscription-manager register --username my_username --password my_password --auto-attach --force
 dnf install -y http://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
+```
+
+> Remplacez **my_username** et **my_password** par les valeurs correctes.
+
+</TabItem>
+<TabItem value="Alma / Oracle Linux 8" label="Alma / Oracle Linux 8">
+
+```shell
+dnf update
+subscription-manager register --username my_username --password my_password --auto-attach --force
+dnf install -y http://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 ```
 
 > Remplacez **my_username** et **my_password** par les valeurs correctes.

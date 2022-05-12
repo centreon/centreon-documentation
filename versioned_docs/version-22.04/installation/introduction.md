@@ -34,13 +34,25 @@ can use a script.
 1. Update your system:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="RHEL 8" label="RHEL 8">
 
 ```shell
 dnf update
 subscription-manager register --username my_username --password my_password --auto-attach --force
 dnf install -y http://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
+```
+
+> Replace **my_username** and **my_password** by the correct values.
+
+</TabItem>
+
+<TabItem value="Alma / Oracle Linux 8" label="Alma / Oracle Linux 8">
+
+```shell
+dnf update
+subscription-manager register --username my_username --password my_password --auto-attach --force
+dnf install -y http://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 ```
 
 > Replace **my_username** and **my_password** by the correct values.
