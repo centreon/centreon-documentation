@@ -522,6 +522,10 @@
         {
           "type": "doc",
           "id": "version-22.04/metrology/chart-virtual-metrics"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.04/metrology/grafana"
         }
       ]
     },
