@@ -42,7 +42,7 @@ subscription-manager register --username my_username --password my_password --au
 subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 ```
 
-> Remplacez **my_username** et **my_password** par les valeurs correctes.
+> Remplacez **my_username** et **my_password** par les identifiants de votre compte RedHat.
 
 </TabItem>
 <TabItem value="Alma / Oracle Linux 8" label="Alma / Oracle Linux 8">
@@ -50,8 +50,6 @@ subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 ```shell
 dnf update
 ```
-
-> Remplacez **my_username** et **my_password** par les valeurs correctes.
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">

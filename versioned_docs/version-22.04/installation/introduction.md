@@ -42,7 +42,7 @@ subscription-manager register --username my_username --password my_password --au
 subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 ```
 
-> Replace **my_username** and **my_password** by the correct values.
+> Replace **my_username** and **my_password** by the credentials of your RedHat account.
 
 </TabItem>
 
@@ -51,8 +51,6 @@ subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 ```shell
 dnf update
 ```
-
-> Replace **my_username** and **my_password** by the correct values.
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
