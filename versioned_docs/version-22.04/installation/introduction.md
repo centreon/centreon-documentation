@@ -1,0 +1,33 @@
+---
+id: introduction
+title: Introduction
+---
+
+This chapter describes how to install your Centreon monitoring platform.
+
+The monitoring platform may be installed in several ways. However, **we strongly
+recommend using Centreon repositories (packages) to install your
+platform**. Enjoy our industrialization work during installation and update steps
+of the environment. Also enjoy optimizations installed by default on the system.
+
+Centreon Installation can be performed from source (tar.gz) but the work is more
+complex. In addition the installation will only be supported by the community.
+
+Before installation
+
+1.  Be sure to follow [the prerequisites installation and
+    sizing](prerequisites.md) (resources CPU, memory, disks,
+    partitioning, etc ...).
+2.  Take care to choose [the type of architecture](architectures.md) that
+    should be set up for your needs.
+3.  [Download Centreon](https://download.centreon.com/)
+4.  Finally, you can install the platform.
+
+To quickly test Centreon and install a central server on an AlmaLinux / Oracle Linux / RHEL in version 8, you
+can run the following command as **root**:
+
+```Bash
+curl -L https://raw.githubusercontent.com/centreon/centreon/master/unattended.sh | sh
+```
+
+Once the script has run, all you have to do is to carry out the [web installation steps](web-and-post-installation.md).

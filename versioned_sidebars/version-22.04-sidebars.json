@@ -1,0 +1,1272 @@
+{
+  "version-22.04/docs": [
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "Getting Started",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-22.04/getting-started/installation-first-steps"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.04/getting-started/which-install"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.04/getting-started/IT100"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.04/getting-started/interface"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.04/getting-started/first-supervision"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.04/getting-started/monitor-linux-server-with-snmp"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.04/getting-started/monitor-windows-server-with-snmp"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.04/getting-started/monitor-cisco-router-with-snmp"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.04/getting-started/monitor-mysql-server"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.04/getting-started/autodisco-aws"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.04/getting-started/create-custom-view"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.04/getting-started/create-graphical-view"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.04/getting-started/model-it-services"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.04/getting-started/analyze-resources-availability"
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Installation",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-22.04/installation/introduction"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.04/installation/prerequisites"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.04/installation/architectures"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.04/installation/download"
+        },
+        {
+          "type": "category",
+          "label": "Installation of a Central server",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-22.04/installation/installation-of-a-central-server/using-packages"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/installation/installation-of-a-central-server/using-virtual-machines"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/installation/installation-of-a-central-server/using-sources"
+            }
+          ]
+        },
+        {
+          "type": "doc",
+          "id": "version-22.04/installation/web-and-post-installation"
+        },
+        {
+          "type": "category",
+          "label": "Installation of a Poller",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-22.04/installation/installation-of-a-poller/using-packages"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Installation of a Remote server",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-22.04/installation/installation-of-a-remote-server/using-packages"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Configuring monitoring servers",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-22.04/monitoring/monitoring-servers/add-a-poller-to-configuration"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/monitoring/monitoring-servers/add-a-remote-server-to-configuration"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/monitoring/monitoring-servers/communications"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/monitoring/monitoring-servers/move-poller"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/monitoring/monitoring-servers/advanced-configuration"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Installation of Centreon HA",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-22.04/installation/installation-of-centreon-ha/overview"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/installation/installation-of-centreon-ha/installation-2-nodes"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/installation/installation-of-centreon-ha/installation-4-nodes"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/installation/installation-of-centreon-ha/integrating-pollers"
+            }
+          ]
+        },
+        {
+          "type": "doc",
+          "id": "version-22.04/ceip/what-is-centreon-ceip"
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Secure your platform",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-22.04/administration/secure-platform"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.04/graph-views/secure-your-map-platform"
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Monitoring resources",
+      "items": [
+        {
+          "type": "category",
+          "label": "Monitoring basics",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-22.04/monitoring/about"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/monitoring/pluginpacks"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/monitoring/monitoring-servers/deploying-a-configuration"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Monitoring hosts",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-22.04/monitoring/basic-objects/hosts-create"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/monitoring/basic-objects/hosts"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/monitoring/basic-objects/hosts-create-disco"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/monitoring/basic-objects/hosts-templates"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Monitoring services",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-22.04/monitoring/basic-objects/services-create"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/monitoring/basic-objects/services"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/monitoring/basic-objects/services-create-disco"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/monitoring/basic-objects/services-templates"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/monitoring/basic-objects/meta-services"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Discovering hosts and services automatically",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-22.04/monitoring/discovery/introduction"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/monitoring/discovery/installation"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/monitoring/discovery/hosts-discovery"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/monitoring/discovery/services-discovery"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/monitoring/discovery/administration"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Managing users/contacts",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-22.04/monitoring/basic-objects/contacts"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/monitoring/basic-objects/contacts-create"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/monitoring/basic-objects/contacts-templates"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/administration/access-control-lists"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Organizing hosts, services and contacts",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-22.04/monitoring/groups"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/monitoring/categories"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Basic objects and actions",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-22.04/monitoring/basic-objects/timeperiods"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/monitoring/basic-objects/macros"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/monitoring/basic-objects/commands"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/monitoring/generic-actions"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Detecting anomalies",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-22.04/monitoring/anomaly-detection"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Passive Monitoring",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-22.04/monitoring/passive-monitoring/enable-snmp-traps"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/monitoring/passive-monitoring/create-snmp-traps-definitions"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/monitoring/passive-monitoring/monitoring-with-snmp-traps"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/monitoring/passive-monitoring/debug-snmp-traps-management"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/monitoring/passive-monitoring/dsm"
+            }
+          ]
+        },
+        {
+          "type": "doc",
+          "id": "version-22.04/monitoring/event-handler"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.04/monitoring/web-import-export"
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Managing events and alerts",
+      "items": [
+        {
+          "type": "category",
+          "label": "Viewing events",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-22.04/alerts-notifications/concepts"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/alerts-notifications/resources-status"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/alerts-notifications/event-console"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/alerts-notifications/event-log"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/alerts-notifications/custom-views"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Managing alerts",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-22.04/alerts-notifications/acknowledge"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/alerts-notifications/downtimes"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/alerts-notifications/submit"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/alerts-notifications/other"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Managing notifications",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-22.04/alerts-notifications/notif-concept"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/alerts-notifications/notif-configuration"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/alerts-notifications/notif-dependencies"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/alerts-notifications/notif-escalation"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/alerts-notifications/notif-flapping"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/alerts-notifications/notif-advanced"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Managing tickets",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-22.04/alerts-notifications/ticketing-install"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/alerts-notifications/ticketing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Performance graphs",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-22.04/metrology/chart-management"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.04/metrology/chart-template"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.04/metrology/chart-curves"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.04/metrology/chart-virtual-metrics"
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Service Mapping",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-22.04/service-mapping/introduction"
+        },
+        {
+          "type": "category",
+          "label": "Guide",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-22.04/service-mapping/ba-management"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/service-mapping/ba-monitoring"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/service-mapping/ba-reporting"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/service-mapping/ba-settings"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/service-mapping/widgets"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Administrate",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-22.04/service-mapping/install"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/service-mapping/update"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/service-mapping/upgrade"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/service-mapping/migrate"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/service-mapping/remote-server"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Graphical views",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-22.04/graph-views/introduction"
+        },
+        {
+          "type": "category",
+          "label": "Guide",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-22.04/graph-views/create-standard-view"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/graph-views/create-geo-view"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/graph-views/display-view"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/graph-views/share-view"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Administrate",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-22.04/graph-views/install"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/graph-views/update"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/graph-views/upgrade"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/graph-views/migrate"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/graph-views/configuration"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/graph-views/remote-server"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/graph-views/advanced-configuration"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/graph-views/known-issues"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/graph-views/troubleshooter"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Reporting",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-22.04/reporting/introduction"
+        },
+        {
+          "type": "category",
+          "label": "Guide",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-22.04/reporting/manage-reports"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/reporting/reports"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/reporting/widgets"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/reporting/configure"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/reporting/concepts"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/reporting/report-development"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Administrate",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-22.04/reporting/installation"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/reporting/update"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/reporting/upgrade"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/reporting/migrate"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/reporting/backup-restore"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Administration",
+      "items": [
+        {
+          "type": "category",
+          "label": "Parameters",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-22.04/administration/parameters/centreon-ui"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/administration/parameters/monitoring"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/administration/parameters/gorgone"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/administration/parameters/rrdtool"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/administration/parameters/debug"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/administration/parameters/data-management"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/administration/parameters/medias"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Configuring the connection to Centreon",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-22.04/connect/loginpwd"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/administration/parameters/ldap"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/connect/sso"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/connect/openid"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/connect/autologin"
+            }
+          ]
+        },
+        {
+          "type": "doc",
+          "id": "version-22.04/administration/extensions"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.04/administration/licenses"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.04/administration/database-partitioning"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.04/administration/backup"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.04/administration/knowledge-base"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.04/administration/logging-configuration-changes"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.04/administration/platform-statistics"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.04/administration/postfix"
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Update, Upgrade & Migrate",
+      "items": [
+        {
+          "type": "category",
+          "label": "Update",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-22.04/update/update-centreon-platform"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/update/update-centreon-ha"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Upgrade",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-22.04/upgrade/introduction"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/upgrade/upgrade-from-21-10"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/upgrade/upgrade-from-21-04"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/upgrade/upgrade-from-20-10"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/upgrade/upgrade-from-20-04"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/upgrade/upgrade-from-19-10"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/upgrade/upgrade-from-19-04"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/upgrade/upgrade-from-18-10"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/upgrade/upgrade-from-3-4"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/upgrade/centreon-ha/upgrade-centreon-ha-from-20-04"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/upgrade/centreon-ha/upgrade-centreon-ha-from-20-10"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/upgrade/centreon-ha/upgrade-centreon-ha-from-21-04"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/upgrade/centreon-ha/upgrade-from-centreon-failover"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/upgrade/upgrade-mariadb"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Migrate",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-22.04/migrate/introduction"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/migrate/migrate-from-20-x"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/migrate/migrate-from-3-4"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/migrate/nagios-to-centreon"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/migrate/poller-display-to-remote-server"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "link",
+      "href": "/pp/integrations/plugin-packs/getting-started/introduction",
+      "label": "Plugin Packs"
+    },
+    {
+      "type": "category",
+      "label": "Integrations",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-22.04/integrations/introduction-integrations"
+        },
+        {
+          "type": "category",
+          "label": "Data Analytics",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-22.04/integrations/data-analytics/data-analytics-overview"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/integrations/data-analytics/sc-elastic-events"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/integrations/data-analytics/sc-elastic-metrics"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/integrations/data-analytics/sc-datadog-events"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/integrations/data-analytics/sc-datadog-metrics"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/integrations/data-analytics/sc-splunk-metrics"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/integrations/data-analytics/sc-splunk-events"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/integrations/data-analytics/sc-warp10"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/integrations/data-analytics/sc-kafka-events"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Event Management",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-22.04/integrations/event-management/event-management-overview"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/integrations/event-management/sc-hp-bsm"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/integrations/event-management/sc-hp-omi"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/integrations/event-management/sc-opsgenie"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/integrations/event-management/sc-pagerduty-events"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/integrations/event-management/sc-service-now-incident-events"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/integrations/event-management/sc-service-now-em-events"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/integrations/event-management/sc-signl4-events"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/integrations/event-management/sc-servicenow-mid-server"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "ITSM",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-22.04/integrations/itsm/itsm-overview"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/integrations/itsm/ot-bmc-footprints"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/integrations/itsm/ot-bmc-remedy"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/integrations/itsm/ot-easyvista"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/integrations/itsm/ot-glpi"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/integrations/itsm/ot-glpi-restapi"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/integrations/itsm/ot-itop"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/integrations/itsm/ot-iws-isilog"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/integrations/itsm/ot-jira"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/integrations/itsm/ot-mail"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/integrations/itsm/ot-otrs-restapi"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/integrations/itsm/ot-request-tracker-restapi"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/integrations/itsm/ot-serena"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/integrations/itsm/ot-servicenow"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Notifications",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-22.04/integrations/notifications/notifications-overview"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/integrations/notifications/plugin-telegram"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Mobile App.",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-22.04/mobile/introduction"
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Developer resources",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-22.04/developer/about-developer-resources"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.04/developer/developer-module"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.04/developer/developer-stream-connector"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.04/developer/developer-broker-stream-connector-migration"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.04/developer/developer-translate-centreon"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.04/developer/developer-widget"
+        },
+        {
+          "type": "category",
+          "label": "Centreon Broker",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-22.04/developer/developer-broker-stream-connector"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/developer/developer-broker-bbdo"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/developer/developer-broker-mapping"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "API",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-22.04/api/introduction"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/api/clapi"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/api/rest-api-v1"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/api/rest-api-v2"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/api/graph-views-api"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Monitoring your platform",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-22.04/health/centreon-agent"
+        },
+        {
+          "type": "category",
+          "label": "Centreon HA",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-22.04/administration/centreon-ha/acceptance-guide"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/administration/centreon-ha/monitoring-guide"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/administration/centreon-ha/operating-guide"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/administration/centreon-ha/troubleshooting-guide"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Releases",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-22.04/releases/introduction"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.04/releases/lifecycle"
+        },
+        {
+          "type": "category",
+          "label": "Release notes by component",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-22.04/releases/centreon-core"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/releases/centreon-commercial-extensions"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/releases/centreon-os-extensions"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Security",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-22.04/security/security"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.04/security/key-rotation"
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Resources",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-22.04/resources/known-issues"
+        }
+      ]
+    }
+  ]
+}
