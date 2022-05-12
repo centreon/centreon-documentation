@@ -118,7 +118,9 @@ You can quickly check whether the configuration is well applied in the [Resource
 2. Click on the resource that you have configured notifications for.
 A detail panel opens on the right side.
 
-This panel shows whether notifications are enabled for this resource, and lists the contacts and contact groups that will be notified.
+3. Click on the **Notification** tab.
+
+This tab shows whether notifications are enabled for this resource, and lists the contacts and contact groups that will be notified.
 
 ## Template inheritance rules
 
