@@ -39,7 +39,7 @@ Il apporte le modèle de service suivant :
 ### Configuration SNMP
 
 Afin de superviser votre **Clever PDU** en SNMP,  il est nécessaire de configurer l'agent sur le serveur comme indiqué sur la documentation officielle :
-* LINK
+* [Clever](https://www.china-clever.com/en/resources/specification/index.html)
 
 ### Flux réseau
 

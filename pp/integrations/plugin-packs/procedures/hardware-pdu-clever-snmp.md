@@ -39,8 +39,8 @@ It brings the following service template:
 ### SNMP Configuration
 
 To use this pack, the SNMP service must be properly configured on your **Clever PDU**
-server. Please refer to the official documentation from XXX:
-* LINK
+server. Please refer to the official documentation from Clever:
+* [Clever](https://www.china-clever.com/en/resources/specification/index.html)
 
 ### Network flow
 
