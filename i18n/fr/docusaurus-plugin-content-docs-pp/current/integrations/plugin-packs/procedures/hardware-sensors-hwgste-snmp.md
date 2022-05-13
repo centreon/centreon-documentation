@@ -35,7 +35,7 @@ Could not retrive metrics
 ### Configuration SNMP
 
 Afin de superviser votre **HWg-STE Sensor** en SNMP,  il est nécessaire de configurer l'agent sur le serveur comme indiqué sur la documentation officielle :
-* LINK
+* [HWg-STE](https://www.hw-group.com/revision-overview/manuals)
 
 ### Flux réseau
 

@@ -35,8 +35,8 @@ Could not retrive metrics
 ### SNMP Configuration
 
 To use this pack, the SNMP service must be properly configured on your **HWg-STE Sensor**
-server. Please refer to the official documentation from XXX:
-* LINK
+server. Please refer to the official documentation from HWg-STE:
+* [HWg-STE](https://www.hw-group.com/revision-overview/manuals)
 
 ### Network flow
 
