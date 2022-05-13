@@ -35,7 +35,7 @@ Could not retrive metrics
 ### Configuration SNMP
 
 Afin de superviser votre **Jacarta Sensor** en SNMP,  il est nécessaire de configurer l'agent sur le serveur comme indiqué sur la documentation officielle :
-* LINK
+* [Jacarta Sensor](https://www.jacarta.com/support/resources/)
 
 ### Flux réseau
 
