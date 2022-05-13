@@ -107,7 +107,7 @@ By default ```IISAPIEXTRAOPTIONS``` contains : ```--http-backend=curl --curl-opt
 
 ## FAQ
 
-### How do I test my configuration through the CLI and what do the main parameters stand for ? 
+### How do I test my configuration through the CLI and what do the main parameters stand for? 
 
 Once the Centreon plugin installed, you can test it logging with the centreon-engine user:
 
@@ -128,7 +128,7 @@ Once the Centreon plugin installed, you can test it logging with the centreon-en
     --verbose
 ```
 
-The command above checks the status and the usage of the Website *www* (```--filter-name=^www$```) hosted by the IIS server *www.int.centreon.com* (```--hostname='www.int.centreon.com'```).
+The command above checks the status and the usage of the Website *www* (```--filter-name=^www$```) hosted by the IIS server `www.int.centreon.com` (```--hostname='www.int.centreon.com'```).
 It uses an API username (```--api-username='John.doe'```), API password (```--api-password='6fbadZEJbsLG'```) and API token (```--api-token='ZHppZCWPzREgSb9SDYOegsY0_D4KJKgZ5q8QavEWBPmmi8fgt2-8Cw'```) generated from the IIS Administration API.
 The *curl* backend is used (```--http-backend='curl'```) and the SSL certificate validity is not checked (```--curl-opt="CURLOPT_SSL_VERIFYPEER => 0"```).
 

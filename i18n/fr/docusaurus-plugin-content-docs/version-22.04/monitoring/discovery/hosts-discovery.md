@@ -13,7 +13,7 @@ Voir aussi [notre tutoriel sur la détection d'instances AWS EC2](../../getting-
     > Les fournisseurs de découverte sont amenés par l'installation de Plugin Packs
     > (Azure, Amazon AWS, VMware, etc). Pour connaître la liste complète, consultez
     > le [catalogue des Plugin
-    > Packs](/pp/integrations/plugin-packs/introduction).
+    > Packs](/pp/integrations/plugin-packs/getting-started/introduction).
 
 3. Créez une tâche de découverte pour chaque type de ressources que vous souhaitez découvrir : à la page **Configuration > Hôtes > Découverte**, cliquez sur **+AJOUTER**. 
 Un assistant s'ouvre.

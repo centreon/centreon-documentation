@@ -18,7 +18,7 @@ Critical (celles-ci sont modifiables par la suite).
 
 La liste de tous les Plugin Packs disponibles dans la
 bibliothèque en ligne Centreon et les procédures de mise en supervision
-associées sont présentées dans la section [Plugin Packs](/pp/integrations/plugin-packs/introduction).
+associées sont présentées dans la section [Plugin Packs](/pp/integrations/plugin-packs/getting-started/introduction).
 
 ## Prérequis
 

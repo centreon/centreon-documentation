@@ -139,7 +139,7 @@ In the web interface, go to **Configuration > Plugin Packs** and install the **W
 
    ![image](../assets/getting-started/quick_start_windows_snmp_16.png)
 
-   If not all services are in an OK state, check what causes the error and [fix the problem](/pp/integrations/plugin-packs/tutorials/troubleshooting-plugins).
+   If not all services are in an OK state, check what causes the error and [fix the problem](/pp/integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins/).
 
 ### To go further
 

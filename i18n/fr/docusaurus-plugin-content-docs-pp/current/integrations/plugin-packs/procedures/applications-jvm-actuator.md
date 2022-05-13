@@ -82,7 +82,7 @@ Le Pack collecte les données pour:
 
 ## Prérequis
 
-Veuiller installer le module Spring Boot Actuator: https://docs.spring.io/spring-boot/docs/current/reference/html/actuator
+Veuiller installer le module Spring Boot Actuator: https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html
 Demander à votre administrateur de le déployer et de vous fournir l'adresse.
 
 ## Installation
@@ -179,4 +179,4 @@ Toutes les options et leur utilisation peuvent être consultées avec le paramè
 
 ## Diagnostique
 
-[Diagnostique des plugins](../tutorials/troubleshooting-plugins.md)
+[Diagnostique des plugins](../getting-started/how-to-guides/troubleshooting-plugins.md)

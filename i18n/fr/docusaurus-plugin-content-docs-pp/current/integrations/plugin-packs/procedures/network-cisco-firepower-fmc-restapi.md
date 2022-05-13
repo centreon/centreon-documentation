@@ -33,7 +33,7 @@ Le Plugin-Pack inclut la supervision des équipements rattachés à la console d
 ## Prérequis
 
 Afin de contrôler l'application Cisco Firepower Management Center, l'API Rest doit être configuré comme indiqué dans lea documentation officielle: 
-- https://www.cisco.com/c/en/us/td/docs/security/firepower/620/api/REST/Firepower_Management_Center_REST_API_Quick_Start_Guide_620
+- https://www.cisco.com/c/en/us/td/docs/security/firepower/620/api/REST/Firepower_Management_Center_REST_API_Quick_Start_Guide_620.html
 
 ## Installation
 

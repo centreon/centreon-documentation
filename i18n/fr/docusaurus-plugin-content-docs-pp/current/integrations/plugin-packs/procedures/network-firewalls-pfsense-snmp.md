@@ -85,7 +85,7 @@ secondes par l'intermédiaire du protocole SNMP.
 Afin de superviser le pare-feu pfSense, le SNMP v2 ou v3 doit
 être configuré comme indiqué sur la documentation officielle fournie par 
 Netgate:
-https://docs.netgate.com/pfsense/en/latest/services/snmp
+https://docs.netgate.com/pfsense/en/latest/services/snmp.html
 
 ### Flux réseaux
 

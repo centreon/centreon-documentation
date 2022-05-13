@@ -34,7 +34,7 @@ The Pack Cisco ESA collects metrics for:
 ## Prerequisites
 
 To control your Cisco ESA, the Rest API must be configured.
-E.g: https://www.cisco.com/c/en/us/support/security/email-security-appliance/products-programming-reference-guides-list
+E.g: https://www.cisco.com/c/en/us/support/security/email-security-appliance/products-programming-reference-guides-list.html
 
 ## Setup
 
@@ -132,4 +132,4 @@ parameter to the command:
 
 ## Troubleshooting
 
-[Troubleshooting plugins](../tutorials/troubleshooting-plugins.md#http-and-api-checks)
+[Troubleshooting plugins](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks)

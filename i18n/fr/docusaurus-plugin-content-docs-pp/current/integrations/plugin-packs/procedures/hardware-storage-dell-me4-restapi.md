@@ -105,7 +105,7 @@ Le Pack Dell ME4 collecte les données pour:
 
 ## Prérequis
 
-Afin de contrôler votre équipement Dell ME4, l'API Rest doit être configuré (cf: https://www.dell.com/support/manuals/fr-fr/powervault-me4024/me4_series_cli_pub/using-a-script-to-access-the-cli)
+Afin de contrôler votre équipement Dell ME4, l'API Rest doit être configuré (cf: https://www.dell.com/support/manuals/fr-fr/powervault-me4024/me4_series_cli_pub/using-a-script-to-access-the-cli?guid=guid-9ae5ccd6-a207-42df-b2f3-1e02a487a354&lang=en-us)
 
 ## Installation
 
@@ -203,5 +203,5 @@ en ajoutant le paramètre ```--help``` à la commande:
 
 ## Diagnostique
 
-[Diagnostique des plugins](../tutorials/troubleshooting-plugins.md)
+[Diagnostique des plugins](../getting-started/how-to-guides/troubleshooting-plugins.md)
 

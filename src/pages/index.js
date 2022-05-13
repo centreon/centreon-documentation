@@ -10,10 +10,10 @@ const links = {
   doc: {
     api: 'docs/api/introduction',
     gettingstarted: 'docs/getting-started/installation-first-steps/',
-    pluginpacks: 'pp/integrations/plugin-packs/introduction/',
+    pluginpacks: 'pp/integrations/plugin-packs/getting-started/introduction/',
     prerequisite: 'docs/installation/prerequisites/',
     installation: 'docs/installation/introduction/',
-    monitoring: 'pp/integrations/plugin-packs/introduction/',
+    monitoring: 'pp/integrations/plugin-packs/getting-started/introduction/',
   },
   github: 'https://github.com/centreon/centreon/',
   slack: 'https://centreon.github.io/register-slack/',

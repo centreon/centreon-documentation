@@ -110,7 +110,7 @@ monitoring agent and its embedded NRPE Server.
 ### Centreon NSClient++
 
 To monitor *Windows* resources through NRPE, install the Centreon packaged version 
-of the NSClient++ agent. Please follow our [official documentation](../tutorials/centreon-nsclient-tutorial.md) 
+of the NSClient++ agent. Please follow our [official documentation](../getting-started/how-to-guides/centreon-nsclient-tutorial.md) 
 and make sure that the **NRPE Server** configuration is correct.
 
 ## Installation 
@@ -162,4 +162,4 @@ yum install centreon-pack-operatingsystems-windows-nsclient-05-nrpe
 
 ## Troubleshooting
 
-Please find the troubleshooting documentation for NRPE checks in the [dedicated chapter](../tutorials/troubleshooting-plugins.md#nrpe-checks) of the Centreon documentation.
+Please find the troubleshooting documentation for NRPE checks in the [dedicated chapter](../getting-started/how-to-guides/troubleshooting-plugins.md#nrpe-checks) of the Centreon documentation.

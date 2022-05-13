@@ -82,7 +82,7 @@ The Pack collects metrics for:
 
 ## Prerequisites
 
-Please install Spring Boot Actuator module: https://docs.spring.io/spring-boot/docs/current/reference/html/actuator
+Please install Spring Boot Actuator module: https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html
 Ask to your admin to deploy it and give you the URL.
 
 ## Setup
@@ -179,4 +179,4 @@ All the options that can be used with this plugin can be found over the ```--hel
 
 ## Troubleshooting
 
-[Troubleshooting plugins](../tutorials/troubleshooting-plugins.md)
+[Troubleshooting plugins](../getting-started/how-to-guides/troubleshooting-plugins.md)
