@@ -47,8 +47,9 @@ Could not retrive metrics
 ### SNMP Configuration
 
 To use this pack, the SNMP service must be properly configured on your **Raritan PDU**
-server. Please refer to the official documentation from XXX:
-* LINK
+server. Please refer to the official documentation from Raritan:
+* [Raritan](https://review.raritan.com/support)
+* [Raritan 2](https://www.raritan.com/blog/detail/how-to-rapidly-configure-intelligent-rack-pdus)
 
 ### Network flow
 

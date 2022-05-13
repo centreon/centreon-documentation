@@ -47,7 +47,8 @@ Could not retrive metrics
 ### Configuration SNMP
 
 Afin de superviser votre **Raritan PDU** en SNMP,  il est nécessaire de configurer l'agent sur le serveur comme indiqué sur la documentation officielle :
-* LINK
+* [Raritan](https://review.raritan.com/support)
+* [Raritan 2](https://www.raritan.com/blog/detail/how-to-rapidly-configure-intelligent-rack-pdus)
 
 ### Flux réseau
 
