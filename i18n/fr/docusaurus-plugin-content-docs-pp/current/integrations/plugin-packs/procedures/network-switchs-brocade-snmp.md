@@ -107,7 +107,7 @@ Could not retrive metrics
 ### Configuration SNMP
 
 Afin de superviser votre **Brocade Switch** en SNMP,  il est nécessaire de configurer l'agent sur le serveur comme indiqué sur la documentation officielle :
-* LINK
+* [Broadcom](https://www.broadcom.com/products/fibre-channel-networking/switches)
 
 ### Flux réseau
 

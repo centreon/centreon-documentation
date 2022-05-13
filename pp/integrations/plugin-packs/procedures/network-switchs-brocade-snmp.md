@@ -107,8 +107,8 @@ Could not retrive metrics
 ### SNMP Configuration
 
 To use this pack, the SNMP service must be properly configured on your **Brocade Switch**
-server. Please refer to the official documentation from XXX:
-* LINK
+server. Please refer to the official documentation from Broadcom:
+* [Broadcom](https://www.broadcom.com/products/fibre-channel-networking/switches)
 
 ### Network flow
 
