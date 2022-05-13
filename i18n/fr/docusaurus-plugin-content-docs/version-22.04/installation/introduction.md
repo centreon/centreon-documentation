@@ -2,6 +2,8 @@
 id: introduction
 title: Introduction
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 Ce chapitre décrit les différentes étapes de mise en place d'une plateforme de
 supervision Centreon.
