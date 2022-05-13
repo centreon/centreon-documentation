@@ -62,7 +62,7 @@ Il apporte les modèles de service suivants :
 ### Configuration SNMP
 
 Afin de superviser votre **Emerson PDU** en SNMP,  il est nécessaire de configurer l'agent sur le serveur comme indiqué sur la documentation officielle :
-* LINK
+* [Emerson](https://www.emerson.com/en-us/support/manuals-and-guides)
 
 ### Flux réseau
 

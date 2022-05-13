@@ -62,8 +62,8 @@ It brings the following service templates:
 ### SNMP Configuration
 
 To use this pack, the SNMP service must be properly configured on your **Emerson PDU**
-server. Please refer to the official documentation from XXX:
-* LINK
+server. Please refer to the official documentation from Emerson:
+* [Emerson](https://www.emerson.com/en-us/support/manuals-and-guides)
 
 ### Network flow
 
