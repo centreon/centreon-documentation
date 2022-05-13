@@ -35,8 +35,8 @@ Could not retrive metrics
 ### SNMP Configuration
 
 To use this pack, the SNMP service must be properly configured on your **AKCP Sensor**
-server. Please refer to the official documentation from XXX:
-* LINK
+server. Please refer to the official documentation from AKCP:
+* [AKCP](https://www.akcp.com/knowledge-base/)
 
 ### Network flow
 
