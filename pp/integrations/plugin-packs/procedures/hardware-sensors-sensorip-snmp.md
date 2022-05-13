@@ -59,8 +59,8 @@ Could not retrive metrics
 ### SNMP Configuration
 
 To use this pack, the SNMP service must be properly configured on your **Sensor IP**
-server. Please refer to the official documentation from XXX:
-* LINK
+server. Please refer to the official documentation from Sensor IP:
+* [AKCP](https://www.akcp.com/knowledge-base/)
 
 ### Network flow
 

@@ -59,7 +59,7 @@ Could not retrive metrics
 ### Configuration SNMP
 
 Afin de superviser votre **Sensor IP** en SNMP,  il est nécessaire de configurer l'agent sur le serveur comme indiqué sur la documentation officielle :
-* LINK
+* [AKCP](https://www.akcp.com/knowledge-base/)
 
 ### Flux réseau
 
