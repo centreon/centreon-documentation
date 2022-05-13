@@ -35,8 +35,8 @@ Could not retrive metrics
 ### SNMP Configuration
 
 To use this pack, the SNMP service must be properly configured on your **Netbotz Sensor**
-server. Please refer to the official documentation from XXX:
-* LINK
+server. Please refer to the official documentation from Netbotz Sensor:
+* [Netbotz Sensor](https://docs.fortinet.com/document/fortisiem/6.5.0/external-systems-configuration-guide/325357/apc-netbotz-environmental-monitor)
 
 ### Network flow
 

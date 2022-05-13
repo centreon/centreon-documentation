@@ -35,7 +35,7 @@ Could not retrive metrics
 ### Configuration SNMP
 
 Afin de superviser votre **Netbotz Sensor** en SNMP,  il est nécessaire de configurer l'agent sur le serveur comme indiqué sur la documentation officielle :
-* LINK
+* [Netbotz Sensor](https://docs.fortinet.com/document/fortisiem/6.5.0/external-systems-configuration-guide/325357/apc-netbotz-environmental-monitor)
 
 ### Flux réseau
 
