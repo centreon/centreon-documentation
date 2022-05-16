@@ -307,6 +307,12 @@ Si vous venez d'installer Centreon 22.04, attention, la plateforme utilise maint
 broker.pb.message.enabled=true
 ```
 
+Puis redémarrez le service **centreon-map** :
+
+```shell
+systemctl restart centreon-map
+```
+
 ### Serveur Central
 
 > Avant de redémarrer Broker, vous devez exporter la configuration à partir de
