@@ -11,19 +11,17 @@ To be able to use the Centreon plugin for Grafana, you must have a valid [MBI](.
 
 ## Available data
 
-At the moment, you can view the following Centreon data in Grafana:
+A Centreon Data source allows you to view performance data from Centreon in your Grafana dashboards.
+To select the performance data to display, you can combine filters on various types of data available on your platform. You can display metrics, virtual metrics and meta services according to:
 
-- Host Groups
-- Service Groups
 - Hosts
+- Host groups
+- Service Groups
 - Services
-- Meta-services
-- Virtual metrics
 - Business Activities (if BAM is installed and you have a license for it)
 - Anomaly Detection (if the module is installed and you have a license for it)
-- Metrics
 
-Performance data (metrics) are available, but not data such as the status of hosts and services, or acknowledgements and downtimes.
+Performance data are available, but not data such as the status of hosts and services, or acknowledgements and downtimes.
 
 ## Where do I find the plugin?
 
@@ -31,16 +29,16 @@ The Centreon plugin for Grafana is available on [Centreon's download page](https
 
 ## Comparing data within a graph
 
-Using the Centreon plugin for Grafana means that all of your performance data is available in Grafana and you can filter it according to specific data groups. For instance, within the same graph, you can compare the evolution of a specific metric for several hosts or for a given host group.
+Using the Centreon plugin for Grafana means that all of your performance data is available in Grafana and you can filter it according to specific data groups. For instance, within the same graph, you can compare the evolution of a metric common to several hosts or to the various hosts of a given host group.
 
 ![image](../assets/metrology/grafana_compare.png)
 
-You can use regular expressions to filter on several hosts at once.
+You can use the ***** wildcard to filter on several hosts at once. Using [variables](https://grafana.com/docs/grafana/latest/variables/) inside filters allow you to create dynamic contexts.
 
-## Filtering a whole dashboard using variables
+## Filtering using variables
 
-A Grafana dashboard can contain a number of panels. Each panel can display data from a specific source. In that way, you can compare data relating to the same host but from different sources, e.g. if you are monitoring different data on the same device using several tools. 
+A Grafana dashboard can contain a number of panels. Each panel can display data from a specific source. In that way, you can compare data relating to the same host but from different sources, e.g. if you are monitoring different data on the same device using several tools.
 
-[Variables](https://grafana.com/docs/grafana/latest/variables/) allow you to create dropdown lists that will filter the whole dashboard. For instance, create a variable on hosts so that you can display data relating to one specific host at a time in the dashboard. If you use filters in the variable, you can limit the number of hosts that can be displayed.
- 
+Use [variables](https://grafana.com/docs/grafana/latest/variables/) to select a list of resources that match filters (e.g. all hosts in the **Linux** host group). In the dashboard, filters will automatically display the corresponding variables.
+
 ![image](../assets/metrology/grafana_variables.png)
