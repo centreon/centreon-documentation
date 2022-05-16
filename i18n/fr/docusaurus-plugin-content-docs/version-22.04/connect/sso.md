@@ -3,78 +3,113 @@ id: sso
 title: Configurer une authentification par SSO
 ---
 
-## Exemple d'architecture SSO
+L'authentification Web SSO repose sur le serveur Web Apache. C'est Apache qui, selon sa configuration, se charge
+d'authentifier l'utilisateur avant d'autoriser l'accès à l'interface web de Centreon.
+De nombreux modules Apache permettent l'authentification via les protocoles OIDC, SAMLv2, TLS, Kerberos, etc.
 
-Voici un exemple d’architecture SSO avec LemonLDAP :
+> L'utilisateur doit être présent dans la configuration de Centreon pour accéder à l'interface.
 
-![image](../assets/connect/SSO_architecture.png)
+## Configurer l'authentification Web SSO
 
-1. L’utilisateur s’authentifie sur le portail SSO.
+L'authentification se paramètre à la page **Administration > Authentication > Web SSO Configuration** :
 
-2. Le portail d’authentification vérifie les droits d’accès auprès du serveur LDAP.
+![image](../assets/administration/web-sso-configuration.png)
 
-3. Le serveur LDAP renvoie les données de l’utilisateur.
+### Étape 1 : Activer l'authentification
 
-4. Le portail d’authentification crée une session pour stocker les données de l’utilisateur et renvoie un cookie SSO à l’utilisateur.
+Activez l'authentification :
 
-5. L’utilisateur est redirigé vers Centreon Web et intercepté par le handler SSO qui vérifie les droits d’accès de l’utilisateur.
+- **Enable Web SSO authentication** permet d'activer ou de désactiver l'authentification Web SSO.
+- **Mode d'authentification** : indique si l'authentification doit se faire uniquement par Web SSO ou en
+  utilisant également l'authentification locale (**Mixte**). En mode mixte, des utilisateurs créés manuellement dans
+  Centreon (et non identifiés par Web SSO) pourront également se connecter.
 
-6. Le handler envoie une requête à Centreon Web avec l’en-tête d’authentification (ex: HTTP_AUTH_USER).
+> Lors du paramétrage, il est recommandé d'activer le mode "mixte". Cela vous permettra de garder l'accès au compte
+> local `admin` en cas de configuration érronée.
 
-7. Centreon Web vérifie les droits d’accès auprès du serveur LDAP grâce à l’en-tête de la requête.
+### Étape 2 : Configurer les informations d'accès au fournisseur d'identité
 
-8. Le serveur LDAP renvoie les informations de l’utilisateur.
+Configurez les informations du fournisseur d'identité:
 
-9. Centreon Web renvoie les informations au handler.
+- **Login header attribute name**: Quelle variable des en-têtes doit être utilisée pour récupérer le login de
+  l'utilisateur. Par exemple `REMOTE_USER`.
+- **Pattern match login (regex)**: une expression régulière à rechercher dans l'identifiant. Par exemple, entrez
+  `/@.*/` pour trouver la fin de l'adresse email de votre identifiant.
+- **Pattern replace login (regex)**: la chaîne par laquelle remplacer celle définie dans le champ
+  **Pattern match login (regex)** pour l'authentification (login). Laissez le champ vide pour supprimer cette chaîne.
 
-10. Le handler SSO transfère les informations à l’utilisateur.
+### Étape 3 : Configurer les adresses des clients
 
-## Configurer une authentification par SSO
+Si vous laissez ces deux champs vides, toutes les adresses IP seront autorisées à accéder à l'interface Centreon.
 
-1. Le SSO est géré par Apache : modifiez la configuration Apache pour inclure les paramètres de configuration.
+- **Adresses de clients de confiance** : Si vous entrez des adresses IP dans ce champ, seules ces adresses IP seront autorisées à accéder à l'interface Centreon. Toutes les autres adresses IP seront bloquées. Séparez les adressses IP par des virgules.
+- **Adresses de clients sur liste noire** : Ces adresses IP seront bloquées. Toutes les autres adresses IP seront autorisées.
 
-2. Remplissez les champs suivants à la page **Administration > Paramètres > Centreon web**, section **Propriétés d'authentification**.
+### Étape 4 : Configurer le serveur web Apache
 
-    - La case **Activer l'authentification SSO** active l'authentification SSO.
-    - Champ **Mode SSO** :
-        - **Seulement SSO** : l'authentification doit avoir lieu uniquement par SSO (toute autre adresse que celle des clients de confiance sera bloquée)
-        - **Mixte** : les utilisateurs autres que les clients de confiance pourront se connecter par identifiant/mot de passe. Vous devez quand même remplir le champ **Adresse des clients de confiance SSO**.
-    - Le champ **Adresses des clients SSO de confiance** indique quelles sont les
-    adresses IP/DNS qui seront autorisées à se connecter en SSO (par exemple l'adresse
-    d'un reverse proxy). Séparez les adresses par une virgule.
-    - Le champ **Adresses des clients de bloqués** indique quelles sont les
-    adresses IP/DNS des clients qui seront refusés.
-    - Le champ **Entête HTTP SSO** indique la variable de l'en-tête qui sera
-    utilisée comme login/pseudo.
-    - Entrez éventuellement dans le champ **Chaine de recherche (pattern) pour l'authentification (login)**
-    une expression régulière à rechercher dans l'identifiant. Par exemple, entrez **/@.\*/** pour trouver la fin de l'adresse email de votre identifiant.
-    - Entrez dans le champ **Chaine de remplacement (pattern) pour l'authentification (login)** la chaîne par laquelle remplacer celle définie dans le champ **Chaine de recherche (pattern) pour l'authentification (login)**. Laissez le champ vide pour supprimer cette chaîne.
- 
-> La fonctionnalité SSO doit être activée seulement dans un environnement dédié et
-> sécurisé pour le SSO. Les accès directs des utilisateurs à Centreon Web doivent
-> être désactivés.
+Vous devez configurer le module Apache permettant l'authentification auprès du fournisseur d'identité.
+Une fois cette configuration effectuée, vous devez modifier la configuration de Centreon pour Apache afin de
+n'autoriser l'accès qu'aux utilisateurs authentifiés.
 
-## Exemple de configuration
+1. Éditez le fichier **/etc/httpd/conf.d/10-centreon.conf** et recherchez le bloc suivant :
 
-Exemple de configuration d'Apache pour Kerberos (extrait du fichier **/etc/httpd/conf.d/10-centreon.conf**) :
+  ```apache
+      Header set X-Frame-Options: "sameorigin"
+      Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;SameSite=Strict
+      ServerSignature Off
+      TraceEnable Off
 
+      Alias ${base_uri}/api ${install_dir}
+      Alias ${base_uri} ${install_dir}/www/
+  ```
+
+2. Remplacez-le par :
+
+  ```apache
+      Header set X-Frame-Options: "sameorigin"
+      Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;SameSite=Strict
+      ServerSignature Off
+      TraceEnable Off
+
+      RequestHeader set X-Forwarded-Proto "http" early
+
+      Alias ${base_uri}/api ${install_dir}
+      Alias ${base_uri} ${install_dir}/www/
+
+      <Location ${base_uri}>
+          AuthType openid-connect
+          Require valid-user
+      </Location>
+  ```
+
+  > Dans cet exemple, le module Apache utilisé était **mod_auth_openidc**. C'est pourquoi l'authentification est **openid-connect**.
+
+3. Validez la configuration d'Apache à l'aide de la commande suivante :
+
+  ```shell
+  /opt/rh/httpd24/root/usr/sbin/httpd -t
+  ```
+
+4. Redémarrez ensuite le serveur Web Apache :
+
+  ```shell
+  systemctl restart httpd24-httpd
+  ```
+
+5. Pour conclure, reconstruisez le cache :
+
+  ```shell
+  sudo -u apache /usr/share/centreon/bin/console cache:clear
+  ```
+
+### Step 5: Configurer le fournisseur d'identité
+
+Configurer votre fournisseur d'identité pour ajouter l'application Centreon à utiliser votre protocole pour
+authentifier vos utilisateur, et pour autoriser `l'uri de redirection` suivante une fois vos utilisateurs authentifiés :
+
+```shell
+{protocol}://{server}:{port}/centreon/websso
 ```
- <Location /centreon>
-        AuthType Kerberos
-        AuthName "Kerberos Login"
-        KrbServiceName HTTP/supervision.int.centreon.com
-        RequestHeader set X-Remote-User %{REMOTE_USER}s
-        KrbMethodNegotiate On
-        KrbMethodK5Passwd Off
-        KrbSaveCredentials Off
-        KrbVerifyKDC On
-        KrbAuthRealms SUPERVISION.INT
-        Krb5KeyTab /opt/rh/httpd24/root/etc/httpd/conf/centreon.keytab
-        <RequireAny>
-                # Allow this IP without auth
-                Require ip xx.xx.xx.xx xx.xx.xx.xx xx.xx.xx.xx
-                # Everyone else needs to authenticate
-                Require valid-user
-        </RequireAny>
-   </Location>
-   ```
+
+> Remplacez `{protocol}`, `{server}` et `{port}` par l'URI permettant d'accéder à votre serveur Centreon.
+> Par exemple : `https://centreon.domain.net/centreon/websso`

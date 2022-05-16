@@ -1,6 +1,6 @@
 ---
 id: access-control-lists
-title: Gérer les droits des utilisateurs Centreon
+title: Gérer les droits des utilisateurs Centreon (ACL)
 ---
 
 Vous pouvez donner des droits aux [utilisateurs](../monitoring/basic-objects/contacts.md) de Centreon :
