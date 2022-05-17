@@ -63,8 +63,7 @@ It brings the following service templates:
 
 ## Prerequisites
 
-To monitor your Ceph, a user with read privileges is needed:
-E.g: hhttps://docs.ceph.com/en/latest/mgr/ceph_api/
+To monitor your Ceph, a user with read privileges is required. Please refer to their official documentation: https://docs.ceph.com/en/latest/mgr/ceph_api/
 
 ## Setup
 

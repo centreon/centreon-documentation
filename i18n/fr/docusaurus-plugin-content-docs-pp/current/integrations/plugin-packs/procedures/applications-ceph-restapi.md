@@ -63,8 +63,7 @@ Il apporte les modèles de service suivants :
 
 ## Prérequis
 
-Pour la supervision Ceph, un utilisateur avec les droits en lecture est nécessaire :
-cf: https://docs.ceph.com/en/latest/mgr/ceph_api/
+Pour la supervision Ceph, un utilisateur avec les droits en lecture est nécessaire. Référez vous à la documentation officielle: https://docs.ceph.com/en/latest/mgr/ceph_api/
 
 ## Installation
 
@@ -109,7 +108,6 @@ yum install centreon-pack-applications-ceph-restapi
 * Appliquez le modèle d'hôte **App-Ceph-Restapi-custom**.
 * Une fois le modèle appliqué, les macros ci-dessous indiquées comme requises (**Obligatoire**) doivent être renseignées.
 
-Une fois celui-ci configuré, certaines macros doivent être renseignées:
 
 | Obligatoire | Nom                 | Description                                                                |
 | :---------- | :------------------ | :------------------------------------------------------------------------- |
