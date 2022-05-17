@@ -83,7 +83,16 @@ By:
 
 #### Centreon Engine
 
-- Compatibility with other 22.04 components.
+- New logger, more readable, more configurable. The former logger is still available for the moment.
+- Flapping was not detected for volatile services until now. This is a new behavior that can be disabled. Following [a suggestion on TheWatch](https://thewatch.centreon.com/data-collection-6/volatile-and-flapping-212).
+- Flapping used to be detected on SOFT states for hosts and on HARD states for services. This seemed illogical so it will now be based on SOFT states for both. Based on [PR #522](https://github.com/centreon/centreon-engine/pull/522).
+- Set default values in anticipation of removing the following parameters:
+  - `translate_passive_host_checks` to `1`
+  - `passive_host_checks_are_soft` to `1`
+  - `max_check_result_reaper_time` to `30`
+- New configuration files:
+  - `tags.cfg` for host groups, host categories, service groups and service categories.
+  - `severities.cfg` for host and service severities
 
 #### Centreon Broker
 
