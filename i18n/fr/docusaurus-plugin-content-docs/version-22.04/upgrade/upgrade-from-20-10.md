@@ -202,77 +202,6 @@ Notamment, assurez-vous que votre configuration Apache personnalisée contient l
 </LocationMatch>
 ```
 
-### Finalisation de la mise à jour
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-Avant de démarrer la montée de version via l'interface web, rechargez le serveur Apache avec la commande suivante :
-
-```shell
-systemctl reload httpd
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-Avant de démarrer la montée de version via l'interface web, rechargez le serveur Apache avec la commande suivante :
-
-```shell
-systemctl reload httpd24-httpd
-```
-
-</TabItem>
-</Tabs>
-
-Connectez-vous ensuite à l'interface web Centreon pour démarrer le processus de
-mise à jour :
-
-Cliquez sur **Next** :
-
-![image](../assets/upgrade/web_update_1.png)
-
-Cliquez sur **Next** :
-
-![image](../assets/upgrade/web_update_2.png)
-
-La note de version présente les principaux changements, cliquez sur **Next** :
-
-![image](../assets/upgrade/web_update_3.png)
-
-Le processus réalise les différentes mises à jour, cliquez sur **Next** :
-
-![image](../assets/upgrade/web_update_4.png)
-
-Votre serveur Centreon est maintenant à jour, cliquez sur **Finish** pour
-accéder à la page de connexion :
-
-![image](../assets/upgrade/web_update_5.png)
-
-Si le module Centreon BAM est installé, référez-vous à la [documentation
-associée](../service-mapping/upgrade.md) pour le mettre à jour.
-
-### Actions post montée de version
-
-1. Montée de version des extensions :
-
-    Depuis le menu `Administration > Extensions > Gestionnaire`, mettez à jour
-    toutes les extensions, en commençant par les suivantes :
-
-    - License Manager,
-    - Plugin Packs Manager,
-    - Auto Discovery.
-
-    Vous pouvez alors mettre à jour toutes les autres extensions commerciales.
-
-2. [Déployer la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
-
-3. Redémarrez les processus Centreon :
-
-    ```shell
-    systemctl restart cbd centengine centreontrapd gorgoned
-    ```
-
 ### Montée de version du serveur MariaDB
 
 Les composants MariaDB peuvent maintenant être mis à jour.
@@ -363,6 +292,77 @@ Exécutez la commande suivante :
 ```shell
 systemctl enable mariadb
 ```
+
+### Finalisation de la mise à jour
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+Avant de démarrer la montée de version via l'interface web, rechargez le serveur Apache avec la commande suivante :
+
+```shell
+systemctl reload httpd
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+Avant de démarrer la montée de version via l'interface web, rechargez le serveur Apache avec la commande suivante :
+
+```shell
+systemctl reload httpd24-httpd
+```
+
+</TabItem>
+</Tabs>
+
+Connectez-vous ensuite à l'interface web Centreon pour démarrer le processus de
+mise à jour :
+
+Cliquez sur **Next** :
+
+![image](../assets/upgrade/web_update_1.png)
+
+Cliquez sur **Next** :
+
+![image](../assets/upgrade/web_update_2.png)
+
+La note de version présente les principaux changements, cliquez sur **Next** :
+
+![image](../assets/upgrade/web_update_3.png)
+
+Le processus réalise les différentes mises à jour, cliquez sur **Next** :
+
+![image](../assets/upgrade/web_update_4.png)
+
+Votre serveur Centreon est maintenant à jour, cliquez sur **Finish** pour
+accéder à la page de connexion :
+
+![image](../assets/upgrade/web_update_5.png)
+
+Si le module Centreon BAM est installé, référez-vous à la [documentation
+associée](../service-mapping/upgrade.md) pour le mettre à jour.
+
+### Actions post montée de version
+
+1. Montée de version des extensions :
+
+    Depuis le menu `Administration > Extensions > Gestionnaire`, mettez à jour
+    toutes les extensions, en commençant par les suivantes :
+
+    - License Manager,
+    - Plugin Packs Manager,
+    - Auto Discovery.
+
+    Vous pouvez alors mettre à jour toutes les autres extensions commerciales.
+
+2. [Déployer la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
+
+3. Redémarrez les processus Centreon :
+
+    ```shell
+    systemctl restart cbd centengine centreontrapd gorgoned
+    ```
 
 ## Montée de version des Remote Servers
 
