@@ -341,31 +341,37 @@ If you want to switch versions of BBDO (either switch from v3 to v2 or from v2 t
 1. On the central server, go to **Configuration > Pollers > Broker configuration**.
 2. Select the server you want, and on the **General** tab, in section **Advanced options**, select the version of BBDO you want from the **BBDO version** list. Then click on **Save**.
 3. Do the same with all the elements listed on page **Configuration > Pollers > Broker configuration**.
-4. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md) for all servers.
-5. Stop the following services:
+4. Restart gorgoned on each server:
+
+   ```shell
+   systemctl restart gorgoned
+   ```
+
+5. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md) for all servers.
+6. Stop the following services:
    - On the central server and on remote servers:
 
      ```shell
-     stop cbd centengine
+     systemctl stop cbd centengine
      ```
 
    - On the pollers:
 
      ```shell
-     stop cbd centengine
+     systemctl stop centengine
      ```
 
-6. Start the following services:
+7. Start the following services:
    - On the central server and on remote servers:
 
      ```shell
-     start cbd centengine
+     systemctl start cbd centengine
      ```
 
    - On the pollers:
 
      ```shell
-     start cbd centengine
+     systemctl start centengine
      ```
 
 You can check in the logs which version of BBDO is active for a server:
@@ -373,19 +379,19 @@ You can check in the logs which version of BBDO is active for a server:
 - central broker:
 
   ```shell
-  /var/log/centreon-broker/central-broker-master.log
+  tail /var/log/centreon-broker/central-broker-master.log
   ```
 
 - remote broker:
 
   ```shell
-  /var/log/centreon-broker/<remote_name>-broker-master.log
+  tail /var/log/centreon-broker/<remote_name>-broker-master.log
   ```
 
 - poller module:
 
   ```shell
-  /var/log/centreon-broker/<poller_name>-module.log
+  tail /var/log/centreon-broker/<poller_name>-module.log
   ```
 
 The following line states which version is used for each server:
