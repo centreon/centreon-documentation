@@ -379,13 +379,12 @@ You can check in the logs which version of BBDO is active for a server:
 - central broker:
 
   ```shell
-  tail /var/log/centreon-broker/central-broker-master.log
-  ```
+  tail /var/log/centreon-broker/central-{broker,rrd,module}-master.log
 
 - remote broker:
 
   ```shell
-  tail /var/log/centreon-broker/<remote_name>-broker-master.log
+  tail /var/log/centreon-broker/<remote_name>-{broker,rrd,module}-master.log
   ```
 
 - poller module:
