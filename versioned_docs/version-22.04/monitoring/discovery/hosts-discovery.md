@@ -204,7 +204,7 @@ Some discovery jobs can be edited:
 
   When you edit mappers, if you selected **Update existing hosts** at step 5 of the wizard, the hosts will be updated. If you did not select this option, running the job again will only add new hosts to the monitoring: existing hosts will not be updated.
 
-  If the autodiscovery module discovers hosts with a name that already exists and that you created manually on page **Configuration > Hosts > Hosts**, those hosts will also be updated by the autodiscovery module, even if they weren't discovered by it.
+  If the autodiscovery module discovers hosts whose names are already used by hosts that have previously been created manually on page **Configuration > Hosts > Hosts** or with the API or CLAPI, those existing hosts will also be updated by the autodiscovery module.
 
 3. Click on the **Save** icon at the top right of the panel: ![image](../../assets/monitoring/discovery/host-discovery-save.png#thumbnail2)
 
