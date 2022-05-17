@@ -28,7 +28,7 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
   - Possibility to exclude users from password expiration policy
   - Brute force detection and account blocking
 - [Authentication] Moved Web SSO and OpenID Connect configuration to a dedicated authentication menu
-- [Authentication] Do not allow same autologin key and password
+- [Authentication] Autologin key and password can’t be the same
 - [Configuration] Export hosts and services categories and severities in Centreon Engine configuration files
 - [Configuration] Added new unified SQL Centreon Broker output parameters in the configuration menu
 - [Core] Improved SQL queries by escaping '_'
