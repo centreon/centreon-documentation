@@ -37,7 +37,7 @@ If you have feature requests or want to report a bug, please go to our
 - [Install] Improvement and simplification of Centreon Apache configuration
 - [Install] Improved installation with a remote DBMS
 - [Install] Set broker retry interval to 15s instead of 60
-- [Upgrade] Excluded dedicated account for the Centreon Gorgone / MAP / MBI processes to expiration password policy
+- [Upgrade] Excluded the dedicated account for the Centreon Gorgone / MAP / MBI processes from the password expiration policy
 - [UX] Added Dark Theme and a switch to easily move from light to dark theme
 - [UX] Harmonization of the classic theme
 - [UX] Redesign of the authentication page
