@@ -184,7 +184,7 @@ list of jobs and see if an error occured during the saving task.
 
 Some discovery jobs can be edited:
 
-- if you have set the job to **Automatic analysis** and you have selected **Update existing hosts** at step 5 of the wizard, you can edit and rerun the job: the hosts linked to the job will be updated. To rerun the job, go to page **Configuration > Hosts > Discovery**, hover over the job and then click **Force execution**.
+- if you have set the job to **Automatic analysis** and you have selected **Update existing hosts** at step 5 of the wizard, you can edit and rerun the job: the hosts discovered by the job will be updated. To rerun the job, go to page **Configuration > Hosts > Discovery**, hover over the job and then click **Force execution**.
 - If a job is set to **Manual analysis** and its hosts are already monitored, then editing and running the job again will have no effect.
 
 1. On the **Configuration > Hosts > Discovery** page, click on the discovery job you want. A panel appears on the right.
