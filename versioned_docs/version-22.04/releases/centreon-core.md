@@ -31,7 +31,7 @@ If you have feature requests or want to report a bug, please go to our
 - [Authentication] Moved Web SSO and OpenID Connect configuration to a dedicated authentication menu
 - [Authentication] Do not allow same autologin key and password
 - [Configuration] Export hosts and services categories and severities in Centreon Engine configuration files
-- [Configuration] Added a new unified sql Centreon Broker output parameters in the configuration menu
+- [Configuration] Added new unified SQL Centreon Broker output parameters in the configuration menu
 - [Core] Improved SQL queries by escaping '_'
 - [Install] Creation of a dedicated account for the Centreon Gorgone process
 - [Install] Improvement and simplification of Centreon Apache configuration
