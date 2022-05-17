@@ -163,8 +163,8 @@ Réaliser la mise à jour graphique de l’interface web en déplacent le dossie
 - **@NEW-CENTRAL@** :
 
 ```bash
-rm -f /var/lib/centreon/installs/install-21.10.*/tmp/Update-*
-mv /var/lib/centreon/installs/install-21.10.* /usr/share/centreon/www/install/
+rm -f /var/lib/centreon/installs/install-22.10.*/tmp/Update-*
+mv /var/lib/centreon/installs/install-22.10.* /usr/share/centreon/www/install/
 ```
 
 Mettre en place le partitioning des tables data_bin et logs. Attention, vérifier dans l'interface que la rétention configuré pour les partitions (Administration  >  Parameters  >  Options) convient :
