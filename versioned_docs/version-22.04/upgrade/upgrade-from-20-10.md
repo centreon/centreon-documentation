@@ -201,73 +201,6 @@ In particular, make sure your customized Apache configuration contains the follo
 </LocationMatch>
 ```
 
-### Finalizing the upgrade
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-Before starting the web upgrade process, reload the Apache server with the
-following command:
-```shell
-systemctl reload httpd
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-Before starting the web upgrade process, reload the Apache server with the
-following command:
-```shell
-systemctl reload httpd24-httpd
-```
-
-</TabItem>
-</Tabs>
-
-Then log on to the Centreon web interface to continue the upgrade process:
-
-Click on **Next**:
-
-![image](../assets/upgrade/web_update_1.png)
-
-Click on **Next**:
-
-![image](../assets/upgrade/web_update_2.png)
-
-The release notes describe the main changes. Click on **Next**:
-
-![image](../assets/upgrade/web_update_3.png)
-
-This process performs the various upgrades. Click on **Next**:
-
-![image](../assets/upgrade/web_update_4.png)
-
-Your Centreon server is now up to date. Click on **Finish** to access the login
-page:
-
-![image](../assets/upgrade/web_update_5.png)
-
-If the Centreon BAM module is installed, refer to the
-[upgrade procedure](../service-mapping/upgrade.md).
-
-### Post-upgrade actions
-
-1. Upgrade extensions. From **Administration > Extensions > Manager**, upgrade all extensions, starting
-with the following:
-
-    - License Manager,
-    - Plugin Packs Manager,
-    - Auto Discovery.
-
-    Then you can upgrade all other commercial extensions.
-
-2. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
-
-3. Restart the processes:
-    ```shell
-    systemctl restart cbd centengine centreontrapd gorgoned
-    ```
-
 ### Upgrade the MariaDB server
 
 The MariaDB components can now be upgraded.
@@ -357,6 +290,73 @@ Execute the following command:
 ```shell
 systemctl enable mariadb
 ```
+
+### Finalizing the upgrade
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+Before starting the web upgrade process, reload the Apache server with the
+following command:
+```shell
+systemctl reload httpd
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+Before starting the web upgrade process, reload the Apache server with the
+following command:
+```shell
+systemctl reload httpd24-httpd
+```
+
+</TabItem>
+</Tabs>
+
+Then log on to the Centreon web interface to continue the upgrade process:
+
+Click on **Next**:
+
+![image](../assets/upgrade/web_update_1.png)
+
+Click on **Next**:
+
+![image](../assets/upgrade/web_update_2.png)
+
+The release notes describe the main changes. Click on **Next**:
+
+![image](../assets/upgrade/web_update_3.png)
+
+This process performs the various upgrades. Click on **Next**:
+
+![image](../assets/upgrade/web_update_4.png)
+
+Your Centreon server is now up to date. Click on **Finish** to access the login
+page:
+
+![image](../assets/upgrade/web_update_5.png)
+
+If the Centreon BAM module is installed, refer to the
+[upgrade procedure](../service-mapping/upgrade.md).
+
+### Post-upgrade actions
+
+1. Upgrade extensions. From **Administration > Extensions > Manager**, upgrade all extensions, starting
+with the following:
+
+    - License Manager,
+    - Plugin Packs Manager,
+    - Auto Discovery.
+
+    Then you can upgrade all other commercial extensions.
+
+2. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
+
+3. Restart the processes:
+    ```shell
+    systemctl restart cbd centengine centreontrapd gorgoned
+    ```
 
 ## Upgrade the Remote Servers
 
