@@ -82,6 +82,8 @@ By:
 
 #### Centreon Engine
 
+##### Enhancements
+
 - New logger, more readable, more configurable. The former logger is still available for the moment.
 - Flapping was not detected for volatile services until now. This is a new behavior that can be disabled. Following [a suggestion on TheWatch](https://thewatch.centreon.com/data-collection-6/volatile-and-flapping-212).
 - Flapping used to be detected on SOFT states for hosts and on HARD states for services. This seemed illogical so it will now be based on SOFT states for both. Based on [PR #522](https://github.com/centreon/centreon-engine/pull/522).
