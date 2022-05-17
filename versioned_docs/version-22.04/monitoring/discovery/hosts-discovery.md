@@ -35,7 +35,7 @@ See also our tutorial on [how to detect AWS EC2 instances](../../getting-started
 
 ### Step 2: Define access and discovery parameters
 
-Define the default monitoring server from which the discovery will be made. You can define different servers for various hosts according to criteria defined using [mappers](#how-to-use-mappers).
+Define the monitoring server from which the discovery will be made.
 
 ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-2.png)
 
