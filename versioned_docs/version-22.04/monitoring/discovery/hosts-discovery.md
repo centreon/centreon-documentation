@@ -62,7 +62,7 @@ discovery results could look like:
 
 ### Step 5: Define analysis and update policies
 
-- **Manual analysis**: Once the discovery job is executed, in the list of discovered hosts, you will have to choose manually which hosts should be added to the list of monitored hosts (on page **Configuration > Hosts > Hosts**). See [Analyze the results of a discovery job](#analyze-the-results-of-a-discovery-job).
+- **Manual analysis**: Once the discovery job is executed, you will have to choose manually which hosts should be added to the list of monitored hosts (on page **Configuration > Hosts > Hosts**). See [Analyze the results of a discovery job](#analyze-the-results-of-a-discovery-job).
 
 - **Automatic analysis**: The results will be processed automatically according to the selected policy (you must choose at least one):
 
