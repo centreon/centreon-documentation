@@ -60,12 +60,13 @@ More information about discovering services automatically is available on the [d
 </TabItem>
 <TabItem value="Watcher-Statistics" label="Watcher-Statistics">
 
-| Metric Name                          | Unit  |
-|:-------------------------------------|:------|
-| *watchers*#watcher.errors.percentage | %     |
-| *watchers*#watcher.pages.count       | count |
-| *watchers*#watcher.requests.count    | count |
-| *watchers*#watcher.sessions.count    | count |
+| Metric Name                                      | Unit  |
+|:------------------------------------------------ |:------|
+| *watchers*#watcher.errors.percentage             | %     |
+| *watchers*#watcher.pages.count                   | count |
+| *watchers*#watcher.requests.count                | count |
+| *watchers*#watcher.sessions.count                | count |
+| *watchers*#watcher.loading.page.duration.seconds | s     |
 
 </TabItem>
 </Tabs>
@@ -157,11 +158,11 @@ running the following command:
 ```bash
 /usr/lib/centreon/plugins//centreon_monitoring_kadiska_restapi.pl \
     --plugin=apps::monitoring::kadiska::plugin \
-    --mode=tracer-statistics \
+    --mode=nettracer-statistics \
     --client-id='client:xxx' \
     --client-secret='my-secret' \
     --filter-station-name='Paris-RT' \
-    --filter-tracer='tracer:xxx' \
+    --filter-tracer='tracername' \
     --period=15 \
     --port='443' \
     --proto='https' \
@@ -181,7 +182,7 @@ All available options for a given mode can be displayed by adding the
 ```bash
 /usr/lib/centreon/plugins//centreon_monitoring_kadiska_restapi.pl \
     --plugin=apps::monitoring::kadiska::plugin \
-    --mode=tracer-statistics \
+    --mode=nettracer-statistics \
     --help
 ```
 
