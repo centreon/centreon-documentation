@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 The Centreon Pack Ceph brings a host template:
 * App-Ceph-Restapi-custom
 
-It brings the following Service Templates:
+It brings the following service templates:
 
 | Service Alias  | Service Template        | Default | Discovery |
 |:---------------|:------------------------|:--------|:----------|
@@ -42,7 +42,7 @@ It brings the following Service Templates:
 | :--------------------------- | :---------------------------------------------------------- | :---- |
 | osd.detected.count           | Number of online storage daemons detected                   |       |
 | osd.online.count             | Number of online storage daemons in Ceph cluster            |       |
-| osd.online.percentage        | Pourcentage of online storage daemons in Ceph cluster       | %     |
+| osd.online.percentage        | Percentage of online storage daemons in Ceph cluster       | %     |
 | osd.participating.count      | Number of participating storage daemons in Ceph cluster     |       |
 | osd.participating.percentage | Percentage of participating storage daemons in Ceph cluster | %     |
 
@@ -52,7 +52,7 @@ It brings the following Service Templates:
 | Metric name                                 | Description                          | Unit  |
 | :------------------------------------------ | :----------------------------------- | :---- |
 | pools.detected.count                        | Number of pools detected             |       |
-| *pool_name*#pool.space.usage.bytes          | Space used on the pool |             |       |
+| *pool_name*#pool.space.usage.bytes          | Space used on the pool |                     |
 | *pool_name*#pool.space.free.bytes           | Free space left on the pool          |       |
 | *pool_name*#pool.space.usage.percentage     | Space used on the pool in percentage | %     |
 | *pool_name*#pool.read.usage.bytespersecond  | Read rate                            | B/s   |
@@ -63,7 +63,7 @@ It brings the following Service Templates:
 
 ## Prerequisites
 
-To monitor your Ceph, an user with read privileges is needed:
+To monitor your Ceph, a user with read privileges is needed:
 E.g: hhttps://docs.ceph.com/en/latest/mgr/ceph_api/
 
 ## Setup

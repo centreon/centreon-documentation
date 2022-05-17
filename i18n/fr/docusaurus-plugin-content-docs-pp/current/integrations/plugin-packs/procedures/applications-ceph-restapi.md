@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 Le Pack Centreon Ceph apporte un modèle d'hôte :
 * App-Ceph-Restapi-custom
 
-Il apporte les Modèles de Service suivants :
+Il apporte les modèles de service suivants :
 
 | Alias  | Modèle de services      | Défaut | Découverte |
 |:-------|:------------------------|:--------|:----------|
@@ -42,7 +42,7 @@ Il apporte les Modèles de Service suivants :
 | :--------------------------- | :---------------------------------------------------------- | :---- |
 | osd.detected.count           | Number of online storage daemons detected                   |       |
 | osd.online.count             | Number of online storage daemons in Ceph cluster            |       |
-| osd.online.percentage        | Pourcentage of online storage daemons in Ceph cluster       | %     |
+| osd.online.percentage        | Percentage of online storage daemons in Ceph cluster       | %     |
 | osd.participating.count      | Number of participating storage daemons in Ceph cluster     |       |
 | osd.participating.percentage | Percentage of participating storage daemons in Ceph cluster | %     |
 
@@ -52,7 +52,7 @@ Il apporte les Modèles de Service suivants :
 | Metric name                                 | Description                          | Unit  |
 | :------------------------------------------ | :----------------------------------- | :---- |
 | pools.detected.count                        | Number of pools detected             |       |
-| *pool_name*#pool.space.usage.bytes          | Space used on the pool |             |       |
+| *pool_name*#pool.space.usage.bytes          | Space used on the pool               |       |
 | *pool_name*#pool.space.free.bytes           | Free space left on the pool          |       |
 | *pool_name*#pool.space.usage.percentage     | Space used on the pool in percentage | %     |
 | *pool_name*#pool.read.usage.bytespersecond  | Read rate                            | B/s   |
