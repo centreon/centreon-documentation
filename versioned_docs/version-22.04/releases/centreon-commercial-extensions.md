@@ -38,7 +38,8 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 22.04.0
 
-- Compatibility with other 22.04 components.
+- The Centreon Host Discovery engine can now perform changes on existing hosts when using the automatic policy. This means that existing hosts may now gain templates, groups, categories and macros, and get monitored by a different server.
+- Centreon Host Discovery can now deploy the new monitoring configuration as soon as the job is run in the background.
 
 ## Centreon Plugin Packs Manager
 
