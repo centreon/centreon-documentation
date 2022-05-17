@@ -7,11 +7,11 @@ title: Introduction
 > Pour en acheter une et récupérer les référentiels
 > nécessaires, contactez [Centreon](mailto:sales@centreon.com).
 
-Le module de découverte automatique permet d'obtenir une liste des nouveaux hôtes ou services et, si vous le désirez, 
+Le module de découverte automatique permet d'obtenir une liste des nouveaux hôtes ou services et, si vous le désirez,
 de les créer automatiquement dans Centreon. La découverte se fait
 via des fournisseurs de recherche et des règles de découverte, qui sont inclus dans des [Plugin Packs](../pluginpacks.md).
 
-- La découverte peut être planifiée et exécutée automatiquement, régulièrement.
+- La découverte peut être planifiée et exécutée automatiquement, régulièrement. Des hôtes peuvent être ajoutés à la supervision sans intervention manuelle.
 - Vous pouvez également détecter que des ressources ne
 sont plus disponibles, afin d'éventuellement les désactiver dans la configuration.
 - Les contacts peuvent être associés à une règle de découverte de services pour être avertis en cas de modification de la configuration.
