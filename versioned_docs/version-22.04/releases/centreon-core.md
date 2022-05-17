@@ -96,7 +96,10 @@ By:
 
 #### Centreon Broker
 
-- Compatibility with other 22.04 components.
+- A new output type has been created, `unified_sql`, to replace both `sql` and `storage` in one unique output.
+- New BBDO protocol version: 3.0.0. Some broker events are now sent using Protobuf arrays. This has benefits such as smaller bandwidth consumption and smaller database updates. The broker event types that have been converted are: host, host status, service, service status and RRD rebuild messages. The protocol version (`bbdo_version`) must be identical in all parts of the broker configuration.
+- Broker feeds new tables for real time monitoring information.
+- A lot of new runtime statistics are available with the gRPC API.
 
 ## Centreon Gorgone
 
