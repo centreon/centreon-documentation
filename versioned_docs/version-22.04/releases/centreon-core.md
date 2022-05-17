@@ -22,7 +22,7 @@ If you have feature requests or want to report a bug, please go to our
 #### Enhancements
 
 - [Administration] Display the name of the object that has been modified in the detail form of the administration logs
-- [Authentication] Added a Password Security Policy for local account
+- [Authentication] Added a Password Security Policy for local accounts
   - Define password complexity
   - Define password length
   - Password expiration policy
