@@ -22,7 +22,7 @@ Un assistant s'ouvre.
 
 ### Étape 1 : Choisir un fournisseur
 
-1. À la 1è étape de l'assistant, entrez un nom pour la tâche (si vous n'en saisissez pas, le nom du fournisseur sera utilisé).
+1. À la 1ère étape de l'assistant, entrez un nom pour la tâche (si vous n'en saisissez pas, le nom du fournisseur sera utilisé).
 
 2. Cliquez sur le fournisseur correspondant aux ressources que vous voulez découvrir.
 
@@ -202,13 +202,13 @@ Les modificateurs permettent de :
 
 | Modificateur  |   Action                                                                              |
 |---------------|---------------------------------------------------------------------------------------|
-| Property      | définir un libellé (nom, alias, adresse IP)                                           |
+| Propriété      | définir un libellé (nom, alias, adresse IP)                                           |
 | Macro         | définir une macro custom pour l'hôte                                                  |
-| Template      | ajouter des modèles d'hôtes (le modèle lié au plugin pack est ajouté automatiquement) |
-| Host group    | rattacher les hôtes à un groupe d'hôtes                                               |
-| Host category | rattacher les hôtes à une catégorie                                                   |
-| Host severity | prioriser les hôtes par sévérité                                                      |
-| Monitoring    | choisir depuis quel serveur de supervision les hôtes seront supervisés                |
+| Modèle      | ajouter des modèles d'hôtes (le modèle lié au plugin pack est ajouté automatiquement) |
+| Groupe d'hôtes    | rattacher les hôtes à un groupe d'hôtes                                               |
+| Catégorie d'hôte | rattacher les hôtes à une catégorie                                                   |
+| Criticité d'hôte | prioriser les hôtes par sévérité                                                      |
+| Supervision    | choisir depuis quel serveur de supervision les hôtes seront supervisés                |
 | Exclusion     | exclure un sous-ensemble d'hôtes sur la base de leurs attributs                       |
 | Inclusion     | inclure un sous-ensemble d'hôtes qui aurait été exclus                                |
 
@@ -221,8 +221,7 @@ peuvent être : *est égal à*, *est différent de*, *contient* et *ne contient 
 Si vous incluez plusieurs conditions dans un même modificateur, il faut que
 toutes les conditions soient vérifiées pour que le modificateur s'applique.
 
-Depuis la version 21.04, dans les modificateurs **Property**, **Macro**, **Host
-group** et **Host category** il est possible de concaténer un ou plusieurs
+Depuis la version 21.04, dans les modificateurs **Propriété**, **Macro**, **Groupe d'hôtes** et **Catégorie d'hôte** il est possible de concaténer un ou plusieurs
 de ces attributs avec une ou plusieurs chaînes de caractères personnalisées.
 
 ![image](../../assets/monitoring/discovery/host-discovery-mappers-concatenation.gif)
@@ -265,9 +264,9 @@ suppression :  ![image](../../assets/monitoring/discovery/host-discovery-delete.
 
 ## Types de **modificateur**
 
-### Property
+### Propriété
 
-Le modificateur **Property** est utilisé pour définir les propriétés
+Le modificateur **Propriété** est utilisé pour définir les propriétés
 communes d'un hôte comme son nom, son alias ou son adresse IP. Ces trois
 propriétés sont obligatoires.
 
@@ -296,10 +295,10 @@ Le champ **Destination** est un champ texte libre.
 La case **Mot de passe** définit si la macro sera créée comme une macro "mot de
 passe" ou non.
 
-### Template
+### Modèle
 
-Le modificateur **Template** est utilisé pour ajouter un modèle à l'hôte. Vous pouvez ajouter
-autant de modificateurs **Template** que vous le désirez (un modèle par modificateur).
+Le modificateur **Modèle** est utilisé pour ajouter un modèle à l'hôte. Vous pouvez ajouter
+autant de modificateurs **Modèle** que vous le désirez (un modèle par modificateur).
 
 Comme dans l'exemple ci-dessous, vous pouvez définir un modèle en fonction de certaines conditions
 (ici, le modèle OS-Linux-SNMP-custom est appliqué aux hôtes de type Linux).
@@ -309,7 +308,7 @@ Comme dans l'exemple ci-dessous, vous pouvez définir un modèle en fonction de 
 La liste **Modèles d'hôte** permet de choisir parmi tous les modèles d'hôte
 définis dans la configuration.
 
-### Host group
+### Groupe d'hôtes
 
 Depuis la version 21.04, il est possible de rattacher des hôtes découverts
 automatiquement à des groupes d'hôtes. Cela peut se faire de deux manières.
@@ -330,7 +329,7 @@ saisie propose les informations disponibles).
   Si un groupe d'hôtes existe déjà avec ce nom, il ne sera pas recréé,
 l'hôte sera simplement rattaché à ce groupe.
 
-### Host category
+### Catégorie d'hôte
 
 Depuis la version 21.04, il est également possible de catégoriser les hôtes
 découverts automatiquement. Cela peut se faire de deux manières.
@@ -350,7 +349,7 @@ saisie propose les informations disponibles).
 Si une catégorie d'hôtes existe déjà avec ce nom, elle ne sera pas 
 recréée, l'hôte sera simplement rattaché à cette catégorie.
 
-### Host severity
+### Criticité d'hôte
 
 Toujours depuis la version 21.04, il est également possible de hiérarchiser
 les hôtes découverts automatiquement à l'aide de sévérités d'hôtes. Les 
@@ -360,9 +359,9 @@ d'une sévérité existante dans le menu déroulant.
 
 ![image](../../assets/monitoring/discovery/host-discovery-mappers-hostseverity-select.png)
 
-### Monitoring
+### Supervision
 
-Le modificateur **Monitoring** est utilisé pour choisir depuis quel serveur de
+Le modificateur **Supervision** est utilisé pour choisir depuis quel serveur de
 supervision l'hôte sera supervisé. Celui-ci est obligatoire.
 
 ![image](../../assets/monitoring/discovery/host-discovery-mappers-monitoring.png)
@@ -393,7 +392,7 @@ Le modificateur **Inclusion** permet d'inclure des hôtes qui auraient été pr�
 
 ## Attributs avancés
 
-Certains attributs fournis par la découverte, dits attributs avancés, consistent en une liste d'objets contenant des paires de propriétés. Ils peuvent être utilisés comme source pour les modificateurs **Macro**, **Host group** et **Host category**, et dans les conditions pour tous les types de modificateurs. En particulier avec les modificateurs de type **Inclusion** et **Exclusion**, ils permettent de filtrer le résultat de la découverte en fonction d'une paire de valeurs précise.
+Certains attributs fournis par la découverte, dits attributs avancés, consistent en une liste d'objets contenant des paires de propriétés. Ils peuvent être utilisés comme source pour les modificateurs **Macro**, **Groupe d'hôtes** et **Catégorie d'hôte**, et dans les conditions pour tous les types de modificateurs. En particulier avec les modificateurs de type **Inclusion** et **Exclusion**, ils permettent de filtrer le résultat de la découverte en fonction d'une paire de valeurs précise.
 
 Exemple d'attribut avancé décrivant un hôte : les tags d'un environnement cloud. Imaginons que vos hôtes soient hébergés dans le cloud. Les hôtes ont un attribut avancé nommé **tags**. Pour un hôte ayant les tags **os: windows** et **environment: production**, Host Discovery recevra les tags de la manière suivante :
 
