@@ -59,32 +59,32 @@ import TabItem from '@theme/TabItem';
 <TabItem value="Enhancements" label="Enhancements">
 
 - [**Nutanix**](../procedures/virtualization-nutanix-snmp.md) - Nutanix host discovery & new templates - Status: stable
-- [**Ruckus ICX SNMP**](../procedures/network-ruckus-icx.md) - Add new thresholds to Memory service
+- [**Ruckus ICX SNMP**](../procedures/network-ruckus-icx-snmp.md) - Add new thresholds to Memory service
 - [**Huawei SNMP**](../procedures/network-huawei-snmp.md) - Add optical monitoring in interfaces check
-- [**Arista SNMP**](../procedures/network-arista-snmp.md) - Change threshold options for Memory service
-- [**Veeam**](../procedures/apps-backup-veeam.md) - Add new services: Repositories and Licenses
-- [**Microsoft SQL Server**](../procedures/database-mssql.md) - Add new threshold to Backup-age service
+- [**Arista SNMP**](../procedures/ network-switchs-arista-snmp.md) - Change threshold options for Memory service
+- [**Veeam**](../procedures/applications-veeam-nrpe.md) - Add new services: Repositories and Licenses
+- [**Microsoft SQL Server**](../procedures/applications-database-mssql.md) - Add new threshold to Backup-age service
 
 </TabItem>
 <TabItem value="Fix" label="Fix">
 
-- [**Cisco Meraki RestAPI**](../procedures/network-cisco-meraki-cloudcontroller-restapi.md) - Fix host disco attributes
+- [**Cisco Meraki RestAPI**](../procedures/network-cisco-meraki-restapi.md) - Fix host disco attributes
 - [**Digi Portserverts SNMP**](../procedures/network-digi-portserverts-snmp.md) - Rename Pack
 - [**Amazon EC2**](../procedures/cloud-aws-ec2.md) - Fixing discovery mapper and wrong HTPL/STPL association
-- [**Aruba Standard**](../procedures/network-aruba-standard-snmp.md) - Fixing extra space in disco commands
+- [**Aruba Standard**](../procedures/network-switchs-aruba-standard-snmp.md) - Fixing extra space in disco commands
 - [**Centreon MBI**](../procedures/applications-monitoring-centreon-mbi.md) - MariaDB service name fix
 - [**Docker RestAPI**](../procedures/applications-docker-restapi.md) - Fix macro in Node-status mode
-- [**NSClient 0.5**](../procedures/applications-webservers-nsclient-05.md) - Align pack status with documentation (deprecated)
+- [**Microsoft IIS NSClient 0.5**](../procedures/applications-webservers-iis-nsclient-05-restapi.md) - Align pack status with documentation (deprecated)
 - [**Microsoft IIS NRPE**](../procedures/applications-webservers-iis-nrpe.md) - Align pack status with documentation (deprecated)
-- [**Azure Virtual Machine Scale Sets**](../procedures/cloud-azure-vmss.md) - Fix discovery provider description
+- [**Azure Virtual Machine Scale Sets**](../procedures/cloud-azure-compute-vmscalesets.md) - Fix discovery provider description
 - [**Symbol WiNG SNMP**](../procedures/network-symbol-wing-snmp.md) - Fix Systems command
-- [**IBM Softlayer**](../procedures/cloud-ibm-softlayer.md) - Fix commands options
+- [**IBM Softlayer**](../procedures/cloud-ibm-softlayer-api.md) - Fix commands options
 
 </TabItem>
 <TabItem value="Breaking changes" label="Breaking changes">
 
 - [**OneAccess SNMP**](../procedures/network-oneaccess-snmp.md) - Add new services: Interfaces and cells-radio - Status: stable
-- [**NetApp Ontap OnCommand API**](../procedures/storage-netapp-ontap-oncommandapi.md) - Refactoring volumes services - Status: stable
+- [**NetApp Ontap OnCommand API**](../procedures/hardware-storage-netapp-ontap-oncommandapi.md) - Refactoring volumes services - Status: stable
 
 </TabItem>
 </Tabs>
@@ -103,7 +103,7 @@ import TabItem from '@theme/TabItem';
 
 - [**Cisco Meraki Rest API**](../procedures/network-cisco-meraki-restapi.md) - Add new cache system - Status: stable
 - [**Veeam**](../procedures/applications-veeam-nrpe.md) - Add vsb-jobs service - Status: stable
-- [**HP Procurve**](../procedures/network-hp-procurve-snmp.md) - Add service virtual-chassis - Status: stable
+- [**HP Procurve**](../procedures/network-switchs-symbol-wing-snmp.md) - Add service virtual-chassis - Status: stable
 - [**Raritan PDU**](../procedures/hardware-pdu-raritan-snmp.md) - Add service inlet-sensors - Status: stable
 - [**Cisco Meraki Rest API**](../procedures/network-cisco-meraki-restapi.md) - Add a variable to autodiscovery attributes - Status: stable
 - [**Office 365**](../procedures/cloud-microsoft-office365-management.md) - Add service app-credentials - Status: stable
@@ -117,7 +117,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 <TabItem value="Breaking changes" label="Breaking changes">
 
-- [**Oracle Database**](../procedures/database-oracle.md) - Change threshold options for service rman-backup-problems - Status: stable
+- [**Oracle Database**](../procedures/applications-database-oracle.md) - Change threshold options for service rman-backup-problems - Status: stable
 - [**VTOM Rest API**](../procedures/applications-vtom-restapi.md) - Use official and latest API - Status: stable
 
 </TabItem>
@@ -141,15 +141,15 @@ import TabItem from '@theme/TabItem';
 - [**Microsens G6 SNMP**](../procedures/network-microsens-g6-snmp.md) - Initial release - Status: stable
 - [**Symbol WiNG SNMP**](../procedures/network-switch-symbol-wing-snmp.md) - Initial release - Status: stable
 - [**Dynamics NSClient**](../procedures/applications-dynamics-ax-nsclient-05-nrpe.md) - Initial release - Status: stable
-- [**Dynamics AX Database**](../procedures/applications-dynamics-ax-mssql.md) - Initial release - Status: stable
+- [**Dynamics AX Database**] - Initial release - Status: stable
 - [**"Dynamics 365**](../procedures/applications-dynamics-365-nsclient-05-nrpe.md) - Initial release - Status: stable
 
 </TabItem>
 <TabItem value="Enhancements" label="Enhancements">
 
-- [**Fortinet Fortigate**](../procedures/network-fortinet-fortigate-snmp.md) - Change threshold options - Status: stable
+- [**Fortinet Fortigate**](../procedures/network-firewalls-fortinet-fortigate-snmp.md) - Change threshold options - Status: stable
 - [**Amazon EBS**](../procedures/cloud-aws-ebs.md) - Add host discovery rule - Status: stable
-- [**VMWare**](../procedures/virtualization-vmware2.md) - New services coming with VMWare connector 3.2.2 - Status: stable
+- [**VMWare**] - New services coming with VMWare connector 3.2.2 - Status: stable
 
 </TabItem>
 <TabItem value="Fix" label="Fix">
@@ -163,8 +163,8 @@ import TabItem from '@theme/TabItem';
 <TabItem value="Breaking changes" label="Breaking changes">
 
 - [**Office 365**](../procedures/cloud-microsoft-office365-management.md) - Use new microsoft api - Status: stable
-- [**Azure SQL Server**](../procedures/cloud-azure-sqlserver.md) - Rewrite and extend - Status: stable
-- [**Azure SQL Database**](../procedures/cloud-azure-sqldatabase.md) - Rewrite and extend - Status: stable
+- [**Azure SQL Server**](../procedures/ cloud-azure-database-sqlserver.md) - Rewrite and extend - Status: stable
+- [**Azure SQL Database**](../procedures/cloud-azure-database-sqldatabase.md) - Rewrite and extend - Status: stable
 - [**Microsoft SQL Server**](../procedures/applications-databases-mssql.md) - Change thresholds for Backup-age service - Status: stable
 
 </TabItem>
