@@ -104,6 +104,10 @@ By:
 - Broker feeds new tables for real time monitoring information.
 - A lot of new runtime statistics are available with the gRPC API.
 
+##### Breaking changes
+
+As stated above, all broker instances (central, RRD, modules) must use the same BBDO protocol version to be able to communicate. This means that pollers using 21.10 or older releases won't be able to send data to a 22.04 central server using BBDO 3.0.0. Please read carefully our upgrade procedure.
+
 ## Centreon Gorgone
 
 ### 22.04.0
