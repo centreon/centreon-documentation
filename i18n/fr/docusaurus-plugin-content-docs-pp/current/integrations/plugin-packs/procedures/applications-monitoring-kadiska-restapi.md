@@ -163,7 +163,7 @@ l'utilisateur **centreon-engine** (`su - centreon-engine`) :
     --client-id='client:xxx' \
     --client-secret='my-secret' \
     --filter-station-name='Paris-RT' \
-    --filter-tracer='mywebsite.com' \
+    --filter-tracer='tracer_name' \
     --period=15 \
     --port='443' \
     --proto='https' \
