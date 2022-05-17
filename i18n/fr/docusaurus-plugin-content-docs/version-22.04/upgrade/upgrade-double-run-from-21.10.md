@@ -109,7 +109,7 @@ rsync -av /var/lib/centreon/status/ root@'@NEW_CENTRAL_IP@':/var/lib/centreon/st
 
 Créer les tables exclue du dump de la base **centreon_storage** en utilisant les schéma ci dessous :
 
-- **@NEW-DB-MariaDB@** ::d1
+- **@NEW-DB-MariaDB@** :
 
 ```sql
 CREATE TABLE `data_bin` (
