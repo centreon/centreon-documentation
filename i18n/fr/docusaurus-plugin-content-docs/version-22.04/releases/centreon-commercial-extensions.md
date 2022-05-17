@@ -56,3 +56,7 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 ### 22.04.0
 
 - Compatibility with other 22.04 components.
+
+## Centreon Data Source For Grafana
+
+- [Grafana] Centreon data source

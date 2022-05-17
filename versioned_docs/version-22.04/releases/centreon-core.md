@@ -38,13 +38,17 @@ If you have feature requests or want to report a bug, please go to our
 - [Install] Improved installation with a remote DBMS
 - [Install] Set broker retry interval to 15s instead of 60
 - [Upgrade] Excluded dedicated account for the Centreon Gorgone / MAP / MBI processes to expiration password policy
-- [Resources Status] Added new Filter in resources status on type of status (Hard or Soft)
-- [Resources Status] Changed "resource" by "type" in filter menu
 - [UX] Added Dark Theme and a switch to easily move from light to dark theme
 - [UX] Harmonization of the classic theme
 - [UX] Redesign of the authentication page
 - [UX] Remove footer to save space
 - [UX] Remove "Animation effects" option for users
+- [Resources Status] New tab in right panel showing notification policy for a resource
+- [Resources Status] New filter in resources status on type of status (Hard or Soft)
+- [Resources Status] Filter popin improvement:
+  - Remove search box when selection options are limited
+  - **Resource** has been replaced by **Type** to be consistent with search bar
+- [Resources Status] Make service graph tiles size constant in Resources Status host graph panel
 
 #### Breaking changes
 

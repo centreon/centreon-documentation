@@ -57,3 +57,7 @@ If you have feature requests or want to report a bug, please contact support.
 ### 22.04.0
 
 - Compatibility with other 22.04 components.
+
+## Centreon Data Source For Grafana
+
+- [Grafana] Centreon data source
