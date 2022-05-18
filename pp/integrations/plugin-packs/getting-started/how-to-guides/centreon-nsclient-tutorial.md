@@ -196,6 +196,15 @@ net start nscp
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/centreon-nsclient-tutorial-webserver.png)
 
+## Secure client/server communication with allowed ciphers directive
+
+To secure your client/server communication and avoid alerts generation in security auditing tools like Nessus, please apply the following directive to 
+your nsclient.ini configuration: 
+
+```ini
+allowed ciphers = HIGH:!LOW:!MEDIUM:!SSLv3:!SSLv2:!TLSv1:!eNULL:!aNULL:!EXPORT:@STRENGTH
+```
+
 ## Troubleshooting
 
 Any issue related to the configuration of the agent and its usage, please refer to the wholesome [official FAQ](https://docs.nsclient.org/faq/) of

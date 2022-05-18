@@ -188,6 +188,15 @@ net start nscp
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/centreon-nsclient-tutorial-webserver.png)
 
+## Allowed Ciphers and pentesting tools 
+
+To secure your client-server communication and avoid alerts generation in security auditing tools like Nessus, please apply the following directive to 
+your nsclient.ini configuration: 
+
+```ini
+allowed ciphers = HIGH:!LOW:!MEDIUM:!SSLv3:!SSLv2:!TLSv1:!eNULL:!aNULL:!EXPORT:@STRENGTH
+```
+
 ## Diagnostic des erreurs communes
 
 En cas de soucis de configuration et/ou d'exploitation, référez-vous à la [documentation officielle](https://docs.nsclient.org/faq/) de NSClient++ qui
