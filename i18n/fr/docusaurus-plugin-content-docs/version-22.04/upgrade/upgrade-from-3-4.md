@@ -6,6 +6,8 @@ title: Montée de version depuis Centreon 3.4
 Ce chapitre décrit la procédure de montée de version de votre plate-forme
 Centreon depuis la version 3.4 (Centreon Web 2.8) vers la version 22.04.
 
+> Lorsque vous effectuez la montée de version de votre serveur central, assurez-vous d'également mettre à jour tous vos serveurs distants et vos collecteurs. Dans votre architecture, tous les serveurs doivent avoir la même version de Centreon. De plus, tous les serveurs doivent utiliser la même [version du protocole BBDO](../developer/developer-broker-bbdo.md#switching-versions-of-bbdo).
+
 > Cette procédure ne s'applique que pour une plate-forme Centreon installée à
 > partir des dépôts Centreon 3.4 sur des distributions **Red Hat / CentOS en
 > version 7**.
