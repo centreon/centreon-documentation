@@ -38,6 +38,10 @@ module.exports = {
             {
               type: 'doc',
               id: 'integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins'
+            },
+            {
+              type: 'doc',
+              id: 'integrations/plugin-packs/getting-started/how-to-guides/windows-winrm-wsman-tutorial'
             }
           ]
         },
@@ -102,6 +106,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-databases-cassandra-jmx'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-ceph-restapi'
         },
         {
           type: 'doc',
@@ -221,6 +229,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-monitoring-kadiska-restapi'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-antivirus-kaspersky-snmp'
         },
         {
@@ -330,6 +342,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-nginx-plus-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-monitoring-ntopng-restapi'
         },
         {
           type: 'doc',
@@ -493,6 +509,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-backupexec-nscp-restapi'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-vernemq-restapi'
         },
         {
@@ -570,6 +590,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-monitoring-centreon-poller'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-monitoring-centreon-sql-metrics'
         }
       ]
     },
@@ -712,6 +736,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-azure-database-elasticpool'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-azure-database-mariadb'
         },
         {
           type: 'doc',
@@ -1820,6 +1848,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/operatingsystems-windows-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/operatingsystems-windows-wsman'
         }
       ]
     },
@@ -1891,7 +1923,15 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-protocol-cifs'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-protocol-dhcp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-protocol-sftp'
         },
         {
           type: 'doc',

@@ -778,6 +778,14 @@
             },
             {
               "type": "doc",
+              "id": "version-20.10/integrations/data-analytics/sc-datadog-events"
+            },
+            {
+              "type": "doc",
+              "id": "version-20.10/integrations/data-analytics/sc-datadog-metrics"
+            },
+            {
+              "type": "doc",
               "id": "version-20.10/integrations/data-analytics/sc-splunk-metrics"
             },
             {
@@ -820,7 +828,11 @@
             },
             {
               "type": "doc",
-              "id": "version-20.10/integrations/event-management/sc-service-now-events"
+              "id": "version-20.10/integrations/event-management/sc-service-now-incident-events"
+            },
+            {
+              "type": "doc",
+              "id": "version-20.10/integrations/event-management/sc-service-now-em-events"
             },
             {
               "type": "doc",
@@ -908,7 +920,7 @@
     },
     {
       "type": "category",
-      "label": "Mobile App.",
+      "label": "Centreon mobile",
       "items": [
         {
           "type": "doc",
