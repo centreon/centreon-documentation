@@ -30,7 +30,7 @@ connecter à votre plateforme Centreon :
 
 - Disposer d'un Centreon >= 20.04
 - Avoir un accès direct à votre plateforme Centreon à partir de votre téléphone (même réseau ou VPN par exemple)
-- Disposer d'un certificat SSL valide sur votre plateforme Centreon provenant d'une autorité de certification reconnue par votre téléphone ou votre ordinateur.
+- Disposer d'un certificat SSL valide sur votre plateforme Centreon provenant d'une autorité de certification reconnue par votre appareil.
 
 ## Accéder au site mobile
 
