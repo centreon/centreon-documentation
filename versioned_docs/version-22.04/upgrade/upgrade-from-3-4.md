@@ -6,6 +6,8 @@ title: Upgrade from Centreon 3.4
 This chapter describes how to upgrade your Centreon platform from version 3.4
 (Centreon Web 2.8) to version 22.04.
 
+> When you upgrade your central server, make sure you also upgrade all your remote servers and your pollers. All servers in your architecture must have the same version of Centreon. In addition, all servers must use the same [version of the BBDO protocol](../developer/developer-broker-bbdo.md#switching-versions-of-bbdo).
+
 > This procedure only applies to Centreon platforms installed from Centreon 3.4
 > packages on CentOS **version 7** distributions.
 >
