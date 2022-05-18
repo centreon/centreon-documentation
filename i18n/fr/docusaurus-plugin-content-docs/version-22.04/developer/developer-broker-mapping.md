@@ -613,9 +613,9 @@ message Service {
   bool acknowledged = 3;
   AckType acknowledgement_type = 4;
 
-  bool active_checks_enabled = 5;
+  bool active_checks = 5;
   bool enabled = 6;
-  int32 downtime_depth = 7;
+  int32 scheduled_downtime_depth = 7;
   string check_command = 8;
   uint32 check_interval = 9;
   string check_period = 10;
@@ -625,7 +625,7 @@ message Service {
     PASSIVE = 1;
   }
   CheckType check_type = 11;
-  int32 current_check_attempt = 12;
+  int32 check_attempt = 12;
   enum State {
     OK = 0;
     WARNING = 1;
@@ -633,13 +633,13 @@ message Service {
     UNKNOWN = 3;
     PENDING = 4;
   }
-  State current_state = 13;
+  State state = 13;
   bool event_handler_enabled = 14;
   string event_handler = 15;
   double execution_time = 16;
-  bool flap_detection_enabled = 17;
-  bool has_been_checked = 18;
-  bool is_flapping = 19;
+  bool flap_detection = 17;
+  bool checked = 18;
+  bool flapping = 19;
   int64 last_check = 20;
   State last_hard_state = 21;
   int64 last_hard_state_change = 22;
@@ -656,17 +656,17 @@ message Service {
   int64 next_check = 33;
   int64 next_notification = 34;
   bool no_more_notifications = 35;
-  bool notifications_enabled = 36;
+  bool notify = 36;
   string output = 37;
   string long_output = 38;
-  bool passive_checks_enabled = 39;
+  bool passive_checks = 39;
   double percent_state_change = 40;
-  string perf_data = 41;
+  string perfdata = 41;
   double retry_interval = 42;
   string host_name = 43;
-  string service_description = 44;
+  string description = 44;
   bool should_be_scheduled = 45;
-  bool obsess_over = 46;
+  bool obsess_over_service = 46;
 
   enum StateType {
     SOFT = 0;
@@ -676,11 +676,11 @@ message Service {
   StateType state_type = 47;
   string action_url = 48;
   bool check_freshness = 49;
-  bool default_active_checks_enabled = 50;
+  bool default_active_checks = 50;
   bool default_event_handler_enabled = 51;
-  bool default_flap_detection_enabled = 52;
-  bool default_notifications_enabled = 53;
-  bool default_passive_checks_enabled = 54;
+  bool default_flap_detection = 52;
+  bool default_notify = 53;
+  bool default_passive_checks = 54;
   string display_name = 55;
   double first_notification_delay = 56;
   bool flap_detection_on_critical = 57;
@@ -734,13 +734,13 @@ message AdaptiveService {
   uint64 host_id = 1;
   uint64 service_id = 2;
 
-  optional bool notifications_enabled = 3;
-  optional bool active_checks_enabled = 4;
+  optional bool notify = 3;
+  optional bool active_checks = 4;
   optional bool should_be_scheduled = 5;
-  optional bool passive_checks_enabled = 6;
+  optional bool passive_checks = 6;
   optional bool event_handler_enabled = 7;
   optional bool flap_detection_enabled = 8;
-  optional bool obsess_over = 9;
+  optional bool obsess_over_service = 9;
   optional string event_handler = 10;
   optional string check_command = 11;
   optional uint32 check_interval = 12;
@@ -767,7 +767,7 @@ message ServiceStatus {
   uint64 host_id = 1;
   uint64 service_id = 2;
 
-  bool has_been_checked = 3;
+  bool checked = 3;
   enum CheckType {
     ACTIVE = 0;
     PASSIVE = 1;
@@ -781,7 +781,7 @@ message ServiceStatus {
     UNKNOWN = 3;
     PENDING = 4;
   }
-  State current_state = 5;
+  State state = 5;
   enum StateType {
     SOFT = 0;
     HARD = 1;
@@ -797,16 +797,16 @@ message ServiceStatus {
 
   string output = 14;
   string long_output = 15;
-  string perf_data = 16;
+  string perfdata = 16;
 
-  bool is_flapping = 17;
+  bool flapping = 17;
   double percent_state_change = 18;
   double latency = 19;
   double execution_time = 20;
   int64 last_check = 21;
   int64 next_check = 22;
   bool should_be_scheduled = 23;
-  int32 current_check_attempt = 24;
+  int32 check_attempt = 24;
 
   int32 notification_number = 25;
   bool no_more_notifications = 26;
@@ -819,7 +819,7 @@ message ServiceStatus {
     STICKY = 2;
   }
   AckType acknowledgement_type = 29;
-  int32 downtime_depth = 30;
+  int32 scheduled_downtime_depth = 30;
 
   ServiceType type = 31;
 
@@ -850,9 +850,9 @@ message Host {
   bool acknowledged = 2;
   int32 acknowledgement_type = 3;
 
-  bool active_checks_enabled = 4;
+  bool active_checks = 4;
   bool enabled = 5;
-  int32 downtime_depth = 6;
+  int32 scheduled_downtime_depth = 6;
   string check_command = 7;
   int32 check_interval = 8;
   string check_period = 9;
@@ -862,19 +862,19 @@ message Host {
     PASSIVE = 1;
   }
   CheckType check_type = 10;
-  int32 current_check_attempt = 11;
+  int32 check_attempt = 11;
   enum State {
     UP = 0;
     DOWN = 1;
     UNREACHABLE = 2;
   }
-  State current_state = 12;
+  State state = 12;
   bool event_handler_enabled = 13;
   string event_handler = 14;
   double execution_time = 15;
-  bool flap_detection_enabled = 16;
-  bool has_been_checked = 17;
-  bool is_flapping = 18;
+  bool flap_detection = 16;
+  bool checked = 17;
+  bool flapping = 18;
   int64 last_check = 19;
   State last_hard_state = 20;
   int64 last_hard_state_change = 21;
@@ -888,16 +888,16 @@ message Host {
   double latency = 29;
   int32 max_check_attempts = 30;
   int64 next_check = 31;
-  int64 next_notification = 32;
+  int64 next_host_notification = 32;
   bool no_more_notifications = 33;
-  bool notifications_enabled = 34;
+  bool notify = 34;
   string output = 35;
-  bool passive_checks_enabled = 36;
+  bool passive_checks = 36;
   double percent_state_change = 37;
-  string perf_data = 38;
+  string perfdata = 38;
   double retry_interval = 39;
   bool should_be_scheduled = 40;
-  bool obsess_over = 41;
+  bool obsess_over_host = 41;
 
   enum StateType {
     SOFT = 0;
@@ -909,11 +909,11 @@ message Host {
   string address = 44;
   string alias = 45;
   bool check_freshness = 46;
-  bool default_active_checks_enabled = 47;
+  bool default_active_checks = 47;
   bool default_event_handler_enabled = 48;
-  bool default_flap_detection_enabled = 49;
-  bool default_notifications_enabled = 50;
-  bool default_passive_checks_enabled = 51;
+  bool default_flap_detection = 49;
+  bool default_notify = 50;
+  bool default_passive_checks = 51;
   string display_name = 52;
   double first_notification_delay = 53;
   bool flap_detection_on_down = 54;
@@ -921,10 +921,10 @@ message Host {
   bool flap_detection_on_up = 56;
   double freshness_threshold = 57;
   double high_flap_threshold = 58;
-  string host_name = 59;
+  string name = 59;
   string icon_image = 60;
   string icon_image_alt = 61;
-  int32 poller_id = 62;
+  int32 instance_id = 62;
   double low_flap_threshold = 63;
   string notes = 64;
   string notes_url = 65;
@@ -960,13 +960,13 @@ is the following:
 message AdaptiveHost {
   uint64 host_id = 1;
 
-  optional bool notifications_enabled = 2;
-  optional bool active_checks_enabled = 3;
+  optional bool notify = 2;
+  optional bool active_checks = 3;
   optional bool should_be_scheduled = 4;
-  optional bool passive_checks_enabled = 5;
+  optional bool passive_checks = 5;
   optional bool event_handler_enabled = 6;
-  optional bool flap_detection_enabled  = 7;
-  optional bool obsess_over  = 8;
+  optional bool flap_detection = 7;
+  optional bool obsess_over_host = 8;
   optional string event_handler = 9;
   optional string check_command  = 10;
   optional uint32 check_interval  = 11;
@@ -992,7 +992,7 @@ is the following:
 message HostStatus {
   uint64 host_id = 1;
 
-  bool has_been_checked = 2;
+  bool checked = 2;
   enum CheckType {
     ACTIVE = 0;
     PASSIVE = 1;
@@ -1004,7 +1004,7 @@ message HostStatus {
     DOWN = 1;
     UNREACHABLE = 2;
   }
-  State current_state = 4;
+  State state = 4;
   enum StateType {
     SOFT = 0;
     HARD = 1;
@@ -1019,21 +1019,21 @@ message HostStatus {
 
   string output = 12;
   string long_output = 13;
-  string perf_data = 14;
+  string perfdata = 14;
 
-  bool is_flapping = 15;
+  bool flapping = 15;
   double percent_state_change = 16;
   double latency = 17;
   double execution_time = 18;
   int64 last_check = 19;
   int64 next_check = 20;
   bool should_be_scheduled = 21;
-  int32 current_check_attempt = 22;
+  int32 check_attempt = 22;
 
   int32 notification_number = 23;
   bool no_more_notifications = 24;
   int64 last_notification = 25;
-  int64 next_notification = 26;
+  int64 next_host_notification = 26;
 
   enum AckType {
     NONE = 0;
@@ -1041,7 +1041,7 @@ message HostStatus {
     STICKY = 2;
   }
   AckType acknowledgement_type = 27;
-  int32 downtime_depth = 28;
+  int32 scheduled_downtime_depth = 28;
 }
 ```
 
