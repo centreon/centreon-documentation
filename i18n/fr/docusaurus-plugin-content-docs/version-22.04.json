@@ -239,9 +239,9 @@
     "message": "Notifications",
     "description": "The label for category Notifications in sidebar docs"
   },
-  "sidebar.docs.category.Mobile App.": {
-    "message": "Mobile App.",
-    "description": "The label for category Mobile App. in sidebar docs"
+  "sidebar.docs.category.Centreon mobile": {
+    "message": "Centreon mobile",
+    "description": "The label for category Centreon mobile in sidebar docs"
   },
   "sidebar.docs.category.Developer resources": {
     "message": "Ressources dévelopeur",
