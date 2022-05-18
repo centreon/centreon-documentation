@@ -15,98 +15,53 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 ## Centreon MAP
 
-### 21.10.2
+### 22.04.0
 
-Release date: `December 20, 2021`
+> If you have just installed Centreon 22.04 or upgraded your platform to this version, be aware that the platform now uses the new BBDO v3 protocol. [Configure MAP](../graph-views/install.md#configuration) to use it.
 
-#### Security fixes 
-
-- Log4J version updated to 2.17.0
-
-### 21.10.1
-
-Release date: `December 16, 2021`
-
-#### Bug fixes
-
-- Path to map server backup log file in cron is now correct
-- A simple link can now be created between a container and a view through API
-- Map server now supports metrics label with '=' and white spaces
-- Non-conventional metric labels do not cause map server to crash anymore
-- Configuration file for Centreon map server is not replaced during upgrade anymore
-
-#### Enhancements
-
-- Logs are now using a new format to make them easier to read
-- Map server now handles perfdata with multiple white spaces
-
-#### Security fixes
-
-- Log4J version updated to 2.16.0
-
-### 21.10.0
-
-- Compatibility with other 21.10 components.
+- Compatibility with other 22.04 components.
 
 ## Centreon BAM
 
-### 21.10.1
+### 22.04.0
 
-Release date: `December 7, 2021`
-
-- Fixed: Symfony cache generation fails because of BAM test files
-
-### 21.10.0
-
-- [Configuration] Warn the user for unsaved changes on BA/BV
+- Compatibility with other 22.04 components.
 
 ## Centreon MBI
 
-### 21.10.0
+### 22.04.0
 
-- Compatibility with other 21.10 components.
+- Compatibility with other 22.04 components.
 
 ## Centreon Auto Discovery
 
-### 21.10.1
+### 22.04.0
 
-Release date: `November 19, 2021`
+#### Enhancements
 
-#### Bug fixes
-
-- An invalid path in upgrade.php caused PHP errors in the update process
-
-
-### 21.10.0
-
-- Host discovery now handles arrays of objects (Advanced Attributes) in the discovery results
-  - Can be used in conditions for every kind of mappers
-  - Can be used to name hostgoups, hostcategories
-  - Use cases: Cloud tags (Azure, AWS), network services discovered by Nmap, VMware IP addresses
-- A warning sign appears with a tooltip in front of the discovered hosts that could not be added by the discovery job because they already existed
+- The Centreon Host Discovery engine can now perform changes on existing hosts when using the automatic policy. This means that existing hosts may now gain templates, groups, categories and macros, and get monitored by a different server.
+- Centreon Host Discovery can now deploy the new monitoring configuration as soon as the job is run in the background.
 
 ## Centreon Plugin Packs Manager
 
-### 21.10.0
+### 22.04.0
 
-- An "Update all" button has been added to update all the installed Plugin Packs in one click
+#### Enhancements
+
+- The Plugin Packs now provide the package name and version of the required plugins, and Gorgone will automatically install the required plugins on your pollers. This means you don't need to install the Centreon Plugins manually on each poller anymore.
 
 ## Centreon License Manager
 
-### 21.10.0
+### 22.04.0
 
-- Compatibility with other 21.10 components.
+- Compatibility with other 22.04 components.
 
 ## Centreon Anomaly Detection
 
-### 21.10.1
+### 22.04.0
 
-Release date: `December 24, 2021`
+- Compatibility with other 22.04 components.
 
-#### Bugfixes
+## Centreon Data Source For Grafana
 
-- Fixed an issue that caused the Anomaly Detection services to lose their graphs when they were renamed
-
-### 21.10.0
-
-- Compatibility with other 21.10 components.
+- [Grafana] Centreon data source

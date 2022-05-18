@@ -16,145 +16,105 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon Web
 
-### 21.10.2
-
-Release note: `December 24, 2021`
+### 22.04.0
 
 #### Enhancements
 
-- [Administration] Display the name of the object that has been modified in the detail form of logs
-- [Authentication] Removed token display in login debug file
-- [UI] The top-counter menu for pollers is now refreshed immediately after enabling the "Export button" in the user's profile
-
-#### Bug Fixes
-
-- [API] Fixed the access to API is account doesn't have access to GUI
-- [Authentication] Fixed LDAP OU quote connection breaking
-- [CLAPI] Fixed an issue preventing ACLs from applying on services created with CLAPI
-- [CLAPI] Fixed error with LDAP configuration ID
-- [Configuration] Fixed SNMP Trap matching with service linked to multiple hosts
-- [Configuration] Fixed an issue that caused the Anomaly Detection services to lose their graphs when they were renamed
-- [Configuration] Fixed an issue that caused the loss of broker output configuration
-- [Configuration] Fixed an issue that prevented from removing the SNMP community (and other fields) from the host form
-- [Configuration] Fixed the wizard for adding a new server that did not add it
-- [Configuration] Fixed unwanted writes into unexisting file when exporting Traps config at the same time as a trap arrives. Based on PR [#9973](https://github.com/centreon/centreon/pull/9973). Fixes issue [#4236](https://github.com/centreon/centreon/issues/4236).
-- [MBI] Fixed CBIS process trying to get contact_js_effects column that no longer exists
-- [Resource Status] Fixed graph tooltip
-
-### 21.10.1
-
-Release date: `November 29, 2021`
-
-#### Bug Fixes
-
-- [Authentication] Fixed PHP error when debug is enabled with OIDC authentication
-- [Configuration] Fixed the list of host template that was not available if the database name was different from the default
-- [UX] Non admin user do not have the same submenu subsections
-- [UX] Remove "Animation effects" option
-
-### 21.10.0
-
-#### Enhancements
-
-- [Authentication] Improve OIDC support (OpenId Connect)
-  - Add Okta support
-  - Add MS Azure AD / ADFS
-  - Add possibility to define which claim is used for Centreon login
-  - Add possibility to define complete URL for endpoints
-  - Add possibility to use client_secret_basic as authentication. Based on PR
-    [#9878](https://github.com/centreon/centreon/pull/9878)
-  - Allow to define no redirect URL. Based on PR
-    [#9877](https://github.com/centreon/centreon/pull/9877)
-  - Add errors log in /var/log/centreon/login.log
-  - Add possibility to display debug log in /var/log/centreon/login.log
-  - Use proxy if defined
-- [API] API versioning is now consistent with Centreon's major release number
-- [CEIP] Product Adoption component integration
-- [Configuration] The poller management actions are now only available via buttons:
-  - "Add" now leads to the wizard.
-  - "Add (advanced)" leads to the former "Add" action (for experts only).
-  - "Delete" and "Duplicate" are converted into buttons.
-  - "Delete" should normally not be confused with another action.
-- [Configuration] The deprecated "Logger" tab of the "Broker configuration" menu has been removed
-- [Resources Status] Revamp Search experience
-- [Resources Status] Revamp Timeline
-- [Resources Status] Add Sticky and Persistent options to ACK in Resource Status
-- [Resources Status] Allow detail tiles to be re-ordered for each user
-- [Resources Status] Add multi-select to Resources Status listing
-- [Resources Status] Add "Last OK" tile within Details panel
-- [Resources Status] Persist user selected number of rows displayed
-- [Resources Status] Make "duration" as the default second sorting criteria
-- [Resources Status] Add link to performance page in detail panel. Based on PR [#9822](https://github.com/centreon/centreon/issues/9822)
-- [Resources Status] Add Graphs panel for Hosts
-- [Resources Status] Add tooltip to explain grayed options
-- [Resources Status] Improve Custom Columns Name Display
-- [Resources Status] Move Shortcuts from dedicated panel to option within Header
-- [Resources Status] Make configure resource icon always visible
-- [Resources Status] Improve readability of command line displayed
-- [UX] Add Feature Flipping for Resources Status vs Legacy Pages
-- [UX] Downtimes can now be scheduled until 2100
-- [UX] The poller management action buttons are now hidden on Remote Servers
-
-#### Beta enhancements
-
-- [Configuration] Administrators can toggle a new button in the Pollers top-counter menu that allows them to export and
-  reload the configuration of all pollers from any page
+- [Administration] Display the name of the object that has been modified in the detail form of the administration logs
+- [Authentication] Added a Password Security Policy for local accounts
+  - Define password complexity
+  - Define password length
+  - Password expiration policy
+  - Possibility to exclude users from password expiration policy
+  - Brute force detection and account blocking
+- [Authentication] Moved Web SSO and OpenID Connect configuration to a dedicated authentication menu
+- [Authentication] Autologin key and password can’t be the same
+- [Configuration] Export hosts and services categories and severities in Centreon Engine configuration files
+- [Configuration] Added new unified SQL Centreon Broker output parameters in the configuration menu
+- [Core] Improved SQL queries by escaping '_'
+- [Install] Creation of a dedicated account for the Centreon Gorgone process
+- [Install] Improvement and simplification of Centreon Apache configuration
+- [Install] Improved installation with a remote DBMS
+- [Install] Set broker retry interval to 15s instead of 60
+- [Upgrade] Excluded the dedicated account for the Centreon Gorgone / MAP / MBI processes from the password expiration policy
+- [UX] Added Dark Theme and a switch to easily move from light to dark theme
+- [UX] Harmonization of the classic theme
+- [UX] Redesign of the authentication page
+- [UX] Remove footer to save space
+- [UX] Remove "Animation effects" option for users
+- [Resources Status] New tab in right panel showing notification policy for a resource
+- [Resources Status] New filter in resources status on type of status (Hard or Soft)
+- [Resources Status] Filter popin improvement:
+  - Remove search box when selection options are limited
+  - **Resource** has been replaced by **Type** to be consistent with search bar
+- [Resources Status] Make service graph tiles size constant in Resources Status host graph panel
 
 #### Breaking changes
 
-> Access to API v2 has been changed. All of the beta endpoints have been migrated to version 21.10. This must be
-> modified by "latest" or by the version of your Centreon platform (v21.10 for example).
+> Since the rewrite of the OpenID Connect authentication, it is necessary to reconfigure the redirect URL to Centreon in
+> the identity provider.
 
 For example replace:
 ```shell
-{protocol}://{server}:{port}/centreon/api/beta/login
+{protocol}://{server}:{port}/centreon/index.php
 ```
 
 By:
 ```shell
-{protocol}://{server}:{port}/centreon/api/latest/login
+{protocol}://{server}:{port}/centreon/authentication/providers/configurations/openid
 ```
 
-or:
+> Moreover, for Web SSO authentication, you need also to change Apache configuration.
+
+For example replace:
+```shell
+{protocol}://{server}:{port}/centreon/index.php
+```
+
 By:
 ```shell
-{protocol}://{server}:{port}/centreon/api/v21.10/login
+{protocol}://{server}:{port}/centreon/websso
 ```
 
-#### Performances
+## Centreon Collect
 
-- Move to PHP 8.0
-- Preparing Debian 11 support
+### 22.04.0
 
-## Centreon Engine
+#### Centreon Engine
 
-### 21.10.0
+##### Enhancements
 
-- Flapping now starts only on non-OK states. Based on PR [#523](https://github.com/centreon/centreon-engine/pull/523)
-- Flapping now starts only for services of UP hosts or for hosts with UP parent. Based on PR [#524](https://github.com/centreon/centreon-engine/pull/524). Fixes Issue [#192](https://github.com/centreon/centreon-engine/issues/192)
-- Provide feedback on gRPC client execution success/failure
+- New logger, more readable, more configurable. The former logger is still available for the moment.
+- Flapping was not detected for volatile services until now. This is a new behavior that can be disabled. Following [a suggestion on TheWatch](https://thewatch.centreon.com/data-collection-6/volatile-and-flapping-212).
+- Flapping used to be detected on SOFT states for hosts and on HARD states for services. This seemed illogical so it will now be based on SOFT states for both. Based on [PR #522](https://github.com/centreon/centreon-engine/pull/522).
+- Set default values in anticipation of removing the following parameters:
+  - `translate_passive_host_checks` to `1`
+  - `passive_host_checks_are_soft` to `1`
+  - `max_check_result_reaper_time` to `30`
+- New configuration files:
+  - `tags.cfg` for host groups, host categories, service groups and service categories.
+  - `severities.cfg` for host and service severities
 
-## Centreon Broker
+#### Centreon Broker
 
-### 21.10.0
+##### Enhancements
 
-- Queues (in memory and retention files) are now cleared for reversed broker flows without `peer retention` when the connection is reset. This is a change of behavior back to what it should have always been. It will prevent endless retention files for Centreon-Studio (Centreon-Map).
-- [BETA] Centreon-broker is now able to use OpenSSL instead of GNUTLS and allows forcing TLS/SSL version and cipher suite
-- Broker now only loads the modules that are necessary for its inputs and outputs
-- Old broker log format has been removed
+- A new output type has been created, `unified_sql`, to replace both `sql` and `storage` in one unique output.
+- New BBDO protocol version: 3.0.0. Some broker events are now sent using Protobuf arrays. This has benefits such as smaller bandwidth consumption and smaller database updates. The broker event types that have been converted are: host, host status, service, service status and RRD rebuild messages. The protocol version (`bbdo_version`) must be identical in all parts of the broker configuration.
+- Broker feeds new tables for real time monitoring information.
+- A lot of new runtime statistics are available with the gRPC API.
+
+##### Breaking changes
+
+As stated above, all broker instances (central, RRD, modules) must use the same BBDO protocol version to be able to communicate. This means that pollers using 21.10 or older releases won't be able to send data to a 22.04 central server using BBDO 3.0.0. Please read carefully our upgrade procedure.
 
 ## Centreon Gorgone
 
-### 21.10.1
+### 22.04.0
 
-Release date: `December 14, 2021`
+#### Enhancements
 
-#### Bugfixes
-
-- Make Gorgone’s private key readable by centreon-gorgone only
-- Gorgone was too long to restart, which could cause the service to reach the systemctl timeout. The time to stop has been thoroughly decreased.
-
-
-### 21.10.0
-
-- Compatibility with other 21.10 components.
+- Added ability to set cipher and key rotation time for encrypted communication
+- Added new httpsserverng module
+- Added the possibility for the poller to communicate using the socket web client instead of using the ZMQ protocol
+- Extended configuration to add multiple directories at the same time

@@ -17,18 +17,18 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon High-Availability
 
-### 21.10.0
+### 22.04.0
 
-- Compatibility with other 21.10 components.
+- Compatibility with other 22.04 components.
 
 ## Centreon DSM
 
-### 21.10.0
+### 22.04.0
 
-- Compatibility with other 21.10 components.
+- Compatibility with other 22.04 components.
 
 ## Centreon Open Tickets
 
-### 21.10.0
+### 22.04.0
 
-- Compatibility with other 21.10 components.
+- Compatibility with other 22.04 components.
