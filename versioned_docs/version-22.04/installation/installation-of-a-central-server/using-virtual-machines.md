@@ -176,7 +176,7 @@ The host machine must have the following characteristics:
 
 6. To log in to the web interface, go to `http://ip_address/centreon` or `http://FQDN/centreon`. (For example, a valid URL would be `http://192.168.1.44/centreon`.) 
 
-7. Log in using the following credentials: Login: `admin`, password: `Centreon!2021`. By default, your server has a predefined configuration to monitor the Centreon server itself.
+7. Log in using the following credentials: Login: `admin`, password: `Centreon123!`. By default, your server has a predefined configuration to monitor the Centreon server itself.
 
 8. According to your Centreon edition, you may have to [add a license](../../administration/licenses.md).
 
@@ -189,7 +189,7 @@ The host machine must have the following characteristics:
 
 ## Default credentials
 
-- To log in to the Centreon web interface, the default credentials are: `admin`/`Centreon!2021`.
+- To log in to the Centreon web interface, the default credentials are: `admin`/`Centreon123!`.
 - The server administration account (using SSH) is: `root`/`centreon`.
 - The root password of the DBMS is not initialized.
 
