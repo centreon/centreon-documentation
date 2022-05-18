@@ -63,7 +63,7 @@ import TabItem from '@theme/TabItem';
 - [**Huawei SNMP**](../procedures/network-huawei-snmp.md) - Add optical monitoring in interfaces check
 - [**Arista SNMP**](../procedures/ network-switchs-arista-snmp.md) - Change threshold options for Memory service
 - [**Veeam**](../procedures/applications-veeam-nrpe.md) - Add new services: Repositories and Licenses
-- [**Microsoft SQL Server**](../procedures/applications-database-mssql.md) - Add new threshold to Backup-age service
+- [**Microsoft SQL Server**](../procedures/applications-databases-mssql.md) - Add new threshold to Backup-age service
 
 </TabItem>
 <TabItem value="Fix" label="Fix">
@@ -77,7 +77,7 @@ import TabItem from '@theme/TabItem';
 - [**Microsoft IIS NSClient 0.5**](../procedures/applications-webservers-iis-nsclient-05-restapi.md) - Align pack status with documentation (deprecated)
 - [**Microsoft IIS NRPE**](../procedures/applications-webservers-iis-nrpe.md) - Align pack status with documentation (deprecated)
 - [**Azure Virtual Machine Scale Sets**](../procedures/cloud-azure-compute-vmscalesets.md) - Fix discovery provider description
-- [**Symbol WiNG SNMP**](../procedures/network-symbol-wing-snmp.md) - Fix Systems command
+- [**Symbol WiNG SNMP**](../procedures/network-switchs-symbol-wing-snmp.md) - Fix Systems command
 - [**IBM Softlayer**](../procedures/cloud-ibm-softlayer-api.md) - Fix commands options
 
 </TabItem>
@@ -117,7 +117,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 <TabItem value="Breaking changes" label="Breaking changes">
 
-- [**Oracle Database**](../procedures/applications-database-oracle.md) - Change threshold options for service rman-backup-problems - Status: stable
+- [**Oracle Database**](../procedures/applications-databases-oracle.md) - Change threshold options for service rman-backup-problems - Status: stable
 - [**VTOM Rest API**](../procedures/applications-vtom-restapi.md) - Use official and latest API - Status: stable
 
 </TabItem>
@@ -139,7 +139,7 @@ import TabItem from '@theme/TabItem';
 - [**Redis Sentinel**](../procedures/applications-redis-sentinel.md) - Initial release - Status: stable
 - [**Amazon FSx**](../procedures/cloud-aws-fsx.md) - add Amazon FSx discovery and monitoring
 - [**Microsens G6 SNMP**](../procedures/network-microsens-g6-snmp.md) - Initial release - Status: stable
-- [**Symbol WiNG SNMP**](../procedures/network-switch-symbol-wing-snmp.md) - Initial release - Status: stable
+- [**Symbol WiNG SNMP**](../procedures/network-switchs-symbol-wing-snmp.md) - Initial release - Status: stable
 - [**Dynamics NSClient**](../procedures/applications-dynamics-ax-nsclient-05-nrpe.md) - Initial release - Status: stable
 - [**Dynamics AX Database**] - Initial release - Status: stable
 - [**"Dynamics 365**](../procedures/applications-dynamics-365-nsclient-05-nrpe.md) - Initial release - Status: stable
