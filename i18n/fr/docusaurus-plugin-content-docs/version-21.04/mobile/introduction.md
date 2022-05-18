@@ -26,7 +26,7 @@ Les fonctionnalités principales de ce site sont:
 ## Pre-requis
 
 Voici les pré-requis vous permettant de profiter du site mobile et d'être en mesure de vous
-connecter à votre plateforme Centreon :
+connecter à votre plateforme Centreon:
 
 - Disposer d'un Centreon >= 20.04
 - Avoir un accès direct à votre plateforme Centreon à partir de votre téléphone (même réseau ou VPN par exemple)
