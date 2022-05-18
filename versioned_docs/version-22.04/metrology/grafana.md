@@ -12,7 +12,7 @@ To be able to use the Centreon plugin for Grafana, you must have a valid [MBI](.
 ## Available data
 
 A Centreon Data source allows you to view performance data from Centreon in your Grafana dashboards.
-To select the performance data to display, you can combine filters on various types of data available on your platform. You can display metrics, virtual metrics and meta services according to:
+To select the performance data to display, you can combine filters on various types of resources available on your Centreon platform. You can display metrics, virtual metrics and meta services by building filters on the following types of resources:
 
 - Hosts
 - Host groups

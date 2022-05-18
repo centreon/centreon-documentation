@@ -12,7 +12,7 @@ Pour pouvoir utiliser le plugin Centreon pour Grafana, vous devez avoir une lice
 ## Données disponibles
 
 Une data source Centreon vous permet de visualiser des données de performance issues de Centreon dans vos tableaux de bord Grafana.
-Pour sélectionner les données de performance à afficher, vous pouvez combiner des filtres sur divers types de données disponibles sur votre plateforme Centreon. Vous pouvez afficher des métriques, des métriques virtuelles et des métaservices selon les données suivantes :
+Pour sélectionner les données de performance à afficher, vous pouvez combiner des filtres sur divers types de ressources disponibles sur votre plateforme Centreon. Vous pouvez afficher des métriques, des métriques virtuelles et des métaservices en construisant des filtres sur les types de ressources suivants :
 
 - Hosts
 - Host groups
