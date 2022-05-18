@@ -35,7 +35,7 @@ See also our tutorial on [how to detect AWS EC2 instances](../../getting-started
 
 ### Step 2: Define access and discovery parameters
 
-Define the monitoring server from which the discovery will be made:
+Define the monitoring server from which the discovery will be made.
 
 ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-2.png)
 
@@ -62,23 +62,24 @@ discovery results could look like:
 
 ### Step 5: Define analysis and update policies
 
-- **Manual analysis**: Once the discovery job is executed, in the list of discovered hosts, you will choose manually which 
-    hosts should be added to the page **Configuration > Hosts > Hosts** (see [Analyze the results of a discovery job](#analyze-the-results-of-a-discovery-job)).
+- **Manual analysis**: Once the discovery job is executed, you will have to choose manually which hosts should be added to the list of monitored hosts (on page **Configuration > Hosts > Hosts**). See [Analyze the results of a discovery job](#analyze-the-results-of-a-discovery-job).
 
 - **Automatic analysis**: The results will be processed automatically according to the selected policy (you must choose at least one):
 
   - **Add hosts to configuration when they are discovered for the first time**: all hosts that are detected for the first time are automatically created in the **Configuration > Hosts > Hosts** page.
-  - **Disable hosts already added to configuration if the mapping rule excludes them**: ressources that have been added to the configuration will be disabled if they match a new **Exclude** mapper.
+  - **Disable hosts already added to configuration if the mapping rule excludes them**: resources that are already being monitored will be disabled if they match a new **Exclude** mapper when you run the job again.
       > Note: not discovered hosts (or no longer discovered hosts) will not be
       > disabled in the Centreon configuration. Only hosts that are discovered and at the same
       > time excluded can be disabled in the configuration (see
       > [exclusion](#exclusion) mapper).
   - **Enable hosts already added to configuration if they are discovered but disabled**: hosts that have already been added to the configuration but are in a disabled state will be enabled again.
+  - **Export and reload pollers configuration**: once the hosts have been created or updated, the [configuration will be deployed](../monitoring-servers/deploying-a-configuration.md) automatically, which means that the hosts will be monitored or updated immediately, without any need for manual action.
+  - **Update existing hosts**: if you modify the mappers and run the job again, existing hosts will be updated (see [Edit a discovery job](#edit-a-discovery-job)).
 
   ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-5-2.png)
 
   Read the [example](#dynamically-update-your-configuration) below to better
-understand the scope of these policies.
+understand the scope of the first 3 policies.
 
 ### Step 6: Plan execution
 
@@ -110,7 +111,7 @@ understand the scope of these policies.
 
     ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-minute.png)
 
-Click on **FINISH** to add and execute or schedule the discovery job. The job appears in the list of discovery jobs.
+Click on **FINISH** to create the discovery job and to execute or schedule it. The job appears in the list of discovery jobs.
 See section [Analyze the results of a discovery job](#analyze-the-results-of-a-discovery-job).
 
 ## Manage discovery jobs
@@ -140,7 +141,6 @@ Several actions can be done on jobs:
 | Icon                                                                            | Action                                                                                                      |
 |---------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
 | ![image](../../assets/monitoring/discovery/host-discovery-force-execution.png)  | **Force execution**: re-execute a job                                                                       |
-| ![image](../../assets/monitoring/discovery/host-discovery-edit.png)             | Edit a job                                                                                                  |
 | ![image](../../assets/monitoring/discovery/host-discovery-delete.png)           | Delete a job. Only the job will be deleted: the hosts you have added to the configuration will still exist. |
 | ![image](../../assets/monitoring/discovery/host-discovery-pause.png)            | Pause a scheduled job                                                                                       |
 | ![image](../../assets/monitoring/discovery/host-discovery-resume.png)           | Resume a paused job                                                                                         |
@@ -155,12 +155,11 @@ next to the status of a **Finished** job to visualize the results.
 
 2. If you want, you can edit the mappers linked to this job by clicking the **Edit** icon: ![image](../../assets/monitoring/discovery/host-discovery-edit.png#thumbnail1)
 
-    The results will be updated automatically.
-    
-    Warning: editing mappers after a discovery job has been executed only makes sense if
-    the hosts have not yet been added to your monitoring configuration (either manually 
-    or automatically). Changes made to mappers in the discovery task are not taken into
-    account for hosts that have already been created.
+    The results will be updated automatically in the preview once you click on the **Save** icon at the top right of the panel.
+
+    - If the job was set to **Manual analysis** at step 5 of the wizard, bear in mind that editing mappers after a discovery job has been executed only makes sense if the hosts have not yet been added to your monitoring configuration.
+
+    - If the job was set to **Automatic analysis** at step 5 of the wizard and **Update existing hosts** was selected, the hosts will be updated when you re-run the job (see [Edit a discovery job](#edit-a-discovery-job)).
 
 3. If your job was set to **Manual analysis** at step 5 of the wizard, select the hosts you want to add to the configuration and click on the **Save**
 button: ![image](../../assets/monitoring/discovery/host-discovery-hosts-save.png#thumbnail1)
@@ -174,26 +173,46 @@ button: ![image](../../assets/monitoring/discovery/host-discovery-hosts-save.png
   If the hosts you selected are not visible in the configuration, go back to the
 list of jobs and see if an error occured during the saving task.
 
-5. [Deploy](../monitoring-servers/deploying-a-configuration.md) the configuration. The new hosts are now monitored.
+5. In the following cases, [deploy](../monitoring-servers/deploying-a-configuration.md) the configuration:
+
+   - if your job was set to **Manual analysis** at step 5 of the wizard
+   - if your job was set to **Automatic analysis** at step 5 of the wizard, but **Export and reload pollers configuration** was not selected.
+
+  The new hosts are now monitored.
 
 ## Edit a discovery job
+
+Some discovery jobs can be edited:
+
+- if you have set the job to **Automatic analysis** and you have selected **Update existing hosts** at step 5 of the wizard, you can edit and rerun the job: the hosts discovered by the job will be updated. To rerun the job, go to page **Configuration > Hosts > Discovery**, hover over the job and then click **Force execution**.
+- If a job is set to **Manual analysis** and its hosts are already monitored, then editing and running the job again will have no effect.
 
 1. On the **Configuration > Hosts > Discovery** page, click on the discovery job you want. A panel appears on the right.
 
     ![image](../../assets/monitoring/discovery/host-discovery-edit-job.png)
 
-2.  In this panel, edit the settings of the job. If you edit mappers, the results of the job will be updated immediately.
+2. In this panel, edit the settings of the job.
 
-    Warning: editing mappers after a discovery job has been executed only makes sense if
-    the hosts have not yet been added to your monitoring configuration (either manually or automatically). Changes made to mappers in the discovery task are not taken into account for hosts that have already been created.
+   If your job is set to **Automatic analysis**, you can update some host properties using mappers. You can:
+
+   - add templates, hostgroups or host categories
+   - update or define the severity (there can be only one severity)
+   - update or define the value of a macro (there can be only one value for a macro)
+   - update the monitoring server (there can be only one monitoring server)
+
+  To preserve the consistency of data and the traceability of actions, the name, alias and IP address of the host cannot be updated (i.e. data brought by **Property** mappers).
+
+  When you edit mappers, if you selected **Update existing hosts** at step 5 of the wizard, the hosts will be updated. If you did not select this option, running the job again will only add new hosts to the monitoring: existing hosts will not be updated.
+
+  If the autodiscovery module discovers hosts whose names are already used by hosts that have previously been created manually on page **Configuration > Hosts > Hosts** or with the API or CLAPI, those existing hosts will also be updated by the autodiscovery module.
 
 3. Click on the **Save** icon at the top right of the panel: ![image](../../assets/monitoring/discovery/host-discovery-save.png#thumbnail2)
 
 ## How to use mappers
 
-Mappers allow you to  :
+Mappers allow you to:
 
-- Define how the future hosts will be configured, by mapping a value discovered on the host (an attribute) to a field in Centreon. The list of attributes depends on the discovery provider. 
+- Define how the future hosts will be configured, by mapping a value discovered on the host (an attribute) to a field in Centreon. The list of attributes depends on the discovery provider.
 
 - Include/exclude hosts from the list of results.
 
@@ -225,11 +244,6 @@ From version 21.04, mappers **Property**, **Macro**, **Host group** and **Host c
 
 ![image](../../assets/monitoring/discovery/host-discovery-mappers-concatenation.gif)
 
->Warning: editing mappers after a discovery job has been executed only makes sense
->if the hosts have not yet been added to your monitoring configuration (either manually
->or automatically). Changes made to mappers in the discovery task are not taken into account
->for hosts that have already been created.
-
 ### Add a mapper
 
 1. In the job wizard at step four, or on the edition panel in the **Mappers**
@@ -245,7 +259,7 @@ field.
 1. In the job wizard at step four, or on the edition panel in the **Mappers**
 section, click on the **Edit** icon: ![image](../../assets/monitoring/discovery/host-discovery-edit.png#thumbnail1)
 
-2. Edit the fields you want, or even the type of mapper.
+2. Edit the fields you want, or even the type of mapper. See [Edit a discovery job](#edit-a-discovery-job).
 
 3. Click on **SAVE** to save the mapper.
 

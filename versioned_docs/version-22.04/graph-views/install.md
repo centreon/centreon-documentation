@@ -312,6 +312,12 @@ edit the following file: **/etc/centreon-map/map-config.properties**
 broker.pb.message.enabled=true
 ```
 
+Then restart the **centreon-map** service:
+
+```shell
+systemctl restart centreon-map
+```
+
 ### Central server
 
 > Before restarting Broker you must export the configuration from the Centreon

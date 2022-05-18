@@ -100,3 +100,25 @@ Then click on **Save**. Your interface is now translated.
 
 > If your language doesn't appear in the available language list, you can help the Centreon community to translate
 > the web interface. For more details go to  [How to translate Centreon](../developer/developer-translate-centreon.md).
+
+## Reset your password
+
+### Reset your password before expiration
+
+When your password is going to expire in the next 7 days, an orange dot appears in the banner on the right
+next to the profile icon:
+
+![image](../assets/administration/password_will_expire.png)
+
+Click on **Edit profile**, then change your password:
+
+![image](../assets/administration/password_expiration.png)
+
+### Reset your password when expired
+
+If you have not changed your password before it expires, you will be redirected after login
+to a dedicated page where you can update it:
+
+![image](../assets/administration/password_expired.png)
+
+Fill in your current password, define a new one and then click on **Reset Password**.

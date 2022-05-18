@@ -1,38 +1,36 @@
 ---
 id: upgrade-from-centreon-failover
-title: Montée de version de Centreon Failover vers Centreon HA
+title: Passage de Centreon-Failover à Centreon-HA
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-## Prérequis
+## Conditions préalables
 
-### Informations importantes
+### Compréhension
 
-Cette procédure est réservée aux utilisateurs avancés. Il est conseillé de la lire 
-de manière complète avant de démarrer toutes opérations. 
+Cette procédure est réservée aux utilisateurs avancés. Lisez-la entièrement avant de commencer toute opération. 
+Assurez-vous de bien comprendre l'ensemble de la procédure afin de minimiser les interruptions de service lorsque 
+le moment de le faire sur les serveurs de production viendra.
 
-Il est nécessaire de comprendre globalement les différentes étapes afin de minimiser
-l'interruption de service générée lors de son application en production. 
+### Champ d'application
 
-### Périmètre d'application 
+Cette procédure vise à fournir un guide détaillé sur la façon de mettre à niveau une version de Centreon installée en version < 20.04 avec 
+la solution centreon-failover déployée. 
 
-Cette procédure vise à donner les bons pointeurs pour réaliser une migration depuis une 
-version de Centreon < 20.04 hautement disponible grâce à la solution centreon-failover.
+Si vous n'avez jamais travaillé avec l'équipe des services professionnels de Centreon ou avec l'un de nos partenaires, vous n'êtes probablement pas concerné par le contenu ci-dessous. 
+ci-dessous.
 
-Si vous n'avez jamais sollicité Centreon ou l'un de ses partenaires, vous n'êtes probablement
-pas concerné par le contenu de cette documentation. 
+Veuillez toujours ouvrir un ticket de support pour vous assurer que votre plateforme est conforme au processus de mise à niveau décrit ici.
 
-Il est recommandé d'ouvrir un ticket au support afin d'assurer la compatibilité de votre plateforme
-avec les opérations décrites dans cette procédure. 
+## Destruction de l'ancien cluster
 
-## Suppression du Cluster
+Pour migrer de centreon-failover vers centreon-ha, il est nécessaire de détruire le Cluster existant. Sachez que l'interface 
+Web UI ne sera pas disponible pendant ce processus.
 
-Afin de passer de centreon-failover à centreon-ha, il est nécessaire de détruire le cluster
-existant. L'interface Web de Centreon est indisponible durant toute la durée de la mise à jour 
-et ce jusqu'à la création d'un nouveau Cluster. 
+Connectez-vous par SSH à un nœud du Cluster pour exécuter la commande suivante :
 
-Connectez-vous en SSH à un noeud du cluster et exécutez les commandes ci-après. 
-
-Désactivez les ressources: 
+Désactiver les ressources : 
 
 ```bash
 pcs resource disable ms_mysql
@@ -41,75 +39,85 @@ pcs resource unmanage centreon
 pcs resource unmanage ms_mysql
 ```
 
-Détruisez le cluster: 
+Détruisez le cluster :
 
 ```bash
 pcs cluster destroy
 ```
 
-À ce moment, aucun des processus applicatifs gérés par le cluster ne doivent fonctionner. 
+À cette étape, aucun des processus gérés par le cluster ne doit s'exécuter sur aucun nœud.
 
-Stoppez manuellement la partie RRD de Centreon-Broker via la commande suivante: 
+> **Attention : ** Assurez-vous de vérifier à la fois le serveur central et le serveur de base de données. 
 
-```bash
-service cbd stop
-```
+## Mise à jour de MariaDB
 
-> **ATTENTION:** Il est important de vérifier qu'aucun processus n'est en cours d'exécution. Faites également
-la vérification sur les serveurs de bases de données s'ils sont dédiés.  
+Centreon >= 21.10 est livré avec une compatibilité avec MariaDB 10.5.
 
-## Mise à jour de MariaDB / MySQL
+Mettez à niveau les deux nœuds de base de données en suivant la [procédure officielle de mise à niveau de MariaDB](../../upgrade/upgrade-from-19-10.md#Montée-de-version-du-serveur-MariaDB). 
 
-Centreon est compatible avec la version 10.5 de MariaDB depuis la version 21.04. 
+Une fois que les deux nœuds exécutent la version 10.5 de MariaDB, arrêtez les processus mysql/mariadb. 
 
-Réalisez la montée de version des bases de données en suivant [la documentation officielle](../../upgrade/upgrade-from-19-10.md#montée-de-version-du-serveur-mariadb). 
+##Mettre à niveau les paquets Centreon 
 
-Un fois la mise à jour réalisée sur chaque noeud, arrêter les processus via les commandes suivantes: 
+Suivez ces étapes sur chaque nœud Centreon.
 
-```bash
-systemctl stop mysql mariadb
-```
+Si vous mettez à jour depuis la version 19.10 : 
+* [Mettez à jour vos référentiels](../../upgrade/upgrade-from-19-10.md#Mettre-à-jour-le-dépôt-Centreon). Egalement ceux des modules de l'édition Business s'ils sont installés.
+* [Mettre à jour vos paquets](../../upgrade/upgrade-from-19-10.md#Montée-de-version-de-la-solution-Centreon)
+* [Prendre les mesures supplémentaires requises](../../upgrade/upgrade-from-19-10.md#Actions-complémentaires)
 
-## Mise à jour des paquets Centreon
+Si vous effectuez une mise à niveau depuis la version 19.04 : 
+* [Mettre à jour vos référentiels](../../upgrade/upgrade-from-19-04.md#Mise-à-jour-des-dépôts). Egalement ceux des modules Business Edition s'ils sont installés.
+* [Mettre à jour vos paquets](../../upgrade/upgrade-from-19-04.md#Montée-de-version-de-la-solution-Centreon)
+* [Prendre les mesures supplémentaires nécessaires](../../upgrade/upgrade-from-19-04.md#Actions-complémentaires)
 
-Effectuer les opérations suivantes sur les deux noeuds hébergeant le serveur Apache et l'applicatif Centreon:
+Arrêtez le processus apache après ces opérations et vérifiez à nouveau qu'aucun des processus gérés par le cluster n'est en cours d'exécution. 
+processus géré par le cluster est en cours d'exécution.
 
-Si vous utilisez Centreon 19.10:
-* [Déployer les dépôts 22.04](../../upgrade/upgrade-from-19-10.md#mise-à-jour-des-dépôts). Il est également nécessaire de mettre à jour les dépôts des modules de l'édition Business.
-* [Mettre à jour les paquets Centreon](../../upgrade/upgrade-from-19-10.md#montée-de-version-de-la-solution-centreon)
-* [Réaliser les étapes supplémentaires](../../upgrade/upgrade-from-19-10.md#actions-complémentaires)
+## Créer le nouveau cluster
 
-Si vous utilisez Centreon 19.04:
-* [Déployer les dépôts 22.04](../../upgrade/upgrade-from-19-04.md#mise-à-jour-des-dépôts). Also those of the Business Edition modules if installed.
-* [Mettre à jour les paquets Centreon](../../upgrade/upgrade-from-19-04.md#montée-de-version-de-la-solution-centreon)
-* [Réaliser les étapes supplémentaires](../../upgrade/upgrade-from-19-04.md#actions-complémentaires)
+Selon l'architecture de votre Cluster, la procédure de création du cluster est différente. 
+* Si le serveur web et les bases de données sont exécutés sur le même noeud, suivez ce [guide d'installation de HA 2 noeuds](../../installation/installation-of-centreon-ha/installation-2-nodes.md#Mise-en-place-du-cluster-Centreon)
+* Si les bases de données sont exécutées sur un serveur dédié, suivez ce [guide d'installation de HA 4 nœuds](../../installation/installation-of-centreon-ha/installation-4-nodes.md#Mise-en-place-du-cluster-Centreon)
 
-À la suite de ces opérations, stoppez le processus apache et contrôlez à nouveau qu'aucun processus géré par le Cluster
-n'est en cours d'exécution. 
+Avant de passer aux étapes suivantes, assurez-vous que toutes les ressources fonctionnent sans problème et qu'aucune action n'a échoué.
 
-## Créer le cluster Centreon-HA
+Si un problème survient à cette étape, assurez-vous que les conditions préalables suivantes sont remplies : 
 
-En fonction de l'architecture utilisée, la procédure pour installer et configurer le Cluster diffère: 
-* Si Centreon et les bases de données sont sur le même noeud, suivez ce [guide d'installation](../../installation/installation-of-centreon-ha/installation-2-nodes.md#mise-en-place-du-cluster-centreon)
-* Si les bases de données tournent sur un serveur dédié, suivez ce [guide d'installation](../../installation/installation-of-centreon-ha/installation-4-nodes.md#mise-en-place-du-cluster-centreon)
+<Tabs groupId="sync">
+<TabItem value="HA 2 nodes" label="HA 2 nodes">
 
-Avant de passer à la finalisation de la mise à jour, assurez-vous que toutes les ressources fonctionnent correctement sans erreurs. 
+* [Échange de clés SSH](../../installation/installation-of-centreon-ha/installation-2-nodes.md#Échanges-de-clefs-SSH), Centreon-HA est plus sécurisé car il ne nécessite pas de privilèges root.
+* [Informations d'identification et privilèges de la base de données](../../installation/installation-of-centreon-ha/installation-2-nodes.md#Création-du-compte-centreon), comme ci-dessus, le compte SQL root n'est plus nécessaire.
 
-Si ce n'est pas le cas, il est recommandé de vérifier les éléments suivants:
-* [Échanges de clefs SSH pour le Cluster](../../installation/installation-of-centreon-ha/installation-2-nodes.md#échanges-de-clefs-ssh)
-* [Droits et privilèges des utilisateurs de bases de données](../../installation/installation-of-centreon-ha/installation-2-nodes.md#création-du-compte-centreon)
+</TabItem>
+<TabItem value="HA 4 nodes" label="HA 4 nodes">
 
-Une fois que les clefs SSH des utilisateurs centreon et mysql ont bien été échangées, il est recommandé 
-de supprimer la clef publique de root de /root/.ssh/authorized_keys.
+* [Échange de clés SSH](../../installation/installation-of-centreon-ha/installation-4-nodes.md#Échanges-de-clefs-SSH), Centreon-HA est plus sécurisé car il ne nécessite pas de privilèges root.
+* [Informations d'identification et privilèges de la base de données](../../installation/installation-of-centreon-ha/installation-4-nodes.md#Création-du-compte-centreon), comme ci-dessus, le compte SQL root n'est plus nécessaire.
 
-### Finaliser la montée de version
+</TabItem>
+</Tabs>
 
-Vous pouvez désormais finaliser la mise à jour de Centreon via l'assistant web: 
-* Si vous étiez en version 19.10, suivez ce [chapitre](../../upgrade/upgrade-from-19-10.md#finalisation-de-la-mise-à-jour).
-* Si vous étiez en version 19.04, suivez ce [chapitre](../../upgrade/upgrade-from-19-04.md#finalisation-de-la-mise-à-jour).
+Une fois que les clés SSH de centreon et de mysql ont été échangées, vous pouvez supprimer les clés publiques SSH de root de /root/.ssh/authorized_keys.
 
-Ensuite, vérifiez que la commande de rechargement de Centreon-Broker pour le Serveur Central intègre bien la modification
-décrite [ici](../../installation/installation-of-centreon-ha/installation-2-nodes.md#modification-de-la-commande-de-rechargement-de-cbd). Celle-ci est configurable via le menu
-'Configuration > Collecteurs'. 
+### Finalisation de la mise à niveau
 
-Enfin, [mettez à jour les Pollers](../../upgrade/upgrade-from-19-04.md#montée-de-version-des-pollers), redéployez la configuration et redémarrez le processus centengine. 
+Tout d'abord, effectuez les étapes de l'assistant Web pour terminer le processus de mise à niveau de Central :
+* Si vous effectuez une mise à niveau depuis la version 19.10, suivez ce [chapitre](../../upgrade/upgrade-from-19-10.md#Finalisation-de-la-mise-à-jour).
+* Si vous effectuez une mise à niveau depuis la version 19.04, suivez ce [chapitre](../../upgrade/upgrade-from-19-04.md#Finalisation-de-la-mise-à-jour).
+
+<Tabs groupId="sync">
+<TabItem value="HA 2 nodes" label="HA 2 nodes">
+
+Ensuite, modifiez la commande de rechargement de Centreon-Broker de votre serveur central dans 'Configuration > Pollers' comme décrit [ici](../../installation/installation-of-centreon-ha/installation-2-nodes.md#Modification-de-la-commande-de-rechargement-de-`cbd`).
+
+</TabItem>
+<TabItem value="HA 4 nodes" label="HA 4 nodes">
+
+Ensuite, modifiez la commande de rechargement de Centreon-Broker de votre serveur central dans 'Configuration > Pollers' comme décrit [ici](../../installation/installation-of-centreon-ha/installation-4-nodes.md#Modification-de-la-commande-de-rechargement-de-`cbd`).
+
+</TabItem>
+</Tabs>
+
+Enfin, mettez à jour votre/vos poller(s) comme décrit [ici](../../upgrade/upgrade-from-19-04.md#Montée-de-version-des-Pollers)

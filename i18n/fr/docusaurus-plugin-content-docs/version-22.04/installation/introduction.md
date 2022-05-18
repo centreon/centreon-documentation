@@ -2,6 +2,8 @@
 id: introduction
 title: Introduction
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 Ce chapitre décrit les différentes étapes de mise en place d'une plateforme de
 supervision Centreon.
@@ -27,11 +29,44 @@ Avant toute installation :
 3. [Téléchargez Centreon](https://download.centreon.com/)
 4. Enfin, vous pourrez procéder à l'installation de la plateforme.
 
-Pour tester rapidement Centreon et installer un serveur central sur AlmaLinux / Oracle Linux / RHEL
-en version 8, vous pouvez exécuter la commande suivante en **root** :
+## Script "unattended"
+
+Pour tester rapidement Centreon et installer un serveur central sur CentOS 7 ou AlmaLinux 8 / Oracle Linux 8 / RHEL 8, vous pouvez utiliser un script.
+
+1. Mettez votre système à jour :
+
+<Tabs groupId="sync">
+<TabItem value=" RHEL 8" label="RHEL 8">
+
+```shell
+dnf update
+subscription-manager register --username my_username --password my_password --auto-attach --force
+subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
+```
+
+> Remplacez **my_username** et **my_password** par les identifiants de votre compte RedHat.
+
+</TabItem>
+<TabItem value="Alma / Oracle Linux 8" label="Alma / Oracle Linux 8">
+
+```shell
+dnf update
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```shell
+yum update
+```
+
+</TabItem>
+</Tabs>
+
+2. Exécutez la commande suivante en **root** :
 
 ``` shell
 curl -L https://raw.githubusercontent.com/centreon/centreon/master/unattended.sh | sh
 ```
 
-Une fois le script exécuté, il vous suffit de suivre les étapes de l'[installation web](web-and-post-installation.md).
+3. Une fois le script exécuté, il vous suffit de suivre les étapes de l'[installation web](web-and-post-installation.md).

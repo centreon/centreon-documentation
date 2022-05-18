@@ -116,7 +116,9 @@ Vous pouvez rapidement vérifier que la configuration est bien appliquée dans l
 2. Cliquez sur la ressource pour laquelle vous avez configuré des notifications.
 Un panneau de détail s'affiche sur la droite.
 
-Ce panneau affiche si des notifications sont activées pour cette ressource, ainsi que les contacts et groupes de contact qui seront notifiés.
+3. Cliquez sur l'onglet **Notification**.
+
+Cet onglet affiche si des notifications sont activées pour cette ressource, ainsi que les contacts et groupes de contact qui seront notifiés.
 
 ## Règles d'héritage des modèles
 

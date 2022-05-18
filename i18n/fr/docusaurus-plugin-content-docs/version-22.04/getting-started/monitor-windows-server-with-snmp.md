@@ -144,7 +144,7 @@ Dans l'interface Web, accédez à **Configuration > Plugin Packs** et installez 
 
    ![image](../assets/getting-started/prise_en_main_windows_snmp_16.png)
 
-   Si tous les services ne sont pas dans un état **OK**, dépannez et [corrigez le problème](/pp/integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins)
+   Si tous les services ne sont pas dans un état **OK**, dépannez et [corrigez le problème](/pp/integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins/)
 
 ### Pour aller plus loin
 

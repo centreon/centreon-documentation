@@ -8,11 +8,11 @@ We try to provide workarounds. We apply fixes when
 necessary and are forever improving our software in order to solve any
 issues for future releases.
 
-# Centreon Web
+## Centreon Web
 
-## You have reached the maximum of id into `centreon_storage.index_data`
+### You have reached the maximum of id into centreon_storage.index_data
 
-### Workaround
+#### Workaround
 
 Play the following query into MariaDB :
 
@@ -30,25 +30,24 @@ ALTER TABLE virtual_metrics MODIFY index_id bigint unsigned;
 
 > Depending on your metrics volumes, this operation could be more or less long.
 
+### Autologin does not work with some pages
 
-## Autologin does not work with some pages
+#### Description
 
-### Description
+Autologin is currently not supported on the following pages :
 
-Autologin is currently not managed on the following pages :
-* *Monitoring > Resources Status*
-* *Configuration > Hosts > Discovery*
-* *Configuration > Business Activity > Business Views*
-* *Configuration > Business Activity > Business Activity*
+* **Monitoring > Resources Status**
+* **Configuration > Hosts > Discovery**
+* **Configuration > Business Activity > Business Views**
+* **Configuration > Business Activity > Business Activity**
 
-### Workaround
+#### Workaround
 
 There is currently no workaround.
 
+### The content of the pages is not translated according to the language of the user
 
-## The content of the pages is not translated according to the language of the user
-
-### Workaround
+#### Workaround
 
 You must install the languages on your operating system with the following command:
 ```shell
@@ -60,26 +59,34 @@ Then restart PHP using the following command:
 systemctl restart php-fpm
 ```
 
+## Centreon MBI
 
-# Centreon MBI
+### MBI does not work if databases have custom names
 
-## The **Report Parameters** tab of a job is empty (**Reporting > Monitoring Business Intelligence > Jobs**)
+#### Workaround
 
-### Workaround
+There is currently no workaround.
+
+### The Report Parameters tab of a job is empty
+
+#### Description
+
+The **Report Parameters** tab of a job is empty (**Reporting > Monitoring Business Intelligence > Jobs**)
+
+#### Workaround
 
 * Go to the **Configuration** tab of the job
 * Select a different report design from the **Report design** list
 * Select the original report design
 * Go back to the **Report Parameters** tab
 
+### You have reached the maximum of id for servicemetric_id columns
 
-## You have reached the maximum of id for `servicemetric_id` columns
-
-### Description
+#### Description
 
 If you have a very large infrastructure, it is possible that the `servicemetric_id` column size has been reached.
 
-### Workaround
+#### Workaround
 
 > Depending on your data volume, this operation could be more or less long.
 

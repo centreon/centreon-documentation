@@ -142,7 +142,7 @@ Suivez ces étapes pour changer de version mineure de MariaDB (par exemple, pour
 1. Mettez à jour MariaDB :
 
     ```
-    yum update mariadb-*
+    yum update MariaDB-*
     ```
 
 2. Redémarrez MariaDB :

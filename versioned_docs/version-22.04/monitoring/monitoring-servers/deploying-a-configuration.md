@@ -67,7 +67,7 @@ To activate the feature:
 2. In section **Preferences**, select **Enable the one-click export button for poller configuration [BETA]**.
 3. Click **Save**.
 
-### Export all configurations
+### Exporting all configurations
 
 To quickly export the configuration for all pollers:
 1. Click the **Pollers** menu at the top left of the screen, then click **Export configuration**.

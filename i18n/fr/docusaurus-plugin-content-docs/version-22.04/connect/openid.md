@@ -5,53 +5,83 @@ title: Configurer une authentification par OpenId Connect
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Centreon est compatible avec l'authentification OAuth 2.0 / OpenId Connect.
+Centreon est compatible avec l'authentification OAuth 2.0/OpenId Connect.
 
 Il est possible d'utiliser un fournisseur d'identité (IdP) tel que Microsoft Azure AD, Okta, Keycloak, LemonLDAP::NG ou
 tout autre IdP compatible avec le flux d'autorisation via un code (Authorization Code Grant).
 
-L'authentification se paramètre à la page **Administration > Paramètres > Centreon web**, section **Authentication by OpenId Connect**.
+## Configurer l'authentification OpenID Connect
 
-- La case **Enable OpenId Connect authentication** permet d'activer ou de désactiver l'authentification OpenId Connect.
-- Le champ **Authentication mode** indique si l'authentification doit avoir lieu uniquement par OpenId Connect ou en
-  utilisant également l'authentification locale (mixte).
-- Le champ **Trusted client addresses** indique quelles sont les adresses IP/DNS des clients de confiance (correspond à
-  l'adresse du reverse proxy). Chaque client de confiance est séparé par une virgule.
-- Le champ **Blacklist client addresses** indique quelles sont les adresses IP/DNS des clients qui seront refusés.
-- Le champ **Base Url** définit l'URL de base de l'IdP pour les points de terminaison OpenId Connect (obligatoire).
-- Le champ **Authorization Endpoint** définit le point de terminaison d'autorisation, par exemple `/authorize` (obligatoire).
-- Le champ **Token Endpoint** définit le point de terminaison du jeton, par exemple `/token` (obligatoire).
-- Le champ **Introspection Token Endpoint** définit le point de terminaison du jeton d'introspection, par exemple `/introspect` (obligatoire).
-- Le champ **User Information Endpoint** définit le point de terminaison des informations utilisateur, par exemple `/userinfo`.
-- Le champ **End Session Endpoint** définit le point de terminaison de déconnexion, par exemple `/logout`.
-- Le champ **Scope** définit la portée de l'IdP, par exemple «openid». Portée séparée par espace.
-- Le champ **Login claim value** définit la variable qui est renvoyée par les points de terminaison **Introspection Token Endpoint**
-  ou **User Information Endpoint** pour authentifier l'utilisateur. Par exemple `sub` ou `email`.
-- La case **Redirect Url** définit l'URL de redirection après connexion pour accéder à votre serveur Centreon, par exemple
-  `https://192.168.0.1/centreon/index.php`.
-- **Client ID** défini l'ID client.
-- **Client Secret** défini le secret client.
-- La case **Use Basic Auth for Token Endpoint Authentication** oblige à utiliser la méthode `Authorization: Basic`.
-- **Disable SSL verify peer** permet de désactiver la validation des pairs SSL, ne doit être utilisé que pour des tests
+L'authentification se paramètre à la page **Administration > Authentification > OpenId Connect Configuration** :
 
-![image](../assets/administration/openid-connect-configuration.png)
+![image](../assets/administration/oidc-configuration.png)
 
-> Selon le fournisseur d'identité, il est nécessaire de saisir plusieurs portées (scope) afin de récupérer la valeur
-> (claim) qui identifiera l'utilisateur. Ceci est indiqué dans la documentation de configuration du fournisseur.
+### Étape 1 : Activer l'authentification
 
-> Il est possible de définir une URL complète pour les points de terminaison au cas où la base de l'URL est différente
+Activez l'authentification OpenID Connect :
+
+- **Enable OpenId Connect authentication** : active/désactive l'authentification OpenId Connect.
+- **Mode d'authentification** : indique si l'authentification doit se faire uniquement par OpenId Connect ou en
+  utilisant également l'authentification locale (**Mixte**). En mode mixte, des utilisateurs créés manuellement dans
+  Centreon (et non identifiés par OpenID) pourront également se connecter.
+
+> Lors du paramétrage, il est recommandé d'activer le mode "mixte". Cela vous permettra de garder l'accès au compte
+> local `admin` en cas de configuration érronée.
+
+### Étape 2 : Configurer les informations d'accès au fournisseur d'identité
+
+Renseignez les informations du fournisseur d'identité :
+
+- **URL de base** : définit l'URL de base du fournisseur d'identité pour les points d'entrée OpenId Connect (obligatoire).
+- **Point d'entrée d'autorisation** : définit le point d'entrée d'autorisation, par exemple `/authorize` (obligatoire).
+- **Point d'entrée de jeton** : définit le point d'entrée du jeton, par exemple `/token` (obligatoire).
+- **ID de client** : définit l'ID client.
+- **Secret de client** : définit le secret client.
+- **Portées** : définit la portée du fournisseur d'identité, par exemple `openid`. Séparez différentes portées par des espaces.
+  > Selon le fournisseur d'identité, il est nécessaire de saisir plusieurs portées (scopes) afin de récupérer la valeur
+  > (claim) qui identifiera l'utilisateur. Ceci est indiqué dans la documentation de configuration du fournisseur.
+- **Valeur de la déclaration de connexion** : définit quelle variable renvoyée par les points d'entrée
+**Point d'entrée de jeton d'introspection** ou **Point d'entrée d'information utilisateur** doit être utilisée pour authentifier l'utilisateur. Par exemple `sub` ou `email`.
+- **Point d'entrée de fin de session** : définit le point d'entrée de déconnexion, par exemple `/logout`.
+
+Suivant votre fournisseur d'identité, définissez l'un ou l'autre des deux endpoints suivants :
+
+- **Point d'entrée de jeton d'introspection** : définit le point d'entrée du jeton d'introspection, par exemple `/introspect` (obligatoire).
+- **Point d'entrée d'information utilisateur** : définit le point d'entrée des informations utilisateur, par exemple `/userinfo`.
+
+Vous pouvez également configurer :
+
+- **Utiliser l'authentification basique pour l'authentification du point d'entrée de jeton** : si cette option est activée, la méthode `Authorization: Basic` sera utilisée. Activez cette option si votre fournisseur d'identité le demande.
+- **Disable SSL verify peer** : permet de désactiver la validation des pairs SSL. Le certificat du fournisseur d'identité ne sera pas vérifié : cette option ne doit être utilisée qu'à des fins de test.
+
+> Il est possible de définir une URL complète pour les points de entrée au cas où la base de l'URL est différente
 > des autres.
-
-> Il est possible de ne pas spécifier le champ **Redirect Url**, dans ce cas, le serveur Centreon enverra au
-> fournisseur de service sa propre URL.
-
-> Si vous souhaitez importer automatiquement l'utilisateur après la connexion, vous pouvez configurer un serveur LDAP
-> et activer l'importation automatique. Assurez-vous que "l'attribut de connexion" de la configuration LDAP sera
-> identique à la "valeur de la demande de connexion".
 
 > Vous pouvez activer **Authentification debug** via le menu `Administration > Parameters > Debug` pour comprendre les
 > échecs d'authentification et améliorer votre configuration.
+
+### Étape 3 : Configurer les adresses des clients
+
+Si vous laissez ces deux champs vides, toutes les adresses IP seront autorisées à accéder à l'interface Centreon.
+
+- **Adresses de clients de confiance** : Si vous entrez des adresses IP dans ce champ, seules ces adresses IP seront autorisées à accéder à l'interface Centreon. Toutes les autres adresses IP seront bloquées. Séparez les adressses IP par des virgules.
+- **Adresses de clients sur liste noire** : Ces adresses IP seront bloquées. Toutes les autres adresses IP seront autorisées.
+
+### Étape 4 : Créer les utilisateurs
+
+À la page **Configuration > Utilisateurs > Contacts/Utilisateurs**, [créez les utilisateurs](../monitoring/basic-objects/contacts-create.md) qui se connecteront à Centreon avec OpenID et [donnez-leur des droits](../administration/access-control-lists.md) via des groupes d'accès.
+
+### Step 5: Configurer le fournisseur d'identité
+
+Configurer votre fournisseur d'identité pour ajouter l'application Centreon à utiliser le protocole OpenID Connect pour
+authentifier vos utilisateur, et pour autoriser `l'uri de redirection` suivante une fois vos utilisateurs authentifiés :
+
+```shell
+{protocol}://{server}:{port}/centreon/authentication/providers/configurations/openid
+```
+
+> Remplacez `{protocol}`, `{server}` et `{port}` par l'URI permettant d'accéder à votre serveur Centreon.
+> Par exemple : `https://centreon.domain.net/centreon/authentication/providers/configurations/openid`
 
 ### Exemples de configuration
 
@@ -65,16 +95,14 @@ Voici un exemple de configuration pour Microsoft Azure Active Directory:
 | Base Url                     | https://login.microsoftonline.com/${tenantId}/oauth2/v2.0 |
 | Authorization Endpoint       | /authorize                                                |
 | Token Endpoint               | /token                                                    |
-| Introspection Token Endpoint | /introspect                                               |
 | User Information Endpoint    | https://graph.microsoft.com/oidc/userinfo                 |
 | End Session Endpoint         |                                                           |
 | Scope                        | openid                                                    |
 | Login claim value            | email                                                     |
-| Redirect Url                 | https://${ipCentreon}/centreon/index.php                  |
 | Client ID                    | ${clientId}                                               |
 | Client Secret                | ${clientSecret}                                           |
 
-> Veuillez remplacer `${tenantId}`, `${ipCentreon}`, `${clientId}` et `${clientSecret}` par vos propres valeurs.
+> Remplacez `${tenantId}`, `${clientId}` et `${clientSecret}` par vos propres valeurs.
 
 </TabItem>
 <TabItem value="Okta" label="Okta">
@@ -91,11 +119,10 @@ Voici un exemple de configuration pour Okta:
 | End Session Endpoint         | /logout                                  |
 | Scope                        | profile openid                           |
 | Login claim value            | username                                 |
-| Redirect Url                 | https://${ipCentreon}/centreon/index.php |
 | Client ID                    | ${clientId}                              |
 | Client Secret                | ${clientSecret}                          |
 
-> Veuillez remplacer `${theIdPdomain}`, `${ipCentreon}`, `${clientId}` et `${clientSecret}` par vos propres valeurs.
+> Remplacez `${theIdPdomain}`, `${clientId}` et `${clientSecret}` par vos propres valeurs.
 
 </TabItem>
 <TabItem value="Keycloak" label="Keycloak">
@@ -112,11 +139,10 @@ Voici un exemple de configuration pour Keycloak:
 | End Session Endpoint         | /logout                                                                 |
 | Scope                        | openid                                                                  |
 | Login claim value            | email                                                                   |
-| Redirect Url                 | https://${ipCentreon}/centreon/index.php                                |
-| Client ID                    | ${resource}                                                             |
-| Client Secret                | ${secret}                                                               |
+| Client ID                    | ${clientId}                                                             |
+| Client Secret                | ${clientSecret}                                                         |
 
-> Veuillez remplacer `${theIdPdomain}`, `${ipCentreon}`, `${resource}` et `${secret}` par vos propres valeurs.
+> Remplacez `${theIdPdomain}`, `${clientId}` et `${clientSecret}` par vos propres valeurs.
 
 </TabItem>
 <TabItem value="LemonLDAP::NG" label="LemonLDAP::NG">
@@ -133,16 +159,15 @@ Voici un exemple de configuration pour LemonLDAP::NG:
 | End Session Endpoint         |                                          |
 | Scope                        | openid                                   |
 | Login claim value            | email                                    |
-| Redirect Url                 | https://${ipCentreon}/centreon/index.php |
 | Client ID                    | ${clientId}                              |
 | Client Secret                | ${clientSecret}                          |
 
-> Veuillez remplacer `auth.example.com`, `${ipCentreon}`, `${clientId}` et `${clientSecret}` par vos propres valeurs.
+> Remplacez `auth.example.com`, `${clientId}` et `${clientSecret}` par vos propres valeurs.
 
 </TabItem>
 <TabItem value="Autres" label="Autres">
 
-La plupart des fournisseurs de services en ont une URL présentant la configuration des paramètres de configuration telle que
+La plupart des fournisseurs de services ont une URL présentant la configuration des paramètres de configuration telle que
 définie par [le protocole](https://openid.net/specs/openid-connect-discovery-1_0#ProviderConfig).
 
 ```json
@@ -183,6 +208,7 @@ définie par [le protocole](https://openid.net/specs/openid-connect-discovery-1_
 ```
 
 Récupérez les paramètres suivants pour configurer votre Centreon :
+
 - issuer (Base Url)
 - authorization_endpoint
 - token_endpoint

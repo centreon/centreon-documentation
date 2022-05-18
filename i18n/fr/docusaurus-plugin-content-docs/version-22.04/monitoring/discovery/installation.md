@@ -25,39 +25,3 @@ Discovery**. Le module est maintenant installé :
 
 5. Rendez-vous dans le menu **Configuration > Packs de plugins** et [installez les plugin packs
 ](../pluginpacks.md#installation-du-pack) correspondant aux fournisseurs de découverte désirés.
-
-## Mettre en place un compte dédié à l'autodécouverte
-
-Il est recommandé d'utiliser un compte technique dédié qui exécutera les tâches de découverte en arrière-plan (différent du compte que vous utilisez pour créer et lancer des tâches de découverte dans l'interface). Par exemple, un compte `autodisco`. 
-
-1. À la page **Configuration > Utilisateurs > Contacts / Utilisateurs**, [créez un utilisateur](../basic-objects/contacts-create.md) dédié (par exemple, **autodisco**). Dans l'onglet **Authentification Centreon**, donnez-lui les droits suivants :
-    - **Autoriser l'utilisateur à se connecter à l'interface web** : **Non**
-    - **Administrateur** : **Oui**
-    - **Accès à l'API de configuration** : **Oui**.
-
-2. Dans le terminal du serveur central, éditez le fichier suivant :
-
-    ```
-    /etc/centreon-gorgone/config.d/31-centreon-api.yaml
-    ```
-    Remplacez les identifiants par défaut par ceux de votre compte dédié à l'autodécouverte.
-
-    Exemple :
-
-    ```
-    gorgone:
-      tpapi:
-        - name: centreonv2
-          base_url: "http://127.0.0.1/centreon/api/beta/"
-          username: autodisco
-          password: XXXXXXXXXXXXXXXX
-        - name: clapi
-          username: autodisco
-          password: XXXXXXXXXXXXXXXX
-    ```
-
-3. Redémarrez le service **gorgoned** :
-
-    ```
-    systemctl restart gorgoned
-    ```

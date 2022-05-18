@@ -510,6 +510,10 @@
         {
           "type": "doc",
           "id": "version-22.04/metrology/chart-virtual-metrics"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.04/metrology/grafana"
         }
       ]
     },
@@ -780,6 +784,28 @@
           ]
         },
         {
+          "type": "category",
+          "label": "Centreon HA",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-22.04/administration/centreon-ha/acceptance-guide"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/administration/centreon-ha/monitoring-guide"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/administration/centreon-ha/operating-guide"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/administration/centreon-ha/troubleshooting-guide"
+            }
+          ]
+        },
+        {
           "type": "doc",
           "id": "version-22.04/administration/extensions"
         },
@@ -882,6 +908,10 @@
             {
               "type": "doc",
               "id": "version-22.04/upgrade/centreon-ha/upgrade-centreon-ha-from-21-04"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/upgrade/centreon-ha/upgrade-centreon-ha-from-21-10"
             },
             {
               "type": "doc",
@@ -1098,7 +1128,7 @@
     },
     {
       "type": "category",
-      "label": "Mobile App.",
+      "label": "Centreon mobile",
       "items": [
         {
           "type": "doc",

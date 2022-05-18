@@ -6,6 +6,8 @@ title: Upgrade from Centreon 20.04
 This chapter describes how to upgrade your Centreon platform from version 20.04
 to version 22.04.
 
+> When you upgrade your central server, make sure you also upgrade all your remote servers and your pollers. All servers in your architecture must have the same version of Centreon. In addition, all servers must use the same [version of the BBDO protocol](../developer/developer-broker-bbdo.md#switching-versions-of-bbdo).
+
 > If you want to migrate your Centreon server to Oracle Linux / RHEL 8
 > you need to follow the [migration procedure](../migrate/migrate-from-20-x.md)
 
@@ -134,58 +136,6 @@ In particular, make sure your customized Apache configuration contains the follo
 </LocationMatch>
 ```
 
-### Finalizing the upgrade
-
-Before starting the web upgrade process, reload the Apache server with the
-following command:
-```shell
-systemctl reload httpd24-httpd
-```
-
-Then log on to the Centreon web interface to continue the upgrade process:
-
-Click on **Next**:
-
-![image](../assets/upgrade/web_update_1.png)
-
-Click on **Next**:
-
-![image](../assets/upgrade/web_update_2.png)
-
-The release notes describe the main changes. Click on **Next**:
-
-![image](../assets/upgrade/web_update_3.png)
-
-This process performs the various upgrades. Click on **Next**:
-
-![image](../assets/upgrade/web_update_4.png)
-
-Your Centreon server is now up to date. Click on **Finish** to access the login
-page:
-
-![image](../assets/upgrade/web_update_5.png)
-
-If the Centreon BAM module is installed, refer to the
-[upgrade procedure](../service-mapping/upgrade.md).
-
-### Post-upgrade actions
-
-1. Upgrade extensions. From **Administration > Extensions > Manager**, upgrade all extensions, starting
-with the following:
-
-    - License Manager,
-    - Plugin Packs Manager,
-    - Auto Discovery.
-
-    Then you can upgrade all other commercial extensions.
-
-2. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
-
-3. Restart Centreon processes:
-    ```shell
-    systemctl restart cbd centengine centreontrapd gorgoned
-    ```
-
 ### Upgrade the MariaDB server
 
 The MariaDB components can now be upgraded.
@@ -262,6 +212,58 @@ Execute the following command:
 ```shell
 systemctl enable mariadb
 ```
+
+### Finalizing the upgrade
+
+Before starting the web upgrade process, reload the Apache server with the
+following command:
+```shell
+systemctl reload httpd24-httpd
+```
+
+Then log on to the Centreon web interface to continue the upgrade process:
+
+Click on **Next**:
+
+![image](../assets/upgrade/web_update_1.png)
+
+Click on **Next**:
+
+![image](../assets/upgrade/web_update_2.png)
+
+The release notes describe the main changes. Click on **Next**:
+
+![image](../assets/upgrade/web_update_3.png)
+
+This process performs the various upgrades. Click on **Next**:
+
+![image](../assets/upgrade/web_update_4.png)
+
+Your Centreon server is now up to date. Click on **Finish** to access the login
+page:
+
+![image](../assets/upgrade/web_update_5.png)
+
+If the Centreon BAM module is installed, refer to the
+[upgrade procedure](../service-mapping/upgrade.md).
+
+### Post-upgrade actions
+
+1. Upgrade extensions. From **Administration > Extensions > Manager**, upgrade all extensions, starting
+with the following:
+
+    - License Manager,
+    - Plugin Packs Manager,
+    - Auto Discovery.
+
+    Then you can upgrade all other commercial extensions.
+
+2. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
+
+3. Restart Centreon processes:
+    ```shell
+    systemctl restart cbd centengine centreontrapd gorgoned
+    ```
 
 ## Upgrade the Remote Servers
 
