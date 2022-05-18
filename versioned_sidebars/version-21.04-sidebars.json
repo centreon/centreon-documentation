@@ -1022,7 +1022,7 @@
     },
     {
       "type": "category",
-      "label": "Mobile App.",
+      "label": "Centreon mobile",
       "items": [
         {
           "type": "doc",
