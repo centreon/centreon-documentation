@@ -5,7 +5,6 @@ title: Installing a Centreon HA 4-nodes cluster
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 ## Prerequisites
 
 ### Understanding
@@ -29,7 +28,6 @@ you will need to open the following flows:
 | Central Servers + DB + QDevice | Central Servers + DB + QDevice | PCS      | TCP 2224 | Communication inside the cluster                                                           |
 | Central Servers + DB + QDevice | Central Servers + DB + QDevice | Corosync | TCP 5403 | Communication with the QDevice                                                             |
 
-
 ### Installed Centreon platform
 
 A Centreon HA cluster can only be installed on top of an operating Centreon platform. Before following this procedure, it is mandatory that **[this installation procedure](../../installation/introduction.md)** has already been completed and that **about 5GB free space have been spared on the LVM volume group** that carries the MariaDB data directory (`/var/lib/mysql` mount point by default).
@@ -49,6 +47,9 @@ The output of the `vgs` command must look like (what must be payed attention on 
 ### Quorum Device
 
 In order to keep the cluster safe from split-brain issues, a third server is mandatory to resolve the master's election in the event of a connection loss. The role of Quorum Device, can be held by a poller of the monitoring platform.
+
+In order to adhere to best practices and be as resilient as possible, the Quorum server placement
+Quorum server should be at a different site than the two primary nodes, with independent network attachments.
 
 ### Defining hosts' names and addresses
 
@@ -75,6 +76,7 @@ In this procedure, we will refer to characteristics that are bound to change fro
 * `@VIP_SQL_IPADDR@` : virtual IP address of the SQL cluster
 * `@VIP_SQL_IFNAME@` : network device carrying the SQL cluster's VIP
 * `@VIP_SQL_CIDR_NETMASK@` : SQL Cluster subnet mask length in bits (eg. 24)
+* `@VIP_SQL_BROADCAST_IPADDR@` : cluster's VIP SQL broadcast address
 * `@CENTREON_CLUSTER_PASSWD@` : `hacluster` user's password
 
 ### Configuring  centreon-broker
@@ -142,7 +144,7 @@ Before actually setting the cluster up, some system prerequisites have to be met
 In order to improve the cluster reliability, and since *Centreon HA* only supports IPv4, we recommend to apply the following kernel settings all your Centreon servers (including pollers):
 
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
 
 ```bash
 cat >> /etc/sysctl.conf <<EOF
@@ -217,6 +219,14 @@ dnf install centreon-ha-web pcs pacemaker corosync corosync-qdevice
 ```
 
 </TabItem>
+<TabItem value="Alma Linux 8" label="Alma Linux 8">
+
+```bash
+dnf config-manager --enable ha
+dnf install centreon-ha-web pcs pacemaker corosync corosync-qdevice
+```
+
+</TabItem>
 <TabItem value="RHEL 7" label="RHEL 7">
 
 ```bash
@@ -258,6 +268,14 @@ dnf install centreon-ha-common pcs pacemaker corosync corosync-qdevice
 ```
 
 </TabItem>
+<TabItem value="Alma Linux 8" label="Alma Linux 8">
+
+```bash
+dnf config-manager --enable ha
+dnf install centreon-ha-common pcs pacemaker corosync corosync-qdevice
+```
+
+</TabItem>
 <TabItem value="RHEL 7" label="RHEL 7">
 
 ```bash
@@ -265,7 +283,6 @@ yum install epel-release
 subscription-manager repos --enable rhel-7-for-x86_64-highavailability-rpms
 dnf install centreon-ha-common pcs pacemaker corosync corosync-qdevice
 ```
-
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
@@ -296,7 +313,7 @@ The second method will be documented below.
 
 Switch to `centreon`'s bash environment on both nodes:
 
-```
+```bash
 su - centreon
 ```
 
@@ -309,13 +326,13 @@ cat ~/.ssh/id_ed25519.pub
 
 Once done, copy the content of the public key file displayed by `cat` and paste it to `~/.ssh/authorized_keys` (must be created) on the other node and apply the correct file permissions (sill as `centreon` user):
 
-```
+```bash
 chmod 600 ~/.ssh/authorized_keys
 ```
 
 The keys exchange must be validated by an initial connection from each node to the other in order to accept and register the peer node's SSH fingerprint (sill as `centreon` user):
 
-```
+```bash
 ssh <peer node hostname>
 ```
 
@@ -380,6 +397,11 @@ slave_compressed_protocol=1
 slave_parallel_mode=conservative
 datadir=/var/lib/mysql
 pid-file=/var/lib/mysql/mysql.pid
+skip-slave-start
+log-slave-updates
+gtid_strict_mode=ON
+expire_logs_days=7
+ignore-db-dir=lost+found
 
 # Tuning standard Centreon
 innodb_file_per_table=1
@@ -416,6 +438,8 @@ systemctl status mysql
 ```
 
 > **Warning:** Other files in `/etc/my.cnf.d/` such as `centreon.cnf` will be ignored from now. Any customization will have to be added to `server.cnf`.
+
+> **Warning:** Don't forget to change the parameter `Mysql configuration file path` in `Administration > Parameters > Backup`
 
 ### Securing the database server
 
@@ -460,7 +484,7 @@ GRANT ALL PRIVILEGES ON centreon_storage.* TO '@MARIADB_CENTREON_USER@'@'@CENTRA
 When upgrading to centreon-ha from an existing Centreon platform or an OVA/OVF VM deployment, update `'@MARIADB_CENTREON_USER@'@'localhost'` password:
 
 ```sql
-ALTER USER '@MARIADB_CENTREON_USER@'@'localhost' IDENTIFIED BY '@MARIADB_CENTREON_PASSWD@'; 
+ALTER USER '@MARIADB_CENTREON_USER@'@'localhost' IDENTIFIED BY '@MARIADB_CENTREON_PASSWD@';
 ```
 
 ### Creating the MariaDB replication account
@@ -482,33 +506,10 @@ Optionnaly, you can allow these privileges to be used from Central Cluster. It w
 
 ```sql
 GRANT SHUTDOWN, PROCESS, RELOAD, SUPER, SELECT, REPLICATION CLIENT, REPLICATION SLAVE ON *.* 
-TO '@MARIADB_REPL_USER@'@'localhost' IDENTIFIED BY '@MARIADB_REPL_PASSWD@';
-
-GRANT SHUTDOWN, PROCESS, RELOAD, SUPER, SELECT, REPLICATION CLIENT, REPLICATION SLAVE ON *.* 
 TO '@MARIADB_REPL_USER@'@'@CENTRAL_SLAVE_IPADDR@' IDENTIFIED BY '@MARIADB_REPL_PASSWD@';
 
 GRANT SHUTDOWN, PROCESS, RELOAD, SUPER, SELECT, REPLICATION CLIENT, REPLICATION SLAVE ON *.* 
 TO '@MARIADB_REPL_USER@'@'@CENTRAL_MASTER_IPADDR@' IDENTIFIED BY '@MARIADB_REPL_PASSWD@';
-```
-
-### Setting up the binary logs purge jobs
-
-MariaDB binary logs must be purged on both nodes, but not at the same time, therefore the cron jobs definitions must be set on different times:
-
-* On the primary database node:
-
-```bash
-cat >/etc/cron.d/centreon-ha-mysql <<EOF
-0 4 * * * root bash /usr/share/centreon-ha/bin/mysql-purge-logs.sh >> /var/log/centreon-ha/mysql-purge.log 2>&1
-EOF
-```
-
-* On the secondary database node:
-
-```bash
-cat >/etc/cron.d/centreon-ha-mysql <<EOF
-30 4 * * * root bash /usr/share/centreon-ha/bin/mysql-purge-logs.sh >> /var/log/centreon-ha/mysql-purge.log 2>&1
-EOF
 ```
 
 ### Configuring the MariaDB scripts environment variables
@@ -719,26 +720,33 @@ chmod 775 /tmp/centreon-autodisco/
 
 Centreon's application services won't be launched at boot time anymore, they will be managed by the clustering tools. These services must therefore be stopped and disabled:
 
-<Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+For ** Central nodes **
 
+<Tabs groupId="sync">
+<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
 
 ```bash
-systemctl stop centengine snmptrapd centreontrapd gorgoned cbd httpd php-fpm centreon mysql
-systemctl disable centengine snmptrapd centreontrapd gorgoned cbd httpd php-fpm centreon mysql
+systemctl stop centengine snmptrapd centreontrapd gorgoned cbd httpd php-fpm centreon
+systemctl disable centengine snmptrapd centreontrapd gorgoned cbd httpd php-fpm centreon
 ```
 
 </TabItem>
 <TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
 
-
 ```bash
-systemctl stop centengine snmptrapd centreontrapd gorgoned cbd httpd24-httpd php-fpm centreon mysql
-systemctl disable centengine snmptrapd centreontrapd gorgoned cbd httpd24-httpd php-fpm centreon mysql
+systemctl stop centengine snmptrapd centreontrapd gorgoned cbd httpd24-httpd php-fpm centreon
+systemctl disable centengine snmptrapd centreontrapd gorgoned cbd httpd24-httpd php-fpm centreon
 ```
 
 </TabItem>
 </Tabs>
+
+And for ** Database nodes **
+
+```bash
+systemctl stop mysql
+systemctl disable mysql
+```
 
 By default, the `mysql` service is enabled in both systemd and system V perspectives, so you'd rather make sure it is disabled:
 
@@ -750,7 +758,7 @@ chkconfig mysql off
 
 #### Activating the clustering services
 
-First we enable all the services and start `pcsd` on both central nodes:
+First we enable all the services and start `pcsd` on ** all nodes **:
 
 ```bash
 systemctl start pcsd
@@ -778,6 +786,18 @@ pcs qdevice status net --full
 
 ```bash
 dnf config-manager --enable ol8_addons
+dnf install pcs corosync-qnetd
+systemctl start pcsd.service
+systemctl enable pcsd.service
+pcs qdevice setup model net --enable --start
+pcs qdevice status net --full
+```
+
+</TabItem>
+<TabItem value="Alma Linux 8" label="Alma Linux 8">
+
+```bash
+dnf config-manager --enable ha
 dnf install pcs corosync-qnetd
 systemctl start pcsd.service
 systemctl enable pcsd.service
@@ -821,7 +841,7 @@ COROSYNC_QNETD_OPTIONS="-4"
 
 #### Authenticating to the cluster's members
 
-For the sake of simplicity, the `hacluster` user will be assigned the same password on both central nodes **and `@QDEVICE_NAME@`**.
+For the sake of simplicity, the `hacluster` user will be assigned the same password on ** all nodes, `@QDEVICE_NAME@` included**.
 
 ```bash
 passwd hacluster
@@ -830,7 +850,7 @@ passwd hacluster
 Now that both of the central nodes **and** the *quorum device* server are sharing the same password, you will run this command **only on one of the nodes** in order to authenticate on all the hosts taking part in the cluster.
 
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
 
 ```bash
 pcs host auth \
@@ -866,7 +886,7 @@ pcs cluster auth \
 The following command creates the cluster. It must be run **only on one of the nodes**. 
 
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
 
 ```bash
 pcs cluster setup \
@@ -928,20 +948,19 @@ All commands within this section should be exectued on **only on one Cluster nod
 #### Primary & Secondary MySQL Processes 
 
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
 
 ```bash
 pcs resource create "ms_mysql" \
-    ocf:heartbeat:mysql-centreon \
+    ocf:heartbeat:mariadb-centreon \
     config="/etc/my.cnf.d/server.cnf" \
     pid="/var/lib/mysql/mysql.pid" \
     datadir="/var/lib/mysql" \
     socket="/var/lib/mysql/mysql.sock" \
+    binary="/usr/bin/mysqld_safe" \
+    node_list="@DATABASE_MASTER_NAME@ @DATABASE_SLAVE_NAME@" \
     replication_user="@MARIADB_REPL_USER@" \
     replication_passwd='@MARIADB_REPL_PASSWD@' \
-    max_slave_lag="15" \
-    evict_outdated_slaves="false" \
-    binary="/usr/bin/mysqld_safe" \
     test_user="@MARIADB_REPL_USER@" \
     test_passwd="@MARIADB_REPL_PASSWD@" \
     test_table='centreon.host'
@@ -952,16 +971,15 @@ pcs resource create "ms_mysql" \
 
 ```bash
 pcs resource create "ms_mysql" \
-    ocf:heartbeat:mysql-centreon \
+    ocf:heartbeat:mariadb-centreon \
     config="/etc/my.cnf.d/server.cnf" \
     pid="/var/lib/mysql/mysql.pid" \
     datadir="/var/lib/mysql" \
     socket="/var/lib/mysql/mysql.sock" \
+    binary="/usr/bin/mysqld_safe" \
+    node_list="@DATABASE_MASTER_NAME@ @DATABASE_SLAVE_NAME@" \
     replication_user="@MARIADB_REPL_USER@" \
     replication_passwd='@MARIADB_REPL_PASSWD@' \
-    max_slave_lag="15" \
-    evict_outdated_slaves="false" \
-    binary="/usr/bin/mysqld_safe" \
     test_user="@MARIADB_REPL_USER@" \
     test_passwd="@MARIADB_REPL_PASSWD@" \
     test_table='centreon.host'
@@ -972,16 +990,15 @@ pcs resource create "ms_mysql" \
 
 ```bash
 pcs resource create "ms_mysql" \
-    ocf:heartbeat:mysql-centreon \
+    ocf:heartbeat:mariadb-centreon \
     config="/etc/my.cnf.d/server.cnf" \
     pid="/var/lib/mysql/mysql.pid" \
     datadir="/var/lib/mysql" \
     socket="/var/lib/mysql/mysql.sock" \
+    binary="/usr/bin/mysqld_safe" \
+    node_list="@DATABASE_MASTER_NAME@ @DATABASE_SLAVE_NAME@" \
     replication_user="@MARIADB_REPL_USER@" \
     replication_passwd='@MARIADB_REPL_PASSWD@' \
-    max_slave_lag="15" \
-    evict_outdated_slaves="false" \
-    binary="/usr/bin/mysqld_safe" \
     test_user="@MARIADB_REPL_USER@" \
     test_passwd="@MARIADB_REPL_PASSWD@" \
     test_table='centreon.host' \
@@ -994,7 +1011,7 @@ pcs resource create "ms_mysql" \
 > **WARNING:** the syntax of the following command depends on the Linux Distribution you are using.
 
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
 
 ```bash
 pcs resource promotable ms_mysql \
@@ -1100,8 +1117,7 @@ pcs resource create vip \
 ##### Httpd service
 
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
-
+<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
 
 ```bash
 pcs resource create http \
@@ -1211,29 +1227,28 @@ When using the 4 nodes architecture, you must define some specific Constraints t
 In order to glue the Primary Database role with the Virtual IP, define a mutual Constraint:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
 
 ```bash
-pcs constraint colocation add "vip_mysql" with master "ms_mysql-clone"
 pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
+pcs constraint order stop centreon then demote ms_mysql-clone
 ```
 
 </TabItem>
 <TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
 
 ```bash
-pcs constraint colocation add "vip_mysql" with master "ms_mysql-master"
 pcs constraint colocation add master "ms_mysql-master" with "vip_mysql"
+pcs constraint order stop centreon then demote ms_mysql-master
 ```
 
 </TabItem>
 </Tabs>
 
-Create the Constraint that prevent Centreon Processes to run on Database nodes and 
-vice-et-versa: 
+Create the Constraint that prevent Centreon Processes to run on Database nodes and  vice-et-versa: 
 
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
 
 ```bash
 pcs constraint location centreon avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
@@ -1260,6 +1275,8 @@ pcs constraint location php-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABA
 ### Enable resources 
 
 ```bash
+pcs resource enable php-clone
+pcs resource enable cbd_rrd-clone
 pcs resource meta vip target-role="started"
 pcs resource meta vip_mysql target-role="started"
 pcs resource meta centreontrapd target-role="started"
@@ -1271,13 +1288,14 @@ pcs resource meta centreon_central_sync target-role="started"
 pcs resource meta http target-role="started"
 ```
 
+### Checking the cluster's state
+
 #### Checking the resources' states
 
 You can monitor the cluster's resources in real time using the `crm_mon` command:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
-
+<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
 
 ```bash
 Cluster Summary:
@@ -1314,23 +1332,27 @@ Active Resources:
 </TabItem>
 <TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
 
-
 ```bash
 Stack: corosync
-Current DC: @CENTRAL_SLAVE_NAME@ (version 1.1.20-5.el7_7.2-3c4c782f70) - partition with quorum
-Last updated: Thu Feb 20 13:14:17 2020
-Last change: Thu Feb 20 09:25:54 2020 by root via crm_attribute	on @CENTRAL_MASTER_NAME@
-2 nodes configured
-14 resources configured
-Online: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+Current DC: @CENTRAL_MASTER_NAME@ (version 1.1.23-1.el7_9.1-9acf116022) - partition with quorum
+Last updated: Fri Apr 29 12:54:11 2022
+Last change: Fri Apr 29 12:34:16 2022 by root via cibadmin on @CENTRAL_MASTER_NAME@
+
+4 nodes configured
+21 resource instances configured
+
+Online: [ @DATABASE_MASTER_NAME@ @DATABASE_SLAVE_NAME@ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+
 Active resources:
+
  Master/Slave Set: ms_mysql-master [ms_mysql]
-     Masters: [@DATABASE_MASTER_NAME@]
-     Slaves: [@DATABASE_SLAVE_NAME@]
+     Masters: [ @DATABASE_MASTER_NAME@ ]
+     Slaves: [ @DATABASE_SLAVE_NAME@ ]
+vip_mysql       (ocf::heartbeat:IPaddr2):       Started @DATABASE_MASTER_NAME@
  Clone Set: php-clone [php]
-     Started: [@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@]
+     Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
  Clone Set: cbd_rrd-clone [cbd_rrd]
-     Started: [@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@]
+     Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
  Resource Group: centreon
      vip        (ocf::heartbeat:IPaddr2):       Started @CENTRAL_MASTER_NAME@
      http       (systemd:httpd24-httpd):        Started @CENTRAL_MASTER_NAME@
@@ -1340,7 +1362,6 @@ Active resources:
      centengine (systemd:centengine):   Started @CENTRAL_MASTER_NAME@
      centreontrapd      (systemd:centreontrapd):        Started @CENTRAL_MASTER_NAME@
      snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_MASTER_NAME@
-     vip_mysql       (ocf::heartbeat:IPaddr2):       Started @CENTRAL_MASTER_NAME@
 ```
 
 </TabItem>
@@ -1366,7 +1387,7 @@ Position Status [OK]
 It can happen that the replication thread is not running right after installation.  Restarting the `ms_mysql` resource may fix it.
 
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
 
 ```bash 
 pcs resource restart ms_mysql-clone
@@ -1387,7 +1408,7 @@ pcs resource restart ms_mysql
 Normally the two colocation constraints that have been created during the setup should be the only constraints the `pcs constraint` command displays:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
 
 ```bash
 Location Constraints:
@@ -1404,14 +1425,14 @@ Location Constraints:
     Disabled on: @DATABASE_MASTER_NAME@ (score:-INFINITY)
     Disabled on: @DATABASE_SLAVE_NAME@ (score:-INFINITY)
 Ordering Constraints:
+  stop centreon then demote ms_mysql-clone (kind:Mandatory)
 Colocation Constraints:
-  vip_mysql with ms_mysql-clone (score:INFINITY) (rsc-role:Started) (with-rsc-role:Master)
-  ms_mysql-master with vip_mysql (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
+  ms_mysql-clone with vip_mysql (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
 Ticket Constraints:
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
 
 ```bash
 Location Constraints:
@@ -1428,8 +1449,8 @@ Location Constraints:
     Disabled on: @DATABASE_MASTER_NAME@ (score:-INFINITY)
     Disabled on: @DATABASE_SLAVE_NAME@ (score:-INFINITY)
 Ordering Constraints:
+  stop centreon then demote ms_mysql-master (kind:Mandatory)
 Colocation Constraints:
-  vip_mysql with ms_mysql-master (score:INFINITY) (rsc-role:Started) (with-rsc-role:Master)
   ms_mysql-master with vip_mysql (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
 Ticket Constraints:
 ```
@@ -1470,45 +1491,10 @@ And then you need to restart all the centreon processes using the following comm
 pcs resource restart centreon
 ```
 
-## Modifications of the Centreon configuration files
-Following the installation of the cluster and the _vip_mysql_, it is necessary to modify the outputs of the Centreon Broker
-and 3 configuration files of the Central. These elements will have to point to the _vip_mysql_ in order to always point to
-the active MariaDB node.
-
-The 3 files are:
-/etc/centreon/centreon.conf.php
-/etc/centreon/conf.pm
-/etc/centreon/config.d/10-database.yaml
-It will be necessary to modify the IP of the old active node by the IP of the _vip_mysql_.
-
-### Modification of the central-broker-master outputs
-The configuration of the *Output* Broker of the central-broker-master is done with the menu *Configuration > Pollers > Broker configuration*.
-
-* Modify the "IPv4" output by replacing "@DATABASE_MASTER_IPADDR@" with @VIP_SQL_IPADDR@ in the *central-broker-master* configuration:
-* 
-| Broker Output                         | Parameter  | Value            |
-| ------------------------------------- | ---------- | ---------------- |
-| Broker SQL database                   | DB Host    | @VIP_SQL_IPADDR@ |
-| Perfdata Generator (Centreon Storage) | DB Host    | @VIP_SQL_IPADDR@ |
-
-### Exporting the configuration
-
-Once the actions in the two previous paragraphs have been carried out, the configuration must be exported (first 3 boxes for 
-the "Central" collector export) for it to be effective.
-
-These actions only on the `@CENTRAL_MASTER_NAME@` then the broker configuration files must be copied to `@CENTRAL_SLAVE_NAME@`.
-```bash
-rsync -a /etc/centreon-broker/*json @CENTRAL_SLAVE_IPADDR@:/etc/centreon-broker/
-```
-
-Then restart the Centreon services with the command:
-```bash
-pcs resource restart centreon
-```
-
 ### Modification of the 3 configuration files
 After having modified the output of the broker, we have to modify the Centreon configuration files.
 To do this, first, edit the file `/etc/centreon/conf.pm` and replace @DATABASE_MASTER_IPADDR@ by the address of the _vip-mysql_:
+
 ```bash
 #############################################
 # File Added by Centreon
@@ -1537,6 +1523,7 @@ $mysql_database_ods = "centreon_storage";
 ```
 
 Then do the same operation in the file `/etc/centreon/centreon.conf.php`:
+
 ```bash
 <?php
 /*
@@ -1571,6 +1558,7 @@ $centreon_path='/usr/share/centreon/';
 ```
 
 And finish with the last file `/etc/centreon/config.d/10-database.yaml`:
+
 ```bash
 database:
   db_configuration:

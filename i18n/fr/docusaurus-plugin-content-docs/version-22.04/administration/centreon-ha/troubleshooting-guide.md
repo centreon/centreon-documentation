@@ -5,7 +5,6 @@ title: Troubleshooting
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 ## Une ressource ne démarre pas 
 
 Si une ressource (par exemple une ressource du groupe centreon) ne démarre pas correctement, des *failed actions* apparaîtront dans `crm_mon`. Par exemple ci-dessous, `centreontrapd` a rencontré une erreur :
@@ -27,7 +26,7 @@ Full List of Resources:
   * Clone Set: ms_mysql-clone [ms_mysql] (promotable):
     * Masters: [ @CENTRAL_MASTER_NAME@ ]
     * Slaves: [ @CENTRAL_SLAVE_NAME@ ]
-  * Clone Set: php7-clone [php7]:
+  * Clone Set: php-clone [php]:
     * Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
   * Clone Set: cbd_rrd-clone [cbd_rrd]:
     * Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
@@ -65,7 +64,7 @@ Active resources:
  Master/Slave Set: ms_mysql-master [ms_mysql]
      Masters: [ @CENTRAL_MASTER_NAME@ ]
      Slaves: [ @CENTRAL_SLAVE_NAME@ ]
- Clone Set: php7-clone [php7]
+ Clone Set: php-clone [php]
      Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
  Clone Set: cbd_rrd-clone [cbd_rrd]
      Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
@@ -125,7 +124,7 @@ Node List:
 Full List of Resources:
   * Clone Set: ms_mysql-clone [ms_mysql] (promotable):
     * Slaves: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
-  * Clone Set: php7-clone [php7]:
+  * Clone Set: php-clone [php]:
     * Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
   * Clone Set: cbd_rrd-clone [cbd_rrd]:
     * Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
@@ -149,7 +148,7 @@ Active resources:
 
  Master/Slave Set: ms_mysql-master [ms_mysql]
      Slaves: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
- Clone Set: php7-clone [php7]
+ Clone Set: php-clone [php]
      Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
  Clone Set: cbd_rrd-clone [cbd_rrd]
      Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
@@ -163,6 +162,7 @@ Aucune erreur n'est remontée, mais le groupe centreon n'apparaît plus, et aucu
 ```bash
 pcs constraint show
 ```
+
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
 

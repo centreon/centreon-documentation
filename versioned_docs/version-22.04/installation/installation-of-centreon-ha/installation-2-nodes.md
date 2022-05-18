@@ -5,7 +5,6 @@ title: Installing a Centreon HA 2-nodes cluster
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 ## Prerequisites
 
 ### Understanding
@@ -16,7 +15,7 @@ Before applying this procedure, you should have a good knowledge of Linux OS, of
 
 ### Network Flows
 
-In addition of necessary flows describe on the [official documentation](../architectures.md#tables-of-network-flows),
+In addition of necessary flows describe on the [official documentation](../architectures.md#Tables_of_network_flows),
 you will need to open the following flows:
 
 | From                      | Destination               | Protocol | Port     | Application                                                                                |
@@ -31,7 +30,7 @@ you will need to open the following flows:
 
 ### Installed Centreon platform
 
-A Centreon HA cluster can only be installed on base of an operating Centreon platform. Before following this procedure, it is mandatory that **[this installation procedure](../../installation/introduction.md)** has already been completed and that **about 5GB free space have been spared on the LVM volume group** that carries the MariaDB data directory (`/var/lib/mysql` mount point by default).
+A Centreon HA cluster can only be installed on base of an operating Centreon platform. Before following this procedure, it is mandatory that **[this installation procedure](../introduction.md)** has already been completed and that **about 5GB free space have been spared on the LVM volume group** that carries the MariaDB data directory (`/var/lib/mysql` mount point by default).
 
 The output of the `vgs` command must look like (what must be payed attention on is the value under `VFree`):
 
@@ -48,6 +47,8 @@ The output of the `vgs` command must look like (what must be payed attention on 
 ### Quorum Device
 
 In order to keep the cluster safe from split-brain issues, a third server is mandatory to resolve the master's election in the event of a connection loss. The role of Quorum Device, can be held by a poller of the monitoring platform.
+
+> **WARNING:** Be sure Selinux and Firewalld are disabled.
 
 ### Defining hosts' names and addresses
 
@@ -69,7 +70,7 @@ In this procedure, we will refer to characteristics that are bound to change fro
 * `@VIP_BROADCAST_IPADDR@`: cluster's VIP broadcast address
 * `@CENTREON_CLUSTER_PASSWD@` : `hacluster` user's password
 
-### Configuring centreon-broker
+### Configuring  centreon-broker
 
 #### Link to cbd service
 
@@ -129,12 +130,14 @@ As stated above, the centreon-broker processes will be divided into `cbd` (for R
 
 Before actually setting the cluster up, some system prerequisites have to be met.
 
+**Note :** unless otherwise stated, each of the following steps must be performed **on the two central nodes**.
+
 ### Kernel network tuning
 
 In order to improve the cluster reliability, and since *Centreon HA* only supports IPv4, we recommend to apply the following kernel settings to all your Centreon servers (including pollers):
 
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
 
 ```bash
 cat >> /etc/sysctl.conf <<EOF
@@ -203,6 +206,14 @@ dnf install centreon-ha-web pcs pacemaker corosync corosync-qdevice
 ```
 
 </TabItem>
+<TabItem value="Alma Linux 8" label="Alma Linux 8">
+
+```bash
+dnf config-manager --enable ha
+dnf install centreon-ha-web pcs pacemaker corosync corosync-qdevice
+```
+
+</TabItem>
 <TabItem value="RHEL 7" label="RHEL 7">
 
 ```bash
@@ -240,7 +251,7 @@ The second method will be documented below.
 
 Switch to `centreon`'s bash environment on both nodes:
 
-```
+```bash
 su - centreon
 ```
 
@@ -253,13 +264,13 @@ cat ~/.ssh/id_ed25519.pub
 
 Once done, copy the content of the public key file displayed by `cat` and paste it to `~/.ssh/authorized_keys` (must be created) on the other node and apply the correct file permissions (sill as `centreon` user):
 
-```
+```bash
 chmod 600 ~/.ssh/authorized_keys
 ```
 
 The keys exchange must be validated by an initial connection from each node to the other in order to accept and register the peer node's SSH fingerprint (sill as `centreon` user):
 
-```
+```bash
 ssh <peer node hostname>
 ```
 
@@ -304,7 +315,7 @@ Then exit the `mysql` session typing `exit` or `Ctrl-D`.
 
 A Master-Slave MariaDB cluster will be setup so that everything is synchronized in real-time. 
 
-**Note:** unless otherwise stated, each of the following steps have to be run **on both central nodes**.
+**Note: unless otherwise stated, each of the following steps have to be run **on both central nodes**.
 
 ### Configuring MariaDB
 
@@ -324,6 +335,11 @@ slave_compressed_protocol=1
 slave_parallel_mode=conservative
 datadir=/var/lib/mysql
 pid-file=/var/lib/mysql/mysql.pid
+skip-slave-start
+log-slave-updates
+gtid_strict_mode=ON
+expire_logs_days=7
+ignore-db-dir=lost+found
 
 # Tuning standard Centreon
 innodb_file_per_table=1
@@ -360,6 +376,8 @@ systemctl status mysql
 ```
 
 > **Warning:** Other files in `/etc/my.cnf.d/` such as `centreon.cnf` will be ignored from now. Any customization will have to be added to `server.cnf`.
+
+> **Warning:** Don't forget to change the parameter `Mysql configuration file path` in `Administration > Parameters > Backup`
 
 ### Securing the database server
 
@@ -410,26 +428,6 @@ GRANT SHUTDOWN, PROCESS, RELOAD, SUPER, SELECT, REPLICATION CLIENT, REPLICATION 
 TO '@MARIADB_REPL_USER@'@'@CENTRAL_MASTER_IPADDR@' IDENTIFIED BY '@MARIADB_REPL_PASSWD@';
 ```
 
-### Setting up the binary logs purge jobs
-
-MariaDB binary logs must be purged on both nodes, but not at the same time, therefore the cron jobs definitions must be set on different times:
-
-* On the primary node:
-
-```bash
-cat >/etc/cron.d/centreon-ha-mysql <<EOF
-0 4 * * * root bash /usr/share/centreon-ha/bin/mysql-purge-logs.sh >> /var/log/centreon-ha/mysql-purge.log 2>&1
-EOF
-```
-
-* On the secondary node:
-
-```bash
-cat >/etc/cron.d/centreon-ha-mysql <<EOF
-30 4 * * * root bash /usr/share/centreon-ha/bin/mysql-purge-logs.sh >> /var/log/centreon-ha/mysql-purge.log 2>&1
-EOF
-```
-
 ### Configuring the MariaDB scripts environment variables
 
 The `/etc/centreon-ha/mysql-resources.sh` file declares environment variables that must be configured so that the *Centreon HA* scripts dedicated to MariaDB can work properly. These variables must be assigned the chosen values for the macros.
@@ -452,7 +450,6 @@ CENTREON_STORAGE_DB='centreon_storage'
 
 ###############################
 ```
-
 
 To make sure that all the previous steps have been successful, and that the correct names, logins and passwords have been entered in the configuration bash file, run this command:
 
@@ -571,7 +568,7 @@ Slave Thread Status [OK]
 Position Status [OK]
 ```
 
-## Setting up the Centreon cluster
+## Setting up the *Centreon* cluster
 
 **Note**: unless otherwise stated, each of the following steps have to be run **on both central nodes**.
 
@@ -638,7 +635,7 @@ chmod 775 /tmp/centreon-autodisco/
 Centreon's application services won't be launched at boot time anymore, they will be managed by the clustering tools. These services must therefore be stopped and disabled:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
 
 ```bash
 systemctl stop centengine snmptrapd centreontrapd gorgoned cbd httpd php-fpm centreon mysql
@@ -702,6 +699,18 @@ pcs qdevice status net --full
 ```
 
 </TabItem>
+<TabItem value="Alma Linux 8" label="Alma Linux 8">
+
+```bash
+dnf config-manager --enable ha
+dnf install pcs corosync-qnetd
+systemctl start pcsd.service
+systemctl enable pcsd.service
+pcs qdevice setup model net --enable --start
+pcs qdevice status net --full
+```
+
+</TabItem>
 <TabItem value="RHEL 7" label="RHEL 7">
 
 ```bash
@@ -746,7 +755,7 @@ passwd hacluster
 Now that both of the central nodes **and** the *quorum device* server are sharing the same password, you will run this command **only on one of the central nodes** in order to authenticate on all the hosts taking part in the cluster.
 
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
 
 ```bash
 pcs host auth \
@@ -778,7 +787,7 @@ pcs cluster auth \
 The following command creates the cluster. It must be run **only on one of the central nodes**. 
 
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
 
 ```bash
 pcs cluster setup \
@@ -833,21 +842,22 @@ pcs quorum device add model net \
 
 To be run **only on one central node**:
 
+> **WARNING:** the syntax of the following command depends on the Linux Distribution you are using.
+
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
 
 ```bash
 pcs resource create "ms_mysql" \
-    ocf:heartbeat:mysql-centreon \
+    ocf:heartbeat:mariadb-centreon \
     config="/etc/my.cnf.d/server.cnf" \
     pid="/var/lib/mysql/mysql.pid" \
     datadir="/var/lib/mysql" \
     socket="/var/lib/mysql/mysql.sock" \
+    binary="/usr/bin/mysqld_safe" \
+    node_list="@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@" \
     replication_user="@MARIADB_REPL_USER@" \
     replication_passwd='@MARIADB_REPL_PASSWD@' \
-    max_slave_lag="15" \
-    evict_outdated_slaves="false" \
-    binary="/usr/bin/mysqld_safe" \
     test_user="@MARIADB_REPL_USER@" \
     test_passwd="@MARIADB_REPL_PASSWD@" \
     test_table='centreon.host'
@@ -858,16 +868,15 @@ pcs resource create "ms_mysql" \
 
 ```bash
 pcs resource create "ms_mysql" \
-    ocf:heartbeat:mysql-centreon \
+    ocf:heartbeat:mariadb-centreon \
     config="/etc/my.cnf.d/server.cnf" \
     pid="/var/lib/mysql/mysql.pid" \
     datadir="/var/lib/mysql" \
     socket="/var/lib/mysql/mysql.sock" \
+    binary="/usr/bin/mysqld_safe" \
+    node_list="@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@" \
     replication_user="@MARIADB_REPL_USER@" \
     replication_passwd='@MARIADB_REPL_PASSWD@' \
-    max_slave_lag="15" \
-    evict_outdated_slaves="false" \
-    binary="/usr/bin/mysqld_safe" \
     test_user="@MARIADB_REPL_USER@" \
     test_passwd="@MARIADB_REPL_PASSWD@" \
     test_table='centreon.host'
@@ -878,16 +887,15 @@ pcs resource create "ms_mysql" \
 
 ```bash
 pcs resource create "ms_mysql" \
-    ocf:heartbeat:mysql-centreon \
+    ocf:heartbeat:mariadb-centreon \
     config="/etc/my.cnf.d/server.cnf" \
     pid="/var/lib/mysql/mysql.pid" \
     datadir="/var/lib/mysql" \
     socket="/var/lib/mysql/mysql.sock" \
+    binary="/usr/bin/mysqld_safe" \
+    node_list="@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@" \
     replication_user="@MARIADB_REPL_USER@" \
     replication_passwd='@MARIADB_REPL_PASSWD@' \
-    max_slave_lag="15" \
-    evict_outdated_slaves="false" \
-    binary="/usr/bin/mysqld_safe" \
     test_user="@MARIADB_REPL_USER@" \
     test_passwd="@MARIADB_REPL_PASSWD@" \
     test_table='centreon.host' \
@@ -900,7 +908,7 @@ pcs resource create "ms_mysql" \
 > **WARNING:** the syntax of the following command depends on the Linux Distribution you are using.
 
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
 
 ```bash
 pcs resource promotable ms_mysql \
@@ -924,7 +932,7 @@ pcs resource master ms_mysql \
 ```
 
 </TabItem>
-<TabItem value="CentOS7" label="CentOS7">
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
 pcs resource meta ms_mysql-master \
@@ -955,6 +963,7 @@ pcs resource create "php" \
     monitor interval="5s" timeout="30s" \
     clone
 ```
+
 ##### RRD broker resource
 
 ```bash
@@ -989,7 +998,7 @@ pcs resource create vip \
 ##### Httpd service
 
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
 
 ```bash
 pcs resource create http \
@@ -1003,7 +1012,7 @@ pcs resource create http \
 ```
 
 </TabItem>
-<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
+<TabItem value="REHL 7 / CentOS 7" label="REHL 7 / CentOS 7">
 
 ```bash
 pcs resource create http \
@@ -1097,19 +1106,19 @@ pcs resource create snmptrapd \
 In order to force the cluster running both `centreon` resource group and the MariaDB Master on the same node, you have to declare these colocation constraints:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
 
 ```bash
-pcs constraint colocation add "centreon" with master "ms_mysql-clone"
 pcs constraint colocation add master "ms_mysql-clone" with "centreon"
+pcs constraint order stop centreon then demote ms_mysql-clone
 ```
 
 </TabItem>
-<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
+<TabItem value="REHL 7 / CentOS 7" label="REHL 7 / CentOS 7">
 
 ```bash
-pcs constraint colocation add "centreon" with master "ms_mysql-master"
 pcs constraint colocation add master "ms_mysql-master" with "centreon"
+pcs constraint order stop centreon then demote ms_mysql-master
 ```
 
 </TabItem>
@@ -1124,7 +1133,7 @@ After this step, all resources should be running on the same node, the platform 
 You can monitor the cluster's resources in real time using the `crm_mon` command:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
 
 ```bash
 Cluster Summary:
@@ -1156,7 +1165,7 @@ Full List of Resources:
 ```
 
 </TabItem>
-<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
+<TabItem value="REHL 7 / CentOS 7" label="REHL 7 / CentOS 7">
 
 ```bash
 Stack: corosync
@@ -1188,6 +1197,10 @@ Active resources:
 </TabItem>
 </Tabs>
 
+If **centreon_central_sync** won't start, verify if the folder `/usr/share/centreon-broker/lua` exist.
+
+If not, you can create it with this command `mkdir -p /usr/share/centreon-broker/lua`. And launch a cleanup with this command `pcs resource cleanup`.
+
 #### Checking the database replication thread
 
 The MariaDB replication state can be monitored at any time with the `mysql-check-status.sh` command:
@@ -1208,14 +1221,14 @@ Position Status [OK]
 It can happen that the replication thread is not running right after installation.  Restarting the `ms_mysql` resource may fix it.
 
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
 
 ```bash 
 pcs resource restart ms_mysql-clone
 ```
 
 </TabItem>
-<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
+<TabItem value="REHL 7 / CentOS 7" label="REHL 7 / CentOS 7">
 
 ```bash 
 pcs resource restart ms_mysql
@@ -1229,25 +1242,25 @@ pcs resource restart ms_mysql
 Normally the two colocation constraints that have been created during the setup should be the only constraints the `pcs constraint` command displays:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
 
 ```bash
 Location Constraints:
 Ordering Constraints:
+  pcs constraint order stop centreon then demote ms_mysql-clone
 Colocation Constraints:
-  centreon with ms_mysql-clone (score:INFINITY) (rsc-role:Started) (with-rsc-role:Master)
   ms_mysql-clone with centreon (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
 Ticket Constraints:
 ```
 
 </TabItem>
-<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
+<TabItem value="REHL 7 / CentOS 7" label="REHL 7 / CentOS 7">
 
 ```bash
 Location Constraints:
 Ordering Constraints:
+  pcs constraint order stop centreon then demote ms_mysql-master
 Colocation Constraints:
-  centreon with ms_mysql-master (score:INFINITY) (rsc-role:Started) (with-rsc-role:Master)
   ms_mysql-master with centreon (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
 Ticket Constraints:
 ```
@@ -1257,4 +1270,4 @@ Ticket Constraints:
 
 ## Integrating pollers
 
-You can now [add your pollers](integrating-pollers.md) and start monitoring!
+You can now [add your pollers](./integrating-pollers.md) and start monitoring!

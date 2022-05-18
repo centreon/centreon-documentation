@@ -25,7 +25,7 @@ Full List of Resources:
   * Clone Set: ms_mysql-clone [ms_mysql] (promotable):
     * Masters: [ @CENTRAL_MASTER_NAME@ ]
     * Slaves: [ @CENTRAL_SLAVE_NAME@ ]
-  * Clone Set: php7-clone [php7]:
+  * Clone Set: php-clone [php]:
     * Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
   * Clone Set: cbd_rrd-clone [cbd_rrd]:
     * Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
@@ -62,7 +62,7 @@ Active resources:
  Master/Slave Set: ms_mysql-master [ms_mysql]
      Masters: [ @CENTRAL_MASTER_NAME@ ]
      Slaves: [ @CENTRAL_SLAVE_NAME@ ]
- Clone Set: php7-clone [php7]
+ Clone Set: php-clone [php]
      Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
  Clone Set: cbd_rrd-clone [cbd_rrd]
      Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
@@ -104,7 +104,7 @@ Node List:
 Full List of Resources:
   * Clone Set: ms_mysql-clone [ms_mysql] (promotable):
     * Slaves: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
-  * Clone Set: php7-clone [php7]:
+  * Clone Set: php-clone [php]:
     * Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
   * Clone Set: cbd_rrd-clone [cbd_rrd]:
     * Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
@@ -129,7 +129,7 @@ Active resources:
  Master/Slave Set: ms_mysql-master [ms_mysql]
      Masters: [ @CENTRAL_MASTER_NAME@ ]
      Slaves: [ @CENTRAL_SLAVE_NAME@ ]
- Clone Set: php7-clone [php7]
+ Clone Set: php-clone [php]
      Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
  Clone Set: cbd_rrd-clone [cbd_rrd]
      Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
@@ -177,14 +177,24 @@ If after a failover, could it be a manual one or after a server shutdown, the fo
 <TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
 
 ```bash
-Location Constraints:
-    Disabled on: @CENTRAL_SLAVE_NAME@ (score:-INFINITY) (role: Started)
-    Disabled on: @CENTRAL_MASTER_NAME@ (score:-INFINITY) (role: Started)
-Ordering Constraints:
-Colocation Constraints:
-  centreon with ms_mysql-clone (score:INFINITY) (rsc-role:Started) (with-rsc-role:Master)
-  ms_mysql-clone with centreon (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
-Ticket Constraints:
+Stack: corosync
+Current DC: @CENTRAL_SLAVE_NAME@ (version 1.1.20-5.el8_7.2-3c4c782f70) - partition with quorum
+Last updated: Thu Feb 20 14:48:12 2020
+Last change: Thu Feb 20 14:47:47 2020 by root via crm_resource on @CENTRAL_MASTER_NAME@
+
+2 nodes configured
+14 resources configured
+
+Online: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+
+Active resources:
+
+ Master/Slave Set: ms_mysql-clone [ms_mysql]
+     Slaves: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+ Clone Set: php-clone [php]
+     Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+ Clone Set: cbd_rrd-clone [cbd_rrd]
+     Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
 ```
 
 </TabItem>
@@ -205,7 +215,7 @@ Active resources:
 
  Master/Slave Set: ms_mysql-master [ms_mysql]
      Slaves: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
- Clone Set: php7-clone [php7]
+ Clone Set: php-clone [php]
      Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
  Clone Set: cbd_rrd-clone [cbd_rrd]
      Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
