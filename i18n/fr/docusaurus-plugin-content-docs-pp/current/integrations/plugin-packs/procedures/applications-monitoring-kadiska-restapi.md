@@ -62,12 +62,13 @@ pour en savoir plus sur la découverte automatique de services.
 </TabItem>
 <TabItem value="Watcher-Statistics" label="Watcher-Statistics">
 
-| Métrique                             | Unité |
-|:-------------------------------------|:------|
-| *watchers*#watcher.errors.percentage | %     |
-| *watchers*#watcher.pages.count       | count |
-| *watchers*#watcher.requests.count    | count |
-| *watchers*#watcher.sessions.count    | count |
+| Métrique                                         | Unité |
+|:------------------------------------------------ |:------|
+| *watchers*#watcher.errors.percentage             | %     |
+| *watchers*#watcher.pages.count                   | count |
+| *watchers*#watcher.requests.count                | count |
+| *watchers*#watcher.sessions.count                | count |
+| *watchers*#watcher.loading.page.duration.seconds | s     |
 
 </TabItem>
 </Tabs>
@@ -158,11 +159,11 @@ l'utilisateur **centreon-engine** (`su - centreon-engine`) :
 ```bash
 /usr/lib/centreon/plugins//centreon_monitoring_kadiska_restapi.pl \
     --plugin=apps::monitoring::kadiska::plugin \
-    --mode=tracer-statistics \
+    --mode=nettracer-statistics \
     --client-id='client:xxx' \
     --client-secret='my-secret' \
     --filter-station-name='Paris-RT' \
-    --filter-tracer='tracer:xxx' \
+    --filter-tracer='tracer_name' \
     --period=15 \
     --port='443' \
     --proto='https' \
@@ -182,7 +183,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 ```bash
 /usr/lib/centreon/plugins//centreon_monitoring_kadiska_restapi.pl \
     --plugin=apps::monitoring::kadiska::plugin \
-    --mode=tracer-statistics \
+    --mode=nettracer-statistics \
     --help
 ```
 
