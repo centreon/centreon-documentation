@@ -4,7 +4,7 @@ title: Upgrade from Centreon 3.4
 ---
 
 This chapter describes how to upgrade your Centreon platform from version 3.4
-(Centreon Web 2.8) to version 21.10.
+(Centreon Web 2.8) to version 22.04.
 
 > This procedure only applies to Centreon platforms installed from Centreon 3.4
 > packages on CentOS **version 7** distributions.
@@ -42,9 +42,8 @@ Update your platform to the latest available minor version of Centreon 3.4 (Cent
 
 Run the following commands:
 
-
 ```shell
-yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-5.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
 ```
 
 > If you are using a CentOS environment, you must install the *Software
@@ -54,9 +53,11 @@ yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/ce
 > yum install -y centos-release-scl-rh
 > ```
 
+> If you are using a Business edition, install the correct Business repository too. You can find it on the [support portal](https://support.centreon.com/s/repositories).
+
 ### Upgrade PHP
 
-Centreon 21.10 uses PHP in version 8.0.
+Centreon 22.04 uses PHP in version 8.0.
 
 First, you need to install the **remi** repository:
 ```shell
@@ -71,7 +72,7 @@ yum-config-manager --enable remi-php80
 
 ### Upgrade the Centreon solution
 
-If you have installed Business extensions, update the Business repository to version 21.10.
+If you have installed Business extensions, update the Business repository to version 22.04.
 Visit the [support portal](https://support.centreon.com/s/repositories) to get its address.
 
 Stop the Centreon Broker process:
@@ -141,7 +142,7 @@ Run a diff between the old and the new Apache configuration files:
 diff -u /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf.rpmnew
 ```
 
-* **10-centreon.conf** (post upgrade): this file contains the custom configuration. It does not contain anthing new brought by version 21.10, e.g. the **authentication** string in the **LocationMatch** directive
+* **10-centreon.conf** (post upgrade): this file contains the custom configuration. It does not contain anthing new brought by the upgrade, e.g. the **authentication** string in the **LocationMatch** directive
 * **10-centreon.conf.rpmnew** (post upgrade): this file is provided by the rpm; it contains the **authentication** string, but does not contain any custom configuration.
 
 For each difference between the files, assess whether you should copy it from **10-centreon.conf.rpmnew** to **10-centreon.conf**.
@@ -221,9 +222,10 @@ ServerTokens Prod
     </IfModule>
 
     <Directory "${install_dir}/www">
+        DirectoryIndex index.php
         AllowOverride none
         Require all granted
-        FallbackResource ${base_uri}/index
+        FallbackResource ${base_uri}/index.html
     </Directory>
 
     <Directory "${install_dir}/api">
@@ -242,111 +244,6 @@ Then, restart apache service :
 ```shell
 systemctl restart httpd24-httpd
 ```
-
-### Synchronize the plugins
-
-> Centreon Web 21.10 resource $USER1$ actually points to
-> /usr/lib64/nagios/plugins.
-
-To mitigate this issue run the following commands:
-
-```shell
-mv /usr/lib64/nagios/plugins/* /usr/lib/nagios/plugins/
-rmdir /usr/lib64/nagios/plugins/
-ln -s -t /usr/lib64/nagios/ /usr/lib/nagios/plugins/
-```
-
-You now have a symbolic link as:
-
-```shell
-$ ls -alt /usr/lib64/nagios/
-lrwxrwxrwx   1 root root      24  1 nov.  17:59 plugins -> /usr/lib/nagios/plugins/
--rwxr-xr-x   1 root root 1711288  6 avril  2018 cbmod.so
-```
-
-### Finalizing the upgrade
-
-Before starting the web upgrade process, reload the Apache server with the
-following command:
-```shell
-systemctl reload httpd24-httpd
-```
-
-Then log on to the Centreon web interface to continue the upgrade process:
-
-Click on **Next**:
-
-![image](../assets/upgrade/web_update_1.png)
-
-Click on **Next**:
-
-![image](../assets/upgrade/web_update_2.png)
-
-The release notes describe the main changes. Click on **Next**:
-
-![image](../assets/upgrade/web_update_3.png)
-
-This process performs the various upgrades. Click on **Next**:
-
-![image](../assets/upgrade/web_update_4.png)
-
-Your Centreon server is now up to date. Click on **Finish** to access the login
-page:
-
-![image](../assets/upgrade/web_update_5.png)
-
-### Post-upgrade actions
-
-#### Upgrade extensions
-
-From `Administration > Extensions > Manager`, upgrade all extensions, starting
-with the following:
-
-  - License Manager,
-  - Plugin Packs Manager,
-  - Auto Discovery.
-
-Then you can upgrade all other commercial extensions.
-
-#### Start the tasks manager
-
-Since 20.04, Centreon has changed his tasks manager from *Centcore* to *Gorgone*.
-
-To act this change, run the following commands:
-
-```shell
-systemctl stop centcore
-systemctl enable gorgoned
-systemctl start gorgoned
-systemctl disable centcore
-```
-
-Engine statistics that have been collected by *Centcore* will know be collected
-by *Gorgone*.
-
-Change the rights on the statistics RRD files by running the following command:
-
-```shell
-chown -R centreon-gorgone /var/lib/centreon/nagios-perf/*
-```
-
-#### Restart monitoring processes
-
-Centreon Broker component has changed its configuration file format.
-
-It now uses JSON instead of XML.
-
-To make sure Broker and Engine's Broker module are using new configuration files,
-follow this steps:
-
-1. Deploy Central's configuration from the Centreon web UI by following
-[this procedure](../monitoring/monitoring-servers/deploying-a-configuration.md),
-2. Restart both Broker and Engine on the Central server by running this
-command:
-
-    ```shell
-    systemctl restart cbd centengine
-    ```
 
 ### Upgrade the MariaDB server
 
@@ -368,7 +265,7 @@ The MariaDB components can now be upgraded.
 Run the following command on the dedicated DBMS server:
 
 ```shell
-yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-5.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
 ```
 
 #### Configuration
@@ -435,7 +332,7 @@ You have to uninstall then reinstall MariaDB to upgrade between major versions (
     ```shell
     mysql_upgrade
     ```
-    
+
     If your database is password-protected, enter:
 
     ```shell
@@ -444,7 +341,7 @@ You have to uninstall then reinstall MariaDB to upgrade between major versions (
 
     Example: if your database_admin_user is `root`, enter:
 
-    ```
+    ```shell
     mysql_upgrade -u root -p
     ```
 
@@ -459,6 +356,137 @@ Execute the following command:
 systemctl enable mariadb
 ```
 
+### Change the format of the tables
+
+All tables must be in dynamic format. To know the type of tables, run the following commands:
+
+```sql
+mysql -u root
+SELECT table_schema,table_name,row_format FROM information_schema.tables WHERE table_schema IN ("centreon", "centreon_storage") ORDER BY table_schema;
+```
+
+Then exit mariadb.
+
+```shell
+exit
+```
+
+To change the type of tables for the **centreon** database, run:
+
+```shell
+mysql --batch --skip-column-names --execute 'SELECT CONCAT("ALTER TABLE `", table_name, "` ROW_FORMAT=dynamic;") AS aQuery FROM information_schema.tables WHERE table_schema = "centreon" AND row_format IS NOT NULL AND row_format NOT IN ("Dynamic")' | mysql centreon
+```
+
+To change the type of tables for the **centreon_storage** database, run:
+
+```shell
+mysql --batch --skip-column-names --execute 'SELECT CONCAT("ALTER TABLE `", table_name, "` ROW_FORMAT=dynamic;") AS aQuery FROM information_schema.tables WHERE table_schema = "centreon_storage" AND row_format IS NOT NULL AND row_format NOT IN ("Dynamic")' | mysql centreon_storage
+```
+
+### Synchronize the plugins
+
+> Centreon Web 22.04 resource $USER1$ actually points to
+> /usr/lib64/nagios/plugins.
+
+To mitigate this issue run the following commands:
+
+```shell
+mv /usr/lib64/nagios/plugins/* /usr/lib/nagios/plugins/
+rmdir /usr/lib64/nagios/plugins/
+ln -s -t /usr/lib64/nagios/ /usr/lib/nagios/plugins/
+```
+
+You now have a symbolic link as:
+
+```shell
+$ ls -alt /usr/lib64/nagios/
+lrwxrwxrwx   1 root root      24  1 nov.  17:59 plugins -> /usr/lib/nagios/plugins/
+-rwxr-xr-x   1 root root 1711288  6 avril  2018 cbmod.so
+```
+
+### Finalizing the upgrade
+
+Before starting the web upgrade process, reload the Apache server with the
+following command:
+```shell
+systemctl reload httpd24-httpd
+```
+
+Then log on to the Centreon web interface to continue the upgrade process:
+
+Click on **Next**:
+
+![image](../assets/upgrade/web_update_1.png)
+
+Click on **Next**:
+
+![image](../assets/upgrade/web_update_2.png)
+
+The release notes describe the main changes. Click on **Next**:
+
+![image](../assets/upgrade/web_update_3.png)
+
+This process performs the various upgrades. Click on **Next**:
+
+![image](../assets/upgrade/web_update_4.png)
+
+Your Centreon server is now up to date. Click on **Finish** to access the login
+page:
+
+![image](../assets/upgrade/web_update_5.png)
+
+### Post-upgrade actions
+
+#### Upgrade extensions
+
+From **Administration > Extensions > Manager**, upgrade all extensions, starting
+with the following:
+
+- License Manager,
+- Plugin Packs Manager,
+- Auto Discovery.
+
+Then you can upgrade all other commercial extensions.
+
+#### Start the tasks manager
+
+Since 20.04, Centreon has changed its tasks manager from *Centcore* to *Gorgone*.
+
+To act this change, run the following commands:
+
+```shell
+systemctl stop centcore
+systemctl enable gorgoned
+systemctl start gorgoned
+```
+
+Engine statistics that have been collected by *Centcore* will know be collected
+by *Gorgone*.
+
+Change the rights on the statistics RRD files by running the following command:
+
+```shell
+chown -R centreon-gorgone /var/lib/centreon/nagios-perf/*
+```
+
+#### Restart monitoring processes
+
+Centreon Broker component has changed its configuration file format.
+
+It now uses JSON instead of XML.
+
+To make sure Broker and Engine's Broker module are using new configuration files,
+follow this steps:
+
+1. Deploy Central's configuration from the Centreon web UI by following
+[this procedure](../monitoring/monitoring-servers/deploying-a-configuration.md),
+2. Restart both Broker and Engine on the Central server by running this
+command:
+
+   ```shell
+   systemctl restart cbd centengine
+   ```
+
 ## Upgrade the Pollers
 
 ### Update the Centreon repository
@@ -466,7 +494,7 @@ systemctl enable mariadb
 Run the following command:
 
 ```shell
-yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-5.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
 ```
 
 ### Upgrade the Centreon solution
@@ -502,7 +530,7 @@ configuration needs to be re-deployed.
 
 Deploy Poller's configuration from the Centreon web UI by following
 [this procedure](../monitoring/monitoring-servers/deploying-a-configuration.md),
-and choose *Restart* method for Engine process.
+and choose **Restart** method for Engine process.
 
 ## Migrate Centreon Poller Display to Remote Server
 

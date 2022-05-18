@@ -5,7 +5,6 @@ title: Secure your platform
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 This chapter suggests how to best secure your Centreon platform.
 
 ## Strengthen user account security
@@ -93,6 +92,7 @@ SELINUXTYPE=targeted
 ```
 
 Then reboot your server:
+
 ```shell
 shutdown -r now
 ```
@@ -148,6 +148,7 @@ semodule -l | grep centreon
 ```
 
 Depending on your type of server, you can see:
+
 ```shell
 centreon-broker	0.0.5
 centreon-common	0.0.10
@@ -183,22 +184,22 @@ following this [procedure](#activate-selinux-in-permissive-mode) using **enforci
 
 Change the permissions for the following configuration files:
 
-```
+```shell
 chown centreon:centreon /etc/centreon/conf.pm
 chmod 660 /etc/centreon/conf.pm
 ```
 
 and
 
-```
+```shell
 chown apache:apache /etc/centreon/centreon.conf.php
 chmod 660 /etc/centreon/centreon.conf.php
 ```
 
-## Securing the installation of the DBMS
+## Securing root access to the DBMS
 
 [MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/) proposes a default procedure to secure the DBMS
-installation. It is mandatory to set a password for the **root** user of the database. Please execute the following command and follow instructions:
+installation. It is mandatory to set a password for the **root** user of the database. If you haven't already done so, please execute the following command and follow instructions:
 
 ```shell
 mysql_secure_installation
@@ -207,15 +208,18 @@ mysql_secure_installation
 ## Enable firewalld
 
 Install firewalld:
+
 ```shell
 yum install firewalld
 ```
 
 Enable firewalld:
+
 ```shell
 systemctl enable firewalld
 systemctl start firewalld
 ```
+Then add rules for firewalld:
 
 > The list of network flows required for each type of server is defined
 > [here](../installation/architectures.md#tables-of-platform-flows).
@@ -223,11 +227,13 @@ systemctl start firewalld
 <Tabs groupId="sync">
 <TabItem value="Central / Remote Server" label="Central / Remote Server">
 
-Example of rules for a Centreon Central or Remote Server:
+Execute the following commands (change the port numbers if you have customized them):
+
 ```shell
 # For default protocols
 firewall-cmd --zone=public --add-service=ssh --permanent
 firewall-cmd --zone=public --add-service=http --permanent
+firewall-cmd --zone=public --add-service=https --permanent
 firewall-cmd --zone=public --add-service=snmp --permanent
 firewall-cmd --zone=public --add-service=snmptrap --permanent
 # Centreon Gorgone
@@ -239,7 +245,8 @@ firewall-cmd --zone=public --add-port=5669/tcp --permanent
 </TabItem>
 <TabItem value="Poller" label="Poller">
 
-Example of rules for Centreon poller:
+Execute the following commands:
+
 ```shell
 # For default protocols
 firewall-cmd --zone=public --add-service=ssh --permanent
@@ -250,38 +257,88 @@ firewall-cmd --zone=public --add-service=snmptrap --permanent
 </TabItem>
 </Tabs>
 
-Once the rules have been added, it is necessary to reload firewalld:
+Once the rules have been added, reload firewalld:
+
 ```shell
 firewall-cmd --reload
 ```
 
-### Enable fail2ban
+To check that the configuration has been applied correctly, use the following command to list all active rules:
+
+```shell
+firewall-cmd --list-all
+```
+
+For instance:
+
+```shell
+public (active)
+  target: default
+  icmp-block-inversion: no
+  interfaces: eth0
+  sources:
+  services: http snmp snmptrap ssh
+  ports: 5556/tcp 5669/tcp
+  protocols:
+  forward: no
+  masquerade: no
+  forward-ports:
+  source-ports:
+  icmp-blocks:
+  rich rules:
+```
+
+## Enable fail2ban
 
 Fail2Ban is an intrusion prevention software framework that protects computer servers from brute-force attacks.
 
+Install the inotify module:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install python3-inotify
+```
+
+</TabItem>
+<TabItem value="Centos 7" label="Centos 7">
+
+```shell
+yum install python-inotify
+```
+
+</TabItem>
+</Tabs>
+
 Install fail2ban:
+
 ```shell
 yum install epel-release
-yum install fail2ban fail2ban-systemd python-inotify
+yum install fail2ban fail2ban-systemd
 ```
 
 If you have SELinux installed, then update the SELinux policies:
+
 ```shell
 yum update -y selinux-policy*
 ```
 
-Enable firewalld:
+Enable fail2ban:
+
 ```shell
 systemctl enable fail2ban
 systemctl start fail2ban 
 ```
 
 Copy the default rules file:
+
 ```shell
 cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
 ```
 
 Edit `/etc/fail2ban/jail.local` file and search **[centreon]** block, then modify such as:
+
 ```shell
 [centreon]
 port    = http,https
@@ -290,6 +347,7 @@ backend  = pyinotify
 ```
 
 To enable the **centreon** fail2ban rule, create the `/etc/fail2ban/jail.d/custom.conf` file and add following lines:
+
 ```shell
 [centreon]
 enabled = true
@@ -305,13 +363,20 @@ maxretry = 3
 > **findtime** is the time range to find authentication failed
 
 Then restart fail2ban to load your rule:
+
 ```shell
 systemctl restart fail2ban
 ```
 
 To check the status of the **centreon** rule you can run:
+
 ```shell
 fail2ban-client status centreon
+```
+
+Here is an example of output:
+
+```shell
 Status for the jail: centreon
 |- Filter
 |  |- Currently failed:	1
@@ -329,13 +394,11 @@ Status for the jail: centreon
 
 By default, Centreon installs a web server in HTTP mode. It is strongly recommended to switch to HTTPS mode by adding your certificate.
 
-
-It is better to use a certificate validated by an authority rather than a self-signed one. However, in case the self-signed method suits you more, you can refer to the [appropriate section](#Securing-the-apache-web-server-with-a-self-signed-certificate).
-
+It is better to use a certificate validated by an authority rather than a self-signed one. However, in case the self-signed method suits you more, you can refer to the [appropriate section](#securing-the-apache-web-server-with-a-self-signed-certificate).
 
 If you do not have a certificate validated by an authority, you can generate one on platforms such as [Let's Encrypt](https://letsencrypt.org/).
 
-> Once your web server is set to HTTPS mode, if you have a MAP server on your platform, you have to set it to HTTPS mode too, otherwise 
+> Once your web server is set to HTTPS mode, if you have a MAP server on your platform, you have to set it to HTTPS mode too, otherwise
 > recent web browsers may block communication between the two servers. The procedure is detailed [here](../graph-views/secure-your-map-platform.md#Configure-HTTPS/TLS-on-the-MAP-server).
 
 Once you have your certificate, perform the following procedure to activate HTTPS mode on your Apache server:
@@ -343,7 +406,7 @@ Once you have your certificate, perform the following procedure to activate HTTP
 1. Install SSL module for Apache:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
 dnf install mod_ssl mod_security openssl
@@ -369,7 +432,7 @@ Copy your certificate and key on the server according your configuration; by def
 3. Backup previous Apache configuration for Centreon:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
 cp /etc/httpd/conf.d/10-centreon.conf{,.origin}
@@ -391,7 +454,7 @@ cp /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf{,.origin}
 > **/usr/share/centreon/examples/centreon.apache.https.conf**
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Edit the **/etc/httpd/conf.d/10-centreon.conf** as following:
 
@@ -447,6 +510,7 @@ ServerTokens Prod
     </IfModule>
 
     <Directory "${install_dir}/www">
+        DirectoryIndex index.php
         AllowOverride none
         Require all granted
         FallbackResource ${base_uri}/index.html
@@ -469,7 +533,7 @@ ServerTokens Prod
 5. Enable HttpOnly / Secure flags and hide Apache server signature
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Edit the **/etc/httpd/conf.d/10-centreon.conf** file and add the following line:
 
@@ -512,7 +576,7 @@ expose_php = Off
 6. Hide the default /icons directory
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Edit the **/etc/httpd/conf.d/autoindex.conf** file and comment the following line:
 
@@ -536,7 +600,7 @@ Edit the **/opt/rh/httpd24/root/etc/httpd/conf.d/autoindex.conf** file and comme
 7. Restart the Apache and PHP process to take in account the new configuration:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
 systemctl restart php-fpm httpd
@@ -616,9 +680,10 @@ Let's assume that we have a Centreon server with a `centreon7.localdomain` FQDN 
 
 1. Preparation of the openssl configuration
 
-Due to a policy change at google, self-signed certificates may be rejected by the google chrome browser. (it is not even possible to add an exception). To continue to use this browser, you have to change the openssl configuration.
+Due to a policy change at google, self-signed certificates may be rejected by the Google Chrome browser (it is not even possible to add an exception). To continue using this browser, you have to change the openssl configuration.
 
-open the file `/etc/pki/tls/openssl.cnf` and find the `[v3_ca]` section:
+Open the file `/etc/pki/tls/openssl.cnf` and find the `[v3_ca]` section:
+
 ```text
 # Add the alt_names tag that allows you to inform our various IPs and FQDNs for the server
 [ alt_names ]
@@ -632,7 +697,7 @@ subjectAltName = @alt_names
 
 2. Creating a private key for the server
 
-Let's create a private key nammed `centreon7.key` without a password so that it can be used by the apache service.
+Let's create a private key named `centreon7.key` without a password so that it can be used by the apache service.
 ```text
 openssl genrsa -out centreon7.key 2048
 ```
@@ -690,7 +755,7 @@ cp centreon7.crt /etc/pki/tls/certs/
 ```
 8. Update Apache configuration file
 
-Finally, update `SSLCertificateFile` and `SSLCertificateKeyFile` parameters appropriately in your apache configuration file located in `/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf`.
+Finally, update `SSLCertificateFile` and `SSLCertificateKeyFile` parameters appropriately in your apache configuration file located in `/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf` for CentOS7 (or in `/etc/httpd/conf.d/10-centreon.conf` for Alma/RHEL/Oracle Linux 8).
 Here is an example of how the file should look like:
 
 ```apacheconf
@@ -738,9 +803,10 @@ ServerTokens Prod
     </IfModule>
 
     <Directory "${install_dir}/www">
+        DirectoryIndex index.php
         AllowOverride none
         Require all granted
-        FallbackResource ${base_uri}/index
+        FallbackResource ${base_uri}/index.html
     </Directory>
 
     <Directory "${install_dir}/api">
@@ -765,14 +831,14 @@ It is possible to update the URI of Centreon. For example, **/centreon** can be 
 
 To update the Centreon URI, you need to follow those steps:
 
-1. Go to `Administration > Parameters > Centreon UI` and change the **Centreon Web Directory** value.
+1. Go to **Administration > Parameters > Centreon UI** and change the **Centreon Web Directory** value.
 
 ![image](../assets/administration/custom-uri.png)
 
-2. Edit Apache configuration file for Centreon Web 
+2. Edit Apache configuration file for Centreon Web...
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
 vim /etc/httpd/conf.d/10-centreon.conf
@@ -785,9 +851,10 @@ vim /etc/httpd/conf.d/10-centreon.conf
 vim /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf
 ```
 
-and change **/centreon** path with your new path
 </TabItem>
 </Tabs>
+
+...and change **/centreon** path with your new path
 
 ## Enabling http2
 
@@ -796,7 +863,7 @@ It is possible to enable http2 protocol to improve Centreon network performance.
 To use http2, you need to follow those steps:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 1. [Configure https on Centreon](./secure-platform.md#enable-https-on-the-web-server)
 
@@ -937,9 +1004,9 @@ Centreon event logs are available in the following directories:
 | /var/log/centreon-map     | X              | X             |        | X                   | X                   |
 
 > In addition, all actions to modify the Centreon configuration carried out by users are available via the
-[`Administration > Logs`](./logging-configuration-changes.md) menu.
+[**Administration > Logs**](./logging-configuration-changes.md) menu.
 
 ## Backing up the platform
 
 Centreon offers to save the configuration of the platform. To do this, go to the
-[`Administration  >  Parameters  >  Backup`](./backup.md) menu.
+[**Administration > Parameters > Backup**](./backup.md) menu.

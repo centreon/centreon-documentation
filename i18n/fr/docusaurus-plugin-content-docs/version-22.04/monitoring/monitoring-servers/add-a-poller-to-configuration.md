@@ -1,13 +1,13 @@
 ---
 id: add-a-poller-to-configuration
-title: Ajouter un Poller à la configuration
+title: Rattacher un collecteur à un serveur central ou distant
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Prérequis
 
-Installez le collecteur (soit [en utilisant l'ISO](../../installation/installation-of-a-poller/using-centreon-iso.md), soit [en utilisant les paquets](../../installation/installation-of-a-poller/using-packages.md)).
+Installez le collecteur [en utilisant les paquets](../../installation/installation-of-a-poller/using-packages.md).
 
 ## Étape 1 : Configurer un nouveau collecteur
 
@@ -221,17 +221,33 @@ la commande suivante depuis le **serveur Central** :
 </TabItem>
 </Tabs>
 
-## Étape 3 : Exporter la configuration
+## Étape 3 : Exporter la configuration du serveur distant
+
+Cette étape ne s'applique que si vous rattachez un collecteur à un serveur distant et non à un serveur central.
+
+1. Sur le serveur central, déployez la configuration du serveur distant auquel le collecteur sera rattaché :
+
+   - À la page **Configuration > Collecteurs > Collecteurs**, sélectionnez le serveur distant.
+   - Cliquez sur **Exporter la configuration**.
+   - Cochez les quatre premières cases,  sélectionnez la méthode **Redémarrer** puis cliquez sur **Exporter**.
+
+2. Redémarrez gorgone sur le serveur distant :
+
+  ```shell
+  systemctl restart gorgoned
+  ```
+
+## Étape 4 : Exporter la configuration du collecteur
 
 1. Depuis la liste des collecteurs, sélectionnez le collecteur et cliquez sur **Exporter
 la configuration**.
 
 2. Cochez ensuite les quatre premières cases, sélectionnez la méthode **Redémarrer**
-et cliquez sur **Exporter** :
+puis cliquez sur **Exporter** :
 
   ![image](../../assets/monitoring/monitoring-servers/poller-generate-config.png)
 
-  Le moteur de supervision du collecteur va alors démarrer et se connecter au Broker Central.
+  Le moteur de supervision du collecteur va alors démarrer et se connecter au Broker du serveur central ou du serveur distant (suivant le serveur auquel vous avez rattaché le collecteur).
 
   ![image](../../assets/monitoring/monitoring-servers/poller-list-zmq-started.png)
 

@@ -53,7 +53,7 @@ Le module **Centreon Anomaly Detection** requiert les prérequis suivants :
 Ajouter un référentiel supplémentaire:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Rien à faire
 

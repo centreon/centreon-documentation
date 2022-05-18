@@ -39,27 +39,20 @@ For security reasons, the keys used to sign Centreon RPMs are rotated regularly.
 
 Run the following commands to upgrade your Centreon MAP server:
 
-1. Stop and disable legacy tomcat service coming from precedent version:
-
-    ```shell
-    systemctl stop tomcat
-    systemctl disable tomcat
-    ```
-
-2. Update Centreon & Centreon MAP repositories:
+1. Update Centreon & Centreon MAP repositories:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-5.el8.noarch.rpm
+dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04-3.el8.noarch.rpm
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-5.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
 ```
 
 </TabItem>
@@ -68,27 +61,31 @@ yum install https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centr
     > Install Centreon MAP repository, you can find it on the
     > [support portal](https://support.centreon.com/s/repositories).
 
-3. Update Centreon MAP server:
+2. Update Centreon MAP server:
 
     ```shell
     yum update centreon-map-server
     ```
 
-4. Enable and start `centreon-map` service:
+3. Enable and start `centreon-map` service:
 
     ```shell
     systemctl enable centreon-map
     systemctl start centreon-map
     ```
 
-> If you want totally clean up legacy Tomcat service, you can just remove
-> Tomcat and move old log file to new log folder:
+5. This point only applies if you customized your **centreon-map.conf** configuration file. When upgrading your MAP module, the **/etc/centreon-studio/centreon-map.conf** file is not upgraded automatically: the new configuration file brought by the rpm does not replace the old file. You must copy the changes manually to your customized configuration file.
 
-```shell
-yum remove tomcat
-cp /var/log/centreon-studio/* /var/log/centreon-map/
-rm -rf /var/log/centreon-studio
-```
+  * The old configuration file is renamed **centreon-map.conf.rpmsave**
+  * The upgrade installs a new **centreon-map.conf** file.
+
+  Run a diff between the old and the new configuration files:
+
+  ```shell
+  diff -u /etc/centreon-studio/centreon-map.conf /etc/centreon-studio/centreon-map.conf.rpmsave
+  ```
+
+  For each difference between the files, assess whether you should copy it from **centreon-map.conf.rpmsave** to **centreon-map.conf**.
 
 ## Step 2: Centreon MAP web interface
 
@@ -118,7 +115,13 @@ Map` and **Desktop client** button.
 
 2. See [Upgrading MariaDB](../upgrade/upgrade-mariadb.md).
 
-3. Start the **centreon-map** service:
+3. Si vous avez mis à jour votre plateforme Centreon en version 22.04, le nouveau protocole BBDO v3 est activé. Vous devez éditer le fichier suivant pour que MAP fonctionne correctement : **/etc/centreon-map/map-config.properties**
+
+   ```text
+   broker.pb.message.enabled=true
+   ```
+
+4. Start the **centreon-map** service:
     ```shell
     systemctl start centreon-map
     ```

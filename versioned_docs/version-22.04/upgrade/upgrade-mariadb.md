@@ -4,7 +4,7 @@ title: Upgrading MariaDB
 ---
 
 You may have several MariaDB databases in your architecture. The central server has a database, each remote server has a database, 
-and the MBI and MAP modules each have a dedicated database. Within your architecture, all databases must have the same verison of MariaDB.
+and the MBI and MAP modules each have a dedicated database. Within your architecture, all databases must have the same version of MariaDB.
 
 ## Upgrading process
 
@@ -19,6 +19,7 @@ When you upgrade from one major version of Centreon to another, you must:
 
 | Centreon | MariaDB |
 |----------|---------|
+| 22.04    | 10.5    |
 | 21.10    | 10.5    |
 | 21.04    | 10.5    |
 | 20.10    | 10.3.x  |

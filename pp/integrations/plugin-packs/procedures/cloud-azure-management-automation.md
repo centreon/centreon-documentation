@@ -115,7 +115,7 @@ To use the 'azcli' custom mode, install the required packages on every Centreon 
 monitor Azure Resources using CLI:
 
 - The CLI needs at least Python version 2.7
-(<https://github.com/Azure/azure-cli/blob/dev/doc/install_linux_prerequisites.md>).
+(<https://github.com/Azure/azure-cli/blob/dev/doc/install_linux_prerequisites>).
 
 On RPM-Based distributions, use the command below to install it using *root* or 'sudo':
 

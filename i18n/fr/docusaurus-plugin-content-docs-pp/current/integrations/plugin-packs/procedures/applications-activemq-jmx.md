@@ -109,7 +109,7 @@ centreon-pack-applications-activemq-jmx.noarch
 
 | Mandatory   | Name                | Description                                                                |
 | :---------- | :------------------ | :------------------------------------------------------------------------- |
-| X           | JOLOKIAURL          | Jolokia URL (ex: http://myactivemq.int.centreon.com:8161/api/jolokia)      |
+| X           | JOLOKIAURL          | Jolokia URL (ex: `http://myactivemq.int.centreon.com:8161/api/jolokia`)      |
 | X           | JOLOKIAUSERNAME     | Jolokia user name                                                          |
 | X           | JOLOKIAPASSWORD     | Jolokia password                                                           |
 |             | JOLOKIAEXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
@@ -132,7 +132,7 @@ Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne d
   --password='admin' \
 ```
 
-Cette commande supervise les Brokers d'un serveur ActiveMQ via l'url *http://myactivemq.int.centreon.com:8161/api/jolokia* (```--url='http://myactivemq.int.centreon.com:8161/api/jolokia'```) à l'aide de l'utilisateur admin et de son password (```--username='admin' --password='admin'```).
+Cette commande supervise les Brokers d'un serveur ActiveMQ via l'url `http://myactivemq.int.centreon.com:8161/api/jolokia` (```--url='http://myactivemq.int.centreon.com:8161/api/jolokia'```) à l'aide de l'utilisateur admin et de son password (```--username='admin' --password='admin'```).
 
 La commande retourne le message de sortie ci-dessous:
 
@@ -161,7 +161,7 @@ Vous pouvez afficher tous les modes disponibles à l'aide de la commande suivant
 
 ### J'obtiens le message d'erreur suivant:
 
-#### UNKNOWN: protocol issue: Error while fetching http://myactivemq.int.centreon.com:8161/url/path
+#### UNKNOWN: protocol issue: Error while fetching `http://myactivemq.int.centreon.com:8161/url/path`
 
 Ce message d'erreur indique le plugin n'a pas réussi requêter l'API. Vérifiez que les credentials fournis sont les bons.
 

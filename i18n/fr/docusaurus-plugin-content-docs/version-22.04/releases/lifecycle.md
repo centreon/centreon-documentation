@@ -68,16 +68,18 @@ Le schéma suivant présente le cycle de vie des produits Centreon :
 
 ![image](../assets/releases/lifecycle.png)
 
-## Tableau de maintenance des anciens produits
+## Tableau de maintenance des versions
 
 > Tous les autres produits non décrits dans les tableaux suivants ne sont plus
 > pris en charge par Centreon.
 
-| Produit        | Sortie       | Fin de vie à la sortie de | État                |
+| Produit        | Sortie       | Date de fin de support    | État                |
 |----------------|--------------|---------------------------|---------------------|
-| Centreon 21.04 | 04/2021      | Centreon 22.10            | Supportée           |
-| Centreon 20.10 | 10/2020      | Centreon 22.04            | Supportée           |
-| Centreon 20.04 | 04/2020      | Centreon 21.10            | Plus supportée      |
-| Centreon 19.10 | 10/2019      | Centreon 21.04            | Plus supportée      |
-| Centreon 19.04 | 04/2019      | Centreon 20.10            | Plus supportée      |
-| Centreon 18.10 | 10/2018      | Centreon 20.04            | Plus supportée      |
+| Centreon 22.04 | 05/2022      | 05/2024                   | Supportée           |
+| Centreon 21.10 | 11/2021      | 11/2023                   | Supportée           |
+| Centreon 21.04 | 04/2021      | 10/2022                   | Supportée           |
+| Centreon 20.10 | 10/2020      | 05/2022                   | Plus supportée      |
+| Centreon 20.04 | 04/2020      | 10/2021                   | Plus supportée      |
+| Centreon 19.10 | 10/2019      | 04/2021                   | Plus supportée      |
+| Centreon 19.04 | 04/2019      | 10/2020                   | Plus supportée      |
+| Centreon 18.10 | 10/2018      | 04/2020                   | Plus supportée      |

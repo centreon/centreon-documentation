@@ -87,7 +87,7 @@ More information about the setup steps and the service configuration can be foun
 ### Online ressources
 
 * Installing the SANtricity Web Services software: https://library.netapp.com/ecm/ecm_download_file/ECMLP2846165
-* Configuring and using the SANtricity Rest API: https://library.netapp.com/ecmdocs/ECMLP2839901/html/v2 
+* Configuring and using the SANtricity Rest API: https://library.netapp.com/ecmdocs/ECMLP2839901/html/v2.html 
 
 ## Setup
 

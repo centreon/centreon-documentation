@@ -52,7 +52,7 @@ The Centreon Anomaly Detection module requires the following prerequisites:
 Add additional repository:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Nothing to do
 

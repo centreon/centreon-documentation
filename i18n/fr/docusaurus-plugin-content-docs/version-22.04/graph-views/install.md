@@ -51,7 +51,7 @@ Le schéma ci-dessous résume l'architecture :
 
 ### Centreon
 
-Le serveur central et Centreon MAP doivent être dans la même version majeure (c'est-à-dire tous les deux en 21.10.x).
+Le serveur central et Centreon MAP doivent être dans la même version majeure (c'est-à-dire tous les deux en 22.04.x).
 
 ### Centreon MAP Server
 
@@ -95,7 +95,7 @@ qui doivent être inclus dans le décompte.
 
 #### Logiciel
 
-- OS: CentOS or Redhat 7 / 8
+- OS: CentOS 7 or Redhat 7 / 8
 - DBMS: MariaDB 10.5
 >- Firewall: Désactivé
 >- SELinux: Désactivé
@@ -203,6 +203,10 @@ Donnez à cet utilisateur l'accès à l'API Centreon Web en temps réel :
 
 ![image](../assets/graph-views/reach-api.png)
 
+Excluez l'utilisateur de la politique d'expiration des mots de passe à la page **Administration > Authentification** : le mot de passe de l'utilisateur n'expirera jamais.
+
+![image](../assets/graph-views/password-expiration-policy.png)
+
 ### Serveur Centreon Central
 
 Créez un utilisateur dans l'instance mysql hébergeant les bases de données "centreon" et "centreon_storage".
@@ -221,17 +225,17 @@ une nouvelle sortie Centreon Broker. Il sera révoqué ultérieurement.
 Si vous avez installé votre serveur Centreon MAP à partir d'une nouvelle installation CentOS, vous devez installer le paquet `centreon-release`.
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-5.el8.noarch.rpm
+dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04-3.el8.noarch.rpm
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-5.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
 ```
 
 </TabItem>
@@ -245,7 +249,7 @@ le [portail du support](https://support.centreon.com/s/repositories).
 Ensuite, installez le serveur Centreon MAP à l'aide de la commande suivante :
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
 dnf install centreon-map-server
@@ -295,6 +299,18 @@ Si c'est votre première installation, nous vous conseillons d'utiliser le mode 
 
 ```shell
 /etc/centreon-studio/configure.sh
+```
+
+Si vous venez d'installer Centreon 22.04, attention, la plateforme utilise maintenant le nouveau protocole BBDO v3. Pour que MAP fonctionne correctement, éditez le fichier suivant : **/etc/centreon-map/map-config.properties**
+
+```text
+broker.pb.message.enabled=true
+```
+
+Puis redémarrez le service **centreon-map** :
+
+```shell
+systemctl restart centreon-map
 ```
 
 ### Serveur Central

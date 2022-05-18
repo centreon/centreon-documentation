@@ -43,7 +43,7 @@ Le paramètre MariaDB **open\_files\_limit** doit être fixé à 32000 dans la s
 open_files_limit = 32000
 ```
 
-> En installant Centreon via l'ISO, ce paramètre est déjà configuré. Si vous
+> Si vous
 > installez Centreon via les RPM sur votre propre server RedHat ou CentOS, vous
 > serez obligé de réaliser cette configuration manuellement. N'oubliez pas de
 > redémarrer le service mysql / mariadb si vous avez besoin de configurer ce

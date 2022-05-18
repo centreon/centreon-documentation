@@ -5,15 +5,10 @@ title: Using packages
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 Centreon provides RPM packages for its products through the Centreon Open
 Source version available free of charge in our repository.
 
-These packages have been successfully tested in CentOS 7 and 8 environments.
-
-> Due to Red Hat's stance on CentOS 8, we suggest not to use said version for
-> your production environment. Nevertheless, these packages for CentOS 8 are
-> compatible with RHEL 8 and Oracle Linux 8 versions.
+These packages can be installed on CentOS 7 and on Alma/RHEL/Oracle Linux 8.
 
 You must run the installation procedure as a privileged user.
 
@@ -23,7 +18,7 @@ After installing your server, update your operating system using the following
 command:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
 dnf update
@@ -66,6 +61,7 @@ getenforce
 ```
 
 You should have this result:
+
 ```shell
 Disabled
 ```
@@ -82,6 +78,29 @@ systemctl disable firewalld
 ### Install the repositories
 
 <Tabs groupId="sync">
+
+<TabItem value="Alma 8" label="Alma 8">
+
+#### Remi repository
+
+To install Centreon you will need to install the **remi** repository.
+
+Run the following commands:
+
+```shell
+dnf install -y dnf-plugins-core
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
+dnf config-manager --set-enabled 'powertools'
+```
+
+Enable PHP 8.0 using the following commands:
+```shell
+dnf module reset php
+dnf module install php:remi-8.0
+```
+
+</TabItem>
 <TabItem value="RHEL 8" label="RHEL 8">
 
 #### Remi and CodeReady Builder repository
@@ -104,28 +123,7 @@ dnf module install php:remi-8.0
 ```
 
 </TabItem>
-<TabItem value="CentOS 8" label="CentOS 8">
 
-#### Remi repository
-
-To install Centreon you will need to install the **remi** repository.
-
-Run the following commands:
-
-```shell
-dnf install -y dnf-plugins-core
-dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
-dnf config-manager --set-enabled 'powertools'
-```
-
-Enable PHP 8.0 using the following commands:
-```shell
-dnf module reset php
-dnf module install php:remi-8.0
-```
-
-</TabItem>
 <TabItem value="Oracle Linux 8" label="Oracle Linux 8">
 
 #### Remi and CodeReady Builder repositories
@@ -186,17 +184,17 @@ centreon-release package, which will provide the repository file.
 Install the Centreon repository using this command:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-5.el8.noarch.rpm
+dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04-3.el8.noarch.rpm
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-5.el7.centos.noarch.rpm
+yum install -y  https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
 ```
 
 </TabItem>
@@ -212,10 +210,10 @@ a remote database on a dedicated server.
 ### With a local database
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y centreon centreon-database
+dnf install -y centreon
 systemctl daemon-reload
 systemctl restart mariadb
 ```
@@ -224,7 +222,7 @@ systemctl restart mariadb
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install -y centreon centreon-database
+yum install -y centreon
 systemctl daemon-reload
 systemctl restart mariadb
 ```
@@ -236,30 +234,30 @@ You can now move to [Step 3](#step-3-configuration).
 
 ### With a remote database
 
-> If installing database on a dedicated server, this server should also have
+> If installing the database on a dedicated server, this server should also have
 > the prerequired repositories.
 
 Run the following command on the Central server:
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y centreon-base-config-centreon-engine centreon-widget\*
+dnf install -y centreon-central
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install -y centreon-base-config-centreon-engine centreon-widget\*
+yum install -y centreon-central
 ```
 
 </TabItem>
 </Tabs>
 
-Then run the following commands on the dedicated server:
+Then run the following commands on the dedicated server for your database:
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
 dnf install -y centreon-database
@@ -279,31 +277,47 @@ systemctl restart mariadb
 </TabItem>
 </Tabs>
 
-Secure your MariaDB installation by executing the following command:
+Secure your MariaDB root access by executing the following command:
+
 ```shell
 mysql_secure_installation
 ```
 
 > It is mandatory to set a password for the root user of the database.
 
-Then create a distant user with **root** privileges needed for Centreon
-installation:
+Then, in the remote dabatase, create a user with **root** privileges. You will have to enter this user during the 
+web installation process (at [step 6](../web-and-post-installation.md#step-6-database-infomation),
+in the **Root user** and **Root password** fields).
 
 ```SQL
-CREATE USER '<USER>'@'<IP>' IDENTIFIED BY '<PASSWORD>';
-GRANT ALL PRIVILEGES ON *.* TO '<USER>'@'<IP>' WITH GRANT OPTION;
+CREATE USER '<USER>'@'<CENTRAL_SERVER_IP>' IDENTIFIED BY '<PASSWORD>';
+GRANT ALL PRIVILEGES ON *.* TO '<USER>'@'<CENTRAL_SERVER_IP>' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 ```
 
-> Replace **<IP\>** with the Centreon Central IP address that will connect to
+Example:
+
+```shell
+CREATE USER 'dbadmin'@'<CENTRAL_SERVER_IP>' IDENTIFIED BY '<DBADMIN_PASSWORD>';
+GRANT ALL PRIVILEGES ON *.* TO 'dbadmin'@'<CENTRAL_SERVER_IP>' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+```
+
+> Replace **<CENTRAL_SERVER_IP\>** with the Centreon Central IP address that will connect to
 > the database server.
 >
-> Replace **<USER\>** and **<PASSWORD\>** by user's credentials.
+> Replace **<USER\>** and **<PASSWORD\>** by the user's credentials.
 
-Once the installation is complete you can delete this user using:
+This user will only be used for the installation process: once the [web installation](../web-and-post-installation.md) is complete you can delete this user using:
 
 ```SQL
 DROP USER '<USER>'@'<IP>';
+```
+
+Example:
+
+```SQL
+DROP USER 'dbadmin'@'<CENTRAL_SERVER_IP>';
 ```
 
 > The package **centreon-database** installs an optimized MariaDB configuration
@@ -388,28 +402,31 @@ To make services start automatically during system bootup, run these commands
 on the central server:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-systemctl enable php-fpm httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
+systemctl enable php-fpm httpd centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-systemctl enable php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
+systemctl enable php-fpm httpd24-httpd centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
 ```
 
 </TabItem>
 </Tabs>
 
-> If the database is on a dedicated server, remember to enable **mariadb**
-> service on it.
+Then execute the following command (on the central server if you are using a local database, or on your remote database server):
+
+```shell
+systemctl enable mariadb
+```
 
 ### Secure the database
 
-Since MariaDB 10.5, it is mandatory to secure the database's root access before installing Centreon. Run the following command:
+Since MariaDB 10.5, it is mandatory to secure the database's root access before installing Centreon. If you are using a local database, run the following command on the central server:
 
 ```shell
 mysql_secure_installation
@@ -426,7 +443,7 @@ mysql_secure_installation
 following command:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
 systemctl start httpd

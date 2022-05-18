@@ -89,10 +89,6 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-22.04/installation/installation-of-a-central-server/using-centreon-iso"
-            },
-            {
-              "type": "doc",
               "id": "version-22.04/installation/installation-of-a-central-server/using-packages"
             },
             {
@@ -115,10 +111,6 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-22.04/installation/installation-of-a-poller/using-centreon-iso"
-            },
-            {
-              "type": "doc",
               "id": "version-22.04/installation/installation-of-a-poller/using-packages"
             }
           ]
@@ -129,17 +121,13 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-22.04/installation/installation-of-a-remote-server/using-centreon-iso"
-            },
-            {
-              "type": "doc",
               "id": "version-22.04/installation/installation-of-a-remote-server/using-packages"
             }
           ]
         },
         {
           "type": "category",
-          "label": "Monitoring Servers",
+          "label": "Configuring monitoring servers",
           "items": [
             {
               "type": "doc",
@@ -875,6 +863,10 @@
             },
             {
               "type": "doc",
+              "id": "version-22.04/upgrade/upgrade-from-21-10"
+            },
+            {
+              "type": "doc",
               "id": "version-22.04/upgrade/upgrade-from-21-04"
             },
             {
@@ -957,7 +949,7 @@
     },
     {
       "type": "link",
-      "href": "/pp/integrations/plugin-packs/introduction",
+      "href": "/pp/integrations/plugin-packs/getting-started/introduction",
       "label": "Plugin Packs"
     },
     {
@@ -983,6 +975,14 @@
             {
               "type": "doc",
               "id": "version-22.04/integrations/data-analytics/sc-elastic-metrics"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/integrations/data-analytics/sc-datadog-events"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/integrations/data-analytics/sc-datadog-metrics"
             },
             {
               "type": "doc",
@@ -1028,7 +1028,11 @@
             },
             {
               "type": "doc",
-              "id": "version-22.04/integrations/event-management/sc-service-now-events"
+              "id": "version-22.04/integrations/event-management/sc-service-now-incident-events"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/integrations/event-management/sc-service-now-em-events"
             },
             {
               "type": "doc",
@@ -1120,7 +1124,7 @@
     },
     {
       "type": "category",
-      "label": "Mobile App.",
+      "label": "Centreon mobile",
       "items": [
         {
           "type": "doc",
@@ -1143,6 +1147,10 @@
         {
           "type": "doc",
           "id": "version-22.04/developer/developer-stream-connector"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.04/developer/developer-broker-stream-connector-migration"
         },
         {
           "type": "doc",

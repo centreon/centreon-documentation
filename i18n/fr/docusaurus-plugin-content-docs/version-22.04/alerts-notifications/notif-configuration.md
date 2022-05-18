@@ -109,6 +109,17 @@ title: Configurer les notifications
 
 - **Commandes de notification d'hôte/de service** : définissez par quel moyen le contact doit être notifié (email, pager, jabber).
 
+### Vérifier la configuration des notifications
+Vous pouvez rapidement vérifier que la configuration est bien appliquée dans la page [Statut des ressources](../alerts-notifications/resources-status.md).
+1. Allez à la page **Supervision > Statut des ressources**.
+
+2. Cliquez sur la ressource pour laquelle vous avez configuré des notifications.
+Un panneau de détail s'affiche sur la droite.
+
+3. Cliquez sur l'onglet **Notification**.
+
+Cet onglet affiche si des notifications sont activées pour cette ressource, ainsi que les contacts et groupes de contact qui seront notifiés.
+
 ## Règles d'héritage des modèles
 
 Pour les hôtes et les services, la section **Options d'ordonnancement/Options d'ordonnancement des services** dans le premier onglet, et la section **Options de Notification** dans le deuxième onglet, fonctionnent de la même manière.

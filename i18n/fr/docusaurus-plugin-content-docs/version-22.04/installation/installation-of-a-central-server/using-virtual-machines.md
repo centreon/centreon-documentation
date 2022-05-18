@@ -5,7 +5,6 @@ title: À partir d'une VM
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 Sur sa [page de téléchargement](https://download.centreon.com), Centreon fournit une machine virtuelle prête à l’emploi. Cette machine virtuelle est disponible au format OVA pour les environnements
 VMware et pour l'outil Oracle VirtualBox.
 Elle est basée sur le système d'exploitation **Linux CentOS 7** et inclut
@@ -47,7 +46,7 @@ cliquez sur **Download**.
 <Tabs groupId="sync">
 <TabItem value="Environnement VMware" label="Environnement VMware">
 
-1. Importez le fichier `centreon-central.ova` dans VMWare. Un terminal s’ouvre : attendez que le serveur démarre. Lorsque celui-ci est prêt, le terminal affiche le message suivant :
+1. Importez le fichier **centreon-central.ova** dans VMWare. Un terminal s’ouvre : attendez que le serveur démarre. Lorsque celui-ci est prêt, le terminal affiche le message suivant :
     
     ![image](../../assets/installation/VMW1.png)
 
@@ -60,7 +59,7 @@ cliquez sur **Download**.
 </TabItem>
 <TabItem value="Oracle VirtualBox" label="Oracle VirtualBox">
 
-1. Importez le fichier `centreon-central.ova` dans VirtualBox. La VM apparaît dans votre liste de VMs dans VirtualBox.
+1. Importez le fichier **centreon-central.ova** dans VirtualBox. La VM apparaît dans votre liste de VMs dans VirtualBox.
 
     ![image](../../assets/installation/VB2.png)
 
@@ -194,20 +193,19 @@ fonctionnera pas si vous ne l’exécutez pas.
 `http://addresse_ip/centreon` ou `http://FQDN/centreon`. (Par exemple, une URL valide serait
 `http://192.168.1.44/centreon`.)
 
-7. Connectez-vous en utilisant les informations suivantes : Login: `admin`, password: `centreon`. Par défaut, votre serveur offre une configuration prédéfinie qui permet de le superviser lui-même.
+7. Connectez-vous en utilisant les informations suivantes : Login: `admin`, password: `Centreon!2021`. Par défaut, votre serveur offre une configuration prédéfinie qui permet de le superviser lui-même.
 
 8. Selon votre édition de Centreon, vous pouvez avoir à [ajouter une licence](../../administration/licenses.md).
 
 9. [Mettez à jour](../../update/update-centreon-platform.md) votre plateforme Centreon.
 
-10. [Sécurisez votre serveur](../../administration/secure-platform.md). Il est notamment recommandé de changer les mots de passe des comptes `root` et `admin`, et
-de définir un mot de passe pour la base MariaDB.
+10. [Sécurisez votre serveur](../../administration/secure-platform.md). Il est notamment recommandé de changer les mots de passe des comptes `root` et `admin`. Il est obligatoire de définir un mot de passe pour la base MariaDB.
 
 11. Vous pouvez maintenant [superviser votre premier hôte](../../getting-started/first-supervision.md).
 
 ## Identifiants par défaut
 
-- Pour vous connecter à l'interface Web Centreon, l'identifiant par défaut est : `admin`/`centreon`.
+- Pour vous connecter à l'interface Web Centreon, l'identifiant par défaut est : `admin`/`Centreon!2021`.
 - Le compte d'administration du serveur (via SSH) est: `root`/`centreon`.
 - Le mot de passe root du SGBD n'est pas initialisé.
 

@@ -5,54 +5,83 @@ title: Configuring connection via OpenId Connect
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 Centreon is compatible with OAuth 2.0/OpenId Connect authentication.
 
 Usage of Identity Providers (IdP) is available, such as Microsoft Azure AD, Okta, Keycloak, LemonLDAP::NG or other IdP
 which are compatible with the Authorization Code Flow.
 
-Authentication via OpenId Connect is configured on the **Administration > Parameters > Centreon UI** page,
-in the **Authentication by OpenId Connect** section.
+## Configure OpenID Connect authentication
 
-- **Enable OpenId Connect authentication** allows to enable or disable OpenId Connect authentication.
-- **Authentication mode** field indicates if the authentication should take place only by OpenId Connect or using local
-  authentication as well (Mixed).
-- **Trusted client addresses** field indicates which are the IP/DNS of the trusted clients (corresponding to the
-  reverse proxy). The trusted clients are separated by comas.
-- **Blacklist client addresses** field indicates which are the IP/DNS rejected.
-- **Base Url** field defines the IdP base URL for OpenId Connect endpoints (mandatory).
-- **Authorization Endpoint** field defines the authorization endpoint, for example `/authorize` (mandatory).
-- **Token Endpoint** field defines the token endpoint, for example `/token`(mandatory).
-- **Introspection Token Endpoint** field defines the introspection token endpoint, for example `/introspect` (mandatory).
-- **User Information Endpoint** field defines the user information endpoint, for example `/userinfo`.
-- **End Session Endpoint** field defines the logout endpoint, for example `/logout`.
-- **Login claim value** field defines the value returned from **Introspection Token Endpoint** or **User Information Endpoint**
-  to authenticate the user. For example `sub` or `email`.
-- **Scope** field defines the scope of the IdP, for example `openid`. Separate scope by space.
-- **Redirect Url** field defines the redirect URL after login to access your Centreon server, for example
-  `https://192.168.0.1/centreon/index.php`.
-- **Client ID** field defines the Client ID.
-- **Client Secret** field defines the Client secret.
-- **Use Basic Auth for Token Endpoint Authentication** field forces to use the `Authorization: Basic` method.
-- **Disable SSL verify peer** field allows to disable SSL peer validation, should only be used for tests.
+Go to **Administration > Authentication > OpenID Connect Configuration**:
 
-![image](../assets/administration/openid-connect-configuration.png)
+![image](../assets/administration/oidc-configuration.png)
 
-> Depending on the identity provider, it is necessary to enter several scopes in order to retrieve the claim which will
-> identify the user. This is indicated in the provider's configuration documentation.
+### Step 1: Enable authentication
 
-> It is possible to define a full URL for the endpoints in case the base of the URL is different from the others.
+Enable OpenID Connect authentication:
 
-> It is possible not to specify the **Redirect Url** field. In this case, the Centreon server will send its own URL to
-> the service provider.
+- **Enable OpenId Connect authentication**: enables or disables OpenId Connect authentication.
+- **Authentication mode**: indicates if the authentication should be done using only OpenId Connect or using local
+  authentication as well (**Mixed**). In mixed mode, users created manually in Centreon (and not identified via Open ID) will also be able to log in.
 
-> If you want to automatically import users after connection, you can configure an LDAP server and enable auto import.
-> Be sure that the "Login attribute" from your LDAP configuration will be identical to the "Login claim value".
+> When setting the parameters, it is recommended to activate the "mixed" mode. This will allow you to retain access to
+> the local `admin` account in the event of a misconfiguration.
 
-> You can enable **Authentication debug** through `Administration > Parameters > Debug` menu to understand
+### Step 2: Configure Identity Provider access credentials
+
+Configure Identity Provider information:
+
+- **Base URL**: defines the identity provider's base URL for OpenId Connect endpoints (mandatory).
+- **Authorization Endpoint**: defines the authorization endpoint, for example `/authorize` (mandatory).
+- **Token Endpoint**: defines the token endpoint, for example `/token` (mandatory).
+- **Client ID**: defines the Client ID.
+- **Client Secret**: defines the Client secret.
+- **Scopes**: defines the scopes of the identity provider, for example `openid`. Separate scopes by spaces.
+  > Depending on the identity provider, it is necessary to enter several scopes in order to retrieve the claim which will
+  > identify users. This is indicated in the provider's configuration documentation.
+  - **Login claim value**: defines which of the variables returned by **Introspection Token Endpoint** or **User Information Endpoint**
+  must be used to authenticate users. For example `sub` or `email`.
+- **End Session Endpoint**: defines the logout endpoint, for example `/logout`.
+
+Depending on your identity provider, set either of the following two endpoints:
+
+- **User Information Endpoint**: defines the user information endpoint, for example `/userinfo`.
+- **Introspection Token Endpoint**: defines the introspection token endpoint, for example `/introspect` (mandatory).
+
+You can also configure:
+
+- **Use Basic Auth for Token Endpoint Authentication**: the `Authorization: Basic` method will be used. Enable this option if your identity provider requires it.
+- **Disable SSL verify peer**: allows you to disable SSL peer validation. The identity provider's certificate will not be checked: use this option for test purposes only.
+
+> You can define a full URL for the endpoints in case the base of the URL is different from the others.
+
+> You can enable **Authentication debug** through the **Administration > Parameters > Debug** menu to understand
 > authentication failures and improve your setup.
 
-### Examples of configuration
+### Step 3: Configure client addresses
+
+If you leave both fields blank, all IP adresses will be allowed to access the Centreon interface.
+
+- **Trusted client addresses**: If you enter IP addresses in this field, only these IP addresses will be allowed to access the Centreon interface. All other IP addresses will be blocked. IP addresses must be separated by commas.
+- **Blacklist client addresses**: These IP adresses will be blocked. All other IP addresses will be allowed to access the Centreon interface.
+
+### Step 4: Create users
+
+On page **Configuration > Users > Contacts/Users**, [create the users](../monitoring/basic-objects/contacts-create.md) that will log on to Centreon using OpenID and [grant them rights](../administration/access-control-lists.md) using access groups.
+
+### Step 5: Configure your Identity Provider (IdP)
+
+Configure your IdP to add the Centreon application to use the OpenID Connect protocol to authenticate your users,
+And to authorize the following `redirect URI` to forward your connecter users to Centreon:
+
+```shell
+{protocol}://{server}:{port}/centreon/authentication/providers/configurations/openid
+```
+
+> Replace `{protocol}`, `{server}` and `{port}` by the URI to access to your Centreon server.
+> For example: `https://centreon.domain.net/centreon/authentication/providers/configurations/openid`
+
+## Examples of configuration
 
 <Tabs groupId="sync">
 <TabItem value="Microsoft Azure AD" label="Microsoft Azure AD">
@@ -64,16 +93,14 @@ Here is an example configuration for Microsoft Azure Active Directory:
 | Base Url                     | https://login.microsoftonline.com/${tenantId}/oauth2/v2.0 |
 | Authorization Endpoint       | /authorize                                                |
 | Token Endpoint               | /token                                                    |
-| Introspection Token Endpoint | /introspect                                               |
 | User Information Endpoint    | https://graph.microsoft.com/oidc/userinfo                 |
 | End Session Endpoint         |                                                           |
 | Scope                        | openid                                                    |
 | Login claim value            | email                                                     |
-| Redirect Url                 | https://${ipCentreon}/centreon/index.php                  |
 | Client ID                    | ${clientId}                                               |
 | Client Secret                | ${clientSecret}                                           |
 
-> Please replace `${tenantId}`, `${ipCentreon}`, `${clientId}` and `${clientSecret}` with your own values.
+> Please replace `${tenantId}`, `${clientId}` and `${clientSecret}` with your own values.
 
 </TabItem>
 <TabItem value="Okta" label="Okta">
@@ -90,11 +117,10 @@ Here is an example configuration for Okta:
 | End Session Endpoint         | /logout                                  |
 | Scope                        | profile openid                           |
 | Login claim value            | username                                 |
-| Redirect Url                 | https://${ipCentreon}/centreon/index.php |
 | Client ID                    | ${clientId}                              |
 | Client Secret                | ${clientSecret}                          |
 
-> Please replace `${theIdPdomain}`, `${ipCentreon}`, `${clientId}` and `${clientSecret}` with your own values.
+> Please replace `${theIdPdomain}`, `${clientId}` and `${clientSecret}` with your own values.
 
 </TabItem>
 <TabItem value="Keycloak" label="Keycloak">
@@ -111,11 +137,10 @@ Here is an example configuration for Keycloak:
 | End Session Endpoint         | /logout                                                                 |
 | Scope                        | openid                                                                  |
 | Login claim value            | email                                                                   |
-| Redirect Url                 | https://${ipCentreon}/centreon/index.php                                |
-| Client ID                    | ${resource}                                                             |
-| Client Secret                | ${secret}                                                               |
+| Client ID                    | ${clientId}                                                             |
+| Client Secret                | ${clientSecret}                                                         |
 
-> Please replace `${theIdPdomain}`, `${ipCentreon}`, `${resource}` and `${secret}` with your own values.
+> Please replace `${theIdPdomain}`, `${clientId}` and `${clientSecret}` with your own values.
 
 </TabItem>
 <TabItem value="LemonLDAP::NG" label="LemonLDAP::NG">
@@ -132,11 +157,10 @@ Here is an example configuration for LemonLDAP::NG:
 | End Session Endpoint         |                                          |
 | Scope                        | openid                                   |
 | Login claim value            | email                                    |
-| Redirect Url                 | https://${ipCentreon}/centreon/index.php |
 | Client ID                    | ${clientId}                              |
 | Client Secret                | ${clientSecret}                          |
 
-> Please replace `auth.example.com`, `${ipCentreon}`, `${clientId}` and `${clientSecret}` with your own values.
+> Please replace `auth.example.com`, `${clientId}` and `${clientSecret}` with your own values.
 
 </TabItem>
 <TabItem value="Others" label="Others">
@@ -182,6 +206,7 @@ Most of the service providers have one URL presenting the configuration paramete
 ```
 
 Retrieve the following parameters to configure your Centreon:
+
 - issuer (Base Url)
 - authorization_endpoint
 - token_endpoint

@@ -1,6 +1,6 @@
 ---
 id: add-a-remote-server-to-configuration
-title: Ajouter un serveur distant à la configuration
+title: Rattacher un serveur distant à un serveur central
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 ## Prérequis
 
-Installez le serveur distant (soit [en utilisant l'ISO](../../installation/installation-of-a-remote-server/using-centreon-iso.md), soit [en utilisant les paquets](../../installation/installation-of-a-remote-server/using-packages.md)).
+Installez le serveur distant [en utilisant les paquets](../../installation/installation-of-a-remote-server/using-packages.md).
 
 ## Étape 1 : Configurer un nouveau Remote Server
 
@@ -64,6 +64,20 @@ sélectionnez votre serveur, puis saisissez les informations demandées :
     Le serveur distant est maintenant configuré :
 
     ![image](../../assets/monitoring/monitoring-servers/remote-list-zmq.png)
+
+6. Si vous avez personnalisé les noms des bases à l'étape 6 de [l'installation web](../../installation/web-and-post-installation.md), effectuez les étapes suivantes:
+
+   1. Allez à la page **Configuration > Collecteurs > Configuration de Centreon broker**.
+   2. Sélectionnez le service broker du serveur distant désiré.
+   3. Dans l'onglet **Output**, dans la section **Output 1 - Unified SQL**, mettez à jour le nom de la base dans le champ **DB name** (le nom par défaut de la base est **centreon_storage**), puis cliquez sur **Sauvegarder**.
+   4. [Exportez la configuration](deploying-a-configuration.md) du serveur distant.
+   5. Redémarrez cbd:
+
+     ```shell
+     systemctl restart cbd
+     ```
+
+   Si besoin, consultez **/var/log/centreon-broker/<nom-du-serveur-distant\>.log** pour identifier des erreurs. (Dans l'exemple ci-dessus, il s'agit du fichier **/var/log/centreon-broker/remote-server.log**.)
 
 ## Étape 2 : Activer la communication
 

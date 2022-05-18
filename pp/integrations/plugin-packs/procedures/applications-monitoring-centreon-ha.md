@@ -12,8 +12,8 @@ Centreon-HA is Centreon central server's high availability implementation. More 
 
 This Plugin-Pack relies on two other Plugin-Packs:
 
-* [Pacemaker](integrations/plugin-packs/procedures/applications-pacemaker-ssh.md)
-* [Linux SNMP](integrations/plugin-packs/procedures/operatingsystems-linux-snmp.md)
+* [Pacemaker](applications-pacemaker-ssh.md)
+* [Linux SNMP](operatingsystems-linux-snmp.md)
 
 It consequently uses both **SNMP** and **SSH** protocols to access a Centreon-HA cluster's nodes to get status and metrics related to the cluster's health.
 

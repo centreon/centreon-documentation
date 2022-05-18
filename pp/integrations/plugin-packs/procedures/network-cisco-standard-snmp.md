@@ -113,7 +113,7 @@ You can use --absent-problem if you want to alert when a component is absent/rem
 
 ### Cisco device configuration 
 
-To use this pack, the SNMP service must be properly configured on your Cisco device. Cisco provides an official documentation to achieve this: https://www.cisco.com/c/en/us/support/docs/ip/simple-network-management-protocol-snmp/7282-12
+To use this pack, the SNMP service must be properly configured on your Cisco device. Cisco provides an official documentation to achieve this: https://www.cisco.com/c/en/us/support/docs/ip/simple-network-management-protocol-snmp/7282-12.html
 
 Here is an example: 
 

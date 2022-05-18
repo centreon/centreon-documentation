@@ -5,12 +5,12 @@ title: Plugin Packs
 
 A Plugin Pack is a downloadable package containing a set of configuration
 templates that make it fast and easy to monitor your IT infrastructure.
-Applying a Plugin Pack is the easiest way to monitor a host.
+Applying a template from a Plugin Pack is the easiest way to monitor a host.
 
 Plugin Packs consist of 2 elements, which are installed separately:
 
-- A plugin that executes the monitoring commands from a poller. Plugins are 
-installed using the command line interface.
+- A plugin that executes the monitoring commands from a poller. Plugins can be
+installed using the command line interface, or automatically.
 
 - A pack that contains commands, host templates and service templates. 
 Packs are installed via the Centreon interface. For each type of equipment,
@@ -21,7 +21,7 @@ fine-tuned later on).
   Some packs also contain [discovery rules](discovery/introduction.md).
 
 To get an up-to-date list of all Plugin Packs with their respective monitoring
-procedure, please refer to the section on [Plugin Packs](/pp/integrations/plugin-packs/introduction).
+procedures, please refer to the section on [Plugin Packs](/pp/integrations/plugin-packs/getting-started/introduction).
 
 ## Prerequisites
 
@@ -52,7 +52,6 @@ Some Plugin Packs also require a Connector (e.g. AS400, VMWare) or an agent
 | NSClient++ | NSClient++, packaged by Centreon, ready to use with embedded Centreon Plugins         |
 | VMWare     | Perl daemon using VMware SDK to monitor VMware platforms                              |
 | AS400      | Java-based connector allowing you to execute checks on an AS400                       |
-
 
 ## Installing a Plugin Pack
 
@@ -103,7 +102,6 @@ Once the pack is installed, it has a green outline and a green check mark.
 | ---------------------------------------------------------------- | --------------------------------------------------------------- |
 | ![image](../assets/configuration/pluginpacks/before_install.png) | ![image](../assets/configuration/pluginpacks/after_install.png) |
 
-
 ### Managing dependencies
 
 During installation, some objects in the pack may not be installed. These objects are often additional configuration
@@ -125,6 +123,18 @@ to understand the contents of the pack and to find out about any prerequisites. 
 
 ### Installing the plugin
 
+Plugins can be installed from the command line or automatically.
+
+#### Automatic installation
+
+1. [Install the pack](#installing-the-pack).
+2. [Check the monitoring procedure](#checking-the-monitoring-procedure) for extra configuration steps.
+3. On page **Configuration > Plugin Packs**, set **Automatic installation of plugins** to **ON**.
+4. Use a template provided by the pack to monitor a host or a service.
+5. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md) for the pollers that monitor these hosts or services: the corresponding plugins will be automatically installed on these pollers.
+
+#### Manual installation
+
 The monitoring procedure contains an **Installation** section that explains how to install the plugin
 (with an online or an offline license). Install the plugin on each poller that will execute the plugin checks.
 
@@ -144,7 +154,7 @@ yum install centreon-plugin-Cloud-Aws-Ec2-Api
 
 ## Using plugin packs
 
-Apply a plugin pack to a host or service to start monitoring them:
+Apply a template from a plugin pack to a host or service to start monitoring them:
 
 1. Create the host/the service, and in the **Template(s)** field, choose the template for the Plugin Pack you want.
 
@@ -152,7 +162,7 @@ Apply a plugin pack to a host or service to start monitoring them:
 
 ## Updating Plugin Packs
 
-You need to update both the plugin and the pack.
+> You need to update both the plugin and the pack.
 
 ### Updating one pack/all packs
 
@@ -187,7 +197,9 @@ Note that you will still have to [update the plugins](#updating-the-plugins).
 
 ### Updating the plugins
 
-To update the plugins:
+On page **Configuration > Plugin Packs**, if **Automatic installation of plugins** is set to **ON**, plugins will be automatically updated when you deploy the configuration for a poller that monitors a host that uses these plugins.
+
+If **Automatic installation of plugins** is set to **OFF**, use the following command to update the plugins:
 
 1. Execute the following command on all pollers:
 

@@ -130,7 +130,7 @@ Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne d
     --verbose
 ```
 
-Cette commande supervise le statut et l'utilisation du site *www* (```--filter-name=^www$```) hébergé sur le serveur IIS *www.int.centreon.com* (```--hostname='www.int.centreon.com'```).
+Cette commande supervise le statut et l'utilisation du site *www* (```--filter-name=^www$```) hébergé sur le serveur IIS `www.int.centreon.com` (```--hostname='www.int.centreon.com'```).
 
 Un utilisateur (```--api-username='John.doe'```), un mot de passe (```--api-password='6fbadZEJbsLG'```) et un token API (```--api-token='ZHppZCWPzREgSb9SDYOegsY0_D4KJKgZ5q8QavEWBPmmi8fgt2-8Cw'```) générés depuis l'API *IIS Administration API* sont utilisés pour se connecter.
 

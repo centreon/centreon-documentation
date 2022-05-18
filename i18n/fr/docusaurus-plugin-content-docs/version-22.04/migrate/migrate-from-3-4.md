@@ -33,9 +33,7 @@ et disposant des prérequis suivants :
 
 Réalisez les actions suivantes :
 
-1. Installez un nouveau serveur Centreon à partir de
-[l'ISO](../installation/installation-of-a-central-server/using-centreon-iso.md)
-ou des [paquets](../installation/installation-of-a-central-server/using-packages.md)
+1. Installez un nouveau serveur Centreon à partir des [paquets](../installation/installation-of-a-central-server/using-packages.md)
 jusqu'à terminer le processus d'installation en vous connectant à l'interface
 web.
 
@@ -80,14 +78,14 @@ Centreon.
     ```
 
 3. Transférer les exports vers le nouveau serveur de base de données Centreon
-21.10 :
+22.04 :
 
     ```shell
     rsync -avz /tmp/centreon.sql root@<IP_NOUVEAU_CENTREON>:/tmp/
     rsync -avz /tmp/centreon_storage.sql root@<IP_NOUVEAU_CENTREON>:/tmp/
     ```
 
-4. Sur le serveur de base de données Centreon 21.10, supprimer les bases de
+4. Sur le serveur de base de données Centreon 22.04, supprimer les bases de
 données vierges et les recréer :
 
     ```shell
@@ -147,8 +145,8 @@ dépend de votre installation. Les principaux répertoires à synchroniser sont 
 > sondes de supervision.
 
 > Si vous avez des Pollers en Centreon Engine 1.8.1 que vous comptez migrer plus
-> tard en 21.10, attention au dossier des plugins Nagios. La macro de
-> ressource $USER1$ de Centreon 21.10 pointe sur /usr/lib64/nagios/plugins
+> tard en 22.04, attention au dossier des plugins Nagios. La macro de
+> ressource $USER1$ de Centreon 22.04 pointe sur /usr/lib64/nagios/plugins
 >
 > A éxécuter sur vos collecteurs en Centreon Engine 1.8.1 :
 >
@@ -166,18 +164,18 @@ dépend de votre installation. Les principaux répertoires à synchroniser sont 
 > -rwxr-xr-x   1 root root 1711288  6 avril  2018 cbmod.so
 > ```
 
-Vous pouvez générer les configurations depuis Centreon 21.10
-indifféremment vers un collecteur en 21.10 ou 1.8.1.
+Vous pouvez générer les configurations depuis Centreon 22.04
+indifféremment vers un collecteur en 22.04 ou 1.8.1.
 
 ### Montée de version de la solution Centreon
 
 Forcez la montée de version du nouveau serveur en déplacant le contenu du répertoire
-**/var/lib/centreon/installs/install-21.10.0-YYYYMMDD\_HHMMSS** dans le
+**/var/lib/centreon/installs/install-22.04.0-YYYYMMDD\_HHMMSS** dans le
 répertoire  **/usr/share/centreon/www/install** :
 
 ```shell
 cd /var/lib/centreon/installs/
-mv install-21.10.0-YYYYMMDD_HHMMSS/ /usr/share/centreon/www/install/
+mv install-22.04.0-YYYYMMDD_HHMMSS/ /usr/share/centreon/www/install/
 ```
 
 > Si vous utilisez la même adresse IP ou le même nom DNS entre l'ancien serveur
@@ -212,4 +210,4 @@ la configuration de l'ensemble de la plateforme et exportez là.
 ### Mise à jour des modules
 
 Référez-vous à la documentation des modules installés afin de connaître leur
-compatibilité avec Centreon 21.10, et pour mettre à jour ces derniers.
+compatibilité avec Centreon 22.04, et pour mettre à jour ces derniers.

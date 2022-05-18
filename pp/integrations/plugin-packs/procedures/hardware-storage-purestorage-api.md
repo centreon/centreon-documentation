@@ -19,7 +19,7 @@ proprietary de-duplication and compression software to improve the amount of dat
 
 ## Monitored metrics                                                                                                   
 
-More information is available in the Pure Storage official API documentation : https://blog.purestorage.com/introducing-the-pure1-rest-api/
+More information is available in the Pure Storage official API documentation : https://blog.purestorage.com/products/introducing-the-pure1-rest-api/
 
 <Tabs groupId="sync">
 <TabItem value="Alarms-Global" label="Alarms-Global">

@@ -151,7 +151,7 @@ information:
 
 ## FAQ
 
-### How can I test the Plugin in the CLI and what do the main parameters stand for ?
+### How can I test the Plugin in the CLI and what do the main parameters stand for?
 
 Once the Centreon Plugin installed, you can test it directly in the CLI of the
 Centreon poller by logging with the *centreon-engine* user:

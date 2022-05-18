@@ -107,7 +107,7 @@ The Pack Dell ME4 collects metrics for:
 
 To control your Dell ME4, the Rest API must be configured.
 
-E.g: https://www.dell.com/support/manuals/fr-fr/powervault-me4024/me4_series_cli_pub/using-a-script-to-access-the-cli
+E.g: https://www.dell.com/support/manuals/fr-fr/powervault-me4024/me4_series_cli_pub/using-a-script-to-access-the-cli?guid=guid-9ae5ccd6-a207-42df-b2f3-1e02a487a354&lang=en-us
 
 ## Setup
 
@@ -205,5 +205,5 @@ parameter to the command:
 
 ## Troubleshooting
 
-[Troubleshooting plugins](../tutorials/troubleshooting-plugins.md)
+[Troubleshooting plugins](../getting-started/how-to-guides/troubleshooting-plugins.md)
 

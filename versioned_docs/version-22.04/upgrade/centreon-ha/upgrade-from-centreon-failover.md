@@ -51,7 +51,7 @@ At this step, none of the processes managed by the cluster should run on any nod
 
 ## Upgrade MariaDB
 
-Centreon >= 21.10 comes with a compatibility with MariaDB 10.5.
+Centreon >= 22.04 comes with a compatibility with MariaDB 10.5.
 
 Upgrade of both database nodes following [official MariaDB upgrade procedure](../../upgrade/upgrade-from-19-10.md#Upgrade-the-MariaDB-server). 
 

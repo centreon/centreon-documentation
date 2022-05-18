@@ -162,6 +162,10 @@ methods, *broker* is just a table containing them. We can find here:
    success we get a table containing various informations about the file (see
    example below). Otherwise, this table is ``nil`` and a second return value
    is given containing an error message.
+6. ``md5(str)`` that computes the md5 of the string ``str`` and returns it
+   as a string.
+7. ``bbdo_version()`` that returns the BBDO version configured in Centreon
+   Broker.
 
 ```LUA
   local obj = {
@@ -285,6 +289,25 @@ should return something like this:
 If an error occurs, ``s`` is ``nil`` whereas ``err`` contains a string
 containing an error message.
 
+```LUA
+  local info = broker.md5('Hello World!')
+  print(info)
+```
+
+should return a string of the form:
+```
+  ed076287532e86365e841e92bfc50d8c
+```
+
+```LUA
+  local v = broker.bbdo_version()
+  print(v)
+```
+
+should return a string of the form:
+```
+  2.0.0
+```
 
 ### The *broker_cache* object
 

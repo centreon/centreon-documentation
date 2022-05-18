@@ -42,7 +42,7 @@ Le Plugin Pack Proxmox Mail Gateway collecte les données pour:
 
 ## Prérequis
 
-Afin de contrôler l'application Proxmox Mail Gateway, l'API Rest doit être configuré (cf: https://pmg.proxmox.com/pmg-docs/api-viewer/index)
+Afin de contrôler l'application Proxmox Mail Gateway, l'API Rest doit être configuré (cf: https://pmg.proxmox.com/pmg-docs/api-viewer/index.html)
 
 ## Installation
 

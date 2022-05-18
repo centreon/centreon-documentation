@@ -19,7 +19,7 @@ En utilisant le SXML, ce Plugin-Pack Cisco Call Manager, supervise les alertes d
 ### Métriques collectées
 
 Vous pouvez vous renseigner en détails sur les métriques présentées ci-après sur la documentation officielle 
-de Cisco Callmanager : https://www.cisco.com/c/en/us/support/docs/unified-communications/unified-communications-manager-callmanager/213291-real-time-monitoring-tool-alerts#anc8
+de Cisco Callmanager : https://www.cisco.com/c/en/us/support/docs/unified-communications/unified-communications-manager-callmanager/213291-real-time-monitoring-tool-alerts.html#anc8
 
 <Tabs groupId="sync">
 <TabItem value="Alerts" label="Alerts">
