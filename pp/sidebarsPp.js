@@ -1477,6 +1477,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-fortinet-fortiadc-snmp'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-fortinet-fortiauthenticator-snmp'
         },
         {
