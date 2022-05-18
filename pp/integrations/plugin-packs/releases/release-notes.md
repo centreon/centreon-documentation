@@ -61,7 +61,7 @@ import TabItem from '@theme/TabItem';
 - [**Nutanix**](../procedures/virtualization-nutanix-snmp.md) - Nutanix host discovery & new templates - Status: stable
 - [**Ruckus ICX SNMP**](../procedures/network-ruckus-icx-snmp.md) - Add new thresholds to Memory service
 - [**Huawei SNMP**](../procedures/network-huawei-snmp.md) - Add optical monitoring in interfaces check
-- [**Arista SNMP**](../procedures/ network-switchs-arista-snmp.md) - Change threshold options for Memory service
+- [**Arista SNMP**](../procedures/network-switchs-arista-snmp.md) - Change threshold options for Memory service
 - [**Veeam**](../procedures/applications-veeam-nrpe.md) - Add new services: Repositories and Licenses
 - [**Microsoft SQL Server**](../procedures/applications-databases-mssql.md) - Add new threshold to Backup-age service
 
@@ -141,15 +141,15 @@ import TabItem from '@theme/TabItem';
 - [**Microsens G6 SNMP**](../procedures/network-microsens-g6-snmp.md) - Initial release - Status: stable
 - [**Symbol WiNG SNMP**](../procedures/network-switchs-symbol-wing-snmp.md) - Initial release - Status: stable
 - [**Dynamics NSClient**](../procedures/applications-dynamics-ax-nsclient-05-nrpe.md) - Initial release - Status: stable
-- [**Dynamics AX Database**] - Initial release - Status: stable
-- [**"Dynamics 365**](../procedures/applications-dynamics-365-nsclient-05-nrpe.md) - Initial release - Status: stable
+- **Dynamics AX Database** - Initial release - Status: stable
+- [**Dynamics 365**](../procedures/applications-dynamics-365-nsclient-05-nrpe.md) - Initial release - Status: stable
 
 </TabItem>
 <TabItem value="Enhancements" label="Enhancements">
 
 - [**Fortinet Fortigate**](../procedures/network-firewalls-fortinet-fortigate-snmp.md) - Change threshold options - Status: stable
 - [**Amazon EBS**](../procedures/cloud-aws-ebs.md) - Add host discovery rule - Status: stable
-- [**VMWare**] - New services coming with VMWare connector 3.2.2 - Status: stable
+- **VMWare** - New services coming with VMWare connector 3.2.2 - Status: stable
 
 </TabItem>
 <TabItem value="Fix" label="Fix">
@@ -163,7 +163,7 @@ import TabItem from '@theme/TabItem';
 <TabItem value="Breaking changes" label="Breaking changes">
 
 - [**Office 365**](../procedures/cloud-microsoft-office365-management.md) - Use new microsoft api - Status: stable
-- [**Azure SQL Server**](../procedures/ cloud-azure-database-sqlserver.md) - Rewrite and extend - Status: stable
+- [**Azure SQL Server**](../procedures/cloud-azure-database-sqlserver.md) - Rewrite and extend - Status: stable
 - [**Azure SQL Database**](../procedures/cloud-azure-database-sqldatabase.md) - Rewrite and extend - Status: stable
 - [**Microsoft SQL Server**](../procedures/applications-databases-mssql.md) - Change thresholds for Backup-age service - Status: stable
 
