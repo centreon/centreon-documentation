@@ -2,34 +2,139 @@
 id: hardware-servers-lenovo-xcc-snmp
 title: Lenovo XCC SNMP
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-## Prerequisites
 
-### Centreon Plugin
+## Contenu du Pack
 
-Install this plugin on each needed poller:
+### Modèles
 
-``` shell
+Le Plugin Pack Centreon **Lenovo XCC SNMP** apporte un modèle d'hôte :
+
+* HW-Server-Lenovo-Xcc-SNMP-custom
+
+Il apporte le modèle de service suivant :
+
+| Alias           | Modèle de service                  | Description                    | Défaut |
+|:----------------|:-----------------------------------|:-------------------------------|:-------|
+| Hardware-Global | HW-Lenovo-Xcc-Hardware-Global-SNMP | Contrôle l'ensemble des sondes | X      |
+
+### Métriques & statuts collectés
+
+<Tabs groupId="sync">
+<TabItem value="Hardware-Global" label="Hardware-Global">
+
+Could not retrive metrics
+
+</TabItem>
+</Tabs>
+
+## Prérequis
+
+### Configuration SNMP
+
+Afin de superviser votre **Lenovo XCC SNMP** en SNMP,  il est nécessaire de configurer l'agent sur le serveur comme indiqué sur la documentation officielle :
+* [Lenovo XCC](https://lenovopress.lenovo.com/lp0880-xcc-support-on-thinksystem-servers)
+* [Configuring SNMPv3](https://sysmgt.lenovofiles.com/help/index.jsp?topic=%2Fcom.lenovo.systems.management.xcc.doc%2FNN1ia_c_configuringSNMP.html)
+
+### Flux réseau
+
+La communication doit être possible sur le port UDP 161 depuis le collecteur
+Centreon vers le serveur supervisé.
+
+## Installation
+
+<Tabs groupId="sync">
+<TabItem value="Online License" label="Online License">
+
+1. Installez le plugin sur tous les collecteurs Centreon devant superviser des ressources **Lenovo XCC SNMP** :
+
+```bash
 yum install centreon-plugin-Hardware-Servers-Lenovo-Xcc-Snmp
 ```
 
-## SNMP
+2. Sur l'interface web de Centreon, installez le Plugin Pack **Lenovo XCC SNMP** depuis la page **Configuration > Packs de plugins**.
 
-SNMP must be configured on the monitored host
+</TabItem>
+<TabItem value="Offline License" label="Offline License">
 
-## Centreon Configuration
+1. Installez le plugin sur tous les collecteurs Centreon devant superviser des ressources **Lenovo XCC SNMP** :
 
-### Create a new host
+```bash
+yum install centreon-plugin-Hardware-Servers-Lenovo-Xcc-Snmp
+```
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
-the following table:
+2. Sur le serveur central Centreon, installez le RPM du Plugin Pack **Lenovo XCC SNMP** :
 
-| Field                                | Value                            |
-| :----------------------------------- | :------------------------------- |
-| Host name                            | *Name of the host*               |
-| Alias                                | *Host description*               |
-| IP                                   | *Host IP Address*                |
-| Monitored from                       | *Monitoring Poller to use*       |
-| Host Multiple Templates              | HW-Server-Lenovo-Xcc-SNMP-custom |
+```bash
+yum install centreon-pack-hardware-servers-lenovo-xcc-snmp
+```
 
-Click on the *Save* button.
+3. Sur l'interface web de Centreon, installez le Plugin Pack **Lenovo XCC SNMP** depuis la page **Configuration > Packs de plugins**.
+
+</TabItem>
+</Tabs>
+
+## Configuration
+
+### hôte
+
+* Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
+* Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre serveur **Lenovo XCC SNMP**.
+* Appliquez le modèle d'hôte **HW-Server-Lenovo-Xcc-SNMP-custom**.
+
+Si vous utilisez SNMP en version 3, vous devez configurer les paramètres
+spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
+
+| Obligatoire | Macro            | Description                                  |
+|:------------|:-----------------|:---------------------------------------------|
+|             | SNMPEXTRAOPTIONS | Configurer vos paramètres de sécurité SNMPv3 |
+
+## Comment puis-je tester le plugin et que signifient les options des commandes ?
+
+Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
+de commande depuis votre collecteur Centreon en vous connectant avec
+l'utilisateur **centreon-engine** (`su - centreon-engine`) :
+
+```bash
+/usr/lib/centreon/plugins//centreon_lenovo_xcc_snmp.pl \
+    --plugin=hardware::server::lenovo::xcc::snmp::plugin \
+    --mode=hardware \
+    --hostname=10.0.0.1 \
+    --snmp-version='2c' \
+    --snmp-community='my-snmp-community' \
+    --component='.*' \
+    --verbose \
+    --use-new-perfdata
+```
+
+La commande devrait retourner un message de sortie similaire à :
+
+```bash
+OK: | 
+```
+
+La liste de toutes les options complémentaires et leur signification peut être
+affichée en ajoutant le paramètre `--help` à la commande :
+
+```bash
+/usr/lib/centreon/plugins//centreon_lenovo_xcc_snmp.pl \
+    --plugin=hardware::server::lenovo::xcc::snmp::plugin \
+    --mode=hardware \
+    --help
+```
+
+Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
+`--list-mode` à la commande :
+
+```bash
+/usr/lib/centreon/plugins//centreon_lenovo_xcc_snmp.pl \
+    --plugin=hardware::server::lenovo::xcc::snmp::plugin \
+    --list-mode
+```
+
+### Diagnostic des erreurs communes
+
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md)
+pour le diagnostic des erreurs communes des plugins Centreon.
