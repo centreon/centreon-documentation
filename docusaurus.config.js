@@ -87,6 +87,7 @@ const config = {
         routeBasePath: 'pp',
         sidebarPath: require.resolve('./pp/sidebarsPp.js'),
         breadcrumbs: false,
+        showLastUpdateTime: true,
       },
     ],
   ],
