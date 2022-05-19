@@ -6,7 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 Sur sa [page de téléchargement](https://download.centreon.com), Centreon fournit des machines virtuelles prêtes à l’emploi comprenant une installation de Centreon. Ces machines virtuelles sont disponibles au format OVA pour les environnements
-VMware et pour l'outil Oracle VirtualBox.
+VMware et pour l'outil Oracle VirtualBox :
 
 - centreon-vmware-vm-22.04-1.el8.ova.zip, VM basée sur Alma 8.6 et compatible avec vSphere 6.7 et supérieur
 
