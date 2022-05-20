@@ -16,7 +16,7 @@ const config = {
   organizationName: 'Centreon',
   projectName: 'Centreon Documentation',
   trailingSlash: true,
-  
+
   noIndex: true,
 
   i18n: {
@@ -40,14 +40,15 @@ const config = {
         docs: {
           breadcrumbs: false,
           admonitions: {},
-          editUrl: 'https://github.com/centreon/centreon-documentation/edit/next/',
-          editLocalizedFiles : true,
+          editUrl:
+            'https://github.com/centreon/centreon-documentation/edit/next/',
+          editLocalizedFiles: true,
           showLastUpdateTime: true,
           includeCurrentVersion: false,
-          onlyIncludeVersions: ['22.04'],
+          onlyIncludeVersions: ['22.10'],
           versions: {
-            22.04: {
-              label: '⭐ 22.04',
+            '22.10': {
+              label: '⭐ 22.10',
             },
           },
         },
@@ -64,7 +65,7 @@ const config = {
   ],
 
   scripts: [],
-  
+
   themes: [],
 
   plugins: [
@@ -87,7 +88,6 @@ const config = {
         routeBasePath: 'pp',
         sidebarPath: require.resolve('./pp/sidebarsPp.js'),
         breadcrumbs: false,
-        showLastUpdateTime: true,
       },
     ],
   ],
