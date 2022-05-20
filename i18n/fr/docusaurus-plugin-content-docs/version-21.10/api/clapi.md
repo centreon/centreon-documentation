@@ -1,6 +1,6 @@
 ---
 id: clapi
-title: Command Line API (v1)
+title: Command Line API (v1) - CLAPI
 ---
 
 > Cette documentation n'est disponible qu'en anglais.
