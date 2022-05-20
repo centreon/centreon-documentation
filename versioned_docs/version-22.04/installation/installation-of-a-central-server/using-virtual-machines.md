@@ -5,9 +5,13 @@ title: Using a virtual machine (VM)
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-On its [download page](https://download.centreon.com), Centreon provides a ready-to-use virtual machine. This virtual machine is available in OVA format for VMware environments and for Oracle VirtualBox. It is based on the **Linux CentOS 7** operating system and includes a Centreon installation that allows you to easily start your first monitoring.
+On its [download page](https://download.centreon.com), Centreon provides ready-to-use virtual machines with Centreon installed on them. These virtual machines are available in OVA format for VMware environments and for Oracle VirtualBox:
 
-The VM uses the **Thin Provision** option to save as much free space as possible on the disk (this is best practice).
+- centreon-vmware-vm-22.04-1.el8.ova.zip, based on Alma 8.6, compatible with vSphere 6.7 and later.
+
+- centreon-vbox-vm-22.04-1.el7.ova.zip, based on CentOS 7.9, compatible with Oracle VirtualBox and vSphere 6.0 and later.
+
+The VMs use the **Thin Provision** option to save as much free space as possible on the disk (this is best practice).
 
 **Prerequisites**
 
