@@ -14,4 +14,4 @@ Nous appliquons des correctifs lorsque cela est nécessaire et améliorons conti
 |Dans MBI, l'onglet **Paramètres du rapport** d'une tâche est vide (**Rapports > Monitoring Business Intelligence > Tâches**)|<ul><li>Allez à l'onglet **Configuration** de la tâche</li><li>Sélectionnez un modèle différent dans la liste **Modèle de rapport**</li><li>Sélectionnez le bon modèle de rapport</li><li>Retournez sur l'onglet **Paramètres du rapport**.</li></ul>|
 |L'Autologin ne fonctionne pas avec certaines pages : <ul><li>Monitoring > Resources Status</li><li>Configuration > Hosts > Discovery</li><li>Configuration > Business Activity > Business Views</li><li>Configuration > Business Activity > Business Activity</li></ul>||
 | Le contenu des pages n'est pas traduit selon la langue de l'utilisateur | Vous devez installer les langues sur votre système d'exploitation avec la commande suivante : <br /> `yum install -y glibc-all-langpacks` <br /> puis redémarrer PHP à l'aide de la commande suivante : <br /> `systemctl restart php-fpm` |
-
+| MBI ne fonctionne pas si les bases de données ont des noms personnalisés | Il n'existe actuellement pas de contournement. |

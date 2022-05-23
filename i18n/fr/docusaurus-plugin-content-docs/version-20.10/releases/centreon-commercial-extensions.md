@@ -19,6 +19,14 @@ commerciales, veuillez contacter le support.
 
 ## Centreon MAP
 
+### 20.10.10
+
+Release date: `April 20, 2022`
+
+#### Bugfixes
+
+- Link to MAP documentation on Monitoring > Centreon MAP Home Page now redirects to the correct documentation page.
+
 ### 20.10.9
 
 Release date: `March 1, 2022`

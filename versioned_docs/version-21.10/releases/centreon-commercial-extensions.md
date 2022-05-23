@@ -16,6 +16,19 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon MAP
 
+### 21.10.4
+
+Release date: `April 22, 2022`
+
+#### Enhancements
+
+- Link to MAP documentation on Monitoring > Centreon MAP Home Page now redirects to the correct documentation page.
+- Removed Centreon Map Desktop multi language installation on Windows installer
+
+#### Bug fixes
+
+- Fixed missing newline at the end of Centreon Map cron file
+
 ### 21.10.3
 
 Release date: `March 1, 2022`

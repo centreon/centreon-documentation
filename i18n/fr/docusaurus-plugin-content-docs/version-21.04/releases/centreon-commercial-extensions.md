@@ -19,6 +19,18 @@ commerciales, veuillez contacter le support.
 
 ## Centreon MAP
 
+### 21.04.6
+
+Release date: `April 26, 2022`
+
+#### Enhancements
+
+- Link to MAP documentation on Monitoring > Centreon MAP Home Page now redirects to the correct documentation page.
+
+#### Bug fixes
+
+- Fixed missing newline at the end of Centreon Map cron file
+
 ### 21.04.5
 
 Release date: `March 21, 2022`

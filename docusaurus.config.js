@@ -44,10 +44,13 @@ const config = {
           editLocalizedFiles: true,
           showLastUpdateTime: true,
           includeCurrentVersion: false,
-          onlyIncludeVersions: ['21.10', '21.04', '20.10', '20.04'],
+          onlyIncludeVersions: ['22.04', '21.10', '21.04', '20.10', '20.04'],
           versions: {
+            22.04: {
+              label: '⭐ 22.04',
+            },
             '21.10': {
-              label: '⭐ 21.10',
+              label: '21.10',
             },
             21.04: {
               label: '21.04',
@@ -101,6 +104,8 @@ const config = {
         routeBasePath: 'cloud',
         sidebarPath: require.resolve('./cloud/sidebarsCloud.js'),
         breadcrumbs: false,
+        editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
+        editLocalizedFiles: true,
       },
     ],
     [
@@ -111,6 +116,8 @@ const config = {
         routeBasePath: 'pp',
         sidebarPath: require.resolve('./pp/sidebarsPp.js'),
         breadcrumbs: false,
+        editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
+        editLocalizedFiles: true,
       },
     ],
   ],

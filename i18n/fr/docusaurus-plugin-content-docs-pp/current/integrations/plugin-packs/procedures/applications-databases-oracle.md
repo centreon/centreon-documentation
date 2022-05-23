@@ -7,17 +7,17 @@ import TabItem from '@theme/TabItem';
 
 ##  Vue d'ensemble
 
-Oracle est un système de gestion de base de données fourni par Oracle Corporation.
+Oracle est un système de gestion de bases de données fourni par Oracle Corporation.
 
-Le Plugin Centreon associé *Oracle Database* permet d'interroger l'API Rest afin de récupérer le status de diverses métrique sur le serveur Oracle.
+Le plugin Centreon associé **Oracle Database** permet d'interroger l'API Rest afin de récupérer le statut de diverses métriques sur le serveur Oracle.
 
-## Contenu du Plugin-Pack
+## Contenu du Plugin Pack
 
-###  Objets supervisés
+###  Objet supervisé
 
 * Serveur Oracle
 
-### Métriques Collectées
+### Métriques collectées
 
 <Tabs groupId="sync">
 <TabItem value="Connection-Time" label="Connection-Time">
@@ -91,7 +91,7 @@ Le Plugin Centreon associé *Oracle Database* permet d'interroger l'API Rest afi
 
 ### RPM
 
-Pour utiliser le Plugin-Pack Oracle, il est nécessaire d'installer l'outil de ligne de commande `wget` et la collection de compilateurs GNU (`gcc`).
+Pour utiliser le Plugin Pack Oracle, il est nécessaire d'installer l'outil de ligne de commande `wget` et la collection de compilateurs GNU (`gcc`).
 
 ```bash
 yum install -y gcc wget
@@ -99,8 +99,8 @@ yum install -y gcc wget
 
 ###  Oracle instant client
 
-Se connecter sur [Instant Client Downloads](https://www.oracle.com/database/technologies/instant-client/downloads.html),
-Choisir le groupe de paquets correspondant au système d'exploitation du Collecteur, et télécharger les paquets suivants :
+Se connecter sur [Instant Client Downloads](https://www.oracle.com/database/technologies/instant-client/downloads.html).
+Choisir le groupe de paquets correspondant au système d'exploitation du collecteur et télécharger les paquets suivants :
 
   - oracle-instantclient-basic
   - oracle-instantclient-sqlplus
@@ -114,9 +114,9 @@ rpm -ivh oracle-*.rpm
 
 ### Bibliothèque Perl pour Oracle
 
-> Remplacer 21.1 par la version d'instantclient installée
+> Remplacer 21.1 par la version d'instantclient installée.
 
-En tant que root, exécuter:
+En tant que **root**, exécuter :
 
 ```bash
 cd /usr/local/src 
@@ -129,7 +129,7 @@ export PATH=$ORACLE_HOME:$PATH
 perl Makefile.PL -m /usr/share/oracle/21/client64/demo/demo.mk
 ```
 
-Le message suivant devrait apparaître:
+Le message suivant devrait apparaître :
 
 ```text
 LD_RUN_PATH=/usr/lib/oracle/21/client64/lib*
@@ -138,19 +138,19 @@ Using DBI 1.52 (for perl 5.008008 on x86_64-linux-thread-multi) installed in /us
 Writing Makefile for DBD::Oracle
 ```
 
-Compiler la bibliothèque:
+Compiler la bibliothèque :
 
 ```bash
 make
 ```
 
-Puis l'installer:
+Puis l'installer :
 
 ```bash
 make install
 ```
 
-Puis créer le fichier: /etc/ld.so.conf.d/oracle.conf. Éditer et ajouter un lien vers la bibliothèque Perl d’Oracle :
+Puis créer le fichier : **/etc/ld.so.conf.d/oracle.conf**. Éditer et ajouter un lien vers la bibliothèque Perl d’Oracle :
 
 ```bash
 cat > /etc/ld.so.conf.d/oracle.conf <<EOF
@@ -158,7 +158,7 @@ cat > /etc/ld.so.conf.d/oracle.conf <<EOF
 EOF
 ```
 
-Parcourir le fichier et exécuter la commande défini ci-dessous:
+Parcourir le fichier et exécuter la commande définie ci-dessous :
 
 ```bash
 cd /usr/lib/oracle/21/client64/lib/
@@ -169,13 +169,22 @@ cd /usr/lib/oracle/21/client64/lib/
 
 La façon la plus sûre de récupérer des informations du serveur Oracle est de créer un utilisateur dédié à Centreon.
 
-Ce compte utilisateur doit avoir la permission de lecture sur les tables suivants :
+Ce compte utilisateur doit avoir la permission de lecture sur les tables suivantes :
 
   - dba\_free\_space
   - dba\_data\_files
   - dba\_temp\_files
   - dba\_segments
   - dba\_jobs
+  - dba\_objects
+  - DBA\_MVIEW\_refresh\_times
+  - dba\_indexes
+  - dba\_ind\_partitions
+  - dba\_ind\_subpartitions
+  - dba\_registry
+  - dba\_tablespaces
+  - DBA\_MVIEW\_refresh\_times
+  - DBA\_TABLESPACE\_USAGE\_METRICS
   - v$sysstat
   - v$sgastat
   - v$parameter
@@ -184,46 +193,63 @@ Ce compte utilisateur doit avoir la permission de lecture sur les tables suivant
   - v$filestat
   - v$log
   - v$instance
+  - V$ASM\_DISKGROUP
+  - v$database\_block\_corruption
+  - v$tempstat
+  - v$rowcache
+  - v$system\_event
+  - v$recovery\_area\_usage
+  - v$librarycache
+  - v$sql\_monitor
+  - v$resource\_limit
+  - v$rman\_status
+  - v$backup
+  - v$rman\_status
+  - v$rollstat
+  - v$resource\_limit
+  - v$tablespace
+  - v$event\_name
+  - v$waitstat
   
 ## Installation
 
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Installer le Plugin sur tous les collecteurs Centreon supervisant une base de données Oracle :
+1. Installer le plugin sur tous les collecteurs Centreon supervisant une base de données Oracle :
 
 ```bash
 yum install centreon-plugin-Applications-Databases-Oracle
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Oracle Database* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface web de Centreon, installer le Plugin Pack **Oracle Database** depuis la page **Configuration > Plugin packs > Manager**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Installer le Plugin sur tous les collecteurs Centreon supervisant une base de données Oracle :
+1. Installer le plugin sur tous les collecteurs Centreon supervisant une base de données Oracle :
 
 ```bash
 yum install centreon-plugin-Applications-Databases-Oracle
 ```
 
-2. Sur le serveur Central Centreon, installer le Plugin-Pack via le RPM:
+2. Sur le serveur Central Centreon, installer le Plugin Pack via le RPM :
 
 ```bash
 yum install centreon-pack-applications-databases-oracle
 ```
 
-3.  Sur l'interface Web de Centreon, installer le Plugin-Pack *Oracle Database* depuis la page "Configuration > Plugin packs > Manager"
+3.  Sur l'interface web de Centreon, installer le Plugin Pack **Oracle Database** depuis la page **Configuration > Plugin packs > Manager**.
 
 </TabItem>
 </Tabs>
 
 ## Configuration
 
-Toujours dans l'interface Web Centreon, aller à la page  *Configuration \> Hôstes* et cliquer sur *Ajouter*. Remplir alors les champs du formulaires. 
-Dans le champs *Modèles* cliquer sur *+ Ajouter une nouvelle entrée* puis sélectionner *App-DB-Oracle-custom*.
+Toujours dans l'interface web Centreon, aller à la page **Configuration > Hôtes** et cliquer sur **Ajouter**. Remplir les champs du formulaire. 
+Dans le champ **Modèles** cliquer sur **+ Ajouter une nouvelle entrée** puis sélectionner **App-DB-Oracle-custom**.
 
-Une fois celui-ci configuré, certaines macros doivent être renseignées:
+Une fois celui-ci configuré, certaines macros doivent être renseignées :
 
 | Mandatory   | Name                       | Description                                            |
 | :---------- | :------------------------- | :----------------------------------------------------- |
@@ -236,7 +262,7 @@ Une fois celui-ci configuré, certaines macros doivent être renseignées:
 ## FAQ
 ### Comment tester un contrôle en ligne de commandes et que signifient les options principales ?
 
-Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commandes depuis votre collecteur Centreon avec l'utilisateur *centreon-engine*:
+Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne de commandes depuis votre collecteur Centreon avec l'utilisateur **centreon-engine**:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_oracle.pl \
@@ -252,7 +278,7 @@ Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne d
 	--verbose 
 ```
 
-Exemple de sortie:
+Exemple de sortie :
 
 ```bash
 OK: All tablespaces are OK | 'tbs_sysaux_usage_sysaux'=552075272B;0:27596154624;0:29069940992;0;30595726360 'tbs_system_usage_system'=945684080B;0:27636154624;0:29065940982;0;30595527360 'tbs_temp_usage_temp'=0B;0:27536080897;0:29065863169;0;30595645450 'tbs_users_usage_users'=2818049B;0:27536154625;0:29065940993;0;30595727460
@@ -268,7 +294,7 @@ Il utilise les informations d'Oracle pour se connecter à la base de données (`
 
 Le seuil d'alerte est dépassé si le pourcentage d'espace utilisé dans une tablespace dépasse 90% (``` --warning-tablespace='90' ```). Le seuil critique est dépassé si ce pourcentage dépasse 98% (``` --critical-tablespace='98' ```).
 
-Toutes les options et leur utilisation peuvent être consultées avec le paramètre ```--help``` ajouté à la commande:
+Toutes les options et leur utilisation peuvent être consultées avec le paramètre ```--help``` ajouté à la commande :
 
 ```bash
 /usr/lib/centreon/plugins//centreon_oracle.pl \
@@ -277,7 +303,7 @@ Toutes les options et leur utilisation peuvent être consultées avec le paramè
 	--help
 ```
 
-Tous les modes fournis avec le plugin peuvent être consultées avec le paramètre ```--list-mode```:
+Tous les modes fournis avec le plugin peuvent être consultés avec le paramètre ```--list-mode``` :
 
 ```bash
 /usr/lib/centreon/plugins//centreon_oracle.pl \
@@ -285,14 +311,14 @@ Tous les modes fournis avec le plugin peuvent être consultées avec le paramèt
 	--list-mode
 ```
 
-### J'obtiens le message d'erreur suivant:   
+### J'obtiens le message d'erreur suivant :   
 
 #### ```UNKNOWN: Cannot connect: (no error string) |```
 
 Ce message d'erreur signifie que le plugin Centreon n'a pas pu se connecter à la base de données Oracle.
-Vérifier qu'une base de données Oracle est installée sur cet hôte. Vérifiez également qu'aucun pare-feu ne bloque la connexion.
+Vérifier qu'une base de données Oracle est installée sur cet hôte. Vérifier également qu'aucun pare-feu ne bloque la connexion.
 
 #### ```DBD::Oracle is not root directory |```
 
-Ce message d'erreur signifie que le module DBD::Oracle est installé sous le répertoire /root.
-Supprimer la variable d'environnement shell avec PERL et compiler DBD::Oracle Perl Module.
+Ce message d'erreur signifie que le module **DBD::Oracle** est installé sous le répertoire **/root**.
+Supprimer la variable d'environnement shell avec PERL et compiler **DBD::Oracle Perl Module**.
