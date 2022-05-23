@@ -872,7 +872,7 @@ Pour utiliser http2, vous devez suivre les étapes suivantes:
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-1. [Configurer le https pour Centreon](./secure-platform.md#passer-le-serveur-web-en-https)
+1. [Configurer le https pour Centreon](#passez-le-serveur-web-en-https)
 
 2. Installer le module nghttp2:
 
@@ -910,7 +910,7 @@ systemctl restart httpd
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
-1. [Configurer le https pour Centreon](./secure-platform.md#passer-le-serveur-web-en-https)
+1. [Configurer le https pour Centreon](#passez-le-serveur-web-en-https)
 
 2. Installer le module nghttp2:
 
