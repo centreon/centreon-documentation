@@ -910,7 +910,7 @@ systemctl restart httpd
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
-1. [Configurer le https pour Centreon](passez-le-serveur-web-en-https)
+1. [Configurer le https pour Centreon](#passez-le-serveur-web-en-https)
 
 2. Installer le module nghttp2:
 
