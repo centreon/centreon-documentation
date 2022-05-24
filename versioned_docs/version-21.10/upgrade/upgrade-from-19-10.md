@@ -451,6 +451,12 @@ systemctl start gorgoned
 systemctl enable gorgoned
 ```
 
+Restart **centengine**:
+
+```shell
+systemctl restart centengine
+```
+
 ### Post-upgrade actions
 
 Due to new configuration file format for Engine's Broker module, the
