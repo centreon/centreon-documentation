@@ -141,7 +141,7 @@ OK: Cluster 'TABZ37161Q01' status: ok, Usage Total: 62.17 TB Used: 59.78 TB (96.
 ```
 
 La liste de toutes les options complémentaires et leur signification peut être
-affichée en ajoutant le paramètre `--help` à la commande:
+affichée en ajoutant le paramètre `--help` à la commande :
 
 ```bash
 $CENTREONPLUGINS$/centreon_hp_storeonce3_restapi.pl \
