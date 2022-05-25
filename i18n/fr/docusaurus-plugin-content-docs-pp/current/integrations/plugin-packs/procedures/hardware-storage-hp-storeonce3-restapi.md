@@ -65,7 +65,7 @@ Il apporte les modèles de service suivants :
 ## Prérequis
 
 Ce Pack supporte uniquement les versions 3.x des équipements HP StoreOnce.
-Pour la supervision, un utilisateur avec les droits en lecture est nécessaire. Référez vous à la documentation officielle: https://support.hpe.com/hpesc/public/docDisplay?docId=c05273975
+Pour la supervision, un utilisateur avec les droits en lecture est nécessaire. Référez-vous à la documentation officielle : https://support.hpe.com/hpesc/public/docDisplay?docId=c05273975
 
 ## Installation
 
