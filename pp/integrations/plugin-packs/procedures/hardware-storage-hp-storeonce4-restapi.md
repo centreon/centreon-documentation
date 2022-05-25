@@ -118,13 +118,13 @@ yum install centreon-pack-hardware-storage-hp-storeonce4-restapi
 * Apply the **HW-Storage-Hp-Storeonce4-Restapi-custom** template to the host.
 * Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
 
-| Mandatory | Name                  | Description                                                                |
-| :-------- | :-------------------- | :------------------------------------------------------------------------- |
-| X           | CEPHAPIPORT         | Port used (Default: 8443)                                                  |
-| X           | CEPHAPIPROTO        | Specify http if needed (default: 'https')                                  |
-| X           | CEPHAPIUSERNAME     | Api username                                                               |
-| X           | CEPHAPIPASSWORD     | Api password                                                               |
-|             | CEPHAPIEXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
+| Mandatory | Name                     | Description                                                                |
+| :-------- | :----------------------- | :------------------------------------------------------------------------- |
+| X         | STOREONCEAPIPORT         | Port used (Default: 443)                                                   |
+| X         | STOREONCEAPIPROTO        | Specify http if needed (default: 'https')                                  |
+| X         | STOREONCEAPIUSERNAME     | Api username                                                               |
+| X         | STOREONCEAPIPASSWORD     | Api password                                                               |
+|           | STOREONCEAPIEXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
 
 ## How to check in the CLI that the configuration is OK and what are the main options for? 
 
