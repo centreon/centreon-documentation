@@ -26,6 +26,8 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 22.04.1
 
+Release date: `May 25, 2022`
+
 - Fixed the blank page when opening BAM configuration menu
 
 ### 22.04.0
