@@ -151,7 +151,7 @@ $CENTREONPLUGINS$/centreon_hp_storeonce3_restapi.pl \
 ```
 
 Tous les modes disponibles peuvent être affichés en ajoutant le paramètre 
-`--list-mode` à la commande:
+`--list-mode` à la commande :
 
 ```bash
 $CENTREONPLUGINS$/centreon_hp_storeonce3_restapi.pl \
