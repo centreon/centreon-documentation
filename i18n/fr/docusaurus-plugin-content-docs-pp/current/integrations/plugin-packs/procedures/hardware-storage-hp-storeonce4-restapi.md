@@ -73,7 +73,7 @@ Il apporte les modèles de service suivants :
 ## Prérequis
 
 Ce Pack supporte uniquement les versions 4.x des équipements HP StoreOnce.
-Pour la supervision, un utilisateur avec les droits en lecture est nécessaire. Référez vous à la documentation officielle: https://hewlettpackard.github.io/storeonce-rest/index.html
+Pour la supervision, un utilisateur avec les droits en lecture est nécessaire. Référez-vous à la documentation officielle : https://hewlettpackard.github.io/storeonce-rest/index.html
 
 ## Installation
 
