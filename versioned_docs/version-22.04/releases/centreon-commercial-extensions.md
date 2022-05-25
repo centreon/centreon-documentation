@@ -24,6 +24,10 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon BAM
 
+### 22.04.1
+
+- Fixed the blank page when opening BAM configuration menu
+
 ### 22.04.0
 
 - Compatibility with other 22.04 components.
