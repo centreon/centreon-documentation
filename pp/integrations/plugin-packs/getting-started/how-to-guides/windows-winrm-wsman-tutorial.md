@@ -84,8 +84,6 @@ We strongly discourage the utilization of an administrator account within Centre
 
 This section describes how to configure a local user and minimum privileges to monitor your server.
 
-You can spread this configuration across your Windows domain through a GPO policy.
-
 ### Create user
 
 Open a PowerShell with administrator privileges.
@@ -130,10 +128,8 @@ Select **Root** and click on **Security**:
 
 Click on **Add...**, select the **Remote Management Users** group and set the following permissions:
 
-* Execute Methods
 * Enable Account
 * Remote Enable
-* Read Security.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-tutorial/windows-winrm-wsman-wmi-configuration-4.png)
 
@@ -228,21 +224,21 @@ From here, your dedicated user is operational and can monitor your Windows serve
 * Extend **Forest > Domains > @DOMAIN_NAME@**
 * Right-click on **@DOMAIN_NAME@** and click on **Create a GPO in this domain, and link it here...**
 
-  ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-gpo-create-gpo.png)
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-gpo-create-gpo.png)
 
 * Name your GPO. In this example, we will name it **Enable WinRM**.
 * Right-click on the new GPO **Enable WinRM**, and click on **Edit...**
 
-  ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-gpo-edit.png)
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-gpo-edit.png)
 
 * In the **Group Policy Editor**, go to **Computer Configuration > Policies > Administrative Templates > Windows Components > Windows Remote Management (WinRM) > WinRM Service**.
 
-  ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-gpo-winrm.png)
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-gpo-winrm.png)
 
 * Enable the rule **Allow remote server management through WinRM**.
 * Add "\*" in **IPv4 filter** and **IPv6 filter**.
 
-  ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-gpo-enable-remote.png)
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-gpo-enable-remote.png)
 
 * Disable the following rules:
 
@@ -259,7 +255,7 @@ The result must look like this:
 In the same **Enable WinRM** GPO rule:
 * Go to **Computer Configuration > Preferences > Control Panel Settings > Services**.
 
-  ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-enable-service-1.png)
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-enable-service-1.png)
 
 * On the right panel right-click, then select **New** and **Service**
 * In **Startup** select **Automatic**
@@ -273,26 +269,26 @@ In the same **Enable WinRM** GPO rule:
 
 In the same **Enable WinRM** GPO rule:
 
-* Go to **Computer Configuration > Windows Settiengs > Security Settings > Windows Defender Firewall with Advanced Security > Windows Defender > Inbound Rules**:
+* Go to **Computer Configuration > Policies > Windows Settiengs > Security Settings > Windows Defender Firewall with Advanced Security > Windows Defender > Inbound Rules**:
 
-  ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-gpo-firewall-1.png)
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-gpo-firewall-1.png)
 
 * Right-click on the right panel and click on **New Rule...**
 * Click on **Port**, then on **Next**.
 
-  ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-firewall-1.png)
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-firewall-1.png)
 
 * Enter the value **5986** in the field for **Specific local ports** and click on **Next**.
 
-  ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-firewall-2.png)
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-firewall-2.png)
 
 * Check that **Allow the connection** is selected, then click **Next**.
 
-  ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-firewall-3.png)
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-firewall-3.png)
 
 * On the next page, select the firewall profiles for which the rule should apply, and click **Next**.
 
-  ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-firewall-4.png)
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-firewall-4.png)
 
 * On the next page, give the rule a name, then click **Finish**.
 
@@ -303,7 +299,7 @@ In the same **Enable WinRM** GPO rule:
 * Open the **Certification Authority** manager
 * Extend the left panel, right-click on **Certificate Templates**, then **Manage**.
 
-  ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-certificate-1.png)
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-certificate-1.png)
 
 * Right-click on the template **Web Server** and **Duplicate Template**.
 * On the **General** tab, name your template and check the following boxes:
@@ -311,12 +307,12 @@ In the same **Enable WinRM** GPO rule:
     * **Publish certificate in Active Directory**
     * **Do not automatically reenroll...**
     
-  ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-certificate-2.png)
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-certificate-2.png)
 
 * Go to the **Request Handling** tab.
 * Check the option **Allow private key to be exported**.
 
-  ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-certificate-3.png)
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-certificate-3.png)
 
 * Go to the **Security** tab.
 * Click on **Add...**, type **Domain Computers**
@@ -326,17 +322,17 @@ In the same **Enable WinRM** GPO rule:
     * **Enroll**
     * **Autoenroll**.
 
-  ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-certificate-4.png)
+ ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-certificate-4.png)
 
 * Go to the **Subject Name** tab.
 * Configure as shown below:
 
-  ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-certificate-5.png)
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-certificate-5.png)
 
 * Click on **OK** and close the **Certificate Template Console**.
 * In the **crtsrv** window, right-click on **Certificate Templates**, then click **New** and **Certificate Template to Issue**.
 
-  ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-certificate-6.png)
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-certificate-6.png)
 
 * Select the previously created **WinRM Cert** template, then click on **OK**.
 * Close the **certsrv** window.
@@ -348,17 +344,17 @@ In the same **Enable WinRM** GPO rule:
 * In the **Group Policy Manager**, create a new policy for the autoenrollment.
 * Right-click on this policy and click on **Edit...**
 
-  ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-certificate-7.png)
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-certificate-7.png)
 
-* In the **Group Policy Management Editor**, go to **Computer Configuration > Windows Settings > Security Settings > Public Key Policies**.
+* In the **Group Policy Management Editor**, go to **Computer Configuration > Policies > Windows Settings > Security Settings > Public Key Policies**.
 
-  ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-certificate-8.png)
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-certificate-8.png)
 
 * Double-click on **Certificate Service Client - Certificate Enrollement Policy**.
 * Set **Configuration Model** to **Enabled**.
 * Then click **OK**.
 
-  ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-certificate-9.png)
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-certificate-9.png)
 
 * Double-click on **Certificate Services Client - Auto-Enrollment**
 * Set **Configuration Model** to **Enabled**.
@@ -369,7 +365,7 @@ In the same **Enable WinRM** GPO rule:
 
 * Click on **OK**.
 
-  ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-certificate-10.png)
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-certificate-10.png)
 
 * Close the **Group Policy Manager Editor**.
 * In **Group Policy Mangement**, right-click on the Auto-Enrollment policy and click on **Enforced**.
@@ -409,7 +405,7 @@ Set-WSManInstance -ResourceURI winrm/config/Listener `
 winrm create winrm/config/Listener?Address=*+Transport=HTTPS "@{Hostname=".$FQDN.".;CertificateThumbprint=".$Thumbprint."}"
 ```
 
-* Copy this script in the following location to be able to massively deploy this script
+* Copy this script in the following location to be able to massively deploy it
 
 ``` bash
 \\<DOMAIN_NAME>\SYSVOL\<DOMAIN_NAME>\scripts
@@ -445,7 +441,7 @@ In our case it look like this:
 * Select the user **NT Authority\Systems**
 * Select **Run whether user is logged on or not**
 * Check **Run with highest privileges**
-
+    
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-https-5.png)
 
 * Go in the **Triggers** tab
@@ -458,7 +454,7 @@ In our case it look like this:
 * Click on **OK**
 
 > The repeat task parameter is necessary when new servers join the domain.
-> the script might get executed before that certificate gets issued.
+> The script might get executed before that certificate gets issued.
 > With that parameter, we ensure that the task will be executed at least once after the WinRM certificate is issued.
 > If any member of the community knows what event can be used to trigger this task to only be executed the next after the certificate is issued, we will be more than happy to get your feedback to adapt this procedure
 
@@ -489,11 +485,11 @@ On your Active Directory server:
 * In the left panel, select **@DOMAIN NAME@ > Users**.
 * Right-click on the right panel and select **New > User**.
 
-  ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-user-1.png)
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-user-1.png)
 
 * Create your user.
 
-  ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-user-2.png)
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-user-2.png)
 
 * Set up the password
 * Uncheck option **User must change password at next logon**
@@ -504,7 +500,7 @@ On your Active Directory server:
 
 * Click **Next**, then **Finish**
     
-  ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-user-3.png)
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-user-3.png)
 
 * In the left panel go to **Builtin**.
 * Add the service user as member of the following groups:
@@ -514,12 +510,12 @@ On your Active Directory server:
     * **Performance Monitor Users**
     * **Remote Management Users**
 
-  ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-user-4.png)
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-user-4.png)
 
 * Go back to the **Group Policy Manager** and edit the rule **Enable WinRM**
-* Go to **Computer Configuration > Windows Settings > Security Settings > Restricted Groups**
+* Go to **Computer Configuration > Policies > Windows Settings > Security Settings > Restricted Groups**
 
-  ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-user-5.png)
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-user-5.png)
 
 * Right-click on the right panel and click on **Add Group...**
 * Click on **Browse...**
@@ -528,7 +524,7 @@ On your Active Directory server:
 * Then add your service user in the "Member of this group:" section
 * Click **OK**
 
-  ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-user-6.png)
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-user-6.png)
 
 * Repeat the process for all builtin groups:
     * Event Log Readers
@@ -538,7 +534,7 @@ On your Active Directory server:
 
 When all configuration is done, it should look like that:
 
-  ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-user-7.png)
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-user-7.png)
 
 ### Configure WMI permissions
 
@@ -890,7 +886,7 @@ Set-Item -Path WSMan:\localhost\Service\RootSDDL -Value $new_sddl -Force
 On your Domain Controler
 
 * Go back in your **Enable WinRM** policy
-* Go to **Computer Configuration > Windows settigns > Security Settings > File System**
+* Go to **Computer Configuration > Policies> Windows settigns > Security Settings > File System**
 * Right-click on the right panel and select **Add File...**
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-file-system-1.png)
@@ -940,7 +936,34 @@ In our example, it looks like this:
 #### Renew Kerberos ticket
 
 Kerberos authentication tickets expire every 10h, disconnecting the centreon-engine user and disabling the authentication process.
-We will automatically renew the authentication ticket every 9h through a cron job to work around this issue.
+On top of it, Kerberos tickets have a lifetime of 7 days.
+We will automatically renew the authentication ticket every 9h, as well as reinitialize lifetime every Saturday through a cron job to work around this issue.
+
+You will have to create a "keytab" file associated with your service account to allow reconnection without a password for the reinitialization part.
+
+Run the following command line replacing **@USERNAME@** with the correct value.
+
+``` bash
+kutil
+addent -password -p @USERNAME@ -k 1 -e RC4-HMAC
+wkt /var/lib/centreon-engine/@USERNAME@.keytab
+q
+```
+
+Copy the "keytab" in the home directory of the centreon-engine and centreon-gorgone user and change the "keytab" file's permissions.
+
+Run the following command line replacing **@USERNAME@** with the correct value.
+
+``` bash
+cp /var/lib/centreon-engine/@USERNAME@.keytab /var/lib/centreon-engine/
+chmod centreon-engine. /var/lib/centreon-engine/@USERNAME@.keytab
+
+cp /var/lib/centreon-engine/@USERNAME@.keytab /var/lib/centreon-gorgone/
+chmod centreon-gorgone. /var/lib/centreon-gorgone/@USERNAME@.keytab
+```
+
+
+Create cron job, replacing **@USERNAME@** with the correct value
 
 ``` bash
 cat <<EOF > /etc/cron.d/kerberos
@@ -953,19 +976,24 @@ PATH=/sbin:/bin:/usr/sbin:/usr/bin
 # rewrite file with new cron line
 CRONTAB_EXEC_USER=""
 
-############################
+############################ Renew ticket
 0 */9 * * *  centreon-engine kinit -R
 0 */9 * * *  centreon-gorgone kinit -R
+
+
+############################ Reinitilaize ticket liftime
+0 0 * * 6  centreon-engine kinit -k -t @USERNAME@.keytab @USERNAME@
+0 0 * * 6  centreon-gorgone kinit -k -t @USERNAME@.keytab @USERNAME@
 EOF
 ```
 
-Now, restart the crond process.
+Restart the crond process.
 
 ``` bash
 systemctl restart crond
 ```
 
-Everything is now configured to monitor your Windows servers using WSMAN with a service user account with an encrypted protocol.
+Everything is now configured to monitor your Windows servers using WSMAN with a service user account with an end-to-end encrypted protocol.
 
 ### How to test your configuration from your Centreon poller
 
@@ -977,7 +1005,6 @@ OK: CPU(s) average usage is 0.84 % - CPU '0' usage: 0.84 % | 'cpu.utilization.pe
 > This authentication method requires you to use the DNS name of your Windows server, or Kerberos will not allow the connection.
 > Option `--wsman-auth-method='gssnegotiate'` is mandatory to use a domain account.
 > As the Centreon system users (centreon-engine and centreon-gorgone) are already authenticated through the **kinit** command, you don't need to fill up the options **wsman-username** and  **wsman-password**
-
 
 </TabItem>
 </Tabs>
