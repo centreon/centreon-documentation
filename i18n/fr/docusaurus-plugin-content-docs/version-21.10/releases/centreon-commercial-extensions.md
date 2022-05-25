@@ -15,6 +15,13 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 ## Centreon MAP
 
+
+### 21.10.5
+
+- Fixed regressions on API's endpoints due to springboot version
+- Fixed Weather styled elements are not showing any image
+- Change label in map home page about server ip address
+
 ### 21.10.4
 
 Release date: `April 22, 2022`
