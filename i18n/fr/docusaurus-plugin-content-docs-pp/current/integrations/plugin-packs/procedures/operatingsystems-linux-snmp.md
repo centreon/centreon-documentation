@@ -196,6 +196,19 @@ Dans le formulaire de création de l'hôte sur l'interface Web de Centreon, il e
 | :---------- | :--------------- | :--------------------------------------------- |
 |             | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo    |
 
+Association entre les options 'snmpwalk' et 'centreon-plugins' :
+
+| snmpwalk  | centreon-plugins       |
+| :-------: | :--------------------- |
+| -a        | --authprotocol         |
+| -A        | --authpassphrase       |
+| -u        | --snmp-username        |
+| -x        | --privprotocol         |
+| -X        | --privpassphrase       |
+| -l        | not needed (automatic) |
+| -e        | --securityengineid     |
+| -E        | --contextengineid      |
+
 ## FAQ
 
 ### Comment tester un contrôle en ligne de commande et que signifient les options principales ?
