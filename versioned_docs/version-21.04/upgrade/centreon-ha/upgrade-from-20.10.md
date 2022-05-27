@@ -59,8 +59,11 @@ Then upgrade all the components with the following command:
 
 ```shell
 yum update centreon\*
-yum install centreon-ha-web centreon-ha-common
+yum install centreon-ha-web-21.04.0 centreon-ha-common-21.04.0
 yum autoremove centreon-ha
+yum update centreon-ha\*
+mv /etc/centreon-ha/centreon_central_sync.pm.rpmsave /etc/centreon-ha/centreon_central_sync.pm
+mv /etc/centreon-ha/mysql-resources.sh.rpmsave /etc/centreon-ha/mysql-resources.sh
 ```
 
 </TabItem>
@@ -70,16 +73,20 @@ On the Central Servers:
 
 ```shell
 yum update centreon\*
-yum install centreon-ha-web centreon-ha-common
+yum install centreon-ha-web-21.04.0 centreon-ha-common-21.04.0
 yum autoremove centreon-ha
+yum update centreon-ha\*
+mv /etc/centreon-ha/centreon_central_sync.pm.rpmsave /etc/centreon-ha/centreon_central_sync.pm
 ```
 
 On the Database Servers:
 
 ```shell
 yum update centreon\*
-yum install centreon-ha-common
+yum install centreon-ha-common-21.04.0
 yum autoremove centreon-ha
+yum update centreon-ha\*
+mv /etc/centreon-ha/mysql-resources.sh.rpmsave /etc/centreon-ha/mysql-resources.sh
 ```
 
 </TabItem>
@@ -147,6 +154,26 @@ rm /etc/cron.d/centstorage
 rm /etc/cron.d/centreon-auto-disco
 ```
 
+### Clean broker memory files
+
+> **WARNING** perform these commands only the active central node.
+Before resuming the cluster resources management, to avoid broker issues, cleanup all the *.memory.*, *.unprocessed.* or *.queue.* files:
+```bash
+systemctl stop cbd-sql
+rm -rf /var/lib/centreon-broker/central-broker-master.memory*
+rm -rf /var/lib/centreon-broker/central-broker-master.queue*
+rm -rf /var/lib/centreon-broker/central-broker-master.unprocessed*
+systemctl start cbd-sql
+```
+
+Then perform these commands on the passive central node:
+
+```bash
+rm -rf /var/lib/centreon-broker/central-broker-master.memory*
+rm -rf /var/lib/centreon-broker/central-broker-master.queue*
+rm -rf /var/lib/centreon-broker/central-broker-master.unprocessed*
+```
+
 ### Restart Centreon process
 
 Then to restart all the processes on the active central node:
@@ -178,7 +205,7 @@ You have to uninstall then reinstall MariaDB to upgrade between major versions (
 1. Stop the mariadb service:
 
     ```shell
-    systemctl stop mariadb
+    mysqladmin -p shutdown
     ```
 
 2. Uninstall the current version (MariaDB-shared is possibly not installed, remove it from this command if it's the case):
@@ -197,13 +224,19 @@ You have to uninstall then reinstall MariaDB to upgrade between major versions (
     yum install MariaDB-server-10.5\* MariaDB-client-10.5\* MariaDB-shared-10.5\* MariaDB-compat-10.5\* MariaDB-common-10.5\*
     ```
 
-4. Start the mariadb service:
+4. Move the configuration file:
+
+   ```shell
+   mv /etc/my.cnf.d/server.cnf.rpmsave /etc/my.cnf.d/server.cnf
+   ```
+
+5. Start the mariadb service:
 
     ```shell
-    systemctl start mariadb
+    mysqld_safe &
     ```
 
-5. Launch the MariaDB upgrade process:
+6. Launch the MariaDB upgrade process:
 
     ```shell
     mysql_upgrade
@@ -230,19 +263,13 @@ The replication thread will be down after the upgrade. To restart it
 Run this command **on the secondary node:**
 
 ```bash
-systemctl stop mysql
+mysqladmin -p shutdown
 ```
 
 It is important to make sure that MariaDB is completely shut down. You will run this command and check that it returns no output:
 
 ```bash
-ps -ef | grep mysql[d]
-```
-
-In case one or more process are still alive, then run this other command (it will prompt for the MariaDB root password):
-
-```bash
-mysqladmin -p shutdown
+ps -ef | grep mariadb[d]
 ```
 
 Once the service is stopped **on the secondary node**, you will run the synchronization script **from the primary node**:
@@ -264,18 +291,6 @@ Connection Status '@CENTRAL_MASTER_NAME@' [OK]
 Connection Status '@CENTRAL_SLAVE_NAME@' [OK]
 Slave Thread Status [OK]
 Position Status [OK]
-```
-
-### Clean broker memory files
-
-> **WARNING** perform this command only the passive central node.
-
-Before resuming the cluster resources management, to avoid broker's issues, cleanup all the *.memory.* or *.unprocessed.* or *.queue.* broker files on:
-
-```bash
-rm -rf /var/lib/centreon-broker/central-broker-master.memory*
-rm -rf /var/lib/centreon-broker/central-broker-master.queue*
-rm -rf /var/lib/centreon-broker/central-broker-master.unprocessed*
 ```
 
 ## Resuming the cluster resources management
