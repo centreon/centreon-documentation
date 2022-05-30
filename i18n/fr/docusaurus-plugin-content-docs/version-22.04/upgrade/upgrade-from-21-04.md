@@ -191,6 +191,8 @@ Notamment, assurez-vous que votre configuration Apache personnalisée contient l
 </LocationMatch>
 ```
 
+> Si vous utilisiez OpenID ou l'authentification Web SSO, des étapes de configuration supplémentaires sont nécessaires. Voir la [note de release](../releases/centreon-core.md#breaking-changes).
+
 ### Finalisation de la mise à jour
 
 <Tabs groupId="sync">

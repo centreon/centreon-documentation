@@ -139,6 +139,8 @@ Notamment, assurez-vous que votre configuration Apache personnalisée contient l
 </LocationMatch>
 ```
 
+> Si vous utilisiez l'authentification Web SSO, des étapes de configuration supplémentaires sont nécessaires. Voir la [note de release](../releases/centreon-core.md#breaking-changes).
+
 ### Montée de version du serveur MariaDB
 
 Les composants MariaDB peuvent maintenant être mis à jour.
