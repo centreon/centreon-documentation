@@ -5,16 +5,16 @@ title: Dell N-series SNMP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Pack Assets
+## Contenu du Pack
 
-### Templates
+### Modèles
 
-The Centreon Pack Dell N-series brings a host template:
+Le Pack Centreon Dell N-series apporte un modèle d'hôte :
 * Net-Dell-Nseries-SNMP-custom
 
-It brings the following service templates:
+Il apporte les modèles de service suivants :
 
-| Service Alias | Service Template                    | Default | Discovery |
+| Alias         | Modèle de services                  | Défaut | Découverte |
 |:--------------|:------------------------------------|:--------|:----------|
 | Cpu           | Net-Dell-Nseries-Cpu-SNMP           | X       |           |
 | Environment   | Net-Dell-Nseries-Environment-SNMP   | X       |           |
@@ -23,22 +23,22 @@ It brings the following service templates:
 | Memory        | Net-Dell-Nseries-Memory-SNMP        | X       |           |
 | Uptime        | Net-Dell-Nseries-Uptime-SNMP        |         |           |
 
-### Discovery rules
+### Règles de découverte
 
 <Tabs groupId="sync">
 <TabItem value="Service" label="Service">
 
-| Rule name                            | Description                                         |
-|:-------------------------------------|:----------------------------------------------------|
-| Net-Dell-Nseries-SNMP-Interface-Name | Discover network interfaces and monitor utilization |
+| Nom de la règle                      | Description                                                 |
+|:-------------------------------------|:------------------------------------------------------------|
+| Net-Dell-Nseries-SNMP-Interface-Name | Découvre les interfaces réseaux et supervise le statut et l'utilisation |
 
-More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
-and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
+Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
+pour en savoir plus sur la découverte automatique de services et sa [planification](https://docs.centreon.com/fr/docs/monitoring/discovery/services-discovery/#r%C3%A8gles-de-d%C3%A9couverte).
 
 </TabItem>
 </Tabs>
 
-### Collected metrics & status
+### Métriques & statuts collectés
 
 <Tabs groupId="sync">
 <TabItem value="Cpu" label="Cpu">
@@ -97,69 +97,69 @@ and in the [following chapter](/docs/monitoring/discovery/services-discovery/#di
 </TabItem>
 </Tabs>
 
-## Prerequisites
+## Prérequis
 
-### SNMP Configuration
+### Configuration SNMP
 
-To use this Pack, the SNMP service must be properly configured on your device.
+Afin de superviser votre équipement, le SNMP v2 ou v3 doit être configuré.
 
-### Network flow
+### Flux réseau
 
-The target equipment must be reachable from the Centreon Poller on the UDP/161 SNMP
-port.
+La communication doit être possible sur le port UDP 161 depuis le collecteur
+Centreon vers l'équipement supervisé.
 
-## Setup
+## Installation
 
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon plugin package on every Centreon poller expected to monitor **Dell N-series SNMP** resources:
+1. Installer le plugin Centreon sur tous les collecteurs Centreon devant superviser des ressources **Dell N-series SNMP** :
 
 ```bash
 yum install centreon-plugin-Network-Dell-Nseries-Snmp
 ```
 
-2. On the Centreon web interface, install the **Dell N-series SNMP** Centreon Pack on the **Configuration > Plugin Packs** page.
+2. Sur l'interface web de Centreon, installer le Pack **Dell N-series SNMP** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon plugin package on every Centreon poller expected to monitor **Dell N-series SNMP** resources:
+1. Installer le plugin Centreon sur tous les collecteurs Centreon devant superviser des ressources **Dell N-series SNMP** :
 
 ```bash
 yum install centreon-plugin-Network-Dell-Nseries-Snmp
 ```
 
-2. Install the **Dell N-series SNMP** Centreon Pack RPM on the Centreon Central server:
+2. Sur le serveur central Centreon, installer le RPM du Pack **Dell N-series SNMP** :
 
 ```bash
 yum install centreon-pack-network-dell-nseries-snmp
 ```
 
-3. On the Centreon web interface, install the **Dell N-series SNMP** Centreon Pack on the **Configuration > Plugin Packs** page.
+3. Sur l'interface web de Centreon, installer le Pack **Dell N-series SNMP** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>
 
 ## Configuration
 
-### Host
+### Hôte
 
-* Log into Centreon and add a new host through **Configuration > Hosts**.
-* Fill the **Name**, **Alias** & **IP Address / DNS** fields according to your **Dell N-series SNMP** equipment settings.
-* Apply the **Net-Dell-Nseries-SNMP-custom** template to the host.
-* Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
+* Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**
+* Complétez les champs **Nom**, **Alias** & **IP Address / DNS** correspondant à votre équipement **Dell N-series SNMP**.
+* Appliquez le modèle d'hôte **Net-Dell-Nseries-SNMP-custom**.
+* Une fois le modèle appliqué, les macros ci-dessous indiquées comme requises (**Obligatoire**) doivent être renseignées.
 
-| Mandatory | Name             | Description                                              |
-| :-------- | :--------------- | :------------------------------------------------------- |
-|           | SNMPEXTRAOPTIONS | (Default: 'Configure your own SNMPv3 credentials combo') |
+| Obligatoire | Nom              | Description                                              |
+| :---------- | :--------------- | :------------------------------------------------------- |
+|             | SNMPEXTRAOPTIONS | (Default: 'Configure your own SNMPv3 credentials combo') |
 
-## How to check in the CLI that the configuration is OK and what are the main options for? 
+## Comment puis-je tester le Plugin et que signifient les options des commandes ? 
 
-Once the plugin is installed, log into your Centreon poller's CLI using the
-**centreon-engine** user account (`su - centreon-engine`) and test the plugin by
-running the following command:
+Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
+de commande depuis votre collecteur Centreon en vous connectant avec
+l'utilisateur **centreon-engine** (`su - centreon-engine`) :
 
 ```bash
 /usr/lib/centreon/plugins/centreon_dell_nseries_snmp.pl \
@@ -172,14 +172,14 @@ running the following command:
     --critical=''
 ```
 
-The expected command output is shown below:
+La commande devrait retourner un message de sortie similaire à :
 
 ```bash
 OK: CPU Usage: 44.13%% (5sec), 34.23%% (1min), 24.10% (5min) | 'cpu.utilization.5s.percentage'=44.13%;;;0;100 'cpu.utilization.1m.percentage'=34.23%;;;0;100 'cpu.utilization.5m.percentage'=24.10%;;;0;100 
 ```
 
-All available options for a given mode can be displayed by adding the
-`--help` parameter to the command:
+La liste de toutes les options complémentaires et leur signification peut être
+affichée en ajoutant le paramètre `--help` à la commande :
 
 ```bash
 /usr/lib/centreon/plugins/centreon_dell_nseries_snmp.pl \
@@ -188,8 +188,8 @@ All available options for a given mode can be displayed by adding the
     --help
 ```
 
-All available modes can be displayed by adding the `--list-mode` parameter to
-the command:
+Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
+`--list-mode` à la commande :
 
 ```bash
 /usr/lib/centreon/plugins/centreon_dell_nseries_snmp.pl \
@@ -197,7 +197,7 @@ the command:
     --list-mode
 ```
 
-### Troubleshooting
+### Diagnostic des erreurs communes
 
-Please find the [troubleshooting documentation](../getting-started/how-to-guides/troubleshooting-plugins.md)
-for Centreon Plugins typical issues.
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md)
+pour le diagnostic des erreurs communes des plugins Centreon.
