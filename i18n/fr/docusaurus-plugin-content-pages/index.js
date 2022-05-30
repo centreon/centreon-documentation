@@ -10,7 +10,8 @@ const links = {
   doc: {
     cloud: '/fr/cloud/getting-started/architecture',
     gettingstarted: '/fr/docs/getting-started/installation-first-steps',
-    pluginpacks: '/fr/pp/integrations/plugin-packs/getting-started/introduction',
+    pluginpacks:
+      '/fr/pp/integrations/plugin-packs/getting-started/introduction',
     prerequisite: '/fr/docs/installation/prerequisites',
     installation: '/fr/docs/installation/introduction',
     monitoring: '/fr/pp/integrations/plugin-packs/getting-started/introduction',
@@ -22,7 +23,7 @@ const links = {
   contribute:
     'https://github.com/centreon/centreon/blob/master/CONTRIBUTING.md',
   banner:
-    'https://thewatch.centreon.com/',
+    'https://thewatch.centreon.com/latest-news-37/centreon-22-04-is-now-available-621',
 };
 
 const stringsAndParagraphs = {
@@ -125,7 +126,7 @@ function SummitBlock() {
     <div className={clsx(styles.bannerCustom)}>
       <div className={clsx(styles.bannerImage)}>
         <a href={links.banner} target={'_blank'}>
-          <img src={basePathImg + 'thewatch-banner-fr.png'} />
+          <img src={basePathImg + 'spring-release-bannner-fr-22.04.png'} />
         </a>
       </div>
     </div>
@@ -290,7 +291,7 @@ export default function Home() {
   return (
     <Layout
       title={`Bienvenue dans la Documentation Centreon`}
-      description='La plateforme de supervision informatique orientée AIOps de Centreon offre une visibilité globale des workflows les plus complexes, du cloud jusqu’au Edge.'
+      description="La plateforme de supervision informatique orientée AIOps de Centreon offre une visibilité globale des workflows les plus complexes, du cloud jusqu’au Edge."
     >
       <main>
         <ExcellenceBlock />

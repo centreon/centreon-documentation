@@ -19,8 +19,10 @@ const links = {
   thewatch: 'https://thewatch.centreon.com/',
   twitter: 'https://twitter.com/Centreon',
   linkedin: 'https://www.linkedin.com/company/centreonsoftware',
-  contribute:'https://github.com/centreon/centreon/blob/master/CONTRIBUTING.md',
-  banner: 'https://thewatch.centreon.com/',
+  contribute:
+    'https://github.com/centreon/centreon/blob/master/CONTRIBUTING.md',
+  banner:
+    'https://thewatch.centreon.com/latest-news-37/centreon-22-04-is-now-available-621',
 };
 
 const stringsAndParagraphs = {
@@ -62,7 +64,11 @@ const stringsAndParagraphs = {
 const Button = (props) => {
   return (
     <div>
-      <a className={clsx(styles.button, styles.buttonLink)} href={props.href} target={props.target}>
+      <a
+        className={clsx(styles.button, styles.buttonLink)}
+        href={props.href}
+        target={props.target}
+      >
         {props.label}
       </a>
     </div>
@@ -87,7 +93,9 @@ const Card = (props) => {
 function ExcellenceBlock() {
   return (
     <header className={clsx(styles.heroBanner, styles.bgLightBlue)}>
-      <h1 className={clsx(styles.containerBlockh1)}>{stringsAndParagraphs.excellenceBlock.title}</h1>
+      <h1 className={clsx(styles.containerBlockh1)}>
+        {stringsAndParagraphs.excellenceBlock.title}
+      </h1>
       <p className={clsx(styles.subTitle)}>
         {stringsAndParagraphs.excellenceBlock.subTitle}
       </p>
@@ -117,7 +125,7 @@ function SummitBlock() {
     <div className={clsx(styles.bannerCustom)}>
       <div className={clsx(styles.bannerImage)}>
         <a href={links.banner} target={'_blank'}>
-          <img src={basePathImg + 'thewatch-banner-en.png'}/>
+          <img src={basePathImg + 'spring-release-bannner-en-22.04.png'} />
         </a>
       </div>
     </div>
@@ -126,9 +134,14 @@ function SummitBlock() {
 
 function PrerequisiteBlock() {
   return (
-    <div className={clsx(styles.mainContainer, styles.containerBlockPrerequisite)}>
+    <div
+      className={clsx(styles.mainContainer, styles.containerBlockPrerequisite)}
+    >
       <div>
-        <img className={clsx(styles.imageSectionPrerequisite)} src={basePathImg + 'image-prerequisite-block.svg'} />
+        <img
+          className={clsx(styles.imageSectionPrerequisite)}
+          src={basePathImg + 'image-prerequisite-block.svg'}
+        />
       </div>
       <div className={clsx(styles.containerContentPrerequisite)}>
         <h2 className={clsx(styles.titleSection)}>
@@ -148,9 +161,18 @@ function PrerequisiteBlock() {
 
 function InstallationBlock() {
   return (
-    <div className={clsx(styles.mainContainer, styles.bgLightBlue, styles.containerBlockInstallation)}>
+    <div
+      className={clsx(
+        styles.mainContainer,
+        styles.bgLightBlue,
+        styles.containerBlockInstallation
+      )}
+    >
       <div>
-        <img className={clsx(styles.imageSectionInstallation)} src={basePathImg + 'image-installation-block.svg'} />
+        <img
+          className={clsx(styles.imageSectionInstallation)}
+          src={basePathImg + 'image-installation-block.svg'}
+        />
       </div>
       <div className={clsx(styles.containerContentInstallation)}>
         <h2 className={clsx(styles.titleSection)}>
@@ -170,9 +192,14 @@ function InstallationBlock() {
 
 function MonitoringBlock() {
   return (
-    <div className={clsx(styles.mainContainer, styles.containerBlockMonitoring)}>
+    <div
+      className={clsx(styles.mainContainer, styles.containerBlockMonitoring)}
+    >
       <div>
-        <img className={clsx(styles.imageSectionMonitoring)} src={basePathImg + 'image-monitoring-block.svg'} />
+        <img
+          className={clsx(styles.imageSectionMonitoring)}
+          src={basePathImg + 'image-monitoring-block.svg'}
+        />
       </div>
       <div className={clsx(styles.containerContentMonitoring)}>
         <h2 className={clsx(styles.titleSection)}>
@@ -192,7 +219,13 @@ function MonitoringBlock() {
 
 function CommunityBlock() {
   return (
-    <div className={clsx(styles.mainContainer, styles.borderTop, styles.containerBlock)}>
+    <div
+      className={clsx(
+        styles.mainContainer,
+        styles.borderTop,
+        styles.containerBlock
+      )}
+    >
       <h2 className={clsx(styles.titleSectionCommunity)}>
         {stringsAndParagraphs.communityBlock.title}
       </h2>
@@ -200,22 +233,22 @@ function CommunityBlock() {
         <ul className={clsx(styles.socialSet)}>
           <a href={links.thewatch} target={'_blank'}>
             <li>
-            <img src={basePathImg + 'social-network/thewatch.png'} />
+              <img src={basePathImg + 'social-network/thewatch.png'} />
             </li>
           </a>
           <a href={links.github} target={'_blank'}>
             <li className={clsx(styles.bgDm)}>
-            <img src={basePathImg + 'social-network/github.svg'} />
+              <img src={basePathImg + 'social-network/github.svg'} />
             </li>
           </a>
           <a href={links.twitter} target={'_blank'}>
             <li>
-            <img src={basePathImg + 'social-network/twitter.svg'} />
+              <img src={basePathImg + 'social-network/twitter.svg'} />
             </li>
           </a>
           <a href={links.linkedin} target={'_blank'}>
             <li>
-            <img src={basePathImg + 'social-network/linkedin.svg'} />
+              <img src={basePathImg + 'social-network/linkedin.svg'} />
             </li>
           </a>
         </ul>
@@ -226,7 +259,13 @@ function CommunityBlock() {
 
 function HeartOpenSourceBlock() {
   return (
-    <div className={clsx(styles.mainContainer, styles.containerBlock, styles.bgLightPurple)}>
+    <div
+      className={clsx(
+        styles.mainContainer,
+        styles.containerBlock,
+        styles.bgLightPurple
+      )}
+    >
       <div className={clsx(styles.containerContentOpenSource)}>
         <h2 className={clsx(styles.titleSectionOpenSource)}>
           {stringsAndParagraphs.heartOpenSourceBlock.title}
@@ -247,19 +286,20 @@ function HeartOpenSourceBlock() {
 }
 
 export default function Home() {
-  const {siteConfig} = useDocusaurusContext();
+  const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
       title={`Welcome to ${siteConfig.title}`}
-      description='Description will go into a meta tag in <head />'>
+      description="Description will go into a meta tag in <head />"
+    >
       <main>
-      <ExcellenceBlock />
-      <SummitBlock />
-      <PrerequisiteBlock />
-      <InstallationBlock />
-      <MonitoringBlock />
-      <CommunityBlock />
-      <HeartOpenSourceBlock />
+        <ExcellenceBlock />
+        <SummitBlock />
+        <PrerequisiteBlock />
+        <InstallationBlock />
+        <MonitoringBlock />
+        <CommunityBlock />
+        <HeartOpenSourceBlock />
       </main>
     </Layout>
   );

@@ -37,6 +37,20 @@ yum update
 > Acceptez toutes les clés GPG proposées et pensez à redémarrer votre serveur
 > si une mise à jour du noyau est proposée.
 
+Si vous installez Centreon sur AlmaLinux/RHEL/OracleLinux 8, et que vous comptez utiliser Centreon en français, espagnol ou portugais, installez les paquets correspondants :
+
+```shell
+dnf install glibc-langpack-fr
+dnf install glibc-langpack-es
+dnf install glibc-langpack-pt
+```
+
+Vous pouvez utiliser la commande suivante pour vérifier quelles langues sont installées sur votre système :
+
+```shell
+locale -a
+```
+
 ## Étape 1 : pré-installation
 
 ### Désactiver SELinux

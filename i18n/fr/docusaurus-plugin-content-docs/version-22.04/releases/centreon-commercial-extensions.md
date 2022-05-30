@@ -23,6 +23,12 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 ## Centreon BAM
 
+### 22.04.1
+
+Release date: `May 25, 2022`
+
+- Fixed the blank page when opening BAM configuration menu
+
 ### 22.04.0
 
 - Compatibility with other 22.04 components.

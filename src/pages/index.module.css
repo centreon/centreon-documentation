@@ -259,12 +259,12 @@
 
 .bannerCustom {
   padding: 0;
-  background: #685BC7;
+  background: #685bc7;
 }
 
 .bannerImage {
   max-width: initial;
-  padding: 20px 0;
+  padding: 0;
   min-width: fit-content;
   display: flex;
   flex-wrap: nowrap;
@@ -273,26 +273,31 @@
   justify-content: space-around;
 }
 
-html[data-theme="dark"] .textOpenSource {
+html[data-theme='dark'] .textOpenSource {
   color: #f5f6f7;
 }
-html[data-theme="dark"] .titleSectionCommunity {
+html[data-theme='dark'] .titleSectionCommunity {
   color: #0072ce;
 }
-html[data-theme="dark"] .containerBlockh1 {
+html[data-theme='dark'] .containerBlockh1 {
   color: #f5f6f7;
 }
-html[data-theme="dark"] .subTitle {
+html[data-theme='dark'] .subTitle {
   color: #f5f6f7;
 }
 
-html[data-theme="dark"] .imageContainer, html[data-theme="dark"] .imageSectionPrerequisite,  html[data-theme="dark"] .imageSectionInstallation, html[data-theme="dark"] .imageSectionMonitoring, html[data-theme="dark"] .imageSectionOpenSource, html[data-theme="dark"] .imageSectionCommunity {
+html[data-theme='dark'] .imageContainer,
+html[data-theme='dark'] .imageSectionPrerequisite,
+html[data-theme='dark'] .imageSectionInstallation,
+html[data-theme='dark'] .imageSectionMonitoring,
+html[data-theme='dark'] .imageSectionOpenSource,
+html[data-theme='dark'] .imageSectionCommunity {
   background: #a9a9a973;
   border-radius: 6px;
   padding: 2%;
 }
 
-html[data-theme="dark"] .bgDm img {
+html[data-theme='dark'] .bgDm img {
   background: #f5f6f7;
   border-radius: 6px;
 }
