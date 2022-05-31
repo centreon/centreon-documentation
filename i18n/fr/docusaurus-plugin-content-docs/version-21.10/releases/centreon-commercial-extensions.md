@@ -19,7 +19,7 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 ### 21.10.5
 
 - Fixed regressions on API endpoints due to spring boot version
-- Fixed Weather styled elements are not showing any image
+- Fixed weather styled elements that were not showing any image
 - Change label in map home page about server ip address
 
 ### 21.10.4
