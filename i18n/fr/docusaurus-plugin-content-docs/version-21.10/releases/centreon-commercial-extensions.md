@@ -18,6 +18,8 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 ### 21.10.5
 
+Release date: `May 30, 2022`
+
 - Fixed regressions on API endpoints due to spring boot version
 - Fixed weather styled elements that were not showing any image
 - Changed label in MAP home page about server IP address
