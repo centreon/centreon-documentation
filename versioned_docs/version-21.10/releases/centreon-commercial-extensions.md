@@ -18,7 +18,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 21.10.5
 
-- Fixed regressions on API endpoints due to spring boot version
+- Fixed regressions on API endpoints due to Spring Boot version
 - Fixed Weather styled elements are not showing any image
 - Change label in map home page about server ip address
 
