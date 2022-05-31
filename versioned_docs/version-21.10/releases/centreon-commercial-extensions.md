@@ -16,6 +16,14 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon MAP
 
+### 21.10.5
+
+Release date: `May 30, 2022`
+
+- Fixed regressions on API endpoints due to Spring Boot version
+- Fixed weather styled elements that were not showing any image
+- Changed label in MAP home page about server IP address
+
 ### 21.10.4
 
 Release date: `April 22, 2022`
