@@ -22,7 +22,7 @@ Release date: `May 30, 2022`
 
 - Fixed regressions on API endpoints due to Spring Boot version
 - Fixed weather styled elements that were not showing any image
-- Change label in map home page about server ip address
+- Changed label in MAP home page about server IP address
 
 ### 21.10.4
 
