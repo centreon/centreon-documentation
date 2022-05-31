@@ -21,7 +21,7 @@ If you have feature requests or want to report a bug, please contact support.
 Release date: `May 30, 2022`
 
 - Fixed regressions on API endpoints due to Spring Boot version
-- Fixed Weather styled elements are not showing any image
+- Fixed weather styled elements that were not showing any image
 - Change label in map home page about server ip address
 
 ### 21.10.4
