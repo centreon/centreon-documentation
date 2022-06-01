@@ -218,3 +218,9 @@ Start and enable **gorgoned**:
 systemctl start gorgoned
 systemctl enable gorgoned
 ```
+
+Restart **centengine**:
+
+```shell
+systemctl restart centengine
+```

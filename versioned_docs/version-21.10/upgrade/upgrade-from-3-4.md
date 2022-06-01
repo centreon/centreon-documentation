@@ -496,6 +496,12 @@ systemctl start gorgoned
 systemctl enable gorgoned
 ```
 
+Restart **centengine**:
+
+```shell
+systemctl restart centengine
+```
+
 If the Centreon BAM module is installed, refer to the
 [upgrade procedure](../service-mapping/upgrade.md).
 
