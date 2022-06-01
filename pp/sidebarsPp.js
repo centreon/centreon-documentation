@@ -262,6 +262,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-active-directory-wsman'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-biztalk'
         },
         {
