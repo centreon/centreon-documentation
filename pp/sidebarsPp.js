@@ -2168,7 +2168,11 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/hardware-storage-hp-storeonce-restapi'
+          id: 'integrations/plugin-packs/procedures/hardware-storage-hp-storeonce3-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-storage-hp-storeonce4-restapi'
         },
         {
           type: 'doc',
