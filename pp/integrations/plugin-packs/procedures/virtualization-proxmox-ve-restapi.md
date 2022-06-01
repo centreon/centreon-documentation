@@ -25,8 +25,8 @@ It brings the following service templates:
 <Tabs groupId="sync">
 <TabItem value="Host" label="Host">
 
-| Rule Name          | Description                      |
-|:-------------------|:---------------------------------|
+| Rule Name          | Description                       |
+|:-------------------|:----------------------------------|
 | Proxmox VM         | Discover Proxmox virtual machines |
 
 More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
