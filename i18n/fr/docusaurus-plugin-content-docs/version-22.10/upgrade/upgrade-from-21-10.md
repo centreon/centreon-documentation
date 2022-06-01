@@ -222,3 +222,9 @@ Démarrez et activez **gorgoned**:
 systemctl start gorgoned
 systemctl enable gorgoned
 ```
+
+Redémarrez **centengine**:
+
+```shell
+systemctl restart centengine
+```
