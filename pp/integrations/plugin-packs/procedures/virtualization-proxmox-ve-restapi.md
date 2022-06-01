@@ -27,7 +27,7 @@ It brings the following service templates:
 
 | Rule Name          | Description                      |
 |:-------------------|:---------------------------------|
-| Proxmox VM         | Discover Proxmox virtal machines |
+| Proxmox VM         | Discover Proxmox virtual machines |
 
 More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
 
