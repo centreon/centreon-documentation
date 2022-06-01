@@ -3290,9 +3290,14 @@ centreon -u admin -p 'centreon' -o HOST -a setmacro -v "Centreon-Server;warning;
 centreon -u admin -p 'centreon' -o HOST -a setmacro -v "Centreon-Server;critical;90;0;description of macro"
 ```
 
-The second number, just before the description, can be:
-  * 0 for a normal macro
-  * 1 for a password macro
+The required parameters are the following:
+| Order    | Description                              |
+| -------- | ---------------------------------------- |
+| 1        | Host name                                |
+| 2        | Macro name                               |
+| 3        | Macro value                              |
+| 4        | 1 for a password macro, 0 otherwise      |
+| 5        | Description of macro                     |
 
 > ***NOTE:*** If the macro already exists, this action will only update the macro value. Otherwise, macro will be created.
 
@@ -4666,6 +4671,16 @@ In order to set a macro for a specific service use the **SETMACRO** action:
 centreon -u admin -p 'centreon' -o SERVICE -a setmacro -v "test;ping;time;80;0;description of macro"
 centreon -u admin -p 'centreon' -o SERVICE -a setmacro -v "test;ping;pl;400;0;description of macro"
 ```
+
+The required parameters are the following:
+| Order    | Description                              |
+| -------- | ---------------------------------------- |
+| 1        | Host name                                |
+| 2        | Service name                             |
+| 3        | Macro name                               |
+| 4        | Macro value                              |
+| 5        | 1 for a password macro, 0 otherwise      |
+| 6        | Description of macro                     |
 
 > ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
