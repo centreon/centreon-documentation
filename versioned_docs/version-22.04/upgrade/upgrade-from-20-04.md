@@ -136,6 +136,8 @@ In particular, make sure your customized Apache configuration contains the follo
 </LocationMatch>
 ```
 
+> If you were using the Web SSO authentication, some extra configuration steps are required. Refer to the [release note](../releases/centreon-core.md#breaking-changes).
+
 ### Upgrade the MariaDB server
 
 The MariaDB components can now be upgraded.
@@ -302,6 +304,12 @@ Start and enable **gorgoned**:
 ```shell
 systemctl start gorgoned
 systemctl enable gorgoned
+```
+
+Restart **centengine**:
+
+```shell
+systemctl restart centengine
 ```
 
 ## Secure your platform
