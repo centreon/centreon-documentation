@@ -110,7 +110,7 @@ Pour déplacer l’ordre des macros, cliquez sur ![image](../../assets/configura
 * Le champ **URL** définit une URL qui peut être utilisée pour donner davantage d’informations sur l’hôte. L'URL doit commencer par  `http://` ou `https://`. Elle peut contenir des [macros](../basic-objects/macros.md).
 * Le champ **Notes** permet d’ajouter des notes optionnelles concernant l’hôte. Elles seront affichées sous forme d'infobulle sur l'URL ci-dessus.
 * Le champ **Action URL** définit une URL habituellement utilisée pour donner des informations d’actions sur l’hôte
-  (maintenance...). L'URL doit commencer par  `http://` ou `https://`. Elle peut contenir des [macros](../basic-objects/macros.md).
+  (maintenance...). L'URL doit commencer par  `http://`, `https://` ou `ssh://`. Elle peut contenir des [macros](../basic-objects/macros.md).
 * Le champ **Icon** indique l’icône à utiliser pour l’hôte.
 * Le champ **Alt Icon** est le texte utilisé si l’icône ne peut être affichée.
 * Le champ **Severity level** indique le niveau de criticité de l’hôte.

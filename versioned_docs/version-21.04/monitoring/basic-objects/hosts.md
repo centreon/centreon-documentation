@@ -107,7 +107,7 @@ To change the order of the macros, click on ![image](../../assets/configuration/
 
 * **URL**: defines a URL that can be used to give more information on the host. The URL must start with `http://` or `https://`. It can contain [macros](../basic-objects/macros.md).
 * **Notes**: the text in this field will be displayed as a tooltip on the icon for the URL defined above.
-* **Action URL**: defines a URL for giving information on actions on the host (maintenance, etc.). The URL must start with `http://` or `https://`. It can contain [macros](macros.md).
+* **Action URL**: defines a URL for giving information on actions on the host (maintenance, etc.). The URL must start with `http://`, `https://` or `ssh://`. It can contain [macros](macros.md).
 * **Icon**: specifies an icon to be displayed next to the host.
 * **Alt Icon**: the text that will appear if the icon cannot be displayed.
 * **Severity level**: indicates the severity level of the host.
