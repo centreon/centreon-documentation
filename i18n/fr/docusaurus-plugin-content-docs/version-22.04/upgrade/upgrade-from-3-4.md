@@ -162,6 +162,8 @@ Notamment, assurez-vous que votre configuration Apache personnalisée contient l
 </LocationMatch>
 ```
 
+> Si vous utilisiez l'authentification Web SSO, des étapes de configuration supplémentaires sont nécessaires. Voir la [note de release](../releases/centreon-core.md#breaking-changes).
+
 ### Actions complémentaires
 
 #### Mise à jour du serveur Web Apache
@@ -537,6 +539,12 @@ Démarrez et activez **gorgoned**:
 ```shell
 systemctl start gorgoned
 systemctl enable gorgoned
+```
+
+Redémarrez **centengine**:
+
+```shell
+systemctl restart centengine
 ```
 
 ### Actions post montée de version

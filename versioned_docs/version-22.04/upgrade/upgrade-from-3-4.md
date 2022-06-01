@@ -157,6 +157,8 @@ In particular, make sure your customized Apache configuration contains the follo
 </LocationMatch>
 ```
 
+> If you were using the Web SSO authentication, some extra configuration steps are required. Refer to the [release note](../releases/centreon-core.md#breaking-changes).
+
 ### Additional actions
 
 #### Update the Apache web server
@@ -520,6 +522,12 @@ Start and enable **gorgoned**:
 ```shell
 systemctl start gorgoned
 systemctl enable gorgoned
+```
+
+Restart **centengine**:
+
+```shell
+systemctl restart centengine
 ```
 
 If the Centreon BAM module is installed, refer to the
