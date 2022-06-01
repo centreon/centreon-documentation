@@ -3289,6 +3289,7 @@ centreon -u admin -p 'centreon' -o HOST -a setmacro -v "Centreon-Server;critical
 ```
 
 The required parameters are the following:
+
 | Order    | Description                              |
 | -------- | ---------------------------------------- |
 | 1        | Host name                                |
