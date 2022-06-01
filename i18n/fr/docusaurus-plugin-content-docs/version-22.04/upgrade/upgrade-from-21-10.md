@@ -101,6 +101,8 @@ diff -u /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf /opt/rh/httpd24/r
 
 Pour chaque différence entre les fichiers, évaluez si celle-ci doit être reportée du fichier **10-centreon.conf.rpmnew** au fichier **10-centreon.conf**.
 
+> Si vous utilisiez OpenID ou l'authentification Web SSO, des étapes de configuration supplémentaires sont nécessaires. Voir la [note de release](../releases/centreon-core.md#breaking-changes).
+
 ### Finalisation de la mise à jour
 
 <Tabs groupId="sync">

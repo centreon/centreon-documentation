@@ -157,6 +157,8 @@ In particular, make sure your customized Apache configuration contains the follo
 </LocationMatch>
 ```
 
+> If you were using the Web SSO authentication, some extra configuration steps are required. Refer to the [release note](../releases/centreon-core.md#breaking-changes).
+
 ### Additional actions
 
 #### Update the Apache web server

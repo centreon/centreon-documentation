@@ -72,6 +72,7 @@ yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/ce
 </Tabs>
 
 > Si vous avez une édition Business, installez également le dépôt Business. Vous pouvez en trouver l'adresse sur le [portail support Centreon](https://support.centreon.com/s/repositories).
+
 ### Montée de version de PHP
 
 Centreon 22.04 utilise PHP en version 8.0.
@@ -203,6 +204,8 @@ Notamment, assurez-vous que votre configuration Apache personnalisée contient l
     ProxyPassMatch fcgi://127.0.0.1:9042/usr/share/centreon/api/index.php/$1
 </LocationMatch>
 ```
+
+> Si vous utilisiez OpenID ou l'authentification Web SSO, des étapes de configuration supplémentaires sont nécessaires. Voir la [note de release](../releases/centreon-core.md#breaking-changes).
 
 ### Montée de version du serveur MariaDB
 
