@@ -1410,7 +1410,7 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/network-dell-n4000'
+          id: 'integrations/plugin-packs/procedures/network-dell-nseries-snmp'
         },
         {
           type: 'doc',

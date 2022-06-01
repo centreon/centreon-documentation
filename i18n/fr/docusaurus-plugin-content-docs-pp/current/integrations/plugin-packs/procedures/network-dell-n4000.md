@@ -1,49 +1,10 @@
 ---
 id: network-dell-n4000
-title: Dell N4000
+title: Dell N4000 (Deprecated)
 ---
 
-## Prerequisites
+## **ATTENTION** Ce Pack est déprécié
 
-### Centreon Plugin
+Ce Pack n'est plus maintenu et ne doit pas être utilisé. Il a été remplacé par le Pack `Dell N-series SNMP`.
 
-Install this plugin on each needed poller:
-
-``` shell
-yum install centreon-plugin-Network-Dell-N4000
-```
-
-Be sure to have with you the following information:
-
-  - Read-Only SNMP community
-  - IP Address of the equipment
-
-### Configure SNMP on your equipment
-
-Follow constructor procedure for your equipment.
-
-### SNMP Permissions
-
-Read-Only access.
-
-### Troubleshooting
-
-Read [Troubleshooting
-SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#troubleshooting-snmp).
-
-## Centreon Configuration
-
-### Create a host using the appropriate template
-
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
-the following table:
-
-| Field                                | Value                      |
-| :----------------------------------- | :------------------------- |
-| Host name                            | *Name of the host*         |
-| Alias                                | *Host description*         |
-| IP                                   | *Host IP Address*          |
-| Monitored from                       | *Monitoring Poller to use* |
-| Host Multiple Templates              | Net-Dell-n4000-custom      |
-
-Click on the *Save* button.
+Référez vous à [cette procédure](network-dell-nseries-snmp.md)
