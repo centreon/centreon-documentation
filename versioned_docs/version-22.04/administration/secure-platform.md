@@ -392,16 +392,164 @@ Status for the jail: centreon
 
 ## Enable HTTPS on the web server
 
-By default, Centreon installs a web server in HTTP mode. It is strongly recommended to switch to HTTPS mode by adding your certificate.
+By default, Centreon installs a web server in HTTP mode. It is strongly recommended to switch to HTTPS mode by adding your certificate. It is also recommended to use a certificate validated by an authority rather than a self-signed one. 
 
-It is better to use a certificate validated by an authority rather than a self-signed one. However, in case the self-signed method suits you more, you can refer to the [appropriate section](#securing-the-apache-web-server-with-a-self-signed-certificate).
+- If you already have a certificate validated by an authority, you can go directly to this [step](#activating-https-mode-on-your-apache-server) to activate HTTPS mode on your Apache server.
 
-If you do not have a certificate validated by an authority, you can generate one on platforms such as [Let's Encrypt](https://letsencrypt.org/).
+- If you do not have a certificate validated by an authority, you can generate one on platforms such as [Let's Encrypt](https://letsencrypt.org/).
 
-> Once your web server is set to HTTPS mode, if you have a MAP server on your platform, you have to set it to HTTPS mode too, otherwise
-> recent web browsers may block communication between the two servers. The procedure is detailed [here](../graph-views/secure-your-map-platform.md#Configure-HTTPS/TLS-on-the-MAP-server).
+- If you need to create a certificate with the self-signed method, follow this [step](#securing-the-apache-web-server-with-a-self-signed-certificate) before activating HTTPS mode on your server.
 
-Once you have your certificate, perform the following procedure to activate HTTPS mode on your Apache server:
+### Securing the Apache web server with a self-signed certificate
+
+Let's assume that we have a Centreon server with a `centreon7.localdomain` FQDN address.
+
+1. Preparation of the openssl configuration
+
+Due to a policy change at google, self-signed certificates may be rejected by the Google Chrome browser (it is not even possible to add an exception). To continue using this browser, you have to change the openssl configuration.
+
+Open the file `/etc/pki/tls/openssl.cnf` and find the `[v3_ca]` section:
+
+```text
+# Add the alt_names tag that allows you to inform our various IPs and FQDNs for the server
+[ alt_names ]
+IP.1 = xxx.xxx.xxx.xxx
+DNS.1 = centreon7.localdomain
+# If you have several IP (HA: vip + ip)
+# IP.2 = xxx.xxx.xxx.xxx
+[ v3_ca ]
+subjectAltName = @alt_names
+```
+
+2. Creating a private key for the server
+
+Let's create a private key named `centreon7.key` without a password so that it can be used by the apache service.
+```text
+openssl genrsa -out centreon7.key 2048
+```
+
+Protect your file by limiting rights:
+```text
+chmod 400 centreon7.key
+```
+
+3. Creation of a certificate signing request file 
+
+From the key you created, create a CSR (Certificate Signing Request) file. Fill in the fields according to your company. The "Common Name" field must be identical to the hostname of your apache server (in our case it is centreon7.localdomain).
+```text
+openssl req -new -key centreon7.key -out centreon7.csr
+```
+
+4. Creation of a private key for the certificate authority's certificate
+
+First, create a private key for this authority. We add the -aes256 option to encrypt the output key and include a password. This password will be requested each time this key is used.
+```text
+openssl genrsa -aes256 2048 > ca_demo.key
+```
+
+5. Creation of the x509 certificate from the private key of the certificate authority's certificate
+
+Next, create a x509 certificate that will be valid for one year.
+
+>  Note that it is necessary to simulate a trusted third party, so the "Common Name" must be different from the server certificate.
+```text
+openssl req -new -x509 -days 365 -key ca_demo.key -out ca_demo.crt
+```
+
+The certificate being created, you will be able to use it to sign your server certificate.
+
+6. Creating a certificate for the server
+
+Use the x509 certificate to sign your certificate for the server
+```text
+openssl x509 -req -in centreon7.csr -out centreon7.crt -CA ca_demo.crt -CAkey ca_demo.key -CAcreateserial -CAserial ca_demo.srl  -extfile /etc/pki/tls/openssl.cnf -extensions v3_ca
+```
+
+The CAcreateserial option is only needed the first time. The previously created password must be entered. You get your server certificate named centreon7.crt.
+
+You can view the contents of the : 
+```text
+less centreon7.crt
+```
+
+7. Copy files to apache configuration
+
+Copy the private key of the server and the previously signed server certificate.
+```text
+cp centreon7.key /etc/pki/tls/private/centreon7.key
+cp centreon7.crt /etc/pki/tls/certs/
+```
+8. Update Apache configuration file
+
+Finally, update `SSLCertificateFile` and `SSLCertificateKeyFile` parameters appropriately in your apache configuration file located in `/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf` for CentOS7 (or in `/etc/httpd/conf.d/10-centreon.conf` for Alma/RHEL/Oracle Linux 8).
+Here is an example of how the file should look like:
+
+```apacheconf
+Define base_uri "/centreon"
+Define install_dir "/usr/share/centreon"
+
+ServerTokens Prod
+
+<VirtualHost *:80>
+    RewriteEngine On
+    RewriteCond %{HTTPS} off
+    RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+</VirtualHost>
+
+<VirtualHost *:443>
+    #####################
+    # SSL configuration #
+    #####################
+    SSLEngine On
+    SSLProtocol All -SSLv3 -SSLv2 -TLSv1 -TLSv1.1
+    SSLCipherSuite ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-DSS-AES256-GCM-SHA384:DHE-DSS-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-GCM-SHA256:!aNULL:!eNULL:!LOW:!3DES:!MD5:!EXP:!PSK:!DSS:!RC4:!SEED:!ADH:!IDEA
+    SSLHonorCipherOrder On
+    SSLCompression Off
+    SSLCertificateFile /etc/pki/tls/certs/centreon7.crt
+    SSLCertificateKeyFile /etc/pki/tls/private/centreon7.key
+
+    Alias ${base_uri}/api ${install_dir}
+    Alias ${base_uri} ${install_dir}/www/
+
+    <LocationMatch ^\${base_uri}/?(?!api/latest/|api/beta/|api/v[0-9]+/|api/v[0-9]+\.[0-9]+/)(.*\.php(/.*)?)$>
+        ProxyPassMatch "fcgi://127.0.0.1:9042${install_dir}/www/$1"
+    </LocationMatch>
+
+    <LocationMatch ^\${base_uri}/?(authentication|api/(latest|beta|v[0-9]+|v[0-9]+\.[0-9]+))/.*$>
+        ProxyPassMatch "fcgi://127.0.0.1:9042${install_dir}/api/index.php/$1"
+    </LocationMatch>
+
+    ProxyTimeout 300
+    ErrorDocument 404 ${base_uri}/index.html
+    Options -Indexes +FollowSymLinks
+
+    <IfModule mod_security2.c>
+        # https://github.com/SpiderLabs/ModSecurity/issues/652
+        SecRuleRemoveById 200003
+    </IfModule>
+
+    <Directory "${install_dir}/www">
+        DirectoryIndex index.php
+        AllowOverride none
+        Require all granted
+        FallbackResource ${base_uri}/index.html
+    </Directory>
+
+    <Directory "${install_dir}/api">
+        AllowOverride none
+        Require all granted
+    </Directory>
+
+    <If "'${base_uri}' != '/'">
+        RedirectMatch ^/$ ${base_uri}
+    </If>
+</VirtualHost>
+```
+9. You will have to retrieve the certificate file x509 ca_demo.crt and import this file into your browser's certificate manager.
+
+Now you have your certificate, you can perform the following procedure to activate HTTPS mode on your Apache server.
+
+### Activating HTTPS mode on your Apache server
 
 1. Install SSL module for Apache:
 
@@ -674,154 +822,8 @@ If everything is ok, you must have:
 </TabItem>
 </Tabs>
 
-### Securing the Apache web server with a self-signed certificate
-
-Let's assume that we have a Centreon server with a `centreon7.localdomain` FQDN address.
-
-1. Preparation of the openssl configuration
-
-Due to a policy change at google, self-signed certificates may be rejected by the Google Chrome browser (it is not even possible to add an exception). To continue using this browser, you have to change the openssl configuration.
-
-Open the file `/etc/pki/tls/openssl.cnf` and find the `[v3_ca]` section:
-
-```text
-# Add the alt_names tag that allows you to inform our various IPs and FQDNs for the server
-[ alt_names ]
-IP.1 = xxx.xxx.xxx.xxx
-DNS.1 = centreon7.localdomain
-# If you have several IP (HA: vip + ip)
-# IP.2 = xxx.xxx.xxx.xxx
-[ v3_ca ]
-subjectAltName = @alt_names
-```
-
-2. Creating a private key for the server
-
-Let's create a private key named `centreon7.key` without a password so that it can be used by the apache service.
-```text
-openssl genrsa -out centreon7.key 2048
-```
-
-Protect your file by limiting rights:
-```text
-chmod 400 centreon7.key
-```
-
-3. Creation of a certificate signing request file 
-
-From the key you created, create a CSR (Certificate Signing Request) file. Fill in the fields according to your company. The "Common Name" field must be identical to the hostname of your apache server (in our case it is centreon7.localdomain).
-```text
-openssl req -new -key centreon7.key -out centreon7.csr
-```
-
-4. Creation of a private key for the certificate authority's certificate
-
-First, create a private key for this authority. We add the -aes256 option to encrypt the output key and include a password. This password will be requested each time this key is used.
-```text
-openssl genrsa -aes256 2048 > ca_demo.key
-```
-
-5. Creation of the x509 certificate from the private key of the certificate authority's certificate
-
-Next, create a x509 certificate that will be valid for one year.
-
->  Note that it is necessary to simulate a trusted third party, so the "Common Name" must be different from the server certificate.
-```text
-openssl req -new -x509 -days 365 -key ca_demo.key -out ca_demo.crt
-```
-
-The certificate being created, you will be able to use it to sign your server certificate.
-
-6. Creating a certificate for the server
-
-Use the x509 certificate to sign your certificate for the server
-```text
-openssl x509 -req -in centreon7.csr -out centreon7.crt -CA ca_demo.crt -CAkey ca_demo.key -CAcreateserial -CAserial ca_demo.srl  -extfile /etc/pki/tls/openssl.cnf -extensions v3_ca
-```
-
-The CAcreateserial option is only needed the first time. The previously created password must be entered. You get your server certificate named centreon7.crt.
-
-You can view the contents of the : 
-```text
-less centreon7.crt
-```
-
-7. Copy files to apache configuration
-
-Copy the private key of the server and the previously signed server certificate.
-```text
-cp centreon7.key /etc/pki/tls/private/centreon7.key
-cp centreon7.crt /etc/pki/tls/certs/
-```
-8. Update Apache configuration file
-
-Finally, update `SSLCertificateFile` and `SSLCertificateKeyFile` parameters appropriately in your apache configuration file located in `/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf` for CentOS7 (or in `/etc/httpd/conf.d/10-centreon.conf` for Alma/RHEL/Oracle Linux 8).
-Here is an example of how the file should look like:
-
-```apacheconf
-Define base_uri "/centreon"
-Define install_dir "/usr/share/centreon"
-
-ServerTokens Prod
-
-<VirtualHost *:80>
-    RewriteEngine On
-    RewriteCond %{HTTPS} off
-    RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
-</VirtualHost>
-
-<VirtualHost *:443>
-    #####################
-    # SSL configuration #
-    #####################
-    SSLEngine On
-    SSLProtocol All -SSLv3 -SSLv2 -TLSv1 -TLSv1.1
-    SSLCipherSuite ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-DSS-AES256-GCM-SHA384:DHE-DSS-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-GCM-SHA256:!aNULL:!eNULL:!LOW:!3DES:!MD5:!EXP:!PSK:!DSS:!RC4:!SEED:!ADH:!IDEA
-    SSLHonorCipherOrder On
-    SSLCompression Off
-    SSLCertificateFile /etc/pki/tls/certs/centreon7.crt
-    SSLCertificateKeyFile /etc/pki/tls/private/centreon7.key
-
-    Alias ${base_uri}/api ${install_dir}
-    Alias ${base_uri} ${install_dir}/www/
-
-    <LocationMatch ^\${base_uri}/?(?!api/latest/|api/beta/|api/v[0-9]+/|api/v[0-9]+\.[0-9]+/)(.*\.php(/.*)?)$>
-        ProxyPassMatch "fcgi://127.0.0.1:9042${install_dir}/www/$1"
-    </LocationMatch>
-
-    <LocationMatch ^\${base_uri}/?(authentication|api/(latest|beta|v[0-9]+|v[0-9]+\.[0-9]+))/.*$>
-        ProxyPassMatch "fcgi://127.0.0.1:9042${install_dir}/api/index.php/$1"
-    </LocationMatch>
-
-    ProxyTimeout 300
-    ErrorDocument 404 ${base_uri}/index.html
-    Options -Indexes +FollowSymLinks
-
-    <IfModule mod_security2.c>
-        # https://github.com/SpiderLabs/ModSecurity/issues/652
-        SecRuleRemoveById 200003
-    </IfModule>
-
-    <Directory "${install_dir}/www">
-        DirectoryIndex index.php
-        AllowOverride none
-        Require all granted
-        FallbackResource ${base_uri}/index.html
-    </Directory>
-
-    <Directory "${install_dir}/api">
-        AllowOverride none
-        Require all granted
-    </Directory>
-
-    <If "'${base_uri}' != '/'">
-        RedirectMatch ^/$ ${base_uri}
-    </If>
-</VirtualHost>
-```
-9. Copy the x509 certificate to the client's browser
-
-Now, you will have to retrieve the certificate file x509 ca_demo.crt and import this file into your browser's certificate manager.
+> Once your web server is set to HTTPS mode, if you have a MAP server on your platform, you have to set it to HTTPS mode too, otherwise
+> recent web browsers may block communication between the two servers. The procedure is detailed [here](../graph-views/secure-your-map-platform.md#Configure-HTTPS/TLS-on-the-MAP-server).
 
 ## Custom URI
 
