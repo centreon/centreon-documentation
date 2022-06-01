@@ -4674,6 +4674,7 @@ centreon -u admin -p 'centreon' -o SERVICE -a setmacro -v "test;ping;pl;400;0;de
 ```
 
 The required parameters are the following:
+
 | Order    | Description                              |
 | -------- | ---------------------------------------- |
 | 1        | Host name                                |
