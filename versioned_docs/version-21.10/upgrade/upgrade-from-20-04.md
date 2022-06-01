@@ -300,6 +300,12 @@ systemctl start gorgoned
 systemctl enable gorgoned
 ```
 
+Restart **centengine**:
+
+```shell
+systemctl restart centengine
+```
+
 ## Secure your platform
 
 Don't forget to secure your Centreon platform following our

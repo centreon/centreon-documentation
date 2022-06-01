@@ -99,7 +99,8 @@ Utilisez le module de découverte pour pouvoir superviser vos bases de donnée E
 
 ## Prerequis 
 
-Afin de superviser un cluster Elasticsearch, celui-ci doit être configuré comme indiqué dans la documentation officielle d'Elasticsearch: https://www.elastic.co/guide/en/elasticsearch/reference/7.8/monitor-elasticsearch-cluster
+Afin de superviser un cluster Elasticsearch, celui-ci doit être configuré comme indiqué dans la [documentation officielle Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/monitor-elasticsearch-cluster.html).
+
 Pour pouvoir communiquer avec le collecteurs Centreon poller, l'API du noeud Elasticsearch doit utiliser le protocole http et le port 9200.
 
 ## Installation

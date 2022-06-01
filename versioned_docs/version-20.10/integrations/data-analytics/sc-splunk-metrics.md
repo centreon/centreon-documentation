@@ -5,7 +5,6 @@ title: Splunk Metrics
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 ## Before starting
 
 - You can send events from a central server, a remote server or a poller.
@@ -166,16 +165,22 @@ All those parameters are documented **[here](https://github.com/centreon/centreo
 
 Some of them are overridden by this stream connector.
 
-| Type   | Name                | Default value for the stream connector |
-| ------ | ------------------- | -------------------------------------- |
-| string | accepted_categories | neb                                    |
-| string | accepted_elements   | host_status,service_status             |
+| Type   | Name                         | Default value for the stream connector |
+| ------ | ---------------------------- | -------------------------------------- |
+| string | accepted_categories          | neb                                    |
+| string | accepted_elements            | host_status,service_status             |
+| number | max_buffer_size              | 30                                     |
+| number | hard_only                    | 0                                      |
+| number | enable_service_status_dedup  | 0                                      |
+| number | enable_host_status_dedup     | 0                                      |
+| string | metric_name_regex            | `[^a-zA-Z0-9_]`                        |
+| string | metric_replacement_character | _                                      |
 
 ## Event bulking
 
 This stream connector is compatible with event bulking. Meaning that it is able to send more that one event in each call to the Splunk REST API.
 
-To use this feature you must add the following parameter in your stream connector configuration.
+> The default value for this stream connector is 30. A small value is more likely to slow down the Centreon broker thus generating retention.
 
 | Type   | Name            | Value           |
 | ------ | --------------- | --------------- |
@@ -201,10 +206,9 @@ This stream connector will send event with the following format.
     "hostname": "my_host",
     "service_description": "my_service",
     "ctime": 1630590520,
-    "metric: pl": 0,
-    "metric: rta": 10,
-    "metric: rtmin": 5,
-    "metric: rtmax": 15
+    "metric_name: database.used.percent": 80,
+    "instance": "my_db",
+    "subinstance": ["sub_1", "sub_2"]
   }
 }
 ```
@@ -224,10 +228,9 @@ This stream connector will send event with the following format.
     "state_type": 1,
     "hostname": "my_host",
     "ctime": 1630590520,
-    "metric: pl": 0,
-    "metric: rta": 10,
-    "metric: rtmin": 5,
-    "metric: rtmax": 15
+    "metric_name: database.used.percent": 80,
+    "instance": "my_db",
+    "subinstance": ["sub_1", "sub_2"]
   }
 }
 ```
@@ -243,7 +246,7 @@ Here is the list of all the curl commands that are used by the stream connector.
 ### Send events
 
 ```shell
-curl -X POST -H "content-type: application/json" -H "authorization: Splunk <splunk_token>" '<http_server_url>' -d '{"sourcetype": "<splunk_sourcetype>","source": "<splunk_source>","index": "<splunk_index>","host": "<splunk_host>","time": <epoch_timestamp>,"event": {"event_type": "host","state": 1,"state_type": 1,"hostname":"my_host","ctime": 1630590520,"metric: pl": 0,"metric: rta": 10,"metric: rtmin": 5,"metric: rtmax": 15}}'
+curl -X POST -H "content-type: application/json" -H "authorization: Splunk <splunk_token>" '<http_server_url>' -d '{"sourcetype": "<splunk_sourcetype>","source": "<splunk_source>","index": "<splunk_index>","host": "<splunk_host>","time": <epoch_timestamp>,"event": {"event_type": "host","state": 1,"state_type": 1,"hostname":"my_host","ctime": 1630590520,"metric_name: database.used.percent": 80,"instance": "my_db","subinstance": ["sub_1", "sub_2"]}}'
 ```
 
 You must replace all the *`<xxxx>`* inside the above command with their appropriate value. *<splunk_sourcetype>* may become *_json*.
