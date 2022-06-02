@@ -186,10 +186,10 @@ Au sein du champ **Route definition** vous pouvez utiliser les arguments suivant
 L’option **Check Downtime** permet à centreontrapd de contrôler si le service n’est pas dans un statut de downtime lors
 de la réception du trap SNMP. Il est possible alors d’annuler la soumission du trap.
 
-> Ce mode de focntionnement n’est compatible qu’avec Centreon Broker et des services supervisés depuis le central.
+> Ce mode de fonctionnement n’est compatible qu’avec Centreon Broker et des services supervisés depuis le central.
 
 Il est possible d’adapter le comportement selon ces trois méthodes :
 
 * None : Rien de spécial, le trap SNMP est envoyé normalement
 * Real-Time : Si un downtime est actif sur le service, il n’est pas mis à jour.
-* History : Ooption utilisée pour ne pas prendre en compte un trap SNMP qui concerne un événement passé lors d’un temps d’arrêt.
+* History : Option utilisée pour ne pas prendre en compte un trap SNMP qui concerne un événement passé lors d’un temps d’arrêt.
