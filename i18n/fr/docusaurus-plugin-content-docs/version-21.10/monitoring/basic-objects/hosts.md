@@ -107,18 +107,18 @@ Pour déplacer l’ordre des macros, cliquez sur ![image](../../assets/configura
 
 ### Moteur de supervision
 
-* Le champ **URL** définit une URL qui peut être utilisée pour donner davantage d’informations sur l’hôte.
-* Le champ **Notes** permet d’ajouter des notes optionnelles concernant l’hôte.
+* Le champ **URL** définit une URL qui peut être utilisée pour donner davantage d’informations sur l’hôte. L'URL doit commencer par  `http://` ou `https://`. Elle peut contenir des [macros](../basic-objects/macros.md).
+* Le champ **Notes** permet d’ajouter des notes optionnelles concernant l’hôte. Elles seront affichées sous forme d'infobulle sur l'URL ci-dessus.
 * Le champ **Action URL** définit une URL habituellement utilisée pour donner des informations d’actions sur l’hôte
-  (maintenance...).
+  (maintenance...). L'URL doit commencer par  `http://`, `https://` ou `ssh://`. Elle peut contenir des [macros](../basic-objects/macros.md).
 * Le champ **Icon** indique l’icône à utiliser pour l’hôte.
 * Le champ **Alt Icon** est le texte utilisé si l’icône ne peut être affichée.
 * Le champ **Severity level** indique le niveau de criticité de l’hôte.
-* Le champ **Status Map Image** défini le logo du module Centreon Map.
+* Le champ **Status Map Image** définit le logo du module Centreon Map.
 * Le champ **Geo coordinates** définit les coordonnées géographiques utilisées par le module Centreon Map pour positionner
-  l'élément sur la carte. Définissez "Latitude, Longitude", par exemple pour le jeu de coordonnées de Paris "48.51,2.20"
+  l'élément sur la carte. Définissez "Latitude, Longitude", par exemple pour le jeu de coordonnées de Paris "48.51,2.20".
 
-Les champs présentés ci-dessous sont obsolètes :
+Les champs ci-dessous sont obsolètes :
 
 * **2d Coords**
 * **3d Coords**

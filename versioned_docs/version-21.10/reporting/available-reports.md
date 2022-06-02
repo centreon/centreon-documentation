@@ -841,7 +841,7 @@ server needs to access it using HTTP or HTTPS protocole. A curl command
 sent to the URL of the API should generate an image file.
 
 ``` shell
-curl http://$CENTREON-IP-OR-DNS$//include/views/graphs/generateGraphs/generateImage.php?akey=$AUTH_KEY$&username=$USER$&hostname=$HOSTNAME$&service=$SERVICENAME$&start=$TIMESTAMPSTART$&end=$TIMESTAMPEND$
+curl http://$CENTREON-IP-OR-DNS$/centreon/include/views/graphs/generateGraphs/generateImage.php?akey=$AUTH_KEY$&username=$USER$&hostname=$HOSTNAME$&service=$SERVICENAME$&start=$TIMESTAMPSTART$&end=$TIMESTAMPEND$
 ```
 
 Replace the values between $ signs by real values.
@@ -849,7 +849,7 @@ Replace the values between $ signs by real values.
 Example:
 
 ``` shell
-curl http://centreon.enterprise.com//include/views/graphs/generateGraphs/generateImage.php?akey=af9c583c5f31bd2459c07&username=myUser&hostname=host-1&service=cpu&start=1490997600&end=1493157600
+curl http://centreon.enterprise.com/centreon/include/views/graphs/generateGraphs/generateImage.php?akey=af9c583c5f31bd2459c07&username=myUser&hostname=host-1&service=cpu&start=1490997600&end=1493157600
 ```
 
 > If you are using SSL/TLS on your Central server, and if the certificate is
@@ -918,7 +918,7 @@ server needs to access it using HTTP or HTTPS protocole. A curl command
 sent to the URL of the API should generate an image file.
 
 ``` shell
-curl http://$CENTREON-IP-OR-DNS$//include/views/graphs/generateGraphs/generateImage.php?akey=$AUTH_KEY$&username=$USER$&hostname=$HOSTNAME$&service=$SERVICENAME$&start=$TIMESTAMPSTART$&end=$TIMESTAMPEND$
+curl http://$CENTREON-IP-OR-DNS$/centreon/include/views/graphs/generateGraphs/generateImage.php?akey=$AUTH_KEY$&username=$USER$&hostname=$HOSTNAME$&service=$SERVICENAME$&start=$TIMESTAMPSTART$&end=$TIMESTAMPEND$
 ```
 
 Replace the values between $ signs by real values.
@@ -926,7 +926,7 @@ Replace the values between $ signs by real values.
 Example:
 
 ``` shell
-curl http://centreon.enterprise.com//include/views/graphs/generateGraphs/generateImage.php?akey=af9c583c5f31bd2459c07&username=myUser&hostname=host-1&service=cpu&start=1490997600&end=1493157600
+curl http://centreon.enterprise.com/centreon/include/views/graphs/generateGraphs/generateImage.php?akey=af9c583c5f31bd2459c07&username=myUser&hostname=host-1&service=cpu&start=1490997600&end=1493157600
 ```
 
 > If you are using SSL/TLS on your Central server, and if the certificate is
