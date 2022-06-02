@@ -880,7 +880,7 @@ Pour résumer un "curl" sur l'URL de l'API doit répondre sans erreur
 de certificat, example :
 
 ``` shell
-curl http://$CENTREON-IP-OR-DNS$//include/views/graphs/generateGraphs/generateImage.php?akey=$AUTH_KEY$&username=$USER$&hostname=$HOSTNAME$&service=$SERVICENAME$&start=$TIMESTAMPSTART$&end=$TIMESTAMPEND$
+curl http://$CENTREON-IP-OR-DNS$/centreon/include/views/graphs/generateGraphs/generateImage.php?akey=$AUTH_KEY$&username=$USER$&hostname=$HOSTNAME$&service=$SERVICENAME$&start=$TIMESTAMPSTART$&end=$TIMESTAMPEND$
 ```
 
 Remplacez par les bonnes valeurs les variable '$xxxx$'.
@@ -958,7 +958,7 @@ Exemple, à partir du serveur de reporting, le "curl" suivant doit
 répondre et générer un fichier de type image :
 
 ``` shell
-curl https://$CENTREON-IP-OR-DNS$//include/views/graphs/generateGraphs/generateImage.php?akey=$AUTH_KEY$&username=$USER$&hostname=$HOSTNAME$&service=$SERVICENAME$&start=$TIMESTAMPSTART$&end=$TIMESTAMPEND$
+curl https://$CENTREON-IP-OR-DNS$/centreon/include/views/graphs/generateGraphs/generateImage.php?akey=$AUTH_KEY$&username=$USER$&hostname=$HOSTNAME$&service=$SERVICENAME$&start=$TIMESTAMPSTART$&end=$TIMESTAMPEND$
 ```
 
 Remplacez par les bonnes valeurs les variable '$xxxx$'.
