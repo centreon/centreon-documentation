@@ -1281,12 +1281,12 @@ module.exports = {
           id: 'integrations/plugin-packs/procedures/network-switchs-brocade-snmp'
         },
         {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/network-firewalls-checkpoint-snmp'
+            type: 'doc',
+            id: 'integrations/plugin-packs/procedures/network-cambium-epmp-snmp'
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/network-cambium-epmp-snmp'
+          id: 'integrations/plugin-packs/procedures/network-firewalls-checkpoint-snmp'
         },
         {
           type: 'doc',
