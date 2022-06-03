@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Centreon Pack IIS brings 1 host template:
+The Centreon Pack IIS brings a host template:
 
 * App-Iis-WSMAN-custom
 
