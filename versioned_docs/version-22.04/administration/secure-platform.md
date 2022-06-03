@@ -403,19 +403,40 @@ By default, Centreon installs a web server in HTTP mode. It is strongly recommen
 ### Creating a self-signed certificate
 
 >  This procedure allows you to create:
-- A private key for the server: `centreon7.key` in our case. It will be used by the Apache service.
-- A CSR (Certificate Signing Request) file: `centreon7.csr` in our case.
-- A private key for the certificate of the certification authority: `ca_demo.key` in our case.
-- A x509 certificate to sign your certificate for the server: `ca-demo.crt` in our case.
-- A certificate for the server: `centreon7.crt` in our case.
+- A private key for the server: **centreon7.key** in our case. It will be used by the Apache service.
+- A CSR (Certificate Signing Request) file: **centreon7.csr** in our case.
+- A private key for the certificate of the certification authority: **ca_demo.key** in our case.
+- A x509 certificate to sign your certificate for the server: **ca-demo.crt** in our case.
+- A certificate for the server: **centreon7.crt** in our case.
 
-Let's assume that you have a Centreon server with a `centreon7.localdomain` FQDN address.
+Let's assume that you have a Centreon server with a **centreon7.localdomain** FQDN address.
 
-1. Prepare the openssl configuration
+1. Prepare the OpenSSL configuration
 
-Due to a policy change at Google, self-signed certificates may be rejected by the Google Chrome browser (it is not even possible to add an exception). To continue using this browser, you have to change the openssl configuration.
+Due to a policy change at Google, self-signed certificates may be rejected by the Google Chrome browser (it is not even possible to add an exception). To continue using this browser, you have to change the OpenSSL configuration.
 
-Open the file `/etc/pki/tls/openssl.cnf` and find the `[v3_ca]` section:
+Install SSL module for Apache:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install mod_ssl mod_security openssl
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```shell
+yum install httpd24-mod_ssl httpd24-mod_security openssl
+```
+
+</TabItem>
+</Tabs>
+
+Open the file **/etc/pki/tls/openssl.cnf**. The goal here is to edit this file in order to inform the various IPs and FQDNs for the server.
+
+Find the ```[v3_ca]``` section and add a new tag as followed:
 
 ```text
 # Add the alt_names tag that allows you to inform our various IPs and FQDNs for the server
@@ -428,9 +449,23 @@ DNS.1 = centreon7.localdomain
 subjectAltName = @alt_names
 ```
 
+Here is an example of how the file should look like:
+```text
+[ alt_names ]
+IP.1 = 10.25.xx.xxx
+DNS.1 = centreon7.localdomain
+
+[ v3_ca ]
+subjectAltName = @alt_names
+
+
+# Extensions for a typical CA
+[ v3_req ]
+```
+
 2. Create a private key for the server
 
-Let's create a private key named `centreon7.key` without a password so that it can be used by the apache service.
+Let's create a private key named **centreon7.key** without a password so that it can be used by the apache service.
 ```text
 openssl genrsa -out centreon7.key 2048
 ```
@@ -442,21 +477,21 @@ chmod 400 centreon7.key
 
 3. Create a Certificate Signing Request file 
 
-From the key you created, create a CSR (Certificate Signing Request) file: `centreon7.csr` in our case. Fill in the fields according to your company. The "Common Name" field must be identical to the hostname of your apache server (in our case it is `centreon7.localdomain`).
+From the key you created, create a CSR (Certificate Signing Request) file: **centreon7.csr** in our case. Fill in the fields according to your company. The "Common Name" field must be identical to the hostname of your apache server (in our case it is **centreon7.localdomain**).
 ```text
 openssl req -new -key centreon7.key -out centreon7.csr
 ```
 
 4. Create a private key for the certificate of certification authority
 
-Create a private key for this authority: `ca_demo.key` in our case. We add the -aes256 option to encrypt the output key and include a password. This password will be requested each time this key is used.
+Create a private key for this authority: **ca_demo.key** in our case. We add the -aes256 option to encrypt the output key and include a password. This password will be requested each time this key is used.
 ```text
 openssl genrsa -aes256 2048 > ca_demo.key
 ```
 
 5. Create a x509 certificate from the private key of the certificate of certification authority
 
-Create a x509 certificate that will be valid for one year: `ca_demo.crt` in our case.
+Create a x509 certificate that will be valid for one year: **ca_demo.crt** in our case.
 
 >  Note that it is necessary to simulate a trusted third party, so the "Common Name" must be different from the server certificate.
 ```text
@@ -467,28 +502,28 @@ The certificate being created, you will be able to use it to sign your server ce
 
 6. Create a certificate for the server
 
-Use the x509 certificate (`ca_demo.crt`) to sign your certificate for the server.
+Use the x509 certificate (**ca_demo.crt**) to sign your certificate for the server.
 ```text
 openssl x509 -req -in centreon7.csr -out centreon7.crt -CA ca_demo.crt -CAkey ca_demo.key -CAcreateserial -CAserial ca_demo.srl  -extfile /etc/pki/tls/openssl.cnf -extensions v3_ca
 ```
 
-The CAcreateserial option is only needed the first time. The password created previously must be entered. You get your server certificate named `centreon7.crt`.
+The **CAcreateserial** option is only needed the first time. The password created previously must be entered. You get your server certificate named **centreon7.crt**.
 
-You can view the contents of the : 
+You can view the contents of the file: 
 ```text
 less centreon7.crt
 ```
 
-7. Copy files to Apache configuration
+7. Copy files to the Apache configuration
 
 Copy the private key of the server and the server certificate you previously signed.
 ```text
 cp centreon7.key /etc/pki/tls/private/centreon7.key
 cp centreon7.crt /etc/pki/tls/certs/
 ```
-8. Update Apache configuration file
+8. Update the Apache configuration file
 
-Finally, update `SSLCertificateFile` and `SSLCertificateKeyFile` parameters appropriately in your Apache configuration file located in `/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf` for CentOS7 (or in `/etc/httpd/conf.d/10-centreon.conf` for Alma/RHEL/Oracle Linux 8).
+Finally, update **SSLCertificateFile** and **SSLCertificateKeyFile** parameters appropriately in your Apache configuration file located in **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf** for CentOS7 (or in **/etc/httpd/conf.d/10-centreon.conf** for Alma/RHEL/Oracle Linux 8).
 Here is an example of how the file should look like:
 
 ```apacheconf
@@ -552,13 +587,13 @@ ServerTokens Prod
     </If>
 </VirtualHost>
 ```
-9. Then you have to retrieve the x509 certificate file (`ca_demo.crt`) and import it into your browser's certificate manager.
+9. Then you have to retrieve the x509 certificate file (**ca_demo.crt**) and import it into your browser's certificate manager.
 
 Now you have your self-signed certificate, you can perform the following procedure to activate HTTPS mode on your Apache server.
 
 ### Activating HTTPS mode on your web server
 
-1. Install SSL module for Apache:
+1. Install SSL module for Apache
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -577,14 +612,14 @@ yum install httpd24-mod_ssl httpd24-mod_security openssl
 </TabItem>
 </Tabs>
 
-2. Install your certificates:
+2. Install your certificates
 
-Copy your certificate and key on the server according to your configuration. In our case, `ca_demo.crt` and `ca_demo.key`.
+Copy your certificate and key on the server according to your configuration. In our case, **ca_demo.crt** and **ca_demo.key**.
 
 - /etc/pki/tls/certs/ca_demo.crt
 - /etc/pki/tls/private/ca_demo.key
 
-3. Backup previous Apache configuration for Centreon:
+3. Backup the previous Apache configuration for Centreon
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -603,7 +638,7 @@ cp /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf{,.origin}
 </TabItem>
 </Tabs>
 
-4. Edit Centreon Apache configuration
+4. Edit the Centreon Apache configuration
 
 > Centreon offers an example of configuration file to enable HTTPS available in the following directory:
 > **/usr/share/centreon/examples/centreon.apache.https.conf**
@@ -682,10 +717,10 @@ ServerTokens Prod
 </VirtualHost>
 ```
 
-> Do not forget to change **SSLCertificateFile** and **SSLCertificateKeyFile** directives with the path containing your
+> Do not forget to change the **SSLCertificateFile** and **SSLCertificateKeyFile** directives with the path containing your
 > certificate and key.
 
-5. Enable HttpOnly / Secure flags and hide Apache server signature
+5. Enable HttpOnly / Secure flags and hide the Apache server signature
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -752,7 +787,7 @@ Edit the **/opt/rh/httpd24/root/etc/httpd/conf.d/autoindex.conf** file and comme
 </TabItem>
 </Tabs>
 
-7. Restart the Apache and PHP process to take in account the new configuration:
+7. Restart the Apache and PHP process to take in account the new configuration
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -767,7 +802,7 @@ Then check its status:
 systemctl status httpd
 ```
 
-If everything is ok, you must have:
+If everything is ok, you should have:
 
 ```shell
 ● httpd.service - The Apache HTTP Server
