@@ -18,7 +18,7 @@ It brings the following service templates:
 
 | Service Alias | Service Template             | Service Description                                  | Default | Discovery |
 |:--------------|:-----------------------------|:-----------------------------------------------------|:--------|:----------|
-| Cpu           | Net-Raisecom-Cpu-SNMP        | Check the rate of utilization of CPU for the machine | X       |           |
+| Cpu           | Net-Raisecom-Cpu-SNMP        | Check CPU usage                                      | X       |           |
 | Hardware      | Net-Raisecom-Hardware-SNMP   | Check hardware environment                           | X       |           |
 | Interfaces    | Net-Raisecom-Interfaces-SNMP | Check traffic of multiple network interfaces         |         | X         |
 | Memory        | Net-Raisecom-Memory-SNMP     | Check memory usage                                   | X       |           |
