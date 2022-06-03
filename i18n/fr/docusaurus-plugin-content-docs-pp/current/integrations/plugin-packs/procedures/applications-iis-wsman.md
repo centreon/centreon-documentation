@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le Pack Centreon IIS apporte 1 modèle d'hôte :
+Le Pack Centreon IIS apporte un modèle d'hôte :
 
 * App-Iis-WSMAN-custom
 
