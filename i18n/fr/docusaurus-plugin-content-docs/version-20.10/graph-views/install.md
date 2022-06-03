@@ -541,7 +541,7 @@ yum install centreon-map-server-ng
 And proceed to the configuration with the following command:
 
 ```shell
-/etc/centreon-map/configure.sh
+/etc/centreon-studio/configure.sh
 ```
 
 The configuration is exactly the same as the usual server, but is stored
