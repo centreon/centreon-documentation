@@ -1,5 +1,5 @@
 ---
-id: centreon-ha-installation-manual-failover
+id: centreon-ha-2-nodes-installation-manual-failover
 title: Installation en failover manuel à 2 nœuds
 ---
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,6 @@
 ---
-id: centreon-ha-installation-manual-failover
-title: 2-node manual failover installation
+id: centreon-ha-4-nodes-installation-manual-failover
+title: 4-node manual failover installation
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

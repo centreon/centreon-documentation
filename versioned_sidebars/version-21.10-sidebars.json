@@ -191,11 +191,11 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-21.10/installation/installation-of-centreon-ha-manual/installation-2-nodes"
+              "id": "version-21.10/installation/installation-of-centreon-ha-manual/centreon-ha-2-nodes-installation-manual-failover"
             },
             {
               "type": "doc",
-              "id": "version-21.10/installation/installation-of-centreon-ha-manual/installation-4-nodes"
+              "id": "version-21.10/installation/installation-of-centreon-ha-manual/centreon-ha-4-nodes-installation-manual-failover"
             },
             {
               "type": "doc",
