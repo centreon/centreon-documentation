@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 The Centreon Pack WHOIS brings a host template:
 * App-Protocol-Whois-custom
 
-It brings the following Service Templates:
+It brings the following service template:
 
 | Service Alias | Service Template          | Default | Discovery |
 |:--------------|:--------------------------|:--------|:----------|
