@@ -73,16 +73,34 @@ yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/ce
 Centreon 21.10 uses PHP in version 8.0.
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="RHEL 8" label="RHEL 8">
 
 First, you need to install the **remi** repository:
 ```shell
 dnf install -y dnf-plugins-core
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
-dnf config-manager --set-enabled 'powertools'
+sudo subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 ```
-Then, you need to change the PHP stream from version 7.2 to 8.0 by executing the following commands and answering **y**
+
+Then, you need to change the PHP stream from version 7.3 to 8.0 by executing the following commands and answering **y**
+to confirm:
+```shell
+dnf module reset php
+dnf module install php:remi-8.0
+```
+
+</TabItem>
+<TabItem value="Alma / Oracle Linux 8" label="Alma / Oracle Linux 8">
+
+First, you need to install the **remi** repository:
+```shell
+dnf install -y dnf-plugins-core
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
+```
+
+Then, you need to change the PHP stream from version 7.3 to 8.0 by executing the following commands and answering **y**
 to confirm:
 ```shell
 dnf module reset php
