@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 Le Pack Centreon WHOIS apporte un modèle d'hôte :
 * App-Protocol-Whois-custom
 
-Il apporte les modèles de service suivants :
+Il apporte le modèle de service suivant :
 
 | Alias  | Découverte                | Défaut  | Découverte |
 |:-------|:--------------------------|:--------|:-----------|
