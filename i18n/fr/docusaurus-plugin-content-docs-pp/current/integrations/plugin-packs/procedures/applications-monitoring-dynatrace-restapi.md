@@ -35,9 +35,9 @@ Il apporte les modèles de service suivants :
 </TabItem>
 <TabItem value="Availability" label="Availability">
 
-| Metric Name                                             | Unit  |
-|:--------------------------------------------------------|:------|
-| *geolocation*#synthetic.monitor.availability.percentage | %     |
+| Metric Name                                                         | Unit  |
+|:--------------------------------------------------------------------|:------|
+| *synthetic*~*geolocation*#synthetic.monitor.availability.percentage | %     |
 
 </TabItem>
 <TabItem value="Events" label="Events">
