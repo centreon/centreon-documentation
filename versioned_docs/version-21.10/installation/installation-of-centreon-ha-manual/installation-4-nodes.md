@@ -571,8 +571,8 @@ CENTREON   ALL = NOPASSWD: /usr/bin/systemctl restart centreon
 CENTREON   ALL = NOPASSWD: /usr/bin/systemctl stop centreon
 CENTREON   ALL = NOPASSWD: /usr/bin/systemctl start centreon
 
-CENTREON   ALL = NOPASSWD: /usr/sbin/ifup
-CENTREON   ALL = NOPASSWD: /usr/sbin/ifdown
+CENTREON   ALL = NOPASSWD: /usr/sbin/nmcli
+CENTREON   ALL = NOPASSWD: /usr/sbin/nmcli
 ```
 
 For the mysql account, edit the `/etc/sudoers.d/centreon-cluster-db` file and add the following lines:
@@ -587,8 +587,8 @@ MYSQL   ALL = NOPASSWD: /usr/bin/systemctl restart mariadb
 MYSQL   ALL = NOPASSWD: /usr/bin/systemctl stop mariadb
 MYSQL   ALL = NOPASSWD: /usr/bin/systemctl start mariadb
 
-MYSQL   ALL = NOPASSWD: /usr/sbin/ifup
-MYSQL   ALL = NOPASSWD: /usr/sbin/ifdown
+MYSQL   ALL = NOPASSWD: /usr/sbin/nmcli
+MYSQL   ALL = NOPASSWD: /usr/sbin/nmcli
 ```
 
 ### Synchronize databases and start MySQL replication
