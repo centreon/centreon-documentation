@@ -14,7 +14,7 @@ Le Pack Centreon WHOIS apporte un modèle d'hôte :
 
 Il apporte le modèle de service suivant :
 
-| Alias  | Modèle de Service                | Défaut  | Découverte |
+| Alias  | Modèle de Service         | Défaut  | Découverte |
 |:-------|:--------------------------|:--------|:-----------|
 | Domain | App-Protocol-Whois-Domain |         |            |
 
