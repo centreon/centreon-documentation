@@ -186,6 +186,23 @@
           ]
         },
         {
+          "type": "category",
+          "label": "Installation of Centreon HA manual",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-21.10/installation/installation-of-centreon-ha-manual/installation-2-nodes"
+            },
+            {
+              "type": "doc",
+              "id": "version-21.10/installation/installation-of-centreon-ha-manual/installation-4-nodes"
+            },
+            {
+              "type": "doc",
+              "id": "version-21.10/installation/installation-of-centreon-ha-manual/integrating-pollers"
+            }
+          ]
+        },{
           "type": "doc",
           "id": "version-21.10/ceip/what-is-centreon-ceip"
         }
