@@ -62,5 +62,9 @@
   "sidebar.cloud.category.Managing users": {
     "message": "Managing users",
     "description": "The label for category Managing users in sidebar cloud"
+  },
+  "sidebar.cloud.category.Security": {
+    "message": "Sécurité",
+    "description": "The label for category Security in sidebar cloud"
   }
 }

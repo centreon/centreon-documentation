@@ -83,5 +83,15 @@ module.exports = {
         },
       ],
     },
+    {
+      "type": "category",
+      "label": "Security",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-22.04/security/security"
+        },
+      ]
+    },
   ],
 };
