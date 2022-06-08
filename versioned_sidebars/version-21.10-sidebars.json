@@ -960,6 +960,10 @@
             },
             {
               "type": "doc",
+              "id": "version-21.10/integrations/data-analytics/sc-logstash-events"
+            },
+            {
+              "type": "doc",
               "id": "version-21.10/integrations/data-analytics/sc-datadog-events"
             },
             {

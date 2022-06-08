@@ -262,6 +262,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-active-directory-wsman'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-biztalk'
         },
         {
@@ -836,6 +840,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-azure-network-trafficmanager'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-azure-compute-vmscalesets'
         },
         {
@@ -1402,7 +1410,7 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/network-dell-n4000'
+          id: 'integrations/plugin-packs/procedures/network-dell-nseries-snmp'
         },
         {
           type: 'doc',
@@ -1567,6 +1575,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-loadbalancers-kemp-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-libraesva-snmp'
         },
         {
           type: 'doc',
@@ -2160,7 +2172,11 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/hardware-storage-hp-storeonce-restapi'
+          id: 'integrations/plugin-packs/procedures/hardware-storage-hp-storeonce3-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-storage-hp-storeonce4-restapi'
         },
         {
           type: 'doc',

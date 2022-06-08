@@ -105,17 +105,17 @@ To change the order of the macros, click on ![image](../../assets/configuration/
 
 ### Monitoring engine
 
-* The **URL** field defined a URL that can be used to give more information on the host.
-* The **Notes** field permits us to add  optional notes concerning the host.
-* The **Action URL** field defined a URL normally use for giving information on actions on the host (maintenance, etc.).
-* The **Icon** field indicates the icon use for the host.
-* The **Alt Icon** field is the text use if the icon cannot be Display.
-* The **Severity level** field indicates the severity level of the host.
-* The **Status Map Image** field defined the logo for Centreon Map module.
-* The **Geo coordinates** field defined Geographical coordinates use by Centreon Map module to position element on map.
-  Define "Latitude,Longitude", for example for Paris coordinates set "48.51,2.20"
+* **URL**: defines a URL that can be used to give more information on the host. The URL must start with `http://` or `https://`. It can contain [macros](../basic-objects/macros.md).
+* **Notes**: the text in this field will be displayed as a tooltip on the icon for the URL defined above.
+* **Action URL**: defines a URL for giving information on actions on the host (maintenance, etc.). The URL must start with `http://`, `https://` or `ssh://`. It can contain [macros](macros.md).
+* **Icon**: specifies an icon to be displayed next to the host.
+* **Alt Icon**: the text that will appear if the icon cannot be displayed.
+* **Severity level**: indicates the severity level of the host.
+* **Status Map Image**: defines the logo for the Centreon Map module.
+* **Geo coordinates**: defines Geographical coordinates used by the Centreon Map module to position elements on a map.
+  Define "Latitude,Longitude", for example for Paris the coordinates are "48.51,2.20"
 
-The fields presented below are obsolete:
+The following fields are obsolete:
 
 * **2d Coords**
 * **3d Coords**
