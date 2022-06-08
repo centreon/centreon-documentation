@@ -3,81 +3,68 @@ id: create-graphical-view
 title: Créer une vue graphique
 ---
 
-> Only available in English for now
+L'objectif de ce tutoriel est de vous aider à comprendre comment utiliser
+l'extension de présentation de données Centreon MAP afin de fournir un aperçu des statuts
+de votre infrastructure IT en temps réel à vos équipes ITOM et à vos utilisateurs opérationnels.
 
-The objective of this tutorial is to help you understand how you can provide
-real time IT infrastructure status overviews with the data presentation
-extension called Centreon MAP to your ITOM teams and operational users.
-
-With Centreon MAP, you can simply create and share synthetic real time
-monitoring views to monitor the performance of your IT infrastructure, network,
-applications and services.
+Avec Centreon MAP, vous pouvez de manière simple créer et partager des vues de supervision temps réel afin de
+superviser les performances de votre infrastructure IT, de votre réseau, vos applications et vos services.
 
 ![image](../assets/graph-views/tuto_ex_1.png)
 
 ![image](../assets/graph-views/tuto_ex_2.png)
 
-*Example: thanks to this real time views ITOM teams and managers can
-instantaneously visualise the avalilability of critical business applications
-and services. This guarantees better reaction time in case of outage and
-optimises MTRS (Mean Time to Restore Service).*
+Exemple: Grâce à ces vues temps réel, les équipes ITOM et leurs managers peuvent visualiser instantanément la disponibilité
+de services et d'applications métier critiques. Cela garantit un meilleur temps de réaction en cas de panne et optimise le
+temps moyen de rétablissement du service (MTRS: Mean Time to Restore Service).
 
-In this tutorial, I am going to show you how to create views using Centreon MAP.
-After reading this article, you will have discovered Centreon MAP main features
-and you will be able to create views that meet your technical or business users'
-needs.
+Dans ce tutoriel, nous montrerons comment créer des vues avec Centreon MAP.
+Après avoir lu cet article, vous aurez découvert les fonctionnalités principales de Centreon MAP
+et vous serz capable de créer des vues qui répndent aux besoins de vos utilisateurs techniques et métier.
 
-> Centreon MAP is a Centreon **extension** that requires a valid license key. To
-> purchase one and retrieve the necessary repositories, contact
-> [Centreon](mailto:sales@centreon.com).
+> Centreon MAP est une **extension** Centreon qui demande une clé de licence valide. Pour en acheter une et récupérer les dépôts nécessaires, contactez [Centreon](mailto:sales@centreon.com).
 
-## Create a logical view
+## Créer une vue logique
 
-### Before creating a view: define the objective
+### Avant de créer la vue : définir les objectifs
 
-Define what is the main objective of the view: what need does it meet and who
-are the recipients, are the main topics to consider before creating a view. Here
-are some questions you might consider:
+Définissez l'objectif principal de la vue : à quel besoin répond-elle, à qui s'adresse-t-elle ?
+Voilà quelques questions à prendre en compte :
 
-  - Who is/are this view recipient(s)? (users' profiles)
-  - What level of information do users need?
-  - Do I monitor all the resources and indicators I need to create that view?
-  - What kind of information should the view contains? (resources, indicators,
-    graphs, network links etc). It can be interesting to start drawing that view
-    on a paper note
-  - Now that you have defined the objectives, let's start showing you how to
-    make it.
+  - À qui s'adresse la vue ? (profils utilisateur)
+  - De quel niveau d'information les utilisateurs ont-ils besoin?
+  - Toutes les ressources et tous les indicateurs dont j'ai besoin pour créer cette vue sont-ils bien en supervision?
+  - Quel type d'informations doit contenir la vue ? (ressources, indicateurs,
+    graphiques, liens réseau etc). Il peut être utile de schématiser la vue sur papier.
 
-### The view designer's workspace
+Maintenant que les objectifs de la vue sont définis, voyons comment la réaliser.
 
-Connect to your Centreon MAP server using the desktop client, the following
-workspace environment appears (empty). To illustrate the explanation, we've
-opened a view, by default no view is opened.
+### L'espace de travail
+
+Connectez-vous au serveur Centreon MAP grâce au client desktop : l'espace de travail suivant apparaît (vide).
+Voici une illustration. Par défaut aucune vue n'est ouverte.
 
 ![image](../assets/graph-views/tuto_workspace.png)
 
-Information and area are organized as follow:
+L'interface est organisée de la manière suivante :
 
-1.  **Views**: existing views that are accessible to you
-2.  **Element**: objects available in opened views
-3.  **Media**: available media (images)
-4.  **Resources**: Centreon's object that you can use in the view (drag & drop)
-5.  Content of the view
-6.  **Palette**: graphical elements that you can use in a view
-7.  **Properties**: selected element's properties
+1. **Vues**: Vue existantes auxquelles vous avez accès
+2. **Éléments**: Objets utilisés dans les vues ouvertes
+3. **Médias**: Images disponibles
+4. **Ressources**: Objets Centreon pouvant être utilisés dans la vue (par drag & drop)
+5. Contenu de la vue
+6. **Palette**: Éléments graphiques pouvant être utilisés dans la vue
+7. **Propriétés**: Propriétés de l'élément sélectionné
 
-### Create a new view
+### Créer une nouvelle vue
 
-Nothing simpler: right click in the "View" panel and click on "Add"
+Pour créer une nouvelle vue, faites un clic droit sur le panneau **Vues** puis cliquez sur **Ajouter**.
 
 ![image](../assets/graph-views/create_view.gif)
 
-With your target view in mind, start creating it by positioning resources,
-widgets and other elements. Drag & drop and shortcuts will make this time a
-delightful moment.
+Positionnez des ressources, des widgets et autres éléments, en utilisant le drag & drop et les raccourcis.
 
-Find below an example of an IT infrastructure real time status view created in
-less \~4 minutes:
+Voici ci-dessous un exemple de vue sur le statut temps réel d'une infrastructure IT créée en moins de \~4 minutes :
 
 ![image](../assets/graph-views/ex_view.jpg)
 
@@ -85,29 +72,24 @@ less \~4 minutes:
   <iframe width="560" height="315" src="https://www.youtube.com/embed/tsgYRpYqaAU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
-## Create a geographical view
+## Créer une vue géographique
 
-If your IT is geographically spread over a city, country or even the world, you
-may want to visualize it in the most appropriate way to get insights on your IT
-infrastruture status.
+Que votre infrastructure IT soit répartie géographiquement sur une ville, un pays ou à travers le monde,
+vous avez besoin de visualiser l'état de votre infrastrcture IT de la façon la plus appropriée.
 
-This can be done easily by using the "GeoView", the only pre-requisites is to
-have define Geo-coordinates paramaters on your hosts (in the Extended
-information).
+Vous pouvez faire cela facilement en utilisant une **GeoView**. Le seul prérequis est d'avoir rempli le champ
+**Coordonnées géographiques** pour vos hôtes (à la page **Configuration > Hôtes > Hôtes**, onglet **Informations détaillées de l'hôte**).
 
-To create a GeoView, Go to *Monitoring \> Map* and click on the "+" that appears
-on the Geographic view line. *If you don't see the "+", it means you don't have
-enough privileges on Centreon.*
+Pour créer une GeoView, allez à la page **Supervision \> Map** et cliquez sur le "+"
+dans la section **Géographique**. (Si vous ne voyez pas le "+", cela signifie que vous n'avez pas les droits nécessaires.)
 
 ![image](../assets/graph-views/create_geo_view.gif)
 
-## Display & share the view
+## Afficher et partager une vue
 
-Using an access control mechanism based on Centreon ACL objects, it is easy to
-share the right views to the right teams. As soon as a view has been shared to a
-user, it is accessible through its browser in *Centreon → Monitoring → Map* or
-even directly on a dashboard using the Centreon Map Widget (see example below).
+Grâce à un mécanisme de contrôle d'accès basé sur les objets ACL Centreon, vous pouvez facilement partager les vues que vous voulez avec les équipes désirées. Dès qu'une vue est partagée avec un utilisateur, elle est accessible pour lui à la page
+**Supervision > Map**, ou même directement dans un tableau de bord en utilisant le widget Centreon Map (exemple ci-dessous).
 
 ![image](../assets/graph-views/share_view.png)
 
-You now have information to start working on Centreon Map.
+Vous avez maintenant assez d'informations pour commencer à utiliser Centreon MAP.
