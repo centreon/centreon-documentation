@@ -414,6 +414,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-monitoring-speedtest'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-rubrik-restapi'
         },
         {
