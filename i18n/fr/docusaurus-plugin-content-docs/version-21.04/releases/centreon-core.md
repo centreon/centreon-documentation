@@ -641,10 +641,6 @@ Nouvelle version majeure.
 
 Release date: `null`
 
-#### Improvements
-
-- Fixed an issue that could crash the SSH connector
-
 #### Bug fixes
 
 - UNKNOWN status is displayed instead of WARNING and CRITICAL when using the perl connector
