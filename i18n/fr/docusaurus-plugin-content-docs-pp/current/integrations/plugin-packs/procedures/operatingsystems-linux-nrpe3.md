@@ -54,6 +54,7 @@ filtrage par expression régulière)
 * Packet-Errors-Global : Vérifier le nomdre de paquets réseau en erreur (toutes
 les partitions ou filtrage par expression régulière)
 * Process-Generic : Vérifier qu'un processus est en cours d'exécution
+* Systemd-Sc-Status : Vérifier l'état des services gérés par *systemd*
 * Traffic-Generic-Name : Vérifier la consommation de bande passante sur une interface
 * Traffic-Global : Vérifier la consommation de bande passante (toutes les 
 partitions ou filtrage par expression régulière)
