@@ -302,6 +302,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-iis-wsman'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-sccm-nsclient'
         },
         {
