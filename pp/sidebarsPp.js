@@ -154,6 +154,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-gorgone-restapi'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-haproxy-snmp'
         },
         {
@@ -438,7 +442,7 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-gorgone-restapi'
+          id: 'integrations/plugin-packs/procedures/applications-monitoring-speedtest'
         },
         {
           type: 'doc',
