@@ -476,7 +476,7 @@ Release date: `null`
 #### Bug fixes
 
 - Broker crashed when a logger was disabled/off
-- Fixed an issue that could prevent broker from connecting again after the database freeze as the LVM snapshot started for backup
+- Fixed an issue that could prevent broker from connecting again after the database was stopped to make a LVM snapshot
 
 
 ### 21.04.7
