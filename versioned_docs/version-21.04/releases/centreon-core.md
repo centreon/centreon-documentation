@@ -680,6 +680,20 @@ New release.
 
 ## Centreon Connector SSH
 
+### 21.04.4
+
+Release date: `null`
+
+#### Improvements
+
+- Fixed an issue that could crash the SSH connector
+
+#### Bug fixes
+
+- UNKNOWN status is displayed instead of WARNING and CRITICAL when using the perl connector
+- Fixed a memory leak issue in the Perl connector
+
+
 ### 21.04.3
 
 `October 20, 2021`
