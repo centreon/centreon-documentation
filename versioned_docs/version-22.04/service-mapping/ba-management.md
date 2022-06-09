@@ -317,7 +317,7 @@ indicator at once:
 -   Deactivate indicator within their BA.
 -   Delete indicator.
 
-### Create an indicators (KPI)
+### Create an indicator (KPI)
 
 > In this page, you can only attach indicator to business activities
 > that use the “Impact” calculation method. If you want to manipulate BA
