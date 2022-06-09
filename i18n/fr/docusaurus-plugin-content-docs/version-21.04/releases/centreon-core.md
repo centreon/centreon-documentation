@@ -643,7 +643,6 @@ Release date: `null`
 
 #### Bug fixes
 
-- UNKNOWN status is displayed instead of WARNING and CRITICAL when using the perl connector
 - Fixed a memory leak issue in the Perl connector
 
 
