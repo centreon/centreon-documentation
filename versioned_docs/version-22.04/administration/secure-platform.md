@@ -409,7 +409,7 @@ By default, Centreon installs a web server in HTTP mode. It is strongly recommen
 - A x509 certificate to sign your certificate for the server: **ca-demo.crt** in our case.
 - A certificate for the server: **centreon7.crt** in our case.
 
-Install the SSL module for Apache:
+1. Install the SSL module for Apache:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -430,13 +430,13 @@ yum install httpd24-mod_ssl httpd24-mod_security openssl
 
 Let's assume that you have a Centreon server with a **centreon7.localdomain** FQDN address.
 
-1. Prepare the OpenSSL configuration:
+2. Prepare the OpenSSL configuration:
 
 Due to a policy change at Google, self-signed certificates may be rejected by the Google Chrome browser (it is not even possible to add an exception). To continue using this browser, you have to change the OpenSSL configuration.
 
 Open the file **/etc/pki/tls/openssl.cnf**. The goal here is to edit this file in order to inform the various IPs and FQDNs for the server.
 
-Find the ```[v3_ca]``` section and in order to add a new ```alt_names``` tag:
+Find the ```[v3_ca]``` section in order to add a new ```alt_names``` tag:
 
 ```text
 # Add the alt_names tag that allows you to inform our various IPs and FQDNs for the server
@@ -452,14 +452,14 @@ subjectAltName = @alt_names
 Here is an example of how the file should look like:
 ```text
 [ alt_names ]
-IP.1 = 10.25.xx.xxx
+IP.1 = 10.25.11.73
 DNS.1 = centreon7.localdomain
 
 [ v3_ca ]
 subjectAltName = @alt_names
 ```
 
-2. Create a private key for the server:
+3. Create a private key for the server:
 
 Let's create a private key named **centreon7.key** without a password so that it can be used by the Apache service.
 ```text
@@ -471,21 +471,21 @@ Protect your file by limiting rights:
 chmod 400 centreon7.key
 ```
 
-3. Create a Certificate Signing Request file:
+4. Create a Certificate Signing Request file:
 
 From the key you created, create a CSR (Certificate Signing Request) file: **centreon7.csr** in our case. Fill in the fields according to your company. The **Common Name** field must be identical to the hostname of your Apache server (in our case it is **centreon7.localdomain**).
 ```text
 openssl req -new -key centreon7.key -out centreon7.csr
 ```
 
-4. Create a private key for the certificate of certification authority:
+5. Create a private key for the certificate of certification authority:
 
 Create a private key for this authority: **ca_demo.key** in our case. We add the **-aes256** option to encrypt the output key and include a password. This password will be requested each time this key is used.
 ```text
 openssl genrsa -aes256 2048 > ca_demo.key
 ```
 
-5. Create a x509 certificate from the private key of the certificate of certification authority:
+6. Create a x509 certificate from the private key of the certificate of certification authority:
 
 Create a x509 certificate that will be valid for one year: **ca_demo.crt** in our case.
 
@@ -496,7 +496,7 @@ openssl req -new -x509 -days 365 -key ca_demo.key -out ca_demo.crt
 
 The certificate being created, you will be able to use it to sign your server certificate.
 
-6. Create a certificate for the server:
+7. Create a certificate for the server:
 
 Create your certificate for the server by using the x509 certificate (**ca_demo.crt**) to sign it.
 ```text
@@ -510,7 +510,7 @@ You can view the contents of the file:
 less centreon7.crt
 ```
 
-7. Then you have to retrieve the x509 certificate file (**ca_demo.crt**) and import it into your browser's certificate manager.
+8. Then you have to retrieve the x509 certificate file (**ca_demo.crt**) and import it into your browser's certificate manager.
 
 Now you have your self-signed certificate, you can perform the following procedure to activate HTTPS mode on your Apache server.
 
@@ -666,7 +666,7 @@ ServerTokens Prod
 ```
 
 > Do not forget to change the **SSLCertificateFile** and **SSLCertificateKeyFile** directives with the path containing your
-> certificate and key. In our case: ```SSLCertificateFile /etc/pki/tls/certs/centreon7.crt``` and ```SSLCertificateKeyFile /etc/pki/tls/private/centreon7.key```.
+> certificate and key. In our case: **SSLCertificateFile /etc/pki/tls/certs/centreon7.crt** and **SSLCertificateKeyFile /etc/pki/tls/private/centreon7.key**.
 
 5. Enable HttpOnly / Secure flags and hide the Apache server signature:
 
@@ -711,7 +711,7 @@ expose_php = Off
 </TabItem>
 </Tabs>
 
-6. Hide the default / icons directory:
+6. Hide the default **/icons** directory:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
