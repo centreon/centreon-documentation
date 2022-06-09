@@ -450,6 +450,20 @@ dans une prochaine version.
 
 ## Centreon Broker
 
+### 21.04.8
+
+Release date: `null`
+
+#### Improvements
+
+- Improved the way TCP connections are stored by keeping them in an ordered structure. This should avoid rare connection issues experienced by some users
+
+#### Bug fixes
+
+- Broker crashed when a logger was disabled/off
+- Fixed an issue that could prevent broker from connecting again after the database freeze as the LVM snapshot started for backup
+
+
 ### 21.04.7
 
 Release date: `March 3, 2022`
