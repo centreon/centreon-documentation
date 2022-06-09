@@ -656,9 +656,6 @@ New release.
 
 Release date: `null`
 
-#### Improvements
-
-- Fixed an issue that could crash the SSH connector
 
 #### Bug fixes
 
