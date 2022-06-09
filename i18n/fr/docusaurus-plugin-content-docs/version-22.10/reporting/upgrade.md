@@ -1,11 +1,11 @@
 ---
 id: upgrade
-title: Monter de version de l'extension
+title: Monter de version l'extension
 ---
 
 > Lors d'une montée de version < 18.10.x vers une version >= 18.10.x, vous devez:
 >
-> - Récupérer une nouvelle license via le support Centreon
+> - Récupérer une nouvelle licence via le support Centreon
 > - S'assurer que votre serveur de reporting est basé sur CentOS 7. Si ce n'est
 >   pas le cas, utiliser la procédure de [migration de votre serveur de
 >   reporting](migrate.md)
