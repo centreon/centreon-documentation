@@ -28,7 +28,7 @@ If you have feature requests or want to report a bug, please go to our
 - [Business Activity] Fixed synchronization of configuration with Remote Server
 - [Install] Fixed error when installing Centreon with remote DBMS
 - [Remote Server] Fixed synchronization of configuration
-- [Widget] Use ACL to get list of poller to filter display of services
+- [Widget] The list of pollers is now filtered according to the user's ACLs
 
 #### Security
 
