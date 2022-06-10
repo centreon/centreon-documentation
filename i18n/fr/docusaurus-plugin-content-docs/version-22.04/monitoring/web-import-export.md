@@ -160,7 +160,7 @@ Dans la page **Exporter**, chaque fois que vous cliquez sur le bouton **Export**
 
 C'est ce fichier que vous chargerez dans la page **Importer** d'une autre plateforme Centreon Web.
 
-Allez dans **Configuration > Import/Export > Import** :
+Allez à la page **Configuration > Import/Export > Import** :
 
 ![imaage](../assets/configuration/awie/Import.png)
 
