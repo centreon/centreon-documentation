@@ -14,7 +14,7 @@ superviser les performances de votre infrastructure IT, de votre réseau, vos ap
 
 ![image](../assets/graph-views/tuto_ex_2.png)
 
-Exemple: Grâce à ces vues temps réel, les équipes ITOM et leurs managers peuvent visualiser instantanément la disponibilité
+Exemple : Grâce à ces vues temps réel, les équipes ITOM et leurs managers peuvent visualiser instantanément la disponibilité
 de services et d'applications métier critiques. Cela garantit un meilleur temps de réaction en cas de panne et optimise le
 temps moyen de rétablissement du service (MTRS: Mean Time to Restore Service).
 
