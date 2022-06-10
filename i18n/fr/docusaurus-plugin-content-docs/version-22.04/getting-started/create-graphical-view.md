@@ -64,7 +64,7 @@ Pour créer une nouvelle vue, faites un clic droit sur le panneau **Vues** puis 
 
 Positionnez des ressources, des widgets et autres éléments, en utilisant le glisser-déposer et les raccourcis.
 
-Voici ci-dessous un exemple de vue sur le statut temps réel d'une infrastructure IT créée en moins de \~4 minutes :
+Voici ci-dessous un exemple de vue sur le statut temps réel d'une infrastructure IT créée en moins de 4 minutes :
 
 ![image](../assets/graph-views/ex_view.jpg)
 
