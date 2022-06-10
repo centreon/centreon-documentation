@@ -23,7 +23,7 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 - [API] Fixed /monitoring/host endpoint to return service state
 - [API] Fixed SQL syntax when retrieving service_id field
 - [Business Activity] Fixed synchronization of configuration with Remote Server
-- [Configuration] Fixed export when host group disabled
+- [Configuration] Fixed export when host group is disabled
 - [Configuration] Fixed export when service group disabled
 - [Configuration] Fixed export when service template disabled
 - [Core] Fixed database partitioning issue with MySQL 8
