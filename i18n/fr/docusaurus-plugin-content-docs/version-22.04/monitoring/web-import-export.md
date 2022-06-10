@@ -58,7 +58,7 @@ Si vous souhaitez exporter un seul collecteur, saisissez son nom exact dans le c
 
 ![imaage](../assets/configuration/awie/hosts.png)
 
-Il s'agit du même principe que l'export de collecteur, sauf que :
+Il s'agit du même principe que l'export de collecteur, cependant :
 
 Si vous choisissez d'exporter tous les hôtes, les configurations d'hôtes, les modèles d'hôtes liés et les modèles de services liés seront exportés mais les hôtes seront créés dans l'environnement cible sans leurs services. Cependant, vous pourrez créer des services en sélectionnant la valeur **Yes** pour le bouton radio **Create Services linked to the Template too** dans la page **Configuration > Hosts**, pour chaque hôte. Sauvegardez la configuration de l'hôte et exportez la configuration.
 
