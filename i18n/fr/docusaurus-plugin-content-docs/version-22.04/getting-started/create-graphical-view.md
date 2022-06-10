@@ -35,7 +35,7 @@ Voilà quelques questions à prendre en compte :
   - De quel niveau d'information les utilisateurs ont-ils besoin ?
   - Toutes les ressources et tous les indicateurs dont j'ai besoin pour créer cette vue sont-ils bien en supervision ?
   - Quel type d'informations doit contenir la vue ? (ressources, indicateurs,
-    graphiques, liens réseau etc). Il peut être utile de schématiser la vue sur papier.
+    graphiques, liens réseau, etc). Il peut être utile de schématiser la vue sur papier.
 
 Maintenant que les objectifs de la vue sont définis, voyons comment la réaliser.
 
