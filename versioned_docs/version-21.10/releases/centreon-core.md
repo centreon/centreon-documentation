@@ -35,7 +35,7 @@ If you have feature requests or want to report a bug, please go to our
 - [Remote Server] Fixed synchronization of configuration
 - [Resource Status] Fixed color when resources are selected in downtime or acknowledged
 - [UX] Fixed timezone when adding a downtime or an acknowledgement
-- [UX] Respect user configuration for Date/Time display
+- [UX] Follow user configuration for Date/Time display
 - [Widget] Use ACL to get list of poller to filter display of services
 
 #### Security
