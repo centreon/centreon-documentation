@@ -24,7 +24,7 @@ If you have feature requests or want to report a bug, please go to our
 - [API] Fixed /monitoring/host endpoint to return service state
 - [API] Fixed SQL syntax when retrieving service_id field
 - [Business Activity] Fixed synchronization of configuration with Remote Server
-- [Configuration] Fixed export when host group disabled
+- [Configuration] Fixed export when host group is disabled
 - [Configuration] Fixed export when service group disabled
 - [Configuration] Fixed export when service template is disabled
 - [Core] Fixed database partitioning issue with MySQL 8
