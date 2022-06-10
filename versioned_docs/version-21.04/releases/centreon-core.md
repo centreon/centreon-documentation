@@ -697,6 +697,16 @@ New release.
 
 ## Centreon Connector Perl
 
+### 21.04.4
+
+Release date: `June 10, 2022`
+
+
+#### Bug fixes
+
+- Fixed a memory leak issue in the Perl connector
+
+
 ### 21.04.3
 
 `October 20, 2021`
