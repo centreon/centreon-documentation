@@ -408,6 +408,15 @@ Release date: `November 15, 2021`
 
 ## Centreon Engine
 
+### 21.04.5
+
+Release date: `June 10, 2022`
+
+#### Bug fixes
+
+- Reviewed the way time period exceptions are handled to fix some issues with the way notifications are managed
+
+
 ### 21.04.4
 
 `October 20, 2021`
