@@ -394,7 +394,7 @@ Release date: `15 novembre 2021`
 
 ### 21.04.5
 
-Release date: `null`
+Release date: `June 10, 2022`
 
 #### Bug fixes
 
