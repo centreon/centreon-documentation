@@ -18,6 +18,8 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ### 21.10.7
 
+Release date: `June 10, 2022`
+
 #### Bug Fixes
 
 - [API] Fixed /monitoring/host endpoint to return service state
