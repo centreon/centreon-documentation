@@ -639,7 +639,7 @@ Nouvelle version majeure.
 
 ### 21.04.4
 
-Release date: `null`
+Release date: `June 10, 2022`
 
 #### Bug fixes
 
