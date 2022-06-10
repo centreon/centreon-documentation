@@ -680,7 +680,7 @@ New release.
 
 ## Centreon Connector SSH
 
-### 21.04.4
+### 21.04.4
 
 Release date: `null`
 
