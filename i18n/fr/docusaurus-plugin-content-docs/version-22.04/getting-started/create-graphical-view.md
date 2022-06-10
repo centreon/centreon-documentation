@@ -16,7 +16,7 @@ superviser les performances de votre infrastructure IT, de votre réseau, vos ap
 
 Exemple : Grâce à ces vues temps réel, les équipes ITOM et leurs managers peuvent visualiser instantanément la disponibilité
 de services et d'applications métier critiques. Cela garantit un meilleur temps de réaction en cas de panne et optimise le
-temps moyen de rétablissement du service (MTRS: Mean Time to Restore Service).
+temps moyen de rétablissement du service (MTRS : Mean Time to Restore Service).
 
 Dans ce tutoriel, nous montrerons comment créer des vues avec Centreon MAP.
 Après avoir lu cet article, vous aurez découvert les fonctionnalités principales de Centreon MAP
