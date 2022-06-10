@@ -28,6 +28,7 @@ If you have feature requests or want to report a bug, please go to our
   - Password expiration policy
   - Possibility to exclude users from password expiration policy
   - Brute force detection and account blocking
+  - Define minimum delay between each password change (disabled by default on platform update)
 - [Authentication] Moved Web SSO and OpenID Connect configuration to a dedicated authentication menu
 - [Authentication] Autologin key and password can’t be the same
 - [Configuration] Export hosts and services categories and severities in Centreon Engine configuration files
