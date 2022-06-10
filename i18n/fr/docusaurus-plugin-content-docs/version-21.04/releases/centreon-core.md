@@ -392,7 +392,7 @@ Release date: `15 novembre 2021`
 
 ## Centreon Engine
 
-### 21.04.5
+### 21.04.5
 
 Release date: `June 10, 2022`
 
