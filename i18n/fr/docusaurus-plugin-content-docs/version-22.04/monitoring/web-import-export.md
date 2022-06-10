@@ -21,7 +21,7 @@ yum install centreon-awie
 
 ### Installer dans l'interface
 
-Allez dans **Administration > Extensions > Manager** et recherchez **awie**. Cliquez sur
+Allez à la page **Administration > Extensions > Manager** et recherchez **awie**. Cliquez sur
 **Install selection** :
 
 ![imaage](../assets/configuration/awie/install_01.png)
