@@ -20,7 +20,7 @@ temps moyen de rétablissement du service (MTRS : Mean Time to Restore Service).
 
 Dans ce tutoriel, nous montrerons comment créer des vues avec Centreon MAP.
 Après avoir lu cet article, vous aurez découvert les fonctionnalités principales de Centreon MAP
-et vous serz capable de créer des vues qui répondent aux besoins de vos utilisateurs techniques et métier.
+et vous serez capable de créer des vues qui répondent aux besoins de vos utilisateurs techniques et métier.
 
 > Centreon MAP est une **extension** Centreon qui demande une clé de licence valide. Pour en acheter une et récupérer les dépôts nécessaires, contactez [Centreon](mailto:sales@centreon.com).
 
