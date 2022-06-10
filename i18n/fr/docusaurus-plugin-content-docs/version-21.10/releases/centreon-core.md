@@ -32,7 +32,7 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 - [Install] Fixed error when installing Centreon with remote DBMS
 - [Monitoring] Fixed notification number in legacy pages
 - [Remote Server] Fixed synchronization of configuration
-- [Resource Status] Fixed color of resources in downtime or acknowledged when selected
+- [Resource Status] Fixed color when resources are selected in downtime or acknowledged
 - [UX] Fixed timezone when adding a downtime or an acknowledgement
 - [UX] Respect user configuration for Date/Time display
 - [Widget] Use ACL to get list of poller to filter display of services
