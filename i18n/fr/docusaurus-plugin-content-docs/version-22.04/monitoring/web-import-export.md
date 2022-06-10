@@ -94,7 +94,7 @@ Cochez la case **Host categories** si vous voulez exporter toutes les catégorie
 
 ![imaage](../assets/configuration/awie/services.png)
 
-Il s'agit du même principe que l'export de collecteur, sauf que :
+Il s'agit du même principe que l'export de collecteur, cependant :
 
 Si vous utilisez le champ **Filter** pour un service spécifique, le processus d'import/export
 créera TOUS les services liés au premier hôte lié au service filtré.
