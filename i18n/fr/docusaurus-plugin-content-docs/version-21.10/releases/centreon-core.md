@@ -35,7 +35,7 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 - [Resource Status] Fixed color when resources are selected in downtime or acknowledged
 - [UX] Fixed timezone when adding a downtime or an acknowledgement
 - [UX] Follow user configuration for Date/Time display
-- [Widget] Use ACL to get list of poller to filter display of services
+- [Widget] The list of pollers is now filtered according to the user's ACLs
 
 #### Security
 
