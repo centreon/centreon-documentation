@@ -19,6 +19,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 21.10.7
 
+Release date: `June 10, 2022`
+
 #### Bug Fixes
 
 - [API] Fixed /monitoring/host endpoint to return service state
