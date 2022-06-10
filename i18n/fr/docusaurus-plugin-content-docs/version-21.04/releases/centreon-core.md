@@ -711,6 +711,14 @@ Nouvelle version majeure.
 
 ## Centreon Connector SSH
 
+### 21.04.4
+
+Release date: `June 10, 2022`
+
+#### Bug fixes
+
+- Fixed an issue that could cause the SSH connector to crash
+
 ### 21.04.3
 
 `20 octobre 2021`
