@@ -17,8 +17,39 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
-### 21.10.6
+### 21.10.7
 
+Release date: `June 10, 2022`
+
+#### Bug Fixes
+
+- [API] Fixed /monitoring/host endpoint to return service state
+- [API] Fixed SQL syntax when retrieving service_id field
+- [Business Activity] Fixed synchronization of configuration with Remote Server
+- [Configuration] Fixed export when host group is disabled
+- [Configuration] Fixed export when service group is disabled
+- [Configuration] Fixed export when service template is disabled
+- [Core] Fixed database partitioning issue with MySQL 8
+- [Dashboard] Fixed displaying of first service in host reporting dashboard
+- [Discovery] Fixed critical error when searching host templates with notification option in mappers configuration
+- [Install] Fixed error when installing Centreon with remote DBMS
+- [Monitoring] Fixed notification number in legacy pages
+- [Remote Server] Fixed synchronization of configuration
+- [Resource Status] Fixed color when resources are selected in downtime or acknowledged
+- [UX] Fixed timezone when adding a downtime or an acknowledgement
+- [UX] Follow user configuration for Date/Time display
+- [Widget] The list of pollers is now filtered according to the user's ACLs
+
+#### Security
+
+- [Security] Fixed RCE in command
+- [Security] Fixed SQLi in virtual metrics
+- [Security] Sanitize and bind "hostgroups" queries
+- [Security] Sanitize and bind "meta_service" related queries
+- [Security] Sanitize and bind "poller" queries
+- [Security] Sanitize and bind ACL resources queries
+
+### 21.10.6
 
 Release date: `May 2, 2022`
 
