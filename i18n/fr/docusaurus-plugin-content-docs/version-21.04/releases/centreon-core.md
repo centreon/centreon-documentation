@@ -452,7 +452,7 @@ dans une prochaine version.
 
 ### 21.04.8
 
-Release date: `null`
+Release date: `June 10, 2022`
 
 #### Improvements
 
