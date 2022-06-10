@@ -652,7 +652,7 @@ New release.
 
 ## Centreon Connector Perl
 
-### 21.04.4
+### 21.04.4
 
 Release date: `null`
 
