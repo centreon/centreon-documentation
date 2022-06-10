@@ -32,7 +32,7 @@ Le module est maintenant installé :
 
 ## Exporter la configuration
 
-Lorsque vous avez correctement configuré tous les objets Centreon Web dont vous avez besoin (Poller, Hôtes, Services, Contacts, Périodes de temps, etc.), vous pouvez les exporter vers une autre plateforme Centreon Web en allant dans le menu **Configuration > Import/Export**.
+Lorsque vous avez correctement configuré tous les objets Centreon Web dont vous avez besoin (Collecteur, Hôtes, Services, Contacts, Périodes de temps, etc.), vous pouvez les exporter vers une autre plateforme Centreon Web en allant dans le menu **Configuration > Import/Export**.
 
 La page par défaut est **Exporter**.
 
@@ -42,13 +42,13 @@ La page par défaut est **Exporter**.
 
 Sachez que si vous modifiez le nom de l'archive créée, vous ne pourrez pas l'importer tant que le nom de l'archive ne sera pas identique au nom du fichier contenu dans l'archive.
 
-### Exporter le poller
+### Exporter le collecteur
 
 ![imaage](../assets/configuration/awie/poller.png)
 
-Si vous cochez la case **All** (non cochée par défaut), tous les pollers configurés seront exportés avec leurs fichiers de configuration (pour le moteur, le broker, etc.) après avoir cliqué sur le bouton **Export**.
+Si vous cochez la case **All** (non cochée par défaut), tous les collecteurs configurés seront exportés avec leurs fichiers de configuration (pour le moteur, le broker, etc.) après avoir cliqué sur le bouton **Export**.
 
-Si vous souhaitez exporter un seul poller, saisissez son nom exact dans le champ **Filter** (une seule valeur est acceptée, ce champ ne propose pas de liste d'éléments).
+Si vous souhaitez exporter un seul collecteur, saisissez son nom exact dans le champ **Filter** (une seule valeur est acceptée, ce champ ne propose pas de liste d'éléments).
 
 ### Exporter les hôtes
 
@@ -58,7 +58,7 @@ Si vous souhaitez exporter un seul poller, saisissez son nom exact dans le champ
 
 ![imaage](../assets/configuration/awie/hosts.png)
 
-Il s'agit du même principe que l'export de poller, sauf que :
+Il s'agit du même principe que l'export de collecteur, sauf que :
 
 Si vous choisissez d'exporter tous les hôtes, les configurations d'hôtes, les modèles d'hôtes liés et les modèles de services liés seront exportés mais les hôtes seront créés dans l'environnement cible sans leurs services. Cependant, vous pourrez créer des services en sélectionnant la valeur **Yes** pour le bouton radio **Create Services linked to the Template too** dans la page **Configuration > Hosts**, pour chaque hôte. Sauvegardez la configuration de l'hôte et exportez la configuration.
 
@@ -94,7 +94,7 @@ Cochez la case **Host categories** si vous voulez exporter toutes les catégorie
 
 ![imaage](../assets/configuration/awie/services.png)
 
-Il s'agit du même principe que l'export de poller, sauf que :
+Il s'agit du même principe que l'export de collecteur, sauf que :
 
 Si vous utilisez le champ **Filter** pour un service spécifique, le processus d'import/export
 créera TOUS les services liés au premier hôte lié au service filtré.
