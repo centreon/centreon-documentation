@@ -53,7 +53,7 @@ L'interface est organisée de la manière suivante :
 3. **Médias**: Images disponibles
 4. **Ressources**: Objets Centreon pouvant être utilisés dans la vue (par drag & drop)
 5. Contenu de la vue
-6. **Palette**: Éléments graphiques pouvant être utilisés dans la vue
+6. **Palette** : Éléments graphiques pouvant être utilisés dans la vue
 7. **Propriétés**: Propriétés de l'élément sélectionné
 
 ### Créer une nouvelle vue
