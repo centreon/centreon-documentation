@@ -465,7 +465,7 @@ future.
 
 ## Centreon Broker
 
-### 21.04.8
+### 21.04.8
 
 Release date: `June 10, 2022`
 
