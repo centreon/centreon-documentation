@@ -30,7 +30,7 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 - [Dashboard] Fixed displaying of first service in host reporting dashboard
 - [Discovery] Fixed critical error when searching host templates with notification option in mappers configuration
 - [Install] Fixed error when installing Centreon with remote DBMS
-- [Monitoring] fixed notification number in legacy pages
+- [Monitoring] Fixed notification number in legacy pages
 - [Remote Server] Fixed synchronization of configuration
 - [Resource Status] Fixed color of resources in downtime or acknowledged when selected
 - [UX] Fixed timezone when adding a downtime or an acknowledgement
