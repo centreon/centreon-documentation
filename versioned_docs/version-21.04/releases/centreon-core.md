@@ -686,7 +686,8 @@ Release date: `null`
 
 #### Bug fixes
 
-- Fixed an issue that could crash the SSH connector
+- Fixed an issue that could cause the SSH connector to crash
+
 ### 21.04.3
 
 `October 20, 2021`
