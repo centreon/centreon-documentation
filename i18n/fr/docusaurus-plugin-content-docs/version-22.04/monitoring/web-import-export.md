@@ -32,7 +32,7 @@ Le module est maintenant installé :
 
 ## Exporter la configuration
 
-Lorsque vous avez correctement configuré tous les objets Centreon Web dont vous avez besoin (Collecteur, Hôtes, Services, Contacts, Périodes de temps, etc.), vous pouvez les exporter vers une autre plateforme Centreon Web en allant dans le menu **Configuration > Import/Export**.
+Une fois que vous avez correctement configuré tous les objets Centreon Web dont vous avez besoin (collecteur, hôtes, services, contacts, périodes de temps, etc.), vous pouvez les exporter vers une autre plateforme Centreon Web en allant dans le menu **Configuration > Import/Export**.
 
 La page par défaut est **Exporter**.
 
