@@ -80,7 +80,7 @@ vous avez besoin de visualiser l'état de votre infrastrcture IT de la façon la
 Vous pouvez faire cela facilement en utilisant une **GeoView**. Le seul prérequis est d'avoir rempli le champ
 **Coordonnées géographiques** pour vos hôtes (à la page **Configuration > Hôtes > Hôtes**, onglet **Informations détaillées de l'hôte**).
 
-Pour créer une GeoView, allez à la page **Supervision \> Map** et cliquez sur le "+"
+Pour créer une **GeoView**, allez à la page **Supervision \> Map** et cliquez sur le "+"
 dans la section **Géographique**. (Si vous ne voyez pas le "+", cela signifie que vous n'avez pas les droits nécessaires.)
 
 ![image](../assets/graph-views/create_geo_view.gif)
