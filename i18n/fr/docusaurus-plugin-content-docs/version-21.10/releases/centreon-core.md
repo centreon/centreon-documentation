@@ -25,7 +25,7 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 - [Business Activity] Fixed synchronization of configuration with Remote Server
 - [Configuration] Fixed export when host group is disabled
 - [Configuration] Fixed export when service group is disabled
-- [Configuration] Fixed export when service template disabled
+- [Configuration] Fixed export when service template is disabled
 - [Core] Fixed database partitioning issue with MySQL 8
 - [Dashboard] Fixed displaying of first service in host reporting dashboard
 - [Discovery] Fixed critical error when searching host templates with notification option in mappers configuration
