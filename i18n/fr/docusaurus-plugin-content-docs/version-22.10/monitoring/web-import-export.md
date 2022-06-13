@@ -3,113 +3,90 @@ id: web-import-export
 title: Import/Export
 ---
 
-The Centreon Web Import/Export module has been designed to help users configure
-several Centreon Web platforms in a faster and easier way, thanks to its
-import/export mechanism.
+Le module Centreon API Web Import/Export (AWIE) a été conçu pour aider les utilisateurs à configurer plusieurs plateformes Centreon Web de manière plus rapide et plus facile, grâce à son mécanisme d'import/export.
 
-From a properly configured source environment, you can use the AWIE module to
-export chosen objects towards a target environment. Those objects will be
-replicated.
+À partir d'un environnement source correctement configuré, vous pouvez utiliser le module AWIE pour exporter des objets choisis vers un environnement cible. Ces objets seront répliqués.
 
-Centreon AWIE is based on CLAPI commands but its added value is to allow using
-Centreon Web UI instead of commands lines.
+Centreon AWIE est basé sur les commandes CLAPI mais sa valeur ajoutée est de permettre l'utilisation de l'interface Web Centreon au lieu des lignes de commande.
 
 ## Installation
 
-### Installing packages
+### Installer les paquets
 
-Run the following commands as a privileged user:
+Exécutez les commandes suivantes en tant qu'utilisateur privilégié :
 
 ``` shell
 yum install centreon-awie
 ```
 
-### UI installation
+### Installer le module via l'interface
 
-Go to `Administration > Extensions > Manager` and search **awie**. Click on
-**Install selection**:
+Allez à la page **Administration > Extensions > Manager** et recherchez **awie**. Cliquez sur
+**Install selection** :
 
 ![imaage](../assets/configuration/awie/install_01.png)
 
-Your module is now installed:
+Le module est maintenant installé :
 
 ![imaage](../assets/configuration/awie/install_02.png)
 
-## Export configuration
+## Exporter la configuration
 
-Once you have properly configured all Centreon Web objects you need (Poller,
-Hosts, Services, Contacts, Time Periods... ) then you can export them towards
-another Centreon Web platform by going to `Configuration > Import/Export`
-menu.
+Une fois que vous avez correctement configuré tous les objets Centreon Web dont vous avez besoin (collecteur, hôtes, services, contacts, périodes de temps, etc.), vous pouvez les exporter vers une autre plateforme Centreon Web en allant dans le menu **Configuration > Import/Export**.
 
-Default page is Export one.
+La page par défaut est **Exporter**.
 
 ![imaage](../assets/configuration/awie/exportdefault.png)
 
-### Exported Archive Name
+### Nom de l'archive exportée
 
-Be aware that if you change the name of the created archive, you will not be
-able to import it until the name of the archive is identical to the name of the
-file contained in the archive.
+Sachez que si vous modifiez le nom de l'archive créée, vous ne pourrez pas l'importer tant que le nom de l'archive ne sera pas identique au nom du fichier contenu dans l'archive.
 
-### Poller Export
+### Exporter le collecteur
 
 ![imaage](../assets/configuration/awie/poller.png)
 
-If you set the **All** check-box to yes (default value is no) then all
-configured pollers will be exported with their configuration files (for engine,
-broker...) after you have clicked on **Export** button.
+Si vous cochez la case **All** (non cochée par défaut), tous les collecteurs configurés seront exportés avec leurs fichiers de configuration (pour le moteur, le broker, etc.) après avoir cliqué sur le bouton **Export**.
 
-If you want to export only one poller then type its **exact** name in **Filter**
-field (one single value is accepted, this field has no list of items proposed).
+Si vous souhaitez exporter un seul collecteur, saisissez son nom exact dans le champ **Filter** (une seule valeur est acceptée, ce champ ne propose pas de liste d'éléments).
 
-### Hosts Export
+### Exporter les hôtes
 
 ![imaage](../assets/configuration/awie/hostsetc.png)
 
-#### Hosts
+#### Hôtes
 
 ![imaage](../assets/configuration/awie/hosts.png)
 
-Same principle as Poller export but :
+Il s'agit du même principe que l'export de collecteur, cependant :
 
-If you choose to export all hosts, then host configurations, linked host
-templates and linked services templates will be exported but hosts will be
-created in target environment without their services. However, you will be able
-to create services by selecting value "Yes" for the **Create Services linked to
-the Template too** radio-button in `Configuration > Hosts` page, for each
-host. Save host configuration and export configuration.
+Si vous choisissez d'exporter tous les hôtes, les configurations d'hôtes, les modèles d'hôtes liés et les modèles de services liés seront exportés mais les hôtes seront créés dans l'environnement cible sans leurs services. Cependant, vous pourrez créer des services en sélectionnant la valeur **Yes** pour le bouton radio **Create Services linked to the Template too** dans la page **Configuration > Hosts**, pour chaque hôte. Sauvegardez la configuration de l'hôte et exportez la configuration.
 
-If you export a specific host by using the *Filter* field (only one host at the
-same time) then the host will be created in the new platform with all its
-services.
+Si vous exportez un hôte spécifique en utilisant le champ **Filter** (un seul hôte à la fois), l'hôte sera créé dans la nouvelle plateforme avec tous ses services.
 
-#### Host templates
+#### Modèles d'hôtes
 
 ![imaage](../assets/configuration/awie/hoststemplates.png)
 
-Check the *Host templates* check-box if you want to export all hosts templates.
+Cochez la case **Host templates** si vous voulez exporter tous les modèles d'hôtes.
 
-Use the *Filter* field for one single value if you want to export one specific
-host template.
+Utilisez le champ **Filter** pour renseigner une seule valeur, si vous souhaitez exporter un modèle d'hôtes spécifique.
 
-#### Host groups
+#### Groupes d'hôtes
 
 ![imaage](../assets/configuration/awie/hostgroups.png)
 
-Check the **Host groups** check-box if you want to export all host groups.
+Cochez la case **Host groups** si vous voulez exporter tous les groupes d'hôtes.
 
-Use the **Filter** field for one single value if you want to export one specific
-host groups.
+Utilisez le champ **Filter** pour renseigner une seule valeur, si vous souhaitez exporter un groupe d'hôtes spécifique.
 
-#### Host categories
+#### Catégories d'hôtes
 
 ![imaage](../assets/configuration/awie/hostscat.png)
 
-Check the **Host categories** check-box if you want to export all host
-categories. There is no **Filter** field for this object.
+Cochez la case **Host categories** si vous voulez exporter toutes les catégories d'hôtes. Il n'y a pas de champ **Filter** pour cet objet.
 
-### Services Export
+### Exporter les services
 
 ![imaage](../assets/configuration/awie/servicesetc.png)
 
@@ -117,98 +94,84 @@ categories. There is no **Filter** field for this object.
 
 ![imaage](../assets/configuration/awie/services.png)
 
-Same principle as Poller export but :
+Il s'agit du même principe que l'export de collecteur, cependant :
 
-If you use the **Filter** field for a specific service, Import/Export process
-will create ALL services linked to the first host linked to the filtered
-service.
+Si vous utilisez le champ **Filter** pour un service spécifique, le processus d'import/export
+créera TOUS les services liés au premier hôte lié au service filtré.
 
-#### Service templates
+#### Modèles de services
 
 ![imaage](../assets/configuration/awie/servicestemplates.png)
 
-Check the **Service templates** check-box if you want to export all service
-templates.
+Cochez la case **Service templates** si vous voulez exporter tous les modèles de services.
 
-Use the **Filter** field for one single value if you want to export one specific
-service template.
+Utilisez le champ **Filter** pour renseigner une seule valeur, si vous souhaitez exporter un modèle de services spécifique.
 
-#### Service groups
+#### Groupes de services
 
 ![imaage](../assets/configuration/awie/servicegroups.png)
 
-Check the **Service groups** check-box if you want to export all service groups.
+Cochez la case **Service groups** si vous voulez exporter tous les groupes de services.
 
-Use the **Filter** field for one single value if you want to export one specific
-service groups.
+Utilisez le champ **Filter** pour renseigner une seule valeur, si vous souhaitez exporter un groupe de services spécifique.
 
-#### Service categories
+#### Catégories de services
 
 ![imaage](../assets/configuration/awie/servicescat.png)
 
-Check the **Service categories** check-box if you want to export all service
-categories. There is no **Filter** field for this object.
+Cochez la case **Service categories** si vous voulez exporter toutes les catégories de services. Il n'y a pas de champ **Filter** pour cet objet.
 
-### Contacts Export
+### Exporter les contacts
 
 ![imaage](../assets/configuration/awie/contacts.png)
 
-You can export all Contacts (without linked contact groups) or all Contact
-groups (with linked users). No **Filter**.
+Vous pouvez exporter tous les contacts (sans leurs groupes de contacts liés) ou tous les groupes de contacts (avec leurs utilisateurs liés). Il n'y a pas de champ **Filter** pour cet objet.
 
-### Commands Export
+### Exporter les commandes
 
 ![imaage](../assets/configuration/awie/commands.png)
 
-Check the check-box corresponding to the type of command you want to export
-(Check, Notification, Miscellaneous or Discovery). No **Filter**.
+Cochez la case correspondant au type de commande que vous souhaitez exporter (**Check**, **Notification**, **Misc** ou **Discovery**). Il n'y a pas de champ **Filter** pour cet objet.
 
-> Command line notification commands are not exported entirely (known issue).
+> Les commandes de notification de la ligne de commande ne sont pas entièrement exportées (ce problème est connu).
 
-### Resources Export
+### Exporter les ressources
 
 ![imaage](../assets/configuration/awie/resources.png)
 
 ### ACL
 
-Check the **ACL** check-box if you want to export ACL objects (Access groups,
-Menus Access, Resource Access, Actions Access). No **Filter**.
+Cochez la case **ACL** si vous souhaitez exporter tous les objets ACL (**Access groups**,
+**Menus Access**, **Resource Access**, **Actions Access**). Il n'y a pas de champ **Filter** pour cet objet.
 
-> Relations between ACL objects are exported but links between those differents
-> objects are not created once they areimported.
+> Les relations entre les objets ACL sont exportées mais les liens entre ces différents objets ne sont pas créés une fois importés.
 
 ### LDAP
 
-Check the **LDAP** check-box if you want to export your LDAP configuration(s).
-No **Filter**.
+Cochez la case **LDAP** si vous souhaitez exporter les configurations LDAP. Il n'y a pas de champ **Filter** pour cet objet.
 
-### Time periods
+### Périodes de temps
 
-Check the **Timeperiods** check-box if you want to export all time periods. No
-**Filter**.
+Cochez la case **Timeperiods** si vous souhaitez exporter toutes les périodes de temps. Il n'y a pas de champ **Filter** pour cet objet.
 
-## Import configuration
+## Importer la configuration
 
-In the Export page, each time that the Export button is pressed, a zip archive
-file is created and downloaded.
+Dans la page **Exporter**, chaque fois que vous cliquez sur le bouton **Export**, un fichier d'archive ZIP est créé et téléchargé.
 
-This is the file that you will upload in the Import Page of another Centreon Web
-platform.
+C'est ce fichier que vous chargerez dans la page **Importer** d'une autre plateforme Centreon Web.
 
-Go to `Configuration > Import/Export > Import` menu:
+Allez à la page **Configuration > Import/Export > Import** :
 
 ![imaage](../assets/configuration/awie/Import.png)
 
-Select the centreon-clapi-export zip file you want to import then click on the
-**Import** button:
+Sélectionnez le fichier ZIP **centreon-clapi-export** souhaité et cliquez sur le bouton **Import** :
 
 ![imaage](../assets/configuration/awie/zipfileuploaded.png)
 
-You should get **Import successful** message at the end of the process:
+Le message **Import successful** doit normalement s'afficher :
 
 ![imaage](../assets/configuration/awie/success.png)
 
-To check that objects have been properly imported, go to Configuration pages as
-usual.
+Pour vérifier que les objets sont correctement importés, allez dans les pages **Configuration**.
 
-> It is necessary to generate, test and export configuration.
+> Il est nécessaire de générer, tester et exporter la configuration.
