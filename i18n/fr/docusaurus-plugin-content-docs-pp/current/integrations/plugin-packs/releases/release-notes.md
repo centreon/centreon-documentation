@@ -13,47 +13,48 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
 
-- [**Speedtest**](../applications-monitoring-speedtest.md) - Initial release - Status:stable centreon-pack-applications-monitoring-speedtest-22.06.1-1
-- [**Protocol WHOIS**](../applications-protocol-whois.md) - Initial release - Status:stable centreon-pack-applications-protocol-whois-22.06.1-1
-- [**Microsoft IIS Server WSMAN**](../applications-iis-wsman.md) - Initial release - Status:stable centreon-pack-applications-iis-wsman-22.06.0-1
-- [**Active Directory WSMAN**](../applications-active-directory-wsman.md) - Initial release - Status:stable centreon-pack-applications-active-directory-wsman-22.06.0-1
-- [**Ceph RestAPI**](../applications-ceph-restapi.md) - Initial release - Status:stable centreon-pack-applications-ceph-restapi-22.06.0-1
-- [**Libraesva SNMP**](../network-libraesva-snmp.md) - Initial release - Status:stable centreon-pack-network-libraesva-snmp-22.06.0-1
-- [**HP StoreOnce 4.x Rest API**](../hardware-storage-hp-storeonce4-restapi.md) - Initial release - Status:stable centreon-pack-hardware-storage-hp-storeonce4-restapi-22.06.0-1
-- [**Azure Traffic Manager**](../cloud-azure-network-trafficmanager.md) - Initial release - Status:stable centreon-pack-cloud-azure-network-trafficmanager-22.06.0-1
-- [**Cambium ePMP SNMP**](../network-cambium-epmp-snmp.md) - Initial release - Status:stable centreon-pack-network-cambium-epmp-snmp-22.06.0-1
+- [**Speedtest**](../procedures/applications-monitoring-speedtest.md) - Initial release - Status:stable - centreon-pack-applications-monitoring-speedtest-22.06.1-1
+- [**Protocol WHOIS**](../procedures/applications-protocol-whois.md) - Initial release - Status:stable - centreon-pack-applications-protocol-whois-22.06.1-1
+- [**Microsoft IIS Server WSMAN**](../procedures/applications-iis-wsman.md) - Initial release - Status:stable - centreon-pack-applications-iis-wsman-22.06.0-1
+- [**Active Directory WSMAN**](../procedures/applications-active-directory-wsman.md) - Initial release - Status:stable - centreon-pack-applications-active-directory-wsman-22.06.0-1
+- [**Ceph RestAPI**](../procedures/applications-ceph-restapi.md) - Initial release - Status:stable - centreon-pack-applications-ceph-restapi-22.06.0-1
+- [**Libraesva SNMP**](../procedures/network-libraesva-snmp.md) - Initial release - Status:stable - centreon-pack-network-libraesva-snmp-22.06.0-1
+- [**HP StoreOnce 4.x Rest API**](../procedures/hardware-storage-hp-storeonce4-restapi.md) - Initial release - Status:stable - centreon-pack-hardware-storage-hp-storeonce4-restapi-22.06.0-1
+- [**Azure Traffic Manager**](../procedures/cloud-azure-network-trafficmanager.md) - Initial release - Status:stable - centreon-pack-cloud-azure-network-trafficmanager-22.06.0-1
+- [**Cambium ePMP SNMP**](../procedures/network-cambium-epmp-snmp.md) - Initial release - Status:stable - centreon-pack-network-cambium-epmp-snmp-22.06.0-1
 
 </TabItem>
 <TabItem value="Enhancements" label="Enhancements">
 
-- [**Azure Discover**](../cloud-azure-management-discover.md) - New provider scanning all subscriptions for a given tenant and support for Azure KS & VMSS resources discovery - - Status:stable centreon-pack-cloud-azure-management-discover-22.06.1-1
-- [**Raisecom**](../network-raisecom-snmp.md) - Add support for all Raisecom xPON series - Status:stable centreon-pack-network-raisecom-snmp-22.06.0-1
-- [**Linux NRPE3**](../operatingsystems-linux-nrpe3.md) - Add new check: systemd-sc-status  - Status:stable centreon-pack-operatingsystems-linux-nrpe3-22.06.0-1
-- [**Amazon EFS**](../cloud-aws-efs.md) - Add a host discovery rule - Status:stable centreon-pack-cloud-aws-efs-22.05.1-1
-- [**Proxmox VE**](../virtualization-proxmox-ve-restapi.md) - Add a host discovery rule for virtual machines - Status:stable centreon-pack-virtualization-proxmox-ve-restapi-22.06.1-1
-- [**Centreon Central**](../applications-monitoring-centreon-central.md) - Broker-Stats: support yes/no value in queue file status / Proc-Centengine: avoid wrong match resulting in annoying results - Status:stable centreon-pack-applications-monitoring-centreon-central-22.05.1-1
-- [**Centreon Poller**](../applications-monitoring-centreon-poller.md) - Broker-Stats: support yes/no value in queue file status / Proc-Centengine: avoid wrong match resulting in annoying results - Status:stable centreon-pack-applications-monitoring-centreon-poller-22.05.1-1
-- [**Stormshield SNMP**](../network-stormshield-snmp.md) - Add VPN-Status check for latest firmware and add several thresholds - Status:stable centreon-pack-network-stormshield-snmp-22.06.0-1
-- [**HP StoreOnce**](../hardware-storage-hp-storeonce-restapi.md) - Initial release and original StoreOnce Pack deprecation - Status:deprecated centreon-pack-hardware-storage-hp-storeonce-restapi-22.06.0-1
-- [**HP StoreOnce 3.x Rest API**](../hardware-storage-hp-storeonce3-restapi.md) - Initial release and original StoreOnce Pack deprecation - Status:stable centreon-pack-hardware-storage-hp-storeonce3-restapi-22.06.0-1
+- [**Azure Discover**](../procedures/cloud-azure-management-discover.md) - New provider scanning all subscriptions for a given tenant and support for Azure KS & VMSS resources discovery - Status:stable - centreon-pack-cloud-azure-management-discover-22.06.1-1
+- [**Raisecom**](../procedures/network-raisecom-snmp.md) - Add support for all Raisecom xPON series - Status:stable - centreon-pack-network-raisecom-snmp-22.06.0-1
+- [**Linux NRPE3**](../procedures/operatingsystems-linux-nrpe3.md) - Add new check: systemd-sc-status  - Status:stable - centreon-pack-operatingsystems-linux-nrpe3-22.06.0-1
+- [**Amazon EFS**](../procedures/cloud-aws-efs.md) - Add a host discovery rule - Status:stable - centreon-pack-cloud-aws-efs-22.05.1-1
+- [**Proxmox VE**](../procedures/virtualization-proxmox-ve-restapi.md) - Add a host discovery rule for virtual machines - Status:stable - centreon-pack-virtualization-proxmox-ve-restapi-22.06.1-1
+- [**Centreon Central**](../procedures/applications-monitoring-centreon-central.md) - Broker-Stats: support yes/no value in queue file status / Proc-Centengine: avoid wrong match resulting in annoying results - Status:stable - centreon-pack-applications-monitoring-centreon-central-22.05.1-1
+- [**Centreon Poller**](../procedures/applications-monitoring-centreon-poller.md) - Broker-Stats: support yes/no value in queue file status / Proc-Centengine: avoid wrong match resulting in annoying results - Status:stable - centreon-pack-applications-monitoring-centreon-poller-22.05.1-1
+- [**Stormshield SNMP**](../procedures/network-stormshield-snmp.md) - Add VPN-Status check for latest firmware and add several thresholds - Status:stable - centreon-pack-network-stormshield-snmp-22.06.0-1
+- [**HP StoreOnce**](../procedures/hardware-storage-hp-storeonce-restapi.md) - Initial release and original StoreOnce Pack deprecation - Status:deprecated - centreon-pack-hardware-storage-hp-storeonce-restapi-22.06.0-1
+- [**HP StoreOnce 3.x Rest API**](../procedures/hardware-storage-hp-storeonce3-restapi.md) - Initial release and original StoreOnce Pack deprecation - Status:stable - centreon-pack-hardware-storage-hp-storeonce3-restapi-22.06.0-1
 
 </TabItem>
 <TabItem value="Fix" label="Fix">
 
-- [**Ruckus Smartzone**](../network-ruckus-smartzone-snmp.md) - Remove extra space in Access Points check command - Status:stable centreon-pack-network-ruckus-smartzone-snmp-22.06.0-1
-- [**OneAccess SNMP**](../network-oneaccess-snmp.md) - Fix interfaces command options - Status:stable centreon-pack-network-oneaccess-snmp-22.06.0-1
-- [**Amazon EBS**](../cloud-aws-ebs.md) - Fix wrong mapper name and host template macros - Status:stable centreon-pack-cloud-aws-ebs-22.06.0-1
-- [**Amazon Backup Vault**](../cloud-aws-backup.md) - Fix Job-Status command and add missing macros - Status:stable centreon-pack-cloud-aws-backup-22.05.1-1
-- [**NtopNG RestAPI**](../applications-monitoring-ntopng-restapi.md) - Mismatch between template and command regarding host EXTRAOPTIONS - Status:stable - centreon-pack-applications-monitoring-ntopng-restapi-22.06.0-1
-- [**Azure Functions**](../cloud-azure-compute-functions.md) - Fix extra newlines in commands definition causing failures during CLAPI import - Status:stable - centreon-pack-cloud-azure-compute-functions-22.05.0-1[**Azure App Service**](../cloud-azure-web-appservice.md) - Fix extra newlines in commands definition causing failures during CLAPI import - Status:stable centreon-pack-cloud-azure-web-appservice-22.05.0-1
-- [**Amazon RDS**](../cloud-aws-rds.md) - Support new attributes in host discovery provider - Status:stable centreon-pack-cloud-aws-rds-22.05.1-1
+- [**Ruckus Smartzone**](../procedures/network-ruckus-smartzone-snmp.md) - Remove extra space in Access Points check command - Status:stable - centreon-pack-network-ruckus-smartzone-snmp-22.06.0-1
+- [**OneAccess SNMP**](../procedures/network-oneaccess-snmp.md) - Fix interfaces command options - Status:stable - centreon-pack-network-oneaccess-snmp-22.06.0-1
+- [**Amazon EBS**](../procedures/cloud-aws-ebs.md) - Fix wrong mapper name and host template macros - Status:stable - centreon-pack-cloud-aws-ebs-22.06.0-1
+- [**Amazon Backup Vault**](../procedures/cloud-aws-backup.md) - Fix Job-Status command and add missing macros - Status:stable - centreon-pack-cloud-aws-backup-22.05.1-1
+- [**NtopNG RestAPI**](../procedures/applications-monitoring-ntopng-restapi.md) - Mismatch between template and command regarding host EXTRAOPTIONS - Status:stable - centreon-pack-applications-monitoring-ntopng-restapi-22.06.0-1
+- [**Azure Functions**](../procedures/cloud-azure-compute-functions.md) - Fix extra newlines in commands definition causing failures during CLAPI import - Status:stable - centreon-pack-cloud-azure-compute-functions-22.05.0-1
+- [**Azure App Service**](../procedures/cloud-azure-web-appservice.md) - Fix extra newlines in commands definition causing failures during CLAPI import - Status:stable - centreon-pack-cloud-azure-web-appservice-22.05.0-1
+- [**Amazon RDS**](../procedures/cloud-aws-rds.md) - Support new attributes in host discovery provider - Status:stable - centreon-pack-cloud-aws-rds-22.05.1-1
 
 </TabItem>
 <TabItem value="Breaking changes" label="Breaking changes">
 
-- [**Dell N4000**](../network-dell-n4000.md) - Deprecate n4000, and initial release of nseries - Status:deprecated centreon-pack-network-dell-n4000-22.06.0-1
-- [**Dell N-series SNMP**](../network-dell-nseries-snmp.md) - Deprecate n4000, and initial release of nseries - Status:stable centreon-pack-network-dell-nseries-snmp-22.06.0-1
-- [**Protocol TCP**](../applications-protocol-tcp.md) - Rename response-time to Connection-Status and add new service Response-Time - Status:stable centreon-pack-applications-protocol-tcp-22.06.0-1
+- [**Dell N4000**](../procedures/network-dell-n4000.md) - Deprecate n4000, and initial release of nseries - Status:deprecated - centreon-pack-network-dell-n4000-22.06.0-1
+- [**Dell N-series SNMP**](../procedures/network-dell-nseries-snmp.md) - Deprecate n4000, and initial release of nseries - Status:stable - centreon-pack-network-dell-nseries-snmp-22.06.0-1
+- [**Protocol TCP**](../procedures/applications-protocol-tcp.md) - Rename response-time to Connection-Status and add new service Response-Time - Status:stable - centreon-pack-applications-protocol-tcp-22.06.0-1
 
 </TabItem>
 </Tabs>
