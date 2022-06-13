@@ -390,18 +390,131 @@ Status for the jail: centreon
 
 > For more information go to the [official website](http://www.fail2ban.org).
 
-## Enable HTTPS on the web server
+## Secure the web server with HTTPS
 
-By default, Centreon installs a web server in HTTP mode. It is strongly recommended to switch to HTTPS mode by adding your certificate.
+By default, Centreon installs a web server in HTTP mode. It is strongly recommended to switch to HTTPS mode by adding your certificate. It is also recommended to use a certificate validated by an authority rather than a self-signed one. 
 
-It is better to use a certificate validated by an authority rather than a self-signed one. However, in case the self-signed method suits you more, you can refer to the [appropriate section](#securing-the-apache-web-server-with-a-self-signed-certificate).
+- If you already have a certificate validated by an authority, you can go directly to this [step](#activating-https-mode-on-your-web-server) to activate HTTPS mode on your Apache server.
 
-If you do not have a certificate validated by an authority, you can generate one on platforms such as [Let's Encrypt](https://letsencrypt.org/).
+- If you do not have a certificate validated by an authority, you can generate one on platforms such as [Let's Encrypt](https://letsencrypt.org/).
 
-> Once your web server is set to HTTPS mode, if you have a MAP server on your platform, you have to set it to HTTPS mode too, otherwise
-> recent web browsers may block communication between the two servers. The procedure is detailed [here](../graph-views/secure-your-map-platform.md#Configure-HTTPS/TLS-on-the-MAP-server).
+- If you need to create a certificate with the self-signed method, follow this [step](#creating-a-self-signed-certificate) before activating HTTPS mode on your server.
 
-Once you have your certificate, perform the following procedure to activate HTTPS mode on your Apache server:
+### Creating a self-signed certificate
+
+>  This procedure allows you to create:
+- A private key for the server: **centreon7.key** in our case. It will be used by the Apache service.
+- A CSR (Certificate Signing Request) file: **centreon7.csr** in our case.
+- A private key for the certificate of the certification authority: **ca_demo.key** in our case.
+- A x509 certificate to sign your certificate for the server: **ca-demo.crt** in our case.
+- A certificate for the server: **centreon7.crt** in our case.
+
+1. Install the SSL module for Apache:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install mod_ssl mod_security openssl
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```shell
+yum install httpd24-mod_ssl httpd24-mod_security openssl
+```
+
+</TabItem>
+</Tabs>
+
+Let's assume that you have a Centreon server with a **centreon7.localdomain** FQDN address.
+
+2. Prepare the OpenSSL configuration:
+
+Due to a policy change at Google, self-signed certificates may be rejected by the Google Chrome browser (it is not even possible to add an exception). To continue using this browser, you have to change the OpenSSL configuration.
+
+Open the file **/etc/pki/tls/openssl.cnf**. The goal here is to edit this file in order to inform the various IPs and FQDNs for the server.
+
+Find the ```[v3_ca]``` section in order to add a new ```alt_names``` tag:
+
+```text
+# Add the alt_names tag that allows you to inform our various IPs and FQDNs for the server
+[ alt_names ]
+IP.1 = xxx.xxx.xxx.xxx
+DNS.1 = centreon7.localdomain
+# If you have several IP (HA: vip + ip)
+# IP.2 = xxx.xxx.xxx.xxx
+[ v3_ca ]
+subjectAltName = @alt_names
+```
+
+Here is an example of how the file should look like:
+```text
+[ alt_names ]
+IP.1 = 10.25.11.73
+DNS.1 = centreon7.localdomain
+
+[ v3_ca ]
+subjectAltName = @alt_names
+```
+
+3. Create a private key for the server:
+
+Let's create a private key named **centreon7.key** without a password so that it can be used by the Apache service.
+```text
+openssl genrsa -out centreon7.key 2048
+```
+
+Protect your file by limiting rights:
+```text
+chmod 400 centreon7.key
+```
+
+4. Create a Certificate Signing Request file:
+
+From the key you created, create a CSR (Certificate Signing Request) file: **centreon7.csr** in our case. Fill in the fields according to your company. The **Common Name** field must be identical to the hostname of your Apache server (in our case it is **centreon7.localdomain**).
+```text
+openssl req -new -key centreon7.key -out centreon7.csr
+```
+
+5. Create a private key for the certificate of certification authority:
+
+Create a private key for this authority: **ca_demo.key** in our case. We add the **-aes256** option to encrypt the output key and include a password. This password will be requested each time this key is used.
+```text
+openssl genrsa -aes256 2048 > ca_demo.key
+```
+
+6. Create a x509 certificate from the private key of the certificate of certification authority:
+
+Create a x509 certificate that will be valid for one year: **ca_demo.crt** in our case.
+
+>  Note that it is necessary to simulate a trusted third party, so the **Common Name** field must be different from the server certificate.
+```text
+openssl req -new -x509 -days 365 -key ca_demo.key -out ca_demo.crt
+```
+
+The certificate being created, you will be able to use it to sign your server certificate.
+
+7. Create a certificate for the server:
+
+Create your certificate for the server by using the x509 certificate (**ca_demo.crt**) to sign it.
+```text
+openssl x509 -req -in centreon7.csr -out centreon7.crt -CA ca_demo.crt -CAkey ca_demo.key -CAcreateserial -CAserial ca_demo.srl  -extfile /etc/pki/tls/openssl.cnf -extensions v3_ca
+```
+
+The password created on step **Create a private key for the certificate of certification authority**  must be entered. You get your server certificate named **centreon7.crt**.
+
+You can view the contents of the file: 
+```text
+less centreon7.crt
+```
+
+8. Then you have to retrieve the x509 certificate file (**ca_demo.crt**) and import it into your browser's certificate manager.
+
+Now you have your self-signed certificate, you can perform the following procedure to activate HTTPS mode on your Apache server.
+
+### Activating HTTPS mode on your web server
 
 1. Install SSL module for Apache:
 
@@ -424,12 +537,14 @@ yum install httpd24-mod_ssl httpd24-mod_security openssl
 
 2. Install your certificates:
 
-Copy your certificate and key on the server according your configuration; by default, it's:
+Install your certificates (**centreon7.key** and **centreon7.crt**) by copying them to the Apache configuration:
 
-- /etc/pki/tls/certs/ca.crt
-- /etc/pki/tls/private/ca.key
+```text
+cp centreon7.key /etc/pki/tls/private/
+cp centreon7.crt /etc/pki/tls/certs/
+```
 
-3. Backup previous Apache configuration for Centreon:
+3. Backup the previous Apache configuration for Centreon:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -448,20 +563,20 @@ cp /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf{,.origin}
 </TabItem>
 </Tabs>
 
-4. Edit Centreon Apache configuration
+4. Edit the Centreon Apache configuration:
 
-> Centreon offers an example configuration file to enable HTTPS available in the following directory:
+> Centreon offers an example of configuration file to enable HTTPS available in the following directory:
 > **/usr/share/centreon/examples/centreon.apache.https.conf**
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-Edit the **/etc/httpd/conf.d/10-centreon.conf** as following:
+Edit the **/etc/httpd/conf.d/10-centreon.conf** by adding the **<VirtualHost *:443>** section.
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
-Edit the **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf** as following:
+Edit the **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf** by adding the **<VirtualHost *:443>** section.
 </TabItem>
 </Tabs>
 
@@ -476,287 +591,17 @@ ServerTokens Prod
     RewriteCond %{HTTPS} off
     RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
 </VirtualHost>
-
-<VirtualHost *:443>
-    #####################
-    # SSL configuration #
-    #####################
-    SSLEngine On
-    SSLProtocol All -SSLv3 -SSLv2 -TLSv1 -TLSv1.1
-    SSLCipherSuite ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-DSS-AES256-GCM-SHA384:DHE-DSS-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-GCM-SHA256:!aNULL:!eNULL:!LOW:!3DES:!MD5:!EXP:!PSK:!DSS:!RC4:!SEED:!ADH:!IDEA
-    SSLHonorCipherOrder On
-    SSLCompression Off
-    SSLCertificateFile /etc/pki/tls/certs/ca.crt
-    SSLCertificateKeyFile /etc/pki/tls/private/ca.key
-
-    Alias ${base_uri}/api ${install_dir}
-    Alias ${base_uri} ${install_dir}/www/
-
-    <LocationMatch ^\${base_uri}/?(?!api/latest/|api/beta/|api/v[0-9]+/|api/v[0-9]+\.[0-9]+/)(.*\.php(/.*)?)$>
-        ProxyPassMatch "fcgi://127.0.0.1:9042${install_dir}/www/$1"
-    </LocationMatch>
-
-    <LocationMatch ^\${base_uri}/?(authentication|api/(latest|beta|v[0-9]+|v[0-9]+\.[0-9]+))/.*$>
-        ProxyPassMatch "fcgi://127.0.0.1:9042${install_dir}/api/index.php/$1"
-    </LocationMatch>
-
-    ProxyTimeout 300
-    ErrorDocument 404 ${base_uri}/index.html
-    Options -Indexes +FollowSymLinks
-
-    <IfModule mod_security2.c>
-        # https://github.com/SpiderLabs/ModSecurity/issues/652
-        SecRuleRemoveById 200003
-    </IfModule>
-
-    <Directory "${install_dir}/www">
-        DirectoryIndex index.php
-        AllowOverride none
-        Require all granted
-        FallbackResource ${base_uri}/index.html
-    </Directory>
-
-    <Directory "${install_dir}/api">
-        AllowOverride none
-        Require all granted
-    </Directory>
-
-    <If "'${base_uri}' != '/'">
-        RedirectMatch ^/$ ${base_uri}
-    </If>
-</VirtualHost>
 ```
 
-> Don't forget to change **SSLCertificateFile** and **SSLCertificateKeyFile** directives with the path containing your
-> certificate and key.
-
-5. Enable HttpOnly / Secure flags and hide Apache server signature
+This is how the file should look like:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-Edit the **/etc/httpd/conf.d/10-centreon.conf** file and add the following line:
-
-```apacheconf
-Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;Secure;SameSite=Strict
-Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
-ServerSignature Off
-ServerTokens Prod
-```
-
-Edit the **/etc/php.d/50-centreon.ini** file and turn off the `expose_php` parameter:
-
-```phpconf
-expose_php = Off
-```
-
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
-
-Edit the **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf** file and add the following line:
-
-```apacheconf
-Header set X-Frame-Options: "sameorigin"
-Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;Secure;SameSite=Strict
-Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
-ServerSignature Off
-ServerTokens Prod
-TraceEnable Off
-```
-
-Edit the **/etc/php.d/50-centreon.ini** file and turn off the `expose_php` parameter:
-
-```phpconf
-expose_php = Off
-```
-
 </TabItem>
 </Tabs>
-
-6. Hide the default /icons directory
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-Edit the **/etc/httpd/conf.d/autoindex.conf** file and comment the following line:
-
-```apacheconf
-#Alias /icons/ "/usr/share/httpd/icons/"
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-Edit the **/opt/rh/httpd24/root/etc/httpd/conf.d/autoindex.conf** file and comment the following line:
-
-```apacheconf
-#Alias 
-/icons/ "/opt/rh/httpd24/root/usr/share/httpd/icons/"
-```
-
-</TabItem>
-</Tabs>
-
-7. Restart the Apache and PHP process to take in account the new configuration:
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-systemctl restart php-fpm httpd
-```
-
-Then check its status:
-
-```shell
-systemctl status httpd
-```
-
-If everything is ok, you must have:
-
-```shell
-● httpd.service - The Apache HTTP Server
-   Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled; vendor preset: disabled)
-  Drop-In: /usr/lib/systemd/system/httpd.service.d
-           └─php-fpm.conf
-   Active: active (running) since Tue 2020-10-27 12:49:42 GMT; 2h 35min ago
-     Docs: man:httpd.service(8)
- Main PID: 1483 (httpd)
-   Status: "Total requests: 446; Idle/Busy workers 100/0;Requests/sec: 0.0479; Bytes served/sec: 443 B/sec"
-    Tasks: 278 (limit: 5032)
-   Memory: 39.6M
-   CGroup: /system.slice/httpd.service
-           ├─1483 /usr/sbin/httpd -DFOREGROUND
-           ├─1484 /usr/sbin/httpd -DFOREGROUND
-           ├─1485 /usr/sbin/httpd -DFOREGROUND
-           ├─1486 /usr/sbin/httpd -DFOREGROUND
-           ├─1487 /usr/sbin/httpd -DFOREGROUND
-           └─1887 /usr/sbin/httpd -DFOREGROUND
-
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```shell
-systemctl restart php-fpm httpd24-httpd
-```
-
-Then check its status:
-
-```shell
-systemctl status httpd24-httpd
-```
-
-If everything is ok, you must have:
-
-```shell
-● httpd24-httpd.service - The Apache HTTP Server
-   Loaded: loaded (/usr/lib/systemd/system/httpd24-httpd.service; enabled; vendor preset: disabled)
-   Active: active (running) since mar. 2020-05-12 15:39:58 CEST; 25min ago
-  Process: 31762 ExecStop=/opt/rh/httpd24/root/usr/sbin/httpd-scl-wrapper $OPTIONS -k graceful-stop (code=exited, status=0/SUCCESS)
- Main PID: 31786 (httpd)
-   Status: "Total requests: 850; Idle/Busy workers 50/50;Requests/sec: 0.547; Bytes served/sec: 5.1KB/sec"
-   CGroup: /system.slice/httpd24-httpd.service
-           ├─ 1219 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-           ├─31786 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-           ├─31788 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-           ├─31789 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-           ├─31790 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-           ├─31802 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-           ├─31865 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-           ├─31866 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-           ├─31882 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-           ├─31903 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-           └─32050 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-```
-
-</TabItem>
-</Tabs>
-
-### Securing the Apache web server with a self-signed certificate
-
-Let's assume that we have a Centreon server with a `centreon7.localdomain` FQDN address.
-
-1. Preparation of the openssl configuration
-
-Due to a policy change at google, self-signed certificates may be rejected by the Google Chrome browser (it is not even possible to add an exception). To continue using this browser, you have to change the openssl configuration.
-
-Open the file `/etc/pki/tls/openssl.cnf` and find the `[v3_ca]` section:
-
-```text
-# Add the alt_names tag that allows you to inform our various IPs and FQDNs for the server
-[ alt_names ]
-IP.1 = xxx.xxx.xxx.xxx
-DNS.1 = centreon7.localdomain
-# If you have several IP (HA: vip + ip)
-# IP.2 = xxx.xxx.xxx.xxx
-[ v3_ca ]
-subjectAltName = @alt_names
-```
-
-2. Creating a private key for the server
-
-Let's create a private key named `centreon7.key` without a password so that it can be used by the apache service.
-```text
-openssl genrsa -out centreon7.key 2048
-```
-
-Protect your file by limiting rights:
-```text
-chmod 400 centreon7.key
-```
-
-3. Creation of a certificate signing request file 
-
-From the key you created, create a CSR (Certificate Signing Request) file. Fill in the fields according to your company. The "Common Name" field must be identical to the hostname of your apache server (in our case it is centreon7.localdomain).
-```text
-openssl req -new -key centreon7.key -out centreon7.csr
-```
-
-4. Creation of a private key for the certificate authority's certificate
-
-First, create a private key for this authority. We add the -aes256 option to encrypt the output key and include a password. This password will be requested each time this key is used.
-```text
-openssl genrsa -aes256 2048 > ca_demo.key
-```
-
-5. Creation of the x509 certificate from the private key of the certificate authority's certificate
-
-Next, create a x509 certificate that will be valid for one year.
-
->  Note that it is necessary to simulate a trusted third party, so the "Common Name" must be different from the server certificate.
-```text
-openssl req -new -x509 -days 365 -key ca_demo.key -out ca_demo.crt
-```
-
-The certificate being created, you will be able to use it to sign your server certificate.
-
-6. Creating a certificate for the server
-
-Use the x509 certificate to sign your certificate for the server
-```text
-openssl x509 -req -in centreon7.csr -out centreon7.crt -CA ca_demo.crt -CAkey ca_demo.key -CAcreateserial -CAserial ca_demo.srl  -extfile /etc/pki/tls/openssl.cnf -extensions v3_ca
-```
-
-The CAcreateserial option is only needed the first time. The previously created password must be entered. You get your server certificate named centreon7.crt.
-
-You can view the contents of the : 
-```text
-less centreon7.crt
-```
-
-7. Copy files to apache configuration
-
-Copy the private key of the server and the previously signed server certificate.
-```text
-cp centreon7.key /etc/pki/tls/private/centreon7.key
-cp centreon7.crt /etc/pki/tls/certs/
-```
-8. Update Apache configuration file
-
-Finally, update `SSLCertificateFile` and `SSLCertificateKeyFile` parameters appropriately in your apache configuration file located in `/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf` for CentOS7 (or in `/etc/httpd/conf.d/10-centreon.conf` for Alma/RHEL/Oracle Linux 8).
-Here is an example of how the file should look like:
 
 ```apacheconf
 Define base_uri "/centreon"
@@ -819,9 +664,158 @@ ServerTokens Prod
     </If>
 </VirtualHost>
 ```
-9. Copy the x509 certificate to the client's browser
 
-Now, you will have to retrieve the certificate file x509 ca_demo.crt and import this file into your browser's certificate manager.
+> Do not forget to change the **SSLCertificateFile** and **SSLCertificateKeyFile** directives with the path containing your
+> certificate and key. In our case: **SSLCertificateFile /etc/pki/tls/certs/centreon7.crt** and **SSLCertificateKeyFile /etc/pki/tls/private/centreon7.key**.
+
+5. Enable HttpOnly / Secure flags and hide the Apache server signature:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+Edit the **/etc/httpd/conf.d/10-centreon.conf** file and add the following line:
+
+```apacheconf
+Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;Secure;SameSite=Strict
+Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+ServerSignature Off
+ServerTokens Prod
+```
+
+Edit the **/etc/php.d/50-centreon.ini** file and turn off the `expose_php` parameter:
+
+```phpconf
+expose_php = Off
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+Edit the **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf** file and add the following line:
+
+```apacheconf
+Header set X-Frame-Options: "sameorigin"
+Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;Secure;SameSite=Strict
+Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+ServerSignature Off
+ServerTokens Prod
+TraceEnable Off
+```
+
+Edit the **/etc/php.d/50-centreon.ini** file and turn off the **expose_php** parameter:
+
+```phpconf
+expose_php = Off
+```
+
+</TabItem>
+</Tabs>
+
+6. Hide the default **/icons** directory:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+Edit the **/etc/httpd/conf.d/autoindex.conf** file and comment the following line:
+
+```apacheconf
+#Alias /icons/ "/usr/share/httpd/icons/"
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+Edit the **/opt/rh/httpd24/root/etc/httpd/conf.d/autoindex.conf** file and comment the following line:
+
+```apacheconf
+#Alias 
+/icons/ "/opt/rh/httpd24/root/usr/share/httpd/icons/"
+```
+
+</TabItem>
+</Tabs>
+
+7. Restart the Apache and PHP processes to take in account the new configuration:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+systemctl restart php-fpm httpd
+```
+
+Then check its status:
+
+```shell
+systemctl status httpd
+```
+
+If everything is ok, you should have:
+
+```shell
+● httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled; vendor preset: disabled)
+  Drop-In: /usr/lib/systemd/system/httpd.service.d
+           └─php-fpm.conf
+   Active: active (running) since Tue 2020-10-27 12:49:42 GMT; 2h 35min ago
+     Docs: man:httpd.service(8)
+ Main PID: 1483 (httpd)
+   Status: "Total requests: 446; Idle/Busy workers 100/0;Requests/sec: 0.0479; Bytes served/sec: 443 B/sec"
+    Tasks: 278 (limit: 5032)
+   Memory: 39.6M
+   CGroup: /system.slice/httpd.service
+           ├─1483 /usr/sbin/httpd -DFOREGROUND
+           ├─1484 /usr/sbin/httpd -DFOREGROUND
+           ├─1485 /usr/sbin/httpd -DFOREGROUND
+           ├─1486 /usr/sbin/httpd -DFOREGROUND
+           ├─1487 /usr/sbin/httpd -DFOREGROUND
+           └─1887 /usr/sbin/httpd -DFOREGROUND
+
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```shell
+systemctl restart php-fpm httpd24-httpd
+```
+
+Then check its status:
+
+```shell
+systemctl status httpd24-httpd
+```
+
+If everything is ok, you must have:
+
+```shell
+● httpd24-httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd24-httpd.service; enabled; vendor preset: disabled)
+   Active: active (running) since mar. 2020-05-12 15:39:58 CEST; 25min ago
+  Process: 31762 ExecStop=/opt/rh/httpd24/root/usr/sbin/httpd-scl-wrapper $OPTIONS -k graceful-stop (code=exited, status=0/SUCCESS)
+ Main PID: 31786 (httpd)
+   Status: "Total requests: 850; Idle/Busy workers 50/50;Requests/sec: 0.547; Bytes served/sec: 5.1KB/sec"
+   CGroup: /system.slice/httpd24-httpd.service
+           ├─ 1219 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+           ├─31786 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+           ├─31788 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+           ├─31789 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+           ├─31790 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+           ├─31802 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+           ├─31865 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+           ├─31866 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+           ├─31882 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+           ├─31903 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+           └─32050 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+```
+
+</TabItem>
+</Tabs>
+
+Now you can access your platform with your browser in HTTPS mode.
+
+> Once your web server is set to HTTPS mode, if you have a MAP server on your platform, you have to set it to HTTPS mode too, otherwise
+> recent web browsers may block communication between the two servers. The procedure is detailed [here](../graph-views/secure-your-map-platform.md#Configure-HTTPS/TLS-on-the-MAP-server).
 
 ## Custom URI
 
@@ -865,7 +859,7 @@ To use http2, you need to follow those steps:
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-1. [Configure https on Centreon](#enable-https-on-the-web-server)
+1. [Configure https on Centreon](#secure-the-web-server-with-https)
 
 2. Install nghttp2 module:
 
@@ -903,7 +897,7 @@ systemctl restart httpd
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
-1. [Configure https on Centreon](#enable-https-on-the-web-server)
+1. [Configure https on Centreon](#secure-the-web-server-with-https)
 
 2. Install nghttp2 module:
 
