@@ -6,10 +6,6 @@ title: Windows WSMAN Configuration tutorial
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-> Hello community! We're looking for a contributor to help us to translate this
-page into French. If it's you, let us know by making a PR or pinging us on
-[TheWatch](https://thewatch.centreon.com).
-
 ## Introduction
 
 WS-Management est une spécification du DMTF, définissant un protocole de communication pour l'administration des serveurs, équipements, et applications basé sur les web services (SOAP).
@@ -954,7 +950,7 @@ Pour la partie réinitialisation vous devrez créer un fichier "keytab" associé
 Exécutez la ligne de commande suivante en remplaçant **@USERNAME@** par la bonne valeur pour créer le fichier "keytab".
 
 ``` bash
-kutil
+ktutil
 addent -password -p @USERNAME@ -k 1 -e RC4-HMAC
 wkt /var/lib/centreon-engine/@USERNAME@.keytab
 q

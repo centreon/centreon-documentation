@@ -944,7 +944,7 @@ You will have to create a "keytab" file associated with your service account to 
 Run the following command line replacing **@USERNAME@** with the correct value.
 
 ``` bash
-kutil
+ktutil
 addent -password -p @USERNAME@ -k 1 -e RC4-HMAC
 wkt /var/lib/centreon-engine/@USERNAME@.keytab
 q
