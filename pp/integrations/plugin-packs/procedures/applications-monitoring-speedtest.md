@@ -79,9 +79,9 @@ yum install centreon-pack-applications-monitoring-speedtest
 * Apply the **App-Monitoring-Speedtest-custom** template to the host.
 * Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
 
-| Mandatory | Name                      | Description                                                                |
-| :-------- | :------------------------ | :------------------------------------------------------------------------- |
-|           | PROTOCOLWHOISEXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
+| Mandatory | Name                  | Description                                                                |
+| :-------- | :-------------------- | :------------------------------------------------------------------------- |
+|           | SPEEDTESTEXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
 
 ## How to check in the CLI that the configuration is OK and what are the main options for? 
 
