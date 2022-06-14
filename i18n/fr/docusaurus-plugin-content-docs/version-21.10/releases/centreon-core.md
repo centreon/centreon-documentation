@@ -26,7 +26,7 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 #### Security Fixes
 
 - [Apache] Fixed cookies with missing or contradictory properties
-- [Apache] Improve Apache configuration to enable HSTS
+- [Apache] Improved Apache configuration to enable HSTS
 - [Core] Passwords are now obfuscated in the page's HTML source
 - [Security] Fixed SQLi in virtual metrics
 - [Security] Sanitize and bind "User" class queries
