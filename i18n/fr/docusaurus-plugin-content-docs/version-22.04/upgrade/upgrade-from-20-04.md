@@ -259,10 +259,17 @@ associée](../service-mapping/upgrade.md) pour le mettre à jour.
    - Auto Discovery.
 
    Vous pouvez alors mettre à jour toutes les autres extensions commerciales.
+   
+2. Ajustez les droits sur les fichiers de Broker et de Engine :
+    ```shell
+    chown apache:apache /etc/centreon-engine/*
+    chown apache:apache /etc/centreon-broker/*
+    su - apache -s /bin/bash -c umask
+    ```
 
-2. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
+3. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
 
-3. Redémarrez les processus Centreon :
+4. Redémarrez les processus Centreon :
 
     ```shell
     systemctl restart cbd centengine centreontrapd gorgoned
