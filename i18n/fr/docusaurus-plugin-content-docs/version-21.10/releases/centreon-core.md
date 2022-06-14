@@ -29,7 +29,7 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 - [Apache] Improved Apache configuration to enable HSTS
 - [Core] Passwords are now obfuscated in the page's HTML source
 - [Security] Fixed SQLi in virtual metrics
-- [Security] Sanitize and bind "User" class queries
+- [Security] Sanitized and bound "User" class queries
 
 ### 21.10.7
 
