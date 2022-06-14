@@ -16,6 +16,21 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon Web
 
+### 20.10.18
+
+#### Bug fixes
+
+- [Configuration] Fixed checkbox selection after enabling/disabling a contact via icons
+- [UX] Improved interface response time if CEIP is enabled but the browser does not have internet access
+
+#### Security Fixes
+
+- [Apache] Fixed cookies with missing or contradictory properties
+- [Apache] Improve Apache configuration to enable HSTS
+- [Core] Passwords are now obfuscated in the page's HTML source
+- [Security] Fixed SQLi in virtual metrics
+- [Security] Sanitize and bind "User" class queries
+
 ### 21.10.7
 
 Release date: `June 10, 2022`
