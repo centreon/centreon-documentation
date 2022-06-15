@@ -298,7 +298,7 @@ Release date: ``
 
 ##### Bug fixes
 
-- Fixed an issue that could crash the SSH connector
+- Fixed an issue that could cause the SSH connector to crash 
 - Fixed a memory leak issue in the Perl connector
 
 
