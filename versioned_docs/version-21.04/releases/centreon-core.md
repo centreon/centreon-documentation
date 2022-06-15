@@ -19,6 +19,28 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 21.04.15
+
+Release date: `June 10, 2022`
+
+#### Bug Fixes
+
+- [API] Fixed /monitoring/host endpoint to return service state
+- [API] Fixed SQL syntax when retrieving service_id field
+- [Business Activity] Fixed synchronization of configuration with Remote Server
+- [Install] Fixed error when installing Centreon with remote DBMS
+- [Remote Server] Fixed synchronization of configuration
+- [Widget] The list of pollers is now filtered according to the user's ACLs
+
+#### Security
+
+- [Security] Fixed RCE in command
+- [Security] Fixed SQLi in virtual metrics
+- [Security] Sanitize and bind "User" class query
+- [Security] Sanitize and bind "hostgroups" queries
+- [Security] Sanitize and bind "meta_service" related queries
+- [Security] Sanitize and bind "poller" queries
+- [Security] Sanitize and bind ACL resources queries
 
 ### 21.04.14
 
@@ -408,6 +430,15 @@ Release date: `November 15, 2021`
 
 ## Centreon Engine
 
+### 21.04.5
+
+Release date: `June 10, 2022`
+
+#### Bug fixes
+
+- Reviewed the way time period exceptions are handled to fix some issues with the way notifications are managed
+
+
 ### 21.04.4
 
 `October 20, 2021`
@@ -464,6 +495,20 @@ Release date: `November 15, 2021`
 future.
 
 ## Centreon Broker
+
+### 21.04.8
+
+Release date: `June 10, 2022`
+
+#### Improvements
+
+- Improved the way TCP connections are stored by keeping them in an ordered structure. This should avoid rare connection issues experienced by some users
+
+#### Bug fixes
+
+- Broker crashed when a logger was disabled/off
+- Fixed an issue that could prevent broker from connecting again after the database was stopped to make a LVM snapshot
+
 
 ### 21.04.7
 
@@ -652,6 +697,16 @@ New release.
 
 ## Centreon Connector Perl
 
+### 21.04.4
+
+Release date: `June 10, 2022`
+
+
+#### Bug fixes
+
+- Fixed a memory leak issue in the Perl connector
+
+
 ### 21.04.3
 
 `October 20, 2021`
@@ -679,6 +734,14 @@ New release.
 - Compatibility with other 21.04 components.
 
 ## Centreon Connector SSH
+
+### 21.04.4
+
+Release date: `June 10, 2022`
+
+#### Bug fixes
+
+- Fixed an issue that could cause the SSH connector to crash
 
 ### 21.04.3
 

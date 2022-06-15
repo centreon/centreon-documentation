@@ -154,6 +154,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-gorgone-restapi'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-haproxy-snmp'
         },
         {
@@ -302,6 +306,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-iis-wsman'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-sccm-nsclient'
         },
         {
@@ -434,7 +442,7 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-gorgone-restapi'
+          id: 'integrations/plugin-packs/procedures/applications-monitoring-speedtest'
         },
         {
           type: 'doc',
@@ -681,10 +689,6 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-aws-vpn'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-aws-ses'
         },
         {
           type: 'doc',
@@ -1287,6 +1291,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-switchs-brocade-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-cambium-epmp-snmp'
         },
         {
           type: 'doc',
@@ -1969,6 +1977,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-protocol-tftp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-protocol-whois'
         },
         {
           type: 'doc',
