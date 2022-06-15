@@ -6,32 +6,26 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Vue d'ensemble
+## Contenu du Pack
 
-La solution Amazon Simple Queue Service (SQS) est un service de file d'attente de messagerie entièrement géré 
-qui vous permet de découpler et mettre à l'échelle des microservices, des systèmes décentralisés et des applications sans serveur.
+### Modèles
 
-Les métriques Amazon SQS rapportées dans CloudWatch ne sont pas facturées. Elles sont fournies dans le cadre du service Amazon SQS.
+Le Plugin Pack Centreon **Amazon SQS** apporte un modèle d'hôte :
+* Cloud-Aws-Sqs-custom
 
-Le Plugin Centreon Amazon SQS s'appuie sur les APIs Amazon Cloudwatch pour la collecte des données et métriques relatives au service SQS. 
+Il apporte le modèle de service suivant :
 
-## Contenu du Plugin-Pack
+| Alias      | Modèle de service        | Description                           | Défaut |
+|:-----------|:-------------------------|:--------------------------------------|:-------|
+| Sqs-Queues | Cloud-Aws-Sqs-Queues-Api | Contrôle la file d'attente Amazon SQS | X      |
 
-### Objets supervisés
+### Règles de découverte
 
-* SQS Message queues (les types "standard" et "FiFo" sont tout deux supportées)
+Ce pack propose une règle de découverte d'hôtes permettant de découvrir automatiquement des ressources **AWS SQS** : 
 
-### Règles de découvertes
+![image](../../../assets/integrations/plugin-packs/procedures/cloud-aws-sqs-provider.png)
 
-<Tabs groupId="sync">
-<TabItem value="Services" label="Services">
-
-| Rule name            | Description                                                             |
-|:---------------------|:------------------------------------------------------------------------|
-| Cloud-Aws-Sqs-Queues | Discover Amazon SQS queues and monitor their status and related metrics |
-
-</TabItem>
-</Tabs>
+Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionnement sur la documentation du module : [Découverte des hôtes](/docs/monitoring/discovery/hosts-discovery)
 
 ### Métriques collectées
 
@@ -59,8 +53,8 @@ https://docs.aws.amazon.com/fr_fr/AWSSimpleQueueService/latest/SQSDeveloperGuide
 
 ### Privilèges AWS
 
-Un compte de service (paire d'identifiants *access/secret keys*) est nécessaire afin de pouvoir superviser les resources Amazon SQS.
-Ce compte doit bénéficier des privilèges suivants:
+Un compte de service (paire d'identifiants *access/secret keys*) est nécessaire afin de pouvoir superviser les resources **Amazon SQS**.
+Ce compte doit bénéficier des privilèges suivants :
 
 | AWS Privilege                  | Description                                          |
 |:-------------------------------|:-----------------------------------------------------|
@@ -91,35 +85,35 @@ yum install awscli
 </TabItem>
 </Tabs>
 
-## Installation
+# Installation
 
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des ressources Amazon SQS:
+1. Installez le plugin sur tous les collecteurs Centreon devant superviser des ressources **SQS** :
 
 ```bash
-yum install centreon-plugin-Cloud-Aws-Sqs-Api
+yum install centreon-plugin-Cloud-Aws-Sns-Api
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Amazon SQS* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface web de Centreon, installez le Plugin Pack **Amazon SQS** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des ressources Amazon SQS:
+1. Installez le plugin sur tous les collecteurs Centreon devant superviser des ressources **SQS** :
 
 ```bash
-yum install centreon-plugin-Cloud-Aws-Sqs-Api
+yum install centreon-plugin-Cloud-Aws-Sns-Api
 ```
 
-2.Sur le serveur Central Centreon, installer le RPM du Plugin-Pack *Amazon SQS*:
+2. Sur le serveur central Centreon, installez le RPM du Plugin Pack **Amazon SQS** :
 
 ```bash
-yum install centreon-pack-cloud-aws-sqs.noarch
+yum install centreon-pack-cloud-aws-sns
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Amazon SQS* depuis la page "Configuration > Plugin packs > Manager"
+3. Sur l'interface web de Centreon, installez le Plugin Pack **Amazon SQS** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>
@@ -128,7 +122,9 @@ yum install centreon-pack-cloud-aws-sqs.noarch
 
 ### Hôte
 
-* Ajoutez un Hôte à Centreon et appliquez-lui le Modèle d'Hôte *Cloud-Aws-Sqs-custom*.
+* Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
+* Remplissez le champ **Adresse IP/DNS** avec l'adresse **127.0.0.1**.
+* Appliquez le modèle d'hôte **Cloud-Aws-Sqs-custom**.
 * Une fois le modèle appliqué, les Macros ci-dessous indiquées comme requises (*Mandatory*) doivent être renseignées:
 
 | Mandatory   | Nom             | Description                                                                                 |
@@ -137,25 +133,18 @@ yum install centreon-pack-cloud-aws-sqs.noarch
 | X           | AWSACESSKEY     | AWS Access key of your IAM role. Password checkbox must be checked                          |
 | X           | AWSREGION       | Region where the instance is running                                                        |
 | X           | AWSCUSTOMMODE   | Custom mode to get metrics, 'awscli' is the default, you can also use 'paws' perl library   |
+|             | QUEUENAME       | Queue name (Default : '.*')                                                                 |
 |             | PROXYURL        | Configure proxy URL                                                                         |
-|             | EXTRAOPTIONS    | Any extra option you may want to add to every command\_line (eg. a --verbose flag)          |
+|             | EXTRAOPTIONS    | Any extra option you may want to add to every command line (eg. a --verbose flag)           |
 |             | DUMMYSTATUS     | Host state. Default is OK, do not modify it unless you know what you are doing              |
 |             | DUMMYOUTPUT     | Host check output. Default is 'This is a dummy check'. Customize it with your own if needed |
 
-### Services
+### Comment puis-je tester le plugin et que signifient les options des commandes ?
 
-Une fois l'hôte créé et sauvegardé dans Centreon, un service "Sqs-Queues" est créé et associé à l'Hôte. 
-Ce service est "générique"; afin que celui-ci puisse commencer à remonter des informations, il vous sera nécessaire de 
-spécifier le nom de la *queue* SQS à superviser sur la Macro de Service **QUEUENAME** (le nom du Service peut également être modifié en conséquence).
-Ce service peut ensuite être dupliqué et la valeur de la Macro ajustée pour chaque *queue* à superviser.
-
-## FAQ
-
-### Comment puis-je tester le Plugin et que signifient les options des commandes ?
-
-Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande depuis votre collecteur Centreon en vous connectant
-avec l'utilisateur *centreon-engine* 
-(certaines options comme ```--proxyurl``` doivent être ajustées en fonction du contexte):
+Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
+de commande depuis votre collecteur Centreon en vous connectant avec
+l'utilisateur **centreon-engine** (`su - centreon-engine`) 
+(certaines options comme `--proxyurl` doivent être ajustées en fonction du contexte) :
 
 ```bash
 /usr/lib/centreon/plugins/centreon_aws_sqs_api.pl \
@@ -185,41 +174,17 @@ SQS Queue'my_sqs_queue_1'
     Statistic 'Average' number of messages sent: 45, number of messages received: 32  
 ```
 
-La commande ci-dessus collecte les métriques de la 'queue' nommée *my_sqs_queue_1* (```--mode=queues --queue-name='my_sqs_queue_1'```).
-Cette ressource SQS est hébergée dans la région AWS *eu-west-1* (```--region='eu-west-1'```). La connexion à l'API Cloudwatch s'effectue
-à l'aide des identifiants *aws-secret-key* et *aws-access-key* préalablement configurés sur la console AWS (```--aws-secret-key='****' --aws-access-key='****'```).
-Les métriques retournées seront une moyenne de valeurs (```--statistic='average'```) sur un intervalle de 10 minutes / 600 secondes  (```--timeframe='600'```) 
-avec un point par minute / 60 secondes (```--period='60'```).
-Dans l'exemple ci-dessus, on choisit de ne récupérer que les statistiques sur le nombre de messages *sent* et *received* (```--filter-metric='NumberOfMessagesSent|NumberOfMessagesReceived'```).
-
-Une alarme CRITICAL sera déclenchée si aucun message (*nombre inférieur à 1*) n'a été envoyé ou reçu durant la période de temps sur lesquelles sont calculées les valeurs
-(```--critical-messages-sent=1: --critical-messages-received=1:```).
-
-La liste de toutes les métriques, seuils associés et options complémentaires peut être affichée en ajoutant le paramètre ```--help``` à la commande:
+La liste de toutes les options complémentaires et leur signification peut être
+affichée en ajoutant le paramètre `--help` à la commande :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_aws_sqs_api.pl --plugin=cloud::aws::sqs::plugin --mode=queues --help
+/usr/lib/centreon/plugins//centreon_aws_sqs_api.pl \
+    --plugin=cloud::aws::sns::plugin \
+    --mode=queues \
+    --help
 ```
 
-#### J'obtiens le message d'erreur suivant:  
+### Diagnostic des erreurs communes
 
-#### ```UNKNOWN: No metrics. Check your options or use --zeroed option to set 0 on undefined values```
-
-Lors du déploiement de mes contrôles, j'obtiens le message suivant 'UNKNOWN: No metrics. Check your options or use --zeroed option to set 0 on undefined values'. 
-
-Cela signifie qu'Amazon Cloudwatch n'a pas consolidé de données sur la période.
-
-Vous pouvez ajouter ```--zeroed``` à la macro **EXTRAOPTIONS** du *Service* en question afin de forcer le stockage d'un 0 et ainsi éviter un statut UNKNOWN.
-
-#### ```UNKNOWN: Command error:  - An error occurred (AuthFailure) [...]```
-
-Cette erreur signifie que le rôle IAM associé au combo access-key/secret-key n'a pas les droits suffisants pour réaliser une opération donnée.
-
-#### ```UNKNOWN: 500 Can't connect to monitoring.eu-west-1.amazonaws.com:443 |```
-
-Lors du déploiement de mes contrôles, j'obtiens le message suivant: ```UNKNOWN: 500 Can't connect to monitoring.eu-west-1.amazonaws.com:443 |```.
-
-Cela signifie que Centreon n'a pas réussi à se connecter à l'API AWS Cloudwatch.
-
-Si l'utilisation d'un proxy est requise pour les connexions HTTP depuis le collecteur Centreon,
-il est nécessaire de le préciser dans la commande en utilisant l'option ```--proxyurl='http://proxy.mycompany.com:8080'```.
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md)
+pour le diagnostic des erreurs communes des plugins Centreon.
