@@ -263,7 +263,7 @@ By:
 
 ### 21.10.2
 
-Release date: ``
+Release date: `June 15, 2022`
 
 #### Centreon Broker
 
