@@ -312,6 +312,25 @@ associée](../service-mapping/upgrade.md) pour le mettre à jour.
 
 ### Actions post montée de version
 
+> Dans les anciennes versions de Centreon, le mécanisme de rétention qui stockait les données issues de la supervision dans des fichiers temporaires en cas de coupure réseau nécessitait d'être configuré manuellement.
+> Depuis Centreon 3.4, cela n'est plus nécessaire, et dans les versions plus récentes, **cela peut même bloquer le fonctionnement de Broker**.
+
+#### Suppression du "Nom du processus de bascule" dans la configuration des outputs broker
+
+Depuis le menu **Configuration > Collecteurs > Configuration de Centreon Broker**, supprimer la valeur du paramètre **Nom du processus de bascule (failover)** pour chacun des outputs de chacune des entrées de configuration de Centreon Broker.
+
+#### Déployer la configuration
+
+Voir [Déployer la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
+
+#### Redémarrez les processus Centreon
+
+Redamarrez le processus cbd :
+
+```
+systemctl restart cbd
+```
+
 #### Montée de version des extensions
 
 Depuis le menu `Administration > Extensions > Gestionnaire`, mettez à jour

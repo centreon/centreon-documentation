@@ -236,6 +236,13 @@ page:
 
 ### Post-upgrade actions
 
+> In older versions of Centreon, the broker retention mechanism that stored monitoring data in files used to require manual configuration.
+> Since Centreon 3.4 this is not necessary anymore, and in more recent versions **it may cause broker not to work at all**.
+
+#### Remove "Failover name" from the broker outputs' configuration
+
+Got to **Configuration > Pollers > Broker configuration** and empty the value of "Failover name" parameter for each output of each broker configuration item.
+
 #### Deploy the configuration
 
 See [Deploying the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
@@ -243,6 +250,7 @@ See [Deploying the configuration](../monitoring/monitoring-servers/deploying-a-c
 #### Restart Centreon processes
 
 Restart the cbd process:
+
 ```
 systemctl start cbd
 ```
