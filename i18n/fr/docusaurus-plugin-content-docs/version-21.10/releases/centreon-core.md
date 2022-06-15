@@ -275,7 +275,7 @@ Release date: ``
 
 - Fixed an issue that caused broker to crash when a BAM output was configured and the BAM tables did not exist
 - Added a `bbdo_version` function to the LUA libraries for Stream Connectors developers
-- Scheduled downtimes used to be inserted one at a time, which caused performance issues on platforms with a lot of recurrent scheduled downtimes. They are now injected in bulk inserts to reduce database solicitation and  avoid performance issues.
+- Scheduled downtimes used to be inserted one at a time, which caused performance issues on platforms with a lot of recurrent scheduled downtimes. They are now injected in bulk inserts to reduce demands on the database and avoid performance issues.
 - Broker crashed when a logger was disabled/off
 - Fixed an issue that could prevent broker from connecting again after the database was stopped to make a LVM snapshot
 - Broker crashed when its configuration included a filter that referred to a module that wasn't loaded
