@@ -62,7 +62,7 @@ Il apporte les modèles de service suivants :
 
 ## Prérequis
 
-Un acces token doit être créé avec les droits suivants :
+Un _acces token_ doit être créé avec les droits suivants :
 * API v1:
     * DataExport
     * ReadConfig
