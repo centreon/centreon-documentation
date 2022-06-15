@@ -298,7 +298,6 @@ Release date: ``
 
 ##### Bug fixes
 
-- UNKNOWN status is displayed instead of WARNING and CRITICAL when using the perl connector
 - Fixed an issue that could crash the SSH connector
 - Fixed a memory leak issue in the Perl connector
 
