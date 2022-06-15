@@ -261,6 +261,47 @@ By:
 
 ##  Centreon Collect
 
+### 21.10.2
+
+Release date: ``
+
+#### Centreon Broker
+
+##### Improvements
+
+- Improved the way TCP connections are stored by keeping them in an ordered structure. This should avoid rare connection issues experienced by some users
+
+##### Bug fixes
+
+- Fixed an issue that caused broker to crash when a BAM output was configured and the BAM tables did not exist
+- Added a `bbdo_version` function to the LUA libraries for Stream Connectors developers
+- Scheduled downtimes used to be inserted one at a time, which caused performance issues on platforms with a lot of recurrent scheduled downtimes. They are now injected in bulk inserts to reduce database solicitation and  avoid performance issues.
+- Broker crashed when a logger was disabled/off
+- Fixed an issue that could prevent broker from connecting again after the database was stopped to make a LVM snapshot
+- Broker crashed when its configuration included a filter that referred to a module that wasn't loaded
+
+#### Centreon Engine
+
+##### Improvements
+
+- Removed unnecessary informational log messages regarding Anomaly Detection in the Poller configuration export page
+
+##### Bug fixes
+
+- Fixed an issue that caused centengine to send duplicate service status messages to broker. This change will reduce network bandwidth consumption, database activity and disk I/O.
+- Fixed an issue with the way escaped special characters were managed (eg. `\\n`)
+- Fixed an issue that caused loss of recovery notifications when a downtime end notification was sent before recovery
+- Reviewed the way time period exceptions are handled to fix some issues with the way notifications are managed
+
+#### Centreon Perl & SSH Connectors
+
+##### Bug fixes
+
+- UNKNOWN status is displayed instead of WARNING and CRITICAL when using the perl connector
+- Fixed an issue that could crash the SSH connector
+- Fixed a memory leak issue in the Perl connector
+
+
 > As of version 21.10.0, the components of Centreon Collect (Centreon Broker, Centreon Clib, Centreon Engine and Centreon Connectors)
 > are released simultaneously. They are now grouped under this section.
 
