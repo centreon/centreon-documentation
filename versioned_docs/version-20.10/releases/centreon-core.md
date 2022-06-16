@@ -21,6 +21,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.10.18
 
+Release date: `June 16, 2022`
+
 #### Bug fixes
 
 - [Configuration] Fixed checkbox selection after enabling/disabling a contact via icons
