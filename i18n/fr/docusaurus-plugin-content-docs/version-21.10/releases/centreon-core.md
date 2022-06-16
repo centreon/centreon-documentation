@@ -18,6 +18,8 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ### 20.10.18
 
+Release date: `June 16, 2022`
+
 #### Bug fixes
 
 - [Configuration] Fixed checkbox selection after enabling/disabling a contact via icons
