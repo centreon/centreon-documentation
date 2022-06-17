@@ -30,7 +30,7 @@ Il sera nécessaire d'ouvrir les flux supplémentaires suivants :
 
 ### Installation de Centreon
 
-L'installation d'un cluster Centreon-HA ne peut se faire que sur la base d'une installation fonctionnelle de Centreon. Avant de suivre cette procédure, il est donc impératif d'avoir appliqué **[cette procédure d'installation](../introduction.md)** jusqu'au bout **en réservant environ 5GB de libre** sur le *volume group* qui contient  les données MariaDB (point de montage `/var/lib/mysql` par défaut). 
+L'installation d'un cluster Centreon-HA ne peut se faire que sur la base d'une installation fonctionnelle de Centreon. Avant de suivre cette procédure, il est donc impératif d'avoir appliqué **[cette procédure d'installation](../introduction.md)** jusqu'au bout **en réservant environ 5GB de libre** sur le *volume group* qui contient  les données MariaDB (point de montage `/var/lib/mysql` par défaut).
 
 La commande `vgs` doit retourner un affichage de la forme ci-dessous (en particulier la valeur sous `VFree`) :
 
@@ -77,7 +77,7 @@ Dans cette procédure, nous ferons référence à des paramètres variant d'une 
 Dans une installation standard de Centreon, le service `cbd` pilote deux instances de `centreon-broker-daemon` :
 
 * `central-broker-master` : que l'on appelle aussi "broker central" ou encore "broker SQL", qui redirige toutes les entrées-sorties en provenance des collecteurs, vers les bases de données, vers le broker RRD, etc.
-* `central-rrd-master` : le broker RRD qui reçoit son flux du broker SQL, et dont la seule fonction est d'écrire les fichiers RRD utilisés pour afficher les graphes. 
+* `central-rrd-master` : le broker RRD qui reçoit son flux du broker SQL, et dont la seule fonction est d'écrire les fichiers RRD utilisés pour afficher les graphes.
 
 Dans un cluster Centreon-HA, les deux processus broker vont être gérés chacun via un service distinct qui sera pilotés par le cluster :
 
@@ -88,7 +88,7 @@ Pour que tout se mette bien en place dans la suite, il faut dès à présent dé
 
 #### Double flux RRD
 
-Plutôt que de mettre en place une réplication en temps réel des fichiers de données RRD, le choix technique qui a été fait pour permettre d'afficher les graphes sur n'importe quel nœud dès qu'il devient `master` a été de dupliquer le flux de sortie (`output`) de `central-broker-master` vers `central-rrd-master`. Cela se configure dans le même menu qu'au paragraphe précédent, mais cette fois dans l'onglet *Output* de *Configuration  >  Collecteurs  >  Configuration de Centreon Broker*. 
+Plutôt que de mettre en place une réplication en temps réel des fichiers de données RRD, le choix technique qui a été fait pour permettre d'afficher les graphes sur n'importe quel nœud dès qu'il devient `master` a été de dupliquer le flux de sortie (`output`) de `central-broker-master` vers `central-rrd-master`. Cela se configure dans le même menu qu'au paragraphe précédent, mais cette fois dans l'onglet *Output* de *Configuration  >  Collecteurs  >  Configuration de Centreon Broker*.
 
 * Modifier la sortie "IPv4" en remplaçant "localhost" par `@CENTRAL_MASTER_IPADDR@`
 
@@ -387,7 +387,6 @@ max_allowed_packet=64M
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
-
 Pour commencer, il faut améliorer la configuration de MariaDB, qui sera concentrée dans le seul fichier `/etc/mysql/mariadb.conf.d/50-server.cnf`.  Par défaut, la section `[server]` de ce fichier est vide, c'est là que doit être collées les lignes suivantes :
 
 ```ini
@@ -457,7 +456,7 @@ systemctl status mariadb
 
 > **Avertissement:** N'oubliez pas de changer le paramètre `Chemin d'accès au fichier de configuration MySQL` dans `Administration > Paramètres > Backup`
 
-### Sécurisation de la base de données 
+### Sécurisation de la base de données
 
 L'accès aux bases de données doit être limité de la façon la plus stricte possible. La commande `mysql_secure_installation` permet de supprimer les accès non protégés par des mots de passe et la base de données de test. Lancer cette commande et se laisser guider par les choix par défaut. Attention à choisir un mot de passe n'appartenant à aucun dictionnaire.
 
@@ -485,7 +484,7 @@ GRANT ALL PRIVILEGES ON centreon.* TO '@MARIADB_CENTREON_USER@'@'@CENTRAL_MASTER
 GRANT ALL PRIVILEGES ON centreon_storage.* TO '@MARIADB_CENTREON_USER@'@'@CENTRAL_MASTER_IPADDR@';
 ```
 
-Lorsque la solution centreon-ha est ajoutée à une plateforme Centreon existante ou déployée via une VM OVA, le mot de passe de l'utilisateur `'@MARIADB_CENTREON_USER@'@'localhost'` doit être mis à jour: 
+Lorsque la solution centreon-ha est ajoutée à une plateforme Centreon existante ou déployée via une VM OVA, le mot de passe de l'utilisateur `'@MARIADB_CENTREON_USER@'@'localhost'` doit être mis à jour:
 
 ```sql
 ALTER USER '@MARIADB_CENTREON_USER@'@'localhost' IDENTIFIED BY '@MARIADB_CENTREON_PASSWD@'; 
@@ -615,7 +614,7 @@ systemctl restart mariadb
 
 ### Synchroniser les bases et lancer la réplication MariaDB
 
-Pour synchroniser les bases, arrêter le service `mysql` sur le nœud secondaire pour écraser ses données avec celles du serveur principal. 
+Pour synchroniser les bases, arrêter le service `mysql` sur le nœud secondaire pour écraser ses données avec celles du serveur principal.
 
 Il faut donc lancer la commande suivante **sur le nœud secondaire** :
 
@@ -635,7 +634,7 @@ Si un processus `mysqld` est toujours en activité, alors il faut lancer la comm
 mysqladmin -p shutdown
 ```
 
-Une fois que le service est bien arrêté sur le nœud **secondaire**, lancer le script de synchronisation **depuis le nœud principal** : 
+Une fois que le service est bien arrêté sur le nœud **secondaire**, lancer le script de synchronisation **depuis le nœud principal** :
 
 ```bash
 /usr/share/centreon-ha/bin/mysql-sync-bigdb.sh
@@ -660,7 +659,7 @@ Umount and Delete LVM snapshot
   Logical volume "dbbackupdatadir" successfully removed
 Start MySQL Slave
 Start Replication
-Id	User	Host	db	Command	Time	State	Info	Progress
+Id User Host db Command Time State Info Progress
 [nombre variable de lignes]
 ```
 
@@ -709,7 +708,7 @@ our %centreon_central_sync_config = (
 
 ### Suppression des crons
 
-Les tâches planifiées de type __cron__ sont exécutées directement par le processus gorgone dans les architectures hautement disponible. Cela permet de garantir la non-concurrence de leur exécution sur les nœuds centraux. Il est donc nécessaire de les supprimer manuellement :
+Les tâches planifiées de type **cron** sont exécutées directement par le processus gorgone dans les architectures hautement disponible. Cela permet de garantir la non-concurrence de leur exécution sur les nœuds centraux. Il est donc nécessaire de les supprimer manuellement :
 
 ```bash
 rm -f /etc/cron.d/centreon
@@ -719,11 +718,11 @@ rm -f /etc/cron.d/centreon-auto-disco
 
 ### Modification des droits
 
-Les répertoires /var/log/centreon-engine et /tmp/centreon-autodisco sont partagés entre plusieurs processus. Il est nécessaire 
-de modifier les droits des répertoires et fichiers pour garantir le bon fonctionnement de la réplication de fichiers et de la 
+Les répertoires /var/log/centreon-engine et /tmp/centreon-autodisco sont partagés entre plusieurs processus. Il est nécessaire
+de modifier les droits des répertoires et fichiers pour garantir le bon fonctionnement de la réplication de fichiers et de la
 découverte automatique des services:
 
-- Réplication des fichiers 
+* Réplication des fichiers
 
 ```bash
 chmod 775 /var/log/centreon-engine/
@@ -735,7 +734,7 @@ find /usr/share/centreon/www/img/media -type d -exec chmod 775 {} \;
 find /usr/share/centreon/www/img/media -type f \( ! -iname ".keep" ! -iname ".htaccess" \) -exec chmod 664 {} \;
 ```
 
-- Découverte des services 
+* Découverte des services
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8 / RHEL 7 / CentOS 7" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8 / RHEL 7 / CentOS 7">
@@ -754,6 +753,7 @@ mkdir /tmp/centreon-autodisco/
 chown www-data: /tmp/centreon-autodisco/
 chmod 775 /tmp/centreon-autodisco/
 ```
+
 </TabItem>
 </Tabs>
 
@@ -807,7 +807,7 @@ systemctl start pcsd
 
 #### Préparation du serveur qui jouera le rôle de *Quorum Device*
 
-Vous pouvez utiliser un de vos pollers pour jouer ce rôle. Il doit être préparé avec les commandes suivantes: 
+Vous pouvez utiliser un de vos pollers pour jouer ce rôle. Il doit être préparé avec les commandes suivantes:
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8" label="RHEL 8">
@@ -1210,6 +1210,7 @@ pcs resource create http \
     --group centreon \
     --force
 ```
+
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
@@ -1339,6 +1340,24 @@ pcs constraint order stop centreon then demote ms_mysql-master
 
 Après cette étape, toutes les ressources doivent être actives au même endroit, et la plateforme fonctionnelle et redondée. Dans le cas contraire, se référer au guide de troubleshooting du paragraphe suivant.
 
+### Lancement du Cluster et contrôle de l'état des ressources
+
+#### Activer les ressources
+
+```bash
+pcs resource enable php-clone
+pcs resource enable cbd_rrd-clone
+pcs resource meta vip target-role="started"
+pcs resource meta vip_mysql target-role="started"
+pcs resource meta centreontrapd target-role="started"
+pcs resource meta snmptrapd target-role="started"
+pcs resource meta centengine target-role="started"
+pcs resource meta cbd_central_broker target-role="started"
+pcs resource meta gorgone target-role="started"
+pcs resource meta centreon_central_sync target-role="started"
+pcs resource meta http target-role="started"
+```
+
 ### Contrôle de l'état du cluster
 
 #### Contrôle de l'état des ressources
@@ -1384,7 +1403,7 @@ Full List of Resources:
 Stack: corosync
 Current DC: @CENTRAL_SLAVE_NAME@ (version 1.1.20-5.el7_7.2-3c4c782f70) - partition with quorum
 Last updated: Thu Feb 20 13:14:17 2020
-Last change: Thu Feb 20 09:25:54 2020 by root via crm_attribute	on @CENTRAL_MASTER_NAME@
+Last change: Thu Feb 20 09:25:54 2020 by root via crm_attribute on @CENTRAL_MASTER_NAME@
 2 nodes configured
 14 resources configured
 Online: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
@@ -1397,13 +1416,13 @@ Active resources:
  Clone Set: cbd_rrd-clone [cbd_rrd]
      Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
  Resource Group: centreon
-     vip        (ocf::heartbeat:IPaddr2):	Started @CENTRAL_MASTER_NAME@
-     http	(systemd:httpd24-httpd):        Started @CENTRAL_MASTER_NAME@
+     vip        (ocf::heartbeat:IPaddr2): Started @CENTRAL_MASTER_NAME@
+     http (systemd:httpd24-httpd):        Started @CENTRAL_MASTER_NAME@
      gorgone    (systemd:gorgoned):     Started @CENTRAL_MASTER_NAME@
-     centreon_central_sync	(systemd:centreon-central-sync):        Started @CENTRAL_MASTER_NAME@
-     centreontrapd	(systemd:centreontrapd):        Started @CENTRAL_MASTER_NAME@
+     centreon_central_sync (systemd:centreon-central-sync):        Started @CENTRAL_MASTER_NAME@
+     centreontrapd (systemd:centreontrapd):        Started @CENTRAL_MASTER_NAME@
      snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_MASTER_NAME@
-     cbd_central_broker (systemd:cbd-sql):	Started @CENTRAL_MASTER_NAME@
+     cbd_central_broker (systemd:cbd-sql): Started @CENTRAL_MASTER_NAME@
      centengine (systemd:centengine):   Started @CENTRAL_MASTER_NAME@
 ```
 
@@ -1436,14 +1455,14 @@ Il est possible qu'immédiatement après l'installation, le thread de réplicati
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8 / Debian 11" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8 / Debian 11">
 
-```bash 
+```bash
 pcs resource restart ms_mysql-clone
 ```
 
 </TabItem>
 <TabItem value="REHL 7 / CentOS 7" label="REHL 7 / CentOS 7">
 
-```bash 
+```bash
 pcs resource restart ms_mysql
 ```
 
