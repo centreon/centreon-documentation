@@ -3,6 +3,9 @@ id: install
 title: Install Centreon BAM extension
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 > Centreon BAM is a Centreon **extension** that requires a valid license key. To
 > purchase one, contact
 > [Centreon](mailto:sales@centreon.com).
@@ -20,9 +23,30 @@ Add the Centreon BAM repository, you can find it on the
 
 And install the package using the following command:
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+``` shell
+dnf install centreon-bam-server
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 ``` shell
 yum install centreon-bam-server
 ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+sudo apt update && sudo apt install centreon-bam-server
+```
+
+</TabItem>
+
+</Tabs>
 
 ### Upload the license
 

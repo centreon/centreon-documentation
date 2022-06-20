@@ -52,7 +52,7 @@ Puis cliquez sur **Next**.
 
 Fournissez les informations de connexion à l'instance de base de données.
 
-- **Database Host Address** : si vous utilisez une base de données locale, laissez ce champ vide (la valeur par défaut étant **localhost**). Sinon, renseignez l'adresse IP de votre base de données déportée.
+- **Database Host Address** : si vous utilisez une base de données locale, laissez ce champ vide (la valeur par défaut étant **localhost**), ou, si vous utilisez Debian, entrez 127.0.0.1. Sinon, renseignez l'adresse IP de votre base de données déportée.
 - **Root user/password** : ce compte sera utilisé pour installer les bases de données.
    - S'il s'agit du compte par défaut (**root**), le mot de passe root de la base de données est celui que vous avez défini lorsque vous avez exécuté `mysql_secure_installation` (que vous ayez effectué l'installation à partir des [paquets](installation-of-a-central-server/using-packages.md#sécuriser-la-base-de-données) ou bien des [sources](installation-of-a-central-server/using-sources.md#sécurisez-la-base-de-données)).
    - Si vous avez défini un utilisateur dédié avec des privilèges root sur toutes les bases, (par exemple pendant [l'installation d'une base de donnée déportée](../installation/installation-of-a-central-server/using-packages.md#avec-base-de-données-déportée)), utilisez celui-ci. Cet utilisateur pourra être supprimé une fois l'installation web terminée.

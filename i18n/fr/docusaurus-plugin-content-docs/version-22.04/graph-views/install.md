@@ -375,6 +375,15 @@ yum install centreon-map-web-client
 ```
 
 </TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+Ajoutez **mariadb-client** et **mariadb-server** si vous souhaitez installer une base locale :
+
+```shell
+sudo apt update && sudo apt install mariadb-client mariadb-server centreon-map-server
+```
+
+</TabItem>
 </Tabs>
 
 ### Web
