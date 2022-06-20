@@ -21,7 +21,7 @@ centreon on your Fujitsu Eternus DX equipment.
 Generate key for centreon-engine user with command:
 
     # su - centreon-engine
-    # ssh-keygen -N "" -f ~/.ssh/identity
+    # ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa
     # ssh-keygen -e -f .ssh/identity.pub > identity.pub.ietf
     # telnet <FUJITSU_IP>
     CLI> import ssh-public-key -server <POLLER_IP> -port maintenance -user <ADMIN_USER> -filename identity.pub.ietf -account-name centreon
