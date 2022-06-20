@@ -15,7 +15,7 @@ WS-Management est une spécification du DMTF, définissant un protocole de commu
 <Tabs groupId="sync">
 <TabItem value="Configuration Local" label="Configuration Local">
 
-### WSMAN configuration
+### Configuration de WSMAN
 
 Sur votre serveur Windows, ouvrez PowerShell avec les privilèges d'administrateur et exécutez les commandes suivantes.
 
