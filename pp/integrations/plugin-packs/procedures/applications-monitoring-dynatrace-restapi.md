@@ -38,6 +38,7 @@ It brings the following service templates:
 | Metric Name                                                         | Unit  |
 |:--------------------------------------------------------------------|:------|
 | *synthetic*~*geolocation*#synthetic.monitor.availability.percentage | %     |
+
 </TabItem>
 <TabItem value="Events" label="Events">
 
@@ -149,7 +150,7 @@ running the following command:
 The expected command output is shown below:
 
 ```bash
-OK: All Apdex are OK | 'MZ1#apdex'=0.61;;;0;1 'MZ2#apdex'=0.88;;;0;1 
+OK: All Apdex are OK | 'entity#apdex'=0.61;;;0;1 'entity#apdex'=0.88;;;0;1 
 ```
 
 All available options for a given mode can be displayed by adding the

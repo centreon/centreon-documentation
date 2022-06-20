@@ -30,7 +30,7 @@ Il apporte les modèles de service suivants :
 
 | Metric Name   | Unit  |
 |:--------------|:------|
-| *apdex*#apdex |       |
+| *entity*#apdex |       |
 
 </TabItem>
 <TabItem value="Availability" label="Availability">
@@ -150,7 +150,7 @@ l'utilisateur **centreon-engine** (`su - centreon-engine`) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All Apdex are OK | 'MZ1#apdex'=0.61;;;0;1 'MZ2#apdex'=0.88;;;0;1 
+OK: All Apdex are OK | 'entity#apdex'=0.61;;;0;1 'entity#apdex'=0.88;;;0;1 
 ```
 
 La liste de toutes les options complémentaires et leur signification peut être
