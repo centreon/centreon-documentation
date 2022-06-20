@@ -913,7 +913,7 @@ Sur votre contrôleur de domaine
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-file-system-4.png)
 
-### Configure Kerberos on the Centreon server
+### Configurer Kerberos sur le serveur Centreon
 
 Sur le serveur Centreon, exécutez la commande suivante :
 
@@ -921,8 +921,6 @@ Sur le serveur Centreon, exécutez la commande suivante :
 yum install sssd realmd oddjob oddjob-mkhomedir adcli samba-common samba-common-tools krb5-workstation openldap-clients policycoreutils-python -y
 realm join --user=administrator <YOUR_DOMAIN>
 ```
-
-You will be asked to type your domain account password. When this is done, run the following command:
 
 Il vous sera demandé de saisir le mot de passe de votre compte d'administrateur de domaine.
 Une fois terminé, exécutez les commandes suivantes pour permettre à centreon-engine et centreon-gorgone d'effectuer l'authentification :
