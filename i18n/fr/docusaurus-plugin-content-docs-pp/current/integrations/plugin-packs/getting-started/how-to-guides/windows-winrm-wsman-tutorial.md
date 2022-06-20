@@ -1,6 +1,6 @@
 ---
 id: windows-winrm-wsman-tutorial
-title: Windows WSMAN Configuration tutorial
+title: Tutoriel de configuration de Windows WSMAN
 ---
 
 import Tabs from '@theme/Tabs';
