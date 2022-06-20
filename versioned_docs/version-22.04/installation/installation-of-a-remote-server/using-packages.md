@@ -420,6 +420,16 @@ DROP USER '<USER>'@'<IP>';
 >
 > Remember to restart MariaDB after a change to configuration.
 
+#### Additional configuration for Debian 11
+
+MariaDB has to listen to all interfaces instead of localhost/127.0.0.1, which is the default value. Edit the following file:
+
+```shell
+/etc/mysql/mariadb.conf.d/50-server.cnf
+```
+
+Set the **bind-address** parameter to **0.0.0.0**.
+
 ## Configuration
 
 ### Server name

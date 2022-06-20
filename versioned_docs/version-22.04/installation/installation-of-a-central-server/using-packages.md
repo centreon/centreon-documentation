@@ -312,6 +312,7 @@ You can now move to [Step 3](#step-3-configuration).
 > the prerequired repositories.
 
 Run the following command on the Central server:
+
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
@@ -453,6 +454,16 @@ DROP USER 'dbadmin'@'<CENTRAL_SERVER_IP>';
 > ```
 >
 > Remember to restart MariaDB after a change to configuration.
+
+#### Additional configuration for Debian 11
+
+MariaDB has to listen to all interfaces instead of localhost/127.0.0.1, which is the default value. Edit the following file:
+
+```shell
+/etc/mysql/mariadb.conf.d/50-server.cnf
+```
+
+Set the **bind-address** parameter to **0.0.0.0**.
 
 ## Step 3: Configuration
 

@@ -266,6 +266,15 @@ yum install centreon-map-server
 ```
 
 </TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+Add **mariadb-client** & **mariadb-server** if you want a local database:
+
+```shell
+sudo apt update && sudo apt install mariadb-client mariadb-server centreon-map-server
+```
+
+</TabItem>
 </Tabs>
 
 When installing Centreon MAP server, it will automatically install java
@@ -380,15 +389,6 @@ dnf install centreon-map-web-client
 
 ```shell
 yum install centreon-map-web-client
-```
-
-</TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-Add **mariadb-client** & **mariadb-server** if you want a local database:
-
-```shell
-sudo apt update && sudo apt install mariadb-client mariadb-server centreon-map-server
 ```
 
 </TabItem>

@@ -455,6 +455,16 @@ DROP USER 'dbadmin'@'<IP_CENTRAL>';
 > Pensez à redémarrer le service mariadb après chaque changement de
 > configuration.
 
+#### Configuration spécifique à Debian 11
+
+MariaDB doit écouter sur toutes les interfaces au lieu d'écouter sur localhost/127.0.0.1 (valeur par défaut). Éditez le fichier suivant :
+
+```shell
+/etc/mysql/mariadb.conf.d/50-server.cnf
+```
+
+Donnez au paramètre **bind-address** la valeur **0.0.0.0**.
+
 ## Étape 3 : Configuration
 
 ### Nom du serveur

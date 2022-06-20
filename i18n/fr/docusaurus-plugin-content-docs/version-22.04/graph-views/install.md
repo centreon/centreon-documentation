@@ -263,6 +263,15 @@ yum install centreon-map-server
 ```
 
 </TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+Ajoutez **mariadb-client** et **mariadb-server** si vous souhaitez installer une base locale :
+
+```shell
+sudo apt update && sudo apt install mariadb-client mariadb-server centreon-map-server
+```
+
+</TabItem>
 </Tabs>
 
 Lors de l'installation du serveur Centreon MAP, java (OpenJDK 11) sera automatiquement installé si nécessaire.
@@ -312,6 +321,16 @@ Puis redémarrez le service **centreon-map** :
 ```shell
 systemctl restart centreon-map
 ```
+
+#### Configuration spécifique à Debian 11
+
+MariaDB doit écouter sur toutes les interfaces au lieu d'écouter sur localhost/127.0.0.1 (valeur par défaut). Éditez le fichier suivant :
+
+```shell
+/etc/mysql/mariadb.conf.d/50-server.cnf
+```
+
+Donnez au paramètre **bind-address** la valeur **0.0.0.0**.
 
 ### Serveur Central
 
@@ -372,15 +391,6 @@ dnf install centreon-map-web-client
 
 ```shell
 yum install centreon-map-web-client
-```
-
-</TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-Ajoutez **mariadb-client** et **mariadb-server** si vous souhaitez installer une base locale :
-
-```shell
-sudo apt update && sudo apt install mariadb-client mariadb-server centreon-map-server
 ```
 
 </TabItem>

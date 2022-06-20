@@ -284,6 +284,16 @@ mysql> GRANT ALL PRIVILEGES ON centreon_storage.* TO 'centreonbi'@'$BI_ENGINE_IP
 
 Allez au chapitre suivant pour continuer l'installation.
 
+##### Configuration spécifique à Debian 11
+
+MariaDB doit écouter sur toutes les interfaces au lieu d'écouter sur localhost/127.0.0.1 (valeur par défaut). Éditez le fichier suivant :
+
+```shell
+/etc/mysql/mariadb.conf.d/50-server.cnf
+```
+
+Donnez au paramètre **bind-address** la valeur **0.0.0.0**.
+
 ### Donner des droits à l'utilisateur cbis
 
 Lorsque vous installez Centreon MBI, un [utilisateur](../monitoring/basic-objects/contacts.md) nommé **cbis** est créé automatiquement. Il permet au moteur de génération de rapports d'extraire les données de Centreon (en utilisant les APIs) afin de les insérer dans le rapport. Cet utilisateur doit [avoir accès à toutes les ressources supervisées par Centreon](../administration/access-control-lists.md) afin de pouvoir extraire les graphes de performance pour les rapports suivants :
