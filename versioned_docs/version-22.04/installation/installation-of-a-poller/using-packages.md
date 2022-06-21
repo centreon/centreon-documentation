@@ -219,13 +219,7 @@ yum install -y centreon-poller
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-sudo apt update && sudo apt install \
-centreon-poller-centreon-engine=22.04.0-bullseye \
-centreon-gorgone=22.04.0-bullseye centreon-broker=22.04.1-bullseye centreon-broker-cbmod=22.04.1-bullseye centreon-broker-core=22.04.1-bullseye centreon-broker-storage=22.04.1-bullseye centreon-clib=22.04.1-bullseye centreon-engine=22.04.1-bullseye centreon-common=22.04.0-bullseye centreon-gorgone=22.04.0-bullseye centreon-perl-libs=22.04.0-bullseye centreon-plugin-applications-monitoring-centreon-central centreon-plugin-applications-monitoring-centreon-poller centreon-plugin-applications-protocol-dns centreon-plugin-applications-protocol-ldap centreon-plugin-hardware-printers-generic-snmp centreon-plugin-network-cisco-standard-snmp centreon-plugin-operatingsystems-linux-snmp centreon-plugin-operatingsystems-windows-snmp centreon-trap=22.04.0-bullseye
-```
-
-```shell
-sudo systemctl daemon-reload
+apt install -y centreon-poller
 ```
 
 </TabItem>

@@ -268,10 +268,8 @@ yum install centreon-map-server
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
-Add **mariadb-client** & **mariadb-server** if you want a local database:
-
 ```shell
-sudo apt update && sudo apt install mariadb-client mariadb-server centreon-map-server
+apt install centreon-map-server
 ```
 
 </TabItem>
@@ -282,6 +280,32 @@ When installing Centreon MAP server, it will automatically install java
 
 > You need to have a MariaDB database to store Centreon MAP data, whether
 > it's on localhost or somewhere else.
+
+To install MariaDB, execute the following command:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install mariadb-client mariadb-server
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```shell
+yum install mariadb-client mariadb-server
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt install mariadb-client mariadb-server
+```
+
+</TabItem>
+</Tabs>
 
 ### Configuration
 

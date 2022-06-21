@@ -31,7 +31,7 @@ yum update
 <TabItem value="Debian 11" label="Debian 11">
 
 ``` shell
-sudo apt update && sudo apt upgrade
+apt update && apt upgrade
 ```
 
 </TabItem>
@@ -200,7 +200,7 @@ yum-config-manager --enable remi-php80
 Installez les dépendances suivantes :
 
 ```shell
-sudo apt update && sudo apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2
+apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2
 ```
 
 #### Installez le dépôt Sury APT pour PHP 8.0
@@ -208,15 +208,13 @@ sudo apt update && sudo apt install lsb-release ca-certificates apt-transport-ht
 Pour installer le dépôt Sury, exécutez la commande suivante :
 
 ```shell
-sudo echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/sury-php.list
+echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/sury-php.list
 ```
 
 Puis importez la clé du dépôt :
 
 ```shell
-sudo su
 wget -O- https://packages.sury.org/php/apt.gpg | gpg --dearmor | tee /etc/apt/trusted.gpg.d/php.gpg  > /dev/null 2>&1
-exit
 ```
 
 </TabItem>
@@ -249,15 +247,13 @@ yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/ce
 Pour installer le dépôt Centreon, exécutez la commande suivante :
 
 ```shell
-sudo echo "deb https://apt.centreon.com/repository/22.04/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://apt.centreon.com/repository/22.04/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 ```
 
 Puis importez la clé du dépôt :
 
 ```shell
-sudo su
 wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
-exit
 ```
 
 </TabItem>
@@ -294,14 +290,9 @@ systemctl restart mariadb
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-sudo apt update && sudo apt install \
-centreon=22.04.0-bullseye centreon-central=22.04.0-bullseye centreon-database=22.04.0-bullseye centreon-poller-centreon-engine=22.04.0-bullseye \
-centreon-web=22.04.0-bullseye centreon-web-apache=22.04.0-bullseye \
-centreon-gorgone=22.04.0-bullseye centreon-broker=22.04.1-bullseye centreon-broker-cbmod=22.04.1-bullseye centreon-broker-core=22.04.1-bullseye centreon-broker-storage=22.04.1-bullseye centreon-clib=22.04.1-bullseye centreon-engine=22.04.1-bullseye centreon-common=22.04.0-bullseye centreon-gorgone=22.04.0-bullseye centreon-perl-libs=22.04.0-bullseye centreon-plugin-applications-monitoring-centreon-central centreon-plugin-applications-monitoring-centreon-poller centreon-plugin-applications-protocol-dns centreon-plugin-applications-protocol-ldap centreon-plugin-hardware-printers-generic-snmp centreon-plugin-network-cisco-standard-snmp centreon-plugin-operatingsystems-linux-snmp centreon-plugin-operatingsystems-windows-snmp centreon-trap=22.04.0-bullseye centreon-web-common=22.04.0-bullseye centreon-license-manager=22.04.0-bullseye
-```
-
-```shell
-sudo systemctl daemon-reload
+apt install -y centreon
+systemctl daemon-reload
+systemctl restart mariadb
 ```
 
 </TabItem>
@@ -483,7 +474,7 @@ Définissez le fuseau horaire PHP en éditant le fichier suivant :
 Après avoir sauvegardé le fichier, redémarrez le service PHP-FPM :
 
 ```shell
-sudo systemctl restart php8.0-fpm
+systemctl restart php8.0-fpm
 ```
 
 </TabItem>
@@ -522,6 +513,7 @@ Puis exécutez la commande suivante (sur le serveur distant si vous utilisez une
 
 ```shell
 systemctl enable mariadb
+systemctl restart mariadb
 ```
 
 ### Sécuriser la base de données
