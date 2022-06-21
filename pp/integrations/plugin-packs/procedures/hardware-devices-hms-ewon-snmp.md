@@ -69,7 +69,8 @@ yum install centreon-pack-hardware-devices-hms-ewon-snmp
 * Add a new Host and apply the *HW-Device-Hms-Ewon-SNMP-custom* Host Template
 * Fill the SNMP Version and Community fields according to the device's configuration
 
-> When using SNMP v3, use the SNMPEXTRAOPTIONS Host Macro to add specific authentication parameters
+> When using SNMP v3, set extra SNMP parameters in the SNMPEXTRAOPTIONS macro. <br/>
+> More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
 
 | Mandatory | Name             | Description                                    |
 | :-------- | :--------------- | :--------------------------------------------- |

@@ -168,7 +168,8 @@ yum install centreon-pack-applications-monitoring-centreon-ha
 * Add a new Host and apply the *App-Monitoring-Centreon-HA-Cluster-Node-custom* Host Template
 * Fill the SNMP Version and Community fields according to the device's configuration
 
-> When using SNMP v3, use the SNMPEXTRAOPTIONS Host Macro to add specific authentication parameters
+> When using SNMP v3, set extra SNMP parameters in the SNMPEXTRAOPTIONS macro. <br/>
+> More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
 
 | Mandatory | Name             | Description                                    |
 | :-------- | :--------------- | :--------------------------------------------- |

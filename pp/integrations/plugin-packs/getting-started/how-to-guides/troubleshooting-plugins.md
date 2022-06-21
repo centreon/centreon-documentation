@@ -92,6 +92,25 @@ Github repository so we can patch it.
 
 ## Troubleshooting SNMP
 
+### SNMPv3 options mapping
+
+To set up SNMPv3, Centreon is advising first to try to query your device by using the "snmpwalk" 
+command line and options, then using the following mapping table to make it work with the centreon-plugin.
+
+Configure those extra SNMP options in the host/host template configuration in the SNMPEXTRAOPTIONS macro. 
+
+| snmpwalk  | centreon-plugins       |
+| :-------: | :--------------------- |
+| -a        | --authprotocol         |
+| -A        | --authpassphrase       |
+| -u        | --snmp-username        |
+| -x        | --privprotocol         |
+| -X        | --privpassphrase       |
+| -l        | not needed (automatic) |
+| -e        | --securityengineid     |
+| -E        | --contextengineid      |
+
+
 ### UNKNOWN: SNMP GET Request : Timeout
 
 Often, a timeout comes from: 

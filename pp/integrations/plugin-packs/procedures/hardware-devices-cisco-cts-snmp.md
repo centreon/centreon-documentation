@@ -107,7 +107,8 @@ yum install centreon-pack-hardware-devices-cisco-cts-snmp
 * Fill the "Name", "Alias", "IP Address / DNS", "Snmp Community" and "Snmp version" fields according to your device's configuration
 * Select the *HW-Device-Cisco-Cts-SNMP*.
 
-> When using SNMP v3, use the SNMPEXTRAOPTIONS Macro to add specific auth parameters
+> When using SNMP v3, set extra SNMP parameters in the SNMPEXTRAOPTIONS macro. <br/>
+> More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
 
 | Mandatory   | Name             | Description                                    |
 | :---------- | :--------------- | :--------------------------------------------- |

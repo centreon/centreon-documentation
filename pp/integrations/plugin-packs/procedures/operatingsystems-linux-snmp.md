@@ -189,24 +189,14 @@ yum install centreon-pack-operatingsystems-linux-snmp
 
 When adding a new Linux host into Centreon, make sure to fill the Snmp Version and Snmp Community fields. 
 
-  > When using snmp v3, set extra SNMP parameters in the SNMPEXTRAOPTIONS macro. 
+  > When using snmp v3, set extra SNMP parameters in the SNMPEXTRAOPTIONS macro. <br/>
+  > More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
 
 | Mandatory   | Nom              | Description                                    |
 | :---------- | :--------------- | :--------------------------------------------- |
 |             | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo    |
 
-The mapping between 'snmpwalk' and 'centreon-plugins':
 
-| snmpwalk  | centreon-plugins       |
-| :-------: | :--------------------- |
-| -a        | --authprotocol         |
-| -A        | --authpassphrase       |
-| -u        | --snmp-username        |
-| -x        | --privprotocol         |
-| -X        | --privpassphrase       |
-| -l        | not needed (automatic) |
-| -e        | --securityengineid     |
-| -E        | --contextengineid      |
 
 ## FAQ
 

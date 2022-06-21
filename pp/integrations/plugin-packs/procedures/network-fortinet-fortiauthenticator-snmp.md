@@ -134,7 +134,8 @@ through "Configuration > Plugin packs > Manager" page.
 * Add a new Host and fill the *IP Address/FQDN*, *SNMP Version* and *SNMP Community* fields according to the device's configuration
 * Apply the *Net-Fortinet-Fortiauthenticator-SNMP-custom* Host Template
 
-> When using SNMP v3, use the SNMPEXTRAOPTIONS Macro to add specific authentication parameters
+> When using SNMP v3, set extra SNMP parameters in the SNMPEXTRAOPTIONS macro. <br/>
+> More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
 
 | Mandatory | Name             | Description                                    |
 | :-------- | :--------------- | :--------------------------------------------- |
