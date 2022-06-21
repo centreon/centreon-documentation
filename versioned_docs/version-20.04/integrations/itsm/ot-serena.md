@@ -19,7 +19,7 @@ This integration is (at least) compatible with the following Serena versions:
 ## Requirements
 
 Before going any further, make sure that you correctly setup
-[centreon-open-ticket](https://documentation.centreon.com/docs/centreon-open-tickets/en/latest/installation/index)
+[centreon-open-ticket](/docs/20.04/alerts-notifications/ticketing/)
 into your Centreon instance
 
 Our provider requires the following parameters:
