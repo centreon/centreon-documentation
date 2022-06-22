@@ -420,6 +420,16 @@ with the following:
 
 Then you can upgrade all other commercial extensions.
 
+#### Set rights on files
+
+Set the following rights on Broker and Engine files:
+
+```shell
+chown apache:apache /etc/centreon-engine/*
+chown apache:apache /etc/centreon-broker/*
+su - apache -s /bin/bash -c umask
+```
+
 #### Start the tasks manager
 
 Since 20.04, Centreon has changed his tasks manager from *Centcore* to *Gorgone*.
