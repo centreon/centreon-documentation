@@ -269,9 +269,18 @@ with the following:
 
     Then you can upgrade all other commercial extensions.
 
-2. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
+2. Set the following rights on Broker and Engine files:
 
-3. Restart the processes:
+    ```shell
+    chown apache:apache /etc/centreon-engine/*
+    chown apache:apache /etc/centreon-broker/*
+    su - apache -s /bin/bash -c umask
+    ```
+
+3. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
+
+4. Restart the processes:
+
     ```shell
     systemctl restart cbd centengine centreontrapd gorgoned
     ```
