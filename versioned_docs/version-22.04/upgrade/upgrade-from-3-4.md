@@ -452,7 +452,7 @@ with the following:
 
 Then you can upgrade all other commercial extensions.
 
-#### Set rights on files
+#### Set rights on Broker and Engine files
 
 Set the following rights on Broker and Engine files:
 
