@@ -5,6 +5,8 @@ title: AWS Billing
 
 ## Prerequisites
 
+**Works for 'us-east-1' region only.**
+
 ### Centreon Plugin
 
 Install this plugin on each needed poller:
