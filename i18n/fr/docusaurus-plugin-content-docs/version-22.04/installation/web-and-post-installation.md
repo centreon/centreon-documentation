@@ -102,33 +102,32 @@ Vous pouvez maintenant vous connecter en utilisant le compte **admin**, et [init
 
 Pour démarrer les processus de supervision :
 
-1. Si vous avez installé votre plateforme sous Debian avec une base de données locale, allez à la page **Configuration > Collecteurs > Broker configuration**, puis dans la section **Output 1 - Unified SQL**, entrez **127.0.0.1** au lieu de **localhost** dans le champ **DB Host**).
-2. Depuis l'interface web, rendez-vous dans le menu **Configuration >
+1. Depuis l'interface web, rendez-vous dans le menu **Configuration >
 Collecteurs**.
-3. Sélectionnez le collecteur **Central** dans la liste et cliquez sur
+2. Sélectionnez le collecteur **Central** dans la liste et cliquez sur
 **Exporter la configuration**.
-4. Cochez **Déplacer les fichiers générés** en plus de la sélection par défaut
+3. Cochez **Déplacer les fichiers générés** en plus de la sélection par défaut
 et cliquez sur **Exporter**.
-5. Connectez-vous au serveur Central.
-6. Démarrez/redémarrez les processus de collecte :
+4. Connectez-vous au serveur Central.
+5. Démarrez/redémarrez les processus de collecte :
 
     ```shell
     systemctl restart cbd centengine
     ```
 
-7. Redémarrez le gestionnaire de tâches :
+6. Redémarrez le gestionnaire de tâches :
 
     ```shell
     systemctl restart gorgoned
     ```
 
-8. Démarrez les services de supervision passive :
+7. Démarrez les services de supervision passive :
 
     ```shell
     systemctl start snmptrapd centreontrapd
     ```
 
-9. Si vous voulez superviser ce serveur, démarrer le démon SNMP :
+8. Si vous voulez superviser ce serveur, démarrer le démon SNMP :
 
     ```shell
     systemctl start snmpd
