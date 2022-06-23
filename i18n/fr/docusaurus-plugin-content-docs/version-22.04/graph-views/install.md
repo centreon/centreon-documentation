@@ -335,6 +335,22 @@ Puis, redémarrez MariaDB:
 systemctl restart mariadb
 ```
 
+#### Sécuriser la base de données
+
+Depuis MariaDB 10.5, il est obligatoire de sécuriser l'accès en root à la base avant d'installer Centreon. Si vous utilisez une base de données locale, exécutez la commande suivante sur le serveur central :
+
+```shell
+mysql_secure_installation
+```
+
+* Répondez oui à toute question sauf à "Disallow root login remotely?". 
+* Vous devez obligatoirement définir un mot de passe pour l'utilisateur **root** de la base de données.
+Ce mot de passe vous sera demandé lors de l'[installation web](../web-and-post-installation.md).
+
+> Pour plus d'informations, veuillez consulter la [documentation officielle MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/).
+
+#### Script configure.sh
+
 Exécutez le script de configuration du serveur MAP de Centreon. Deux modes sont disponibles :
 interactive ou automatic.
 
@@ -431,6 +447,14 @@ dnf install centreon-map-web-client
 
 ```shell
 yum install centreon-map-web-client
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt update
+apt install centreon-map-web-client
 ```
 
 </TabItem>
