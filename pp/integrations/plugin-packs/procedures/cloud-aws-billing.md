@@ -123,7 +123,7 @@ yum install centreon-pack-cloud-aws-billing
 |:------------|:----------------|:---------------------------------------------------------------------------------------------|
 | X           | AWSSECRETKEY    | AWS Secret key of your IAM role. Password checkbox must be checked.                          |
 | X           | AWSACESSKEY     | AWS Access key of your IAM role. Password checkbox must be checked.                          |
-| X           | AWSREGION       | Region where the instance is running.                                                        |
+| X           | AWSREGION       | Must be 'us-east-1'.                                                                         |
 | X           | AWSCUSTOMMODE   | Custom mode to get metrics, 'awscli' is the default, you can also use 'paws' perl library.   |
 | X           | SERVICENAME     | Billed AWS service name.                                                                     |
 |             | PROXYURL        | Configure proxy URL.                                                                         |
