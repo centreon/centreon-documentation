@@ -98,31 +98,32 @@ You can now log in using the **admin** account and [initialize the monitoring](#
 
 To start the monitoring processes:
 
-1. From your web interface, go to **Configuration > Pollers**.
-2. Select **Central** from the listing and click on
+1. If you installed your platform on Debian with a local database, go to **Configuration > Pollers > Broker configuration**, then in section **Output 1 - Unified SQL**, set the **DB Host** field to **127.0.0.1** instead of **localhost**).
+2. From your web interface, go to **Configuration > Pollers**.
+3. Select **Central** from the listing and click on
 **Export configuration**.
-3. Check **Move Export Files** in addition to the default selection and click on
+4. Check **Move Export Files** in addition to the default selection and click on
 **Export**.
-4. In your terminal, log on to the Central server.
-5. Start/restart collect processes:
+5. In your terminal, log on to the Central server.
+6. Start/restart collect processes:
 
     ```shell
     systemctl restart cbd centengine
     ```
 
-6. Restart the tasks manager:
+7. Restart the tasks manager:
 
     ```shell
     systemctl restart gorgoned
     ```
 
-7. Start the passive monitoring services:
+8. Start the passive monitoring services:
 
     ```shell
     systemctl start snmptrapd centreontrapd
     ```
 
-8. If you want to monitor this server, start the SNMP daemon:
+9. If you want to monitor this server, start the SNMP daemon:
 
     ```shell
     systemctl start snmpd

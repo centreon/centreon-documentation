@@ -242,6 +242,21 @@ yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/ce
 ```
 
 </TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+To install the Centreon repository, execute the following command:
+
+```shell
+echo "deb https://apt.centreon.com/repository/22.04/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+```
+
+Then import the repository key:
+
+```shell
+wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+```
+
+</TabItem>
 </Tabs>
 
 > If the URL doesn't work, you can manualy find this package in the folder.
@@ -269,6 +284,7 @@ yum install centreon-map-server
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
+apt update
 apt install centreon-map-server
 ```
 

@@ -44,6 +44,8 @@ apt update && apt upgrade
 > Accept all GPG keys and reboot your server if a kernel update is
 > proposed.
 
+### Additional configurat
+
 If you are installing Centreon on AlmaLinux/RHEL/OracleLinux 8, and you intend to use Centreon in French, Spanish or Portuguese, install the corresponding packages:
 
 ```shell
@@ -209,10 +211,10 @@ echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee /etc/apt
 ```
 
 Then import the repository key:
+
 ```shell
-su -
 wget -O- https://packages.sury.org/php/apt.gpg | gpg --dearmor | tee /etc/apt/trusted.gpg.d/php.gpg  > /dev/null 2>&1
-exit
+apt update
 ```
 
 </TabItem>

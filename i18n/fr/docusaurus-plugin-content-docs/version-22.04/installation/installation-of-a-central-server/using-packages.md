@@ -210,6 +210,7 @@ Puis importez la clé du dépôt :
 
 ```shell
 wget -O- https://packages.sury.org/php/apt.gpg | gpg --dearmor | tee /etc/apt/trusted.gpg.d/php.gpg  > /dev/null 2>&1
+apt update
 ```
 
 </TabItem>
