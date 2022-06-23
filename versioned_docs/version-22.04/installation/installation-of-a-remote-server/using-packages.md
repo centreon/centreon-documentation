@@ -403,10 +403,19 @@ DROP USER '<USER>'@'<IP>';
 > LimitNOFILE=32000
 > ```
 >
-> Same for the MariaDB **open_files_limit** directive, example:
+> Same for the MariaDB **open_files_limit** directive, example for Centos 7, Alma/RHEL/OL 8:
 >
 > ```shell
 > $ cat /etc/my.cnf.d/centreon.cnf
+> [server]
+> innodb_file_per_table=1
+> open_files_limit=32000
+> ```
+>
+> For Debian 11:
+>
+> ```shell
+> $ cat /etc/mysql/mariadb.conf.d/80-centreon.cnf
 > [server]
 > innodb_file_per_table=1
 > open_files_limit=32000

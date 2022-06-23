@@ -414,7 +414,7 @@ DROP USER 'dbadmin'@'<IP_CENTRAL>';
 > LimitNOFILE=32000
 > ```
 >
-> De même pour la directive MariaDB **open_files_limit**, exemple:
+> De même pour la directive MariaDB **open_files_limit**, exemple pour Centos 7, Alma/RHEL/OL 8 :
 >
 > ```shell
 > $ cat /etc/my.cnf.d/centreon.cnf
@@ -422,6 +422,16 @@ DROP USER 'dbadmin'@'<IP_CENTRAL>';
 > innodb_file_per_table=1
 > open_files_limit=32000
 > ```
+>
+> Pour Debian 11:
+>
+> ```shell
+> $ cat /etc/mysql/mariadb.conf.d/80-centreon.cnf
+> [server]
+> innodb_file_per_table=1
+> open_files_limit=32000
+> ```
+
 
 > En sus des directives précédentes, il est fortement recommandé d'appliquer la
 > configuration des bases de données avec les paramètres suivants:
