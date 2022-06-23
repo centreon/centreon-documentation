@@ -348,7 +348,7 @@ mysql_secure_installation
 ```
 
 * Answer **yes** to all questions except "Disallow root login remotely?".
-* It is mandatory to set a password for the **root** user of the database. You will need this password during the [web installation](../web-and-post-installation.md).
+* It is mandatory to set a password for the **root** user of the database. You will need this password during the [web installation](../installation/web-and-post-installation.md).
 
 > For more information, please see the [official MariaDB documentation](https://mariadb.com/kb/en/mysql_secure_installation/).
 

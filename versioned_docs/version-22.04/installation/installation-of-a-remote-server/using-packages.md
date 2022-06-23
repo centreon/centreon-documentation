@@ -40,6 +40,8 @@ apt update && apt upgrade
 > Accept all GPG keys and consider rebooting your server if a kernel update is
 > proposed.
 
+### Additional configuration for AlmaLinux/RHEL/OracleLinux 8
+
 If you are installing Centreon on AlmaLinux/RHEL/OracleLinux 8, and you intend to use Centreon in French, Spanish or Portuguese, install the corresponding packages:
 
 ```shell

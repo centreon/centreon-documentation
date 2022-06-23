@@ -44,6 +44,8 @@ apt update && apt upgrade
 > Acceptez toutes les clés GPG proposées et pensez à redémarrer votre serveur
 > si une mise à jour du noyau est proposée.
 
+### Configuration spécifique à AlmaLinux/RHEL/OracleLinux 8
+
 Si vous installez Centreon sur AlmaLinux/RHEL/OracleLinux 8, et que vous comptez utiliser Centreon en français, espagnol ou portugais, installez les paquets correspondants :
 
 ```shell
