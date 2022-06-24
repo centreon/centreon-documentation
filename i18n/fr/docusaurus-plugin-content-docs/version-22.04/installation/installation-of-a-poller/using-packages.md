@@ -216,7 +216,7 @@ yum install -y centreon-poller
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt install -y centreon-poller centreon-poller-centreon-engine
+apt install -y centreon-poller
 ```
 
 </TabItem>
