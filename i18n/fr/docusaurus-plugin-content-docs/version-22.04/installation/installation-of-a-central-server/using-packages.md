@@ -322,7 +322,7 @@ yum install -y centreon-central
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt install -y centreon-central centreon-poller-centreon-engine
+apt install -y centreon-central
 ```
 
 </TabItem>
