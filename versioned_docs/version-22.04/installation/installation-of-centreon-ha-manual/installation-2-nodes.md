@@ -1,6 +1,6 @@
 ---
-id: centreon-ha-4-nodes-installation-manual-failover
-title: 4-node manual failover installation
+id: centreon-ha-2-nodes-installation-manual-failover
+title: 2-node manual failover installation
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -13,7 +13,7 @@ Before following this procedure, it is recommended to have a satisfactory level 
 
 ### Installation of Centreon
 
-The installation of a Centreon-HA cluster can only be done on the basis of a functional installation of Centreon. Before following this procedure, it is therefore imperative to have applied **[this installation procedure](https://docs.centreon.com/docs/21.10/installation/introduction/)** until the end **by reserving about 5GB of free space** on the *volume group* which contains the MySQL data (mount point `/var/lib/mysql` by default). 
+The installation of a Centreon-HA cluster can only be done on the basis of a functional installation of Centreon. Before following this procedure, it is therefore imperative to have applied **[this installation procedure](https://docs.centreon.com/docs/installation/introduction/)** until the end **by reserving about 5GB of free space** on the *volume group* which contains the MySQL data (mount point `/var/lib/mysql` by default). 
 
 The `vgs` command should return a display of the form below (especially the value under `VFree`):
 
@@ -172,20 +172,6 @@ nmcli con mod @CENTRAL_VIP_IFNAME@ +ipv4.addresses "@CENTRAL_SLAVE_IPADDR@/@CENT
 nmcli con up @CENTRAL_VIP_IFNAME@
 ```
 
-For the server `@DB_MASTER_NAME@`:
-
-```bash
-nmcli con mod @DB_VIP_IFNAME@ +ipv4.addresses "@DB_MASTER_IPADDR@/@DB_VIP_CIDR_NETMASK@"
-nmcli con up @DB_VIP_IFNAME@
-```
-
-For the server `@DB_SLAVE_NAME@`:
-
-```bash
-nmcli con mod @DB_VIP_IFNAME@ +ipv4.addresses "@DB_SLAVE_IPADDR@/@DB_VIP_CIDR_NETMASK@"
-nmcli con up @DB_VIP_IFNAME@
-```
-
 You can verify on each node if the IP address is declared with this command on the Central node for example:
 
 ```bash
@@ -205,15 +191,13 @@ PREFIX=23
 
 ### Name resolution
 
-In order to ensure that the cluster functions properly even if the name resolution service fails, it is imperative that the nodes know each other through the `/etc/hosts` file.
+In order to ensure that the cluster functions properly even if the name resolution service fails, it is imperative that the nodes know each other through the `/etc/hosts` file. In the case of a 2-node cluster, it is not necessary to declare the hosts `@DB_MASTER_NAME@` and `@DB_MASTER_SLAVE@` since they are the same as the central hosts.
 
 ```bash
 cat >/etc/hosts <<"EOF"
 127.0.0.1 localhost localhost.localdomain localhost4 localhost4.localdomain4
 @CENTRAL_MASTER_IPADDR@ @CENTRAL_MASTER_NAME@
 @CENTRAL_SLAVE_IPADDR@ @CENTRAL_SLAVE_NAME@
-@DB_MASTER_IPADDR@ @DB_MASTER_NAME@
-@DB_SLAVE_IPADDR@ @DB_SLAVE_NAME@
 EOF
 ```
 
@@ -223,7 +207,7 @@ In the rest of this document, we will refer to the primary node as the primary n
 
 Centreon offers the `centreon-ha` package, which provides all the scripts and dependencies needed to run a Centreon cluster.
 
-On the central servers:
+On all :
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8" label="RHEL 8">
@@ -262,50 +246,6 @@ dnf install centreon-ha-web
 
 ```bash
 yum install centreon-ha-web
-```
-
-</TabItem>
-</Tabs>
-
-Then, on the database servers :
-
-<Tabs groupId="sync">
-<TabItem value="RHEL 8" label="RHEL 8">
-
-```bash
-subscription-manager repos --enable rhel-8-for-x86_64-highavailability-rpms
-dnf install centreon-ha-common
-```
-
-</TabItem>
-<TabItem value="Oracle Linux 8" label="Oracle Linux 8">
-
-```bash
-dnf config-manager --enable ol8_addons
-dnf install centreon-ha-common
-```
-
-</TabItem>
-<TabItem value="Alma Linux 8" label="Alma Linux 8">
-
-```bash
-dnf config-manager --enable ha
-dnf install centreon-ha-common
-```
-
-</TabItem>
-<TabItem value="RHEL 7" label="RHEL 7">
-
-```bash
-subscription-manager repos --enable rhel-7-for-x86_64-highavailability-rpms
-dnf install centreon-ha-common
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-yum install centreon-ha-common
 ```
 
 </TabItem>
@@ -357,7 +297,7 @@ Then exit the `centreon` session with `exit` or `Ctrl-D`.
 
 #### Mysql account
 
-For the `mysql` account the procedure differs somewhat because this user does not normally have a *home directory* or the ability to open a Shell session. This procedure is to be applied on both database nodes.
+For the `mysql` account the procedure differs somewhat because this user does not normally have a *home directory* or the ability to open a Shell session. This procedure is also to be applied on the two central nodes.
 
 ```bash
 systemctl stop mysql
@@ -370,7 +310,7 @@ chown mysql. /var/log/mysqld.log
 systemctl start mysql
 ```
 
-Then switch to the `bash` environment of `mysql` and generate the SSH keys, run these commands on both **database nodes**:
+Then switch to the `bash` environment of `mysql` and generate the SSH keys:
 
 ```bash
 su - mysql
@@ -396,6 +336,7 @@ Then exit the `mysql` session with `exit` or `Ctrl-D`.
 ## Setting up MySQL replication
 
 In order for the two nodes to be interchangeable at any time, the two databases must be continuously replicated. To do this we will set up a Master-Slave replication.
+Since Centreon 22.04, The mariaDB Replication is now based on  **[GTID](https://mariadb.com/kb/en/gtid/)**.
 
 **Note:** unless otherwise stated, each of the following steps must be performed **on both database nodes**.
 
@@ -417,6 +358,11 @@ binlog_format=MIXED
 slave_compressed_protocol=1
 datadir=/var/lib/mysql
 pid-file=/var/lib/mysql/mysql.pid
+skip-slave-start
+log-slave-updates
+gtid_strict_mode=ON
+expire_logs_days=7
+ignore-db-dir=lost+found
 
 # Tuning standard Centreon
 innodb_file_per_table=1
@@ -493,32 +439,6 @@ GRANT PROCESS, RELOAD, SHUTDOWN, SUPER, REPLICATION CLIENT, REPLICATION SLAVE ON
 
 CREATE USER '@MYSQL_REPL_USER@'@'@CENTRAL_MASTER_IPADDR@' IDENTIFIED BY '@MYSQL_REPL_PASSWD@';
 GRANT PROCESS, RELOAD, SHUTDOWN, SUPER, REPLICATION CLIENT, REPLICATION SLAVE ON *.* TO '@MYSQL_REPL_USER@'@'@DB_MASTER_IPADDR@';
-```
-
-### Setting up binary log purges
-
-MySQL binary logs must be purged on both database nodes, but not at the same time, so this automatic task is set up manually in a differentiated way on both servers.
-
-* On the main DB server
-
-```bash
-cat >/etc/cron.d/centreon-ha-mysql <<EOF
-0 4 * * * root bash /usr/share/centreon-ha/bin/mysql-purge-logs.sh >> /var/log/centreon-ha/mysql-purge.log 2>&1
-EOF
-```
-
-* On the secondary DB server
-
-```bash
-cat >/etc/cron.d/centreon-ha-mysql <<EOF
-30 4 * * * root bash /usr/share/centreon-ha/bin/mysql-purge-logs.sh >> /var/log/centreon-ha/mysql-purge.log 2>&1
-EOF
-```
-
-then restart the crond service on both nodes:
-
-```bash
-systemctl restart crond
 ```
 
 ### Configuring environment variables for MySQL scripts
@@ -674,7 +594,7 @@ Start MySQL Slave
 OK
 Start Replication
 Id	User	Host	db	Command	Time	State	Info	Progress
-3	@MYSQL_REPL_USER@	@DB_MASTER_NAME@:33084	NULL	Query	0	init	show processlist	0.000
+3	@MYSQL_REPL_USER@	@CENTRAL_MASTER_NAME@:33084	NULL	Query	0	init	show processlist	0.000
 ```
 
 If all went well, then the `mysql-check-status.sh` command should return an error-free result:
@@ -686,15 +606,15 @@ If all went well, then the `mysql-check-status.sh` command should return an erro
 Expected outcome:
 
 ```text
-Connection Status '@DB_MASTER_NAME@' [OK]
-Connection Status '@DB_SLAVE_NAME@' [OK]
+Connection Status '@CENTRAL_MASTER_NAME@' [OK]
+Connection Status '@CENTRAL_SLAVE_NAME@' [OK]
 Slave Thread Status [OK]
 Position Status [OK]
 ```
 
 ### Creating the MySQL VIP
 
-The VIP will be added to the `@DB_VIP_IFNAME@` interface configuration on **the database master node**:
+The VIP will be added to the `@DB_VIP_IFNAME@` interface configuration on the master node:
 
 ```bash
 nmcli con mod "@DB_VIP_IFNAME@" +ipv4.addresses "@DB_VIP_IPADDR@/@DB_VIP_CIDR_NETMASK@"
@@ -772,8 +692,6 @@ chmod 775 /tmp/centreon-autodisco/
 
 The Centreon application services will no longer be launched at the server startup as it is the case for a standard installation, the clustering services will take care of it. It is therefore necessary to stop and disable these services.
 
-On the central servers:
-
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
 
@@ -801,11 +719,13 @@ Some services should only be started on one node, but for others, it's okay or e
 
 The `php-fpm.service` service does not need to be modified, but must be enabled so that it is started automatically when the central servers are started.
 
+Execute this command **on the two central nodes**:
+
 ```bash
 systemctl enable php-fpm
 ```
 
-#### RRD Broker service
+#### Broker RRD service
 
 The "broker-rrd" process is started via the `cbd.service`. The latter is by default driven by `centreon.service` but in this configuration, it must be detached by modifying its definition on the two central nodes:
 
@@ -836,7 +756,10 @@ systemctl enable cbd
 
 #### Creating the Centreon VIP
 
-The VIP will be added to the `@CENTRAL_VIP_IFNAME@` interface configuration on **central master node**:
+The VIP will be added to the `@CENTRAL_VIP_IFNAME@` interface configuration on master node.
+In most cases, the central VIP is the same of database VIP for 2 nodes cluster and this action has already done for the replication.
+
+If not, execute those commands on `@CENTRAL_MASTER_NAME@`:
 
 ```bash
 nmcli con mod "@CENTRAL_VIP_IFNAME@" +ipv4.addresses "@CENTRAL_VIP_IPADDR@/@CENTRAL_VIP_CIDR_NETMASK@"
@@ -1099,7 +1022,7 @@ In order to take into account all the previous modifications, and to activate th
 
 ```bash
 systemctl daemon-reload
-systemctl enable cbd httpd gorgoned centreon-central-sync cbd-sql centengine centreontrapd snmptrapd
+systemctl enable cbd httpd gorgoned centreon-central-sync cbd-sql centengine centreontrapd snmptrapd mariadb
 ```
 
 </TabItem>
@@ -1107,7 +1030,7 @@ systemctl enable cbd httpd gorgoned centreon-central-sync cbd-sql centengine cen
 
 ```bash
 systemctl daemon-reload
-systemctl enable cbd httpd24-httpd gorgoned centreon-central-sync cbd-sql centengine centreontrapd snmptrapd
+systemctl enable cbd httpd24-httpd gorgoned centreon-central-sync cbd-sql centengine centreontrapd snmptrapd mariadb
 ```
 
 </TabItem>
@@ -1167,7 +1090,7 @@ Host @CENTRAL_MASTER_NAME@ is already the current master :-)
 
 ### Reverse MySQL SLAVE/MASTER roles
 
-This script can be launched from any database node, this time we do not specify the name of the target server:
+This script can be launched from any node, this time we do not specify the name of the target server:
 
 ```bash
 /usr/share/centreon-ha/bin/mysql-switch-slave-master.sh
@@ -1193,11 +1116,11 @@ The status of MySQL replication can be checked at any time with the command `mys
 /usr/share/centreon-ha/bin/mysql-check-status.sh
 ```
 
-The expected outcome is:
+Expected outcome:
 
 ```bash
-Connection Status '@DB_MASTER_NAME@' [OK]
-Connection Status '@DB_SLAVE_NAME@' [OK]
+Connection Status '@CENTRAL_MASTER_NAME@' [OK]
+Connection Status '@CENTRAL_SLAVE_NAME@' [OK]
 Slave Thread Status [OK]
 Position Status [OK]
 ```

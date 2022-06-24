@@ -74,7 +74,7 @@ Rather than setting up a real-time replication of RRD data files, the technical 
 | Output IPv4 |  |
 | --------------- | ------------------ |
 | Name | centreon-broker-master-rrd |
-| Connection ort | 5670 |
+| Connection port | 5670 |
 | Host to connect to | `@CENTRAL_MASTER_IPADDR@` |
 | Buffering timeout | 0 |
 | Retry interval | 60 |
@@ -84,7 +84,7 @@ Rather than setting up a real-time replication of RRD data files, the technical 
 | Output IPv4 |  |
 | --------------- | ------------------ |
 | Name | centreon-broker-slave-rrd |
-| Connection ort | 5670 |
+| Connection port | 5670 |
 | Host to connect to | `@CENTRAL_SLAVE_IPADDR@` |
 | Buffering timeout | 0 |
 | Retry interval | 60 |
@@ -154,9 +154,44 @@ systemctl restart network
 </TabItem>
 </Tabs>
 
+To avoid problems with the management of fixed and virtual IP addresses, it is necessary to declare the fixed IP address of each server in the network configuration.
+
+To do this, execute the following commands on each node:
+
+For the server `@CENTRAL_MASTER_NAME@`:
+
+```bash
+nmcli con mod @CENTRAL_VIP_IFNAME@ +ipv4.addresses "@CENTRAL_MASTER_IPADDR@/@CENTRAL_VIP_CIDR_NETMASK@"
+nmcli con up @CENTRAL_VIP_IFNAME@
+```
+
+For the server `@CENTRAL_SLAVE_NAME@`:
+
+```bash
+nmcli con mod @CENTRAL_VIP_IFNAME@ +ipv4.addresses "@CENTRAL_SLAVE_IPADDR@/@CENTRAL_VIP_CIDR_NETMASK@"
+nmcli con up @CENTRAL_VIP_IFNAME@
+```
+
+You can verify on each node if the IP address is declared with this command on the Central node for example:
+
+```bash
+cat /etc/sysconfig/network-scripts/ifcfg-@CENTRAL_VIP_IFNAME@
+```
+
+The result is like that for `@CENTRAL_MASTER_NAME@`:
+
+```text
+...
+DEVICE=@CENTRAL_VIP_IFNAME@
+ONBOOT=yes
+IPADDR=@CENTRAL_MASTER_IPADDR@
+PREFIX=23
+...
+```
+
 ### Name resolution
 
-In order to ensure that the cluster functions properly even if the name resolution service fails, it is imperative that the nodes know each other *via* the `/etc/hosts` file. In the case of a 2-node cluster, it is not necessary to declare the hosts `@DB_MASTER_NAME@` and `@DB_MASTER_SLAVE@` since they are the same as the central hosts
+In order to ensure that the cluster functions properly even if the name resolution service fails, it is imperative that the nodes know each other through the `/etc/hosts` file. In the case of a 2-node cluster, it is not necessary to declare the hosts `@DB_MASTER_NAME@` and `@DB_MASTER_SLAVE@` since they are the same as the central hosts.
 
 ```bash
 cat >/etc/hosts <<"EOF"
@@ -178,7 +213,6 @@ On all :
 <TabItem value="RHEL 8" label="RHEL 8">
 
 ```bash
-dnf -y install dnf-plugins-core https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 subscription-manager repos --enable rhel-8-for-x86_64-highavailability-rpms
 dnf install centreon-ha-web
 ```
@@ -203,7 +237,6 @@ dnf install centreon-ha-web
 <TabItem value="RHEL 7" label="RHEL 7">
 
 ```bash
-yum install epel-release
 subscription-manager repos --enable rhel-7-for-x86_64-highavailability-rpms
 dnf install centreon-ha-web
 ```
@@ -212,25 +245,15 @@ dnf install centreon-ha-web
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install epel-release
 yum install centreon-ha-web
 ```
 
 </TabItem>
 </Tabs>
 
-////// specifique 4 Noeuds
-Then, on the database servers :
-
-```bash
-systemctl stop php-fpm.service httpd24-httpd.service 
-systemctl disable php-fpm.service httpd24-httpd.service
-```
-//////
-
 ### SSH key exchange
 
-In order to allow the two central servers to exchange files and commands, it is necessary to set up the possibility to connect *via* SSH from one server to the other for the users:
+In order to allow servers to exchange files and commands, it is necessary to set up the possibility to connect through SSH from one server to the other for the users:
 
 * `mysql`
 * `centreon`
@@ -242,12 +265,17 @@ There are 2 ways to exchange SSH keys:
 
 This is the second method which will be proposed below.
 
-#### `centreon` account
+#### Centreon account
 
-This procedure is to be applied on the two central nodes:
+This procedure is to be applied on the two central nodes. To begin, switch to the `bash` environment of `centreon`:
 
 ```bash
 su - centreon
+```
+
+Then run these commands on the two central nodes:
+
+```bash
 ssh-keygen -t ed25519 -a 100
 cat ~/.ssh/id_ed25519.pub | tee ~/.ssh/authorized_keys
 ```
@@ -267,7 +295,7 @@ ssh @CENTRAL_SLAVE_NAME@
 
 Then exit the `centreon` session with `exit` or `Ctrl-D`.
 
-#### `mysql` account
+#### Mysql account
 
 For the `mysql` account the procedure differs somewhat because this user does not normally have a *home directory* or the ability to open a Shell session. This procedure is also to be applied on the two central nodes.
 
@@ -282,7 +310,7 @@ chown mysql. /var/log/mysqld.log
 systemctl start mysql
 ```
 
-Then generate the SSH keys
+Then switch to the `bash` environment of `mysql` and generate the SSH keys:
 
 ```bash
 su - mysql
@@ -299,15 +327,16 @@ chmod 600 ~/.ssh/authorized_keys
 The key exchange must then be validated by a first connection which will accept the signature of the SSH server by typing "yes" (always as `mysql`) :
 
 ```bash
-ssh @DB_MASTER_IPADDR@
-ssh @DB_SLAVE_IPADDR@
+ssh @DB_MASTER_NAME@
+ssh @DB_SLAVE_NAME@
 ```
 
 Then exit the `mysql` session with `exit` or `Ctrl-D`.
 
 ## Setting up MySQL replication
 
-In order for the two nodes to be interchangeable at any time, the two databases must be replicated continuously. To do this we will set up a Master-Slave replication.
+In order for the two nodes to be interchangeable at any time, the two databases must be continuously replicated. To do this we will set up a Master-Slave replication.
+                                                                                                           
 
 **Note:** unless otherwise stated, each of the following steps must be performed **on both database nodes**.
 
@@ -329,6 +358,11 @@ binlog_format=MIXED
 slave_compressed_protocol=1
 datadir=/var/lib/mysql
 pid-file=/var/lib/mysql/mysql.pid
+                
+                 
+                   
+                  
+                        
 
 # Tuning standard Centreon
 innodb_file_per_table=1
@@ -353,13 +387,13 @@ max_allowed_packet=64M
 For these modifications to be taken into account, you must restart the database server:
 
 ```bash
-systemctl restart mysql
+systemctl restart mariadb
 ```
 
 Make sure that the reboot was successful with the following command:
 
 ```bash
-systemctl status mysql
+systemctl status mariadb
 ```
 
 **Warning:** The `centreon.cnf` file will no longer be taken into account, if parameters have been customized there, they must be transferred to `server.cnf`.
@@ -513,7 +547,7 @@ log-bin=mysql-bin
 Then apply this change by restarting MySQL on both nodes:
 
 ```bash
-systemctl restart mysql
+systemctl restart mariadb
 ```
 
 ### Authorization of centreon and mysql accounts
@@ -528,24 +562,13 @@ CENTREON   ALL = NOPASSWD: /usr/bin/systemctl restart centreon
 CENTREON   ALL = NOPASSWD: /usr/bin/systemctl stop centreon
 CENTREON   ALL = NOPASSWD: /usr/bin/systemctl start centreon
 
-CENTREON   ALL = NOPASSWD: /usr/sbin/nmcli
-CENTREON   ALL = NOPASSWD: /usr/sbin/nmcli
+CENTREON   ALL = NOPASSWD: /usr/bin/nmcli
 ```
 
-Pour le compte mysql, éditer le fichier `/etc/sudoers.d/centreon-cluster-db` et ajouter les lignes suivantes:
+For the mysql account, edit the file `/etc/sudoers.d/centreon-cluster-db` and add the following line:
 
 ```bash
-MYSQL   ALL = NOPASSWD: /usr/bin/systemctl reload mysql
-MYSQL   ALL = NOPASSWD: /usr/bin/systemctl restart mysql
-MYSQL   ALL = NOPASSWD: /usr/bin/systemctl stop mysql
-MYSQL   ALL = NOPASSWD: /usr/bin/systemctl start mysql
-MYSQL   ALL = NOPASSWD: /usr/bin/systemctl reload mariadb
-MYSQL   ALL = NOPASSWD: /usr/bin/systemctl restart mariadb
-MYSQL   ALL = NOPASSWD: /usr/bin/systemctl stop mariadb
-MYSQL   ALL = NOPASSWD: /usr/bin/systemctl start mariadb
-
-MYSQL   ALL = NOPASSWD: /usr/sbin/nmcli
-MYSQL   ALL = NOPASSWD: /usr/sbin/nmcli
+MYSQL   ALL = NOPASSWD: /usr/bin/nmcli
 ```
 
 ### Synchronize databases and start MySQL replication
@@ -555,7 +578,7 @@ To synchronize the databases, stop the `mysql` service on the secondary node to 
 So you need to run the following command **on the secondary node** :
 
 ```bash
-systemctl stop mysql
+systemctl stop mariadb
 ```
 
 In some cases systemd may fail to stop the `mysql` service, to be sure, check that the following command returns no lines:
@@ -617,17 +640,23 @@ Position Status [OK]
 
 ### Creating the MySQL VIP
 
-The VIP will be added to the `@DB_VIP_IFNAME@` interface configuration on both nodes:
+The VIP will be added to the `@DB_VIP_IFNAME@` interface configuration on the master node:
 
 ```bash
 nmcli con mod "@DB_VIP_IFNAME@" +ipv4.addresses "@DB_VIP_IPADDR@/@DB_VIP_CIDR_NETMASK@"
 nmcli connection up "@DB_VIP_IFNAME@"
 ```
 
-Then run the following script **on one of the two MySQL nodes** to mount the VIP on the MySQL master server (this script can be run on either of the two nodes, it will detect by itself which is the master):
+Then run the following script **on one of the two MySQL nodes** to verify if the VIP is correctly mount on the MySQL master server (this script can be run on either of the two nodes, it will detect by itself which is the master):
 
 ```bash
 /usr/share/centreon-ha/bin/move-mysql-vip-to-mysql-master.sh
+```
+
+The result should be like this, if not the script move the VIP in correct place:
+
+```text
+The VIP address is already at the right place. Nothing to do.
 ```
 
 ## Setting up the Centreon cluster
@@ -657,15 +686,17 @@ our %centreon_central_sync_config = (
 ```
 
 ## Removing crons
+
 Scheduled cron tasks are executed directly by the gorgone process in the highly available architecture. This ensures that they do not compete with each other on the central nodes. It is therefore necessary to delete them manually:
 
 ```bash
-rm /etc/cron.d/centreon
-rm /etc/cron.d/centstorage
-rm /etc/cron.d/centreon-auto-disco
+rm -f /etc/cron.d/centreon
+rm -f /etc/cron.d/centstorage
+rm -f /etc/cron.d/centreon-auto-disco
 ```
 
 ## Changing rights
+
 The directories /var/log/centreon-engine and /tmp/centreon-autodisco are shared between several processes. It is necessary to modify the rights of the directories and files to ensure the proper functioning of file replication and automatic discovery of services:
 
 ```bash
@@ -691,40 +722,36 @@ The Centreon application services will no longer be launched at the server start
 <TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
 
 ```bash
-systemctl stop centengine snmptrapd centreontrapd gorgoned cbd httpd php-fpm centreon mysql
-systemctl disable centengine snmptrapd centreontrapd gorgoned cbd httpd php-fpm centreon mysql centreon-central-sync cbd-sql
+systemctl stop centengine snmptrapd centreontrapd gorgoned cbd httpd php-fpm centreon
+systemctl disable centengine snmptrapd centreontrapd gorgoned cbd httpd php-fpm centreon centreon-central-sync cbd-sql
 ```
 
 </TabItem>
 <TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
 
 ```bash
-systemctl stop centengine snmptrapd centreontrapd gorgoned cbd httpd24-httpd php-fpm centreon mysql
-systemctl disable centengine snmptrapd centreontrapd gorgoned cbd httpd24-httpd php-fpm centreon mysql centreon-central-sync cbd-sql
+systemctl stop centengine snmptrapd centreontrapd gorgoned cbd httpd24-httpd php-fpm centreon
+systemctl disable centengine snmptrapd centreontrapd gorgoned cbd httpd24-httpd php-fpm centreon centreon-central-sync cbd-sql
 ```
 
 </TabItem>
 </Tabs>
 
-If it is installed on the central nodes, the `mysql` service is on a mixed mode between SysV init and systemd, to make sure that it is no longer launched at startup, you must also run the command :
-
-```bash
-chkconfig mysql off
-```
-
 ### Redefine service startup rules
 
 Some services should only be started on one node, but for others, it's okay or even desirable to start them on both nodes. We'll start with these services.
 
-#### PHP
+#### PHP service
 
-The `php-fpm.service` service does not need to be modified, but must be enabled so that it is started automatically when the central servers are started:
+The `php-fpm.service` service does not need to be modified, but must be enabled so that it is started automatically when the central servers are started.
+
+Execute this command **on the two central nodes**:
 
 ```bash
-systemctl enable php-fpm.service
+systemctl enable php-fpm
 ```
 
-#### RRD broker
+#### Broker RRD service
 
 The "broker-rrd" process is started via the `cbd.service`. The latter is by default driven by `centreon.service` but in this configuration, it must be detached by modifying its definition on the two central nodes:
 
@@ -749,20 +776,23 @@ EOF
 Then start it and activate it:
 
 ```bash
-systemctl start cbd.service
-systemctl enable cbd.service
+systemctl start cbd
+systemctl enable cbd
 ```
 
 #### Creating the Centreon VIP
 
-The VIP will be added to the `@CENTRAL_VIP_IFNAME@` interface configuration on both nodes:
+The VIP will be added to the `@CENTRAL_VIP_IFNAME@` interface configuration on master node.
+In most cases, the central VIP is the same of database VIP for 2 nodes cluster and this action has already done for the replication.
+
+If not, execute those commands on `@CENTRAL_MASTER_NAME@`:
 
 ```bash
 nmcli con mod "@CENTRAL_VIP_IFNAME@" +ipv4.addresses "@CENTRAL_VIP_IPADDR@/@CENTRAL_VIP_CIDR_NETMASK@"
 nmcli connection up "@CENTRAL_VIP_IFNAME@"
 ```
 
-#### httpd service
+#### Httpd service
 
 The `httpd.service` service is by default independent of `centreon.service` but in this configuration, it must be attached to it by modifying its definition on the two central nodes:
 
@@ -828,9 +858,34 @@ EOF
 </TabItem>
 </Tabs>
 
-#### Gorgon service
+#### Gorgone service
 
 The `gorgoned.service` service is by default independent of `centreon.service` but in this configuration, it must be attached to it by modifying its definition on the two central nodes:
+
+<Tabs groupId="sync">
+<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
+
+```bash
+cat > /etc/systemd/system/gorgoned.service <<"EOF"
+[Unit]
+Description=Centreon Gorgone
+PartOf=centreon.service
+After=httpd.service
+ReloadPropagatedFrom=centreon.service
+
+[Service]
+EnvironmentFile=/etc/sysconfig/gorgoned
+ExecStart=/usr/bin/perl /usr/bin/gorgoned $OPTIONS
+Type=simple
+User=centreon-gorgone
+
+[Install]
+WantedBy=centreon.service
+EOF
+```
+
+</TabItem>
+<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
 
 ```bash
 cat > /etc/systemd/system/gorgoned.service <<"EOF"
@@ -851,7 +906,10 @@ WantedBy=centreon.service
 EOF
 ```
 
-#### centreon-central-sync service
+</TabItem>
+</Tabs>
+
+#### Centreon-central-sync service
 
 This service is specific to *Centreon HA*. Its function is to replicate configuration changes, add images via the interface, etc.
 
@@ -875,7 +933,7 @@ WantedBy=centreon.service
 EOF
 ```
 
-#### SQL Broker
+#### Broker SQL service
 
 ```bash
 cat > /usr/lib/systemd/system/cbd-sql.service <<"EOF"
@@ -898,7 +956,7 @@ WantedBy=centreon.service
 EOF
 ```
 
-#### Service centengine
+#### Centengine service
 
 ```bash
 cat > /usr/lib/systemd/system/centengine.service <<"EOF"
@@ -919,7 +977,7 @@ WantedBy=centreon.service
 EOF
 ```
 
-#### Service centreontrapd
+#### Centreontrapd service
 
 ```bash
 cat > /usr/lib/systemd/system/centreontrapd.service <<"EOF"
@@ -941,7 +999,7 @@ WantedBy=centreon.service
 EOF
 ```
 
-#### Service snmptrapd
+#### Snmptrapd service
 
 ```bash
 cat > /usr/lib/systemd/system/snmptrapd.service <<"EOF"
@@ -962,8 +1020,6 @@ WantedBy=centreon.service
 EOF
 ```
 
-After this step, all resources must be active in the same place, and the platform must be functional and redundant. If not, refer to the troubleshooting guide in the next paragraph.
-
 ### Initial launch of all services
 
 #### Installation of the Centreon virtual IP address
@@ -974,34 +1030,64 @@ Normally the VIP has already been mounted previously. Check that this is the cas
 ip a
 ```
 
-You should see the virtual IP `@CENTRAL_VIP_IPADDR@` attached to the `@CENTRAL_VIP_IFNAME@` interface appear in the return of the `ip a` command
+You should see the virtual IP `@CENTRAL_VIP_IPADDR@` attached to the `@CENTRAL_VIP_IFNAME@` interface appear in the return of the `ip a` command.
+
 If this is not the case, the virtual IP address must be mounted, for example on `@CENTRAL_MASTER_NAME@` :
 
 ```bash
 nmcli con mod "@CENTRAL_VIP_IFNAME@" +ipv4.addresses "@CENTRAL_VIP_IPADDR@/@CENTRAL_VIP_CIDR_NETMASK@"
-nmcli connection up "@CENTRAL_VIP_IFNAME@"
+nmcli con up "@CENTRAL_VIP_IFNAME@"
 ```
 
 #### Taking into account the changes made to the services
 
 In order to take into account all the previous modifications, and to activate the services (so that the start of the `centreon.service` service starts them all) it is necessary to launch these commands on the two central nodes:
 
+<Tabs groupId="sync">
+<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
+
 ```bash
 systemctl daemon-reload
-systemctl enable cbd.service httpd24-httpd.service gorgoned.service centreon-central-sync.service cbd-sql.service centengine.service centreontrapd.service snmptrapd.service 
+systemctl enable cbd httpd gorgoned centreon-central-sync cbd-sql centengine centreontrapd snmptrapd mariadb
 ```
+
+</TabItem>
+<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
+
+```bash
+systemctl daemon-reload
+systemctl enable cbd httpd24-httpd gorgoned centreon-central-sync cbd-sql centengine centreontrapd snmptrapd mariadb
+```
+
+</TabItem>
+</Tabs>
 
 And finally start them all via the `centreon.service` on the node where the VIP was mounted:
 
 ```bash
-systemctl start centreon.service
+systemctl start centreon
 ```
 
 Then check the status of all services:
 
+<Tabs groupId="sync">
+<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
+
 ```bash
-systemctl status cbd.service httpd24-httpd.service gorgoned.service centreon-central-sync.service cbd-sql.service centengine.service centreontrapd.service snmptrapd.service
+systemctl status cbd httpd gorgoned centreon-central-sync cbd-sql centengine centreontrapd snmptrapd
 ```
+
+</TabItem>
+<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
+
+```bash
+systemctl status cbd httpd24-httpd gorgoned centreon-central-sync cbd-sql centengine centreontrapd snmptrapd
+```
+
+</TabItem>
+</Tabs>
+
+After this step, all resources must be active in the same place, and the platform must be functional and redundant. If not, refer to the troubleshooting guide in the next paragraph.
 
 ## Standard manual HA operation
 
@@ -1030,7 +1116,7 @@ Host @CENTRAL_MASTER_NAME@ is already the current master :-)
 
 ### Reverse MySQL SLAVE/MASTER roles
 
-This time we do not specify the name of the target server:
+This script can be launched from any node, this time we do not specify the name of the target server:
 
 ```bash
 /usr/share/centreon-ha/bin/mysql-switch-slave-master.sh

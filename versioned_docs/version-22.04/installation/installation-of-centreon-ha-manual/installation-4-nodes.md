@@ -13,7 +13,7 @@ Before following this procedure, it is recommended to have a satisfactory level 
 
 ### Installation of Centreon
 
-The installation of a Centreon-HA cluster can only be done on the basis of a functional installation of Centreon. Before following this procedure, it is therefore imperative to have applied **[this installation procedure](https://docs.centreon.com/docs/21.10/installation/introduction/)** until the end **by reserving about 5GB of free space** on the *volume group* which contains the MySQL data (mount point `/var/lib/mysql` by default). 
+The installation of a Centreon-HA cluster can only be done on the basis of a functional installation of Centreon. Before following this procedure, it is therefore imperative to have applied **[this installation procedure](https://docs.centreon.com/docs/installation/introduction/)** until the end **by reserving about 5GB of free space** on the *volume group* which contains the MySQL data (mount point `/var/lib/mysql` by default). 
 
 The `vgs` command should return a display of the form below (especially the value under `VFree`):
 
@@ -396,6 +396,7 @@ Then exit the `mysql` session with `exit` or `Ctrl-D`.
 ## Setting up MySQL replication
 
 In order for the two nodes to be interchangeable at any time, the two databases must be continuously replicated. To do this we will set up a Master-Slave replication.
+Since Centreon 22.04, The mariaDB Replication is now based on  **[GTID](https://mariadb.com/kb/en/gtid/)**.
 
 **Note:** unless otherwise stated, each of the following steps must be performed **on both database nodes**.
 
@@ -417,6 +418,11 @@ binlog_format=MIXED
 slave_compressed_protocol=1
 datadir=/var/lib/mysql
 pid-file=/var/lib/mysql/mysql.pid
+skip-slave-start
+log-slave-updates
+gtid_strict_mode=ON
+expire_logs_days=7
+ignore-db-dir=lost+found
 
 # Tuning standard Centreon
 innodb_file_per_table=1
@@ -493,32 +499,6 @@ GRANT PROCESS, RELOAD, SHUTDOWN, SUPER, REPLICATION CLIENT, REPLICATION SLAVE ON
 
 CREATE USER '@MYSQL_REPL_USER@'@'@CENTRAL_MASTER_IPADDR@' IDENTIFIED BY '@MYSQL_REPL_PASSWD@';
 GRANT PROCESS, RELOAD, SHUTDOWN, SUPER, REPLICATION CLIENT, REPLICATION SLAVE ON *.* TO '@MYSQL_REPL_USER@'@'@DB_MASTER_IPADDR@';
-```
-
-### Setting up binary log purges
-
-MySQL binary logs must be purged on both database nodes, but not at the same time, so this automatic task is set up manually in a differentiated way on both servers.
-
-* On the main DB server
-
-```bash
-cat >/etc/cron.d/centreon-ha-mysql <<EOF
-0 4 * * * root bash /usr/share/centreon-ha/bin/mysql-purge-logs.sh >> /var/log/centreon-ha/mysql-purge.log 2>&1
-EOF
-```
-
-* On the secondary DB server
-
-```bash
-cat >/etc/cron.d/centreon-ha-mysql <<EOF
-30 4 * * * root bash /usr/share/centreon-ha/bin/mysql-purge-logs.sh >> /var/log/centreon-ha/mysql-purge.log 2>&1
-EOF
-```
-
-then restart the crond service on both nodes:
-
-```bash
-systemctl restart crond
 ```
 
 ### Configuring environment variables for MySQL scripts

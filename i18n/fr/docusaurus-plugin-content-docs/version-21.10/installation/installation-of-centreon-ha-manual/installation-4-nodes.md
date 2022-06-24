@@ -1,111 +1,111 @@
 ---
 id: centreon-ha-4-nodes-installation-manual-failover
-title: Installation en failover manuel à 4 nœuds
+title: Installation de Centreon-HA 4 nœuds à basculement manuel
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Prérequis
+## Conditions préalables
 
 ### Compréhension
 
-Avant de suivre cette procédure, il est recommandé d'avoir un niveau de connaissance satisfaisant du système d'exploitation Linux et de Centreon pour bien comprendre ce qui va être fait et pour pouvoir se sortir d'un éventuel faux pas.
+Avant de suivre cette procédure, il est recommandé d'avoir un niveau de connaissance satisfaisant du système d'exploitation Linux et de Centreon afin de comprendre ce qui va être fait et de pouvoir se sortir d'une éventuelle erreur.
 
 ### Installation de Centreon
 
-L'installation d'un cluster Centreon-HA ne peut se faire que sur la base d'une installation fonctionnelle de Centreon. Avant de suivre cette procédure, il est donc impératif d'avoir appliqué **[cette procédure d'installation](https://docs.centreon.com/fr/docs/21.10/installation/introduction/)** jusqu'au bout **en réservant environ 5GB de libre** sur le *volume group* qui contient  les données MySQL (point de montage `/var/lib/mysql` par défaut). 
+L'installation d'un cluster Centreon-HA ne peut se faire que sur la base d'une installation fonctionnelle de Centreon. Avant de suivre cette procédure, il est donc impératif d'avoir appliqué **[cette procédure d'installation](https://docs.centreon.com/fr/docs/21.10/installation/introduction/)** jusqu'au bout **en réservant environ 5Go d'espace libre** sur le *groupe de volumes* qui contient les données MySQL (point de montage `/var/lib/mysql` par défaut).
 
-La commande `vgs` doit retourner un affichage de la forme ci-dessous (en particulier la valeur sous `VFree`) :
+La commande `vgs` devrait retourner un affichage de la forme ci-dessous (en particulier la valeur sous `VFree`) :
 
 ```text
   VG                    #PV #LV #SN Attr   VSize   VFree 
   centos_centreon-c1      1   5   0 wz--n- <31,00g <5,00g
 ```
 
-**AVERTISSEMENT :** Si ce prérequis n'est pas vérifié, il ne sera pas possible de synchroniser les bases de données de la façon indiquée dans ce document.
+**Attention : ** Si cette condition préalable n'est pas vérifiée, il ne sera pas possible de synchroniser les bases de données comme décrit dans ce document.
 
 ### Définition des noms et adresses IP des serveurs
 
-Dans cette procédure nous ferons référence à des paramètres variant d'une installation à une autre (noms et adresses IP des nœuds par exemple) par l'intermédiaire des macros suivantes :
+Dans cette procédure, nous ferons référence aux paramètres qui varient d'une installation à l'autre (noms et adresses IP des noeuds par exemple) via les macros suivantes :
 
-* `@CENTRAL_MASTER_IPADDR@` : adresse IP du serveur central principal
+* `@CENTRAL_MASTER_IPADDR@` : Adresse IP du serveur central principal
 * `@CENTRAL_MASTER_NAME@` : nom du serveur central principal
 * `@CENTRAL_SLAVE_IPADDR@` : adresse IP du serveur central secondaire
 * `@CENTRAL_SLAVE_NAME@` : nom du serveur central secondaire
-* `@DB_MASTER_IPADDR@` : adresse IP du serveur de base de données principal
+* `@DB_MASTER_IPADDR@` : adresse IP du serveur principal de la base de données
 * `@DB_MASTER_NAME@` : nom du serveur de base de données principal
-* `@DB_SLAVE_IPADDR@` : adresse IP du serveur de base de données secondaire
+* `@DB_SLAVE_IPADDR@` : Adresse IP du serveur de base de données secondaire
 * `@DB_SLAVE_NAME@` : nom du serveur de base de données secondaire
-* `@MYSQL_REPL_USER@` : nom du compte MySQL de réplication (suggéré : centreon-repl)
-* `@MYSQL_REPL_PASSWD@` : mot de passe de ce compte
-* `@MYSQL_CENTREON_USER@` : nom du compte MySQL de Centreon (suggéré : centreon)
-* `@MYSQL_CENTREON_PASSWD@` : mot de passe de ce compte
+* `@MYSQL_REPL_USER@` : Nom du compte de réplication MySQL (suggéré : centreon-repl)
+* `@MYSQL_REPL_PASSWD@` : mot de passe pour ce compte
+* `@MYSQL_CENTREON_USER@` : Nom du compte MySQL de Centreon (suggéré : centreon)
+* `@MYSQL_CENTREON_PASSWD@` : mot de passe pour ce compte
 * `@CENTRAL_VIP_IPADDR@` : adresse IP virtuelle du cluster
-* `@CENTRAL_VIP_IFNAME@` : nom de l'interface qui portera la VIP
+* `@CENTRAL_VIP_IFNAME@` : nom de l'interface qui portera le VIP
 * `@CENTRAL_VIP_CIDR_NETMASK@` : masque de sous-réseau exprimé en nombre de bits sans le '/' (exemple : 24)
-* `@CENTRAL_VIP_BROADCAST_IPADDR@` : adresse de broadcast
-* `@DB_VIP_IPADDR@` : adresse IP virtuelle du cluster, dans le cas d'une HA 2 noeuds, c'est la même que celle du central.
-* `@DB_VIP_IFNAME@` : nom de l'interface qui portera la VIP, dans le cas d'une HA 2 noeuds, c'est la même que celle du central.
-* `@DB_VIP_CIDR_NETMASK@` : masque de sous-réseau exprimé en nombre de bits sans le '/' (exemple : 24), dans le cas d'une HA 2 noeuds, c'est la même que celle du central.
-* `@DB_VIP_BROADCAST_IPADDR@` : adresse de broadcast, dans le cas d'une HA 2 noeuds, c'est la même que celle du central.
+* `@CENTRAL_VIP_BROADCAST_IPADDR@` : adresse de diffusion (broadcast)
+* `@DB_VIP_IPADDR@` : adresse IP virtuelle du cluster, dans le cas d'un HA à 2 noeuds, elle est la même que celle du central.
+* `@DB_VIP_IFNAME@` : nom de l'interface qui portera la VIP, dans le cas d'un HA à 2 noeuds, c'est le même que celui de la centrale.
+* `@DB_VIP_CIDR_NETMASK@` : masque de sous-réseau exprimé en nombre de bits sans le '/' (exemple : 24), dans le cas d'un HA à 2 noeuds, il est identique au masque central.
+* `@DB_VIP_BROADCAST_IPADDR@` : adresse de diffusion, dans le cas d'une HA à 2 noeuds, elle est la même que celle du central.
 
-### Configuration de centreon-broker
+### Configuration de Centreon-broker
 
-#### Liaison au service cbd
+#### Lien vers le service cbd
 
-Dans une installation standard de Centreon, le service `cbd` pilote deux instances de `centreon-broker-daemon` :
+Dans une installation Centreon standard, le service `cbd` pilote deux instances de `centreon-broker-daemon` :
 
-* `central-broker-master` : que l'on appelle aussi "broker central" ou encore "broker SQL", qui redirige toutes les entrées-sorties en provenance des pollers, vers les bases de données, vers le broker RRD, etc.
-* `central-rrd-master` : le broker RRD qui reçoit son flux du broker SQL, et dont la seule fonction est d'écrire les fichiers RRD utilisés pour afficher les graphes. 
+* `central-broker-master` : également appelé "central broker" ou "SQL broker", qui redirige toutes les entrées/sorties des pollers vers les bases de données, vers le broker RRD, etc.
+* central-rrd-master` : le RRD broker qui reçoit son flux du SQL broker, et dont la seule fonction est d'écrire les fichiers RRD utilisés pour afficher les graphes. 
 
-Dans un cluster Centreon-HA, les deux processus broker vont être gérés chacun via un service distinct qui seront pilotés par le cluster :
+Dans un cluster Centreon-HA, les deux processus de broker seront chacun gérés par un service séparé qui sera piloté par le cluster :
 
-* `central-broker-master` en tant que la ressource `cbd_central_broker`, liée au service *systemd* `cbd-sql`
-* `central-rrd-master` en tant que la ressource clone `cbd_rrd`, liée au service *systemd* `cbd` standard de Centreon.
+* `central-broker-master` comme ressource `cbd_central_broker`, liée au service *systemd* `cbd-sql`.
+* `central-rrd-master` comme ressource clone `cbd_rrd`, liée au service standard Centreon *systemd* `cbd`.
 
-Pour que tout se mette bien en place dans la suite, il faut dès à présent défaire la liaison entre central-broker-master et le service `cbd` **en cochant "non" pour le paramètre "Lié au service cbd"** dans *Configuration* > *Pollers* > *Broker configuration* > *central-broker-master* dans l'onglet *General*.
+Pour que tout fonctionne correctement dans la suite, vous devez maintenant défaire le lien entre central-broker-master et le service `cbd` ** en cochant "no" pour le paramètre "Linked to cbd service "** dans *Configuration* > *Pollers* > *Configuration broker* > *central-broker-master* dans l'onglet *General*.
 
 #### Double flux RRD
 
-Plutôt que de mettre en place une réplication en temps réel des fichiers de données RRD, le choix technique qui a été fait pour permettre d'afficher les graphes sur n'importe quel nœud dès qu'il devient `master` a été de dupliquer le flux de sortie (`output`) de `central-broker-master` vers `central-rrd-master`. Cela se configure dans le même menu qu'au paragraphe précédent, mais cette fois dans l'onglet *Output* de *Configuration  >  Collecteurs  >  Configuration de Centreon Broker*. 
+Plutôt que de mettre en place une réplication en temps réel des fichiers de données RRD, le choix technique qui a été fait pour permettre aux graphiques d'être affichés sur n'importe quel noeud dès qu'il devient `master' a été de dupliquer le flux de sortie de `central-broker-master' vers `central-rrd-master'. Ceci est configuré dans le même menu que dans le paragraphe précédent, mais cette fois dans l'onglet *Output* de *Configuration > Collectors > Centreon Broker Configuration*.
 
-* Modifier la sortie "IPv4" en remplaçant "localhost" par `@CENTRAL_MASTER_IPADDR@`
+* Modifiez la sortie "IPv4" en remplaçant "localhost" par `@CENTRAL_MASTER_IPADDR@`.
 
-| Output IPv4 |  |
+| Sortie IPv4 | | |
 | --------------- | ------------------ |
 | Nom | centreon-broker-master-rrd |
 | Port de connexion | 5670 |
-| Hôte distant | `@CENTRAL_MASTER_IPADDR@` |
-| Temps avant activation du processus de basculement (failover) | 0 |
-| Intervalle entre 2 tentatives | 60 |
+| Hôte auquel se connecter | `@CENTRAL_MASTER_IPADDR@' |
+| Délai de mise en mémoire tampon | 0 |
+| Intervalle de réessai | 60 |
 
-* Ajouter une nouvelle sortie IPv4, similaire à la première et nommée par exemple "centreon-broker-slave-rrd" pointant cette fois vers `@CENTRAL_SLAVE_IPADDR@`.
+* Ajouter une nouvelle sortie IPv4, similaire à la première et nommée par exemple "centreon-broker-slave-rrd" pointant cette fois sur `@CENTRAL_SLAVE_IPADDR@`.
 
-| Output IPv4 |  |
+| Sortie IPv4 | | |
 | --------------- | ------------------ |
 | Nom | centreon-broker-slave-rrd |
 | Port de connexion | 5670 |
-| Hôte distant | `@CENTRAL_SLAVE_IPADDR@` |
-| Temps avant activation du processus de basculement (failover) | 0 |
-| Intervalle entre 2 tentatives | 60 |
+| Hôte auquel se connecter | `@CENTRAL_SLAVE_IPADDR@` |
+| Délai de mise en mémoire tampon | 0 |
+| Intervalle de réessai | 60 |
 
 #### Exporter la configuration
 
-Une fois que les actions des deux précédents paragraphes ont été réalisées, il faut exporter la configuration (3 premières cases pour l'export du poller "Central") pour que celle-ci soit effective.
+Une fois les actions des deux paragraphes précédents effectuées, la configuration doit être exportée (3 premières cases pour l'exportation du poller "Central") pour qu'elle soit effective.
 
-Ces actions doivent être réalisées soit sur les deux nœuds, soit uniquement sur `@CENTRAL_MASTER_NAME@` puis les fichiers de configuration de broker doivent être copiés vers `@CENTRAL_SLAVE_NAME@`.
+Ces actions doivent être effectuées soit sur les deux noeuds, soit uniquement sur `@CENTRAL_MASTER_NAME@` et ensuite les fichiers de configuration du broker doivent être copiés sur `@CENTRAL_SLAVE_NAME@`.
 
 ```bash
 rsync -a /etc/centreon-broker/*json @CENTRAL_SLAVE_IPADDR@:/etc/centreon-broker/
 ```
 
-### Modification de la commande de rechargement de `cbd`
+### Modification de la commande `cbd` reload
 
-Cela n'est pas forcément connu de tous les utilisateurs de Centreon, mais chaque fois qu'un rechargement de la configuration du poller central est effectué via l'interface, le service broker (`cbd`) est rechargé (pas seulement centengine), d'où le paramètre "Centreon Broker reload command" dans *Configuration > Pollers > Central*.
+Ceci n'est peut-être pas connu de tous les utilisateurs de Centreon, mais à chaque fois qu'un rechargement de la configuration du poller central est effectué via l'interface, le service broker (`cbd`) est rechargé (et pas seulement centengine), d'où le paramètre "Centreon Broker reload command" dans *Configuration > Pollers > Central*.
 
-Ainsi que cela a été expliqué plus haut, les processus broker sont répartis entre deux services : `cbd` pour le broker RRD, `cbd-sql` pour le broker central. Dans le cadre d'un cluster centreon-ha, service que l'on doit recharger lors de l'export de configuration est `cbd-sql` et non plus `cbd`. Il faut donc appliquer la valeur `service cbd-sql reload` au paramètre "Centreon Broker reload command".
+Comme expliqué ci-dessus, les processus du broker sont répartis entre deux services : `cbd` pour le courtier RRD, `cbd-sql` pour le courtier central. Dans le contexte d'un cluster centreon-ha, le service qui doit être rechargé lors de l'exportation de la configuration est `cbd-sql` et non `cbd`. Vous devez donc appliquer la valeur `service cbd-sql reload` au paramètre "Centreon Broker reload command".
 
-### Synchroniser les fichiers de configuration centreon (PHP, Perl, Gorgone)
+### Synchronisation des fichiers de configuration de Centreon (PHP, Perl, Gorgone)
 
 ```bash
 rsync -av /etc/centreon/* root@@CENTRAL_SLAVE_IPADDR@:/etc/centreon/
@@ -113,13 +113,13 @@ rsync -av /etc/centreon/* root@@CENTRAL_SLAVE_IPADDR@:/etc/centreon/
 
 ## Préparation du système
 
-Avant d'en arriver au paramétrage du cluster à proprement parler, quelques étapes préparatoires sont nécessaires au niveau de l'OS.
+Avant de passer à la configuration proprement dite du cluster, quelques étapes préparatoires sont nécessaires au niveau du système d'exploitation.
 
-**Remarque :** sauf mention contraire, chacune des étapes suivantes est à réaliser **sur les deux nœuds centraux**.
+**Note : ** sauf indication contraire, chacune des étapes suivantes doit être effectuée **sur les deux noeuds centraux**.
 
-### Tuning de la configuration réseau
+### Réglage de la configuration du réseau
 
-Afin d'améliorer la fiabilité du cluster et étant donné que *Centreon HA* ne fonctionne qu'en IP v4, il est recommandé d'appliquer le tuning suivant sur tous les serveurs de la plateforme Centreon :
+Afin d'améliorer la fiabilité du cluster et puisque *Centreon HA* ne fonctionne que sur IP v4, il est recommandé d'appliquer les réglages suivants sur tous les serveurs de la plateforme Centreon :
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
@@ -154,9 +154,58 @@ systemctl restart network
 </TabItem>
 </Tabs>
 
+Pour éviter les problèmes liés à la gestion des adresses IP fixes et virtuelles, il est nécessaire de déclarer l'adresse IP fixe de chaque serveur dans la configuration du réseau.
+
+Pour ce faire, exécutez les commandes suivantes sur chaque nœud :
+
+Pour le serveur `@CENTRAL_MASTER_NAME@` :
+
+```bash
+nmcli con mod @CENTRAL_VIP_IFNAME@ +ipv4.addresses "@CENTRAL_MASTER_IPADDR@/@CENTRAL_VIP_CIDR_NETMASK@"
+nmcli con up @CENTRAL_VIP_IFNAME@
+```
+
+Pour le serveur `@CENTRAL_SLAVE_NAME@` :
+
+```bash
+nmcli con mod @CENTRAL_VIP_IFNAME@ +ipv4.addresses "@CENTRAL_SLAVE_IPADDR@/@CENTRAL_VIP_CIDR_NETMASK@"
+nmcli con up @CENTRAL_VIP_IFNAME@
+```
+
+Pour le serveur `@DB_MASTER_NAME@` :
+
+```bash
+nmcli con mod @DB_VIP_IFNAME@ +ipv4.addresses "@DB_MASTER_IPADDR@/@DB_VIP_CIDR_NETMASK@"
+nmcli con up @DB_VIP_IFNAME@
+```
+
+Pour le serveur `@DB_SLAVE_NAME@`:
+
+```bash
+nmcli con mod @DB_VIP_IFNAME@ +ipv4.addresses "@DB_SLAVE_IPADDR@/@DB_VIP_CIDR_NETMASK@"
+nmcli con up @DB_VIP_IFNAME@
+```
+
+Vous pouvez vérifier sur chaque noeud si l'adresse IP est déclarée avec cette commande sur le noeud Central par exemple :
+
+```bash
+cat /etc/sysconfig/network-scripts/ifcfg-@CENTRAL_VIP_IFNAME@
+```
+
+Le résultat est le même pour `@CENTRAL_MASTER_NAME@` :
+
+```text
+...
+DEVICE=@CENTRAL_VIP_IFNAME@
+ONBOOT=yes
+IPADDR=@CENTRAL_MASTER_IPADDR@
+PREFIX=23
+...
+```
+
 ### Résolution de noms
 
-Pour sécuriser le bon fonctionnement du cluster même en cas de panne du service de résolution de noms, il est impératif que les nœuds se connaissent *via* le fichier `/etc/hosts`.
+Afin de s'assurer que le cluster fonctionne correctement même si le service de résolution de nom échoue, il est impératif que les noeuds se connaissent à travers le fichier `/etc/hosts`.
 
 ```bash
 cat >/etc/hosts <<"EOF"
@@ -168,19 +217,18 @@ cat >/etc/hosts <<"EOF"
 EOF
 ```
 
-Dans la suite de ce document, on parlera de nœud principal pour le premier et de nœud secondaire pour le second. Cette distinction est purement arbitraire, les rôles pourront bien sûr être échangés une fois l'installation terminée.
+Dans la suite de ce document, nous ferons référence au nœud primaire comme étant le nœud principal et au nœud secondaire comme étant le nœud secondaire. Cette distinction est purement arbitraire, les rôles peuvent bien sûr être échangés une fois l'installation terminée.
 
 ### Installation des paquets
 
-Centreon propose le paquet `centreon-ha`, qui fournit tous les scripts et les dépendances nécessaires au fonctionnement d'un cluster Centreon.
+Centreon propose le paquet `centreon-ha`, qui fournit tous les scripts et dépendances nécessaires au fonctionnement d'un cluster Centreon.
 
-Sur les serveurs centraux:
+Sur les serveurs centraux :
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8" label="RHEL 8">
 
 ```bash
-dnf -y install dnf-plugins-core https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 subscription-manager repos --enable rhel-8-for-x86_64-highavailability-rpms
 dnf install centreon-ha-web
 ```
@@ -205,7 +253,6 @@ dnf install centreon-ha-web
 <TabItem value="RHEL 7" label="RHEL 7">
 
 ```bash
-yum install epel-release
 subscription-manager repos --enable rhel-7-for-x86_64-highavailability-rpms
 dnf install centreon-ha-web
 ```
@@ -214,20 +261,18 @@ dnf install centreon-ha-web
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install epel-release
 yum install centreon-ha-web
 ```
 
 </TabItem>
 </Tabs>
 
-Ensuite, sur les serveurs de base de données :
+Then, on the database servers :
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8" label="RHEL 8">
 
 ```bash
-dnf -y install dnf-plugins-core https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 subscription-manager repos --enable rhel-8-for-x86_64-highavailability-rpms
 dnf install centreon-ha-common
 ```
@@ -252,7 +297,6 @@ dnf install centreon-ha-common
 <TabItem value="RHEL 7" label="RHEL 7">
 
 ```bash
-yum install epel-release
 subscription-manager repos --enable rhel-7-for-x86_64-highavailability-rpms
 dnf install centreon-ha-common
 ```
@@ -261,60 +305,61 @@ dnf install centreon-ha-common
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install epel-release
 yum install centreon-ha-common
 ```
 
 </TabItem>
 </Tabs>
 
-### Échanges de clefs SSH
+### Échange de clés SSH
 
-Afin de permettre aux serveurs d'échanger des fichiers et des commandes, il faut mettre en place la possibilité de se connecter *via* SSH d'un serveur à l'autre pour les utilisateurs :
+Afin de permettre aux serveurs d'échanger des fichiers et des commandes, il est nécessaire de configurer la possibilité de se connecter via SSH d'un serveur à l'autre pour les utilisateurs :
 
 * `mysql`
 * `centreon`
 
-Il existe 2 façons d'échanger des clefs SSH :
+Il y a 2 façons d'échanger des clés SSH:
 
-* En utilisant `sh-copy-id` : l'utilisation de cette commande nécessite de pouvoir valider l'authentification au moyen d'un mot de passe. Or il n'est pas souhaitable, pour les comptes de service dont il est question ici, de définir de mot de passe. Si cette méthode est retenue malgré tout, il est recommandé de supprimer le mot de passe après l'échange, avec les commandes `passwd -d centreon` et `passwd -d mysql`
-* En copiant manuellement la clef publique dans `~/.ssh/authorized_keys`. Cette méthode est à privilégier, mais demande, pour fonctionner correctement, que seul le propriétaire du fichier soit capable d'accéder en lecture à celui-ci.
+* En utilisant `sh-copy-id` : l'utilisation de cette commande nécessite de pouvoir valider l'authentification avec un mot de passe. Cependant, il n'est pas souhaitable de définir un mot de passe pour les comptes de service dont nous parlons ici. Si cette méthode est quand même utilisée, il est recommandé de supprimer le mot de passe après l'échange, avec les commandes `passwd -d centreon` et `passwd -d mysql`.
+* En copiant manuellement la clé publique dans `~/.ssh/authorized_keys`. Cette méthode est à privilégier, mais nécessite, pour fonctionner correctement, que seul le propriétaire du fichier soit en mesure de le lire.
 
-C'est la seconde méthode qui sera proposée plus bas.
+C'est la deuxième méthode qui sera proposée ci-dessous.
 
-#### Compte `centreon`
+#### Compte centreon
 
-Cette procédure est à appliquer sur les deux nœuds centraux. Pour commencer passer dans l'environnement `bash` de `centreon` :
+Cette procédure doit être appliquée sur les deux noeuds centraux. Pour commencer, passez dans l'environnement `bash` de `centreon`:
 
 ```bash
 su - centreon
 ```
 
-Puis lancer ces commandes sur les deux nœuds centraux :
+Ensuite, exécutez ces commandes sur les deux noeuds centraux:
 
 ```bash
 ssh-keygen -t ed25519 -a 100
-cat ~/.ssh/id_ed25519.pub
+cat ~/.ssh/id_ed25519.pub | tee ~/.ssh/authorized_keys
 ```
 
-Après avoir lancé ces commandes sur les deux nœuds, copier le contenu du fichier qui s'est affiché sous la commande `cat` et le coller dans le fichier (à créer) `~/.ssh/authorized_keys`, sur l'autre noeud puis appliquer les bons droits sur le fichier (toujours en tant que `centreon`) :
+Après avoir exécuté ces commandes sur les deux noeuds, copiez le contenu du fichier qui a été affiché par la commande `cat` et collez-le dans le fichier `~/.ssh/authorized_keys` **sur l'autre noeud** puis appliquez les permissions correctes au fichier (toujours en tant que `centreon`):
 
 ```bash
 chmod 600 ~/.ssh/authorized_keys
 ```
 
-L'échange de clefs doit ensuite être validé par une première connexion qui permettra d'accepter la signature du serveur SSH (toujours en tant que `centreon`) :
+L'échange de clés doit ensuite être validé par une première connexion qui acceptera la signature du serveur SSH (toujours sous le nom de `centreon`):
 
 ```bash
 ssh @CENTRAL_MASTER_NAME@
 ssh @CENTRAL_SLAVE_NAME@
 ```
 
-Puis sortir de la session de `centreon` avec `exit` ou `Ctrl-D`.
+Then exit the `centreon` session with `exit` or `Ctrl-D`.
 
-#### Compte `mysql`
+Ensuite, quittez la session `centreon` avec `exit` ou `Ctrl-D`.
 
-Pour le compte `mysql` la procédure diffère quelque peu, car cet utilisateur n'a normalement pas de *home directory* ni la possibilité d'ouvrir une session Shell. Cette procédure est à appliquer sur les deux nœuds base de données.
+#### Compte mysql
+
+Pour le compte `mysql`, la procédure diffère quelque peu car cet utilisateur n'a normalement pas de *répertoire personnel* ni la possibilité d'ouvrir une session Shell. Cette procédure doit être appliquée sur les deux noeuds de la base de données.
 
 ```bash
 systemctl stop mysql
@@ -322,41 +367,44 @@ mkdir /home/mysql
 chown mysql: /home/mysql
 usermod -d /home/mysql mysql
 usermod -s /bin/bash mysql
+touch /var/log/mysqld.log
+chown mysql. /var/log/mysqld.log
 systemctl start mysql
-su - mysql
 ```
 
-Une fois dans l'environnement `bash` de `mysql`, lancer ces commandes sur les deux nœuds base de données:
+Ensuite, passez à l'environnement `bash` de `mysql` et générez les clés SSH, exécutez ces commandes sur les deux **nœuds de base de données**:
 
 ```bash
+su - mysql
 ssh-keygen -t ed25519 -a 100
-cat ~/.ssh/id_ed25519.pub
+cat ~/.ssh/id_ed25519.pub | tee ~/.ssh/authorized_keys
 ```
 
-Après avoir lancé ces commandes sur les deux nœuds, copier le contenu du fichier et le coller dans `~/.ssh/authorized_keys`, sur l'autre noeud puis appliquer les bons droits sur le fichier (toujours en tant que `mysql`) :
+Après avoir exécuté ces commandes sur les deux noeuds, copiez le contenu du fichier et collez-le dans `~/.ssh/authorized_keys` **sur l'autre noeud** et appliquez ensuite les permissions correctes au fichier (toujours en tant que `mysql`):
 
 ```bash
 chmod 600 ~/.ssh/authorized_keys
 ```
 
-L'échange de clefs doit ensuite être validé par une première connexion qui permettra d'accepter la signature du serveur SSH (toujours en tant que `mysql`) :
+L'échange de clés doit ensuite être validé par une première connexion qui acceptera la signature du serveur SSH en tapant "yes" (toujours comme `mysql`):
 
 ```bash
-ssh @DB_MASTER_IPADDR@
-ssh @DB_SLAVE_IPADDR@
+ssh @DB_MASTER_NAME@
+ssh @DB_SLAVE_NAME@
 ```
 
-Puis sortir de la session de `mysql` avec `exit` ou `Ctrl-D`.
+Ensuite, quittez la session `mysql` avec `exit` ou `Ctrl-D`.
 
-## Mise en place de la réplication MySQL
+## Configuration de la réplication MySQL
 
-Afin que les deux nœuds soient interchangeables à tout moment, il faut que les deux bases de données soient répliquées en continu. Pour cela nous allons mettre en place une réplication Master-Slave.
+Pour que les deux noeuds soient interchangeables à tout moment, les deux bases de données doivent être répliquées en permanence. Pour ce faire, nous allons mettre en place une réplication maître-esclave.
+                                                                                                                        
 
-**Remarque :** sauf mention contraire, chacune des étapes suivantes est à réaliser **sur les deux nœuds base de données**.
+**Note:** sauf indication contraire, chacune des étapes suivantes doit être effectuée **sur les deux nœuds de base de données**.
 
 ### Configuration de MySQL
 
-Pour commencer, il faut tuner la configuration de MySQL, qui sera concentrée dans le seul fichier `/etc/my.cnf.d/server.cnf`.  Par défaut, la section `[server]` de ce fichier est vide, c'est là que doivent être collées les lignes suivantes :
+Pour commencer, nous devons régler la configuration de MySQL, qui sera concentrée dans le fichier unique `/etc/my.cnf.d/server.cnf`.  Par défaut, la section `[server]` de ce fichier est vide, et c'est là que les lignes suivantes doivent être collées:
 
 ```ini
 [server]
@@ -372,6 +420,11 @@ binlog_format=MIXED
 slave_compressed_protocol=1
 datadir=/var/lib/mysql
 pid-file=/var/lib/mysql/mysql.pid
+                
+                 
+                   
+                  
+                        
 
 # Tuning standard Centreon
 innodb_file_per_table=1
@@ -389,27 +442,27 @@ max_allowed_packet=64M
 #innodb_buffer_pool_size=1G
 ```
 
-**Important :** la valeur de `server-id` doit être différente d'un serveur à l'autre, pour qu'ils puissent s'identifier correctement. Les valeurs 1 => Master et 2 => Slave ne sont pas obligatoires mais sont recommandées.
+**Important**: la valeur de `server-id` doit être différente d'un serveur à l'autre, afin qu'ils puissent s'identifier correctement. Les valeurs 1 => Maître et 2 => Esclave ne sont pas obligatoires mais sont recommandées.
 
-**NB :** Ne pas oublier de décommenter (supprimer le '#' en début de ligne) le paramètre `innodb_buffer_pool_size` qui correspond à votre plateforme.
+**NB**: N'oubliez pas de décommenter (enlever le '#' en début de ligne) le paramètre `innodb_buffer_pool_size` qui correspond à votre plateforme.
 
-Pour que ces modifications soient bien prises en compte, il faut redémarrer le serveur de base de données :
-
-```bash
-systemctl restart mysql
-```
-
-Bien s'assurer que le redémarrage s'est bien déroulé avec la commande suivante :
+Pour que ces modifications soient prises en compte, vous devez redémarrer le serveur de base de données:
 
 ```bash
-systemctl status mysql
+systemctl restart mariadb
 ```
 
-**Avertissement :** Le fichier `centreon.cnf` ne sera plus pris en compte, si des paramètres y ont été personnalisés, il faut les reporter dans `server.cnf`.
+Assurez-vous que le redémarrage a réussi avec la commande suivante:
+
+```bash
+systemctl status mariadb
+```
+
+**Attention** : Le fichier `centreon.cnf` ne sera plus pris en compte, si des paramètres y ont été personnalisés, ils doivent être transférés dans `server.cnf`.
 
 ### Sécurisation de la base de données 
 
-L'accès aux bases de données doit être limité de la façon la plus stricte possible. La commande `mysql_secure_installation` permet de supprimer les accès non protégés par des mots de passes et la base de données de test. Lancer cette commande et se laisser guider par les choix par défaut. Attention à choisir un mot de passe n'appartenant à aucun dictionnaire.
+L'accès aux bases de données doit être restreint le plus strictement possible. La commande `mysql_secure_installation` permet de supprimer les accès non protégés par des mots de passe et la base de données de test. Exécutez cette commande et laissez-vous guider par les choix par défaut. Faites attention à choisir un mot de passe qui n'appartient à aucun dictionnaire.
 
 ```bash
 mysql_secure_installation
@@ -417,13 +470,13 @@ mysql_secure_installation
 
 ### Création du compte centreon
 
-Pour pouvoir administrer les utilisateurs MySQL, il faut d'abord se connecter en tant que root (avec le mot de passe saisi au paragraphe précédent) :
+Pour pouvoir administrer les utilisateurs de MySQL, vous devez d'abord vous connecter en tant que root (avec le mot de passe saisi dans le paragraphe précédent) :
 
 ```
 mysql -p
 ```
 
-Coller alors dans le prompt MySQL les commandes ci-dessous en modifiant les adresses IP ainsi que les mots de passe.
+Puis collez dans l'invite MySQL les commandes ci-dessous en changeant les adresses IP et les mots de passe.
 
 ```sql
 CREATE USER '@MYSQL_CENTREON_USER@'@'@CENTRAL_SLAVE_IPADDR@' IDENTIFIED BY '@MYSQL_CENTREON_PASSWD@';
@@ -437,7 +490,7 @@ GRANT ALL PRIVILEGES ON centreon_storage.* TO '@MYSQL_CENTREON_USER@'@'@CENTRAL_
 
 ### Création du compte de réplication
 
-Toujours dans le prompt MySQL (cf paragraphe précédent) créer l'utilisateur `@MYSQL_REPL_USER@`, dédié à la réplication, à l'aide des commandes suivantes :
+Toujours dans le prompt MySQL (voir paragraphe précédent) créez l'utilisateur `@MYSQL_REPL_USER@`, dédié à la réplication, en utilisant les commandes suivantes :
 
 ```sql
 CREATE USER '@MYSQL_REPL_USER@'@'localhost' IDENTIFIED BY '@MYSQL_REPL_PASSWD@';
@@ -476,9 +529,9 @@ puis redémarrer le service crond sur les deux noeuds:
 systemctl restart crond
 ```
 
-### Configuration des variables d'environnement des scripts MySQL
+### Configuration des variables d'environnement pour les scripts MySQL
 
-Le fichier `/etc/centreon-ha/mysql-resources.sh` contient des variables d'environnement qu'il faut adapter à l'installation courante en remplaçant les macros par la valeur qui convient.
+Le fichier `/etc/centreon-ha/mysql-resources.sh` contient des variables d'environnement qui doivent être adaptées à l'installation actuelle en remplaçant les macros par la valeur appropriée.
 
 ```bash
 #!/bin/bash
@@ -510,13 +563,13 @@ MYSQL_VIP_CIDR_NETMASK='@DB_VIP_CIDR_NETMASK@'
 MYSQL_VIP_BROADCAST_IPADDR='@DB_VIP_BROADCAST_IPADDR@'
 ```
 
-Pour s'assurer que les dernières étapes ont été effectuées correctement, et que les bons noms, logins et mots de passes ont bien été saisis dans le fichier de configuration, il faut lancer la commande :
+Pour s'assurer que les dernières étapes ont été effectuées correctement, et que les noms, identifiants et mots de passe corrects ont été saisis dans le fichier de configuration, exécutez la commande :
 
 ```bash
 /usr/share/centreon-ha/bin/mysql-check-status.sh
 ```
 
-Le résultat attendu est :
+Le résultat attendu est le suivant :
 
 ```text
 Connection Status '@DB_MASTER_NAME@' [OK]
@@ -529,11 +582,11 @@ Position Status [SKIP]
     Skip because we can't identify a unique slave.
 ```
 
-Ce qu'il est important de vérifier est que les deux premiers tests de connexion soient `OK`.
+Ce qu'il est important de vérifier, c'est que les deux premiers tests de connexion sont `OK`.
 
-### Passage en read-only
+### Passage en mode lecture seule
 
-Maintenant que tout est bien configuré, il faut activer le mode `read_only` sur les deux serveurs en décommentant (*ie.* retirer le `#` en début de ligne) cette instruction dans le fichier `/etc/my.cnf.d/server.cnf` :
+Maintenant que tout est correctement configuré, nous devons activer le mode lecture seule sur les deux serveurs en décommentant (*ie.* enlever le `#` en début de ligne) cette déclaration dans le fichier `/etc/my.cnf.d/server.cnf` :
 
 * Nœud principal
 
@@ -553,17 +606,17 @@ read_only
 log-bin=mysql-bin
 ```
 
-Appliquer ensuite ce changement par un redémarrage de MySQL sur les deux nœuds :
+Ensuite, appliquez ce changement en redémarrant MySQL sur les deux nœuds :
 
 ```bash
-systemctl restart mysql
+systemctl restart mariadb
 ```
 
 ### Autorisation des comptes centreon et mysql
 
-Afin que les scripts puissent s'exécuter correctement au travers des connexions ssh via les comptes centreon et mysql, il faut leur attribuer des droits supplémentaires
+Pour que les scripts s'exécutent correctement à travers les connexions ssh via les comptes centreon et mysql, il faut leur donner des droits supplémentaires
 
-Pour le compte centreon, éditer le fichier `/etc/sudoers.d/centreon-cluster` et ajouter les lignes suivantes:
+Pour le compte centreon, éditez le fichier `/etc/sudoers.d/centreon-cluster` et ajoutez les lignes suivantes :
 
 ```bash
 CENTREON   ALL = NOPASSWD: /usr/bin/systemctl reload centreon
@@ -571,67 +624,56 @@ CENTREON   ALL = NOPASSWD: /usr/bin/systemctl restart centreon
 CENTREON   ALL = NOPASSWD: /usr/bin/systemctl stop centreon
 CENTREON   ALL = NOPASSWD: /usr/bin/systemctl start centreon
 
-CENTREON   ALL = NOPASSWD: /usr/sbin/nmcli
-CENTREON   ALL = NOPASSWD: /usr/sbin/nmcli
+CENTREON   ALL = NOPASSWD: /usr/bin/nmcli
 ```
 
-Pour le compte mysql, éditer le fichier `/etc/sudoers.d/centreon-cluster-db` et ajouter les lignes suivantes:
+Pour le compte mysql, modifiez le fichier `/etc/sudoers.d/centreon-cluster-db` et ajoutez la ligne suivante :
 
 ```bash
-MYSQL   ALL = NOPASSWD: /usr/bin/systemctl reload mysql
-MYSQL   ALL = NOPASSWD: /usr/bin/systemctl restart mysql
-MYSQL   ALL = NOPASSWD: /usr/bin/systemctl stop mysql
-MYSQL   ALL = NOPASSWD: /usr/bin/systemctl start mysql
-MYSQL   ALL = NOPASSWD: /usr/bin/systemctl reload mariadb
-MYSQL   ALL = NOPASSWD: /usr/bin/systemctl restart mariadb
-MYSQL   ALL = NOPASSWD: /usr/bin/systemctl stop mariadb
-MYSQL   ALL = NOPASSWD: /usr/bin/systemctl start mariadb
-
-MYSQL   ALL = NOPASSWD: /usr/sbin/nmcli
-MYSQL   ALL = NOPASSWD: /usr/sbin/nmcli
+MYSQL   ALL = NOPASSWD: /usr/bin/nmcli
 ```
 
-### Synchroniser les bases et lancer la réplication MySQL
+### Synchronisation des bases de données et démarrage de la réplication MySQL
 
-Pour synchroniser les bases, arrêter le service `mysql` sur le nœud secondaire pour écraser ses données avec celles du serveur principal. 
+Pour synchroniser les bases de données, arrêtez le service `mysql` sur le noeud secondaire pour écraser ses données avec celles du serveur principal. 
 
-Il faut donc lancer la commande suivante **sur le nœud secondaire** :
+Vous devez donc exécuter la commande suivante **sur le noeud secondaire** :
 
 ```bash
-systemctl stop mysql
+systemctl stop mariadb
 ```
 
-Dans certains cas il se peut que systemd ne parvienne pas à arrêter le service `mysql`, pour s'en assurer, vérifier que la commande suivante ne retourne aucune ligne :
+Dans certains cas, systemd peut échouer à arrêter le service `mysql`, pour en être sûr, vérifiez que la commande suivante ne renvoie aucune ligne :
 
 ```bash
 ps -ef | grep mysql[d]
 ```
 
-Si un processus `mysqld` est toujours en activité, alors il faut lancer la commande suivante pour l'arrêter (et fournir le mot de passe du compte root de mysql quand il est demandé) :
+Si un processus `mysqld` est toujours en cours d'exécution, alors la commande suivante doit être exécutée pour l'arrêter (et fournir le mot de passe root mysql lorsqu'il est demandé) :
 
 ```bash
 mysqladmin -p shutdown
 ```
 
-Une fois que le service est bien arrêté sur le nœud **secondaire**, lancer le script de synchronisation **depuis le nœud principal** : 
+Une fois le service arrêté sur le nœud **secondaire**, exécutez le script de synchronisation **depuis le nœud principal** : 
 
 ```bash
 /usr/share/centreon-ha/bin/mysql-sync-bigdb.sh
 ```
 
-Ce script effectue les opérations suivantes :
+Ce script fait ce qui suit :
 
 * vérifier que mysql est arrêté sur le nœud secondaire
-* arrêter mysql sur le nœud principal
-* monter un snapshot LVM sur le *volume group* qui supporte la partition /var/lib/mysql
-* démarrer mysql sur le nœud principal
-* mémoriser la position courante dans les logs binaires
-* désactiver la variable globale MySQL `read_only` sur le nœud principal (*ie.* le nœud principal est maintenant autorisé à écrire dans sa base)
-* synchroniser tous les fichiers de données (hors base système `mysql`) en écrasant les fichiers du nœud secondaire
-* démonter le snapshot LVM
-* créer le thread de réplication qui va maintenir les données à jour sur le nœud secondaire
+* arrêter mysql sur le noeud primaire
+* monter un snapshot LVM sur le *groupe de volumes* qui supporte la partition /var/lib/mysql
+* Démarrer mysql sur le nœud primaire
+* stocker la position actuelle dans les journaux binaires
+* Désactiver la variable globale MySQL `read_only` sur le noeud principal (*c'est-à-dire que le noeud principal est maintenant autorisé à écrire dans sa base de données)
+* Synchroniser tous les fichiers de données (à l'exception de la base de données système `mysql`) en écrasant les fichiers sur le noeud secondaire.
+* Démontage du snapshot LVM
+* créer le thread de réplication qui maintiendra les données à jour sur le noeud secondaire.
 
-Ce script est très verbeux, et tout ce qui est s'affiche n'est pas forcément compréhensible, mais pour s'assurer qu'il s'est bien déroulé jusqu'au bout, il suffit de s'assurer que la fin ressemble bien à :
+Ce script est très verbeux, et tout ce qui est affiché n'est pas compréhensible, mais pour s'assurer qu'il a été exécuté jusqu'au bout, assurez-vous que la fin ressemble à :
 
 ```text
 Umount and Delete LVM snapshot
@@ -643,13 +685,13 @@ Id	User	Host	db	Command	Time	State	Info	Progress
 3	@MYSQL_REPL_USER@	@DB_MASTER_NAME@:33084	NULL	Query	0	init	show processlist	0.000
 ```
 
-Si tout s'est bien passé, alors la commande `mysql-check-status.sh` doit renvoyer un résultat sans erreur :
+Si tout s'est bien passé, alors la commande `mysql-check-status.sh` devrait retourner un résultat sans erreur :
 
 ```bash
 /usr/share/centreon-ha/bin/mysql-check-status.sh
 ```
 
-Résultat attendu :
+Résultat escompté :
 
 ```text
 Connection Status '@DB_MASTER_NAME@' [OK]
@@ -660,28 +702,34 @@ Position Status [OK]
 
 ### Création de la VIP MySQL
 
-La VIP sera ajoutée à la configuration de l'interface `@DB_VIP_IFNAME@` sur les deux nœuds :
+La VIP sera ajoutée à la configuration de l'interface `@DB_VIP_IFNAME@` sur **le nœud maître de la base de données** :
 
 ```bash
 nmcli con mod "@DB_VIP_IFNAME@" +ipv4.addresses "@DB_VIP_IPADDR@/@DB_VIP_CIDR_NETMASK@"
 nmcli connection up "@DB_VIP_IFNAME@"
 ```
 
-Puis lancer le script suivant **sur l'un des deux nœuds MySQL** pour monter la VIP sur le serveur master MySQL (ce script peut être lancé sur l'un ou l'autre deux deux nœuds, il détectera tout seul quel est le master) :
+Exécutez ensuite le script suivant **sur l'un des deux nœuds MySQL** pour vérifier si la VIP est correctement montée sur le serveur maître MySQL (ce script peut être exécuté sur l'un ou l'autre des deux nœuds, il détectera de lui-même lequel est le maître) :
 
 ```bash
 /usr/share/centreon-ha/bin/move-mysql-vip-to-mysql-master.sh
 ```
 
-## Mise en place du cluster Centreon
+Le résultat devrait être comme ceci, sinon le script déplace la VIP au bon endroit :
 
-**Remarque :** sauf mention contraire, chacune des étapes suivantes est à réaliser **sur les deux nœuds centraux**.
+```text
+The VIP address is already at the right place. Nothing to do.
+```
+
+## Configuration du cluster Centreon
+
+**Note : ** sauf indication contraire, chacune des étapes suivantes doit être effectuée **sur les deux nœuds centraux**.
 
 ### Configuration du service de synchronisation
 
-Le service de synchronisation `centreon-central-sync` nécessite que l'on définisse pour chaque nœud dans `/etc/centreon-ha/centreon_central_sync.pm` l'adresse IP de son correspondant :
+Le service `centreon-central-sync` nécessite que nous définissions pour chaque noeud dans `/etc/centreon-ha/centreon_central_sync.pm` l'adresse IP de son correspondant :
 
-Ainsi pour le serveur `@CENTRAL_MASTER_NAME@` on doit avoir :
+Ainsi pour le serveur `@CENTRAL_MASTER_NAME@` nous devons avoir :
 
 ```bash
 our %centreon_central_sync_config = (
@@ -690,7 +738,7 @@ our %centreon_central_sync_config = (
 1;
 ```
 
-Et pour le serveur `@CENTRAL_SLAVE_NAME@` on doit avoir :
+Et pour le serveur `@CENTRAL_SLAVE_NAME@` nous devons avoir :
 
 ```bash
 our %centreon_central_sync_config = (
@@ -700,16 +748,18 @@ our %centreon_central_sync_config = (
 ```
 
 ## Suppression des crons
-Les tâches planifiées de type cron sont executées directement par le processus gorgone dans les architecture hautement disponible. Cela permet de garantir la non-concurrence de leur execution sur les noeuds centraux. Il est donc nécessaire de les supprimer manuellement:
+
+Les tâches cron planifiées sont exécutées directement par le processus gorgone dans l'architecture hautement disponible. Cela permet d'éviter qu'elles ne se fassent concurrence sur les nœuds centraux. Il est donc nécessaire de les supprimer manuellement :
 
 ```bash
-rm /etc/cron.d/centreon
-rm /etc/cron.d/centstorage
-rm /etc/cron.d/centreon-auto-disco
+rm -f /etc/cron.d/centreon
+rm -f /etc/cron.d/centstorage
+rm -f /etc/cron.d/centreon-auto-disco
 ```
 
-## Modification des droits
-Les répertoires /var/log/centreon-engine et /tmp/centreon-autodisco sont partagés entre plusieurs processus. Il est nécessaire de modifier les droits des répertoires et fichiers pour garantir le bon fonctionnement de la réplication de fichiers et de la découverte automatique des services:
+## Changement de droits
+
+Les répertoires /var/log/centreon-engine et /tmp/centreon-autodisco sont partagés entre plusieurs processus. Il est nécessaire de modifier les droits de ces répertoires et fichiers pour assurer le bon fonctionnement de la réplication des fichiers et de la découverte automatique des services :
 
 ```bash
 chmod 775 /var/log/centreon-engine/
@@ -726,11 +776,11 @@ chown apache: /tmp/centreon-autodisco/
 chmod 775 /tmp/centreon-autodisco/
 ```
 
-### Arrêt et désactivation des services
+### Arrêter et désactiver les services
 
-Les services applicatifs de Centreon ne seront plus lancés au démarrage du serveur comme c'est le cas pour une installation standard, ce sont les services de clustering qui s'en chargeront. Il faut donc arrêter et désactiver ces services.
+Les services de l'application Centreon ne seront plus lancés au démarrage du serveur comme c'est le cas pour une installation standard, les services de clustering s'en chargeront. Il est donc nécessaire d'arrêter et de désactiver ces services.
 
-Sur les serveurs centraux:
+Sur les serveurs centraux :
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
@@ -751,34 +801,21 @@ systemctl disable centengine snmptrapd centreontrapd gorgoned cbd httpd24-httpd 
 </TabItem>
 </Tabs>
 
-Sur les serveurs BDD:
+### Redéfinir les règles de démarrage des services
+
+Certains services ne doivent être démarrés que sur un seul noeud, mais pour d'autres, il est acceptable ou même souhaitable de les démarrer sur les deux noeuds. Nous allons commencer par ces services.
+
+#### Service PHP
+
+Le service `php-fpm.service` n'a pas besoin d'être modifié, mais doit être activé pour qu'il soit démarré automatiquement lors du démarrage des serveurs centraux.
 
 ```bash
-systemctl stop mysql
-systemctl disable mysql
+systemctl enable php-fpm
 ```
 
-S'il est installé sur les nœuds centraux, le service `mysql` étant sur un mode mixte entre SysV init et systemd, pour bien s'assurer qu'il ne soit plus lancé au démarrage, il faut également lancer la commande :
+#### Service Broker RRD
 
-```bash
-chkconfig mysql off
-```
-
-### Redéfinition des règles de démarrage des services
-
-Certains services ne doivent être démarrés que sur un seul nœud, mais pour d'autres, il n'est pas gênant voire souhaitable de les démarrer sur les deux nœuds centraux. Nous allons commencer par ces services.
-
-#### PHP
-
-Le service `php-fpm.service` ne nécessite pas de modification, mais doit être activé pour qu'il soit lancé automatiquemnt au démarrage des serveurs centraux :
-
-```bash
-systemctl enable php-fpm.service
-```
-
-#### Broker RRD
-
-Le processus "broker-rrd" est lancé via le service `cbd.service`. Ce dernier est par défaut piloté par `centreon.service` mais dans cette configuration, il faut l'en détacher en modifiant sa définition sur les deux nœuds centraux :
+Le processus "broker-rrd" est lancé via le service `cbd.service`. Ce dernier est par défaut piloté par `centreon.service` mais dans cette configuration, il doit être détaché en modifiant sa définition sur les deux noeuds centraux :
 
 ```bash
 cat > /usr/lib/systemd/system/cbd.service <<"EOF"
@@ -798,25 +835,25 @@ WantedBy=multi-user.target
 EOF
 ```
 
-Puis le démarrer et l'activer :
+Ensuite, démarrez-le et activez-le :
 
 ```bash
-systemctl start cbd.service
-systemctl enable cbd.service
+systemctl start cbd
+systemctl enable cbd
 ```
 
 #### Création de la VIP Centreon
 
-La VIP sera ajoutée à la configuration de l'interface `@CENTRAL_VIP_IFNAME@` sur les deux nœuds centraux:
+La VIP sera ajoutée à la configuration de l'interface `@CENTRAL_VIP_IFNAME@` sur **le nœud maître central** :
 
 ```bash
 nmcli con mod "@CENTRAL_VIP_IFNAME@" +ipv4.addresses "@CENTRAL_VIP_IPADDR@/@CENTRAL_VIP_CIDR_NETMASK@"
 nmcli connection up "@CENTRAL_VIP_IFNAME@"
 ```
 
-#### Service httpd
+#### Service Httpd
 
-Le service `httpd.service` est par défaut indépendant de `centreon.service` mais dans cette configuration, il faut l'y rattacher en modifiant sa définition sur les deux nœuds centraux :
+Le service `httpd.service` est par défaut indépendant de `centreon.service` mais dans cette configuration, il faut l'y rattacher en modifiant sa définition sur les deux noeuds centraux :
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
@@ -882,7 +919,32 @@ EOF
 
 #### Service Gorgone
 
-Le service `gorgoned.service` est par défaut indépendant de `centreon.service` mais dans cette configuration, il faut l'y rattacher en modifiant sa définition sur les deux nœuds centraux :
+Le service `gorgoned.service` est par défaut indépendant de `centreon.service` mais dans cette configuration, il doit lui être rattaché en modifiant sa définition sur les deux noeuds centraux :
+
+<Tabs groupId="sync">
+<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
+
+```bash
+cat > /etc/systemd/system/gorgoned.service <<"EOF"
+[Unit]
+Description=Centreon Gorgone
+PartOf=centreon.service
+After=httpd.service
+ReloadPropagatedFrom=centreon.service
+
+[Service]
+EnvironmentFile=/etc/sysconfig/gorgoned
+ExecStart=/usr/bin/perl /usr/bin/gorgoned $OPTIONS
+Type=simple
+User=centreon-gorgone
+
+[Install]
+WantedBy=centreon.service
+EOF
+```
+
+</TabItem>
+<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
 
 ```bash
 cat > /etc/systemd/system/gorgoned.service <<"EOF"
@@ -903,9 +965,12 @@ WantedBy=centreon.service
 EOF
 ```
 
-#### Service centreon-central-sync
+</TabItem>
+</Tabs>
 
-Ce service est spécifique à *Centreon HA*. Sa fonction est de répliquer les changements de configuration, l'ajout d'images via l'interface, etc.
+#### Service Centreon-central-sync
+
+Ce service est spécifique à *Centreon HA*. Sa fonction est de répliquer les changements de configuration, d'ajouter des images via l'interface, etc.
 
 ```bash
 cat > /usr/lib/systemd/system/centreon-central-sync.service <<"EOF"
@@ -927,7 +992,7 @@ WantedBy=centreon.service
 EOF
 ```
 
-#### Broker SQL
+#### Service Broker SQL
 
 ```bash
 cat > /usr/lib/systemd/system/cbd-sql.service <<"EOF"
@@ -950,7 +1015,7 @@ WantedBy=centreon.service
 EOF
 ```
 
-#### Service centengine
+#### Service Centengine
 
 ```bash
 cat > /usr/lib/systemd/system/centengine.service <<"EOF"
@@ -971,7 +1036,7 @@ WantedBy=centreon.service
 EOF
 ```
 
-#### Service centreontrapd
+#### Service Centreontrapd
 
 ```bash
 cat > /usr/lib/systemd/system/centreontrapd.service <<"EOF"
@@ -993,7 +1058,7 @@ WantedBy=centreon.service
 EOF
 ```
 
-#### Service snmptrapd
+#### Service Snmptrapd
 
 ```bash
 cat > /usr/lib/systemd/system/snmptrapd.service <<"EOF"
@@ -1014,58 +1079,86 @@ WantedBy=centreon.service
 EOF
 ```
 
-Après cette étape, toutes les ressources doivent être actives au même endroit, et la plateforme fonctionnelle et redondée. Dans le cas contraire, se référer au guide de troubleshooting du paragraphe suivant.
-
 ### Lancement initial de tous les services
 
-#### Montage de l'adresse IP virtuelle Centreon
+#### Installation de l'adresse IP virtuelle Centreon
 
-Normalement la VIP a déjà été montée précédemment. Vérifier que c'est bien le cas sur le serveur primaire définit un peu plus haut (normalement `@CENTRAL_MASTER_NAME@`)
+Normalement, la VIP a déjà été montée auparavant. Vérifiez que c'est le cas sur le serveur primaire défini ci-dessus (normalement `@CENTRAL_MASTER_NAME@`)
 
 ```bash
 ip a
 ```
 
-Vous devriez voir l'IP virtuelle `@CENTRAL_VIP_IPADDR@` attachée à l'interface `@CENTRAL_VIP_IFNAME@` apparaitre dans le retour de la commande `ip a`
-Si ce n'est pas le cas, il faut monter l'adresse IP virtuelle, par exemple sur `@CENTRAL_MASTER_NAME@` :
+Vous devriez voir l'IP virtuelle `@CENTRAL_VIP_IPADDR@` attachée à l'interface `@CENTRAL_VIP_IFNAME@` apparaître dans le retour de la commande `ip a`.
+
+Si ce n'est pas le cas, l'adresse IP virtuelle doit être montée, par exemple sur `@CENTRAL_MASTER_NAME@` :
 
 ```bash
 nmcli con mod "@CENTRAL_VIP_IFNAME@" +ipv4.addresses "@CENTRAL_VIP_IPADDR@/@CENTRAL_VIP_CIDR_NETMASK@"
-nmcli connection up "@CENTRAL_VIP_IFNAME@"
+nmcli con up "@CENTRAL_VIP_IFNAME@"
 ```
 
 #### Prise en compte des modifications apportées aux services
 
-Afin de prendre en compte toutes les modifications précédentes, et activer les services (afin que le démarrage du service `centreon.service` les lance tous) il lancer ces commandes sur les deux nœuds centraux :
+Afin de prendre en compte toutes les modifications précédentes, et d'activer les services (pour que le démarrage du service `centreon.service` les lance tous) il est nécessaire de lancer ces commandes sur les deux noeuds centraux :
+
+<Tabs groupId="sync">
+<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
 
 ```bash
 systemctl daemon-reload
-systemctl enable cbd.service httpd24-httpd.service gorgoned.service centreon-central-sync.service cbd-sql.service centengine.service centreontrapd.service snmptrapd.service 
+systemctl enable cbd httpd gorgoned centreon-central-sync cbd-sql centengine centreontrapd snmptrapd
 ```
 
-Et enfin les lancer tous via le service `centreon.service` sur le nœud où la VIP a été montée :
+</TabItem>
+<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
 
 ```bash
-systemctl start centreon.service
+systemctl daemon-reload
+systemctl enable cbd httpd24-httpd gorgoned centreon-central-sync cbd-sql centengine centreontrapd snmptrapd
 ```
 
-Contrôler ensuite le statut de tous les services :
+</TabItem>
+</Tabs>
+
+Et enfin les démarrer tous via le `centreon.service` sur le noeud où le VIP a été monté :
 
 ```bash
-systemctl status cbd.service httpd24-httpd.service gorgoned.service centreon-central-sync.service cbd-sql.service centengine.service centreontrapd.service snmptrapd.service
+systemctl start centreon
 ```
 
-## Exploitation standard de la HA manuelle
+Vérifiez ensuite l'état de tous les services :
+
+<Tabs groupId="sync">
+<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
+
+```bash
+systemctl status cbd httpd gorgoned centreon-central-sync cbd-sql centengine centreontrapd snmptrapd
+```
+
+</TabItem>
+<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
+
+```bash
+systemctl status cbd httpd24-httpd gorgoned centreon-central-sync cbd-sql centengine centreontrapd snmptrapd
+```
+
+</TabItem>
+</Tabs>
+
+Après cette étape, toutes les ressources doivent être actives au même endroit, et la plateforme doit être fonctionnelle et redondante. Si ce n'est pas le cas, consultez le guide de dépannage dans le paragraphe suivant.
+
+### Opération HA manuelle standard
 
 ### Basculer les services Centreon d'un nœud à l'autre
 
-Ce script peut être lancé de n'importe quel nœud central, mais il faut (pour l'instant) préciser le nœud cible. Par exemple pour que le nœud actif ne soit plus `@CENTRAL_MASTER_NAME@` mais `@CENTRAL_SLAVE_NAME@` :
+Ce script peut être exécuté depuis n'importe quel nœud Centreon, mais vous devez (pour l'instant) spécifier le nœud cible. Par exemple pour changer le noeud actif de `@CENTRAL_MASTER_NAME@` à `@CENTRAL_SLAVE_NAME@` :
 
 ```bash
 /usr/share/centreon-ha/bin/set-centreon-master.sh @CENTRAL_SLAVE_NAME@
 ```
 
-Le résultat attendu est :
+Le résultat attendu est le suivant :
 
 ```text
 Stopping centreon.service on @CENTRAL_MASTER_NAME@...
@@ -1074,21 +1167,21 @@ Adding vip to @CENTRAL_SLAVE_NAME@...
 Starting centreon.service on @CENTRAL_SLAVE_NAME@...
 ```
 
-Si l'on essaye de basculer vers le nœud qui est déjà actif, on aura :
+Si nous essayons de passer au nœud qui est déjà actif, nous obtiendrons :
 
 ```text
 Host @CENTRAL_MASTER_NAME@ is already the current master :-)
 ```
 
-### Inverser les rôles SLAVE/MASTER MySQL
+### Inverser les rôles SLAVE/MASTER de MySQL
 
-Ce scrit peut-être lancé de n'importe quel noeud BDD, cette fois on ne précise pas le nom du serveur cible :
+Ce script peut être lancé depuis n'importe quel nœud de base de données, cette fois nous ne spécifions pas le nom du serveur cible :
 
 ```bash
 /usr/share/centreon-ha/bin/mysql-switch-slave-master.sh
 ```
 
-Le résultat attendu est :
+Le résultat attendu est le suivant :
 
 ```text
 Locking master database on @DB_SLAVE_NAME@
@@ -1100,19 +1193,19 @@ Setting and starting slave thread on @DB_SLAVE_NAME@
 We have to move the VIP address
 ```
 
-### Contrôler la synchronisation des bases
+### Vérification de la synchronisation des bases de données
 
-L'état de la réplication MySQL peut être vérifié à n'importe quel moment grâce à la commande `mysql-check-status.sh` :
+L'état de la réplication MySQL peut être vérifié à tout moment avec la commande `mysql-check-status.sh` :
 
 ```bash
 /usr/share/centreon-ha/bin/mysql-check-status.sh
 ```
 
-Résultat attendu :
+Le résultat attendu est le suivant :
 
 ```bash
-Connection Status '@CENTRAL_MASTER_NAME@' [OK]
-Connection Status '@CENTRAL_SLAVE_NAME@' [OK]
+Connection Status '@DB_MASTER_NAME@' [OK]
+Connection Status '@DB_SLAVE_NAME@' [OK]
 Slave Thread Status [OK]
 Position Status [OK]
 ```

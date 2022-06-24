@@ -31,6 +31,10 @@
     "message": "Installation de Centreon HA",
     "description": "The label for category Installation of Centreon HA in sidebar docs"
   },
+  "sidebar.docs.category.Installation of Centreon HA manual": {
+    "message": "Installation de Centreon HA manuelle",
+    "description": "The label for category Installation of Centreon HA manual in sidebar docs"
+  },
   "sidebar.docs.category.Secure your platform": {
     "message": "Sécurisez votre plate-forme",
     "description": "The label for category Secure your platform in sidebar docs"

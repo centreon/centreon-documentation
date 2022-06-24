@@ -202,7 +202,8 @@
               "id": "version-21.10/installation/installation-of-centreon-ha-manual/integrating-pollers"
             }
           ]
-        },{
+        },
+        {
           "type": "doc",
           "id": "version-21.10/ceip/what-is-centreon-ceip"
         }
