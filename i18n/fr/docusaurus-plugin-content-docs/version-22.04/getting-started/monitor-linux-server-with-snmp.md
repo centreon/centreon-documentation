@@ -41,6 +41,13 @@ view centreon included .1.3.6.1
 view    systemview    included   .1.3.6.1.2.1.1
 view    systemview    included   .1.3.6.1.2.1.25.1.1
 
+####
+# Finally, grant the group read-only access to the systemview view.
+
+#       group          context sec.model sec.level prefix read   write  notif
+access notConfigGroup "" any noauth exact centreon none none
+access  notConfigGroup ""      any       noauth    exact  systemview none none
+
 ```
 
 L'agent SNMP doit être redémarré à chaque fois que la configuration est modifiée. Assurez-vous également que l'agent SNMP est configuré pour démarrer automatiquement au démarrage. Utilisez les commandes suivantes pour les distributions récentes :
