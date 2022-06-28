@@ -190,24 +190,12 @@ yum install centreon-pack-operatingsystems-linux-snmp
 
 Dans le formulaire de création de l'hôte sur l'interface Web de Centreon, il est nécessaire de renseigner les valeurs pour les champs "Snmp Community" et "Snmp Version". 
 
-> Si vous utilisez SNMP en version 3, selectionnez la version SNMP idoine et configurez les paramètres SNMP v3 via la macro SNMPEXTRAOPTIONS 
+> Si vous utilisez SNMP en version 3, selectionnez la version SNMP idoine et configurez les paramètres SNMP v3 via la macro SNMPEXTRAOPTIONS. <br/>
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping). 
 
 | Obligatoire | Nom              | Description                                    |
 | :---------- | :--------------- | :--------------------------------------------- |
 |             | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo    |
-
-Association entre les options 'snmpwalk' et 'centreon-plugins' :
-
-| snmpwalk  | centreon-plugins       |
-| :-------: | :--------------------- |
-| -a        | --authprotocol         |
-| -A        | --authpassphrase       |
-| -u        | --snmp-username        |
-| -x        | --privprotocol         |
-| -X        | --privpassphrase       |
-| -l        | not needed (automatic) |
-| -e        | --securityengineid     |
-| -E        | --contextengineid      |
 
 ## FAQ
 

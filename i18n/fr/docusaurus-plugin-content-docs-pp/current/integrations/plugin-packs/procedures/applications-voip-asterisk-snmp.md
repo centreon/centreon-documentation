@@ -86,8 +86,8 @@ yum install centreon-pack-applications-voip-asterisk-snmp
 * Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre serveur **Asterisk**.
 * Appliquez le Modèle d'Hôte **App-VoIP-Asterisk-SNMP-custom**.
 
-Si vous utilisez SNMP en version 3, vous devez configurer les paramètres
-spécifiques associés via la macro SNMPEXTRAOPTIONS.
+> Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro SNMPEXTRAOPTIONS. <br/>
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
 
 | Obligatoire | Macro            | Description                                 |
 |:------------|:-----------------|:--------------------------------------------|

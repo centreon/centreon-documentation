@@ -107,8 +107,8 @@ yum install centreon-pack-network-barracuda-bma-snmp
 * Complétez les champs **Nom**, s**Alias** & **IP Address / DNS** correspondant à votre serveur **Barracuda Message Archiver SNMP**.
 * Appliquez le Modèle d'Hôte **Net-Barracuda-Bma-SNMP-custom**
 
-Si vous utilisez SNMP en version 3, vous devez configurer les paramètres
-spécifiques associés via la macro SNMPEXTRAOPTIONS.
+> Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro SNMPEXTRAOPTIONS. <br/>
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
 
 | Mandatory | Name             | Description                                              |
 |:----------|:-----------------|:---------------------------------------------------------|

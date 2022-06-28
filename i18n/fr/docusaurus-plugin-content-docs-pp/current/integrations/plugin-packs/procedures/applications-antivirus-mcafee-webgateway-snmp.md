@@ -157,8 +157,8 @@ yum install centreon-pack-applications-antivirus-mcafee-webgateway-snmp
 * Complétez les champs "Nom", "Alias" & "IP Address / DNS" correspondant à votre proxy McAfee Web Gateway
 * Appliquez le Modèle d'Hôte *App-Antivirus-Mcafee-Webgateway-SNMP-custom*
 
-Si vous utilisez SNMP en version 3, vous devez configurer les paramètres 
-spécifiques associés via la macro SNMPEXTRAOPTIONS
+> Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro SNMPEXTRAOPTIONS. <br/>
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
 
 | Mandatory | Name             | Description                                 |
 |:----------|:---------------- |:--------------------------------------------|

@@ -77,8 +77,8 @@ yum install centreon-pack-hardware-servers-supermicro-superdoctor-snmp
 * Complétez les champs *Adresse IP/DNS*, *Communauté SNMP* et *Version SNMP*
 * Appliquez le Modèle d'Hôte *HW-Server-Supermicro-Superdoctor-SNMP-custom*
 
-> Si vous utilisez la version 3 du protocole SNMP, utilisez la Macro *SNMPEXTRAOPTIONS* afin de renseigner les paramètres
-> d'authentification et de chiffrement adéquats
+> Si vous utilisez la version 3 du protocole SNMP, utilisez la Macro *SNMPEXTRAOPTIONS* afin de renseigner les paramètres d'authentification et de chiffrement adéquats. <br/>
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
 
 | Mandatory   | Name                    | Description                       |
 | :---------- | :---------------------- | :---------------------------------|

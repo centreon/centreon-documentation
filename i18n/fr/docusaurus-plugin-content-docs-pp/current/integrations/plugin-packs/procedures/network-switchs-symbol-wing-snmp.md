@@ -110,8 +110,8 @@ yum install centreon-pack-network-switchs-symbol-wing-snmp
 * Complétez les champs **Nom**,**Alias** et **IP Address/DNS** correspondant à votre serveur **Symbol WiNG**.
 * Appliquez le modèle d'hôte **Net-Symbol-Wing-SNMP-custom** .
 
-Si vous utilisez SNMP en version 3, vous devez configurer les paramètres
-spécifiques associés via la macro SNMPEXTRAOPTIONS.
+> Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro SNMPEXTRAOPTIONS. <br/>
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
 
 | Mandatory | Name             | Description                                              |
 |:----------|:-----------------|:---------------------------------------------------------|
