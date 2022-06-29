@@ -1188,6 +1188,28 @@
         },
         {
           "type": "category",
+          "label": "Centreon Gorgone",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-22.04/developer/developer-gorgone-client-server-communication"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/developer/developer-gorgone-pull-mode"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/developer/developer-gorgone-rebound-mode"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/developer/developer-gorgone-migrate-from-centcore"
+            }
+          ]
+        },
+        {
+          "type": "category",
           "label": "API",
           "items": [
             {
