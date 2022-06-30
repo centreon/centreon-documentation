@@ -203,7 +203,7 @@ Si **Installation automatique des plugins** est à **OFF**, utilisez la commande
 1. Exécutez la commande suivante sur **tous les collecteurs**:
 
     ```shell
-    yum update centreon-plugins\*
+    yum update centreon-plugin\*
     ```
 
 2. [Déployez la configuration](monitoring-servers/deploying-a-configuration.md) sur tous les collecteurs. L'option **Redémarrer l'ordonnanceur** doit avoir la valeur **Redémarrer**.

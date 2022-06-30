@@ -192,7 +192,7 @@ To update the plugins:
 1. Execute the following command on all pollers:
 
   ```shell
-  yum update centreon-plugins\*
+  yum update centreon-plugin\*
   ```
 
 2. [Deploy the configuration](monitoring-servers/deploying-a-configuration.md) for all pollers. The **Restart Monitoring Engine** 
