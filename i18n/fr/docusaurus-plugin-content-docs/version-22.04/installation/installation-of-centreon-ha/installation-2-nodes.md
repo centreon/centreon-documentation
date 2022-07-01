@@ -1130,7 +1130,7 @@ Après cette étape, toutes les ressources doivent être actives au même endroi
 
 #### Contrôle de l'état des ressources
 
-Il est possible de suivre l'état du cluster en temps réel via la commande `crm_mon` :
+Il est possible de suivre l'état du cluster en temps réel via la commande `crm_mon -fr` :
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
@@ -1200,6 +1200,32 @@ Active resources:
 Si la ressource **centreon_central_sync** ne veut pas démarrer, vérifiez si le dossier `/usr/share/centreon-broker/lua` existe.
 
 Si non, vous pouvez le créer avec cette commande `mkdir -p /usr/share/centreon-broker/lua`. Puis, lancez un cleanup avec cette commande `pcs resource cleanup`.
+
+#### Ressources désactivées
+
+Lorsque vous faites un `crm_mon -fr` et que vous avez une ressource qui est désactivée :
+
+```text
+...
+ Master/Slave Set: ms_mysql-master [ms_mysql]
+     Masters: [ @DATABASE_MASTER_NAME@ ]
+     Slaves: [ @DATABASE_SLAVE_NAME@ ]
+     Stopped: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+vip_mysql       (ocf::heartbeat:IPaddr2):       Stopped (disabled)
+...
+```
+
+Vous devez activer la ressource avec la commande suivante :
+
+```bash
+pcs resource enable @RESSOURCE_NAME@
+```
+
+Dans notre cas :
+
+```bash
+pcs resource enable vip_mysql
+```
 
 #### Contrôler la synchronisation des bases
 
