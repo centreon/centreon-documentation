@@ -3,10 +3,7 @@ id: gdpr-compliance
 title: Conformité RGPD
 ---
 
-## Information pour les utilisateurs Centreon afin de préparer leur conformité RGPD
-
-Dans un contexte de fournisseur de services d'infogérance (MSP), la plate-forme Centreon délivre un service de supervision aux 
-clients du fournisseur.
+> Ce contenu s'adresse aux personnes utilisant Centreon via un fournisseur de services gérés (MSP).
 
 ## Stockage des informations d'identification de l'utilisateur
 
