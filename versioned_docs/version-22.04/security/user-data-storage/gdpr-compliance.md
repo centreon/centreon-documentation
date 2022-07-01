@@ -31,7 +31,7 @@ Information management:
 
 If a user has the rights to configure the monitoring (defined in the user's ACLs), an entry in the logs stored in the database and linked to the 
 user account will be created for each edition action:
-  - The access to the logs is available in the **Administration > Logs** menu with the ability to filter by user.
+  - Logs can be accessed through the **Administration > Logs** menu, with the ability to filter by user.
   - These logs can only be deleted by accessing the SQL database and deleting any relevant records.
 
 ## HTTP transactions
