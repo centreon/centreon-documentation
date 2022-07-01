@@ -41,7 +41,7 @@ required to ensure a minimum level of security.
 
 ## Authentication
 
-In order to remain consistent with your security policy and to better manage the lifecycle and approvals of users, Centreon has an option to enable 
+In order to remain consistent with your security policy and to better manage the lifecycle and approvals of users, Centreon can
 the connection to an Active Directory or LDAP directory. Centreon recommends to enable this option and not to use a local account.
 
 ## Backup
