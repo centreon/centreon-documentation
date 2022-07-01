@@ -18,10 +18,13 @@ Veuillez vous référer à la documentation de votre distribution Linux pour sav
 
 Voici ci-dessous un fichier de configuration snmpd.conf/net-snmp minimaliste :
 
+- remplacez la ligne **agentaddress** par l'adresse IP de l'interface sur laquelle snmpd doit écouter
 - remplacez **my-snmp-community** par la valeur correspondant à votre environnement.
 - Ajoutez la ligne **view centreon included .1.3.6.1** pour avoir accès à toutes les informations de la MIB requises par le plugin
 
 ```shell
+agentaddress 0.0.0.0,[::]
+
 #       sec.name  source          community
 com2sec notConfigUser  default       my-snmp-community
 
@@ -40,6 +43,13 @@ group   notConfigGroup v2c           notConfigUser
 view centreon included .1.3.6.1
 view    systemview    included   .1.3.6.1.2.1.1
 view    systemview    included   .1.3.6.1.2.1.25.1.1
+
+####
+# Finally, grant the group read-only access to the systemview view.
+
+#       group          context sec.model sec.level prefix read   write  notif
+access notConfigGroup "" any noauth exact centreon none none
+access  notConfigGroup ""      any       noauth    exact  systemview none none
 
 ```
 
