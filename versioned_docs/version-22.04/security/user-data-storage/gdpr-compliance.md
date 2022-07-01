@@ -3,9 +3,7 @@ id: gdpr-compliance
 title: GDPR compliance
 ---
 
-## Information for Centreon users to plan their GDPR compliance
-
-In a Managed Service Provider (MSP) context, the Centreon platform provides a monitoring service to the provider's customers.
+> This content is intended for users of Centreon in a Managed Service Provider (MSP) context.
 
 ## Storage of user identification information
 
