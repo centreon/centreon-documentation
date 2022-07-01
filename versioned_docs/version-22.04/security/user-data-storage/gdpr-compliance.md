@@ -9,7 +9,7 @@ In a Managed Service Provider (MSP) context, the Centreon platform provides a mo
 
 ## Storage of user identification information
 
-For each customer of the provider, the Centreon central server stores in database the user identification information in order to access the 
+For each customer of the provider, the Centreon central server stores in its database the following user identification information in order to access the 
 monitoring server:
 
   - Name
