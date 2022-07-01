@@ -244,6 +244,12 @@ yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/ce
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
+Install the following dependencies:
+
+```shell
+apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2
+```
+
 To install the Centreon repository, execute the following command:
 
 ```shell
@@ -254,12 +260,6 @@ Then import the repository key:
 
 ```shell
 wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
-```
-
-Install the following dependencies:
-
-```shell
-apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2
 ```
 
 </TabItem>
