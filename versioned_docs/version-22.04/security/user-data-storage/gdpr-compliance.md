@@ -24,7 +24,7 @@ The central server also stores additional parameters for each user:
   - Access control groups (ACL)
 
 Information management:
-  - Each user can access information in the **Administration > Settings > My Account** menu.
+  - Each user can access their information in the **Administration > Settings > My Account** menu.
   - Users can be created, edited and deleted from the **Settings > Users** menu by a user having the necessary rights.
 
 ## User actions logs
