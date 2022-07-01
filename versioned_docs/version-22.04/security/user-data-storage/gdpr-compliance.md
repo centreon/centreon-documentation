@@ -47,4 +47,4 @@ connect to an Active Directory or LDAP directory. Centreon recommends to enable 
 ## Backup
 
 Centreon provides a Centreon data extraction module to allow the implementation of a backup policy of the monitoring data. Centreon strongly 
-recommends to activate this module and especially to export the backup on a third-party server.
+recommends to activate this module and especially to export the backup on another server.
