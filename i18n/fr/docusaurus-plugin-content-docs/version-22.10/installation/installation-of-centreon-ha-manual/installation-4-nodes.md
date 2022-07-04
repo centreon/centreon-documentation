@@ -13,7 +13,7 @@ Avant de suivre cette procédure, il est recommandé d'avoir un niveau de connai
 
 ### Installation de Centreon
 
-L'installation d'un cluster Centreon-HA ne peut se faire que sur la base d'une installation fonctionnelle de Centreon. Avant de suivre cette procédure, il est donc impératif d'avoir appliqué **[cette procédure d'installation](https://docs.centreon.com/fr/docs/21.10/installation/introduction/)** jusqu'au bout **en réservant environ 5Go d'espace libre** sur le *groupe de volumes* qui contient les données MySQL (point de montage `/var/lib/mysql` par défaut).
+L'installation d'un cluster Centreon-HA ne peut se faire que sur la base d'une installation fonctionnelle de Centreon. Avant de suivre cette procédure, il est donc impératif d'avoir appliqué **[cette procédure d'installation](https://docs.centreon.com/fr/docs/installation/introduction/)** jusqu'au bout **en réservant environ 5Go d'espace libre** sur le *groupe de volumes* qui contient les données MySQL (point de montage `/var/lib/mysql` par défaut).
 
 La commande `vgs` devrait retourner un affichage de la forme ci-dessous (en particulier la valeur sous `VFree`) :
 
@@ -398,7 +398,7 @@ Ensuite, quittez la session `mysql` avec `exit` ou `Ctrl-D`.
 ## Configuration de la réplication MySQL
 
 Pour que les deux noeuds soient interchangeables à tout moment, les deux bases de données doivent être répliquées en permanence. Pour ce faire, nous allons mettre en place une réplication maître-esclave.
-                                                                                                                        
+Depuis Centreon 22.04, la réplication de mariaDB est maintenant basée sur **[GTID](https://mariadb.com/kb/en/gtid/)**.
 
 **Note:** sauf indication contraire, chacune des étapes suivantes doit être effectuée **sur les deux nœuds de base de données**.
 
@@ -420,11 +420,11 @@ binlog_format=MIXED
 slave_compressed_protocol=1
 datadir=/var/lib/mysql
 pid-file=/var/lib/mysql/mysql.pid
-                
-                 
-                   
-                  
-                        
+skip-slave-start
+log-slave-updates
+gtid_strict_mode=ON
+expire_logs_days=7
+ignore-db-dir=lost+found
 
 # Tuning standard Centreon
 innodb_file_per_table=1
@@ -501,32 +501,6 @@ GRANT PROCESS, RELOAD, SHUTDOWN, SUPER, REPLICATION CLIENT, REPLICATION SLAVE ON
 
 CREATE USER '@MYSQL_REPL_USER@'@'@CENTRAL_MASTER_IPADDR@' IDENTIFIED BY '@MYSQL_REPL_PASSWD@';
 GRANT PROCESS, RELOAD, SHUTDOWN, SUPER, REPLICATION CLIENT, REPLICATION SLAVE ON *.* TO '@MYSQL_REPL_USER@'@'@DB_MASTER_IPADDR@';
-```
-
-### Mise en place des purge des logs binaires
-
-Les logs binaires de MySQL doivent être purgées sur les deux nœuds base de données, mais pas en même temps, c'est pourquoi cette tâche automatique est mise en place manuellement de façon différenciée sur les deux serveurs.
-
-* Sur le serveur BDD principal
-
-```bash
-cat >/etc/cron.d/centreon-ha-mysql <<EOF
-0 4 * * * root bash /usr/share/centreon-ha/bin/mysql-purge-logs.sh >> /var/log/centreon-ha/mysql-purge.log 2>&1
-EOF
-```
-
-* Sur le serveur BDD secondaire
-
-```bash
-cat >/etc/cron.d/centreon-ha-mysql <<EOF
-30 4 * * * root bash /usr/share/centreon-ha/bin/mysql-purge-logs.sh >> /var/log/centreon-ha/mysql-purge.log 2>&1
-EOF
-```
-
-puis redémarrer le service crond sur les deux noeuds:
-
-```bash
-systemctl restart crond
 ```
 
 ### Configuration des variables d'environnement pour les scripts MySQL
@@ -1121,7 +1095,7 @@ systemctl enable cbd httpd24-httpd gorgoned centreon-central-sync cbd-sql centen
 </TabItem>
 </Tabs>
 
-Et enfin les démarrer tous via le `centreon.service` sur le noeud où le VIP a été monté :
+Et enfin les démarrer tous via le `centreon.service` sur le noeud où la VIP a été montée :
 
 ```bash
 systemctl start centreon
