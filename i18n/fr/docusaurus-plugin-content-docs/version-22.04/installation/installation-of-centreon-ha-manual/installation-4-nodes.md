@@ -1095,7 +1095,7 @@ systemctl enable cbd httpd24-httpd gorgoned centreon-central-sync cbd-sql centen
 </TabItem>
 </Tabs>
 
-Et enfin les démarrer tous via le `centreon.service` sur le noeud où le VIP a été monté :
+Et enfin les démarrer tous via le `centreon.service` sur le noeud où la VIP a été montée :
 
 ```bash
 systemctl start centreon
@@ -1183,3 +1183,7 @@ Connection Status '@DB_SLAVE_NAME@' [OK]
 Slave Thread Status [OK]
 Position Status [OK]
 ```
+
+## Intégrer des collecteurs
+
+Il ne reste maintenant plus qu'à [intégrer les collecteurs](./integrating-pollers.md) et commencer à superviser !

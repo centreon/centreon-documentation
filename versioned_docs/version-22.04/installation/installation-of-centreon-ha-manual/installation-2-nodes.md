@@ -1124,3 +1124,7 @@ Connection Status '@CENTRAL_SLAVE_NAME@' [OK]
 Slave Thread Status [OK]
 Position Status [OK]
 ```
+
+## Integrating pollers
+
+You can now [add your pollers](./integrating-pollers.md) and start monitoring!
