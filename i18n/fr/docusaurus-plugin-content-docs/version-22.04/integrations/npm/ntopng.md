@@ -16,7 +16,7 @@ Le widget peut afficher les vues suivantes (voir [**Examples**](#exemples) ci-de
 
 Pour configurer le widget, cliquez sur l'icône molette dans son coin supérieur droit. Une fenêtre s'ouvre :
 
-![Paramètres](images/Widget_NtopNG_Options.png)
+![Paramètres](../../assets/integrations/npm/Widget_NtopNG_Options.png)
 
 ### NtopNG Probe
 
@@ -27,7 +27,7 @@ Pour configurer le widget, cliquez sur l'icône molette dans son coin supérieur
 * **Port** : Port de connexion à l'interface (TCP/3000 par défaut)
 * **Interface** : Identifiant de l'interface. Vous vouvez le voir dans l'interface NtopNG, à la page **Interface** (en sélectionnant l'interface concernée) :
 
-![Interface ID](images/NtopNG_Interface_ID.png)
+![Interface ID](../../assets/integrations/npm/NtopNG_Interface_ID.png)
 
 ### View
 
@@ -49,17 +49,17 @@ Ces options ne concernent que la vue **Top N Flows**. Vous pouvez filtrer sur un
 
 ### Top N Local address
 
-![Top N Local address](images/Widget_NtopNG_Top_N_Local.png)
+![Top N Local address](../../assets/integrations/npm/Widget_NtopNG_Top_N_Local.png)
 
 ### Top N Remote address
 
-![Top N Remote address](images/Widget_NtopNG_Top_N_Remote.png)
+![Top N Remote address](../../assets/integrations/npm/Widget_NtopNG_Top_N_Remote.png)
 
 ### Top N Flows
 
 Vue sans filtre :
 
-![Top N Flows](images/Widget_NtopNG_Top_N_Flows.png)
+![Top N Flows](../../assets/integrations/npm/Widget_NtopNG_Top_N_Flows.png)
 
 Vue avec filtre sur une adresse IP :
 
@@ -67,8 +67,8 @@ Vue avec filtre sur une adresse IP :
 
 Vue avec filtre sur un port et une adresse IP :
 
-![Top N Flows Address Port Filters](images/Widget_NtopNG_Top_N_Flows_Address_Port_Filters.png)
+![Top N Flows Address Port Filters](../../assets/integrations/npm/Widget_NtopNG_Top_N_Flows_Address_Port_Filters.png)
 
 ### Top N Applications
 
-![Top N Applications](images/Widget_NtopNG_Top_N_Applications.png)
+![Top N Applications](../../assets/integrations/npm/Widget_NtopNG_Top_N_Applications.png)
