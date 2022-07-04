@@ -228,7 +228,7 @@ To update the plugins, execute the following command on **all pollers**.
 Update the plugins on **all pollers**:
 
 ```shell
-yum update centreon-plugins\*
+yum update centreon-plugin\*
 ```
 
 Restart the Centreon Engine on **all pollers**.
