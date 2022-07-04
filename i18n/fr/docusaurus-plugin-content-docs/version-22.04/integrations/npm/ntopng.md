@@ -63,7 +63,7 @@ Vue sans filtre :
 
 Vue avec filtre sur une adresse IP :
 
-![Top N Flows Address Filter](images/Widget_NtopNG_Top_N_Flows_Address_Filter.png)
+![Top N Flows Address Filter]../../assets/integrations/npm/Widget_NtopNG_Top_N_Flows_Address_Filter.png)
 
 Vue avec filtre sur un port et une adresse IP :
 
