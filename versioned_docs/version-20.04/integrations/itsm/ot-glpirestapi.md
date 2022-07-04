@@ -26,7 +26,7 @@ should use the old Glpi provider that uses the Glpi plugin called â€œwebserviceâ
 ## Requirements
 
 Before going any further, make sure that you correctly setup
-[centreon-open-ticket](/docs/20.04/alerts-notifications/ticketing/)
+[centreon-open-ticket](../../alerts-notifications/ticketing.md)
 into your Centreon instance
 
 Our provider requires the following parameters:

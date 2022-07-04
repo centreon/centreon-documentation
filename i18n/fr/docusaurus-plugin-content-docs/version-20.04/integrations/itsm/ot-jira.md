@@ -17,7 +17,7 @@ This integration is (at least) compatible with Jira cloud
 ## Requirements
 
 Before going any further, make sure that you correctly setup
-[centreon-open-ticket](/docs/20.04/alerts-notifications/ticketing/)
+[centreon-open-ticket](../../alerts-notifications/ticketing.md)
 into your Centreon instance
 
 Our provider requires the following parameters:
