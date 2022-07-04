@@ -467,3 +467,71 @@ instructions](create-standard-view.md) to create one.
 
 Otherwise, contact the Centreon MAP administrator or create your own views if
 you have sufficient privileges.
+
+## HTTPS
+
+### Error: Cannot connect to remote License Manager {} in centreon-map.log
+
+You may encounter an error like this one in **centreon-map.log**:
+
+```shell
+[2021-11-09 13:40:49.178] [ERROR] [c.c.s.m.s.b.l.LicenseVerificationService] [main] : Cannot connect to remote License Manager {}
+java.util.concurrent.ExecutionException: org.springframework.web.client.ResourceAccessException: I/O error on GET request for "https://10.25.5.178/centreon/api/index.php": Certificate for <10.25.5.178> doesn't match any of the subject alternative names: [www.company.net, company.com, company.net]; nested exception is javax.net.ssl.SSLPeerUnverifiedException: Certificate for <10.25.5.178> doesn't match any of the subject alternative names: [www.company.net, company.com, company.net]
+        at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:122)
+        at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:205)
+        at com.centreon.studio.map.server.business.license.LicenseVerificationService.refreshLicense(LicenseVerificationService.java:145)
+        at com.centreon.studio.map.server.business.license.LicenseVerificationService.verifyLicenseTask(LicenseVerificationService.java:96)
+        at com.centreon.studio.map.server.business.license.LicenseVerificationService.onApplicationEvent(LicenseVerificationService.java:83)
+        at com.centreon.studio.map.server.business.license.LicenseVerificationService.onApplicationEvent(LicenseVerificationService.java:36)
+        at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172)
+        at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165)
+        at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139)
+        at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:403)
+        at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:360)
+        at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:897)
+        at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:553)
+        at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143)
+        at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:758)
+        at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:750)
+        at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+        at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+        at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237)
+        at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+        at com.centreon.studio.map.server.CentreonMapServerApp.main(CentreonMapServerApp.java:15)
+        at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+        at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+        at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+        at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+        at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49)
+        at org.springframework.boot.loader.Launcher.launch(Launcher.java:108)
+        at org.springframework.boot.loader.Launcher.launch(Launcher.java:58)
+        at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:88)
+Caused by: org.springframework.web.client.ResourceAccessException: I/O error on GET request for "https://10.25.5.178/centreon/api/index.php": Certificate for <10.25.5.178> doesn't match any of the subject alternative names: [www.company.net, company.com, company.net]; nested exception is javax.net.ssl.SSLPeerUnverifiedException: Certificate for <10.25.5.178> doesn't match any of the subject alternative names: [www.company.net, company.com, company.net]
+        at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:748)
+        at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:674)
+        at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:583)
+        at com.centreon.studio.map.server.business.license.LicenseVerificationService.lambda$refreshLicense$0(LicenseVerificationService.java:138)
+        at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+        at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+        at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+        at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+...
+```
+
+Edit the following configuration file:
+
+```shell
+vi /etc/centreon-studio/studio-config.properties
+```
+
+The parameter **centreon.url** must use one of the alternative names of the Centreon certificate, and not its IP address. Example:
+
+```shell
+centreon.url=https://company.com
+```
+
+and not
+
+```shell
+centreon.url=https://10.25.5.178
+```
