@@ -18,7 +18,7 @@ Any user contained in that group then become a Map administrator.
 
 To grant Map administrator privileges on an ACL group:
 
-Go to **Preferences > Preferences** then select *Admin* tab.
+Go to **Preferences > Preferences** then select the **Admin** tab.
 
 ![image](../assets/graph-views/admin_preference_page.png)
 
