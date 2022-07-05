@@ -45,7 +45,7 @@ Pour acquitter un incident, deux solutions sont possibles :
 <TabItem value="From real time monitoring" label="From real time monitoring">
 
 1.  Rendez-vous dans le menu **Monitoring > Status Details > Hosts** (or
-    `Services`) menu
+    **Services**) menu
 2.  Select the object(s) that you want acknowledge
 3.  In the menu: **More actions** click on **Hosts: Acknowledge** or on
     **Services: Acknowledge**
@@ -87,7 +87,7 @@ La fenêtre suivante s'affiche :
 Pour supprimer l'acquittement d'un incident sur un objet :
 
 1.  Rendez-vous dans le menu **Monitoring > Status Details > Hosts** (or
-    `Services`) menu
+    **Services**) menu
 2.  Sélectionnez les objets auxquels vous souhaitez supprimer
     l'acquittement
 3.  Dans le menu **More actions**, cliquez sur **Hosts: Disacknowledge**
@@ -134,7 +134,7 @@ Il y a trois possibilités différentes de définir un temps d'arrêt :
 <TabItem value="Interface temps réel" label="Interface temps réel">
 
 1.  Rendez-vous dans le menu **Monitoring > Status Details > Hosts** (ou
-    `Services`)
+    **Services**)
 2.  Sélectionnez le(s) objet(s) sur lesquels vous souhaitez planifier un
     temps d'arrêt
 3.  Dans le menu **More actions…**, cliquez sur **Hosts : Set Downtime**
@@ -319,7 +319,7 @@ Pour :
 <TabItem value="Interface temps réel" label="Interface temps réel">
 
 1.  Rendez-vous dans le menu **Monitoring > Status Details > Hosts** (ou
-    `Services`)
+    **Services**)
 2.  Sélectionnez le(s) objet(s) sur lesquels vous souhaitez activer ou
     de désactiver la vérification
 3.  Dans le menu **More actions…** cliquez sur :
@@ -390,7 +390,7 @@ Pour :
 <TabItem value="Interface temps réel" label="Interface temps réel">
 
 1.  Rendez-vous dans le menu **Monitoring > Status Details > Hosts** (ou
-    `Services`)
+    **Services**)
 2.  Sélectionnez le ou les hôtes/services pour lesquels vous souhaitez
     activer ou de désactiver la notification
 3.  Dans le menu **More actions…** cliquez sur:
@@ -439,7 +439,7 @@ Il y a deux moyens de forcer la vérification d'un service :
 <TabItem value="Interface temps réel" label="Interface temps réel">
 
 1.  Rendez-vous dans le menu **Monitoring > Status Details > Hosts** (ou
-    `Services`)
+    **Services**)
 2.  Sélectionnez le ou les objets pour lesquels vous souhaitez forcer la
     vérification
 3.  Dans le menu **More actions…** cliquez sur **Schedule immediate

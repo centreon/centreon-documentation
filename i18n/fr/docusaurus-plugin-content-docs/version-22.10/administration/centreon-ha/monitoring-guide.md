@@ -24,7 +24,7 @@ GRANT REPLICATION CLIENT on *.* TO '<login>'@'<poller ip address>' ;
 
 Après avoir appliqué le modèle d'hôte *App-DB-MySQL-custom* et paramétré convenablement les macros *PORT*, *USERNAME* et *PASSWORD*, s'assurer que tous les services ajoutés par défaut sont supervisés correctement (pas d'état *UNKNOWN*).
 
-Puis ajouter un nouveau service en naviguant vers **Configuration > Services > Services par hôte** et en cliquant sur `Ajouter` et remplir le formulaire conformément à la table ci-dessous :
+Puis ajouter un nouveau service en naviguant vers **Configuration > Services > Services par hôte** et en cliquant sur **Ajouter** et remplir le formulaire conformément à la table ci-dessous :
 
 | Champ           | Valeur                                                       |
 |:----------------|:-------------------------------------------------------------|
@@ -52,7 +52,7 @@ Position Status [OK]
 
 Comme pour les nœuds centraux, il faut commencer par appliquer le [Plugin-Pack Linux SNMP](/pp/integrations/plugin-packs/procedures/operatingsystems-linux-snmp) pour installer tous les prérequis et superviser les indicateurs de santé système basiques du serveur supportant le Quorum Device.
 
-Puis ajouter un nouveau service en naviguant vers **Configuration > Services > Services par hôte** et en cliquant sur `Ajouter` et remplir le formulaire conformément à la table ci-dessous :
+Puis ajouter un nouveau service en naviguant vers **Configuration > Services > Services par hôte** et en cliquant sur **Ajouter** et remplir le formulaire conformément à la table ci-dessous :
 
 | Champ           | Valeur                                                   |
 |:----------------|:---------------------------------------------------------|

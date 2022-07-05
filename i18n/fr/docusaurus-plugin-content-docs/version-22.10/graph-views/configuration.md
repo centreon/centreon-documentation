@@ -176,7 +176,7 @@ in the *geometric style*.
 
 To use this feature, edit the Status size properties in the desktop
 Preferences. Go to **Status > Status size** to configure it globally or to
-`Views > Status > Status size` to configure it at the view level.
+**Views > Status > Status size** to configure it at the view level.
 
 ![image](../assets/graph-views/guide_ratio_preferences.png)
 

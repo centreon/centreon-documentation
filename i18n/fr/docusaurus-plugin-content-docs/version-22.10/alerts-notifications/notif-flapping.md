@@ -125,7 +125,7 @@ Engine), le processus sera appliqué à toutes les ressources surveillé
 par ce dernier.
 
 Vous pouvez désactiver / activer la détection de bagotement pour un hôte
-via le menu de configuratio.
+via le menu de configuration.
 
 Rendez-vous dans le menu **Configuration > Hosts > Hosts**, sélectionnez
 un hôte et accédez à l'onglet **Data Processing** :
@@ -143,7 +143,7 @@ Engine), le processus sera appliqué à toutes les ressources surveillé
 par ce dernier.
 
 Vous pouvez désactiver / activer la détection de bagotement pour un
-service via le menu de configuratio.
+service via le menu de configuration.
 
 REndez-vous dans le menu **Configuration > Services > Services by Host**,
 sélectionnez un service et accédez à l'onglet **Data Processing** :
