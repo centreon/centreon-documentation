@@ -136,7 +136,7 @@ According to your Centreon edition, you may have to [add a license](../administr
 
 ## Install available extensions
 
-Go to `Administration > Extensions > Manager` menu and click on
+Go to **Administration > Extensions > Manager** menu and click on
 **Install all**:
 
 ![image](../assets/installation/extensions-manager.png)

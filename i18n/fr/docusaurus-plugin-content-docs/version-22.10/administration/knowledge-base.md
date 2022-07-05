@@ -32,7 +32,7 @@ ici](http://www.mediawiki.org/wiki/User_hub).
 Afin d'utiliser **Knowledge Base**, vous devez le configurer pour qu'il
 accède à la base de données du wiki.
 
-Pour cela rendez-vous dans `Administration > Paramètres > Base de connaissance` et
+Pour cela rendez-vous dans **Administration > Paramètres > Base de connaissance** et
 renseignez le formulaire.
 
 ![image](../assets/administration/parameters-wiki.png)

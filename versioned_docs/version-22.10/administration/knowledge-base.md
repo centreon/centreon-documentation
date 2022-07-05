@@ -28,7 +28,7 @@ here](http://www.mediawiki.org/wiki/User_hub).
 Before starting with **Knowledge Base**, you need to configure it to access the
 wiki database.
 
-For this go to `Administration > Parameters > Knowledge Base` and complete
+For this go to **Administration > Parameters > Knowledge Base** and complete
 the form
 
 ![image](../assets/administration/parameters-wiki.png)
@@ -80,7 +80,7 @@ It's the same for services.
 
 ### Create / Update / Delete a procedure
 
-Navigate in Centreon front-end to `Configuration > Knowledge Base` sub-menus
+Navigate in Centreon front-end to **Configuration > Knowledge Base** sub-menus
 to:
 
   - List Hosts / Services / Host Templates / Service Templates and attached

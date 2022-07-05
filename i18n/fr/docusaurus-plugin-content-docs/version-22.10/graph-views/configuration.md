@@ -18,7 +18,7 @@ Any user contained in that group then become a Map administrator.
 
 To grant Map administrator privileges on an ACL group:
 
-Go to `Preferences > Preferences` then select *Admin* tab.
+Go to **Preferences > Preferences** then select the **Admin** tab.
 
 ![image](../assets/graph-views/admin_preference_page.png)
 
@@ -33,7 +33,7 @@ of users through ACL groups.
 ACL groups may be allowed to visualize, create, modify and delete one or
 more views independently.
 
-Go into `Preferences > Preferences` and then select *Views > ACLs* tab.
+Go into **Preferences > Preferences** and then select the **Views > ACLs** tab.
 
 ![image](../assets/graph-views/acl_views_preference_page.png)
 
@@ -44,7 +44,7 @@ each view, define the specific rights to attribute.
 
 Two simple rules apply on this kind of view:
 
-- Any user accessing the `Monitoring > Map` page will be able to see all the
+- Any user accessing the **Monitoring > Map** page will be able to see all the
   created geographic views
 - Users that have "Creation" privilege (through ACL group on Centreon Map
   desktop client) have all privileges on geographic views
@@ -156,7 +156,7 @@ However, if you make any changes (add/delete/update) to Centreon's
 resources and want these changes to be immediately synchronized on your
 Centreon MAP without pushing the configuration, you can force a resource
 synchronization from Centreon MAP's desktop client through the following
-menu `Action > Synchronize resources`.
+menu **Action > Synchronize resources**.
 
 This operation may take a few seconds. A pop-up will tell you when the
 synchronization is complete.
@@ -175,8 +175,8 @@ in the *geometric style*.
 ![image](../assets/graph-views/guide_object_ratio_example.png)
 
 To use this feature, edit the Status size properties in the desktop
-Preferences. Go to `Status > Status size` to configure it globally or to
-`Views > Status > Status size` to configure it at the view level.
+Preferences. Go to **Status > Status size** to configure it globally or to
+**Views > Status > Status size** to configure it at the view level.
 
 ![image](../assets/graph-views/guide_ratio_preferences.png)
 
@@ -185,7 +185,7 @@ Preferences. Go to `Status > Status size` to configure it globally or to
 ### Configure tiles provider
 
 You can choose the tile service provider or even add your own provider
-in `Administration > Extension > Map | Options`. By default, Centreon Map
+in **Administration > Extension > Map | Options**. By default, Centreon Map
 geoviews comes Open Street Map & Mapbox.
 
 Please refer to [this

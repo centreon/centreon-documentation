@@ -72,7 +72,7 @@ systemctl restart cbd centengine gorgoned
 
 ### Update extensions
 
-From `Administration > Extensions > Manager`, update all extensions, starting
+From **Administration > Extensions > Manager**, update all extensions, starting
 with the following:
 
 - License Manager,

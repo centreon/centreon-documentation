@@ -36,7 +36,7 @@ yum install centreon-plugin-Operatingsystems-Linux-Snmp centreon-plugin-Applicat
 
 ### Configure your services
 
-Access your Centreon Web interface. Go to `Configuration > Host > Add`.
+Access your Centreon Web interface. Go to **Configuration > Host > Add**.
 
 Fill in the basic information about your host and add the following host
 templates:

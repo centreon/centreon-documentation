@@ -193,7 +193,7 @@ yum install centreon-bi-server
 
 ### Activate the extension
 
-The menu `Administration > Extension > Manager` of Centreon enables you to
+The menu **Administration > Extension > Manager** of Centreon enables you to
 install the different extension detected by Centreon. Click on the **Centreon MBI** card to install it.
 
 Upload the license sent by the Centreon team to be able to start configuring the General Options.
