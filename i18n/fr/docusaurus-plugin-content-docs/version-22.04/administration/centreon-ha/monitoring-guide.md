@@ -24,7 +24,7 @@ GRANT REPLICATION CLIENT on *.* TO '<login>'@'<poller ip address>' ;
 
 Après avoir appliqué le modèle d'hôte *App-DB-MySQL-custom* et paramétré convenablement les macros *PORT*, *USERNAME* et *PASSWORD*, s'assurer que tous les services ajoutés par défaut sont supervisés correctement (pas d'état *UNKNOWN*).
 
-Puis ajouter un nouveau service en naviguant vers **Configuration > Services > Services par hôte** et en cliquant sur `Ajouter` et remplir le formulaire conformément à la table ci-dessous :
+Puis ajouter un nouveau service en naviguant vers **Configuration > Services > Services par hôte** et en cliquant sur **Ajouter** et remplir le formulaire conformément à la table ci-dessous :
 
 | Champ           | Valeur                                                       |
 |:----------------|:-------------------------------------------------------------|
