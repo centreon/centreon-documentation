@@ -565,13 +565,6 @@ systemctl enable mariadb
 systemctl restart mariadb
 ```
 
-### Configure Apache2 (for Debian 11 only)
-
-```shell
-mv /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/000-default.conf.save
-systemctl restart apache2 cbd
-```
-
 ### Secure the database
 
 Since MariaDB 10.5, it is mandatory to secure the database's root access before installing Centreon. If you are using a local database, run the following command on the central server:
