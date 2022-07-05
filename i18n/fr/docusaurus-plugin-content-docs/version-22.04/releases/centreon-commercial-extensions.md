@@ -39,6 +39,8 @@ Release date: `May 25, 2022`
 
 Release date: `July 6, 2022`
 
+#### Bug fixes
+
 - Fixed an issue related to the new password policy that would prevent reports from being generated.
 
 ### 22.04.0
