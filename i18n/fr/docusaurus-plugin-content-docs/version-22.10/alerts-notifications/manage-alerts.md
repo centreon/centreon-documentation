@@ -44,7 +44,7 @@ Pour acquitter un incident, deux solutions sont possibles :
 <Tabs groupId="sync">
 <TabItem value="From real time monitoring" label="From real time monitoring">
 
-1.  Rendez-vous dans le menu `Monitoring > Status Details > Hosts` (or
+1.  Rendez-vous dans le menu **Monitoring > Status Details > Hosts** (or
     `Services`) menu
 2.  Select the object(s) that you want acknowledge
 3.  In the menu: **More actions** click on **Hosts: Acknowledge** or on
@@ -86,7 +86,7 @@ La fenêtre suivante s'affiche :
 
 Pour supprimer l'acquittement d'un incident sur un objet :
 
-1.  Rendez-vous dans le menu `Monitoring > Status Details > Hosts` (or
+1.  Rendez-vous dans le menu **Monitoring > Status Details > Hosts** (or
     `Services`) menu
 2.  Sélectionnez les objets auxquels vous souhaitez supprimer
     l'acquittement
@@ -133,7 +133,7 @@ Il y a trois possibilités différentes de définir un temps d'arrêt :
 </TabItem>
 <TabItem value="Interface temps réel" label="Interface temps réel">
 
-1.  Rendez-vous dans le menu `Monitoring > Status Details > Hosts` (ou
+1.  Rendez-vous dans le menu **Monitoring > Status Details > Hosts** (ou
     `Services`)
 2.  Sélectionnez le(s) objet(s) sur lesquels vous souhaitez planifier un
     temps d'arrêt
@@ -143,7 +143,7 @@ Il y a trois possibilités différentes de définir un temps d'arrêt :
 </TabItem>
 <TabItem value="Depuis le menu Downtime" label="Depuis le menu Downtime">
 
-1.  Rendez-vous dans le menu `Monitoring > Downtimes > Downtimes`
+1.  Rendez-vous dans le menu **Monitoring > Downtimes > Downtimes**
 2.  Cliquez sur **Add a service downtime** ou **Add a host downtime**
 
 </TabItem>
@@ -270,7 +270,7 @@ Pour ajouter un commentaire, deux solutions sont possibles :
 </TabItem>
 <TabItem value="Depuis le menu commentaires" label="Depuis le menu commentaires">
 
-1.  Rendez-vous dans le menu `Monitoring > Downtimes > Comments`
+1.  Rendez-vous dans le menu **Monitoring > Downtimes > Comments**
 2.  Cliquez sur **Add a Service Comment** ou **Add a Host Comment**
 
 </TabItem>
@@ -318,7 +318,7 @@ Pour :
 </TabItem>
 <TabItem value="Interface temps réel" label="Interface temps réel">
 
-1.  Rendez-vous dans le menu `Monitoring > Status Details > Hosts` (ou
+1.  Rendez-vous dans le menu **Monitoring > Status Details > Hosts** (ou
     `Services`)
 2.  Sélectionnez le(s) objet(s) sur lesquels vous souhaitez activer ou
     de désactiver la vérification
@@ -389,7 +389,7 @@ Pour :
 </TabItem>
 <TabItem value="Interface temps réel" label="Interface temps réel">
 
-1.  Rendez-vous dans le menu `Monitoring > Status Details > Hosts` (ou
+1.  Rendez-vous dans le menu **Monitoring > Status Details > Hosts** (ou
     `Services`)
 2.  Sélectionnez le ou les hôtes/services pour lesquels vous souhaitez
     activer ou de désactiver la notification
@@ -438,7 +438,7 @@ Il y a deux moyens de forcer la vérification d'un service :
 </TabItem>
 <TabItem value="Interface temps réel" label="Interface temps réel">
 
-1.  Rendez-vous dans le menu `Monitoring > Status Details > Hosts` (ou
+1.  Rendez-vous dans le menu **Monitoring > Status Details > Hosts** (ou
     `Services`)
 2.  Sélectionnez le ou les objets pour lesquels vous souhaitez forcer la
     vérification

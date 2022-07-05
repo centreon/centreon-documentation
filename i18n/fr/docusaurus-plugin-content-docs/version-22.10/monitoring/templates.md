@@ -62,7 +62,7 @@ Le schéma ci-dessous présente un hôte héritant de plusieurs modèles d’hô
 
 Pour ajouter un modèle d’hôtes :
 
-Rendez-vous dans le menu `Configuration > Hôtes > Modèles` et cliquez sur
+Rendez-vous dans le menu **Configuration > Hôtes > Modèles** et cliquez sur
 le bouton **Ajouter**
 
 > Rapportez-vous au chapitre de configuration des
@@ -85,7 +85,7 @@ service (héritage de type Père-Fils).
 
 Pour ajouter un modèle de services :
 
-Rendez-vous dans le menu `Configuration > Services > Modèles` et cliquez
+Rendez-vous dans le menu **Configuration > Services > Modèles** et cliquez
 sur le bouton **Ajouter**
 
 > Rapportez-vous au chapitre de configuration des
@@ -145,7 +145,7 @@ Un contact ou un modèle de contact peut hériter d’un seul modèle de contact
 
 Pour ajouter un modèle de contacts :
 
-Rendez-vous dans le menu `Configuration > Utilisateurs > Modèles de contact` et
+Rendez-vous dans le menu **Configuration > Utilisateurs > Modèles de contact** et
 cliquez sur le bouton **Ajouter**
 
 > Se rapporter au chapitre de configuration des

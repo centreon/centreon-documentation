@@ -100,7 +100,7 @@ Once you are logged in to your desktop client, you will see this screen:
 
 ![image](../assets/graph-views/desktop_client_empty.png)
 
-Click on `File > Create View` or right click on the empty left panel, then
+Click on **File > Create View** or right click on the empty left panel, then
 **Add**.
 
 A new wizard will appear. Enter a name for the new view (and an optional
@@ -314,7 +314,7 @@ When creating the process widget, you must choose a service.
 
 To create a service dedicated to an "action":
 
-1. Create a command (`Configuration > Command > Add`) that contains "service
+1. Create a command (**Configuration > Command > Add**) that contains "service
    httpd restart" (remember to enable shell).
 2. Link the command to a passive service.
 3. Link the passive service to a host (e.g., the host that hosts the website).
@@ -390,7 +390,7 @@ procedure:
 ![image](../assets/graph-views/media_add.png)
 
 When adding new images to your Centreon platform (not from Centreon MAP)
-you may click on `Actions > Synchronize Media` so that added or deleted
+you may click on **Actions > Synchronize Media** so that added or deleted
 images from Centreon are mirrored to Centreon Map.
 
 The following formats can be used in Centreon MAP:
