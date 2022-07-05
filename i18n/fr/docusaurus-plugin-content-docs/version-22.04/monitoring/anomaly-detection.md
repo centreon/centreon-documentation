@@ -246,8 +246,8 @@ visualiser ses services et les alertes détectées :
   - Dans le menu **Supervision > Détails des statuts > Services**.
   - Dans le menu **Supervision > Informations de performance > Graphiques**.
   - Dans le menu **Supervision > Journaux d'évènements**.
-  - Dans la widget **service-monitoring** via le menu `Accueil >
-    Vues personnalisées`.
+  - Dans le widget **service-monitoring** via le menu **Accueil >
+    Vues personnalisées**.
   - Et tous les menus où vous pouvez opérer sur les services.
 
 ## Transférer l'historique des données

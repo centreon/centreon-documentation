@@ -84,7 +84,7 @@ Pour :
 <TabItem value="Interface temps réel" label="Interface temps réel">
 
 1.  Rendez-vous dans le menu **Monitoring > Status Details > Hosts** (ou
-    `Services`)
+    **Services**)
 2.  Sélectionnez le(s) objet(s) sur lesquels vous souhaitez activer ou
     de désactiver la vérification
 3.  Dans le menu **More actions…** cliquez sur :
@@ -129,7 +129,7 @@ Pour :
 <TabItem value="Interface temps réel" label="Interface temps réel">
 
 1.  Rendez-vous dans le menu **Monitoring > Status Details > Hosts** (ou
-    `Services`)
+    **Services**)
 2.  Sélectionnez le ou les hôtes/services pour lesquels vous souhaitez
     activer ou de désactiver la notification
 3.  Dans le menu **More actions…** cliquez sur:
@@ -178,7 +178,7 @@ Il y a deux moyens de forcer la vérification d'un service :
 <TabItem value="Interface temps réel" label="Interface temps réel">
 
 1.  Rendez-vous dans le menu **Monitoring > Status Details > Hosts** (ou
-    `Services`)
+    **Services**)
 2.  Sélectionnez le ou les objets pour lesquels vous souhaitez forcer la
     vérification
 3.  Dans le menu **More actions…** cliquez sur **Schedule immediate

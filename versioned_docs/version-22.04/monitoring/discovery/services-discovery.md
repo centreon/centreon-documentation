@@ -198,7 +198,7 @@ For each discovery plugins you need to define two commands:
 
 ### Command to list available XML attributes
 
-Go to **Configuration > Commands > Discovery** menu and click on **Add** button to
+Go to **Configuration > Commands > Discovery** menu and click on the **Add** button to
 create the first command.
 
 Fill the fileds:
@@ -234,7 +234,7 @@ Save the command.
 
 ### Command to get the list of items on a host
 
-Go to **Configuration > Commands > Discovery** menu and click on **Add** button to
+Go to **Configuration > Commands > Discovery** menu and click on the **Add** button to
 create the first command.
 
 Fill the fileds:
