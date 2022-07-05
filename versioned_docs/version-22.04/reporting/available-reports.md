@@ -831,7 +831,7 @@ Parameters required for the report:
 
 #### Prerequisites
 
-Go to `Reporting > Business Intelligence > General Options > Scheduler Options`
+Go to **Reporting > Business Intelligence > General Options > Scheduler Options**
 and configure the following field:
 
 ![image](../assets/reporting/guide/available-reports/graph_url.png)
@@ -908,7 +908,7 @@ Parameters required for the report:
 
 #### Prerequisites
 
-Go to `Reporting > Business Intelligence > General Options > Scheduler Options` 
+Go to **Reporting > Business Intelligence > General Options > Scheduler Options** 
 and configure the following field:
 
 ![image](../assets/reporting/guide/available-reports/graph_url.png)

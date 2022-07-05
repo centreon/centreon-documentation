@@ -172,10 +172,6 @@
               "id": "version-22.04/installation/installation-of-centreon-ha/integrating-pollers"
             }
           ]
-        },
-        {
-          "type": "doc",
-          "id": "version-22.04/ceip/what-is-centreon-ceip"
         }
       ]
     },
@@ -1289,6 +1285,20 @@
         {
           "type": "doc",
           "id": "version-22.04/security/key-rotation"
+        },
+        {
+          "type": "category",
+          "label": "User data storage",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-22.04/security/user-data-storage/gdpr-compliance"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/security/user-data-storage/what-is-centreon-ceip"
+            }
+          ]
         }
       ]
     },

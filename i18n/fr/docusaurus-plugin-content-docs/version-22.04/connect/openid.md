@@ -57,7 +57,7 @@ Vous pouvez également configurer :
 > Il est possible de définir une URL complète pour les points de entrée au cas où la base de l'URL est différente
 > des autres.
 
-> Vous pouvez activer **Authentification debug** via le menu `Administration > Parameters > Debug` pour comprendre les
+> Vous pouvez activer **Authentification debug** via le menu **Administration > Parameters > Debug** pour comprendre les
 > échecs d'authentification et améliorer votre configuration.
 
 ### Étape 3 : Configurer les adresses des clients

@@ -26,7 +26,7 @@ yum install centreon-open-tickets
 ## UI installation
 
 After installing the rpm, you have to finish the module installation
-through the web frontend. Go to `Administration > Extensions > Manager`
+through the web frontend. Go to **Administration > Extensions > Manager**
 menu and search **Open Tickets**. Click on **Install selection**:
 
 ![image](../assets/alerts/open_tickets_install_01.png)
