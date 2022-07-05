@@ -36,6 +36,14 @@ Release date: `May 25, 2022`
 
 ## Centreon MBI
 
+### 22.04.1
+
+Release date: `July 5, 2022`
+
+#### Bug fixes
+
+- Fixed an issue related to the new password policy that would prevent reports from being generated.
+
 ### 22.04.0
 
 - Compatibility with other 22.04 components.

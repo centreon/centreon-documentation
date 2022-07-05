@@ -24,7 +24,7 @@ versions:
 ## Requirements
 
 Before going any further, make sure that you correctly setup
-[centreon-open-ticket](https://documentation.centreon.com/docs/centreon-open-tickets/en/latest/installation/index)
+[centreon-open-ticket](../../alerts-notifications/ticketing.md)
 into your Centreon instance
 
 Our provider requires the following parameters:
