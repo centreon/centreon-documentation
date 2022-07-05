@@ -275,6 +275,10 @@
     "message": "Sécurité",
     "description": "The label for category Security in sidebar docs"
   },
+  "sidebar.docs.category.User data storage": {
+    "message": "Stockage des données utilisateur",
+    "description": "The label for category User data storage in sidebar docs"
+  },
   "sidebar.docs.category.Resources": {
     "message": "Ressources",
     "description": "The label for category Resources in sidebar docs"
