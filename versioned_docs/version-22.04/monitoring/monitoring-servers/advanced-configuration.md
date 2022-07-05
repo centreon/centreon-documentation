@@ -12,7 +12,7 @@ Server.
 Centreon has, however, developed a solution for initializing the flow from the
 Centreon Central Server, or from the Remote Server, to the poller.
 
-Go to the `Configuration > Pollers > Broker configuration` menu and click on
+Go to the **Configuration > Pollers > Broker configuration** menu and click on
 **Centreon Broker SQL** configuration on the Central Server or Remote Server.
 
 Go to the **Input** tab panel and add a new **TCP - IPv4** entry.
@@ -23,7 +23,7 @@ configuration.
 
 ![image](../../assets/monitoring/monitoring-servers/on-peer-configuration-1.png)
 
-Go to the `Configuration > Pollers > Broker configuration` menu and click on
+Go to the **Configuration > Pollers > Broker configuration** menu and click on
 the **Broker module** of your poller.
 
 On the **Output** tab panel modify the **Output 1 - IPv4** form:

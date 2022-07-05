@@ -972,7 +972,7 @@ authentication mechanism, which is based on X.509 certificates.
 #### Compress and encrypt the Centreon Broker communication
 
 It is also possible to compress and encrypt the Centreon Broker communication.
-Go to `Configuration > Pollers > Broker configuration` menu, edit your Centreon Broker configuration
+Go to **Configuration > Pollers > Broker configuration** menu, edit your Centreon Broker configuration
 and enable for **IPv4** inputs and outputs:
 
 - Enable TLS encryption: Auto

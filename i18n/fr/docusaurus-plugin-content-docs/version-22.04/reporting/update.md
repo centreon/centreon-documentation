@@ -15,7 +15,7 @@ La mise à jour de Centreon MBI se fait en 2 étapes :
         yum update centreon-bi-server
 
 2. Mettre à jour l'interface: Se connecter à l'interface web de Centreon et se rendre dans le menu
- `Administration > Extension > Manager` puis cliquer sur le bouton de mise à jour de l'extension et des widgets.
+ **Administration > Extension > Manager** puis cliquer sur le bouton de mise à jour de l'extension et des widgets.
 
 
 ## Mettre  à jour le serveur de reporting

@@ -39,7 +39,7 @@ functions of these icons:
 > This interface is **deprecated** and replaced by the `Resources Status` page
 > and the [events list](resources-status.md#events-list).
 
-To view the status of hosts, go into the `Monitoring > Status Details > Hosts`
+To view the status of hosts, go into the **Monitoring > Status Details > Hosts**
 menu
 
 ![image](../assets/alerts/04unhandledproblems.png)

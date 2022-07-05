@@ -61,7 +61,7 @@ The diagram below shows a host inheriting from multiple host templates.
 
 To add a host template:
 
-Go into the `Configuration > Hosts > Templates` menu and click on **Add**
+Go into the **Configuration > Hosts > Templates** menu and click on **Add**
 
 > Refer to the chapter covering configuration of
 > *[hosts](basic-objects/hosts.md)* to configure a template because the form
@@ -83,7 +83,7 @@ A service or a service template can only inherit from a single service template
 
 To add a Service Template:
 
-Go into the `Configuration > Services > Templates` menu and click on **Add**
+Go into the **Configuration > Services > Templates** menu and click on **Add**
 
 > Refer to the chapter covering configuration of
 > *[services](basic-objects/services.md)* to configure a template because the
@@ -141,7 +141,7 @@ A contact or a contact template can only inherit one contact template.
 
 To add a contact template:
 
-Go into the menu: `Configuration > Users > Contact Templates` menu and click
+Go into the menu: **Configuration > Users > Contact Templates** menu and click
 on **Add**
 
 > Refer to the chapter covering configuration of

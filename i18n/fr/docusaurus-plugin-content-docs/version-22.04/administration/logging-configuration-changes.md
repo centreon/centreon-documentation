@@ -7,7 +7,7 @@ title: Journalisation des modifications de configuration
 
 Par défaut, Centreon conserve dans un journal toutes les actions utilisateurs
 concernant la modification de la configuration de la supervision. Pour accéder à
-ces informations, rendez-vous dans le menu `Administration > Logs`.
+ces informations, rendez-vous dans le menu **Administration > Logs**.
 
 ![image](../assets/administration/fsearchlogs.png)
 
@@ -116,7 +116,7 @@ Le tableau ci-dessous définit les colonnes du tableau des modifications :
 ## Configuration
 
 Pour activer la journalisation des actions utilisateurs, rendez-vous dans le
-menu `Administration > Paramètres > Options` et cocher la case
+menu **Administration > Paramètres > Options** et cocher la case
 **Activer/Désactiver les journaux d'audit**:
 
 ![image](../assets/administration/logs_audit_enable.png)
