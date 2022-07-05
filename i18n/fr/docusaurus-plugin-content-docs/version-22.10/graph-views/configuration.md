@@ -33,7 +33,7 @@ of users through ACL groups.
 ACL groups may be allowed to visualize, create, modify and delete one or
 more views independently.
 
-Go into **Preferences > Preferences** and then select *Views > ACLs* tab.
+Go into **Preferences > Preferences** and then select the **Views > ACLs** tab.
 
 ![image](../assets/graph-views/acl_views_preference_page.png)
 
