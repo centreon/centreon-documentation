@@ -204,7 +204,7 @@ These fields are no longer in use.
 
 It is possible of reload the ACLs manually:
 
-1. Go into the menu: `Administration > ACL`
+1. Go into the menu: **Administration > ACL**
 2. In the left menu, click on **Reload ACL**
 3. Select the user(s) you want to reload the ACL
 4. In the **More actions** menu, click on **Reload ACL**

@@ -24,7 +24,7 @@ GRANT REPLICATION CLIENT on *.* TO '<login>'@'<poller ip address>' ;
 
 After having applied the *App-DB-MySQL-custom* host template and set the correct values for *PORT*, *USERNAME* and *PASSWORD* macros, make sure that all the default services are checked successfully (no *UNKNOWN* states).
 
-Then add a new service by browsing to `Configuration` > `Services` > `Services by host` and clicking `Add` and fill the form according to this table:
+Then add a new service by browsing to **Configuration > Services > Services by host** and clicking `Add` and fill the form according to this table:
 
 | Field               | Value                                                           |
 |:--------------------|:----------------------------------------------------------------|
@@ -52,7 +52,7 @@ Position Status [OK]
 
 First refer to the [Linux SNMP Plugin-Pack documentation page](/pp/integrations/plugin-packs/procedures/operatingsystems-linux-snmp) to install all the required components and monitor the basic system health indicators of the server supporting the Quorum Device.
 
-Then add a new service by browsing to `Configuration` > `Services` > `Services by host` and clicking `Add` and fill the form according to this table:
+Then add a new service by browsing to **Configuration > Services > Services by host** and clicking `Add` and fill the form according to this table:
 
 | Field               | Value                                                    |
 |:--------------------|:---------------------------------------------------------|

@@ -206,7 +206,7 @@ Chaque sonde de découverte doit disposer de deux commandes :
 
 ### Commande pour récupérer la liste des attributs XML
 
-Rendez-vous dans le menu `Configuration > Commandes > Découverte` et cliquez sur
+Rendez-vous dans le menu **Configuration > Commandes > Découverte** et cliquez sur
 **Ajouter** pour ajouter une nouvelle commande.
 
 Saisissez les champs suivants :
@@ -244,7 +244,7 @@ Sauvegardez votre commande.
 
 ### Commande pour récupérer la liste des items d'un hôte
 
-Rendez-vous dans le menu `Configuration > Commandes > Découverte` et cliquez sur
+Rendez-vous dans le menu **Configuration > Commandes > Découverte** et cliquez sur
 **Ajouter** pour ajouter une nouvelle commande.
 
 Saisissez les champs suivants :

@@ -395,7 +395,7 @@ associée](../service-mapping/upgrade.md) pour le mettre à jour.
 
 #### Montée de version des extensions
 
-Depuis le menu `Administration > Extensions > Gestionnaire`, mettez à jour
+Depuis le menu **Administration > Extensions > Gestionnaire**, mettez à jour
 toutes les extensions, en commençant par les suivantes :
 
 - License Manager,

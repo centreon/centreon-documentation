@@ -481,7 +481,7 @@ installed, we will configure it.
 
 ### Configuration
 
-Go to `Administration > Extensions > Options`, and in the Centreon MAP menu
+Go to **Administration > Extensions > Options**, and in the Centreon MAP menu
 update the Centreon MAP server address field:
 
 > Use the real IP address/hostname of your Centreon MAP server.
@@ -490,7 +490,7 @@ update the Centreon MAP server address field:
 
 ### Using the client
 
-The Centreon MAP Web interface is now available in `Monitoring > MAP`.
+The Centreon MAP Web interface is now available in **Monitoring > MAP**.
 
 ![image](../assets/graph-views/install-web-step-4.png)
 
@@ -516,7 +516,7 @@ widget. The result after installed:
 The desktop client is currently available only for **64-bit** Windows,
 Mac and Linux platforms (Debian and Ubuntu).
 
-You can find the installers in `Monitoring > Map > Desktop Client` or
+You can find the installers in **Monitoring > Map > Desktop Client** or
 [here](https://download.centreon.com/?action=product&product=centreon-map&version=21.10&secKey=9ae03a4457fa0ce578379a4e0c8b51f2).
 
 > For performance considerations, we highly recommand to have less than 5, 10

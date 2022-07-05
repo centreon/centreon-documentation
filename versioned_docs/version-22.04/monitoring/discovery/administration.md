@@ -24,7 +24,7 @@ title: Administration
     ```
 
 2. Connect to the Centreon web interface using an account allowed to install
-products and go to the `Administration > Extensions > Manager` page.
+products and go to the **Administration > Extensions > Manager** page.
 
 3. Make sure that **License Manager** and **Plugin Packs Manager** modules are
  up-to-date before updating the **Auto Discovery** module.
@@ -44,7 +44,7 @@ module:
 > be restorable unless a database backup has been made.
 
 1. Connect to the Centreon web interface using an account allowed to install
-products and go to the `Administration > Extensions > Manager` page.
+products and go to the **Administration > Extensions > Manager** page.
 
 2. Click on the delete icon corresponding to the **Auto Discovery**
 module:

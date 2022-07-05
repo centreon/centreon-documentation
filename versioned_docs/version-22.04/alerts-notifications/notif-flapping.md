@@ -98,7 +98,7 @@ currently flapping or it is still flapping.
 
 ### Enabling Flap Detection
 
-Go to the `Configuration > Pollers > Engine configuration` menu and
+Go to the **Configuration > Pollers > Engine configuration** menu and
 select a scheduler (Centreon Engine). In the **Check Options** tab, you
 can enable the detection of flapping:
 
@@ -114,7 +114,7 @@ the process will by applied for all resources monitored by it.
 You can disable / enable flapping detection for a host through
 configuration menu.
 
-Go to the `Configuration > Hosts > Hosts` menu, select your host and go
+Go to the **Configuration > Hosts > Hosts** menu, select your host and go
 on the **Data Processing** tab:
 
 ![image](../assets/alerts/flap_host_conf.png)
@@ -131,7 +131,7 @@ the process will by applied for all resources monitored by it.
 You can disable / enable flapping detection for a service through
 configuration menu.
 
-Go to the `Configuration > Services > Services by host` menu, select
+Go to the **Configuration > Services > Services by host** menu, select
 your service and go on the **Data Processing** tab:
 
 ![image](../assets/alerts/flap_host_conf.png)

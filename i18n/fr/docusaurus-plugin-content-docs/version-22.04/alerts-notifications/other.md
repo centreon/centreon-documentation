@@ -35,7 +35,7 @@ Pour ajouter un commentaire, deux solutions sont possibles :
 </TabItem>
 <TabItem value="Depuis le menu commentaires" label="Depuis le menu commentaires">
 
-1.  Rendez-vous dans le menu `Monitoring > Downtimes > Comments`
+1.  Rendez-vous dans le menu **Monitoring > Downtimes > Comments**
 2.  Cliquez sur **Add a Service Comment** ou **Add a Host Comment**
 
 </TabItem>
@@ -83,7 +83,7 @@ Pour :
 </TabItem>
 <TabItem value="Interface temps réel" label="Interface temps réel">
 
-1.  Rendez-vous dans le menu `Monitoring > Status Details > Hosts` (ou
+1.  Rendez-vous dans le menu **Monitoring > Status Details > Hosts** (ou
     `Services`)
 2.  Sélectionnez le(s) objet(s) sur lesquels vous souhaitez activer ou
     de désactiver la vérification
@@ -128,7 +128,7 @@ Pour :
 </TabItem>
 <TabItem value="Interface temps réel" label="Interface temps réel">
 
-1.  Rendez-vous dans le menu `Monitoring > Status Details > Hosts` (ou
+1.  Rendez-vous dans le menu **Monitoring > Status Details > Hosts** (ou
     `Services`)
 2.  Sélectionnez le ou les hôtes/services pour lesquels vous souhaitez
     activer ou de désactiver la notification
@@ -177,7 +177,7 @@ Il y a deux moyens de forcer la vérification d'un service :
 </TabItem>
 <TabItem value="Interface temps réel" label="Interface temps réel">
 
-1.  Rendez-vous dans le menu `Monitoring > Status Details > Hosts` (ou
+1.  Rendez-vous dans le menu **Monitoring > Status Details > Hosts** (ou
     `Services`)
 2.  Sélectionnez le ou les objets pour lesquels vous souhaitez forcer la
     vérification

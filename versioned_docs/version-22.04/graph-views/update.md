@@ -46,7 +46,7 @@ For each difference between the files, assess whether you should copy it from **
 yum update centreon-map-web-client
 ```
 
-Complete the upgrade by going to `Administration > Extensions > Manager`
+Complete the upgrade by going to **Administration > Extensions > Manager**
 (module & widget parts):
 
 ![image](../assets/graph-views/update-web-client.png)
