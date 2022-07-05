@@ -12,6 +12,16 @@ Le widget peut afficher les vues suivantes (voir [**Examples**](#exemples) ci-de
 * **Top N Flows** : Affiche les flux réseaux les plus importants (client local vers distant)
 * **Top N Applications** : Affiche les n application qui reçoivent/émettent le plus de trafic (les flux sont regroupés par application, protocolaire ou site Web comme Amazon/Google)
 
+## Installer le widget
+
+1. Installez le paquet suivant sur le serveur central :
+  
+  ```shell
+  yum install centreon-widget-ntopng-listing
+  ```
+
+2. À la page **Administration > Extensions > Gestionnaire**, installez le widget **NtopNG**.
+
 ## Configurer le widget
 
 Pour configurer le widget, cliquez sur l'icône molette dans son coin supérieur droit. Une fenêtre s'ouvre :
