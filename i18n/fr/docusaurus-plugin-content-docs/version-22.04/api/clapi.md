@@ -3,6 +3,8 @@ id: clapi
 title: Command Line API (v1) - CLAPI
 ---
 
+> Cette documentation n'est disponible qu'en anglais.
+
 ## Overview
 
 Centreon CLAPI aims to offer (almost) all the features that are available on the
@@ -3578,6 +3580,7 @@ Columns are the following:
 #### Add
 
 In order to add an instance you use the **ADD** action:
+
 
 ``` shell
 centreon -u admin -p 'centreon' -o INSTANCE -a add -v "Poller test;10.30.2.55;22;ZMQ;5556"
