@@ -24,6 +24,20 @@ command:
 dnf update
 ```
 
+If you are installing Centreon on AlmaLinux/RHEL/OracleLinux 8, and you intend to use Centreon in French, Spanish or Portuguese, install the corresponding packages:
+
+```shell
+dnf install glibc-langpack-fr
+dnf install glibc-langpack-es
+dnf install glibc-langpack-pt
+```
+
+Use the following command to check which languages are installed on your system:
+
+```shell
+locale -a
+```
+
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
@@ -43,22 +57,6 @@ apt update && apt upgrade
 
 > Accept all GPG keys and reboot your server if a kernel update is
 > proposed.
-
-### Additional configuration for AlmaLinux/RHEL/OracleLinux 8
-
-If you are installing Centreon on AlmaLinux/RHEL/OracleLinux 8, and you intend to use Centreon in French, Spanish or Portuguese, install the corresponding packages:
-
-```shell
-dnf install glibc-langpack-fr
-dnf install glibc-langpack-es
-dnf install glibc-langpack-pt
-```
-
-Use the following command to check which languages are installed on your system:
-
-```shell
-locale -a
-```
 
 ## Step 1: Pre-installation
 
@@ -266,7 +264,8 @@ This section describes how to install a Centreon central server.
 You can install this server with a local database on the server, or
 a remote database on a dedicated server.
 
-### With a local database
+<Tabs groupId="sync">
+<TabItem value="With a local database" label="With a local database">
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -299,9 +298,8 @@ systemctl restart mariadb
 </TabItem>
 </Tabs>
 
-You can now move to [Step 3](#step-3-configuration).
-
-### With a remote database
+</TabItem>
+<TabItem value="With a remote database" label="With a remote database">
 
 > If installing the database on a dedicated server, this server should also have
 > the prerequired repositories.
@@ -365,12 +363,6 @@ systemctl restart mariadb
 </TabItem>
 </Tabs>
 
-Secure your MariaDB root access by executing the following command:
-
-```shell
-mysql_secure_installation
-```
-
 > It is mandatory to set a password for the root user of the database.
 
 Then, in the remote dabatase, create a user with **root** privileges. You will have to enter this user during the 
@@ -408,6 +400,9 @@ Example:
 DROP USER 'dbadmin'@'<CENTRAL_SERVER_IP>';
 ```
 
+</TabItem>
+</Tabs>
+
 > The package **centreon-database** installs an optimized MariaDB configuration
 > to be used with Centreon.
 >
@@ -420,7 +415,10 @@ DROP USER 'dbadmin'@'<CENTRAL_SERVER_IP>';
 > LimitNOFILE=32000
 > ```
 >
-> Same for the MariaDB **open_files_limit** directive, example for Centos 7, Alma/RHEL/OL 8:
+> Same for the MariaDB **open_files_limit** directive:>
+>
+> <Tabs groupId="sync">
+> <TabItem value="Alma / RHEL / Oracle Linux 8 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / CentOS 7">
 >
 > ```shell
 > $ cat /etc/my.cnf.d/centreon.cnf
@@ -429,7 +427,8 @@ DROP USER 'dbadmin'@'<CENTRAL_SERVER_IP>';
 > open_files_limit=32000
 > ```
 >
-> For Debian 11:
+> </TabItem>
+> <TabItem value="Debian 11" label="Debian 11">
 >
 > ```shell
 > $ cat /etc/mysql/mariadb.conf.d/80-centreon.cnf
@@ -437,6 +436,21 @@ DROP USER 'dbadmin'@'<CENTRAL_SERVER_IP>';
 > innodb_file_per_table=1
 > open_files_limit=32000
 > ```
+> 
+> MariaDB has to listen to all interfaces instead of localhost/127.0.0.1, which is the default value. Edit the following file:
+> 
+> ```shell
+> /etc/mysql/mariadb.conf.d/50-server.cnf
+> ```
+> 
+> Set the **bind-address** parameter to **0.0.0.0** and restart mariadb.
+> 
+> ```shell
+> systemctl restart mariadb
+> ```
+> 
+> </TabItem>
+> </Tabs>
 
 > In addition to the directives above, it's strongly recommended to tune the
 > database configuration with the following parameters:
@@ -461,16 +475,6 @@ DROP USER 'dbadmin'@'<CENTRAL_SERVER_IP>';
 >
 > Remember to restart MariaDB after a change to configuration.
 
-#### Additional configuration for Debian 11
-
-MariaDB has to listen to all interfaces instead of localhost/127.0.0.1, which is the default value. Edit the following file:
-
-```shell
-/etc/mysql/mariadb.conf.d/50-server.cnf
-```
-
-Set the **bind-address** parameter to **0.0.0.0**.
-
 ## Step 3: Configuration
 
 ### Server name
@@ -490,6 +494,9 @@ hostnamectl set-hostname central
 
 You are required to set the PHP time zone.
 
+> Replace **Europe/Paris** by your time zone. You can find the list of
+> supported time zones [here](http://php.net/manual/en/timezones.php).
+
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / CentOS 7">
 
@@ -498,9 +505,6 @@ Run the following command as `root`:
 ```shell
 echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
 ```
-
-> Replace **Europe/Paris** by your time zone. You can find the list of
-> supported time zones [here](http://php.net/manual/en/timezones.php).
 
 After saving the file, restart the PHP-FPM service:
 
@@ -511,14 +515,9 @@ systemctl restart php-fpm
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
-Set the PHP time zone by editing the following file:
-
 ```shell
-/etc/php/8.0/mods-available/centreon.ini
+echo "date.timezone = Europe/Paris" > /etc/php/8.0/mods-available/centreon.ini
 ```
-
-> You can find the list of
-> supported time zones [here](http://php.net/manual/en/timezones.php).
 
 After saving the file, restart the PHP-FPM service:
 
@@ -564,10 +563,10 @@ Then execute the following command (on the central server if you are using a loc
 systemctl enable mariadb
 systemctl restart mariadb
 ```
-
 ### Secure the database
 
-Since MariaDB 10.5, it is mandatory to secure the database's root access before installing Centreon. If you are using a local database, run the following command on the central server:
+Since MariaDB 10.5, it is mandatory to secure the database's root access before installing Centreon.
+If you are using a local database, run the following command on the central server otherwise on the database server:
 
 ```shell
 mysql_secure_installation
