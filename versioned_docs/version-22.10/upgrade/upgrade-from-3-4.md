@@ -473,10 +473,10 @@ chown -R centreon-gorgone /var/lib/centreon/nagios-perf/*
 
 #### Remove "Failover name" from the broker outputs' configuration
 
-> In older versions of Centreon, the broker retention mechanism that stored monitoring data in files used to require manual configuration.
+> In older versions of Centreon, the broker retention mechanism that stored monitoring data in temporary files when a network outage occurred used to require manual configuration.
 > Since Centreon 3.4 this is not necessary anymore, and in more recent versions **it may cause broker not to work at all**.
 
-Got to **Configuration > Pollers > Broker configuration** and empty the value of "Failover name" parameter for each output of each broker configuration item.
+Go to **Configuration > Pollers > Broker configuration** and empty the value of "Failover name" parameter for each output of each broker configuration item.
 
 #### Restart monitoring processes
 
