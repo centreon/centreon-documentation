@@ -728,7 +728,9 @@ Finally, add rights to **centreon** database user to use **LOAD DATA INFILE**
 command:
 
 ```sql
+mysql -u root -p
 GRANT FILE on *.* to 'centreon'@'localhost';
+exit
 ```
 
 ## Add the Remote Server to configuration

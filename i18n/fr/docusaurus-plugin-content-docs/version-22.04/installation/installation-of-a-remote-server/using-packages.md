@@ -700,7 +700,9 @@ Enfin, il est nécessaire d'ajouter des droits à l'utilisateur de base de donn�
 utiliser la commande **LOAD DATA INFILE** :
 
 ```sql
+mysql -u root -p
 GRANT FILE on *.* to 'centreon'@'localhost';
+exit
 ```
 
 ### Principaux messages d'erreur
