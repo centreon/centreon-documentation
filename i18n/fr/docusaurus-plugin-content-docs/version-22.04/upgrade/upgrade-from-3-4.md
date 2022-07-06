@@ -496,7 +496,7 @@ chown -R centreon-gorgone /var/lib/centreon/nagios-perf/*
 > Depuis Centreon 3.4, cela n'est plus nécessaire, et dans les versions plus récentes, **cela peut même bloquer le fonctionnement de Broker**.
 
 
-Depuis le menu **Configuration > Collecteurs > Configuration de Centreon Broker**, supprimer la valeur du paramètre **Nom du processus de bascule (failover)** pour chacun des outputs de chacune des entrées de configuration de Centreon Broker.
+Depuis le menu **Configuration > Collecteurs > Configuration de Centreon Broker**, supprimez la valeur du paramètre **Nom du processus de bascule (failover)** pour chacun des outputs de chacune des entrées de configuration de Centreon Broker.
 
 #### Redémarrage des processus de supervision
 
