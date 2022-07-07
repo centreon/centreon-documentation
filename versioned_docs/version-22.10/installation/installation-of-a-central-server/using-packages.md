@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 Centreon provides RPM packages for its products through the Centreon Open
 Source version available free of charge in our repository.
 
-These packages can be installed on CentOS 7 and on Alma/RHEL/Oracle Linux 8.
+These packages can be installed on CentOS 7, on Alma/RHEL/Oracle Linux 8 and on Debian 11.
 
 You must run the installation procedure as a privileged user.
 
@@ -32,10 +32,19 @@ yum update
 ```
 
 </TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt update && apt upgrade
+```
+
+</TabItem>
 </Tabs>
 
 > Accept all GPG keys and reboot your server if a kernel update is
 > proposed.
+
+### Additional configuration for AlmaLinux/RHEL/OracleLinux 8
 
 If you are installing Centreon on AlmaLinux/RHEL/OracleLinux 8, and you intend to use Centreon in French, Spanish or Portuguese, install the corresponding packages:
 
@@ -53,7 +62,7 @@ locale -a
 
 ## Step 1: Pre-installation
 
-### Disable SELinux
+### Disable SELinux (if it is installed)
 
 During installation, SELinux should be disabled. To do this, edit the file
 **/etc/selinux/config** and replace **enforcing** by **disabled**. You can also run the following command:
@@ -188,6 +197,30 @@ yum-config-manager --enable remi-php80
 ```
 
 </TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+Install the following dependencies:
+
+```shell
+apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2
+```
+
+#### Add Sury APT repository for PHP 8.0
+
+To install the Sury repository, execute the following command:
+
+```shell
+echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/sury-php.list
+```
+
+Then import the repository key:
+
+```shell
+wget -O- https://packages.sury.org/php/apt.gpg | gpg --dearmor | tee /etc/apt/trusted.gpg.d/php.gpg  > /dev/null 2>&1
+apt update
+```
+
+</TabItem>
 </Tabs>
 
 #### Centreon repository
@@ -209,6 +242,21 @@ dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/ce
 
 ```shell
 yum install -y  https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+To install the Centreon repository, execute the following command line:
+
+```shell
+echo "deb https://apt.centreon.com/repository/22.04/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+```
+
+Then import the repository key:
+
+```shell
+wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
 ```
 
 </TabItem>
@@ -242,6 +290,16 @@ systemctl restart mariadb
 ```
 
 </TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt update
+apt install -y centreon
+systemctl daemon-reload
+systemctl restart mariadb
+```
+
+</TabItem>
 </Tabs>
 
 You can now move to [Step 3](#step-3-configuration).
@@ -252,6 +310,7 @@ You can now move to [Step 3](#step-3-configuration).
 > the prerequired repositories.
 
 Run the following command on the Central server:
+
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
@@ -267,9 +326,18 @@ yum install -y centreon-central
 ```
 
 </TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt update
+apt install -y centreon-central
+```
+
+</TabItem>
 </Tabs>
 
 Then run the following commands on the dedicated server for your database:
+
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
@@ -284,6 +352,16 @@ systemctl restart mariadb
 
 ```shell
 yum install -y centreon-database
+systemctl daemon-reload
+systemctl restart mariadb
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt update
+apt install -y centreon-database
 systemctl daemon-reload
 systemctl restart mariadb
 ```
@@ -346,10 +424,19 @@ DROP USER 'dbadmin'@'<CENTRAL_SERVER_IP>';
 > LimitNOFILE=32000
 > ```
 >
-> Same for the MariaDB **open_files_limit** directive, example:
+> Same for the MariaDB **open_files_limit** directive, example for Centos 7, Alma/RHEL/OL 8:
 >
 > ```shell
 > $ cat /etc/my.cnf.d/centreon.cnf
+> [server]
+> innodb_file_per_table=1
+> open_files_limit=32000
+> ```
+>
+> For Debian 11:
+>
+> ```shell
+> $ cat /etc/mysql/mariadb.conf.d/80-centreon.cnf
 > [server]
 > innodb_file_per_table=1
 > open_files_limit=32000
@@ -378,11 +465,22 @@ DROP USER 'dbadmin'@'<CENTRAL_SERVER_IP>';
 >
 > Remember to restart MariaDB after a change to configuration.
 
+#### Additional configuration for Debian 11
+
+MariaDB has to listen to all interfaces instead of localhost/127.0.0.1, which is the default value. Edit the following file:
+
+```shell
+/etc/mysql/mariadb.conf.d/50-server.cnf
+```
+
+Set the **bind-address** parameter to **0.0.0.0**.
+
 ## Step 3: Configuration
 
 ### Server name
 
 If you want, you can change the server's hostname using the following command:
+
 ```shell
 hostnamectl set-hostname new-server-name
 ```
@@ -395,7 +493,12 @@ hostnamectl set-hostname central
 
 ### Set the PHP time zone
 
-You are required to set the PHP time zone. Run the following command as `root`:
+You are required to set the PHP time zone.
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / CentOS 7">
+
+Run the following command as `root`:
 
 ```shell
 echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
@@ -409,6 +512,26 @@ After saving the file, restart the PHP-FPM service:
 ```shell
 systemctl restart php-fpm
 ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+Set the PHP time zone by editing the following file:
+
+```shell
+/etc/php/8.0/mods-available/centreon.ini
+```
+
+> You can find the list of
+> supported time zones [here](http://php.net/manual/en/timezones.php).
+After saving the file, restart the PHP-FPM service:
+
+```shell
+systemctl restart php8.0-fpm
+```
+
+</TabItem>
+</Tabs>
 
 ### Services startup during system bootup
 
@@ -430,12 +553,20 @@ systemctl enable php-fpm httpd24-httpd centreon cbd centengine gorgoned snmptrap
 ```
 
 </TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+systemctl enable php8.0-fpm apache2 centreon cbd centengine gorgoned centreontrapd snmpd snmptrapd
+```
+
+</TabItem>
 </Tabs>
 
 Then execute the following command (on the central server if you are using a local database, or on your remote database server):
 
 ```shell
 systemctl enable mariadb
+systemctl restart mariadb
 ```
 
 ### Secure the database
@@ -468,6 +599,13 @@ systemctl start httpd
 
 ```shell
 systemctl start httpd24-httpd
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+systemctl start apache2
 ```
 
 </TabItem>
