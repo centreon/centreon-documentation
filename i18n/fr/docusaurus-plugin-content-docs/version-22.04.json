@@ -239,6 +239,10 @@
     "message": "Notifications",
     "description": "The label for category Notifications in sidebar docs"
   },
+  "sidebar.docs.category.NPM": {
+    "message": "NPM",
+    "description": "The label for category NPM in sidebar docs"
+  },
   "sidebar.docs.category.Centreon mobile": {
     "message": "Centreon mobile",
     "description": "The label for category Centreon mobile in sidebar docs"

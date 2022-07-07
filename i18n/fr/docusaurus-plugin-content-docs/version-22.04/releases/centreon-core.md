@@ -5,13 +5,13 @@ title: Centreon Core
 
 ## Introduction
 
-Vous trouverez dans ce chapitre tout ce qui concerne les **Centreon Core**.
+Vous trouverez dans ce chapitre tout ce qui concerne les éléments **Centreon Core**.
 
 > Il est important de mettre à jour en utilisant la documentation adéquate de mise à jour et de lire attentivement les
 > notes de mise à jour afin d'être au courant des changements qui pourraient impacter votre usage ou votre plateforme
-> ou des développements spécifiques que vous auriez fait.
+> ou des développements spécifiques que vous auriez faits.
 
-Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions commerciales, vous pouvez vous rendre sur
+Pour faire des demandes d'évolutions ou signaler des bugs sur les extensions commerciales, vous pouvez vous rendre sur
 notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon Web
@@ -75,6 +75,10 @@ By:
 ```shell
 {protocol}://{server}:{port}/centreon/websso
 ```
+
+#### New feature
+
+- [Widget] A new widget is now available to display listings from **ntopng** and provide quick access to detail pages in the **ntopng** WUI
 
 ## Centreon Collect
 
