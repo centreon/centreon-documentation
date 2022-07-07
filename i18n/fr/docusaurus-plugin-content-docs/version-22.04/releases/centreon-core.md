@@ -75,6 +75,9 @@ By:
 ```shell
 {protocol}://{server}:{port}/centreon/websso
 ```
+#### New feature
+
+- [Widget] A new widget is now available to display listings from **ntopng** and provide quick access to detail pages in the **ntopng** WUI
 
 ## Centreon Collect
 
