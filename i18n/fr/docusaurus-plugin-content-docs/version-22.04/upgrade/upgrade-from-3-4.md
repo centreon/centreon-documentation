@@ -467,6 +467,16 @@ toutes les extensions, en commençant par les suivantes :
 
 Vous pouvez alors mettre à jour toutes les autres extensions commerciales.
 
+#### Droits sur les fichiers de Broker et Engine
+
+Ajustez les droits sur les fichiers de Broker et d'Engine :
+
+```shell
+chown apache:apache /etc/centreon-engine/*
+chown apache:apache /etc/centreon-broker/*
+su - apache -s /bin/bash -c umask
+```
+
 #### Démarrer le gestionnaire de tâches
 
 Depuis la version 20.04, Centreon a changé son gestionnaire de tâches en passant de
@@ -489,6 +499,14 @@ exécutant la commande suivante:
 ```shell
 chown -R centreon-gorgone /var/lib/centreon/nagios-perf/*
 ```
+
+#### Suppression du "Nom du processus de bascule" dans la configuration des outputs broker
+
+> Dans les anciennes versions de Centreon, le mécanisme de rétention qui stockait les données issues de la supervision dans des fichiers temporaires en cas de coupure réseau nécessitait d'être configuré manuellement.
+> Depuis Centreon 3.4, cela n'est plus nécessaire, et dans les versions plus récentes, **cela peut même bloquer le fonctionnement de Broker**.
+
+
+Depuis le menu **Configuration > Collecteurs > Configuration de Centreon Broker**, supprimez la valeur du paramètre **Nom du processus de bascule (failover)** pour chacun des outputs de chacune des entrées de configuration de Centreon Broker.
 
 #### Redémarrage des processus de supervision
 

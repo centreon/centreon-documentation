@@ -43,7 +43,7 @@ Pour synchroniser une ou plusieurs images dans les médias Centreon :
 situées dans des dossiers)
 2. Assurez-vous que l'utilisateur qui exécute votre serveur web a les droits en
 lecture sur ces images
-3. Rendez-vous dans le menu `Administration > Paramétres > Images`
+3. Rendez-vous dans le menu **Administration > Paramétres > Images**
 4. Cliquez sur **Synchroniser le répertoire des images**
 
 La fenêtre suivante importe les nouvelles images :

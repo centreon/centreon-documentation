@@ -164,9 +164,17 @@ associée](../service-mapping/upgrade.md) pour le mettre à jour.
 
     Vous pouvez alors mettre à jour toutes les autres extensions commerciales.
 
-2. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
+2. Ajustez les droits sur les fichiers de Broker et d'Engine :
 
-3. Redémarrez les processus Centreon :
+    ```shell
+    chown apache:apache /etc/centreon-engine/*
+    chown apache:apache /etc/centreon-broker/*
+    su - apache -s /bin/bash -c umask
+    ```
+
+3. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
+
+4. Redémarrez les processus Centreon :
 
     ```shell
     systemctl restart cbd centengine centreontrapd gorgoned

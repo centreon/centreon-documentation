@@ -242,6 +242,27 @@ yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/ce
 ```
 
 </TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+Install the following dependencies:
+
+```shell
+apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2
+```
+
+To install the Centreon repository, execute the following command:
+
+```shell
+echo "deb https://apt.centreon.com/repository/22.04/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+```
+
+Then import the repository key:
+
+```shell
+wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+```
+
+</TabItem>
 </Tabs>
 
 > If the URL doesn't work, you can manualy find this package in the folder.
@@ -266,6 +287,14 @@ yum install centreon-map-server
 ```
 
 </TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt update
+apt install centreon-map-server
+```
+
+</TabItem>
 </Tabs>
 
 When installing Centreon MAP server, it will automatically install java
@@ -273,6 +302,32 @@ When installing Centreon MAP server, it will automatically install java
 
 > You need to have a MariaDB database to store Centreon MAP data, whether
 > it's on localhost or somewhere else.
+
+To install MariaDB, execute the following command:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install mariadb-client mariadb-server
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```shell
+yum install mariadb-client mariadb-server
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt install mariadb-client mariadb-server
+```
+
+</TabItem>
+</Tabs>
 
 ### Configuration
 
@@ -289,6 +344,21 @@ Then, restart MariaDB:
 ```shell
 systemctl restart mariadb
 ```
+
+#### Secure the database
+
+Since MariaDB 10.5, it is mandatory to secure the database's root access before installing Centreon. If you are using a local database, run the following command on the central server:
+
+```shell
+mysql_secure_installation
+```
+
+* Answer **yes** to all questions except "Disallow root login remotely?".
+* It is mandatory to set a password for the **root** user of the database. You will need this password during the [web installation](../installation/web-and-post-installation.md).
+
+> For more information, please see the [official MariaDB documentation](https://mariadb.com/kb/en/mysql_secure_installation/).
+
+#### Configure.sh script
 
 Execute the Centreon MAP server configuration script. Two modes are available:
 interactive or automatic.
@@ -383,6 +453,14 @@ yum install centreon-map-web-client
 ```
 
 </TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt update
+apt install centreon-map-web-client
+```
+
+</TabItem>
 </Tabs>
 
 ### Web
@@ -403,7 +481,7 @@ installed, we will configure it.
 
 ### Configuration
 
-Go to `Administration > Extensions > Options`, and in the Centreon MAP menu
+Go to **Administration > Extensions > Options**, and in the Centreon MAP menu
 update the Centreon MAP server address field:
 
 > Use the real IP address/hostname of your Centreon MAP server.
@@ -412,7 +490,7 @@ update the Centreon MAP server address field:
 
 ### Using the client
 
-The Centreon MAP Web interface is now available in `Monitoring > MAP`.
+The Centreon MAP Web interface is now available in **Monitoring > MAP**.
 
 ![image](../assets/graph-views/install-web-step-4.png)
 
@@ -438,7 +516,7 @@ widget. The result after installed:
 The desktop client is currently available only for **64-bit** Windows,
 Mac and Linux platforms (Debian and Ubuntu).
 
-You can find the installers in `Monitoring > Map > Desktop Client` or
+You can find the installers in **Monitoring > Map > Desktop Client** or
 [here](https://download.centreon.com/?action=product&product=centreon-map&version=21.10&secKey=9ae03a4457fa0ce578379a4e0c8b51f2).
 
 > For performance considerations, we highly recommand to have less than 5, 10

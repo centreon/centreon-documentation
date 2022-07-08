@@ -249,20 +249,20 @@ Then create a distant user with **root** privileges needed for Centreon
 installation:
 
 ```SQL
-CREATE USER '<USER>'@'<IP>' IDENTIFIED BY '<PASSWORD>';
-GRANT ALL PRIVILEGES ON *.* TO '<USER>'@'<IP>' WITH GRANT OPTION;
+CREATE USER 'centreon'@'<IP>' IDENTIFIED BY '<PASSWORD>';
+GRANT ALL PRIVILEGES ON *.* TO 'centreon'@'<IP>' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 ```
 
 > Replace **<IP\>** with the Centreon Central IP address that will connect to
 > the database server.
 >
-> Replace **<USER\>** and **<PASSWORD\>** by user's credentials.
+> Use the correct **<PASSWORD\>** for user 'centreon'.
 
 Once the installation is complete you can delete this user using:
 
 ```SQL
-DROP USER '<USER>'@'<IP>';
+DROP USER 'centreon'@'<IP>';
 ```
 
 > The package **centreon-database** installs an optimized MariaDB configuration

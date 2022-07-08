@@ -9,7 +9,7 @@ You can find in this chapter all changelogs concerning **Centreon Core**.
 
 > It is very important when you update your system to refer to this section in order to learn about behavior changes or
 > major changes that have been made on this version. This will let you know the impact of the installation of these
-> versions on the features you use or the specific developments that you have built on your platform (modules,
+> versions on the features you use or on the specific developments that you have built on your platform (modules,
 > widgets, plugins).
 
 If you have feature requests or want to report a bug, please go to our
@@ -76,6 +76,10 @@ By:
 ```shell
 {protocol}://{server}:{port}/centreon/websso
 ```
+
+#### New feature
+
+- [Widget] A new widget is now available to display listings from **ntopng** and provide quick access to detail pages in the **ntopng** WUI
 
 ## Centreon Collect
 

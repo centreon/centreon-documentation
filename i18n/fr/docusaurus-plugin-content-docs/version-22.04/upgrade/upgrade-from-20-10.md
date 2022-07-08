@@ -370,7 +370,7 @@ associée](../service-mapping/upgrade.md) pour le mettre à jour.
 
 1. Montée de version des extensions :
 
-    Depuis le menu `Administration > Extensions > Gestionnaire`, mettez à jour
+    Depuis le menu **Administration > Extensions > Gestionnaire**, mettez à jour
     toutes les extensions, en commençant par les suivantes :
 
     - License Manager,
@@ -379,9 +379,17 @@ associée](../service-mapping/upgrade.md) pour le mettre à jour.
 
     Vous pouvez alors mettre à jour toutes les autres extensions commerciales.
 
-2. [Déployer la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
+2. Ajustez les droits sur les fichiers de Broker et d'Engine :
 
-3. Redémarrez les processus Centreon :
+    ```shell
+    chown apache:apache /etc/centreon-engine/*
+    chown apache:apache /etc/centreon-broker/*
+    su - apache -s /bin/bash -c umask
+    ```
+
+3. [Déployer la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
+
+4. Redémarrez les processus Centreon :
 
     ```shell
     systemctl restart cbd centengine centreontrapd gorgoned

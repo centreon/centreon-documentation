@@ -452,6 +452,16 @@ with the following:
 
 Then you can upgrade all other commercial extensions.
 
+#### Set rights on Broker and Engine files
+
+Set the following rights on Broker and Engine files:
+
+```shell
+chown apache:apache /etc/centreon-engine/*
+chown apache:apache /etc/centreon-broker/*
+su - apache -s /bin/bash -c umask
+```
+
 #### Start the tasks manager
 
 Since 20.04, Centreon has changed its tasks manager from *Centcore* to *Gorgone*.
@@ -472,6 +482,13 @@ Change the rights on the statistics RRD files by running the following command:
 ```shell
 chown -R centreon-gorgone /var/lib/centreon/nagios-perf/*
 ```
+
+#### Remove "Failover name" from the broker outputs' configuration
+
+> In older versions of Centreon, the broker retention mechanism that stored monitoring data in temporary files when a network outage occurred used to require manual configuration.
+> Since Centreon 3.4 this is not necessary anymore, and in more recent versions **it may cause broker not to work at all**.
+
+Go to **Configuration > Pollers > Broker configuration** and empty the value of the **Failover name** parameter for each output of each broker configuration item.
 
 #### Restart monitoring processes
 

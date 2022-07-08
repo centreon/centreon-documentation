@@ -5,15 +5,14 @@ title: À partir des paquets
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 Centreon fournit des RPM pour ses produits au travers de la solution
 Centreon Open Sources disponible gratuitement sur notre dépôt.
 
-Les paquets peuvent être installés sur CentOS 7 ou sur Alma/RHEL/Oracle Linux 8.
+Les paquets peuvent être installés sur CentOS 7, Alma/RHEL/Oracle Linux 8 ou Debian 11.
 
 ## Étapes pré-installation
 
-### Désactiver SELinux
+### Désactiver SELinux (s'il est installé)
 
 Pendant l'installation, SELinux doit être désactivé. Éditez le fichier
 **/etc/selinux/config** et remplacez **enforcing** par **disabled**, ou bien
@@ -36,7 +35,6 @@ SELinux :
 $ getenforce
 Disabled
 ```
-
 
 ### Configurer ou désactiver le pare-feu
 
@@ -125,6 +123,33 @@ yum install -y centos-release-scl
 ```
 
 </TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+#### Installez les dépendances
+
+Installez les dépendances suivantes :
+
+```shell
+sudo apt update && sudo apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2
+```
+
+#### Installez le dépôt Sury APT pour PHP 8.0
+
+Pour installer le dépôt Sury, exécutez la commande suivante :
+
+```shell
+sudo echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/sury-php.list
+```
+
+Puis importez la clé du dépôt :
+
+```shell
+sudo su
+wget -O- https://packages.sury.org/php/apt.gpg | gpg --dearmor | tee /etc/apt/trusted.gpg.d/php.gpg  > /dev/null 2>&1
+exit
+```
+
+</TabItem>
 </Tabs>
 
 #### Dépôt Centreon
@@ -150,6 +175,23 @@ yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/ce
 ```
 
 </TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+Pour installer le dépôt Centreon, exécutez la commande suivante :
+
+```shell
+sudo echo "deb https://apt.centreon.com/repository/22.04/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/centreon.list
+```
+
+Puis importez la clé du dépôt :
+
+```shell
+sudo su
+wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+exit
+```
+
+</TabItem>
 </Tabs>
 
 ## Installation
@@ -168,6 +210,14 @@ dnf install -y centreon-poller
 
 ```shell
 yum install -y centreon-poller
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt update
+apt install -y centreon-poller
 ```
 
 </TabItem>

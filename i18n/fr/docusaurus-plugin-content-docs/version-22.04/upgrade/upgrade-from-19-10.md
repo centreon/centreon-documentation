@@ -395,7 +395,7 @@ associée](../service-mapping/upgrade.md) pour le mettre à jour.
 
 #### Montée de version des extensions
 
-Depuis le menu `Administration > Extensions > Gestionnaire`, mettez à jour
+Depuis le menu **Administration > Extensions > Gestionnaire**, mettez à jour
 toutes les extensions, en commençant par les suivantes :
 
 - License Manager,
@@ -403,6 +403,16 @@ toutes les extensions, en commençant par les suivantes :
 - Auto Discovery.
 
 Vous pouvez alors mettre à jour toutes les autres extensions commerciales.
+
+#### Droits sur les fichiers de Broker et Engine
+
+Ajustez les droits sur les fichiers de Broker et d'Engine :
+
+```shell
+chown apache:apache /etc/centreon-engine/*
+chown apache:apache /etc/centreon-broker/*
+su - apache -s /bin/bash -c umask
+```
 
 #### Démarrer le gestionnaire de tâches
 
