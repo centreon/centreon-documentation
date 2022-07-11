@@ -220,6 +220,41 @@ apt update
 </TabItem>
 </Tabs>
 
+#### MariaDB repository
+
+<Tabs groupId="sync">
+
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+cd /tmp
+dnf install -y wget
+wget https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
+bash ./mariadb_repo_setup
+sed -ri 's/10\../10.5/' /etc/yum.repos.d/mariadb.repo
+rm -f ./mariadb_repo_setup
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```shell
+cd /tmp
+yum install -y wget
+wget https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
+bash ./mariadb_repo_setup
+sed -ri 's/10\../10.5/' /etc/yum.repos.d/mariadb.repo
+rm -f ./mariadb_repo_setup
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+The packages will be installed automatically.
+
+</TabItem>
+</Tabs>
+
 #### Centreon repository
 
 To install Centreon software from the repository, you should first install the
@@ -244,7 +279,7 @@ yum install -y  https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/c
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
-To install the Centreon repository, execute the following command line:
+To install the Centreon repository, execute the following command:
 
 ```shell
 echo "deb https://apt.centreon.com/repository/22.04/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list

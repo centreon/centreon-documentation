@@ -63,6 +63,17 @@ yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/ce
 
 > Si vous avez une édition Business, installez également le dépôt Business. Vous pouvez en trouver l'adresse sur le [portail support Centreon](https://support.centreon.com/s/repositories).
 
+### Installer le dépôt MariaDB
+
+```shell
+cd /tmp
+yum install -y wget
+wget https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
+bash ./mariadb_repo_setup
+sed -ri 's/10\../10.5/' /etc/yum.repos.d/mariadb.repo
+rm -f ./mariadb_repo_setup
+```
+
 ### Montée de version de PHP
 
 Centreon 22.04 utilise PHP en version 8.0.

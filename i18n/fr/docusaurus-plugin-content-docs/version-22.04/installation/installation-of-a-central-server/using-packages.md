@@ -218,6 +218,41 @@ apt update
 </TabItem>
 </Tabs>
 
+#### Dépôt MariaDB
+
+<Tabs groupId="sync">
+
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+cd /tmp
+dnf install -y wget
+wget https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
+bash ./mariadb_repo_setup
+sed -ri 's/10\../10.5/' /etc/yum.repos.d/mariadb.repo
+rm -f ./mariadb_repo_setup
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```shell
+cd /tmp
+yum install -y wget
+wget https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
+bash ./mariadb_repo_setup
+sed -ri 's/10\../10.5/' /etc/yum.repos.d/mariadb.repo
+rm -f ./mariadb_repo_setup
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+Les paquets seront installés automatiquement.
+
+</TabItem>
+</Tabs>
+
 #### Dépôt Centreon
 
 Afin d'installer les logiciels Centreon à partir des dépôts, vous devez au
