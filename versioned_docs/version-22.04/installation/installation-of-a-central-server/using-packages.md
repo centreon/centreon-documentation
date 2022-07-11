@@ -116,6 +116,7 @@ dnf config-manager --set-enabled 'powertools'
 ```
 
 Enable PHP 8.0 using the following commands:
+
 ```shell
 dnf module reset php
 dnf module install php:remi-8.0
@@ -138,13 +139,13 @@ subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 ```
 
 Enable PHP 8.0 using the following commands:
+
 ```shell
 dnf module reset php
 dnf module install php:remi-8.0
 ```
 
 </TabItem>
-
 <TabItem value="Oracle Linux 8" label="Oracle Linux 8">
 
 #### Remi and CodeReady Builder repositories
@@ -161,6 +162,7 @@ dnf config-manager --set-enabled ol8_codeready_builder
 ```
 
 Enable PHP 8.0 using the following commands:
+
 ```shell
 dnf module reset php
 dnf module install php:remi-8.0
@@ -197,6 +199,7 @@ yum-config-manager --enable remi-php80
 <TabItem value="Debian 11" label="Debian 11">
 
 Install the following dependencies:
+
 ```shell
 apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2
 ```
@@ -204,6 +207,7 @@ apt update && apt install lsb-release ca-certificates apt-transport-https softwa
 #### Add Sury APT repository for PHP 8.0
 
 To install the Sury repository, execute the following command:
+
 ```shell
 echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/sury-php.list
 ```
@@ -241,8 +245,6 @@ yum install -y  https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/c
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
-
-To install the Centreon repository, execute the following command line:
 
 ```shell
 echo "deb https://apt.centreon.com/repository/22.04/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
@@ -332,6 +334,7 @@ apt install -y centreon-central
 </Tabs>
 
 Then run the following commands on the dedicated server for your database:
+
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
@@ -480,6 +483,7 @@ DROP USER 'dbadmin'@'<CENTRAL_SERVER_IP>';
 ### Server name
 
 If you want, you can change the server's hostname using the following command:
+
 ```shell
 hostnamectl set-hostname new-server-name
 ```
@@ -563,6 +567,7 @@ Then execute the following command (on the central server if you are using a loc
 systemctl enable mariadb
 systemctl restart mariadb
 ```
+
 ### Secure the database
 
 Since MariaDB 10.5, it is mandatory to secure the database's root access before installing Centreon.

@@ -5,11 +5,9 @@ title: Install Centreon MBI extension
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 > Centreon MBI is a Centreon **extension** that requires a valid license key. To
 > purchase one and retrieve the necessary repositories, contact
 > [Centreon](mailto:sales@centreon.com).
-
 
 Four major steps to installing Centreon MBI:
 
@@ -60,7 +58,6 @@ between the dedicated BI server, Centreon server and databases:
 |  CBIS             | Reporting server |  Centreon             | 80     | HTTP\*    |
 |  Widgets          | Centreon         |  Reporting server     | 3306   | TCP       |
 
-
 \**Only required for Host-Graph-v2 and Hostgroup-Graph-v2 reports that use Centreon API to generate graphs*
 
 ### Packages information
@@ -84,7 +81,7 @@ considerations.
 **Software**
 
 - Centreon 22.04
-- Check that the parameter `date.timezone` is correctly configured in `/etc/php.d/php.ini`
+- Check that the parameter `date.timezone` is correctly configured in php ini file [here](../installation/installation-of-a-central-server/using-packages#set-the-php-time-zone)
   (same timezone displayed with the command `timedatectl status`)
 - Avoid the usage of the following variables in your monitoring MariaDB configuration.
   They halt long queries execution and can stop the ETL or the report generation jobs:
@@ -103,7 +100,6 @@ considerations.
 | User       | umask  | home             |
 |------------|--------|------------------|
 | centreonBI |  0002  | /home/centreonBI |
-
 
 ### Reporting dedicated server
 
@@ -137,10 +133,18 @@ vgdisplay vg_data | grep -i free
 
 **Software**
 
-- OS: CentOS 7 / Redhat 7 or 8
+- OS: CentOS 7 / Redhat 7 or 8 / Debian 11
 - SGBD: MariaDB 10.5
-- Firewall: Disabled
-- SELinux: Disabled
+- Firewall: Disabled ([show here](../installation/installation-of-a-central-server/using-packages#configure-or-disable-the-firewall))
+- SELinux: Disabled ([show here](../installation/installation-of-a-central-server/using-packages#disable-selinux-if-it-is-installed))
+
+>Make sure timezone of the reporting server is the same of central server, otherwise the report publications will fail (link to download missing).
+>The same timezone must be displayed with the command `timedatectl`
+> you can change the timezone with this command:
+>
+>```shell
+>timedatectl set-timezone Europe/Paris
+>```
 
 We advise to tune your MariaDB database server on your reporting server in
 order to have better performance. You will need at least 12GB on your
@@ -164,10 +168,9 @@ Description of users, umask and home directory:
 |------------|------------|-------------------|
 | centreonBI | 0002       |  /home/centreonBI |
 
-## Install the extension on Centreon
+## Install the extension on Centreon Web
 
-The tasks explained in this chapter must be performed on the Centreon
-central server.
+The tasks explained in this chapter must be performed on the **Centreon central server**.
 
 Install the Centreon MBI repository, you can find it on the 
 [support portal](https://support.centreon.com/s/repositories).
@@ -190,16 +193,6 @@ yum install centreon-bi-server
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
-
-Add the following external repository (for Java 8):
-
-```shell
-wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add -
-add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
-apt update
-```
-
-Then install Centreon MBI:
 
 ```shell
 apt update && apt install centreon-bi-server
@@ -232,7 +225,10 @@ installation process.*
 
 ### Centreon central databases access
 
-#### Case #1: MariaDB monitoring database is hosted on the Central monitoring server
+<Tabs groupId="sync">
+<TabItem value="Local monitoring database on Central server" label="Local monitoring database on Central server">
+
+The MariaDB monitoring database is hosted on the Central monitoring server
 
 Launch the command below to authorize the reporting server to connect to
 the monitoring server databases. Use the following option:
@@ -245,7 +241,10 @@ option **root-password**.
 /usr/share/centreon/www/modules/centreon-bi-server/tools/centreonMysqlRights.pl --root-password=@ROOTPWD@
 ```
 
-#### Case #2: MariaDB monitoring database is hosted on a dedicated server
+</TabItem>
+<TabItem value="Remote monitoring database on Central server" label="Remote monitoring database on Central server">
+
+The MariaDB monitoring database is hosted on a dedicated server
 
 Connect by SSH to the database server, and the run the following commands:
 
@@ -257,30 +256,37 @@ GRANT ALL PRIVILEGES ON centreon_storage.* TO 'centreonbi'@'$BI_ENGINE_IP$';
 
 **$BI_ENGINE_IP$**: IP address of the reporting server.
 
+</TabItem>
+</Tabs>
+
 > If you're using MariaDB replication for your **monitoring databases**,
 > certain views are created during installation of Centreon MBI. You need
 > to exclude them from replication by adding the following line in the
 > my.cnf file of the slave server.
+>
 > ```shell
 > replicate-wild-ignore-table=centreon.mod_bi_%v01,centreon.mod_bi_%V01
 > ```
+>
 > Then, create the views manually on the slave server by launching the
 > following command line:
 >
 > #mysql centreon < [view_creation.sql](../assets/reporting/installation/view_creation.sql)
 
-
-Please go to the next chapter to continue the installation.
-
-##### Additional configuration for Debian 11
-
-MariaDB has to listen to all interfaces instead of localhost/127.0.0.1, which is the default value. Edit the following file:
-
-```shell
-/etc/mysql/mariadb.conf.d/50-server.cnf
-```
-
-Set the **bind-address** parameter to **0.0.0.0**.
+>#### Additional configuration for Debian 11
+>
+>MariaDB has to listen to all interfaces instead of localhost/127.0.0.1, which is the default value.
+>Edit the following file:
+>
+>```shell
+>/etc/mysql/mariadb.conf.d/50-server.cnf
+>```
+>
+>Set the **bind-address** parameter to **0.0.0.0** and restart mariadb.
+>
+>```shell
+>systemctl restart mariadb
+>```
 
 ### Grant rights to user cbis
 
@@ -361,6 +367,35 @@ wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 ```
 
 </TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+Install prerequesites packages
+
+```shell
+apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2
+```
+
+Install Open Jdk repository
+
+```shell
+wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add -
+add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
+```
+
+and import GPG key of centreon
+
+```shell
+wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+```
+
+Now you can install centreon MBI package and MariaDB-server
+
+```shell
+apt update
+apt install centreon-bi-reporting-server mariadb-server mariadb-client
+```
+
+</TabItem>
 </Tabs>
 
 Enable the cbis service:
@@ -376,10 +411,6 @@ systemctl enable cbis
 Make sure you have installed the MariaDB configuration file provided in
 the pre-requisites before starting the MariaDB service [following file](../assets/reporting/installation/centreon.cnf)
 
-```shell
-systemctl restart mariadb
-```
-
 For installation, it is necessary to modify **LimitNOFILE** limitation.
 Setting this option in /etc/my.cnf will NOT work.
 
@@ -390,7 +421,22 @@ systemctl daemon-reload
 systemctl restart mariadb
 ```
 
-Then start the service MariaDB. If this service cannot start, remove the
+>#### Additional configuration for Debian 11
+>
+>MariaDB has to listen to all interfaces instead of localhost/127.0.0.1, which is the default value.
+>Edit the following file:
+>
+>```shell
+>/etc/mysql/mariadb.conf.d/50-server.cnf
+>```
+>
+>Set the **bind-address** parameter to **0.0.0.0** and restart mariadb.
+>
+>```shell
+>systemctl restart mariadb
+>```
+
+If this service cannot start, remove the
 ib_log files before restarting MariaDB (be sure MariaDB is stopped):
 
 ```shell
@@ -404,6 +450,20 @@ and in the [client] section, add the following variable:
 ```shell
 socket=$PATH_TO_SOCKET$
 ```
+
+### Secure the database
+
+Since MariaDB 10.5, it is mandatory to secure the database's root access before installing Centreon.
+If you are using a local database, run the following command on the central server otherwise on the database server:
+
+```shell
+mysql_secure_installation
+```
+
+* Answer **yes** to all questions except "Disallow root login remotely?".
+* It is mandatory to set a password for the **root** user of the database. You will need this password during the [web installation](../web-and-post-installation.md).
+
+> For more information, please see the [official MariaDB documentation](https://mariadb.com/kb/en/mysql_secure_installation/).
 
 ### Start configuring
 
@@ -420,6 +480,52 @@ order to publish reports on the Centreon web interface. Finally, it
 activates the backup and starts the CBIS service.
 
 Once installation is complete, go to the next chapter to configure the ETL.
+
+#### Having trouble with SSH exchange key.
+In few cases, SSH exchange key failed.
+Proceed manually as below:
+
+**On the monitoring server**. To begin, switch to the `bash` environment of `centreonBI`:
+
+```bash
+su - centreonBI
+```
+
+Then generate a ssh key to prepare environement:
+
+```bash
+ssh-keygen -t ed25519 -a 100
+```
+
+Then, **on the reporting server**. Switch to the `bash` environment of `centreonBI`:
+
+```bash
+su - centreonBI
+```
+
+Generate the ssh key:
+
+```bash
+ssh-keygen -t ed25519 -a 100
+cat ~/.ssh/id_ed25519.pub | tee ~/.ssh/authorized_keys
+```
+
+After running these commands, copy the contents of the file that was displayed under the `cat` command and paste it into the `~/.ssh/authorized_keys` file **on the monitoring server** and then apply the correct permissions to the file (still as `centreon`):
+
+```bash
+chmod 600 ~/.ssh/authorized_keys
+```
+
+The key exchange must then be validated by a first connection that will accept the signature of the SSH server (always as `centreonBI`) **from the reporting server**:
+
+```bash
+ssh centreonBI@@MONITORING_SERVER@
+```
+
+Then exit the `centreonBI` session with `exit` or `Ctrl-D` of the two servers.
+
+In order to continue, relaunch the installation script (`/usr/share/centreon-bi/config/install.sh`) as above and answer **Yes** when prompted to proceed SSH exchange key.
+You will have an error when create USER because already exist. It's not blocking step.
 
 ### ETL: Configuration
 
@@ -439,12 +545,10 @@ according to Centreon MBI requirements.
 In the *Reporting > Business Intelligence > General Options > ETL options* menu
 of the Centreon server, specify the following options:
 
-
 | **Options**                                                                            | **Values**                                                                                                                                                                                                                            |
 |----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **General options**                                                                    |                                                                                                                                                                                                                                       |
 | Reporting engine uses a dedicated dedicated MariaDB server                             | Yes. You **must** use a reporting server                                                                                                                                                                                              |
-| Compatibility mode to use report templates from version of Centreon MBI prior to 1.5.0 | No (deprecated)                                                                                                                                                                                                                       |
 | Temporary file storage directory on reporting server                                   | Folder where dumps will be stored on the reporting server                                                                                                                                                                             |
 | Type of statistics to build                                                            | Select “Availability only” if you only use availability reports. Select “Performance and capacity only” if you only want to use capacity and performance reports. Select “All” to calculate the statistics for both types of reports. |
 | Use large memory tweaks (store MariaDB temporary tables in memory)                     | Activated only if your MariaDB configuration and allocated physical memory on the server permit.                                                                                                                                      |
@@ -512,9 +616,29 @@ You can run this cron daily or weekly, depending on the execution time of the ba
 
 Then restart the service cron:
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
 ```shell
 systemctl restart crond
 ```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```shell
+systemctl restart crond
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+systemctl restart cron
+```
+
+</TabItem>
+</Tabs>
 
 **BEST PRACTICE**: Select different retention periods according to the
 granularity of the statistical data:
@@ -564,9 +688,29 @@ statistic calculation. On the reporting server, edit the file
 
 Restart the service cron:
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
 ```shell
 systemctl restart crond
 ```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```shell
+systemctl restart crond
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+systemctl restart cron
+```
+
+</TabItem>
+</Tabs>
 
 > Make sure that the batch *centreonBIETL* starts only once the batch
 > *eventReportBuilder* has finished on the monitoring server (see the cron
