@@ -228,8 +228,7 @@ apt update
 
 ```shell
 cd /tmp
-dnf install -y wget
-wget https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
+curl -JO https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
 bash ./mariadb_repo_setup
 sed -ri 's/10\../10.5/' /etc/yum.repos.d/mariadb.repo
 rm -f ./mariadb_repo_setup
@@ -240,8 +239,7 @@ rm -f ./mariadb_repo_setup
 
 ```shell
 cd /tmp
-yum install -y wget
-wget https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
+curl -JO https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
 bash ./mariadb_repo_setup
 sed -ri 's/10\../10.5/' /etc/yum.repos.d/mariadb.repo
 rm -f ./mariadb_repo_setup
@@ -369,6 +367,7 @@ apt install -y centreon-central
 </Tabs>
 
 Then run the following commands on the dedicated server for your database:
+
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
