@@ -3,100 +3,262 @@ id: applications-databases-postgresql
 title: PostgreSQL DB
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+## Pack Assets
+
+### Templates
+
+The Centreon Pack PostgreSQL brings a host template:
+
+* App-DB-Postgres-custom
+
+It brings the following service templates:
+
+| Service Alias     | Service Template                  | Service Description                                                  | Default | Discovery |
+|:------------------|:----------------------------------|:---------------------------------------------------------------------|:--------|:----------|
+| Bloat             | App-DB-Postgres-Bloat             | Check tables and btrees bloat                                        |         |           |
+| Cache-Hitratio    | App-DB-Postgres-Cache-Hitratio    | Check the buffer cache hitratio                                      | X       |           |
+| Collection        | App-DB-Postgres-Collection        | Collect and compute SQL datas                                        |         |           |
+| Connection        | App-DB-Postgres-Connection        | Check database connection                                            | X       |           |
+| Connection-Number | App-DB-Postgres-Connection-Number | Check the current number of connections on databases                 | X       |           |
+| Database-Size     | App-DB-Postgres-Database-Size     | Check databases size                                                 |         | X         |
+| Locks             | App-DB-Postgres-Locks             | Check databases locks                                                | X       |           |
+| Query-Time        | App-DB-Postgres-Query-Time        | Check the time of running queries on databases                       | X       |           |
+| Sql-Statement     | App-DB-Postgres-Sql-Statement     | Check allowing to execute a custom SQL request with a digital answer |         |           |
+| Statistics        | App-DB-Postgres-Statistics        | Check databases queries statistics                                   |         |           |
+| Tablespace-Size   | App-DB-Postgres-Tablespace-Size   | Check tablespaces usage                                              |         |           |
+| Time-Sync         | App-DB-Postgres-Time-Sync         | Check time offset between the poller and the server                  |         |           |
+| Vacuum            | App-DB-Postgres-Vacuum            | Check the last execution vacuum time                                 |         |           |
+
+### Discovery rules
+
+<Tabs groupId="sync">
+<TabItem value="Service" label="Service">
+
+| Rule name                      | Description                                |
+|:-------------------------------|:-------------------------------------------|
+| App-DB-Postgres-Databases-Size | Discover databases and monitor space usage |
+
+More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
+and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
+
+</TabItem>
+</Tabs>
+
+### Collected metrics & status
+
+<Tabs groupId="metrics">
+<TabItem value="Bloat" label="Bloat">
+
+| Metric Name                                        | Unit  |
+|:---------------------------------------------------|:------|
+| *db_name~table_name*#table.space.usage.bytes       | B     |
+| *db_name~table_name*#table.space.free.bytes        | B     |
+| *db_name~table_name*#table.dead_tuple.bytes        | B     |
+| *db_name~index_name*#index.space.usage.bytes       | B     |
+| *db_name~index_name*#index.leaf_density.percentage | %     |
+
+</TabItem>
+<TabItem value="Cache-Hitratio" label="Cache-Hitratio">
+
+| Metric Name                                    | Unit  |
+|:-----------------------------------------------|:------|
+| *db_name*#database.hitratio.average.percentage | %     |
+| *db_name*#database.hitratio.delta.percentage   | %     |
+
+</TabItem>
+<TabItem value="Connection" label="Connection">
+
+| Metric Name                  | Unit  |
+|:-----------------------------|:------|
+| connection.time.milliseconds | ms    |
+
+</TabItem>
+<TabItem value="Connection-Number" label="Connection-Number">
+
+| Metric Name                                | Unit  |
+|:-------------------------------------------|:------|
+| *db_name*#database.clients.connected.count |       |
+
+</TabItem>
+<TabItem value="Database-Size" label="Database-Size">
+
+| Metric Name                          | Unit  |
+|:-------------------------------------|:------|
+| *db_name*#database.space.usage.bytes | B     |
+
+</TabItem>
+<TabItem value="Locks" label="Locks">
+
+| Metric Name                              | Unit  |
+|:-----------------------------------------|:------|
+| *db_name~lock_type*#database.locks.count |       |
+
+</TabItem>
+<TabItem value="Query-Time" label="Query-Time">
+
+| Metric Name                          | Unit  |
+|:-------------------------------------|:------|
+| *db_name*#database.longqueries.count |       |
+
+</TabItem>
+<TabItem value="Statistics" label="Statistics">
+
+| Metric Name                      | Unit  |
+|:---------------------------------|:------|
+| queries.commit.count             |       |
+| queries.rollback.count           |       |
+| queries.insert.count             |       |
+| queries.update.count             |       |
+| queries.delete.count             |       |
+| *db_name*#queries.commit.count   |       |
+| *db_name*#queries.rollback.count |       |
+| *db_name*#queries.insert.count   |       |
+| *db_name*#queries.update.count   |       |
+| *db_name*#queries.delete.count   |       |
+
+</TabItem>
+<TabItem value="Tablespace-Size" label="Tablespace-Size">
+
+| Metric Name                                    | Unit  |
+|:-----------------------------------------------|:------|
+| *tablespace_name*#tablespace.space.usage.bytes | B     |
+
+</TabItem>
+<TabItem value="Time-Sync" label="Time-Sync">
+
+| Metric Name         | Unit  |
+|:--------------------|:------|
+| time.offset.seconds | s     |
+
+</TabItem>
+<TabItem value="Vacuum" label="Vacuum">
+
+| Metric Name                   | Unit  |
+|:------------------------------|:------|
+| vacuum.last_execution.seconds | s     |
+
+</TabItem>
+</Tabs>
+
 ## Prerequisites
 
-#### Create a user dedicated on the server.
+To monitor your PostgreSQL server, create a dedicated read-only user:
 
-    CREATE USER monitoring WITH PASSWORD 'centreon';
+```
+CREATE USER centreonro WITH PASSWORD 'test';
+GRANT CONNECT ON DATABASE postgres TO centreonro;
+GRANT USAGE ON SCHEMA public TO centreonro;
+GRANT SELECT ON ALL TABLES IN SCHEMA public TO centreonro;
+GRANT SELECT ON ALL SEQUENCES IN SCHEMA public TO centreonro;
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT ON TABLES TO centreonro;
+```
 
-#### Grant SELECT Privileges on in order to use the SQL mode
+To use service **Tablespace-Size**, you need to use a superuser account.
 
-    GRANT SELECT ON mytable TO monitoring;
+To use service **Bloat**, you need to install the extension **pgstattuple** (https://docs.postgresql.fr/13/pgstattuple.html) and add following privileges:
 
-### Centreon Plugin
+```
+GRANT EXECUTE ON FUNCTION pgstattuple(regclass) TO centreonro;
+GRANT EXECUTE ON FUNCTION pgstatindex(regclass) TO centreonro;
+```
 
-Install this plugin on each needed poller:
+## Setup
 
-``` shell
+<Tabs groupId="sync">
+<TabItem value="Online License" label="Online License">
+
+1. Install the Centreon plugin package on every Centreon poller expected to monitor **PostgreSQL** resources:
+
+```bash
 yum install centreon-plugin-Applications-Databases-Postgresql
 ```
 
-In order to use this template, the following RPM are needed on your poller:
+2. On the Centreon web interface, install the **PostgreSQL** Centreon Pack on the **Configuration > Plugin Packs** page.
 
-  - postgresql
-  - postgresql-libs
-  - perl-DBD-Pg
+</TabItem>
 
-## Centreon Configuration
+<TabItem value="Offline License" label="Offline License">
 
-### Create a new server postgresql
+1. Install the Centreon plugin package on every Centreon poller expected to monitor **PostgreSQL** resources:
 
-Go to "Configuration \> Hosts" and click "Add". Then, fill the form as shown by
-the following table :
+```bash
+yum install centreon-plugin-Applications-Databases-Postgresql
+```
 
-| Field                   | Value                      |
-| :---------------------- | :------------------------- |
-| Host name               | *Name of the host*         |
-| Alias                   | *Host description*         |
-| IP                      | *Host IP Address*          |
-| Monitored from          | *Monitoring Poller to use* |
-| Host Multiple Templates | App-DB-Postgre-custom      |
+2. Install the **PostgreSQL** Centreon Pack RPM on the Centreon Central server:
 
-Click "Save" button.
+```bash
+yum install centreon-pack-applications-databases-postgresql
+```
 
-Those services were automatically created for this host:
+3. On the Centreon web interface, install the **PostgreSQL** Centreon Pack on the **Configuration > Plugin Packs** page.
 
-| Service           | Description                                                                           |
-| :---------------- | :------------------------------------------------------------------------------------ |
-| Bloat             | Check bloat (unused amount of dead space) in table and indexes of the Postgres server |
-| Cache-Hitratio    | Check the "buffer cache hitratio" of the Postgres server                              |
-| Connection        | Monitor to the connection time to the db                                              |
-| Connection-Number | Monitor the number of connections                                                     |
-| Locks             | Check locks of the Postgres server                                                    |
-| Ping              | Monitor host response time                                                            |
-| Query-time        | Check how long a specific query takes to run                                          |
-| Time-Sync         | Check time between poller and the Postgres server                                     |
+</TabItem>
+</Tabs>
 
-### Host Macro Configuration
+## Configuration
 
-The following macros must be configured on host:
+### Host
 
-| Macro            | Description                           | Default value | Example  |
-| :--------------- | :------------------------------------ | :------------ | :------- |
-| POSTGRESPORT     | Port used to connect to the DB server | 5432          | 5432     |
-| POSTGRESUSERNAME | the postgres db user                  | USERNAME      | root     |
-| POSTGRESPASSWORD | the postgres db user's password       | PASSWORD      | p@ssw0rd |
+* Log into Centreon and add a new host through **Configuration > Hosts**.
+* Fill the **Name**, **Alias** and **IP Address/DNS** fields according to your **PostgreSQL** server's settings.
+* Apply the **App-DB-Postgres-custom** template to the host.
+* Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
 
-### Service Macro configuration
+| Mandatory   | Macro                | Description                                                                       |
+|:------------|:---------------------|:----------------------------------------------------------------------------------|
+| X           | POSTGRESUSERNAME     |                                                                                   |
+| X           | POSTGRESPASSWORD     |                                                                                   |
+|             | POSTGRESPORT         | Port used (Default: 5432)                                                         |
+|             | POSTGRESDATABASE     | Database connection (Default: postgres)                                           |
+|             | POSTGRESEXTRAOPTIONS | Any extra option you may want to add to every command line (eg. a --verbose flag) |
 
-The following macros must be configured on services:
+## How to check in the CLI that the configuration is OK and what are the main options for?
 
-| Service            | Macro            | Description                       | Default Value                           | Example                         |
-| :----------------- | :--------------- | :-------------------------------- | :-------------------------------------- | :------------------------------ |
-| Bloat              | WARNING          | Warning Threshold                 | 1GB                                     | 1GB                             |
-| Bloat              | CRITICAL         | Critical Threshold                | 2GB                                     | 2GB                             |
-| Bloat              | ACTION           | The test determined by the plugin | bloat                                   |                                 |
-| Bloat              | EXTRAEXCLUDE     | Database to exclude               | \--exclude=postgres,template0,template1 |                                 |
-| Cache-Hitratio     | WARNING          | Warning Threshold                 | 90%                                     | 90%                             |
-| Cache-Hitratio     | CRITICAL         | Critical Threshold                | 80%                                     | 80%                             |
-| Cache-Hitratio     | ACTION           | The test determined by the plugin | hitratio                                |                                 |
-| Cache-Hitratio     | EXTRAEXCLUDE     | Database to exclude               | \--exclude=postgres,template0,template1 |                                 |
-| Connection         | ACTION           | The test determined by the plugin | connection                              |                                 |
-| Connection         | WARNING          | Warning Threshold                 | 0                                       | 0                               |
-| Connection         | CRITICAL         | Critical Threshold                | 0                                       | 0                               |
-| Connetions-Number  | ACTION           | The test determined by the plugin | backends                                |                                 |
-| connections-Number | WARNING          | Warning Threshold                 | 90%                                     | 90%                             |
-| Connection-Number  | CRITICAL         | Critical Threshold                | 95%                                     | 95%                             |
-| Connection-Number  | EXTRAEXCLUDE     | Database to exclude               | \--exclude=postgres,template0,template1 |                                 |
-| Locks              | WARNING          | Warning Threshold                 | 200                                     | 200                             |
-| Locks              | CRITICAL         | Critical Threshold                | total=250:waiting=5:exclusive=20        | total=250:waiting=5:exclusive=2 |
-| Locks              | ACTION           | The test determined by the plugin | locks                                   |                                 |
-| Query-Time         | WARNING          | Warning Threshold                 | 30 secondes                             | 30 secondes                     |
-| Query-Time         | CRITICAL         | Critical Threshold                | 1 minutes                               | 1 minutes                       |
-| Query-Time         | ACTION           | The test determined by the plugin | query\_time                             |                                 |
-| Query-Time         | EXTRAEXCLUDE     | Database to exclude               | \--exclude=postgres,template0,template1 |                                 |
-| Query-Time         | EXTRAEXCLUDEUSER | User to exclude                   | \--excludeuser=postgres                 |                                 |
-| Time-Sync          | WARNING          | Warning Threshold                 | 2                                       | 2                               |
-| Time-Sync          | CRTICAL          | Critical Threshold                | 5                                       | 5                               |
-| Time-Sync          | ACTION           | The test determined by the plugin | timesync                                |                                 |
-| Time-Sync          | EXTRAEXCLUDE     | Database to exclude               | \--exclude=postgres,template0,template1 |                                 |
+Once the plugin is installed, log into your Centreon Poller's CLI using the
+**centreon-engine** user account (`su - centreon-engine`) and test the plugin by
+running the following command:
+
+```bash
+/usr/lib/centreon/plugins/centreon_postgresql.pl \
+    --plugin=database::postgres::plugin \
+    --mode=connection-time \
+    --hostname=10.0.0.1 \
+    --database=postgres \
+    --port=5432 \
+    --username='centreonro' \
+    --password='test'
+```
+
+The expected command output is shown below:
+
+```bash
+OK: Connection established in 0.533s. | 'connection.time.milliseconds'=533ms;;;0;
+```
+
+All available options for a given mode can be displayed by adding the
+`--help` parameter to the command:
+
+```bash
+/usr/lib/centreon/plugins/centreon_postgresql.pl \
+    --plugin=database::postgres::plugin \
+    --mode=connection-time \
+    --help
+```
+
+All available options for a given mode can be displayed by adding the
+`--list-mode` parameter to the command:
+
+```bash
+/usr/lib/centreon/plugins/centreon_postgresql.pl \
+    --plugin=database::postgres::plugin \
+    --list-mode
+```
+
+### Troubleshooting
+
+Please find the [troubleshooting documentation](../getting-started/how-to-guides/troubleshooting-plugins.md)
+for Centreon Plugins typical issues.
