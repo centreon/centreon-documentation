@@ -137,22 +137,6 @@ Install the following dependencies:
 sudo apt update && sudo apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2
 ```
 
-#### Add Sury APT repository for PHP 8.0
-
-To install the Sury repository, execute the following command:
-
-```shell
-sudo echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/sury-php.list
-```
-
-Then import the repository key:
-
-```shell
-sudo su
-wget -O- https://packages.sury.org/php/apt.gpg | gpg --dearmor | tee /etc/apt/trusted.gpg.d/php.gpg  > /dev/null 2>&1
-exit
-```
-
 </TabItem>
 </Tabs>
 
