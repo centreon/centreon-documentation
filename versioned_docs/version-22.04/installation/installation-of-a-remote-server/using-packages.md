@@ -224,6 +224,39 @@ apt update
 
 </Tabs>
 
+#### MariaDB repository
+
+<Tabs groupId="sync">
+
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+cd /tmp
+curl -JO https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
+bash ./mariadb_repo_setup
+sed -ri 's/10\../10.5/' /etc/yum.repos.d/mariadb.repo
+rm -f ./mariadb_repo_setup
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```shell
+cd /tmp
+curl -JO https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
+bash ./mariadb_repo_setup
+sed -ri 's/10\../10.5/' /etc/yum.repos.d/mariadb.repo
+rm -f ./mariadb_repo_setup
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+On Debian 11 the packages will be installed automatically.
+
+</TabItem>
+</Tabs>
+
 #### Centreon repository
 
 To install Centreon software from the repository, you should first install the
@@ -728,7 +761,9 @@ Finally, add rights to **centreon** database user to use **LOAD DATA INFILE**
 command:
 
 ```sql
+mysql -u root -p
 GRANT FILE on *.* to 'centreon'@'localhost';
+exit
 ```
 
 ## Add the Remote Server to configuration
