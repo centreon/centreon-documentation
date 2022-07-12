@@ -20,6 +20,7 @@ $ perl /usr/local/bin/gorgone_config_init.pl
 $ perl ./contrib/gorgone_config_init.pl
 2019-09-30 11:00:00 - INFO - file '/etc/centreon-gorgone/config.yaml' created success
 ```
+> You need to adapt the sections according to your own initial database, configuration and network setup.
 
 The following configuration file will be created at **/etc/centreon-gorgone/config.yaml**:
 

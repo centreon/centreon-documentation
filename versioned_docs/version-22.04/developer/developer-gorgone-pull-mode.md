@@ -5,6 +5,13 @@ title : Configuring Gorgone in pull mode
 
 This procedure describes how to configure Gorgone between a distant poller and a central server.
 
+- Pull mode allows the poller to act as a client and connect to the Central (which will be the server). 
+
+- Pull mode is relevant when firewalls are set on pollers and prevent incoming traffic.
+
+- Pull mode is relevant when the Central is in the cloud and pollers are not reachable through usual IP addresses. So the pull (or reverse) mode is used to make each poller to initiate a connection to the public IP address of the Central. Learn more about this use case in [this article](https://thewatch.centreon.com/product-how-to-21/how-to-use-the-gorgone-pull-mode-374).
+
+
 > Note: In our case, we have the configuration described below (you have to adapt the procedure regarding your configuration).
 
 Central server:

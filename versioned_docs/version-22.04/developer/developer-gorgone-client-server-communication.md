@@ -3,18 +3,20 @@ id: developer-gorgone-client-server-communication
 title : Managing client/server communication
 ---
 
-Centreon Gorgone is used on the Central server, the Remote Servers, and the collectors.
-Gorgone is the process for a distributed architecture: it deploys the configuration generated from the central server to the collectors and 
-distributes external commands to the collectors. 
+Centreon Gorgone is used on the Central server, the Remote Servers, and the pollers.
+Gorgone is the process for a distributed architecture: it deploys the configuration
+generated from the central server to the pollers and distributes external commands to the pollers.
 
-Centreon recommends to use ZMQ protocol for the communication between two gorgoned processes. 
-When using ZMQ protocol, all communications are encrypted using symmetric-key encryption based on public/private keys from both client and 
-server. So you need to generate public/private keys to set the configuration.
+Centreon recommends to use ZMQ protocol for the communication between two gorgoned
+processes. 
+When using ZMQ protocol, all communications are encrypted using symmetric-key encryption
+based on public/private keys from both client and server. So you need to generate public/private keys to set the configuration.
 
-In a Centreon context, the client is the Gorgone daemon running on the Centreon Central and the servers are the daemon running on pollers.
+In a Centreon context:
+- Central server has a gorgone running (by default) as a client and can connect to gorgone servers running on Remote Servers and pollers.
+- Remote servers have a gorgone running (by default) as a client and can connect to gorgone servers running on pollers.
 
 Follow this procedure to set the communication between client and server.
-
 ## Generate private and public keys
 On both client and server, generate RSA (format for key encryption) private and public keys using centreon user.
 
