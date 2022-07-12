@@ -146,7 +146,7 @@ pour en savoir plus sur la découverte automatique de services et sa [planificat
 
 ## Prérequis
 
-Pour superviser votre serveur PostgreSQL, créez un utilisateur dédié en lecture seul :
+Pour superviser votre serveur PostgreSQL, créez un utilisateur dédié en lecture seule :
 
 ```
 CREATE USER centreonro WITH PASSWORD 'test';
