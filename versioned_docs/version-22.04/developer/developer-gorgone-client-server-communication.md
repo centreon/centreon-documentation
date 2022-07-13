@@ -7,7 +7,7 @@ Centreon Gorgone is used on the central server, the remote servers, and the poll
 Gorgone is the process for a distributed architecture: it deploys the configuration
 generated from the central server to the pollers and distributes external commands to the pollers.
 
-Centreon recommends to use ZMQ protocol for the communication between two gorgoned
+Centreon recommends to use the ZMQ protocol for the communication between two **gorgoned**
 processes. 
 When using ZMQ protocol, all communications are encrypted using symmetric-key encryption
 based on public/private keys from both client and server. So you need to generate public/private keys to set the configuration.
