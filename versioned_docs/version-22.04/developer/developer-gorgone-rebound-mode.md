@@ -59,7 +59,7 @@ gorgone:
 ### Installation requirement
 Ensure you have installed a CentOS 7 server.
 
-Then install Gorgone daemon using the following command lines:
+Then install the Gorgone daemon using the following commands:
 
 ```shell
 yum install http://yum.centreon.com/standard/20.04/el7/stable/noarch/RPMS/centreon-release-20.04-1.el7.centos.noarch.rpm
