@@ -19,7 +19,7 @@ In a Centreon context:
 Follow this procedure to set the communication between client and server.
 
 ## Generate private and public keys
-On both client and server, generate RSA (format for key encryption) private and public keys using centreon user.
+On both client and server, generate RSA (format for key encryption) private and public keys using the **centreon** user.
 
 ```shell
 $ mkdir -p /var/spool/centreon/.gorgone/
