@@ -98,4 +98,4 @@ gorgone:
       - key: pnI6EWkiTbazjikJXRkLmjml5wvVECYtQduJUjS4QK4
 ```
 
-The **authorized_clients** entry allows to define the client public key thumbprint retrieved earlier.
+The **authorized_clients** entry allows you to define the client public key thumbprint retrieved earlier.
