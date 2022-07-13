@@ -35,7 +35,7 @@ $ chmod 644 /var/spool/centreon/.gorgone/pubkey.pem
 $ chmod 600 /var/spool/centreon/.gorgone/privkey.pem
 ```
 
-Copy the server public key onto the client in a specific directory (for example **/var/spool/centreon/.gorgone/<target_id>**).
+Copy the server's public key onto the client in a specific directory (for example **/var/spool/centreon/.gorgone/<target_id>**).
 
 ## Get the string-formatted JWK thumbprint
 On the client side, execute the following command:
