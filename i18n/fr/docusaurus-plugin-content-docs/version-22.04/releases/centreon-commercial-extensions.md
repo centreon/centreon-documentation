@@ -15,6 +15,20 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 ## Centreon MAP
 
+### 22.04.1
+
+Release date: `July 13, 2022`
+
+#### Bug fixes
+
+- Updated notification number field to align with central database schema
+
+#### Enhancements
+
+- diagnostic.sh script is now compatible with debian.
+- Updated connected server label to "Configured server" for clarity purpose
+- BBDOv3 is now enabled by default at install and after upgrade of the map server, to align with the central broker new 22.04 configuration
+
 ### 22.04.0
 
 > If you have just installed Centreon 22.04 or upgraded your platform to this version, be aware that the platform now uses the new BBDO v3 protocol. [Configure MAP](../graph-views/install.md#configuration) to use it.
