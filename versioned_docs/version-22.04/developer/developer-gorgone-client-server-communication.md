@@ -9,7 +9,7 @@ generated from the central server to the pollers and distributes external comman
 
 Centreon recommends to use the ZMQ protocol for the communication between two **gorgoned**
 processes. 
-When using ZMQ protocol, all communications are encrypted using symmetric-key encryption
+When using the ZMQ protocol, all communications are encrypted using symmetric-key encryption
 based on public/private keys from both client and server. So you need to generate public/private keys to set the configuration.
 
 In a Centreon context:
