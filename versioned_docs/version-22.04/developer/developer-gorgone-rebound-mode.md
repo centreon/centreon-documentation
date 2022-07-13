@@ -57,7 +57,8 @@ gorgone:
 
 ## On the rebound server side
 
-### Installation requirement
+### Installation requirements
+
 Ensure you have installed a CentOS 7 server.
 
 Then install the Gorgone daemon using the following commands:
