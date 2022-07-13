@@ -83,6 +83,7 @@ Create the file **/etc/centreon/gorgone-targets.yml** and fill it with the follo
 ```
 
 ### On the client side
+
 In the **/etc/centreon/config.d/20-gorgoned.yaml** configuration file, add the following directives:
 
 ```shell
