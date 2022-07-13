@@ -28,7 +28,7 @@ Release date: `July 13, 2022`
 
 - The diagnostic.sh script is now compatible with Debian.
 - Updated the connected server label to 'Configured server' for more clarity.
-- BBDOv3 is now enabled by default at install and after upgrade of the map server, to align with the central broker new 22.04 configuration
+- BBDOv3 is now enabled by default at installation and after the MAP server upgrade, to match the central Broker's new 22.04 configuration.
 
 ### 22.04.0
 
