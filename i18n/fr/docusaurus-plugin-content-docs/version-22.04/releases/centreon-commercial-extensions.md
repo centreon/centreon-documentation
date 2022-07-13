@@ -21,7 +21,7 @@ Release date: `July 13, 2022`
 
 #### Bug fixes
 
-- Updated notification number field to align with central database schema
+- Updated the notification number field to match the central database schema.
 
 #### Enhancements
 
