@@ -13,7 +13,7 @@ When using the ZMQ protocol, all communications are encrypted using symmetric-ke
 based on public/private keys from both client and server. So you need to generate public/private keys to set the configuration.
 
 In a Centreon context:
-- Central server has a gorgone running (by default) as a client and can connect to gorgone servers running on Remote Servers and pollers.
+- the Central server has a Gorgone running (by default) as a client and can connect to Gorgone servers running on remote servers and pollers.
 - Remote servers have a gorgone running (by default) as a client and can connect to gorgone servers running on pollers.
 
 Follow this procedure to set the communication between client and server.
