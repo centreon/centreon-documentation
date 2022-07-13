@@ -48,7 +48,7 @@ $ perl /usr/local/bin/gorgone_key_thumbprint.pl --key-path='/var/spool/centreon/
 
 ## Set the configurations
 
-You need to make the gorgone IDs match Centreon pollers ID to benefit from legacy command module's actions.
+You need to make the Gorgone IDs match the Centreon pollers ID to benefit from legacy command module's actions.
 
 ### On the server side
 In the **/etc/centreon/confid.d/20-gorgoned.yaml** configuration file, add the following directives under the **gorgonecore** section:
