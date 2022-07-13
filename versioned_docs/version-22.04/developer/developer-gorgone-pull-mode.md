@@ -61,7 +61,8 @@ gorgone:
 
 ## On the Central server side
 
-### Installation requirement
+### Installation requirements
+
 Ensure the Central server and Gorgone are already installed.
 
 ### Configuration
