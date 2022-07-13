@@ -99,7 +99,8 @@ gorgone:
 
 ## On the central server side
 
-### Installation requirement
+### Installation requirements
+
 Ensure the Central server and Gorgone are already installed.
 
 ### Configuration
