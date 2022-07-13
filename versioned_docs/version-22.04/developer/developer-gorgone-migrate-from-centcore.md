@@ -7,7 +7,7 @@ Follow this procedure to migrate from Centreon Centcore to Centreon Gorgone.
 
 You need to build a configuration file based on **/etc/centreon/conf.pm**.
 
-- If using package, execute the following command line:
+- If using packages, execute the following command:
 
 ```shell
 $ perl /usr/local/bin/gorgone_config_init.pl
