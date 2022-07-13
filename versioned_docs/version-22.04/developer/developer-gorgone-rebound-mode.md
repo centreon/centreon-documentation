@@ -69,6 +69,7 @@ yum install centreon-gorgone
 ```
 
 ### Configuration
+
 Configure the file **/etc/centreon-gorgone/config.d/40-gorgoned.yaml** as follows:
 
 ```shell
