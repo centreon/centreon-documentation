@@ -3,7 +3,7 @@ id: developer-gorgone-client-server-communication
 title : Managing client/server communication
 ---
 
-Centreon Gorgone is used on the Central server, the Remote Servers, and the pollers.
+Centreon Gorgone is used on the central server, the remote servers, and the pollers.
 Gorgone is the process for a distributed architecture: it deploys the configuration
 generated from the central server to the pollers and distributes external commands to the pollers.
 
