@@ -14,7 +14,7 @@ $ perl /usr/local/bin/gorgone_config_init.pl
 2019-09-30 11:00:00 - INFO - file '/etc/centreon-gorgone/config.yaml' created success
 ```
 
-- If using sources, execute the following command line:
+- If using sources, execute the following command:
 
 ```shell
 $ perl ./contrib/gorgone_config_init.pl
