@@ -12,7 +12,7 @@ This procedure describes how to configure Gorgone between a distant poller and a
 - Pull mode is relevant when the Central is in the cloud and pollers are not reachable through usual IP addresses. So the pull (or reverse) mode is used to make each poller initiate a connection to the public IP address of the Central. Learn more about this use case in [this article](https://thewatch.centreon.com/product-how-to-21/how-to-use-the-gorgone-pull-mode-374).
 
 
-> Note: In our case, we have the configuration described below (you have to adapt the procedure regarding your configuration).
+> Note: In our case, we have the configuration described below (you have to adapt the procedure to your configuration).
 
 Central server:
 - address: 10.30.2.203
