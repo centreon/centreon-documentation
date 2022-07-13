@@ -5,7 +5,7 @@ title : Configuring Gorgone in rebound mode
 
 This procedure describes how to configure Gorgone between a distant poller and a central server, via a rebound server.
 
-> Note: In our case, we have the configuration described below (you have to adapt the procedure regarding your configuration).
+> Note: In our case, we have the configuration described below (you have to adapt the procedure to your configuration).
 
 Central server:
 - address: 10.30.2.203
