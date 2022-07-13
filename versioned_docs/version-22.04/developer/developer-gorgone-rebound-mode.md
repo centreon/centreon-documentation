@@ -21,7 +21,8 @@ Distant Poller:
 
 ## On the distant poller side
 
-### Installation requirement
+### Installation requirements
+
 Ensure the distant poller and Gorgone are already installed.
 
 ### Configuration
