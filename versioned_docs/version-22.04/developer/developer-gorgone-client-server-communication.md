@@ -38,6 +38,7 @@ $ chmod 600 /var/spool/centreon/.gorgone/privkey.pem
 Copy the server's public key onto the client in a specific directory (for example **/var/spool/centreon/.gorgone/<target_id>**).
 
 ## Get the string-formatted JWK thumbprint
+
 On the client side, execute the following command:
 ```shell
 $ perl /usr/local/bin/gorgone_key_thumbprint.pl --key-path='/var/spool/centreon/.gorgone/pubkey.pem'
