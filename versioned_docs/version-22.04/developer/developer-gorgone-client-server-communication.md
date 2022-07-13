@@ -14,7 +14,7 @@ based on public/private keys from both client and server. So you need to generat
 
 In a Centreon context:
 - the Central server has a Gorgone running (by default) as a client and can connect to Gorgone servers running on remote servers and pollers.
-- Remote servers have a gorgone running (by default) as a client and can connect to gorgone servers running on pollers.
+- Remote servers have a Gorgone running (by default) as a client and can connect to Gorgone servers running on pollers.
 
 Follow this procedure to set the communication between client and server.
 ## Generate private and public keys
