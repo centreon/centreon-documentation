@@ -189,6 +189,23 @@ yum install centreon-bi-server
 ```
 
 </TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+Add the following external repository (for Java 8):
+
+```shell
+wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add -
+add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
+apt update
+```
+
+Then install Centreon MBI:
+
+```shell
+apt update && apt install centreon-bi-server
+```
+
+</TabItem>
 </Tabs>
 
 ### Activate the extension
@@ -254,6 +271,16 @@ GRANT ALL PRIVILEGES ON centreon_storage.* TO 'centreonbi'@'$BI_ENGINE_IP$';
 
 
 Please go to the next chapter to continue the installation.
+
+##### Additional configuration for Debian 11
+
+MariaDB has to listen to all interfaces instead of localhost/127.0.0.1, which is the default value. Edit the following file:
+
+```shell
+/etc/mysql/mariadb.conf.d/50-server.cnf
+```
+
+Set the **bind-address** parameter to **0.0.0.0**.
 
 ### Grant rights to user cbis
 
