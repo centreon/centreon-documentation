@@ -19,7 +19,7 @@ Central server:
 
 Distant Poller:
 - id: 6 (configured in the Centreon interface as zmq. You can get this ID from the Centreon interface).
--	address: 10.30.2.179
+- address: 10.30.2.179
 -	rsa public key thumbprint: nJSH9nZN2ugQeksHif7Jtv19RQA58yjxfX-Cpnhx09s
 
 ## On the distant poller side
