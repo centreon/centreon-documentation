@@ -17,6 +17,7 @@ In a Centreon context:
 - Remote servers have a Gorgone running (by default) as a client and can connect to Gorgone servers running on pollers.
 
 Follow this procedure to set the communication between client and server.
+
 ## Generate private and public keys
 On both client and server, generate RSA (format for key encryption) private and public keys using centreon user.
 
