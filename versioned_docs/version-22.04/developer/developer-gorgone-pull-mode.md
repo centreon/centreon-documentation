@@ -66,6 +66,7 @@ gorgone:
 Ensure the Central server and Gorgone are already installed.
 
 ### Configuration
+
 Configure the file **/etc/centreon-gorgone/config.d/40-gorgoned.yaml** as follows:
 
 ```shell
