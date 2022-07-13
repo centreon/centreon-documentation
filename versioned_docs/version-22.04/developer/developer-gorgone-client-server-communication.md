@@ -40,6 +40,7 @@ Copy the server's public key onto the client in a specific directory (for exampl
 ## Get the string-formatted JWK thumbprint
 
 On the client side, execute the following command:
+
 ```shell
 $ perl /usr/local/bin/gorgone_key_thumbprint.pl --key-path='/var/spool/centreon/.gorgone/pubkey.pem'
 2019-09-30 11:00:00 - INFO - File '/var/spool/centreon/.gorgone/pubkey.pem' JWK thumbprint: pnI6EWkiTbazjikJXRkLmjml5wvVECYtQduJUjS4QK4
