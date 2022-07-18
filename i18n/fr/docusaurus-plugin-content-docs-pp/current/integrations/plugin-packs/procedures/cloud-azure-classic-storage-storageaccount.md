@@ -64,10 +64,7 @@ Il apporte les modèles de service suivants :
 
 Le Plugin Pack Centreon **Azure Classic Storage** inclut un fournisseur de découverte
 d'hôtes nommé **Microsoft Azure Classic Storage Accounts**. Celui-ci permet de découvrir l'ensemble des instances
-rattachées à une souscription Microsoft Azure donnée:
-
-![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-classicstorage-storageaccount-provider.png)
-
+rattachées à une souscription Microsoft Azure donnée.
 > La découverte **Azure Classic Storage** n'est compatible qu'avec le mode **api**. Le mode **azcli** n'est pas supporté dans le cadre
 > de cette utilisation.
 

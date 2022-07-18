@@ -64,10 +64,7 @@ It brings the following service templates:
 
 The Centreon Plugin Pack **Azure Classic Storage** includes a Host Discovery provider to
 automatically discover the Azure instances of a given subscription and add them
-to the Centreon configuration. This provider is named **Microsoft Azure Classic Storage Account**:
-
-![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-classicstorage-storageaccount-provider.png)
-
+to the Centreon configuration. This provider is named **Microsoft Azure Classic Storage Account**.
 > This discovery feature is only compatible with the **api** custom mode. **azcli** is not supported.
 
 More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
