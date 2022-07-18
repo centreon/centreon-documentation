@@ -64,7 +64,10 @@ Il apporte les modèles de service suivants :
 
 Le Plugin Pack Centreon **Azure Classic Storage** inclut un fournisseur de découverte
 d'hôtes nommé **Microsoft Azure Classic Storage Accounts**. Celui-ci permet de découvrir l'ensemble des instances
-rattachées à une souscription Microsoft Azure donnée.
+rattachées à une souscription Microsoft Azure donnée :
+
+![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-classic-storage-storageaccount-provider.png)
+
 > La découverte **Azure Classic Storage** n'est compatible qu'avec le mode **api**. Le mode **azcli** n'est pas supporté dans le cadre
 > de cette utilisation.
 
@@ -76,177 +79,263 @@ pour en savoir plus sur la découverte automatique d'hôtes.
 <Tabs groupId="sync">
 <TabItem value="Account-Transactions-Availability" label="Account-Transactions-Availability">
 
-*Coming soon*
+| Métrique                           | Unité |
+|:-----------------------------------|:------|
+| usedcapacity_total                 | B     |
+
 
 </TabItem>
 <TabItem value="Account-Transactions-Count" label="Account-Transactions-Count">
 
-*Coming soon*
+| Métrique                           | Unité |
+|:-----------------------------------|:------|
+| transactions_total                 | B     |
+
 
 </TabItem>
 <TabItem value="Account-Transactions-Latency" label="Account-Transactions-Latency">
 
-*Coming soon*
+| Métrique                           | Unité |
+|:-----------------------------------|:------|
+| successserverlatency_average       | ms    |
+| successe2elatency_average          | ms    |
 
 </TabItem>
 <TabItem value="Account-Transactions-Throughput" label="Account-Transactions-Throughput">
 
-*Coming soon*
+| Métrique                           | Unité |
+|:-----------------------------------|:------|
+| ingress_total                      | B     |
+| egress_total                       | B     |
 
 </TabItem>
 <TabItem value="Account-Used-Capacity" label="Account-Used-Capacity">
 
-*Coming soon*
+| Métrique                           | Unité |
+|:-----------------------------------|:------|
+| usedcapacity_total                 | B     |
 
 </TabItem>
 <TabItem value="Blob-Capacity" label="Blob-Capacity">
 
-*Coming soon*
+| Métrique                           | Unité |
+|:-----------------------------------|:------|
+| blobcapacity_total                 | B     |
 
 </TabItem>
 <TabItem value="Blob-Container-Count" label="Blob-Container-Count">
 
-*Coming soon*
+| Métrique                           | Unité |
+|:-----------------------------------|:------|
+| containercount_average             |       |
+
 
 </TabItem>
 <TabItem value="Blob-Count" label="Blob-Count">
 
-*Coming soon*
+| Métrique                           | Unité |
+|:-----------------------------------|:------|
+| blobcount_total                    |       |
+
 
 </TabItem>
 <TabItem value="Blob-Transactions-Availability" label="Blob-Transactions-Availability">
 
-*Coming soon*
+| Métrique                           | Unité |
+|:-----------------------------------|:------|
+| availability_average               | %     |
 
 </TabItem>
 <TabItem value="Blob-Transactions-Count" label="Blob-Transactions-Count">
 
-*Coming soon*
+| Métrique                           | Unité |
+|:-----------------------------------|:------|
+| transactions_total                 | B     |
 
 </TabItem>
 <TabItem value="Blob-Transactions-Latency" label="Blob-Transactions-Latency">
 
-*Coming soon*
+| Métrique                           | Unité |
+|:-----------------------------------|:------|
+| successserverlatency_average       | ms    |
+| successe2elatency_average          | ms    |
 
 </TabItem>
 <TabItem value="Blob-Transactions-Throughput" label="Blob-Transactions-Throughput">
 
-*Coming soon*
+| Métrique                           | Unité |
+|:-----------------------------------|:------|
+| ingress_total                      | B     |
+| egress_total                       | B     |
 
 </TabItem>
 <TabItem value="File-Capacity" label="File-Capacity">
 
-*Coming soon*
+| Métrique                           | Unité |
+|:-----------------------------------|:------|
+| filecapacity_average               | B     |
 
 </TabItem>
 <TabItem value="File-Count" label="File-Count">
 
-*Coming soon*
+| Métrique                           | Unité |
+|:-----------------------------------|:------|
+| filecount_average                  |       |
 
 </TabItem>
 <TabItem value="File-Share-Count" label="File-Share-Count">
 
-*Coming soon*
+| Métrique                           | Unité |
+|:-----------------------------------|:------|
+| filesharecount_average             |       |
+
 
 </TabItem>
 <TabItem value="File-Share-Quota" label="File-Share-Quota">
 
-*Coming soon*
+| Métrique                           | Unité |
+|:-----------------------------------|:------|
+| filesharecapacityquota_average     | B     |
 
 </TabItem>
 <TabItem value="File-Transactions-Availability" label="File-Transactions-Availability">
 
-*Coming soon*
+| Métrique                           | Unité |
+|:-----------------------------------|:------|
+| availability_average               | %     |
 
 </TabItem>
 <TabItem value="File-Transactions-Count" label="File-Transactions-Count">
 
-*Coming soon*
+| Métrique                           | Unité |
+|:-----------------------------------|:------|
+| transactions_total                 | B     |
 
 </TabItem>
 <TabItem value="File-Transactions-Latency" label="File-Transactions-Latency">
 
-*Coming soon*
+| Métrique                           | Unité |
+|:-----------------------------------|:------|
+| successserverlatency_average       | ms    |
+| successe2elatency_average          | ms    |
 
 </TabItem>
 <TabItem value="File-Transactions-Throughput" label="File-Transactions-Throughput">
 
-*Coming soon*
+| Métrique                           | Unité |
+|:-----------------------------------|:------|
+| ingress_total                      | B     |
+| egress_total                       | B     |
 
 </TabItem>
 <TabItem value="Health" label="Health">
 
-*Coming soon*
+| Métrique                           | Unité |
+|:-----------------------------------|:------|
+| Status                             |       |
 
 </TabItem>
 <TabItem value="Queue-Capacity" label="Queue-Capacity">
 
-*Coming soon*
+| Métrique                           | Unité |
+|:-----------------------------------|:------|
+| ingress_total                      | B     |
+| egress_total                       | B     |
 
 </TabItem>
 <TabItem value="Queue-Count" label="Queue-Count">
 
-*Coming soon*
+| Métrique                           | Unité |
+|:-----------------------------------|:------|
+| queuecount_average                 |       |
 
 </TabItem>
 <TabItem value="Queue-Message-Count" label="Queue-Message-Count">
 
-*Coming soon*
+| Métrique                           | Unité |
+|:-----------------------------------|:------|
+| queuemessagecount_average          |       |
 
 </TabItem>
 <TabItem value="Queue-Transactions-Availability" label="Queue-Transactions-Availability">
 
-*Coming soon*
+| Métrique                           | Unité |
+|:-----------------------------------|:------|
+| availability_average               | %     |
 
 </TabItem>
 <TabItem value="Queue-Transactions-Count" label="Queue-Transactions-Count">
 
-*Coming soon*
+| Métrique                           | Unité |
+|:-----------------------------------|:------|
+| transactions_total                 | B     |
 
 </TabItem>
 <TabItem value="Queue-Transactions-Latency" label="Queue-Transactions-Latency">
 
-*Coming soon*
+| Métrique                           | Unité |
+|:-----------------------------------|:------|
+| successserverlatency_average       | ms    |
+| successe2elatency_average          | ms    |
 
 </TabItem>
 <TabItem value="Queue-Transactions-Throughput" label="Queue-Transactions-Throughput">
 
-*Coming soon*
+| Métrique                           | Unité |
+|:-----------------------------------|:------|
+| ingress_total                      | B     |
+| egress_total                       | B     |
 
 </TabItem>
 <TabItem value="Table-Capacity" label="Table-Capacity">
 
-*Coming soon*
+| Métrique                           | Unité |
+|:-----------------------------------|:------|
+| tablecapacity_average              | B     |
 
 </TabItem>
 <TabItem value="Table-Count" label="Table-Count">
 
-*Coming soon*
+| Métrique                           | Unité |
+|:-----------------------------------|:------|
+| tablecount_average                 | B     |
 
 </TabItem>
 <TabItem value="Table-Entity-Count" label="Table-Entity-Count">
 
-*Coming soon*
+| Métrique                           | Unité |
+|:-----------------------------------|:------|
+| tableentitycount_average           |       |
 
 </TabItem>
 <TabItem value="Table-Transactions-Availability" label="Table-Transactions-Availability">
 
-*Coming soon*
+| Métrique                           | Unité |
+|:-----------------------------------|:------|
+| availability_average               | %     |
 
 </TabItem>
 <TabItem value="Table-Transactions-Count" label="Table-Transactions-Count">
 
-*Coming soon*
+| Métrique                           | Unité |
+|:-----------------------------------|:------|
+| transactions_total                 | B     |
 
 </TabItem>
 <TabItem value="Table-Transactions-Latency" label="Table-Transactions-Latency">
 
-*Coming soon*
+| Métrique                           | Unité |
+|:-----------------------------------|:------|
+| successserverlatency_average       | ms    |
+| successe2elatency_average          | ms    |
 
 </TabItem>
 <TabItem value="Table-Transactions-Throughput" label="Table-Transactions-Throughput">
 
-*Coming soon*
+| Métrique                           | Unité |
+|:-----------------------------------|:------|
+| ingress_total                      | B     |
+| egress_total                       | B     |
 
 </TabItem>
 </Tabs>
@@ -290,7 +379,7 @@ yum install centreon-pack-cloud-azure-classicstorage-storageaccount
 
 ## Configuration
 
-### hôte
+### Hôte
 
 * Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
 * Remplissez le champ **Adresse IP/DNS** avec l'adresse **127.0.0.1**.
@@ -307,23 +396,23 @@ yum install centreon-pack-cloud-azure-classicstorage-storageaccount
 
 | Obligatoire | Macro              | Description                                      |
 | :---------- | :----------------- | :----------------------------------------------- |
-|             | AZUREAPICUSTOMMODE | Custom mode **api**                              |
-|             | AZURECLIENTID      | Client ID                                        |
-|             | AZURECLIENTSECRET  | Client secret                                    |
-|             | AZURERESOURCE      | ID or name of the Azure Classic Storage resource |
+| X           | AZUREAPICUSTOMMODE | Custom mode **api**                              |
+| X           | AZURECLIENTID      | Client ID                                        |
+| X           | AZURECLIENTSECRET  | Client secret                                    |
+| X           | AZURERESOURCE      | ID or name of the Azure Classic Storage resource |
 |             | AZURERESOURCEGROUP | Resource group name if resource name is used     |
-|             | AZURESUBSCRIPTION  | Subscription ID                                  |
-|             | AZURETENANT        | Tenant ID                                        |
+| X           | AZURESUBSCRIPTION  | Subscription ID                                  |
+| X           | AZURETENANT        | Tenant ID                                        |
 
 </TabItem>
 <TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 | Obligatoire | Macro              | Description                                      |
 | :---------- | :----------------- | :----------------------------------------------- |
-|             | AZURECLICUSTOMMODE | Custom mode **azcli**                            |
-|             | AZURERESOURCE      | ID or name of the Azure Classic Storage resource |
+| X           | AZURECLICUSTOMMODE | Custom mode **azcli**                            |
+| X           | AZURERESOURCE      | ID or name of the Azure Classic Storage resource |
 |             | AZURERESOURCEGROUP | Resource group name if resource name is used     |
-|             | AZURESUBSCRIPTION  | Subscription ID                                  |
+| X           | AZURESUBSCRIPTION  | Subscription ID                                  |
 
 </TabItem>
 </Tabs>
@@ -339,9 +428,8 @@ l'utilisateur **centreon-engine** (`su - centreon-engine`) :
     --plugin=cloud::azure::classicstorage::storageaccount::plugin \
     --mode=transactions-latency \
     --custommode='api' \
-    --resource='/subscriptions/xxx/resourceGroups/rgdev/providers/Microsoft.Storage/storageAccounts/storageaccountdev' \
+    --resource='/subscriptions/xxx/resourceGroups/rgdev/providers/Microsoft.ClassicStorage/storageAccounts/storageaccountdev' \
     --resource-group='' \
-    --resource-namespace='Microsoft.ClassicStorage' \
     --subscription='xxx' \
     --tenant='xxx' \
     --client-id='xxx' \
