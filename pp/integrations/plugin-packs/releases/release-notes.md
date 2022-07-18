@@ -8,6 +8,43 @@ import TabItem from '@theme/TabItem';
 
 ## 2022
 
+### July 
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+ - [**Azure Classic Storage**](../procedures/cloud-azure-classicstorage-storageaccount.md) - Add support for both Azure Storage and Classic Storage and add new metrics - Status:stable - centreon-pack-cloud-azure-classicstorage-storageaccount-22.07.0-1
+ - [**Azure Storage Account**](../procedures/cloud-azure-storage-storageaccount.md) - Add support for both Azure Storage and Classic Storage and add new metrics - Status:stable - centreon-pack-cloud-azure-storage-storageaccount-22.07.0-1
+ - [**Node Exporter Linux Metrics**](../procedures/applications-monitoring-node-exporter-linux.md) - Adding Linux Node Exporter Monitoring Pack - Status:stable - centreon-pack-applications-monitoring-node-exporter-linux-22.07.0-1
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+ - [**AWS Billing**](../procedures/cloud-aws-billing.md) - Moving AWS service discovery to host discovery - Status:stable - centreon-pack-cloud-aws-billing-22.07.0-1
+ - [**Linux NRPE3**](../procedures/operatingsystems-linux-nrpe3.md) - Add Ntp command and template to Linux NRPE3 Pack - Status:stable - centreon-pack-operatingsystems-linux-nrpe3-22.07.0-1
+ - [**AWS Lambda**](../procedures/cloud-aws-lambda.md) - Add discovery mode/rule for AWS Lambda - Status:stable - centreon-pack-cloud-aws-lambda-22.07.0-1
+ - [**Nortel Standard**](../procedures/network-nortel-standard-snmp.md) - network-nortel-standard-snmp - add stack service - Status:stable - centreon-pack-network-nortel-standard-snmp-22.07.0-1
+ - [**Amazon SNS**](../procedures/cloud-aws-sns.md) - Migrate AWS SNS & SQS Service Disco to Host Disco - Status:stable - centreon-pack-cloud-aws-sns-22.07.0-1
+ - [**Amazon SQS**](../procedures/cloud-aws-sqs.md) - Migrate AWS SNS & SQS Service Disco to Host Disco - Status:stable - centreon-pack-cloud-aws-sqs-22.07.0-1
+ - [**Dynatrace Rest API**](../procedures/applications-monitoring-dynatrace-restapi.md) - Enhance Dynatrace Restapi Packs with new services and new metrics - Status:stable - centreon-pack-applications-monitoring-dynatrace-restapi-22.07.0-1
+ - [**Nmap CLI**](../procedures/applications-nmap-cli.md) - enh(nmap-disco): add wsman ports - Status:stable - centreon-pack-applications-nmap-cli-22.05.2-1
+
+</TabItem>
+<TabItem value="Breaking changes" label="Breaking changes">
+
+ - [**PostgreSQL**](../procedures/applications-databases-postgresql.md) - Add services bloat and collection to PostgreSQL - Status:stable - centreon-pack-applications-databases-postgresql-22.07.0-1
+
+</TabItem>
+<TabItem value="Fix" label="Fix">
+
+ - [**Active Directory WSMAN**](../procedures/applications-active-directory-wsman.md) - Fix typos in Active Directory WSMan commands - Status:stable - centreon-pack-applications-active-directory-wsman-22.06.1-1
+ - [**AWS ELB**](../procedures/cloud-aws-elb.md) - Add missing Classic and Applications ELB Discovery rules - Status:stable - centreon-pack-cloud-aws-elb-22.07.0-1
+ - [**Azure Database for MySQL**](../procedures/cloud-azure-database-mysql.md) - cloud-azure-database-mysql - Fix typo in serverlog-usage option label - Status:stable - centreon-pack-cloud-azure-database-mysql-22.07.0-1
+ - [**Ruckus ICX SNMP**](../procedures/network-ruckus-icx-snmp.md) - Fixing macro in Ruckus ICX Memory service template - Status:stable - centreon-pack-network-ruckus-icx-snmp-22.07.0-1
+
+</TabItem>
+</Tabs>
+
 ### June 
 
 <Tabs groupId="sync">
