@@ -3,125 +3,472 @@ id: cloud-azure-storage-storageaccount
 title: Azure Storage Account
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+
+## Pack Assets
+
+### Templates
+
+The Centreon Plugin Pack **Azure Storage Account** brings 5 different host templates:
+
+* Cloud-Azure-Storage-StorageAccount-Account-custom
+* Cloud-Azure-Storage-StorageAccount-Blob-custom
+* Cloud-Azure-Storage-StorageAccount-File-custom
+* Cloud-Azure-Storage-StorageAccount-Queue-custom
+* Cloud-Azure-Storage-StorageAccount-Table-custom
+
+It brings the following service templates:
+
+| Service Alias                     | Service Template                                                 | Service Description                                                  | Default |
+| :-------------------------------- | :----------------------------------------------------------------| :--------------------------------------------------------------------| :------ |
+| Account-Transactions-Availability | Cloud-Azure-StorageAccount-Account-Transactions-Availability-Api | Check storage account availability                                   | X       |
+| Account-Transactions-Count        | Cloud-Azure-StorageAccount-Account-Transactions-Count-Api        | Check storage account transactions number                            | X       |
+| Account-Transactions-Latency      | Cloud-Azure-StorageAccount-Account-Transactions-Latency-Api      | Check storage successfull requests latency and processing time       | X       |
+| Account-Transactions-Throughput   | Cloud-Azure-StorageAccount-Account-Transactions-Throughput-Api   | Check storage ingress and egress data thoughput                      | X       |
+| Account-Used-Capacity             | Cloud-Azure-StorageAccount-Account-Used-Capacity-Api             | Check storage usage                                                  | X       |
+| Blob-Capacity                     | Cloud-Azure-StorageAccount-Blob-Capacity-Api                     | Check Blob type storage usage                                        | X       |
+| Blob-Container-Count              | Cloud-Azure-StorageAccount-Blob-Container-Count-Api              | Check Bloc container count on the storage                            | X       |
+| Blob-Count                        | Cloud-Azure-StorageAccount-Blob-Count-Api                        | Check object count on the storage                                    | X       |
+| Blob-Transactions-Availability    | Cloud-Azure-StorageAccount-Blob-Transactions-Availability-Api    | Check storage blob availability                                      | X       |
+| Blob-Transactions-Count           | Cloud-Azure-StorageAccount-Blob-Transactions-Count-Api           | Check storage blob transactions number                               | X       |
+| Blob-Transactions-Latency         | Cloud-Azure-StorageAccount-Blob-Transactions-Latency-Api         | Check storage blob successfull requests latency and processing time  | X       |
+| Blob-Transactions-Throughput      | Cloud-Azure-StorageAccount-Blob-Transactions-Throughput-Api      | Check storage blob ingress and egress data thoughput                 | X       |
+| File-Capacity                     | Cloud-Azure-StorageAccount-File-Capacity-Api                     | Check File type storage usage                                        | X       |
+| File-Count                        | Cloud-Azure-StorageAccount-File-Count-Api                        | Check file count on the storage                                      | X       |
+| File-Share-Count                  | Cloud-Azure-StorageAccount-File-Share-Count-Api                  | Check share count on the storage                                     | X       |
+| File-Share-Quota                  | Cloud-Azure-StorageAccount-File-Share-Quota-Api                  | Check storage size in bytes                                          | X       |
+| File-Transactions-Availability    | Cloud-Azure-StorageAccount-File-Transactions-Availability-Api    | Check storage file availability                                      | X       |
+| File-Transactions-Count           | Cloud-Azure-StorageAccount-File-Transactions-Count-Api           | Check storage file transactions number                               | X       |
+| File-Transactions-Latency         | Cloud-Azure-StorageAccount-File-Transactions-Latency-Api         | Check storage file successfull requests latency and processing time  | X       |
+| File-Transactions-Throughput      | Cloud-Azure-StorageAccount-File-Transactions-Throughput-Api      | Check storage file ingress and egress data thoughput                 | X       |
+| Health                            | Cloud-Azure-StorageAccount-Health-Api                            | Check storage account state                                          | X       |
+| Queue-Capacity                    | Cloud-Azure-StorageAccount-Queue-Capacity-Api                    | Check Queue type storage usage                                       | X       |
+| Queue-Count                       | Cloud-Azure-StorageAccount-Queue-Count-Api                       | Check queue count on the storage                                     | X       |
+| Queue-Message-Count               | Cloud-Azure-StorageAccount-Queue-Message-Count-Api               | Check messages count queueing on the storage                         | X       |
+| Queue-Transactions-Availability   | Cloud-Azure-StorageAccount-Queue-Transactions-Availability-Api   | Check storage queue availability                                     | X       |
+| Queue-Transactions-Count          | Cloud-Azure-StorageAccount-Queue-Transactions-Count-Api          | Check storage queue transactions number                              | X       |
+| Queue-Transactions-Latency        | Cloud-Azure-StorageAccount-Queue-Transactions-Latency-Api        | Check storage queue successfull requests latency and processing time | X       |
+| Queue-Transactions-Throughput     | Cloud-Azure-StorageAccount-Queue-Transactions-Throughput-Api     | Check storage queue ingress and egress data thoughput                | X       |
+| Table-Capacity                    | Cloud-Azure-StorageAccount-Table-Capacity-Api                    | Check Table type storage usage                                       | X       |
+| Table-Count                       | Cloud-Azure-StorageAccount-Table-Count-Api                       | Check table count on the storage                                     | X       |
+| Table-Entity-Count                | Cloud-Azure-StorageAccount-Table-Entity-Count-Api                | Check entries count in tables on the storage                         | X       |
+| Table-Transactions-Availability   | Cloud-Azure-StorageAccount-Table-Transactions-Availability-Api   | Check storage table availability                                     | X       |
+| Table-Transactions-Count          | Cloud-Azure-StorageAccount-Table-Transactions-Count-Api          | Check storage table transactions number                              | X       |
+| Table-Transactions-Latency        | Cloud-Azure-StorageAccount-Table-Transactions-Latency-Api        | Check storage table successfull requests latency and processing time | X       |
+| Table-Transactions-Throughput     | Cloud-Azure-StorageAccount-Table-Transactions-Throughput-Api     | Check storage table ingress and egress data thoughput                | X       |
+
+### Discovery rules
+
+The Centreon Plugin Pack **Azure Storage Account** includes a Host Discovery provider to
+automatically discover the Azure instances of a given subscription and add them
+to the Centreon configuration. This provider is named **Microsoft Azure Storage Account**:
+
+![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-storage-storageaccount-provider.png)
+
+> This discovery feature is only compatible with the **api** custom mode. **azcli** is not supported.
+
+More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
+
+### Collected metrics & status
+
+<Tabs groupId="sync">
+<TabItem value="Account-Transactions-Availability" label="Account-Transactions-Availability">
+
+| Metric                             | Unit  |
+|:-----------------------------------|:------|
+| usedcapacity_total                 | B     |
+
+
+</TabItem>
+<TabItem value="Account-Transactions-Count" label="Account-Transactions-Count">
+
+| Metric                             | Unit  |
+|:-----------------------------------|:------|
+| transactions_total                 | B     |
+
+
+</TabItem>
+<TabItem value="Account-Transactions-Latency" label="Account-Transactions-Latency">
+
+| Metric                             | Unit  |
+|:-----------------------------------|:------|
+| successserverlatency_average       | ms    |
+| successe2elatency_average          | ms    |
+
+</TabItem>
+<TabItem value="Account-Transactions-Throughput" label="Account-Transactions-Throughput">
+
+| Metric                             | Unit  |
+|:-----------------------------------|:------|
+| ingress_total                      | B     |
+| egress_total                       | B     |
+
+</TabItem>
+<TabItem value="Account-Used-Capacity" label="Account-Used-Capacity">
+
+| Metric                             | Unit  |
+|:-----------------------------------|:------|
+| usedcapacity_total                 | B     |
+
+</TabItem>
+<TabItem value="Blob-Capacity" label="Blob-Capacity">
+
+| Metric                             | Unit  |
+|:-----------------------------------|:------|
+| blobcapacity_total                 | B     |
+
+</TabItem>
+<TabItem value="Blob-Container-Count" label="Blob-Container-Count">
+
+| Metric                             | Unit  |
+|:-----------------------------------|:------|
+| containercount_average             |       |
+
+
+</TabItem>
+<TabItem value="Blob-Count" label="Blob-Count">
+
+| Metric                             | Unit  |
+|:-----------------------------------|:------|
+| blobcount_total                    |       |
+
+
+</TabItem>
+<TabItem value="Blob-Transactions-Availability" label="Blob-Transactions-Availability">
+
+| Metric                             | Unit  |
+|:-----------------------------------|:------|
+| availability_average               | %     |
+
+</TabItem>
+<TabItem value="Blob-Transactions-Count" label="Blob-Transactions-Count">
+
+| Metric                             | Unit  |
+|:-----------------------------------|:------|
+| transactions_total                 | B     |
+
+</TabItem>
+<TabItem value="Blob-Transactions-Latency" label="Blob-Transactions-Latency">
+
+| Metric                             | Unit  |
+|:-----------------------------------|:------|
+| successserverlatency_average       | ms    |
+| successe2elatency_average          | ms    |
+
+</TabItem>
+<TabItem value="Blob-Transactions-Throughput" label="Blob-Transactions-Throughput">
+
+| Metric                             | Unit  |
+|:-----------------------------------|:------|
+| ingress_total                      | B     |
+| egress_total                       | B     |
+
+</TabItem>
+<TabItem value="File-Capacity" label="File-Capacity">
+
+| Metric                             | Unit  |
+|:-----------------------------------|:------|
+| filecapacity_average               | B     |
+
+</TabItem>
+<TabItem value="File-Count" label="File-Count">
+
+| Metric                             | Unit  |
+|:-----------------------------------|:------|
+| filecount_average                  |       |
+
+</TabItem>
+<TabItem value="File-Share-Count" label="File-Share-Count">
+
+| Metric                             | Unit  |
+|:-----------------------------------|:------|
+| filesharecount_average             |       |
+
+
+</TabItem>
+<TabItem value="File-Share-Quota" label="File-Share-Quota">
+
+| Metric                             | Unit  |
+|:-----------------------------------|:------|
+| filesharecapacityquota_average     | B     |
+
+</TabItem>
+<TabItem value="File-Transactions-Availability" label="File-Transactions-Availability">
+
+| Metric                             | Unit  |
+|:-----------------------------------|:------|
+| availability_average               | %     |
+
+</TabItem>
+<TabItem value="File-Transactions-Count" label="File-Transactions-Count">
+
+| Metric                             | Unit  |
+|:-----------------------------------|:------|
+| transactions_total                 | B     |
+
+</TabItem>
+<TabItem value="File-Transactions-Latency" label="File-Transactions-Latency">
+
+| Metric                             | Unit  |
+|:-----------------------------------|:------|
+| successserverlatency_average       | ms    |
+| successe2elatency_average          | ms    |
+
+</TabItem>
+<TabItem value="File-Transactions-Throughput" label="File-Transactions-Throughput">
+
+| Metric                             | Unit  |
+|:-----------------------------------|:------|
+| ingress_total                      | B     |
+| egress_total                       | B     |
+
+</TabItem>
+<TabItem value="Health" label="Health">
+
+| Metric                             | Unit  |
+|:-----------------------------------|:------|
+| Status                             |       |
+
+</TabItem>
+<TabItem value="Queue-Capacity" label="Queue-Capacity">
+
+| Metric                             | Unit  |
+|:-----------------------------------|:------|
+| ingress_total                      | B     |
+| egress_total                       | B     |
+
+</TabItem>
+<TabItem value="Queue-Count" label="Queue-Count">
+
+| Metric                             | Unit  |
+|:-----------------------------------|:------|
+| queuecount_average                 |       |
+
+</TabItem>
+<TabItem value="Queue-Message-Count" label="Queue-Message-Count">
+
+| Metric                             | Unit  |
+|:-----------------------------------|:------|
+| queuemessagecount_average          |       |
+
+</TabItem>
+<TabItem value="Queue-Transactions-Availability" label="Queue-Transactions-Availability">
+
+| Metric                             | Unit  |
+|:-----------------------------------|:------|
+| availability_average               | %     |
+
+</TabItem>
+<TabItem value="Queue-Transactions-Count" label="Queue-Transactions-Count">
+
+| Metric                             | Unit  |
+|:-----------------------------------|:------|
+| transactions_total                 | B     |
+
+</TabItem>
+<TabItem value="Queue-Transactions-Latency" label="Queue-Transactions-Latency">
+
+| Metric                             | Unit  |
+|:-----------------------------------|:------|
+| successserverlatency_average       | ms    |
+| successe2elatency_average          | ms    |
+
+</TabItem>
+<TabItem value="Queue-Transactions-Throughput" label="Queue-Transactions-Throughput">
+
+| Metric                             | Unit  |
+|:-----------------------------------|:------|
+| ingress_total                      | B     |
+| egress_total                       | B     |
+
+</TabItem>
+<TabItem value="Table-Capacity" label="Table-Capacity">
+
+| Metric                           | Unit  |
+|:---------------------------------|:------|
+| tablecapacity_average            | B     |
+
+</TabItem>
+<TabItem value="Table-Count" label="Table-Count">
+
+| Metric                           | Unit  |
+|:---------------------------------|:------|
+| tablecount_average               | B     |
+
+</TabItem>
+<TabItem value="Table-Entity-Count" label="Table-Entity-Count">
+
+| Metric                           | Unit  |
+|:---------------------------------|:------|
+| tableentitycount_average         |       |
+
+</TabItem>
+<TabItem value="Table-Transactions-Availability" label="Table-Transactions-Availability">
+
+| Metric                           | Unit  |
+|:---------------------------------|:------|
+| availability_average             | %     |
+
+</TabItem>
+<TabItem value="Table-Transactions-Count" label="Table-Transactions-Count">
+
+| Metric                           | Unit  |
+|:---------------------------------|:------|
+| transactions_total               | B     |
+
+</TabItem>
+<TabItem value="Table-Transactions-Latency" label="Table-Transactions-Latency">
+
+| Metric                           | Unit |
+|:---------------------------------|:------|
+| successserverlatency_average     | ms    |
+| successe2elatency_average        | ms    |
+
+</TabItem>
+<TabItem value="Table-Transactions-Throughput" label="Table-Transactions-Throughput">
+
+| Metric                           | Unit |
+|:---------------------------------|:------|
+| ingress_total                    | B     |
+| egress_total                     | B     |
+
+</TabItem>
+</Tabs>
+
 ## Prerequisites
 
-### Centreon Plugin
+Please find all the prerequisites needed for Centreon to get information from Azure on the [dedicated page](../getting-started/how-to-guides/azure-credential-configuration.md).
 
-Install this plugin on each needed poller:
+## Setup
 
-``` shell
+<Tabs groupId="sync">
+<TabItem value="Online License" label="Online License">
+
+1. Install the plugin package on every Centreon poller expected to monitor **Azure Storage Account** resources:
+
+```bash
 yum install centreon-plugin-Cloud-Azure-Storage-StorageAccount-Api
 ```
 
-### Perl dependencies (for 'api' custom mode)
+2. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **Azure Storage Account** Centreon Plugin Pack.
 
-By installing the plugin, some perl depencies will be installed :
+</TabItem>
+<TabItem value="Offline License" label="Offline License">
 
-    JSON::XS
-    DateTime
-    Digest::MD5
-    Digest::SHA
-    LWP::UserAgent
-    LWP::Protocol::https
-    IO::Socket::SSL
-    URI
-    HTTP::ProxyPAC
+1. Install the plugin package on every Centreon poller expected to monitor **Azure Storage Account** resources:
 
-The login and access token handling will be made by the plugin itself.
+```bash
+yum install centreon-plugin-Cloud-Azure-Storage-StorageAccount-Api
+```
 
-### Azure CLI 2.0 (for 'azcli' custom mode)
+2. Install the **Azure Storage Account** Centreon Plugin Pack RPM on the Centreon central server:
 
-The CLI needs at least Python version 2.7
-(<https://github.com/Azure/azure-cli/blob/dev/doc/install_linux_prerequisites.md>).
+```bash
+yum install centreon-pack-cloud-azure-storage-storageaccount
+```
 
-On CentOS/RedHat, install with following commands:
+3. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **Azure Storage Account** Centreon Plugin Pack.
 
-    (As root)
-    # rpm --import https://packages.microsoft.com/keys/microsoft.asc
-    # echo -e "[azure-cli]\nname=Azure CLI\nbaseurl=https://packages.microsoft.com/yumrepos/azure-cli\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/azure-cli.repo
-    # yum install azure-cli
-    (As centreon-engine)
-    # az login
+</TabItem>
+</Tabs>
 
-The shell should prompt:
+## Configuration
 
-    To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code CWT4WQZAD to authenticate.
+### Host
 
-Go to <https://microsoft.com/devicelogin> and enter the given code.
+* Log into Centreon and add a new host through **Configuration > Hosts**.
+* In the **IP Address/DNS** field, set the following IP address: **127.0.0.1**.
+* Aplly the **Cloud-Azure-Storage-StorageAccount-Account-custom** template to the host.
+* Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
+  These mandatory macros differ depending on the custom mode used.
 
-Log in with your account credentials. You should use a service account.
-Application is not yet supported.
+> Two methods can be used to set the macros:
+> * Full ID of the Resource (`/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_id>/providers/XXXXX/XXXXX/<resource_name>`)
+> in **AZURERESOURCE**
+> * Resource name in the **AZURERESOURCE** macro, and resource group name in the **AZURERESOURCEGROUP** macro.
 
-The command line should now show:
+<Tabs groupId="sync">
+<TabItem value="Azure Monitor API" label="Azure Monitor API">
 
-    [
-      {
-        "cloudName": "AzureCloud",
-        "id": "0ef83f3a-d83e-2039-d930-309df93acd93d",
-        "isDefault": true,
-        "name": "N/A(tenant level account)",
-        "state": "Enabled",
-        "tenantId": "0ef83f3a-03cd-2039-d930-90fd39ecd048",
-        "user": {
-          "name": "email@mycompany.onmicrosoft.com",
-          "type": "user"
-        }
-      }
-    ]
+| Mandatory | Macro              | Description                                      |
+| :-------- | :----------------- | :----------------------------------------------- |
+| X         | AZUREAPICUSTOMMODE | Custom mode **api**                              |
+| X         | AZURECLIENTID      | Client ID                                        |
+| X         | AZURECLIENTSECRET  | Client secret                                    |
+| X         | AZURERESOURCE      | ID or name of the Azure Classic Storage resource |
+|           | AZURERESOURCEGROUP | Resource group name if resource name is used     |
+| X         | AZURESUBSCRIPTION  | Subscription ID                                  |
+| X         | AZURETENANT        | Tenant ID                                        |
 
-You now have a hidden azure directory where your token is stored in an
-accessTokens.json file.
+</TabItem>
+<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
-## Centreon Configuration
+| Mandatory | Macro              | Description                                      |
+| :-------- | :----------------- | :----------------------------------------------- |
+| X         | AZURECLICUSTOMMODE | Custom mode **azcli**                            |
+| X         | AZURERESOURCE      | ID or name of the Azure Classic Storage resource |
+|           | AZURERESOURCEGROUP | Resource group name if resource name is used     |
+| X         | AZURESUBSCRIPTION  | Subscription ID                                  |
 
-### Create a new host
+</TabItem>
+</Tabs>
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
-the following table:
+## How to check in the CLI that the configuration is OK and what are the main options for?
 
-| Field                   | Value                                                                       |
-| :---------------------- | :-------------------------------------------------------------------------- |
-| Host name               | *Name of the host*                                                          |
-| Alias                   | *Host description*                                                          |
-| IP                      | *Host IP Address*                                                           |
-| Monitored from          | *Monitoring Poller to use*                                                  |
-| Host Multiple Templates | Cloud-Azure-Storage-StorageAccount-\[Account/Blob/File/Queue/Table\]-custom |
+Once the plugin is installed, log into your Centreon poller's CLI using the
+**centreon-engine** user account (`su - centreon-engine`) and test the plugin by
+running the following command:
 
-Click on the *Save* button.
+```bash
+/usr/lib/centreon/plugins//centreon_azure_storage_storageaccount_api.pl \
+    --plugin=cloud::azure::storage::storageaccount::plugin \
+    --mode=transactions-latency \
+    --resource='/subscriptions/xxx/resourceGroups/rgdev/providers/Microsoft.Storage/storageAccounts/storageaccountdev' \
+    --resource-group='' \
+    --subscription='xxx' \
+    --tenant='xxx' \
+    --client-id='xxx' \
+    --client-secret='xxx' \
+    --proxyurl='' \
+    --storage-type='' \
+    --timeframe='' \
+    --interval='' \
+    --aggregation='' \
+    --warning-successserverlatency-average='' \
+    --critical-successserverlatency-average='' \
+    --warning-successe2elatency-average='' \
+    --critical-successe2elatency-average='' \
+    --use-new-perfdata
+```
 
-### Set host macros
+The expected command output is shown below:
 
-The following macros must be configured on host.
+```bash
+OK: Resource 'storageaccountdev' (Account) average SuccessServerLatency: 10.00 ms, SuccessE2ELatency: 10.17 ms | 'successserverlatency_average'=10.00ms;;;0; 'successe2elatency_average'=10.17ms;;;0;
+```
 
-#### Common macros
+All available options for a given mode can be displayed by adding the
+`--help` parameter to the command:
 
-| Macro                  | Description                                              |
-| :--------------------- | :------------------------------------------------------- |
-| AZURERESOURCE          | Resource name or id                                      |
-| AZURERESOURCEGROUP     | Resource group (Required if resource's name is used)     |
-| AZURERESOURCENAMESPACE | Resource namespace (Required if resource's name is used) |
+```bash
+/usr/lib/centreon/plugins//centreon_azure_storage_storageaccount_api.pl \
+    --plugin=cloud::azure::storage::storageaccount::plugin \
+    --mode=transactions-latency \
+    --help
+```
 
-#### 'api' custom mode macros
+All available modes can be displayed by adding the `--list-mode` parameter to
+the command:
 
-| Macro             | Description       |
-| :---------------- | :---------------- |
-| AZURECUSTOMMODE   | Custom mode 'api' |
-| AZURESUBSCRIPTION | Subscription ID   |
-| AZURETENANT       | Tenant ID         |
-| AZURECLIENTID     | Client ID         |
-| AZURECLIENTSECRET | Client secret     |
+```bash
+/usr/lib/centreon/plugins//centreon_azure_storage_storageaccount_api.pl \
+    --plugin=cloud::azure::storage::storageaccount::plugin \
+    --list-mode
+```
 
-#### 'azcli' custom mode macros
+### Troubleshooting
 
-| Macro             | Description         |
-| :---------------- | :------------------ |
-| AZURECUSTOMMODE   | Custom mode 'azcli' |
-| AZURESUBSCRIPTION | Subscription ID     |
-
-Click on the *Save* button.
-
-## Available metrics
-
-Go to
-<https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-supported-metrics?toc=/azure/azure-monitor/toc.json#microsoftstoragestorageaccounts>
-to see the description of return metrics for this Azure service.
+Please find the troubleshooting documentation for the API-based plugins in
+this [chapter](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks).
