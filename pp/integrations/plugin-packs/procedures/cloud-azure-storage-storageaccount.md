@@ -1,7 +1,6 @@
 ---
 id: cloud-azure-storage-storageaccount
 title: Azure Storage Account
-
 ---
 
 import Tabs from '@theme/Tabs';
@@ -22,44 +21,43 @@ The Centreon Plugin Pack **Azure Storage Account** brings 5 different host templ
 
 It brings the following service templates:
 
-| Service Alias                     | Service Template                                             | Service Description                                          | Default |
-| :-------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :------ |
-| Account-Transactions-Availability | Cloud-Azure-ClassicStorage-StorageAccount-Account-Transactions-Availability-Api | Check storage account availability                           | X       |
-| Account-Transactions-Count        | Cloud-Azure-ClassicStorage-StorageAccount-Account-Transactions-Count-Api | Check storage account transactions number                    | X       |
-| Account-Transactions-Latency      | Cloud-Azure-ClassicStorage-StorageAccount-Account-Transactions-Latency-Api | Check storage successfull requests latency and processing time | X       |
-| Account-Transactions-Throughput   | Cloud-Azure-ClassicStorage-StorageAccount-Account-Transactions-Throughput-Api | Check storage ingress and egress data thoughput              | X       |
-| Account-Used-Capacity             | Cloud-Azure-ClassicStorage-StorageAccount-Account-Used-Capacity-Api | Check storage usage                                          | X       |
-| Blob-Capacity                     | Cloud-Azure-ClassicStorage-StorageAccount-Blob-Capacity-Api  | Check Blob type storage usage                                | X       |
-| Blob-Container-Count              | Cloud-Azure-ClassicStorage-StorageAccount-Blob-Container-Count-Api | Check Bloc container count on the storage                    | X       |
-| Blob-Count                        | Cloud-Azure-ClassicStorage-StorageAccount-Blob-Count-Api     | Check object count on the storage                            | X       |
-| Blob-Transactions-Availability    | Cloud-Azure-ClassicStorage-StorageAccount-Blob-Transactions-Availability-Api | Check storage blob availability                              | X       |
-| Blob-Transactions-Count           | Cloud-Azure-ClassicStorage-StorageAccount-Blob-Transactions-Count-Api | Check storage blob transactions number                       | X       |
-| Blob-Transactions-Latency         | Cloud-Azure-ClassicStorage-StorageAccount-Blob-Transactions-Latency-Api | Check storage blob successfull requests latency and processing time | X       |
-| Blob-Transactions-Throughput      | Cloud-Azure-ClassicStorage-StorageAccount-Blob-Transactions-Throughput-Api | Check storage blob ingress and egress data thoughput         | X       |
-| File-Capacity                     | Cloud-Azure-ClassicStorage-StorageAccount-File-Capacity-Api  | Check File type storage usage                                | X       |
-| File-Count                        | Cloud-Azure-ClassicStorage-StorageAccount-File-Count-Api     | Check file count on the storage                              | X       |
-| File-Share-Count                  | Cloud-Azure-ClassicStorage-StorageAccount-File-Share-Count-Api | Check share count on the storage                             | X       |
-| File-Share-Quota                  | Cloud-Azure-ClassicStorage-StorageAccount-File-Share-Quota-Api | Check storage size in bytes                             | X       |
-| File-Transactions-Availability    | Cloud-Azure-ClassicStorage-StorageAccount-File-Transactions-Availability-Api | Check storage file availability                              | X       |
-| File-Transactions-Count           | Cloud-Azure-ClassicStorage-StorageAccount-File-Transactions-Count-Api | Check storage file transactions number                       | X       |
-| File-Transactions-Latency         | Cloud-Azure-ClassicStorage-StorageAccount-File-Transactions-Latency-Api | Check storage file successfull requests latency and processing time | X       |
-| File-Transactions-Throughput      | Cloud-Azure-ClassicStorage-StorageAccount-File-Transactions-Throughput-Api | Check storage file ingress and egress data thoughput         | X       |
-| Health                            | Cloud-Azure-ClassicStorage-StorageAccount-Health-Api         | Check storage account state                                  | X       |
-| Queue-Capacity                    | Cloud-Azure-ClassicStorage-StorageAccount-Queue-Capacity-Api | Check Queue type storage usage                               | X       |
-| Queue-Count                       | Cloud-Azure-ClassicStorage-StorageAccount-Queue-Count-Api    | Check queue count on the storage                             | X       |
-| Queue-Message-Count               | Cloud-Azure-ClassicStorage-StorageAccount-Queue-Message-Count-Api | Check messages count queueing on the storage                 | X       |
-| Queue-Transactions-Availability   | Cloud-Azure-ClassicStorage-StorageAccount-Queue-Transactions-Availability-Api | Check storage queue availability                             | X       |
-| Queue-Transactions-Count          | Cloud-Azure-ClassicStorage-StorageAccount-Queue-Transactions-Count-Api | Check storage queue transactions number                      | X       |
-| Queue-Transactions-Latency        | Cloud-Azure-ClassicStorage-StorageAccount-Queue-Transactions-Latency-Api | Check storage queue successfull requests latency and processing time | X       |
-| Queue-Transactions-Throughput     | Cloud-Azure-ClassicStorage-StorageAccount-Queue-Transactions-Throughput-Api | Check storage queue ingress and egress data thoughput        | X       |
-| Table-Capacity                    | Cloud-Azure-ClassicStorage-StorageAccount-Table-Capacity-Api | Check Table type storage usage                               | X       |
-| Table-Count                       | Cloud-Azure-ClassicStorage-StorageAccount-Table-Count-Api    | Check table count on the storage                             | X       |
-| Table-Entity-Count                | Cloud-Azure-ClassicStorage-StorageAccount-Table-Entity-Count-Api | Check entries count in tables on the storage                 | X       |
-| Table-Transactions-Availability   | Cloud-Azure-ClassicStorage-StorageAccount-Table-Transactions-Availability-Api | Check storage table availability                             | X       |
-| Table-Transactions-Count          | Cloud-Azure-ClassicStorage-StorageAccount-Table-Transactions-Count-Api | Check storage table transactions number                      | X       |
-| Table-Transactions-Latency        | Cloud-Azure-ClassicStorage-StorageAccount-Table-Transactions-Latency-Api | Check storage table successfull requests latency and processing time | X       |
-| Table-Transactions-Throughput     | Cloud-Azure-ClassicStorage-StorageAccount-Table-Transactions-Throughput-Api | Check storage table ingress and egress data thoughput        | X       |
-
+| Service Alias                     | Service Template                                                 | Service Description                                                  | Default |
+| :-------------------------------- | :----------------------------------------------------------------| :--------------------------------------------------------------------| :------ |
+| Account-Transactions-Availability | Cloud-Azure-StorageAccount-Account-Transactions-Availability-Api | Check storage account availability                                   | X       |
+| Account-Transactions-Count        | Cloud-Azure-StorageAccount-Account-Transactions-Count-Api        | Check storage account transactions number                            | X       |
+| Account-Transactions-Latency      | Cloud-Azure-StorageAccount-Account-Transactions-Latency-Api      | Check storage successfull requests latency and processing time       | X       |
+| Account-Transactions-Throughput   | Cloud-Azure-StorageAccount-Account-Transactions-Throughput-Api   | Check storage ingress and egress data thoughput                      | X       |
+| Account-Used-Capacity             | Cloud-Azure-StorageAccount-Account-Used-Capacity-Api             | Check storage usage                                                  | X       |
+| Blob-Capacity                     | Cloud-Azure-StorageAccount-Blob-Capacity-Api                     | Check Blob type storage usage                                        | X       |
+| Blob-Container-Count              | Cloud-Azure-StorageAccount-Blob-Container-Count-Api              | Check Bloc container count on the storage                            | X       |
+| Blob-Count                        | Cloud-Azure-StorageAccount-Blob-Count-Api                        | Check object count on the storage                                    | X       |
+| Blob-Transactions-Availability    | Cloud-Azure-StorageAccount-Blob-Transactions-Availability-Api    | Check storage blob availability                                      | X       |
+| Blob-Transactions-Count           | Cloud-Azure-StorageAccount-Blob-Transactions-Count-Api           | Check storage blob transactions number                               | X       |
+| Blob-Transactions-Latency         | Cloud-Azure-StorageAccount-Blob-Transactions-Latency-Api         | Check storage blob successfull requests latency and processing time  | X       |
+| Blob-Transactions-Throughput      | Cloud-Azure-StorageAccount-Blob-Transactions-Throughput-Api      | Check storage blob ingress and egress data thoughput                 | X       |
+| File-Capacity                     | Cloud-Azure-StorageAccount-File-Capacity-Api                     | Check File type storage usage                                        | X       |
+| File-Count                        | Cloud-Azure-StorageAccount-File-Count-Api                        | Check file count on the storage                                      | X       |
+| File-Share-Count                  | Cloud-Azure-StorageAccount-File-Share-Count-Api                  | Check share count on the storage                                     | X       |
+| File-Share-Quota                  | Cloud-Azure-StorageAccount-File-Share-Quota-Api                  | Check storage size in bytes                                          | X       |
+| File-Transactions-Availability    | Cloud-Azure-StorageAccount-File-Transactions-Availability-Api    | Check storage file availability                                      | X       |
+| File-Transactions-Count           | Cloud-Azure-StorageAccount-File-Transactions-Count-Api           | Check storage file transactions number                               | X       |
+| File-Transactions-Latency         | Cloud-Azure-StorageAccount-File-Transactions-Latency-Api         | Check storage file successfull requests latency and processing time  | X       |
+| File-Transactions-Throughput      | Cloud-Azure-StorageAccount-File-Transactions-Throughput-Api      | Check storage file ingress and egress data thoughput                 | X       |
+| Health                            | Cloud-Azure-StorageAccount-Health-Api                            | Check storage account state                                          | X       |
+| Queue-Capacity                    | Cloud-Azure-StorageAccount-Queue-Capacity-Api                    | Check Queue type storage usage                                       | X       |
+| Queue-Count                       | Cloud-Azure-StorageAccount-Queue-Count-Api                       | Check queue count on the storage                                     | X       |
+| Queue-Message-Count               | Cloud-Azure-StorageAccount-Queue-Message-Count-Api               | Check messages count queueing on the storage                         | X       |
+| Queue-Transactions-Availability   | Cloud-Azure-StorageAccount-Queue-Transactions-Availability-Api   | Check storage queue availability                                     | X       |
+| Queue-Transactions-Count          | Cloud-Azure-StorageAccount-Queue-Transactions-Count-Api          | Check storage queue transactions number                              | X       |
+| Queue-Transactions-Latency        | Cloud-Azure-StorageAccount-Queue-Transactions-Latency-Api        | Check storage queue successfull requests latency and processing time | X       |
+| Queue-Transactions-Throughput     | Cloud-Azure-StorageAccount-Queue-Transactions-Throughput-Api     | Check storage queue ingress and egress data thoughput                | X       |
+| Table-Capacity                    | Cloud-Azure-StorageAccount-Table-Capacity-Api                    | Check Table type storage usage                                       | X       |
+| Table-Count                       | Cloud-Azure-StorageAccount-Table-Count-Api                       | Check table count on the storage                                     | X       |
+| Table-Entity-Count                | Cloud-Azure-StorageAccount-Table-Entity-Count-Api                | Check entries count in tables on the storage                         | X       |
+| Table-Transactions-Availability   | Cloud-Azure-StorageAccount-Table-Transactions-Availability-Api   | Check storage table availability                                     | X       |
+| Table-Transactions-Count          | Cloud-Azure-StorageAccount-Table-Transactions-Count-Api          | Check storage table transactions number                              | X       |
+| Table-Transactions-Latency        | Cloud-Azure-StorageAccount-Table-Transactions-Latency-Api        | Check storage table successfull requests latency and processing time | X       |
+| Table-Transactions-Throughput     | Cloud-Azure-StorageAccount-Table-Transactions-Throughput-Api     | Check storage table ingress and egress data thoughput                | X       |
 
 ### Discovery rules
 
