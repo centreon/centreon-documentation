@@ -10,6 +10,10 @@ Centreon Open Source disponible gratuitement sur notre dépôt.
 
 Les paquets peuvent être installés sur CentOS 7, Alma/RHEL/Oracle Linux 8 et Debian 11.
 
+L'ensemble de la procédure d'installation doit être faite en tant qu'utilisateur privilégié.
+
+## Prérequis
+
 Après avoir installé votre serveur, réalisez la mise à jour de votre système
 d'exploitation via la commande :
 
@@ -18,6 +22,22 @@ d'exploitation via la commande :
 
 ```shell
 dnf update
+```
+
+### Configuration spécifique
+
+Si vous comptez utiliser Centreon en français, espagnol ou portugais, installez les paquets correspondants :
+
+```shell
+dnf install glibc-langpack-fr
+dnf install glibc-langpack-es
+dnf install glibc-langpack-pt
+```
+
+Vous pouvez utiliser la commande suivante pour vérifier quelles langues sont installées sur votre système :
+
+```shell
+locale -a
 ```
 
 </TabItem>
@@ -40,25 +60,12 @@ apt update && apt upgrade
 > Acceptez toutes les clés GPG proposées et pensez a redémarrer votre serveur
 > si une mise à jour du noyau est proposée.
 
-### Configuration spécifique à AlmaLinux/RHEL/OracleLinux 8
+## Étape 1 : pré-installation
 
-Si vous installez Centreon sur AlmaLinux/RHEL/OracleLinux 8, et que vous comptez utiliser Centreon en français, espagnol ou portugais, installez les paquets correspondants :
+### Désactiver SELinux
 
-```shell
-dnf install glibc-langpack-fr
-dnf install glibc-langpack-es
-dnf install glibc-langpack-pt
-```
-
-Vous pouvez utiliser la commande suivante pour vérifier quelles langues sont installées sur votre système :
-
-```shell
-locale -a
-```
-
-## Étapes de pré-installation
-
-### Désactiver SELinux (s'il est installé)
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Pendant l'installation, SELinux doit être désactivé. Éditez le fichier
 **/etc/selinux/config** et remplacez **enforcing** par **disabled**, ou bien
@@ -82,10 +89,43 @@ $ getenforce
 Disabled
 ```
 
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+Pendant l'installation, SELinux doit être désactivé. Éditez le fichier
+**/etc/selinux/config** et remplacez **enforcing** par **disabled**, ou bien
+exécutez la commande suivante :
+
+```shell
+sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
+```
+
+Redémarrez votre système d'exploitation pour prendre en compte le changement.
+
+```shell
+reboot
+```
+
+Après le redémarrage, une vérification rapide permet de confirmer le statut de
+SELinux :
+
+```shell
+$ getenforce
+Disabled
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+SELinux n'est pas installé sur Debian 11, continuez.
+
+</TabItem>
+</Tabs>
+
 ### Configurer ou désactiver le pare-feu
 
-Paramétrer le pare-feu système ou désactiver ce dernier. Pour désactiver ce
-dernier exécuter les commandes suivantes :
+Si votre pare-feu système est actif, [paramétrez-le](../../administration/secure-platform.md#enable-firewalld).
+Vous pouvez également le désactiver le temps de l'installation :
 
 ```shell
 systemctl stop firewalld
@@ -295,7 +335,7 @@ apt update
 </TabItem>
 </Tabs>
 
-## Installation
+## Étape 2 : Installation
 
 Ce chapitre décrit l'installation d'un serveur Centreon Remote Server.
 
@@ -472,7 +512,7 @@ MariaDB doit écouter sur toutes les interfaces au lieu d'écouter sur localhost
 
 Donnez au paramètre **bind-address** la valeur **0.0.0.0**.
 
-## Configuration
+## Étape 3 : Configuration
 
 ### Nom du serveur
 
@@ -579,7 +619,7 @@ Ce mot de passe vous sera demandé lors de l'[installation web](../web-and-post-
 
 > Pour plus d'informations, veuillez consulter la [documentation officielle MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/).
 
-## Installation web
+## Étape 4 : Installation web
 
 Avant de démarrer l'installation web, démarrez le serveur Apache avec la
 commande suivante :
@@ -618,7 +658,7 @@ Terminez l'installation en réalisant les
 > A l'étape d'**Initialisation de la supervision**, seules les actions 6 à 8
 > doivent être faites.
 
-## Enregistrer le Remote Server
+## Étape 5 : Enregistrer le Remote Server
 
 Pour transformer le serveur en serveur distant et l'enregistrer sur le serveur Central, exécutez la commande suivante sur le futur serveur distant :
 
@@ -729,15 +769,6 @@ Vous recevrez la validation du serveur Centreon Central :
 2020-10-16T17:19:37+02:00 [INFO]: The CURRENT NODE 'remote: 'remote-1@192.168.0.2' has been converted and registered successfully.
 ```
 
-Enfin, il est nécessaire d'ajouter des droits à l'utilisateur de base de données **centreon** pour qu'il puisse
-utiliser la commande **LOAD DATA INFILE** :
-
-```sql
-mysql -u root -p
-GRANT FILE on *.* to 'centreon'@'localhost';
-exit
-```
-
 ### Principaux messages d'erreur
 
 ``` shell
@@ -771,12 +802,23 @@ Failed connect to 192.168.0.1:444; Connection refused
 
 > La version Centreon du serveur distant est invalide. Elle doit être supérieure ou égale à 22.04.
 
-## Ajouter le Remote Server à la configuration
+## Étape 6 : Étendre les droits du SGBD local
+
+Enfin, il est nécessaire d'ajouter des droits à l'utilisateur de base de données **centreon** pour qu'il puisse
+utiliser la commande **LOAD DATA INFILE** :
+
+```sql
+mysql -u root -p
+GRANT FILE on *.* to 'centreon'@'localhost';
+exit
+```
+
+## Étape 7 : Ajouter le Remote Server à la configuration
 
 Rendez-vous au chapitre
 [Ajouter un Remote Server à la configuration](../../monitoring/monitoring-servers/add-a-remote-server-to-configuration.md).
 
-## Sécurisez votre plateforme
+## Étape 8 : Sécurisez votre plateforme
 
 N'oubliez pas de sécuriser votre plateforme Centreon en suivant nos
 [recommandations](../../administration/secure-platform.md).

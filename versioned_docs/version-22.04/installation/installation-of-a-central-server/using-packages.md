@@ -24,6 +24,22 @@ command:
 dnf update
 ```
 
+### Additional configuration
+
+If you intend to use Centreon in French, Spanish or Portuguese, install the corresponding packages:
+
+```shell
+dnf install glibc-langpack-fr
+dnf install glibc-langpack-es
+dnf install glibc-langpack-pt
+```
+
+Use the following command to check which languages are installed on your system:
+
+```shell
+locale -a
+```
+
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
@@ -41,31 +57,17 @@ apt update && apt upgrade
 </TabItem>
 </Tabs>
 
-> Accept all GPG keys and reboot your server if a kernel update is
-> proposed.
-
-### Additional configuration for AlmaLinux/RHEL/OracleLinux 8
-
-If you are installing Centreon on AlmaLinux/RHEL/OracleLinux 8, and you intend to use Centreon in French, Spanish or Portuguese, install the corresponding packages:
-
-```shell
-dnf install glibc-langpack-fr
-dnf install glibc-langpack-es
-dnf install glibc-langpack-pt
-```
-
-Use the following command to check which languages are installed on your system:
-
-```shell
-locale -a
-```
+> Accept all GPG keys and reboot your server if a kernel update is proposed.
 
 ## Step 1: Pre-installation
 
-### Disable SELinux (if it is installed)
+### Disable SELinux
 
-During installation, SELinux should be disabled. To do this, edit the file
-**/etc/selinux/config** and replace **enforcing** by **disabled**. You can also run the following command:
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+During installation, SELinux should be disabled. To do this, edit the file **/etc/selinux/config** and replace
+**enforcing** by **disabled**. You can also run the following command:
 
 ```shell
 sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
@@ -89,9 +91,47 @@ You should have this result:
 Disabled
 ```
 
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+
+During installation, SELinux should be disabled. To do this, edit the file **/etc/selinux/config** and replace
+**enforcing** by **disabled**. You can also run the following command:
+
+```shell
+sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
+```
+
+Reboot your operating system to apply the change.
+
+```shell
+reboot
+```
+
+After system startup, perform a quick check of the SELinux status:
+
+```shell
+getenforce
+```
+
+You should have this result:
+
+```shell
+Disabled
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+SELinux is not installed on Debian 11, continue.
+
+</TabItem>
+</Tabs>
+
 ### Configure or disable the firewall
 
-If your firewall is active, add [firewall rules](../../administration/secure-platform.md#enable-firewalld). You can also disable the firewall during installation by running the following commands:
+If your firewall is active, add [firewall rules](../../administration/secure-platform.md#enable-firewalld).
+You can also disable the firewall during installation by running the following commands:
 
 ```shell
 systemctl stop firewalld
@@ -118,6 +158,7 @@ dnf config-manager --set-enabled 'powertools'
 ```
 
 Enable PHP 8.0 using the following commands:
+
 ```shell
 dnf module reset php
 dnf module install php:remi-8.0
@@ -140,13 +181,13 @@ subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 ```
 
 Enable PHP 8.0 using the following commands:
+
 ```shell
 dnf module reset php
 dnf module install php:remi-8.0
 ```
 
 </TabItem>
-
 <TabItem value="Oracle Linux 8" label="Oracle Linux 8">
 
 #### Remi and CodeReady Builder repositories
@@ -163,6 +204,7 @@ dnf config-manager --set-enabled ol8_codeready_builder
 ```
 
 Enable PHP 8.0 using the following commands:
+
 ```shell
 dnf module reset php
 dnf module install php:remi-8.0
@@ -198,7 +240,10 @@ yum-config-manager --enable remi-php80
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
+#### Install dependencies
+
 Install the following dependencies:
+
 ```shell
 apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2
 ```
@@ -206,6 +251,7 @@ apt update && apt install lsb-release ca-certificates apt-transport-https softwa
 #### Add Sury APT repository for PHP 8.0
 
 To install the Sury repository, execute the following command:
+
 ```shell
 echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/sury-php.list
 ```
@@ -271,7 +317,7 @@ dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/ce
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install -y  https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
 ```
 
 </TabItem>
@@ -405,7 +451,7 @@ Secure your MariaDB root access by executing the following command:
 mysql_secure_installation
 ```
 
-> It is mandatory to set a password for the root user of the database.
+> It is mandatory to set a password for the root user of the database. You will need this password during the web installation.
 
 Then, in the remote dabatase, create a user with **root** privileges. You will have to enter this user during the 
 web installation process (at [step 6](../web-and-post-installation.md#step-6-database-infomation),
@@ -425,15 +471,14 @@ GRANT ALL PRIVILEGES ON *.* TO 'dbadmin'@'<CENTRAL_SERVER_IP>' WITH GRANT OPTION
 FLUSH PRIVILEGES;
 ```
 
-> Replace **<CENTRAL_SERVER_IP\>** with the Centreon Central IP address that will connect to
-> the database server.
+> Replace **<CENTRAL_SERVER_IP\>** with the Centreon Central IP address that will connect to the database server.
 >
 > Replace **<USER\>** and **<PASSWORD\>** by the user's credentials.
 
 This user will only be used for the installation process: once the [web installation](../web-and-post-installation.md) is complete you can delete this user using:
 
 ```SQL
-DROP USER '<USER>'@'<IP>';
+DROP USER '<USER>'@'<CENTRAL_SERVER_IP>';
 ```
 
 Example:
@@ -527,7 +572,7 @@ You are required to set the PHP time zone.
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / CentOS 7">
 
-Run the following command as `root`:
+Run the command:
 
 ```shell
 echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini

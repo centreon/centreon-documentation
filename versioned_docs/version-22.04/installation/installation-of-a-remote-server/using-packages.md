@@ -10,7 +10,11 @@ Source version available free of charge in our repository.
 
 These packages can be installed on CentOS 7, on Alma/RHEL/Oracle Linux 8 and on Debian 11.
 
-After installing your server, consider updating your operating system via the
+You must run the installation procedure as a privileged user.
+
+## Prerequisites
+
+After installing your server, update your operating system using the following
 command:
 
 <Tabs groupId="sync">
@@ -18,6 +22,22 @@ command:
 
 ``` shell
 dnf update
+```
+
+### Additional configuration
+
+If you intend to use Centreon in French, Spanish or Portuguese, install the corresponding packages:
+
+```shell
+dnf install glibc-langpack-fr
+dnf install glibc-langpack-es
+dnf install glibc-langpack-pt
+```
+
+Use the following command to check which languages are installed on your system:
+
+```shell
+locale -a
 ```
 
 </TabItem>
@@ -37,31 +57,17 @@ apt update && apt upgrade
 </TabItem>
 </Tabs>
 
-> Accept all GPG keys and consider rebooting your server if a kernel update is
-> proposed.
+> Accept all GPG keys and consider rebooting your server if a kernel update is proposed.
 
-### Additional configuration for AlmaLinux/RHEL/OracleLinux 8
+## Step 1: Pre-installation
 
-If you are installing Centreon on AlmaLinux/RHEL/OracleLinux 8, and you intend to use Centreon in French, Spanish or Portuguese, install the corresponding packages:
+### Disable SELinux
 
-```shell
-dnf install glibc-langpack-fr
-dnf install glibc-langpack-es
-dnf install glibc-langpack-pt
-```
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-Use the following command to check which languages are installed on your system:
-
-```shell
-locale -a
-```
-
-## Pre-installation steps
-
-### Disable SELinux (if it is installed)
-
-During installation, SELinux should be disabled. To do this, edit the file
-**/etc/selinux/config** and replace **enforcing** by **disabled**. You can also run the following command:
+During installation, SELinux should be disabled. To do this, edit the file **/etc/selinux/config** and replace
+**enforcing** by **disabled**. You can also run the following command:
 
 ```shell
 sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
@@ -85,16 +91,52 @@ You should have this result:
 Disabled
 ```
 
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+
+During installation, SELinux should be disabled. To do this, edit the file **/etc/selinux/config** and replace
+**enforcing** by **disabled**. You can also run the following command:
+
+```shell
+sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
+```
+
+Reboot your operating system to apply the change.
+
+```shell
+reboot
+```
+
+After system startup, perform a quick check of the SELinux status:
+
+```shell
+getenforce
+```
+
+You should have this result:
+
+```shell
+Disabled
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+SELinux is not installed on Debian 11, continue.
+
+</TabItem>
+</Tabs>
+
 ### Configure or disable the firewall
 
-Add firewall rules or disable the firewall by running the following commands:
+If your firewall is active, add [firewall rules](../../administration/secure-platform.md#enable-firewalld).
+You can also disable the firewall during installation by running the following commands:
 
 ```shell
 systemctl stop firewalld
 systemctl disable firewalld
 ```
-
-> You can find instructions [here](../../administration/secure-platform.md#enable-firewalld) to configure firewalld.
 
 ### Install the repositories
 
@@ -145,7 +187,6 @@ dnf module install php:remi-8.0
 ```
 
 </TabItem>
-
 <TabItem value="Oracle Linux 8" label="Oracle Linux 8">
 
 #### Remi and CodeReady Builder repositories
@@ -221,7 +262,6 @@ apt update
 ```
 
 </TabItem>
-
 </Tabs>
 
 #### MariaDB repository
@@ -252,7 +292,7 @@ rm -f ./mariadb_repo_setup
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
-On Debian 11 the packages will be installed automatically.
+The packages will be installed automatically.
 
 </TabItem>
 </Tabs>
@@ -296,7 +336,7 @@ wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg
 </TabItem>
 </Tabs>
 
-## Installation
+## Step 2: Installation
 
 This section describes how to install a Centreon Remote Server.
 
@@ -344,6 +384,7 @@ You can now move on to the [next step](#configuration).
 > the prerequired repositories.
 
 Run the following command on the Central server:
+
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
@@ -370,6 +411,7 @@ apt install -y centreon-central
 </Tabs>
 
 Then run the following commands on the dedicated server:
+
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
@@ -402,12 +444,16 @@ systemctl restart mariadb
 </Tabs>
 
 Secure your MariaDB installation by executing the following command:
+
 ```shell
 mysql_secure_installation
 ```
 
-Then create a distant user with **root** privileges needed for Centreon
-installation:
+> It is mandatory to set a password for the root user of the database.
+
+Then, in the remote dabatase, create a user with **root** privileges. You will have to enter this user during the 
+web installation process (at [step 6](../web-and-post-installation.md#step-6-database-infomation),
+in the **Root user** and **Root password** fields).
 
 ```SQL
 CREATE USER '<USER>'@'<IP>' IDENTIFIED BY '<PASSWORD>';
@@ -415,17 +461,15 @@ GRANT ALL PRIVILEGES ON *.* TO '<USER>'@'<IP>' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 ```
 
-> Replace **<IP\>** with the Centreon Central IP address that will connect to
-> the database server.
+> Replace **<IP\>** with the Centreon Central IP address that will connect to the database server.
 >
 > Replace **<USER\>** and **<PASSWORD\>** by user's credentials.
 
-Once the installation is complete you can delete this user using:
+This user will only be used for the installation process: once the [web installation](../web-and-post-installation.md) is complete you can delete this user using:
 
 ```SQL
 DROP USER '<USER>'@'<IP>';
 ```
-
 
 > The package **centreon-database** installs an optimized MariaDB configuration
 > to be used with Centreon.
@@ -469,7 +513,7 @@ MariaDB has to listen to all interfaces instead of localhost/127.0.0.1, which is
 
 Set the **bind-address** parameter to **0.0.0.0**.
 
-## Configuration
+## Step 3: Configuration
 
 ### Server name
 
@@ -575,9 +619,9 @@ mysql_secure_installation
 
 > For more information, please see the [official MariaDB documentation](https://mariadb.com/kb/en/mysql_secure_installation/).
 
-## Web installation
+## Step 4: Web installation
 
-Before starting the web installation process, start the Apache server with the
+1. Start the Apache server with the
 following command:
 
 <Tabs groupId="sync">
@@ -604,15 +648,14 @@ systemctl start apache2
 </TabItem>
 </Tabs>
 
-Conclude installation by performing
-[web installation steps](../web-and-post-installation.md#web-installation).
+2. To complete the installation, follow the
+[web installation steps](../web-and-post-installation.md#web-installation) procedure.
 
 > During web installation, it is not necessary to install Autodiscovery module.
 
-> In the step **Initialization of the monitoring**, only the actions from 6 to 8
-> must be done.
+> In the step **Initialization of the monitoring**, only the actions from 6 to 8 must be done.
 
-## Register the server
+## Step 5: Register the server
 
 To transform the server into a Remote Server and to register it to the Central server or to another Remote server, execute the following command on the future remote server:
 
@@ -755,7 +798,7 @@ Failed connect to 192.168.0.1:444; Connection refused
 
 > Your Centreon target version is invalid. It should be greater or equal to 22.04.
 
-## Extend local DBMS rights
+## Step 6: Extend local DBMS rights
 
 Finally, add rights to **centreon** database user to use **LOAD DATA INFILE**
 command:
@@ -766,12 +809,12 @@ GRANT FILE on *.* to 'centreon'@'localhost';
 exit
 ```
 
-## Add the Remote Server to configuration
+## Step 7: Add the Remote Server to configuration
 
 Go to the
 [Add a Remote Server to configuration](../../monitoring/monitoring-servers/add-a-remote-server-to-configuration.md).
 
-## Secure your platform
+## Step 8: Secure your platform
 
 Don't forget to secure your Centreon platform following our
 [recommendations](../../administration/secure-platform.md)

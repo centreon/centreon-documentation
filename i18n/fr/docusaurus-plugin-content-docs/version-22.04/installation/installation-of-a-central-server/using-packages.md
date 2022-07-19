@@ -24,6 +24,22 @@ d'exploitation via la commande :
 dnf update
 ```
 
+### Configuration spécifique
+
+Si vous comptez utiliser Centreon en français, espagnol ou portugais, installez les paquets correspondants :
+
+```shell
+dnf install glibc-langpack-fr
+dnf install glibc-langpack-es
+dnf install glibc-langpack-pt
+```
+
+Vous pouvez utiliser la commande suivante pour vérifier quelles langues sont installées sur votre système :
+
+```shell
+locale -a
+```
+
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
@@ -44,25 +60,12 @@ apt update && apt upgrade
 > Acceptez toutes les clés GPG proposées et pensez à redémarrer votre serveur
 > si une mise à jour du noyau est proposée.
 
-### Configuration spécifique à AlmaLinux/RHEL/OracleLinux 8
-
-Si vous installez Centreon sur AlmaLinux/RHEL/OracleLinux 8, et que vous comptez utiliser Centreon en français, espagnol ou portugais, installez les paquets correspondants :
-
-```shell
-dnf install glibc-langpack-fr
-dnf install glibc-langpack-es
-dnf install glibc-langpack-pt
-```
-
-Vous pouvez utiliser la commande suivante pour vérifier quelles langues sont installées sur votre système :
-
-```shell
-locale -a
-```
-
 ## Étape 1 : pré-installation
 
-### Désactiver SELinux (s'il est installé)
+### Désactiver SELinux
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Pendant l'installation, SELinux doit être désactivé. Éditez le fichier
 **/etc/selinux/config** et remplacez **enforcing** par **disabled**, ou bien
@@ -86,9 +89,43 @@ $ getenforce
 Disabled
 ```
 
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+Pendant l'installation, SELinux doit être désactivé. Éditez le fichier
+**/etc/selinux/config** et remplacez **enforcing** par **disabled**, ou bien
+exécutez la commande suivante :
+
+```shell
+sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
+```
+
+Redémarrez votre système d'exploitation pour prendre en compte le changement.
+
+```shell
+reboot
+```
+
+Après le redémarrage, une vérification rapide permet de confirmer le statut de
+SELinux :
+
+```shell
+$ getenforce
+Disabled
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+SELinux n'est pas installé sur Debian 11, continuez.
+
+</TabItem>
+</Tabs>
+
 ### Configurer ou désactiver le pare-feu
 
-Si votre pare-feu système est actif, [paramétrez-le](../../administration/secure-platform.md#enable-firewalld). Vous pouvez également le désactiver le temps de l'installation :
+Si votre pare-feu système est actif, [paramétrez-le](../../administration/secure-platform.md#enable-firewalld).
+Vous pouvez également le désactiver le temps de l'installation :
 
 ```shell
 systemctl stop firewalld
@@ -114,6 +151,7 @@ dnf config-manager --set-enabled 'powertools'
 ```
 
 Activez PHP 8.0 en utilisant les commandes suivantes :
+
 ```shell
 dnf module reset php
 dnf module install php:remi-8.0
@@ -136,6 +174,7 @@ subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 ```
 
 Activez PHP 8.0 en utilisant les commandes suivantes :
+
 ```shell
 dnf module reset php
 dnf module install php:remi-8.0
@@ -159,6 +198,7 @@ dnf config-manager --set-enabled ol8_codeready_builder
 ```
 
 Activez PHP 8.0 en utilisant les commandes suivantes :
+
 ```shell
 dnf module reset php
 dnf module install php:remi-8.0
@@ -194,13 +234,15 @@ yum-config-manager --enable remi-php80
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
+#### Installer les dépendances
+
 Installez les dépendances suivantes :
 
 ```shell
 apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2
 ```
 
-#### Dépôt Sury APT pour PHP 8.0
+#### Installez le dépôt Sury APT pour PHP 8.0
 
 Pour installer le dépôt Sury, exécutez la commande suivante :
 
@@ -525,7 +567,7 @@ La timezone par défaut de PHP doit être configurée.
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / CentOS 7">
 
-Exécutez la commande suivante en `root` :
+Exécutez la commande suivante :
 
 ```shell
 echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
