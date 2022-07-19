@@ -22,43 +22,43 @@ Le Plugin Pack Centreon **Azure Storage Account** apporte 5 modèles d'hôte dif
 
 Il apporte les modèles de service suivants :
 
-| Alias                             | Modèle de service                                            | Description                                                  | Défaut |
-| :-------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----- |
-| Account-Transactions-Availability | Cloud-Azure-ClassicStorage-StorageAccount-Account-Transactions-Availability-Api | Contrôle le taux de disponibilité du stockage                | X      |
-| Account-Transactions-Count        | Cloud-Azure-ClassicStorage-StorageAccount-Account-Transactions-Count-Api | Contrôle le nombre de transactions sur le stockage           | X      |
-| Account-Transactions-Latency      | Cloud-Azure-ClassicStorage-StorageAccount-Account-Transactions-Latency-Api | Contrôle la latence et le temps de traitement des requêtes réussis sur le stockage | X      |
-| Account-Transactions-Throughput   | Cloud-Azure-ClassicStorage-StorageAccount-Account-Transactions-Throughput-Api | Contrôle le volume de données entrant et sortant sur le stockage | X      |
-| Account-Used-Capacity             | Cloud-Azure-ClassicStorage-StorageAccount-Account-Used-Capacity-Api | Contrôle le volume utilisé sur le stockage                   | X      |
-| Blob-Capacity                     | Cloud-Azure-ClassicStorage-StorageAccount-Blob-Capacity-Api  | Contrôle le volume de type Blob utilisé sur le stockage      | X      |
-| Blob-Container-Count              | Cloud-Azure-ClassicStorage-StorageAccount-Blob-Container-Count-Api | Contrôle le nombre de container Blob sur le stockage         | X      |
-| Blob-Count                        | Cloud-Azure-ClassicStorage-StorageAccount-Blob-Count-Api     | Contrôle le nombre d'objets sur le stockage                  | X      |
-| Blob-Transactions-Availability    | Cloud-Azure-ClassicStorage-StorageAccount-Blob-Transactions-Availability-Api | Contrôle le taux de disponibilité du stockage                | X      |
-| Blob-Transactions-Count           | Cloud-Azure-ClassicStorage-StorageAccount-Blob-Transactions-Count-Api | Contrôle le nombre de transactions sur le stockage           | X      |
-| Blob-Transactions-Latency         | Cloud-Azure-ClassicStorage-StorageAccount-Blob-Transactions-Latency-Api | Contrôle la latence et le temps de traitement des requêtes réussis sur le stockage | X      |
-| Blob-Transactions-Throughput      | Cloud-Azure-ClassicStorage-StorageAccount-Blob-Transactions-Throughput-Api | Contrôle le volume de données entrant et sortant sur le stockage | X      |
-| File-Capacity                     | Cloud-Azure-ClassicStorage-StorageAccount-File-Capacity-Api  | Contrôle le volume de type File utilisé sur le stockage      | X      |
-| File-Count                        | Cloud-Azure-ClassicStorage-StorageAccount-File-Count-Api     | Contrôle le nombre de fichiers sur le stockage               | X      |
-| File-Share-Count                  | Cloud-Azure-ClassicStorage-StorageAccount-File-Share-Count-Api | Contrôle le nombre de partage sur le stockage                | X      |
-| File-Share-Quota                  | Cloud-Azure-ClassicStorage-StorageAccount-File-Share-Quota-Api | Contrôle la taille maximale en octets                        | X      |
-| File-Transactions-Availability    | Cloud-Azure-ClassicStorage-StorageAccount-File-Transactions-Availability-Api | Contrôle le taux de disponibilité du stockage                | X      |
-| File-Transactions-Count           | Cloud-Azure-ClassicStorage-StorageAccount-File-Transactions-Count-Api | Contrôle le nombre de transactions sur le stockage           | X      |
-| File-Transactions-Latency         | Cloud-Azure-ClassicStorage-StorageAccount-File-Transactions-Latency-Api | Contrôle la latence et le temps de traitement des requêtes réussis sur le stockage | X      |
-| File-Transactions-Throughput      | Cloud-Azure-ClassicStorage-StorageAccount-File-Transactions-Throughput-Api | Contrôle le volume de données entrant et sortant sur le stockage | X      |
-| Health                            | Cloud-Azure-ClassicStorage-StorageAccount-Health-Api         | Contrôle le statut de l'instance de stockage                 | X      |
-| Queue-Capacity                    | Cloud-Azure-ClassicStorage-StorageAccount-Queue-Capacity-Api | Contrôle le volume de type Queue utilisé sur le stockage     | X      |
-| Queue-Count                       | Cloud-Azure-ClassicStorage-StorageAccount-Queue-Count-Api    | Contrôle le nombre de file d'attente sur le stockage         | X      |
-| Queue-Message-Count               | Cloud-Azure-ClassicStorage-StorageAccount-Queue-Message-Count-Api | Contrôle le nombre de message dans la file d'attente sur le stockage | X      |
-| Queue-Transactions-Availability   | Cloud-Azure-ClassicStorage-StorageAccount-Queue-Transactions-Availability-Api | Contrôle le taux de disponibilité du stockage                | X      |
-| Queue-Transactions-Count          | Cloud-Azure-ClassicStorage-StorageAccount-Queue-Transactions-Count-Api | Contrôle le nombre de transactions sur le stockage           | X      |
-| Queue-Transactions-Latency        | Cloud-Azure-ClassicStorage-StorageAccount-Queue-Transactions-Latency-Api | Contrôle la latence et le temps de traitement des requêtes réussis sur le stockage | X      |
-| Queue-Transactions-Throughput     | Cloud-Azure-ClassicStorage-StorageAccount-Queue-Transactions-Throughput-Api | Contrôle le volume de données entrant et sortant sur le stockage | X      |
-| Table-Capacity                    | Cloud-Azure-ClassicStorage-StorageAccount-Table-Capacity-Api | Contrôle le volume de type Table utilisé sur le stockage     | X      |
-| Table-Count                       | Cloud-Azure-ClassicStorage-StorageAccount-Table-Count-Api    | Contrôle le nombre de table sur le stockage                  | X      |
-| Table-Entity-Count                | Cloud-Azure-ClassicStorage-StorageAccount-Table-Entity-Count-Api | Contrôle le nombre d'entrée dans les tables sur le stockage  | X      |
-| Table-Transactions-Availability   | Cloud-Azure-ClassicStorage-StorageAccount-Table-Transactions-Availability-Api | Contrôle le taux de disponibilité du stockage                | X      |
-| Table-Transactions-Count          | Cloud-Azure-ClassicStorage-StorageAccount-Table-Transactions-Count-Api | Contrôle le nombre de transactions sur le stockage           | X      |
-| Table-Transactions-Latency        | Cloud-Azure-ClassicStorage-StorageAccount-Table-Transactions-Latency-Api | Contrôle la latence et le temps de traitement des requêtes réussis sur le stockage | X      |
-| Table-Transactions-Throughput     | Cloud-Azure-ClassicStorage-StorageAccount-Table-Transactions-Throughput-Api | Contrôle le volume de données entrant et sortant sur le stockage | X      |
+| Alias                             | Modèle de service                                                             | Description                                                                        | Défaut |
+| :-------------------------------- | :-----------------------------------------------------------------------------| :----------------------------------------------------------------------------------| :----- |
+| Account-Transactions-Availability | Cloud-Azure-StorageAccount-Account-Transactions-Availability-Api              | Contrôle le taux de disponibilité du stockage                                      | X      |
+| Account-Transactions-Count        | Cloud-Azure-StorageAccount-Account-Transactions-Count-Api                     | Contrôle le nombre de transactions sur le stockage                                 | X      |
+| Account-Transactions-Latency      | Cloud-Azure-StorageAccount-Account-Transactions-Latency-Api                   | Contrôle la latence et le temps de traitement des requêtes réussis sur le stockage | X      |
+| Account-Transactions-Throughput   | Cloud-Azure-StorageAccount-Account-Transactions-Throughput-Api                | Contrôle le volume de données entrant et sortant sur le stockage                   | X      |
+| Account-Used-Capacity             | Cloud-Azure-StorageAccount-Account-Used-Capacity-Api                          | Contrôle le volume utilisé sur le stockage                                         | X      |
+| Blob-Capacity                     | Cloud-Azure-StorageAccount-Blob-Capacity-Api                                  | Contrôle le volume de type Blob utilisé sur le stockage                            | X      |
+| Blob-Container-Count              | Cloud-Azure-StorageAccount-Blob-Container-Count-Api                           | Contrôle le nombre de container Blob sur le stockage                               | X      |
+| Blob-Count                        | Cloud-Azure-StorageAccount-Blob-Count-Api                                     | Contrôle le nombre d objets sur le stockage                                        | X      |
+| Blob-Transactions-Availability    | Cloud-Azure-StorageAccount-Blob-Transactions-Availability-Api                 | Contrôle le taux de disponibilité du stockage                                      | X      |
+| Blob-Transactions-Count           | Cloud-Azure-StorageAccount-Blob-Transactions-Count-Api                        | Contrôle le nombre de transactions sur le stockage                                 | X      |
+| Blob-Transactions-Latency         | Cloud-Azure-StorageAccount-Blob-Transactions-Latency-Api                      | Contrôle la latence et le temps de traitement des requêtes réussis sur le stockage | X      |
+| Blob-Transactions-Throughput      | Cloud-Azure-StorageAccount-Blob-Transactions-Throughput-Api                   | Contrôle le volume de données entrant et sortant sur le stockage                   | X      |
+| File-Capacity                     | Cloud-Azure-StorageAccount-File-Capacity-Api                                  | Contrôle le volume de type File utilisé sur le stockage                            | X      |
+| File-Count                        | Cloud-Azure-StorageAccount-File-Count-Api                                     | Contrôle le nombre de fichiers sur le stockage                                     | X      |
+| File-Share-Count                  | Cloud-Azure-StorageAccount-File-Share-Count-Api                               | Contrôle le nombre de partage sur le stockage                                      | X      |
+| File-Share-Quota                  | Cloud-Azure-StorageAccount-File-Share-Quota-Api                               | Contrôle la taille maximale en octets                                              | X      |
+| File-Transactions-Availability    | Cloud-Azure-StorageAccount-File-Transactions-Availability-Api                 | Contrôle le taux de disponibilité du stockage                                      | X      |
+| File-Transactions-Count           | Cloud-Azure-StorageAccount-File-Transactions-Count-Api                        | Contrôle le nombre de transactions sur le stockage                                 | X      |
+| File-Transactions-Latency         | Cloud-Azure-StorageAccount-File-Transactions-Latency-Api                      | Contrôle la latence et le temps de traitement des requêtes réussis sur le stockage | X      |
+| File-Transactions-Throughput      | Cloud-Azure-StorageAccount-File-Transactions-Throughput-Api                   | Contrôle le volume de données entrant et sortant sur le stockage                   | X      |
+| Health                            | Cloud-Azure-StorageAccount-Health-Api                                         | Contrôle le statut de l instance de stockage                                       | X      |
+| Queue-Capacity                    | Cloud-Azure-StorageAccount-Queue-Capacity-Api                                 | Contrôle le volume de type Queue utilisé sur le stockage                           | X      |
+| Queue-Count                       | Cloud-Azure-StorageAccount-Queue-Count-Api                                    | Contrôle le nombre de file d attente sur le stockage                               | X      |
+| Queue-Message-Count               | Cloud-Azure-StorageAccount-Queue-Message-Count-Api                            | Contrôle le nombre de message dans la file d attente sur le stockage               | X      |
+| Queue-Transactions-Availability   | Cloud-Azure-StorageAccount-Queue-Transactions-Availability-Api                | Contrôle le taux de disponibilité du stockage                                      | X      |
+| Queue-Transactions-Count          | Cloud-Azure-StorageAccount-Queue-Transactions-Count-Api                       | Contrôle le nombre de transactions sur le stockage                                 | X      |
+| Queue-Transactions-Latency        | Cloud-Azure-StorageAccount-Queue-Transactions-Latency-Api                     | Contrôle la latence et le temps de traitement des requêtes réussis sur le stockage | X      |
+| Queue-Transactions-Throughput     | Cloud-Azure-StorageAccount-Queue-Transactions-Throughput-Api                  | Contrôle le volume de données entrant et sortant sur le stockage                   | X      |
+| Table-Capacity                    | Cloud-Azure-StorageAccount-Table-Capacity-Api                                 | Contrôle le volume de type Table utilisé sur le stockage                           | X      |
+| Table-Count                       | Cloud-Azure-StorageAccount-Table-Count-Api                                    | Contrôle le nombre de table sur le stockage                                        | X      |
+| Table-Entity-Count                | Cloud-Azure-StorageAccount-Table-Entity-Count-Api                             | Contrôle le nombre d'entrée dans les tables sur le stockage                        | X      |
+| Table-Transactions-Availability   | Cloud-Azure-ClassicStorage-StorageAccount-Table-Transactions-Availability-Api | Contrôle le taux de disponibilité du stockage                                      | X      |
+| Table-Transactions-Count          | Cloud-Azure-ClassicStorage-StorageAccount-Table-Transactions-Count-Api        | Contrôle le nombre de transactions sur le stockage                                 | X      |
+| Table-Transactions-Latency        | Cloud-Azure-ClassicStorage-StorageAccount-Table-Transactions-Latency-Api      | Contrôle la latence et le temps de traitement des requêtes réussis sur le stockage | X      |
+| Table-Transactions-Throughput     | Cloud-Azure-ClassicStorage-StorageAccount-Table-Transactions-Throughput-Api   | Contrôle le volume de données entrant et sortant sur le stockage                   | X      |
 
 ### Règles de découverte
 
