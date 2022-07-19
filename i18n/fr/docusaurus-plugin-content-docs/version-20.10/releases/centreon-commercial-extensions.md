@@ -202,8 +202,8 @@ Release date: `July 19, 2022`
 
 #### Bugfixes
 
-- Fixed an "out of memory" error in the configuration export process, that could happen when many Business Activities are bound to 
-a Remote Server that has many pollers. As a result, the BAs were not actually exported to the Remote Server.
+- Fixed an "out of memory" error in the configuration export process, that could happen when many Business Activities were bound to 
+a Remote Server that had many pollers. As a result, the BAs were not actually exported to the Remote Server.
 
 ### 20.10.5
 
