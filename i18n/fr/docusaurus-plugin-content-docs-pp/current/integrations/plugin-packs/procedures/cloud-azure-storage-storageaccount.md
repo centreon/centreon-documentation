@@ -1,7 +1,6 @@
 ---
 id: cloud-azure-storage-storageaccount
 title: Azure Storage Account
-
 ---
 
 import Tabs from '@theme/Tabs';
