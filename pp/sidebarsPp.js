@@ -349,6 +349,10 @@ module.exports = {
           id: 'integrations/plugin-packs/procedures/applications-monitoring-ntopng-restapi'
         },
         {
+            type: 'doc',
+            id: 'integrations/plugin-packs/procedures/applications-monitoring-node-exporter-linux'
+        },
+        {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-video-openheadend-snmp'
         },
@@ -829,6 +833,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-azure-database-sqlserver'
+        },
+        {
+            type: 'doc',
+            id: 'integrations/plugin-packs/procedures/cloud-azure-classic-storage-storageaccount'
         },
         {
           type: 'doc',
