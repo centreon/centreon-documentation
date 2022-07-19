@@ -191,6 +191,15 @@ To use it, it is necessary to install and activate it. Refer to the
 
 ## Centreon BAM
 
+### 20.10.6
+
+Release date: `July 19, 2022`
+
+#### Bugfixes
+
+- Fixed an "out of memory" error in the configuration export process, that could happen when many Business Activities are bound to 
+a Remote Server that has many pollers. As a result, the BAs were not actually exported to the Remote Server.
+
 ### 20.10.5
 
 Release date: `December 29, 2021`
