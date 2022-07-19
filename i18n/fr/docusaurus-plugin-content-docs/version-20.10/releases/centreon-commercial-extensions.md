@@ -200,7 +200,7 @@ Référez-vous à la [documentation dédiée](../graph-views/install.md#centreon
 
 Release date: `July 19, 2022`
 
-#### Bugfixes
+#### Bug fixes
 
 - Fixed an "out of memory" error in the configuration export process, that could happen when many Business Activities were bound to 
 a Remote Server that had many pollers. As a result, the BAs were not actually exported to the Remote Server.
