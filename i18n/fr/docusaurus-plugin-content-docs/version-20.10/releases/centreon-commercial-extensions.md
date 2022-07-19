@@ -196,6 +196,15 @@ Référez-vous à la [documentation dédiée](../graph-views/install.md#centreon
 
 ## Centreon BAM
 
+### 20.10.6
+
+Release date: `July 19, 2022`
+
+#### Bug fixes
+
+- Fixed an "out of memory" error in the configuration export process, that could happen when many Business Activities were bound to 
+a Remote Server that had many pollers. As a result, the BAs were not actually exported to the Remote Server.
+
 ### 20.10.5
 
 Release date: `December 29, 2021`
