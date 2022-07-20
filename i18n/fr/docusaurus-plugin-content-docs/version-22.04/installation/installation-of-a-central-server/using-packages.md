@@ -317,7 +317,7 @@ yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/ce
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
-Pour installer le dépôt Centreon, exécuter la commande suivante:
+Pour installer le dépôt Centreon, exécutez la commande suivante:
 
 ```shell
 echo "deb https://apt.centreon.com/repository/22.04/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
