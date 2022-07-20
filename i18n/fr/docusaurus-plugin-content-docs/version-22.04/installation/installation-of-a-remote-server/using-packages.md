@@ -819,5 +819,5 @@ Rendez-vous au chapitre
 
 ## Étape 8 : Sécuriser votre plateforme
 
-Sécuriser votre plateforme Centreon en suivant nos
+Sécurisez votre plateforme Centreon en suivant nos
 [recommandations](../../administration/secure-platform.md).
