@@ -816,5 +816,5 @@ Go to the
 
 ## Step 8: Secure your platform
 
-Don't forget to secure your Centreon platform following our
+Do not forget to secure your Centreon platform following our
 [recommendations](../../administration/secure-platform.md)
