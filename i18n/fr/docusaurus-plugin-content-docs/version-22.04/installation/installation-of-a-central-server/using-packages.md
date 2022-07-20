@@ -75,7 +75,7 @@ exécutez la commande suivante :
 sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
 ```
 
-Redémarrer votre système d'exploitation pour prendre en compte le changement.
+Redémarrez votre système d'exploitation pour prendre en compte le changement.
 
 ```shell
 reboot
