@@ -69,7 +69,7 @@ apt update && apt upgrade
 
 Pendant l'installation, SELinux doit être désactivé. Éditez le fichier
 **/etc/selinux/config** et remplacez **enforcing** par **disabled**, ou bien
-exécuter la commande suivante :
+exécutez la commande suivante :
 
 ```shell
 sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
