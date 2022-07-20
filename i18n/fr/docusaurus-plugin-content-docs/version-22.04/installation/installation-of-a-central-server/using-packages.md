@@ -57,7 +57,7 @@ apt update && apt upgrade
 </TabItem>
 </Tabs>
 
-> Accepter toutes les clés GPG proposées et penser à redémarrer votre serveur
+> Acceptez toutes les clés GPG proposées et redémarrez votre serveur
 > si une mise à jour du noyau est proposée.
 
 ## Étape 1 : pré-installation
