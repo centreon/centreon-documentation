@@ -60,7 +60,7 @@ apt update && apt upgrade
 > Acceptez toutes les clés GPG proposées et redémarrez votre serveur
 > si une mise à jour du noyau est proposée.
 
-## Étape 1 : pré-installation
+## Étape 1 : Pré-installation
 
 ### Désactiver SELinux
 
