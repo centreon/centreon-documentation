@@ -67,7 +67,7 @@ apt update && apt upgrade
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-Pendant l'installation, SELinux doit être désactivé. Éditer le fichier
+Pendant l'installation, SELinux doit être désactivé. Éditez le fichier
 **/etc/selinux/config** et remplacer **enforcing** par **disabled**, ou bien
 exécuter la commande suivante :
 
