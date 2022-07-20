@@ -839,6 +839,10 @@ module.exports = {
           id: 'integrations/plugin-packs/procedures/cloud-azure-storage-acr'
         },
         {
+            type: 'doc',
+            id: 'integrations/plugin-packs/procedures/cloud-azure-classicstorage-storageaccount'
+        },
+        {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-azure-storage-storageaccount'
         },
