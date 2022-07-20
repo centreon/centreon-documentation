@@ -26,7 +26,7 @@ dnf update
 
 ### Configuration spécifique
 
-Pour utiliser Centreon en français, espagnol ou portugais, installer les paquets correspondants :
+Pour utiliser Centreon en français, espagnol ou portugais, installez les paquets correspondants :
 
 ```shell
 dnf install glibc-langpack-fr
