@@ -34,7 +34,7 @@ dnf install glibc-langpack-es
 dnf install glibc-langpack-pt
 ```
 
-Utiliser la commande suivante pour vérifier quelles langues sont installées sur votre système :
+Utilisez la commande suivante pour vérifier quelles langues sont installées sur votre système :
 
 ```shell
 locale -a
