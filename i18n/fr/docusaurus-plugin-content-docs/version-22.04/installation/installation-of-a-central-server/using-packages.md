@@ -100,7 +100,7 @@ exécutez la commande suivante :
 sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
 ```
 
-Redémarrer votre système d'exploitation pour prendre en compte le changement.
+Redémarrez votre système d'exploitation pour prendre en compte le changement.
 
 ```shell
 reboot
@@ -141,7 +141,7 @@ systemctl disable firewalld
 
 Afin d'installer les logiciels Centreon, le dépôt **remi** doit être installé.
 
-Exécuter les commandes suivantes :
+Exécutez les commandes suivantes :
 
 ```shell
 dnf install -y dnf-plugins-core
@@ -164,7 +164,7 @@ dnf module install php:remi-8.0
 
 Afin d'installer les logiciels Centreon, les dépôts **remi** et **CodeReady Builder** doivent être installés.
 
-Exécuter les commandes suivantes :
+Exécutez les commandes suivantes :
 
 ```shell
 dnf install -y dnf-plugins-core
@@ -173,7 +173,7 @@ dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 ```
 
-Activer PHP 8.0 en utilisant les commandes suivantes :
+Activez PHP 8.0 en utilisant les commandes suivantes :
 
 ```shell
 dnf module reset php
@@ -188,7 +188,7 @@ dnf module install php:remi-8.0
 
 Afin d'installer les logiciels Centreon, les dépôts **remi** et **CodeReady Builder** doivent être installés.
 
-Exécuter les commandes suivantes :
+Exécutez les commandes suivantes :
 
 ```shell
 dnf install -y dnf-plugins-core
@@ -197,7 +197,7 @@ dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 dnf config-manager --set-enabled ol8_codeready_builder
 ```
 
-Activer PHP 8.0 en utilisant les commandes suivantes :
+Activez PHP 8.0 en utilisant les commandes suivantes :
 
 ```shell
 dnf module reset php
@@ -212,7 +212,7 @@ dnf module install php:remi-8.0
 Afin d'installer les logiciels Centreon, le dépôt *Software Collections* de Red
 Hat doit être activé. Celui-ci est nécessaire pour l'installation de apache 2.4.
 
-Exécuter la commande suivante :
+Exécutez la commande suivante :
 
 ```shell
 yum install -y centos-release-scl
@@ -222,7 +222,7 @@ yum install -y centos-release-scl
 
 Afin d'installer les logiciels Centreon, le dépôt **remi** doit être installé.
 
-Exécuter les commandes suivantes :
+Exécutez les commandes suivantes :
 
 ```shell
 yum install -y yum-utils
@@ -236,7 +236,7 @@ yum-config-manager --enable remi-php80
 
 #### Installer les dépendances
 
-Installer les dépendances suivantes :
+Installez les dépendances suivantes :
 
 ```shell
 apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2
@@ -244,13 +244,13 @@ apt update && apt install lsb-release ca-certificates apt-transport-https softwa
 
 #### Installer le dépôt Sury APT pour PHP 8.0
 
-Pour installer le dépôt Sury, exécuter la commande suivante :
+Pour installer le dépôt Sury, exécutez la commande suivante :
 
 ```shell
 echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/sury-php.list
 ```
 
-Puis importer la clé du dépôt :
+Puis importez la clé du dépôt :
 
 ```shell
 wget -O- https://packages.sury.org/php/apt.gpg | gpg --dearmor | tee /etc/apt/trusted.gpg.d/php.gpg  > /dev/null 2>&1
@@ -298,7 +298,7 @@ Les paquets seront installés automatiquement.
 Afin d'installer les logiciels Centreon à partir des dépôts, vous devez au
 préalable installer le fichier lié au dépôt.
 
-Exécuter la commande suivante :
+Exécutez la commande suivante :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -323,7 +323,7 @@ Pour installer le dépôt Centreon, exécutez la commande suivante:
 echo "deb https://apt.centreon.com/repository/22.04/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 ```
 
-Puis importer la clé du dépôt :
+Puis importez la clé du dépôt :
 
 ```shell
 wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
@@ -372,14 +372,14 @@ systemctl restart mariadb
 </TabItem>
 </Tabs>
 
-Passer maintenant à [l'étape 3](#étape-3--configuration).
+Passez maintenant à [l'étape 3](#étape-3--configuration).
 
 ### Avec base de données déportée
 
 > Dans le cas d'une installation avec un serveur dédié à la base de données, ce
 > dernier doit aussi avoir les dépôts prérequis.
 
-Exécuter la commande suivante sur le serveur Centreon Central :
+Exécutez la commande suivante sur le serveur Centreon Central :
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
@@ -405,7 +405,7 @@ apt install -y centreon-central
 </TabItem>
 </Tabs>
 
-Puis exécuter les commandes suivantes sur le serveur dédié à la base de données :
+Puis exécutez les commandes suivantes sur le serveur dédié à la base de données :
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
@@ -437,15 +437,15 @@ systemctl restart mariadb
 </TabItem>
 </Tabs>
 
-Sécuriser l'accès root à MariaDB en exécutant la commande suivante :
+Sécurisez l'accès root à MariaDB en exécutant la commande suivante :
 
 ```shell
 mysql_secure_installation
 ```
 
-> Définir un mot de passe pour l'utilisateur root de la base de données.
+> Définissez un mot de passe pour l'utilisateur root de la base de données.
 
-Enfin, dans la base de données distante, créer un utilisateur avec privilèges **root**. Renseigner cet utilisateur pendant le processus d'installation web (à [l'étape 6](../web-and-post-installation.md#étape-6--database-information), dans les champs **Root user** et **Root password**).
+Enfin, dans la base de données distante, créer un utilisateur avec privilèges **root**. Renseignez cet utilisateur pendant le processus d'installation web (à [l'étape 6](../web-and-post-installation.md#étape-6--database-information), dans les champs **Root user** et **Root password**).
 
 ```SQL
 CREATE USER '<USER>'@'<IP_CENTRAL>' IDENTIFIED BY '<MOT_DE_PASSE>';
@@ -461,14 +461,13 @@ GRANT ALL PRIVILEGES ON *.* TO 'dbadmin'@'<IP_CENTRAL>' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 ```
 
-> Remplacer **<IP_CENTRAL\>** par l'adresse IP avec laquelle le serveur Centreon
+> Remplacez **<IP_CENTRAL\>** par l'adresse IP avec laquelle le serveur Centreon
 > Central se connectera au serveur de base de données.
 >
-> Remplacer **<USER\>** et **<MOT_DE_PASSE\>** par les identifiants de
-> l'utilisateur.
+> Remplacez **<USER\>** et **<MOT_DE_PASSE\>** par les identifiants de l'utilisateur.
 
-Cet utilisateur ne sera utilisé que pour le processus d'intallation. Une fois [l'installation web](../web-and-post-installation.md) terminée, supprimer cet utilisateur via la
-commande :
+Cet utilisateur ne sera utilisé que pour le processus d'intallation. Une fois [l'installation web](../web-and-post-installation.md)
+terminée, supprimez cet utilisateur via la commande :
 
 ```SQL
 DROP USER '<USER>'@'<IP_CENTRAL>';
@@ -533,17 +532,17 @@ DROP USER 'dbadmin'@'<IP_CENTRAL>';
 > innodb_buffer_pool_size=1G
 > ```
 >
-> Redémarrer le service mariadb après chaque changement de configuration.
+> Redémarrez le service mariadb après chaque changement de configuration.
 
 #### Configuration spécifique à Debian 11
 
-MariaDB doit écouter sur toutes les interfaces au lieu d'écouter sur localhost/127.0.0.1 (valeur par défaut). Éditer le fichier suivant :
+MariaDB doit écouter sur toutes les interfaces au lieu d'écouter sur localhost/127.0.0.1 (valeur par défaut). Éditez le fichier suivant :
 
 ```shell
 /etc/mysql/mariadb.conf.d/50-server.cnf
 ```
 
-Donner au paramètre **bind-address** la valeur **0.0.0.0**.
+Attribuez au paramètre **bind-address** la valeur **0.0.0.0**.
 
 ## Étape 3 : Configuration
 
@@ -554,7 +553,7 @@ Si vous le souhaitez, vous pouvez changer le hostname du serveur à l'aide de la
 hostnamectl set-hostname new-server-name
 ```
 
-Remplacer **new-server-name** par le nom de votre choix. Exemple :
+Remplacez **new-server-name** par le nom de votre choix. Exemple :
 ```shell
 hostnamectl set-hostname central
 ```
@@ -566,16 +565,16 @@ La timezone par défaut de PHP doit être configurée.
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / CentOS 7">
 
-Exécuter la commande suivante :
+Exécutez la commande suivante :
 
 ```shell
 echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
 ```
 
-> Remplacer **Europe/Paris** par votre fuseau horaire. La liste des fuseaux
+> Remplacez **Europe/Paris** par votre fuseau horaire. La liste des fuseaux
 > horaires est disponible [ici](http://php.net/manual/en/timezones.php).
 
-Après avoir réalisé la modification, redémarrer le service PHP-FPM :
+Après avoir réalisé la modification, redémarrez le service PHP-FPM :
 
 ```shell
 systemctl restart php-fpm
@@ -584,7 +583,7 @@ systemctl restart php-fpm
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
-Définir le fuseau horaire PHP en éditant le fichier suivant :
+Définissez le fuseau horaire PHP en éditant le fichier suivant :
 
 ```shell
 /etc/php/8.0/mods-available/centreon.ini
@@ -593,7 +592,7 @@ Définir le fuseau horaire PHP en éditant le fichier suivant :
 > La liste des fuseaux
 > horaires est disponible [ici](http://php.net/manual/en/timezones.php).
 
-Après avoir sauvegardé le fichier, redémarrer le service PHP-FPM :
+Après avoir sauvegardé le fichier, redémarrez le service PHP-FPM :
 
 ```shell
 systemctl restart php8.0-fpm
@@ -604,7 +603,7 @@ systemctl restart php8.0-fpm
 
 ### Lancement des services au démarrage
 
-Pour activer le lancement automatique des services au démarrage, exécuter la
+Pour activer le lancement automatique des services au démarrage, exécutez la
 commande suivante sur le serveur Central :
 
 <Tabs groupId="sync">
@@ -631,7 +630,7 @@ systemctl enable php8.0-fpm apache2 centreon cbd centengine gorgoned centreontra
 </TabItem>
 </Tabs>
 
-Puis exécuter la commande suivante (sur le serveur central si vous utilisez une base de données locale, sinon sur le serveur de base de données déporté):
+Puis exécutez la commande suivante (sur le serveur central si vous utilisez une base de données locale, sinon sur le serveur de base de données déporté):
 
 ```shell
 systemctl enable mariadb
@@ -640,21 +639,21 @@ systemctl restart mariadb
 
 ### Sécuriser la base de données
 
-Depuis MariaDB 10.5, il est obligatoire de sécuriser l'accès en root à la base avant d'installer Centreon. Si vous utilisez une base de données locale, exécuter la commande suivante sur le serveur central :
+Depuis MariaDB 10.5, il est obligatoire de sécuriser l'accès en root à la base avant d'installer Centreon. Si vous utilisez une base de données locale, exécutez la commande suivante sur le serveur central :
 
 ```shell
 mysql_secure_installation
 ```
 
-* Répondre oui à toute question sauf à "Disallow root login remotely?". 
+* Répondez oui à toute question sauf à "Disallow root login remotely?". 
 * Vous devez obligatoirement définir un mot de passe pour l'utilisateur **root** de la base de données.
 Ce mot de passe vous sera demandé lors de l'[installation web](../web-and-post-installation.md).
 
-> Pour plus d'informations, veuiller consulter la [documentation officielle MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/).
+> Pour plus d'informations, veuillez consulter la [documentation officielle MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/).
 
 ## Étape 4 : Installation web
 
-1. Démarrer le serveur Apache avec la
+1. Démarrez le serveur Apache avec la
 commande suivante :
 
 <Tabs groupId="sync">
@@ -681,5 +680,5 @@ systemctl start apache2
 </TabItem>
 </Tabs>
 
-2. Terminer l'installation en réalisant les
+2. Terminez l'installation en réalisant les
 [étapes de l'installation web](../web-and-post-installation.md#installation-web).
