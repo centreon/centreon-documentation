@@ -14,7 +14,7 @@ L'ensemble de la procédure d'installation doit être faite en tant qu'utilisate
 
 ## Prérequis
 
-Après avoir installé votre serveur, réaliser la mise à jour de votre système
+Après avoir installé votre serveur, réalisez la mise à jour de votre système
 d'exploitation via la commande :
 
 <Tabs groupId="sync">
