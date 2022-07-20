@@ -93,7 +93,7 @@ Disabled
 <TabItem value="CentOS 7" label="CentOS 7">
 
 Pendant l'installation, SELinux doit être désactivé. Éditez le fichier
-**/etc/selinux/config** et remplacer **enforcing** par **disabled**, ou bien
+**/etc/selinux/config** et remplacez **enforcing** par **disabled**, ou bien
 exécuter la commande suivante :
 
 ```shell
