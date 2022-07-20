@@ -79,7 +79,7 @@ Reboot your operating system to apply the change.
 reboot
 ```
 
-After system startup, perform a quick check of the SELinux status:
+After the system reboot, perform a quick check of the SELinux status:
 
 ```shell
 getenforce
