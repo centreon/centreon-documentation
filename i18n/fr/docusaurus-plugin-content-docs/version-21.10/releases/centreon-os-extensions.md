@@ -30,6 +30,8 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ### 21.10.1
 
+Release date: `July 21, 2022
+`
 #### Enhancements
 
 - [Core] Added PHP 8.0 compatibility
