@@ -31,6 +31,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 21.10.1
 
+Release date: `July 21, 2022`
+
 #### Enhancements
 
 - [Core] Added PHP 8.0 compatibility
