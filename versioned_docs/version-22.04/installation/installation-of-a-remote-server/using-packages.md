@@ -659,9 +659,6 @@ systemctl start apache2
 
 To transform the server into a Remote Server and to register it to the Central server or to another Remote server, execute the following command on the future remote server:
 
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
 ``` shell
 /usr/share/centreon/bin/registerServerTopology.sh -u <API_ACCOUNT> \
 -t remote -h <IP_TARGET_NODE> -n <REMOTE_NAME>
@@ -672,23 +669,6 @@ Example:
 ``` shell
 /usr/share/centreon/bin/registerServerTopology.sh -u admin -t remote -h 192.168.0.1 -n remote-1
 ```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-``` shell
-/usr/share/centreon/bin/registerServerTopology.sh -u <API_ACCOUNT> \
--t remote -h <IP_TARGET_NODE> -n <REMOTE_NAME>
-```
-
-Example:
-
-``` shell
-/usr/share/centreon/bin/registerServerTopology.sh -u admin -t remote -h 192.168.0.1 -n remote-1
-```
-
-</TabItem>
-</Tabs>
 
 > Replace **<IP_TARGET_NODE>** by the IP of the central server, as seen by the remote server.
 
