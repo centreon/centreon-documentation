@@ -42,7 +42,7 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 #### Bug fixes
 
-- [Provider] Fixed error 400 issue when opening a ticket using Jira provider
+- [Provider] Fixed the error 400 issue when opening a ticket using Jira provider
 - [Provider] Fixed regression with Mail provider
 - [Widget] Display of the state type of the host instead of the service
 
