@@ -39,7 +39,7 @@ If you have feature requests or want to report a bug, please go to our
 - [Install] Added ability to use a non default database name
 - [Widget] Added an alarm duration filter in the widget configuration
 - [Widget] Added an option to schedule a check when you open a ticket or acknowledge a resource
-- [Widget] Added preselect option in select box if only one choice is available
+- [Widget] Added a preselect option in the select box if only one choice is available
 
 #### Bug fixes
 
