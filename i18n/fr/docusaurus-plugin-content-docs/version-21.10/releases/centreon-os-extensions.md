@@ -33,8 +33,7 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 #### Enhancements
 
 - [Core] Added PHP 8.0 compatibility
-- [Core] Added ability to use user name in smarty configuration for providers
-- [Core] Use options defined in administration menu for acknowledgement
+- [Core] Added the ability to the use user.name variable in Smarty configuration for providers
 - [Install] Added the ability to use a non default database name
 - [Widget] Added an alarm duration filter in the widget configuration
 - [Widget] Added an option to schedule a check when you open a ticket or acknowledge a resource
@@ -42,6 +41,7 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 #### Bug fixes
 
+- [Core] Now use the default acknowledgement options defined in administration menu that were not applied
 - [Provider] Fixed the error 400 issue when opening a ticket using Jira provider
 - [Provider] Fixed a regression with the Mail provider
 - [Widget] Fixed the state type column that was displayed the service value instead of the host value
