@@ -5,7 +5,6 @@ title: Cisco WLC
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 ## Contenu du Pack
 
 ### Modèles
@@ -230,7 +229,7 @@ l'utilisateur **centreon-engine** (`su - centreon-engine`) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: total: %s associated: %s disassociating: %s downloading: %s enabled: %s disabled: %s   channels utilization: %s %% | 'accesspoints.total.count'=9000;;;0; 'accesspoints.associated.count'=9000;;;0; 'accesspoints.disassociating.count'=9000;;;0; 'accesspoints.downloading.count'=9000;;;0; 'accesspoints.enabled.count'=9000;;;0; 'accesspoints.disabled.count'=9000;;;0; 'accesspoint.radio.interface.channels.utilization.percentage'=9000%;;;0;100 
+OK: total: %s associated: %s disassociating: %s downloading: %s enabled: %s disabled: %s   channels utilization: %s %% | 'accesspoints.total.count'=300;;;0; 'accesspoints.associated.count'=300;;;0; 'accesspoints.disassociating.count'=0;;;0; 'accesspoints.downloading.count'=0;;;0; 'accesspoints.enabled.count'=0;;;0; 'accesspoints.disabled.count'=0;;;0; 'accesspoint.radio.interface.channels.utilization.percentage'=70%;;;0;100
 ```
 
 La liste de toutes les options complémentaires et leur signification peut être
