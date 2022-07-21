@@ -58,8 +58,8 @@ yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/ce
 </TabItem>
 </Tabs>
 
-    > Install Centreon MAP repository, you can find it on the
-    > [support portal](https://support.centreon.com/s/repositories).
+> Install Centreon MAP repository, you can find it on the
+> [support portal](https://support.centreon.com/s/repositories).
 
 2. Update Centreon MAP server:
 
@@ -106,7 +106,7 @@ automatically upgraded to the latest version that corresponds to the server.
 Alternatively, the client can be downloaded through the menu `Monitoring >
 Map` and **Desktop client** button.
 
-## Step 4 : MariaDB database
+## Step 4: MariaDB database
 
 1. Stop the **centreon-map** service:
     ```shell
@@ -115,7 +115,7 @@ Map` and **Desktop client** button.
 
 2. See [Upgrading MariaDB](../upgrade/upgrade-mariadb.md).
 
-3. Si vous avez mis à jour votre plateforme Centreon en version 22.04, le nouveau protocole BBDO v3 est activé. Vous devez éditer le fichier suivant pour que MAP fonctionne correctement : **/etc/centreon-studio/studio-config.properties**
+3. If you have upgraded your Centreon platform to version 22.04, the new BBDO v3 protocol is enabled. You need to edit the following file to allow MAP to work properly: **/etc/centreon-studio/studio-config.properties**
 
    ```text
    broker.pb.message.enabled=true

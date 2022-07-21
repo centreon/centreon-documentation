@@ -141,8 +141,8 @@ procedure](advanced-configuration.md#change-centreon-map-server-port).
 An additional Broker output for Centreon Central (centreon-broker-master) has
 been created during the installation.
 
-You can check it in your Centreon web interface, from the **Configuration >
-Pollers > Broker Configuration** menu, by editing the **centreon-broker-master**
+You can check it in your Centreon web interface, from the `Configuration >
+Pollers > Broker Configuration`, by editing the `centreon-broker-master`
 configuration.
 
 The output configuration should look like this:
@@ -156,14 +156,15 @@ certificate as described below:
 
 ![image](../assets/graph-views/output_broker_tls.png)
 
-To create a self-signed certificate, you can use the following commands:
+To create a self-signed certificate, you can use the following commands: 
 
 ```text
 openssl req -new -newkey rsa:2048 -nodes -keyout broker_private.key -out broker.csr
 openssl x509 -req -in broker.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out broker_public.crt -days 365 -sha256
 ```
 
-And then, copy the private key and the certificate into the **/etc/centreon/broker_cert/** directory:
+And then, copy the private key and the certificate into `/etc/centreon/broker_cert/` directory:
+
 ```text
 mv broker_private.key /etc/centreon/broker_cert/
 mv broker_public.crt /etc/centreon/broker_cert/
@@ -178,17 +179,13 @@ mv broker_public.crt /etc/centreon/broker_cert/
 
 ### MAP server configuration
 
-First of all, you should [activate HTTPS/TLS on the web
+First of all, you should [activate HTTPS/TLS on the web server](../administration/secure-platform.md#enable-https-on-the-web-server)
 
-server](../administration/secure-platform.md#enable-https-on-the-web-server)
-
-
-
-Then, set the following parameter in MAP server configuration at
-**/etc/centreon-studio/studio-config.properties**
+Then, set the following parameters in MAP server configuration at
+`/etc/centreon-studio/studio-config.properties` :
 
 To set the communication protocol with Centreon server to HTTPS:
-```text
+```shell
 centreon.url=https://<server-address>
 ```
 
@@ -240,7 +237,7 @@ RUN_ARGS="--spring.profiles.active=prod,tls_broker"
 > "tls_broker" profile implies "tls" profile. So Centreon MAP service
 > serves necessarily HTTPS.
 
-Once you add a truststore, Centreon MAP will use it to validate self-signed certificates. 
+Once you add a truststore, Centreon MAP will use it to validate self-signed certificates.
 This means that if you use a self-signed certificate for the central server, you must add it to the truststore. If you don't, the
  **Monitoring > Map** page will be blank, and the logs (**/var/log/centreon-map/centreon-map.log**)
  will show the following error :
@@ -252,6 +249,7 @@ This means that if you use a self-signed certificate for the central server, you
     ```shell
     keytool -import -alias centreon-broker -file central_public.crt -keystore truststore.jks
     ```
+
 
 #### Configuration with a recognized CA certificate
 
