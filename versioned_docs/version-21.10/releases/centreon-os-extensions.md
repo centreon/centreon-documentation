@@ -45,7 +45,7 @@ If you have feature requests or want to report a bug, please go to our
 
 - [Provider] Fixed the error 400 issue when opening a ticket using Jira provider
 - [Provider] Fixed a regression with the Mail provider
-- [Widget] Display of the state type of the host instead of the service
+- [Widget] Fixed the state type column that was displayed the service value instead of the host value
 
 ### 21.10.0
 
