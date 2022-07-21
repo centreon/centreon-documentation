@@ -201,15 +201,15 @@ running the following command:
     --hostname=10.0.0.1 \
     --snmp-version='2c' \
     --snmp-community='my-snmp-community' \
-    --warning-average='-5:5' \
-    --critical-average='-10:10' \
+    --warning-average='80' \
+    --critical-average='90' \
     --use-new-perfdata
 ```
 
 The expected command output is shown below:
 
 ```bash
-OK: %.2f %% usage : %.2f %% | 'cpu.utilization.percentage'=9000%;;;0;100 'core.cpu.utilization.percentage'=9000%;;;0;100 
+OK: All CPUs usage are OK | 'cpu.utilization.percentage'=9000%;80;90;0;100 'core.cpu.utilization.percentage'=9000%;;;0;100 
 ```
 
 All available options for a given mode can be displayed by adding the
