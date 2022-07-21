@@ -34,7 +34,7 @@ If you have feature requests or want to report a bug, please go to our
 #### Enhancements
 
 - [Core] Added PHP 8.0 compatibility
-- [Core] Added the ability to the use user.name variable in Smarty configuration for providers
+- [Core] Added the ability to use the use user.name variable in Smarty configuration for providers
 - [Install] Added the ability to use a non default database name
 - [Widget] Added an alarm duration filter in the widget configuration
 - [Widget] Added an option to schedule a check when you open a ticket or acknowledge a resource
