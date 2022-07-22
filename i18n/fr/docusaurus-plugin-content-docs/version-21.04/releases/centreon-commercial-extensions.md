@@ -138,7 +138,7 @@ Release date: `December 16, 2021`
 
 #### Bug fixes
 
-- Change 'switch' with 'if' to accomodate RHEL 8 deployement
+- Replaced 'switch' with 'if' to better fit RHEL 8 deployment
 - CBIS multiple SSH were not closed and could remain opened causing load on the server
 
 ### 21.04.3
