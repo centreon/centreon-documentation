@@ -29,27 +29,27 @@ Il apporte les modèles de service suivants :
 <Tabs groupId="sync">
 <TabItem value="Sensors-Global" label="Sensors-Global">
 
-Could not retrive metrics
+Could not retrieve metrics
 
 </TabItem>
 <TabItem value="Sensors-Humidity" label="Sensors-Humidity">
 
-Could not retrive metrics
+Could not retrieve metrics
 
 </TabItem>
 <TabItem value="Sensors-Sp" label="Sensors-Sp">
 
-Could not retrive metrics
+Could not retrieve metrics
 
 </TabItem>
 <TabItem value="Sensors-Switch" label="Sensors-Switch">
 
-Could not retrive metrics
+Could not retrieve metrics
 
 </TabItem>
 <TabItem value="Sensors-Temperature" label="Sensors-Temperature">
 
-Could not retrive metrics
+Could not retrieve metrics
 
 </TabItem>
 </Tabs>

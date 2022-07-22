@@ -43,7 +43,7 @@ It brings the following service templates:
 <Tabs groupId="sync">
 <TabItem value="Cpu" label="Cpu">
 
-Could not retrive metrics
+Could not retrieve metrics
 
 </TabItem>
 <TabItem value="Flash-Memory" label="Flash-Memory">
@@ -55,12 +55,12 @@ Could not retrive metrics
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
 
-Could not retrive metrics
+Could not retrieve metrics
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-Could not retrive metrics
+Could not retrieve metrics
 
 </TabItem>
 <TabItem value="Packet-Errors-Generic-Id" label="Packet-Errors-Generic-Id">

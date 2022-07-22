@@ -5,7 +5,6 @@ title: APC ATS
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 ## Pack Assets
 
 ### Templates
@@ -27,7 +26,7 @@ It brings the following service templates:
 <Tabs groupId="sync">
 <TabItem value="Device-Status" label="Device-Status">
 
-Could not retrive metrics
+Could not retrieve metrics
 
 </TabItem>
 <TabItem value="Input-Lines" label="Input-Lines">
@@ -55,9 +54,9 @@ Could not retrive metrics
 
 ## Prerequisites
 
-*Specify prerequisites that are relevant. You may want to just provide a link
-to the manufacturer official documentation BUT you should try to be as complete
-as possible here as it will save time to everybody.*
+To monitor your **APC ATS** Device, configure the SNMP agent to answer SNMP requests from the poller. 
+
+Refer to the device's documentation. 
 
 ## Setup
 

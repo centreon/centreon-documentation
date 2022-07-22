@@ -2,9 +2,9 @@
 id: applications-protocol-snmp
 title: Generic SNMP
 ---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-
 
 ## Contenu du Pack
 
@@ -45,7 +45,7 @@ pour en savoir plus sur la découverte automatique d'hôtes.
 | App-Protocol-SNMP-Collection-Name |             |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
-pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte.
+pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
 
 </TabItem>
 </Tabs>
@@ -62,7 +62,7 @@ pour en savoir plus sur la découverte automatique de services et sa [planificat
 </TabItem>
 <TabItem value="Generic-Value" label="Generic-Value">
 
-Could not retrive metrics
+Could not retrieve metrics
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
@@ -78,8 +78,8 @@ Could not retrive metrics
 
 ### Configuration SNMP
 
-Afin de superviser votre **Generic SNMP** en SNMP,  il est nécessaire de configurer l'agent sur le serveur comme indiqué sur la documentation officielle :
-* LINK
+Afin de récupérer des métriques via SNMP, il est nécessaire de configurer le matériel ou le système cible. Pour celà, 
+référez vous à la documentation officielle du constructeur ou de l'éditeur.
 
 ### Flux réseau
 
