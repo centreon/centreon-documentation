@@ -79,7 +79,7 @@ Could not retrieve metrics
 ### Configuration SNMP
 
 Afin de récupérer des métriques via SNMP, il est nécessaire de configurer le matériel ou le système cible. Pour celà, 
-référez vous à la documentation officielle du constructeur ou de l'éditeur.
+référez-vous à la documentation officielle du constructeur ou de l'éditeur.
 
 ### Flux réseau
 

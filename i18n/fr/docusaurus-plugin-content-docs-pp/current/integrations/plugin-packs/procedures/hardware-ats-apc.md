@@ -54,7 +54,7 @@ Could not retrieve metrics
 
 ## Prérequis
 
-Afin de superviser l'équipement, son agent SNMP doit être configuré. Référez vous à la documentation officielle correspondant 
+Afin de superviser l'équipement, son agent SNMP doit être configuré. Référez-vous à la documentation officielle correspondant 
 à votre modèle sur le site officiel d'APC. 
 
 ## Installation

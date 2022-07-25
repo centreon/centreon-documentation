@@ -54,7 +54,7 @@ Could not retrieve metrics
 
 ## Prerequisites
 
-To monitor your **APC ATS** Device, configure the SNMP agent to answer SNMP requests from the poller. 
+To monitor your **APC ATS** Device, configure the SNMP agent to respond to SNMP requests from the poller. 
 
 Refer to the device's documentation. 
 
