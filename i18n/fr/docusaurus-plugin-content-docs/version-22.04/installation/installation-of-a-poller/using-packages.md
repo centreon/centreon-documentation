@@ -406,7 +406,7 @@ Failed connect to 192.168.0.1:444; Connection refused
 
 Rendez-vous au chapitre [Ajouter un Poller à la configuration](../../monitoring/monitoring-servers/add-a-poller-to-configuration.md).
 
-## Étape 5 : Sécurisez votre plateforme
+## Étape 5 : Sécuriser votre plateforme
 
 N'oubliez pas de sécuriser votre plateforme Centreon en suivant nos
 [recommandations](../../administration/secure-platform.md)
