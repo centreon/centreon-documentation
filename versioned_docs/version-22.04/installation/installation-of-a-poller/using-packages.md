@@ -409,4 +409,4 @@ Go to the [Add a Poller to configuration](../../monitoring/monitoring-servers/ad
 ## Step 5: Secure your platform
 
 Do not forget to secure your Centreon platform following our
-[recommendations](../../administration/secure-platform.md)
+[recommendations](../../administration/secure-platform.md).
