@@ -124,8 +124,8 @@ SELinux n'est pas installé sur Debian 11, continuez.
 
 ### Configurer ou désactiver le pare-feu
 
-Paramétrer le pare-feu système ou désactiver ce dernier. Pour désactiver ce
-dernier exécuter les commandes suivantes :
+Paramétrez le pare-feu système ou désactivez ce dernier. Pour désactiver ce
+dernier exécutez les commandes suivantes :
 
 ```shell
 systemctl stop firewalld
