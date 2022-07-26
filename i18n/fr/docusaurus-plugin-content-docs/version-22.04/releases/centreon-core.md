@@ -29,7 +29,7 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 #### Bug fixes
 
-- [API] Fixed MBI APIs with latest version of Centreon
+- [API] Fixed MBI APIs with the latest version of Centreon
 - [Administration] Fixed display of the end date of the licenses
 - [Administration] Fixed scroll when reduce screen size to access to all items
 - [Configuration] Fixed export when host group disabled
