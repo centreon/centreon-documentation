@@ -37,9 +37,9 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 - [Configuration] Fixed the export when the host group is disabled
 - [Configuration] Fixed the export when the service group is disabled
 - [Configuration] Fixed the export when the service template is disabled
+- [Core] Fixed href on links that were broken in menus
 - [Core] Fixed SQL queries when databases names contained a dash
 - [Core] Fixed the database partitioning for MySQL 8
-- [Core] Re-added href link in menus
 - [Install] Fixed an SQL issue during update
 - [Install] Fixed rights on the /usr/share/centreon/.env.local.php file for Debian package
 - [Install] Fixed the waterfall visual effect in the extension's details tile
@@ -50,7 +50,7 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 - [UI] Fixed the display of CSS code with Firefox browser
 - [UI] Now close the menu when a navigation item is clicked
 - [UX] Reduced the timeout to prevent the menu from closing unexpectedly
-- [Widget] Use ACL to get list of poller in widget configuration to filter display of services
+- [Widget] Now use ACL to get list of poller in widget configuration to filter display of services
 
 #### Security fixes
 
