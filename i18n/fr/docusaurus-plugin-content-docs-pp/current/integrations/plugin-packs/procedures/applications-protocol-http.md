@@ -68,9 +68,8 @@ Il apporte les modèles de service suivants :
 
 ## Prérequis
 
-*Specify prerequisites that are relevant. You may want to just provide a link
-to the manufacturer official documentation BUT you should try to be as complete
-as possible here as it will save time to everybody.*
+La page ou application web interrogée doit être accessible via le protocole HTTP ou HTTPS depuis le collecteur. Il est possible 
+d'utiliser un proxy lorsque cela est nécessaire. 
 
 ## Installation
 
@@ -127,32 +126,19 @@ de commande depuis votre collecteur Centreon en vous connectant avec
 l'utilisateur **centreon-engine** (`su - centreon-engine`) :
 
 ```bash
-/usr/lib/centreon/plugins//centreon_protocol_http.pl \
+/usr/lib/centreon/plugins/centreon_protocol_http.pl \
     --plugin=apps::protocols::http::plugin \
-    --mode=soap-content \
-    --hostname=10.0.0.1 \
-    --proto='http' \
-    --port='80' \
-    --urlpath='/' \
-    --service-soap='' \
-    --header='' \
-    --data='' \
-    --lookup='' \
-    --threshold-value='' \
-    --format-ok='' \
-    --format-warning='' \
-    --format-critical='' \
-    --warning-numeric='' \
-    --critical-numeric='' \
-    --warning-string='' \
-    --critical-string='' \
+    --mode=response \
+    --hostname=google.com \
+    --http-backend=curl \
+    --extra-stats \
     --use-new-perfdata
 ```
 
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK:  | 'http.response.time.seconds'=9000s;;;0; 
+OK: response time 0.078s | 'http.response.time.seconds'=0.078s;;;0; 'http.response.size.count'=49602B;;;0; 'http.response.resolve.time.milliseconds'=4.176ms;;;0; 'http.response.connect.time.milliseconds'=4.176ms;;;0; 'http.response.processing.time.milliseconds'=44.163ms;;;0; 'http.response.transfer.time.milliseconds'=4.176ms;;;0;
 ```
 
 La liste de toutes les options complémentaires et leur signification peut être
