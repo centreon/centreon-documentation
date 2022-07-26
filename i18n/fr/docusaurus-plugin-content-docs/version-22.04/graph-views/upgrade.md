@@ -1,45 +1,39 @@
 ---
 id: upgrade
-title: Upgrade the extension
+title: Montée de version de l'extension
 ---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+Ce chapitre décrit comment mettre à niveau votre extension Centreon MAP. Pour ce faire, vous devez mettre à niveau les quatre principaux composants :
 
-This chapter describes how to upgrade your Centreon MAP extension. This
-is done by upgrading the four main components:
+- le serveur Centreon MAP
+- Interface Web Centreon MAP et son widget
+- Client de bureau (mis à jour automatiquement)
+- Base de données MariaDB.
 
-- Centreon MAP server
-- Centreon MAP web interface & its widget
-- Desktop client (automatically updated)
-- MariaDB database.
+## Conditions préalables
 
-## Prerequisites
+Avant de mettre à jour le serveur MAP de Centreon, nous vous recommandons vivement d'effectuer une extraire (sauvegarde) de votre base de données `centreon_studio`.
+Cela vous permettra de revenir facilement à l'état précédent si nécessaire.
 
-Before upgrading Centreon MAP server, we highly recommend performing a
-MariaDB dump (backup) of your `centreon_studio` database. This will
-allow you easily to roll back to the previous state if necessary.
+Assurez-vous de lire les notes de version pour une explication des fonctionnalités, des corrections et des procédures personnalisées.
 
-Be sure to read the release notes for an explanation of features, fixes
-& custom procedures.
+**Lorsque vous effectuez une mise à jour vers une nouvelle version majeure ou mineure (c'est-à-dire : A.B.x avec A ou B qui change), vous devez contacter notre service d'assistance pour récupérer le nouveau référentiel**.
 
-**When you're upgrading to a new major or minor version (i.e:A.B.x with
-A or B that changes) you need to contact our Support service to retrieve
-the new repository**.
+### Mise à jour de la clé de signature du RPM
 
-### Update the RPM signing key
+Pour des raisons de sécurité, les clés utilisées pour signer les RPM Centreon sont régulièrement renouvelées. Le dernier changement a eu lieu le 14 octobre 2021.
+Lorsque vous effectuez une mise à jour à partir d'une ancienne version, vous devez passer par la [procédure de rotation des clés](../security/key-rotation.md#existing-installation), pour supprimer l'ancienne clé et installer la nouvelle.
 
-For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation.md#existing-installation), to remove the old key and install the new one.
+## Étape 1 : Serveur MAP Centreon
 
-## Step 1: Centreon MAP server
+> Si vous utilisez toujours la version **4.0.X**, vous **devez d'abord installer et exécuter le serveur dans la version 4.1.X avant de passer à la dernière version**.
 
-> If you are still running version **4.0.X**, you **must first install
-> and run the server in version 4.1.X before upgrading to the latest
-> version**.
+Exécutez les commandes suivantes pour mettre à niveau votre serveur Centreon MAP :
 
-Run the following commands to upgrade your Centreon MAP server:
-
-1. Update Centreon & Centreon MAP repositories:
+1. Mettez à jour les référentiels Centreon et Centreon MAP :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -58,70 +52,67 @@ yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/ce
 </TabItem>
 </Tabs>
 
-> Install Centreon MAP repository, you can find it on the
-> [support portal](https://support.centreon.com/s/repositories).
+> Installer le référentiel Centreon MAP, vous pouvez le trouver sur le [portail de support] (https://support.centreon.com/s/repositories).
 
-2. Update Centreon MAP server:
-
+2. Mettez à jour le serveur Centreon MAP :
     ```shell
     yum update centreon-map-server
     ```
 
-3. Enable and start `centreon-map` service:
-
+3. Activez et démarrez le service `centreon-map` :
     ```shell
     systemctl enable centreon-map
     systemctl start centreon-map
     ```
 
-5. This point only applies if you customized your **centreon-map.conf** configuration file. When upgrading your MAP module, the **/etc/centreon-studio/centreon-map.conf** file is not upgraded automatically: the new configuration file brought by the rpm does not replace the old file. You must copy the changes manually to your customized configuration file.
+5. Ce point ne s'applique que si vous avez personnalisé votre fichier de configuration `centreon-map.conf`.
+Lors de la mise à jour de votre module MAP, le fichier `/etc/centreon-studio/centreon-map.conf` n'est pas mis à jour automatiquement : le nouveau fichier de configuration apporté par le rpm ne remplace pas l'ancien fichier.
+Vous devez copier les modifications manuellement dans votre fichier de configuration personnalisé.
 
-  * The old configuration file is renamed **centreon-map.conf.rpmsave**
-  * The upgrade installs a new **centreon-map.conf** file.
+  * L'ancien fichier de configuration est renommé `centreon-map.conf.rpmsave`.
+  * La mise à jour installe un nouveau fichier `centreon-map.conf`.
 
-  Run a diff between the old and the new configuration files:
+  Lancez une comparaison entre l'ancien et le nouveau fichier de configuration :
 
   ```shell
   diff -u /etc/centreon-studio/centreon-map.conf /etc/centreon-studio/centreon-map.conf.rpmsave
   ```
 
-  For each difference between the files, assess whether you should copy it from **centreon-map.conf.rpmsave** to **centreon-map.conf**.
+  Pour chaque différence entre les fichiers, évaluez si vous devez la copier de `centreon-map.conf.rpmsave` vers `centreon-map.conf`.
 
-## Step 2: Centreon MAP web interface
+## Étape 2 : Interface web Centreon MAP
 
 ```shell
 yum update centreon-map-web-client
 ```
 
-Complete the upgrade: 
-1. Go to **Administration > Extensions > Manager**.
-2. Search for **Map web client**.
-3. Click on the update button (module & widget parts).
+Terminez la mise à niveau : 
+1. Allez dans **Administration > Extensions > Manager**.
+2. Recherchez **Map client web**.
+3. Cliquez sur le bouton de mise à jour (parties module & widget).
 
-## Step 3: Centreon MAP desktop client
+## Étape 3 : Client de bureau Centreon MAP
 
-If the user's computer has an online connection, the desktop client is
-automatically upgraded to the latest version that corresponds to the server.
+Si l'ordinateur de l'utilisateur dispose d'une connexion en ligne, le client de bureau est automatiquement mis à jour vers la dernière version correspondant au serveur.
 
-Alternatively, the client can be downloaded through the menu `Monitoring >
-Map` and **Desktop client** button.
+Sinon, le client peut être téléchargé via le menu **Surveillance > Carte** et le bouton **Client de bureau**.
 
-## Step 4: MariaDB database
+## Étape 4 : Base de données MariaDB
 
-1. Stop the **centreon-map** service:
+1. Arrêtez le service **centreon-map** :
     ```shell
     systemctl stop centreon-map
     ```
 
-2. See [Upgrading MariaDB](../upgrade/upgrade-mariadb.md).
+2. Voir [Mettre à jour MariaDB](../upgrade/upgrade-mariadb.md).
 
-3. If you have upgraded your Centreon platform to version 22.04, the new BBDO v3 protocol is enabled. You need to edit the following file to allow MAP to work properly: **/etc/centreon-studio/studio-config.properties**
-
+3. Si vous avez mis à niveau votre plate-forme Centreon vers la version 22.04, le nouveau protocole BBDO v3 est activé.
+Vous devez modifier le fichier suivant pour permettre à MAP de fonctionner correctement : `/etc/centreon-studio/studio-config.properties`.
    ```text
    broker.pb.message.enabled=true
    ```
 
-4. Start the **centreon-map** service:
+4. Démarrez le service **centreon-map** :
     ```shell
     systemctl start centreon-map
     ```
