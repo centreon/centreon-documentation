@@ -65,7 +65,7 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 - [Configuration] Sanitize and bind "hosts" queries
 - [Configuration] Sanitize and bind "meta_service" related queries
 - [Configuration] Sanitize and bind "poller" queries
-- [Configuration] Sanitize and bind "pollers" queries
+- [Configuration] Sanitized and bound "pollers" queries
 - [Configuration] Sanitize and bind contact form queries
 - [Configuration] Sanitize and bind timeperiod form queries
 - [Configuration] Sanitized and bound queries in virtual metrics configuration
