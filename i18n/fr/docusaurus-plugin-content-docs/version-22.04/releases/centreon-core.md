@@ -25,7 +25,7 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 - [Configuration] Extended the size of the URL, Notes and Action URL fields to avoid truncating long URLs
 - [Core] Properly managed the switch between Resource Status repositories
 - [Install] Improved error handling during installation
-- [UX] Improved OpenId Connect form
+- [UX] Improved the OpenId Connect form
 
 #### Bug fixes
 
