@@ -21,57 +21,57 @@ If you have feature requests or want to report a bug, please go to our
 
 #### Enhancements
 
-- [Authentication] Allow to automatically import new users using OpenId Connect protocol
-- [Authentication] Apply ACL Group(s) definition on login for OpenID Connect users
+- [Authentication] Added the permission to import automatically new users using the OpenId Connect protocol
+- [Authentication] Applied an ACL Group(s) definition on login for OpenID Connect users
 - [Configuration] Extended the size of the URL, Notes and Action URL fields to avoid truncating long URLs
-- [Core] Handle properly the switch between Resource Status repositories
+- [Core] Properly managed the switch between Resource Status repositories
 - [Install] Improved error handling during installation
-- [UX] Improved OpenId Connect form
+- [UX] Improved the OpenId Connect form
 
 #### Bug fixes
 
-- [API] Fixed MBI APIs with latest version of Centreon
-- [Administration] Fixed display of the end date of the licenses
-- [Administration] Fixed scroll when reduce screen size to access to all items
-- [Configuration] Fixed export when host group disabled
-- [Configuration] Fixed export when service group disabled
-- [Configuration] Fixed export when service template disabled
-- [Configuration] Massive change failed to set contact/contactgroup additive inheritance
-- [Configuration] When a host receives no host template from the mappers, the default template that is hard-coded in the Plugin Pack will be applied to this host
-- [Core] Database partitioning fixed for MySQL 8
-- [Core] Fixed SQL queries when databases names contain dash
-- [Core] Re-added href in menus
-- [Install] Fixed SQL issue during update
-- [Install] Fixed rights on /usr/share/centreon/.env.local.php file for Debian package
-- [Install] Fixed waterfall visual effect in extension details tile
-- [Monitoring] Fixed notification number in legacy pages
+- [API] Fixed MBI APIs with the latest version of Centreon
+- [Administration] Fixed the display of the end date of the licenses
+- [Administration] Fixed the scrolling when reducing the screen size to access all items
+- [Configuration] Fixed contact/contactgroup additive inheritance configuration using massive change
+- [Configuration] Fixed empty host template from mappers (Host Discovery) by using default template form Plugin Packs discovery rule
+- [Configuration] Fixed the export when the host group is disabled
+- [Configuration] Fixed the export when the service group is disabled
+- [Configuration] Fixed the export when the service template is disabled
+- [Core] Fixed SQL queries when databases names contained a dash
+- [Core] Fixed the database partitioning for MySQL 8
+- [Core] Re-added href link in menus
+- [Install] Fixed an SQL issue during update
+- [Install] Fixed rights on the /usr/share/centreon/.env.local.php file for Debian package
+- [Install] Fixed the waterfall visual effect in the extension's details tile
 - [Monitoring] Fixed the "Last_update" column in legacy pages
-- [Resources Status] Fixed timeperiod group button and custom period selectors heights
-- [UI] Close the menu when a navigation item is clicked
-- [UI] Fixed display of CSS code with Firefox browser
+- [Monitoring] Fixed the notification number in legacy pages
+- [Resources Status] Fixed the timeperiod group button and custom period selectors heights
 - [UI] Fixed header and skeleton UI instability
-- [UX] Reduce the timeout preventing from closing the menu unexpectedly
-- [Widget] Use ACL to get list of poller to filter display of services
+- [UI] Fixed the display of CSS code with Firefox browser
+- [UI] Now close the menu when a navigation item is clicked
+- [UX] Reduced the timeout to prevent the menu from closing unexpectedly
+- [Widget] Use ACL to get list of poller in widget configuration to filter display of services
 
 #### Security fixes
 
-- [Administration] Sanitize and bind ACL Group queries
-- [Administration] Sanitize and bind ACL resources queries
-- [Administration] Sanitize and bind escalation form queries
+- [Administration] Sanitized and bound ACL Group queries
+- [Administration] Sanitized and bound ACL resources queries
 - [Configuration] Fixed SQLi vulnerability in escalation form
 - [Configuration] Fixed XXS vulnerability in escalation form
-- [Configuration] Sanitize and bind "User" class queries
-- [Configuration] Sanitize and bind "downtime" queries
-- [Configuration] Sanitize and bind "hostgroups" queries
-- [Configuration] Sanitize and bind "hosts" queries
-- [Configuration] Sanitize and bind "meta_service" related queries
-- [Configuration] Sanitize and bind "poller" queries
-- [Configuration] Sanitize and bind "pollers" queries
-- [Configuration] Sanitize and bind contact form queries
-- [Configuration] Sanitize and bind timeperiod form queries
+- [Configuration] Sanitized and bound "User" class queries
+- [Configuration] Sanitized and bound "downtime" queries
+- [Configuration] Sanitized and bound "hostgroups" queries
+- [Configuration] Sanitized and bound "hosts" queries
+- [Configuration] Sanitized and bound "meta_service" related queries
+- [Configuration] Sanitized and bound "poller" queries
+- [Configuration] Sanitized and bound "pollers" queries
+- [Configuration] Sanitized and bound contact form queries
+- [Configuration] Sanitized and bound escalation form queries
 - [Configuration] Sanitized and bound queries in virtual metrics configuration
-- [Core] Remove deprecated switch in encodePass() method
-- [Core] Updated PHP libraries for security issue
+- [Configuration] Sanitized and bound timeperiod form queries
+- [Core] Removed deprecated switch in encodePass() method
+- [Core] Updated PHP libraries for security issues
 
 ### 22.04.0
 
