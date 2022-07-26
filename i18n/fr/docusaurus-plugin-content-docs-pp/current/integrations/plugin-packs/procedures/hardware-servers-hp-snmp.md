@@ -180,7 +180,7 @@ yum install centreon-pack-hardware-servers-hp-snmp
 * Appliquez le Modèle d'hôte **HW-Server-Hp-Server-SNMP-custom**.
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètresspécifiques associés via la macro **SNMPEXTRAOPTIONS**. 
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#SNMPv3-options-mapping).
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#troubleshooting-snmp).
 
 | Obligatoire | Macro            | Description                                  |
 |:------------|:-----------------|:---------------------------------------------|

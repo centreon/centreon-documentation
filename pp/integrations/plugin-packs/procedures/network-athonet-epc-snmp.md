@@ -182,7 +182,7 @@ yum install centreon-pack-network-athonet-epc-snmp
 * Apply the *Net-Athonet-Epc-SNMP-Custom* Host Template
 
 > When using SNMP v3, set extra SNMP parameters in the SNMPEXTRAOPTIONS macro. 
-> More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#SNMPv3-options-mapping) section.
+> More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#troubleshooting-snmp) section.
 
 | Mandatory | Name             | Description                                    |
 | :-------- | :--------------- | :--------------------------------------------- |

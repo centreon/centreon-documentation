@@ -110,7 +110,7 @@ yum install centreon-pack-hardware-storage-huawei-oceanstor-snmp
 * Appliquez le Modèle d'Hôte *HW-Storage-Huawei-Oceanstor-SNMP-Custom*
 
 > Si vous utilisez la version 3 du protocole SNMP, utilisez la Macro *SNMPEXTRAOPTIONS* afin de renseigner les paramètres d'authentification et de chiffrement adéquats. 
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#SNMPv3-options-mapping).
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#troubleshooting-snmp).
 
 | Mandatory   | Name                    | Description                       |
 | :---------- | :---------------------- | :---------------------------------|

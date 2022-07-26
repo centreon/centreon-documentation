@@ -138,7 +138,7 @@ yum install centreon-pack-applications-databases-informix-snmp
 * Appliquez le Modèle d'Hôte **App-DB-Informix-SNMP-custom**.
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro SNMPEXTRAOPTIONS. 
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#SNMPv3-options-mapping).
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#troubleshooting-snmp).
 
 | Mandatory | Name             | Description                                              |
 |:----------|:-----------------|:---------------------------------------------------------|

@@ -92,7 +92,7 @@ yum install centreon-pack-hardware-pdu-cyberpower-snmp
 * Select the *HW-Pdu-Cyberpower-SNMP*.
 
 > When using SNMP v3, set extra SNMP parameters in the SNMPEXTRAOPTIONS macro. 
-> More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#SNMPv3-options-mapping) section.
+> More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#troubleshooting-snmp) section.
 
 | Mandatory   | Name             | Description                                    |
 | :---------- | :--------------- | :--------------------------------------------- |

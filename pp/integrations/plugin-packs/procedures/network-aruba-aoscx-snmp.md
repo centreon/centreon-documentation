@@ -127,7 +127,7 @@ yum install centreon-pack-network-aruba-aoscx-snmp
 * Apply the *Net-Aruba-Aoscx-SNMP-custom* Host Template
 
 > When using SNMP v3, set extra SNMP parameters in the SNMPEXTRAOPTIONS macro. 
-> More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#SNMPv3-options-mapping) section.
+> More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#troubleshooting-snmp) section.
 
 | Mandatory | Name             | Description                                    |
 | :-------- | :--------------- | :--------------------------------------------- |
