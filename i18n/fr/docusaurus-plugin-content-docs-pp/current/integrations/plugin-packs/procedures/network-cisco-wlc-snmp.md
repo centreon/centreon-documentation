@@ -94,7 +94,7 @@ Il apporte les modèles de service suivants :
 </TabItem>
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-Could not retrive metrics
+Could not retrieve metrics
 
 </TabItem>
 <TabItem value="Memory" label="Memory">

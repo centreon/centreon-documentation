@@ -56,7 +56,7 @@ More information about the Host Discovery module is available in the Centreon do
 </TabItem>
 <TabItem value="Health" label="Health">
 
-Could not retrive metrics
+Could not retrieve metrics
 
 </TabItem>
 <TabItem value="Memory" label="Memory">

@@ -25,7 +25,7 @@ Il apporte le modèle de service suivant :
 <Tabs groupId="sync">
 <TabItem value="Sensors-Global" label="Sensors-Global">
 
-Could not retrive metrics
+Could not retrieve metrics
 
 </TabItem>
 </Tabs>

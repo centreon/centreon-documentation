@@ -5,7 +5,6 @@ title: Generic SNMP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 ## Pack Assets
 
 ### Templates
@@ -61,7 +60,7 @@ and in the [following chapter](/docs/monitoring/discovery/services-discovery/#di
 </TabItem>
 <TabItem value="Generic-Value" label="Generic-Value">
 
-Could not retrive metrics
+Could not retrieve metrics
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
@@ -77,9 +76,8 @@ Could not retrive metrics
 
 ### SNMP Configuration
 
-To use this pack, the SNMP service must be properly configured on your **Generic SNMP**
-server. Please refer to the official documentation from XXX:
-* LINK
+To use this pack, the SNMP service must be properly configured on your device. Refer to
+the documentation of the operating systems or ISV to achieve this. 
 
 ### Network flow
 
