@@ -66,7 +66,7 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 - [Configuration] Sanitize and bind "meta_service" related queries
 - [Configuration] Sanitize and bind "poller" queries
 - [Configuration] Sanitized and bound "pollers" queries
-- [Configuration] Sanitize and bind contact form queries
+- [Configuration] Sanitized and bound contact form queries
 - [Configuration] Sanitized and bound timeperiod form queries
 - [Configuration] Sanitized and bound queries in virtual metrics configuration
 - [Core] Remove deprecated switch in encodePass() method
