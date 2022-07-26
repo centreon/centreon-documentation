@@ -113,7 +113,7 @@ yum install centreon-pack-hardware-devices-timelinkmicro-tms6001-snmp
 
 Lorsque vous ajoutez un hôte, complétez les champs 'Communauté SNMP' et 'Version SNMP' selon la configuration de l'équipement cible. 
 
-> Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro SNMPEXTRAOPTIONS. <br/>
+> Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro SNMPEXTRAOPTIONS. 
 > Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
 
 | Obligatoire | Nom              | Description                                    |

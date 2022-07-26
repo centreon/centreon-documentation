@@ -155,7 +155,7 @@ yum install centreon-pack-network-dell-os10-snmp.noarch
 * Add a new Host and apply the *Net-Dell-Os10-SNMP-custom* Host Template
 * Fill the SNMP Version and Community fields according to the device's configuration
 
-> When using SNMP v3, set extra SNMP parameters in the SNMPEXTRAOPTIONS macro. <br/>
+> When using SNMP v3, set extra SNMP parameters in the SNMPEXTRAOPTIONS macro. 
 > More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
 
 | Mandatory | Name             | Description                                    |
