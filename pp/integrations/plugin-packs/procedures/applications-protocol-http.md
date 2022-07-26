@@ -68,9 +68,8 @@ It brings the following service templates:
 
 ## Prerequisites
 
-*Specify prerequisites that are relevant. You may want to just provide a link
-to the manufacturer official documentation BUT you should try to be as complete
-as possible here as it will save time to everybody.*
+The target website or webapp should be accessible over HTTP/HTTPS from the poller. Specific option can be used
+to specify a proxy when it is required.
 
 ## Setup
 
