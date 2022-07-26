@@ -21,7 +21,7 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 #### Enhancements
 
 - [Authentication] Added the permission to import automatically new users using the OpenId Connect protocol
-- [Authentication] Apply ACL Group(s) definition on login for OpenID Connect users
+- [Authentication] Applied an ACL Group(s) definition on login for OpenID Connect users
 - [Configuration] Extended the size of the URL, Notes and Action URL fields to avoid truncating long URLs
 - [Core] Handle properly the switch between Resource Status repositories
 - [Install] Improved error handling during installation
