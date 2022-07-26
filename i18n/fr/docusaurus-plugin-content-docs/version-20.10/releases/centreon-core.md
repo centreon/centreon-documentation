@@ -1100,6 +1100,21 @@ with the –pool\_size X argument or -s X.
 
 ## Centreon Gorgone
 
+### 20.10.7
+
+Release date: `July 27, 2022`
+
+#### Bug fixes
+
+- Fixed an issue that caused Service Discovery scans to fail because the wrong message was caught.
+- Fixed an issue that could make Gorgone crash in pull mode.
+- Fixed an issue that prevented Gorgone from handling advanced [Service Discovery features](https://docs.centreon.com/21.10/en/monitoring/discovery/services-discovery.html#advanced-options) correctly.
+- Fixed an issue in the module management that could cause crashes.
+
+#### Améliorations
+
+- Added an "audit" module to Gorgone to provide an overview of the system status, package versions, + some Centreon metrics.
+
 ### 20.10.6
 
 Release date: `December 15, 2021`
