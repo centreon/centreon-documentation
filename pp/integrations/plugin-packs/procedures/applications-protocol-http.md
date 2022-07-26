@@ -127,32 +127,19 @@ Once the plugin is installed, log into your Centreon poller's CLI using the
 running the following command:
 
 ```bash
-/usr/lib/centreon/plugins//centreon_protocol_http.pl \
+/usr/lib/centreon/plugins/centreon_protocol_http.pl \
     --plugin=apps::protocols::http::plugin \
-    --mode=soap-content \
-    --hostname=10.0.0.1 \
-    --proto='http' \
-    --port='80' \
-    --urlpath='/' \
-    --service-soap='' \
-    --header='' \
-    --data='' \
-    --lookup='' \
-    --threshold-value='' \
-    --format-ok='' \
-    --format-warning='' \
-    --format-critical='' \
-    --warning-numeric='' \
-    --critical-numeric='' \
-    --warning-string='' \
-    --critical-string='' \
+    --mode=response \
+    --hostname=google.com \
+    --http-backend=curl \
+    --extra-stats \
     --use-new-perfdata
 ```
 
 The expected command output is shown below:
 
 ```bash
-OK:  | 'http.response.time.seconds'=9000s;;;0; 
+OK: response time 0.078s | 'http.response.time.seconds'=0.078s;;;0; 'http.response.size.count'=49602B;;;0; 'http.response.resolve.time.milliseconds'=4.176ms;;;0; 'http.response.connect.time.milliseconds'=4.176ms;;;0; 'http.response.processing.time.milliseconds'=44.163ms;;;0; 'http.response.transfer.time.milliseconds'=4.176ms;;;0;
 ```
 
 All available options for a given mode can be displayed by adding the
