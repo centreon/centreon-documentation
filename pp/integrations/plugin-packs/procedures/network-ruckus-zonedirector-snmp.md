@@ -110,7 +110,7 @@ yum install centreon-pack-network-ruckus-zonedirector-snmp.noarch
 * Apply the template "Net-Ruckus-Zonedirector-SNMP-custom" and configure the 'SNMP Community' and 'SNMP Version' fields to match the device configuration.
 
 > When using SNMP v3, set extra SNMP parameters in the SNMPEXTRAOPTIONS macro. 
-> More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
+> More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#SNMPv3-options-mapping) section.
 
 | Mandatory   | Nom              | Description                                                                |
 | :---------- | :--------------- | :------------------------------------------------------------------------- |

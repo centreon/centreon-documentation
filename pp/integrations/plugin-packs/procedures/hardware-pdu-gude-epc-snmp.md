@@ -112,7 +112,7 @@ yum install centreon-pack-hardware-pdu-gude-epc-snmp
 * Apply the *HW-Pdu-Gude-Epc-SNMP-custom* Host Template
 
 > When using SNMP v3, set extra SNMP parameters in the SNMPEXTRAOPTIONS macro. 
-> More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
+> More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#SNMPv3-options-mapping) section.
 
 | Mandatory | Name             | Description                                    |
 | :-------- | :--------------- | :--------------------------------------------- |

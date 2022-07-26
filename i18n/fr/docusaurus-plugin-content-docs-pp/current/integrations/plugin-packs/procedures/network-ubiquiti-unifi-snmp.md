@@ -176,7 +176,7 @@ yum install centreon-pack-network-ubiquiti-unifi-snmp
 * Appliquez le Modèle d'Hôte *Net-Ubiquiti-Unifi-SNMP-custom*
 
 > Si vous utilisez la version 3 du protocole SNMP, utilisez la Macro *SNMPEXTRAOPTIONS* afin de renseigner les paramètres d'authentification et de chiffrement adéquats. 
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#SNMPv3-options-mapping).
 
 | Mandatory   | Name                    | Description                       |
 | :---------- | :---------------------- | :---------------------------------|

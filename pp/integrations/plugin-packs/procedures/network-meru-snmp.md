@@ -111,7 +111,7 @@ yum install centreon-pack-network-meru-snmp
 * Apply the *Net-Meru-SNMP-Custom* Host Template
 
 > When using SNMP v3, set extra SNMP parameters in the SNMPEXTRAOPTIONS macro. 
-> More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
+> More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#SNMPv3-options-mapping) section.
 
 | Mandatory | Name             | Description                                    |
 | :-------- | :--------------- | :--------------------------------------------- |

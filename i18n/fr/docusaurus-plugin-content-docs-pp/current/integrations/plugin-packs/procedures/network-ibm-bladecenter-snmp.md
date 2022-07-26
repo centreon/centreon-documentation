@@ -131,7 +131,7 @@ les champs *SNMP Community* et *SNMP Version* et appliquer le modèle d'hôte
 *Net-Ibm-Bladecenter-SNMP-custom*.
 
 > Si vous utilisez SNMP en version 3, selectionnez la version SNMP 3 et configurez les paramètres SNMP v3 via la macro *SNMPEXTRAOPTIONS*. 
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#SNMPv3-options-mapping).
 
 | Obligatoire   | Nom              | Description                                    |
 | :------------ | :--------------- | :--------------------------------------------- |

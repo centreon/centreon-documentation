@@ -127,7 +127,7 @@ yum install centreon-pack-network-oneaccess-snmp
 * Appliquez le modèle d'hôte **Net-Oneaccess-SNMP-custom**.
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro SNMPEXTRAOPTIONS. 
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#SNMPv3-options-mapping).
 
 | Mandatory | Name             | Description                                              |
 |:----------|:-----------------|:---------------------------------------------------------|
