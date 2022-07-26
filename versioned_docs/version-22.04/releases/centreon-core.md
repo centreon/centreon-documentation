@@ -45,13 +45,13 @@ If you have feature requests or want to report a bug, please go to our
 - [Install] Fixed rights on the /usr/share/centreon/.env.local.php file for Debian package
 - [Install] Fixed the waterfall visual effect in the extension's details tile
 - [Monitoring] Fixed the "Last_update" column in legacy pages
-- [Monitoring] Fixed the notification number in legacy pages
+- [Monitoring] Fixed the notifications number in legacy pages
 - [Resources Status] Fixed the timeperiod group button and custom period selectors heights
 - [UI] Fixed header and skeleton UI instability
 - [UI] Fixed the display of CSS code with Firefox browser
 - [UI] Now close the menu when a navigation item is clicked
 - [UX] Reduced the timeout to prevent the menu from closing unexpectedly
-- [Widget] Now use ACL to get list of poller in widget configuration to filter display of services
+- [Widget] Now use ACL to get list of pollers in widget configuration to filter display of services
 
 #### Security fixes
 
