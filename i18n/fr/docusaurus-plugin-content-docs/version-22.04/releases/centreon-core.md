@@ -71,6 +71,7 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 - [Configuration] Sanitized and bound timeperiod form queries
 - [Core] Removed deprecated switch in encodePass() method
 - [Core] Updated PHP libraries for security issues
+- [Install] Sanitized and bound update queries
 
 ### 22.04.0
 
