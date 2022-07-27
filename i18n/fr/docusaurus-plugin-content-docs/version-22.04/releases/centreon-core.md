@@ -63,7 +63,6 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 - [Configuration] Sanitized and bound "hostgroups" queries
 - [Configuration] Sanitized and bound "hosts" queries
 - [Configuration] Sanitized and bound "meta_service" related queries
-- [Configuration] Sanitized and bound "poller" queries
 - [Configuration] Sanitized and bound "pollers" queries
 - [Configuration] Sanitized and bound contact form queries
 - [Configuration] Sanitized and bound escalation form queries

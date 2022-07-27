@@ -64,7 +64,6 @@ If you have feature requests or want to report a bug, please go to our
 - [Configuration] Sanitized and bound "hostgroups" queries
 - [Configuration] Sanitized and bound "hosts" queries
 - [Configuration] Sanitized and bound "meta_service" related queries
-- [Configuration] Sanitized and bound "poller" queries
 - [Configuration] Sanitized and bound "pollers" queries
 - [Configuration] Sanitized and bound contact form queries
 - [Configuration] Sanitized and bound escalation form queries
