@@ -1109,7 +1109,7 @@ Release date: `July 27, 2022`
 
 #### Enhancements
 
-- Added an "audit" module to Gorgone to provide an overview of the system status, package versions, + some Centreon metrics.
+- Added an "audit" module to Gorgone to provide an overview of the system status, package versions, and some Centreon metrics.
 
 
 ### 20.10.6
