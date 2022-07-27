@@ -21,7 +21,7 @@ If you have feature requests or want to report a bug, please go to our
 
 #### Enhancements
 
-- [Administration] Fixed consistency of ACLs with new poller creation wizard structure
+- [Administration] Added consistency in ACLs with the new structure of the poller creation wizard
 - [Authentication] Added the permission to import automatically new users using the OpenId Connect protocol
 - [Authentication] Applied an ACL Group(s) definition on login for OpenID Connect users
 - [Configuration] Extended the size of the URL, Notes and Action URL fields to avoid truncating long URLs
