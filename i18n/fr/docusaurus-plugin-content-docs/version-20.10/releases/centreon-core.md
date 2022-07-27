@@ -1111,7 +1111,7 @@ Release date: `July 27, 2022`
 - Fixed an issue that prevented Gorgone from handling advanced [Service Discovery features](https://docs.centreon.com/21.10/en/monitoring/discovery/services-discovery.html#advanced-options) correctly.
 - Fixed an issue in the module management that could cause crashes.
 
-#### Améliorations
+#### Enhancements
 
 - Added an "audit" module to Gorgone to provide an overview of the system status, package versions, + some Centreon metrics.
 
