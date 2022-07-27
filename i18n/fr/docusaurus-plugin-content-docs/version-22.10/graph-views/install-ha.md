@@ -6,73 +6,72 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-> Centreon-Map nécessite une licence valide. Pour en acquérir une et récupérer les référentiels
-> nécessaires, contactez [Centreon] mailto:sales@centreon.com).
+> Centreon-Map requires a valid license key. To purchase one and retrieve the
+> necessary repositories, contact [Centreon](mailto:sales@centreon.com).
 
-## Aperçu
+## Overview
 
-Centreon-Map HA repose sur les mêmes concepts que Centreon HA.
-Vous trouverez toutes les informations sur l'[aperçu](../installation/installation-of-centreon-ha/overview.md).
+Centreon-Map HA relies on the same concepts as Centreon HA.
+You will found all the information on the [overview](../installation/installation-of-centreon-ha/overview.md).
 
-> **AVERTISSEMENT:** La documentation suivante n'est compatible qu'avec MariaDB 10.3 et CentOS 7.
+> **WARNING:** The following documentation is only supported for MariaDB 10.3 and CentOS 7.
 
-## Pré-requis
+## Prerequisites
 
-### Compréhension
+### Understanding
 
-Avant d'appliquer cette procédure, vous devez avoir une bonne connaissance de l'OS Linux, de Centreon, et des outils de clusters Pacemaker afin d'avoir une compréhension 
-correcte de ce qui est fait.
+Before applying this procedure, you should have a good knowledge of Linux OS, of Centreon, and of Pacemaker clustering tools in order to have a correct understanding of what is being done.
 
-> **AVERTISSEMENT:** Toute personne qui suit cette procédure le fait à sa propre responsabilité. En aucun cas, la société Centreon ne peut être tenue responsable d'une 
-quelconque panne ou perte de données.
+> **WARNING:** Anyone following this procedure is doing it at his own risk. Under no circumstances shall the Centreon company be liable for any breakdown or data loss.
 
-### Flux réseau
+### Network flows
 
-En plus des flux nécessaires décrits dans la [documentation officielle](install.md#architecture), 
-vous devrez ouvrir les flux suivants :
+In addition of necessary flows describe on the [official documentation](install.md#architecture),
+you will need to open the following flows:
 
 <Tabs groupId="sync">
-<TabItem value="2 Nœuds" label="2 Nœuds">
+<TabItem value="2 Nodes" label="2 Nodes">
 
-| De                    | Destination           | Protocol | Port     | Application                                                                       |
-| :-------------------- | :-------------------- | :------- | :------- | :-------------------------------------------------------------------------------- |
-| Nœud Actif            | Nœud  Passif          | MySQL    | TCP 3306 | Synchronisation MySQL (Doit être également ouvert du nœud passif vers nœud actif) |
-| Map Servers + QDevice | Map Servers + QDevice | Corosync | UDP 5404 | Communication à l'intérieur le cluster (Multicast)                                |
-| Map Servers + QDevice | Map Servers + QDevice | Corosync | UDP 5405 | Communication à l'intérieur le cluster (Unicast)                                  |
-| Map Servers + QDevice | Map Servers + QDevice | PCS      | TCP 2224 | Communication à l'intérieur le cluster                                            |
-| Map Servers + QDevice | Map Servers + QDevice | Corosync | TCP 5403 | Communication avec le QDevice                                                     |
+| From                  | Destination           | Protocol | Port     | Application                                                               |
+| :-------------------- | :-------------------- | :------- | :------- | :------------------------------------------------------------------------ |
+| Active Node           | Passive Node          | MySQL    | TCP 3306 | MySQL synchronization (Must be also open from passive to the active node) |
+| Map Servers + QDevice | Map Servers + QDevice | Corosync | UDP 5404 | Communication inside the cluster (Multicast)                              |
+| Map Servers + QDevice | Map Servers + QDevice | Corosync | UDP 5405 | Communication inside the cluster (Unicast)                                |
+| Map Servers + QDevice | Map Servers + QDevice | PCS      | TCP 2224 | Communication inside the cluster                                          |
+| Map Servers + QDevice | Map Servers + QDevice | Corosync | TCP 5403 | Communication with the QDevice                                            |
 
 </TabItem>
-<TabItem value="4 Nœuds" label="4 Nœuds">
+<TabItem value="4 Nodes" label="4 Nodes">
 
-| De                         | Destination                 | Protocol | Port     | Application                                                                       |
-| :------------------------- | :-------------------------- | :------- | :------- | :-------------------------------------------------------------------------------- |
-| Nœud Base de données actif | Nœud Base de données passif | MySQL    | TCP 3306 | Synchronisation MySQL (Doit être également ouvert du nœud passif vers nœud actif) |
-| Map Servers + DB + QDevice | Map Servers + DB + QDevice  | Corosync | UDP 5404 | Communication à l'intérieur du cluster (Multicast)                                |
-| Map Servers + DB + QDevice | Map Servers + DB + QDevice  | Corosync | UDP 5405 | Communication à l'intérieur du cluster (Unicast)                                  |
-| Map Servers + DB + QDevice | Map Servers + DB + QDevice  | PCS      | TCP 2224 | Communication à l'intérieur du cluster                                            |
-| Map Servers + DB + QDevice | Map Servers + DB + QDevice  | Corosync | TCP 5403 | Communication avec le QDevice                                                     |
+| From                       | Destination                | Protocol | Port     | Application                                                               |
+| :------------------------- | :------------------------- | :------- | :------- | :------------------------------------------------------------------------ |
+| Database Active Node       | Database Passive Node      | MySQL    | TCP 3306 | MySQL synchronization (Must be also open from passive to the active node) |
+| Map Servers + DB + QDevice | Map Servers + DB + QDevice | Corosync | UDP 5404 | Communication inside the cluster (Multicast)                              |
+| Map Servers + DB + QDevice | Map Servers + DB + QDevice | Corosync | UDP 5405 | Communication inside the cluster (Unicast)                                |
+| Map Servers + DB + QDevice | Map Servers + DB + QDevice | PCS      | TCP 2224 | Communication inside the cluster                                          |
+| Map Servers + DB + QDevice | Map Servers + DB + QDevice | Corosync | TCP 5403 | Communication with the QDevice                                            |
 
 </TabItem>
 </Tabs>
 
-### Installation de la plateforme Map de Centreon
+### Installed Centreon-Map platform
 
-Un cluster Centreon-Map HA ne peut être installé que sur la base d'une plateforme Centreon-Map en fonctionnement.
-Avant de suivre cette procédure, il est nécessaire que **[cette procédure d'installation](install.md)** ait déjà été complétée
-et qu'un **environ 5GB d'espace libre soit disponible du volume groupe LVM** qui contient
-le répertoire de données MariaDB (point de montage `/var/lib/mysql` par défaut).
+A Centreon-Map HA cluster can only be installed on base of an operating Centreon-Map platform.
+Before following this procedure, it is mandatory that **[this installation procedure](install.md)** has already been completed
+and that **about 5GB free space have been spared on the LVM volume group** that
+carries the MariaDB data directory (`/var/lib/mysql` mount point by default).
 
-La réponse de la commande `vgs` doit ressembler à ceci (ce à quoi il faut faire attention est la valeur sous la mention `VFree`) :
+The output of the `vgs` command must look like (what must be payed attention on is the value under `VFree`):
 
 ```bash
   VG      #PV #LV #SN Attr   VSize  VFree
   vg_data   1   1   0 wz--n- 10,99g 5,99g
   vg_root   1   2   0 wz--n-  9,00g    0 
+
 ```
 
-Les 2 serveurs Centreon-Map doivent être liés au même serveur central.
-Le script `/etc/centreon-studio/diagnostic.sh` doit retourner `[OK]` sur **les deux** serveurs Map :
+The 2 servers Centreon-Map must be linked to the same Central Server.
+The script `/etc/centreon-studio/diagnostic.sh` must return `[OK]` on **both** Centreon-Map server:
 
 ```bash
 ########## Centreon-Map server version ##########
@@ -113,47 +112,45 @@ Le script `/etc/centreon-studio/diagnostic.sh` doit retourner `[OK]` sur **les d
 
 ```
 
-> **AVERTISSEMENT:** Si ces prérequis spécifiques ne sont pas respectés, la méthode de synchronisation des bases de données décrite ci-dessous ne fonctionnera pas.
+> **WARNING:** If these particular prerequisites are not effective, the databases synchronization method described further won't work.
 
-### Configuration de Studio
+### Studio Configuration
 
-Toutes les options spécifiques configurées dans `/etc/centreon-studio/studio-config.properties` doivent 
-être les mêmes sur les 2 nœuds. Les options qui peuvent être activées ou désactivées 
-sont décrites [ici](configuration.md#define-views--status-computation-parameters).
+All the specific options setup in `/etc/centreon-studio/studio-config.properties`
+must be the same on the 2 nodes. The options that can be enable or disable are describe
+[here](configuration.md#define-views--status-computation-parameters).
 
 ### Quorum Device
 
-Afin de préserver le cluster des problèmes de "split brain", un troisième serveur est obligatoire pour résoudre l'élection du maître en cas de perte de connexion. 
-Le rôle de Quorum Device, peut être tenu par un Poller de la plateforme de supervision.
+In order to keep the cluster safe from split-brain issues, a third server is mandatory to resolve the master's election in the event of a connection loss. The role of Quorum Device, can be held by a Poller of the monitoring platform.
 
-### Définir les noms et adresses des hôtes
+### Defining hosts' names and addresses
 
-Dans cette procédure, nous ferons référence aux caractéristiques qui sont appelés à changer d'une plateforme à l'autre (comme les adresses IP) par les macros suivantes :
+In this procedure, we will refer to characteristics that are bound to change from a platform to another (such as IP addresses) by the following macros:
 
-* `@MAP_PRIMARY_IPADDR@`: adresse IP du serveur Map primaire
-* `@MAP_PRIMARY_NAME@`: nom du serveur Map primaire (doit être identique à `hostname -s`)
-* `@MAP_SECONDARY_IPADDR@`: adresse IP du serveur Map secondaire
-* `@MAP_SECONDARY_NAME@`: nom du serveur Map secondaire (doit être identique à `hostname -s`)
-* `@QDEVICE_IPADDR@`: adresse IP du quorum
-* `@QDEVICE_NAME@`: nom du quorum device (doit être identique à `hostname -s`)
-* `@MARIADB_REPL_USER@`: identifiant de réplication MariaDB (défaut: `centreon-repl`)
-* `@MARIADB_REPL_PASSWD@`: mot de passe de réplication MariaDB
-* `@MARIADB_CENTREON_USER@`: Identifiant de MariaDB de Centreon-Map (défaut: `centreon_map`)
-* `@MARIADB_CENTREON_PASSWD@`: mot de passe de MariaDB de Centreon-Map
-* `@VIP_IPADDR@`: adresse IP virtuelle du cluster
-* `@VIP_IFNAME@`: périphérique réseau portant le VIP du cluster
-* `@VIP_CIDR_NETMASK@`: longueur du masque de sous-réseau en bits (ex. 24)
-* `@VIP_BROADCAST_IPADDR@`: l'adresse de diffusion VIP du cluster
-* `@CENTREON_CLUSTER_PASSWD@` : mot de passe de l'utilisateur `hacluster`.
+* `@MAP_PRIMARY_IPADDR@`: primary Centreon-Map server's IP address
+* `@MAP_PRIMARY_NAME@`: primary Centreon-Map server's name (must be identical to `hostname -s`)
+* `@MAP_SECONDARY_IPADDR@`: secondary Centreon-Map server's IP address
+* `@MAP_SECONDARY_NAME@`: secondary Centreon-Map server's name (must be identical to `hostname -s`)
+* `@QDEVICE_IPADDR@`: quorum device's IP address
+* `@QDEVICE_NAME@`: quorum device's name (must be identical to `hostname -s`)
+* `@MARIADB_REPL_USER@`:  MariaDB replication login (default: `centreon-repl`)
+* `@MARIADB_REPL_PASSWD@`: MariaDB replication password
+* `@MARIADB_CENTREON_USER@`: MariaDB Centreon-Map login (default: `centreon_map`)
+* `@MARIADB_CENTREON_PASSWD@`: MariaDB Centreon-Map password
+* `@VIP_IPADDR@`: virtual IP address of the cluster
+* `@VIP_IFNAME@`: network device carrying the cluster's VIP
+* `@VIP_CIDR_NETMASK@`: subnet mask length in bits (eg. 24)
+* `@VIP_BROADCAST_IPADDR@`: cluster's VIP broadcast address
+* `@CENTREON_CLUSTER_PASSWD@` : `hacluster` user's password
 
-## Paramètres du système
+## System settings
 
-Avant de mettre en place le cluster, certaines conditions préalables doivent être remplies.
+Before actually setting the cluster up, some system prerequisites have to be met.
 
-### Optimisation de la configuration de réseau
+### Kernel network tuning
 
-Afin d'améliorer la fiabilité du cluster, et puisque *Centreon-Map HA* ne prend en charge que l'IPv4, nous vous recommandons d'appliquer les paramètres de configuration 
-suivants à tous vos serveurs Centreon-Map (y compris le quorum device) :
+In order to improve the cluster reliability, and since *Centreon-Map HA* only supports IPv4, we recommend to apply the following kernel settings all your Centreon-Map servers (including quorum device):
 
 ```bash
 cat >> /etc/sysctl.conf <<EOF
@@ -167,9 +164,9 @@ EOF
 systemctl restart network
 ```
 
-### Résolution de nom
+### Name resolution
 
-Pour que le cluster *Centreon-Map HA* puisse rester opérationnel en cas de panne du système DNS, tous les nœuds du cluster doivent se connaître par leur nom et non par le DNS, en utilisant `/etc/hosts`.
+So that the *Centreon-Map HA* cluster can stay in operation in the event of a DNS service breakdown, all the cluster nodes must know each other by name without DNS, using `/etc/hosts`.
 
 ```bash
 cat >/etc/hosts <<"EOF"
@@ -180,31 +177,31 @@ cat >/etc/hosts <<"EOF"
 EOF
 ```
 
-A partir de ce point, `@MAP_PRIMARY_NAME@` sera nommé le " serveur/nœud primaire " et `@MAP_SECONDARY_NAME@` le " serveur/nœud secondaire ". Cette désignation est arbitraire, les deux nœuds seront bien sûr interchangeables une fois la configuration terminée.
+From here, `@MAP_PRIMARY_NAME@` will be named the "primary server/node" and `@MAP_SECONDARY_NAME@` the "secondary server/node". This designation is arbitrary, the two nodes will of course be interchangeable once the setup is done.
 
-### Installation des paquets système
+### Installing system packages
 
-Centreon propose un paquet nommé `centreon-ha-common`, qui fournit tous les fichiers et dépendances nécessaires à un cluster Centreon. Ces paquets doivent être installés sur les deux nœuds de Centreon-Map :
+Centreon offers a package named `centreon-ha-common`, which provides all the needed files and dependencies required by a Centreon cluster. These packages must be installed on both Centreon-Map nodes:
 
 ```bash
 yum install epel-release
 yum install centreon-ha-common pcs pacemaker corosync corosync-qdevice
 ```
 
-### Echange de clés SSH
+### SSH keys exchange
 
-L'authentification basée sur une clé SSH doit être configurée pour que les fichiers et les commandes puissent être envoyés d'un nœud à l'autre par des comptes UNIX :
+SSH key-based authentication must be set so that files and commands can be sent from one node to another by UNIX accounts:
 
 * `mysql`
 
-Il existe deux façons d'échanger ces clés:
+There are two ways of exchanging such keys:
 
-* En utilisant la commande `ssh-copy-id`. Il doit pouvoir se connecter à l'hôte distant en utilisant un mot de passe. Il n'est cependant pas sûr que de tels comptes système disposent d'une authentification par mot de passe. Si vous choisissez cette méthode, nous vous conseillons de révoquer ce mot de passe par la suite avec la commande suivante : `passwd -d mysql`.
-* En copiant manuellement la clé publique dans `~/.ssh/authorized_keys`. Cette méthode est plus sûre.
+* By using `ssh-copy-id` command: needs to be able to log in to remote host using a password. It is however unsafe for such system accounts to have a password authentication available. If you choose this method, we advice you to revoke this password afterwards with this commans: `passwd -d mysql`.
+* By manually copying the public key in `~/.ssh/authorized_keys`. This method is safer.
 
-La deuxième méthode sera documentée ci-dessous.
+The second method will be documented below.
 
-Pour le compte `mysql`, ces commandes doivent être exécutées sur les deux nœuds également :
+For the `mysql` account, these commands must be run on both nodes as well:
 
 ```bash
 systemctl stop mysql
@@ -216,36 +213,36 @@ systemctl start mysql
 su - mysql
 ```
 
-Pour le compte `mysql`, ces commandes doivent être exécutées sur les deux nœuds également :
+Once in `mysql`'s `bash` envinronment, run these commands on both nodes:
 
 ```bash
 ssh-keygen -t ed25519 -a 100
 cat ~/.ssh/id_ed25519.pub
 ```
 
-Une fois cela fait, copiez le contenu du fichier de clé publique affiché par `cat` et collez-le dans `~/.ssh/authorized_keys` (doit être créé) sur l'autre nœud et appliquez les permissions correctes au fichier (toujours en tant qu'utilisateur `mysql`) :
+Once done, copy the content of the public key file displayed by `cat` and paste it to `~/.ssh/authorized_keys` (must be created) on the other node and apply the correct file permissions (still as `mysql` user):
 
 ```bash
 chmod 600 ~/.ssh/authorized_keys
 ```
 
-L'échange de clés doit être validé par une connexion initiale de chaque nœud à l'autre afin d'accepter et d'enregistrer l'empreinte SSH du nœud pair (toujours comme utilisateur `mysql`) :
+The keys exchange must be validated by an initial connection from each node to the other in order to accept and register the peer node's SSH fingerprint (still as `mysql` user):
 
 ```bash
 ssh <peer node hostname>
 ```
 
-Ensuite, quittez la session `mysql` en tapant `exit` ou `Ctrl-D`.
+Then exit the `mysql` session typing `exit` or `Ctrl-D`.
 
-## Configuration de la réplication des bases de données MariaDB
+## Configuring the MariaDB databases replication
 
-Un cluster MariaDB primaire-secondaire sera mis en place afin que tout soit synchronisé en temps réel. 
+A Primary-Secondary MariaDB cluster will be setup so that everything is synchronized in real-time. 
 
-**Info**: sauf indication contraire, chacune des étapes suivantes doit être exécutée **sur les deux nœuds Map**.
+**Note**: unless otherwise stated, each of the following steps have to be run **on both Centreon-Map nodes**.
 
-### Configuration de MariaDB
+### Configuring MariaDB
 
-Pour des raisons d'optimisation et de fiabilité du cluster, vous devez ajouter ces options de réglage à la configuration de MariaDB dans le fichier `/etc/my.cnf.d/server.cnf`. Par défaut, la section `[server]` de ce fichier est vide. Collez ces lignes (certaines doivent être modifiées) dans cette section :
+For both optimization and cluster reliability purposes, you need to add this tuning options to MariaDB configuration in the `/etc/my.cnf.d/server.cnf` file. By default, the `[server]` section of this file is empty. Paste these lines (some have to be modified) into this section:
 
 ```ini
 [server]
@@ -269,39 +266,39 @@ character-set-server=utf8
 collation-server=utf8_general_ci
 ```
 
-> **Important:** la valeur de `server-id` doit être différente d'un serveur à l'autre. Les valeurs proposées dans le commentaire 1 => Primaire et 2 => Secondaire ne sont pas obligatoires mais recommandées.
+> **Important:** the value of `server-id` must be different from one server to the other. The values suggested in the comment 1 => Primary et 2 => Secondary are not mandatory by recommended.
 
-Pour appliquer la nouvelle configuration, vous devez redémarrer le service de base de données :
+To apply the new configuration, you have to restart the database server:
 
 ```bash
 systemctl restart mariadb
 ```
 
-Assurez-vous que le redémarrage s'est bien passé :
+Make sure that the restart went well:
 
 ```bash
 systemctl status mariadb
 ```
 
-> **Avertissement:** Les autres fichiers dans `/etc/my.cnf.d/` tels que `map.cnf` seront ignorés à partir de maintenant. Toute personnalisation devra être ajoutée dans `server.cnf`.
+> **Warning:** Other files in `/etc/my.cnf.d/` such as `map.cnf` will be ignored from now. Any customization will have to be added to `server.cnf`.
 
-### Sécuriser le serveur de base de données
+### Securing the database server
 
-Pour éviter une exposition inutile de vos bases de données, vous devez en restreindre l'accès autant que possible. La commande `mysql_secure_installation` vous aidera à appliquer quelques principes de sécurité de base. Il vous suffit de lancer cette commande et de vous laisser guider, en choisissant le choix recommandé à chaque étape. Nous vous suggérons de choisir un mot de passe fort.
+To avoid unnecessary exposure of your databases, you should restrict access to it as much as possible. The `mysql_secure_installation` command will help you apply some basic security principles. You just need to run this command and let yourself be guided, choosing the recommended choice at every step. We suggest you choose a strong password.
 
 ```bash
 mysql_secure_installation
 ```
 
-### Création du compte MariaDB `centreon`.
+### Creating the `centreon` MariaDB account
 
-Connectez-vous d'abord en tant que `root` sur les deux serveurs de base de données (en utilisant le mot de passe nouvellement défini) :
+First log in as `root` on both database servers (using the newly defined password):
 
 ```
 mysql -p
 ```
 
-Puis collez de part et d'autre les commandes SQL suivantes à l'invité MariaDB pour créer l'utilisateur de l'application (par défaut : `centreon_map`). Bien sûr, vous remplacerez d'abord les macros :
+Then paste on both sides the following SQL commands to the MariaDB prompt to create the application user (default: `centreon_map`). Of course, you will replace the macros first:
 
 ```sql
 CREATE USER '@MARIADB_CENTREON_USER@'@'@MAP_SECONDARY_IPADDR@' IDENTIFIED BY '@MARIADB_CENTREON_PASSWD@';
@@ -311,9 +308,9 @@ CREATE USER '@MARIADB_CENTREON_USER@'@'@MAP_PRIMARY_IPADDR@' IDENTIFIED BY '@MAR
 GRANT ALL PRIVILEGES ON centreon_studio.* TO '@MARIADB_CENTREON_USER@'@'@MAP_PRIMARY_IPADDR@';
 ```
 
-### Création du compte de réplication MariaDB
+### Creating the MariaDB replication account
 
-Toujours dans le même prompt, créez l'utilisateur de réplication (par défaut : `centreon-repl`) :
+Still in the same prompt, create the replication user (default: `centreon-repl`):
 
 ```sql
 GRANT SHUTDOWN, PROCESS, RELOAD, SUPER, SELECT, REPLICATION CLIENT, REPLICATION SLAVE ON *.* 
@@ -326,11 +323,11 @@ GRANT SHUTDOWN, PROCESS, RELOAD, SUPER, SELECT, REPLICATION CLIENT, REPLICATION 
 TO '@MARIADB_REPL_USER@'@'@MAP_PRIMARY_IPADDR@' IDENTIFIED BY '@MARIADB_REPL_PASSWD@';
 ```
 
-### Configuration des tâches de purge des logs binaires
+### Setting up the binary logs purge jobs
 
-Les logs binaires de MariaDB doivent être purgés sur les deux nœuds, mais pas en même temps, donc les définitions des cron jobs doivent être définies à des moments différents :
+MariaDB binary logs must be purged on both nodes, but not at the same time, therefore the cron jobs definitions must be set on different times:
 
-* Sur le nœud primaire :
+* On the primary node:
 
 ```bash
 cat >/etc/cron.d/centreon-ha-mysql <<EOF
@@ -338,7 +335,7 @@ cat >/etc/cron.d/centreon-ha-mysql <<EOF
 EOF
 ```
 
-* Sur le nœud secondaire :
+* On the secondary node:
 
 ```bash
 cat >/etc/cron.d/centreon-ha-mysql <<EOF
@@ -346,9 +343,9 @@ cat >/etc/cron.d/centreon-ha-mysql <<EOF
 EOF
 ```
 
-### Configuration des variables d'environnement des scripts MariaDB
+### Configuring the MariaDB scripts environment variables
 
-Le fichier `/etc/centreon-ha/mysql-resources.sh` déclare des variables d'environnement qui doivent être configurées pour que les scripts *Centreon-Map HA* dédiés à MariaDB puissent fonctionner correctement. Il faut attribuer à ces variables les valeurs choisies pour les macros.
+The `/etc/centreon-ha/mysql-resources.sh` file declares environment variables that must be configured so that the *Centreon-Map HA* scripts dedicated to MariaDB can work properly. These variables must be assigned the chosen values for the macros.
 
 ```bash
 #!/bin/bash
@@ -369,35 +366,35 @@ CENTREON_STORAGE_DB='centreon_studio'
 ###############################
 ```
 
-> **Note:** Ce script est normalement utilisé pour *Centreon HA*, c'est pourquoi nous devons configurer deux fois centreon_studio comme `CENTREON_DB` et `CENTREON_STORAGE_DB`.
+> **Note:** this script is normaly use for *Centreon HA* that's why we need to setup twice centreon_studio as `CENTREON_DB` and `CENTREON_STORAGE_DB`.
 
 
-Pour vous assurer que toutes les étapes précédentes ont réussi, et que les noms, identifiants et mots de passe corrects ont été saisis dans le fichier de configuration bash, exécutez cette commande :
+To make sure that all the previous steps have been successful, and that the correct names, logins and passwords have been entered in the configuration bash file, run this command:
 
 ```bash
 /usr/share/centreon-ha/bin/mysql-check-status.sh
 ```
 
-Le résultat attendu est :
+The expected output is:
 
 ```text
 Connection Status '@MAP_PRIMARY_NAME@' [OK]
 Connection Status '@MAP_SECONDARY_NAME@' [OK]
 Slave Thread Status [KO]
 Error reports:
-	No slave (maybe because we cannot check a server).
+    No slave (maybe because we cannot check a server).
 Position Status [SKIP]
 !Error reports:
-	Skip because we can't identify a unique slave.
+    Skip because we can't identify a unique slave.
 ```
 
-Ce qui importe ici, c'est que les deux premiers tests de connexion soient `OK`.
+What matters here is that the first two connection tests are `OK`.
 
-### Passage en mode lecture seule
+### Switching to read-only mode
 
-Maintenant que tout est bien configuré, vous allez activer le `read_only` sur les deux serveurs de base de données en décommentant (*ie.* en enlevant le `#` en début de ligne) cette instruction dans le fichier `/etc/my.cnf.d/server.cnf` :
+Now that everything is well configured, you will enable the `read_only` on both database servers by uncommenting (*ie.* removing the `#` at the beginning of the line) this instruction in the `/etc/my.cnf.d/server.cnf` file:
 
-* Nœud primaire:
+* Primary node:
 
 ```ini
 [server]
@@ -406,7 +403,7 @@ read_only
 log-bin=mysql-bin
 ```
 
-* Nœud secondaire:
+* Secondary node:
 
 ```ini
 [server]
@@ -415,53 +412,53 @@ read_only
 log-bin=mysql-bin
 ```
 
-Ensuite, appliquez ce changement en redémarrant MariaDB sur les deux nœuds :
+Then apply this change by restarting MariaDB on both nodes:
 
 ```bash
 systemctl restart mariadb
 ```
 
-### Synchronisation des bases de données et activation de la réplication MariaDB
+### Synchronizing the databases and enabling MariaDB replication
 
-Lors du processus de synchronisation des bases de données, vous arrêterez d'abord le processus de la base de données secondaire afin que ses données puissent être écrasées par celles du nœud primaire. 
+In the process of synchronizing the databases, you will first stop the secondary database process so that its data can be overwritten by the primary node's data. 
 
-Exécutez cette commande **sur le nœud secondaire :**
+Run this command **on the secondary node:**
 
 ```bash
 systemctl stop mariadb
 ```
 
-Il est important de s'assurer que MariaDB est complètement arrêté. Vous allez exécuter cette commande et vérifier qu'elle ne renvoie aucun résultat :
+It is important to make sure that MariaDB is completely shut down. You will run this command and check that it returns no output:
 
 ```bash
 ps -ef | grep mysql[d]
 ```
 
-Si un ou plusieurs processus sont toujours en cours, exécutez cette autre commande (elle vous demandera le mot de passe root de MariaDB) :
+In case one or more process are still alive, then run this other command (it will prompt for the MariaDB root password):
 
 ```bash
 mysqladmin -p shutdown
 ```
 
-Une fois le service arrêté **sur le nœud secondaire**, vous exécuterez le script de synchronisation **depuis le nœud primaire** :
+Once the service is stopped **on the secondary node**, you will run the synchronization script **from the primary node**:
 
 ```bash
 /usr/share/centreon-ha/bin/mysql-sync-bigdb.sh
 ```
 
-Ce script va effectuer les actions suivantes :
+This script will perform the following actions:
 
-* vérifier que MariaDB est arrêté sur le nœud secondaire
-* arrêt de MariaDB sur le nœud primaire
-* monter un snapshot LVM sur le même volume groupe que celui qui contient le point de montage `/var/lib/mysql` (ou tout autre point de montage contenant les fichiers de données MariaDB).
-* redémarrer MariaDB sur le nœud primaire.
-* enregistrer la position actuelle dans le log binaire
-* désactiver le mode `read_only` sur le nœud primaire (ce nœud sera maintenant capable d'écrire dans sa base de données).
-* synchronisation et réécriture de tous les fichiers de données (sauf la base de données système `mysql`). 
-* démontage du snapshot LVM
-* création du thread de réplication qui maintiendra les deux bases de données synchronisées.
+* checking that MariaDB is stopped on the secondary node
+* stopping MariaDB on the primary node
+* mounting a LVM snapshot on the same volume group that bears the `/var/lib/mysql` (or whatever mount point holds the MariaDB data files)
+* starting MariaDB again on the primary node
+* recording the current position in the binary log
+* disabling the `read_only` mode on the primary node (this node will now be able to write into its database)
+* synchronizing/overwriting all the data files (except for the `mysql` system database) 
+* unmounting the LVM snapshot
+* creating the replication thread that will keep both databases synchronized
 
-Le résultat de ce script est très verbeux et vous ne pouvez pas vous attendre à tout comprendre, donc pour vous assurer que tout s'est bien passé, concentrez-vous sur les dernières lignes de son résultat, en vérifiant qu'il ressemble à ceci :
+This script's output is very verbose and you can't expect to understand everything, so to make sure it went well, focus on the last lines of its output, checking that it looks like:
 
 ```text
 Umount and Delete LVM snapshot
@@ -472,15 +469,15 @@ Id	User	Host	db	Command	Time	State	Info	Progress
 [variable number of lines]
 ```
 
-La chose importante à vérifier est que `Start MySQL Slave` et `Start Replication` sont présents et qu'aucune erreur ne les suit.
+The important thing to check is that `Start MySQL Slave` and `Start Replication` are present and that no errors follow it.
 
-De plus, le message de sortie de cette commande ne doit afficher que des résultats `OK` :
+In addition, the output of this command must display only `OK` results:
 
 ```bash
 /usr/share/centreon-ha/bin/mysql-check-status.sh
 ```
 
-Le résultat attendu est :
+The expected output is:
 
 ```text
 Connection Status '@MAP_PRIMARY_NAME@' [OK]
@@ -489,35 +486,35 @@ Slave Thread Status [OK]
 Position Status [OK]
 ```
 
-### Arrêter et désactiver les services
+### Stopping and disabling the services
 
-Les services applicatifs de Centreon ne seront plus lancés au démarrage, ils seront gérés par les outils du cluster. Ces services doivent donc être arrêtés et désactivés :
+Centreon's application services won't be launched at boot time anymore, they will be managed by the clustering tools. These services must therefore be stopped and disabled:
 
 ```bash
 systemctl stop centreon-map mariadb
 systemctl disable centreon-map mariadb
 ```
 
-Par défaut, le service `mariadb` est activé dans les perspectives de systemd et de system V, il est donc préférable de s'assurer qu'il est désactivé :
+By default, the `mariadb` service is enabled in both systemd and system V perspectives, so you'd rather make sure it is disabled:
 
 ```bash
 chkconfig mysql off
 ```
 
-### Création du cluster
+### Creating the cluster
 
-#### Activation des services du cluster.
+#### Activating the clustering services
 
-D'abord nous activons tous les services et démarrons `pcsd` sur les deux nœuds Centreon-Map :
+First we enable all the services and start `pcsd` on both Centreon-Map nodes:
 
 ```bash
 systemctl start pcsd
 ```
 
 
-#### Préparation du serveur qui assurera la fonction de *quorum device*. 
+#### Preparing the server that will hold the function of *quorum device* 
 
-Vous pouvez utiliser un de vos Pollers pour jouer ce rôle. Il doit être préparé avec les commandes suivantes : 
+You can use one of your Pollers to play this role. It must be prepared with the commands below: 
 
 ```bash
 yum install pcs corosync-qnetd
@@ -527,52 +524,52 @@ pcs qdevice setup model net --enable --start
 pcs qdevice status net --full
 ```
 
-Modifiez le paramètre `COROSYNC_QNETD_OPTIONS` dans le fichier `/etc/sysconfig/corosync-qnetd` pour être sûr que le service n'écoutera les connexions que sur IPv4.
+Modify the parameter `COROSYNC_QNETD_OPTIONS` in the file `/etc/sysconfig/corosync-qnetd` to make sure the service will be listening the connections just on IPv4
 
 ```bash
 COROSYNC_QNETD_OPTIONS="-4"
 ```
 
-#### Authentification des membres du cluster
+#### Authenticating to the cluster's members
 
-Pour des raisons de simplicité, l'utilisateur `hacluster` se verra attribuer le même mot de passe sur les deux nœuds de Centreon-Map **et `@QDEVICE_NAME@`**.
+For the sake of simplicity, the `hacluster` user will be assigned the same password on both Centreon-Map nodes **and `@QDEVICE_NAME@`**.
 
 ```bash
 passwd hacluster
 ```
 
-Maintenant que les deux nœuds de Centreon-Map **et** le serveur *quorum device* partagent le même mot de passe, vous allez exécuter cette commande **seulement sur l'un des nœuds de Centreon-Map** afin d'authentifier tous les hôtes participant au cluster.
+Now that both of the Centreon-Map nodes **and** the *quorum device* server are sharing the same password, you will run this command **only on one of the Centreon-Map nodes** in order to authenticate on all the hosts taking part in the cluster.
 
 ```bash
 pcs cluster auth \
-	"@MAP_PRIMARY_NAME@" \
-	"@MAP_SECONDARY_NAME@" \
-	"@QDEVICE_NAME@" \
-	-u "hacluster" \
-	-p '@CENTREON_CLUSTER_PASSWD@' \
-	--force
+    "@MAP_PRIMARY_NAME@" \
+    "@MAP_SECONDARY_NAME@" \
+    "@QDEVICE_NAME@" \
+    -u "hacluster" \
+    -p '@CENTREON_CLUSTER_PASSWD@' \
+    --force
 ```
 
-#### Création du cluster
+#### Creating the cluster
 
-La commande suivante crée le cluster. Elle doit être exécutée **seulement sur l'un des nœuds de Centreon-Map**. 
+The following command creates the cluster. It must be run **only on one of the Centreon-Map nodes**. 
 
 ```bash
 pcs cluster setup \
-	--force \
-	--name centreon_cluster \
-	"@MAP_PRIMARY_NAME@" \
-	"@MAP_SECONDARY_NAME@"
+    --force \
+    --name centreon_cluster \
+    "@MAP_PRIMARY_NAME@" \
+    "@MAP_SECONDARY_NAME@"
 ```
 
-Ensuite, démarrez le service `pacemaker` **sur les deux nœuds de Centreon-Map** :
+Then start the `pacemaker` service **on both Centreon-Map nodes**:
 
 ```bash
 systemctl enable pacemaker pcsd corosync
 systemctl start pacemaker
 ```
 
-Et ensuite définir ces propriétés **seulement sur un nœud** :
+And afterwards define these properties **only on one node**:
 
 ```bash
 pcs property set symmetric-cluster="true"
@@ -580,41 +577,41 @@ pcs property set stonith-enabled="false"
 pcs resource defaults resource-stickiness="100"
 ```
 
-Vous pouvez maintenant suivre l'état du cluster avec la commande `crm_mon`, qui affichera les nouvelles ressources au fur et à mesure de leur apparition.
+You can now follow the state of the cluster with the `crm_mon` command, which will display new resources as they appear.
 
-#### Création du *Quorum Device*
+#### Creating the *Quorum Device*
 
-Exécutez cette commande sur l'un des nœuds de Centreon-Map :
+Run this command on one of the Centreon-Map nodes:
 
 ```bash
 pcs quorum device add model net \
-	host="@QDEVICE_NAME@" \
-	algorithm="ffsplit"
+    host="@QDEVICE_NAME@" \
+    algorithm="ffsplit"
 ```
 
-### Créer les ressources du cluster MariaDB
+### Creating the MariaDB cluster resources
 
-À exécuter **seulement sur un nœud de Centreon-Map** :
+To be run **only on one Centreon-Map node**:
 
 <Tabs groupId="sync">
 <TabItem value="CentOS7" label="CentOS7">
 
 ```bash
 pcs resource create "ms_mysql" \
-	ocf:heartbeat:mysql-centreon \
-	config="/etc/my.cnf.d/server.cnf" \
-	pid="/var/lib/mysql/mysql.pid" \
-	datadir="/var/lib/mysql" \
-	socket="/var/lib/mysql/mysql.sock" \
-	replication_user="@MARIADB_REPL_USER@" \
-	replication_passwd='@MARIADB_REPL_PASSWD@' \
-	max_slave_lag="15" \
-	evict_outdated_slaves="false" \
-	binary="/usr/bin/mysqld_safe" \
-	test_user="@MARIADB_REPL_USER@" \
-	test_passwd="@MARIADB_REPL_PASSWD@" \
-	test_table='centreon_studio.data' \
-	master
+    ocf:heartbeat:mysql-centreon \
+    config="/etc/my.cnf.d/server.cnf" \
+    pid="/var/lib/mysql/mysql.pid" \
+    datadir="/var/lib/mysql" \
+    socket="/var/lib/mysql/mysql.sock" \
+    replication_user="@MARIADB_REPL_USER@" \
+    replication_passwd='@MARIADB_REPL_PASSWD@' \
+    max_slave_lag="15" \
+    evict_outdated_slaves="false" \
+    binary="/usr/bin/mysqld_safe" \
+    test_user="@MARIADB_REPL_USER@" \
+    test_passwd="@MARIADB_REPL_PASSWD@" \
+    test_table='centreon_studio.data' \
+    master
 ```
 
 </TabItem>
@@ -622,36 +619,36 @@ pcs resource create "ms_mysql" \
 
 ```bash
 pcs resource create "ms_mysql" \
-	ocf:heartbeat:mysql-centreon \
-	config="/etc/my.cnf.d/server.cnf" \
-	pid="/var/lib/mysql/mysql.pid" \
-	datadir="/var/lib/mysql" \
-	socket="/var/lib/mysql/mysql.sock" \
-	replication_user="@MARIADB_REPL_USER@" \
-	replication_passwd='@MARIADB_REPL_PASSWD@' \
-	max_slave_lag="15" \
-	evict_outdated_slaves="false" \
-	binary="/usr/bin/mysqld_safe" \
-	test_user="@MARIADB_REPL_USER@" \
-	test_passwd="@MARIADB_REPL_PASSWD@" \
-	test_table='centreon_studio.data'
+    ocf:heartbeat:mysql-centreon \
+    config="/etc/my.cnf.d/server.cnf" \
+    pid="/var/lib/mysql/mysql.pid" \
+    datadir="/var/lib/mysql" \
+    socket="/var/lib/mysql/mysql.sock" \
+    replication_user="@MARIADB_REPL_USER@" \
+    replication_passwd='@MARIADB_REPL_PASSWD@' \
+    max_slave_lag="15" \
+    evict_outdated_slaves="false" \
+    binary="/usr/bin/mysqld_safe" \
+    test_user="@MARIADB_REPL_USER@" \
+    test_passwd="@MARIADB_REPL_PASSWD@" \
+    test_table='centreon_studio.data'
 ```
 
 </TabItem>
 </Tabs>
 
-> **AVERTISSEMENT:** la syntaxe de la commande suivante dépend de la distribution Linux que vous utilisez.
+> **WARNING:** the syntax of the following command depends on the Linux Distribution you are using.
 
 <Tabs groupId="sync">
 <TabItem value="CentOS7" label="CentOS7">
 
 ```bash
 pcs resource meta ms_mysql-master \
-	master-node-max="1" \
-	clone_max="2" \
-	globally-unique="false" \
-	clone-node-max="1" \
-	notify="true"
+    master-node-max="1" \
+    clone_max="2" \
+    globally-unique="false" \
+    clone-node-max="1" \
+    notify="true"
 ```
 
 
@@ -660,63 +657,63 @@ pcs resource meta ms_mysql-master \
 
 ```bash
 pcs resource master ms_mysql \
-	master-node-max="1" \
-	clone_max="2" \
-	globally-unique="false" \
-	clone-node-max="1" \
-	notify="true"
+    master-node-max="1" \
+    clone_max="2" \
+    globally-unique="false" \
+    clone-node-max="1" \
+    notify="true"
 ```
 
 </TabItem>
 </Tabs>
 
-### Création du groupe de ressources *centreon_map*.
+### Creating the *centreon_map* resource group
 
-##### Adresse VIP
+##### VIP address
 
 ```bash
 pcs resource create vip \
-	ocf:heartbeat:IPaddr2 \
-	ip="@VIP_IPADDR@" \
-	nic="@VIP_IFNAME@" \
-	cidr_netmask="@VIP_CIDR_NETMASK@" \
-	broadcast="@VIP_BROADCAST_IPADDR@" \
-	flush_routes="true" \
-	meta target-role="started" \
-	op start interval="0s" timeout="20s" \
-	stop interval="0s" timeout="20s" \
-	monitor interval="10s" timeout="20s" \
-	--group centreon_map
+    ocf:heartbeat:IPaddr2 \
+    ip="@VIP_IPADDR@" \
+    nic="@VIP_IFNAME@" \
+    cidr_netmask="@VIP_CIDR_NETMASK@" \
+    broadcast="@VIP_BROADCAST_IPADDR@" \
+    flush_routes="true" \
+    meta target-role="started" \
+    op start interval="0s" timeout="20s" \
+    stop interval="0s" timeout="20s" \
+    monitor interval="10s" timeout="20s" \
+    --group centreon_map
 ```
 
-#### Service Centreon-Map
+#### Centreon-Map service
 
 ```bash
 pcs resource create centreon-map \
-	systemd:centreon-map \
-	meta target-role="started" \
-	op start interval="0s" timeout="90s" \
-	stop interval="0s" timeout="90s" \
-	monitor interval="5s" timeout="30s" \
-	--group centreon_map
+    systemd:centreon-map \
+    meta target-role="started" \
+    op start interval="0s" timeout="90s" \
+    stop interval="0s" timeout="90s" \
+    monitor interval="5s" timeout="30s" \
+    --group centreon_map
 ```
 
-#### Contraintes de Colocation
+#### Colocation constraints
 
-Afin de forcer le cluster à faire tourner le groupe de ressources `centreon_map` et la base de données MariaDB maître sur le même nœud, vous devez déclarer ces contraintes de colocation :
+In order to force the cluster running both `centreon_map` resource group and the MariaDB Master on the same node, you have to declare these colocation constraints:
 
 ```bash
 pcs constraint colocation add "centreon_map" with master "ms_mysql-master"
 pcs constraint colocation add master "ms_mysql-master" with "centreon_map"
 ```
 
-Après cette étape, toutes les ressources doivent fonctionner sur le même nœud, la plateforme doit être redondante et fonctionner correctement.
+After this step, all resources should be running on the same node, the platform should be redundant and working properly.
 
-### Vérification de l'état du cluster
+### Checking the cluster's state
 
-#### Vérification de l'état des ressources
+#### Checking the resources' states
 
-Vous pouvez superviser les ressources du cluster en temps réel en utilisant la commande `crm_mon` :
+You can monitor the cluster's resources in real time using the `crm_mon` command:
 
 ```bash
 Stack: corosync
@@ -732,22 +729,22 @@ Online: [ @MAP_PRIMARY_NAME@ @MAP_SECONDARY_NAME@ ]
 Active resources:
 
  Master/Slave Set: ms_mysql-master [ms_mysql]
-	 Masters: [ @MAP_PRIMARY_NAME@ ]
-	 Slaves: [ @MAP_SECONDARY_NAME@ ]
+     Masters: [ @MAP_PRIMARY_NAME@ ]
+     Slaves: [ @MAP_SECONDARY_NAME@ ]
  Resource Group: centreon
-	 vip        (ocf::heartbeat:IPaddr2):	Started @MAP_PRIMARY_NAME@
-	 centreon-map	(systemd:centreon-map):   Started @MAP_PRIMARY_NAME@
+     vip        (ocf::heartbeat:IPaddr2):	Started @MAP_PRIMARY_NAME@
+     centreon-map	(systemd:centreon-map):   Started @MAP_PRIMARY_NAME@
 ```
 
-#### Vérification du thread de réplication de la base de données
+#### Checking the database replication thread
 
-L'état de la réplication de MariaDB peut être superviser à tout moment avec la commande `mysql-check-status.sh` :
+The MariaDB replication state can be monitored at any time with the `mysql-check-status.sh` command:
 
 ```bash
 /usr/share/centreon-ha/bin/mysql-check-status.sh
 ```
 
-Le résultat attendu est :
+The expected output is:
 
 ```bash
 Connection Status '@MAP_PRIMARY_NAME@' [OK]
@@ -756,15 +753,15 @@ Slave Thread Status [OK]
 Position Status [OK]
 ```
 
-Il peut arriver que le thread de réplication ne fonctionne pas juste après l'installation.  Le redémarrage de la ressource `ms_mysql` peut résoudre ce problème.
+It can happen that the replication thread is not running right after installation.  Restarting the `ms_mysql` resource may fix it.
 
 ```bash 
 pcs resource restart ms_mysql
 ```
 
-#### Vérification des contraintes
+#### Checking the constraints
 
-Normalement, les deux contraintes de colocation qui ont été créées pendant la configuration devraient être les seules contraintes que la commande `pcs constraint` affiche :
+Normally the two colocation constraints that have been created during the setup should be the only constraints the `pcs constraint` command displays:
 
 ```bash
 Location Constraints:
@@ -775,10 +772,10 @@ Colocation Constraints:
 Ticket Constraints:
 ```
 
-### Mise à jour de l'extension Centreon-Web UI
+### Update Centreon-Web UI extension
 
-Maintenant que vous utilisez l'adresse VIP, vous devez mettre à jour le paramètre `Centreon-Map server address` 
-dans le menu **Administration > Extensions > Options** 
-avec l'adresse VIP ou le FQDN qui résout le VIP.
+Now that you're using VIP Address, you must update the parameter `Centreon-Map server address`
+in the menu **Administration > Extensions > Options** to the VIP address or the FQDN that
+resolves the VIP.
 
-En cas de HTTPS, il est possible que vous deviez accepter à nouveau le certificat (en cas de certificat auto-signé).
+In case of HTTPS, it's possible that you need accept again the certificat (in case of auto-signed certificat).

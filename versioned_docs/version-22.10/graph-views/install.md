@@ -52,7 +52,7 @@ The diagram below summarizes the architecture:
 
 ### Centreon
 
-The central server and Centreon MAP must be installed in the same major versions (i.e. both in 22.04.x).
+The central server and Centreon MAP must be installed in the same major versions (i.e. both in 22.10.x).
 
 ### Centreon MAP Server
 
@@ -231,14 +231,14 @@ you need to install the `centreon-release` package:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04-3.el8.noarch.rpm
+dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centreon-release-22.10-3.el8.noarch.rpm
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-3.el7.centos.noarch.rpm
 ```
 
 </TabItem>
@@ -253,7 +253,7 @@ apt update && apt install lsb-release ca-certificates apt-transport-https softwa
 To install the Centreon repository, execute the following command:
 
 ```shell
-echo "deb https://apt.centreon.com/repository/22.04/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://apt.centreon.com/repository/22.10/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 ```
 
 Then import the repository key:
@@ -374,7 +374,7 @@ If it's your first installation, we advice you to use the standard mode
 /etc/centreon-studio/configure.sh
 ```
 
-If you have just installed Centreon 22.04, be aware that the platform now uses the new BBDO v3 protocol. For MAP to work properly,
+If you have just installed Centreon 22.10, be aware that the platform now uses the new BBDO v3 protocol. For MAP to work properly,
 edit the following file: **/etc/centreon-map/map-config.properties**
 
 ```text
@@ -516,7 +516,7 @@ The desktop client is currently available only for **64-bit** Windows,
 Mac and Linux platforms (Debian and Ubuntu).
 
 You can find the installers in **Monitoring > Map > Desktop Client** or
-[here](https://download.centreon.com/?action=product&product=centreon-map&version=21.10&secKey=9ae03a4457fa0ce578379a4e0c8b51f2).
+[here](https://download.centreon.com/?action=product&product=centreon-map&version=22.10&secKey=9ae03a4457fa0ce578379a4e0c8b51f2).
 
 > For performance considerations, we highly recommand to have less than 5, 10
 > users maximum connected at the same time manipulating views.

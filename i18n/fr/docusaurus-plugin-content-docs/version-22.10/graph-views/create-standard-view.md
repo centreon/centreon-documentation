@@ -1,284 +1,215 @@
 ---
 id: create-standard-view
-title: Create a standard view
+title: Créer une vue standard
 ---
 
-To create standard views, you have to use **Centreon Map Desktop client**.
+Pour créer des vues standard, vous devez utiliser le client **Centreon Map Desktop**.
 
-## Best practices & limitations
+## Bonnes pratiques et limitations
 
-In a production environment, you might have lot of views & information
-to share with your final users.
+Dans un environnement de production, vous pouvez avoir beaucoup de vues et d'informations à partager avec vos utilisateurs finaux.
 
-Here are some best practices to have in mind when creating views.\*
+Voici quelques bonnes pratiques à garder à l'esprit lors de la création de vues.
 
-**Content limitations** : Try not to have more than \~100 000 elements
-loaded "at a time". A loaded element is an element in an **opened**
-view. An opened view is a view that at least **one** user is looking at
-(using desktop client or through the web interface).
+**Limitations du contenu** : Essayez de ne pas avoir plus de \~100 000 éléments chargés "à la fois".
+Un élément chargé est un élément dans une vue **ouverte**. Une vue ouverte est une vue qu'au moins **un** utilisateur regarde (en utilisant le client de bureau ou l'interface web).
 
-Find below some usefull best practices to help you designing optimized
-views:
+Vous trouverez ci-dessous quelques bonnes pratiques utiles pour vous aider à concevoir des vues optimisées :
 
-- We more than **highly** recommend activating the ACL optimization
-  (*gate.useResourcesAccess=false*).
-- When you want to visualize application statuses, we highly recommend
-  modelling them using [Business
-  Activities](https://documentation.centreon.com/docs/centreon-bam/en/latest/).
-  This will help you to limit the number of elements you need to add to a
-  view. Adding one Business Activity to a view means only 1 element is added
-  instead of all the hosts & services you would have added in the view to
-  model the application otherwise.
-- Avoid duplicating the same resources (hostgroups, servicegroups, hosts,
-  services) in the same view or in multiple views.
-- If a view seems to contain "too many elements" (see *Content limitation*
-  above), try to conceptually group several elements in order to split into
-  multiple views.
-- Create views having less than 5 levels (drill down)
-- Do not display more than 100 elements in a single view level. (element:
-  container, host, hostgroup, service, business activity)
-- Do not display more than 10 widgets in a single view level.
+- Nous recommandons **vivement** d'activer l'optimisation ACL (*gate.useResourcesAccess=false*).
+- Lorsque vous souhaitez visualiser l'état des applications, nous vous recommandons vivement de les modéliser à l'aide des [Activités Métiers](https://documentation.centreon.com/docs/centreon-bam/en/latest/).
+  Cela vous aidera à limiter le nombre d'éléments que vous devez ajouter à une vue.
+  L'ajout d'une Activité Métiers à une vue signifie qu'un seul élément est ajouté au lieu de tous les hôtes et services que vous auriez ajoutés dans la vue pour modéliser l'application autrement.
+- Évitez de dupliquer les mêmes ressources (groupes d'hôtes, groupes de services, hôtes, services) dans la même vue ou dans plusieurs vues.
+- Si une vue semble contenir "trop d'éléments" (voir *Limitation du contenu* ci-dessus), essayez de regrouper conceptuellement plusieurs éléments afin de les diviser en plusieurs vues.
+- Créez des vues comportant moins de 5 niveaux (drill down).
+- N'affichez pas plus de 100 éléments dans un seul niveau de vue. (élément : conteneur, hôte, groupe d'hôtes, service, activité métier)
+- N'affichez pas plus de 10 widgets dans un seul niveau de vue.
 
-**How to calculate the number of element?**
+**Comment calculer le nombre d'éléments?**
 
-Here is an example that may help you: Let's imagine a view opened by a
-user containing 10 containers, each containing 10 hosts, each host
-containing 10 services.
+Voici un exemple qui peut vous aider : Imaginons une vue ouverte par un utilisateur contenant 10 conteneurs, chacun contenant 10 hôtes, chaque hôte contenant 10 services.
 
-`Number of elements: 10 containers + 10 containers * (10 host + 10 host * 10 services) = 1110 elements.`
+`Nombre d'éléments : 10 containers + 10 containers * (10 host + 10 host * 10 services) = 1110 éléments.``
 
-1110 elements will be loaded when at least one user opens this view.
-According to the content limitations, it means you can have 100 views
-such as this one opened by at least one user.
+1110 éléments seront chargés lorsqu'au moins un utilisateur ouvrira cette vue. Selon les limitations du contenu, cela signifie que vous pouvez avoir 100 vues comme celle-ci ouvertes par au moins un utilisateur.
 
-*These limitations/recommendations are based on a Centreon Map server
-having 8GB of RAM, 8vCPU (2.6Ghz), Google Chrome (latest version) with a
-minimum of 5GB of memory on the computer.*
+*Ces limitations/recommandations sont basées sur un serveur Centreon Map disposant de 8 Go de RAM, 8vCPU (2.6Ghz), Google Chrome (dernière version) avec un minimum de 5 Go de mémoire sur l'ordinateur.
 
-> You cannot add any objects (e.g., text, gauge, pie chart, graph etc.)
-> to, or modify/copy-paste the contents of, a host, host group, service
-> group or business activity.
+> Vous ne pouvez pas ajouter d'objets (par exemple, du texte, une jauge, un diagramme circulaire, un graphique, etc.) à un hôte, un groupe d'hôtes, un groupe de services ou une activité métier, ni en modifier/copier/coller le contenu.
 
-## Connect to the desktop client
+## Connexion du client de bureau
 
-To connect the desktop client to the server you must first create a profile:
+Pour connecter le client de bureau au serveur, vous devez d'abord créer un profil :
 
 ![image](../assets/graph-views/install-desktop-1.png)
 
-Add a profile by clicking on the "+" to the right of the Profile window:
+Ajoutez un profil en cliquant sur le "+" à droite de la fenêtre Profil :
 
 ![image](../assets/graph-views/install-desktop-2.png)
 
-- **Address**: Address of the Map Server
-- **Login**: Your Centreon Web username
-- **Password**: Password for your Centreon Web username
-- **Use TLS**: Check here if the Map Server is configured for HTTPS
-- **Port**: Listening port for the Map Server -- it uses *8080* by default and
-  *8443* if you have configured for HTTPS
-- **URL**: The URL for reaching Map Server. The default value is "/".
+- **Adresse** : Adresse du serveur de cartes
+- **Login** : Votre nom d'utilisateur Centreon Web
+- **Mot de passe** : Mot de passe pour votre nom d'utilisateur Centreon Web
+- **Utiliser TLS** : Cochez cette case si le serveur de cartes est configuré pour HTTPS.
+- **Port** : Port d'écoute pour le serveur de cartes -- il utilise *8080* par défaut et *8443* si vous avez configuré pour HTTPS.
+- **URL** : L'URL pour atteindre le serveur de cartes. La valeur par défaut est "/".
 
-If there is a proxy between your computer and the Map Server or internet,
-configure it here:
+S'il existe un proxy entre votre ordinateur et le serveur de cartes ou Internet, configurez-le ici :
 
-- **Proxies**: Address of proxy server
-- **Port**: Port of proxy server
-- **Proxy Login** (not mandatory): Proxy server login
-- **Proxy Password** (not mandatory): Login password for proxy server
-- **Use proxy for internet**: Check here if a proxy is required to connect to
-  the internet. It will be useful for automatically downloading updates to the
-  desktop client.
-- **Use proxy for server**: Check here if a proxy is required to reach your
-  Map Server.
+- **Proxy** : Adresse du serveur proxy
+- **Port** : Port du serveur proxy
+- **Proxy Login** (non obligatoire) : Login du serveur proxy
+- **Proxy Password** (non obligatoire) : Mot de passe de connexion pour le serveur proxy
+- **Utiliser un proxy pour Internet** : Cochez cette case si un proxy est nécessaire pour se connecter à Internet. Il sera utile pour télécharger automatiquement les mises à jour sur le client de bureau.
+- **Utiliser le proxy pour le serveur** : Cochez ici si un proxy est nécessaire pour atteindre votre serveur de cartes.
 
-## Add a view
+## Ajouter une vue
 
-### Empty view
+### Vue vide
 
-Here is how to create your first view:
+Voici comment créer votre première vue :
 
-Once you are logged in to your desktop client, you will see this screen:
+Une fois que vous êtes connecté à votre client de bureau, vous verrez cet écran :
 
 ![image](../assets/graph-views/desktop_client_empty.png)
 
-Click on **File > Create View** or right click on the empty left panel, then
-**Add**.
+Cliquez sur **Fichier > Créer une vue** ou faites un clic droit sur le panneau vide de gauche, puis **Ajouter**.
 
-A new wizard will appear. Enter a name for the new view (and an optional
-description).
+Un nouvel assistant apparaît. Saisissez un nom pour la nouvelle vue (et une description facultative).
 
 ![image](../assets/graph-views/new_view_wizard.png)
 
-You can then either click **Finish** to create the view or click **Next** to
-associate an image to it.
+Vous pouvez ensuite cliquer sur **Finish** pour créer la vue ou sur **Next** pour y associer une image.
 
-Once done, you will see your new view in the left tab panel.
+Une fois cela fait, vous verrez votre nouvelle vue dans le panneau à onglets de gauche.
 
 ![image](../assets/graph-views/new_view_panel.png)
 
-Now, double click on the view to open it. Your main panel will have a white
-background and you will be able to start adding elements to it: simply drag and
-drop resources from your resource panel to the main panel.
+Maintenant, double-cliquez sur la vue pour l'ouvrir. Votre panneau principal aura un fond blanc et vous pourrez commencer à y ajouter des éléments : il suffit de glisser-déposer des ressources de votre panneau de ressources vers le panneau principal.
 
-> You cannot add any objects (e.g., a gauge, pie chart or graph) to, or
-> modify/copy-paste the contents of, a host, host group, service group or
-> business activity.
+> Vous ne pouvez pas ajouter d'objets (par exemple, une jauge, un camembert ou un graphique) à un hôte, un groupe d'hôtes, un groupe de services ou une activité métier, ni modifier/copier-coller leur contenu.
 
-Congratulations, your have just created your first view.
+Félicitations, vous venez de créer votre première vue.
 
 ![image](../assets/graph-views/create_view.gif)
 
-### From an existing container
+### À partir d'un conteneur existant
 
-When you want to share the sublevel of a view to a different profile without
-duplicating its contents or assigning full access to the main view, you can
-create another view that is directly linked to a container.
+Lorsque vous souhaitez partager le sous-niveau d'une vue à un profil différent sans dupliquer son contenu ou attribuer un accès complet à la vue principale, vous pouvez créer une autre vue qui est directement liée à un conteneur.
 
-To do so, right click on the container or inside the target one and click on
-**Create a view from that container**.
+Pour ce faire, faites un clic droit sur le conteneur ou à l'intérieur du conteneur cible et cliquez sur **Créer une vue à partir de ce conteneur**.
 
-> If you rename the view that is linked to the container, the container will
-> automatically be renamed.
+> Si vous renommez la vue qui est liée au conteneur, le conteneur sera automatiquement renommé.
 
 ![image](../assets/graph-views/create_view_from_container.gif)
 
-### Add a geographic background
+### Ajouter un fond géographique
 
-After linking your Mapbox account you can create a standard view and
-define a geo background:
+Après avoir lié votre compte Mapbox, vous pouvez créer une vue standard et définir un arrière-plan géographique :
 
-1. Open your desktop client,
-2. Open a view,
-3. Right click on the background of the view and select "Edit",
-4. Check the "Geographic" checkbox.
+1. Ouvrez votre client de bureau,
+2. Ouvrez une vue,
+3. Faites un clic droit sur l'arrière-plan de la vue et sélectionnez "Modifier",
+4. Cochez la case "Géographique".
 
 ![image](../assets/graph-views/mapbox-change-style.png)
 
-Your view will now appear as a geographic background on which you can
-zoom and move around.
+Votre vue apparaît alors comme un fond géographique sur lequel vous pouvez zoomer et vous déplacer.
 
-By default, the whole world is displayed. Every time you open the view,
-the zoom is set to its default value: 1. You can change this setting.
+Par défaut, le monde entier est affiché. Chaque fois que vous ouvrez la vue, le zoom est réglé sur sa valeur par défaut : 1. Vous pouvez modifier ce paramètre.
 
-Navigate around your view, zoom and go to the exact point where you
-would like your view to open by default. Then use the "Set current lat /
-long / zoom as defaut" button on the top of your desktop client.
+Naviguez autour de votre vue, zoomez et allez au point exact où vous souhaitez que votre vue s'ouvre par défaut.
+Utilisez ensuite le bouton "Set current lat / long / zoom as defaut" en haut de votre client de bureau.
 
 ![image](../assets/graph-views/set_current_lat_long.png)
 
-Whenever you open this view either through the desktop or the web
-interface, the geographic view will always appear with the pre-defined
-zoom level.
+Chaque fois que vous ouvrez cette vue, que ce soit via le bureau ou l'interface Web, la vue géographique apparaît toujours avec le niveau de zoom prédéfini.
 
-## Modify object style
+## Modifier le style des objets
 
-When displaying any resource (group, host, services, business activity,
-etc.) or container in a view, three different styles may be applied:
+Lorsque vous affichez une ressource (groupe, hôte, services, activité métier, etc.) ou un conteneur dans une vue, trois styles différents peuvent être appliqués :
 
 ![image](../assets/graph-views/style_example.png)
 
-To change the style of an element, simply right click on it, select the
-"Style" menu and pick the style you want. You can also select multiple
-elements at the same time.
+Pour modifier le style d'un élément, il suffit de faire un clic droit dessus, de sélectionner le menu "Style" et de choisir le style souhaité. Vous pouvez également sélectionner plusieurs éléments en même temps.
 
 ![image](../assets/graph-views/modify_styles.png)
 
-The default style for a geographic view is "geometric".
+Le style par défaut d'une vue géographique est "géométrique".
 
-The default style for a standard view is "Icon".
+Le style par défaut pour une vue standard est "Icon".
 
-## Use widgets
+## Utiliser les widgets
 
-Dedicated data reprezentation called "Widgets" are available in the "Palette"
-tab panel:
+Des répresentations de données dédiées appelées "Widgets" sont disponibles dans le panneau d'onglet "Palette" :
 
 ![image](../assets/graph-views/palette-part.png)
 
-Here is a description of all the widgets available in Centreon MAP:
+Voici une description de tous les widgets disponibles dans Centreon MAP :
 
-### Graphs
+### Graphes
 
-A graph describes a service and displays the performance data related to
-it. You can specify a various parameters (the number of points you want
-to display, stack lines, fill lines, etc.):
+Un graphique décrit un service et affiche les données de performance qui lui sont liées. Vous pouvez spécifier différents paramètres (le nombre de points que vous souhaitez afficher, les lignes de pile, les lignes de remplissage, etc :)
 
 ![image](../assets/graph-views/graph-example.png)
 
-Once you create the graph, you can edit it on the wizard page, selecting
-which lines you would like to display, their color and other properties:
+Une fois que vous avez créé le graphique, vous pouvez le modifier sur la page de l'assistant, en sélectionnant les lignes que vous souhaitez afficher, leur couleur et d'autres propriétés :
 
 ![image](../assets/graph-views/graph-line-wizard.png)
 
-### Gauges
+### Jauges
 
-A gauge displays the percentage of a metric. Create a gauge by selecting a
-service and choosing the metric you want to display.
+Une jauge affiche le pourcentage d'une mesure. Créez une jauge en sélectionnant un service et en choisissant la mesure que vous souhaitez afficher.
 
 ![image](../assets/graph-views/gauge-example.png)
 
-You can place a gauge in any position and in any direction (left to
-right, bottom to top, etc.). By default, the color of the gauge is
-associated with the status of the service.
+Vous pouvez placer une jauge dans n'importe quelle position et dans n'importe quelle direction (de gauche à droite, de bas en haut, etc.). Par défaut, la couleur de la jauge est associée à l'état du service.
 
-### Pie charts
+### Diagrammes circulaires
 
-A pie charts displays the status of a host, host groups or service
-groups.
+Un camembert affiche l'état d'un hôte, de groupes d'hôtes ou de groupes de services.
 
-For a host, the number of OK, Warning, Critical and NA states will be
-displayed. For a host group, the number of hosts in OK, Warning,
-Critical and NA states will be displayed.
+Pour un hôte, le nombre d'états OK, Warning, Critical et NA sera affiché. Pour un groupe d'hôtes, le nombre d'hôtes dans les états OK, Warning, Critical et NA sera affiché.
 
 ![image](../assets/graph-views/piechart-example.png)
 
-### Output
+### Sortie
 
-#### Default behaviour
+#### Comportement par défaut
 
-The output widget describes the output of a service.
+Le widget de sortie décrit la sortie d'un service.
 
 ![image](../assets/graph-views/output-example.png)
 
-By default, the background is in the same color as the status. However,
-you can edit it by double-clicking on the output and modifing the
-"Status color background" checkbox in the output wizard.
+Par défaut, le fond est de la même couleur que le statut. Cependant, vous pouvez le modifier en double-cliquant sur la sortie et en modifiant la case à cocher "Couleur de fond du statut" dans l'assistant de sortie.
 
 ![image](../assets/graph-views/status-background-color.png)
 
-#### Customizing the output
+#### Personnalisation de la sortie
 
-You can customize the output by adding service and metric properties. To
-do so, edit the output (by double-clicking) then click twice on the **Next**
-button.
+Vous pouvez personnaliser la sortie en ajoutant des propriétés de service et de métrique. Pour ce faire, éditez la sortie (en double-cliquant) puis cliquez deux fois sur le bouton **Suivant**.
 
-You will see this page:
+Vous verrez cette page :
 
 ![image](../assets/graph-views/output-wizard-metric.png)
 
-Here you can create the displayed content by using the properties listed
-in the table (3). **Double clic** on a line in the table and it will be
-inserted in the output.
+Ici, vous pouvez créer le contenu affiché en utilisant les propriétés énumérées dans le tableau (3). **Double-cliquez** sur une ligne du tableau et elle sera insérée dans la sortie.
 
-By default, the properties listed belong to the service. If you want to
-add **properties linked to a metric** (such as the metric's value,
-minimum, maximum) select the metric you want to use with the combo (2).
-The table (3) will then display the metric's properties.
+Par défaut, les propriétés listées appartiennent au service. Si vous voulez ajouter des **propriétés liées à une métrique** (comme la valeur de la métrique, le minimum, le maximum), sélectionnez la métrique que vous voulez utiliser avec la combinaison (2).
+Le tableau (3) affichera alors les propriétés de la métrique.
 
-> When you create new output, the column *Actual value* might not be
-> filled. However, as soon as you click on the Finish button, these
-> properties will be filled in. They will appear when you edit the
-> output widget.
+> Lorsque vous créez une nouvelle sortie, la colonne *Valeur réelle* peut ne pas être > remplie. Cependant, dès que vous cliquez sur le bouton Finish, ces > propriétés seront remplies. Elles apparaîtront lorsque vous modifierez le > widget de sortie.
 
-#### Example
+#### Exemple
 
-You would like to display the number of users connected to a VPN along
-with its name. The service you use has one metric called "clients" that
-represents the number of users connected.
+Vous souhaitez afficher le nombre d'utilisateurs connectés à un VPN ainsi que son nom. Le service que vous utilisez a une métrique appelée "clients" qui représente le nombre d'utilisateurs connectés.
 
-To display the following output :
+Pour afficher la sortie suivante :
 
 ![image](../assets/graph-views/output-example-2.png)
 
-Configure the output widget as follows:
+Configurez le widget de sortie comme suit :
 
 ```text
 VPN : #parentLabel#
@@ -287,174 +218,140 @@ Number of users connected : #currentValue@clients#
 
 ### URL
 
-The URL widget is associated with a URL. Double clicking on it will open
-the URL.
+Le widget URL est associé à une URL. Double-cliquez dessus pour ouvrir l'URL.
 
-For instance, if the URL points to a helpdesk platform, double click on
-it to open the helpdesk webpage in your default web browser.
+Par exemple, si l'URL pointe vers une plateforme d'assistance, double-cliquez dessus pour ouvrir la page web de l'assistance dans votre navigateur web par défaut.
 
-### Process
+### Processus
 
-This widget can be used to trigger an action on any resources based on a
-command.
+Ce widget peut être utilisé pour déclencher une action sur n'importe quelle ressource en fonction d'une commande.
 
-Here is an example:
+Voici un exemple :
 
-You have an internal website that uses Apache, and sometimes Apache
-crashes. Your engineering team is investigating the core problem of why
-this crash occurs, however your priority is to make sure the end users
-can access the website. You can use the process widget by assigning a
-command such as "services httpd restart" so that when the Apache process
-crashes, users can immediately restart the Apache service from the view
-by double-clicking on the widget.
+Vous avez un site Web interne qui utilise Apache, et parfois Apache se bloque.
+Votre équipe d'ingénieurs étudie le problème de base qui explique ces pannes, mais votre priorité est de vous assurer que les utilisateurs finaux peuvent accéder au site Web.
+Vous pouvez utiliser le widget de processus en attribuant une commande telle que "services httpd restart" de sorte que lorsque le processus Apache se bloque, les utilisateurs peuvent immédiatement redémarrer le service Apache à partir de la vue en double-cliquant sur le widget.
 
-When creating the process widget, you must choose a service.
+Lorsque vous créez le widget de processus, vous devez choisir un service.
 
 ![image](../assets/graph-views/widget_process.png)
 
-To create a service dedicated to an "action":
+Pour créer un service dédié à une "action" :
 
-1. Create a command (**Configuration > Command > Add**) that contains "service
-   httpd restart" (remember to enable shell).
-2. Link the command to a passive service.
-3. Link the passive service to a host (e.g., the host that hosts the website).
+1. Créez une commande (**Configuration > Commande > Ajouter**) qui contient "service httpd restart" (n'oubliez pas d'activer le shell).
+2. Liez la commande à un service passif.
+3. Liez le service passif à un hôte (par exemple, l'hôte qui héberge le site Web).
 
-Then you can assign that service to the widget.
+Vous pouvez ensuite affecter ce service au widget.
 
-## Create links between objects
+## Créer des liens entre les objets
 
-When using Centreon MAP, you can create links between any elements. There are
-three kinds of link:
+Lorsque vous utilisez Centreon MAP, vous pouvez créer des liens entre tous les éléments. Il existe trois types de liens :
 
-- Simple link: Connects two elements in color.
-- Status link: Uses a color based on the status of a service.
-- Metric link: Displays the % of a metric, appearing in a color according to
-  this value.
+- Le lien simple : Relie deux éléments en couleur.
+- Lien d'état : Utilise une couleur basée sur l'état d'un service.
+- Lien métrique : Affiche le % d'une métrique, apparaissant dans une couleur en fonction de cette valeur.
 
-You may use the concept of "link template" in Centreon Map to accelerate the
-creation of lot of links with the same properties.
+Vous pouvez utiliser le concept de "modèle de lien" dans Centreon Map pour accélérer la création de nombreux liens ayant les mêmes propriétés.
 
-> When you delete a link template, it removes all the links created with this
-> template.
+> Lorsque vous supprimez un modèle de lien, cela supprime tous les liens créés avec ce modèle.
 
-### Simple links
+### Liens simples
 
-The simple link in this view show the logical connection between different
-elements.
+Le lien simple dans cette vue montre la connexion logique entre différents éléments.
 
 ![image](../assets/graph-views/link_simple_example.png)
 
-### Status links
+### Liens d'état
 
-Status links can be used to represent the ability of a resource to reach
-another resource/area of the infrastructure, wether it's a service on
-one of the two element connected or if it's on another resource.
+Les liens d'état peuvent être utilisés pour représenter la capacité d'une ressource à atteindre une autre ressource/zone de l'infrastructure, qu'il s'agisse d'un service sur l'un des deux éléments connectés ou d'une autre ressource.
 
-The lines on this views shows the ability of users to connect to a
-system using Citrix and then the ability of different technical areas to
-reach each others. Detailed information are available when putting your
-mouse over a link **on the web interface**.
+Les lignes sur cette vue montrent la capacité des utilisateurs à se connecter à un système utilisant Citrix et ensuite la capacité des différentes zones techniques à se joindre les unes aux autres.
+Des informations détaillées sont disponibles lorsque vous passez votre souris sur un lien **sur l'interface web**.
 
 ![image](../assets/graph-views/link_status_example.png)
 
-### Metric link
+### Lien métrique
 
-When configuring a metric link, choose a metric to associate it with.
-For **double** links you need to choose two metrics.
+Lorsque vous configurez un lien métrique, choisissez une métrique à laquelle l'associer.
+Pour les liens **doubles**, vous devez choisir deux métriques.
 
-A good example is the traffic metric. You generaly have a *traffic\_in*
-and *traffic\_out* associated with your traffic service.
+Un bon exemple est la métrique du trafic. Vous avez généralement un *traffic\_in* et un *traffic\_out* associés à votre service de trafic.
 
 ![image](../assets/graph-views/link_metric_example.png)
 
-Detailed informations are available when mouse hovering a link **on the web
-interface**.
+Des informations détaillées sont disponibles lorsque la souris survole un lien **sur l'interface web**.
 
-> The color you see on the link is only visible to you, you may want to
-> configure links color **globaly** for all user.
+> La couleur que vous voyez sur le lien n'est visible que pour vous, vous pouvez vouloir configurer la couleur des liens **globalement** pour tous les utilisateurs.
 
-## Add images
+## Ajout d'images
 
-By default, all the images added to Centreon are automatically available
-to Centreon MAP so that they can be linked to objects and added to
-views. These images are imported into the "centreon" folder and **you
-cannot add or modify images in that folder**. However, if you want to
-add new media than will only be used in Centreon MAP, follow this
-procedure:
+Par défaut, toutes les images ajoutées à Centreon sont automatiquement disponibles pour Centreon MAP afin qu'elles puissent être liées aux objets et ajoutées aux vues.
+Ces images sont importées dans le dossier "centreon" et **vous ne pouvez pas ajouter ou modifier des images dans ce dossier**.
+Toutefois, si vous souhaitez ajouter de nouveaux médias qui ne seront utilisés que dans Centreon MAP, suivez la procédure suivante :
 
-1. Open the **Media** panel,
-2. Create at least one folder,
-3. Right click on the new folder,
-4. Click on **Import**.
+1. Ouvrez le panneau **Médias**,
+2. Créez au moins un dossier,
+3. Faites un clic droit sur le nouveau dossier,
+4. Cliquez sur **Importation**.
 
 ![image](../assets/graph-views/media_add.png)
 
-When adding new images to your Centreon platform (not from Centreon MAP)
-you may click on **Actions > Synchronize Media** so that added or deleted
-images from Centreon are mirrored to Centreon Map.
+Lorsque vous ajoutez de nouvelles images à votre plateforme Centreon (et non à partir de Centreon MAP), vous pouvez cliquer sur **Actions > Synchroniser les médias** afin que les images ajoutées ou supprimées de Centreon soient reflétées dans Centreon Map.
 
-The following formats can be used in Centreon MAP:
+Les formats suivants peuvent être utilisés dans Centreon MAP :
 
 - PNG
-- GIF (will only animate on the web interface)
+- GIF (s'animera uniquement sur l'interface Web)
 - JPEG.
 
-## Create System command (desktop only)
+## Créer une commande système (bureau uniquement)
 
-Centreon MAP allows you to launch applications installed on your
-computer using parameters from your Centreon. Proceed by *right
-clicking* on an host in Centreon MAP to start a Putty / SSH session
-directly, without entering any parameters.
+Centreon MAP vous permet de lancer des applications installées sur votre ordinateur en utilisant les paramètres de votre Centreon.
+Procédez par *clic droit* sur un hôte dans Centreon MAP pour démarrer directement une session Putty / SSH, sans entrer de paramètres.
 
-### Example for Linux with Terminator
+### Exemple pour Linux avec Terminator
 
-Here is how you would create a SSH command using the binary *terminator*.
+Voici comment créer une commande SSH en utilisant le binaire *terminator*.
 
-Start by creating a new system command. Go to the Preferences page, under the
-System commands menu. Then enter the following:
+Commencez par créer une nouvelle commande système. Allez à la page Préférences, sous le menu Commandes système. Puis entrez ce qui suit :
 
 ![image](../assets/graph-views/system-preference-page.png)
 
-- Label: SSH
-- Path: terminator
-- Arguments:
+- Étiquette : SSH
+- Chemin d'accès : terminateur
+- Arguments :
 
   ```text
   -e ssh [root@%host.address%](mailto:root@%host.address%)
   ```
 
-Here, the `%host.address%` will be automatically replaced by the host address of
-the element you right click on.
+Ici, le `%host.address%` sera automatiquement remplacé par l'adresse hôte de l'élément sur lequel vous avez fait un clic droit.
 
-Click on **Save**.
+Cliquez sur **Save**.
 
-Your command is now available for every element on which you right click in the
-System commands submenu.
+Votre commande est maintenant disponible pour chaque élément sur lequel vous faites un clic droit dans le sous-menu Commandes système.
 
-### Example for Windows with Putty
+### Exemple pour Windows avec Putty
 
 ![image](../assets/graph-views/system-command-putty.png)
 
-### Advanced configuration
+### Configuration avancée
 
-In the parameters, you can use variables from the element you selected
-and also from your account, such as username and password. To do so, add
-the variables $user.login$ and $user.password$. This is convenient for
-validating users over an LDAP with all the servers connected.
+Dans les paramètres, vous pouvez utiliser des variables de l'élément que vous avez sélectionné et aussi de votre compte, comme le nom d'utilisateur et le mot de passe.
+Pour ce faire, ajoutez les variables $user.login$ et $user.password$. Ceci est pratique pour valider les utilisateurs sur un LDAP avec tous les serveurs connectés.
 
-You can also set default parameters and request whether the user wants
-to override them at runtime. To do so, use the following syntax:
+Vous pouvez également définir des paramètres par défaut et demander à l'utilisateur s'il souhaite les remplacer au moment de l'exécution. Pour ce faire, utilisez la syntaxe suivante :
 
 ```text
 \&user=root&
 ```
 
-The command and arguments will be:
+La commande et les arguments seront :
 
 ```text
 -ssh &user=root&@%host.address%
 ```
 
-Every time the command is run, a prompt will be displayed proposing the
-default value. The user can either press **ENTER** to validate or override
-it with another value.
+A chaque exécution de la commande, une invite s'affiche proposant la valeur par défaut.
+L'utilisateur peut soit appuyer sur **ENTER** pour valider, soit la remplacer par une autre valeur.
