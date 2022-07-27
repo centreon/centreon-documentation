@@ -5,7 +5,6 @@ title: APC ATS
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 ## Contenu du Pack
 
 ### Modèles
@@ -27,7 +26,7 @@ Il apporte les modèles de service suivants :
 <Tabs groupId="sync">
 <TabItem value="Device-Status" label="Device-Status">
 
-Could not retrive metrics
+Could not retrieve metrics
 
 </TabItem>
 <TabItem value="Input-Lines" label="Input-Lines">
@@ -55,9 +54,8 @@ Could not retrive metrics
 
 ## Prérequis
 
-*Specify prerequisites that are relevant. You may want to just provide a link
-to the manufacturer official documentation BUT you should try to be as complete
-as possible here as it will save time to everybody.*
+Afin de superviser l'équipement, son agent SNMP doit être configuré. Référez-vous à la documentation officielle correspondant 
+à votre modèle sur le site officiel d'APC. 
 
 ## Installation
 

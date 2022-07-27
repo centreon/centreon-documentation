@@ -95,7 +95,7 @@ It brings the following service templates:
 </TabItem>
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-Could not retrive metrics
+Could not retrieve metrics
 
 </TabItem>
 <TabItem value="Memory" label="Memory">

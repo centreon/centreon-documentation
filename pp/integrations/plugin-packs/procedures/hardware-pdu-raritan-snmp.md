@@ -27,17 +27,17 @@ It brings the following service templates:
 <Tabs groupId="sync">
 <TabItem value="Inlet-Sensors" label="Inlet-Sensors">
 
-Could not retrive metrics
+Could not retrieve metrics
 
 </TabItem>
 <TabItem value="Ocprt-Sensors" label="Ocprt-Sensors">
 
-Could not retrive metrics
+Could not retrieve metrics
 
 </TabItem>
 <TabItem value="Outlet-Sensors" label="Outlet-Sensors">
 
-Could not retrive metrics
+Could not retrieve metrics
 
 </TabItem>
 </Tabs>
