@@ -19,6 +19,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 22.04.1
 
+Release date: `July 28, 2022`
+
 #### Enhancements
 
 - [Administration] Added consistency in ACLs with the new structure of the poller creation wizard
