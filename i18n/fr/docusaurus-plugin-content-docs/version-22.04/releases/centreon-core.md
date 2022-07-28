@@ -18,6 +18,8 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ### 22.04.1
 
+Release date: `July 28, 2022`
+
 #### Enhancements
 
 - [Administration] Added consistency in ACLs with the new structure of the poller creation wizard
