@@ -17,6 +17,65 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 22.04.1
+
+Release date: `July 28, 2022`
+
+#### Enhancements
+
+- [Administration] Added consistency in ACLs with the new structure of the poller creation wizard
+- [Authentication] Added the permission to import automatically new users using the OpenId Connect protocol
+- [Authentication] Applied an ACL Group(s) definition on login for OpenID Connect users
+- [Configuration] Extended the size of the URL, Notes and Action URL fields to avoid truncating long URLs
+- [Core] Properly managed the switch between Resource Status repositories
+- [Install] Improved error handling during installation
+- [UX] Improved the OpenId Connect form
+
+#### Bug fixes
+
+- [API] Fixed MBI APIs with the latest version of Centreon
+- [Administration] Fixed the display of the end date of the licenses
+- [Administration] Fixed the scrolling when reducing the screen size to access all items
+- [Configuration] Fixed contact/contactgroup additive inheritance configuration using massive change
+- [Configuration] Fixed empty host template from mappers (Host Discovery) by using default template form Plugin Packs discovery rule
+- [Configuration] Fixed the export when the host group is disabled
+- [Configuration] Fixed the export when the service group is disabled
+- [Configuration] Fixed the export when the service template is disabled
+- [Core] Fixed href on links that were broken in menus
+- [Core] Fixed SQL queries when databases names contained a dash
+- [Core] Fixed the database partitioning for MySQL 8
+- [Install] Fixed an SQL issue during update
+- [Install] Fixed rights on the /usr/share/centreon/.env.local.php file for Debian package
+- [Install] Fixed the waterfall visual effect in the extension's details tile
+- [Monitoring] Fixed the "Last_update" column in legacy pages
+- [Monitoring] Fixed the notifications number in legacy pages
+- [Resources Status] Fixed the timeperiod group button and custom period selectors heights
+- [UI] Fixed header and skeleton UI instability
+- [UI] Fixed the display of CSS code with Firefox browser
+- [UI] Now close the menu when a navigation item is clicked
+- [UX] Reduced the timeout to prevent the menu from closing unexpectedly
+- [Widget] Now use ACL to get list of pollers in widget configuration to filter display of services
+
+#### Security fixes
+
+- [Administration] Sanitized and bound ACL Group queries
+- [Administration] Sanitized and bound ACL resources queries
+- [Configuration] Fixed SQLi vulnerability in escalation form
+- [Configuration] Fixed XXS vulnerability in escalation form
+- [Configuration] Sanitized and bound "User" class queries
+- [Configuration] Sanitized and bound "downtime" queries
+- [Configuration] Sanitized and bound "hostgroups" queries
+- [Configuration] Sanitized and bound "hosts" queries
+- [Configuration] Sanitized and bound "meta_service" related queries
+- [Configuration] Sanitized and bound "pollers" queries
+- [Configuration] Sanitized and bound contact form queries
+- [Configuration] Sanitized and bound escalation form queries
+- [Configuration] Sanitized and bound queries in virtual metrics configuration
+- [Configuration] Sanitized and bound timeperiod form queries
+- [Core] Removed deprecated switch in encodePass() method
+- [Core] Updated PHP libraries for security issues
+- [Install] Sanitized and bound update queries
+
 ### 22.04.0
 
 #### Enhancements
