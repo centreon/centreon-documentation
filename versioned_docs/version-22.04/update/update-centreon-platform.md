@@ -70,6 +70,14 @@ this command:
 systemctl restart cbd centengine gorgoned
 ```
 
+### Clear the Apache cache
+
+Now you need to clear the Apache cache using the following command:
+
+```shell
+sudo -u apache /usr/share/centreon/bin/console cache:clear
+```
+
 ### Update extensions
 
 From **Administration > Extensions > Manager**, update all extensions, starting

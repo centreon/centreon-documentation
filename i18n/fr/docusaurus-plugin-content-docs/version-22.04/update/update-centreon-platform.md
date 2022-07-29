@@ -73,6 +73,14 @@ la commande suivante:
 systemctl restart cbd centengine gorgoned
 ```
 
+### Vider le cache Apache
+
+Vous devez maintenant vider le cache Apache en exécutant la commande:
+
+```shell
+sudo -u apache /usr/share/centreon/bin/console cache:clear
+```
+
 ### Mise à jour des extensions
 
 Depuis le menu **Administration > Extensions > Gestionnaire**, mettez à jour
