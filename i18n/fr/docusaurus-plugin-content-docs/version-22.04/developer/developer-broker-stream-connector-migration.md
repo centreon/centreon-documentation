@@ -1,38 +1,37 @@
 ---
 id: developer-broker-stream-connector-migration
-title : Stream connectors migration to BBDO 3.0.0
+title : Migration des connecteurs de flux vers BBDO 3.0.0
 ---
 
-Centreon Broker 22.04.0 comes with a new 3.0.0 version of its BBDO protocol.
-This new protocol is far more flexible than the previous one:
-* it is not fixed in time, but can be upgraded without breaking changes.
-* it supports more structured objets like arrays, maps and other things.
-* serialization generally results into smaller buffers.
+Centreon Broker 22.04.0 comprend une nouvelle version 3.0.0 de son protocole BBDO. Ce nouveau protocole est beaucoup plus souple que le précédent :
 
-All broker events have not yet been migrated, we just focused on:
-* **neb::host** event
-* **neb::host\_status** event
-* **neb::service** event
-* **neb::service\_status** event
+* il n’est pas figé dans le temps, mais peut être mis à jour sans rupture ;
+* il supporte des objets plus structurés comme les tableaux, les cartes et autres ;
+* la sérialisation se traduit généralement par des tampons plus petits.
 
-Broker can still read them but now it produces the following events:
-* **neb::pb\_host** event
-* **neb::pb\_adaptive\_host** event
-* **neb::pb\_host\_status** event
-* **neb::pb\_service** event
-* **neb::pb\_adaptive\_service** event
-* **neb::pb\_service\_status** event
+Tous les événements du broker n’ont pas encore été migrés, nous nous sommes juste concentrés sur :
 
-The drawback is if you wrote streamconnectors, they may not work anymore. And
-you would have to fix them.
+* événement **neb::host**
+* événement **neb::host\_status**
+* événement **neb::service**
+* événement **neb::service\_status**
 
-In this section, we are going to explain what changed and then how to fix your
-issue.
+Le broker peut toujours les lire mais il produit maintenant les événements suivants :
 
-## An example of stream connector that won't work with BBDO 3.0
+* événement **neb::pb\_host**
+* événement **neb::pb\_adaptive\_host**
+* événement **neb::pb\_host\_status**
+* événement **neb::pb\_service**
+* événement **neb::pb\_adaptive\_service**
+* événement **neb::pb\_service\_status**
 
-Here is some Lua code for a stream connector that worked before BBDO 3.0 and
-that will not work with Centreon Broker 22.04 if BBDO 3.0 is enabled:
+L’inconvénient est que si vous avez écrit des connecteurs de flux, ils pourraient ne plus fonctionner et vous devrez les réparer.
+
+Dans cette section, nous allons expliquer ce qui a changé et comment résoudre votre problème.
+
+## Exemple de connecteur de flux qui ne fonctionnera pas avec BBDO 3.0
+
+Voici du code Lua pour un connecteur de flux qui fonctionnait avant BBDO 3.0 et qui ne fonctionnera pas avec Centreon Broker 22.04 si BBDO 3.0 est activé :
 
 ```LUA
     function init(conf)
@@ -50,28 +49,19 @@ that will not work with Centreon Broker 22.04 if BBDO 3.0 is enabled:
     end
 ```
 
-This script is very simple. The ``init()`` function initializes logs to allow
-for all the logs to be written in the file ``/tmp/log``.
+Ce script est très simple. La fonction `init()` initialise les journaux pour permettre à tous les journaux d’être écrits dans le fichier `/tmp/log`.
 
-The ``write()`` function, called each time an event is received, handles only two
-events, **neb::service** event (with ``category`` 1 and ``element`` 23) and
-**neb::host** event (with ``category`` 1 and ``element`` 12).
+La fonction `write()`, appelée à chaque fois qu’un événement est reçu, ne gère que deux événements, l’événement **neb::service** (avec `category` 1 et `element` 23) et l’événement **neb::host** (avec `category` 1 et `element` 12).
 
-For each of them, it is serialized in JSON and written to the log file.
+Chaque événement est sérialisé en JSON et écrit dans le fichier journal.
 
-This script does not work with BBDO 3.0 because it expects the legacy events
-**neb::host** and **neb::service**, and while these events can still be
-forwarded by Centreon Broker, they are no longer produced with the new protocol. So
-all the events received by the ``write()`` function do not match the expected
-``category`` and ``element`` values.
+Ce script ne fonctionne pas avec BBDO 3.0 car il attend les anciens événements **neb::host** et **neb::service**, et bien que ces événements puissent toujours être transmis par Centreon Broker, ils ne sont plus produits avec le nouveau protocole. Ainsi, tous les événements reçus par la fonction `write()` ne correspondent pas aux valeurs `category` et `element` attendues.
 
-Instead of **neb::service**, the produced events are **neb::pb_service** and
-instead of **neb::host**, the produced events are **neb::pb_host**.
+Au lieu de **neb::service**, les événements produits sont **neb::pb\_service** et au lieu de **neb::host**, les événements produits sont **neb::pb\_host**.
 
-So for the script to work again, we just have to add the recognition of these
-two new events.
+Pour que le script fonctionne à nouveau, il suffit donc d’ajouter la reconnaissance de ces deux nouveaux événements.
 
-As a result, we get the new script:
+En conséquence, nous obtenons le nouveau script suivant :
 
 ```LUA
     function init(conf)
@@ -89,26 +79,19 @@ As a result, we get the new script:
     end
 ```
 
-Now, the script should work as expected.
+Maintenant, le script devrait fonctionner comme prévu.
 
-If you need to get fields from a **neb::service** event, for example **description**,
-this same field should also be available in **neb::pb_service**. So generally,
-except the new types to handle, you will have nothing more to do.
+Si vous avez besoin de récupérer des champs d’un événement **neb::service**, par exemple la **description**, ce même champ devrait également être disponible dans **neb::pb\_service**. Donc en général, à part les nouveaux types à gérer, vous n’aurez rien d’autre à faire.
 
-For the migration, this table can help:
+Pour la migration, ce tableau peut vous aider :
 
-|        **legacy object**             |         **BBDO 3.0 object**             |                                                **Comments**                                                |
-|:------------------------------------:|:---------------------------------------:|------------------------------------------------------------------------------------------------------------|
-|     **neb::service** <br/> (1, 23)    |     **neb::pb_service** <br/> (1, 27)    |                                                                                                            |
-|      **neb::host** <br/> (1, 12)      |      **neb::pb_host** <br/> (1, 30)      |                                                                                                            |
-| **neb::service_status** <br/> (1, 24) | **neb::pb_service_status** <br/> (1, 29) | New events are lighter. Several fields can be missing. In that case, **pb_service** is useful to get them. |
-| **neb::host_status** <br/> (1, 14)    | **neb::pb_host_status** <br/> (1, 32)    | New events are lighter. Several fields can be missing. Tn that case, **pb_host** is useful to get them.    |
+| **objet hérité**| **Objet BBDO 3.0**| **Commentaires**
+|:----------:|:----------:|----------
+| **neb::service** <br/> (1, 23)| **neb::pb\_service** <br/> (1, 27)| 
+| **neb::host** <br/> (1, 12)| **neb::pb\_host** <br/> (1, 30)| 
+| **neb::service\_status** <br/> (1, 24)| **neb::pb\_service\_status** <br/> (1, 29)| Les nouveaux événements sont plus légers. Plusieurs champs peuvent être manquants. Dans ce cas, **pb\_service** est utile pour les obtenir.
+| **neb::host\_status** <br/> (1, 14)| **neb::pb\_host\_status** <br/> (1, 32)| Les nouveaux événements sont plus légers. Plusieurs champs peuvent être manquants. Dans ce cas, **pb\_host** est utile pour les obtenir.
 
-There are also two new events with BBDO 3.0, **neb::pb_adaptive_host** and
-**neb::pb_adaptive_service**. They carry configuration changes for a host or a
-service. These events are designed to be small.
+Il existe également deux nouveaux événements avec BBDO 3.0, **neb::pb\_adaptive\_host** et **neb::pb\_adaptive\_service**. Ils apportent des changements de configuration pour un hôte ou un service. Ces événements sont conçus pour être de petite taille.
 
-In a **neb::pb_adaptive_service** event, there are two mandatory fields, **host\_id**
-and **service\_id** to know the relevant service. And all the other fields are
-optional. If defined (in Lua not **nil**), the value has been set and you have
-to handle it, otherwise ignore it.
+Dans un événement **neb::pb\_adaptive\_service**, il y a deux champs obligatoires, **host\_id** et **service\_id** pour connaître le service concerné. Et tous les autres champs sont facultatifs. Si elle est définie (en Lua pas **nil**), la valeur a été définie et vous devez la gérer, sinon ignorez-la.

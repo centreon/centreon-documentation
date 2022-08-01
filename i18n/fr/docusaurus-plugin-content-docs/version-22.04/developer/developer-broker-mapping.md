@@ -1,598 +1,590 @@
 ---
 id: developer-broker-mapping
-title: Centreon Broker Event Mapping
+title: Mappage d’événements Centreon Broker
 ---
 
-Centreon Broker uses global mapping tables for events that can be
-exchanged. How exactly these mapping tables work is left to discover to
-the reader. This page list properties available for each event type.
+Centreon Broker utilise des tables de correspondance globales pour les événements qui peuvent être échangés. Nous laissons au lecteur le soin de découvrir le fonctionnement exact de ces tables de correspondance. Cette page répertorie les propriétés disponibles pour chaque type d’événement.
 
 ## NEB
 
 ### Acknowledgement
 
-| Property                                     | Type             | Description                                                              |
-|----------------------------------------------|------------------|--------------------------------------------------------------------------|
-| acknowledgement\_type                        | short integer    | Host acknowledgement when 0, service acknowledgement when 1.             |
-| author                                       | string           | Acknowledgement author.                                                  |
-| comment                                      | string           | Comment associated to the acknowledgement.                               |
-| deletion\_time                               | time             | Time at which the acknowledgement was deleted. If 0, it was not deleted. |
-| entry\_time                                  | time             | Time at which the acknowledgement was created.                           |
-| host\_id                                     | unsigned integer | Host ID.                                                                 |
-| instance\_id                                 | unsigned integer | Instance ID.                                                             |
-| is\_sticky                                   | boolean          | Sticky flag.                                                             |
-| notify\_contacts                             | boolean          | Notification flag.                                                       |
-| persistent\_comment                          | boolean          | True if the comment is persistent.                                       |
-| service\_id                                  | unsigned integer | Service ID. 0 for a host acknowledgement.                                |
-| state                                        | short integer    | Host / service state.                                                    |
-| notify\_only\_if\_not\_already\_acknowledged | boolean          | A notification should be sent only if not already ack.                   |
+| Propriété| Type| Description
+|----------|----------|----------
+| acknowledgement\_type| entier court| Acquittement de l’hôte quand 0, acquittement du service quand 1.
+| author| chaîne| Auteur de l’acquittement.
+| comment| chaîne| Commentaire associé à l’acquittement.
+| deletion\_time| temps| Heure à laquelle l’acquittement a été supprimé. Si 0, il n’a pas été supprimé.
+| entry\_time| temps| Heure à laquelle l’acquittement a été créé.
+| host\_id| entier non signé| ID de l’hôte.
+| instance\_id| entier non signé| ID de l’instance.
+| is\_sticky| booléen| Indicateur Sticky.
+| notify\_contacts| booléen| Indicateur de notification.
+| persistent\_comment| booléen| True si le commentaire est persistant.
+| service\_id| entier non signé| ID de service. 0 pour un acquittement de l’hôte.
+| state| entier court| État de l’hôte / du service.
+| notify\_only\_if\_not\_already\_acknowledged| booléen| Une notification ne doit être envoyée qu’en cas de non acquittement.
 
 ### Comment
 
-| Property       | Type             | Description                                                                                                                               |
-|----------------|------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
-| author         | string           | Comment author.                                                                                                                           |
-| comment\_type  | short integer    | 1 for a host comment, 2 for a service comment.                                                                                            |
-| data           | string           | Comment data (text).                                                                                                                      |
-| deletion\_time | time             | Time at which the comment was deleted. 0 if the comment was not deleted (yet).                                                            |
-| entry\_time    | time             | Time at which the comment was created.                                                                                                    |
-| entry\_type    | short integer    | 1 for a user comment (through external command), 2 for a downtime comment, 3 for a flapping comment and 4 for an acknowledgement comment. |
-| expire\_time   | time             | Comment expiration time. 0 if no expiration time.                                                                                         |
-| expires        | bool             | True if the comment expires.                                                                                                              |
-| host\_id       | unsigned integer | Host ID.                                                                                                                                  |
-| internal\_id   | unsigned integer | Internal monitoring engine ID of the comment.                                                                                             |
-| persistent     | boolean          | True if the comment is persistent.                                                                                                        |
-| instance\_id   | unsigned integer | Instance ID.                                                                                                                              |
-| service\_id    | unsigned integer | Service ID. 0 if this is a host comment.                                                                                                  |
-| source         | short integer    | 0 when the comment originates from the monitoring engine (internal) or 1 when the comment comes from another source (external).           |
+| Propriété| Type| Description
+|----------|----------|----------
+| author| chaîne| Auteur du commentaire.
+| comment\_type| entier court| 1 pour un commentaire pour un hôte, 2 pour un commentaire pour un service.
+| data| chaîne| Données du commentaire (texte).
+| deletion\_time| temps| Heure à laquelle le commentaire a été supprimé. 0 si le commentaire n’a pas (encore) été supprimé.
+| entry\_time| temps| Heure à laquelle le commentaire a été créé.
+| entry\_type| entier court| 1 pour un commentaire de l’utilisateur (par commande externe), 2 pour un commentaire d’arrêt, 3 pour un commentaire de bagotement et 4 pour un commentaire d’acquittement.
+| expire\_time| temps| Délai d’expiration des commentaires. 0 si aucun délai d’expiration.
+| expires| bool| True si le commentaire expire.
+| host\_id| entier non signé| ID de l’hôte.
+| internal\_id| entier non signé| ID du moteur de supervision interne du commentaire.
+| persistent| booléen| True si le commentaire est persistant.
+| instance\_id| entier non signé| ID de l’instance.
+| service\_id| entier non signé| ID de service. 0 si c’est un commentaire de l’hôte.
+| source| entier court| 0 lorsque le commentaire provient du moteur de supervision (interne) ou 1 lorsque le commentaire provient d’une autre source (externe).
 
 ### Custom variable
 
-| Property       | Type             | Description                                                    |
-|----------------|------------------|----------------------------------------------------------------|
-| enabled        | boolean          | True if the custom variable is enabled.                        |
-| host\_id       | unsigned integer | Host ID.                                                       |
-| modified       | boolean          | True if the variable was modified.                             |
-| name           | string           | Variable name.                                                 |
-| service\_id    | unsigned integer | Service ID. 0 if this is a host custom variable.               |
-| update\_time   | time             | Last time at which the variable was updated.                   |
-| var\_type      | short integer    | 0 for a host custom variable, 1 for a service custom variable. |
-| value          | string           | Variable value.                                                |
-| default\_value | string           | The default value of the custom var.                           |
+| Propriété| Type| Description
+|----------|----------|----------
+| enabled| booléen| True si la variable personnalisée est activée.
+| host\_id| entier non signé| ID de l’hôte.
+| modified| booléen| True si la variable a été modifiée.
+| name| chaîne| Nom de la variable.
+| service\_id| entier non signé| ID de service. 0 si c’est une variable d’hôte personnalisée.
+| update\_time| temps| Dernière heure à laquelle la variable a été mise à jour.
+| var\_type| entier court| 0 pour une variable d’hôte personnalisée, 1 pour une variable de service personnalisée.
+| value| chaîne| Valeur variable.
+| default\_value| chaîne| La valeur par défaut de la variable personnalisée.
 
 ### Custom variable status
 
-Custom variable status events are generated when a custom variable needs
-to be updated.
+Les événements de statut de variable personnalisée sont générés lorsqu’une variable personnalisée doit être mise à jour.
 
-| Property     | Type             | Description                                      |
-|--------------|------------------|--------------------------------------------------|
-| host\_id     | unsigned integer | Host ID.                                         |
-| modified     | boolean          | True if the variable was modified.               |
-| name         | string           | Variable name.                                   |
-| service\_id  | unsigned integer | Service ID. 0 if this is a host custom variable. |
-| update\_time | time             | Last time at which the variable was updated.     |
-| value        | string           | Variable value.                                  |
+| Propriété| Type| Description
+|----------|----------|----------
+| host\_id| entier non signé| ID de l’hôte.
+| modified| booléen| True si la variable a été modifiée.
+| name| chaîne| Nom de la variable.
+| service\_id| entier non signé| ID de service. 0 si c’est une variable d’hôte personnalisée.
+| update\_time| temps| Dernière heure à laquelle la variable a été mise à jour.
+| value| chaîne| Valeur variable.
 
 ### Downtime
 
-| Property            | Type             | Description                                                |
-|---------------------|------------------|------------------------------------------------------------|
-| actual\_end\_time   | time             | Actual time at which the downtime ended.                   |
-| actual\_start\_time | time             | Actual time at which the downtime started.                 |
-| author              | string           | Downtime creator.                                          |
-| downtime\_type      | short integer    | 1 for a service downtime, 2 for a host downtime.           |
-| deletion\_time      | time             | Time at which the downtime was deleted.                    |
-| duration            | time             | Downtime duration.                                         |
-| end\_time           | time             | Scheduled downtime end time.                               |
-| entry\_time         | time             | Time at which the downtime was created.                    |
-| fixed               | boolean          | True if the downtime is fixed, false if it is flexible.    |
-| host\_id            | unsigned integer | Host ID.                                                   |
-| instance\_id        | unsigned integer | Instance ID.                                               |
-| internal\_id        | unsigned integer | Internal monitoring engine ID.                             |
-| service\_id         | unsigned integer | Service ID. 0 if this is a host downtime.                  |
-| start\_time         | time             | Scheduled downtime start time.                             |
-| triggered\_by       | unsigned integer | Internal ID of the downtime that triggered this downtime.  |
-| was\_cancelled      | boolean          | True if the downtime was cancelled.                        |
-| was\_started        | boolean          | True if the downtime has been started.                     |
-| comment             | string           | Downtime comment.                                          |
-| is\_recurring       | boolean          | True if this downtime is recurring.                        |
-| recurring\_tp       | string           | The recurring timepriod of the recurring downtime.         |
-| come\_from          | short            | Id of the parent recurring downtime for spawned downtimes. |
+| Propriété| Type| Description
+|----------|----------|----------
+| actual\_end\_time| temps| Heure réelle à laquelle le temps d’arrêt s’est terminé.
+| actual\_start\_time| temps| Heure réelle à laquelle le temps d’arrêt a commencé.
+| author| chaîne| Créateur du temps d’arrêt.
+| downtime\_type| entier court| 1 pour un arrêt de service, 2 pour un arrêt d’hôte.
+| deletion\_time| temps| Heure à laquelle le temps d’arrêt a été supprimé.
+| duration| temps| Durée du temps d’arrêt.
+| end\_time| temps| Heure de fin du temps d’arrêt programmé.
+| entry\_time| temps| Heure à laquelle le temps d’arrêt a été créé.
+| fixed| booléen| True si le temps d’arrêt est fixe, False s’il est flexible.
+| host\_id| entier non signé| ID de l’hôte.
+| instance\_id| entier non signé| ID de l’instance.
+| internal\_id| entier non signé| ID du moteur de supervision interne.
+| service\_id| entier non signé| ID de service. 0 s’il s’agit d’un arrêt de l’hôte.
+| start\_time| temps| Heure de début de l’arrêt programmé.
+| triggered\_by| entier non signé| ID interne du temps d’arrêt qui a déclenché ce temps d’arrêt.
+| was\_cancelled| booléen| True si le temps d’arrêt a été annulé.
+| was\_started| booléen| True si le temps d’arrêt a été démarré.
+| comment| chaîne| Commentaire sur le temps d’arrêt.
+| is\_recurring| booléen| True si ce temps d’arrêt est récurrent.
+| recurring\_tp| chaîne| La période de temps récurrente du temps d’arrêt récurrent.
+| come\_from| court| Id du temps d’arrêt récurrent parent pour les temps d’arrêt engendrés.
 
 ### Event handler
 
-| Property        | Type             | Description                                                                                                                                      |
-|-----------------|------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
-| early\_timeout  | boolean          | True if the event handler timed out.                                                                                                             |
-| end\_time       | time             | Time at which the event handler execution ended.                                                                                                 |
-| execution\_time | real             | Execution time in seconds.                                                                                                                       |
-| handler\_type   | short integer    | 0 for host-specific event handler, 1 for service-specific event handler, 2 for global host event handler and 3 for global service event handler. |
-| host\_id        | unsigned integer | Host ID.                                                                                                                                         |
-| return\_code    | short integer    | Value returned by the event handler.                                                                                                             |
-| service\_id     | unsigned integer | Service ID. 0 if this is a host event handler.                                                                                                   |
-| start\_time     | time             | Time at which the event handler started.                                                                                                         |
-| state           | short integer    | Host / service state.                                                                                                                            |
-| state\_type     | short integer    | 0 for SOFT, 1 for HARD.                                                                                                                          |
-| timeout         | short integer    | Event handler timeout in seconds.                                                                                                                |
-| command\_args   | string           | Event handler arguments.                                                                                                                         |
-| command\_line   | string           | Event handler command line.                                                                                                                      |
-| output          | string           | Output returned by the event handler.                                                                                                            |
-| source\_id      | unsigned integer | The id of the source instance of this event.                                                                                                     |
-| destination\_id | unsigned integer | The id of the destination instance of this event.                                                                                                |
+| Propriété| Type| Description
+|----------|----------|----------
+| early\_timeout| booléen| True si le gestionnaire d’événements a été interrompu.
+| end\_time| temps| Heure à laquelle l’exécution du gestionnaire d’événements s’est terminée.
+| execution\_time| réel| Temps d’exécution en secondes.
+| handler\_type| entier court| 0 pour le gestionnaire d’événements spécifiques à l’hôte, 1 pour le gestionnaire d’événements spécifiques au service, 2 pour le gestionnaire d’événements global pour les hôtes et 3 pour le gestionnaire d’événements global pour les services.
+| host\_id| entier non signé| ID de l’hôte.
+| return\_code| entier court| Valeur renvoyée par le gestionnaire d’événements.
+| service\_id| entier non signé| ID de service. 0 si c’est un gestionnaire d’événements d’hôte.
+| start\_time| temps| Heure à laquelle le gestionnaire d’événements a démarré.
+| state| entier court| État de l’hôte / du service.
+| state\_type| entier court| 0 pour SOFT, 1 pour HARD.
+| timeout| entier court| Délai d’attente du gestionnaire d’événements en secondes.
+| command\_args| chaîne| Arguments du gestionnaire d’événements.
+| command\_line| chaîne| Ligne de commande du gestionnaire d’événements.
+| output| chaîne| Output retourné par le gestionnaire d’événements.
+| source\_id| entier non signé| L’id de l’instance source de cet événement.
+| destination\_id| entier non signé| L’id de l’instance de destination de cet événement.
 
 ### Flapping status
 
-| Property               | Type             | Description                                     |
-|------------------------|------------------|-------------------------------------------------|
-| event\_time            | time             |                                                 |
-| event\_type            | integer          |                                                 |
-| flapping\_type         | short integer    |                                                 |
-| high\_threshold        | real             | High flapping threshold.                        |
-| host\_id               | unsigned integer | Host ID.                                        |
-| low\_threshold         | real             | Low flapping threshold.                         |
-| percent\_state\_change | real             |                                                 |
-| reason\_type           | short integer    |                                                 |
-| service\_id            | unsigned integer | Service ID. 0 if this is a host flapping entry. |
+| Propriété| Type| Description
+|----------|----------|----------
+| event\_time| temps| 
+| event\_type| entier| 
+| flapping\_type| entier court| 
+| high\_threshold| réel| Seuil de bagotement élevé.
+| host\_id| entier non signé| ID de l’hôte.
+| low\_threshold| réel| Seuil de bagotement bas.
+| percent\_state\_change| réel| 
+| reason\_type| entier court| 
+| service\_id| entier non signé| ID de service. 0 s’il s’agit d’une entrée de bagotement d’hôte.
 
 ### Host
 
-| Property                          | Type             | Description | Version |
-|-----------------------------------|------------------|-------------|---------|
-| acknowledged                      | boolean          |             |         |
-| acknowledgement\_type             | short integer    |             |         |
-| action\_url                       | string           |             |         |
-| active\_checks\_enabled           | boolean          |             |         |
-| address                           | string           |             |         |
-| alias                             | string           |             |         |
-| check\_freshness                  | boolean          |             |         |
-| check\_interval                   | real             |             |         |
-| check\_period                     | string           |             |         |
-| check\_type                       | short integer    |             |         |
-| current\_check\_attempt           | short integer    |             |         |
-| current\_state                    | short integer    |             |         |
-| default\_active\_checks\_enabled  | boolean          |             |         |
-| default\_event\_handler\_enabled  | boolean          |             |         |
-| default\_flap\_detection\_enabled | boolean          |             |         |
-| default\_notifications\_enabled   | boolean          |             |         |
-| default\_passive\_checks\_enabled | boolean          |             |         |
-| downtime\_depth                   | short integer    |             |         |
-| display\_name                     | string           |             |         |
-| enabled                           | boolean          |             |         |
-| event\_handler                    | string           |             |         |
-| event\_handler\_enabled           | boolean          |             |         |
-| execution\_time                   | real             |             |         |
-| first\_notification\_delay        | real             |             |         |
-| flap\_detection\_enabled          | boolean          |             |         |
-| flap\_detection\_on\_down         | boolean          |             |         |
-| flap\_detection\_on\_unreachable  | boolean          |             |         |
-| flap\_detection\_on\_up           | boolean          |             |         |
-| freshness\_threshold              | real             |             |         |
-| has\_been\_checked                | boolean          |             |         |
-| high\_flap\_threshold             | real             |             |         |
-| host\_name                        | string           |             |         |
-| host\_id                          | unsigned integer |             |         |
-| icon\_image                       | string           |             |         |
-| icon\_image\_alt                  | string           |             |         |
-| instance\_id                      | unsigned integer |             |         |
-| is\_flapping                      | boolean          |             |         |
-| last\_check                       | time             |             |         |
-| last\_hard\_state                 | short integer    |             |         |
-| last\_hard\_state\_change         | time             |             |         |
-| last\_notification                | time             |             |         |
-| last\_state\_change               | time             |             |         |
-| last\_time\_down                  | time             |             |         |
-| last\_time\_unreachable           | time             |             |         |
-| last\_time\_up                    | time             |             |         |
-| last\_update                      | time             |             |         |
-| latency                           | real             |             |         |
-| low\_flap\_threshold              | real             |             |         |
-| max\_check\_attempts              | short integer    |             |         |
-| next\_check                       | time             |             |         |
-| next\_notification                | time             |             |         |
-| no\_more\_notifications           | boolean          |             |         |
-| notes                             | string           |             |         |
-| notes\_url                        | string           |             |         |
-| notification\_interval            | real             |             |         |
-| notification\_number              | short integer    |             |         |
-| notification\_period              | string           |             |         |
-| notifications\_enabled            | boolean          |             |         |
-| notify\_on\_down                  | boolean          |             |         |
-| notify\_on\_downtime              | boolean          |             |         |
-| notify\_on\_flapping              | boolean          |             |         |
-| notify\_on\_recovery              | boolean          |             |         |
-| notify\_on\_unreachable           | boolean          |             |         |
-| obsess\_over                      | boolean          |             |         |
-| passive\_checks\_enabled          | boolean          |             |         |
-| percent\_state\_change            | real             |             |         |
-| retry\_interval                   | real             |             |         |
-| should\_be\_scheduled             | boolean          |             |         |
-| stalk\_on\_down                   | boolean          |             |         |
-| stalk\_on\_unreachable            | boolean          |             |         |
-| stalk\_on\_up                     | boolean          |             |         |
-| statusmap\_image                  | string           |             |         |
-| state\_type                       | short integer    |             |         |
-| check\_command                    | string           |             |         |
-| output                            | string           |             |         |
-| perf\_data                        | string           |             |         |
-| retain\_nonstatus\_information    | boolean          |             |         |
-| retain\_status\_information       | boolean          |             |         |
-| timezone                          | string           |             |         |
+| Propriété| Type| Description| Version
+|----------|----------|----------|----------
+| acknowledged| booléen| | 
+| acknowledgement\_type| entier court| | 
+| action\_url| chaîne| | 
+| active\_checks\_enabled| booléen| | 
+| address| chaîne| | 
+| alias| chaîne| | 
+| check\_freshness| booléen| | 
+| check\_interval| réel| | 
+| check\_period| chaîne| | 
+| check\_type| entier court| | 
+| current\_check\_attempt| entier court| | 
+| current\_state| entier court| | 
+| default\_active\_checks\_enabled| booléen| | 
+| default\_event\_handler\_enabled| booléen| | 
+| default\_flap\_detection\_enabled| booléen| | 
+| default\_notifications\_enabled| booléen| | 
+| default\_passive\_checks\_enabled| booléen| | 
+| downtime\_depth| entier court| | 
+| display\_name| chaîne| | 
+| enabled| booléen| | 
+| event\_handler| chaîne| | 
+| event\_handler\_enabled| booléen| | 
+| execution\_time| réel| | 
+| first\_notification\_delay| réel| | 
+| flap\_detection\_enabled| booléen| | 
+| flap\_detection\_on\_down| booléen| | 
+| flap\_detection\_on\_unreachable| booléen| | 
+| flap\_detection\_on\_up| booléen| | 
+| freshness\_threshold| réel| | 
+| has\_been\_checked| booléen| | 
+| high\_flap\_threshold| réel| | 
+| host\_name| chaîne| | 
+| host\_id| entier non signé| | 
+| icon\_image| chaîne| | 
+| icon\_image\_alt| chaîne| | 
+| instance\_id| entier non signé| | 
+| is\_flapping| booléen| | 
+| last\_check| temps| | 
+| last\_hard\_state| entier court| | 
+| last\_hard\_state\_change| temps| | 
+| last\_notification| temps| | 
+| last\_state\_change| temps| | 
+| last\_time\_down| temps| | 
+| last\_time\_unreachable| temps| | 
+| last\_time\_up| temps| | 
+| last\_update| temps| | 
+| latency| réel| | 
+| low\_flap\_threshold| réel| | 
+| max\_check\_attempts| entier court| | 
+| next\_check| temps| | 
+| next\_notification| temps| | 
+| no\_more\_notifications| booléen| | 
+| notes| chaîne| | 
+| notes\_url| chaîne| | 
+| notification\_interval| réel| | 
+| notification\_number| entier court| | 
+| notification\_period| chaîne| | 
+| notifications\_enabled| booléen| | 
+| notify\_on\_down| booléen| | 
+| notify\_on\_downtime| booléen| | 
+| notify\_on\_flapping| booléen| | 
+| notify\_on\_recovery| booléen| | 
+| notify\_on\_unreachable| booléen| | 
+| obsess\_over| booléen| | 
+| passive\_checks\_enabled| booléen| | 
+| percent\_state\_change| réel| | 
+| retry\_interval| réel| | 
+| should\_be\_scheduled| booléen| | 
+| stalk\_on\_down| booléen| | 
+| stalk\_on\_unreachable| booléen| | 
+| stalk\_on\_up| booléen| | 
+| statusmap\_image| chaîne| | 
+| state\_type| entier court| | 
+| check\_command| chaîne| | 
+| output| chaîne| | 
+| perf\_data| chaîne| | 
+| retain\_nonstatus\_information| booléen| | 
+| retain\_status\_information| booléen| | 
+| timezone| chaîne| | 
 
 ### Host check
 
-| Property                | Type             | Description                                       | Version |
-|-------------------------|------------------|---------------------------------------------------|---------|
-| active\_checks\_enabled | boolean          | True if active checks are enabled on the host.    |         |
-| check\_type             | short integer    |                                                   |         |
-| host\_id                | unsigned integer | Host ID.                                          |         |
-| next\_check             | time             | Time at which the next check is scheduled.        |         |
-| command\_line           | string           | Check command line.                               |         |
-| source\_id              | unsigned integer | The id of the source instance this event.         |         |
-| destination\_id         | unsigned integer | The id of the destination instance of this event. |         |
+| Propriété| Type| Description| Version
+|----------|----------|----------|----------
+| active\_checks\_enabled| booléen| True si les contrôles actifs sont activés sur l’hôte.| 
+| check\_type| entier court| | 
+| host\_id| entier non signé| ID de l’hôte.| 
+| next\_check| temps| Heure à laquelle le prochain contrôle est prévu.| 
+| command\_line| chaîne| Ligne de commande du contrôle.| 
+| source\_id| entier non signé| L’id de l’instance source de cet événement.| 
+| destination\_id| entier non signé| L’id de l’instance de destination de cet événement.| 
 
 ### Host dependency
 
-| Property                       | Type             | Description | Version |
-|--------------------------------|------------------|-------------|---------|
-| dependency\_period             | string           |             |         |
-| dependent\_host\_id            | unsigned integer |             |         |
-| enabled                        | boolean          |             |         |
-| execution\_failure\_options    | string           |             |         |
-| inherits\_parent               | boolean          |             |         |
-| host\_id                       | unsigned integer |             |         |
-| notification\_failure\_options | string           |             |         |
+| Propriété| Type| Description| Version
+|----------|----------|----------|----------
+| dependency\_period| chaîne| | 
+| dependent\_host\_id| entier non signé| | 
+| enabled| booléen| | 
+| execution\_failure\_options| chaîne| | 
+| inherits\_parent| booléen| | 
+| host\_id| entier non signé| | 
+| notification\_failure\_options| chaîne| | 
 
 ### Host group
 
-| Property        | Type             | Description                                                  | Version |
-|-----------------|------------------|--------------------------------------------------------------|---------|
-| host\_group\_id | unsigned integer |                                                              |         |
-| name            | string           | Group name.                                                  |         |
-| enabled         | boolean          | True if the group is enabled, false if it is not (deletion). |         |
-| poller\_id      | unsigned integer |                                                              |         |
+| Propriété| Type| Description| Version
+|----------|----------|----------|----------
+| host\_group\_id| entier non signé| | 
+| name| chaîne| Nom du groupe.| 
+| enabled| booléen| True si le groupe est activé, False s’il ne l’est pas (suppression).| 
+| poller\_id| entier non signé| | 
 
 ### Host group member
 
-| Property        | Type             | Description                                                       | Version |
-|-----------------|------------------|-------------------------------------------------------------------|---------|
-| enabled         | boolean          | True if the membership is enabled, false if it is not (deletion). |         |
-| group           | string           | Group name.                                                       |         |
-| instance\_id    | unsigned integer | Instance ID.                                                      |         |
-| host\_id        | unsigned integer | Host ID.                                                          |         |
-| source\_id      | unsigned integer | The id of the source instance this event.                         |         |
-| destination\_id | unsigned integer | The id of the destination instance of this event.                 |         |
+| Propriété| Type| Description| Version
+|----------|----------|----------|----------
+| enabled| booléen| True si l’adhésion est activée, False si elle ne l’est pas (suppression).| 
+| group| chaîne| Nom du groupe.| 
+| instance\_id| entier non signé| ID de l’instance.| 
+| host\_id| entier non signé| ID de l’hôte.| 
+| source\_id| entier non signé| L’id de l’instance source de cet événement.| 
+| destination\_id| entier non signé| L’id de l’instance de destination de cet événement.| 
 
 ### Host parent
 
-| Property   | Type             | Description                                                  | Version |
-|------------|------------------|--------------------------------------------------------------|---------|
-| enabled    | boolean          | True if parenting is enabled, false if it is not (deletion). |         |
-| child\_id  | unsigned integer | Child host ID.                                               |         |
-| parent\_id | unsigned integer | Parent host ID.                                              |         |
+| Propriété| Type| Description| Version
+|----------|----------|----------|----------
+| enabled| booléen| True si la fonction parent est activée, False si elle ne l’est pas (suppression).| 
+| child\_id| entier non signé| ID d’hôte enfant.| 
+| parent\_id| entier non signé| ID d’hôte parent.| 
 
 ### Host status
 
-| Property                  | Type             | Description | Version |
-|---------------------------|------------------|-------------|---------|
-| acknowledged              | boolean          |             |         |
-| acknowledgement\_type     | short integer    |             |         |
-| active\_checks\_enabled   | boolean          |             |         |
-| check\_interval           | real             |             |         |
-| check\_period             | string           |             |         |
-| check\_type               | short integer    |             |         |
-| current\_check\_attempt   | short integer    |             |         |
-| current\_state            | short integer    |             |         |
-| downtime\_depth           | short integer    |             |         |
-| enabled                   | boolean          |             |         |
-| event\_handler            | string           |             |         |
-| event\_handler\_enabled   | boolean          |             |         |
-| execution\_time           | real             |             |         |
-| flap\_detection\_enabled  | boolean          |             |         |
-| has\_been\_checked        | boolean          |             |         |
-| host\_id                  | unsigned integer |             |         |
-| is\_flapping              | boolean          |             |         |
-| last\_check               | time             |             |         |
-| last\_hard\_state         | short integer    |             |         |
-| last\_hard\_state\_change | time             |             |         |
-| last\_notification        | time             |             |         |
-| last\_state\_change       | time             |             |         |
-| last\_time\_down          | time             |             |         |
-| last\_time\_unreachable   | time             |             |         |
-| last\_time\_up            | time             |             |         |
-| last\_update              | time             |             |         |
-| latency                   | real             |             |         |
-| max\_check\_attempts      | short integer    |             |         |
-| next\_check               | time             |             |         |
-| next\_host\_notification  | time             |             |         |
-| no\_more\_notifications   | boolean          |             |         |
-| notification\_number      | short integer    |             |         |
-| notifications\_enabled    | boolean          |             |         |
-| obsess\_over              | boolean          |             |         |
-| passive\_checks\_enabled  | boolean          |             |         |
-| percent\_state\_change    | real             |             |         |
-| retry\_interval           | real             |             |         |
-| should\_be\_scheduled     | boolean          |             |         |
-| state\_type               | short integer    |             |         |
-| check\_command            | string           |             |         |
-| output                    | string           |             |         |
-| perf\_data                | string           |             |         |
+| Propriété| Type| Description| Version
+|----------|----------|----------|----------
+| acknowledged| booléen| | 
+| acknowledgement\_type| entier court| | 
+| active\_checks\_enabled| booléen| | 
+| check\_interval| réel| | 
+| check\_period| chaîne| | 
+| check\_type| entier court| | 
+| current\_check\_attempt| entier court| | 
+| current\_state| entier court| | 
+| downtime\_depth| entier court| | 
+| enabled| booléen| | 
+| event\_handler| chaîne| | 
+| event\_handler\_enabled| booléen| | 
+| execution\_time| réel| | 
+| flap\_detection\_enabled| booléen| | 
+| has\_been\_checked| booléen| | 
+| host\_id| entier non signé| | 
+| is\_flapping| booléen| | 
+| last\_check| temps| | 
+| last\_hard\_state| entier court| | 
+| last\_hard\_state\_change| temps| | 
+| last\_notification| temps| | 
+| last\_state\_change| temps| | 
+| last\_time\_down| temps| | 
+| last\_time\_unreachable| temps| | 
+| last\_time\_up| temps| | 
+| last\_update| temps| | 
+| latency| réel| | 
+| max\_check\_attempts| entier court| | 
+| next\_check| temps| | 
+| next\_host\_notification| temps| | 
+| no\_more\_notifications| booléen| | 
+| notification\_number| entier court| | 
+| notifications\_enabled| booléen| | 
+| obsess\_over| booléen| | 
+| passive\_checks\_enabled| booléen| | 
+| percent\_state\_change| réel| | 
+| retry\_interval| réel| | 
+| should\_be\_scheduled| booléen| | 
+| state\_type| entier court| | 
+| check\_command| chaîne| | 
+| output| chaîne| | 
+| perf\_data| chaîne| | 
 
 ### Instance
 
-| Property       | Type             | Description                                             | Version |
-|----------------|------------------|---------------------------------------------------------|---------|
-| engine         | string           | Name of the monitoring engine used on this instance.    |         |
-| id             | unsigned integer | Instance ID.                                            |         |
-| name           | string           | Instance name.                                          |         |
-| is\_running    | boolean          | Whether or not this instance is running.                |         |
-| pid            | unsigned integer | Monitoring engine PID.                                  |         |
-| program\_end   | time             | Time at which the instance shut down.                   |         |
-| program\_start | time             | Time at which the instance started.                     |         |
-| version        | string           | Version of the monitoring engine used on this instance. |         |
+| Propriété| Type| Description| Version
+|----------|----------|----------|----------
+| engine| chaîne| Nom du moteur de supervision utilisé sur cette instance.| 
+| id| entier non signé| ID de l’instance.| 
+| name| chaîne| Nom de l’instance.| 
+| is\_running| booléen| Si cette instance est en cours d’exécution ou non.| 
+| pid| entier non signé| Supervision du PID du moteur.| 
+| program\_end| temps| Heure à laquelle l’instance s’est arrêtée.| 
+| program\_start| temps| Heure à laquelle l’instance a démarré.| 
+| version| chaîne| Version du moteur de supervision utilisé sur cette instance.| 
 
 ### Instance status
 
-| Property                          | Type             | Description                                                       | Version |
-|-----------------------------------|------------------|-------------------------------------------------------------------|---------|
-| active\_host\_checks\_enabled     | boolean          | Whether or not active host checks are globally enabled.           |         |
-| active\_service\_checks\_enabled  | boolean          | Whether or not active service checks are globally enabled.        |         |
-| check\_hosts\_freshness           | boolean          | Whether or not hosts freshness checking is globally enabled.      |         |
-| check\_services\_freshness        | boolean          | Whether or not services freshness checking is globally enabled.   |         |
-| event\_handler\_enabled           | boolean          | Whether or not event handlers are globally enabled.               |         |
-| flap\_detection\_enabled          | boolean          | Whether or not flap detection is globally enabled.                |         |
-| id                                | unsigned integer | Instance ID.                                                      |         |
-| last\_alive                       | time             | Last time the instance was known alive.                           |         |
-| last\_command\_check              | time             | Last time a check command was executed.                           |         |
-| notifications\_enabled            | boolean          | Whether or not notifications are globally enabled.                |         |
-| obsess\_over\_hosts               | boolean          | Whether or not the monitoring engine should obsess over hosts.    |         |
-| obsess\_over\_services            | boolean          | Whether or not the monitoring engine should obsess over services. |         |
-| passive\_host\_checks\_enabled    | boolean          | Whether or not passive host checks are globally enabled.          |         |
-| passive\_service\_checks\_enabled | boolean          | Whether or not passive service checks are globally enabled.       |         |
-| global\_host\_event\_handler      | string           | Global host event handler.                                        |         |
-| global\_service\_event\_handler   | string           | Global service event handler.                                     |         |
+| Propriété| Type| Description| Version
+|----------|----------|----------|----------
+| active\_host\_checks\_enabled| booléen| Si les contrôles d’hôtes actifs sont activés ou non de manière globale.| 
+| active\_service\_checks\_enabled| booléen| Si les contrôles de services actifs sont activés ou non de manière globale.| 
+| check\_hosts\_freshness| booléen| Si le contrôle de la fraîcheur des hôtes est activé ou non de manière globale.| 
+| check\_services\_freshness| booléen| Si le contrôle de la fraîcheur des services est activé ou non de manière globale.| 
+| event\_handler\_enabled| booléen| Si les gestionnaires d’événements sont activés ou non de manière globale.| 
+| flap\_detection\_enabled| booléen| Si la détection des bagotements est activée ou non de manière globale.| 
+| id| entier non signé| ID de l’instance.| 
+| last\_alive| temps| La dernière fois que l’instance a été identifiée comme étant vivante.| 
+| last\_command\_check| temps| Dernière fois qu’une commande de contrôle a été exécutée.| 
+| notifications\_enabled| booléen| Si les notifications sont activées ou non de manière globale.| 
+| obsess\_over\_hosts| booléen| Si oui ou non le moteur de supervision remontera les résultats de contrôles des hôtes.| 
+| obsess\_over\_services| booléen| Si oui ou non le moteur de supervision remontera les résultats de contrôles des services.| 
+| passive\_host\_checks\_enabled| booléen| Si les contrôles passifs d’hôtes sont activés ou non de manière globale.| 
+| passive\_service\_checks\_enabled| booléen| Si les contrôles passifs de services sont activés ou non de manière globale.| 
+| global\_host\_event\_handler| chaîne| Gestionnaire d’événements global pour les hôtes.| 
+| global\_service\_event\_handler| chaîne| Gestionnaire d’événements global pour les services.| 
 
 ### Log entry
 
-| Property              | Type             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Version |
-|-----------------------|------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
-| c\_time               | time             | Log time.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |         |
-| host\_id              | unsigned integer | Host ID. 0 if log entry does not refer to a specific host or service.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |         |
-| host\_name            | string           | Host name. Can be empty if log entry does not refer to a specific host or service.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |         |
-| instance\_name        | string           | Instance name.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |         |
-| log\_type             | short integer    | 0 for SOFT, 1 for HARD.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |         |
-| msg\_type             | short integer    | 0 for SERVICE ALERT (sent on service state change), 1 for HOST ALERT (sent on host state change(, 2 for SERVICE NOTIFICATION (notification sent out for a service), 3 for HOST NOTIFICATION (notification sent out for a host), 4 for Warning (Centreon Engine warning), 5 for EXTERNAL COMMAND (external command received), 6 for CURRENT SERVICE STATE (current state of monitored service, usually sent at configuration reload), 7 for CURRENT HOST STATE (current state of monitored host, usually sent at configuration reload), 8 for INITIAL SERVICE STATE (initial state of service, after retention processing, sent at process start), 9 for INITIAL HOST STATE (initial state of monitored host, after retention processing, sent at process start), 10 for ACKNOWLEDGE\_SVC\_PROBLEM external command (special case of EXTERNAL COMMAND for service acknowledgement), 11 for ACKNOWLEDGE\_HOST\_PROBLEM external command (special case of EXTERNAL COMMAND for host acknowledgement). |         |
-| notification\_cmd     | string           | Notification command.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |         |
-| notification\_contact | string           | Notification contact.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |         |
-| retry                 | integer          | Current check attempt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |         |
-| service\_description  | string           | Service description. Empty if log entry does not refer to a specific service.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |         |
-| service\_id           | unsigned integer | Service ID. 0 if log entry does not refer to a specific service.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |         |
-| status                | short integer    | Host / service status.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |         |
-| output                | string           | Output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |         |
+| Propriété| Type| Description| Version
+|----------|----------|----------|----------
+| c\_time| temps| Temps de connexion.| 
+| host\_id| entier non signé| ID de l’hôte. 0 si l’entrée du journal ne fait pas référence à un hôte ou un service spécifique.| 
+| host\_name| chaîne| Nom de l’hôte. Peut être vide si l’entrée du journal ne fait pas référence à un hôte ou un service spécifique.| 
+| instance\_name| chaîne| Nom de l’instance.| 
+| log\_type| entier court| 0 pour SOFT, 1 pour HARD.| 
+| msg\_type| entier court| 0 pour SERVICE ALERT (envoyé lors du changement d’état du service), 1 pour HOST ALERT (envoyé lors du changement d’état de l’hôte), 2 pour SERVICE NOTIFICATION (notification envoyée pour un service), 3 pour HOST NOTIFICATION (notification envoyée pour un hôte), 4 pour Warning (avertissement de Centreon Engine), 5 pour EXTERNAL COMMAND (commande externe reçue), 6 pour CURRENT SERVICE STATE (état actuel du service supervisé, généralement envoyé lors du rechargement de la configuration), 7 pour CURRENT HOST STATE (état actuel de l’hôte supervisé, (état actuel de l’hôte supervisé, généralement envoyé lors du rechargement de la configuration), 8 pour INITIAL SERVICE STATE (état initial du service, après traitement de rétention, envoyé au début du processus), 9 pour INITIAL HOST STATE (état initial de l’hôte surveillé, après traitement de rétention, envoyé au début du processus), 10 pour la commande externe ACKNOWLEDGE\_SVC\_PROBLEM (cas particulier de EXTERNAL COMMAND pour l’acquittement du service), 11 pour la commande externe ACKNOWLEDGE\_HOST\_PROBLEM (cas particulier de EXTERNAL COMMAND pour l’acquittement de l’hôte).| 
+| notification\_cmd| chaîne| Commande de notification.| 
+| notification\_contact| chaîne| Contact pour la notification.| 
+| retry| entier| Tentative de contrôle actuelle.| 
+| service\_description| chaîne| Description du service. Vide si l’entrée du journal ne fait pas référence à un service spécifique.| 
+| service\_id| entier non signé| ID de service. 0 si l’entrée du journal ne fait pas référence à un service spécifique.| 
+| status| entier court| Statut de l’hôte / du service.| 
+| output| chaîne| Output.| 
 
 ### Module
 
-Module events are generated when Centreon Broker modules get loaded
-or unloaded.
+Les événements relatifs aux modules sont générés lors du chargement ou du déchargement des modules de Centreon Broker.
 
-| Property           | Type             | Description                                                     | Version |
-|--------------------|------------------|-----------------------------------------------------------------|---------|
-| args               | string           | Module arguments.                                               |         |
-| enabled            | boolean          | Whether or not this module is enabled.                          |         |
-| filename           | string           | Path to the module file.                                        |         |
-| instance\_id       | unsigned integer | Instance ID.                                                    |         |
-| loaded             | boolean          | Whether or not this module is loaded.                           |         |
-| should\_be\_loaded | boolean          | Whether or not this module should be (should have been) loaded. |         |
+| Propriété| Type| Description| Version
+|----------|----------|----------|----------
+| args| chaîne| Arguments du module.| 
+| enabled| booléen| Si ce module est activé ou non.| 
+| filename| chaîne| Chemin d’accès au fichier du module.| 
+| instance\_id| entier non signé| ID de l’instance.| 
+| loaded| booléen| Si ce module est chargé ou non.| 
+| should\_be\_loaded| booléen| Si ce module doit être (aurait dû être) chargé ou non.| 
 
 ### Service
 
-| Property                          | Type             | Description | Version |
-|-----------------------------------|------------------|-------------|---------|
-| acknowledged                      | boolean          |             |         |
-| acknowledged\_type                | short integer    |             |         |
-| action\_url                       | string           |             |         |
-| active\_checks\_enabled           | boolean          |             |         |
-| check\_freshness                  | boolean          |             |         |
-| check\_interval                   | real             |             |         |
-| check\_period                     | string           |             |         |
-| check\_type                       | short integer    |             |         |
-| current\_check\_attempt           | short integer    |             |         |
-| current\_state                    | short integer    |             |         |
-| default\_active\_checks\_enabled  | boolean          |             |         |
-| default\_event\_handler\_enabled  | boolean          |             |         |
-| default\_flap\_detection\_enabled | boolean          |             |         |
-| default\_notifications\_enabled   | boolean          |             |         |
-| default\_passive\_checks\_enabled | boolean          |             |         |
-| dowtine\_depth                    | short integer    |             |         |
-| display\_name                     | string           |             |         |
-| enabled                           | boolean          |             |         |
-| event\_handler                    | string           |             |         |
-| event\_handler\_enabled           | boolean          |             |         |
-| execution\_time                   | real             |             |         |
-| first\_notification\_delay        | real             |             |         |
-| flap\_detection\_enabled          | boolean          |             |         |
-| flap\_detection\_on\_critical     | boolean          |             |         |
-| flap\_detection\_on\_ok           | boolean          |             |         |
-| flap\_detection\_on\_unknown      | boolean          |             |         |
-| flap\_detection\_on\_warning      | boolean          |             |         |
-| freshness\_threshold              | real             |             |         |
-| has\_been\_checked                | boolean          |             |         |
-| high\_flap\_threshold             | real             |             |         |
-| host\_id                          | unsigned integer |             |         |
-| host\_name                        | string           |             |         |
-| icon\_image                       | string           |             |         |
-| icon\_image\_alt                  | string           |             |         |
-| service\_id                       | unsigned integer |             |         |
-| is\_flapping                      | boolean          |             |         |
-| is\_volatile                      | boolean          |             |         |
-| last\_check                       | time             |             |         |
-| last\_hard\_state                 | short integer    |             |         |
-| last\_hard\_state\_change         | time             |             |         |
-| last\_notification                | time             |             |         |
-| last\_state\_change               | time             |             |         |
-| last\_time\_critical              | time             |             |         |
-| last\_time\_ok                    | time             |             |         |
-| last\_time\_unknown               | time             |             |         |
-| last\_time\_warning               | time             |             |         |
-| last\_update                      | time             |             |         |
-| latency                           | real             |             |         |
-| low\_flap\_threshold              | real             |             |         |
-| max\_check\_attempts              | short integer    |             |         |
-| next\_check                       | time             |             |         |
-| next\_notification                | time             |             |         |
-| no\_more\_notifications           | boolean          |             |         |
-| notes                             | string           |             |         |
-| notes\_url                        | string           |             |         |
-| notification\_interval            | real             |             |         |
-| notification\_number              | short integer    |             |         |
-| notification\_period              | string           |             |         |
-| notifications\_enabled            | boolean          |             |         |
-| notify\_on\_critical              | boolean          |             |         |
-| notify\_on\_downtime              | boolean          |             |         |
-| notify\_on\_flapping              | boolean          |             |         |
-| notify\_on\_recovery              | boolean          |             |         |
-| notify\_on\_unknown               | boolean          |             |         |
-| notify\_on\_warning               | boolean          |             |         |
-| obsess\_over                      | boolean          |             |         |
-| passive\_checks\_enabled          | boolean          |             |         |
-| percent\_state\_change            | real             |             |         |
-| retry\_interval                   | real             |             |         |
-| scheduled\_downtime\_depth        | short integer    |             |         |
-| service\_description              | string           |             |         |
-| should\_be\_scheduled             | boolean          |             |         |
-| stalk\_on\_critical               | boolean          |             |         |
-| stalk\_on\_ok                     | boolean          |             |         |
-| stalk\_on\_unknown                | boolean          |             |         |
-| stalk\_on\_warning                | boolean          |             |         |
-| state\_type                       | short integer    |             |         |
-| check\_command                    | string           |             |         |
-| output                            | string           |             |         |
-| perf\_data                        | string           |             |         |
-| retain\_nonstatus\_information    | boolean          |             |         |
-| retain\_status\_information       | boolean          |             |         |
+| Propriété| Type| Description| Version
+|----------|----------|----------|----------
+| acknowledged| booléen| | 
+| acknowledged\_type| entier court| | 
+| action\_url| chaîne| | 
+| active\_checks\_enabled| booléen| | 
+| check\_freshness| booléen| | 
+| check\_interval| réel| | 
+| check\_period| chaîne| | 
+| check\_type| entier court| | 
+| current\_check\_attempt| entier court| | 
+| current\_state| entier court| | 
+| default\_active\_checks\_enabled| booléen| | 
+| default\_event\_handler\_enabled| booléen| | 
+| default\_flap\_detection\_enabled| booléen| | 
+| default\_notifications\_enabled| booléen| | 
+| default\_passive\_checks\_enabled| booléen| | 
+| dowtine\_depth| entier court| | 
+| display\_name| chaîne| | 
+| enabled| booléen| | 
+| event\_handler| chaîne| | 
+| event\_handler\_enabled| booléen| | 
+| execution\_time| réel| | 
+| first\_notification\_delay| réel| | 
+| flap\_detection\_enabled| booléen| | 
+| flap\_detection\_on\_critical| booléen| | 
+| flap\_detection\_on\_ok| booléen| | 
+| flap\_detection\_on\_unknown| booléen| | 
+| flap\_detection\_on\_warning| booléen| | 
+| freshness\_threshold| réel| | 
+| has\_been\_checked| booléen| | 
+| high\_flap\_threshold| réel| | 
+| host\_id| entier non signé| | 
+| host\_name| chaîne| | 
+| icon\_image| chaîne| | 
+| icon\_image\_alt| chaîne| | 
+| service\_id| entier non signé| | 
+| is\_flapping| booléen| | 
+| is\_volatile| booléen| | 
+| last\_check| temps| | 
+| last\_hard\_state| entier court| | 
+| last\_hard\_state\_change| temps| | 
+| last\_notification| temps| | 
+| last\_state\_change| temps| | 
+| last\_time\_critical| temps| | 
+| last\_time\_ok| temps| | 
+| last\_time\_unknown| temps| | 
+| last\_time\_warning| temps| | 
+| last\_update| temps| | 
+| latency| réel| | 
+| low\_flap\_threshold| réel| | 
+| max\_check\_attempts| entier court| | 
+| next\_check| temps| | 
+| next\_notification| temps| | 
+| no\_more\_notifications| booléen| | 
+| notes| chaîne| | 
+| notes\_url| chaîne| | 
+| notification\_interval| réel| | 
+| notification\_number| entier court| | 
+| notification\_period| chaîne| | 
+| notifications\_enabled| booléen| | 
+| notify\_on\_critical| booléen| | 
+| notify\_on\_downtime| booléen| | 
+| notify\_on\_flapping| booléen| | 
+| notify\_on\_recovery| booléen| | 
+| notify\_on\_unknown| booléen| | 
+| notify\_on\_warning| booléen| | 
+| obsess\_over| booléen| | 
+| passive\_checks\_enabled| booléen| | 
+| percent\_state\_change| réel| | 
+| retry\_interval| réel| | 
+| scheduled\_downtime\_depth| entier court| | 
+| service\_description| chaîne| | 
+| should\_be\_scheduled| booléen| | 
+| stalk\_on\_critical| booléen| | 
+| stalk\_on\_ok| booléen| | 
+| stalk\_on\_unknown| booléen| | 
+| stalk\_on\_warning| booléen| | 
+| state\_type| entier court| | 
+| check\_command| chaîne| | 
+| output| chaîne| | 
+| perf\_data| chaîne| | 
+| retain\_nonstatus\_information| booléen| | 
+| retain\_status\_information| booléen| | 
 
 ### Service check
 
-| Property                | Type             | Description                                       | Version |
-|-------------------------|------------------|---------------------------------------------------|---------|
-| active\_checks\_enabled | boolean          | True if active checks are enabled on the service. |         |
-| check\_type             | short            |                                                   |         |
-| host\_id                | unsigned integer | Host ID.                                          |         |
-| next\_check             | time             | Time at which the next check is scheduled.        |         |
-| service\_id             | unsigned integer | Service ID.                                       |         |
-| command\_line           | string           | Check command line.                               |         |
+| Propriété| Type| Description| Version
+|----------|----------|----------|----------
+| active\_checks\_enabled| booléen| True si les contrôles actifs sont activés sur le service.| 
+| check\_type| court| | 
+| host\_id| entier non signé| ID de l’hôte.| 
+| next\_check| temps| Heure à laquelle le prochain contrôle est prévu.| 
+| service\_id| entier non signé| ID de service.| 
+| command\_line| chaîne| Ligne de commande du contrôle.| 
 
 ### Service dependency
 
-| Property                       | Type             | Description | Version |
-|--------------------------------|------------------|-------------|---------|
-| dependency\_period             | string           |             |         |
-| dependent\_host\_id            | unsigned integer |             |         |
-| dependent\_service\_id         | unsigned integer |             |         |
-| enabled                        | boolean          |             |         |
-| execution\_failure\_options    | string           |             |         |
-| host\_id                       | unsigned integer |             |         |
-| inherits\_parent               | boolean          |             |         |
-| notification\_failure\_options | string           |             |         |
-| service\_id                    | unsigned integer |             |         |
+| Propriété| Type| Description| Version
+|----------|----------|----------|----------
+| dependency\_period| chaîne| | 
+| dependent\_host\_id| entier non signé| | 
+| dependent\_service\_id| entier non signé| | 
+| enabled| booléen| | 
+| execution\_failure\_options| chaîne| | 
+| host\_id| entier non signé| | 
+| inherits\_parent| booléen| | 
+| notification\_failure\_options| chaîne| | 
+| service\_id| entier non signé| | 
 
 ### Service group
 
-| Property   | Type             | Description                                                 | Version |
-|------------|------------------|-------------------------------------------------------------|---------|
-| id         | unsigned integer |                                                             |         |
-| name       | string           | Group name.                                                 |         |
-| enabled    | enabled          | True if the group is enable, false if it is not (deletion). |         |
-| poller\_id | unsigned integer |                                                             |         |
+| Propriété| Type| Description| Version
+|----------|----------|----------|----------
+| id| entier non signé| | 
+| name| chaîne| Nom du groupe.| 
+| enabled| enabled| True si le groupe est activé, faux s’il ne l’est pas (suppression).| 
+| poller\_id| entier non signé| | 
 
 ### Service group member
 
-| Property    | Type             | Description                                                 | Version |
-|-------------|------------------|-------------------------------------------------------------|---------|
-| id          | unsigned integer |                                                             |         |
-| host\_id    | unsigned integer |                                                             |         |
-| service\_id | unsigned integer |                                                             |         |
-| enabled     | enabled          | True if the group is enable, false if it is not (deletion). |         |
-| group\_name | string           | Group name.                                                 |         |
-| poller\_id  | unsigned integer |                                                             |         |
+| Propriété| Type| Description| Version
+|----------|----------|----------|----------
+| id| entier non signé| | 
+| host\_id| entier non signé| | 
+| service\_id| entier non signé| | 
+| enabled| enabled| True si le groupe est activé, faux s’il ne l’est pas (suppression).| 
+| group\_name| chaîne| Nom du groupe.| 
+| poller\_id| entier non signé| | 
 
 ### Service status
 
-| Property                  | Type             | Description | Version |
-|---------------------------|------------------|-------------|---------|
-| acknowledged              | boolean          |             |         |
-| acknowledgement\_type     | short integer    |             |         |
-| active\_checks\_enabled   | boolean          |             |         |
-| check\_interval           | real             |             |         |
-| check\_period             | string           |             |         |
-| check\_type               | short integer    |             |         |
-| current\_check\_attempt   | short integer    |             |         |
-| current\_state            | short integer    |             |         |
-| downtime\_depth           | short integer    |             |         |
-| enabled                   | boolean          |             |         |
-| event\_handler            | string           |             |         |
-| event\_handler\_enabled   | boolean          |             |         |
-| execution\_time           | real             |             |         |
-| flap\_detection\_enabled  | boolean          |             |         |
-| has\_been\_checked        | boolean          |             |         |
-| host\_id                  | unsigned integer |             |         |
-| host\_name                | string           |             |         |
-| is\_flapping              | boolean          |             |         |
-| last\_check               | time             |             |         |
-| last\_hard\_state         | short integer    |             |         |
-| last\_hard\_state\_change | time             |             |         |
-| last\_notification        | time             |             |         |
-| last\_state\_change       | time             |             |         |
-| last\_time\_critical      | time             |             |         |
-| last\_time\_ok            | time             |             |         |
-| last\_time\_unknown       | time             |             |         |
-| last\_time\_warning       | time             |             |         |
-| last\_update              | time             |             |         |
-| latency                   | real             |             |         |
-| max\_check\_attempts      | short integer    |             |         |
-| modified\_attributes      | unsigned integer |             |         |
-| next\_check               | time             |             |         |
-| next\_notification        | time             |             |         |
-| no\_more\_notifications   | boolean          |             |         |
-| notification\_number      | short integer    |             |         |
-| notifications\_enabled    | boolean          |             |         |
-| obsess\_over              | boolean          |             |         |
-| passive\_checks\_enabled  | boolean          |             |         |
-| percent\_state\_change    | real             |             |         |
-| retry\_interval           | real             |             |         |
-| service\_description      | string           |             |         |
-| service\_id               | unsigned integer |             |         |
-| should\_be\_scheduled     | boolean          |             |         |
-| state\_type               | short integer    |             |         |
-| check\_command            | string           |             |         |
-| output                    | string           |             |         |
-| perf\_data                | string           |             |         |
+| Propriété| Type| Description| Version
+|----------|----------|----------|----------
+| acknowledged| booléen| | 
+| acknowledgement\_type| entier court| | 
+| active\_checks\_enabled| booléen| | 
+| check\_interval| réel| | 
+| check\_period| chaîne| | 
+| check\_type| entier court| | 
+| current\_check\_attempt| entier court| | 
+| current\_state| entier court| | 
+| downtime\_depth| entier court| | 
+| enabled| booléen| | 
+| event\_handler| chaîne| | 
+| event\_handler\_enabled| booléen| | 
+| execution\_time| réel| | 
+| flap\_detection\_enabled| booléen| | 
+| has\_been\_checked| booléen| | 
+| host\_id| entier non signé| | 
+| host\_name| chaîne| | 
+| is\_flapping| booléen| | 
+| last\_check| temps| | 
+| last\_hard\_state| entier court| | 
+| last\_hard\_state\_change| temps| | 
+| last\_notification| temps| | 
+| last\_state\_change| temps| | 
+| last\_time\_critical| temps| | 
+| last\_time\_ok| temps| | 
+| last\_time\_unknown| temps| | 
+| last\_time\_warning| temps| | 
+| last\_update| temps| | 
+| latency| réel| | 
+| max\_check\_attempts| entier court| | 
+| modified\_attributes| entier non signé| | 
+| next\_check| temps| | 
+| next\_notification| temps| | 
+| no\_more\_notifications| booléen| | 
+| notification\_number| entier court| | 
+| notifications\_enabled| booléen| | 
+| obsess\_over| booléen| | 
+| passive\_checks\_enabled| booléen| | 
+| percent\_state\_change| réel| | 
+| retry\_interval| réel| | 
+| service\_description| chaîne| | 
+| service\_id| entier non signé| | 
+| should\_be\_scheduled| booléen| | 
+| state\_type| entier court| | 
+| check\_command| chaîne| | 
+| output| chaîne| | 
+| perf\_data| chaîne| | 
 
 ### Instance configuration
 
-| Property   | Type             | Description                                                              | Version |
-|------------|------------------|--------------------------------------------------------------------------|---------|
-| loaded     | boolean          | True if the instance loaded successfully.                                |         |
-| poller\_id | unsigned integer | ID of the poller which received a configuration update request (reload). |         |
+| Propriété| Type| Description| Version
+|----------|----------|----------|----------
+| loaded| booléen| True si l’instance s’est chargée avec succès.| 
+| poller\_id| entier non signé| ID du poller qui a reçu une demande de mise à jour de la configuration (reload).| 
 
 ### Responsive instance
 
-| Property   | Type             | Description                                                                  | Version |
-|------------|------------------|------------------------------------------------------------------------------|---------|
-| poller\_id | unsigned integer | ID of the poller which received a configuration update request (reload).     |         |
-| responsive | boolean          | A boolean telling if the poller with ID **poller\_id** is responsive or not. |         |
+| Propriété| Type| Description| Version
+|----------|----------|----------|----------
+| poller\_id| entier non signé| ID du poller qui a reçu une demande de mise à jour de la configuration (reload).| 
+| responsive| booléen| Un booléen indiquant si le poller ayant l’ID **poller\_id** répond ou non.| 
 
 ### Pb Service
 
-This event is a Protobuf event so items are not serialized as in the previous
-events but using the Protobuf 3 serialization mechanism. When BBDO 3 version is
-used, no more **Service** messages should be sent, instead you should see these
-ones.
+Cet événement est un événement Protobuf, de sorte que les éléments ne sont pas sérialisés comme dans les événements précédents, mais en utilisant le mécanisme de sérialisation Protobuf 3. Lorsque la version BBDO 3 est utilisée, plus aucun message **Service** ne devrait être envoyé, vous devriez voir ceux-ci à la place.
 
-Such a message is sent to declare a new service or to declare a service change.
+Un tel message est envoyé pour déclarer un nouveau service ou pour déclarer un changement de service.
 
-The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
-is the following:
+Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3) est le suivant :
 
 ```text
 enum ServiceType {
@@ -723,11 +715,9 @@ message Service {
 
 ### Pb Adaptive service
 
-When BBDO 3 version is used, you can see this event sent when a service has
-changes in its configuration.
+Lorsque la version BBDO 3 est utilisée, cet événement est envoyé lorsqu’un service a des changements au niveau de sa configuration.
 
-The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
-is the following:
+Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3) est le suivant :
 
 ```text
 message AdaptiveService {
@@ -754,13 +744,9 @@ message AdaptiveService {
 
 ### Pb Service Status
 
-When BBDO 3 version is used, this type of event is sent instead of
-**Service Status**. Its content is almost the same but the old one contains some
-configuration items you don't have here, A **Pb Service Status** is smaller than
-a **Service Status**. Missing items can be found in **Pb Service**.
+Lorsque la version BBDO 3 est utilisée, ce type d’événement est envoyé à la place de **Service Status**. Son contenu est presque le même mais l’ancien contient certains éléments de configuration en plus. Un **Pb Service Status** est plus petit qu’un **Service Status**. Les éléments manquants se trouvent dans **Pb Service**.
 
-The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
-is the following:
+Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3) est le suivant :
 
 ```text
 message ServiceStatus {
@@ -829,14 +815,11 @@ message ServiceStatus {
 }
 ```
 
-
 ### Pb Host
 
-When BBDO 3 version is used, this type of event is sent instead of
-**Host**. Its content is almost the same.
+Lorsque la version BBDO 3 est utilisée, ce type d’événement est envoyé à la place de **Host**. Son contenu est presque le même.
 
-The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
-is the following:
+Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3) est le suivant :
 
 ```text
 message Host {
@@ -950,11 +933,9 @@ message Host {
 
 ### Pb Adaptive host
 
-When BBDO 3 version is used, you can see this event sent when a host has
-changes in its configuration.
+Lorsque la version BBDO 3 est utilisée, cet événement est envoyé lorsqu’un hôte a des changements au niveau de sa configuration.
 
-The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
-is the following:
+Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3) est le suivant :
 
 ```text
 message AdaptiveHost {
@@ -980,13 +961,9 @@ message AdaptiveHost {
 
 ### Pb Host Status
 
-When BBDO 3 version is used, this type of event is sent instead of
-**Host Status**. Its content is almost the same but the old one contains some
-configuration items you don't have here, A **Pb Host Status** is smaller than
-a **Host Status**. Missing items can be found in **Pb Host**.
+Lorsque la version BBDO 3 est utilisée, ce type d’événement est envoyé à la place de **Host Status**. Son contenu est presque le même mais l’ancien contient certains éléments de configuration en plus. Un **Pb Host Status** est plus petit qu’un **Host Status**. Les éléments manquants se trouvent dans **Pb Host**.
 
-The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
-is the following:
+Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3) est le suivant :
 
 ```text
 message HostStatus {
@@ -1047,9 +1024,7 @@ message HostStatus {
 
 ### Pb Severity
 
-This event comes with BBDO 3. It contains the severity of a resource.
-The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
-is the following:
+Cet événement est compris dans BBDO 3. Il contient la gravité d’une ressource. Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3) est le suivant :
 
 ```text
 message Severity {
@@ -1072,17 +1047,11 @@ message Severity {
 }
 ```
 
-
 ### Pb Tag
 
-This event comes with BBDO 3. It is used to associate a tag to a resource.
-There are four types of tag, **SERVICEGROUP**, **HOSTGROUP**, **SERVICECATEGORY**,
-**HOSTCATEGORY**. A tag is not associated with a poller, but we must know for
-internal handling which poller sent the tag, that is why there is a **poller\_id**
-item in the message.
+Cet événement est compris dans BBDO 3. Il est utilisé pour associer une balise à une ressource. Il existe quatre types de balises, **SERVICEGROUP**, **HOSTGROUP**, **SERVICECATEGORY**, **HOSTCATEGORY**. Un tag n’est pas associé à un poller, mais nous devons savoir quel poller a envoyé la balise à des fins de gestion interne, c’est pourquoi le message comporte un élément **poller\_id**.
 
-The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
-is the following:
+Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3) est le suivant :
 
 ```text
 enum TagType {
@@ -1111,87 +1080,77 @@ message Tag {
 
 ### Metric
 
-This event is generated by a Storage endpoint to notify that a RRD metric
-graph should be updated.
+Cet événement est généré par un point de terminaison Storage pour notifier qu’un graphique de métriques RRD doit être mis à jour.
 
-| Property         | Type             | Description                                                                 | Version     |
-|------------------|------------------|-----------------------------------------------------------------------------|-------------|
-| ctime            | time             | Time at which the metric value was generated.                               |             |
-| interval         | unsigned integer | Normal service check interval in seconds.                                   |             |
-| metric\_id       | unsigned integer | Metric ID (from the metrics table).                                         |             |
-| name             | string           | Metric name.                                                                |             |
-| rrd\_len         | integer          | RRD retention length in seconds.                                            |             |
-| value            | real             | Metric value.                                                               |             |
-| value\_type      | short integer    | Metric type (1 =3D counter, 2 =3D derive, 3 =3D absolute, other =3D gauge). |             |
-| is\_for\_rebuild | boolean          | Set to true when a graph is being rebuild (see the rebuild event).          |             |
-| host\_id         | unsigned integer | The id of the host this metric is attached to.                              | Since 3.0.0 |
-| service\_id      | unsigned integer | The id of the service this metric is attached to.                           | Since 3.0.0 |
+| Propriété| Type| Description| Version
+|----------|----------|----------|----------
+| ctime| temps| Heure à laquelle la valeur métrique a été générée.| 
+| interval| entier non signé| Intervalle de contrôle du service normal en secondes.| 
+| metric\_id| entier non signé| ID de la métrique (à partir du tableau des métriques).| 
+| name| chaîne| Nom de la métrique.| 
+| rrd\_len| entier| Durée de rétention des données RRD en secondes.| 
+| value| réel| Valeur de la métrique.| 
+| value\_type| entier court| Type de métrique (1 =3D compteur, 2 =3D dérive, 3 =3D absolu, autre =3D jauge).| 
+| is\_for\_rebuild| booléen| Défini sur True quand un graphique est en cours de reconstruction (voir l’événement rebuild).| 
+| host\_id| entier non signé| L’id de l’hôte auquel cette métrique est attachée.| Depuis la version 3.0.0
+| service\_id| entier non signé| L’id du service auquel cette métrique est attachée.| Depuis la version 3.0.0
 
 ### Rebuild
 
-Rebuild events are generated when a Storage endpoint detects that some
-graph should be rebuild. It first sends a rebuild start event (end =3D
-false), then metric values (metric event with is\_for\_rebuild set to
-true) and finally a rebuild end event (end =3D true).
+Les événements de reconstruction sont générés lorsqu’un point de terminaison Storage détecte qu’un graphique doit être reconstruit. Il envoie d’abord un événement de début de reconstruction (end =3D false), puis des valeurs métriques (événement métrique avec is\_for\_rebuild défini sur True) et enfin un événement de fin de reconstruction (end =3D true).
 
-| Property  | Type             | Description                                                                                                   | Version |
-|-----------|------------------|---------------------------------------------------------------------------------------------------------------|---------|
-| end       | boolean          | End flag. Set to true if rebuild is starting, false if it is ending.                                          |         |
-| id        | unsigned integer | ID of metric to rebuild if is\_index is false, or ID of index to rebuild (status graph) if is\_index is true. |         |
-| is\_index | boolean          | Index flag. Rebuild index (status) if true, rebuild metric if false.                                          |         |
+| Propriété| Type| Description| Version
+|----------|----------|----------|----------
+| end| booléen| Indicateur de fin. Défini sur True si la reconstruction commence, False si elle se termine.| 
+| id| entier non signé| ID de la métrique à reconstruire si is\_index est False, ou ID de l’index à reconstruire (graphique d’état) si is\_index est True.| 
+| is\_index| booléen| Indicateur d’index. Reconstruction de l’index (état) si True, reconstruction de la métrique si False.| 
 
 ### Remove graph
 
-A Storage endpoint generates a remove graph event when some graph
-must be deleted.
+Un point de terminaison Storage génère un événement de suppression de graphique lorsqu’un graphique doit être supprimé.
 
-| Property  | Type             | Description                                                                                            | Version |
-|-----------|------------------|--------------------------------------------------------------------------------------------------------|---------|
-| id        | unsigned integer | Index ID (is\_index =3D true) or metric ID (is\_index =3D false) to remove.                            |         |
-| is\_index | boolean          | Index flag. If true, a index (status) graph will be deleted. If false, a metric graph will be deleted. |         |
+| Propriété| Type| Description| Version
+|----------|----------|----------|----------
+| id| entier non signé| ID de l’index (is\_index =3D true) ou ID de la métrique (is\_index =3D false) à supprimer.| 
+| is\_index| booléen| Indicateur d’index. Si True, un graphique d’index (état) sera supprimé. Si False, un graphique de métrique sera supprimé.| 
 
 ### Status
 
-| Property         | Type             | Description                                                        | Version |
-|------------------|------------------|--------------------------------------------------------------------|---------|
-| ctime            | time             | Time at which the status was generated.                            |         |
-| index\_id        | unsigned integer | Index ID.                                                          |         |
-| interval         | unsigned integer | Normal service check interval in seconds.                          |         |
-| rrd\_len         | time             | RRD retention in seconds.                                          |         |
-| state            | short integer    | Service state.                                                     |         |
-| is\_for\_rebuild | boolean          | Set to true when a graph is being rebuild (see the rebuild event). |         |
+| Propriété| Type| Description| Version
+|----------|----------|----------|----------
+| ctime| temps| Heure à laquelle l’état a été généré.| 
+| index\_id| entier non signé| ID de l’index.| 
+| interval| entier non signé| Intervalle de contrôle du service normal en secondes.| 
+| rrd\_len| temps| Rétention des données RRD en secondes.| 
+| state| entier court| État du service.| 
+| is\_for\_rebuild| booléen| Défini sur True quand un graphique est en cours de reconstruction (voir l’événement rebuild).| 
 
 ### Metric mapping
 
-| Property  | Type             | Description | Version |
-|-----------|------------------|-------------|---------|
-| index\_id | unsigned integer | Index ID.   |         |
-| metric\_d | unsigned integer | Index ID.   |         |
+| Propriété| Type| Description| Version
+|----------|----------|----------|----------
+| index\_id| entier non signé| ID de l’index.| 
+| metric\_d| entier non signé| ID de l’index.| 
 
 ### Index mapping
 
-| Property    | Type             | Description | Version |
-|-------------|------------------|-------------|---------|
-| index\_id   | unsigned integer | Index ID.   |         |
-| host\_id    | unsigned integer | Index ID.   |         |
-| service\_id | unsigned integer | Index ID.   |         |
+| Propriété| Type| Description| Version
+|----------|----------|----------|----------
+| index\_id| entier non signé| ID de l’index.| 
+| host\_id| entier non signé| ID de l’index.| 
+| service\_id| entier non signé| ID de l’index.| 
 
 ### Pb Rebuild Message
 
-This event comes with BBDO 3. When some graphs have to be rebuilt. Messages
-handling these rebuilds are of that type. They replace the old BBDO rebuild
-message.
+Cet événement est compris dans BBDO 3. Quand certains graphiques doivent être reconstruits. Les messages qui concernent ces reconstructions sont de ce type. Ils remplacent l’ancien message de reconstruction de BBDO.
 
-There are three states for this message:
-* START: here is the first state, this message initializes which metrics have
-to be rebuilt.
-* DATA: once the START state has been sent, one or more messages with DATA state
-may be sent to the RRD broker.
-* END: When all the rebuild events have been sent, this one is sent to close the
-rebuilds. And the RRD broker falls back in a nominal state.
+Il existe trois états pour ce message :
 
-The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
-is the following:
+* START : il s’agit du premier état, ce message initialise les métriques qui doivent être reconstruites.
+* DATA : une fois que l’état START a été envoyé, un ou plusieurs messages avec l’état DATA peuvent être envoyés au broker RRD.
+* END : lorsque tous les événements de reconstruction ont été envoyés, celui-ci est envoyé pour clôturer les reconstructions. Et le broker RRD revient à un état nominal.
+
+Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3) est le suivant :
 
 ```text
 message Point {
@@ -1223,14 +1182,9 @@ message RebuildMessage {
 
 ### Pb Remove Graph Message
 
-This event comes with BBDO 3. When we want to remove graph files, we can use
-the centengine gRPC API and this call makes cbd to generate a **Pb Remove Graph
-Message**. Two possibilities are mixed in this event. We can remove graphes
-matching some index data or graphs matching some metric data. It is also
-possible to mix the two kinds.
+Cet événement est compris dans BBDO 3. Lorsque nous voulons supprimer des fichiers graphiques, nous pouvons utiliser l’API gRPC de centengine et cet appel fait en sorte que cbd génère un **Pb Remove Graph Message**. Deux possibilités sont combinées dans cet événement. Nous pouvons supprimer les graphiques correspondant à certaines données d’index ou les graphiques correspondant à certaines données métriques. Il est également possible de combiner les deux types.
 
-The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
-is the following:
+Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3) est le suivant :
 
 ```text
 message RemoveGraphMessage {
@@ -1239,269 +1193,254 @@ message RemoveGraphMessage {
 }
 ```
 
-
 ## BBDO
 
 ### Version response
 
-| Property    | Type          | Description                                                                                                                 | Version |
-|-------------|---------------|-----------------------------------------------------------------------------------------------------------------------------|---------|
-| bbdo\_major | short integer | BBDO protocol major used by the peer sending this **version\_response** packet. The sole current protocol version is 1.0.0. |         |
-| bbdo\_minor | short integer | BBDO protocol minor used by the peer sending this **version\_response** packet.                                             |         |
-| bbdo\_patch | short integer | BBDO protocol patch used by the peer sending this **version\_response** packet.                                             |         |
-| extensions  | string        | Space-separated string of extensions supported by the peer sending this **version\_response** packet.                       |         |
+| Propriété| Type| Description| Version
+|----------|----------|----------|----------
+| bbdo\_major| entier court| La version majeure du protocole BBDO utilisée par le peer qui envoie ce paquet **version\_response**. La seule version actuelle du protocole est la 1.0.0.| 
+| bbdo\_minor| entier court| La version mineure du protocole BBDO utilisée par le peer qui envoie ce paquet **version\_response**.| 
+| bbdo\_patch| entier court| Le correctif du protocole BBDO utilisé par le peer qui envoie ce paquet **version\_response**.| 
+| extensions| chaîne| Chaîne séparée par des espaces des extensions prises en charge par le peer qui envoie ce paquet **version\_response**.| 
 
 ### Ack
 
-| Property            | Type             | Description                                                                                                                   | Version |
-|---------------------|------------------|-------------------------------------------------------------------------------------------------------------------------------|---------|
-| acknowledged events | unsigned integer | Number of acknowledged events. Only used by "smart" clients (i.e able to acknowledge events). Not to be used by dumb clients. |         |
+| Propriété| Type| Description| Version
+|----------|----------|----------|----------
+| acknowledged events| entier non signé| Nombre d’événements acquittés. Utilisé uniquement par les clients « intelligents »(c’est-à-dire capables d’acquitter des événements). Ne doit pas être utilisé par des clients non intelligents.| 
 
 ## BAM
 
 ### BA status event
 
-This event is sent when a BA's status changed.
+Cet événement est envoyé lorsque le statut d’une BA a changé.
 
-| Property               | Type             | Description                                  | Version                   |
-|------------------------|------------------|----------------------------------------------|---------------------------|
-| ba\_id                 | unsigned integer | The id of the BA.                            | Since 2.8.0 (BBDO 1.2.0). |
-| in\_downtime           | boolean          | True of the BA is in downtime.               | Since 2.8.0 (BBDO 1.2.0). |
-| last\_state\_change    | time             | The time of the last state change of the BA. | Since 2.8.0 (BBDO 1.2.0). |
-| level\_acknowledgement | real             | The acknowledgment level of the BA.          | Since 2.8.0 (BBDO 1.2.0). |
-| level\_downtime        | real             | The downtime level of the BA.                | Since 2.8.0 (BBDO 1.2.0). |
-| level\_nominal         | real             | The nominal level of the BA.                 | Since 2.8.0 (BBDO 1.2.0). |
-| state                  | short integer    | The state of the BA.                         | Since 2.8.0 (BBDO 1.2.0). |
-| state\_changed         | boolean          | True if the state of the BA just changed.    | Since 2.8.0 (BBDO 1.2.0). |
+| Propriété| Type| Description| Version
+|----------|----------|----------|----------
+| ba\_id| entier non signé| L’id de la BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| in\_downtime| booléen| True si la BA est en temps d’arrêt.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| last\_state\_change| temps| L’heure du dernier changement d’état de la BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| level\_acknowledgement| réel| Le niveau d’acquittement de la BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| level\_downtime| réel| Le niveau de temps d’arrêt de la BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| level\_nominal| réel| Le niveau nominal de la BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| state| entier court| L’état de la BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| state\_changed| booléen| True si l’état de la BA vient de changer.| Depuis la version 2.8.0 (BBDO 1.2.0).
 
 ### KPI status event
 
-This event is sent when a KPI's status changed.
+Cet événement est envoyé lorsque le statut d’un KPI a changé.
 
-| Property                     | Type             | Description                                   | Version                   |
-|------------------------------|------------------|-----------------------------------------------|---------------------------|
-| kpi\_id                      | unsigned integer | The id of the KPI.                            | Since 2.8.0 (BBDO 1.2.0). |
-| in\_downtime                 | bool             | True if the KPI is in downtime.               |                           |
-| level\_acknowledgement\_hard | real             | The hard acknowledgement level of the KPI.    | Since 2.8.0 (BBDO 1.2.0). |
-| level\_acknowledgement\_soft | real             | The soft acknowledgement level of the KPI.    | Since 2.8.0 (BBDO 1.2.0). |
-| level\_downtime\_hard        | real             | The hard downtime level of the KPI.           | Since 2.8.0 (BBDO 1.2.0). |
-| level\_downtime\_soft        | real             | The soft downtime level of the KPI.           | Since 2.8.0 (BBDO 1.2.0). |
-| level\_nominal\_hard         | real             | The hard nominal level of the KPI.            | Since 2.8.0 (BBDO 1.2.0). |
-| level\_nominal\_soft         | real             | The soft nominal level of the KPI.            | Since 2.8.0 (BBDO 1.2.0). |
-| state\_hard                  | short integer    | The hard state of the KPI.                    | Since 2.8.0 (BBDO 1.2.0). |
-| state\_soft                  | short integer    | The soft state of the KPI.                    | Since 2.8.0 (BBDO 1.2.0). |
-| last\_state\_change          | time             | The time of the last state change of the KPI. | Since 2.8.0 (BBDO 1.2.0). |
-| last\_impact                 | real             | The last impact of the KPI.                   | Since 2.8.0 (BBDO 1.2.0). |
-| valid                        | bool             | True if the KPi is valid.                     |                           |
+| Propriété| Type| Description| Version
+|----------|----------|----------|----------
+| kpi\_id| entier non signé| L’id du KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| in\_downtime| bool| True si le KPI est en temps d’arrêt.| 
+| level\_acknowledgement\_hard| réel| Le niveau d’acquittement hard du KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| level\_acknowledgement\_soft| réel| Le niveau d’acquittement soft du KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| level\_downtime\_hard| réel| Le niveau de temps d’arrêt hard du KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| level\_downtime\_soft| réel| Le niveau de temps d’arrêt soft du KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| level\_nominal\_hard| réel| Le niveau nominal hard du KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| level\_nominal\_soft| réel| Le niveau nominal soft du KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| state\_hard| entier court| L’état hard du KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| state\_soft| entier court| L’état soft du KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| last\_state\_change| temps| L’heure du dernier changement d’état du KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| last\_impact| réel| Le dernier impact du KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| valid| bool| True si le KPI est valide.| 
 
 ### Meta service status event
 
-This event is sent when a meta service's status changed.
+Cet événement est envoyé lorsque le statut d’un méta-service a changé.
 
-| Property          | Type             | Description                     | Version                   |
-|-------------------|------------------|---------------------------------|---------------------------|
-| meta\_service\_id | unsigned integer | The id of the meta service.     | Since 2.8.0 (BBDO 1.2.0). |
-| value             | real             | The value of the meta service.  | Since 2.8.0 (BBDO 1.2.0). |
-| state\_changed    | boolean          | True if the state just changed. | Since 2.8.0 (BBDO 1.2.0). |
+| Propriété| Type| Description| Version
+|----------|----------|----------|----------
+| meta\_service\_id| entier non signé| L’id du méta-service.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| value| réel| La valeur du méta-service.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| state\_changed| booléen| True si l’état vient de changer.| Depuis la version 2.8.0 (BBDO 1.2.0).
 
 ### BA-event event
 
-This event is sent when a new BA event is opened, or an old one is closed.
+Cet événement est envoyé lorsqu’un nouvel événement BA est ouvert, ou qu’un ancien est fermé.
 
-| Property     | Type             | Description                                                    | Version                   |
-|--------------|------------------|----------------------------------------------------------------|---------------------------|
-| ba\_id       | unsigned integer | The id of the BA.                                              | Since 2.8.0 (BBDO 1.2.0). |
-| first\_level | real             | The first level of the BA event.                               | Since 2.8.0 (BBDO 1.2.0). |
-| end\_time    | time             | The end\_time of the event. 0 or (time)-1 for an opened event. | Since 2.8.0 (BBDO 1.2.0). |
-| in\_downtime | boolean          | True if BA was in downtime during the BA event.                | Since 2.8.0 (BBDO 1.2.0). |
-| start\_time  | time             | The start\_time of the event.                                  | Since 2.8.0 (BBDO 1.2.0). |
-| status       | short integer    | The status of the BA during the event.                         | Since 2.8.0 (BBDO 1.2.0). |
+| Propriété| Type| Description| Version
+|----------|----------|----------|----------
+| ba\_id| entier non signé| L’id de la BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| first\_level| réel| Le premier niveau de l’événement BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| end\_time| temps| L’heure de fin de l’événement. 0 ou (temps)-1 pour un événement ouvert.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| in\_downtime| booléen| True si BA était en arrêt pendant l’événement BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| start\_time| temps| L’heure de début de l’événement.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| status| entier court| Le statut de la BA pendant l’événement.| Depuis la version 2.8.0 (BBDO 1.2.0).
 
 ### KPI-event event
 
-This event is sent when a new KPI event is opened, or an old one is closed.
+Cet événement est envoyé lorsqu’un nouvel événement KPI est ouvert, ou qu’un ancien est fermé.
 
-| Property      | Type             | Description                                                    | Version                   |
-|---------------|------------------|----------------------------------------------------------------|---------------------------|
-| kpi\_id       | unsigned integer | The id of the KPI.                                             | Since 2.8.0 (BBDO 1.2.0). |
-| end\_time     | time             | The end\_time of the event. 0 or (time)-1 for an opened event. | Since 2.8.0 (BBDO 1.2.0). |
-| impact\_level | integer          | The level of the impact.                                       | Since 2.8.0 (BBDO 1.2.0). |
-| in\_downtime  | boolean          | True if BA was in downtime during the BA event.                | Since 2.8.0 (BBDO 1.2.0). |
-| first\_output | string           | The first output of the KPI during the event.                  | Since 2.8.0 (BBDO 1.2.0). |
-| perfdata      | string           | The first perfdata of the KPI during the event.                | Since 2.8.0 (BBDO 1.2.0). |
-| start\_time   | time             | The start\_time of the event.                                  | Since 2.8.0 (BBDO 1.2.0). |
-| status        | short integer    | The status of the BA during the event.                         | Since 2.8.0 (BBDO 1.2.0). |
+| Propriété| Type| Description| Version
+|----------|----------|----------|----------
+| kpi\_id| entier non signé| L’id du KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| end\_time| temps| L’heure de fin de l’événement. 0 ou (temps)-1 pour un événement ouvert.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| impact\_level| entier| Le niveau de l’impact.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| in\_downtime| booléen| True si BA était en arrêt pendant l’événement BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| first\_output| chaîne| Le premier output du KPI pendant l’événement.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| perfdata| chaîne| La première perfdata du KPI pendant l’événement.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| start\_time| temps| L’heure de début de l’événement.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| status| entier court| Le statut de la BA pendant l’événement.| Depuis la version 2.8.0 (BBDO 1.2.0).
 
 ### BA duration event event
 
-This event is sent when a new BA duration event is computed by BAM broker.
+Cet événement est envoyé lorsqu’un nouvel événement de durée BA est calculé par le broker BAM.
 
-| Property                | Type             | Description                                            | Version                   |
-|-------------------------|------------------|--------------------------------------------------------|---------------------------|
-| ba\_id                  | unsigned integer | The id of the BA.                                      | Since 2.8.0 (BBDO 1.2.0). |
-| real\_start\_time       | time             | The first level of the BA event.                       | Since 2.8.0 (BBDO 1.2.0). |
-| end\_time               | time             | The end\_time of the event, in the given timeperiod.   | Since 2.8.0 (BBDO 1.2.0). |
-| start\_time             | time             | The start\_time of the event, in the given timeperiod. | Since 2.8.0 (BBDO 1.2.0). |
-| duration                | unsigned integer | end\_time - start\_time.                               | Since 2.8.0 (BBDO 1.2.0). |
-| sla\_duration           | unsigned integer | The duration of the event in the given timperiod.      | Since 2.8.0 (BBDO 1.2.0). |
-| timeperiod\_is\_default | boolean          | True if the timeperiod if the default for this BA.     | Since 2.8.0 (BBDO 1.2.0). |
+| Propriété| Type| Description| Version
+|----------|----------|----------|----------
+| ba\_id| entier non signé| L’id de la BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| real\_start\_time| temps| Le premier niveau de l’événement BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| end\_time| temps| L’heure de fin de l’événement, dans la période de temps donnée.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| start\_time| temps| L’heure de début de l’événement, dans la période de temps donnée.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| duration| entier non signé| end\_time - start\_time.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| sla\_duration| entier non signé| La durée de l’événement dans la période de temps donnée.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| timeperiod\_is\_default| booléen| True si la période de temps est la valeur par défaut pour cette BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
 
 ### Dimension BA
 
-This event is part of the dimension (i.e configuration) dump occuring at
-startup and after each BAM configuration reload.
+Cet événement fait partie du dump de dimension (c’est-à-dire, la configuration) qui se produit au démarrage et après chaque rechargement de la configuration BAM.
 
-| Property                   | Type             | Description                | Version                   |
-|----------------------------|------------------|----------------------------|---------------------------|
-| ba\_id                     | unsigned integer | The id of the BA.          | Since 2.8.0 (BBDO 1.2.0). |
-| ba\_name                   | string           | The name of the BA.        | Since 2.8.0 (BBDO 1.2.0). |
-| ba\_description            | string           | The description of the BA. | Since 2.8.0 (BBDO 1.2.0). |
-| sla\_month\_percent\_crit  | real             |                            | Since 2.8.0 (BBDO 1.2.0). |
-| sla\_month\_percent\_warn  | real             |                            | Since 2.8.0 (BBDO 1.2.0). |
-| sla\_month\_duration\_crit | unsigned integer |                            | Since 2.8.0 (BBDO 1.2.0). |
-| sla\_month\_duration\_warn | unsigned integer |                            | Since 2.8.0 (BBDO 1.2.0). |
+| Propriété| Type| Description| Version
+|----------|----------|----------|----------
+| ba\_id| entier non signé| L’id de la BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| ba\_name| chaîne| Le nom de la BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| ba\_description| chaîne| La description de la BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| sla\_month\_percent\_crit| réel| | Depuis la version 2.8.0 (BBDO 1.2.0).
+| sla\_month\_percent\_warn| réel| | Depuis la version 2.8.0 (BBDO 1.2.0).
+| sla\_month\_duration\_crit| entier non signé| | Depuis la version 2.8.0 (BBDO 1.2.0).
+| sla\_month\_duration\_warn| entier non signé| | Depuis la version 2.8.0 (BBDO 1.2.0).
 
 ### Dimension KPI
 
-This event is part of the dimension (i.e configuration) dump occuring at
-startup and after each BAM configuration reload.
+Cet événement fait partie du dump de dimension (c’est-à-dire, la configuration) qui se produit au démarrage et après chaque rechargement de la configuration BAM.
 
-| Property             | Type             | Description                                                                  | Version                   |
-|----------------------|------------------|------------------------------------------------------------------------------|---------------------------|
-| kpi\_id              | unsigned integer | The id of the KPI.                                                           | Since 2.8.0 (BBDO 1.2.0). |
-| ba\_id               | unsigned integer | The id of the parent BA of this KPI.                                         | Since 2.8.0 (BBDO 1.2.0). |
-| ba\_name             | string           | The name of the parent BA of this KPI.                                       | Since 2.8.0 (BBDO 1.2.0). |
-| host\_id             | unsigned integer | The id of the host associated with this KPI for service KPI.                 | Since 2.8.0 (BBDO 1.2.0). |
-| host\_name           | string           | The name of the host associated with this KPI for service KPI.               | Since 2.8.0 (BBDO 1.2.0)  |
-| service\_id          | unsigned integer | The id of the service associated with this KPI for service KPI.              | Since 2.8.0 (BBDO 1.2.0). |
-| service\_description | string           | The description of the service associated with this KPI for service KPI.     | Since 2.8.0 (BBDO 1.2.0). |
-| kpi\_ba\_id          | unsigned integer | The id of the BA associated with this KPI for BA KPI.                        | Since 2.8.0 (BBDO 1.2.0). |
-| kpi\_ba\_name        | string           | The name of the BA associated with this KPI for BA KPI.                      | Since 2.8.0 (BBDO 1.2.0). |
-| meta\_service\_id    | unsigned int     | The id of the meta-service associated with this KPI for meta-service KPI.    | Since 2.8.0 (BBDO 1.2.0). |
-| meta\_service\_name  | string           | The name of the meta-service associated with this KPI for meta-service KPI.  | Since 2.8.0 (BBDO 1.2.0). |
-| boolean\_id          | unsigned int     | The id of the boolean expression associated with this KPI for boolean KPI.   | Since 2.8.0 (BBDO 1.2.0). |
-| boolean\_name        | string           | The name of the boolean expression associated with this KPI for boolean KPI. | Since 2.8.0 (BBDO 1.2.0). |
-| impact\_warning      | real             | The impact of a warning state for this KPI.                                  | Since 2.8.0 (BBDO 1.2.0). |
-| impact\_critical     | real             | The impact of a critical state for this KPI.                                 | Since 2.8.0 (BBDO 1.2.0). |
-| impact\_unknown      | real             | The impact of a unknown state for this KPI.                                  | Since 2.8.0 (BBDO 1.2.0). |
+| Propriété| Type| Description| Version
+|----------|----------|----------|----------
+| kpi\_id| entier non signé| L’id du KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| ba\_id| entier non signé| L’identifiant de la BA parent de ce KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| ba\_name| chaîne| Le nom de la BA parent de ce KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| host\_id| entier non signé| L’id de l’hôte associé à ce KPI pour le KPI de service.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| host\_name| chaîne| Le nom de l’hôte associé à ce KPI pour le KPI de service.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| service\_id| entier non signé| L’id du service associé à ce KPI pour le KPI de service.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| service\_description| chaîne| La description du service associé à ce KPI pour le KPI de service.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| kpi\_ba\_id| entier non signé| L’id de la BA associée à ce KPI pour le KPI de BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| kpi\_ba\_name| chaîne| Le nom de la BA associée à ce KPI pour le KPI de BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| meta\_service\_id| entier non signé| L’id du méta-service associé à ce KPI pour le KPI de méta-service.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| meta\_service\_name| chaîne| Le nom du méta-service associé à ce KPI pour le KPI de méta-service.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| boolean\_id| entier non signé| L’id de l’expression booléenne associée à ce KPI pour le KPI booléen.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| boolean\_name| chaîne| Le nom de l’expression booléenne associée à ce KPI pour le KPI booléen.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| impact\_warning| réel| L’impact d’un état d’alerte pour ce KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| impact\_critical| réel| L’impact d’un état critique pour ce KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| impact\_unknown| réel| L’impact d’un état inconnu pour ce KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
 
 ### Dimension BA BV relation
 
-This event is part of the dimension (i.e configuration) dump occuring at
-startup and after each BAM configuration reload.
+Cet événement fait partie du dump de dimension (c’est-à-dire, la configuration) qui se produit au démarrage et après chaque rechargement de la configuration BAM.
 
-| Property | Type             | Description       | Version                   |
-|----------|------------------|-------------------|---------------------------|
-| ba\_id   | unsigned integer | The id of the BA. | Since 2.8.0 (BBDO 1.2.0). |
-| bv\_id   | unsigned integer | The id of the BV. | Since 2.8.0 (BBDO 1.2.0). |
-
-
+| Propriété| Type| Description| Version
+|----------|----------|----------|----------
+| ba\_id| entier non signé| L’id de la BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| bv\_id| entier non signé| L’id de la BV.| Depuis la version 2.8.0 (BBDO 1.2.0).
 
 ### Dimension BV
 
-This event is part of the dimension (i.e configuration) dump occuring at
-startup and after each BAM configuration reload.
+Cet événement fait partie du dump de dimension (c’est-à-dire, la configuration) qui se produit au démarrage et après chaque rechargement de la configuration BAM.
 
-| Property        | Type             | Description                | Version                   |
-|-----------------|------------------|----------------------------|---------------------------|
-| bv\_id          | unsigned integer | The id of the BV.          | Since 2.8.0 (BBDO 1.2.0). |
-| bv\_name        | string           | The name of the BV.        | Since 2.8.0 (BBDO 1.2.0). |
-| bv\_description | string           | The description of the BV. | Since 2.8.0 (BBDO 1.2.0). |
+| Propriété| Type| Description| Version
+|----------|----------|----------|----------
+| bv\_id| entier non signé| L’id de la BV.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| bv\_name| chaîne| Le nom de la BV.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| bv\_description| chaîne| La description de la BV.| Depuis la version 2.8.0 (BBDO 1.2.0).
 
 ### Dimension table signal
 
-This event is part of the dimension (i.e configuration) dump occuring at
-startup and after each BAM configuration reload.
+Cet événement fait partie du dump de dimension (c’est-à-dire, la configuration) qui se produit au démarrage et après chaque rechargement de la configuration BAM.
 
-This signal is sent before the dump of all the dimensions, and again at
-the end of the dump.
+Ce signal est envoyé avant le dump de toutes les dimensions, et à nouveau à la fin du dump.
 
-| Property        | Type    | Description                                                   | Version                   |
-|-----------------|---------|---------------------------------------------------------------|---------------------------|
-| update\_started | boolean | True if this is the start of the dump, false if it's the end. | Since 2.8.0 (BBD0 1.2.0). |
+| Propriété| Type| Description| Version
+|----------|----------|----------|----------
+| update\_started| booléen| True si c’est le début du dump, False si c’est la fin.| Depuis la version 2.8.0 (BBD0 1.2.0).
 
 ### Rebuild signal
 
-This event is sent when a rebuild of the event durations and availabilities
-is asked to the BAM broker endpoint.
+Cet événement est envoyé lorsqu’une reconstruction des durées et des disponibilités des événements est demandée au point de terminaison du broker BAM.
 
-| Property         | Type   | Description                                                                                                 | Version                   |
-|------------------|--------|-------------------------------------------------------------------------------------------------------------|---------------------------|
-| bas\_to\_rebuild | string | A string containing the id of all the BAs to rebuild, separated by a comma and a space (i.e "1, 5, 8, 12"). | Since 2.8.0 (BBDO 1.2.0). |
+| Propriété| Type| Description| Version
+|----------|----------|----------|----------
+| bas\_to\_rebuild| chaîne| Une chaîne contenant les id de toutes les BA à reconstruire, séparés par une virgule et un espace (par exemple « 1, 5, 8, 12 »).| Depuis la version 2.8.0 (BBDO 1.2.0).
 
 ### Dimension timeperiod
 
-This event is part of the dimension (i.e configuration) dump occuring at
-startup and after each BAM configuration reload.
+Cet événement fait partie du dump de dimension (c’est-à-dire, la configuration) qui se produit au démarrage et après chaque rechargement de la configuration BAM.
 
-| Property  | Type             | Description                       | Version                   |
-|-----------|------------------|-----------------------------------|---------------------------|
-| tp\_id    | unsigned integer | The id of the timeperiod.         | Since 2.8.0 (BBDO 1.2.0). |
-| name      | string           | The name of the timeperiod.       | Since 2.8.0 (BBDO 1.2.0). |
-| monday    | string           | The timeperiod rule for this day. | Since 2.8.0 (BBDO 1.2.0). |
-| tuesday   | string           | The timeperiod rule for this day. | Since 2.8.0 (BBDO 1.2.0). |
-| wednesday | string           | The timeperiod rule for this day. | Since 2.8.0 (BBDO 1.2.0). |
-| thursday  | string           | The timeperiod rule for this day. | Since 2.8.0 (BBDO 1.2.0). |
-| friday    | string           | The timeperiod rule for this day. | Since 2.8.0 (BBDO 1.2.0). |
-| saturday  | string           | The timeperiod rule for this day. | Since 2.8.0 (BBDO 1.2.0). |
-| sunday    | string           | The timeperiod rule for this day. | Since 2.8.0 (BBDO 1.2.0). |
+| Propriété| Type| Description| Version
+|----------|----------|----------|----------
+| tp\_id| entier non signé| L’id de la période de temps.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| name| chaîne| Le nom de la période de temps.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| monday| chaîne| La règle de la période de temps pour ce jour.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| tuesday| chaîne| La règle de la période de temps pour ce jour.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| wednesday| chaîne| La règle de la période de temps pour ce jour.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| thursday| chaîne| La règle de la période de temps pour ce jour.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| friday| chaîne| La règle de la période de temps pour ce jour.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| saturday| chaîne| La règle de la période de temps pour ce jour.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| sunday| chaîne| La règle de la période de temps pour ce jour.| Depuis la version 2.8.0 (BBDO 1.2.0).
 
 ### Dimension BA timeperiod relation
 
-This event is part of the dimension (i.e configuration) dump occuring at
-startup and after each BAM configuration reload.
+Cet événement fait partie du dump de dimension (c’est-à-dire, la configuration) qui se produit au démarrage et après chaque rechargement de la configuration BAM.
 
-| Property       | Type             | Description                                            | Version                   |
-|----------------|------------------|--------------------------------------------------------|---------------------------|
-| ba\_id         | unsigned integer | The id of the BA.                                      | Since 2.8.0 (BBDO 1.2.0). |
-| timeperiod\_id | unsigned integer | The id of the timeperiod.                              | Since 2.8.0 (BBDO 1.2.0). |
-| is\_default    | boolean          | True if the timeperiod is the default one for this BA. | Since 2.8.0 (BBDO 1.2.0). |
+| Propriété| Type| Description| Version
+|----------|----------|----------|----------
+| ba\_id| entier non signé| L’id de la BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| timeperiod\_id| entier non signé| L’id de la période de temps.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| is\_default| booléen| True si la période de temps est celle par défaut pour cette BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
 
 ### Dimension timeperiod exception
 
-This event is part of the dimension (i.e configuration) dump occuring at
-startup and after each BAM configuration reload.
+Cet événement fait partie du dump de dimension (c’est-à-dire, la configuration) qui se produit au démarrage et après chaque rechargement de la configuration BAM.
 
-| Property       | Type             | Description                                     | Version                   |
-|----------------|------------------|-------------------------------------------------|---------------------------|
-| timeperiod\_id | unsigned integer | The id of the timeperiod having this exception. | Since 2.8.0               |
-| daterange      | string           | A string containing the date of the range.      | Since 2.8.0               |
-| timerange      | string           | A string containing the time of the range.      | Since 2.8.0 (BBDO 1.2.0). |
-
-
+| Propriété| Type| Description| Version
+|----------|----------|----------|----------
+| timeperiod\_id| entier non signé| L’id de la période de temps ayant cette exception.| Depuis la version 2.8.0
+| daterange| chaîne| Une chaîne de caractères contenant la date de la plage.| Depuis la version 2.8.0
+| timerange| chaîne| Une chaîne de caractères contenant l’heure de la plage.| Depuis la version 2.8.0 (BBDO 1.2.0).
 
 ### Dimension timeperiod exclusion
 
-This event is part of the dimension (i.e configuration) dump occuring at
-startup and after each BAM configuration reload.
+Cet événement fait partie du dump de dimension (c’est-à-dire, la configuration) qui se produit au démarrage et après chaque rechargement de la configuration BAM.
 
-| Property                 | Type             | Description                                     | Version                   |
-|--------------------------|------------------|-------------------------------------------------|---------------------------|
-| timeperiod\_id           | unsigned integer | The id of the timeperiod having this exclusion. | Since 2.8.0 (BBDO 1.2.0). |
-| excluded\_timeperiod\_id | unsigned integer | The id of the excluded timeperiod.              | Since 2.8.0 (BBDO 1.2.0). |
+| Propriété| Type| Description| Version
+|----------|----------|----------|----------
+| timeperiod\_id| entier non signé| L’id de la période de temps ayant cette exclusion.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| excluded\_timeperiod\_id| entier non signé| L’id de la période exclue.| Depuis la version 2.8.0 (BBDO 1.2.0).
 
 ### Inherited downtime
 
-| Property     | Type             | Description                    | Version |
-|--------------|------------------|--------------------------------|---------|
-| bad\_id      | unsigned integer | The id of the BA in downtime.  |         |
-| in\_downtime | boolean          | True if the BA is in downtime. |         |
+| Propriété| Type| Description| Version
+|----------|----------|----------|----------
+| bad\_id| entier non signé| L’id de la BA en temps d’arrêt.| 
+| in\_downtime| booléen| True si le BA est en temps d’arrêt.| 
 
 ## Extcmd
 
 ### Command request
 
-| Property              | Type    | Description                                                 | Version |
-|-----------------------|---------|-------------------------------------------------------------|---------|
-| command               | string  | The command request.                                        |         |
-| endp                  | string  | The endpoint this command is destined to.                   |         |
-| uuid                  | string  | The uuid of this request.                                   |         |
-| with\_partial\_result | boolean | True if the command should be answered with partial result. |         |
+| Propriété| Type| Description| Version
+|----------|----------|----------|----------
+| command| chaîne| La demande de commande.| 
+| endp| chaîne| Le point de terminaison auquel cette commande est destinée.| 
+| uuid| chaîne| L’uuid de cette demande.| 
+| with\_partial\_result| booléen| True si la commande doit recevoir une réponse avec un résultat partiel.| 
 
 ### Command result
 
-| Property | Type    | Description                                            | Version |
-|----------|---------|--------------------------------------------------------|---------|
-| code     | integer | The return code of this command.                       |         |
-| uuid     | string  | The uuid of the request this command is the result of. |         |
-| msg      | string  | The string message of the command result.              |         |
+| Propriété| Type| Description| Version
+|----------|----------|----------|----------
+| code| entier| Le code de retour de cette commande.| 
+| uuid| chaîne| L’uuid de la demande dont cette commande est le résultat.| 
+| msg| chaîne| Le message en chaîne du résultat de la commande.| 
+

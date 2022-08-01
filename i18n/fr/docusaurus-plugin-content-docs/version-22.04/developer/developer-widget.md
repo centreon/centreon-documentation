@@ -1,33 +1,31 @@
 ---
-id: developer-widget
-title : How to write a widget
+id: developer-widget  
+title: Comment écrire un widget
 ---
 
-Centreon offers a custom view system which allows user to view one or different widgets in the same page:
-**Home > Custom views**.
+Centreon offre un système d’affichage personnalisé qui permet à l’utilisateur d’afficher un ou plusieurs widgets sur la même page : **Home > Custom views**.
 
-You may have specific needs that are not yet covered by our widget catalog and this tutorial will explain to you how to
-write your first widget for Centreon.
+Vous pourriez avoir des besoins spécifiques qui ne sont pas encore couverts par notre catalogue de widgets et ce tutoriel vous expliquera comment écrire votre premier widget pour Centreon.
 
-## Should I make a widget or a module?
+## Dois-je développer un widget ou un module ?
 
-If you are wondering if you should be making a module or a widget, then ask yourself if your project is meant to contain
-many menus or is it rather a plain page which is going to display little information? 
+Si vous ne savez pas si vous devez créer un module ou un widget, demandez-vous si votre projet est destiné à contenir de nombreux menus ou s’il s’agit plutôt d’une page simple qui affichera peu d’informations.
 
-Of course, you could make a widget that would only work with a certain module.
+Bien sûr, vous pourriez créer un widget qui ne fonctionnerait qu’avec un module donné.
 
-## Directory structure
+## Structure du répertoire
 
-Widgets work pretty much like Modules. They have to be placed in the following directory:
+Les widgets fonctionnent à peu près comme les modules. Ils doivent être placés dans le répertoire suivant :
+
 ```Shell
 centreon/www/widgets/name-of-your-widget/
 ```
 
-Your widget must contain one mandatory file named **configs.xml** at its root.
+Votre widget doit contenir un fichier obligatoire nommé **configs.xml** à sa racine.
 
-## Configuration file
+## Fichier de configuration
 
-This is the XML configuration file of our Dummy widget:
+C’est le fichier de configuration XML de notre widget fictif :
 
 ```XML
 <configs>
@@ -57,85 +55,82 @@ This is the XML configuration file of our Dummy widget:
 </configs>
 ```
 
-Now, let's see what these tags refer to.
+Voyons maintenant à quoi ces balises font référence.
 
-### Basic tags
+### Balises de base
 
-\* = Mandatory tag
+\* = balise obligatoire
 
-| Tag name     | Description
-|--------------|-------------------
-| title*       | Title of your widget
-| author*      | Your name
-| email        | Your email address
-| website      | URL of your project
-| description* | Short description of your widget
-| version*     | Version of your widget. Increment this number whenever you publish a new version.
-| keywords     | A few key words that describe your widget
-| screenshot   | Screenshot that shows the best side of your widget. Screenshot should be placed within your widget directory.
-| thumbnail    | Logo of your project. Best size is 100px x 25px. Thumbnail shoud be placed within your widget directory.
-| url*         | Path of the main page of your widget
-| autorefresh  |This parameter is not implemented yet
+| Nom de la balise| Description
+|----------|----------
+| title\*| Titre de votre widget
+| author\*| Votre nom
+| email| Votre adresse e-mail
+| website| URL de votre projet
+| description\*| Brève description de votre widget
+| version\*| Version de votre widget. Augmentez ce numéro chaque fois que vous publiez une nouvelle version.
+| keywords| Quelques mots clés qui décrivent votre widget
+| screenshot| Une capture d’écran qui montre votre widget sous son meilleur jour. La capture d’écran doit être placée dans votre répertoire de widgets.
+| thumbnail| Le logo de votre projet. La taille qui convient le mieux est 100px x 25px. Les vignettes doivent être placées dans votre répertoire de widgets.
+| url\*| Le chemin de la page principale de votre widget
+| autorefresh| Ce paramètre n’est pas encore implémenté
 
-### Parameter attributes
+### Attributs des paramètres
 
-\* = *Mandatory parameter*
+\* = *Paramètre obligatoire*
 
-| Tag attributes    | Description
-|-------------------|---------------------
-| label*            | Label of the parameter
-| name*             | Name of the parameter that will be used for retrieving its value
-| defaultValue*     | Default Value of the parameter
-| requirePermission | Value can be "1" or "0". When set to 1, this parameter will not be shown to unauthorized users.
-| type*             | Parameter type, must be one of the following: text,boolean,date,list,range,compare,host,hostgroup, hostTemplate,servicegroup,serviceTemplate
-| min*              | For range type only. It refers to the minimum value of the range parameter
-| max*              | FFor range type only. It refers to the maximum value of the range parameter
-| step*             | For range type only. It refers to the step value of the range parameter
+| Attributs des balises| Description
+|----------|----------
+| label\*| Étiquette du paramètre
+| name\*| Nom du paramètre qui sera utilisé pour récupérer sa valeur
+| defaultValue\*| Valeur par défaut du paramètre
+| requirePermission| La valeur peut être « 1 » ou « 0 ». Lorsqu’il est défini sur 1, ce paramètre ne sera pas affiché pour les utilisateurs non autorisés.
+| type\*| Type de paramètre, doit être l’un des suivants : text,boolean,date,list,range,compare,host,hostgroup, hostTemplate,servicegroup,serviceTemplate
+| min\*| Pour le type de plage uniquement. Il s’agit de la valeur minimale du paramètre de la plage.
+| max\*| Pour le type de plage uniquement. Il s’agit de la valeur maximale du paramètre de la plage.
+| step\*| Pour le type de plage uniquement. Il s’agit de la valeur de l’étape du paramètre de la plage.
 
-Parameter type
-==============
+# Type de paramètre
 
-| Tag name      | Description
-|---------------|-------------------
-| text          | Renders a text input element
-| boolean       | Renders a checkbox
-| date          | Renders two text input elements. One for the date of start, the other one for the date of end.
-| list          | Renders a selectbox. The selectbox will be populated with the option tags which have to be defined within the preference tag.
-| range         | Renders a selectbox which will be populated with values depending on the min, max and step definitions.
-| compare       | Renders a selectbox and a text input. Selectbox will contain SQL operands such as:
-|               | > : greater than
-|               | < : less than
-|               | >= : greater or equal
-|               | <= : less or equal
-|               | = : equal
-|               | != : not equal
-|               | LIKE : can be used with the wildcard %%
-|               | NOT LIKE : can be used with the wildcard %%
-host            | Renders a selectbox populated with a list of hosts.
-hostgroup       | Renders a selectbox populated with a list of hostgroups.
-hostTemplate    | Renders a selectbox populated with a list of host templates.
-servicegroup    | Renders a selectbox populated with a list of servicegroups.
-serviceTemplate | Renders a selectbox populated with a list of service templates.
+| Nom de la balise| Description
+|----------|----------
+| text| Rend un élément de saisie de texte
+| boolean| Rend une case à cocher
+| date| Rend deux éléments de saisie de texte. L’un pour la date de début, l’autre pour la date de fin.
+| list| Rend une boîte de sélection. La boîte de sélection sera remplie avec les balises d’option qui doivent être définies dans la balise de préférence.
+| range| Rend une boîte de sélection qui sera remplie de valeurs en fonction des définitions de min, max et étape.
+| compare| Rend une boîte de sélection et une saisie de texte. La boîte de sélection contiendra des opérandes SQL tels que :
+| | \> : supérieur à
+| | \< : inférieur à
+| | \>= : supérieur ou égal à
+| | \<= : inférieur ou égal à
+| | \= : égal à
+| | != : non égal à
+| | LIKE : peut être utilisé avec le caractère générique %%.
+| | NOT LIKE : peut être utilisé avec le caractère générique %%.
+| host| Rend une boîte de sélection remplie d’une liste d’hôtes.
+| hostgroup| Rend une boîte de sélection remplie d’une liste de groupes d’hôtes.
+| hostTemplate| Rend une boîte de sélection remplie d’une liste de modèles d’hôtes.
+| servicegroup| Rend une boîte de sélection remplie d’une liste de groupes de services.
+| serviceTemplate| Rend une boîte de sélection remplie d’une liste de modèles de services.
 
-The preference window would look like this as a result:
+La fenêtre des préférences se présente alors comme suit :
 
-.. image:: /_static/images/extending/pref_dummy_widget.png
-   :align: center
+.. image : /\_static/images/extending/pref\_dummy\_widget.png :align: center
 
 ### Code
 
-All languages are separated in differents files, one file for each language. The file "configs.xml" call the php's file
-and the php's file call html's file etc...
+Toutes les langues sont séparées dans différents fichiers, un fichier pour chaque langue. Le fichier « configs.xml » appelle le fichier php et le fichier php appelle le fichier html etc...
 
-We use Smarty, it's an engine and template'php compiler (http://smarty.net).
+Nous utilisons Smarty, qui est un moteur et un compilateur de template’php (http://smarty.net).
 
-To use Smarty you need to:
+Pour utiliser Smarty, vous devez :
 
 ```PHP
 require_once $centreon_path . 'GPL_LIB/Smarty/libs/Smarty.class.php';
 ```
 
-1.configuration of smarty:
+1.configurer smarty :
 
 ```PHP
 $path = $centreon_path . "www/widgets/Dummy/src/";
@@ -143,7 +138,7 @@ $template = new Smarty();
 $template = initSmartyTplForPopup($path, $template, "./", $centreon_path);
 ```
 
-2.creating php template to be use in html:
+2.créer un modèle php à utiliser en html :
 
 ```PHP
 $template->assign('widgetId', $widgetId);
@@ -151,17 +146,17 @@ $template->assign('autoRefresh', $autoRefresh);
 $template->assign('data', $data);
 ```
 
-3.affectation of html's file to execute:
+3.affecter le fichier html à exécuter :
 
 ```PHP
 $template->display('dummy.ihtml');
 ```
 
-To call template php's variable in the html look dummy.ihtml
+Pour appeler la variable du modèle php dans le look html dummy.ihtml
 
-To do request in database:
+Faire la demande dans la base de données :
 
-> initialization of databases's centreon, centreon storage and recovering preferences
+> initialisation des préférences de bases de données centreon, de stockage centreon et de récupération
 
 ```PHP
 try {
@@ -183,4 +178,4 @@ try {
 }
 ```
 
-Then request in database with class' methods.
+Puis demande dans la base de données avec les méthodes de la classe.

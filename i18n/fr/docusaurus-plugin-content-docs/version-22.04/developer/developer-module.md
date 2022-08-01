@@ -1,29 +1,30 @@
 ---
-id: developer-module
-title: How to write a module
+id: developer-module  
+title: Comment écrire un module
 ---
 
-You want to create a new module for Centreon or to adapt an existing one? You're at the right place!
+Vous souhaitez créer un nouveau module pour Centreon ou adapter un module existant ? Vous êtes au bon endroit !
 
-An empty module template can be found inside [Centreon's repository](https://github.com/centreon/centreon-dummy)
-
----
-> **_NOTE:_** Main documentation is directly stored in the
-> [dummy repository](https://github.com/centreon/centreon-dummy/blob/master/README.md)
+Un modèle de module vide est disponible dans le [dépôt Centreon](https://github.com/centreon/centreon-dummy).
 
 ---
 
-You should know Centreon contains a page dedicated to the installation and the uninstallation of modules
-(**Administration > Extensions > Manager**). To make the module appears on this page, its directory must be placed inside
-Centreon's ``modules/`` directory. Example:
+
+> **_REMARQUE :_** La documentation principale est directement stockée dans le [dépôt fictif](https://github.com/centreon/centreon-dummy/blob/master/README.md).
+
+---
+
+
+Il faut savoir que Centreon contient une page dédiée à l’installation et à la désinstallation des modules (**Administration > Extensions > Manager**). Pour que le module apparaisse sur cette page, son répertoire doit être placé dans le répertoire `modules/` de Centreon. Exemple :
 
 ```Shell
 /usr/share/centreon/www/modules/dummy
 ```
 
-## Basis
+## Base
 
-The essential elements your module's directory must contain are presented below:
+Les éléments essentiels que doit contenir le répertoire de votre module sont présentés ci-dessous :
+
 ```PHP
 $module_conf['dummy'] = [
     // Short module's name. Must be equal to your module's directory name
@@ -51,73 +52,60 @@ $module_conf['dummy'] = [
 ];
 ```
 
-**[php > install.php]**
+**\[php > install.php]**
 
-This PHP file is executed at module installation if it is configured
-inside the *conf.php* file.
+Ce fichier PHP est exécuté à l’installation du module s’il est configuré dans le fichier *conf.php*.
 
-**[php > uninstall.php]**
+**\[php > uninstall.php]**
 
-This PHP file is executed at module uninstallation if it is configured
-inside the *conf.php* file.
+Ce fichier PHP est exécuté à la désinstallation du module s’il est configuré dans le fichier *conf.php*.
 
-**[sql > install.sql]**
+**\[sql > install.sql]**
 
-This SQL file is executed during the module installation if it is configured inside the *conf.php* file. If you want
-your module to be available from Centreon menus, you must insert new entries into the ``topology`` table of the
-``centreon`` database. An example is available inside the ``Dummy`` module.
+Ce fichier SQL est exécuté lors de l’installation du module s’il est configuré dans le fichier *conf.php*. Si vous souhaitez que votre module soit disponible dans les menus Centreon, vous devez insérer de nouvelles entrées dans la table `topology` de la base de données `centreon`. Un exemple est disponible à l’intérieur du module `Dummy`.
 
-**[sql > uninstall.sql]**
+**\[sql > uninstall.sql]**
 
-This SQL file is executed during the module uninstallation if it is configured inside the *conf.php* file. It can also
-remove your module from Centreon menus.
+Ce fichier SQL est exécuté lors de la désinstallation du module s’il est configuré dans le fichier *conf.php*. Il peut également supprimer votre module des menus Centreon.
 
-**[generate_files > \*.php]**
+**\[generate\_files > \*.php]**
 
-The PHP files contained inside the ``generate_files`` directory will be executed during the monitoring engine
-configuration files generation (inside **Configuration > Monitoring Engines**). Those files must generate configuration
-files.
+Les fichiers PHP contenus dans le répertoire `generate_files` seront exécutés lors de la génération des fichiers de configuration du moteur de supervision (dans **Configuration > Monitoring Engines**). Ces fichiers doivent générer des fichiers de configuration.
 
-**[UPGRADE > dummy-x.x > sql > upgrade.sql]**
+**\[UPGRADE > dummy-x.x > sql > upgrade.sql]**
 
-Centreon provides an upgrade system for modules. To use it, just add a directory under ``UPGRADE`` named using the
-following pattern: ``<module name>-<version>``. When clicking on the upgrade button, Centreon will search for scripts
-to execute, following the logical order of versions.
+Centreon propose un système de mise à niveau des modules. Pour l’utiliser, il suffit d’ajouter un répertoire sous `UPGRADE` nommé selon le modèle suivant : `<module name>-<version>`. Lorsque vous cliquez sur le bouton de mise à niveau, Centreon recherche les scripts à exécuter, en suivant l’ordre logique des versions.
 
-For example, if the version 1.0 of the dummy module is installed and the following directories exist:
+Par exemple, si la version 1.0 du module fictif est installée et que les répertoires suivants existent :
+
 ```Shell
 ls UPGRADE
 dummy-1.1 dummy-1.2
 ```
 
-Centreon will execute the scripts in the following order : 1.1, 1.2. A configuration file in each upgrade directory is
-present in order to allow (or not) the execution.
+Centreon exécutera les scripts dans l’ordre suivant : 1.1, 1.2. Un fichier de configuration dans chaque répertoire de mise à niveau est présent afin d’autoriser (ou non) l’exécution.
 
-You're free to organize the remaining files (your module's content) as you like.
+Vous êtes libre d’organiser les fichiers restants (le contenu de votre module) comme vous le souhaitez.
 
-## Advanced
+## Avancé
 
-  > :warning: **This section is deprecated, please refer to
-  > the [dummy repository documentation](https://github.com/centreon/centreon-dummy/blob/master/README.md)**
+> :warning: **Cette section est obsolète, veuillez vous référer à la [documentation du dépôt fictif](https://github.com/centreon/centreon-dummy/blob/master/README.md)**
 
-That's great, you know how to install a module! As an empty module is not really useful, put your imagination at work.
-Knowing that you can do almost everything, it should not be too complicated :-).
+C’est fantastique, vous savez comment installer un module ! Comme un module vide n’est pas vraiment utile, faites travailler votre imagination. Sachant que vous pouvez presque tout faire, cela ne devrait pas être trop compliqué :-).
 
-### Connecting to the database
+### Connexion à la base de données
 
-You can use the ``centreon`` and ``centstorage`` databases by calling the following file:
-``centreon/www/class/centreonDB.class.php``.
+Vous pouvez utiliser les bases de données `centreon` et `centstorage` en appelant le fichier suivant : `centreon/www/class/centreonDB.class.php`.
 
-For example, execute requests like this:
+Par exemple, exécutez des requêtes comme celle-ci :
 
 ```PHP
 $pearDB = new CentreonDB();
 $pearDB->query("SELECT * FROM host");
 ```
 
-### Existing functions
+### Fonctions existantes
 
-You can access most of the functions already developed within Centreon using ``include()`` statements. They're generally
-stored in ``centreon/www/class/``.
+Vous pouvez accéder à la plupart des fonctions déjà développées dans Centreon à l’aide d’instructions `include()`. Elles sont généralement stockées dans `centreon/www/class/`.
 
-Before developing your own function, check the existing code, it could spare your time!
+Avant de développer votre propre fonction, vérifiez le code existant, cela pourrait vous faire gagner du temps !
