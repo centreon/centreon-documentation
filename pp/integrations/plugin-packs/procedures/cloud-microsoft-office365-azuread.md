@@ -80,10 +80,10 @@ yum install centreon-pack-cloud-microsoft-office365-azuread
 
 | Mandatory   | Macro                 | Description                                                                            |
 |:------------|:----------------------|:---------------------------------------------------------------------------------------|
-|             | OFFICE365CLIENTID     |                                                                                        |
-|             | OFFICE365CLIENTSECRET |                                                                                        |
+|      x      | OFFICE365CLIENTID     |                                                                                        |
+|      x      | OFFICE365CLIENTSECRET |                                                                                        |
 |             | OFFICE365EXTRAOPTIONS | Any extra option you may want to add to every command line (eg. a --verbose flag)      |
-|             | OFFICE365TENANT       |                                                                                        |
+|      x      | OFFICE365TENANT       |                                                                                        |
 
 ## How to check in the CLI that the configuration is OK and what are the main options for?
 

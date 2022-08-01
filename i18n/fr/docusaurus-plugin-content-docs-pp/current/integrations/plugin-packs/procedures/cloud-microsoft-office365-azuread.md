@@ -81,10 +81,10 @@ yum install centreon-pack-cloud-microsoft-office365-azuread
 
 | Obligatoire | Macro                 | Description                                                                            |
 |:------------|:----------------------|:---------------------------------------------------------------------------------------|
-|             | OFFICE365CLIENTID     |                                                                                        |
-|             | OFFICE365CLIENTSECRET |                                                                                        |
+|     x       | OFFICE365CLIENTID     |                                                                                        |
+|     x       | OFFICE365CLIENTSECRET |                                                                                        |
 |             | OFFICE365EXTRAOPTIONS | Options supplémentaires à ajouter à l'ensemble des commandes de l'hôte (ex: --verbose) |
-|             | OFFICE365TENANT       |                                                                                        |
+|     x       | OFFICE365TENANT       |                                                                                        |
 
 ## Comment puis-je tester le plugin et que signifient les options des commandes ?
 
