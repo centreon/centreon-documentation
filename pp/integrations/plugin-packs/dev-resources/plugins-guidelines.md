@@ -178,6 +178,9 @@ Option management is a central piece of a successful plugin. You should:
 * Carefully name your options to make them **self-explanatory**
 * For a given option, **only one format** is possible (either a flag, expect a value, but not both)
 * Always **check** for values supplied by the user and print a **clear message** when they doesn’t fit with plugin requirements
+* Set default option value when relevant
+
+TODO:ADD-LINK-DEV-SECTION
 
 ## Discovery 
 
@@ -286,19 +289,103 @@ Using those structures is convenient when you need to group object properties be
 On the users' side, it allows using these values to filter in or out some value or make a better choice 
 about the host template for a given discovered host.
 
+TODO:ADD-LINK-DEV-SECTION
+
 ### Services
+
+Service discovery relies on XML to return information that will be parsed and used by the UI module to 
+create new services efficiently.
+
+As for Host, it can be an option at runtime, or an execution mode. In centreon-plugins, we choose to have dedicated
+`list<objectname>.pm` modes. 
+
+All `list<objectname>.pm` modes contain two option that will return properties and results that will be used in the 
+discovery rules definitions. 
+
+The first service discovery option is `--disco-format`, it enables the plugin to return the supported keys in the rule: 
+
+```bash title='Linux Network int --disco-format output' 
+-bash-4.2$ /usr/lib/centreon/plugins/centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin --mode=list-interfaces --hostname=127.0.0.1 --disco-format
+<?xml version="1.0" encoding="utf-8"?>
+<data>
+  <element>name</element>
+  <element>total</element>
+  <element>status</element>
+  <element>interfaceid</element>
+  <element>type</element>
+</data>
+```
+
+The output above shows that the discovery of network interfaces on Linux will return those properties: 
+- `name`: the name of the interface
+- `total`: the maximum bandwidth supported
+- `status`: the configuration status of the interface (convenient to exclude administratively down interfaces)
+- `interfaceid`: the id
+- `type`: interface type (like ethernet, fiber, loopback, etc.)
+
+Executing exactly the same command, substituting `--disco-format` with `--disco-show` will output the discovered interfaces: 
+
+```bash title='Linux Network int --disco-show output'
+/usr/lib/centreon/plugins/centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin --mode=list-interfaces --hostname=127.0.0.1 --disco-show
+<?xml version="1.0" encoding="utf-8"?>
+<data>
+  <label status="up" name="lo" type="softwareLoopback" total="10" interfaceid="1"/>
+  <label status="up" name="ens5" type="ethernetCsmacd" total="" interfaceid="2"/>
+</data>
+```
+
+The result contains one line per interface and each line contains each  properties as a `key="value"` pair. Note that even if 
+no data is obtained for a given key, it's still has to be displayed (e.g `total=""`).
+
+TODO:ADD-LINK-DEV-SECTION
 
 ## Performances 
 
+A monitoring plugin has to do one thing and do it right, it's important to code your plugin with the idea to make 
+it as efficient as possible. Keep in mind that your Plugin might run every minutes, against a large 
+number of device, so a minor optimization can results in important benefits at scale.
+
+Also think about the 'thing' you're monitoring, it's important to always try to reduce the overhead of a check 
+from the monitored object point of view.
+
 ### Execution time
 
+The most basic way to bench a plugin performance is its execution time. Use the 
+`time` command utility to run your check an measure over several runs how it behaves.
+
+### Cache
+
+In some case, it can be interesting to cache some information. 
+
+Caching in a local file might save some call against an API, for example do not authenticate at every check. 
+When possible, use the token obtained at the first check and stored in the cache file to only call the 
+authentication endpoint when it's absolutely necessary.
+
+More widely, when an identifier, name or anything that would never change across different executions require a 
+request against the third-party system, cache it to optimize single-check processing time. 
+
+### Algorithm
+
+Optimizing the number of requests again a third-party system can also lie in the check algorithm. Prefer scraping 
+the maximum of data in one check and then filter programmaticaly the result instead of issuing multiple very specific 
+requests that would result in longer execution time and greater load on the target system. 
+
 ### Timeout
+
+A Plugin must always include a timeout to avoid never ending checks that might overload your monitoring 
+system when something is broken and that, for any reason, the plugin cannot obtain the information.
 
 ## Security
 
 ### System commands
 
+If the plugin requires to execute a command at the operating system level, and that user can modify the command name or
+its parameters, make sure you secure the fact that nobody can leverage your plugin capabilities to break the underlying
+system or access sensitive information.
+
 ### Dependencies
+
+
 
 ## Help and documentation
 
