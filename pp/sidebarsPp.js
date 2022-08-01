@@ -916,6 +916,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-microsoft-office365-azuread'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-microsoft-office365-management'
         },
         {
