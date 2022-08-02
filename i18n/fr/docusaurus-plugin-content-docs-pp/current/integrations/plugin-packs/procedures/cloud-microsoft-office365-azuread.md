@@ -25,9 +25,9 @@ Il apporte le modèle de service suivant :
 <Tabs groupId="sync">
 <TabItem value="Directory-Quota" label="Directory-Quota">
 
-| Métrique    | Unité |
-|:------------|:------|
-| usage       |       |
+| Metric Name                          | Unit  |
+|:-------------------------------------|:------|
+| azure.ad.directory.usage.count       |       |
 
 </TabItem>
 </Tabs>
