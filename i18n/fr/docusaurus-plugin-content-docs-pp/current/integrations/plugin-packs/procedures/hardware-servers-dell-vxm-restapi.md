@@ -26,7 +26,7 @@ Il apporte les modèles de service suivants :
 
 | Nom de la règle  | Description                                   |
 |:-----------------|:----------------------------------------------|
-| Dell VxRail Host | Découverte les hôtes VxRail |
+| Dell VxRail Host | Découverte les hôtes VxRail                   |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery)
 pour en savoir plus sur la découverte automatique d'hôtes.
