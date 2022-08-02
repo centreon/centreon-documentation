@@ -1,192 +1,196 @@
 ---
-id: network-ibm-bladecenter-snmp
-title: IBM Bladecenter Switch
+id: hardware-servers-ibm-bladecenter-snmp
+title: IBM BladeCenter
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Vue d'ensemble
+## Contenu du Pack
 
-IBM développe, fabrique et vend du matériel, des logiciels, des middlewares et
-autres services et produits informatiques. Créée en 2002, IBM BladeCenter est
-l'architecture de serveurs lames d'IBM.
+### Modèles
 
-## Contenu du Plugin-Pack
+Le Plugin Pack Centreon **IBM BladeCenter** apporte un modèle d'hôte :
 
-### Eléments supervisés
+* HW-Server-IBM-Bladecenter-SNMP-custom
 
-* Module switch IBM Bladecenter server
+Il apporte les modèles de service suivants :
 
-### Métriques collectées 
+| Alias                   | Modèle de service                               | Description                                                    | Défaut |
+|:------------------------|:------------------------------------------------|:---------------------------------------------------------------|:-------|
+| Hardware-Ambient        | HW-IBM-Bladecenter-Hardware-Ambient-SNMP        | Contrôle les températures ambiantes du chassis bladecenter IBM |        |
+| Hardware-Blade          | HW-IBM-Bladecenter-Hardware-Blade-SNMP          | Contrôle les blades du chassis bladecenter IBM                 |        |
+| Hardware-Blower         | HW-IBM-Bladecenter-Hardware-Blower-SNMP         | Contrôle les blower du chassis bladecenter IBM                 |        |
+| Hardware-Chassis-Status | HW-IBM-Bladecenter-Hardware-Chassis-Status-SNMP | Contrôle les tests du chassis bladecenter IBM                  |        |
+| Hardware-Global         | HW-IBM-Bladecenter-Hardware-Global-SNMP         | Contrôle tous les indicateurs disponibles en un contrôle       | X      |
+| Hardware-Power-Module   | HW-IBM-Bladecenter-Hardware-Power-Module-SNMP   | Contrôle les power modules du chassis bladecenter IBM          |        |
+| Hardware-System-Health  | HW-IBM-Bladecenter-Hardware-System-Health-SNMP  | Contrôle l'état du système du chassis bladecenter IBM          |        |
 
-En plus des modes et des métriques détaillés ci-après, il est également possible
-de superviser les éléments suivants :
-
-* Ntp : Vérifier le décalage de temps du serveur avec le serveur NTP
-* Uptime : Durée depuis le dernier redémarrage
+### Métriques & statuts collectés
 
 <Tabs groupId="sync">
-<TabItem value="Cpu" label="Cpu">
+<TabItem value="Hardware-Global" label="Hardware-Global">
 
-| Metric name                    | Description                              | Unit   |
-| :----------------------------- | :--------------------------------------- | :------|
-| cpu.utilization.1m.percentage  | CPU utilization for the last minute      | %      |
-| cpu.utilization.5m.percentage  | CPU utilization for the last 5 minutes   | %      |
-
-</TabItem>
-<TabItem value="Storage" label="Storage">
-
-| Metric name                         | Description                    | Unit   |
-| :---------------------------------- | :----------------------------- |------- |
-| storage.partitions.count            | Total number of partition      |        |
-| partition#storage.space.usage.bytes | Used space on a disk partition | Bytes  |
+| Metric name                           | Description                   | Unit  |
+| :------------------------------------ | :-----------------------------| :---- |
+| Blade health state                    | Status                        |       |
+| Blade power state                     | Status                        |       |
+| Chassis status/state                  | Key/value string status/state |       |
+| hardware.ambient.temperature.celsius  | Ambient temperature           |  C    |
+| hardware.blower.speed.percentage      | Blower speed percentage       |  %    |
+| Overall system health                 | Status string                 |       |
+| Power module status/state             | Key/value string status/state |       |
 
 </TabItem>
-<TabItem value="Memory-Usage" label="Memory-Usage">
+<TabItem value="Hardware-Ambient" label="Hardware-Ambient">
 
-| Metric name             | Description                 | Unit   |
-| :---------------------- | :---------------------------| :----- |
-| memory.usage.bytes      | Total current memory usage  | Bytes  |
-| memory.usage.percentage | Total current memory usage  |  %     |
-| memory.free.bytes       | Current free memory         | Bytes  |
+| Metric name                           | Description               | Unit  |
+| :------------------------------------ | :------------------------ | :---- |
+| hardware.ambient.temperature.celsius  | Ambient temperature       |  C    |
 
 </TabItem>
-<TabItem value="Traffic" label="Traffic">
+<TabItem value="Hardware-Blade" label="Hardware-Blade">
 
-| Metric name                              | Description                                                               | Unit        |
-| :--------------------------------------- | :------------------------------------------------------------------------ | :---------- |
-| status                                   | Interface status                                                          |             |
-| interface.traffic.\*.bitspersecond       | \*in/out. Incoming/outgoing traffic going through the interface           | Bytes/s & % |
-| interface.packets.\*.errors.percentage   | \*in/out. Incoming/outgoing errored packets going through an interface    | Count & %   |
-| interface.packets.\*.discards.percentage | \*in/out. Incoming/outgoing discarded packets going through an interface  | Count & %   |
-
-A regexp filter is available to target a specific interface identifier/ifName [```--interface='^my-interface-name$' --name```] 
+| Metric name         | Description               | Unit  |
+| :-------------------| :------------------------ | :---- |
+| Blade health state  | Status                    |       |
+| Blade power state   | Status                    |       |
 
 </TabItem>
-<TabItem value="Environment" label="Environment">
+<TabItem value="Hardware-Blower" label="Hardware-Blower">
 
-| Metric name                   | Description                      | Unit     |               
-| :---------------------------- | :------------------------------- | :--------|
-| hardware.temperature.celsius  | Temperature of the system        | Celsius  |
-| faultled                      | Status of the fault LED (On/Off) |          |
+| Metric name                           | Description               | Unit  |
+| :------------------------------------ | :------------------------ | :---- |
+| hardware.blower.speed.percentage      | Blower speed percentage   |  %    |
 
-You can use ```--no-component``` if you want to alert when a component is 
-absent/removed. You can also overload the default status using the 
-```--threshold-overload option```. 
+</TabItem>
+<TabItem value="Hardware-Chassis-Status" label="Hardware-Chassis-Status">
+
+| Metric name          | Description                   | Unit  |
+| :--------------------| :-----------------------------| :---- |
+| Chassis status/state | Key/value string status/state |       |
+
+</TabItem>
+<TabItem value="Hardware-Power-Module" label="Hardware-Power-Module">
+
+| Metric name               | Description                   | Unit  |
+| :-------------------------| :-----------------------------| :---- |
+| Power module status/state | Key/value string status/state |       |
+
+</TabItem>
+<TabItem value="Hardware-System-Health" label="Hardware-System-Health">
+
+| Metric name             | Description               | Unit  |
+| :-----------------------| :------------------------ | :---- |
+| Overall system health   | Status string             |       |
 
 </TabItem>
 </Tabs>
 
 ## Prérequis
 
-Pour utiliser ce plugin-pack, vous devez configurer le service SNMP sur l'IBM 
-BladeCenter. Une description complète est disponible sur le site officiel de Cisco:
+### Configuration SNMP
 
-* Avec l'interface Web de BladeCenter : https://bladecenter.lenovofiles.com/help/index.jsp?topic=%2Fcom.lenovo.bladecenter.mgtmod.doc%2Fkp1ag_bc_mmug_configsnmp
-* Avec l'interface en ligne de commande : https://bladecenter.lenovofiles.com/help/index.jsp?topic=%2Fcom.lenovo.bladecenter.advmgtmod.doc%2Fkp1bc_bc_cli_snmp
+Afin de superviser votre **IBM Bladecenter** en SNMP,  il est nécessaire de configurer l'agent sur le manager comme indiqué sur la documentation officielle :
+* https://bladecenter.lenovofiles.com/help/index.jsp?topic=%2Fcom.lenovo.bladecenter.mgtmod.doc%2Fkp1ag_bc_mmug_configsnmp.html 
 
-### Flux réseaux
+### Flux réseau
 
-Les collecteurs Centreon doivent pouvoir communiquer via le port UDP/161 SNMP
-avec l'IBM BladeCenter.
+La communication doit être possible sur le port UDP 161 depuis le collecteur
+Centreon vers le manager à superviser.
 
 ## Installation
 
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Installer le Plugin sur tous les collecteurs Centreon supervisant le module switch IBM BladeCenter :
+1. Installez le plugin sur tous les collecteurs Centreon devant superviser des ressources **IBM Bladecenter** :
 
 ```bash
-yum install centreon-plugin-Network-Ibm-Bladecenter-Snmp
+yum install centreon-plugin-Hardware-Servers-Ibm-Bladecenter-Snmp
 ```
 
-2. Installer le Plugin-Pack *IBM BladeCenter Switch* depuis la page "Configuration > Plugin packs > Manager" de l'interface Web Centreon
+2. Sur l'interface web de Centreon, installez le Plugin Pack **IBM BladeCenter** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Installer le Plugin sur tous les collecteurs Centreon supervisant le module switch IBM BladeCenter :
+1. Installez le plugin sur tous les collecteurs Centreon devant superviser des ressources **IBM Bladecenter** :
 
 ```bash
-yum install centreon-plugin-Network-Ibm-Bladecenter-Snmp
+yum install centreon-plugin-Hardware-Servers-Ibm-Bladecenter-Snmp
 ```
 
-2. Installer le RPM du Plugin-Pack contenant les modèles de supervision sur le serveur Centreon Central :
+2. Sur le serveur central Centreon, installez le RPM du Plugin Pack **IBM BladeCenter** :
 
 ```bash
-yum install centreon-pack-network-ibm-bladecenter-snmp
+yum install centreon-pack-hardware-servers-ibm-bladecenter-snmp
 ```
 
-3. Installer le Plugin-Pack *IBM BladeCenter Switch* depuis la page "Configuration > Plugin packs > Manager" de l'interface Web Centreon
+3. Sur l'interface web de Centreon, installez le Plugin Pack **IBM BladeCenter** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>
 
 ## Configuration
 
-Aller dans *Configuration* > *Host* > et cliquer sur *Ajouter*. Puis complétez
-les champs *SNMP Community* et *SNMP Version* et appliquer le modèle d'hôte 
-*Net-Ibm-Bladecenter-SNMP-custom*.
+### hôte
 
-> Si vous utilisez SNMP en version 3, selectionnez la version SNMP 3 et configurez les paramètres SNMP v3 via la macro *SNMPEXTRAOPTIONS*. 
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#troubleshooting-snmp).
+* Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
+* Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre serveur **IBM Bladecenter**.
+* Appliquez le modèle d'hôte **HW-Server-IBM-Bladecenter-SNMP-custom**.
 
-| Obligatoire   | Nom              | Description                                    |
-| :------------ | :--------------- | :--------------------------------------------- |
-|               | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo    |
+Si vous utilisez SNMP en version 3, vous devez configurer les paramètres
+spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
 
-## FAQ
+| Obligatoire | Macro            | Description                                  |
+|:------------|:-----------------|:---------------------------------------------|
+|             | SNMPEXTRAOPTIONS | Configurer vos paramètres de sécurité SNMPv3 |
 
-### Comment tester en ligne de commande et que signifient les options principales ?
+## Comment puis-je tester le plugin et que signifient les options des commandes ?
 
-Une fois le Plugin est installé, vous pouvez tester celui-ci directement en
-ligne de commande depuis votre collecteur Centreon avec l'utilisateur 
-*centreon-engine*:
- 
-```bash
-/usr/lib/centreon/plugins/centreon_net_bladecenter_snmp.pl \
-  --plugin=network::ibm::bladecenter::snmp::plugin \
-  --mode=interfaces --hostname=10.30.2.138 \
-  --snmp-community='public' \
-  --snmp-version='2c' \
-  --add-status \
-  --add-traffic
-```
-
-Résultat attendu :
-
-```
-OK: All interfaces are ok | 'traffic_in_lo'=19795.35b/s;;;0;10000000 'traffic_out_lo'=19795.35b/s;;;0;10000000 'traffic_in_ens192'=26001.62b/s;;;0;10000000000 'traffic_out_ens192'=24438.38b/s;;;0;10000000000
-```
-
-Tous les modes disponibles dans le Plugin peuvent être listés via la commande
-suivante :
+Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
+de commande depuis votre collecteur Centreon en vous connectant avec
+l'utilisateur **centreon-engine** (`su - centreon-engine`) :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_net_bladecenter_snmp.pl \
-  ---plugin=network::ibm::bladecenter::snmp::plugin \
-  --list-mode
+/usr/lib/centreon/plugins//centreon_ibm_bladecenter.pl \
+    --plugin=hardware::server::ibm::bladecenter::snmp::plugin \
+    --mode=hardware \
+    --hostname=10.0.0.1 \
+    --snmp-version='2c' \
+    --snmp-community='my-snmp-community' \
+    --component='.*' \
+    --verbose \
+    --use-new-perfdata
 ```
 
-Les options des différents modes sont consultables via le paramètre ```--help```
-du mode :  
+La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_net_bladecenter_snmp.pl \
-  --plugin=network::ibm::bladecenter::snmp::plugin \
-  --mode=interfaces \
-  --help
+OK: All components are OK | 
 ```
 
-### UNKNOWN: SNMP GET Request : Timeout
+La liste de toutes les options complémentaires et leur signification peut être
+affichée en ajoutant le paramètre `--help` à la commande :
 
-Si vous obtenez ce message, cela signifie que le collecteur Centreon ne parvient
-pas à contacter votre cluster Nutanix sur le port UDP 161 ou bien que la
-communauté SNMP configurée n'est pas correcte.
+```bash
+/usr/lib/centreon/plugins//centreon_ibm_bladecenter.pl \
+    --plugin=hardware::server::ibm::bladecenter::snmp::plugin \
+    --mode=hardware \
+    --help
+```
 
-### UNKNOWN: SNMP GET Request : Cant get a single value.
+Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
+`--list-mode` à la commande :
 
-Si vous rencontrez cette erreur, il est probable que les autorisations données à
-l'agent SNMP soient trop restreintes.
+```bash
+/usr/lib/centreon/plugins//centreon_ibm_bladecenter.pl \
+    --plugin=hardware::server::ibm::bladecenter::snmp::plugin \
+    --list-mode
+```
+
+### Diagnostic des erreurs communes
+
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md)
+pour le diagnostic des erreurs communes des plugins Centreon.
