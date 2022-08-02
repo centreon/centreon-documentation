@@ -160,7 +160,7 @@ Une fois que votre fichier **/usr/share/centreon-broker/lua/bbdo2file.lua** est 
 chown centreon-engine:centreon-engine /usr/share/centreon-broker/lua/bbdo2file.lua
 ```
 
-Ensuite, configurez le nouvel output dans l'interface Web Centreon dans **Configuration > Collecteurs > Configuration de Centreon Broker > Central Broker**. Dans l’onglet **Output**, sélectionnez **Generic – Stream connector**, puis cliquez sur **Ajouter**:
+Ensuite, configurez le nouvel output dans l'interface Web Centreon dans **Configuration > Collecteurs > Configuration de Centreon Broker > Central Broker**. Dans l’onglet **Output**, sélectionnez **Generic – Stream connector**, puis cliquez sur **Ajouter** :
 
 ![image](../assets/developer/lua/add_stream_connector.png)
 
