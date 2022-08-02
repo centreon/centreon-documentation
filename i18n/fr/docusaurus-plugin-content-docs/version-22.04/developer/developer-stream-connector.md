@@ -52,8 +52,6 @@ Les scripts Lua de Broker peuvent être stockés dans tout répertoire lisible p
 
 Nous recommandons de les stocker dans **/usr/share/centreon-broker/lua**.
 
-> Dans un futur proche, ce répertoire sera dans le *chemin par défaut* des scripts Lua lancés par broker. Il sera alors plus facile d'utiliser les bibliothèques Lua définies par l'utilisateur, car il suffira d'y ajouter vos bibliothèques comme les Stream Connectors.
-
 ### Écrire toutes les informations dans un fichier
 
 #### Stocker les données brutes

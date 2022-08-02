@@ -61,9 +61,6 @@ Broker's Lua scripts can be stored in any directory readable by the **centreon-b
 
 We recommend to store them in **/usr/share/centreon-broker/lua**.
 
-> In a near future, this directory will be in the *default path* of the Lua scripts launched by broker. It will then be
-> easier to use user defined Lua libraries because you will just have to add your libraries there like stream connectors.
-
 ### Write all information into a file
 
 #### Store raw data
