@@ -3,9 +3,9 @@ id: developer-gorgone-client-server-communication
 title : Managing client/server communication
 ---
 
-Centreon Gorgone is used on the central server, the remote servers, and the pollers.
-Gorgone is the process for a distributed architecture: it deploys the configuration
-generated from the central server to the pollers and distributes external commands to the pollers.
+Centreon Gorgone is the component that allows the communication from the central server to the pollers and remote servers. In addition, Gorgone deploys the configuration of the monitoring engines.
+
+> Gorgone replaces Centcore since the Centreon 20.04 version.
 
 Centreon recommends to use the ZMQ protocol for the communication between two **gorgoned**
 processes. 
