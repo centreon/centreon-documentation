@@ -467,7 +467,7 @@ Nous devons définir la taille de la file d'attente et le délai maximal avant l
 
 Pour créer cette file d'attente, nous introduisons un code un peu plus compliqué. Nous créons un objet **event\_queue**. Il est composé de paramètres tels que *events*, *influx\_database* et des méthodes telles que *new()*, *add()*.
 
-Pour comprendre comment créer un tel objet en Lua, nous recommandons la documentation Lua [pour les classes](https://www.lua.org/pil/16.1) et [pour les métatables](https://www.lua.org/pil/16.1).
+Pour comprendre comment créer un tel objet en Lua, nous recommandons la documentation Lua [pour les classes](https://www.lua.org/pil/16.1.html) et [pour les métatables](https://www.lua.org/pil/13.html).
 
 Pour envoyer des données à un serveur, nous fournissons un objet **broker\_tcp\_socket**.
 
