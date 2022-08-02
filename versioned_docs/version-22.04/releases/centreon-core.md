@@ -17,6 +17,12 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 22.04.2
+
+#### Bug fixes
+
+- [Upgrade] Fixed symfony cache rebuild during upgrade
+
 ### 22.04.1
 
 Release date: `July 28, 2022`
