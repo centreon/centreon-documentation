@@ -1,13 +1,13 @@
 ---
 id: developer-stream-connector  
-title: Comment écrire un connecteur de flux
+title: Comment écrire un Stream Connector
 ---
 
 ## Vue d'ensemble
 
 Centreon Stream Connector est une fonction introduite dans Centreon 3.4.6. Elle permet d'exporter les données Centreon (événements et métriques) vers un stockage ou une application externe comme ElasticSearch, Splunk, InfluxDB, des fichiers, etc.
 
-Dans une plateforme Centreon, le composant qui transporte les informations entre les pollers distants et le serveur central Centreon est appelé Centreon Broker. Ce broker stocke les données reçues dans le stockage local de Centreon : MariaDB et RRDtool.
+Dans une plateforme Centreon, le composant qui transporte les informations entre les collecteurs distants et le serveur central Centreon est appelé Centreon Broker. Ce broker stocke les données reçues dans le stockage local de Centreon : MariaDB et RRDtool.
 
 Le schéma suivant explique le transfert des données collectées et leur insertion dans les stockages :
 
@@ -23,7 +23,7 @@ Cet output charge un script Lua appelé un Stream Connector, dont la tâche cons
 
 Comme il s'agit d'un output de Centreon Broker, le principe de la création de fichiers de rétention lors de l'interruption de l'accès au stockage externe est conservé. De la même manière, il est possible de filtrer les entrées sur les catégories de flux à traiter.
 
-## Exigences
+## Prérequis
 
 Pour utiliser la fonctionnalité Centreon Stream Connector, vous devez disposer au minimum de la version 3.4.6 de Centreon :
 
@@ -35,10 +35,10 @@ Pour utiliser la fonctionnalité Centreon Stream Connector, vous devez disposer 
 
 La documentation technique complète est disponible [ici](developer-broker-stream-connector.md). Dans ce mode d'emploi, nous allons écrire deux scripts :
 
-* Le premier, simple, qui explique les bases des connecteurs de flux. Son objectif est d'exporter les données vers un fichier journal.
+* Le premier, simple, qui explique les bases des Stream Connectors. Son objectif est d'exporter les données vers un fichier journal.
 * Le second est plus exigeant pour le lecteur, il exporte les données de performance vers la TSDB InfluxDB mais est facilement adaptable pour exporter vers une autre TSDB.
 
-## Migration d'un connecteur de flux de BBDO 2 vers BBDO 3
+## Migration d'un Stream Connector de BBDO 2 vers BBDO 3
 
 La documentation technique de la migration est disponible [ici](developer-broker-stream-connector-migration.md). Ce mode d'emploi donne plusieurs conseils pour réussir la migration et présente un petit exemple.
 
@@ -52,13 +52,13 @@ Les scripts Lua de Broker peuvent être stockés dans tout répertoire lisible p
 
 Nous recommandons de les stocker dans **/usr/share/centreon-broker/lua**.
 
-> Dans un futur proche, ce répertoire sera dans le *chemin par défaut* des scripts Lua lancés par broker. Il sera alors plus facile d'utiliser les bibliothèques Lua définies par l'utilisateur, car il suffira d'y ajouter vos bibliothèques comme les connecteurs de flux.
+> Dans un futur proche, ce répertoire sera dans le *chemin par défaut* des scripts Lua lancés par broker. Il sera alors plus facile d'utiliser les bibliothèques Lua définies par l'utilisateur, car il suffira d'y ajouter vos bibliothèques comme les Stream Connectors.
 
 ### Écrire toutes les informations dans un fichier
 
 #### Stocker les données brutes
 
-Commençons par le premier script. Notre objectif est de stocker tous les événements donnés par Broker dans un fichier journal. Nous allons appeler notre connecteur de flux **bbdo2file.lua**.
+Commençons par le premier script. Notre objectif est de stocker tous les événements donnés par Broker dans un fichier journal. Nous allons appeler notre Stream Connector **bbdo2file.lua**.
 
 Comme nous l'avons dit précédemment, nous allons stocker ce fichier dans le répertoire **/usr/share/centreon-broker/lua** sur le serveur central Centreon.
 
@@ -68,7 +68,7 @@ Si le répertoire n'existe pas, en tant que root, nous pouvons le créer avec la
 mkdir -p /usr/share/centreon-broker/lua
 ```
 
-Centreon Broker propose plusieurs fonctions de journalisation pour écrire les journaux, les avertissements ou les erreurs dans un fichier. Nous utiliserons une de ces fonctions *info()* pour écrire les événements de Broker. [Consultez la documentation technique pour plus d'informations](developer-broker-stream-connector.md#the-broker_log-object)
+Centreon Broker propose plusieurs fonctions de journalisation pour écrire les journaux, les avertissements ou les erreurs dans un fichier. Nous utiliserons une de ces fonctions *info()* pour écrire les événements de Broker. [Consultez la documentation technique pour plus d'informations](developer-broker-stream-connector.md#lobjet-broker_log).
 
 La fonction *info()* fait partie de l'objet *broker\_log*. Pour l'appeler, la syntaxe est la suivante :
 
@@ -81,9 +81,9 @@ broker_log:info(level, text)
 
 > Avez-vous remarqué que le séparateur entre **broker\_log** et **info** est un double point ? Les fonctions des objets, aussi appelées *methods* sont appelées comme ceci en Lua.
 
-Commençons notre script. La fonction la plus importante dans un connecteur de flux est la fonction **write()**. Chaque fois qu'un événement est reçu d'un poller via Broker, cette fonction est appelée avec l'événement comme argument.
+Commençons notre script. La fonction la plus importante dans un Stream Connector est la fonction **write()**. Chaque fois qu'un événement est reçu d'un collecteur via Broker, cette fonction est appelée avec l'événement comme argument.
 
-> Vous n'aurez jamais à appeler la fonction **write()** par vous-même, c'est toujours à Broker de le faire. Et ce serait une erreur de faire un tel appel. En d'autres termes, il ne doit pas y avoir d'appel à la fonction **write()** dans votre script. [Consultez la documentation technique pour plus d'informations](developer-broker-stream-connector.md#the-write-function)
+> Vous n'aurez jamais à appeler la fonction **write()** par vous-même, c'est toujours à Broker de le faire. Et ce serait une erreur de faire un tel appel. En d'autres termes, il ne doit pas y avoir d'appel à la fonction **write()** dans votre script. [Consultez la documentation technique pour plus d'informations](developer-broker-stream-connector.md#la-fonction-write).
 
 Voici la première version de **bbdo2file.lua** :
 
@@ -100,13 +100,13 @@ function write(d)
 end
 ```
 
-> Les informations sur l'initialisation de la fonction de journalisation du Broker et ses paramètres sont données ici : [consultez la documentation technique](developer-broker-stream-connector.md#the-broker_log-object).
+> Les informations sur l'initialisation de la fonction de journalisation du Broker et ses paramètres sont données ici : [consultez la documentation technique](developer-broker-stream-connector.md#lobjet-broker_log).
 
 Expliquons ce que nous faisons dans ce script.
 
-Nous devons fournir une fonction **init()**, elle est décrite dans la [documentation technique](developer-broker-stream-connector.md#the-broker_log-object).
+Nous devons fournir une fonction **init()**, elle est décrite dans la [documentation technique](developer-broker-stream-connector.md#lobjet-broker_log).
 
-Cette fonction est appelée pendant l'initialisation du connecteur de flux. Ici, nous l'utilisons pour initialiser l'objet **broker\_log**. Pour cela, nous appelons la méthode **broker\_log::set\_parameters()** qui nécessite deux paramètres :
+Cette fonction est appelée pendant l'initialisation du Stream Connector. Ici, nous l'utilisons pour initialiser l'objet **broker\_log**. Pour cela, nous appelons la méthode **broker\_log::set\_parameters()** qui nécessite deux paramètres :
 
 * Un niveau max (de 1 à 3). Si vous indiquez 2 ici, seuls les journaux des niveaux 1 et 2 seront retournés.
 * Un fichier dans lequel écrire les journaux. Ce fichier doit se trouver dans un répertoire accessible en écriture pour l'utilisateur **centreon-broker**.
@@ -139,7 +139,7 @@ La deuxième fonction est la fonction **write()**. Nous avons déjà dit que son
 
 Tous les événements comprennent les valeurs *category*, *element* et *type*.
 
-* Les informations sur la *catégorie* se trouvent [dans la documentation bbdo](developer-broker-bbdo.md#event-categories).
+* Les informations sur la *catégorie* se trouvent [dans la documentation bbdo](developer-broker-bbdo.md#catégories-dévénements).
 * L’*élément* est la *sous-catégorie* (également appelé *type* dans la documentation bbdo).
 * Le *type* est un nombre dérivé de la *catégorie* et l’*élément* (concaténation binaire).
 
@@ -156,7 +156,7 @@ function write(d)
 end
 ```
 
-> On constate que **broker.json\_encode(d)** ****est composé de **broker** et **json\_encode(d)** séparés par un *point* et non un *double point*. C'est parce que **broker** n'est pas un objet Lua. En fait, vous pouvez le voir comme un ensemble de fonctions fournies par *Centreon Broker*.
+> On constate que **broker.json\_encode(d)** est composé de **broker** et **json\_encode(d)** séparés par un *point* et non un *double point*. C'est parce que **broker** n'est pas un objet Lua. En fait, vous pouvez le voir comme un ensemble de fonctions fournies par *Centreon Broker*.
 
 Une fois que votre fichier **/usr/share/centreon-broker/lua/bbdo2file.lua** est prêt, vérifiez qu'il est lisible par l'utilisateur **centreon-broker** (ou l'utilisateur **centreon-engine** qui est le propriétaire du groupe **centreon-broker**), si ce n'est pas le cas, en tant que root vous pouvez entrer :
 
@@ -164,7 +164,7 @@ Une fois que votre fichier **/usr/share/centreon-broker/lua/bbdo2file.lua** est 
 chown centreon-engine:centreon-engine /usr/share/centreon-broker/lua/bbdo2file.lua
 ```
 
-Ensuite, configurez le nouvel output dans l'interface Web Centreon dans **Configuration > Pollers > Broker configuration > Central Broker**. Dans l’onglet **Output**, sélectionnez **Generic – Stream connector**, puis cliquez sur **Add**:
+Ensuite, configurez le nouvel output dans l'interface Web Centreon dans **Configuration > Collecteurs > Configuration de Centreon Broker > Central Broker**. Dans l’onglet **Output**, sélectionnez **Generic – Stream connector**, puis cliquez sur **Ajouter**:
 
 ![image](../assets/developer/lua/add_stream_connector.png)
 
@@ -172,7 +172,7 @@ Définissez le nom de cet output et le chemin vers le connecteur Lua :
 
 ![image](../assets/developer/lua/describe_output.png)
 
-Cliquez ensuite sur **Save** et générez la configuration, puis redémarrez **cbd**.
+Cliquez ensuite sur **Sauvegarder** et générez la configuration, puis redémarrez **cbd**.
 
 Une fois que le Centreon Broker sera redémarré sur votre serveur central Centreon, les données apparaîtront dans votre fichier journal **/var/log/centreon-broker/bbdo2file.log** :
 
@@ -263,7 +263,7 @@ Modifiez votre output Broker pour déclarer ce paramètre :
 
 Il est important que le nom du paramètre dans l'interface web corresponde au nom de la clé dans la table **conf**. Il s’agit ici de *logFile*.
 
-Cliquez ensuite sur **Save** et générez la configuration, puis redémarrez **cbd**.
+Cliquez ensuite sur **Sauvegarder** et générez la configuration, puis redémarrez **cbd**.
 
 Les données sont stockées dans le fichier journal **/var/log/centreon-broker/bbdo2file.log** comme ceci :
 
@@ -294,34 +294,32 @@ metric_id => 11920
 
 #### Manipuler les données
 
-Ici, nous continuons à améliorer notre connecteur de flux en choisissant les événements à exporter et aussi en améliorant les outputs.
+Ici, nous continuons à améliorer notre Stream Connector en choisissant les événements à exporter et aussi en améliorant les outputs.
 
 Nous ne retiendrons que la catégorie NEB et les événements concernant le statut des hôtes et des services.
 
 Nous savons que NEB est la catégorie 1, que le statut du service est la sous-catégorie 24, et que le statut de l'hôte est la sous-catégorie 14.
 
-Donc, seuls les événements répondant aux critères suivants :
+Donc, seuls les événements répondant aux critères suivants nous intéressent :
 
 * catégorie = 1
 * élément = 14 ou élément = 24
 
-nous intéressent.
-
-De plus, nous préférerions avoir un nom d'hôte au lieu d'un id d'hôte et une description de service au lieu d'un id de service.
+De plus, nous préférerions avoir un nom d'hôte au lieu d'un ID d'hôte et une description de service au lieu d'un ID de service.
 
 Enfin, nous aimerions obtenir des informations sur le statut et les outputs.
 
 Les événements NEB avec les éléments 14 et 24 nous donnent presque toutes les informations que nous voulons sauf les noms d'hôtes et les descriptions de services.
 
-Pour obtenir ces deux informations, nous devrons utiliser l'objet **broker\_cache**. Celui-ci est rempli lorsque les pollers sont redémarrés ou rechargés. Donc, n'oubliez pas de redémarrer vos pollers si vous voulez quelque chose dans votre objet **broker\_cache** !
+Pour obtenir ces deux informations, nous devrons utiliser l'objet **broker\_cache**. Celui-ci est rempli lorsque les collecteurs sont redémarrés ou rechargés. Donc, n'oubliez pas de redémarrer vos collecteurs si vous voulez avoir quelque chose dans votre objet **broker\_cache** !
 
-Si le cache est bien rempli, il est facile d'obtenir un nom d'hôte à partir de l'id d'hôte :
+Si le cache est bien rempli, il est facile d'obtenir un nom d'hôte à partir de l'ID d'hôte :
 
 ```LUA
 broker_cache:get_hostname(host_id)
 ```
 
-Il est également facile d'obtenir la description du service à partir de l'id d'hôte et de l'id de service :
+Il est également facile d'obtenir la description du service à partir de l'ID d'hôte et de l'ID de service :
 
 ```LUA
 broker_cache:get_service_description(host_id, service_id)
@@ -451,7 +449,7 @@ SERVICE:mail-io-backend;88;diskio-system;551;0;Device /dev/sda: avg read 4.78 (M
 
 ## Exporter les données de performance vers InfluxDB
 
-Vous avez déjà appris beaucoup de choses sur les connecteurs de flux. Il est temps de créer quelque chose de plus utile !
+Vous avez déjà appris beaucoup de choses sur les Stream Connectors. Il est temps de créer quelque chose de plus utile !
 
 [InfluxDB](https://www.influxdata.com/) est une base de données de séries chronologiques (TSDB) Nous utiliserons ce stockage pour insérer les données de performance collectées par la plateforme Centreon. Pour cet exemple, nous allons utiliser le [InfluxDB Docker](https://hub.docker.com/_/influxdb/) prédéfini.
 
@@ -459,7 +457,7 @@ Pour envoyer des données à InfluxDB, nous avons besoin de paramètres pour acc
 
 * **http\_server\_address** : adresse IP du stockage
 * **http\_server\_port**: 8086 par défaut
-* **http\_server\_protocol** : http ou https
+* **http\_server\_protocol** : HTTP ou HTTPS
 * **influx\_database**: nom de la base de données
 * **influx\_user** : utilisateur qui accèdera à la base de données si défini
 * **influx\_password** : mot de passe de l'utilisateur qui accèdera à la base de données si défini
@@ -473,11 +471,11 @@ Nous devons définir la taille de la file d'attente et le délai maximal avant l
 
 Pour créer cette file d'attente, nous introduisons un code un peu plus compliqué. Nous créons un objet **event\_queue**. Il est composé de paramètres tels que *events*, *influx\_database* et des méthodes telles que *new()*, *add()*.
 
-Pour comprendre comment créer un tel objet en Lua, nous recommandons la documentation Lua [ici pour les classes](https://www.lua.org/pil/16.1) et [là pour les métatables](https://www.lua.org/pil/16.1).
+Pour comprendre comment créer un tel objet en Lua, nous recommandons la documentation Lua [pour les classes](https://www.lua.org/pil/16.1) et [pour les métatables](https://www.lua.org/pil/16.1).
 
 Pour envoyer des données à un serveur, nous fournissons un objet **broker\_tcp\_socket**.
 
-Son API est très simple (trop simple ?). Ce *socket* est un socket TCP, il ne prend pas en charge le chiffrement et il peut être délicat d'envoyer des données en http. Voici un exemple :
+Son API est très simple. Ce *socket* est un socket TCP, il ne prend pas en charge le chiffrement et il peut être délicat d'envoyer des données en HTTP. Voici un exemple :
 
 ```LUA
 -- Here, we create our socket
@@ -496,9 +494,9 @@ local content = socket:read()
 socket:close()
 ```
 
-Dans notre cas, nous n'utilisons pas **broker\_tcp\_socket** en raison de ses limitations. Nous voulons être en mesure d'envoyer des données à un serveur https.
+Dans notre cas, nous n'utilisons pas **broker\_tcp\_socket** en raison de ses limitations. Nous voulons être en mesure d'envoyer des données à un serveur HTTPS.
 
-Un prérequis est d'installer la [bibliothèque [l](http://w3.impa.br/~diego/software/luasocket/)](http://w3.impa.br/~diego/software/luasocket/)[ua-socket](http://w3.impa.br/~diego/software/luasocket/). Cette bibliothèque fournit plusieurs fonctionnalités, nous avons besoin de deux d'entre elles :
+Un prérequis est d'installer la [bibliothèque lua-socket](http://w3.impa.br/~diego/software/luasocket/). Cette bibliothèque fournit plusieurs fonctionnalités, nous avons besoin de deux d'entre elles :
 
 * socket http
 * ltn12
@@ -555,7 +553,7 @@ function event_queue:new(o, conf)
 end
 ```
 
-> Dans cette fonction, nous utilisons un sucre Lua « o = o ou {} » qui signifie que *o* reste le même s'il est **true**, sinon il est affecté d'un tableau vide `{}`.
+> Dans cette fonction, nous utilisons une astuce Lua « o = o ou {} » qui signifie que *o* reste le même s'il est **true**, sinon il est affecté d'un tableau vide `{}`.
 > 
 > Un autre point à noter est l'opérateur **~=** qui signifie **différent de**.
 > 
@@ -725,7 +723,7 @@ Le script complet peut être téléchargé [ici](https://github.com/centreon/cen
 
 ### Configurer Centreon Broker
 
-Configurez le nouvel output dans l'interface Web Centreon dans **Configuration > Pollers > Broker configuration > Central Broker**. Dans l’onglet **Output**, sélectionnez **Generic – Stream connector**, puis cliquez sur **Add**:
+Configurez le nouvel output dans l'interface Web Centreon dans **Configuration > Collecteurs > Configuration de Centreon Broker > Central Broker**. Dans l’onglet **Output**, sélectionnez **Generic – Stream connector**, puis cliquez sur **Ajouter**:
 
 ![image](../assets/developer/lua/add_stream_connector.png)
 
@@ -733,7 +731,7 @@ Définissez le nom de cet output et le chemin vers le connecteur Lua :
 
 ![image](../assets/developer/lua/broker_influxdb_output.png)
 
-Cliquez ensuite sur **Save** et générez la configuration, puis redémarrez **cbd**.
+Cliquez ensuite sur **Sauvegarder** et générez la configuration, puis redémarrez **cbd**.
 
 > N'oubliez pas de redémarrer également « centengine » pour créer le cache de Centreon Broker.
 
@@ -741,8 +739,8 @@ Si vous installez le tableau de bord [Grafana](https://grafana.com/), vous pouve
 
 ![image](../assets/developer/lua/visualize_data_grafana.png)
 
-## Découvrez d'autres connecteurs de flux Centreon
+## Découvrez d'autres Stream Connectors Centreon
 
 Centreon fournit un dépôt Github pour héberger les scripts Lua développés par Centreon et la communauté. Rendez-vous sur le [Github dédié](http://github.com/centreon/centreon-stream-connector-scripts).
 
-Vous avez besoin d'aide pour développer votre connecteur de flux ? Vous voulez partager votre expérience avec la communauté ? Rejoignez le [canal Slack de la communauté Centreon](https://centreon.github.io/).
+Vous avez besoin d'aide pour développer votre Stream Connector ? Vous voulez partager votre expérience avec la communauté ? Rejoignez le [canal Slack de la communauté Centreon](https://centreon.github.io/).

@@ -3,7 +3,7 @@ id: developer-translate-centreon
 title: Comment traduire Centreon
 ---
 
-Si vous voulez contribuer à traduire Centreon, ce nouveau tutoriel est pour vous ! Découvrez comment traduire l’interface web de Centreon et comment nous aider à ajouter de nouvelles langues dans Centreon.
+Si vous voulez contribuer à traduire Centreon, ce tutoriel est pour vous ! Découvrez comment traduire l’interface web de Centreon et comment nous aider à ajouter de nouvelles langues dans Centreon.
 
 ## Installer l’environnement de traduction
 
@@ -47,7 +47,7 @@ Sur votre serveur Centreon, installez gettext :
 sudo yum install gettext
 ```
 
-Créez le répertoire locale pour votre Centreon :
+Créez le répertoire **locale** pour votre Centreon :
 
 ```shell
 sudo mkdir -p /usr/share/centreon/www/locale/`locale | grep LC_MESSAGES | cut -d \" -f 2`/LC_MESSAGES
@@ -125,7 +125,7 @@ Reportez-vous au chapitre « Utiliser votre traduction » pour mettre à nivea
 Une fois que votre traduction est à jour, vous pouvez demander à l’équipe Centreon d’ajouter votre traduction au projet Centreon. Cela permettra à toutes les personnes utilisant Centreon d’avoir accès à votre traduction sur leur plateforme Centreon.
 
 * Créez un compte sur GitHub
-* Dupliquez le projet centreon/centreon sur GitHub
+* Forkez le projet centreon/centreon sur GitHub
 * Ajoutez vos fichiers traduits \*.mo et \*.po au répertoire lang/\<votre\_lang>/LC\_MESSAGES
 * Soumettez votre modification sur votre projet
 * Créez une demande de contribution sur le projet centreon/centreon

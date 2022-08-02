@@ -10,12 +10,12 @@ Un modèle de module vide est disponible dans le [dépôt Centreon](https://gith
 ---
 
 
-> **_REMARQUE :_** La documentation principale est directement stockée dans le [dépôt fictif](https://github.com/centreon/centreon-dummy/blob/master/README.md).
+> **_REMARQUE :_** La documentation principale est directement stockée dans le [dépôt **centreon-dummy** fourni à titre d'exemple](https://github.com/centreon/centreon-dummy/blob/master/README.md).
 
 ---
 
 
-Il faut savoir que Centreon contient une page dédiée à l’installation et à la désinstallation des modules (**Administration > Extensions > Manager**). Pour que le module apparaisse sur cette page, son répertoire doit être placé dans le répertoire `modules/` de Centreon. Exemple :
+Il faut savoir que Centreon contient une page dédiée à l’installation et à la désinstallation des modules (**Administration > Extensions > Gestionnaire**). Pour que le module apparaisse sur cette page, son répertoire doit être placé dans le répertoire `modules/` de Centreon. Exemple :
 
 ```Shell
 /usr/share/centreon/www/modules/dummy
@@ -70,13 +70,13 @@ Ce fichier SQL est exécuté lors de la désinstallation du module s’il est co
 
 **\[generate\_files > \*.php]**
 
-Les fichiers PHP contenus dans le répertoire `generate_files` seront exécutés lors de la génération des fichiers de configuration du moteur de supervision (dans **Configuration > Monitoring Engines**). Ces fichiers doivent générer des fichiers de configuration.
+Les fichiers PHP contenus dans le répertoire `generate_files` seront exécutés lors de la génération des fichiers de configuration du moteur de supervision (dans **Configuration > Collecteurs > Collecteurs**). Ces fichiers doivent générer des fichiers de configuration.
 
 **\[UPGRADE > dummy-x.x > sql > upgrade.sql]**
 
 Centreon propose un système de mise à niveau des modules. Pour l’utiliser, il suffit d’ajouter un répertoire sous `UPGRADE` nommé selon le modèle suivant : `<module name>-<version>`. Lorsque vous cliquez sur le bouton de mise à niveau, Centreon recherche les scripts à exécuter, en suivant l’ordre logique des versions.
 
-Par exemple, si la version 1.0 du module fictif est installée et que les répertoires suivants existent :
+Par exemple, si la version 1.0 du module d'exemple est installée et que les répertoires suivants existent :
 
 ```Shell
 ls UPGRADE
@@ -89,7 +89,7 @@ Vous êtes libre d’organiser les fichiers restants (le contenu de votre module
 
 ## Avancé
 
-> :warning: **Cette section est obsolète, veuillez vous référer à la [documentation du dépôt fictif](https://github.com/centreon/centreon-dummy/blob/master/README.md)**
+> **Cette section est obsolète, veuillez vous référer à la [documentation du dépôt d'exemple](https://github.com/centreon/centreon-dummy/blob/master/README.md)**
 
 C’est fantastique, vous savez comment installer un module ! Comme un module vide n’est pas vraiment utile, faites travailler votre imagination. Sachant que vous pouvez presque tout faire, cela ne devrait pas être trop compliqué :-).
 

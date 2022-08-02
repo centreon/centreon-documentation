@@ -3,7 +3,7 @@ id: developer-widget
 title: Comment écrire un widget
 ---
 
-Centreon offre un système d’affichage personnalisé qui permet à l’utilisateur d’afficher un ou plusieurs widgets sur la même page : **Home > Custom views**.
+Centreon offre un système d’affichage personnalisé qui permet à l’utilisateur d’afficher un ou plusieurs widgets sur la même page : **Accueil > Vues personnalisées**.
 
 Vous pourriez avoir des besoins spécifiques qui ne sont pas encore couverts par notre catalogue de widgets et ce tutoriel vous expliquera comment écrire votre premier widget pour Centreon.
 
@@ -25,7 +25,7 @@ Votre widget doit contenir un fichier obligatoire nommé **configs.xml** à sa r
 
 ## Fichier de configuration
 
-C’est le fichier de configuration XML de notre widget fictif :
+Voici le fichier de configuration XML de notre widget d'exemple :
 
 ```XML
 <configs>
@@ -68,7 +68,7 @@ Voyons maintenant à quoi ces balises font référence.
 | email| Votre adresse e-mail
 | website| URL de votre projet
 | description\*| Brève description de votre widget
-| version\*| Version de votre widget. Augmentez ce numéro chaque fois que vous publiez une nouvelle version.
+| version\*| Version de votre widget. Incrémentez ce numéro chaque fois que vous publiez une nouvelle version.
 | keywords| Quelques mots clés qui décrivent votre widget
 | screenshot| Une capture d’écran qui montre votre widget sous son meilleur jour. La capture d’écran doit être placée dans votre répertoire de widgets.
 | thumbnail| Le logo de votre projet. La taille qui convient le mieux est 100px x 25px. Les vignettes doivent être placées dans votre répertoire de widgets.
@@ -120,9 +120,9 @@ La fenêtre des préférences se présente alors comme suit :
 
 ### Code
 
-Toutes les langues sont séparées dans différents fichiers, un fichier pour chaque langue. Le fichier « configs.xml » appelle le fichier php et le fichier php appelle le fichier html etc...
+Toutes les langues sont séparées dans différents fichiers, un fichier pour chaque langue. Le fichier « configs.xml » appelle le fichier PHP et le fichier php appelle le fichier HTML, etc...
 
-Nous utilisons Smarty, qui est un moteur et un compilateur de template’php (http://smarty.net).
+Nous utilisons Smarty, qui est un moteur et un compilateur de templates PHP (http://smarty.net).
 
 Pour utiliser Smarty, vous devez :
 
@@ -130,7 +130,7 @@ Pour utiliser Smarty, vous devez :
 require_once $centreon_path . 'GPL_LIB/Smarty/libs/Smarty.class.php';
 ```
 
-1.configurer smarty :
+1. Configurer Smarty :
 
 ```PHP
 $path = $centreon_path . "www/widgets/Dummy/src/";
@@ -138,7 +138,7 @@ $template = new Smarty();
 $template = initSmartyTplForPopup($path, $template, "./", $centreon_path);
 ```
 
-2.créer un modèle php à utiliser en html :
+2. Créer un modèle PHP à utiliser en html :
 
 ```PHP
 $template->assign('widgetId', $widgetId);
@@ -146,17 +146,21 @@ $template->assign('autoRefresh', $autoRefresh);
 $template->assign('data', $data);
 ```
 
-3.affecter le fichier html à exécuter :
+3. Affecter le fichier HTML à exécuter :
 
 ```PHP
 $template->display('dummy.ihtml');
 ```
 
-Pour appeler la variable du modèle php dans le look html dummy.ihtml
 
-Faire la demande dans la base de données :
+Cette ligne demande à PHP d'appeler le template smarty **dummy.ihtml** pour afficher le résultat :
 
-> initialisation des préférences de bases de données centreon, de stockage centreon et de récupération
+```PHP
+$template->display('dummy.ihtml');
+```
+
+Pour requêter les bases de données (**centreon** pour la configuration et **centstorage** pour les données temps réel),
+vous devez initialiser l'objet PHP comme décrit ci-dessous (en utilisant **pearDB**):
 
 ```PHP
 try {
@@ -178,4 +182,4 @@ try {
 }
 ```
 
-Puis demande dans la base de données avec les méthodes de la classe.
+Puis requêter la base en utilisant les méthodes de la classe.

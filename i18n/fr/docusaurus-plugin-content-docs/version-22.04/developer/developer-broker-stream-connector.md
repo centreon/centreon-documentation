@@ -1,13 +1,13 @@
 ---
 id: developer-broker-stream-connector
-title : Connecteurs de flux
+title : Stream Connectors
 ---
 
-Centreon Broker fournit un connecteur de flux. Si vous ne trouvez pas de connecteur approprié parmi ceux proposés, ce connecteur de flux répondra certainement à vos besoins. Son principe est d’exposer une partie de l’API Centreon Broker par le biais de l’interpréteur Lua et l’utilisateur n’a plus qu’à la remplir selon ses besoins.
+Centreon Broker fournit un Stream Connector. Si vous ne trouvez pas de connecteur approprié parmi ceux proposés, ce Stream Connector répondra certainement à vos besoins. Son principe est d’exposer une partie de l’API Centreon Broker par le biais de l’interpréteur Lua et l’utilisateur n’a plus qu’à la remplir selon ses besoins.
 
 ## Centreon Broker exposé
 
-Voici le code Lua minimal acceptable pour fonctionner comme connecteur de flux :
+Voici le code Lua minimal acceptable pour fonctionner comme Stream Connector :
 
 ```LUA
   function init(conf)
@@ -18,27 +18,27 @@ Voici le code Lua minimal acceptable pour fonctionner comme connecteur de flux 
   end
 ```
 
-Nous recommandons de placer les scripts Lua dans le répertoire `/usr/share/centreon-broker/lua`. S’il n’existe pas, nous pouvons le créer. Faites juste attention à ce que ce répertoire soit accessible à l’utilisateur centreon-broker. Si un connecteur de flux est composé de plusieurs fichiers (un script principal et un module par exemple), vous pouvez les placer dans ce répertoire. Si une bibliothèque dynamique (fichier `\*.so`) est utilisée par un script Lua, placez-la dans le répertoire `/usr/share/centreon-broker/lua/lib`.
+Nous recommandons de placer les scripts Lua dans le répertoire `/usr/share/centreon-broker/lua`. S’il n’existe pas, nous pouvons le créer. Faites juste attention à ce que ce répertoire soit accessible à l’utilisateur centreon-broker. Si un Stream Connector est composé de plusieurs fichiers (un script principal et un module par exemple), vous pouvez les placer dans ce répertoire. Si une bibliothèque dynamique (fichier `\*.so`) est utilisée par un script Lua, placez-la dans le répertoire `/usr/share/centreon-broker/lua/lib`.
 
-Lorsque Centreon Broker démarre, il initialise tous les connecteurs configurés. Pour le connecteur de flux, il charge le script Lua, contrôle sa syntaxe et vérifie que les fonctions `init()` et `write()` existent.
+Lorsque Centreon Broker démarre, il initialise tous les connecteurs configurés. Pour le Stream Connector, il charge le script Lua, contrôle sa syntaxe et vérifie que les fonctions `init()` et `write()` existent.
 
 Centreon Broker vérifie également si une fonction `filter(category, element)` existe.
 
-Examinons ces fonctions. La fonction `init` est appelée lorsque le connecteur est initialisé. L’argument fourni à cette fonction est une table Lua contenant les informations données par l’utilisateur dans l’interface de configuration du broker de sortie web Centreon. Par exemple, si une adresse IP est fournie avec le nom *address* et la valeur *192.168.1.18*, alors cette information sera accessible via `conf["address"]`.
+Examinons ces fonctions. La fonction `init` est appelée lorsque le connecteur est initialisé. L’argument fourni à cette fonction est une table Lua contenant les informations données par l’utilisateur dans l’interface de configuration de l'output de Broker. Par exemple, si une adresse IP est fournie avec le nom *address* et la valeur *192.168.1.18*, alors cette information sera accessible via `conf["address"]`.
 
-La fonction `write()` est appelée chaque fois qu’un événement est reçu d’un poller par le biais du broker. Cet événement est configuré pour être envoyé à ce connecteur. Cette fonction a besoin d’un argument qui est l’événement traduit sous forme de table Lua.
+La fonction `write()` est appelée chaque fois qu’un événement est reçu d’un collecteur par le biais de Broker. Cet événement est configuré pour être envoyé à ce connecteur. Cette fonction a besoin d’un argument qui est l’événement traduit sous forme de table Lua.
 
-La fonction `write()` doit retourner une valeur booléenne True si les événements sont traités et False dans le cas contraire.
+La fonction `write()` doit retourner une valeur booléenne **True** si les événements sont traités et **False** dans le cas contraire.
 
 Si cette fonction ne renvoie pas une valeur booléenne, Broker déclenche une erreur.
 
-## Le SDK Lua du Broker
+## Le SDK Lua de Broker
 
 Pour simplifier la vie du développeur Lua, plusieurs objets sont proposés et directement disponibles pour le script.
 
 ### L’objet *broker\_log*
 
-1. `broker_log:set_parameters(level, filename)` permet à l’utilisateur de définir un niveau de journal et un nom de fichier. Le niveau est un nombre entier compris entre 1 et 3, du plus important au moins important. Le nom du fichier doit contenir le chemin d’accès complet. Et le fichier doit être accessible à centreon-broker. Si cette méthode n’est pas appelée, les journaux seront écrits dans les journaux de centreon broker.
+1. `broker_log:set_parameters(level, filename)` permet à l’utilisateur de définir un niveau de journal et un nom de fichier. Le niveau est un nombre entier compris entre 1 et 3, du plus important au moins important. Le nom du fichier doit contenir le chemin d’accès complet. Et le fichier doit être accessible à centreon-broker. Si cette méthode n’est pas appelée, les journaux seront écrits dans les journaux de centreon Broker.
 2. `broker_log:info(level, content)` écrit une *information* de journal si le niveau donné est inférieur ou égal à celui configuré. Le contenu est le texte à écrire dans les journaux.
 3. `broker_log:warning(level, content)` fonctionne comme `log_info` mais écrit un *avertissement*.
 4. `broker_log:error(level, content)` fonctionne comme `log_info` mais écrit une *erreur*.
@@ -75,7 +75,7 @@ Ensuite, à chaque appel de `write()`, les événements reçus sont enregistrés
 
 > Pour utiliser une méthode en Lua, le séparateur entre l’objet et la méthode est `:` ; *broker\_log* est un objet puisqu’il contient des informations telles que le niveau maximum ou le fichier de destination.
 
-### Le socket TCP du broker
+### Le socket TCP de Broker
 
 Un socket TCP de base est disponible dans le SDK *Broker*. Voici un exemple simple :
 
@@ -108,9 +108,9 @@ Plusieurs fonctions sont disponibles dans cette table. Ces fonctions ne sont pas
 1. `json_encode(object)` qui convertit un objet Lua en json. Le json est retourné sous forme de chaîne par la fonction.
 2. `json_decode(json)` qui convertit une chaîne json en objet Lua. L’objet est directement retourné par la méthode. Une deuxième valeur est également retournée. Elle n’est définie que lorsqu’une erreur s’est produite et contient une chaîne décrivant l’erreur.
 3. `parse_perfdata(str)` qui prend comme argument une chaîne contenant des perfdata. Un deuxième argument booléen est disponible. Si sa valeur est *true*, la table retournée est plus grande et donne tous les détails sur les métriques ainsi que les seuils « *warning »* et *« critical »*. En cas de succès, il retourne une table contenant les valeurs récupérées à partir des perfdata. En cas d’échec, il renvoie un objet nil et une chaîne de description de l’erreur.
-4. `url_encode(text)` qui convertit le *texte* de la chaîne de caractères en une chaîne encodée en url.
+4. `url_encode(text)` qui convertit le *texte* de la chaîne de caractères en une chaîne encodée en URL.
 5. `stat(filename)` qui appelle la fonction `stat` système sur le fichier. En cas de succès, nous obtenons une table contenant diverses informations sur le fichier (voir l’exemple ci-dessous). Sinon, cette table est `nil` et une deuxième valeur retournée est donnée et contient un message d’erreur.
-6. `md5(str)` qui calcule le md5 de la chaîne `str` et le renvoie sous forme de chaîne.
+6. `md5(str)` qui calcule le MD5 de la chaîne `str` et le renvoie sous forme de chaîne.
 7. `bbdo_version()` qui renvoie la version BBDO configurée dans Centreon Broker.
 
 ```LUA
@@ -267,26 +267,26 @@ Cet objet fournit plusieurs méthodes pour accéder au cache. Parmi les données
 
 Les méthodes disponibles sont les suivantes :
 
-1. `get_ba(ba_id)` qui obtient des informations *ba* à partir de son id. Cette fonction retourne une table le cas échéant ou *nil* autrement.
-2. `get_bv(bv_id)` qui récupère les informations *bv* à partir de son id. Cette fonction retourne une table le cas échéant ou *nil* autrement.
-3. `get_bvs(ba_id)` qui récupère tous les *bv* contenant le *ba* de l’id *ba\_id*. Cette fonction renvoie un tableau d’id *bv*, potentiellement vide si aucune *bv* n’est trouvée.
-4. `get_hostgroup_name(id)` qui récupère dans le cache le nom du groupe d’hôtes de l’id donné. Cette fonction renvoie une chaîne ou *nil* autrement.
+1. `get_ba(ba_id)` qui obtient des informations *ba* à partir de son ID. Cette fonction retourne une table le cas échéant ou *nil* autrement.
+2. `get_bv(bv_id)` qui récupère les informations *bv* à partir de son ID. Cette fonction retourne une table le cas échéant ou *nil* autrement.
+3. `get_bvs(ba_id)` qui récupère tous les *bv* contenant le *ba* de l’ID *ba\_id*. Cette fonction renvoie un tableau d’ID *bv*, potentiellement vide si aucune *bv* n’est trouvée.
+4. `get_hostgroup_name(id)` qui récupère dans le cache le nom du groupe d’hôtes de l’ID donné. Cette fonction renvoie une chaîne ou *nil* autrement.
 5. `get_hostgroups(host_id)` qui obtient la liste des groupes d’hôtes contenant l’hôte correspondant à *host\_id*. La valeur retournée est un tableau d’objets, chacun contenant deux champs, *group\_id* et *group\_name*.
-6. `get_hostname(id)` qui récupère dans le cache le nom d’hôte correspondant à l’id d’hôte donné. Cette fonction retourne une chaîne avec le nom de l’hôte ou *nil* autrement.
-7. `get_index_mapping(index_id)` qui récupère du cache l’objet de mappage d’index de l’id d’index donné. Le résultat est un tableau contenant trois clés, `index_id`, `host_id` et `service_id`.
-8. `get_instance_name(instance_id)` qui récupère dans le cache le nom de l’instance correspondant à l’id de l’instance.
-9. `get_metric_mapping(metric_id)` qui récupère dans le cache l’objet de mappage de métriques de l’id de métrique donné. Le résultat est un tableau contenant deux clés, `metric_id` et `index_id`.
+6. `get_hostname(id)` qui récupère dans le cache le nom d’hôte correspondant à l’ID d’hôte donné. Cette fonction retourne une chaîne avec le nom de l’hôte ou *nil* autrement.
+7. `get_index_mapping(index_id)` qui récupère du cache l’objet de mapping d’index de l’ID d’index donné. Le résultat est un tableau contenant trois clés, `index_id`, `host_id` et `service_id`.
+8. `get_instance_name(instance_id)` qui récupère dans le cache le nom de l’instance correspondant à l’ID de l’instance.
+9. `get_metric_mapping(metric_id)` qui récupère dans le cache l’objet de mapping de métriques de l’ID de métrique donné. Le résultat est un tableau contenant deux clés, `metric_id` et `index_id`.
 10. `get_service_description(host_id,service_id)` qui récupère dans le cache la description du service pour la paire donnée host\_id / service\_id. Cette fonction renvoie une chaîne de caractères ou *nil* autrement.
-11. `get_servicegroup_name(id)` qui récupère dans le cache le nom du groupe de services\* de l’id donné. Cette fonction renvoie une chaîne ou *nil* autrement.
+11. `get_servicegroup_name(id)` qui récupère dans le cache le nom du groupe de services de l’ID donné. Cette fonction renvoie une chaîne ou *nil* autrement.
 12. `get_servicegroups(host_id, service_id)` qui obtient la liste des groupes de services contenant le service correspondant à la paire *host\_id* / *service\_id*. La valeur retournée est un tableau d’objets, chacun contenant deux champs, *group\_id* et *group\_name*.
 13. `get_notes(host_id[,service_id])` qui récupère les notes configurées dans l’hôte ou le service. Le *service\_id* est facultatif, s’il est fourni, nous voulons des notes d’un service, sinon nous voulons des notes d’un hôte. Si l’objet n’est pas trouvé dans le cache, *nil* est retourné.
-14. `get_notes_url(host_id[, service_id])` qui récupère l’url des notes configurée dans l’hôte ou le service. Le *service\_id* est facultatif, s’il est fourni, nous voulons que l’*url des notes* provienne d’un service, sinon nous voulons qu’elle provienne d’un hôte. Si l’objet n’est pas trouvé dans le cache, *nil* est retourné.
-15. `get_action_url(host_id)` qui obtient l’url d’action configurée dans l’hôte ou le service. Le *service\_id* est facultatif, s’il est fourni, nous voulons l’*url d’action* d’un service, sinon nous la voulons d’un hôte. Si l’objet n’est pas trouvé dans le cache, *nil* est retourné.
-16. `get_severity(host_id[,service_id])` qui obtient la gravité d’un hôte ou d’un service. Si vous ne fournissez que l’*host\_id*, nous supposons que vous voulez obtenir une gravité d’hôte. Si un hôte ou un service n’a pas de gravité, la fonction renvoie une valeur *nil*.
+14. `get_notes_url(host_id[, service_id])` qui récupère l’URL des notes configurée dans l’hôte ou le service. Le *service\_id* est facultatif, s’il est fourni, nous voulons que l’*URL des notes* provienne d’un service, sinon nous voulons qu’elle provienne d’un hôte. Si l’objet n’est pas trouvé dans le cache, *nil* est retourné.
+15. `get_action_url(host_id)` qui obtient l’URL d’action configurée dans l’hôte ou le service. Le *service\_id* est facultatif, s’il est fourni, nous voulons l’*URL d’action* d’un service, sinon nous la voulons d’un hôte. Si l’objet n’est pas trouvé dans le cache, *nil* est retourné.
+16. `get_severity(host_id[,service_id])` qui obtient la sévérité d’un hôte ou d’un service. Si vous ne fournissez que l’*host\_id*, nous supposons que vous voulez obtenir une sévérité d’hôte. Si un hôte ou un service n’a pas de sévérité, la fonction renvoie une valeur *nil*.
 
 ## La fonction init()
 
-Cette fonction ne doit **pas** être définie comme `local`, sinon elle ne sera pas détectée par centreon broker.
+Cette fonction ne doit **pas** être définie comme `local`, sinon elle ne sera pas détectée par centreon Broker.
 
 Prenons l’exemple de cette configuration :
 
@@ -308,7 +308,7 @@ Ensuite, la fonction `init()` y a accès comme ceci :
 
 ## La fonction write()
 
-Cette fonction ne doit **pas** être définie comme `local`, sinon elle ne sera pas vue par broker.
+Cette fonction ne doit **pas** être définie comme `local`, sinon elle ne sera pas vue par Broker.
 
 Le seul argument donné à la fonction `write()` est un événement. Il est donné avec les mêmes données que celles que nous pouvons voir dans Centreon Broker.
 
@@ -355,7 +355,7 @@ Elle tient compte de deux paramètres : `category` et `element` que nous avons 
 
 Lorsque la taille de la file d’attente de Broker atteint la taille maximale autorisée, il continue à remplir cette file dans un fichier et n’envoie plus d’événements aux flux. Tant que les événements dans la file d’attente ne sont pas acquittés, les flux ne recevront plus d’événements.
 
-Dans plusieurs cas, cela peut entraîner des problèmes. L’idée est que le flux a gardé des événements en mémoire en attendant d’autres événements pour les envoyer à une base de données. Mais la file d’attente du Broker est pleine et le Broker n’appelle plus la fonction `write` du flux puisqu’il écrit les événements directement dans ses fichiers de rétention en attendant un accusé de réception du flux qui n’arrivera pas puisque la fonction `write` n’est pas appelée.
+Dans plusieurs cas, cela peut entraîner des problèmes. L’idée est que le flux a gardé des événements en mémoire en attendant d’autres événements pour les envoyer à une base de données. Mais la file d’attente de Broker est pleine et Broker n’appelle plus la fonction `write` du flux puisqu’il écrit les événements directement dans ses fichiers de rétention en attendant un accusé de réception du flux qui n’arrivera pas puisque la fonction `write` n’est pas appelée.
 
 La solution pour résoudre ce problème dans Broker est une fonction `flush` appelée régulièrement par Broker qui demande simplement au flux de vider ses données. Cette fonction renvoie un booléen qui est True si le flux est arrivé pour vider sa file d’attente. Une fois que le Broker reçoit une information sur le succès de la fonction flush, il peut à nouveau appeler la fonction `write` du flux.
 

@@ -1,12 +1,12 @@
 ---
 id: developer-broker-stream-connector-migration
-title : Migration des connecteurs de flux vers BBDO 3.0.0
+title : Migration des Stream Connectors vers BBDO 3.0.0
 ---
 
 Centreon Broker 22.04.0 comprend une nouvelle version 3.0.0 de son protocole BBDO. Ce nouveau protocole est beaucoup plus souple que le précédent :
 
 * il n’est pas figé dans le temps, mais peut être mis à jour sans rupture ;
-* il supporte des objets plus structurés comme les tableaux, les cartes et autres ;
+* il supporte des objets plus structurés comme les tableaux, les dictionnaires et autres ;
 * la sérialisation se traduit généralement par des tampons plus petits.
 
 Tous les événements du broker n’ont pas encore été migrés, nous nous sommes juste concentrés sur :
@@ -25,13 +25,13 @@ Le broker peut toujours les lire mais il produit maintenant les événements sui
 * événement **neb::pb\_adaptive\_service**
 * événement **neb::pb\_service\_status**
 
-L’inconvénient est que si vous avez écrit des connecteurs de flux, ils pourraient ne plus fonctionner et vous devrez les réparer.
+L’inconvénient est que si vous avez écrit des Stream Connectors, ils pourraient ne plus fonctionner et vous devrez les réparer.
 
 Dans cette section, nous allons expliquer ce qui a changé et comment résoudre votre problème.
 
-## Exemple de connecteur de flux qui ne fonctionnera pas avec BBDO 3.0
+## Exemple de Stream Connector qui ne fonctionnera pas avec BBDO 3.0
 
-Voici du code Lua pour un connecteur de flux qui fonctionnait avant BBDO 3.0 et qui ne fonctionnera pas avec Centreon Broker 22.04 si BBDO 3.0 est activé :
+Voici du code Lua pour un Stream Connector qui fonctionnait avant BBDO 3.0 et qui ne fonctionnera pas avec Centreon Broker 22.04 si BBDO 3.0 est activé :
 
 ```LUA
     function init(conf)

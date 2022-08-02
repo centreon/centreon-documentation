@@ -1,9 +1,9 @@
 ---
 id: developer-broker-mapping
-title: Mappage d’événements Centreon Broker
+title: Mapping d’événements Centreon Broker
 ---
 
-Centreon Broker utilise des tables de correspondance globales pour les événements qui peuvent être échangés. Nous laissons au lecteur le soin de découvrir le fonctionnement exact de ces tables de correspondance. Cette page répertorie les propriétés disponibles pour chaque type d’événement.
+Centreon Broker utilise des tables de correspondance globales pour les événements qui peuvent être échangés. Cette page répertorie les propriétés disponibles pour chaque type d’événement.
 
 ## NEB
 
@@ -18,7 +18,7 @@ Centreon Broker utilise des tables de correspondance globales pour les événeme
 | entry\_time| temps| Heure à laquelle l’acquittement a été créé.
 | host\_id| entier non signé| ID de l’hôte.
 | instance\_id| entier non signé| ID de l’instance.
-| is\_sticky| booléen| Indicateur Sticky.
+| is\_sticky| booléen| Indicateur "Persistant (non-OK)".
 | notify\_contacts| booléen| Indicateur de notification.
 | persistent\_comment| booléen| True si le commentaire est persistant.
 | service\_id| entier non signé| ID de service. 0 pour un acquittement de l’hôte.
@@ -225,8 +225,8 @@ Les événements de statut de variable personnalisée sont générés lorsqu’u
 | host\_id| entier non signé| ID de l’hôte.| 
 | next\_check| temps| Heure à laquelle le prochain contrôle est prévu.| 
 | command\_line| chaîne| Ligne de commande du contrôle.| 
-| source\_id| entier non signé| L’id de l’instance source de cet événement.| 
-| destination\_id| entier non signé| L’id de l’instance de destination de cet événement.| 
+| source\_id| entier non signé| L’ID de l’instance source de cet événement.| 
+| destination\_id| entier non signé| L’ID de l’instance de destination de cet événement.| 
 
 ### Host dependency
 
@@ -253,12 +253,12 @@ Les événements de statut de variable personnalisée sont générés lorsqu’u
 
 | Propriété| Type| Description| Version
 |----------|----------|----------|----------
-| enabled| booléen| True si l’adhésion est activée, False si elle ne l’est pas (suppression).| 
+| enabled| booléen| True si l'hôte est membre du groupe, False s'il ne l’est pas (suppression).| 
 | group| chaîne| Nom du groupe.| 
 | instance\_id| entier non signé| ID de l’instance.| 
 | host\_id| entier non signé| ID de l’hôte.| 
-| source\_id| entier non signé| L’id de l’instance source de cet événement.| 
-| destination\_id| entier non signé| L’id de l’instance de destination de cet événement.| 
+| source\_id| entier non signé| L’ID de l’instance source de cet événement.| 
+| destination\_id| entier non signé| L’ID de l’instance de destination de cet événement.| 
 
 ### Host parent
 
@@ -569,14 +569,14 @@ Les événements relatifs aux modules sont générés lors du chargement ou du d
 | Propriété| Type| Description| Version
 |----------|----------|----------|----------
 | loaded| booléen| True si l’instance s’est chargée avec succès.| 
-| poller\_id| entier non signé| ID du poller qui a reçu une demande de mise à jour de la configuration (reload).| 
+| poller\_id| entier non signé| ID du collecteur qui a reçu une demande de mise à jour de la configuration (reload).| 
 
 ### Responsive instance
 
 | Propriété| Type| Description| Version
 |----------|----------|----------|----------
-| poller\_id| entier non signé| ID du poller qui a reçu une demande de mise à jour de la configuration (reload).| 
-| responsive| booléen| Un booléen indiquant si le poller ayant l’ID **poller\_id** répond ou non.| 
+| poller\_id| entier non signé| ID du collecteur qui a reçu une demande de mise à jour de la configuration (reload).| 
+| responsive| booléen| Un booléen indiquant si le collecteur ayant l’ID **poller\_id** répond ou non.| 
 
 ### Pb Service
 
@@ -1049,7 +1049,7 @@ message Severity {
 
 ### Pb Tag
 
-Cet événement est compris dans BBDO 3. Il est utilisé pour associer une balise à une ressource. Il existe quatre types de balises, **SERVICEGROUP**, **HOSTGROUP**, **SERVICECATEGORY**, **HOSTCATEGORY**. Un tag n’est pas associé à un poller, mais nous devons savoir quel poller a envoyé la balise à des fins de gestion interne, c’est pourquoi le message comporte un élément **poller\_id**.
+Cet événement est compris dans BBDO 3. Il est utilisé pour associer une balise à une ressource. Il existe quatre types de balises, **SERVICEGROUP**, **HOSTGROUP**, **SERVICECATEGORY**, **HOSTCATEGORY**. Un tag n’est pas associé à un collecteur, mais nous devons savoir quel collecteur a envoyé la balise à des fins de gestion interne, c’est pourquoi le message comporte un élément **poller\_id**.
 
 Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3) est le suivant :
 
@@ -1199,16 +1199,16 @@ message RemoveGraphMessage {
 
 | Propriété| Type| Description| Version
 |----------|----------|----------|----------
-| bbdo\_major| entier court| La version majeure du protocole BBDO utilisée par le peer qui envoie ce paquet **version\_response**. La seule version actuelle du protocole est la 1.0.0.| 
-| bbdo\_minor| entier court| La version mineure du protocole BBDO utilisée par le peer qui envoie ce paquet **version\_response**.| 
-| bbdo\_patch| entier court| Le correctif du protocole BBDO utilisé par le peer qui envoie ce paquet **version\_response**.| 
-| extensions| chaîne| Chaîne séparée par des espaces des extensions prises en charge par le peer qui envoie ce paquet **version\_response**.| 
+| bbdo\_major| entier court| La version majeure du protocole BBDO utilisée par le pair qui envoie ce paquet **version\_response**. La seule version actuelle du protocole est la 1.0.0.| 
+| bbdo\_minor| entier court| La version mineure du protocole BBDO utilisée par le pair qui envoie ce paquet **version\_response**.| 
+| bbdo\_patch| entier court| Le correctif du protocole BBDO utilisé par le pair qui envoie ce paquet **version\_response**.| 
+| extensions| chaîne| Chaîne séparée par des espaces des extensions prises en charge par le pair qui envoie ce paquet **version\_response**.| 
 
 ### Ack
 
 | Propriété| Type| Description| Version
 |----------|----------|----------|----------
-| acknowledged events| entier non signé| Nombre d’événements acquittés. Utilisé uniquement par les clients « intelligents »(c’est-à-dire capables d’acquitter des événements). Ne doit pas être utilisé par des clients non intelligents.| 
+| acknowledged events| entier non signé| Nombre d’événements acquittés. Utilisé uniquement par les clients « intelligents » (c’est-à-dire capables d’acquitter des événements). Ne doit pas être utilisé par des clients non intelligents.| 
 
 ## BAM
 
@@ -1233,7 +1233,7 @@ Cet événement est envoyé lorsque le statut d’un KPI a changé.
 
 | Propriété| Type| Description| Version
 |----------|----------|----------|----------
-| kpi\_id| entier non signé| L’id du KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| kpi\_id| entier non signé| L’ID du KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
 | in\_downtime| bool| True si le KPI est en temps d’arrêt.| 
 | level\_acknowledgement\_hard| réel| Le niveau d’acquittement hard du KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
 | level\_acknowledgement\_soft| réel| Le niveau d’acquittement soft du KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
@@ -1253,7 +1253,7 @@ Cet événement est envoyé lorsque le statut d’un méta-service a changé.
 
 | Propriété| Type| Description| Version
 |----------|----------|----------|----------
-| meta\_service\_id| entier non signé| L’id du méta-service.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| meta\_service\_id| entier non signé| L’ID du méta-service.| Depuis la version 2.8.0 (BBDO 1.2.0).
 | value| réel| La valeur du méta-service.| Depuis la version 2.8.0 (BBDO 1.2.0).
 | state\_changed| booléen| True si l’état vient de changer.| Depuis la version 2.8.0 (BBDO 1.2.0).
 
@@ -1263,7 +1263,7 @@ Cet événement est envoyé lorsqu’un nouvel événement BA est ouvert, ou qu�
 
 | Propriété| Type| Description| Version
 |----------|----------|----------|----------
-| ba\_id| entier non signé| L’id de la BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| ba\_id| entier non signé| L’ID de la BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
 | first\_level| réel| Le premier niveau de l’événement BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
 | end\_time| temps| L’heure de fin de l’événement. 0 ou (temps)-1 pour un événement ouvert.| Depuis la version 2.8.0 (BBDO 1.2.0).
 | in\_downtime| booléen| True si BA était en arrêt pendant l’événement BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
@@ -1276,7 +1276,7 @@ Cet événement est envoyé lorsqu’un nouvel événement KPI est ouvert, ou qu
 
 | Propriété| Type| Description| Version
 |----------|----------|----------|----------
-| kpi\_id| entier non signé| L’id du KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| kpi\_id| entier non signé| L’ID du KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
 | end\_time| temps| L’heure de fin de l’événement. 0 ou (temps)-1 pour un événement ouvert.| Depuis la version 2.8.0 (BBDO 1.2.0).
 | impact\_level| entier| Le niveau de l’impact.| Depuis la version 2.8.0 (BBDO 1.2.0).
 | in\_downtime| booléen| True si BA était en arrêt pendant l’événement BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
@@ -1291,7 +1291,7 @@ Cet événement est envoyé lorsqu’un nouvel événement de durée BA est calc
 
 | Propriété| Type| Description| Version
 |----------|----------|----------|----------
-| ba\_id| entier non signé| L’id de la BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| ba\_id| entier non signé| L’ID de la BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
 | real\_start\_time| temps| Le premier niveau de l’événement BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
 | end\_time| temps| L’heure de fin de l’événement, dans la période de temps donnée.| Depuis la version 2.8.0 (BBDO 1.2.0).
 | start\_time| temps| L’heure de début de l’événement, dans la période de temps donnée.| Depuis la version 2.8.0 (BBDO 1.2.0).
@@ -1305,7 +1305,7 @@ Cet événement fait partie du dump de dimension (c’est-à-dire, la configurat
 
 | Propriété| Type| Description| Version
 |----------|----------|----------|----------
-| ba\_id| entier non signé| L’id de la BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| ba\_id| entier non signé| L’ID de la BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
 | ba\_name| chaîne| Le nom de la BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
 | ba\_description| chaîne| La description de la BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
 | sla\_month\_percent\_crit| réel| | Depuis la version 2.8.0 (BBDO 1.2.0).
@@ -1319,18 +1319,18 @@ Cet événement fait partie du dump de dimension (c’est-à-dire, la configurat
 
 | Propriété| Type| Description| Version
 |----------|----------|----------|----------
-| kpi\_id| entier non signé| L’id du KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| kpi\_id| entier non signé| L’ID du KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
 | ba\_id| entier non signé| L’identifiant de la BA parent de ce KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
 | ba\_name| chaîne| Le nom de la BA parent de ce KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| host\_id| entier non signé| L’id de l’hôte associé à ce KPI pour le KPI de service.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| host\_id| entier non signé| L’ID de l’hôte associé à ce KPI pour le KPI de service.| Depuis la version 2.8.0 (BBDO 1.2.0).
 | host\_name| chaîne| Le nom de l’hôte associé à ce KPI pour le KPI de service.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| service\_id| entier non signé| L’id du service associé à ce KPI pour le KPI de service.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| service\_id| entier non signé| L’ID du service associé à ce KPI pour le KPI de service.| Depuis la version 2.8.0 (BBDO 1.2.0).
 | service\_description| chaîne| La description du service associé à ce KPI pour le KPI de service.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| kpi\_ba\_id| entier non signé| L’id de la BA associée à ce KPI pour le KPI de BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| kpi\_ba\_id| entier non signé| L’ID de la BA associée à ce KPI pour le KPI de BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
 | kpi\_ba\_name| chaîne| Le nom de la BA associée à ce KPI pour le KPI de BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| meta\_service\_id| entier non signé| L’id du méta-service associé à ce KPI pour le KPI de méta-service.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| meta\_service\_id| entier non signé| L’ID du méta-service associé à ce KPI pour le KPI de méta-service.| Depuis la version 2.8.0 (BBDO 1.2.0).
 | meta\_service\_name| chaîne| Le nom du méta-service associé à ce KPI pour le KPI de méta-service.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| boolean\_id| entier non signé| L’id de l’expression booléenne associée à ce KPI pour le KPI booléen.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| boolean\_id| entier non signé| L’ID de l’expression booléenne associée à ce KPI pour le KPI booléen.| Depuis la version 2.8.0 (BBDO 1.2.0).
 | boolean\_name| chaîne| Le nom de l’expression booléenne associée à ce KPI pour le KPI booléen.| Depuis la version 2.8.0 (BBDO 1.2.0).
 | impact\_warning| réel| L’impact d’un état d’alerte pour ce KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
 | impact\_critical| réel| L’impact d’un état critique pour ce KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
@@ -1342,8 +1342,8 @@ Cet événement fait partie du dump de dimension (c’est-à-dire, la configurat
 
 | Propriété| Type| Description| Version
 |----------|----------|----------|----------
-| ba\_id| entier non signé| L’id de la BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| bv\_id| entier non signé| L’id de la BV.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| ba\_id| entier non signé| L’ID de la BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| bv\_id| entier non signé| L’ID de la BV.| Depuis la version 2.8.0 (BBDO 1.2.0).
 
 ### Dimension BV
 
@@ -1351,7 +1351,7 @@ Cet événement fait partie du dump de dimension (c’est-à-dire, la configurat
 
 | Propriété| Type| Description| Version
 |----------|----------|----------|----------
-| bv\_id| entier non signé| L’id de la BV.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| bv\_id| entier non signé| L’ID de la BV.| Depuis la version 2.8.0 (BBDO 1.2.0).
 | bv\_name| chaîne| Le nom de la BV.| Depuis la version 2.8.0 (BBDO 1.2.0).
 | bv\_description| chaîne| La description de la BV.| Depuis la version 2.8.0 (BBDO 1.2.0).
 
@@ -1371,7 +1371,7 @@ Cet événement est envoyé lorsqu’une reconstruction des durées et des dispo
 
 | Propriété| Type| Description| Version
 |----------|----------|----------|----------
-| bas\_to\_rebuild| chaîne| Une chaîne contenant les id de toutes les BA à reconstruire, séparés par une virgule et un espace (par exemple « 1, 5, 8, 12 »).| Depuis la version 2.8.0 (BBDO 1.2.0).
+| bas\_to\_rebuild| chaîne| Une chaîne contenant les ID de toutes les BA à reconstruire, séparés par une virgule et un espace (par exemple « 1, 5, 8, 12 »).| Depuis la version 2.8.0 (BBDO 1.2.0).
 
 ### Dimension timeperiod
 
@@ -1379,7 +1379,7 @@ Cet événement fait partie du dump de dimension (c’est-à-dire, la configurat
 
 | Propriété| Type| Description| Version
 |----------|----------|----------|----------
-| tp\_id| entier non signé| L’id de la période de temps.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| tp\_id| entier non signé| L’ID de la période de temps.| Depuis la version 2.8.0 (BBDO 1.2.0).
 | name| chaîne| Le nom de la période de temps.| Depuis la version 2.8.0 (BBDO 1.2.0).
 | monday| chaîne| La règle de la période de temps pour ce jour.| Depuis la version 2.8.0 (BBDO 1.2.0).
 | tuesday| chaîne| La règle de la période de temps pour ce jour.| Depuis la version 2.8.0 (BBDO 1.2.0).
@@ -1395,8 +1395,8 @@ Cet événement fait partie du dump de dimension (c’est-à-dire, la configurat
 
 | Propriété| Type| Description| Version
 |----------|----------|----------|----------
-| ba\_id| entier non signé| L’id de la BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| timeperiod\_id| entier non signé| L’id de la période de temps.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| ba\_id| entier non signé| L’ID de la BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| timeperiod\_id| entier non signé| L’ID de la période de temps.| Depuis la version 2.8.0 (BBDO 1.2.0).
 | is\_default| booléen| True si la période de temps est celle par défaut pour cette BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
 
 ### Dimension timeperiod exception
@@ -1405,7 +1405,7 @@ Cet événement fait partie du dump de dimension (c’est-à-dire, la configurat
 
 | Propriété| Type| Description| Version
 |----------|----------|----------|----------
-| timeperiod\_id| entier non signé| L’id de la période de temps ayant cette exception.| Depuis la version 2.8.0
+| timeperiod\_id| entier non signé| L’ID de la période de temps ayant cette exception.| Depuis la version 2.8.0
 | daterange| chaîne| Une chaîne de caractères contenant la date de la plage.| Depuis la version 2.8.0
 | timerange| chaîne| Une chaîne de caractères contenant l’heure de la plage.| Depuis la version 2.8.0 (BBDO 1.2.0).
 
@@ -1415,14 +1415,14 @@ Cet événement fait partie du dump de dimension (c’est-à-dire, la configurat
 
 | Propriété| Type| Description| Version
 |----------|----------|----------|----------
-| timeperiod\_id| entier non signé| L’id de la période de temps ayant cette exclusion.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| excluded\_timeperiod\_id| entier non signé| L’id de la période exclue.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| timeperiod\_id| entier non signé| L’ID de la période de temps ayant cette exclusion.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| excluded\_timeperiod\_id| entier non signé| L’ID de la période exclue.| Depuis la version 2.8.0 (BBDO 1.2.0).
 
 ### Inherited downtime
 
 | Propriété| Type| Description| Version
 |----------|----------|----------|----------
-| bad\_id| entier non signé| L’id de la BA en temps d’arrêt.| 
+| bad\_id| entier non signé| L’ID de la BA en temps d’arrêt.| 
 | in\_downtime| booléen| True si le BA est en temps d’arrêt.| 
 
 ## Extcmd
@@ -1443,4 +1443,3 @@ Cet événement fait partie du dump de dimension (c’est-à-dire, la configurat
 | code| entier| Le code de retour de cette commande.| 
 | uuid| chaîne| L’uuid de la demande dont cette commande est le résultat.| 
 | msg| chaîne| Le message en chaîne du résultat de la commande.| 
-

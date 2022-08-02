@@ -5,13 +5,11 @@ title: À propos des ressources développeur
 
 Ce chapitre regroupe toutes les ressources permettant d'étendre les fonctionnalités de Centreon.
 
-> Ces pages ne sont disponibles qu'en anglais.
-
 - [Comment écrire un module](developer-module.md)
 - [Comment écrire un widget](developer-widget.md)
 - [Comment écrire un Stream Connector](developer-stream-connector.md)
 - [Comment traduire Centreon](developer-translate-centreon.md)
 - Centreon Broker
-  - [Stream-connectors](developer-broker-stream-connector.md)
+  - [Stream connectors](developer-broker-stream-connector.md)
   - [Le protocole BBDO](developer-broker-bbdo.md)
-  - [Mappage d'événements Centreon Broker](developer-broker-mapping.md)
+  - [Mapping d'événements Centreon Broker](developer-broker-mapping.md)

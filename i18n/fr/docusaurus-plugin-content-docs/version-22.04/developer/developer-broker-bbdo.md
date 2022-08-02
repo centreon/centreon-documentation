@@ -7,7 +7,7 @@ Le protocole BBDO a été créé pour être le protocole par défaut de Centreon
 
 ## Introduction
 
-BBDO est l’abréviation de Broker Binary Data Object. BBDO est conçu pour transférer des « paquets de données » d’un nœud à un autre. Ces « paquets de données » sont la plupart du temps des informations de supervision fournies par le moteur de supervision (p. ex. le moteur Centreon Engine ou Nagios). Il utilise principalement des valeurs binaires brutes, ce qui lui permet d’utiliser très peu de mémoire.
+BBDO est l’abréviation de Broker Binary Data Object. BBDO est conçu pour transférer des « paquets de données » d’un nœud à un autre. Ces « paquets de données » sont la plupart du temps des informations de supervision fournies par le moteur de supervision (par exemple le moteur Centreon Engine ou Nagios). Il utilise principalement des valeurs binaires brutes, ce qui lui permet d’utiliser très peu de mémoire.
 
 Avec Broker 22.04.0, nous introduisons une nouvelle version de BBDO basée sur [Google Protobuf 3](https://developers.google.com/protocol-buffers). Le nouveau protocole reste compatible avec le précédent mais introduit de nouveaux événements. Par exemple, les événements PbService et PbServiceStatus sont envoyés au lieu des événements Service et ServiceStatus. Configuré avec BBDO 3, Broker comprend toujours les événements Service et ServiceStatus mais il doit envoyer par défaut les nouvelles versions.
 
@@ -29,15 +29,15 @@ En tant que protocole binaire, BBDO utilise des types de données pour sérialis
 
 ## Format de paquet
 
-Le format des paquets de Centreon Broker n’introduit que 16 octets d’en-tête pour transmettre chaque événement de supervision (généralement environ 100-200 octets chacun). Les champs sont fournis au format big endian.
+Le format des paquets de Centreon Broker n’introduit que 16 octets d’en-tête pour transmettre chaque événement de supervision (généralement environ 100-200 octets chacun). Les champs sont fournis au format Big Endian.
 
 | Champ| Type| Description
 |----------|----------|----------
-| checksum| entier court non signé| CRC-16-CCITT X.25 de la taille, de l’id, de la source et de la destination. La somme de contrôle peut être utilisée pour récupérer un paquet de données incomplet envoyé dans le flux en laissant tomber les octets un par un.
+| checksum| entier court non signé| CRC-16-CCITT X.25 de la taille, de l’ID, de la source et de la destination. La somme de contrôle peut être utilisée pour récupérer un paquet de données incomplet envoyé dans le flux en laissant tomber les octets un par un.
 | size| entier court non signé| Taille du paquet, hors en-tête.
 | id| entier non signé| ID de l’événement.
-| source\_id| entier non signé| L’id de l’instance source de cet événement.
-| destination\_id| entier non signé| L’id de l’instance de destination de cet événement.
+| source\_id| entier non signé| L’ID de l’instance source de cet événement.
+| destination\_id| entier non signé| L’ID de l’instance de destination de cet événement.
 | data| | Données utiles.
 
 Ici, la seule différence entre BBDO 3 et les versions précédentes est le contenu des données. Dans BBDO 3, cette partie est un objet Protobuf sérialisé alors que dans les versions précédentes, il s’agit de données sérialisées comme expliqué dans la section Types.
@@ -59,7 +59,7 @@ Les catégories actuellement disponibles sont décrites dans le tableau ci-desso
 | Storage| BBDO\_STORAGE\_TYPE| 3| Catégorie liée à la création de graphiques RRD.
 | Correlation| BBDO\_CORRELATION\_TYPE| 4| Corrélation d’état (obsolète).
 | Dumper| BBDO\_DUMPER\_TYPE| 5| Événements de dumper (utilisés uniquement pour les tests).
-| Bam| BBDO\_BAM\_TYPE| 6| Événements Bam.
+| Bam| BBDO\_BAM\_TYPE| 6| Événements BAM.
 | Extcmd| BBDO\_EXTCMD\_TYPE| 7| Commandes externes de Centreon Broker (obsolète).
 | Internal| BBDO\_INTERNAL\_TYPE| 65535| Réservé à l’usage interne du protocole.
 
@@ -185,11 +185,11 @@ Le tableau ci-dessous répertorie les types d’événements disponibles dans la
 
 ## Sérialisation des événements
 
-La plupart des événements répertoriés dans chaque [catégorie d’événements](#event-categories) dispose d’un mappage utilisé pour sérialiser leur contenu. En effet, leur contenu est directement sérialisé dans les [données utiles du paquet](#packet-format), un champ après l’autre dans l’ordre décrit dans les [tables de correspondance](developer-broker-mapping.md). Ils sont encodés selon les règles décrites dans le [paragraphe sur les types](#types).
+La plupart des événements répertoriés dans chaque [catégorie d’événements](#catégories-dévénements) dispose d’un mapping utilisé pour sérialiser leur contenu. En effet, leur contenu est directement sérialisé dans les [données utiles du paquet](#format-de-paquet), un champ après l’autre dans l’ordre décrit dans les [tables de correspondance](developer-broker-mapping.md). Ils sont encodés selon les règles décrites dans le [paragraphe sur les types](#types).
 
 ## Exemple
 
-Prenons un exemple et voyons comment un *événement* *host check* est envoyé dans un paquet. Son mappage est le suivant :
+Prenons un exemple et voyons comment un *événement* *host check* est envoyé dans un paquet. Son mapping est le suivant :
 
 | Propriété| Type| Valeur dans l’exemple
 |----------|----------|----------
@@ -245,11 +245,11 @@ Et donne le paquet suivant avec les valeurs en hexadécimal.
 
 BBDO est un protocole qui peut négocier des fonctionnalités. Lors de l’établissement d’une connexion, un paquet *version\_response* est envoyé par le client. Il fournit la version du protocole BBDO qu’il supporte et ses extensions. Le serveur répond à ce message par un autre paquet *version\_response* contenant sa propre version du protocole supportée et ses extensions. Si les versions du protocole correspondent, la négociation des extensions commence.
 
-Actuellement, deux extensions sont supportées. **TLS** et **COMPRESSION**. Juste après le paquet **version\_response**, chaque peer recherche dans la liste des extensions de l’autre peer les extensions qu’il supporte. Lorsqu’il en trouve une, elle est activée (c’est-à-dire qu’elle démarre immédiatement).
+Actuellement, deux extensions sont supportées : **TLS** et **COMPRESSION**. Juste après le paquet **version\_response**, chaque pair recherche dans la liste des extensions de l’autre pair les extensions qu’il supporte. Lorsqu’il en trouve une, elle est activée (c’est-à-dire qu’elle démarre immédiatement).
 
 ### Exemple
 
-Prenons **C** le client et *S* le serveur. Les étapes suivantes sont effectuées de manière séquentielle.
+Prenons **C** le client et **S** le serveur. Les étapes suivantes sont effectuées de manière séquentielle.
 
 - **C** initie une connexion TCP avec **S** et la connexion est établie.
 - **C** envoie un paquet *version\_response* avec les attributs suivants
@@ -264,11 +264,11 @@ Prenons **C** le client et *S* le serveur. Les étapes suivantes sont effectuée
   - extensions : « TLS COMPRESSION »
 - **C** et **S** déterminent les extensions qu’ils ont en commun (ici TLS et COMPRESSION)
 - si l’ordre est important, les extensions sont appliquées dans l’ordre fourni par le serveur
-- la connexion TLS est initiée, le handshake est effectué, ...
+- la connexion TLS est initiée, le handshake est effectué...
 - la connexion de compression est ouverte
-- maintenant les données transmises entre **C** et **S** sont à la fois chiffrées et compressées
+- les données transmises entre **C** et **S** sont maintenant à la fois chiffrées et compressées
 
-## Acknowledgement
+## Acquittement
 
 Les clients/serveurs dits « intelligents » peuvent acquitter les paquets qui leur sont envoyés. Cette fonction est utilisée par Centreon Broker pour s’assurer que chaque paquet est pris en compte et pour lancer la procédure de rétention au cas où l’autre partie ne répondrait pas.
 
@@ -278,17 +278,17 @@ Les modes « Clever »/« Dumb » sont configurés sur chaque sortie TCP, po
 
 ## Changement de version de BBDO
 
-La version de BBDO doit être la même pour tous les serveurs de votre architecture (serveur central, serveurs distants, pollers).
+La version de BBDO doit être la même pour tous les serveurs de votre architecture (serveur central, serveurs distants, collecteurs).
 
 Si vous voulez changer de version de BBDO (passer de la v3 à la v2 ou de la v2 à la v3), procédez comme suit :
 
-1. Sur le serveur central, accédez à **Configuration > Pollers > Broker configuration**.
+1. Sur le serveur central, accédez à **Configuration > Collecteurs > Configuration de Centreon Broker**.
 
-2. Sélectionnez le serveur souhaité, et dans l’onglet **General**, dans la section **Advanced option**s, sélectionnez la version de BBDO souhaitée dans la liste **BBDO version**. Cliquez ensuite sur **Save**.
+2. Sélectionnez le serveur souhaité, et dans l’onglet **Général**, dans la section **Paramètres avancés**, sélectionnez la version de BBDO souhaitée dans la liste **BBDO version**. Cliquez ensuite sur **Sauvegarder**.
 
-3. Faites de même avec tous les éléments figurant sur la page **Configuration > Pollers > Broker configuration**.
+3. Faites de même avec tous les éléments figurant sur la page **Configuration > Collecteurs > Configuration de Centreon Broker**.
 
-4. Redémarrez gorgoned sur chaque serveur :
+4. Redémarrez **gorgoned** sur chaque serveur :
    
    ```shell
    systemctl restart gorgoned
@@ -304,7 +304,7 @@ Si vous voulez changer de version de BBDO (passer de la v3 à la v2 ou de la v2 
      systemctl stop cbd centengine
      ```
    
-   - Sur les pollers :
+   - Sur les collecteurs :
      
      ```shell
      systemctl stop centengine
@@ -318,7 +318,7 @@ Si vous voulez changer de version de BBDO (passer de la v3 à la v2 ou de la v2 
      systemctl start cbd centengine
      ```
    
-   - Sur les pollers :
+   - Sur les collecteurs :
      
      ```shell
      systemctl start centengine
@@ -339,7 +339,7 @@ Vous pouvez vérifier dans les journaux quelle version de BBDO est active pour u
   tail /var/log/centreon-broker/<remote_name>-{broker,rrd,module}-master.log
   ```
 
-- module poller :
+- module collecteur :
   
   ```shell
   tail /var/log/centreon-broker/<poller_name>-module.log
