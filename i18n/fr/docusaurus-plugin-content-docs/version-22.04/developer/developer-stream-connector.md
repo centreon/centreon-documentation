@@ -715,7 +715,7 @@ Pour sélectionner uniquement les données de performance, nous devons sélectio
 
 ### Script complet
 
-Le script complet peut être téléchargé [ici](https://github.com/centreon/centreon-stream-connector-scripts/tree/master/influxdb).
+Le script complet peut être téléchargé [ici](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/centreon-certified/influxdb/influxdb-metrics-apiv1.lua).
 
 ### Configurer Centreon Broker
 

@@ -505,7 +505,7 @@ To create this queue, we introduce a code a little more complicated. We construc
 composed of parameters such as *events*, *influx_database* and methods like *new()*, *add()*.
 
 To understand how to create such an object in Lua, we recommend the Lua documentation
-[here for classes](https://www.lua.org/pil/16.1) and [there for metatables](https://www.lua.org/pil/13)
+[here for classes](https://www.lua.org/pil/16.1.html) and [there for metatables](https://www.lua.org/pil/13.html)
 
 To send data to a server, we provide a **broker_tcp_socket** object.
 
@@ -761,7 +761,7 @@ To select only performance data, we need to select *category* 3 (“Storage”) 
 
 ### Complete script
 
-The complete script can be downloaded [here](https://github.com/centreon/centreon-stream-connector-scripts/tree/master/influxdb).
+The complete script can be downloaded [here](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/centreon-certified/influxdb/influxdb-metrics-apiv1.lua).
 
 ### Configure Centreon Broker
 
