@@ -702,7 +702,7 @@ La fonction **write()** est uniquement utilisée pour insérer des événements 
 
 ### La fonction filter() pour sélectionner uniquement les événements de données de performance
 
-Pour sélectionner uniquement les données de performance, nous devons sélectionner la catégorie 3 (« Storage ») et l'*element* 1 pour *metric*:
+Pour sélectionner uniquement les données de performance, nous devons sélectionner la catégorie 3 (« Storage ») et l'*element* 1 pour *metric* :
 
 ```LUA
   function filter(category, element)
