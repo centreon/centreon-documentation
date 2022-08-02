@@ -17,14 +17,14 @@ The Centreon Plugin Pack **Alcatel OXE** brings a host template:
 It brings the following service templates:
 
 | Service Alias     | Service Template                                | Service Description                                                                                                                                | Default |
-|:------------------|:------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:--------|
+|-:-----------------|-:-----------------------------------------------|-:--------------------------------------------------------------------------------------------------------------------------------------------------|-:-------|
 | Cpu               | HW-Telephony-Alcatel-OXE-Cpu-SNMP               | Check the rate of utilization of CPU for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPU | X       |
 | Disk-Generic-Id   | HW-Telephony-Alcatel-OXE-Disk-Generic-Id-SNMP   | Check the rate of free space on the disk. For each checks the name of the disk will appear                                                         |         |
 | Disk-Generic-Name | HW-Telephony-Alcatel-OXE-Disk-Generic-Name-SNMP | Check the rate of free space on the disk. For each checks the mount pont of the disk will appear                                                   |         |
 | Disk-Global       | HW-Telephony-Alcatel-OXE-Disk-Global-SNMP       | Check the rate of free space on disks. For each checks the mount point of disks will appear                                                        |         |
 | Domain-Usage      | HW-Telephony-Alcatel-OXE-Domain-Usage-SNMP      | Check the number of external calls by domain using SNMP                                                                                            | X       |
 | Memory            | HW-Telephony-Alcatel-OXE-Memory-SNMP            | Check the rate of the utilization of memory                                                                                                        | X       |
-| PBX-Role          | HW-Telephony-Alcatel-OXE-PBX-Role-SNMP          | Check the rate of the utilization of memory                                                                                                        | X       |
+| PBX-Role          | HW-Telephony-Alcatel-OXE-PBX-Role-SNMP          | Check the PBX Role                                                                                                                                 | X       |
 | State             | HW-Telephony-Alcatel-OXE-State-SNMP             | Check the server state                                                                                                                             | X       |
 | Swap              | HW-Telephony-Alcatel-OXE-Swap-SNMP              | Check virtual memory usage                                                                                                                         | X       |
 | Trunks            | HW-Telephony-Alcatel-OXE-Trunk-SNMP             | Check performance metrics related to trunks                                                                                                        | X       |
