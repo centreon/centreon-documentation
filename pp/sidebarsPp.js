@@ -1084,6 +1084,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-servers-dell-vxm-restapi'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-devices-eltek-enexus-snmp'
         },
         {
