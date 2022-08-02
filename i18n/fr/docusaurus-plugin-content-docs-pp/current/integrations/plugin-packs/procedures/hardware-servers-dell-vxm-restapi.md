@@ -71,31 +71,31 @@ Référez vous à la documentation officielle : https://developer.dell.com/apis/
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Installer le plugin Centreon sur tous les collecteurs Centreon devant superviser des ressources **Proxmox VE** :
+1. Installer le plugin Centreon sur tous les collecteurs Centreon devant superviser des ressources **Dell VxRail Manager** :
 
 ```bash
 yum install centreon-plugin-Hardware-Servers-Dell-Vxm-Restapi
 ```
 
-2. Sur l'interface web de Centreon, installer le Pack **Proxmox VE** depuis la page **Configuration > Packs de plugins**.
+2. Sur l'interface web de Centreon, installer le Pack **Dell VxRail Manager Rest API** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 
 <TabItem value="Offline License" label="Offline License">
 
-1. Installer le plugin Centreon sur tous les collecteurs Centreon devant superviser des ressources **Proxmox VE** :
+1. Installer le plugin Centreon sur tous les collecteurs Centreon devant superviser des ressources **Dell VxRail Manager** :
 
 ```bash
 yum install centreon-plugin-Hardware-Servers-Dell-Vxm-Restapi
 ```
 
-2. Sur le serveur central Centreon, installer le RPM du Pack **Proxmox VE** :
+2. Sur le serveur central Centreon, installer le RPM du Pack **Dell VxRail Manager Rest API** :
 
 ```bash
 yum install centreon-pack-hardware-servers-dell-vxm-restapi
 ```
 
-3. Sur l'interface web de Centreon, installer le Pack **Proxmox VE** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface web de Centreon, installer le Pack **Dell VxRail Manager Rest API** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>
