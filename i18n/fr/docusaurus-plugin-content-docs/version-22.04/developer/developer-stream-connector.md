@@ -719,7 +719,7 @@ Le script complet peut être téléchargé [ici](https://github.com/centreon/cen
 
 ### Configurer Centreon Broker
 
-Configurez le nouvel output dans l'interface Web Centreon dans **Configuration > Collecteurs > Configuration de Centreon Broker > Central Broker**. Dans l’onglet **Output**, sélectionnez **Generic – Stream connector**, puis cliquez sur **Ajouter**:
+Configurez le nouvel output dans l'interface Web Centreon dans **Configuration > Collecteurs > Configuration de Centreon Broker > Central Broker**. Dans l’onglet **Output**, sélectionnez **Generic – Stream connector**, puis cliquez sur **Ajouter** :
 
 ![image](../assets/developer/lua/add_stream_connector.png)
 
