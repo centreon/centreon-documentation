@@ -160,7 +160,7 @@ $template->display('dummy.ihtml');
 ```
 
 Pour requêter les bases de données (**centreon** pour la configuration et **centstorage** pour les données temps réel),
-vous devez initialiser l'objet PHP comme décrit ci-dessous (en utilisant **pearDB**):
+vous devez initialiser l'objet PHP comme décrit ci-dessous (en utilisant **pearDB**) :
 
 ```PHP
 try {
