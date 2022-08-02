@@ -89,7 +89,7 @@ module.exports = {
       "items": [
         {
           "type": "doc",
-          "id": "version-22.04/security/security"
+          "id": "security/security"
         },
       ]
     },
