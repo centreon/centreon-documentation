@@ -42,7 +42,7 @@ La documentation technique de la migration est disponible [ici](developer-broker
 
 ### Langage de programmation
 
-Centreon a choisi le langage de programmation Lua pour vous permettre de manipuler, d'agréger et de transférer des données. Lua est un langage de programmation facile à utiliser. De plus amples informations sont disponibles avec la [Documentation officielle Lua](https://www.lua.org/docs).
+Centreon a choisi le langage de programmation Lua pour vous permettre de manipuler, d'agréger et de transférer des données. Lua est un langage de programmation facile à utiliser. De plus amples informations sont disponibles avec la [Documentation officielle Lua](https://www.lua.org/docs.html).
 
 ### Stockage des scripts Lua
 
@@ -160,7 +160,7 @@ Une fois que votre fichier **/usr/share/centreon-broker/lua/bbdo2file.lua** est 
 chown centreon-engine:centreon-engine /usr/share/centreon-broker/lua/bbdo2file.lua
 ```
 
-Ensuite, configurez le nouvel output dans l'interface Web Centreon dans **Configuration > Collecteurs > Configuration de Centreon Broker > Central Broker**. Dans l’onglet **Output**, sélectionnez **Generic – Stream connector**, puis cliquez sur **Ajouter**:
+Ensuite, configurez le nouvel output dans l'interface Web Centreon dans **Configuration > Collecteurs > Configuration de Centreon Broker > Central Broker**. Dans l’onglet **Output**, sélectionnez **Generic – Stream connector**, puis cliquez sur **Ajouter** :
 
 ![image](../assets/developer/lua/add_stream_connector.png)
 
@@ -467,7 +467,7 @@ Nous devons définir la taille de la file d'attente et le délai maximal avant l
 
 Pour créer cette file d'attente, nous introduisons un code un peu plus compliqué. Nous créons un objet **event\_queue**. Il est composé de paramètres tels que *events*, *influx\_database* et des méthodes telles que *new()*, *add()*.
 
-Pour comprendre comment créer un tel objet en Lua, nous recommandons la documentation Lua [pour les classes](https://www.lua.org/pil/16.1) et [pour les métatables](https://www.lua.org/pil/16.1).
+Pour comprendre comment créer un tel objet en Lua, nous recommandons la documentation Lua [pour les classes](https://www.lua.org/pil/16.1.html) et [pour les métatables](https://www.lua.org/pil/13.html).
 
 Pour envoyer des données à un serveur, nous fournissons un objet **broker\_tcp\_socket**.
 
@@ -702,7 +702,7 @@ La fonction **write()** est uniquement utilisée pour insérer des événements 
 
 ### La fonction filter() pour sélectionner uniquement les événements de données de performance
 
-Pour sélectionner uniquement les données de performance, nous devons sélectionner la catégorie 3 (« Storage ») et l'*element* 1 pour *metric*:
+Pour sélectionner uniquement les données de performance, nous devons sélectionner la catégorie 3 (« Storage ») et l'*element* 1 pour *metric* :
 
 ```LUA
   function filter(category, element)
@@ -719,7 +719,7 @@ Le script complet peut être téléchargé [ici](https://github.com/centreon/cen
 
 ### Configurer Centreon Broker
 
-Configurez le nouvel output dans l'interface Web Centreon dans **Configuration > Collecteurs > Configuration de Centreon Broker > Central Broker**. Dans l’onglet **Output**, sélectionnez **Generic – Stream connector**, puis cliquez sur **Ajouter**:
+Configurez le nouvel output dans l'interface Web Centreon dans **Configuration > Collecteurs > Configuration de Centreon Broker > Central Broker**. Dans l’onglet **Output**, sélectionnez **Generic – Stream connector**, puis cliquez sur **Ajouter** :
 
 ![image](../assets/developer/lua/add_stream_connector.png)
 
