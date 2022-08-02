@@ -16,9 +16,7 @@ The following diagram explains the transfer of collected data and insertion into
 ![image](../assets/developer/lua/archi_broker_regular.png)
 
 The Stream Connector functionality is a new Centreon Broker output getting data from Centreon Broker Master (also known
-as Centreon Broker SQL) to aggregate and forward it to external storage:
-
-![image](../assets/developer/lua/archi_broker_stream.png)
+as Centreon Broker SQL) to aggregate and forward it to external storage.
 
 This output loads a Lua script called a Stream Connector, which job is to handle, aggregate and enrich the data before
 forwarding it to the defined protocol:

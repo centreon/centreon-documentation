@@ -13,9 +13,7 @@ Le schéma suivant explique le transfert des données collectées et leur insert
 
 ![image](../assets/developer/lua/archi_broker_regular.png)
 
-La fonctionnalité Stream Connector est un nouvel output de Centreon Broker qui récupère les données de Centreon Broker Master (également connu sous le nom de Centreon Broker SQL) pour les agréger et les transmettre à un stockage externe :
-
-![image](../assets/developer/lua/archi_broker_stream.png)
+La fonctionnalité Stream Connector est un nouvel output de Centreon Broker qui récupère les données de Centreon Broker Master (également connu sous le nom de Centreon Broker SQL) pour les agréger et les transmettre à un stockage externe.
 
 Cet output charge un script Lua appelé un Stream Connector, dont la tâche consiste à traiter, agréger et enrichir les données avant de les transmettre au protocole défini :
 
