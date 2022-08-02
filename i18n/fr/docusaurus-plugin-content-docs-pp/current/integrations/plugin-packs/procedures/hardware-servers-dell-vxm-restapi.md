@@ -64,7 +64,7 @@ pour en savoir plus sur la découverte automatique d'hôtes.
 
 Pour la supervision, un utilisateur avec les droits en lecture est nécessaire.
 
-Référez vous à la documentation officielle : https://developer.dell.com/apis/5538/versions/7.0.210/docs/Introduction.md
+Référez-vous à la documentation officielle : https://developer.dell.com/apis/5538/versions/7.0.210/docs/Introduction.md
 
 ## Installation
 
