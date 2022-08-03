@@ -19,6 +19,7 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 22.04.2
 
+Release date: `August 3, 2022`
 #### Bug fixes
 
 - [Upgrade] Fixed Symfony cache rebuild during upgrade
