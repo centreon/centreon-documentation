@@ -21,6 +21,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 21.04.16
 
+Release date: `August 3, 2022`
+
 #### Security
 
 - [Configuration] Fixed SQLi vulnerability in escalations configuration
