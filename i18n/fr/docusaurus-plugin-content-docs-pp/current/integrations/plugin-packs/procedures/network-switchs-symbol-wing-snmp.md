@@ -111,7 +111,7 @@ yum install centreon-pack-network-switchs-symbol-wing-snmp
 * Appliquez le modèle d'hôte **Net-Symbol-Wing-SNMP-custom** .
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro SNMPEXTRAOPTIONS. 
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#troubleshooting-snmp).
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins/#snmpv3-options-mapping).
 
 | Mandatory | Name             | Description                                              |
 |:----------|:-----------------|:---------------------------------------------------------|
@@ -177,5 +177,5 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 
 ### Diagnostic des erreurs communes
 
-Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#troubleshooting-snmp)
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins/#snmpv3-options-mapping)
 pour le diagnostic des erreurs communes des Plugins Centreon.

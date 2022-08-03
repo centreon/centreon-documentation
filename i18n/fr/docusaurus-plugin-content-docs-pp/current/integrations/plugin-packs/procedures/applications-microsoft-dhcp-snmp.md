@@ -73,7 +73,7 @@ Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *App-Microso
 Il est nécessaire de remplir les valeurs des champs "SNMP Community" et "SNMP Version".
 
 > Si vous utilisez SNMP version 3, sélectionnez la version SNMP appropriée et configurez les paramètres SNMP v3 via la macro SNMPEXTRAOPTIONS. 
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#troubleshooting-snmp).
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins/#snmpv3-options-mapping).
 
 | Mandatory   | Name                    | Description                                                                 |
 | :---------- | :---------------------- | :-------------------------------------------------------------------------- |

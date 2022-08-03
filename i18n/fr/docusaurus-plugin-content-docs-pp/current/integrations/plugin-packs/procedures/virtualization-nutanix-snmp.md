@@ -193,7 +193,7 @@ yum install centreon-pack-virtualization-nutanix-snmp
 * Appliquez le Modèle d'hôte **Virt-Nutanix-SNMP-custom**.
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**. 
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#troubleshooting-snmp).
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins/#snmpv3-options-mapping).
 
 | Obligatoire | Macro            | Description                                  |
 |:------------|:-----------------|:---------------------------------------------|

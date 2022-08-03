@@ -111,7 +111,7 @@ yum install centreon-pack-hardware-devices-cisco-cts-snmp
 * Ajouter le modèle *HW-Device-Cisco-Cts-SNMP*.
 
 > Si vous utilisez SNMP v3, configurer la macro SNMPEXTRAOPTIONS avec les paramètres adéquats. 
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#troubleshooting-snmp).
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins/#snmpv3-options-mapping).
 
 | Mandatory   | Name             | Description                                    |
 | :---------- | :--------------- | :--------------------------------------------- |
