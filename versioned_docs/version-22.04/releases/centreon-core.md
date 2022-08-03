@@ -21,7 +21,7 @@ If you have feature requests or want to report a bug, please go to our
 
 #### Bug fixes
 
-- [Upgrade] Fixed symfony cache rebuild during upgrade
+- [Upgrade] Fixed Symfony cache rebuild during upgrade
 
 ### 22.04.1
 
