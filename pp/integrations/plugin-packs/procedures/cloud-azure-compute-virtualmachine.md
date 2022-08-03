@@ -2,138 +2,223 @@
 id: cloud-azure-compute-virtualmachine
 title: Azure Virtual Machine
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+
+## Pack Assets
+
+### Templates
+
+The Centreon Plugin Pack **Azure Virtual Machine** brings a host template:
+
+* Cloud-Azure-Compute-VirtualMachine-custom
+
+It brings the following service templates:
+
+| Service Alias    | Service Template                                        | Service Description               | Default |
+|:-----------------|:--------------------------------------------------------|:----------------------------------|:--------|
+| Cpu-Credit       | Cloud-Azure-Compute-VirtualMachine-Cpu-Credit-Api       | Check CPU credits usage           |         |
+| Cpu-Usage        | Cloud-Azure-Compute-VirtualMachine-Cpu-Usage-Api        | Check CPU usage                   | X       |
+| Diskio           | Cloud-Azure-Compute-VirtualMachine-Diskio-Api           | Check disks                       | X       |
+| Health           | Cloud-Azure-Compute-VirtualMachine-Health-Api           | Check virtual machine state       | X       |
+| Memory           | Cloud-Azure-Compute-VirtualMachine-Memory-Api           | Check memory usage                | X       |
+| Network          | Cloud-Azure-Compute-VirtualMachine-Network-Api          | Check network usage               | X       |
+| Vm-Sizes-Global  | Cloud-Azure-Compute-VirtualMachine-Vm-Sizes-Global-Api  | Check vitual machines types count |         |
+| Vms-State-Global | Cloud-Azure-Compute-VirtualMachine-Vms-State-Global-Api | Check vitual machines status      |         |
+
+### Discovery rules
+
+The Centreon Plugin Pack **Azure Virtual Machine** includes a Host Discovery provider to
+automatically discover the Azure instances of a given subscription and add them
+to the Centreon configuration. This provider is named **Microsoft Azure Virtual Machine**:
+
+![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-compute-virtualmachine-provider.png)
+
+> This discovery feature is only compatible with the **api** custom mode. **azcli** is not supported.
+
+More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
+
+### Collected metrics & status
+
+<Tabs groupId="sync">
+<TabItem value="Cpu-Credit" label="Cpu-Credit">
+
+@TODO_MIGRATION_V2@
+
+</TabItem>
+<TabItem value="Cpu-Usage" label="Cpu-Usage">
+
+@TODO_MIGRATION_V2@
+
+</TabItem>
+<TabItem value="Diskio" label="Diskio">
+
+@TODO_MIGRATION_V2@
+
+</TabItem>
+<TabItem value="Health" label="Health">
+
+| Status Name | Description                 |
+|:------------|:----------------------------|
+| status      | Current operational status  |
+| summary     | Last related status message |
+
+</TabItem>
+<TabItem value="Memory" label="Memory">
+
+| Metric Name            | Unit  |
+|:-----------------------|:------|
+| memory.available.bytes | B     |
+
+</TabItem>
+<TabItem value="Network" label="Network">
+
+@TODO_MIGRATION_V2@
+
+</TabItem>
+<TabItem value="Vm-Sizes-Global" label="Vm-Sizes-Global">
+
+@TODO_MIGRATION_V2@
+
+</TabItem>
+<TabItem value="Vms-State-Global" label="Vms-State-Global">
+
+@TODO_MIGRATION_V2@
+
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
-### Centreon Plugin
+Please find all the prerequisites needed for Centreon to get information from Azure on the [dedicated page](../getting-started/how-to-guides/azure-credential-configuration.md).
 
-Install this plugin on each needed poller:
+## Setup
 
-``` shell
+<Tabs groupId="sync">
+<TabItem value="Online License" label="Online License">
+
+1. Install the plugin package on every Centreon poller expected to monitor **Azure Virtual Machine** resources:
+
+```bash
 yum install centreon-plugin-Cloud-Azure-Compute-VirtualMachine-Api
 ```
 
-### Perl dependencies (for 'api' custom mode)
+2. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **Azure Virtual Machine** Centreon Plugin Pack.
 
-By installing the plugin, some perl depencies will be installed :
+</TabItem>
+<TabItem value="Offline License" label="Offline License">
 
-    JSON::XS
-    DateTime
-    Digest::MD5
-    Digest::SHA
-    LWP::UserAgent
-    LWP::Protocol::https
-    IO::Socket::SSL
-    URI
-    HTTP::ProxyPAC
+1. Install the plugin package on every Centreon poller expected to monitor **Azure Virtual Machine** resources:
 
-The login and access token handling will be made by the plugin itself.
-
-> You are using a proxy? Add this optional dependency to your central server and all the pollers that will perform discovery using a proxy. 
->
-> `yum install perl-LWP-Protocol-connect̀`
-
-### Azure CLI 2.0 (for 'azcli' custom mode)
-
-The CLI needs at least Python version 2.7
-(<https://github.com/Azure/azure-cli/blob/dev/doc/install_linux_prerequisites.md>).
-
-On CentOS/RedHat, install with following commands:
-
-    (As root)
-    # rpm --import https://packages.microsoft.com/keys/microsoft.asc
-    # echo -e "[azure-cli]\nname=Azure CLI\nbaseurl=https://packages.microsoft.com/yumrepos/azure-cli\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/azure-cli.repo
-    # yum install azure-cli
-    (As centreon-engine)
-    # az login
-
-The shell should prompt:
-
-    To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code CWT4WQZAD to authenticate.
-
-Go to <https://microsoft.com/devicelogin> and enter the given code.
-
-Log in with your account credentials. You should use a service account.
-Application is not yet supported.
-
-The command line should now show:
-
-    [
-      {
-        "cloudName": "AzureCloud",
-        "id": "0ef83f3a-d83e-2039-d930-309df93acd93d",
-        "isDefault": true,
-        "name": "N/A(tenant level account)",
-        "state": "Enabled",
-        "tenantId": "0ef83f3a-03cd-2039-d930-90fd39ecd048",
-        "user": {
-          "name": "email@mycompany.onmicrosoft.com",
-          "type": "user"
-        }
-      }
-    ]
-
-You now have a hidden azure directory where your token is stored in an
-accessTokens.json file.
-
-### Host Discovery
-
-To benefit from the host discovery rule brought by this pack, the Azure Monitor
-plugin needs to be installed:
-
-``` shell
-yum install centreon-plugin-Cloud-Azure-Management-Monitor-Api
+```bash
+yum install centreon-plugin-Cloud-Azure-Compute-VirtualMachine-Api
 ```
 
-## Centreon Configuration
+2. Install the **Azure Virtual Machine** Centreon Plugin Pack RPM on the Centreon central server:
 
-### Create a new host
+```bash
+yum install centreon-pack-cloud-azure-compute-virtualmachine
+```
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
-the following table:
+3. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **Azure Virtual Machine** Centreon Plugin Pack.
 
-| Field                   | Value                                     |
-| :---------------------- | :---------------------------------------- |
-| Host name               | *Name of the host*                        |
-| Alias                   | *Host description*                        |
-| IP                      | *Host IP Address*                         |
-| Monitored from          | *Monitoring Poller to use*                |
-| Host Multiple Templates | Cloud-Azure-Compute-VirtualMachine-custom |
+</TabItem>
+</Tabs>
 
-Click on the *Save* button.
+## Configuration
 
-### Set host macros
+### Host
 
-The following macros must be configured on host.
+* Log into Centreon and add a new host through **Configuration > Hosts**.
+* In the **IP Address/DNS** field, set the following IP address: **127.0.0.1**.
+* Aplly the **Cloud-Azure-Compute-VirtualMachine-custom** template to the host.
+* Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
+These mandatory macros differ depending on the custom mode used.
 
-#### Common macros
+> Two methods can be used to set the macros:
 
-| Macro              | Description                                          |
-| :----------------- | :--------------------------------------------------- |
-| AZURERESOURCE      | Resource name or id                                  |
-| AZURERESOURCEGROUP | Resource group (Required if resource's name is used) |
+>> * Full ID of the Resource (`/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_id>/providers/XXXXX/XXXXX/<resource_name>`)
+in **AZURERESOURCE**
+> * Resource name in the **AZURERESOURCE** macro, and resource group name in the **AZURERESOURCEGROUP** macro.
 
-#### 'api' custom mode macros
+<Tabs groupId="sync">
+<TabItem value="Azure Monitor API" label="Azure Monitor API">
 
-| Macro             | Description       |
-| :---------------- | :---------------- |
-| AZURECUSTOMMODE   | Custom mode 'api' |
-| AZURESUBSCRIPTION | Subscription ID   |
-| AZURETENANT       | Tenant ID         |
-| AZURECLIENTID     | Client ID         |
-| AZURECLIENTSECRET | Client secret     |
+| Mandatory   | Macro              | Description                                      |
+|:------------|:-------------------|:-------------------------------------------------|
+|             | AZUREAPICUSTOMMODE | Custom mode **api**                              |
+|             | AZURECLIENTID      | Client ID                                        |
+|             | AZURECLIENTSECRET  | Client secret                                    |
+|             | AZURERESOURCE      | ID or name of the Azure Virtual Machine resource |
+|             | AZURERESOURCEGROUP | Resource group name if resource name is used     |
+|             | AZURESUBSCRIPTION  | Subscription ID                                  |
+|             | AZURETENANT        | Tenant ID                                        |
 
-#### 'azcli' custom mode macros
+</TabItem>
+<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
-| Macro             | Description         |
-| :---------------- | :------------------ |
-| AZURECUSTOMMODE   | Custom mode 'azcli' |
-| AZURESUBSCRIPTION | Subscription ID     |
+| Mandatory   | Macro              | Description                                      |
+|:------------|:-------------------|:-------------------------------------------------|
+|             | AZURECLICUSTOMMODE | Custom mode **azcli**                            |
+|             | AZURERESOURCE      | ID or name of the Azure Virtual Machine resource |
+|             | AZURERESOURCEGROUP | Resource group name if resource name is used     |
+|             | AZURESUBSCRIPTION  | Subscription ID                                  |
 
-Click on the *Save* button.
+</TabItem>
+</Tabs>
 
-## Available metrics
+## How to check in the CLI that the configuration is OK and what are the main options for?
 
-Go to
-<https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-supported-metrics#microsoftcomputevirtualmachines>
-to see the description of return metrics for this Azure service.
+Once the plugin is installed, log into your Centreon poller's CLI using the
+**centreon-engine** user account (`su - centreon-engine`) and test the plugin by
+running the following command:
+
+```bash
+/usr/lib/centreon/plugins//centreon_azure_compute_virtualmachine_api.pl \
+    --plugin=cloud::azure::compute::virtualmachine::plugin \
+    --mode=health \
+    --custommode='api' \
+    --resource='VM001ABCD' \
+    --resource-group='RSG1234' \
+    --subscription='xxxxxxxxx' \
+    --tenant='xxxxxxxxx' \
+    --client-id='xxxxxxxxx' \
+    --client-secret='xxxxxxxxx' \
+    --proxyurl='' \
+    --ok-status='%{status} =~ /^Available$/' \
+    --warning-status='' \
+    --critical-status='%{status} =~ /^Unavailable$/' \
+    --unknown-status='%{status} =~ /^Unknown$/' \
+    --api-version=2017-07-01\
+```
+
+The expected command output is shown below:
+
+```bash
+OK: Status: '%s', Summary: '%s'|
+```
+
+All available options for a given mode can be displayed by adding the
+`--help` parameter to the command:
+
+```bash
+/usr/lib/centreon/plugins//centreon_azure_compute_virtualmachine_api.pl \
+    --plugin=cloud::azure::compute::virtualmachine::plugin \
+    --mode=health \
+    --help
+```
+
+All available modes can be displayed by adding the `--list-mode` parameter to
+the command:
+
+```bash
+/usr/lib/centreon/plugins//centreon_azure_compute_virtualmachine_api.pl \
+    --plugin=cloud::azure::compute::virtualmachine::plugin \
+    --list-mode
+```
+
+### Troubleshooting
+
+Please find the troubleshooting documentation for the API-based plugins in
+this [chapter](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks).

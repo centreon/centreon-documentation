@@ -2,125 +2,194 @@
 id: cloud-azure-network-expressroute
 title: Azure ExpressRoute
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+
+## Pack Assets
+
+### Templates
+
+The Centreon Plugin Pack **Azure ExpressRoute** brings a host template:
+
+* Cloud-Azure-Network-ExpressRoute-custom
+
+It brings the following service templates:
+
+| Service Alias  | Service Template                                    | Service Description                        | Default |
+|:---------------|:----------------------------------------------------|:-------------------------------------------|:--------|
+| Circuit-Status | Cloud-Azure-Network-ExpressRoute-Circuit-Status-Api | Check circuit status                       | X       |
+| Health         | Cloud-Azure-Network-ExpressRoute-Health-Api         | Check circuit state                        | X       |
+| Traffic        | Cloud-Azure-Network-ExpressRoute-Traffic-Api        | Check circuit inbound and outbound traffic | X       |
+
+### Discovery rules
+
+The Centreon Plugin Pack **Azure ExpressRoute** includes a Host Discovery provider to
+automatically discover the Azure instances of a given subscription and add them
+to the Centreon configuration. This provider is named **Microsoft Azure Express Route**:
+
+![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-network-expressroute-provider.png)
+
+> This discovery feature is only compatible with the **api** custom mode. **azcli** is not supported.
+
+More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
+
+### Collected metrics & status
+
+<Tabs groupId="sync">
+<TabItem value="Circuit-Status" label="Circuit-Status">
+
+| Metric Name                         | Description             | Unit |
+|:------------------------------------|:------------------------|:-----|
+| redis.cache.memory.usage.percentage | Memory Usage Percentage | %    |
+
+</TabItem>
+<TabItem value="Health" label="Health">
+
+| Status Name | Description                 |
+|:------------|:----------------------------|
+| status      | Current operational status  |
+| summary     | Last related status message |
+
+</TabItem>
+<TabItem value="Traffic" label="Traffic">
+
+@TODO@ 
+
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
-### Centreon Plugin
+Please find all the prerequisites needed for Centreon to get information from Azure on the [dedicated page](../getting-started/how-to-guides/azure-credential-configuration.md).
 
-Install this plugin on each needed poller:
+## Setup
 
-``` shell
+<Tabs groupId="sync">
+<TabItem value="Online License" label="Online License">
+
+1. Install the plugin package on every Centreon poller expected to monitor **Azure Express Route** resources:
+
+```bash
 yum install centreon-plugin-Cloud-Azure-Network-ExpressRoute-Api
 ```
 
-### Perl dependencies (for 'api' custom mode)
+2. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **Azure ExpressRoute** Centreon Plugin Pack.
 
-By installing the plugin, some perl depencies will be installed :
+</TabItem>
+<TabItem value="Offline License" label="Offline License">
 
-    JSON::XS
-    DateTime
-    Digest::MD5
-    Digest::SHA
-    LWP::UserAgent
-    LWP::Protocol::https
-    IO::Socket::SSL
-    URI
-    HTTP::ProxyPAC
+1. Install the plugin package on every Centreon poller expected to monitor **Azure Express Route** resources:
 
-The login and access token handling will be made by the plugin itself.
+```bash
+yum install centreon-plugin-Cloud-Azure-Network-ExpressRoute-Api
+```
 
-### Azure CLI 2.0 (for 'azcli' custom mode)
+2. Install the **Azure ExpressRoute** Centreon Plugin Pack RPM on the Centreon central server:
 
-The CLI needs at least Python version 2.7
-(<https://github.com/Azure/azure-cli/blob/dev/doc/install_linux_prerequisites.md>).
+```bash
+yum install centreon-pack-cloud-azure-network-expressroute
+```
 
-On CentOS/RedHat, install with following commands:
+3. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **Azure ExpressRoute** Centreon Plugin Pack.
 
-    (As root)
-    # rpm --import https://packages.microsoft.com/keys/microsoft.asc
-    # echo -e "[azure-cli]\nname=Azure CLI\nbaseurl=https://packages.microsoft.com/yumrepos/azure-cli\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/azure-cli.repo
-    # yum install azure-cli
-    (As centreon-engine)
-    # az login
+</TabItem>
+</Tabs>
 
-The shell should prompt:
+## Configuration
 
-    To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code CWT4WQZAD to authenticate.
+### Host
 
-Go to <https://microsoft.com/devicelogin> and enter the given code.
+* Log into Centreon and add a new host through **Configuration > Hosts**.
+* In the **IP Address/DNS** field, set the following IP address: **127.0.0.1**.
+* Aplly the **Cloud-Azure-Network-ExpressRoute-custom** template to the host.
+* Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
+These mandatory macros differ depending on the custom mode used.
 
-Log in with your account credentials. You should use a service account.
-Application is not yet supported.
+> Two methods can be used to set the macros:
 
-The command line should now show:
+>> * Full ID of the Resource (`/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_id>/providers/XXXXX/XXXXX/<resource_name>`)
+in **AZURERESOURCE**
+> * Resource name in the **AZURERESOURCE** macro, and resource group name in the **AZURERESOURCEGROUP** macro.
 
-    [
-      {
-        "cloudName": "AzureCloud",
-        "id": "0ef83f3a-d83e-2039-d930-309df93acd93d",
-        "isDefault": true,
-        "name": "N/A(tenant level account)",
-        "state": "Enabled",
-        "tenantId": "0ef83f3a-03cd-2039-d930-90fd39ecd048",
-        "user": {
-          "name": "email@mycompany.onmicrosoft.com",
-          "type": "user"
-        }
-      }
-    ]
+<Tabs groupId="sync">
+<TabItem value="Azure Monitor API" label="Azure Monitor API">
 
-You now have a hidden azure directory where your token is stored in an
-accessTokens.json file.
+| Mandatory   | Macro              | Description                                    |
+|:------------|:-------------------|:-----------------------------------------------|
+|     x       | AZUREAPICUSTOMMODE | Custom mode **api**                            |
+|     x       | AZURECLIENTID      | Client ID                                      |
+|     x       | AZURECLIENTSECRET  | Client secret                                  |
+|     x       | AZURERESOURCE      | ID or name of the Azure Express Route resource |
+|             | AZURERESOURCEGROUP | Resource group name if resource name is used   |
+|     x       | AZURESUBSCRIPTION  | Subscription ID                                |
+|     x       | AZURETENANT        | Tenant ID                                      |
 
-## Centreon Configuration
+</TabItem>
+<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
-### Create a new host
+| Mandatory   | Macro              | Description                                    |
+|:------------|:-------------------|:-----------------------------------------------|
+|     x       | AZURECLICUSTOMMODE | Custom mode **azcli**                          |
+|     x       | AZURERESOURCE      | ID or name of the Azure Express Route resource |
+|     x       | AZURERESOURCEGROUP | Resource group name if resource name is used   |
+|     x       | AZURESUBSCRIPTION  | Subscription ID                                |
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
-the following table:
+</TabItem>
+</Tabs>
 
-| Field                   | Value                                   |
-| :---------------------- | :-------------------------------------- |
-| Host name               | *Name of the host*                      |
-| Alias                   | *Host description*                      |
-| IP                      | *Host IP Address*                       |
-| Monitored from          | *Monitoring Poller to use*              |
-| Host Multiple Templates | Cloud-Azure-Network-ExpressRoute-custom |
+## How to check in the CLI that the configuration is OK and what are the main options for?
 
-Click on the *Save* button.
+Once the plugin is installed, log into your Centreon poller's CLI using the
+**centreon-engine** user account (`su - centreon-engine`) and test the plugin by
+running the following command:
 
-### Set host macros
+```bash
+/usr/lib/centreon/plugins//centreon_azure_network_expressroute_api.pl \
+    --plugin=cloud::azure::network::expressroute::plugin \
+    --mode=traffic \
+    --custommode='api' \
+    --resource='EXPRTE001A' \
+    --resource-group='RSG1234' \
+    --subscription='xxxxxxxxx' \
+    --tenant='xxxxxxxxx' \
+    --client-id='xxxxxxxxx' \
+    --client-secret='xxxxxxxxx' \
+    --proxyurl='' \
+    --filter-metric='' \
+    --timeframe='900' \
+    --interval='PT5M' \
+    --aggregation='Average' \
+    --warning-bitsinpersecond-average='' \
+    --critical-bitsoutpersecond-average='' \
+```
 
-The following macros must be configured on host.
+The expected command output is shown below:
 
-#### Common macros
+```bash
+OK: Circuit '%s' average BitsInPerSecond '%s' BitsOutPerSecond '%s'| 
+```
 
-| Macro              | Description    |
-| :----------------- | :------------- |
-| AZURECIRCUITNAME   | Circuit name   |
-| AZURERESOURCEGROUP | Resource group |
+All available options for a given mode can be displayed by adding the
+`--help` parameter to the command:
 
-#### 'api' custom mode macros
+```bash
+/usr/lib/centreon/plugins//centreon_azure_network_expressroute_api.pl \
+    --plugin=cloud::azure::network::expressroute::plugin \
+    --mode=traffic \
+    --help
+```
 
-| Macro             | Description       |
-| :---------------- | :---------------- |
-| AZURECUSTOMMODE   | Custom mode 'api' |
-| AZURESUBSCRIPTION | Subscription ID   |
-| AZURETENANT       | Tenant ID         |
-| AZURECLIENTID     | Client ID         |
-| AZURECLIENTSECRET | Client secret     |
+All available modes can be displayed by adding the `--list-mode` parameter to
+the command:
 
-#### 'azcli' custom mode macros
+```bash
+/usr/lib/centreon/plugins//centreon_azure_network_expressroute_api.pl \
+    --plugin=cloud::azure::network::expressroute::plugin \
+    --list-mode
+```
 
-| Macro             | Description         |
-| :---------------- | :------------------ |
-| AZURECUSTOMMODE   | Custom mode 'azcli' |
-| AZURESUBSCRIPTION | Subscription ID     |
+### Troubleshooting
 
-Click on the *Save* button.
-
-## Available metrics
-
-Go to
-<https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-supported-metrics?toc=/azure/azure-monitor/toc.json#microsoftnetworknetworkinterfaces>
-to see the description of return metrics for this Azure service.
+Please find the troubleshooting documentation for the API-based plugins in
+this [chapter](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks).
