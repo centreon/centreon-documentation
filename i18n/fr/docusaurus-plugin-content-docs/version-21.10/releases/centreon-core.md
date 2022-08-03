@@ -18,6 +18,8 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ### 21.10.8
 
+Release date: `August 3, 2022`
+
 #### Security
 
 - [Configuration] Fixed SQLi vulnerability in escalations configuration
