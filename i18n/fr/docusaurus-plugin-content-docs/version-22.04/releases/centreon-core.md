@@ -20,7 +20,7 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 #### Bug fixes
 
-- [Upgrade] Fixed symfony cache rebuild during upgrade
+- [Upgrade] Fixed Symfony cache rebuild during upgrade
 
 ### 22.04.1
 
