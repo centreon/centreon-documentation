@@ -134,7 +134,7 @@ yum install centreon-pack-applications-monitoring-node-exporter-windows
 | Obligatoire | Macro             | Description                                                                            |
 |:------------|:------------------|:---------------------------------------------------------------------------------------|
 |             | EXTRAOPTIONS      | Options supplémentaires à ajouter à l'ensemble des commandes de l'hôte (ex: --verbose) |
-|             | NODEEXPORTERPORT  | (Défaut : '9100')                                                                      |
+|             | NODEEXPORTERPORT  | (Défaut : '9182')                                                                      |
 |             | NODEEXPORTERPROTO | (Défaut : 'http')                                                                      |
 |             | NODEEXPORTERURL   | (Défaut : '/metrics')                                                                  |
 
@@ -150,11 +150,11 @@ l'utilisateur **centreon-engine** (`su - centreon-engine`) :
     --mode=services \
     --hostname=10.0.0.1 \
     --urlpath='/metrics' \
-    --port='9100' \
+    --port='9182' \
     --proto='http' \
     --service='' \
     --warning-status='' \
-    --critical-status='' \
+    --critical-status='%{start_mode} =~ /auto/ && %{status} !~ /^running$/' \
     --use-new-perfdata
 ```
 
