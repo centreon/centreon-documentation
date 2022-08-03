@@ -157,11 +157,14 @@ $template->assign('data', $data);
 $template->display('dummy.ihtml');
 ```
 
-To call template php's variable in the html look dummy.ihtml
+This line asks PHP to call the **dummy.ihtml** smarty template to display the results:
 
-To do request in database:
+```PHP
+$template->display('dummy.ihtml');
+```
 
-> initialization of databases's centreon, centreon storage and recovering preferences
+To query the databases (**centreon** for the configuration and **centstorage** for the real time data),
+you must initialize the PHP object as described below (using **pearDB**):
 
 ```PHP
 try {
@@ -183,4 +186,4 @@ try {
 }
 ```
 
-Then request in database with class' methods.
+Then query the database using the class methods.
