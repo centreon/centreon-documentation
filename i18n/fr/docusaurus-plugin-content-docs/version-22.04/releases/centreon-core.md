@@ -19,6 +19,7 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 ### 22.04.2
 
 Release date: `August 3, 2022`
+
 #### Bug fixes
 
 - [Upgrade] Fixed Symfony cache rebuild during upgrade
