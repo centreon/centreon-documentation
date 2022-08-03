@@ -29,8 +29,8 @@ through the Office365 API Management.
 
 See link for details about metrics : 
 
-* https://docs.microsoft.com/en-us/office365/admin/activity-reports/microsoft-teams-device-usage?view=o365-worldwide
-* https://docs.microsoft.com/en-us/office365/admin/activity-reports/microsoft-teams-user-activity?view=o365-worldwide
+* https://docs.microsoft.com/en-us/microsoft-365/admin/activity-reports/microsoft-teams-device-usage-preview?view=o365-worldwide 
+* https://docs.microsoft.com/en-us/microsoft-365/admin/activity-reports/microsoft-teams-user-activity-preview?view=o365-worldwide
 
 <Tabs groupId="sync">
 <TabItem value="Devices-Usage" label="Devices-Usage">
