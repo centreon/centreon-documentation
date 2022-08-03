@@ -353,6 +353,10 @@ module.exports = {
             id: 'integrations/plugin-packs/procedures/applications-monitoring-node-exporter-linux'
         },
         {
+            type: 'doc',
+            id: 'integrations/plugin-packs/procedures/applications-monitoring-node-exporter-windows'
+        },
+        {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-video-openheadend-snmp'
         },
