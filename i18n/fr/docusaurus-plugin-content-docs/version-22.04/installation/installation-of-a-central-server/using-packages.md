@@ -565,7 +565,7 @@ La timezone par défaut de PHP doit être configurée.
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / CentOS 7">
 
-Exécutez la commande suivante :
+Exécutez la commande suivante en `root` :
 
 ```shell
 echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini

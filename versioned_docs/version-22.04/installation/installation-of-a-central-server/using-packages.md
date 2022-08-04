@@ -572,7 +572,7 @@ You are required to set the PHP time zone.
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / CentOS 7">
 
-Run the command:
+Run the following command as `root`:
 
 ```shell
 echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
