@@ -150,7 +150,7 @@ dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 dnf config-manager --set-enabled 'powertools'
 ```
 
-Activer PHP 8.0 en utilisant les commandes suivantes :
+Activez PHP 8.0 en utilisant les commandes suivantes :
 
 ```shell
 dnf module reset php
