@@ -445,7 +445,7 @@ mysql_secure_installation
 
 > Définissez un mot de passe pour l'utilisateur root de la base de données.
 
-Enfin, dans la base de données distante, créer un utilisateur avec privilèges **root**. Renseignez cet utilisateur pendant le processus d'installation web (à [l'étape 6](../web-and-post-installation.md#étape-6--database-information), dans les champs **Root user** et **Root password**).
+Enfin, dans la base de données distante, créez un utilisateur avec privilèges **root**. Renseignez cet utilisateur pendant le processus d'installation web (à [l'étape 6](../web-and-post-installation.md#étape-6--database-information), dans les champs **Root user** et **Root password**).
 
 ```SQL
 CREATE USER '<USER>'@'<IP_CENTRAL>' IDENTIFIED BY '<MOT_DE_PASSE>';
