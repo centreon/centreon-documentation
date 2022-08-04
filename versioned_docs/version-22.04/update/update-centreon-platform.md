@@ -32,12 +32,6 @@ Then upgrade all the components with the following command:
 yum update centreon\*
 ```
 
-Now you need to clear the Apache cache using the following command:
-
-```shell
-sudo -u apache /usr/share/centreon/bin/console cache:clear
-```
-
 ### Finalizing the update
 
 Log on to the Centreon web interface to continue the update process:
