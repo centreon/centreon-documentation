@@ -33,12 +33,6 @@ Mettez à jour l'ensemble des composants :
 yum update centreon\*
 ```
 
-Vous devez maintenant vider le cache Apache en exécutant la commande :
-
-```shell
-sudo -u apache /usr/share/centreon/bin/console cache:clear
-```
-
 ### Finalisation de la mise à jour
 
 Connectez-vous à l'interface web Centreon pour démarrer le processus de
