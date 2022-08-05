@@ -184,6 +184,27 @@ find /usr/share/centreon/www/img/media -type d -exec chmod 775 {} \;
 find /usr/share/centreon/www/img/media -type f \( ! -iname ".keep" ! -iname ".htaccess" \) -exec chmod 664 {} \;
 ```
 
+### Clean broker memory files
+
+> **WARNING** perform these commands only the active central node.
+Before resuming the cluster resources management, to avoid broker issues, cleanup all the *.memory.*, *.unprocessed.* or *.queue.* files:
+
+```bash
+systemctl stop cbd-sql
+rm -rf /var/lib/centreon-broker/central-broker-master.memory*
+rm -rf /var/lib/centreon-broker/central-broker-master.queue*
+rm -rf /var/lib/centreon-broker/central-broker-master.unprocessed*
+systemctl start cbd-sql
+```
+
+Then perform these commands on the passive central node:
+
+```bash
+rm -rf /var/lib/centreon-broker/central-broker-master.memory*
+rm -rf /var/lib/centreon-broker/central-broker-master.queue*
+rm -rf /var/lib/centreon-broker/central-broker-master.unprocessed*
+```
+
 ### Restart Centreon process
 
 Then to restart all the processes on the active central node:
@@ -298,18 +319,6 @@ Connection Status '@CENTRAL_MASTER_NAME@' [OK]
 Connection Status '@CENTRAL_SLAVE_NAME@' [OK]
 Slave Thread Status [OK]
 Position Status [OK]
-```
-
-### Clean broker memory files
-
-> **WARNING** perform this command only the passive central node.
-
-Before resuming the cluster resources management, to avoid broker's issues, cleanup all the *.memory.* or *.unprocessed.* or *.queue.* broker files on:
-
-```bash
-rm -rf /var/lib/centreon-broker/central-broker-master.memory*
-rm -rf /var/lib/centreon-broker/central-broker-master.queue*
-rm -rf /var/lib/centreon-broker/central-broker-master.unprocessed*
 ```
 
 ## Resuming the cluster resources management
