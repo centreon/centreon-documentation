@@ -5,44 +5,64 @@ title: Prometheus Server
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-## Vue d'ensemble
-
-Prometheus est un système de supervision orienté métrique avec des capacités de 
-collecte vers différents *exporters* exposant des métriques via HTTP. 
-
-Le Centreon Plugin Pack utilise les capacité des APIs de Prometheus et de son 
-language PromQL pour executer des requêtes sur les données contenu dans sa base
-de données orientée séries temporelles.
-
 ## Contenu du Pack
 
-### Eléments supervisés
+### Modèles
 
-- N'importe quelle métrique collectée et stockée par Prometheus
-- Statut des *targets* Prometheus
+Le Plugin Pack Centreon **Prometheus Server** apporte 2 modèles d'hôte différents :
 
-### Métriques collectées
+* Cloud-Prometheus-Api-custom
+* Cloud-Prometheus-Target-Name-Api-custom
+
+Il apporte les modèles de service suivants :
+
+| Alias              | Modèle de service                       | Description                                                  | Défaut |
+| :----------------- | :-------------------------------------- | :----------------------------------------------------------- | :----- |
+| Expression         | Cloud-Prometheus-Expression-Api         | Permet la supervision de n'importe quelle métrique collectée et stockée par Prometheus |        |
+| Target-Name-Status | Cloud-Prometheus-Target-Name-Status-Api | Contrôle le status des targets Prometheus                     | X      |
+| Target-Status      | Cloud-Prometheus-Target-Status-Api      | Contrôle le status de toutes les targets Prometheus           | X      |
+
+### Règles de découverte
+
+Le Plugin Pack Centreon **Prometheus Server** inclut un fournisseur de découverte
+d'hôtes nommé **Prometheus Targets**. Celui-ci permet de découvrir l'ensemble targets supervisés par un serveur Prometheus :
+
+![image](../../../assets/integrations/plugin-packs/procedures/cloud-prometheus-api-provider.png)
+
+### Métriques & statuts collectés
 
 <Tabs groupId="sync">
 <TabItem value="Expression" label="Expression">
 
-Mode générique pour executer des requêtes PromQL
+Mode générique pour exécuter des requêtes PromQL.
 
-| Metric name                                          | Description |
-| :--------------------------------------------------- | :---------- |
-| *instance*#*centreon_prometheus_metric_display_name* | Any metric  |
+| Métrique | Unité |
+| :------- | :---- |
+| status   |       |
+
+</TabItem>
+<TabItem value="Target-Name-Status" label="Target-Name-Status">
+
+| Métrique              | Unité |
+| :-------------------- | :---- |
+| targets.active.count  | count |
+| targets.down.count    | count |
+| targets.dropped.count | count |
+| targets.unknown.count | count |
+| targets.up.count      | count |
+| *targets*#status      |       |
 
 </TabItem>
 <TabItem value="Target-Status" label="Target-Status">
 
-| Metric name           | Description                |
-| :-------------------- | :------------------------- |
-| targets.active.count  | Number of active targets   |
-| targets.dropped.count | Number of dropped targets  |
-| targets.up.count      | Number of up targets       |
-| targets.down.count    | Number of down targets     |
-| targets.unknown.count | Number of unknown targets  | 
+| Métrique              | Unité |
+| :-------------------- | :---- |
+| targets.active.count  | count |
+| targets.down.count    | count |
+| targets.dropped.count | count |
+| targets.unknown.count | count |
+| targets.up.count      | count |
+| *targets*#status      |       |
 
 </TabItem>
 </Tabs>
@@ -57,30 +77,30 @@ Serveur Prometheus.
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Installer le Plugin Centreon sur les Collecteurs interrogeant Prometheus:
+1. Installez le plugin sur tous les collecteurs Centreon devant superviser des ressources **Prometheus Server** :
 
 ```bash
 yum install centreon-plugin-Cloud-Prometheus-Api
 ```
 
-2. Dans l'interface Centreon, installer le Plugin Pack *Prometheus API* via le menu "Configuration > Plugin Packs > Gestionnaire"
+2. Sur l'interface web de Centreon, installez le Plugin Pack **Prometheus Server** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Installer le Plugin Centreon sur les Collecteurs interrogeant Prometheus:
+1. Installez le plugin sur tous les collecteurs Centreon devant superviser des ressources **Prometheus Server** :
 
 ```bash
 yum install centreon-plugin-Cloud-Prometheus-Api
 ```
 
-2. Installer le package RPM du Plugin Pack sur le serveur Central:
+2. Sur le serveur central Centreon, installez le RPM du Plugin Pack **Prometheus Server** :
 
 ```bash
 yum install centreon-pack-cloud-prometheus-api
 ```
 
-3. Dans l'interface Centreon, installer le Plugin Pack *Prometheus API* via le menu "Configuration > Plugin Packs > Gestionnaire"
+3. Sur l'interface web de Centreon, installez le Plugin Pack **Prometheus Server** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>
@@ -89,24 +109,52 @@ yum install centreon-pack-cloud-prometheus-api
 
 ### Hôte
 
-- Connectez vous à l'interface Centreon et ajouter un nouvel Hôte via le menu "Configuration > Hôtes".
-- Appliquez le Modèle *Cloud-Prometheus-Api-custom*
-- Une fois le Modèle appliqué, saisissez la valeur des Macros obligatoires listées ci-dessous:
+<Tabs groupId="sync">
+<TabItem value="Cloud-Prometheus-Api-Custom" label="Cloud-Prometheus-Api-Custom">
 
-| Mandatory | Nom                     | Description                                            |
-|:----------|:------------------------|:------------------------------------------------------ |
-| X         | PROMETHEUSAPIHOSTNAME   | Nom ou IP du serveur Prometheus                        |
-| X         | PROMETHEUSAPIPORT       | Port d'écoute de l'API Prometheus                      |
-| X         | PROMETHEUSAPIURL        | Chemin URL d'accès à l'API (Par défaut: '/api/v1)      |
-| X         | PROMETHEUSAPIPROTO      | Protocol used by Prom API (Par défaut: 'http')         |
-|           | EXTRAOPTIONS            | Options supplémentaires, e.g: --use-new-perfdata       |
+Modèle permettant la supervision du serveur Prometheus.
+
+* Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
+* Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre serveur **Prometheus Server**.
+* Appliquez le modèle d'hôte **Cloud-Prometheus-Api-custom**.
+* Une fois le modèle appliqué, les macros ci-dessous indiquées comme requises (**Obligatoire**) doivent être renseignées.
+
+| Obligatoire | Macro                 | Description                                                  |
+| :---------- | :-------------------- | :----------------------------------------------------------- |
+|             | EXTRAOPTIONS          | Options supplémentaires à ajouter à l'ensemble des commandes de l'hôte (ex: --verbose) |
+| X           | PROMETHEUSAPIPORT     | (Défaut : '9090')                                            |
+| X           | PROMETHEUSAPIPROTO    | (Défaut : 'http')                                            |
+| X           | PROMETHEUSAPIURL      | (Défaut : '/api/v1')                                         |
+
+</TabItem>
+
+<TabItem value="Cloud-Prometheus-Target-Name-Api-Custom" label="Cloud-Prometheus-Target-Name-Api-Custom">
+
+Modèle permettant la supervision de targets Prometheus.
+
+* Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
+* Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre target.
+* Appliquez le modèle d'hôte **Cloud-Prometheus-Target-Name-Api-Custom**.
+* Une fois le modèle appliqué, les macros ci-dessous indiquées comme requises (**Obligatoire**) doivent être renseignées.
+
+| Obligatoire | Macro                 | Description                                                  |
+| :---------- | :-------------------- | :----------------------------------------------------------- |
+|             | EXTRAOPTIONS          | Options supplémentaires à ajouter à l'ensemble des commandes de l'hôte (ex: --verbose) |
+| X           | FILTERLABEL           | Filter label to filter on a specific target. Example: 'instance,10.10.1.199:9182'                       |
+| X           | PROMETHEUSAPIHOSTNAME | Prometheus server name or IP address                         |
+| X           | PROMETHEUSAPIPORT     | (Défaut : '9090')                                            |
+| X           | PROMETHEUSAPIPROTO    | (Défaut : 'http')                                            |
+| X           | PROMETHEUSAPIURL      | (Défaut : '/api/v1')                                         |
+
+</TabItem>
+</Tabs>
 
 ## FAQ
 
 ### Comment tester le Plugin en ligne de commande et à quoi correspondent les options?
 
-> Note: Le mode décrit ci-dessous ne fonctionne que lorsque le Modèle est appliqué sur
-un Hôte étant un serveur Prometheus.
+> Note: Le mode décrit ci-dessous ne fonctionne que lorsque le modèle est appliqué sur
+un hôte étant un serveur Prometheus.
 
 Une fois le Plugin installé, connectez-vous au Collecteur Centreon et utilisez l'utilisateur
 *centreon-engine* pour lancer la commande suivante: 
@@ -116,12 +164,12 @@ Une fois le Plugin installé, connectez-vous au Collecteur Centreon et utilisez 
     --plugin=cloud::prometheus::restapi::plugin \
     --mode=target-status \
     --hostname=amzprometheus.int.centreon.com \
-    --url-path='/api/v1' --port='80' --proto='http' \
+    --url-path='/api/v1' --port='9090' --proto='http' \
     --filter-label='job,coredns' \
     --warning-status='' --critical-status='%{health} !~ /up/' 
 ```
 
-Expected command output is shown below:
+La commande devrait retourner un message de sortie similaire à :
 
 ```bash
 OK: Targets Active: 2, Dropped: 175, Up: 2, Down: 0, Unknown: 0 - All targets status are ok | 'targets.active.count'=2;;;0; 'targets.dropped.count'=175;;;0; 'targets.up.count'=2;;;0; 'targets.down.count'=0;;;0; 'targets.unknown.count'=0;;;0;
@@ -129,29 +177,48 @@ Target 'http://10.244.1.249:9153/metrics' health is 'up' [pod = coredns-74ff55c5
 Target 'http://10.244.2.5:9153/metrics' health is 'up' [pod = coredns-74ff55c5b-vh9zt][namespace = kube-system][service = prometheus-operator-coredns][instance = 10.244.2.5:9153][job = coredns][endpoint = http-metrics]
 ```
 
-The command above check the status of the targets (`--mode=target-status`) linked 
-to a Prometheus server (`--hostname=amzprometheus.int.centreon.com`)  exposing its API 
-over HTTP and listnening on port 80 (`--port='80' --proto='http'`). 
+La commande ci-dessus vérifie l'état des targets (`--mode=target-status`) supervisées par un serveur Prometheus
+(`--hostname=amzprometheus.int.centreon.com`) exposant son API en http et écoutant sur le port 9090 
+(`--port='9090' --proto='http'`). 
 
-Only targets linked with the coredns job label are checked (`--filter-label='job,coredns'`). 
+Seules les targets ayant comme job label `coredns` sont vérifiées (`--filter-label='job,coredns'`). 
 
-The command triggers a CRITICAL if any of the Target status is not equal to "up". 
+La commande renverra un état CRITICAL si une des targets a un état qui est différent de `up`. 
+
+La liste de toutes les options complémentaires et leur signification peut être
+affichée en ajoutant le paramètre `--help` à la commande :
+
+```bash
+/usr/lib/centreon/plugins//centreon_prometheus_api.pl \
+    --plugin=cloud::prometheus::restapi::plugin \
+    --mode=target-status \
+    --help
+```
+
+Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
+`--list-mode` à la commande :
+
+```bash
+/usr/lib/centreon/plugins//centreon_prometheus_api.pl \
+    --plugin=cloud::prometheus::restapi::plugin \
+    --list-mode
+```
 
 ### Comment utiliser le mode Expression (générique) ?
 
-> Note: Ce mode peut être utilisé à la fois directement sur un Hôte étant un 
-serveur Prometheus et à la fois sur un Hôte pour lequel Prometheus récupère des 
-métriques. Dans les deux cas, l'hôte doit hérité du Modèle *Cloud-Prometheus-Api-custom*
-et le Service doit être créé manuellement au moyen du Modèle de Service *Cloud-Prometheus-Expression-Api-custom*
+> Note : Ce mode peut être utilisé à la fois directement sur un hôte étant un 
+serveur Prometheus et à la fois sur un hôte pour lequel Prometheus récupère des 
+métriques. Dans les deux cas, l'hôte doit hérité du modèle *Cloud-Prometheus-Api-custom*
+et le service doit être créé manuellement au moyen du modèle de service *Cloud-Prometheus-Expression-Api-custom*
 
-Voici un exemple pour illuster comment le mode *Expression* fonctionne: 
+Voici un exemple pour illustrer comment le mode *Expression* fonctionne : 
 
 ```bash
 /usr/lib/centreon/plugins//centreon_prometheus_api.pl \
     --plugin=cloud::prometheus::restapi::plugin \
     --mode=expression \
     --hostname=amzprometheus.int.centreon.com \
-    --url-path='/api/v1' --port='80' --proto='http' \
+    --url-path='/api/v1' --port='9090' --proto='http' \
     --query='cpu_requests,sum by (node) (kube_pod_container_resource_requests_cpu_cores) / sum by (node) (kube_node_status_capacity_cpu_cores) * 100' \
     --output='%{instance} CPU Requests: %{cpu_requests}%' --multiple-output='Nodes CPU Requests within bounds' \
     --instance='node' \
@@ -161,47 +228,48 @@ Voici un exemple pour illuster comment le mode *Expression* fonctionne:
 
 #### Option `--query` et Macro QUERIES associée
 
-The `--query` option allows to define two things:
+L'option `--query` permet de définir deux paramètres : 
 
-- the Centreon metric name (`cpu_requests`)
-- the PromQL query (`sum by (node) (kube_pod_container_resource_requests_cpu_cores) / sum by (node) (kube_node_status_capacity_cpu_cores) * 100`)
+- le nom de la métrique pour Centreon (`cpu_requests`)
+- la requête PromQL (`sum by (node) (kube_pod_container_resource_requests_cpu_cores) / sum by (node) (kube_node_status_capacity_cpu_cores) * 100`)
 
-In the Service definition, you can specify several queries that's why the QUERIES macro 
-exceptionnaly includes the option definition. Here, QUERIES value would be "--query='cpu_requests,sum by (node) (kube_pod_container_resource_requests_cpu_cores) / sum by (node) (kube_node_status_capacity_cpu_cores) * 100'". 
+Dans la configuration du service, vous pouvez spécifier plusieurs requêtes c'est pour cette raison 
+que la macro `QUERIES` inclut exceptionnellement la définition du nom de la métrique.
+Dans le cas ci-dessus, la macro `QUERIES` vaudrait `--query='cpu_requests,sum by (node) (kube_pod_container_resource_requests_cpu_cores) / sum by (node) (kube_node_status_capacity_cpu_cores) * 100'`.
 
 #### Option `--instance` et Macro associée
 
-The instance option explicits the Prometheus metric dimension/label the Plugin will highlight 
-in the graphs (`--instance='node'`). The INSTANCE macro value would be "node" in this example. 
+L'option `--instance` permet de préciser le label utilisé dans les graphs. La macro `MACRO`
+dans cet exemple serait `node` grâce à l'option `--instance='node'`.
 
-#### Options `--multiple-output`/`--output` et Macros MULTIPLEOUTPUT/OUTPUT associées
+#### Options `--multiple-output`/`--output` et macros MULTIPLEOUTPUT/OUTPUT associées
 
-The output-related options gives ability to tune output messages of the
-check in the following cases:
+Les options d'output permettent de personnaliser les messages de sortie dans les cas suivants : 
 
-- Check a metric on multiple instances
-- Check returning an error
+- Supervision d'une métrique sur plusieurs instances
+- Check retournant une erreur 
 
-Values can be specified through the corresponding macros, in this example the value of OUTPUT macro
-would be "%{instance} CPU Requests: %{cpu_requests}%". Note that we use the Centreon label defined in the `--query`
-option to use the obtained value). We also use the '%{instance}' keyword to display the node name. 
+Les valeurs peuvent être spécifiées via les macros correspondantes. Dans l'exemple ci-dessus la macro
+`OUTPUT` vaudrait `"%{instance} CPU Requests: %{cpu_requests}%"`. Notez que le label Centreon défini dans l'option
+`--query` est utilisée pour afficher la valeur obtenue. La variable `%{instance}` est aussi utilisée pour afficher le nom
+du node.
 
-The MULTIPLEOUTPUT value would be "Nodes CPU Requests within bounds"
+La macro `MULTIOUTPUT` vaudrait `Nodes CPU Requests within bounds`.
 
-#### Options `--\*-status` et Macros *STATUS associées
+#### Options `--\*-status` et macros *STATUS associées
 
---warning-status and --critical-status purpose is to define when the Plugin will raise an alert. 
+Les options `--warning-status` et `--critical-status` permettent de définir les seuils d'alerte.
 
-In the command above, the check triggers a *WARNING* alarm when the 'cpu_requests' value is above 60 and a 
-*CRITICAL* one when it is above 70. 
+Toujours dans l'exemple ci-dessus, l'alerte **WARNING** sera déclenchée quand la valeur de `cpu_requests`
+dépassera `60` et **CRITICAL** quand elle dépassera `70`.
 
-Note that the Centreon label defined in the `--query` options is used again to compare 
-the obtained value with thresholds. 
+La macro `WARNINGSTATUS` vaudrait `'%{cpu_requests} > 60'`.
+La macro `CRITICALSTATUS` vaudrait `'%{cpu_requests} > 70'`.
 
-The macros value would be '%{cpu_requests} > 60' for WARNINGSTATUS and '%{cpu_requests} > 70' 
-for CRITICALSTATUS.
+Notez que le label Centreon spécifié dans l'option `--query` est utilisé à nouveau pour comparer les valeurs 
+aux seuils. 
 
-#### Sortie du Plugin et résumé des Macros
+#### Sortie du Plugin et résumé des macros
 
 Si tout fonctionne correctement, un message similaire au suivant devrait s'afficher:
 
@@ -212,7 +280,7 @@ amzkubenode1.int.centreon.com CPU Requests: 35%
 amzkubenode2.int.centreon.com CPU Requests: 30%
 ```
 
-Voici un résumé des Macros à définir au niveau du Service:
+Voici un résumé des macros à définir au niveau du Service:
 
 | Nom               | Value                                                  |
 |:----------------- |:------------------------------------------------------ |
@@ -239,3 +307,8 @@ cause du dysfonctionnement.
 
 La requête PromQL contient probablement une erreur de syntaxe. Il est nécessaire
 de valider son fonctionnement dans l'interface Prometheus. 
+
+### Diagnostic des erreurs communes
+
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks)
+des plugins basés sur HTTP/API.

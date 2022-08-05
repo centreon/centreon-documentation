@@ -1,16 +1,13 @@
 ---
 id: developer-broker-stream-connector
-title : Stream connectors
+title : Stream Connectors
 ---
 
-Centreon Broker provides a stream connector. If no suitable connector is
-found among those provided then surely this stream connector will match your
-needs. Its principle is to expose a part of Centreon Broker API
-through the Lua interpreter and the user has just to fill it with his needs.
+Centreon Broker fournit un Stream Connector. Si vous ne trouvez pas de connecteur approprié parmi ceux proposés, ce Stream Connector répondra certainement à vos besoins. Son principe est d’exposer une partie de l’API Centreon Broker par le biais de l’interpréteur Lua et l’utilisateur n’a plus qu’à la remplir selon ses besoins.
 
-## The exposed Centreon Broker
+## Centreon Broker exposé
 
-Here is the minimal acceptable Lua code to work as stream connector:
+Voici le code Lua minimal acceptable pour fonctionner comme Stream Connector :
 
 ```LUA
   function init(conf)
@@ -21,56 +18,32 @@ Here is the minimal acceptable Lua code to work as stream connector:
   end
 ```
 
-We recommand to put Lua scripts in the ``/usr/share/centreon-broker/lua``
-directory. If it does not exist, we can create it. Just be careful that
-directory to be accesible for the centreon-broker user. If a stream connector
-is composed of several files (a main script and a module for example), you can
-put them in that directory. If a dynamic library (``\*.so`` file) is used by
-a Lua script, put it in the ``/usr/share/centreon-broker/lua/lib`` directory.
+Nous recommandons de placer les scripts Lua dans le répertoire `/usr/share/centreon-broker/lua`. S’il n’existe pas, nous pouvons le créer. Faites juste attention à ce que ce répertoire soit accessible à l’utilisateur centreon-broker. Si un Stream Connector est composé de plusieurs fichiers (un script principal et un module par exemple), vous pouvez les placer dans ce répertoire. Si une bibliothèque dynamique (fichier `\*.so`) est utilisée par un script Lua, placez-la dans le répertoire `/usr/share/centreon-broker/lua/lib`.
 
-When Centreon Broker starts, it initializes all the configured connectors.
-For the stream connector, it loads the Lua script, checks its syntax and
-verifies that the ``init()`` and ``write()`` functions exist.
+Lorsque Centreon Broker démarre, il initialise tous les connecteurs configurés. Pour le Stream Connector, il charge le script Lua, contrôle sa syntaxe et vérifie que les fonctions `init()` et `write()` existent.
 
-Centreon Broker checks also if a function ``filter(category, element)`` exists.
+Centreon Broker vérifie également si une fonction `filter(category, element)` existe.
 
-Let's focus on those functions. ``init`` function is called when the
-connector is initialized. The argument provided to this function is a Lua
-table containing information given by the user in the Centreon web output broker
-configuration interface. For example, if an IP address is provided with the
-name *address* and the value *192.168.1.18*, then this information will be
-accessible through ``conf["address"]``.
+Examinons ces fonctions. La fonction `init` est appelée lorsque le connecteur est initialisé. L’argument fourni à cette fonction est une table Lua contenant les informations données par l’utilisateur dans l’interface de configuration de l'output de Broker. Par exemple, si une adresse IP est fournie avec le nom *address* et la valeur *192.168.1.18*, alors cette information sera accessible via `conf["address"]`.
 
-The ``write()`` function is called each time an event is received from a poller
-through the broker. This event is configured to be sent to this connector.
-This function needs one argument which is the event translated as a Lua table.
+La fonction `write()` est appelée chaque fois qu’un événement est reçu d’un collecteur par le biais de Broker. Cet événement est configuré pour être envoyé à ce connecteur. Cette fonction a besoin d’un argument qui est l’événement traduit sous forme de table Lua.
 
-The ``write()`` must return a boolean that is true if the events are processed
-and false otherwise.
+La fonction `write()` doit retourner une valeur booléenne **True** si les événements sont traités et **False** dans le cas contraire.
 
-If this function does not return a boolean, Broker will rise an error.
+Si cette fonction ne renvoie pas une valeur booléenne, Broker déclenche une erreur.
 
-## The Broker Lua SDK
+## Le SDK Lua de Broker
 
-To simplify Lua developer's life, several objects are proposed and
-directly available to the script.
+Pour simplifier la vie du développeur Lua, plusieurs objets sont proposés et directement disponibles pour le script.
 
-### The *broker_log* object
+### L’objet *broker\_log*
 
-1. ``broker_log:set_parameters(level, filename)`` allows the user to set
-   a log level and a file name. The level is an integer from 1 to 3, from the
-   more important to the less one. The file name must contain the full path.
-   And the file must be accessible to centreon-broker. If this method is not
-   called, then logs will be written in the centreon broker logs.
-2. ``broker_log:info(level, content)`` writes a log *information* if the
-   given level is less or equal to the one configured. The content is the
-   text to write in the logs.
-3. ``broker_log:warning(level, content)`` works like ``log_info`` but
-   writes a *warning*.
-4. ``broker_log:error(level, content)`` works like ``log_info`` but writes an
-   *error*.
+1. `broker_log:set_parameters(level, filename)` permet à l’utilisateur de définir un niveau de journal et un nom de fichier. Le niveau est un nombre entier compris entre 1 et 3, du plus important au moins important. Le nom du fichier doit contenir le chemin d’accès complet. Et le fichier doit être accessible à centreon-broker. Si cette méthode n’est pas appelée, les journaux seront écrits dans les journaux de centreon Broker.
+2. `broker_log:info(level, content)` écrit une *information* de journal si le niveau donné est inférieur ou égal à celui configuré. Le contenu est le texte à écrire dans les journaux.
+3. `broker_log:warning(level, content)` fonctionne comme `log_info` mais écrit un *avertissement*.
+4. `broker_log:error(level, content)` fonctionne comme `log_info` mais écrit une *erreur*.
 
-Here is an example:
+Voici un exemple :
 
 ```LUA
   function init(conf)
@@ -88,11 +61,9 @@ Here is an example:
   end
 ```
 
-Here, when the ``init`` function is executed, the *broker_log* object is
-parametrized with a max level 3 and an output file */tmp/test.log*.
+Ici, lorsque la fonction `init` est exécutée, l’objet *broker\_log* est paramétré avec un niveau max 3 et un fichier de sortie */tmp/test.log*.
 
-Then on each ``write()`` call, events received are logged as
-info. We get a result like this:
+Ensuite, à chaque appel de `write()`, les événements reçus sont enregistrés comme des informations. Nous obtenons un résultat comme celui-ci :
 
 ```
   Fri Jan 26 08:31:49 2018: INFO: service_id => 21
@@ -102,14 +73,11 @@ info. We get a result like this:
   Fri Jan 26 08:31:49 2018: INFO: comment_data =>
 ```
 
-> To use a method in Lua, the separator between the object and the
-> method is ``:`` ; *broker_log* is an object since it contains informations
-> such as the max level or the destination file.
+> Pour utiliser une méthode en Lua, le séparateur entre l’objet et la méthode est `:` ; *broker\_log* est un objet puisqu’il contient des informations telles que le niveau maximum ou le fichier de destination.
 
-### The TCP broker socket
+### Le socket TCP de Broker
 
-A basic TCP socket is available in the *Broker* SDK. A simple example is the
-following:
+Un socket TCP de base est disponible dans le SDK *Broker*. Voici un exemple simple :
 
 ```LUA
   local socket = broker_tcp_socket.new()
@@ -119,53 +87,31 @@ following:
   socket:close()
 ```
 
-1. In this example, the first call is *broker_tcp_socket.new()*. It creates a
-   new socket by calling the function *new()* stored in the table
-   *broker_tcp_socket*.
-2. The next step is a call to the *connect* method that needs two arguments:
-   a string given an ip or a host name to connect to and the port to use.
-3. The next step is a call to the *write* method that writes a string into
-   the socket. The method call is finished when the entire message is sent.
-4. The *read* method gets a string as result.
-5. When the user finishes using the socket, he can close the socket with the
-   *close()* method.
+1. Dans cet exemple, le premier appel est *broker\_tcp\_socket.new()*. Il crée un nouveau socket en appelant la fonction *new()* stockée dans la table *broker\_tcp\_socket*.
+2. L’étape suivante est un appel à la méthode *connect* qui nécessite deux arguments : une chaîne indiquant une adresse IP ou un nom d’hôte auquel se connecter et le port à utiliser.
+3. L’étape suivante est un appel à la méthode *write* qui écrit une chaîne dans le socket. L’appel de la méthode est terminé lorsque l’intégralité du message est envoyée.
+4. La méthode *read* reçoit une chaîne comme résultat.
+5. Lorsque l’utilisateur a fini d’utiliser le socket, il peut le fermer avec la méthode *close()*.
 
-This socket object also provides a method *get_state()* that returns a string:
+Cet objet socket fournit également une méthode *get\_state()* qui renvoie une chaîne de caractères :
 
-1. *unconnected*: the socket is not connected
-2. *hostLookup*: the socket is performing a host name lookup
-3. *connecting*: the socket has started establishing a connection
-4. *connected*: a connection is established
-5. *closing*: the socket is about to close (data may still be waiting to be
-   written).
+1. *unconnected* : le socket n’est pas connecté
+2. *hostLookup*: le socket effectue une recherche de nom d’hôte
+3. *connecting*: le socket a commencé à établir une connexion
+4. *connected*: une connexion est établie
+5. *closing*: le socket est sur le point de se fermer (des données peuvent encore être en attente d’écriture).
 
-### The *broker* table
+### La table *broker*
 
-Several functions are available in this table. These functions are not
-methods, *broker* is just a table containing them. We can find here:
+Plusieurs fonctions sont disponibles dans cette table. Ces fonctions ne sont pas des méthodes, *broker* est juste une table qui les contient. On peut trouver ici :
 
-1. ``json_encode(object)`` that converts into json a Lua object. The json is
-   returned as string by the function.
-2. ``json_decode(json)`` that converts into Lua object a json string. The object
-   is directly returned by the method. A second value is also returned. it is
-   only defined when an error occured and contains a string describing the
-   error.
-3. ``parse_perfdata(str)`` that takes as argument a string containing perfdata.
-   A second boolean argument is available. If it is *true*, the returned table
-   is larger and gives all the details on the metrics as well as the *warning*
-   and *critical* thresholds. On success it returns a table containing the
-   values retrieved from the perfdata. On failure it returns a nil object
-   and an error description string.
-4. ``url_encode(text)`` that converts the string *text* into an url encoded
-   string.
-5. ``stat(filename)`` that calls the system ``stat`` function on the file. On
-   success we get a table containing various informations about the file (see
-   example below). Otherwise, this table is ``nil`` and a second return value
-   is given containing an error message.
-6. ``md5(str)`` that computes the md5 of the string ``str`` and returns it
-   as a string.
-7. ``bbdo_version()`` that returns the BBDO version configured in Centreon
-   Broker.
+1. `json_encode(object)` qui convertit un objet Lua en json. Le json est retourné sous forme de chaîne par la fonction.
+2. `json_decode(json)` qui convertit une chaîne json en objet Lua. L’objet est directement retourné par la méthode. Une deuxième valeur est également retournée. Elle n’est définie que lorsqu’une erreur s’est produite et contient une chaîne décrivant l’erreur.
+3. `parse_perfdata(str)` qui prend comme argument une chaîne contenant des perfdata. Un deuxième argument booléen est disponible. Si sa valeur est *true*, la table retournée est plus grande et donne tous les détails sur les métriques ainsi que les seuils « *warning »* et *« critical »*. En cas de succès, il retourne une table contenant les valeurs récupérées à partir des perfdata. En cas d’échec, il renvoie un objet nil et une chaîne de description de l’erreur.
+4. `url_encode(text)` qui convertit le *texte* de la chaîne de caractères en une chaîne encodée en URL.
+5. `stat(filename)` qui appelle la fonction `stat` système sur le fichier. En cas de succès, nous obtenons une table contenant diverses informations sur le fichier (voir l’exemple ci-dessous). Sinon, cette table est `nil` et une deuxième valeur retournée est donnée et contient un message d’erreur.
+6. `md5(str)` qui calcule le MD5 de la chaîne `str` et le renvoie sous forme de chaîne.
+7. `bbdo_version()` qui renvoie la version BBDO configurée dans Centreon Broker.
 
 ```LUA
   local obj = {
@@ -177,12 +123,13 @@ methods, *broker* is just a table containing them. We can find here:
   print(json)
 ```
 
-that returns
+qui renvoie
+
 ```JSON
   { "a": 1, "b": 2, "c": [ 'aa', 'bb', 'cc' ] }
 ```
 
-A second example is the following:
+Un deuxième exemple est le suivant :
 
 ```LUA
   local json = { "a": 1, "b": 2, "c": [ 'aa', 'bb', 'cc' ] }
@@ -192,7 +139,8 @@ A second example is the following:
     print(i .. " => " .. tostring(v))
   end
 ```
-should return something like this:
+
+devrait retourner quelque chose comme ceci :
 
 ```
   a => 1
@@ -200,12 +148,11 @@ should return something like this:
   c => table: 0x12ef67b5
 ```
 
-In this case (no error), ``err`` is ``nil``.
+Dans ce cas (pas d’erreur), `err` est `nil`.
 
-It is also easy to access to each field of the object, for example:
-``obj['a']`` gives 1, or ``obj['c'][1]`` gives *aa*, or ``obj.b`` gives 2.
+Il est également facile d’accéder à chaque champ de l’objet, par exemple : `obj['a']` donne 1, ou `obj['c'][1]` donne *aa*, ou `obj.b` donne 2.
 
-Here is an example showing the possibilities of the ``parse_perfdata`` function.
+Voici un exemple montrant les possibilités de la fonction `parse_perfdata`.
 
 ```LUA
   local perf, err_str = broker.parse_perfdata(" 'one value'=2s;3;5;0;9 'a b c'=3.14KB;0.8;1;0;10")
@@ -219,14 +166,14 @@ Here is an example showing the possibilities of the ``parse_perfdata`` function.
   end
 ```
 
-should return something like this:
+devrait retourner quelque chose comme ceci :
 
 ```
   a b c => 3.14
   one value => 2
 ```
 
-If now, we call the same function with *true* as second argument:
+Si maintenant, nous appelons la même fonction avec *true* comme deuxième argument :
 
 ```LUA
   local perf, err_str = broker.parse_perfdata("pl=45%;40;80;0;100", true)
@@ -241,7 +188,8 @@ If now, we call the same function with *true* as second argument:
   end
 ```
 
-should return something like this:
+devrait retourner quelque chose comme ceci :
+
 ```
   Content of 'pl'
   value => 45
@@ -256,15 +204,15 @@ should return something like this:
   critical_mode => false
 ```
 
-Be careful, keys are not sorted in hash tables, so if you make a such program, you will probably not
-have data in the same order.
+Attention, les clés ne sont pas triées dans les tables de hachage, donc si vous créez un tel programme, les données ne seront probablement pas dans le même ordre.
 
 ```LUA
   local str = broker.url_encode("La leçon du château de l'araignée")
   print(str)
 ```
 
-should return something like this:
+devrait retourner quelque chose comme ceci :
+
 ```
   La%20le%C3%A7on%20du%20ch%C3%A2teau%20de%20l%27araign%C3%A9e
 ```
@@ -276,7 +224,8 @@ should return something like this:
   end
 ```
 
-should return something like this:
+devrait retourner quelque chose comme ceci :
+
 ```
   uid=>1000
   gif=>1000
@@ -286,15 +235,15 @@ should return something like this:
   atime=>1587641144
 ```
 
-If an error occurs, ``s`` is ``nil`` whereas ``err`` contains a string
-containing an error message.
+Si une erreur se produit, `s` est `nil` tandis que `err` contient une chaîne de caractères contenant un message d’erreur.
 
 ```LUA
   local info = broker.md5('Hello World!')
   print(info)
 ```
 
-should return a string of the form:
+doit retourner une chaîne de caractères de la forme :
+
 ```
   ed076287532e86365e841e92bfc50d8c
 ```
@@ -304,86 +253,51 @@ should return a string of the form:
   print(v)
 ```
 
-should return a string of the form:
+doit retourner une chaîne de caractères de la forme :
+
 ```
   2.0.0
 ```
 
-### The *broker_cache* object
+### L’objet *broker\_cache*
 
-This object provides several methods to access the cache. Among data, we can
-get hostnames, etc...
+Cet objet fournit plusieurs méthodes pour accéder au cache. Parmi les données, nous pouvons obtenir les noms d’hôtes, etc...
 
-> The functions described here need the cache to be filled. It is
->important for that to enable the NEB events, otherwise those functions will
-> just return ``nil``. **The cache is filled when an engine restarts**.
+> Les fonctions décrites ici nécessitent que le cache soit rempli. Il est important pour cela d’activer les événements NEB, sinon ces fonctions ne feront que retourner `nil`. **Le cache est rempli lorsqu’un moteur redémarre.**
 
-The available methods are:
+Les méthodes disponibles sont les suivantes :
 
-1.  ``get_ba(ba_id)`` that gets *ba* informations from its id. This function
-    returns a table if found or *nil* otherwise.
-2.  ``get_bv(bv_id)`` that gets *bv* informations from its id. This function
-    returns a table if found or *nil* otherwise.
-3.  ``get_bvs(ba_id)`` that gets all the *bv* containing the *ba* of id *ba_id*.
-    This function returns an array of *bv* *ids*, potentially empty if no *bv*
-    are found.
-4.  ``get_hostgroup_name(id)`` that gets from the cache the host group name of
-    the given id. This function returns a string or *nil* otherwise.
-5.  ``get_hostgroups(host_id)`` that gets the list of host groups containing the
-    host corresponding to *host_id*. The return value is an array of objects,
-    each one containing two fields, *group_id* and *group_name*.
-6.  ``get_hostname(id)`` that gets from the cache the host name corresponding to
-    the given host id. This function returns a string with the host name or
-    *nil* otherwise.
-7.  ``get_index_mapping(index_id)`` that gets from the cache the
-    index mapping object of the given index id. The result is a table containing
-    three keys, ``index_id``, ``host_id`` and ``service_id``.
-8.  ``get_instance_name(instance_id)`` that gets from the cache the
-    instance name corresponding to the instance id.
-9.  ``get_metric_mapping(metric_id)`` that gets from the cache the
-    metric mapping object of the given metric id. The result is a table
-    containing two keys, ``metric_id`` and ``index_id``.
-10. ``get_service_description(host_id,service_id)`` that gets from the cache the
-    service description of the given pair host_id / service_id. This function
-    returns a string or *nil* otherwise.
-11. ``get_servicegroup_name(id)`` that gets from the cache the service group name*
-    of the given id. This function returns a string or *nil* otherwise.
-12. ``get_servicegroups(host_id, service_id)`` that gets the list of service
-    groups containing the service corresponding to the pair *host_id* /
-    *service_id*. The return value is an array of objects, each one containing
-    two fields, *group_id* and *group_name*.
-13. ``get_notes(host_id[,service_id])`` that gets the notes configured in the
-    host or service. The *service_id* is optional, if given we want notes from
-    a service, otherwise we want notes from a host. If the object is not found
-    in cache, *nil* is returned.
-14. ``get_notes_url(host_id[, service_id])`` that gets the notes url configured
-    in the host or service. The *service_id* is optional, if given we want
-    *notes url* from a service, otherwise we want it from a host. If the object
-    is not found in cache, *nil* is returned.
-15. ``get_action_url(host_id)`` that gets the action url configured in the host
-    or service. The *service_id* is optional, if given we want *action url* from
-    a service, otherwise we want it from a host. If the object is not found in
-    cache, *nil* is returned.
-16. ``get_severity(host_id[,service_id])`` that gets the severity of a host or
-    a service. If you only provide the *host_id*, we suppose you want to get
-    a host severity. If a host or a service does not have any severity, the
-    function returns a *nil* value.
+1. `get_ba(ba_id)` qui obtient des informations *ba* à partir de son ID. Cette fonction retourne une table le cas échéant ou *nil* autrement.
+2. `get_bv(bv_id)` qui récupère les informations *bv* à partir de son ID. Cette fonction retourne une table le cas échéant ou *nil* autrement.
+3. `get_bvs(ba_id)` qui récupère tous les *bv* contenant le *ba* de l’ID *ba\_id*. Cette fonction renvoie un tableau d’ID *bv*, potentiellement vide si aucune *bv* n’est trouvée.
+4. `get_hostgroup_name(id)` qui récupère dans le cache le nom du groupe d’hôtes de l’ID donné. Cette fonction renvoie une chaîne ou *nil* autrement.
+5. `get_hostgroups(host_id)` qui obtient la liste des groupes d’hôtes contenant l’hôte correspondant à *host\_id*. La valeur retournée est un tableau d’objets, chacun contenant deux champs, *group\_id* et *group\_name*.
+6. `get_hostname(id)` qui récupère dans le cache le nom d’hôte correspondant à l’ID d’hôte donné. Cette fonction retourne une chaîne avec le nom de l’hôte ou *nil* autrement.
+7. `get_index_mapping(index_id)` qui récupère du cache l’objet de mapping d’index de l’ID d’index donné. Le résultat est un tableau contenant trois clés, `index_id`, `host_id` et `service_id`.
+8. `get_instance_name(instance_id)` qui récupère dans le cache le nom de l’instance correspondant à l’ID de l’instance.
+9. `get_metric_mapping(metric_id)` qui récupère dans le cache l’objet de mapping de métriques de l’ID de métrique donné. Le résultat est un tableau contenant deux clés, `metric_id` et `index_id`.
+10. `get_service_description(host_id,service_id)` qui récupère dans le cache la description du service pour la paire donnée host\_id / service\_id. Cette fonction renvoie une chaîne de caractères ou *nil* autrement.
+11. `get_servicegroup_name(id)` qui récupère dans le cache le nom du groupe de services de l’ID donné. Cette fonction renvoie une chaîne ou *nil* autrement.
+12. `get_servicegroups(host_id, service_id)` qui obtient la liste des groupes de services contenant le service correspondant à la paire *host\_id* / *service\_id*. La valeur retournée est un tableau d’objets, chacun contenant deux champs, *group\_id* et *group\_name*.
+13. `get_notes(host_id[,service_id])` qui récupère les notes configurées dans l’hôte ou le service. Le *service\_id* est facultatif, s’il est fourni, nous voulons des notes d’un service, sinon nous voulons des notes d’un hôte. Si l’objet n’est pas trouvé dans le cache, *nil* est retourné.
+14. `get_notes_url(host_id[, service_id])` qui récupère l’URL des notes configurée dans l’hôte ou le service. Le *service\_id* est facultatif, s’il est fourni, nous voulons que l’*URL des notes* provienne d’un service, sinon nous voulons qu’elle provienne d’un hôte. Si l’objet n’est pas trouvé dans le cache, *nil* est retourné.
+15. `get_action_url(host_id)` qui obtient l’URL d’action configurée dans l’hôte ou le service. Le *service\_id* est facultatif, s’il est fourni, nous voulons l’*URL d’action* d’un service, sinon nous la voulons d’un hôte. Si l’objet n’est pas trouvé dans le cache, *nil* est retourné.
+16. `get_severity(host_id[,service_id])` qui obtient la sévérité d’un hôte ou d’un service. Si vous ne fournissez que l’*host\_id*, nous supposons que vous voulez obtenir une sévérité d’hôte. Si un hôte ou un service n’a pas de sévérité, la fonction renvoie une valeur *nil*.
 
-## The init() function
+## La fonction init()
 
-This function must **not** be defined as ``local``, otherwise it will not be
-detected by centreon broker.
+Cette fonction ne doit **pas** être définie comme `local`, sinon elle ne sera pas détectée par centreon Broker.
 
-Imagine we have made such configuration:
+Prenons l’exemple de cette configuration :
 
 ![image](../assets/developer/broker_config.png)
 
-with two custom entries:
+avec deux entrées personnalisées :
 
-1. a string *elastic-address* with ``172.17.0.1`` as content.
-2. a number *elastic-port* with 9200 as content.
+1. une chaîne de caractères *elastic-address* avec comme contenu `172.17.0.1`.
+2. un numéro *elastic-port* avec 9200 comme contenu.
 
-Then, the ``init()`` function has access to them like this:
+Ensuite, la fonction `init()` y a accès comme ceci :
 
 ```LUA
   function init(conf)
@@ -392,28 +306,21 @@ Then, the ``init()`` function has access to them like this:
   end
 ```
 
-## The write() function
+## La fonction write()
 
-This function must **not** be defined as ``local``, otherwise it will not be
-seen by broker.
+Cette fonction ne doit **pas** être définie comme `local`, sinon elle ne sera pas vue par Broker.
 
-The only argument given to the ``write()`` function is an event. It is given
-with the same data as the ones we can see in Centreon Broker.
+Le seul argument donné à la fonction `write()` est un événement. Il est donné avec les mêmes données que celles que nous pouvons voir dans Centreon Broker.
 
-To classify the event, we have two data that are ``category`` and ``element``.
-Those two informations are integers. If we concatenate those two numbers
-we obtain a longer integer equal to the event ``type`` also available in the
-event as ``_type``.
+Pour classer l’événement, nous avons deux données qui sont `category` et `element`. Ces deux informations sont des nombres entiers. Si nous concaténons ces deux nombres, nous obtenons un entier plus long égal à l’événement `type` également disponible dans l’événement comme `_type`.
 
-| **int**   |  **short**   | **short** |
-|-----------|--------------|-----------|
-|_type =    | category     | elem      |
+| **entier**| **court**| **court**
+|----------|----------|----------
+| \_type =| catégorie| élém
 
-Sometimes, one can want the hostname corresponding to an event but he only gets
-the ``host_id``. It is possible to get it thanks to the
-``broker_cache:get_hostname(id)`` method.
+Parfois, on peut vouloir le nom d’hôte correspondant à un événement mais on ne reçoit que le `host_id`. Il est possible de l’obtenir grâce à la méthode `broker_cache:get_hostname(id)`.
 
-For example:
+Par exemple :
 
 ```LUA
   function write(d)
@@ -434,44 +341,23 @@ For example:
   end
 ```
 
-The ``write`` function return value is a boolean. While this value is *false*,
-Broker keeps the sent events in memory and if needed in retention. When we
-are sure all events are processed, the idea is that ``write`` returns *true*
-and then Broker frees the events stack.
+La valeur retournée par la fonction `write` est un booléen. Tant que cette valeur est *false*, Broker garde les événements envoyés en mémoire et si nécessaire en rétention. Lorsque nous sommes sûrs que tous les événements ont été traités, l’idée est que `write` retourne *true*, puis Broker libère la pile d’événements.
 
-Behind this, it is possible to avoid to commit events one by one.
-The ``write`` function can stock them in a stack and return *false*, and when
-a given limit is reached, it can send all of them to their destination and
-return *true*.
+Grâce à cela, il est possible d’éviter de réaliser les événements un par un. La fonction `write` peut les stocker dans une pile et retourner la valeur *false*, et lorsqu’une limite donnée est atteinte, elle peut les envoyer tous à leur destination et retourner la valeur *true*.
 
-## The filter() function
+## La fonction filter()
 
-The function must **not** be defined as ``local``, otherwise it will not be
-detected by Centreon Broker.
+La fonction ne doit **pas** être définie comme `local`, sinon elle ne sera pas détectée par Centreon Broker.
 
-It takes account of two parameters: ``category`` and ``element`` that we've
-already seen in the previous section. The category is an integer from 1 to 7,
-or the value 65535. The ``element`` gives details on the event, for example,
-for the *category NEB*, *elements* are *Acknowledgement*, *Comment*, etc...
-given as integers.
+Elle tient compte de deux paramètres : `category` et `element` que nous avons déjà vu dans la section précédente. La catégorie est un nombre entier de 1 à 7, ou la valeur 65535. `element` donne des détails sur l’événement, par exemple, pour la *catégorie NEB*, les *elements* sont *Acknowledgement*, *Comment*, etc... donnés comme des entiers.
 
-## The flush() function
+## La fonction flush()
 
-When Broker queue size reaches the max allowed size, it continues to fill this
-queue into a file and does not send anymore events to streams. While events in
-queue are not acknowledged, streams won't receive anymore events.
+Lorsque la taille de la file d’attente de Broker atteint la taille maximale autorisée, il continue à remplir cette file dans un fichier et n’envoie plus d’événements aux flux. Tant que les événements dans la file d’attente ne sont pas acquittés, les flux ne recevront plus d’événements.
 
-In several cases, this can lead to issues. The idea is that the stream has kept
-events in memory waiting for others events to send them to a database. But
-Broker queue is full and Broker does not call the stream's  ``write`` function
-anymore since it writes events directly to its retention files waiting for an
-acknowledgement from the stream that won't arrive since ``write`` is not called.
+Dans plusieurs cas, cela peut entraîner des problèmes. L’idée est que le flux a gardé des événements en mémoire en attendant d’autres événements pour les envoyer à une base de données. Mais la file d’attente de Broker est pleine et Broker n’appelle plus la fonction `write` du flux puisqu’il écrit les événements directement dans ses fichiers de rétention en attendant un accusé de réception du flux qui n’arrivera pas puisque la fonction `write` n’est pas appelée.
 
-The solution to fix this lock in Broker is a ``flush`` function called regularly
-by Broker that just asks to the stream to flush its data. This function returns
-a boolean that is true if the stream arrived to flush its queue. Once Broker
-receives an information of a flush success, it can newly call the stream
-``write`` function.
+La solution pour résoudre ce problème dans Broker est une fonction `flush` appelée régulièrement par Broker qui demande simplement au flux de vider ses données. Cette fonction renvoie un booléen qui est True si le flux est arrivé pour vider sa file d’attente. Une fois que le Broker reçoit une information sur le succès de la fonction flush, il peut à nouveau appeler la fonction `write` du flux.
 
 ```LUA
   function write(d)
@@ -509,4 +395,4 @@ receives an information of a flush success, it can newly call the stream
   end
 ```
 
-For details on types, categories and their id, see [The BBDO protocol](developer-broker-bbdo.md)
+Pour plus de détails sur les types, les catégories et leurs identifiants, voir [Le protocole BBDO](developer-broker-bbdo.md).

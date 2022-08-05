@@ -349,6 +349,14 @@ module.exports = {
           id: 'integrations/plugin-packs/procedures/applications-monitoring-ntopng-restapi'
         },
         {
+            type: 'doc',
+            id: 'integrations/plugin-packs/procedures/applications-monitoring-node-exporter-linux'
+        },
+        {
+            type: 'doc',
+            id: 'integrations/plugin-packs/procedures/applications-monitoring-node-exporter-windows'
+        },
+        {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-video-openheadend-snmp'
         },
@@ -835,6 +843,10 @@ module.exports = {
           id: 'integrations/plugin-packs/procedures/cloud-azure-storage-acr'
         },
         {
+            type: 'doc',
+            id: 'integrations/plugin-packs/procedures/cloud-azure-classicstorage-storageaccount'
+        },
+        {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-azure-storage-storageaccount'
         },
@@ -905,6 +917,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-prometheus-kubernetes-api'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-microsoft-office365-azuread'
         },
         {
           type: 'doc',
@@ -1069,6 +1085,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-servers-dell-omem-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-servers-dell-vxm-restapi'
         },
         {
           type: 'doc',
