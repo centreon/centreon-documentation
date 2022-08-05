@@ -44,17 +44,30 @@ More information about discovering hosts automatically is available on the [dedi
 <Tabs groupId="sync">
 <TabItem value="Cpu-Credit" label="Cpu-Credit">
 
-@TODO_MIGRATION_V2@
+| Metric Name                      | Unit  |
+|:---------------------------------|:------|
+| azvm.cpu.credits.consumed.count  |       |
+| azvm.cpu.credits.remaining.count |       |
+| azvm.cpu.utilization.percentage  | %     |
 
 </TabItem>
 <TabItem value="Cpu-Usage" label="Cpu-Usage">
 
-@TODO_MIGRATION_V2@
+| Metric Name                      | Unit  |
+|:---------------------------------|:------|
+| azvm.cpu.credits.consumed.count  |       |
+| azvm.cpu.credits.remaining.count |       |
+| azvm.cpu.utilization.percentage  | %     |
 
 </TabItem>
 <TabItem value="Diskio" label="Diskio">
 
-@TODO_MIGRATION_V2@
+| Metric Name               | Unit  |
+|:--------------------------|:------|
+| azvm.disk.read.bytes      | B     |
+| azvm.disk.read.persecond  |       |
+| azvm.disk.write.bytes     | B     |
+| azvm.disk.write.persecond |       |
 
 </TabItem>
 <TabItem value="Health" label="Health">
@@ -67,24 +80,31 @@ More information about discovering hosts automatically is available on the [dedi
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Metric Name            | Unit  |
-|:-----------------------|:------|
-| memory.available.bytes | B     |
+| Metric Name                 | Unit  |
+|:----------------------------|:------|
+| azvm.memory.available.bytes | B     |
 
 </TabItem>
 <TabItem value="Network" label="Network">
 
-@TODO_MIGRATION_V2@
+| Metric Name            | Unit  |
+|:-----------------------|:------|
+| azvm.network.in.bytes  | B     |
+| azvm.network.out.bytes | B     |
 
 </TabItem>
 <TabItem value="Vm-Sizes-Global" label="Vm-Sizes-Global">
 
-@TODO_MIGRATION_V2@
+One metric corresponding to each available machine size you can deploy with Azure. 
 
 </TabItem>
 <TabItem value="Vms-State-Global" label="Vms-State-Global">
 
-@TODO_MIGRATION_V2@
+| Metrics/Status Name            | Unit  |
+|:-------------------------------|:------|
+| status                         |       |
+| azure.compute.vm.running.count | count |
+| azure.compute.vm.stopped.count | count |
 
 </TabItem>
 </Tabs>

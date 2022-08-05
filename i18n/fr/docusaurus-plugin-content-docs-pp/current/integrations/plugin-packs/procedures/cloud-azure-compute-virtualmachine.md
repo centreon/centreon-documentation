@@ -46,17 +46,30 @@ pour en savoir plus sur la découverte automatique d'hôtes.
 <Tabs groupId="sync">
 <TabItem value="Cpu-Credit" label="Cpu-Credit">
 
-@TODO@
+| Metric Name                      | Unit  |
+|:---------------------------------|:------|
+| azvm.cpu.credits.consumed.count  |       |
+| azvm.cpu.credits.remaining.count |       |
+| azvm.cpu.utilization.percentage  | %     |
 
 </TabItem>
 <TabItem value="Cpu-Usage" label="Cpu-Usage">
 
-@TODO@
+| Metric Name                      | Unit  |
+|:---------------------------------|:------|
+| azvm.cpu.credits.consumed.count  |       |
+| azvm.cpu.credits.remaining.count |       |
+| azvm.cpu.utilization.percentage  | %     |
 
 </TabItem>
 <TabItem value="Diskio" label="Diskio">
 
-@TODO@
+| Metric Name               | Unit  |
+|:--------------------------|:------|
+| azvm.disk.read.bytes      | B     |
+| azvm.disk.read.persecond  |       |
+| azvm.disk.write.bytes     | B     |
+| azvm.disk.write.persecond |       |
 
 </TabItem>
 <TabItem value="Health" label="Health">
@@ -69,24 +82,31 @@ pour en savoir plus sur la découverte automatique d'hôtes.
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Métrique               | Unité |
-|:-----------------------|:------|
-| memory.available.bytes | B     |
+| Metric Name                 | Unit  |
+|:----------------------------|:------|
+| azvm.memory.available.bytes | B     |
 
 </TabItem>
 <TabItem value="Network" label="Network">
 
-@TODO@
+| Metric Name            | Unit  |
+|:-----------------------|:------|
+| azvm.network.in.bytes  | B     |
+| azvm.network.out.bytes | B     |
 
 </TabItem>
 <TabItem value="Vm-Sizes-Global" label="Vm-Sizes-Global">
 
-@TODO@
+One metric corresponding to each available machine size you can deploy with Azure. 
 
 </TabItem>
 <TabItem value="Vms-State-Global" label="Vms-State-Global">
 
-@TODO@
+| Metrics/Status Name            | Unit  |
+|:-------------------------------|:------|
+| status                         |       |
+| azure.compute.vm.running.count | count |
+| azure.compute.vm.stopped.count | count |
 
 </TabItem>
 </Tabs>
