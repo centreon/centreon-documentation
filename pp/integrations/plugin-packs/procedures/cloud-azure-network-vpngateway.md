@@ -48,17 +48,30 @@ More information about discovering hosts automatically is available on the [dedi
 </TabItem>
 <TabItem value="Site-Traffic" label="Site-Traffic">
 
-@TODO_MIGRATION_V2@
+| Metric Name                                        | Unit  |
+|:---------------------------------------------------|:------|
+| azvpngateway.site.traffic.bandwidth.bytespersecond | B     |
+| azvpngateway.p2s.traffic.bandwidth.bytespersecond  | B     |
+| azvpngateway.p2s.connections.count                 |       |
 
 </TabItem>
 <TabItem value="Tunnel-Traffic" label="Tunnel-Traffic">
 
-@TODO_MIGRATION_V2@
+| Metric Name                                   | Unit  |
+|:----------------------------------------------|:------|
+| azvpngateway.tunnel.dropped.packets.in.count  |       |
+| azvpngateway.tunnel.dropped.packets.out.count |       |
+| azvpngateway.tunnel.packets.in.count          |       |
+| azvpngateway.tunnel.packets.out.count         |       |
+| azvpngateway.tunnel.ingress.bytes             | B     |
+| azvpngateway.tunnel.egress.bytes              | B     |
 
 </TabItem>
 <TabItem value="Vpn-Gateway-Status" label="Vpn-Gateway-Status">
 
-@TODO_MIGRATION_V2@
+| Status Name  | Unit  |
+|:-------------|:------|
+| status       |       |
 
 </TabItem>
 </Tabs>
