@@ -46,7 +46,7 @@ It brings the following service templates:
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
 
-Could not retrive metrics
+Could not retrieve metrics
 
 </TabItem>
 <TabItem value="Memory" label="Memory">

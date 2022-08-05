@@ -29,8 +29,8 @@ Microsoft au travers d'une API de gestion Office 365.
 Plus d'informations sur les métriques collectées sur la documentation officielle
 de Microsoft : 
 
-* https://docs.microsoft.com/fr-fr/office365/admin/activity-reports/microsoft-teams-device-usage?view=o365-worldwide
-* https://docs.microsoft.com/fr-fr/office365/admin/activity-reports/microsoft-teams-user-activity?view=o365-worldwide
+* https://docs.microsoft.com/fr-fr/microsoft-365/admin/activity-reports/microsoft-teams-device-usage-preview?view=o365-worldwide
+* https://docs.microsoft.com/fr-fr/microsoft-365/admin/activity-reports/microsoft-teams-user-activity-preview?view=o365-worldwide
 
 <Tabs groupId="sync">
 <TabItem value="Devices-Usage" label="Devices-Usage">

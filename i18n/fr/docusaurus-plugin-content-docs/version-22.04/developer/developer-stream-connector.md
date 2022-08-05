@@ -1,108 +1,87 @@
 ---
-id: developer-stream-connector
-title : How to write a Stream Connector
+id: developer-stream-connector  
+title: Comment écrire un Stream Connector
 ---
 
-## Overview
+## Vue d'ensemble
 
-Centreon Stream Connector is a feature introduced in Centreon 3.4.6. It allows one to export Centreon data (events and
-metrics) to an external storage or application such as ElasticSearch, Splunk, InfluxDB, files, etc.
+Centreon Stream Connector est une fonction introduite dans Centreon 3.4.6. Elle permet d'exporter les données Centreon (événements et métriques) vers un stockage ou une application externe comme ElasticSearch, Splunk, InfluxDB, des fichiers, etc.
 
-In a Centreon platform, the component that carries information between the remote pollers and the Centreon central
-server is called Centreon Broker. This broker stores received data into the Centreon local storage: MariaDB and RRDtool.
+Dans une plateforme Centreon, le composant qui transporte les informations entre les collecteurs distants et le serveur central Centreon est appelé Centreon Broker. Ce broker stocke les données reçues dans le stockage local de Centreon : MariaDB et RRDtool.
 
-The following diagram explains the transfer of collected data and insertion into storages:
+Le schéma suivant explique le transfert des données collectées et leur insertion dans les stockages :
 
 ![image](../assets/developer/lua/archi_broker_regular.png)
 
-The Stream Connector functionality is a new Centreon Broker output getting data from Centreon Broker Master (also known
-as Centreon Broker SQL) to aggregate and forward it to external storage:
+La fonctionnalité Stream Connector est un nouvel output de Centreon Broker qui récupère les données de Centreon Broker Master (également connu sous le nom de Centreon Broker SQL) pour les agréger et les transmettre à un stockage externe.
 
-![image](../assets/developer/lua/archi_broker_stream.png)
-
-This output loads a Lua script called a Stream Connector, which job is to handle, aggregate and enrich the data before
-forwarding it to the defined protocol:
+Cet output charge un script Lua appelé un Stream Connector, dont la tâche consiste à traiter, agréger et enrichir les données avant de les transmettre au protocole défini :
 
 ![image](../assets/developer/lua/archi_broker_lua_script.png)
 
-Because it is an output of Centreon Broker, the principle of creating retention files upon interrupting external storage
-access is retained. In the same way, it is possible to filter input on the categories of flow to handle.
+Comme il s'agit d'un output de Centreon Broker, le principe de la création de fichiers de rétention lors de l'interruption de l'accès au stockage externe est conservé. De la même manière, il est possible de filtrer les entrées sur les catégories de flux à traiter.
 
-## Requirements
+## Prérequis
 
-To use the Centreon Stream connector functionality you need at least the Centreon version 3.4.6:
+Pour utiliser la fonctionnalité Centreon Stream Connector, vous devez disposer au minimum de la version 3.4.6 de Centreon :
 
 * Centreon Web >= 2.8.18
 * Centreon Broker >= 3.0.13
 * Lua >= 5.1.x
 
-## Creating a new Lua script
+## Création d'un nouveau script Lua
 
-The complete technical documentation is available [here](developer-broker-stream-connector.md).
-In this how-to, we will write two scripts:
+La documentation technique complète est disponible [ici](developer-broker-stream-connector.md). Dans ce mode d'emploi, nous allons écrire deux scripts :
 
-* The first one, easy, that explains the basics of Stream Connectors. Its goal is to export data to a log file.
-* The second one is more exigent for the reader, it exports performance data to the TSDB InfluxDB but is easily
-  adaptable to export to another TSDB.
+* Le premier, simple, qui explique les bases des Stream Connectors. Son objectif est d'exporter les données vers un fichier journal.
+* Le second est plus exigeant pour le lecteur, il exporte les données de performance vers la TSDB InfluxDB mais est facilement adaptable pour exporter vers une autre TSDB.
 
-## Migrating a stream connector from BBDO 2 to BBDO 3
+## Migration d'un Stream Connector de BBDO 2 vers BBDO 3
 
-The technical migration documentation is available [here](developer-broker-stream-connector-migration.md).
-This how-to gives several tips to succeed with the migration and presents a little example.
+La documentation technique de la migration est disponible [ici](developer-broker-stream-connector-migration.md). Ce mode d'emploi donne plusieurs conseils pour réussir la migration et présente un petit exemple.
 
-### Programming language
+### Langage de programmation
 
-Centreon chose the Lua programming language to let you handle, aggregate and transfer data. Lua is a programming language
-that is easy to use. You can find more information with the [Lua official documentation](https://www.lua.org/docs).
+Centreon a choisi le langage de programmation Lua pour vous permettre de manipuler, d'agréger et de transférer des données. Lua est un langage de programmation facile à utiliser. De plus amples informations sont disponibles avec la [Documentation officielle Lua](https://www.lua.org/docs.html).
 
-### Storage of Lua scripts
+### Stockage des scripts Lua
 
-Broker's Lua scripts can be stored in any directory readable by the **centreon-broker** user.
+Les scripts Lua de Broker peuvent être stockés dans tout répertoire lisible par l'utilisateur **centreon-broker**.
 
-We recommend to store them in **/usr/share/centreon-broker/lua**.
+Nous recommandons de les stocker dans **/usr/share/centreon-broker/lua**.
 
-> In a near future, this directory will be in the *default path* of the Lua scripts launched by broker. It will then be
-> easier to use user defined Lua libraries because you will just have to add your libraries there like stream connectors.
+### Écrire toutes les informations dans un fichier
 
-### Write all information into a file
+#### Stocker les données brutes
 
-#### Store raw data
+Commençons par le premier script. Notre objectif est de stocker tous les événements donnés par Broker dans un fichier journal. Nous allons appeler notre Stream Connector **bbdo2file.lua**.
 
-Let's start with the first script. Our goal is to store all events given by Broker in a log file. We will call our
-stream connector **bbdo2file.lua**.
+Comme nous l'avons dit précédemment, nous allons stocker ce fichier dans le répertoire **/usr/share/centreon-broker/lua** sur le serveur central Centreon.
 
-As we said previously, we will store this file into the **/usr/share/centreon-broker/lua** directory on the Centreon
-central server.
-
-If the directory does not exist, as root, we can create it with the following command:
+Si le répertoire n'existe pas, en tant que root, nous pouvons le créer avec la commande suivante :
 
 ```Shell
 mkdir -p /usr/share/centreon-broker/lua
 ```
 
-Centreon Broker provides several log functions to write logs, warnings or errors into a file. We will use one of these
-functions *info()* to write Broker events. [See technical documentation for more information](developer-broker-stream-connector.md#the-broker_log-object)
+Centreon Broker propose plusieurs fonctions de journalisation pour écrire les journaux, les avertissements ou les erreurs dans un fichier. Nous utiliserons une de ces fonctions *info()* pour écrire les événements de Broker. [Consultez la documentation technique pour plus d'informations](developer-broker-stream-connector.md#lobjet-broker_log).
 
-The function *info()* makes part of the *broker_log* object. To call it, the syntax is the following:
+La fonction *info()* fait partie de l'objet *broker\_log*. Pour l'appeler, la syntaxe est la suivante :
 
 ```LUA
 broker_log:info(level, text)
 ```
 
-* *level* is an integer from 1 (most important) to 3 (least important).
-* *text* is the text to write as log.
+* *level* est un nombre entier de 1 (le plus important) à 3 (le moins important).
+* *text* est le texte à écrire comme journal.
 
-> Did you notice the separator between **broker_log** and **info**, yes it is a colon! Objects functions, also called
-*methods* are called like this in Lua.
+> Avez-vous remarqué que le séparateur entre **broker\_log** et **info** est un double point ? Les fonctions des objets, aussi appelées *methods* sont appelées comme ceci en Lua.
 
-Let's start our script. The more important function in a stream connector is the **write()** function. Each time an
-event is received from a poller through Broker, this function is called with the event as an argument.
+Commençons notre script. La fonction la plus importante dans un Stream Connector est la fonction **write()**. Chaque fois qu'un événement est reçu d'un collecteur via Broker, cette fonction est appelée avec l'événement comme argument.
 
-> You will never have to call the **write()** function by yourself, it is always Broker's work to do so. And it would
-> be a fault to make such a call. In other words, there should not be any call to the **write()** function in your script.
-> [See technical documentation for more information](developer-broker-stream-connector.md#the-write-function)
+> Vous n'aurez jamais à appeler la fonction **write()** par vous-même, c'est toujours à Broker de le faire. Et ce serait une erreur de faire un tel appel. En d'autres termes, il ne doit pas y avoir d'appel à la fonction **write()** dans votre script. [Consultez la documentation technique pour plus d'informations](developer-broker-stream-connector.md#la-fonction-write).
 
-Here is the **bbdo2file.lua** first version:
+Voici la première version de **bbdo2file.lua** :
 
 ```LUA
 function init(conf)
@@ -117,21 +96,18 @@ function write(d)
 end
 ```
 
-> Information about the initialization of the Broker's log function and its parameters are given here
-> [see technical documentation](developer-broker-stream-connector.md#the-broker_log-object).
+> Les informations sur l'initialisation de la fonction de journalisation du Broker et ses paramètres sont données ici : [consultez la documentation technique](developer-broker-stream-connector.md#lobjet-broker_log).
 
-Let's explain what we are doing in this script.
+Expliquons ce que nous faisons dans ce script.
 
-We must provide an **init()** function, it is described in the [technical documentation](developer-broker-stream-connector.md#the-init-function)
+Nous devons fournir une fonction **init()**, elle est décrite dans la [documentation technique](developer-broker-stream-connector.md#lobjet-broker_log).
 
-This function is called during the stream connector initialization. Here, we use it to initialize the **broker_log**
-object. To achieve this, we call the **broker_log::set_parameters()** method that needs two parameters :
+Cette fonction est appelée pendant l'initialisation du Stream Connector. Ici, nous l'utilisons pour initialiser l'objet **broker\_log**. Pour cela, nous appelons la méthode **broker\_log::set\_parameters()** qui nécessite deux paramètres :
 
-* A max level (from 1 to 3). If you give 2 here, only logs of levels 1 and 2 will be returned.
-* A file to write the logs in. This file must be in a writable directory for the **centreon-broker** user.
+* Un niveau max (de 1 à 3). Si vous indiquez 2 ici, seuls les journaux des niveaux 1 et 2 seront retournés.
+* Un fichier dans lequel écrire les journaux. Ce fichier doit se trouver dans un répertoire accessible en écriture pour l'utilisateur **centreon-broker**.
 
-The second function is the **write()** function. We already said its argument is a Broker event. This type of object
-is a collection of keys/values. For example:
+La deuxième fonction est la fonction **write()**. Nous avons déjà dit que son argument est un événement de Broker. Ce type d'objet est une collection de clés/valeurs. Par exemple :
 
 ```JSON
 {
@@ -157,21 +133,17 @@ is a collection of keys/values. For example:
 }
 ```
 
-In all events, you will find *category*, *element* and *type*.
+Tous les événements comprennent les valeurs *category*, *element* et *type*.
 
-* Information about the *category* can be found [here in the bbdo documentation](developer-broker-bbdo.md#event-categories)
-* The *element* is the *sub-category* (also called *type* in the bbdo documentation).
-* The *type* is a number built from the *category* and the *element* (binary concatenation).
+* Les informations sur la *catégorie* se trouvent [dans la documentation bbdo](developer-broker-bbdo.md#catégories-dévénements).
+* L’*élément* est la *sous-catégorie* (également appelé *type* dans la documentation bbdo).
+* Le *type* est un nombre dérivé de la *catégorie* et l’*élément* (concaténation binaire).
 
-In this example, the *category* is 1 and the *element* is 16. So, by reading the documentation, we can say this event
-is a NEB event with sub-category *instance-status*.
+Dans cet exemple, la *catégorie* est 1 et l’*élément* est 16. Ainsi, en lisant la documentation, nous pouvons dire que cet événement est un événement NEB avec la sous-catégorie *instance-status*.
 
-To finish with the **write()** function, we make a loop on the **d** event parameters. For each step, *k* is a key and
-*v* is the corresponding value. And we send to the log file a string `k .. " => " .. tostring(v)` that means the
-*concatenation* of *k*, *=>* and *v* converted into a string. You will see an example of the result below.
+Pour terminer avec la fonction **write()**, nous faisons une boucle sur les paramètres de l'événement **d**. Pour chaque étape, *k* est une clé et *v* est la valeur correspondante. Et nous envoyons au fichier journal une chaîne `k .. " => " .. tostring(v)` qui signifie la *concaténation*  de *k*, *\=>* et *v*  convertie en une chaîne de caractères. Voici un exemple du résultat ci-dessous.
 
-Another possibility would be to use the **broker.json_encode(d)** function that converts any Lua object to a *json*
-string representation of it. So, we could write the function like this:
+Une autre possibilité serait d'utiliser la fonction **broker.json\_encode(d)** qui convertit tout objet Lua en une représentation de chaîne *json* de celui-ci. Ainsi, nous pourrions écrire la fonction comme ceci :
 
 ```LUA
 function write(d)
@@ -180,31 +152,25 @@ function write(d)
 end
 ```
 
-> You can notice that **broker.json_encode(d)** is made of **broker** and **json_encode(d)** separated by a *dot* and
-> not a *colon*. This is because **broker** is not a Lua object. In fact, you can see it as a functions set provided
-> by *Centreon Broker*.
+> On constate que **broker.json\_encode(d)** est composé de **broker** et **json\_encode(d)** séparés par un *point* et non un *double point*. C'est parce que **broker** n'est pas un objet Lua. En fait, vous pouvez le voir comme un ensemble de fonctions fournies par *Centreon Broker*.
 
-Once your file **/usr/share/centreon-broker/lua/bbdo2file.lua** is ready, verify it is readable by the
-**centreon-broker** user (or the **centreon-engine** user who is the owner of the **centreon-broker** group), if it is
-not the case, as root you can enter:
+Une fois que votre fichier **/usr/share/centreon-broker/lua/bbdo2file.lua** est prêt, vérifiez qu'il est lisible par l'utilisateur **centreon-broker** (ou l'utilisateur **centreon-engine** qui est le propriétaire du groupe **centreon-broker**), si ce n'est pas le cas, en tant que root vous pouvez entrer :
 
 ```Shell
 chown centreon-engine:centreon-engine /usr/share/centreon-broker/lua/bbdo2file.lua
 ```
 
-Then configure the new output into Centreon Web interface in **Configuration > Pollers > Broker configuration > Central Broker**.
-In **Output** tab select **Generic – Stream connector** and click **Add**:
+Ensuite, configurez le nouvel output dans l'interface Web Centreon dans **Configuration > Collecteurs > Configuration de Centreon Broker > Central Broker**. Dans l’onglet **Output**, sélectionnez **Generic – Stream connector**, puis cliquez sur **Ajouter** :
 
 ![image](../assets/developer/lua/add_stream_connector.png)
 
-Define the name of this output and the path to the Lua connector:
+Définissez le nom de cet output et le chemin vers le connecteur Lua :
 
 ![image](../assets/developer/lua/describe_output.png)
 
-Then click **Save** and go to generate the configuration and restart **cbd**.
+Cliquez ensuite sur **Sauvegarder** et générez la configuration, puis redémarrez **cbd**.
 
-Once the Centreon Broker will be restarted on your Centreon central server, data will appear in your
-**/var/log/centreon-broker/bbdo2file.log** log file:
+Une fois que le Centreon Broker sera redémarré sur votre serveur central Centreon, les données apparaîtront dans votre fichier journal **/var/log/centreon-broker/bbdo2file.log** :
 
 ```Shell
 mer. 28 mars 2018 14:27:35 CEST: INFO: flap_detection => true
@@ -233,14 +199,13 @@ mer. 28 mars 2018 14:27:35 CEST: INFO: type => 65560
 mer. 28 mars 2018 14:27:35 CEST: INFO: last_hard_state => 0
 ```
 
-> This log file will grow quickly, do not forget to add a log rotate.
+> Ce fichier journal va grossir rapidement, n'oubliez pas d'ajouter une rotation du journal.
 
-#### Use parameters
+#### Utiliser les paramètres
 
-The Centreon Broker log functions should be used for log only. To write into a file, we must use the Lua dedicated
-function. Moreover, it is possible to use parameters to define the name of the log file.
+Les fonctions de journalisation de Centreon Broker ne doivent être utilisées que pour la journalisation. Pour écrire dans un fichier, nous devons utiliser la fonction dédiée de Lua. En outre, il est possible d'utiliser des paramètres pour définir le nom du fichier journal.
 
-So it is time to improve our Stream Connector:
+Il est donc temps d'améliorer notre Stream Connector :
 
 ```LUA
 function init(conf)
@@ -266,17 +231,17 @@ function write(d)
 end
 ```
 
-Did you notice that expression `local file,err = io.open(logFile, 'a')`?
+Avez-vous remarqué l'expression `local file,err = io.open(logFile, 'a')` ?
 
-Lua is able to store several variables at the same time. Also, Lua functions can return several variables!
+Lua est capable de stocker plusieurs variables en même temps. En outre, les fonctions Lua peuvent retourner plusieurs variables.
 
-For example, if you want to swap variables *a* and *b*, you can enter:
+Par exemple, si vous voulez échanger les variables *a* et *b*, vous pouvez entrer :
 
 ```LUA
 a, b = b, a
 ```
 
-Another example that illustrates several values returned:
+Un autre exemple qui illustre plusieurs valeurs retournées :
 
 ```LUA
 function fib(a, b)
@@ -284,23 +249,20 @@ function fib(a, b)
 end
 ```
 
-So, this call to **io.open** returns two variables, a first variable **file** that is a *file descriptor* used to access
-the file and a second variable not always defined that contains error if one occurs or **nil** (not defined) otherwise.
+Ainsi, cet appel à **io.open** renvoie deux variables, une première variable **file** qui est un *descripteur de fichier* utilisé pour accéder au fichier et une seconde variable pas toujours définie qui contient l'erreur s'il y en a une ou **nil** (non défini) sinon.
 
-The **init()** function allows to get parameters and define these from Centreon web interface. See technical
-documentation for more information. Here, we add the possibility to choose the destination file name. The **conf** table
-has a key *logFile* defined in the web interface. The corresponding value is the file name used to store events.
+La fonction **init()** permet d'obtenir des paramètres et de les définir à partir de l'interface web Centreon. Consultez la documentation technique pour plus d'informations. Ici, nous ajoutons la possibilité de choisir le nom du fichier de destination. La table **conf** possède une clé *logFile* définie dans l'interface web. La valeur correspondante est le nom du fichier utilisé pour stocker les événements.
 
-Edit your Broker output to declare this parameter:
+Modifiez votre output Broker pour déclarer ce paramètre :
 
 ![image](../assets/developer/lua/add_parameter.png)
 
-It is important that the name of the parameter in the web interface matches the key name in the **conf** table. Here,
-it is *logFile*.
+Il est important que le nom du paramètre dans l'interface web corresponde au nom de la clé dans la table **conf**. Il s’agit ici de *logFile*.
 
-Then click **Save** and go to generate the configuration and restart **cbd**.
+Cliquez ensuite sur **Sauvegarder** et générez la configuration, puis redémarrez **cbd**.
 
-Data are stored into **/var/log/centreon-broker/bbdo2file.log** log file as this:
+Les données sont stockées dans le fichier journal **/var/log/centreon-broker/bbdo2file.log** comme ceci :
+
 ```Shell
 name => error
 category => 3
@@ -326,47 +288,44 @@ is_for_rebuild => false
 metric_id => 11920
 ```
 
-#### Manipulate data
+#### Manipuler les données
 
-Here, we continue to improve our stream connector by choosing what events to export and also by improving outputs.
+Ici, nous continuons à améliorer notre Stream Connector en choisissant les événements à exporter et aussi en améliorant les outputs.
 
-We will select only the NEB category and the events regarding hosts and services status.
+Nous ne retiendrons que la catégorie NEB et les événements concernant le statut des hôtes et des services.
 
-We know that NEB is the category 1, also service status is the sub-category 24, whereas host status is the sub-category 14.
+Nous savons que NEB est la catégorie 1, que le statut du service est la sous-catégorie 24, et que le statut de l'hôte est la sous-catégorie 14.
 
-So, only events with the following criteria:
+Donc, seuls les événements répondant aux critères suivants nous intéressent :
 
-* category = 1
-* element = 14 or element = 24
+* catégorie = 1
+* élément = 14 ou élément = 24
 
-are interesting for us.
+De plus, nous préférerions avoir un nom d'hôte au lieu d'un ID d'hôte et une description de service au lieu d'un ID de service.
 
-Moreover, we would prefer to have a host name instead of a host id and a service description instead of a service id.
+Enfin, nous aimerions obtenir des informations sur le statut et les outputs.
 
-At last, we would be interested to get status information and outputs.
+Les événements NEB avec les éléments 14 et 24 nous donnent presque toutes les informations que nous voulons sauf les noms d'hôtes et les descriptions de services.
 
-NEB Events with elements 14 and 24 give almost all we want except host names and service descriptions.
+Pour obtenir ces deux informations, nous devrons utiliser l'objet **broker\_cache**. Celui-ci est rempli lorsque les collecteurs sont redémarrés ou rechargés. Donc, n'oubliez pas de redémarrer vos collecteurs si vous voulez avoir quelque chose dans votre objet **broker\_cache** !
 
-To get those two information, we will have to use the **broker_cache** object. This one is filled when pollers are
-restarted or reloaded. So, do not forget to restart your pollers if you want something in your **broker_cache** object!
+Si le cache est bien rempli, il est facile d'obtenir un nom d'hôte à partir de l'ID d'hôte :
 
-If the cache is well filled, it is easy to get a host name from the host id:
 ```LUA
 broker_cache:get_hostname(host_id)
 ```
 
-And it is also easy to get the service description from the host id and service id:
+Il est également facile d'obtenir la description du service à partir de l'ID d'hôte et de l'ID de service :
+
 ```LUA
 broker_cache:get_service_description(host_id, service_id)
 ```
 
-To install the filter on events, there is a useful function called **filter()** that takes two parameters into account:
-*category*, *element*.
+Pour installer le filtre sur les événements, il existe une fonction utile appelée **filter()** qui prend en compte deux paramètres : *category*, *element*.
 
-This function, if defined, is called just before **write()**. If it returns **true**, the **write()** function will be
-called, otherwise, the event will be thrown away.
+Cette fonction, si elle est définie, est appelée juste avant **write()**. Si elle retourne **true**, la fonction **write()** sera appelée, sinon, l'événement sera rejeté.
 
-Let's complete our Lua script:
+Complétons notre script Lua :
 
 ```LUA
 function init(conf)
@@ -419,28 +378,29 @@ function filter(category, element)
 end
 ```
 
-Just several remarks on this new script before showing what we get.
+Juste quelques remarques sur ce nouveau script avant de montrer ce que nous obtenons.
 
-In the **init()** function, we access the *logFile* key in the *conf* table by using `conf['logFile']`. Whereas, in the
-**write()** function, we access the *element* key in the *d* table by using `d.element`...
+Dans la fonction **init()**, nous accédons à la clé *logFile* dans la table *conf* en utilisant `conf['logFile']`. Tandis que dans la fonction **write()**, nous accédons à la clé *element* dans la table *d* en utilisant `d.element`.
 
-In fact, the two syntaxes are allowed : `d.element` is the same value than `d['element']`.
+En fait, les deux syntaxes sont autorisées : `d.element` est la même valeur que `d['element']`.
 
-Another remark, in the **write()** function we can see something like::
+Autre remarque, dans la fonction **write()**, on peut voir quelque chose comme :
+
 ```LUA
 if not host_name then
 ```
 
-And in the **writeIntoFile()** function, we can see that::
+Et dans la fonction **writeIntoFile()**, on peut voir que :
+
 ```LUA
 if file == nil then
 ```
 
-Do they mean the same thing? Where is the difference?
+Les deux syntaxes ont-elles la même signification ? Où est la différence ?
 
-You must know that in Lua, a variable is considered to be **true** if it is defined and not **false**:
+Vous devez savoir qu'en Lua, une variable est considérée comme **true** si elle est définie et non **false** :
 
-so, the following code
+Ainsi, le code suivant
 
 ```LUA
 if foo then
@@ -450,19 +410,20 @@ else
 end
 ```
 
-will write *Good* if *foo* is defined and not **false**. More precisely, it will write *Good* in the following cases:
+écrira *Good* si *foo* est défini et n'a pas une valeur **false**. Plus précisément, il écrira *Good* dans les cas suivants :
 
 * foo=12
 * foo=true
-* foo="A string"
-* foo=0 (surprising!)
+* foo="Une chaîne"
+* foo=0 (surprenant !)
 
-It will write *Bad* in these cases:
+Il écrira *Bad* dans les cas suivants :
 
-* foo=nil (by default a variable is nil, which means not defined)
+* foo=nil (par défaut, une variable est nil, ce qui signifie non définie)
 * foo=false
 
-The **/var/log/centreon-broker/bbdo2file.log** file will now contain:
+Le fichier **/var/log/centreon-broker/bbdo2file.log** contiendra désormais :
+
 ```Shell
 HOST:srv-DC-djakarta;215;0;OK - srv-DC-djakarta: rta 0.061ms, lost 0%
 SERVICE:mail-titan-gateway;92;disk-/usr;623;0;Disk /usr - used : 42.98 Go - size : 142.00 Go - percent : 30 %
@@ -482,40 +443,35 @@ SERVICE:mail-io-backend;88;traffic-eth1;547;0;Traffic In : 1.51 Mb/s (1.51 %), O
 SERVICE:mail-io-backend;88;diskio-system;551;0;Device /dev/sda: avg read 4.78 (MB/s) and write 9.08 (MB/s)
 ```
 
-## Export performance data to InfluxDB
+## Exporter les données de performance vers InfluxDB
 
-Now, you have already seen many things about stream connectors. It is time to create something more useful!
+Vous avez déjà appris beaucoup de choses sur les Stream Connectors. Il est temps de créer quelque chose de plus utile !
 
-[InfluxDB](https://www.influxdata.com/) is a Time Series database. We will use this storage to insert performance data
-collected by the Centreon platform. For this example, we will use the predefined [InfluxDB Docker](https://hub.docker.com/_/influxdb/).
+[InfluxDB](https://www.influxdata.com/) est une base de données de séries chronologiques (TSDB) Nous utiliserons ce stockage pour insérer les données de performance collectées par la plateforme Centreon. Pour cet exemple, nous allons utiliser le [InfluxDB Docker](https://hub.docker.com/_/influxdb/) prédéfini.
 
-To send data to InfluxDB, we need parameters to access to InfluxDB storage:
+Pour envoyer des données à InfluxDB, nous avons besoin de paramètres pour accéder au stockage InfluxDB :
 
-* **http_server_address**: IP address of the storage
-* **http_server_port**: 8086 by default
-* **http_server_protocol**: http or https
-* **influx_database**: name of database
-* **influx_user**: user to access to database if defined
-* **influx_password**: password of user to access to database if defined
+* **http\_server\_address** : adresse IP du stockage
+* **http\_server\_port**: 8086 par défaut
+* **http\_server\_protocol** : HTTP ou HTTPS
+* **influx\_database**: nom de la base de données
+* **influx\_user** : utilisateur qui accèdera à la base de données si défini
+* **influx\_password** : mot de passe de l'utilisateur qui accèdera à la base de données si défini
 
-In order to not saturate the storage, we will add all events in a queue and once its max size is reached, we will send
-data by bulk.
+Afin de ne pas saturer le stockage, nous ajouterons tous les événements dans une file d'attente et une fois que sa taille maximale sera atteinte, nous enverrons les données en vrac.
 
-We need to define the size of the queue and the maximum delay before sending events:
+Nous devons définir la taille de la file d'attente et le délai maximal avant l'envoi des événements :
 
-* max_buffer_size
-* max_buffer_age
+* max\_buffer\_size
+* max\_buffer\_age
 
-To create this queue, we introduce a code a little more complicated. We construct an object **event_queue**. It is
-composed of parameters such as *events*, *influx_database* and methods like *new()*, *add()*.
+Pour créer cette file d'attente, nous introduisons un code un peu plus compliqué. Nous créons un objet **event\_queue**. Il est composé de paramètres tels que *events*, *influx\_database* et des méthodes telles que *new()*, *add()*.
 
-To understand how to create such an object in Lua, we recommend the Lua documentation
-[here for classes](https://www.lua.org/pil/16.1) and [there for metatables](https://www.lua.org/pil/13)
+Pour comprendre comment créer un tel objet en Lua, nous recommandons la documentation Lua [pour les classes](https://www.lua.org/pil/16.1.html) et [pour les métatables](https://www.lua.org/pil/13.html).
 
-To send data to a server, we provide a **broker_tcp_socket** object.
+Pour envoyer des données à un serveur, nous fournissons un objet **broker\_tcp\_socket**.
 
-Its API is very simple (too simple?). This *socket* is a TCP socket, it does not support encryption and it can be
-tricky to send data in http. Here is an example:
+Son API est très simple. Ce *socket* est un socket TCP, il ne prend pas en charge le chiffrement et il peut être délicat d'envoyer des données en HTTP. Voici un exemple :
 
 ```LUA
 -- Here, we create our socket
@@ -534,20 +490,18 @@ local content = socket:read()
 socket:close()
 ```
 
-For our purpose, we do not use **broker_tcp_socket** because of its limitations. We want to be able to send data to an
-https server.
+Dans notre cas, nous n'utilisons pas **broker\_tcp\_socket** en raison de ses limitations. Nous voulons être en mesure d'envoyer des données à un serveur HTTPS.
 
-A prerequisite is to install the [lua-socket library](http://w3.impa.br/~diego/software/luasocket/). This library
-provides several functionalities, we need two of them:
+Un prérequis est d'installer la [bibliothèque lua-socket](http://w3.impa.br/~diego/software/luasocket/). Cette bibliothèque fournit plusieurs fonctionnalités, nous avons besoin de deux d'entre elles :
 
-* http socket
+* socket http
 * ltn12
 
-To access them, Lua provides the **require** function.
+Pour y accéder, Lua fournit la fonction **require**.
 
-Let's introduce the beginning of our new Stream Connector.
+Introduisons le début de notre nouveau Stream Connector.
 
-### The queue parameters
+### Les paramètres de la file d'attente
 
 ```LUA
 -- We declare the objects to import here
@@ -569,12 +523,11 @@ local event_queue = {
 }
 ```
 
-In this table, we give default values to parameters that can possibly be changed during the **init()** call. This table
-will be used to store important data for the script and is also our queue object.
+Dans ce tableau, nous donnons des valeurs par défaut aux paramètres qui peuvent éventuellement être modifiés lors de l'appel **init()**. Cette table sera utilisée pour stocker des données importantes pour le script et est également notre objet de file d'attente.
 
-### A method to create the queue
+### Une méthode pour créer la file d'attente
 
-To declare this table as a Lua object, we need a constructor. So, here it is:
+Pour déclarer cette table comme un objet Lua, nous avons besoin d'un constructeur. Le voici :
 
 ```LUA
 -- Constructor of the event_queue
@@ -596,17 +549,15 @@ function event_queue:new(o, conf)
 end
 ```
 
-> In this function, we use a Lua sugar "o = o or {}" that means *o* stays the same if it is **true**, otherwise it is
-affected with an empty table `{}`.
+> Dans cette fonction, nous utilisons une astuce Lua « o = o ou {} » qui signifie que *o* reste le même s'il est **true**, sinon il est affecté d'un tableau vide `{}`.
 > 
-> Another point to notice is the **~=** operator that means **different from**.
+> Un autre point à noter est l'opérateur **~=** qui signifie **différent de**.
 > 
-> And to finish on this function, the variable **self** is implicitly defined when we declare an object's method. Its
-> meaning is the same as **this** in Java or in C++. It represents the object we are working on.
+> Et pour finir sur cette fonction, la variable **self** est implicitement définie lorsque nous déclarons la méthode d'un objet. Sa signification est la même que celle de **this** en Java ou en C++. Elle représente l'objet sur lequel nous travaillons.
 
-### A method to add event in queue
+### Une méthode pour ajouter un événement dans la file d'attente
 
-We have a queue object. It would be great to use it like this:
+Nous avons un objet de file d'attente. Ce serait formidable de l'utiliser comme ceci :
 
 ```LUA
 -- We construct it
@@ -619,8 +570,7 @@ queue:add(event)
 queue:flush()
 ```
 
-Let's do it! Below, we present an **add()** method that retrieves a host name and service description from the cache,
-builds a string from the event and pushes it on its stack.
+C'est parti ! Ci-dessous, nous présentons une méthode **add()** qui récupère un nom d'hôte et une description de service dans le cache, crée une chaîne à partir de l'événement et la place sur sa pile.
 
 ```LUA
 function event_queue:add(e)
@@ -666,14 +616,13 @@ function event_queue:add(e)
 end
 ```
 
-### A method to flush the queue
+### Une méthode pour vider la file d'attente
 
-Once the events added in the queue and the maximum size of the queue or the timeout is reached, events will be sent to
-the InfluxDB storage.
+Une fois les événements ajoutés dans la file d'attente et la taille maximale de la file ou le délai d'attente atteint, les événements seront envoyés au stockage InfluxDB.
 
-This function builds data from the queue and sends them to the storage. If an error occurs, it dumps a log error.
+Cette fonction crée des données à partir de la file d'attente et les envoie au stockage. Si une erreur se produit, elle introduit une erreur dans le journal.
 
-It is here that we use the **http** and **ltn12** objects loaded at the beginning of the script.
+C'est ici que nous utilisons les objets **http** et **ltn12** chargés au début du script.
 
 ```LUA
   function event_queue:flush()
@@ -723,10 +672,9 @@ It is here that we use the **http** and **ltn12** objects loaded at the beginnin
   end
 ```
 
-### The init() function to get parameters and create the queue
+### La fonction init() pour obtenir les paramètres et créer la file d'attente
 
-In this case, the **init()** function creates the queue with parameters defined by users in the web interface or uses
-default parameters already defined in the queue. This alternative is managed by the queue constructor.
+Dans ce cas, la fonction **init()** crée la file d'attente avec les paramètres définis par les utilisateurs dans l'interface web ou utilise les paramètres par défaut déjà définis dans la file d'attente. Cette alternative est gérée par le constructeur de la file d'attente.
 
 ```LUA
   function init(conf)
@@ -736,11 +684,12 @@ default parameters already defined in the queue. This alternative is managed by 
     broker_log:info(2, "init: Ending init() function, Event queue created")
   end
 ```
-> **queue** is not defined as local, this is important so that it is accessible from all the functions.
 
-### The write() function to insert events in queue
+> **queue** n'est pas définie comme locale, ceci est important pour qu'elle soit accessible depuis toutes les fonctions.
 
-The **write()** function is only used to insert filtered events into the queue:
+### La fonction write() pour insérer les événements dans la file d'attente
+
+La fonction **write()** est uniquement utilisée pour insérer des événements filtrés dans la file d'attente :
 
 ```LUA
   function write(e)
@@ -751,9 +700,9 @@ The **write()** function is only used to insert filtered events into the queue:
   end
 ```
 
-### The filter() function to select only performance data events
+### La fonction filter() pour sélectionner uniquement les événements de données de performance
 
-To select only performance data, we need to select *category* 3 (“Storage”) and *element* 1 for *metric*:
+Pour sélectionner uniquement les données de performance, nous devons sélectionner la catégorie 3 (« Storage ») et l'*element* 1 pour *metric* :
 
 ```LUA
   function filter(category, element)
@@ -764,33 +713,30 @@ To select only performance data, we need to select *category* 3 (“Storage”) 
   end
 ```
 
-### Complete script
+### Script complet
 
-The complete script can be downloaded [here](https://github.com/centreon/centreon-stream-connector-scripts/tree/master/influxdb).
+Le script complet peut être téléchargé [ici](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/centreon-certified/influxdb/influxdb-metrics-apiv1.lua).
 
-### Configure Centreon Broker
+### Configurer Centreon Broker
 
-Configure the new output into Centreon Web interface in **Configuration > Pollers > Broker configuration > Central
-Broker**. In **Output** tab select **Generic – Stream connector** and click **Add**:
+Configurez le nouvel output dans l'interface Web Centreon dans **Configuration > Collecteurs > Configuration de Centreon Broker > Central Broker**. Dans l’onglet **Output**, sélectionnez **Generic – Stream connector**, puis cliquez sur **Ajouter** :
 
 ![image](../assets/developer/lua/add_stream_connector.png)
 
-Define the name of this output and the path to the Lua connector:
+Définissez le nom de cet output et le chemin vers le connecteur Lua :
 
 ![image](../assets/developer/lua/broker_influxdb_output.png)
 
-Then click **Save** and go to generate the configuration and restart **cbd**.
+Cliquez ensuite sur **Sauvegarder** et générez la configuration, puis redémarrez **cbd**.
 
-> Don’t forget to restart “centengine” too to create the Centreon Broker cache.
+> N'oubliez pas de redémarrer également « centengine » pour créer le cache de Centreon Broker.
 
-If you install the [Grafana](https://grafana.com/) dashboard, you can visualize the stored data:
+Si vous installez le tableau de bord [Grafana](https://grafana.com/), vous pouvez visualiser les données stockées :
 
 ![image](../assets/developer/lua/visualize_data_grafana.png)
 
-## Discover other Centreon Stream Connectors
+## Découvrez d'autres Stream Connectors Centreon
 
-Centreon provides a Github repository to host Lua scripts developed by Centreon
-and the community. Please go to the [Dedicated Github](http://github.com/centreon/centreon-stream-connector-scripts).
+Centreon fournit un dépôt Github pour héberger les scripts Lua développés par Centreon et la communauté. Rendez-vous sur le [Github dédié](http://github.com/centreon/centreon-stream-connector-scripts).
 
-Need help to develop your Stream connector? You want to share your experience with
-the community? Join the [Centreon community Slack channel](https://centreon.github.io/).
+Vous avez besoin d'aide pour développer votre Stream Connector ? Vous voulez partager votre expérience avec la communauté ? Rejoignez le [canal Slack de la communauté Centreon](https://centreon.github.io/).

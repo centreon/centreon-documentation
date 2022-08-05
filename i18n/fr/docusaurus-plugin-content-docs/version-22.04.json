@@ -259,6 +259,10 @@
     "message": "Centreon Broker",
     "description": "The label for category Centreon Broker in sidebar docs"
   },
+  "sidebar.docs.category.Centreon Gorgone": {
+    "message": "Centreon Gorgone",
+    "description": "The label for category Centreon Gorgone in sidebar docs"  
+  },
   "sidebar.docs.category.API": {
     "message": "API",
     "description": "The label for category API in sidebar docs"

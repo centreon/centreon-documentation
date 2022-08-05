@@ -46,7 +46,7 @@ Il apporte les modèles de service suivants :
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
 
-Could not retrive metrics
+Could not retrieve metrics
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
