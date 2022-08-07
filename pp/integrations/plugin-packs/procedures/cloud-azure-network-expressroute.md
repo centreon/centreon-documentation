@@ -39,22 +39,25 @@ More information about discovering hosts automatically is available on the [dedi
 <Tabs groupId="sync">
 <TabItem value="Circuit-Status" label="Circuit-Status">
 
-| Metric Name                         | Description             | Unit |
-|:------------------------------------|:------------------------|:-----|
-| redis.cache.memory.usage.percentage | Memory Usage Percentage | %    |
+| Metric Name                         | Unit |
+|:------------------------------------|:-----|
+| Deployment status of the circuit    |      |
 
 </TabItem>
 <TabItem value="Health" label="Health">
 
-| Status Name | Description                 |
-|:------------|:----------------------------|
-| status      | Current operational status  |
-| summary     | Last related status message |
+| Status Name | Unit |
+|:------------|------|
+| status      |      |
+| summary     |      |
 
 </TabItem>
 <TabItem value="Traffic" label="Traffic">
 
-@TODO@ 
+| Metric Name                             | Unit  |
+|:----------------------------------------|:------|
+| azexpressroute.traffic.in.bitspersecond | b/s   |
+| azexpressroute.traffic.in.bitspersecond | b/s   |
 
 </TabItem>
 </Tabs>
@@ -107,8 +110,7 @@ yum install centreon-pack-cloud-azure-network-expressroute
 These mandatory macros differ depending on the custom mode used.
 
 > Two methods can be used to set the macros:
-
->> * Full ID of the Resource (`/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_id>/providers/XXXXX/XXXXX/<resource_name>`)
+> * Full ID of the Resource (`/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_id>/providers/XXXXX/XXXXX/<resource_name>`)
 in **AZURERESOURCE**
 > * Resource name in the **AZURERESOURCE** macro, and resource group name in the **AZURERESOURCEGROUP** macro.
 
@@ -149,25 +151,25 @@ running the following command:
     --plugin=cloud::azure::network::expressroute::plugin \
     --mode=traffic \
     --custommode='api' \
-    --resource='EXPRTE001A' \
-    --resource-group='RSG1234' \
-    --subscription='xxxxxxxxx' \
-    --tenant='xxxxxxxxx' \
-    --client-id='xxxxxxxxx' \
-    --client-secret='xxxxxxxxx' \
+    --resource='' \
+    --resource-group='' \
+    --subscription='' \
+    --tenant='' \
+    --client-id='' \
+    --client-secret='' \
     --proxyurl='' \
     --filter-metric='' \
     --timeframe='900' \
     --interval='PT5M' \
     --aggregation='Average' \
-    --warning-bitsinpersecond-average='' \
-    --critical-bitsoutpersecond-average='' \
+    --warning-traffic-in='' \
+    --critical-traffic-out='' \
 ```
 
 The expected command output is shown below:
 
 ```bash
-OK: Circuit '%s' average BitsInPerSecond '%s' BitsOutPerSecond '%s'| 
+OK: Circuit '%s' Traffic In '%s'b/s Traffic Out '%s'b/s | 'azexpressroute.traffic.in.bitspersecond'=9000b/s;;;0; 'azexpressroute.traffic.in.bitspersecond'=9000b/s;;;0;
 ```
 
 All available options for a given mode can be displayed by adding the

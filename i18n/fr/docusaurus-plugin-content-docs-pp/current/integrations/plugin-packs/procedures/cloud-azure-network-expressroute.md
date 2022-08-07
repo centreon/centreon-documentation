@@ -41,20 +41,25 @@ pour en savoir plus sur la découverte automatique d'hôtes.
 <Tabs groupId="sync">
 <TabItem value="Circuit-Status" label="Circuit-Status">
 
-@TODO_V2_PLUGIN_MIGRATION@
+| Metric Name                         | Unit |
+|:------------------------------------|:-----|
+| Deployment status of the circuit    |      |
 
 </TabItem>
 <TabItem value="Health" label="Health">
 
-| Status Name | Description                 |
-|:------------|:----------------------------|
-| status      | Current operational status  |
-| summary     | Last related status message |
+| Status Name | Unit |
+|:------------|------|
+| status      |      |
+| summary     |      |
 
 </TabItem>
 <TabItem value="Traffic" label="Traffic">
 
-@TODO_V2_PLUGIN_MIGRATION@
+| Metric Name                             | Unit  |
+|:----------------------------------------|:------|
+| azexpressroute.traffic.in.bitspersecond | b/s   |
+| azexpressroute.traffic.in.bitspersecond | b/s   |
 
 </TabItem>
 </Tabs>
@@ -106,7 +111,6 @@ yum install centreon-pack-cloud-azure-network-expressroute
 * Une fois le modèle appliqué, renseignez les macros correspondantes. Attention, certaines macros sont obligatoires. Elles doivent être renseignées selon le *custom mode* utilisé.
 
 > Deux méthodes peuvent être utilisées lors de l'assignation des macros :
-
 >
 > * Utilisation de l'ID complet de la ressource (de type `/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_id>/providers/XXXXXX/XXXXXXX/<resource_name>`) dans la macro *AZURERESOURCE*.
 > * Utilisation du nom de la ressource dans la macro **AZURERESOURCE** et du nom du groupe de ressources dans la macro **AZURERESOURCEGROUP**.
@@ -148,26 +152,25 @@ l'utilisateur **centreon-engine** (`su - centreon-engine`) :
     --plugin=cloud::azure::network::expressroute::plugin \
     --mode=traffic \
     --custommode='api' \
-    --resource='EXPRTE001A' \
-    --resource-group='RSG1234' \
-    --subscription='xxxxxxxxx' \
-    --tenant='xxxxxxxxx' \
-    --client-id='xxxxxxxxx' \
-    --client-secret='xxxxxxxxx' \
+    --resource='' \
+    --resource-group='' \
+    --subscription='' \
+    --tenant='' \
+    --client-id='' \
+    --client-secret='' \
     --proxyurl='' \
     --filter-metric='' \
     --timeframe='900' \
     --interval='PT5M' \
     --aggregation='Average' \
-    --warning-bitsinpersecond-average='' \
-    --critical-bitsoutpersecond-average='' \
-    --use-new-perfdata
+    --warning-traffic-in='' \
+    --critical-traffic-out='' \
 ```
 
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: Circuit '%s' average BitsInPerSecond '%s' BitsOutPerSecond '%s'| 
+OK: Circuit '%s' Traffic In '%s'b/s Traffic Out '%s'b/s | 'azexpressroute.traffic.in.bitspersecond'=9000b/s;;;0; 'azexpressroute.traffic.in.bitspersecond'=9000b/s;;;0;
 ```
 
 La liste de toutes les options complémentaires et leur signification peut être
