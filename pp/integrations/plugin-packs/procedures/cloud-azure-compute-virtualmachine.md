@@ -158,7 +158,7 @@ These mandatory macros differ depending on the custom mode used.
 
 > Two methods can be used to set the macros:
 
->> * Full ID of the Resource (`/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_id>/providers/XXXXX/XXXXX/<resource_name>`)
+> * Full ID of the Resource (`/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_id>/providers/XXXXX/XXXXX/<resource_name>`)
 in **AZURERESOURCE**
 > * Resource name in the **AZURERESOURCE** macro, and resource group name in the **AZURERESOURCEGROUP** macro.
 
@@ -167,23 +167,23 @@ in **AZURERESOURCE**
 
 | Mandatory   | Macro              | Description                                      |
 |:------------|:-------------------|:-------------------------------------------------|
-|             | AZUREAPICUSTOMMODE | Custom mode **api**                              |
-|             | AZURECLIENTID      | Client ID                                        |
-|             | AZURECLIENTSECRET  | Client secret                                    |
-|             | AZURERESOURCE      | ID or name of the Azure Virtual Machine resource |
+|     x       | AZUREAPICUSTOMMODE | Custom mode **api**                              |
+|     x       | AZURECLIENTID      | Client ID                                        |
+|     x       | AZURECLIENTSECRET  | Client secret                                    |
+|     x       | AZURERESOURCE      | ID or name of the Azure Virtual Machine resource |
 |             | AZURERESOURCEGROUP | Resource group name if resource name is used     |
-|             | AZURESUBSCRIPTION  | Subscription ID                                  |
-|             | AZURETENANT        | Tenant ID                                        |
+|     x       | AZURESUBSCRIPTION  | Subscription ID                                  |
+|     x       | AZURETENANT        | Tenant ID                                        |
 
 </TabItem>
 <TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 | Mandatory   | Macro              | Description                                      |
 |:------------|:-------------------|:-------------------------------------------------|
-|             | AZURECLICUSTOMMODE | Custom mode **azcli**                            |
-|             | AZURERESOURCE      | ID or name of the Azure Virtual Machine resource |
-|             | AZURERESOURCEGROUP | Resource group name if resource name is used     |
-|             | AZURESUBSCRIPTION  | Subscription ID                                  |
+|     x       | AZURECLICUSTOMMODE | Custom mode **azcli**                            |
+|     x       | AZURERESOURCE      | ID or name of the Azure Virtual Machine resource |
+|     x       | AZURERESOURCEGROUP | Resource group name if resource name is used     |
+|     x       | AZURESUBSCRIPTION  | Subscription ID                                  |
 
 </TabItem>
 </Tabs>

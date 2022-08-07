@@ -165,31 +165,26 @@ l'utilisateur **centreon-engine** (`su - centreon-engine`) :
 ```bash
 /usr/lib/centreon/plugins//centreon_azure_network_vpngateway_api.pl \
     --plugin=cloud::azure::network::vpngateway::plugin \
-    --mode=site-traffic \
+    --mode=health \
     --custommode='api' \
-    --resource='VPN001A' \
-    --resource-group='RSG1234' \
-    --subscription='xxxxxxxxx' \
-    --tenant='xxxxxxxxx' \
-    --client-id='xxxxxxxxx' \
-    --client-secret='xxxxxxxxx' \
+    --resource='' \
+    --resource-group='' \
+    --subscription='' \
+    --tenant='' \
+    --client-id='' \
+    --client-secret='' \
     --proxyurl='' \
-    --filter-metric='' \
-    --timeframe='' \
-    --interval='' \
-    --aggregation='' \
-    --warning-averagebandwidth-average='' \
-    --critical-averagebandwidth-average='' \
-    --warning-p2sbandwidth-average='' \
-    --critical-p2sbandwidth-average='' \
-    --warning-p2sconnectioncount-maximum='' \
-    --critical-p2sconnectioncount-maximum='' \
+    --ok-status='%{status} =~ /^Available$/' \
+    --warning-status='' \
+    --critical-status='%{status} =~ /^Unavailable$/' \
+    --unknown-status='%{status} =~ /^Unknown$/' \
+    --api-version=2017-07-01\
 ```
 
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: VPN Gateway '%s' AverageBandwidth: '%s'unit/s, P2SBandwidth: '%s'unit/s | 
+OK: VPN Gateway '%s' Provisioning State '%s' [Gateway type: '%s'] [VPN type: '%s'] | 
 ```
 
 La liste de toutes les options complémentaires et leur signification peut être
