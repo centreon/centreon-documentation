@@ -53,33 +53,73 @@ The centreon-engine user performs a SSH connection to a remote system user. This
 
 ## Setup
 
+### Monitoring Pack
+
+If the platform uses an *online* license, you can skip the package installation
+instruction below as it is not required to have the Pack displayed within the 
+*Configuration > Plugin Packs > Manager** menu. 
+
+If the platform uses an *offline* license, install the package on the **central server**
+with the command corresponding to the operating system's package manager: 
+
 <Tabs groupId="sync">
-<TabItem value="Online License" label="Online License">
+<TabItem value="dnf" label="dnf">
 
-1. Install the Centreon Plugin on every Poller monitoring DRBD resources:
-
-```bash
-yum install centreon-plugin-Applications-Drbd-Ssh.noarch
+```bash title='RHEL, Oracle Linux, Alma Linux version >= 8'
+dnf install centreon-pack-applications-drbd-ssh
 ```
-
-2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *DRBD SSH* Plugin-Pack
 
 </TabItem>
-<TabItem value="Offline License" label="Offline License">
+<TabItem value="apt" label="apt">
 
-1. Install the Centreon Plugin on every Poller monitoring DRBD resources:
-
-```bash
-yum install centreon-plugin-Applications-Drbd-Ssh.noarch
+```bash title='Debian >= 8'
+apt-get centreon-pack-applications-drbd-ssh
 ```
 
-2. On the Centreon Central server, install the Centreon Plugin-Pack from the RPM:
+</TabItem>
+<TabItem value="yum" label="yum">
 
-```bash
-yum install ccentreon-pack-applications-drbd-ssh.noarch
+```bash title='RHEL, Oracle Linux, Alma Linux version <= 8'
+yum install centreon-pack-applications-drbd-ssh
 ```
 
-3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *DRBD SSH* Plugin-Pack
+</TabItem>
+</Tabs>
+
+Whaterver the license type (*online* or *offline*), install the *DRBD SSH* Pack through
+the **Configuration > Plugin Packs > Manager** menu. 
+
+### Plugin
+
+Since Centreon 22.04, you can benefit from the 'Automatic plugin installation' feature. 
+When this features is enabled, you can skip the installation part below. 
+
+You still have to manually install the Plugin on the Poller(s) when: 
+- Automatic plugin installation is turned off
+- You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet
+
+Use amongst commands below according to your operating system's package manager: 
+
+<Tabs groupId="sync">
+<TabItem value="dnf" label="dnf">
+
+```bash title='RHEL, Oracle Linux, Alma Linux version >= 8'
+dnf install centreon-plugin-Applications-Drbd-Ssh
+```
+
+</TabItem>
+<TabItem value="apt" label="apt">
+
+```bash title='Debian >= 8'
+apt-get install centreon-plugin-applications-drbd-ssh
+```
+
+</TabItem>
+<TabItem value="yum" label="yum">
+
+```bash title='RHEL, Oracle Linux, Alma Linux version <= 8'
+yum install centreon-plugin-Applications-Drbd-Ssh
+```
 
 </TabItem>
 </Tabs>
