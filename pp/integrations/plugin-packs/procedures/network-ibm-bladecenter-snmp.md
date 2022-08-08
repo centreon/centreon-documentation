@@ -130,8 +130,8 @@ Go to *Configuration* > *Host* > and click *Add*. Then fill the *SNMP Community*
 and *SNMP Version* fields and apply the template 
 *Net-Ibm-Bladecenter-SNMP-custom*.
 
-If you are using SNMP Version 3, use the
-*SNMPEXTRAOPTIONS* macro to configure your own SNMPv3 credentials combo.
+> When using SNMP v3, use the SNMPEXTRAOPTIONS Macro to add specific authentication parameters 
+> More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
 
 | Mandatory   | Name             | Description                                    |
 | :---------- | :--------------- | :--------------------------------------------- |

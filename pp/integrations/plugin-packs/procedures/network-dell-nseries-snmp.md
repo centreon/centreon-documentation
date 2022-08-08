@@ -151,6 +151,9 @@ yum install centreon-pack-network-dell-nseries-snmp
 * Apply the **Net-Dell-Nseries-SNMP-custom** template to the host.
 * Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
 
+> When using SNMP v3, use the SNMPEXTRAOPTIONS Macro to add specific authentication parameters 
+> More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
+
 | Mandatory | Name             | Description                                              |
 | :-------- | :--------------- | :------------------------------------------------------- |
 |           | SNMPEXTRAOPTIONS | (Default: 'Configure your own SNMPv3 credentials combo') |
