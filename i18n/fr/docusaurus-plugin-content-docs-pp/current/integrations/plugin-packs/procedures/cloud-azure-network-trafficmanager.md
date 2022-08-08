@@ -102,7 +102,7 @@ yum install centreon-pack-cloud-azure-network-trafficmanager
 
 ## Configuration
 
-### hôte
+### Hôte
 
 * Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
 * Remplissez le champ **Adresse IP/DNS** avec l'adresse **127.0.0.1**.
