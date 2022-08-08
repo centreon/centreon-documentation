@@ -97,7 +97,8 @@ yum install centreon-pack-hardware-devices-camera-hikvision-snmp
 * Add a new Host and fill the *IP Address/FQDN*, *SNMP Version* and *SNMP Community* fields according to the device's configuration
 * Apply the *HW-Device-Camera-Hikvision-SNMP-custom* Host Template
 
-> When using SNMP v3, use the SNMPEXTRAOPTIONS Macro to add specific authentication parameters $ > More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
+> When using SNMP v3, use the SNMPEXTRAOPTIONS Macro to add specific authentication parameters 
+ More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
 
 | Mandatory | Name             | Description                                    |
 | :-------- | :--------------- | :--------------------------------------------- |
