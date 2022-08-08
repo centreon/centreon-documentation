@@ -104,7 +104,7 @@ yum install centreon-pack-hardware-pdu-emerson-snmp
 
 ## Configuration
 
-### hôte
+### Hôte
 
 * Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
 * Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre serveur **Emerson PDU**.

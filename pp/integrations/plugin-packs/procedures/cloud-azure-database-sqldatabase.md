@@ -2,125 +2,227 @@
 id: cloud-azure-database-sqldatabase
 title: Azure SQL Database
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+
+## Pack Assets
+
+### Templates
+
+The Centreon Plugin Pack **Azure SQL Database** brings a host template:
+
+* Cloud-Azure-Database-SqlDatabase-custom
+
+It brings the following service templates:
+
+| Service Alias | Service Template                               | Service Description               | Default |
+|:--------------|:-----------------------------------------------|:----------------------------------|:--------|
+| App-Resources | Cloud-Azure-Database-SqlDatabase-App-Resources | Check App CPU and memory metrics  |         |
+| Connections   | Cloud-Azure-Database-SqlDatabase-Connections   | Check the number of connections   |         |
+| Deadlocks     | Cloud-Azure-Database-SqlDatabase-Deadlocks     | Check database for deadlocks      |         |
+| Health        | Cloud-Azure-Database-SqlDatabase-Health        | Check database state              | X       |
+| Sessions      | Cloud-Azure-Database-SqlDatabase-Sessions      | Check sessions usage              |         |
+| Storage       | Cloud-Azure-Database-SqlDatabase-Storage       | Check database size               |         |
+| Workers       | Cloud-Azure-Database-SqlDatabase-Workers       | Check the number of workers       |         |
+
+### Discovery rules
+
+The Centreon Plugin Pack **Azure SQL Database** includes a Host Discovery provider to
+automatically discover the Azure instances of a given subscription and add them
+to the Centreon configuration. This provider is named **Microsoft Azure SQL Database**:
+
+![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-database-sqldatabase-provider.png)
+
+> This discovery feature is only compatible with the **api** custom mode. **azcli** is not supported.
+
+More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
+
+### Collected metrics & status
+
+<Tabs groupId="sync">
+<TabItem value="App-Resources" label="App-Resources">
+
+| Metric Name                                  | Unit  |
+|:---------------------------------------------|:------|
+| sqldatabase.serverless.app.cpu.percentage    | %     |
+| sqldatabase.serverless.app.memory.percentage | %     |
+
+</TabItem>
+<TabItem value="Connections" label="Connections">
+
+| Metric Name                             | Unit  |
+|:----------------------------------------|:------|
+| sqldatabase.connection.blocked.count    |       |
+| sqldatabase.connection.failed.count     |       |
+| sqldatabase.connection.successful.count |       |
+
+</TabItem>
+<TabItem value="Deadlocks" label="Deadlocks">
+
+| Metric Name                 | Unit  |
+|:----------------------------|:------|
+| sqldatabase.deadlocks.count |       |
+
+</TabItem>
+<TabItem value="Health" label="Health">
+
+| Metric Name                 | Unit   |
+|:----------------------------|:-------|
+| Database health status      | string |
+
+</TabItem>
+<TabItem value="Sessions" label="Sessions">
+
+| Metric Name                | Unit  |
+|:---------------------------|:------|
+| sqldatabase.sessions.count |       |
+
+</TabItem>
+<TabItem value="Storage" label="Storage">
+
+| Metric Name                                | Unit  |
+|:-------------------------------------------|:------|
+| sqldatabase.storage.space.usage.bytes      | B     |
+| sqldatabase.storage.space.usage.percentage | %     |
+
+</TabItem>
+<TabItem value="Workers" label="Workers">
+
+| Metric Name               | Unit  |
+|:--------------------------|:------|
+| sqldatabase.workers.count |       |
+
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
-### Centreon Plugin
+Please find all the prerequisites needed for Centreon to get information from Azure on the [dedicated page](../getting-started/how-to-guides/azure-credential-configuration.md).
 
-Install this plugin on each needed poller:
+## Setup
 
-``` shell
+<Tabs groupId="sync">
+<TabItem value="Online License" label="Online License">
+
+1. Install the plugin package on every Centreon poller expected to monitor **Azure SQL Database** resources:
+
+```bash
 yum install centreon-plugin-Cloud-Azure-Database-SqlDatabase-Api
 ```
 
-### Perl dependencies (for 'api' custom mode)
+2. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **Azure SQL Database** Centreon Plugin Pack.
 
-By installing the plugin, some perl depencies will be installed :
+</TabItem>
+<TabItem value="Offline License" label="Offline License">
 
-    JSON::XS
-    DateTime
-    Digest::MD5
-    Digest::SHA
-    LWP::UserAgent
-    LWP::Protocol::https
-    IO::Socket::SSL
-    URI
-    HTTP::ProxyPAC
+1. Install the plugin package on every Centreon poller expected to monitor **Azure SQL Database** resources:
 
-The login and access token handling will be made by the plugin itself.
+```bash
+yum install centreon-plugin-Cloud-Azure-Database-SqlDatabase-Api
+```
 
-### Azure CLI 2.0 (for 'azcli' custom mode)
+2. Install the **Azure SQL Database** Centreon Plugin Pack RPM on the Centreon central server:
 
-The CLI needs at least Python version 2.7
-(<https://github.com/Azure/azure-cli/blob/dev/doc/install_linux_prerequisites.md>).
+```bash
+yum install centreon-pack-cloud-azure-database-sqldatabase
+```
 
-On CentOS/RedHat, install with following commands:
+3. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **Azure SQL Database** Centreon Plugin Pack.
 
-    (As root)
-    # rpm --import https://packages.microsoft.com/keys/microsoft.asc
-    # echo -e "[azure-cli]\nname=Azure CLI\nbaseurl=https://packages.microsoft.com/yumrepos/azure-cli\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/azure-cli.repo
-    # yum install azure-cli
-    (As centreon-engine)
-    # az login
+</TabItem>
+</Tabs>
 
-The shell should prompt:
+## Configuration
 
-    To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code CWT4WQZAD to authenticate.
+### Host
 
-Go to <https://microsoft.com/devicelogin> and enter the given code.
+* Log into Centreon and add a new host through **Configuration > Hosts**.
+* In the **IP Address/DNS** field, set the following IP address: **127.0.0.1**.
+* Aplly the **Cloud-Azure-Database-SqlDatabase-custom** template to the host.
+* Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
+These mandatory macros differ depending on the custom mode used.
 
-Log in with your account credentials. You should use a service account.
-Application is not yet supported.
+> Two methods can be used to set the macros:
 
-The command line should now show:
+>> * Full ID of the Resource (`/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_id>/providers/XXXXX/XXXXX/<resource_name>`)
+in **AZURERESOURCE**
+> * Resource name in the **AZURERESOURCE** macro, and resource group name in the **AZURERESOURCEGROUP** macro.
 
-    [
-      {
-        "cloudName": "AzureCloud",
-        "id": "0ef83f3a-d83e-2039-d930-309df93acd93d",
-        "isDefault": true,
-        "name": "N/A(tenant level account)",
-        "state": "Enabled",
-        "tenantId": "0ef83f3a-03cd-2039-d930-90fd39ecd048",
-        "user": {
-          "name": "email@mycompany.onmicrosoft.com",
-          "type": "user"
-        }
-      }
-    ]
+<Tabs groupId="sync">
+<TabItem value="Azure Monitor API" label="Azure Monitor API">
 
-You now have a hidden azure directory where your token is stored in an
-accessTokens.json file.
+| Mandatory   | Macro              | Description                                   |
+|:------------|:-------------------|:----------------------------------------------|
+|             | AZUREAPICUSTOMMODE | Custom mode **api**                           |
+|             | AZURECLIENTID      | Client ID                                     |
+|             | AZURECLIENTSECRET  | Client secret                                 |
+|             | AZURERESOURCE      | ID or name of the Azure SQL Database resource |
+|             | AZURERESOURCEGROUP | Resource group name if resource name is used  |
+|             | AZURESUBSCRIPTION  | Subscription ID                               |
+|             | AZURETENANT        | Tenant ID                                     |
 
-## Centreon Configuration
+</TabItem>
+<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
-### Create a new host
+| Mandatory   | Macro              | Description                                   |
+|:------------|:-------------------|:----------------------------------------------|
+|             | AZURECLICUSTOMMODE | Custom mode **azcli**                         |
+|             | AZURERESOURCE      | ID or name of the Azure SQL Database resource |
+|             | AZURERESOURCEGROUP | Resource group name if resource name is used  |
+|             | AZURESUBSCRIPTION  | Subscription ID                               |
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
-the following table:
+</TabItem>
+</Tabs>
 
-| Field                   | Value                                   |
-| :---------------------- | :-------------------------------------- |
-| Host name               | *Name of the host*                      |
-| Alias                   | *Host description*                      |
-| IP                      | *Host IP Address*                       |
-| Monitored from          | *Monitoring Poller to use*              |
-| Host Multiple Templates | Cloud-Azure-Database-SqlDatabase-custom |
+## How to check in the CLI that the configuration is OK and what are the main options for?
 
-Click on the *Save* button.
+Once the plugin is installed, log into your Centreon poller's CLI using the
+**centreon-engine** user account (`su - centreon-engine`) and test the plugin by
+running the following command:
 
-### Set host macros
+```bash
+/usr/lib/centreon/plugins//centreon_azure_database_sqldatabase_api.pl \
+    --plugin=cloud::azure::database::sqldatabase::plugin \
+    --mode=deadlocks \
+    --custommode='api' \
+    --resource='SQLDB001A' \
+    --resource-group='RSG1234' \
+    --subscription='xxxxxxxxx' \
+    --tenant='xxxxxxxxx' \
+    --client-id='xxxxxxxxx' \
+    --client-secret='xxxxxxxxx' \
+    --proxyurl=''  \
+    --warning-deadlocks='' \
+    --critical-deadlocks='' \
+```
 
-The following macros must be configured on host.
+The expected command output is shown below:
 
-#### Common macros
+```bash
+OK: Deadlocks: 0  | 'sqldatabase.deadlocks.count'=0;;;0; 
+```
 
-| Macro              | Description     |
-| :----------------- | :-------------- |
-| AZURESQLSERVERNAME | SQL server name |
-| AZURERESOURCEGROUP | Resource group  |
+All available options for a given mode can be displayed by adding the
+`--help` parameter to the command:
 
-#### 'api' custom mode macros
+```bash
+/usr/lib/centreon/plugins//centreon_azure_database_sqldatabase_api.pl \
+    --plugin=cloud::azure::database::sqldatabase::plugin \
+    --mode=deadlocks \
+    --help
+```
 
-| Macro             | Description       |
-| :---------------- | :---------------- |
-| AZURECUSTOMMODE   | Custom mode 'api' |
-| AZURESUBSCRIPTION | Subscription ID   |
-| AZURETENANT       | Tenant ID         |
-| AZURECLIENTID     | Client ID         |
-| AZURECLIENTSECRET | Client secret     |
+All available modes can be displayed by adding the `--list-mode` parameter to
+the command:
 
-#### 'azcli' custom mode macros
+```bash
+/usr/lib/centreon/plugins//centreon_azure_database_sqldatabase_api.pl \
+    --plugin=cloud::azure::database::sqldatabase::plugin \
+    --list-mode
+```
 
-| Macro             | Description         |
-| :---------------- | :------------------ |
-| AZURECUSTOMMODE   | Custom mode 'azcli' |
-| AZURESUBSCRIPTION | Subscription ID     |
+### Troubleshooting
 
-Click on the *Save* button.
-
-## Available metrics
-
-Go to
-<https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-supported-metrics?toc=/azure/azure-monitor/toc.json#microsoftnetworknetworkinterfaces>
-to see the description of return metrics for this Azure service.
+Please find the troubleshooting documentation for the API-based plugins in
+this [chapter](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks).

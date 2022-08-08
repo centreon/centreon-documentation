@@ -174,7 +174,7 @@ yum install centreon-pack-operatingsystems-aix-snmp
 
 ## Configuration
 
-### hôte
+### Hôte
 
 * Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
 * Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre serveur **AIX SNMP**.
