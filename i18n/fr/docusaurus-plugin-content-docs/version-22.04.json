@@ -35,10 +35,6 @@
     "message": "Sécurisez votre plate-forme",
     "description": "The label for category Secure your platform in sidebar docs"
   },
-  "sidebar.docs.category.Secure your map platform": {
-    "message": "Sécurisez votre plate-forme MAP",
-    "description": "The label for category Secure your MAP platform in sidebar docs"
-  },
   "sidebar.docs.category.Monitoring resources": {
     "message": "Superviser des hôtes",
     "description": "The label for category Monitoring resources in sidebar docs"
