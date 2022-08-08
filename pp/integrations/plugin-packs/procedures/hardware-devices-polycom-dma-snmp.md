@@ -154,7 +154,7 @@ through "Configuration > Plugin packs > Manager" page.
 * Fill SNMP Version and Community fields according to the device's configuration
 
 > When using SNMP v3, use the SNMPEXTRAOPTIONS Macro to add specific authentication parameters 
- More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
+> More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
 
 | Mandatory | Name             | Description                                    |
 | :-------- | :--------------- | :--------------------------------------------- |
