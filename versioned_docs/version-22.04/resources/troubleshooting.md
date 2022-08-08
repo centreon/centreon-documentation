@@ -3,7 +3,7 @@ id: troubleshooting
 title: Troubleshooting
 ---
 
-This page lists troubleshooting items available in this documentation. Click on an item to access more detailed content.
+This page lists troubleshooting items available in this documentation. Click an item to access more detailed content.
 
 * [Troubleshooting Plugin errors](/pp/integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins)
 * [Troubleshooting Centreon MAP errors](../graph-views/troubleshooter.md)
