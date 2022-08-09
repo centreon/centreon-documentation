@@ -107,7 +107,7 @@ Nous vous recommandons d'utiliser un compte mail dédié à l'envoi des notifica
     systemctl reload postfix
     ```
 
-## Tester et diagnostiquer Postfix
+## Dépanner l'envoi d'emails avec Postfix
 
 - Pour envoyer un email de test, utilisez la commande suivante :
 
