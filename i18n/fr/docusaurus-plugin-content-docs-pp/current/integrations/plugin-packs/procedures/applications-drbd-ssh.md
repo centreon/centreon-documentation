@@ -12,7 +12,7 @@ DRBD est une architecture de stockage distribuée pour GNU/Linux, permettant la 
 (disques, partitions, volumes logiques etc.) entre des serveurs.
 DRBD est un logiciel libre, mais un support existe. DRBD est composé d'un module noyau et d'outils d'administration. 
 
-## Contenu du Plugin-Pack
+## Contenu du Pack
 
 ### Objets supervisés
 
@@ -63,7 +63,7 @@ sur le **serveur central** via la commande correspondant au gestionnaire de paqu
 associé à sa distribution: 
 
 <Tabs groupId="sync">
-<TabItem value="RHEL, Oracle Linux, Alma Linux version >= 8" label="RHEL, Oracle Linux, Alma Linux version >= 8">
+<TabItem value="RHEL, Oracle Linux, Alma Linux 8" label="RHEL, Oracle Linux, Alma Linux 8">
 
 ```bash title='RHEL, Oracle Linux, Alma Linux version >= 8'
 dnf install centreon-pack-applications-drbd-ssh
@@ -77,7 +77,7 @@ apt-get centreon-pack-applications-drbd-ssh
 ```
 
 </TabItem>
-<TabItem value="RHEL, Oracle Linux, Alma Linux version <= 8" label="RHEL, Oracle Linux, Alma Linux version <= 8">
+<TabItem value="RHEL/CentOS 7" label="RHEL/CentOS 7">
 
 ```bash title='RHEL, Oracle Linux, Alma Linux version <= 8'
 yum install centreon-pack-applications-drbd-ssh
@@ -97,7 +97,7 @@ que vous ne souhaitez pas découvrir des éléments pour la première fois, alor
 étape n'est pas requise. 
 
 <Tabs groupId="sync">
-<TabItem value="RHEL, Oracle Linux, Alma Linux version >= 8" label="RHEL, Oracle Linux, Alma Linux version >= 8">
+<TabItem value="RHEL, Oracle Linux, Alma Linux 8" label="RHEL, Oracle Linux, Alma Linux 8">
 
 ```bash title='RHEL, Oracle Linux, Alma Linux version >= 8'
 dnf install centreon-plugin-Applications-Drbd-Ssh
@@ -111,7 +111,7 @@ apt-get install centreon-plugin-applications-drbd-ssh
 ```
 
 </TabItem>
-<TabItem value="RHEL, Oracle Linux, Alma Linux version <= 8" label="RHEL, Oracle Linux, Alma Linux version <= 8">
+<TabItem value="RHEL/CentOS 7" label="RHEL/CentOS 7">
 
 ```bash title='RHEL, Oracle Linux, Alma Linux version <= 8'
 yum install centreon-plugin-Applications-Drbd-Ssh

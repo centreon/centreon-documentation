@@ -63,7 +63,7 @@ If the platform uses an *offline* license, install the package on the **central 
 with the command corresponding to the operating system's package manager: 
 
 <Tabs groupId="sync">
-<TabItem value="RHEL, Oracle Linux, Alma Linux version >= 8" label="RHEL, Oracle Linux, Alma Linux version >= 8">
+<TabItem value="RHEL, Oracle Linux, Alma Linux 8" label="RHEL, Oracle Linux, Alma Linux 8">
 
 ```bash
 dnf install centreon-pack-applications-drbd-ssh
@@ -77,7 +77,7 @@ apt-get centreon-pack-applications-drbd-ssh
 ```
 
 </TabItem>
-<TabItem value="RHEL, Oracle Linux, Alma Linux version <= 8" label="RHEL, Oracle Linux, Alma Linux version <= 8">
+<TabItem value="RHEL/CentOS 7" label="RHEL/CentOS 7">
 
 ```bash
 yum install centreon-pack-applications-drbd-ssh
@@ -101,7 +101,7 @@ You still have to manually install the plugin on the poller(s) when:
 Use the commands below according to your operating system's package manager: 
 
 <Tabs groupId="sync">
-<TabItem value="RHEL, Oracle Linux, Alma Linux version >= 8" label="RHEL, Oracle Linux, Alma Linux version >= 8">
+<TabItem value="RHEL, Oracle Linux, Alma Linux 8" label="RHEL, Oracle Linux, Alma Linux 8">
 
 ```bash
 dnf install centreon-plugin-Applications-Drbd-Ssh
@@ -115,7 +115,7 @@ apt-get install centreon-plugin-applications-drbd-ssh
 ```
 
 </TabItem>
-<TabItem value="RHEL, Oracle Linux, Alma Linux version <= 8" label="RHEL, Oracle Linux, Alma Linux version <= 8">
+<TabItem value="RHEL/CentOS 7" label="RHEL/CentOS 7">
 
 ```bash
 yum install centreon-plugin-Applications-Drbd-Ssh
