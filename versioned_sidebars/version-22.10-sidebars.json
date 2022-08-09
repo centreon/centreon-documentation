@@ -1123,7 +1123,17 @@
               "id": "version-22.10/integrations/notifications/plugin-telegram"
             }
           ]
-        }
+        },
+        {
+          "type": "category",
+          "label": "NPM",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-22.04/integrations/npm/ntopng"
+            }
+          ]
+        } 
       ]
     },
     {
