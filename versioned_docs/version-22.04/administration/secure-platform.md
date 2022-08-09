@@ -1121,7 +1121,7 @@ apt install nghttp2
 +LoadModule mpm_event_module modules/mod_mpm_event.so
 ```
 
-5. Restart the Apache process to take in account the new configuration:
+5. Restart the Apache process to take into account the new configuration:
 
 ```shell
 systemctl restart apache2
