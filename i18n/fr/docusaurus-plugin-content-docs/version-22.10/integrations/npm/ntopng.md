@@ -42,7 +42,7 @@ Pour configurer le widget, cliquez sur l'icône molette dans son coin supérieur
 ### View
 
 * Mode : Sélectionner les données que vous souhaitez afficher
-* Top : Définir le nombre de lignes à afficher (nombre d'hôtes/applications etc.)
+* Top : Définir le nombre de lignes à afficher (nombre d'hôtes/applications, etc.)
 
 ### Filters
 
