@@ -1092,7 +1092,7 @@ systemctl restart httpd24-httpd
 
 <TabItem value="Debian 11" label="Debian 11">
 
-1. [Configure https on Centreon](#secure-the-web-server-with-https)
+1. [Configure HTTPS on your Centreon server](#secure-the-web-server-with-https).
 
 2. Install nghttp2 module:
 
