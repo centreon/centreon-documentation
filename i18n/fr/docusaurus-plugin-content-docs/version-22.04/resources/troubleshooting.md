@@ -5,12 +5,12 @@ title: Dépannage de la plateforme Centreon
 
 Cette page répertorie les rubriques de dépannage disponibles dans cette documentation. Cliquez sur un élément pour accéder à un contenu plus détaillé. 
 
-* [Dépanner les erreurs sur les plugins](/pp/integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins)
-* [Dépanner les erreurs sur Centreon MAP](../graph-views/troubleshooter.md)
-* [Dépanner les erreurs sur Centreon HA](../administration/centreon-ha/troubleshooting-guide.md)
-* [Dépanner les erreurs sur l'édition IT-100](../getting-started/it100.md#dépannage-de-la-solution-it-100)
-* [Dépanner les erreurs sur la configuration de l'envoi d'e-mails](../administration/postfix.md#dépanner-lenvoi-demails-avec-postfix)
-* [Dépanner les erreurs sur les licences](../administration/licenses.md#tester-et-dépanner-lenvoi-demails-avec-postfix)
+* [Troubleshooting Plugin errors](/pp/integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins)
+* [Troubleshooting MAP](../graph-views/troubleshooter.md)
+* [Dépannage de Centreon-HA](../administration/centreon-ha/troubleshooting-guide.md)
+* [Dépanner la solution IT-100](../getting-started/it100.md#dépanner-la-solution-it-100)
+* [Dépanner l'envoi d'emails avec Postfix](../administration/postfix.md#dépanner-lenvoi-demails-avec-postfix)
+* [Dépanner les erreurs sur les licences](../administration/licenses.md#dépanner-les-erreurs-sur-les-licences)
 
 ## Toujours bloqué ?
 
