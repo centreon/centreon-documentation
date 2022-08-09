@@ -99,12 +99,12 @@ yum install centreon-pack-network-switch-dell-xseries-snmp
 * In the Centreon Web interface, add a new Host from the "Configuration > Hosts" page.
 * Set the values of the *SNMP community* and *SNMP version* fields then apply the *Net-Switch-Dell-Xseries-SNMP-custom* Host template.
 
-> If you're using the version 3 of the SNMP protocol, select the related SNMP version in the Host configuration form and
-> set the SNMP v3 specific settings in the *SNMPEXTRAOPTIONS* Macro:
+> When using SNMP v3, use the SNMPEXTRAOPTIONS Macro to add specific authentication parameters 
+> More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
 
-| Mandatory   | Name                    | Description                       |
-| :---------- | :---------------------- | :---------------------------------|
-|             | SNMPEXTRAOPTIONS        | Extra options SNMP of Dell Xseries|
+| Mandatory   | Macro            | Description                                  |
+|:------------|:-----------------|:---------------------------------------------|
+|             | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo  |
 
 ## FAQ
 

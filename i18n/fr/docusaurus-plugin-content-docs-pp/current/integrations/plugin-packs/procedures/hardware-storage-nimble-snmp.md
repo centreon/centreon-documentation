@@ -97,8 +97,8 @@ yum install centreon-pack-hardware-storage-nimble-snmp
 * Compléter les champs *Communauté SNMP* et *Version SNMP* avec les valeurs configurées sur le Nimble
 * Appliquer le Modèle d'Hôte *HW-Storage-Nimble-SNMP*
 
-> Si vous utilisez la version 3 du protocol SNMP, utilisez la Macro *SNMPEXTRAOPTIONS* afin de renseigner les paramètres
-> d'authentification et de chiffrement adéquats
+> Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro SNMPEXTRAOPTIONS.
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping). 
 
 | Mandatory   | Name                    | Description                       |
 | :---------- | :---------------------- | :---------------------------------|
