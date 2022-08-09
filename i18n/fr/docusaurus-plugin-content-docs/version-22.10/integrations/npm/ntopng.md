@@ -10,7 +10,7 @@ Le widget peut afficher les vues suivantes (voir [**Exemples**](#exemples) ci-de
 * **Top N Local address** : Affiche les n hôtes locaux qui reçoivent/émettent le plus de trafic
 * **Top N Remote address** : Affiche les n hôtes distants qui reçoivent/émettent le plus de trafic
 * **Top N Flows** : Affiche les flux réseaux les plus importants (client local vers distant)
-* **Top N Applications** : Affiche les n application qui reçoivent/émettent le plus de trafic (les flux sont regroupés par application, protocolaire ou site Web comme Amazon/Google)
+* **Top N Applications** : Affiche les n applications qui reçoivent/émettent le plus de trafic (les flux sont regroupés par application, protocolaire ou site Web comme Amazon/Google)
 
 ## Installer le widget
 
