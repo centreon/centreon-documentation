@@ -207,11 +207,27 @@ mysql_secure_installation
 
 ## Enable firewalld
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8 / Centos 7" label="Alma / RHEL / Oracle Linux 8 / Centos 7">
+
 Install firewalld:
 
 ```shell
 yum install firewalld
 ```
+
+</TabItem>
+
+<TabItem value="Debian 11" label="Debian 11">
+
+Install firewalld:
+
+```shell
+apt install firewalld
+```
+
+</TabItem>
+</Tabs>
 
 Enable firewalld:
 
@@ -309,9 +325,20 @@ yum install python-inotify
 ```
 
 </TabItem>
+
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt install python3-inotify
+```
+
+</TabItem>
 </Tabs>
 
 Install fail2ban:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8 / Centos 7" label="Alma / RHEL / Oracle Linux 8 / Centos 7">
 
 ```shell
 yum install epel-release
@@ -323,6 +350,24 @@ If you have SELinux installed, then update the SELinux policies:
 ```shell
 yum update -y selinux-policy*
 ```
+
+</TabItem>
+
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt install epel-release
+apt install fail2ban fail2ban-systemd
+```
+
+If you have SELinux installed, then update the SELinux policies:
+
+```shell
+apt update -y selinux-policy*
+```
+
+</TabItem>
+</Tabs>
 
 Enable fail2ban:
 
@@ -423,6 +468,14 @@ dnf install mod_ssl mod_security openssl
 
 ```shell
 yum install httpd24-mod_ssl httpd24-mod_security openssl
+```
+
+</TabItem>
+
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt install mod_ssl mod_security openssl
 ```
 
 </TabItem>
@@ -533,6 +586,14 @@ yum install httpd24-mod_ssl httpd24-mod_security openssl
 ```
 
 </TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt install mod_ssl mod_security openssl
+```
+
+
+</TabItem>
 </Tabs>
 
 2. Install your certificates:
@@ -561,6 +622,14 @@ cp /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf{,.origin}
 ```
 
 </TabItem>
+
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+cp /etc/apache2/sites-available/centreon.conf{,.origin}
+```
+
+</TabItem>
 </Tabs>
 
 4. Edit the Centreon Apache configuration:
@@ -571,12 +640,17 @@ cp /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf{,.origin}
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-Edit the **/etc/httpd/conf.d/10-centreon.conf** by adding the **<VirtualHost *:443>** section.
+Edit the **/etc/httpd/conf.d/10-centreon.conf** file by adding the **<VirtualHost *:443>** section.
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
-Edit the **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf** by adding the **<VirtualHost *:443>** section.
+Edit the **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf** file by adding the **<VirtualHost *:443>** section.
+</TabItem>
+
+<TabItem value="Debian 11" label="Debian 11">
+
+Edit the **/etc/apache2/sites-available/centreon.conf** file by adding the **<VirtualHost *:443>** section.
 </TabItem>
 </Tabs>
 
@@ -600,6 +674,9 @@ This is how the file should look like:
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
+</TabItem>
+
+<TabItem value="Debian 11" label="Debian 11">
 </TabItem>
 </Tabs>
 
@@ -709,6 +786,27 @@ expose_php = Off
 ```
 
 </TabItem>
+
+<TabItem value="Debian 11" label="Debian 11">
+
+Edit the **/etc/apache2/sites-available/centreon.conf** file and add the following line:
+
+```apacheconf
+Header set X-Frame-Options: "sameorigin"
+Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;Secure;SameSite=Strict
+Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+ServerSignature Off
+ServerTokens Prod
+TraceEnable Off
+```
+
+Edit the **/etc/php.d/50-centreon.ini** file and turn off the **expose_php** parameter:
+
+```phpconf
+expose_php = Off
+```
+
+</TabItem>
 </Tabs>
 
 6. Hide the default **/icons** directory:
@@ -730,6 +828,17 @@ Edit the **/opt/rh/httpd24/root/etc/httpd/conf.d/autoindex.conf** file and comme
 ```apacheconf
 #Alias 
 /icons/ "/opt/rh/httpd24/root/usr/share/httpd/icons/"
+```
+
+</TabItem>
+
+<TabItem value="Debian 11" label="Debian 11">
+
+Edit the **/etc/apache2/sites-available/autoindex.conf** file and comment the following line:
+
+```apacheconf
+#Alias 
+/icons/ "/etc/apache2/sites-available/icons/"
 ```
 
 </TabItem>
@@ -810,6 +919,45 @@ If everything is ok, you must have:
 ```
 
 </TabItem>
+
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+systemctl restart php-fpm apache2
+```
+
+Then check its status:
+
+```shell
+systemctl status apache2
+```
+
+If everything is ok, you must have:
+
+```shell
+● apache2.service - The Apache HTTP Server
+    Loaded: loaded (/lib/systemd/system/apache2.service; enabled; vendor pres>
+     Active: active (running) since Tue 2022-08-09 05:01:36 UTC; 3h 56min ago
+       Docs: https://httpd.apache.org/docs/2.4/
+   Main PID: 518 (apache2)
+      Tasks: 11 (limit: 2356)
+     Memory: 18.1M
+        CPU: 1.491s
+     CGroup: /system.slice/apache2.service
+             ├─ 518 /usr/sbin/apache2 -k start
+             ├─1252 /usr/sbin/apache2 -k start
+             ├─1254 /usr/sbin/apache2 -k start
+             ├─1472 /usr/sbin/apache2 -k start
+             ├─3857 /usr/sbin/apache2 -k start
+             ├─3858 /usr/sbin/apache2 -k start
+             ├─3859 /usr/sbin/apache2 -k start
+             ├─3860 /usr/sbin/apache2 -k start
+             ├─3876 /usr/sbin/apache2 -k start
+             ├─6261 /usr/sbin/apache2 -k start
+             └─6509 /usr/sbin/apache2 -k start
+```
+
+</TabItem>
 </Tabs>
 
 Now you can access your platform with your browser in HTTPS mode.
@@ -843,6 +991,14 @@ vim /etc/httpd/conf.d/10-centreon.conf
 
 ```shell
 vim /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf
+```
+
+</TabItem>
+
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+vim /etc/apache2/sites-available/centreon.conf
 ```
 
 </TabItem>
@@ -930,6 +1086,45 @@ yum install httpd24-nghttp2
 
 ```shell
 systemctl restart httpd24-httpd
+```
+
+</TabItem>
+
+<TabItem value="Debian 11" label="Debian 11">
+
+1. [Configure https on Centreon](#secure-the-web-server-with-https)
+
+2. Install nghttp2 module:
+
+```shell
+apt install nghttp2
+```
+
+3. Enable http2 protocol in **/etc/apache2/sites-available/centreon.conf**:
+
+```apacheconf
+...
+<VirtualHost *:443>
+    Protocols h2 h2c http/1.1
+    ...
+</VirtualHost>
+...
+```
+
+4. Update method used by Apache multi-processus module in **/etc/apache2/sites-available/00-mpm.conf**:
+
+```diff
+-LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
++#LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
+
+-#LoadModule mpm_event_module modules/mod_mpm_event.so
++LoadModule mpm_event_module modules/mod_mpm_event.so
+```
+
+5. Restart the Apache process to take in account the new configuration:
+
+```shell
+systemctl restart apache2
 ```
 
 </TabItem>
