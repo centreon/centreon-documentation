@@ -5,7 +5,7 @@ title: Widget NtopNG
 
 Utilisez le widget NtopNG dans des [vues personnalisées](../../alerts-notifications/custom-views.md) pour visualiser des données sur l'utilisation du réseau collectées par une instance NtopNG.
 
-Le widget peut afficher les vues suivantes (voir [**Examples**](#exemples) ci-dessous) :
+Le widget peut afficher les vues suivantes (voir [**Exemples**](#exemples) ci-dessous) :
 
 * **Top N Local address** : Affiche les n hôtes locaux qui reçoivent/émettent le plus de trafic
 * **Top N Remote address** : Affiche les n hôtes distants qui reçoivent/émettent le plus de trafic
