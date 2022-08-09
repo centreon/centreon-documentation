@@ -1100,7 +1100,7 @@ systemctl restart httpd24-httpd
 apt install nghttp2
 ```
 
-3. Enable http2 protocol in **/etc/apache2/sites-available/centreon.conf**:
+3. Enable the **http2** protocol in **/etc/apache2/sites-available/centreon.conf**:
 
 ```apacheconf
 ...
