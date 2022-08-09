@@ -187,7 +187,7 @@ Description of software and linked users:
 
 | Software          | Service          | User             | Comment         |
 | ----------------- | ---------------- | ---------------- | --------------- |
-| Apache            | httpd            |www-data          | automatic start |
+| Apache            | httpd            | www-data          | automatic start |
 | PHP-FPM           | php-fpm          | www-data         | automatic start |
 | MariaDB           | mariadb          | mysql            | automatic start |
 | Centreon          | centreontrapd    | centreon         | automatic start |
