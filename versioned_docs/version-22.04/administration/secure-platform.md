@@ -1094,7 +1094,7 @@ systemctl restart httpd24-httpd
 
 1. [Configure HTTPS on your Centreon server](#secure-the-web-server-with-https).
 
-2. Install nghttp2 module:
+2. Install the nghttp2 module:
 
 ```shell
 apt install nghttp2
