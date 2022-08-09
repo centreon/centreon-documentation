@@ -35,7 +35,7 @@ Pour configurer le widget, cliquez sur l'icône molette dans son coin supérieur
 * **Probe** : Adresse IP du serveur NtopNG
 * **Protocol** : Protocole de communication (https par défaut)
 * **Port** : Port de connexion à l'interface (TCP/3000 par défaut)
-* **Interface** : Identifiant de l'interface. Vous vouvez le voir dans l'interface NtopNG, à la page **Interface** (en sélectionnant l'interface concernée) :
+* **Interface** : Identifiant de l'interface. Vous pouvez le voir dans l'interface NtopNG, à la page **Interface** (en sélectionnant l'interface concernée) :
 
 ![Interface ID](../../assets/integrations/npm/NtopNG_Interface_ID.png)
 
