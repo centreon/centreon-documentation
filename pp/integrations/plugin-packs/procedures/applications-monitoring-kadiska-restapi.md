@@ -162,7 +162,7 @@ running the following command:
     --client-id='client:xxx' \
     --client-secret='my-secret' \
     --filter-station-name='Paris-RT' \
-    --filter-target-name='tracername' \
+    --filter-target-name='target_name' \
     --period=15 \
     --port='443' \
     --proto='https' \
