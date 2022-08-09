@@ -1111,7 +1111,7 @@ apt install nghttp2
 ...
 ```
 
-4. Update method used by Apache multi-processus module in **/etc/apache2/sites-available/00-mpm.conf**:
+4. Update the method used by the Apache multi-processus module in **/etc/apache2/sites-available/00-mpm.conf**:
 
 ```diff
 -LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
