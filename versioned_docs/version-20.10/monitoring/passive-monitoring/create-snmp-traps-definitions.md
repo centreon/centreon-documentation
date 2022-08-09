@@ -14,7 +14,7 @@ Go into the **Configuration > SNMP traps > Manufacturer** menu and click on **Ad
 * The **Name** and **Alias** fields define the name and the alias of the manufacturer
 * The **Description** field provides an indication about the manufacturer
 
-##  Import SNMP traps from a MIB file
+## Import SNMP traps from a MIB file
 
 Go into the **Configuration > SNMP traps > MIBs** menu
 
