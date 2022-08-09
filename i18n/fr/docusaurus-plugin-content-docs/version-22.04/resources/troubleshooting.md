@@ -9,8 +9,8 @@ Cette page répertorie les rubriques de dépannage disponibles dans cette docume
 * [Dépanner les erreurs sur Centreon MAP](../graph-views/troubleshooter.md)
 * [Dépanner les erreurs sur Centreon HA](../administration/centreon-ha/troubleshooting-guide.md)
 * [Dépanner les erreurs sur l'édition IT-100](../getting-started/it100.md#dépannage-de-la-solution-it-100)
-* [Dépanner les erreurs sur la configuration de l'envoi d'e-mails](../administration/postfix.md#tester-et-diagnostiquer-postfix)
-* [Dépanner les erreurs sur les licences](../administration/licenses.md#dépanner-les-erreurs-sur-les-licences)
+* [Dépanner les erreurs sur la configuration de l'envoi d'e-mails](../administration/postfix.md#dépanner-lenvoi-demails-avec-postfix)
+* [Dépanner les erreurs sur les licences](../administration/licenses.md#tester-et-dépanner-lenvoi-demails-avec-postfix)
 
 ## Toujours bloqué ?
 
