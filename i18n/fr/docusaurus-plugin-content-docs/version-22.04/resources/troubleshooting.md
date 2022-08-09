@@ -13,4 +13,4 @@ Cette page répertorie les rubriques de dépannage disponibles dans cette docume
 * [Dépanner les erreurs sur les licences](../administration/licenses.md#dépanner-les-erreurs-sur-les-licences)
 
 ## Toujours bloqué ?
-Retrouvez plus [articles](https://thewatch.centreon.com/troubleshooting-41) de dépannage sur la plateforme communautaire The Watch !
+Retrouvez plus d'[articles de dépannage](https://thewatch.centreon.com/troubleshooting-41) sur la plateforme communautaire The Watch !
