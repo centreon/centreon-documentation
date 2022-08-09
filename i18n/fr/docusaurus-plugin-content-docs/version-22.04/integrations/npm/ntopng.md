@@ -5,12 +5,12 @@ title: Widget NtopNG
 
 Utilisez le widget NtopNG dans des [vues personnalisées](../../alerts-notifications/custom-views.md) pour visualiser des données sur l'utilisation du réseau collectées par une instance NtopNG.
 
-Le widget peut afficher les vues suivantes (voir [**Examples**](#exemples) ci-dessous) :
+Le widget peut afficher les vues suivantes (voir [**Exemples**](#exemples) ci-dessous) :
 
 * **Top N Local address** : Affiche les n hôtes locaux qui reçoivent/émettent le plus de trafic
 * **Top N Remote address** : Affiche les n hôtes distants qui reçoivent/émettent le plus de trafic
 * **Top N Flows** : Affiche les flux réseaux les plus importants (client local vers distant)
-* **Top N Applications** : Affiche les n application qui reçoivent/émettent le plus de trafic (les flux sont regroupés par application, protocolaire ou site Web comme Amazon/Google)
+* **Top N Applications** : Affiche les n applications qui reçoivent/émettent le plus de trafic (les flux sont regroupés par application, protocolaire ou site Web comme Amazon/Google)
 
 ## Installer le widget
 
@@ -35,7 +35,7 @@ Pour configurer le widget, cliquez sur l'icône molette dans son coin supérieur
 * **Probe** : Adresse IP du serveur NtopNG
 * **Protocol** : Protocole de communication (https par défaut)
 * **Port** : Port de connexion à l'interface (TCP/3000 par défaut)
-* **Interface** : Identifiant de l'interface. Vous vouvez le voir dans l'interface NtopNG, à la page **Interface** (en sélectionnant l'interface concernée) :
+* **Interface** : Identifiant de l'interface. Vous pouvez le voir dans l'interface NtopNG, à la page **Interface** (en sélectionnant l'interface concernée) :
 
 ![Interface ID](../../assets/integrations/npm/NtopNG_Interface_ID.png)
 

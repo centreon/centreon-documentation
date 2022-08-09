@@ -85,7 +85,7 @@ Pour utiliser une licence en ligne, votre plateforme Centreon doit être connect
 
 La licence IT-100 est une licence en ligne. Voir le chapitre [Mettre en place sa solution gratuite IT-100](../getting-started/it100.md).
 
-## Troubleshooting
+## Dépanner les erreurs sur les licences
 
 ### No valid file uploaded
 

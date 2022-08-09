@@ -109,6 +109,13 @@ yum install centreon-pack-network-tplink-snmp
 * Complétez les champs "Nom","Alias" & "IP Address / DNS" correspondant à votre équipement TP-Link
 * Appliquez le Modèle d'Hôte *Net-Tplink-SNMP-custom*
 
+> Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro SNMPEXTRAOPTIONS.
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping). 
+
+| Mandatory   | Name             | Description                                    |
+| :---------- | :--------------- | :--------------------------------------------- |
+|             | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo    |
+
 ## Comment tester le Plugin en ligne de commande et comment utiliser ses options ?
 
 Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne

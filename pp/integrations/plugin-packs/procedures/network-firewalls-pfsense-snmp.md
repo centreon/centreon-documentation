@@ -133,8 +133,8 @@ yum install centreon-pack-network-firewalls-pfsense-snmp
 
 * Apply the *Network-Firewalls-Pfsense-Snmp-custom* template and configure all the mandatory Macros:
 
-If you are using SNMP Version 3, use the *SNMPEXTRAOPTIONS* Macro to configure
-your own SNMPv3 credentials combo.
+> When using SNMP v3, use the SNMPEXTRAOPTIONS Macro to add specific authentication parameters 
+> More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
 
 | Mandatory | Name             | Description                                 |
 |:----------|:-----------------|:--------------------------------------------|

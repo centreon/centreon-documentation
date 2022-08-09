@@ -163,8 +163,8 @@ yum install centreon-pack-network-fortinet-fortiadc-snmp
 * Fill the **Name**, **Alias** & **IP Address / DNS** fields according to your **Fortinet FortiADC SNMP** server settings
 * Select the **Net-Fortinet-Fortiadc-SNMP-custom** template to apply to the Host
 
-If you are using SNMP Version 3, use the SNMPEXTRAOPTIONS Macro to configure
-your own SNMPv3 credentials combo.
+> When using SNMP v3, use the SNMPEXTRAOPTIONS Macro to add specific authentication parameters 
+> More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
 
 | Mandatory | Name             | Description                                              |
 |:----------|:-----------------|:---------------------------------------------------------|
