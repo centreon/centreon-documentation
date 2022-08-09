@@ -55,29 +55,29 @@ doit avoir assez de privilèges pour executer la commande `/usr/sbin/drbdsetup`.
 
 ### Pack de supervision
 
-Si la plateforme est configurée avec une licence *online*. L'installation d'un paquet 
-n'est pas requise pour voir apparaître le Pack dans le menu **Configuration > Plugin Packs > Gestionnaire** 
+Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet 
+n'est pas requise pour voir apparaître le pack dans le menu **Configuration > Plugin Packs > Gestionnaire**.
 
-Au contraire, si la plateforme utilise une licence *online*, installer le paquet 
-sur le **serveur central** via la commande correspondante au gestionnaire de paquet 
+Au contraire, si la plateforme utilise une licence *offline*, installer le paquet 
+sur le **serveur central** via la commande correspondant au gestionnaire de paquet 
 associé à sa distribution: 
 
 <Tabs groupId="sync">
-<TabItem value="dnf" label="dnf">
+<TabItem value="RHEL, Oracle Linux, Alma Linux version >= 8" label="RHEL, Oracle Linux, Alma Linux version >= 8">
 
 ```bash title='RHEL, Oracle Linux, Alma Linux version >= 8'
 dnf install centreon-pack-applications-drbd-ssh
 ```
 
 </TabItem>
-<TabItem value="apt" label="apt">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash title='Debian >= 8'
 apt-get centreon-pack-applications-drbd-ssh
 ```
 
 </TabItem>
-<TabItem value="yum" label="yum">
+<TabItem value="RHEL, Oracle Linux, Alma Linux version <= 8" label="RHEL, Oracle Linux, Alma Linux version <= 8">
 
 ```bash title='RHEL, Oracle Linux, Alma Linux version <= 8'
 yum install centreon-pack-applications-drbd-ssh
@@ -86,32 +86,32 @@ yum install centreon-pack-applications-drbd-ssh
 </TabItem>
 </Tabs>
 
-Quelque soit le type de la licence (*online* ou *offline*), installer le Pack *DRBD SSH* 
+Quel que soit le type de la licence (*online* ou *offline*), installez le Pack **DRBD SSH** 
 depuis l'interface web et le menu **Configuration > Plugin Packs > Gestionnaire**. 
 
 ### Plugin
 
-A partir de Centreon 22.04, il est possible de demander le déploiement automatique 
-du plugin lors de l'utilisation d'un Pack. Si cette fonctionnalité est activée, et 
+À partir de Centreon 22.04, il est possible de demander le déploiement automatique 
+du plugin lors de l'utilisation d'un pack. Si cette fonctionnalité est activée, et 
 que vous ne souhaitez pas découvrir des éléments pour la première fois, alors cette 
 étape n'est pas requise. 
 
 <Tabs groupId="sync">
-<TabItem value="dnf" label="dnf">
+<TabItem value="RHEL, Oracle Linux, Alma Linux version >= 8" label="RHEL, Oracle Linux, Alma Linux version >= 8">
 
 ```bash title='RHEL, Oracle Linux, Alma Linux version >= 8'
 dnf install centreon-plugin-Applications-Drbd-Ssh
 ```
 
 </TabItem>
-<TabItem value="apt" label="apt">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash title='Debian >= 8'
 apt-get install centreon-plugin-applications-drbd-ssh
 ```
 
 </TabItem>
-<TabItem value="yum" label="yum">
+<TabItem value="RHEL, Oracle Linux, Alma Linux version <= 8" label="RHEL, Oracle Linux, Alma Linux version <= 8">
 
 ```bash title='RHEL, Oracle Linux, Alma Linux version <= 8'
 yum install centreon-plugin-Applications-Drbd-Ssh
