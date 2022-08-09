@@ -72,7 +72,7 @@ dnf install centreon-pack-applications-drbd-ssh
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
-```bash title='Debian >= 8'
+```bash
 apt-get centreon-pack-applications-drbd-ssh
 ```
 

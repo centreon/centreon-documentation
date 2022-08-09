@@ -72,14 +72,14 @@ dnf install centreon-pack-applications-drbd-ssh
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
-```bash title='Debian >= 8'
+```bash
 apt-get centreon-pack-applications-drbd-ssh
 ```
 
 </TabItem>
 <TabItem value="RHEL/CentOS 7" label="RHEL/CentOS 7">
 
-```bash title='RHEL, Oracle Linux, Alma Linux version <= 8'
+```bash
 yum install centreon-pack-applications-drbd-ssh
 ```
 
@@ -99,21 +99,21 @@ que vous ne souhaitez pas découvrir des éléments pour la première fois, alor
 <Tabs groupId="sync">
 <TabItem value="RHEL, Oracle Linux, Alma Linux 8" label="RHEL, Oracle Linux, Alma Linux 8">
 
-```bash title='RHEL, Oracle Linux, Alma Linux version >= 8'
+```bash
 dnf install centreon-plugin-Applications-Drbd-Ssh
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
-```bash title='Debian >= 8'
+```bash
 apt-get install centreon-plugin-applications-drbd-ssh
 ```
 
 </TabItem>
 <TabItem value="RHEL/CentOS 7" label="RHEL/CentOS 7">
 
-```bash title='RHEL, Oracle Linux, Alma Linux version <= 8'
+```bash
 yum install centreon-plugin-Applications-Drbd-Ssh
 ```
 
