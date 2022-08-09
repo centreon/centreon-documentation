@@ -12,4 +12,6 @@ This page lists troubleshooting items available in this documentation. Click an 
 * [Troubleshooting errors in Mail configuration](../administration/postfix.md#testing-and-troubleshooting-mail-configuration)
 * [Troubleshooting errors on licenses](../administration/licenses.md#troubleshooting-licenses)
 
-> **Still stuck?** Find more troubleshooting [articles](https://thewatch.centreon.com/troubleshooting-41) on The Watch community platform!
+## Still stuck?
+
+Find more [troubleshooting articles](https://thewatch.centreon.com/troubleshooting-41) on our community platform, The Watch!
