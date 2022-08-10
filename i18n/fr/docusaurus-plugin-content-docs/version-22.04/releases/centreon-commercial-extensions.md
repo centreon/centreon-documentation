@@ -73,7 +73,7 @@ Release date: `null`
 
 #### Bug fixes
 
-- For some host discovery providers where no credentials were actually required, the job creation wizard still demanded to enter credentials
+- For some host discovery providers where no credentials were actually required, the job creation wizard no longer demands to enter credentials
 - Fixed a front-end issue that caused existing Host Discovery jobs to lose all their parameters when clicking on **Schedule**
 
 
