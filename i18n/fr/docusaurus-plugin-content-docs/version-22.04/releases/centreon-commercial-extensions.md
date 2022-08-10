@@ -69,7 +69,7 @@ Release date: `null`
 
 #### Improvements
 
-- [Configuration] Fixed empty host template from mappers (Host Discovery) by using default template form Plugin Packs discovery rule
+- [Configuration] When a host receives no host template from the mappers, the default template that is hard-coded in the Plugin Pack will be applied to this host
 
 #### Bug fixes
 
