@@ -594,8 +594,14 @@ yum install httpd24-mod_ssl httpd24-mod_security openssl
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt install mod_ssl mod_security openssl
-```
+sudo systemctl stop apache2
+sudo apt-get purge apache2 -y && sudo apt autoremove apache2 -y
+curl -sSL https://packages.sury.org/apache2/README.txt | sudo bash -x
+sudo apt update
+sudo apt install apache2 -y
+sudo apt install libapache2-mod-security2
+sudo a2enmod security2
+sudo systemctl restart apache2
 
 
 </TabItem>
