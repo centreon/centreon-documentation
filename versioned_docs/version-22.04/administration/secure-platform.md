@@ -477,6 +477,7 @@ sudo apt install apache2 -y
 sudo apt install libapache2-mod-security2
 sudo a2enmod security2
 sudo systemctl restart apache2
+```
 
 </TabItem>
 </Tabs>
@@ -597,7 +598,7 @@ sudo apt install apache2 -y
 sudo apt install libapache2-mod-security2
 sudo a2enmod security2
 sudo systemctl restart apache2
-
+```
 
 </TabItem>
 </Tabs>
@@ -1203,5 +1204,4 @@ Centreon event logs are available in the following directories:
 
 ## Backing up the platform
 
-Centreon offers to save the configuration of the platform. To do this, go to the
-[**Administration > Parameters > Backup**](./backup.md) menu.
+Centreon offers to save the configuration of the platform. To do this, go to the [**Administration > Parameters > Backup**](./backup.md) menu.
