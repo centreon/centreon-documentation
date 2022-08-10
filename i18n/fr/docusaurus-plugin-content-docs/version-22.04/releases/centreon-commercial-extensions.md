@@ -63,6 +63,20 @@ Release date: `July 5, 2022`
 
 ## Centreon Auto Discovery
 
+### 22.04.1
+
+Release date: `null`
+
+#### Improvements
+
+- [Configuration] Fixed empty host template from mappers (Host Discovery) by using default template form Plugin Packs discovery rule
+
+#### Bug fixes
+
+- For some host discovery providers where no credentials were actually required, the job creation wizard still demanded to enter credentials
+- Fixed a front-end issue that caused existing Host Discovery jobs to lose all their parameters when clicking on **Schedule**
+
+
 ### 22.04.0
 
 #### Enhancements
