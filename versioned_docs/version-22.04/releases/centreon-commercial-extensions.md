@@ -64,7 +64,7 @@ Release date: `July 5, 2022`
 
 ## Centreon Auto Discovery
 
-### 22.04.1
+### 22.04.1
 
 Release date: `null`
 
