@@ -359,11 +359,6 @@ yum update -y selinux-policy*
 apt install fail2ban
 ```
 
-If you have SELinux installed, then update the SELinux policies:
-
-```shell
-apt update -y selinux-policy*
-```
 
 </TabItem>
 </Tabs>
