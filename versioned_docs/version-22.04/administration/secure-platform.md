@@ -356,8 +356,7 @@ yum update -y selinux-policy*
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt install epel-release
-apt install fail2ban fail2ban-systemd
+apt install fail2ban
 ```
 
 If you have SELinux installed, then update the SELinux policies:
