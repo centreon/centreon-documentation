@@ -1642,6 +1642,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-netgear-sseries-snmp'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-loadbalancers-netscaler-mpx8000-snmp'
         },
         {
