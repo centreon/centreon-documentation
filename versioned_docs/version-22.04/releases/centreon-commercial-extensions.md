@@ -66,7 +66,7 @@ Release date: `July 5, 2022`
 
 ### 22.04.1
 
-Release date: `null`
+Release date: `August 10, 2022`
 
 #### Improvements
 
