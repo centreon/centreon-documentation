@@ -17,7 +17,7 @@ The host machine must have at least the following characteristics:
 | RAM                         | 4 GB      |
 | HDD                         | 40 GB     |
 
-It is recommended to partition the poller disk to prevent it from becoming full and unusable (for instance, in case of retention issue).
+It is recommended to partition the poller's disk to prevent it from becoming full and unusable (for instance, in case of retention issues).
 Perform the partitioning following these recommendations:
 
 | File system                | Size                                                                  |
