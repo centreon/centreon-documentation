@@ -28,7 +28,6 @@ Perform the partitioning following these recommendations:
 | /var/lib/centreon-broker   | at least 5 GB                                                         |
 | /var/cache/centreon/backup | at least 5 Go (export the backups and delete the exported data daily) |
 
-
 ## Network
 
 | Description | Direction | Protocol   | IP           | Port   |
