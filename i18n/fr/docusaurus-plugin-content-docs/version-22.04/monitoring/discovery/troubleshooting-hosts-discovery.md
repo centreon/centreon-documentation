@@ -23,7 +23,7 @@ Vous devez réinstaller le Plugin Pack correspondant en cliquant sur le bouton d
 
 ## Le scan de découverte reste bloqué à l'état planifié
 
-Lorsqu'un scan de l'hôte est lancé, il reste bloqué à l'état planifié.
+Lorsqu'un scan de découverte est lancé, il reste bloqué à l'état planifié.
 
 ### Problème
 
