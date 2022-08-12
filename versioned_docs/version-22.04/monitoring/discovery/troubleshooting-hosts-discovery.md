@@ -17,7 +17,7 @@ ERROR - [autodiscovery] -class- host discovery - cannot get host discovery jobs 
 
 ### Solution
 
-> Do not perform a remove, then a new installation of the Plugin Pack!
+> Do not remove the Plugin Pack then install it again!
 
 You need to reinstall the corresponding Plugin Pack using the **reinstall** button: ![image](../../assets/monitoring/discovery/reinstall-complete.png).
 
