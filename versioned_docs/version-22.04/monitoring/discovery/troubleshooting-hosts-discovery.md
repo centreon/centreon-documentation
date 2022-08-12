@@ -23,7 +23,7 @@ You need to reinstall the corresponding Plugin Pack using the **reinstall** butt
 
 ## Host scan remains stuck in a scheduled state
 
-When a host scan is initiated, it remains blocked in the scheduled state.
+When a host scan is initiated, it remains blocked in a scheduled state.
 
 ### Problem
 
