@@ -17,9 +17,9 @@ ERROR - [autodiscovery] -class- host discovery - cannot get host discovery jobs 
 
 ### Solution
 
-Vous devez réinstaller le Plugin Pack correspondant en cliquant sur le bouton de réinstallation : ![image](../../assets/monitoring/discovery/reinstall-complete.png).
-
 > Ne procédez pas à la suppression et nouvelle installation du Plugin Pack !
+
+Vous devez réinstaller le Plugin Pack correspondant en cliquant sur le bouton de réinstallation : ![image](../../assets/monitoring/discovery/reinstall-complete.png).
 
 ## Le scan de l'hôte reste bloqué à l'état planifié
 
