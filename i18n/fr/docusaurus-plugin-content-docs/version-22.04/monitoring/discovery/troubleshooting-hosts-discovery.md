@@ -27,7 +27,7 @@ Lorsqu'un scan de découverte est lancé, il reste bloqué à l'état planifié.
 
 ### Problème
 
-Cette erreur apparaît dans le fichier **gorgoned.log** :
+L'erreur suivante apparaît dans le fichier **gorgoned.log** :
 
 ``` shell
 ERROR - [autodiscovery] -class- host discovery - cannot get platform versions - Login error [code: '401'] [message: 'Unauthorized']
