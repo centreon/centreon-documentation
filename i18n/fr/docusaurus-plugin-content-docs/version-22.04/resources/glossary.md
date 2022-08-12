@@ -7,9 +7,9 @@ title: Glossaire
 
 Les listes de contrôles d'accès (Access Control List en anglais) permettent d’attribuer des droits aux utilisateurs Centreon. Il est possible de définir des droits sur :
 
-- les différents menus de l'interface web Centreon.
+- les différents menus de l'interface web Centreon,
 
-- les [ressources](#ressource) que les utilisateurs pourront voir.
+- les [ressources](#ressource) que les utilisateurs pourront voir,
 
 - les actions réalisables dans l’interface web Centreon.
 
@@ -156,8 +156,8 @@ Il existe des modèles d’hôtes et de services.
 
 **Voir aussi** :
 
-- [Utiliser des modèles d'hôtes](../monitoring/basic-objects/hosts-templates.md)
-- [Utiliser des modèles de services](../monitoring/basic-objects/services-templates.md)
+- [Utiliser des modèles d'hôtes](../monitoring/basic-objects/hosts-templates.md),
+- [Utiliser des modèles de services](../monitoring/basic-objects/services-templates.md),
 - [Utiliser des modèles de contacts](../monitoring/basic-objects/contacts-templates.md).
 
 ## Moteur de supervision
@@ -183,9 +183,9 @@ Durée pendant laquelle vous souhaitez conserver vos données de base de donnée
 
 Une période temporelle définit un intervalle de temps pour chacun des jours de la semaine. Ces périodes temporelles servent à activer les fonctionnalités du [moteur de supervision](#moteur-de-supervision) sur une période donnée. Elles permettent de définir :
 
-- Quand les commandes de vérification seront exécutées, c’est-à-dire la période de temps durant laquelle on supervise
+- quand les commandes de vérification seront exécutées, c’est-à-dire la période de temps durant laquelle on supervise,
 
-- Quand des [notifications](#notification) seront envoyées.
+- quand des [notifications](#notification) seront envoyées.
 
 **Voir aussi** : [Les périodes temporelles](../monitoring/basic-objects/timeperiods.md).
 
@@ -211,7 +211,7 @@ Paquet Centreon composé d’un plugin et de son pack.
 
 **Voir aussi** :
 
-- [Utiliser des Plugin Packs](../monitoring/pluginpacks.md)
+- [Utiliser des Plugin Packs](../monitoring/pluginpacks.md),
 - [Introduction aux Plugin Packs](/pp/integrations/plugin-packs/getting-started/introduction).
 
 ## Ressource
@@ -222,7 +222,7 @@ Objet supervisé par une plateforme Centreon (hôtes, services, métaservices).
 
 Dans Centreon, le serveur central est la console principale de votre supervision. Il permet : 
 
-- de configurer toute la supervision de votre infrastructure
+- de configurer toute la supervision de votre infrastructure,
 - de consulter la supervision de tous les serveurs Centreon (serveur central, [serveurs distants](#serveur-distant) et [collecteurs](#collecteur)) dans son interface web.
 
 ## Serveur distant
@@ -253,7 +253,7 @@ Un service peut avoir les [statuts](#statut) suivants : OK, ALERTE, CRITIQUE, IN
 
 Indique :
 
-- la disponibilité d'un [hôte](#hôte) (DISPONIBLE, INDISPONIBLE, INJOIGNABLE)
+- la disponibilité d'un [hôte](#hôte) (DISPONIBLE, INDISPONIBLE, INJOIGNABLE),
 - la disponibilité ou la performance d'un [service](#service) (OK, ALERTE, CRITIQUE, INCONNU).
 
 EN ATTENTE n’est pas un statut.
