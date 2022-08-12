@@ -45,7 +45,7 @@ In the **/etc/centreon-gorgone/config.d/31-centreon-api.yaml** file, replace the
 
 ## "No provider found" message appears when creating a host discovery task
 
-When clicking the **ADD** button in the **Configuration > Hosts > Discovery** page, the "No provider found" message occurs in the wizard.
+When clicking the **ADD** button in the **Configuration > Hosts > Discovery** page, a "No provider found" message is displayed in the wizard.
 
 ### Checks
 
