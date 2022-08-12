@@ -41,7 +41,7 @@ Dans le fichier **/etc/centreon-gorgone/config.d/31-centreon-api.yaml**, remplac
 
 - Vérifiez que le nom d'utilisateur et le mot de passe sont corrects dans le fichier **/etc/centreon-gorgone/config.d/31-centreon-api.yaml**.
 
-- Vérifiez que le nom d'utilisateur spécifié dans le fichier **/etc/centreon-gorgone/config.d/31-centreon-api.yaml** accède bien à la configuration de l'API. Dans l'interface Centreon, allez à la page  **Configuration > Utilisateurs > Contacts / Utilisateurs**. Puis dans l'onglet **Authentification Centreon**, vérifiez que le champ **Accès à l'API de configuration** est paramétré à **Oui**.
+- Vérifiez que le nom d'utilisateur spécifié dans le fichier **/etc/centreon-gorgone/config.d/31-centreon-api.yaml** a bien accès à la configuration de l'API. Dans l'interface Centreon, allez à la page  **Configuration > Utilisateurs > Contacts / Utilisateurs**. Puis dans l'onglet **Authentification Centreon**, vérifiez que le champ **Accès à l'API de configuration** est paramétré à **Oui**.
 
 ## Le message "Aucun fournisseur trouvé" apparaît lors de la création d'une tâche de découverte des hôtes
 
