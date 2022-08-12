@@ -49,6 +49,6 @@ When clicking the **ADD** button in the **Configuration > Hosts > Discovery** pa
 
 ### Checks
 
-Check the Auto Discovery module is up to date in the **Administration > Extensions > Manager** page.
+- Check the Auto Discovery module is up to date in the **Administration > Extensions > Manager** page.
 
 Reinstall the corresponding Plugin Pack using the **reinstall** button: ![image](../../assets/monitoring/discovery/reinstall-complete.png).
