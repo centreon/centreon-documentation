@@ -21,7 +21,7 @@ ERROR - [autodiscovery] -class- host discovery - cannot get host discovery jobs 
 
 You need to reinstall the corresponding Plugin Pack using the **reinstall** button: ![image](../../assets/monitoring/discovery/reinstall-complete.png).
 
-## Host scan remains stuck in the scheduled state
+## Host scan remains stuck in a scheduled state
 
 When a host scan is initiated, it remains blocked in the scheduled state.
 
