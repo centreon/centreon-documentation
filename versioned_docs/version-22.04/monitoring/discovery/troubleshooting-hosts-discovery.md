@@ -41,7 +41,7 @@ In the **/etc/centreon-gorgone/config.d/31-centreon-api.yaml** file, replace the
 
 - Check that the user and password are correct in the **/etc/centreon-gorgone/config.d/31-centreon-api.yaml** file.
 
-Check that the user specified in the **/etc/centreon-gorgone/config.d/31-centreon-api.yaml** file is accessing the API configuration.
+- Check that the user specified in the **/etc/centreon-gorgone/config.d/31-centreon-api.yaml** file is accessing the API configuration.
 
 ## "No provider found" message appears when creating a host discovery task
 
