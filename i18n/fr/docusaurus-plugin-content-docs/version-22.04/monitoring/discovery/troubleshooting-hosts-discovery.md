@@ -51,4 +51,4 @@ Lorsque vous cliquez sur le bouton **Ajouter** dans la page **Configuration > H�
 
 - Vérifiez que le module Auto Discovery est bien à jour dans la page **Administration > Extensions > Gestionnaire**.
 
-Réinstallez le Plugin Pack correspondant en cliquant sur le bouton de réinstallation : ![image](../../assets/monitoring/discovery/reinstall-complete.png).
+- Réinstallez le Plugin Pack correspondant en cliquant sur le bouton de réinstallation : ![image](../../assets/monitoring/discovery/reinstall-complete.png).
