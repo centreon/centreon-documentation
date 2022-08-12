@@ -7,9 +7,9 @@ title: Glossary
 
 Access Control Lists allow you to grant rights to Centreon users. You can grant users rights on:
 
-- the menus of the Centreon web interface
+- the menus of the Centreon web interface.
 
-- the [resources](#resource) they can see
+- the [resources](#resource) users can see.
 
 - the actions that can be performed in the Centreon web interface.
 
@@ -118,7 +118,7 @@ You can see all metrics attached to a service in the details panel of the servic
 
 ## Monitoring action
 
-Any action performed in the interface that acts on your monitoring in real time. For instance, to [acknowledge a resource](#acknowledgement), to [plan a downtime](#downtime), to force a check...
+Any action performed in the interface that acts on your monitoring in real time. For instance, to [acknowledge a resource](#acknowledgement), to [plan a downtime](#downtime), to force a check, etc.
 
 ## Monitoring engine
 
@@ -141,7 +141,7 @@ Advanced configuration for Centreon [Broker](#broker) that reverses the directio
 
 ## Performance data
 
-See **Metric**.
+See [**Metric**](#metric).
 
 ## Plugin Pack
 
@@ -164,7 +164,7 @@ Centreon server used in a [distributed architecture](#architecture-simple-vs-dis
 
 - A poller has no graphical interface: the resources it monitors are displayed in the interface of the central server and of the remote server it is attached to.
 
-The word "Poller" is also used to refer to the monitoring engine that is present in a central server, a remote server and a poller.
+"Poller" is also used to refer to the monitoring engine that is present in a central server, a remote server and a poller.
 
 ## Pull mode
 
@@ -190,7 +190,7 @@ Centreon server used in a [distributed architecture](#architecture-simple-vs-dis
 
 ## Resource
 
-Object supervised by a Centreon platform ([hosts](#host), [services](#service), metaservices).
+Object monitored by a Centreon platform ([hosts](#host), [services](#service), metaservices).
 
 ## Retention files
 

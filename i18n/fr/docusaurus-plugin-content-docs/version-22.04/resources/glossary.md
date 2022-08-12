@@ -7,9 +7,9 @@ title: Glossaire
 
 Les listes de contrôles d'accès (Access Control List en anglais) permettent d’attribuer des droits aux utilisateurs Centreon. Il est possible de définir des droits sur :
 
-- les différents menus de l'interface web Centreon
+- les différents menus de l'interface web Centreon.
 
-- les [ressources](#ressource) qu'ils pourront voir
+- les [ressources](#ressource) que les utilisateurs pourront voir.
 
 - les actions réalisables dans l’interface web Centreon.
 
@@ -76,7 +76,7 @@ Sauvegarde dans un fichier texte de toute une base de données MySQL/MariaDB.
 
 ## Engine
 
-Voir **Moteur de supervision**.
+Voir [**Moteur de supervision**](#moteur-de-supervision).
 
 ## État du problème
 
@@ -85,7 +85,7 @@ Non traité, acquitté, en maintenance.
 ## Fichiers de rétention
 
 Les fichiers de rétention sont propres à Centreon [Broker](#broker).
-Ces fichiers correspondent aux données de supervision qui n’ont pas pu être insérées en base de données lors d’un problème : par exemple si il y a un problème de connexion entre Engine et Broker, plutôt que de perdre ces données, Broker les stocke dans un fichier. Ce fichier sera ensuite dépilé par Centreon Broker, puis réinséré dans les bases de données pour éviter une perte de données. 
+Ces fichiers correspondent aux données de supervision qui n’ont pas pu être insérées en base de données lors d’un problème : par exemple s'il y a un problème de connexion entre Engine et Broker, plutôt que de perdre ces données, Broker les stocke dans un fichier. Ce fichier sera ensuite dépilé par Centreon Broker, puis réinséré dans les bases de données pour éviter une perte de données. 
 
 ## Fichiers RRD
 
@@ -93,7 +93,7 @@ Un fichier RRD contient les données d'une [métrique](#métrique). Le fichier R
 
 ## FQDN
 
-Fully Qualified Domain Name : correspond au nom d’hôte et de domaine d’un serveur. Ex : demo.centreon.com (nom d’hôte demo nom de domaine centreon.com).
+Fully Qualified Domain Name : correspond au nom d’hôte et de domaine d’un serveur. Ex : demo.centreon.com (nom d’hôte : demo, nom de domaine : centreon.com).
 
 ## Gorgone
 
@@ -114,7 +114,7 @@ Principe qui permet qu’un paramètre d’un [modèle](#modèle) soit appliqué
 
 ## Hôte
 
-Équipement possédant une adresse IP ou un FQDN, et que l’on veut superviser. Exemples : Un serveur Linux, une box internet, un site web, une imprimante 3D, une instance EC2, un hôte docker, une caisse enregistreuse, etc. L’hôte peut avoir un ou plusieurs [services](#service) associés.
+Équipement possédant une adresse IP ou un FQDN, et que l’on veut superviser. Exemples : un serveur Linux, une box internet, un site web, une imprimante 3D, une instance EC2, un hôte docker, une caisse enregistreuse, etc. L’hôte peut avoir un ou plusieurs [services](#service) associés.
 
 Un hôte peut avoir les [statuts](#statut) suivants : DISPONIBLE, INDISPONIBLE et INJOIGNABLE.
 
@@ -126,7 +126,7 @@ LVM (logical volume manager) : Centreon recommande d'utiliser ce système de par
 
 ## LVM snapshot
 
-Il s’agit d’une fonctionnalité présente dans LVM pour faire un instantané d’un système de fichiers. Centreon se sert de ce mécanisme pour sauvegarder les bases de données.
+Il s’agit d’une fonctionnalité présente dans LVM pour faire une image instantanée d’un système de fichiers. Centreon se sert de ce mécanisme pour sauvegarder les bases de données.
 
 **Voir aussi** : [Sauvegarde](../administration/backup.md).
 
@@ -136,7 +136,7 @@ Une métrique ou donnée de performance est rattachée à un [service](#service)
 
 Lorsqu’un service comprend plusieurs métriques, le statut du service est celui de la plus mauvaise métrique.
 
-Vous pouvez voir les métriques associées à un service dans le panneau de détails de celui-ci. (mettre un lien vers la doc, et ajouter un screenshot à la doc, comme celui ci-dessous)
+Vous pouvez voir les métriques associées à un service dans le panneau de détails de celui-ci.
 
 ## Mode one-peer retention
 
@@ -199,7 +199,7 @@ Une plage de maintenance ou temps d’arrêt est une période de temps durant la
 
 Les temps d'arrêts récurrents sont des temps d'arrêts qui reviennent de manière répétitive.
 
-**Voir aussi** : [Les temps d'arrêt récurrents](../alerts-notifications/downtimes.md##les-temps-darrêt-récurrents).
+**Voir aussi** : [Les temps d'arrêt récurrents](../alerts-notifications/downtimes.md#les-temps-darrêt-récurrents).
 
 ## Plugin Pack
 
@@ -207,7 +207,7 @@ Paquet Centreon composé d’un plugin et de son pack.
 
 - Le plugin est une sonde ou script qui est appelé par le [moteur de supervision](#moteur-de-supervision) pour effectuer un contrôle sur un [hôte](#hôte) ou un [service](#service). Le plugin va déterminer le statut à renvoyer au moteur de supervision à partir des vérifications qu'il fait et des seuils qui ont été définis dans la configuration de l'hôte ou du service.
 
-- Le pack contient la configuration associée au plugin dans Centreon (commande, [modèles](#modèle), seuils).
+- Le pack contient la configuration associée au plugin dans Centreon (commandes, [modèles](#modèle), seuils).
 
 **Voir aussi** :
 
@@ -231,17 +231,17 @@ Serveur Centreon utilisé dans une [architecture distribuée](#architecture-simp
 
 - Un serveur distant supervise des ressources. Il possède un moteur de supervision.
 
-- Il a une interface graphique, mais pas de menus de configuration 
+- Il a une interface graphique, mais pas de menus de configuration.
 
-- Les ressources qu’il supervise s’affichent dans son interface et dans l’interface du serveur central auquel il est rattaché
+- Les ressources qu’il supervise s’affichent dans son interface et dans l’interface du serveur central auquel il est rattaché.
 
 ## Service
 
 Un service est attaché à un [hôte](#hôte). Il correspond à un point de contrôle de cet hôte. Ce point de contrôle peut être un contrôle : 
 
-- sur le statut d’un composant : Est-ce que mon alimentation est branchée ? Est-ce que mon instance est démarrée ?
+- sur le statut d’un composant : est-ce que mon alimentation est branchée ? Est-ce que mon instance est démarrée ?
 
-- sur la performance d’un composant : Est-ce que mon site Web est accessible en moins de 0,5s ? Quel est mon niveau d’encre ? Quelle est l’utilisation de la mémoire sur mon serveur ?
+- sur la performance d’un composant : est-ce que mon site Web est accessible en moins de 0,5s ? Quel est mon niveau d’encre ? Quelle est l’utilisation de la mémoire sur mon serveur ?
 
 Un service peut avoir une ou plusieurs [métriques](#métrique) associées.
 
@@ -256,7 +256,7 @@ Indique :
 - la disponibilité d'un [hôte](#hôte) (DISPONIBLE, INDISPONIBLE, INJOIGNABLE)
 - la disponibilité ou la performance d'un [service](#service) (OK, ALERTE, CRITIQUE, INCONNU).
 
-PENDING n’est pas un statut.
+EN ATTENTE n’est pas un statut.
 
 **Voir aussi** : [Statuts possibles d'une ressource](../alerts-notifications/concepts.md).
 
