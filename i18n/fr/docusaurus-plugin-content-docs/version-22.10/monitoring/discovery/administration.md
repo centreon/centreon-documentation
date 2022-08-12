@@ -189,7 +189,7 @@ Exemple de configuration :
 gorgone:
   tpapi:
     - name: centreonv2
-      base_url: "http://127.0.0.1/centreon/api/beta/"
+      base_url: "http://127.0.0.1/centreon/api/latest/"
       username: api
       password: bpltc4aY
     - name: clapi
