@@ -9,7 +9,7 @@ La page **Découverte** (dans **Configuration > Hôtes**) est vide et n'affiche 
 
 ### Problème
 
-Cette erreur apparaît dans le fichier **gorgoned.log** :
+L'erreur suivante apparaît dans le fichier **gorgoned.log** :
 
 ``` shell
 ERROR - [autodiscovery] -class- host discovery - cannot get host discovery jobs - request error [code: '500'] [message: 'Call to a member function getUuidAttributes() on null']
