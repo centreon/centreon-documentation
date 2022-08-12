@@ -1,6 +1,6 @@
 ---
 id: troubleshooting-hosts-discovery
-title: Troubleshooting hosts discovery issues
+title: Troubleshooting host discovery issues
 ---
 
 ## No more host discovery jobs appear in the Discovery page
