@@ -11,6 +11,7 @@ Cette page répertorie les rubriques de dépannage disponibles dans cette docume
 * [Dépanner la solution IT-100](../getting-started/it100.md#dépanner-la-solution-it-100)
 * [Dépanner l'envoi d'emails avec Postfix](../administration/postfix.md#dépanner-lenvoi-demails-avec-postfix)
 * [Dépanner les erreurs sur les licences](../administration/licenses.md#dépanner-les-erreurs-sur-les-licences)
+* [Dépanner les incidents sur la découverte des hôtes](../monitoring/discovery/troubleshooting-hosts-discovery.md)
 
 ## Toujours bloqué ?
 

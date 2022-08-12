@@ -277,6 +277,10 @@
             },
             {
               "type": "doc",
+              "id": "version-22.04/monitoring/discovery/troubleshooting-hosts-discovery"
+            },
+            {
+              "type": "doc",
               "id": "version-22.04/monitoring/discovery/services-discovery"
             },
             {

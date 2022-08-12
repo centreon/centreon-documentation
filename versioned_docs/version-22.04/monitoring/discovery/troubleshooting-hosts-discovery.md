@@ -1,0 +1,53 @@
+---
+id: troubleshooting-hosts-discovery
+title: Troubleshooting hosts discovery issues
+---
+
+## No more host discovery jobs appear in the Discovery page
+
+The **Configuration > Hosts > Discovery** page is blank and no longer displays the host discovery jobs.
+
+### Problem
+
+The following error occurs in the **gorgoned.log** file:
+
+``` shell
+ERROR - [autodiscovery] -class- host discovery - cannot get host discovery jobs - request error [code: '500'] [message: 'Call to a member function getUuidAttributes() on null']
+```
+
+### Solution
+You need to reinstall the corresponding Plugin Pack using the **reinstall** button: ![image](../../assets/monitoring/discovery/reinstall-complete.png).
+
+> Do not perform a remove, then a new installation of the Plugin Pack!
+
+## Host scan remains stuck in the scheduled state
+
+When a host scan is initiated, it remains blocked in the scheduled state.
+
+### Problem
+
+The following error occurs in the **gorgoned.log** file:
+
+``` shell
+ERROR - [autodiscovery] -class- host discovery - cannot get platform versions - Login error [code: '401'] [message: 'Unauthorized']
+```
+
+### Solution
+
+In the **/etc/centreon-gorgone/config.d/31-centreon-api.yaml** file, replace the **base_url** value with **http://127.0.0.1/centreon/api/latest/**
+
+### Additional checks
+
+Check the user and password are correct in the **/etc/centreon-gorgone/config.d/31-centreon-api.yaml** file.
+
+Check that the user specified in the **/etc/centreon-gorgone/config.d/31-centreon-api.yaml** file is accessing the API configuration.
+
+## "No provider found" message appears when creating a host discovery task
+
+When clicking the **ADD** button in the **Configuration > Hosts > Discovery** page, the "No provider found" message occurs in the wizard.
+
+### Checks
+
+Check the Auto Discovery module is up to date in the **Administration > Extensions > Manager** page.
+
+Reinstall the corresponding Plugin Pack using the **reinstall** button: ![image](../../assets/monitoring/discovery/reinstall-complete.png).
