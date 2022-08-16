@@ -92,7 +92,7 @@ Afin de contrôler votre équipement Dell PowerStore, l'API Rest doit être conf
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. 1. Installer le plugin Centreon sur tous les collecteurs Centreon devant superviser des ressources **Dell PowerStore** :
+1. Installer le plugin Centreon sur tous les collecteurs Centreon devant superviser des ressources **Dell PowerStore** :
 
 ```bash
 yum install centreon-plugin-Hardware-Storage-Dell-Powerstore-Restapi
