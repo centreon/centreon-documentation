@@ -172,10 +172,6 @@
               "id": "version-22.10/installation/installation-of-centreon-ha/integrating-pollers"
             }
           ]
-        },
-        {
-          "type": "doc",
-          "id": "version-22.10/ceip/what-is-centreon-ceip"
         }
       ]
     },
@@ -286,6 +282,10 @@
             {
               "type": "doc",
               "id": "version-22.10/monitoring/discovery/administration"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.10/monitoring/discovery/troubleshooting-hosts-discovery"
             }
           ]
         },
@@ -1127,7 +1127,17 @@
               "id": "version-22.10/integrations/notifications/plugin-telegram"
             }
           ]
-        }
+        },
+        {
+          "type": "category",
+          "label": "NPM",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-22.10/integrations/npm/ntopng"
+            }
+          ]
+        } 
       ]
     },
     {
@@ -1183,6 +1193,28 @@
             {
               "type": "doc",
               "id": "version-22.10/developer/developer-broker-mapping"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Centreon Gorgone",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-22.10/developer/developer-gorgone-client-server-communication"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.10/developer/developer-gorgone-pull-mode"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.10/developer/developer-gorgone-rebound-mode"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.10/developer/developer-gorgone-migrate-from-centcore"
             }
           ]
         },
@@ -1289,6 +1321,20 @@
         {
           "type": "doc",
           "id": "version-22.10/security/key-rotation"
+        },
+        {
+          "type": "category",
+          "label": "User data storage",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-22.10/security/user-data-storage/gdpr-compliance"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.10/security/user-data-storage/what-is-centreon-ceip"
+            }
+          ]
         }
       ]
     },
@@ -1299,6 +1345,10 @@
         {
           "type": "doc",
           "id": "version-22.10/resources/known-issues"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.10/resources/troubleshooting"
         }
       ]
     }

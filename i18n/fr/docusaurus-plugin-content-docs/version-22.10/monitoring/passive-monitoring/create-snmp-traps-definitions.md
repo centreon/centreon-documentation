@@ -14,7 +14,7 @@ Rendez-vous dans le menu **Configuration > SNMP traps > Manufacturer** et clique
 * Les champ **Name** et **Alias** définissent le nom et l’alias du constructeur
 * Le champ **Description** fournit une indication sur le constructeur
 
-## Importation des MIB
+## Importation des traps SNMP depuis le fichier MIB
 
 Rendez-vous dans le menu**Configuration > SNMP traps > MIBs**
 

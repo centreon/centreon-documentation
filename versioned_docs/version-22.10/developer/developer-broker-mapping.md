@@ -4,8 +4,7 @@ title: Centreon Broker Event Mapping
 ---
 
 Centreon Broker uses global mapping tables for events that can be
-exchanged. How exactly these mapping tables work is left to discover to
-the reader. This page list properties available for each event type.
+exchanged. This page list properties available for each event type.
 
 ## NEB
 

@@ -1,6 +1,6 @@
 ---
 id: troubleshooter
-title: Troubleshooter
+title: Troubleshooting MAP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -527,8 +527,6 @@ pcs constraint colocation add master "ms_mysql-master" with "vip_mysql"
 
 </TabItem>
 </Tabs>
-</TabItem>
-</Tabs>
 
 Recréez ensuite la contrainte qui empêche les processus Centreon de s'exécuter sur les nœuds de base de données et vice-versa :
 
@@ -552,6 +550,8 @@ pcs constraint location cbd_rrd-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DA
 pcs constraint location php-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
 ```
 
+</TabItem>
+</Tabs>
 </TabItem>
 </Tabs>
 

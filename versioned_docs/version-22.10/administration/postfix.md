@@ -107,7 +107,7 @@ We recommend that you use a dedicated email account to send notifications.
     systemctl reload postfix
     ```
 
-## Testing and troubleshooting
+## Testing and troubleshooting email configuration
 
 - To send a test email, enter the following command:
 
