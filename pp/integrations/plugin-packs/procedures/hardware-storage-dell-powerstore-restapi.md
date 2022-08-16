@@ -5,43 +5,80 @@ title: Dell PowerStore Rest API
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 ## Pack Assets
 
 ### Monitored Objects
 
-The Pack Dell PowerStore collects metrics for:
-* Alerts
-* Hardware
+The Centreon Pack Dell PowerStore brings a host template:
+* HW-Storage-Dell-Powerstore-Restapi-custom
 
-### Collected Metrics
+It brings the following service templates:
+
+| Service Alias | Service Template                            | Description    | Default |
+|:--------------|:--------------------------------------------|:---------------|:--------|
+| Alerts        | HW-Storage-Dell-Powerstore-Alerts-Restapi   | Check alerts   | X       |
+| Clusters      | HW-Storage-Dell-Powerstore-Clusters-Restapi | Check clusters | X       |
+| Hardware      | HW-Storage-Dell-Powerstore-Hardware-Restapi | Check hardware | X       |
+
+### Collected metrics & status
 
 <Tabs groupId="sync">
 <TabItem value="Alerts" label="Alerts">
 
-| Metric name                    | Description                                | Unit  |
-| :----------------------------- | :----------------------------------------- | :---- |
-| alerts.severity.none.count     | Number of alerts with none severity        |       |
-| alerts.severity.info.count     | Number of alerts with information severity |       |
-| alerts.severity.minor.count    | Number of alerts with minor severity       |       |
-| alerts.severity.major.count    | Number of alerts with major severity       |       |
-| alerts.severity.critical.count | Number of alerts with critical severity    |       |
+| Metric name                    | Unit  |
+| :----------------------------- | :---- |
+| alerts.severity.none.count     |       |
+| alerts.severity.info.count     |       |
+| alerts.severity.minor.count    |       |
+| alerts.severity.major.count    |       |
+| alerts.severity.critical.count |       |
+
+</TabItem>
+<TabItem value="Clusters" label="Clusters">
+
+| Metric name                                                | Unit  |
+| :--------------------------------------------------------- | :---- |
+| clusters.detected.count                                    |       |
+| *cluster_id*#cluster.io.read.latency.5m.milliseconds       | ms    |
+| *cluster_id*#cluster.io.read.latency.30m.milliseconds      | ms    |
+| *cluster_id*#cluster.io.read.latency.1h.milliseconds       | ms    |
+| *cluster_id*#cluster.io.read.latency.24h.milliseconds      | ms    |
+| *cluster_id*#cluster.io.write.latency.5m.milliseconds      | ms    |
+| *cluster_id*#cluster.io.write.latency.30m.milliseconds     | ms    |
+| *cluster_id*#cluster.io.write.latency.1h.milliseconds      | ms    |
+| *cluster_id*#cluster.io.write.latency.24h.milliseconds     | ms    |
+| *cluster_id*#cluster.io.read.5m.iops                       |       |
+| *cluster_id*#cluster.io.read.30m.iops                      |       |
+| *cluster_id*#cluster.io.read.1h.iops                       |       |
+| *cluster_id*#cluster.io.read.24h.iops                      |       |
+| *cluster_id*#cluster.io.write.5m.iops                      |       |
+| *cluster_id*#cluster.io.write.30m.iops                     |       |
+| *cluster_id*#cluster.io.write.1h.iops                      |       |
+| *cluster_id*#cluster.io.write.24h.iops                     |       |
+| *cluster_id*#cluster.io.read.bandwidth.5m.bytespersecond   | B/s   |
+| *cluster_id*#cluster.io.read.bandwidth.30m.bytespersecond  | B/s   |
+| *cluster_id*#cluster.io.read.bandwidth.1h.bytespersecond   | B/s   |
+| *cluster_id*#cluster.io.read.bandwidth.24h.bytespersecond  | B/s   |
+| *cluster_id*#cluster.io.write.bandwidth.5m.bytespersecond  | B/s   |
+| *cluster_id*#cluster.io.write.bandwidth.30m.bytespersecond | B/s   |
+| *cluster_id*#cluster.io.write.bandwidth.1h.bytespersecond  | B/s   |
+| *cluster_id*#cluster.io.write.bandwidth.24h.bytespersecond | B/s   |
 
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
 
-| Metric name         | Description                  | Unit  |
-| :------------------ | :--------------------------- | :---- |
-| appliance status    | Appliance lifecycle state    |       |
-| battery status      | Battery lifecycle state      |       |
-| dimm status         | DIMM lifecycle state         |       |
-| disk status         | Disk lifecycle state         |       |
-| enclosure status    | Enclosure lifecycle state    |       |
-| fan status          | Fan lifecycle state          |       |
-| node status         | Node lifecycle state         |       |
-| io module status    | IO module lifecycle state    |       |
-| power supply status | Power supply lifecycle state |       |
-| sfp status          | SFP lifecycle state          |       |
+| Metric name         | Unit  |
+| :------------------ | :---- |
+| appliance status    |       |
+| battery status      |       |
+| dimm status         |       |
+| disk status         |       |
+| enclosure status    |       |
+| fan status          |       |
+| node status         |       |
+| io module status    |       |
+| power supply status |       |
+| sfp status          |       |
 
 </TabItem>
 </Tabs>
@@ -56,39 +93,42 @@ E.g: https://downloads.dell.com/manuals/common/pwrstr-apig_en-us.pdf
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin on every Poller:
+1. Install the Centreon plugin package on every Centreon poller expected to monitor **Dell PowerStore** resources:
 
 ```bash
 yum install centreon-plugin-Hardware-Storage-Dell-Powerstore-Restapi
 ```
 
-2. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *Dell PowerStore Rest API* Pack
+2. On the Centreon web interface, install the **Dell PowerStore Rest API** Centreon Pack on the **Configuration > Plugin Packs** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin on every Poller:
+1. Install the Centreon plugin package on every Centreon poller expected to monitor **Dell PowerStore** resources:
 
 ```bash
 yum install centreon-plugin-Hardware-Storage-Dell-Powerstore-Restapi
 ```
 
-2. On the Centreon Central server, install the Centreon Pack from the RPM:
+2. Install the **Dell PowerStore Rest API** Centreon Pack RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-hardware-storage-dell-powerstore-restapi
 ```
 
-3. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *Dell PowerStore Rest API* Pack
+3. On the Centreon web interface, install the **Dell PowerStore Rest API** Centreon Pack on the **Configuration > Plugin Packs** page.
 
 </TabItem>
 </Tabs>
 
-## Host configuration
+## Configuration
 
-* Add a new Host and apply the *HW-Storage-Dell-Powerstore-Restapi-custom* Host Template
+### Host
 
-> Once the template applied, some Macros have to be configured:
+* Log into Centreon and add a new host through **Configuration > Hosts**.
+* Fill the **Name**, **Alias** & **IP Address / DNS** fields according to your **Dell PowerStore** server settings.
+* Apply the **HW-Storage-Dell-Powerstore-Restapi-custom** template to the host.
+* Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
 
 | Mandatory | Name            | Description                                                                |
 | :-------- | :-------------- | :------------------------------------------------------------------------- |
@@ -98,10 +138,11 @@ yum install centreon-pack-hardware-storage-dell-powerstore-restapi
 | X         | APIPASSWORD     | Api password                                                               |
 |           | APIEXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
 
-## How to test the Plugin and what are the main options for?
+## How to check in the CLI that the configuration is OK and what are the main options for? 
 
-Once the plugin installed, log into your Centreon Poller CLI using the *centreon-engine* user account
-and test the Plugin by running the following command (Parameters such as ```api-username``` or ```api-password```have to be adjusted):
+Once the plugin is installed, log into your Centreon poller's CLI using the
+**centreon-engine** user account (`su - centreon-engine`) and test the plugin by
+running the following command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_dell_powerstore_restapi.pl \
@@ -115,21 +156,15 @@ and test the Plugin by running the following command (Parameters such as ```api-
     --verbose
 ```
 
-Expected command output is shown below:
+The expected command output is shown below:
 
 ```bash
 CRITICAL: 1 alerts detected | 'alerts.severity.none.count'=0;;;0; 'alerts.severity.info.count'=1;;;0; 'alerts.severity.minor.count'=0;;;0; 'alerts.severity.major.count'=1;;;0; 'alerts.severity.critical.count'=0;;;0; 'alerts.problems.current.count'=1;;;0;
 critical: alert [severity: major] [name: XMS_JBOD_CONTROLLER_SAS1_HEALTH_LEVEL_LEVEL_1_CLEAR] [resource: ] 2021-09-08T08:13:14.804936+00:00
 ```
 
-The command above monitors alerts (```--mode=alerts```).
-
-It uses api-username (```--api-username='myapiusername'```), an api-password (```--api-password='myapipassword'```)
-and it connects to the host _10.30.2.79_ (```--hostname='10.30.2.79'```)
-on the port 443 (```--port='443'```) using https (```--proto='https'```).
-
-All the options as well as all the available thresholds can be displayed by adding the  ```--help```
-parameter to the command:
+All available options for a given mode can be displayed by adding the 
+`--help` parameter to the command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_dell_powerstore_restapi.pl \
@@ -138,6 +173,16 @@ parameter to the command:
     --help
 ```
 
-## Troubleshooting
+All available modes can be displayed by adding the 
+`--list-mode` parameter to the command:
 
-[Troubleshooting plugins](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks)
+```bash
+/usr/lib/centreon/plugins/centreon_dell_powerstore_restapi.pl \
+    --plugin=storage::dell::powerstore::restapi::plugin \
+    --list-mode
+```
+
+### Troubleshooting
+
+Please find the troubleshooting documentation for the API-based plugins in
+this [chapter](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks).
