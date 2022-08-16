@@ -66,7 +66,7 @@ Dans l'interface web, allez à la page **Configuration > Plugin Packs**, recherc
 
   ![image](../assets/getting-started/quick_start_cisco_5.png)
 
-6. [Déployez la configuration](first-supervision.md#deployer-une-configuration).
+6. [Déployez la configuration](first-supervision.md#déployer-une-configuration).
 
 7. Allez dans **Supervision > Statut des ressources** et sélectionnez **Toutes** dans le filtre **Statut des ressources**. Dans un premier temps, les ressources apparaissent avec le statut **En attente**, ce qui signifie qu'aucun contrôle n'a encore été exécuté :
 
