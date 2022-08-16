@@ -81,7 +81,7 @@ considerations.
 **Software**
 
 - Centreon 22.04
-- Check that the parameter `date.timezone` is correctly configured in php ini file [here](../installation/installation-of-a-central-server/using-packages#set-the-php-time-zone)
+- Check that the parameter `date.timezone` is correctly configured in php ini file [here](../installation/installation-of-a-central-server/using-packages.md#set-the-php-time-zone)
   (same timezone displayed with the command `timedatectl status`)
 - Avoid the usage of the following variables in your monitoring MariaDB configuration.
   They halt long queries execution and can stop the ETL or the report generation jobs:
@@ -135,8 +135,8 @@ vgdisplay vg_data | grep -i free
 
 - OS: CentOS 7 / Redhat 7 or 8 / Debian 11
 - SGBD: MariaDB 10.5
-- Firewall: Disabled ([show here](../installation/installation-of-a-central-server/using-packages#configure-or-disable-the-firewall))
-- SELinux: Disabled ([show here](../installation/installation-of-a-central-server/using-packages#disable-selinux-if-it-is-installed))
+- Firewall: Disabled ([show here](../installation/installation-of-a-central-server/using-packages.md#configure-or-disable-the-firewall))
+- SELinux: Disabled ([show here](../installation/installation-of-a-central-server/using-packages.md#disable-selinux-if-it-is-installed))
 
 >Make sure timezone of the reporting server is the same of central server, otherwise the report publications will fail (link to download missing).
 >The same timezone must be displayed with the command `timedatectl`
@@ -461,7 +461,7 @@ mysql_secure_installation
 ```
 
 * Answer **yes** to all questions except "Disallow root login remotely?".
-* It is mandatory to set a password for the **root** user of the database. You will need this password during the [web installation](../web-and-post-installation.md).
+* It is mandatory to set a password for the **root** user of the database. You will need this password during the [web installation](../installation/web-and-post-installation.md).
 
 > For more information, please see the [official MariaDB documentation](https://mariadb.com/kb/en/mysql_secure_installation/).
 
