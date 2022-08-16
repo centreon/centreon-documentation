@@ -130,8 +130,8 @@ yum install centreon-pack-network-cambium-epmp-snmp
 * Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre serveur **Cambium ePMP SNMP**.
 * Appliquez le modèle d'hôte **Net-Cambium-Epmp-SNMP-custom**.
 
-Si vous utilisez SNMP en version 3, vous devez configurer les paramètres
-spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
+> Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro SNMPEXTRAOPTIONS.
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
 
 | Obligatoire | Macro            | Description                                  |
 |:------------|:-----------------|:---------------------------------------------|

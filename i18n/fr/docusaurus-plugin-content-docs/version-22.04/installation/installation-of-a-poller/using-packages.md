@@ -10,9 +10,62 @@ Centreon Open Sources disponible gratuitement sur notre dépôt.
 
 Les paquets peuvent être installés sur CentOS 7, Alma/RHEL/Oracle Linux 8 ou Debian 11.
 
-## Étapes pré-installation
+L'ensemble de la procédure d'installation doit être faite en tant qu'utilisateur privilégié.
 
-### Désactiver SELinux (s'il est installé)
+## Prérequis
+
+Après avoir installé votre serveur, réalisez la mise à jour de votre système
+d'exploitation via la commande :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf update
+```
+
+### Configuration spécifique
+
+Pour utiliser Centreon en français, espagnol ou portugais, installez les paquets correspondants :
+
+```shell
+dnf install glibc-langpack-fr
+dnf install glibc-langpack-es
+dnf install glibc-langpack-pt
+```
+
+Utilisez la commande suivante pour vérifier quelles langues sont installées sur votre système :
+
+```shell
+locale -a
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```shell
+yum update
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt update && apt upgrade
+```
+
+</TabItem>
+</Tabs>
+
+> Acceptez toutes les clés GPG proposées et redémarrez votre serveur
+> si une mise à jour du noyau est proposée.
+
+## Étape 1 : Pré-installation
+
+### Désactiver SELinux
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Pendant l'installation, SELinux doit être désactivé. Éditez le fichier
 **/etc/selinux/config** et remplacez **enforcing** par **disabled**, ou bien
@@ -36,10 +89,43 @@ $ getenforce
 Disabled
 ```
 
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+Pendant l'installation, SELinux doit être désactivé. Éditez le fichier
+**/etc/selinux/config** et remplacez **enforcing** par **disabled**, ou bien
+exécutez la commande suivante :
+
+```shell
+sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
+```
+
+Redémarrez votre système d'exploitation pour prendre en compte le changement.
+
+```shell
+reboot
+```
+
+Après le redémarrage, une vérification rapide permet de confirmer le statut de
+SELinux :
+
+```shell
+$ getenforce
+Disabled
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+SELinux n'est pas installé sur Debian 11, continuez.
+
+</TabItem>
+</Tabs>
+
 ### Configurer ou désactiver le pare-feu
 
-Paramétrer le pare-feu système ou désactiver ce dernier. Pour désactiver ce
-dernier exécuter les commandes suivantes :
+Paramétrez le pare-feu système ou désactivez ce dernier. Pour désactiver ce
+dernier exécutez les commandes suivantes :
 
 ```shell
 systemctl stop firewalld
@@ -128,7 +214,7 @@ yum install -y centos-release-scl
 Installez les dépendances suivantes :
 
 ```shell
-sudo apt update && sudo apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2
+apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2
 ```
 
 </TabItem>
@@ -162,21 +248,19 @@ yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/ce
 Pour installer le dépôt Centreon, exécutez la commande suivante :
 
 ```shell
-sudo echo "deb https://apt.centreon.com/repository/22.04/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://apt.centreon.com/repository/22.04/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 ```
 
 Puis importez la clé du dépôt :
 
 ```shell
-sudo su
 wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
-exit
 ```
 
 </TabItem>
 </Tabs>
 
-## Installation
+## Étape 2 : Installation
 
 Pour installer le moteur de supervision, exécutez la commande :
 
@@ -221,13 +305,10 @@ Redémarrez Centreon Engine :
 systemctl restart centengine
 ```
 
-## Enregistrer le serveur
+## Étape 3 : Enregistrer le serveur
 
 Pour transformer le serveur en collecteur et l'enregistrer sur le serveur central ou un serveur distant, exécutez la commande suivante sur le futur collecteur :
 
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
 ``` shell
 /usr/share/centreon/bin/registerServerTopology.sh -u <API_ACCOUNT> \
 -t poller -h <IP_TARGET_NODE> -n <POLLER_NAME>
@@ -238,23 +319,6 @@ Exemple:
 ``` shell
 /usr/share/centreon/bin/registerServerTopology.sh -u admin -t poller -h 192.168.0.1 -n poller-1
 ```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-``` shell
-/usr/share/centreon/bin/registerServerTopology.sh -u <API_ACCOUNT> \
--t poller -h <IP_TARGET_NODE> -n <POLLER_NAME>
-```
-
-Exemple:
-
-``` shell
-/usr/share/centreon/bin/registerServerTopology.sh -u admin -t poller -h 192.168.0.1 -n poller-1
-```
-
-</TabItem>
-</Tabs>
 
 > Remplacez **<IP_TARGET_NODE>** par l'adresse IP du serveur Central ou du serveur distant auquel vous voulez rattacher le collecteur (adresse IP vue par le
 > collecteur).
@@ -338,11 +402,11 @@ Failed connect to 192.168.0.1:444; Connection refused
 
 > La version Centreon du serveur distant est invalide. Elle doit être supérieure ou égale à 22.04.
 
-## Ajouter le Poller à la configuration
+## Étape 4 : Ajouter le Poller à la configuration
 
 Rendez-vous au chapitre [Ajouter un Poller à la configuration](../../monitoring/monitoring-servers/add-a-poller-to-configuration.md).
 
-## Sécurisez votre plateforme
+## Étape 5 : Sécuriser votre plateforme
 
 N'oubliez pas de sécuriser votre plateforme Centreon en suivant nos
 [recommandations](../../administration/secure-platform.md)

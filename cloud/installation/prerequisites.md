@@ -17,6 +17,17 @@ The host machine must have at least the following characteristics:
 | RAM                         | 4 GB      |
 | HDD                         | 40 GB     |
 
+It is recommended to partition the poller's disk to prevent it from becoming full and unusable (for instance, in case of retention issues).
+Perform the partitioning following these recommendations:
+
+| File system                | Size                                                                  |
+|----------------------------|-----------------------------------------------------------------------|
+| swap                       | 1 to 1.5 total size of RAM space                                      |
+| /                          | at least 20 GB                                                        |
+| /var/log                   | at least 10 GB                                                        |
+| /var/lib/centreon-broker   | at least 5 GB                                                         |
+| /var/cache/centreon/backup | at least 5 Go (export the backups and delete the exported data daily) |
+
 ## Network
 
 | Description | Direction | Protocol   | IP           | Port   |

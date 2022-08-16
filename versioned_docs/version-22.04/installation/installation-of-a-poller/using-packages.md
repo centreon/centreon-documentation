@@ -10,12 +10,64 @@ Source version available free of charge in our repository.
 
 These packages can be installed on CentOS 7, on Alma/RHEL/Oracle Linux 8 and on Debian 11.
 
-## Pre-installation steps
+You must run the installation procedure as a privileged user.
 
-### Disable SELinux (if it is installed)
+## Prerequisites
 
-During installation, SELinux should be disabled. To do this, edit the file
-**/etc/selinux/config** and replace **enforcing** by **disabled**. You can also run the following command:
+After installing your server, update your operating system using the following
+command:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf update
+```
+
+### Additional configuration
+
+If you intend to use Centreon in French, Spanish or Portuguese, install the corresponding packages:
+
+```shell
+dnf install glibc-langpack-fr
+dnf install glibc-langpack-es
+dnf install glibc-langpack-pt
+```
+
+Use the following command to check which languages are installed on your system:
+
+```shell
+locale -a
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```shell
+yum update
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt update && apt upgrade
+```
+
+</TabItem>
+</Tabs>
+
+> Accept all GPG keys and reboot your server if a kernel update is proposed.
+
+## Step 1: Pre-installation
+
+### Disable SELinux
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+During installation, SELinux should be disabled. To do this, edit the file **/etc/selinux/config** and replace
+**enforcing** by **disabled**. You can also run the following command:
 
 ```shell
 sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
@@ -39,16 +91,52 @@ You should have this result:
 Disabled
 ```
 
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+
+During installation, SELinux should be disabled. To do this, edit the file **/etc/selinux/config** and replace
+**enforcing** by **disabled**. You can also run the following command:
+
+```shell
+sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
+```
+
+Reboot your operating system to apply the change.
+
+```shell
+reboot
+```
+
+After system startup, perform a quick check of the SELinux status:
+
+```shell
+getenforce
+```
+
+You should have this result:
+
+```shell
+Disabled
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+SELinux is not installed on Debian 11, continue.
+
+</TabItem>
+</Tabs>
+
 ### Configure or disable firewall
 
-Add firewall rules or disable the firewall by running the following commands:
+If your firewall is active, add [firewall rules](../../administration/secure-platform.md#enable-firewalld).
+You can also disable the firewall during installation by running the following commands:
 
 ```shell
 systemctl stop firewalld
 systemctl disable firewalld
 ```
-
-> You can find instructions [here](../../administration/secure-platform.md#enable-firewalld) to configure firewalld.
 
 ### Server name
 
@@ -118,8 +206,6 @@ dnf config-manager --set-enabled ol8_codeready_builder
 To install Centreon you will need to set up the official Software Collections
 repository supported by Redhat.
 
-> Software collections are required for installing PHP 7 and associated libraries.
-
 Install the Software Collections repository using this command:
 
 ```shell
@@ -132,7 +218,7 @@ yum install -y centos-release-scl
 Install the following dependencies:
 
 ```shell
-sudo apt update && sudo apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2
+apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2
 ```
 
 </TabItem>
@@ -165,21 +251,19 @@ yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/ce
 To install the Centreon repository, execute following command line:
 
 ```shell
-sudo echo "deb https://apt.centreon.com/repository/22.04/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://apt.centreon.com/repository/22.04/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 ```
 
 Then import the repository key:
 
 ```shell
-sudo su
 wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
-exit
 ```
 
 </TabItem>
 </Tabs>
 
-## Installation
+## Step 2: Installation
 
 To install the monitoring engine, run the command:
 
@@ -224,13 +308,10 @@ Restart Centreon Engine:
 systemctl restart centengine
 ```
 
-## Register the server
+## Step 3: Register the server
 
 To turn the server into a poller and to register it to the Central server or to a Remote server, execute the following command on the future poller:
 
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
 ``` shell
 /usr/share/centreon/bin/registerServerTopology.sh -u <API_ACCOUNT> \
 -t poller -h <IP_TARGET_NODE> -n <POLLER_NAME>
@@ -241,23 +322,6 @@ Example:
 ``` shell
 /usr/share/centreon/bin/registerServerTopology.sh -u admin -t poller -h 192.168.0.1 -n poller-1
 ```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-``` shell
-/usr/share/centreon/bin/registerServerTopology.sh -u <API_ACCOUNT> \
--t poller -h <IP_TARGET_NODE> -n <POLLER_NAME>
-```
-
-Example:
-
-``` shell
-/usr/share/centreon/bin/registerServerTopology.sh -u admin -t poller -h 192.168.0.1 -n poller-1
-```
-
-</TabItem>
-</Tabs>
 
 > Replace **<IP_TARGET_NODE>** by the IP of the central server or remote server that you want to link the poller to (IP as seen by the poller)
 
@@ -338,11 +402,11 @@ Failed connect to 192.168.0.1:444; Connection refused
 
 > Your Centreon target version is invalid. It should be greater or equal to 22.04.
 
-## Add the Poller to configuration
+## Step 4: Add the Poller to configuration
 
 Go to the [Add a Poller to configuration](../../monitoring/monitoring-servers/add-a-poller-to-configuration.md).
 
-## Secure your platform
+## Step 5: Secure your platform
 
-Don't forget to secure your Centreon platform following our
-[recommendations](../../administration/secure-platform.md)
+Do not forget to secure your Centreon platform following our
+[recommendations](../../administration/secure-platform.md).
