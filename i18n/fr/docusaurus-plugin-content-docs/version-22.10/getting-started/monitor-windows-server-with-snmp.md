@@ -168,4 +168,4 @@ Avec **Centreon IT Edition**, vous pouvez ajouter très rapidement et très simp
 
   ![image](../assets/getting-started/prise_en_main_windows_snmp_21.png)
 
-4. [Déployez la configuration](first-supervision.md#déployer-une-configuration).
+4. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).

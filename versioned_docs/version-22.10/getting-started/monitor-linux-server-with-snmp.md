@@ -108,7 +108,7 @@ In the web interface, go to **Configuration > Plugin Packs** and install the **L
 
    ![image](../assets/getting-started/quick_start_linux_5.png)
 
-6. [Deploy the configuration](first-supervision.md#deploying-a-configuration).
+6. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
 
 7. Go to **Monitoring > Resources Status** and select **All** from the **Resource status** filter. At first, the resources appear with the status **Pending**, which means that no checks have been executed yet:
 
