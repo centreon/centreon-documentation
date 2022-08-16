@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Objets supervisés
 
-Le Pack Centreon Dell PowerStore apporte un modèle d'hôte :
+Le Pack Centreon **Dell PowerStore** apporte un modèle d'hôte :
 * HW-Storage-Dell-Powerstore-Restapi-custom
 
 Il apporte les modèles de services suivants :
