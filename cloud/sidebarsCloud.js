@@ -81,7 +81,30 @@ module.exports = {
           type: 'doc',
           id: 'monitoring/monitoring-servers/deploying-a-configuration',
         },
+
       ],
+    },
+    {
+      "type": "category",
+      "label": "Performance graphs",
+      "items": [
+        {
+          "type": "doc",
+          "id": "metrology/chart-management"
+        },
+        {
+          "type": "doc",
+          "id": "metrology/chart-template"
+        },
+        {
+          "type": "doc",
+          "id": "metrology/chart-curves"
+        },
+        {
+          "type": "doc",
+          "id": "metrology/chart-virtual-metrics"
+        },
+      ]
     },
   ],
 };

@@ -131,6 +131,15 @@ Release date: `December 16, 2021`
 
 ## Centreon MBI
 
+### 21.04.4
+
+`July 22, 2022`
+
+#### Bug fixes
+
+- Replaced 'switch' with 'if' to better fit RHEL 8 deployment
+- Multiple SSH sessions initiated by CBIS were not closed and could remain opened causing the server overload
+
 ### 21.04.3
 
 `February 18 2022`

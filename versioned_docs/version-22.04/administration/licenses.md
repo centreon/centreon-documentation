@@ -85,7 +85,7 @@ To use an online license, your Centreon platform must be connected to the intern
 
 See chapter [Set up your free IT-100 solution](https://docs.centreon.com/current/en/getting-started/IT100).
 
-## Troubleshooting
+## Troubleshooting licenses
 
 ### No valid file uploaded
 

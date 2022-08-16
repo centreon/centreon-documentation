@@ -169,6 +169,13 @@ Dans le formulaire de création de l'hôte sur l'interface Web de Centreon, il e
 nécessaire de renseigner les valeurs pour les champs "Snmp Community" et "Snmp
 Version".
 
+> Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro SNMPEXTRAOPTIONS.
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping). 
+
+| Obligatoire | Nom              | Description                                    |
+| :---------- | :--------------- | :--------------------------------------------- |
+|             | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo    |
+
 ## FAQ
 
 ### Comment tester en ligne de commande et quelles significations portent les options principales ?
