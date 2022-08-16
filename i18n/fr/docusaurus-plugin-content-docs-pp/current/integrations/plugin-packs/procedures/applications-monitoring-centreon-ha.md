@@ -34,7 +34,7 @@ Ce modèle ne collecte pas de métrique, mais donne l'état général du cluster
 
 * remontée des "failed actions"
 * état des ressource :
-  * `php7`
+  * `php`
   * `cbd_rrd`
   * `vip`
   * `http`
@@ -190,8 +190,8 @@ La commande devrait retourner un message de sortie de la forme ci-dessous:
 
 ```text
 OK: Cluster is OK |
-Resource 'php7' is started on node 'central-primary'
-Resource 'php7' is started on node 'central-secondary'
+Resource 'php' is started on node 'central-primary'
+Resource 'php' is started on node 'central-secondary'
 Resource 'cbd_rrd' is started on node 'central-primary'
 Resource 'cbd_rrd' is started on node 'central-secondary'
 Resource 'vip' is started on node 'central-secondary'
