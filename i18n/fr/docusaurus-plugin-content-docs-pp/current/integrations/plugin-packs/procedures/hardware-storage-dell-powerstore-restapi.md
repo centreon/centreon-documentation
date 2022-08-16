@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 Le Pack Centreon Dell PowerStore apporte un modèle d'hôte :
 * HW-Storage-Dell-Powerstore-Restapi-custom
 
-Il apporte les modèles de service suivants :
+Il apporte les modèles de services suivants :
 
 | Alias    | Modèle de services                          | Description                            | Défaut  |
 |:---------|:--------------------------------------------|:---------------------------------------|:--------|
