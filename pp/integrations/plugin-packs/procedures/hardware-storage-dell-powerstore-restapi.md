@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Monitored Objects
 
-The Centreon Pack Dell PowerStore brings a host template:
+The Centreon Pack **Dell PowerStore** brings a host template:
 * HW-Storage-Dell-Powerstore-Restapi-custom
 
 It brings the following service templates:
