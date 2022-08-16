@@ -33,7 +33,7 @@ Par conséquent, il utilise les protocoles de ces deux Plugin-Packs - **SNMP** e
 Ce modèle ne collecte pas de métrique, mais donne l'état général du cluster :
 
 * remontée des "failed actions"
-* état des ressource :
+* état des ressources :
   * `php`
   * `cbd_rrd`
   * `vip`
