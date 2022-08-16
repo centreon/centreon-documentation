@@ -125,7 +125,7 @@ yum install centreon-pack-hardware-storage-dell-powerstore-restapi
 ### Hôte
 
 * Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**
-* Complétez les champs **Nom**, **Alias** & **IP Address / DNS** correspondant à votre serveur **Dell PowerStore**.
+* Complétez les champs **Nom**, **Alias** et **IP Address / DNS** correspondant à votre serveur **Dell PowerStore**.
 * Appliquez le modèle d'hôte **HW-Storage-Dell-Powerstore-Restapi-custom**.
 * Une fois le modèle appliqué, les macros ci-dessous indiquées comme requises (**Obligatoire**) doivent être renseignées.
 
