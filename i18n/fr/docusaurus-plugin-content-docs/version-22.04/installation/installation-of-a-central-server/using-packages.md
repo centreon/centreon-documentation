@@ -24,7 +24,9 @@ commande suivante :
 dnf update
 ```
 
-Si vous installez Centreon sur AlmaLinux/RHEL/OracleLinux 8, et que vous avez l'intention d'utiliser Centreon en français, en espagnol ou en portugais, installez les paquets correspondants :
+### Configuration spécifique
+
+Pour utiliser Centreon en français, espagnol ou portugais, installez les paquets correspondants :
 
 ```shell
 dnf install glibc-langpack-fr
@@ -55,21 +57,44 @@ apt update && apt upgrade
 </TabItem>
 </Tabs>
 
-> Acceptez toutes les clés GPG et redémarrez votre serveur si une mise à jour du noyau est
-> proposée.
+> Acceptez toutes les clés GPG proposées et redémarrez votre serveur
+> si une mise à jour du noyau est proposée.
 
-### Étape 1 : Pré-installation
+## Étape 1 : Pré-installation
 
-### Désactiver SELinux (s'il est installé)
+### Désactiver SELinux
 
-Pendant l'installation, SELinux doit être désactivé. Pour ce faire, éditez le fichier
-**/etc/selinux/config** et remplacez **enforcing** par **disabled**. Vous pouvez également exécuter la commande suivante :
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+Pendant l'installation, SELinux doit être désactivé. Éditez le fichier
+**/etc/selinux/config** et remplacez **enforcing** par **disabled**, ou bien
+exécutez la commande suivante :
 
 ```shell
 sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
 ```
 
-Redémarrez votre système d'exploitation pour appliquer la modification.
+Redémarrez votre système d'exploitation pour prendre en compte le changement.
+
+```shell
+reboot
+```
+
+Après le redémarrage, une vérification rapide permet de confirmer le statut de
+SELinux :
+
+```shell
+$ getenforce
+Disabled
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+Pendant l'installation, SELinux doit être désactivé. Éditez le fichier
+**/etc/selinux/config** et remplacez **enforcing** par **disabled**, ou bien
+exécutez la commande suivante :
 
 ```shell
 reboot
@@ -87,9 +112,18 @@ Vous devriez obtenir ce résultat :
 Disabled
 ```
 
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+SELinux n'est pas installé sur Debian 11, continuez.
+
+</TabItem>
+</Tabs>
+
 ### Configurer ou désactiver le pare-feu
 
-Si votre pare-feu est actif, ajoutez des [règles de pare-feu](../../administration/secure-platform.md#enable-firewalld). Vous pouvez également désactiver le pare-feu pendant l'installation en exécutant les commandes suivantes :
+Si votre pare-feu système est actif, [paramétrez-le](../../administration/secure-platform.md#enable-firewalld).
+Vous pouvez également le désactiver le temps de l'installation :
 
 ```shell
 systemctl stop firewalld
@@ -197,13 +231,15 @@ yum-config-manager --enable remi-php80
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
+#### Installer les dépendances
+
 Installez les dépendances suivantes :
 
 ```shell
 apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2
 ```
 
-#### Ajouter le dépôt APT de Sury pour PHP 8.0
+#### Installer le dépôt Sury APT pour PHP 8.0
 
 Pour installer le dépôt Sury, exécutez la commande suivante :
 
@@ -221,7 +257,40 @@ apt update
 </TabItem>
 </Tabs>
 
-#### Référentiel Centreon
+#### Dépôt MariaDB
+
+<Tabs groupId="sync">
+
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+cd /tmp
+curl -JO https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
+bash ./mariadb_repo_setup
+sed -ri 's/10\../10.5/' /etc/yum.repos.d/mariadb.repo
+rm -f ./mariadb_repo_setup
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```shell
+cd /tmp
+curl -JO https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
+bash ./mariadb_repo_setup
+sed -ri 's/10\../10.5/' /etc/yum.repos.d/mariadb.repo
+rm -f ./mariadb_repo_setup
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+Les paquets seront installés automatiquement.
+
+</TabItem>
+</Tabs>
+
+#### Dépôt Centreon
 
 Pour installer le logiciel Centreon à partir du référentiel, vous devez d'abord installer le paquetage
 centreon-release, qui fournira le fichier du référentiel.
@@ -367,6 +436,12 @@ systemctl restart mariadb
 
 > Il est obligatoire de définir un mot de passe pour l'utilisateur root de la base de données.
 
+Sécurisez l'accès root à MariaDB en exécutant la commande suivante :
+
+```shell
+mysql_secure_installation
+```
+
 Ensuite, dans la dabatase distante, créez un utilisateur avec des privilèges **root**. Vous devrez entrer cet utilisateur pendant le 
 processus d'installation web (à [étape 6](../web-and-post-installation.md#step-6-database-infomation),
 dans les champs **Root user** et **Root password**).
@@ -390,7 +465,7 @@ FLUSH PRIVILEGES;
 >
 > Remplacez **<USER\>** et **<PASSWORD\>** par les informations d'identification de l'utilisateur.
 
-Cet utilisateur ne sera utilisé que pour le processus d'installation : une fois l'[installation web](../web-and-post-installation.md) terminée, vous pouvez supprimer cet utilisateur en utilisant :
+Cet utilisateur ne sera utilisé que pour le processus d'installation : une fois l'[installation web](../web-and-post-installation.md) terminée, vous pouvez supprimer cet utilisateur via la commande :
 
 ```SQL
 DROP USER '<USER>'@'<IP>';
@@ -475,6 +550,7 @@ DROP USER 'dbadmin'@'<CENTRAL_SERVER_IP>';
 > innodb_buffer_pool_size=1G
 > ```
 >
+
 > N'oubliez pas de redémarrer MariaDB après une modification de la configuration.
 
 ### Étape 3 : Configuration

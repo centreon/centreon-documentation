@@ -86,7 +86,7 @@ Vous pouvez vérifier la bonne configuration de centreontrapd au sein du chapitr
 
 Dans le cas d’un serveur central, le processus Centreon Gorgone doit être démarré pour transférer la commande externe à
 l’ordonnanceur supervisant l’émetteur, vérifiez son état de fonctionnement. Activez le débogage du processus via le
-menu **Administration > Options > Debug** et redémarrez le processus.
+menu **Administration > Parameters > Debug** et redémarrez le processus.
 
 > Vous pouvez modifier le niveau de journalisation des logs  via le menu **Administration > Paramètres > Débogage**
 

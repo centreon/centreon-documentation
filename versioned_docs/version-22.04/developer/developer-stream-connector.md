@@ -16,9 +16,7 @@ The following diagram explains the transfer of collected data and insertion into
 ![image](../assets/developer/lua/archi_broker_regular.png)
 
 The Stream Connector functionality is a new Centreon Broker output getting data from Centreon Broker Master (also known
-as Centreon Broker SQL) to aggregate and forward it to external storage:
-
-![image](../assets/developer/lua/archi_broker_stream.png)
+as Centreon Broker SQL) to aggregate and forward it to external storage.
 
 This output loads a Lua script called a Stream Connector, which job is to handle, aggregate and enrich the data before
 forwarding it to the defined protocol:
@@ -60,9 +58,6 @@ that is easy to use. You can find more information with the [Lua official docume
 Broker's Lua scripts can be stored in any directory readable by the **centreon-broker** user.
 
 We recommend to store them in **/usr/share/centreon-broker/lua**.
-
-> In a near future, this directory will be in the *default path* of the Lua scripts launched by broker. It will then be
-> easier to use user defined Lua libraries because you will just have to add your libraries there like stream connectors.
 
 ### Write all information into a file
 
@@ -510,7 +505,7 @@ To create this queue, we introduce a code a little more complicated. We construc
 composed of parameters such as *events*, *influx_database* and methods like *new()*, *add()*.
 
 To understand how to create such an object in Lua, we recommend the Lua documentation
-[here for classes](https://www.lua.org/pil/16.1) and [there for metatables](https://www.lua.org/pil/13)
+[here for classes](https://www.lua.org/pil/16.1.html) and [there for metatables](https://www.lua.org/pil/13.html)
 
 To send data to a server, we provide a **broker_tcp_socket** object.
 
@@ -766,7 +761,7 @@ To select only performance data, we need to select *category* 3 (“Storage”) 
 
 ### Complete script
 
-The complete script can be downloaded [here](https://github.com/centreon/centreon-stream-connector-scripts/tree/master/influxdb).
+The complete script can be downloaded [here](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/centreon-certified/influxdb/influxdb-metrics-apiv1.lua).
 
 ### Configure Centreon Broker
 

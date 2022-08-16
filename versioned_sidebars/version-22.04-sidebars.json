@@ -282,6 +282,10 @@
             {
               "type": "doc",
               "id": "version-22.04/monitoring/discovery/administration"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/monitoring/discovery/troubleshooting-hosts-discovery"
             }
           ]
         },
@@ -1123,6 +1127,16 @@
               "id": "version-22.04/integrations/notifications/plugin-telegram"
             }
           ]
+        },
+        {
+          "type": "category",
+          "label": "NPM",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-22.04/integrations/npm/ntopng"
+            }
+          ]
         }
       ]
     },
@@ -1179,6 +1193,28 @@
             {
               "type": "doc",
               "id": "version-22.04/developer/developer-broker-mapping"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Centreon Gorgone",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-22.04/developer/developer-gorgone-client-server-communication"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/developer/developer-gorgone-pull-mode"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/developer/developer-gorgone-rebound-mode"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/developer/developer-gorgone-migrate-from-centcore"
             }
           ]
         },
@@ -1309,6 +1345,10 @@
         {
           "type": "doc",
           "id": "version-22.04/resources/known-issues"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.04/resources/troubleshooting"
         }
       ]
     }

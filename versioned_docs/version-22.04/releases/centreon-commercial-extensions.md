@@ -16,6 +16,20 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon MAP
 
+### 22.04.1
+
+Release date: `July 13, 2022`
+
+#### Bug fixes
+
+- Updated the notification number field to match the central database schema.
+
+#### Enhancements
+
+- The diagnostic.sh script is now compatible with Debian.
+- Updated the connected server label to 'Configured server' for more clarity.
+- BBDOv3 is now enabled by default at installation and after the MAP server upgrade, to match the central Broker's new 22.04 configuration.
+
 ### 22.04.0
 
 > If you have just installed Centreon 22.04 or upgraded your platform to this version, be aware that the platform now uses the new BBDO v3 protocol. [Configure MAP](../graph-views/install.md#configuration) to use it.
@@ -49,6 +63,20 @@ Release date: `July 5, 2022`
 - Compatibility with other 22.04 components.
 
 ## Centreon Auto Discovery
+
+### 22.04.1
+
+Release date: `August 10, 2022`
+
+#### Improvements
+
+- [Configuration] When a host receives no host template from the mappers, the default template that is hard-coded in the Plugin Pack will be applied to this host
+
+#### Bug fixes
+
+- For some host discovery providers where no credentials were actually required, the job creation wizard no longer demands to enter credentials
+- Fixed a front-end issue that caused existing Host Discovery jobs to lose all their parameters when clicking on **Schedule**
+
 
 ### 22.04.0
 

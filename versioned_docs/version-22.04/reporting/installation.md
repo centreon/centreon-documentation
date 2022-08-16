@@ -538,7 +538,7 @@ capabilities to:
 - Manage data retention on the reporting server.
 
 Before following the next steps, you should have read
-[the best practice parts](installation.md#best-practices-for-monitoring) to
+[the best practice parts](./concepts.md#best-practices-for-monitoring) to
 ensure that the Centreon objects (e.g., groups and categories) are configured
 according to Centreon MBI requirements.
 
