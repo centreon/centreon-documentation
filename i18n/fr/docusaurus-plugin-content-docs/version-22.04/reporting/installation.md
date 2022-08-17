@@ -113,7 +113,7 @@ considérations.
 | > 40 000 and < 100 000  | 8 CPU (3GHz) minimum   | 32GB minimum  |
 | > 100 000               | > Contact Centreon     |               |
 
-**Espace de stockage** : Utilisez le [fichier d'estimation de l'espace de stockage](../assets/reporting/installation/Centreon-MBI-QuickGuide-Storage-Sizing_FR.xlsx) suivant.
+**Espace de stockage** : Utilisez le [fichier d'estimation de l'espace de stockage](../assets/reporting/installation/Centreon-MBI-QuickGuide-Storage-Sizing_EN.xlsx) suivant.
 
 **Système de fichiers**
 
