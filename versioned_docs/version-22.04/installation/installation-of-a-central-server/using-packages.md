@@ -499,7 +499,7 @@ DROP USER 'dbadmin'@'<CENTRAL_SERVER_IP>';
 > LimitNOFILE=32000
 > ```
 >
-> Same for the MariaDB **open_files_limit** directive:>
+> Same for the MariaDB **open_files_limit** directive:
 >
 > <Tabs groupId="sync">
 > <TabItem value="Alma / RHEL / Oracle Linux 8 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / CentOS 7">
