@@ -122,7 +122,7 @@ SELinux n'est pas installé sur Debian 11, continuez.
 
 ### Configurer ou désactiver le pare-feu
 
-Si votre pare-feu système est actif, [paramétrez-le](../../administration/secure-platform.md#enable-firewalld).
+Si votre pare-feu système est actif, [paramétrez-le](../../administration/secure-platform.md#activer-firewalld).
 Vous pouvez également le désactiver le temps de l'installation :
 
 ```shell
@@ -465,7 +465,7 @@ FLUSH PRIVILEGES;
 >
 > Remplacez **<USER\>** et **<PASSWORD\>** par les informations d'identification de l'utilisateur.
 
-Cet utilisateur ne sera utilisé que pour le processus d'installation : une fois l'[installation web](../web-and-post-installation.md) terminée, vous pouvez supprimer cet utilisateur via la commande :
+Cet utilisateur ne sera utilisé que pour le processus d'installation : une fois [l'installation web](../web-and-post-installation.md/) terminée, vous pouvez supprimer cet utilisateur via la commande :
 
 ```SQL
 DROP USER '<USER>'@'<IP>';
@@ -480,33 +480,43 @@ DROP USER 'dbadmin'@'<CENTRAL_SERVER_IP>';
 </TabItem>
 </Tabs>
 
-> Le paquet **centreon-database** installe une configuration optimisée de MariaDB
-> pour être utilisée avec Centreon.
->
+* Le paquet **centreon-database** installe une configuration optimisée de MariaDB
+pour être utilisée avec Centreon.
+
 > Si ce paquetage n'est pas installé, la limitation du système **LimitNOFILE** devrait être
 > au moins fixée à **32000** à l'aide d'un fichier de configuration dédié, par exemple :
 >
-> ``shell
+> ```shell
 > $ cat /etc/systemd/system/mariadb.service.d/centreon.conf
 > [Service]
 > LimitNOFILE=32000
 > ```
->
-> Idem pour la directive MariaDB **open_files_limit** :
->
-> <Tabs groupId="sync">
-> <TabItem value="Alma / RHEL / Oracle Linux 8 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / CentOS 7">
->
+
+* Idem pour la directive MariaDB **open_files_limit** :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
 > ```shell
 > $ cat /etc/my.cnf.d/centreon.cnf
 > [server]
 > innodb_file_per_table=1
 > open_files_limit=32000
 > ```
->
-> </TabItem>
-> <TabItem value="Debian 11" label="Debian 11">
->
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+> ```shell
+> $ cat /etc/my.cnf.d/centreon.cnf
+> [server]
+> innodb_file_per_table=1
+> open_files_limit=32000
+> ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
 > ```shell
 > $ cat /etc/mysql/mariadb.conf.d/80-centreon.cnf
 > [server]
@@ -525,9 +535,9 @@ DROP USER 'dbadmin'@'<CENTRAL_SERVER_IP>';
 > ```shell
 > systemctl restart mariadb
 > ```
-> 
-> </TabItem>
-> </Tabs>
+
+</TabItem>
+</Tabs>
 
 > En plus des directives ci-dessus, il est fortement recommandé d'adapter la configuration de la base de données avec les paramètres suivants
 > configuration de la base de données avec les paramètres suivants :
@@ -551,7 +561,7 @@ DROP USER 'dbadmin'@'<CENTRAL_SERVER_IP>';
 > ```
 >
 
-> N'oubliez pas de redémarrer MariaDB après une modification de la configuration.
+> N'oubliez pas de redémarrer MariaDB après modification de la configuration.
 
 ### Étape 3 : Configuration
 
@@ -687,4 +697,4 @@ systemctl start apache2
 </Tabs>
 
 2. Pour terminer l'installation, suivez la procédure
-[étapes de l'installation web](../web-et-post-installation.md#web-installation).
+[étapes de l'installation web](../web-and-post-installation.md#web-installation).

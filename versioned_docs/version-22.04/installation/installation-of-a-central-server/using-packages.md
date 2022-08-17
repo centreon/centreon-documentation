@@ -487,9 +487,9 @@ DROP USER 'dbadmin'@'<CENTRAL_SERVER_IP>';
 </TabItem>
 </Tabs>
 
-> The package **centreon-database** installs an optimized MariaDB configuration
-> to be used with Centreon.
->
+* The package **centreon-database** installs an optimized MariaDB configuration
+ to be used with Centreon.
+
 > If this package is not installed, system limitation **LimitNOFILE** should be
 > at least set to **32000** using a dedicated configuration file, example:
 >
@@ -498,22 +498,32 @@ DROP USER 'dbadmin'@'<CENTRAL_SERVER_IP>';
 > [Service]
 > LimitNOFILE=32000
 > ```
->
-> Same for the MariaDB **open_files_limit** directive:
->
-> <Tabs groupId="sync">
-> <TabItem value="Alma / RHEL / Oracle Linux 8 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / CentOS 7">
->
+
+* Same for the MariaDB **open_files_limit** directive:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
 > ```shell
 > $ cat /etc/my.cnf.d/centreon.cnf
 > [server]
 > innodb_file_per_table=1
 > open_files_limit=32000
 > ```
->
-> </TabItem>
-> <TabItem value="Debian 11" label="Debian 11">
->
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+> ```shell
+> $ cat /etc/my.cnf.d/centreon.cnf
+> [server]
+> innodb_file_per_table=1
+> open_files_limit=32000
+> ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
 > ```shell
 > $ cat /etc/mysql/mariadb.conf.d/80-centreon.cnf
 > [server]
@@ -532,9 +542,9 @@ DROP USER 'dbadmin'@'<CENTRAL_SERVER_IP>';
 > ```shell
 > systemctl restart mariadb
 > ```
-> 
-> </TabItem>
-> </Tabs>
+
+</TabItem>
+</Tabs>
 
 > In addition to the directives above, it's strongly recommended to tune the
 > database configuration with the following parameters:
