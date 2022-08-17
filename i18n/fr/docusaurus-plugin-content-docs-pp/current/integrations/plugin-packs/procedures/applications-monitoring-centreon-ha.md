@@ -22,7 +22,7 @@ Par conséquent, il utilise les protocoles de ces deux Plugin-Packs - **SNMP** e
 ### Objets supervisés
 
 * Nœuds d'un cluster Centreon-HA
-* Noœud actif d'un cluster Centreon-HA *via* la VIP
+* Noeud actif d'un cluster Centreon-HA *via* la VIP
 * Serveur tiers fournissant le service de Quorum Device (service `corosync-qnetd`)
 
 ### Métriques collectées
