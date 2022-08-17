@@ -81,7 +81,7 @@ considérations.
 **Logiciels**
 
 - Centreon 22.04
-- Vérifiez que le paramètre `date.timezone` est correctement configuré dans le fichier php ini [ici](../installation/installation-of-a-central-server/using-packages#set-the-php-time-zone)
+- Vérifiez que le paramètre `date.timezone` est correctement configuré dans le fichier php ini [ici](../installation/installation-of-a-central-server/using-packages.md#Définir-le-fuseau-horaire-de-PHP)
   (même fuseau horaire affiché avec la commande `timedatectl status`)
 - Évitez l'utilisation des variables suivantes dans votre configuration de surveillance de MariaDB.
   Elles interrompent l'exécution de longues requêtes et peuvent arrêter les travaux d'ETL ou de génération de rapports :
@@ -113,7 +113,7 @@ considérations.
 | > 40 000 and < 100 000  | 8 CPU (3GHz) minimum   | 32GB minimum  |
 | > 100 000               | > Contact Centreon     |               |
 
-**Espace de stockage** : Utilisez le [fichier d'estimation de l'espace de stockage] suivant(../assets/reporting/installation/Centreon-MBI-QuickGuide-Storage-Sizing_FR.xlsx)
+**Espace de stockage** : Utilisez le [fichier d'estimation de l'espace de stockage](../assets/reporting/installation/Centreon-MBI-QuickGuide-Storage-Sizing_FR.xlsx) suivant.
 
 **Système de fichiers**
 
@@ -135,8 +135,8 @@ vgdisplay vg_data | grep -i free
 
 - OS : CentOS 7 / Redhat 7 ou 8 / Debian 11
 - SGBD : MariaDB 10.5
-- Pare-feu : Désactivé ([show here](../installation/installation-of-a-central-server/using-packages#configure-or-disable-the-firewall))
-- SELinux : Disabled ([show here](../installation/installation-of-a-central-server/using-packages#disable-selinux-if-it-is-installed))
+- Pare-feu : Désactivé ([voir ici](../installation/installation-of-a-central-server/using-packages.md#Configurer-ou-désactiver-le-pare-feu))
+- SELinux : Désactivé ([voir ici](../installation/installation-of-a-central-server/using-packages.md#Désactiver-SELinux))
 
 >Assurez-vous que le fuseau horaire du serveur de rapports est le même que celui du serveur central, sinon les publications de rapports échoueront (lien vers le téléchargement manquant).
 >Le même fuseau horaire doit être affiché avec la commande `timedatectl`.
@@ -173,7 +173,7 @@ Description des utilisateurs, umask et répertoire de base :
 Les tâches expliquées dans ce chapitre doivent être effectuées sur le **serveur central Centreon**.
 
 Installez le référentiel MBI de Centreon, vous pouvez le trouver sur le 
-[portail de support] (https://support.centreon.com/s/repositories).
+[portail de support](https://support.centreon.com/s/repositories).
 
 Exécutez ensuite la commande suivante :
 
@@ -210,8 +210,8 @@ Téléchargez la licence envoyée par l'équipe Centreon pour pouvoir commencer 
 
 ### Configurer les options générales
 
-Configurez les paramètres suivants dans le menu Options générales `Reporting >
-Monitoring Business Intelligence > General Options` :
+Configurez les paramètres suivants dans le menu Options générales **Reporting >
+Monitoring Business Intelligence > General Options** :
 
 | Tab                  | Option                                           | Value                                                       |
 |----------------------|--------------------------------------------------|-------------------------------------------------------------|
@@ -331,7 +331,7 @@ processus d'installation :
   interface).
 
 Pour commencer l'installation du serveur de reporting, installez le référentiel MBI, vous pouvez le trouver sur le 
-[portail de support] (https://support.centreon.com/s/repositories).
+[portail de support](https://support.centreon.com/s/repositories).
 
 Exécutez ensuite la commande suivante :
 
@@ -460,7 +460,7 @@ mysql_secure_installation
 ```
 
 * Répondez **oui** à toutes les questions, sauf à "Disallow root login remotely ?
-* Il est obligatoire de définir un mot de passe pour l'utilisateur **root** de la base de données. Vous aurez besoin de ce mot de passe pendant l'[installation web](../web-and-post-installation.md).
+* Il est obligatoire de définir un mot de passe pour l'utilisateur **root** de la base de données. Vous aurez besoin de ce mot de passe pendant l'[installation web](../installation/web-and-post-installation.md).
 
 > Pour plus d'informations, veuillez consulter la [documentation officielle de MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/).
 
@@ -537,7 +537,7 @@ Centreon MBI intègre un ETL qui permet de :
 - Contrôler la rétention des données sur le serveur de reporting
 
 Avant de passer aux étapes suivantes, il est nécessaire de lire le
-chapitre des [bonnes pratiques](./concepts.md#bonnes-pratiques-de-supervision) afin de
+chapitre des [bonnes pratiques](concepts.md#bonnes-pratiques-de-supervision) afin de
 vous assurer que la configuration des objets dans Centreon (groupes,
 categories...) est conforme aux attentes de Centreon MBI.
 
@@ -545,31 +545,31 @@ Dans le menu `Rapports > Monitoring Business Intelligence > General
 Options > Options de l'ETL` de Centreon, spécifiez les options
 suivantes :
 
-| Option                                                                                                                                   | Values                                                                                                                                                                                                                                                                                                                               |   |
-|------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---|
-| **Options générales**                                                                                                                    |                                                                                                                                                                                                                                                                                                                                      |   |
-| Une base de données MariaDB dédiée au reporting a été mise en place.                                                                     | Oui. Vous devez avoir un serveur de reporting dédié.                                                                                                                                                                                                                                                                                 |   |
-| Espace de stockage des fichiers temporaires sur le serveur de reporting *                                                                | Dossier sur le serveur de reporting dans lequel les dumps de données seront positionnés                                                                                                                                                                                                                                              |   |
-| Type de statistiques à traiter                                                                                                           | Sélectionnez « Disponibilité uniquement » si vous utilisez uniquement les rapports de disponibilité.  Sélectionnez « Performance et capacité uniquement» si vous souhaitez utiliser uniquement les rapports de capacité et de performance Sélectionnez «Tous» afin de calculer les statistiques pour les deux types de rapports.     |   |
-| Activer le stockage des tables temporaires en mémoire (uniquement si la mémoire physique allouée au serveur de reporting est suffisante) | Activé uniquement si votre configuration MariaDB et la mémoire physique allouée au serveur de reporting le permet.                                                                                                                                                                                                                   |   |
-| **Sélection du périmètre du reporting**                                                                                                  |                                                                                                                                                                                                                                                                                                                                      |   |
-| Groupes d hotes                                                                                                                          | Sélectionnez les groupes d’hôtes pour lesquels vous souhaitez conserver les statistiques.                                                                                                                                                                                                                                            |   |
-| Catégories d hôtes                                                                                                                       | Sélectionnez les catégories d’hôtes pour lesquels vous souhaitez conserver les statistiques.                                                                                                                                                                                                                                         |   |
-| Catégories de services                                                                                                                   | Sélectionnez les catégories de services pour lesquels vous souhaitez conserver les statistiques.                                                                                                                                                                                                                                     |   |
-| **Calcul des données de disponibilité**                                                                                                  |                                                                                                                                                                                                                                                                                                                                      |   |
-| Sélectionner les plages de services pour le calcul des statistiques de disponibilité                                                     | Plages horaires (time periods) pour lesquelles les calculs de disponibiltié des hôtes et des services sont réalisées                                                                                                                                                                                                                 |   |
-| **Calcul des données de performance et de capacité**                                                                                     |                                                                                                                                                                                                                                                                                                                                      |   |
-| Granularité des données statistiques à calculer                                                                                          | Sélectionnez le ou les niveaux de granularité pour le calcul des données de performance (1)                                                                                                                                                                                                                                          |   |
-| Sélectionner les plages de services pour le calcul des statistiques de performance                                                       | Plages horaires sur les jours de la semaine pris en compte dans le calcul des données de capacité et de performance                                                                                                                                                                                                                  |   |
-| **Capacity statistic aggregated by month**                                                                                               |                                                                                                                                                                                                                                                                                                                                      |   |
-| Sélectionner la plage de service 24h/24, 7j/7 pour le calcul des statistiques mensuelles de capacité                                     | Selectionnez la plage horaire 24x7.                                                                                                                                                                                                                                                                                                  |   |
-| Sélectionner les catégories de services liées aux indicateurs de capacité                                                                | Sélectionnez les catégories de services ayant été rattachés à des services de type capacité                                                                                                                                                                                                                                          |   |
-| Exclure les métriques qui ne renvoient pas une indication d utilisation des espaces de stockage                                          | Concerne uniquement les métriques liées aux services qui renvoient une information de capacité. Sélectionnez uniquement les métriques qui donnent une valeur maximale ou une valeur totale de capacité et non une valeur d’utilisation. (exemple, la métrique “ size ” returnée par le plugins check_centreon_snmp_remote_storage ») |   |
-|                                                                                                                                          | **Paramètres pour le calcul des centiles**                                                                                                                                                                                                                                                                                           |   |
-| Calculating centile aggregation by                                                                                                       | Selectionnez la granularité des calculs. Le rapport de trafic fourni en standard avec BI 2.1 utilise les données au Mois.                                                                                                                                                                                                            |   |
-| Sélectionner les catégories de services sur lesquelles aggréger les données                                                              | Selectionnez uniquement les catégories de services pertinente (Ex: Traffic)                                                                                                                                                                                                                                                          |   |
-| Premier jour de la semaine                                                                                                               | Selectionnez le premier jour à considérer pour les statistiques à la semaine                                                                                                                                                                                                                                                         |   |
-| Créer les combinaisons centile-plage horaire qui couvrent vos besoins (Format du centile : 00.0000)                                      | Créez des combinaisons centile/plage horaire sur lesquels les statistiques seront effectuées                                                                                                                                                                                                                                         |   |
+| Option                                                                      | Valeurs                                                                      |
+|-----------------------------------------------------------------------------|------------------------------------------------------------------------------|
+| **Options générales**                                                       |   |
+| Une base de données MariaDB dédiée au reporting a été mise en place.        | Oui. Vous devez avoir un serveur de reporting dédié.                         |
+| Espace de stockage des fichiers temporaires sur le serveur de reporting *   | Dossier sur le serveur de reporting dans lequel les dumps de données seront positionnés |
+| Type de statistiques à traiter                                              | Sélectionnez « Disponibilité uniquement » si vous utilisez uniquement les rapports de disponibilité.  Sélectionnez « Performance et capacité uniquement» si vous souhaitez utiliser uniquement les rapports de capacité et de performance Sélectionnez «Tous» afin de calculer les statistiques pour les deux types de rapports. |
+| Activer le stockage des tables temporaires en mémoire (uniquement si la mémoire physique allouée au serveur de reporting est suffisante) | Activé uniquement si votre configuration MariaDB et la mémoire physique allouée au serveur de reporting le permet. |
+| **Sélection du périmètre du reporting**                                     |   |
+| Groupes d hotes                                                             | Sélectionnez les groupes d’hôtes pour lesquels vous souhaitez conserver les statistiques. |
+| Catégories d hôtes                                                          | Sélectionnez les catégories d’hôtes pour lesquels vous souhaitez conserver les statistiques. |
+| Catégories de services                                                      | Sélectionnez les catégories de services pour lesquels vous souhaitez conserver les statistiques. |
+| **Calcul des données de disponibilité**                                     |   |
+| Sélectionner les plages de services pour le calcul des statistiques de disponibilité | Plages horaires (time periods) pour lesquelles les calculs de disponibiltié des hôtes et des services sont réalisées |
+| **Calcul des données de performance et de capacité**                        |  |
+| Granularité des données statistiques à calculer                             | Sélectionnez le ou les niveaux de granularité pour le calcul des données de performance (1) |
+| Sélectionner les plages de services pour le calcul des statistiques de performance | Plages horaires sur les jours de la semaine pris en compte dans le calcul des données de capacité et de performance |
+| **Capacity statistic aggregated by month**                                  |   |
+| Sélectionner la plage de service 24h/24, 7j/7 pour le calcul des statistiques mensuelles de capacité | Selectionnez la plage horaire 24x7. |
+| Sélectionner les catégories de services liées aux indicateurs de capacité   | Sélectionnez les catégories de services ayant été rattachés à des services de type capacité |
+| Exclure les métriques qui ne renvoient pas une indication d utilisation des espaces de stockage | Concerne uniquement les métriques liées aux services qui renvoient une information de capacité. Sélectionnez uniquement les métriques qui donnent une valeur maximale ou une valeur totale de capacité et non une valeur d’utilisation. (exemple, la métrique “ size ” returnée par le plugins check_centreon_snmp_remote_storage ») |
+| **Paramètres pour le calcul des centiles**                                  |   |
+| Calculating centile aggregation by                                          | Selectionnez la granularité des calculs. Le rapport de trafic fourni en standard avec BI 2.1 utilise les données au Mois. |
+| Sélectionner les catégories de services sur lesquelles aggréger les données | Selectionnez uniquement les catégories de services pertinente (Ex: Traffic) |
+| Premier jour de la semaine                                                  | Selectionnez le premier jour à considérer pour les statistiques à la semaine |
+| Créer les combinaisons centile-plage horaire qui couvrent vos besoins (Format du centile : 00.0000) | Créez des combinaisons centile/plage horaire sur lesquels les statistiques seront effectuées |
 
 **(1)** Les rapports nécessitant une granularité des données à l'heure
 sont listés ci-dessous. Si vous ne souhaitez pas utiliser ces rapports,
@@ -716,4 +716,4 @@ systemctl restart cron
 *eventReportBuilder* est terminé sur le serveur de surveillance (consultez le fichier cron
 > cron \* /etc/cron.d/centreon\* sur le serveur de surveillance).
 
-L'installation de Centreon MBI est maintenant terminée, consultez [le tutoriel] (../getting-started/analyze-resources-availability.md).
+L'installation de Centreon MBI est maintenant terminée, consultez [le tutoriel](../getting-started/analyze-resources-availability.md).
