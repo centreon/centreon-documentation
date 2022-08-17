@@ -44,7 +44,7 @@ To acknowledge an incident, there are two solutions:
 <Tabs groupId="sync">
 <TabItem value="From real time monitoring" label="From real time monitoring">
 
-1.  Go into the `Monitoring > Status Details > Hosts` (or `Services`)
+1.  Go into the **Monitoring > Status Details > Hosts** (or **Services**)
     menu
 2.  Select the object(s) that you want acknowledge
 3.  In the menu: **More actions** click on **Hosts: Acknowledge** or on
@@ -85,7 +85,7 @@ The following window appears:
 
 To delete the acknowledgment of an incident on an object:
 
-1.  Go into the `Monitoring > Status Details > Hosts` (or `Services`)
+1.  Go into the **Monitoring > Status Details > Hosts** (or **Services**)
     menu
 2.  Select the objects you want to delete the acknowledgment
 3.  In the **More actions** menu, click on **Hosts: Disacknowledge** or
@@ -129,7 +129,7 @@ There are three different possibilities to define a downtime:
 </TabItem>
 <TabItem value="From real time monitoring" label="From real time monitoring">
 
-1.  Go into the `Monitoring > Status Details > Hosts` (or `Services`)
+1.  Go into the **Monitoring > Status Details > Hosts** (or **Services**)
     menu
 2.  Select the(s) object(s) on which you want to program a downtime
     period
@@ -139,7 +139,7 @@ There are three different possibilities to define a downtime:
 </TabItem>
 <TabItem value="From the Downtime menu" label="From the Downtime menu">
 
-1.  Go into the `Monitoring > Downtimes > Downtimes` menu
+1.  Go into the **Monitoring > Downtimes > Downtimes** menu
 2.  Click on **Add a service downtime** or **Add a host downtime**
 
 </TabItem>
@@ -267,7 +267,7 @@ There are two solutions to add a comment:
 </TabItem>
 <TabItem value="From the Comment menu" label="From the Comment menu">
 
-1.  Go into the `Monitoring > Downtimes > Comments` menu
+1.  Go into the **Monitoring > Downtimes > Comments** menu
 2.  Click on **Add a Service Comment** or **Add a Host Comment**
 
 </TabItem>
@@ -311,7 +311,7 @@ To:
 </TabItem>
 <TabItem value="From real time monitoring" label="From real time monitoring">
 
-1.  Go into the `Monitoring > Status Details > Hosts` (or `Services`)
+1.  Go into the **Monitoring > Status Details > Hosts** (or **Services**)
     menu
 2.  Select the object(s) on which you want to enable or disable the
     check
@@ -379,7 +379,7 @@ To:
 </TabItem>
 <TabItem value="From real time monitoring" label="From real time monitoring">
 
-1.  Go into the `Monitoring > Status Details > Hosts` (or `Services`)
+1.  Go into the **Monitoring > Status Details > Hosts** (or **Services**)
     menu
 2.  Select the host(s) / service(s) you want enable or disable the
     notification
@@ -426,8 +426,8 @@ There are two ways of forcing the check of a service:
 </TabItem>
 <TabItem value="From real time monitoring" label="From real time monitoring">
 
-1.  Go into the menu: `Monitoring > Status Details > Hosts` (or
-    `Services`)
+1.  Go into the menu: **Monitoring > Status Details > Hosts** (or
+    **Services**)
 2.  Select the objects to for which you want to force the check
 3.  In the menu: **More actions…** click on **Schedule immediate check**
     or **Schedule immediate check (Forced)**

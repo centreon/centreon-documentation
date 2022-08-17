@@ -73,21 +73,66 @@ yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/ce
 
 > Si vous avez une édition Business, installez également le dépôt Business. Vous pouvez en trouver l'adresse sur le [portail support Centreon](https://support.centreon.com/s/repositories).
 
+### Installer le dépôt MariaDB
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+cd /tmp
+curl -JO https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
+bash ./mariadb_repo_setup
+sed -ri 's/10\../10.5/' /etc/yum.repos.d/mariadb.repo
+rm -f ./mariadb_repo_setup
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```shell
+cd /tmp
+curl -JO https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
+bash ./mariadb_repo_setup
+sed -ri 's/10\../10.5/' /etc/yum.repos.d/mariadb.repo
+rm -f ./mariadb_repo_setup
+```
+
+</TabItem>
+</Tabs>
+
 ### Montée de version de PHP
 
 Centreon 22.04 utilise PHP en version 8.0.
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="RHEL 8" label="RHEL 8">
 
 Vous devez tout d'abord installer les dépôts **remi** :
 ```shell
 dnf install -y dnf-plugins-core
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
-dnf config-manager --set-enabled 'powertools'
+sudo subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
+
 ```
-Ensuite, vous devez changer le flux PHP de la version 7.2 à 8.0 en exécutant les commandes suivantes et en répondant **y**
+Ensuite, vous devez changer le flux PHP de la version 7.3 à 8.0 en exécutant les commandes suivantes et en répondant **y**
+pour confirmer :
+```shell
+dnf module reset php
+dnf module install php:remi-8.0
+```
+
+</TabItem>
+<TabItem value="Alma / Oracle Linux 8" label="Alma / Oracle Linux 8">
+
+Vous devez tout d'abord installer les dépôts **remi** :
+```shell
+dnf install -y dnf-plugins-core
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
+
+```
+Ensuite, vous devez changer le flux PHP de la version 7.3 à 8.0 en exécutant les commandes suivantes et en répondant **y**
 pour confirmer :
 ```shell
 dnf module reset php
@@ -352,7 +397,7 @@ associée](../service-mapping/upgrade.md) pour le mettre à jour.
 
 1. Montée de version des extensions :
 
-    Depuis le menu `Administration > Extensions > Gestionnaire`, mettez à jour
+    Depuis le menu **Administration > Extensions > Gestionnaire**, mettez à jour
     toutes les extensions, en commençant par les suivantes :
 
     - License Manager,
@@ -361,9 +406,17 @@ associée](../service-mapping/upgrade.md) pour le mettre à jour.
 
     Vous pouvez alors mettre à jour toutes les autres extensions commerciales.
 
-2. [Déployer la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
+2. Ajustez les droits sur les fichiers de Broker et d'Engine :
 
-3. Redémarrez les processus Centreon :
+    ```shell
+    chown apache:apache /etc/centreon-engine/*
+    chown apache:apache /etc/centreon-broker/*
+    su - apache -s /bin/bash -c umask
+    ```
+
+3. [Déployer la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
+
+4. Redémarrez les processus Centreon :
 
     ```shell
     systemctl restart cbd centengine centreontrapd gorgoned

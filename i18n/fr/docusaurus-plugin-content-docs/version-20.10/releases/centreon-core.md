@@ -19,6 +19,23 @@ commerciales, vous pouvez vous rendre sur notre
 
 ## Centreon Web
 
+### 20.10.18
+
+Release date: `June 16, 2022`
+
+#### Bug fixes
+
+- [Configuration] Fixed checkbox selection after enabling/disabling a contact via icons
+- [UX] Improved interface response time if CEIP is enabled but the browser does not have internet access
+
+#### Security Fixes
+
+- [Apache] Fixed cookies with missing or contradictory properties
+- [Apache] Improved Apache configuration to enable HSTS
+- [Core] Passwords are now obfuscated in the page's HTML source
+- [Security] Fixed SQLi in virtual metrics
+- [Security] Sanitized and bound "User" class queries
+
 ### 20.10.17
 
 Release date: `April 15, 2022`
@@ -1082,6 +1099,21 @@ with the –pool\_size X argument or -s X.
 - Compatibilité avec les autres composants 20.10.
 
 ## Centreon Gorgone
+
+### 20.10.7
+
+Release date: `July 27, 2022`
+
+#### Bug fixes
+
+- Fixed an issue that caused Service Discovery scans to fail because the wrong message was caught.
+- Fixed an issue that could make Gorgone crash in pull mode.
+- Fixed an issue that prevented Gorgone from handling advanced [Service Discovery features](https://docs.centreon.com/21.10/en/monitoring/discovery/services-discovery.html#advanced-options) correctly.
+- Fixed an issue in the module management that could cause crashes.
+
+#### Enhancements
+
+- Added an "audit" module to Gorgone to provide an overview of the system status, package versions, and some Centreon metrics.
 
 ### 20.10.6
 

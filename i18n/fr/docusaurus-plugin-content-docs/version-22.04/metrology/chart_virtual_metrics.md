@@ -29,7 +29,7 @@ de point.
 
 Se rendre dans le menu **Monitoring \> Performances \> Virtual Metrics**
 
-![image](assets/metrology/02addvmetric.png)
+![image](../assets/metrology/02addvmetric.png)
 
 * Le champ **Metric name** définit le nom de la métrique.
 * La liste **Host/Service Data Source** permet de définir le service depuis lequel exploiter les métriques.
@@ -49,8 +49,8 @@ Se rendre dans le menu **Monitoring \> Performances \> Virtual Metrics**
 
 Configuration :
 
-![image](assets/metrology/02virtualmetric_conf.png)
+![image](../assets/metrology/02virtualmetric_conf.png)
 
 Résultat :
 
-![image](assets/metrology/02virtualmetric_example.png)
+![image](../assets/metrology/02virtualmetric_example.png)

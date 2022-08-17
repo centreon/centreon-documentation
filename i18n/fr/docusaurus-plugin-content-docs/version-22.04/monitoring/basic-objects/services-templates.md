@@ -35,7 +35,7 @@ service (héritage de type Père-Fils).
 
 Pour ajouter un modèle de services :
 
-Rendez-vous dans le menu `Configuration > Services > Modèles` et cliquez
+Rendez-vous dans le menu **Configuration > Services > Modèles** et cliquez
 sur le bouton **Ajouter**
 
 > Rapportez-vous au chapitre de configuration des

@@ -16,6 +16,47 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon Web
 
+### 21.10.8
+
+Release date: `August 3, 2022`
+
+#### Security
+
+- [Configuration] Fixed SQLi vulnerability in escalations configuration
+- [Configuration] Fixed XSS vulnerability in escalations configuration
+
+### 21.10.7
+
+Release date: `June 10, 2022`
+
+#### Bug Fixes
+
+- [API] Fixed /monitoring/host endpoint to return service state
+- [API] Fixed SQL syntax when retrieving service_id field
+- [Business Activity] Fixed synchronization of configuration with Remote Server
+- [Configuration] Fixed export when host group is disabled
+- [Configuration] Fixed export when service group is disabled
+- [Configuration] Fixed export when service template is disabled
+- [Core] Fixed database partitioning issue with MySQL 8
+- [Dashboard] Fixed displaying of first service in host reporting dashboard
+- [Discovery] Fixed critical error when searching host templates with notification option in mappers configuration
+- [Install] Fixed error when installing Centreon with remote DBMS
+- [Monitoring] Fixed notification number in legacy pages
+- [Remote Server] Fixed synchronization of configuration
+- [Resource Status] Fixed color when resources are selected in downtime or acknowledged
+- [UX] Fixed timezone when adding a downtime or an acknowledgement
+- [UX] Follow user configuration for Date/Time display
+- [Widget] The list of pollers is now filtered according to the user's ACLs
+
+#### Security
+
+- [Security] Fixed RCE in command
+- [Security] Fixed SQLi in virtual metrics
+- [Security] Sanitize and bind "hostgroups" queries
+- [Security] Sanitize and bind "meta_service" related queries
+- [Security] Sanitize and bind "poller" queries
+- [Security] Sanitize and bind ACL resources queries
+
 ### 21.10.6
 
 Release date: `May 2, 2022`
@@ -228,6 +269,46 @@ By:
 - Preparing Debian 11 support
 
 ##  Centreon Collect
+
+### 21.10.2
+
+Release date: `June 15, 2022`
+
+#### Centreon Broker
+
+##### Improvements
+
+- Improved the way TCP connections are stored by keeping them in an ordered structure. This should avoid rare connection issues experienced by some users
+
+##### Bug fixes
+
+- Fixed an issue that caused broker to crash when a BAM output was configured and the BAM tables did not exist
+- Added a `bbdo_version` function to the LUA libraries for Stream Connectors developers
+- Scheduled downtimes used to be inserted one at a time, which caused performance issues on platforms with a lot of recurrent scheduled downtimes. They are now injected in bulk inserts to reduce demands on the database and avoid performance issues.
+- Broker crashed when a logger was disabled/off
+- Fixed an issue that could prevent broker from connecting again after the database was stopped to make a LVM snapshot
+- Broker crashed when its configuration included a filter that referred to a module that wasn't loaded
+
+#### Centreon Engine
+
+##### Improvements
+
+- Removed unnecessary informational log messages regarding Anomaly Detection in the Poller configuration export page
+
+##### Bug fixes
+
+- Fixed an issue that caused centengine to send duplicate service status messages to broker. This change will reduce network bandwidth consumption, database activity and disk I/O.
+- Fixed an issue with the way escaped special characters were managed (eg. `\\n`)
+- Fixed an issue that caused loss of recovery notifications when a downtime end notification was sent before recovery
+- Reviewed the way time period exceptions are handled to fix some issues with the way notifications are managed
+
+#### Centreon Perl & SSH Connectors
+
+##### Bug fixes
+
+- Fixed an issue that could cause the SSH connector to crash
+- Fixed a memory leak issue in the Perl connector
+
 
 > As of version 21.10.0, the components of Centreon Collect (Centreon Broker, Centreon Clib, Centreon Engine and Centreon Connectors)
 > are released simultaneously. They are now grouped under this section.

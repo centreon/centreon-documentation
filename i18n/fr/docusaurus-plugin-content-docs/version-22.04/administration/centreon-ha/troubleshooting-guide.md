@@ -1,6 +1,6 @@
 ---
 id: troubleshooting-guide
-title: Troubleshooting
+title: Dépanner Centreon-HA
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

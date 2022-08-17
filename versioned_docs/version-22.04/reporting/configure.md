@@ -180,7 +180,7 @@ It configured at installation and will probably not need any modification later.
 Before proceding, you should have read [the best practice parts](installation.md#best-practices-for-monitoring) to ensure
 that the objects (e.g., groups, categories) are configured according to Centreon MBI requirements.
 
-In the Centreon menu `Reporting > Business Intelligence > General Options > ETL options`,
+In the Centreon menu **Reporting > Business Intelligence > General Options > ETL options**,
 specify the following options:
 
 | **Options**                                                                               |   **Values**

@@ -439,7 +439,7 @@ systemctl status mysql
 
 > **Warning:** Other files in `/etc/my.cnf.d/` such as `centreon.cnf` will be ignored from now. Any customization will have to be added to `server.cnf`.
 
-> **Warning:** Don't forget to change the parameter `Mysql configuration file path` in `Administration > Parameters > Backup`
+> **Warning:** Don't forget to change the parameter `Mysql configuration file path` in **Administration > Parameters > Backup**
 
 ### Securing the database server
 

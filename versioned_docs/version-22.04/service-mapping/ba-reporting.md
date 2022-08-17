@@ -9,7 +9,7 @@ similar to those used on the Centreon server.
 
 ## Reporting
 
-The reporting page to the `Reporting > Dashboard` one on Centreon.
+The reporting page to the **Reporting > Dashboard** one on Centreon.
 Select a BA to display operational availability, warning and critical
 statistics for a given period:
 

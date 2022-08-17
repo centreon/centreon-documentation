@@ -115,7 +115,7 @@ Map` and **Desktop client** button.
 
 2. See [Upgrading MariaDB](../upgrade/upgrade-mariadb.md).
 
-3. Si vous avez mis à jour votre plateforme Centreon en version 22.04, le nouveau protocole BBDO v3 est activé. Vous devez éditer le fichier suivant pour que MAP fonctionne correctement : **/etc/centreon-map/map-config.properties**
+3. Si vous avez mis à jour votre plateforme Centreon en version 22.04, le nouveau protocole BBDO v3 est activé. Vous devez éditer le fichier suivant pour que MAP fonctionne correctement : **/etc/centreon-studio/studio-config.properties**
 
    ```text
    broker.pb.message.enabled=true

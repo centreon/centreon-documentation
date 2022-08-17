@@ -58,7 +58,7 @@ durée minimale entre deux synchronisations avec le LDAP.
     > sera écoulé.
     >
     > Une synchronisation manuelle est possible sur les pages
-    > `Administration > Sessions` et `Configuration > Utilisateurs > Contacts /
+    > **Administration > Sessions** et `Configuration > Utilisateurs > Contacts /
     > Utilisateurs`.
     >
     > L'intervalle est exprimé en heures. Par défaut, ce champ est initié avec la

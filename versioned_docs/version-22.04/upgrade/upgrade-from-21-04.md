@@ -57,20 +57,66 @@ yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/ce
 
 > If you are using a Business edition, install the correct Business repository too. You can find it on the [support portal](https://support.centreon.com/s/repositories).
 
+### Install the MariaDB repository
+
+<Tabs groupId="sync">
+
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+cd /tmp
+curl -JO https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
+bash ./mariadb_repo_setup
+sed -ri 's/10\../10.5/' /etc/yum.repos.d/mariadb.repo
+rm -f ./mariadb_repo_setup
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```shell
+cd /tmp
+curl -JO https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
+bash ./mariadb_repo_setup
+sed -ri 's/10\../10.5/' /etc/yum.repos.d/mariadb.repo
+rm -f ./mariadb_repo_setup
+```
+
+</TabItem>
+</Tabs>
+
 ### Upgrade PHP
 
 Centreon 22.04 uses PHP in version 8.0.
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="RHEL 8" label="RHEL 8">
 
 First, you need to install the **remi** repository:
 ```shell
 dnf install -y dnf-plugins-core
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
-dnf config-manager --set-enabled 'powertools'
+sudo subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 ```
+
+Then, you need to change the PHP stream from version 7.3 to 8.0 by executing the following commands and answering **y**
+to confirm:
+```shell
+dnf module reset php
+dnf module install php:remi-8.0
+```
+
+</TabItem>
+<TabItem value="Oracle Linux 8" label="Oracle Linux 8">
+
+First, you need to install the **remi** repository:
+```shell
+dnf install -y dnf-plugins-core
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
+```
+
 Then, you need to change the PHP stream from version 7.3 to 8.0 by executing the following commands and answering **y**
 to confirm:
 ```shell
@@ -251,9 +297,18 @@ with the following:
 
     Then you can upgrade all other commercial extensions.
 
-2. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
+2. Set the following rights on Broker and Engine files:
 
-3. Restart the processes:
+    ```shell
+    chown apache:apache /etc/centreon-engine/*
+    chown apache:apache /etc/centreon-broker/*
+    su - apache -s /bin/bash -c umask
+    ```
+
+3. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
+
+4. Restart the processes:
+
     ```shell
     systemctl restart cbd centengine centreontrapd gorgoned
     ```

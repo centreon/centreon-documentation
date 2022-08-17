@@ -154,6 +154,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-gorgone-restapi'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-haproxy-snmp'
         },
         {
@@ -302,6 +306,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-iis-wsman'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-sccm-nsclient'
         },
         {
@@ -339,6 +347,14 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-monitoring-ntopng-restapi'
+        },
+        {
+            type: 'doc',
+            id: 'integrations/plugin-packs/procedures/applications-monitoring-node-exporter-linux'
+        },
+        {
+            type: 'doc',
+            id: 'integrations/plugin-packs/procedures/applications-monitoring-node-exporter-windows'
         },
         {
           type: 'doc',
@@ -434,7 +450,7 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-gorgone-restapi'
+          id: 'integrations/plugin-packs/procedures/applications-monitoring-speedtest'
         },
         {
           type: 'doc',
@@ -684,10 +700,6 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-aws-ses'
-        },
-        {
-          type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-azure-devtools-appconfiguration'
         },
         {
@@ -831,6 +843,10 @@ module.exports = {
           id: 'integrations/plugin-packs/procedures/cloud-azure-storage-acr'
         },
         {
+            type: 'doc',
+            id: 'integrations/plugin-packs/procedures/cloud-azure-classicstorage-storageaccount'
+        },
+        {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-azure-storage-storageaccount'
         },
@@ -901,6 +917,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-prometheus-kubernetes-api'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-microsoft-office365-azuread'
         },
         {
           type: 'doc',
@@ -1065,6 +1085,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-servers-dell-omem-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-servers-dell-vxm-restapi'
         },
         {
           type: 'doc',
@@ -1287,6 +1311,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-switchs-brocade-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-cambium-epmp-snmp'
         },
         {
           type: 'doc',
@@ -1611,6 +1639,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-netgear-mseries-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-netgear-sseries-snmp'
         },
         {
           type: 'doc',
@@ -1969,6 +2001,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-protocol-tftp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-protocol-whois'
         },
         {
           type: 'doc',

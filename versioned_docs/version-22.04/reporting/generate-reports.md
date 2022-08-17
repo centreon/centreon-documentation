@@ -97,7 +97,7 @@ The following table describes the different options:
 To generate a report, you need to create a job by clicking on "Add" in the job listing page. The job configuration 
 is done in two main steps (tabs):
 
-- Select the report design you want to use (see all the designs available [here](../assets/reporting/Centreon-MBI-Samples-of-Reports.pdf))
+- Select the report design you want to use (see all the designs available [here](../assets/reporting/Centreon-MBI-Sample-Reports.pdf))
 - Select the perimeter on which to generate the report 
 
 Two optionals steps (tabs) can be done to :
@@ -236,7 +236,7 @@ The "Tuning" menu contains three parameters:
 
 After a scheduled job is executed, a new report is generated and then
 stored on the **Centreon** server. You can then view or download it
-using the following menu `Reporting > Monitoring Business Intelligence > Archives`
+using the following menu **Reporting > Monitoring Business Intelligence > Archives**
 
 The following table lists the reports generated:
 
@@ -380,7 +380,7 @@ report designs:
 ### Report design group list
 
 The following menu lists all report design groups available on Centreon
-MBI `Reporting > Monitoring Business Intelligence > Configuration > Report design groups`
+MBI **Reporting > Monitoring Business Intelligence > Configuration > Report design groups**
 
 ![image](../assets/reporting/guide/list_report_design_groups.png)
 

@@ -141,7 +141,7 @@ Selon votre édition de Centreon, vous pouvez devoir [ajouter une licence](../ad
 
 ## Installer les extensions disponibles
 
-Rendez-vous au menu `Administration > Extensions > Gestionnaire` et cliquez sur
+Rendez-vous au menu **Administration > Extensions > Gestionnaire** et cliquez sur
 le bouton **Install all** :
 
 ![image](../assets/installation/extensions-manager.png)

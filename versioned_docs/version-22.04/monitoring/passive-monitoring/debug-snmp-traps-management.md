@@ -81,9 +81,9 @@ You can check the proper functioning of binary centreontrapd by checking the con
 ### Centreon Gorgone
 
 Gorgoned daemon must be running to forward information from Centreontrapd to the monitoring engine as an external command.
-Enable the debug mode via **Administration > Options > Debug** menu and restart process.
+Enable the debug mode via **Administration > Parameters > Debug** menu and restart process.
 
-> You can change logging level through `Administration > Parameters > Debug` menu.
+> You can change logging level through **Administration > Parameters > Debug** menu.
 
 If any external command are sent to the monitoring engine please check the path to "$cmdFile"" in **/etc/centreon/conf.pm**
 configuration file. The path should be **/var/lib/centreon/centcore.cmd** for a central Centreon server.

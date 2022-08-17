@@ -100,12 +100,12 @@ yum install centreon-pack-network-switch-dell-xseries-snmp
 * Dans le formulaire de création de l'hôte sur l'interface web de Centreon, il est nécessaire 
 de remplir les valeurs des champs "SNMP Community" et "SNMP Version".
 
-   > Si vous utilisez SNMP version 3, sélectionnez la version SNMP appropriée 
-   > et configurez les paramètres SNMP v3 via la macro SNMPEXTRAOPTIONS.
+> Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro SNMPEXTRAOPTIONS.
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping). 
 
-| Mandatory   | Name                    | Description                                                                                 |
-| :---------- | :---------------------- | :------------------------------------------------------------------------------------------ |
-|             | SNMPEXTRAOPTIONS        | Extra options SNMP de Dell Xseries                                                          |
+| Mandatory   | Name                    | Description                           |
+| :---------- | :---------------------- | :------------------------------------ |
+|             | SNMPEXTRAOPTIONS        | Extra options SNMP de Dell Xseries    |
 
 ## FAQ
 

@@ -243,6 +243,10 @@
     "message": "Notifications",
     "description": "The label for category Notifications in sidebar docs"
   },
+  "sidebar.docs.category.NPM": {
+    "message": "NPM",
+    "description": "The label for category NPM in sidebar docs"
+  },
   "sidebar.docs.category.Centreon mobile": {
     "message": "Centreon mobile",
     "description": "The label for category Centreon mobile in sidebar docs"
@@ -254,6 +258,10 @@
   "sidebar.docs.category.Centreon Broker": {
     "message": "Centreon Broker",
     "description": "The label for category Centreon Broker in sidebar docs"
+  },
+  "sidebar.docs.category.Centreon Gorgone": {
+    "message": "Centreon Gorgone",
+    "description": "The label for category Centreon Gorgone in sidebar docs"  
   },
   "sidebar.docs.category.API": {
     "message": "API",
@@ -278,6 +286,10 @@
   "sidebar.docs.category.Security": {
     "message": "Sécurité",
     "description": "The label for category Security in sidebar docs"
+  },
+  "sidebar.docs.category.User data storage": {
+    "message": "Stockage des données utilisateur",
+    "description": "The label for category User data storage in sidebar docs"
   },
   "sidebar.docs.category.Resources": {
     "message": "Ressources",
