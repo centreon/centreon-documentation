@@ -156,7 +156,7 @@ yum install centreon-pack-network-aruba-aoscx-snmp
 ### Host
 
 * Log into Centreon and add a new host through **Configuration > Hosts**.
-* Fill the **Name**, **Alias** & **IP Address / DNS** fields according to your **ArubaOS-CX** equipment settings.
+* Fill the **Name**, **Alias** and **IP Address / DNS** fields according to your **ArubaOS-CX** equipment settings.
 * Apply the **Net-Aruba-Aoscx-SNMP-custom** template to the host.
 * Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
 
