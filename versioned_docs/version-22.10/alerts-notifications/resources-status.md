@@ -120,6 +120,12 @@ You can filter the list of resources according to a number of predefined criteri
     - **Host group**
     - **Service group**
     - **Monitoring server**: resources monitored by a specific server (or poller)
+    - [**Host category**](../monitoring/categories.md)
+    - [Service category](../monitoring/categories.md)
+    - Host [severity](../monitoring/categories.md): name of the host severity
+    - Host severity level
+    - [Service severity](../monitoring/categories.md): name of the service severity
+    - Service severity level
 
     ![image](../assets/alerts/resources-status/search-popup.png)
 
@@ -152,6 +158,9 @@ in one or several fields.
 - **alias**: search for hosts according to their alias
 - **fqdn**: search for hosts according to their IP address or FQDN
 - **host_group**: search for hosts that belong to a host group
+- **host_category**: search for hosts that belong to a category
+- **host_severity**: search for hosts according to the name of their severity
+- **host_severity_level**: search for hosts according to the level of their severity
 - **h.name**: search for resources according to the name of the host displayed in column **Resource** for the hosts, and **Parent** for the services
 - **h.alias**: search for resources according to the alias of a host, or to the alias of a service's parent
 - **h.address**: search for resources according to the FQDN/the IP address of the host or of a service's parent
@@ -162,7 +171,11 @@ in one or several fields.
 - **parent_alias**: search for services, according to their parent's alias
 - **state**: search for resources in a non-OK or non-UP state, according to whether they are unhandled, acknowledged or in downtime
 - **status**: search for resources according to their [status](concepts.md)
+- **status_type**: search for resources according to their [status type](concepts.md#status-types)
+- **service_category**: search for services according to the category they belong to
 - **service_group**: search for services that belong to a service group
+- **service_severity**: search for services according to the name of their severity
+- **service_severity_level**: search for services according to the level of their severity
 - **s.description**: search only in the description of the service (i.e. its name in column **Resource**)
 - **type**: display only hosts, services or metaservices
 

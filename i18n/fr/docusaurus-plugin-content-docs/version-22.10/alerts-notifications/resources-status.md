@@ -124,6 +124,12 @@ Vous pouvez filtrer la liste des ressources selon un certain nombre de critères
     - **Groupes d'hôtes**
     - **Groupe de services**
     - **Serveur de supervision** : ressources supervisées par un serveur (ou collecteur) particulier.
+    - [**Catégorie d'hôte**](../monitoring/categories.md)
+    - [**Catégorie de service**](../monitoring/categories.md)
+    - [Criticité] d'hôte(../monitoring/categories.md): nom de la criticité de l'hôte
+    - Niveau de criticité d'hôte
+    - [Criticité du service](../monitoring/categories.md): nom de la criticité du service
+    - Niveau de criticité du service
 
     ![image](../assets/alerts/resources-status/search-popup.png)
 
@@ -155,6 +161,9 @@ Cependant, vous pouvez faire une recherche beaucoup plus fine en utilisant le [C
 - **alias** : rechercher des hôtes selon leur alias
 - **fqdn** : rechercher des hôtes selon leur adresse IP ou FQDN
 - **host_group** : rechercher les hôtes rattachés à un groupe d'hôtes
+- **host_category**: rechercher les hôtes appartenant à une catégorie
+- **host_severity**: rechercher des hôtes selon le nom de la criticité associée
+- **host_severity_level**: rechercher des hôtes selon le niveau de la criticité associée
 - **h.name** : rechercher des ressources selon le nom d'hôte affiché dans la colonne **Resource** pour les hôtes, et **Parent** pour les services
 - **h.alias** : rechercher uniquement sur l'alias de l'hôte
 - **h.address** : rechercher des ressources selon le FQDN/l'adresse IP de l'hôte ou du parent du services
@@ -165,7 +174,11 @@ Cependant, vous pouvez faire une recherche beaucoup plus fine en utilisant le [C
 - **parent_alias** : rechercher des services, selon l'alias de leur parent
 - **state** : rechercher des ressources problématiques, selon qu'elles sont non prises en compte, acquittées ou en maintenance
 - **status** : rechercher des ressources selon leur [statut](concepts.md)
+- **status_type**: rechercher des ressources selon leur [type de statut](concepts.md#types-de-statuts)
+- **service_category**: rechercher les services appartenant à une catégorie
 - **service_group** : rechercher les services rattachés à un groupe de services
+- **service_severity**: rechercher des services selon le nom de la criticité associée
+- **service_severity_level**: rechercher des services selon le niveau de la criticité associée
 - **s.description** : chercher uniquement sur la description du service (son nom dans la colonne **Resource**)
 - **type** : afficher uniquement les hôtes, les services ou les métaservices
 
