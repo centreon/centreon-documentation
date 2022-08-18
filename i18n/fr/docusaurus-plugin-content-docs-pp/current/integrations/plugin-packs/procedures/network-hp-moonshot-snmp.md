@@ -105,7 +105,7 @@ yum install centreon-plugin-Network-Hp-Moonshot-Snmp
 yum install centreon-plugin-Network-Hp-Moonshot-Snmp
 ```
 
-2. Install the **HP Moonshot SNMP** Centreon Pack RPM on the Centreon Central server:
+2. Install the **HP Moonshot SNMP** Centreon Pack RPM on the Centreon central server:
 
 ```bash
 yum install centreon-pack-network-hp-moonshot-snmp
