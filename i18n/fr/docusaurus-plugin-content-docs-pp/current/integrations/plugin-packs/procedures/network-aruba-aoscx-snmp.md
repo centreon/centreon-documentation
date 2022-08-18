@@ -156,7 +156,7 @@ yum install centreon-pack-network-aruba-aoscx-snmp
 ### Hôte
 
 * Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**
-* Complétez les champs **Nom**, **Alias** & **IP Address / DNS** correspondant à votre équipement **ArubaOS-CX**.
+* Complétez les champs **Nom**, **Alias** et **IP Address / DNS** correspondant à votre équipement **ArubaOS-CX**.
 * Appliquez le modèle d'hôte **Net-Aruba-Aoscx-SNMP-custom**.
 * Une fois le modèle appliqué, les macros ci-dessous indiquées comme requises (**Obligatoire**) doivent être renseignées.
 
