@@ -16,7 +16,7 @@ It brings the following service templates:
 
 | Service Alias | Service Template                | Description                       | Default |
 |:--------------|:--------------------------------|:----------------------------------|:--------|
-| Cpu           | Net-Hp-Moonshot-Cpu-SNMP        | Check cpu                         | X       |
+| Cpu           | Net-Hp-Moonshot-Cpu-SNMP        | Check CPU                         | X       |
 | Interfaces    | Net-Hp-Moonshot-Interfaces-SNMP | Check interfaces                  |         |
 | Memory        | Net-Hp-Moonshot-Memory-SNMP     | Check memory                      | X       |
 
