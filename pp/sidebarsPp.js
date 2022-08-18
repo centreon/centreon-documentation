@@ -1546,6 +1546,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-hp-moonshot-snmp'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-switchs-hp-procurve-snmp'
         },
         {
