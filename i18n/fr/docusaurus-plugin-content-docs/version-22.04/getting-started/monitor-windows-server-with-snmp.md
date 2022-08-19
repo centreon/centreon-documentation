@@ -130,7 +130,7 @@ Dans l'interface Web, accédez à **Configuration > Plugin Packs** et installez 
 
    ![image](../assets/getting-started/prise_en_main_windows_snmp_14.gif)
 
-6. [Déployez la configuration](first-supervision.md#deploying-a-configuration).
+6. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
 
 7. Rendez-vous dans le menu **Monitoring > Status des Resources** et positionnez le filtre sur **Tous** pour récupérer tous les indicateurs quel que soit leur état :
 

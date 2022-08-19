@@ -129,7 +129,7 @@ In the web interface, go to **Configuration > Plugin Packs** and install the **W
 
   ![image](../assets/getting-started/quick_start_windows_snmp_14.png)
 
-6. [Deploy the configuration](first-supervision.md#deploying-a-configuration).
+6. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
 
 7. Go to **Monitoring > Resources Status** and select **All** from the **Resource status** filter. At first, the resources appear with the status **Pending**, which means that no checks have been executed yet:
 
