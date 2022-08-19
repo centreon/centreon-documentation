@@ -163,4 +163,4 @@ The item was added. You can select another discovery command below **Rule** and 
 
 	![image](../assets/getting-started/quick_start_windows_snmp_21.png)
 
-4. [Deploy the configuration](first-supervision.md#deploying-a-configuration).
+4. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
