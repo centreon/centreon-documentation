@@ -121,11 +121,11 @@ You can filter the list of resources according to a number of predefined criteri
     - **Service group**
     - **Monitoring server**: resources monitored by a specific server (or poller)
     - [**Host category**](../monitoring/categories.md)
-    - [Service category](../monitoring/categories.md)
-    - Host [severity](../monitoring/categories.md): name of the host severity
-    - Host severity level
-    - [Service severity](../monitoring/categories.md): name of the service severity
-    - Service severity level
+    - [**Service category**](../monitoring/categories.md)
+    - [**Host severity**](../monitoring/categories.md): name of the host severity
+    - **Host severity level**
+    - [**Service severity**](../monitoring/categories.md): name of the service severity
+    - **Service severity level**
 
     ![image](../assets/alerts/resources-status/search-popup.png)
 

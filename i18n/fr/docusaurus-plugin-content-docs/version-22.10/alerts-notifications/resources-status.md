@@ -126,10 +126,10 @@ Vous pouvez filtrer la liste des ressources selon un certain nombre de critères
     - **Serveur de supervision** : ressources supervisées par un serveur (ou collecteur) particulier.
     - [**Catégorie d'hôte**](../monitoring/categories.md)
     - [**Catégorie de service**](../monitoring/categories.md)
-    - [Criticité] d'hôte(../monitoring/categories.md): nom de la criticité de l'hôte
-    - Niveau de criticité d'hôte
-    - [Criticité du service](../monitoring/categories.md): nom de la criticité du service
-    - Niveau de criticité du service
+    - [**Criticité d'hôte**](../monitoring/categories.md): nom de la criticité de l'hôte
+    - **Niveau de criticité d'hôte**
+    - [**Criticité du service**](../monitoring/categories.md): nom de la criticité du service
+    - **Niveau de criticité du service**
 
     ![image](../assets/alerts/resources-status/search-popup.png)
 
