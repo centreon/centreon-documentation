@@ -16,6 +16,54 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon Web
 
+### 21.10.9
+
+#### Enhancements
+
+- [Install] Improved error handling during installation
+
+#### Bug fixes
+
+- [CLAPI] Column names were displayed several times when listing recurrent downtimes
+- [Configuration] Extended the size of the URL, Notes and Action URL fields to avoid truncating long URLs
+- [Configuration] Fixed a regression: multiple trap definitions can use the same OID again
+- [Configuration] Fixed contact/contactgroup additive inheritance configuration using massive change
+- [Core] Fixed the database partitioning for MySQL 8
+- [Monitoring] Fixed deletion of comments
+- [Monitoring] Fixed the "Last_update" column in legacy pages
+- [Widget] Fixed hostgroup multiple selection
+
+#### Security fixes
+
+- [Administration] Sanitized SQLi in media synchronization
+- [Administration] Sanitized and bound ACL Group queries
+- [Administration] Sanitized and bound ACL menus definitions queries
+- [Administration] Sanitized and bound Auth class queries
+- [Administration] Sanitized and bound queries in ACL actions definition
+- [Configuration] Fixed a XSS vulnerability in the broker configuration page
+- [Configuration] Fixed an XSS vulnerability in the service template form
+- [Configuration] Sanitized and bound "poller" queries
+- [Configuration] Sanitized and bound contact form queries
+- [Configuration] Sanitized and bound downtime queries
+- [Configuration] Sanitized and bound escalation form queries
+- [Configuration] Sanitized and bound hosts dependencies configuration queries
+- [Configuration] Sanitized and bound hosts queries
+- [Configuration] Sanitized and bound queries in Centreon Broker configuration listing
+- [Configuration] Sanitized and bound queries in CentreonXMLBGRequest class
+- [Configuration] Sanitized and bound queries in Meta Services dependency configuration
+- [Configuration] Sanitized and bound queries in generateImage file
+- [Configuration] Sanitized and bound queries in hostgroups dependency configuration
+- [Configuration] Sanitized and bound queries in virtual metrics configuration
+- [Configuration] Sanitized and bound service configuration queries
+- [Configuration] Sanitized and bound service dependency queries
+- [Configuration] Sanitized and bound timeperiod form queries
+- [Configuration] Use API to select metrics in virtual metrics configuration form
+- [Core] Clean code in centreonUser.class.php
+- [Core] Updated PHP libraries for security issues
+- [Cron] Fixed SQL queries when databases names contain dash
+- [Install] Sanitized and bound update queries
+- [Monitoring] Sanitized SQLi in Centreon centreonGraph class
+
 ### 21.10.8
 
 Release date: `August 3, 2022`
