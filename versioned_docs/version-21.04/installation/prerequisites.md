@@ -23,10 +23,10 @@ Your screen resolution must be at least 1280 x 768.
 
 Centreon supports the following operating systems: CentOS 7, RedHat/OracleLinux 7 or 8.
 
-| Version           | Installation mode                                      |
-|-------------------|--------------------------------------------------------|
-| CentOS 7          | ISO Centreon, RPM packages, virtual machine , sources  |
-| RHEL/Oracle Linux | RPM packages, sources                                  |
+| Version                  | Installation mode                                      |
+|--------------------------|--------------------------------------------------------|
+| CentOS 7                 | ISO Centreon, RPM packages, virtual machine , sources  |
+| RHEL/Oracle Linux 7 or 8 | RPM packages, sources                                  |
 
 Open Source users, without Support contract, can use another GNU/Linux operating system.
 This will require installing the platform from source files and therefore be more complex.
