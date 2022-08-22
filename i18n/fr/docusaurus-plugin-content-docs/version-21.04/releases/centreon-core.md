@@ -34,7 +34,7 @@ If you have feature requests or want to report a bug, please go to our
 #### Security fixes
 
 - [Administration] Sanitized SQLi in media synchronization
-- [Administration] Sanitized and bound ACL Group queries
+- [Administration] Sanitized and bound ACL group queries
 - [Administration] Sanitized and bound ACL menus definitions queries
 - [Administration] Sanitized and bound Auth class queries
 - [Administration] Sanitized and bound queries in ACL actions definition
