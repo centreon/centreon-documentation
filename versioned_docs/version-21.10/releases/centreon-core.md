@@ -37,11 +37,11 @@ If you have feature requests or want to report a bug, please go to our
 #### Security fixes
 
 - [Administration] Sanitized SQLi in media synchronization
-- [Administration] Sanitized and bound ACL Group queries
+- [Administration] Sanitized and bound ACL group queries
 - [Administration] Sanitized and bound ACL menus definitions queries
 - [Administration] Sanitized and bound Auth class queries
 - [Administration] Sanitized and bound queries in ACL actions definition
-- [Configuration] Fixed a XSS vulnerability in the broker configuration page
+- [Configuration] Fixed an XSS vulnerability in the Broker configuration page
 - [Configuration] Fixed an XSS vulnerability in the service template form
 - [Configuration] Sanitized and bound "poller" queries
 - [Configuration] Sanitized and bound contact form queries
@@ -58,8 +58,7 @@ If you have feature requests or want to report a bug, please go to our
 - [Configuration] Sanitized and bound service configuration queries
 - [Configuration] Sanitized and bound service dependency queries
 - [Configuration] Sanitized and bound timeperiod form queries
-- [Configuration] Use API to select metrics in virtual metrics configuration form
-- [Core] Clean code in centreonUser.class.php
+- [Core] Cleaned code in centreonUser.class.php
 - [Core] Updated PHP libraries for security issues
 - [Cron] Fixed SQL queries when databases names contain dash
 - [Install] Sanitized and bound update queries
