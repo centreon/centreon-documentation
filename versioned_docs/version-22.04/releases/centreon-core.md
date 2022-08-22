@@ -17,6 +17,50 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 22.04.3
+
+#### Enhancements
+
+- [API] Added endpoint to perform all web updates
+- [Authentication] Added a log message when an unregistered user tries logging in
+- [Configuration] Use API to select metrics in virtual metrics configuration form
+- [UI] Reduce spacing and align access buttons in user menu
+
+#### Bug fixes
+
+- [APIv1] Using the CLAPI import function no longer results in a PHP fatal error for the mentioned versions
+- [Administration] Fixed consistency of ACLs with new poller creation wizard structure
+- [Configuration] Fixed a regression: multiple trap definitions can use the same OID again
+- [Cron] Fixed SQL queries when databases names contain dash
+- [Install] Allow to connect as centreon-engine user for Debian packaging
+- [Install] Fixed Debian packages build when npm is not installed
+- [Install] Fixed dependency name for Debian packaging
+- [Monitoring] Fixed deletion of comments
+- [Monitoring] Fixed the bug that canceled the display of text in graphics after an export in png
+- [UI] Fixed OpenId configuration form with Safari
+- [UI] Fixed dark mode theme switch
+- [Widget] Fixed hostgroup multiple selection
+
+#### Security fixes
+
+- [Administration] Sanitized SQLi in media synchronization
+- [Administration] Sanitized and bound ACL menus definitions queries
+- [Administration] Sanitized and bound Auth class queries
+- [Administration] Sanitized and bound queries in ACL actions definition
+- [Configuration] Fixed a XSS vulnerability in the broker configuration page
+- [Configuration] Fixed an XSS vulnerability in the service template form
+- [Configuration] Sanitized and bound hosts dependencies configuration queries
+- [Configuration] Sanitized and bound queries in Centreon Broker configuration listing
+- [Configuration] Sanitized and bound queries in CentreonXMLBGRequest class
+- [Configuration] Sanitized and bound queries in Meta Services dependency configuration
+- [Configuration] Sanitized and bound queries in generateImage file
+- [Configuration] Sanitized and bound queries in hostgroups dependency configuration
+- [Configuration] Sanitized and bound service configuration queries
+- [Configuration] Sanitized and bound service dependency queries
+- [Core] Clean code in centreonUser.class.php
+- [Core] Remove unused appKey feature
+- [Monitoring] Sanitized SQLi in Centreon centreonGraph class
+
 ### 22.04.2
 
 Release date: `August 3, 2022`
