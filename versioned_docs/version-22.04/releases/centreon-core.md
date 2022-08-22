@@ -31,8 +31,8 @@ If you have feature requests or want to report a bug, please go to our
 - [APIv1] Using the CLAPI import function no longer results in a PHP fatal error for the mentioned versions
 - [Administration] Fixed consistency of ACLs with new poller creation wizard structure
 - [Configuration] Fixed a regression: multiple trap definitions can use the same OID again
-- [Cron] Fixed SQL queries when databases names contain dash
-- [Install] Allow to connect as centreon-engine user for Debian packaging
+- [Cron] Fixed SQL queries when database names contain a dash
+- [Install] Make it possible to connect as user centreon-engine for Debian packaging
 - [Install] Fixed Debian packages build when npm is not installed
 - [Install] Fixed dependency name for Debian packaging
 - [Monitoring] Fixed deletion of comments
@@ -47,7 +47,7 @@ If you have feature requests or want to report a bug, please go to our
 - [Administration] Sanitized and bound ACL menus definitions queries
 - [Administration] Sanitized and bound Auth class queries
 - [Administration] Sanitized and bound queries in ACL actions definition
-- [Configuration] Fixed a XSS vulnerability in the broker configuration page
+- [Configuration] Fixed an XSS vulnerability in the broker configuration page
 - [Configuration] Fixed an XSS vulnerability in the service template form
 - [Configuration] Sanitized and bound hosts dependencies configuration queries
 - [Configuration] Sanitized and bound queries in Centreon Broker configuration listing
