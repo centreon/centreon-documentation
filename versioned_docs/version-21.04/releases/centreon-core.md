@@ -21,6 +21,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 21.04.17
 
+Release date: `August 22, 2022`
+
 #### Enhancement
 
 - [Install] Improved error handling during installation
