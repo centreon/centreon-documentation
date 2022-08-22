@@ -38,7 +38,7 @@ If you have feature requests or want to report a bug, please go to our
 - [Administration] Sanitized and bound ACL menus definitions queries
 - [Administration] Sanitized and bound Auth class queries
 - [Administration] Sanitized and bound queries in ACL actions definition
-- [Configuration] Fixed a XSS vulnerability in the broker configuration page
+- [Configuration] Fixed an XSS vulnerability in the Broker configuration page
 - [Configuration] Fixed an XSS vulnerability in the service template form
 - [Configuration] Sanitized and bound downtime queries
 - [Configuration] Sanitized and bound escalation form queries
