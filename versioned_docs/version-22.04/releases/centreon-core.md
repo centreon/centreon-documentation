@@ -37,7 +37,7 @@ If you have feature requests or want to report a bug, please go to our
 - [Install] Fixed dependency name for Debian packaging
 - [Monitoring] Fixed deletion of comments
 - [Monitoring] Fixed the bug that canceled the display of text in graphics after an export in png
-- [UI] Fixed OpenId configuration form with Safari
+- [UI] Fixed OpenID configuration form with Safari
 - [UI] Fixed dark mode theme switch
 - [Widget] Fixed hostgroup multiple selection
 
