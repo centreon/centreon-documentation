@@ -111,7 +111,7 @@ yum install centreon-pack-network-fortinet-fortigate-restapi
 | :-------- | :-------------- | :------------------------------------------------------------------------- |
 | X         | APIPORT         | Port used (Default: 443)                                                   |
 | X         | APIPROTO        | Specify https if needed (Default: 'https')                                 |
-| X         | APIACCESSTOKEN  | Api token                                                                  |
+| X         | APIACCESSTOKEN  | API token                                                                  |
 |           | APIEXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
 
 ## How to check in the CLI that the configuration is OK and what are the main options for? 
