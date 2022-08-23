@@ -229,7 +229,7 @@ Objet supervisé par une plateforme Centreon (hôtes, services, métaservices).
 Dans Centreon, le serveur central est la console principale de votre supervision. Il permet :
 
 - de configurer toute la supervision de votre infrastructure,
-- des superviser des ressources
+- des superviser des ressources,
 - de consulter la supervision de tous les serveurs Centreon (serveur central, [serveurs distants](#serveur-distant) et [collecteurs](#collecteur)) dans son interface web.
 
 ## Serveur distant
