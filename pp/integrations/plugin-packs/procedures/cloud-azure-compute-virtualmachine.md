@@ -25,7 +25,6 @@ It brings the following service templates:
 | Memory           | Cloud-Azure-Compute-VirtualMachine-Memory-Api           | Check memory usage                | X       |
 | Network          | Cloud-Azure-Compute-VirtualMachine-Network-Api          | Check network usage               | X       |
 | Vm-Sizes-Global  | Cloud-Azure-Compute-VirtualMachine-Vm-Sizes-Global-Api  | Check vitual machines types count |         |
-| Vms-State-Global | Cloud-Azure-Compute-VirtualMachine-Vms-State-Global-Api | Check vitual machines status      |         |
 
 ### Discovery rules
 
@@ -98,16 +97,6 @@ More information about discovering hosts automatically is available on the [dedi
 One metric corresponding to each available machine size you can deploy with Azure. 
 
 </TabItem>
-<TabItem value="Vms-State-Global" label="Vms-State-Global">
-
-| Metrics/Status Name            | Unit  |
-|:-------------------------------|:------|
-| status                         |       |
-| azure.compute.vm.running.count | count |
-| azure.compute.vm.stopped.count | count |
-
-</TabItem>
-</Tabs>
 
 ## Prerequisites
 

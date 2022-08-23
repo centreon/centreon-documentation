@@ -25,7 +25,6 @@ Il apporte les modèles de service suivants :
 | Memory           | Cloud-Azure-Compute-VirtualMachine-Memory-Api           | Contrôle l'utilisation de la memoire                                       | X      |
 | Network          | Cloud-Azure-Compute-VirtualMachine-Network-Api          | Contrôle l'utilisation réseau                                              | X      |
 | Vm-Sizes-Global  | Cloud-Azure-Compute-VirtualMachine-Vm-Sizes-Global-Api  | Contrôle permettant de remonter le nombre de machines virtuelles par types |        |
-| Vms-State-Global | Cloud-Azure-Compute-VirtualMachine-Vms-State-Global-Api | Contrôle permettant de vérifier le statut des machines virtuelles          |        |
 
 ### Règles de découverte
 
@@ -100,16 +99,6 @@ pour en savoir plus sur la découverte automatique d'hôtes.
 One metric corresponding to each available machine size you can deploy with Azure. 
 
 </TabItem>
-<TabItem value="Vms-State-Global" label="Vms-State-Global">
-
-| Metrics/Status Name            | Unit  |
-|:-------------------------------|:------|
-| status                         |       |
-| azure.compute.vm.running.count | count |
-| azure.compute.vm.stopped.count | count |
-
-</TabItem>
-</Tabs>
 
 ## Prérequis
 
