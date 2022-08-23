@@ -21,7 +21,7 @@ When a user acknowledges a resource in Centreon, they notify their teams that th
 
 When a resource is acknowledged, [notifications](#notification) are stopped, and the resource is highlighted yellow in monitoring screens.
 
-Acknowledging a resource does not mean that the incident is over: it will be over when the check is back to its nominal state.
+Acknowledging a resource does not mean that the incident is over: it will be over when the resource is back to its nominal state (**OK** or **UP**).
 
 **See also**: [Acknowledging a problem](../alerts-notifications/acknowledge.md).
 
@@ -29,7 +29,7 @@ Acknowledging a resource does not mean that the incident is over: it will be ove
 
 - **Simple architecture**: architecture that consists solely of a [central server](#central-server).
 
-- **Distributed architecture**: architecture that consists of a [central server](#central-server) and of n [remote server(s)](#remote-server) and [poller(s)](#poller). Remote servers and pollers allow you to distribute the monitoring load, either for geographical or historical reasons, etc.
+- **Distributed architecture**: architecture that consists of a [central server](#central-server) and of n [remote server(s)](#remote-server) and [poller(s)](#poller). Remote servers and pollers allow you to distribute the monitoring load, either for security reasons, geographical or historical reasons, etc.
 
 **See also**: [Architectures](../installation/architectures.md).
 
@@ -46,16 +46,21 @@ Once it receives this data, by default, Centreon Broker redistributes them to th
 
 **See also**: [Centreon Broker Event Mapping](../developer/developer-broker-mapping.md).
 
+## Broker inverted flow mode
+
+Advanced configuration for Centreon [Broker](#broker) that reverses the direction of connection for Broker communications. It switches the "client" and "server" roles so as to adapt to particular network configurations. For exemple, this mode is used by Centreon MAP to subscribe to the real-time flow of Broker events.
+
 ## Central server
 
 In Centreon, the central server is the main console where you monitor resources. The central server allows you to:
 
 - configure the monitoring of your whole infrastructure
+- monitor resources
 - see what all your Centreon servers monitor (central server, [remote servers](#remote-server) and [pollers](#poller)), using its web interface.
 
 ## CLAPI
 
-Command-Line API: allows you to manage your monitoring using the command line.
+Command-Line API: allows you to manage the monitoring using the command line.
 
 **See also**: [Command Line API (v1) - CLAPI](../api/clapi.md).
 
@@ -82,7 +87,7 @@ Among other things, Gorgone deploys the configuration to the [monitoring engines
 
 ## Graph
 
-Graphs are generated from the [metrics](#metric) that make up [services](#service). They show how these metrics evolve in time.
+Graphs are generated from the [metrics](#metric) that make up [services](#service), using [RRD files](#rrd-files). They show how these metrics evolve in time.
 
 **See also**: [Charts management](../metrology/chart-management.md) and the other topics in this section.
 
@@ -100,7 +105,7 @@ See also: [Monitoring a host](../monitoring/basic-objects/hosts-create.md) and t
 
 ## LVM
 
-LVM (logical volume manager): Centreon recommends that you use this partitioning system when you install your host system. It will allow you to live adjust partitions and to use LVM snapshots for backups.
+LVM (logical volume manager): Centreon recommends that you use this partitioning system when you install your host system. It will allow you to live adjust the size of partitions and to use LVM snapshots for backups.
 
 ## LVM snapshot
 
@@ -137,19 +142,21 @@ Message that warns a user that an incident has occurred. You can configure notif
 
 ## One-peer retention mode
 
-Advanced configuration for Centreon [Broker](#broker) that reverses the direction of BBDO flows between Broker and Engine. This mode is commonly used in demilitarized zones (DMZ).
+Advanced configuration for Centreon [Broker](#broker) that activates the retention mechanism in [Broker inverted flow mode](#broker-inverted-flow-mode). This mode is commonly used for monitoring servers ([pollers](#poller) or [remote servers](#remote-server)) located in demilitarized zones (DMZ).
 
 ## Performance data
 
 See [**Metric**](#metric).
 
+## Plugin
+
+A plugin is a monitoring probe, i.e. a binary executable or a script that is called by the [monitoring engine](#monitoring-engine) to carry out a check on a [host](#host) or [service](#service). The plugin determines which status should be sent to the monitoring engine, based on the checks it makes and on the thresholds defined in the configuration of the host or service.
+
 ## Plugin Pack
 
-Centreon package that consists of a plugin and of the corresponding pack.
+The term "Plugin pack" refers to a [plugin](#plugin) and the corresponding pack.
 
-- A plugin is a probe (a script) that is called by the [monitoring engine](#monitoring-engine) to carry out a check on a [host](#host) or [service](#service). The plugin determines which status should be sent to the monitoring engine, based on the checks it makes and on the thresholds defined in the configuration of the host or service.
-
-- A pack contains the configuration of the plugin in Centreon (command, [templates](#template), thresholds).
+A pack contains the configuration of the plugin in Centreon (command, [templates](#template), thresholds), as well as data required by the automatic discovery feature.
 
 **See also**:
 
@@ -194,7 +201,7 @@ Object monitored by a Centreon platform ([hosts](#host), [services](#service), m
 
 ## Retention files
 
-Retention files belong to Centreon [Broker](#broker). These files contain the monitoring data that could not be inserted into the database when a problem has occurred. For instance, if a communication problem occurs between Engine and Broker, the data is not lost, Broker stores them in a file. The file will then be read by Centreon Broker, then inserted into the databases so as to avoid data loss.
+Retention files belong to Centreon [Broker](#broker). These files store the monitoring data that could not be inserted into the database. For instance, if a communication problem occurs between Engine and Broker, the data is not lost, Broker stores them in a file (queue). The file will then be read by Centreon Broker, then inserted into the databases so as to avoid data loss.
 
 ## Retention period
 
@@ -202,7 +209,7 @@ Time period, in days, during which you want to keep the data from your RRD and M
 
 ## RRD files
 
-An RRD file contains the data for a [metric](#metric). The RRD file is used to build the performance [graph](#graph) for the [service](#service) the metric is attached to. If there are no RRD files, graphs cannot be displayed.
+An RRD file contains the data for a [metric](#metric). RRD files are used to build performance [graph](#graphs). If there are no RRD files, graphs cannot be displayed. Because of te way RRD works, the data displayed in the graphs show a trend rather than the exact data that was measured.
 
 ## Scheduler
 
@@ -234,7 +241,7 @@ Indicates:
 
 - the availability or performance of a [service](#service) (OK, WARNING, CRITICAL, UNKNOWN).
 
-PENDING is not a status.
+PENDING is not a status: a resource is "pending" when it has just been created and hasn't been checked yet.
 
 **See also**: [Possible statuses of a resource](../alerts-notifications/concepts.md).
 
@@ -258,7 +265,7 @@ There are host templates, service templates and contact templates.
 
 ## Time period
 
-Time periods define a time interval for each day of the week. They enable the functionalities of the [monitoring engine](#monitoring-engine) over a given period of time. Use time periods to define:
+Time periods define a time interval for each day of the week. They enable the functionalities of the [monitoring engine](#monitoring-engine) over a given time slot. Use time periods to define:
 
 - When check commands are executed, i.e. the time period during which resources are monitored.
 
@@ -268,7 +275,7 @@ Time periods define a time interval for each day of the week. They enable the fu
 
 ## Widget
 
-Element that allows you to display and configure data in a custom view.
+Configurable visual element that allows you to display data in a custom view.
 
 **See also**: [Custom views](../alerts-notifications/custom-views.md).
 
