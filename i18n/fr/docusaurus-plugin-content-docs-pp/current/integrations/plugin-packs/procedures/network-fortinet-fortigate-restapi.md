@@ -17,7 +17,7 @@ Il apporte les modèles de services suivants :
 | Alias    | Modèle de services                      | Description                                                                           | Défaut  |
 |:---------|:----------------------------------------|:--------------------------------------------------------------------------------------|:--------|
 | Ha       | Net-Fortinet-Fortigate-Ha-Restapi       | Contrôle l'utilisation système des members du cluster (processeur, mémoire, sessions) |         |
-| Health   | Net-Fortinet-Fortigate-Health-Restapi   | Contrôle l'état des santé du firewall                                                 | X       |
+| Health   | Net-Fortinet-Fortigate-Health-Restapi   | Contrôle l'état de santé du firewall                                                 | X       |
 | Licenses | Net-Fortinet-Fortigate-Licenses-Restapi | Contrôle le statut des licences                                                       | X       |
 | System   | Net-Fortinet-Fortigate-System-Restapi   | Contrôle l'utilisation système des VDOM (processeur, mémoire, sessions)               | X       |
 
