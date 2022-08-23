@@ -7,9 +7,9 @@ title: Glossary
 
 Access Control Lists allow you to grant rights to Centreon users. You can grant users rights on:
 
-- the menus of the Centreon web interface.
+- the menus of the Centreon web interface,
 
-- the [resources](#resource) users can see.
+- the [resources](#resource) users can see,
 
 - the actions that can be performed in the Centreon web interface.
 
@@ -54,7 +54,7 @@ Advanced configuration for Centreon [Broker](#broker) that reverses the directio
 
 In Centreon, the central server is the main console where you monitor resources. The central server allows you to:
 
-- configure the monitoring of your whole infrastructure
+- configure the monitoring of your whole infrastructure,
 - monitor resources
 - see what all your Centreon servers monitor (central server, [remote servers](#remote-server) and [pollers](#poller)), using its web interface.
 
@@ -160,7 +160,7 @@ A pack contains the configuration of the plugin in Centreon (command, [templates
 
 **See also**:
 
-- [Plugin Packs](../monitoring/pluginpacks.md)
+- [Plugin Packs](../monitoring/pluginpacks.md),
 - [Introduction to Plugin Packs](/pp/integrations/plugin-packs/getting-started/introduction).
 
 ## Poller
@@ -237,7 +237,7 @@ Unhandled, acknowledged, in downtime.
 
 Indicates:
 
-- the availability of a [host](#host) (UP, DOWN, UNREACHABLE)
+- the availability of a [host](#host) (UP, DOWN, UNREACHABLE),
 
 - the availability or performance of a [service](#service) (OK, WARNING, CRITICAL, UNKNOWN).
 
@@ -259,17 +259,17 @@ There are host templates, service templates and contact templates.
 
 **See also**:
 
-- [Using host templates](../monitoring/basic-objects/hosts-templates.md)
-- [Using service templates](../monitoring/basic-objects/services-templates.md)
+- [Using host templates](../monitoring/basic-objects/hosts-templates.md),
+- [Using service templates](../monitoring/basic-objects/services-templates.md),
 - [Using contact templates](../monitoring/basic-objects/contacts-templates.md).
 
 ## Time period
 
 Time periods define a time interval for each day of the week. They enable the functionalities of the [monitoring engine](#monitoring-engine) over a given time slot. Use time periods to define:
 
-- When check commands are executed, i.e. the time period during which resources are monitored.
+- when check commands are executed, i.e. the time period during which resources are monitored,
 
-- When [notifications](#notification) are sent.
+- when [notifications](#notification) are sent.
 
 **See also**: [Time periods](../monitoring/basic-objects/timeperiods.md).
 
