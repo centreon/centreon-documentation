@@ -1514,6 +1514,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-fortinet-fortigate-restapi'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-fortinet-fortimanager-snmp'
         },
         {
