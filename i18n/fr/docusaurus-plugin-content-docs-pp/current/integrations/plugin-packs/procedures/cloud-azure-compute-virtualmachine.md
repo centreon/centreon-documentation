@@ -99,6 +99,7 @@ pour en savoir plus sur la découverte automatique d'hôtes.
 One metric corresponding to each available machine size you can deploy with Azure. 
 
 </TabItem>
+</Tabs>
 
 ## Prérequis
 

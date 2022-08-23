@@ -97,6 +97,7 @@ More information about discovering hosts automatically is available on the [dedi
 One metric corresponding to each available machine size you can deploy with Azure. 
 
 </TabItem>
+</Tabs>
 
 ## Prerequisites
 
