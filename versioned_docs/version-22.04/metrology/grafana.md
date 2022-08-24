@@ -27,6 +27,34 @@ Performance data are available, but not data such as the status of hosts and ser
 
 The Centreon plugin for Grafana is available on [Centreon's download page](https://download.centreon.com/).
 
+## How do I set up the plugin?
+
+You can use the Centreon data source for Grafana as an unsigned plugin in your private Grafana installation. (This is not possible with a Cloud instance.)
+
+To use the Centreon data source as an unsigned plugin:
+
+1. Make sure you have administration privileges on the machine where Grafana runs.
+
+2. Download the zip file containing the data source from [Centreon's download page](https://download.centreon.com/). The data source is located in the **Grafana** subsection of the **Custom platform** section.
+
+3. Extract the data source and put it in the **plugins** directory of your Grafana installation.
+
+4. If you do not have a custom init file, create a copy of the **default.ini** file and name it **custom.ini**.
+
+5. Edit the **custom.ini** file and add the Centreon data source to the list of allowed unsigned plugins:
+
+   ```text
+   allow_loading_unsigned_plugins = centreon2-centreon-datasource
+   ```
+
+6. Restart the Grafana service.
+
+   ```shell
+   systemctl restart grafana-server
+   ```
+
+The Centreon data source now appears in the list of available plugins.
+
 ## Comparing data within a graph
 
 Using the Centreon plugin for Grafana means that all of your performance data is available in Grafana and you can filter it according to specific data groups. For instance, within the same graph, you can compare the evolution of a metric common to several hosts or to the various hosts of a given host group.

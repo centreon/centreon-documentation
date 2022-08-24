@@ -27,6 +27,34 @@ Les données de performance sont disponibles, mais pas des données telles que l
 
 Le plugin Centreon pour Grafana est disponible sur [la page de téléchargement de Centreon](https://download.centreon.com/).
 
+## Comment mettre en place le plugin?
+
+Vous pouvez utiliser la data source Centreon pour Grafana en tant que plugin non signé avec votre propre installation Grafana. (Ce n'est pas possible avec une instance Cloud.)
+
+Pour utiliser la data source Centreon en tant que plugin non signé :
+
+1. Assurez-vous que vous disposez des droits d'administration sur la machine sur laquelle Grafana s'exécute.
+
+2. Téléchargez le fichier zippé contenant la data source depuis la [page de téléchargement de Centreon](https://download.centreon.com/). La data source se situe dans la sous-section **Grafana** de la section **Custom platform**.
+
+3. Extrayez la data source et placez-la dans le répertoire **plugins** de votre installation Grafana.
+
+4. Si vous n'avez pas de fichier init personnalisé, faites une copie du fichier **default.ini** et renommez-le **custom.ini**.
+
+5. Éditez le fichier **custom.ini** et ajoutez la data source Centreon à la liste des plugins non signés autorisés :
+
+   ```text
+   allow_loading_unsigned_plugins = centreon2-centreon-datasource
+   ```
+
+6. Redémarrez le service Grafana.
+
+   ```shell
+   systemctl restart grafana-server
+   ```
+
+Le data source Centreon apparaît maintenant dans la liste des plugins disponibles.
+
 ## Comparer des données dans un graphique
 
 Utiliser le plugin Centreon pour Grafana permet d'avoir accès à toutes vos données de performance dans Grafana et de pouvoir filtrer selon des groupements de données spécifiques. Par exemple, dans un même graphique, vous pouvez comparer l'évolution d'une métrique commune à différents hôtes ou aux divers hôtes d'un groupe d'hôtes donné.
