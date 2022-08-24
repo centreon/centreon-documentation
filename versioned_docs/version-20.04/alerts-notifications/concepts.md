@@ -27,7 +27,7 @@ The table below summarizes all the possible statuses for a service.
 |-------------------------------------------------|---------------------------------------------------------------------------|
 |  <span style={{color:'#88b917'}}>OK</span>      | The service presents no problem                                           |
 |  <span style={{color:'#ff9a13'}}>WARNING</span> | The service has reached the warning threshold                             |
-|  <span style={{color:'#e00b3d'}}>DOWN</span>    | The service has reached the critical threshold                            |
+|  <span style={{color:'#e00b3d'}}>CRITICAL</span>    | The service has reached the critical threshold                            |
 |  <span style={{color:'#bcbdc0'}}>UNKNOWN</span> | The status of the service cannot be checked (e.g.: SNMP agent down, etc.) |
 
 
