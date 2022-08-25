@@ -1,25 +1,22 @@
 ---
 id: update
-title: Update the extension
+title: Mise à jour de l'extension
 ---
 
-This chapter describes how to update your Centreon MAP extension. This
-is done by updating the three main components:
+Ce chapitre décrit comment mettre à jour votre extension Centreon MAP. Pour ce faire, vous devez mettre à jour les trois principaux composants :
 
-- Centreon MAP server
-- Centreon MAP web interface & its widget
-- Desktop client (automatically updated).
+- le serveur Centreon MAP
+- l'interface Web Centreon MAP et son widget
+- le client de bureau (mis à jour automatiquement).
 
-Before updating Centreon MAP server, we highly recommend performing a
-MariaDB dump (backup) of your `centreon_studio` database. This will
-allow you easily to roll back to the previous state if necessary.
+Avant de mettre à jour le serveur Centreon MAP, nous vous recommandons vivement d'effectuer une extraire (sauvegarde) de votre base de données `centreon_studio`.
+Cela vous permettra de revenir facilement à l'état précédent si nécessaire.
 
-Be sure to read the release notes for an explanation of features, fixes
-& custom procedures.
+N'oubliez pas de lire les notes de mise à jour pour une explication des fonctionnalités, des corrections et des procédures personnalisées.
 
-## Centreon MAP Server
+## Serveur MAP de Centreon
 
-Run the following commands to upgrade your Centreon MAP server:
+Exécutez les commandes suivantes pour mettre à niveau votre serveur Centreon MAP :
 
 ``` shell
 systemctl stop centreon-map
@@ -27,34 +24,33 @@ yum update centreon-map-server
 systemctl start centreon-map
 ```
 
-This point only applies if you customized your **centreon-map.conf** configuration file. When updating your MAP module, the **/etc/centreon-studio/centreon-map.conf** file is not upgraded automatically: the new configuration file brought by the rpm does not replace the old file. You must copy the changes manually to your customized configuration file.
+Ce point ne s'applique que si vous avez personnalisé votre fichier de configuration **centreon-map.conf**.
+Lors de la mise à jour de votre module MAP, le fichier **/etc/centreon-studio/centreon-map.conf** n'est pas mis à niveau automatiquement : le nouveau fichier de configuration apporté par le rpm ne remplace pas l'ancien fichier.
+Vous devez copier les modifications manuellement dans votre fichier de configuration personnalisé.
 
-* The old configuration file is renamed **centreon-map.conf.rpmsave**
-* The upgrade installs a new **centreon-map.conf** file.
+* L'ancien fichier de configuration est renommé **centreon-map.conf.rpmsave**.
+* La mise à niveau installe un nouveau fichier **centreon-map.conf**.
 
-Run a diff between the old and the new configuration files:
+Exécutez une comparaison entre l'ancien et le nouveau fichier de configuration :
 
 ```shell
 diff -u /etc/centreon-studio/centreon-map.conf /etc/centreon-studio/centreon-map.conf.rpmsave
 ```
 
-For each difference between the files, assess whether you should copy it from **centreon-map.conf.rpmsave** to **centreon-map.conf**.
+Pour chaque différence entre les fichiers, évaluez si vous devez la copier de **centreon-map.conf.rpmsave** vers **centreon-map.conf**.
 
-## Centreon MAP Web interface
+## Interface Web de Centreon MAP
 
 ```shell
 yum update centreon-map-web-client
 ```
 
-Complete the upgrade by going to **Administration > Extensions > Manager**
-(module & widget parts):
+Terminez la mise à niveau en allant dans **Administration > Extensions > Manager** (parties module et widget) :
 
 ![image](../assets/graph-views/update-web-client.png)
 
 ## Centreon MAP Desktop client
 
-If the user's computer has an online connection, the desktop client is
-automatically upgraded to the latest version that corresponds to the server.
+Si l'ordinateur de l'utilisateur dispose d'une connexion en ligne, le client de bureau est automatiquement mis à jour à la dernière version correspondant au serveur.
 
-Alternatively, the client can be downloaded through the menu `Monitoring >
-Map` and **Desktop client** button.
+Sinon, le client peut être téléchargé via le menu **Surveillance > Carte** et le bouton **Client de bureau**.

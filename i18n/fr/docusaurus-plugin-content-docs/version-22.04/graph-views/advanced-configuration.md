@@ -1,45 +1,41 @@
 ---
 id: advanced-configuration
-title: Advanced configuration
+title: Configuration avancée
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+Ce chapitre décrit les procédures avancées de configuration de votre système Centreon MAP.
 
-This chapter describes advanced procedures for configuring your Centreon MAP
-system.
+## Superviser votre serveur Centreon MAP après installation
 
-## Monitoring your Centreon MAP server after installation
+Centreon fournit un Plugin Pack et un plugin pour superviser votre serveur Centreon MAP.
 
-Centreon provides a plugin pack and a plugin to monitor your Centreon MAP
-server.
+### Installer les packs
 
-### Install the Packs
-
-On the Central server, install the required Packs with the following commands:
+Sur le serveur central, installez les Packs requis à l'aide des commandes suivantes :
 
 ```shell
 yum install centreon-pack-operatingsystems-linux-snmp centreon-pack-applications-jvm-actuator
 ```
 
-From the Plugin Packs Manager, install the Packs.
+À partir du gestionnaire de PLugin Packs, installez les packs.
 
-### Install the Plugins
+### Installer les plugins
 
-Use SSH to access the Poller that will be monitoring your Centreon MAP server.
+Utilisez SSH pour accéder au Poller qui supervisera votre serveur Centreon MAP.
 
-Install all the required plugins with the following commands:
+Installez tous les plugins requis à l'aide des commandes suivantes :
 
 ```shell
 yum install centreon-plugin-Operatingsystems-Linux-Snmp centreon-plugin-Applications-Jvm-Actuator
 ```
 
-### Configure your services
+### Configurer vos services
 
-Access your Centreon Web interface. Go to **Configuration > Host > Add**.
+Accédez à votre interface Web Centreon. Allez à la page **Configuration > Hôtes > Hôtes**, puis cliquer sur **Ajouter**.
 
-Fill in the basic information about your host and add the following host
-templates:
+Remplissez les informations de base sur votre hôte et ajoutez les modèles d'hôte suivants :
 
 - OS-Linux-SNMP-custom
 - App-Jvm-actuator-custom
@@ -47,23 +43,22 @@ templates:
 ![image](../assets/graph-views/jvm1.png)
 ![image](../assets/graph-views/jvm2.png)
 
-To monitor centreon-map JVM, please use following macro values:
-| Name                    | Value                           |
-| :---------------------- | :------------------------------ |
-| ACTUATORCUSTOMMODE      | ```centreonmap```               |
-| ACTUATORAPIURLPATH      | ```/centreon-studio/api/beta``` |
-| ACTUATORAPIUSERNAME     | Api username must be set        |
-| ACTUATORAPIPASSWORD     | Api password must be set        |
+Pour surveiller la JVM centreon-map, veuillez utiliser les valeurs de macro suivantes :
 
-> Remember to check the "Create Services linked to the Template too" checkbox.
+| Nom                     | Valeur                                    |
+| :---------------------- | :---------------------------------------- |
+| ACTUATORCUSTOMMODE      | ```centreonmap```                         |
+| ACTUATORAPIURLPATH      | ```/centreon-studio/api/beta```           |
+| ACTUATORAPIUSERNAME     | Le nom d'utilisateur Api doit être défini |
+| ACTUATORAPIPASSWORD     | Le mot de passe Api doit être défini      |
 
-You can now export your configuration, and your Centreon MAP server will be
-monitored.
+> N'oubliez pas de cocher la case "Créer aussi les services liés aux modèles".
+
+Vous pouvez maintenant exporter votre configuration, et votre serveur Centreon MAP sera supervisé.
 
 ![image](../assets/graph-views/jvm3.png)
 
-You may also just check the access to the following URL that tells that
-the server is up or not:
+Vous pouvez également vérifier l'URL suivante, qui indique si le serveur est opérationnel ou non :
 
 <Tabs groupId="sync">
 <TabItem value="HTTP" label="HTTP">
@@ -82,39 +77,34 @@ https://<MAP_IP>:8443/centreon-studio/api/beta/actuator/health.
 </TabItem>
 </Tabs>
 
-## Centreon MAP configuration files
+## Fichiers de configuration de Centreon MAP
 
-> We advise you against editing the configuration files manually unless you are
-> an experienced user.
+> Nous vous déconseillons de modifier manuellement les fichiers de configuration, sauf si vous êtes un utilisateur expérimenté.
 
-The four configuration files are located in */etc/centreon-studio/*. Their
-templates can be found in */etc/centreon-studio/templates/*.
+Les quatre fichiers de configuration sont situés dans **/etc/centreon-studio/**. Leurs modèles se trouvent dans **/etc/centreon-studio/templates/**.
 
-The configuration script replaces the macros in these templates and copies them
-to the folder /etc/centreon-studio.
+Le script de configuration remplace les macros de ces modèles et les copie dans le dossier **/etc/centreon-studio**.
 
-If these files are modified, the server must be restarted with the command:
+Si ces fichiers sont modifiés, le serveur doit être redémarré avec la commande :
 
 ```shell
 systemctl restart centreon-map
 ```
 
-> Do not delete any variables in these files! This may cause the server to
-> malfunction or not to start up.
+> Ne supprimez aucune variable dans ces fichiers ! Cela pourrait entraîner un dysfonctionnement du serveur, ou l'empêcher de démarrer.
 
-## Backup of Centreon MAP server
+### Sauvegarder le serveur Centreon MAP
 
-### Saved items
+### Éléments sauvegardés
 
-The saved items are:
+Les éléments sauvegardés sont :
 
-- Saving configuration files (**/etc/centreon-studio**)
-- Saving database **centreon\_studio**
+- Les fichiers de configuration (**/etc/centreon-studio**).
+- La base de données (**centreon\_studio**)
 
-### How it works?
+### Comment ça marche ?
 
-The backup script is executed on a daily basis (2AM) with a cron job located in
-**/etc/cron.d/centreon-map-server-backup**:
+Le script de sauvegarde est exécuté quotidiennement (2 heures du matin) avec une tâche cron située dans **/etc/cron.d/centreon-map-server-backup** :
 
 ```text
 #
@@ -128,51 +118,48 @@ CRONTAB_EXEC_USER=""
 0 2 * * * root bash /usr/share/centreon-map-server/bin/centreon-map-server-backup.sh >> /var/log/centreon-studio/backup.log 2>&1
 ```
 
-The backup **centreon-map-server-yyyy-mm-dd.tar.gz** is stored in
-**BACKUP\_DIR**, which is defined in configuration file.
+La sauvegarde **centreon-map-server-yyyy-mm-dd.tar.gz** est stockée dans **BACKUP\_DIR**, qui est défini dans le fichier de configuration.
 
-### Backup parameters
+### Paramètres de sauvegarde
 
-Backup parameters are stored in **/etc/centreon-studio/backup.conf**
+Les paramètres de sauvegarde sont enregistrés dans **/etc/centreon-studio/backup.conf**.
 
-- ENABLE: enable/disable backup mechanism (default value: 0)
-- BACKUP\_DIR: where the backup is stored (default value: /var/backup)
-- RETENTION\_AGE: backup retention in days (default value: 8)
+- ENABLE : activer/désactiver le mécanisme de sauvegarde (valeur par défaut : 0)
+- BACKUP\_DIR : emplacement où la sauvegarde est stockée (valeur par défaut : **/var/backup**)
+- RETENTION\_AGE : rétention de la sauvegarde en jours (valeur par défaut : 8)
 
-> **We advise to export backups to another resource in order to secure them.**
+> Nous conseillons d'exporter les sauvegardes vers un autre serveur que votre serveur Centreon afin de les sécuriser.
 
-### Restore data from Centreon MAP server
+### Restaurer les données du serveur Centreon MAP
 
-Restore process is divided in several steps:
+Le processus de restauration est divisé en plusieurs étapes :
 
-- Extracting backup
-- Restoring configuration files
-- Restoring database
+- Extraction de la sauvegarde
+- Restauration des fichiers de configuration
+- Restauration de la base de données
 
-> **We assume that you have followed the Centreon MAP server installation
-> procedure to get a fresh install.**
+> Nous supposons que vous avez suivi la procédure d'installation du serveur Centreon MAP pour obtenir une nouvelle installation.
 
-### Extracting backup
+### Extraire la sauvegarde
 
-Get the last **centreon-map-server-yyyy-mm-dd.tar.gz** backup and extract it
-into **/tmp** directory:
+Récupérez la dernière sauvegarde **centreon-map-server-yyyy-mm-dd.tar.gz** et extrayez-la dans le répertoire **/tmp** :
 
 ```shell
 cd /tmp
 tar xzf centreon-map-server-yyyy-mm-dd.tar.gz
 ```
 
-### Restoring configuration files
+### Restaurer les fichiers de configuration
 
-To restore configuration files, run the following command:
+Pour restaurer les fichiers de configuration, exécutez la commande suivante :
 
 ```shell
 cp -R etc/centreon-studio/* /etc/centreon-studio/
 ```
 
-### Restoring database
+### Restaurer la base de données
 
-To restore **centreon\_studio** database, run the following command:
+Pour restaurer la base de données **centreon\_studio**, exécutez la commande suivante :
 
 ```shell
 systemctl stop centreon-map
@@ -180,151 +167,139 @@ mysql -h <db_host> -u <db_user> -p<db_password> <db_name> < centreon-map-server.
 systemctl start centreon-map
 ```
 
-## Change Centreon MAP server port
+## Changer le port du serveur Centreon MAP
 
-By default, the Centreon MAP server is listening and sending information
-through the port 8080. If you set the SSL (see [HTTPS/TLS
-Configuration](secure-your-map-platform.md#configure-httpstls-on-the-web-server),
-use the port 8443.
+Par défaut, le serveur Centreon MAP écoute et envoie des informations via le port 8080. 
+Si vous avez configuré le SSL (voir [Configuration HTTPS/TLS](secure-your-map-platform.md#configure-httpstls-on-the-web-server), utilisez le port 8443.
 
-You can change this port (e.g., if you have a firewall on your network
-blocking these ports).
+Vous pouvez modifier ce port (par exemple, si un pare-feu sur votre réseau bloque ces ports).
 
-> If the new port is below 1024, use this procedure below "Define
-> port below 1024" instead.
+> Si le nouveau port est inférieur à 1024, utilisez plutôt la procédure ci-dessous "Définir un port inférieur à 1024".
 
-On your Centreon MAP server, stop the Centreon MAP server:
+Sur votre serveur Centreon MAP, arrêtez le serveur Centreon MAP :
 
 ```shell
 systemctl stop centreon-map
 ```
 
-Edit the studio-config.properties settings file located in
-/etc/centreon-studio:
+Modifiez le fichier de paramètres **studio-config.properties** situé dans **/etc/centreon-studio** :
 
 ```shell
 vim /etc/centreon-studio/studio-config.properties
 ```
 
-Add the following line at the MAP SERVER section
+Ajoutez la ligne suivante à la section MAP SERVER :
 
 ```text
 centreon-map.port=XXXX
 ```
 
-> Replace *XXXX* with the port you want.
+> Remplacez *XXXX* par le port que vous souhaitez.
 
-Then restart the Centreon MAP server:
+Redémarrez ensuite le serveur MAP de Centreon :
 
 ```shell
 systemctl start centreon-map
 ```
 
-Wait for Centreon MAP service to start completely (~30 sec to 1 minutes).
+Attendez que le service Centreon MAP ait fini de démarrer (~30 secondes à une minute).
 
-Test that your server is up and accessible on the new port you defined by
-entering the following URL in your web browser:
+Vérifiez que votre serveur est opérationnel et accessible sur le nouveau port que vous avez défini, en entrant l'URL suivante dans votre navigateur web :
 
 ```shell
 http://<MAP_IP>:<NEW_PORT>/centreon-studio/api/beta/actuator/health
 ```
 
-## Define port below 1024
+## Définir un port inférieur à 1024
 
-You may want to setup your server to listen and send data through ports below
-1024, such as port 80 or 443 (as these ports are rarely blocked by a firewall).
+Vous pouvez configurer votre serveur pour qu'il écoute et envoie des données via des ports inférieurs à 1024, tels que les ports 80 ou 443 (ces ports étant rarement bloqués par un pare-feu).
 
-If you want to set a port below 1024, the method is different since all ports
-under 1024 are restricted and only accessible through special applications.
+Si vous souhaitez définir un port inférieur à 1024, la méthode est différente de celle décrite ci-dessus puisque tous les ports inférieurs à 1024 sont restreints et uniquement accessibles par des applications spéciales.
 
-There are a few different workarounds for this issue. One method is "port
-forwarding" through the firewall.
+Il existe plusieurs solutions de contournement pour ce problème. L'une d'entre elles est la "redirection de port" à travers le pare-feu.
 
-> For this example, set the MAP server to listen and send data through port 80.
-> Replace each occurence of *80* with the port you want to use.
+> Pour cet exemple, configurez le serveur MAP pour qu'il écoute et envoie des données via le port 80.
+> Remplacez chaque occurrence de *80* par le port que vous souhaitez utiliser.
 
-1.  Check your firewall.
+1. Vérifiez votre pare-feu.
 
-    On your MAP server, run the following command to check that the firewall is
-    running:
+   Sur votre serveur MAP, exécutez la commande suivante pour vérifier que le pare-feu fonctionne :
 
-    ```shell
-    systemctl status iptables
-    ```
+   ```shell
+   systemctl status iptables
+   ```
 
-    If your firewall is running, you will see the following output:
+   Si votre pare-feu est en cours d'exécution, vous verrez la sortie suivante :
 
-    ```shell
-    Table: raw
-    Chain PREROUTING (policy ACCEPT)
-    num  target     prot opt source               destination
+   ```shell
+   Table: raw
+   Chain PREROUTING (policy ACCEPT)
+   num  target     prot opt source               destination
 
-    Chain OUTPUT (policy ACCEPT)
-    num  target     prot opt source               destination
+   Chain OUTPUT (policy ACCEPT)
+   num  target     prot opt source               destination
 
-    Table: mangle
-    Chain PREROUTING (policy ACCEPT)
-    num  target     prot opt source               destination
-    ...
-    ...
-    ...
-    ```
+   Table: mangle
+   Chain PREROUTING (policy ACCEPT)
+   num  target     prot opt source               destination
+   ...
+   ...
+   ...
+   ```
 
-    If your firewall is stopped, you will see the following output:
+   Si votre pare-feu est arrêté, vous verrez la sortie suivante :
 
-    ```shell
-    iptables: Firewall is not running.
-    ```
+   ```shell
+   iptables: Firewall is not running.
+   ```
 
-    Start the firewall:
+   Démarrez le pare-feu :
 
-    ```shell
-    systemctl start iptables
-    ```
+   ```shell
+   systemctl start iptables
+   ```
 
-2.  Enable a connection on the port for MAP for listening and sending.
+2. Activez une connexion sur le port pour MAP pour l'écoute et l'envoi.
 
-    Execute the following lines on your console:
+   Exécutez les lignes suivantes sur votre console :
 
-    ```shell
-    /sbin/iptables -A OUTPUT -p tcp --dport 80 -j ACCEPT
-    /sbin/iptables -A INPUT -p tcp --dport 80 -j ACCEPT
-    ```
+   ```shell
+   /sbin/iptables -A OUTPUT -p tcp --dport 80 -j ACCEPT
+   /sbin/iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+   ```
 
-3.  Add port forwarding.
+3. Ajoutez la redirection de port.
 
-    Execute the following line on your console:
+   Exécutez la ligne suivante sur votre console :
 
-    ```shell
-    iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080
-    ```
+   ```shell
+   iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080
+   ```
 
-4.  Restart and save.
+4. Redémarrez et enregistrez.
 
-    Restart your firewall:
+   Redémarrez votre pare-feu :
 
-    ```shell
-    systemctl restart iptables
-    ```
+   ```shell
+   systemctl restart iptables
+   ```
 
-    Save this configuration so it will be applied each time you reboot your server:
+   Enregistrez cette configuration afin qu'elle soit appliquée à chaque redémarrage de votre serveur :
 
-    ```shell
-    /sbin/iptables save
-    ```
+   ```shell
+   /sbin/iptables save
+   ```
 
-Your Centreon MAP server is now accessible on port 80. Check this by entering
-the following URL in your browser:
+Votre serveur Centreon MAP est maintenant accessible sur le port 80. Vérifiez-le en entrant l'URL suivante dans votre navigateur :
 
 ```shell
 http://<MAP_IP>/centreon-studio/api/beta/actuator/health
 ```
 
-You should see server's state:
+Vous devriez voir l'état suivant pour votre serveur :
 
 ```json
 {"status":"UP"}
 ```
 
-> Don't forget to update both your desktop client configuration and your web
-> interface configuration.
+> N'oubliez pas de mettre à jour la configuration de votre client Desktop et celle de votre interface web.
