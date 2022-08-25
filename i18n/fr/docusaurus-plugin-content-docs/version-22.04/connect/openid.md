@@ -67,11 +67,45 @@ Si vous laissez ces deux champs vides, toutes les adresses IP seront autorisées
 - **Adresses de clients de confiance** : Si vous entrez des adresses IP dans ce champ, seules ces adresses IP seront autorisées à accéder à l'interface Centreon. Toutes les autres adresses IP seront bloquées. Séparez les adressses IP par des virgules.
 - **Adresses de clients sur liste noire** : Ces adresses IP seront bloquées. Toutes les autres adresses IP seront autorisées.
 
-### Étape 4 : Créer les utilisateurs
+### Étape 4 : Gestion des utilisateurs
 
-À la page **Configuration > Utilisateurs > Contacts/Utilisateurs**, [créez les utilisateurs](../monitoring/basic-objects/contacts-create.md) qui se connecteront à Centreon avec OpenID et [donnez-leur des droits](../administration/access-control-lists.md) via des groupes d'accès.
+<Tabs groupId="sync">
+<TabItem value="Gestion automatique" label="Gestion automatique">
 
-### Step 5: Configurer le fournisseur d'identité
+![image](../assets/administration/oidc-import-users.png)
+
+Activez l'import automatique des utilisateurs :
+
+- **Activer l'importation automatique** : active/désactive l'import automatique des utilisateurs.
+- **Modèle de contact** : sélectionnez un modèle de contact qui sera appliqué aux nouveaux utilisateurs importés.
+  Cela permet notamment de gérer le paramétrage par défaut de la notification.
+- **Attribut de l'email** : définit quelle variable renvoyée par les points d'entrée
+**Point d'entrée de jeton d'introspection** ou **Point d'entrée d'information utilisateur** doit être utilisée pour récupérer l'adresse email de l'utilisateur.
+- **Attribut du nom complet** : définit quelle variable renvoyée par les points d'entrée
+**Point d'entrée de jeton d'introspection** ou **Point d'entrée d'information utilisateur** doit être utilisée pour récupérer le nom complet de l'utilisateur.
+
+</TabItem>
+<TabItem value="Gestion manuelle" label="Gestion manuelle">
+
+À la page **Configuration > Utilisateurs > Contacts/Utilisateurs**, [créez les utilisateurs](../monitoring/basic-objects/contacts-create.md) qui se connecteront à Centreon avec OpenID Connect.
+
+</TabItem>
+</Tabs>
+
+### Étape 5 : Gérer les autorisations
+
+![image](../assets/administration/oidc-authorizations.png)
+
+Paramétrez la gestion des autorisations :
+
+- **Groupe de contacts** : Sélectionner un groupe de contact auquel seront ajoutés automatiquement les utilisateurs lors de leur connexion à l'interface Centreon.
+- **Clé d'autorisation** : définit quelle variable renvoyée par les points d'entrée
+**Point d'entrée de jeton d'introspection** ou **Point d'entrée d'information utilisateur** doit être utilisée pour récupérer la liste des groupes de l'utilisateur. Lorsque ce paramètre n'est pas renseigné, la valeur **groups** sera prise en compte par défaut.
+- Définissez ensuite des couples entre une valeur de la **Clé d'autorisation** et un **Groupe d'ACL** Centreon pour ajouter les droits à l'utilisateur lors de sa connexion à l'interface. 
+
+> A chaque connexion de l'utilisateur, la gestion des autorisations est réinitialisée pour tenir compte des informations provenant du fournisseur d'identité.
+
+### Étape 6 : Configurer le fournisseur d'identité
 
 Configurer votre fournisseur d'identité pour ajouter l'application Centreon à utiliser le protocole OpenID Connect pour
 authentifier vos utilisateur, et pour autoriser `l'uri de redirection` suivante une fois vos utilisateurs authentifiés :
