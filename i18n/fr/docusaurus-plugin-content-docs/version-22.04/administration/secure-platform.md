@@ -816,13 +816,7 @@ Il est possible de modifier l'URI de Centreon. Par exemple, **/centreon** peut �
 
 > Au moins un niveau de chemin est obligatoire.
 
-Pour mettre à jour l'URI Centreon, vous devez suivre les étapes suivantes:
-
-1. Rendez-vous dans le menu **Administration > Paramètres > Centreon web** et modifiez le champ **Centreon Web Directory**
-
-![image](../assets/administration/custom-uri.png)
-
-2. Éditez le fichier de configuration Apache pour Centreon
+Pour mettre à jour l'URI Centreon, editez le fichier de configuration Apache pour Centreon :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -839,9 +833,50 @@ vim /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf
 ```
 
 </TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+vim /etc/apache2/sites-available/centreon.conf
+```
+
+</TabItem>
 </Tabs>
 
-et modifiez le chemin **/centreon** par le nouveau.
+et modifiez le chemin **/centreon** par le nouveau:
+
+```apache
+Define base_uri "/centreon"
+```
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+Puis redémarrez Apache :
+
+```shell
+systemctl restart httpd
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+Puis redémarrez Apache :
+
+```shell
+systemctl restart httpd24-httpd
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+Puis redémarrez Apache :
+
+```shell
+systemctl restart httpd
+```
+
+</TabItem>
+</Tabs>
 
 ## Activation du http2
 
@@ -994,5 +1029,5 @@ Les journaux des événements Centreon sont disponibles dans les répertoires su
 
 # Sauvegardez votre plateforme
 
-Centreon propose de sauvegarder la configuration de la plateforme. Pour ce faire, accédez au menu
-[**Administration  >  Parameters  >  Backup**](./backup.md).
+Centreon propose de sauvegarder la configuration de la plateforme. Pour ce faire, accédez au menu 
+[**Administration > Parameters > Backup**](./backup.md).

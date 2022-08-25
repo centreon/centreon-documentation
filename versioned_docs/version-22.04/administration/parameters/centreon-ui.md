@@ -13,8 +13,6 @@ Go to **Administration > Parameters > Centreon UI**.
 ## General options
 
 - **Directory** indicates the directory where Centreon is installed
-- **Centreon Web Directory** field indicates the web directory on which
-Centreon is installed
 - **Contacts & Contact groups method calculation** allows to define how
 notification inheritance for hosts and services will be calculated.
 - **Limit per page (default)** field defines the number of objects displayed
@@ -63,15 +61,3 @@ Once you defined settings, test your configuration by clicking on the **Test Int
 
 To validate the configuration, click on the **Test Internet Connection** button. If the message
 **Connection Successful** appears, your configuration is valid, otherwise modify your parameters.
-
-## Autologin
-
-See [Configuring Autologin](../../connect/autologin.md).
-
-## SSO
-
-See [Configuring an SSO connection](../../connect/sso.md). 
-
-## OpenId Connect
-
-See [Configuring connection via OpenId Connect](../../connect/openid.md).

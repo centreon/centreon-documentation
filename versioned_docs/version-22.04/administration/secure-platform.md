@@ -823,13 +823,7 @@ It is possible to update the URI of Centreon. For example, **/centreon** can be 
 
 > At least one path level is mandatory.
 
-To update the Centreon URI, you need to follow those steps:
-
-1. Go to **Administration > Parameters > Centreon UI** and change the **Centreon Web Directory** value.
-
-![image](../assets/administration/custom-uri.png)
-
-2. Edit Apache configuration file for Centreon Web...
+To update the Centreon URI, you need to edit Apache configuration file for Centreon Web:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -846,9 +840,50 @@ vim /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf
 ```
 
 </TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+vim /etc/apache2/sites-available/centreon.conf
+```
+
+</TabItem>
 </Tabs>
 
-...and change **/centreon** path with your new path
+and change **/centreon** path with your new path:
+
+```apache
+Define base_uri "/centreon"
+```
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+Then restart Apache:
+
+```shell
+systemctl restart httpd
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+Then restart Apache:
+
+```shell
+systemctl restart httpd24-httpd
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+Then restart Apache:
+
+```shell
+systemctl restart httpd
+```
+
+</TabItem>
+</Tabs>
 
 ## Enabling http2
 

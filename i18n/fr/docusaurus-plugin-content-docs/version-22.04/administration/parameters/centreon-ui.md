@@ -3,6 +3,8 @@ id: centreon-ui
 title: Centreon UI
 ---
 
+### Options générales
+
 Cette partie traite de la configuration des options générales de l'interface web
 Centreon.
 
@@ -12,8 +14,6 @@ Depuis le menu **Administration > Paramètres > Centreon web**.
 
 - Le champ **Répertoire** désigne le répertoire dans lequel Centreon est
 installé
-- Le champ **Répertoire Web de Centreon** indique le répertoire web sur lequel
-est installé Centreon
 - Le champs **Contacts & Contact groups method calculation** permet de définir
 comment l'héritage des notifications des hôtes et services vont être calculés
 - Le champ **Limite par page (par défaut)** définit le nombre d'objet affiché
@@ -69,15 +69,3 @@ Renseigner les différents champs:
 
 Pour valider la configuration, cliquez sur le bouton **Test Internet Connection**. Si le message
 **Connection Successful** apparaît, votre configuration est valide, sinon modifiez vos paramètres.
-
-## Autologin
-
-Voir [Configurer une authentification par Autologin](../../connect/autologin.md).
-
-## SSO
-
-Voir [Configurer une authentification par SSO](../../connect/sso.md).
-
-## OpenId Connect
-
-Voir [Configurer une authentification par OpenId Connect](../../connect/openid.md).
