@@ -8,8 +8,6 @@ interface.
 
 Go to **Administration > Parameters > Centreon UI**.
 
-![image](../../assets/administration/parameters-centreon-ui.png)
-
 ## General options
 
 - **Directory** indicates the directory where Centreon is installed
