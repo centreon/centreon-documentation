@@ -77,14 +77,14 @@ yum install centreon-pack-hardware-sensors-akcp-snmp
 
 ## Configuration
 
-### hôte
+### Hôte
 
 * Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
 * Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre serveur **AKCP Sensor**.
 * Appliquez le modèle d'hôte **HW-Sensor-Akcp-SNMP-custom**.
 
-Si vous utilisez SNMP en version 3, vous devez configurer les paramètres
-spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
+> Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro SNMPEXTRAOPTIONS.
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
 
 | Obligatoire | Macro            | Description                                  |
 |:------------|:-----------------|:---------------------------------------------|

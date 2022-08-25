@@ -1514,6 +1514,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-fortinet-fortigate-restapi'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-fortinet-fortimanager-snmp'
         },
         {
@@ -1543,6 +1547,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-switchs-hirschmann'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-hp-moonshot-snmp'
         },
         {
           type: 'doc',
@@ -1639,6 +1647,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-netgear-mseries-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-netgear-sseries-snmp'
         },
         {
           type: 'doc',
