@@ -19,6 +19,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 22.04.3
 
+Release date: `August 25, 2022`
+
 #### Enhancements
 
 - [API] Added endpoint to perform all web updates
