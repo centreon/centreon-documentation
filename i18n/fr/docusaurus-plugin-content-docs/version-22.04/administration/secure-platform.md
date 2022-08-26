@@ -812,11 +812,13 @@ Vous pouvez maintenant accéder à votre plateforme via votre navigateur en mode
 
 ## URI personnalisée
 
-Il est possible de modifier l'URI de Centreon. Par exemple, **/centreon** peut être remplacé par **/monitoring**.
+Il est possible de personnaliser l'URI de connexion à votre plateforme Centreon. Par exemple, **/centreon** peut être remplacé par **/monitoring**.
 
 > Au moins un niveau de chemin est obligatoire.
 
-Pour mettre à jour l'URI Centreon, editez le fichier de configuration Apache pour Centreon :
+Pour personnaliser l'URI de Centreon :
+
+1. Éditez le fichier de configuration Apache pour Centreon :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -842,16 +844,16 @@ vim /etc/apache2/sites-available/centreon.conf
 </TabItem>
 </Tabs>
 
-et modifiez le chemin **/centreon** par le nouveau:
+2. Remplacez le chemin **/centreon** par le chemin désiré :
 
 ```apache
 Define base_uri "/centreon"
 ```
 
+3. Redémarrez Apache :
+
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-Puis redémarrez Apache :
 
 ```shell
 systemctl restart httpd
@@ -860,16 +862,12 @@ systemctl restart httpd
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
-Puis redémarrez Apache :
-
 ```shell
 systemctl restart httpd24-httpd
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
-
-Puis redémarrez Apache :
 
 ```shell
 systemctl restart apache2

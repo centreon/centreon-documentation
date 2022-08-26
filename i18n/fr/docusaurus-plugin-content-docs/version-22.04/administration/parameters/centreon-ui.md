@@ -10,11 +10,9 @@ Centreon.
 
 Depuis le menu **Administration > Paramètres > Centreon web**.
 
-![image](../../assets/administration/parameters-centreon-ui.png)
-
 - Le champ **Répertoire** désigne le répertoire dans lequel Centreon est
 installé
-- Le champs **Contacts & Contact groups method calculation** permet de définir
+- Le champ **Contacts & Contact groups method calculation** permet de définir
 comment l'héritage des notifications des hôtes et services vont être calculés
 - Le champ **Limite par page (par défaut)** définit le nombre d'objet affiché
 par page de **Configuration**
