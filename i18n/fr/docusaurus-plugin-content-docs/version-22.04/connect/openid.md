@@ -67,22 +67,20 @@ Si vous laissez ces deux champs vides, toutes les adresses IP seront autorisées
 - **Adresses de clients de confiance** : Si vous entrez des adresses IP dans ce champ, seules ces adresses IP seront autorisées à accéder à l'interface Centreon. Toutes les autres adresses IP seront bloquées. Séparez les adressses IP par des virgules.
 - **Adresses de clients sur liste noire** : Ces adresses IP seront bloquées. Toutes les autres adresses IP seront autorisées.
 
-### Étape 4 : Gestion des utilisateurs
+### Étape 4 : Gérer la création des utilisateurs
 
 <Tabs groupId="sync">
 <TabItem value="Gestion automatique" label="Gestion automatique">
 
 ![image](../assets/administration/oidc-import-users.png)
 
-Activez l'import automatique des utilisateurs :
+Si vous activez l'import automatique des utilisateurs, les utilisateurs qui se connecteront à Centreon pour la première fois seront créés dans la configuration Centreon. (Activer l'option n'importe pas automatiquement tous les utilisateurs de votre infrastructure.)
 
-- **Activer l'importation automatique** : active/désactive l'import automatique des utilisateurs.
-- **Modèle de contact** : sélectionnez un modèle de contact qui sera appliqué aux nouveaux utilisateurs importés.
-  Cela permet notamment de gérer le paramétrage par défaut de la notification.
-- **Attribut de l'email** : définit quelle variable renvoyée par les points d'entrée
-**Point d'entrée de jeton d'introspection** ou **Point d'entrée d'information utilisateur** doit être utilisée pour récupérer l'adresse email de l'utilisateur.
-- **Attribut du nom complet** : définit quelle variable renvoyée par les points d'entrée
-**Point d'entrée de jeton d'introspection** ou **Point d'entrée d'information utilisateur** doit être utilisée pour récupérer le nom complet de l'utilisateur.
+- **Activer l'importation automatique** : active/désactive l'import automatique des utilisateurs. Si l'import automatique des utilisateurs est désactivé, vous devrez [créer chaque utilisateur manuellement](../monitoring/basic-objects/contacts-create.md) avant que celui-ci ne se connecte.
+- **Modèle de contact** : sélectionnez un [modèle de contact](../monitoring/basic-objects/contacts-templates.md) qui sera appliqué aux nouveaux utilisateurs importés.
+  Cela permet notamment de gérer le paramétrage par défaut des [notifications](../alerts-notifications/notif-configuration.md).
+- **Attribut de l'email** : définit quelle variable renvoyée par les points d'entrée **Point d'entrée de jeton d'introspection** ou **Point d'entrée d'information utilisateur** doit être utilisée pour récupérer l'adresse email de l'utilisateur.
+- **Attribut du nom complet** : définit quelle variable renvoyée par les points d'entrée **Point d'entrée de jeton d'introspection** ou **Point d'entrée d'information utilisateur** doit être utilisée pour récupérer le nom complet de l'utilisateur.
 
 </TabItem>
 <TabItem value="Gestion manuelle" label="Gestion manuelle">
@@ -96,12 +94,13 @@ Activez l'import automatique des utilisateurs :
 
 ![image](../assets/administration/oidc-authorizations.png)
 
-Paramétrez la gestion des autorisations :
+[Attribuez des droits aux utilisateurs](../administration/access-control-lists.md) en les liant 
+à des [groupes d'accès](../administration/access-control-lists.md#creating-an-access-group) :
 
-- **Groupe de contacts** : Sélectionner un groupe de contact auquel seront ajoutés automatiquement les utilisateurs lors de leur connexion à l'interface Centreon.
+- **Groupe de contacts** : Sélectionnez un groupe de contacts auquel seront ajoutés automatiquement les utilisateurs lors de leur connexion à l'interface Centreon.
 - **Clé d'autorisation** : définit quelle variable renvoyée par les points d'entrée
-**Point d'entrée de jeton d'introspection** ou **Point d'entrée d'information utilisateur** doit être utilisée pour récupérer la liste des groupes de l'utilisateur. Lorsque ce paramètre n'est pas renseigné, la valeur **groups** sera prise en compte par défaut.
-- Définissez ensuite des couples entre une valeur de la **Clé d'autorisation** et un **Groupe d'ACL** Centreon pour ajouter les droits à l'utilisateur lors de sa connexion à l'interface. 
+**Point d'entrée de jeton d'introspection** ou **Point d'entrée d'information utilisateur** doit être utilisée pour récupérer la liste des groupes auxquels appartient l'utilisateur. Si ce paramètre n'est pas renseigné, la valeur **groups** sera appliquée par défaut.liste des groupes de l'utilisateur. Lorsque ce paramètre n'est pas renseigné, la valeur **groups** sera prise en compte par défaut.
+- Définissez ensuite des couples entre une valeur de la **Clé d'autorisation** et un **Groupe d'ACL** Centreon pour attribuer des droits à l'utilisateur lors de sa connexion à l'interface. 
 
 > A chaque connexion de l'utilisateur, la gestion des autorisations est réinitialisée pour tenir compte des informations provenant du fournisseur d'identité.
 

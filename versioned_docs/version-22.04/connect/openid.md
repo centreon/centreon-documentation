@@ -65,21 +65,21 @@ If you leave both fields blank, all IP adresses will be allowed to access the Ce
 - **Trusted client addresses**: If you enter IP addresses in this field, only these IP addresses will be allowed to access the Centreon interface. All other IP addresses will be blocked. IP addresses must be separated by commas.
 - **Blacklist client addresses**: These IP adresses will be blocked. All other IP addresses will be allowed to access the Centreon interface.
 
-### Step 4: User Management
+### Step 4: Manage user creation
 
 <Tabs groupId="sync">
 <TabItem value="Automatic management" label="Automatic management">
 
 ![image](../assets/administration/oidc-import-users.png)
 
-Enable Auto import users:
+If you turn on **Enable Auto import users**, users that log in to Centreon for the first time will be created in the Centreon configuration. (Turning the option on does not import automatically all users in your infrastructure.)
 
-- **Enable auto import** : enables or disables automatic users import.
-- **Contact template** : select a contact template that will be applied to new imported users.
-  This allows in particular to manage the default configuration of the notification.
-- **Attribut de l'email** : defines which of the variables returned by **Introspection Token Endpoint** or **User Information Endpoint**
-  must be used to get user email address.
-- **Attribut du nom complet** : defines which of the variables returned by **Introspection Token Endpoint** or **User Information Endpoint**
+- **Enable auto import** : enables or disables automatic users import.  If auto import is disabled, you will have to [create each user manually](../monitoring/basic-objects/contacts-create.md) before they can log in.
+- **Contact template** : select a [contact template](../monitoring/basic-objects/contacts-templates.md)  that will be applied to newly imported users.
+  This allows in particular to manage the default configuration of the [notifications](../alerts-notifications/notif-configuration.md).
+- **Email attribute** : defines which of the variables returned by **Introspection Token Endpoint** or **User Information Endpoint**
+  must be used to get user's email address.
+- **Fullname attribute** : defines which of the variables returned by **Introspection Token Endpoint** or **User Information Endpoint**
   must be used to get user full name.
 
 </TabItem>
@@ -94,12 +94,12 @@ On page **Configuration > Users > Contacts/Users**, [create the users](../monito
 
 ![image](../assets/administration/oidc-authorizations.png)
 
-Configure authorization management:
+[Grant users rights](../administration/access-control-lists.md) by linking them to [access groups](../administration/access-control-lists.md#creating-an-access-group):
 
-- **Contact group** : select a contact group to which users will be automatically added when they connect to the Centreon interface.
-- **Authorization key** : defines which of the variables returned by **Introspection Token Endpoint** or **User Information Endpoint**
-  must be used to get the list of groups. When this parameter is not filled in, the value **groups** will be taken into account by default.
-- Then define pairs between a value of the **Authorization key** and a Centreon **ACL group** to add rights to the user when connecting to the interface. 
+- **Contact group**: select a contact group to which users will be automatically added when they connect to the Centreon interface.
+- **Authorization key**: defines which of the variables returned by **Introspection Token Endpoint** or **User Information Endpoint**
+  must be used to get the list of groups the user belongs to. When this parameter is not filled in, the value **groups** will be taken into account by d
+- Pair a value for the **Authorization key** with a Centreon **ACL group** so that the user is granted the corresponding rights when connecting to the interface.
 
 > Each time the user logs in, authorization management is reinitialized to take into account information from the identity provider.
 
