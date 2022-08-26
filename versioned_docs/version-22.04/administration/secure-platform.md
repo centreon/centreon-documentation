@@ -819,17 +819,13 @@ Now you can access your platform with your browser in HTTPS mode.
 
 ## Custom URI
 
-It is possible to update the URI of Centreon. For example, **/centreon** can be replaced by **/monitoring**.
+It is possible to customize the URI for your Centreon platform. For example, **/centreon** can be replaced by **/monitoring**.
 
 > At least one path level is mandatory.
 
-To update the Centreon URI, you need to follow those steps:
+To customize the Centreon URI:
 
-1. Go to **Administration > Parameters > Centreon UI** and change the **Centreon Web Directory** value.
-
-![image](../assets/administration/custom-uri.png)
-
-2. Edit Apache configuration file for Centreon Web...
+1. Edit the Apache configuration file for Centreon Web:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -846,9 +842,46 @@ vim /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf
 ```
 
 </TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+vim /etc/apache2/sites-available/centreon.conf
+```
+
+</TabItem>
 </Tabs>
 
-...and change **/centreon** path with your new path
+2. Replace **/centreon** with your new path:
+
+```apache
+Define base_uri "/centreon"
+```
+
+3. Restart Apache:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+systemctl restart httpd
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```shell
+systemctl restart httpd24-httpd
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+systemctl restart apache2
+```
+
+</TabItem>
+</Tabs>
 
 ## Enabling http2
 

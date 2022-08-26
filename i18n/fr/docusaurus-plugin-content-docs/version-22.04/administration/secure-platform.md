@@ -812,17 +812,13 @@ Vous pouvez maintenant accéder à votre plateforme via votre navigateur en mode
 
 ## URI personnalisée
 
-Il est possible de modifier l'URI de Centreon. Par exemple, **/centreon** peut être remplacé par **/monitoring**.
+Il est possible de personnaliser l'URI de connexion à votre plateforme Centreon. Par exemple, **/centreon** peut être remplacé par **/monitoring**.
 
 > Au moins un niveau de chemin est obligatoire.
 
-Pour mettre à jour l'URI Centreon, vous devez suivre les étapes suivantes:
+Pour personnaliser l'URI de Centreon :
 
-1. Rendez-vous dans le menu **Administration > Paramètres > Centreon web** et modifiez le champ **Centreon Web Directory**
-
-![image](../assets/administration/custom-uri.png)
-
-2. Éditez le fichier de configuration Apache pour Centreon
+1. Éditez le fichier de configuration Apache pour Centreon :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -839,9 +835,46 @@ vim /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf
 ```
 
 </TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+vim /etc/apache2/sites-available/centreon.conf
+```
+
+</TabItem>
 </Tabs>
 
-et modifiez le chemin **/centreon** par le nouveau.
+2. Remplacez le chemin **/centreon** par le chemin désiré :
+
+```apache
+Define base_uri "/centreon"
+```
+
+3. Redémarrez Apache :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+systemctl restart httpd
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```shell
+systemctl restart httpd24-httpd
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+systemctl restart apache2
+```
+
+</TabItem>
+</Tabs>
 
 ## Activation du http2
 
@@ -994,5 +1027,5 @@ Les journaux des événements Centreon sont disponibles dans les répertoires su
 
 # Sauvegardez votre plateforme
 
-Centreon propose de sauvegarder la configuration de la plateforme. Pour ce faire, accédez au menu
-[**Administration  >  Parameters  >  Backup**](./backup.md).
+Centreon propose de sauvegarder la configuration de la plateforme. Pour ce faire, accédez au menu 
+[**Administration > Parameters > Backup**](./backup.md).
