@@ -870,7 +870,7 @@ systemctl restart httpd24-httpd
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-systemctl restart httpd
+systemctl restart apache2
 ```
 
 </TabItem>
