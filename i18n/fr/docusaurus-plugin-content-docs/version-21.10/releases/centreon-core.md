@@ -28,6 +28,7 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 - [Configuration] Extended the size of the URL, Notes and Action URL fields to avoid truncating long URLs
 - [Configuration] Fixed a regression: multiple trap definitions can use the same OID again
 - [Configuration] Fixed contact/contactgroup additive inheritance configuration using massive change
+- [Core] Fixed SQL queries when databases names contained a dash
 - [Core] Fixed the database partitioning for MySQL 8
 - [Monitoring] Fixed deletion of comments
 - [Monitoring] Fixed the "Last_update" column in legacy pages
