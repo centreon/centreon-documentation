@@ -879,7 +879,7 @@ systemctl restart httpd24-httpd
 Then restart Apache:
 
 ```shell
-systemctl restart httpd
+systemctl restart apache2
 ```
 
 </TabItem>

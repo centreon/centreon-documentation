@@ -872,7 +872,7 @@ systemctl restart httpd24-httpd
 Puis redémarrez Apache :
 
 ```shell
-systemctl restart httpd
+systemctl restart apache2
 ```
 
 </TabItem>
