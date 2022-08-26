@@ -18,6 +18,8 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ### 21.10.9
 
+Release date: `August 26, 2022`
+
 #### Enhancements
 
 - [Install] Improved error handling during installation
