@@ -78,7 +78,7 @@ If you turn on **Enable Auto import users**, users that log in to Centreon for t
 - **Contact template** : select a [contact template](../monitoring/basic-objects/contacts-templates.md)  that will be applied to newly imported users.
   This allows in particular to manage the default configuration of the [notifications](../alerts-notifications/notif-configuration.md).
 - **Email attribute** : defines which of the variables returned by **Introspection Token Endpoint** or **User Information Endpoint**
-  must be used to get user's email address.
+  must be used to get the user's email address.
 - **Fullname attribute** : defines which of the variables returned by **Introspection Token Endpoint** or **User Information Endpoint**
   must be used to get user full name.
 
