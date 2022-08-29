@@ -46,7 +46,7 @@ Once it receives this data, by default, Centreon Broker redistributes them to th
 
 **See also**: [Centreon Broker Event Mapping](../developer/developer-broker-mapping.md).
 
-## Broker inverted flow mode
+## Broker reverse mode
 
 Advanced configuration for Centreon [Broker](#broker) that reverses the direction of connection for Broker communications. It switches the "client" and "server" roles so as to adapt to particular network configurations. For exemple, this mode is used by Centreon MAP to subscribe to the real-time flow of Broker events.
 
