@@ -1,6 +1,6 @@
 ---
 id: using-packages
-title: Installation par les paquets
+title: À partir des paquets
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -10,12 +10,11 @@ Source disponible gratuitement dans notre dépôt.
 
 Ces paquets peuvent être installés sur CentOS 7, sur Alma/RHEL/Oracle Linux 8 et sur Debian 11.
 
-Vous devez exécuter la procédure d'installation en tant qu'utilisateur privilégié.
+> Vous devez exécuter la procédure d'installation en tant qu'utilisateur privilégié.
 
 ## Pré-requis
 
-Après avoir installé votre serveur, mettez à jour votre système d'exploitation à l'aide de la commande suivante
-commande suivante :
+Après avoir installé votre serveur, mettez à jour votre système d'exploitation à l'aide de la commande suivante :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -86,6 +85,11 @@ SELinux :
 
 ```shell
 $ getenforce
+```
+
+Vous devriez obtenir ce résultat :
+
+```shell
 Disabled
 ```
 
@@ -130,7 +134,7 @@ systemctl stop firewalld
 systemctl disable firewalld
 ```
 
-### Installer les référentiels
+### Installer les dépôts
 
 <Tabs groupId="sync">
 <TabItem value="Alma 8" label="Alma 8">
@@ -207,9 +211,9 @@ dnf module install php:remi-8.0
 #### Dépôt Redhat Software Collections
 
 Pour installer Centreon, vous devrez configurer le dépôt officiel Software Collections
-officiel pris en charge par Redhat. Il est nécessaire pour installer apache 2.4.
+pris en charge par RedHat. Il est nécessaire pour installer apache 2.4.
 
-Installez le dépôt Software Collections à l'aide de cette commande :
+Installez le dépôt Software Collections à l'aide de la commande suivante :
 
 ```shell
 yum install -y centos-release-scl
@@ -247,7 +251,7 @@ Pour installer le dépôt Sury, exécutez la commande suivante :
 echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/sury-php.list
 ```
 
-Ensuite, importez la clé du référentiel :
+Ensuite, importez la clé du dépôt :
 
 ```shell
 wget -O- https://packages.sury.org/php/apt.gpg | gpg --dearmor | tee /etc/apt/trusted.gpg.d/php.gpg  > /dev/null 2>&1
@@ -292,10 +296,10 @@ Les paquets seront installés automatiquement.
 
 #### Dépôt Centreon
 
-Pour installer le logiciel Centreon à partir du référentiel, vous devez d'abord installer le paquetage
-centreon-release, qui fournira le fichier du référentiel.
+Pour installer le logiciel Centreon à partir des dépôts, vous devez d'abord installer le paquet
+**centreon-release**, qui fournira le fichier du dépôt.
 
-Installez le référentiel Centreon à l'aide de cette commande :
+Installez le dépôt Centreon à l'aide de la commande suivante :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -318,7 +322,7 @@ yum install -y  https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/c
 echo "deb https://apt.centreon.com/repository/22.04/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 ```
 
-Ensuite, importez la clé du référentiel :
+Ensuite, importez la clé du dépôt :
 
 ```shell
 wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
@@ -331,11 +335,11 @@ wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg
 
 Cette section décrit comment installer un serveur central Centreon.
 
-Vous pouvez installer ce serveur avec une base de données locale sur le serveur, ou
+Vous pouvez installer ce serveur avec une base de données locale au serveur, ou
 une base de données distante sur un serveur dédié.
 
 <Tabs groupId="sync">
-<TabItem value="With a local database" label="With a local database">
+<TabItem value="Avec base de données locale" label="Avec base de données locale">
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -369,10 +373,10 @@ systemctl restart mariadb
 </Tabs>
 
 </TabItem>
-<TabItem value="With a remote database" label="With a remote database">
+<TabItem value="Avec une base de données déportée" label="Avec une base de données déportée">
 
 > Si vous installez la base de données sur un serveur dédié, ce serveur doit également avoir
-> les référentiels requis.
+> les dépôts requis.
 
 Exécutez la commande suivante sur le serveur central :
 
@@ -442,48 +446,46 @@ Sécurisez l'accès root à MariaDB en exécutant la commande suivante :
 mysql_secure_installation
 ```
 
-Ensuite, dans la dabatase distante, créez un utilisateur avec des privilèges **root**. Vous devrez entrer cet utilisateur pendant le 
-processus d'installation web (à [étape 6](../web-and-post-installation.md#step-6-database-infomation),
+Ensuite, dans la base de données distante, créez un utilisateur avec des privilèges **root**. Vous devrez entrer cet utilisateur pendant 
+le processus d'installation web (à [étape 6](../web-and-post-installation.md#step-6-database-infomation),
 dans les champs **Root user** et **Root password**).
 
 ```SQL
-CREATE USER '<USER>'@'<CENTRAL_SERVER_IP>' IDENTIFIED BY '<PASSWORD>';
-GRANT ALL PRIVILEGES ON *.* TO '<USER>'@'<CENTRAL_SERVER_IP>' WITH GRANT OPTION;
+CREATE USER '<UTILISATEUR>'@'<IP_SERVEUR_CENTRAL>' IDENTIFIED BY '<MOT_DE_PASSE>';
+GRANT ALL PRIVILEGES ON *.* TO '<UTILISATEUR>'@'<IP_SERVEUR_CENTRAL>' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 ```
 
 Exemple :
 
 ```shell
-CREATE USER 'dbadmin'@'<CENTRAL_SERVER_IP>' IDENTIFIED BY '<DBADMIN_PASSWORD>';
-GRANT ALL PRIVILEGES ON *.* TO 'dbadmin'@'<CENTRAL_SERVER_IP>' WITH GRANT OPTION;
+CREATE USER 'dbadmin'@'<IP_SERVEUR_CENTRAL>' IDENTIFIED BY '<MOT_DE_PASSE_DBADMIN>';
+GRANT ALL PRIVILEGES ON *.* TO 'dbadmin'@'<IP_SERVEUR_CENTRAL>' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 ```
 
-> Remplacez **<CENTRAL_SERVER_IP\>** par l'adresse IP de Centreon Central qui se connectera au serveur de base de données.
-> le serveur de base de données.
+> Remplacez **<IP_SERVEUR_CENTRAL\>** par l'adresse IP du serveur central qui se connectera au serveur de bases de données.
 >
-> Remplacez **<USER\>** et **<PASSWORD\>** par les informations d'identification de l'utilisateur.
+> Remplacez **<UTILISATEUR\>** et **<MOT_DE_PASSE\>** par les identifiants de l'utilisateur.
 
-Cet utilisateur ne sera utilisé que pour le processus d'installation : une fois [l'installation web](../web-and-post-installation.md/) terminée, vous pouvez supprimer cet utilisateur via la commande :
+Cet utilisateur ne sera utilisé que pour le processus d'installation. Une fois [l'installation web](../web-and-post-installation.md/) terminée, vous pouvez supprimer cet utilisateur via la commande suivante :
 
 ```SQL
-DROP USER '<USER>'@'<IP>';
+DROP USER '<UTILISATEUR>'@'<IP_SERVEUR_CENTRAL>';
 ```
 
 Exemple :
 
 ```SQL
-DROP USER 'dbadmin'@'<CENTRAL_SERVER_IP>';
+DROP USER 'dbadmin'@'<IP_SERVEUR_CENTRAL>';
 ```
 
 </TabItem>
 </Tabs>
 
-* Le paquet **centreon-database** installe une configuration optimisée de MariaDB
-pour être utilisée avec Centreon.
+* Le paquet **centreon-database** installe une configuration de MariaDB optimisée pour être utilisée avec Centreon.
 
-> Si ce paquetage n'est pas installé, la limitation du système **LimitNOFILE** devrait être
+> Si ce paquet n'est pas installé, la limitation du système **LimitNOFILE** devrait être
 > au moins fixée à **32000** à l'aide d'un fichier de configuration dédié, par exemple :
 >
 > ```shell
@@ -524,13 +526,13 @@ pour être utilisée avec Centreon.
 > open_files_limit=32000
 > ```
 > 
-> MariaDB doit écouter toutes les interfaces au lieu de localhost/127.0.0.1, qui est la valeur par défaut. Editez le fichier suivant :
+> MariaDB doit écouter sur toutes les interfaces au lieu d'écouter sur localhost/127.0.0.1, qui est la valeur par défaut. Éditez le fichier suivant :
 > 
 > ```shell
 > /etc/mysql/mariadb.conf.d/50-server.cnf
 > ```
 > 
-> Définissez le paramètre **adresse de l'ordinateur** à **0.0.0.0** et redémarrez mariadb.
+> Attribuez au paramètre **bind-address** la valeur **0.0.0.0** et redémarrez mariadb.
 > 
 > ```shell
 > systemctl restart mariadb
@@ -539,8 +541,7 @@ pour être utilisée avec Centreon.
 </TabItem>
 </Tabs>
 
-> En plus des directives ci-dessus, il est fortement recommandé d'adapter la configuration de la base de données avec les paramètres suivants
-> configuration de la base de données avec les paramètres suivants :
+> En plus des directives ci-dessus, il est fortement recommandé d'adapter la configuration de la base de données avec les paramètres suivants :
 >
 > ```shell
 > [server]
@@ -656,14 +657,14 @@ systemctl restart mariadb
 ### Sécuriser la base de données
 
 Depuis MariaDB 10.5, il est obligatoire de sécuriser l'accès root de la base de données avant d'installer Centreon.
-Si vous utilisez une base de données locale, exécutez la commande suivante sur le serveur central sinon sur le serveur de la base de données :
+Si vous utilisez une base de données locale, exécutez la commande suivante sur le serveur central :
 
 ```shell
 mysql_secure_installation
 ```
 
-* Répondez **oui** à toutes les questions, sauf à "Disallow root login remotely ?
-* Il est obligatoire de définir un mot de passe pour l'utilisateur **root** de la base de données. Vous aurez besoin de ce mot de passe pendant l'[installation web](../web-and-post-installation.md).
+* Répondez **oui** à toutes les questions, sauf à "Disallow root login remotely ?".
+* Il est obligatoire de définir un mot de passe pour l'utilisateur **root** de la base de données. Ce mot de passe vous sera demandé pendant l'[installation web](../web-and-post-installation.md).
 
 > Pour plus d'informations, veuillez consulter la [documentation officielle de MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/).
 
@@ -697,4 +698,4 @@ systemctl start apache2
 </Tabs>
 
 2. Pour terminer l'installation, suivez la procédure
-[étapes de l'installation web](../web-and-post-installation.md#web-installation).
+d'[installation web](../web-and-post-installation.md#web-installation).

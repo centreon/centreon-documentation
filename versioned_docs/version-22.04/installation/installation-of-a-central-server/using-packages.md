@@ -322,6 +322,8 @@ yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/ce
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
+To install the Centreon repository, execute the following command:
+
 ```shell
 echo "deb https://apt.centreon.com/repository/22.04/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 ```
@@ -451,7 +453,7 @@ mysql_secure_installation
 ```
 
 Then, in the remote dabatase, create a user with **root** privileges. You will have to enter this user during the 
-web installation process (at [step 6](../web-and-post-installation.md#step-6-database-infomation),
+web installation process (at [step 6](../web-and-post-installation.md#step-6-database-information),
 in the **Root user** and **Root password** fields).
 
 ```SQL
@@ -662,7 +664,7 @@ systemctl restart mariadb
 ### Secure the database
 
 Since MariaDB 10.5, it is mandatory to secure the database's root access before installing Centreon.
-If you are using a local database, run the following command on the central server otherwise on the database server:
+If you are using a local database, run the following command on the central server:
 
 ```shell
 mysql_secure_installation
@@ -703,4 +705,4 @@ systemctl start apache2
 </Tabs>
 
 2. To complete the installation, follow the
-[web installation steps](../web-and-post-installation.md#web-installation) procedure.
+[web installation](../web-and-post-installation.md#web-installation) procedure.
