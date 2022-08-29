@@ -12,7 +12,7 @@ Ces paquets peuvent être installés sur CentOS 7, sur Alma/RHEL/Oracle Linux 8 
 
 > Vous devez exécuter la procédure d'installation en tant qu'utilisateur privilégié.
 
-## Pré-requis
+## Prérequis
 
 Après avoir installé votre serveur, mettez à jour votre système d'exploitation à l'aide de la commande suivante :
 
@@ -568,7 +568,7 @@ DROP USER 'dbadmin'@'<IP_SERVEUR_CENTRAL>';
 
 ### Nom du serveur
 
-Si vous le souhaitez, vous pouvez changer le nom d'hôte du serveur en utilisant la commande suivante :
+Si vous le souhaitez, vous pouvez changer le hostname du serveur en utilisant la commande suivante :
 
 ```shell
 hostnamectl set-hostname new-server-name
