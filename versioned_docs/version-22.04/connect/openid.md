@@ -80,7 +80,7 @@ If you turn on **Enable Auto import users**, users that log in to Centreon for t
 - **Email attribute** : defines which of the variables returned by **Introspection Token Endpoint** or **User Information Endpoint**
   must be used to get the user's email address.
 - **Fullname attribute** : defines which of the variables returned by **Introspection Token Endpoint** or **User Information Endpoint**
-  must be used to get user full name.
+  must be used to get the user's full name.
 
 </TabItem>
 <TabItem value="Manual management" label="Manual management">
