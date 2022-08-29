@@ -568,7 +568,7 @@ DROP USER 'dbadmin'@'<IP_SERVEUR_CENTRAL>';
 
 ### Nom du serveur
 
-Si vous le souhaitez, vous pouvez changer le hostname du serveur en utilisant la commande suivante :
+Si vous le souhaitez, vous pouvez changer le nom d'hôte du serveur en utilisant la commande suivante :
 
 ```shell
 hostnamectl set-hostname new-server-name
