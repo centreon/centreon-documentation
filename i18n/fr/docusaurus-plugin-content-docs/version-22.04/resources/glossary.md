@@ -211,7 +211,7 @@ Est appelé "plugin" une sonde de supervision, c'est-à-dire un binaire exécuta
 
 ## Plugin Pack
 
-L'expression "Plugin pack" désigne un [plugin](#plugin) et son pack:
+L'expression "Plugin pack" désigne un [plugin](#plugin) et son pack :
 
 Le pack contient la configuration associée au plugin dans Centreon (commandes, [modèles](#modèle), seuils) ainsi que des éléments nécessaires à la mise en œuvre de la découverte automatique.
 
