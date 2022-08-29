@@ -201,7 +201,7 @@ Object monitored by a Centreon platform ([hosts](#host), [services](#service), m
 
 ## Retention files
 
-Retention files belong to Centreon [Broker](#broker). These files store the monitoring data that could not be inserted into the database. For instance, if a communication problem occurs between Engine and Broker, the data is not lost, Broker stores them in a file (queue). The file will then be read by Centreon Broker, then inserted into the databases so as to avoid data loss.
+Retention files belong to Centreon [Broker](#broker). These files store the monitoring data that could not be inserted into the database. For instance, if a communication problem occurs between Engine and Broker, the data is not lost, Broker stores them in a file (whose name includes the term "queue"). The file will then be read by Centreon Broker, then inserted into the databases so as to avoid data loss.
 
 ## Retention period
 
