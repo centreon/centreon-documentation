@@ -85,7 +85,7 @@ Non traité, acquitté, en maintenance.
 ## Fichiers de rétention
 
 Les fichiers de rétention sont propres à Centreon [Broker](#broker).
-Ces fichiers permettent de conserver les données de supervision quand elles n’ont pas pu être insérées en base de données. Par exemple s'il y a un problème de connexion entre Engine et Broker, plutôt que de perdre ces données, Broker les stocke dans un fichier (queue). Ce fichier sera ensuite dépilé par Centreon Broker, puis inséré en base pour éviter une perte de données.
+Ces fichiers permettent de conserver les données de supervision quand elles n’ont pas pu être insérées en base de données. Par exemple s'il y a un problème de connexion entre Engine et Broker, plutôt que de perdre ces données, Broker les stocke dans un fichier (de type file d'attente, dont le nom comporte le terme "queue"). Ce fichier sera ensuite dépilé par Centreon Broker, puis inséré en base pour éviter une perte de données.
 
 ## Fichiers RRD
 
