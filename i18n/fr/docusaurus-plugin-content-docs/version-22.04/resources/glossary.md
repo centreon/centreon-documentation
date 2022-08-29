@@ -1,6 +1,6 @@
 ---
 id: glossary
-title: Glossaire
+title: Glossaire des concepts Centreon
 ---
 
 ## ACL
