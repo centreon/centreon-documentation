@@ -39,9 +39,9 @@ To use the Centreon data source as an unsigned plugin:
 
 2. Download the zip file containing the data source from [Centreon's download page](https://download.centreon.com/). The data source is located in the **Grafana** subsection of the **Custom platform** section.
 
-3. Extract the data source and put it in the **plugins** directory of your Grafana installation. (The location of this directory is defined in the **plugins** variable of your **grafana/conf/defaults.ini** file.)
+3. If you do not have a custom init file, create a copy of the **grafana/conf/default.ini** file and name it **custom.ini**.
 
-4. If you do not have a custom init file, create a copy of the **default.ini** file and name it **custom.ini**.
+4. Extract the data source and put it in the **plugins** directory of your Grafana installation. (The location of this directory is defined in the **plugins** variable of your **grafana/conf/custom.ini** file.)
 
 5. Edit the **custom.ini** file and add the Centreon data source to the list of allowed unsigned plugins:
 

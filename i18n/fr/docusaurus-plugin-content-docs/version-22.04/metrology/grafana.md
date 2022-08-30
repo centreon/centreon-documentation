@@ -39,9 +39,9 @@ Pour utiliser la data source Centreon en tant que plugin non signé :
 
 2. Téléchargez le fichier zippé contenant la data source depuis la [page de téléchargement de Centreon](https://download.centreon.com/). La data source se situe dans la sous-section **Grafana** de la section **Custom platform**.
 
-3. Extrayez la data source et placez-la dans le répertoire **plugins** de votre installation Grafana. (L'emplacement de ce répertoire est défini dans la variable **plugins** de votre fichier **grafana/conf/defaults.ini**.)
+3. Si vous n'avez pas de fichier init personnalisé, faites une copie du fichier **grafana/conf/default.ini** et renommez-le **custom.ini**.
 
-4. Si vous n'avez pas de fichier init personnalisé, faites une copie du fichier **default.ini** et renommez-le **custom.ini**.
+4. Extrayez la data source et placez-la dans le répertoire **plugins** de votre installation Grafana. (L'emplacement de ce répertoire est défini dans la variable **plugins** de votre fichier **grafana/conf/custom.ini**.)
 
 5. Éditez le fichier **custom.ini** et ajoutez la data source Centreon à la liste des plugins non signés autorisés :
 
