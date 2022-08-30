@@ -21,7 +21,8 @@ Il apporte les modèles de service suivants :
 | Alias               | Modèle de service                                       | Description                                            | Défaut |
 | :------------------ | :------------------------------------------------------ | :----------------------------------------------------- | :----- |
 | Backup-Items-Status | Cloud-Azure-Management-Recovery-Backup-Items-Status-Api | Contrôle l'état de sauvegarde des éléments d'un coffre | X      |
-| Backup-Jobs-Status  | Cloud-Azure-Management-Recovery-Backup-Jobs-Status-Api  | Contrôle l'état des travaux de sauvegarde d'un coffre  | X      |
+| Backup-Jobs-Status  | Cloud-Azure-Management-Recovery-Backup-Jobs-Status-Api  | Contrôle l'état des jobs de backup d'un vault  | X      |
+| Replication-Health  | Cloud-Azure-Management-Recovery-Replication-Health-Api  | Contrôle l'état de la réplication et du failover d'items d'un vault | X      |
 
 ### Règles de découverte
 
@@ -52,6 +53,15 @@ pour en savoir plus sur la découverte automatique d'hôtes.
 | Metric Name                 | Unit  |
 |:----------------------------|:------|
 | Backup job status           |       |
+
+</TabItem>
+
+<TabItem value="Replication-Health" label="Replication-Health">
+
+| Metric Name                 | Unit  |
+|:----------------------------|:------|
+| Replication health          |       |
+| Failover health             |       |
 
 </TabItem>
 </Tabs>
