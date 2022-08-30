@@ -1382,6 +1382,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-cisco-umbrella-snmp'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-cisco-vcs-restapi'
         },
         {
