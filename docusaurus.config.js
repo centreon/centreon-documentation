@@ -69,6 +69,7 @@ const config = {
   themes: [],
 
   plugins: [
+    /*
     [
       '@docusaurus/plugin-ideal-image',
       {
@@ -82,6 +83,7 @@ const config = {
     ],
 
     require.resolve('plugin-image-zoom'),
+    */
     [
       '@docusaurus/plugin-content-docs',
       {
