@@ -1349,6 +1349,10 @@
         {
           "type": "doc",
           "id": "version-22.10/resources/troubleshooting"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.10/resources/glossary"
         }
       ]
     }

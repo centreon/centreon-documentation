@@ -15,3 +15,5 @@ In this chapter, you will find information on how to quickly start on Centreon. 
 * [Create a Graphical view](create-graphical-view.md)
 * [Model your IT services (Service Mapping)](model-it-services.md)
 * [Analyze resources availability (Reporting)](analyze-resources-availability.md)
+
+You may also want to have a look at our [glossary of Centreon concepts](../resources/glossary.md).
