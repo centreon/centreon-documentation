@@ -14,7 +14,7 @@ pipeline {
      stage('Build next documentation') {
        steps {
          echo 'Using yarn to build documentation'
-         sh 'yarn build'
+         sh 'yarn build --no-minify'
        }
      }
      stage('Deploy next documentation release version to next environment') {
