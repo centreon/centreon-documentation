@@ -17,13 +17,13 @@ Le Plugin Pack Centreon **Efficient IP** apporte un modèle d'hôte :
 
 Il apporte les modèles de service suivants :
 
-| Service Alias       | Service Template                         | Service Description                                          | Default |
-| :------------------ | :--------------------------------------- | :----------------------------------------------------------- | :------ |
-| SOLID-Server-status | Net-Efficientip-Status-SNMP              | Vérifie le rôle et le statut du SOLID server                           | X       |
-| Dnssec-Validation   | Net-Efficientip-Dnssec-Validation-SNMP   | Vérifie les statistiques de validation DNSSEC du service DNS                          | X       |
-| Dns-Transfer        | Net-Efficientip-Dns-Transfer-SNMP        | Vérifie les statistiques des requêtes de transfert du service DNS                       | X       |
-| Dns-General         | Net-Efficientip-Dns-General-SNMP         | Vérifie l'utilisation générale du DNS                                      | X       |
-| Dns-Anwsers         | Net-Efficientip-Dns-Answers-SNMP         | Vérifie les statistiques de réponses DNS                                 | X       |
+| Service Alias       | Service Template                         | Service Description                                                | Default |
+| :------------------ | :--------------------------------------- | :----------------------------------------------------------------- | :------ |
+| SOLID-Server-status | Net-Efficientip-Status-SNMP              | Vérifie le rôle et le statut du SOLID server                       | X       |
+| Dnssec-Validation   | Net-Efficientip-Dnssec-Validation-SNMP   | Vérifie les statistiques de validation DNSSEC du service DNS       | X       |
+| Dns-Transfer        | Net-Efficientip-Dns-Transfer-SNMP        | Vérifie les statistiques des requêtes de transfert du service DNS  | X       |
+| Dns-General         | Net-Efficientip-Dns-General-SNMP         | Vérifie l'utilisation générale du DNS                              | X       |
+| Dns-Anwsers         | Net-Efficientip-Dns-Answers-SNMP         | Vérifie les statistiques de réponses DNS                           | X       |
 | Dhcp-Usage          | Net-Efficientip-Dhcp-Usage-SNMP          | Vérifie l'utilisation du DHCP                                      | X       |
 
 ### Métriques & statuts collectés
