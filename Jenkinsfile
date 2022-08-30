@@ -4,7 +4,8 @@ pipeline {
      stage('Install next documentation dependencies') {
        steps {
          echo 'Using Yarn to install dependencies'
-         sh 'cd ~ && curl -sL https://deb.nodesource.com/setup_16.x | sudo bash - && sudo apt install nodejs -y'
+         //sh 'cd ~ && curl -sL https://deb.nodesource.com/setup_16.x | sudo bash - && sudo apt install nodejs -y'
+         sh 'nvm install 16'
          sh 'sudo npm install --global yarn'
          sh 'node -v'
          sh 'yarn install'
