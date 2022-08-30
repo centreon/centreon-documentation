@@ -2,6 +2,8 @@
 id: grafana
 title: Plugin Centreon pour Grafana
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 Le plugin Centreon pour Grafana permet de visualiser dans Grafana des données issues de Centreon. Si vous utilisez Grafana pour récupérer des données d'autres platformes de supervision, vous pourrez ainsi mettre en parallèle les données issues de Centreon avec celles-ci.
 
@@ -37,7 +39,7 @@ Pour utiliser la data source Centreon en tant que plugin non signé :
 
 2. Téléchargez le fichier zippé contenant la data source depuis la [page de téléchargement de Centreon](https://download.centreon.com/). La data source se situe dans la sous-section **Grafana** de la section **Custom platform**.
 
-3. Extrayez la data source et placez-la dans le répertoire **plugins** de votre installation Grafana.
+3. Extrayez la data source et placez-la dans le répertoire **plugins** de votre installation Grafana. (L'emplacement de ce répertoire est défini dans la variable **plugins** de votre fichier **grafana/conf/defaults.ini**.)
 
 4. Si vous n'avez pas de fichier init personnalisé, faites une copie du fichier **default.ini** et renommez-le **custom.ini**.
 
@@ -49,11 +51,22 @@ Pour utiliser la data source Centreon en tant que plugin non signé :
 
 6. Redémarrez le service Grafana.
 
-   ```shell
-   systemctl restart grafana-server
-   ```
+<Tabs groupId="sync">
+<TabItem value="Linux" label="Linux">
 
-Le data source Centreon apparaît maintenant dans la liste des plugins disponibles.
+```shell
+systemctl restart grafana-server
+```
+
+</TabItem>
+<TabItem value="Windows" label="Windows">
+
+Dans l'onglet **Services** du gestionnaire des tâches, faites un clic droit sur le service Grafana puis cliquez sur **Redémarrer**.
+
+</TabItem>
+</Tabs>
+
+La data source Centreon apparaît maintenant dans la liste des plugins disponibles, à la page **Configuration > Plugins** de l'interface Grafana.
 
 ## Comparer des données dans un graphique
 
