@@ -486,7 +486,19 @@ Soit un serveur Centreon avec le FQDN suivant : **centreon7.localdomain**.
 
 En raison d'un changement de politique chez Google, les certificats auto-signés peuvent être rejetés par le navigateur Google Chrome (sans qu'il soit possible d'ajouter une exception). Pour continuer à utiliser ce navigateur, vous devez modifier la configuration OpenSSL.
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / CentOS 7">
+
 Ouvrez le fichier **/etc/pki/tls/openssl.cnf**. L'objectif est de modifier ce fichier pour renseigner les différents IPs et FQDNs relatifs au serveur.
+
+</TabItem>
+
+<TabItem value="Debian 11" label="Debian 11">
+
+Ouvrez le fichier **/etc/ssl/openssl.cnf**. L'objectif est de modifier ce fichier pour renseigner les différents IPs et FQDNs relatifs au serveur.
+
+</TabItem>
+</Tabs>
 
 Recherchez la section ```[v3_ca]``` afin d'ajouter le nouveau tag ```alt_names``` :
 
@@ -551,9 +563,23 @@ Ce certificat étant créé, vous pourrez l'utiliser pour signer le certificat d
 7. Créer un certificat pour le serveur :
 
 Créez votre certificat pour le serveur en utilisant le certificat x509 (**ca_demo.crt**) pour le signer.
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / CentOS 7">
+
 ```text
 openssl x509 -req -in centreon7.csr -out centreon7.crt -CA ca_demo.crt -CAkey ca_demo.key -CAcreateserial -CAserial ca_demo.srl  -extfile /etc/pki/tls/openssl.cnf -extensions v3_ca
 ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```text
+openssl x509 -req -in centreon7.csr -out centreon7.crt -CA ca_demo.crt -CAkey ca_demo.key -CAcreateserial -CAserial ca_demo.srl  -extfile /etc/ssl/openssl.cnf -extensions v3_ca
+```
+
+</TabItem>
+</Tabs>
 
 Le mot de passe créé à l'étape **Créer une clé privée pour le certificat de l'autorité de certification**  doit être renseigné. Vous obtenez un certificat pour le serveur nommé **centreon7.crt**.
 
@@ -577,11 +603,29 @@ Maintenant que vous avez votre certificat auto-signé, vous pouvez suivre la pro
 dnf install mod_ssl mod_security openssl
 ```
 
+2. Installer les certificats :
+
+Installez vos certificats (**centreon7.key** et **centreon7.crt** dans notre cas) en les copiant dans la configuration Apache :
+
+```text
+cp centreon7.key /etc/pki/tls/private/
+cp centreon7.crt /etc/pki/tls/certs/
+```
+
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
 yum install httpd24-mod_ssl httpd24-mod_security openssl
+```
+
+2. Installer les certificats :
+
+Installez vos certificats (**centreon7.key** et **centreon7.crt** dans notre cas) en les copiant dans la configuration Apache :
+
+```text
+cp centreon7.key /etc/pki/tls/private/
+cp centreon7.crt /etc/pki/tls/certs/
 ```
 
 </TabItem>
@@ -598,17 +642,17 @@ sudo a2enmod security2
 sudo systemctl restart apache2
 ```
 
-</TabItem>
-</Tabs>
-
 2. Installer les certificats :
 
 Installez vos certificats (**centreon7.key** et **centreon7.crt** dans notre cas) en les copiant dans la configuration Apache :
 
 ```text
-cp centreon7.key /etc/pki/tls/private/
-cp centreon7.crt /etc/pki/tls/certs/
+cp centreon7.key /etc/ssl/private/
+cp centreon7.crt /etc/ssl/certs/
 ```
+
+</TabItem>
+</Tabs>
 
 3. Sauvegarder la configuration actuelle du serveur Apache pour Centreon :
 
@@ -677,13 +721,72 @@ Voici un exemple de ce à quoi le fichier peut ressembler :
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
+```apacheconf
+Define base_uri "/centreon"
+Define install_dir "/usr/share/centreon"
+
+ServerTokens Prod
+
+<VirtualHost *:80>
+    RewriteEngine On
+    RewriteCond %{HTTPS} off
+    RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+</VirtualHost>
+
+<VirtualHost *:443>
+    #####################
+    # SSL configuration #
+    #####################
+    SSLEngine On
+    SSLProtocol All -SSLv3 -SSLv2 -TLSv1 -TLSv1.1
+    SSLCipherSuite ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-DSS-AES256-GCM-SHA384:DHE-DSS-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-GCM-SHA256:!aNULL:!eNULL:!LOW:!3DES:!MD5:!EXP:!PSK:!DSS:!RC4:!SEED:!ADH:!IDEA
+    SSLHonorCipherOrder On
+    SSLCompression Off
+    SSLCertificateFile /etc/pki/tls/certs/centreon7.crt
+    SSLCertificateKeyFile /etc/pki/tls/private/centreon7.key
+
+    Alias ${base_uri}/api ${install_dir}
+    Alias ${base_uri} ${install_dir}/www/
+
+    <LocationMatch ^\${base_uri}/?(?!api/latest/|api/beta/|api/v[0-9]+/|api/v[0-9]+\.[0-9]+/)(.*\.php(/.*)?)$>
+        ProxyPassMatch "fcgi://127.0.0.1:9042${install_dir}/www/$1"
+    </LocationMatch>
+
+    <LocationMatch ^\${base_uri}/?(authentication|api/(latest|beta|v[0-9]+|v[0-9]+\.[0-9]+))/.*$>
+        ProxyPassMatch "fcgi://127.0.0.1:9042${install_dir}/api/index.php/$1"
+    </LocationMatch>
+
+    ProxyTimeout 300
+    ErrorDocument 404 ${base_uri}/index.html
+    Options -Indexes +FollowSymLinks
+
+    <IfModule mod_security2.c>
+        # https://github.com/SpiderLabs/ModSecurity/issues/652
+        SecRuleRemoveById 200003
+    </IfModule>
+
+    <Directory "${install_dir}/www">
+        DirectoryIndex index.php
+        AllowOverride none
+        Require all granted
+        FallbackResource ${base_uri}/index.html
+    </Directory>
+
+    <Directory "${install_dir}/api">
+        AllowOverride none
+        Require all granted
+    </Directory>
+
+    <If "'${base_uri}' != '/'">
+        RedirectMatch ^/$ ${base_uri}
+    </If>
+</VirtualHost>
+```
+
+> N'oubliez pas de changer les directives **SSLCertificateFile** et **SSLCertificateKeyFile** avec les chemins d'accès vers votre clé et votre certificat. Dans notre cas : **SSLCertificateFile /etc/pki/tls/certs/centreon7.crt** et **SSLCertificateKeyFile /etc/pki/tls/private/centreon7.key**.
+
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
-</TabItem>
-
-<TabItem value="Debian 11" label="Debian 11">
-</TabItem>
-</Tabs>
 
 ```apacheconf
 Define base_uri "/centreon"
@@ -748,6 +851,77 @@ ServerTokens Prod
 ```
 
 > N'oubliez pas de changer les directives **SSLCertificateFile** et **SSLCertificateKeyFile** avec les chemins d'accès vers votre clé et votre certificat. Dans notre cas : **SSLCertificateFile /etc/pki/tls/certs/centreon7.crt** et **SSLCertificateKeyFile /etc/pki/tls/private/centreon7.key**.
+
+</TabItem>
+
+<TabItem value="Debian 11" label="Debian 11">
+
+```apacheconf
+Define base_uri "/centreon"
+Define install_dir "/usr/share/centreon"
+
+ServerTokens Prod
+
+<VirtualHost *:80>
+    RewriteEngine On
+    RewriteCond %{HTTPS} off
+    RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+</VirtualHost>
+
+<VirtualHost *:443>
+    #####################
+    # SSL configuration #
+    #####################
+    SSLEngine On
+    SSLProtocol All -SSLv3 -SSLv2 -TLSv1 -TLSv1.1
+    SSLCipherSuite ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-DSS-AES256-GCM-SHA384:DHE-DSS-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-GCM-SHA256:!aNULL:!eNULL:!LOW:!3DES:!MD5:!EXP:!PSK:!DSS:!RC4:!SEED:!ADH:!IDEA
+    SSLHonorCipherOrder On
+    SSLCompression Off
+    SSLCertificateFile /etc/ssl/certs/centreon7.crt
+    SSLCertificateKeyFile /etc/ssl/private/centreon7.key
+
+    Alias ${base_uri}/api ${install_dir}
+    Alias ${base_uri} ${install_dir}/www/
+
+    <LocationMatch ^\${base_uri}/?(?!api/latest/|api/beta/|api/v[0-9]+/|api/v[0-9]+\.[0-9]+/)(.*\.php(/.*)?)$>
+        ProxyPassMatch "fcgi://127.0.0.1:9042${install_dir}/www/$1"
+    </LocationMatch>
+
+    <LocationMatch ^\${base_uri}/?(authentication|api/(latest|beta|v[0-9]+|v[0-9]+\.[0-9]+))/.*$>
+        ProxyPassMatch "fcgi://127.0.0.1:9042${install_dir}/api/index.php/$1"
+    </LocationMatch>
+
+    ProxyTimeout 300
+    ErrorDocument 404 ${base_uri}/index.html
+    Options -Indexes +FollowSymLinks
+
+    <IfModule mod_security2.c>
+        # https://github.com/SpiderLabs/ModSecurity/issues/652
+        SecRuleRemoveById 200003
+    </IfModule>
+
+    <Directory "${install_dir}/www">
+        DirectoryIndex index.php
+        AllowOverride none
+        Require all granted
+        FallbackResource ${base_uri}/index.html
+    </Directory>
+
+    <Directory "${install_dir}/api">
+        AllowOverride none
+        Require all granted
+    </Directory>
+
+    <If "'${base_uri}' != '/'">
+        RedirectMatch ^/$ ${base_uri}
+    </If>
+</VirtualHost>
+```
+
+> N'oubliez pas de changer les directives **SSLCertificateFile** et **SSLCertificateKeyFile** avec les chemins d'accès vers votre clé et votre certificat. Dans notre cas : **SSLCertificateFile /etc/ssl/certs/centreon7.crt** et **SSLCertificateKeyFile /etc/ssl/private/centreon7.key**.
+
+</TabItem>
+</Tabs>
 
 5. Activer les flags HttpOnly / Secure et cacher la signature du serveur Apache :
 
