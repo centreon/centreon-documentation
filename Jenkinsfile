@@ -4,17 +4,15 @@ pipeline {
      stage('Install next documentation dependencies') {
        steps {
          echo 'Using Yarn to install dependencies'
-         //sh 'cd ~ && curl -sL https://deb.nodesource.com/setup_16.x | sudo bash - && sudo apt install nodejs -y'
+         sh 'cd ~ && curl -sL https://deb.nodesource.com/setup_16.x | sudo bash - && sudo apt install nodejs -y'
          sh 'sudo n 16'
-         //sh 'sudo npm install --global yarn'
-         //sh 'node -v'
          sh 'yarn install'
        }
      }
      stage('Build next documentation') {
        steps {
          echo 'Using yarn to build documentation'
-         sh 'yarn build --no-minify'
+         sh 'yarn build'
        }
      }
      stage('Deploy next documentation release version to next environment') {
