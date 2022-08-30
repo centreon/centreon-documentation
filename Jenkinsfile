@@ -6,8 +6,8 @@ pipeline {
          echo 'Using Yarn to install dependencies'
          //sh 'cd ~ && curl -sL https://deb.nodesource.com/setup_16.x | sudo bash - && sudo apt install nodejs -y'
          sh 'sudo n 16'
-         sh 'sudo npm install --global yarn'
-         sh 'node -v'
+         //sh 'sudo npm install --global yarn'
+         //sh 'node -v'
          sh 'yarn install'
        }
      }
