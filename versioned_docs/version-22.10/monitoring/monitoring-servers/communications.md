@@ -90,7 +90,7 @@ acknowledgements, etc and configuration export.
 
 #### Select communication type
 
-From `Configuration > Pollers` menu, edit the Poller configuration, and select
+From **Configuration > Pollers** menu, edit the Poller configuration, and select
 **ZMQ** as **Gorgone connection protocol**.
 
 Define the suitable **port** (port **5556** is recommended).
@@ -199,7 +199,7 @@ systemctl enable gorgoned
 
 #### Select communication type
 
-From `Configuration > Pollers` menu, edit the Remote Server configuration, and
+From **Configuration > Pollers** menu, edit the Remote Server configuration, and
 select **ZMQ** as **Gorgone connection protocol**.
 
 Define the suitable **port** (port **5556** is recommended).

@@ -4,7 +4,7 @@ title: Monitor Business Activities
 ---
 
 After adding, editing or deleting the BAs, KPIs and BVs the objects
-linked to Centreon BAM, go to `Configuration > Poller`, generate the
+linked to Centreon BAM, go to **Configuration > Poller**, generate the
 configuration files and push them to the Centreon central server.
 
 After loading the configuration and checked the services linked to the

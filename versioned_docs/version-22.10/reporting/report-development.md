@@ -654,6 +654,6 @@ properties:
 
 ### Running the report job
 
-In the menu `Reporting > Business Intelligence > Jobs`, define a job
+In the menu **Reporting > Business Intelligence > Jobs**, define a job
 to run your report design, and fill in all the specific report
 parameters.

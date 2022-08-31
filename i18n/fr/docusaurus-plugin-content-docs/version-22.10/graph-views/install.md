@@ -239,6 +239,27 @@ yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/ce
 ```
 
 </TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+Installez les dépendances suivantes :
+
+```shell
+apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2
+```
+
+Pour installer le dépôt Centreon, exécutez la commande suivante:
+
+```shell
+echo "deb https://apt.centreon.com/repository/22.04/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+```
+
+Puis importez la clé du dépôt :
+
+```shell
+wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+```
+
+</TabItem>
 </Tabs>
 
 > Si l'URL ne fonctionne pas, vous pouvez trouver manuellement ce paquet dans le dossier.
@@ -263,12 +284,46 @@ yum install centreon-map-server
 ```
 
 </TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt update
+apt install centreon-map-server
+```
+
+</TabItem>
 </Tabs>
 
 Lors de l'installation du serveur Centreon MAP, java (OpenJDK 11) sera automatiquement installé si nécessaire.
 
 > Vous devez disposer d'une base de données MariaDB pour stocker les données MAP
 > de Centreon, que ce soit sur localhost ou ailleurs.
+
+Pour installer MariaDB, exécutez la commande suivante:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install mariadb-client mariadb-server
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```shell
+yum install mariadb-client mariadb-server
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt install mariadb-client mariadb-server
+```
+
+</TabItem>
+</Tabs>
 
 ### Configuration
 
@@ -286,6 +341,22 @@ Puis, redémarrez MariaDB:
 systemctl restart mariadb
 ```
 
+#### Sécuriser la base de données
+
+Depuis MariaDB 10.5, il est obligatoire de sécuriser l'accès en root à la base avant d'installer Centreon. Si vous utilisez une base de données locale, exécutez la commande suivante sur le serveur central :
+
+```shell
+mysql_secure_installation
+```
+
+* Répondez oui à toute question sauf à "Disallow root login remotely?". 
+* Vous devez obligatoirement définir un mot de passe pour l'utilisateur **root** de la base de données.
+Ce mot de passe vous sera demandé lors de l'[installation web](../installation/web-and-post-installation.md).
+
+> Pour plus d'informations, veuillez consulter la [documentation officielle MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/).
+
+#### Script configure.sh
+
 Exécutez le script de configuration du serveur MAP de Centreon. Deux modes sont disponibles :
 interactive ou automatic.
 
@@ -301,7 +372,7 @@ Si c'est votre première installation, nous vous conseillons d'utiliser le mode 
 /etc/centreon-studio/configure.sh
 ```
 
-Si vous venez d'installer Centreon 22.04, attention, la plateforme utilise maintenant le nouveau protocole BBDO v3. Pour que MAP fonctionne correctement, éditez le fichier suivant : **/etc/centreon-map/map-config.properties**
+Si vous venez d'installer Centreon 22.04, attention, la plateforme utilise maintenant le nouveau protocole BBDO v3. Pour que MAP fonctionne correctement, éditez le fichier suivant : **/etc/centreon-studio/studio-config.properties**
 
 ```text
 broker.pb.message.enabled=true
@@ -312,6 +383,16 @@ Puis redémarrez le service **centreon-map** :
 ```shell
 systemctl restart centreon-map
 ```
+
+#### Configuration spécifique à Debian 11
+
+MariaDB doit écouter sur toutes les interfaces au lieu d'écouter sur localhost/127.0.0.1 (valeur par défaut). Éditez le fichier suivant :
+
+```shell
+/etc/mysql/mariadb.conf.d/50-server.cnf
+```
+
+Donnez au paramètre **bind-address** la valeur **0.0.0.0**.
 
 ### Serveur Central
 
@@ -372,6 +453,14 @@ dnf install centreon-map-web-client
 
 ```shell
 yum install centreon-map-web-client
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt update
+apt install centreon-map-web-client
 ```
 
 </TabItem>

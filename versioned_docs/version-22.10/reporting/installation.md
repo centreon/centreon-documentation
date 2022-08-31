@@ -189,11 +189,28 @@ yum install centreon-bi-server
 ```
 
 </TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+Add the following external repository (for Java 8):
+
+```shell
+wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add -
+add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
+apt update
+```
+
+Then install Centreon MBI:
+
+```shell
+apt update && apt install centreon-bi-server
+```
+
+</TabItem>
 </Tabs>
 
 ### Activate the extension
 
-The menu `Administration > Extension > Manager` of Centreon enables you to
+The menu **Administration > Extension > Manager** of Centreon enables you to
 install the different extension detected by Centreon. Click on the **Centreon MBI** card to install it.
 
 Upload the license sent by the Centreon team to be able to start configuring the General Options.
@@ -254,6 +271,16 @@ GRANT ALL PRIVILEGES ON centreon_storage.* TO 'centreonbi'@'$BI_ENGINE_IP$';
 
 
 Please go to the next chapter to continue the installation.
+
+##### Additional configuration for Debian 11
+
+MariaDB has to listen to all interfaces instead of localhost/127.0.0.1, which is the default value. Edit the following file:
+
+```shell
+/etc/mysql/mariadb.conf.d/50-server.cnf
+```
+
+Set the **bind-address** parameter to **0.0.0.0**.
 
 ### Grant rights to user cbis
 
@@ -405,7 +432,7 @@ capabilities to:
 - Manage data retention on the reporting server.
 
 Before following the next steps, you should have read
-[the best practice parts](installation.md#best-practices-for-monitoring) to
+[the best practice parts](./concepts.md#best-practices-for-monitoring) to
 ensure that the Centreon objects (e.g., groups and categories) are configured
 according to Centreon MBI requirements.
 

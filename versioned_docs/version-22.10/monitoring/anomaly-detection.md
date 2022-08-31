@@ -73,7 +73,7 @@ yum install centreon-anomaly-detection
 
 ### UI installation
 
-Go to `Administration > Extensions > Manager` and search **anomaly**. Click
+Go to **Administration > Extensions > Manager** and search **anomaly**. Click
 on **Install selection**. Your module is now installed:
 
 ![image](../assets/monitoring/anomaly/install_02.png)
@@ -88,7 +88,7 @@ systemctl restart gorgoned
 
 ### Add your token
 
-Go to the `Configuration > Services > Anomaly Detection` menu and click on
+Go to the **Configuration > Services > Anomaly Detection** menu and click on
 **Add Centreon Cloud Token** button:
 
 ![image](../assets/monitoring/anomaly/install_03.png)
@@ -113,7 +113,7 @@ Configuration must be done in 3 steps:
 1.  [Activate the sending of the collected data to Centreon
     Cloud](#activate-the-sending-of-the-collected-data-to-centreon-cloud) in
     order to start modeling regular behavior then control via the menu
-    `Monitoring > Performances > Graphs` the first modeling calculations
+    **Monitoring > Performances > Graphs** the first modeling calculations
     carried out.
 2.  Once the model seems right, [activate the generation of
     alerts](#activate-the-generation-of-alerts)
@@ -122,7 +122,7 @@ Configuration must be done in 3 steps:
 
 ### Activate the sending of the collected data to Centreon Cloud
 
-Go to the `Configuration > Services > Anomaly Detection` menu and click on
+Go to the **Configuration > Services > Anomaly Detection** menu and click on
 **Create manually** button:
 
 ![image](../assets/monitoring/anomaly/configure_01.png)
@@ -146,7 +146,7 @@ Click on **Save**.
 It is now time to [deploy the
 monitoring](monitoring-servers/deploying-a-configuration.md).
 
-Then go to the `Monitoring > Status Details > Services` menu and select
+Then go to the **Monitoring > Status Details > Services** menu and select
 **All** value for the Service Status filter. After a few minutes, the first
 results of the monitoring appear.
 
@@ -164,7 +164,7 @@ If, by regularly following the generated model and the data from the
 `Monitoring > Performances > Graphs` menu, you think that your model is
 stable, you can activate alert generation.
 
-Go to the `Configuration > Services > Anomaly Detection` menu and edit your
+Go to the **Configuration > Services > Anomaly Detection** menu and edit your
 anomaly detection service:
 
 ![image](../assets/monitoring/anomaly/configure_02.png)
@@ -181,7 +181,7 @@ configuration](monitoring-servers/deploying-a-configuration.md).
 If the generated alerts seem relevant to you, you can now activate the
 notification process.
 
-Go to the `Configuration > Services > Anomaly Detection` menu and edit your
+Go to the **Configuration > Services > Anomaly Detection** menu and edit your
 anomaly detection service:
 
 ![image](../assets/monitoring/anomaly/configure_03.png)
@@ -203,7 +203,7 @@ Since version 20.10.1, it is possible to use the creation wizard. Indeed, this
 new functionality makes it possible to highlight the services presenting either a
 seasonality or a regular stability.
 
-Go to the`Configuration > Services > Anomaly Detection` menu and click on
+Go to the**Configuration > Services > Anomaly Detection** menu and click on
 **Create from analysis** button.
 
 The list of existing services on your Centreon platform is displayed as well as a
@@ -238,10 +238,10 @@ Anomaly services are regular services but have floating thresholds that adapt
 according to the calculated model. It is therefore possible to view its services
 and the alerts detected though:
 
-  - The `Monitoring > Status Details > Services` menu.
-  - The `Monitoring > Performances > Graphs` menu.
-  - The `Monitoring > Event Logs > Event Logs` menu.
-  - The **service-monitoring** widget in the `Home > Custom Views` menu.
+  - The **Monitoring > Status Details > Services** menu.
+  - The **Monitoring > Performances > Graphs** menu.
+  - The **Monitoring > Event Logs > Event Logs** menu.
+  - The **service-monitoring** widget in the **Home > Custom Views** menu.
   - And all menus where you can operate on services.
 
 ## Forward history of data

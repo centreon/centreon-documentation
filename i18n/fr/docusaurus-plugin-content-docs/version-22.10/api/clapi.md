@@ -2341,7 +2341,7 @@ The required parameters are the following:
 | Name                | Name of contact                               |
 | Alias (login)       | Alias of contact (also login id)              |
 | Email               | Email of contact                              |
-| Password            | Password of contact                           |
+| Password            | Password of contact (this field doesn't apply to contact templates) |
 | Admin               | *1* (admin) or *0* (non admin)                |
 | GUI Access          | *1* (can access UI) or *0* (cannot access UI) |
 | Language            | Language pack has to be installed on Centreon |

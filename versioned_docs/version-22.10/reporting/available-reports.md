@@ -7,8 +7,8 @@ We have included a set of generic reports that you can reconfigure for your
 environment based on Centreon concepts (e.g., business activities, host groups
 and categories, service categories, metrics).
 
-> You can have a look to our [Reports
-> book](../assets/reporting/Centreon-MBI-Samples-of-Reports.pdf) to find the
+> You can have a look at our [Reports
+> book](../assets/reporting/Centreon-MBI-Sample-Reports.pdf) to find the
 > report you need before consulting this report guide.
 
 Most of these reports have been designed to be perfectly rendered in
@@ -16,7 +16,7 @@ PDF. The space reserved for object names (host, services, groups,
 categories) in tables or graph legends may sometimes be limited, so
 please remember to define objects' names accordingly.
 
-Directly access the area you want to have a look at :
+Directly access the area you want to have a look at:
 
 - [Business activity monitoring](#business-activity-monitoring)
 - [Availability & Events](#availability--events)
@@ -831,7 +831,7 @@ Parameters required for the report:
 
 #### Prerequisites
 
-Go to `Reporting > Business Intelligence > General Options > Scheduler Options`
+Go to **Reporting > Business Intelligence > General Options > Scheduler Options**
 and configure the following field:
 
 ![image](../assets/reporting/guide/available-reports/graph_url.png)
@@ -908,7 +908,7 @@ Parameters required for the report:
 
 #### Prerequisites
 
-Go to `Reporting > Business Intelligence > General Options > Scheduler Options` 
+Go to **Reporting > Business Intelligence > General Options > Scheduler Options** 
 and configure the following field:
 
 ![image](../assets/reporting/guide/available-reports/graph_url.png)

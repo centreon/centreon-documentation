@@ -1,6 +1,6 @@
 ---
 id: troubleshooter
-title: Troubleshooter
+title: Troubleshooting MAP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -444,7 +444,7 @@ The following error might appear on your web interface.
 
 First, check if you have access to the Centreon MAP server APIs.
 
-From `Administration > Extensions > MAP > Options`, check your Centreon MAP
+From **Administration > Extensions > MAP > Options**, check your Centreon MAP
 web interface configuration:
 
 The URL set in 'MAP server address' must include the protocol (HTTP or HTTPS)

@@ -19,7 +19,7 @@ Le filtre sur les jobs permets de :
 - Donner accès aux tâches planifiée, en créer ou les modifier (page "Tâches planifiées")
 - Permettre à un utilisateur de recevoir par e-mail les rapports basé sur les tâches planifiées
 
-Pour gérer les accès, rendez vous à la page suivante: `Administration > ACL > Centreon MBI > ACL Rules`
+Pour gérer les accès, rendez vous à la page suivante: **Administration > ACL > Centreon MBI > ACL Rules**
 
 ![image](../assets/reporting/guide/AclRules.png)
 

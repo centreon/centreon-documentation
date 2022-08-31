@@ -247,7 +247,7 @@ status switches.
 
 > In order for the new BA to be calculated and monitored, you must regenerate
 > the configuration on the scheduler and restart the monitoring services through
-> the interface in the `Configuration > Poller` menu.
+> the interface in the **Configuration > Poller** menu.
 
 ### List Business Activities
 
@@ -296,7 +296,7 @@ a BA is 0, even if the sum of its indicators impact is > 100.
 Indicators can be configured through two different way:
 
 -   From the BA panel (common way)
--   From `Configuration > Business Activity > Indicators`
+-   From **Configuration > Business Activity > Indicators**
 
 ![image](../assets/service-mapping/guide/conf_kpi.png)
 
@@ -439,7 +439,7 @@ information in a BV depends on its content and is displayed in real time.
 
 ### List Business Views
 
-Configure a BV in the `Configuration > Business Activity > Business Views`
+Configure a BV in the **Configuration > Business Activity > Business Views**
 menu.
 
 ![image](../assets/service-mapping/guide/business-view-listing.png)
