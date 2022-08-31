@@ -1,6 +1,6 @@
 ---
 id: services-templates
-title: Utiliser des modèles de service
+title: Utiliser des modèles de services
 ---
 
 ## Définition

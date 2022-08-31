@@ -282,6 +282,10 @@
             {
               "type": "doc",
               "id": "version-22.04/monitoring/discovery/administration"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/monitoring/discovery/troubleshooting-hosts-discovery"
             }
           ]
         },
@@ -1341,6 +1345,14 @@
         {
           "type": "doc",
           "id": "version-22.04/resources/known-issues"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.04/resources/troubleshooting"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.04/resources/glossary"
         }
       ]
     }
