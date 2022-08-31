@@ -1,77 +1,62 @@
 ---
 id: display-view
-title: Display views
+title: Afficher les vues
 ---
 
-The existing standard and geographic views are accessible from Centreon web user
-interface, if you have been given access privileges. You can display them using
-the **Monitoring > Map** menu or using the dedicated Centreon Map widget.
+Les vues standard et géographiques existantes sont accessibles à partir de l'interface utilisateur Web de Centreon, si vous avez reçu des privilèges d'accès.
+Vous pouvez les afficher en utilisant le menu **Monitoring > Map** ou en utilisant le widget Centreon Map dédié.
 
-Find below the dedicated features of Centreon Map web interface that ease use &
-interactions with views.
+Vous trouverez ci-dessous les fonctions dédiées de l'interface web Centreon Map qui facilitent l'utilisation et les interactions avec les vues.
 
-## Understand tooltips
+## Comprendre les infobulles
 
-On the web interface, there are information windows called tooltips. They appear
-when you are mouse hovering some types of objects in a view: links (status &
-metric), services, metaservices, hosts, host groups and service groups. This
-window is kept open as long as your cursor is hover the tooltip.
+Sur l'interface web, il existe des fenêtres d'information appelées tooltips.
+Elles apparaissent lorsque vous passez la souris sur certains types d'objets dans une vue : les liens (statut et métrique), les services, les métaservices, les hôtes, les groupes d'hôtes et les groupes de services.
+Cette fenêtre reste ouverte tant que votre curseur est au dessus de l'info-bulle.
 
 ![image](../assets/graph-views/tooltips.gif)
 
-Depending on the type of GUI object under your mouse, different information will
-be displayed. For instance, a link (status & metric, services and metaservice)
-would display:
+Selon le type d'objet GUI qui se trouve sous votre souris, différentes informations seront affichées.
+Par exemple, un lien (statut et métrique, services et métaservice) s'affichera :
 
-- Acknowledgement information (if present)
-- Downtime information (if present)
-- Duration
-- Output.
+- Informations sur l'accusé de réception (si présent)
+- Informations sur les temps d'arrêt (si elles sont présentes)
+- la durée.
+- Sortie.
 
-In the case of hosts, host groups and service objects, this "mouseover" summary
-information includes a list of the five most recently used resources in the
-sublevel that currently impact the host/host group or service group.
+Dans le cas des hôtes, des groupes d'hôtes et des objets de service, ces informations récapitulatives "au passage de la souris" comprennent une liste des cinq ressources les plus récemment utilisées dans le sous-niveau qui ont actuellement un impact sur l'hôte/groupe d'hôtes ou le groupe de service.
 
-The following rules apply:
+Les règles suivantes s'appliquent :
 
-- If a host is down, services attached are never displayed in a tooltip.
-- For a host: Services displayed correspond to the inherited status of the
-  host. For example, if a host is "red", then only Critical services will be
-  displayed.
-- For a service group: Services displayed correspond to the inherited status
-  of the service group.
-- For a host group: Hosts with the same status as the host group are displayed
-  in a tooltip; and services (if their host is up) with the same inherited
-  status as their host groups are displayed.
+- Si un hôte est hors service, les services rattachés ne sont jamais affichés dans une infobulle.
+- Pour un hôte : les services affichés correspondent à l'état hérité de l'hôte.
+  Par exemple, si un hôte est "rouge", alors seuls les services critiques seront affichés.
+- Pour un groupe de services : Les services affichés correspondent à l'état hérité du groupe de services.
+- Pour un groupe d'hôtes : Les hôtes ayant le même statut que le groupe d'hôtes sont affichés dans une infobulle ; et les services (si leur hôte est en marche) ayant le même statut hérité que leur groupe d'hôtes sont affichés.
 
-> In the customs views widget, by default, tooltips are not displayed. It is
-> possible to activate them in the widget settings by a checkbox.
+> Dans le widget des vues douanières, par défaut, les infobulles ne sont pas affichées. Il est possible de les activer dans les paramètres du widget par une case à cocher.
 
-## Manage links color
+## Gérer la couleur des liens
 
-In the previous Centreon Map version, links color were define at user level and
-each user had to configure it's own color using the desktop client. We changed
-this mechanism so that you can define a link coloration method for **all user**
-at once. To do so:
+Dans la version précédente de Centreon Map, la couleur des liens était définie au niveau de l'utilisateur et chaque utilisateur devait configurer sa propre couleur en utilisant le client de bureau.
+Nous avons modifié ce mécanisme afin que vous puissiez définir une méthode de coloration des liens pour **tous les utilisateurs** à la fois.
+Pour ce faire :
 
-1. Go to **Administration > Extension > Map | Options**
-2. In the "Link color definition" section, select the coloration method and
-   parameter you want to apply
+1. Allez dans **Administration > Extension > Carte | Options**.
+2. Dans la section "Définition de la couleur du lien", sélectionnez la méthode et le paramètre de coloration que vous souhaitez appliquer.
 
-Example: linear coloration from gray to blue
+Exemple : coloration linéaire du gris au bleu
 
 ![image](../assets/graph-views/links_color_1.png)
 
-Another example: range coloration
+Autre exemple : la coloration de la gamme
 
 ![image](../assets/graph-views/links_color_2.png)
 
-## Use the widget
+## Utiliser le widget
 
-Centreon Map comes with a widget that you can use in Centreon custom views. To
-do so, add a new widget on the custom view and search for "MAP".
+Centreon Map est livré avec un widget que vous pouvez utiliser dans les vues personnalisées Centreon. Pour ce faire, ajoutez un nouveau widget sur la vue personnalisée et recherchez "MAP".
 
-When you add the widget, you can select a view and save position & zoom at any
-level.
+Lorsque vous ajoutez le widget, vous pouvez sélectionner une vue et enregistrer la position et le zoom à n'importe quel niveau.
 
 ![image](../assets/graph-views/widget.png)

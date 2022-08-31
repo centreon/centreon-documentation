@@ -1,33 +1,28 @@
 ---
 id: troubleshooter
-title: Troubleshooting MAP
+title: Dépannage
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-This chapter describes common errors you might encounter while using
-Centreon MAP. Please read the questions and answers below before
-contacting our support team.
+Ce chapitre décrit les erreurs courantes que vous pouvez rencontrer lors de l'utilisation de Centreon MAP. Veuillez lire les questions et réponses ci-dessous avant de contacter notre équipe de support.
 
-We will continue to update this section based on your feedback.
+Nous continuerons à mettre à jour cette section en fonction de vos commentaires.
 
-## General
+## Général
 
-### How can I check if my Centreon MAP server is running correctly?
+### Comment puis-je vérifier si mon serveur Centreon MAP fonctionne correctement ?
 
-Their are two main ways to check if your Centreon MAP server is up and
-running.
+Il y a deux façons principales de vérifier si votre serveur Centreon MAP est opérationnel.
 
-First of all, check that Centreon MAP service is running. To do so,
-connect through SSH to the server hosting Centreon MAP and run the
-following command:
+Tout d'abord, vérifiez que le service Centreon MAP fonctionne. Pour ce faire, connectez-vous par SSH au serveur hébergeant Centreon MAP et exécutez la commande suivante :
 
 ```shell
 systemctl status centreon-map
 ```
 
-You should receive the following output:
+Vous devriez obtenir le résultat suivant :
 
 ```shell
 centreon-map - Centreon Studio map server
@@ -35,7 +30,7 @@ Loaded: loaded (/usr/lib/systemd/system/centreon-map; disabled; vendor preset: d
 Active: active (running) since ...
 ```
 
-If your Centreon MAP service is stopped the message will be:
+Si votre service Centreon MAP est arrêté, le message sera le suivant :
 
 ```shell
 centreon-map - Centreon Studio map server
@@ -43,15 +38,13 @@ Loaded: loaded (/usr/lib/systemd/system/centreon-map; disabled; vendor preset: d
 Active: inactive (dead)
 ```
 
-In this case, start the Centreon MAP service:
+Dans ce cas, démarrez le service Centreon MAP :
 
 ```shell
 sudo systemctl start centreon-map
 ```
 
-Once you are sure your server is running, try to access its API through
-your web browser. Check the REST API used by the web interface as
-follows:
+Une fois que vous êtes sûr que votre serveur fonctionne, essayez d'accéder à son API via votre navigateur Web. Vérifiez l'API REST utilisée par l'interface web comme suit :
 
 <Tabs groupId="sync">
 <TabItem value="HTTP" label="HTTP">
@@ -70,7 +63,7 @@ https://<MAP_IP>:8443/centreon-studio/api/beta/actuator/health
 </TabItem>
 </Tabs>
 
-You can also check the SOAP API used by the desktop client:
+Vous pouvez également vérifier l'API SOAP utilisée par le client de bureau :
 
 <Tabs groupId="sync">
 <TabItem value="HTTP" label="HTTP">
@@ -91,24 +84,22 @@ https://<MAP_IP>:8443/centreon-studio/services
 
 ![image](../assets/graph-views/server-api-soap.png)
 
-### My Centreon MAP service is running but I cannot access Centreon MAP API (/actuator/health) pages
+### Mon service Centreon MAP est en cours d'exécution mais je ne peux pas accéder aux pages de l'API Centreon MAP (/actuator/health)
 
-You might want to check if the server containing Centreon MAP has a firewall
-preventing it from running correctly. Run the following command:
+Vous pouvez vérifier si le serveur contenant Centreon MAP est doté d'un pare-feu qui l'empêche de fonctionner correctement. Exécutez la commande suivante :
 
 ```shell
 systemctl status iptables
 ```
 
-If you see this output...
-
+Si vous voyez ce message...
 ```shell
 iptables: Firewall is not running.
 ```
 
-...then the problem is elsewhere.
+...alors le problème est ailleurs.
 
-If you have this output...
+Si vous avez ce message...
 
 ``` shell
 Table: filter
@@ -128,138 +119,117 @@ Chain OUTPUT (policy ACCEPT)
 num  target     prot opt source               destination
 ```
 
-then your firewall is running, preventing any connection from and to your
-Centreon MAP server. You must either add input and output rules for Centreon
-MAP or disable your firewall.
+alors votre pare-feu est en cours d'exécution, empêchant toute connexion depuis et vers votre serveur Centreon MAP. Vous devez soit ajouter des règles d'entrée et de sortie pour Centreon MAP, soit désactiver votre pare-feu.
 
-To open the appropriate ports:
+Pour ouvrir les ports appropriés :
 
 ```shell
 /sbin/iptables -A OUTPUT -p tcp --dport <PORT> -j ACCEPT
 /sbin/iptables -A INPUT -p tcp --dport <PORT> -j ACCEPT
 ```
 
-> Replace <PORT\> by the port your Centreon MAP server is using (mostly 8080 or
-> 8443 if you have configured it in SSL).
+> Remplacez <PORT\> par le port que votre serveur Centreon MAP utilise (le plus souvent 8080 ou 8443 si vous l'avez configuré en SSL).
 
-To simply disable your firewall, execute:
+Pour désactiver simplement votre pare-feu, exécutez :
 
 ```shell
 systemctl stop iptables
 ```
 
-### My images from Centreon Web are not displayed in Centreon MAP
+### Mes images de Centreon Web ne s'affichent pas dans Centreon MAP
 
-Centreon MAP automatically imports all images from Centreon Web into its
-own database. On your desktop client, you should see all your files from
-Centreon Web under the Media tab panel in the "Centreon" folder. If not,
-you may want to verify the following:
+Centreon MAP importe automatiquement toutes les images de Centreon Web dans sa propre base de données.
+Sur votre client de bureau, vous devriez voir tous vos fichiers provenant de Centreon Web sous le panneau à onglet Media dans le dossier "Centreon".
+Si ce n'est pas le cas, vous pouvez vérifier ce qui suit :
 
-On your Centreon MAP server, open the file `/etc/my.cnf` and check if the line
-following line is present:
+Sur votre serveur Centreon MAP, ouvrez le fichier `/etc/my.cnf` et vérifiez si la ligne suivante est présente :
 
 ```text
 max_allowed_packet = 20M
 ```
 
-Then reload your MariaDB database:
+Ensuite, rechargez votre base de données MariaDB :
 
 ```shell
 sudo systemctl reload mysqld
 ```
 
-Wait a few minutes for the Centreon MAP server to synchronize Centreon Web
-resources. The images from Centreon Web should then appear on your desktop
-client under the Media tab panel in the Centreon folder.
+Attendez quelques minutes pour que le serveur Centreon MAP synchronise les ressources Centreon Web.
+Les images de Centreon Web devraient alors apparaître sur votre client de bureau sous le panneau à onglet Media dans le dossier Centreon.
 
 ![image](../assets/graph-views/centreon_media_part.png)
 
-If you still cannot see the list of images check your Centreon MAP
-configuration file.
+Si vous ne voyez toujours pas la liste des images, vérifiez votre fichier de configuration Centreon MAP.
 
-Connect through SSH to your Centreon MAP server. Open the
-studio-config.properties file:
+Connectez-vous par SSH à votre serveur Centreon MAP. Ouvrez le fichier studio-config.properties :
 
 ```shell
 vim /etc/centreon-studio/studio-config.properties
 ```
 
-For the 'centreon.url' variable, check that there is a full path to your
-Centreon Web interface:
+Pour la variable "centreon.url", vérifiez qu'il existe un chemin d'accès complet à votre interface Web Centreon :
 
 ```shell
 centreon.url=http://<CENTRAL_IP_ADDRESS>
 ```
 
-> Don't forget to replace "http" with "https" if your Centreon Web
-> interface is using HTTPS.
+> N'oubliez pas de remplacer "http" par "https" si votre interface Web Centreon utilise HTTPS.
 
-Wait a few minutes for the Centreon MAP server to synchronize the
-Centreon Web resources. The images on Centreon Web should then appear on
-your desktop client in the Centreon folder.
+Attendez quelques minutes pour que le serveur Centreon MAP synchronise les ressources Centreon Web.
+Les images de Centreon Web devraient alors apparaître sur votre client de bureau dans le dossier Centreon.
 
-## Centreon MAP desktop client
+## Client de bureau Centreon MAP
 
-### The desktop can't start: "Java was started but returned exit code = 13"
+### Le bureau ne peut pas démarrer : "Java a été lancé mais a renvoyé un code de sortie = 13".
 
-The desktop client does not start and an error message "error code = 13" is
-displayed.
+Le client de bureau ne démarre pas et un message d'erreur "code d'erreur = 13" s'affiche.
 
-Install a 64-bit JVM.
+Installez une JVM 64 bits.
 
-### Impossible to create a new view
+#### Impossible de créer une nouvelle vue
 
-On the desktop client, if you want to create a new view but the button is
-disabled, you do not have the access rights.
+Sur le client de bureau, si vous voulez créer une nouvelle vue mais que le bouton est désactivé, c'est que vous n'avez pas les droits d'accès.
 
 ![image](../assets/graph-views/view_menu.png)
 
-A Centreon MAP administrator must authorize you to create, update or delete
-views. When you first install your Centreon MAP server, only Centreon
-administrators are MAP administrators. It is their job to grant administration
-privileges to other "normal" Centreon users.
+Un administrateur Centreon MAP doit vous autoriser à créer, mettre à jour ou supprimer des vues.
+Lorsque vous installez votre serveur MAP de Centreon pour la première fois, seuls les administrateurs de Centreon sont des administrateurs MAP.
+C'est à eux d'accorder des privilèges d'administration aux autres utilisateurs Centreon "normaux".
 
-### Impossible to import media
+### Impossible d'importer des médias
 
-When you right click on the Media panel, the Import button is disabled.
+Lorsque vous faites un clic droit sur le panneau Média, le bouton Importer est désactivé.
 
-There are two facts you should know about media:
+Il y a deux choses que vous devez savoir sur les médias :
 
-- The Centreon folder, which is created automatically, contains all the
-  images from Centreon Web:
+- Le dossier Centreon, qui est créé automatiquement, contient toutes les images de Centreon Web :
 
-  - You cannot add or remove any image from this folder,
-  - All images are at the same level (no subfolders).
+  - Vous ne pouvez pas ajouter ou supprimer une image de ce dossier,
+  - Toutes les images sont au même niveau (pas de sous-dossiers).
 
-- You cannot import images at the root of the media panel.
+- Vous ne pouvez pas importer d'images à la racine du panneau média.
 
-The solution is to create a new folder (e.g., *Icons*).
+La solution consiste à créer un nouveau dossier (par exemple, *Icons*).
 
-Then right click on this folder and select *Import*.
+Ensuite, faites un clic droit sur ce dossier et sélectionnez *Importer*.
 
-### I cannot see the "MAP 3 Import menu."
+#### Je ne vois pas le "menu d'importation MAP 3".
 
-You want to import views from MAP 3 to Centreon MAP \>= 4.x but the
-corresponding menu is missing.
+Vous souhaitez importer des vues de MAP 3 vers Centreon MAP \>= 4.x mais le menu correspondant est absent.
 
-Please check the following prerequisites:
+Veuillez vérifier les conditions préalables suivantes :
 
-- Your MAP 3 license is still valid.
-- Your Centreon Desktop Client version is at least v4.0.8 (you can check it
-  directly from your desktop client interface, in the Help \> About menu).
-- If there is a proxy between your computer and your Centreon Web interface,
-  you must define it in the Configure menu.
+- Votre licence MAP 3 est toujours valide.
+- La version de votre client de bureau Centreon est au moins v4.0.8 (vous pouvez la vérifier directement à partir de l'interface de votre client de bureau, dans le menu Aide \>A propos).
+- S'il existe un proxy entre votre ordinateur et votre interface Web Centreon, vous devez le définir dans le menu Configurer.
 
-> The proxy must be configured with the checkbox *use for internet*.
+> Le proxy doit être configuré avec la case à cocher *utiliser pour internet*.
 
-- On the Centreon MAP server configuration file
-  (/etc/centreon-studio/studio-config.properties) you entered the IP of your
-  Central server.
+- Dans le fichier de configuration du serveur MAP de Centreon (/etc/centreon-studio/studio-config.properties), vous avez saisi l'IP de votre serveur central.
 
-This IP is also used by your desktop client to the access MAP 3 API. If
-this IP is not reachable by your desktop client (because both your
-Centreon MAP server and Centreon Central server are on a DMZ) you must
-specify a new one to your desktop client. To do so, edit the file:
+Cette IP est également utilisée par votre client de bureau pour accéder à l'API MAP 3.
+Si cette adresse IP n'est pas accessible par votre client de bureau (parce que votre serveur MAP Centreon et votre serveur Central Centreon sont tous deux situés dans une zone démilitarisée), vous devez en indiquer une nouvelle à votre client de bureau.
+Pour ce faire, modifiez le fichier :
 
 <Tabs groupId="sync">
 <TabItem value="Windows" label="Windows">
@@ -278,47 +248,37 @@ C:\Users\<YOUR_USERNAME>\AppData\Local\Centreon-Map4\Centreon-Map4.ini
 </TabItem>
 </Tabs>
 
-Add the following line at the end of the file on a new line, where
-`<CENTRAL_IP_ADDRESS>` is the URL with which you access the web interface of
-Centreon Web from your computer:
+Ajoutez la ligne suivante à la fin du fichier sur une nouvelle ligne, où `<CENTRAL_IP_ADDRESS>` est l'URL avec laquelle vous accédez à l'interface web de Centreon Web depuis votre ordinateur :
 
 ```shell
 -Dcentreon.url=<CENTRAL_IP_ADDRESS>
 ```
 
-### An error occured when I open a geographic view
+### Une erreur s'est produite lorsque j'ai ouvert une vue géographique
 
-If you open a geographic view or container and your background is composed of
-gray with Xs and the following pop-up message...
+Si vous ouvrez une vue géographique ou un conteneur et que votre arrière-plan est composé de gris avec des X et le message pop-up suivant...
 
-"Error while retreiving Mapbox tiles. Please check your Mapbox configuration."
+"Erreur lors de la réception des tuiles Mapbox. Veuillez vérifier votre configuration Mapbox."
 
 ![image](../assets/graph-views/mapbox-configuration-error.png)
 
-then you should check the following:
+vous devez alors vérifier les points suivants :
 
-- Ensure that your Mapbox credentials are valid. To configure your
-  Mapbox credentials. Your Mapbox secret key may have changed. Since
-  you cannot see the previously created keys, you might want to create
-  a new one and add it in your Centreon MAP server configuration file.
-- If your computer is behind a proxy to gain internet access, please
-  configure this proxy in the Centreon MAP Desktop Client.
-- The Mapbox style you used on your view might have been deleted.
+- Assurez-vous que vos informations d'identification Mapbox sont valides. Pour configurer vos informations d'identification Mapbox. Votre clé secrète Mapbox a peut-être changé.
+  Comme vous ne pouvez pas voir les clés précédemment créées, vous pouvez en créer une nouvelle et l'ajouter dans le fichier de configuration de votre serveur Centreon MAP.
+- Si votre ordinateur se trouve derrière un proxy pour accéder à Internet, veuillez configurer ce proxy dans le client de bureau Centreon MAP.
+- Le style Mapbox que vous avez utilisé sur votre vue a peut-être été supprimé.
 
-Try to edit your view / container and change the Mapbox style:
+Essayez de modifier votre vue/conteneur et changez le style Mapbox :
 
 ![image](../assets/graph-views/mapbox-change-style.png)
 
-If you cannot select any style the issue is probably caused by one of
-the above (i.e., credentials, proxy or deleted style).
+Si vous ne pouvez pas sélectionner de style, le problème est probablement causé par l'un des éléments ci-dessus (c'est-à-dire des informations d'identification, un proxy ou un style supprimé).
 
-### Error with special characters
+### Erreur avec les caractères spéciaux
 
-If you try to use characters in labels that are not using latin1
-encoding and get a pop-up error displaying "Could not execute statement"
-on your desktop client, your database is probably in latin1. To change
-the database to UTF-8 encoding, you need to access your Centreon MAP
-server in SSH and execute the following commands:
+Si vous essayez d'utiliser des caractères dans des étiquettes qui n'utilisent pas l'encodage latin1 et que vous obtenez une erreur contextuelle affichant "Could not execute statement" sur votre client de bureau, votre base de données est probablement en latin1.
+Pour changer la base de données en encodage UTF-8, vous devez accéder à votre serveur Centreon MAP en SSH et exécuter les commandes suivantes :
 
 ```shell
 # systemctl stop centreon-map
@@ -333,17 +293,13 @@ utf8\_general\_ci/
 # systemctl start centreon-map
 ```
 
-### My Desktop client is slow and I often get disconnected
+### Mon client de bureau est lent et je suis souvent déconnecté.
 
-Depending on your Centreon server's monitoring perimeter (the number of
-services running) and the computer hardware configuration, your desktop
-client might need more RAM than it uses by default. It may start to
-freeze and try to free up more memory. You can check this behavior by
-opening your task manager (Ctrl + Maj + Esc) and checking the memory
-consumption. If it increases and seems to reach a limit while your CPU
-is working hard, your desktop client requires more memory.
+Selon le périmètre de surveillance de votre serveur Centreon (le nombre de services en cours d'exécution) et la configuration matérielle de l'ordinateur, votre client de bureau peut avoir besoin de plus de RAM qu'il n'en utilise par défaut.
+Il peut commencer à se figer et essayer de libérer plus de mémoire. Vous pouvez vérifier ce comportement en ouvrant votre gestionnaire de tâches (Ctrl + Maj + Esc) et en contrôlant la consommation de mémoire.
+Si elle augmente et semble atteindre une limite alors que votre CPU travaille dur, votre client de bureau a besoin de plus de mémoire.
 
-To increase memory, edit the .ini file:
+Pour augmenter la mémoire, modifiez le fichier .ini :
 
 <Tabs groupId="sync">
 <TabItem value="Windows" label="Windows">
@@ -362,117 +318,96 @@ C:\Users\<YOUR_USERNAME>\AppData\Local\Centreon-Map4\Centreon-Map4.ini
 </TabItem>
 </Tabs>
 
-And add the following line at the end of the file, on a new line:
+Et ajoutez la ligne suivante à la fin du fichier, sur une nouvelle ligne :
 
 ```text
 -Xmx4g
 ```
 
-The "4g" means 4 GB (by default it can only use 2 GB). You can change this
-number depending on your hardware (e.g., by setting "3g").
+Le "4g" signifie 4 Go (par défaut, il ne peut utiliser que 2 Go). Vous pouvez modifier ce nombre en fonction de votre matériel (par exemple, en définissant "3g").
 
-Then restart your desktop client.
+Redémarrez ensuite votre client de bureau.
 
-### I get the error "Cannot authenticate user" on the login page
+### J'obtiens l'erreur "Cannot authenticate user" sur la page de connexion.
 
-For Centreon Web \>= 2.8.6, verify that your user has checked the option
-"Reach Real Time API."
+Pour Centreon Web >= 2.8.6, vérifiez que votre utilisateur a coché l'option "Reach Real Time API".
 
 ![image](../assets/graph-views/reach-api.png)
 
 ### I'm using Windows Remote Desktop (RDP) and I have many errors
 
-If you are using Centreon MAP Desktop Client through a Remote Session
-(with RDP, for instance), you might encounter an error displaying a
-number of pop-ups like "128" or "512" rendering your desktop client
-unusable.
+If you are using Centreon MAP Desktop Client through a Remote Session (with RDP, for instance), you might encounter an error displaying a number of pop-ups like "128" or "512" rendering your desktop client unusable.
 
-To prevent this from happening, you need to change a parameter in your
-RDP application:
+To prevent this from happening, you need to change a parameter in your RDP application:
 
-Go to *Advance > Display* and select "Highest quality (32bit)". You
-can then access your remote computer and this error will no longer
-occur.
+Go to *Advance > Display* and select "Highest quality (32bit)". You can then access your remote computer and this error will no longer occur.
 
 ![image](../assets/graph-views/rdp-config.png)
 
-> For Linux or Mac users of the application **rdesktop**, add this argument to
-> your command line: \[-a 32\]
+> Pour les utilisateurs Linux ou Mac de l'application **rdesktop**, ajoutez cet argument à votre ligne de commande : \[-a 32\]
 
-> This error may occur if you use the skin "Windows server" on your
-> computer. Go to your windows parameter and change the color settings
-> to use 32bit colors.
+> Cette erreur peut se produire si vous utilisez le skin "Windows server" sur votre ordinateur. Allez dans votre paramètre Windows et modifiez les paramètres de couleur pour utiliser des couleurs 32 bits.
 
-## Centreon MAP web interface
+## Interface web Centreon MAP
 
-### Graphs are all shifted to the right after upgrading from Centreon MAP 4.4 to Centreon MAP 18.10
+### Les graphiques sont tous déplacés vers la droite après la mise à niveau de Centreon MAP 4.4 à Centreon MAP 18.10.
 
-A bug affecting the web interface was shifting all the graphs to the left
-compared to their position in the desktop client. This has been fixed in
-Centreon MAP 18.10. If you have manually shifted the graphs to the right to
-compensate in the web interface, all your graphs will be over-shifted to the
-right after the upgrade.
+Un bogue affectant l'interface Web déplaçait tous les graphiques vers la gauche par rapport à leur position dans le client de bureau.
+Ce problème a été corrigé dans la version 18.10 de Centreon MAP.
+Si vous avez manuellement déplacé les graphiques vers la droite pour compenser dans l'interface Web, tous vos graphiques seront surdéplacés vers la droite après la mise à niveau.
 
-We have provided a script that automatically unshifts all the graphs to the
-left. Do not use this script if you know most of your graphs were correctly
-positioned after the upgrade: you would have to manually unshift the others.
+Nous avons fourni un script qui décale automatiquement tous les graphiques vers la gauche.
+N'utilisez pas ce script si vous savez que la plupart de vos graphiques ont été correctement positionnés après la mise à jour : vous devrez décaler manuellement les autres.
 
-Here is the SQL script that fixes the offset manually created by a user for
-correct alignment in the web interface.
+Voici le script SQL qui corrige le décalage créé manuellement par un utilisateur pour un alignement correct dans l'interface web.
 
-To execute it:
+Pour l'exécuter :
 
-- Make a backup of your centreon\_studio database.
-- Go to /etc/centreon-studio/utils/
-- Run the script:
+- Faites une sauvegarde de votre base de données centreon\_studio.
+- Allez dans le répertoire /etc/centreon-studio/utils/.
+- Exécutez le script :
 
   ```shell
   mysql centreon_studio < update-position-graph.sql
   ```
 
-- Restart Centreon Map service:
+- Redémarrez le service Centreon Map :
 
   ```shell
   systemctl restart centreon-map
   ```
 
-### My web interface is displaying "Authentication error."
+### Mon interface Web affiche "Erreur d'authentification".
 
-The following error might appear on your web interface.
+L'erreur suivante peut apparaître sur votre interface Web.
 
 ![image](../assets/graph-views/web_client_authentication_error.png)
 
-First, check if you have access to the Centreon MAP server APIs.
+Tout d'abord, vérifiez si vous avez accès aux API du serveur Centreon MAP.
 
-From **Administration > Extensions > MAP > Options**, check your Centreon MAP
-web interface configuration:
+Dans **Administration > Extensions > MAP > Options**, vérifiez la configuration de votre interface Web Centreon MAP :
 
-The URL set in 'MAP server address' must include the protocol (HTTP or HTTPS)
-and the port used by your Centreon MAP server (usually 8080 for a normal
-connexion or 8443 for a secure connexion).
+L'URL définie dans "Adresse du serveur MAP" doit inclure le protocole (HTTP ou HTTPS) et le port utilisé par votre serveur Centreon MAP (généralement 8080 pour une connexion normale ou 8443 pour une connexion sécurisée).
 
 ![image](../assets/graph-views/web_client_configuration_2204.png)
 
-### My web interface displays an empty page
+### Mon interface web affiche une page vide
 
-Your web interface is configured but it displays an empty page:
+Votre interface web est configurée mais elle affiche une page vide :
 
 ![image](../assets/graph-views/web_empty_list_2204.png)
 
-Either no views are created on the server or you do not have access to them.
+Soit aucune vue n'est créée sur le serveur, soit vous n'y avez pas accès.
 
-If you are a Centreon MAP administrator, you can see all views. In this
-case, no views have been created. Here are [quick start
-instructions](create-standard-view.md) to create one.
+Si vous êtes un administrateur de Centreon MAP, vous pouvez voir toutes les vues. Dans ce cas, aucune vue n'a été créée. Voici des [instructions de démarrage rapide] (create-standard-view.md) pour en créer une.
 
-Otherwise, contact the Centreon MAP administrator or create your own views if
-you have sufficient privileges.
+Sinon, contactez l'administrateur Centreon MAP ou créez vos propres vues si vous disposez des privilèges suffisants.
 
 ## HTTPS
 
-### Error: Cannot connect to remote License Manager {} in centreon-map.log
+### Erreur : Impossible de se connecter au gestionnaire de licences distant {} dans centreon-map.log
 
-You may encounter an error like this one in **centreon-map.log**:
+Vous pouvez rencontrer une erreur comme celle-ci dans **centreon-map.log** :
 
 ```shell
 [2021-11-09 13:40:49.178] [ERROR] [c.c.s.m.s.b.l.LicenseVerificationService] [main] : Cannot connect to remote License Manager {}
@@ -518,19 +453,19 @@ Caused by: org.springframework.web.client.ResourceAccessException: I/O error on 
 ...
 ```
 
-Edit the following configuration file:
+Modifiez le fichier de configuration suivant :
 
 ```shell
 vi /etc/centreon-studio/studio-config.properties
 ```
 
-The parameter **centreon.url** must use one of the alternative names of the Centreon certificate, and not its IP address. Example:
+Le paramètre **centreon.url** doit utiliser l'un des noms alternatifs du certificat Centreon, et non son adresse IP. Exemple :
 
 ```shell
 centreon.url=https://company.com
 ```
 
-and not
+et non
 
 ```shell
 centreon.url=https://10.25.5.178

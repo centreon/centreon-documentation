@@ -1,84 +1,69 @@
 ---
 id: create-geo-view
-title: Create a geo view
+title: Créer une vue géographique
 ---
 
-## Create a GeoView
+## Créer une vue géographique
 
-A user that is a Centreon admin, or a Centreon Map admin or has right to
-create view can create geographic views using the web interface, to do
-so:
+Un utilisateur qui est un administrateur Centreon, ou un administrateur Centreon Map ou qui a le droit de créer une vue peut créer des vues géographiques en utilisant l'interface web :
 
-1. Go to **Monitoring > Map** and click on the "+" on the Geographic section.
-2. You're asked to give a name to the view and then to define resources to
-   display on the view.
-3. After configuring these parameters, resources will appear on this
-   geographic view
+1. Allez dans **Monitoring > Map** et cliquez sur le "+" de la section Geographic.
+2. Il vous est demandé de donner un nom à la vue et ensuite de définir les ressources à afficher sur la vue.
+3. Après avoir configuré ces paramètres, les ressources apparaîtront sur cette vue géographique
 
 ![image](../assets/graph-views/geo_view_creation.gif)
 
-The following resources can be displayed on a GeoView:
+Les ressources suivantes peuvent être affichées sur un GeoView :
 
-- Hosts belonging to hostgroup(s)
-- Business Activity belonging to Business View(s)
-- One or multiple Hostgroup(s)
+- Hôtes appartenant au(x) groupe(s) d'hôtes
+- Activités Métiers appartenant à une (des) vue(s) d'affaires
+- Un ou plusieurs groupes d'hôtes
 
-Pre-requisites: Define lat/long coordinate in the resources configuration form
-for host, hostgroups or business activity.
+Pré-requis : Définir les coordonnées lat/long dans le formulaire de configuration des ressources pour l'hôte, les groupes d'hôtes ou l'activité métier.
 
-Example with a host:
+Exemple avec un hôte :
 
 ![image](../assets/graph-views/host_geocoord.png)
 
-## How access control limitation (ACL) are handled
+## Comment les limitations de contrôle d'accès (ACL) sont gérées
 
-As soon as you give access to **Monitoring > Map** or to a custom view
-containing a Map widdget, GeoViews are accessible to every Centreon
-user. A user will only see resources he is authorized to see, based on
-his ACL profile.
+Dès que vous donnez accès à **Monitoring > Map** ou à une vue personnalisée contenant un widdget Map, les GeoViews sont accessibles à tout utilisateur de Centreon.
+Un utilisateur ne verra que les ressources qu'il est autorisé à voir, en fonction de son profil ACL.
 
-## How resources are displayed
+## Comment les ressources sont affichées
 
-When a resource (host, hostgroup or a business activity) is positionned
-on a geoview, it's displayed as a circle which colored is defined using
-the following rules:
+Lorsqu'une ressource (hôte, groupe d'hôtes ou activité métier) est positionnée sur une vue géographique, elle est affichée sous la forme d'un cercle dont la couleur est définie par les règles suivantes :
 
-- Host: worst state between the host and its services
-- Hostgroups: worst state of hosts belonging to the hostgroups
-- Business activity: current status
+- Hôte : état le plus défavorable entre l'hôte et ses services.
+- Groupes d'hôtes : état le plus défavorable des hôtes appartenant aux groupes d'hôtes.
+- Activité métier : état actuel
 
-*Worst state order: Critical (red) \> Down (red) \> Warning(orange) \>
-Unknown(gray) \> Unreachable(gray) \> Ok(green) \> Up(green) \> Pending(blue)*
+*Ordre des pires états : Critique (rouge) \> Hors service (rouge) \> Avertissement (orange) \>
+Inconnu (gris) \> Inaccessible (gris) \> Ok (vert) \> En service (vert) \> En attente (bleu)*
 
-### Clustering
+### Regroupement
 
-When multiple resources are geographically close and you are at
-"certain" zoom level, then they're grouped into one single circle
-displaying two things:
+Lorsque plusieurs ressources sont géographiquement proches et que vous êtes à un "certain" niveau de zoom, elles sont regroupées en un seul cercle affichant deux choses :
 
-- Status of the worst object (displayed as a color between green, orange, red
-  and gray)
-- Number of resources in this state
+- L'état de l'objet le plus mauvais (affiché comme une couleur entre le vert, l'orange, le rouge et le gris).
+- Le nombre de ressources dans cet état
 
 ![image](../assets/graph-views/geo_marker_clustering_infos.png)
 
-*This behavior can be disabled in the global Centreon Map parameters*
+*Ce comportement peut être désactivé dans les paramètres globaux de la carte Centreon*.
 
-### Blinking resources
+### Ressources clignotantes
 
-If a resources is in a "not-ok" state, it blinks.
+Si une ressource est dans un état "not-ok", elle clignote.
 
-*This behavior can be disabled in the global Centreon Map parameters*
+*Ce comportement peut être désactivé dans les paramètres globaux de la carte Centreon.
 
-## Datalayers on Geoview
+## Couches de données sur Geoview
 
-Centreon MAP gives you the possibility to display additionnal "data layers" on
-maps to add context to your real time IT infrastructure status.
+Centreon MAP vous donne la possibilité d'afficher des "couches de données" supplémentaires sur les cartes afin d'ajouter un contexte à l'état de votre infrastructure informatique en temps réel.
 
-First you need to add data layers in Centreon Map option, then, if the
-data layer is enabled, you may make it visible or not by checking the
-concerned layer using the top left icon.
+Vous devez d'abord ajouter des couches de données dans l'option Centreon Map, puis, si la couche de données est activée, vous pouvez la rendre visible ou non en cochant la couche concernée à l'aide de l'icône en haut à gauche.
 
-**Examples**
+**Exemples**
 
 ![image](../assets/graph-views/geoview_datalayers.gif)
