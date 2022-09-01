@@ -97,7 +97,8 @@ Plutôt que de mettre en place une réplication en temps réel des fichiers de d
 
 #### Exporter la configuration
 
-Une fois les actions des deux paragraphes précédents effectuées, la configuration doit être exportée (3 premières cases pour l'exportation du poller "Central") pour qu'elle soit effective.
+Une fois les actions des deux paragraphes précédents effectuées, la configuration doit être exportée (3 premières cases pour l'exportation du Poller "Central") pour qu'elle soit effective.
+
 
 Ces actions doivent être effectuées soit sur les deux noeuds, soit uniquement sur `@CENTRAL_MASTER_NAME@` et ensuite les fichiers de configuration du broker doivent être copiés sur `@CENTRAL_SLAVE_NAME@`.
 
