@@ -116,7 +116,8 @@ rsync -av /etc/centreon/* root@@CENTRAL_SLAVE_IPADDR@:/etc/centreon/
 
 Avant de passer à la configuration proprement dite du cluster, quelques étapes préparatoires sont nécessaires au niveau du système d'exploitation.
 
-**Note : ** sauf indication contraire, chacune des étapes suivantes doit être effectuée **sur les deux noeuds centraux**.
+**Note :** sauf indication contraire, chacune des étapes suivantes doit être effectuée **sur les deux noeuds centraux**.
+
 
 ### Réglage de la configuration du réseau
 
