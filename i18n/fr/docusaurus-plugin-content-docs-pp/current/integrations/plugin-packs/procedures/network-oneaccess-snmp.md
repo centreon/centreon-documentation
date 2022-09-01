@@ -9,66 +9,82 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le Pack Centreon OneAccess SNMP apporte 1 modèle d'hôte :
+Le Pack Centreon **OneAccess** apporte 1 modèle d'hôte :
 * Net-Oneaccess-SNMP-custom
 
 Il apporte les modèles de service suivants :
 
-| Service Alias | Service Template               | Default | Discovery |
-|:--------------|:-------------------------------|:--------|:----------|
-| Cells-Radio   | Net-Oneaccess-Cells-Radio-SNMP |         |           |
-| Cpu           | Net-Oneaccess-Cpu-SNMP         | X       |           |
-| Interfaces    | Net-Oneaccess-Interfaces-SNMP  |         | X         |
-| Memory        | Net-Oneaccess-Memory-SNMP      | X       |           |
+| Alias       | Modèle de services             | Description                            | Défaut  |
+|:------------|:-------------------------------|:---------------------------------------|:--------|
+| Cells-Radio | Net-Oneaccess-Cells-Radio-SNMP | Contrôle les modules radio cellulaires |         |
+| Cpu         | Net-Oneaccess-Cpu-SNMP         | Contrôle de l'utilisation du CPU       | X       |
+| Interfaces  | Net-Oneaccess-Interfaces-SNMP  | Contrôle les interfaces                |         |
+| Memory      | Net-Oneaccess-Memory-SNMP      | Contrôle de l'utilisation mémoire      | X       |
+| Rtt-Probes  | Net-Oneaccess-Rtt-Probes-SNMP  | Contrôle les sondes round-time trip    |         |
 
 ### Règles de découverte
 
-| Rule name                         | Description                                                             |
-|:------------------ ---------------|:------------------------------------------------------------------------|
+<Tabs groupId="sync">
+<TabItem value="Service" label="Service">
+
+| Nom de la règle                   | Description                                                             |
+|:----------------------------------|:------------------------------------------------------------------------|
 | Net-Oneaccess-SNMP-Interface-Name | Découvre les interfaces réseaux et supervise le statut et l'utilisation |
+| Net-Oneaccess-SNMP-Rtt-Probe-Tag  | Découvre les sondes et supervise le statut                              |
+
+Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
+pour en savoir plus sur la découverte automatique de services et sa [planification](https://docs.centreon.com/fr/docs/monitoring/discovery/services-discovery/#r%C3%A8gles-de-d%C3%A9couverte).
+
+</TabItem>
+</Tabs>
 
 ### Métriques & statuts collectés
 
 <Tabs groupId="sync">
 <TabItem value="Cells-Radio" label="Cells-Radio">
 
-| Metric name                                    | Description                                 | Unit  |
-| :--------------------------------------------- | :------------------------------------------ | :---- |
-| modules.cellradio.detected.count               | Number of cellular radio modules detected   |       |
-| status                                         | Status of the SIM card and quality signal   |       |
-| *module_id~operator*#module.cellradio.rsrp.dbm | Current reference signal receive power      | dBm   |
-| *module_id~operator*#module.cellradio.rssi.dbm | Current received signal strength indication | dBm   |
-| *module_id~operator*#module.cellradio.snr.db   | Current signal-to-noise ratio               | dB    |
+| Metric name                                    | Unit  |
+| :--------------------------------------------- | :---- |
+| modules.cellradio.detected.count               |       |
+| status                                         |       |
+| *module_id~operator*#module.cellradio.rsrp.dbm | dBm   |
+| *module_id~operator*#module.cellradio.rssi.dbm | dBm   |
+| *module_id~operator*#module.cellradio.snr.db   | dB    |
 
 </TabItem>
-
 <TabItem value="Cpu" label="Cpu">
 
-| Metric name                | Description     | Unit  |
-| :------------------------- | :-------------- | :---- |
-| cpu.utilization.percentage | CPU utilization | %     |
+| Metric name                | Unit  |
+| :------------------------- | :---- |
+| cpu.utilization.percentage | %     |
 
 </TabItem>
-
 <TabItem value="Interfaces" label="Interfaces">
 
-| Metric name                                               | Description                                             | Unit |
-|:--------------------------------------------------------- |:------------------------------------------------------- |:---- |
-| status                                                    | Status of the interface                                 |      |
-| *interface_name*#interface.traffic.in.bitspersecond       | Incoming traffic going through the interface            | b/s  |
-| *interface_name*#interface.traffic.out.bitspersecond      | Outgoing traffic going through the interface            | b/s  |
-| *interface_name*#interface.packets.in.error.percentage    | Incoming errored packets going through the interface    | %    |
-| *interface_name*#interface.packets.in.discard.percentage  | Incoming discarded packets going through the interface  | %    |
-| *interface_name*#interface.packets.out.error.percentage   | Outgoing errored packets going through the interface    | %    |
-| *interface_name*#interface.packets.out.discard.percentage | Outgoing discarded packets going through the interface  | %    |
+| Metric name                                               | Unit |
+|:--------------------------------------------------------- |:---- |
+| status                                                    |      |
+| *interface_name*#interface.traffic.in.bitspersecond       | b/s  |
+| *interface_name*#interface.traffic.out.bitspersecond      | b/s  |
+| *interface_name*#interface.packets.in.error.percentage    | %    |
+| *interface_name*#interface.packets.in.discard.percentage  | %    |
+| *interface_name*#interface.packets.out.error.percentage   | %    |
+| *interface_name*#interface.packets.out.discard.percentage | %    |
 
 </TabItem>
-
 <TabItem value="Memory" label="Memory">
 
-| Metric name             | Description                | Unit  |
-| :---------------------- | :------------------------- | :---- |
-| memory.usage.bytes      | Memory usage               | B     |
+| Metric name             | Unit  |
+| :---------------------- | :---- |
+| memory.usage.bytes      | B     |
+
+</TabItem>
+<TabItem value="Rtt-Probe" label="Rtt-Probe">
+
+| Metric name                                   | Unit  |
+| :-------------------------------------------- | :---- |
+| probe status                                  |       |
+| *tag_name*#probe.completion.time.milliseconds | ms    |
 
 </TabItem>
 </Tabs>
@@ -95,7 +111,7 @@ Centreon vers l'équipement supervisé.
 yum install centreon-plugin-Network-Oneaccess-Snmp
 ```
 
-2. Sur l'interface Web de Centreon, installez le Pack **OneAccess SNMP** depuis la page **Configuration > Packs de plugins**.
+2. Sur l'interface web de Centreon, installez le Pack **OneAccess SNMP** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 
@@ -113,7 +129,7 @@ yum install centreon-plugin-Network-Oneaccess-Snmp
 yum install centreon-pack-network-oneaccess-snmp
 ```
 
-3. Sur l'interface Web de Centreon, installez le Pack **OneAccess SNMP** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface web de Centreon, installez le Pack **OneAccess SNMP** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>
@@ -127,11 +143,11 @@ yum install centreon-pack-network-oneaccess-snmp
 * Appliquez le modèle d'hôte **Net-Oneaccess-SNMP-custom**.
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro SNMPEXTRAOPTIONS.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping). 
 
-| Mandatory | Name             | Description                                              |
-|:----------|:-----------------|:---------------------------------------------------------|
-|           | SNMPEXTRAOPTIONS | Configurez vos propres identifiants SNMPv3               |
+| Obligatoire | Nom              | Description                                              |
+| :---------- | :--------------- | :------------------------------------------------------- |
+|             | SNMPEXTRAOPTIONS | (Default: 'Configure your own SNMPv3 credentials combo') |
 
 ## Comment puis-je tester le Plugin et que signifient les options des commandes ?
 
