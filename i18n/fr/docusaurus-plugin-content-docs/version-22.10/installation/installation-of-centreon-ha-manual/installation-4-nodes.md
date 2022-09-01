@@ -108,7 +108,8 @@ rsync -a /etc/centreon-broker/*json @CENTRAL_SLAVE_IPADDR@:/etc/centreon-broker/
 
 ### Modification de la commande `cbd` reload
 
-Ceci n'est peut-être pas connu de tous les utilisateurs de Centreon, mais à chaque fois qu'un rechargement de la configuration du poller central est effectué via l'interface, le service broker (`cbd`) est rechargé (et pas seulement centengine), d'où le paramètre "Centreon Broker reload command" dans *Configuration > Pollers > Central*.
+Ceci n'est peut-être pas connu de tous les utilisateurs de Centreon, mais à chaque fois qu'un rechargement de la configuration du Poller central est effectué via l'interface, le service broker (`cbd`) est rechargé (et pas seulement centengine), d'où le paramètre "Centreon Broker reload command" dans *Configuration > Pollers > Central*.
+
 
 Comme expliqué ci-dessus, les processus du broker sont répartis entre deux services : `cbd` pour le courtier RRD, `cbd-sql` pour le courtier central. Dans le contexte d'un cluster centreon-ha, le service qui doit être rechargé lors de l'exportation de la configuration est `cbd-sql` et non `cbd`. Vous devez donc appliquer la valeur `service cbd-sql reload` au paramètre "Centreon Broker reload command".
 
