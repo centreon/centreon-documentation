@@ -22,7 +22,8 @@ La commande `vgs` devrait retourner un affichage de la forme ci-dessous (en part
   centos_centreon-c1      1   5   0 wz--n- <31,00g <5,00g
 ```
 
-**Attention : ** Si cette condition préalable n'est pas vérifiée, il ne sera pas possible de synchroniser les bases de données comme décrit dans ce document.
+**Attention :** Si cette condition préalable n'est pas vérifiée, il ne sera pas possible de synchroniser les bases de données comme décrit dans ce document.
+
 
 ### Définition des noms et adresses IP des serveurs
 
