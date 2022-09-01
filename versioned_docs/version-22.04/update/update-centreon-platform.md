@@ -58,8 +58,9 @@ yum update centreon\*
 Clean the cache:
 
 ```shell
-apt update && apt upgrade
 apt clean all
+apt update
+
 ```
 
 Then upgrade all the components with the following command:
