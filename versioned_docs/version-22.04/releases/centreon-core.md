@@ -22,7 +22,7 @@ If you have feature requests or want to report a bug, please go to our
 #### Bug fixes
 
 - [Core] Fixed potential empty values in `index_data`.`special` that could block Centreon Broker
-- [Install] Fixed update process showing unable to execute SQL query
+- [Install] Fixed update process that threw an "unable to execute SQL query" error
 
 ### 22.04.3
 
