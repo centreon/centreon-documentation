@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 Le Pack Centreon **OneAccess** apporte 1 modèle d'hôte :
 * Net-Oneaccess-SNMP-custom
 
-Il apporte les modèles de service suivants :
+Il apporte les modèles de services suivants :
 
 | Alias       | Modèle de services             | Description                            | Défaut  |
 |:------------|:-------------------------------|:---------------------------------------|:--------|
