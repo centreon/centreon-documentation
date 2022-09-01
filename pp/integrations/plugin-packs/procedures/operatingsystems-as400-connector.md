@@ -199,7 +199,7 @@ yum install centreon-pack-operatingsystems-as400-connector
 
 * Log into Centreon and add a new Host through **Configuration > Hosts**.
 * Fill the "Name", "Alias" & "IP Address / DNS" fields according to your *IBM AS400* settings
-* Select the *operatingsystems-as400-connector-custom* template to apply to the Host
+* Select the *OS-AS400-Connector-custom* template to apply to the Host
 * Once the template applied, some Macros marked as 'Mandatory' hereafter have to be configured.
 
 | Mandatory | Name                   | Description                                                                                     |
