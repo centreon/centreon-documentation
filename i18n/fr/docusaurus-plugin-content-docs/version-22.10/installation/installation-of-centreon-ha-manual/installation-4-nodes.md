@@ -706,7 +706,8 @@ The VIP address is already at the right place. Nothing to do.
 
 ## Configuration du cluster Centreon
 
-**Note : ** sauf indication contraire, chacune des étapes suivantes doit être effectuée **sur les deux nœuds centraux**.
+**Note :** sauf indication contraire, chacune des étapes suivantes doit être effectuée **sur les deux nœuds centraux**.
+
 
 ### Configuration du service de synchronisation
 
