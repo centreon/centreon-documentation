@@ -196,6 +196,46 @@ By:
 
 ## Centreon Collect
 
+### 22.04.1
+
+Release date: ``
+
+### Centreon Engine
+
+##### Features
+
+- Enable recheck for Anomaly Detection services
+
+##### Improvements
+
+- Improve security of the gRPC API by listening on 127.0.0.1 by default
+
+##### Bug fixes
+
+- Fixed an issue that made the name of the resources disappear from Resources Status when linked to a severity or a category (it came back once centengine was restarted)
+- Fixed an issue with the way escaped special characters were managed (eg. `\n`)
+
+### Centreon Broker
+
+##### Improvements
+
+- Improve security of the gRPC API by listening on 127.0.0.1 by default
+
+##### Bug fixes
+
+- Fixed broker compression 
+- Fixed an issue that caused the RRD rebuild mechanism to fail
+- Fixed an issue that caused BAM Business activities with “Ignore the indicator in the calculation” as planned downtime calculation method to stop ignoring downtimed KPIs when they had overlapping downtimes
+- Fixed an issue that made the name of the resources disappear from Resources Status when linked to a severity or a category (it came back once centengine was restarted)
+- Broker handles multiple options
+- broker with grpc configured core on start
+- Deleting a tag does not remove the link with resources in resources_tags table
+- Fixed an issue that caused broker to crash when a BAM output was configured and the BAM tables did not exist
+- Fixed an issue with the way escaped special characters were managed (eg. `\n`)
+- Scheduled downtimes used to be inserted one at a time, which caused performance issues on platforms with a lot of recurrent scheduled downtimes. They are now injected in bulk inserts to reduce database solicitation and  avoid performance issues.
+- [Configuration] Extended the size of the URL, Notes and Action URL fields to avoid truncating long URLs
+
+
 ### 22.04.0
 
 #### Centreon Engine
