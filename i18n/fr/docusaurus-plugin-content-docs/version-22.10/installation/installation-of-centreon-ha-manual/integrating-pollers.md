@@ -1,6 +1,6 @@
 ---
 id: integrating-pollers
-title: Intégrer des pollers dans un cluster Centreon-HA
+title: Intégrer des Pollers dans un cluster Centreon-HA
 ---
 
 ## Obtention des empreintes des nœuds centraux
