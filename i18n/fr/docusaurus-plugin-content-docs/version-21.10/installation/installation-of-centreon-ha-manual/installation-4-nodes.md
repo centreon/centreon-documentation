@@ -624,8 +624,8 @@ CENTREON   ALL = NOPASSWD: /usr/bin/systemctl reload centreon
 CENTREON   ALL = NOPASSWD: /usr/bin/systemctl restart centreon
 CENTREON   ALL = NOPASSWD: /usr/bin/systemctl stop centreon
 CENTREON   ALL = NOPASSWD: /usr/bin/systemctl start centreon
-
 CENTREON   ALL = NOPASSWD: /usr/bin/nmcli
+
 ```
 
 Pour le compte mysql, modifiez le fichier `/etc/sudoers.d/centreon-cluster-db` et ajoutez la ligne suivante :
