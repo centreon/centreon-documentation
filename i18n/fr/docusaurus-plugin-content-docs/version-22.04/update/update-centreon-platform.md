@@ -2,6 +2,8 @@
 id: update-centreon-platform
 title: Mise à jour d'une plateforme Centreon 22.04
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 Ce chapitre décrit la procédure de mise à jour de votre plate-forme Centreon
 22.04 (c'est-à-dire le passage de 22.04.x à 22.04.y).
@@ -21,7 +23,25 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 > Assurez-vous que tous les utilisateurs sont déconnectés avant de commencer
 > la procédure de mise à jour.
 
-Videz le cache de yum :
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+Videz le cache :
+
+```shell
+dnf clean all --enablerepo=*
+```
+
+Mettez à jour l'ensemble des composants :
+
+```shell
+dnf update centreon\*
+```
+
+</TabItem>
+<TabItem value="Centos 7" label="Centos 7">
+
+Videz le cache :
 
 ```shell
 yum clean all --enablerepo=*
@@ -33,7 +53,30 @@ Mettez à jour l'ensemble des composants :
 yum update centreon\*
 ```
 
-### Finalisation de la mise à jour
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+Videz le cache :
+
+```shell
+apt update && apt upgrade
+apt clean all
+```
+
+Mettez à jour l'ensemble des composants :
+
+```shell
+apt install centreon\*
+```
+
+</TabItem>
+</Tabs>
+
+> Vous pouvez maintenant procéder à la mise à jour en utilisant :
+> - [L'assistant d'interface](#finalisation-de-la-mise-à-jour-avec-lassistant-dinterface)
+> - [L'API](#finalisation-de-la-mise-à-jour-avec-lapi)
+
+#### Finalisation de la mise à jour avec l'assistant d'interface
 
 Connectez-vous à l'interface web Centreon pour démarrer le processus de
 mise à jour :
@@ -72,6 +115,64 @@ la commande suivante:
 ```shell
 systemctl restart cbd centengine gorgoned
 ```
+
+Vous pouvez maintenant passer à cette [étape](#mise-à-jour-des-extensions).
+
+#### Finalisation de la mise à jour avec l'API
+
+Connectez-vous au serveur Central via le terminal pour poursuivre le processus de
+mise à jour.
+
+Vous avez besoin d'un token d'authentification pour accéder au endpoint de l'API. Suivez cette procédure pour obtenir un numéro de token.
+
+> Note : dans notre cas, nous avons la configuration décrite ci-dessous (vous devez adapter la procédure à votre configuration).
+
+- adresse : 10.25.XX.XX
+- port : 80
+- version : 22.04
+- identifiant : Admin
+- mot de passe : xxxxx
+
+Entrez la requête suivante :
+
+```shell
+curl --location --request POST '10.25.XX.XX:80/centreon/api/v22.04/login' \
+--header 'Content-Type: application/json' \
+--header 'Accept: application/json' \
+--data '{
+  "security": {
+    "credentials": {
+      "login": "Admin",
+      "password": "xxxxx"
+    }
+  }
+}'
+```
+
+Voici ce à quoi le résultat ressemble :
+
+```shell
+{"contact":{"id":1,"name":"Admin Centreon","alias":"admin","email":"admin@localhost","is_admin":true},"security":{"token":"hwwE7w/ukiiMce2lwhNi2mcFxLNYPhB9bYSKVP3xeTRUeN8FuGQms3RhpLreDX/S"}}
+```
+
+Récupérez le numéro du token pour l'utiliser lors de la prochaine requête.
+
+Entrez ensuite cette requête :
+
+```shell
+curl --location --request PATCH 'http://10.25.XX.XX:80/centreon/api/latest/platform/updates' \
+--header 'X-AUTH-TOKEN: hwwE7w/ukiiMce2lwhNi2mcFxLNYPhB9bYSKVP3xeTRUeN8FuGQms3RhpLreDX/S' \
+--header 'Content-Type: application/json' \
+--data '{
+    "components": [
+        {
+            "name": "centreon-web"
+        }
+    ]
+}'
+```
+
+> Cette requête ne renvoie aucun résultat. Pour vérifier que la mise à jour a bien été appliquée, consultez le numéro de version affiché sur la page de connexion de l'interface web Centreon.
 
 ### Mise à jour des extensions
 
