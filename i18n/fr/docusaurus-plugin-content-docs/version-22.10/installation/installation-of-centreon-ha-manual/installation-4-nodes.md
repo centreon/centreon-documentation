@@ -65,7 +65,8 @@ Dans un cluster Centreon-HA, les deux processus de broker seront chacun gérés 
 * `central-broker-master` comme ressource `cbd_central_broker`, liée au service *systemd* `cbd-sql`.
 * `central-rrd-master` comme ressource clone `cbd_rrd`, liée au service standard Centreon *systemd* `cbd`.
 
-Pour que tout fonctionne correctement dans la suite, vous devez maintenant défaire le lien entre central-broker-master et le service `cbd` ** en cochant "no" pour le paramètre "Linked to cbd service "** dans *Configuration* > *Pollers* > *Configuration broker* > *central-broker-master* dans l'onglet *General*.
+Pour que tout fonctionne correctement dans la suite, vous devez maintenant défaire le lien entre central-broker-master et le service `cbd` **en cochant "no" pour le paramètre "Linked to cbd service "** dans *Configuration* > *Pollers* > *Configuration broker* > *central-broker-master* dans l'onglet *General*.
+
 
 #### Double flux RRD
 
