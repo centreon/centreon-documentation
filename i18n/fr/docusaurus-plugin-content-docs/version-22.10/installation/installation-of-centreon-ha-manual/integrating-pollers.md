@@ -33,7 +33,7 @@ La commande doit afficher un retour semblable à celui-ci :
     - key: tRsFMBv9X3ScNFMwvG8D652nXMsgEYMb1qsJek-Mns8
 ```
 
-## Configuration de Gorgone sur le poller
+## Configuration de Gorgone sur le Poller
 
 * Modifier ce fichier pour que cette section ressemble à :
 
