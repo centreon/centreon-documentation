@@ -61,7 +61,8 @@ Dans une installation Centreon standard, le service `cbd` pilote deux instances 
 * `central-rrd-master` : le RRD broker qui reçoit son flux du SQL broker, et dont la seule fonction est d'écrire les fichiers RRD utilisés pour afficher les graphes. 
 
 
-Dans un cluster Centreon-HA, les deux processus de broker seront chacun gérés par un service séparé qui sera piloté par le cluster :
+Dans un cluster Centreon-HA, les deux processus de broker seront chacun géré par un service séparé qui sera piloté par le cluster :
+
 
 * `central-broker-master` comme ressource `cbd_central_broker`, liée au service *systemd* `cbd-sql`.
 * `central-rrd-master` comme ressource clone `cbd_rrd`, liée au service standard Centreon *systemd* `cbd`.
