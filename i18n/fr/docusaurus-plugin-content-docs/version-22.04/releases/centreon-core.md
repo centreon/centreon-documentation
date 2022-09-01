@@ -16,6 +16,20 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon Web
 
+### 22.04.4
+
+#### Bug fixes
+
+- [Authentication] Fixed contact_location when creating a session from OpenId Connect which made it impossible to access MBI jobs
+- [Core] Fixed database partitioning for Aurora DBMS
+- [Core] Fixed potential empty values in `index_data`.`special` that could block Centreon Broker
+- [Install] Fixed update process showing unable to execute SQL query
+- [UI] Fixed french typo in OpenID Connect configuration form
+
+#### Security fixes
+
+- [Configuration] Sanitized and bound queries in listServiceCategories file
+
 ### 22.04.3
 
 Release date: `August 25, 2022`
