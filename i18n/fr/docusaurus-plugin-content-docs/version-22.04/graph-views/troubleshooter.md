@@ -6,7 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-Ce chapitre décrit les erreurs courantes que vous pouvez rencontrer lors de l'utilisation de Centreon MAP. Veuillez lire les questions et réponses ci-dessous avant de contacter notre équipe de support.
+Ce chapitre décrit les erreurs courantes que vous pouvez rencontrer lors de l'utilisation de Centreon MAP. Veuillez lire les questions et réponses ci-dessous avant de contacter notre équipe support.
 
 Nous continuerons à mettre à jour cette section en fonction de vos commentaires.
 
@@ -44,7 +44,7 @@ Dans ce cas, démarrez le service Centreon MAP :
 sudo systemctl start centreon-map
 ```
 
-Une fois que vous êtes sûr que votre serveur fonctionne, essayez d'accéder à son API via votre navigateur Web. Vérifiez l'API REST utilisée par l'interface web comme suit :
+Une fois que vous êtes sûr que votre serveur fonctionne, essayez d'accéder à son API via votre navigateur web. Vérifiez l'API REST utilisée par l'interface web comme suit :
 
 <Tabs groupId="sync">
 <TabItem value="HTTP" label="HTTP">
@@ -63,7 +63,7 @@ https://<MAP_IP>:8443/centreon-studio/api/beta/actuator/health
 </TabItem>
 </Tabs>
 
-Vous pouvez également vérifier l'API SOAP utilisée par le client de bureau :
+Vous pouvez également vérifier l'API SOAP utilisée par le client Desktop :
 
 <Tabs groupId="sync">
 <TabItem value="HTTP" label="HTTP">
@@ -93,6 +93,7 @@ systemctl status iptables
 ```
 
 Si vous voyez ce message...
+
 ```shell
 iptables: Firewall is not running.
 ```
@@ -128,9 +129,9 @@ Pour ouvrir les ports appropriés :
 /sbin/iptables -A INPUT -p tcp --dport <PORT> -j ACCEPT
 ```
 
-> Remplacez <PORT\> par le port que votre serveur Centreon MAP utilise (le plus souvent 8080 ou 8443 si vous l'avez configuré en SSL).
+> Remplacez <PORT\> par le port que votre serveur Centreon MAP utilise (le plus souvent 8080, ou 8443 si vous l'avez configuré en SSL).
 
-Pour désactiver simplement votre pare-feu, exécutez :
+Pour désactiver votre pare-feu, exécutez :
 
 ```shell
 systemctl stop iptables
@@ -138,11 +139,11 @@ systemctl stop iptables
 
 ### Mes images de Centreon Web ne s'affichent pas dans Centreon MAP
 
-Centreon MAP importe automatiquement toutes les images de Centreon Web dans sa propre base de données.
-Sur votre client de bureau, vous devriez voir tous vos fichiers provenant de Centreon Web sous le panneau à onglet Media dans le dossier "Centreon".
+Centreon MAP importe automatiquement toutes les images de Centreon web dans sa propre base de données.
+Sur votre client Desktop, vous devriez voir tous vos fichiers provenant de Centreon web dans l'onglet **Médias** du panneau en bas à gauche, dans le dossier **Centreon**.
 Si ce n'est pas le cas, vous pouvez vérifier ce qui suit :
 
-Sur votre serveur Centreon MAP, ouvrez le fichier `/etc/my.cnf` et vérifiez si la ligne suivante est présente :
+Sur votre serveur Centreon MAP, ouvrez le fichier **/etc/my.cnf** et vérifiez si la ligne suivante est présente :
 
 ```text
 max_allowed_packet = 20M
@@ -154,41 +155,41 @@ Ensuite, rechargez votre base de données MariaDB :
 sudo systemctl reload mysqld
 ```
 
-Attendez quelques minutes pour que le serveur Centreon MAP synchronise les ressources Centreon Web.
-Les images de Centreon Web devraient alors apparaître sur votre client de bureau sous le panneau à onglet Media dans le dossier Centreon.
+Attendez quelques minutes pour que le serveur Centreon MAP synchronise les ressources Centreon web.
+Les images de Centreon web devraient alors apparaître sur votre client Desktop dans l'onglet **Médias** du panneau en bas à gauche, dans le dossier **Centreon**.
 
 ![image](../assets/graph-views/centreon_media_part.png)
 
 Si vous ne voyez toujours pas la liste des images, vérifiez votre fichier de configuration Centreon MAP.
 
-Connectez-vous par SSH à votre serveur Centreon MAP. Ouvrez le fichier studio-config.properties :
+Connectez-vous par SSH à votre serveur Centreon MAP. Ouvrez le fichier **studio-config.properties** :
 
 ```shell
 vim /etc/centreon-studio/studio-config.properties
 ```
 
-Pour la variable "centreon.url", vérifiez qu'il existe un chemin d'accès complet à votre interface Web Centreon :
+Pour la variable **centreon.url**, vérifiez qu'il existe un chemin d'accès complet à votre interface web Centreon :
 
 ```shell
 centreon.url=http://<CENTRAL_IP_ADDRESS>
 ```
 
-> N'oubliez pas de remplacer "http" par "https" si votre interface Web Centreon utilise HTTPS.
+> N'oubliez pas de remplacer "http" par "https" si votre interface web Centreon utilise HTTPS.
 
-Attendez quelques minutes pour que le serveur Centreon MAP synchronise les ressources Centreon Web.
-Les images de Centreon Web devraient alors apparaître sur votre client de bureau dans le dossier Centreon.
+Attendez quelques minutes pour que le serveur Centreon MAP synchronise les ressources Centreon web.
+Les images de Centreon web devraient alors apparaître sur votre client Desktop, dans le dossier **Centreon**.
 
-## Client de bureau Centreon MAP
+## Client Desktop Centreon MAP
 
-### Le bureau ne peut pas démarrer : "Java a été lancé mais a renvoyé un code de sortie = 13".
+### Le client Desktop ne peut pas démarrer : "Java was started but returned exit code = 13".
 
-Le client de bureau ne démarre pas et un message d'erreur "code d'erreur = 13" s'affiche.
+Le client Desktop ne démarre pas et un message d'erreur "code d'erreur = 13" s'affiche.
 
 Installez une JVM 64 bits.
 
 #### Impossible de créer une nouvelle vue
 
-Sur le client de bureau, si vous voulez créer une nouvelle vue mais que le bouton est désactivé, c'est que vous n'avez pas les droits d'accès.
+Sur le client Desktop, si vous voulez créer une nouvelle vue mais que le bouton est désactivé, c'est que vous n'avez pas les droits d'accès.
 
 ![image](../assets/graph-views/view_menu.png)
 
@@ -198,37 +199,37 @@ C'est à eux d'accorder des privilèges d'administration aux autres utilisateurs
 
 ### Impossible d'importer des médias
 
-Lorsque vous faites un clic droit sur le panneau Média, le bouton Importer est désactivé.
+Lorsque vous faites un clic droit sur le panneau **Médias**, le bouton **Importer** est désactivé.
 
 Il y a deux choses que vous devez savoir sur les médias :
 
-- Le dossier Centreon, qui est créé automatiquement, contient toutes les images de Centreon Web :
+- Le dossier Centreon, qui est créé automatiquement, contient toutes les images de Centreon web :
 
   - Vous ne pouvez pas ajouter ou supprimer une image de ce dossier,
   - Toutes les images sont au même niveau (pas de sous-dossiers).
 
-- Vous ne pouvez pas importer d'images à la racine du panneau média.
+- Vous ne pouvez pas importer d'images à la racine du panneau **Médias**.
 
-La solution consiste à créer un nouveau dossier (par exemple, *Icons*).
+La solution consiste à créer un nouveau dossier (par exemple, **Icons**).
 
-Ensuite, faites un clic droit sur ce dossier et sélectionnez *Importer*.
+Ensuite, faites un clic droit sur ce dossier et sélectionnez **Importer**.
 
 #### Je ne vois pas le "menu d'importation MAP 3".
 
 Vous souhaitez importer des vues de MAP 3 vers Centreon MAP \>= 4.x mais le menu correspondant est absent.
 
-Veuillez vérifier les conditions préalables suivantes :
+Veuillez vérifier les prérequis suivants :
 
 - Votre licence MAP 3 est toujours valide.
-- La version de votre client de bureau Centreon est au moins v4.0.8 (vous pouvez la vérifier directement à partir de l'interface de votre client de bureau, dans le menu Aide \>A propos).
-- S'il existe un proxy entre votre ordinateur et votre interface Web Centreon, vous devez le définir dans le menu Configurer.
+- La version de votre client Desktop Centreon est au moins v4.0.8 (vous pouvez la vérifier directement à partir de l'interface de votre client Desktop, dans le menu Help \> About).
+- S'il existe un proxy entre votre ordinateur et votre interface web Centreon, vous devez le définir dans le menu **Configurer**.
 
-> Le proxy doit être configuré avec la case à cocher *utiliser pour internet*.
+   > Le proxy doit être configuré avec la case à cocher **Utiliser pour internet**.
 
-- Dans le fichier de configuration du serveur MAP de Centreon (/etc/centreon-studio/studio-config.properties), vous avez saisi l'IP de votre serveur central.
+- Dans le fichier de configuration du serveur Centreon MAP (**/etc/centreon-studio/studio-config.properties**), vous avez saisi l'IP de votre serveur central.
 
-Cette IP est également utilisée par votre client de bureau pour accéder à l'API MAP 3.
-Si cette adresse IP n'est pas accessible par votre client de bureau (parce que votre serveur MAP Centreon et votre serveur Central Centreon sont tous deux situés dans une zone démilitarisée), vous devez en indiquer une nouvelle à votre client de bureau.
+Cette IP est également utilisée par votre client Desktop pour accéder à l'API MAP 3.
+Si cette adresse IP n'est pas accessible par votre client Desktop (parce que votre serveur MAP Centreon et votre serveur Central Centreon sont tous deux situés dans une zone démilitarisée), vous devez en indiquer une nouvelle à votre client Desktop.
 Pour ce faire, modifiez le fichier :
 
 <Tabs groupId="sync">
@@ -248,7 +249,7 @@ C:\Users\<YOUR_USERNAME>\AppData\Local\Centreon-Map4\Centreon-Map4.ini
 </TabItem>
 </Tabs>
 
-Ajoutez la ligne suivante à la fin du fichier sur une nouvelle ligne, où `<CENTRAL_IP_ADDRESS>` est l'URL avec laquelle vous accédez à l'interface web de Centreon Web depuis votre ordinateur :
+Ajoutez la ligne suivante à la fin du fichier sur une nouvelle ligne, où `<CENTRAL_IP_ADDRESS>` est l'URL avec laquelle vous accédez à l'interface web de Centreon web depuis votre ordinateur :
 
 ```shell
 -Dcentreon.url=<CENTRAL_IP_ADDRESS>
@@ -258,27 +259,27 @@ Ajoutez la ligne suivante à la fin du fichier sur une nouvelle ligne, où `<CEN
 
 Si vous ouvrez une vue géographique ou un conteneur et que votre arrière-plan est composé de gris avec des X et le message pop-up suivant...
 
-"Erreur lors de la réception des tuiles Mapbox. Veuillez vérifier votre configuration Mapbox."
+"Error while retreiving Mapbox tiles. Please check your Mapbox configuration."
 
 ![image](../assets/graph-views/mapbox-configuration-error.png)
 
-vous devez alors vérifier les points suivants :
+... vous devez alors vérifier les points suivants :
 
 - Assurez-vous que vos informations d'identification Mapbox sont valides. Pour configurer vos informations d'identification Mapbox. Votre clé secrète Mapbox a peut-être changé.
   Comme vous ne pouvez pas voir les clés précédemment créées, vous pouvez en créer une nouvelle et l'ajouter dans le fichier de configuration de votre serveur Centreon MAP.
-- Si votre ordinateur se trouve derrière un proxy pour accéder à Internet, veuillez configurer ce proxy dans le client de bureau Centreon MAP.
+- Si votre ordinateur se trouve derrière un proxy pour accéder à internet, veuillez configurer ce proxy dans le client Desktop Centreon MAP.
 - Le style Mapbox que vous avez utilisé sur votre vue a peut-être été supprimé.
 
 Essayez de modifier votre vue/conteneur et changez le style Mapbox :
 
 ![image](../assets/graph-views/mapbox-change-style.png)
 
-Si vous ne pouvez pas sélectionner de style, le problème est probablement causé par l'un des éléments ci-dessus (c'est-à-dire des informations d'identification, un proxy ou un style supprimé).
+Si vous ne pouvez sélectionner aucun style, le problème vient probablement de l'un des éléments ci-dessus (c'est-à-dire des informations d'identification, un proxy ou un style supprimé).
 
 ### Erreur avec les caractères spéciaux
 
-Si vous essayez d'utiliser des caractères dans des étiquettes qui n'utilisent pas l'encodage latin1 et que vous obtenez une erreur contextuelle affichant "Could not execute statement" sur votre client de bureau, votre base de données est probablement en latin1.
-Pour changer la base de données en encodage UTF-8, vous devez accéder à votre serveur Centreon MAP en SSH et exécuter les commandes suivantes :
+Si vous essayez d'utiliser des caractères dans des étiquettes qui n'utilisent pas l'encodage latin1 et que vous obtenez une erreur contextuelle affichant "Could not execute statement" sur votre client Desktop, votre base de données est probablement en latin1.
+Pour passer la base de données en encodage UTF-8, vous devez accéder à votre serveur Centreon MAP en SSH et exécuter les commandes suivantes :
 
 ```shell
 # systemctl stop centreon-map
@@ -293,11 +294,11 @@ utf8\_general\_ci/
 # systemctl start centreon-map
 ```
 
-### Mon client de bureau est lent et je suis souvent déconnecté.
+### Mon client Desktop est lent et je suis souvent déconnecté.
 
-Selon le périmètre de surveillance de votre serveur Centreon (le nombre de services en cours d'exécution) et la configuration matérielle de l'ordinateur, votre client de bureau peut avoir besoin de plus de RAM qu'il n'en utilise par défaut.
+Selon le périmètre de supervision de votre serveur Centreon (le nombre de services en cours d'exécution) et la configuration matérielle de l'ordinateur, votre client Desktop peut avoir besoin de plus de RAM qu'il n'en utilise par défaut.
 Il peut commencer à se figer et essayer de libérer plus de mémoire. Vous pouvez vérifier ce comportement en ouvrant votre gestionnaire de tâches (Ctrl + Maj + Esc) et en contrôlant la consommation de mémoire.
-Si elle augmente et semble atteindre une limite alors que votre CPU travaille dur, votre client de bureau a besoin de plus de mémoire.
+Si elle augmente et semble atteindre une limite alors que votre CPU travaille dur, votre client Desktop a besoin de plus de mémoire.
 
 Pour augmenter la mémoire, modifiez le fichier .ini :
 
@@ -326,35 +327,35 @@ Et ajoutez la ligne suivante à la fin du fichier, sur une nouvelle ligne :
 
 Le "4g" signifie 4 Go (par défaut, il ne peut utiliser que 2 Go). Vous pouvez modifier ce nombre en fonction de votre matériel (par exemple, en définissant "3g").
 
-Redémarrez ensuite votre client de bureau.
+Redémarrez ensuite votre client Desktop.
 
-### J'obtiens l'erreur "Cannot authenticate user" sur la page de connexion.
+### J'obtiens l'erreur "Cannot authenticate user" sur la page de connexion
 
-Pour Centreon Web >= 2.8.6, vérifiez que votre utilisateur a coché l'option "Reach Real Time API".
+Pour Centreon Web >= 2.8.6, vérifiez que votre utilisateur a coché l'option **Accès à l'API de temps réel**.
 
 ![image](../assets/graph-views/reach-api.png)
 
-### I'm using Windows Remote Desktop (RDP) and I have many errors
+### J'utilise Windows Remote Desktop (RDP) et j'ai de nombreuses erreurs
 
-If you are using Centreon MAP Desktop Client through a Remote Session (with RDP, for instance), you might encounter an error displaying a number of pop-ups like "128" or "512" rendering your desktop client unusable.
+Si vous utilisez le client Desktop Centreon MAP via une conneion à distance (par exemple avec RDP), il se peut que vous rencontriez une erreur affichant un certain nombre de pop-ups de type "128" ou "512", rendant votre client Desktop inexploitable.
 
-To prevent this from happening, you need to change a parameter in your RDP application:
+Pour remédier au problème, changez un paramètre dans votre application RDP :
 
-Go to *Advance > Display* and select "Highest quality (32bit)". You can then access your remote computer and this error will no longer occur.
+Allez à la page **Advance > Display** et sélectionnez "Highest quality (32bit)". Vous pouvez accéder à votre ordinateur à distance et l'erreur n'apparaîtra plus.
 
 ![image](../assets/graph-views/rdp-config.png)
 
 > Pour les utilisateurs Linux ou Mac de l'application **rdesktop**, ajoutez cet argument à votre ligne de commande : \[-a 32\]
 
-> Cette erreur peut se produire si vous utilisez le skin "Windows server" sur votre ordinateur. Allez dans votre paramètre Windows et modifiez les paramètres de couleur pour utiliser des couleurs 32 bits.
+> Cette erreur peut se produire si vous utilisez le thème "Windows server" sur votre ordinateur. Allez dans vos paramètres Windows et modifiez les paramètres de couleur pour utiliser des couleurs 32 bits.
 
 ## Interface web Centreon MAP
 
-### Les graphiques sont tous déplacés vers la droite après la mise à niveau de Centreon MAP 4.4 à Centreon MAP 18.10.
+### Les graphiques sont tous déplacés vers la droite après la mise à niveau de Centreon MAP 4.4 à Centreon MAP 18.10
 
-Un bogue affectant l'interface Web déplaçait tous les graphiques vers la gauche par rapport à leur position dans le client de bureau.
+Un bug affectant l'interface web déplaçait tous les graphiques vers la gauche par rapport à leur position dans le client Desktop.
 Ce problème a été corrigé dans la version 18.10 de Centreon MAP.
-Si vous avez manuellement déplacé les graphiques vers la droite pour compenser dans l'interface Web, tous vos graphiques seront surdéplacés vers la droite après la mise à niveau.
+Si vous avez manuellement déplacé les graphiques vers la droite pour compenser dans l'interface web, tous vos graphiques seront surdéplacés vers la droite après la mise à niveau.
 
 Nous avons fourni un script qui décale automatiquement tous les graphiques vers la gauche.
 N'utilisez pas ce script si vous savez que la plupart de vos graphiques ont été correctement positionnés après la mise à jour : vous devrez décaler manuellement les autres.
@@ -363,8 +364,8 @@ Voici le script SQL qui corrige le décalage créé manuellement par un utilisat
 
 Pour l'exécuter :
 
-- Faites une sauvegarde de votre base de données centreon\_studio.
-- Allez dans le répertoire /etc/centreon-studio/utils/.
+- Faites une sauvegarde de votre base de données **centreon\_studio**.
+- Allez dans le répertoire **/etc/centreon-studio/utils/**.
 - Exécutez le script :
 
   ```shell
@@ -377,17 +378,17 @@ Pour l'exécuter :
   systemctl restart centreon-map
   ```
 
-### Mon interface Web affiche "Erreur d'authentification".
+### Mon interface Web affiche "Erreur d'authentification"
 
-L'erreur suivante peut apparaître sur votre interface Web.
+L'erreur suivante peut apparaître sur votre interface web :
 
 ![image](../assets/graph-views/web_client_authentication_error.png)
 
 Tout d'abord, vérifiez si vous avez accès aux API du serveur Centreon MAP.
 
-Dans **Administration > Extensions > MAP > Options**, vérifiez la configuration de votre interface Web Centreon MAP :
+Dans **Administration > Extensions > MAP > Options**, vérifiez la configuration de votre interface web Centreon MAP :
 
-L'URL définie dans "Adresse du serveur MAP" doit inclure le protocole (HTTP ou HTTPS) et le port utilisé par votre serveur Centreon MAP (généralement 8080 pour une connexion normale ou 8443 pour une connexion sécurisée).
+L'URL définie dans **Adresse du serveur MAP** doit inclure le protocole (HTTP ou HTTPS) et le port utilisé par votre serveur Centreon MAP (généralement 8080 pour une connexion normale ou 8443 pour une connexion sécurisée).
 
 ![image](../assets/graph-views/web_client_configuration_2204.png)
 
@@ -399,7 +400,7 @@ Votre interface web est configurée mais elle affiche une page vide :
 
 Soit aucune vue n'est créée sur le serveur, soit vous n'y avez pas accès.
 
-Si vous êtes un administrateur de Centreon MAP, vous pouvez voir toutes les vues. Dans ce cas, aucune vue n'a été créée. Voici des [instructions de démarrage rapide] (create-standard-view.md) pour en créer une.
+Si vous êtes un administrateur de Centreon MAP, vous pouvez voir toutes les vues. Dans ce cas, aucune vue n'a été créée. Voici des [instructions de démarrage rapide](create-standard-view.md) pour en créer une.
 
 Sinon, contactez l'administrateur Centreon MAP ou créez vos propres vues si vous disposez des privilèges suffisants.
 
@@ -465,7 +466,7 @@ Le paramètre **centreon.url** doit utiliser l'un des noms alternatifs du certif
 centreon.url=https://company.com
 ```
 
-et non
+et non :
 
 ```shell
 centreon.url=https://10.25.5.178

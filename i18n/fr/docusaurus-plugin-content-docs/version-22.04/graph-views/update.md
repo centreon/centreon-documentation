@@ -1,20 +1,20 @@
 ---
 id: update
-title: Mise à jour de l'extension
+title: Mettre à jour l'extension
 ---
 
 Ce chapitre décrit comment mettre à jour votre extension Centreon MAP. Pour ce faire, vous devez mettre à jour les trois principaux composants :
 
 - le serveur Centreon MAP
-- l'interface Web Centreon MAP et son widget
-- le client de bureau (mis à jour automatiquement).
+- l'interface web Centreon MAP et son widget
+- le client Desktop (mis à jour automatiquement).
 
-Avant de mettre à jour le serveur Centreon MAP, nous vous recommandons vivement d'effectuer une extraire (sauvegarde) de votre base de données `centreon_studio`.
+Avant de mettre à jour le serveur Centreon MAP, nous vous recommandons vivement d'effectuer un dump (sauvegarde) de votre base de données `centreon_studio`.
 Cela vous permettra de revenir facilement à l'état précédent si nécessaire.
 
-N'oubliez pas de lire les notes de mise à jour pour une explication des fonctionnalités, des corrections et des procédures personnalisées.
+N'oubliez pas de lire les notes de release pour une explication des fonctionnalités, des corrections et des procédures personnalisées.
 
-## Serveur MAP de Centreon
+## Serveur Centreon MAP
 
 Exécutez les commandes suivantes pour mettre à niveau votre serveur Centreon MAP :
 
@@ -31,7 +31,7 @@ Vous devez copier les modifications manuellement dans votre fichier de configura
 * L'ancien fichier de configuration est renommé **centreon-map.conf.rpmsave**.
 * La mise à niveau installe un nouveau fichier **centreon-map.conf**.
 
-Exécutez une comparaison entre l'ancien et le nouveau fichier de configuration :
+Exécutez un diff entre l'ancien et le nouveau fichier de configuration :
 
 ```shell
 diff -u /etc/centreon-studio/centreon-map.conf /etc/centreon-studio/centreon-map.conf.rpmsave
@@ -39,18 +39,18 @@ diff -u /etc/centreon-studio/centreon-map.conf /etc/centreon-studio/centreon-map
 
 Pour chaque différence entre les fichiers, évaluez si vous devez la copier de **centreon-map.conf.rpmsave** vers **centreon-map.conf**.
 
-## Interface Web de Centreon MAP
+## Interface web de Centreon MAP
 
 ```shell
 yum update centreon-map-web-client
 ```
 
-Terminez la mise à niveau en allant dans **Administration > Extensions > Manager** (parties module et widget) :
+Terminez la mise à niveau en allant dans **Administration > Extensions > Gestionnaire** (parties module et widget) :
 
 ![image](../assets/graph-views/update-web-client.png)
 
-## Centreon MAP Desktop client
+## Client Desktop Centreon MAP
 
-Si l'ordinateur de l'utilisateur dispose d'une connexion en ligne, le client de bureau est automatiquement mis à jour à la dernière version correspondant au serveur.
+Si l'ordinateur de l'utilisateur dispose d'une connexion internet, le client de bureau est automatiquement mis à jour à la dernière version correspondant au serveur.
 
-Sinon, le client peut être téléchargé via le menu **Surveillance > Carte** et le bouton **Client de bureau**.
+Sinon, le client peut être téléchargé via le menu **Supervision > MAP** et le bouton **Client de bureau**.

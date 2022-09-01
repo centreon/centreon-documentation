@@ -7,9 +7,9 @@ Si vous voulez partager une vue avec quelqu'un qui ne connaît pas Centreon et/o
 
 Comment créer l'URL :
 
-- Disposez d'un compte limité dédié et copiez sa clé d'autolocalisation et son nom d'utilisateur (ex : partner-1 & `autologin key = 23d501aa0\[\...\]8bf4fbc8a`)
+- Disposez d'un compte limité dédié et copiez sa clé d'autologin et son nom d'utilisateur (ex : partner-1 & `autologin key = 23d501aa0\[\...\]8bf4fbc8a`)
 
-- Connaître le lien direct pour aller sur votre site (ex : `https://demo.centreon.com/centreon/main.php?p=288#renderGate/View1/xxxx/`).
+- Récupérez le lien direct pour aller sur votre site (ex : `https://demo.centreon.com/centreon/main.php?p=288#renderGate/View1/xxxx/`).
 
   *Vous pouvez récupérer l'URL en utilisant le raccourci "Copier dans le presse-papiers" à côté du fil d'Ariane.*
 
