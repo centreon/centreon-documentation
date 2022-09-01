@@ -741,7 +741,7 @@ Active resources:
 
 #### Vérification du thread de réplication de la base de données
 
-L'état de la réplication de MariaDB peut être superviser à tout moment avec la commande `mysql-check-status.sh` :
+L'état de la réplication de MariaDB peut être supervisé à tout moment avec la commande `mysql-check-status.sh` :
 
 ```bash
 /usr/share/centreon-ha/bin/mysql-check-status.sh
@@ -756,7 +756,7 @@ Slave Thread Status [OK]
 Position Status [OK]
 ```
 
-Il peut arriver que le thread de réplication ne fonctionne pas juste après l'installation.  Le redémarrage de la ressource `ms_mysql` peut résoudre ce problème.
+Il peut arriver que le thread de réplication ne fonctionne pas juste après l'installation. Le redémarrage de la ressource `ms_mysql` peut résoudre ce problème.
 
 ```bash 
 pcs resource restart ms_mysql
@@ -777,8 +777,7 @@ Ticket Constraints:
 
 ### Mise à jour de l'extension Centreon-Web UI
 
-Maintenant que vous utilisez l'adresse VIP, vous devez mettre à jour le paramètre `Centreon-Map server address` 
-dans le menu **Administration > Extensions > Options** 
-avec l'adresse VIP ou le FQDN qui résout le VIP.
+Maintenant que vous utilisez l'adresse VIP, vous devez mettre à jour le paramètre **Adresse du serveur Centreon MAP** 
+dans le menu **Administration > Extensions > Options** avec l'adresse VIP ou le FQDN qui résout le VIP.
 
 En cas de HTTPS, il est possible que vous deviez accepter à nouveau le certificat (en cas de certificat auto-signé).
