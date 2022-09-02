@@ -198,7 +198,7 @@ By:
 
 ### 22.04.1
 
-Release date: ``
+Release date: `August 30, 2022`
 
 ### Centreon Engine
 
