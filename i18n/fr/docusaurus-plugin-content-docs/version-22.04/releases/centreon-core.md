@@ -16,6 +16,15 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon Web
 
+### 22.04.4
+
+Release date: `September 2, 2022`
+
+#### Bug fixes
+
+- [Core] Fixed potential empty values in `index_data`.`special` that could block Centreon Broker
+- [Install] Fixed update process that threw an "unable to execute SQL query" error
+
 ### 22.04.3
 
 Release date: `August 25, 2022`
