@@ -19,6 +19,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ## 22.04.4
 
+Release date: `September 2, 2022`
+
 #### Bug fixes
 
 - [Core] Fixed potential empty values in `index_data`.`special` that could block Centreon Broker
