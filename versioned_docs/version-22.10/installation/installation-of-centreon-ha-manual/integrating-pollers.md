@@ -33,7 +33,7 @@ The command output should look like:
     - key: tRsFMBv9X3ScNFMwvG8D652nXMsgEYMb1qsJek-Mns8
 ```
 
-## Configuring Gorgone on the poller
+## Configuring Gorgone on the Poller
 
 * You now have to modify `/etc/centreon-gorgone/config.d/40-gorgoned.yaml` on the poller in order to have both central keys in this section:
 
