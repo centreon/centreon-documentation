@@ -770,8 +770,9 @@ systemctl enable cbd
 
 #### Creating the Centreon VIP
 
-The VIP will be added to the `@CENTRAL_VIP_IFNAME@` interface configuration on master node.
-In most cases, the central VIP is the same of database VIP for 2 nodes cluster and this action has already done for the replication.
+The VIP will be added to the `@CENTRAL_VIP_IFNAME@` interface configuration on the master node.
+In most cases, the central VIP is the same as the database VIP for 2 nodes cluster and this action has already been done for the replication.
+
 
 If not, execute those commands on `@CENTRAL_MASTER_NAME@`:
 
