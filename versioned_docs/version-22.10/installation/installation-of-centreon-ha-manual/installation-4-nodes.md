@@ -683,7 +683,8 @@ nmcli con mod "@DB_VIP_IFNAME@" +ipv4.addresses "@DB_VIP_IPADDR@/@DB_VIP_CIDR_NE
 nmcli connection up "@DB_VIP_IFNAME@"
 ```
 
-Then run the following script **on one of the two MySQL nodes** to verify if the VIP is correctly mount on the MySQL master server (this script can be run on either of the two nodes, it will detect by itself which is the master):
+Then run the following script **on one of the two MySQL nodes** to verify if the VIP is correctly mounted on the MySQL master server (this script can be run on either of the two nodes, it will detect by itself which is the master):
+
 
 ```bash
 /usr/share/centreon-ha/bin/move-mysql-vip-to-mysql-master.sh
