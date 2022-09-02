@@ -209,7 +209,17 @@ mysql_secure_installation
 ## Activer firewalld
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8 / Centos 7" label="Alma / RHEL / Oracle Linux 8 / Centos 7">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+Installez firewalld:
+
+```shell
+yum install firewalld
+```
+
+</TabItem>
+
+<TabItem value="Centos 7" label="Centos 7">
 
 Installez firewalld:
 
@@ -339,7 +349,21 @@ apt install python3-inotify
 Installez fail2ban :
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8 / Centos 7" label="Alma / RHEL / Oracle Linux 8 / Centos 7">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+yum install epel-release
+yum install fail2ban fail2ban-systemd
+```
+
+Si SELinux est installé, mettez à jour les politiques SELinux :
+
+```shell
+yum update -y selinux-policy*
+```
+
+</TabItem>
+<TabItem value="Centos 7" label="Centos 7">
 
 ```shell
 yum install epel-release
@@ -487,7 +511,12 @@ Soit un serveur Centreon avec le FQDN suivant : **centreon7.localdomain**.
 En raison d'un changement de politique chez Google, les certificats auto-signés peuvent être rejetés par le navigateur Google Chrome (sans qu'il soit possible d'ajouter une exception). Pour continuer à utiliser ce navigateur, vous devez modifier la configuration OpenSSL.
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+Ouvrez le fichier **/etc/pki/tls/openssl.cnf**. L'objectif est de modifier ce fichier pour renseigner les différents IPs et FQDNs relatifs au serveur.
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 
 Ouvrez le fichier **/etc/pki/tls/openssl.cnf**. L'objectif est de modifier ce fichier pour renseigner les différents IPs et FQDNs relatifs au serveur.
 
@@ -565,7 +594,14 @@ Ce certificat étant créé, vous pourrez l'utiliser pour signer le certificat d
 Créez votre certificat pour le serveur en utilisant le certificat x509 (**ca_demo.crt**) pour le signer.
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```text
+openssl x509 -req -in centreon7.csr -out centreon7.crt -CA ca_demo.crt -CAkey ca_demo.key -CAcreateserial -CAserial ca_demo.srl  -extfile /etc/pki/tls/openssl.cnf -extensions v3_ca
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```text
 openssl x509 -req -in centreon7.csr -out centreon7.crt -CA ca_demo.crt -CAkey ca_demo.key -CAcreateserial -CAserial ca_demo.srl  -extfile /etc/pki/tls/openssl.cnf -extensions v3_ca
