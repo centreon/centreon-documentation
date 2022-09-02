@@ -1188,4 +1188,5 @@ Position Status [OK]
 
 ## Integrating pollers
 
-You can now [add your pollers](./integrating-pollers.md) and start monitoring!
+You can now [add your Pollers](./integrating-pollers.md) and start monitoring!
+
