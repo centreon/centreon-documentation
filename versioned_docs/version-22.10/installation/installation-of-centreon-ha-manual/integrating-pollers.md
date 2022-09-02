@@ -5,7 +5,7 @@ title: Integrating new Pollers in a Centreon-HA cluster
 
 ## Obtaining central nodes' thumbprints
 
-Both central nodes' Gorgone services will need to be authorized by the pollers' Gorgone services. 
+Both central nodes' Gorgone services will need to be authorized by the Pollers' Gorgone services. 
 
 * First, let's get each central node's key:
 
