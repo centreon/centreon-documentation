@@ -169,7 +169,7 @@ cd /usr/lib/oracle/21/client64/lib/
 
 La façon la plus sûre de récupérer des informations du serveur Oracle est de créer un utilisateur dédié à Centreon.
 
-Ce compte utilisateur doit avoir la permission de lecture sur les tables suivantes :
+Ce compte utilisateur doit avoir la permission de lecture/READ (Oracle 12+) ou de sélection/SELECT (Oracle < 12) sur les tables suivantes :
 
   - dba\_free\_space
   - dba\_data\_files
