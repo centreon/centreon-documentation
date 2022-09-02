@@ -13,7 +13,8 @@ Before following this procedure, it is recommended to have a satisfactory level 
 
 ### Installation of Centreon
 
-The installation of a Centreon-HA cluster can only be done on the basis of a functional installation of Centreon. Before following this procedure, it is therefore imperative to have applied **[this installation procedure](https://docs.centreon.com/docs/installation/introduction/)** until the end **by reserving about 5GB of free space** on the *volume group* which contains the MySQL data (mount point `/var/lib/mysql` by default). 
+The installation of a Centreon-HA cluster can only be done based on a functional installation of Centreon. Before following this procedure, it is therefore imperative to have applied **[this installation procedure](https://docs.centreon.com/docs/installation/introduction/)** until the end **by reserving about 5GB of free space** on the *volume group* which contains the MySQL data (mount point `/var/lib/mysql` by default).
+
 
 The `vgs` command should return a display of the form below (especially the value under `VFree`):
 
