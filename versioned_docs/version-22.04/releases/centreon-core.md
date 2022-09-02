@@ -17,7 +17,7 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
-## 22.04.4
+### 22.04.4
 
 Release date: `September 2, 2022`
 
