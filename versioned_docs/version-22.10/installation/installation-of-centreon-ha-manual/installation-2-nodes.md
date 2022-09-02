@@ -70,7 +70,8 @@ For everything to work properly in the following, you must now undo the link bet
 
 #### Dual RRD streams
 
-Rather than setting up a real-time replication of RRD data files, the technical choice that was made to allow graphs to be displayed on any node as soon as it becomes `master' was to duplicate the output stream from `central-broker-master' to `central-rrd-master'. This is configured in the same menu as in the previous paragraph, but this time in the *Output* tab of *Configuration > Collectors > Centreon Broker Configuration*.
+Rather than setting up a real-time replication of RRD data files, the technical choice that was made to allow graphs to be displayed on any node as soon as it becomes `master` was to duplicate the output stream from `central-broker-master` to `central-rrd-master`. This is configured in the same menu as in the previous paragraph, but this time in the *Output* tab of *Configuration > Collectors > Centreon Broker Configuration*.
+
 
 * Modify the output "IPv4" by replacing "localhost" by `@CENTRAL_MASTER_IPADDR@`.
 
