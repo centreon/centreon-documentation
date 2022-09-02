@@ -34,7 +34,7 @@ This template does not collect metrics, but provides the general state of the cl
 
 * presence of "failed actions"
 * resources state:
-  * `php7`
+  * `php`
   * `cbd_rrd`
   * `vip`
   * `http`
@@ -194,8 +194,8 @@ The output of this command should look like this:
 
 ```text
 OK: Cluster is OK |
-Resource 'php7' is started on node 'central-primary'
-Resource 'php7' is started on node 'central-secondary'
+Resource 'php' is started on node 'central-primary'
+Resource 'php' is started on node 'central-secondary'
 Resource 'cbd_rrd' is started on node 'central-primary'
 Resource 'cbd_rrd' is started on node 'central-secondary'
 Resource 'vip' is started on node 'central-secondary'
