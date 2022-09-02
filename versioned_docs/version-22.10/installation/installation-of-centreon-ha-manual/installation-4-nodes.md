@@ -337,7 +337,8 @@ This is the second method which will be proposed below.
 
 #### Centreon account
 
-This procedure is to be applied on the two central nodes. To begin, switch to the `bash` environment of `centreon`:
+This procedure is to be applied to the two central nodes. To begin, switch to the `bash` environment of `centreon`:
+
 
 ```bash
 su - centreon
