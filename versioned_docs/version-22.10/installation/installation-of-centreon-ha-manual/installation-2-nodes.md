@@ -98,7 +98,8 @@ Rather than setting up a real-time replication of RRD data files, the technical 
 Once the actions of the two previous paragraphs have been performed, the configuration must be exported (the first 3 boxes for the export of the "Central" Poller) for it to be effective.
 
 
-These actions must be performed either on both nodes, or only on `@CENTRAL_MASTER_NAME@` and then the broker configuration files must be copied to `@CENTRAL_SLAVE_NAME@`.
+These actions must be performed either on both nodes or only on `@CENTRAL_MASTER_NAME@` and then the broker configuration files must be copied to `@CENTRAL_SLAVE_NAME@`.
+
 
 ```bash
 rsync -a /etc/centreon-broker/*json @CENTRAL_SLAVE_IPADDR@:/etc/centreon-broker/
