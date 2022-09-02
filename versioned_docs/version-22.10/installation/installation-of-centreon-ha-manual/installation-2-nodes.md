@@ -411,7 +411,8 @@ systemctl status mariadb
 
 ### Securing the database 
 
-Access to databases should be restricted as strictly as possible. The command `mysql_secure_installation` allows to remove the accesses not protected by passwords and the test database. Run this command and be guided by the default choices. Be careful to choose a password that does not belong to any dictionary.
+Access to databases should be restricted as strictly as possible. The command `mysql_secure_installation` allows to removal the accesses not protected by passwords and the test database. Run this command and be guided by the default choices. Be careful to choose a password that does not belong to any dictionary.
+
 
 ```bash
 mysql_secure_installation
