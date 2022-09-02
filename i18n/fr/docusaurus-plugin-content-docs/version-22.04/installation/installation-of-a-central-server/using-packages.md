@@ -479,9 +479,6 @@ Exemple :
 DROP USER 'dbadmin'@'<IP_SERVEUR_CENTRAL>';
 ```
 
-</TabItem>
-</Tabs>
-
 * Le paquet **centreon-database** installe une configuration de MariaDB optimisée pour être utilisée avec Centreon.
 
 > Si ce paquet n'est pas installé, la limitation du système **LimitNOFILE** devrait être
@@ -562,6 +559,9 @@ DROP USER 'dbadmin'@'<IP_SERVEUR_CENTRAL>';
 >
 
 > N'oubliez pas de redémarrer MariaDB après modification de la configuration.
+
+</TabItem>
+</Tabs>
 
 ### Étape 3 : Configuration
 

@@ -486,9 +486,6 @@ Example:
 DROP USER 'dbadmin'@'<CENTRAL_SERVER_IP>';
 ```
 
-</TabItem>
-</Tabs>
-
 * The package **centreon-database** installs an optimized MariaDB configuration
  to be used with Centreon.
 
@@ -570,6 +567,9 @@ DROP USER 'dbadmin'@'<CENTRAL_SERVER_IP>';
 > ```
 >
 > Remember to restart MariaDB after a change to configuration.
+
+</TabItem>
+</Tabs>
 
 ## Step 3: Configuration
 
