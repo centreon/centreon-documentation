@@ -1,6 +1,6 @@
 ---
 id: integrating-pollers
-title: Integrating new pollers in a Centreon-HA cluster
+title: Integrating new Pollers in a Centreon-HA cluster
 ---
 
 ## Obtaining central nodes' thumbprints
