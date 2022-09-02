@@ -230,7 +230,7 @@ Release date: ``
 - Broker handles multiple options
 - broker with grpc configured core on start
 - Deleting a tag does not remove the link with resources in resources_tags table
-- Fixed an issue that caused broker to crash when a BAM output was configured and the BAM tables did not exist
+- Fixed an issue that caused Broker to crash when a BAM output was configured and the BAM tables did not exist
 - Fixed an issue with the way escaped special characters were managed (eg. `\n`)
 - Scheduled downtimes used to be inserted one at a time, which caused performance issues on platforms with a lot of recurrent scheduled downtimes. They are now injected in bulk inserts to reduce database solicitation and  avoid performance issues.
 - [Configuration] Extended the size of the URL, Notes and Action URL fields to avoid truncating long URLs
