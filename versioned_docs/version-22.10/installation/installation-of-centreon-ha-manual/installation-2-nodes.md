@@ -261,7 +261,8 @@ yum install centreon-ha-web
 
 ### SSH key exchange
 
-In order to allow servers to exchange files and commands, it is necessary to set up the possibility to connect through SSH from one server to the other for the users:
+To allow servers to exchange files and commands, it is necessary to set up the possibility to connect through SSH from one server to the other for the users:
+
 
 * `mysql`
 * `centreon`
