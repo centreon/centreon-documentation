@@ -126,7 +126,8 @@ Before getting to the actual cluster setup, a few preparatory steps are necessar
 
 ### Tuning the network configuration
 
-In order to improve the reliability of the cluster and since *Centreon HA* only runs on IP v4, it is recommended to apply the following tuning on all servers of the Centreon platform:
+To improve the reliability of the cluster and since *Centreon HA* only runs on IP v4, it is recommended to apply the following tuning on all servers of the Centreon platform:
+
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
