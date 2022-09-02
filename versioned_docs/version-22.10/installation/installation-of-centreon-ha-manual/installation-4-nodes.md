@@ -1075,7 +1075,8 @@ nmcli con up "@CENTRAL_VIP_IFNAME@"
 
 #### Taking into account the changes made to the services
 
-In order to take into account all the previous modifications, and to activate the services (so that the start of the `centreon.service` service starts them all) it is necessary to launch these commands on the two central nodes:
+To take into account all the previous modifications, and to activate the services (so that the start of the `centreon.service` service starts them all) it is necessary to launch these commands on the two central nodes:
+
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
