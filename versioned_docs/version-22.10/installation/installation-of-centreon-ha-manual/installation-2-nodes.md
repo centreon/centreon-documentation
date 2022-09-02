@@ -538,7 +538,8 @@ systemctl restart mariadb
 
 ### Authorization of centreon and mysql accounts
 
-In order for the scripts to run correctly through the ssh connections via the centreon and mysql accounts, they must be given additional rights
+For the scripts to run correctly through the ssh connections via the centreon and mysql accounts, they must be given additional rights
+
 
 For the centreon account, edit the file `/etc/sudoers.d/centreon-cluster` and add the following lines:
 
