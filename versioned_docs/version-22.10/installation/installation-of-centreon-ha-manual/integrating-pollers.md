@@ -35,7 +35,7 @@ The command output should look like:
 
 ## Configuring Gorgone on the Poller
 
-* You now have to modify `/etc/centreon-gorgone/config.d/40-gorgoned.yaml` on the poller in order to have both central keys in this section:
+* You now have to modify `/etc/centreon-gorgone/config.d/40-gorgoned.yaml` on the Poller in order to have both central keys in this section:
 
 ```yml
     authorized_clients:
