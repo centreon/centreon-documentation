@@ -306,7 +306,8 @@ Then exit the `centreon` session with `exit` or `Ctrl-D`.
 
 #### Mysql account
 
-For the `mysql` account the procedure differs somewhat because this user does not normally have a *home directory* or the ability to open a Shell session. This procedure is also to be applied on the two central nodes.
+For the `mysql` account the procedure differs somewhat because this user does not normally have a *home directory* or the ability to open a Shell session. This procedure is also to be applied to the two central nodes.
+
 
 ```bash
 systemctl stop mysql
