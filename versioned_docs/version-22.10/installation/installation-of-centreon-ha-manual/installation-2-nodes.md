@@ -29,25 +29,25 @@ The `vgs` command should return a display of the form below (especially the valu
 In this procedure we will refer to parameters that vary from one installation to another (names and IP addresses of nodes for example) via the following macros:
 
 * `@CENTRAL_MASTER_IPADDR@`: IP address of the main central server
-* `@CENTRAL_MASTER_NAME@` : name of the main central server
-* `@CENTRAL_SLAVE_IPADDR@` : IP address of the secondary central server
-* `@CENTRAL_SLAVE_NAME@` : name of the secondary central server
-* `@DB_MASTER_IPADDR@` : IP address of the main database server
-* `@DB_MASTER_NAME@` : name of the main database server
-* `@DB_SLAVE_IPADDR@` : IP address of the secondary database server
-* `@DB_SLAVE_NAME@` : name of the secondary database server
+* `@CENTRAL_MASTER_NAME@`: name of the main central server
+* `@CENTRAL_SLAVE_IPADDR@`: IP address of the second central server
+* `@CENTRAL_SLAVE_NAME@`: name of the second central server
+* `@DB_MASTER_IPADDR@`: IP address of the main database server
+* `@DB_MASTER_NAME@`: name of the main database server
+* `@DB_SLAVE_IPADDR@`: IP address of the secondary database server
+* `@DB_SLAVE_NAME@`: name of the secondary database server
 * `@MYSQL_REPL_USER@`: MySQL replication account name (suggested: centreon-repl)
 * `@MYSQL_REPL_PASSWD@`: password for this account
 * `@MYSQL_CENTREON_USER@`: MySQL account name of Centreon (suggested: centreon)
-* `@MYSQL_CENTREON_PASSWD@` : password for this account
-* `@CENTRAL_VIP_IPADDR@` : virtual IP address of the cluster
-* `@CENTRAL_VIP_IFNAME@` : name of the interface that will carry the VIP
-* `@CENTRAL_VIP_CIDR_NETMASK@` : subnet mask expressed in number of bits without the '/' (example : 24)
+* `@MYSQL_CENTREON_PASSWD@`: password for this account
+* `@CENTRAL_VIP_IPADDR@`: virtual IP address of the cluster
+* `@CENTRAL_VIP_IFNAME@`: name of the interface that will carry the VIP
+* `@CENTRAL_VIP_CIDR_NETMASK@`: subnet mask expressed in the number of bits without the '/' (example: 24)
 * `@CENTRAL_VIP_BROADCAST_IPADDR@`: broadcast address
-* `@DB_VIP_IPADDR@` : virtual IP address of the cluster, in the case of a 2 node HA, it is the same as the central one.
-* `@DB_VIP_IFNAME@` : name of the interface that will carry the VIP, in the case of a 2-node HA, it is the same as the central one.
-* `@DB_VIP_CIDR_NETMASK@` : subnet mask expressed in number of bits without the '/' (example : 24), in the case of a 2-node HA, it is the same as the central one.
-* `@DB_VIP_BROADCAST_IPADDR@` : broadcast address, in the case of a 2 nodes HA, it is the same as the central one.
+* `@DB_VIP_IPADDR@`: virtual IP address of the cluster, in the case of a 2 node HA, is the same as the central one.
+* `@DB_VIP_IFNAME@`: name of the interface that will carry the VIP, in the case of a 2-node HA, it is the same as the central one.
+* `@DB_VIP_CIDR_NETMASK@`: subnet mask expressed in number bits without the '/' (example: 24), in the case of a 2-node HA, it is the same as the central one.
+* `@DB_VIP_BROADCAST_IPADDR@`: broadcast address, in the case of a 2 nodes HA, it is the same as the central one.
 
 ### Centreon-broker configuration
 
