@@ -223,7 +223,7 @@ Release date: ``
 
 ##### Bug fixes
 
-- Fixed broker compression 
+- Fixed Broker compression 
 - Fixed an issue that caused the RRD rebuild mechanism to fail
 - Fixed an issue that caused BAM Business activities with “Ignore the indicator in the calculation” as planned downtime calculation method to stop ignoring downtimed KPIs when they had overlapping downtimes
 - Fixed an issue that made the name of the resources disappear from Resources Status when linked to a severity or a category (it came back once centengine was restarted)
