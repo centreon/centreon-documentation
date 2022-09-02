@@ -488,7 +488,8 @@ GRANT ALL PRIVILEGES ON centreon_storage.* TO '@MYSQL_CENTREON_USER@'@'@CENTRAL_
 
 ### Creating the replication account
 
-Still in the MySQL prompt (see previous paragraph) create the user `@MYSQL_REPL_USER@`, dedicated to replication, using the following commands:
+Still in the MySQL prompt (see the previous paragraph) create the user `@MYSQL_REPL_USER@`, dedicated to replication, using the following commands:
+
 
 ```sql
 CREATE USER '@MYSQL_REPL_USER@'@'localhost' IDENTIFIED BY '@MYSQL_REPL_PASSWD@';
