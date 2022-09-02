@@ -18,6 +18,8 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ### 22.04.4
 
+Release date: `September 2, 2022`
+
 #### Bug fixes
 
 - [Core] Fixed potential empty values in `index_data`.`special` that could block Centreon Broker
