@@ -345,7 +345,8 @@ Then exit the `mysql` session with `exit` or `Ctrl-D`.
 
 ## Setting up MySQL replication
 
-In order for the two nodes to be interchangeable at any time, the two databases must be continuously replicated. To do this we will set up a Master-Slave replication.
+For the two nodes to be interchangeable at any time, the two databases must be continuously replicated. To do this we will set up a Master-Slave replication.
+
 Since Centreon 22.04, The mariaDB Replication is now based on  **[GTID](https://mariadb.com/kb/en/gtid/)**.
 
 **Note:** unless otherwise stated, each of the following steps must be performed **on both database nodes**.
