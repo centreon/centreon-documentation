@@ -56,7 +56,8 @@ In this procedure we will refer to parameters that vary from one installation to
 In a standard Centreon installation, the `cbd` service drives two instances of `centreon-broker-daemon` :
 
 * `central-broker-master`: also known as "central broker" or "SQL broker", which redirects all I/O from pollers to databases, to the RRD broker, etc.
-* central-rrd-master` : the RRD broker which receives its flow from the SQL broker, and whose only function is to write the RRD files used to display the graphs. 
+* `central-rrd-master` : the RRD broker which receives its flow from the SQL broker, and whose only function is to write the RRD files used to display the graphs. 
+
 
 In a Centreon-HA cluster, the two broker processes will each be managed via a separate service that will be driven by the cluster:
 
