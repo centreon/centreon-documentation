@@ -229,7 +229,7 @@ Release date: ``
 - Fixed an issue with BAM Business Activities with “Ignore the indicator in the calculation” as planned downtime calculation method. They stopped ignoring downtimed KPIs when they had overlapping downtimes
 - Fixed an issue that made the name of the resources disappear from Resources Status when linked to a severity or a category (it came back once centengine was restarted)
 - Broker handles multiple options
-- broker with grpc configured core on start
+- Broker with gRPC configured crashed on start
 - Deleting a tag does not remove the link with resources in resources_tags table
 - Fixed an issue that caused broker to crash when a BAM output was configured and the BAM tables did not exist
 - Fixed an issue with the way escaped special characters were managed (eg. `\n`)
