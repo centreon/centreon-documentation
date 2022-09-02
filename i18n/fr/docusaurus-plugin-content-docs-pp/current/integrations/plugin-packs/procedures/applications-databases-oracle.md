@@ -185,31 +185,31 @@ Ce compte utilisateur doit avoir la permission de lecture sur les tables suivant
   - dba\_tablespaces
   - DBA\_MVIEW\_refresh\_times
   - DBA\_TABLESPACE\_USAGE\_METRICS
-  - v$sysstat
-  - v$sgastat
-  - v$parameter
-  - v$process
-  - v$session
-  - v$filestat
-  - v$log
-  - v$instance
-  - V$ASM\_DISKGROUP
-  - v$database\_block\_corruption
-  - v$tempstat
-  - v$rowcache
-  - v$system\_event
-  - v$recovery\_area\_usage
-  - v$librarycache
-  - v$sql\_monitor
-  - v$resource\_limit
-  - v$rman\_status
-  - v$backup
-  - v$rman\_status
-  - v$rollstat
-  - v$resource\_limit
-  - v$tablespace
-  - v$event\_name
-  - v$waitstat
+  - v_$sysstat
+  - v_$sgastat
+  - v_$parameter
+  - v_$process
+  - v_$session
+  - v_$filestat
+  - v_$log
+  - v_$instance
+  - V_$ASM\_DISKGROUP
+  - v_$database\_block\_corruption
+  - v_$tempstat
+  - v_$rowcache
+  - v_$system\_event
+  - v_$recovery\_area\_usage
+  - v_$librarycache
+  - v_$sql\_monitor
+  - v_$resource\_limit
+  - v_$rman\_status
+  - v_$backup
+  - v_$rman\_status
+  - v_$rollstat
+  - v_$resource\_limit
+  - v_$tablespace
+  - v_$event\_name
+  - v_$waitstat
   
 ## Installation
 
