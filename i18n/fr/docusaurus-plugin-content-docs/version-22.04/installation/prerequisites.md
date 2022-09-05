@@ -186,6 +186,20 @@ Description des logiciels et utilisateurs liés :
 | Centreon Engine   | centengine       | centreon-engine  | automatic start |
 | Centreon Gorgone  | gorgoned         | centreon-gorgone | automatic start |
 </TabItem>
+
+<TabItem value="Debian 11" label="Debian 11">
+
+| Logiciel          | Service          | Utilisateur      | Commentaire     |
+| ----------------- | ---------------- | ---------------- | --------------- |
+| Apache            | httpd            | www-data         | automatic start |
+| PHP-FPM           | php-fpm          | www-data         | automatic start |
+| MariaDB           | mariadb          | mysql            | automatic start |
+| Centreon          | centreontrapd    | centreon         | automatic start |
+| Centreon Broker   | cbwd             | centreon-broker  | automatic start |
+| Centreon Broker   | cbd              | centreon-broker  | automatic start |
+| Centreon Engine   | centengine       | centreon-engine  | automatic start |
+| Centreon Gorgone  | gorgoned         | centreon-gorgone | automatic start |
+</TabItem>
 </Tabs>
 
 Description des logiciels optionnels et utilisateurs liés :
