@@ -14,7 +14,7 @@ import TabItem from '@theme/TabItem';
 <TabItem value="New connectors" label="New connectors">
 
  - [**IICS Rest API**](../procedures/cloud-iics-restapi.md) - Add Informatica Intelligent Cloud Services Pack - Status:stable - centreon-pack-cloud-iics-restapi-22.09.0-1
- - [**Cisco Umbrella**](../procedures/network-cisco-umbrella-snmp.md) - Add Cisco Umbrella Pack - Status:stable - centreon-pack-network-cisco-umbrella-snmp-5.0.1-1
+ - [**Cisco Umbrella**](../procedures/network-cisco-umbrella-snmp.md) - Add Cisco Umbrella Pack - Status:stable - centreon-pack-network-cisco-umbrella-snmp-22.09.0-1
  - [**AWS Discover**](../procedures/cloud-aws-cloudwatch-discover.md) - Add unified AWS host discovery and add assume-role support - Status:stable - centreon-pack-cloud-aws-cloudwatch-discover-22.09.0-1
  - [**Netgear SSeries SNMP**](../procedures/network-netgear-sseries-snmp.md) - Add Netgear sseries switches Pack - Status:stable - centreon-pack-network-netgear-sseries-snmp-22.08.0-1
  - [**Node Exporter Windows Metrics**](../procedures/applications-monitoring-node-exporter-windows.md) - Adding Windows node exporter Pack - Status:stable - centreon-pack-applications-monitoring-node-exporter-windows-22.08.0-1
