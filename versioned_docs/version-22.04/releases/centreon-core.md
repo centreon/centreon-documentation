@@ -210,7 +210,7 @@ By:
 
 Release date: `August 30, 2022`
 
-### Centreon Engine
+#### Centreon Engine
 
 ##### Features
 
@@ -225,7 +225,7 @@ Release date: `August 30, 2022`
 - Fixed an issue that made the name of the resources disappear from Resources Status when linked to a severity or a category (it came back once centengine was restarted)
 - Fixed an issue with the way escaped special characters were managed (eg. `\n`)
 
-### Centreon Broker
+#### Centreon Broker
 
 ##### Improvements
 
