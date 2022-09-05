@@ -912,6 +912,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-iics-restapi'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-kubernetes-api'
         },
         {
@@ -2189,10 +2193,6 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-storage-hitachi-standard-snmp'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/hardware-storage-hp-3par-7000-ssh'
         },
         {
           type: 'doc',

@@ -65,11 +65,45 @@ If you leave both fields blank, all IP adresses will be allowed to access the Ce
 - **Trusted client addresses**: If you enter IP addresses in this field, only these IP addresses will be allowed to access the Centreon interface. All other IP addresses will be blocked. IP addresses must be separated by commas.
 - **Blacklist client addresses**: These IP adresses will be blocked. All other IP addresses will be allowed to access the Centreon interface.
 
-### Step 4: Create users
+### Step 4: Manage user creation
 
-On page **Configuration > Users > Contacts/Users**, [create the users](../monitoring/basic-objects/contacts-create.md) that will log on to Centreon using OpenID and [grant them rights](../administration/access-control-lists.md) using access groups.
+<Tabs groupId="sync">
+<TabItem value="Automatic management" label="Automatic management">
 
-### Step 5: Configure your Identity Provider (IdP)
+![image](../assets/administration/oidc-import-users.png)
+
+If you turn on **Enable Auto import users**, users that log in to Centreon for the first time will be created in the Centreon configuration. (Turning the option on does not import automatically all users in your infrastructure.)
+
+- **Enable auto import** : enables or disables automatic users import.  If auto import is disabled, you will have to [create each user manually](../monitoring/basic-objects/contacts-create.md) before they can log in.
+- **Contact template** : select a [contact template](../monitoring/basic-objects/contacts-templates.md)  that will be applied to newly imported users.
+  This allows in particular to manage the default configuration of the [notifications](../alerts-notifications/notif-configuration.md).
+- **Email attribute** : defines which of the variables returned by **Introspection Token Endpoint** or **User Information Endpoint**
+  must be used to get the user's email address.
+- **Fullname attribute** : defines which of the variables returned by **Introspection Token Endpoint** or **User Information Endpoint**
+  must be used to get the user's full name.
+
+</TabItem>
+<TabItem value="Manual management" label="Manual management">
+
+On page **Configuration > Users > Contacts/Users**, [create the users](../monitoring/basic-objects/contacts-create.md) that will log on to Centreon using OpenID.
+
+</TabItem>
+</Tabs>
+
+### Step 5: Manage Authorizations
+
+![image](../assets/administration/oidc-authorizations.png)
+
+[Grant users rights](../administration/access-control-lists.md) by linking them to [access groups](../administration/access-control-lists.md#creating-an-access-group):
+
+- **Contact group**: select a contact group to which users will be automatically added when they connect to the Centreon interface.
+- **Authorization key**: defines which of the variables returned by **Introspection Token Endpoint** or **User Information Endpoint**
+  must be used to get the list of groups the user belongs to. When this parameter is not filled in, the default value **groups** will be applied.
+- Pair an **Authorization value** with a Centreon **access group** so that the user is granted the corresponding rights when connecting to the interface.
+
+> Each time the user logs in, authorization management is reinitialized to take into account information from the identity provider.
+
+### Step 6: Configure your Identity Provider (IdP)
 
 Configure your IdP to add the Centreon application to use the OpenID Connect protocol to authenticate your users,
 And to authorize the following `redirect URI` to forward your connecter users to Centreon:
