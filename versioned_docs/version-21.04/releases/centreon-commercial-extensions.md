@@ -29,7 +29,7 @@ Release date: `September 5, 2022`
 
 #### Bug fixes
 
-- Fixed regressions on API endpoints due to Spring Boot version
+- Fixed regressions on API endpoints due to Spring Boot version.
 
 ### 21.04.6
 
