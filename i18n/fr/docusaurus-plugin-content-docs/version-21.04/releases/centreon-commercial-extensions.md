@@ -19,6 +19,18 @@ commerciales, veuillez contacter le support.
 
 ## Centreon MAP
 
+### 21.04.7
+
+Release date: `September 5, 2022`
+
+#### Enhancements
+
+- Updated the connected server label to 'Configured server' for more clarity.
+
+#### Bug fixes
+
+- Fixed regressions on API endpoints due to Spring Boot version.
+
 ### 21.04.6
 
 Release date: `April 26, 2022`

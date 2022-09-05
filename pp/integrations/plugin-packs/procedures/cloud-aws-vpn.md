@@ -6,35 +6,30 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Overview
+## Pack Assets
 
-AWS Virtual Private Network (AWS VPN) lets you establish a secure and private tunnel from your network or device to the AWS Cloud.
-You can extend your existing on-premises network into a VPC, or connect to other AWS resources from a client. AWS VPN offers two
-types of private connectivity that feature the high availability and robust security necessary for your data.
+### Templates
 
-The *AWS VPN* Centreon Plugin-Pack uses the Amazon Cloudwatch APIs to collect the related metrics and status.
+The Centreon Plugin Pack **AWS VPN** brings a host template:
 
-## Plugin Pack Assets
+* Cloud-Aws-Vpn-custom
 
-### Monitored Objects
+It brings the following service templates:
 
-* VPN Site-To-Site & VPC connections
+| Service Alias      | Service Template                 | Service Description                            | Default |
+|:-------------------|:---------------------------------|:-----------------------------------------------|:--------|
+| Vpn-Traffic        | Cloud-Aws-Vpn-Traffic-Api        | Check the state and traffic of an AWS VPN link | X       |
+| Vpn-Traffic-Global | Cloud-Aws-Vpn-Traffic-Global-Api | Check the state and traffic of an AWS VPN link |         |
 
 ### Discovery Rules
 
-<Tabs groupId="sync">
-<TabItem value="Services" label="Services">
+The pack provides a discovery rule to automatically discover VPN resources:
 
-| Rule name                 | Description                                                   |
-|:--------------------------|:--------------------------------------------------------------|
-| Cloud-Aws-Vpn-Connections | Discover VPN connections and monitor their status and traffic |
+![image](../../../assets/integrations/plugin-packs/procedures/cloud-aws-vpn-provider.png)
 
-</TabItem>
-</Tabs>
+More information about the Host Discovery module is available in the Centreon documentation: [Host Discovery](/docs/monitoring/discovery/hosts-discovery)
 
-## Collected Metrics
-
-More information about collected metrics is available in the official Amazon documentation: https://docs.aws.amazon.com/vpn/latest/s2svpn/monitoring-cloudwatch-vpn
+## Collected Metrics & status
 
 <Tabs groupId="sync">
 <TabItem value="Vpn-Traffic-*" label="Vpn-Traffic-*">
@@ -47,9 +42,6 @@ More information about collected metrics is available in the official Amazon doc
 
 All these metrics can be calculated on a *per-second* time reference rather than displaying the absolute value. To do so,
 simply add the setting ```--per-sec``` to the command and/or the Service Macros
-
-> By default, the *Vpn-Traffic-Global* Service will monitor all of the VPN connections of the AWS infrastructure.
-> To get one Service per connection, use the **Service Autodiscovery module** with the rule described above.
 
 </TabItem>
 </Tabs>
@@ -68,9 +60,9 @@ Whether using a service account or a dedicated monitoring account to monitor Clo
 
 ### Plugin dependencies
 
-To interact with Amazon APIs, you can use either use awscli binary or paws, a perl AWS SDK (recommended). You must install it on every poller that will monitor AWS resources.
+To interact with Amazon APIs, you can use either use the *awscli* binary provided by Amazon or *paws*, a Perl AWS SDK (recommended). You must install it on every poller expected to monitor AWS resources. 
 
-**Warning** At the moment it is not possible to use perl-Paws if you are using a proxy to connect to AWS Cloudwatch APIs.
+> For now, it is not possible to use *paws* if you are using a proxy to reach AWS Cloudwatch APIs. 
 
 <Tabs groupId="sync">
 <TabItem value="perl-Paws-installation" label="perl-Paws-installation">
@@ -83,41 +75,43 @@ yum install perl-Paws
 <TabItem value="aws-cli-installation" label="aws-cli-installation">
 
 ```bash
-yum install awscli
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
 ```
 
 </TabItem>
 </Tabs>
 
-## Installation
+## Setup
 
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor AWS VPN ressources:
+1. Install the plugin package on every Centreon poller expected to monitor **AWS VPN** resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Aws-Vpn-Api
 ```
 
-2. On the Centreon Web interface, install the *AWS VPN* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+2. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **AWS VPN** Centreon Plugin Pack.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor AWS VPN ressources:
+1. Install the plugin package on every Centreon poller expected to monitor **AWS VPN** resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Aws-Vpn-Api
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Install the **AWS VPN** Centreon Plugin Pack RPM on the Centreon central server:
 
 ```bash
-yum install centreon-pack-cloud-aws-vpn.noarch
+yum install centreon-pack-cloud-aws-vpn
 ```
 
-3. On the Centreon Web interface, install the *AWS VPN* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+3. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **AWS VPN** Centreon Plugin Pack.
 
 </TabItem>
 </Tabs>
@@ -126,10 +120,10 @@ yum install centreon-pack-cloud-aws-vpn.noarch
 
 ### Host
 
-* Log into Centreon and add a new Host through "Configuration > Hosts".
-* In the *IP Address/FQDN* field, set the following IP address: '127.0.0.1'
-* Select the *Cloud-Aws-Vpn-custom* template to apply to the Host.
-* Once the template applied, some Macros marked as 'Mandatory' hereafter have to be configured:
+* Log into Centreon and add a new host through **Configuration > Hosts**.
+* Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your **AWS VPN** server settings.
+* Apply the **Cloud-Aws-Vpn-custom** template to the host.
+* Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
 
 | Mandatory   | Nom             | Description                                                                                 |
 | :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
@@ -147,7 +141,7 @@ yum install centreon-pack-cloud-aws-vpn.noarch
 ### How to check in the CLI that the configuration is OK and what are the main options for ?
 
 Once the Plugin installed, log into your Centreon Poller CLI using the *centreon-engine* user account and test the Plugin by
-running the following command (Some of the parameters such as ```--proxyurl``` have to be adjusted):
+running the following command (Some of the parameters such as `--proxyurl` have to be adjusted):
 
 ```bash
 /usr/lib/centreon/plugins//centreon_aws_vpn_api.pl \
@@ -167,25 +161,15 @@ running the following command (Some of the parameters such as ```--proxyurl``` h
     --critical-tunnel-state='0.5:'
     --verbose
 ```
+
 Expected command output is shown below:
 
-```
+```bash
 OK: 'vpn-123abc456def789gh' Statistic 'Average' Metrics Tunnel Data Out: 328.69 KB, Tunnel State: 1.00, Tunnel Data In: 715.10 KB | 'vpn-123abc456def789gh~average#vpn.tunnel.dataout.bytes'=336576.82B;;;;
 'vpn-123abc456def789gh~average#vpn.tunnel.tunnelstate'=1.00;1:;0.5:;; 'vpn-123abc456def789gh~average#vpn.tunnel.datain.bytes'=732257.42B;;;;
 ```
 
-The command above gets the state and traffic (```--mode=traffic```) of the *vpn-123abc456def789gh* VPN link (```--name='vpn-123abc456def789gh'```).
-This VPN link is hosted on the *eu-west-1* AWS region cloud (```--region='eu-west-1'```). The calculated metric is an average of values
-(```--statistic='average'```) on a 600 secondes / 10 min period (```--timeframe='600'```) with one sample per 60s / 1 minute (```--period='60'```).
-
-> It's possible to display and use filter on the VPN *name* rather than the ID (by default).
-> To do so, simply add the ```--name``` parameter to the command.
-
-This command would trigger a WARNING alert if the calcultaed boolean status of the VPN link falls below 1 and a CRITICAL alert
-if below 0.5. The Amazon VPN Site-To-Site links can indeed rely on several gateways and routes. The Plugin gets the boolean status
-of all of these gateways/routes status and return an average value.
-
-All the available thresholds parameters can be displayed by adding the ```--help``` parameter to the command:
+All the available thresholds parameters can be displayed by adding the `--help` parameter to the command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_aws_vpn_api.pl \
@@ -194,21 +178,15 @@ All the available thresholds parameters can be displayed by adding the ```--help
     --help
 ```
 
-### Why do I get the following result:
+All available modes can be displayed by adding the 
+`--list-mode` parameter to the command:
 
-#### ```UNKNOWN: No metrics. Check your options or use --zeroed option to set 0 on undefined values``` ?
+```bash
+/usr/lib/centreon/plugins//centreon_aws_vpn_api.pl \
+    --plugin=cloud::aws::vpn::plugin \
+    --list-mode
+```
 
-This command result means that Amazon Cloudwatch does not have any value for the requested period.
+### Troubleshooting
 
-This result can be overriden by adding the ```--zeroed``` option in the command. This will force a value of 0 when no metric has
-been collected and will prevent the UNKNOWN error message.
-
-#### ```UNKNOWN: Command error:  - An error occurred (AuthFailure) [...]``` ?
-
-This command result means that the credentials provided don't have enough privileges to perform the underlying AWS Operation.
-
-#### ```UNKNOWN: 500 Can't connect to monitoring.eu-west-1.amazonaws.com:443 |```
-
-This error message means that the Centreon Plugin couldn't successfully connect to the AWS Cloudwatch API. Check that no third party device (such as a firewall)
-is blocking the request. A proxy connection may also be necessary to connect to the API. This can be done by using this option in the command:
-```--proxyurl='http://proxy.mycompany:8080'```.
+Please find the [troubleshooting documentation](../getting-started/how-to-guides/troubleshooting-plugins.md) for Centreon Plugins typical issues.

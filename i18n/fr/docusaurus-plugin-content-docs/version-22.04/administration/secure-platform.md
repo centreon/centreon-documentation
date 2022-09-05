@@ -208,10 +208,37 @@ mysql_secure_installation
 
 ## Activer firewalld
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
 Installez firewalld:
+
 ```shell
 yum install firewalld
 ```
+
+</TabItem>
+
+<TabItem value="Centos 7" label="Centos 7">
+
+Installez firewalld:
+
+```shell
+yum install firewalld
+```
+
+</TabItem>
+
+<TabItem value="Debian 11" label="Debian 11">
+
+Installez firewalld:
+
+```shell
+apt install firewalld
+```
+
+</TabItem>
+</Tabs>
 
 Activez firewalld:
 ```shell
@@ -309,18 +336,57 @@ yum install python-inotify
 ```
 
 </TabItem>
+
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt install python3-inotify
+```
+
+</TabItem>
 </Tabs>
 
 Installez fail2ban :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
 ```shell
 yum install epel-release
 yum install fail2ban fail2ban-systemd
 ```
 
 Si SELinux est installé, mettez à jour les politiques SELinux :
+
 ```shell
 yum update -y selinux-policy*
 ```
+
+</TabItem>
+<TabItem value="Centos 7" label="Centos 7">
+
+```shell
+yum install epel-release
+yum install fail2ban fail2ban-systemd
+```
+
+Si SELinux est installé, mettez à jour les politiques SELinux :
+
+```shell
+yum update -y selinux-policy*
+```
+
+</TabItem>
+
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt install fail2ban
+```
+
+
+</TabItem>
+</Tabs>
 
 Activez fail2ban :
 ```shell
@@ -333,7 +399,7 @@ Copiez le fichier de règles par défaut :
 cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
 ```
 
-Editez le fichier `/etc/fail2ban/jail.local` et recherchez le bloc **[centreon]**, puis modifiez tel que :
+Éditez le fichier `/etc/fail2ban/jail.local` et recherchez le bloc **[centreon]**, puis modifiez tel que :
 ```shell
 [centreon]
 port    = http,https
@@ -369,7 +435,7 @@ Pour vérifier l'état de la règle **centreon**, vous pouvez exécuter :
 fail2ban-client status centreon
 ```
 
-Here is an example of output:
+Voici un exemple de résultat :
 
 ```shell
 Status for the jail: centreon
@@ -421,6 +487,21 @@ yum install httpd24-mod_ssl httpd24-mod_security openssl
 ```
 
 </TabItem>
+
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+sudo systemctl stop apache2
+sudo apt-get purge apache2 -y && sudo apt autoremove apache2 -y
+curl -sSL https://packages.sury.org/apache2/README.txt | sudo bash -x
+sudo apt update
+sudo apt install apache2 -y
+sudo apt install libapache2-mod-security2
+sudo a2enmod security2
+sudo systemctl restart apache2
+```
+
+</TabItem>
 </Tabs>
 
 Soit un serveur Centreon avec le FQDN suivant : **centreon7.localdomain**.
@@ -429,7 +510,24 @@ Soit un serveur Centreon avec le FQDN suivant : **centreon7.localdomain**.
 
 En raison d'un changement de politique chez Google, les certificats auto-signés peuvent être rejetés par le navigateur Google Chrome (sans qu'il soit possible d'ajouter une exception). Pour continuer à utiliser ce navigateur, vous devez modifier la configuration OpenSSL.
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
 Ouvrez le fichier **/etc/pki/tls/openssl.cnf**. L'objectif est de modifier ce fichier pour renseigner les différents IPs et FQDNs relatifs au serveur.
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+Ouvrez le fichier **/etc/pki/tls/openssl.cnf**. L'objectif est de modifier ce fichier pour renseigner les différents IPs et FQDNs relatifs au serveur.
+
+</TabItem>
+
+<TabItem value="Debian 11" label="Debian 11">
+
+Ouvrez le fichier **/etc/ssl/openssl.cnf**. L'objectif est de modifier ce fichier pour renseigner les différents IPs et FQDNs relatifs au serveur.
+
+</TabItem>
+</Tabs>
 
 Recherchez la section ```[v3_ca]``` afin d'ajouter le nouveau tag ```alt_names``` :
 
@@ -494,9 +592,30 @@ Ce certificat étant créé, vous pourrez l'utiliser pour signer le certificat d
 7. Créer un certificat pour le serveur :
 
 Créez votre certificat pour le serveur en utilisant le certificat x509 (**ca_demo.crt**) pour le signer.
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
 ```text
 openssl x509 -req -in centreon7.csr -out centreon7.crt -CA ca_demo.crt -CAkey ca_demo.key -CAcreateserial -CAserial ca_demo.srl  -extfile /etc/pki/tls/openssl.cnf -extensions v3_ca
 ```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```text
+openssl x509 -req -in centreon7.csr -out centreon7.crt -CA ca_demo.crt -CAkey ca_demo.key -CAcreateserial -CAserial ca_demo.srl  -extfile /etc/pki/tls/openssl.cnf -extensions v3_ca
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```text
+openssl x509 -req -in centreon7.csr -out centreon7.crt -CA ca_demo.crt -CAkey ca_demo.key -CAcreateserial -CAserial ca_demo.srl  -extfile /etc/ssl/openssl.cnf -extensions v3_ca
+```
+
+</TabItem>
+</Tabs>
 
 Le mot de passe créé à l'étape **Créer une clé privée pour le certificat de l'autorité de certification**  doit être renseigné. Vous obtenez un certificat pour le serveur nommé **centreon7.crt**.
 
@@ -520,15 +639,21 @@ Maintenant que vous avez votre certificat auto-signé, vous pouvez suivre la pro
 dnf install mod_ssl mod_security openssl
 ```
 
+2. Installer les certificats :
+
+Installez vos certificats (**centreon7.key** et **centreon7.crt** dans notre cas) en les copiant dans la configuration Apache :
+
+```text
+cp centreon7.key /etc/pki/tls/private/
+cp centreon7.crt /etc/pki/tls/certs/
+```
+
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
 yum install httpd24-mod_ssl httpd24-mod_security openssl
 ```
-
-</TabItem>
-</Tabs>
 
 2. Installer les certificats :
 
@@ -538,6 +663,32 @@ Installez vos certificats (**centreon7.key** et **centreon7.crt** dans notre cas
 cp centreon7.key /etc/pki/tls/private/
 cp centreon7.crt /etc/pki/tls/certs/
 ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+sudo systemctl stop apache2
+sudo apt-get purge apache2 -y && sudo apt autoremove apache2 -y
+curl -sSL https://packages.sury.org/apache2/README.txt | sudo bash -x
+sudo apt update
+sudo apt install apache2 -y
+sudo apt install libapache2-mod-security2
+sudo a2enmod security2
+sudo systemctl restart apache2
+```
+
+2. Installer les certificats :
+
+Installez vos certificats (**centreon7.key** et **centreon7.crt** dans notre cas) en les copiant dans la configuration Apache :
+
+```text
+cp centreon7.key /etc/ssl/private/
+cp centreon7.crt /etc/ssl/certs/
+```
+
+</TabItem>
+</Tabs>
 
 3. Sauvegarder la configuration actuelle du serveur Apache pour Centreon :
 
@@ -553,6 +704,14 @@ cp /etc/httpd/conf.d/10-centreon.conf{,.origin}
 
 ```shell
 cp /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf{,.origin}
+```
+
+</TabItem>
+
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+cp /etc/apache2/sites-available/centreon.conf{,.origin}
 ```
 
 </TabItem>
@@ -573,6 +732,11 @@ cp /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf{,.origin}
 
 Éditez le fichier **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf** en ajoutant la section **<VirtualHost *:443>**.
 </TabItem>
+
+<TabItem value="Debian 11" label="Debian 11">
+
+Éditez le fichier **/etc/apache2/sites-available/centreon.conf** en ajoutant la section **<VirtualHost *:443>**.
+</TabItem>
 </Tabs>
 
 ```apacheconf
@@ -592,11 +756,6 @@ Voici un exemple de ce à quoi le fichier peut ressembler :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-</TabItem>
-</Tabs>
 
 ```apacheconf
 Define base_uri "/centreon"
@@ -662,6 +821,144 @@ ServerTokens Prod
 
 > N'oubliez pas de changer les directives **SSLCertificateFile** et **SSLCertificateKeyFile** avec les chemins d'accès vers votre clé et votre certificat. Dans notre cas : **SSLCertificateFile /etc/pki/tls/certs/centreon7.crt** et **SSLCertificateKeyFile /etc/pki/tls/private/centreon7.key**.
 
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```apacheconf
+Define base_uri "/centreon"
+Define install_dir "/usr/share/centreon"
+
+ServerTokens Prod
+
+<VirtualHost *:80>
+    RewriteEngine On
+    RewriteCond %{HTTPS} off
+    RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+</VirtualHost>
+
+<VirtualHost *:443>
+    #####################
+    # SSL configuration #
+    #####################
+    SSLEngine On
+    SSLProtocol All -SSLv3 -SSLv2 -TLSv1 -TLSv1.1
+    SSLCipherSuite ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-DSS-AES256-GCM-SHA384:DHE-DSS-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-GCM-SHA256:!aNULL:!eNULL:!LOW:!3DES:!MD5:!EXP:!PSK:!DSS:!RC4:!SEED:!ADH:!IDEA
+    SSLHonorCipherOrder On
+    SSLCompression Off
+    SSLCertificateFile /etc/pki/tls/certs/centreon7.crt
+    SSLCertificateKeyFile /etc/pki/tls/private/centreon7.key
+
+    Alias ${base_uri}/api ${install_dir}
+    Alias ${base_uri} ${install_dir}/www/
+
+    <LocationMatch ^\${base_uri}/?(?!api/latest/|api/beta/|api/v[0-9]+/|api/v[0-9]+\.[0-9]+/)(.*\.php(/.*)?)$>
+        ProxyPassMatch "fcgi://127.0.0.1:9042${install_dir}/www/$1"
+    </LocationMatch>
+
+    <LocationMatch ^\${base_uri}/?(authentication|api/(latest|beta|v[0-9]+|v[0-9]+\.[0-9]+))/.*$>
+        ProxyPassMatch "fcgi://127.0.0.1:9042${install_dir}/api/index.php/$1"
+    </LocationMatch>
+
+    ProxyTimeout 300
+    ErrorDocument 404 ${base_uri}/index.html
+    Options -Indexes +FollowSymLinks
+
+    <IfModule mod_security2.c>
+        # https://github.com/SpiderLabs/ModSecurity/issues/652
+        SecRuleRemoveById 200003
+    </IfModule>
+
+    <Directory "${install_dir}/www">
+        DirectoryIndex index.php
+        AllowOverride none
+        Require all granted
+        FallbackResource ${base_uri}/index.html
+    </Directory>
+
+    <Directory "${install_dir}/api">
+        AllowOverride none
+        Require all granted
+    </Directory>
+
+    <If "'${base_uri}' != '/'">
+        RedirectMatch ^/$ ${base_uri}
+    </If>
+</VirtualHost>
+```
+
+> N'oubliez pas de changer les directives **SSLCertificateFile** et **SSLCertificateKeyFile** avec les chemins d'accès vers votre clé et votre certificat. Dans notre cas : **SSLCertificateFile /etc/pki/tls/certs/centreon7.crt** et **SSLCertificateKeyFile /etc/pki/tls/private/centreon7.key**.
+
+</TabItem>
+
+<TabItem value="Debian 11" label="Debian 11">
+
+```apacheconf
+Define base_uri "/centreon"
+Define install_dir "/usr/share/centreon"
+
+ServerTokens Prod
+
+<VirtualHost *:80>
+    RewriteEngine On
+    RewriteCond %{HTTPS} off
+    RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+</VirtualHost>
+
+<VirtualHost *:443>
+    #####################
+    # SSL configuration #
+    #####################
+    SSLEngine On
+    SSLProtocol All -SSLv3 -SSLv2 -TLSv1 -TLSv1.1
+    SSLCipherSuite ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-DSS-AES256-GCM-SHA384:DHE-DSS-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-GCM-SHA256:!aNULL:!eNULL:!LOW:!3DES:!MD5:!EXP:!PSK:!DSS:!RC4:!SEED:!ADH:!IDEA
+    SSLHonorCipherOrder On
+    SSLCompression Off
+    SSLCertificateFile /etc/ssl/certs/centreon7.crt
+    SSLCertificateKeyFile /etc/ssl/private/centreon7.key
+
+    Alias ${base_uri}/api ${install_dir}
+    Alias ${base_uri} ${install_dir}/www/
+
+    <LocationMatch ^\${base_uri}/?(?!api/latest/|api/beta/|api/v[0-9]+/|api/v[0-9]+\.[0-9]+/)(.*\.php(/.*)?)$>
+        ProxyPassMatch "fcgi://127.0.0.1:9042${install_dir}/www/$1"
+    </LocationMatch>
+
+    <LocationMatch ^\${base_uri}/?(authentication|api/(latest|beta|v[0-9]+|v[0-9]+\.[0-9]+))/.*$>
+        ProxyPassMatch "fcgi://127.0.0.1:9042${install_dir}/api/index.php/$1"
+    </LocationMatch>
+
+    ProxyTimeout 300
+    ErrorDocument 404 ${base_uri}/index.html
+    Options -Indexes +FollowSymLinks
+
+    <IfModule mod_security2.c>
+        # https://github.com/SpiderLabs/ModSecurity/issues/652
+        SecRuleRemoveById 200003
+    </IfModule>
+
+    <Directory "${install_dir}/www">
+        DirectoryIndex index.php
+        AllowOverride none
+        Require all granted
+        FallbackResource ${base_uri}/index.html
+    </Directory>
+
+    <Directory "${install_dir}/api">
+        AllowOverride none
+        Require all granted
+    </Directory>
+
+    <If "'${base_uri}' != '/'">
+        RedirectMatch ^/$ ${base_uri}
+    </If>
+</VirtualHost>
+```
+
+> N'oubliez pas de changer les directives **SSLCertificateFile** et **SSLCertificateKeyFile** avec les chemins d'accès vers votre clé et votre certificat. Dans notre cas : **SSLCertificateFile /etc/ssl/certs/centreon7.crt** et **SSLCertificateKeyFile /etc/ssl/private/centreon7.key**.
+
+</TabItem>
+</Tabs>
+
 5. Activer les flags HttpOnly / Secure et cacher la signature du serveur Apache :
 
 <Tabs groupId="sync">
@@ -703,6 +1000,27 @@ expose_php = Off
 ```
 
 </TabItem>
+
+<TabItem value="Debian 11" label="Debian 11">
+
+Éditez le fichier **/etc/apache2/sites-available/centreon.conf** en ajoutant la ligne suivante :
+
+```apacheconf
+Header set X-Frame-Options: "sameorigin"
+Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;Secure;SameSite=Strict
+Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+ServerSignature Off
+ServerTokens Prod
+TraceEnable Off
+```
+
+Éditez le fichier **/etc/php.d/50-centreon.ini** en désactivant le paramètre **expose_php** :
+
+```phpconf
+expose_php = Off
+```
+
+</TabItem>
 </Tabs>
 
 6. Cacher le répertoire par défaut **/icons** :
@@ -724,6 +1042,17 @@ expose_php = Off
 ```apacheconf
 #Alias 
 /icons/ "/opt/rh/httpd24/root/usr/share/httpd/icons/"
+```
+
+</TabItem>
+
+<TabItem value="Debian 11" label="Debian 11">
+
+Éditez le fichier **/etc/apache2/sites-available/autoindex.conf** en commentant la ligne suivante :
+
+```apacheconf
+#Alias 
+/icons/ "/etc/apache2/sites-available/icons/"
 ```
 
 </TabItem>
@@ -804,6 +1133,45 @@ Si tout est correct, vous devriez avoir quelque chose comme :
 ```
 
 </TabItem>
+
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+systemctl restart php-fpm apache2
+```
+
+Puis vérifiez le statut :
+
+```shell
+systemctl status apache2
+```
+
+Si tout est correct, vous devriez avoir quelque chose comme :
+
+```shell
+● apache2.service - The Apache HTTP Server
+    Loaded: loaded (/lib/systemd/system/apache2.service; enabled; vendor pres>
+     Active: active (running) since Tue 2022-08-09 05:01:36 UTC; 3h 56min ago
+       Docs: https://httpd.apache.org/docs/2.4/
+   Main PID: 518 (apache2)
+      Tasks: 11 (limit: 2356)
+     Memory: 18.1M
+        CPU: 1.491s
+     CGroup: /system.slice/apache2.service
+             ├─ 518 /usr/sbin/apache2 -k start
+             ├─1252 /usr/sbin/apache2 -k start
+             ├─1254 /usr/sbin/apache2 -k start
+             ├─1472 /usr/sbin/apache2 -k start
+             ├─3857 /usr/sbin/apache2 -k start
+             ├─3858 /usr/sbin/apache2 -k start
+             ├─3859 /usr/sbin/apache2 -k start
+             ├─3860 /usr/sbin/apache2 -k start
+             ├─3876 /usr/sbin/apache2 -k start
+             ├─6261 /usr/sbin/apache2 -k start
+             └─6509 /usr/sbin/apache2 -k start
+```
+
+</TabItem>
 </Tabs>
 
 Vous pouvez maintenant accéder à votre plateforme via votre navigateur en mode HTTPS.
@@ -812,17 +1180,13 @@ Vous pouvez maintenant accéder à votre plateforme via votre navigateur en mode
 
 ## URI personnalisée
 
-Il est possible de modifier l'URI de Centreon. Par exemple, **/centreon** peut être remplacé par **/monitoring**.
+Il est possible de personnaliser l'URI de connexion à votre plateforme Centreon. Par exemple, **/centreon** peut être remplacé par **/monitoring**.
 
 > Au moins un niveau de chemin est obligatoire.
 
-Pour mettre à jour l'URI Centreon, vous devez suivre les étapes suivantes:
+Pour personnaliser l'URI de Centreon :
 
-1. Rendez-vous dans le menu **Administration > Paramètres > Centreon web** et modifiez le champ **Centreon Web Directory**
-
-![image](../assets/administration/custom-uri.png)
-
-2. Éditez le fichier de configuration Apache pour Centreon
+1. Éditez le fichier de configuration Apache pour Centreon :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -839,9 +1203,47 @@ vim /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf
 ```
 
 </TabItem>
+
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+vim /etc/apache2/sites-available/centreon.conf
+```
+
+</TabItem>
 </Tabs>
 
-et modifiez le chemin **/centreon** par le nouveau.
+2. Remplacez le chemin **/centreon** par le chemin désiré :
+
+```apache
+Define base_uri "/centreon"
+```
+
+3. Redémarrez Apache :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+systemctl restart httpd
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```shell
+systemctl restart httpd24-httpd
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+systemctl restart apache2
+```
+
+</TabItem>
+</Tabs>
 
 ## Activation du http2
 
@@ -852,7 +1254,7 @@ Pour utiliser http2, vous devez suivre les étapes suivantes:
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-1. [Configurer le https pour Centreon](#sécuriser-le-serveur-web-en-https)
+1. [Configurer le https pour Centreon](#sécuriser-le-serveur-web-en-https).
 
 2. Installer le module nghttp2:
 
@@ -860,7 +1262,7 @@ Pour utiliser http2, vous devez suivre les étapes suivantes:
 dnf install nghttp2
 ```
 
-3. Enable http2 protocol in **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf**:
+3. Activez le protocole **http2** dans **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf** :
 
 ```apacheconf
 ...
@@ -881,7 +1283,7 @@ dnf install nghttp2
 +LoadModule mpm_event_module modules/mod_mpm_event.so
 ```
 
-5. Redémarrer le processus Apache pour prendre en compte la nouvelle configuration:
+5. Redémarrer le processus Apache pour prendre en compte la nouvelle configuration :
 
 ```shell
 systemctl restart httpd
@@ -890,7 +1292,7 @@ systemctl restart httpd
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
-1. [Configurer le https pour Centreon](#sécuriser-le-serveur-web-en-https)
+1. [Configurer le https pour Centreon](#sécuriser-le-serveur-web-en-https).
 
 2. Installer le module nghttp2:
 
@@ -898,7 +1300,7 @@ systemctl restart httpd
 yum install httpd24-nghttp2
 ```
 
-3. Enable http2 protocol in **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf**:
+3. Activez le protocole **http2** dans **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf** :
 
 ```apacheconf
 ...
@@ -909,7 +1311,7 @@ yum install httpd24-nghttp2
 ...
 ```
 
-4. Modifier la méthode utilisée par apache pour le module multi-processus dans **/opt/rh/httpd24/root/etc/httpd/conf.modules.d/00-mpm.conf**:
+4. Modifier la méthode utilisée par apache pour le module multi-processus dans **/opt/rh/httpd24/root/etc/httpd/conf.modules.d/00-mpm.conf** :
 
 ```diff
 -LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
@@ -919,10 +1321,49 @@ yum install httpd24-nghttp2
 +LoadModule mpm_event_module modules/mod_mpm_event.so
 ```
 
-5. Redémarrer le processus Apache pour prendre en compte la nouvelle configuration:
+5. Redémarrer le processus Apache pour prendre en compte la nouvelle configuration :
 
 ```shell
 systemctl restart httpd24-httpd
+```
+
+</TabItem>
+
+<TabItem value="Debian 11" label="Debian 11">
+
+1. [Configurer le https pour Centreon](#sécuriser-le-serveur-web-en-https).
+
+2. Installer le module nghttp2:
+
+```shell
+apt install nghttp2
+```
+
+3. Activez le protocole **http2** dans **/etc/apache2/sites-available/centreon.conf** :
+
+```apacheconf
+...
+<VirtualHost *:443>
+    Protocols h2 h2c http/1.1
+    ...
+</VirtualHost>
+...
+```
+
+4. Modifier la méthode utilisée par apache pour le module multi-processus dans **/etc/apache2/sites-available/00-mpm.conf** :
+
+```diff
+-LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
++#LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
+
+-#LoadModule mpm_event_module modules/mod_mpm_event.so
++LoadModule mpm_event_module modules/mod_mpm_event.so
+```
+
+5. Redémarrer le processus Apache pour prendre en compte la nouvelle configuration :
+
+```shell
+systemctl restart apache2
 ```
 
 </TabItem>
@@ -994,5 +1435,5 @@ Les journaux des événements Centreon sont disponibles dans les répertoires su
 
 # Sauvegardez votre plateforme
 
-Centreon propose de sauvegarder la configuration de la plateforme. Pour ce faire, accédez au menu
-[**Administration  >  Parameters  >  Backup**](./backup.md).
+Centreon propose de sauvegarder la configuration de la plateforme. Pour ce faire, accédez au menu 
+[**Administration > Parameters > Backup**](./backup.md).

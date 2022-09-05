@@ -17,6 +17,61 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 22.04.4
+
+Release date: `September 2, 2022`
+
+#### Bug fixes
+
+- [Core] Fixed potential empty values in `index_data`.`special` that could block Centreon Broker
+- [Install] Fixed update process that threw an "unable to execute SQL query" error
+
+### 22.04.3
+
+Release date: `August 25, 2022`
+
+#### Enhancements
+
+- [API] Added endpoint to perform all web updates
+- [Authentication] Added a log message when an unregistered user tries logging in
+- [Configuration] Use API to select metrics in virtual metrics configuration form
+- [UI] Reduce spacing and align access buttons in user menu
+
+#### Bug fixes
+
+- [APIv1] Using the CLAPI import function no longer results in a PHP fatal error for the mentioned versions
+- [Administration] Fixed consistency of ACLs with new poller creation wizard structure
+- [Configuration] Fixed a regression: multiple trap definitions can use the same OID again
+- [Cron] Fixed SQL queries when database names contain a dash
+- [Install] Make it possible to connect as user centreon-engine for Debian packaging
+- [Install] Fixed Debian packages build when npm is not installed
+- [Install] Fixed dependency name for Debian packaging
+- [Monitoring] Fixed deletion of comments
+- [Monitoring] Fixed the bug that canceled the display of text in graphics after an export in png
+- [UI] Fixed OpenID configuration form with Safari
+- [UI] Fixed dark mode theme switch
+- [Widget] Fixed hostgroup multiple selection
+
+#### Security fixes
+
+- [Administration] Sanitized SQLi in media synchronization
+- [Administration] Sanitized and bound ACL menus definitions queries
+- [Administration] Sanitized and bound Auth class queries
+- [Administration] Sanitized and bound queries in ACL actions definition
+- [Configuration] Fixed an XSS vulnerability in the broker configuration page
+- [Configuration] Fixed an XSS vulnerability in the service template form
+- [Configuration] Sanitized and bound hosts dependencies configuration queries
+- [Configuration] Sanitized and bound queries in Centreon Broker configuration listing
+- [Configuration] Sanitized and bound queries in CentreonXMLBGRequest class
+- [Configuration] Sanitized and bound queries in Meta Services dependency configuration
+- [Configuration] Sanitized and bound queries in generateImage file
+- [Configuration] Sanitized and bound queries in hostgroups dependency configuration
+- [Configuration] Sanitized and bound service configuration queries
+- [Configuration] Sanitized and bound service dependency queries
+- [Core] Clean code in centreonUser.class.php
+- [Core] Remove unused appKey feature
+- [Monitoring] Sanitized SQLi in Centreon centreonGraph class
+
 ### 22.04.2
 
 Release date: `August 3, 2022`
@@ -150,6 +205,46 @@ By:
 - [Widget] A new widget is now available to display listings from **ntopng** and provide quick access to detail pages in the **ntopng** WUI
 
 ## Centreon Collect
+
+### 22.04.1
+
+Release date: `August 30, 2022`
+
+#### Centreon Engine
+
+##### Features
+
+- Enable recheck for Anomaly Detection services
+
+##### Improvements
+
+- Improve security of the gRPC API by listening on 127.0.0.1 by default
+
+##### Bug fixes
+
+- Fixed an issue that made the name of the resources disappear from Resources Status when linked to a severity or a category (it came back once centengine was restarted)
+- Fixed an issue with the way escaped special characters were managed (eg. `\n`)
+
+#### Centreon Broker
+
+##### Improvements
+
+- Improve security of the gRPC API by listening on 127.0.0.1 by default
+
+##### Bug fixes
+
+- Fixed Broker compression 
+- Fixed an issue that caused the RRD rebuild mechanism to fail
+- Fixed an issue with BAM Business Activities with “Ignore the indicator in the calculation” as planned downtime calculation method. They stopped ignoring downtimed KPIs when they had overlapping downtimes
+- Fixed an issue that made the name of the resources disappear from Resources Status when linked to a severity or a category (it came back once centengine was restarted)
+- Broker handles multiple options
+- Broker with gRPC configured crashed on start
+- Deleting a tag does not remove the link with resources in resources_tags table
+- Fixed an issue that caused Broker to crash when a BAM output was configured and the BAM tables did not exist
+- Fixed an issue with the way escaped special characters were managed (eg. `\n`)
+- Scheduled downtimes used to be inserted one at a time, which caused performance issues on platforms with a lot of recurrent scheduled downtimes. They are now injected in bulk inserts to reduce database solicitation and avoid performance issues.
+- [Configuration] Extended the size of the URL, Notes and Action URL fields to avoid truncating long URLs
+
 
 ### 22.04.0
 

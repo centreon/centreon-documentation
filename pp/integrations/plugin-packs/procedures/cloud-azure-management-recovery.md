@@ -20,8 +20,9 @@ It brings the following service templates:
 
 | Service Alias       | Service Template                                        | Service Description                         | Default |
 | :------------------ | :------------------------------------------------------ | :------------------------------------------ | :------ |
-| Backup-Items-Status | Cloud-Azure-Management-Recovery-Backup-Items-Status-Api | Check items backup state of a defined vault | X       |
-| Backup-Jobs-Status  | Cloud-Azure-Management-Recovery-Backup-Jobs-Status-Api  | Check backup jobs state of a defined vault  | X       |
+| Backup-Items-Status | Cloud-Azure-Management-Recovery-Backup-Items-Status-Api | Check items backup state for a given vault | X       |
+| Backup-Jobs-Status  | Cloud-Azure-Management-Recovery-Backup-Jobs-Status-Api  | Check backup jobs state for a given vault  | X       |
+| Replication-Health  | Cloud-Azure-Management-Recovery-Replication-Health-Api  | Check replication and failover health for a given vault | X      |
 
 ### Discovery rules
 
@@ -50,6 +51,15 @@ More information about discovering hosts automatically is available on the [dedi
 | Metric Name                 | Unit  |
 |:----------------------------|:------|
 | Backup job status           |       |
+
+</TabItem>
+
+<TabItem value="Replication-Health" label="Replication-Health">
+
+| Metric Name                 | Unit  |
+|:----------------------------|:------|
+| Replication health          |       |
+| Failover health             |       |
 
 </TabItem>
 </Tabs>

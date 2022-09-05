@@ -10,66 +10,83 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Centreon Pack **OneAccess SNMP** brings 1 host template:
+The Centreon Pack **OneAccess** brings 1 host template:
 * Net-Oneaccess-SNMP-custom
 
 It brings the following service templates:
 
-| Service Alias | Service Template               | Default | Discovery |
-|:--------------|:-------------------------------|:--------|:----------|
-| Cells-Radio   | Net-Oneaccess-Cells-Radio-SNMP |         |           |
-| Cpu           | Net-Oneaccess-Cpu-SNMP         | X       |           |
-| Interfaces    | Net-Oneaccess-Interfaces-SNMP  |         | X         |
-| Memory        | Net-Oneaccess-Memory-SNMP      | X       |           |
+| Service Alias | Service Template               | Description                  | Default |
+|:--------------|:-------------------------------|:-----------------------------|:--------|
+| cells-Radio   | Net-Oneaccess-Cells-Radio-SNMP | Check cellular radio modules |         |
+| Cpu           | Net-Oneaccess-Cpu-SNMP         | Check processor usage        | X       |
+| Interfaces    | Net-Oneaccess-Interfaces-SNMP  | Check interfaces             |         |
+| Memory        | Net-Oneaccess-Memory-SNMP      | Check memory usage           | X       |
+| Rtt-Probes    | Net-Oneaccess-Rtt-Probes-SNMP  | Check round-trip time probes |         |
 
 ### Discovery rules
+
+<Tabs groupId="sync">
+<TabItem value="Service" label="Service">
 
 | Rule name                         | Description                                         |
 |:----------------------------------|:----------------------------------------------------|
 | Net-Oneaccess-SNMP-Interface-Name | Discover network interfaces and monitor utilization |
+| Net-Oneaccess-SNMP-Rtt-Probe-Tag  | Discover probes and monitor status                  |
+
+
+More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
+and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
+
+</TabItem>
+</Tabs>
 
 ### Collected metrics & status
 
 <Tabs groupId="sync">
 <TabItem value="Cells-Radio" label="Cells-Radio">
 
-| Metric name                                    | Description                                 | Unit  |
-| :--------------------------------------------- | :------------------------------------------ | :---- |
-| modules.cellradio.detected.count               | Number of cellular radio modules detected   |       |
-| status                                         | Status of the SIM card and quality signal   |       |
-| *module_id~operator*#module.cellradio.rsrp.dbm | Current reference signal receive power      | dBm   |
-| *module_id~operator*#module.cellradio.rssi.dbm | Current received signal strength indication | dBm   |
-| *module_id~operator*#module.cellradio.snr.db   | Current signal-to-noise ratio               | dB    |
+| Metric name                                    | Unit  |
+| :--------------------------------------------- | :---- |
+| modules.cellradio.detected.count               |       |
+| status                                         |       |
+| *module_id~operator*#module.cellradio.rsrp.dbm | dBm   |
+| *module_id~operator*#module.cellradio.rssi.dbm | dBm   |
+| *module_id~operator*#module.cellradio.snr.db   | dB    |
 
 </TabItem>
-
 <TabItem value="Cpu" label="Cpu">
 
-| Metric name                | Description     | Unit  |
-| :------------------------- | :-------------- | :---- |
-| cpu.utilization.percentage | CPU utilization | %     |
+| Metric name                | Unit  |
+| :------------------------- | :---- |
+| cpu.utilization.percentage | %     |
 
 </TabItem>
-
 <TabItem value="Interfaces" label="Interfaces">
 
-| Metric name                                               | Description                                             | Unit |
-|:--------------------------------------------------------- |:------------------------------------------------------- |:---- |
-| status                                                    | Status of the interface                                 |      |
-| *interface_name*#interface.traffic.in.bitspersecond       | Incoming traffic going through the interface            | b/s  |
-| *interface_name*#interface.traffic.out.bitspersecond      | Outgoing traffic going through the interface            | b/s  |
-| *interface_name*#interface.packets.in.error.percentage    | Incoming errored packets going through the interface    | %    |
-| *interface_name*#interface.packets.in.discard.percentage  | Incoming discarded packets going through the interface  | %    |
-| *interface_name*#interface.packets.out.error.percentage   | Outgoing errored packets going through the interface    | %    |
-| *interface_name*#interface.packets.out.discard.percentage | Outgoing discarded packets going through the interface  | %    |
+| Metric name                                               | Unit |
+|:--------------------------------------------------------- |:---- |
+| status                                                    |      |
+| *interface_name*#interface.traffic.in.bitspersecond       | b/s  |
+| *interface_name*#interface.traffic.out.bitspersecond      | b/s  |
+| *interface_name*#interface.packets.in.error.percentage    | %    |
+| *interface_name*#interface.packets.in.discard.percentage  | %    |
+| *interface_name*#interface.packets.out.error.percentage   | %    |
+| *interface_name*#interface.packets.out.discard.percentage | %    |
 
 </TabItem>
-
 <TabItem value="Memory" label="Memory">
 
-| Metric name             | Description                | Unit  |
-| :---------------------- | :------------------------- | :---- |
-| memory.usage.bytes      | Memory usage               | B     |
+| Metric name             | Unit  |
+| :---------------------- | :---- |
+| memory.usage.bytes      | B     |
+
+</TabItem>
+<TabItem value="Rtt-Probe" label="Rtt-Probe">
+
+| Metric name                                   | Unit  |
+| :-------------------------------------------- | :---- |
+| probe status                                  |       |
+| *tag_name*#probe.completion.time.milliseconds | ms    |
 
 </TabItem>
 </Tabs>
