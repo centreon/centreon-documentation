@@ -56,6 +56,7 @@ import TabItem from '@theme/TabItem';
  - [**IP-Label Ekara Rest API**](../procedures/applications-monitoring-iplabel-ekara-restapi.md) - Discovery provider didn't obfuscate correctly sensitive macros - Status:stable - centreon-pack-applications-monitoring-iplabel-ekara-restapi-22.08.0-1
 
 </TabItem>
+</Tabs>
 
 ### Juillet 
 
