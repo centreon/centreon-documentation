@@ -1,14 +1,14 @@
 ---
 id: migrate-from-20-x
-title: Migrer depuis un OS de type EL vers un autre OS de type EL (depuis un Centreon 18.10 ou plus récent)
+title: Migrer depuis un OS de type EL vers Debian 11 (vers un Centreon 22.04)
 ---
 
 ## Prérequis
 
 Cette procédure ne s'applique que dans les conditions suivantes :
 
-- Vous souhaitez migrer d'un OS de type EL 64-bits vers un autre OS de type EL 64-bits supporté. Par exemple, vous souhaitez migrer d'un CentOS 7 à un Alma 8.
-- Votre version de Centreon est 18.10 ou plus récente.
+- Vous souhaitez migrer d'un OS de type EL 64-bits vers Debian 11. Par exemple, vous souhaitez migrer d'un CentOS 7 à Debian 11.
+- Votre version de Centreon est 18.10 ou plus récente, et vous souhaitez paser à Centreon 22.04 (Debian est uniquement supporté depuis la version 22.04). Si vous souhaitez migrer depuis une plus ancienne version, [contactez l'équipe support Centreon](https://centreon.force.com).
 
 > En cas de migration d'une plateforme disposant du système de redondance
 > Centreon, il est nécessaire de contacter le
@@ -28,7 +28,7 @@ jusqu'à terminer le processus d'installation en vous connectant à l'interface 
 3. Réalisez les mises à jour logicielle et système :
 
 ```shell
-dnf update
+apt update && apt upgrade
 ```
 
 ### Étape 2 : Synchroniser les données
@@ -53,6 +53,19 @@ dnf update
    ```
 
    > Remplacez **\<IP_NOUVEAU_CENTREON\>** par l'adresse IP de votre nouveau serveur Centreon.
+
+5. Changez les droits utilisateur suivants :
+
+   ```shell
+   chown www-data: /etc/centreon-broker/*
+   chown www-data: /etc/centreon-engine/*
+   chown centreon: /etc/centreon/*
+   chown centreon: /var/lib/centreon/*
+   chown centreon-broker: /var/lib/centreon/metrics/*
+   chown centreon-broker: /var/lib/centreon/status/*
+   chown centreon-gorgone: /var/lib/centreon/nagios-perf/perfmon-* -R
+   chown centreon-engine: /var/lib/centreon/centplugins/*
+   ```
 
 ### Étape 3 : Récupérer les bases de données
 
@@ -129,7 +142,12 @@ Centreon.
 Si vous n'utilisez que des plugins Centreon, réinstallez-les sur le nouveau serveur:
 
 ```shell
-yum install centreon-plugin-\*
+apt update
+echo "deb https://apt.centreon.com/repository/22.04-plugin-packs/ bullseye main" >> /etc/apt/sources.list.d/centreon-pp.list
+wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+apt update
+apt install centreon-pack*
+apt install centreon-plugin-\*
 ```
 
 Si vous utilisez vos propres plugins personnalisés, synchronisez les répertoires qui contiennent ceux-ci, ainsi que toutes éventuelles dépendances.

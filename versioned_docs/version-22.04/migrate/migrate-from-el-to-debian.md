@@ -1,14 +1,14 @@
 ---
-id: migrate-from-20-x
-title: Migrate from an EL-type OS to another EL-type OS (from a Centreon 18.10 or newer)
+id: migrate-from-el-to-debian
+title: Migrate from an EL-type OS to Debian 11 (to a Centreon 22.04)
 ---
 
 ## Prerequisites
 
 This procedure only applies if the following conditions are met:
 
-- You wish to migrate from a 64-bit EL-type OS to another supported 64-bit EL-type OS. For instance, if you want to migrate from a CentOS 7 to an Alma 8.
-- Your version of Centreon is 18.10 or newer.
+- You wish to migrate from a 64-bit EL-type OS to Debian 11. For instance, if you want to migrate from a CentOS 7 to a Debian 11.
+- Your version of Centreon is 18.10 or newer and you wish to upgrade to Centreon 22.04 (Debian is only supported from version 22.04 on). If you wish to migrate from an older version, [contact the Centreon support team](https://centreon/force.com).
 
 > If your Centreon platform includes a Centreon redundancy system, please
 > contact [Centreon support](https://centreon.force.com).
@@ -28,7 +28,7 @@ complete the installation process by connecting to the Centreon web interface.
 3. Perform software and system updates:
 
    ```shell
-   dnf update
+   apt update && apt upgrade
    ```
 
 ### Step 2 : Synchronize the data
@@ -54,6 +54,19 @@ complete the installation process by connecting to the Centreon web interface.
 
    > Replace **<IP_NEW_CENTREON>** by the IP address of the new Centreon server.
 
+5. Change the following user rights:
+
+   ```shell
+   chown www-data: /etc/centreon-broker/*
+   chown www-data: /etc/centreon-engine/*
+   chown centreon: /etc/centreon/*
+   chown centreon: /var/lib/centreon/*
+   chown centreon-broker: /var/lib/centreon/metrics/*
+   chown centreon-broker: /var/lib/centreon/status/*
+   chown centreon-gorgone: /var/lib/centreon/nagios-perf/perfmon-* -R
+   chown centreon-engine: /var/lib/centreon/centplugins/*
+   ```
+
 ### Step 3: Retrieve the databases
 
 1. On the old server, create a dump of the databases:
@@ -78,7 +91,7 @@ have enough space for large database dumps):
    ```
 
 4. On the new database server, drop the original databases and
-create them again:
+create them again::
 
    ```shell
    mysql -u root -p
@@ -130,7 +143,12 @@ create them again:
 If you only use Centreon plugins, reinstall them on the new server:
 
 ```shell
-yum install centreon-plugin-\*
+apt update
+echo "deb https://apt.centreon.com/repository/22.04-plugin-packs/ bullseye main" >> /etc/apt/sources.list.d/centreon-pp.list
+wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+apt update
+apt install centreon-pack*
+apt install centreon-plugin-\*
 ```
 
 If you are using custom plugins, synchronize the directories that contain your custom plugins, including any necessary dependencies.
