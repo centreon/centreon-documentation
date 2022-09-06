@@ -628,6 +628,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-aws-cloudwatch-discover'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-aws-cloudwatchlogs'
         },
         {
