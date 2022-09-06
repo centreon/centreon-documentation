@@ -58,81 +58,81 @@ De plus amples informations sur la découverte automatique des services sont dis
 <Tabs groupId="sync">
 <TabItem value="Counter-Active-Sessions" label="Counter-Active-Sessions">
 
-| Nom de la métrique     | Description                              |
-| :--------------------- | :--------------------------------------- |
-| Sessions\_value        | Nombre de sessions actives. Unité: Nombre |
+| Nom de la métrique     | Unité |
+| :--------------------- | :---- |
+| Sessions\_value        | count |
 
 </TabItem>
 <TabItem value="Counter-Generic" label="Counter-Generic">
 
-| Nom de la métrique    | Description                             |
-| :-------------------- | :-------------------------------------- |
-| Counter\_value        | Nombre de compteur trouvé. Unité: Nombre |
+| Nom de la métrique    | Unité |
+| :-------------------- | :---- |
+| Counter\_value        | count |
 
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
 
-| Nom de la métrique | Description                                                               |
-| :----------------- | :------------------------------------------------------------------------ |
-| total 5m           | Utilisation du CPU du serveur Windows sur 5 minutes. Unité : Pourcentage  |
-| total 1m           | Utilisation du CPU du serveur Windows sur 1 minutes. Unité : Pourcentage  |
-| total 5s           | Utilisation du CPU du serveur Windows sur 5 secondes. Unité : Pourcentage |
+| Nom de la métrique | Unité |
+| :----------------- | :---- |
+| total 5m           | %     |
+| total 1m           | %     |
+| total 5s           | %     |
 
 </TabItem>
 <TabItem value="Disk" label="Disk">
 
-| Nom de la métrique | Description                                    |
-| :----------------- | :--------------------------------------------- |
-| used               | Utilisé et Stockage total alloué. Unité: Bytes |
+| Nom de la métrique | Unité |
+| :----------------- | :---- |
+| used               | Bytes |
 
 </TabItem>
 <TabItem value="Eventlog-Generic" label="Eventlog-Generic">
 
-| Nom de la métrique  | Description                            |
-| :------------------ | :------------------------------------- |
-| problemCount        | Nombre de journaux d'événements trouvés. Unité: Nombre |
+| Nom de la métrique  | Unité |
+| :------------------ | :---- |
+| problemCount        | count |
 
 </TabItem>
 <TabItem value="Files-Generic" label="Files-Generic">
 
-| Nom de la métrique | Description                        |
-| :----------------- | :--------------------------------- |
-| count              | Nombre de fichiers trouvés. Unité: Nombre |
+| Nom de la métrique | Unité |
+| :----------------- | :---- |
+| count              | count |
 
 </TabItem>
 <TabItem value="Logfiles-Generic" label="Logfiles-Generic">
 
-| Nom de la métrique        | Description                                                                                               |
-| :------------------------ | :-------------------------------------------------------------------------------------------------------- |
-| default\_lines            | Nombre de lignes qui correspondent au mot-clé trouvé dans le fichier journal. Unité: Nombre                |
-| default\_warnings         | Nombre de lignes qui correspondent au modèle d'avertissement trouvé dans le fichier journal. Unité: Nombre |
-| default\_criticals        | Nombre de lignes qui correspondent au modèle critique trouvé dans le fichier journal. Unité: Nombre        |
-| default\_unknowns         | Nombre de lignes qui correspondent à un motif inconnu trouvé dans le fichier journal. Unité: Nombre        |
+| Nom de la métrique        | Unité |
+| :------------------------ | :---- |
+| default\_lines            | count |
+| default\_warnings         | count |
+| default\_criticals        | count |
+| default\_unknowns         | count |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-|Nom de la métrique | Description                        |
-| :----------------- | :--------------------------------- |
-| used               | Utilisation totale de la mémoire. Unité: Bytes |
+|Nom de la métrique | Unité  |
+| :----------------- | :---- |
+| used               | Bytes |
 
 </TabItem>
 <TabItem value="Swap" label="Swap">
 
-| Nom de la métrique | Description                             |
-| :----------------- | :-------------------------------------- |
-| swap               | Utilisation totale de la mémoire swap. Unité: Bytes |
+| Nom de la métrique | Unité |
+| :----------------- | :---- |
+| swap               | Bytes |
 
 </TabItem>
 <TabItem value="Sessions" label="Sessions">
 
-| Nom de la métrique                   | Description                                                              |
-| :----------------------------------- | :----------------------------------------------------------------------- |
-| sessions-created                     | Nombre de sessions d'utilisateurs créées. Unité: Count                   |
-| sessions-disconnected                | Nombre de sessions d'utilisateurs déconnectés. Unité: Count              |
-| sessions-reconnected                 | Nombre de sessions d'utilisateurs reconnectés. Unité: Count              |
-| sessions-active                      | Nombre de sessions d'utilisateurs actifs. Unité: Count                   |
-| sessions-disconnected-current        | Nombre de sessions d'utilisateurs actuellement déconnectés. Unité: Count |
+| Nom de la métrique                   | Unité |
+| :----------------------------------- | :---- |
+| sessions-created                     | count |
+| sessions-disconnected                | count |
+| sessions-reconnected                 | count |
+| sessions-active                      | count |
+| sessions-disconnected-current        | count |
 
 </TabItem>
 </Tabs>

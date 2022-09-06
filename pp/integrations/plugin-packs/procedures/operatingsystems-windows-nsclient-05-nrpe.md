@@ -59,81 +59,81 @@ More information about discovering services automatically is available on the [d
 <Tabs groupId="sync">
 <TabItem value="Counter-Active-Sessions" label="Counter-Active-Sessions">
 
-| Metric name     | Description                             |
-| :-------------- | :-------------------------------------- |
-| Sessions\_value | Number of actived sessions. Unit: Count |
+| Metric name     | Unit  |
+| :-------------- | :---- |
+| Sessions\_value | Count |
 
 </TabItem>
 <TabItem value="Counter-Generic" label="Counter-Generic">
 
-| Metric name    | Description                          |
-| :------------- | :----------------------------------- |
-| Counter\_value | Number of counter found. Unit: Count |
+| Metric name    | Unit  |
+| :------------- | :---- |
+| Counter\_value | Count |
 
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
 
-| Metric name | Description                                                      |
-| :---------- | :--------------------------------------------------------------- |
-| total 5m    | CPU Utilization of Windows serveur over 5 minutes. Unit: Percent |
-| total 1m    | CPU Utilization of Windows serveur over 1 minutes. Unit: Percent |
-| total 5s    | CPU Utilization of Windows serveur over 5 seconds. Unit: Percent |
+| Metric name | Unit |
+| :---------- | :--- |
+| total 5m    | %    |
+| total 1m    | %    |
+| total 5s    | %    |
 
 </TabItem>
 <TabItem value="Disk" label="Disk">
 
-| Metric name | Description                                   |
-| :---------- | :-------------------------------------------- |
-| used        | Used and Total Storage allocated. Unit: Bytes |
+| Metric name | Unit  |
+| :---------- | :---- |
+| used        | Bytes |
 
 </TabItem>
 <TabItem value="Eventlog-Generic" label="Eventlog-Generic">
 
-| Metric name  | Description                            |
-| :----------- | :------------------------------------- |
-| problemCount | Number of event log found. Unit: Count |
+| Metric name  | Unit  |
+| :----------- | :---- |
+| problemCount | Count |
 
 </TabItem>
 <TabItem value="Files-Generic" label="Files-Generic">
 
-| Metric name | Description                        |
-| :---------- | :--------------------------------- |
-| count       | Number of files found. Unit: Count |
+| Metric name | Unit  |
+| :---------- | :---- |
+| count       | Count |
 
 </TabItem>
 <TabItem value="Logfiles-Generic" label="Logfiles-Generic">
 
-| Metric name        | Description                                                                   |
-| :----------------- | :---------------------------------------------------------------------------- |
-| default\_lines     | Number of line that match with tag word found in logfile. Unit: Count         |
-| default\_warnings  | Number of line that match with warning pattern found in logfile. Unit: Count  |
-| default\_criticals | Number of line that match with critical pattern found in logfile. Unit: Count |
-| default\_unknowns  | Number of line that match with unknown pattern found in logfile. Unit: Count  |
+| Metric name        | Unit  |
+| :----------------- | :---- |
+| default\_lines     | Count |
+| default\_warnings  | Count |
+| default\_criticals | Count |
+| default\_unknowns  | Count |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Metric name | Description                        |
-| :---------- | :--------------------------------- |
-| used        | Total usage of memory. Unit: Bytes |
+| Metric name | Unit  |
+| :---------- | :---- |
+| used        | Bytes |
 
 </TabItem>
 <TabItem value="Swap" label="Swap">
 
-| Metric name | Description                             |
-| :---------- | :-------------------------------------- |
-| swap        | Total usage of swap memory. Unit: Bytes |
+| Metric name | Unit  |
+| :---------- | :---- |
+| swap        | Bytes |
 
 </TabItem>
 <TabItem value="Sessions" label="Sessions">
 
-| Metric name                   | Description                                               |
-| :---------------------------- | :-------------------------------------------------------- |
-| sessions-created              | Number of created users session. Unit: Count              |
-| sessions-disconnected         | Number of disconnected users session. Unit: Count         |
-| sessions-reconnected          | Number of reconnected users session. Unit: Count          |
-| sessions-active               | Number of active users session. Unit: Count               |
-| sessions-disconnected-current | Number of current disconnected users session. Unit: Count |
+| Metric name                   | Unit  |
+| :---------------------------- | :---- |
+| sessions-created              | Count |
+| sessions-disconnected         | Count |
+| sessions-reconnected          | Count |
+| sessions-active               | Count |
+| sessions-disconnected-current | Count |
 
 </TabItem>
 </Tabs>
