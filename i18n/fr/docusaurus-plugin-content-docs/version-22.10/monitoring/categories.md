@@ -1,15 +1,20 @@
 ---
 id: categories
-title: Catégories
+title: Catégories et criticités
 ---
 
-D’une manière générale, les catégories servent soit à définir un niveau de criticité pour un hôte ou un service, soit à
-regrouper techniquement un ensemble d’objets (services liés à une exécution de requête sur un SGBD MariaDB, ...). La
-bonne pratique demande à ce qu’on regroupe des hôtes ou des services au sein de catégories pour pouvoir faciliter le
-filtrage de ces objets au sein [d’ACL](../administration/access-control-lists.md). Les catégories sont également utilisées pour définir des types d’objets au sein
-du module [Centreon MAP](../graph-views/introduction.md) ou pour classer les objets au sein de sous-groupes dans le module [Centreon BI](../reporting/introduction.md).
+Les catégories vous permettent :
 
-Il est possible de créer des catégories [d'hôtes](#catégories-dhôtes) ou de [services](#catégories-de-services).
+- d'organiser hôtes et services, afin de définir les droits des utilisateurs sur ceux-ci via les [ACLs](../administration/access-control-lists.md).
+- de [filtrer la vue](../alerts-notifications/resources-status.md#filtering-events) dans la page **Statut des ressources**.
+- de classifier les hôtes et services par sous-groupes dans les [rapports MBI](../reporting/concepts.md).
+- de définir des types d'objets dans le module [Centreon MAP](../graph-views/introduction.md).
+
+Il existe un type spécial de catégorie, nommé criticité. Les criticités vos permettent de faire la même chose que les catégories, mais également de :
+
+- trier la vue de la page **Statut des ressources** par niveau de criticité, par exemple pour afficher les alertes les plus importantes en premier. (Les criticités sont affichées dans la colonne **S** de la page **Statut des ressources**.)
+
+- filtrer les données dans les widgets **Host monitoring**, **Service monitoring** et **Open Tickets** dans les [vues personnalisées](../alerts-notifications/custom-views.md).
 
 ## Catégories d’hôtes
 
@@ -37,3 +42,21 @@ Rendez-vous dans le menu **Configuration > Services > Categories** et cliquez su
 * La case **Severity type** ignifie que la catégorie de service à un niveau de criticité.
 * Les champs **Level** et **Icon** définissent respectivement un niveau de criticité et une icône associée.
 * Le champ **Status** permet d’activer ou de désactiver la catégorie de services.
+
+## Criticité
+
+### Créer une criticité
+
+Pour créer une criticité :
+
+1. Allez à la page **Configuration > Hôtes > Catégories** ou **Configuration > Service > Catégories** puis cliquez sur **Ajouter**.
+2. Renseignez les champs **Nom** et **Alias**, puis cochez **Type de criticité**.
+3. Définissez un niveau pour cette criticité (un chiffre qui permettra de trier les hôtes ou les services dans la page **Statut des ressources**), aisni qu'une icône qui apparaîtra dans la colonne **S** de la page **Statut des ressources**.
+4. Cliquez sur **Sauvegarder**. La criticité apparaît dans la liste des criticités.
+
+### Appliquer une criticité à un hôte ou un service
+
+1. Éditez l'hôte ou le service (allez à la page **Configuration > Hôtes > Hôtes** ou **Configuration > Services > Services par hôte** puis cliquez sur l'hôte ou le service).
+2. Dans l'onglet **Informations détaillées de l'hôte** pour les hôtes ou bien **Informtions complémentaires** pour les services, dans la section **Moteur de supervision**, sélectionnez la criticité désirée dans la liste **Niveau de criticité**.
+3. Cliquez sur **Sauvegarder**.
+4. [Deployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md). Dans la page **Statut des ressources**, l'icône correspondant à la criticité apparaît dans la colonne **S**. Une infobulle affiche le niveau et le nom de la criticité. Cliquez sur l'en-tête de colonne pour trier la vue suivant le niveau de criticité.

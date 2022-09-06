@@ -1,16 +1,22 @@
 ---
 id: categories
-title: Categories
+title: Categories and severities
 ---
 
-Generally speaking, the categories serve either to define a criticality level for a host or a service, or to group
-together technically a set of objects (services linked to the execution of a request on a MariaDB DBMS, etc.).
-Good practice requires that we group hosts or services together into categories to facilitate the filtration of these
-objects in [ACL](../administration/access-control-lists.md).
-The categories are also used to define types of objects in the Centreon MAP module or to classify the objects within
-sub-groups in the Centreon BI module.
+Categories allow you to:
 
-### Hosts category
+- organize hosts or services, so as to define user rights on them using [ACLs](../administration/access-control-lists.md)
+- [filter the view](../alerts-notifications/resources-status.md#filtering-events) in the **Resources status** page
+- classify the hosts and services within sub-groups in [MBI reports](../reporting/concepts.md).
+- define types of objects in the Centreon [MAP module](../graph-views/introduction.md).
+
+A special type of category is called severity. Severities can be used to achieve all of the above, but also to:
+
+- sort the view on page **Resources Status** by severity level, e.g. to show the most important alerts first. (Severities are shown in the **S** column in the **Resources Status** page.)
+
+- filter data in the **Host monitoring**, **Service monitoring** and **Open Tickets** widgets in [custom views](../alerts-notifications/custom-views.md).
+
+## Hosts category
 
 Go to the **Configuration > Hosts > Categories** menu and click on **Add**.
 
@@ -24,7 +30,7 @@ Go to the **Configuration > Hosts > Categories** menu and click on **Add**.
 * The **Level** and **Icon** fields define a criticality level and an associated icon respectively.
 * The **Status** and **Comment** fields allow us to enable or disable the category of host and to comment on it.
 
-### Services category
+## Services category
 
 Go to the **Configuration > Services > Categories** menu and click on **Add**.
 
@@ -36,3 +42,21 @@ Go to the **Configuration > Services > Categories** menu and click on **Add**.
 * The **Severity type** box signifies that the category of service has a criticality level.
 * The **Level** and **Icon** fields define a criticality level and an associated icon respectively.
 * The **Status** field allows us to enable or disable the category of services.
+
+## Severities
+
+### Creating a severity
+
+To create a severity:
+
+1. Go to **Configuration > Hosts > Categories** or **Configuration > Services > Categories** and then click **Add**.
+2. Fill in the **Name** and **Alias** fields, then check **Severity type**.
+3. Define a level for the severity (a number that will be used to sort hosts or services in the **Resources Status** page), and an icon which will appear in the **S** column in the **Resources Status** page.
+4. Click **Save**. The severity appears in the list of severities.
+
+### Applying the severity to a host or service
+
+1. Edit the host or service (go to **Configuration > Hosts > Hosts** or to **Configuration > Services > Services by host** and then click on the host or service).
+2. On the **Extended Info** tab, in the **Monitoring Engine** section, select the severity you want from the **Severity level** list.
+3. Click **Save**.
+4. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md). In the **Resources Status** page, the icon for the severity appears in column **S**. A tooltip shows the level and name of the severity. If you click the column header, the view is sorted according to the severity level.
