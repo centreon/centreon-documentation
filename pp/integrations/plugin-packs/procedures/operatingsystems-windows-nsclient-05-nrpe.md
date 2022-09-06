@@ -11,12 +11,48 @@ import TabItem from '@theme/TabItem';
 This Plugin Pack allow to get metrics and statuses collected thanks to the NSClient++ 
 monitoring agent and its embedded NRPE Server. 
 
-## Pack assets
+### Templates
 
-### Monitored objects
+The Centreon Plugin Pack **Windows NSClient 0.5** brings 1 host template:
 
-* Windows Server OS from 2003 SP2 version
-* Windows Workstation from XP version
+* OS-Windows-NSClient-05-NRPE-custom
+
+It brings the following service templates:
+
+| Service Alias         | Service Template                                           | Service Description                                        | Default | Discovery |
+|:----------------------|:-----------------------------------------------------------|:-----------------------------------------------------------|:--------|:----------|
+| Active-Sessions       | OS-Windows-NSClient05-Counter-Active-Sessions-NRPE-custom  | Check active sessions using NRPE protocol                  |         |           |
+| Counter-Generic       | OS-Windows-NSClient05-Counter-Generic-NRPE-custom          | Check generic counter using NRPE protocol                  |         |           |
+| Cpu                   | OS-Windows-NSClient05-Cpu-NRPE-custom                      | Check Cpu usage using NRPE protocol                        | X       |           |
+| Disks                 | OS-Windows-NSClient05-Disks-NRPE-custom                    | Check disks usage using NRPE protocol                      |         | X         |
+| Eventlog-Generic      | OS-Windows-NSClient05-Eventlog-Generic-NRPE-custom         | Check event logs using NRPE protocol                       |         |           |
+| Files-Generic         | OS-Windows-NSClient05-Files-Generic-NRPE-custom            | Check files (dates, size, etc...) using NRPE protocol      |         |           |
+| Logfiles-Generic      | OS-Windows-NSClient05-Logfiles-Generic-NRPE-custom         | Check log file using NRPE protocol                         |         |           |
+| Memory                | OS-Windows-NSClient05-Memory-NRPE-custom                   | Check memory usage using NRPE protocol                     | X       |           |
+| Ntp                   | OS-Windows-NSClient05-Ntp-NRPE-custom                      | Check Ntp time synchronization using NRPE protocol         |         |           |
+| Pending-Reboot        | OS-Windows-NSClient05-Pending-Reboot-NRPE-custom           | Check pending reboot using NRPE protocol                   |         |           |
+| Process-generic       | OS-Windows-NSClient05-Process-Generic-NRPE-custom          | Check processes state using NRPE protocol                  |         |           |
+| Remote-Ping           | OS-Windows-NSClient05-Remote-Ping-NRPE-custom              | Check remote ping using NRPE protocol                      |         |           |
+| Services-Auto         | OS-Windows-NSClient05-Services-Auto-NRPE-custom            | Check automatic started services state using NRPE protocol | X       |           |
+| Services-Generic-Name | OS-Windows-NSClient05-Services-Generic-Name-NRPE-custom    | Check services state using NRPE protocol                   |         |           |
+| Sessions              | OS-Windows-NSClient05-Sessions-NRPE-custom                 | Check sessions using NRPE protocol                         |         |           |
+| Swap                  | OS-Windows-NSClient05-Swap-NRPE-custom                     | Check swap usage using NRPE protocol                       | X       |           |
+| Task-Generic          | OS-Windows-NSClient05-Task-Generic-NRPE-custom             | Check scheduled tasks using NRPE protocol                  |         |           |
+| Uptime                | OS-Windows-NSClient05-Uptime-NRPE-custom                   | Check uptime using NRPE protocol                           |         |           |
+
+### Discovery rules
+
+<Tabs groupId="sync">
+<TabItem value="Service" label="Service">
+
+| Rule Name                 | Description         |
+|:--------------------------|:--------------------|
+| OS-Winfows-NRPE-Disk-Name | Discover disk name. |
+
+More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery).
+
+</TabItem>
+</Tabs>
 
 ### Collected metrics
 
@@ -145,7 +181,7 @@ yum install centreon-pack-operatingsystems-windows-nsclient-05-nrpe
 
 ## Host configuration
 
-* Log into Centreon and add a new Host through "Configuration > Hosts".
+* Log into Centreon and add a new Host through **Configuration > Hosts**.
 * Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your *Windows* server settings.
 * Select the *OS-Windows-NSClient-05-NRPE-custom* template to apply to the Host.
 * Once the template is applied, fill in the corresponding macros. If you're in 21.10 or higher version and you've just installed **centreon-nrpe3-plugin**, you will have to replace the default macro values by the bold ones:
