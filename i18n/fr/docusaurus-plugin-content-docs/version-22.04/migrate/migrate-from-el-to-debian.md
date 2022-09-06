@@ -1,5 +1,5 @@
 ---
-id: migrate-from-20-x
+id: migrate-from-el-to-debian
 title: Migrer depuis un OS de type EL vers Debian 11 (vers un Centreon 22.04)
 ---
 
