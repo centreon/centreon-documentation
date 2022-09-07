@@ -12,7 +12,7 @@ Ce Plugin Pack permet de récupérer les métriques et les statuts collectés gr
 
 ### Modèles
 
-Le pack de plugins Centreon **Windows NSClient 0.5** apporte 1 modèle d'hôte :
+Le pack **Windows NSClient 0.5** apporte 1 modèle d'hôte :
 
 * OS-Windows-NSClient-05-NRPE-custom
 
