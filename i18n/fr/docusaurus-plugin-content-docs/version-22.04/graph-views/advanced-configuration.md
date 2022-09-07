@@ -302,4 +302,4 @@ Vous devriez voir l'état suivant pour votre serveur :
 {"status":"UP"}
 ```
 
-> N'oubliez pas de mettre à jour la configuration de votre client Desktop et celle de votre interface web.
+> N'oubliez pas de mettre à jour la configuration de votre client lourd et celle de votre interface web.

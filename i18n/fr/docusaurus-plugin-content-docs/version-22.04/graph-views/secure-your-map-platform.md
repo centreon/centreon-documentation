@@ -112,7 +112,7 @@ Pour modifier le port par défaut, reportez-vous à la [procédure dédiée](adv
 
 ![image](../assets/graph-views/map-address-https.png)
 
-> N'oubliez pas de mettre à jour votre profil de connexion dans le client Desktop en cochant la case SSL.
+> N'oubliez pas de mettre à jour votre profil de connexion dans le client lourd en cochant la case SSL.
 
 ![image](../assets/graph-views/desktop-ssl-option.png)
 

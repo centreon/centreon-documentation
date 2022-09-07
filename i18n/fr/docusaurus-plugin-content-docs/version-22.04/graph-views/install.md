@@ -19,7 +19,7 @@ Centreon MAP se compose de trois éléments :
 
 - Le serveur Centreon MAP, développé en Java, utilisant SpringBoot, Hibernate et CXF.
 - L'interface web de Centreon MAP, développée en Javascript et basée sur [Backbone.js](http://backbonejs.org/).
-- Le client Desktop Centreon MAP, développé en Java, basé sur [Eclipse RCP 4](https://wiki.eclipse.org/Eclipse4/RCP).
+- Le client lourd Centreon MAP, développé en Java, basé sur [Eclipse RCP 4](https://wiki.eclipse.org/Eclipse4/RCP).
 
 Le schéma ci-dessous résume l'architecture :
 
@@ -37,7 +37,7 @@ Le schéma ci-dessous résume l'architecture :
 | Web interface  | User       | Internet\* (Mapbox)       | 443       | HTTPS      | Récupérer les données Mapbox                                |
 | Desktop client | User       | MAP server                | 8080/8443 | HTTP/HTTPS | Récupérer et créer des vues et du contenu                   |
 | Desktop client | User       | Internet\* (Mapbox)       | 443       | HTTPS      | Récupérer les données Mapbox                                |
-| Desktop client | User       | Internet\* (p2 repo)      | 80        | HTTP       | Récupérer la mise à jour automatique du client Desktop   |
+| Desktop client | User       | Internet\* (p2 repo)      | 80        | HTTP       | Récupérer la mise à jour automatique du client lourd   |
 
 \* *Avec ou sans proxy*.
 
@@ -126,9 +126,9 @@ La résolution de votre écran doit être d'au moins 1280 x 768.
 - La résolution doit être d'au moins 1280 x 768.
 - Debian 7, 8 ou 9
 
-> Le client Desktop n'est pas compatible avec Microsoft Windows Server. Si une version de Java autre que 8 est installée, installez Java 8 et modifiez le fichier Centreon-Map4.ini pour ajouter la ligne suivante : `-vm $path_to_java8$` AVANT `-vmwargs`.
+> Le client lourd n'est pas compatible avec Microsoft Windows Server. Si une version de Java autre que 8 est installée, installez Java 8 et modifiez le fichier Centreon-Map4.ini pour ajouter la ligne suivante : `-vm $path_to_java8$` AVANT `-vmwargs`.
 
-Pour optimiser le client Desktop, vous devez lui allouer plus de mémoire que la valeur par défaut. Modifiez le fichier suivant :
+Pour optimiser le client lourd, vous devez lui allouer plus de mémoire que la valeur par défaut. Modifiez le fichier suivant :
 
 <Tabs groupId="sync">
 <TabItem value="Windows" label="Windows">
@@ -472,7 +472,7 @@ Allez dans **Administration > Extensions** et cliquez sur le bouton **Installer*
 
 ### Exécutables
 
-Le client Desktop est actuellement disponible uniquement pour les plateformes **64-bit** Windows, Mac et Linux (Debian et Ubuntu).
+Le client lourd est actuellement disponible uniquement pour les plateformes **64-bit** Windows, Mac et Linux (Debian et Ubuntu).
 
 Vous pouvez trouver les installateurs dans **Supervision > Map > Desktop Client** ou
 [ici](https://download.centreon.com/?action=product&product=centreon-map&version=22.04&secKey=9ae03a4457fa0ce578379a4e0c8b51f2).
@@ -483,7 +483,7 @@ Vous pouvez trouver les installateurs dans **Supervision > Map > Desktop Client*
 
 #### Sur l'ordinateur de l'utilisateur
 
-Le client Desktop nécessite **Java 8**. Vous pouvez télécharger et installer la dernière version de Java depuis [ici](https://java.com/fr/download/manual.jsp).
+Le client lourd nécessite **Java 8**. Vous pouvez télécharger et installer la dernière version de Java depuis [ici](https://java.com/fr/download/manual.jsp).
 
 > Veillez à télécharger la version 64 bits. Les navigateurs sont généralement 32 bits et le site Web d'Oracle propose généralement Java 32 bits au lieu de la version 64 bits.
 > Si Java est déjà installé, utilisez la commande java -version pour vérifier l'architecture. Si le 64 bits n'apparaît pas, la version est 32 bits.
@@ -537,7 +537,7 @@ Vous le trouverez également dans la liste des applications installées.
 
 ### Mises à jour
 
-Une fois installé, le Client Desktop est automatiquement maintenu à jour grâce à un système de mise à jour en ligne.
+Une fois installé, le client lourd est automatiquement maintenu à jour grâce à un système de mise à jour en ligne.
 Lorsqu'il se connecte à un serveur Centreon MAP, il télécharge et installe automatiquement la dernière version compatible avec le serveur.
 La mise à jour automatique nécessite que votre ordinateur ait un accès à internet.
 

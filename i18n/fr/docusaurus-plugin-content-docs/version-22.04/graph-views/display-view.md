@@ -38,7 +38,7 @@ Les règles suivantes s'appliquent :
 
 ## Gérer la couleur des liens
 
-Dans la version précédente de Centreon MAP, la couleur des liens était définie au niveau de l'utilisateur et chaque utilisateur devait configurer sa propre couleur en utilisant le client Desktop.
+Dans la version précédente de Centreon MAP, la couleur des liens était définie au niveau de l'utilisateur et chaque utilisateur devait configurer sa propre couleur en utilisant le client lourd.
 Nous avons modifié ce mécanisme afin que vous puissiez définir une méthode de coloration des liens pour **tous les utilisateurs** à la fois.
 Pour ce faire :
 
