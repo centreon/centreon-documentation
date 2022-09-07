@@ -43,7 +43,7 @@ complete the installation process by connecting to the Centreon web interface.
 
 3. Copy **root**'s public key (**/root/.ssh/id_rsa.pub**) into the **/root/.ssh/authorized_keys** file of the new server. If you are not using **root** for the synchronization, make sure that the user you use has writing rights on the target directory.
 
-4. Synchronize the following directories:
+4. From the old server, synchronize the following directories to the new server:
 
    ```shell
    rsync -avz /etc/centreon root@<IP_NEW_CENTREON>:/etc

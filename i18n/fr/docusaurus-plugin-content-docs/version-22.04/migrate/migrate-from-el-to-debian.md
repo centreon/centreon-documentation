@@ -43,7 +43,7 @@ apt update && apt upgrade
 
 3. Copiez la clé publique de **root** (**/root/.ssh/id_rsa.pub**) dans le fichier **/root/.ssh/authorized_keys** du nouveau serveur. Si vous n'utilisez pas le compte **root** pour la synchronisation, assurez-vous que votre utilisateur dispose de droits d'écriture sur le dossier cible.
 
-4. Synchronisez les répertoires suivants :
+4. Depuis l'ancien serveur, synchronisez les répertoires suivants vers le nouveau serveur :
 
    ```shell
    rsync -avz /etc/centreon root@<IP_NOUVEAU_CENTREON>:/etc
@@ -54,7 +54,7 @@ apt update && apt upgrade
 
    > Remplacez **\<IP_NOUVEAU_CENTREON\>** par l'adresse IP de votre nouveau serveur Centreon.
 
-5. Changez les droits utilisateur suivants :
+5. Sur le nouveau serveur, changez les droits utilisateur suivants :
 
    ```shell
    chown www-data: /etc/centreon-broker/*

@@ -43,7 +43,7 @@ dnf update
 
 3. Copiez la clé publique de **root** (**/root/.ssh/id_rsa.pub**) dans le fichier **/root/.ssh/authorized_keys** du nouveau serveur. Si vous n'utilisez pas le compte **root** pour la synchronisation, assurez-vous que votre utilisateur dispose de droits d'écriture sur le dossier cible.
 
-4. Synchronisez les répertoires suivants :
+4. Depuis l'ancien serveur, synchronisez les répertoires suivants vers le nouveau serveur :
 
    ```shell
    rsync -avz /etc/centreon root@<IP_NOUVEAU_CENTREON>:/etc
