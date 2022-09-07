@@ -1,5 +1,5 @@
 ---
-id: migrate-from-20-x
+id: migrate-from-el-to-el
 title: Migrate from an EL-type OS to another EL-type OS (from a Centreon 18.10 or newer)
 ---
 
