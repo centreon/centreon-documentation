@@ -193,4 +193,4 @@ yum install centreon-pack-operatingsystems-windows-nsclient-05-nrpe
 
 ## Dépannage
 
-Veuillez trouver la documentation de dépannage pour les contrôles NRPE dans le [chapitre dédié](../démarrer/guides/troubleshooting-plugins.md#nrpe-checks) de la documentation Centreon.
+Veuillez trouver la documentation de dépannage pour les contrôles NRPE dans le [chapitre dédié](../getting-started/how-to-guides/troubleshooting-plugins.md#nrpe-checks) de la documentation Centreon.
