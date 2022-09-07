@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 ## Overview
 
-This Plugin Pack allow to get metrics and statuses collected thanks to the NSClient++ 
+This Plugin Pack allows to get metrics and statuses collected thanks to the NSClient++ 
 monitoring agent and its embedded NRPE Server. 
 
 ### Templates
