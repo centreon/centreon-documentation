@@ -21,7 +21,7 @@ Cette procédure ne s'applique que dans les conditions suivantes :
 1. Installez votre nouvel OS en suivant les [prérequis](../installation/prerequisites.md).
 
 2. Installez un nouveau serveur central Centreon à partir des [paquets](../installation/installation-of-a-central-server/using-packages.md)
-jusqu'à terminer le processus d'installation en vous connectant à l'interface web.
+   jusqu'à terminer le processus d'installation en vous connectant à l'interface web.
 
    > Pendant le processus d'installation web, utilisez le même mot de passe pour l'utilisateur **centreon** que sur l'ancienne plateforme.
 
@@ -90,7 +90,7 @@ apt update && apt upgrade
    ```
 
 4. Sur le nouveau serveur de base de données, supprimez les bases de
-données vierges et recréez-les :
+   données vierges et recréez-les :
 
    ```shell
    mysql -u root -p
@@ -135,7 +135,7 @@ données vierges et recréez-les :
    ```
 
 > Remplacez **\<IP_NOUVEAU_CENTREON\>** par l'adresse IP de votre nouveau serveur
-Centreon.
+> Centreon.
 
 ### Étape 4 : Synchroniser les plugins
 
@@ -155,8 +155,8 @@ Si vous utilisez vos propres plugins personnalisés, synchronisez les répertoir
 ### Étape 5 : Montée de version de la solution Centreon
 
 1. Sur le nouveau serveur, forcez la montée de version en déplacant le contenu du répertoire
-**/var/lib/centreon/installs/install-22.04.0-YYYYMMDD\_HHMMSS** dans le
-répertoire  **/usr/share/centreon/www/install** :
+   **/var/lib/centreon/installs/install-22.04.0-YYYYMMDD_HHMMSS** dans le
+   répertoire **/usr/share/centreon/www/install** :
 
    ```shell
    cd /var/lib/centreon/installs/
@@ -164,30 +164,30 @@ répertoire  **/usr/share/centreon/www/install** :
    ```
 
 2. Si vous utilisez la meme adresse IP ou le même nom DNS entre l'ancien serveur
-web Centreon et le nouveau, videz complètement le cache de votre navigateur pour
-éviter des problemes de scripts JS.
+   web Centreon et le nouveau, videz complètement le cache de votre navigateur pour
+   éviter des problemes de scripts JS.
 
 3. Connectez-vous à l'URL `http://<IP_NEW_CENTREON>/centreon` et suivez les étapes
-de la mise à jour.
+   de la mise à jour.
 
 4. Si vous avez modifié le mot de passe de l'utilisateur **centreon** lors de
-l'installation de votre nouveau serveur Centreon pour accéder aux bases de
-données, il sera nécessaire de réaliser les actions suivantes sur le nouveau
-serveur Centreon :
+   l'installation de votre nouveau serveur Centreon pour accéder aux bases de
+   données, il sera nécessaire de réaliser les actions suivantes sur le nouveau
+   serveur Centreon :
 
    1. Modifiez le fichier **/etc/centreon/centreon.conf.php**,
    2. Modifiez le fichier **/etc/centreon/conf.pm**,
    3. Éditez la configuration du Centreon Broker central, via l'interface web
-   Centreon et modifiez le mot de passe pour les deux outputs Broker **Perfdata
-   generator** et **Broker SQL database**,
+      Centreon et modifiez le mot de passe pour les deux outputs Broker **Perfdata
+      generator** et **Broker SQL database**,
    4. Modifiez le fichier **/etc/centreon/config.d/10-database.yaml**.
 
 5. Si l'adresse IP de votre serveur Centreon a changé, éditez la configuration de
-l'ensemble des modules Broker de vos collecteurs et modifiez l'adresse IP de
-connexion au serveur Centreon central (output IPv4). Consultez le chapitre
-[Configuration
-avancée](../monitoring/monitoring-servers/advanced-configuration.md#tcp-outputs)
-pour plus d'information.
+   l'ensemble des modules Broker de vos collecteurs et modifiez l'adresse IP de
+   connexion au serveur Centreon central (output IPv4). Consultez le chapitre
+   [Configuration
+   avancée](../monitoring/monitoring-servers/advanced-configuration.md#tcp-outputs)
+   pour plus d'information.
 
 6. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md) de tous vos serveurs de supervision (y compris celle du central).
 
@@ -198,6 +198,7 @@ pour plus d'information.
    systemctl restart gorgoned
    systemctl start snmptrapd centreontrapd
    systemctl start snmpd
+   ```
 
 ### Étape 6 (anciennes versions uniquement): Migrer vers Gorgone
 
