@@ -68,7 +68,8 @@ Pour que tout fonctionne correctement dans la suite, vous devez maintenant défa
 
 #### Double flux RRD
 
-Plutôt que de mettre en place une réplication en temps réel des fichiers de données RRD, le choix technique qui a été fait pour permettre aux graphiques d'être affichés sur n'importe quel noeud dès qu'il devient `master' a été de dupliquer le flux de sortie de `central-broker-master' vers `central-rrd-master'. Ceci est configuré dans le même menu que dans le paragraphe précédent, mais cette fois dans l'onglet *Output* de *Configuration > Collectors > Centreon Broker Configuration*.
+Plutôt que de mettre en place une réplication en temps réel des fichiers de données RRD, le choix technique qui a été fait pour permettre aux graphiques d'être affichés sur n'importe quel noeud dès qu'il devient `master' a été de dupliquer le flux de sortie de `central-broker-master` vers `central-rrd-master`. Ceci est configuré dans le même menu que dans le paragraphe précédent, mais cette fois dans l'onglet *Output* de *Configuration > Collectors > Centreon Broker Configuration*.
+
 
 * Modifiez la sortie "IPv4" en remplaçant "localhost" par `@CENTRAL_MASTER_IPADDR@`.
 
