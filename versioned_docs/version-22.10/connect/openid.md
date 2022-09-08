@@ -60,10 +60,10 @@ You can also configure:
 
 ### Step 3: Configure client addresses
 
-If you leave both fields blank, all IP adresses will be allowed to access the Centreon interface.
+If you leave both fields blank, all IP addresses will be allowed to access the Centreon interface.
 
 - **Trusted client addresses**: If you enter IP addresses in this field, only these IP addresses will be allowed to access the Centreon interface. All other IP addresses will be blocked. IP addresses must be separated by commas.
-- **Blacklist client addresses**: These IP adresses will be blocked. All other IP addresses will be allowed to access the Centreon interface.
+- **Blacklist client addresses**: These IP addresses will be blocked. All other IP addresses will be allowed to access the Centreon interface.
 
 ### Step 4: Create users
 
