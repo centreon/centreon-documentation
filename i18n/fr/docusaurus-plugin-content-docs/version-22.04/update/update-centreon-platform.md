@@ -123,7 +123,7 @@ Vous pouvez maintenant passer à cette [étape](#mise-à-jour-des-extensions).
 Connectez-vous au serveur Central via le terminal pour poursuivre le processus de
 mise à jour.
 
-Vous avez besoin d'un token d'authentification pour accéder au endpoint de l'API. Suivez cette procédure pour obtenir un numéro de token.
+Vous avez besoin d'un token d'authentification pour accéder au endpoint de l'API. Suivez cette procédure pour obtenir un token.
 
 > Note : dans notre cas, nous avons la configuration décrite ci-dessous (vous devez adapter la procédure à votre configuration).
 
@@ -149,7 +149,7 @@ curl --location --request POST '10.25.XX.XX:80/centreon/api/v22.04/login' \
 }'
 ```
 
-Voici ce à quoi le résultat ressemble :
+Voici à quoi ressemble le résultat :
 
 ```shell
 {"contact":{"id":1,"name":"Admin Centreon","alias":"admin","email":"admin@localhost","is_admin":true},"security":{"token":"hwwE7w/ukiiMce2lwhNi2mcFxLNYPhB9bYSKVP3xeTRUeN8FuGQms3RhpLreDX/S"}}

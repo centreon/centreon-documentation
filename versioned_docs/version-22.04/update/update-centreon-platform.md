@@ -60,7 +60,6 @@ Clean the cache:
 ```shell
 apt clean all
 apt update
-
 ```
 
 Then upgrade all the components with the following command:
@@ -73,10 +72,10 @@ apt upgrade centreon\*
 </Tabs>
 
 > Now you can either perform the update:
-> - [Using the wizard](#finalize-the-update-using-wizard)
-> - [Using a dedicated API endpoint](#finalize-the-update-using-api-endpoint)
+> - [Using the wizard](#finalize-the-update-using-the-wizard)
+> - [Using a dedicated API endpoint](#finalize-the-update-using-the-api-endpoint)
 
-#### Finalize the update using wizard
+#### Finalize the update using the wizard
 
 Log on to the Centreon web interface to continue the update process:
 
@@ -116,11 +115,11 @@ systemctl restart cbd centengine gorgoned
 
 You can now move to this [step](#update-extensions).
 
-#### Finalize the update using API endpoint
+#### Finalize the update using the API endpoint
 
 Log on to the Central server through your terminal to continue the update process.
 
-You need an authentication token to reach the API endpoint. Follow this procedure to get a token number.
+You need an authentication token to reach the API endpoint. Follow this procedure to get a token.
 
 > Note: In our case, we have the configuration described below (you need to adapt the procedure to your configuration).
 
@@ -169,7 +168,7 @@ curl --location --request PATCH 'http://10.25.XX.XX:80/centreon/api/latest/platf
 }'
 ```
 
-> This request does not return any result. To check that the update is successfully applied, read the version number displayed on the Centreon web interface login page.
+> This request does not return any result. To check if the update has been successfully applied, read the version number displayed on the Centreon web interface login page.
 
 ### Update extensions
 
