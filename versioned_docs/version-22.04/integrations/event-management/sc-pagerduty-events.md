@@ -5,6 +5,21 @@ title: PagerDuty Events
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## PagerDuty + Centreon Integration Benefits
+
+* Notify on-call system or application administrators when an alert is detected by Centreon.
+* Incidents will automatically resolve in PagerDuty when Centreon detects that the check point is back to normal.
+* Create high and low urgency incidents based on the state of the alert.
+* Send metrics when available to give more insight about the alert.
+
+## How it Works
+
+* Every time a service or a host's state is checked, the event passes through Centreon Broker, which loads the Stream Connector to send state changes.
+* State changes can occur in case of an anomaly detection or metrics falling out of range.
+* Once the check point is back to normal, a resolve event will be sent to the PagerDuty service to resolve the alert.
+* You can choose from where the Stream-connector is sending data. Pick the implementation which best meets your needs:
+
+![architecture](../../assets/integrations/external/sc-pagerduty-centreon.png)
 
 ## Before starting
 
