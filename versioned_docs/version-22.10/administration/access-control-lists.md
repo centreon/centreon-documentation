@@ -151,11 +151,13 @@ To create an access filter on actions:
 | Display Top Counter pollers statistics | The monitoring poller status overview will be displayed on the left in the banner at the top of all pages<br/>![image](../assets/administration/acl-bandeau-poller.png) |
 | Display Poller Listing                 | Allows you to filter on the poller on page **Monitoring > Status Details > Hosts** or  **Monitoring > Status Details > Services** (deprecated pages)         |
 
-#### Configuration Actions
+#### Poller Configuration Actions / Poller Management
 
 | Field                            | Associated actions                                                                                                                   |
 | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| Generate Configuration Files     | Allows users to generate, test and export configuration to pollers and to restart the monitoring scheduler                           |
+| Create and edit pollers | Users can perform **Add**, **Add (advanced)** and **Duplicate** actions on remote servers and pollers  |
+| Delete pollers | Allows users to remove remote servers and pollers from the configuration. This action cannot be undone. Warning: before you delete a poller, check that it is not monitoring any hosts and that **centengine** is stopped. |
+| Deploy configuration Files | Allows users to generate, test and export configuration to remote servers and pollers, and to restart their monitoring engine                           |
 | Generate SNMP Trap configuration | Allows users to generate and export configuration of the SNMP traps for the Centreontrapd process on pollers and to restart it |
 
 #### Global Monitoring Engine Actions (External Process Commands)
