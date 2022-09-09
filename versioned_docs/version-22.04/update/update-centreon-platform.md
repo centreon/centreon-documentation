@@ -19,19 +19,18 @@ servers:
 
 ### Update the Centreon solution
 
-> Please make sure all users are logged out from the Centreon web interface
-> before starting the upgrade procedure.
+Please make sure all users are logged out from the Centreon web interface before starting the update procedure.
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-Clean the cache:
+1. Clean the cache:
 
 ```shell
 dnf clean all --enablerepo=*
 ```
 
-Then upgrade all the components with the following command:
+2. Then upgrade all the components with the following command:
 
 ```shell
 dnf update centreon\*
@@ -40,13 +39,13 @@ dnf update centreon\*
 </TabItem>
 <TabItem value="Centos 7" label="Centos 7">
 
-Clean the cache:
+1. Clean the cache:
 
 ```shell
 yum clean all --enablerepo=*
 ```
 
-Then upgrade all the components with the following command:
+2. Then upgrade all the components with the following command:
 
 ```shell
 yum update centreon\*
@@ -55,14 +54,14 @@ yum update centreon\*
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
-Clean the cache:
+1. Clean the cache:
 
 ```shell
 apt clean all
 apt update
 ```
 
-Then upgrade all the components with the following command:
+2. Then upgrade all the components with the following command:
 
 ```shell
 apt upgrade centreon\*
@@ -71,31 +70,29 @@ apt upgrade centreon\*
 </TabItem>
 </Tabs>
 
-> Now you can either perform the update:
-> - [Using the wizard](#finalize-the-update-using-the-wizard)
-> - [Using a dedicated API endpoint](#finalize-the-update-using-the-api-endpoint)
+3. Now you can either perform the update:
+- [Using the wizard](#finalize-the-update-using-the-wizard)
+- [Using a dedicated API endpoint](#finalize-the-update-using-the-api-endpoint)
 
 #### Finalize the update using the wizard
 
-Log on to the Centreon web interface to continue the update process:
-
-Click on **Next**:
+1. Log on to the Centreon web interface to continue the update process. Click on **Next**:
 
 ![image](../assets/upgrade/web_update_1.png)
 
-Click on **Next**:
+2. Click on **Next**:
 
 ![image](../assets/upgrade/web_update_2.png)
 
-The release notes describe the main changes. Click on **Next**:
+3. The release notes describe the main changes. Click on **Next**:
 
 ![image](../assets/upgrade/web_update_3.png)
 
-This process performs the various upgrades. Click on **Next**:
+4. This process performs the various upgrades. Click on **Next**:
 
 ![image](../assets/upgrade/web_update_4.png)
 
-Your Centreon server is now up to date. Click on **Finish** to access the login
+5. Your Centreon server is now up to date. Click on **Finish** to access the login
 page:
 
 ![image](../assets/upgrade/web_update_5.png)
@@ -103,25 +100,25 @@ page:
 > If the Centreon BAM module is installed, refer to the
 > [update procedure](../service-mapping/update.md).
 
-Deploy Central's configuration from the Centreon web UI by following [this
+6. Deploy Central's configuration from the Centreon web UI by following [this
 procedure](../monitoring/monitoring-servers/deploying-a-configuration.md),
 
-Finally, restart Broker, Engine and Gorgone on the Central server by running
+7. Finally, restart Broker, Engine and Gorgone on the Central server by running
 this command:
 
 ```shell
 systemctl restart cbd centengine gorgoned
 ```
 
-You can now move to this [step](#update-extensions).
+You can now move to the [Update extensions](#update-extensions) step.
 
 #### Finalize the update using the API endpoint
 
-Log on to the Central server through your terminal to continue the update process.
+1. Log on to the Central server through your terminal to continue the update process.
 
-You need an authentication token to reach the API endpoint. Follow this procedure to get a token.
+You need an authentication token to reach the API endpoint. Perform the following procedure to get a token.
 
-> Note: In our case, we have the configuration described below (you need to adapt the procedure to your configuration).
+> In our case, we have the configuration described below (you need to adapt the procedure to your configuration).
 
 - address: 10.25.XX.XX
 - port: 80
@@ -129,7 +126,7 @@ You need an authentication token to reach the API endpoint. Follow this procedur
 - login: Admin
 - password: xxxxx
 
-Enter the following request:
+2. Enter the following request:
 
 ```shell
 curl --location --request POST '10.25.XX.XX:80/centreon/api/v22.04/login' \
@@ -151,9 +148,9 @@ This is how the result should look like:
 {"contact":{"id":1,"name":"Admin Centreon","alias":"admin","email":"admin@localhost","is_admin":true},"security":{"token":"hwwE7w/ukiiMce2lwhNi2mcFxLNYPhB9bYSKVP3xeTRUeN8FuGQms3RhpLreDX/S"}}
 ```
 
-Retrieve the token number to use it in the next request.
+3. Retrieve the token number to use it in the next request.
 
-Then enter this request:
+4. Then enter this request:
 
 ```shell
 curl --location --request PATCH 'http://10.25.XX.XX:80/centreon/api/latest/platform/updates' \
@@ -168,7 +165,7 @@ curl --location --request PATCH 'http://10.25.XX.XX:80/centreon/api/latest/platf
 }'
 ```
 
-> This request does not return any result. To check if the update has been successfully applied, read the version number displayed on the Centreon web interface login page.
+5. This request does not return any result. To check if the update has been successfully applied, read the version number displayed on the Centreon web interface login page.
 
 ### Update extensions
 
@@ -190,13 +187,13 @@ This procedure is the same than to update a Centreon Central server.
 
 ## Update the Pollers
 
-Clean yum cache:
+1. Clean yum cache:
 
 ```shell
 yum clean all --enablerepo=*
 ```
 
-Upgrade all the components with the following command:
+2. Upgrade all the components with the following command:
 
 ```shell
 yum update centreon\*
@@ -204,11 +201,11 @@ yum update centreon\*
 
 > Accept new GPG keys from the repositories as needed.
 
-Deploy Poller's configuration from the Centreon web UI by following [this
+3. Deploy Poller's configuration from the Centreon web UI by following [this
 procedure](../monitoring/monitoring-servers/deploying-a-configuration.md),
 and choose *Restart* method for Engine process.
 
-Finally, restart Gorgone service if it is used on the Poller:
+4. Finally, restart Gorgone service if it is used on the Poller:
 
 ```shell
 systemctl restart centengine gorgoned

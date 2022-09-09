@@ -20,19 +20,18 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 
 ### Mise à jour de la solution Centreon
 
-> Assurez-vous que tous les utilisateurs sont déconnectés avant de commencer
-> la procédure de mise à jour.
+Assurez-vous que tous les utilisateurs sont déconnectés avant de commencer la procédure de mise à jour.
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-Videz le cache :
+1. Videz le cache :
 
 ```shell
 dnf clean all --enablerepo=*
 ```
 
-Mettez à jour l'ensemble des composants :
+2. Mettez à jour l'ensemble des composants :
 
 ```shell
 dnf update centreon\*
@@ -41,13 +40,13 @@ dnf update centreon\*
 </TabItem>
 <TabItem value="Centos 7" label="Centos 7">
 
-Videz le cache :
+1. Videz le cache :
 
 ```shell
 yum clean all --enablerepo=*
 ```
 
-Mettez à jour l'ensemble des composants :
+2. Mettez à jour l'ensemble des composants :
 
 ```shell
 yum update centreon\*
@@ -56,14 +55,14 @@ yum update centreon\*
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
-Videz le cache :
+1. Videz le cache :
 
 ```shell
 apt clean all
 apt update
 ```
 
-Mettez à jour l'ensemble des composants :
+2. Mettez à jour l'ensemble des composants :
 
 ```shell
 apt upgrade centreon\*
@@ -72,32 +71,30 @@ apt upgrade centreon\*
 </TabItem>
 </Tabs>
 
-> Vous pouvez maintenant procéder à la mise à jour en utilisant :
-> - [L'assistant d'interface](#finalisation-de-la-mise-à-jour-avec-lassistant-dinterface)
-> - [L'API](#finalisation-de-la-mise-à-jour-avec-lapi)
+3. Vous pouvez maintenant procéder à la mise à jour en utilisant :
+- [L'assistant d'interface](#finalisation-de-la-mise-à-jour-avec-lassistant-dinterface)
+- [L'API](#finalisation-de-la-mise-à-jour-avec-lapi)
 
 #### Finalisation de la mise à jour avec l'assistant d'interface
 
-Connectez-vous à l'interface web Centreon pour démarrer le processus de
-mise à jour :
-
-Cliquez sur **Next** :
+1. Connectez-vous à l'interface web Centreon pour démarrer le processus de
+mise à jour. Cliquez sur **Next** :
 
 ![image](../assets/upgrade/web_update_1.png)
 
-Cliquez sur **Next** :
+2. Cliquez sur **Next** :
 
 ![image](../assets/upgrade/web_update_2.png)
 
-La note de version présente les principaux changements, cliquez sur **Next** :
+3. La note de version présente les principaux changements, cliquez sur **Next** :
 
 ![image](../assets/upgrade/web_update_3.png)
 
-Le processus réalise les différentes mises à jour, cliquez sur **Next** :
+4. Le processus réalise les différentes mises à jour, cliquez sur **Next** :
 
 ![image](../assets/upgrade/web_update_4.png)
 
-Votre serveur Centreon est maintenant à jour, cliquez sur **Finish** pour
+5. Votre serveur Centreon est maintenant à jour, cliquez sur **Finish** pour
 accéder à la page de connexion :
 
 ![image](../assets/upgrade/web_update_5.png)
@@ -105,27 +102,27 @@ accéder à la page de connexion :
 > Si le module Centreon BAM est installé, référez-vous à la [documentation
 > associée](../service-mapping/update.md) pour le mettre à jour.
 
-Déployez ensuite la configuration du Central depuis l'interface web en
+6. Déployez ensuite la configuration du Central depuis l'interface web en
 suivant [cette
-procédure](../monitoring/monitoring-servers/deploying-a-configuration.md),
+procédure](../monitoring/monitoring-servers/deploying-a-configuration.md).
 
-Enfin, redémarrez Broker, Engine et Gorgone sur le serveur Central en exécutant
-la commande suivante:
+7. Enfin, redémarrez Broker, Engine et Gorgone sur le serveur Central en exécutant
+la commande suivante :
 
 ```shell
 systemctl restart cbd centengine gorgoned
 ```
 
-Vous pouvez maintenant passer à cette [étape](#mise-à-jour-des-extensions).
+Vous pouvez maintenant passer à l'étape [Mise à jour des extensions](#mise-à-jour-des-extensions).
 
 #### Finalisation de la mise à jour avec l'API
 
-Connectez-vous au serveur Central via le terminal pour poursuivre le processus de
+1. Connectez-vous au serveur Central via le terminal pour poursuivre le processus de
 mise à jour.
 
-Vous avez besoin d'un token d'authentification pour accéder au endpoint de l'API. Suivez cette procédure pour obtenir un token.
+Vous avez besoin d'un token d'authentification pour accéder à l'endpoint de l'API. Suivez la procédure ci-dessous pour obtenir un token.
 
-> Note : dans notre cas, nous avons la configuration décrite ci-dessous (vous devez adapter la procédure à votre configuration).
+> Dans notre cas, nous avons la configuration décrite ci-dessous (vous devez adapter la procédure à votre configuration).
 
 - adresse : 10.25.XX.XX
 - port : 80
@@ -133,7 +130,7 @@ Vous avez besoin d'un token d'authentification pour accéder au endpoint de l'AP
 - identifiant : Admin
 - mot de passe : xxxxx
 
-Entrez la requête suivante :
+2. Entrez la requête suivante :
 
 ```shell
 curl --location --request POST '10.25.XX.XX:80/centreon/api/v22.04/login' \
@@ -155,9 +152,9 @@ Voici à quoi ressemble le résultat :
 {"contact":{"id":1,"name":"Admin Centreon","alias":"admin","email":"admin@localhost","is_admin":true},"security":{"token":"hwwE7w/ukiiMce2lwhNi2mcFxLNYPhB9bYSKVP3xeTRUeN8FuGQms3RhpLreDX/S"}}
 ```
 
-Récupérez le numéro du token pour l'utiliser lors de la prochaine requête.
+3. Récupérez le numéro du token pour l'utiliser lors de la prochaine requête.
 
-Entrez ensuite cette requête :
+4. Entrez ensuite cette requête :
 
 ```shell
 curl --location --request PATCH 'http://10.25.XX.XX:80/centreon/api/latest/platform/updates' \
@@ -172,7 +169,7 @@ curl --location --request PATCH 'http://10.25.XX.XX:80/centreon/api/latest/platf
 }'
 ```
 
-> Cette requête ne renvoie aucun résultat. Pour vérifier que la mise à jour a bien été appliquée, consultez le numéro de version affiché sur la page de connexion de l'interface web Centreon.
+5. Cette requête ne renvoie aucun résultat. Pour vérifier que la mise à jour a bien été appliquée, consultez le numéro de version affiché sur la page de connexion à l'interface web Centreon.
 
 ### Mise à jour des extensions
 
@@ -194,23 +191,23 @@ Cette procédure est identique à la mise à jour d'un serveur Centreon Central.
 
 ## Mise à jour des collecteurs
 
-Videz le cache de yum :
+1. Videz le cache de yum :
 
 ```shell
 yum clean all --enablerepo=*
 ```
 
-Mettez à jour l'ensemble des composants :
+2. Mettez à jour l'ensemble des composants :
 
 ```shell
 yum update centreon\*
 ```
 
-Déployez la configuration du collecteur depuis l'interface web en suivant [cette
+3. Déployez la configuration du collecteur depuis l'interface web en suivant [cette
 procédure](../monitoring/monitoring-servers/deploying-a-configuration.md), et
 en choisissant la méthode **Redémarrer** pour le processus Engine.
 
-Redémarrez enfin le service Gorgone s'il est utilisé sur le collecteur :
+4. Redémarrez enfin le service Gorgone s'il est utilisé sur le collecteur :
 
 ```shell
 systemctl restart centengine gorgoned
