@@ -16,53 +16,38 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon MAP
 
-### 22.04.0
+### 22.10.0
 
-> If you have just installed Centreon 22.04 or upgraded your platform to this version, be aware that the platform now uses the new BBDO v3 protocol. [Configure MAP](../graph-views/install.md#configuration) to use it.
-
-- Compatibility with other 22.04 components.
+- Compatibility with other 22.10 components.
 
 ## Centreon BAM
 
-### 22.04.0
+### 22.10.0
 
-- Compatibility with other 22.04 components.
+- Compatibility with other 22.10 components.
 
 ## Centreon MBI
 
-### 22.04.0
+### 22.10.0
 
-- Compatibility with other 22.04 components.
+- Compatibility with other 22.10 components.
 
 ## Centreon Auto Discovery
 
-### 22.04.0
+### 22.10.0
 
 #### Enhancements
-
-- The Centreon Host Discovery engine can now perform changes on existing hosts when using the automatic policy. This means that existing hosts may now gain templates, groups, categories and macros, and get monitored by a different server.
-- Centreon Host Discovery can now deploy the new monitoring configuration as soon as the job is run in the background.
 
 ## Centreon Plugin Packs Manager
 
-### 22.04.0
+### 22.10.0
 
 #### Enhancements
 
-- The Plugin Packs now provide the package name and version of the required plugins, and Gorgone will automatically install the required plugins on your pollers. This means you don't need to install the Centreon Plugins manually on each poller anymore.
-
 ## Centreon License Manager
 
-### 22.04.0
-
-- Compatibility with other 22.04 components.
+### 22.10.0
 
 ## Centreon Anomaly Detection
 
-### 22.04.0
-
-- Compatibility with other 22.04 components.
-
-## Centreon Data Source For Grafana
-
-- [Grafana] Centreon data source
+### 22.10.0
