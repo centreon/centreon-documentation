@@ -439,7 +439,7 @@ systemctl status mysql
 
 > **Avertissement :** Le fichier `centreon.cnf` ne sera plus pris en compte, si des paramètres y ont été personnalisés, il faut les reporter dans `server.cnf`.
 
-> **Attention:** N'oubliez pas de modifier le paramètre `Chemin d'accès au fichier de configuration MySQL` in `Administration > Paramètres > Backup`
+> N'oubliez pas de modifier le paramètre **Chemin d'accès au fichier de configuration MySQL** à la page **Administration > Paramètres > Backup**.
 
 ### Sécurisation de la base de données
 
