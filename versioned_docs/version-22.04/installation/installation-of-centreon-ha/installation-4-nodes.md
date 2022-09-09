@@ -1292,7 +1292,7 @@ pcs resource meta http target-role="started"
 
 #### Checking the resources' states
 
-You can monitor the cluster's resources in real time using the `crm_mon` command:
+You can monitor the cluster's resources in real time using the `crm_mon -fr` command:
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
@@ -1366,6 +1366,36 @@ vip_mysql       (ocf::heartbeat:IPaddr2):       Started @DATABASE_MASTER_NAME@
 
 </TabItem>
 </Tabs>
+
+If **centreon_central_sync** won't start, verify if the folder `/usr/share/centreon-broker/lua` exist **on the two central nodes**.
+
+If not, you can create it with this command `mkdir -p /usr/share/centreon-broker/lua`. And launch a cleanup with this command `pcs resource cleanup`.
+
+#### Disabled resources
+
+When you do a `crm_mon -fr` and you have a resource that is disable :
+
+```text
+...
+ Master/Slave Set: ms_mysql-master [ms_mysql]
+     Masters: [ @DATABASE_MASTER_NAME@ ]
+     Slaves: [ @DATABASE_SLAVE_NAME@ ]
+     Stopped: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+vip_mysql       (ocf::heartbeat:IPaddr2):       Stopped (disabled)
+...
+```
+
+You must enable the resource with the following command :
+
+```bash
+pcs resource enable @RESSOURCE_NAME@
+```
+
+In our case :
+
+```bash
+pcs resource enable vip_mysql
+```
 
 #### Checking the database replication thread
 
