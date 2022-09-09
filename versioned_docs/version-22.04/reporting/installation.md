@@ -717,3 +717,4 @@ systemctl restart cron
 > file \* /etc/cron.d/centreon\* on the monitoring server).
 
 Centreon MBI installation is now complete, check [the tutorial](../getting-started/analyze-resources-availability.md)
+
