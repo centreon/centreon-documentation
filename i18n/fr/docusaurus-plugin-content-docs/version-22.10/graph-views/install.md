@@ -51,7 +51,7 @@ Le schéma ci-dessous résume l'architecture :
 
 ### Centreon
 
-Le serveur central et Centreon MAP doivent être dans la même version majeure (c'est-à-dire tous les deux en 22.04.x).
+Le serveur central et Centreon MAP doivent être dans la même version majeure (c'est-à-dire tous les deux en 22.10.x).
 
 ### Centreon MAP Server
 
@@ -228,14 +228,14 @@ Si vous avez installé votre serveur Centreon MAP à partir d'une nouvelle insta
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04-3.el8.noarch.rpm
+dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centreon-release-22.10-3.el8.noarch.rpm
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-3.el7.centos.noarch.rpm
 ```
 
 </TabItem>
@@ -250,7 +250,7 @@ apt update && apt install lsb-release ca-certificates apt-transport-https softwa
 Pour installer le dépôt Centreon, exécutez la commande suivante:
 
 ```shell
-echo "deb https://apt.centreon.com/repository/22.04/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://apt.centreon.com/repository/22.10/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 ```
 
 Puis importez la clé du dépôt :
@@ -372,7 +372,7 @@ Si c'est votre première installation, nous vous conseillons d'utiliser le mode 
 /etc/centreon-studio/configure.sh
 ```
 
-Si vous venez d'installer Centreon 22.04, attention, la plateforme utilise maintenant le nouveau protocole BBDO v3. Pour que MAP fonctionne correctement, éditez le fichier suivant : **/etc/centreon-studio/studio-config.properties**
+Si vous venez d'installer Centreon 22.10, attention, la plateforme utilise maintenant le nouveau protocole BBDO v3. Pour que MAP fonctionne correctement, éditez le fichier suivant : **/etc/centreon-studio/studio-config.properties**
 
 ```text
 broker.pb.message.enabled=true

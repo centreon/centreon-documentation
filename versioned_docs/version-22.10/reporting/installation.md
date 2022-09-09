@@ -83,7 +83,7 @@ considerations.
 
 **Software**
 
-- Centreon 22.04
+- Centreon 22.10
 - Check that the parameter `date.timezone` is correctly configured in `/etc/php.d/php.ini`
   (same timezone displayed with the command `timedatectl status`)
 - Avoid the usage of the following variables in your monitoring MariaDB configuration.

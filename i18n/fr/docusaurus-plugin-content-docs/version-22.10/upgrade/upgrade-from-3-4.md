@@ -4,7 +4,7 @@ title: Montée de version depuis Centreon 3.4
 ---
 
 Ce chapitre décrit la procédure de montée de version de votre plate-forme
-Centreon depuis la version 3.4 (Centreon Web 2.8) vers la version 22.04.
+Centreon depuis la version 3.4 (Centreon Web 2.8) vers la version 22.10.
 
 > Lorsque vous effectuez la montée de version de votre serveur central, assurez-vous d'également mettre à jour tous vos serveurs distants et vos collecteurs. Dans votre architecture, tous les serveurs doivent avoir la même version de Centreon. De plus, tous les serveurs doivent utiliser la même [version du protocole BBDO](../developer/developer-broker-bbdo.md#switching-versions-of-bbdo).
 
@@ -51,7 +51,7 @@ Il est nécessaire de mettre à jour le dépôt Centreon.
 Exécutez la commande suivante :
 
 ```shell
-yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-3.el7.centos.noarch.rpm
 ```
 
 > Si vous êtes dans un environnement CentOS, il faut installer les dépôts de
@@ -75,7 +75,7 @@ rm -f ./mariadb_repo_setup
 
 ### Montée de version de PHP
 
-Centreon 22.04 utilise PHP en version 8.0.
+Centreon 22.10 utilise PHP en version 8.0.
 
 Vous devez tout d'abord installer les dépôts **remi** :
 ```shell
@@ -90,7 +90,7 @@ yum-config-manager --enable remi-php80
 
 ### Montée de version de la solution Centreon
 
-Si vous avez des extensions Business installées, mettez à jour le dépôt business en 22.04.
+Si vous avez des extensions Business installées, mettez à jour le dépôt business en 22.10.
 Rendez-vous sur le [portail du support](https://support.centreon.com/s/repositories) pour en récupérer l'adresse.
 
 Arrêtez le processus Centreon Broker :
@@ -287,7 +287,7 @@ Les composants MariaDB peuvent maintenant être mis à jour.
 Exécutez la commande suivante sur le serveur de base de données dédié :
 
 ```shell
-yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-3.el7.centos.noarch.rpm
 ```
 
 #### Configuration
@@ -407,7 +407,7 @@ mysql --batch --skip-column-names --execute 'SELECT CONCAT("ALTER TABLE `", tabl
 
 ### Synchronisation des plugins
 
-> La macro de ressource $USER1$ de Centreon 22.04 pointe à présent sur
+> La macro de ressource $USER1$ de Centreon 22.10 pointe à présent sur
 > /usr/lib64/nagios/plugins.
 
 Afin de résoudre cette situation, lancez les commandes suivantes:
@@ -530,7 +530,7 @@ suivante:
 Exécutez la commande suivante :
 
 ```shell
-yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-3.el7.centos.noarch.rpm
 ```
 
 ### Montée de version de la solution Centreon
