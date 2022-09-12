@@ -99,7 +99,7 @@ In the language select box, choose your language:
 Then click on **Save**. Your interface is now translated.
 
 > If your language doesn't appear in the available language list, you can help the Centreon community to translate
-> the web interface. For more details go to  [How to translate Centreon](../developer/developer-translate-centreon).
+> the web interface. For more details go to  [How to translate Centreon](../developer/developer-translate-centreon.md).
 
 ## Reset your password
 
