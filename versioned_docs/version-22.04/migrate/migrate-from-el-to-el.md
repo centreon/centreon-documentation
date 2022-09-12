@@ -41,6 +41,8 @@ complete the installation process by connecting to the Centreon web interface.
    ssh-keygen -t rsa
    ```
 
+   By defaut, the generated key pair will be saved to **/root/.ssh/id_rsa.pub** and **/root/.ssh/id_rsa**.
+
 3. Copy **root**'s public key (**/root/.ssh/id_rsa.pub**) into the **/root/.ssh/authorized_keys** file of the new server. If you are not using **root** for the synchronization, make sure that the user you use has writing rights on the target directory.
 
 4. From the old server, synchronize the following directories to the new server:
@@ -50,6 +52,12 @@ complete the installation process by connecting to the Centreon web interface.
    rsync -avz /etc/centreon-broker root@<IP_NEW_CENTREON>:/etc
    rsync -avz /var/log/centreon-engine/archives/ root@<IP_NEW_CENTREON>:/var/log/centreon-engine
    rsync -avz --exclude centcore/ --exclude log/ /var/lib/centreon root@<IP_NEW_CENTREON>:/var/lib
+   ```
+
+   If you have given a custom name to your private key file, use the following format (just replace **id_rsa_custom** by your file name, and \<command> by the commands above):
+
+   ```shell
+   rsync -avz -e "ssh -i /root/.ssh/id_rsa_custom" <command>
    ```
 
    > Replace **<IP_NEW_CENTREON>** by the IP address of the new Centreon server.

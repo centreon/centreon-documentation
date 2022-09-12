@@ -41,6 +41,8 @@ apt update && apt upgrade
    ssh-keygen -t rsa
    ```
 
+   Par défaut, la paire de clés générée sera **/root/.ssh/id_rsa.pub** et **/root/.ssh/id_rsa**.
+
 3. Copiez la clé publique de **root** (**/root/.ssh/id_rsa.pub**) dans le fichier **/root/.ssh/authorized_keys** du nouveau serveur. Si vous n'utilisez pas le compte **root** pour la synchronisation, assurez-vous que votre utilisateur dispose de droits d'écriture sur le dossier cible.
 
 4. Depuis l'ancien serveur, synchronisez les répertoires suivants vers le nouveau serveur :
@@ -50,6 +52,12 @@ apt update && apt upgrade
    rsync -avz /etc/centreon-broker root@<IP_NOUVEAU_CENTREON>:/etc
    rsync -avz /var/log/centreon-engine/archives/ root@<IP_NOUVEAU_CENTREON>:/var/log/centreon-engine
    rsync -avz --exclude centcore/ --exclude log/ /var/lib/centreon root@<IP_NOUVEAU_CENTREON>:/var/lib
+   ```
+
+  Si vous avez personnalisé le nom de votre fichier de clé privée, utilisez le format suiant (remplacez **id_rsa_custom** par le nom de votre fichier, et \<commande> par les commandes ci-dessus):
+
+   ```shell
+   rsync -avz -e "ssh -i /root/.ssh/id_rsa_custom" <commande>
    ```
 
    > Remplacez **\<IP_NOUVEAU_CENTREON\>** par l'adresse IP de votre nouveau serveur Centreon.
