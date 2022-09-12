@@ -40,11 +40,11 @@ Sélectionnez, dans la liste, le groupe ACL que vous souhaitez configurer. Ensui
 Deux règles simples s'appliquent à ce type de vue :
 
 - Tout utilisateur accédant à la page **Supervision > MAP** sera en mesure de voir toutes les GeoViews créées.
-- Les utilisateurs qui ont le privilège "Création" (par le biais du groupe ACL sur le client Desktop Centreon MAP) ont tous les privilèges sur les GeoViews.
+- Les utilisateurs qui ont le privilège "Création" (par le biais du groupe ACL sur le client lourd Centreon MAP) ont tous les privilèges sur les GeoViews.
 
 ## Charger les ressources désactivées (ou non)
 
-Vous pouvez décider de charger ou non les ressources désactivées dans le client Desktop Centreon MAP.
+Vous pouvez décider de charger ou non les ressources désactivées dans le client lourd Centreon MAP.
 Si vous le faites (ce qui est la configuration par défaut), toutes les ressources désactivées apparaîtront dans la liste des ressources.
 Vous pourrez également les utiliser dans vos vues.
 
@@ -110,7 +110,7 @@ systemctl restart centreon-map
 
 ## Changer les couleurs du lien
 
-> Cette propriété ne sera appliquée qu'à l'utilisateur qui la modifie sur le client Desktop.
+> Cette propriété ne sera appliquée qu'à l'utilisateur qui la modifie sur le client lourd.
 
 Vous pouvez modifier la couleur de début et de fin d'un lien en fonction d'une métrique.
 Ces couleurs représentent une échelle de 0% à 100% pour la ou les métriques associées au lien.
@@ -121,7 +121,7 @@ Ces couleurs représentent une échelle de 0% à 100% pour la ou les métriques 
 
 Chaque fois que vous apportez des modifications à la configuration de Centreon et que vous poussez la configuration vers un poller, la configuration est analysée et mise à jour sur Centreon MAP.
 
-Toutefois, si vous apportez des modifications (ajout/suppression/mise à jour) aux ressources de Centreon et que vous souhaitez que ces modifications soient immédiatement synchronisées sur votre Centreon MAP sans pousser la configuration, vous pouvez forcer une synchronisation des ressources à partir du client Desktop Centreon MAP via le menu suivant : **Action > Synchroniser les ressources**.
+Toutefois, si vous apportez des modifications (ajout/suppression/mise à jour) aux ressources de Centreon et que vous souhaitez que ces modifications soient immédiatement synchronisées sur votre Centreon MAP sans pousser la configuration, vous pouvez forcer une synchronisation des ressources à partir du client lourd Centreon MAP via le menu suivant : **Action > Synchroniser les ressources**.
 
 Cette opération peut prendre quelques secondes. Une fenêtre pop-up vous indiquera quand la synchronisation sera terminée.
 
@@ -129,7 +129,7 @@ Cette opération peut prendre quelques secondes. Une fenêtre pop-up vous indiqu
 
 ### Problèmes de mise en évidence
 
-> Cette propriété ne sera appliquée qu'à l'utilisateur qui la modifie sur le client Desktop.
+> Cette propriété ne sera appliquée qu'à l'utilisateur qui la modifie sur le client lourd.
 
 Vous pouvez modifier la taille des éléments en fonction de leur statut afin de mettre en évidence un problème. Cela ne fonctionne que lorsque les éléments sont exprimés dans le style géométrique.
 

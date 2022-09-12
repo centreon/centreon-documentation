@@ -7,7 +7,7 @@ Ce chapitre décrit comment mettre à jour votre extension Centreon MAP. Pour ce
 
 - le serveur Centreon MAP
 - l'interface web Centreon MAP et son widget
-- le client Desktop (mis à jour automatiquement).
+- le client lourd (mis à jour automatiquement).
 
 Avant de mettre à jour le serveur Centreon MAP, nous vous recommandons vivement d'effectuer un dump (sauvegarde) de votre base de données `centreon_studio`.
 Cela vous permettra de revenir facilement à l'état précédent si nécessaire.
@@ -49,7 +49,7 @@ Terminez la mise à niveau en allant dans **Administration > Extensions > Gestio
 
 ![image](../assets/graph-views/update-web-client.png)
 
-## Client Desktop Centreon MAP
+## client lourd Centreon MAP
 
 Si l'ordinateur de l'utilisateur dispose d'une connexion internet, le client de bureau est automatiquement mis à jour à la dernière version correspondant au serveur.
 

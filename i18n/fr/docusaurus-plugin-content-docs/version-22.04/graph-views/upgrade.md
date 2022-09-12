@@ -10,7 +10,7 @@ Ce chapitre décrit comment monter de version votre extension Centreon MAP. Pour
 
 - le serveur Centreon MAP
 - l'interface web Centreon MAP et son widget
-- le client Desktop (mis à jour automatiquement)
+- le client lourd (mis à jour automatiquement)
 - la base de données MariaDB.
 
 ## Prérequis
@@ -94,11 +94,11 @@ Terminez la montée de version :
 2. Recherchez **Map web client**.
 3. Cliquez sur le bouton de mise à jour (parties module & widget).
 
-## Étape 3 : Client Desktop Centreon MAP
+## Étape 3 : client lourd Centreon MAP
 
-Si l'ordinateur de l'utilisateur dispose d'une connexion internet, le client Desktop est automatiquement mis à jour vers la dernière version correspondant au serveur.
+Si l'ordinateur de l'utilisateur dispose d'une connexion internet, le client lourd est automatiquement mis à jour vers la dernière version correspondant au serveur.
 
-Sinon, le client peut être téléchargé via le menu **Supervision > MAP** et le bouton **Client Desktop**.
+Sinon, le client peut être téléchargé via le menu **Supervision > MAP** et le bouton **client lourd**.
 
 ## Étape 4 : Base de données MariaDB
 

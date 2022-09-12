@@ -11,7 +11,7 @@ Les capacités de visualisation graphique de Centreon reposent sur l'extension *
 Centreon MAP est un outil de visualisation et de cartographie de données conçu pour les administrateurs et les développeurs de la gestion des opérations informatiques (ITOM).
 Il est capable d'afficher des aperçus graphiques efficaces et de cartographier des données corrélées dans des vues personnalisées pertinentes pour l'utilisateur.
 
-Créez des vues logiques à l'aide du client Desktop...
+Créez des vues logiques à l'aide du client lourd...
 
 ![image](../assets/graph-views/desktop.gif)
 

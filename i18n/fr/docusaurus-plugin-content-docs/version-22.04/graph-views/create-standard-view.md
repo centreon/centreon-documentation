@@ -12,7 +12,7 @@ Dans un environnement de production, vous pouvez avoir beaucoup de vues et d'inf
 Voici quelques bonnes pratiques à garder à l'esprit lorsque vous créez des vues.
 
 **Limitations du contenu** : Essayez de ne pas avoir plus de \N~100 000 éléments chargés à la fois. Un élément chargé est un élément dans une vue **ouverte**.
-Une vue ouverte est une vue qu'au moins **un** utilisateur regarde (en utilisant le client desktop ou l'interface web).
+Une vue ouverte est une vue qu'au moins **un** utilisateur regarde (en utilisant le client lourd ou l'interface web).
 
 Vous trouverez ci-dessous quelques bonnes pratiques utiles pour vous aider à concevoir des vues optimisées :
 
@@ -39,9 +39,9 @@ Selon les limitations du contenu, cela signifie que vous pouvez avoir 100 vues c
 
 > Vous ne pouvez pas ajouter d'objets (par exemple, du texte, une jauge, un camembert, un graphique, etc.) à un hôte, un groupe d'hôtes, un groupe de services ou une activité métier, ni en modifier/copier/coller le contenu.
 
-## Connexion du client Desktop
+## Connexion du client lourd
 
-Pour connecter le client Desktop au serveur, vous devez d'abord créer un profil :
+Pour connecter le client lourd au serveur, vous devez d'abord créer un profil :
 
 ![image](../assets/graph-views/install-desktop-1.png)
 
@@ -63,7 +63,7 @@ S'il y a un proxy entre votre ordinateur et le serveur MAP ou internet, configur
 - **Utilisateur proxy** (non obligatoire) : Login du serveur proxy
 - **Mot de passe proxy** (non obligatoire) : Mot de passe de connexion pour le serveur proxy
 - **Utiliser le proxy pour internet** : Cochez cette case si un proxy est nécessaire pour se connecter à internet. 
-  Il sera utile pour télécharger automatiquement les mises à jour pour le client Desktop.
+  Il sera utile pour télécharger automatiquement les mises à jour pour le client lourd.
 - **Utiliser le proxy pour le serveur** : Cochez cette case si un proxy est nécessaire pour atteindre votre serveur MAP.
 
 ## Ajouter une vue
@@ -72,7 +72,7 @@ S'il y a un proxy entre votre ordinateur et le serveur MAP ou internet, configur
 
 Voici comment créer votre première vue :
 
-Une fois que vous êtes connecté à votre client Desktop, vous verrez cet écran :
+Une fois que vous êtes connecté à votre client lourd, vous verrez cet écran :
 
 ![image](../assets/graph-views/desktop_client_empty.png)
 
@@ -111,7 +111,7 @@ Pour ce faire, faites un clic droit sur le conteneur ou à l'intérieur du conte
 
 Après avoir lié votre compte Mapbox, vous pouvez créer une vue standard et définir un arrière-plan géographique :
 
-1. Ouvrez votre client Desktop,
+1. Ouvrez votre client lourd,
 2. Ouvrez une vue,
 3. Faites un clic droit sur l'arrière-plan de la vue puis cliquez sur **Éditer**,
 4. Cochez la case **Géographique**.
@@ -125,7 +125,7 @@ Utilisez ensuite le bouton **Sauvegarder les latlong et zoom courants** en haut 
 
 ![image](../assets/graph-views/set_current_lat_long.png)
 
-Chaque fois que vous ouvrez cette vue, que ce soit via le client Desktop ou l'interface Web, la vue géographique apparaît toujours avec le niveau de zoom prédéfini.
+Chaque fois que vous ouvrez cette vue, que ce soit via le client lourd ou l'interface Web, la vue géographique apparaît toujours avec le niveau de zoom prédéfini.
 
 ## Modifier le style des objets
 

@@ -63,7 +63,7 @@ https://<MAP_IP>:8443/centreon-studio/api/beta/actuator/health
 </TabItem>
 </Tabs>
 
-Vous pouvez également vérifier l'API SOAP utilisée par le client Desktop :
+Vous pouvez également vérifier l'API SOAP utilisée par le client lourd :
 
 <Tabs groupId="sync">
 <TabItem value="HTTP" label="HTTP">
@@ -140,7 +140,7 @@ systemctl stop iptables
 ### Mes images de Centreon Web ne s'affichent pas dans Centreon MAP
 
 Centreon MAP importe automatiquement toutes les images de Centreon web dans sa propre base de données.
-Sur votre client Desktop, vous devriez voir tous vos fichiers provenant de Centreon web dans l'onglet **Médias** du panneau en bas à gauche, dans le dossier **Centreon**.
+Sur votre client lourd, vous devriez voir tous vos fichiers provenant de Centreon web dans l'onglet **Médias** du panneau en bas à gauche, dans le dossier **Centreon**.
 Si ce n'est pas le cas, vous pouvez vérifier ce qui suit :
 
 Sur votre serveur Centreon MAP, ouvrez le fichier **/etc/my.cnf** et vérifiez si la ligne suivante est présente :
@@ -156,7 +156,7 @@ sudo systemctl reload mysqld
 ```
 
 Attendez quelques minutes pour que le serveur Centreon MAP synchronise les ressources Centreon web.
-Les images de Centreon web devraient alors apparaître sur votre client Desktop dans l'onglet **Médias** du panneau en bas à gauche, dans le dossier **Centreon**.
+Les images de Centreon web devraient alors apparaître sur votre client lourd dans l'onglet **Médias** du panneau en bas à gauche, dans le dossier **Centreon**.
 
 ![image](../assets/graph-views/centreon_media_part.png)
 
@@ -177,19 +177,19 @@ centreon.url=http://<CENTRAL_IP_ADDRESS>
 > N'oubliez pas de remplacer "http" par "https" si votre interface web Centreon utilise HTTPS.
 
 Attendez quelques minutes pour que le serveur Centreon MAP synchronise les ressources Centreon web.
-Les images de Centreon web devraient alors apparaître sur votre client Desktop, dans le dossier **Centreon**.
+Les images de Centreon web devraient alors apparaître sur votre client lourd, dans le dossier **Centreon**.
 
-## Client Desktop Centreon MAP
+## client lourd Centreon MAP
 
-### Le client Desktop ne peut pas démarrer : "Java was started but returned exit code = 13".
+### Le client lourd ne peut pas démarrer : "Java was started but returned exit code = 13".
 
-Le client Desktop ne démarre pas et un message d'erreur "code d'erreur = 13" s'affiche.
+Le client lourd ne démarre pas et un message d'erreur "code d'erreur = 13" s'affiche.
 
 Installez une JVM 64 bits.
 
 #### Impossible de créer une nouvelle vue
 
-Sur le client Desktop, si vous voulez créer une nouvelle vue mais que le bouton est désactivé, c'est que vous n'avez pas les droits d'accès.
+Sur le client lourd, si vous voulez créer une nouvelle vue mais que le bouton est désactivé, c'est que vous n'avez pas les droits d'accès.
 
 ![image](../assets/graph-views/view_menu.png)
 
@@ -221,15 +221,15 @@ Vous souhaitez importer des vues de MAP 3 vers Centreon MAP \>= 4.x mais le menu
 Veuillez vérifier les prérequis suivants :
 
 - Votre licence MAP 3 est toujours valide.
-- La version de votre client Desktop Centreon est au moins v4.0.8 (vous pouvez la vérifier directement à partir de l'interface de votre client Desktop, dans le menu Help \> About).
+- La version de votre client lourd Centreon est au moins v4.0.8 (vous pouvez la vérifier directement à partir de l'interface de votre client lourd, dans le menu Help \> About).
 - S'il existe un proxy entre votre ordinateur et votre interface web Centreon, vous devez le définir dans le menu **Configurer**.
 
    > Le proxy doit être configuré avec la case à cocher **Utiliser pour internet**.
 
 - Dans le fichier de configuration du serveur Centreon MAP (**/etc/centreon-studio/studio-config.properties**), vous avez saisi l'IP de votre serveur central.
 
-Cette IP est également utilisée par votre client Desktop pour accéder à l'API MAP 3.
-Si cette adresse IP n'est pas accessible par votre client Desktop (parce que votre serveur MAP Centreon et votre serveur Central Centreon sont tous deux situés dans une zone démilitarisée), vous devez en indiquer une nouvelle à votre client Desktop.
+Cette IP est également utilisée par votre client lourd pour accéder à l'API MAP 3.
+Si cette adresse IP n'est pas accessible par votre client lourd (parce que votre serveur MAP Centreon et votre serveur Central Centreon sont tous deux situés dans une zone démilitarisée), vous devez en indiquer une nouvelle à votre client lourd.
 Pour ce faire, modifiez le fichier :
 
 <Tabs groupId="sync">
@@ -267,7 +267,7 @@ Si vous ouvrez une vue géographique ou un conteneur et que votre arrière-plan 
 
 - Assurez-vous que vos informations d'identification Mapbox sont valides. Pour configurer vos informations d'identification Mapbox. Votre clé secrète Mapbox a peut-être changé.
   Comme vous ne pouvez pas voir les clés précédemment créées, vous pouvez en créer une nouvelle et l'ajouter dans le fichier de configuration de votre serveur Centreon MAP.
-- Si votre ordinateur se trouve derrière un proxy pour accéder à internet, veuillez configurer ce proxy dans le client Desktop Centreon MAP.
+- Si votre ordinateur se trouve derrière un proxy pour accéder à internet, veuillez configurer ce proxy dans le client lourd Centreon MAP.
 - Le style Mapbox que vous avez utilisé sur votre vue a peut-être été supprimé.
 
 Essayez de modifier votre vue/conteneur et changez le style Mapbox :
@@ -278,7 +278,7 @@ Si vous ne pouvez sélectionner aucun style, le problème vient probablement de 
 
 ### Erreur avec les caractères spéciaux
 
-Si vous essayez d'utiliser des caractères dans des étiquettes qui n'utilisent pas l'encodage latin1 et que vous obtenez une erreur contextuelle affichant "Could not execute statement" sur votre client Desktop, votre base de données est probablement en latin1.
+Si vous essayez d'utiliser des caractères dans des étiquettes qui n'utilisent pas l'encodage latin1 et que vous obtenez une erreur contextuelle affichant "Could not execute statement" sur votre client lourd, votre base de données est probablement en latin1.
 Pour passer la base de données en encodage UTF-8, vous devez accéder à votre serveur Centreon MAP en SSH et exécuter les commandes suivantes :
 
 ```shell
@@ -294,11 +294,11 @@ utf8\_general\_ci/
 # systemctl start centreon-map
 ```
 
-### Mon client Desktop est lent et je suis souvent déconnecté.
+### Mon client lourd est lent et je suis souvent déconnecté.
 
-Selon le périmètre de supervision de votre serveur Centreon (le nombre de services en cours d'exécution) et la configuration matérielle de l'ordinateur, votre client Desktop peut avoir besoin de plus de RAM qu'il n'en utilise par défaut.
+Selon le périmètre de supervision de votre serveur Centreon (le nombre de services en cours d'exécution) et la configuration matérielle de l'ordinateur, votre client lourd peut avoir besoin de plus de RAM qu'il n'en utilise par défaut.
 Il peut commencer à se figer et essayer de libérer plus de mémoire. Vous pouvez vérifier ce comportement en ouvrant votre gestionnaire de tâches (Ctrl + Maj + Esc) et en contrôlant la consommation de mémoire.
-Si elle augmente et semble atteindre une limite alors que votre CPU travaille dur, votre client Desktop a besoin de plus de mémoire.
+Si elle augmente et semble atteindre une limite alors que votre CPU travaille dur, votre client lourd a besoin de plus de mémoire.
 
 Pour augmenter la mémoire, modifiez le fichier .ini :
 
@@ -327,7 +327,7 @@ Et ajoutez la ligne suivante à la fin du fichier, sur une nouvelle ligne :
 
 Le "4g" signifie 4 Go (par défaut, il ne peut utiliser que 2 Go). Vous pouvez modifier ce nombre en fonction de votre matériel (par exemple, en définissant "3g").
 
-Redémarrez ensuite votre client Desktop.
+Redémarrez ensuite votre client lourd.
 
 ### J'obtiens l'erreur "Cannot authenticate user" sur la page de connexion
 
@@ -337,7 +337,7 @@ Pour Centreon Web >= 2.8.6, vérifiez que votre utilisateur a coché l'option **
 
 ### J'utilise Windows Remote Desktop (RDP) et j'ai de nombreuses erreurs
 
-Si vous utilisez le client Desktop Centreon MAP via une conneion à distance (par exemple avec RDP), il se peut que vous rencontriez une erreur affichant un certain nombre de pop-ups de type "128" ou "512", rendant votre client Desktop inexploitable.
+Si vous utilisez le client lourd Centreon MAP via une conneion à distance (par exemple avec RDP), il se peut que vous rencontriez une erreur affichant un certain nombre de pop-ups de type "128" ou "512", rendant votre client lourd inexploitable.
 
 Pour remédier au problème, changez un paramètre dans votre application RDP :
 
@@ -353,7 +353,7 @@ Allez à la page **Advance > Display** et sélectionnez "Highest quality (32bit)
 
 ### Les graphiques sont tous déplacés vers la droite après la mise à niveau de Centreon MAP 4.4 à Centreon MAP 18.10
 
-Un bug affectant l'interface web déplaçait tous les graphiques vers la gauche par rapport à leur position dans le client Desktop.
+Un bug affectant l'interface web déplaçait tous les graphiques vers la gauche par rapport à leur position dans le client lourd.
 Ce problème a été corrigé dans la version 18.10 de Centreon MAP.
 Si vous avez manuellement déplacé les graphiques vers la droite pour compenser dans l'interface web, tous vos graphiques seront surdéplacés vers la droite après la mise à niveau.
 
