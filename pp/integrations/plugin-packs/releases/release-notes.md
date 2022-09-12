@@ -42,7 +42,7 @@ import TabItem from '@theme/TabItem';
 - [**VMware VM**](../procedures/virtualization-vmware2-vm.md) - Add a new "tags" attributes in discovery results - Status:stable - centreon-pack-virtualization-vmware2-vm-22.09.0-1
 
 </TabItem>
-<TabItem value="Breaking change" label="Breaking change">
+<TabItem value="Breaking changes" label="Breaking changes">
 
 - [**Azure Virtual Machine**](../procedures/cloud-azure-compute-virtualmachine.md) - Upgrage Packs Azure VM, Expressroute, VPN Gateway to use latest guidelines - Status:stable - centreon-pack-cloud-azure-compute-virtualmachine-22.08.0-1
 - [**Azure Discover**](../procedures/cloud-azure-management-discover.md) - Upgrage Packs Azure VM, Expressroute, VPN Gateway to use latest guidelines - Status:stable - centreon-pack-cloud-azure-management-discover-22.08.0-1
