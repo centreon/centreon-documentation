@@ -170,6 +170,13 @@ mise à jour.
 
 5. Cette requête ne renvoie aucun résultat. Pour vérifier que la mise à jour a bien été appliquée, consultez le numéro de version affiché sur la page de connexion à l'interface web Centreon.
 
+6. Enfin, redémarrez Broker, Engine et Gorgone sur le serveur Central en exécutant
+la commande suivante :
+
+  ```shell
+  systemctl restart cbd centengine gorgoned
+  ```
+
 ### Mise à jour des extensions
 
 Depuis le menu **Administration > Extensions > Gestionnaire**, mettez à jour

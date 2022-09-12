@@ -165,6 +165,13 @@ You can now move to the [Update extensions](#update-extensions) step.
 
 5. This request does not return any result. To check if the update has been successfully applied, read the version number displayed on the Centreon web interface login page.
 
+6. Finally, restart Broker, Engine and Gorgone on the central server by running
+this command:
+
+  ```shell
+  systemctl restart cbd centengine gorgoned
+  ```
+
 ### Update extensions
 
 From **Administration > Extensions > Manager**, update all extensions, starting
