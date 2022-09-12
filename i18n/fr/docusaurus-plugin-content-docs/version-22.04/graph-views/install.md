@@ -543,4 +543,4 @@ La mise à jour automatique nécessite que votre ordinateur ait un accès à int
 
 ## Sécurisez votre plateforme
 
-N'oubliez pas de sécuriser votre plateforme Centreon en suivant nos [recommandations] (secure-your-map-platform.md).
+N'oubliez pas de sécuriser votre plateforme Centreon en suivant nos [recommandations](secure-your-map-platform.md).
