@@ -11,7 +11,7 @@ Dans un environnement de production, vous pouvez avoir beaucoup de vues et d'inf
 
 Voici quelques bonnes pratiques à garder à l'esprit lorsque vous créez des vues.
 
-**Limitations du contenu** : Essayez de ne pas avoir plus de \N~100 000 éléments chargés à la fois. Un élément chargé est un élément dans une vue **ouverte**.
+**Limitations du contenu** : essayez de ne pas avoir plus de \N~100 000 éléments chargés à la fois. Un élément chargé est un élément dans une vue **ouverte**.
 Une vue ouverte est une vue qu'au moins **un** utilisateur regarde (en utilisant le client lourd ou l'interface web).
 
 Vous trouverez ci-dessous quelques bonnes pratiques utiles pour vous aider à concevoir des vues optimisées :
