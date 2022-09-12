@@ -99,8 +99,7 @@ accéder à la page de connexion :
 
   ![image](../assets/upgrade/web_update_5.png)
 
-> Si le module Centreon BAM est installé, référez-vous à la [documentation
-> associée](../service-mapping/update.md) pour le mettre à jour.
+  > Si le module Centreon BAM est installé, référez-vous à la [documentation associée](../service-mapping/update.md) pour le mettre à jour.
 
 6. Déployez ensuite la configuration du Central depuis l'interface web en
 suivant [cette
@@ -146,7 +145,7 @@ mise à jour.
   }'
   ```
 
-Voici à quoi ressemble le résultat :
+  Voici à quoi ressemble le résultat :
 
   ```shell
   {"contact":{"id":1,"name":"Admin Centreon","alias":"admin","email":"admin@localhost",  "is_admin":true},"security":{"token":"hwwE7w/ukiiMce2lwhNi2mcFxLNYPhB9bYSKVP3xeTRUeN8FuGQms3RhpLreDX/S"}}
@@ -202,6 +201,8 @@ Cette procédure est identique à la mise à jour d'un serveur Centreon Central.
   ```shell
   yum update centreon\*
   ```
+
+  > Acceptez les nouvelles clés GPG des dépôts si nécessaire.
 
 3. Déployez la configuration du collecteur depuis l'interface web en suivant [cette
 procédure](../monitoring/monitoring-servers/deploying-a-configuration.md), et

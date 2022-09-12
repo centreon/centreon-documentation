@@ -97,8 +97,7 @@ page:
 
   ![image](../assets/upgrade/web_update_5.png)
 
-> If the Centreon BAM module is installed, refer to the
-> [update procedure](../service-mapping/update.md).
+  > If the Centreon BAM module is installed, refer to the [update procedure](../service-mapping/update.md).
 
 6. Deploy the central's configuration from the Centreon web UI by following [this
 procedure](../monitoring/monitoring-servers/deploying-a-configuration.md).
@@ -141,11 +140,11 @@ You can now move to the [Update extensions](#update-extensions) step.
   }'
   ```
 
-This is how the result should look like:
+  This is how the result should look like:
 
-  ```shell
-  {"contact":{"id":1,"name":"Admin Centreon","alias":"admin","email":"admin@localhost","is_admin":true},"security":{"token":"hwwE7w/ukiiMce2lwhNi2mcFxLNYPhB9bYSKVP3xeTRUeN8FuGQms3RhpLreDX/S"}}
-  ```
+    ```shell
+    {"contact":{"id":1,"name":"Admin Centreon","alias":"admin","email":"admin@localhost","is_admin":true},"security":{"token":"hwwE7w/ukiiMce2lwhNi2mcFxLNYPhB9bYSKVP3xeTRUeN8FuGQms3RhpLreDX/S"}}
+    ```
 
 3. Retrieve the token number to use it in the next request.
 
@@ -198,7 +197,7 @@ This procedure is the same as to update a Centreon central server.
   yum update centreon\*
   ```
 
-> Accept the new GPG keys from the repositories as needed.
+  > Accept the new GPG keys from the repositories as needed.
 
 3. Deploy the Poller's configuration from the Centreon web UI by following [this
 procedure](../monitoring/monitoring-servers/deploying-a-configuration.md),
