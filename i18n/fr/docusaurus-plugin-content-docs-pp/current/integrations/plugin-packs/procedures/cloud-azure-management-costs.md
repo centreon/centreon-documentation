@@ -53,7 +53,7 @@ Afin d'utiliser ce Pack de supervision, il est nécessaire d'attribuer les bons 
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Installez le plugin sur tous les collecteurs Centreon devant superviser des ressources **Azure AD** :
+1. Installez le plugin sur tous les collecteurs Centreon devant superviser des ressources **Azure Costs** :
 
 ```bash
 yum install centreon-plugin-Cloud-Azure-Management-Costs-Api
@@ -64,7 +64,7 @@ yum install centreon-plugin-Cloud-Azure-Management-Costs-Api
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Installez le plugin sur tous les collecteurs Centreon devant superviser des ressources **Azure AD** :
+1. Installez le plugin sur tous les collecteurs Centreon devant superviser des ressources **Azure Costs** :
 
 ```bash
 yum install centreon-plugin-Cloud-Azure-Management-Costs-Api
@@ -86,7 +86,7 @@ yum install centreon-pack-cloud-azure-management-costs
 ### Hôte
 
 * Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
-* Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre serveur **Azure AD**.
+* Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre serveur **Azure Costs**.
 * Appliquez le modèle d'hôte **Cloud-Azure-Management-Costs-Api-custom**.
 * Une fois le modèle appliqué, les macros ci-dessous indiquées comme requises (**Obligatoire**) doivent être renseignées.
 
