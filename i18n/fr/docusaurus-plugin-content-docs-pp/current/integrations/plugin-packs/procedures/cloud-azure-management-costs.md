@@ -1,6 +1,6 @@
 ---
-id: cloud-microsoft-office365-azuread
-title: Office 365 Azure AD
+id: cloud-azure-management-costs
+title: Azure Management Costs 
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
