@@ -54,7 +54,7 @@ complete the installation process by connecting to the Centreon web interface.
    rsync -avz --exclude centcore/ --exclude log/ /var/lib/centreon root@<IP_NEW_CENTREON>:/var/lib
    ```
 
-   If you have given a custom name to your private key file, use the following format (just replace **id_rsa_custom** by your file name, and **\<command>** by the commands above):
+   If you have given a custom name to your private key file, use the following format (just replace **id_rsa_custom** by your file name, and `<command>` by the commands above):
 
    ```shell
    rsync -avz -e "ssh -i /root/.ssh/id_rsa_custom" <command>
