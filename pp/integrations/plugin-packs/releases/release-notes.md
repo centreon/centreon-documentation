@@ -15,7 +15,7 @@ import TabItem from '@theme/TabItem';
 
 - [**AWS Discover**](../procedures/cloud-aws-cloudwatch-discover.md) - Add unified AWS host discovery and add assume-role support - Status:stable - centreon-pack-cloud-aws-cloudwatch-discover-22.09.0-1
 - [**Azure Management Costs**](../procedures/cloud-azure-management-costs.md) - New Pack to monitor Azure budgets consumptions - Status:stable - centreon-pack-cloud-azure-management-costs-22.09.0-1
-- [**Cisco Umbrella**](../procedures/network-cisco-umbrella-snmp.md) - Add Cisco Umbrella Pack - Status:stable - centreon-pack-network-cisco-umbrella-snmp-5.0.1-1
+- [**Cisco Umbrella**](../procedures/network-cisco-umbrella-snmp.md) - Add Cisco Umbrella Pack - Status:stable - centreon-pack-network-cisco-umbrella-snmp-22.09.0-1
 - [**Dell VxRail Manager Rest API**](../procedures/hardware-servers-dell-vxm-restapi.md) - Add VxRail Manager Pack - Status:stable - centreon-pack-hardware-servers-dell-vxm-restapi-22.08.2-1
 - [**Fortinet Fortigate Rest API**](../procedures/network-fortinet-fortigate-restapi.md) - Add monitoring Pack to monitor Fortinet using Rest API - Status:stable - centreon-pack-network-fortinet-fortigate-restapi-22.09.0-1
 - [**HP Moonshot SNMP**](../procedures/network-hp-moonshot-snmp.md) - network-hp-moonshot-snmp - initial release - Status:stable - centreon-pack-network-hp-moonshot-snmp-22.09.0-1
@@ -42,7 +42,7 @@ import TabItem from '@theme/TabItem';
 - [**VMware VM**](../procedures/virtualization-vmware2-vm.md) - Add a new "tags" attributes in discovery results - Status:stable - centreon-pack-virtualization-vmware2-vm-22.09.0-1
 
 </TabItem>
-<TabItem value="Breaking change" label="Breaking change">
+<TabItem value="Breaking changes" label="Breaking changes">
 
 - [**Azure Virtual Machine**](../procedures/cloud-azure-compute-virtualmachine.md) - Upgrage Packs Azure VM, Expressroute, VPN Gateway to use latest guidelines - Status:stable - centreon-pack-cloud-azure-compute-virtualmachine-22.08.0-1
 - [**Azure Discover**](../procedures/cloud-azure-management-discover.md) - Upgrage Packs Azure VM, Expressroute, VPN Gateway to use latest guidelines - Status:stable - centreon-pack-cloud-azure-management-discover-22.08.0-1
