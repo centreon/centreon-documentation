@@ -180,7 +180,7 @@ the **/usr/share/centreon/www/install** directory (**x** is the target version n
 
    1. Edit the **/etc/centreon/centreon.conf.php** file,
    2. Edit the **/etc/centreon/conf.pm** file,
-   3. Edit the Centreon Broker central configuration using the Centreon web interface and change the password for the **Perfdata generator** and **Broker SQL database** output,
+   3. Edit the Centreon Broker central configuration using the Centreon web interface and change the password for the **unfied-sql** output,
    4. Edit the **/etc/centreon/config.d/10-database.yaml** file.
 
 5. If the IP address of your Centreon server has changed, edit the configuration for all

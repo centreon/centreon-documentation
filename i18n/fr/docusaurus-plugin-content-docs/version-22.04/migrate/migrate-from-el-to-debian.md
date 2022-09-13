@@ -186,8 +186,7 @@ Si vous utilisez vos propres plugins personnalisés, synchronisez les répertoir
    1. Modifiez le fichier **/etc/centreon/centreon.conf.php**,
    2. Modifiez le fichier **/etc/centreon/conf.pm**,
    3. Éditez la configuration du Centreon Broker central, via l'interface web
-      Centreon et modifiez le mot de passe pour les deux outputs Broker **Perfdata
-      generator** et **Broker SQL database**,
+      Centreon et modifiez le mot de passe pour l'output **unfied-sql**,
    4. Modifiez le fichier **/etc/centreon/config.d/10-database.yaml**.
 
 5. Si l'adresse IP de votre serveur Centreon a changé, éditez la configuration de
