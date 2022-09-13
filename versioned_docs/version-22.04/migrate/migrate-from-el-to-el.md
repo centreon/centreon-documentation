@@ -74,7 +74,7 @@ complete the installation process by connecting to the Centreon web interface.
 2. On the old server, stop MariaDB:
 
    ```shell
-   service mysqld stop
+   systemctl stop mariadb
    ```
 
 3. On the old server, export the dumps to the new Centreon 22.04 database server (make sure you

@@ -74,7 +74,7 @@ dnf update
 2. Sur l'ancien serveur, arrêtez MariaDB :
 
    ```shell
-   service mysqld stop
+   systemctl stop mariadb
    ```
 
 3. Depuis l'ancien serveur, exportez les dumps vers le nouveau serveur de base de données (assurez-vous d'avoir assez d'espace):
