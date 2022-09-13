@@ -190,6 +190,10 @@ Si vous utilisez vos propres plugins personnalisés, synchronisez les répertoir
    systemctl start snmpd
    ```
 
+8. Si vous supervisiez votre ancienne machine Centreon, et que vous avez changé le nom d'utilisateur/mot de passe de la base pendant la migration, mettez à jour la configuration des ressources concernées (hôte, services dépendant de cet hôte).
+
+9. Allez à la page **Configuration > Packs de plugins**, puis [mettez à jour tous les plugin packs](../monitoring/pluginpacks.md#mettre-à-jour-un-ou-plusieurs-packs).
+
 ### Étape 6 (anciennes versions uniquement): Migrer vers Gorgone
 
 Si vous migrez depuis un Centreon 18.10, 19.04 ou 19.10, vous devez également [migrer de Centcore à Gorgone](../developer/developer-gorgone-migrate-from-centcore.md).

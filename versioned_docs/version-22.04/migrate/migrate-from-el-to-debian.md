@@ -200,6 +200,10 @@ chapter for more information.
    systemctl start snmpd
    ```
 
+8. If your old Centreon server was monitoring itself, and you have changed the username/password for the database during the migration, update the configuration of all related resources (host, services attached to that host).
+
+9. Go to **Configuration > Plugin Packs**, then [update all the plugin packs](../monitoring/pluginpacks.md#updating-one-packall-packs).
+
 ### Step 6 (older versions only): Migrate to Gorgone
 
 If you are migrating from a Centreon version 18.10, 19.04 or 19.10, [migrate from Centcore to Gorgone](../developer/developer-gorgone-migrate-from-centcore.md).
