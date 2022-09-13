@@ -54,7 +54,7 @@ dnf update
    rsync -avz --exclude centcore/ --exclude log/ /var/lib/centreon root@<IP_NOUVEAU_CENTREON>:/var/lib
    ```
 
-  Si vous avez personnalisé le nom de votre fichier de clé privée, utilisez le format suiant (remplacez **id_rsa_custom** par le nom de votre fichier, et \<commande> par les commandes ci-dessus):
+  Si vous avez personnalisé le nom de votre fichier de clé privée, utilisez le format suivant (remplacez **id_rsa_custom** par le nom de votre fichier, et **\<commande>** par les commandes ci-dessus):
 
    ```shell
    rsync -avz -e "ssh -i /root/.ssh/id_rsa_custom" <commande>
