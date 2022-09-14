@@ -28,11 +28,11 @@
     "description": "The label for category Configuring monitoring servers in sidebar docs"
   },
   "sidebar.docs.category.Installation of Centreon HA": {
-    "message": "Installation de Centreon HA",
+    "message": "Installer Centreon HA",
     "description": "The label for category Installation of Centreon HA in sidebar docs"
   },
   "sidebar.docs.category.Secure your platform": {
-    "message": "Sécurisez votre plate-forme",
+    "message": "Sécuriser la plateforme",
     "description": "The label for category Secure your platform in sidebar docs"
   },
   "sidebar.docs.category.Monitoring resources": {
@@ -112,7 +112,7 @@
     "description": "The label for category Administrate in sidebar docs"
   },
   "sidebar.docs.category.Graphical views": {
-    "message": "Vues Graphiques",
+    "message": "Vues graphiques",
     "description": "The label for category Graphical views in sidebar docs"
   },
   "sidebar.docs.category.Reporting": {
@@ -132,19 +132,19 @@
     "description": "The label for category Configuring the connection to Centreon in sidebar docs"
   },
   "sidebar.docs.category.Update, Upgrade & Migrate": {
-    "message": "Mettre à Jour, Monter de Version et Migrer",
+    "message": "Mettre à jour, monter de version et migrer",
     "description": "The label for category Update, Upgrade & Migrate in sidebar docs"
   },
   "sidebar.docs.category.Update": {
-    "message": "Update",
+    "message": "Mettre à jour (version mineure)",
     "description": "The label for category Update in sidebar docs"
   },
   "sidebar.docs.category.Upgrade": {
-    "message": "Upgrade",
+    "message": "Monter de version (version majeure)",
     "description": "The label for category Upgrade in sidebar docs"
   },
   "sidebar.docs.category.Migrate": {
-    "message": "Migrate",
+    "message": "Migrer sur un nouveau serveur",
     "description": "The label for category Migrate in sidebar docs"
   },
   "sidebar.docs.category.Plugin Packs": {
@@ -264,7 +264,7 @@
     "description": "The label for category API in sidebar docs"
   },
   "sidebar.docs.category.Monitoring your platform": {
-    "message": "Supervisez votre plateforme",
+    "message": "Superviser la plateforme",
     "description": "The label for category Monitoring your platform in sidebar docs"
   },
   "sidebar.docs.category.Centreon HA": {

@@ -933,7 +933,11 @@
             },
             {
               "type": "doc",
-              "id": "version-22.10/migrate/migrate-from-20-x"
+              "id": "version-22.04/migrate/migrate-from-el-to-el"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/migrate/migrate-from-el-to-debian"
             },
             {
               "type": "doc",
@@ -946,6 +950,10 @@
             {
               "type": "doc",
               "id": "version-22.10/migrate/poller-display-to-remote-server"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.10/developer/developer-gorgone-migrate-from-centcore"
             }
           ]
         }
