@@ -39,7 +39,7 @@ are some questions you might consider:
   - Who is/are this view recipient(s) (users' profiles)?
   - What level of information do users need?
   - Do I monitor all the resources and indicators I need to create that view?
-  - What kind of information should the view contains (resources, indicators,
+  - What kind of information should the view contain (resources, indicators,
     graphs, network links, etc)? It can be interesting to start drawing that view
     on a paper note.
 
