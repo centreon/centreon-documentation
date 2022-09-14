@@ -39,7 +39,7 @@ Release date: `July 13, 2022`
 
 ### 22.04.2
 
-Release date: 
+Release date: `September 14, 2022`
  
 - [Install] Fixed installation of module if 24x7 timeperiod is missing
 - [Banner] Fixed display of empty skeleton
