@@ -86,9 +86,9 @@ If your IT is geographically spread over a city, country or even the world, you
 may want to visualize it in the most appropriate way to get insights on your IT
 infrastruture status.
 
-This can be done easily by using the **GeoView**. The only prerequisites is to
-have defined Geo-coordinates parameters on your hosts (in the Extended
-information).
+This can be done easily by using the **GeoView**. The only prerequisite is to
+have defined Geo-coordinates parameters on your hosts (which can be consulted
+and modified in the **Configuration > Hosts > Hosts** and **Host Extended Infos** tab).
 
 To create a **GeoView**, go to **Monitoring > Map** and click on the "+" that appears
 on the **Geographic view** line. If you do not see the "+", it means you do not have
