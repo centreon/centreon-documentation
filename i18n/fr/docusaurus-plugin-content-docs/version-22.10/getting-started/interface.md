@@ -101,7 +101,7 @@ Puis cliquez sur **Sauvegarder**. Votre interface est maintenant traduite dans v
 langue.
 
 > Si votre langue n'apparaît pas dans la liste, vous pouvez aider la communauté Centreon à traduire l'interface web.
-> Rendez-vous dans le chapitre [How to translate Centreon](../developer/developer-translate-centreon) pour plus d'informations.
+> Rendez-vous dans le chapitre [How to translate Centreon](../developer/developer-translate-centreon.md) pour plus d'informations.
 
 ## Réinitialisez votre mot de passe
 

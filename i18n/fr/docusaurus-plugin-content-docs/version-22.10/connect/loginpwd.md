@@ -5,7 +5,7 @@ title: Configurer une authentification locale
 
 ## Autoriser les utilisateurs à accéder à Centreon
 
-1. Pour autoriser un [utilisateur](../monitoring/basic-objects/contacts) à accéder à l'interface Centreon, allez à la page
+1. Pour autoriser un [utilisateur](../monitoring/basic-objects/contacts.md) à accéder à l'interface Centreon, allez à la page
 **Configuration > Utilisateurs > Contacts/Utilisateurs** et cliquez sur l'utilisateur désiré.
 
 2. Dans l'onglet **Authentification Centreon**, mettez le champ **Autoriser l'utilisateur à se connecter à l'interface web**

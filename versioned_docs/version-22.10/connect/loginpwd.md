@@ -5,7 +5,7 @@ title: Configuring a local authentication
 
 ## Authorise users to access Centreon
 
-1. To authorize a [user](../monitoring/basic-objects/contacts) to access the Centreon web interface, go to
+1. To authorize a [user](../monitoring/basic-objects/contacts.md) to access the Centreon web interface, go to
 **Configuration > Users > Contacts/Users** and click on the user you want.
 
 2. On the **Centreon Authentication** tab, set **Reach Centreon Front-end** to **Yes**.
