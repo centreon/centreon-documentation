@@ -44,7 +44,7 @@ Release date:
 - [Install] Fixed installation of module if 24x7 timeperiod is missing
 - [Banner] Fixed display of empty skeleton
 - [UI] Fixed header and skeleton UI instability
-- [UI] Change Bam widget background font color to white when dark mode is active
+- [UI] Change BAM widget background font color to white when dark mode is active
 - [Configuration] Refresh the BAM configuration page when adding a new BA
 
 ### 22.04.1
