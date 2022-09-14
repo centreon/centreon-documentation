@@ -8,6 +8,61 @@ import TabItem from '@theme/TabItem';
 
 ## 2022
 
+### September
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**AWS Discover**](../procedures/cloud-aws-cloudwatch-discover.md) - Add unified AWS host discovery and add assume-role support - Status:stable - centreon-pack-cloud-aws-cloudwatch-discover-22.09.0-1
+- [**Azure Management Costs**](../procedures/cloud-azure-management-costs.md) - New Pack to monitor Azure budgets consumptions - Status:stable - centreon-pack-cloud-azure-management-costs-22.09.0-1
+- [**Cisco Umbrella**](../procedures/network-cisco-umbrella-snmp.md) - Add Cisco Umbrella Pack - Status:stable - centreon-pack-network-cisco-umbrella-snmp-22.09.0-1
+- [**Dell VxRail Manager Rest API**](../procedures/hardware-servers-dell-vxm-restapi.md) - Add VxRail Manager Pack - Status:stable - centreon-pack-hardware-servers-dell-vxm-restapi-22.08.2-1
+- [**Fortinet Fortigate Rest API**](../procedures/network-fortinet-fortigate-restapi.md) - Add monitoring Pack to monitor Fortinet using Rest API - Status:stable - centreon-pack-network-fortinet-fortigate-restapi-22.09.0-1
+- [**HP Moonshot SNMP**](../procedures/network-hp-moonshot-snmp.md) - network-hp-moonshot-snmp - initial release - Status:stable - centreon-pack-network-hp-moonshot-snmp-22.09.0-1
+- [**IICS Rest API**](../procedures/cloud-iics-restapi.md) - Add Informatica Intelligent Cloud Services Pack - Status:stable - centreon-pack-cloud-iics-restapi-22.09.0-1
+- [**Netgear SSeries SNMP**](../procedures/network-netgear-sseries-snmp.md) - Add Netgear sseries switches Pack - Status:stable - centreon-pack-network-netgear-sseries-snmp-22.08.0-1
+- [**Node Exporter Windows Metrics**](../procedures/applications-monitoring-node-exporter-windows.md) - Adding Windows node exporter Pack - Status:stable - centreon-pack-applications-monitoring-node-exporter-windows-22.08.0-1
+- [**Office 365 Azure AD**](../procedures/cloud-microsoft-office365-azuread.md) - Add AzureAD Pack (graphapi) - Status:stable - centreon-pack-cloud-microsoft-office365-azuread-22.08.0-1
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**Alcatel OXE**](../procedures/hardware-telephony-alcatel-oxe-snmp.md) - Add new service Trunk and new metrics to Domain-Usage - Status:stable - centreon-pack-hardware-telephony-alcatel-oxe-snmp-22.08.0-1
+- [**Amazon EC2**](../procedures/cloud-aws-ec2.md) - Adding platformDetails attribute in EC2 discovery - Status:stable - centreon-pack-cloud-aws-ec2-22.08.0-1
+- [**Azure Recovery**](../procedures/cloud-azure-management-recovery.md) - Add command option to filter on period for Azure backup job status - Status:stable - centreon-pack-cloud-azure-management-recovery-22.09.0-1
+- [**Azure Recovery**](../procedures/cloud-azure-management-recovery.md) - Add site replication service - Status:stable - centreon-pack-cloud-azure-management-recovery-22.09.0-1
+- [**Cisco Standard**](../procedures/network-cisco-standard-snmp.md) - Add BGP modes with IPv6 support - Status:stable - centreon-pack-network-cisco-standard-snmp-22.08.1-1
+- [**Efficient IP**](../procedures/network-efficientip-snmp.md) - Add SOLID server service template - Status:stable - centreon-pack-network-efficientip-snmp-22.09.0-1
+- [**HP 3PAR SSH**](../procedures/hardware-storage-hp-3par-ssh.md) - Add services afc, cages, capacity, nodes to HP 3par SSH Pack - Status:stable - centreon-pack-hardware-storage-hp-3par-ssh-22.09.0-1
+- [**HTTP Server**](../procedures/applications-protocol-http.md) - Add Collection service template - Status:stable - centreon-pack-applications-protocol-http-22.09.0-1
+- [**IBM AS400 Connector**](../procedures/operatingsystems-as400-connector.md) - Add FILTERSTATUS capability to Jobs check - Status:stable - centreon-pack-operatingsystems-as400-connector-22.08.0-1
+- [**OneAccess SNMP**](../procedures/network-oneaccess-snmp.md) - Add new rtt-probes service - Status:stable - centreon-pack-network-oneaccess-snmp-22.09.0-1
+- [**Prometheus Server**](../procedures/cloud-prometheus-api.md) - Add discovery rule for Prometheus targets - Status:stable - centreon-pack-cloud-prometheus-api-22.08.0-1
+- [**VMware ESX**](../procedures/virtualization-vmware2-esx.md) - Add a new "tags" attributes in discovery results - Status:stable - centreon-pack-virtualization-vmware2-esx-22.09.0-1
+- [**VMware VM**](../procedures/virtualization-vmware2-vm.md) - Add a new "tags" attributes in discovery results - Status:stable - centreon-pack-virtualization-vmware2-vm-22.09.0-1
+
+</TabItem>
+<TabItem value="Breaking changes" label="Breaking changes">
+
+- [**Azure Virtual Machine**](../procedures/cloud-azure-compute-virtualmachine.md) - Upgrage Packs Azure VM, Expressroute, VPN Gateway to use latest guidelines - Status:stable - centreon-pack-cloud-azure-compute-virtualmachine-22.08.0-1
+- [**Azure Discover**](../procedures/cloud-azure-management-discover.md) - Upgrage Packs Azure VM, Expressroute, VPN Gateway to use latest guidelines - Status:stable - centreon-pack-cloud-azure-management-discover-22.08.0-1
+- [**Azure ExpressRoute**](../procedures/cloud-azure-network-expressroute.md) - Upgrage Packs Azure VM, Expressroute, VPN Gateway to use latest guidelines - Status:stable - centreon-pack-cloud-azure-network-expressroute-22.08.0-1
+- [**Azure VPN Gateway**](../procedures/cloud-azure-network-vpngateway.md) - Upgrage Packs Azure VM, Expressroute, VPN Gateway to use latest guidelines - Status:stable - centreon-pack-cloud-azure-network-vpngateway-22.08.0-1
+- [**Oracle Database**](../procedures/applications-databases-oracle.md) - Add more thresholds to fra-usage service - Status:stable - centreon-pack-applications-databases-oracle-22.09.0-1
+
+</TabItem>
+<TabItem value="Fix" label="Fix">
+
+- [**Azure Virtual Machine**](../procedures/cloud-azure-compute-virtualmachine.md) - Remove deprecated VM-State service template - Status:stable - centreon-pack-cloud-azure-compute-virtualmachine-22.09.0-1
+- [**Huawei**](../procedures/network-huawei-snmp.md) - Make regex more restrictive when using interface discovery scan - Status:stable - centreon-pack-network-huawei-snmp-22.08.0-1
+- [**IBM AS400 Connector**](../procedures/operatingsystems-as400-connector.md) - Fix typo in AS400-Command command thresholds - Status:stable - centreon-pack-operatingsystems-as400-connector-22.09.1-1 
+- [**IP-Label Ekara Rest API**](../procedures/applications-monitoring-iplabel-ekara-restapi.md) - Discovery provider didn't obfuscate correctly sensitive macros - Status:stable - centreon-pack-applications-monitoring-iplabel-ekara-restapi-22.08.0-1
+- [**Kadiska Rest API**](../procedures/applications-monitoring-kadiska-restapi.md) - Fix outdated command option for nettracer mode - Status:stable - centreon-pack-applications-monitoring-kadiska-restapi-22.08.0-1
+- [**Silverpeak**](../procedures/network-silverpeak-snmp.md) - Fix Uptime command thresholds - Status:stable - centreon-pack-network-silverpeak-snmp-22.08.0-1
+
+</TabItem>
+</Tabs>
+
 ### July 
 
 <Tabs groupId="sync">

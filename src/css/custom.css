@@ -27,10 +27,6 @@ html[data-theme="dark"] .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
-.iconLanguage_3vod {
-  display: none !important;
-}
-
 .dropdown__menu {
   min-width: fit-content !important;
   text-align: right !important;
@@ -147,7 +143,7 @@ html[data-theme="dark"] .tabs__item--active {
   content: none;
 }
 
-.iconLanguage_EbrZ {
+svg[class^="iconLanguage"] {
   display: none;
 }
 

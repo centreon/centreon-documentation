@@ -628,6 +628,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-aws-cloudwatch-discover'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-aws-cloudwatchlogs'
         },
         {
@@ -717,6 +721,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-azure-management-automation'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-azure-management-costs'
         },
         {
           type: 'doc',
