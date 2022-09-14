@@ -47,8 +47,8 @@ Now that you have defined the objectives, let's start showing you how to make it
 
 ### The view designer's workspace
 
-Connect to your Centreon MAP server using the desktop client, the following
-workspace environment appears (empty). To illustrate the explanation, we've
+Connect to your Centreon MAP server using the desktop client. The following
+workspace environment should appear empty. To illustrate the explanation, we've
 opened a view. By default, no view is opened.
 
 ![image](../assets/graph-views/tuto_workspace.png)
