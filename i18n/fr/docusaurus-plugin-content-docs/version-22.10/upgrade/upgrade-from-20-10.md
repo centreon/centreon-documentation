@@ -395,22 +395,22 @@ associée](../service-mapping/upgrade.md) pour le mettre à jour.
 
 1. Montée de version des extensions :
 
-    Depuis le menu **Administration > Extensions > Gestionnaire**, mettez à jour
-    toutes les extensions, en commençant par les suivantes :
+   Depuis le menu **Administration > Extensions > Gestionnaire**, mettez à jour
+   toutes les extensions, en commençant par les suivantes :
 
-    - License Manager,
-    - Plugin Packs Manager,
-    - Auto Discovery.
+   - License Manager,
+   - Plugin Packs Manager,
+   - Auto Discovery.
 
-    Vous pouvez alors mettre à jour toutes les autres extensions commerciales.
+   Vous pouvez alors mettre à jour toutes les autres extensions commerciales.
 
 2. [Déployer la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
 
 3. Redémarrez les processus Centreon :
 
-    ```shell
-    systemctl restart cbd centengine centreontrapd gorgoned
-    ```
+   ```shell
+   systemctl restart cbd centengine centreontrapd gorgoned
+   ```
 
 ## Montée de version des Remote Servers
 

@@ -187,7 +187,7 @@ associée](../service-mapping/upgrade.md) pour le mettre à jour.
    - Plugin Packs Manager,
    - Auto Discovery.
 
-    Vous pouvez alors mettre à jour toutes les autres extensions commerciales.
+   Vous pouvez alors mettre à jour toutes les autres extensions commerciales.
 
 2. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
 
