@@ -20,7 +20,7 @@ and services. This guarantees a better reaction time in case of outage and
 optimizes MTRS (Mean Time to Restore Service).
 
 This tutorial shows you how to create views using Centreon MAP.
-After reading this article, you will have discovered Centreon MAP main features
+After reading this article, you will have discovered Centreon MAP's main features
 and you will be able to create views that meet your technical or business users'
 needs.
 
