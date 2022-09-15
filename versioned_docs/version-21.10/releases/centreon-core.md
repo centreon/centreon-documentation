@@ -319,7 +319,7 @@ By:
 - Move to PHP 8.0
 - Preparing Debian 11 support
 
-##  Centreon Collect
+## Centreon Collect
 
 ### 21.10.2
 
