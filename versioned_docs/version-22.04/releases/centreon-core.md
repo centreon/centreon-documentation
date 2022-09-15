@@ -34,7 +34,7 @@ If you have feature requests or want to report a bug, please go to our
 - [Install] Fixed Centreon Web installation using sources and silent mode
 - [Install] Fixed default PHP-FPM configuration on Debian
 - [Resources Status] Fixed the "Alias" tile that was not displayed in details panel
-- [Resources Status] Fixed the broken link to host right panel
+- [Resources Status] Fixed broken link to host right panel
 - [UI] Fixed HTML code appearing instead of SVG icon with Firefox
 - [UI] Fixed french typo in OpenID Connect configuration form
 - [UI] Fixed untranslated label in Resources Status
