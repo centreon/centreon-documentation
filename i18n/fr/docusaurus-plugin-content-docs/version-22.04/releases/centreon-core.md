@@ -27,7 +27,7 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 - [Administration] Fixed selection of options in second select box in ACL Group configuration page
 - [Authentication] Fixed contact_location when creating a session from OpenId Connect which made it impossible to access MBI jobs
 - [Configuration] Fixed an error in the Configuration > Services > Templates menu causing HTML code to be displayed
-- [Configuration] Fixed duplication of a Remote Server
+- [Configuration] Fixed error that occurred when duplicating a Remote Server
 - [Core] Correct escapeSecure usage
 - [Core] Fixed database partitioning for Aurora DBMS
 - [Install] Fixed Centreon Web installation using sources and silent mode
