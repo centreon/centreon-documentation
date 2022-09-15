@@ -3,7 +3,7 @@ id: introduction
 title: Introduction to the migration process
 ---
 
-Migration procedures apply when your Centreon platform is installed on an unsupported OS and you wish to install it on a [supported OS](../installation/prerequisites.md#operating-systems). You need to install a new OS and a new Centreon platform, then migrate your old data to the new platform.
+Migration procedures apply when you wish to install your Centreon on a different OS (typically, to change from an unsupported OS to a [supported OS](../installation/prerequisites.md#operating-systems)). You need to install a new OS and a new Centreon platform, then migrate your old data to the new platform.
 
 If you just want to switch to a newer version of Centreon and your current platform is already installed on a supported OS, use the [upgrade procedures](../upgrade/introduction.md) instead.
 
