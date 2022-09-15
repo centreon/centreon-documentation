@@ -89,11 +89,13 @@ If you have installed Business extensions, update the Business repository to ver
 Visit the [support portal](https://support.centreon.com/s/repositories) to get its address.
 
 Stop the Centreon Broker process:
+
 ```shell
 systemctl stop cbd
 ```
 
 Delete existing retention files:
+
 ```shell
 rm /var/lib/centreon-broker/* -f
 ```
@@ -118,7 +120,7 @@ This section only applies if you customized your Apache configuration. When upgr
 
 Run a diff between the old and the new Apache configuration files:
 
-```
+```shell
 diff -u /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf.rpmnew
 ```
 
@@ -134,6 +136,7 @@ For each difference between the files, assess whether you should copy it from **
 
 Before starting the web upgrade process, reload the Apache server with the
 following command:
+
 ```shell
 systemctl reload httpd
 ```
@@ -143,6 +146,7 @@ systemctl reload httpd
 
 Before starting the web upgrade process, reload the Apache server with the
 following command:
+
 ```shell
 systemctl reload httpd24-httpd
 ```
