@@ -32,7 +32,7 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 - [Core] Fixed database partitioning for Aurora DBMS
 - [Install] Fixed Centreon Web installation using sources and silent mode
 - [Install] Fixed default PHP-FPM configuration on Debian
-- [Resources Status] Fixed the "Alias" tile that was not displayed in detail panel for 22.04
+- [Resources Status] Fixed the "Alias" tile that was not displayed in the details panel
 - [Resources Status] Fixed the broken link to host right panel
 - [UI] Fixed HTML code appearing instead of svg icon with Firefox
 - [UI] Fixed french typo in OpenID Connect configuration form
