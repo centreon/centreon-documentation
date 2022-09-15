@@ -55,7 +55,7 @@ If you have feature requests or want to report a bug, please go to our
 - [Configuration] Sanitized and bound queries in service host categories file
 - [Configuration] Sanitized and bound queries in servicegroup_dependency file
 - [Configuration] Sanitized and bound templates of service listing queries
-- [Monitoring] Fixed XSS vulnerability reflected in deprecated services status details page
+- [Monitoring] Fixed XSS vulnerability in deprecated services status details page
 - [Upgrade] Sanitized and bound queries in update-22.04.0-beta.1 file
 
 ### 22.04.4
