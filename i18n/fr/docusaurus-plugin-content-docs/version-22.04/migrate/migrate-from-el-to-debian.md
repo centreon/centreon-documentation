@@ -158,6 +158,8 @@ apt install centreon-pack*
 apt install centreon-plugin-\*
 ```
 
+Sous Debian, le répertoire des plugins Nagios (qui exécutent par exemple la commande **check_icmp**) est **/usr/lib/nagios/plugins/**. Allez à la page **Configuration > Collecteurs > Ressources** et vérifiez que le chemin de la macro **$USER1$** est bien **/usr/lib/nagios/plugins/**.
+
 Si vous utilisez vos propres plugins personnalisés, synchronisez les répertoires qui contiennent ceux-ci, ainsi que toutes éventuelles dépendances.
 
 ### Étape 5 : Montée de version de la solution Centreon
