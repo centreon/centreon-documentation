@@ -27,7 +27,7 @@ If you have feature requests or want to report a bug, please go to our
 
 - [Administration] Fixed selection of options in second select box in ACL Group configuration page
 - [Authentication] Fixed contact_location when creating a session from OpenId Connect which made it impossible to access MBI jobs
-- [Configuration] Fixed an error in the Configuration > Services > Templates menu causing display of HTML code
+- [Configuration] Fixed an error in the Configuration > Services > Templates menu causing HTML code to be displayed
 - [Configuration] Fixed duplication of a Remote Server
 - [Core] Correct escapeSecure usage
 - [Core] Fixed database partitioning for Aurora DBMS
