@@ -21,7 +21,7 @@ If you have feature requests or want to report a bug, please go to our
 
 #### Enhancements
 
-- [UX] Improved usability to access logs and reports button in details panel
+- [UX] Improved usability when accessing logs and reports button in details panel
 
 #### Bug fixes
 
