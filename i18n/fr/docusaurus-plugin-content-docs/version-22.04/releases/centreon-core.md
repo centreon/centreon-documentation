@@ -20,7 +20,7 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 #### Enhancements
 
-- [UX] Improved usability to access logs and reports button in details panel
+- [UX] Improved usability when accessing logs and reports button in details panel
 
 #### Bug fixes
 
