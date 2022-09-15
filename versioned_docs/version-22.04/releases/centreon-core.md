@@ -38,7 +38,7 @@ If you have feature requests or want to report a bug, please go to our
 - [UI] Fixed HTML code appearing instead of svg icon with Firefox
 - [UI] Fixed french typo in OpenID Connect configuration form
 - [UI] Fixed untranslated label in Resources Status
-- [Widgets] Retrieve possibility to not select poller in preferences
+- [Widgets] Restored possibility to not select a poller in preferences
 
 #### Security fixes
 
