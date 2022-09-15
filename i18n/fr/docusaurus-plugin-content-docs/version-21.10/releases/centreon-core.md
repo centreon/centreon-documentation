@@ -320,6 +320,56 @@ By:
 
 ##  Centreon Collect
 
+### 21.10.3
+
+Release date: ``
+
+### Centreon Engine
+
+##### Improvements
+
+- Improve security of the gRPC API by listening on 127.0.0.1 by default
+
+### Centreon Broker
+
+##### Improvements
+
+- Improve security of the gRPC API by listening on 127.0.0.1 by default
+- Allow empty strings for parameter values in stream connectors
+
+##### Bug fixes
+
+- Fixed an issue that caused the RRD rebuild mechanism to fail
+- Fixed an issue that caused BAM Business activities with “Ignore the indicator in the calculation” as planned downtime calculation method to stop ignoring downtimed KPIs when they had overlapping downtimes
+- Fixed a bug causing Broker to ignore additional arguments
+- [Configuration] Extended the size of the URL, Notes and Action URL fields to avoid truncating long URLs
+
+
+### 21.10.3
+
+Release date: ``
+
+### Centreon Engine
+
+##### Improvements
+
+- Improve security of the gRPC API by listening on 127.0.0.1 by default
+
+### Centreon Broker
+
+##### Improvements
+
+- Improve security of the gRPC API by listening on 127.0.0.1 by default
+- Allow empty strings for parameter values in stream connectors
+
+##### Bug fixes
+
+- Fixed an issue that caused the RRD rebuild mechanism to fail
+- Fixed an issue that caused BAM Business activities with “Ignore the indicator in the calculation” as planned downtime calculation method to stop ignoring downtimed KPIs when they had overlapping downtimes
+- Fixed a bug causing Broker to ignore additional arguments
+- [Configuration] Extended the size of the URL, Notes and Action URL fields to avoid truncating long URLs
+
+
 ### 21.10.2
 
 Release date: `June 15, 2022`
