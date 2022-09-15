@@ -37,7 +37,7 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 - [UI] Fixed HTML code appearing instead of svg icon with Firefox
 - [UI] Fixed french typo in OpenID Connect configuration form
 - [UI] Fixed untranslated label in Resources Status
-- [Widgets] Retrieve possibility to not select poller in preferences
+- [Widgets] Restored possibility to not select a poller in preferences
 
 #### Security fixes
 
