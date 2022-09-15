@@ -159,7 +159,7 @@ apt install centreon-pack*
 apt install centreon-plugin-\*
 ```
 
-On Debian, the Nagios plugins directory (that runs commands like **check_icmp**) is **/usr/lib/nagios/plugins/**. Go to **Configuration > Pollers > Resources** and check that the path to the **$USER1$** macro is **/usr/lib/nagios/plugins/**.
+On Debian, the Nagios plugins directory (plugins that run commands like **check_icmp**) is **/usr/lib/nagios/plugins/**. Go to **Configuration > Pollers > Resources** and check that the path to the **$USER1$** macro is **/usr/lib/nagios/plugins/**.
 
 If you are using custom plugins, synchronize the directories that contain your custom plugins, including any necessary dependencies.
 
