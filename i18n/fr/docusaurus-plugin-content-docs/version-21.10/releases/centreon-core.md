@@ -339,6 +339,7 @@ Release date: ``
 
 ##### Bug fixes
 
+- Fixed an issue causing pollers to be displayed as running, and resources to be displayed in Resources Status after stopping centengine
 - Fixed an issue that caused the RRD rebuild mechanism to fail
 - Fixed an issue that caused BAM Business activities with “Ignore the indicator in the calculation” as planned downtime calculation method to stop ignoring downtimed KPIs when they had overlapping downtimes
 - Fixed a bug causing Broker to ignore additional arguments
