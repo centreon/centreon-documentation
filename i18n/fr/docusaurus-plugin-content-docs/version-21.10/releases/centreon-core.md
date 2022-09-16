@@ -330,7 +330,7 @@ Release date: ``
 
 - Improved security of the gRPC API by listening on 127.0.0.1 by default
 
-### Centreon Broker
+#### Centreon Broker
 
 ##### Improvements
 
