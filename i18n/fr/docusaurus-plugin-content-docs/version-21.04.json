@@ -36,7 +36,7 @@
     "description": "The label for category Secure your platform in sidebar docs"
   },
   "sidebar.docs.category.Monitoring resources": {
-    "message": "Superviser des hôtes",
+    "message": "Superviser des ressources",
     "description": "The label for category Monitoring resources in sidebar docs"
   },
   "sidebar.docs.category.Monitoring basics": {
