@@ -587,12 +587,12 @@
           "type": "doc",
           "id": "version-22.04/graph-views/introduction"
         },
+      {
+        "type": "category",
+      "label": "Use MAP Legacy",
+      "items": [
         {
-          "type": "category",
-          "label": "Guide",
-          "items": [
-            {
-              "type": "doc",
+                        "type": "doc",
               "id": "version-22.04/graph-views/create-standard-view"
             },
             {
@@ -611,7 +611,7 @@
         },
         {
           "type": "category",
-          "label": "Administrate",
+          "label": "Administrate MAP Legacy",
           "items": [
             {
               "type": "doc",
@@ -650,9 +650,53 @@
               "id": "version-22.04/graph-views/troubleshooter"
             }
           ]
-        }
-      ]
-    },
+        },
+        {
+              "type": "category",
+            "label": "Use MAP Web",
+            "items": [
+            {
+              "type": "doc",
+              "id": "version-22.04/graph-views/map-web-install"
+            }
+          ]
+        },
+        {
+        "type": "category",
+      "label": "Administrate MAP Web",
+      "items": [
+        {
+        "type": "doc",
+        "id": "version-22.04/graph-views/map-web-install"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.04/graph-views/map-web-install-remote"
+          },
+          {
+            "type": "doc",
+            "id": "version-22.04/graph-views/map-web-update"
+            },
+        {
+            "type": "doc",
+            "id": "version-22.04/graph-views/import-into-map-web"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/graph-views/map-web-configuration"
+              },
+              {
+                "type": "doc",
+                "id": "version-22.04/graph-views/map-web-known-issues"
+                },
+                {
+                  "type": "doc",
+                  "id": "version-22.04/graph-views/map-web-troubleshooting"
+                  }
+        ]   
+    }
+  ]
+},
     {
       "type": "category",
       "label": "Reporting",
