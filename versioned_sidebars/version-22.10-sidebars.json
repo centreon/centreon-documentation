@@ -291,29 +291,7 @@
         },
         {
           "type": "category",
-          "label": "Managing users/contacts",
-          "items": [
-            {
-              "type": "doc",
-              "id": "version-22.10/monitoring/basic-objects/contacts"
-            },
-            {
-              "type": "doc",
-              "id": "version-22.10/monitoring/basic-objects/contacts-create"
-            },
-            {
-              "type": "doc",
-              "id": "version-22.10/monitoring/basic-objects/contacts-templates"
-            },
-            {
-              "type": "doc",
-              "id": "version-22.10/administration/access-control-lists"
-            }
-          ]
-        },
-        {
-          "type": "category",
-          "label": "Organizing hosts, services and contacts",
+          "label": "Organizing hosts and services",
           "items": [
             {
               "type": "doc",
@@ -488,6 +466,32 @@
               "id": "version-22.10/alerts-notifications/ticketing"
             }
           ]
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Managing Centreon users",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-22.10/monitoring/basic-objects/contacts"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.10/monitoring/basic-objects/contacts-create"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.10/monitoring/basic-objects/contacts-templates"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.10/monitoring/basic-objects/contacts-groups"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.10/administration/access-control-lists"
         }
       ]
     },
