@@ -359,7 +359,7 @@ Release date: ``
 
 ##### Improvements
 
-- Improve security of the gRPC API by listening on 127.0.0.1 by default
+- Improved security of the gRPC API by listening on 127.0.0.1 by default
 - Allow empty strings for parameter values in stream connectors
 
 ##### Bug fixes
