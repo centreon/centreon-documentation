@@ -3,7 +3,7 @@ id: remote-server
 title: Install on a remote server
 ---
 
-## Installation of Centreon MAP for a Centreon Remote Server
+## Installation of Centreon MAP for a Centreon remote server
 
 Installation of Centreon MAP extension on a Centreon
 remote server has to be done exactly like the installation on a
@@ -39,7 +39,7 @@ Broker output on the Centreon remote server, Centreon MAP can receive
 real time data directly from its Centreon remote server.
 
 To do so, you need to modify the **Centreon Broker Master**
-configuration of the **Centeon Remote poller**. Go to
+configuration of the **Centreon Remote poller**. Go to
 **Configuration > Pollers > Broker configuration** menu and edit the
 remote poller configuration.
 
@@ -55,4 +55,4 @@ To finish the installation, generate, export the configuration and
 On a remote poller, you can uninstall **Centreon MAP** module the same
 way as on the Centreon server central. All Centreon Broker configuration for the Centreon remote server linked to the Centreon
 MAP module have to be manually removed. Look at the [Centreon Broker configuration](#centreon-broker-configuration) section above to
-know what output you need to delete for your Centreon Remote Server(s).
+know what output you need to delete for your Centreon remote server(s).
