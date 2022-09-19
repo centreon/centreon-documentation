@@ -7,7 +7,7 @@ title: Installer MAP sur un serveur distant
 
 L'installation de l'extension **Centreon MAP** sur un **serveur distant Centreon** doit se faire exactement comme l'installation sur un serveur central, seules la configuration et la désinstallation sont différentes.
 
-Si votre serveur distant Centreon n'a pas encore été installé, veuillez vous référer à la [documentation](https://documentation.centreon.com/docs/centreon/en/latest/administration_guide/poller/install_remote_server) suivante.
+Si votre serveur distant Centreon n'a pas encore été installé, veuillez vous référer à la [documentation](../installation/installation-of-a-remote-server/using-packages.md) suivante.
 
 Reportez-vous ensuite à la [procédure d'installation](install.md) pour installer les 2 composants principaux :
 
