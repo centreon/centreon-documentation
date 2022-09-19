@@ -1,13 +1,13 @@
 ---
 id: contacts-create
-title: Creating contacts manually
+title: Creating contacts/users manually
 ---
 
-To create a contact, go to **Configuration > Users > Contacts/Users**, then click **Add**.
+To create a user, go to **Configuration > Users > Contacts/Users**, then click **Add**.
 
 ![image](../../assets/configuration/06useradd.png)
 
-To display the matrix of notification of a contact, click on **View contact notifications** next to the **Add** menu).
+To display the matrix of notifications for a user, click on **View contact notifications** next to the **Add** menu).
 
 ## General information
 

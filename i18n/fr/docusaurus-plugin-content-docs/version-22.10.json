@@ -36,7 +36,7 @@
     "description": "The label for category Secure your platform in sidebar docs"
   },
   "sidebar.docs.category.Monitoring resources": {
-    "message": "Superviser des hôtes",
+    "message": "Superviser des ressources",
     "description": "The label for category Monitoring resources in sidebar docs"
   },
   "sidebar.docs.category.Monitoring basics": {
@@ -55,13 +55,13 @@
     "message": "Auto-découverte d'hôtes et de services",
     "description": "The label for category Discovering hosts and services automatically in sidebar docs"
   },
-  "sidebar.docs.category.Managing users/contacts": {
-    "message": "Gérer les utilisateurs/contacts",
-    "description": "The label for category Managing users/contacts in sidebar docs"
+  "sidebar.docs.category.Managing Centreon users": {
+    "message": "Gérer les utilisateurs de Centreon",
+    "description": "The label for category Managing Centreon users in sidebar docs"
   },
-  "sidebar.docs.category.Organizing hosts, services and contacts": {
-    "message": "Organiser les hôtes, services et contacts",
-    "description": "The label for category Organizing hosts, services and contacts in sidebar docs"
+  "sidebar.docs.category.Organizing hosts and services": {
+    "message": "Organiser hôtes et services",
+    "description": "The label for category Organizing hosts and services in sidebar docs"
   },
   "sidebar.docs.category.Basic objects and actions": {
     "message": "Objets et actions de base",

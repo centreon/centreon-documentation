@@ -3,13 +3,7 @@ id: groups
 title: Groupes
 ---
 
-## Description
-
-Au sein de Centreon, il est possible de regrouper un ou plusieurs objets au sein de différents groupes :
-
-* Les groupes d'hôtes
-* Les groupes de services
-* Les groupes de contacts
+Il est possible de regrouper des hôtes ou des services au sein de groupes.
 
 D’une manière générale, les groupes sont des conteneurs permettant de regrouper un ensemble d’objets possédant une
 propriété commune :
@@ -17,8 +11,6 @@ propriété commune :
 * Même identité matérielle (serveurs Dell, HP, IBM, ...), identité logique (équipements réseau) ou identité géographique
   (Europe, Asie, Afrique, Amérique du nord, ...)
 * Appartenance à une même application (application CMS, ...) ou à un même secteur d’activité (Gestion de la paie, ...)
-
-### Les groupes d’hôtes et de services
 
 Les groupes d’hôtes et de services sont utilisés pour :
 
@@ -35,19 +27,6 @@ Les groupes d’hôtes et de services sont utilisés pour :
 > d’hôtes auquel il appartient. Cette définition vient surcharger la définition globale. Dans le cas où un même hôte
 > appartient à plusieurs groupes possédant chacun une définition de rétention, la valeur la plus élevée sera
 > sélectionnée pour l’hôte.
-
-### Les groupes de contacts
-
-Les groupes de contacts sont utilisés pour pouvoir notifier des contacts :
-
-* Lors de la définition d’un hôte ou d’un service
-* Lors de la définition d’une escalade de notifications
-
-De plus, les groupes de contacts sont également utilisés lors de la définition d’un [groupe d’accès](../administration/access-control-lists.md#créer-un-groupe-daccès).
-
-Par conséquent, il est nécessaire de regrouper les contacts d’une manière logique. La plupart du temps, ils sont regroupés
-suivant leurs rôles au sein du système d’information. Exemple : DSI, Administrateurs Windows, Administrateurs Linux,
-Responsable de l’application de gestion de la paie...
 
 ## Créer un groupes d’hôtes
 
@@ -82,15 +61,3 @@ Rendez-vous dans le menu **Configuration > Services > Service Groups** et clique
   ce modèle appartiennent à ce groupe.
 * Les champs  **Status** et **Comments** permettent d’activer ou de désactiver le groupe de services et de commenter
   celui-ci.
-
-## Créer un groupe de contacts
-
-Rendez-vous dans le menu **Configuration > Users > Contact Groups** et cliquez sur **Add**.
-
-![image](../assets/configuration/07contactgroup.png)
-
-* Les champs **Contact Group Name** et **Alias** éfinissent le nom et la description du groupe de contacts.
-* La liste **Linked Contacts** permet d’ajouter les contacts au groupe de contacts.
-* Les champs **Status** et **Comment** permettent d’activer ou de désactiver le groupe de contacts et de commenter
-  celui-ci.
-

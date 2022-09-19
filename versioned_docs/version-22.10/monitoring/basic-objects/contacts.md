@@ -1,13 +1,13 @@
 ---
 id: contacts
-title: Contacts
+title: Contacts/Users
 ---
 
-In Centreon, contacts can:
+In Centreon, users can:
 
 * Receive [notifications](../../alerts-notifications/notif-configuration.md).
-* Log in to the Centreon web interface: each contact has its own [rights](../../administration/access-control-lists.md) to connect to the web interface.
+* Log in to the Centreon web interface: each user has its own [rights](../../administration/access-control-lists.md) to connect to the web interface.
 
 You can:
-- [Create contacts manually](contacts-create.md).
+- [Create users manually](contacts-create.md).
 - [Connect your Centreon to an LDAP directory](../../administration/parameters/ldap.md).
