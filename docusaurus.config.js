@@ -51,15 +51,19 @@ const config = {
             },
             '21.10': {
               label: '21.10',
+              banner:'none',
             },
             21.04: {
               label: '21.04',
+              banner:'none',
             },
             '20.10': {
               label: '20.10',
+              banner:'unmaintained',
             },
             20.04: {
               label: '20.04',
+              banner:'unmaintained',
             },
           },
         },
