@@ -75,6 +75,7 @@ discovery results could look like:
   - **Enable hosts already added to configuration if they are discovered but disabled**: hosts that have already been added to the configuration but are in a disabled state will be enabled again.
   - **Export and reload pollers configuration**: once the hosts have been created or updated, the [configuration will be deployed](../monitoring-servers/deploying-a-configuration.md) automatically, which means that the hosts will be monitored or updated immediately, without any need for manual action.
   - **Update existing hosts**: if you modify the mappers and run the job again, existing hosts will be updated (see [Edit a discovery job](#edit-a-discovery-job)).
+  - **Do not discover hosts for which mappers apply no template**: if mappers don't apply any template to some hosts, these hosts will not be included in the discovery results. If the box is unchecked, the default template will be applied to these hosts and they will be discovered.
 
   ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-5-2.png)
 
