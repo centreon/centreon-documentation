@@ -39,4 +39,4 @@ Pour terminer l'installation, générez, exportez la configuration et **redémar
 
 ## Désinstallation de Centreon MAP
 
-Sur un serveur distant, vous pouvez désinstaller le module **Centreon MAP** de la même manière que sur le serveur central Centreon. Toutes les configurations de **Centreon Broker** pour le serveur distant Centreon liées au module **Centreon MAP** doivent être supprimées manuellement. Consultez le chapitre ci-dessus pour savoir quelles sorties vous devez supprimer pour votre ou vos serveurs distants Centreon.
+Sur un serveur distant, vous pouvez désinstaller le module **Centreon MAP** de la même manière que sur le serveur central Centreon. Toutes les configurations de **Centreon Broker** pour le serveur distant Centreon liées au module **Centreon MAP** doivent être supprimées manuellement. Consultez la [section ci-dessus](#configuration-de-centreon-broker) pour savoir quelles sorties vous devez supprimer pour votre ou vos serveurs distants Centreon.
