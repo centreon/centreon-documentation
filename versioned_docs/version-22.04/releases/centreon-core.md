@@ -43,6 +43,7 @@ If you have feature requests or want to report a bug, please go to our
 
 #### Security fixes
 
+- [Administration] Sanitized and bound Centreon ACL class queries
 - [CLAPI] Added a check to verify that the user has the admin role
 - [CLAPI] Sanitized and bound CLAPI poller configuration queries
 - [Configuration] Fixed SQLi in poller's resource creation
