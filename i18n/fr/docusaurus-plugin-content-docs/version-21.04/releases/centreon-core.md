@@ -25,7 +25,7 @@ If you have feature requests or want to report a bug, please go to our
 
 - [Configuration] Fixed an error in the Configuration > Services > Templates menu causing HTML code to be displayed
 - [Core] Cleaned code in forMyAccount
-- [Core] Correct escapeSecure usage
+- [Core] Corrected escapeSecure usage
 - [Widgets] Restored possibility to not select a poller in preferences
 
 #### Security fixes
