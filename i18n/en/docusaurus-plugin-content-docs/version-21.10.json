@@ -12,95 +12,91 @@
     "description": "The label for category Installation in sidebar docs"
   },
   "sidebar.docs.category.Installation of a Central server": {
-    "message": "Installer un serveur central",
+    "message": "Installation of a Central server",
     "description": "The label for category Installation of a Central server in sidebar docs"
   },
   "sidebar.docs.category.Installation of a Poller": {
-    "message": "Installer un collecteur",
+    "message": "Installation of a Poller",
     "description": "The label for category Installation of a Poller in sidebar docs"
   },
   "sidebar.docs.category.Installation of a Remote server": {
-    "message": "Installer un Remote Server",
+    "message": "Installation of a Remote server",
     "description": "The label for category Installation of a Remote server in sidebar docs"
   },
   "sidebar.docs.category.Monitoring Servers": {
-    "message": "Serveurs de Supervision",
+    "message": "Monitoring Servers",
     "description": "The label for category Monitoring Servers in sidebar docs"
   },
   "sidebar.docs.category.Installation of Centreon HA": {
-    "message": "Installation de Centreon HA",
+    "message": "Installation of Centreon HA",
     "description": "The label for category Installation of Centreon HA in sidebar docs"
   },
-  "sidebar.docs.category.Installation of a manual Centreon HA": {
-    "message": "Installation de Centreon HA manuelle",
-    "description": "The label for category Installation of Centreon HA manual in sidebar docs"
-  },
   "sidebar.docs.category.Secure your platform": {
-    "message": "Sécurisez votre plate-forme",
+    "message": "Secure your platform",
     "description": "The label for category Secure your platform in sidebar docs"
   },
   "sidebar.docs.category.Monitoring resources": {
-    "message": "Superviser des ressources",
+    "message": "Monitoring resources",
     "description": "The label for category Monitoring resources in sidebar docs"
   },
   "sidebar.docs.category.Monitoring basics": {
-    "message": "Bases de la supervision",
+    "message": "Monitoring basics",
     "description": "The label for category Monitoring basics in sidebar docs"
   },
   "sidebar.docs.category.Monitoring hosts": {
-    "message": "Superviser des hôtes",
+    "message": "Monitoring hosts",
     "description": "The label for category Monitoring hosts in sidebar docs"
   },
   "sidebar.docs.category.Monitoring services": {
-    "message": "Superviser des services",
+    "message": "Monitoring services",
     "description": "The label for category Monitoring services in sidebar docs"
   },
   "sidebar.docs.category.Discovering hosts and services automatically": {
-    "message": "Auto-découverte d'hôtes et de services",
+    "message": "Discovering hosts and services automatically",
     "description": "The label for category Discovering hosts and services automatically in sidebar docs"
   },
   "sidebar.docs.category.Managing users/contacts": {
-    "message": "Gérer les utilisateurs/contacts",
+    "message": "Managing users/contacts",
     "description": "The label for category Managing users/contacts in sidebar docs"
   },
   "sidebar.docs.category.Organizing hosts, services and contacts": {
-    "message": "Organiser les hôtes, services et contacts",
+    "message": "Organizing hosts, services and contacts",
     "description": "The label for category Organizing hosts, services and contacts in sidebar docs"
   },
   "sidebar.docs.category.Basic objects and actions": {
-    "message": "Objets et actions de base",
+    "message": "Basic objects and actions",
     "description": "The label for category Basic objects and actions in sidebar docs"
   },
   "sidebar.docs.category.Detecting anomalies": {
-    "message": "Détecter des anomalies",
+    "message": "Detecting anomalies",
     "description": "The label for category Detecting anomalies in sidebar docs"
   },
   "sidebar.docs.category.Passive Monitoring": {
-    "message": "Supervision Passive",
+    "message": "Passive Monitoring",
     "description": "The label for category Passive Monitoring in sidebar docs"
   },
   "sidebar.docs.category.Managing events and alerts": {
-    "message": "Gérer évènements et alertes",
+    "message": "Managing events and alerts",
     "description": "The label for category Managing events and alerts in sidebar docs"
   },
   "sidebar.docs.category.Viewing events": {
-    "message": "Visualiser les évènements",
+    "message": "Viewing events",
     "description": "The label for category Viewing events in sidebar docs"
   },
   "sidebar.docs.category.Managing alerts": {
-    "message": "Gérer les alertes",
+    "message": "Managing alerts",
     "description": "The label for category Managing alerts in sidebar docs"
   },
   "sidebar.docs.category.Managing notifications": {
-    "message": "Gérer les notifications",
+    "message": "Managing notifications",
     "description": "The label for category Managing notifications in sidebar docs"
   },
   "sidebar.docs.category.Managing tickets": {
-    "message": "Gérer des tickets",
+    "message": "Managing tickets",
     "description": "The label for category Managing tickets in sidebar docs"
   },
   "sidebar.docs.category.Performance graphs": {
-    "message": "Graphiques de performance",
+    "message": "Performance graphs",
     "description": "The label for category Performance graphs in sidebar docs"
   },
   "sidebar.docs.category.Service Mapping": {
@@ -112,11 +108,11 @@
     "description": "The label for category Guide in sidebar docs"
   },
   "sidebar.docs.category.Administrate": {
-    "message": "Administrer",
+    "message": "Administrate",
     "description": "The label for category Administrate in sidebar docs"
   },
   "sidebar.docs.category.Graphical views": {
-    "message": "Vues Graphiques",
+    "message": "Graphical views",
     "description": "The label for category Graphical views in sidebar docs"
   },
   "sidebar.docs.category.Reporting": {
@@ -124,19 +120,19 @@
     "description": "The label for category Reporting in sidebar docs"
   },
   "sidebar.docs.category.Administration": {
-    "message": "Administrer",
+    "message": "Administration",
     "description": "The label for category Administration in sidebar docs"
   },
   "sidebar.docs.category.Parameters": {
-    "message": "Paramètres",
+    "message": "Parameters",
     "description": "The label for category Parameters in sidebar docs"
   },
   "sidebar.docs.category.Configuring the connection to Centreon": {
-    "message": "Paramétrer la connexion à Centreon",
+    "message": "Configuring the connection to Centreon",
     "description": "The label for category Configuring the connection to Centreon in sidebar docs"
   },
   "sidebar.docs.category.Update, Upgrade & Migrate": {
-    "message": "Mettre à Jour, Monter de Version et Migrer",
+    "message": "Update, Upgrade & Migrate",
     "description": "The label for category Update, Upgrade & Migrate in sidebar docs"
   },
   "sidebar.docs.category.Update": {
@@ -151,85 +147,13 @@
     "message": "Migrate",
     "description": "The label for category Migrate in sidebar docs"
   },
-  "sidebar.docs.category.Plugin Packs": {
-    "message": "Plugin Packs",
-    "description": "The label for category Plugin Packs in sidebar docs"
-  },
-  "sidebar.docs.category.Tutorials": {
-    "message": "Tutoriels",
-    "description": "The label for category Tutorials in sidebar docs"
-  },
-  "sidebar.docs.category.Applications": {
-    "message": "Applications",
-    "description": "The label for category Applications in sidebar docs"
-  },
-  "sidebar.docs.category.Blockchain": {
-    "message": "Blockchain",
-    "description": "The label for category Blockchain in sidebar docs"
-  },
-  "sidebar.docs.category.Centreon": {
-    "message": "Centreon",
-    "description": "The label for category Centreon in sidebar docs"
-  },
-  "sidebar.docs.category.Cloud": {
-    "message": "Cloud",
-    "description": "The label for category Cloud in sidebar docs"
-  },
-  "sidebar.docs.category.Database": {
-    "message": "Database",
-    "description": "The label for category Database in sidebar docs"
-  },
-  "sidebar.docs.category.Hardware Server": {
-    "message": "Hardware Server",
-    "description": "The label for category Hardware Server in sidebar docs"
-  },
-  "sidebar.docs.category.Network": {
-    "message": "Network",
-    "description": "The label for category Network in sidebar docs"
-  },
-  "sidebar.docs.category.Operating System": {
-    "message": "Operating System",
-    "description": "The label for category Operating System in sidebar docs"
-  },
-  "sidebar.docs.category.Printer": {
-    "message": "Printer",
-    "description": "The label for category Printer in sidebar docs"
-  },
-  "sidebar.docs.category.Protocol": {
-    "message": "Protocol",
-    "description": "The label for category Protocol in sidebar docs"
-  },
-  "sidebar.docs.category.Sensor": {
-    "message": "Sensor",
-    "description": "The label for category Sensor in sidebar docs"
-  },
-  "sidebar.docs.category.Storage": {
-    "message": "Storage",
-    "description": "The label for category Storage in sidebar docs"
-  },
-  "sidebar.docs.category.Toip Voip": {
-    "message": "Toip Voip",
-    "description": "The label for category Toip Voip in sidebar docs"
-  },
-  "sidebar.docs.category.Ups Pdu": {
-    "message": "Ups Pdu",
-    "description": "The label for category Ups Pdu in sidebar docs"
-  },
-  "sidebar.docs.category.Virtualization": {
-    "message": "Virtualization",
-    "description": "The label for category Virtualization in sidebar docs"
-  },
   "sidebar.docs.category.Integrations": {
-    "message": "Intégrations",
+    "message": "Integrations",
     "description": "The label for category Integrations in sidebar docs"
   },
   "sidebar.docs.category.Data Analytics": {
     "message": "Data Analytics",
     "description": "The label for category Data Analytics in sidebar docs"
-  },
-  "sidebar.docs.category.Digital Experience Monitoring": {
-    "message": "Digital Experience Monitoring",
-    "description": "The label for category Digital Experience Monitoring in sidebar docs"
   },
   "sidebar.docs.category.Event Management": {
     "message": "Event Management",
@@ -248,7 +172,7 @@
     "description": "The label for category Centreon mobile in sidebar docs"
   },
   "sidebar.docs.category.Developer resources": {
-    "message": "Ressources développeur",
+    "message": "Developer resources",
     "description": "The label for category Developer resources in sidebar docs"
   },
   "sidebar.docs.category.Centreon Broker": {
@@ -260,7 +184,7 @@
     "description": "The label for category API in sidebar docs"
   },
   "sidebar.docs.category.Monitoring your platform": {
-    "message": "Supervisez votre plateforme",
+    "message": "Monitoring your platform",
     "description": "The label for category Monitoring your platform in sidebar docs"
   },
   "sidebar.docs.category.Centreon HA": {
@@ -272,15 +196,19 @@
     "description": "The label for category Releases in sidebar docs"
   },
   "sidebar.docs.category.Release notes by component": {
-    "message": "Release note",
+    "message": "Release notes by component",
     "description": "The label for category Release notes by component in sidebar docs"
   },
   "sidebar.docs.category.Security": {
-    "message": "Sécurité",
+    "message": "Security",
     "description": "The label for category Security in sidebar docs"
   },
   "sidebar.docs.category.Resources": {
-    "message": "Ressources",
+    "message": "Resources",
     "description": "The label for category Resources in sidebar docs"
+  },
+  "sidebar.docs.link.Plugin Packs": {
+    "message": "Plugin Packs",
+    "description": "The label for link Plugin Packs in sidebar docs, linking to /pp/integrations/plugin-packs/getting-started/introduction"
   }
 }
