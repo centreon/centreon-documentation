@@ -81,6 +81,41 @@ rm -f ./mariadb_repo_setup
 </TabItem>
 </Tabs>
 
+### Montée de version de PHP
+
+Centreon 22.10 utilise PHP en version 8.1.
+
+<Tabs groupId="sync">
+<TabItem value="RHEL 8" label="RHEL 8">
+
+Vous devez changer le flux PHP de la version 8.0 à 8.1 en exécutant les commandes suivantes et en répondant **y**
+pour confirmer :
+```shell
+dnf module reset php
+dnf module install php:remi-8.1
+```
+
+</TabItem>
+<TabItem value="Alma / Oracle Linux 8" label="Alma / Oracle Linux 8">
+
+Vous devez changer le flux PHP de la version 8.0 à 8.1 en exécutant les commandes suivantes et en répondant **y**
+pour confirmer :
+```shell
+dnf module reset php
+dnf module install php:remi-8.1
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+Vous devez activer le dépôt php 8.1
+```shell
+yum-config-manager --enable remi-php81
+```
+
+</TabItem>
+</Tabs>
+
 ### Montée de version de la solution Centreon
 
 > Assurez-vous que tous les utilisateurs sont déconnectés avant de commencer

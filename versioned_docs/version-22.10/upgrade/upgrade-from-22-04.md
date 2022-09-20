@@ -80,6 +80,41 @@ rm -f ./mariadb_repo_setup
 </TabItem>
 </Tabs>
 
+### Upgrade PHP
+
+Centreon 22.10 uses PHP in version 8.1.
+
+<Tabs groupId="sync">
+<TabItem value="RHEL 8" label="RHEL 8">
+
+You need to change the PHP stream from version 8.0 to 8.1 by executing the following commands and answering **y**
+to confirm:
+```shell
+dnf module reset php
+dnf module install php:remi-8.1
+```
+
+</TabItem>
+<TabItem value="Alma / Oracle Linux 8" label="Alma / Oracle Linux 8">
+
+You need to change the PHP stream from version 8.0 to 8.1 by executing the following commands and answering **y**
+to confirm:
+```shell
+dnf module reset php
+dnf module install php:remi-8.1
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+You need to enable the php 8.1 repository
+```shell
+yum-config-manager --enable remi-php81
+```
+
+</TabItem>
+</Tabs>
+
 ### Upgrade the Centreon solution
 
 > Make sure all users are logged out from the Centreon web interface
