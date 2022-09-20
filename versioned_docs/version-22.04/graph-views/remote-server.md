@@ -53,6 +53,6 @@ To finish the installation, generate, export the configuration and
 ## Uninstalling Centreon MAP
 
 On a remote poller, you can uninstall **Centreon MAP** module the same
-way as on the Centreon server central. All Centreon Broker configuration for the Centreon remote server linked to the Centreon
+way as on the Centreon central server. All Centreon Broker configuration for the Centreon remote server linked to the Centreon
 MAP module have to be manually removed. Look at the [Centreon Broker configuration](#centreon-broker-configuration) section above to
 know what output you need to delete for your Centreon remote server(s).
