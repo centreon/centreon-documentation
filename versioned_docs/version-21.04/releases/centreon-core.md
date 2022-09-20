@@ -21,6 +21,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 21.04.18
 
+Release date: `September 20, 2022`
+
 #### Bug Fixes
 
 - [Configuration] Fixed an error in the Configuration > Services > Templates menu causing HTML code to be displayed
