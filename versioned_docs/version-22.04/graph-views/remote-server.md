@@ -19,7 +19,7 @@ the 2 mains components:
 - The web interface.
 - The server.
 
-After that, you will have to do additional steps explained below, to finish
+After that, you will have to perform the additional steps explained below, to finish
 Centreon Map installation for your Centreon remote server.
 
 ## Images synchronisation
