@@ -133,15 +133,15 @@ on resources (hosts and services) and on the monitoring engines.
 To create an access filter on actions:
 
 1. Go to **Administration > ACL > Actions Access**.
-3. Click **Add**.
+2. Click **Add**.
 
     - The **Action Name** and **Description** fields contain the name of the
     filter and its description
     - In the **Relations** section, use the **Linked Groups** table to grant access groups the rights defined in the filter.
 
-4. Select the options you want (see tables below).
+3. Select the options you want (see tables below).
 
-5. Click **Save**.
+4. Click **Save**.
 
 #### Global Functionalities Access
 
@@ -157,7 +157,7 @@ To create an access filter on actions:
 | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
 | Create and edit pollers | Users can perform **Add**, **Add (advanced)** and **Duplicate** actions on remote servers and pollers  |
 | Delete pollers | Allows users to remove remote servers and pollers from the configuration. This action cannot be undone. Warning: before you delete a poller, check that it is not monitoring any hosts and that **centengine** is stopped. |
-| Deploy configuration Files | Allows users to generate, test and export configuration to remote servers and pollers, and to restart their monitoring engine                           |
+| Deploy configuration files | Allows users to generate, test and export configuration to remote servers and pollers, and to restart their monitoring engine                           |
 | Generate SNMP Trap configuration | Allows users to generate and export configuration of the SNMP traps for the Centreontrapd process on pollers and to restart it |
 
 #### Global Monitoring Engine Actions (External Process Commands)

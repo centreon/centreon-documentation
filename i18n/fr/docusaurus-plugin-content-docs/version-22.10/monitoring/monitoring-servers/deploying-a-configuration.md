@@ -49,7 +49,7 @@ Les différentes options fonctionnent de la manière suivante :
 
 ## Export instantané
 
-Les administrateurs peuvent activer un bouton qui leur permet d'exporter la configuration de TOUS les collecteurs d'un seul coup (c'est-à-dire la configuration du serveur central, des serveurs distants et des collecteurs). Cette fonctionnalité est actuellement en mode bêta.
+Les administrateurs et les utilisateur [disposant des droits nécessaires](#activer-la-fonctionnalité) peuvent activer un bouton qui leur permet d'exporter la configuration de TOUS les collecteurs d'un seul coup (c'est-à-dire la configuration du serveur central, des serveurs distants et des collecteurs).
 
 ### Dans quels cas utiliser la fonctionnalité?
 
@@ -57,12 +57,8 @@ Les administrateurs peuvent activer un bouton qui leur permet d'exporter la conf
 
 ### Activer la fonctionnalité
 
-En mode bêta, seuls les utilisateurs administrateurs ont accès à cette fonctionnalité. 
-
-Pour activer la fonctionnalité :
-1. Allez à la page **Administration > Paramètres > Mon compte**, ou bien cliquez sur l'icône profil dans le bandeau en haut à droite de l'écran puis cliquez sur **Éditer le profil**.
-2. Dans la section **Préférences**, cochez la case **Activer le bouton d’export de la configuration des pollers en un seul clic [BETA]**.
-3. Cliquez sur **Sauvegarder**.
+* Pour les utilisateurs administrateurs, la fonctionnalité est automatiquement activée.
+* Pour rendre la fonctionnalité accessible aux utilisateurs non administrateurs,donnez-leur le droit [**Déployer la configuration**](../../administration/access-control-lists.md#actions-de-configuration-des-collecteurs--gestion-des-collecteurs), et le droit [**Afficher les statistiques des collecteurs dans le bandeau**](../../administration/access-control-lists.md#accès-aux-fonctionnalités-globales).
 
 ### Exporter toutes les configurations
 
