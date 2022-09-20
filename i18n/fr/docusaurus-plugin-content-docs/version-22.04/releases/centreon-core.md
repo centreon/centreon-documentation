@@ -18,6 +18,8 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ### 22.04.5
 
+Release date: `September 20, 2022`
+
 #### Enhancements
 
 - [UX] Improved usability when accessing logs and reports button in details panel
