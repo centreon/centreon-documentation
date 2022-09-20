@@ -19,6 +19,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 21.10.10
 
+Release date: `September 20, 2022`
+
 #### Bug fixes
 
 - [Administration] Fixed selection of options in second select box in ACL Group configuration page
