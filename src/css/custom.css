@@ -51,14 +51,6 @@ html[data-theme="dark"] .docusaurus-highlight-code-line {
   display: none !important;
 }
 
-.alert--warning {
-  display: none !important;
-}
-
-.alert {
-  /*display: none!important;*/
-}
-
 html[data-theme="light"] .DocSearch {
   /* --docsearch-primary-color: var(--ifm-color-primary); */
   /* --docsearch-text-color: var(--ifm-font-color-base); */
