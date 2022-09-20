@@ -30,6 +30,7 @@ If you have feature requests or want to report a bug, please go to our
 #### Security fixes
 
 - [Administration] Applied validation of format with media synchronization
+- [Administration] Sanitized and bound Centreon ACL class queries
 - [CLAPI] Added a check to verify that the user has the admin role
 - [Configuration] Fixed SQLi in poller's resource creation
 - [Configuration] Sanitized and bound queries in centreonConnector file
