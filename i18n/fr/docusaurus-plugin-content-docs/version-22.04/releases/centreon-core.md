@@ -16,6 +16,51 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon Web
 
+### 22.04.5
+
+Release date: `September 20, 2022`
+
+#### Enhancements
+
+- [UX] Improved usability when accessing logs and reports button in details panel
+
+#### Bug fixes
+
+- [Administration] Fixed selection of options in second select box in ACL Group configuration page
+- [Authentication] Fixed contact_location when creating a session from OpenId Connect which made it impossible to access MBI jobs
+- [Configuration] Fixed an error in the Configuration > Services > Templates menu causing HTML code to be displayed
+- [Configuration] Fixed error that occurred when duplicating a Remote Server
+- [Core] Cleaned code in forMyAccount
+- [Core] Corrected escapeSecure usage
+- [Core] Fixed database partitioning for Aurora DBMS
+- [Install] Fixed Centreon Web installation using sources and silent mode
+- [Install] Fixed default PHP-FPM configuration on Debian
+- [Resources Status] Fixed the "Alias" tile that was not displayed in the details panel
+- [Resources Status] Fixed broken link to host right panel
+- [UI] Fixed HTML code appearing instead of SVG icon with Firefox
+- [UI] Fixed french typo in OpenID Connect configuration form
+- [UI] Fixed untranslated label in Resources Status
+- [Widgets] Restored possibility to not select a poller in preferences
+
+#### Security fixes
+
+- [Administration] Sanitized and bound Centreon ACL class queries
+- [CLAPI] Added a check to verify that the user has the admin role
+- [CLAPI] Sanitized and bound CLAPI poller configuration queries
+- [Configuration] Fixed SQLi in poller's resource creation
+- [Configuration] Sanitized and bound Meta Service configuration queries
+- [Configuration] Sanitized and bound command configuration queries
+- [Configuration] Sanitized and bound graph configuration queries
+- [Configuration] Sanitized and bound queries in contactgroup file
+- [Configuration] Sanitized and bound queries in listServiceCategories file
+- [Configuration] Sanitized and bound queries in listVirtualMetrics file
+- [Configuration] Sanitized and bound queries in service argumentsXml file
+- [Configuration] Sanitized and bound queries in service host categories file
+- [Configuration] Sanitized and bound queries in servicegroup_dependency file
+- [Configuration] Sanitized and bound templates of service listing queries
+- [Monitoring] Fixed XSS vulnerability in deprecated services status details page
+- [Upgrade] Sanitized and bound queries in update-22.04.0-beta.1 file
+
 ### 22.04.4
 
 Release date: `September 2, 2022`
