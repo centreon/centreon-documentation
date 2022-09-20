@@ -18,6 +18,8 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ### 21.10.10
 
+Release date: `September 20, 2022`
+
 #### Bug fixes
 
 - [Administration] Fixed selection of options in second select box in ACL Group configuration page
