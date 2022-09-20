@@ -30,7 +30,7 @@ If you have feature requests or want to report a bug, please go to our
 - [Configuration] Fixed an error in the Configuration > Services > Templates menu causing HTML code to be displayed
 - [Configuration] Fixed error that occurred when duplicating a Remote Server
 - [Core] Cleaned code in forMyAccount
-- [Core] Correct escapeSecure usage
+- [Core] Corrected escapeSecure usage
 - [Core] Fixed database partitioning for Aurora DBMS
 - [Install] Fixed Centreon Web installation using sources and silent mode
 - [Install] Fixed default PHP-FPM configuration on Debian
