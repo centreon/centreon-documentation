@@ -66,7 +66,7 @@ rm -f ./mariadb_repo_setup
 
 ### Montée de version de PHP
 
-Centreon 22.10 utilise PHP en version 8.0.
+Centreon 22.10 utilise PHP en version 8.1.
 
 Vous devez tout d'abord installer les dépôts **remi** :
 ```shell
@@ -74,9 +74,9 @@ yum install -y yum-utils
 yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 yum install -y https://rpms.remirepo.net/enterprise/remi-release-7.rpm
 ```
-Ensuite, vous devez activer le dépôt php 8.0
+Ensuite, vous devez activer le dépôt php 8.1
 ```shell
-yum-config-manager --enable remi-php80
+yum-config-manager --enable remi-php81
 ```
 
 ### Montée de version de la solution Centreon

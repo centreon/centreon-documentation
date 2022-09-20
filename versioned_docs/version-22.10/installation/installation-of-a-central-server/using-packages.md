@@ -156,11 +156,11 @@ dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 dnf config-manager --set-enabled 'powertools'
 ```
 
-Enable PHP 8.0 using the following commands:
+Enable PHP 8.1 using the following commands:
 
 ```shell
 dnf module reset php
-dnf module install php:remi-8.0
+dnf module install php:remi-8.1
 ```
 
 </TabItem>
@@ -179,11 +179,11 @@ dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 ```
 
-Enable PHP 8.0 using the following commands:
+Enable PHP 8.1 using the following commands:
 
 ```shell
 dnf module reset php
-dnf module install php:remi-8.0
+dnf module install php:remi-8.1
 ```
 
 </TabItem>
@@ -202,11 +202,11 @@ dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 dnf config-manager --set-enabled ol8_codeready_builder
 ```
 
-Enable PHP 8.0 using the following commands:
+Enable PHP 8.1 using the following commands:
 
 ```shell
 dnf module reset php
-dnf module install php:remi-8.0
+dnf module install php:remi-8.1
 ```
 
 </TabItem>
@@ -233,7 +233,7 @@ Run the following commands:
 yum install -y yum-utils
 yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 yum install -y https://rpms.remirepo.net/enterprise/remi-release-7.rpm
-yum-config-manager --enable remi-php80
+yum-config-manager --enable remi-php81
 ```
 
 </TabItem>
@@ -247,7 +247,7 @@ Install the following dependencies:
 apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2
 ```
 
-#### Add Sury APT repository for PHP 8.0
+#### Add Sury APT repository for PHP 8.1
 
 To install the Sury repository, execute the following command:
 
@@ -619,7 +619,7 @@ echo "date.timezone = Europe/Paris" > /etc/php/8.0/mods-available/centreon.ini
 After saving the file, restart the PHP-FPM service:
 
 ```shell
-systemctl restart php8.0-fpm
+systemctl restart php8.1-fpm
 ```
 
 </TabItem>
@@ -648,7 +648,7 @@ systemctl enable php-fpm httpd24-httpd centreon cbd centengine gorgoned snmptrap
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-systemctl enable php8.0-fpm apache2 centreon cbd centengine gorgoned centreontrapd snmpd snmptrapd
+systemctl enable php8.1-fpm apache2 centreon cbd centengine gorgoned centreontrapd snmpd snmptrapd
 ```
 
 </TabItem>

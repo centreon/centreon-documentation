@@ -395,7 +395,7 @@ apt-get install \
     fping \
     gawk \
     gettext \
-    libapache2-mod-php8.0 \
+    libapache2-mod-php8.1 \
     libcgsi-gsoap-dev \
     libconfig-inifiles-perl \
     libcrypt-des-perl \

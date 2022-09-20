@@ -44,7 +44,7 @@ yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/ce
 
 ### Upgrade PHP
 
-Centreon 22.04 uses PHP in version 8.0.
+Centreon 22.04 uses PHP in version 8.1.
 
 First, you need to install the **remi** repository:
 
@@ -54,10 +54,10 @@ yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarc
 yum install -y https://rpms.remirepo.net/enterprise/remi-release-7.rpm
 ```
 
-Then, you need to enable the php 8.0 repository!
+Then, you need to enable the php 8.1 repository!
 
 ```shell
-yum-config-manager --enable remi-php80
+yum-config-manager --enable remi-php81
 ```
 
 ### Upgrade the Centreon solution

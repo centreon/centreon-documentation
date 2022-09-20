@@ -102,7 +102,7 @@ rm -f ./mariadb_repo_setup
 
 ### Montée de version de PHP
 
-Centreon 22.10 utilise PHP en version 8.0.
+Centreon 22.10 utilise PHP en version 8.1.
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8" label="RHEL 8">
@@ -115,11 +115,11 @@ dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 sudo subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 
 ```
-Ensuite, vous devez changer le flux PHP de la version 7.3 à 8.0 en exécutant les commandes suivantes et en répondant **y**
+Ensuite, vous devez changer le flux PHP de la version 7.3 à 8.1 en exécutant les commandes suivantes et en répondant **y**
 pour confirmer :
 ```shell
 dnf module reset php
-dnf module install php:remi-8.0
+dnf module install php:remi-8.1
 ```
 
 </TabItem>
@@ -132,11 +132,11 @@ dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarc
 dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 
 ```
-Ensuite, vous devez changer le flux PHP de la version 7.3 à 8.0 en exécutant les commandes suivantes et en répondant **y**
+Ensuite, vous devez changer le flux PHP de la version 7.3 à 8.1 en exécutant les commandes suivantes et en répondant **y**
 pour confirmer :
 ```shell
 dnf module reset php
-dnf module install php:remi-8.0
+dnf module install php:remi-8.1
 ```
 
 </TabItem>
@@ -148,9 +148,9 @@ yum install -y yum-utils
 yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 yum install -y https://rpms.remirepo.net/enterprise/remi-release-7.rpm
 ```
-Ensuite, vous devez activer le dépôt php 8.0
+Ensuite, vous devez activer le dépôt php 8.1
 ```shell
-yum-config-manager --enable remi-php80
+yum-config-manager --enable remi-php81
 ```
 
 </TabItem>

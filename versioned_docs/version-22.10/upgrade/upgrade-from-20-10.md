@@ -101,7 +101,7 @@ rm -f ./mariadb_repo_setup
 
 ### Upgrade PHP
 
-Centreon 22.10 uses PHP in version 8.0.
+Centreon 22.10 uses PHP in version 8.1.
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8" label="RHEL 8">
@@ -114,7 +114,7 @@ dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 sudo subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 ```
 
-Then, you need to change the PHP stream from version 7.3 to 8.0 by executing the following commands and answering **y**
+Then, you need to change the PHP stream from version 7.3 to 8.1 by executing the following commands and answering **y**
 to confirm:
 ```shell
 dnf module reset php
@@ -131,7 +131,7 @@ dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarc
 dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 ```
 
-Then, you need to change the PHP stream from version 7.3 to 8.0 by executing the following commands and answering **y**
+Then, you need to change the PHP stream from version 7.3 to 8.1 by executing the following commands and answering **y**
 to confirm:
 ```shell
 dnf module reset php
@@ -147,9 +147,9 @@ yum install -y yum-utils
 yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 yum install -y https://rpms.remirepo.net/enterprise/remi-release-7.rpm
 ```
-Then, you need to enable the php 8.0 repository
+Then, you need to enable the php 8.1 repository
 ```shell
-yum-config-manager --enable remi-php80
+yum-config-manager --enable remi-php81
 ```
 
 </TabItem>
