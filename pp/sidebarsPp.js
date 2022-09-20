@@ -2459,7 +2459,7 @@ module.exports = {
       items: [
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/dev-resources/developer-getting-started'
+          id: 'integrations/plugin-packs/dev-resources/introduction'
         },
         {
           type: 'doc',
