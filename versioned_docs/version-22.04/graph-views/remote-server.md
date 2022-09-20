@@ -20,7 +20,7 @@ the 2 mains components:
 - The server.
 
 After that, you will have to perform the additional steps explained below, to finish
-Centreon Map installation for your Centreon remote server.
+installing Centreon Map on your remote server.
 
 ## Images synchronisation
 
