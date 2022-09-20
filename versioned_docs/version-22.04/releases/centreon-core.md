@@ -19,6 +19,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 22.04.5
 
+Release date: `September 20, 2022`
+
 #### Enhancements
 
 - [UX] Improved usability when accessing logs and reports button in details panel
