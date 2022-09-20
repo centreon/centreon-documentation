@@ -20,26 +20,26 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 #### Enhancements
 
-- [ACL] Updated ACL actions in real time for connected users
+- [ACL] ACLs on actions are now updated in real time for connected users
 - [API] Added an endpoint to perform all web updates
 - [Authentication] Improved authentication via OpenID Connect by adding conditions
 - [Authentication] Improved contact groups management via OpenID Connect:
   - Manual management of relationships between a user and contact groups
-  - Automatic management of relationships between a user and groups of contacts based on values from the identity provider
+  - Automatic management of relationships between a user and contact groups based on values retrieved from the identity provider
 - [Authentication] Improved roles management via OpenID Connect:
   - Manual management of relationships between a user and ACL groups
   - Automatic management of relationships between a user and ACL groups based on identity provider values
 - [Install] Addition of dependency management between modules during installation, update and deletion
 - [Install] Improved error handling during installation
-- [Install] Removed "Centreon Web Directory" parameter to use Apache configuration
+- [Install] Removed "Centreon Web Directory" parameter and use Apache configuration instead
 - [UI] Improved Centreon light and dark themes
 - [UI] Reworked the banner to be more responsive
-- [UX] Changing themes is now available by clicking on the profile icon.
+- [UX] Changing themes is now possible by clicking on the profile icon
 
 #### Breaking changes
 
-> The configuration of authorizations via the OpenId Connect protocol has evolved. Automatic addition to a contact
-> group and role management have been improved. It is necessary to review your OpenId Connect configuration.
+> The configuration of authorizations via the OpenID Connect protocol has evolved. Automatic addition to a contact
+> group and role management have been improved. It is necessary to review your OpenID Connect configuration.
 
 ## Centreon Collect
 
