@@ -24,6 +24,7 @@ If you have feature requests or want to report a bug, please go to our
 - [Administration] Fixed selection of options in second select box in ACL Group configuration page
 - [Configuration] Fixed an error in the Configuration > Services > Templates menu causing HTML code to be displayed
 - [Configuration] Fixed error that occurred when duplicating a Remote Server
+- [Core] Clean code in forMyAccount
 - [Core] Correct escapeSecure usage
 - [Widgets] Restored possibility to not select a poller in preferences
 

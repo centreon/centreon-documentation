@@ -23,6 +23,7 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 - [Administration] Fixed selection of options in second select box in ACL Group configuration page
 - [Configuration] Fixed an error in the Configuration > Services > Templates menu causing HTML code to be displayed
 - [Configuration] Fixed error that occurred when duplicating a Remote Server
+- [Core] Clean code in forMyAccount
 - [Core] Correct escapeSecure usage
 - [Widgets] Restored possibility to not select a poller in preferences
 
