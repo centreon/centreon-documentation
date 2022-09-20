@@ -604,9 +604,10 @@ systemctl restart php-fpm
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
-```shell
-echo "date.timezone = Europe/Paris" > /etc/php/8.0/mods-available/centreon.ini
-```
+Editez le fichier **/etc/php/8.0/mods-available/centreon.ini** et contrôlez le fuseau horaire.
+
+> Celui-ci a été défini durant le processus d'installation en récupérant le fuseau horaire configuré sur le
+> système d'exploitation.
 
 Après avoir enregistré le fichier, redémarrez le service PHP-FPM :
 

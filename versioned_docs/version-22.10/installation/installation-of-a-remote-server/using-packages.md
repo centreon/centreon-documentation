@@ -552,11 +552,9 @@ systemctl restart php-fpm
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
-Set the PHP time zone by editing the following file:
+Edit the **/etc/php/8.0/mods-available/centreon.ini** file and check the timezone.
 
-```shell
-/etc/php/8.0/mods-available/centreon.ini
-```
+> This one was defined during the installation process by retrieving the timezone configured on the operating system.
 
 > You can find the list of
 > supported time zones [here](http://php.net/manual/en/timezones.php).
