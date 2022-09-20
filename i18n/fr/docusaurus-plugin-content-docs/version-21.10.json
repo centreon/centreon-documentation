@@ -31,7 +31,7 @@
     "message": "Installation de Centreon HA",
     "description": "The label for category Installation of Centreon HA in sidebar docs"
   },
-  "sidebar.docs.category.Installation of Centreon HA manual": {
+  "sidebar.docs.category.Installation of a manual Centreon HA": {
     "message": "Installation de Centreon HA manuelle",
     "description": "The label for category Installation of Centreon HA manual in sidebar docs"
   },

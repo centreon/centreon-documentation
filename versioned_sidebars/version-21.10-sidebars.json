@@ -187,7 +187,7 @@
         },
         {
           "type": "category",
-          "label": "Installation of Centreon HA manual",
+          "label": "Installation of a manual Centreon HA",
           "items": [
             {
               "type": "doc",
