@@ -24,7 +24,7 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 - [Configuration] Fixed an error in the Configuration > Services > Templates menu causing HTML code to be displayed
 - [Configuration] Fixed error that occurred when duplicating a Remote Server
 - [Core] Cleaned code in forMyAccount
-- [Core] Correct escapeSecure usage
+- [Core] Corrected escapeSecure usage
 - [Widgets] Restored possibility to not select a poller in preferences
 
 #### Security fixes
