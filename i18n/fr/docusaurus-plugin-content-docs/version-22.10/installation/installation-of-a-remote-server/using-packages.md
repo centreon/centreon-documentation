@@ -375,7 +375,7 @@ systemctl restart mariadb
 </TabItem>
 </Tabs>
 
-Passez maintenant à [l'étape suivante](#configuration).
+Passez maintenant à [l'étape suivante](#étape-3--configuration).
 
 ### Avec base de données déportée
 
