@@ -376,7 +376,7 @@ systemctl restart mariadb
 </TabItem>
 </Tabs>
 
-You can now move on to the [next step](#configuration).
+You can now move on to the [next step](#step-3-configuration).
 
 ### With a remote database
 
