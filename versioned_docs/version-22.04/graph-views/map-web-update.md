@@ -3,44 +3,33 @@ id: map-web-update
 title: Update MAP Web
 ---
 
-This chapter describes how to update your MAP Web module.
+> A reset of your MAP Web database is necessary: the modifications you made on your maps using the web editor will be lost. Otherwise, note that the MAP Legacy database (and therefore legacy maps) will not be impacted.
 
-We had to change the database schema and therefore a reset of your MAP Web database is necessary. The modifications you made on your map using the web editor will be lost.
+Use the following procedure to update your MAP Web version:
 
-Of course, your legacy database (and therefore maps) will not be impacted!
+1. Stop the **centreon-map-ng** service by running this command on the machine hosting the Centreon MAP Web service:
+ 
+  ```shell
+  sudo systemctl stop centreon-map-ng
+  ```
 
-To update your MAPWeb version:
+2. Update the packages by running this command on the machine(s) hosting the central service and the Centreon MAP Web service:
+ 
+  ```shell
+  sudo yum update "centreon-map-server-ng" "centreon-map-web-client" --enablerepo="centreon-beta-stable\*"
+  ```
 
-Stop the centreon-map-ng service.
+3. Purge the MAP Web database by connecting to the database and executing the following requests:
+ 
+  ```shell
+  drop database centreon_map; create database centreon_map; grant all privileges on centreon_map.* to 'centreon_map'@'%' identified by 'centreon_map';
+  ```
 
-Run this command on the machine hosting the Centreon MAP Web service:
+4. Clear your browser cache.
  
 
-sudo systemctl stop centreon-map-ng
+5. Restart the **centreon-map-ng** service using the following command:
  
-
-Update packages.
-
-Run this command on the machine(s) hosting the Central service and the Centreon MAP Web service:
- 
-
-sudo yum update "centreon-map-server-ng" "centreon-map-web-client" --enablerepo="centreon-beta-stable\*"
- 
-
-Purge the MAP Web database.
-
-Connect to the database and execute the following requests:
- 
-
-drop database centreon_map; create database centreon_map; grant all privileges on centreon_map.* to 'centreon_map'@'%' identified by 'centreon_map';
- 
-
-Clear your browser cache.
- 
-
-Restart the centreon-map-ng service:
- 
-
-sudo systemctl start centreon-map-ng
- 
-
+  ```shell
+  sudo systemctl start centreon-map-ng
+  ```

@@ -1,6 +1,6 @@
 ---
 id: map-web-troubleshooting
-title: Troubleshoot MAP Web
+title: MAP Web troubleshooting
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -108,7 +108,8 @@ connection or authentication from MAP NG to central server:  if this is not OK, 
   [ok]   Centreon Central authentication using user admin
  
 
-Debug problems with the Web UI
+## Debug problems with the Web UI
+
 Make sure the URL specified in Administration > Extensions > MAP > Options is reachable (both reachable and resolvable) from the computer accessing the Web UI.
 Check the status of MAP NG by opening the following URL in the browser. (Use the same values for MAP_NG_IP_ADDRESS and MAP_NG_PORT as the ones defined in Administration > Extensions > MAP > Options).
 http://[MAP_NG_IP_ADDRESS]:[MAP_NG_PORT]/centreon-map/api/beta/actuator/health

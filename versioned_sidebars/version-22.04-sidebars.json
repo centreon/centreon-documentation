@@ -657,8 +657,12 @@
             "items": [
             {
               "type": "doc",
-              "id": "version-22.04/graph-views/map-web-install"
-            }
+              "id": "version-22.04/graph-views/map-web-manage"
+            },
+            {
+            "type": "doc",
+            "id": "version-22.04/graph-views/map-web-editor"
+          }
           ]
         },
         {
@@ -683,7 +687,7 @@
             },
             {
               "type": "doc",
-              "id": "version-22.04/graph-views/map-web-configuration"
+              "id": "version-22.04/graph-views/map-web-access"
               },
               {
                 "type": "doc",

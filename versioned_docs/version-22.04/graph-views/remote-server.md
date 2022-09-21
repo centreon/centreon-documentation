@@ -5,13 +5,13 @@ title: Install on a Remote server
 
 ## Installation of Centreon MAP for a Centreon Remote Server
 
-Installation of **Centreon MAP** extension installation on a **Centreon
+Installation of **Centreon MAP** extension on a **Centreon
 Remote Server** has to be done exactly like the installation on a
 Central server, only configuration and uninstallation are different.
 
 If your Centreon Remote Server has not been installed yet, please refer to
 the following
-[documentation](https://documentation.centreon.com/docs/centreon/en/latest/administration_guide/poller/install_remote_server)
+[documentation](https://documentation.centreon.com/docs/centreon/en/latest/administration_guide/poller/install_remote_server).
 
 Then refer to the [installation procedure](install.md) to install
 the 2 mains components:
