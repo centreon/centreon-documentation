@@ -12,12 +12,12 @@ capable of displaying efficient graphic insights and mapping correlated
 data in customized user-relevant views.
 
 You can benefit from Centreon MAP by using it in two modes:
-- [Centreon MAP Legacy](#centreon-map-legacy) which requires a desktop client installation.
+- [Centreon Map4](#centreon-map4) which requires a desktop client installation.
 - [Centreon MAP Web](#centreon-map-web) which is a web interface version.
 
 Main features are available in the two modes. However, some items such as using system commands or granting access rights were not necessary or had to be reworked in the MAP Web version.
 
-## Centreon MAP Legacy
+## Centreon Map4
 
 > Centreon MAP is a Centreon **extension** that requires a valid [license](../administration/licenses.md).
 > To purchase one and retrieve the necessary repositories, contact
@@ -25,20 +25,21 @@ Main features are available in the two modes. However, some items such as using 
 
 Use the following procedures to use and administrate Centreon MAP Legacy:
 - Use MAP Legacy:
-  - [Create a standard view](create-standard-view.md)
-  - [Create a geo view](create-geo-views.md)
-  - [Display views](display-view.md)
-  - [Share a view](share-view.md)
+  - [Create a standard view](create-standard-view.md) using the Map-4 desktop client. This topic also describes best practices and limitations.
+  - [Create a geo view](create-geo-views.md) using the web interface. This procedure explains how to display your resources across a defined geographical area.
+  - [Display views](display-view.md) from the web interface. This topic also describes dedicated features.
+  - [Share a view](share-view.md) allows you to share views to a limited audience.
 
-- Administrate MAP Legacy:
-  - [Install Centreon MAP extension](install.md)
-  - [Update the extension](update.md)
-  - [Migrate the extension](migrate.md)
-  - [Configure](configuration.md)
-  - [Install on a remote server](remote-server.md)
-  - [Advanced configuration](advanced-configuration.md)
-  - [Known issues](known-issues.md)
-  - [Troubleshooting MAP](troubleshooter.md)
+- Administrate Map4:
+  - [Install Centreon MAP extension](install.md) describes prerequisites and procedures to install the Map4 desktop client.
+  - [Update the extension](update.md) describes the update process of Map4.
+  - [Upgrade the extension](upgrade.md) describes the update process of Map4.
+  - [Migrate the extension](migrate.md) describes how to move the MAP server to another server.
+  - [Configure](configuration.md) explains how to administrate users rights and describes customization settings.
+  - [Install on a remote server](remote-server.md) explains how to install Map4 on a remote server.
+  - [Advanced configuration](advanced-configuration.md) describes advanced procedures to configure Map4.
+  - [Known issues](known-issues.md) is a list of issues you may encounter using Map4.
+  - [Troubleshooting MAP](troubleshooter.md) helps you to solve some issues occuring in Map4.
 
 Here is an overview of MAP Legacy. You need first to create logical views using the Desktop client:
 

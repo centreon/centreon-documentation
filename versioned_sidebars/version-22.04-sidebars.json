@@ -589,7 +589,7 @@
         },
       {
         "type": "category",
-      "label": "Use MAP Legacy",
+      "label": "Use MAP4",
       "items": [
         {
                         "type": "doc",
@@ -611,7 +611,7 @@
         },
         {
           "type": "category",
-          "label": "Administrate MAP Legacy",
+          "label": "Administrate MAP4",
           "items": [
             {
               "type": "doc",
