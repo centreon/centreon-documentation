@@ -129,7 +129,7 @@ To change the default port, refer to the [dedicated
 procedure](advanced-configuration.md#change-centreon-map-server-port).
 
 > Don't forget to modify the URL on Centreon side in the **Map server address**
-> field in the `Administration > Extensions > Map > Options` menu.
+> field in the **Administration > Extensions > Map > Options** menu.
 ![image](../assets/graph-views/map-address-https.png)
 
 > Don't forget to update your connection profile in the desktop client 
@@ -179,8 +179,7 @@ mv broker_public.crt /etc/centreon/broker_cert/
 
 ### MAP server configuration
 
-First of all, you should [activate HTTPS/TLS on the web
-server](../administration/secure-platform.md#enable-https-on-the-web-server)
+First of all, you should [activate HTTPS/TLS on the web server](../administration/secure-platform.md#enable-https-on-the-web-server)
 
 Then, set the following parameters in MAP server configuration at
 `/etc/centreon-studio/studio-config.properties` :

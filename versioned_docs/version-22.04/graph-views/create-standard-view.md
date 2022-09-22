@@ -1,6 +1,6 @@
 ---
 id: create-standard-view
-title: Create a standard view
+title: Creating a standard view
 ---
 
 To create standard views, you have to use **Centreon Map Desktop client**.

@@ -12,36 +12,40 @@ capable of displaying efficient graphic insights and mapping correlated
 data in customized user-relevant views.
 
 You can benefit from Centreon MAP by using it in two modes:
-- [Centreon Map4](#centreon-map4) which requires a desktop client installation.
-- [Centreon MAP Web](#centreon-map-web) which is a web interface version.
+- [Centreon MAP (Legacy)](#centreon-map-legacy) which requires a desktop client installation. See an overview [here](#map-legacy-overview).
+- [Centreon MAP Web](#centreon-map-web) which is a web interface version. See an overview [here](#map-overview).
 
 Main features are available in the two modes. However, some items such as using system commands or granting access rights were not necessary or had to be reworked in the MAP Web version.
 
-## Centreon Map4
+## Centreon MAP (Legacy)
 
 > Centreon MAP is a Centreon **extension** that requires a valid [license](../administration/licenses.md).
-> To purchase one and retrieve the necessary repositories, contact
-> [Centreon](mailto:sales@centreon.com).
+> To purchase one and retrieve the necessary repositories, contact [Centreon](mailto:sales@centreon.com).
+
+### Procedures
 
 Use the following procedures to use and administrate Centreon MAP Legacy:
-- Use MAP Legacy:
-  - [Create a standard view](create-standard-view.md) using the Map-4 desktop client. This topic also describes best practices and limitations.
-  - [Create a geo view](create-geo-views.md) using the web interface. This procedure explains how to display your resources across a defined geographical area.
-  - [Display views](display-view.md) from the web interface. This topic also describes dedicated features.
-  - [Share a view](share-view.md) allows you to share views to a limited audience.
 
-- Administrate Map4:
-  - [Install Centreon MAP extension](install.md) describes prerequisites and procedures to install the Map4 desktop client.
-  - [Update the extension](update.md) describes the update process of Map4.
-  - [Upgrade the extension](upgrade.md) describes the update process of Map4.
-  - [Migrate the extension](migrate.md) describes how to move the MAP server to another server.
-  - [Configure](configuration.md) explains how to administrate users rights and describes customization settings.
-  - [Install on a remote server](remote-server.md) explains how to install Map4 on a remote server.
-  - [Advanced configuration](advanced-configuration.md) describes advanced procedures to configure Map4.
-  - [Known issues](known-issues.md) is a list of issues you may encounter using Map4.
-  - [Troubleshooting MAP](troubleshooter.md) helps you to solve some issues occuring in Map4.
+- Using MAP (Legacy)
+  - [Creating a standard view](create-standard-view.md) using the Map4 desktop -MAP (Legacy)- client. This topic also describes best practices and limitations.
+  - [Creating a geo view](create-geo-views.md) using the web interface. This procedure explains how to display your resources across a defined geographical area.
+  - [Displaying views](display-view.md) from the web interface. This topic also describes dedicated features.
+  - [Sharing a view](share-view.md) allows you to share views to a limited audience.
 
-Here is an overview of MAP Legacy. You need first to create logical views using the Desktop client:
+- Administrating MAP (Legacy)
+  - [Installing Centreon MAP (Legacy) extension](install.md) describes prerequisites and procedures to install the Map4 desktop -MAP (Legacy)- client.
+  - [Updating the extension](update.md) describes the update process of MAP (Legacy).
+  - [Upgrading the extension](upgrade.md) describes the update process of MAP (Legacy).
+  - [Migrating the extension](migrate.md) describes how to move the MAP (Legacy) server to another server.
+  - [Configuring rights](configuration.md) explains how to administrate users rights and describes customization settings.
+  - [Installing on a remote server](remote-server.md) explains how to install MAP (Legacy) on a remote server.
+  - [Advanced configuration](advanced-configuration.md) describes advanced procedures to configure MAP (Legacy).
+  - [Known issues](known-issues.md) is a list of issues you may encounter using MAP (Legacy).
+  - [Troubleshooting MAP (Legacy)](troubleshooter.md) helps you to solve some issues occuring in MAP (Legacy).
+
+### MAP (Legacy) overview
+
+Here is an overview of MAP (Legacy). You need first to create logical views using the Desktop client:
 
 ![image](../assets/graph-views/desktop.gif)
 
@@ -62,17 +66,23 @@ Both types of views may be displayed in the same Centreon web user interface:
 
 ## Centreon MAP Web
 
-Use the following procedures to use and administrate Centreon MAP Legacy:
-- Use MAP Legacy:
-  - [Manage maps on MAP Web](map-web-manage.md)
-  - [Use the map editor](map-web-editor.md)
+### Procedures
 
-- Administrate MAP Legacy:
-  - [Install MAP Web](map-web-install.md)
-  - [Install MAP Web on a remote server](map-web-install-remote.md)
-  - [Update MAP Web](map-web-update.md)
-  - [Import legacy maps into MAP Web](import-into-map-web.md)
-  - [Install on a remote server](remote-server.md)
-  - [Manage access rights on MAP Web](map-web-manage.md)
+Use the following procedures to use and administrate Centreon MAP Legacy:
+
+- Using MAP Web
+  - [Managing maps on MAP Web](map-web-manage.md) gives you information about how to create and manage maps from the Centreon MAP Web interface.
+  - [Using the map editor](map-web-editor.md) explains how to build maps using the editor tool.
+
+- Administrating MAP Web
+  - [Installing MAP Web](map-web-install.md) describes prerequisites and procedures to install MAP Web.
+  - [Installing MAP Web on a remote server](map-web-install-remote.md) explains how to install MAP Web on a remote server.
+  - [Updating MAP Web](map-web-update.md) describes the update process of MAP Web.
+  - [Importing legacy maps into MAP Web](import-into-map-web.md) explains how to migrate 
+  - [Installing on a remote server](remote-server.md)
+  - [Managing access rights on MAP Web](map-web-manage.md)
   - [MAP Web known issues](map-web-known-issues.md)
   - [MAP Web troubleshooting](map-web-troubleshooting.md)
+
+### MAP overview
+

@@ -1,6 +1,6 @@
 ---
 id: migrate
-title: Migrate the extension
+title: Migrating the extension
 ---
 
 This section explains how to move Centreon MAP server over to another server.

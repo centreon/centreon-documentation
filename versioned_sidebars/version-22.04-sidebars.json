@@ -589,7 +589,7 @@
         },
       {
         "type": "category",
-      "label": "Use MAP4",
+      "label": "Using MAP (Legacy)",
       "items": [
         {
                         "type": "doc",
@@ -611,7 +611,7 @@
         },
         {
           "type": "category",
-          "label": "Administrate MAP4",
+          "label": "Administrating MAP (Legacy)",
           "items": [
             {
               "type": "doc",
@@ -653,7 +653,7 @@
         },
         {
               "type": "category",
-            "label": "Use MAP Web",
+            "label": "Using MAP Web",
             "items": [
             {
               "type": "doc",
@@ -667,7 +667,7 @@
         },
         {
         "type": "category",
-      "label": "Administrate MAP Web",
+      "label": "Administrating MAP Web",
       "items": [
         {
         "type": "doc",
