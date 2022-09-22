@@ -329,7 +329,7 @@ As stated above, all broker instances (central, RRD, modules) must use the same 
 
 - Added an optional parameter to strictly control that the required plugins are installed before reloading/restarting centengine
 - Added INSECURE_EXTRACT_MODE option to untar the archive
-- Add API to manage Centreon MBI ETL
+- Added API to manage Centreon MBI ETL
 - Added API to get status of Centreon MBI ETL
 - Added API to kill working process of Centreon MBI ETL
 - Added Rocky Linux support for the plugin auto installation
