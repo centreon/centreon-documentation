@@ -1286,6 +1286,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-aruba-orchestrator-restapi'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-switchs-aruba-standard-snmp'
         },
         {
