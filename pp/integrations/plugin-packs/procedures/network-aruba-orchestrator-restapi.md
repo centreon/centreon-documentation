@@ -83,7 +83,7 @@ yum install centreon-plugin-Network-Aruba-Orchestrator-Restapi
 yum install centreon-plugin-Network-Aruba-Orchestrator-Restapi
 ```
 
-2. Install the ***Aruba Orchestrator Rest API** Centreon Pack RPM on the Centreon Central server:
+2. Install the **Aruba Orchestrator Rest API** Centreon Pack RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-network-aruba-orchestrator-restapi
