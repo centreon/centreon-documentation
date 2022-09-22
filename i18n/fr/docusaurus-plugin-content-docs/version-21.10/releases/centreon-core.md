@@ -449,6 +449,20 @@ You must then restart the `centengine` service on all the other pollers to resto
 
 ## Centreon Gorgone
 
+### 21.10.3
+
+#### Enhancements
+
+- Added INSECURE_EXTRACT_MODE option to untar the archive
+- Added API to manage Centreon MBI ETL
+- Added API to get status of Centreon MBI ETL
+- Added API to kill working process of Centreon MBI ETL
+
+##### Bug fixes
+
+- Fixed machine learning configuration label values using string
+- Fixed reload of cbd on Remote Server to apply BA changes (ok)
+
 ### 21.10.2
 
 Release date: `February 17, 2022`
