@@ -328,25 +328,352 @@ Modes Available:
 ### Create the appmetrics.pm file
 
 The `appmetrics.pm` will contain your code, in other words, all the instructions to: 
+- Declare options for the mode
 - Connect to run.mocky.io over HTTPS 
 - Get the JSON from the '/v3/6e45073b-068a-40d3-a2c3-31b1ebd54dc9' endpoint
 - Extract information and format it to be compliant with Centreon
 
-Let's build it iteratively, starting with common declarations.
+Let's build it iteratively. 
+
+> Important notes: function (sub) names must not be modified. For example, you cannot 
+> choose to rename `check_options` to `option_check`. 
+
+#### Common declarations and subs 
 
 ```perl
 # Path to your package. '::' instead of '/', and no .pm at the end.
-package apps::myawesomeapp::api::mode::appmetrics
-
-# Use the counter module. It will save you a lot of work and will manage a lot of things for you. 
-use base qw(centreon::plugins::templates::counter);
+package apps::myawesomeapp::api::mode::appmetrics;
 
 # Don't forget these ;)
 use strict;
 use warnings;
-# We want to connect to an HTTP server, let's use the common library for that
+# We want to connect to an HTTP server, let's use the common module
 use centreon::plugins::http;
+# Use the counter module. It will save you a lot of work and will manage a lot of things for you.
+# Consider this as mandatory when writing a new mode. 
+use base qw(centreon::plugins::templates::counter);
+# Import some functions that will make your life easier
+use centreon::plugins::templates::catalog_functions qw(catalog_status_threshold_ng);
 # We will have to process some JSON, no need to reinvent the wheel, load the lib you installed in a previous section
 use JSON::XS;
 ```
+
+Add a `new` function (sub) to initialize the mode: 
+
+```perl
+sub new {
+    my ($class, %options) = @_;
+    # All options/properties of this mode, always add the force_new_perfdata => 1 to enable new metric/performance data naming.
+    # It also where you can specify that the plugin uses a cache file for example
+    my $self = $class->SUPER::new(package => __PACKAGE__, %options, force_new_perfdata => 1);
+    bless $self, $class;
+
+    # This is where you can specify options/arguments your plugin supports.
+    # All options here stick to what the centreon::plugins::http module needs to establish a connection
+    # You don't have to specify all options from the http module, only the one that the user may want to tweak for its needs
+    $options{options}->add_options(arguments => {
+        # One the left it's the option name that will be used in the command line. The ':s' at the end is to 
+        # define that this options takes a value.  
+        # On the right, it's the code name for this option, optionnaly you can define a default value so the user 
+        # doesn't have to set it
+         'hostname:s'           => { name => 'hostname' },
+         'port:s'               => { name => 'port', default => 443 },
+         'timeout:s'            => { name => 'timeout' },
+        # These options are here to defined conditions about which status the plugin will return regarding HTTP response code
+         'unknown-status:s'     => { name => 'unknown_status', default => '%{http_code} < 200 or %{http_code} >= 300' },
+         'warning-status:s'     => { name => 'warning_status' },
+         'critical-status:s'    => { name => 'critical_status', default => '' }
+    });
+
+    # This is to create a local copy of a centreon::plugins::http that we will manipulate
+    # %options basically overwrite default http value with key/value pairs from options above to instantiate the http module
+    # Ref https://github.com/centreon/centreon-plugins/blob/520a1f8c10cd434c6dedd1e342285eecff8b9d1b/centreon/plugins/http.pm#L59
+    $self->{http} = centreon::plugins::http->new(%options);
+    return $self;
+}
+```
+
+Add a `check_options` function. This sub will execute right after new and allow you to check that the user passed
+ mandatory parameter(s) and in some case check that the format is correct. 
+
+```perl
+sub check_options {
+    my ($self, %options) = @_;
+    $self->SUPER::init(%options);
+
+    # Check if the user provided a value for --hostname option. If not, display a message and exit
+    if (!defined($self->{option_results}->{hostname}) || $self->{option_results}->{hostname} eq '') {
+        $self->{output}->add_option_msg(short_msg => 'Please set hostname option');
+        $self->{output}->option_exit();
+    }
+    # Set parameters for http module, note that the $self->{option_results} is a hash containing 
+    # all your options key/value pairs.
+    $self->{http}->set_options(%{$self->{option_results}});
+}
+```
+
+Nice work, you know have a mode that can be executed without errors!
+
+Run this command `perl centreon_plugins.pl --plugin=apps::myawesomeapp::api::plugin --mode=app-metrics` which 
+output this message: 
+
+`UNKNOWN: Please set hostname option`
+
+Enjoy this moment, now let's do some monitoring thanks to centreon-plugins' magic! Fasten your seat belt.
+
+#### Declare your counters
+
+This part essentially maps the data you want to get from the API with the internal
+counter mode structure.
+
+Remember how we categorized the data in a previous [section](./develop-with-centreon-plugins### Understand the data).
+
+The `$self->{maps_counters_type}` data structure describes these data while the `$self->{maps_counters}->{global}` ones define 
+their properties like thresholds and how they will display to the users.
+
+```perl
+sub set_counters {
+    my ($self, %options) = @_;
+
+    $self->{maps_counters_type} = [
+        # health and queries are global metric, they don't refer to a specific instance. 
+        # In other words, you cannot get several values for health or queries
+        # That's why the type is 0.
+        { name => 'health', type => 0, cb_prefix_output => 'prefix_health_output' },
+        { name => 'queries', type => 0, cb_prefix_output => 'prefix_queries_output' },
+        # connections and errors will receive value for both instances (my-awesome-frontend and my-awesome-db)
+        # The type => 1 explicits that
+        { name => 'connections', type => 1, cb_prefix_output => 'prefix_connections_output' },
+        # as above, you can define a callback (cb) function to manage the output prefix. This function is called 
+        # each time a value is passed to the counter and can be shared across multiple counters.
+        { name => 'errors', type => 1, cb_prefix_output => 'prefix_errors_output' }
+    ];
+
+    $self->{maps_counters}->{health} = [
+        # This counter is specific because it deals with a string value
+        {
+            label => 'status',
+            # All properties below (before et) are related to the catalog_status_ng catalog function imported at the top of our mode
+            type => 2,
+            # These properties allow you to define default thresholds for each status but not mandatory.
+            warning_default => '%{status} =~ /yellow/', 
+            critical_default => '%{status} =~ /red/', 
+            # To simplify, manage things related to how get value in the counter, what to display and specific threshold 
+            # check because of the type of the data (string)
+            set => {
+                key_values => [ { name => 'health' } ],
+                output_template => 'health: %s',
+                # Force ignoring perfdata as the collected data is a string
+                closure_custom_perfdata => sub { return 0; },
+                closure_custom_threshold_check => \&catalog_status_threshold_ng
+            }
+        }
+    ];
+    $self->{maps_counters}->{queries} = [
+        # The label defines options name, a --warning-select and --critical-select will be added to the mode
+        # The nlabel is the name of your performance data / metric that will show up in your graph
+        { 
+            label => 'select', 
+            nlabel => 'myawesomeapp.db.queries.select.count', 
+            set => {
+            # Key value name is the name we will use to pass the data to this counter. You can have several ones.
+                key_values => [ { name => 'select' } ],
+                # Output template describe how the value will display
+                output_template => 'select: %s',
+                # Perfdata array allow you to define relevant metrics properties (min, max) and its sprintf template format
+                perfdatas => [
+                    { template => '%d', min => 0 }
+                ]
+            }
+        },
+        { label => 'update', nlabel => 'myawesomeapp.db.queries.update.count', set => {
+                key_values => [ { name => 'update' } ],
+                output_template => 'update: %s',
+                perfdatas => [
+                    { template => '%d', min => 0 }
+                ]
+            }
+        },
+        { label => 'delete', nlabel => 'myawesomeapp.db.queries.delete.count', set => {
+                key_values => [ { name => 'delete' } ],
+                output_template => 'delete: %s',
+                perfdatas => [
+                    { template => '%d', min => 0 }
+                ]
+            }
+        }
+    ];
+    $self->{maps_counters}->{connections} = [
+        { label => 'connections', nlabel => 'myawesomeapp.connections.count', set => {
+                # pay attention the extra display key_value. It holds the instance value. (my-awesome-db, my-awesome-frontend)
+                key_values => [ { name => 'connections' }, { name => 'display' } ],
+                output_template => 'connections: %s',
+                perfdatas => [
+                    # we add the label_extra_instance option to have one perfdata per instance
+                    { template => '%d', min => 0, label_extra_instance => 1 }
+                ]
+            }
+        },
+    ];
+    $self->{maps_counters}->{errors} = [
+        { label => 'errors', nlabel => 'myawesomeapp.errors.count', set => {
+                key_values => [ { name => 'errors' }, { name => 'display' } ],
+                output_template => 'errors: %s',
+                perfdatas => [
+                    { template => '%d', min => 0, label_extra_instance => 1 }
+                ]
+            }
+        },
+    ];
+}
+1;
+```
+
+Ok, that's was a big one. Guess what, it compiles. Just to take some rest, run the command 
+supplying a value to the `--hostname` option to see what it displays: 
+
+```shell
+perl centreon_plugins.pl --plugin=apps::myawesomeapp::api::plugin --mode=app-metrics --hostname=fakehost
+OK: status : skipped (no value(s)) - select : skipped (no value(s)), update : skipped (no value(s)), delete : skipped (no value(s))
+``` 
+
+You can see some of your counters with the `skipped (no value(s))`, it's normal, this is because we 
+just created the counters definition and structure but didn't push any value into it. 
+
+#### Create prefix callback functions
+
+These functions are not mandatory but help to make the output more readable for a human. We will create
+it now but as you have noticed the mode compiles so you can choose to keep those for the polishing moment.
+
+During counters definitions, we associated a callback function to each of them: 
+- `cb_prefix_output => 'prefix_health_output'`
+- `cb_prefix_output => 'prefix_queries_output'`
+- `cb_prefix_output => 'prefix_connections_output'`
+- `cb_prefix_output => 'prefix_errors_output'`
+
+Define those functions by adding it to our `appmetrics.pm` file. They are self-explanatory.
+
+```perl
+sub prefix_health_output {
+    my ($self, %options) = @_;
+
+    return 'My-awesome-app:';
+}
+
+sub prefix_queries_output {
+    my ($self, %options) = @_;
+
+    return 'Queries:';
+}
+
+sub prefix_connections_output {
+    my ($self, %options) = @_;
+
+    # This notation allows you to return the value of the instance (the display key_value)
+    # to bring some context to the output.
+    return "'" . $options{instance_value}->{display} . "' ";
+}
+
+sub prefix_errors_output {
+    my ($self, %options) = @_;
+
+    return "'" . $options{instance_value}->{display} . "' ";
+}
+```
+
+Execute your command and check that the output matches the one below: 
+
+```shell
+perl centreon_plugins.pl --plugin=apps::myawesomeapp::api::plugin --mode=app-metrics --hostname=fakehost
+OK: My-awesome-app: status : skipped (no value(s)) - Queries: select : skipped (no value(s)), update : skipped (no value(s)), delete : skipped (no value(s))
+``` 
+
+The output is easier to read and separator are visible between global counters. 
+
+#### Push data into the counters
+
+It's the moment to write the main sub (`manage_selection`), the more complex, but also the one that 
+will transform your mode to something useful and alive.
+
+Think about the logic, what we have to do is:
+- Connect to run.mocky.io over HTTPS
+- Query a specific path corresponding to our API
+- Store and process the result
+- Spread this result across counters definitions
+
+Start by writing the code to connect to run.mocky.io. It is where the centreon-plugins 
+framework delivers its power.
+
+Write the request and add a print to display the received data:
+
+```perl
+sub manage_selection {
+    my ($self, %options) = @_;
+    # We have already loaded all things required for the http module
+    # Use the request method from the module to run the GET request against the path
+    my ($content) = $self->{http}->request(url_path => '/v3/6e45073b-068a-40d3-a2c3-31b1ebd54dc9');
+    print $content . "\n";
+}
+```
+
+Run this command `perl centreon_plugins.pl --plugin=apps::myawesomeapp::api::plugin --mode=app-metrics --hostname=run.mocky.io`. 
+
+Output should be: 
+
+```perl
+{
+    "health": "yellow",
+    "db_queries":{
+         "select": 1230,
+         "update": 640,
+         "delete": 44
+    },
+    "connections":[
+      {
+        "app": "my-awesome-frontend",
+        "users": 122
+      },
+      {
+        "app": "my-awesome-db",
+        "users": 92
+      }
+    ],
+    "errors":[
+      {
+        "app": "my-awesome-frontend",
+        "users": 32
+      },
+      {
+        "app": "my-awesome-db",
+        "users": 27
+      }
+    ]
+}
+OK: My-awesome-app: status : skipped (no value(s)) - Queries: select : skipped (no value(s)), update : skipped (no value(s)), delete : skipped (no value(s))
+```
+
+Add an `eval` structure to transform `$content` into a data structure that can be easily manipulated with perl. Remove the print 
+as we don't need it anymore. 
+
+```perl
+sub manage_selection {
+    my ($self, %options) = @_;
+    # We have already loaded all things required for the http module
+    # Use the request method from the imported module to run the GET request against the path
+    my ($content) = $self->{http}->request(url_path => '/v3/6e45073b-068a-40d3-a2c3-31b1ebd54dc9');
+    
+    # Declare a scalar to hold the encoded version of the output
+    my $encoded_content;
+    eval {
+        $encoded_content = JSON::XS->new->utf8->encode($content);
+    };
+    # Manage the case where the data received is not JSON or not the one we expected
+    if ($@) {
+        $self->{output}->add_option_msg(short_msg => "Cannot encode JSON result");
+        $self->{output}->option_exit();    
+    }
+
+}
+```
+
 
