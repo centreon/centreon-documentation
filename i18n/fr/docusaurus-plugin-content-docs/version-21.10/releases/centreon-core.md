@@ -451,6 +451,8 @@ You must then restart the `centengine` service on all the other pollers to resto
 
 ### 21.10.3
 
+Release date: `September 23, 2022`
+
 #### Enhancements
 
 - Added INSECURE_EXTRACT_MODE option to untar the archive
