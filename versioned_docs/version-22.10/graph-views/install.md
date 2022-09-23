@@ -1,6 +1,6 @@
 ---
 id: install
-title: Install Centreon MAP extension
+title: Installing Centreon MAP (Legacy) extension
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -23,7 +23,7 @@ of architecture to suit your needs.
 Centreon MAP consists of three components:
 
 - Centreon MAP Server, developed in Java, using SpringBoot, Hibernate and CXF
-- Centreon MAP Web interface, developed in Javascript, based on
+- Centreon MAP web interface, developed in Javascript, based on
   [Backbone.js](http://backbonejs.org/)
 - Centreon MAP Desktop Client, developed in Java, based on [Eclipse RCP
   4](https://wiki.eclipse.org/Eclipse4/RCP).
@@ -104,13 +104,13 @@ children which must be included in the count.
 
 #### Information required during configuration
 
-- Centreon Web login with admin rights.
+- Centreon web login with admin rights.
 
 > Even with a correctly sized server, you should have in mind the best
 > practices & recommandations when creating views so you don't face
 > performance issues.
 
-### Centreon MAP Web interface
+### Centreon MAP web interface
 
 #### License
 
@@ -120,7 +120,7 @@ team](https://centreon.force.com/) to get & install your license key.
 
 #### Compatibility
 
-The Centreon MAP Web interface is compatible with the following web browsers:
+The Centreon MAP web interface is compatible with the following web browsers:
 
 * Google Chrome (latest version at the time of Centreon software release and above).  Please visit the [Google Chrome FAQ](https://support.google.com/chrome/a/answer/188447?hl=en) for a description of the Chrome support policy. 
 * Mozilla Firefox (latest version at the time of Centreon software release and above).  Please visit the [Mozilla FAQ](https://www.mozilla.org/en-US/firefox/organizations/faq/) for a description of the Firefox support policy.
@@ -181,7 +181,7 @@ Centreon MAP Server machine must access:
 
 All the ports above are default values and can be changed if needed.
 
-- Centreon Web Central, using HTTP port 80 or HTTPS port 443
+- Centreon web central, using HTTP port 80 or HTTPS port 443
 
 Centreon MAP Desktop Client machines must access:
 
@@ -193,14 +193,14 @@ configurations are possible.
 
 ## Server installation
 
-### Centreon Web interface
+### Centreon web interface
 
 You must provide to Centreon MAP server a dedicated user
 **who has access to all resources** through the appropriate [access list groups](../administration/access-control-lists.md). 
 Since the password will be stored in human-readable form in a 
 configuration file, you should not use a Centreon admin user account.
 
-Provide this user with access to the Centreon Web real-time API:
+Provide this user with access to the Centreon web real-time API:
 
 ![image](../assets/graph-views/reach-api.png)
 
@@ -261,10 +261,11 @@ Then import the repository key:
 ```shell
 wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
 ```
+
 </TabItem>
 </Tabs>
 
-> If the URL doesn't work, you can manually find this package in the folder.
+> If the URL doesn't work, you can manualy find this package in the folder.
 
 Install Centreon MAP repository, you can find it on the
 [support portal](https://support.centreon.com/s/repositories).
@@ -375,7 +376,7 @@ If it's your first installation, we advice you to use the standard mode
 ```
 
 If you have just installed Centreon 22.04, be aware that the platform now uses the new BBDO v3 protocol. For MAP to work properly,
-edit the following file: **/etc/centreon-map/map-config.properties**
+edit the following file: **/etc/centreon-studio/studio-config.properties**
 
 ```text
 broker.pb.message.enabled=true
@@ -390,7 +391,7 @@ systemctl restart centreon-map
 ### Central server
 
 > Before restarting Broker you must export the configuration from the Centreon
-> Web interface.
+> web interface.
 
 Restart Centreon Broker on the Central server:
 
@@ -428,7 +429,7 @@ systemctl enable centreon-map
 Centreon Map server is now started and enabled, let's install
 the interface part of the extension.
 
-## Web Interface installation
+## Web interface installation
 
 ### Central server
 
@@ -468,7 +469,7 @@ Go to **Centreon > Administration > Extensions** and click on the install
 button:
 
 - License Manager (*if not yet installed*)
-- Map Web Client
+- Map web Client
 
 Upload the license **map.license** given by the support team. Refresh
 the page and the banner must be green with the valid license date.
@@ -489,7 +490,7 @@ update the Centreon MAP server address field:
 
 ### Using the client
 
-The Centreon MAP Web interface is now available in **Monitoring > MAP**.
+The Centreon MAP web interface is now available in **Monitoring > MAP**.
 
 ![image](../assets/graph-views/install-web-step-4.png)
 
@@ -501,7 +502,7 @@ You can see to which IP the client is connected.
 
 ### Centreon MAP Widget
 
-By installing the Web interface, you automatically add the Centreon MAP
+By installing the web interface, you automatically add the Centreon MAP
 Widget, but you need to perform one last task. Go to
 `Administration > Extensions` and click on the "Install" button on the
 widget. The result after installed:
@@ -516,7 +517,7 @@ The desktop client is currently available only for **64-bit** Windows,
 Mac and Linux platforms (Debian and Ubuntu).
 
 You can find the installers in **Monitoring > Map > Desktop Client** or
-[here](https://download.centreon.com/?action=product&product=centreon-map&version=21.10&secKey=9ae03a4457fa0ce578379a4e0c8b51f2).
+[here](https://download.centreon.com/?action=product&product=centreon-map&version=22.04&secKey=9ae03a4457fa0ce578379a4e0c8b51f2).
 
 > For performance considerations, we highly recommand to have less than 5, 10
 > users maximum connected at the same time manipulating views.

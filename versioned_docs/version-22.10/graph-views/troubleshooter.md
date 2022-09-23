@@ -451,13 +451,13 @@ The URL set in 'MAP server address' must include the protocol (HTTP or HTTPS)
 and the port used by your Centreon MAP server (usually 8080 for a normal
 connexion or 8443 for a secure connexion).
 
-![image](../assets/graph-views/web_client_configuration.png)
+![image](../assets/graph-views/web_client_configuration_2204.png)
 
 ### My web interface displays an empty page
 
 Your web interface is configured but it displays an empty page:
 
-![image](../assets/graph-views/web_empty_list.png)
+![image](../assets/graph-views/web_empty_list_2204.png)
 
 Either no views are created on the server or you do not have access to them.
 

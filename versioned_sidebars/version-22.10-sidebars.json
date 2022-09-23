@@ -609,12 +609,12 @@
           "type": "doc",
           "id": "version-22.10/graph-views/introduction"
         },
+      {
+        "type": "category",
+      "label": "Using MAP (Legacy)",
+      "items": [
         {
-          "type": "category",
-          "label": "Guide",
-          "items": [
-            {
-              "type": "doc",
+                        "type": "doc",
               "id": "version-22.10/graph-views/create-standard-view"
             },
             {
@@ -633,7 +633,7 @@
         },
         {
           "type": "category",
-          "label": "Administrate",
+          "label": "Administrating MAP (Legacy)",
           "items": [
             {
               "type": "doc",
@@ -671,6 +671,54 @@
               "type": "doc",
               "id": "version-22.10/graph-views/troubleshooter"
             }
+          ]
+        },
+        {
+              "type": "category",
+            "label": "Using MAP Web",
+            "items": [
+            {
+              "type": "doc",
+              "id": "version-22.10/graph-views/map-web-manage"
+            },
+            {
+            "type": "doc",
+            "id": "version-22.10/graph-views/map-web-editor"
+          }
+          ]
+        },
+        {
+        "type": "category",
+      "label": "Administrating MAP Web",
+      "items": [
+        {
+        "type": "doc",
+        "id": "version-22.10/graph-views/map-web-install"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.10/graph-views/map-web-install-remote"
+          },
+          {
+            "type": "doc",
+            "id": "version-22.10/graph-views/map-web-update"
+            },
+        {
+            "type": "doc",
+            "id": "version-22.10/graph-views/import-into-map-web"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.10/graph-views/map-web-access"
+              },
+              {
+                "type": "doc",
+                "id": "version-22.10/graph-views/map-web-known-issues"
+                },
+                {
+                  "type": "doc",
+                  "id": "version-22.10/graph-views/map-web-troubleshooting"
+                  }
           ]
         }
       ]

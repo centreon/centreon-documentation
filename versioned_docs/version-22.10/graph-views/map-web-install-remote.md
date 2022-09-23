@@ -1,9 +1,9 @@
 ---
-id: remote-server
-title: Installing on a remote server
+id: map-web-install-remote
+title: Installing MAP Web on a remote server
 ---
 
-## Installation of Centreon MAP (Legacy) for a Centreon remote server
+## Installation of Centreon MAP Web for a Centreon remote server
 
 Installation of Centreon MAP extension on a Centreon
 remote server has to be done exactly like the installation on a
@@ -13,8 +13,7 @@ If your Centreon remote server has not been installed yet, please refer to
 the following
 [documentation](../installation/installation-of-a-remote-server/using-packages.md).
 
-Then refer to the [installation procedure](install.md) to install
-the 2 mains components:
+Then refer to the [installation procedure](map-web-install.md) to install the 2 mains components:
 
 - The web interface.
 - The server.
@@ -22,9 +21,9 @@ the 2 mains components:
 After that, you will have to perform the additional steps explained below, to finish
 installing Centreon Map on your remote server.
 
-## Images synchronisation
+## Images synchronisation **To check with Dev**
 
-Add an access to the images synchronisation page **Administration  >  Parameters  >  Images**:
+Add access to the images synchronisation page **Administration  >  Parameters  >  Images**
 ```shell
 [root@remote ~]# mysql centreon
 MariaDB [centreon]> update topology SET topology_show='1' where topology_name='Images' ;

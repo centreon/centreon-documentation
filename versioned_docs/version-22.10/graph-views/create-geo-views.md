@@ -1,6 +1,6 @@
 ---
 id: create-geo-view
-title: Create a geo view
+title: Creating a geo view
 ---
 
 ## Create a GeoView
