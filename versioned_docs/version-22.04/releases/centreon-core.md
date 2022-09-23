@@ -323,6 +323,27 @@ As stated above, all broker instances (central, RRD, modules) must use the same 
 
 ## Centreon Gorgone
 
+### 22.04.1
+
+Release date: `September 23, 2022`
+
+#### Enhancements
+
+- Added an optional parameter to strictly control that the required plugins are installed before reloading/restarting centengine
+- Added INSECURE_EXTRACT_MODE option to untar the archive
+- Added API to manage Centreon MBI ETL
+- Added API to get status of Centreon MBI ETL
+- Added API to kill working process of Centreon MBI ETL
+- Added Rocky Linux support for the plugin auto installation
+- Improved debug for the plugin auto installation
+
+##### Bug fixes
+
+- Fixed wrong header in pullws mode
+- Fixed encoding issue on RHEL8 in Services Discovery with Windows SNMP
+- Fixed an issue with the authentication process to the web socket server
+- Fixed the missing service category name in debug message
+
 ### 22.04.0
 
 #### Enhancements
