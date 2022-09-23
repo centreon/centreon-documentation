@@ -324,6 +324,8 @@ As stated above, all broker instances (central, RRD, modules) must use the same 
 
 ### 22.04.1
 
+Release date: `September 23, 2022`
+
 #### Enhancements
 
 - Added an optional parameter to strictly control that the required plugins are installed before reloading/restarting centengine
