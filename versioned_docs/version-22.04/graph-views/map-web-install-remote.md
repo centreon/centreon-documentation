@@ -3,7 +3,13 @@ id: map-web-install-remote
 title: Installing MAP Web on a remote server
 ---
 
-## Installation of Centreon MAP Web for a Centreon remote server
+## Architecture
+
+The diagram below summarizes the MAP on a remote server architecture:
+
+![image](../assets/graph-views/ng/map-web-remote-server-schema.png)
+
+## Installation of Centreon MAP for a Centreon remote server
 
 Installation of Centreon MAP extension on a Centreon
 remote server has to be done exactly like the installation on a
@@ -21,7 +27,7 @@ Then refer to the [installation procedure](map-web-install.md) to install the 2 
 After that, you will have to perform the additional steps explained below, to finish
 installing Centreon Map on your remote server.
 
-## Images synchronisation **To check with Dev**
+## Images synchronisation
 
 Add access to the images synchronisation page **Administration  >  Parameters  >  Images**
 ```shell

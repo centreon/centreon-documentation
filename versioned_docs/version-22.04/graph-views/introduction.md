@@ -92,3 +92,6 @@ Use the following procedures to use and administrate Centreon MAP Legacy:
 
 ### MAP overview
 
+Here is an overview of MAP. Create, customize, and visualize your maps within a single web interface.
+
+[Add screenshot]

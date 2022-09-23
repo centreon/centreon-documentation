@@ -13,17 +13,9 @@ If you need an additional license for Centreon MAP Web, please contact the [MAP 
 
 ## Architecture
 
-Centreon MAP consists of three components:
+The diagram below summarizes the MAP architecture:
 
-- Centreon MAP Server, developed in Java, using SpringBoot, Hibernate and CXF
-- Centreon MAP Web interface, developed in Javascript, based on
-  [Backbone.js](http://backbonejs.org/)
-- Centreon MAP Desktop Client, developed in Java, based on [Eclipse RCP
-  4](https://wiki.eclipse.org/Eclipse4/RCP).
-
-The diagram below summarizes the architecture: **To update**
-
-![image](../assets/graph-views/map_architect.png)
+![image](../assets/graph-views/ng/map-web-schema.png)
 
 ## Installation
 

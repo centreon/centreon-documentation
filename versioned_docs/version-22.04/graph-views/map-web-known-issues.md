@@ -3,6 +3,7 @@ id: map-web-known-issues
 title: MAP Web known issues
 ---
 
+[Work in progress]
 This topic lists known issues the MAP team is currently working on:
 
 - Direct URL to Maps

@@ -16,8 +16,8 @@ The display of the **+** button means that you are allowed to create a map and t
 1. In the **Monitoring > Map** page, click the **+** button located in the **Standard** section.
 
 2. Fill in the **Add a Map** properties:
-   - Name
-   - Image
+   - Name: provide a name to the map.
+   - Image: select an image if you want to customize the map's display in the list of maps.
 
 3. Click **Add** to confirm the map's creation.
 
@@ -29,19 +29,18 @@ Go to the [Use the map editor](map-web-editor.md) topic to know how to customize
 1. In the **Monitoring > Map** page, click the **+** button located in the **Geographic** section.
 
 2. Fill in the **Add a new geographical view** property:
-   - Name
+   - Name: provide a name to the geographical view.
 
 3. Click **Create** to continue the view's configuration.
 
-4. Fill in the **Edit view parameters** properties:
-   - Name
-   - Only one marker of the hostgroup(s) will be displayed on the view
-   - Hosts belonging to the following hostgroup(s) will be displayed on the view
-   - Business Activities belonging to the following Business View(s) will be displayed on the view
+4. Fill in the following **Edit view parameters** properties:
+   - Only one marker of the hostgroup(s) will be displayed on the view.
+   - Hosts belonging to the following hostgroup(s) will be displayed on the view.
+   - Business Activities belonging to the following Business View(s) will be displayed on the view.
 
 5. Click the **Advanced** button to display more parameters.
 
-6. Fill in the **Advanced** parameters:
+6. Fill in the follonwing **Advanced** parameters:
    - Zoom
    - Lat
    - Long
@@ -58,15 +57,12 @@ Hover over the map on which you want to apply an action and click the correspond
 
 ### Delete a map
 
+Click the **red cross** button and confirm the deletion by clicking the **Delete** button.
+
 ### Edit map properties
+
+Click the **wrench** button to edit the map properties and confirm the changes by clicking the **Edit** button.
 
 ### Share a map
 
-
-
-
-
-
-
-
-
+Click the **arrow** button to edit the access group privileges and confirm the changes by clicking the **Save** button.
