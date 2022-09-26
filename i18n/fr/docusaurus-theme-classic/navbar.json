@@ -10,5 +10,9 @@
   "item.label.Centreon OnPrem": {
     "message": "Centreon OnPrem",
     "description": "Navbar item with label Centreon OnPrem"
+  },
+  "item.label.Plugin Packs": {
+    "message": "Plugin Packs",
+    "description": "Navbar item with label Plugin Packs"
   }
 }
