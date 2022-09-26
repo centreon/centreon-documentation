@@ -1,11 +1,11 @@
 ---
 id: map-web-troubleshooting
-title: MAP Web troubleshooting
+title: MAP troubleshooting
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This chapter shows some guidelines on how to troubleshoot your MAP Web installation.
+This chapter shows some guidelines on how to troubleshoot your MAP installation.
 
 ## Make sure you installed the correct RPMs
 
@@ -136,13 +136,87 @@ Here are the main errors that you can encounter:
   
   > If not, send us a screenshot of the error (see the [Still stuck?](#still-stuck) section).
 
+## Make sure MAP service is properly installed
+
+Once the MAP service installation is finished, you can run the following command to check for problems with the version or the repository (on both central and **map-ng** server, if the latter is installed in a different location):
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+  - For the central:
+
+  ```shell
+  yum info centreon-map-web-client
+  ```
+
+  - For the **map-ng** server:
+
+  ```shell
+  yum info centreon-map-server-ng
+  ```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+  - For the central:
+
+  ```shell
+  dnf info centreon-map-web-client
+  ```
+
+  - For the **map-ng** server:
+
+  ```shell
+  dnf info centreon-map-server-ng
+  ```
+  
+</TabItem>
+</Tabs>
+
+  The output should look like this (for EL8):
+
+  - For the central:
+
+  ```shell
+  Last metadata expiration check: 0:01:02 ago on Tue Sep  6 15:33:16 2022.
+  Available Packages
+  Name         : centreon-map-web-client
+  Version      : 21.10.5
+  Release      : 1662465400.5bcd7cb52.el8
+  Architecture : noarch
+  Size         : 57 M
+  Source       : centreon-map-web-client-21.10.5-1662465400.5bcd7cb52.el8.src.rpm
+  Repository   : centreon-beta-stable-noarch
+  Summary      : Centreon Map Web Client
+  License      : ASL
+  Description  : Centreon module to display maps created with Centreon Studio in Centreon web interface
+  ```
+
+  - For the **map-ng** server:
+
+  ```shell
+  Last metadata expiration check: 0:09:27 ago on Tue Sep  6 15:23:27 2022.
+  Installed Packages
+  Name         : centreon-map-server-ng
+  Version      : 21.10.5
+  Release      : 1662465400.5bcd7cb52.el8
+  Architecture : noarch
+  Size         : 55 M
+  Source       : centreon-map-server-ng-21.10.5-1662465400.5bcd7cb52.el8.src.rpm
+  Repository   : centreon-beta-stable-noarch
+  Summary      : New generation of Centreon Map service under Spring Boot framework
+  URL          : www.centreon.com
+  License      : Proprietary
+  Description  : 
+  ```
+
 ## Still stuck?
 
 If you still need help, please post a message to the group, providing us with the basic information about the way Centreon MAP NG is installed.
 
 Here is an example for a standard installation:
 
-|            | Central | MAP ng | MAP legacy |
+|            | Central | MAP | MAP (legacy) |
 |------------|------|--------|--------|
 |Is there a direct connection between this element and the central (are they on the same network?)|n/a|Y|Y|
 |Is this element installed on the same server as the central?   |n/a|Y|N|
@@ -156,7 +230,7 @@ See above [Run our diagnostic tool](#run-our-diagnostic-tool) and send us the co
 - Log files
   Provide the following log files (these are the default paths):
 
-  - Centreon MAP NG server:
+  - Centreon MAP server:
    
    ```shell
    /var/log/centreon-map/centreon-map-ng.log

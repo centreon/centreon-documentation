@@ -1,6 +1,6 @@
 ---
 id: map-web-known-issues
-title: MAP Web known issues
+title: MAP known issues
 ---
 
 [Work in progress]

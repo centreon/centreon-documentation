@@ -1,6 +1,6 @@
 ---
 id: map-web-access
-title: Manage access rights on MAP Web
+title: Manage access rights on MAP
 ---
 
 This topic explains how users can access the maps according to well-defined privileges.

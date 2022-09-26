@@ -3,7 +3,7 @@ id: map-web-editor
 title: Using the map editor
 ---
 
-## MAP Web editor overview
+## MAP editor overview
 
 ![image](../assets/graph-views/ng/map-web-editor-overview.png)
 

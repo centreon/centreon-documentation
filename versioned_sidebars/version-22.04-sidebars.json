@@ -653,7 +653,7 @@
         },
         {
               "type": "category",
-            "label": "Using MAP Web",
+            "label": "Using MAP",
             "items": [
             {
               "type": "doc",
@@ -667,7 +667,7 @@
         },
         {
         "type": "category",
-      "label": "Administrating MAP Web",
+      "label": "Administrating MAP",
       "items": [
         {
         "type": "doc",

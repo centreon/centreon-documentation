@@ -1,25 +1,25 @@
 ---
 id: map-web-update
-title: Updating MAP Web
+title: Updating MAP
 ---
 
-> A reset of your MAP Web database is necessary: the modifications you made on your maps using the web editor will be lost. Otherwise, note that the MAP Legacy database (and therefore legacy maps) will not be impacted.
+> A reset of your MAP database is necessary: the modifications you made on your maps using the web editor will be lost. Otherwise, note that the MAP (Legacy) database (and therefore legacy maps) will not be impacted.
 
-Use the following procedure to update your MAP Web version:
+Use the following procedure to update your MAP version:
 
-1. Stop the **centreon-map-ng** service by running this command on the machine hosting the Centreon MAP Web service:
+1. Stop the **centreon-map-ng** service by running this command on the machine hosting the Centreon MAP service:
  
   ```shell
   sudo systemctl stop centreon-map-ng
   ```
 
-2. Update the packages by running this command on the machine(s) hosting the central service and the Centreon MAP Web service:
+2. Update the packages by running this command on the machine(s) hosting the central service and the Centreon MAP service:
  
   ```shell
   sudo yum update "centreon-map-server-ng" "centreon-map-web-client" --enablerepo="centreon-beta-stable\*"
   ```
 
-3. Purge the MAP Web database by connecting to the database and executing the following requests:
+3. Purge the MAP database by connecting to the database and executing the following requests:
  
   ```shell
   drop database centreon_map; create database centreon_map; grant all privileges on centreon_map.* to 'centreon_map'@'%' identified by 'centreon_map';

@@ -1,15 +1,16 @@
 ---
 id: map-web-install
-title: Installing MAP Web
+title: Installing MAP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This chapter describes how to install Centreon MAP Web. It is recommended to install MAP Web on the central server. However, if you have large volumes of data, you can install it on your legacy MAP server. The MAP Web module does not use the **centreon_studio** database.
+This chapter describes how to install Centreon MAP. It is recommended to install MAP on the central server. However, if you have large volumes of data, you can install it on your legacy MAP server. The MAP module does not use the **centreon_studio** database.
 
 ### License
 
-If you need an additional license for Centreon MAP Web, please contact the [MAP team](team-map@centreon.com) to get & install your license key.
+If you need an additional license for Centreon MAP, please contact the support [Centreon support
+team](https://centreon.force.com/) to get and install your license key.
 
 ## Architecture
 
@@ -21,7 +22,10 @@ The diagram below summarizes the MAP architecture:
 
 ### Step 1: Install the business and beta repositories
 
-In your terminal, log on to the central server and run the following commands: **to update**
+Install Centreon MAP repository, you can find it on the
+[support portal](https://support.centreon.com/s/repositories).
+
+Then execute the following commands:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -56,7 +60,7 @@ In your terminal, log on to the central server and run the following commands: *
 </TabItem>
 </Tabs>
 
-### Step 2: Install the MAP Web module
+### Step 2: Install the MAP module
 
 1. From your terminal, run the following command: **to update**
 
@@ -166,87 +170,17 @@ In your terminal, log on to the central server and run the following commands: *
              └─19576 /usr/bin/java -Dsun.misc.URLClassPath.disableJarChecking=true -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/var/log/centreon-map -Dcentreon-map.signing-key=NeEmPqd1512l467yKcYkYQsU6XQ1oDZHkBglDH6nmnTWDRz5hIImTollDTZFOhtOB -Dcentreon-map.access-tok>
   ```
 
-11. Once the installation is finished, you can run the following command to check for problems with the version or the repository (on both central and **map-ng** server, if the latter is installed in a different location):
 
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-  - For the central:
+### Step 4: Activate the MAP module
 
-  ```shell
-  yum info centreon-map-web-client
-  ```
-
-  - For the **map-ng** server:
-
-  ```shell
-  yum info centreon-map-server-ng
-  ```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-  - For the central:
-
-  ```shell
-  dnf info centreon-map-web-client
-  ```
-
-  - For the **map-ng** server:
-
-  ```shell
-  dnf info centreon-map-server-ng
-  ```
-  
-</TabItem>
-</Tabs>
-
-  The output should look like this (for EL8):
-
-  - For the central:
-
-  ```shell
-  Last metadata expiration check: 0:01:02 ago on Tue Sep  6 15:33:16 2022.
-  Available Packages
-  Name         : centreon-map-web-client
-  Version      : 21.10.5
-  Release      : 1662465400.5bcd7cb52.el8
-  Architecture : noarch
-  Size         : 57 M
-  Source       : centreon-map-web-client-21.10.5-1662465400.5bcd7cb52.el8.src.rpm
-  Repository   : centreon-beta-stable-noarch
-  Summary      : Centreon Map Web Client
-  License      : ASL
-  Description  : Centreon module to display maps created with Centreon Studio in Centreon web interface
-  ```
-
-  - For the **map-ng** server:
-
-  ```shell
-  Last metadata expiration check: 0:09:27 ago on Tue Sep  6 15:23:27 2022.
-  Installed Packages
-  Name         : centreon-map-server-ng
-  Version      : 21.10.5
-  Release      : 1662465400.5bcd7cb52.el8
-  Architecture : noarch
-  Size         : 55 M
-  Source       : centreon-map-server-ng-21.10.5-1662465400.5bcd7cb52.el8.src.rpm
-  Repository   : centreon-beta-stable-noarch
-  Summary      : New generation of Centreon Map service under Spring Boot framework
-  URL          : www.centreon.com
-  License      : Proprietary
-  Description  : 
-  ```
-
-### Step 4: Activate the MAP Web module
-
-By default, the MAP Web module is not enabled. Perform the following procedure to enable it.
+By default, the MAP module is not enabled. Perform the following procedure to enable it.
 
 1. Log on to the Centreon interface and go to **Administration > Extensions > Map > Options**.
 
 2. In the **Connection information** section, set **Server Map NG** to **Yes**.
 
-3. Enter the IP address of your MAP server in the **Map NG server address** field. (If you installed MAP Web on the central server, this is the IP address of the central server. Use its full IP address, not the localhost.). The default port is 8081. For instance: http://10.10.10.10:8081
+3. Enter the IP address of your MAP server in the **Map NG server address** field. (If you installed MAP on the central server, this is the IP address of the central server. Use its full IP address, not the localhost.). The default port is 8081. For instance: http://10.10.10.10:8081
 
 4. Click the **Test connection to Map NG server** button to test the connection. This test should return the **Connection test successful** message.
 

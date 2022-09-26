@@ -1,13 +1,13 @@
 ---
 id: map-web-manage
-title: Managing maps on MAP Web
+title: Managing maps on MAP
 ---
 
-This chapter provides information about how to create and manage maps from the Centreon MAP Web interface. You can create two types of map:
+This chapter provides information about how to create and manage maps from the Centreon MAP interface. You can create two types of map:
 - Standard maps: to visualize graphical representations of your monitored infrastructure.
 - Geographic views: to display the resources of your IT environment across a defined geographical area.
 
-> Options that are available in the MAP Web interface depend on the permissions assigned to you by your administrator. See the [Manage access rights on MAP Web](map-web-access.md) topic to know more about rights and permissions.
+> Options that are available in the MAP interface depend on the permissions assigned to you by your administrator. See the [Manage access rights on MAP](map-web-access.md) topic to know more about rights and permissions.
 
 The display of the **+** button means that you are allowed to create a map and that you belong to an access group that is granted the creator role.
 
