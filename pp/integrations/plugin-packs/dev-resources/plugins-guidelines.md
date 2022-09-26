@@ -180,8 +180,6 @@ Option management is a central piece of a successful plugin. You should:
 * Always **check** for values supplied by the user and print a **clear message** when they doesn’t fit with plugin requirements
 * Set default option value when relevant
 
-TODO:ADD-LINK-DEV-SECTION
-
 ## Discovery 
 
 This section describes how you should format your data to comply with the requirements of Centreon discovery UI modules. 
@@ -286,10 +284,8 @@ You can use more advanced structures for values in the result sets, it can be:
 
 Using those structures is convenient when you need to group object properties behind a single key. 
 
-On the users' side, it allows using these values to filter in or out some value or make a better choice 
+On the users' side, it allows using these values to filter in or out some of the results or make a better choice 
 about the host template for a given discovered host.
-
-TODO:ADD-LINK-DEV-SECTION
 
 ### Services
 
@@ -337,8 +333,6 @@ Executing exactly the same command, substituting `--disco-format` with `--disco-
 The result contains one line per interface and each line contains each  properties as a `key="value"` pair. Note that even if 
 no data is obtained for a given key, it's still has to be displayed (e.g `total=""`).
 
-TODO:ADD-LINK-DEV-SECTION
-
 ## Performances 
 
 A monitoring plugin has to do one thing and do it right, it's important to code your plugin with the idea to make 
@@ -385,7 +379,16 @@ system or access sensitive information.
 
 ### Dependencies
 
+There is no need to re-invent the wheel, but standard centreon-plugins dependencies provide you with the most common
+external libraries that might be required to write a new plugin. 
 
+Don't overuse large libraries that might end as unsupported or where some governance modification might lead to 
+security problems. 
 
 ## Help and documentation
+
+For each plugin, the minimum documentation is the help, you have to explain user what the plugin 
+is doing and how they can use the built-in options to achieve their own alerting scenario.
+
+You can look at how we handle help at mode level with the centreon-plugins framework [here](develop-with-centreon-plugins.md).
 
