@@ -2467,10 +2467,6 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/dev-resources/create-your-own-packs'
-        },
-        {
-          type: 'doc',
           id: 'integrations/plugin-packs/dev-resources/develop-with-centreon-plugins'
         }
       ]

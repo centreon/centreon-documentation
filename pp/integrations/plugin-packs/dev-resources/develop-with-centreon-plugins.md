@@ -76,8 +76,6 @@ cd centreon-plugins
 git checkout -b 'my-first-plugin'
 ```
 
-You can also choose 
-
 ## Understand project organization
 
 ### Layout and concepts

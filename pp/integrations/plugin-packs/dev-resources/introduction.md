@@ -16,8 +16,7 @@ The recommended path is the following:
 concepts and features to know before developing any plugins
 - [Plugins quickstart guide](../dev-resources/develop-with-centreon-plugins.md) - Get the 
 big picture and understand patterns that will enable you to code with our framework
-- [Packs creation](../dev-resources/create-your-own-packs.md) - Understand the JSON structure
-of the Packs, and learn how to use them within Centreon
 
 Need some help? Unanswered questions? Smoggy concetps? Just reach us out on Slack[https://centreon.slack.com] or 
-[the watch](https://thewatch.centreon.com).
+[the watch](https://thewatch.centreon.com). Feel free to submit an idea if you wouldlike to see a specific topic covered 
+within this section. 
