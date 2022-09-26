@@ -308,7 +308,7 @@
     "description": "The label for category First steps with Centreon in sidebar docs"
   },
   "sidebar.docs.category.First steps with Centreon.link.generated-index.description": {
-    "message": "Votre plateforme Centreon est installée. Que faire ensuite?",
+    "message": "Votre plateforme Centreon est installée. Que faire ensuite ?",
     "description": "The generated-index page description for category First steps with Centreon in sidebar docs"
   },
   "sidebar.docs.category.Setting up the monitoring": {
@@ -320,7 +320,7 @@
     "description": "The label for category Monitoring resources in real time in sidebar docs"
   },
   "sidebar.docs.category.Monitoring resources in real time.link.generated-index.description": {
-    "message": "Comment superviser les ressources que vous avez créées?",
+    "message": "Comment superviser les ressources que vous avez créées ?",
     "description": "The generated-index page description for category Monitoring resources in real time in sidebar docs"
   },
   "sidebar.docs.category.Tutorials for Business modules": {

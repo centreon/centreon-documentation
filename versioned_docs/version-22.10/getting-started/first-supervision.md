@@ -1,6 +1,6 @@
 ---
 id: first-supervision
-title: Setting up the monitoring
+title: Prerequisites
 ---
 
 This topic proposes to install the monitoring templates supplied free of charge with the Centreon solution
@@ -30,87 +30,9 @@ for free:
 
 Now you have the basic templates and plugins to start monitoring hosts!
 
-## Start to monitor your first host
-
-### Monitor Printer equipment with SNMP
-
-Go to the **Configuration \> Plugin Packs** menu and install **Printer Standard** Plugin Pack:
-
-![image](../assets/getting-started/quick_start_printer_0.gif)
-
-Go to the **Configuration \> Hosts \> Hosts** menu and click on **Add**:
-
-![image](../assets/getting-started/quick_start_printer_1.png)
-
-Fill in the following information:
-
-* The name of the server
-* A description of the server
-* The IP address
-* The SNMP version and community
-
-Click on **+ Add a new entry** button in **Templates** field, then select the **HW-Printer-standard-rfc3805-custom**
-template in the list.
-
-Click on **Save**.
-
-Your equipment has been added to the monitoring configuration:
-
-![image](../assets/getting-started/quick_start_printer_2.png)
-
-Go to **Configuration \> Services \> Services by host** menu. A set of indicators has been automatically deployed:
-
-![image](../assets/getting-started/quick_start_printer_3.png)
-
-It is now time to [deploy the supervision](#deploying-a-configuration).
-
-Then go to the **Monitoring \> Status Details \> Services** menu and select **All** value for the **Service Status**
-filter. After a few minutes, the first results of the monitoring appear:
-
-![image](../assets/getting-started/quick_start_printer_4.png)
-
-### Monitor UPS equipment with SNMP
-
-Go to the **Configuration \> Plugin Packs** menu and install **UPS Standard** Plugin Pack:
-
-![image](../assets/getting-started/quick_start_ups_0.gif)
-
-Go to the **Configuration \> Hosts \> Hosts** menu and click on **Add**:
-
-![image](../assets/getting-started/quick_start_ups_1.png)
-
-Fill in the following information:
-
-* The name of the server
-* A description of the server
-* The IP address
-* The SNMP version and community
-
-Click on **+ Add a new entry** button in **Templates** field, then select the **HW-UPS-Standard-Rfc1628-SNMP-custom**
-template in the list.
-
-Click on **Save**.
-
-Your equipment has been added to the monitoring configuration:
-
-![image](../assets/getting-started/quick_start_ups_2.png)
-
-Go to **Configuration \> Services \> Services by host** menu. A set of indicators has been automatically deployed:
-
-![image](../assets/getting-started/quick_start_ups_3.png)
-
-It is now time to [deploy the supervision](#deploying-a-configuration).
-
-Then go to the **Monitoring \> Status Details \> Services** menu and select **All** value for the **Service Status**
-filter. After a few minutes, the first results of the monitoring appear:
-
-![image](../assets/getting-started/quick_start_ups_4.png)
-
 ## Deploying a configuration
 
-On creation/deletion/change of objects via the configuration interface, the changes performed are not applied
-automatically to the monitoring engine. To apply the changes performed, it is necessary to follow the procedure below.
-
+When you create a host, you will need to deploy the configuration for the host to be monitored.
 
 1. Go to **Configuration \> Pollers > Pollers**.
 2. Select the pollers whose configuration you want to export.

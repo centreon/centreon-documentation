@@ -39,16 +39,18 @@
             "type": "category",
             "label": "Setting up the monitoring",
             "link": {
-              "type": "doc",
-              "id": "getting-started/first-supervision"
+              "type": "generated-index"
             },
             "collapsed": true,
             "items": [
+              "getting-started/first-supervision",
               "getting-started/monitor-linux-server-with-snmp",
               "getting-started/monitor-windows-server-with-snmp",
               "getting-started/monitor-cisco-router-with-snmp",
               "getting-started/monitor-mysql-server",
-              "getting-started/autodisco-aws"
+              "getting-started/autodisco-aws",
+              "getting-started/monitor-printer-snmp",
+              "getting-started/monitor-ups-snmp"
             ]
           },
           {

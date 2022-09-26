@@ -3,7 +3,7 @@ id: actions
 title: What actions can you take?
 ---
 
-Once you have [set up your monitoring](first-supervision.md) and resources are being successfully monitored, go to **Monitoring > Resources Status** to follow the satus of resources in real time.
+Once you have [set up your monitoring](first-supervision.md) and resources are being successfully monitored, go to **Monitoring > Resources Status** to follow the status of resources in real time.
 
 On this page you can perform the following actions (hover over the resource's status and click the corresponding button):
 
