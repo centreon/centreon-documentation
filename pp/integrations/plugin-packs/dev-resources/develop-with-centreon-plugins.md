@@ -251,7 +251,7 @@ The `plugin.pm` is the first thing to create, it contains:
 
 Here is the commented version of the plugin.pm file:
 
-```perl title=my-awesome-app plugin.pm file
+```perl title="my-awesome-app plugin.pm file"
 [.. license and copyright things ..]
 
 # Name of your perl package
@@ -284,7 +284,7 @@ sub new {
 # Declare this file as a perl module/package
 1;
 
-# Beginning of the documenation/help. __END__ Specify to the interpreter that instructions below don't need to be compiled
+# Beginning of the documenation/help. `__END__` Specify to the interpreter that instructions below don't need to be compiled
 # =head1 [..] Specify the section level and the label when using the plugin with --help
 # Check my-awesome [..] Quick overview of wath the plugin is doing
 # =cut Close the head1 section
