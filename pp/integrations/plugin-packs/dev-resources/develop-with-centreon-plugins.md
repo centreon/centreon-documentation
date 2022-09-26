@@ -173,30 +173,30 @@ It returns the following output:
 ```json title="my-awesome-app health JSON" 
 {
     "health": "yellow",
-    "db_queries": {
-        "select": 1230,
-        "update": 640,
-        "delete": 44
+    "db_queries":{
+         "select": 1230,
+         "update": 640,
+         "delete": 44
     },
-    "connections": [
-        {
-            "app": "my-awesome-frontend",
-            "users": 122
-        },
-        {
-            "app": "my-awesome-db",
-            "users": 92
-        }
+    "connections":[
+      {
+        "component": "my-awesome-frontend",
+        "value": 122
+      },
+      {
+        "component": "my-awesome-db",
+        "value": 92
+      }
     ],
-    "errors": [
-        {
-            "app": "my-awesome-frontend",
-            "users": 32
-        },
-        {
-            "app": "my-awesome-db",
-            "users": 27
-        }
+    "errors":[
+      {
+        "component": "my-awesome-frontend",
+        "value": 32
+      },
+      {
+        "component": "my-awesome-db",
+        "value": 27
+      }
     ]
 }
 ```
@@ -399,7 +399,7 @@ Add a `check_options` function. This sub will execute right after new and allow 
 ```perl
 sub check_options {
     my ($self, %options) = @_;
-    $self->SUPER::init(%options);
+    $self->SUPER::check_options(%options);
 
     # Check if the user provided a value for --hostname option. If not, display a message and exit
     if (!defined($self->{option_results}->{hostname}) || $self->{option_results}->{hostname} eq '') {
@@ -410,6 +410,8 @@ sub check_options {
     # all your options key/value pairs.
     $self->{http}->set_options(%{$self->{option_results}});
 }
+
+1;
 ```
 
 Nice work, you know have a mode that can be executed without errors!
@@ -441,23 +443,22 @@ sub set_counters {
         # That's why the type is 0.
         { name => 'health', type => 0, cb_prefix_output => 'prefix_health_output' },
         { name => 'queries', type => 0, cb_prefix_output => 'prefix_queries_output' },
-        # connections and errors will receive value for both instances (my-awesome-frontend and my-awesome-db)
-        # The type => 1 explicits that
-        { name => 'connections', type => 1, cb_prefix_output => 'prefix_connections_output' },
+        # app_metrics groups connections and errors and each will receive value for both instances (my-awesome-frontend and my-awesome-db)
+        # the type => 1 explicits that
         # as above, you can define a callback (cb) function to manage the output prefix. This function is called 
         # each time a value is passed to the counter and can be shared across multiple counters.
-        { name => 'errors', type => 1, cb_prefix_output => 'prefix_errors_output' }
+        { name => 'app_metrics', type => 1, cb_prefix_output => 'prefix_app_output' }
     ];
 
     $self->{maps_counters}->{health} = [
         # This counter is specific because it deals with a string value
         {
-            label => 'status',
+            label => 'health',
             # All properties below (before et) are related to the catalog_status_ng catalog function imported at the top of our mode
             type => 2,
             # These properties allow you to define default thresholds for each status but not mandatory.
-            warning_default => '%{status} =~ /yellow/', 
-            critical_default => '%{status} =~ /red/', 
+            warning_default => '%{health} =~ /yellow/', 
+            critical_default => '%{health} =~ /red/', 
             # To simplify, manage things related to how get value in the counter, what to display and specific threshold 
             # check because of the type of the data (string)
             set => {
@@ -503,9 +504,11 @@ sub set_counters {
             }
         }
     ];
-    $self->{maps_counters}->{connections} = [
+    $self->{maps_counters}->{app_metrics} = [
+        # The app_metrics has two different labels, connection and errors.
         { label => 'connections', nlabel => 'myawesomeapp.connections.count', set => {
-                # pay attention the extra display key_value. It holds the instance value. (my-awesome-db, my-awesome-frontend)
+                # pay attention the extra display key_value. It will receive the instance value. (my-awesome-db, my-awesome-frontend).
+                # the display key_value isn't mandatory but we show it here for education purpose
                 key_values => [ { name => 'connections' }, { name => 'display' } ],
                 output_template => 'connections: %s',
                 perfdatas => [
@@ -514,8 +517,6 @@ sub set_counters {
                 ]
             }
         },
-    ];
-    $self->{maps_counters}->{errors} = [
         { label => 'errors', nlabel => 'myawesomeapp.errors.count', set => {
                 key_values => [ { name => 'errors' }, { name => 'display' } ],
                 output_template => 'errors: %s',
@@ -523,11 +524,15 @@ sub set_counters {
                     { template => '%d', min => 0, label_extra_instance => 1 }
                 ]
             }
-        },
+        }
     ];
 }
+
+# This should always be present at the end of the script.
 1;
 ```
+
+> Remember to always move the final `1;` instruction at the end of the script when you add new lines during this tutorial.
 
 Ok, that's was a big one. Guess what, it compiles. Just to take some rest, run the command 
 supplying a value to the `--hostname` option to see what it displays: 
@@ -548,8 +553,7 @@ it now but as you have noticed the mode compiles so you can choose to keep those
 During counters definitions, we associated a callback function to each of them: 
 - `cb_prefix_output => 'prefix_health_output'`
 - `cb_prefix_output => 'prefix_queries_output'`
-- `cb_prefix_output => 'prefix_connections_output'`
-- `cb_prefix_output => 'prefix_errors_output'`
+- `cb_prefix_output => 'prefix_app_output'`
 
 Define those functions by adding it to our `appmetrics.pm` file. They are self-explanatory.
 
@@ -566,7 +570,7 @@ sub prefix_queries_output {
     return 'Queries:';
 }
 
-sub prefix_connections_output {
+sub prefix_app_output {
     my ($self, %options) = @_;
 
     # This notation allows you to return the value of the instance (the display key_value)
@@ -574,11 +578,7 @@ sub prefix_connections_output {
     return "'" . $options{instance_value}->{display} . "' ";
 }
 
-sub prefix_errors_output {
-    my ($self, %options) = @_;
-
-    return "'" . $options{instance_value}->{display} . "' ";
-}
+1;
 ```
 
 Execute your command and check that the output matches the one below: 
@@ -613,16 +613,18 @@ sub manage_selection {
     my ($self, %options) = @_;
     # We have already loaded all things required for the http module
     # Use the request method from the module to run the GET request against the path
-    my ($content) = $self->{http}->request(url_path => '/v3/6e45073b-068a-40d3-a2c3-31b1ebd54dc9');
+    my ($content) = $self->{http}->request(url_path => '/v3/da8d5aa7-abb4-4a5f-a31c-6700dd34a656');
     print $content . "\n";
 }
+
+1;
 ```
 
 Run this command `perl centreon_plugins.pl --plugin=apps::myawesomeapp::api::plugin --mode=app-metrics --hostname=run.mocky.io`. 
 
 Output should be: 
 
-```perl
+```perl title="Basic raw content print"
 {
     "health": "yellow",
     "db_queries":{
@@ -632,22 +634,22 @@ Output should be:
     },
     "connections":[
       {
-        "app": "my-awesome-frontend",
-        "users": 122
+        "component": "my-awesome-frontend",
+        "value": 122
       },
       {
-        "app": "my-awesome-db",
-        "users": 92
+        "component": "my-awesome-db",
+        "value": 92
       }
     ],
     "errors":[
       {
-        "app": "my-awesome-frontend",
-        "users": 32
+        "component": "my-awesome-frontend",
+        "value": 32
       },
       {
-        "app": "my-awesome-db",
-        "users": 27
+        "component": "my-awesome-db",
+        "value": 27
       }
     ]
 }
@@ -681,6 +683,8 @@ sub manage_selection {
     print Dumper($decoded_content);
     print "My App health is '" . $decoded_content->{health} . "'\n";
 }
+
+1;
 ```
 
 Run the command `perl centreon_plugins.pl --plugin=apps::myawesomeapp::api::plugin --mode=app-metrics --hostname=run.mocky.io`
@@ -690,27 +694,27 @@ You now have your JSON deserialized into a perl `$VAR1` which represents your `$
 
 You can also note the result of the latest print and how we accessed the `yellow` value.
 
-```shell
+```shell tile="Perl data structure from JSON"
 $VAR1 = {
           'connections' => [
                              {
-                               'app' => 'my-awesome-frontend',
-                               'users' => 122
+                               'component' => 'my-awesome-frontend',
+                               'value' => 122
                              },
                              {
-                               'users' => 92,
-                               'app' => 'my-awesome-db'
+                               'value' => 92,
+                               'component' => 'my-awesome-db'
                              }
                            ],
           'health' => 'yellow',
           'errors' => [
                         {
-                          'users' => 32,
-                          'app' => 'my-awesome-frontend'
+                          'value' => 32,
+                          'component' => 'my-awesome-frontend'
                         },
                         {
-                          'users' => 27,
-                          'app' => 'my-awesome-db'
+                          'value' => 27,
+                          'component' => 'my-awesome-db'
                         }
                       ],
           'db_queries' => {
@@ -728,7 +732,7 @@ Now that we know our data structure and how to access the values, we have to ass
 value to the counters we initially defined. Pay attention to the comments above 
 the `$self->{health}` and `$self->{db_queries}` assignations. 
 
-```perl
+```perl title="Global counters (type => 0)"
 sub manage_selection {
     my ($self, %options) = @_;
     # We have already loaded all things required for the http module
@@ -769,24 +773,225 @@ sub manage_selection {
     }
 
 }
+
+1;
 ```
 
-Let's run our command again and enjoy the result! No more `skipped (no value(s))` message. 
+Let's run our command again and enjoy the result! No more `skipped (no value(s))` message. Even get a 
+WARNING state because of the `yellow` app state.
 
 ```shell
 perl centreon_plugins.pl --plugin=apps::myawesomeapp::api::plugin --mode=app-metrics --hostname=run.mocky.io
-OK: My-awesome-app status: yellow - Queries: select: 1230, update: 640, delete: 44 | 'myawesomeapp.db.queries.select.count'=1230;;;0; 'myawesomeapp.db.queries.update.count'=640;;;0; 'myawesomeapp.db.queries.delete.count'=44;;;0;
+WARNING: My-awesome-app status: yellow | 'myawesomeapp.db.queries.select.count'=1230;;;0; 'myawesomeapp.db.queries.update.count'=640;;;0; 'myawesomeapp.db.queries.delete.count'=44;;;0;
 ```
+
+Performances data confirm that values for database queries are correctly set as well. 
 
 This is the magic of the counters mode template (`use base qw(centreon::plugins::templates::counter);`), the only thing you have 
 to do is getting the data from the thing you have to monitor and push it to a counter definition.
 
 Behind the scene, it manages a lot of things for you: 
-- Options: `--warning-status --warning-select --warning-update --warning-delete and --critical-* have magically been defined
+- Options: `--warning-health --warning-select --warning-update --warning-delete and --critical-* have automatically been defined
 - Performance data: thanks to `nlabel` and values from `perfdatas:[]` array in your counters
 - Display: It writes the status and substitues values with the one assigned to the counter
 
 Now, you probably better understand why the preparation work about understanding collected data and counter definition part is essential.
 
+Simply because it's the bigger part of the job.
+
 #### Push data to counters having an instance (type => 1)
 
+Now let's deal with counters with instances, that means that the sames counter will 
+receive multiple data, each of these data refering to a specific dimenson. 
+
+They require to be manipulated in a slightly different way as we will have to specify the 
+name we want to associate with the data. 
+
+First, we have to loop over both `connections` and `errors` arrays to access the app name and 
+measured value and then spread it within counters.
+
+```perl title="Counters with instances (type 1)"
+sub manage_selection {
+    my ($self, %options) = @_;
+    # We have already loaded all things required for the http module
+    # Use the request method from the imported module to run the GET request against the URL path of our API
+    my ($content) = $self->{http}->request(url_path => '/v3/da8d5aa7-abb4-4a5f-a31c-6700dd34a656');
+    # Uncomment the line below when you reached this part of the tutorial.
+    # print $content;
+
+    # Declare a scalar deserialize the JSON content string into a perl data structure
+    my $decoded_content;
+    eval {
+        $decoded_content = JSON::XS->new->decode($content);
+    };
+    # Catch the error that may arise in case the data received is not JSON
+    if ($@) {
+        $self->{output}->add_option_msg(short_msg => "Cannot encode JSON result");
+        $self->{output}->option_exit();    
+    }
+    # Uncomment the lines below when you reached this part of the tutorial.
+    # use Data::Dumper; 
+    # print Dumper($decoded_content);
+    # print "My App health is '" . $decoded_content->{health} . "'\n";
+
+    # Here is where the counter magic happens.
+    
+    # $self->{health} is your counter definition (see $self->{maps_counters}->{<name>})
+    # Here, we map the obtained string $decoded_content->{health} with the health key_value in the counter.
+    $self->{health} = { 
+        health => $decoded_content->{health}
+    };
+
+    # $self->{queries} is your counter definition (see $self->{maps_counters}->{<name>}) 
+    # Here, we map the obtained values from the db_queries nodes with the key_value defined in the counter.
+    $self->{queries} = {
+        select => $decoded_content->{db_queries}->{select},
+        update => $decoded_content->{db_queries}->{update},
+        delete => $decoded_content->{db_queries}->{delete}
+    }
+
+    # Initialize an empty app_metrics counter.
+    $self->{app_metrics} = {};
+    # Loop in the connections array of hashes
+    foreach my $entry (@{ $decoded_content->{connections} }) {
+        # Same logic than type => 0 counters but an extra key $entry->{component} to associate the value 
+        # with a specific instance
+        $self->{app_metrics}->{ $entry->{component} }->{display} = $entry->{component};
+        $self->{app_metrics}->{ $entry->{component} }->{connections} = $entry->{value};
+    };
+
+    # Exactly the same thing with errors
+    foreach my $entry (@{ $decoded_content->{errors} }) {
+        # Don't need to redefine the display key, just assign a value to the error key_value while 
+        # keeping the $entry->{component} key to associate the value with the good instance
+        $self->{app_metrics}->{ $entry->{component} }->{errors} = $entry->{value};
+    };
+
+}
+
+1;
+```
+
+Cheers, your `app-metrics` mode is (almost) complete. Once again, the counters template managed a lot 
+behind the scene. 
+
+Execute this command to see how it elvoves since the last execution. We modify the command with some 
+additionnal parameters: 
+- `--warning-health='%{health} eq "care"'` to avoid getting a WARNING, put any value that will not match yellow. Providing it 
+as a parameter will automatically override hardcoded default code value
+- `--verbose` will display the long output and the details for each `type => 1` counters
+
+```shell
+perl centreon_plugins.pl --plugin=apps::myawesomeapp::api::plugin --mode=app-metrics --hostname=run.mocky.io --warning-health='%{health} eq "care"' --verbose
+```
+
+Here is the expected output: 
+
+```shell
+OK: My-awesome-app status: yellow - Queries: select: 1230, update: 640, delete: 44 | 'myawesomeapp.db.queries.select.count'=1230;;;0; 'myawesomeapp.db.queries.update.count'=640;;;0; 'myawesomeapp.db.queries.delete.count'=44;;;0; 'my-awesome-db#myawesomeapp.connections.count'=92;;;0; 'my-awesome-db#myawesomeapp.errors.count'=27;;;0; 'my-awesome-frontend#myawesomeapp.connections.count'=122;;;0; 'my-awesome-frontend#myawesomeapp.errors.count'=32;;;0;
+'my-awesome-db' connections: 92, errors: 27
+'my-awesome-frontend' connections: 122, errors: 32
+```
+
+You now get metrics displayed for both components `'my-awesome-db'` and `'my-awesome-frontend'` and also performance data
+for your graphs. Note how the counter template automatically added the instance dimension on the left of the `nlabel` defined 
+for each counters: `**my-awesome-frontend#**myawesomeapp.errors.count'=32;;;0;`
+
+#### Help section and assistant to build your centreon objects
+
+The last, but not least, is writing a help section to explain users what your mode is 
+doing and what options they can use.
+
+Centreon-plugins framework has a built-in assistant to help you with the list of counters
+and options.
+
+Run this command to obtain a summary that will simplify the work of creating Centreon commands and write 
+the mode's help: 
+
+```shell
+perl centreon_plugins.pl --plugin=apps::myawesomeapp::api::plugin --mode=app-metrics --hostname='anyvalue' --list-coun
+ters --verbose
+```
+
+Get information from its output (shown below) to start building your mode help: 
+
+```shell
+counter list: select update delete health connections errors
+configuration:  --warning-select='$_SERVICEWARNINGSELECT$' --critical-select='$_SERVICECRITICALSELECT$' --warning-update='$_SERVICEWARNINGUPDATE$' --critical-update='$_SERVICECRITICALUPDATE$' --warning-delete='$_SERVICEWARNINGDELETE$' --critical-delete='$_SERVICECRITICALDELETE$' --warning-health='$_SERVICEWARNINGHEALTH$' --critical-health='$_SERVICECRITICALHEALTH$' --warning-connections='$_SERVICEWARNINGCONNECTIONS$' --critical-connections='$_SERVICECRITICALCONNECTIONS$' --warning-errors='$_SERVICEWARNINGERRORS$' --critical-errors='$_SERVICECRITICALERRORS$'
+```
+
+Here is how you can write the help, note that this time you will add the content after the `1;` and add the same
+`__END__` instruction like you did in the `plugin.pm` file. 
+
+
+```perl title="Help section"
+__END__
+
+=head1 MODE
+
+Check my-awesome-app metrics exposed through its API
+
+=over 8
+
+=item B<--warning/critical-health>
+
+Warning and critical threshold for application health string. 
+
+Defaults values are: --warning-health='%{health} eq "yellow"' --critical-health='%{health} eq "red"'
+
+=item B<--warning/critical-select>
+
+Warning and critical threshold for select queries
+
+=item B<--warning/critical-update>
+
+Warning and critical threshold for update queries
+
+=item B<--warning/critical-delete>
+
+Warning and critical threshold for delete queries
+
+=item B<--warning/critical-connections>
+
+Warning and critical threshold for connections
+
+=item B<--warning/critical-errors>
+
+Warning and critical threshold for errors
+
+=back
+```
+
+You're done! You can enjoy a complete plugin and mode and the help now displays in a specific 
+mode section: 
+
+
+```shell
+perl centreon_plugins.pl --plugin=apps::myawesomeapp::api::plugin --mode=app-metrics --help
+[..
+   All global options from the centreon-plugins framework that your plugin benefits from
+..]
+Mode:
+    Check my-awesome-app metrics exposed through its API
+
+    --warning/critical-health
+            Warning and critical threshold for application health string.
+
+            Defaults are: --warning-health='%{health} eq "yellow"' &
+            --critical-health='%{health} eq "red"'
+
+    --warning/critical-select
+            Warning and critical threshold for select queries
+
+    --warning/critical-update
+            Warning and critical threshold for update queries
+
+    --warning/critical-delete
+            Warning and critical threshold for delete queries
+
+    --warning/critical-connections
+            Warning and critical threshold for connections
+
+    --warning/critical-errors
+            Warning and critical threshold for errors
+```
