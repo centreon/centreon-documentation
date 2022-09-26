@@ -147,7 +147,7 @@ const config = {
         items: [
           {
             type: 'doc',
-            docId: 'getting-started/installation-first-steps',
+            docId: 'getting-started/welcome',
             position: 'left',
             label: 'Centreon OnPrem',
           },
@@ -186,7 +186,7 @@ const config = {
             items: [
               {
                 label: 'Getting Started',
-                to: '/docs/getting-started/installation-first-steps',
+                to: '/docs/getting-started/welcome',
               },
               {
                 label: 'API References',
