@@ -16,6 +16,35 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon Web
 
+### 22.04.6
+
+#### Bug fixes
+
+- [Authentication] Fixed user theme retrieval via OpenID Connect login
+- [Core] Improved database storage to fix services disappearing on the web interface
+- [Core] Removed obsolete code in ACL configuration listing
+- [Core] Removed obsolete code in Criticality class
+- [Core] Removed obsolete code in monitoring common functions
+- [Core] Removed unused mechanism for modules to add restart/reload actions after restart of pollers
+
+#### Security fixes
+
+- [Administration] Sanitized and bound Media import queries
+- [CLAPI] Sanitized and bound Centreon Hostgroup class queries
+- [CLAPI] Sanitized and bound Centreon Service class queries
+- [CLAPI] Sanitized and bound LDAP listing queries
+- [Configuration] Fixed SQLi in Centreon Broker configuration menu
+- [Configuration] Fixed SQLi in contact groups form
+- [Configuration] Sanitized and bound Centreon Hostgroups class queries
+- [Configuration] Sanitized and bound Centreon Notification class queries
+- [Configuration] Sanitized and bound Knowledge Base host listing queries
+- [Configuration] Sanitized and bound SNMP Traps groups configuration queries
+- [Configuration] Sanitized and bound SNMP Traps listing queries
+- [Configuration] Sanitized and bound Service by hostgroups listing queries
+- [Configuration] Sanitized and bound Host categories listing queries
+- [Configuration] Sanitized and bound Services listing queries
+- [Install] Sanitized and bound default configuration queries
+
 ### 22.04.5
 
 Release date: `September 20, 2022`
