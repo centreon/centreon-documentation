@@ -462,7 +462,7 @@ sub set_counters {
             # check because of the type of the data (string)
             set => {
                 key_values => [ { name => 'health' } ],
-                output_template => 'health: %s',
+                output_template => 'status: %s',
                 # Force ignoring perfdata as the collected data is a string
                 closure_custom_perfdata => sub { return 0; },
                 closure_custom_threshold_check => \&catalog_status_threshold_ng
@@ -590,7 +590,7 @@ OK: My-awesome-app: status : skipped (no value(s)) - Queries: select : skipped (
 
 The output is easier to read and separator are visible between global counters. 
 
-#### Push data into the counters
+#### Get raw data from API and understand the data structure
 
 It's the moment to write the main sub (`manage_selection`), the more complex, but also the one that 
 will transform your mode to something useful and alive.
@@ -603,6 +603,8 @@ Think about the logic, what we have to do is:
 
 Start by writing the code to connect to run.mocky.io. It is where the centreon-plugins 
 framework delivers its power.
+
+> All print instructions are available as commented code in the GitHub tutorial resources.
 
 Write the request and add a print to display the received data:
 
@@ -652,28 +654,139 @@ Output should be:
 OK: My-awesome-app: status : skipped (no value(s)) - Queries: select : skipped (no value(s)), update : skipped (no value(s)), delete : skipped (no value(s))
 ```
 
-Add an `eval` structure to transform `$content` into a data structure that can be easily manipulated with perl. Remove the print 
-as we don't need it anymore. 
+Add an `eval` structure to transform `$content` into a data structure that can be easily manipulated with perl. Let's 
+introduce the standard `Data::Dumper` library that can help understanding your data structures.
+
+We load the Data::Dumper library and use one of its method to print the JSON. A second line is here to print 
+a simple message and get your familiar with how to access data within perl data structures. 
 
 ```perl
 sub manage_selection {
     my ($self, %options) = @_;
     # We have already loaded all things required for the http module
-    # Use the request method from the imported module to run the GET request against the path
+    # Use the request method from the imported module to run the GET request against the URL path of our API
     my ($content) = $self->{http}->request(url_path => '/v3/6e45073b-068a-40d3-a2c3-31b1ebd54dc9');
     
-    # Declare a scalar to hold the encoded version of the output
-    my $encoded_content;
+    # Declare a scalar deserialize the JSON content string into a perl data structure
+    my $decoded_content;
     eval {
-        $encoded_content = JSON::XS->new->utf8->encode($content);
+        $decoded_content = JSON::XS->new->decode($content);
     };
-    # Manage the case where the data received is not JSON or not the one we expected
+    # Catch the error that may arise in case the data received is not JSON
     if ($@) {
         $self->{output}->add_option_msg(short_msg => "Cannot encode JSON result");
         $self->{output}->option_exit();    
+    }
+    use Data::Dumper; 
+    print Dumper($decoded_content);
+    print "My App health is '" . $decoded_content->{health} . "'\n";
+}
+```
+
+Run the command `perl centreon_plugins.pl --plugin=apps::myawesomeapp::api::plugin --mode=app-metrics --hostname=run.mocky.io`
+again and see how it changed. 
+
+You now have your JSON deserialized into a perl `$VAR1` which represents your `$decoded_content` structure.
+
+You can also note the result of the latest print and how we accessed the `yellow` value.
+
+```shell
+$VAR1 = {
+          'connections' => [
+                             {
+                               'app' => 'my-awesome-frontend',
+                               'users' => 122
+                             },
+                             {
+                               'users' => 92,
+                               'app' => 'my-awesome-db'
+                             }
+                           ],
+          'health' => 'yellow',
+          'errors' => [
+                        {
+                          'users' => 32,
+                          'app' => 'my-awesome-frontend'
+                        },
+                        {
+                          'users' => 27,
+                          'app' => 'my-awesome-db'
+                        }
+                      ],
+          'db_queries' => {
+                            'select' => 1230,
+                            'update' => 640,
+                            'delete' => 44
+                          }
+        };
+My App health is 'yellow'
+```
+
+#### Push data to global counters (type => 0)
+
+Now that we know our data structure and how to access the values, we have to assign this 
+value to the counters we initially defined. Pay attention to the comments above 
+the `$self->{health}` and `$self->{db_queries}` assignations. 
+
+```perl
+sub manage_selection {
+    my ($self, %options) = @_;
+    # We have already loaded all things required for the http module
+    # Use the request method from the imported module to run the GET request against the URL path of our API
+    my ($content) = $self->{http}->request(url_path => '/v3/6e45073b-068a-40d3-a2c3-31b1ebd54dc9');
+    # Uncomment the line below when you reached this part of the tutorial.
+    # print $content;
+
+    # Declare a scalar deserialize the JSON content string into a perl data structure
+    my $decoded_content;
+    eval {
+        $decoded_content = JSON::XS->new->decode($content);
+    };
+    # Catch the error that may arise in case the data received is not JSON
+    if ($@) {
+        $self->{output}->add_option_msg(short_msg => "Cannot encode JSON result");
+        $self->{output}->option_exit();    
+    }
+    # Uncomment the lines below when you reached this part of the tutorial.
+    # use Data::Dumper; 
+    # print Dumper($decoded_content);
+    # print "My App health is '" . $decoded_content->{health} . "'\n";
+
+    # Here is where the counter magic happens.
+    
+    # $self->{health} is your counter definition (see $self->{maps_counters}->{<name>})
+    # Here, we map the obtained string $decoded_content->{health} with the health key_value in the counter.
+    $self->{health} = { 
+        health => $decoded_content->{health}
+    };
+
+    # $self->{queries} is your counter definition (see $self->{maps_counters}->{<name>}) 
+    # Here, we map the obtained values from the db_queries nodes with the key_value defined in the counter.
+    $self->{queries} = {
+        select => $decoded_content->{db_queries}->{select},
+        update => $decoded_content->{db_queries}->{update},
+        delete => $decoded_content->{db_queries}->{delete}
     }
 
 }
 ```
 
+Let's run our command again and enjoy the result! No more `skipped (no value(s))` message. 
+
+```shell
+perl centreon_plugins.pl --plugin=apps::myawesomeapp::api::plugin --mode=app-metrics --hostname=run.mocky.io
+OK: My-awesome-app status: yellow - Queries: select: 1230, update: 640, delete: 44 | 'myawesomeapp.db.queries.select.count'=1230;;;0; 'myawesomeapp.db.queries.update.count'=640;;;0; 'myawesomeapp.db.queries.delete.count'=44;;;0;
+```
+
+This is the magic of the counters mode template (`use base qw(centreon::plugins::templates::counter);`), the only thing you have 
+to do is getting the data from the thing you have to monitor and push it to a counter definition.
+
+Behind the scene, it manages a lot of things for you: 
+- Options: `--warning-status --warning-select --warning-update --warning-delete and --critical-* have magically been defined
+- Performance data: thanks to `nlabel` and values from `perfdatas:[]` array in your counters
+- Display: It writes the status and substitues values with the one assigned to the counter
+
+Now, you probably better understand why the preparation work about understanding collected data and counter definition part is essential.
+
+#### Push data to counters having an instance (type => 1)
 
