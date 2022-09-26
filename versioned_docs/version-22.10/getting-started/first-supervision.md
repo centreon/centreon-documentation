@@ -1,37 +1,10 @@
 ---
 id: first-supervision
-title: Monitor your first host
+title: Setting up the monitoring
 ---
 
-## Basic principles of monitoring
-
-Before starting to monitor, let's take a look at some basic concepts:
-
-* A **host** is any device that has an IP address and that one wishes to monitor. For example, a physical server, a
-  virtual machine, a temperature probe, an IP camera, a printer or a storage space.
-* A **service** is a check point, or indicator, to be monitored on a host. This can be the CPU usage rate, temperature,
-  motion detection, bandwidth usage rate, disk I/O, and so on.
-* In order to collect each indicator value, monitoring **plugins** are used which are periodically executed by a
-  collection engine called Centreon Engine.
-* To be executed, a plugin needs a set of arguments that define, for example, which host to connect to or through which protocol.
-  The plugin and its associated arguments form a **command**.
-
-For example, to monitor a host with Centreon is to configure all the commands needed to measure the desired indicators,
-and then deploy that configuration to the collection engine so that these commands are run periodically.
-
-Nevertheless, to drastically simplify the configuration, we will rely on monitoring templates:
-
-* A **host template** defines the configuration of the indicators for a given type of equipment.
-* It relies on **service templates** that define the configuration of the commands needed to collect these indicators.
-* Centreon provides downloadable **Plugins Packs** to install on its monitoring platform: each Plugin Pack includes host
-  and services templates to configure the monitoring of a particular device in a few clicks.
-
-This quick start guide proposes to install the monitoring templates supplied free of charge with the Centreon solution
+This topic proposes to install the monitoring templates supplied free of charge with the Centreon solution
 and then to implement them to monitor your first equipment.
-
-![image](../assets/getting-started/host_service_command.png)
-
-> To go further with templates, please read the [templates chapter](../monitoring/templates.md#definition).
 
 > If you have a license for it, you can use our [Auto Discovery](../monitoring/discovery/introduction.md) feature to find and configure hosts easily. See also our tutorial on [how to detect AWS EC2 instances](autodisco-aws.md).
 

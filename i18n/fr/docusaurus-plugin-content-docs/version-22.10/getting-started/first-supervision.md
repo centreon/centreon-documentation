@@ -1,41 +1,9 @@
 ---
 id: first-supervision
-title: Superviser votre premier hôte
+title: Mettre des ressources en supervision
 ---
 
-## Principe de base de la supervision
-
-Avant de commencer à superviser, voyons ensemble quelques notions principales :
-
-* Un **hôte** (ou **host** en anglais) est tout équipement qui possède une adresse IP et que l'on souhaite superviser :
-  un serveur physique, une machine virtuelle, une sonde de température, une caméra IP, une imprimante ou un espace de
-  stockage, par exemple.
-* Un **service** est un point de contrôle, ou indicateur, à superviser sur un hôte. Cela peut être le taux d'utilisation
-  du CPU, la température, la détection de mouvement, le taux d'utilisation de la bande passante, les E/S disque, etc.
-* Afin de mesurer chaque indicateur, on utilise des **sondes** de supervision (**plugin** en anglais) qui sont exécutées
-  périodiquement par un moteur de collecte appelé **Centreon Engine**.
-* Pour être exécutée, une sonde a besoin d'un ensemble d'arguments qui définissent par exemple à quel hôte se connecter
-  ou via quel protocole. La sonde et ses arguments associés forment une **commande** (**command** en anglais).
-  
-Ainsi, superviser un hôte avec Centreon consiste à configurer l'ensemble des commandes nécessaires à la mesure des
-indicateurs désirés, puis à déployer cette configuration sur le moteur de collecte afin que ces commandes soient
-exécutées périodiquement.
-
-Pour simplifier la configuration, on utilise des modèles de supervision :
-
-* Un **modèle d'hôte** (**host template** en anglais) définit la configuration des indicateurs pour un type d'équipement donné.
-* Il s'appuie sur des **modèles de service** (**service templates**) qui définissent la configuration des commandes
-  nécessaires à la mesure de ces indicateurs.
-* Centreon fournit des **Plugins Packs** téléchargeables à installer sur sa plateforme de supervision : chaque Plugin
-  Pack regroupe des modèles d'hôtes et de services pour configurer en quelques clics la supervision d'un équipement
-  particulier.
-
-Ce guide de démarrage rapide propose d'installer les modèles de supervision fournis gratuitement avec la solution
-Centreon puis de les mettre en oeuvre pour superviser vos premiers équipements. 
-
-![image](../assets/getting-started/host_service_command.png)
-
-> Pour aller plus loin avec les modèles de configuration, lisez le chapitre [modèles](../monitoring/templates.md).
+Ce topic vous propose d'installer les modèles de supervision fournis gratuitement avec la solution Centreon, puis de les implémenter afin de mettre votre premier équipement en supervision.
 
 > Si vous disposez d'une licence adéquate, vous pouvez utiliser notre [module d'autodécouverte](../monitoring/discovery/introduction.md) afin de trouver et de configurer vos hôtes facilement. Voir aussi notre tutoriel [sur la détection d'instances AWS EC2](autodisco-aws.md).
 

@@ -1,7 +1,11 @@
 ---
 id: create-custom-view
-title: Create a custom view
+title: Creating a custom view
 ---
+
+## What is a custom view?
+
+A custom view is a dashboard created with widgets.
 
 ## Create your first custom view
 
@@ -51,8 +55,3 @@ Edit this widget clicking on wrench icon and select **Show services** for the **
 Your first custom view is created:
 
 ![image](../assets/getting-started/cv_8.png)
-
-## Help us
-
-If you have ideas of "Quick Start" and want to participate in creating some of tutorials to help users of the community,
-please make your "pull-requests" for us to easily integrate them from [GitHub](https://github.com/centreon/centreon-documentation).
