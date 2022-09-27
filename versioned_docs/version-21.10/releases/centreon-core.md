@@ -323,7 +323,7 @@ By:
 
 ### 21.10.3
 
-Release date: ``
+Release date: `September 27, 2022`
 
 #### Centreon Engine
 
