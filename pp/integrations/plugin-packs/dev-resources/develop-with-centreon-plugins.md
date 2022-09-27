@@ -5,13 +5,13 @@ title: Develop with centreon-plugins
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Setup your environment
+## Set up your environment
 
 To use the centreon-plugins framework, you'll need the following: 
 
 - A Linux operating system, ideally Debian 11 or RHEL/RHEL-like >= 8
-- [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) command line utility
-- A [GitHub](https://github.com/) account
+- The [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) command line utility
+- A [GitHub](https://github.com/) account.
 
 ### Enable our standard repositories
 
@@ -58,19 +58,20 @@ dnf install 'perl(Digest::MD5)' 'perl(Pod::Find)' 'perl-Net-Curl' 'perl(URI::Enc
 </TabItem>
 </Tabs>
 
-### Fork and clone centreon-plugins repository 
+### Fork and clone the centreon-plugins repository
 
-Within GitHub UI, on the top left, click on the fork button:
+Within GitHub UI, on the top left, click on the **Fork** button:
 
 ![image](../../../assets/integrations/plugin-packs/dev-resources/00_dev-resources_centreon-plugins-fork.png)
 
-Use git utility to fetch your repository fork: 
+Use the git utility to fetch your repository fork:
 
 ```shell
 git clone https://<githubusername>@github.com/<githubusername>/centreon-plugins
-``` 
+```
 
-Create a branch: 
+Create a branch:
+
 ```shell
 cd centreon-plugins
 git checkout -b 'my-first-plugin'
@@ -80,9 +81,9 @@ git checkout -b 'my-first-plugin'
 
 ### Layout and concepts
 
-The project content is made of a main binary (`centreon_plugins.pl`), and a logical 
-directory structure allowing to separate plugins and modes files across the domain they 
-are refering to. 
+The project content is made of a main binary (`centreon_plugins.pl`), and a logical
+directory structure allowing to separate plugins and modes files across the domain they
+are referring to.
 
 You can display it using the command `tree -L 1`. 
 
@@ -110,8 +111,8 @@ You can display it using the command `tree -L 1`.
 └── storage
 ```
 
-Let's take a deeper look to the layout of the directory containing modes to monitor Linux
-system through the command-line (`tree os/linux/local/ -L 1`). 
+Let's take a deeper look at the layout of the directory containing modes to monitor Linux
+systems through the command-line (`tree os/linux/local/ -L 1`). 
 
 ```shell
 os/linux/local/
@@ -124,11 +125,11 @@ os/linux/local/
 └── plugin.pm   # Type: File. **Plugin** definition.
 ```
 
-Note the os/linux/**local**. The project offer other way to monitor Linux, SNMP for example. To avoid 
-mixing modes using different protocols in the same directory and face some naming collision, we split 
+Note the os/linux/**local**. The project offers other ways to monitor Linux, SNMP for example. To avoid
+mixing modes using different protocols in the same directory and face some naming collisions, we split
 them across several directories making it clear what protocol they rely on.
 
-Now, let's see how these concepets combine to buil a command line:
+Now, let's see how these concepts combine to build a command line:
 
 ```shell 
 # <perl interpreter> <main_binary> --plugin=<perl_normalized_path_to_plugin_file> --mode=<mode_name> 
@@ -137,33 +138,34 @@ perl centreon_plugins.pl --plugin=os::linux::local::plugin --mode=cpu
 
 ### Shared directories
 
-Some specific directories are not related to a domain (os, cloud, ...) and are used
-across all plugins. 
+Some specific directories are not related to a domain (os, cloud...) and are used
+across all plugins.
 
 #### The **centreon** directory
 
 The **centreon** directory is specific, it contains:
+
 - Project libraries/packages. This is all the code that will help you to develop faster
-by avoiding the coding of protocol related things (SNMP,HTTPx,SSH,...) or common things like 
+by avoiding coding protocol-related things (SNMP, HTTPx, SSH...) or common things like
 options or cache management from scratch. You can read the perl modules if you're an experienced developer
-but there is a very few chance that you would have to modify anything in it.
-- Common files shared by multiple plugins. This is to avoid duplicating code across the 
+but there is very little chance that you would have to modify anything in it.
+- Common files shared by multiple plugins. This is to avoid duplicating code across the
 directory tree and ease the maintenance of the project.
 
 #### The **snmp_standard/mode** directory
 
 The **snmp_standard/mode** exists since the beginning when SNMP monitoring was much more used
-than it is today. All the modes it contains use standard OIDs, which means that many plugins are 
-relying on these as soon as the the manufacturer supports standard MIBS on their devices.
+than it is today. All the modes it contains use standard OIDs, which means that many plugins are
+relying on these when the manufacturer supports standard MIBs on their devices.
 
 ## Tutorial - How to create a plugin for *my-awesome-app*
 
 ### Context: simple JSON health API
 
-In this tutorial, we will create a very simple probe checking an application health 
+In this tutorial, we will create a very simple probe checking an application's health
 displayed in JSON through a simple API.
 
-You can mockup an API with the wonderful and free [mocky](https://designer.mocky.io/) tool.
+You can mockup an API with the free [mocky](https://designer.mocky.io/) tool.
 We created one for this tutorial, test it with `curl https://run.mocky.io/v3/6e45073b-068a-40d3-a2c3-31b1ebd54dc9`
 
 It returns the following output: 
@@ -201,27 +203,30 @@ It returns the following output:
 
 All files showed in this tutorial can be found on the centreon-plugins GitHub in the 
 [tutorial](https://github.com/centreon/centreon-plugins/tree/master/contrib/tutorial/)
-contrib section. 
+**contrib** section.
 
-> You have to move contrib/tutorial/apps/* content to apps/* if you want to run it for testing purpose.
+> You have to move the contents of `contrib/tutorial/apps/` to `apps/` if you want to run it for testing purposes.
+>
 > `cp -R contrib/tutorial/apps/* apps/`
 
 ### Understand the data
 
-Understanding the data is very important as it will drive the way you will design 
-the **mode** internals. This is the **first things to do**, no matter what protocol you
-are using. 
+Understanding the data is very important as it will drive the way you will design
+the **mode** internals. This is the **first thing to do**, no matter what protocol you
+are using.
 
-There is several important properties for a data: 
+There are several important properties for a piece of data:
+
 - Type of the data to process: string, int... There is no limitation in the kind of data you can process
-- Dimensions of the data, is it **global** or associated to an **instance**?
-- Data layout, in other word anticipate the kind of **data structure** to manipulate
+- Dimensions of the data, is it **global** or linked to an **instance**?
+- Data layout, in other words anticipate the kind of **data structure** to manipulate.
 
-In our example, the most common things are present. we can summarize it like that:
-- `health` node is a **global** data and is a string. Structure is a simple *key/value* pair
-- `db_queries` node is a collection of **global** integer values about the database. Structure is an hash containing multiple *key/value* pairs
-- `connections` node contains integer values (`122`, `92`) refering to specific **instances**(`my-awesome-frontend`, `my-awesome-db`). Structure is an array of hashes
-- `errors` is the same as `connections` except the data itself tracks errors instead of connections
+In our example, the most common things are present. We can summarize it like that:
+
+- the `health` node is **global** data and is a string. Structure is a simple *key/value* pair
+- the `db_queries` node is a collection of **global** integer values about the database. Structure is a hash containing multiple key/value pairs
+- the `connections` node contains integer values (`122`, `92`) referring to specific **instances** (`my-awesome-frontend`, `my-awesome-db`). The structure is an array of hashes
+- `errors` is the same as `connections` except the data itself tracks errors instead of connections.
 
 Understanding this will be important to code it correctly.
 
@@ -243,9 +248,10 @@ touch apps/myawesomeapp/api/mode/appsmetrics.pm
 ### Create the plugin.pm file
 
 The `plugin.pm` is the first thing to create, it contains:
-- Loading of necessary libraries and compilation options
+
+- A set of instructions to load required libraries and compilation options
 - A list of all **mode(s)** and path(s) to their associated files/perl packages
-- A description that will display when you list all plugins or display this plugin's help
+- A description that will display when you list all plugins or display this plugin's help.
 
 Here is the commented version of the plugin.pm file:
 
@@ -296,16 +302,16 @@ Check my-awesome-app health and metrics through its custom API
 =cut
 ```
 
-Your first dumb plugin is working, congrats!
+Your first dummy plugin is working, congrats!
 
-Run this command: 
+Run this command:
 
 `perl centreon_plugins.pl --plugin=apps::myawesomeapp::api::plugin --list-mode`
 
-It already outputs a lot of things. Elipsed lines are basically all standard capabilities
-inherited from the script_custom base. 
+It already outputs a lot of things. Ellipsized lines are basically all standard capabilities
+inherited from the **script_custom** base.
 
-You probably already recognized things you've previsously defined in your plugin.pm module. 
+You probably already recognized things you've previsously defined in your **plugin.pm** module.
 
 ```perl
 
@@ -325,18 +331,19 @@ Modes Available:
 
 ### Create the appmetrics.pm file
 
-The `appmetrics.pm` will contain your code, in other words, all the instructions to: 
+The `appmetrics.pm` file will contain your code, in other words, all the instructions to:
+
 - Declare options for the mode
-- Connect to run.mocky.io over HTTPS 
-- Get the JSON from the '/v3/6e45073b-068a-40d3-a2c3-31b1ebd54dc9' endpoint
-- Extract information and format it to be compliant with Centreon
+- Connect to **run.mocky.io** over HTTPS
+- Get the JSON from the **/v3/6e45073b-068a-40d3-a2c3-31b1ebd54dc9** endpoint
+- Extract information and format it to be compliant with Centreon.
 
-Let's build it iteratively. 
+Let's build it iteratively.
 
-> Important notes: function (sub) names must not be modified. For example, you cannot 
+> Important note: function (sub) names must not be modified. For example, you cannot 
 > choose to rename `check_options` to `option_check`. 
 
-#### Common declarations and subs 
+#### Common declarations and subs
 
 ```perl
 # Path to your package. '::' instead of '/', and no .pm at the end.
@@ -391,7 +398,7 @@ sub new {
 }
 ```
 
-Add a `check_options` function. This sub will execute right after new and allow you to check that the user passed
+Add a `check_options` function. This sub will execute right after `new` and allow you to check that the user passed
  mandatory parameter(s) and in some case check that the format is correct. 
 
 ```perl
@@ -412,24 +419,24 @@ sub check_options {
 1;
 ```
 
-Nice work, you know have a mode that can be executed without errors!
+Nice work, you now have a mode that can be executed without errors!
 
-Run this command `perl centreon_plugins.pl --plugin=apps::myawesomeapp::api::plugin --mode=app-metrics` which 
-output this message: 
+Run this command `perl centreon_plugins.pl --plugin=apps::myawesomeapp::api::plugin --mode=app-metrics`, which
+outputs this message:
 
 `UNKNOWN: Please set hostname option`
 
-Enjoy this moment, now let's do some monitoring thanks to centreon-plugins' magic! Fasten your seat belt.
+Now let's do some monitoring thanks to centreon-plugins.
 
 #### Declare your counters
 
 This part essentially maps the data you want to get from the API with the internal
 counter mode structure.
 
-Remember how we categorized the data in a previous [section](./develop-with-centreon-plugins### Understand the data).
+Remember how we categorized the data in a previous [section](./develop-with-centreon-plugins#understand-the-data).
 
-The `$self->{maps_counters_type}` data structure describes these data while the `$self->{maps_counters}->{global}` ones define 
-their properties like thresholds and how they will display to the users.
+The `$self->{maps_counters_type}` data structure describes these data while the `$self->{maps_counters}->{global}` one defines
+their properties like thresholds and how they will be displayed to the users.
 
 ```perl
 sub set_counters {
@@ -532,23 +539,24 @@ sub set_counters {
 
 > Remember to always move the final `1;` instruction at the end of the script when you add new lines during this tutorial.
 
-Ok, that's was a big one. Guess what, it compiles. Just to take some rest, run the command 
-supplying a value to the `--hostname` option to see what it displays: 
+The mode compiles. Run the command
+supplying a value to the `--hostname` option to see what it displays:
 
 ```shell
 perl centreon_plugins.pl --plugin=apps::myawesomeapp::api::plugin --mode=app-metrics --hostname=fakehost
 OK: status : skipped (no value(s)) - select : skipped (no value(s)), update : skipped (no value(s)), delete : skipped (no value(s))
-``` 
+```
 
-You can see some of your counters with the `skipped (no value(s))`, it's normal, this is because we 
-just created the counters definition and structure but didn't push any value into it. 
+You can see some of your counters with the `skipped (no value(s))`, it's normal, this is because we
+just created the counters definition and structure but didn't push any values into it.
 
 #### Create prefix callback functions
 
 These functions are not mandatory but help to make the output more readable for a human. We will create
 it now but as you have noticed the mode compiles so you can choose to keep those for the polishing moment.
 
-During counters definitions, we associated a callback function to each of them: 
+During counters definitions, we associated a callback function to each of them:
+
 - `cb_prefix_output => 'prefix_health_output'`
 - `cb_prefix_output => 'prefix_queries_output'`
 - `cb_prefix_output => 'prefix_app_output'`
@@ -586,20 +594,21 @@ perl centreon_plugins.pl --plugin=apps::myawesomeapp::api::plugin --mode=app-met
 OK: My-awesome-app: status : skipped (no value(s)) - Queries: select : skipped (no value(s)), update : skipped (no value(s)), delete : skipped (no value(s))
 ``` 
 
-The output is easier to read and separator are visible between global counters. 
+The output is easier to read and separators are visible between global counters.
 
 #### Get raw data from API and understand the data structure
 
-It's the moment to write the main sub (`manage_selection`), the more complex, but also the one that 
+It's the moment to write the main sub (`manage_selection`) - the most complex, but also the one that
 will transform your mode to something useful and alive.
 
 Think about the logic, what we have to do is:
-- Connect to run.mocky.io over HTTPS
+
+- Connect to **run.mocky.io** over HTTPS
 - Query a specific path corresponding to our API
 - Store and process the result
 - Spread this result across counters definitions
 
-Start by writing the code to connect to run.mocky.io. It is where the centreon-plugins 
+Start by writing the code to connect to **run.mocky.io**. It is where the centreon-plugins
 framework delivers its power.
 
 > All print instructions are available as commented code in the GitHub tutorial resources.
@@ -620,7 +629,7 @@ sub manage_selection {
 
 Run this command `perl centreon_plugins.pl --plugin=apps::myawesomeapp::api::plugin --mode=app-metrics --hostname=run.mocky.io`. 
 
-Output should be: 
+The output should be:
 
 ```perl title="Basic raw content print"
 {
@@ -654,11 +663,11 @@ Output should be:
 OK: My-awesome-app: status : skipped (no value(s)) - Queries: select : skipped (no value(s)), update : skipped (no value(s)), delete : skipped (no value(s))
 ```
 
-Add an `eval` structure to transform `$content` into a data structure that can be easily manipulated with perl. Let's 
+Add an `eval` structure to transform `$content` into a data structure that can be easily manipulated with perl. Let's
 introduce the standard `Data::Dumper` library that can help understanding your data structures.
 
-We load the Data::Dumper library and use one of its method to print the JSON. A second line is here to print 
-a simple message and get your familiar with how to access data within perl data structures. 
+We load the Data::Dumper library and use one of its methods to print the JSON. A second line is here to print
+a simple message and get you familiar with how to access data within perl data structures.
 
 ```perl
 sub manage_selection {
@@ -686,7 +695,7 @@ sub manage_selection {
 ```
 
 Run the command `perl centreon_plugins.pl --plugin=apps::myawesomeapp::api::plugin --mode=app-metrics --hostname=run.mocky.io`
-again and see how it changed. 
+again and see how it changed.
 
 You now have your JSON deserialized into a perl `$VAR1` which represents your `$decoded_content` structure.
 
@@ -726,9 +735,9 @@ My App health is 'yellow'
 
 #### Push data to global counters (type => 0)
 
-Now that we know our data structure and how to access the values, we have to assign this 
-value to the counters we initially defined. Pay attention to the comments above 
-the `$self->{health}` and `$self->{db_queries}` assignations. 
+Now that we know our data structure and how to access the values, we have to assign this
+value to the counters we initially defined. Pay attention to the comments above
+the `$self->{health}` and `$self->{db_queries}` assignations.
 
 ```perl title="Global counters (type => 0)"
 sub manage_selection {
@@ -775,7 +784,7 @@ sub manage_selection {
 1;
 ```
 
-Let's run our command again and enjoy the result! No more `skipped (no value(s))` message. Even get a 
+Let's run our command again: no more `skipped (no value(s))` message. You even get a
 WARNING state because of the `yellow` app state.
 
 ```shell
@@ -783,29 +792,28 @@ perl centreon_plugins.pl --plugin=apps::myawesomeapp::api::plugin --mode=app-met
 WARNING: My-awesome-app status: yellow | 'myawesomeapp.db.queries.select.count'=1230;;;0; 'myawesomeapp.db.queries.update.count'=640;;;0; 'myawesomeapp.db.queries.delete.count'=44;;;0;
 ```
 
-Performances data confirm that values for database queries are correctly set as well. 
+Performance data confirm that values for database queries are correctly set as well.
 
-This is the magic of the counters mode template (`use base qw(centreon::plugins::templates::counter);`), the only thing you have 
+This is how the counters mode template work (`use base qw(centreon::plugins::templates::counter);`), the only thing you have
 to do is getting the data from the thing you have to monitor and push it to a counter definition.
 
-Behind the scene, it manages a lot of things for you: 
-- Options: `--warning-health --warning-select --warning-update --warning-delete and --critical-* have automatically been defined
+Behind the scenes, it manages a lot of things for you:
+
+- Options: `--warning-health --warning-select --warning-update --warning-delete and --critical-` have automatically been defined
 - Performance data: thanks to `nlabel` and values from `perfdatas:[]` array in your counters
-- Display: It writes the status and substitues values with the one assigned to the counter
+- Display: It writes the status and substitutes values with the one assigned to the counter
 
-Now, you probably better understand why the preparation work about understanding collected data and counter definition part is essential.
-
-Simply because it's the bigger part of the job.
+Now, you probably understand better why the preparation work about understanding collected data and the counter definition part is essential: simply because it's the bigger part of the job.
 
 #### Push data to counters having an instance (type => 1)
 
-Now let's deal with counters with instances, that means that the sames counter will 
-receive multiple data, each of these data refering to a specific dimenson. 
+Now let's deal with counters with instances. That means that the same counters will
+receive multiple data, each of these data refering to a specific dimension.
 
-They require to be manipulated in a slightly different way as we will have to specify the 
-name we want to associate with the data. 
+They require to be manipulated in a slightly different way as we will have to specify the
+name we want to associate with the data.
 
-First, we have to loop over both `connections` and `errors` arrays to access the app name and 
+First, we have to loop over both `connections` and `errors` arrays to access the app name and
 measured value and then spread it within counters.
 
 ```perl title="Counters with instances (type 1)"
@@ -870,13 +878,14 @@ sub manage_selection {
 1;
 ```
 
-Cheers, your `app-metrics` mode is (almost) complete. Once again, the counters template managed a lot 
-behind the scene. 
+Your `app-metrics` mode is (almost) complete. Once again, the counters template managed a lot
+behind the scenes.
 
-Execute this command to see how it elvoves since the last execution. We modify the command with some 
-additionnal parameters: 
-- `--warning-health='%{health} eq "care"'` to avoid getting a WARNING, put any value that will not match yellow. Providing it 
-as a parameter will automatically override hardcoded default code value
+Execute this command to see how it evolved since the last execution. We modify the command with some
+additional parameters:
+
+- `--warning-health='%{health} eq "care"'` to avoid getting a WARNING, put any value that will not match yellow. Providing it
+as a parameter will automatically override the hardcoded default code value
 - `--verbose` will display the long output and the details for each `type => 1` counters
 
 ```shell
@@ -897,21 +906,21 @@ for each counters: `**my-awesome-frontend#**myawesomeapp.errors.count'=32;;;0;`
 
 #### Help section and assistant to build your centreon objects
 
-The last, but not least, is writing a help section to explain users what your mode is 
+Last but not least, you need to write a help section to explain users what your mode is
 doing and what options they can use.
 
-Centreon-plugins framework has a built-in assistant to help you with the list of counters
+The centreon-plugins framework has a built-in assistant to help you with the list of counters
 and options.
 
-Run this command to obtain a summary that will simplify the work of creating Centreon commands and write 
-the mode's help: 
+Run this command to obtain a summary that will simplify the work of creating Centreon commands and write
+the mode's help:
 
 ```shell
 perl centreon_plugins.pl --plugin=apps::myawesomeapp::api::plugin --mode=app-metrics --hostname='anyvalue' --list-coun
 ters --verbose
 ```
 
-Get information from its output (shown below) to start building your mode help: 
+Get information from its output (shown below) to start building your mode's help:
 
 ```shell
 counter list: select update delete health connections errors
