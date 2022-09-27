@@ -6,7 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-This chapters describes features you need to manipulate to be able to generate & manage reports.
+This chapter describes features you need to manipulate to be able to generate & manage reports.
 
 ![image](../assets/reporting/first_page.png)
 
@@ -195,9 +195,7 @@ By defaut, all metrics will be applied.
 <TabItem value="3. Report publication (Optional)" label="3. Report publication (Optional)">
 
  Once a report is generated, it can be automatically published using pre-defined rules. When creating
- a job, you can create several rules under the tab "Publication" (refer to 
- the [publication rules section](#TODO) chapter for more information on 
- the various report publication protocols).
+ a job, you can create several rules under the "Publication" tab.
 
 ![image](../assets/reporting/guide/jobPublication.png)
 
