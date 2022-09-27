@@ -14,7 +14,7 @@ You can use your favourite programming language to develop monitoring plugins. T
 Indeed, we recommend you use our centreon-plugins library whenever it is possible. It results from years of monitoring probes development, and it ships ready-to-use methods to meet all requirements and obtain a flexible monitoring probe.
 
 We initially chose the Perl programming language for its stability, and since then we are still convinced we have made the right choice. Perl is still
-shipped with all enterprise-grade operating systems, and often a prerequisites. Give it a try!
+shipped with all enterprise-grade operating systems, and often a prerequisite. Give it a try!
 
 ## Outputs
 
@@ -59,7 +59,7 @@ STATUS: Information text
 
 #### Centreon Plugin example
 
-The Output when checking several storage partitions on a server, when everything is OK:
+The output when checking several storage partitions on a server, when everything is OK:
 
 `OK: All storages are ok |`
 
@@ -323,7 +323,7 @@ The output above shows that the discovery of network interfaces on Linux will re
 - `interfaceid`: the id
 - `type`: interface type (like ethernet, fiber, loopback, etc.)
 
-Executing exactly the same command, substituting `--disco-format` with `--disco-show` will output the discovered interfaces: 
+Executing exactly the same command, substituting `--disco-format` with `--disco-show` will output the discovered interfaces:
 
 ```bash title='Linux Network int --disco-show output'
 /usr/lib/centreon/plugins/centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin --mode=list-interfaces --hostname=127.0.0.1 --disco-show
@@ -334,7 +334,7 @@ Executing exactly the same command, substituting `--disco-format` with `--disco-
 </data>
 ```
 
-The result contains one line per interface and each line contains each set of properties as a `key="value"` pair. Note that even if 
+The result contains one line per interface and each line contains each set of properties as a `key="value"` pair. Note that even if
 no data is obtained for a given key, it still has to be displayed (e.g `total=""`).
 
 ## Performances
