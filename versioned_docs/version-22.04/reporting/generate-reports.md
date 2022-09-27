@@ -195,7 +195,7 @@ By defaut, all metrics will be applied.
 <TabItem value="3. Report publication (Optional)" label="3. Report publication (Optional)">
 
  Once a report is generated, it can be automatically published using pre-defined rules. When creating
- a job, you can create several rules under the tab "Publication".
+ a job, you can create several rules under the "Publication" tab.
 
 ![image](../assets/reporting/guide/jobPublication.png)
 
