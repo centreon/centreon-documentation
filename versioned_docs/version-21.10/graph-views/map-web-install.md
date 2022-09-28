@@ -9,7 +9,8 @@ This chapter describes how to install Centreon MAP Web. It is recommended to ins
 
 ### License
 
-If you need an additional license for Centreon MAP Web, please contact the [MAP team](team-map@centreon.com) to get & install your license key.
+If you need an additional license for Centreon MAP, please contact the support [Centreon support
+team](https://centreon.force.com/) to get and install your license key.
 
 ## Architecture
 

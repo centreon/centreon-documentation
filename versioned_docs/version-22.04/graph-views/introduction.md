@@ -92,6 +92,12 @@ Use the following procedures to use and administrate Centreon MAP:
 
 ### MAP overview
 
-Here is an overview of MAP. Create, customize, and visualize your maps within a single web interface.
+Create, customize, and visualize your maps within a single web interface.
 
-[Add screenshot]
+You need first to create your logical views using the MAP editor:
+
+![image](../assets/graph-views/ng/map-web-editor-view.png)
+
+Then you can visualize your map directly in the view mode:
+
+![image](../assets/graph-views/ng/map-web-global-view.png)
