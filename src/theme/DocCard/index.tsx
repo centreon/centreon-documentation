@@ -1,30 +1,24 @@
-import React, { type ReactNode } from 'react';
+import React from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
+import styles from './styles.module.css';
+import { translate } from '@docusaurus/Translate';
 import {
   findFirstCategoryLink,
   useDocById,
 } from '@docusaurus/theme-common/internal';
-import { translate } from '@docusaurus/Translate';
-
-import styles from './styles.module.css';
-import type {
-  PropSidebarItemCategory,
-  PropSidebarItemLink,
-} from '@docusaurus/plugin-content-docs';
 
 function CardContainer({
   href,
   children,
 }: {
-  href: string,
-  children: ReactNode,
+  href: string;
+  children: ReactNode;
 }): JSX.Element {
   return (
     <Link
       href={href}
-      className={clsx('card padding--lg', styles.cardContainer)}
-    >
+      className={clsx('card padding--lg', styles.cardContainer)}>
       {children}
     </Link>
   );
@@ -35,9 +29,9 @@ function CardLayout({
   title,
   description,
 }: {
-  href: string,
-  title: string,
-  description?: string,
+  href: string;
+  title: string;
+  description?: string;
 }): JSX.Element {
   return (
     <CardContainer href={href}>
@@ -47,8 +41,7 @@ function CardLayout({
       {description && (
         <p
           className={clsx('text--truncate', styles.cardDescription)}
-          title={description}
-        >
+          title={description}>
           {description}
         </p>
       )}
@@ -59,10 +52,11 @@ function CardLayout({
 function CardCategory({
   item,
 }: {
-  item: PropSidebarItemCategory,
+  item: PropSidebarItemCategory;
 }): JSX.Element | null {
   const href = findFirstCategoryLink(item);
 
+  // Unexpected: categories that don't have a link have been filtered upfront
   if (!href) {
     return null;
   }
@@ -78,13 +72,13 @@ function CardCategory({
           description:
             'The default description for a category card in the generated index about how many items this category includes',
         },
-        { count: item.items.length }
+        {count: item.items.length},
       )}
     />
   );
 }
 
-function CardLink({ item }: { item: PropSidebarItemLink }): JSX.Element {
+function CardLink({item}: {item: PropSidebarItemLink}): JSX.Element {
   const doc = useDocById(item.docId ?? undefined);
   return (
     <CardLayout
@@ -95,7 +89,7 @@ function CardLink({ item }: { item: PropSidebarItemLink }): JSX.Element {
   );
 }
 
-export default function DocCard({ item }: Props): JSX.Element {
+export default function DocCard2({item}: Props): JSX.Element {
   switch (item.type) {
     case 'link':
       return <CardLink item={item} />;
