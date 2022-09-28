@@ -1,10 +1,107 @@
-import React from 'react';
-import DocCard from '@theme-original/DocCard';
+import React, { type ReactNode } from 'react';
+import clsx from 'clsx';
+import Link from '@docusaurus/Link';
+import {
+  findFirstCategoryLink,
+  useDocById,
+} from '@docusaurus/theme-common/internal';
+import { translate } from '@docusaurus/Translate';
 
-export default function DocCardWrapper(props) {
+import styles from './styles.module.css';
+import type {
+  PropSidebarItemCategory,
+  PropSidebarItemLink,
+} from '@docusaurus/plugin-content-docs';
+
+function CardContainer({
+  href,
+  children,
+}: {
+  href: string,
+  children: ReactNode,
+}): JSX.Element {
   return (
-    <>
-      <DocCard {...props} />
-    </>
+    <Link
+      href={href}
+      className={clsx('card padding--lg', styles.cardContainer)}
+    >
+      {children}
+    </Link>
   );
+}
+
+function CardLayout({
+  href,
+  title,
+  description,
+}: {
+  href: string,
+  title: string,
+  description?: string,
+}): JSX.Element {
+  return (
+    <CardContainer href={href}>
+      <h2 className={clsx('text--truncate', styles.cardTitle)} title={title}>
+        {title}
+      </h2>
+      {description && (
+        <p
+          className={clsx('text--truncate', styles.cardDescription)}
+          title={description}
+        >
+          {description}
+        </p>
+      )}
+    </CardContainer>
+  );
+}
+
+function CardCategory({
+  item,
+}: {
+  item: PropSidebarItemCategory,
+}): JSX.Element | null {
+  const href = findFirstCategoryLink(item);
+
+  if (!href) {
+    return null;
+  }
+
+  return (
+    <CardLayout
+      href={href}
+      title={item.label}
+      description={translate(
+        {
+          message: '{count} items',
+          id: 'theme.docs.DocCard.categoryDescription',
+          description:
+            'The default description for a category card in the generated index about how many items this category includes',
+        },
+        { count: item.items.length }
+      )}
+    />
+  );
+}
+
+function CardLink({ item }: { item: PropSidebarItemLink }): JSX.Element {
+  const doc = useDocById(item.docId ?? undefined);
+  return (
+    <CardLayout
+      href={item.href}
+      title={item.label}
+      description={doc?.description}
+    />
+  );
+}
+
+export default function DocCard({ item }: Props): JSX.Element {
+  switch (item.type) {
+    case 'link':
+      return <CardLink item={item} />;
+    case 'category':
+      return <CardCategory item={item} />;
+    default:
+      throw new Error(`unknown item type ${JSON.stringify(item)}`);
+  }
 }
