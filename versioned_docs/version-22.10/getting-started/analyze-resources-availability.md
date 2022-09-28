@@ -1,6 +1,7 @@
 ---
 id: analyze-resources-availability
 title: Analyze resources availability
+description: MBI tutorial
 ---
 
 This quick start will guide through using Centreon MBI to generate your first report !

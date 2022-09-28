@@ -1,6 +1,7 @@
 ---
 id: create-graphical-view
 title: Créer une vue graphique
+descritption: Tutoriel MAP
 ---
 
 L'objectif de ce tutoriel est de vous aider à comprendre comment utiliser

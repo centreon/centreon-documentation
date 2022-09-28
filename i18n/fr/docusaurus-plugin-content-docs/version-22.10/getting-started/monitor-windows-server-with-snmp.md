@@ -1,6 +1,7 @@
 ---
 id: monitor-windows-server-with-snmp
 title: Superviser votre premier serveur Windows
+description: Superviser un serveur Windows en SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
