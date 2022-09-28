@@ -555,7 +555,7 @@ systemctl restart php-fpm
 Set the PHP time zone by editing the following file:
 
 ```shell
-/etc/php/8.0/mods-available/centreon.ini
+/etc/php/8.1/mods-available/centreon.ini
 ```
 
 > You can find the list of

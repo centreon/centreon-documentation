@@ -613,7 +613,7 @@ systemctl restart php-fpm
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-echo "date.timezone = Europe/Paris" > /etc/php/8.0/mods-available/centreon.ini
+echo "date.timezone = Europe/Paris" > /etc/php/8.1/mods-available/centreon.ini
 ```
 
 After saving the file, restart the PHP-FPM service:

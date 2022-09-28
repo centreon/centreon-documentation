@@ -552,7 +552,7 @@ systemctl restart php-fpm
 Définissez le fuseau horaire PHP en éditant le fichier suivant :
 
 ```shell
-/etc/php/8.0/mods-available/centreon.ini
+/etc/php/8.1/mods-available/centreon.ini
 ```
 
 > La liste des fuseaux
