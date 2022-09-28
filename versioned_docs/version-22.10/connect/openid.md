@@ -12,9 +12,7 @@ which are compatible with the Authorization Code Flow.
 
 ## Configure OpenID Connect authentication
 
-Go to **Administration > Authentication > OpenID Connect Configuration**:
-
-![image](../assets/administration/oidc-configuration.png)
+Go to **Administration > Authentication > OpenID Connect Configuration**.
 
 ### Step 1: Enable authentication
 
@@ -58,18 +56,128 @@ You can also configure:
 > You can enable **Authentication debug** through the **Administration > Parameters > Debug** menu to understand
 > authentication failures and improve your setup.
 
-### Step 3: Configure client addresses
+### Step 3: Configure authentication conditions
 
-If you leave both fields blank, all IP addresses will be allowed to access the Centreon interface.
+If you leave the first two fields empty, all IP addresses will be authorized to access the Centreon interface.
 
 - **Trusted client addresses**: If you enter IP addresses in this field, only these IP addresses will be allowed to access the Centreon interface. All other IP addresses will be blocked. IP addresses must be separated by commas.
 - **Blacklist client addresses**: These IP addresses will be blocked. All other IP addresses will be allowed to access the Centreon interface.
 
-### Step 4: Create users
+Then you can **Enable conditions on identity provider**. This makes it possible to authorize, under certain conditions,
+users to access or not the Centreon application.
 
-On page **Configuration > Users > Contacts/Users**, [create the users](../monitoring/basic-objects/contacts-create.md) that will log on to Centreon using OpenID and [grant them rights](../administration/access-control-lists.md) using access groups.
+If you enable conditions, you must define which attribute from which endpoint to extract to validate the conditions.
 
-### Step 5: Configure your Identity Provider (IdP)
+For example, if the **Introspection endpoint** gives you the following response, the **Conditions attribute path**
+might be **status** and the **Define authorized conditions values** might be **enabled**:
+
+```json
+{
+	...
+	"name": "OpenId Connect OIDC",
+	"given_name": "OpenId Connect",
+	"family_name": "OIDC",
+	"preferred_username": "oidc",
+	"email": "oidc@localhost",
+	"email_verified": false,
+	...
+	"status": "activated"
+}
+```
+
+> Currently, only character string values can be used.
+
+### Step 4: Manage user creation
+
+<Tabs groupId="sync">
+<TabItem value="Users automatic management" label="Automatic management">
+
+If you turn on **Enable Auto import users**, users that log in to Centreon for the first time will be created in the Centreon configuration. (Turning the option on does not import automatically all users in your infrastructure.)
+
+- **Enable auto import** : enables or disables automatic users import.  If auto import is disabled, you will have to [create each user manually](../monitoring/basic-objects/contacts-create.md) before they can log in.
+- **Contact template** : select a [contact template](../monitoring/basic-objects/contacts-templates.md)  that will be applied to newly imported users.
+  This allows in particular to manage the default configuration of the [notifications](../alerts-notifications/notif-configuration.md).
+- **Email attribute** : defines which of the variables returned by **Introspection Token Endpoint** or **User Information Endpoint**
+  must be used to get the user's email address.
+- **Fullname attribute** : defines which of the variables returned by **Introspection Token Endpoint** or **User Information Endpoint**
+  must be used to get the user's full name.
+
+</TabItem>
+<TabItem value="Users manual management" label="Manual management">
+
+On page **Configuration > Users > Contacts/Users**, [create the users](../monitoring/basic-objects/contacts-create.md) that will log on to Centreon using OpenID.
+
+</TabItem>
+</Tabs>
+
+### Step 5: Manage Authorizations
+
+<Tabs groupId="sync">
+<TabItem value="Role automatic management" label="Automatic management">
+
+If you turn on **Enable automatic management**, users that log in to Centreon will benefit automatically from [grant users rights](../administration/access-control-lists.md)
+by linking them to [access groups](../administration/access-control-lists.md#creating-an-access-group).
+
+If you enable roles mapping, you must define which attribute from which endpoint to extract to enforce relationships with ACL groups.
+
+For example, if the **Introspection endpoint** gives you the following response, the **Roles attribute path** will
+be **realm_access.roles** and the **Define the relation between roles and ACL access groups** might be a relation
+bewteen the value **centreon-editor** and a defined ACL group in Centreon:
+
+```json
+{
+	...
+	"realm_access": {
+		"roles": ["centreon-editor", "centreon-admin", "user"]
+	},
+	...
+}
+```
+
+> Each time the user logs in, authorization management is reinitialized to take into account information from the
+> identity provider.
+
+</TabItem>
+<TabItem value="Role manual management" label="Manual management">
+
+If you turn off **Enable automatic management**, you have to manage manually [grant users rights](../administration/access-control-lists.md) by linking them to [access groups](../administration/access-control-lists.md#creating-an-access-group).
+
+</TabItem>
+</Tabs>
+
+### Step 6: Manage Contact groups
+
+<Tabs groupId="sync">
+<TabItem value="Groups automatic management" label="Automatic management">
+
+If you turn on **Enable automatic management**, users that log in to Centreon will be attached to configured [Contact Groups](../monitoring/groups.md#contact-groups)
+
+If you enable groups mapping, you must define which attribute from which endpoint to extract to create relationships
+with contact groups.
+
+For example, if the **Introspection endpoint** gives you the following response, the **Groups attribute path** will
+be **groups** and the **Define the relation between roles and contact groups** might be a relation
+bewteen the value **Windows** and a defined contact group in Centreon:
+
+```json
+{
+	...
+	"groups": ["Windows", "Linux", "DBA"],
+	...
+}
+```
+
+> Each time the user logs in, groups management is reinitialized to take into account information from the identity provider.
+
+</TabItem>
+<TabItem value="Groups manual management" label="Manual management">
+
+If you turn off **Enable automatic management**, you have to manage manually [grant users rights](../administration/access-control-lists.md) by linking them to [access groups](../administration/access-control-lists.md#creating-an-access-group).
+
+</TabItem>
+</Tabs>
+
+### Step 7: Configure your Identity Provider (IdP)
 
 Configure your IdP to add the Centreon application to use the OpenID Connect protocol to authenticate your users,
 And to authorize the following `redirect URI` to forward your connecter users to Centreon:
