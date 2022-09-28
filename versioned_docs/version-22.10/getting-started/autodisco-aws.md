@@ -1,6 +1,6 @@
 ---
 id: autodisco-aws
-title: Discover resources automatically
+title: Monitor AWS EC2 instances using autodiscovery
 ---
 
 In this tutorial, we will use the [Auto Discovery module](../monitoring/discovery/hosts-discovery.md) to detect AWS EC2 instances and monitor them.

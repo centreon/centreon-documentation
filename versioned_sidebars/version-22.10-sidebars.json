@@ -8,65 +8,80 @@
         "type": "doc",
         "id": "getting-started/welcome"
       },
-      "items": [
-        {
-          "type": "doc",
-          "id": "version-22.10/getting-started/installation-first-steps"
-        },
-        {
-          "type": "doc",
-          "id": "version-22.10/getting-started/which-install"
-        },
-        {
-          "type": "doc",
-          "id": "version-22.10/getting-started/IT100"
-        },
-        {
-          "type": "doc",
-          "id": "version-22.10/getting-started/interface"
-        },
-        {
-          "type": "doc",
-          "id": "version-22.10/getting-started/first-supervision"
-        },
-        {
-          "type": "doc",
-          "id": "version-22.10/getting-started/monitor-linux-server-with-snmp"
-        },
-        {
-          "type": "doc",
-          "id": "version-22.10/getting-started/monitor-windows-server-with-snmp"
-        },
-        {
-          "type": "doc",
-          "id": "version-22.10/getting-started/monitor-cisco-router-with-snmp"
-        },
-        {
-          "type": "doc",
-          "id": "version-22.10/getting-started/monitor-mysql-server"
-        },
-        {
-          "type": "doc",
-          "id": "version-22.10/getting-started/autodisco-aws"
-        },
-        {
-          "type": "doc",
-          "id": "version-22.10/getting-started/create-custom-view"
-        },
-        {
-          "type": "doc",
-          "id": "version-22.10/getting-started/create-graphical-view"
-        },
-        {
-          "type": "doc",
-          "id": "version-22.10/getting-started/model-it-services"
-        },
-        {
-          "type": "doc",
-          "id": "version-22.10/getting-started/analyze-resources-availability"
-        }
-      ]
-    },
+        "items": [
+          {
+            "type": "category",
+            "label": "Before you start",
+            "link": {
+              "type": "generated-index",
+              "description": "This is what you need to know before you install your Centreon platform."
+            },
+            "collapsed": true,
+            "items": [
+              "getting-started/which-install",
+              "getting-started/platform",
+              "getting-started/IT100"
+            ]
+          },
+          {
+            "type": "category",
+            "label": "First steps with Centreon",
+            "link": {
+              "type": "generated-index",
+              "description": "Your Centreon platform is installed. What next?"
+            },
+            "collapsed": true,
+            "items": [
+              "getting-started/interface",
+              "getting-started/concepts"
+            ]
+          },
+          {
+            "type": "category",
+            "label": "Setting up the monitoring",
+            "link": {
+              "type": "generated-index"
+            },
+            "collapsed": true,
+            "items": [
+              "getting-started/first-supervision",
+              "getting-started/monitor-linux-server-with-snmp",
+              "getting-started/monitor-windows-server-with-snmp",
+              "getting-started/monitor-cisco-router-with-snmp",
+              "getting-started/monitor-mysql-server",
+              "getting-started/autodisco-aws",
+              "getting-started/monitor-printer-snmp",
+              "getting-started/monitor-ups-snmp"
+            ]
+          },
+          {
+            "type": "category",
+            "label": "Monitoring resources in real time",
+            "link": {
+              "type": "generated-index",
+              "description": "How do you monitor the resources you have created?"
+            },
+            "collapsed": true,
+            "items": [
+              "getting-started/actions",
+              "getting-started/create-custom-view"
+            ]
+          },
+          {
+            "type": "category",
+            "label": "Tutorials for Business modules",
+            "link": {
+              "type": "generated-index"
+            },
+            "collapsed": true,
+            "items": [
+              "getting-started/create-graphical-view",
+              "getting-started/model-it-services",
+              "getting-started/analyze-resources-availability"
+            ]
+          }
+        ]
+      },
     {
       "type": "category",
       "label": "Installation",
