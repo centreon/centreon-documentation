@@ -9,7 +9,7 @@ const basePathImg = '/fr/img/homepage/';
 const links = {
   doc: {
     api: '/fr/docs/api/introduction',
-    gettingstarted: '/fr/docs/getting-started/installation-first-steps/',
+    gettingstarted: '/fr/docs/getting-started/welcome/',
     pluginpacks: '/fr/pp/integrations/plugin-packs/getting-started/introduction/',
     prerequisite: '/fr/docs/installation/prerequisites/',
     installation: '/fr/docs/installation/introduction/',
