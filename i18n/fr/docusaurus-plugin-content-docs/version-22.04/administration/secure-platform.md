@@ -473,51 +473,51 @@ Par défaut, Centreon installe un serveur web en mode HTTP. Il est fortement rec
 Soit un serveur Centreon avec le FQDN suivant : **centreon7.localdomain**.
 
 1. Préparer la configuration OpenSSL :
-
-En raison d'un changement de politique chez Google, les certificats auto-signés peuvent être rejetés par le navigateur Google Chrome (sans qu'il soit possible d'ajouter une exception). Pour continuer à utiliser ce navigateur, vous devez modifier la configuration OpenSSL.
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-Ouvrez le fichier **/etc/pki/tls/openssl.cnf**. L'objectif est de modifier ce fichier pour renseigner les différents IPs et FQDNs relatifs au serveur.
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-Ouvrez le fichier **/etc/pki/tls/openssl.cnf**. L'objectif est de modifier ce fichier pour renseigner les différents IPs et FQDNs relatifs au serveur.
-
-</TabItem>
-
-<TabItem value="Debian 11" label="Debian 11">
-
-Ouvrez le fichier **/etc/ssl/openssl.cnf**. L'objectif est de modifier ce fichier pour renseigner les différents IPs et FQDNs relatifs au serveur.
-
-</TabItem>
-</Tabs>
-
-Recherchez la section ```[v3_ca]``` afin d'ajouter le nouveau tag ```alt_names``` :
-
-```text
-# Add the alt_names tag that allows you to inform our various IPs and FQDNs for the server
-[ alt_names ]
-IP.1 = xxx.xxx.xxx.xxx
-DNS.1 = centreon7.localdomain
-# If you have several IP (HA: vip + ip)
-# IP.2 = xxx.xxx.xxx.xxx
-[ v3_ca ]
-subjectAltName = @alt_names
-```
-
-Voici un exemple de ce à quoi le fichier peut ressembler :
-```text
-[ alt_names ]
-IP.1 = 10.25.11.73
-DNS.1 = centreon7.localdomain
-
-[ v3_ca ]
-subjectAltName = @alt_names
-```
-
+  
+  En raison d'un changement de politique chez Google, les certificats auto-signés peuvent être rejetés par le navigateur Google Chrome (sans qu'il soit possible d'ajouter une exception). Pour continuer à utiliser ce navigateur, vous devez modifier la configuration OpenSSL.
+  
+  <Tabs groupId="sync">
+  <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+  
+  Ouvrez le fichier **/etc/pki/tls/openssl.cnf**. L'objectif est de modifier ce fichier pour renseigner les différents IPs et FQDNs relatifs au serveur.
+  
+  </TabItem>
+  <TabItem value="CentOS 7" label="CentOS 7">
+  
+  Ouvrez le fichier **/etc/pki/tls/openssl.cnf**. L'objectif est de modifier ce fichier pour renseigner les différents IPs et FQDNs relatifs au serveur.
+    
+  </TabItem>
+    
+  <TabItem value="Debian 11" label="Debian 11">
+  
+  Ouvrez le fichier **/etc/ssl/openssl.cnf**. L'objectif est de modifier ce fichier pour renseigner les différents IPs et FQDNs relatifs au serveur.
+  
+  </TabItem>
+  </Tabs>
+  
+  Recherchez la section ```[v3_ca]``` afin d'ajouter le nouveau tag ```alt_names``` :
+  
+  ```text
+  # Add the alt_names tag that allows you to inform our various IPs and FQDNs for the server
+  [ alt_names ]
+  IP.1 = xxx.xxx.xxx.xxx
+  DNS.1 = centreon7.localdomain
+  # If you have several IP (HA: vip + ip)
+  # IP.2 = xxx.xxx.xxx.xxx
+  [ v3_ca ]
+  subjectAltName = @alt_names
+  ```
+  
+  Voici un exemple de ce à quoi le fichier peut ressembler :
+  ```text
+  [ alt_names ]
+  IP.1 = 10.25.11.73
+  DNS.1 = centreon7.localdomain
+  
+  [ v3_ca ]
+  subjectAltName = @alt_names
+  ```
+  
 2. Créer une clé privée pour le serveur :
 
 Créez une clé privée nommée **centreon7.key** sans mot de passe afin qu'elle puisse être utilisée par le service Apache.
@@ -1016,7 +1016,7 @@ expose_php = Off
 
 ```apacheconf
 #Alias 
-/icons/ "/etc/apache2/sites-available/icons/"
+/icons/ "/etc/apache2/mods-available/icons/"
 ```
 
 </TabItem>

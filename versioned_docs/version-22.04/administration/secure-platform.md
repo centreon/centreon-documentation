@@ -600,14 +600,14 @@ Now you have your self-signed certificate, you can perform the following procedu
 ### Activating HTTPS mode on your web server
 
 1. Install SSL module for Apache:
-
+  
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
 dnf install mod_ssl mod_security openssl
 ```
-
+  
 2. Install your certificates:
 
 Install your certificates (**centreon7.key** and **centreon7.crt**) by copying them to the Apache configuration:
@@ -1022,7 +1022,7 @@ Edit the **/etc/apache2/mods-available/autoindex.conf** file and comment the fol
 
 ```apacheconf
 #Alias 
-/icons/ "/etc/apache2/sites-available/icons/"
+/icons/ "/etc/apache2/mods-available/icons/"
 ```
 
 </TabItem>
