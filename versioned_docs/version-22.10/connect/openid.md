@@ -120,6 +120,8 @@ by linking them to [access groups](../administration/access-control-lists.md#cre
 
 If you enable roles mapping, you must define which attribute from which endpoint to extract to enforce relationships with ACL groups.
 
+If you turn on **Apply only first role** option, only the first match will be applied. So the order or relationship between roles and ACL groups will be very important.
+
 For example, if the **Introspection endpoint** gives you the following response, the **Roles attribute path** will
 be **realm_access.roles** and the **Define the relation between roles and ACL access groups** might be a relation
 bewteen the value **centreon-editor** and a defined ACL group in Centreon:
