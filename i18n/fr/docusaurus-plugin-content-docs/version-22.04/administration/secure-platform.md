@@ -384,7 +384,6 @@ yum update -y selinux-policy*
 apt install fail2ban
 ```
 
-
 </TabItem>
 </Tabs>
 
