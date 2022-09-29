@@ -37,7 +37,7 @@ Configure Identity Provider information:
 - **Scopes**: defines the scopes of the identity provider, for example `openid`. Separate scopes by spaces.
   > Depending on the identity provider, it is necessary to enter several scopes in order to retrieve the claim which will
   > identify users. This is indicated in the provider's configuration documentation.
-  - **Login claim value**: defines which of the variables returned by **Introspection Token Endpoint** or **User Information Endpoint**
+  - **Login attribute path**: defines which of the variables returned by **Introspection Token Endpoint** or **User Information Endpoint**
   must be used to authenticate users. For example `sub` or `email`.
 - **End Session Endpoint**: defines the logout endpoint, for example `/logout`.
 
@@ -58,34 +58,33 @@ You can also configure:
 
 ### Step 3: Configure authentication conditions
 
-If you leave the first two fields empty, all IP addresses will be authorized to access the Centreon interface.
+* You can whitelist or blacklist IP addresses. If you leave the first two fields empty, all IP addresses will be authorized to access the Centreon interface.
 
-- **Trusted client addresses**: If you enter IP addresses in this field, only these IP addresses will be allowed to access the Centreon interface. All other IP addresses will be blocked. IP addresses must be separated by commas.
-- **Blacklist client addresses**: These IP addresses will be blocked. All other IP addresses will be allowed to access the Centreon interface.
+   - **Trusted client addresses**: If you enter IP addresses in this field, only these IP addresses will be allowed to access the Centreon interface. All other IP addresses will be blocked. IP addresses must be separated by commas.
+   - **Blacklist client addresses**: These IP addresses will be blocked. All other IP addresses will be allowed to access the Centreon interface.
 
-Then you can **Enable conditions on identity provider**. This makes it possible to authorize, under certain conditions,
-users to access or not the Centreon application.
+* You can also define conditions according to which users will be allowed to log in or not, based on the data received by a particular endpoint.
+   - Activate **Enable conditions on identity provider**.
+   - Define which attribute from which endpoint will be used to validate the conditions.
+   - In **Define authorized conditions values**, define which will be the authorized values returned by this endpoint. If you enter several values, all will have to be met for the condition to be validated. All users that try to connect with another value will be unable to log in.
 
-If you enable conditions, you must define which attribute from which endpoint to extract to validate the conditions.
+   In the example below, the **Conditions attribute path** is **status** and **Define authorized conditions values** is **activated**. If the **Introspection endpoint** gives you the following response, then the user is allowed to log in:
 
-For example, if the **Introspection endpoint** gives you the following response, the **Conditions attribute path**
-might be **status** and the **Define authorized conditions values** might be **enabled**:
+   ```json
+   {
+   	   ...
+   	   "name": "OpenId Connect OIDC",
+	   "given_name": "OpenId Connect",
+	   "family_name": "OIDC",
+	   "preferred_username": "oidc",
+	   "email": "oidc@localhost",
+	   "email_verified": false,
+	   ...
+	   "status": "activated"
+   }
+   ```
 
-```json
-{
-	...
-	"name": "OpenId Connect OIDC",
-	"given_name": "OpenId Connect",
-	"family_name": "OIDC",
-	"preferred_username": "oidc",
-	"email": "oidc@localhost",
-	"email_verified": false,
-	...
-	"status": "activated"
-}
-```
-
-> Currently, only character string values can be used.
+   > Currently, only character string values can be used.
 
 ### Step 4: Manage user creation
 
@@ -97,9 +96,9 @@ If you turn on **Enable Auto import users**, users that log in to Centreon for t
 - **Enable auto import** : enables or disables automatic users import.  If auto import is disabled, you will have to [create each user manually](../monitoring/basic-objects/contacts-create.md) before they can log in.
 - **Contact template** : select a [contact template](../monitoring/basic-objects/contacts-templates.md)  that will be applied to newly imported users.
   This allows in particular to manage the default configuration of the [notifications](../alerts-notifications/notif-configuration.md).
-- **Email attribute** : defines which of the variables returned by **Introspection Token Endpoint** or **User Information Endpoint**
+- **Email attribute path** : defines which of the variables returned by **Introspection Token Endpoint** or **User Information Endpoint**
   must be used to get the user's email address.
-- **Fullname attribute** : defines which of the variables returned by **Introspection Token Endpoint** or **User Information Endpoint**
+- **Fullname attribute path** : defines which of the variables returned by **Introspection Token Endpoint** or **User Information Endpoint**
   must be used to get the user's full name.
 
 </TabItem>
@@ -115,14 +114,15 @@ On page **Configuration > Users > Contacts/Users**, [create the users](../monito
 <Tabs groupId="sync">
 <TabItem value="Role automatic management" label="Automatic management">
 
-If you turn on **Enable automatic management**, users that log in to Centreon will benefit automatically from [grant users rights](../administration/access-control-lists.md)
-by linking them to [access groups](../administration/access-control-lists.md#creating-an-access-group).
+If you turn on **Enable automatic management**, users that log in to Centreon will be automatically [granted rights](../administration/access-control-lists.md), as they will be linked to [access groups](../administration/access-control-lists.md#creating-an-access-group) according to the rules you have defined.
 
-If you enable roles mapping, you must define which attribute from which endpoint to extract to enforce relationships with ACL groups.
+- Define which attribute from which endpoint will be used to retrieve values for enforcing relationships with access groups.
+- **Apply only first role**: If several roles are found for a specific user in the identity provider's information, then only the first role will be kept. If the option is turned off, all roles will be kept.
+- Match an attribute retrieved from the identity provider with the access group you want the user to belong to.
 
-For example, if the **Introspection endpoint** gives you the following response, the **Roles attribute path** will
-be **realm_access.roles** and the **Define the relation between roles and ACL access groups** might be a relation
-bewteen the value **centreon-editor** and a defined ACL group in Centreon:
+For example, the **Introspection endpoint** gives you the following response and **Apply only first role** is enabled. The **Roles attribute path** will
+be **realm_access.roles** and **Define the relation between roles and ACL access groups** will establish a relationship
+between the value **centreon-editor** and a defined access group in Centreon:
 
 ```json
 {
@@ -134,13 +134,13 @@ bewteen the value **centreon-editor** and a defined ACL group in Centreon:
 }
 ```
 
-> Each time the user logs in, authorization management is reinitialized to take into account information from the
+> Each time the user logs in, authorization management is reinitialized to take into account any new information from the
 > identity provider.
 
 </TabItem>
 <TabItem value="Role manual management" label="Manual management">
 
-If you turn off **Enable automatic management**, you have to manage manually [grant users rights](../administration/access-control-lists.md) by linking them to [access groups](../administration/access-control-lists.md#creating-an-access-group).
+If you turn off **Enable automatic management**, you have to [grant users rights](../administration/access-control-lists.md) manually by linking them to [access groups](../administration/access-control-lists.md#creating-an-access-group).
 
 </TabItem>
 </Tabs>
@@ -150,14 +150,14 @@ If you turn off **Enable automatic management**, you have to manage manually [gr
 <Tabs groupId="sync">
 <TabItem value="Groups automatic management" label="Automatic management">
 
-If you turn on **Enable automatic management**, users that log in to Centreon will be attached to configured [Contact Groups](../monitoring/groups.md#contact-groups)
+If you turn on **Enable automatic management**, users that log in to Centreon will be attached to the [contact groups](../monitoring/groups.md#contact-groups) you have defined.
 
-If you enable groups mapping, you must define which attribute from which endpoint to extract to create relationships
-with contact groups.
+- Define which attribute from which endpoint will be used to retrieve values to create relationships with access groups.
+- Match the attributes retrieved from the identity provider with the contact groups you want the user to belong to.
 
 For example, if the **Introspection endpoint** gives you the following response, the **Groups attribute path** will
-be **groups** and the **Define the relation between roles and contact groups** might be a relation
-bewteen the value **Windows** and a defined contact group in Centreon:
+be **groups** and **Define the relation between roles and contact groups** will define a relationship
+between the value **Windows** and a defined contact group in Centreon, then between **Linux** and another contact group, etc:
 
 ```json
 {
@@ -167,7 +167,7 @@ bewteen the value **Windows** and a defined contact group in Centreon:
 }
 ```
 
-> Each time the user logs in, groups management is reinitialized to take into account information from the identity provider.
+> Each time the user logs in, groups management is reinitialized to take into account any new information from the identity provider.
 
 </TabItem>
 <TabItem value="Groups manual management" label="Manual management">
