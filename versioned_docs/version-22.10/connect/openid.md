@@ -117,7 +117,7 @@ On page **Configuration > Users > Contacts/Users**, [create the users](../monito
 If you turn on **Enable automatic management**, users that log in to Centreon will be automatically [granted rights](../administration/access-control-lists.md), as they will be linked to [access groups](../administration/access-control-lists.md#creating-an-access-group) according to the rules you have defined.
 
 - Define which attribute from which endpoint will be used to retrieve values for enforcing relationships with access groups.
-- **Apply only first role**: If several roles are found for a specific user in the identity provider's information, then only the first role will be kept. If the option is turned off, all roles will be kept.
+- **Apply only first role**: If several roles are found for a specific user in the identity provider's information, then only the first role will be applied. If the option is turned off, all roles will be applied.
 - Match an attribute retrieved from the identity provider with the access group you want the user to belong to.
 
 For example, the **Introspection endpoint** gives you the following response and **Apply only first role** is enabled. The **Roles attribute path** will
@@ -180,7 +180,7 @@ If you turn off **Enable automatic management**, you have to manage manually [gr
 ### Step 7: Configure your Identity Provider (IdP)
 
 Configure your IdP to add the Centreon application to use the OpenID Connect protocol to authenticate your users,
-And to authorize the following `redirect URI` to forward your connecter users to Centreon:
+And to authorize the following `redirect URI` to forward your connected users to Centreon:
 
 ```shell
 {protocol}://{server}:{port}/centreon/authentication/providers/configurations/openid
