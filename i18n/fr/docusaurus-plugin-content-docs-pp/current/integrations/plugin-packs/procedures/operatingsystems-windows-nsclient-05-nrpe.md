@@ -37,6 +37,7 @@ Il apporte les modèles de service suivants :
 | Sessions              | OS-Windows-NSClient05-Sessions-NRPE-custom                 | Vérifier les sessions en utilisant le protocole NRPE                                |            |            |
 | Swap                  | OS-Windows-NSClient05-Swap-NRPE-custom                     | Vérifier l'utilisation du swap en utilisant le protocole NRPE                       | X          |            |
 | Task-Generic          | OS-Windows-NSClient05-Task-Generic-NRPE-custom             | Vérifier les tâches planifiées en utilisant le protocole NRPE                       |            |            |
+| Updates               | OS-Windows-Updates-NRPE-custom                             | Vérifier si Windows a des mises à jour en attente                                   |            |            |
 | Uptime                | OS-Windows-NSClient05-Uptime-NRPE-custom                   | Vérifier l'uptime en utilisant le protocole NRPE                                    |            |            |
 
 ### Règles de découverte
@@ -133,6 +134,13 @@ De plus amples informations sur la découverte automatique des services sont dis
 | sessions-reconnected                 | count |
 | sessions-active                      | count |
 | sessions-disconnected-current        | count |
+
+</TabItem>
+<TabItem value="Updates" label="Updates">
+
+| Metric Name                   | Unit   |
+|:------------------------------|:-------|
+| windows.pending.updates.count |        |
 
 </TabItem>
 </Tabs>

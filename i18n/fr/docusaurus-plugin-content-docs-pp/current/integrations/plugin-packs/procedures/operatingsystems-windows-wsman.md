@@ -31,6 +31,7 @@ Il apporte les modèles de service suivants :
 | Sessions           | OS-Windows-Sessions-WSMAN           | Contrôle les sessions utilisateurs Windows                                                                                                                                   |        |            |
 | Swap               | OS-Windows-Swap-WSMAN               | Contrôle du taux d'utilisation de la mémoire virtuelle                                                                                                                       | X      |            |
 | Traffic-Global     | OS-Windows-Traffic-Global-WSMAN     | Contrôle de la bande passante de l'interface. Pour chaque contrôle apparaîtra le nom de l'interface                                                                          |        | X          |
+| Updates            | OS-Windows-Updates-WSMAN            | Contrôle si Windows a des mises à jour en attente                                                                                                                            |        |            |
 | Uptime             | OS-Windows-Uptime-WSMAN             | Contrôle permettant de vérifier la disponibilité du serveur Windows depuis le dernier redémarrage. Il s'agit d'une indication, il n'y a pas de seuil défini                  |        |            |
 
 ### Règles de découverte
@@ -137,6 +138,13 @@ Il apporte les modèles de service suivants :
 | *interfaces*#interface.packets.out.discard.count | count |
 | *interfaces*#interface.packets.out.error.count   | count |
 | *interfaces*#interface.traffic.out.bitspersecond | B/s   |
+
+</TabItem>
+<TabItem value="Updates" label="Updates">
+
+| Metric Name                   | Unit   |
+|:------------------------------|:-------|
+| windows.pending.updates.count |        |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">

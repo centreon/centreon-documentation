@@ -101,6 +101,13 @@ through HTTPS connections.
 | sessions-disconnected-current | Number of current disconnected users session. Unit: Count |
 
 </TabItem>
+<TabItem value="query/Updates" label="query/Updates">
+
+| Metric Name                   | Unit   |
+|:------------------------------|:-------|
+| windows.pending.updates.count |        |
+
+</TabItem>
 </Tabs>
 
 ## Prerequisites

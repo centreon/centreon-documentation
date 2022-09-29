@@ -18,19 +18,20 @@ It brings the following service templates:
 
 | Service Alias      | Service Template                    | Service Description                                                                                                                                  | Default | Discovery |
 |:-------------------|:------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:--------|:----------|
-| Cpu                | OS-Windows-Cpu-WSMAN                | Check the rate of utilization of CPU for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPUs.  | X       |           |
+| Cpu                | OS-Windows-Cpu-WSMAN                | Check the rate of utilization of CPU for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPUs  | X       |           |
 | Disk-Global        | OS-Windows-Disk-Global-WSMAN        | Check the rate of free space on the disk. For each checks the name of the disk will appear                                                           |         | X         |
 | Files-Date-Generic | OS-Windows-Files-Date-Generic-WSMAN | Check time                                                                                                                                           |         |           |
 | Files-Size-Generic | OS-Windows-Files-Size-Generic-WSMAN | Check size of files                                                                                                                                  |         |           |
 | Memory             | OS-Windows-Memory-WSMAN             | Check the rate of the utilization of memory                                                                                                          | X       |           |
 | Ntp                | OS-Windows-Ntp-WSMAN                | Check the synchronization with an NTP server                                                                                                         |         |           |
 | Pending-Reboot     | OS-Windows-Pending-Reboot-WSMAN     | Check windows pending reboot                                                                                                                         |         |           |
-| Process-Global     | OS-Windows-Process-Global-WSMAN     | Check if Windows processes are started                                                                                                                 |         | X         |
+| Process-Global     | OS-Windows-Process-Global-WSMAN     | Check if Windows processes are started                                                                                                               |         | X         |
 | Service-Generic    | OS-Windows-Service-Generic-WSMAN    | Check if Windows services are started                                                                                                                |         | X         |
 | Services-Auto      | OS-Windows-Services-Auto-WSMAN      | Check if Windows services are started                                                                                                                | X       |           |
 | Sessions           | OS-Windows-Sessions-WSMAN           | Check Windows user sessions                                                                                                                          |         |           |
 | Swap               | OS-Windows-Swap-WSMAN               | Check the rate of the utilization of virtual memory                                                                                                  | X       |           |
 | Traffic-Global     | OS-Windows-Traffic-Global-WSMAN     | Check the bandwidth of the interface. For each checks the name of the interface will appear                                                          |         | X         |
+| Updates            | OS-Windows-Updates-WSMAN            | Check windows pending updates                                                                                                                        |         |           |
 | Uptime             | OS-Windows-Uptime-WSMAN             | Check the uptime of the Windows server since the last reboot. It's just an indication with no threshold                                              |         |           |
 
 ### Discovery rules
@@ -137,6 +138,13 @@ It brings the following service templates:
 | *interfaces*#interface.packets.out.discard.count | count |
 | *interfaces*#interface.packets.out.error.count   | count |
 | *interfaces*#interface.traffic.out.bitspersecond | B/s   |
+
+</TabItem>
+<TabItem value="Updates" label="Updates">
+
+| Metric Name                   | Unit   |
+|:------------------------------|:-------|
+| windows.pending.updates.count |        |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
