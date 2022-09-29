@@ -1034,6 +1034,12 @@ Edit the **/etc/apache2/mods-available/autoindex.conf** file and comment the fol
 apache2ctl configtest
 ```
 
+The expected result is the following:
+
+```apacheconf
+Syntax OK
+```
+
 8. Restart the Apache and PHP processes to take in account the new configuration:
 
 <Tabs groupId="sync">

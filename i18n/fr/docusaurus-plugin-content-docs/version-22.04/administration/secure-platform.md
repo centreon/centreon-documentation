@@ -1028,6 +1028,12 @@ expose_php = Off
 apache2ctl configtest
 ```
 
+Le résultat attendu est le suivant :
+
+```apacheconf
+Syntax OK
+```
+
 8. Redémarrer le serveur web Apache et PHP pour prendre la configuration en compte :
 
 <Tabs groupId="sync">
