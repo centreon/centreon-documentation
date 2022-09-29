@@ -17,6 +17,41 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 21.10.11
+
+#### Bug fixes
+
+- [Configuration] Fixed export of RRDcached path in Centreon Broker configuration
+
+#### Security fixes
+
+- [Administration] Sanitized and bound media import queries
+- [CLAPI] Sanitized and bound Centreon hostgroup class queries
+- [CLAPI] Sanitized and bound Centreon service class queries
+- [CLAPI] Sanitized and bound LDAP listing queries
+- [Configuration] Fixed SQLi in contact groups form
+- [Configuration] Fixed SQLis in Centreon Broker configuration menu
+- [Configuration] Sanitized and bound Centreon Service class queries
+- [Configuration] Sanitized and bound Centreon hostgroups class queries
+- [Configuration] Sanitized and bound Centreon notification class queries
+- [Configuration] Sanitized and bound Knowledge Base host listing queries
+- [Configuration] Sanitized and bound SNMP traps groups configuration queries
+- [Configuration] Sanitized and bound SNMP traps listing queries
+- [Configuration] Sanitized and bound host categories listing queries
+- [Configuration] Sanitized and bound service by hostgroups listing queries
+- [Configuration] Sanitized and bound services listing queries
+- [Core] Sanitized and bound menu topology listing queries
+- [Install] Sanitized and bound default configuration queries
+
+#### Others
+
+- [Core] Removed obsolete code in ACL configuration listing
+- [Core] Removed obsolete code in Criticality class
+- [Core] Removed obsolete code in database partitioning functions
+- [Core] Removed obsolete code in legacy service detail page
+- [Core] Removed obsolete code in monitoring common functions
+- [Core] Removed unused mechanism for modules to add restart/reload actions after restart of pollers
+
 ### 21.10.10
 
 Release date: `September 20, 2022`
