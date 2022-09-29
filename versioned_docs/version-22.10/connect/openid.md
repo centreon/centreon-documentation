@@ -93,12 +93,12 @@ You can also configure:
 
 If you turn on **Enable Auto import users**, users that log in to Centreon for the first time will be created in the Centreon configuration. (Turning the option on does not import automatically all users in your infrastructure.)
 
-- **Enable auto import** : enables or disables automatic users import.  If auto import is disabled, you will have to [create each user manually](../monitoring/basic-objects/contacts-create.md) before they can log in.
-- **Contact template** : select a [contact template](../monitoring/basic-objects/contacts-templates.md)  that will be applied to newly imported users.
+- **Enable auto import**: enables or disables automatic users import.  If auto import is disabled, you will have to [create each user manually](../monitoring/basic-objects/contacts-create.md) before they can log in.
+- **Contact template**: select a [contact template](../monitoring/basic-objects/contacts-templates.md) that will be applied to newly imported users.
   This allows in particular to manage the default configuration of the [notifications](../alerts-notifications/notif-configuration.md).
-- **Email attribute path** : defines which of the variables returned by **Introspection Token Endpoint** or **User Information Endpoint**
+- **Email attribute path**: defines which of the variables returned by **Introspection Token Endpoint** or **User Information Endpoint**
   must be used to get the user's email address.
-- **Fullname attribute path** : defines which of the variables returned by **Introspection Token Endpoint** or **User Information Endpoint**
+- **Fullname attribute path**: defines which of the variables returned by **Introspection Token Endpoint** or **User Information Endpoint**
   must be used to get the user's full name.
 
 </TabItem>
@@ -150,7 +150,7 @@ If you turn off **Enable automatic management**, you have to [grant users rights
 <Tabs groupId="sync">
 <TabItem value="Groups automatic management" label="Automatic management">
 
-If you turn on **Enable automatic management**, users that log in to Centreon will be attached to the [contact groups](../monitoring/groups.md#contact-groups) you have defined.
+If you turn on **Enable automatic management**, users that log in to Centreon will be attached to the [contact groups](../monitoring/basic-objects/contacts-groups.md#contact-groups) you have defined.
 
 - Define which attribute from which endpoint will be used to retrieve values to create relationships with access groups.
 - Match the attributes retrieved from the identity provider with the contact groups you want the user to belong to.
@@ -172,7 +172,7 @@ between the value **Windows** and a defined contact group in Centreon, then betw
 </TabItem>
 <TabItem value="Groups manual management" label="Manual management">
 
-If you turn off **Enable automatic management**, you have to manage manually [grant users rights](../administration/access-control-lists.md) by linking them to [access groups](../administration/access-control-lists.md#creating-an-access-group).
+If you turn off **Enable automatic management**, you have to manage manually relation between contact and [contact groups](../monitoring/basic-objects/contacts-groups.md#contact-groups).
 
 </TabItem>
 </Tabs>
