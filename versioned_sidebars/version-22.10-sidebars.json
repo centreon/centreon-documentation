@@ -1,12 +1,13 @@
 {
   "version-22.10/docs": [
-      {
-        "type": "category",
-        "label": "Getting Started",
-        "link": {
-          "type": "doc",
-          "id": "getting-started/welcome"
-        },
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "Getting Started",
+      "link": {
+        "type": "doc",
+        "id": "getting-started/welcome"
+      },
         "items": [
           {
             "type": "category",
