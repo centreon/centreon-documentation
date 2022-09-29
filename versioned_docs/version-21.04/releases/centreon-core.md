@@ -19,6 +19,12 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 21.04.19
+
+#### Security fixes
+
+- [Configuration] Fixed SQLis in Centreon Broker configuration menu
+
 ### 21.04.18
 
 Release date: `September 20, 2022`
