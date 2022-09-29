@@ -929,6 +929,23 @@ pcs host auth \
 ```
 
 </TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+Sur Debian, le cluster est autoconfiguré avec des valeurs par défaut. Afin d'installer notre cluster, nous devons détruire se préparamétrage avec cette commande :
+```bash
+pcs cluster destroy
+```
+
+Puis vous pouvez lancer l'authentification du cluster :
+```bash
+pcs host auth \
+    "@CENTRAL_MASTER_NAME@" \
+    "@CENTRAL_SLAVE_NAME@" \
+    "@QDEVICE_NAME@" \
+    -u "hacluster" \
+    -p '@CENTREON_CLUSTER_PASSWD@'
+```
+ 
+</TabItem>
 <TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
 
 ```bash
