@@ -926,6 +926,24 @@ pcs host auth \
 ```
 
 </TabItem>
+On Debian, the cluster is autoconfigured with default values. In order to install our cluster, we need to destroy this setup with this command:
+
+```bash
+pcs cluster destroy
+```
+
+Then you can start the authentication of the cluster:
+
+```bash
+pcs host auth \
+    "@CENTRAL_MASTER_NAME@" \
+    "@CENTRAL_SLAVE_NAME@" \
+    "@QDEVICE_NAME@" \
+    -u "hacluster" \
+    -p '@CENTREON_CLUSTER_PASSWD@'
+```
+ 
+</TabItem>
 <TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
 
 ```bash
