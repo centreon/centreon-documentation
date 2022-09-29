@@ -1019,7 +1019,7 @@ passwd hacluster
 Une fois ce mot de passe commun défini, il est possible pour un nœud de s'authentifier sur les autres. **La commande suivante ainsi que toutes les commandes agissant sur le cluster doivent être lancée sur un seul nœud.**
 
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8 / Debian 11" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8 / Debian 11">
+<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
 
 ```bash
 pcs host auth \
@@ -1032,6 +1032,23 @@ pcs host auth \
     -p '@CENTREON_CLUSTER_PASSWD@'
 ```
 
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+Sur Debian, le cluster est autoconfiguré avec des valeurs par défaut. Afin d'installer notre cluster, nous devons détruire se préparamétrage avec cette commande :
+```bash
+pcs cluster destroy
+```
+
+Puis vous pouvez lancer l'authentification du cluster :
+```bash
+pcs host auth \
+    "@CENTRAL_MASTER_NAME@" \
+    "@CENTRAL_SLAVE_NAME@" \
+    "@QDEVICE_NAME@" \
+    -u "hacluster" \
+    -p '@CENTREON_CLUSTER_PASSWD@'
+```
+ 
 </TabItem>
 <TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
 
