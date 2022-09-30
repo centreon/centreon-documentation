@@ -18,6 +18,8 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ### 21.10.11
 
+Release date: `September 30, 2022`
+
 #### Bug fixes
 
 - [Configuration] Fixed export of RRDcached path in Centreon Broker configuration
