@@ -19,6 +19,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 22.04.6
 
+Release date: ` September 30, 2022`
+
 #### Bug fixes
 
 - [Administration] Fixed not mandatory access group for OpenId Connect configuration
