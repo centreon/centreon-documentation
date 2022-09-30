@@ -20,6 +20,7 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 #### Bug fixes
 
+- [Administration] Fixed not mandatory access group for OpenId Connect configuration
 - [Authentication] Fixed user theme retrieval via OpenID Connect login
 - [Configuration] Fixed export of RRDcached path in Centreon Broker configuration
 - [Core] Improved database storage to avoid blocking Broker when maximum values are reached
