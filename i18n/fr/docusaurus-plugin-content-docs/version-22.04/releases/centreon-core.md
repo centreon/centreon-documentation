@@ -21,7 +21,8 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 #### Bug fixes
 
 - [Authentication] Fixed user theme retrieval via OpenID Connect login
-- [Core] Improved database storage to fix services disappearing on the web interface
+- [Configuration] Fixed export of RRDcached path in Centreon Broker configuration
+- [Core] Improved database storage to avoid blocking Broker when maximum values are reached
 - [Core] Removed obsolete code in ACL configuration listing
 - [Core] Removed obsolete code in Criticality class
 - [Core] Removed obsolete code in legacy service detail page
