@@ -21,6 +21,7 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 #### Bug fixes
 
 - [Configuration] Fixed export of RRDcached path in Centreon Broker configuration
+- [Core] Improved database storage to avoid blocking Broker when maximum values are reached
 
 #### Security fixes
 
