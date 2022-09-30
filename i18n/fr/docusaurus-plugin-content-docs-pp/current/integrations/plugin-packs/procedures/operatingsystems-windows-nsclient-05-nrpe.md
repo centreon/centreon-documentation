@@ -5,153 +5,184 @@ title: Windows NRPE 0.5
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-> Hello community! We're looking for a contributor to help us to translate the 
-content in french and provide a sample execution command. If it's you, let us 
-know and ping us on our community website [The Watch](https://thewatch.centreon.com/).
 
-## Overview
+## Vue d'ensemble
 
-This Plugin Pack allow to get metrics and statuses collected thanks to the NSClient++ 
-monitoring agent and its embedded NRPE Server. 
+Ce Plugin Pack permet de récupérer les métriques et les statuts collectés grâce à l'agent de monitoring NSClient++ et son serveur NRPE embarqué. 
 
-## Pack assets
+### Modèles
 
-### Monitored objects
+Le pack **Windows NSClient 0.5** apporte 1 modèle d'hôte :
 
-* Windows Server OS from 2003 SP2 version
-* Windows Workstation from XP version
+* OS-Windows-NSClient-05-NRPE-custom
 
-### Collected metrics
+Il apporte les modèles de service suivants :
+
+| Alias de service      | Modèle de service                                          | Description de service                                                              | Par défaut | Découverte |
+|:----------------------|:-----------------------------------------------------------|:------------------------------------------------------------------------------------|:-----------|:-----------|
+| Active-Sessions       | OS-Windows-NSClient05-Counter-Active-Sessions-NRPE-custom  | Vérifier les sessions actives en utilisant le protocole NRPE                        |            |            |
+| Counter-Generic       | OS-Windows-NSClient05-Counter-Generic-NRPE-custom          | Vérifier un compteur générique en utilisant le protocole NRPE                       |            |            |
+| Cpu                   | OS-Windows-NSClient05-Cpu-NRPE-custom                      | Vérifier l'utilisation du Cpu en utilisant le protocole NRPE                        | X          |            |
+| Disks                 | OS-Windows-NSClient05-Disks-NRPE-custom                    | Vérifier l'utilisation des disques en utilisant le protocole NRPE                   |            | X          |
+| Eventlog-Generic      | OS-Windows-NSClient05-Eventlog-Generic-NRPE-custom         | Vérifier les journaux d'évènements en utilisant le protocole NRPE                   |            |            |
+| Files-Generic         | OS-Windows-NSClient05-Files-Generic-NRPE-custom            | Vérifier des fichiers (date, taille, etc...) en utilisant le protocole NRPE         |            |            |
+| Logfiles-Generic      | OS-Windows-NSClient05-Logfiles-Generic-NRPE-custom         | Vérifier un fichier de log en utilisant le protocole NRPE                           |            |            |
+| Memory                | OS-Windows-NSClient05-Memory-NRPE-custom                   | Vérifier l'utilisation de la mémoire en utilisant le protocole NRPE                 | X          |            |
+| Ntp                   | OS-Windows-NSClient05-Ntp-NRPE-custom                      | Vérifier la synchronisation du temps Ntp en utilisant le protocole NRPE             |            |            |
+| Pending-Reboot        | OS-Windows-NSClient05-Pending-Reboot-NRPE-custom           | Vérifier si un reboot est attendu en utilisant le protocole NRPE                    |            |            |
+| Process-generic       | OS-Windows-NSClient05-Process-Generic-NRPE-custom          | Vérifier l'état d'un processus en utilisant le protocole NRPE                       |            |            |
+| Remote-Ping           | OS-Windows-NSClient05-Remote-Ping-NRPE-custom              | Vérifier l'état d'un hote via un ping distant en utilisant le protocole NRPE        |            |            |
+| Services-Auto         | OS-Windows-NSClient05-Services-Auto-NRPE-custom            | Vérifier l'état des services démarrés en automatique en utilisant le protocole NRPE | X          |            |
+| Services-Generic-Name | OS-Windows-NSClient05-Services-Generic-Name-NRPE-custom    | Vérifier l'état d'un service en utilisant le protocole NRPE                         |            |            |
+| Sessions              | OS-Windows-NSClient05-Sessions-NRPE-custom                 | Vérifier les sessions en utilisant le protocole NRPE                                |            |            |
+| Swap                  | OS-Windows-NSClient05-Swap-NRPE-custom                     | Vérifier l'utilisation du swap en utilisant le protocole NRPE                       | X          |            |
+| Task-Generic          | OS-Windows-NSClient05-Task-Generic-NRPE-custom             | Vérifier les tâches planifiées en utilisant le protocole NRPE                       |            |            |
+| Uptime                | OS-Windows-NSClient05-Uptime-NRPE-custom                   | Vérifier l'uptime en utilisant le protocole NRPE                                    |            |            |
+
+### Règles de découverte
 
 <Tabs groupId="sync">
-<TabItem value="Counter-Active-Sessions" label="Counter-Active-Sessions">
+<TabItem value="Service" label="Service">
 
-| Metric name     | Description                             |
-| :-------------- | :-------------------------------------- |
-| Sessions\_value | Number of actived sessions. Unit: Count |
+|Nom de la règle            | Description             |
+|:--------------------------|:------------------------|
+| OS-Winfows-NRPE-Disk-Name | Découverte des disques. |
 
-</TabItem>
-<TabItem value="Counter-Generic" label="Counter-Generic">
-
-| Metric name    | Description                          |
-| :------------- | :----------------------------------- |
-| Counter\_value | Number of counter found. Unit: Count |
-
-</TabItem>
-<TabItem value="Cpu" label="Cpu">
-
-| Metric name | Description                                                      |
-| :---------- | :--------------------------------------------------------------- |
-| total 5m    | CPU Utilization of Windows serveur over 5 minutes. Unit: Percent |
-| total 1m    | CPU Utilization of Windows serveur over 1 minutes. Unit: Percent |
-| total 5s    | CPU Utilization of Windows serveur over 5 seconds. Unit: Percent |
-
-</TabItem>
-<TabItem value="Disk" label="Disk">
-
-| Metric name | Description                                   |
-| :---------- | :-------------------------------------------- |
-| used        | Used and Total Storage allocated. Unit: Bytes |
-
-</TabItem>
-<TabItem value="Eventlog-Generic" label="Eventlog-Generic">
-
-| Metric name  | Description                            |
-| :----------- | :------------------------------------- |
-| problemCount | Number of event log found. Unit: Count |
-
-</TabItem>
-<TabItem value="Files-Generic" label="Files-Generic">
-
-| Metric name | Description                        |
-| :---------- | :--------------------------------- |
-| count       | Number of files found. Unit: Count |
-
-</TabItem>
-<TabItem value="Logfiles-Generic" label="Logfiles-Generic">
-
-| Metric name        | Description                                                                   |
-| :----------------- | :---------------------------------------------------------------------------- |
-| default\_lines     | Number of line that match with tag word found in logfile. Unit: Count         |
-| default\_warnings  | Number of line that match with warning pattern found in logfile. Unit: Count  |
-| default\_criticals | Number of line that match with critical pattern found in logfile. Unit: Count |
-| default\_unknowns  | Number of line that match with unknown pattern found in logfile. Unit: Count  |
-
-</TabItem>
-<TabItem value="Memory" label="Memory">
-
-| Metric name | Description                        |
-| :---------- | :--------------------------------- |
-| used        | Total usage of memory. Unit: Bytes |
-
-</TabItem>
-<TabItem value="Swap" label="Swap">
-
-| Metric name | Description                             |
-| :---------- | :-------------------------------------- |
-| swap        | Total usage of swap memory. Unit: Bytes |
-
-</TabItem>
-<TabItem value="Sessions" label="Sessions">
-
-| Metric name                   | Description                                               |
-| :---------------------------- | :-------------------------------------------------------- |
-| sessions-created              | Number of created users session. Unit: Count              |
-| sessions-disconnected         | Number of disconnected users session. Unit: Count         |
-| sessions-reconnected          | Number of reconnected users session. Unit: Count          |
-| sessions-active               | Number of active users session. Unit: Count               |
-| sessions-disconnected-current | Number of current disconnected users session. Unit: Count |
+De plus amples informations sur la découverte automatique des services sont disponibles sur la [page dédiée](/docs/monitoring/discovery/services-discovery).
 
 </TabItem>
 </Tabs>
 
-## Prerequisites
+### Métriques collectées
+
+<Tabs groupId="sync">
+<TabItem value="Counter-Active-Sessions" label="Counter-Active-Sessions">
+
+| Nom de la métrique     | Unité |
+| :--------------------- | :---- |
+| Sessions\_value        | count |
+
+</TabItem>
+<TabItem value="Counter-Generic" label="Counter-Generic">
+
+| Nom de la métrique    | Unité |
+| :-------------------- | :---- |
+| Counter\_value        | count |
+
+</TabItem>
+<TabItem value="Cpu" label="Cpu">
+
+| Nom de la métrique | Unité |
+| :----------------- | :---- |
+| total 5m           | %     |
+| total 1m           | %     |
+| total 5s           | %     |
+
+</TabItem>
+<TabItem value="Disk" label="Disk">
+
+| Nom de la métrique | Unité |
+| :----------------- | :---- |
+| used               | Bytes |
+
+</TabItem>
+<TabItem value="Eventlog-Generic" label="Eventlog-Generic">
+
+| Nom de la métrique  | Unité |
+| :------------------ | :---- |
+| problemCount        | count |
+
+</TabItem>
+<TabItem value="Files-Generic" label="Files-Generic">
+
+| Nom de la métrique | Unité |
+| :----------------- | :---- |
+| count              | count |
+
+</TabItem>
+<TabItem value="Logfiles-Generic" label="Logfiles-Generic">
+
+| Nom de la métrique        | Unité |
+| :------------------------ | :---- |
+| default\_lines            | count |
+| default\_warnings         | count |
+| default\_criticals        | count |
+| default\_unknowns         | count |
+
+</TabItem>
+<TabItem value="Memory" label="Memory">
+
+|Nom de la métrique | Unité  |
+| :----------------- | :---- |
+| used               | Bytes |
+
+</TabItem>
+<TabItem value="Swap" label="Swap">
+
+| Nom de la métrique | Unité |
+| :----------------- | :---- |
+| swap               | Bytes |
+
+</TabItem>
+<TabItem value="Sessions" label="Sessions">
+
+| Nom de la métrique                   | Unité |
+| :----------------------------------- | :---- |
+| sessions-created                     | count |
+| sessions-disconnected                | count |
+| sessions-reconnected                 | count |
+| sessions-active                      | count |
+| sessions-disconnected-current        | count |
+
+</TabItem>
+</Tabs>
+
+## Prérequis
 
 ### Centreon NSClient++
 
-To monitor *Windows* resources through NRPE, install the Centreon packaged version 
-of the NSClient++ agent. Please follow our [official documentation](../getting-started/how-to-guides/centreon-nsclient-tutorial.md) 
-and make sure that the **NRPE Server** configuration is correct.
+Pour surveiller les ressources *Windows* via NRPE, installez la version Centreon de l'agent NSClient++.
+Veuillez suivre notre [documentation officielle](../getting-started/how-to-guides/centreon-nsclient-tutorial.md) et assurez-vous que la configuration du **serveur NRPE** est correcte.
 
 ## Installation 
 
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon NRPE Client package on every Poller expected to monitor *Windows* resources:
+1. Installez le paquet Centreon NRPE Client sur chaque Poller censé surveiller les ressources *Windows*:
 
 ```bash
 yum install centreon-nrpe3-plugin
 ```
 
-2. On the Centreon Web interface, install the **Windows NRPE 0.5** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
+2. Sur l'interface Web Centreon, installez le **Windows NRPE 0.5** Centreon Plugin Pack sur la page **Configuration > Plugin Packs**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Poller expected to monitor *Windows* resources:
+1. Installez le paquet Centreon Plugin sur chaque Poller censé surveiller les ressources *Windows*:
 
 ```bash
 yum install centreon-nrpe3-plugin
 ```
 
-2. Install the **Windows NRPE 0.5** Centreon Pack RPM on the Centreon Central server:
+2. Installez le RPM **Windows NRPE 0.5** Centreon Pack sur le serveur Centreon Central:
 
 ```bash
 yum install centreon-pack-operatingsystems-windows-nsclient-05-nrpe
 ```
 
-3.On the Centreon Web interface, install the **Windows NRPE 0.5** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
+3. Sur l'interface Web Centreon, installez le **Windows NRPE 0.5** Centreon Plugin Pack sur la page **Configuration > Plugin Packs**.
   
 </TabItem>
 </Tabs>
 
-## Host configuration
+## Configuration de l'hôte
 
-* Log into Centreon and add a new Host through "Configuration > Hosts".
-* Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your *Windows* server settings.
-* Select the *OS-Windows-NSClient-05-NRPE-custom* template to apply to the Host.
-* Once the template is applied, fill in the corresponding macros. If you're in 21.10 or higher version and you've just installed **centreon-nrpe3-plugin**, you will have to replace the default macro values by the bold ones:
+* Connectez-vous à Centreon et ajoutez un nouvel hôte via **Configuration > Hôtes**.
+* Remplissez les champs **Nom**, **Alias** et **Adresse IP/DNS** selon les paramètres de votre serveur *Windows*.
+* Sélectionnez le modèle *OS-Windows-NSClient-05-NRPE-custom* à appliquer à l'hôte.
+* Une fois le modèle appliqué, remplissez les macros correspondantes. Si vous êtes en version 21.10 ou supérieure et que vous venez d'installer **centreon-nrpe3-plugin**, vous devrez remplacer les valeurs par défaut des macros par celles en gras :
 
 | Mandatory | Name             | Value                     | Description                                                      |
 |:----------|:-----------------|---------------------------| :----------------------------------------------------------------|
@@ -160,6 +191,6 @@ yum install centreon-pack-operatingsystems-windows-nsclient-05-nrpe
 | X         | NRPETIMEOUT      | 30                        | Timeout value (Default: '30')                                    |
 | X         | NRPEEXTRAOPTIONS | **-u -2 -P 8192**         | Extraoptions to use with the NRPE binary (default: '-u -m 8192') |
 
-## Troubleshooting
+## Dépannage
 
-Please find the troubleshooting documentation for NRPE checks in the [dedicated chapter](../getting-started/how-to-guides/troubleshooting-plugins.md#nrpe-checks) of the Centreon documentation.
+Veuillez trouver la documentation de dépannage pour les contrôles NRPE dans le [chapitre dédié](../getting-started/how-to-guides/troubleshooting-plugins.md#nrpe-checks) de la documentation Centreon.

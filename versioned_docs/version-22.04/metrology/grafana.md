@@ -2,6 +2,8 @@
 id: grafana
 title: Centreon plugin for Grafana
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 The Centreon plugin for Grafana allows you to view in Grafana data from Centreon platforms. If you are already using Grafana to retrieve data from other monitoring platforms, you will be able to view this data side by side with data from Centreon.
 
@@ -26,6 +28,45 @@ Performance data are available, but not data such as the status of hosts and ser
 ## Where do I find the plugin?
 
 The Centreon plugin for Grafana is available on [Centreon's download page](https://download.centreon.com/).
+
+## How do I set up the plugin?
+
+You can use the Centreon data source for Grafana as an unsigned plugin in your private Grafana installation. (This is not possible with a Cloud instance.)
+
+To use the Centreon data source as an unsigned plugin:
+
+1. Make sure you have administration privileges on the machine where Grafana runs.
+
+2. Download the zip file containing the data source from [Centreon's download page](https://download.centreon.com/). The data source is located in the **Grafana** subsection of the **Custom platform** section.
+
+3. If you do not have a custom init file, create a copy of the **grafana/conf/default.ini** file and name it **custom.ini**.
+
+4. Extract the data source and put it in the **plugins** directory of your Grafana installation. (The location of this directory is defined in the **plugins** variable of your **grafana/conf/custom.ini** file.)
+
+5. Edit the **custom.ini** file and add the Centreon data source to the list of allowed unsigned plugins:
+
+   ```text
+   allow_loading_unsigned_plugins = centreon2-centreon-datasource
+   ```
+
+6. Restart the Grafana service.
+
+<Tabs groupId="sync">
+<TabItem value="Linux" label="Linux">
+
+```shell
+systemctl restart grafana-server
+```
+
+</TabItem>
+<TabItem value="Windows" label="Windows">
+
+On the **Services** tab of the tasks manager, right-click the Grafana service and then click **Restart**.
+
+</TabItem>
+</Tabs>
+
+The Centreon data source now appears in the list of available plugins, on page **Configuration > Plugins** of the Grafana interface.
 
 ## Comparing data within a graph
 

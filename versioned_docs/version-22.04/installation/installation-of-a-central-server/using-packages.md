@@ -94,7 +94,6 @@ Disabled
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
-
 During installation, SELinux should be disabled. To do this, edit the file **/etc/selinux/config** and replace
 **enforcing** by **disabled**. You can also run the following command:
 
@@ -345,7 +344,8 @@ This section describes how to install a Centreon central server.
 You can install this server with a local database on the server, or
 a remote database on a dedicated server.
 
-### With a local database
+<Tabs groupId="sync">
+<TabItem value="With a local database" label="With a local database">
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -378,9 +378,8 @@ systemctl restart mariadb
 </TabItem>
 </Tabs>
 
-You can now move to [Step 3](#step-3-configuration).
-
-### With a remote database
+</TabItem>
+<TabItem value="With a remote database" label="With a remote database">
 
 > If installing the database on a dedicated server, this server should also have
 > the prerequired repositories.
@@ -445,16 +444,16 @@ systemctl restart mariadb
 </TabItem>
 </Tabs>
 
+> It is mandatory to set a password for the root user of the database.
+
 Secure your MariaDB root access by executing the following command:
 
 ```shell
 mysql_secure_installation
 ```
 
-> It is mandatory to set a password for the root user of the database. You will need this password during the web installation.
-
 Then, in the remote dabatase, create a user with **root** privileges. You will have to enter this user during the 
-web installation process (at [step 6](../web-and-post-installation.md#step-6-database-infomation),
+web installation process (at [step 6](../web-and-post-installation.md#step-6-database-information),
 in the **Root user** and **Root password** fields).
 
 ```SQL
@@ -487,9 +486,9 @@ Example:
 DROP USER 'dbadmin'@'<CENTRAL_SERVER_IP>';
 ```
 
-> The package **centreon-database** installs an optimized MariaDB configuration
-> to be used with Centreon.
->
+* The package **centreon-database** installs an optimized MariaDB configuration
+ to be used with Centreon.
+
 > If this package is not installed, system limitation **LimitNOFILE** should be
 > at least set to **32000** using a dedicated configuration file, example:
 >
@@ -498,24 +497,53 @@ DROP USER 'dbadmin'@'<CENTRAL_SERVER_IP>';
 > [Service]
 > LimitNOFILE=32000
 > ```
->
-> Same for the MariaDB **open_files_limit** directive, example for Centos 7, Alma/RHEL/OL 8:
->
+
+* Same for the MariaDB **open_files_limit** directive:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
 > ```shell
 > $ cat /etc/my.cnf.d/centreon.cnf
 > [server]
 > innodb_file_per_table=1
 > open_files_limit=32000
 > ```
->
-> For Debian 11:
->
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+> ```shell
+> $ cat /etc/my.cnf.d/centreon.cnf
+> [server]
+> innodb_file_per_table=1
+> open_files_limit=32000
+> ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
 > ```shell
 > $ cat /etc/mysql/mariadb.conf.d/80-centreon.cnf
 > [server]
 > innodb_file_per_table=1
 > open_files_limit=32000
 > ```
+> 
+> MariaDB has to listen to all interfaces instead of localhost/127.0.0.1, which is the default value. Edit the following file:
+> 
+> ```shell
+> /etc/mysql/mariadb.conf.d/50-server.cnf
+> ```
+> 
+> Set the **bind-address** parameter to **0.0.0.0** and restart mariadb.
+> 
+> ```shell
+> systemctl restart mariadb
+> ```
+
+</TabItem>
+</Tabs>
 
 > In addition to the directives above, it's strongly recommended to tune the
 > database configuration with the following parameters:
@@ -540,21 +568,15 @@ DROP USER 'dbadmin'@'<CENTRAL_SERVER_IP>';
 >
 > Remember to restart MariaDB after a change to configuration.
 
-#### Additional configuration for Debian 11
-
-MariaDB has to listen to all interfaces instead of localhost/127.0.0.1, which is the default value. Edit the following file:
-
-```shell
-/etc/mysql/mariadb.conf.d/50-server.cnf
-```
-
-Set the **bind-address** parameter to **0.0.0.0**.
+</TabItem>
+</Tabs>
 
 ## Step 3: Configuration
 
 ### Server name
 
 If you want, you can change the server's hostname using the following command:
+
 ```shell
 hostnamectl set-hostname new-server-name
 ```
@@ -569,6 +591,9 @@ hostnamectl set-hostname central
 
 You are required to set the PHP time zone.
 
+> Replace **Europe/Paris** by your time zone. You can find the list of
+> supported time zones [here](http://php.net/manual/en/timezones.php).
+
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / CentOS 7">
 
@@ -577,9 +602,6 @@ Run the following command as `root`:
 ```shell
 echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
 ```
-
-> Replace **Europe/Paris** by your time zone. You can find the list of
-> supported time zones [here](http://php.net/manual/en/timezones.php).
 
 After saving the file, restart the PHP-FPM service:
 
@@ -590,14 +612,9 @@ systemctl restart php-fpm
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
-Set the PHP time zone by editing the following file:
+Edit the **/etc/php/8.0/mods-available/centreon.ini** file and check the timezone.
 
-```shell
-/etc/php/8.0/mods-available/centreon.ini
-```
-
-> You can find the list of
-> supported time zones [here](http://php.net/manual/en/timezones.php).
+> This one was defined during the installation process by retrieving the timezone configured on the operating system.
 
 After saving the file, restart the PHP-FPM service:
 
@@ -646,7 +663,8 @@ systemctl restart mariadb
 
 ### Secure the database
 
-Since MariaDB 10.5, it is mandatory to secure the database's root access before installing Centreon. If you are using a local database, run the following command on the central server:
+Since MariaDB 10.5, it is mandatory to secure the database's root access before installing Centreon.
+If you are using a local database, run the following command on the central server:
 
 ```shell
 mysql_secure_installation
@@ -687,4 +705,4 @@ systemctl start apache2
 </Tabs>
 
 2. To complete the installation, follow the
-[web installation steps](../web-and-post-installation.md#web-installation) procedure.
+[web installation](../web-and-post-installation.md#web-installation) procedure.

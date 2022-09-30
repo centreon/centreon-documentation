@@ -15,7 +15,7 @@ let you know so that you can rebase it.
 
 To understand how the documentation is structured, you may have a look to the
  [Docusaurus project](https://docusaurus.io/).
-We're using the version 1.
+We're using version 2.
 
 ### Pull request guidelines
 

@@ -16,6 +16,60 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon Web
 
+### 22.04.5
+
+Release date: `September 20, 2022`
+
+#### Enhancements
+
+- [UX] Improved usability when accessing logs and reports button in details panel
+
+#### Bug fixes
+
+- [Administration] Fixed selection of options in second select box in ACL Group configuration page
+- [Authentication] Fixed contact_location when creating a session from OpenId Connect which made it impossible to access MBI jobs
+- [Configuration] Fixed an error in the Configuration > Services > Templates menu causing HTML code to be displayed
+- [Configuration] Fixed error that occurred when duplicating a Remote Server
+- [Core] Cleaned code in forMyAccount
+- [Core] Corrected escapeSecure usage
+- [Core] Fixed database partitioning for Aurora DBMS
+- [Install] Fixed Centreon Web installation using sources and silent mode
+- [Install] Fixed default PHP-FPM configuration on Debian
+- [Resources Status] Fixed the "Alias" tile that was not displayed in the details panel
+- [Resources Status] Fixed broken link to host right panel
+- [UI] Fixed HTML code appearing instead of SVG icon with Firefox
+- [UI] Fixed french typo in OpenID Connect configuration form
+- [UI] Fixed untranslated label in Resources Status
+- [Widgets] Restored possibility to not select a poller in preferences
+
+#### Security fixes
+
+- [Administration] Sanitized and bound Centreon ACL class queries
+- [CLAPI] Added a check to verify that the user has the admin role
+- [CLAPI] Sanitized and bound CLAPI poller configuration queries
+- [Configuration] Fixed SQLi in poller's resource creation
+- [Configuration] Sanitized and bound Meta Service configuration queries
+- [Configuration] Sanitized and bound command configuration queries
+- [Configuration] Sanitized and bound graph configuration queries
+- [Configuration] Sanitized and bound queries in contactgroup file
+- [Configuration] Sanitized and bound queries in listServiceCategories file
+- [Configuration] Sanitized and bound queries in listVirtualMetrics file
+- [Configuration] Sanitized and bound queries in service argumentsXml file
+- [Configuration] Sanitized and bound queries in service host categories file
+- [Configuration] Sanitized and bound queries in servicegroup_dependency file
+- [Configuration] Sanitized and bound templates of service listing queries
+- [Monitoring] Fixed XSS vulnerability in deprecated services status details page
+- [Upgrade] Sanitized and bound queries in update-22.04.0-beta.1 file
+
+### 22.04.4
+
+Release date: `September 2, 2022`
+
+#### Bug fixes
+
+- [Core] Fixed potential empty values in `index_data`.`special` that could block Centreon Broker
+- [Install] Fixed update process that threw an "unable to execute SQL query" error
+
 ### 22.04.3
 
 Release date: `August 25, 2022`
@@ -196,6 +250,46 @@ By:
 
 ## Centreon Collect
 
+### 22.04.1
+
+Release date: `August 30, 2022`
+
+#### Centreon Engine
+
+##### Features
+
+- Enable recheck for Anomaly Detection services
+
+##### Improvements
+
+- Improve security of the gRPC API by listening on 127.0.0.1 by default
+
+##### Bug fixes
+
+- Fixed an issue that made the name of the resources disappear from Resources Status when linked to a severity or a category (it came back once centengine was restarted)
+- Fixed an issue with the way escaped special characters were managed (eg. `\n`)
+
+#### Centreon Broker
+
+##### Improvements
+
+- Improve security of the gRPC API by listening on 127.0.0.1 by default
+
+##### Bug fixes
+
+- Fixed Broker compression 
+- Fixed an issue that caused the RRD rebuild mechanism to fail
+- Fixed an issue with BAM Business Activities with “Ignore the indicator in the calculation” as planned downtime calculation method. They stopped ignoring downtimed KPIs when they had overlapping downtimes
+- Fixed an issue that made the name of the resources disappear from Resources Status when linked to a severity or a category (it came back once centengine was restarted)
+- Broker handles multiple options
+- Broker with gRPC configured crashed on start
+- Deleting a tag does not remove the link with resources in resources_tags table
+- Fixed an issue that caused Broker to crash when a BAM output was configured and the BAM tables did not exist
+- Fixed an issue with the way escaped special characters were managed (eg. `\n`)
+- Scheduled downtimes used to be inserted one at a time, which caused performance issues on platforms with a lot of recurrent scheduled downtimes. They are now injected in bulk inserts to reduce database solicitation and avoid performance issues.
+- [Configuration] Extended the size of the URL, Notes and Action URL fields to avoid truncating long URLs
+
+
 ### 22.04.0
 
 #### Centreon Engine
@@ -227,6 +321,27 @@ By:
 As stated above, all broker instances (central, RRD, modules) must use the same BBDO protocol version to be able to communicate. This means that pollers using 21.10 or older releases won't be able to send data to a 22.04 central server using BBDO 3.0.0. Please read carefully our upgrade procedure.
 
 ## Centreon Gorgone
+
+### 22.04.1
+
+Release date: `September 23, 2022`
+
+#### Enhancements
+
+- Added an optional parameter to strictly control that the required plugins are installed before reloading/restarting centengine
+- Added INSECURE_EXTRACT_MODE option to untar the archive
+- Added API to manage Centreon MBI ETL
+- Added API to get status of Centreon MBI ETL
+- Added API to kill working process of Centreon MBI ETL
+- Added Rocky Linux support for the plugin auto installation
+- Improved debug for the plugin auto installation
+
+##### Bug fixes
+
+- Fixed wrong header in pullws mode
+- Fixed encoding issue on RHEL8 in Services Discovery with Windows SNMP
+- Fixed an issue with the authentication process to the web socket server
+- Fixed the missing service category name in debug message
 
 ### 22.04.0
 
