@@ -18,6 +18,8 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ### 22.04.6
 
+Release date: ` September 30, 2022`
+
 #### Bug fixes
 
 - [Administration] Fixed not mandatory access group for OpenId Connect configuration
