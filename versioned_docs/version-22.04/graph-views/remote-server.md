@@ -11,7 +11,7 @@ Central server, only configuration and uninstallation are different.
 
 If your Centreon Remote Server has not been installed yet, please refer to
 the following
-[documentation](https://documentation.centreon.com/docs/centreon/en/latest/administration_guide/poller/install_remote_server)
+[documentation](../installation/installation-of-a-remote-server/using-packages.md)
 
 Then refer to the [installation procedure](install.md) to install
 the 2 mains components:
