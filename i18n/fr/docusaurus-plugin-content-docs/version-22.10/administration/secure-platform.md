@@ -384,7 +384,6 @@ yum update -y selinux-policy*
 apt install fail2ban
 ```
 
-
 </TabItem>
 </Tabs>
 
@@ -399,7 +398,7 @@ Copiez le fichier de règles par défaut :
 cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
 ```
 
-Editez le fichier `/etc/fail2ban/jail.local` et recherchez le bloc **[centreon]**, puis modifiez tel que :
+Éditez le fichier `/etc/fail2ban/jail.local` et recherchez le bloc **[centreon]**, puis modifiez tel que :
 ```shell
 [centreon]
 port    = http,https
@@ -435,7 +434,7 @@ Pour vérifier l'état de la règle **centreon**, vous pouvez exécuter :
 fail2ban-client status centreon
 ```
 
-Here is an example of output:
+Voici un exemple de résultat :
 
 ```shell
 Status for the jail: centreon
@@ -470,89 +469,55 @@ Par défaut, Centreon installe un serveur web en mode HTTP. Il est fortement rec
 - Un certificat x509 pour signer votre certificat pour le serveur : **ca-demo.crt** dans notre cas.
 - Un certificat pour le serveur : **centreon7.crt** dans notre cas.
 
-1. Installer le module SSL pour Apache :
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install mod_ssl mod_security openssl
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```shell
-yum install httpd24-mod_ssl httpd24-mod_security openssl
-```
-
-</TabItem>
-
-<TabItem value="Debian 11" label="Debian 11">
-
-```shell
-sudo systemctl stop apache2
-sudo apt-get purge apache2 -y && sudo apt autoremove apache2 -y
-curl -sSL https://packages.sury.org/apache2/README.txt | sudo bash -x
-sudo apt update
-sudo apt install apache2 -y
-sudo apt install libapache2-mod-security2
-sudo a2enmod security2
-sudo systemctl restart apache2
-```
-
-</TabItem>
-</Tabs>
-
 Soit un serveur Centreon avec le FQDN suivant : **centreon7.localdomain**.
 
-2. Préparer la configuration OpenSSL :
-
-En raison d'un changement de politique chez Google, les certificats auto-signés peuvent être rejetés par le navigateur Google Chrome (sans qu'il soit possible d'ajouter une exception). Pour continuer à utiliser ce navigateur, vous devez modifier la configuration OpenSSL.
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-Ouvrez le fichier **/etc/pki/tls/openssl.cnf**. L'objectif est de modifier ce fichier pour renseigner les différents IPs et FQDNs relatifs au serveur.
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-Ouvrez le fichier **/etc/pki/tls/openssl.cnf**. L'objectif est de modifier ce fichier pour renseigner les différents IPs et FQDNs relatifs au serveur.
-
-</TabItem>
-
-<TabItem value="Debian 11" label="Debian 11">
-
-Ouvrez le fichier **/etc/ssl/openssl.cnf**. L'objectif est de modifier ce fichier pour renseigner les différents IPs et FQDNs relatifs au serveur.
-
-</TabItem>
-</Tabs>
-
-Recherchez la section ```[v3_ca]``` afin d'ajouter le nouveau tag ```alt_names``` :
-
-```text
-# Add the alt_names tag that allows you to inform our various IPs and FQDNs for the server
-[ alt_names ]
-IP.1 = xxx.xxx.xxx.xxx
-DNS.1 = centreon7.localdomain
-# If you have several IP (HA: vip + ip)
-# IP.2 = xxx.xxx.xxx.xxx
-[ v3_ca ]
-subjectAltName = @alt_names
-```
-
-Voici un exemple de ce à quoi le fichier peut ressembler :
-```text
-[ alt_names ]
-IP.1 = 10.25.11.73
-DNS.1 = centreon7.localdomain
-
-[ v3_ca ]
-subjectAltName = @alt_names
-```
-
-3. Créer une clé privée pour le serveur :
+1. Préparer la configuration OpenSSL :
+  
+  En raison d'un changement de politique chez Google, les certificats auto-signés peuvent être rejetés par le navigateur Google Chrome (sans qu'il soit possible d'ajouter une exception). Pour continuer à utiliser ce navigateur, vous devez modifier la configuration OpenSSL.
+  
+  <Tabs groupId="sync">
+  <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+  
+  Ouvrez le fichier **/etc/pki/tls/openssl.cnf**. L'objectif est de modifier ce fichier pour renseigner les différents IPs et FQDNs relatifs au serveur.
+  
+  </TabItem>
+  <TabItem value="CentOS 7" label="CentOS 7">
+  
+  Ouvrez le fichier **/etc/pki/tls/openssl.cnf**. L'objectif est de modifier ce fichier pour renseigner les différents IPs et FQDNs relatifs au serveur.
+    
+  </TabItem>
+    
+  <TabItem value="Debian 11" label="Debian 11">
+  
+  Ouvrez le fichier **/etc/ssl/openssl.cnf**. L'objectif est de modifier ce fichier pour renseigner les différents IPs et FQDNs relatifs au serveur.
+  
+  </TabItem>
+  </Tabs>
+  
+  Recherchez la section ```[v3_ca]``` afin d'ajouter le nouveau tag ```alt_names``` :
+  
+  ```text
+  # Add the alt_names tag that allows you to inform our various IPs and FQDNs for the server
+  [ alt_names ]
+  IP.1 = xxx.xxx.xxx.xxx
+  DNS.1 = centreon7.localdomain
+  # If you have several IP (HA: vip + ip)
+  # IP.2 = xxx.xxx.xxx.xxx
+  [ v3_ca ]
+  subjectAltName = @alt_names
+  ```
+  
+  Voici un exemple de ce à quoi le fichier peut ressembler :
+  ```text
+  [ alt_names ]
+  IP.1 = 10.25.11.73
+  DNS.1 = centreon7.localdomain
+  
+  [ v3_ca ]
+  subjectAltName = @alt_names
+  ```
+  
+2. Créer une clé privée pour le serveur :
 
 Créez une clé privée nommée **centreon7.key** sans mot de passe afin qu'elle puisse être utilisée par le service Apache.
 ```text
@@ -564,21 +529,21 @@ Protégez le fichier en modifiant ses droits :
 chmod 400 centreon7.key
 ```
 
-4. Créer un fichier CSR :
+3. Créer un fichier CSR :
 
 Avec la clé que vous venez de créer, créez un fichier CSR (Certificate Signing Request). Remplissez les champs avec les informations propres à votre entreprise. Le champ **Common Name** doit être identique au hostname de votre serveur Apache (dans notre cas, **centreon7.localdomain**).
 ```text
 openssl req -new -key centreon7.key -out centreon7.csr
 ```
 
-5. Créer une clé privée pour le certificat de l'autorité de certification :
+4. Créer une clé privée pour le certificat de l'autorité de certification :
 
 Créez une clé privée pour cette autorité : **ca_demo.key** dans notre cas. Ajoutez l'option **-aes256** pour chiffrer la clé produite et y appliquer un mot de passe. Ce mot de passe sera demandé chaque fois que la clé sera utilisée.
 ```text
 openssl genrsa -aes256 2048 > ca_demo.key
 ```
 
-6. Créer un certificat x509 à partir de la clé privée du certificat de l'autorité de certification :
+5. Créer un certificat x509 à partir de la clé privée du certificat de l'autorité de certification :
 
 Créez un certificat x509 qui sera valide pendant un an : **ca_demo.crt** dans notre cas.
 
@@ -589,7 +554,7 @@ openssl req -new -x509 -days 365 -key ca_demo.key -out ca_demo.crt
 
 Ce certificat étant créé, vous pourrez l'utiliser pour signer le certificat du serveur.
 
-7. Créer un certificat pour le serveur :
+6. Créer un certificat pour le serveur :
 
 Créez votre certificat pour le serveur en utilisant le certificat x509 (**ca_demo.crt**) pour le signer.
 
@@ -624,7 +589,7 @@ Vous pouvez voir le contenu du fichier :
 less centreon7.crt
 ```
 
-8. Vous devez ensuite récupérer le fichier du certificat x509 (**ca_demo.crt**) et l'importer dans le magasin de certificats de votre navigateur.
+7. Vous devez ensuite récupérer le fichier du certificat x509 (**ca_demo.crt**) et l'importer dans le magasin de certificats de votre navigateur.
 
 Maintenant que vous avez votre certificat auto-signé, vous pouvez suivre la procédure suivante pour activer le mode HTTPS sur votre serveur Apache.
 
@@ -668,14 +633,12 @@ cp centreon7.crt /etc/pki/tls/certs/
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-sudo systemctl stop apache2
-sudo apt-get purge apache2 -y && sudo apt autoremove apache2 -y
 curl -sSL https://packages.sury.org/apache2/README.txt | sudo bash -x
-sudo apt update
-sudo apt install apache2 -y
-sudo apt install libapache2-mod-security2
-sudo a2enmod security2
-sudo systemctl restart apache2
+apt update
+apt install libapache2-mod-security2
+a2enmod ssl
+a2enmod security2
+systemctl restart apache2
 ```
 
 2. Installer les certificats :
@@ -973,7 +936,7 @@ ServerSignature Off
 ServerTokens Prod
 ```
 
-Éditez le fichier **/etc/php.d/50-centreon.ini** en désactivant le paramètre `expose_php` :
+Éditez le fichier **/etc/php/8.0/apache2/conf.d/50-centreon.ini** en désactivant le paramètre `expose_php` :
 
 ```phpconf
 expose_php = Off
@@ -993,7 +956,7 @@ ServerTokens Prod
 TraceEnable Off
 ```
 
-Éditez le fichier **/etc/php.d/50-centreon.ini** en désactivant le paramètre **expose_php** :
+Éditez le fichier **/etc/php/8.0/apache2/conf.d/50-centreon.ini** en désactivant le paramètre **expose_php** :
 
 ```phpconf
 expose_php = Off
@@ -1014,7 +977,7 @@ ServerTokens Prod
 TraceEnable Off
 ```
 
-Éditez le fichier **/etc/php.d/50-centreon.ini** en désactivant le paramètre **expose_php** :
+Éditez le fichier **/etc/php/8.0/apache2/conf.d/50-centreon.ini** en désactivant le paramètre **expose_php** :
 
 ```phpconf
 expose_php = Off
@@ -1048,23 +1011,35 @@ expose_php = Off
 
 <TabItem value="Debian 11" label="Debian 11">
 
-Éditez le fichier **/etc/apache2/sites-available/autoindex.conf** en commentant la ligne suivante :
+Éditez le fichier **/etc/apache2/mods-available/autoindex.conf** en commentant la ligne suivante :
 
 ```apacheconf
 #Alias 
-/icons/ "/etc/apache2/sites-available/icons/"
+/icons/ "/etc/apache2/mods-available/icons/"
 ```
 
 </TabItem>
 </Tabs>
 
-7. Redémarrer le serveur web Apache et PHP pour prendre la configuration en compte :
+7. Vous pouvez effectuer ce test vérifiant qu'Apache est bien configuré, en exécutant la commande suivante :
+
+```apacheconf
+apache2ctl configtest
+```
+
+Le résultat attendu est le suivant :
+
+```apacheconf
+Syntax OK
+```
+
+8. Redémarrer le serveur web Apache et PHP pour prendre la configuration en compte :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-systemctl restart php-fpm httpd
+systemctl restart apache2 php8.0-fpm
 ```
 
 Puis vérifiez le statut :
@@ -1203,6 +1178,7 @@ vim /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf
 ```
 
 </TabItem>
+
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
