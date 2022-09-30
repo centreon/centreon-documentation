@@ -178,12 +178,12 @@ Plusieurs actions peuvent être réalisées sur les tâches :
 
     - Si vous aviez sélectionné **Analyse automatique** et **Modifier les hôtes existants** à l'étape 5 de l'assistant, les hôtes seront mis à jour quand vous réexécuterez la tâche (voir [Éditer une tâche de découverte](#éditer-une-tâche-de-découverte)).
 
-3. Si vous avez sélectionné **Analyse manuelle** à l'étape 5 de l'assistant, sélectionnez les hôtes que vous voulez ajouter à la configuration, puis cliquez
+4. Si vous avez sélectionné **Analyse manuelle** à l'étape 5 de l'assistant, sélectionnez les hôtes que vous voulez ajouter à la configuration, puis cliquez
 sur le bouton d'enregistrement : ![image](../../assets/monitoring/discovery/host-discovery-hosts-save.png#thumbnail1)
 
   Les hôtes sont alors créés ainsi que les services liés à leurs modèles d'hôte.
 
-4. Allez à la page **Configuration > Hôtes > Hôtes** : les hôtes que vous venez de créer apparaissent dans la liste.
+5. Allez à la page **Configuration > Hôtes > Hôtes** : les hôtes que vous venez de créer apparaissent dans la liste.
 
   ![image](../../assets/monitoring/discovery/host-discovery-configuration-hosts.png)
 
@@ -191,7 +191,7 @@ sur le bouton d'enregistrement : ![image](../../assets/monitoring/discovery/host
 liste, retournez à la liste des tâches et regardez si une erreur est
 survenue pendant la tâche d'enregistrement.
 
-5. Dans les cas suivants, [déployez la configuration](../monitoring-servers/deploying-a-configuration.md) :
+6. Dans les cas suivants, [déployez la configuration](../monitoring-servers/deploying-a-configuration.md) :
 
    - si l'option **Analyse manuelle** a été sélectionnée à l'étape 5 de l'assistant
    - si l'option **Analyse automatique** a été sélectionnée à l'étape 5 de l'assistant, mais que l'option **Exporter et recharger la configuration des collecteurs** était décochée.
