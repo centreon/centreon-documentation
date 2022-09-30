@@ -1,6 +1,6 @@
 # Getting started
 
-Bonjour et bienvenue ! Nous sommes heureux que vous ayez décidé de mettre en place la supervision de votre IT via Centreon.
+Bonjour et bienvenue ! Nous sommes heureux de vous compter parmi les utilisateurs de Centreon.
 
 import DocCardList from '@theme/DocCardList';
 
