@@ -161,9 +161,16 @@ Plusieurs actions peuvent être réalisées sur les tâches :
 
 1. À la page **Configuration > Hôtes > Découverte**, cliquez sur la flèche ![image](../../assets/monitoring/discovery/host-discovery-goto-results.png) à côté du statut d'une tâche terminée pour en visualiser le résultat.
 
-    ![image](../../assets/monitoring/discovery/host-discovery-hosts-listing.png)
+   ![image](../../assets/monitoring/discovery/host-discovery-hosts-listing.png)
+   
+   La liste de résultats montre les hôtes découverts. Des icônes vous permettent d'identifier l'action qui sera effectuée sur l'hôte :
+   
+   - L'icône **plus** signifie que cet hôte n’existe pas encore et sera créé.
+   - L'icône **flèche** signifie que cet hôte existe déjà et sa configuration sera mise à jour.
 
-2. Si vous le souhaitez, vous pouvez éditer les [modificateurs](#comment-utiliser-les-modificateurs) liés à la tâche en cliquant sur le bouton d'édition : ![image](../../assets/monitoring/discovery/host-discovery-edit.png#thumbnail1)
+2. Sélectionnez les hôtes que vous souhaitez ajouter à la liste des hôtes supervisés et cliquez sur le bouton **Sauvegarder**. Cliquez ensuite sur le bouton **Retour** pour revenir à la page **Découverte**.
+
+3. Si vous le souhaitez, vous pouvez éditer les [modificateurs](#comment-utiliser-les-modificateurs) liés à la tâche. Cliquez sur la tâche pour afficher ses propriétés. Dans la section **Modificateurs**, modifiez le modificateur en cliquant sur le bouton d'édition : ![image](../../assets/monitoring/discovery/host-discovery-edit.png#thumbnail1)
 
     Les changements seront appliqués directement à la liste des résultats lorsque vous cliquerez sur l'icône **Sauvegarder** en haut à droite du panneau.
 

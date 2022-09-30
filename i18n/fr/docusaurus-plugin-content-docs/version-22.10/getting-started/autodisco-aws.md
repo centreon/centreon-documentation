@@ -74,9 +74,14 @@ puis cliquez sur **Confirmer**. Cliquez sur **Suivant**.
 
     ![image](../assets/getting-started/aws-success.png)
 
-2. Survolez la ligne correspondant à la tâche qui vient de se terminer puis cliquez sur **Display the job result** (l'icône flèche). Une liste d'hôtes apparaît.
+2. Survolez la ligne correspondant à la tâche qui vient de se terminer puis cliquez sur **Afficher le résultat de la tâche** (l'icône flèche). Une liste d'hôtes apparaît.
 
     ![image](../assets/getting-started/aws-results.png)
+    
+    Des icônes vous permettent d'identifier l'action qui sera effectuée sur l'hôte :
+   
+   - L'icône **plus** signifie que cet hôte n’existe pas encore et sera créé.
+   - L'icône **flèche** signifie que cet hôte existe déjà et sa configuration sera mise à jour.
 
 3. Sélectionnez les hôtes que vous souhaitez ajouter à la liste des hôtes supervisés, puis cliquez sur **Enregistrer**. ![image](../assets/getting-started/aws-save.png)
 
