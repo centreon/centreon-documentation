@@ -19,6 +19,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 21.10.11
 
+Release date: `September 30, 2022`
+
 #### Bug fixes
 
 - [Configuration] Fixed export of RRDcached path in Centreon Broker configuration
