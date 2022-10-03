@@ -17,7 +17,7 @@ import TabItem from '@theme/TabItem';
 * Every time a service or a host's state is checked, the event passes through Centreon Broker, which loads the Stream Connector to send state changes.
 * State changes can occur in case of an anomaly detection or metrics falling out of range.
 * Once the check point is back to normal, a resolve event will be sent to the PagerDuty service to resolve the alert.
-* You can choose from where the Stream-connector is sending data. Pick the implementation which best meets your needs:
+* You can choose from where the stream connector is sending data. Pick the implementation which best meets your needs:
 
 ![architecture](../../assets/integrations/external/sc-pagerduty-centreon.png)
 
