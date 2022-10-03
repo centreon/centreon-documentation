@@ -5,37 +5,37 @@ title: HP Moonshot SNMP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Contenu du Pack
+## Pack Assets
 
-### Objets supervisés
+### Monitored Objects
 
-Le Pack Centreon **HP Moonshot SNMP** apporte un modèle d'hôte :
+The Centreon Pack **HP Moonshot SNMP** brings a host template:
 * Net-Hp-Moonshot-SNMP-custom
 
-Il apporte les modèles de services suivants :
+It brings the following service templates:
 
-| Alias      | Modèle de services              | Description                             | Défaut  |
-|:-----------|:--------------------------------|:----------------------------------------|:--------|
-| Cpu        | Net-Hp-Moonshot-Cpu-SNMP        | Contrôle l'utilisation processeur       | X       |
-| Interfaces | Net-Hp-Moonshot-Interfaces-SNMP | Contrôle les interfaces                 |         |
-| Memory     | Net-Hp-Moonshot-Memory-SNMP     | Contrôle l'utilisation mémoire          | X       |
+| Service Alias | Service Template                | Description                       | Default |
+|:--------------|:--------------------------------|:----------------------------------|:--------|
+| Cpu           | Net-Hp-Moonshot-Cpu-SNMP        | Check CPU                         | X       |
+| Interfaces    | Net-Hp-Moonshot-Interfaces-SNMP | Check interfaces                  |         |
+| Memory        | Net-Hp-Moonshot-Memory-SNMP     | Check memory                      | X       |
 
-### Règles de découverte
+### Discovery rules
 
 <Tabs groupId="sync">
 <TabItem value="Service" label="Service">
 
-| Nom de la règle                     | Description                                                             |
-|:------------------------------------|:------------------------------------------------------------------------|
-| Net-Hp-Moonshot-SNMP-Interface-Name | Découvre les interfaces réseaux et supervise le statut et l'utilisation |
+| Rule name                           | Description                                         |
+|:------------------------------------|:----------------------------------------------------|
+| Net-Hp-Moonshot-SNMP-Interface-Name | Discover network interfaces and monitor usage|
 
-Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
-pour en savoir plus sur la découverte automatique de services et sa [planification](https://docs.centreon.com/fr/docs/monitoring/discovery/services-discovery/#r%C3%A8gles-de-d%C3%A9couverte).
+More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
+and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
 
 </TabItem>
 </Tabs>
 
-### Métriques & statuts collectés
+### Collected metrics & status
 
 <Tabs groupId="sync">
 <TabItem value="Cpu" label="Cpu">
@@ -71,72 +71,72 @@ pour en savoir plus sur la découverte automatique de services et sa [planificat
 </TabItem>
 </Tabs>
 
-## Prérequis
+## Prerequisites
 
-### Configuration SNMP
+### SNMP Configuration
 
-Afin de superviser votre équipement, le SNMP v2 ou v3 doit être configuré.
+To use this Pack, the SNMP service must be properly configured on your device.
 
-### Flux réseau
+### Network flow
 
-La communication doit être possible sur le port UDP 161 depuis le collecteur
-Centreon vers l'équipement supervisé.
+The target equipment must be reachable from the Centreon Poller on the UDP/161 SNMP
+port.
 
-## Installation
+## Setup
 
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Installer le plugin Centreon sur tous les collecteurs Centreon devant superviser des ressources **HP Moonshot** :
+1. Install the Centreon plugin package on every Centreon poller expected to monitor **HP Moonshot** resources:
 
 ```bash
 yum install centreon-plugin-Network-Hp-Moonshot-Snmp
 ```
 
-2. Sur l'interface web de Centreon, installer le Pack **HP Moonshot SNMP** depuis la page **Configuration > Packs de plugins**.
+2. On the Centreon web interface, install the **HP Moonshot SNMP** Centreon Pack on the **Configuration > Plugin Packs** page.
 
 </TabItem>
 
 <TabItem value="Offline License" label="Offline License">
 
-1. Installer le plugin Centreon sur tous les collecteurs Centreon devant superviser des ressources **HP Moonshot** :
+1. Install the Centreon plugin package on every Centreon poller expected to monitor **HP Moonshot** resources:
 
 ```bash
 yum install centreon-plugin-Network-Hp-Moonshot-Snmp
 ```
 
-2. Sur le serveur central Centreon, installer le RPM du Pack **HP Moonshot SNMP** :
+2. Install the **HP Moonshot SNMP** Centreon Pack RPM on the Centreon central server:
 
 ```bash
 yum install centreon-pack-network-hp-moonshot-snmp
 ```
 
-3. Sur l'interface web de Centreon, installer le Pack **HP Moonshot SNMP** depuis la page **Configuration > Packs de plugins**.
+3. On the Centreon web interface, install the **HP Moonshot SNMP** Centreon Pack on the **Configuration > Plugin Packs** page.
 
 </TabItem>
 </Tabs>
 
 ## Configuration
 
-### Hôte
+### Host
 
-* Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**
-* Complétez les champs **Nom**, **Alias** et **IP Address / DNS** correspondant à votre équipement **HP Moonshot**.
-* Appliquez le modèle d'hôte **Net-Hp-Moonshot-SNMP-custom**.
-* Une fois le modèle appliqué, les macros ci-dessous indiquées comme requises (**Obligatoire**) doivent être renseignées.
+* Log into Centreon and add a new host through **Configuration > Hosts**.
+* Fill the **Name**, **Alias** and **IP Address / DNS** fields according to your **HP Moonshot** equipment settings.
+* Apply the **Net-Hp-Moonshot-SNMP-custom** template to the host.
+* Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
 
-> Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro SNMPEXTRAOPTIONS.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping). 
+> When using SNMP v3, use the SNMPEXTRAOPTIONS Macro to add specific authentication parameters 
+> More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
 
-| Obligatoire | Nom              | Description                                              |
-| :---------- | :--------------- | :------------------------------------------------------- |
-|             | SNMPEXTRAOPTIONS | (Default: 'Configure your own SNMPv3 credentials combo') |
+| Mandatory | Name             | Description                                              |
+| :-------- | :--------------- | :------------------------------------------------------- |
+|           | SNMPEXTRAOPTIONS | (Default: 'Configure your own SNMPv3 credentials combo') |
 
-## Comment puis-je tester le Plugin et que signifient les options des commandes ? 
+## How to check in the CLI that the configuration is OK and what are the main options for? 
 
-Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
-de commande depuis votre collecteur Centreon en vous connectant avec
-l'utilisateur **centreon-engine** (`su - centreon-engine`) :
+Once the plugin is installed, log into your Centreon poller's CLI using the
+**centreon-engine** user account (`su - centreon-engine`) and test the plugin by
+running the following command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_hp_moonshot_snmp.pl \
@@ -150,14 +150,14 @@ l'utilisateur **centreon-engine** (`su - centreon-engine`) :
     --verbose
 ```
 
-La commande devrait retourner un message de sortie similaire à :
+The expected command output is shown below:
 
 ```bash
 OK: cpu average usage: 27.13 % (5s), 22.34 % (1m), 17.98 % (15m) | 'cpu.utilization.5s.percentage'=27.13%;;;0;100 'cpu.utilization.1m.percentage'=22.34%;;;0;100 'cpu.utilization.15m.percentage'=17.98%;0:90;0:95;0;100
 ```
 
-La liste de toutes les options complémentaires et leur signification peut être
-affichée en ajoutant le paramètre `--help` à la commande :
+All available options for a given mode can be displayed by adding the
+`--help` parameter to the command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_hp_moonshot_snmp.pl \
@@ -166,8 +166,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
     --help
 ```
 
-Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
-`--list-mode` à la commande :
+All available modes can be displayed by adding the `--list-mode` parameter to
+the command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_hp_moonshot_snmp.pl \
@@ -175,7 +175,7 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
     --list-mode
 ```
 
-### Diagnostic des erreurs communes
+### Troubleshooting
 
-Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md)
-pour le diagnostic des erreurs communes des plugins Centreon.
+Please find the [troubleshooting documentation](../getting-started/how-to-guides/troubleshooting-plugins.md)
+for Centreon Plugins typical issues.
