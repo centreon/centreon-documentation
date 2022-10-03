@@ -18,13 +18,13 @@ L'authentification se paramètre à la page **Administration > Authentification 
 
 Activez l'authentification OpenID Connect :
 
-- **Enable OpenId Connect authentication** : active/désactive l'authentification OpenId Connect.
+- **Activer l'authentification OpenID Connect** : active/désactive l'authentification OpenId Connect.
 - **Mode d'authentification** : indique si l'authentification doit se faire uniquement par OpenId Connect ou en
   utilisant également l'authentification locale (**Mixte**). En mode mixte, des utilisateurs créés manuellement dans
   Centreon (et non identifiés par OpenID) pourront également se connecter.
 
 > Lors du paramétrage, il est recommandé d'activer le mode "mixte". Cela vous permettra de garder l'accès au compte
-> local `admin` en cas de configuration érronée.
+> local `admin` en cas de configuration erronée.
 
 ### Étape 2 : Configurer les informations d'accès au fournisseur d'identité
 
@@ -33,7 +33,7 @@ Renseignez les informations du fournisseur d'identité :
 - **URL de base** : définit l'URL de base du fournisseur d'identité pour les points d'entrée OpenId Connect (obligatoire).
 - **Point d'entrée d'autorisation** : définit le point d'entrée d'autorisation, par exemple `/authorize` (obligatoire).
 - **Point d'entrée de jeton** : définit le point d'entrée du jeton, par exemple `/token` (obligatoire).
-- **ID de client** : définit l'ID client.
+- **Identifiant client** : définit l'ID client.
 - **Secret de client** : définit le secret client.
 - **Portées** : définit la portée du fournisseur d'identité, par exemple `openid`. Séparez différentes portées par des espaces.
   > Selon le fournisseur d'identité, il est nécessaire de saisir plusieurs portées (scopes) afin de récupérer la valeur
@@ -58,12 +58,12 @@ Vous pouvez également configurer :
 > Il est possible de définir une URL complète pour les points de entrée au cas où la base de l'URL est différente
 > des autres.
 
-> Vous pouvez activer **Authentification debug** via le menu **Administration > Parameters > Debug** pour comprendre les
+> Vous pouvez activer **Enregistrer les authentifications** via le menu **Administration > Paramètres > Débogage** pour comprendre les
 > échecs d'authentification et améliorer votre configuration.
 
 ### Étape 3 : Configurer les conditions d'authentification
 
-* Vous pouvez ajouter en liste blanche ou liste noire les adresses IP. Si vous laissez ces deux champs vides, toutes les
+* Vous pouvez ajouter des adresses IP en liste blanche ou liste noire. Si vous laissez ces deux champs vides, toutes les
 adresses IP seront autorisées à accéder à l'interface Centreon.
 
   - **Adresses de clients de confiance** : Si vous entrez des adresses IP dans ce champ, seules ces adresses IP seront
@@ -72,11 +72,11 @@ adresses IP seront autorisées à accéder à l'interface Centreon.
   - **Adresses de clients sur liste noire** : Ces adresses IP seront bloquées. Toutes les autres adresses IP seront autorisées.
 
 * Vous pouvez également définir des conditions selon lesquelles les utilisateurs seront autorisés à se connecter ou non, en
-  fonction des données reçues par un point d'enbtrée particulier.
-   - Activer **Enable conditions on identity provider**.
+  fonction des données reçues par un point d'entrée particulier.
+   - Activez **Enable conditions on identity provider**.
    - Définissez quel attribut et quel point d'entrée seront utilisés pour valider les conditions.
-   - Pour l'option **Define authorized conditions values**, définissez quelles seront les valeurs autorisées renvoyées par ce
-     point d'entrée. Si vous entrez plusieurs valeurs, toutes devront être remplies pour que la condition soit validée. Tous les
+   - Pour l'option **Define authorized conditions values**, définissez quelles valeurs renvoyées par ce
+     point d'entrée seront autorisées. Si vous entrez plusieurs valeurs, toutes devront être remplies pour que la condition soit validée. Tous les
 	 utilisateurs qui tentent de se connecter avec une autre valeur ne pourront pas se connecter.
 
    Dans l'exemple ci-dessous, la valeur de **Conditions attribute path** est **status** et la valeur de **Define authorized conditions values**
@@ -96,7 +96,7 @@ adresses IP seront autorisées à accéder à l'interface Centreon.
    }
    ```
 
-   > Actuellement, seules les valeurs de chaîne de caractères peuvent être utilisées.
+   > Actuellement, seules les valeurs de type chaîne de caractères peuvent être utilisées.
 
 ### Étape 4 : Gérer la création d'utilisateurs
 
@@ -156,14 +156,14 @@ et un groupe d'accès défini dans Centreon :
 }
 ```
 
-> A chaque connexion de l'utilisateur, la gestion des autorisations est réinitialisée pour prendre en compte toute nouvelle
-> information du fournisseur d'identité.
+> À chaque connexion de l'utilisateur, la gestion des autorisations est réinitialisée pour prendre en compte toute nouvelle
+> information en provenance du fournisseur d'identité.
 
 </TabItem>
 <TabItem value="Role manual management" label="Gestion manuelle">
 
-Si vous désactivez l'option **Enable automatic management**, vosu devez créer des [contrôles d'accès](../administration/access-control-lists.md)
-manuellement et lier vos utilisateur à ces [groupes](../administration/access-control-lists.md#créer-un-groupe-daccès).
+Si vous désactivez l'option **Enable automatic management**, vous devrez [attribuer des droits](../administration/access-control-lists.md)
+à vos utilisateurs manuellement en liant ceux-ci à des [groupes d'accès](../administration/access-control-lists.md#créer-un-groupe-daccès).
 
 </TabItem>
 </Tabs>
@@ -193,13 +193,13 @@ Par exemple, le point d'entrée **Introspection endpoint** vous donne la répons
 }
 ```
 
-> A chaque connexion de l'utilisateur, la gestion des groupes est réinitialisée pour prendre en compte toute nouvelle
-> information du fournisseur d'identité.
+> À chaque connexion de l'utilisateur, la gestion des groupes est réinitialisée pour prendre en compte toute nouvelle
+> information en provenance du fournisseur d'identité.
 
 </TabItem>
 <TabItem value="Groups manual management" label="Gestion manuelle">
 
-Si vous désactivez l'otion **Enable automatic management**, vous devrez gérer manuellement les relations entre un contact et des [groupes de contacts](../monitoring/basic-objects/contacts-groups.md#créer-un-groupe-de-contacts).
+Si vous désactivez l'otion **Enable automatic management**, vous devrez gérer manuellement les relations entre contacts et [groupes de contacts](../monitoring/basic-objects/contacts-groups.md#créer-un-groupe-de-contacts).
 
 </TabItem>
 </Tabs>
@@ -207,7 +207,7 @@ Si vous désactivez l'otion **Enable automatic management**, vous devrez gérer 
 ### Étape 7 : Configurer le fournisseur d'identité
 
 Configurer votre fournisseur d'identité pour ajouter l'application Centreon à utiliser le protocole OpenID Connect pour
-authentifier vos utilisateur, et pour autoriser `l'uri de redirection` suivante une fois vos utilisateurs authentifiés :
+authentifier vos utilisateur, et pour autoriser l'uri de redirection suivante une fois vos utilisateurs authentifiés :
 
 ```shell
 {protocol}://{server}:{port}/centreon/authentication/providers/configurations/openid
