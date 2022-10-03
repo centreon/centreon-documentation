@@ -10,33 +10,43 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Centreon Plugin Pack **Alcatel Omniswitch** brings a host template:
+The Centreon Pack **Alcatel Omniswitch** brings a host template:
 
 * Net-Alcatel-OmniSwitch-SNMP-custom
 
 It brings the following service templates:
 
-| Service Alias              | Service Template                                       | Service Description                          | Default | Discovery |
-|:---------------------------|:-------------------------------------------------------|:---------------------------------------------|:--------|:----------|
-| Traffic-Global             | Net-Alcatel-Omniswitc-Traffic-Global-SNMP              | Check traffic of multiple network interfaces |         |           |
-| Cpu                        | Net-Alcatel-Omniswitch-Cpu-SNMP                        | Check CPU usage                              | X       |           |
-| Flash-Memory               | Net-Alcatel-Omniswitch-Flash-Memory-SNMP               | Check Flash memory usage                     | X       |           |
-| Hardware                   | Net-Alcatel-Omniswitch-Hardware-SNMP                   | Check hardware state                         | X       |           |
-| Memory                     | Net-Alcatel-Omniswitch-Memory-SNMP                     | Check memory usage                           | X       |           |
-| Packet-Errors-Generic-Id   | Net-Alcatel-Omniswitch-Packet-Errors-Generic-Id-SNMP   | Check packets on errors                      |         |           |
-| Packet-Errors-Generic-Name | Net-Alcatel-Omniswitch-Packet-Errors-Generic-Name-SNMP | Check packets on errors                      |         |           |
-| Packet-Errors-Global       | Net-Alcatel-Omniswitch-Packet-Errors-Global-SNMP       | Check packets on errors                      |         | X         |
-| Spanning-Tree              | Net-Alcatel-Omniswitch-SpanningTree-SNMP               | Check Spanning Tree state on interfaces      |         |           |
-| Traffic-Generic-Id         | Net-Alcatel-Omniswitch-Traffic-Generic-Id-SNMP         | Check traffic of an network interface        |         |           |
-| Traffic-Generic-Name       | Net-Alcatel-Omniswitch-Traffic-Generic-Name-SNMP       | Check traffic of an network interface        |         |           |
-| Traffic-Global             | Net-Alcatel-Omniswitch-Traffic-Global-SNMP             | Check traffic of an network interface        |         | X         |
+| Service Alias              | Service Template                                       | Service Description                          | Default |
+|:---------------------------|:-------------------------------------------------------|:---------------------------------------------|:--------|
+| Traffic-Global             | Net-Alcatel-Omniswitc-Traffic-Global-SNMP              | Check traffic of multiple network interfaces |         |
+| Cpu                        | Net-Alcatel-Omniswitch-Cpu-SNMP                        | Check CPU usage                              | X       |
+| Flash-Memory               | Net-Alcatel-Omniswitch-Flash-Memory-SNMP               | Check Flash memory usage                     | X       |
+| Hardware                   | Net-Alcatel-Omniswitch-Hardware-SNMP                   | Check hardware state                         | X       |
+| Memory                     | Net-Alcatel-Omniswitch-Memory-SNMP                     | Check memory usage                           | X       |
+| Packet-Errors-Generic-Id   | Net-Alcatel-Omniswitch-Packet-Errors-Generic-Id-SNMP   | Check packets on errors                      |         |
+| Packet-Errors-Generic-Name | Net-Alcatel-Omniswitch-Packet-Errors-Generic-Name-SNMP | Check packets on errors                      |         |
+| Packet-Errors-Global       | Net-Alcatel-Omniswitch-Packet-Errors-Global-SNMP       | Check packets on errors                      |         |
+| Spanning-Tree              | Net-Alcatel-Omniswitch-SpanningTree-SNMP               | Check Spanning Tree state on interfaces      |         |
+| Traffic-Generic-Id         | Net-Alcatel-Omniswitch-Traffic-Generic-Id-SNMP         | Check traffic of an network interface        |         |
+| Traffic-Generic-Name       | Net-Alcatel-Omniswitch-Traffic-Generic-Name-SNMP       | Check traffic of an network interface        |         |
+| Traffic-Global             | Net-Alcatel-Omniswitch-Traffic-Global-SNMP             | Check traffic of an network interface        |         |
+| Virtual-Chassis            | Net-Alcatel-Omniswitch-Virtual-Chassis-SNMP            | Check virtual chassis                        |         |
 
 ### Discovery rules
+
+<Tabs groupId="sync">
+<TabItem value="Service" label="Service">
 
 | Rule Name                                      | Description                                                           |
 |:-----------------------------------------------|:----------------------------------------------------------------------|
 | Net-Alcatel-Omniswitch-SNMP-Packet-Errors-Name | Discover network interfaces and monitor errored and discarded packets |
 | Net-Alcatel-Omniswitch-SNMP-Traffic-Name       | Discover network interfaces and monitor bandwidth utilization         |
+
+More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
+and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
+
+</TabItem>
+</Tabs>
 
 ### Collected metrics & status
 
@@ -124,6 +134,14 @@ Could not retrieve metrics
 | *int*#interface.traffic.out.bitspersecond | b/s   |
 
 </TabItem>
+<TabItem value="Virtual-Chassis" label="Virtual-Chassis">
+
+| Metric Name            | Unit  |
+|:-----------------------|:------|
+| chassis.detected.count |       |
+| virtual chassis status |       |
+
+</TabItem>
 </Tabs>
 
 ## Prerequisites
@@ -177,15 +195,16 @@ yum install centreon-pack-network-switchs-alcatel-omniswitch-snmp
 ### Host
 
 * Log into Centreon and add a new host through **Configuration > Hosts**.
-* Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your **Alcatel Omniswitch** server settings.
+* Fill the **Name**, **Alias** and **IP Address / DNS** fields according to your **Alcatel Omniswitch** equipment settings.
 * Apply the **Net-Alcatel-OmniSwitch-SNMP-custom** template to the host.
+* Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
 
 > When using SNMP v3, use the SNMPEXTRAOPTIONS Macro to add specific authentication parameters 
 > More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
 
-| Mandatory   | Macro            | Description                                  |
-|:------------|:-----------------|:---------------------------------------------|
-|             | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo  |
+| Mandatory | Name             | Description                                              |
+| :-------- | :--------------- | :------------------------------------------------------- |
+|           | SNMPEXTRAOPTIONS | (Default: 'Configure your own SNMPv3 credentials combo') |
 
 ## How to check in the CLI that the configuration is OK and what are the main options for?
 
@@ -194,7 +213,7 @@ Once the plugin is installed, log into your Centreon poller's CLI using the
 running the following command:
 
 ```bash
-/usr/lib/centreon/plugins//centreon_alcatel_omniswitch_snmp.pl \
+/usr/lib/centreon/plugins/centreon_alcatel_omniswitch_snmp.pl \
     --plugin=network::alcatel::omniswitch::snmp::plugin \
     --mode=interfaces \
     --hostname=10.0.0.1 \
@@ -219,7 +238,7 @@ All available options for a given mode can be displayed by adding the
 `--help` parameter to the command:
 
 ```bash
-/usr/lib/centreon/plugins//centreon_alcatel_omniswitch_snmp.pl \
+/usr/lib/centreon/plugins/centreon_alcatel_omniswitch_snmp.pl \
     --plugin=network::alcatel::omniswitch::snmp::plugin \
     --mode=interfaces \
     --help
@@ -229,7 +248,7 @@ All available modes can be displayed by adding the `--list-mode` parameter to
 the command:
 
 ```bash
-/usr/lib/centreon/plugins//centreon_alcatel_omniswitch_snmp.pl \
+/usr/lib/centreon/plugins/centreon_alcatel_omniswitch_snmp.pl \
     --plugin=network::alcatel::omniswitch::snmp::plugin \
     --list-mode
 ```
