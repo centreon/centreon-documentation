@@ -1,6 +1,7 @@
 ---
 id: create-graphical-view
-title: Create a graphical view 
+title: Create a graphical view
+description: MAP tutorial
 ---
 
 The objective of this tutorial is to help you understand how you can provide

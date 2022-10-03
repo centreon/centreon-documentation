@@ -3,6 +3,12 @@ id: create-custom-view
 title: Créer une vue personnalisée
 ---
 
+## Qu'est-ce qu'une vue personnalisée?
+
+Les [vues personnalisées](../alerts-notifications/custom-views.md) sont des tableaux de bord, créés à l'aide de widgets.
+
+## Créez votre première vue personnalisée
+
 Rendez-vous au menu **Accueil > Vues personnalisées** et cliquez sur l'icône crayon situé tout à droite de l'interface pour activer
 le mode d'édition.
 

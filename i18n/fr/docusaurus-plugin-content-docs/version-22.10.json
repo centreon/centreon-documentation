@@ -31,12 +31,16 @@
     "message": "Installer Centreon HA",
     "description": "The label for category Installation of Centreon HA in sidebar docs"
   },
+  "sidebar.docs.category.Installation of a manual Centreon HA": {
+    "message": "Installation de Centreon HA manuelle",
+    "description": "The label for category Installation of a manual Centreon HA in sidebar docs"
+  },
   "sidebar.docs.category.Secure your platform": {
     "message": "Sécuriser la plateforme",
     "description": "The label for category Secure your platform in sidebar docs"
   },
   "sidebar.docs.category.Monitoring resources": {
-    "message": "Superviser des hôtes",
+    "message": "Superviser des ressources",
     "description": "The label for category Monitoring resources in sidebar docs"
   },
   "sidebar.docs.category.Monitoring basics": {
@@ -55,13 +59,13 @@
     "message": "Auto-découverte d'hôtes et de services",
     "description": "The label for category Discovering hosts and services automatically in sidebar docs"
   },
-  "sidebar.docs.category.Managing users/contacts": {
-    "message": "Gérer les utilisateurs/contacts",
-    "description": "The label for category Managing users/contacts in sidebar docs"
+  "sidebar.docs.category.Managing Centreon users": {
+    "message": "Gérer les utilisateurs de Centreon",
+    "description": "The label for category Managing Centreon users in sidebar docs"
   },
-  "sidebar.docs.category.Organizing hosts, services and contacts": {
-    "message": "Organiser les hôtes, services et contacts",
-    "description": "The label for category Organizing hosts, services and contacts in sidebar docs"
+  "sidebar.docs.category.Organizing hosts and services": {
+    "message": "Organiser hôtes et services",
+    "description": "The label for category Organizing hosts and services in sidebar docs"
   },
   "sidebar.docs.category.Basic objects and actions": {
     "message": "Objets et actions de base",
@@ -257,7 +261,7 @@
   },
   "sidebar.docs.category.Centreon Gorgone": {
     "message": "Centreon Gorgone",
-    "description": "The label for category Centreon Gorgone in sidebar docs"  
+    "description": "The label for category Centreon Gorgone in sidebar docs"
   },
   "sidebar.docs.category.API": {
     "message": "API",
@@ -290,5 +294,41 @@
   "sidebar.docs.category.Resources": {
     "message": "Ressources",
     "description": "The label for category Resources in sidebar docs"
+  },
+  "sidebar.docs.category.Before you start": {
+    "message": "Avant de commencer",
+    "description": "The label for category Before you start in sidebar docs"
+  },
+  "sidebar.docs.category.Before you start.link.generated-index.description": {
+    "message": "Ce que vous devez savoir avant d'installer votre plateforme Centreon.",
+    "description": "The generated-index page description for category Before you start in sidebar docs"
+  },
+  "sidebar.docs.category.First steps with Centreon": {
+    "message": "Premiers pas avec Centreon",
+    "description": "The label for category First steps with Centreon in sidebar docs"
+  },
+  "sidebar.docs.category.First steps with Centreon.link.generated-index.description": {
+    "message": "Votre plateforme Centreon est installée. Que faire ensuite ?",
+    "description": "The generated-index page description for category First steps with Centreon in sidebar docs"
+  },
+  "sidebar.docs.category.Setting up the monitoring": {
+    "message": "Mettre des ressources en supervision",
+    "description": "The label for category Setting up the monitoring in sidebar docs"
+  },
+  "sidebar.docs.category.Monitoring resources in real time": {
+    "message": "Superviser les ressources en temps réel",
+    "description": "The label for category Monitoring resources in real time in sidebar docs"
+  },
+  "sidebar.docs.category.Monitoring resources in real time.link.generated-index.description": {
+    "message": "Comment superviser les ressources que vous avez créées ?",
+    "description": "The generated-index page description for category Monitoring resources in real time in sidebar docs"
+  },
+  "sidebar.docs.category.Tutorials for Business modules": {
+    "message": "Tutoriels des modules Business",
+    "description": "The label for category Tutorials for Business modules in sidebar docs"
+  },
+  "sidebar.docs.link.Plugin Packs": {
+    "message": "Plugin Packs",
+    "description": "The label for link Plugin Packs in sidebar docs, linking to /pp/integrations/plugin-packs/getting-started/introduction"
   }
 }

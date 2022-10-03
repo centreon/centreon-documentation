@@ -1,9 +1,9 @@
 ---
 id: which-install
-title: Quelle installation choisir?
+title: Quelle installation choisir ?
 ---
 
-Centreon propose plusieurs modes d'installation. Lequel choisir?
+Centreon propose plusieurs modes d'installation. Lequel choisir ?
 
 ## Pour utiliser Centreon [IT-100](it100.md) ou pour tester la solution
 
@@ -22,5 +22,6 @@ Cette installation sera supportée uniquement par la communauté.
   > Attention, les modules de [l'IT Edition et de la Business Edition](https://www.centreon.com/editions/) ne
   > fonctionnent pas encore sur une distribution non supportée.
 
-## Voir aussi 
+## Voir aussi
+
 Voir aussi les [prérequis d'installation](../installation/prerequisites.md).

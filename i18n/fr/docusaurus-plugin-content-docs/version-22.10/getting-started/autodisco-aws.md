@@ -1,13 +1,14 @@
 ---
 id: autodisco-aws
-title: Découvrir des ressources automatiquement
+title: Utiliser Autodiscovery pour découvrir des instances AWS EC2
 ---
 
-Dans ce tutoriel, nous allons utiliser le module [Auto Discovery](../monitoring/discovery/hosts-discovery.md) pour détecter des instances AWS EC2 et les mettre en supervision.
+Dans ce tutoriel, nous allons utiliser le module [Autodiscovery](../monitoring/discovery/hosts-discovery.md) pour détecter des instances AWS EC2 et les mettre en supervision.
 
 ## Prérequis
 
 Vous devez disposer :
+
 - des informations d'identification pour le groupe d'instances AWS que vous souhaitez superviser (nom, AWS Access Key et AWS Secret Key)
 - de la région dans laquelle se trouvent vos instances.
 

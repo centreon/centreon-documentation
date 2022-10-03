@@ -5,11 +5,7 @@ title: Groups
 
 ## Description
 
-In Centreon, it is possible to group together one or more objects within different groups:
-
-* Host Groups
-* Service Groups
-* Contact Groups
+In Centreon, it is possible to group together hosts and services within groups:
 
 Generally speaking, groups are containers in which sets of objects having a common property can be grouped together:
 
@@ -17,8 +13,6 @@ Generally speaking, groups are containers in which sets of objects having a comm
   (Europe, Asia, Africa, North America, etc.)
 * Belonging to the same application (CMS application, etc.) or to a same sector of activity (Salary management, etc.)
 * Etc.
-
-### Service Groups and Host Groups
 
 Host groups and service groups are used to group together objects by logical entities. They are used to:
 
@@ -34,19 +28,6 @@ We also try to group services by application jobs. E.g.: Salary management appli
 > For the hosts belonging to a host group, the retention of RRD files can be defined in the host group. This definition
 > overrides the global definition. In the event that the same host belongs to several groups each possessing a
 > retention definition, the highest value will be selected for the host.
-
-### Contact Groups
-
-Contact Groups are used to notify contacts:
-
-* On definition of a host or of a service
-* On definition of an escalation of notifications
-
-In addition, the groups of contacts are also used during the definition of an access group.
-
-Consequently, it is necessary to group together contacts in a logical way. Most of the time, they are grouped together
-according to their roles in the information systems. E.g.: DSI, Windows Administrators, Linux Administrators, Person
-in charge of the application of Salary Management, etc.
 
 ## Creating a host group
 
@@ -78,13 +59,3 @@ Go to the **Configuration > Services > Service Groups** menu and click on **Add*
   of this group.
 * The **Linked Service Templates** list allows to deploy a service based on this template on all hosts linked to this group.
 * The **Status** and **Comments** fields allow to enable or disable the service group and to make comment on it.
-
-## Creating a contact group
-
-Go to the **Configuration > Users > Contact Groups** menu and click on **Add**
-
-![image](../assets/configuration/07contactgroup.png)
-
-* The **Contact Group Name** and **Alias** fields define the name and the description of the contact group.
-* The **Linked Contacts** list allows us to add contacts to the contact group.
-* The **Status** and **Comment** fields allow to enable or disable the group of contacts and to make comment on it.
