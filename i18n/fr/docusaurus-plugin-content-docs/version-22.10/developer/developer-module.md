@@ -32,7 +32,7 @@ $module_conf['dummy'] = [
     // Full module's name
     'rname' => 'Dummy Example Module',
     // Module's version
-    'mod_release' => '22.04',
+    'mod_release' => '22.10',
     // Additional information
     'infos' => 'This module is a skeleton',
     // Allow your module to be uninstalled

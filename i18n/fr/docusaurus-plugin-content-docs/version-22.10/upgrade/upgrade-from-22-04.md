@@ -1,17 +1,17 @@
 ---
-id: upgrade-from-21-10
-title: Montée de version depuis Centreon 21.10
+id: upgrade-from-22-04
+title: Montée de version depuis Centreon 22.04
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 Ce chapitre décrit la procédure de montée de version de votre plateforme
-Centreon depuis la version 21.10 vers la version 22.10.
+Centreon depuis la version 22.04 vers la version 22.10.
 
-> Lorsque vous effectuez la montée de version de votre serveur central, assurez-vous d'également mettre à jour tous vos serveurs distants et vos collecteurs. Dans votre architecture, tous les serveurs doivent avoir la même version de Centreon. De plus, tous les serveurs doivent utiliser la même [version du protocole BBDO](../developer/developer-broker-bbdo.md#switching-versions-of-bbdo).
+> Lorsque vous effectuez la montée de version de votre serveur central, assurez-vous d'également mettre à jour tous vos serveurs distants et vos collecteurs. Dans votre architecture, tous les serveurs doivent avoir la même version de Centreon. De plus, tous les serveurs doivent utiliser la même [version du protocole BBDO](../developer/developer-broker-bbdo.md#changement-de-version-de-bbdo).
 
 > Si vous souhaitez migrer votre serveur Centreon vers Oracle Linux
-> / RHEL 8, vous devez suivre la [procédure de migration](../migrate/migrate-from-el-to-el.md).
+> / RHEL 8, vous devez suivre la [procédure de migration](../migrate/introduction.md).
 
 ## Prérequis
 
@@ -25,7 +25,7 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 
 ### Mise à jour vers la dernière version mineure
 
-Mettez votre plateforme à jour vers la dernière version mineure disponible de Centreon 21.10.
+Mettez votre plateforme à jour vers la dernière version mineure disponible de Centreon 22.04.
 
 ## Montée de version du serveur Centreon Central
 
@@ -222,7 +222,7 @@ associée](../service-mapping/upgrade.md) pour le mettre à jour.
    - Plugin Packs Manager,
    - Auto Discovery.
 
-   Vous pouvez alors mettre à jour toutes les autres extensions commerciales.
+    Vous pouvez alors mettre à jour toutes les autres extensions commerciales.
 
 2. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
 

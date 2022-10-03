@@ -1,17 +1,17 @@
 ---
-id: upgrade-from-21-10
-title: Upgrade from Centreon 21.10
+id: upgrade-from-22-04
+title: Upgrade from Centreon 22.04
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This chapter describes how to upgrade your Centreon platform from version 21.10
+This chapter describes how to upgrade your Centreon platform from version 22.04
 to version 22.10.
 
 > When you upgrade your central server, make sure you also upgrade all your remote servers and your pollers. All servers in your architecture must have the same version of Centreon. In addition, all servers must use the same [version of the BBDO protocol](../developer/developer-broker-bbdo.md#switching-versions-of-bbdo).
 
-> If you want to migrate your Centreon server to Oracle Linux / RHEL 8
-> you need to follow the [migration procedure](../migrate/migrate-from-el-to-el.md).
+> If you want to migrate your Centreon platform to another server/OS, please read our chapter on migration.
+> you need to follow the [migration procedure](../migrate/introduction.md).
 
 ## Prerequisites
 
@@ -25,7 +25,7 @@ servers:
 
 ### Update to the latest minor version
 
-Update your platform to the latest available minor version of Centreon 21.10.
+Update your platform to the latest available minor version of Centreon 22.04.
 
 ## Upgrade the Centreon Central server
 
@@ -124,11 +124,13 @@ If you have installed Business extensions, update the Business repository to ver
 Visit the [support portal](https://support.centreon.com/s/repositories) to get its address.
 
 Stop the Centreon Broker process:
+
 ```shell
 systemctl stop cbd
 ```
 
 Delete existing retention files:
+
 ```shell
 rm /var/lib/centreon-broker/* -f
 ```
@@ -153,7 +155,7 @@ This section only applies if you customized your Apache configuration. When upgr
 
 Run a diff between the old and the new Apache configuration files:
 
-```
+```shell
 diff -u /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf.rpmnew
 ```
 
@@ -169,6 +171,7 @@ For each difference between the files, assess whether you should copy it from **
 
 Before starting the web upgrade process, reload the Apache server with the
 following command:
+
 ```shell
 systemctl reload httpd
 ```
@@ -178,6 +181,7 @@ systemctl reload httpd
 
 Before starting the web upgrade process, reload the Apache server with the
 following command:
+
 ```shell
 systemctl reload httpd24-httpd
 ```

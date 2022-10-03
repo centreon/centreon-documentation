@@ -6,7 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 Ce chapitre décrit la procédure de montée de version de votre plate-forme
-Centreon depuis la version 20.10 vers la version 22.04.
+Centreon depuis la version 20.10 vers la version 22.10.
 
 > Lorsque vous effectuez la montée de version de votre serveur central, assurez-vous d'également mettre à jour tous vos serveurs distants et vos collecteurs. Dans votre architecture, tous les serveurs doivent avoir la même version de Centreon. De plus, tous les serveurs doivent utiliser la même [version du protocole BBDO](../developer/developer-broker-bbdo.md#switching-versions-of-bbdo).
 
@@ -58,14 +58,14 @@ Exécutez la commande suivante :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04-3.el8.noarch.rpm
+dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centreon-release-22.10-1.el8.noarch.rpm
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
 ```
 
 </TabItem>
@@ -102,7 +102,7 @@ rm -f ./mariadb_repo_setup
 
 ### Montée de version de PHP
 
-Centreon 22.04 utilise PHP en version 8.0.
+Centreon 22.10 utilise PHP en version 8.1.
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8" label="RHEL 8">
@@ -115,11 +115,11 @@ dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 sudo subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 
 ```
-Ensuite, vous devez changer le flux PHP de la version 7.3 à 8.0 en exécutant les commandes suivantes et en répondant **y**
+Ensuite, vous devez changer le flux PHP de la version 7.3 à 8.1 en exécutant les commandes suivantes et en répondant **y**
 pour confirmer :
 ```shell
 dnf module reset php
-dnf module install php:remi-8.0
+dnf module install php:remi-8.1
 ```
 
 </TabItem>
@@ -132,11 +132,11 @@ dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarc
 dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 
 ```
-Ensuite, vous devez changer le flux PHP de la version 7.3 à 8.0 en exécutant les commandes suivantes et en répondant **y**
+Ensuite, vous devez changer le flux PHP de la version 7.3 à 8.1 en exécutant les commandes suivantes et en répondant **y**
 pour confirmer :
 ```shell
 dnf module reset php
-dnf module install php:remi-8.0
+dnf module install php:remi-8.1
 ```
 
 </TabItem>
@@ -148,9 +148,9 @@ yum install -y yum-utils
 yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 yum install -y https://rpms.remirepo.net/enterprise/remi-release-7.rpm
 ```
-Ensuite, vous devez activer le dépôt php 8.0
+Ensuite, vous devez activer le dépôt php 8.1
 ```shell
-yum-config-manager --enable remi-php80
+yum-config-manager --enable remi-php81
 ```
 
 </TabItem>
@@ -161,7 +161,7 @@ yum-config-manager --enable remi-php80
 > Assurez-vous que tous les utilisateurs sont déconnectés avant de commencer
 > la procédure de mise à jour.
 
-Si vous avez des extensions Business installées, mettez à jour le dépôt business en 22.04.
+Si vous avez des extensions Business installées, mettez à jour le dépôt business en 22.10.
 Rendez-vous sur le [portail du support](https://support.centreon.com/s/repositories) pour en récupérer l'adresse.
 
 Arrêter le processus Centreon Broker :
@@ -271,14 +271,14 @@ Exécutez la commande suivante sur le serveur de base de données dédié :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04-3.el8.noarch.rpm
+dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centreon-release-22.10-1.el8.noarch.rpm
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
 ```
 
 </TabItem>
@@ -395,22 +395,22 @@ associée](../service-mapping/upgrade.md) pour le mettre à jour.
 
 1. Montée de version des extensions :
 
-    Depuis le menu **Administration > Extensions > Gestionnaire**, mettez à jour
-    toutes les extensions, en commençant par les suivantes :
+   Depuis le menu **Administration > Extensions > Gestionnaire**, mettez à jour
+   toutes les extensions, en commençant par les suivantes :
 
-    - License Manager,
-    - Plugin Packs Manager,
-    - Auto Discovery.
+   - License Manager,
+   - Plugin Packs Manager,
+   - Auto Discovery.
 
-    Vous pouvez alors mettre à jour toutes les autres extensions commerciales.
+   Vous pouvez alors mettre à jour toutes les autres extensions commerciales.
 
 2. [Déployer la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
 
 3. Redémarrez les processus Centreon :
 
-    ```shell
-    systemctl restart cbd centengine centreontrapd gorgoned
-    ```
+   ```shell
+   systemctl restart cbd centengine centreontrapd gorgoned
+   ```
 
 ## Montée de version des Remote Servers
 
@@ -429,14 +429,14 @@ Exécutez la commande suivante :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04-3.el8.noarch.rpm
+dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centreon-release-22.10-1.el8.noarch.rpm
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
 ```
 
 </TabItem>
