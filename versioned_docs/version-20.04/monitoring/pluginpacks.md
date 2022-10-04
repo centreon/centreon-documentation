@@ -171,7 +171,7 @@ Once the Plugin Pack is installed, a green outline and an arrow icon will indica
 
 > Please read the associated **monitoring procedure** of each installed pack to understand the content of the pack as
 > well as the prerequisites necessary for its operation, by clicking on the ``?`` icon of each pack or by going to the
-> [Integration/Plugin Packs chapter](../integrations/plugin-packs/introduction)
+> [Integration/Plugin Packs chapter](/pp/integrations/plugin-packs/getting-started/introduction)
 
 #### Managing dependencies
 
@@ -228,7 +228,7 @@ To update the plugins, execute the following command on **all pollers**.
 Update the plugins on **all pollers**:
 
 ```shell
-yum update centreon-plugins\*
+yum update centreon-plugin\*
 ```
 
 Restart the Centreon Engine on **all pollers**.

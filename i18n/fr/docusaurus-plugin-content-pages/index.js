@@ -10,24 +10,25 @@ const links = {
   doc: {
     cloud: '/fr/cloud/getting-started/architecture',
     gettingstarted: '/fr/docs/getting-started/installation-first-steps',
-    pluginpacks: '/fr/docs/integrations/plugin-packs/introduction',
+    pluginpacks:
+      '/fr/pp/integrations/plugin-packs/getting-started/introduction',
     prerequisite: '/fr/docs/installation/prerequisites',
     installation: '/fr/docs/installation/introduction',
-    monitoring: '/fr/docs/integrations/plugin-packs/introduction',
+    monitoring: '/fr/pp/integrations/plugin-packs/getting-started/introduction',
   },
   github: 'https://github.com/centreon/centreon/',
   thewatch: 'https://thewatch.centreon.com/',
   twitter: 'https://twitter.com/CentreonFR/',
-  linkedin: 'https://www.linkedin.com/company/merethis/',
+  linkedin: 'https://www.linkedin.com/company/centreonsoftware',
   contribute:
     'https://github.com/centreon/centreon/blob/master/CONTRIBUTING.md',
   banner:
-    'https://thewatch.centreon.com/',
+    'https://thewatch.centreon.com/latest-news-37/centreon-22-04-is-now-available-621',
 };
 
 const stringsAndParagraphs = {
   excellenceBlock: {
-    title: `Bienvenue dans la Documentation Centreon !`,
+    title: `Bienvenue dans la Documentation Centreon !`,
     subTitle: `La plateforme de supervision informatique orientée AIOps de Centreon offre une visibilité globale des workflows les plus complexes, du cloud jusqu’au Edge.`,
     btnStart: `Centreon OnPrem`,
     btnPp: `Plugin Packs`,
@@ -52,7 +53,7 @@ const stringsAndParagraphs = {
     content2ndPart: `pour chacun d’entre eux.`,
   },
   communityBlock: {
-    title: `A strong community`,
+    title: `Une communauté solide`,
   },
   heartOpenSourceBlock: {
     title: `Un coeur Open Source`,
@@ -125,7 +126,7 @@ function SummitBlock() {
     <div className={clsx(styles.bannerCustom)}>
       <div className={clsx(styles.bannerImage)}>
         <a href={links.banner} target={'_blank'}>
-          <img src={basePathImg + 'thewatch-banner-fr.png'} />
+          <img src={basePathImg + 'spring-release-bannner-fr-22.04.png'} />
         </a>
       </div>
     </div>
@@ -290,7 +291,7 @@ export default function Home() {
   return (
     <Layout
       title={`Bienvenue dans la Documentation Centreon`}
-      description='La plateforme de supervision informatique orientée AIOps de Centreon offre une visibilité globale des workflows les plus complexes, du cloud jusqu’au Edge.'
+      description="La plateforme de supervision informatique orientée AIOps de Centreon offre une visibilité globale des workflows les plus complexes, du cloud jusqu’au Edge."
     >
       <main>
         <ExcellenceBlock />

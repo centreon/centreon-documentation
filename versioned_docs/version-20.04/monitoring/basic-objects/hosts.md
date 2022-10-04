@@ -32,7 +32,7 @@ This button serves to delete the host template ![image](../../assets/configurati
 
 * If the **Create Services linked to the Template too** field is defined as **Yes**, Centreon automatically generates
   the services based their self on the service templates linked to the host templates defined above
-  (see the *[templates chapter](../templates#definition)*).
+  (see the *[templates chapter](../templates.md#definition)*).
 
 ### Monitoring properties of the host
 
@@ -123,7 +123,7 @@ The fields presented below are obsolete:
 ### Access groups
 
 * The **ACL Resource Groups** (only displayed for non administrator) allows to link this host to an hostgroup in order
-  to visualize it (see *[Access Control Lists](../../administration/access-control-lists)* chapter).
+  to visualize it (see *[Access Control Lists](../../administration/access-control-lists.md)* chapter).
 
 ### Additional Information
 

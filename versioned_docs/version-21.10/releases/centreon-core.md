@@ -17,6 +17,254 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 21.10.11
+
+Release date: `September 30, 2022`
+
+#### Bug fixes
+
+- [Configuration] Fixed export of RRDcached path in Centreon Broker configuration
+- [Core] Improved database storage to avoid blocking Broker when maximum values are reached
+
+#### Security fixes
+
+- [Administration] Sanitized and bound media import queries
+- [CLAPI] Sanitized and bound Centreon hostgroup class queries
+- [CLAPI] Sanitized and bound Centreon service class queries
+- [CLAPI] Sanitized and bound LDAP listing queries
+- [Configuration] Fixed SQLi in contact groups form
+- [Configuration] Fixed SQLis in Centreon Broker configuration menu
+- [Configuration] Sanitized and bound Centreon Service class queries
+- [Configuration] Sanitized and bound Centreon hostgroups class queries
+- [Configuration] Sanitized and bound Centreon notification class queries
+- [Configuration] Sanitized and bound Knowledge Base host listing queries
+- [Configuration] Sanitized and bound SNMP traps groups configuration queries
+- [Configuration] Sanitized and bound SNMP traps listing queries
+- [Configuration] Sanitized and bound host categories listing queries
+- [Configuration] Sanitized and bound service by hostgroups listing queries
+- [Configuration] Sanitized and bound services listing queries
+- [Core] Sanitized and bound menu topology listing queries
+- [Install] Sanitized and bound default configuration queries
+
+#### Others
+
+- [Core] Removed obsolete code in ACL configuration listing
+- [Core] Removed obsolete code in Criticality class
+- [Core] Removed obsolete code in database partitioning functions
+- [Core] Removed obsolete code in legacy service detail page
+- [Core] Removed obsolete code in monitoring common functions
+- [Core] Removed unused mechanism for modules to add restart/reload actions after restart of pollers
+
+### 21.10.10
+
+Release date: `September 20, 2022`
+
+#### Bug fixes
+
+- [Administration] Fixed selection of options in second select box in ACL Group configuration page
+- [Configuration] Fixed an error in the Configuration > Services > Templates menu causing HTML code to be displayed
+- [Configuration] Fixed error that occurred when duplicating a Remote Server
+- [Core] Cleaned code in forMyAccount
+- [Core] Corrected escapeSecure usage
+- [Widgets] Restored possibility to not select a poller in preferences
+
+#### Security fixes
+
+- [Administration] Sanitized and bound Centreon ACL class queries
+- [CLAPI] Added a check to verify that the user has the admin role
+- [CLAPI] Sanitized and bound CLAPI poller configuration queries
+- [Configuration] Fixed SQLi in poller's resource creation
+- [Configuration] Sanitized and bound Meta Service configuration queries
+- [Configuration] Sanitized and bound command configuration queries
+- [Configuration] Sanitized and bound graph configuration queries
+- [Configuration] Sanitized and bound queries in centreonConnector file
+- [Configuration] Sanitized and bound queries in contactgroup file
+- [Configuration] Sanitized and bound queries in listServiceCategories file
+- [Configuration] Sanitized and bound queries in listVirtualMetrics file
+- [Configuration] Sanitized and bound queries in service argumentsXml file
+- [Configuration] Sanitized and bound queries in service host categories file
+- [Configuration] Sanitized and bound queries in servicegroup_dependency file
+- [Configuration] Sanitized and bound templates of service listing queries
+- [Monitoring] Fixed XSS vulnerability in deprecated services status details page
+
+### 21.10.9
+
+Release date: `August 26, 2022`
+
+#### Enhancements
+
+- [Install] Improved error handling during installation
+
+#### Bug fixes
+
+- [CLAPI] Column names were displayed several times when listing recurrent downtimes
+- [Configuration] Extended the size of the URL, Notes and Action URL fields to avoid truncating long URLs
+- [Configuration] Fixed a regression: multiple trap definitions can use the same OID again
+- [Configuration] Fixed contact/contactgroup additive inheritance configuration using massive change
+- [Core] Fixed SQL queries when databases names contained a dash
+- [Core] Fixed the database partitioning for MySQL 8
+- [Monitoring] Fixed deletion of comments
+- [Monitoring] Fixed the "Last_update" column in legacy pages
+- [Widget] Fixed hostgroup multiple selection
+
+#### Security fixes
+
+- [Administration] Sanitized SQLi in media synchronization
+- [Administration] Sanitized and bound ACL group queries
+- [Administration] Sanitized and bound ACL menus definitions queries
+- [Administration] Sanitized and bound Auth class queries
+- [Administration] Sanitized and bound queries in ACL actions definition
+- [Configuration] Fixed an XSS vulnerability in the Broker configuration page
+- [Configuration] Fixed an XSS vulnerability in the service template form
+- [Configuration] Sanitized and bound "poller" queries
+- [Configuration] Sanitized and bound contact form queries
+- [Configuration] Sanitized and bound downtime queries
+- [Configuration] Sanitized and bound escalation form queries
+- [Configuration] Sanitized and bound hosts dependencies configuration queries
+- [Configuration] Sanitized and bound hosts queries
+- [Configuration] Sanitized and bound queries in Centreon Broker configuration listing
+- [Configuration] Sanitized and bound queries in CentreonXMLBGRequest class
+- [Configuration] Sanitized and bound queries in Meta Services dependency configuration
+- [Configuration] Sanitized and bound queries in generateImage file
+- [Configuration] Sanitized and bound queries in hostgroups dependency configuration
+- [Configuration] Sanitized and bound queries in virtual metrics configuration
+- [Configuration] Sanitized and bound service configuration queries
+- [Configuration] Sanitized and bound service dependency queries
+- [Configuration] Sanitized and bound timeperiod form queries
+- [Core] Cleaned code in centreonUser.class.php
+- [Core] Updated PHP libraries for security issues
+- [Cron] Fixed SQL queries when databases names contain dash
+- [Install] Sanitized and bound update queries
+- [Monitoring] Sanitized SQLi in Centreon centreonGraph class
+
+### 21.10.8
+
+Release date: `August 3, 2022`
+
+#### Security
+
+- [Configuration] Fixed SQLi vulnerability in escalations configuration
+- [Configuration] Fixed XSS vulnerability in escalations configuration
+
+### 21.10.7
+
+Release date: `June 10, 2022`
+
+#### Bug Fixes
+
+- [API] Fixed /monitoring/host endpoint to return service state
+- [API] Fixed SQL syntax when retrieving service_id field
+- [Business Activity] Fixed synchronization of configuration with Remote Server
+- [Configuration] Fixed export when host group is disabled
+- [Configuration] Fixed export when service group is disabled
+- [Configuration] Fixed export when service template is disabled
+- [Core] Fixed database partitioning issue with MySQL 8
+- [Dashboard] Fixed displaying of first service in host reporting dashboard
+- [Discovery] Fixed critical error when searching host templates with notification option in mappers configuration
+- [Install] Fixed error when installing Centreon with remote DBMS
+- [Monitoring] Fixed notification number in legacy pages
+- [Remote Server] Fixed synchronization of configuration
+- [Resource Status] Fixed color when resources are selected in downtime or acknowledged
+- [UX] Fixed timezone when adding a downtime or an acknowledgement
+- [UX] Follow user configuration for Date/Time display
+- [Widget] The list of pollers is now filtered according to the user's ACLs
+
+#### Security
+
+- [Security] Fixed RCE in command
+- [Security] Fixed SQLi in virtual metrics
+- [Security] Sanitize and bind "hostgroups" queries
+- [Security] Sanitize and bind "meta_service" related queries
+- [Security] Sanitize and bind "poller" queries
+- [Security] Sanitize and bind ACL resources queries
+
+### 21.10.6
+
+Release date: `May 2, 2022`
+
+#### Bug Fixes
+
+- [API] Fixed an issue in the `icons` API endpoint that always returned 0 for total number of results
+- [Banner] Fixed display of empty skeleton
+- [Charts] Fixed slowdown in graphics display
+- [Configuration] Fixed an issue that caused the export of the poller configuration files to fail when a disabled host template was used
+- [Configuration] Fixed checkbox selection after enabling/disabling a contact via icons
+- [Core] Fixed an issue where proxy settings were saved with empty parameters
+- [Install] Fixed an issue in database user creation with remote DBMS
+- [Monitoring] Fixed display of acknowledgement information in legacy Resources Status pages
+- [Monitoring] Fixed relation issue for recurrent downtimes
+- [Reporting] Fixed an issue where MBI graphs reports were not using graph templates
+- [Resources Status] Fixed default settings for acknowledgments and downtimes
+- [Resources Status] Fixed display of acknowledgements comments
+- [Resources Status] Fixed Hard/Soft translation
+- [Resources Status] Fixed monitoring command that was not displayed in Resources Status Details panel
+- [UX] Fixed display of date with UTC timezone in datepickers
+- [UX] Improved interface response time if CEIP is enabled but the browser does not have internet access
+
+#### Security Fixes
+
+- [Apache] Fixed cookies with missing or contradictory properties
+- [Apache] HTTPS Apache configuration now includes HSTS
+- [Configuration] Fixed an SQL injection issue in Configuration > Poller > Resources
+- [Core] Passwords are now obfuscated in the page's HTML source
+- [Core] Replace Math.random by Crypto JS API
+- [PHP] Disabled allow_url_fopen in PHP
+
+### 21.10.5
+
+Release date: `March 21, 2022`
+
+#### Security Fixes
+
+- [Administration] SQL Injections on ACL group listing
+- [Administration] SQL Injection on Knowledge Base configuration form
+- [Administration] SQL Injections on LDAP listing
+- [Configuration] Command path traversal resulting in RCE on command edition form
+- [Configuration] SQL Injection on export configuration
+- [Configuration] SQL Injections on SNMP traps edition form
+- [Core] RCE in legacy PHP's class autoload
+- [Monitoring] SQL Injection on performance curve edition form
+
+### 21.10.4
+
+Release date: `March 3, 2022`
+
+#### Enhancements
+
+- [Authentication] Autologin Validation reinforcement
+- [Install] Set broker retry interval to 15s instead of 60s
+- [Performance] Improve SQL queries to use index
+- [Reporting] Add select2 to hostgroup and servicegroup reporting dashboards
+- [Resource Status] Added custom variables definition in URL/Action URL
+- [Resource Status] Create new filter on type of status (Hard or Soft)
+- [Stats] Manage exception for statistics
+- [UX] Add TheWatch url to Centreon footer
+
+#### Bug Fixes
+
+- [APIv2] Fixed criticality null return for monitoring endpoint
+- [Apache] Fixed SNMP MIB import mib with new mod_security rule definition
+- [Authentication] Improve LDAP authentication and authorization
+- [Authentication] Remove deadlocks on token deletion
+- [Configuration] A regression in the host/host template configuration form caused the inherited macros to be saved as owned by the host/host template instead of being inherited. This can be seen as the loss of orange coloration. To undo this unwanted change, remove the macros from the list and they will be inherited again.
+- [Configuration] Contact template properties not exported with the contact
+- [Configuration] Fixed an infinite loop in export of configuration
+- [Configuration] Fixed an issue in the contact form. When a non-admin user modified another non-admin user, only access groups that were common to both users were kept, other access groups were lost for the second user.
+- [Configuration] Fixed an issue in the contact form: when a non-admin user modified a duplicated contact, it resulted in a blank screen
+- [Configuration] Wizard doesn't insert anymore old logger configuration
+- [Monitoring] Fixed deletion of comments
+- [Reporting] Fixed timeperiod selection in dashboards when changing resource
+- [Resources Status] Change "resource" by "type" in Resource status filter menu
+- [Resources Status] Contents cropped in many tiles in French
+- [Resources Status] Fixed display of old downtimes
+- [Resources Status] Removed the tooltips on hover for urls
+- [Resources Status] Rework Detail panel chip: hostgroup/servicegroup
+
+#### Security Fixes
+
+- XSS reflected from plugin's metric output
+- XSS in reporting dashboard
+
 ### 21.10.3
 
 Release date: `January 26, 2022`
@@ -141,7 +389,73 @@ By:
 - Move to PHP 8.0
 - Preparing Debian 11 support
 
-##  Centreon Collect
+## Centreon Collect
+
+### 21.10.3
+
+Release date: `September 27, 2022`
+
+#### Centreon Engine
+
+##### Improvements
+
+- Improved security of the gRPC API by listening on 127.0.0.1 by default
+
+#### Centreon Broker
+
+##### Improvements
+
+- Improved security of the gRPC API by listening on 127.0.0.1 by default
+- Empty strings are now accepted for parameter values in stream connectors
+
+##### Bug fixes
+
+- Fixed an issue causing pollers to be displayed as running, and resources to be displayed in Resources Status after stopping centengine
+- Fixed an issue that caused the RRD rebuild mechanism to fail
+- Fixed an issue that caused BAM Business activities with “Ignore the indicator in the calculation” as planned downtime calculation method to stop ignoring downtimed KPIs when they had overlapping downtimes
+- Fixed a bug causing Broker to ignore additional arguments
+- [Configuration] Extended the size of the URL, Notes and Action URL fields to avoid truncating long URLs
+
+
+### 21.10.2
+
+Release date: `June 15, 2022`
+
+#### Centreon Broker
+
+##### Improvements
+
+- Improved the way TCP connections are stored by keeping them in an ordered structure. This should avoid rare connection issues experienced by some users
+
+##### Bug fixes
+
+- Fixed an issue that caused broker to crash when a BAM output was configured and the BAM tables did not exist
+- Added a `bbdo_version` function to the LUA libraries for Stream Connectors developers
+- Scheduled downtimes used to be inserted one at a time, which caused performance issues on platforms with a lot of recurrent scheduled downtimes. They are now injected in bulk inserts to reduce demands on the database and avoid performance issues.
+- Broker crashed when a logger was disabled/off
+- Fixed an issue that could prevent broker from connecting again after the database was stopped to make a LVM snapshot
+- Broker crashed when its configuration included a filter that referred to a module that wasn't loaded
+
+#### Centreon Engine
+
+##### Improvements
+
+- Removed unnecessary informational log messages regarding Anomaly Detection in the Poller configuration export page
+
+##### Bug fixes
+
+- Fixed an issue that caused centengine to send duplicate service status messages to broker. This change will reduce network bandwidth consumption, database activity and disk I/O.
+- Fixed an issue with the way escaped special characters were managed (eg. `\\n`)
+- Fixed an issue that caused loss of recovery notifications when a downtime end notification was sent before recovery
+- Reviewed the way time period exceptions are handled to fix some issues with the way notifications are managed
+
+#### Centreon Perl & SSH Connectors
+
+##### Bug fixes
+
+- Fixed an issue that could cause the SSH connector to crash 
+- Fixed a memory leak issue in the Perl connector
+
 
 > As of version 21.10.0, the components of Centreon Collect (Centreon Broker, Centreon Clib, Centreon Engine and Centreon Connectors)
 > are released simultaneously. They are now grouped under this section.
@@ -171,6 +485,18 @@ Release date: `February 23, 2022`
 - Fixed an issue causing BAM Business Activities (best status) to remain in an OK state when the OK KPIs were removed
 - Refactored the BAM Business activities downtimes inheritance mechanism so that they are properly inherited and not duplicated anymore.
 
+> After having updated centreon-broker to this version, you may still have unwanted remaining downtimes on your Business Activities. It can happen if a downtime that was inherited from a KPI has been duplicated and if the original downtime ended before the bugfix was installed. In that case, you will have to apply the following procedure.
+
+```bash
+systemctl stop centengine
+sed -i -zE 's/(servicecomment|servicedowntime) \{\nhost_name=_Module_BAM_1\n[^}]*\}\n//g' /var/log/centreon-engine/retention.dat
+systemctl start centengine
+```
+
+All the downtimes applied on Business Activities have now been removed.
+
+You must then restart the `centengine` service on all the other pollers to restore the legitimate inherited downtimes.
+
 ### 21.10.0
 
 #### Centreon Engine
@@ -187,6 +513,22 @@ Release date: `February 23, 2022`
 - Old broker log format has been removed
 
 ## Centreon Gorgone
+
+### 21.10.3
+
+Release date: `September 23, 2022`
+
+#### Enhancements
+
+- Added INSECURE_EXTRACT_MODE option to untar the archive
+- Added API to manage Centreon MBI ETL
+- Added API to get status of Centreon MBI ETL
+- Added API to kill working process of Centreon MBI ETL
+
+##### Bug fixes
+
+- Fixed machine learning configuration label values using string
+- Fixed reload of cbd on Remote Server to apply BA changes (ok)
 
 ### 21.10.2
 

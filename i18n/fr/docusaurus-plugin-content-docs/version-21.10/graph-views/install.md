@@ -248,7 +248,7 @@ Ensuite, installez le serveur Centreon MAP à l'aide de la commande suivante :
 <TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
 
 ```shell
-dnf install centreon-map-server
+dnf install centreon-map-server --exclude=centreon-bi-engine
 ```
 
 </TabItem>

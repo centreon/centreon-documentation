@@ -19,6 +19,180 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 21.04.19
+
+Release date: `September 30, 2022`
+
+#### Security fixes
+
+- [Configuration] Fixed SQLis in Centreon Broker configuration menu
+
+### 21.04.18
+
+Release date: `September 20, 2022`
+
+#### Bug Fixes
+
+- [Configuration] Fixed an error in the Configuration > Services > Templates menu causing HTML code to be displayed
+- [Core] Cleaned code in forMyAccount
+- [Core] Corrected escapeSecure usage
+- [Widgets] Restored possibility to not select a poller in preferences
+
+#### Security fixes
+
+- [Administration] Applied validation of format with media synchronization
+- [Administration] Sanitized and bound Centreon ACL class queries
+- [CLAPI] Added a check to verify that the user has the admin role
+- [Configuration] Fixed SQLi in poller's resource creation
+- [Configuration] Sanitized and bound queries in centreonConnector file
+- [Configuration] Sanitized and bound queries in contactgroup file
+- [Configuration] Sanitized and bound queries in listServiceCategories file
+- [Configuration] Sanitized and bound queries in listVirtualMetrics file
+- [Configuration] Sanitized and bound queries in service argumentsXml file
+- [Configuration] Sanitized and bound queries in service host categories file
+- [Configuration] Sanitized and bound queries in servicegroup_dependency file
+- [Monitoring] Fixed XSS vulnerability in deprecated services status details page
+
+### 21.04.17
+
+Release date: `August 22, 2022`
+
+#### Enhancement
+
+- [Install] Improved error handling during installation
+- [Configuration] Use API to select metrics in virtual metrics configuration form
+
+#### Bug Fixes
+
+- [Configuration] Fixed contact/contactgroup additive inheritance configuration using massive change
+- [Core] Fixed the database partitioning for MySQL 8
+
+#### Security fixes
+
+- [Administration] Sanitized SQLi in media synchronization
+- [Administration] Sanitized and bound ACL group queries
+- [Administration] Sanitized and bound ACL menus definitions queries
+- [Administration] Sanitized and bound Auth class queries
+- [Administration] Sanitized and bound queries in ACL actions definition
+- [Configuration] Fixed an XSS vulnerability in the Broker configuration page
+- [Configuration] Fixed an XSS vulnerability in the service template form
+- [Configuration] Sanitized and bound downtime queries
+- [Configuration] Sanitized and bound escalation form queries
+- [Configuration] Sanitized and bound hosts dependencies configuration queries
+- [Configuration] Sanitized and bound hosts queries
+- [Configuration] Sanitized and bound queries in Centreon Broker configuration listing
+- [Configuration] Sanitized and bound queries in CentreonXMLBGRequest class
+- [Configuration] Sanitized and bound queries in Meta Services dependency configuration
+- [Configuration] Sanitized and bound queries in generateImage file
+- [Configuration] Sanitized and bound queries in hostgroups dependency configuration
+- [Configuration] Sanitized and bound queries in virtual metrics configuration
+- [Configuration] Sanitized and bound service configuration queries
+- [Configuration] Sanitized and bound service dependency queries
+- [Configuration] Sanitized and bound timeperiod form queries
+- [Core] Clean code in centreonUser.class.php
+- [Install] Sanitized and bound update queries
+- [Monitoring] Sanitized SQLi in Centreon centreonGraph class
+
+### 21.04.16
+
+Release date: `August 3, 2022`
+
+#### Security
+
+- [Configuration] Fixed SQLi vulnerability in escalations configuration
+- [Configuration] Fixed XSS vulnerability in escalations configuration
+
+### 21.04.15
+
+Release date: `June 10, 2022`
+
+#### Bug Fixes
+
+- [API] Fixed /monitoring/host endpoint to return service state
+- [API] Fixed SQL syntax when retrieving service_id field
+- [Business Activity] Fixed synchronization of configuration with Remote Server
+- [Install] Fixed error when installing Centreon with remote DBMS
+- [Remote Server] Fixed synchronization of configuration
+- [Widget] The list of pollers is now filtered according to the user's ACLs
+
+#### Security
+
+- [Security] Fixed RCE in command
+- [Security] Fixed SQLi in virtual metrics
+- [Security] Sanitize and bind "User" class query
+- [Security] Sanitize and bind "hostgroups" queries
+- [Security] Sanitize and bind "meta_service" related queries
+- [Security] Sanitize and bind "poller" queries
+- [Security] Sanitize and bind ACL resources queries
+
+### 21.04.14
+
+Release date: `May 2, 2022`
+
+#### Bug Fixes
+
+- [API] Fixed an issue in the `icons` API endpoint that always returned 0 for total number of results
+- [Configuration] Fixed checkbox selection after enabling/disabling a contact via icons
+- [Core] Fixed an issue where proxy settings were saved with empty parameters
+- [Install] Fixed an issue in database user creation with remote DBMS
+- [Reporting] Fixed an issue where MBI graphs reports were not using graph templates
+- [Resources Status] Fixed default settings for acknowledgments and downtimes
+- [Resources Status] Fixed display of acknowledgements comments
+- [Resources Status] Fixed monitoring command that was not displayed in Resources Status Details panel
+- [UX] Improved interface response time if CEIP is enabled but the browser does not have internet access
+
+#### Security Fixes
+
+- [Apache] Fixed cookies with missing or contradictory properties
+- [Apache] HTTPS Apache configuration now includes HSTS
+- [Core] Passwords are now obfuscated in the page's HTML source
+- [Core] Replace Math.random by Crypto JS API
+
+### 21.04.13
+
+Release date: `April 1, 2022`
+
+#### Bug Fixes
+
+- [Chart] Fixed a PHP warning and removed a debug text appearing at the bottom of the page when modifying a curve template in "Monitoring > Performances > Curves"
+- [UX] When users did not have the "Action access" rights for the top counter, the top counter was displayed "skeleton style". This has been fixed.
+
+#### Security Fixes
+
+- [Administration] SQL injections on ACL group listing
+- [Administration] SQL injection on Knowledge Base configuration form
+- [Administration] SQL injections on LDAP listing
+- [Configuration] Command path traversal resulting in RCE on command edition form
+- [Configuration] SQL injection on export configuration
+- [Configuration] SQL injections on SNMP traps edition form
+- [Configuration] SQL injection on Resources form
+- [Core] RCE in legacy PHP's class autoload
+- [Monitoring] SQL injection on performance curve edition form
+
+### 21.04.12
+
+Release date: `March 16, 2022`
+
+#### Enhancements
+
+- [Statistics] Manage exception for statistics
+- [Resource Status] Added custom variables definition in URL/Action URL
+
+#### Bug Fixes
+
+- [Authentication] Improve LDAP authentication and authorization
+- [Configuration] Fixed an issue in the contact form. When a non-admin user modified another non-admin user, only access groups that were common to both users were kept, other access groups were lost for the second user.
+- [Configuration] Fixed an issue in the contact form: when a non-admin user modified a duplicated contact, it resulted in a blank screen.
+- [Knowledge Base] Fixed links to knowledge base
+- [Resource Status] Fixed display of old downtimes
+
+#### Security Fixes
+
+- Disabling allow_url_fopen in PHP
+- XSS reflected from plugin's metric output
+- XSS in reporting dashboard
+- SQL Injections on ACL group listing
+
 ### 21.04.11
 
 Release date: `February 10, 2022`
@@ -339,6 +513,15 @@ Release date: `November 15, 2021`
 
 ## Centreon Engine
 
+### 21.04.5
+
+Release date: `June 10, 2022`
+
+#### Bug fixes
+
+- Reviewed the way time period exceptions are handled to fix some issues with the way notifications are managed
+
+
 ### 21.04.4
 
 `October 20, 2021`
@@ -395,6 +578,41 @@ Release date: `November 15, 2021`
 future.
 
 ## Centreon Broker
+
+### 21.04.8
+
+Release date: `June 10, 2022`
+
+#### Improvements
+
+- Improved the way TCP connections are stored by keeping them in an ordered structure. This should avoid rare connection issues experienced by some users
+
+#### Bug fixes
+
+- Broker crashed when a logger was disabled/off
+- Fixed an issue that could prevent broker from connecting again after the database was stopped to make a LVM snapshot
+
+
+### 21.04.7
+
+Release date: `March 3, 2022`
+
+#### Bug fixes
+
+- Refactored the BAM Business activities downtimes inheritance mechanism so that they are properly inherited and not duplicated anymore.
+
+> After having updated centreon-broker to this version, you may still have unwanted remaining downtimes on your Business Activities. It can happen if a downtime that was inherited from a KPI has been duplicated and if the original downtime ended before the bugfix was installed. In that case, you will have to apply the following procedure.
+
+```bash
+systemctl stop centengine
+sed -i -zE 's/(servicecomment|servicedowntime) \{\nhost_name=_Module_BAM_1\n[^}]*\}\n//g' /var/log/centreon-engine/retention.dat
+systemctl start centengine
+```
+
+All the downtimes applied on Business Activities have now been removed.
+
+You must then restart the `centengine` service on all the other pollers to restore the legitimate inherited downtimes.
+
 
 ### 21.04.6
 
@@ -562,6 +780,16 @@ New release.
 
 ## Centreon Connector Perl
 
+### 21.04.4
+
+Release date: `June 10, 2022`
+
+
+#### Bug fixes
+
+- Fixed a memory leak issue in the Perl connector
+
+
 ### 21.04.3
 
 `October 20, 2021`
@@ -589,6 +817,14 @@ New release.
 - Compatibility with other 21.04 components.
 
 ## Centreon Connector SSH
+
+### 21.04.4
+
+Release date: `June 10, 2022`
+
+#### Bug fixes
+
+- Fixed an issue that could cause the SSH connector to crash
 
 ### 21.04.3
 

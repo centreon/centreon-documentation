@@ -33,4 +33,4 @@ Le module est maintenant installé :
 
 Afin de bénéficier de règles de découverte prêtes à l’emploi, rendez-vous dans
 le menu `Configuration > Packs de plugins` et [installez vos premiers
-packs](../pluginpacks#installation-du-pack).
+packs](../pluginpacks.md#installation-du-pack).

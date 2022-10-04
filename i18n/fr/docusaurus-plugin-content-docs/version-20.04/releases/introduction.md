@@ -11,9 +11,9 @@ Centreon 20.04**.
 Pour accéder aux notes de version détaillées par composants, rendez vous dans
 les sections suivantes:
 
-  - [Core](centreon-core)
-  - [Extensions commerciales](centreon-commercial-extensions)
-  - [Extensions Open Source](centreon-os-extensions)
+  - [Core](centreon-core.md)
+  - [Extensions commerciales](centreon-commercial-extensions.md)
+  - [Extensions Open Source](centreon-os-extensions.md)
 
 #### Nouvelle vue d'évènements (beta)
 
@@ -45,7 +45,7 @@ apporte les fonctionnalités suivantes:
 
 <iframe width="640" height="480" src="https://www.youtube.com/embed/FVjuIbBDuYU" frameborder="0" allowfullscreen></iframe>
 
-Pour en savoir plus sur cette fonctionnalité, [rendez vous sur cette page](../alerts-notifications/events-view)
+Pour en savoir plus sur cette fonctionnalité, [rendez vous sur cette page](../alerts-notifications/events-view.md)
 
 #### Centreon en Mobilité
 
@@ -63,7 +63,7 @@ votre mobile:
 <video width="675" height="712" controls={true} allowFullScreen={true} poster={require('../assets/mobile/mobile-login.png').default}><source src={require('../assets/mobile/mobile-demo.mp4').default} type="video/mp4"/></video>
 
 Plus d'information sur l'installation et l'utilisation de l'application mobile
-sur [cette page](../mobile/introduction)
+sur [cette page](../mobile/introduction.md)
 
 ## Une découverte d'hôtes plus flexible
 
@@ -81,7 +81,7 @@ Nous avons aussi ajouté de nouvelles fonctionnalités :
   - Nouveau système pour faire le lien entre résultat de découverte et
     configuration Centreon.
 
-Jetez un oeil à la [section dédiée](../monitoring/discovery/hosts-discovery)
+Jetez un oeil à la [section dédiée](../monitoring/discovery/hosts-discovery.md)
 pour savoir comment lancer votre première découverte!
 
 ## Service mapping: nouvelles possibilités
@@ -141,7 +141,7 @@ désormais dans `/var/log/centreon-map`
 systemctl restart centreon-map
 ```
 
-Suivez la documentation de [mise à jour](../graph-views/upgrade) afin de
+Suivez la documentation de [mise à jour](../graph-views/upgrade.md) afin de
 correctement migrer l'extension.
 
 Enfin, il est désormais possible d'installer le serveur Centreon Map en mode
@@ -166,7 +166,7 @@ Gorgone vient avec un mode *héritage* pour gérer les communications avec les
 serveurs de supervision utilisant SSH, mais la nouvelle méthode de communication
 ZMQ est recommandée pour bénéficier de toutes les nouvelles fonctionnalités.
 
-Reportez vous à la [section Communication](../monitoring/monitoring-servers/communications) pour en
+Reportez vous à la [section Communication](../monitoring/monitoring-servers/communications.md) pour en
 savoir plus.
 
 #### Engine : prêt pour le futur, Broker : compatible multi-thread
@@ -187,4 +187,4 @@ communiquer avec eux dans les futurs versions.
 Centreon ouvre sa solution de Haute Disponibilité à tout le monde en partageant
 son code source et ses procédures d'installation.
 
-Essayer la en suivant le [documentation dédiée](../integrations/introduction-integrations).
+Essayer la en suivant le [documentation dédiée](../integrations/introduction-integrations.md).

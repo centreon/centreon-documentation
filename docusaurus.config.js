@@ -11,10 +11,11 @@ const config = {
   url: 'https://docs.centreon.com',
   baseUrl: '/',
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenMarkdownLinks: 'throw',
   favicon: 'img/logo-centreon.png',
   organizationName: 'Centreon',
   projectName: 'Centreon Documentation',
+  trailingSlash: true,
   
   noIndex: false,
 
@@ -37,24 +38,32 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+          breadcrumbs: false,
           admonitions: {},
           editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
           editLocalizedFiles: true,
           showLastUpdateTime: true,
           includeCurrentVersion: false,
-          onlyIncludeVersions: ['21.10', '21.04', '20.10', '20.04'],
+          onlyIncludeVersions: ['22.04', '21.10', '21.04', '20.10', '20.04'],
           versions: {
+            22.04: {
+              label: '⭐ 22.04',
+            },
             '21.10': {
-              label: '⭐ 21.10',
+              label: '21.10',
+              banner:'none',
             },
             21.04: {
               label: '21.04',
+              banner:'none',
             },
             '20.10': {
               label: '20.10',
+              banner:'unmaintained',
             },
             20.04: {
               label: '20.04',
+              banner:'unmaintained',
             },
           },
         },
@@ -88,6 +97,8 @@ const config = {
         max: 1030, // max resized image's size.
         min: 640, // min resized image's size. if original is lower, use that size.
         steps: 2, // the max number of images generated between min and max (inclusive)
+        // Use false to debug, but it incurs huge perf costs
+        disableInDev: true,
       },
     ],
     'plugin-image-zoom',
@@ -98,6 +109,21 @@ const config = {
         path: 'cloud',
         routeBasePath: 'cloud',
         sidebarPath: require.resolve('./cloud/sidebarsCloud.js'),
+        breadcrumbs: false,
+        editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
+        editLocalizedFiles: true,
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'pp',
+        path: 'pp',
+        routeBasePath: 'pp',
+        sidebarPath: require.resolve('./pp/sidebarsPp.js'),
+        breadcrumbs: false,
+        editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
+        editLocalizedFiles: true,
       },
     ],
   ],
@@ -131,11 +157,16 @@ const config = {
         ],
       },
 
-      hideableSidebar: true,
       colorMode: {
         defaultMode: 'light',
         disableSwitch: false,
         respectPrefersColorScheme: true,
+      },
+
+      docs: {
+        sidebar: {
+          hideable: true,
+        },
       },
 
       navbar: {
@@ -153,10 +184,17 @@ const config = {
             position: 'left',
             label: 'Centreon OnPrem',
           },
-		  {
+		     {
             to: '/cloud/getting-started/architecture',
             label: 'Centreon Cloud',
             position: 'left',
+            activeBaseRegex: '/cloud/',
+          },
+          {
+            to: '/pp/integrations/plugin-packs/getting-started/introduction',
+            label: 'Plugin Packs',
+            position: 'left',
+            activeBaseRegex: '/pp/',
           },
           {
             type: 'search',
@@ -237,6 +275,23 @@ const config = {
         copyright: `Copyright © 2005 - ${new Date().getFullYear()} Centreon`,
       },
     }),
+    webpack: {
+      jsLoader: (isServer) => ({
+        loader: require.resolve('swc-loader'),
+        options: {
+          jsc: {
+            "parser": {
+              "syntax": "typescript",
+              "tsx": true
+            },
+            target: 'es2017',
+          },
+          module: {
+            type: isServer ? 'commonjs' : 'es6',
+          }
+        },
+      }),
+    },
 };
 
 module.exports = config;

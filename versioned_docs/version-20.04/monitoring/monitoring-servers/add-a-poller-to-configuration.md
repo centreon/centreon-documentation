@@ -215,5 +215,5 @@ The Poller's engine will then start and connect to the Central Broker.
 
 ## Getting started
 
-Go to the [Getting Started](../../getting-started/installation-first-steps#start-to-monitor-your-first-host)
+Go to the [Getting Started](../../getting-started/installation-first-steps.md#start-to-monitor-your-first-host)
 chapter to configure your first monitoring.

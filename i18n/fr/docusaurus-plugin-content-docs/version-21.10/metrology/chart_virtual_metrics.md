@@ -23,7 +23,7 @@ par 8 pour convertir des bits en octets) sera un ensemble de point. Le type VDEF
 de point.
 
 > Pour plus d'informations sur la notation de type RPN, référencez-vous à la
-> [documentation officielle RRD](http://oss.oetiker.ch/rrdtool/tut/rpntutorial.en)
+> [documentation officielle RRD](https://oss.oetiker.ch/rrdtool/doc/rrdgraph_rpn.en.html).
 
 ## Configuration
 

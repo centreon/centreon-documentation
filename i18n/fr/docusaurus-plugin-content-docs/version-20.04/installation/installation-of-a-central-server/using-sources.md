@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 ## Prérequis
 
 > La plupart des utilisateurs de CentOS préfèreront installer Centreon Web en utilisant
-[les paquets fournis par Centreon](using-packages).
+[les paquets fournis par Centreon](using-packages.md).
 
 <Tabs groupId="sync">
 <TabItem value="Redhat/CentOS" label="Redhat/CentOS">
@@ -846,4 +846,4 @@ information, nous recommandons MariaDB.
 ## Installation web
 
 Terminez l'installation en réalisant les
-[étapes de l'installation web](../web-and-post-installation#installation-web).
+[étapes de l'installation web](../web-and-post-installation.md#installation-web).

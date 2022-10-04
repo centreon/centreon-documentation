@@ -219,17 +219,33 @@ the following command from the **Central server**:
 </TabItem>
 </Tabs>
 
-## Step 3: Export the configuration
+## Step 3: Export the configuration of the remote
+
+This step only applies if you are attaching a poller to a remote server (not to a central server).
+
+1. On the central server, deploy the configuration of the remote server to which the poller will be attached:
+
+   - Go to **Configuration > Pollers > Pollers** and select the remote server.
+   - Click on **Export configuration**.
+   - Select the first four boxes, select the **Restart** method and then click on **Export**.
+
+2. Restart gorgone on the remote server:
+
+  ```shell
+  systemctl restart gorgoned
+  ```
+
+## Step 4: Export the configuration of the poller
 
 1. From the Pollers listing, select the Poller and click on **Export
 configuration**.
 
-2. Then check the four first boxes, select the **Restart** method and click on
+2. Then check the first four boxes, select the **Restart** method and click on
 **Export**:
 
   ![image](../../assets/monitoring/monitoring-servers/poller-generate-config.png)
-
-  The Poller's engine will then start and connect to the Central Broker.
+  
+  The Poller's engine will then start and connect to the Broker service of the central server or of the remote server (according to which you have attached the poller to).
 
   ![image](../../assets/monitoring/monitoring-servers/poller-list-zmq-started.png)
 

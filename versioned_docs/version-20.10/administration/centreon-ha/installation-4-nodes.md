@@ -730,7 +730,7 @@ pcs resource create "ms_mysql" \
 > **WARNING:** the syntax of the following command depends on the Linux Distribution you are using.
 
 <Tabs groupId="sync">
-<TabItem value="CentOS7" label="CentOS7">
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
 pcs resource meta ms_mysql-master \

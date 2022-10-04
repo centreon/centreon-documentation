@@ -23,7 +23,7 @@ To enable a user to receive notifications:
 3. In the **Linked to contact groups** section, check that the user has the **Notifications** [role](../users/users.md#user-roles).
 4. In the **Notification** section, check that **Enable notifications** is set to **Yes**.
 5. Click **Save**.
-6. [Deploy](../monitoring/monitoring-servers/deploying-a-configuration) the configuration.
+6. [Deploy](../monitoring/monitoring-servers/deploying-a-configuration.md) the configuration.
 
 ![image](../assets/configuration/notifs_user_profile.png)
 

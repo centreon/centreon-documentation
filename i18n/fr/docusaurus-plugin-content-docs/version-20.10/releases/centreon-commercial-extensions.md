@@ -19,9 +19,21 @@ commerciales, veuillez contacter le support.
 
 ## Centreon MAP
 
+### 20.10.10
+
+Release date: `April 20, 2022`
+
+#### Bugfixes
+
+- Link to MAP documentation on Monitoring > Centreon MAP Home Page now redirects to the correct documentation page.
+
 ### 20.10.9
 
 Release date: `March 1, 2022`
+
+Due to the bug fix on the metric labels, Outputs, Gauges and Metric Links that have been created in 
+Centreon Map 20.10.6, 20.10.7 and 20.10.8
+may have to be recreated after updating Map to version 20.10.9.
 
 #### Bugfixes 
 
@@ -184,6 +196,15 @@ Référez-vous à la [documentation dédiée](../graph-views/install.md#centreon
 
 ## Centreon BAM
 
+### 20.10.6
+
+Release date: `July 19, 2022`
+
+#### Bug fixes
+
+- Fixed an "out of memory" error in the configuration export process, that could happen when many Business Activities were bound to 
+a Remote Server that had many pollers. As a result, the BAs were not actually exported to the Remote Server.
+
 ### 20.10.5
 
 Release date: `December 29, 2021`
@@ -257,6 +278,24 @@ if the Business Activity is disabled.
 
 ## Centreon MBI
 
+### 20.10.5
+
+Release date: `March 3, 2022`
+
+#### Security fixes
+
+- Log4J MBI upgrade to 2.17.1
+- Sanitize parameters in task generation form
+
+#### Improvements
+
+- Compatibility with PHP 7.4 (20.10 / 21.04) for MBI
+
+#### Bug fixes
+
+- Fixed: New line character missing from last line in MBI back up script preventing the script to execute
+- Fixed: Issue in Test SMTP Rule
+
 ### 20.10.4
 
 `21 juillet 2021`
@@ -317,6 +356,20 @@ if the Business Activity is disabled.
 - Compatibilité avec Centreon 20.10
 
 ## Centreon Auto Discovery
+
+### 20.10.5
+
+Release date: `April 1, 2022`
+
+#### Bug fixes
+
+- Fixed an issue that caused Service Discovery scans to fail because the wrong message was caught
+- Fixed an issue that made it impossible to save credentials with more than 512 characters
+
+#### Security fixes
+
+- Fixed an SQL injection issue in Service Discovery rules management
+
 
 ### 20.10.4
 

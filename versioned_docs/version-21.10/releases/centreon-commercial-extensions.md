@@ -16,15 +16,40 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon MAP
 
+### 21.10.5
+
+Release date: `May 30, 2022`
+
+- Fixed regressions on API endpoints due to Spring Boot version
+- Fixed weather styled elements that were not showing any image
+- Changed label in MAP home page about server IP address
+
+### 21.10.4
+
+Release date: `April 22, 2022`
+
+#### Enhancements
+
+- Link to MAP documentation on Monitoring > Centreon MAP Home Page now redirects to the correct documentation page.
+- Removed Centreon Map Desktop multi language installation on Windows installer
+
+#### Bug fixes
+
+- Fixed missing newline at the end of Centreon Map cron file
+
 ### 21.10.3
 
 Release date: `March 1, 2022`
 
-### Security fixes
+Due to the bug fix on the metric labels, Outputs, Gauges and Metric Links that have been created in
+Centreon Map 21.10.0 , 21.10.1 or 21.10.2
+may have to be recreated after updating Map to version 21.10.3.
+
+#### Security fixes
 
 - Log4J version updated to 2.17.1
 
-### Bug fixes
+#### Bug fixes
 
 - Fixed links not coloring according to status and output not functional when metric name contains special character
 
@@ -113,6 +138,31 @@ Release date: `February 18, 2022`
 - Compatibility with other 21.10 components.
 
 ## Centreon Auto Discovery
+
+### 21.10.3
+
+Release date: `March 31, 2022`
+
+#### Improvements
+
+- In the Host Discovery job result listing, the red "warning" sign that used to point out that a discovered host already existed has been replaced with a yellow one because the colour red suggested that a severe problem had occurred. The "info" sign that led to the raw discovery data has been replaced with a "text file" icon.
+
+#### Bug fixes
+
+- Fixed a front-end issue where editing a hostgroup or a hostcategory mapper in Host Discovery led to a blank page
+- Host discovery did not support `NULL` values for job parameters
+- Changed the size of a column to allow storing host discovery providers coming from Plugin Packs with names exceeding 50 characters
+- ACLs were not updated for items discovered by Host Discovery or Service Discovery
+- Fixed an issue that caused Service Discovery scans to fail because the wrong message was caught
+
+
+### 21.10.2
+
+Release date: `March 16, 2022`
+
+#### Security fixes
+
+- Fixed SQL injection on discovery rules configuration page.
 
 ### 21.10.1
 

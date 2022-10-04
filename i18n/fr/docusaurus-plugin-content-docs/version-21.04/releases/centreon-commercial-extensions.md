@@ -19,6 +19,46 @@ commerciales, veuillez contacter le support.
 
 ## Centreon MAP
 
+### 21.04.7
+
+Release date: `September 5, 2022`
+
+#### Enhancements
+
+- Updated the connected server label to 'Configured server' for more clarity.
+
+#### Bug fixes
+
+- Fixed regressions on API endpoints due to Spring Boot version.
+
+### 21.04.6
+
+Release date: `April 26, 2022`
+
+#### Enhancements
+
+- Link to MAP documentation on Monitoring > Centreon MAP Home Page now redirects to the correct documentation page.
+
+#### Bug fixes
+
+- Fixed missing newline at the end of Centreon Map cron file
+
+### 21.04.5
+
+Release date: `March 21, 2022`
+
+Due to the bug fix on the metric labels, Outputs, Gauges and Metric Links that have been created in
+Centreon Map 21.04.2, 21.04.3 and 21.04.4
+may have to be recreated after updating Map to version 21.04.5.
+
+#### Security fixes
+
+- Log4J version updated to 2.17.1
+
+#### Bug fixes
+
+- Fixed links not coloring according to status and output not functional when metric name contains special characters
+
 ### 21.04.4
 
 Release date: `December 20, 2021`
@@ -104,6 +144,15 @@ Release date: `December 16, 2021`
 
 ## Centreon MBI
 
+### 21.04.4
+
+`July 22, 2022`
+
+#### Bug fixes
+
+- Replaced 'switch' with 'if' to better fit RHEL 8 deployment
+- Multiple SSH sessions initiated by CBIS were not closed and could remain opened causing the server overload
+
 ### 21.04.3
 
 `February 18 2022`
@@ -160,7 +209,23 @@ Release date: `December 16, 2021`
 
 ## Centreon Auto Discovery
 
-### 21.04.3
+### 21.04.4
+
+Release date: `April 1, 2022`
+
+#### Bug fixes
+
+- Changed the size of a column to allow storing host discovery providers coming from Plugin Packs with names exceeding 50 characters
+- ACLs were not updated for items discovered by Host Discovery or Service Discovery
+- Fixed a bug that duplicated custom text in mappers' sources
+- Fixed an issue that caused Service Discovery scans to fail because the wrong message was caught
+
+#### Security fixes
+
+- Fixed an SQL injection issue in Service Discovery rules management
+
+
+### 21.04.3
 
 Release date: `November 24, 2021`
 

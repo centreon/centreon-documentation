@@ -5,7 +5,7 @@ title: Déployer un collecteur
 
 Avec Centreon Cloud, votre serveur central est déjà prêt à l'emploi. Il ne vous reste qu'à installer un ou des collecteurs dans votre infrastructure, ce qui est très facile : exécutez un script, exportez la configuration et le collecteur est prêt.
 
-Avant de déployer un collecteur, assurez-vous que votre machine hôte répond aux [prérequis](prerequisites).
+Avant de déployer un collecteur, assurez-vous que votre machine hôte répond aux [prérequis](prerequisites.md).
 
 ## Étape 1 : Exécuter le script
 
@@ -23,7 +23,7 @@ Avant de déployer un collecteur, assurez-vous que votre machine hôte répond a
 
   ![image](../assets/installation/script2.png)
 
-3. Une fois le script exécuté, [connectez-vous à votre serveur central](../getting-started/interface#accéder-à-linterface-du-serveur-central) et allez à la page **Configuration > Collecteurs > Collecteurs**. Le nouveau collecteur apparaît dans la liste des collecteurs.
+3. Une fois le script exécuté, [connectez-vous à votre serveur central](../getting-started/interface.md#accéder-à-linterface-du-serveur-central) et allez à la page **Configuration > Collecteurs > Collecteurs**. Le nouveau collecteur apparaît dans la liste des collecteurs.
    * Par défaut, le nom du collecteur est son hostname (celui-ci peut avoir été abrégé). Cliquez sur le nom du collecteur pour le renommer.
    * Dans la colonne **Adresse IP**, l'adresse indiquée est celle du collecteur vu par le serveur central. En effet, pendant le processus d'installation, un VPN est installé : l'adresse IP est celle du collecteur à l'intérieur du VPN.
    * Le collecteur n'est pas encore démarré (**Non** dans la colonne **En cours d'exécution?**).

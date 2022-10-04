@@ -98,7 +98,7 @@ terminée.
 
 Il est nécessaire de modifier la configuration du processus Centreontrapd afin
 d'utiliser la base de données locale SQLite. Référez-vous au chapitre
-[Supervision Passive](../passive-monitoring/enable-snmp-traps)..
+[Supervision Passive](../passive-monitoring/enable-snmp-traps.md)..
 
 ### Remote Server
 

@@ -7,7 +7,7 @@ title: Superviser votre premier serveur Linux
 
 Dans ce tutoriel, nous partons du principe que votre plate-forme Centreon est installée et fonctionne correctement, et que vous disposez au moins d'une édition [Centreon IT 100](it100.md) qui fournit les Plugin Packs Centreon (votre [licence](../administration/licenses.md) est déjà en place).
 
-Votre serveur sera supervisé à l'aide du Plugin Pack [Linux SNMP](../integrations/plugin-packs/procedures/operatingsystems-linux-snmp.md). (Plus d'informations sur les Plugin Packs [ici](../monitoring/pluginpacks.md)).
+Votre serveur sera supervisé à l'aide du Plugin Pack [Linux SNMP](/pp/integrations/plugin-packs/procedures/operatingsystems-linux-snmp). (Plus d'informations sur les Plugin Packs [ici](../monitoring/pluginpacks.md)).
 
 ## Prérequis
 
@@ -54,7 +54,7 @@ systemctl enable snmpd
 
 ### Sur le collecteur
 
-Connectez-vous à votre collecteur en SSH et installez le plugin SNMP Linux (voir la [procédure de surveillance pour le Plugin Pack **Linux SNMP**](../integrations/plugin-packs/procedures/operatingsystems-linux-snmp.md) pour plus d'informations) :
+Connectez-vous à votre collecteur en SSH et installez le plugin SNMP Linux (voir la [procédure de surveillance pour le Plugin Pack **Linux SNMP**](/pp/integrations/plugin-packs/procedures/operatingsystems-linux-snmp) pour plus d'informations) :
 
 ```shell
 yum install centreon-plugin-Operatingsystems-Linux-Snmp

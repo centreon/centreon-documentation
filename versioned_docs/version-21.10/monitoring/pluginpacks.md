@@ -21,7 +21,7 @@ fine-tuned later on).
   Some packs also contain [discovery rules](discovery/introduction.md).
 
 To get an up-to-date list of all Plugin Packs with their respective monitoring
-procedure, please refer to the section on [Plugin Packs](../integrations/plugin-packs/introduction.md).
+procedure, please refer to the section on [Plugin Packs](/pp/integrations/plugin-packs/getting-started/introduction).
 
 ## Prerequisites
 
@@ -192,7 +192,7 @@ To update the plugins:
 1. Execute the following command on all pollers:
 
   ```shell
-  yum update centreon-plugins\*
+  yum update centreon-plugin\*
   ```
 
 2. [Deploy the configuration](monitoring-servers/deploying-a-configuration.md) for all pollers. The **Restart Monitoring Engine** 

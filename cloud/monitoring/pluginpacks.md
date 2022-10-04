@@ -69,4 +69,4 @@ Apply a plugin pack to a host or service to start monitoring them:
 
 1. Create the host/the service, and in the **Template(s)** field, choose the template for the Plugin Pack you want.
 
-2. [Deploy](monitoring-servers/deploying-a-configuration) the configuration. Your host or service is now monitored using the Plugin Pack.
+2. [Deploy](monitoring-servers/deploying-a-configuration.md) the configuration. Your host or service is now monitored using the Plugin Pack.

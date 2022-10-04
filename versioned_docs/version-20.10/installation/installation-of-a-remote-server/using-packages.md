@@ -245,20 +245,20 @@ Then create a distant user with **root** privileges needed for Centreon
 installation:
 
 ```SQL
-CREATE USER '<USER>'@'<IP>' IDENTIFIED BY '<PASSWORD>';
-GRANT ALL PRIVILEGES ON *.* TO '<USER>'@'<IP>' WITH GRANT OPTION;
+CREATE USER 'centreon'@'<IP>' IDENTIFIED BY '<PASSWORD>';
+GRANT ALL PRIVILEGES ON *.* TO 'centreon'@'<IP>' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 ```
 
 > Replace **<IP\>** with the Centreon Central IP address that will connect to
 > the database server.
 >
-> Replace **<USER\>** and **<PASSWORD\>** by user's credentials.
+> Use the correct **<PASSWORD\>** for user 'centreon'.
 
 Once the installation is complete you can delete this user using:
 
 ```SQL
-DROP USER '<USER>'@'<IP>';
+DROP USER 'centreon'@'<IP>';
 ```
 
 
@@ -394,7 +394,7 @@ To register it to the Centreon Central server or a Remote server, execute the fo
 
 ``` shell
 /usr/share/centreon/bin/registerServerTopology.sh -u <API_ACCOUNT> \
--t remote -h <IP_TARGET_NODE> -n <POLLER_NAME>
+-t remote -h <IP_TARGET_NODE> -n <REMOTE_SERVER_NAME>
 ```
 
 Example:
@@ -408,7 +408,7 @@ Example:
 
 ``` shell
 /usr/share/centreon/bin/registerServerTopology.sh -u <API_ACCOUNT> \
--t Poller -h <IP_TARGET_NODE> -n <POLLER_NAME>
+-t remote -h <IP_TARGET_NODE> -n <REMOTE_SERVER_NAME>
 ```
 
 Example:

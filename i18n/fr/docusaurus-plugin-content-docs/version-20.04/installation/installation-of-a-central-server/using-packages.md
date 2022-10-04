@@ -231,4 +231,4 @@ systemctl start httpd24-httpd
 ```
 
 Terminez l'installation en réalisant les
-[étapes de l'installation web](../web-and-post-installation#installation-web).
+[étapes de l'installation web](../web-and-post-installation.md#installation-web).

@@ -83,7 +83,7 @@ To use an online license, your Centreon platform must be connected to the intern
 
 ## Free IT-100 license
 
-See chapter [Set up your free IT-100 solution](https://docs.centreon.com/docs/getting-started/IT100).
+See chapter [Set up your free IT-100 solution](../getting-started/it100.md).
 
 ## Troubleshooting
 
@@ -106,7 +106,7 @@ chmod 640 /etc/centreon/license.d/*
 
 ### Your EPP license is not valid
 
-* Check that the fingerprint of the central server (on page **Administration > Extensions > Gestionnaire**) matches the fingerprint in the license.
+* Check that the fingerprint of the central server (on page **Administration > Extensions > Manager**) matches the fingerprint in the license.
 
     ```shell
     less /etc/centreon/license.d/epp.license

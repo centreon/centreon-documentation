@@ -1,14 +1,3 @@
-/**
- * Creating a sidebar enables you to:
- - create an ordered group of docs
- - render a sidebar for each doc of that group
- - provide next/previous navigation
-
- The sidebars can be generated from the filesystem, or explicitly defined here.
-
- Create as many sidebars as you want.
- */
-
 module.exports = {
   cloud: [
     {
@@ -92,7 +81,30 @@ module.exports = {
           type: 'doc',
           id: 'monitoring/monitoring-servers/deploying-a-configuration',
         },
+
       ],
+    },
+    {
+      "type": "category",
+      "label": "Performance graphs",
+      "items": [
+        {
+          "type": "doc",
+          "id": "metrology/chart-management"
+        },
+        {
+          "type": "doc",
+          "id": "metrology/chart-template"
+        },
+        {
+          "type": "doc",
+          "id": "metrology/chart-curves"
+        },
+        {
+          "type": "doc",
+          "id": "metrology/chart-virtual-metrics"
+        },
+      ]
     },
   ],
 };

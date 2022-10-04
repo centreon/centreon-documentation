@@ -10,9 +10,9 @@ note.
 
 To access detailed release note by component, use the following sections:
 
-  - [Core](centreon-core)
-  - [Commercial extensions](centreon-commercial-extensions)
-  - [Open Source extensions](centreon-os-extensions)
+  - [Core](centreon-core.md)
+  - [Commercial extensions](centreon-commercial-extensions.md)
+  - [Open Source extensions](centreon-os-extensions.md)
 
 ## New Events view (beta)
 
@@ -40,7 +40,7 @@ brings the following capabilities:
 <iframe width="640" height="480" src="https://www.youtube.com/embed/FVjuIbBDuYU" frameborder="0" allowfullscreen></iframe>
 
 To know more about this feature, have a look to [the
-documentation](../alerts-notifications/events-view)
+documentation](../alerts-notifications/events-view.md)
 
 ## Centreon on Mobility
 
@@ -55,7 +55,7 @@ able to perform the most common actions on resources:
 <video width="675" height="712" controls={true} allowFullScreen={true} poster={require('../assets/mobile/mobile-login.png').default}><source src={require('../assets/mobile/mobile-demo.mp4').default} type="video/mp4"/></video>
 
 Find more about this mobile application in the [dedicated
-section](../mobile/introduction)
+section](../mobile/introduction.md)
 
 ## A more flexible hosts discovery
 
@@ -72,7 +72,7 @@ We've also added new functionalities:
   - New mapping system to link results with Centreon configuration.
 
 Give a look at the [dedicated
-section](../monitoring/discovery/hosts-discovery) to know how to launch your
+section](../monitoring/discovery/hosts-discovery.md) to know how to launch your
 first discovery job\!
 
 ## A better service mapping
@@ -160,7 +160,7 @@ servers, but the new ZMQ communication is recommended to fully benefit from
 all the new functionalities.
 
 See [the communication
-section](../monitoring/monitoring-servers/communications) to know more.
+section](../monitoring/monitoring-servers/communications.md) to know more.
 
 #### Engine: future ready, Broker: multi-thread compatible
 
@@ -179,4 +179,4 @@ Centreon opens its High Availability solution to everyone by sharing its
 source code and installation procedures.
 
 Give it a try by following the [dedicated
-documentation](../administration/centreon-ha/architecture).
+documentation](../administration/centreon-ha/architecture.md).

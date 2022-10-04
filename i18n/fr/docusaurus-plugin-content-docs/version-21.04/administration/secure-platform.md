@@ -763,7 +763,7 @@ Soit un serveur Centreon avec le FQDN suivant : **centreon7.localdomain**.
                 php_admin_value engine Off
             </IfModule>
 
-            FallbackResource /centreon/index
+            FallbackResource /centreon/index.html
 
             AddType text/plain hbs
         </Directory>
@@ -828,7 +828,7 @@ Pour utiliser http2, vous devez suivre les étapes suivantes:
 <Tabs groupId="sync">
 <TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
 
-1. [Configurer le https pour Centreon](./secure-platform.md#passer-le-serveur-web-en-https)
+1. [Configurer le https pour Centreon](#passez-le-serveur-web-en-https)
 
 2. Installer le module nghttp2:
 
@@ -866,7 +866,7 @@ systemctl restart httpd
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
-1. [Configurer le https pour Centreon](./secure-platform.md#passer-le-serveur-web-en-https)
+1. [Configurer le https pour Centreon](#passez-le-serveur-web-en-https)
 
 2. Installer le module nghttp2:
 

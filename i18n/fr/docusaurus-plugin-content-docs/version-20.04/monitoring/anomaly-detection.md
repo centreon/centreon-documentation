@@ -144,7 +144,7 @@ cliquez sur le bouton **Add Anomaly Service** :
 Cliquez sur **Save**.
 
 Il est maintenant temps de [déployer la
-supervision](monitoring-servers/deploying-a-configuration).
+supervision](monitoring-servers/deploying-a-configuration.md).
 
 Accédez ensuite au menu `Supervision > Détails des statuts > Services` et
 sélectionnez **All** pour le filtre État du service. Après quelques minutes,
@@ -175,7 +175,7 @@ nombre de déviation à partir duquel le service se critique en utilisant le cha
 **Detect anomalies after**.
 
 Cliquez sur **Save** et [déployer la
-supervision](monitoring-servers/deploying-a-configuration).
+supervision](monitoring-servers/deploying-a-configuration.md).
 
 ### Activer le processus de notification
 
@@ -197,7 +197,7 @@ Rendez-vous dans le menu `Configuration > Services > Anomaly Detection` et
     champ **Notification Type**.
 
 Cliquez sur **Save** et [déployer la
-supervision](./monitoring-servers/deploying-a-configuration).
+supervision](./monitoring-servers/deploying-a-configuration.md).
 
 ## Visualiser les anomalies détectées
 

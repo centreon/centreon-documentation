@@ -57,11 +57,11 @@ accéder à la page de connexion :
 ![image](../assets/upgrade/web_update_5.png)
 
 > Si le module Centreon BAM est installé, référez-vous à la [documentation
-> associée](../service-mapping/update) pour le mettre à jour.
+> associée](../service-mapping/update.md) pour le mettre à jour.
 
 Déployez ensuite la configuration du Central depuis l'interface web en
 suivant [cette
-procedure](../monitoring/monitoring-servers/deploying-a-configuration),
+procedure](../monitoring/monitoring-servers/deploying-a-configuration.md),
 
 Enfin, redémarrez Broker, Engine et Gorgone sur le serveur Central en exécutant
 la commande suivante:
@@ -103,7 +103,7 @@ yum update centreon\*
 ```
 
 Déployez la configuration du Poller depuis l'interface web en suivant [cette
-procedure](../monitoring/monitoring-servers/deploying-a-configuration), et
+procedure](../monitoring/monitoring-servers/deploying-a-configuration.md), et
 en choisissant la méthode *Redémarrer* pour le processus Engine
 
 Redémarrez enfin le service Gorgone s'il est utilisé sur le Poller :

@@ -7,14 +7,14 @@ title: Superviser votre premier routeur Cisco
 
 Dans ce tutoriel, nous partons du principe que votre plate-forme Centreon est installée et fonctionne correctement, et que vous disposez au moins d'une édition [Centreon IT 100](it100.md) qui fournit des Plugin Packs Centreon (votre [licence](../administration/licenses.md) est déjà configurée).
 
-Votre routeur Cisco sera supervisé à l'aide du Plugin Pack [Cisco standard](../integrations/plugin-packs/procedures/network-cisco-standard-snmp.md). (Plus d'informations sur les Plugin Packs [ici](../monitoring/pluginpacks.md)).
+Votre routeur Cisco sera supervisé à l'aide du Plugin Pack [Cisco standard](/pp/integrations/plugin-packs/procedures/network-cisco-standard-snmp). (Plus d'informations sur les Plugin Packs [ici](../monitoring/pluginpacks.md)).
 
 ## Prérequis
 
 ### Sur le routeur Cisco que vous souhaitez superviser
 
 La première étape consiste à activer et à configurer un service SNMP sur votre appareil Cisco.
-Veuillez vous référer à la documentation de votre appareil Cisco pour savoir comment configurer le service SNMP. La procédure de surveillance des Plugins Packs [Cisco standard](../integrations/plugin-packs/procedures/network-cisco-standard-snmp.md) inclut un exemple.
+Veuillez vous référer à la documentation de votre appareil Cisco pour savoir comment configurer le service SNMP. La procédure de surveillance des Plugins Packs [Cisco standard](/pp/integrations/plugin-packs/procedures/network-cisco-standard-snmp) inclut un exemple.
 
 ### Flux réseau
 
@@ -22,7 +22,7 @@ L'équipement doit être accessible depuis le collecteur Centreon sur le port SN
 
 ### Sur le collecteur
 
-Connectez-vous à votre collecteur en SSH et installez le plugin standard Cisco (voir la [procédure de surveillance pour le Plugin Pack **Cisco standard**](../integrations/plugin-packs/procedures/network-cisco-standard-snmp.md) pour plus d'informations) :
+Connectez-vous à votre collecteur en SSH et installez le plugin standard Cisco (voir la [procédure de surveillance pour le Plugin Pack **Cisco standard**](/pp/integrations/plugin-packs/procedures/network-cisco-standard-snmp) pour plus d'informations) :
 
 ```shell
 yum install centreon-plugin-Network-Cisco-Standard-Snmp

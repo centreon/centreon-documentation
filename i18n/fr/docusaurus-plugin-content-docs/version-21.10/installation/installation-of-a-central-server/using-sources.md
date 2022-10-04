@@ -703,17 +703,17 @@ mv * /usr/lib/centreon/plugins/
 
 Installez Centreon Gorgone en utilisant [cette procédure](https://github.com/centreon/centreon-gorgone/blob/master/docs/getting_started.md#installation).
 
-### Sécurisez la base de données
+### Sécuriser la base de données
 
-Depuis MariaDB 10.5, il est nécessaire de
-sécuriser son installation avant d'installer Centreon.
-Répondez oui à toute question sauf "Disallow root login remotely?".
-Vous devez obligatoirement définir un mot de passe pour l'utilisateur **root** de la base de données.
-Ce mot de passe vous sera demandé lors de l'[installation web](../web-and-post-installation.md).
+Depuis MariaDB 10.5, il est obligatoire de sécuriser l'accès en root à la base avant d'installer Centreon. Exécutez la commande suivante :
 
 ```shell
 mysql_secure_installation
 ```
+
+* Répondez oui à toute question sauf à "Disallow root login remotely?". 
+* Vous devez obligatoirement définir un mot de passe pour l'utilisateur **root** de la base de données.
+Ce mot de passe vous sera demandé lors de l'[installation web](../web-and-post-installation.md).
 
 > Pour plus d'informations, veuillez consulter la [documentation officielle MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/).
 

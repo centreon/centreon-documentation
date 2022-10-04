@@ -254,7 +254,7 @@ Then install Centreon MAP server using the following command:
 <TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
 
 ```shell
-dnf install centreon-map-server
+dnf install centreon-map-server --exclude=centreon-bi-engine
 ```
 
 </TabItem>
@@ -541,7 +541,7 @@ yum install centreon-map-server-ng
 And proceed to the configuration with the following command:
 
 ```shell
-/etc/centreon-map/configure.sh
+/etc/centreon-studio/configure.sh
 ```
 
 The configuration is exactly the same as the usual server, but is stored

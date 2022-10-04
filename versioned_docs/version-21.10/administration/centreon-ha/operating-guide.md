@@ -280,7 +280,7 @@ A high-availability platform is basically a LAMP platform (Linux Apache MariaDB 
 
 ### System indicators and processes
 
-The easiest part consists in monitoring the basic system indicators, mostly using SNMP Protocol, which is made quite simple thanks to the [Linux plugin pack](../../integrations/plugin-packs/procedures/operatingsystems-linux-snmp.md).
+The easiest part consists in monitoring the basic system indicators, mostly using SNMP Protocol, which is made quite simple thanks to the [Linux plugin pack](/pp/integrations/plugin-packs/procedures/operatingsystems-linux-snmp).
 
 * System metrics
     * LOAD Average
@@ -296,8 +296,8 @@ The easiest part consists in monitoring the basic system indicators, mostly usin
 
 ### Application monitoring
 
-* Control access to the URL `http://@VIP_IPADDR@/centreon` using the [HTTP Protocol plugin pack](../../integrations/plugin-packs/procedures/applications-protocol-http.md)
-* MariaDB, using the [MySQL/MariaDB Database plugin pack](../../integrations/plugin-packs/procedures/applications-databases-mysql.md)
+* Control access to the URL `http://@VIP_IPADDR@/centreon` using the [HTTP Protocol plugin pack](/pp/integrations/plugin-packs/procedures/applications-protocol-http)
+* MariaDB, using the [MySQL/MariaDB Database plugin pack](/pp/integrations/plugin-packs/procedures/applications-databases-mysql)
     * MariaDB Server Connection Control
     * MariaDB / InnoDB buffers and caches
     * Indexes usage
@@ -305,7 +305,7 @@ The easiest part consists in monitoring the basic system indicators, mostly usin
 
 ### Cluster monitoring
 
-The cluster-specific health checks can be monitored using the [Pacemaker plugin pack](../../integrations/plugin-packs/procedures/applications-pacemaker-ssh.md):
+The cluster-specific health checks can be monitored using the [Pacemaker plugin pack](/pp/integrations/plugin-packs/procedures/applications-pacemaker-ssh):
 
 * Resources constraints: only for `ms_mysql` and  `centreon` resources
 * Failed actions

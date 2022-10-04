@@ -5,13 +5,13 @@ title: Supervision de Centreon-HA
 
 ## Supervision des services de clustering et des ressources du cluster
 
-Pour commencer, se référer à la [page de documentation du Plugin-Pack Linux SNMP](integrations/plugin-packs/procedures/operatingsystems-linux-snmp.md) pour installer tous les prérequis et superviser les indicateurs de santé système basiques des deux serveurs centraux.
+Pour commencer, se référer à la [page de documentation du Plugin-Pack Linux SNMP](/pp/integrations/plugin-packs/procedures/operatingsystems-linux-snmp) pour installer tous les prérequis et superviser les indicateurs de santé système basiques des deux serveurs centraux.
 
-Puis se référer à la [page de documentation du Plugin-Pack Centreon-HA](integrations/plugin-packs/procedures/applications-monitoring-centreon-ha.md) pour superviser ces processus et ces ressources sur les deux nœuds centraux.
+Puis se référer à la [page de documentation du Plugin-Pack Centreon-HA](/pp/integrations/plugin-packs/procedures/applications-monitoring-centreon-ha) pour superviser ces processus et ces ressources sur les deux nœuds centraux.
 
 ## Supervision de la réplication MariaDB
 
-Se référer à la [page de documentation du Plugin-Pack MySQL/MariaDB](integrations/plugin-packs/procedures/applications-databases-mysql.md) pour installer tous les prérequis et superviser les indicateurs de santé standards de MariaDB.
+Se référer à la [page de documentation du Plugin-Pack MySQL/MariaDB](/pp/integrations/plugin-packs/procedures/applications-databases-mysql) pour installer tous les prérequis et superviser les indicateurs de santé standards de MariaDB.
 
 L'adresse IP du poller doit être une source d'authentification reconnue par les bases de données. Ces requêtes *GRANT* doivent donc être exécuters sur le nœud principal (actif) et seront répliquées immédiatement sur le nœud secondaire (remplacer les champs encadrés par des chevrons `<>`) :
 
@@ -50,7 +50,7 @@ Position Status [OK]
 
 ## Supervision du Quorum Device
 
-Comme pour les nœuds centraux, il faut commencer par appliquer le [Plugin-Pack Linux SNMP](integrations/plugin-packs/procedures/operatingsystems-linux-snmp.md) pour installer tous les prérequis et superviser les indicateurs de santé système basiques du serveur supportant le Quorum Device.
+Comme pour les nœuds centraux, il faut commencer par appliquer le [Plugin-Pack Linux SNMP](/pp/integrations/plugin-packs/procedures/operatingsystems-linux-snmp) pour installer tous les prérequis et superviser les indicateurs de santé système basiques du serveur supportant le Quorum Device.
 
 Puis ajouter un nouveau service en naviguant vers `Configuration` > `Services` > `Services par hôte` et en cliquant sur `Ajouter` et remplir le formulaire conformément à la table ci-dessous :
 

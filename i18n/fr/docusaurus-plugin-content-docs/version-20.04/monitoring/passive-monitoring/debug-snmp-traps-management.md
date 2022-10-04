@@ -71,7 +71,7 @@ traphandle default su -l centreon -c "/usr/share/centreon/bin/centreontrapdforwa
 
 Si l’accès au fichier est incorrect, modifiez le et redémarrez le processus snmptrapd. Vous pouvez contrôler le bon
 fonctionnement du binaire centreontrapdforward en vous rendant au chapitre de configuration de
-*[centreontrapdforward](enable-snmp-traps#centreontrapdforward)*.
+*[centreontrapdforward](enable-snmp-traps.md#centreontrapdforward)*.
 
 ### Centreontrapd
 
@@ -80,13 +80,13 @@ l’émetteur ainsi que le service lié à cet hôte et auquel est reliée la d�
 son fonctionnement, il convient de vérifier les paramètres de configuration de centreontrapd.
 
 Vous pouvez vérifier la bonne configuration de centreontrapd au sein du chapitre de configuration de
-*[centreontrapd](enable-snmp-traps#centreontrapd)*.
+*[centreontrapd](enable-snmp-traps.md#centreontrapd)*.
 
 ### Centeon Gorgone
 
 Dans le cas d’un serveur central, le processus Centreon Gorgone doit être démarré pour transférer la commande externe à
 l’ordonnanceur supervisant l’émetteur, vérifiez son état de fonctionnement. Activez le débogage du processus via le
-menu **Administration > Options > Debug** et redémarrez le processus.
+menu **Administration > Parameters > Debug** et redémarrez le processus.
 
 > Vous pouvez modifier le niveau de journalisation des logs  via le menu `Administation > Paramètres > Débogage`
 

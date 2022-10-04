@@ -65,4 +65,4 @@ puis cliquez sur **Confirmer**. Cliquez sur **Suivant**.
 
 4. Allez à la page **Configuration > Hôtes > Hôtes** et vérifiez que les hôtes que vous avez sélectionnés à l'étape précedente apparaissent bien dans la liste. Attention, les hôtes ont été ajoutés à la liste des hôtes mais ils ne sont pas encore supervisés.
 
-5. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration). Les hôtes apparaissent à la page **Statut des ressources** : ils sont maintenant supervisés.
+5. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md). Les hôtes apparaissent à la page **Statut des ressources** : ils sont maintenant supervisés.
