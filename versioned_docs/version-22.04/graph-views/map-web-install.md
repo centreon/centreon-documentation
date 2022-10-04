@@ -33,7 +33,7 @@ The diagram below summarizes the MAP architecture:
 
 ## Prerequisites
 
-### Centreon MAP Server
+### Centreon MAP Engine server
 
 #### License
 
@@ -79,11 +79,11 @@ Your screen resolution must be at least 1280 x 768.
 
 ### Network requirements
 
-Centreon MAP Server machine must access:
+Centreon MAP Engine server machine must access:
 
-- Centreon Central broker, usually on Centreon Central machine, using TCP
+- Centreon central Broker, usually on Centreon central machine, using TCP
   port 5758.
-- Centreon Database, usually on Centreon Central machine, using TCP port 3306.
+- Centreon database, usually on Centreon central machine, using TCP port 3306.
 - Centreon MAP database, usually on localhost, using TCP port 3306.
 
 All the ports above are default values and can be changed if needed.
@@ -97,12 +97,13 @@ configurations are possible.
 
 ### Centreon MAP interface
 
-You must provide to Centreon MAP server a dedicated user
+You must provide to Centreon MAP Engine server a dedicated user
 **who has access to all resources** through the appropriate [access list groups](../administration/access-control-lists.md). 
 Since the password will be stored in human-readable form in a 
 configuration file, you should not use a Centreon admin user account.
 
-Provide this user with access to the Centreon web real time API:
+- Go to the **Configuration > Users > Contacts/Users** page. Then click the **Centreon Authentication** tab.
+- Set the **Reach API Realtime** parameter to **Yes**.
 
 ![image](../assets/graph-views/reach-api.png)
 
@@ -124,7 +125,7 @@ GRANT SELECT, INSERT ON centreon.* TO 'centreon_map'@'<IP_SERVER_MAP>';
 The INSERT privilege will only be used during the installation process
 in order to create new Centreon Broker output. It will be revoked later.
 
-### Centreon MAP server
+### Centreon MAP Engine server
 
 If you installed your Centreon MAP server from a "fresh CentOS installation"
 you need to install the `centreon-release` package:
@@ -266,7 +267,7 @@ mysql_secure_installation
 
 #### Configure.sh script
 
-Execute the Centreon MAP server configuration script. Two modes are available:
+Execute the Centreon MAP Engine server configuration script. Two modes are available:
 interactive or automatic.
 
 - interactive *(no option/default mode)*: Several questions will be asked to
