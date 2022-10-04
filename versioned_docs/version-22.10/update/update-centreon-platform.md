@@ -64,7 +64,7 @@ Please make sure all users are logged out from the Centreon web interface before
 2. Then upgrade all the components with the following command:
 
   ```shell
-  apt update centreon
+  apt upgrade centreon
   ```
 
 </TabItem>
