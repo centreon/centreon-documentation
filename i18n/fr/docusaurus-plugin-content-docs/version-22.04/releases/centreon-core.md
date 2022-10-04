@@ -24,6 +24,7 @@ Release date: ` September 30, 2022`
 
 - [Administration] Fixed not mandatory access group for OpenId Connect configuration
 - [Authentication] Fixed user theme retrieval via OpenID Connect login
+- [Configuration] Fixed a bug that caused the reactivation of disabled hosts, ignoring the value set by the user in the autodiscovery wizard
 - [Configuration] Fixed export of RRDcached path in Centreon Broker configuration
 - [Core] Improved database storage to avoid blocking Broker when maximum values are reached
 - [Core] Removed obsolete code in ACL configuration listing
