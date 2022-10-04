@@ -65,7 +65,7 @@ Assurez-vous que tous les utilisateurs sont déconnectés avant de commencer la 
 2. Mettez à jour l'ensemble des composants :
 
   ```shell
-  apt update centreon
+  apt upgrade centreon
   ```
 
 </TabItem>
