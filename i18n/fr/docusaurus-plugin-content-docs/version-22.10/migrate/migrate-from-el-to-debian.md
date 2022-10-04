@@ -1,6 +1,6 @@
 ---
 id: migrate-from-el-to-debian
-title: Migrer depuis un OS de type EL vers Debian 11 (vers un Centreon 22.04)
+title: Migrer depuis un OS de type EL vers Debian 11 (vers un Centreon à partir de 22.04)
 ---
 
 ## Prérequis
