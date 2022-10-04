@@ -1,6 +1,6 @@
 ---
 id: migrate-from-el-to-debian
-title: Migrate from an EL-type OS to Debian 11 (to a Centreon 22.04)
+title: Migrate from an EL-type OS to Debian 11 (to a Centreon from version 22.04)
 ---
 
 ## Prerequisites
@@ -8,7 +8,7 @@ title: Migrate from an EL-type OS to Debian 11 (to a Centreon 22.04)
 This procedure only applies if the following conditions are met:
 
 - You wish to migrate from a 64-bit EL-type OS to Debian 11. For instance, if you want to migrate from a CentOS 7 to a Debian 11.
-- Your version of Centreon is 18.10 or newer and you wish to upgrade to Centreon 22.04 (Debian is only supported from version 22.04 on). If you wish to migrate from an older version, [contact the Centreon support team](https://centreon/force.com).
+- Your version of Centreon is 18.10 or newer and you wish to upgrade to the latest version of Centreon. If you wish to migrate from an older version, [contact the Centreon support team](https://centreon/force.com).
 
 > If your Centreon platform includes a Centreon redundancy system, please
 > contact [Centreon support](https://centreon.force.com).
