@@ -60,7 +60,7 @@ fonctionnement sur la documentation du module:
 </TabItem>
 <TabItem value="Health" label="Health">
 
-Could not retrive metrics
+Could not retrieve metrics
 
 </TabItem>
 <TabItem value="Memory" label="Memory">

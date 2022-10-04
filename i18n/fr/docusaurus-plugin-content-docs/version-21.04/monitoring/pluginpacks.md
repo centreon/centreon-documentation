@@ -179,7 +179,7 @@ Votre Plugin Pack est maintenant à jour.
 Exécutez la commande suivante sur **tous les collecteurs**:
 
 ```shell
-yum update centreon-plugins\*
+yum update centreon-plugin\*
 ```
 
 Puis redémarrez **tous les collecteurs**.

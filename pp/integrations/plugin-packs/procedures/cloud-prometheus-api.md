@@ -6,44 +6,64 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Overview
+## Pack Assets
 
-Prometheus is a metric-oriented monitoring system scraping data from various exporter
-over the HTTP protocol.
+### Templates
 
-The Centreon Plugin Pack takes advantage of PromQL and Prometheus APIs to get information
-from the time-series database.
+The Centreon Plugin Pack **Prometheus Server** brings 2 different host templates:
 
-## Plugin Pack Assets
+* Cloud-Prometheus-Api-custom
+* Cloud-Prometheus-Target-Name-Api-custom
 
-### Monitored Objects
+It brings the following service templates:
 
-- All metrics stored by Prometheus
-- Status of the targets
+| Service Alias      | Service Template                        | Service Description                                          | Default |
+| :----------------- | :-------------------------------------- | :----------------------------------------------------------- | :------ |
+| Expression         | Cloud-Prometheus-Expression-Api         | Check allowing to execute queries and use results to define thresholds |         |
+| Target-Name-Status | Cloud-Prometheus-Target-Name-Status-Api | Check targets status filtered by name                        | X       |
+| Target-Status      | Cloud-Prometheus-Target-Status-Api      | Check targets status                                         | X       |
 
-### Collected Metrics
+### Discovery rules
+
+The Centreon Plugin Pack **Prometheus Server** includes a Host Discovery provider to
+automatically discover Prometheus targets.
+
+![image](../../../assets/integrations/plugin-packs/procedures/cloud-prometheus-api-provider.png)
+
+### Collected metrics & status
 
 <Tabs groupId="sync">
 <TabItem value="Expression" label="Expression">
 
 Generic mode to perform PromQL queries
 
-| Metric name                                          | Description |
-| :--------------------------------------------------- | :---------- |
-| *instance*#*centreon_prometheus_metric_display_name* | Any metric  |
+| Metric Name | Unit |
+| :---------- | :--- |
+| status      |      |
 
-E.g: Throttled CPU metrics on a specific node: '*amzkubemaster.int.centreon.com*#*throttled*'=2.4699414529294077;;;; 
+</TabItem>
+<TabItem value="Target-Name-Status" label="Target-Name-Status">
+
+| Metric Name           | Unit  |
+| :-------------------- | :---- |
+| targets.active.count  | count |
+| targets.down.count    | count |
+| targets.dropped.count | count |
+| targets.unknown.count | count |
+| targets.up.count      | count |
+| *targets*#status      |       |
 
 </TabItem>
 <TabItem value="Target-Status" label="Target-Status">
 
-| Metric name           | Description                |
-| :-------------------- | :------------------------- |
-| targets.active.count  | Number of active targets   |
-| targets.dropped.count | Number of dropped targets  |
-| targets.up.count      | Number of up targets       |
-| targets.down.count    | Number of down targets     |
-| targets.unknown.count | Number of unknown targets  | 
+| Metric Name           | Unit  |
+| :-------------------- | :---- |
+| targets.active.count  | count |
+| targets.down.count    | count |
+| targets.dropped.count | count |
+| targets.unknown.count | count |
+| targets.up.count      | count |
+| *targets*#status      |       |
 
 </TabItem>
 </Tabs>
@@ -53,36 +73,35 @@ E.g: Throttled CPU metrics on a specific node: '*amzkubemaster.int.centreon.com*
 The Centreon Poller should be able to perform queries against Prometheus API over
 HTTP. 
 
-## Setup 
+## Setup
 
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon Poller expected to query Prometheus:
-
+1. Install the plugin package on every Centreon poller expected to monitor **Prometheus Server** resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Prometheus-Api
 ```
 
-2. On the Centreon Web interface, install the *Prometheus API* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+2. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **Prometheus Server** Centreon Plugin Pack.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected toto query Prometheus:
+1. Install the plugin package on every Centreon poller expected to monitor **Prometheus Server** resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Prometheus-Api
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Install the **Prometheus Server** Centreon Plugin Pack RPM on the Centreon central server:
 
 ```bash
 yum install centreon-pack-cloud-prometheus-api
 ```
 
-3. On the Centreon Web interface, install the *Prometheus API* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+3. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **Prometheus Server** Centreon Plugin Pack.
 
 </TabItem>
 </Tabs>
@@ -91,17 +110,45 @@ yum install centreon-pack-cloud-prometheus-api
 
 ### Host
 
-- Log into Centreon and add a new Host through "Configuration > Hosts".
-- Select the *Cloud-Prometheus-Api-custom* template to apply to the Host.
-- Once the template applied, some Macros marked as 'Mandatory' hereafter have to be configured.
+<Tabs groupId="sync">
+<TabItem value="Cloud-Prometheus-Api-Custom" label="Cloud-Prometheus-Api-Custom">
 
-| Mandatory | Nom                     | Description                                            |
-|:----------|:------------------------|:------------------------------------------------------ |
-| X         | PROMETHEUSAPIHOSTNAME   | FQDN or IP of your Prometheus Host                     |
-| X         | PROMETHEUSAPIPORT       | Port Prometheus listens connection from                |
-| X         | PROMETHEUSAPIURL        | URL Path to reach API (Default: '/api/v1)              |
-| X         | PROMETHEUSAPIPROTO      | Protocol used by Prom API (Default: 'http')            |
-|           | EXTRAOPTIONS            | Additionnal flags placeholder, e.g: --use-new-perfdata |
+Template to monitor Prometheus server.
+
+* Log into Centreon and add a new host through **Configuration > Hosts**.
+* Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your **Prometheus Server** server settings.
+* Apply the **Cloud-Prometheus-Api-custom** template to the host.
+* Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
+
+| Mandatory | Macro              | Description                                      |
+| :---------- | :-------------------- | :----------------------------------------------------------- |
+|             | EXTRAOPTIONS          | Any extra option you may want to add to every command line (eg. a --verbose flag) |
+| X           | PROMETHEUSAPIPORT     | (Default : '9090')                                            |
+| X           | PROMETHEUSAPIPROTO    | (Default : 'http')                                            |
+| X           | PROMETHEUSAPIURL      | (Default : '/api/v1')                                         |
+
+</TabItem>
+
+<TabItem value="Cloud-Prometheus-Target-Name-Api-Custom" label="Cloud-Prometheus-Target-Name-Api-Custom">
+
+Template to monitor Prometheus targets.
+
+* Log into Centreon and add a new host through **Configuration > Hosts**.
+* Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your **Prometheus target** server settings.
+* Apply the **Cloud-Prometheus-Target-Name-Api-Custom** template to the host.
+* Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
+
+| Mandatory | Macro              | Description                                      |
+| :---------- | :-------------------- | :----------------------------------------------------------- |
+|             | EXTRAOPTIONS          | Any extra option you may want to add to every command line (eg. a --verbose flag) |
+| X           | FILTERLABEL           | Filter label to filter on a specific target. Example: 'instance,10.10.1.199:9182'                       |
+| X           | PROMETHEUSAPIHOSTNAME | Prometheus server name or IP address                         |
+| X           | PROMETHEUSAPIPORT     | (Default : '9090')                                            |
+| X           | PROMETHEUSAPIPROTO    | (Default : 'http')                                            |
+| X           | PROMETHEUSAPIURL      | (Default : '/api/v1')                                         |
+
+</TabItem>
+</Tabs>
 
 ## FAQ
 
@@ -117,7 +164,7 @@ user account and test the Plugin by running the following command:
     --plugin=cloud::prometheus::restapi::plugin \
     --mode=target-status \
     --hostname=amzprometheus.int.centreon.com \
-    --url-path='/api/v1' --port='80' --proto='http' \
+    --url-path='/api/v1' --port='9090' --proto='http' \
     --filter-label='job,coredns' \
     --warning-status='' --critical-status='%{health} !~ /up/' 
 ```
@@ -132,7 +179,7 @@ Target 'http://10.244.2.5:9153/metrics' health is 'up' [pod = coredns-74ff55c5b-
 
 The command above check the status of the targets (`--mode=target-status`) linked 
 to a Prometheus server (`--hostname=amzprometheus.int.centreon.com`)  exposing its API 
-over HTTP and listnening on port 80 (`--port='80' --proto='http'`). 
+over HTTP and listnening on port 9090 (`--port='9090' --proto='http'`). 
 
 Only targets linked with the coredns job label are checked (`--filter-label='job,coredns'`). 
 
@@ -149,7 +196,7 @@ Nothing is better than a clear example to understand how the Expression generic 
     --plugin=cloud::prometheus::restapi::plugin \
     --mode=expression \
     --hostname=amzprometheus.int.centreon.com \
-    --url-path='/api/v1' --port='80' --proto='http' \
+    --url-path='/api/v1' --port='9090' --proto='http' \
     --query='cpu_requests,sum by (node) (kube_pod_container_resource_requests_cpu_cores) / sum by (node) (kube_node_status_capacity_cpu_cores) * 100' \
     --output='%{instance} CPU Requests: %{cpu_requests}%' --multiple-output='Nodes CPU Requests within bounds' \
     --instance='node' \
@@ -235,4 +282,8 @@ The <error_text> should give more information about the root cause
 
 The PromQL query expression is invalid. Check that it works within the Prometheus WebUI. 
 
+### Troubleshooting
+
+Please find the troubleshooting documentation for the API-based plugins in
+this [chapter](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks).
 

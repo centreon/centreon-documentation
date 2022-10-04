@@ -11,7 +11,7 @@ const config = {
   url: 'https://docs.centreon.com',
   baseUrl: '/',
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenMarkdownLinks: 'throw',
   favicon: 'img/logo-centreon.png',
   organizationName: 'Centreon',
   projectName: 'Centreon Documentation',
@@ -51,15 +51,19 @@ const config = {
             },
             '21.10': {
               label: '21.10',
+              banner:'none',
             },
             21.04: {
               label: '21.04',
+              banner:'none',
             },
             '20.10': {
               label: '20.10',
+              banner:'unmaintained',
             },
             20.04: {
               label: '20.04',
+              banner:'unmaintained',
             },
           },
         },
@@ -93,6 +97,8 @@ const config = {
         max: 1030, // max resized image's size.
         min: 640, // min resized image's size. if original is lower, use that size.
         steps: 2, // the max number of images generated between min and max (inclusive)
+        // Use false to debug, but it incurs huge perf costs
+        disableInDev: true,
       },
     ],
     'plugin-image-zoom',
@@ -151,11 +157,16 @@ const config = {
         ],
       },
 
-      hideableSidebar: true,
       colorMode: {
         defaultMode: 'light',
         disableSwitch: false,
         respectPrefersColorScheme: true,
+      },
+
+      docs: {
+        sidebar: {
+          hideable: true,
+        },
       },
 
       navbar: {
@@ -264,6 +275,23 @@ const config = {
         copyright: `Copyright © 2005 - ${new Date().getFullYear()} Centreon`,
       },
     }),
+    webpack: {
+      jsLoader: (isServer) => ({
+        loader: require.resolve('swc-loader'),
+        options: {
+          jsc: {
+            "parser": {
+              "syntax": "typescript",
+              "tsx": true
+            },
+            target: 'es2017',
+          },
+          module: {
+            type: isServer ? 'commonjs' : 'es6',
+          }
+        },
+      }),
+    },
 };
 
 module.exports = config;

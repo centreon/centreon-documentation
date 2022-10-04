@@ -8,7 +8,11 @@ import TabItem from '@theme/TabItem';
 Centreon fournit des RPM pour ses produits au travers de la solution
 Centreon Open Source disponible gratuitement sur notre dépôt.
 
-Les paquets peuvent être installés sur CentOS 7 ou sur Alma/RHEL/Oracle Linux 8.
+Les paquets peuvent être installés sur CentOS 7, Alma/RHEL/Oracle Linux 8 et Debian 11.
+
+L'ensemble de la procédure d'installation doit être faite en tant qu'utilisateur privilégié.
+
+## Prérequis
 
 Après avoir installé votre serveur, réalisez la mise à jour de votre système
 d'exploitation via la commande :
@@ -20,6 +24,22 @@ d'exploitation via la commande :
 dnf update
 ```
 
+### Configuration spécifique
+
+Pour utiliser Centreon en français, espagnol ou portugais, installez les paquets correspondants :
+
+```shell
+dnf install glibc-langpack-fr
+dnf install glibc-langpack-es
+dnf install glibc-langpack-pt
+```
+
+Utilisez la commande suivante pour vérifier quelles langues sont installées sur votre système :
+
+```shell
+locale -a
+```
+
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
@@ -28,28 +48,24 @@ yum update
 ```
 
 </TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+``` shell
+apt update && apt upgrade
+```
+
+</TabItem>
 </Tabs>
 
-> Acceptez toutes les clés GPG proposées et pensez a redémarrer votre serveur
+> Acceptez toutes les clés GPG proposées et redémarrez votre serveur
 > si une mise à jour du noyau est proposée.
 
-Si vous installez Centreon sur AlmaLinux/RHEL/OracleLinux 8, et que vous comptez utiliser Centreon en français, espagnol ou portugais, installez les paquets correspondants :
-
-```shell
-dnf install glibc-langpack-fr
-dnf install glibc-langpack-es
-dnf install glibc-langpack-pt
-```
-
-Vous pouvez utiliser la commande suivante pour vérifier quelles langues sont installées sur votre système :
-
-```shell
-locale -a
-```
-
-## Étapes de pré-installation
+## Étape 1 : Pré-installation
 
 ### Désactiver SELinux
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Pendant l'installation, SELinux doit être désactivé. Éditez le fichier
 **/etc/selinux/config** et remplacez **enforcing** par **disabled**, ou bien
@@ -73,11 +89,43 @@ $ getenforce
 Disabled
 ```
 
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+Pendant l'installation, SELinux doit être désactivé. Éditez le fichier
+**/etc/selinux/config** et remplacez **enforcing** par **disabled**, ou bien
+exécutez la commande suivante :
+
+```shell
+sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
+```
+
+Redémarrez votre système d'exploitation pour prendre en compte le changement.
+
+```shell
+reboot
+```
+
+Après le redémarrage, une vérification rapide permet de confirmer le statut de
+SELinux :
+
+```shell
+$ getenforce
+Disabled
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+SELinux n'est pas installé sur Debian 11, continuez.
+
+</TabItem>
+</Tabs>
 
 ### Configurer ou désactiver le pare-feu
 
-Paramétrer le pare-feu système ou désactiver ce dernier. Pour désactiver ce
-dernier exécuter les commandes suivantes :
+Si votre pare-feu système est actif, [paramétrez-le](../../administration/secure-platform.md#enable-firewalld).
+Vous pouvez également le désactiver le temps de l'installation :
 
 ```shell
 systemctl stop firewalld
@@ -106,6 +154,7 @@ dnf config-manager --set-enabled 'powertools'
 ```
 
 Activez PHP 8.0 en utilisant les commandes suivantes :
+
 ```shell
 dnf module reset php
 dnf module install php:remi-8.0
@@ -128,6 +177,7 @@ subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 ```
 
 Activez PHP 8.0 en utilisant les commandes suivantes :
+
 ```shell
 dnf module reset php
 dnf module install php:remi-8.0
@@ -151,11 +201,11 @@ dnf config-manager --set-enabled ol8_codeready_builder
 ```
 
 Activez PHP 8.0 en utilisant les commandes suivantes :
+
 ```shell
 dnf module reset php
 dnf module install php:remi-8.0
 ```
-
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
@@ -185,6 +235,64 @@ yum-config-manager --enable remi-php80
 ```
 
 </TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+#### Installer les dépendances
+
+Installez les dépendances suivantes :
+
+```shell
+apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2
+```
+
+#### Installer le dépôt Sury APT pour PHP 8.0
+
+Pour installer le dépôt Sury, exécutez la commande suivante :
+
+```shell
+echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/sury-php.list
+```
+
+Puis importez la clé du dépôt :
+
+```shell
+wget -O- https://packages.sury.org/php/apt.gpg | gpg --dearmor | tee /etc/apt/trusted.gpg.d/php.gpg  > /dev/null 2>&1
+```
+
+</TabItem>
+</Tabs>
+
+#### Dépôt MariaDB
+
+<Tabs groupId="sync">
+
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+cd /tmp
+curl -JO https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
+bash ./mariadb_repo_setup
+sed -ri 's/10\../10.5/' /etc/yum.repos.d/mariadb.repo
+rm -f ./mariadb_repo_setup
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```shell
+cd /tmp
+curl -JO https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
+bash ./mariadb_repo_setup
+sed -ri 's/10\../10.5/' /etc/yum.repos.d/mariadb.repo
+rm -f ./mariadb_repo_setup
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+Les paquets seront installés automatiquement.
+
+</TabItem>
 </Tabs>
 
 #### Dépôt Centreon
@@ -209,9 +317,25 @@ yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/ce
 ```
 
 </TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+Pour installer le dépôt Centreon, exécutez la commande suivante :
+
+```shell
+echo "deb https://apt.centreon.com/repository/22.04/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+```
+
+Puis importez la clé du dépôt :
+
+```shell
+wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+apt update
+```
+
+</TabItem>
 </Tabs>
 
-## Installation
+## Étape 2 : Installation
 
 Ce chapitre décrit l'installation d'un serveur Centreon Remote Server.
 
@@ -239,9 +363,19 @@ systemctl restart mariadb
 ```
 
 </TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt update
+apt install -y centreon
+systemctl daemon-reload
+systemctl restart mariadb
+```
+
+</TabItem>
 </Tabs>
 
-Vous pouvez maintenant passer à [l'étape suivante](#configuration).
+Passez maintenant à [l'étape suivante](#étape-3--configuration).
 
 ### Avec base de données déportée
 
@@ -261,6 +395,14 @@ dnf install -y centreon-central
 
 ```shell
 yum install -y centreon-central
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt update
+apt install -y centreon-central
 ```
 
 </TabItem>
@@ -286,15 +428,25 @@ systemctl restart mariadb
 ```
 
 </TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt update
+apt install -y centreon-database
+systemctl daemon-reload
+systemctl restart mariadb
+```
+
+</TabItem>
 </Tabs>
 
 Sécurisez votre installation MariaDB en exécutant la commande suivante :
+
 ```shell
 mysql_secure_installation
 ```
 
-Créez enfin un utilisateur avec privilèges **root** nécessaire à l'installation de
-Centreon :
+Créez enfin un utilisateur avec privilèges **root** nécessaire à l'installation de Centreon :
 
 ```SQL
 CREATE USER '<USER>'@'<IP>' IDENTIFIED BY '<PASSWORD>';
@@ -308,8 +460,7 @@ FLUSH PRIVILEGES;
 > Remplacez **<USER\>** et **<PASSWORD\>** par les identifiants de
 > l'utilisateur.
 
-Une fois l'installation terminée vous pouvez supprimer cet utilisateur via la
-commande :
+Une fois l'installation terminée, supprimez cet utilisateur via la commande :
 
 ```SQL
 DROP USER '<USER>'@'<IP>';
@@ -328,7 +479,7 @@ DROP USER '<USER>'@'<IP>';
 > LimitNOFILE=32000
 > ```
 >
-> De même pour la directive MariaDB **open_files_limit**, exemple:
+> De même pour la directive MariaDB **open_files_limit**, exemple pour Centos 7, Alma/RHEL/OL 8 :
 >
 > ```shell
 > $ cat /etc/my.cnf.d/centreon.cnf
@@ -337,10 +488,29 @@ DROP USER '<USER>'@'<IP>';
 > open_files_limit=32000
 > ```
 >
-> Pensez à redémarrer le service mariadb après chaque changement de
-> configuration.
+> Pour Debian 11:
+>
+> ```shell
+> $ cat /etc/mysql/mariadb.conf.d/80-centreon.cnf
+> [server]
+> innodb_file_per_table=1
+> open_files_limit=32000
+> ```
 
-## Configuration
+>
+> Redémarrez le service mariadb après chaque changement de configuration.
+
+#### Configuration spécifique à Debian 11
+
+MariaDB doit écouter sur toutes les interfaces au lieu d'écouter sur localhost/127.0.0.1 (valeur par défaut). Éditez le fichier suivant :
+
+```shell
+/etc/mysql/mariadb.conf.d/50-server.cnf
+```
+
+Attribuez au paramètre **bind-address** la valeur **0.0.0.0**.
+
+## Étape 3 : Configuration
 
 ### Nom du serveur
 
@@ -356,7 +526,12 @@ hostnamectl set-hostname remote1
 
 ### Fuseau horaire PHP
 
-La timezone par défaut de PHP doit être configurée. Exécuter la commande suivante :
+La timezone par défaut de PHP doit être configurée. 
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / CentOS 7">
+
+Exécutez la commande suivante :
 
 ```shell
 echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
@@ -371,7 +546,27 @@ Après avoir réalisé la modification, redémarrez le service PHP-FPM :
 systemctl restart php-fpm
 ```
 
-### Lancement des services au démarrage
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+Editez le fichier **/etc/php/8.0/mods-available/centreon.ini** et contrôlez le fuseau horaire.
+
+> Celui-ci a été défini durant le processus d'installation en récupérant le fuseau horaire configuré sur le
+> système d'exploitation.
+
+> La liste des fuseaux
+> horaires est disponible [ici](http://php.net/manual/en/timezones.php).
+
+Après avoir sauvegardé le fichier, redémarrez le service PHP-FPM :
+
+```shell
+systemctl restart php8.0-fpm
+```
+
+</TabItem>
+</Tabs>
+
+### Gérer le lancement des services au démarrage
 
 Pour activer le lancement automatique des services au démarrage, exécutez la
 commande suivante sur le serveur Central :
@@ -391,12 +586,20 @@ systemctl enable php-fpm httpd24-httpd centreon cbd centengine gorgoned snmptrap
 ```
 
 </TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+systemctl enable php8.0-fpm apache2 centreon cbd centengine gorgoned centreontrapd snmpd snmptrapd
+```
+
+</TabItem>
 </Tabs>
 
 Puis exécutez la commande suivante (sur le serveur distant si vous utilisez une base de données locale, sinon sur le serveur de base de données déporté):
 
 ```shell
 systemctl enable mariadb
+systemctl restart mariadb
 ```
 
 ### Sécuriser la base de données
@@ -408,16 +611,14 @@ mysql_secure_installation
 ```
 
 * Répondez oui à toute question sauf à "Disallow root login remotely?". 
-* Vous devez obligatoirement définir un mot de passe pour l'utilisateur **root** de la base de données.
+* Définissez obligatoirement un mot de passe pour l'utilisateur **root** de la base de données.
 Ce mot de passe vous sera demandé lors de l'[installation web](../web-and-post-installation.md).
 
-> Pour plus d'informations, veuillez consulter la [documentation officielle MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/).
+> Pour plus d'informations, consultez la [documentation officielle MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/).
 
+## Étape 4 : Installation web
 
-## Installation web
-
-Avant de démarrer l'installation web, démarrez le serveur Apache avec la
-commande suivante :
+Avant de démarrer l'installation web, démarrez le serveur Apache avec la commande suivante :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -434,6 +635,13 @@ systemctl start httpd24-httpd
 ```
 
 </TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+systemctl start apache2
+```
+
+</TabItem>
 </Tabs>
 
 
@@ -446,13 +654,10 @@ Terminez l'installation en réalisant les
 > A l'étape d'**Initialisation de la supervision**, seules les actions 6 à 8
 > doivent être faites.
 
-## Enregistrer le Remote Server
+## Étape 5 : Enregistrer le Remote Server
 
 Pour transformer le serveur en serveur distant et l'enregistrer sur le serveur Central, exécutez la commande suivante sur le futur serveur distant :
 
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
 ``` shell
 /usr/share/centreon/bin/registerServerTopology.sh -u <API_ACCOUNT> \
 -t remote -h <IP_TARGET_NODE> -n <REMOTE_NAME>
@@ -463,29 +668,12 @@ Exemple:
 ``` shell
 /usr/share/centreon/bin/registerServerTopology.sh -u admin -t remote -h 192.168.0.1 -n remote-1
 ```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-``` shell
-/usr/share/centreon/bin/registerServerTopology.sh -u <API_ACCOUNT> \
--t remote -h <IP_TARGET_NODE> -n <REMOTE_NAME>
-```
-
-Exemple:
-
-``` shell
-/usr/share/centreon/bin/registerServerTopology.sh -u admin -t remote -h 192.168.0.1 -n remote-1
-```
-
-</TabItem>
-</Tabs>
 
 > Remplacez **<IP_TARGET_NODE>** par l'adresse IP du serveur Central auquel vous voulez rattacher le serveur distant (adresse IP vue par le serveur distant).
 
 > Le compte **<API_ACCOUNT>** doit avoir accès à l'API de configuration. Vous pouvez utiliser le compte **admin**.
 
-> Vous pouvez changer le port et la méthode HTTP, le format de l'option **-h** est le suivant :
+> Pour changer le port et la méthode HTTP, le format de l'option **-h** est le suivant :
 > `HTTPS://<IP_TARGET_NODE>:PORT`
 
 Suivre ensuite les instructions
@@ -557,13 +745,6 @@ Vous recevrez la validation du serveur Centreon Central :
 2020-10-16T17:19:37+02:00 [INFO]: The CURRENT NODE 'remote: 'remote-1@192.168.0.2' has been converted and registered successfully.
 ```
 
-Enfin, il est nécessaire d'ajouter des droits à l'utilisateur de base de données **centreon** pour qu'il puisse
-utiliser la commande **LOAD DATA INFILE** :
-
-```sql
-GRANT FILE on *.* to 'centreon'@'localhost';
-```
-
 ### Principaux messages d'erreur
 
 ``` shell
@@ -597,12 +778,23 @@ Failed connect to 192.168.0.1:444; Connection refused
 
 > La version Centreon du serveur distant est invalide. Elle doit être supérieure ou égale à 22.04.
 
-## Ajouter le Remote Server à la configuration
+## Étape 6 : Étendre les droits du SGBD local
+
+Enfin, il est nécessaire d'ajouter des droits à l'utilisateur de base de données **centreon** pour qu'il puisse
+utiliser la commande **LOAD DATA INFILE** :
+
+```sql
+mysql -u root -p
+GRANT FILE on *.* to 'centreon'@'localhost';
+exit
+```
+
+## Étape 7 : Ajouter le Remote Server à la configuration
 
 Rendez-vous au chapitre
 [Ajouter un Remote Server à la configuration](../../monitoring/monitoring-servers/add-a-remote-server-to-configuration.md).
 
-## Sécurisez votre plateforme
+## Étape 8 : Sécuriser votre plateforme
 
-N'oubliez pas de sécuriser votre plateforme Centreon en suivant nos
+Sécurisez votre plateforme Centreon en suivant nos
 [recommandations](../../administration/secure-platform.md).

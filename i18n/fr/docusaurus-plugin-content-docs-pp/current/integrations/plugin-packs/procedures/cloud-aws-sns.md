@@ -6,34 +6,28 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Vue d'ensemble
+## Contenu du Pack
 
-Amazon Simple Notification Service (SNS) est un service de messagerie pub/sub hautement disponible, sécurisé et entièrement géré 
-qui vous permet de découpler et mettre à l'échelle des microservices, des systèmes décentralisés et des applications sans serveur.
+### Modèles
 
-Aucun frais n'est facturé pour les métriques Amazon SNS présentées dans CloudWatch. Elles sont fournies dans le cadre du service Amazon SNS.
+Le Plugin Pack Centreon **Amazon SNS** apporte un modèle d'hôte :
+* Cloud-Aws-Sqs-custom
 
-Le Plugin Centreon Amazon SNS s'appuie sur les APIs Amazon Cloudwatch pour la collecte des données et métriques relatives au service SNS. 
+Il apporte le modèle de service suivant :
 
-## Contenu du Plugin-Pack
+| Alias                   | Modèle de service                     | Description                                       | Défaut |
+|:------------------------|:--------------------------------------|:--------------------------------------------------|:-------|
+| Sns-Topic-Notifications | Cloud-Aws-Sns-Topic-Notifications-Api | Contrôle les notifications Amazon SNS par "topic" | X      |
 
-### Objets supervisés
+### Règles de découverte
 
-* Notifications par "topic" SNS
+Ce pack propose une règle de découverte d'hôtes permettant de découvrir automatiquement des ressources **AWS SNS** : 
 
-### Règles de découvertes
+![image](../../../assets/integrations/plugin-packs/procedures/cloud-aws-sns-provider.png)
 
-<Tabs groupId="sync">
-<TabItem value="Services" label="Services">
+Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionnement sur la documentation du module : [Découverte des hôtes](/docs/monitoring/discovery/hosts-discovery)
 
-| Rule name                         | Description                                                                 |
-|:----------------------------------|:----------------------------------------------------------------------------|
-| Cloud-Aws-Sns-Topic-Notifications | Discover Amazon SNS topics and monitor the related notifications statistics |
-
-</TabItem>
-</Tabs>
-
-### Métriques collectées
+### Métriques & statuts collectés
 
 Plus de détails sur les métriques présentées ci-après sont disponibles sur la documentation officielle du service SNS:
 https://docs.aws.amazon.com/fr_fr/sns/latest/dg/sns-monitoring-using-cloudwatch
@@ -55,8 +49,8 @@ https://docs.aws.amazon.com/fr_fr/sns/latest/dg/sns-monitoring-using-cloudwatch
 
 ### Privilèges AWS
 
-Un compte de service (paire d'identifiants *access/secret keys*) est nécessaire afin de pouvoir superviser les resources Amazon SNS.
-Ce compte doit bénéficier des privilèges suivants:
+Un compte de service (paire d'identifiants *access/secret keys*) est nécessaire afin de pouvoir superviser les resources **Amazon SNS**.
+Ce compte doit bénéficier des privilèges suivants :
 
 | AWS Privilege                  | Description                                          |
 |:-------------------------------|:-----------------------------------------------------|
@@ -66,9 +60,9 @@ Ce compte doit bénéficier des privilèges suivants:
 
 ### Dépendances du Plugin
 
-Afin de récupérer les informations nécessaires via les APIs AWS, il est possible d'utiliser soit le binaire *awscli*, soit le SDK perl Paws. Le SDK est recommandé car plus performant. 
+Afin de récupérer les informations nécessaires via les APIs AWS, il est possible d'utiliser soit le binaire *awscli* fourni par Amazon, soit le SDK Perl *paws*. Le SDK est recommandé car plus performant. 
 
-**Attention** il n'est pas possible d'utiliser perl-Paws si la connexion s'effectue au travers d'un proxy.
+> **Attention** il n'est pas possible d'utiliser *paws* si la connexion s'effectue au travers d'un proxy.
 
 <Tabs groupId="sync">
 <TabItem value="perl-Paws-installation" label="perl-Paws-installation">
@@ -81,7 +75,9 @@ yum install perl-Paws
 <TabItem value="aws-cli-installation" label="aws-cli-installation">
 
 ```bash
-yum install awscli
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
 ```
 
 </TabItem>
@@ -92,37 +88,39 @@ yum install awscli
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des ressources Amazon SNS:
+1. Installez le plugin sur tous les collecteurs Centreon devant superviser des ressources **SNS** :
 
 ```bash
 yum install centreon-plugin-Cloud-Aws-Sns-Api
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Amazon SNS* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface web de Centreon, installez le Plugin Pack **Amazon SNS** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des ressources Amazon SNS:
+1. Installez le plugin sur tous les collecteurs Centreon devant superviser des ressources **SNS** :
 
 ```bash
 yum install centreon-plugin-Cloud-Aws-Sns-Api
 ```
 
-2.Sur le serveur Central Centreon, installer le RPM du Plugin-Pack *Amazon SNS*:
+2. Sur le serveur central Centreon, installez le RPM du Plugin Pack **Amazon SNS** :
 
 ```bash
-yum install centreon-pack-cloud-aws-sns.noarch
+yum install centreon-pack-cloud-aws-sns
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Amazon SNS* depuis la page "Configuration > Plugin packs > Manager"
+3. Sur l'interface web de Centreon, installez le Plugin Pack **Amazon SNS** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>
 
 ## Configuration
 
-* Ajoutez un Hôte à Centreon et appliquez-lui le Modèle d'Hôte *Cloud-Aws-Sns-custom*.
+* Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
+* Remplissez le champ **Adresse IP/DNS** avec l'adresse **127.0.0.1**.
+* Appliquez le modèle d'hôte **Cloud-Aws-Sns-custom**.
 * Une fois le modèle appliqué, les Macros ci-dessous indiquées comme requises (*Mandatory*) doivent être renseignées:
 
 | Mandatory   | Nom             | Description                                                                                 |
@@ -132,17 +130,17 @@ yum install centreon-pack-cloud-aws-sns.noarch
 | X           | AWSREGION       | Region where the instance is running                                                        |
 | X           | AWSCUSTOMMODE   | Custom mode to get metrics, 'awscli' is the default, you can also use 'paws' perl library   |
 |             | PROXYURL        | Configure proxy URL                                                                         |
-|             | EXTRAOPTIONS    | Any extra option you may want to add to every command\_line (eg. a --verbose flag)          |
+|             | TOPICNAME       | Topic name (Default : '.*')                                                                 |
+|             | EXTRAOPTIONS    | Any extra option you may want to add to every command line (eg. a --verbose flag)           |
 |             | DUMMYSTATUS     | Host state. Default is OK, do not modify it unless you know what you are doing              |
 |             | DUMMYOUTPUT     | Host check output. Default is 'This is a dummy check'. Customize it with your own if needed |
 
-## FAQ
+## Comment puis-je tester le plugin et que signifient les options des commandes ?
 
-### Comment puis-je tester le Plugin et que signifient les options des commandes ?
-
-Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande depuis votre collecteur Centreon en vous connectant
-avec l'utilisateur *centreon-engine* 
-(certaines options comme ```--proxyurl``` doivent être ajustées en fonction du contexte):
+Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
+de commande depuis votre collecteur Centreon en vous connectant avec
+l'utilisateur **centreon-engine** (`su - centreon-engine`)
+(certaines options comme `--proxyurl` doivent être ajustées en fonction du contexte) :
 
 ```bash
 /usr/lib/centreon/plugins/centreon_aws_sns_api.pl \
@@ -171,41 +169,26 @@ Notifications for topic 'my_sns_topic_1' :
     Statistic 'Sum' number of notifications failed: 0 
 ```
 
-La commande ci-dessus collecte les statistiques de notification du 'topic' nommé *my_sns_topic_1* (```--mode=notifications --topic-name='my_sns_topic_1'```).
-Cette ressource SNS est hébergée dans la région AWS *eu-west-1* (```--region='eu-west-1'```). La connexion à l'API Cloudwatch s'effectue
-à l'aide des identifiants *aws-secret-key* et *aws-access-key* préalablement configurés sur la console AWS (```--aws-secret-key='****' --aws-access-key='****'```).
-Les métriques retournées seront une somme de valeurs (```--statistic='sum'```) sur un intervalle de 10 minutes / 600 secondes  (```--timeframe='600'```) 
-avec un point par minute / 60 secondes (```--period='60'```).
-Dans l'exemple ci-dessus, on choisit de ne récupérer que les statistiques sur le nombre de notifications *failed* (```--filter-metric='NumberOfNotificationsFailed'```).
-
-Une alarme WARNING sera déclenchée si au moins une notification est reportée comme *failed* (```--warning-notifications-failed=0```)
-et une alarme CRITICAL au delà  de 5 notifications ayant ce statut (```--critical-notifications-failed=5```).
-
-La liste de toutes les métriques, seuils associés et options complémentaires peut être affichée en ajoutant le paramètre ```--help``` à la commande:
+La liste de toutes les options complémentaires et leur signification peut être
+affichée en ajoutant le paramètre `--help` à la commande :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_aws_sns_api.pl --plugin=cloud::aws::sns::plugin --mode=notifications --help
+/usr/lib/centreon/plugins//centreon_aws_sns_api.pl \
+    --plugin=cloud::aws::sns::plugin \
+    --mode=notifications \
+    --help
 ```
 
-### J'obtiens le message d'erreur suivant:  
+Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
+`--list-mode` à la commande :
 
-#### ```UNKNOWN: No metrics. Check your options or use --zeroed option to set 0 on undefined values```
+```bash
+/usr/lib/centreon/plugins//centreon_aws_sns_api.pl \
+    --plugin=cloud::aws::sns::plugin \
+    --list-mode
+```
 
-Lors du déploiement de mes contrôles, j'obtiens le message suivant 'UNKNOWN: No metrics. Check your options or use --zeroed option to set 0 on undefined values'. 
+### Diagnostic des erreurs communes
 
-Cela signifie qu'Amazon Cloudwatch n'a pas consolidé de données sur la période.
-
-Vous pouvez ajouter ```--zeroed``` à la macro **EXTRAOPTIONS** du *Service* en question afin de forcer le stockage d'un 0 et ainsi éviter un statut UNKNOWN.
-
-#### ```UNKNOWN: Command error:  - An error occurred (AuthFailure) [...]```
-
-Cette erreur signifie que le rôle IAM associé au combo access-key/secret-key n'a pas les droits suffisants pour réaliser une opération donnée.
-
-#### ```UNKNOWN: 500 Can't connect to monitoring.eu-west-1.amazonaws.com:443 |```
-
-Lors du déploiement de mes contrôles, j'obtiens le message suivant: ```UNKNOWN: 500 Can't connect to monitoring.eu-west-1.amazonaws.com:443 |```.
-
-Cela signifie que Centreon n'a pas réussi à se connecter à l'API AWS Cloudwatch.
-
-Si l'utilisation d'un proxy est requise pour les connexions HTTP depuis le collecteur Centreon,
-il est nécessaire de le préciser dans la commande en utilisant l'option ```--proxyurl='http://proxy.mycompany.com:8080'```.
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md)
+pour le diagnostic des erreurs communes des plugins Centreon.

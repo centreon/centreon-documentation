@@ -25,7 +25,7 @@ les objets de type **Host**.
 
 La configuration d'une dépendance physique se déroule au sein de
 l'onglet **Relations** d'une fiche de configuration d'un hôte via le
-menu `Configuration > Hosts > Hosts`.
+menu **Configuration > Hosts > Hosts**.
 
 ![image](../assets/alerts/dep_host_config.png)
 
@@ -93,7 +93,7 @@ maîtres de contrôler l'exécution et les notifications de services
 ### Les services
 
 Pour ajouter une dépendance au niveau des services, rendez-vous dans le
-menu `Configuration > Notifications > Dependencies > Services` et
+menu **Configuration > Notifications > Dependencies > Services** et
 cliquez sur **Add**.
 
 ![image](../assets/alerts/03servicedependance.png)

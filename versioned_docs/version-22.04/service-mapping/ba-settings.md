@@ -53,7 +53,7 @@ Activity notification section in user's form:
 ## User settings
 
 The **User Settings** are personalised options that belong to each user profile,
-you can configure it in `Monitoring > Business Activity > User Settings`.
+you can configure it in **Monitoring > Business Activity > User Settings**.
 
 ### Custom Overview
 

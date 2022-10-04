@@ -11,7 +11,7 @@ Centreon depuis la version 21.04 vers la version 22.04.
 > Lorsque vous effectuez la montée de version de votre serveur central, assurez-vous d'également mettre à jour tous vos serveurs distants et vos collecteurs. Dans votre architecture, tous les serveurs doivent avoir la même version de Centreon. De plus, tous les serveurs doivent utiliser la même [version du protocole BBDO](../developer/developer-broker-bbdo.md#switching-versions-of-bbdo).
 
 > Si vous souhaitez migrer votre serveur Centreon vers Oracle Linux
-> / RHEL 8, vous devez suivre la [procédure de migration](../migrate/migrate-from-20-x.md)
+> / RHEL 8, vous devez suivre la [procédure de migration](../migrate/migrate-from-el-to-el.md)
 
 ## Prérequis
 
@@ -57,6 +57,33 @@ yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/ce
 </Tabs>
 
 > Si vous avez une édition Business, installez également le dépôt Business. Vous pouvez en trouver l'adresse sur le [portail support Centreon](https://support.centreon.com/s/repositories).
+
+### Installer le dépôt MariaDB
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+cd /tmp
+curl -JO https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
+bash ./mariadb_repo_setup
+sed -ri 's/10\../10.5/' /etc/yum.repos.d/mariadb.repo
+rm -f ./mariadb_repo_setup
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```shell
+cd /tmp
+curl -JO https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
+bash ./mariadb_repo_setup
+sed -ri 's/10\../10.5/' /etc/yum.repos.d/mariadb.repo
+rm -f ./mariadb_repo_setup
+```
+
+</TabItem>
+</Tabs>
 
 ### Upgrade PHP
 
@@ -272,11 +299,19 @@ associée](../service-mapping/upgrade.md) pour le mettre à jour.
 
     Vous pouvez alors mettre à jour toutes les autres extensions commerciales.
 
-2. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
+2. Ajustez les droits sur les fichiers de Broker et d'Engine :
 
-3. Redémarrez les processus Centreon :
-
+    ```shell
+    chown apache:apache /etc/centreon-engine/*
+    chown apache:apache /etc/centreon-broker/*
+    su - apache -s /bin/bash -c umask
     ```
+
+3. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
+
+4. Redémarrez les processus Centreon :
+
+    ```shell
     systemctl restart cbd centengine centreontrapd gorgoned
     ```
 

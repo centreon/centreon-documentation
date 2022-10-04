@@ -13,7 +13,7 @@ Renseignez le nom d'utilisateur et le mot de passe associé et cliquez sur le bo
 
 ![image](../assets/getting-started/aconnection.png)
 
->Si vous avez installé Centreon depuis une [VM](../installation/installation-of-a-central-server/using-virtual-machines.md), les identifiants par défaut sont **admin/Centreon!2021**.
+>Si vous avez installé Centreon depuis une [VM](../installation/installation-of-a-central-server/using-virtual-machines.md), les identifiants par défaut sont **admin/Centreon123!**.
 Si ce n'est pas le cas, l'identifiant par défaut est **admin** et le mot de passe est celui que vous avez défini à [l'étape 5 de l'installation web](../installation/web-and-post-installation.md).
 
 Vous êtes maintenant connecté à l'interface web Centreon.

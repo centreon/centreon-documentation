@@ -19,6 +19,89 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 21.04.19
+
+Release date: `September 30, 2022`
+
+#### Security fixes
+
+- [Configuration] Fixed SQLis in Centreon Broker configuration menu
+
+### 21.04.18
+
+Release date: `September 20, 2022`
+
+#### Bug Fixes
+
+- [Configuration] Fixed an error in the Configuration > Services > Templates menu causing HTML code to be displayed
+- [Core] Cleaned code in forMyAccount
+- [Core] Corrected escapeSecure usage
+- [Widgets] Restored possibility to not select a poller in preferences
+
+#### Security fixes
+
+- [Administration] Applied validation of format with media synchronization
+- [Administration] Sanitized and bound Centreon ACL class queries
+- [CLAPI] Added a check to verify that the user has the admin role
+- [Configuration] Fixed SQLi in poller's resource creation
+- [Configuration] Sanitized and bound queries in centreonConnector file
+- [Configuration] Sanitized and bound queries in contactgroup file
+- [Configuration] Sanitized and bound queries in listServiceCategories file
+- [Configuration] Sanitized and bound queries in listVirtualMetrics file
+- [Configuration] Sanitized and bound queries in service argumentsXml file
+- [Configuration] Sanitized and bound queries in service host categories file
+- [Configuration] Sanitized and bound queries in servicegroup_dependency file
+- [Monitoring] Fixed XSS vulnerability in deprecated services status details page
+
+### 21.04.17
+
+Release date: `August 22, 2022`
+
+#### Enhancement
+
+- [Install] Improved error handling during installation
+- [Configuration] Use API to select metrics in virtual metrics configuration form
+
+#### Bug Fixes
+
+- [Configuration] Fixed contact/contactgroup additive inheritance configuration using massive change
+- [Core] Fixed the database partitioning for MySQL 8
+
+#### Security fixes
+
+- [Administration] Sanitized SQLi in media synchronization
+- [Administration] Sanitized and bound ACL group queries
+- [Administration] Sanitized and bound ACL menus definitions queries
+- [Administration] Sanitized and bound Auth class queries
+- [Administration] Sanitized and bound queries in ACL actions definition
+- [Configuration] Fixed an XSS vulnerability in the Broker configuration page
+- [Configuration] Fixed an XSS vulnerability in the service template form
+- [Configuration] Sanitized and bound downtime queries
+- [Configuration] Sanitized and bound escalation form queries
+- [Configuration] Sanitized and bound hosts dependencies configuration queries
+- [Configuration] Sanitized and bound hosts queries
+- [Configuration] Sanitized and bound queries in Centreon Broker configuration listing
+- [Configuration] Sanitized and bound queries in CentreonXMLBGRequest class
+- [Configuration] Sanitized and bound queries in Meta Services dependency configuration
+- [Configuration] Sanitized and bound queries in generateImage file
+- [Configuration] Sanitized and bound queries in hostgroups dependency configuration
+- [Configuration] Sanitized and bound queries in virtual metrics configuration
+- [Configuration] Sanitized and bound service configuration queries
+- [Configuration] Sanitized and bound service dependency queries
+- [Configuration] Sanitized and bound timeperiod form queries
+- [Core] Clean code in centreonUser.class.php
+- [Install] Sanitized and bound update queries
+- [Monitoring] Sanitized SQLi in Centreon centreonGraph class
+
+### 21.04.16
+
+Release date: `August 3, 2022`
+
+#### Security
+
+- [Configuration] Fixed SQLi vulnerability in escalations configuration
+- [Configuration] Fixed XSS vulnerability in escalations configuration
+
 ### 21.04.15
 
 Release date: `June 10, 2022`

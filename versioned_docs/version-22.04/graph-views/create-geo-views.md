@@ -9,7 +9,7 @@ A user that is a Centreon admin, or a Centreon Map admin or has right to
 create view can create geographic views using the web interface, to do
 so:
 
-1. Go to `Monitoring > Map` and click on the "+" on the Geographic section.
+1. Go to **Monitoring > Map** and click on the "+" on the Geographic section.
 2. You're asked to give a name to the view and then to define resources to
    display on the view.
 3. After configuring these parameters, resources will appear on this
@@ -32,7 +32,7 @@ Example with a host:
 
 ## How access control limitation (ACL) are handled
 
-As soon as you give access to `Monitoring > Map` or to a custom view
+As soon as you give access to **Monitoring > Map** or to a custom view
 containing a Map widdget, GeoViews are accessible to every Centreon
 user. A user will only see resources he is authorized to see, based on
 his ACL profile.

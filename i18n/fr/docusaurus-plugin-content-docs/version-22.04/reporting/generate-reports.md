@@ -23,7 +23,7 @@ Une tâche planifiée est une entité qui permet de générer un rapport et sa c
 ### Liste des tâches planifiées
 
 Le menu suivant liste les tâches planifiées, en cours d'execution,
-terminées ou échouées: `Reporting > Business Intelligence > Configuration > Jobs`
+terminées ou échouées: **Reporting > Business Intelligence > Configuration > Jobs**
 
 ![image](../assets/reporting/guide/jobsList.png)
 
@@ -108,7 +108,7 @@ Le tableau suivant décrit les différentes actions possibles:
 Pour générer un rapport, il faut créer une tâche planifiée en cliquant sur "Ajouter". La configuration d'une
 tâche planifiée se fait en deux principales étapes:
 
-- Sélection du modèle de rapport à utiliser (voir tous les modèles disponible)
+- Sélection du modèle de rapport à utiliser ([voir tous les modèles disponibles](../assets/reporting/Centreon-MBI-Exemples-de-rapports.pdf))
 - Selectionner le périmètre sur lequel générer le rapport
 
 et deux étapes optionnelles:
@@ -225,10 +225,7 @@ Il existe trois types de champs dans ce formulaire:
 Une fois le rapport généré, il peut être automatiquement publié en
 utilisant des règles de publication pré-définies. Lors de la création
 d'une tâche, vous pouvez sélectionner plusieurs règles dans l'onglet
-"Publication" ( se référer au chapitre
-`"règles de publication"<publication_rules>`{.interpreted-text
-role="doc"} pour plus d'information sur les différents protocoles de
-publication de rapports).
+"Publication".
 
 ![image](../assets/reporting/guide/jobPublication.png)
 
@@ -265,7 +262,7 @@ chapitre [Options générales](configure.md#options-g%C3%A9n%C3%A9rales)
 
 Après l'execution d'une tâche planifiée, un nouveau rapport est généré
 et stocké sur le serveur de supervision. Il est donc possible de
-visualiser ou télécharger le rapport généré directement depuis le menu: `Reporting > Business Intelligence > Archives`
+visualiser ou télécharger le rapport généré directement depuis le menu **Reporting > Business Intelligence > Archives**
 
 Le tableau ci-dessous liste les rapports générés.
 
@@ -360,7 +357,7 @@ l'interface **Centreon**.
 ### Liste des modèles de rapport
 
 Le menu suivant liste l'ensemble des modèles de rapports disponibles
-dans Centreon MBI: `Rapports > Business Intelligence > Configuration > modèles de rapports`
+dans Centreon MBI: **Rapports > Business Intelligence > Configuration > modèles de rapports**
 
 ![image](../assets/reporting/guide/reportDesignList.png)
 
@@ -418,7 +415,7 @@ Report design groups  | Groupe de modèles de rapports lié au modèle de rappor
 ### Liste des groupes de modèle
 
 Le menu suivant liste l'ensemble des groupes de modèles de rapports
-disponibles dans Centreon MBI `Rapports > Business Intelligence > Configuration > Groupe de modèles de rapports`
+disponibles dans Centreon MBI **Rapports > Business Intelligence > Configuration > Groupe de modèles de rapports**
 
 ![image](../assets/reporting/guide/list_report_design_groups.png)
 
@@ -465,7 +462,7 @@ corresponde à l'espace prévu pour l'image.
 
 ### Liste des logos
 
-Le menu suivant liste toutes les images disponibles: `Reporting > Business Intelligence > Configuration > Logo`
+Le menu suivant liste toutes les images disponibles: **Reporting > Business Intelligence > Configuration > Logo**
 
 ![image](../assets/reporting/guide/logo_list.png)
 

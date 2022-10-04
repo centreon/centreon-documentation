@@ -523,7 +523,7 @@ systemctl status mariadb
 
 > **Avertissement :** Le fichier `centreon.cnf` ne sera plus pris en compte, si des paramètres y ont été personnalisés, il faut les reporter dans `server.cnf`.
 
-> **Attention:** N'oubliez pas de modifier le paramètre `Chemin d'accès au fichier de configuration MySQL` in `Administration > Paramètres > Backup`
+> **Attention:** N'oubliez pas de modifier le paramètre `Chemin d'accès au fichier de configuration MySQL` in **Administration > Paramètres > Backup**
 
 ### Sécurisation de la base de données
 
@@ -1606,6 +1606,36 @@ vip_mysql       (ocf::heartbeat:IPaddr2):       Started @DATABASE_MASTER_NAME@
 
 </TabItem>
 </Tabs>
+
+Si la ressource **centreon_central_sync** ne veut pas démarrer, vérifiez si le dossier `/usr/share/centreon-broker/lua` existe **sur les deux noeuds centraux**.
+
+Si non, vous pouvez le créer avec cette commande `mkdir -p /usr/share/centreon-broker/lua`. Puis, lancez un cleanup avec cette commande `pcs resource cleanup`.
+
+#### Ressources désactivées
+
+Lorsque vous faites un `crm_mon -fr` et que vous avez une ressource qui est désactivée :
+
+```text
+...
+ Master/Slave Set: ms_mysql-master [ms_mysql]
+     Masters: [ @DATABASE_MASTER_NAME@ ]
+     Slaves: [ @DATABASE_SLAVE_NAME@ ]
+     Stopped: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+vip_mysql       (ocf::heartbeat:IPaddr2):       Stopped (disabled)
+...
+```
+
+Vous devez activer la ressource avec la commande suivante :
+
+```bash
+pcs resource enable @RESSOURCE_NAME@
+```
+
+Dans notre cas :
+
+```bash
+pcs resource enable vip_mysql
+```
 
 #### Contrôler la synchronisation des bases
 

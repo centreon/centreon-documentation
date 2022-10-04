@@ -35,13 +35,13 @@ configuration.
 La meilleure façon est de créer ces macros dans un modèle hôte et un
 modèle de service hérité par toutes les ressources.
 
-Rendez-vous dans le menu `Configuration > Hosts > Templates` et
+Rendez-vous dans le menu **Configuration > Hosts > Templates** et
 recherchez le modèle **generic-active-host-custom** et éditez ce
 dernier. Ajouter la macro **TICKET\_ID** et cliquez sur **Save** :
 
 ![image](../assets/alerts/open_tickets_macro.png)
 
-Rendez-vous dans le menu `Configuration > Services > Templates` et
+Rendez-vous dans le menu **Configuration > Services > Templates** et
 recherchez le modèle **generic-active-service-custom** et éditez ce
 dernier. Ajouter la macro **TICKET\_ID** et cliquez sur \*\*Save\* :
 
@@ -50,7 +50,7 @@ dernier. Ajouter la macro **TICKET\_ID** et cliquez sur \*\*Save\* :
 ### Configuration du widget
 
 Pour utiliser le widget, vous devez l'ajouter dans une vue
-personnalisée. Allez dans le menu `Home > Custom Views`, sélectionnez
+personnalisée. Allez dans le menu **Home > Custom Views**, sélectionnez
 votre vue et cliquez sur le bouton **Add widget**.
 
 Définissez un titre pour votre widget (par exemple: Open-Tickets) et

@@ -19,6 +19,18 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon MAP
 
+### 21.04.7
+
+Release date: `September 5, 2022`
+
+#### Enhancements
+
+- Updated the connected server label to 'Configured server' for more clarity.
+
+#### Bug fixes
+
+- Fixed regressions on API endpoints due to Spring Boot version.
+
 ### 21.04.6
 
 Release date: `April 26, 2022`
@@ -130,6 +142,15 @@ Release date: `December 16, 2021`
 - Compatibility with Centreon 21.04
 
 ## Centreon MBI
+
+### 21.04.4
+
+`July 22, 2022`
+
+#### Bug fixes
+
+- Replaced 'switch' with 'if' to better fit RHEL 8 deployment
+- Multiple SSH sessions initiated by CBIS were not closed and could remain opened causing the server overload
 
 ### 21.04.3
 

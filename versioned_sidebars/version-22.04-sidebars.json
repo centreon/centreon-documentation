@@ -174,8 +174,22 @@
           ]
         },
         {
-          "type": "doc",
-          "id": "version-22.04/ceip/what-is-centreon-ceip"
+          "type": "category",
+          "label": "Installation of a manual Centreon HA",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-22.04/installation/installation-of-centreon-ha-manual/centreon-ha-2-nodes-installation-manual-failover"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/installation/installation-of-centreon-ha-manual/centreon-ha-4-nodes-installation-manual-failover"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/installation/installation-of-centreon-ha-manual/integrating-pollers"
+            }
+          ]
         }
       ]
     },
@@ -286,6 +300,10 @@
             {
               "type": "doc",
               "id": "version-22.04/monitoring/discovery/administration"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/monitoring/discovery/troubleshooting-hosts-discovery"
             }
           ]
         },
@@ -933,7 +951,11 @@
             },
             {
               "type": "doc",
-              "id": "version-22.04/migrate/migrate-from-20-x"
+              "id": "version-22.04/migrate/migrate-from-el-to-el"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/migrate/migrate-from-el-to-debian"
             },
             {
               "type": "doc",
@@ -946,6 +968,10 @@
             {
               "type": "doc",
               "id": "version-22.04/migrate/poller-display-to-remote-server"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/developer/developer-gorgone-migrate-from-centcore"
             }
           ]
         }
@@ -1127,6 +1153,16 @@
               "id": "version-22.04/integrations/notifications/plugin-telegram"
             }
           ]
+        },
+        {
+          "type": "category",
+          "label": "NPM",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-22.04/integrations/npm/ntopng"
+            }
+          ]
         }
       ]
     },
@@ -1183,6 +1219,24 @@
             {
               "type": "doc",
               "id": "version-22.04/developer/developer-broker-mapping"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Centreon Gorgone",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-22.04/developer/developer-gorgone-client-server-communication"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/developer/developer-gorgone-pull-mode"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/developer/developer-gorgone-rebound-mode"
             }
           ]
         },
@@ -1289,6 +1343,20 @@
         {
           "type": "doc",
           "id": "version-22.04/security/key-rotation"
+        },
+        {
+          "type": "category",
+          "label": "User data storage",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-22.04/security/user-data-storage/gdpr-compliance"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/security/user-data-storage/what-is-centreon-ceip"
+            }
+          ]
         }
       ]
     },
@@ -1299,6 +1367,14 @@
         {
           "type": "doc",
           "id": "version-22.04/resources/known-issues"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.04/resources/troubleshooting"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.04/resources/glossary"
         }
       ]
     }

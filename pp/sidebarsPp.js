@@ -349,6 +349,14 @@ module.exports = {
           id: 'integrations/plugin-packs/procedures/applications-monitoring-ntopng-restapi'
         },
         {
+            type: 'doc',
+            id: 'integrations/plugin-packs/procedures/applications-monitoring-node-exporter-linux'
+        },
+        {
+            type: 'doc',
+            id: 'integrations/plugin-packs/procedures/applications-monitoring-node-exporter-windows'
+        },
+        {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-video-openheadend-snmp'
         },
@@ -620,6 +628,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-aws-cloudwatch-discover'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-aws-cloudwatchlogs'
         },
         {
@@ -709,6 +721,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-azure-management-automation'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-azure-management-costs'
         },
         {
           type: 'doc',
@@ -835,6 +851,10 @@ module.exports = {
           id: 'integrations/plugin-packs/procedures/cloud-azure-storage-acr'
         },
         {
+            type: 'doc',
+            id: 'integrations/plugin-packs/procedures/cloud-azure-classicstorage-storageaccount'
+        },
+        {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-azure-storage-storageaccount'
         },
@@ -900,11 +920,19 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-iics-restapi'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-kubernetes-api'
         },
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-prometheus-kubernetes-api'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-microsoft-office365-azuread'
         },
         {
           type: 'doc',
@@ -1069,6 +1097,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-servers-dell-omem-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-servers-dell-vxm-restapi'
         },
         {
           type: 'doc',
@@ -1254,6 +1286,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-aruba-orchestrator-restapi'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-switchs-aruba-standard-snmp'
         },
         {
@@ -1359,6 +1395,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-cisco-standard-ssh'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-cisco-umbrella-snmp'
         },
         {
           type: 'doc',
@@ -1494,6 +1534,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-fortinet-fortigate-restapi'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-fortinet-fortimanager-snmp'
         },
         {
@@ -1523,6 +1567,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-switchs-hirschmann'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-hp-moonshot-snmp'
         },
         {
           type: 'doc',
@@ -1619,6 +1667,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-netgear-mseries-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-netgear-sseries-snmp'
         },
         {
           type: 'doc',
@@ -2156,10 +2208,6 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/hardware-storage-hp-3par-7000-ssh'
-        },
-        {
-          type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-storage-hp-3par-ssh'
         },
         {
@@ -2517,6 +2565,24 @@ module.exports = {
     {
         type: 'doc',
         id: 'integrations/plugin-packs/releases/release-notes'
+    },
+    {
+      type: 'category',
+      label: 'Developers Center',
+      items: [
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/dev-resources/introduction'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/dev-resources/plugins-guidelines'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/dev-resources/develop-with-centreon-plugins'
+        }
+      ]
     }
   ],
 };

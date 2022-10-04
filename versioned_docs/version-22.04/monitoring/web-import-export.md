@@ -26,7 +26,7 @@ yum install centreon-awie
 
 ### UI installation
 
-Go to `Administration > Extensions > Manager` and search **awie**. Click on
+Go to **Administration > Extensions > Manager** and search **awie**. Click on
 **Install selection**:
 
 ![imaage](../assets/configuration/awie/install_01.png)
@@ -39,7 +39,7 @@ Your module is now installed:
 
 Once you have properly configured all Centreon Web objects you need (Poller,
 Hosts, Services, Contacts, Time Periods... ) then you can export them towards
-another Centreon Web platform by going to `Configuration > Import/Export`
+another Centreon Web platform by going to **Configuration > Import/Export**
 menu.
 
 Default page is Export one.
@@ -77,7 +77,7 @@ If you choose to export all hosts, then host configurations, linked host
 templates and linked services templates will be exported but hosts will be
 created in target environment without their services. However, you will be able
 to create services by selecting value "Yes" for the **Create Services linked to
-the Template too** radio-button in `Configuration > Hosts` page, for each
+the Template too** radio-button in **Configuration > Hosts** page, for each
 host. Save host configuration and export configuration.
 
 If you export a specific host by using the *Filter* field (only one host at the
@@ -195,7 +195,7 @@ file is created and downloaded.
 This is the file that you will upload in the Import Page of another Centreon Web
 platform.
 
-Go to `Configuration > Import/Export > Import` menu:
+Go to **Configuration > Import/Export > Import** menu:
 
 ![imaage](../assets/configuration/awie/Import.png)
 

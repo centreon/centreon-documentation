@@ -9,7 +9,7 @@ to version 22.04.
 > When you upgrade your central server, make sure you also upgrade all your remote servers and your pollers. All servers in your architecture must have the same version of Centreon. In addition, all servers must use the same [version of the BBDO protocol](../developer/developer-broker-bbdo.md#switching-versions-of-bbdo).
 
 > If you want to migrate your Centreon server to Oracle Linux / RHEL 8
-> you need to follow the [migration procedure](../migrate/migrate-from-20-x.md)
+> you need to follow the [migration procedure](../migrate/migrate-from-el-to-el.md)
 
 ## Prerequisites
 
@@ -53,6 +53,16 @@ yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/ce
 > ```
 
 > If you are using a Business edition, install the correct Business repository too. You can find it on the [support portal](https://support.centreon.com/s/repositories).
+
+### Install the MariaDB repository
+
+```shell
+cd /tmp
+curl -JO https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
+bash ./mariadb_repo_setup
+sed -ri 's/10\../10.5/' /etc/yum.repos.d/mariadb.repo
+rm -f ./mariadb_repo_setup
+```
 
 ### Upgrade PHP
 
@@ -398,6 +408,16 @@ with the following:
 - Auto Discovery.
 
 Then you can upgrade all other commercial extensions.
+
+#### Set rights on Broker and Engine files
+
+Set the following rights on Broker and Engine files:
+
+```shell
+chown apache:apache /etc/centreon-engine/*
+chown apache:apache /etc/centreon-broker/*
+su - apache -s /bin/bash -c umask
+```
 
 #### Start the tasks manager
 

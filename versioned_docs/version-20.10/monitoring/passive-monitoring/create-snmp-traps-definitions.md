@@ -14,7 +14,7 @@ Go into the **Configuration > SNMP traps > Manufacturer** menu and click on **Ad
 * The **Name** and **Alias** fields define the name and the alias of the manufacturer
 * The **Description** field provides an indication about the manufacturer
 
-## Importation of MIBs
+## Import SNMP traps from a MIB file
 
 Go into the **Configuration > SNMP traps > MIBs** menu
 
@@ -23,11 +23,11 @@ Go into the **Configuration > SNMP traps > MIBs** menu
 * The **Manufacturer** list can be used to choose the manufacturer to which the MIB that you are importing belongs
 * The **File (.mib)** field can be used to load the MIB
 
-When import a MiB file, it’s possible that dependencies are necessary. In order to find the dependencies of your MIB,
-you must open your MIB file using a standard text editor, then:
+Prior to importing a certain MiB file, it may happen that a number of dependencies need to be met. 
+In order to find the dependencies of your MIB, you must open your MIB file using a standard text editor, then:
 
-1. Locate the line that starts with IMPORTS
-2. All dependencies required to import your MIB file are after the keyword **FROM**
+1. Locate the line which starts with **IMPORTS**
+2. Verify all the required dependencies to import your MIB file after the keyword **FROM**
 
 ![image](../../assets/configuration/kdependances.png)
 

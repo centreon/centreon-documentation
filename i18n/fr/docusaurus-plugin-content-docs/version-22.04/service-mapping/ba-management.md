@@ -289,7 +289,7 @@ même si la somme de ses impacts en cours est supérieur à 100.
 La gestion des indicateurs peut être réalisée de deux manières:
 
 -   Dans l'activité métier comme vu précédemment
--   Au travers du menu `Configuration > Activités métiers > Indicateurs (KPI)`
+-   Au travers du menu **Configuration > Activités métiers > Indicateurs (KPI)**
     uniquement pour les BA utilisant le mode de calcul "Impact"
 
 ![image](../assets/service-mapping/guide/conf_kpi.png)
@@ -401,7 +401,7 @@ formulaire de saisie.
 
 ### Indicateur booléen
 
-Dans le menu `Configuration > Activités métiers > Règles booléennes`.
+Dans le menu **Configuration > Activités métiers > Règles booléennes**.
 
 Il est possible de créer des règles logique entre les services afin
 d'en faire des règles "booléenne".

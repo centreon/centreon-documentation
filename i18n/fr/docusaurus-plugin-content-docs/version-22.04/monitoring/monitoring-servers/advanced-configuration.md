@@ -12,7 +12,7 @@ Remote Server.
 Centreon a développé la possibilité d'initialiser le flux depuis le serveur
 Centreon Central vers le collecteur ou du Remote Server vers le collecteur.
 
-Rendez-vous dans le menu `Configuration > Pollers > Broker configuration` et
+Rendez-vous dans le menu **Configuration > Pollers > Broker configuration** et
 cliquez sur la configuration **Centreon Broker SQL** du serveur Centreon Central
 ou du Remote Server.
 
@@ -25,7 +25,7 @@ champ **Host to connect to**, puis cliquez sur **Save** :
 
 ![image](../../assets/monitoring/monitoring-servers/on-peer-configuration-1.png)
 
-Rendez-vous dans le menu `Configuration > Pollers > Broker configuration` et
+Rendez-vous dans le menu **Configuration > Pollers > Broker configuration** et
 cliquez sur la configuration **Broker module** de votre collecteur.
 
 Rendez-vous dans l'onglet **Output** et modifiez l'entrée **Output 1 -IPv4** :
@@ -69,7 +69,7 @@ Placez *central.key*, *central.crt* et *ca.crt* sur le serveur Centreon central
 *ca.crt* sur votre poller.
 
 Nous devons maintenant configurer Centreon Broker pour utiliser ces fichiers.
-Allez dans `Configuration > Pollers > Broker configuration`. Pour
+Allez dans **Configuration > Pollers > Broker configuration**. Pour
 *central-broker-master*, dans l'onglet *Input*, vous devez remplir les
 paramètres suivants pour *central-broker-master-input*.
 
@@ -89,7 +89,7 @@ connexion TCP dans l'onglet Output.
   - Trusted CA's certificate = /etc/centreon-broker/ca.crt
 
 Régénérez la configuration des pollers affectés par ces changements
-(`Configuration > Pollers > Pollers`) et la mise en place de l'authentification est
+(**Configuration > Pollers > Pollers**) et la mise en place de l'authentification est
 terminée.
 
 ## Centreontrapd Configuration

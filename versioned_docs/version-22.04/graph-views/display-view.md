@@ -5,7 +5,7 @@ title: Display views
 
 The existing standard and geographic views are accessible from Centreon web user
 interface, if you have been given access privileges. You can display them using
-the `Monitoring > Map` menu or using the dedicated Centreon Map widget.
+the **Monitoring > Map** menu or using the dedicated Centreon Map widget.
 
 Find below the dedicated features of Centreon Map web interface that ease use &
 interactions with views.
@@ -54,7 +54,7 @@ each user had to configure it's own color using the desktop client. We changed
 this mechanism so that you can define a link coloration method for **all user**
 at once. To do so:
 
-1. Go to `Administration > Extension > Map | Options`
+1. Go to **Administration > Extension > Map | Options**
 2. In the "Link color definition" section, select the coloration method and
    parameter you want to apply
 
