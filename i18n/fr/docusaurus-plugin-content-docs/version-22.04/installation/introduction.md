@@ -66,7 +66,7 @@ yum update
 2. Exécutez la commande suivante en **root** :
 
  ``` shell
-  curl -L https://raw.githubusercontent.com/centreon/centreon/22.04/unattended.sh | sh
+  curl -L https://raw.githubusercontent.com/centreon/centreon/22.04.x/unattended.sh | sh
   ```
 
   Le script installera un serveur central avec la version 22.04, depuis le dépôt stable, avec une sortie minimale sur votre terminal.
