@@ -65,7 +65,17 @@ yum update
 2. Run the following command as **root**:
 
   ```Bash
-  curl -L https://raw.githubusercontent.com/centreon/centreon/master/unattended.sh | sh
+  curl -L https://raw.githubusercontent.com/centreon/centreon/22.10.x/unattended.sh | sh
   ```
+
+  The script will install a central server using version 22.10, from the stable repository, with minimal output on your terminal.
+
+  In case of problems when running the script, execute it again using the following command:
+
+  ```shell
+  sh -x unattended.sh install -t central -v 22.10 -r stable -l DEBUG  2>&1 |tee -a /tmp/unattended$(date +"%m-%d-%Y-%H%M%S").log
+  ```
+
+  You will get a full log file with all errors in your tmp folder, named unattended(date).log.
 
 3. Once the script has run, all you have to do is to carry out the [web installation steps](web-and-post-installation.md).
