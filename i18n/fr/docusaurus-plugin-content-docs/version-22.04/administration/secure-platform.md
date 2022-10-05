@@ -936,7 +936,7 @@ ServerSignature Off
 ServerTokens Prod
 ```
 
-Éditez le fichier **/etc/php/8.0/apache2/conf.d/50-centreon.ini** en désactivant le paramètre `expose_php` :
+Éditez le fichier **/etc/php.d/50-centreon.ini** en désactivant le paramètre `expose_php` :
 
 ```phpconf
 expose_php = Off
@@ -956,7 +956,7 @@ ServerTokens Prod
 TraceEnable Off
 ```
 
-Éditez le fichier **/etc/php/8.0/apache2/conf.d/50-centreon.ini** en désactivant le paramètre **expose_php** :
+Éditez le fichier **/etc/php.d/50-centreon.ini** en désactivant le paramètre **expose_php** :
 
 ```phpconf
 expose_php = Off
@@ -977,7 +977,7 @@ ServerTokens Prod
 TraceEnable Off
 ```
 
-Éditez le fichier **/etc/php/8.0/apache2/conf.d/50-centreon.ini** en désactivant le paramètre **expose_php** :
+Éditez le fichier **/etc/php.d/50-centreon.ini** en désactivant le paramètre **expose_php** :
 
 ```phpconf
 expose_php = Off
