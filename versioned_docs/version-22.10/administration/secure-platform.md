@@ -942,7 +942,7 @@ ServerSignature Off
 ServerTokens Prod
 ```
 
-Edit the **/etc/php/8.0/apache2/conf.d/50-centreon.ini** file and turn off the `expose_php` parameter:
+Edit the **/etc/php.d/50-centreon.ini** file and turn off the `expose_php` parameter:
 
 ```phpconf
 expose_php = Off
@@ -962,7 +962,7 @@ ServerTokens Prod
 TraceEnable Off
 ```
 
-Edit the **/etc/php/8.0/apache2/conf.d/50-centreon.ini** file and turn off the **expose_php** parameter:
+Edit the **/etc/php.d/50-centreon.ini** file and turn off the **expose_php** parameter:
 
 ```phpconf
 expose_php = Off
@@ -983,11 +983,9 @@ ServerTokens Prod
 TraceEnable Off
 ```
 
-Edit the **/etc/php/8.0/apache2/conf.d/50-centreon.ini** file and turn off the **expose_php** parameter:
+Edit the **/etc/php/8.0/mods-available/centreon.ini** file and turn off the **expose_php** parameter:
 
-```phpconf
-expose_php = Off
-```
+> This one was done during the installation process.
 
 </TabItem>
 </Tabs>
@@ -1019,15 +1017,41 @@ Edit the **/opt/rh/httpd24/root/etc/httpd/conf.d/autoindex.conf** file and comme
 
 Edit the **/etc/apache2/mods-available/autoindex.conf** file and comment the following line:
 
-```apacheconf
-#Alias 
-/icons/ "/etc/apache2/mods-available/icons/"
-```
+> The default icons directory is already hidden.
 
 </TabItem>
 </Tabs>
 
 7. You can perform this test to check that Apache is properly configured, by running the following command:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```apacheconf
+apachectl configtest
+```
+
+The expected result is the following:
+
+```apacheconf
+Syntax OK
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```apacheconf
+/opt/rh/httpd24/root/usr/sbin/apachectl configtest
+```
+
+The expected result is the following:
+
+```apacheconf
+Syntax OK
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
 
 ```apacheconf
 apache2ctl configtest
@@ -1038,6 +1062,9 @@ The expected result is the following:
 ```apacheconf
 Syntax OK
 ```
+
+</TabItem>
+</Tabs>
 
 8. Restart the Apache and PHP processes to take in account the new configuration:
 
@@ -1118,7 +1145,7 @@ If everything is ok, you must have:
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-systemctl restart apache2 php8.0-fpm
+systemctl restart php8.0-fpm apache2
 ```
 
 Then check its status:
