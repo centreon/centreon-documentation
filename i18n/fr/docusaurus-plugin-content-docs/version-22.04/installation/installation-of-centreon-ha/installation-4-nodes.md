@@ -456,7 +456,7 @@ sql_mode = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
-Pour commencer, il faut améliorer la configuration de MariaDB, qui sera concentrée dans le seul fichier `/etc/mysql/mariadb.conf.d/50-server.cnf`.  Par défaut, la section `[server]` de ce fichier est vide, c'est là que doit être collées les lignes suivantes :
+Pour commencer, il faut améliorer la configuration de MariaDB, qui sera concentrée dans le seul fichier `/etc/mysql/mariadb.conf.d/50-server.cnf`. Par défaut, la section `[server]` de ce fichier est vide, c'est là que doit être collées les lignes suivantes :
 
 ```ini
 [server]
@@ -493,12 +493,12 @@ max_allowed_packet=64M
 # Uncomment for 8 Go Ram
 #innodb_buffer_pool_size=1G
 # MariaDB strict mode will be supported soon
-#sql_mode = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'
+sql_mode = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'
 ```
 
 De plus, commentez la ligne :
 
-```
+```ini
 #bind-address            = 127.0.0.1
 ```
 
@@ -548,7 +548,7 @@ CREATE USER '@MARIADB_CENTREON_USER@'@'@DATABASE_SLAVE_IPADDR@' IDENTIFIED BY '@
 GRANT ALL PRIVILEGES ON centreon.* TO '@MARIADB_CENTREON_USER@'@'@DATABASE_SLAVE_IPADDR@';
 GRANT ALL PRIVILEGES ON centreon_storage.* TO '@MARIADB_CENTREON_USER@'@'@DATABASE_SLAVE_IPADDR@';
 
-CREATE USER '@MARIADB_CENTREON_USER@'@'@DATABASE_ASTER_IPADDR@' IDENTIFIED BY '@MARIADB_CENTREON_PASSWD@';
+CREATE USER '@MARIADB_CENTREON_USER@'@'@DATABASE_MASTER_IPADDR@' IDENTIFIED BY '@MARIADB_CENTREON_PASSWD@';
 GRANT ALL PRIVILEGES ON centreon.* TO '@MARIADB_CENTREON_USER@'@'@DATABASE_MASTER_IPADDR@';
 GRANT ALL PRIVILEGES ON centreon_storage.* TO '@MARIADB_CENTREON_USER@'@'@DATABASE_MASTER_IPADDR@';
 ```
@@ -865,7 +865,6 @@ systemctl disable centengine snmptrapd centreontrapd gorgoned cbd httpd php-fpm 
 ```
 
 </TabItem>
-<Tabs groupId="sync">
 <TabItem value="Debian 11 " label="Debian 11">
 
 ```bash
@@ -891,11 +890,24 @@ systemctl stop mariadb
 systemctl disable mariadb
 ```
 
+<Tabs groupId="sync">
+<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8 / RHEL 7 / CentOS 7" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8 / RHEL 7 / CentOS 7">
 Le service MariaDB étant sur un mode mixte entre SysV init et systemd, pour bien s'assurer qu'il ne soit plus lancé au démarrage, il faut également lancer la commande :
 
 ```bash
 chkconfig mysql off
 ```
+
+</TabItem>
+<TabItem value="Debian 11 " label="Debian 11">
+Le service MariaDB étant sur un mode mixte entre SysV init et systemd, pour bien s'assurer qu'il ne soit plus lancé au démarrage, il faut également lancer la commande :
+
+```bash
+update-rc.d -f mariadb remove
+```
+
+</TabItem>
+</Tabs>
 
 ### Création du cluster
 
@@ -1046,6 +1058,8 @@ Puis vous pouvez lancer l'authentification du cluster :
 pcs host auth \
     "@CENTRAL_MASTER_NAME@" \
     "@CENTRAL_SLAVE_NAME@" \
+    "@DATABASE_MASTER_NAME@" \
+    "@DATABASE_SLAVE_NAME@" \
     "@QDEVICE_NAME@" \
     -u "hacluster" \
     -p '@CENTREON_CLUSTER_PASSWD@'
@@ -1849,4 +1863,3 @@ database:
 ## Intégrer des collecteurs
 
 Il ne reste maintenant plus qu'à [intégrer des collecteurs](integrating-pollers.md) et commencer à superviser !
-
