@@ -66,7 +66,17 @@ yum update
 2. Exécutez la commande suivante en **root** :
 
 ``` shell
-curl -L https://raw.githubusercontent.com/centreon/centreon/master/unattended.sh | sh
+curl -L https://raw.githubusercontent.com/centreon/centreon/22.10.x/unattended.sh | sh
 ```
+
+Le script installera un serveur central avec la version 22.10, depuis le dépôt stable, avec une sortie minimale sur votre terminal.
+
+En cas de problèmes à l'exécution du script, exécutez-le à nouveau en utilisant la commande suivante :
+
+```shell
+sh -x unattended.sh install -t central -v 22.10 -r stable -l DEBUG  2>&1 |tee -a /tmp/unattended$(date +"%m-%d-%Y-%H%M%S").log
+```
+
+Vous obtiendrez un fichier de log complet avec toutes les erreurs dans votre répertoire tmp, fichier nommé unattended(date).log.
 
 3. Une fois le script exécuté, il vous suffit de suivre les étapes de l'[installation web](web-and-post-installation.md).
