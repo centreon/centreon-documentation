@@ -21,7 +21,6 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 #### Bug fixes
 
 - [Install] Fixed SQL update on Centreon realtime database
-- [Resource Status] Fixed the display of command in service details panel
 
 ### 22.04.6
 
