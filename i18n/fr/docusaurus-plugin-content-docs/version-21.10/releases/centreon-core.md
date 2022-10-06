@@ -18,6 +18,8 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ### 21.10.12
 
+Release date:  `October 6, 2022`
+
 #### Bug fixes
 
 - [Install] Fixed SQL update on Centreon realtime database
