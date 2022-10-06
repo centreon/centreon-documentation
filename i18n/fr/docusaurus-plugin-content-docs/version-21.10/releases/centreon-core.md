@@ -16,6 +16,13 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon Web
 
+### 21.10.12
+
+#### Bug fixes
+
+- [Install] Fixed SQL update on Centreon realtime database
+- [Resource Status] Fixed the display of command in service details panel
+
 ### 21.10.11
 
 Release date: `September 30, 2022`
