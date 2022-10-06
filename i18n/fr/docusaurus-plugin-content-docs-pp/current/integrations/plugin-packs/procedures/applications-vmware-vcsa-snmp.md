@@ -34,7 +34,7 @@ Il apporte les modèles de service suivants :
 | App-Vmware-Vcsa-SNMP-Storage-Name   | Découvre les disques et supervise l'utilisation                         |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
-pour en savoir plus sur la découverte automatique de services et sa [planification](https://docs.centreon.com/fr/docs/monitoring/discovery/services-discovery/#r%C3%A8gles-de-d%C3%A9couverte).
+pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery#règles-de-découverte).
 
 </TabItem>
 </Tabs>
