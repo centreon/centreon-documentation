@@ -118,7 +118,7 @@ Then, you need to change the PHP stream from version 7.3 to 8.1 by executing the
 to confirm:
 ```shell
 dnf module reset php
-dnf module install php:remi-8.0
+dnf module install php:remi-8.1
 ```
 
 </TabItem>
@@ -135,7 +135,7 @@ Then, you need to change the PHP stream from version 7.3 to 8.1 by executing the
 to confirm:
 ```shell
 dnf module reset php
-dnf module install php:remi-8.0
+dnf module install php:remi-8.1
 ```
 
 </TabItem>
