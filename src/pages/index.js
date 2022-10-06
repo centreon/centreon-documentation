@@ -22,7 +22,7 @@ const links = {
   contribute:
     'https://github.com/centreon/centreon/blob/master/CONTRIBUTING.md',
   banner:
-    'https://thewatch.centreon.com/latest-news-37/centreon-22-04-is-now-available-621',
+    'https://thewatch.centreon.com/',
 };
 
 const stringsAndParagraphs = {
@@ -125,7 +125,7 @@ function SummitBlock() {
     <div className={clsx(styles.bannerCustom)}>
       <div className={clsx(styles.bannerImage)}>
         <a href={links.banner} target={'_blank'}>
-          <img src={basePathImg + 'spring-release-bannner-en-22.04.png'} />
+          <img src={basePathImg + 'thewatch-banner-en.png'} />
         </a>
       </div>
     </div>

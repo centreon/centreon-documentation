@@ -262,6 +262,11 @@
   background: #685bc7;
 }
 
+.bannerCustomFR {
+  padding: 0;
+  background: #0072ce;
+}
+
 .bannerImage {
   max-width: initial;
   padding: 0;
