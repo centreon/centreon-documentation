@@ -19,6 +19,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 21.10.12
 
+Release date:  `October 6, 2022`
+
 #### Bug fixes
 
 - [Install] Fixed SQL update on Centreon realtime database
