@@ -983,7 +983,7 @@ ServerTokens Prod
 TraceEnable Off
 ```
 
-Edit the **/etc/php/8.0/mods-available/centreon.ini** file and turn off the **expose_php** parameter:
+Edit the **/etc/php/8.1/mods-available/centreon.ini** file and turn off the **expose_php** parameter:
 
 > This one was done during the installation process.
 
@@ -1145,7 +1145,7 @@ If everything is ok, you must have:
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-systemctl restart php8.0-fpm apache2
+systemctl restart php8.1-fpm apache2
 ```
 
 Then check its status:
