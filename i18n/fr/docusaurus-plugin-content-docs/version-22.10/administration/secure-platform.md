@@ -936,7 +936,7 @@ ServerSignature Off
 ServerTokens Prod
 ```
 
-Éditez le fichier **/etc/php/8.0/apache2/conf.d/50-centreon.ini** en désactivant le paramètre `expose_php` :
+Éditez le fichier **/etc/php.d/50-centreon.ini** en désactivant le paramètre `expose_php` :
 
 ```phpconf
 expose_php = Off
@@ -956,7 +956,7 @@ ServerTokens Prod
 TraceEnable Off
 ```
 
-Éditez le fichier **/etc/php/8.0/apache2/conf.d/50-centreon.ini** en désactivant le paramètre **expose_php** :
+Éditez le fichier **/etc/php.d/50-centreon.ini** en désactivant le paramètre **expose_php** :
 
 ```phpconf
 expose_php = Off
@@ -977,11 +977,9 @@ ServerTokens Prod
 TraceEnable Off
 ```
 
-Éditez le fichier **/etc/php/8.0/apache2/conf.d/50-centreon.ini** en désactivant le paramètre **expose_php** :
+Éditez le fichier **/etc/php/8.1/mods-available/centreon.ini** en désactivant le paramètre **expose_php** :
 
-```phpconf
-expose_php = Off
-```
+> Cela a été fait automatiquement pendant l'installation.
 
 </TabItem>
 </Tabs>
@@ -1013,15 +1011,41 @@ expose_php = Off
 
 Éditez le fichier **/etc/apache2/mods-available/autoindex.conf** en commentant la ligne suivante :
 
-```apacheconf
-#Alias 
-/icons/ "/etc/apache2/mods-available/icons/"
-```
+> Le répertoire est caché par défaut.
 
 </TabItem>
 </Tabs>
 
 7. Vous pouvez effectuer ce test vérifiant qu'Apache est bien configuré, en exécutant la commande suivante :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```apacheconf
+apachectl configtest
+```
+
+Le résultat attendu est le suivant :
+
+```apacheconf
+Syntax OK
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```apacheconf
+/opt/rh/httpd24/root/usr/sbin/apachectl configtest
+```
+
+Le résultat attendu est le suivant :
+
+```apacheconf
+Syntax OK
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
 
 ```apacheconf
 apache2ctl configtest
@@ -1033,13 +1057,16 @@ Le résultat attendu est le suivant :
 Syntax OK
 ```
 
+</TabItem>
+</Tabs>
+
 8. Redémarrer le serveur web Apache et PHP pour prendre la configuration en compte :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-systemctl restart apache2 php8.0-fpm
+systemctl restart php-fpm httpd
 ```
 
 Puis vérifiez le statut :
@@ -1112,7 +1139,7 @@ Si tout est correct, vous devriez avoir quelque chose comme :
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-systemctl restart php-fpm apache2
+systemctl restart php8.1-fpm apache2
 ```
 
 Puis vérifiez le statut :
