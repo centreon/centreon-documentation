@@ -116,9 +116,8 @@ associé à sa distribution :
 <Tabs groupId="sync">
 <TabItem value="RHEL, Oracle Linux, Alma Linux 8" label="RHEL, Oracle Linux, Alma Linux 8">
 
-```bash title='RHEL, Oracle Linux, Alma Linux version >= 8'
+```bash
 dnf install centreon-pack-applications-vmware-vcsa-snmp
-```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
