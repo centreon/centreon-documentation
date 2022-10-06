@@ -15,6 +15,13 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 ## Centreon MAP
 
+### 21.10.6
+
+Release date: `October 6, 2022`
+
+#### Bug fixes
+
+- Fixed issues with MAP Desktop connection timeout with very large map infastructures
 
 ### 21.10.5
 

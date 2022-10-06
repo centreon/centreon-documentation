@@ -16,6 +16,14 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon MAP
 
+### 21.10.6
+
+Release date: `October 6, 2022`
+
+#### Bug fixes
+
+- Fixed issues with MAP Desktop connection timeout with very large map infastructures
+
 ### 21.10.5
 
 Release date: `May 30, 2022`
