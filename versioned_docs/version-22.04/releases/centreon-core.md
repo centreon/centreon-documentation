@@ -17,6 +17,13 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 22.04.7
+
+#### Bug fixes
+
+- [Install] Fixed SQL update on Centreon realtime database
+- [Resource Status] Fixed the display of command in service details panel
+
 ### 22.04.6
 
 Release date: ` September 30, 2022`
