@@ -380,14 +380,12 @@ max_allowed_packet=64M
 #innodb_buffer_pool_size=512M
 # Uncomment for 8 Go Ram
 #innodb_buffer_pool_size=1G
-# MariaDB strict mode will be supported soon
-#sql_mode = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
-Pour commencer, il faut améliorer la configuration de MariaDB, qui sera concentrée dans le seul fichier `/etc/mysql/mariadb.conf.d/50-server.cnf`.  Par défaut, la section `[server]` de ce fichier est vide, c'est là que doit être collées les lignes suivantes :
+Pour commencer, il faut améliorer la configuration de MariaDB, qui sera concentrée dans le seul fichier `/etc/mysql/mariadb.conf.d/50-server.cnf`. Par défaut, la section `[server]` de ce fichier est vide, c'est là que doit être collées les lignes suivantes :
 
 ```ini
 [server]
@@ -423,8 +421,6 @@ max_allowed_packet=64M
 #innodb_buffer_pool_size=512M
 # Uncomment for 8 Go Ram
 #innodb_buffer_pool_size=1G
-# MariaDB strict mode will be supported soon
-#sql_mode = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'
 ```
 
 De plus, commentez la ligne :
@@ -931,11 +927,13 @@ pcs host auth \
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 Sur Debian, le cluster est autoconfiguré avec des valeurs par défaut. Afin d'installer notre cluster, nous devons détruire se préparamétrage avec cette commande :
+
 ```bash
 pcs cluster destroy
 ```
 
 Puis vous pouvez lancer l'authentification du cluster :
+
 ```bash
 pcs host auth \
     "@CENTRAL_MASTER_NAME@" \
@@ -1005,7 +1003,7 @@ pcs property set stonith-enabled="false"
 pcs resource defaults resource-stickiness="100"
 ```
 
-L'état du cluster peut être suivi en temps réel avec la commande `crm_mon`, qui vous permettra de voir apparaître les nouvelles ressources au fur et à mesure.
+L'état du cluster peut être suivi en temps réel avec la commande `crm_mon -f`, qui vous permettra de voir apparaître les nouvelles ressources au fur et à mesure.
 
 #### Ajout du *Quorum Device*
 
@@ -1546,4 +1544,3 @@ Ticket Constraints:
 ## Intégrer des collecteurs
 
 Il ne reste maintenant plus qu'à [intégrer les collecteurs](./integrating-pollers.md) et commencer à superviser !
-
