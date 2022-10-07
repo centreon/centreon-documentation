@@ -457,7 +457,7 @@ socket=$PATH_TO_SOCKET$
 Assurez vous que [le fichier](../assets/reporting/installation/centreon.cnf) de configuration
 optimisé fourni dans les pré-requis est bien présent dans `/etc/mysql/mariadb.conf.d/`.
 
-Renommez le fichier `80-centreon.cnf` :
+Renommez le fichier en `80-centreon.cnf` :
 
 ```shell
 mv centreon.cnf 80-centreon.cnf
