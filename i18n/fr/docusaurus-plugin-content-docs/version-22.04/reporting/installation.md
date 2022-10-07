@@ -470,7 +470,7 @@ systemctl restart mariadb
 ```
 
 Il est nécessaire de modifier la limitation **LimitNOFILE**. Changer cette
-option dans `/etc/mysql/` ne fonctionnera pas.
+option dans `/etc/mysql/mariadb.cnf` ne fonctionnera pas.
 
 ```shell
 mkdir -p  /etc/systemd/system/mariadb.service.d/
@@ -600,7 +600,7 @@ Pour activer la purge automatique des données, éditez le cron
 dé-commentez la ligne suivante :
 
 ```shell
-0 20 * * * root @CENTREON_BI_HOME@/etl/dataRetentionManager.pl >> @CENTREON_BI_LOG@/dataRetentionManager.log 2>&1
+#0 20 * * * root @CENTREON_BI_HOME@/etl/dataRetentionManager.pl >> @CENTREON_BI_LOG@/dataRetentionManager.log 2>&1
 ```
 
 > Évitez les périodes pendant lesquelles les calculs de statistiques avec
@@ -624,7 +624,7 @@ Pour activer la purge automatique des données, éditez le cron
 dé-commentez la ligne suivante :
 
 ```shell
-0 20 * * * root @CENTREON_BI_HOME@/etl/dataRetentionManager.pl >> @CENTREON_BI_LOG@/dataRetentionManager.log 2>&1
+#0 20 * * * root @CENTREON_BI_HOME@/etl/dataRetentionManager.pl >> @CENTREON_BI_LOG@/dataRetentionManager.log 2>&1
 ```
 
 > Évitez les périodes pendant lesquelles les calculs de statistiques avec
