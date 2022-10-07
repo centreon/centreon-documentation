@@ -375,14 +375,13 @@ join_buffer_size=4M
 thread_cache_size=64
 read_buffer_size=512K
 read_rnd_buffer_size=256K
-max_allowed_packet=64M
+max_allowed_packet=128M
 # Uncomment for 4 Go Ram
 #innodb_buffer_pool_size=512M
 # Uncomment for 8 Go Ram
 #innodb_buffer_pool_size=1G
-# MariaDB strict mode will be supported soon
-#sql_mode = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'
 ```
+
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
@@ -417,13 +416,11 @@ join_buffer_size=4M
 thread_cache_size=64
 read_buffer_size=512K
 read_rnd_buffer_size=256K
-max_allowed_packet=64M
+max_allowed_packet=128M
 # Uncomment for 4 Go Ram
 #innodb_buffer_pool_size=512M
 # Uncomment for 8 Go Ram
 #innodb_buffer_pool_size=1G
-# MariaDB strict mode will be supported soon
-#sql_mode = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'
 ```
 
 De plus, commentez la ligne :
@@ -442,7 +439,7 @@ De plus, commentez la ligne :
 To apply the new configuration, you have to restart the database server:
 
 ```bash
-systemctl restart mairia
+systemctl restart mairiadb
 ```
 
 Make sure that the restart went well:
@@ -467,7 +464,7 @@ mysql_secure_installation
 
 First log in as `root` on both database servers (using the newly defined password):
 
-```
+```bash
 mysql -p
 ```
 
@@ -542,7 +539,7 @@ Slave Thread Status [KO]
 Error reports:
     No slave (maybe because we cannot check a server).
 Position Status [SKIP]
-!Error reports:
+Error reports:
     Skip because we can't identify a unique slave.
 ```
 
@@ -719,7 +716,7 @@ rm -f /etc/cron.d/centreon-auto-disco
 
 Modifications have to be made on permissions of `/var/log/centreon-engine` and `/tmp/centreon-autodisco` directories.
 
-In a clustered-setup, it's a requirement to get a file sync and discovery scheduled task fully functionnal. 
+In a clustered-setup, it's a requirement to get a file sync and discovery scheduled task fully functionnal.
 
 * Files synchronization
 
@@ -743,6 +740,7 @@ mkdir /tmp/centreon-autodisco/
 chown apache: /tmp/centreon-autodisco/
 chmod 775 /tmp/centreon-autodisco/
 ```
+
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
@@ -786,11 +784,26 @@ systemctl disable centengine snmptrapd centreontrapd gorgoned cbd httpd24-httpd 
 </TabItem>
 </Tabs>
 
+<Tabs groupId="sync">
+<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8 / RHEL 7 / CentOS 7" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8 / RHEL 7 / CentOS 7">
+
 By default, the `mysql` service is enabled in both systemd and system V perspectives, so you'd rather make sure it is disabled:
 
 ```bash
 chkconfig mysql off
 ```
+
+</TabItem>
+<TabItem value="Debian 11 " label="Debian 11">
+
+By default, the `mysql` service is enabled in both systemd and system V perspectives, so you'd rather make sure it is disabled:
+
+```bash
+update-rc.d -f mariadb remove
+```
+
+</TabItem>
+</Tabs
 
 ### Creating the cluster
 
@@ -914,7 +927,7 @@ passwd hacluster
 Now that both of the central nodes **and** the *quorum device* server are sharing the same password, you will run this command **only on one of the central nodes** in order to authenticate on all the hosts taking part in the cluster.
 
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8 / Debian 11" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8 / Debian 11">
+<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
 
 ```bash
 pcs host auth \
@@ -926,6 +939,8 @@ pcs host auth \
 ```
 
 </TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
 On Debian, the cluster is autoconfigured with default values. In order to install our cluster, we need to destroy this setup with this command:
 
 ```bash
@@ -961,7 +976,7 @@ pcs cluster auth \
 
 #### Creating the cluster
 
-The following command creates the cluster. It must be run **only on one of the central nodes**. 
+The following command creates the cluster. It must be run **only on one of the central nodes**.
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8 / Debian 11" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8 / Debian 11">
@@ -1335,7 +1350,6 @@ In order to force the cluster running both `centreon` resource group and the Mar
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8 / Debian 11" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8 / Debian 11">
-
 
 ```bash
 pcs constraint colocation add master "ms_mysql-clone" with "centreon"
