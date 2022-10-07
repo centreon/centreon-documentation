@@ -449,8 +449,6 @@ max_allowed_packet=64M
 #innodb_buffer_pool_size=512M
 # Uncomment for 8 Go Ram
 #innodb_buffer_pool_size=1G
-# MariaDB strict mode will be supported soon                                         
-sql_mode = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'
 ```
 
 </TabItem>
@@ -492,8 +490,6 @@ max_allowed_packet=64M
 #innodb_buffer_pool_size=512M
 # Uncomment for 8 Go Ram
 #innodb_buffer_pool_size=1G
-# MariaDB strict mode will be supported soon
-sql_mode = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'
 ```
 
 De plus, commentez la ligne :
@@ -1046,6 +1042,7 @@ pcs host auth \
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
+
 Sur Debian, le cluster est autoconfiguré avec des valeurs par défaut. Afin d'installer notre cluster, nous devons détruire se préparamétrage avec cette commande :
 
 ```bash
@@ -1760,8 +1757,8 @@ La configuration des *Output* Broker du central-broker-master se fait à l'aide 
 
 | Broker Output                         | Parameter  | Value            |
 | ------------------------------------- | ---------- | ---------------- |
-| Broker SQL database                   | DB Host    | @VIP_SQL_IPADDR@ |
-| Perfdata Generator (Centreon Storage) | DB Host    | @VIP_SQL_IPADDR@ |
+| Unified SQL                           | DB host    | @VIP_SQL_IPADDR@ |
+| Perfdata Generator (Centreon Storage) | DB host    | @VIP_SQL_IPADDR@ |
 
 ### Exporter la configuration
 
