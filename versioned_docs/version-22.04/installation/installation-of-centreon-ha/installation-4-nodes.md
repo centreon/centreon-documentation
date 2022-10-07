@@ -982,6 +982,8 @@ Then you can start the authentication of the cluster:
 pcs host auth \
     "@CENTRAL_MASTER_NAME@" \
     "@CENTRAL_SLAVE_NAME@" \
+    "@DATABASE_MASTER_NAME@" \
+    "@DATABASE_SLAVE_NAME@" \
     "@QDEVICE_NAME@" \
     -u "hacluster" \
     -p '@CENTREON_CLUSTER_PASSWD@'
