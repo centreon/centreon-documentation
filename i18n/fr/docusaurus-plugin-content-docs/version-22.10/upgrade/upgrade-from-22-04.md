@@ -168,17 +168,19 @@ Pour chaque différence entre les fichiers, évaluez si celle-ci doit être repo
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-Avant de démarrer la montée de version via l'interface web, rechargez le serveur Apache avec la commande suivante :
+Avant de démarrer la montée de version via l'interface web, rechargez le serveur Apache et redémarrez le processus PHP avec les commandes suivantes :
 ```shell
 systemctl reload httpd
+systemctl restart php-fpm
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
-Avant de démarrer la montée de version via l'interface web, rechargez le serveur Apache avec la commande suivante :
+Avant de démarrer la montée de version via l'interface web, rechargez le serveur Apache et redémarrez le processus PHP avec les commandes suivantes :
 ```shell
 systemctl reload httpd24-httpd
+systemctl restart php-fpm
 ```
 
 </TabItem>

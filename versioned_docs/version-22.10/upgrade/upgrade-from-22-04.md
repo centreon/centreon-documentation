@@ -169,21 +169,23 @@ For each difference between the files, assess whether you should copy it from **
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-Before starting the web upgrade process, reload the Apache server with the
-following command:
+Before starting the web upgrade process, reload the Apache server and restart PHP process with the
+following commands:
 
 ```shell
 systemctl reload httpd
+systemctl restart php-fpm
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
-Before starting the web upgrade process, reload the Apache server with the
-following command:
+Before starting the web upgrade process, reload the Apache server and restart PHP process with the
+following commands:
 
 ```shell
-systemctl reload httpd24-httpd
+systemctl reload httpd
+systemctl restart php-fpm
 ```
 
 </TabItem>
