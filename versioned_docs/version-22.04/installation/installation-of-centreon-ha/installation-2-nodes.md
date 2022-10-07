@@ -400,7 +400,7 @@ binlog_format=MIXED
 slave_compressed_protocol=1
 slave_parallel_mode=conservative
 datadir=/var/lib/mysql
-pid-file=/var/lib/mysql/mysql.pid
+pid-file=/run/mysqld/mysql.pid
 skip-slave-start
 log-slave-updates
 gtid_strict_mode=ON
