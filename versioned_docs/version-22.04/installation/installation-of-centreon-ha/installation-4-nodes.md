@@ -381,6 +381,9 @@ A Master-Slave MariaDB cluster will be setup so that everything is synchronized 
 
 ### Configuring MariaDB
 
+<Tabs groupId="sync">
+<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8 / RHEL 7 / CentOS 7" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8/ RHEL 7 / CentOS 7">
+
 For both optimization and cluster reliability purposes, you need to add this tuning options to MariaDB configuration in the `/etc/my.cnf.d/server.cnf` file. By default, the `[server]` section of this file is empty. Paste these lines (some have to be modified) into this section:
 
 ```ini
@@ -417,8 +420,45 @@ max_allowed_packet=64M
 #innodb_buffer_pool_size=512M
 # Uncomment for 8 Go Ram
 #innodb_buffer_pool_size=1G
-# MariaDB strict mode will be supported soon
-sql_mode = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```ini
+[server]
+server-id=1 # SET TO 1 FOR MASTER AND 2 FOR SLAVE
+#read_only
+log-bin=mysql-bin
+binlog-do-db=centreon
+binlog-do-db=centreon_storage
+innodb_flush_log_at_trx_commit=1
+sync_binlog=1
+binlog_format=MIXED
+slave_compressed_protocol=1
+slave_parallel_mode=conservative
+datadir=/var/lib/mysql
+pid-file=/run/mysqld/mysql.pid
+skip-slave-start
+log-slave-updates
+gtid_strict_mode=ON
+expire_logs_days=7
+ignore-db-dir=lost+found
+
+# Tuning standard Centreon
+innodb_file_per_table=1
+open_files_limit=32000
+key_buffer_size=256M
+sort_buffer_size=32M
+join_buffer_size=4M
+thread_cache_size=64
+read_buffer_size=512K
+read_rnd_buffer_size=256K
+max_allowed_packet=64M
+# Uncomment for 4 Go Ram
+#innodb_buffer_pool_size=512M
+# Uncomment for 8 Go Ram
+#innodb_buffer_pool_size=1G
 ```
 
 > **Important:** the value of `server-id` must be different from one server to the other. The values suggested in the comment 1 => Master et 2 => Slave are not mandatory but recommended.
@@ -453,7 +493,7 @@ mysql_secure_installation
 
 First log in as `root` on both database servers (using the newly defined password):
 
-```
+```bash
 mysql -p
 ```
 
@@ -464,7 +504,7 @@ CREATE USER '@MARIADB_CENTREON_USER@'@'@DATABASE_SLAVE_IPADDR@' IDENTIFIED BY '@
 GRANT ALL PRIVILEGES ON centreon.* TO '@MARIADB_CENTREON_USER@'@'@DATABASE_SLAVE_IPADDR@';
 GRANT ALL PRIVILEGES ON centreon_storage.* TO '@MARIADB_CENTREON_USER@'@'@DATABASE_SLAVE_IPADDR@';
 
-CREATE USER '@MARIADB_CENTREON_USER@'@'@DATABASE_ASTER_IPADDR@' IDENTIFIED BY '@MARIADB_CENTREON_PASSWD@';
+CREATE USER '@MARIADB_CENTREON_USER@'@'@DATABASE_MASTER_IPADDR@' IDENTIFIED BY '@MARIADB_CENTREON_PASSWD@';
 GRANT ALL PRIVILEGES ON centreon.* TO '@MARIADB_CENTREON_USER@'@'@DATABASE_MASTER_IPADDR@';
 GRANT ALL PRIVILEGES ON centreon_storage.* TO '@MARIADB_CENTREON_USER@'@'@DATABASE_MASTER_IPADDR@';
 ```
@@ -764,18 +804,33 @@ systemctl disable centengine snmptrapd centreontrapd gorgoned cbd httpd24-httpd 
 </TabItem>
 </Tabs>
 
-And for ** Database nodes **
+And for **Database nodes**
 
 ```bash
 systemctl stop mysql
 systemctl disable mysql
 ```
 
+<Tabs groupId="sync">
+<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8 / RHEL 7 / CentOS 7" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8 / RHEL 7 / CentOS 7">
+
 By default, the `mysql` service is enabled in both systemd and system V perspectives, so you'd rather make sure it is disabled:
 
 ```bash
 chkconfig mysql off
 ```
+
+</TabItem>
+<TabItem value="Debian 11 " label="Debian 11">
+
+By default, the `mysql` service is enabled in both systemd and system V perspectives, so you'd rather make sure it is disabled:
+
+```bash
+update-rc.d -f mariadb remove
+```
+
+</TabItem>
+</Tabs>
 
 ### Creating the cluster
 
@@ -998,7 +1053,7 @@ pcs property set stonith-enabled="false"
 pcs resource defaults resource-stickiness="100"
 ```
 
-You can now follow the state of the cluster with the `crm_mon` command, which will display new resources as they appear.
+You can now follow the state of the cluster with the `crm_mon -f` command, which will display new resources as they appear.
 
 #### Creating the *Quorum Device*
 
@@ -1624,8 +1679,8 @@ This is configured in the Centreon Broker configuration menu in the *Output* tab
 
 | Broker Output                         | Parameter  | Value            |
 | ------------------------------------- | ---------- | ---------------- |
-| Broker SQL database                   | DB Host    | @VIP_SQL_IPADDR@ |
-| Perfdata Generator (Centreon Storage) | DB Host    | @VIP_SQL_IPADDR@ |
+| Unified SQL                           | DB host    | @VIP_SQL_IPADDR@ |
+| Perfdata Generator (Centreon Storage) | DB host    | @VIP_SQL_IPADDR@ |
 
 ### Exporting configuration
 Once the actions in the previous paragraph have been completed, the configuration must be exported (first 3 boxes for the "Central" poller export) for it to be effective.
