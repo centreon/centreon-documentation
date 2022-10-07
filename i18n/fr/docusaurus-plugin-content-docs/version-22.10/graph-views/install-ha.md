@@ -1,29 +1,29 @@
 ---
 id: install-ha
-title: Install Centreon-Map in High Availability
+title: Install Centreon-MAP in High Availability
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-> Centreon-Map nécessite une licence valide. Pour en acquérir une et récupérer les référentiels
+> Centreon-MAP nécessite une licence valide. Pour en acquérir une et récupérer les dépôts
 > nécessaires, contactez [Centreon] mailto:sales@centreon.com).
 
 ## Aperçu
 
-Centreon-Map HA repose sur les mêmes concepts que Centreon HA.
+Centreon-MAP HA repose sur les mêmes concepts que Centreon HA.
 Vous trouverez toutes les informations sur l'[aperçu](../installation/installation-of-centreon-ha/overview.md).
 
 > **AVERTISSEMENT:** La documentation suivante n'est compatible qu'avec MariaDB 10.3 et CentOS 7.
 
-## Pré-requis
+## Prérequis
 
 ### Compréhension
 
 Avant d'appliquer cette procédure, vous devez avoir une bonne connaissance de l'OS Linux, de Centreon, et des outils de clusters Pacemaker afin d'avoir une compréhension 
 correcte de ce qui est fait.
 
-> **AVERTISSEMENT:** Toute personne qui suit cette procédure le fait à sa propre responsabilité. En aucun cas, la société Centreon ne peut être tenue responsable d'une 
+> **AVERTISSEMENT:** Toute personne qui suit cette procédure le fait sous sa propre responsabilité. En aucun cas, la société Centreon ne peut être tenue responsable d'une 
 quelconque panne ou perte de données.
 
 ### Flux réseau
@@ -36,29 +36,29 @@ vous devrez ouvrir les flux suivants :
 
 | De                    | Destination           | Protocol | Port     | Application                                                                       |
 | :-------------------- | :-------------------- | :------- | :------- | :-------------------------------------------------------------------------------- |
-| Nœud Actif            | Nœud  Passif          | MySQL    | TCP 3306 | Synchronisation MySQL (Doit être également ouvert du nœud passif vers nœud actif) |
-| Map Servers + QDevice | Map Servers + QDevice | Corosync | UDP 5404 | Communication à l'intérieur le cluster (Multicast)                                |
-| Map Servers + QDevice | Map Servers + QDevice | Corosync | UDP 5405 | Communication à l'intérieur le cluster (Unicast)                                  |
-| Map Servers + QDevice | Map Servers + QDevice | PCS      | TCP 2224 | Communication à l'intérieur le cluster                                            |
-| Map Servers + QDevice | Map Servers + QDevice | Corosync | TCP 5403 | Communication avec le QDevice                                                     |
+| Nœud Actif            | Nœud  Passif          | MySQL    | TCP 3306 | Synchronisation MySQL (Doit être également ouvert du nœud passif vers le nœud actif) |
+| MAP Servers + QDevice | MAP Servers + QDevice | Corosync | UDP 5404 | Communication à l'intérieur du cluster (Multicast)                                |
+| MAP Servers + QDevice | MAP Servers + QDevice | Corosync | UDP 5405 | Communication à l'intérieur du cluster (Unicast)                                  |
+| MAP Servers + QDevice | MAP Servers + QDevice | PCS      | TCP 2224 | Communication à l'intérieur du cluster                                            |
+| MAP Servers + QDevice | MAP Servers + QDevice | Corosync | TCP 5403 | Communication avec le QDevice                                                     |
 
 </TabItem>
 <TabItem value="4 Nœuds" label="4 Nœuds">
 
 | De                         | Destination                 | Protocol | Port     | Application                                                                       |
 | :------------------------- | :-------------------------- | :------- | :------- | :-------------------------------------------------------------------------------- |
-| Nœud Base de données actif | Nœud Base de données passif | MySQL    | TCP 3306 | Synchronisation MySQL (Doit être également ouvert du nœud passif vers nœud actif) |
-| Map Servers + DB + QDevice | Map Servers + DB + QDevice  | Corosync | UDP 5404 | Communication à l'intérieur du cluster (Multicast)                                |
-| Map Servers + DB + QDevice | Map Servers + DB + QDevice  | Corosync | UDP 5405 | Communication à l'intérieur du cluster (Unicast)                                  |
-| Map Servers + DB + QDevice | Map Servers + DB + QDevice  | PCS      | TCP 2224 | Communication à l'intérieur du cluster                                            |
-| Map Servers + DB + QDevice | Map Servers + DB + QDevice  | Corosync | TCP 5403 | Communication avec le QDevice                                                     |
+| Nœud Base de données actif | Nœud Base de données passif | MySQL    | TCP 3306 | Synchronisation MySQL (Doit être également ouvert du nœud passif vers le nœud actif) |
+| MAP Servers + DB + QDevice | MAP Servers + DB + QDevice  | Corosync | UDP 5404 | Communication à l'intérieur du cluster (Multicast)                                |
+| MAP Servers + DB + QDevice | MAP Servers + DB + QDevice  | Corosync | UDP 5405 | Communication à l'intérieur du cluster (Unicast)                                  |
+| MAP Servers + DB + QDevice | MAP Servers + DB + QDevice  | PCS      | TCP 2224 | Communication à l'intérieur du cluster                                            |
+| MAP Servers + DB + QDevice | MAP Servers + DB + QDevice  | Corosync | TCP 5403 | Communication avec le QDevice                                                     |
 
 </TabItem>
 </Tabs>
 
-### Installation de la plateforme Map de Centreon
+### Installation de la plateforme MAP de Centreon
 
-Un cluster Centreon-Map HA ne peut être installé que sur la base d'une plateforme Centreon-Map en fonctionnement.
+Un cluster Centreon-MAP HA ne peut être installé que sur la base d'une plateforme Centreon-MAP en fonctionnement.
 Avant de suivre cette procédure, il est nécessaire que **[cette procédure d'installation](install.md)** ait déjà été complétée
 et qu'un **environ 5GB d'espace libre soit disponible du volume groupe LVM** qui contient
 le répertoire de données MariaDB (point de montage `/var/lib/mysql` par défaut).
@@ -71,11 +71,11 @@ La réponse de la commande `vgs` doit ressembler à ceci (ce à quoi il faut fai
   vg_root   1   2   0 wz--n-  9,00g    0 
 ```
 
-Les 2 serveurs Centreon-Map doivent être liés au même serveur central.
-Le script `/etc/centreon-studio/diagnostic.sh` doit retourner `[OK]` sur **les deux** serveurs Map :
+Les 2 serveurs Centreon-MAP doivent être liés au même serveur central.
+Le script `/etc/centreon-studio/diagnostic.sh` doit retourner `[OK]` sur **les deux** serveurs MAP :
 
 ```bash
-########## Centreon-Map server version ##########
+########## Centreon-MAP server version ##########
 
   [INFO] centreon-map-server-xx.xx.x-x.el7.noarch
 
@@ -130,16 +130,16 @@ Le rôle de Quorum Device, peut être tenu par un Poller de la plateforme de sup
 
 Dans cette procédure, nous ferons référence aux caractéristiques qui sont appelés à changer d'une plateforme à l'autre (comme les adresses IP) par les macros suivantes :
 
-* `@MAP_PRIMARY_IPADDR@`: adresse IP du serveur Map primaire
-* `@MAP_PRIMARY_NAME@`: nom du serveur Map primaire (doit être identique à `hostname -s`)
-* `@MAP_SECONDARY_IPADDR@`: adresse IP du serveur Map secondaire
-* `@MAP_SECONDARY_NAME@`: nom du serveur Map secondaire (doit être identique à `hostname -s`)
+* `@MAP_PRIMARY_IPADDR@`: adresse IP du serveur MAP primaire
+* `@MAP_PRIMARY_NAME@`: nom du serveur MAP primaire (doit être identique à `hostname -s`)
+* `@MAP_SECONDARY_IPADDR@`: adresse IP du serveur MAP secondaire
+* `@MAP_SECONDARY_NAME@`: nom du serveur MAP secondaire (doit être identique à `hostname -s`)
 * `@QDEVICE_IPADDR@`: adresse IP du quorum
 * `@QDEVICE_NAME@`: nom du quorum device (doit être identique à `hostname -s`)
 * `@MARIADB_REPL_USER@`: identifiant de réplication MariaDB (défaut: `centreon-repl`)
 * `@MARIADB_REPL_PASSWD@`: mot de passe de réplication MariaDB
-* `@MARIADB_CENTREON_USER@`: Identifiant de MariaDB de Centreon-Map (défaut: `centreon_map`)
-* `@MARIADB_CENTREON_PASSWD@`: mot de passe de MariaDB de Centreon-Map
+* `@MARIADB_CENTREON_USER@`: Identifiant de MariaDB de Centreon-MAP (défaut: `centreon_map`)
+* `@MARIADB_CENTREON_PASSWD@`: mot de passe de MariaDB de Centreon-MAP
 * `@VIP_IPADDR@`: adresse IP virtuelle du cluster
 * `@VIP_IFNAME@`: périphérique réseau portant le VIP du cluster
 * `@VIP_CIDR_NETMASK@`: longueur du masque de sous-réseau en bits (ex. 24)
@@ -152,8 +152,8 @@ Avant de mettre en place le cluster, certaines conditions préalables doivent ê
 
 ### Optimisation de la configuration de réseau
 
-Afin d'améliorer la fiabilité du cluster, et puisque *Centreon-Map HA* ne prend en charge que l'IPv4, nous vous recommandons d'appliquer les paramètres de configuration 
-suivants à tous vos serveurs Centreon-Map (y compris le quorum device) :
+Afin d'améliorer la fiabilité du cluster, et puisque *Centreon-MAP HA* ne prend en charge que l'IPv4, nous vous recommandons d'appliquer les paramètres de configuration 
+suivants à tous vos serveurs Centreon-MAP (y compris le quorum device) :
 
 ```bash
 cat >> /etc/sysctl.conf <<EOF
@@ -169,7 +169,7 @@ systemctl restart network
 
 ### Résolution de nom
 
-Pour que le cluster *Centreon-Map HA* puisse rester opérationnel en cas de panne du système DNS, tous les nœuds du cluster doivent se connaître par leur nom et non par le DNS, en utilisant `/etc/hosts`.
+Pour que le cluster *Centreon-MAP HA* puisse rester opérationnel en cas de panne du système DNS, tous les nœuds du cluster doivent se connaître par leur nom et non par le DNS, en utilisant `/etc/hosts`.
 
 ```bash
 cat >/etc/hosts <<"EOF"
@@ -184,7 +184,7 @@ A partir de ce point, `@MAP_PRIMARY_NAME@` sera nommé le " serveur/nœud primai
 
 ### Installation des paquets système
 
-Centreon propose un paquet nommé `centreon-ha-common`, qui fournit tous les fichiers et dépendances nécessaires à un cluster Centreon. Ces paquets doivent être installés sur les deux nœuds de Centreon-Map :
+Centreon propose un paquet nommé `centreon-ha-common`, qui fournit tous les fichiers et dépendances nécessaires à un cluster Centreon. Ces paquets doivent être installés sur les deux nœuds de Centreon-MAP :
 
 ```bash
 yum install epel-release
@@ -241,7 +241,7 @@ Ensuite, quittez la session `mysql` en tapant `exit` ou `Ctrl-D`.
 
 Un cluster MariaDB primaire-secondaire sera mis en place afin que tout soit synchronisé en temps réel. 
 
-**Info**: sauf indication contraire, chacune des étapes suivantes doit être exécutée **sur les deux nœuds Map**.
+**Info**: sauf indication contraire, chacune des étapes suivantes doit être exécutée **sur les deux nœuds MAP**.
 
 ### Configuration de MariaDB
 
@@ -348,7 +348,7 @@ EOF
 
 ### Configuration des variables d'environnement des scripts MariaDB
 
-Le fichier `/etc/centreon-ha/mysql-resources.sh` déclare des variables d'environnement qui doivent être configurées pour que les scripts *Centreon-Map HA* dédiés à MariaDB puissent fonctionner correctement. Il faut attribuer à ces variables les valeurs choisies pour les macros.
+Le fichier `/etc/centreon-ha/mysql-resources.sh` déclare des variables d'environnement qui doivent être configurées pour que les scripts *Centreon-MAP HA* dédiés à MariaDB puissent fonctionner correctement. Il faut attribuer à ces variables les valeurs choisies pour les macros.
 
 ```bash
 #!/bin/bash
@@ -508,7 +508,7 @@ chkconfig mysql off
 
 #### Activation des services du cluster.
 
-D'abord nous activons tous les services et démarrons `pcsd` sur les deux nœuds Centreon-Map :
+D'abord nous activons tous les services et démarrons `pcsd` sur les deux nœuds Centreon-MAP :
 
 ```bash
 systemctl start pcsd
@@ -535,13 +535,13 @@ COROSYNC_QNETD_OPTIONS="-4"
 
 #### Authentification des membres du cluster
 
-Pour des raisons de simplicité, l'utilisateur `hacluster` se verra attribuer le même mot de passe sur les deux nœuds de Centreon-Map **et `@QDEVICE_NAME@`**.
+Pour des raisons de simplicité, l'utilisateur `hacluster` se verra attribuer le même mot de passe sur les deux nœuds de Centreon-MAP **et `@QDEVICE_NAME@`**.
 
 ```bash
 passwd hacluster
 ```
 
-Maintenant que les deux nœuds de Centreon-Map **et** le serveur *quorum device* partagent le même mot de passe, vous allez exécuter cette commande **seulement sur l'un des nœuds de Centreon-Map** afin d'authentifier tous les hôtes participant au cluster.
+Maintenant que les deux nœuds de Centreon-MAP **et** le serveur *quorum device* partagent le même mot de passe, vous allez exécuter cette commande **seulement sur l'un des nœuds de Centreon-MAP** afin d'authentifier tous les hôtes participant au cluster.
 
 ```bash
 pcs cluster auth \
@@ -555,7 +555,7 @@ pcs cluster auth \
 
 #### Création du cluster
 
-La commande suivante crée le cluster. Elle doit être exécutée **seulement sur l'un des nœuds de Centreon-Map**. 
+La commande suivante crée le cluster. Elle doit être exécutée **seulement sur l'un des nœuds de Centreon-MAP**. 
 
 ```bash
 pcs cluster setup \
@@ -565,7 +565,7 @@ pcs cluster setup \
 	"@MAP_SECONDARY_NAME@"
 ```
 
-Ensuite, démarrez le service `pacemaker` **sur les deux nœuds de Centreon-Map** :
+Ensuite, démarrez le service `pacemaker` **sur les deux nœuds de Centreon-MAP** :
 
 ```bash
 systemctl enable pacemaker pcsd corosync
@@ -584,7 +584,7 @@ Vous pouvez maintenant suivre l'état du cluster avec la commande `crm_mon`, qui
 
 #### Création du *Quorum Device*
 
-Exécutez cette commande sur l'un des nœuds de Centreon-Map :
+Exécutez cette commande sur l'un des nœuds de Centreon-MAP :
 
 ```bash
 pcs quorum device add model net \
@@ -594,7 +594,7 @@ pcs quorum device add model net \
 
 ### Créer les ressources du cluster MariaDB
 
-À exécuter **seulement sur un nœud de Centreon-Map** :
+À exécuter **seulement sur un nœud de Centreon-MAP** :
 
 <Tabs groupId="sync">
 <TabItem value="CentOS7" label="CentOS7">
@@ -689,7 +689,7 @@ pcs resource create vip \
 	--group centreon_map
 ```
 
-#### Service Centreon-Map
+#### Service Centreon-map
 
 ```bash
 pcs resource create centreon-map \
@@ -741,7 +741,7 @@ Active resources:
 
 #### Vérification du thread de réplication de la base de données
 
-L'état de la réplication de MariaDB peut être superviser à tout moment avec la commande `mysql-check-status.sh` :
+L'état de la réplication de MariaDB peut être supervisé à tout moment avec la commande `mysql-check-status.sh` :
 
 ```bash
 /usr/share/centreon-ha/bin/mysql-check-status.sh
@@ -756,7 +756,7 @@ Slave Thread Status [OK]
 Position Status [OK]
 ```
 
-Il peut arriver que le thread de réplication ne fonctionne pas juste après l'installation.  Le redémarrage de la ressource `ms_mysql` peut résoudre ce problème.
+Il peut arriver que le thread de réplication ne fonctionne pas juste après l'installation. Le redémarrage de la ressource `ms_mysql` peut résoudre ce problème.
 
 ```bash 
 pcs resource restart ms_mysql
@@ -777,8 +777,7 @@ Ticket Constraints:
 
 ### Mise à jour de l'extension Centreon-Web UI
 
-Maintenant que vous utilisez l'adresse VIP, vous devez mettre à jour le paramètre `Centreon-Map server address` 
-dans le menu **Administration > Extensions > Options** 
-avec l'adresse VIP ou le FQDN qui résout le VIP.
+Maintenant que vous utilisez l'adresse VIP, vous devez mettre à jour le paramètre **Adresse du serveur Centreon MAP** 
+dans le menu **Administration > Extensions > Options** avec l'adresse VIP ou le FQDN qui résout le VIP.
 
 En cas de HTTPS, il est possible que vous deviez accepter à nouveau le certificat (en cas de certificat auto-signé).
