@@ -5,7 +5,6 @@ title: Installation de Centreon MBI
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 ## Architecture
 
 Ce chapitre présente l'architecture logicielle de l'extension **Centreon MBI**. Il
@@ -93,6 +92,20 @@ serveur de reporting pour des questions de performances & d'isolation.
   - interactive_timeout
 
 </TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+- Centreon Web 22.04
+- Vérifiez que `date.timezone` est correctement configurée dans le fichier
+  `/etc/php/8.0/mods-available/centreon.ini` (même que celui retourné par la commande
+  `timedatectl status`)
+- Evitez l'utilisation des variables ci dessous dans le fichier de
+  configuration MariaDB `/etc/mysql/mariadb.cnf`: Elles arrêtent l'exécution des requêtes
+  longues et ceci pourrait arrêter l'exécution des ETL ainsi que la génération
+  des rapports.
+  - wait_timeout
+  - interactive_timeout
+
+</TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 - Centreon Web 22.04
@@ -154,10 +167,10 @@ vgdisplay vg_data | grep -i free*
 
 **Logiciels**
 
-* OS : CentOS / Redhat 7 ou 8
-* SGBD : MariaDB 10.5
-* Firewall : Désactivé
-* SELinux : Désactivé
+- OS : CentOS / Redhat 7 ou 8 / Oracle Linux 8 / Alma 8 / Debian 11
+- SGBD : MariaDB 10.5
+- Firewall : Désactivé
+- SELinux : Désactivé
 
 Veillez à optimiser MariaDB sur votre serveur de reporting. Vous aurez besoin
 d'au moins 12GB de mémoire vive afin d'utiliser le
@@ -182,7 +195,7 @@ Description des utilisateurs, umask et répertoire utilisateur :
 
 Les actions listées dans ce chapitre doivent être lancées sur le serveur de supervision Centreon.
 
-Installer le dépôt MBI, vous pouvez le trouver sur le 
+Installer le dépôt MBI, vous pouvez le trouver sur le
 [portail support](https://support.centreon.com/s/repositories).
 
 Puis lancez la commande suivante :
@@ -273,12 +286,14 @@ mysql> GRANT ALL PRIVILEGES ON centreon_storage.* TO 'centreonbi'@'$BI_ENGINE_IP
 > **monitoring**, lors de l'installation de Centreon MBI, des vues sont
 > créées. Il faut les exclure de la réplication en rajoutant la ligne
 > suivante dans le fichier my.cnf du slave
+>
 > ```shell
 > replicate-wild-ignore-table=centreon.mod_bi_%v01,centreon.mod_bi_%V01
 > ```
+>
 > puis créer les vues sur le slave en lançant la commande:
 >
->  #mysql centreon < [view_creation.sql](../assets/reporting/installation/view_creation.sql)
+> #mysql centreon < [view_creation.sql](../assets/reporting/installation/view_creation.sql)
 
 Allez au chapitre suivant pour continuer l'installation.
 
@@ -296,7 +311,7 @@ Donnez au paramètre **bind-address** la valeur **0.0.0.0**.
 
 Lorsque vous installez Centreon MBI, un [utilisateur](../monitoring/basic-objects/contacts.md) nommé **cbis** est créé automatiquement. Il permet au moteur de génération de rapports d'extraire les données de Centreon (en utilisant les APIs) afin de les insérer dans le rapport. Cet utilisateur doit [avoir accès à toutes les ressources supervisées par Centreon](../administration/access-control-lists.md) afin de pouvoir extraire les graphes de performance pour les rapports suivants :
 
-- Host-Graph-v2 
+- Host-Graph-v2
 
 - Hostgroup-Graph-v2.
 
@@ -337,7 +352,7 @@ veillez à les connaître avant de commencer :
   centreonBI, sur le serveur Central (pour la mise à disposition des
   rapports générés sur l'interface)
 
-Installer le dépôt MBI, vous pouvez le trouver sur le 
+Installer le dépôt MBI, vous pouvez le trouver sur le
 [portail support](https://support.centreon.com/s/repositories).
 
 Puis lancer la commande suivante:
@@ -351,9 +366,25 @@ dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
 
 Dans le cas d'une installation basée sur une distribution vierge, installez la
 clé GPG :
+
 ```shell
 cd /etc/pki/rpm-gpg/
 wget hhttps://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt update
+apt install centreon-bi-reporting-server MariaDB-server MariaDB-client
+```
+
+Dans le cas d'une installation basée sur une distribution vierge, installez la
+clé GPG :
+
+```shell
+wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
 ```
 
 </TabItem>
@@ -363,8 +394,8 @@ wget hhttps://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 yum install centreon-bi-reporting-server MariaDB-server MariaDB-client
 ```
 
-Dans le cas d'une installation basée sur une distribution vierge, installez la
-clé GPG :
+Dans le cas d'une installation basée sur une distribution vierge, importez la clé du dépôt :
+
 ```shell
 cd /etc/pki/rpm-gpg/
 wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
@@ -382,6 +413,9 @@ systemctl enable cbis
 ### Configurer le serveur de reporting
 
 #### Optimisations MariaDB
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8 / RHEL 7 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 /  RHEL 7 / CentOS 7">
 
 Assurez vous que [le fichier](../assets/reporting/installation/centreon.cnf) de configuration
 optimisé fourni dans les pré-requis est bien présent dans `/etc/my.cnf.d/`, puis redémarrez
@@ -416,6 +450,53 @@ fichier `/etc/my.cnf` et dans la section [client], ajoutez :
 ```shell
 socket=$PATH_TO_SOCKET$
 ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+Assurez vous que [le fichier](../assets/reporting/installation/centreon.cnf) de configuration
+optimisé fourni dans les pré-requis est bien présent dans `/etc/mysql/mariadb.conf.d/`.
+
+Renommez le fichier `80-centreon.cnf` :
+
+```shell
+mv centreon.cnf 80-centreon.cnf
+```
+
+Puis redémarrez le service MariaDB :
+
+```shell
+systemctl restart mariadb
+```
+
+Il est nécessaire de modifier la limitation **LimitNOFILE**. Changer cette
+option dans `/etc/mysql/` ne fonctionnera pas.
+
+```shell
+mkdir -p  /etc/systemd/system/mariadb.service.d/
+echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mariadb.service.d/limits.conf
+systemctl daemon-reload
+systemctl restart mariadb
+```
+
+Si le service MariaDB échoue lors du démarrage, supprimer les fichiers
+*ib_logfile* (MariaDB doit absolument être stoppé) puis redémarrer à
+nouveau MariaDB:
+
+```shell
+rm -f /var/lib/mysql/ib_logfile*
+systemctl start mariadb
+```
+
+Si vous utilisez un fichier de socket spécifique pour MariaDB, modifiez le
+fichier `/etc/mysql/mariadb.cnf` et dans la section [client], ajoutez :
+
+```shell
+socket=$PATH_TO_SOCKET$
+```
+
+</TabItem>
+</Tabs>
 
 #### Installer la configuration
 
@@ -485,7 +566,7 @@ désactivez le calcul des statistiques à l'heure:
 
 - Hotsgroup-Host-details-1
 - Host-detail-v2
--   Hostgroup-traffic-Average-Usage-By-Interface
+- Hostgroup-traffic-Average-Usage-By-Interface
 - Hostgroup-traffic-by-Interface-And-Bandwith-Ranges
 
 ### ETL: Rétention de données
@@ -511,6 +592,9 @@ différents options de configuration.
 
 ![image](../assets/reporting/installation/bi_retention.png)
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8 / RHEL 7 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / RHEL 7 / CentOS 7">
+
 Pour activer la purge automatique des données, éditez le cron
 `/etc/cron.d/centreon-bi-purge` sur le serveur de reporting puis
 dé-commentez la ligne suivante :
@@ -527,9 +611,37 @@ hebdomadaire, cela dépendra de la charge générée par la purge des
 données sur votre serveur de reporting.
 
 Redémarrez le service cron :
+
 ```shell
 systemctl restart crond
 ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+Pour activer la purge automatique des données, éditez le cron
+`/etc/cron.d/centreon-bi-purge` sur le serveur de reporting puis
+dé-commentez la ligne suivante :
+
+```shell
+0 20 * * * root @CENTREON_BI_HOME@/etl/dataRetentionManager.pl >> @CENTREON_BI_LOG@/dataRetentionManager.log 2>&1
+```
+
+> Évitez les périodes pendant lesquelles les calculs de statistiques avec
+> l'ETL Centreon MBI et la génération des rapports sont programmés.
+
+Il est possible d'exécuter le cron de manière journalière ou
+hebdomadaire, cela dépendra de la charge générée par la purge des
+données sur votre serveur de reporting.
+
+Redémarrez le service cron :
+
+```shell
+systemctl restart cron
+```
+
+</TabItem>
+</Tabs>
 
 **BONNES PRATIQUES** : Sélectionnez différentes périodes de rétention en
 fonction de la granularité des données statistiques:
@@ -571,6 +683,9 @@ pour effet de :
 
 #### Activer l'exécution journalière
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8 / RHEL 7 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / RHEL 7 / CentOS 7">
+
 Une fois que la reconstruction des données est terminée, il faut activer
 l'exécution journalière du script. Pour cela, sur le serveur de
 reporting, éditez le fichier « /etc/cron.d/centreon-bi-engine » et
@@ -585,6 +700,27 @@ Redémarrez le service cron sur le serveur de reporting :
 ```shell
 systemctl restart crond
 ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+Une fois que la reconstruction des données est terminée, il faut activer
+l'exécution journalière du script. Pour cela, sur le serveur de
+reporting, éditez le fichier « /etc/cron.d/centreon-bi-engine » et
+dé-commentez la ligne suivante :
+
+```shell
+30 4 * * * root /usr/share/centreon-bi/bin/centreonBIETL -d >> /var/log/centreon-bi/centreonBIETL.log 2>&1
+```
+
+Redémarrez le service cron sur le serveur de reporting :
+
+```shell
+systemctl restart cron
+```
+
+</TabItem>
+</Tabs>
 
 > Verifiez que le batch *centreonBIETL* commence une fois que le batch
 > *eventReportBuilder* est terminé sur le serveur de monitoring (vérifiez
