@@ -83,6 +83,9 @@ considerations.
 
 **Software**
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
 - Centreon 22.04
 - Check that the parameter `date.timezone` is correctly configured in `/etc/php.d/php.ini`
   (same timezone displayed with the command `timedatectl status`)
@@ -90,6 +93,31 @@ considerations.
   They halt long queries execution and can stop the ETL or the report generation jobs:
   - wait_timeout
   - interactive_timeout
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+- Centreon 22.04
+- Check that the parameter `date.timezone` is correctly configured in `/etc/php/8.0/mods-available/centreon.ini`
+  (same timezone displayed with the command `timedatectl status`)
+- Avoid the usage of the following variables in your monitoring MariaDB configuration.
+  They halt long queries execution and can stop the ETL or the report generation jobs:
+  - wait_timeout
+  - interactive_timeout
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+- Centreon 22.04
+- Check that the parameter `date.timezone` is correctly configured in `/etc/opt/rh/rh-php73/php.ini`
+  (same timezone displayed with the command `timedatectl status`)
+- Avoid the usage of the following variables in your monitoring MariaDB configuration.
+  They halt long queries execution and can stop the ETL or the report generation jobs:
+  - wait_timeout
+  - interactive_timeout
+
+</TabItem>
+</Tabs>
 
 **Users and groups**
 
@@ -137,16 +165,14 @@ vgdisplay vg_data | grep -i free
 
 **Software**
 
-- OS: CentOS 7 / Redhat 7 or 8
+- OS: CentOS 7 / Redhat 7 or 8 / Oracle Linux 8 / Alma 8 / Debian 11
 - SGBD: MariaDB 10.5
 - Firewall: Disabled
 - SELinux: Disabled
 
 We advise to tune your MariaDB database server on your reporting server in
 order to have better performance. You will need at least 12GB on your
-reporting server to run the configuration file provided below. Add the
-[following file](../assets/reporting/installation/centreon.cnf) on your
-reporting server in /etc/my.cnf.d/.
+reporting server to run the configuration file provided below [following file](../assets/reporting/installation/centreon.cnf).
 
 Make sure to have a *tmp* folder in */var/lib/mysql*.
 
@@ -346,6 +372,21 @@ wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 ```
 
 </TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt update
+apt install centreon-bi-reporting-server MariaDB-server MariaDB-client
+```
+
+If you installed your reporting server using a fresh distribution you
+need to add the following GPG key:
+
+```shell
+wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+```
+
+</TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
@@ -372,6 +413,9 @@ systemctl enable cbis
 ### Reporting server configuration
 
 #### MariaDB optimization
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8 / RHEL 7 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 /  RHEL 7 / CentOS 7">
 
 Make sure you have installed the MariaDB configuration file provided in
 the pre-requisites before starting the MariaDB service [following file](../assets/reporting/installation/centreon.cnf)
@@ -404,6 +448,52 @@ and in the [client] section, add the following variable:
 ```shell
 socket=$PATH_TO_SOCKET$
 ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+Make sure you have installed the MariaDB configuration file provided in
+the pre-requisites before starting the MariaDB service [following file](../assets/reporting/installation/centreon.cnf) in `/etc/mysql/mariadb.conf.d/`.
+
+Rename the file to `80-centreon.cnf` :
+
+```shell
+mv centreon.cnf 80-centreon.cnf
+```
+
+Then restart MariaDB service :
+
+```shell
+systemctl restart mariadb
+```
+
+For installation, it is necessary to modify **LimitNOFILE** limitation.
+Setting this option in `/etc/mysql/mariadb.cnf` will NOT work.
+
+```shell
+mkdir -p  /etc/systemd/system/mariadb.service.d/
+echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mariadb.service.d/limits.conf
+systemctl daemon-reload
+systemctl restart mariadb
+```
+
+Then start the service MariaDB. If this service cannot start, remove the
+ib_log files before restarting MariaDB (be sure MariaDB is stopped):
+
+```shell
+rm -f /var/lib/mysql/ib_logfile*
+systemctl start mariadb
+```
+
+If you are using a custom MariaDB socket file, modify the `/etc/my.cnf` file
+and in the [client] section, add the following variable:
+
+```shell
+socket=$PATH_TO_SOCKET$
+```
+
+</TabItem>
+</Tabs>
 
 ### Start configuring
 
@@ -498,6 +588,9 @@ options in the configuration (example below).
 
 ![image](../assets/reporting/installation/bi_retention.png)
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8 / RHEL 7 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / RHEL 7 / CentOS 7">
+
 To activate automatic purge of old data, edit the cron file
 `/etc/cron.d/centreon-bi-purge` on the reporting server, then uncomment the following line:
 
@@ -515,6 +608,30 @@ Then restart the service cron:
 ```shell
 systemctl restart crond
 ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+To activate automatic purge of old data, edit the cron file
+`/etc/cron.d/centreon-bi-purge` on the reporting server, then uncomment the following line:
+
+```shell
+#0 20 * * * root @CENTREON_BI_HOME@/*etl*/dataRetentionManager.pl >> @CENTREON_BI_LOG@/dataRetentionManager.log 2>&1
+```
+
+Avoid periods scheduled for statistical calculations with Centreon MBI
+ETL and report generations.
+
+You can run this cron daily or weekly, depending on the execution time of the batch and the load generated on the server.
+
+Then restart the service cron:
+
+```shell
+systemctl restart cron
+```
+
+</TabItem>
+</Tabs>
 
 **BEST PRACTICE**: Select different retention periods according to the
 granularity of the statistical data:
@@ -554,6 +671,9 @@ Run the following command on the *REPORTING* server, it will:
 
 #### Activating daily execution (of the script)
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8 / RHEL 7 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / RHEL 7 / CentOS 7">
+
 Once the rebuild process is finished, you can activate the daily
 statistic calculation. On the reporting server, edit the file
 */etc/cron.d/centreon-bi-engine* and uncomment the following line:
@@ -567,6 +687,26 @@ Restart the service cron:
 ```shell
 systemctl restart crond
 ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+Once the rebuild process is finished, you can activate the daily
+statistic calculation. On the reporting server, edit the file
+*/etc/cron.d/centreon-bi-engine* and uncomment the following line:
+
+```shell
+#30 4 * * * root /usr/share/centreon-bi/bin/centreonBIETL -d >> /var/log/centreon-bi/centreonBIETL.log 2>&1
+```
+
+Restart the service cron:
+
+```shell
+systemctl restart crond
+```
+
+</TabItem>
+</Tabs>
 
 > Make sure that the batch *centreonBIETL* starts only once the batch
 > *eventReportBuilder* has finished on the monitoring server (see the cron
