@@ -73,14 +73,15 @@ adresses IP seront autorisées à accéder à l'interface Centreon.
 
 * Vous pouvez également définir des conditions selon lesquelles les utilisateurs seront autorisés à se connecter ou non, en
   fonction des données reçues par un point d'entrée particulier.
-   - Activez **Enable conditions on identity provider**.
+   - **Activer les conditions sur le fournisseur d'identité**.
    - Définissez quel attribut et quel point d'entrée seront utilisés pour valider les conditions.
-   - Pour l'option **Define authorized conditions values**, définissez quelles valeurs renvoyées par ce
+   - Pour l'option **Définir les valeurs des conditions autorisées**, définissez quelles valeurs renvoyées par ce
      point d'entrée seront autorisées. Si vous entrez plusieurs valeurs, toutes devront être remplies pour que la condition soit validée. Tous les
 	 utilisateurs qui tentent de se connecter avec une autre valeur ne pourront pas se connecter.
 
-   Dans l'exemple ci-dessous, la valeur de **Conditions attribute path** est **status** et la valeur de **Define authorized conditions values**
-   est **activated**. Si le point d'entrée **Introspection endpoint** vous donne la réponse suivante, l'utilisateur est autorisé à se connecter :
+   Dans l'exemple ci-dessous, la valeur de **Chemin de l'attribut des conditions** est **status** et la valeur de
+   **Définir les valeurs des conditions autorisées** est **activated**. Si le point d'entrée **Point d'entrée d'introspection**
+   vous donne la réponse suivante, l'utilisateur est autorisé à se connecter :
 
    ```json
    {
@@ -130,20 +131,20 @@ qui se connecteront à Centreon avec OpenID Connect.
 <Tabs groupId="sync">
 <TabItem value="Role automatic management" label="Gestion automatique">
 
-Si vous activez l'option **Enable automatic management**, les utilisateurs qui se connectent à Centreon se verront
+Si vous activez l'option **Activer la gestion automatique**, les utilisateurs qui se connectent à Centreon se verront
 automatiquement accorder des [droits](../administration/access-control-lists.md), car ils seront liés à des
 [groupes d'accès](../administration/access-control-lists.md#créer-un-groupe-daccès) selon les règles que vous avez définies.
 
 - Définissez quel attribut et quel point d'entrée seront utilisés pour récupérer des valeurs afin d'appliquer des relations
   avec des groupes d'accès.
-- **Apply only first role**: si plusieurs rôles sont trouvés pour un utilisateur spécifique dans les informations du fournisseur
+- **Appliquer uniquement le premier rôle**: si plusieurs rôles sont trouvés pour un utilisateur spécifique dans les informations du fournisseur
   d'identité, alors seul le premier rôle sera appliqué. Si l'option est désactivée, tous les rôles seront appliqués.
 - Faites correspondre un attribut extrait du fournisseur d'identité avec le groupe d'accès auquel vous souhaitez que l'utilisateur
   appartienne.
 
-Par exemple, le point d'entrée **Introspection endpoint** vous donne la réponse suivante et l'option **Apply only first role**
-est activée. Le chemin de l'attribut **Roles attribute path** sera **realm_access.roles** et l'option
-**Define the relation between roles and ACL access groups** établira une relation entre la valeur **centreon-editor**
+Par exemple, le **Point d'entrée d'introspection** vous donne la réponse suivante et l'option **Appliquer uniquement le premier rôle**
+est activée. Le **Chemin de l'attribut de rôles** sera **realm_access.roles** et l'option
+**Définir la relation entre les rôles et les groupes d'accès ACL** établira une relation entre la valeur **centreon-editor**
 et un groupe d'accès défini dans Centreon :
 
 ```json
@@ -162,7 +163,7 @@ et un groupe d'accès défini dans Centreon :
 </TabItem>
 <TabItem value="Role manual management" label="Gestion manuelle">
 
-Si vous désactivez l'option **Enable automatic management**, vous devrez [attribuer des droits](../administration/access-control-lists.md)
+Si vous désactivez l'option **Activer la gestion automatique**, vous devrez [attribuer des droits](../administration/access-control-lists.md)
 à vos utilisateurs manuellement en liant ceux-ci à des [groupes d'accès](../administration/access-control-lists.md#créer-un-groupe-daccès).
 
 </TabItem>
@@ -173,7 +174,7 @@ Si vous désactivez l'option **Enable automatic management**, vous devrez [attri
 <Tabs groupId="sync">
 <TabItem value="Groups automatic management" label="Gestion automatique">
 
-Si vous activez l'option **Enable automatic management**, les utilisateurs qui se connectent à Centreon seront rattachés
+Si vous activez l'option **Activer la gestion automatique**, les utilisateurs qui se connectent à Centreon seront rattachés
 aux [groupes de contacts](../monitoring/basic-objects/contacts-groups.md#créer-un-groupe-de-contacts) que vous avez définis.
 
 - Définissez quel attribut et quel point d'entrée seront utilisés pour récupérer des valeurs afin de créer des relations avec
@@ -181,9 +182,9 @@ aux [groupes de contacts](../monitoring/basic-objects/contacts-groups.md#créer-
 - Faites correspondre les attributs extraits du fournisseur d'identité avec les groupes de contacts auxquels vous souhaitez
   que l'utilisateur appartienne.
 
-Par exemple, le point d'entrée **Introspection endpoint** vous donne la réponse suivante. Le chemin de l'attribut
-**Groups attribute path** sera **groups** et l'option **Define the relation between roles and ACL access groups**
-établira une relation entre la valeur **Linux** et un groupe d'accès défini dans Centreon :
+Par exemple, le **Point d'entrée d'introspection** vous donne la réponse suivante. Le **Chemin de l'attribut de groupes**
+sera **groups** et l'option **Définir la relation entre les groupes et les groupes de contact** établira une relation entre
+la valeur **Linux** et un groupe de contacts défini dans Centreon :
 
 ```json
 {
@@ -199,7 +200,7 @@ Par exemple, le point d'entrée **Introspection endpoint** vous donne la répons
 </TabItem>
 <TabItem value="Groups manual management" label="Gestion manuelle">
 
-Si vous désactivez l'otion **Enable automatic management**, vous devrez gérer manuellement les relations entre contacts et [groupes de contacts](../monitoring/basic-objects/contacts-groups.md#créer-un-groupe-de-contacts).
+Si vous désactivez l'otion **Activer la gestion automatique**, vous devrez gérer manuellement les relations entre contacts et [groupes de contacts](../monitoring/basic-objects/contacts-groups.md#créer-un-groupe-de-contacts).
 
 </TabItem>
 </Tabs>
