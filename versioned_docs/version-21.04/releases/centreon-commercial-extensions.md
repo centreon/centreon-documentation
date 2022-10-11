@@ -145,7 +145,7 @@ Release date: `December 16, 2021`
 
 ### 21.04.5
 
-Release date: `November 11, 2022`
+Release date: `October 11, 2022`
 
 #### Security fixes
 
