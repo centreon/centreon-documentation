@@ -19,7 +19,7 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 21.10.13
 
-#### Bug fixes
+#### Security fixes
 
 - [Authentication] Improve autologin access
 
