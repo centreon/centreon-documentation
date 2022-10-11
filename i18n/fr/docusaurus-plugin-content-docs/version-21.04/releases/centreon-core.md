@@ -19,6 +19,12 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 21.04.20
+
+#### Security fixes
+
+- [Authentication] Improved autologin access
+
 ### 21.04.19
 
 Release date: `September 30, 2022`
