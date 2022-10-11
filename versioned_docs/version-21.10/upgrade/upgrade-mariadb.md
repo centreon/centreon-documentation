@@ -59,6 +59,20 @@ You have to uninstall then reinstall MariaDB to upgrade between major versions (
     rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
     ```
 
+    If you have an error while performing this uninstallation step, please execute:
+
+    ```shell
+    rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-compat MariaDB-common
+    ```
+
+    Then run this command to make sure MariaDB is compatible:
+
+    ```shell
+    yum install MariaDB-server-10.5\* MariaDB-client-10.5\* MariaDB-compat-10.5\* MariaDB-common-10.5\*
+    ```
+
+  > Make sure you have [installed the official MariaDB repository](./upgrade-from-21-04.md#install-the-mariadb-repository) before you continue the procedure.
+
 3. Install the 10.5 version:
 
     ```shell

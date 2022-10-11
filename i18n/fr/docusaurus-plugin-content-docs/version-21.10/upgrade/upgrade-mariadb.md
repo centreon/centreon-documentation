@@ -58,6 +58,20 @@ Il est nécessaire de désinstaller puis réinstaller MariaDB pour changer de ve
     rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
     ```
 
+    Si vous rencontrez une erreur lors de cette étape de désinstallation, veuillez exécuter la commande :
+
+    ```shell
+    rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-compat MariaDB-common
+    ```
+
+    Exécutez ensuite cette commande pour vous assurer de la compatibilité de MariaDB :
+
+    ```shell
+    yum install MariaDB-server-10.5\* MariaDB-client-10.5\* MariaDB-compat-10.5\* MariaDB-common-10.5\*
+    ```
+    
+  > Assurez-vous d'avoir [installé le dépôt officiel de MariaDB](./upgrade-from-21-04.md#installer-le-dépôt-mariadb) avant de poursuivre la procédure.
+
 3. Installez la version désirée :
 
     ```shell
