@@ -144,7 +144,7 @@ Release date: `December 16, 2021`
 
 ## Centreon MBI
 
-Release date: `November 11, 2022`
+Release date: `October 11, 2022`
 
 ### 21.04.5
 
