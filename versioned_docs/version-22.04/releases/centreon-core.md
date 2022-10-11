@@ -17,6 +17,17 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 22.04.7
+
+#### Bug fixes
+
+- [Install] Fixed incorrect deletion of Centreon Broker output resulting in the loss of graph updates
+- [Install] Fixed SQL update on Centreon realtime database
+
+#### Security fixes
+
+- [Authentication] Improve autologin access
+
 ### 22.04.6
 
 Release date: ` September 30, 2022`
