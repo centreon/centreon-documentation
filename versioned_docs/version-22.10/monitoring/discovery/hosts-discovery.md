@@ -157,6 +157,7 @@ next to the status of a **Finished** job to visualize the results.
    
    - The **plus** icon means the host does not exist yet and will be created.
    - The **arrow** icon means the host already exists and its configuration will be updated.
+   > Note that all the **Property** mappers are not taken into account during the update process.
 
 2. Select the hosts you want to add to the list of monitored hosts and click the **Save** button. Then click the **Back** button to return to the **Discovery** page.
 

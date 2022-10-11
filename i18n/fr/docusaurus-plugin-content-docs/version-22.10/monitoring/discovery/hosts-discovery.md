@@ -167,6 +167,7 @@ Plusieurs actions peuvent être réalisées sur les tâches :
    
    - L'icône **plus** signifie que cet hôte n’existe pas encore et sera créé.
    - L'icône **flèche** signifie que cet hôte existe déjà et sa configuration sera mise à jour.
+   > Notez que tous les modificateurs de type **Propriété** ne sont pas pris en compte lors du processus de mise à jour.
 
 2. Sélectionnez les hôtes que vous souhaitez ajouter à la liste des hôtes supervisés et cliquez sur le bouton **Sauvegarder**. Cliquez ensuite sur le bouton **Retour** pour revenir à la page **Découverte**.
 
@@ -288,7 +289,7 @@ suppression :  ![image](../../assets/monitoring/discovery/host-discovery-delete.
 
 2. Cliquez sur **SUPPRIMER** pour supprimer le modificateur.
 
-## Types de **modificateur**
+## Types de modificateur
 
 ### Propriété
 
