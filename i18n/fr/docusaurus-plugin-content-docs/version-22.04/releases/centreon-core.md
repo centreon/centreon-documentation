@@ -18,6 +18,8 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ### 22.04.7
 
+Release date: `October 12, 2022`
+
 #### Bug fixes
 
 - [Install] Fixed incorrect deletion of Centreon Broker output resulting in the loss of graph updates
