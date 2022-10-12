@@ -19,6 +19,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 21.10.13
 
+Release date: `October 12, 2022`
+
 #### Security fixes
 
 - [Authentication] Improved autologin access
