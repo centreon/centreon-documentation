@@ -26,7 +26,7 @@ If you have feature requests or want to report a bug, please go to our
 
 #### Security fixes
 
-- [Authentication] Improve autologin access
+- [Authentication] Improved autologin access
 
 ### 22.04.6
 
