@@ -21,7 +21,7 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 #### Bug fixes
 
 - [Install] Fixed incorrect deletion of Centreon Broker output resulting in the loss of graph updates
-- [Install] Fixed SQL update on Centreon realtime database
+- [Install] Fixed SQL update on Centreon real time database
 
 #### Security fixes
 
