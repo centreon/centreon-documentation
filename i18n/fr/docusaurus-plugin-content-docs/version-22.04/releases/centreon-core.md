@@ -25,7 +25,7 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 #### Security fixes
 
-- [Authentication] Improve autologin access
+- [Authentication] Improved autologin access
 
 ### 22.04.6
 
