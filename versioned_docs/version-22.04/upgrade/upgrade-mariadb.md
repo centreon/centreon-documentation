@@ -60,7 +60,7 @@ You have to uninstall then reinstall MariaDB to upgrade between major versions (
     rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
     ```
 
-    If you have an error while performing this uninstallation step, please execute:
+    During this uninstallation step, you may encounter an error because the **MariaDB-shared** package is not installed. In that case, please execute:
 
     ```shell
     rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-compat MariaDB-common

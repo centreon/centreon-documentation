@@ -59,7 +59,7 @@ Il est nécessaire de désinstaller puis réinstaller MariaDB pour changer de ve
     rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
     ```
 
-    Si vous rencontrez une erreur lors de cette étape de désinstallation, veuillez exécuter la commande :
+    Durant cette étape de désinstallation, une erreur peut se produire en raison de l'absence du paquet **MariaDB-shared**. Dans ce cas, veuillez exécuter la commande suivante :
 
     ```shell
     rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-compat MariaDB-common
