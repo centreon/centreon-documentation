@@ -18,6 +18,8 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ### 21.10.13
 
+Release date: `October 12, 2022`
+
 #### Security fixes
 
 - [Authentication] Improved autologin access
