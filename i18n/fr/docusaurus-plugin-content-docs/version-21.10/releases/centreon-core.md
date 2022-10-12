@@ -20,7 +20,7 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 #### Security fixes
 
-- [Authentication] Improve autologin access
+- [Authentication] Improved autologin access
 
 ### 21.10.12
 
