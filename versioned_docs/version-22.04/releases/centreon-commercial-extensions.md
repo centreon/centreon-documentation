@@ -63,7 +63,7 @@ Release date: `May 25, 2022`
 
 ### 22.04.2
 
-Release date: `October 11, 2022`
+Release date: `October 12, 2022`
 
 #### Security fixes
 
