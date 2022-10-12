@@ -116,7 +116,7 @@ Release date: `December 7, 2021`
 
 ### 21.10.2
 
-Release date: `October 11, 2022`
+Release date: `October 12, 2022`
 
 #### Security fixes
 
