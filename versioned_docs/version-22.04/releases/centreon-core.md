@@ -19,6 +19,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 22.04.7
 
+Release date: `October 12, 2022`
+
 #### Bug fixes
 
 - [Install] Fixed incorrect deletion of Centreon Broker output resulting in the loss of graph updates
