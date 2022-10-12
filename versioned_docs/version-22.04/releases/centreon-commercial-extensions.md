@@ -61,6 +61,14 @@ Release date: `May 25, 2022`
 
 ## Centreon MBI
 
+### 22.04.2
+
+Release date: `October 12, 2022`
+
+#### Security fixes
+
+-  Fixed unique token usage on service account autologin
+
 ### 22.04.1
 
 Release date: `July 5, 2022`
