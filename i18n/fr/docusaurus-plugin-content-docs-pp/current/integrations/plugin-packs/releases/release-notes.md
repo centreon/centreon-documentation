@@ -8,6 +8,55 @@ import TabItem from '@theme/TabItem';
 
 ## 2022
 
+### Octobre
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**VMware VCSA SNMP**](../procedures/applications-vmware-vcsa-snmp.md) - New Pack to check VMWare vCenter Appliance OS with SNMP - Status:stable - centreon-pack-applications-vmware-vcsa-snmp-22.10.0-1
+- [**Splunk**](../procedures/applications-monitoring-splunk-api.md) - Adding Splunk Plugin pack - Status:stable - centreon-pack-applications-monitoring-splunk-api-22.10.0-1
+- [**Aruba Orchestrator Rest API**](../procedures/network-aruba-orchestrator-restapi.md) - New Pack monitoring the orchestrator using its restapi - Status:stable - centreon-pack-network-aruba-orchestrator-restapi-22.10.0-1
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**Base Pack**](../procedures/base-generic.md) - base-generic - add macro service EXTRAOPTIONS - Status:stable - centreon-pack-base-generic-22.10.0-1
+- [**Kadiska Rest API**](../procedures/applications-monitoring-kadiska-restapi.md) - Kadiska - Adding new STPL  - Status:stable - centreon-pack-applications-monitoring-kadiska-restapi-22.10.0-1
+- [**Windows NSClient 0.5**](../procedures/operatingsystems-windows-nsclient-05-nrpe.md) - add service updates for windows pack - Status:stable - centreon-pack-operatingsystems-windows-nsclient-05-nrpe-22.10.0-1
+- [**Windows NSClient API**](../procedures/operatingsystems-windows-nsclient-05-restapi.md) - add service updates for windows pack - Status:stable - centreon-pack-operatingsystems-windows-nsclient-05-restapi-22.10.0-1
+- [**Windows WSMAN**](../procedures/operatingsystems-windows-wsman.md) - add service updates for windows pack - Status:stable - centreon-pack-operatingsystems-windows-wsman-22.10.0-1
+- [**Alcatel Omniswitch**](../procedures/network-switchs-alcatel-omniswitch-snmp.md) - Add new service to check virtual chassis - Status:stable - centreon-pack-network-switchs-alcatel-omniswitch-snmp-22.10.0-1
+
+</TabItem>
+<TabItem value="Breaking changes" label="Breaking changes">
+
+- [**Fujitsu Eternus DX**](../procedures/hardware-storage-fujitsu-eternus-dx-ssh.md) - hardware-storage-fujitsu-eternus-dx-ssh - use new ssh backend - Status:stable - centreon-pack-hardware-storage-fujitsu-eternus-dx-ssh-22.10.0-1
+
+</TabItem>
+<TabItem value="Fix" label="Fix">
+
+- [**Amazon API Gateway**](../procedures/cloud-aws-apigateway.md) - Fix bug with assume-role option - Status:stable - centreon-pack-cloud-aws-apigateway-22.10.0-1
+- [**Amazon Backup Vault**](../procedures/cloud-aws-backup.md) - Fix bug with assume-role option - Status:stable - centreon-pack-cloud-aws-backup-22.10.0-1
+- [**AWS Billing**](../procedures/cloud-aws-billing.md) - Fix bug with assume-role option - Status:stable - centreon-pack-cloud-aws-billing-22.10.0-1
+- [**AWS Discover**](../procedures/cloud-aws-cloudwatch-discover.md) - Fix bug with assume-role option - Status:stable - centreon-pack-cloud-aws-cloudwatch-discover-22.10.0-1
+- [**Amazon EBS**](../procedures/cloud-aws-ebs.md) - Fix bug with assume-role option - Status:stable - centreon-pack-cloud-aws-ebs-22.10.0-1
+- [**Amazon EC2**](../procedures/cloud-aws-ec2.md) - Fix bug with assume-role option - Status:stable - centreon-pack-cloud-aws-ec2-22.10.0-1
+- [**Amazon EFS**](../procedures/cloud-aws-efs.md) - Fix bug with assume-role option - Status:stable - centreon-pack-cloud-aws-efs-22.10.0-1
+- [**AWS ELB**](../procedures/cloud-aws-elb.md) - Fix bug with assume-role option - Status:stable - centreon-pack-cloud-aws-elb-22.10.0-1
+- [**Amazon FSx**](../procedures/cloud-aws-fsx.md) - Fix bug with assume-role option - Status:stable - centreon-pack-cloud-aws-fsx-22.10.0-1
+- [**Amazon Kinesis**](../procedures/cloud-aws-kinesis.md) - Fix bug with assume-role option - Status:stable - centreon-pack-cloud-aws-kinesis-22.10.0-1
+- [**AWS Lambda**](../procedures/cloud-aws-lambda.md) - Fix bug with assume-role option - Status:stable - centreon-pack-cloud-aws-lambda-22.10.0-1
+- [**Amazon RDS**](../procedures/cloud-aws-rds.md) - Fix bug with assume-role option - Status:stable - centreon-pack-cloud-aws-rds-22.10.0-1
+- [**Amazon S3**](../procedures/cloud-aws-s3.md) - Fix bug with assume-role option - Status:stable - centreon-pack-cloud-aws-s3-22.10.0-1
+- [**Amazon SNS**](../procedures/cloud-aws-sns.md) - Fix bug with assume-role option - Status:stable - centreon-pack-cloud-aws-sns-22.10.0-1
+- [**Amazon SQS**](../procedures/cloud-aws-sqs.md) - Fix bug with assume-role option - Status:stable - centreon-pack-cloud-aws-sqs-22.10.0-1
+- [**AWS VPN**](../procedures/cloud-aws-vpn.md) - Fix bug with assume-role option - Status:stable - centreon-pack-cloud-aws-vpn-22.10.0-1
+- [**HP 3PAR SSH**](../procedures/hardware-storage-hp-3par-ssh.md) - hardware-storage-hp-3par-ssh - fix macros for service cages - Status:stable - centreon-pack-hardware-storage-hp-3par-ssh-22.10.0-1
+- [**Office 365 Azure AD**](../procedures/cloud-microsoft-office365-azuread.md) - AzureAD - Fixing typo in check command - Status:stable - centreon-pack-cloud-microsoft-office365-azuread-22.10.0-1
+
+</TabItem>
+</Tabs>
+
 ### Septembre
 
 <Tabs groupId="sync">
