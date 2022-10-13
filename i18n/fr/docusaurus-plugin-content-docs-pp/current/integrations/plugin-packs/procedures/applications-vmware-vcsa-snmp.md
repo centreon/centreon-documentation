@@ -133,6 +133,7 @@ apt install centreon-pack-applications-vmware-vcsa-snmp
 ```bash
 yum install centreon-pack-applications-vmware-vcsa-snmp
 ```
+
 </TabItem>
 </Tabs>
 
@@ -157,7 +158,8 @@ Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votr
 dnf install centreon-plugin-Applications-Vmware-Vcsa-SNMP
 ```
 
-</TabItem>n<TabItem value="Debian 11" label="Debian 11">
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-plugin-applications-vmware-vcsa-snmp
