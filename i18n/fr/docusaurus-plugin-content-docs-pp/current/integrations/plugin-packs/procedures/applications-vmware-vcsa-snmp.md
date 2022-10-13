@@ -118,6 +118,7 @@ associé à sa distribution :
 
 ```bash
 dnf install centreon-pack-applications-vmware-vcsa-snmp
+```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
