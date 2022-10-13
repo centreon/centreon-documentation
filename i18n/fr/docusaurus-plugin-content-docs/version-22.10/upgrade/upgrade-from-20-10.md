@@ -250,6 +250,19 @@ Notamment, assurez-vous que votre configuration Apache personnalisée contient l
 </LocationMatch>
 ```
 
+#### Configuration Apache personnalisée : activer la compression du texte
+
+Pour améliorer le temps de chargement des pages, vous pouvez activer la compression du texte sur le serveur Apache. Le paquet **brotli** est nécessaire. Cette configuration est optionnelle mais vous fournira une meilleure expérience utilisateur.
+
+Ajoutez le code suivant à votre fichier de configuration Apache, dans les éléments `<VirtualHost *:80>` et `<VirtualHost *:443>` :
+
+```shell
+<IfModule mod_brotli.c>
+    AddOutputFilterByType BROTLI_COMPRESS text/html text/plain text/xml text/css text/javascript application/javascript application/json
+</IfModule>
+AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+```
+
 ### Montée de version du serveur MariaDB
 
 Les composants MariaDB peuvent maintenant être mis à jour.
