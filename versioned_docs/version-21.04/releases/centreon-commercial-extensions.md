@@ -149,7 +149,7 @@ Release date: `October 12, 2022`
 
 #### Security fixes
 
--  Fixed unique token usage on service account autologin
+- Fixed multiple vulnerabilities in report generation
 
 ### 21.04.4
 
