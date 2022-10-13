@@ -34,7 +34,7 @@ by your Centreon platform.
 
 4. The predictions act as floating thresholds which will then be used by
 the monitoring engine to compare the collected value with the predicted
-thresholds to highlight deviations and generate alerts.
+thresholds to highlight deviations and generate alerts. Data received during downtimes are not taken into account when computing predictions so as not to distort the analysis.
 
 5. Models are recomputed regularly and improve over time.
 

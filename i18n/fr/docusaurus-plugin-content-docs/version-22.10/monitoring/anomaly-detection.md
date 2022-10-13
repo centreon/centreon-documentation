@@ -32,7 +32,7 @@ sur votre plateforme Centreon.
 
 4. Les prévisions servent de seuils flottants qui sont ensuite utilisés par le
 moteur de supervision pour comparer la valeur collectée avec les seuils prévus
-pour mettre en évidence les écarts et générer des alertes.
+pour mettre en évidence les écarts et générer des alertes. Pour ne pas fausser l'analyse, les données reçues pendant les plages de maintenance sont exclues du calcul des prévisions.
 
 5. Les modèles sont recalculés régulièrement, et les prévisions s'affinent dans le temps.
 
