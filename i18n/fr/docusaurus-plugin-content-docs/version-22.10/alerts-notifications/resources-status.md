@@ -30,16 +30,14 @@ exemple par statut ou encore par sévérité.
 Lorsqu'une ou plusieurs alertes apparaissent, il est possible de les [acquitter](acknowledge.md) afin de montrer à votre équipe que le problème est bien
 pris en compte, et ce de deux manières:
 
--   En acquittant la ressource directement via le bouton qui s'affiche au survol de
-    la ligne
--   En sélectionnant une ou plusieurs lignes et en cliquant sur le
-    bouton **Acquitter** au-dessus du tableau. Vous pouvez utiliser la touche **Majuscule**
-    pour sélectionner plusieurs ligne contiguës.
+- En acquittant la ressource directement via le bouton qui s'affiche au survol de la ligne
+- En sélectionnant une ou plusieurs lignes et en cliquant sur le bouton **Acquitter** au-dessus du tableau. Vous pouvez utiliser la touche **Majuscule** pour sélectionner plusieurs lignes contiguës.
 
 Seules les ressources en statut "Non-OK" peuvent être acquittées.
 Seule une ressource non acquittée peut être acquittée.
 
 Lorsqu'une ressource est acquittée :
+
 - l'alerte disparaît de la vue **Problèmes non traités**
 - les [notifications](notif-configuration.md) partant de la ressource sont stoppées
 - L'arrière-plan de la ligne d'une ressource acquittée passe en jaune.
@@ -54,10 +52,8 @@ sur **Désacquitter** dans le menu **Plus d'actions**.
 
 Il est possible de [planifier une plage de maintenance](downtimes.md) :
 
--   En définissant directement une plage de maintenance via le bouton
-    qui s'affiche au survol de la ligne
--   En sélectionnant une ou plusieurs lignes et en cliquant sur le bouton
-    **Planifier une maintenance** au-dessus du tableau.
+- En définissant directement une plage de maintenance via le bouton qui s'affiche au survol de la ligne
+- En sélectionnant une ou plusieurs lignes et en cliquant sur le bouton **Planifier une maintenance** au-dessus du tableau.
 
 La mise en maintenance d'une ressource a pour effet de masquer l'alerte
 de la vue **Problèmes non traités** et de stopper les notifications partant
@@ -71,10 +67,8 @@ Dans de nombreuses situations, il est nécessaire de pouvoir rafraîchir
 le statut d'un service/hôte en lançant un contrôle manuellement via
 l'interface. Cela est possible de deux manières différentes :
 
--   En lançant le contrôle directement via le bouton qui s'affiche au
-    survol de la ligne
--   En sélectionnant une ou plusieurs lignes et en cliquant sur le
-    bouton **Vérifier**.
+- En lançant le contrôle directement via le bouton qui s'affiche au survol de la ligne
+- En sélectionnant une ou plusieurs lignes et en cliquant sur le bouton **Vérifier**.
 
 ![image](../assets/alerts/resources-status/resources-status-check.gif)
 
@@ -102,12 +96,12 @@ autres filtres : **Problèmes de ressources** & **Tous**.
 
 Signification des filtres :
 
--   **Problèmes non traités** : Le statut de la ressource est **Alerte** ou
+- **Problèmes non traités** : Le statut de la ressource est **Alerte** ou
     **Critique** ou **Inconnu** ou **Indisponible** ET la ressource n'est ni acquittée ni en
     plage de maintenance planifiée
--   **Problèmes de ressources**: Le statut de la ressource est **Alerte** ou
+- **Problèmes de ressources**: Le statut de la ressource est **Alerte** ou
     **Critique** ou **Inconnu** ou **Indisponible** (que la ressource ait été acquittée/mise en maintenance ou non)
--   **Tous** : toutes les ressources.
+- **Tous** : toutes les ressources.
 
 ### Critères de recherche
 
@@ -147,10 +141,10 @@ Vous pouvez filtrer la liste des ressources selon un certain nombre de critères
 
 Si vous entrez du texte dans la barre de recherche, par défaut la recherche se fait sur tous les champs suivants :
 
--   Nom de l'hôte
--   Alias de l'hôte
--   Adresse ou FQDN de l'hôte
--   Description du service
+- Nom de l'hôte
+- Alias de l'hôte
+- Adresse ou FQDN de l'hôte
+- Description du service
 
 Par exemple, si vous entrez "rta", toutes les ressources contenant un "rta" dans l'un des champs ci-dessus seront affichées (par exemple, un métaservice nommé **Ping-RTA-Average**).
 
@@ -220,10 +214,10 @@ le filtre afin de pouvoir facilement le réutiliser plus tard.
 
 Utilisez l'icône "roue dentée" à côté de **Filtre** pour :
 
--   Sauvegarder la recherche actuelle comme un nouveau filtre
--   Mettre à jour le filtre actuel avec la recherche en cours
--   Éditer la liste des filtres afin de les supprimer, les renommer ou
-    les ré-ordonner.
+- Sauvegarder la recherche actuelle comme un nouveau filtre
+- Mettre à jour le filtre actuel avec la recherche en cours
+- Éditer la liste des filtres afin de les supprimer, les renommer ou
+  les ré-ordonner.
 
 Une fois qu'un filtre est créé, il apparaîtra dans la liste des filtres
 sous la section **Mes filtres**.
@@ -280,6 +274,8 @@ L'onglet **Historique** montre une liste antichronologique des évènements surv
 
 ![image](../assets/alerts/resources-status/timeline.png)
 
+Vous pouvez exporter la liste complète des évènements au format CSV.
+
 ### Onglet Graphique
 
 L'onglet **Graphique** vous permet d’afficher de manière visuelle l'évolution des métriques dans le temps pour la ressource sélectionnée. Survolez les courbes avec la souris pour afficher l'heure exacte sous le titre du graphique, et dans la légende, les valeurs des différentes métriques correspondant à l'instant.
@@ -289,7 +285,8 @@ pour chaque métrique.
 
 ![image](../assets/alerts/resources-status/resources-status-values.png)
 
-Utilisez la légende pour afficher ou masquer des métriques. 
+Utilisez la légende pour afficher ou masquer des métriques.
+
 - Cliquez sur un élément de la légende pour que seule la courbe correspondante s'affiche. 
 - Pour réafficher l'ensemble des métriques, cliquez à nouveau sur la légende de la métrique affichée.
 
@@ -321,7 +318,7 @@ Il est possible d'ajouter un commentaire directement sur le graphique, en cliqua
 
 Pour supprimer un commentaire, allez à la page **Supervision > Planifier des plages de maintenance > Commentaires**.
 
-En cliquant sur le bouton **Exporter comme PNG**, vous pouvez exporter une capture du graphique sous forme d'image PNG, qui va aussi inclure les évènements de la chronologie, si l'option correspondante est activée. Notez que seules les métriques sélectionnées seront exportées :
+En cliquant sur le bouton **Exporter**, vous pouvez exporter une capture du graphique sous forme d'image PNG, qui va aussi inclure les évènements de la chronologie, si l'option correspondante est activée. Notez que seules les métriques sélectionnées seront exportées :
 
 ![image](../assets/alerts/resources-status/resources-status-graph-export-to-png.gif)
 
@@ -333,7 +330,10 @@ Le graphique s'ouvre dans la page **Supervision > Informations de performance > 
 
 ![image](../assets/alerts/resources-status/graph-open2.png)
 
+Vous pouvez aussi exporter les données du graphique au format CSV. Toutes les métriques seront incluses.
+
 ### Onglet Notification
+
 L'onglet Notification affiche si les notifications sont activées pour la ressource sélectionnée. Vous pouvez voir les destinataires de ces notifications dans les sections **Contacts** et **Contact groups**.
 
 Pour paramétrer les destinataires, cliquez sur l'icône "roue dentée" de la section **Contacts** ou **Contact groups**.

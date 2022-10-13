@@ -27,16 +27,16 @@ You can add or remove columns, and sort by the column of your choice.
 When one or more alerts are visible, you may need to [acknowledge](acknowledge.md) them to tell
 your team that the problem is handled. You can do that in two ways:
 
--   By directly acknowledging the line: an **Acknowledge** button
+- By directly acknowledging the line: an **Acknowledge** button
     appears on mouseover
--   By selecting multiple lines and clicking on the **Acknowledge**
+- By selecting multiple lines and clicking on the **Acknowledge**
     button above the table. You can use the **Shift** key to select several adjacent lines.
 
  Only "non-ok" resources can be acknowledged and you cannot acknowledge a resource that has already been acknowledged.
 
 When a resource is acknowledged:
-- The alert is not visible anymore in the
-**Unhandled problems** filter
+
+- The alert is not visible anymore in the **Unhandled problems** filter
 - [Notifications](notif-configuration.md) for this resource are stopped
 - The color of the line for acknowledged resources is changed
 to yellow.
@@ -51,9 +51,9 @@ of **Unhandled Problems** and its notifications will resume: in the **More actio
 When a maintenance is planned on one or multiple resources, you can set a
 [planned downtime](downtimes.md) for them in Centreon in two ways:
 
--   By directly setting a planned downtime on the line:
+- By directly setting a planned downtime on the line:
     a **Set Downtime** button appears on mouseover
--   By selecting multiple lines and clicking on the **Set Downtime** button
+- By selecting multiple lines and clicking on the **Set Downtime** button
     above the table.
 
 When a resource is in planned downtime, the alert is not visible anymore in the
@@ -62,15 +62,14 @@ color of lines for resources with a planned downtime is changed to light purple.
 
 ![image](../assets/alerts/resources-status/resources-status-downtime.gif)
 
-
 ### Refresh a status
 
 In many situations, you need to quickly re-check one or multiple services
 to refresh their status. This can be achieved in two ways:
 
--   By directly clicking on the **Check** button on the line when the
+- By directly clicking on the **Check** button on the line when the
     mouse is over
--   By selecting multiple lines and clicking on the **Check** button,
+- By selecting multiple lines and clicking on the **Check** button,
     above the table.
 
 ![image](../assets/alerts/resources-status/resources-status-check.gif)
@@ -98,12 +97,12 @@ and **All**.
 
 The following rules apply:
 
--   **Unhandled problems**: resource status is **Warning** or **Critical** or
+- **Unhandled problems**: resource status is **Warning** or **Critical** or
     **Unknown** or **Down** AND the resource is not acknowledged nor in planned
     downtime
--   **Resource problems**: resource status is **Warning** or **Critical** or **Unknown**
+- **Resource problems**: resource status is **Warning** or **Critical** or **Unknown**
     or **Down** (whether or not the resource has been acknowleged/a downtime has been set)
--   **All**: All resources.
+- **All**: All resources.
 
 ### Search criteria
 
@@ -143,10 +142,10 @@ You can filter the list of resources according to a number of predefined criteri
 
 If you type text into the search bar, by default the search is performed on the following fields:
 
--   Name of the host
--   Alias of the host
--   Address or FQDN of the host
--   Description of the service
+- Name of the host
+- Alias of the host
+- Address or FQDN of the host
+- Description of the service
 
 For instance, if you type "rta", all resources containing "rta" in one of the above fields will be displayed (e.g. a metaservice called **Ping-RTA-Average**).
 
@@ -205,10 +204,10 @@ In that case, you may want to save this filter and re-use it later.
 
 Use the **gear icon** next to **Filter** to:
 
--   Save your current search as a new filter
--   Save the current filter so that it is updated using the criteria currently
+- Save your current search as a new filter
+- Save the current filter so that it is updated using the criteria currently
     applied
--   Edit filters so that you can rename, re-order or delete them
+- Edit filters so that you can rename, re-order or delete them
 
 As soon as a filter is saved, it can be reused in the Filter dropdown list,
 categorized under **My Filter**.
@@ -235,7 +234,7 @@ The host panel contains the following elements:
 - **Timeline** tab: The timeline of events that occurred for this host
 - **Graph** tab: Graphs for the services for this host
 - **Notification** tab: Shows whether notifications are enabled for this host, and lists the contacts and contact groups that will be notified.
--   Shortcuts to the configuration, logs and report for this host.
+- Shortcuts to the configuration, logs and report for this host.
 
 ![image](../assets/alerts/resources-status/resources-status-panel-host.gif)
 
@@ -265,6 +264,8 @@ The **Timeline** tab shows an antichronological list of events that occurred for
 
 ![image](../assets/alerts/resources-status/timeline.png)
 
+You can export the full list of events in CSV format.
+
 ### Graph tab
 
 The graph tab enables you to visually display how the metrics evolve for the selected resource. 
@@ -276,6 +277,7 @@ When the pointer is not hovering over curves, the legend displays Min, Max and A
 ![image](../assets/alerts/resources-status/resources-status-values.png)
 
 Use the legend to display or hide metrics:
+
 - Click on a legend item to display only the corresponding metric.
 - To display all metrics again, click again on the legend of the displayed metric.
 
@@ -286,13 +288,13 @@ You can also toggle the selection of individual metrics by Ctrl+Clicking (or Cmd
 ![image](../assets/alerts/resources-status/resources-status-graph-toggle-legends.gif)
 
 Graphs display metric evolution over a given period of time. This can be defined in the following ways:
+
 - A selection of preconfigured periods is available in the graph header: Last Day, Last 7 Days, Last 31 Days
 - Datetime pickers are available for Start and End points in time. Anytime the displayed period changes, this element is updated accordingly
 - Using the side [<] and [>] buttons that appear upon hovering the graph's border, you can translate in time by half your current timespan (respectively backward and forward in time)
 - Selecting a period of time within the graph will zoom in on this period
 
 ![image](../assets/alerts/resources-status/resources-status-graph-time-selection.gif)
-
 
 The **Display events** toggle (available under the **gear** button) allows you to display some timeline events (downtime, acknowledgement, comment) directly on the graph, via annotations:
 
@@ -304,7 +306,7 @@ It is possible to add a comment directly on the graph, by left clicking anywhere
 
 To delete a comment, go to **Monitoring > Downtimes > Comments**.
 
-By clicking on the **Export to PNG** button, you can export a snapshot of the graph, which also includes the timeline events, if the switch is toggled. Note that only the selected metrics will be exported:
+By clicking on the **Export** button, you can export a snapshot of the graph, which also includes the timeline events, if the switch is toggled. Note that only the selected metrics will be exported:
 
 ![image](../assets/alerts/resources-status/resources-status-graph-export-to-png.gif)
 
@@ -316,7 +318,10 @@ The graph opens on page **Monitoring > Performances > Graphs**, allowing you to 
 
 ![image](../assets/alerts/resources-status/graph-open2.png)
 
+You can also export the data for the graph as a CSV file. This will include all metrics.
+
 ### Notification tab
+
 The Notification tab shows whether notifications are enabled for the selected resource. You can see the recipients of these notifications in the **Contacts** and **Contact groups** sections.
 
 To configure the recipients, click on the **gear icon** in the **Contacts** or **Contact groups** section.
