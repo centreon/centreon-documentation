@@ -149,7 +149,7 @@ yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/ce
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 in progress" label="Debian 11 in progress">
 
 Install the following dependencies:
 
@@ -177,20 +177,20 @@ wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg
 Install Centreon MAP repository, you can find it on the
 [support portal](https://support.centreon.com/s/repositories).
 
-Then install Centreon MAP server using the following command:
+Then install Centreon MAP Engine server using the following command:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install centreon-map-server
+dnf install centreon-map-engine
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install centreon-map-server
+yum install centreon-map-engine
 ```
 
 </TabItem>
@@ -198,13 +198,13 @@ yum install centreon-map-server
 
 ```shell
 apt update
-apt install centreon-map-server
+apt install centreon-map-engine
 ```
 
 </TabItem>
 </Tabs>
 
-When installing Centreon MAP server, it will automatically install java
+When installing Centreon MAP Engine server, it will automatically install java
 (OpenJDK 11) if needed.
 
 > You need to have a MariaDB database to store Centreon MAP data, whether
@@ -312,7 +312,7 @@ Remove the INSERT privilege from user centreon_map:
 REVOKE INSERT ON centreon.* FROM 'centreon_map'@'<IP_SERVER_MAP>';
 ```
 
-### Centreon MAP server
+### Centreon MAP Engine server
 
 Check your configuration:
 
@@ -413,22 +413,22 @@ Then execute the following commands:
   exit
   ```
 
-### Step 3: Install the map-ng server
+### Step 3: Install the centreon-map-engine server
 
-1. Install the **map-ng** server using the following command:
+1. Install the **centreon-map-engine** server using the following command:
 
   <Tabs groupId="sync">
   <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
   ```shell
-  sudo dnf install centreon-map-server-ng --enablerepo=centreon-beta-stable
+  sudo dnf install centreon-map-engine --enablerepo=centreon-beta-stable
   ```
 
   </TabItem>
   <TabItem value="CentOS 7" label="CentOS 7">
 
   ```shell
-  sudo yum install centreon-map-server-ng --enablerepo=centreon-beta-stable
+  sudo yum install centreon-map-engine --enablerepo=centreon-beta-stable
   ```
 
   </TabItem>
@@ -464,27 +464,27 @@ Then execute the following commands:
 8. Now the configuration is correct, you can start the server by running this command:
 
   ```shell
-  systemctl start centreon-map-ng
+  systemctl start centreon-map-engine
   ```
 
 9. Then enable the service to be started automatically at server startup:
 
   ```shell
-  systemctl enable centreon-map-ng
+  systemctl enable centreon-map-engine
   ```
 
-10. Run the following command to check that the **centreon-map-ng** service is properly started:
+10. Run the following command to check that the **centreon-map-engine** service is properly started:
 
   ```shell
-  systemctl status centreon-map-ng
+  systemctl status centreon-map-engine
   ● centreon-map-ng.service - Centreon Studio map server
-     Loaded: loaded (/usr/lib/systemd/system/centreon-map-ng.service; enabled; vendor preset: disabled)
+     Loaded: loaded (/usr/lib/systemd/system/ccentreon-map-engine.service; enabled; vendor preset: disabled)
      Active: active (running) since Tue 2022-09-06 09:29:02 UTC; 15s ago
    Main PID: 19560 (centreon-map-ng)
       Tasks: 23 (limit: 24448)
      Memory: 314.8M
-     CGroup: /system.slice/centreon-map-ng.service
-             ├─19560 /bin/bash /usr/share/centreon-map-server/bin/centreon-map-ng
+     CGroup: /system.slice/centreon-map-engine.service
+             ├─19560 /bin/bash /usr/share/centreon-map-server/bin/centreon-map-engine
              └─19576 /usr/bin/java -Dsun.misc.URLClassPath.disableJarChecking=true -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/var/log/centreon-map -Dcentreon-map.signing-key=NeEmPqd1512l467yKcYkYQsU6XQ1oDZHkBglDH6nmnTWDRz5hIImTollDTZFOhtOB -Dcentreon-map.access-tok>
   ```
 
@@ -496,11 +496,11 @@ By default, the MAP module is not enabled. Perform the following procedure to en
 
 1. Log on to the Centreon interface and go to **Administration > Extensions > Map > Options**.
 
-2. In the **Connection information** section, set **Server Map NG** to **Yes**.
+2. In the **Connection information** section, set **Map server** to **Yes**.
 
-3. Enter the IP address of your MAP server in the **Map NG server address** field. (If you installed MAP on the central server, this is the IP address of the central server. Use its full IP address, not the localhost.). The default port is 8081. For instance: http://10.10.10.10:8081
+3. Enter the IP address of your MAP server in the **Map server address** field. (If you installed MAP on the central server, this is the IP address of the central server. Use its full IP address, not the localhost.). The default port is 8081. For instance: http://10.10.10.10:8081
 
-4. Click the **Test connection to Map NG server** button to test the connection. This test should return the **Connection test successful** message.
+4. Click the **Test connection to Map server** button to test the connection. This test should return the **Connection test successful** message.
 
 5. Click **Save**.
 

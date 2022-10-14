@@ -11,7 +11,7 @@ Operations management (ITOM) administrators and developers. It is
 capable of displaying efficient graphic insights and mapping correlated
 data in customized user-relevant views.
 
-You can benefit from Centreon MAP by using it in two modes:
+Centreon MAP module is currently available in two modes:
 - [Centreon MAP (Legacy)](#centreon-map-legacy) which requires a desktop client installation. See an overview [here](#map-legacy-overview).
 - [Centreon MAP](#centreon-map) which is a web interface version. See an overview [here](#map-overview).
 
