@@ -230,4 +230,6 @@ To migrate a remote server:
 To migrate a poller:
 
 1. Follow steps 1 and 4 of the procedure to migrate a central server (i.e. [install the new server](#step-1-install-the-new-server) and [synchronize the plugins](#step-4-synchronize-the-plugins)).
-2. [Attach the new poller](../monitoring/monitoring-servers/add-a-poller-to-configuration.md) to the remote server you want, or to the central server.
+2. On the central server, go to **Configuration > Pollers**. Select the poller that was migrated and update its IP address (if it has changed).
+3. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
+4. If your poller doesn't work after migrating it (e.g. you cannot deploy the configuration, or execute monitoring actions), update the poller's fingerprint, as described in this [knowledge base article](https://thewatch.centreon.com/troubleshooting-41/poller-does-not-work-after-migration-or-reinstallation-fingerprint-changed-for-target-1055).
