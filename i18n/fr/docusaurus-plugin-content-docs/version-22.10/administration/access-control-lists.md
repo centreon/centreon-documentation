@@ -156,7 +156,7 @@ Pour créer un filtre d'accès aux actions :
 
 | Champ                                   | Actions associées                                                                                                                             |
 | --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| Créer et modifier des collecteurs | L'utilisateur peut réaliser les actions **Ajouter**, **Ajouter (avancé)** et **Dupliquer** sur des serveurs distants et des collecteurs.  |
+| Créer et modifier des collecteurs | L'utilisateur peut réaliser les actions **Ajouter**, **Ajouter (avancé)** et **Dupliquer** sur des serveurs distants et des collecteurs et les éditer.  |
 | Supprimer des collecteurs | Permet à l'utilisateur de supprimer des serveurs distants et des collecteurs de la configuration. Cette action est irréversible. Attention, avant de supprimer un serveur distant ou un collecteur, vérifiez qu'il ne supervise plus d'hôtes et que **centengine** est arrêté. |
 | Déployer la configuration | Permet à l'utilisateur de générer, tester et exporter la configuration vers les serveurs distants et les collecteurs, et de redémarrer leurs moteurs de supervision.  
 | Générer la configuration des traps SNMP | Permet de générer et exporter la configuration des traps SNMP pour le processus Centreontrapd sur les collecteurs et de redémarrer ce dernier |
