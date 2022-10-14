@@ -32,12 +32,12 @@ Configure Identity Provider information:
 - **Base URL**: defines the identity provider's base URL for OpenId Connect endpoints (mandatory).
 - **Authorization Endpoint**: defines the authorization endpoint, for example `/authorize` (mandatory).
 - **Token Endpoint**: defines the token endpoint, for example `/token` (mandatory).
-- **Client ID**: defines the Client ID.
-- **Client Secret**: defines the Client secret.
+- **Client ID**: defines the Client ID (mandatory).
+- **Client Secret**: defines the Client secret (mandatory).
 - **Scopes**: defines the scopes of the identity provider, for example `openid`. Separate scopes by spaces.
   > Depending on the identity provider, it is necessary to enter several scopes in order to retrieve the claim which will
   > identify users. This is indicated in the provider's configuration documentation.
-  - **Login attribute path**: defines which of the variables returned by **Introspection Token Endpoint** or **User Information Endpoint**
+- **Login attribute path**: defines which of the variables returned by **Introspection Token Endpoint** or **User Information Endpoint**
   must be used to authenticate users. For example `sub` or `email`.
 - **End Session Endpoint**: defines the logout endpoint, for example `/logout`.
 
@@ -49,7 +49,7 @@ Depending on your identity provider, set either of the following two endpoints:
 You can also configure:
 
 - **Use Basic Auth for Token Endpoint Authentication**: the `Authorization: Basic` method will be used. Enable this option if your identity provider requires it.
-- **Disable SSL verify peer**: allows you to disable SSL peer validation. The identity provider's certificate will not be checked: use this option for test purposes only.
+- **Disable verify peer**: allows you to disable SSL peer validation. The identity provider's certificate will not be checked: use this option for test purposes only.
 
 > You can define a full URL for the endpoints in case the base of the URL is different from the others.
 
@@ -91,7 +91,7 @@ You can also configure:
 <Tabs groupId="sync">
 <TabItem value="Users automatic management" label="Automatic management">
 
-If you turn on **Enable Auto import users**, users that log in to Centreon for the first time will be created in the Centreon configuration. (Turning the option on does not import automatically all users in your infrastructure.)
+If you turn on **Enable auto import**, users that log in to Centreon for the first time will be created in the Centreon configuration. (Turning the option on does not import automatically all users in your infrastructure.)
 
 - **Enable auto import**: enables or disables automatic users import.  If auto import is disabled, you will have to [create each user manually](../monitoring/basic-objects/contacts-create.md) before they can log in.
 - **Contact template**: select a [contact template](../monitoring/basic-objects/contacts-templates.md) that will be applied to newly imported users.
@@ -180,7 +180,7 @@ If you turn off **Enable automatic management**, you have to manage manually rel
 ### Step 7: Configure your Identity Provider (IdP)
 
 Configure your IdP to add the Centreon application to use the OpenID Connect protocol to authenticate your users,
-And to authorize the following `redirect URI` to forward your connected users to Centreon:
+and to authorize the following `redirect URI` to forward your connected users to Centreon:
 
 ```shell
 {protocol}://{server}:{port}/centreon/authentication/providers/configurations/openid

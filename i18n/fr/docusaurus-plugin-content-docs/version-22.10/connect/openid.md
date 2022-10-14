@@ -12,7 +12,7 @@ tout autre IdP compatible avec le flux d'autorisation via un code (Authorization
 
 ## Configurer l'authentification OpenID Connect
 
-L'authentification se paramètre à la page **Administration > Authentification > OpenId Connect Configuration**.
+L'authentification se paramètre à la page **Administration > Authentification > Configuration OpenId Connect**.
 
 ### Étape 1 : Activer l'authentification
 
@@ -33,8 +33,8 @@ Renseignez les informations du fournisseur d'identité :
 - **URL de base** : définit l'URL de base du fournisseur d'identité pour les points d'entrée OpenId Connect (obligatoire).
 - **Point d'entrée d'autorisation** : définit le point d'entrée d'autorisation, par exemple `/authorize` (obligatoire).
 - **Point d'entrée de jeton** : définit le point d'entrée du jeton, par exemple `/token` (obligatoire).
-- **Identifiant client** : définit l'ID client.
-- **Secret de client** : définit le secret client.
+- **Identifiant client** : définit l'ID client (obligatoire).
+- **Secret de client** : définit le secret client (obligatoire).
 - **Portées** : définit la portée du fournisseur d'identité, par exemple `openid`. Séparez différentes portées par des espaces.
   > Selon le fournisseur d'identité, il est nécessaire de saisir plusieurs portées (scopes) afin de récupérer la valeur
   > (claim) qui identifiera l'utilisateur. Ceci est indiqué dans la documentation de configuration du fournisseur.
@@ -52,7 +52,7 @@ Vous pouvez également configurer :
 
 - **Utiliser l'authentification basique pour l'authentification du point d'entrée de jeton** : si cette option est activée, la
   méthode `Authorization: Basic` sera utilisée. Activez cette option si votre fournisseur d'identité le demande.
-- **Disable SSL verify peer** : permet de désactiver la validation des pairs SSL. Le certificat du fournisseur d'identité ne
+- **Désactiver la vérification du pair** : permet de désactiver la validation des pairs SSL. Le certificat du fournisseur d'identité ne
   sera pas vérifié : cette option ne doit être utilisée qu'à des fins de test.
 
 > Il est possible de définir une URL complète pour les points de entrée au cas où la base de l'URL est différente
@@ -207,7 +207,7 @@ Si vous désactivez l'otion **Activer la gestion automatique**, vous devrez gér
 
 ### Étape 7 : Configurer le fournisseur d'identité
 
-Configurer votre fournisseur d'identité pour ajouter l'application Centreon à utiliser le protocole OpenID Connect pour
+Configurez votre fournisseur d'identité pour ajouter l'application Centreon à utiliser le protocole OpenID Connect pour
 authentifier vos utilisateur, et pour autoriser l'uri de redirection suivante une fois vos utilisateurs authentifiés :
 
 ```shell
