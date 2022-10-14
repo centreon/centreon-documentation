@@ -106,7 +106,7 @@ yum clean all --enablerepo=*
 Then upgrade all the components with the following command:
 
 ```shell
-yum update centreon\*
+yum update centreon\* ioncube-loader php-pecl-gnupg
 ```
 
 > Accept new GPG keys from the repositories as needed.
