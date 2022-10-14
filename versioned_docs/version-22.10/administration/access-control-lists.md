@@ -155,7 +155,7 @@ To create an access filter on actions:
 
 | Field                            | Associated actions                                                                                                                   |
 | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| Create and edit pollers | Users can perform **Add**, **Add (advanced)** and **Duplicate** actions on remote servers and pollers  |
+| Create and edit pollers | Users can perform **Add**, **Add (advanced)** and **Duplicate** actions on remote servers and pollers, and edit them.  |
 | Delete pollers | Allows users to remove remote servers and pollers from the configuration. This action cannot be undone. Warning: before you delete a poller, check that it is not monitoring any hosts and that **centengine** is stopped. |
 | Deploy configuration files | Allows users to generate, test and export configuration to remote servers and pollers, and to restart their monitoring engine                           |
 | Generate SNMP Trap configuration | Allows users to generate and export configuration of the SNMP traps for the Centreontrapd process on pollers and to restart it |
