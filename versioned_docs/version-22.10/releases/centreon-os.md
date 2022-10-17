@@ -80,7 +80,7 @@ If you have feature requests or want to report a bug, please go to our
 
 ##### Enhancements
 
-###### Imrpoving communication
+###### Improved communication
 
 - Two new broker streams are available, meant to provide simpler configuration and support of the gRPC protocol.
 - It is now possible to limit the maximum total size of Broker retention files using the `event_queues_total_size` global parameter
