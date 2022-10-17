@@ -81,7 +81,7 @@ serveur de reporting pour des questions de performances & d'isolation.
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-- Centreon Web 22.04
+- Centreon Web 22.10
 - Vérifiez que `date.timezone` est correctement configurée dans le fichier
   `/etc/php.d/php.ini` (même que celui retourné par la commande
   `timedatectl status`)
@@ -95,7 +95,7 @@ serveur de reporting pour des questions de performances & d'isolation.
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
-- Centreon Web 22.04
+- Centreon Web 22.10
 - Vérifiez que `date.timezone` est correctement configurée dans le fichier
   `/etc/opt/rh/rh-php73/php.ini` (même que celui retourné par la commande
   `timedatectl status`)

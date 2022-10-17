@@ -3,7 +3,7 @@ id: introduction
 title: Introduction à la montée de version
 ---
 
-Ce chapitre décrit le processus de montée de version (upgrade) d'une plate-forme Centreon, c'est-à-dire le passage d'une version majeure à une autre (par exemple, 21.10 à 22.04).
+Ce chapitre décrit le processus de montée de version (upgrade) d'une plate-forme Centreon, c'est-à-dire le passage d'une version majeure à une autre (par exemple, 21.10 à 22.10).
 
 La procédure dépend de la méthode d'installation de votre plate-forme Centreon.
 Faites une **Mise à jour RPM** si vous avez installé Centreon à partir de

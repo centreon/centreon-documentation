@@ -12,7 +12,7 @@ Fill in your user name and associated password and click on the **Connect** butt
 ![image](../assets/getting-started/aconnection.png)
 
 >If you have installed Centreon from a [VM](../installation/installation-of-a-central-server/using-virtual-machines.md), the default credentials are **admin/Centreon!2021**.
-Otherwise, the default login is **admin** and the password is the one you have defined at [step 5 of the web installation wizard](../installation/web-and-post-installation.md).
+Otherwise, the default login is **admin** and the password is the one you have defined at [step 5 of the web installation wizard](../installation/web-and-post-installation.md#step-5-admin-information).
 
 You are now connected to the Centreon web interface.
 

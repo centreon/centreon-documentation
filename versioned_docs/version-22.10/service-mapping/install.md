@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 
 ## Prerequisites
 
-The central server and Centreon BAM must be installed in the same major versions (i.e. both in 22.04.x).
+The central server and Centreon BAM must be installed in the same major versions (i.e. both in 22.10.x).
 
 ## Installation
 

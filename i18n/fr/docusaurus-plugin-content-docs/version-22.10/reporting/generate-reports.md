@@ -225,10 +225,7 @@ Il existe trois types de champs dans ce formulaire:
 Une fois le rapport généré, il peut être automatiquement publié en
 utilisant des règles de publication pré-définies. Lors de la création
 d'une tâche, vous pouvez sélectionner plusieurs règles dans l'onglet
-"Publication" ( se référer au chapitre
-`"règles de publication"<publication_rules>`{.interpreted-text
-role="doc"} pour plus d'information sur les différents protocoles de
-publication de rapports).
+"Publication".
 
 ![image](../assets/reporting/guide/jobPublication.png)
 

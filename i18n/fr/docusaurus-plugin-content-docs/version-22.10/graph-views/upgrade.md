@@ -45,14 +45,14 @@ Run the following commands to upgrade your Centreon MAP server:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04-3.el8.noarch.rpm
+dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centreon-release-22.10-1.el8.noarch.rpm
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
 ```
 
 </TabItem>
@@ -115,7 +115,7 @@ Map` and **Desktop client** button.
 
 2. See [Upgrading MariaDB](../upgrade/upgrade-mariadb.md).
 
-3. Si vous avez mis à jour votre plateforme Centreon en version 22.04, le nouveau protocole BBDO v3 est activé. Vous devez éditer le fichier suivant pour que MAP fonctionne correctement : **/etc/centreon-studio/studio-config.properties**
+3. Si vous avez mis à jour votre plateforme Centreon en version 22.10, le nouveau protocole BBDO v3 est activé. Vous devez éditer le fichier suivant pour que MAP fonctionne correctement : **/etc/centreon-studio/studio-config.properties**
 
    ```text
    broker.pb.message.enabled=true

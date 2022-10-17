@@ -4,7 +4,7 @@ title: Upgrade from Centreon 3.4
 ---
 
 This chapter describes how to upgrade your Centreon platform from version 3.4
-(Centreon Web 2.8) to version 22.04.
+(Centreon Web 2.8) to version 22.10.
 
 > When you upgrade your central server, make sure you also upgrade all your remote servers and your pollers. All servers in your architecture must have the same version of Centreon. In addition, all servers must use the same [version of the BBDO protocol](../developer/developer-broker-bbdo.md#switching-versions-of-bbdo).
 
@@ -45,7 +45,7 @@ Update your platform to the latest available minor version of Centreon 3.4 (Cent
 Run the following commands:
 
 ```shell
-yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
 ```
 
 > If you are using a CentOS environment, you must install the *Software
@@ -69,7 +69,7 @@ rm -f ./mariadb_repo_setup
 
 ### Upgrade PHP
 
-Centreon 22.04 uses PHP in version 8.0.
+Centreon 22.10 uses PHP in version 8.1.
 
 First, you need to install the **remi** repository:
 ```shell
@@ -77,14 +77,14 @@ yum install -y yum-utils
 yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 yum install -y https://rpms.remirepo.net/enterprise/remi-release-7.rpm
 ```
-Then, you need to enable the php 8.0 repository
+Then, you need to enable the php 8.1 repository
 ```shell
-yum-config-manager --enable remi-php80
+yum-config-manager --enable remi-php81
 ```
 
 ### Upgrade the Centreon solution
 
-If you have installed Business extensions, update the Business repository to version 22.04.
+If you have installed Business extensions, update the Business repository to version 22.10.
 Visit the [support portal](https://support.centreon.com/s/repositories) to get its address.
 
 Stop the Centreon Broker process:
@@ -277,7 +277,7 @@ The MariaDB components can now be upgraded.
 Run the following command on the dedicated DBMS server:
 
 ```shell
-yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
 ```
 
 #### Configuration
@@ -397,7 +397,7 @@ mysql --batch --skip-column-names --execute 'SELECT CONCAT("ALTER TABLE `", tabl
 
 ### Synchronize the plugins
 
-> Centreon Web 22.04 resource $USER1$ actually points to
+> Centreon Web 22.10 resource $USER1$ actually points to
 > /usr/lib64/nagios/plugins.
 
 To mitigate this issue run the following commands:
@@ -513,7 +513,7 @@ command:
 Run the following command:
 
 ```shell
-yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
 ```
 
 ### Upgrade the Centreon solution

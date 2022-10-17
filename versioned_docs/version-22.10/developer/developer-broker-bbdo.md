@@ -15,7 +15,7 @@ the time monitoring information provided by the monitoring engine (eg.
 Centreon Engine or Nagios). It uses mostly raw binary values which
 allows it to consume very few memory.
 
-With Broker 22.04.0, we introduce a new version of BBDO. It is based on
+With Broker 22.04.0, we introduced a new version of BBDO. It is based on
 [Google Protobuf 3](https://developers.google.com/protocol-buffers). The new
 protocol stays compatible with the previous one but introduces
 new events. For example, PbService and PbServiceStatus events are

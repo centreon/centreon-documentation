@@ -153,27 +153,33 @@ next to the status of a **Finished** job to visualize the results.
 
   ![image](../../assets/monitoring/discovery/host-discovery-hosts-listing.png)
 
-2. If you want, you can edit the mappers linked to this job by clicking the **Edit** icon: ![image](../../assets/monitoring/discovery/host-discovery-edit.png#thumbnail1)
+  The results show the discovered hosts. Icons allow you to identify the action that will be performed on the host:
+   
+   - The **plus** icon means the host does not exist yet and will be created.
+   - The **arrow** icon means the host already exists and its configuration will be updated.
+   > Note that the **Property** mappers are not taken into account during the update process.
 
-    The results will be updated automatically in the preview once you click on the **Save** icon at the top right of the panel.
+2. Select the hosts you want to add to the list of monitored hosts and click the **Save** button. Then click the **Back** button to return to the **Discovery** page.
 
-    - If the job was set to **Manual analysis** at step 5 of the wizard, bear in mind that editing mappers after a discovery job has been executed only makes sense if the hosts have not yet been added to your monitoring configuration.
+3. If you want, you can edit the mappers linked to this job. Click on the job to display its settings.  In the **Mappers** section, edit the mapper with its **Edit** icon: ![image](../../assets/monitoring/discovery/host-discovery-edit.png#thumbnail1)
 
-    - If the job was set to **Automatic analysis** at step 5 of the wizard and **Update existing hosts** was selected, the hosts will be updated when you re-run the job (see [Edit a discovery job](#edit-a-discovery-job)).
+  The results will be updated automatically in the preview once you click on the **Save** icon at the top right of the panel.
+  
+  If the job was set to **Automatic analysis** at step 5 of the wizard and **Update existing hosts** was selected, the hosts will be updated when you re-run the job (see [Edit a discovery job](#edit-a-discovery-job)).
 
-3. If your job was set to **Manual analysis** at step 5 of the wizard, select the hosts you want to add to the configuration and click on the **Save**
+4. If your job was set to **Manual analysis** at step 5 of the wizard, select the hosts you want to add or update in the configuration and click on the **Save**
 button: ![image](../../assets/monitoring/discovery/host-discovery-hosts-save.png#thumbnail1)
 
   The hosts are created as well as the services linked to their host templates.
 
-4. Go to the **Configuration > Hosts** page: the newly created hosts appear in the list.
+5. Go to the **Configuration > Hosts** page: the newly created hosts appear in the list.
 
   ![image](../../assets/monitoring/discovery/host-discovery-configuration-hosts.png)
 
   If the hosts you selected are not visible in the configuration, go back to the
 list of jobs and see if an error occured during the saving task.
 
-5. In the following cases, [deploy](../monitoring-servers/deploying-a-configuration.md) the configuration:
+6. In the following cases, [deploy](../monitoring-servers/deploying-a-configuration.md) the configuration:
 
    - if your job was set to **Manual analysis** at step 5 of the wizard
    - if your job was set to **Automatic analysis** at step 5 of the wizard, but **Export and reload pollers configuration** was not selected.
@@ -231,7 +237,7 @@ There are nine types of mappers:
 | Inclusion     | Include a subset of hosts that have been excluded by an exclusion mapper                                                  |
 
 For all those mappers, conditions can be applied to choose whether or not the
-mapping will actually occur. Operators can be : *is equal to*, *is different from*, *contains* and *does not
+mapping will actually occur. Operators can be: *is equal to*, *is different from*, *contains* and *does not
 contain*.
 
 ![image](../../assets/monitoring/discovery/host-discovery-mappers-condition.png)

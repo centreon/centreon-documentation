@@ -9,7 +9,7 @@ Le protocole BBDO a été créé pour être le protocole par défaut de Centreon
 
 BBDO est l’abréviation de Broker Binary Data Object. BBDO est conçu pour transférer des « paquets de données » d’un nœud à un autre. Ces « paquets de données » sont la plupart du temps des informations de supervision fournies par le moteur de supervision (par exemple le moteur Centreon Engine ou Nagios). Il utilise principalement des valeurs binaires brutes, ce qui lui permet d’utiliser très peu de mémoire.
 
-Avec Broker 22.04.0, nous introduisons une nouvelle version de BBDO basée sur [Google Protobuf 3](https://developers.google.com/protocol-buffers). Le nouveau protocole reste compatible avec le précédent mais introduit de nouveaux événements. Par exemple, les événements PbService et PbServiceStatus sont envoyés au lieu des événements Service et ServiceStatus. Configuré avec BBDO 3, Broker comprend toujours les événements Service et ServiceStatus mais il doit envoyer par défaut les nouvelles versions.
+Avec Broker 22.04.0, nous avons introduit une nouvelle version de BBDO basée sur [Google Protobuf 3](https://developers.google.com/protocol-buffers). Le nouveau protocole reste compatible avec le précédent mais introduit de nouveaux événements. Par exemple, les événements PbService et PbServiceStatus sont envoyés au lieu des événements Service et ServiceStatus. Configuré avec BBDO 3, Broker comprend toujours les événements Service et ServiceStatus mais il doit envoyer par défaut les nouvelles versions.
 
 ## Types
 

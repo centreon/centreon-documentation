@@ -3,7 +3,7 @@ id: developer-broker-stream-connector-migration
 title : Stream connectors migration to BBDO 3.0.0
 ---
 
-Centreon Broker 22.04.0 comes with a new 3.0.0 version of its BBDO protocol.
+Centreon Broker 22.04.0 (and later versions) comes with a new 3.0.0 version of its BBDO protocol.
 This new protocol is far more flexible than the previous one:
 * it is not fixed in time, but can be upgraded without breaking changes.
 * it supports more structured objets like arrays, maps and other things.
@@ -32,7 +32,7 @@ issue.
 ## An example of stream connector that won't work with BBDO 3.0
 
 Here is some Lua code for a stream connector that worked before BBDO 3.0 and
-that will not work with Centreon Broker 22.04 if BBDO 3.0 is enabled:
+that will not work with Centreon Broker 22.10 if BBDO 3.0 is enabled:
 
 ```LUA
     function init(conf)

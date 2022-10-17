@@ -6,7 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 This chapter describes how to upgrade your Centreon platform from version 21.10
-to version 22.04.
+to version 22.10.
 
 > When you upgrade your central server, make sure you also upgrade all your remote servers and your pollers. All servers in your architecture must have the same version of Centreon. In addition, all servers must use the same [version of the BBDO protocol](../developer/developer-broker-bbdo.md#switching-versions-of-bbdo).
 
@@ -37,14 +37,14 @@ Run the following commands:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04-3.el8.noarch.rpm
+dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centreon-release-22.10-1.el8.noarch.rpm
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
 ```
 
 </TabItem>
@@ -80,12 +80,47 @@ rm -f ./mariadb_repo_setup
 </TabItem>
 </Tabs>
 
+### Upgrade PHP
+
+Centreon 22.10 uses PHP in version 8.1.
+
+<Tabs groupId="sync">
+<TabItem value="RHEL 8" label="RHEL 8">
+
+You need to change the PHP stream from version 8.0 to 8.1 by executing the following commands and answering **y**
+to confirm:
+```shell
+dnf module reset php
+dnf module install php:remi-8.1
+```
+
+</TabItem>
+<TabItem value="Alma / Oracle Linux 8" label="Alma / Oracle Linux 8">
+
+You need to change the PHP stream from version 8.0 to 8.1 by executing the following commands and answering **y**
+to confirm:
+```shell
+dnf module reset php
+dnf module install php:remi-8.1
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+You need to enable the php 8.1 repository
+```shell
+yum-config-manager --enable remi-php81
+```
+
+</TabItem>
+</Tabs>
+
 ### Upgrade the Centreon solution
 
 > Make sure all users are logged out from the Centreon web interface
 > before starting the upgrade procedure.
 
-If you have installed Business extensions, update the Business repository to version 22.04.
+If you have installed Business extensions, update the Business repository to version 22.10.
 Visit the [support portal](https://support.centreon.com/s/repositories) to get its address.
 
 Stop the Centreon Broker process:
@@ -181,11 +216,11 @@ If the Centreon BAM module is installed, refer to the
 1. Upgrade extensions. From **Administration > Extensions > Manager**, upgrade all extensions, starting
 with the following:
 
-    - License Manager,
-    - Plugin Packs Manager,
-    - Auto Discovery.
+   - License Manager,
+   - Plugin Packs Manager,
+   - Auto Discovery.
 
-    Then you can upgrade all other commercial extensions.
+   Then you can upgrade all other commercial extensions.
 
 2. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
 
@@ -211,14 +246,14 @@ Run the following command:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04-3.el8.noarch.rpm
+dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centreon-release-22.10-1.el8.noarch.rpm
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
 ```
 
 </TabItem>

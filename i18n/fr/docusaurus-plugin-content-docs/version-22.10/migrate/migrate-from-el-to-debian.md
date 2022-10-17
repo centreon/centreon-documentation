@@ -1,6 +1,6 @@
 ---
 id: migrate-from-el-to-debian
-title: Migrer depuis un OS de type EL vers Debian 11 (vers un Centreon 22.04)
+title: Migrer depuis un OS de type EL vers Debian 11 (vers un Centreon à partir de 22.04)
 ---
 
 ## Prérequis
@@ -8,7 +8,7 @@ title: Migrer depuis un OS de type EL vers Debian 11 (vers un Centreon 22.04)
 Cette procédure ne s'applique que dans les conditions suivantes :
 
 - Vous souhaitez migrer d'un OS de type EL 64-bits vers Debian 11. Par exemple, vous souhaitez migrer d'un CentOS 7 à Debian 11.
-- Votre version de Centreon est 18.10 ou plus récente, et vous souhaitez paser à Centreon 22.04 (Debian est uniquement supporté depuis la version 22.04). Si vous souhaitez migrer depuis une plus ancienne version, [contactez l'équipe support Centreon](https://centreon.force.com).
+- Votre version de Centreon est 18.10 ou plus récente, et vous souhaitez passer à la dernière version de Centreon. Si vous souhaitez migrer depuis une plus ancienne version, [contactez l'équipe support Centreon](https://centreon.force.com).
 
 > En cas de migration d'une plateforme disposant du système de redondance
 > Centreon, il est nécessaire de contacter le
@@ -239,4 +239,6 @@ Pour migrer un serveur distant :
 Pour migrer un collecteur :
 
 1. Effectuez les étapes 1 et 4 de la procédure de migration d'un serveur central (c'est-à-dire [installer le nouveau serveur](#étape-1--installer-le-nouveau-serveur) et [synchronisez les plugins](#étape-4--synchroniser-les-plugins)).
-2. [Rattachez le nouveu collecteur](../monitoring/monitoring-servers/add-a-poller-to-configuration.md) à un serveur distant ou bien directement au serveur central.
+2. Sur le serveur central, allez à la page **Configuration > Collecteurs**. Sélectionnez le collecteur migré et mettez à jour son adresse IP (si celle-ci a changé).
+3. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
+4. Si votre collecteur rencontre des problèmes suite à la migration (impossible de déployer la configuration, d'effectuer des actions de supervision...), mettez à jour l'empreinte du collecteur comme décrit dans [cet article de base de connaissances](https://thewatch.centreon.com/troubleshooting-41/poller-does-not-work-after-migration-or-reinstallation-fingerprint-changed-for-target-1055).

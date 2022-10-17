@@ -4,7 +4,7 @@ title: Upgrade from Centreon 20.04
 ---
 
 This chapter describes how to upgrade your Centreon platform from version 20.04
-to version 22.04.
+to version 22.10.
 
 > When you upgrade your central server, make sure you also upgrade all your remote servers and your pollers. All servers in your architecture must have the same version of Centreon. In addition, all servers must use the same [version of the BBDO protocol](../developer/developer-broker-bbdo.md#switching-versions-of-bbdo).
 
@@ -45,7 +45,7 @@ Update your platform to the latest available minor version of Centreon 20.04.
 Run the following commands:
 
 ```shell
-yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
 ```
 
 > If you are using a Business edition, install the correct Business repository too. You can find it on the [support portal](https://support.centreon.com/s/repositories).
@@ -62,7 +62,7 @@ rm -f ./mariadb_repo_setup
 
 ### Upgrade PHP
 
-Centreon 22.04 uses PHP in version 8.0.
+Centreon 22.10 uses PHP in version 8.1.
 
 First, you need to install the **remi** repository:
 ```shell
@@ -70,9 +70,9 @@ yum install -y yum-utils
 yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 yum install -y https://rpms.remirepo.net/enterprise/remi-release-7.rpm
 ```
-Then, you need to enable the php 8.0 repository
+Then, you need to enable the php 8.1 repository
 ```shell
-yum-config-manager --enable remi-php80
+yum-config-manager --enable remi-php81
 ```
 
 ### Upgrade the Centreon solution
@@ -80,7 +80,7 @@ yum-config-manager --enable remi-php80
 > Make sure all users are logged out from the Centreon web interface
 > before starting the upgrade procedure.
 
-If you have installed Business extensions, update the Business repository to version 22.04.
+If you have installed Business extensions, update the Business repository to version 22.10.
 Visit the [support portal](https://support.centreon.com/s/repositories) to get its address.
 
 Stop the Centreon Broker process:
@@ -163,7 +163,7 @@ The MariaDB components can now be upgraded.
 Run the following command on the dedicated DBMS server:
 
 ```shell
-yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
 ```
 
 #### Upgrading MariaDB
@@ -262,18 +262,19 @@ If the Centreon BAM module is installed, refer to the
 1. Upgrade extensions. From **Administration > Extensions > Manager**, upgrade all extensions, starting
 with the following:
 
-    - License Manager,
-    - Plugin Packs Manager,
-    - Auto Discovery.
+   - License Manager,
+   - Plugin Packs Manager,
+   - Auto Discovery.
 
-    Then you can upgrade all other commercial extensions.
+   Then you can upgrade all other commercial extensions.
 
 2. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
 
 3. Restart Centreon processes:
-    ```shell
-    systemctl restart cbd centengine centreontrapd gorgoned
-    ```
+
+   ```shell
+   systemctl restart cbd centengine centreontrapd gorgoned
+   ```
 
 ## Upgrade the Remote Servers
 
@@ -288,7 +289,7 @@ This procedure is the same as for upgrading a Centreon Central server.
 Run the following command:
 
 ```shell
-yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm 
+yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm 
 ```
 
 ### Upgrade the Centreon solution

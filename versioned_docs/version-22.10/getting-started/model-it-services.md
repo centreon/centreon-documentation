@@ -1,10 +1,11 @@
 ---
 id: model-it-services
 title: Model your IT services
+description: BAM tutorial
 ---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-
 
 Centreon Business Activity Monitoring (Centreon-BAM) is an extension for modeling
 IT services and applications, ideally, from end users point of view. It reports on the

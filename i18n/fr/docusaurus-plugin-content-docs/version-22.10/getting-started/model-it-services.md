@@ -1,10 +1,10 @@
 ---
 id: model-it-services
 title: Modéliser un service IT
+description: Tutoriel BAM
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-
 
 L'extension Centreon BAM est utilisée pour modéliser des services IT et applications
 mis à disposition des utilisateurs finaux. Il permet de connaître en

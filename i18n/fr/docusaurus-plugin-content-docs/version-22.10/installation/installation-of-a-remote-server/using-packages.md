@@ -153,11 +153,11 @@ dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 dnf config-manager --set-enabled 'powertools'
 ```
 
-Activez PHP 8.0 en utilisant les commandes suivantes :
+Activez PHP 8.1 en utilisant les commandes suivantes :
 
 ```shell
 dnf module reset php
-dnf module install php:remi-8.0
+dnf module install php:remi-8.1
 ```
 
 </TabItem>
@@ -176,11 +176,11 @@ dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 ```
 
-Activez PHP 8.0 en utilisant les commandes suivantes :
+Activez PHP 8.1 en utilisant les commandes suivantes :
 
 ```shell
 dnf module reset php
-dnf module install php:remi-8.0
+dnf module install php:remi-8.1
 ```
 
 </TabItem>
@@ -200,11 +200,11 @@ dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 dnf config-manager --set-enabled ol8_codeready_builder
 ```
 
-Activez PHP 8.0 en utilisant les commandes suivantes :
+Activez PHP 8.1 en utilisant les commandes suivantes :
 
 ```shell
 dnf module reset php
-dnf module install php:remi-8.0
+dnf module install php:remi-8.1
 ```
 
 </TabItem>
@@ -231,7 +231,7 @@ Exécutez les commandes suivantes :
 yum install -y yum-utils
 yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 yum install -y https://rpms.remirepo.net/enterprise/remi-release-7.rpm
-yum-config-manager --enable remi-php80
+yum-config-manager --enable remi-php81
 ```
 
 </TabItem>
@@ -245,7 +245,7 @@ Installez les dépendances suivantes :
 apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2
 ```
 
-#### Installer le dépôt Sury APT pour PHP 8.0
+#### Installer le dépôt Sury APT pour PHP 8.1
 
 Pour installer le dépôt Sury, exécutez la commande suivante :
 
@@ -306,14 +306,14 @@ Exécutez la commande suivante :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04-3.el8.noarch.rpm
+dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centreon-release-22.10-1.el8.noarch.rpm
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
 ```
 
 </TabItem>
@@ -322,7 +322,7 @@ yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/ce
 Pour installer le dépôt Centreon, exécutez la commande suivante :
 
 ```shell
-echo "deb https://apt.centreon.com/repository/22.04/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://apt.centreon.com/repository/22.10/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 ```
 
 Puis importez la clé du dépôt :
@@ -375,7 +375,7 @@ systemctl restart mariadb
 </TabItem>
 </Tabs>
 
-Passez maintenant à [l'étape suivante](#configuration).
+Passez maintenant à [l'étape suivante](#étape-3--configuration).
 
 ### Avec base de données déportée
 
@@ -560,7 +560,7 @@ Editez le fichier **/etc/php/8.0/mods-available/centreon.ini** et contrôlez le 
 Après avoir sauvegardé le fichier, redémarrez le service PHP-FPM :
 
 ```shell
-systemctl restart php8.0-fpm
+systemctl restart php8.1-fpm
 ```
 
 </TabItem>
@@ -589,7 +589,7 @@ systemctl enable php-fpm httpd24-httpd centreon cbd centengine gorgoned snmptrap
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-systemctl enable php8.0-fpm apache2 centreon cbd centengine gorgoned centreontrapd snmpd snmptrapd
+systemctl enable php8.1-fpm apache2 centreon cbd centengine gorgoned centreontrapd snmpd snmptrapd
 ```
 
 </TabItem>
@@ -776,7 +776,7 @@ Failed connect to 192.168.0.1:444; Connection refused
 2020-10-20T10:42:23+02:00 [ERROR]: No route found for “POST /centreon/api/latest/platform/topology”
 ```
 
-> La version Centreon du serveur distant est invalide. Elle doit être supérieure ou égale à 22.04.
+> La version Centreon du serveur distant est invalide. Elle doit être supérieure ou égale à 22.10.
 
 ## Étape 6 : Étendre les droits du SGBD local
 

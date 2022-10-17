@@ -161,22 +161,28 @@ Plusieurs actions peuvent être réalisées sur les tâches :
 
 1. À la page **Configuration > Hôtes > Découverte**, cliquez sur la flèche ![image](../../assets/monitoring/discovery/host-discovery-goto-results.png) à côté du statut d'une tâche terminée pour en visualiser le résultat.
 
-    ![image](../../assets/monitoring/discovery/host-discovery-hosts-listing.png)
+   ![image](../../assets/monitoring/discovery/host-discovery-hosts-listing.png)
+   
+   La liste de résultats montre les hôtes découverts. Des icônes vous permettent d'identifier l'action qui sera effectuée sur l'hôte :
+   
+   - L'icône **plus** signifie que cet hôte n’existe pas encore et sera créé.
+   - L'icône **flèche** signifie que cet hôte existe déjà et sa configuration sera mise à jour.
+   > Notez que les modificateurs de type **Propriété** ne sont pas pris en compte lors du processus de mise à jour.
 
-2. Si vous le souhaitez, vous pouvez éditer les [modificateurs](#comment-utiliser-les-modificateurs) liés à la tâche en cliquant sur le bouton d'édition : ![image](../../assets/monitoring/discovery/host-discovery-edit.png#thumbnail1)
+2. Sélectionnez les hôtes que vous souhaitez ajouter à la liste des hôtes supervisés et cliquez sur le bouton **Sauvegarder**. Cliquez ensuite sur le bouton **Retour** pour revenir à la page **Découverte**.
+
+3. Si vous le souhaitez, vous pouvez éditer les [modificateurs](#comment-utiliser-les-modificateurs) liés à la tâche. Cliquez sur la tâche pour afficher ses paramètres. Dans la section **Modificateurs**, modifiez le modificateur en cliquant sur le bouton d'édition : ![image](../../assets/monitoring/discovery/host-discovery-edit.png#thumbnail1)
 
     Les changements seront appliqués directement à la liste des résultats lorsque vous cliquerez sur l'icône **Sauvegarder** en haut à droite du panneau.
+    
+    Si vous aviez sélectionné **Analyse automatique** et **Modifier les hôtes existants** à l'étape 5 de l'assistant, les hôtes seront mis à jour quand vous réexécuterez la tâche (voir [Éditer une tâche de découverte](#éditer-une-tâche-de-découverte)).
 
-    - Si vous aviez sélectionné **Analyse manuelle** à l'étape 5 de l'assistant, attention : éditer les modificateurs après l'exécution de la tâche de découverte n'a de sens que si les hôtes n'ont pas encore été ajoutés à la configuration. Les changements de modificateurs au niveau de la tâche de découverte ne sont pas pris en compte pour les hôtes déjà créés.
-
-    - Si vous aviez sélectionné **Analyse automatique** et **Modifier les hôtes existants** à l'étape 5 de l'assistant, les hôtes seront mis à jour quand vous réexécuterez la tâche (voir [Éditer une tâche de découverte](#éditer-une-tâche-de-découverte)).
-
-3. Si vous avez sélectionné **Analyse manuelle** à l'étape 5 de l'assistant, sélectionnez les hôtes que vous voulez ajouter à la configuration, puis cliquez
+4. Si vous avez sélectionné **Analyse manuelle** à l'étape 5 de l'assistant, sélectionnez les hôtes que vous voulez ajouter ou mettre à jour dans la configuration, puis cliquez
 sur le bouton d'enregistrement : ![image](../../assets/monitoring/discovery/host-discovery-hosts-save.png#thumbnail1)
 
   Les hôtes sont alors créés ainsi que les services liés à leurs modèles d'hôte.
 
-4. Allez à la page **Configuration > Hôtes > Hôtes** : les hôtes que vous venez de créer apparaissent dans la liste.
+5. Allez à la page **Configuration > Hôtes > Hôtes** : les hôtes que vous venez de créer apparaissent dans la liste.
 
   ![image](../../assets/monitoring/discovery/host-discovery-configuration-hosts.png)
 
@@ -184,7 +190,7 @@ sur le bouton d'enregistrement : ![image](../../assets/monitoring/discovery/host
 liste, retournez à la liste des tâches et regardez si une erreur est
 survenue pendant la tâche d'enregistrement.
 
-5. Dans les cas suivants, [déployez la configuration](../monitoring-servers/deploying-a-configuration.md) :
+6. Dans les cas suivants, [déployez la configuration](../monitoring-servers/deploying-a-configuration.md) :
 
    - si l'option **Analyse manuelle** a été sélectionnée à l'étape 5 de l'assistant
    - si l'option **Analyse automatique** a été sélectionnée à l'étape 5 de l'assistant, mais que l'option **Exporter et recharger la configuration des collecteurs** était décochée.
@@ -283,7 +289,7 @@ suppression :  ![image](../../assets/monitoring/discovery/host-discovery-delete.
 
 2. Cliquez sur **SUPPRIMER** pour supprimer le modificateur.
 
-## Types de **modificateur**
+## Types de modificateur
 
 ### Propriété
 

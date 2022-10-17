@@ -1,9 +1,9 @@
 ---
 id: autodisco-aws
-title: Discover resources automatically
+title: Use Autodiscovery to monitor AWS EC2 instances
 ---
 
-In this tutorial, we will use the [Auto Discovery module](../monitoring/discovery/hosts-discovery.md) to detect AWS EC2 instances and monitor them.
+In this tutorial, we will use the [Autodiscovery module](../monitoring/discovery/hosts-discovery.md) to detect AWS EC2 instances and monitor them.
 
 ## Prerequisites
 
@@ -75,6 +75,11 @@ You must have:
 
     ![image](../assets/getting-started/aws-results.png)
 
+    Icons allow you to identify the action that will be performed on the host:
+   
+   - The **plus** icon means the host does not exist yet and will be created.
+   - The **arrow** icon means the host already exists and its configuration will be updated.
+   
 3. Select the hosts you want to add to the list of monitored hosts, and then click **Save**. ![image](../assets/getting-started/aws-save.png)
 
 4. Go to **Configuration > Hosts > Hosts** and check that the hosts you selected at the previous step appear in the list. The hosts are added to the lists of hosts but they are not monitored yet.

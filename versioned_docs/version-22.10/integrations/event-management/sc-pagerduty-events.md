@@ -1,10 +1,25 @@
 ---
 id: sc-pagerduty-events
-title: Pagerduty Events
+title: PagerDuty Events
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## PagerDuty + Centreon Integration Benefits
+
+* Notify on-call system or application administrators when an alert is detected by Centreon.
+* Incidents will automatically resolve in PagerDuty when Centreon detects that the check point is back to normal.
+* Create high and low urgency incidents based on the state of the alert.
+* Send metrics when available to give more insight about the alert.
+
+## How it Works
+
+* Every time a service or a host's state is checked, the event passes through Centreon Broker, which loads the Stream Connector to send state changes.
+* State changes can occur in case of an anomaly detection or metrics falling out of range.
+* Once the check point is back to normal, a resolve event will be sent to the PagerDuty service to resolve the alert.
+* You can choose from where the stream connector is sending data. Pick the implementation which best meets your needs:
+
+![architecture](../../assets/integrations/external/sc-pagerduty-centreon.png)
 
 ## Before starting
 
@@ -129,7 +144,7 @@ luarocks install centreon-stream-connectors-lib
 </TabItem>
 </Tabs>
 
-### Download Pagerduty Events stream connector
+### Download PagerDuty Events stream connector
 
 ```shell
 wget -O /usr/share/centreon-broker/lua/pagerduty-events-apiv2.lua https://raw.githubusercontent.com/centreon/centreon-stream-connector-scripts/master/centreon-certified/pagerduty/pagerduty-events-apiv2.lua
@@ -144,11 +159,11 @@ To configure your stream connector, you must **head over** the **Configuration -
 
 | Field           | Value                                                     |
 | --------------- | --------------------------------------------------------- |
-| Name            | Pagerduty events                                          |
+| Name            | PagerDuty events                                          |
 | Path            | /usr/share/centreon-broker/lua/pagerduty-events-apiv2.lua |
 | Filter category | Neb                                                       |
 
-### Add Pagerduty mandatory parameters
+### Add PagerDuty mandatory parameters
 
 Each stream connector has a set of mandatory parameters. To add them you must **click** on the **+Add a new entry** button located **below** the **filter category** input.
 
@@ -156,15 +171,15 @@ Each stream connector has a set of mandatory parameters. To add them you must **
 | ------ | --------------- | ------------------------------- | ------------- |
 | string | pdy_routing_key | the event api key for pagerduty |               |
 
-### Add Pagerduty optional parameters
+### Add PagerDuty optional parameters
 
 Some stream connectors have a set of optional parameters dedicated to the Software that they are associated with. To add them you must **click** on the **+Add a new entry** button located **below** the **filter category** input.
 
 | Type   | Name             | Value explanation                          | default value                                 |
 | ------ | ---------------- | ------------------------------------------ | --------------------------------------------- |
 | string | pdy_centreon_url | url of your Centreon server                | `http://set.pdy_centreon_url.parameter`       |
-| string | http_server_url  | url of the Pagerduty event endpoint        | `https://events.pagerduty.com/v2/enqueue`     |
-| string | client           | the Pagerduty client                       | Centreon Stream Connector                     |
+| string | http_server_url  | url of the PagerDuty event endpoint        | `https://events.pagerduty.com/v2/enqueue`     |
+| string | client           | the PagerDuty client                       | Centreon Stream Connector                     |
 | string | pdy_source       | source of the event                        | `nil`                                         |
 | string | logfile          | the file in which logs are written         | /var/log/centreon-broker/pagerduty-events.log |
 | number | log_level        | logging level from 1 (errors) to 3 (debug) | 1                                             |
