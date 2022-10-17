@@ -21,7 +21,7 @@ import TabItem from '@theme/TabItem';
 <TabItem value="Enhancements" label="Enhancements">
 
 - [**Base Pack**](../procedures/base-generic.md) - base-generic - add macro service EXTRAOPTIONS - Status:stable - centreon-pack-base-generic-22.10.0-1
-- [**Kadiska Rest API**](../procedures/applications-monitoring-kadiska-restapi.md) - Kadiska - Adding new STPL  - Status:stable - centreon-pack-applications-monitoring-kadiska-restapi-22.10.0-1
+- [**Kadiska Rest API**](../procedures/applications-monitoring-kadiska-restapi.md) - Kadiska - Adding new STPL  - Status:stable - centreon-pack-applications-monitoring-kadiska-restapi-22.10.1-1
 - [**Windows NSClient 0.5**](../procedures/operatingsystems-windows-nsclient-05-nrpe.md) - add service updates for windows pack - Status:stable - centreon-pack-operatingsystems-windows-nsclient-05-nrpe-22.10.0-1
 - [**Windows NSClient API**](../procedures/operatingsystems-windows-nsclient-05-restapi.md) - add service updates for windows pack - Status:stable - centreon-pack-operatingsystems-windows-nsclient-05-restapi-22.10.0-1
 - [**Windows WSMAN**](../procedures/operatingsystems-windows-wsman.md) - add service updates for windows pack - Status:stable - centreon-pack-operatingsystems-windows-wsman-22.10.0-1
