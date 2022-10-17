@@ -89,7 +89,7 @@ If you have feature requests or want to report a bug, please go to our
 ###### gRPC API features
 
 - The log levels can be accessed and changed without reloading thanks to `GetLogInfo {}` and `SetLogLevel {"logger": "<logger>", "level": "<log level>"}` gRPC commands
-- Any residues of a deleted poller can be removed definitely thanks to `RemovePoller {}` gRPC command
+- All traces of a deleted poller can be removed permanently thanks to the `RemovePoller {}` gRPC command
 
 ###### Code improvements
 
