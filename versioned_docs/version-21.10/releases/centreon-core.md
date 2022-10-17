@@ -17,6 +17,92 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 21.10.13
+
+Release date: `October 12, 2022`
+
+#### Security fixes
+
+- [Authentication] Improved autologin access
+
+### 21.10.12
+
+Release date:  `October 6, 2022`
+
+#### Bug fixes
+
+- [Install] Fixed SQL update on Centreon realtime database
+
+### 21.10.11
+
+Release date: `September 30, 2022`
+
+#### Bug fixes
+
+- [Configuration] Fixed export of RRDcached path in Centreon Broker configuration
+- [Core] Improved database storage to avoid blocking Broker when maximum values are reached
+
+#### Security fixes
+
+- [Administration] Sanitized and bound media import queries
+- [CLAPI] Sanitized and bound Centreon hostgroup class queries
+- [CLAPI] Sanitized and bound Centreon service class queries
+- [CLAPI] Sanitized and bound LDAP listing queries
+- [Configuration] Fixed SQLi in contact groups form
+- [Configuration] Fixed SQLis in Centreon Broker configuration menu
+- [Configuration] Sanitized and bound Centreon Service class queries
+- [Configuration] Sanitized and bound Centreon hostgroups class queries
+- [Configuration] Sanitized and bound Centreon notification class queries
+- [Configuration] Sanitized and bound Knowledge Base host listing queries
+- [Configuration] Sanitized and bound SNMP traps groups configuration queries
+- [Configuration] Sanitized and bound SNMP traps listing queries
+- [Configuration] Sanitized and bound host categories listing queries
+- [Configuration] Sanitized and bound service by hostgroups listing queries
+- [Configuration] Sanitized and bound services listing queries
+- [Core] Sanitized and bound menu topology listing queries
+- [Install] Sanitized and bound default configuration queries
+
+#### Others
+
+- [Core] Removed obsolete code in ACL configuration listing
+- [Core] Removed obsolete code in Criticality class
+- [Core] Removed obsolete code in database partitioning functions
+- [Core] Removed obsolete code in legacy service detail page
+- [Core] Removed obsolete code in monitoring common functions
+- [Core] Removed unused mechanism for modules to add restart/reload actions after restart of pollers
+
+### 21.10.10
+
+Release date: `September 20, 2022`
+
+#### Bug fixes
+
+- [Administration] Fixed selection of options in second select box in ACL Group configuration page
+- [Configuration] Fixed an error in the Configuration > Services > Templates menu causing HTML code to be displayed
+- [Configuration] Fixed error that occurred when duplicating a Remote Server
+- [Core] Cleaned code in forMyAccount
+- [Core] Corrected escapeSecure usage
+- [Widgets] Restored possibility to not select a poller in preferences
+
+#### Security fixes
+
+- [Administration] Sanitized and bound Centreon ACL class queries
+- [CLAPI] Added a check to verify that the user has the admin role
+- [CLAPI] Sanitized and bound CLAPI poller configuration queries
+- [Configuration] Fixed SQLi in poller's resource creation
+- [Configuration] Sanitized and bound Meta Service configuration queries
+- [Configuration] Sanitized and bound command configuration queries
+- [Configuration] Sanitized and bound graph configuration queries
+- [Configuration] Sanitized and bound queries in centreonConnector file
+- [Configuration] Sanitized and bound queries in contactgroup file
+- [Configuration] Sanitized and bound queries in listServiceCategories file
+- [Configuration] Sanitized and bound queries in listVirtualMetrics file
+- [Configuration] Sanitized and bound queries in service argumentsXml file
+- [Configuration] Sanitized and bound queries in service host categories file
+- [Configuration] Sanitized and bound queries in servicegroup_dependency file
+- [Configuration] Sanitized and bound templates of service listing queries
+- [Monitoring] Fixed XSS vulnerability in deprecated services status details page
+
 ### 21.10.9
 
 Release date: `August 26, 2022`
@@ -319,7 +405,33 @@ By:
 - Move to PHP 8.0
 - Preparing Debian 11 support
 
-##  Centreon Collect
+## Centreon Collect
+
+### 21.10.3
+
+Release date: `September 27, 2022`
+
+#### Centreon Engine
+
+##### Improvements
+
+- Improved security of the gRPC API by listening on 127.0.0.1 by default
+
+#### Centreon Broker
+
+##### Improvements
+
+- Improved security of the gRPC API by listening on 127.0.0.1 by default
+- Empty strings are now accepted for parameter values in stream connectors
+
+##### Bug fixes
+
+- Fixed an issue causing pollers to be displayed as running, and resources to be displayed in Resources Status after stopping centengine
+- Fixed an issue that caused the RRD rebuild mechanism to fail
+- Fixed an issue that caused BAM Business activities with “Ignore the indicator in the calculation” as planned downtime calculation method to stop ignoring downtimed KPIs when they had overlapping downtimes
+- Fixed a bug causing Broker to ignore additional arguments
+- [Configuration] Extended the size of the URL, Notes and Action URL fields to avoid truncating long URLs
+
 
 ### 21.10.2
 
@@ -417,6 +529,22 @@ You must then restart the `centengine` service on all the other pollers to resto
 - Old broker log format has been removed
 
 ## Centreon Gorgone
+
+### 21.10.3
+
+Release date: `September 23, 2022`
+
+#### Enhancements
+
+- Added INSECURE_EXTRACT_MODE option to untar the archive
+- Added API to manage Centreon MBI ETL
+- Added API to get status of Centreon MBI ETL
+- Added API to kill working process of Centreon MBI ETL
+
+##### Bug fixes
+
+- Fixed machine learning configuration label values using string
+- Fixed reload of cbd on Remote Server to apply BA changes (ok)
 
 ### 21.10.2
 

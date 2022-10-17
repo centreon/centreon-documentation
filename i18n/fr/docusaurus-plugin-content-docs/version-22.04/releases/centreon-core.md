@@ -16,6 +16,100 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon Web
 
+### 22.04.7
+
+Release date: `October 12, 2022`
+
+#### Bug fixes
+
+- [Install] Fixed incorrect deletion of Centreon Broker output resulting in the loss of graph updates
+- [Install] Fixed SQL update on Centreon real time database
+
+#### Security fixes
+
+- [Authentication] Improved autologin access
+
+### 22.04.6
+
+Release date: ` September 30, 2022`
+
+#### Bug fixes
+
+- [Administration] Fixed not mandatory access group for OpenId Connect configuration
+- [Authentication] Fixed user theme retrieval via OpenID Connect login
+- [Configuration] Fixed a bug that caused the reactivation of disabled hosts, ignoring the value set by the user in the autodiscovery wizard
+- [Configuration] Fixed export of RRDcached path in Centreon Broker configuration
+- [Core] Improved database storage to avoid blocking Broker when maximum values are reached
+- [Core] Removed obsolete code in ACL configuration listing
+- [Core] Removed obsolete code in Criticality class
+- [Core] Removed obsolete code in legacy service detail page
+- [Core] Removed obsolete code in monitoring common functions
+- [Core] Removed unused mechanism for modules to add restart/reload actions after restart of pollers
+
+#### Security fixes
+
+- [Administration] Sanitized and bound media import queries
+- [CLAPI] Sanitized and bound Centreon hostgroup class queries
+- [CLAPI] Sanitized and bound Centreon Service class queries
+- [CLAPI] Sanitized and bound LDAP listing queries
+- [Configuration] Fixed SQLi in Centreon Broker configuration menu
+- [Configuration] Fixed SQLi in contact groups form
+- [Configuration] Sanitized and bound Centreon hostgroups class queries
+- [Configuration] Sanitized and bound Centreon Notification class queries
+- [Configuration] Sanitized and bound Knowledge Base host listing queries
+- [Configuration] Sanitized and bound SNMP Traps groups configuration queries
+- [Configuration] Sanitized and bound SNMP Traps listing queries
+- [Configuration] Sanitized and bound service by hostgroups listing queries
+- [Configuration] Sanitized and bound Host categories listing queries
+- [Configuration] Sanitized and bound services listing queries
+- [Core] Sanitized and bound menu topology listing queries
+- [Install] Sanitized and bound default configuration queries
+
+### 22.04.5
+
+Release date: `September 20, 2022`
+
+#### Enhancements
+
+- [UX] Improved usability when accessing logs and reports button in details panel
+
+#### Bug fixes
+
+- [Administration] Fixed selection of options in second select box in ACL Group configuration page
+- [Authentication] Fixed contact_location when creating a session from OpenId Connect which made it impossible to access MBI jobs
+- [Configuration] Fixed an error in the Configuration > Services > Templates menu causing HTML code to be displayed
+- [Configuration] Fixed error that occurred when duplicating a Remote Server
+- [Core] Cleaned code in forMyAccount
+- [Core] Corrected escapeSecure usage
+- [Core] Fixed database partitioning for Aurora DBMS
+- [Install] Fixed Centreon Web installation using sources and silent mode
+- [Install] Fixed default PHP-FPM configuration on Debian
+- [Resources Status] Fixed the "Alias" tile that was not displayed in the details panel
+- [Resources Status] Fixed broken link to host right panel
+- [UI] Fixed HTML code appearing instead of SVG icon with Firefox
+- [UI] Fixed french typo in OpenID Connect configuration form
+- [UI] Fixed untranslated label in Resources Status
+- [Widgets] Restored possibility to not select a poller in preferences
+
+#### Security fixes
+
+- [Administration] Sanitized and bound Centreon ACL class queries
+- [CLAPI] Added a check to verify that the user has the admin role
+- [CLAPI] Sanitized and bound CLAPI poller configuration queries
+- [Configuration] Fixed SQLi in poller's resource creation
+- [Configuration] Sanitized and bound Meta Service configuration queries
+- [Configuration] Sanitized and bound command configuration queries
+- [Configuration] Sanitized and bound graph configuration queries
+- [Configuration] Sanitized and bound queries in contactgroup file
+- [Configuration] Sanitized and bound queries in listServiceCategories file
+- [Configuration] Sanitized and bound queries in listVirtualMetrics file
+- [Configuration] Sanitized and bound queries in service argumentsXml file
+- [Configuration] Sanitized and bound queries in service host categories file
+- [Configuration] Sanitized and bound queries in servicegroup_dependency file
+- [Configuration] Sanitized and bound templates of service listing queries
+- [Monitoring] Fixed XSS vulnerability in deprecated services status details page
+- [Upgrade] Sanitized and bound queries in update-22.04.0-beta.1 file
+
 ### 22.04.4
 
 Release date: `September 2, 2022`
@@ -276,6 +370,27 @@ Release date: `August 30, 2022`
 As stated above, all broker instances (central, RRD, modules) must use the same BBDO protocol version to be able to communicate. This means that pollers using 21.10 or older releases won't be able to send data to a 22.04 central server using BBDO 3.0.0. Please read carefully our upgrade procedure.
 
 ## Centreon Gorgone
+
+### 22.04.1
+
+Release date: `September 23, 2022`
+
+#### Enhancements
+
+- Added an optional parameter to strictly control that the required plugins are installed before reloading/restarting centengine
+- Added INSECURE_EXTRACT_MODE option to untar the archive
+- Added API to manage Centreon MBI ETL
+- Added API to get status of Centreon MBI ETL
+- Added API to kill working process of Centreon MBI ETL
+- Added Rocky Linux support for the plugin auto installation
+- Improved debug for the plugin auto installation
+
+##### Bug fixes
+
+- Fixed wrong header in pullws mode
+- Fixed encoding issue on RHEL8 in Services Discovery with Windows SNMP
+- Fixed an issue with the authentication process to the web socket server
+- Fixed the missing service category name in debug message
 
 ### 22.04.0
 

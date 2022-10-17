@@ -38,6 +38,7 @@ It brings the following service templates:
 | Sessions              | OS-Windows-NSClient05-Sessions-NRPE-custom                 | Check sessions using NRPE protocol                         |         |           |
 | Swap                  | OS-Windows-NSClient05-Swap-NRPE-custom                     | Check swap usage using NRPE protocol                       | X       |           |
 | Task-Generic          | OS-Windows-NSClient05-Task-Generic-NRPE-custom             | Check scheduled tasks using NRPE protocol                  |         |           |
+| Updates               | OS-Windows-Updates-NRPE-custom                             | Check windows pending updates                              |         |           |
 | Uptime                | OS-Windows-NSClient05-Uptime-NRPE-custom                   | Check uptime using NRPE protocol                           |         |           |
 
 ### Discovery rules
@@ -134,6 +135,13 @@ More information about discovering services automatically is available on the [d
 | sessions-reconnected          | Count |
 | sessions-active               | Count |
 | sessions-disconnected-current | Count |
+
+</TabItem>
+<TabItem value="Updates" label="Updates">
+
+| Metric Name                   | Unit   |
+|:------------------------------|:-------|
+| windows.pending.updates.count |        |
 
 </TabItem>
 </Tabs>

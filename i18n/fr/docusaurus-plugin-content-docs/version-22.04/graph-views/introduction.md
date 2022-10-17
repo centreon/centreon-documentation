@@ -1,35 +1,29 @@
 ---
 id: introduction
-title: Introduction to Centreon MAP
+title: Introduction à Centreon MAP
 ---
 
-The graphical view capabilities in Centreon relies on the **Centreon MAP**
-extension.
+Les capacités de visualisation graphique de Centreon reposent sur l'extension **Centreon MAP**.
 
-> Centreon MAP is a Centreon **extension** that requires a valid [license](../administration/licenses.md).
-> To purchase one and retrieve the necessary repositories, contact
-> [Centreon](mailto:sales@centreon.com).
+> Centreon MAP est une **extension** Centreon qui nécessite une [licence](../administration/licenses.md) valide.
+> Pour en acquérir une et récupérer les dépôts nécessaires, contactez [Centreon](mailto:sales@centreon.com).
 
-Centreon MAP is a data-mapping and visualization tool designed for IT
-Operations management (ITOM) administrators and developers. It is
-capable of displaying efficient graphic insights and mapping correlated
-data in customized user-relevant views.
+Centreon MAP est un outil de visualisation et de cartographie de données conçu pour les administrateurs et les développeurs de la gestion des opérations informatiques (ITOM).
+Il est capable d'afficher des aperçus graphiques efficaces et de cartographier des données corrélées dans des vues personnalisées pertinentes pour l'utilisateur.
 
-Create logical views using the Desktop client...
+Créez des vues logiques à l'aide du client lourd...
 
 ![image](../assets/graph-views/desktop.gif)
 
-...and visualize them directly in your browser.
+...et visualisez-les directement dans votre navigateur.
 
 ![image](../assets/graph-views/first_page_web.png)
 
-Or use the geographical view to display resources in the way your IT is spread
-over a city, country or world.
+Vous pouvez également utiliser la vue géographique pour afficher les ressources de la manière dont votre informatique est répartie dans une ville, un pays ou le monde.
 
 ![image](../assets/graph-views/display_geo_view.gif)
 
-Both types of views may be displayed in the same Centreon web user interface:
+Les deux types de vues peuvent être affichés dans la même interface utilisateur web Centreon :
 
-- Either from the Centreon MAP dedicated user interface, which also includes a
-  search facility
-- Or within a Custom View, using the dedicated Centreon MAP widget
+- Soit à partir de l'interface utilisateur dédiée Centreon MAP, qui comprend également une fonction de recherche.
+- soit dans une vue personnalisée, à l'aide du widget Centreon MAP dédié.

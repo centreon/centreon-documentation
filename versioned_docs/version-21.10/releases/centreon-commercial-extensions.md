@@ -16,6 +16,14 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon MAP
 
+### 21.10.6
+
+Release date: `October 6, 2022`
+
+#### Bug fixes
+
+- Fixed issues with MAP Desktop connection timeout with very large map infastructures
+
 ### 21.10.5
 
 Release date: `May 30, 2022`
@@ -105,6 +113,14 @@ Release date: `December 7, 2021`
 - [Configuration] Warn the user for unsaved changes on BA/BV
 
 ## Centreon MBI
+
+### 21.10.2
+
+Release date: `October 12, 2022`
+
+#### Security fixes
+
+- Fixed multiple vulnerabilities in report generation
 
 ### 21.10.1
 

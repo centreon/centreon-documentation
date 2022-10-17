@@ -375,7 +375,7 @@ systemctl restart mariadb
 </TabItem>
 </Tabs>
 
-Passez maintenant à [l'étape suivante](#configuration).
+Passez maintenant à [l'étape suivante](#étape-3--configuration).
 
 ### Avec base de données déportée
 
@@ -549,11 +549,10 @@ systemctl restart php-fpm
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
-Définissez le fuseau horaire PHP en éditant le fichier suivant :
+Editez le fichier **/etc/php/8.0/mods-available/centreon.ini** et contrôlez le fuseau horaire.
 
-```shell
-/etc/php/8.0/mods-available/centreon.ini
-```
+> Celui-ci a été défini durant le processus d'installation en récupérant le fuseau horaire configuré sur le
+> système d'exploitation.
 
 > La liste des fuseaux
 > horaires est disponible [ici](http://php.net/manual/en/timezones.php).

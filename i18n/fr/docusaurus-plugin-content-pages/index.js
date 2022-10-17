@@ -23,7 +23,7 @@ const links = {
   contribute:
     'https://github.com/centreon/centreon/blob/master/CONTRIBUTING.md',
   banner:
-    'https://thewatch.centreon.com/latest-news-37/centreon-22-04-is-now-available-621',
+    'https://events.centreon.com/centreon-summit-2022?utm_source=CentreonSummit_Website&utm_medium=medium&utm_campaign=CentreonSummit22',
 };
 
 const stringsAndParagraphs = {
@@ -124,10 +124,12 @@ function ExcellenceBlock() {
 function SummitBlock() {
   return (
     <div className={clsx(styles.bannerCustom)}>
+      <div className={clsx(styles.bannerCustomFR)}>
       <div className={clsx(styles.bannerImage)}>
         <a href={links.banner} target={'_blank'}>
-          <img src={basePathImg + 'spring-release-bannner-fr-22.04.png'} />
+          <img src={basePathImg + '2022-summit-banner-fr.png'} />
         </a>
+      </div>
       </div>
     </div>
   );
