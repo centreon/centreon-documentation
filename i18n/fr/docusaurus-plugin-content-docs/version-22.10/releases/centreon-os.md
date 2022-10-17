@@ -92,7 +92,7 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ###### Code improvements
 
-- Calls to `atoi()` C function have been replaced by more secured functions
+- Calls to the `atoi()` C function have been replaced by more secure functions
 
 ## Centreon Gorgone
 
