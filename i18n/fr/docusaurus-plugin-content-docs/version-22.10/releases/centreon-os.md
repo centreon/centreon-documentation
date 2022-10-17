@@ -81,7 +81,7 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ###### Imrpoving communication
 
-- Two new broker streams are available, meant to provide simpler configuration and support of gRPC protocol.
+- Two new broker streams are available, meant to provide simpler configuration and support of the gRPC protocol.
 - It is now possible to limit the maximum total size of Broker retention files using the `event_queues_total_size` global parameter
 - The default `retry_interval` has been changed from 60 to 15, in the configuration WUI as well as in the source code for a shorter time to reconnect
 
