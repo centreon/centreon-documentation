@@ -39,7 +39,7 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 - [UX] Changing themes is now possible by clicking on the profile icon
 - [UX] The quick export button is now available by default for all users that have the admin privilege or the required ACL action access. Deploying a configuration is now simpler for all users.
 - [Configuration] Improved the default Engine logger options for newly installed central servers and new pollers created with the wizard
-- [Configuration] New Broker input/output stream types available, designed to support the new gRPC stream capability of Broker, but can also be used for legacy BBDO over TCP protocol:
+- [Configuration] New Broker input/output stream types available, designed to support the new gRPC stream capability of Broker, but that can also be used for the legacy BBDO over TCP protocol:
   - BBDO Server: configures a server input or output, displaying only relevant fields for this purpose
   - BBDO Client: configures a client input or output, displaying only relevant fields for this purpose
 - [Configuration] Some obsolete parameters have been removed from the Engine configuration menu
