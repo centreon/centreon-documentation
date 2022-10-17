@@ -30,7 +30,7 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 - [Authentication] Improved roles management via OpenID Connect:
   - Manual management of relationships between a user and ACL groups
   - Automatic management of relationships between a user and ACL groups based on identity provider values
-- [Install] Addition of dependency management between modules during installation, update and deletion
+- [Install] Added dependency management between modules during installation, update and deletion
 - [Install] Improved error handling during installation
 - [Install] Removed "Centreon Web Directory" parameter and use Apache configuration instead
 - [UI] Improved Centreon light and dark themes
