@@ -74,7 +74,7 @@ If you have feature requests or want to report a bug, please go to our
 
 - Improved the management of `timed_events` objects
 - Improved the memory management of downtimes
-- Calls to `atoi()` C function have been replaced by more secured functions
+- Calls to the `atoi()` C function have been replaced by more secure functions
 
 #### Centreon Broker
 
