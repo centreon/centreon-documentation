@@ -17,7 +17,9 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 ### 22.10.0
 
-- Compatibility with other 22.10 components.
+#### Performances
+
+- Move to Java 17
 
 ## Centreon BAM
 
@@ -29,7 +31,9 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 ### 22.10.0
 
-- Compatibility with other 22.10 components.
+#### Performances
+
+- Move to Java 17
 
 ## Centreon Auto Discovery
 

@@ -18,7 +18,9 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 22.10.0
 
-- Compatibility with other 22.10 components.
+#### Performances
+
+- Move to Java 17
 
 ## Centreon BAM
 
@@ -30,7 +32,9 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 22.10.0
 
-- Compatibility with other 22.10 components.
+#### Performances
+
+- Move to Java 17
 
 ## Centreon Auto Discovery
 
