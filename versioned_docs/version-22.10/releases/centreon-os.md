@@ -93,7 +93,7 @@ If you have feature requests or want to report a bug, please go to our
 
 ###### Code improvements
 
-- Calls to `atoi()` C function have been replaced by more secured functions
+- Calls to the `atoi()` C function have been replaced by more secure functions
 
 ## Centreon Gorgone
 
