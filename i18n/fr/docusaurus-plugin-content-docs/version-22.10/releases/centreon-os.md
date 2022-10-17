@@ -79,7 +79,7 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ##### Enhancements
 
-###### Imrpoving communication
+###### Improved communication
 
 - Two new broker streams are available, meant to provide simpler configuration and support of the gRPC protocol.
 - It is now possible to limit the maximum total size of Broker retention files using the `event_queues_total_size` global parameter
