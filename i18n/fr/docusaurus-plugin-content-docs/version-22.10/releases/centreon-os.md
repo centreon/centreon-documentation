@@ -67,7 +67,7 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 ###### Settings improvements
 
 - Change the log level of some notification log messages
-- Observations on platforms in the field showed us that the default maximum number of queries per transaction (10000) was too high and caused too much delay, so we set it 2000 by default
+- Observations on platforms in the field showed us that the default maximum number of queries per transaction (10000) was too high and caused too much delay, so we set it to 2000 by default
 
 ###### Code improvements
 
