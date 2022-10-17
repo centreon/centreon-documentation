@@ -58,16 +58,26 @@ Il est nécessaire de désinstaller puis réinstaller MariaDB pour changer de ve
     rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
     ```
 
-3. Installez la version désirée :
+    > Pendant cette étape de désinstallation, vous pouvez rencontrer une erreur parce qu'un ou plusieurs paquets MariaDB sont manquants. Dans ce cas, vous devez exécuter la commande de désinstallation sans inclure le paquet manquant.
+
+    Par exemple, vous obtenez le message d'erreur suivant :
 
     ```shell
-    yum install MariaDB-server-<version>\* MariaDB-client-<version>\* MariaDB-shared-<version>\* MariaDB-compat-<version>\* MariaDB-common-<version>\*
+    package MariaDB-compat is not installed
     ```
 
-    Exemple :
+    Comme le paquet **MariaDB-compat** est manquant, vous devez exécuter la même commande sans citer **MariaDB-compat** :
 
     ```shell
-    yum install MariaDB-server-10.5\* MariaDB-client-10.5\* MariaDB-shared-10.5\* MariaDB-compat-10.5\* MariaDB-common-10.5\*
+    rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-common
+    ```
+
+  > Assurez-vous d'avoir [installé le dépôt officiel de MariaDB](./upgrade-from-21-04.md#installer-le-dépôt-mariadb) avant de poursuivre la procédure.
+
+3. Installez la version 10.5 :
+
+    ```shell
+    yum install MariaDB-server-10.5\* MariaDB-client-10.5\* MariaDB-shared-10.5\* MariaDB-common-10.5\*
     ```
 
 4. Démarrer le service mariadb :
