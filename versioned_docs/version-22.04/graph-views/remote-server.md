@@ -32,23 +32,21 @@ MariaDB [centreon]> update topology SET topology_show='1' where topology_name='I
 
 ## Centreon Broker configuration
 
-Configuration of Centreon MAP for a Centreon remote server consists
-in creating configuration for Centreon Broker of the Centreon remote
-server **from** the central server so that, with a dedicated Centreon
+Configuring the Centreon MAP module on a Centreon remote server requires
+configuring the Centreon Broker from the Centreon central server so that, with a dedicated Centreon
 Broker output on the Centreon remote server, Centreon MAP can receive
 real time data directly from its Centreon remote server.
 
-To do so, you need to modify the **Centreon Broker Master**
-configuration of the **Centreon Remote poller**. Go to
-**Configuration > Pollers > Broker configuration** menu and edit the
-remote poller configuration.
+To do so, you need to modify the Centreon Broker Master configuration of the
+Centreon remote poller. Go to the **Configuration > Pollers > Broker
+configuration** menu and edit the **remote server's** configuration.
 
 In the **Output** tab, create a new output with the following parameters:
 
 ![image](../assets/graph-views/output_broker.png)
 
-To finish the installation, generate, export the configuration and
-**restart** Centreon Broker manually.
+To complete the installation process, generate and deploy the Centreon remote
+server configuration by selecting **Restart**.
 
 ## Uninstalling Centreon MAP
 
