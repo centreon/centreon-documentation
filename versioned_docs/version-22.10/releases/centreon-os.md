@@ -63,7 +63,7 @@ If you have feature requests or want to report a bug, please go to our
 ###### Anomaly Detection improvements
 
 - Recheck has been implemented for Anomaly Detection services, retrieving the actual value of the metric to reevaluate the AD service's status
-- Downtimes of regular services are now propageted to related Anomaly Detection service(s)
+- Downtimes on regular services are now propagated to related Anomaly Detection service(s)
 
 ###### Settings improvements
 
