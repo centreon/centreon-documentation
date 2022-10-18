@@ -88,9 +88,22 @@ yum clean all --enablerepo=*
 
 Then upgrade all the components with the following command:
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
 ```shell
-yum update centreon\*
+yum update centreon\* ioncube-loader php-pecl-gnupg
 ```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```shell
+yum update centreon\* ioncube-loader php-pecl-gnupg
+```
+
+</TabItem>
+</Tabs>
 
 > Accept new GPG keys from the repositories as needed.
 
@@ -113,22 +126,21 @@ For each difference between the files, assess whether you should copy it from **
 
 ### Finalizing the upgrade
 
+Before starting the web upgrade process, reload the Apache server with the
+following command:
+
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-Before starting the web upgrade process, reload the Apache server with the
-following command:
 ```shell
-systemctl reload httpd
+systemctl reload php-fpm httpd
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
-Before starting the web upgrade process, reload the Apache server with the
-following command:
 ```shell
-systemctl reload httpd24-httpd
+systemctl reload php-fpm httpd24-httpd
 ```
 
 </TabItem>
