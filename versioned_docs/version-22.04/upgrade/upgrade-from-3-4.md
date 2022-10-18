@@ -106,7 +106,7 @@ yum clean all --enablerepo=*
 Upgrade all the components with the following command:
 
 ```shell
-yum update centreon\*
+yum update centreon\* ioncube-loader php-pecl-gnupg
 ```
 
 > Accept new GPG keys from the repositories as needed.
@@ -422,8 +422,9 @@ lrwxrwxrwx   1 root root      24  1 nov.  17:59 plugins -> /usr/lib/nagios/plugi
 
 Before starting the web upgrade process, reload the Apache server with the
 following command:
+
 ```shell
-systemctl reload httpd24-httpd
+systemctl reload php-fpm httpd24-httpd
 ```
 
 Then log on to the Centreon web interface to continue the upgrade process:
