@@ -22,7 +22,7 @@ Host groups and service groups are used to group together objects by logical ent
 * Search several performance graphs quickly by browsing the object tree structure by group and then by resource
 
 Generally speaking, we try to group together hosts by functional level. E.g.: DELL and HP hosts or Linux, Windows,
-etc., hosts. 
+etc., hosts.
 We also try to group services by application jobs. E.g.: Salary management application, ERP Application, etc.
 
 > For the hosts belonging to a host group, the retention of RRD files can be defined in the host group. This definition
@@ -35,17 +35,18 @@ Go to the **Configuration > Hosts > Host Groups** menu and click on **Add**
 
 ![image](../assets/configuration/07hostgroup.png)
 
-* The **Host Group Name** and **Alias** defines the name and the alias of the host group.
-* The **Linked Hosts** list allows us to add hosts in the hostgroup.
+* The **Name** and **Alias** defines the name and the alias of the host group.
+* The **Members** list allows us to add hosts in the hostgroup.
 * The **Notes** field allows us to add optional notes concerning the host group.
 * The **Notes URL** field defined a URL which can be used to give more information on the hostgroup.
 * The **Action URL** field defined a URL normally use to give information on actions on the hostgroup (maintenance, etc.).
 * The **Icon** field indicates the icon to be use for the host group.
 * The **Map Icon** is the icon use for mapping.
+* The **Geographic coordinates** field defines geographical coordinates used by the Centreon MAP module to position the resource on a map
 * The **RRD retention** field is expressed in days, it serves to define the duration of retention of the services
   belonging to this hostgroup in the RRD database. It will be the default duration defined in the
   **Administration > Options > CentStorage** menu if this value is not defined.
-* The **Status** and **Comments** fields allow to enable or disable the host group and to make comments on it.
+* The **Enable/disable resource** and **Comments** fields allow to enable or disable the host group and to make comments on it.
 
 ## Creating a service group
 

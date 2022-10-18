@@ -9,70 +9,67 @@ To create a service manually, go to **Configuration \> Services > Services by ho
 
 ## Configuration of the service
 
-### General information
+### General information tab
 
-* The **Description** field defined the name of the service.
-* The **Service template** field indicates the model of service to which the service is linked.
+#### Service Basic Information
 
-### Service State
+* **Name**: define the name of the service.
+* **Hosts**: Host(s) to which the service is attached. We recommend that you link a service to only one host.
+* **Service template**: indicates the service template to which the service is linked.
 
-* The **Is Volatile** field indicates if the service is volatile or not (normally only passive services are volatile).
-* The **Check Period** field defined the time period during which the scheduler checks the status of the service.
+#### Service Check Options
+
 * The **Check Command** field indicates the command use to check the availability of the service.
-* The **Args** table defined the arguments given for the check command (the number of arguments varies according to the
+
+* **Custom Macros**: add customized macros.
+
+   - The **macro name** and **macro value** fields allow us to define the name and value of the macro. The **Password** box
+can be used to hide the value of the macro.
+
+   - To reinitialize to the default value (defined in template) click on ![image](../../assets/configuration/common/undo.png#thumbnail1)
+
+   - To view the description of the macro, click on ![image](../../assets/configuration/common/description.png#thumbnail1)
+
+   - To delete the macro, click on ![image](../../assets/configuration/common/delete.png#thumbnail1)
+
+   - To change the order of the macros, click on ![image](../../assets/configuration/common/move.png#thumbnail1)
+
+* The **Args** table defines the arguments given for the check command (the number of arguments varies according to the
   check command chosen).
+
+#### Service Scheduling Options
+
+* The **Check Period** field defined the time period during which the scheduler checks the status of the service.
 * The **Max Check Attempts** of the status field defined the number of checks to be carried out to confirm the status of
   the service. When the status is validated, the notification process is engaged
 * The **Normal Check Interval** field is expressed in minutes. It defined the interval between checks when the service status is OK.
 * The **Retry Check Interval** field is expressed in minutes. It defined the confirmation interval for the Not-OK service status
 * The **Active Checks Enabled** and **Passive Checks Enabled** fields enable / disable the type of check on the service.
+* The **Is Volatile** field indicates if the service is volatile or not (normally only passive services are volatile).
 
-### Macros
-
-The **Macros** part serves to add customized macros. 
-The **macro name** and **macro value** fields allow us to define the name and value of the macro. The **Password** box
-can be used to hide the value of the macro.
-
-To reinitialize to the default value (defined in template) click on ![image](../../assets/configuration/common/undo.png#thumbnail1)
-
-To view the description of the macro, click on ![image](../../assets/configuration/common/description.png#thumbnail1)
-
-To delete the macro, click on ![image](../../assets/configuration/common/delete.png#thumbnail1)
-
-To change the order of the macros, click on ![image](../../assets/configuration/common/move.png#thumbnail1)
-
-### Notification
+### Notifications tab
 
 * The **Notification Enabled** field allows us to enable or disable the notifications for the object.
-* The **Inherit contacts from host** field allows us to cause the contacts to be inherited from the configuration of
-  the host.
-* If the **Contact additive inheritance** box is checked, Centreon does not overwrite the configuration of the parent
-  service model but adds the contacts in addition to the contacts defined at the parent model level.
-* The **Implied Contacts** indicates the contacts that will receive the notifications.
-* If **Contact group additive inheritance** box is checked, Centreon does not overwrite the configuration of the parent
-  service model but adds the contact groups in addition to the contact groups defined at the parent model level.
 * If **Inherit only contacts/contact group from host** box is checked, then when generating the configuration, contact
   and/or host groups of contacts (or the following templates inheritance) will overwrite of the service or its service
   models. This function disables entering contacts and contact groups for this service.
+* The **Implied Contacts** indicates the contacts that will receive the notifications.
 * In the **Implied Contact Groups** list all the contacts belonging to the contact groups defined will receive the notifications.
+
 * The **Notification Interval** field is expressed in minutes. It indicates the time between sending of notifications
   when the status is Not-OK. If the value is defined as 0 the scheduler sends a single notification per status change.
+* The **Notification Period** fields defines the [time period](../basic-objects/timeperiods.md) during which notifications will be sent. No notifications will be sent outside this time period.
 * The **Notification Type** define the statuses for which a notification will be sent.
 * The **First notification delay** time is expressed in minutes. It refers to the time delay to be respected before
   sending the first notification when a Not-OK status is validated.
+* The **Recovery notification delay** is the time that must pass before a recovery notification is sent (when the service goes back to an OK state).
 
-## Relations tab
+### Relations tab
 
-### Relations
+* The **Servicegroups** list allows us to link the service to one or more service groups.
+* The **Service Trap Relation** field allows us to define the SNMP traps that will be able to change the behavior of the service.
 
-* The **Linked with Hosts** list allows us to define the host(s) to which to link this service.
-* The **Linked with Servicegroups** list allows us to link the service to one or more service groups.
-
-### SNMP traps
-
-The **Service Trap Relation** field allows us to define the SNMP traps that will be able to change the behavior of the service.
-
-## Data processing
+### Data processing tab
 
 * If the **Obsess over service** field is enabled, the monitoring feedback command of the host will be enabled.
 * The **Check freshness** field allows us to enable or disable the check on the freshness of the result.
@@ -91,14 +88,14 @@ The **Service Trap Relation** field allows us to define the SNMP traps that will
 * The **Event handler** field defined the command to be executed if the event manager is enabled.
 * The **Args** field defined the arguments of the events handler command.
 
-## Additional information on the service
+### Extended Info tab
 
-### Centreon
+#### Centreon
 
 * **Graph template**: Defines the graphics model to be use to present the performance data linked to the service.
 * **Categories**: Defines the category(s) to which the service belongs.
 
-### Monitoring engine
+#### Monitoring engine
 
 * The **URL** field defined a URL that can be used to give more information on the service.
 * The **Notes** field permits us to add optional notes concerning the service.
@@ -107,7 +104,7 @@ The **Service Trap Relation** field allows us to define the SNMP traps that will
 * The **Alt icon** field is the text use if the icon cannot be Displays.
 * The **Severity level** field indicates the criticality level of the service.
 
-### Additional information
+#### Additional information
 
 * The **Status** field allows us to enable or disable the service.
 * The **Comment** field can be used to add a comment concerning the service.

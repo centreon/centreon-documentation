@@ -4,6 +4,7 @@ title: Creating hosts manually
 ---
 
 To create a host manually:
+
 1. Go to **Configuration \> Hosts \> Hosts** and then click **Add**.
 2. Fill in the fields (see [below](#host-configuration-tab)), then click on **Save**.
 3. [Deploy the configuration](../monitoring-servers/deploying-a-configuration.md).
@@ -14,14 +15,14 @@ To create a host manually:
 
 ### Host basic information
 
-* The **Host Name** field defines the host name that will be used by the Monitoring Engine.
+* The **Name** field defines the host name that will be used by the Monitoring Engine.
 * The **Alias** field shows the alias of the host.
-* The **IP address / DNS** field defines IP address or DNS name of the host. The **Resolve** button enables us to
+* The **Address** field defines IP address or DNS name of the host. The **Resolve** button enables us to
   resolve the domain name by questioning the DNS server configured on the central server.
 * The **SNMP Community & Version** fields contain the name of the community and the SNMP version.
-* The **Monitored from** field indicates which poller server is charged with monitoring this host.
-* The **Timezone / Location** field indicates the timezone location of the monitored hosts.
-* The **Host Templates** field enables us to associated one or more templates of hosts with this object.
+* The **Monitoring server** field indicates which poller server is charged with monitoring this host.
+* The **Timezone** field indicates the timezone location of the monitored hosts.
+* The **Templates** field enables us to associated one or more templates of hosts with this object.
 
 In case of conflicts of settings present on multiple templates, the host template above overwrites the identical properties
 defined in host templates below.
@@ -77,8 +78,8 @@ To change the order of the macros, click on ![image](../../assets/configuration/
 
 ## Relations tab
 
-* The **Parent Host Groups** list defined the host groups to which the host belongs.
-* The **Parent Host Categories** list defined the categories to which the host belongs.
+* The **Host Groups** list defined the host groups to which the host belongs.
+* The **Host Categories** list defined the categories to which the host belongs.
 * The **Parent Hosts** list enables us to define the physical family relationships between objects.
 * The **Child Hosts** list enables us to define the physical family relationships between objects.
 
@@ -103,15 +104,16 @@ To change the order of the macros, click on ![image](../../assets/configuration/
 
 ### Monitoring engine
 
-* The **URL** field defined a URL that can be used to give more information on the host.
-* The **Notes** field permits us to add  optional notes concerning the host.
+* The **Note URL** field defined a URL that can be used to give more information on the host.
+* The **Note** field permits us to add optional notes concerning the host.
 * The **Action URL** field defined a URL normally use for giving information on actions on the host (maintenance, etc.).
 * The **Icon** field indicates the icon use for the host.
 * The **Alt Icon** field is the text use if the icon cannot be Display.
-* The **Severity level** field indicates the severity level of the host.
+* The **Host severity** field indicates the severity level of the host.
 * The **Status Map Image** field defined the logo for Centreon Map module.
-* The **Geo coordinates** field defined Geographical coordinates use by Centreon Map module to position element on map.
+* The **Geographic coordinates** field defines geographical coordinates used by the Centreon MAP module to position the resource on a map.
   Define "Latitude,Longitude", for example for Paris coordinates set "48.51,2.20"
+* **Enable/disable resource**: This setting determines whether the host and its services must be monitored or not. If the host is disabled, it doesn't appear on the **Resources Status** page.
 
 The fields presented below are obsolete:
 
