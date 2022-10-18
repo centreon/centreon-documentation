@@ -11,7 +11,7 @@ Fill in your user name and associated password and click on the **Connect** butt
 
 ![image](../assets/getting-started/aconnection.png)
 
->If you have installed Centreon from a [VM](../installation/installation-of-a-central-server/using-virtual-machines.md), the default credentials are **admin/Centreon!2021**.
+>If you have installed Centreon from a [VM](../installation/installation-of-a-central-server/using-virtual-machines.md), the default credentials are **admin/Centreon123!**.
 Otherwise, the default login is **admin** and the password is the one you have defined at [step 5 of the web installation wizard](../installation/web-and-post-installation.md#step-5-admin-information).
 
 You are now connected to the Centreon web interface.
@@ -22,7 +22,7 @@ You are now connected to the Centreon web interface.
 
 The Centreon web interface contains several menus, each with a specific function (click the Centreon logo at the top left of the screen to expand the menus):
 
-![image](../assets/getting-started/amenu.png)
+![image](../assets/getting-started/expand_menu.png)
 
 * **Home** shows [custom views](create-custom-view.md).
   Your workspace may be blank for now. Once you configure customizable widgets, you will see data and charts according
@@ -50,10 +50,10 @@ Click the **pollers** icon to expand the menu. On the menu, click **Configure po
 
 ![image](../assets/getting-started/top_counters.png)
 
-To the right of the top banner, statistics show the number of resources that are being monitored, with a specific status:
+Beside the pollers section, statistics show the number of resources that are being monitored, with a specific status:
 
-* For hosts: number of hosts with a **Down**, **Unreachable** and **Up** status.
 * For services: number of services with a **Critical**, **Warning**, **Unknown** and **OK** status.
+* For hosts: number of hosts with a **Down**, **Unreachable** and **Up** status.
 
 These numbers include unconfirmed (SOFT) alerts, but do not include resources that are acknowledged or in downtime. Pending resources are shown by a blue dot on the **hosts** or **services** icons.
 
@@ -68,14 +68,16 @@ Click the **hosts** or **services** icon to expand the menu and display the deta
 
 When you first connect to the interface, Centreon is displayed in light mode by default.
 
-On the banner, use the switch button to turn on the dark mode.
+On the banner, click on the profile icon and use the switch button to turn on the dark mode.
 Next time you connect to the interface, the mode you previously selected remains on.
 
-* Light mode
-![image](../assets/getting-started/light_mode_switch.png)
+- Light mode:
 
-* Dark mode
-![image](../assets/getting-started/dark_mode_switch.png)
+![image](../assets/getting-started/menu_light_mode.png)
+
+- Dark mode:
+
+![image](../assets/getting-started/menu_dark_mode.png)
 
 You can also switch to dark mode by changing the theme in the account parameters.
 
@@ -90,11 +92,11 @@ Then click on **Save**. The theme is now in the mode you have chosen.
 
 On the banner, click on the profile icon, then click on **Edit profile**:
 
-![image](../assets/getting-started/change_language_1.png)
+![image](../assets/getting-started/menu_edit_profile.png)
 
 In the language select box, choose your language:
 
-![image](../assets/getting-started/change_language_2.png)
+![image](../assets/getting-started/change_language.png)
 
 Then click on **Save**. Your interface is now translated.
 
