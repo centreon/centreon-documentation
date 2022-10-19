@@ -128,9 +128,9 @@ cliquez sur le bouton **Create manually**.
     - Dans un premier temps, laissez le champ **Enable notifications** à **Désactivé**. (L'option sera activée à l'étape 3.)
     - Dans la section **Categories & groups**, vous pouvez sélectionner un [**Niveau de criticité**](../monitoring/categories.md#criticité).
 
-2. Cliquez sur **Sauvegarder**.
+3. Cliquez sur **Sauvegarder**.
 
-3. [Déployez la configuration](monitoring-servers/deploying-a-configuration.html).
+4. [Déployez la configuration](monitoring-servers/deploying-a-configuration.html).
 
    - Le service apparaît à la page **Supervision > Statut des ressources**. Pour afficher uniquement les services de type **Anomaly detection**, utilisez le filtre **Type** dans la fenêtre **Options de filtre**.
   
@@ -190,7 +190,7 @@ cliquez sur le service Anomaly Detection désiré.
 
 3. Cliquez sur **Sauvegarder**.
 
-4. [Déployez la configuration](./monitoring-servers/deploying-a-configuration.html).
+4. [Déployez la configuration](monitoring-servers/deploying-a-configuration.html).
 
 ### Utiliser l'assistant de création
 
