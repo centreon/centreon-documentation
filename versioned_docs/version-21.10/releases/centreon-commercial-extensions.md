@@ -16,6 +16,14 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon MAP
 
+### 21.10.7
+
+Release date : `soon`
+
+#### Bug fixes
+
+- Map widget contents could not be loaded, resulting in a 500 error.
+
 ### 21.10.6
 
 Release date: `October 6, 2022`

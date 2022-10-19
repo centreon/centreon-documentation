@@ -15,6 +15,14 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 ## Centreon MAP
 
+### 21.10.7
+
+Release date : `soon`
+
+#### Bug fixes
+
+- Map widget contents could not be loaded, resulting in a 500 error.
+
 ### 21.10.6
 
 Release date: `October 6, 2022`
