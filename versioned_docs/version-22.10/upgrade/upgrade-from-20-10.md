@@ -73,10 +73,6 @@ yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/ce
 
 ### Install the MariaDB repository
 
-<Tabs groupId="sync">
-
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
 ```shell
 cd /tmp
 curl -JO https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
@@ -84,20 +80,6 @@ bash ./mariadb_repo_setup
 sed -ri 's/10\../10.5/' /etc/yum.repos.d/mariadb.repo
 rm -f ./mariadb_repo_setup
 ```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```shell
-cd /tmp
-curl -JO https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
-bash ./mariadb_repo_setup
-sed -ri 's/10\../10.5/' /etc/yum.repos.d/mariadb.repo
-rm -f ./mariadb_repo_setup
-```
-
-</TabItem>
-</Tabs>
 
 ### Upgrade PHP
 
@@ -310,10 +292,26 @@ You have to uninstall then reinstall MariaDB to upgrade between major versions (
     rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
     ```
 
-3. Install version 10.5:
+    > During this uninstallation step, you may encounter an error because one or several MariaDB packages are missing. In that case, you have to execute the uninstallation command without including the missing package.
+
+    For instance, you get the following error message:
 
     ```shell
-    yum install MariaDB-server-10.5\* MariaDB-client-10.5\* MariaDB-shared-10.5\* MariaDB-compat-10.5\* MariaDB-common-10.5\*
+    package MariaDB-compat is not installed
+    ```
+
+    As **MariaDB-compat** is the missing package, please execute the same command without quoting **MariaDB-compat**:
+
+    ```shell
+    rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-common
+    ```
+
+  > Make sure you have [installed the official MariaDB repository](upgrade-from-20-10.md#install-the-mariadb-repository) before you continue the procedure.
+
+3. Install the 10.5 version:
+
+    ```shell
+    yum install MariaDB-server-10.5\* MariaDB-client-10.5\* MariaDB-shared-10.5\* MariaDB-common-10.5\*
     ```
 
 4. Start the mariadb service:

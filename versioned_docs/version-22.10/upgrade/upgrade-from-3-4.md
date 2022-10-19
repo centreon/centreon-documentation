@@ -327,7 +327,23 @@ You have to uninstall then reinstall MariaDB to upgrade between major versions (
     rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
     ```
 
-3. Install version 10.5:
+    > During this uninstallation step, you may encounter an error because one or several MariaDB packages are missing. In that case, you have to execute the uninstallation command without including the missing package.
+
+    For instance, you get the following error message:
+
+    ```shell
+    package MariaDB-compat is not installed
+    ```
+
+    As **MariaDB-compat** is the missing package, please execute the same command without quoting **MariaDB-compat**:
+
+    ```shell
+    rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-common
+    ```
+
+  > Make sure you have [installed the official MariaDB repository](upgrade-from-3-4.md#install-the-mariadb-repository) before you continue the procedure.
+
+3. Install the 10.5 version:
 
     ```shell
     yum install MariaDB-server-10.5\* MariaDB-client-10.5\* MariaDB-shared-10.5\* MariaDB-compat-10.5\* MariaDB-common-10.5\*
