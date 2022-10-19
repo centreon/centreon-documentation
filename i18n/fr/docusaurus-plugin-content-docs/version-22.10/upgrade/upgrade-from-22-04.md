@@ -64,9 +64,6 @@ apt update
 
 ### Installer le dépôt MariaDB
 
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
 ```shell
 curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=8 --mariadb-server-version="mariadb-10.5"
 ```
@@ -178,29 +175,27 @@ apt update
 Mettez à jour l'ensemble des composants :
 
 <Tabs groupId="sync">
-
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-yum update centreon\*
+yum update centreon\* ioncube-loader php-pecl-gnupg
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum update centreon\*
+yum update centreon\* ioncube-loader php-pecl-gnupg
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt upgrade centreon
+apt upgrade centreon\* php8.0-sourceguardian-loader php8.0-gnupg
 ```
 
 </TabItem>
-
 </Tabs>
 
 > Acceptez les nouvelles clés GPG des dépôts si nécessaire.
@@ -222,22 +217,30 @@ Pour chaque différence entre les fichiers, évaluez si celle-ci doit être repo
 
 ### Finalisation de la mise à jour
 
+Avant de démarrer la montée de version via l'interface web, rechargez le serveur Apache et redémarrez le processus PHP avec les commandes suivantes :
+
+Before starting the web upgrade process, reload the Apache server with the
+following command:
+
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-Avant de démarrer la montée de version via l'interface web, rechargez le serveur Apache et redémarrez le processus PHP avec les commandes suivantes :
 ```shell
-systemctl reload httpd
-systemctl restart php-fpm
+systemctl reload php-fpm httpd
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
-Avant de démarrer la montée de version via l'interface web, rechargez le serveur Apache et redémarrez le processus PHP avec les commandes suivantes :
 ```shell
-systemctl reload httpd24-httpd
-systemctl restart php-fpm
+systemctl reload php-fpm httpd24-httpd
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+systemctl reload php8.0-fpm apache2
 ```
 
 </TabItem>

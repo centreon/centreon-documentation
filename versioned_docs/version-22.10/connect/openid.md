@@ -12,9 +12,7 @@ which are compatible with the Authorization Code Flow.
 
 ## Configure OpenID Connect authentication
 
-Go to **Administration > Authentication > OpenID Connect Configuration**:
-
-![image](../assets/administration/oidc-configuration.png)
+Go to **Administration > Authentication > OpenID Connect Configuration**.
 
 ### Step 1: Enable authentication
 
@@ -34,12 +32,12 @@ Configure Identity Provider information:
 - **Base URL**: defines the identity provider's base URL for OpenId Connect endpoints (mandatory).
 - **Authorization Endpoint**: defines the authorization endpoint, for example `/authorize` (mandatory).
 - **Token Endpoint**: defines the token endpoint, for example `/token` (mandatory).
-- **Client ID**: defines the Client ID.
-- **Client Secret**: defines the Client secret.
+- **Client ID**: defines the Client ID (mandatory).
+- **Client Secret**: defines the Client secret (mandatory).
 - **Scopes**: defines the scopes of the identity provider, for example `openid`. Separate scopes by spaces.
   > Depending on the identity provider, it is necessary to enter several scopes in order to retrieve the claim which will
   > identify users. This is indicated in the provider's configuration documentation.
-  - **Login claim value**: defines which of the variables returned by **Introspection Token Endpoint** or **User Information Endpoint**
+- **Login attribute path**: defines which of the variables returned by **Introspection Token Endpoint** or **User Information Endpoint**
   must be used to authenticate users. For example `sub` or `email`.
 - **End Session Endpoint**: defines the logout endpoint, for example `/logout`.
 
@@ -51,28 +49,138 @@ Depending on your identity provider, set either of the following two endpoints:
 You can also configure:
 
 - **Use Basic Auth for Token Endpoint Authentication**: the `Authorization: Basic` method will be used. Enable this option if your identity provider requires it.
-- **Disable SSL verify peer**: allows you to disable SSL peer validation. The identity provider's certificate will not be checked: use this option for test purposes only.
+- **Disable verify peer**: allows you to disable SSL peer validation. The identity provider's certificate will not be checked: use this option for test purposes only.
 
 > You can define a full URL for the endpoints in case the base of the URL is different from the others.
 
 > You can enable **Authentication debug** through the **Administration > Parameters > Debug** menu to understand
 > authentication failures and improve your setup.
 
-### Step 3: Configure client addresses
+### Step 3: Configure authentication conditions
 
-If you leave both fields blank, all IP addresses will be allowed to access the Centreon interface.
+* You can whitelist or blacklist IP addresses. If you leave the first two fields empty, all IP addresses will be authorized to access the Centreon interface.
 
-- **Trusted client addresses**: If you enter IP addresses in this field, only these IP addresses will be allowed to access the Centreon interface. All other IP addresses will be blocked. IP addresses must be separated by commas.
-- **Blacklist client addresses**: These IP addresses will be blocked. All other IP addresses will be allowed to access the Centreon interface.
+   - **Trusted client addresses**: If you enter IP addresses in this field, only these IP addresses will be allowed to access the Centreon interface. All other IP addresses will be blocked. IP addresses must be separated by commas.
+   - **Blacklist client addresses**: These IP addresses will be blocked. All other IP addresses will be allowed to access the Centreon interface.
 
-### Step 4: Create users
+* You can also define conditions according to which users will be allowed to log in or not, based on the data received by a particular endpoint.
+   - Activate **Enable conditions on identity provider**.
+   - Define which attribute from which endpoint will be used to validate the conditions.
+   - In **Define authorized conditions values**, define which will be the authorized values returned by this endpoint. If you enter several values, all will have to be met for the condition to be validated. All users that try to connect with another value will be unable to log in.
 
-On page **Configuration > Users > Contacts/Users**, [create the users](../monitoring/basic-objects/contacts-create.md) that will log on to Centreon using OpenID and [grant them rights](../administration/access-control-lists.md) using access groups.
+   In the example below, the **Conditions attribute path** is **status** and **Define authorized conditions values** is **activated**. If the **Introspection endpoint** gives you the following response, then the user is allowed to log in:
 
-### Step 5: Configure your Identity Provider (IdP)
+   ```json
+   {
+   	   ...
+   	   "name": "OpenId Connect OIDC",
+	   "given_name": "OpenId Connect",
+	   "family_name": "OIDC",
+	   "preferred_username": "oidc",
+	   "email": "oidc@localhost",
+	   "email_verified": false,
+	   ...
+	   "status": "activated"
+   }
+   ```
+
+   > Currently, only character string values can be used.
+
+### Step 4: Manage user creation
+
+<Tabs groupId="sync">
+<TabItem value="Users automatic management" label="Automatic management">
+
+If you turn on **Enable auto import**, users that log in to Centreon for the first time will be created in the Centreon configuration. (Turning the option on does not import automatically all users in your infrastructure.)
+
+- **Enable auto import**: enables or disables automatic users import.  If auto import is disabled, you will have to [create each user manually](../monitoring/basic-objects/contacts-create.md) before they can log in.
+- **Contact template**: select a [contact template](../monitoring/basic-objects/contacts-templates.md) that will be applied to newly imported users.
+  This allows in particular to manage the default configuration of the [notifications](../alerts-notifications/notif-configuration.md).
+- **Email attribute path**: defines which of the variables returned by **Introspection Token Endpoint** or **User Information Endpoint**
+  must be used to get the user's email address.
+- **Fullname attribute path**: defines which of the variables returned by **Introspection Token Endpoint** or **User Information Endpoint**
+  must be used to get the user's full name.
+
+</TabItem>
+<TabItem value="Users manual management" label="Manual management">
+
+On page **Configuration > Users > Contacts/Users**, [create the users](../monitoring/basic-objects/contacts-create.md) that will log on to Centreon using OpenID.
+
+</TabItem>
+</Tabs>
+
+### Step 5: Manage Authorizations
+
+<Tabs groupId="sync">
+<TabItem value="Role automatic management" label="Automatic management">
+
+If you turn on **Enable automatic management**, users that log in to Centreon will be automatically [granted rights](../administration/access-control-lists.md), as they will be linked to [access groups](../administration/access-control-lists.md#creating-an-access-group) according to the rules you have defined.
+
+- Define which attribute from which endpoint will be used to retrieve values for enforcing relationships with access groups.
+- **Apply only first role**: If several roles are found for a specific user in the identity provider's information, then only the first role will be applied. If the option is turned off, all roles will be applied.
+- Match an attribute retrieved from the identity provider with the access group you want the user to belong to.
+
+For example, the **Introspection endpoint** gives you the following response and **Apply only first role** is enabled. The **Roles attribute path** will
+be **realm_access.roles** and **Define the relation between roles and ACL access groups** will establish a relationship
+between the value **centreon-editor** and a defined access group in Centreon:
+
+```json
+{
+	...
+	"realm_access": {
+		"roles": ["centreon-editor", "centreon-admin", "user"]
+	},
+	...
+}
+```
+
+> Each time the user logs in, authorization management is reinitialized to take into account any new information from the
+> identity provider.
+
+</TabItem>
+<TabItem value="Role manual management" label="Manual management">
+
+If you turn off **Enable automatic management**, you have to [grant users rights](../administration/access-control-lists.md) manually by linking them to [access groups](../administration/access-control-lists.md#creating-an-access-group).
+
+</TabItem>
+</Tabs>
+
+### Step 6: Manage Contact groups
+
+<Tabs groupId="sync">
+<TabItem value="Groups automatic management" label="Automatic management">
+
+If you turn on **Enable automatic management**, users that log in to Centreon will be attached to the [contact groups](../monitoring/basic-objects/contacts-groups.md#contact-groups) you have defined.
+
+- Define which attribute from which endpoint will be used to retrieve values to create relationships with access groups.
+- Match the attributes retrieved from the identity provider with the contact groups you want the user to belong to.
+
+For example, if the **Introspection endpoint** gives you the following response, the **Groups attribute path** will
+be **groups** and **Define the relation between roles and contact groups** will define a relationship
+between the value **Windows** and a defined contact group in Centreon, then between **Linux** and another contact group, etc:
+
+```json
+{
+	...
+	"groups": ["Windows", "Linux", "DBA"],
+	...
+}
+```
+
+> Each time the user logs in, groups management is reinitialized to take into account any new information from the identity provider.
+
+</TabItem>
+<TabItem value="Groups manual management" label="Manual management">
+
+If you turn off **Enable automatic management**, you have to manage manually relation between contact and [contact groups](../monitoring/basic-objects/contacts-groups.md#contact-groups).
+
+</TabItem>
+</Tabs>
+
+### Step 7: Configure your Identity Provider (IdP)
 
 Configure your IdP to add the Centreon application to use the OpenID Connect protocol to authenticate your users,
-And to authorize the following `redirect URI` to forward your connecter users to Centreon:
+and to authorize the following `redirect URI` to forward your connected users to Centreon:
 
 ```shell
 {protocol}://{server}:{port}/centreon/authentication/providers/configurations/openid

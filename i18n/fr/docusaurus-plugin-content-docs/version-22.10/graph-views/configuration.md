@@ -1,262 +1,209 @@
 ---
 id: configuration
-title: Configure
+title: Configuration
 ---
 
-## Administrate users rights
+## Administrer les droits des utilisateurs
 
-There is two kinds of administrators, Centreon admins and Map admins.
+Il existe deux types d'administrateurs, les administrateurs Centreon et les administrateurs MAP.
 
-On fresh install, only Centreon admins exist.
+Lors d'une nouvelle installation, seuls les administrateurs Centreon existent.
 
-Centreon admins may grant Map admins privileges through ACL groups defined in
-Centreon.
+Les administrateurs Centreon peuvent accorder le privilège "administrateur MAP" par le biais de groupes ACL définis dans Centreon.
 
-Any user contained in that group then become a Map administrator.
+Tout utilisateur contenu dans ce groupe devient alors un administrateur MAP.
 
-### Manage Map administrators
+### Gérer les administrateurs MAP
 
-To grant Map administrator privileges on an ACL group:
+Pour accorder le privilège "administrateur MAP" sur un groupe ACL :
 
-Go to **Preferences > Preferences** then select the **Admin** tab.
+Allez dans **Préférences > Préférences** puis sélectionnez l'onglet **Admin**.
 
 ![image](../assets/graph-views/admin_preference_page.png)
 
-### Give access on views to other users and manage their privileges
+### Donner l'accès aux vues à d'autres utilisateurs et gérer leurs privilèges
 
-By default non-admin users have no access on views, and have no
-privileges.
+Par défaut, les utilisateurs non-administrateurs n'ont pas accès aux vues et n'ont aucun privilège.
 
-Administrators may grant these accesses and privileges to specifics set
-of users through ACL groups.
+Les administrateurs peuvent accorder ces accès et privilèges à un ensemble spécifique d'utilisateurs par le biais de groupes ACL.
 
-ACL groups may be allowed to visualize, create, modify and delete one or
-more views independently.
+Les groupes ACL peuvent être autorisés à visualiser, créer, modifier et supprimer une ou plusieurs vues indépendamment.
 
-Go into **Preferences > Preferences** and then select the **Views > ACLs** tab.
+Allez dans **Préférences > Préférences** et sélectionnez ensuite l'onglet **Vues > ACLs**.
 
 ![image](../assets/graph-views/acl_views_preference_page.png)
 
-Select, from the list, the ACL group you want to configure. Then, for
-each view, define the specific rights to attribute.
+Sélectionnez, dans la liste, le groupe ACL que vous souhaitez configurer. Ensuite, pour chaque vue, définissez les droits spécifiques à attribuer.
 
 **GeoViews**
 
-Two simple rules apply on this kind of view:
+Deux règles simples s'appliquent à ce type de vue :
 
-- Any user accessing the **Monitoring > Map** page will be able to see all the
-  created geographic views
-- Users that have "Creation" privilege (through ACL group on Centreon Map
-  desktop client) have all privileges on geographic views
+- Tout utilisateur accédant à la page **Supervision > MAP** sera en mesure de voir toutes les GeoViews créées.
+- Les utilisateurs qui ont le privilège "Création" (par le biais du groupe ACL sur le client lourd Centreon MAP) ont tous les privilèges sur les GeoViews.
 
-## Load disabled resources (or not)
+## Charger les ressources désactivées (ou non)
 
-You can decide whether to load disabled resources into Centreon Map
-desktop client. If you do (which is the default configuration), all
-disabled resources will appear in the resource list. You will also be
-able to use them into your views.
+Vous pouvez décider de charger ou non les ressources désactivées dans le client lourd Centreon MAP.
+Si vous le faites (ce qui est la configuration par défaut), toutes les ressources désactivées apparaîtront dans la liste des ressources.
+Vous pourrez également les utiliser dans vos vues.
 
-They will have no status and appear as shown in the following screenshot:
+Elles n'auront pas de statut et apparaîtront comme montré dans la capture d'écran suivante :
 
 ![image](../assets/graph-views/disabled-resources.png)
 
-You may change this configuration by opening the file
-`/etc/centreon-studio/studio-config.properties` and adding the following
-line:
+Vous pouvez modifier cette configuration en ouvrant le fichier **/etc/centreon-studio/studio-config.properties** et en ajoutant la ligne suivante :
 
 ```text
 resource.load.enabled.only=true
 ```
 
-Then restart the Centreon MAP server:
+Redémarrez ensuite le serveur Centreon MAP :
 
 ```shell
 systemctl restart centreon-map
 ```
 
-## Define views & status computation parameters
+## Définir les vues et les paramètres de calcul du statut
 
-Centreon Map server gives you the possibility to customize how this
-inherited status is computed & rendered in views. You may use the
-following parameters to adapt the behavior of inherited status
-computation to your use case.
+Le serveur Centreon MAP vous offre la possibilité de personnaliser la façon dont le statut hérité est calculé et rendu dans les vues.
+Vous pouvez utiliser les paramètres suivants pour adapter le comportement du calcul du statut hérité à votre cas d'utilisation.
 
-| Parameter                           | Possible value | Default value | Description                                                                                  |
-| ----------------------------------- | -------------- | ------------- | -------------------------------------------------------------------------------------------- |
-| drilldown.useHardState              | true or false  | false         | Only use hard state value for inherited status propagation                                   |
-| drilldown.ignoreElementInDowntime   | true or false  | false         | Do not propagate status for resources in downtime                                            |
-| drilldown.ignoreElementAcknowledged | true or false  | false         | Do not propagate status for acknowledged resources                                           |
-| drilldown.ignoreSeveritySuperior    | integer        | 0             | Do not propagate status for resources having severity superior to this value                 |
-| gate.useResourcesAccess             | true or false  | true          | Should Centreon Map consider resources ACL when calculating inherited status of view content |
+| Paramètre                           | Valeur possible | Valeur par défaut | Description                                                                                                 |
+| ----------------------------------- | --------------- | ----------------- | ----------------------------------------------------------------------------------------------------------- |
+| drilldown.useHardState              | true or false   | false             | Utiliser uniquement la valeur de l'état HARD pour la propagation de l'état hérité.                           |
+| drilldown.ignoreElementInDowntime   | true or false   | false             | Ne pas propager l'état des ressources en temps d'arrêt                                                      |
+| drilldown.ignoreElementAcknowledged | true or false   | false             | Ne pas propager le statut des ressources acquittées                                                          |
+| drilldown.ignoreSeveritySuperior    | integer         | 0                 | Ne pas propager le statut des ressources dont la sévérité est supérieure à cette valeur.                     |
+| gate.useResourcesAccess             | true or false   | true              | Centreon MAP doit-il tenir compte des ressources ACL lors du calcul du statut hérité du contenu de la vue ? |
 
-The following parameters can be configured in
-`/etc/centreon-studio/studio-config.properties`.
+Les paramètres suivants peuvent être configurés dans **/etc/centreon-studio/studio-config.properties**.
 
-If you had, remove or update a parameter, make sure to restart centreon-map.
+Si vous ajoutez, supprimez ou mettez à jour un paramètre, veillez à redémarrer **centreon-map**.
 
-**What's an inherited status ?**
+**Qu'est-ce qu'un statut hérité ?**
 
-An inherited status is a Centreon Map custom status associated to some
-objects that is based on the worst status of its children, here are the
-rules:
+Un statut hérité est un statut personnalisé de Centreon MAP associé à certains objets, et qui est basé sur le pire statut de ses enfants. Voici les règles :
 
-- A host has two statuses: its own status (up/down/pending) and an inherited
-  status that is based on the worst state of its services.
-- A hostgroup only has an inherited status corresponding to the worst status
-  of its children (hosts, services)
-- A servicegroup has only an inherited status: the worst status of its
- children (services)
-- A container has only an inherited status: the worst status of its children
-  (hosts, services, meta-services, hotsgroups, servicegroups, BA, widgets)
+- Un hôte a deux statuts : son propre statut (up/down/pending) et un statut hérité qui est basé sur le pire état de ses services.
+- Un groupe d'hôtes n'a qu'un statut hérité correspondant au pire état de ses enfants (hôtes, services).
+- Un groupe de services n'a qu'un état hérité : le pire état de ses enfants (services).
+- Un conteneur n'a qu'un statut hérité : le pire statut de ses enfants (hôtes, services, méta-services, host groups, service groups, BA, widgets).
 
-**Inherited status customization**
+**Personnalisation du statut hérité**
 
-Centreon Map server gives you the possibility to customize how this
-inherited status is computed & rendered in views. You may use the
-following parameters to adapt the behavior of inherited status
-computation to your use case:
+Le serveur Centreon MAP vous donne la possibilité de personnaliser la façon dont ce statut hérité est calculé et rendu dans les vues.
+Vous pouvez utiliser les paramètres suivants pour adapter le comportement du calcul du statut hérité à votre cas d'utilisation :
 
-Specificity of **gate.useResourcesAccess**: Settings this parameter to
-"false" may highly improve Centreon Map performances, here is why:
+Spécificité de **gate.useResourcesAccess** : Régler ce paramètre sur **False** peut améliorer considérablement les performances de Centreon MAP, voici pourquoi :
 
-- gate.useResourcesAccess = false: all users see the same status & same
-  resources in views, no matter the ACL ressources they have, they're ignored.
-  In that case, be careful who you're giving access to views
-- gate.useResourcesAccess = true: users see different status & views regarding
-  resources ACLs (decrease performance because you need to have one instance
-  of each view for each users)
+- gate.useResourcesAccess = false : tous les utilisateurs voient le même statut et les mêmes ressources dans les vues, peu importe les ressources ACL dont ils disposent, elles sont ignorées.
+  Dans ce cas, faites attention à qui vous donnez l'accès aux vues.
+- gate.useResourcesAccess = true : les utilisateurs voient des états et des vues différents en fonction des ressources ACL (entraîne une baisse des performances car vous devez avoir une instance de chaque vue pour chaque utilisateur).
 
-To configure these parameters you need to edit the following Centreon
-MAP server configuration file (modify or add missing parameters), then
-restart centreon-map:
+Pour configurer ces paramètres, vous devez modifier le fichier de configuration du serveur Centreon MAP suivant (modifier ou ajouter les paramètres manquants), puis redémarrer Centreon-Map :
 
 ```shell
 vim /etc/centreon-studio/studio-config.properties
 systemctl restart centreon-map
 ```
 
-## Change link colors
+## Changer les couleurs du lien
 
-> This property will only be applied to the user modifying it on the
-> desktop client.
+> Cette propriété ne sera appliquée qu'à l'utilisateur qui la modifie sur le client lourd.
 
-You can change the start and end color of a link based on a metric.
-These colors represent a scale from 0% to 100% for the metric(s)
-associated with the link.
+Vous pouvez modifier la couleur de début et de fin d'un lien en fonction d'une métrique.
+Ces couleurs représentent une échelle de 0% à 100% pour la ou les métriques associées au lien.
 
 ![image](../assets/graph-views/guide_link_color.png)
 
-## Understand how resources synchronization works
+## Comprendre le fonctionnement de la synchronisation des ressources
 
-Each time you make changes to Centreon's configuration and push the
-configuration to any poller, the configuration is scanned and updated on
-Centreon MAP.
+Chaque fois que vous apportez des modifications à la configuration de Centreon et que vous poussez la configuration vers un poller, la configuration est analysée et mise à jour sur Centreon MAP.
 
-However, if you make any changes (add/delete/update) to Centreon's
-resources and want these changes to be immediately synchronized on your
-Centreon MAP without pushing the configuration, you can force a resource
-synchronization from Centreon MAP's desktop client through the following
-menu **Action > Synchronize resources**.
+Toutefois, si vous apportez des modifications (ajout/suppression/mise à jour) aux ressources de Centreon et que vous souhaitez que ces modifications soient immédiatement synchronisées sur votre Centreon MAP sans pousser la configuration, vous pouvez forcer une synchronisation des ressources à partir du client lourd Centreon MAP via le menu suivant : **Action > Synchroniser les ressources**.
 
-This operation may take a few seconds. A pop-up will tell you when the
-synchronization is complete.
+Cette opération peut prendre quelques secondes. Une fenêtre pop-up vous indiquera quand la synchronisation sera terminée.
 
 ![image](../assets/graph-views/sync_resources.png)
 
-## Highlight problems
+### Problèmes de mise en évidence
 
-> This property will only be applied to the user modifying it on the
-> desktop client.
+> Cette propriété ne sera appliquée qu'à l'utilisateur qui la modifie sur le client lourd.
 
-You can change the size of elements according to their status as a way
-of highlighting a problem. This only works when elements are expressed
-in the *geometric style*.
+Vous pouvez modifier la taille des éléments en fonction de leur statut afin de mettre en évidence un problème. Cela ne fonctionne que lorsque les éléments sont exprimés dans le style géométrique.
 
 ![image](../assets/graph-views/guide_object_ratio_example.png)
 
-To use this feature, edit the Status size properties in the desktop
-Preferences. Go to **Status > Status size** to configure it globally or to
-**Views > Status > Status size** to configure it at the view level.
+Pour utiliser cette fonctionnalité, modifiez la propriété **Taille des statuts** dans le menu **Préférences**.
+Allez dans **Statut > Taille des statuts** pour le configurer globalement.
 
 ![image](../assets/graph-views/guide_ratio_preferences.png)
 
-## Geo view configuration
+## Configuration des GeoViews
 
-### Configure tiles provider
+### Configuration du fournisseur de tuiles
 
-You can choose the tile service provider or even add your own provider
-in **Administration > Extension > Map | Options**. By default, Centreon Map
-geoviews comes Open Street Map & Mapbox.
+Vous pouvez choisir le fournisseur de services de tuiles ou même ajouter votre propre fournisseur dans **Administration > Extension > Map | Options**.
+Par défaut, les GeoViews de Centreon MAP proviennent de Open Street Map & Mapbox.
 
-Please refer to [this
-link](https://operations.osmfoundation.org/policies/tiles/) to understand Open
-Street Map Tile usage policy.
+Veuillez consulter [ce lien](https://operations.osmfoundation.org/policies/tiles/) pour comprendre la politique d'utilisation des tuiles Open Street Map.
 
-To change the tile provider, select one in the list and click save.
+Pour modifier le fournisseur de tuiles, sélectionnez-en un dans la liste et cliquez sur **Enregistrer**.
 
 ![image](../assets/graph-views/geo_options.png)
 
-If you want to use your own Tile service provider, if for example you
-have an internal Open Street Map server, go to the
-`Administration > Extension > Map | Options` and choose the "Custom" style.
+Si vous souhaitez utiliser votre propre fournisseur de services de tuile, si par exemple vous disposez d'un serveur interne Open Street Map, allez dans le menu **Administration > Extension > Map | Options** et choisissez le style "Personnalisé".
 
-Define the parameters needed and then save.
+Définissez les paramètres nécessaires, puis enregistrez.
 
 ![image](../assets/graph-views/geo_custom_provider.png)
 
-### Configure data layers
+### Configurer les couches de données
 
-You can add any external data layer to Centreon GeoView by going to
-`Administration > Extension > Map`. The layer mechanism is the same that the
-tiles provider: we're compatible with tiles map (TMS).
+Vous pouvez ajouter toute couche de données externe à Centreon GeoView en allant dans **Administration > Extension > Carte**.
+Le mécanisme de couches est le même que celui du fournisseur de tuiles : MAP est compatible avec les cartes de tuiles (TMS).
 
-Most of the time, the data layer configuration will consist in:
+La plupart du temps, configurer la couche de données consistera à :
 
-- Defining the URL,
-- Setting your token,
-- Adding any extra parameters in a JSON format.
+- Définir l'URL,
+- Définir votre jeton,
+- Ajouter tout paramètre supplémentaire au format JSON.
 
 ![image](../assets/graph-views/geo_datalayers_conf_form.png)
 
-## Create and link a Mapbox account
+## Créer et lier un compte Mapbox
 
-If you want to be able to have a geographic background on standard views
-and/or use it as a tile service provider in GeoView, you need to have a
-Mapbox account & link it to your Centreon Map.
+Si vous voulez avoir un arrière-plan géographique sur les vues standard et/ou l'utiliser comme fournisseur de services de tuiles dans GeoView, vous devez avoir un compte Mapbox et le lier à votre Centreon MAP.
 
-**Create an account**
+**Créer un compte**
 
-Mapbox is a service that generates attractive and customizable maps. You
-can use Mapbox with Centreon MAP for free by:
+Mapbox est un service qui génère des cartes attrayantes et personnalisables. Vous pouvez utiliser Mapbox avec Centreon MAP gratuitement :
 
-1. Creating an account [on Mapbox](https://www.mapbox.com/).
-2. [Retrieving a private
-   token](https://docs.mapbox.com/help/how-mapbox-works/access-tokens/#creating-and-managing-access-tokens)
-   from your Mapbox account and add it to the configuration of the Centreon MAP
-   Server (or during the installation).
+1. Créez un compte [sur Mapbox](https://www.mapbox.com/).
+2. [Récupérez un jeton privé](https://docs.mapbox.com/help/how-mapbox-works/access-tokens/#creating-and-managing-access-tokens) à partir de votre compte Mapbox et ajoutez-le à la configuration du serveur MAP Centreon (ou pendant l'installation).
 
-During the token creation, you're asked to select properties, select:
+Lors de la création du jeton, il vous est demandé de sélectionner des propriétés, sélectionnez :
 
-- Public scopes: *styles:read* and *styles:tiles*
-- Secret scopes: *styles:list*
+- Public scopes : **styles:read** et **styles:tiles**.
+- Scopes secrets : **styles:list**.
 
-Your account allows free limited use of the service up to 50k tiles/month.
+Votre compte permet une utilisation gratuite et limitée du service jusqu'à 50k tuiles/mois.
 
-*A tile is an image used to compose the geographic view.*
+Une tuile est une image utilisée pour composer la vue géographique.
 
-If you need more tiles, you can upgrade your account
-([pricing](https://www.mapbox.com/pricing/)).
+Si vous avez besoin de plus de tuiles, vous pouvez mettre à niveau votre compte (voir [pricing](https://www.mapbox.com/pricing/)).
 
-**Configuration on the Centreon MAP server**
+**Configuration sur le serveur Centreon MAP**.
 
-Insert the token in the file `/etc/centreon-studio/studio-config.properties`:
+Insérez le jeton dans le fichier **/etc/centreon-studio/studio-config.properties** :
 
 ```text
 ##### GEO
 mapbox.token=sk.xxxxxxxx
 ```
 
-Then restart centreon-map:
+Puis redémarrez **centreon-map** :
 
 ```shell
 systemctl restart centreon-map

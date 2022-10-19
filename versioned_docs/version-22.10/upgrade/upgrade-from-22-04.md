@@ -68,8 +68,6 @@ apt update
 
 ```shell
 curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=8 --mariadb-server-version="mariadb-10.5"
-
-
 ```
 
 </TabItem>
@@ -77,7 +75,6 @@ curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- -
 
 ```shell
 curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=7 --mariadb-server-version="mariadb-10.5"
-
 ```
 
 </TabItem>
@@ -182,29 +179,27 @@ apt update
 Then upgrade all the components with the following command:
 
 <Tabs groupId="sync">
-
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-yum update centreon\*
+yum update centreon\* ioncube-loader php-pecl-gnupg
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum update centreon\*
+yum update centreon\* ioncube-loader php-pecl-gnupg
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt upgrade centreon
+apt upgrade centreon\* php8.0-sourceguardian-loader php8.0-gnupg
 ```
 
 </TabItem>
-
 </Tabs>
 
 > Accept new GPG keys from the repositories as needed.
@@ -226,26 +221,28 @@ For each difference between the files, assess whether you should copy it from **
 
 ### Finalizing the upgrade
 
+Before starting the web upgrade process, reload the Apache server with the
+following command:
+
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-Before starting the web upgrade process, reload the Apache server and restart PHP process with the
-following commands:
-
 ```shell
-systemctl reload httpd
-systemctl restart php-fpm
+systemctl reload php-fpm httpd
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
-Before starting the web upgrade process, reload the Apache server and restart PHP process with the
-following commands:
+```shell
+systemctl reload php-fpm httpd24-httpd
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-systemctl reload httpd
-systemctl restart php-fpm
+systemctl reload php8.0-fpm apache2
 ```
 
 </TabItem>

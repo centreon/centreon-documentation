@@ -128,6 +128,22 @@ dpkg -r --ignore-depends=MariaDB-server,MariaDB-client,MariaDB-shared,MariaDB-co
 </TabItem>
 </Tabs>
 
+    > During this uninstallation step, you may encounter an error because one or several MariaDB packages are missing. In that case, you have to execute the uninstallation command not including the missing package.
+
+    For instance, you get the following error message:
+
+    ```shell
+    package MariaDB-compat is not installed
+    ```
+
+    As **MariaDB-compat** is the missing package, please execute the same command without quoting **MariaDB-compat**:
+
+    ```shell
+    rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-common
+    ```
+
+  > Make sure you have [installed the official MariaDB repository](upgrade-from-22-04.md#install-the-mariadb-repository) before you continue the procedure.
+
 3. Install the 10.5 version:
 
 <Tabs groupId="sync">
@@ -153,9 +169,6 @@ curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- -
 
 </TabItem>
 </Tabs>
-
-
-
 
 4. Start the mariadb service:
 
