@@ -193,7 +193,7 @@ fonctionnera pas si vous ne l’exécutez pas.
 `http://addresse_ip/centreon` ou `http://FQDN/centreon`. (Par exemple, une URL valide serait
 `http://192.168.1.44/centreon`.)
 
-7. Connectez-vous en utilisant les informations suivantes : Login: `admin`, password: `Centreon!2021`. Par défaut, votre serveur offre une configuration prédéfinie qui permet de le superviser lui-même.
+7. Connectez-vous en utilisant les informations suivantes : Login: `admin`, password: `Centreon123!`. Par défaut, votre serveur offre une configuration prédéfinie qui permet de le superviser lui-même.
 
 8. Selon votre édition de Centreon, vous pouvez avoir à [ajouter une licence](../../administration/licenses.md).
 
@@ -205,7 +205,7 @@ fonctionnera pas si vous ne l’exécutez pas.
 
 ## Identifiants par défaut
 
-- Pour vous connecter à l'interface Web Centreon, l'identifiant par défaut est : `admin`/`Centreon!2021`.
+- Pour vous connecter à l'interface Web Centreon, l'identifiant par défaut est : `admin`/`Centreon123!`.
 - Le compte d'administration du serveur (via SSH) est: `root`/`centreon`.
 - Le mot de passe root du SGBD n'est pas initialisé.
 

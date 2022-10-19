@@ -13,7 +13,7 @@ Renseignez le nom d'utilisateur et le mot de passe associé et cliquez sur le bo
 
 ![image](../assets/getting-started/aconnection.png)
 
->Si vous avez installé Centreon depuis une [VM](../installation/installation-of-a-central-server/using-virtual-machines.md), les identifiants par défaut sont **admin/Centreon!2021**.
+>Si vous avez installé Centreon depuis une [VM](../installation/installation-of-a-central-server/using-virtual-machines.md), les identifiants par défaut sont **admin/Centreon123!**.
 Si ce n'est pas le cas, l'identifiant par défaut est **admin** et le mot de passe est celui que vous avez défini à [l'étape 5 de l'installation web](../installation/web-and-post-installation.md#étape-5--admin-information).
 
 Vous êtes maintenant connecté à l'interface web Centreon.
@@ -43,19 +43,19 @@ L'interface web de Centreon est composée de plusieurs menus, chaque menu a une 
 
 La partie gauche du bandeau supérieur montre la santé de votre plateforme en temps réel :
 
-* si tous les collecteurs sont en cours d'exécution ou non : l'icône devient rouge lorsqu'un collecteur n'a pas envoyé de données au serveur central depuis au moins 15 minutes
-* si les contrôles sont en retard ou non. Si l'icône est orange ou rouge, cela peut indiquer que vos collecteurs supervisent de trop nombreuse ressources.
+* Si tous les collecteurs sont en cours d'exécution ou non : l'icône devient rouge lorsqu'un collecteur n'a pas envoyé de données au serveur central depuis au moins 15 minutes.
+* Si les contrôles sont en retard ou non. Si l'icône est orange ou rouge, cela peut indiquer que vos collecteurs supervisent de trop nombreuse ressources.
 
-Cliquez sur l'icône **collecteurs** pour développer le menu. Dans le menu, cliquez sur **Configurer les collecteurs** pour accéder à la page **Configuration > Collecteurs > Collecteurs**.
+Cliquez sur l'icône **Collecteurs** pour développer le menu. Dans le menu, cliquez sur **Configurer les collecteurs** pour accéder à la page **Configuration > Collecteurs > Collecteurs**.
 
 ### Section hôtes et services ("top counters")
 
 ![image](../assets/getting-started/top_counters.png)
 
-Dans la partie de droite du bandeau supérieur, des statistiques indiquent le nombre de ressources supervisées, avec un statut spécifique :
+Dans le bandeau supérieur, à côté de la section Collecteurs, des statistiques indiquent le nombre de ressources supervisées, avec un statut spécifique :
 
-* Pour les hôtes : le nombre d'hôtes avec le statut **INDISPONIBLE**, **INJOIGNABLE** et **DISPONIBLE**.
 * Pour les services: le nombre de services avec le statut **CRITIQUE**, **ALERTE**, **INCONNU** et **OK**.
+* Pour les hôtes : le nombre d'hôtes avec le statut **INDISPONIBLE**, **INJOIGNABLE** et **DISPONIBLE**.
 
 Ces nombres incluent les alertes non confirmées (SOFT), mais n'incluent pas les ressources acquittées ou en maintenance. Les ressources en attente sont indiquées par une pastille bleue sur les icônes **hôtes** ou **services**.
 
@@ -70,12 +70,14 @@ Cliquez sur les icônes **hôtes** ou **services** pour développer le menu et a
 
 Lors de votre première connexion, l'interface Centreon s'affiche en mode clair par défaut.
 
-Dans le bandeau supérieur, utilisez le bouton pour activer le mode sombre. Lorsque vous vous reconnecterez, le mode que vous avez sélectionné précédemment restera activé.
+Dans le bandeau supérieur, cliquez sur l'icône profil et utilisez le bouton pour activer le mode sombre. Lorsque vous vous reconnecterez, le mode que vous avez sélectionné précédemment restera activé.
 
-* Mode clair
+- Mode clair :
+
 ![image](../assets/getting-started/light_mode_switch.png)
 
-* Mode sombre
+- Mode sombre :
+
 ![image](../assets/getting-started/dark_mode_switch.png)
 
 Vous pouvez aussi passer en mode sombre en modifiant le thème de l'interface dans les paramètres du compte.
@@ -112,7 +114,7 @@ bandeau à droite à côté de l'icône de profil :
 
 ![image](../assets/administration/password_will_expire.png)
 
-Cliquez sur **Modifier le profil**, puis modifiez votre mot de passe :
+Cliquez sur **Editer le profil**, puis modifiez votre mot de passe :
 
 ![image](../assets/administration/password_expiration.png)
 
