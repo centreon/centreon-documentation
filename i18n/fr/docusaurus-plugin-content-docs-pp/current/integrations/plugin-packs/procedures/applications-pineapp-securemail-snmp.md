@@ -27,13 +27,15 @@ Il apporte le modèle de service suivant :
 
 | Métrique                              | Unité |
 |:--------------------------------------|:------|
-| system.load.                          |       |
-| system.messages.priority.high.count   | count |
-| system.messages.priority.low.count    | count |
-| system.messages.priority.normal.count | count |
-| system.messages.queue.inbound.count   | count |
-| system.messages.queue.outbound.count  | count |
-| system.messages.queue.total.count     | count |
+| system.load.1m.count                  |       |
+| system.load.5m.count                  |       |
+| system.load.15m.count                 |       |
+| system.messages.priority.high.count   |       |
+| system.messages.priority.low.count    |       |
+| system.messages.priority.normal.count |       |
+| system.messages.queue.inbound.count   |       |
+| system.messages.queue.outbound.count  |       |
+| system.messages.queue.total.count     |       |
 | storage-status                        |       |
 | *service*#service-status              |       |
 
@@ -159,7 +161,7 @@ l'utilisateur **centreon-engine** (`su - centreon-engine`) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: %s (  messages inbound queue: %s messages outbound queue: %s messages high priority: %s messages normal priority: %s messages low priority: %s messages queue total: %s  | 'system.load.'=9000;;;0; 'system.messages.queue.inbound.count'=9000;;;0; 'system.messages.queue.outbound.count'=9000;;;0; 'system.messages.priority.high.count'=9000;;;0; 'system.messages.priority.normal.count'=9000;;;0; 'system.messages.priority.low.count'=9000;;;0; 'system.messages.queue.total.count'=9000;;;0; 
+OK: 0.08 (1m) 0.05 (5m) 0.05 (15m) messages inbound queue: 200 messages outbound queue: 100 messages high priority: 100 messages normal priority: 100 messages low priority: 100 messages queue total: 300  | 'system.load.1m.count'=0.08;;;0; 'system.load.5m.count'=0.05;;;0; 'system.load.15m.count'=0.05;;;0; 'system.messages.queue.inbound.count'=200;;;0; 'system.messages.queue.outbound.count'=100;;;0; 'system.messages.priority.high.count'=100;;;0; 'system.messages.priority.normal.count'=100;;;0; 'system.messages.priority.low.count'=100;;;0; 'system.messages.queue.total.count'=300;;;0; 
 ```
 
 La liste de toutes les options complémentaires et leur signification peut être
