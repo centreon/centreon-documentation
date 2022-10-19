@@ -49,6 +49,14 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 - [UX] Changing themes is now possible by clicking on the profile icon
 - [UX] The quick export button is now available by default for all users that have the admin privilege or the required
   ACL action access. Deploying a configuration is now simpler for all users.
+- [Resources Status] Manage hosts and services categories (Detail tiles, Listing filter)
+- [Resources Status] Manage hosts and services severities (Logos, level, Detail tiles, Listing filter)
+- [Event logs] Rework CSV exporter in event logs to manage high volumetry
+- [Resources Status] Introduce CSV export in Timeline and Graphs
+- [Resources Status] New Parent Alias column and filter in listing for services
+- [Resources Status] Timeline UI in Resources Status cosmetic enhancements
+- [Anomaly Detection] New type of resources in Resource Status (display and filter)
+- [Anomaly Detection] Prediction enveloppe size management by user from Resources Status
 
 #### Performances
 
@@ -59,6 +67,8 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 > The configuration of authorizations via the OpenID Connect protocol has evolved. Automatic addition to a contact
 > group and role management have been improved. It is necessary to review your OpenID Connect configuration.
+
+> In /monitoring/resources API, ‘severity_level’ api return key has been replaced by a json object ‘severity’ containing id, level, name and icon
 
 ## Centreon Collect
 
