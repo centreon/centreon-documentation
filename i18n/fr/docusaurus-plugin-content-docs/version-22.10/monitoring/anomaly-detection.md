@@ -130,7 +130,7 @@ cliquez sur le bouton **Create manually**.
 
 3. Cliquez sur **Sauvegarder**.
 
-4. [Déployez la configuration](monitoring-servers/deploying-a-configuration.html).
+4. [Déployez la configuration](monitoring-servers/deploying-a-configuration.md).
 
    - Le service apparaît à la page **Supervision > Statut des ressources**. Pour afficher uniquement les services de type **Anomaly detection**, utilisez le filtre **Type** dans la fenêtre **Options de filtre**.
   
@@ -170,7 +170,7 @@ stable, vous pouvez activer les changements de statut. Une fois cette option act
 
 4. Cliquez sur **Sauvegarder**.
 
-5. [Déployez la configuration](monitoring-servers/deploying-a-configuration.html).
+5. [Déployez la configuration](monitoring-servers/deploying-a-configuration.md).
 
 ### Étape 4 : Activer le processus de notification
 
@@ -190,7 +190,7 @@ cliquez sur le service Anomaly Detection désiré.
 
 3. Cliquez sur **Sauvegarder**.
 
-4. [Déployez la configuration](monitoring-servers/deploying-a-configuration.html).
+4. [Déployez la configuration](monitoring-servers/deploying-a-configuration.md).
 
 ### Utiliser l'assistant de création
 
