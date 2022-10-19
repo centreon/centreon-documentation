@@ -50,6 +50,14 @@ yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/ce
 ```
 
 </TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+sed -i -E 's|[0-9]{2}\.[0-9]{2}|22.10|g' /etc/apt/sources.list.d/centreon.list
+apt update
+```
+
+</TabItem>
 </Tabs>
 
 > Si vous avez une édition Business, installez également le dépôt Business. Vous pouvez en trouver l'adresse sur le [portail support Centreon](https://support.centreon.com/s/repositories).
@@ -60,22 +68,21 @@ yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/ce
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-cd /tmp
-curl -JO https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
-bash ./mariadb_repo_setup
-sed -ri 's/10\../10.5/' /etc/yum.repos.d/mariadb.repo
-rm -f ./mariadb_repo_setup
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=8 --mariadb-server-version="mariadb-10.5"
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-cd /tmp
-curl -JO https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
-bash ./mariadb_repo_setup
-sed -ri 's/10\../10.5/' /etc/yum.repos.d/mariadb.repo
-rm -f ./mariadb_repo_setup
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=7 --mariadb-server-version="mariadb-10.5"
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=11 --mariadb-server-version="mariadb-10.5"
 ```
 
 </TabItem>
@@ -114,6 +121,13 @@ yum-config-manager --enable remi-php81
 ```
 
 </TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+systemctl stop php8.0-fpm
+```
+
+</TabItem>
 </Tabs>
 
 ### Montée de version de la solution Centreon
@@ -134,17 +148,60 @@ Supprimer les fichiers de rétention présents :
 rm /var/lib/centreon-broker/* -f
 ```
 
-Videz le cache de yum :
+Videz le cache :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf clean all --enablerepo=*
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
 yum clean all --enablerepo=*
 ```
 
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt clean all
+apt update
+```
+
+</TabItem>
+</Tabs>
+
 Mettez à jour l'ensemble des composants :
+
+<Tabs groupId="sync">
+
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
 yum update centreon\*
 ```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```shell
+yum update centreon\*
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt upgrade centreon
+```
+
+</TabItem>
+
+</Tabs>
 
 > Acceptez les nouvelles clés GPG des dépôts si nécessaire.
 
@@ -181,6 +238,18 @@ Avant de démarrer la montée de version via l'interface web, rechargez le serve
 ```shell
 systemctl reload httpd24-httpd
 systemctl restart php-fpm
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt autoremove
+systemctl daemon-reload
+systemctl stop php8.0-fpm.service
+systemctl enable php8.1-fpm
+systemctl start php8.1-fpm
+systemctl restart apache2
 ```
 
 </TabItem>
@@ -262,21 +331,72 @@ yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/ce
 ```
 
 </TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+sed -i -E 's|[0-9]{2}\.[0-9]{2}|22.10|g' /etc/apt/sources.list.d/centreon.list
+apt update
+```
+
+</TabItem>
 </Tabs>
 
 ### Montée de version de la solution Centreon
 
-Videz le cache de yum :
+Videz le cache :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf clean all --enablerepo=*
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
 yum clean all --enablerepo=*
 ```
 
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt clean all
+apt update
+```
+
+</TabItem>
+</Tabs>
+
 Mettez à jour l'ensemble des composants :
+
+<Tabs groupId="sync">
+
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
 yum update centreon\*
 ```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```shell
+yum update centreon\*
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt upgrade centreon
+```
+
+</TabItem>
+
+</Tabs>
 
 > Acceptez les nouvelles clés GPG des dépôts si nécessaire.
 
