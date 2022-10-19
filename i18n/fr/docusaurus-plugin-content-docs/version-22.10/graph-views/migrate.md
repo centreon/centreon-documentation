@@ -1,39 +1,37 @@
 ---
 id: migrate
-title: Migrate the extension
+title: Migrer l'extension
 ---
 
-This section explains how to move Centreon MAP server over to another server.
+Cette section explique comment déplacer le serveur Centreon MAP vers un autre serveur.
 
-This task may be useful if you need to migrate your reporting server from
-CentOS 6 to CentOS 7.
+Cette tâche peut être utile si vous devez faire migrer votre serveur de CentOS 6 à CentOS 7.
 
-### Install the new Centreon MAP server
+### Installation du nouveau serveur Centreon MAP
 
-Please refer to the installation chapter in this documentation to install
-your new Centreon MAP server.
+Veuillez vous reporter au chapitre sur l'installation de cette documentation pour installer votre nouveau serveur Centreon MAP.
 
-### Synchronize the data
+### Synchroniser les données
 
-Stop Centreon MAP service on both Centreon MAP servers:
+Arrêtez le service Centreon MAP sur les deux serveurs Centreon MAP :
 
 ```shell
 systemctl stop centreon-map
 ```
 
-Dump the Centreon MAP data:
+Extrayez les données MAP de Centreon :
 
 ```shell
 mysqldump -u XXXXXX -p centreon_studio > /tmp/centreon_studio.sql
 ```
 
-Upload centreon_studio.sql to the new Centreon MAP (in /tmp) server and import it into the database:
+Téléchargez **centreon_studio.sql** sur le nouveau serveur Centreon MAP (dans /tmp) et importez-le dans la base de données :
 
 ```shell
 mysql -u XXXXXX -p centreon_studio < /tmp/centreon_studio.sql
 ```
 
-Start Centreon Map service on the new Centreon MAP servers:
+Démarrez le service **centreon-map** sur le nouveau serveur Centreon MAP :
 
 ```shell
 systemctl start centreon-map
