@@ -67,7 +67,7 @@ Release date: `soon`
 
 #### Bug fixes
 
-- Fix an issue with report publication that could cause LDAP users or local users without passwords to not receive the email
+- Fixed an issue with report publication that could cause LDAP users or local users without passwords to not receive the email
 
 ### 22.04.2
 
