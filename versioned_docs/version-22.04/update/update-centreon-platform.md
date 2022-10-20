@@ -64,7 +64,7 @@ Please make sure all users are logged out from the Centreon web interface before
 2. Then upgrade all the components with the following command:
 
   ```shell
-  apt upgrade centreon\*
+  apt upgrade centreon
   ```
 
 </TabItem>
@@ -192,17 +192,54 @@ This procedure is the same as to update a Centreon central server.
 
 ## Update the Pollers
 
-1. Clean the yum cache:
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+1. Clean the cache:
+
+  ```shell
+  dnf clean all --enablerepo=*
+  ```
+
+2. Then upgrade all the components with the following command:
+
+  ```shell
+  dnf update centreon\*
+  ```
+
+</TabItem>
+<TabItem value="Centos 7" label="Centos 7">
+
+1. Clean the cache:
 
   ```shell
   yum clean all --enablerepo=*
   ```
 
-2. Upgrade all the components with the following command:
+2. Then upgrade all the components with the following command:
 
   ```shell
   yum update centreon\*
   ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+1. Clean the cache:
+
+  ```shell
+  apt clean all
+  apt update
+  ```
+
+2. Then upgrade all the components with the following command:
+
+  ```shell
+  apt update centreon
+  ```
+
+</TabItem>
+</Tabs>
 
   > Accept the new GPG keys from the repositories as needed.
 

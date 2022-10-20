@@ -65,7 +65,7 @@ Assurez-vous que tous les utilisateurs sont déconnectés avant de commencer la 
 2. Mettez à jour l'ensemble des composants :
 
   ```shell
-  apt upgrade centreon\*
+  apt upgrade centreon
   ```
 
 </TabItem>
@@ -197,17 +197,52 @@ Cette procédure est identique à la mise à jour d'un serveur Centreon Central.
 
 ## Mise à jour des collecteurs
 
-1. Videz le cache de yum :
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+1. Videz le cache :
 
   ```shell
-  yum clean all --enablerepo=*
+  dnf clean all --enablerepo=*
   ```
 
 2. Mettez à jour l'ensemble des composants :
 
   ```shell
+  dnf update centreon\*
+  ```
+
+</TabItem>
+<TabItem value="Centos 7" label="Centos 7">
+
+1. Videz le cache :
+
+  ```shell
+  yum clean all --enablerepo=*
+  ```
+2. Mettez à jour l'ensemble des composants :
+  ```shell
   yum update centreon\*
   ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+1. Videz le cache :
+
+  ```shell
+  apt clean all
+  apt update
+  ```
+
+2. Mettez à jour l'ensemble des composants :
+
+  ```shell
+  apt update centreon
+  ```
+
+</TabItem>
+</Tabs>
 
   > Acceptez les nouvelles clés GPG des dépôts si nécessaire.
 
