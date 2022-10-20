@@ -243,13 +243,6 @@ systemctl reload php-fpm httpd24-httpd
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-systemctl reload php8.0-fpm apache2
-```
-
-</TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-```shell
 apt autoremove
 systemctl daemon-reload
 systemctl stop php8.0-fpm.service

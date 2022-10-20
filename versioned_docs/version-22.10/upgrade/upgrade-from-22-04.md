@@ -96,6 +96,7 @@ Centreon 22.10 uses PHP in version 8.1.
 
 You need to change the PHP stream from version 8.0 to 8.1 by executing the following commands and answering **y**
 to confirm:
+
 ```shell
 dnf module reset php
 dnf module install php:remi-8.1
@@ -106,6 +107,7 @@ dnf module install php:remi-8.1
 
 You need to change the PHP stream from version 8.0 to 8.1 by executing the following commands and answering **y**
 to confirm:
+
 ```shell
 dnf module reset php
 dnf module install php:remi-8.1
@@ -242,7 +244,12 @@ systemctl reload php-fpm httpd24-httpd
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-systemctl reload php8.0-fpm apache2
+apt autoremove
+systemctl daemon-reload
+systemctl stop php8.0-fpm.service
+systemctl enable php8.1-fpm
+systemctl start php8.1-fpm
+systemctl restart apache2
 ```
 
 </TabItem>
@@ -384,7 +391,6 @@ apt upgrade centreon
 ```
 
 </TabItem>
-
 </Tabs>
 
 > Accept new GPG keys from the repositories as needed.
