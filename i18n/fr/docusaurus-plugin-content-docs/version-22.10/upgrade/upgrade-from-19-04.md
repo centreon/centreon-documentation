@@ -295,6 +295,22 @@ Il est nécessaire de désinstaller puis réinstaller MariaDB pour changer de ve
     rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
     ```
 
+    > Pendant cette étape de désinstallation, vous pouvez rencontrer une erreur parce qu'un ou plusieurs paquets MariaDB sont manquants. Dans ce cas, vous devez exécuter la commande de désinstallation sans inclure le paquet manquant.
+
+    Par exemple, vous obtenez le message d'erreur suivant :
+
+    ```shell
+    package MariaDB-compat is not installed
+    ```
+
+    Comme le paquet **MariaDB-compat** est manquant, vous devez exécuter la même commande sans citer **MariaDB-compat** :
+
+    ```shell
+    rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-common
+    ```
+
+  > Assurez-vous d'avoir [installé le dépôt officiel de MariaDB](./upgrade-from-19-04.md#installer-le-dépôt-mariadb) avant de poursuivre la procédure.
+
 3. Installez la version 10.5 :
 
     ```shell

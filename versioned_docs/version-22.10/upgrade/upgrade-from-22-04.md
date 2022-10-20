@@ -166,6 +166,113 @@ diff -u /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf /opt/rh/httpd24/r
 
 For each difference between the files, assess whether you should copy it from **10-centreon.conf.rpmnew** to **10-centreon.conf**.
 
+
+### Upgrade the MariaDB server
+
+The MariaDB components can now be upgraded.
+
+> Refer to the official MariaDB documentation to know more about this process:
+>
+> https://mariadb.com/kb/en/upgrading-between-major-mariadb-versions/
+
+#### Update the Centreon repository
+
+> This step is required ONLY when your environment features an architecture with
+> a dedicated remote DBMS. If your environment features Centreon Central and
+> MariaDB together on the same server, you SHOULD simply skip this step.
+
+Run the following command on the dedicated DBMS server:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centreon-release-22.10-1.el8.noarch.rpm 
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```shell
+yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
+```
+
+</TabItem>
+</Tabs>
+
+#### Upgrading MariaDB
+
+You have to uninstall then reinstall MariaDB to upgrade between major versions (i.e. to switch from version 10.3 to version 10.5).
+
+1. Stop the mariadb service:
+
+    ```shell
+    systemctl stop mariadb
+    ```
+
+2. Uninstall the current version:
+
+    ```shell
+    rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
+    ```
+
+    > During this uninstallation step, you may encounter an error because one or several MariaDB packages are missing. In that case, you have to execute the uninstallation command without including the missing package.
+
+    For instance, you get the following error message:
+
+    ```shell
+    package MariaDB-compat is not installed
+    ```
+
+    As **MariaDB-compat** is the missing package, please execute the same command without quoting **MariaDB-compat**:
+
+    ```shell
+    rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-common
+    ```
+
+  > Make sure you have [installed the official MariaDB repository](upgrade-from-22-04.md#install-the-mariadb-repository) before you continue the procedure.
+
+3. Install the 10.5 version:
+
+    ```shell
+    yum install MariaDB-server-10.5\* MariaDB-client-10.5\* MariaDB-shared-10.5\* MariaDB-common-10.5\*
+    ```
+
+4. Start the mariadb service:
+
+    ```shell
+    systemctl start mariadb
+    ```
+
+5. Launch the MariaDB upgrade process:
+
+    ```shell
+    mysql_upgrade
+    ```
+    
+    If your database is password-protected, enter:
+
+    ```shell
+    mysql_upgrade -u <database_admin_user> -p
+    ```
+
+    Example: if your database_admin_user is `root`, enter:
+
+    ```
+    mysql_upgrade -u root -p
+    ```
+
+    > Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
+    > for more information or if errors occur during this last step.
+
+#### Enable MariaDB on startup
+
+Execute the following command:
+
+```shell
+systemctl enable mariadb
+```
+
 ### Finalizing the upgrade
 
 Before starting the web upgrade process, reload the Apache server with the

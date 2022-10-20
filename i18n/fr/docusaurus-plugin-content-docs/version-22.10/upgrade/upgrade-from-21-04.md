@@ -60,9 +60,6 @@ yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/ce
 
 ### Installer le dépôt MariaDB
 
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
 ```shell
 cd /tmp
 curl -JO https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
@@ -70,20 +67,6 @@ bash ./mariadb_repo_setup
 sed -ri 's/10\../10.5/' /etc/yum.repos.d/mariadb.repo
 rm -f ./mariadb_repo_setup
 ```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```shell
-cd /tmp
-curl -JO https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
-bash ./mariadb_repo_setup
-sed -ri 's/10\../10.5/' /etc/yum.repos.d/mariadb.repo
-rm -f ./mariadb_repo_setup
-```
-
-</TabItem>
-</Tabs>
 
 ### Montée de version de PHP
 
@@ -247,6 +230,113 @@ Notamment, assurez-vous que votre configuration Apache personnalisée contient l
 <LocationMatch ^/centreon/(authentication|api/(latest|beta|v[0-9]+|v[0-9]+\.[0-9]+))/.*$>
     ProxyPassMatch fcgi://127.0.0.1:9042/usr/share/centreon/api/index.php/$1
 </LocationMatch>
+```
+
+### Montée de version du serveur MariaDB
+
+Les composants MariaDB peuvent maintenant être mis à jour.
+
+> Référez vous à la documentation officielle de MariaDB pour en savoir
+> davantage sur ce processus :
+>
+> https://mariadb.com/kb/en/upgrading-between-major-mariadb-versions/
+
+#### Mettre à jour le dépôt Centreon
+
+> Cette étape est nécessaire seulement si votre environnement comprend une base de données déportée.
+> Si le serveur central Centreon et
+> MariaDB sont hébergés sur le même serveur, sautez cette étape.
+
+Exécutez la commande suivante sur le serveur de base de données dédié :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centreon-release-22.10-1.el8.noarch.rpm
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```shell
+yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
+```
+
+</TabItem>
+</Tabs>
+
+#### Mettre à jour MariaDB
+
+Il est nécessaire de désinstaller puis réinstaller MariaDB pour changer de version majeure (c'est-à-dire pour passer d'une version 10.3 à une version 10.5).
+
+1. Arrêtez le service mariadb :
+
+    ```shell
+    systemctl stop mariadb
+    ```
+
+2. Désinstallez la version actuelle :
+
+    ```shell
+    rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
+    ```
+
+    > Pendant cette étape de désinstallation, vous pouvez rencontrer une erreur parce qu'un ou plusieurs paquets MariaDB sont manquants. Dans ce cas, vous devez exécuter la commande de désinstallation sans inclure le paquet manquant.
+
+    Par exemple, vous obtenez le message d'erreur suivant :
+
+    ```shell
+    package MariaDB-compat is not installed
+    ```
+
+    Comme le paquet **MariaDB-compat** est manquant, vous devez exécuter la même commande sans citer **MariaDB-compat** :
+
+    ```shell
+    rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-common
+    ```
+
+  > Assurez-vous d'avoir [installé le dépôt officiel de MariaDB](./upgrade-from-21-04.md#installer-le-dépôt-mariadb) avant de poursuivre la procédure.
+
+3. Installez la version 10.5 :
+
+    ```shell
+    yum install MariaDB-server-10.5\* MariaDB-client-10.5\* MariaDB-shared-10.5\* MariaDB-common-10.5\*
+    ```
+
+4. Démarrer le service mariadb :
+
+    ```shell
+    systemctl start mariadb
+    ```
+
+5. Lancez le processus de mise à jour MariaDB :
+
+    ```shell
+    mysql_upgrade
+    ```
+
+    Si votre base de données est protégée par mot de passe, entrez :
+
+   ```shell
+    mysql_upgrade -u <utilisateur_admin_bdd> -p
+    ```
+
+    Exemple : si votre utilisateur_admin_bdd est `root`, entrez:
+
+    ```shell
+    mysql_upgrade -u root -p
+    ```
+
+    > Référez vous à la [documentation officielle](https://mariadb.com/kb/en/mysql_upgrade/)
+    > pour plus d'informations ou si des erreurs apparaissent pendant cette dernière étape.
+
+#### Activer MariaDB au démarrage automatique
+
+Exécutez la commande suivante :
+
+```shell
+systemctl enable mariadb
 ```
 
 ### Finalisation de la mise à jour
