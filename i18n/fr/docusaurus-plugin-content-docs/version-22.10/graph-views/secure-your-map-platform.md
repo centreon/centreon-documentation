@@ -32,10 +32,10 @@ Ensuite, importez ce fichier dans un nouveau keystore (un dépôt Java de certif
 keytool -importkeystore -srckeystore keys.pkcs12 -srcstoretype pkcs12 -destkeystore studio.jks
 ```
 
-Placez le fichier keystore ci-dessus (studio.jks) dans le dossier **/etc/centreon-studio/**, et définissez les paramètres ci-dessous dans **/etc/centreon-studio/studio-config.properties** :
+Placez le fichier keystore ci-dessus (studio.jks) dans le dossier **/etc/centreon-map/**, et définissez les paramètres ci-dessous dans **/etc/centreon-map/map-config.properties** :
 
 ```text
-centreon-map.keystore=/etc/centreon-studio/studio.jks
+centreon-map.keystore=/etc/centreon-map/studio.jks
 centreon-map.keystore-pass=xxx
 ```
 
@@ -75,10 +75,10 @@ Fournissez les informations nécessaires lors de la création du keystore.
 
 À la fin du formulaire, lorsque le "mot de passe de la clé" est demandé, utilisez le même mot de passe que celui utilisé pour le keystore lui-même en appuyant sur la touche **Entrée**.
 
-Placez le fichier keystore ci-dessus (**studio.jks**) dans le dossier **/etc/centreon-studio/**, et définissez les paramètres ci-dessous dans **/etc/centreon-studio/studio-config.properties** :
+Placez le fichier keystore ci-dessus (**studio.jks**) dans le dossier **/etc/centreon-map/**, et définissez les paramètres ci-dessous dans **/etc/centreon-map/map-config.properties** :
 
 ```text
-centreon-map.keystore=/etc/centreon-studio/studio.jks
+centreon-map.keystore=/etc/centreon-map/studio.jks
 centreon-map.keystore-pass=xxx
 ```
 
