@@ -88,9 +88,11 @@ Pour plus d'informations voir la section [Analyser le résultat d'une tâche de 
 
     - **Modifier les hôtes existants** : si vous effectuez des changements sur les modificateurs et exéctuez la tâche à nouveau, les hôtes existants seront mis à jour (voir [Éditer une tâche de découverte](#éditer-une-tâche-de-découverte)).
 
-        ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-5-2.png)
+    - **Ne pas découvrir les hôtes pour lesquels les modificateurs n'appliquent aucun modèle**: si les modificateurs n'appliquent aucun modèle à certains hôtes, alors ceux-ci ne seront pas inclus dans les résultats de la découverte. Si la case est décochée, le modèle par défaut sera appliqué à ces hôtes et ils seront découverts.
 
-        Voir l'[exemple ci-dessous](#exemples) pour mieux comprendre le fonctionnement des 3 premières options.
+    ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-5-2.png)
+
+    Voir l'[exemple ci-dessous](#exemples) pour mieux comprendre le fonctionnement des 3 premières options.
 
 ### Étape 6 : Définir l'exécution
 
