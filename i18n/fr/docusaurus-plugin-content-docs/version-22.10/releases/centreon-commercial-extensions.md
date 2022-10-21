@@ -33,6 +33,7 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 #### Performances
 
+- ETL daily and rebuild optimizations
 - Move to Java 17
 
 ## Centreon Auto Discovery
