@@ -61,18 +61,15 @@ To change the order of the macros, click on ![image](../../assets/configuration/
 ## Notification tab
 
 * The **Notification Enabled** field enables us to enable or disable the notifications concerning the object.
+* The list of **Linked contacts** indicates the contacts which will receive the notifications.
+* The list of **Linked contacts Groups** indicates the groups of contacts which will receive the notifications.
 * The **Notification Options** define the statuses for which a notification will be sent.
 * The **Notification Interval** is expressed in minutes. It indicates the time between sending each notifications when
   the status is Not-OK. If the value is defined as 0 the scheduler sends a single notification per status change.
 * The **Notification Period** field indicates the time period during which the notifications will be enabled.
 * The **First notification delay** is expressed in minutes. It refers to the time delay to be respected before sending
   the first notification when a Not-OK status is validated.
-* If the **Contact additive inheritance** box is checked, Centreon does not overwrite the configuration of the parent
-  host template but adds the contacts in addition to the contacts defined in the parent template.
-* The list of **Linked contacts** indicates the contacts which will receive the notifications.
-* If the **Contact group additive inheritance** box is checked, Centreon does not overwrite the configuration of the
-  parent host template but adds the contact groups in addition to the contact groups defined in the parent template.
-* The list of **Linked contacts Groups** indicates the groups of contacts which will receive the notifications.
+  * The **Recovery notification delay** is the time that must pass before a recovery notification is sent (when the host goes back to an UP state).
 
 ## Relations tab
 
