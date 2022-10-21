@@ -5,8 +5,6 @@ title: Créer un service manuellement
 
 Pour créer un service, allez à la page **Configuration > Services > Services par hôtes**, puis cliquez sur **Ajouter**.
 
-![image](../../assets/configuration/03addservice.png)
-
 ## Configuration du service
 
 ### Onglet Informations générales

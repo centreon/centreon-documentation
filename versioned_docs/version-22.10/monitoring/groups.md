@@ -33,8 +33,6 @@ We also try to group services by application jobs. E.g.: Salary management appli
 
 Go to the **Configuration > Hosts > Host Groups** menu and click on **Add**
 
-![image](../assets/configuration/07hostgroup.png)
-
 * The **Name** and **Alias** defines the name and the alias of the host group.
 * The **Members** list allows us to add hosts in the hostgroup.
 * The **Notes** field allows us to add optional notes concerning the host group.
@@ -51,8 +49,6 @@ Go to the **Configuration > Hosts > Host Groups** menu and click on **Add**
 ## Creating a service group
 
 Go to the **Configuration > Services > Service Groups** menu and click on **Add**
-
-![image](../assets/configuration/07servicegroup.png)
 
 * The **Service Group Name** and **Description** fields describes the name and the description of the service group.
 * The **Linked Host Services** list allows us to choose the various services that will be included in this group.

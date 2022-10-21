@@ -11,8 +11,6 @@ Pour créer un hôte manuellement :
 
 ## Onglet Configuration de l’hôte
 
-![image](../../assets/configuration/02addhost.png)
-
 ### Information de base sur l'hôte
 
 * Le champ **Nom** définit le nom d’hôte qui sera utilisé par le moteur de supervision.

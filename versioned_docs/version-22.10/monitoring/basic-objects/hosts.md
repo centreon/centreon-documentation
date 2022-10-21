@@ -11,8 +11,6 @@ To create a host manually:
 
 ## Host configuration tab
 
-![image](../../assets/configuration/02addhost.png)
-
 ### Host basic information
 
 * The **Name** field defines the host name that will be used by the Monitoring Engine.

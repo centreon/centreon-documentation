@@ -32,8 +32,6 @@ Les groupes d’hôtes et de services sont utilisés pour :
 
 Rendez-vous dans le menu **Configuration > Hosts > Host Groups** et cliquez sur **Add**.
 
-![image](../assets/configuration/07hostgroup.png)
-
 * Les champs **Nom** et **Alias** regroupent le nom et l’alias du groupe d’hôtes.
 * La liste **Members** permet d’ajouter des hôtes au sein du nouveau groupe d’hôtes.
 * Le champ **Notes** permet d’ajouter des notes optionnelles concernant le groupe d’hôtes.
@@ -52,8 +50,6 @@ Rendez-vous dans le menu **Configuration > Hosts > Host Groups** et cliquez sur 
 ## Créer un groupe de services
 
 Rendez-vous dans le menu **Configuration > Services > Service Groups** et cliquez sur **Add**.
-
-![image](../assets/configuration/07servicegroup.png)
 
 * Les champs **Nom** et **Description** regroupent le nom et la description du groupe de services.
 * La liste **Services d'hôte liés** permet de choisir les différents services qui feront partie de ce groupe.
