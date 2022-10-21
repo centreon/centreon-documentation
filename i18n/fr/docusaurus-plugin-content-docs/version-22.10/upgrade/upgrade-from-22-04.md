@@ -138,12 +138,14 @@ systemctl stop php8.0-fpm
 Si vous avez des extensions Business installées, mettez à jour le dépôt business en 22.10.
 Rendez-vous sur le [portail du support](https://support.centreon.com/s/repositories) pour en récupérer l'adresse.
 
-Arrêter le processus Centreon Broker :
+Si votre OS est Debian 11 et que vous avez une configuration Apache personnalisée, faites une sauvegarde de votre fichier de configuration (**/etc/apache2/sites-available/centreon.conf**).
+
+Arrêtez le processus Centreon Broker :
 ```shell
 systemctl stop cbd
 ```
 
-Supprimer les fichiers de rétention présents :
+Supprimez les fichiers de rétention présents :
 ```shell
 rm /var/lib/centreon-broker/* -f
 ```
@@ -181,21 +183,21 @@ Mettez à jour l'ensemble des composants :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-yum update centreon\* ioncube-loader php-pecl-gnupg
+yum update centreon\* php-pecl-gnupg
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum update centreon\* ioncube-loader php-pecl-gnupg
+yum update centreon\* php-pecl-gnupg
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt upgrade centreon\* php8.0-sourceguardian-loader php8.0-gnupg
+apt upgrade centreon\*
 ```
 
 </TabItem>
@@ -205,7 +207,75 @@ apt upgrade centreon\* php8.0-sourceguardian-loader php8.0-gnupg
 
 ### Mettre à jour une configuration Apache personnalisée
 
-Cette section s'applique uniquement si vous avez personnalisé votre configuration Apache. Lors de la montée de version, le fichier de configuration Apache n'est pas mis à jour automatiquement : le nouveau fichier de configuration amené par le rpm ne remplace pas l'ancien. Vous devez reporter les changements manuellement dans votre fichier de configuration personnalisée.
+Cette section s'applique uniquement si vous avez personnalisé votre configuration Apache. 
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+Lors de la montée de version, le fichier de configuration Apache n'est pas mis à jour automatiquement : le nouveau fichier de configuration amené par le rpm ne remplace pas l'ancien. Vous devez reporter les changements manuellement dans votre fichier de configuration personnalisée.
+
+Faites un diff entre l'ancien et le nouveau fichier de configuration Apache :
+
+```
+diff -u /etc/httpd/conf.d/10-centreon.conf /etc/httpd/conf.d/10-centreon.conf.rpmnew
+```
+
+* **10-centreon.conf** (post montée de version) : ce fichier contient la configuration personnalisée. Il ne contient pas les nouveautés apportées par la montée de version.
+* **10-centreon.conf.rpmnew** (post montée de version) : ce fichier est fourni par le rpm; il ne contient pas la configuration personnalisée.
+
+Pour chaque différence entre les fichiers, évaluez si celle-ci doit être reportée du fichier **10-centreon.conf.rpmnew** au fichier **10-centreon.conf**.
+
+Vérifiez qu'Apache est bien configuré, en exécutant la commande suivante :
+
+```shell
+apachectl configtest
+```
+
+Le résultat attendu est le suivant :
+
+```shell
+Syntax OK
+```
+
+Redémarrez Apache pour appliquer les modifications :
+
+```shell
+systemctl restart php-fpm httpd
+```
+
+Puis vérifiez le statut :
+
+```shell
+systemctl status httpd
+```
+
+Si tout est correct, vous devriez avoir quelque chose comme :
+
+```shell
+● httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled; vendor preset: disabled)
+  Drop-In: /usr/lib/systemd/system/httpd.service.d
+           └─php-fpm.conf
+   Active: active (running) since Tue 2020-10-27 12:49:42 GMT; 2h 35min ago
+     Docs: man:httpd.service(8)
+ Main PID: 1483 (httpd)
+   Status: "Total requests: 446; Idle/Busy workers 100/0;Requests/sec: 0.0479; Bytes served/sec: 443 B/sec"
+    Tasks: 278 (limit: 5032)
+   Memory: 39.6M
+   CGroup: /system.slice/httpd.service
+           ├─1483 /usr/sbin/httpd -DFOREGROUND
+           ├─1484 /usr/sbin/httpd -DFOREGROUND
+           ├─1485 /usr/sbin/httpd -DFOREGROUND
+           ├─1486 /usr/sbin/httpd -DFOREGROUND
+           ├─1487 /usr/sbin/httpd -DFOREGROUND
+           └─1887 /usr/sbin/httpd -DFOREGROUND
+
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+Lors de la montée de version, le fichier de configuration Apache n'est pas mis à jour automatiquement : le nouveau fichier de configuration amené par le rpm ne remplace pas l'ancien. Vous devez reporter les changements manuellement dans votre fichier de configuration personnalisée.
 
 Faites un diff entre l'ancien et le nouveau fichier de configuration Apache :
 
@@ -217,6 +287,110 @@ diff -u /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf /opt/rh/httpd24/r
 * **10-centreon.conf.rpmnew** (post montée de version) : ce fichier est fourni par le rpm; il ne contient pas la configuration personnalisée.
 
 Pour chaque différence entre les fichiers, évaluez si celle-ci doit être reportée du fichier **10-centreon.conf.rpmnew** au fichier **10-centreon.conf**.
+
+Vérifiez qu'Apache est bien configuré, en exécutant la commande suivante :
+
+```shell
+/opt/rh/httpd24/root/usr/sbin/apachectl configtest
+```
+
+Le résultat attendu est le suivant :
+
+```shell
+Syntax OK
+```
+
+Redémarrez Apache pour appliquer les modifications :
+
+```shell
+systemctl restart php-fpm httpd24-httpd
+```
+
+Puis vérifiez le statut :
+
+```shell
+systemctl status httpd24-httpd
+```
+
+Si tout est correct, vous devriez avoir quelque chose comme :
+
+```shell
+● httpd24-httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd24-httpd.service; enabled; vendor preset: disabled)
+   Active: active (running) since mar. 2020-05-12 15:39:58 CEST; 25min ago
+  Process: 31762 ExecStop=/opt/rh/httpd24/root/usr/sbin/httpd-scl-wrapper $OPTIONS -k graceful-stop (code=exited, status=0/SUCCESS)
+ Main PID: 31786 (httpd)
+   Status: "Total requests: 850; Idle/Busy workers 50/50;Requests/sec: 0.547; Bytes served/sec: 5.1KB/sec"
+   CGroup: /system.slice/httpd24-httpd.service
+           ├─ 1219 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+           ├─31786 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+           ├─31788 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+           ├─31789 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+           ├─31790 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+           ├─31802 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+           ├─31865 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+           ├─31866 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+           ├─31882 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+           ├─31903 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+           └─32050 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+Utilisez la sauvegarde que vous avez effectuée à l'étape précédente pour reporter vos personnalisations dans le fichier **/etc/apache2/sites-available/centreon.conf**.
+
+Vérifiez qu'Apache est bien configuré, en exécutant la commande suivante :
+
+```shell
+apache2ctl configtest
+```
+
+Le résultat attendu est le suivant :
+
+```shell
+Syntax OK
+```
+
+Redémarrez Apache pour appliquer les modifications :
+
+```shell
+systemctl restart php8.1-fpm apache2
+```
+
+Puis vérifiez le statut :
+
+```shell
+systemctl status apache2
+```
+
+Si tout est correct, vous devriez avoir quelque chose comme :
+
+```shell
+● apache2.service - The Apache HTTP Server
+    Loaded: loaded (/lib/systemd/system/apache2.service; enabled; vendor pres>
+     Active: active (running) since Tue 2022-08-09 05:01:36 UTC; 3h 56min ago
+       Docs: https://httpd.apache.org/docs/2.4/
+   Main PID: 518 (apache2)
+      Tasks: 11 (limit: 2356)
+     Memory: 18.1M
+        CPU: 1.491s
+     CGroup: /system.slice/apache2.service
+             ├─ 518 /usr/sbin/apache2 -k start
+             ├─1252 /usr/sbin/apache2 -k start
+             ├─1254 /usr/sbin/apache2 -k start
+             ├─1472 /usr/sbin/apache2 -k start
+             ├─3857 /usr/sbin/apache2 -k start
+             ├─3858 /usr/sbin/apache2 -k start
+             ├─3859 /usr/sbin/apache2 -k start
+             ├─3860 /usr/sbin/apache2 -k start
+             ├─3876 /usr/sbin/apache2 -k start
+             ├─6261 /usr/sbin/apache2 -k start
+             └─6509 /usr/sbin/apache2 -k start
+```
+
+</TabItem>
+</Tabs>
 
 ### Finalisation de la mise à jour
 
