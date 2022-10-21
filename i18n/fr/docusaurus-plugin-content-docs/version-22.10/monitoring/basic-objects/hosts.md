@@ -15,7 +15,7 @@ Pour créer un hôte manuellement :
 
 * Le champ **Nom** définit le nom d’hôte qui sera utilisé par le moteur de supervision.
 * Le champ **Alias** indique l’alias de l’hôte.
-* Le champ **Adresse** Adresse IP ou nom DNS de l’hôte. Le bouton **Résoudre** permet de résoudre le nom de
+* Le champ **Adresse** définit l'adresse IP ou le nom DNS de l’hôte. Le bouton **Résoudre** permet de résoudre le nom de
   domaine en interrogeant le serveur DNS configuré sur le serveur central.
 * Les champs **Communauté SNMP & Version** contiennent respectivement le nom de la communauté ainsi que la version SNMP.
 * Le champ **Serveur de supervision** indique quel est le serveur de supervision chargé de superviser cet hôte.
