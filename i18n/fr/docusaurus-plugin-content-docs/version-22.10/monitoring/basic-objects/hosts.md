@@ -66,6 +66,14 @@ identiques définies dans modèles d’hôtes en dessous.
 * La liste **Contacts liés** indique les contacts qui recevront les notifications.
 * La liste **Groupes de contacts liés** tous les contacts appartenant aux groupes de contacts définis recevront les
   notifications.
+  
+  Si à la page **Administration > Paramètres > Centreon web**, l'option **Vertical inheritance only** est activée, deux cases supplémentaires apparaissent :
+
+    * Si la case **Contacts hérités additionnels** est cochée, Centreon n'écrase pas la configuration du parent modèle d'hôte
+  mais ajoute les contacts en plus des contacts définis dans le modèle parent.
+    * Si la case **Groupes de contacts hérités additionnels** est cochée, Centreon n'écrase pas la configuration du parent modèle d'hôte
+  mais ajoute les contacts en plus des groupes de contacts définis dans le modèle parent.
+
 * Le champ **Options de notifications** définit les statuts pour lesquels une notification sera envoyée.
 * Le champ **Intervalle de notification**  est exprimé en minutes. Il indique la durée entre chaque envoi de notification
   lorsque le statut est non-OK. Si la valeur est définie à 0 alors l’ordonnanceur envoie une seule notification par
@@ -74,11 +82,6 @@ identiques définies dans modèles d’hôtes en dessous.
 * Le champ **Délai de première notification** est exprimé en minutes. Il fait référence au délai à respecter avant l’envoi
   d’une première notification lorsqu’un statut non-OK est validé.
 * Le champ **Délai de première notification de recouvrement** est le temps qui doit s'écouler avant qu'une notification de type **Récupération** soit envoyée (lorsque l'hôte revient à un état DISPONIBLE).
-
-* Si la case **Contact additive inheritance** est cochée, Centreon n'écrase pas la configuration du parent modèle d'hôte
-  mais ajoute les contacts en plus des contacts définis dans le modèle parent.
-* Si la case **Contact group additive inheritance** est cochée, Centreon n'écrase pas la configuration du parent modèle d'hôte
-  mais ajoute les contacts en plus des groupes de contacts définis dans le modèle parent.
 
 ## Onglet Relations
 
@@ -121,8 +124,8 @@ identiques définies dans modèles d’hôtes en dessous.
 
 Les champs présentés ci-dessous sont obsolètes :
 
-* **2d Coords**
-* **3d Coords**
+* **Coordonnées 2D**
+* **Coordonnées 3D**
 
 ### Groupes d'accès
 

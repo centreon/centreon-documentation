@@ -36,8 +36,8 @@ Go to the **Configuration > Hosts > Host Groups** menu and click on **Add**
 * The **Name** and **Alias** defines the name and the alias of the host group.
 * The **Members** list allows us to add hosts in the hostgroup.
 * The **Notes** field allows us to add optional notes concerning the host group.
-* The **Notes URL** field defined a URL which can be used to give more information on the hostgroup.
-* The **Action URL** field defined a URL normally use to give information on actions on the hostgroup (maintenance, etc.).
+* The **Notes URL** field defines a URL which can be used to give more information on the hostgroup.
+* The **Action URL** field defines a URL normally used to give information on actions on the hostgroup (maintenance, etc.).
 * The **Icon** field indicates the icon to be use for the host group.
 * The **Map Icon** is the icon use for mapping.
 * The **Geographic coordinates** field defines geographical coordinates used by the Centreon MAP module to position the resource on a map
@@ -50,9 +50,11 @@ Go to the **Configuration > Hosts > Host Groups** menu and click on **Add**
 
 Go to the **Configuration > Services > Service Groups** menu and click on **Add**
 
-* The **Service Group Name** and **Description** fields describes the name and the description of the service group.
+* The **Name** and **Description** fields describes the name and the description of the service group.
 * The **Linked Host Services** list allows us to choose the various services that will be included in this group.
 * The **Linked Host Group Services** list allows us to choose the services linked to a host group that will be part
   of this group.
 * The **Linked Service Templates** list allows to deploy a service based on this template on all hosts linked to this group.
+* The **Geo coordinates** field defines geographical coordinates used by the Centreon MAP module to position the resource on a map.
+  Define "Latitude,Longitude", for example for Paris coordinates set "48.51,2.20"
 * The **Status** and **Comments** fields allow to enable or disable the service group and to make comment on it.

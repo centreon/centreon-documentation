@@ -56,6 +56,13 @@ Pour créer un service, allez à la page **Configuration > Services > Services p
 * Au sein de la liste **Groupes de contacts liés** tous les contacts appartenant aux groupes de contacts définis recevront
   les notifications.
 
+  Si à la page **Administration > Paramètres > Centreon web**, l'option **Vertical inheritance only** est activée, deux cases supplémentaires apparaissent :
+
+    * Si la case **Contacts hérités additionnels** est cochée, Centreon n'écrase pas la configuration du parent modèle d'hôte
+  mais ajoute les contacts en plus des contacts définis dans le modèle parent.
+    * Si la case **Groupes de contacts hérités additionnels** est cochée, Centreon n'écrase pas la configuration du parent modèle d'hôte
+  mais ajoute les contacts en plus des groupes de contacts définis dans le modèle parent.
+
 * Le champ **Intervalle de notification** est exprimé en minutes. Il indique la durée entre chaque envoi de notification
   lorsque le statut est non-OK. Si la valeur est définie à 0 alors l’ordonnanceur envoie une seule notification par
   changement de statut.
@@ -63,7 +70,7 @@ Pour créer un service, allez à la page **Configuration > Services > Services p
 * Le champ **Type de notification** définissent les statuts pour lesquels une notification sera envoyée.
 * Le champ **Délai de première notification** est exprimé en minutes. Il fait référence au délai à respecter avant l’envoi
   d’une première notification lorsqu’un statut non-OK est validé.
-  * Le champ **Délai de première notification de recouvrement** est le temps qui doit s'écouler avant qu'une notification de type **Récupération** soit envoyée (lorsque le service revient à un état OK).
+* Le champ **Délai de première notification de recouvrement** est le temps qui doit s'écouler avant qu'une notification de type **Récupération** soit envoyée (lorsque le service revient à un état OK).
 
 ## Onglet Relations
 

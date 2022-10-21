@@ -13,7 +13,7 @@ To create a service manually, go to **Configuration \> Services > Services by ho
 
 * **Name**: define the name of the service.
 * **Hosts**: Host(s) to which the service is attached. We recommend that you link a service to only one host.
-* **Service template**: indicates the service template to which the service is linked.
+* **Template**: indicates the service template to which the service is linked.
 
 #### Service Check Options
 
@@ -53,6 +53,11 @@ can be used to hide the value of the macro.
   models. This function disables entering contacts and contact groups for this service.
 * The **Implied Contacts** indicates the contacts that will receive the notifications.
 * In the **Implied Contact Groups** list all the contacts belonging to the contact groups defined will receive the notifications.
+  
+  If, on page **Administration > Parameters > Centreon UI**, the **Vertical inheritance only** option is enabled, two extra checkboxes appear:
+
+    * If the **Contact additive inheritance** box is checked, Centreon does not overwrite the configuration of the parent host template but adds the contacts in addition to the contacts defined in the parent template.
+    * If the **Contact group additive inheritance** box is checked, Centreon does not overwrite the configuration of the parent host template but adds the contact groups in addition to the contact groups defined in the parent template.
 
 * The **Notification Interval** field is expressed in minutes. It indicates the time between sending of notifications
   when the status is Not-OK. If the value is defined as 0 the scheduler sends a single notification per status change.
@@ -91,21 +96,23 @@ can be used to hide the value of the macro.
 #### Centreon
 
 * **Graph template**: Defines the graphics model to be use to present the performance data linked to the service.
-* **Categories**: Defines the category(s) to which the service belongs.
+* **Service Categories**: Defines the category(s) to which the service belongs.
 
 #### Monitoring engine
 
-* The **URL** field defined a URL that can be used to give more information on the service.
-* The **Notes** field permits us to add optional notes concerning the service.
-* The **Action URL** field defined a URL normally use for giving information on actions on the service (maintenance, etc.).
+* The **Note URL** field defines a URL that can be used to give more information on the service.
+* The **Note** field permits us to add optional notes concerning the service.
+* The **Action URL** field defines a URL normally used for giving information on actions on the service (maintenance, etc.).
 * The **Icon** field indicates the icon use for the service.
 * The **Alt icon** field is the text use if the icon cannot be Displays.
-* The **Severity level** field indicates the criticality level of the service.
+* The **Service severity** field indicates the criticality level of the service.
+* The **Geographic coordinates** field defines geographical coordinates used by the Centreon MAP module to position the resource on a map.
+  Define "Latitude,Longitude", for example for Paris coordinates set "48.51,2.20"
 
 #### Additional information
 
-* The **Status** field allows us to enable or disable the service.
-* The **Comment** field can be used to add a comment concerning the service.
+* The **Enable/disable resource** field allows us to enable or disable the service.
+* The **Comments** field can be used to add a comment concerning the service.
 
 ## Detachment of a service
 

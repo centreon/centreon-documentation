@@ -30,10 +30,10 @@ Les groupes d’hôtes et de services sont utilisés pour :
 
 ## Créer un groupes d’hôtes
 
-Rendez-vous dans le menu **Configuration > Hosts > Host Groups** et cliquez sur **Add**.
+Rendez-vous dans le menu **Configuration > Hôtes > Groupes d'hôtes** et cliquez sur **Ajouter**.
 
 * Les champs **Nom** et **Alias** regroupent le nom et l’alias du groupe d’hôtes.
-* La liste **Members** permet d’ajouter des hôtes au sein du nouveau groupe d’hôtes.
+* La liste **Membres** permet d’ajouter des hôtes au sein du nouveau groupe d’hôtes.
 * Le champ **Notes** permet d’ajouter des notes optionnelles concernant le groupe d’hôtes.
 * Le champ **URL** définit une URL qui peut être utilisée pour donner davantage d’informations sur le groupe d’hôtes.
 * Le champ **URL d'action** définit une URL habituellement utilisée pour donner des informations d’actions sur le groupe
@@ -45,11 +45,11 @@ Rendez-vous dans le menu **Configuration > Hosts > Host Groups** et cliquez sur 
 * Le champ **Rétention des fichiers RRD** est exprimé en jours, il permet de définir la durée de rétention des services appartenant
   à ce groupe d’hôtes au sein de la base de données RRD. Si cette valeur est vide, la valeur sera celle par défaut
   définie dans le menu **Administration > Options > CentStorage**.
-* Les champs **Activer/désactiver la ressource** et **Comments** permettent d’activer ou de désactiver le groupe d’hôtes et de commenter celui-ci.
+* Les champs **Activer/désactiver la ressource** et **Commentairess** permettent d’activer ou de désactiver le groupe d’hôtes et de commenter celui-ci.
 
 ## Créer un groupe de services
 
-Rendez-vous dans le menu **Configuration > Services > Service Groups** et cliquez sur **Add**.
+Rendez-vous dans le menu **Configuration > Services > Groupes de services** et cliquez sur **Ajouter**.
 
 * Les champs **Nom** et **Description** regroupent le nom et la description du groupe de services.
 * La liste **Services d'hôte liés** permet de choisir les différents services qui feront partie de ce groupe.
