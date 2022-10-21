@@ -340,10 +340,27 @@ veillez à les connaître avant de commencer :
 Installer le dépôt MBI, vous pouvez le trouver sur le 
 [portail support](https://support.centreon.com/s/repositories).
 
-Puis lancer la commande suivante:
+Puis suivre la procédure :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+Vous devez d'abord installer le dépôt EPEL :
+
+```shell
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+```
+
+La commande doit retourner des résultats comme suit :
+
+```shell
+Installed:
+  epel-release-8-17.el8.noarch
+
+Complete!
+```
+
+Installer ensuite le serveur de reporting :
 
 ```shell
 dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
@@ -358,6 +375,8 @@ wget hhttps://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
+
+> Assurez-vous qu'une version de Java 17 ou ultérieure est installée avant de commencer la procédure.
 
 ```shell
 yum install centreon-bi-reporting-server MariaDB-server MariaDB-client

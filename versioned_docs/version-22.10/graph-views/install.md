@@ -238,7 +238,6 @@ dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarc
 
 The command should return results as follows:
 
-
 ```shell
 Installed:
   epel-release-8-17.el8.noarch
