@@ -34,6 +34,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 #### Performances
 
+- ETL daily and rebuild optimizations
 - Move to Java 17
 
 ## Centreon Auto Discovery
