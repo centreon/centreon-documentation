@@ -12,7 +12,7 @@ installé sur une distribution GNU/Linux 64 bits autre que CentOS ou Red Hat 8.
 
 > En cas de migration d'une plate-forme disposant du système de redondance
 > Centreon, il est nécessaire de contacter votre
-> [support Centreon](https://centreon.force.com).
+> [support Centreon](https://support.centreon.com).
 
 ### Installation du nouveau serveur
 
