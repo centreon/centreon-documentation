@@ -45,7 +45,7 @@ Rendez-vous dans le menu **Configuration > Hôtes > Groupes d'hôtes** et clique
 * Le champ **Rétention des fichiers RRD** est exprimé en jours, il permet de définir la durée de rétention des services appartenant
   à ce groupe d’hôtes au sein de la base de données RRD. Si cette valeur est vide, la valeur sera celle par défaut
   définie dans le menu **Administration > Options > CentStorage**.
-* Les champs **Activer/désactiver la ressource** et **Commentairess** permettent d’activer ou de désactiver le groupe d’hôtes et de commenter celui-ci.
+* Les champs **Activer/désactiver la ressource** et **Commentaires** permettent d’activer ou de désactiver le groupe d’hôtes et de commenter celui-ci.
 
 ## Créer un groupe de services
 

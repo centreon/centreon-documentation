@@ -42,12 +42,13 @@ This button serves to delete the host template ![image](../../assets/configurati
    * The **Name** and **Value** field enable us to define the name and value of the macro.
    * The **Password** box enables the value of the macro to be hidden.
 
-   To reinitialize to the default value (defined in template) click on ![image](../../assets/configuration/common/undo.png#thumbnail1)
-   To view the description of the macro, click on ![image](../../assets/configuration/common/description.png#thumbnail1)
+  To reinitialize to the default value (defined in template) click on ![image](../../assets/configuration/common/undo.png#thumbnail1)
+  
+  To view the description of the macro, click on ![image](../../assets/configuration/common/description.png#thumbnail1)
 
-   To delete the macro, click on ![image](../../assets/configuration/common/delete.png#thumbnail1)
+  To delete the macro, click on ![image](../../assets/configuration/common/delete.png#thumbnail1)
 
-   To change the order of the macros, click on ![image](../../assets/configuration/common/move.png#thumbnail1)
+  To change the order of the macros, click on ![image](../../assets/configuration/common/move.png#thumbnail1)
 
 ### Scheduling options
 
