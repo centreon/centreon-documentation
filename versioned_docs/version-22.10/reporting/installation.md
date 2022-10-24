@@ -328,6 +328,59 @@ installation process:
 To start installing the reporting server, install the MBI repository, you can find it on the 
 [support portal](https://support.centreon.com/s/repositories).
 
+Execute the following commands:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install -y dnf-plugins-core
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+dnf config-manager --set-enabled 'powertools'
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```shell
+yum install -y yum-utils
+yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+Nothing to do.
+
+</TabItem>
+</Tabs>
+
+Install the standard repository:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centreon-release-22.10-1.el8.noarch.rpm
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```shell
+yum install https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+echo "deb https://apt.centreon.com/repository/22.10/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+```
+
+</TabItem>
+</Tabs>
+
 Then execute the following command:
 
 <Tabs groupId="sync">
@@ -337,27 +390,11 @@ Then execute the following command:
 dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
 ```
 
-If you installed your reporting server using a fresh distribution you
-need to add the following GPG key:
-
-```shell
-cd /etc/pki/rpm-gpg/
-wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-```
-
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
 yum install centreon-bi-reporting-server MariaDB-server MariaDB-client
-```
-
-If you installed your reporting server using a fresh distribution you
-need to add the following GPG key:
-
-```shell
-cd /etc/pki/rpm-gpg/
-wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 ```
 
 </TabItem>
