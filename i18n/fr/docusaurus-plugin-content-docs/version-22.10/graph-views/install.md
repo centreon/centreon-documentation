@@ -52,7 +52,7 @@ Le serveur central et Centreon MAP doivent être installés dans les mêmes vers
 #### Licence
 
 Le serveur nécessite que la licence soit disponible et valide sur le serveur central de Centreon.
-Pour ce faire, vous devez contacter le [support Centreon] (https://support.centreon.com/) pour obtenir et installer votre clé de licence.
+Pour ce faire, vous devez contacter le [support Centreon](https://support.centreon.com/) pour obtenir et installer votre clé de licence.
 
 #### Matériel
 
