@@ -10,7 +10,7 @@ This chapter describes how to install Centreon MAP. It is recommended to install
 ### License
 
 If you need an additional license for Centreon MAP, please contact the support [Centreon support
-team](https://centreon.force.com/) to get and install your license key.
+team](https://support.centreon.com/) to get and install your license key.
 
 ## Architecture
 
@@ -133,10 +133,25 @@ you need to install the `centreon-release` package:
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-> You need to install an EPEL repository before you start the procedure.
+First you need to install an EPEL repository:
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04-3.el8.noarch.rpm
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+```
+
+The command should return results as follows:
+
+```shell
+Installed:
+  epel-release-8-17.el8.noarch
+
+Complete!
+```
+
+Then install the `centreon-release` package:
+
+```shell
+dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04-1.el8.noarch.rpm
 ```
 
 </TabItem>
@@ -145,11 +160,11 @@ dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/ce
 > Ensure a version of Java 17 or later is installed before you start the procedure.
 
 ```shell
-yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-1.el7.centos.noarch.rpm
 ```
 
 </TabItem>
-<TabItem value="Debian 11 in progress" label="Debian 11 in progress">
+<TabItem value="Debian 11" label="Debian 11">
 
 Install the following dependencies:
 

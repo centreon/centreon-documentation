@@ -1,30 +1,22 @@
 ---
 id: map-web-install
-title: Installing MAP Web
+title: Installing MAP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This chapter describes how to install Centreon MAP Web. It is recommended to install MAP Web on the central server. However, if you have large volumes of data, you can install it on your legacy MAP server. The MAP Web module does not use the **centreon_studio** database.
+This chapter describes how to install Centreon MAP. It is recommended to install MAP on the central server. However, if you have large volumes of data, you can install it on your legacy MAP server. The MAP Web module does not use the **centreon_studio** database.
 
 ### License
 
 If you need an additional license for Centreon MAP, please contact the support [Centreon support
-team](https://centreon.force.com/) to get and install your license key.
+team](https://support.centreon.com/) to get and install your license key.
 
 ## Architecture
 
-Centreon MAP consists of three components:
+The diagram below summarizes the architecture:
 
-- Centreon MAP Server, developed in Java, using SpringBoot, Hibernate and CXF
-- Centreon MAP Web interface, developed in Javascript, based on
-  [Backbone.js](http://backbonejs.org/)
-- Centreon MAP Desktop Client, developed in Java, based on [Eclipse RCP
-  4](https://wiki.eclipse.org/Eclipse4/RCP).
-
-The diagram below summarizes the architecture: **To update**
-
-![image](../assets/graph-views/map_architect.png)
+![image](../assets/graph-views/ng/map-web-schema.png)
 
 ## Installation
 

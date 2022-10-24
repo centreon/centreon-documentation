@@ -224,21 +224,40 @@ in order to create new Centreon Broker output. It will be revoked later.
 
 ### Centreon MAP (Legacy) server
 
-If you installed your Centreon MAP (Legacy) server from a "fresh CentOS installation"
+If you installed your Centreon MAP server from a "fresh CentOS installation"
 you need to install the `centreon-release` package:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
+First you need to install an EPEL repository:
+
 ```shell
-dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04-3.el8.noarch.rpm
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+```
+
+The command should return results as follows:
+
+```shell
+Installed:
+  epel-release-8-17.el8.noarch
+
+Complete!
+```
+
+Then install the `centreon-release` package:
+
+```shell
+dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04-1.el8.noarch.rpm
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
+> Ensure a version of Java 17 or later is installed before you start the procedure.
+
 ```shell
-yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-1.el7.centos.noarch.rpm
 ```
 
 </TabItem>

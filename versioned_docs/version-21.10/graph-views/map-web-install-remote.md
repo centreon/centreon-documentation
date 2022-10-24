@@ -3,6 +3,12 @@ id: map-web-install-remote
 title: Installing MAP Web on a remote server
 ---
 
+## Architecture
+
+The diagram below summarizes the MAP on a remote server architecture:
+
+![image](../assets/graph-views/ng/map-web-remote-server-schema.png)
+
 ## Installation of Centreon MAP Web for a Centreon remote server
 
 Installation of Centreon MAP extension on a Centreon
