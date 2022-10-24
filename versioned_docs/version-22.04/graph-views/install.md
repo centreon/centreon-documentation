@@ -107,7 +107,7 @@ children which must be included in the count.
 - Centreon Web login with admin rights.
 
 > Even with a correctly sized server, you should have in mind the best
-> practices & recommandations when creating views so you don't face
+> practices & recommendations when creating views so you don't face
 > performance issues.
 
 ### Centreon MAP Web interface
@@ -188,7 +188,7 @@ Centreon MAP Desktop Client machines must access:
 - Centreon MAP Server, using HTTP port 8080 or 8443 when HTTPS/TLS is enabled
 - Internet with or without proxy.
 
-Ports 8080 and 8443 are recommanded default values, but other
+Ports 8080 and 8443 are recommended default values, but other
 configurations are possible.
 
 ## Server installation
@@ -519,7 +519,7 @@ Mac and Linux platforms (Debian and Ubuntu).
 You can find the installers in **Monitoring > Map > Desktop Client** or
 [here](https://download.centreon.com/?action=product&product=centreon-map&version=22.04&secKey=9ae03a4457fa0ce578379a4e0c8b51f2).
 
-> For performance considerations, we highly recommand to have less than 5, 10
+> For performance considerations, we highly recommend to have less than 5, 10
 > users maximum connected at the same time manipulating views.
 
 ### Installation

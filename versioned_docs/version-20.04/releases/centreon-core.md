@@ -1276,11 +1276,11 @@ BAM module is better managed on database server reload/restart.
 > Known issues:
 >
 > - When updating to 20.04.5, some badly encoded characters might block SQL
->   Broker events processing on the Central server. We strongly recommand to
+>   Broker events processing on the Central server. We strongly recommend to
 >   update all the Engines to 20.04.3 version while updating to this Broker
 >   version.
 >
->   If you experience this behaviour, we recommand to downgrade Broker on the
+>   If you experience this behaviour, we recommend to downgrade Broker on the
 >   Central server using this command:
 >
 >   ```shell
