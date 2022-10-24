@@ -11,7 +11,7 @@ This procedure only applies if the following conditions are met:
 - Your version of Centreon is 18.10 or newer.
 
 > If your Centreon platform includes a Centreon redundancy system, please
-> contact [Centreon support](https://centreon.force.com).
+> contact [Centreon support](https://support.centreon.com).
 
 ## Migrating a central server
 

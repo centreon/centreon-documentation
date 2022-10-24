@@ -12,7 +12,7 @@ Cette procédure ne s'applique que dans les conditions suivantes :
 
 > En cas de migration d'une plateforme disposant du système de redondance
 > Centreon, il est nécessaire de contacter le
-> [support Centreon](https://centreon.force.com).
+> [support Centreon](https://support.centreon.com).
 
 ## Migrer un serveur central
 
