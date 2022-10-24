@@ -2408,7 +2408,7 @@ Parameters that you can change are the following:
 | template              | Name of the template to apply to the contact                                         |
 | timezone              | Timezone                                                                             |
 | reach_api             | Reach API Configuration                                                              |
-| reach_api_rt          | Reach API Realtime                                                                   |
+| reach_api_rt          | **1** if the user has access to the API realtime, **0** otherwise                                                                  |
 
 > ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
