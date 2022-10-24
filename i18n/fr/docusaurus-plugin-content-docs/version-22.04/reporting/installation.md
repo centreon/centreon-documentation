@@ -59,7 +59,7 @@ entre le serveur BI dédié, le serveur Centreon et les bases de données :
 L'installation de Centreon MBI est basée sur deux paquets RPM :
 
 - **Centreon-bi-server :** Installe l'interface MBI intégrée à l'interface de Centreon. Le paquet est installé sur le serveur central Centreon.
-- **Centreon-bi-reporting-server** : Contient tous les composants nécessaires à l'exécution 
+- **Centreon-bi-reporting-server** : Contient tous les composants nécessaires à l'exécution
   du serveur de reporting (planificateur de rapports, ETL, rapports standard). Il doit être
   installé sur un serveur dédié aux processus de reporting.
 
@@ -138,6 +138,7 @@ performances & d'isolation.
 | > 100 000                     | > Contacter Centreon |               |
 
 #### Espace de stockage
+
 Utilisez [le fichier suivant](../assets/reporting/installation/Centreon-MBI-QuickGuide-Storage-Sizing_EN.xlsx)
 
 #### Partition
@@ -190,7 +191,6 @@ Description des utilisateurs, umask et répertoire utilisateur :
 | Utilisateur | umask | home             |
 |-------------|-------|------------------|
 | centreonBI  | 0002  | /home/centreonBI |
-
 
 ## Installer l'extension sur Centreon
 
@@ -361,8 +361,7 @@ processus d'installation :
 - Accès (utilisateur/mot de passe) à la base de données de reporting
 - Définir puis récupérer le mot de passe ssh de l'utilisateur centreonBI, sur le serveur Central (pour la mise à disposition des rapports générés sur l'interface)
 
-IPour commencer l'installation du serveur de reporting, installez le dépôt MBI. Vous pouvez le trouver sur le
-[portail du support](https://support.centreon.com/s/repositories).
+Pour commencer l'installation du serveur de reporting, installez le dépôt MBI. Vous pouvez le trouver sur le [portail du support](https://support.centreon.com/s/repositories).
 
 Puis lancer la commande suivante:
 
@@ -593,8 +592,8 @@ Si vous utilisez une base de données locale, exécutez la commande suivante sur
 mysql_secure_installation
 ```
 
-* Répondez **oui** à toutes les questions, sauf à "Disallow root login remotely?"
-* Il est obligatoire de définir un mot de passe pour l'utilisateur **root** de la base de données. Vous aurez besoin de ce mot de passe pendant l'[installation web](../installation/web-and-post-installation.md).
+- Répondez **oui** à toutes les questions, sauf à "Disallow root login remotely?"
+- Il est obligatoire de définir un mot de passe pour l'utilisateur **root** de la base de données. Vous aurez besoin de ce mot de passe pendant l'[installation web](../installation/web-and-post-installation.md).
 
 > Pour plus d'informations, veuillez consulter la [documentation officielle de MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/).
 
@@ -608,8 +607,7 @@ commandes ci dessous et répondez aux questions:
 ```
 
 Le script gère l'échange de clés SSH entre le serveur de supervision et le serveur de reporting, et configure la règle de publication SFTP par défaut
-afin de publier les rapports sur l'interface web Centreon. Enfin, il
-active la sauvegarde et démarre le service CBIS.
+afin de publier les rapports sur l'interface web Centreon. Enfin, il active la sauvegarde et démarre le service CBIS.
 
 Une fois l'installation terminée, poursuivez au chapitre suivant pour configurer l'ETL.
 
@@ -643,7 +641,8 @@ ssh-keygen -t ed25519 -a 100
 cat ~/.ssh/id_ed25519.pub | tee ~/.ssh/authorized_keys
 ```
 
-Après avoir exécuté ces commandes, copiez le contenu du fichier qui a été affiché par la commande `cat` et collez-le dans le fichier **~/.ssh/authorized_keys** **sur le serveur de supervision** et appliquez ensuite les permissions correctes au fichier (toujours en tant que l'utilisateur `centreon`) :
+Après avoir exécuté ces commandes, copiez le contenu du fichier qui a été affiché par la commande `cat` et collez-le dans le fichier **~/.ssh/authorized_keys** **sur le serveur de supervision** et
+appliquez ensuite les permissions correctes au fichier (toujours en tant que l'utilisateur `centreon`) :
 
 ```bash
 chmod 600 ~/.ssh/authorized_keys
@@ -670,10 +669,8 @@ Centreon MBI intègre un ETL qui permet de :
   données statistiques
 - Contrôler la rétention des données sur le serveur de reporting
 
-Avant de passer aux étapes suivantes, il est nécessaire de lire le
-chapitre des [bonnes pratiques](concepts.md#bonnes-pratiques-de-supervision) afin de
-vous assurer que la configuration des objets dans Centreon (groupes,
-catégories...) est conforme aux attentes de Centreon MBI.
+Avant de passer aux étapes suivantes, il est nécessaire de lire le chapitre des [bonnes pratiques](concepts.md#bonnes-pratiques-de-supervision) afin de
+vous assurer que la configuration des objets dans Centreon (groupes, catégories...) est conforme aux attentes de Centreon MBI.
 
 Dans le menu `Rapports > Monitoring Business Intelligence > Options générales > Options de l'ETL`, spécifiez les options
 suivantes :
@@ -704,9 +701,8 @@ suivantes :
 | Premier jour de la semaine                                                                                                               | Sélectionnez le premier jour à considérer pour les statistiques à la semaine                                                                                                                                                                                                                                                                       |
 | Créer les combinaisons centile-plage horaire qui couvrent vos besoins (Format du centile : 00.0000)                                      | Créez des combinaisons centile/plage horaire sur lesquels les statistiques seront effectuées                                                                                                                                                                                                                                                       |
 
-**(1)** Les rapports nécessitant une granularité des données à l'heure
-sont listés ci-dessous. Si vous ne souhaitez pas utiliser ces rapports,
-désactivez le calcul des statistiques à l'heure:
+**(1)** Les rapports nécessitant une granularité des données à l'heure sont listés ci-dessous.
+Si vous ne souhaitez pas utiliser ces rapports,désactivez le calcul des statistiques à l'heure:
 
 - Hotsgroup-Host-details-1
 - Host-detail-v2
@@ -715,15 +711,15 @@ désactivez le calcul des statistiques à l'heure:
 
 ### ETL: Rétention de données
 
-Le serveur de reporting contient des tables de statistiques spécifiques à Centreon MBI
-dans la base de données "centreon_storage". L'espace de stockage utilisé par ces
-tables augmente chaque jour. Il est possible de contrôler la taille de ces tables en définissant des règles de rétention des données.
+Le serveur de reporting contient des tables de statistiques spécifiques à Centreon MBI dans la base de données "centreon_storage".
+L'espace de stockage utilisé par ces tables augmente chaque jour. Il est possible de contrôler la taille de ces tables en définissant
+des règles de rétention des données.
 
 Sous **Rapports > Monitoring Business Intelligence > Options Générales > Options de rétention des données**,
 la rétention des données peut être gérée par :
 
-- le type de données (disponibilité, performance).
-- la granularité des données (données brutes, valeurs horaires, quotidiennes ou mensuelles).
+- Type de données (disponibilité, performance).
+- Granularité des données (données brutes, valeurs horaires, quotidiennes ou mensuelles).
 
 > Avant d'activer les options de rétention de données, vérifiez que le moteur de reporting
 > utilise un serveur MariaDB dédié, et que l'option correspondante est réglée sur
@@ -740,8 +736,7 @@ Pour activer la purge automatique des anciennes données, modifiez le fichier cr
 #0 20 * * * root @CENTREON_BI_HOME@/*etl*/dataRetentionManager.pl >> @CENTREON_BI_LOG@/dataRetentionManager.log 2>&1
 ```
 
-Évitez les périodes prévues pour les calculs statistiques avec Centreon MBI
-ETL et les générations de rapports.
+Évitez les périodes prévues pour les calculs statistiques avec Centreon MBI ETL et les générations de rapports.
 
 Vous pouvez exécuter ce cron quotidiennement ou hebdomadairement, en fonction du temps d'exécution du batch et de la charge générée sur le serveur.
 
@@ -766,21 +761,20 @@ systemctl restart cron
 </TabItem>
 </Tabs>
 
-**BONNES PRATIQUES** : Sélectionnez différentes périodes de rétention en
-fonction de la granularité des données statistiques:
+**BONNES PRATIQUES** : Sélectionnez différentes périodes de rétention en fonction de la granularité des données statistiques:
 
 - Les valeurs agrégées par heure sont utilisées pour analyser une métrique sur une courte période, elles prennent
   beaucoup d'espace sur le disque. Vous n'aurez peut-être pas besoin de conserver ces statistiques plus de deux ou trois mois.
 - Au-delà de cinq ou six mois, vous n'aurez peut-être besoin que de visualiser la tendance pour lesstatistiques de disponibilité ou de performance.
-  Vous pourriez alors conserver lesdonnées agrégées quotidiennes pendant un maximum de six mois, par exemple, etconfigurer la conservation des données agrégées mensuelles pour une période de
-  plusieurs dizaines de mois.
+  Vous pourriez alors conserver lesdonnées agrégées quotidiennes pendant un maximum de six mois, par exemple, etconfigurer la conservation des données 
+  agrégées mensuelles pour une période de plusieurs dizaines de mois.
 
 Veuillez passer à la section suivante pour continuer l'installation.
 
 ### ETL : Execution
 
-> Avant de continuer, assurez-vous que vous avez installé le fichier de configuration MariaDB
-> comme indiqué ci-dessus dans les prérequis. Configurez et activez la rétention des données afin que seules les données requises soient importées et calculées.
+> Avant de continuer, assurez-vous que vous avez installé le fichier de configuration MariaDB comme indiqué ci-dessus dans les prérequis.
+> Configurez et activez la rétention des données afin que seules les données requises soient importées et calculées.
 
 #### Reconstruction des statistiques à partir des données historiques
 
@@ -789,7 +783,6 @@ Exécutez la commande suivante sur le serveur de reporting. Celle-ci va :
 - Supprimer toutes les données existantes du serveur de reporting.
 - Importer les données de supervision brutes du serveur de supervision vers le serveur de reporting (en fonction des paramètres de rétention).
 - Remplir les tables contenant les statistiques de disponibilité des hôtes et des services.
-  et les services.
 - Remplir les tables contenant les statistiques de performance et de capacité des hôtes et des services.
 
 ```shell
@@ -799,8 +792,8 @@ Exécutez la commande suivante sur le serveur de reporting. Celle-ci va :
 #### Activer l'exécution quotidienne du script
 
 Une fois le processus de reconstruction des données terminé, vous pouvez activer le calcul des
-statistiques. Sur le serveur de reporting, éditez le fichier
-**/etc/cron.d/centreon-bi-engine** et décommentez la ligne suivante :
+statistiques.
+Sur le serveur de reporting, éditez le fichier **/etc/cron.d/centreon-bi-engine** et décommentez la ligne suivante :
 
 ```shell
 #30 4 * * * root /usr/share/centreon-bi/bin/centreonBIETL -d >> /var/log/centreon-bi/centreonBIETL.log 2>&1
@@ -827,8 +820,7 @@ systemctl restart cron
 </TabItem>
 </Tabs>
 
-> Assurez-vous que le batch **centreonBIETL** ne démarre qu'une fois que le batch
-**eventReportBuilder** est terminé sur le serveur de supervision (consultez le fichier cron
-> **/etc/cron.d/centreon** sur le serveur de supervision).
+> Assurez-vous que le batch **centreonBIETL** ne démarre qu'une fois que le batch **eventReportBuilder** est terminé sur
+> le serveur de supervision (consultez le fichier cron **/etc/cron.d/centreon** sur le serveur de supervision).
 
 L'installation de Centreon MBI est maintenant terminée, consultez [le tutoriel](../getting-started/analyze-resources-availability.md).
