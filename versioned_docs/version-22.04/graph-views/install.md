@@ -60,7 +60,7 @@ The central server and Centreon MAP must be installed in the same major versions
 
 The server requires the license to be available and valid on Centreon's central
 server. To do this, you must contact the support [Centreon support
-team](https://centreon.force.com/) to get & install your license key.
+team](https://support.centreon.com/) to get & install your license key.
 
 #### Hardware
 
@@ -116,7 +116,7 @@ children which must be included in the count.
 
 The web interface requires the license to be available and valid on Centreon's
 central server. To do this, you must contact the support [Centreon support
-team](https://centreon.force.com/) to get & install your license key.
+team](https://support.centreon.com/) to get & install your license key.
 
 #### Compatibility
 
