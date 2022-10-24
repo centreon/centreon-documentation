@@ -238,7 +238,7 @@ Cette procédure est identique à la mise à jour d'un serveur Centreon Central.
 2. Mettez à jour l'ensemble des composants :
 
   ```shell
-  apt update centreon
+  apt upgrade centreon
   ```
 
 </TabItem>
