@@ -209,7 +209,7 @@ Cette procédure est identique à la mise à jour d'un serveur Centreon Central.
 2. Mettez à jour l'ensemble des composants :
 
   ```shell
-  dnf update centreon\*
+  dnf update centreon-poller
   ```
 
 </TabItem>
@@ -220,9 +220,11 @@ Cette procédure est identique à la mise à jour d'un serveur Centreon Central.
   ```shell
   yum clean all --enablerepo=*
   ```
+
 2. Mettez à jour l'ensemble des composants :
+
   ```shell
-  yum update centreon\*
+  yum update centreon-poller
   ```
 
 </TabItem>
@@ -238,7 +240,7 @@ Cette procédure est identique à la mise à jour d'un serveur Centreon Central.
 2. Mettez à jour l'ensemble des composants :
 
   ```shell
-  apt update centreon
+  apt update centreon-poller
   ```
 
 </TabItem>
