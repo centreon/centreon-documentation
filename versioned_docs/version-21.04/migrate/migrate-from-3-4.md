@@ -22,7 +22,7 @@ Here are the system requirements:
 ## Migrate
 
 > If your Centreon platform includes a Centreon redundancy system, please
-> contact [Centreon support](https://centreon.force.com).
+> contact [Centreon support](https://support.centreon.com).
 
 > If you try to migrate a platform using the **Centreon Poller Display 1.6.x**,
 > please refer to the following [migration

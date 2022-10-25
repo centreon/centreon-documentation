@@ -402,6 +402,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-pineapp-securemail-snmp'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-proxmox-mg-api'
         },
         {
@@ -491,6 +495,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-netbackup-ssh'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-thales-mistral-vs9-restapi'
         },
         {
           type: 'doc',

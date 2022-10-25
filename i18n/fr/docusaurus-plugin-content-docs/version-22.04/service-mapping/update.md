@@ -2,22 +2,37 @@
 id: update
 title: Mettre à jour l'extension
 ---
-> Si vous mettez à jour d'une version inférieure à 18.10 vers une version
-> supérieure à 18.10, une nouvelle license doit être récupérée auprès du
-> support Centreon.
-
-**Lorsque vous mettez à jour versions une nouvelle version majeure ou
-mineure (c'est à dire version A.B.x avec A ou B qui évolue), contactez
-le support pour récupérer l'adresse du nouveau dépôt**
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 ## Mise à jour du paquet
 
 Afin de mettre à jour le module **Centreon BAM**, lancer la commande
 ci-dessous :
 
-``` shell
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf update centreon-bam-server
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```shell
 yum update centreon-bam-server
 ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt update && apt upgrade centreon-bam-server
+```
+
+</TabItem>
+</Tabs>
 
 ## Mise à jour de l'interface
 

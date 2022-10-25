@@ -61,7 +61,7 @@ MAP est **Centreon 21.04**.
 #### Licence
 
 Le serveur exige que la licence soit disponible et valide sur le serveur central Centreon. Contactez le [support
-Centreon](https://centreon.force.com/) pour obtenir et installer votre clé de licence.
+Centreon](https://support.centreon.com/) pour obtenir et installer votre clé de licence.
 
 #### Matériel
 
@@ -116,7 +116,7 @@ qui doivent être inclus dans le décompte.
 #### Licence
 
 L'interface web nécessite que la licence soit disponible et valide sur le serveur 
-central de Centreon. Contactez l'[équipe support Centreon](https://centreon.force.com/) pour obtenir
+central de Centreon. Contactez l'[équipe support Centreon](https://support.centreon.com/) pour obtenir
 et installer votre clé de licence.
 
 #### Compatibilité

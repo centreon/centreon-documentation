@@ -7,7 +7,7 @@ Ce chapitre décrit la procédure de montée de version de votre plate-forme
 Centreon depuis la version 3.4 (Centreon Web 2.8) vers la version 20.10.
 
 > A la fin de cette procédure, les utilisateurs de Centreon EMS devront demander
-> de nouvelles licenses au [Support Centreon](https://centreon.force.com).
+> de nouvelles licenses au [Support Centreon](https://support.centreon.com).
 
 > Cette procédure ne s'applique que pour une plate-forme Centreon installée à
 > partir des dépôts Centreon 3.4 sur des distributions **Red Hat / CentOS en
